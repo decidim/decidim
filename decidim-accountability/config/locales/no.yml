@@ -1,0 +1,226 @@
+"no":
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Status
+        decidim_category_id: Kategori
+        decidim_scope_id: Omfang
+        description: Beskrivelse
+        end_date: Sluttdato
+        progress: Framgang
+        project_ids: Inkluderte prosjekter
+        proposals: Inkluderte forslag
+        start_date: Startdato
+        title: Tittel
+        updated_at: Oppdatert
+      status:
+        description: Beskrivelse
+        key: Nøkkel
+        name: Navn
+        progress: Framgang
+      timeline_entry:
+        description: Beskrivelse
+        entry_date: Dato
+    models:
+      decidim/accountability/proposal_linked_event: Forslag inkludert i et resultat
+      decidim/accountability/result_progress_updated_event: Resultat fremgang oppdatert
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Resultat
+        other: Resultater
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Er du sikker på at du vil slette dette %{name}?
+        destroy: Slett
+        edit: Editar
+        new: Nytt %{name}
+        preview: Forhåndsvisning
+        timeline_entries: Prosjektutvikling
+        title: Handlinger
+      admin:
+        exports:
+          results: Resultater
+        models:
+          result:
+            name: Resultat
+          status:
+            name: Status
+          timeline_entry:
+            name: Tidslinje oppføring
+        results:
+          create:
+            invalid: Det oppsto et problem med å opprette dette resultatet
+            success: Resultat ble opprettet
+          destroy:
+            success: Resultat ble slettet
+          edit:
+            title: Endre resultatet
+            update: Oppdater resultatet
+          form:
+            add_proposal: Legg til et forslag
+          index:
+            title: Resultater
+          new:
+            create: Opprett resultat
+            title: Nytt resultat
+          proposals:
+            close: Lukk
+            current_selection: Gjeldende utvalg
+            select: Velg
+          update:
+            invalid: Det oppsto et problem med å oppdatere dette resultatet
+            success: Resultat ble oppdatert
+        shared:
+          subnav:
+            statuses: Statuser
+        statuses:
+          create:
+            invalid: Det oppsto et problem med å opprette dette statusen
+            success: Status opprettet
+          destroy:
+            success: Status slettet
+          edit:
+            title: Endre status
+            update: Oppdater status
+          index:
+            title: Statuser
+          new:
+            create: Lag ny status
+            title: Ny status
+          update:
+            invalid: Det oppsto et problem med å oppdatere statusen din
+            success: Status oppdatert
+        timeline_entries:
+          create:
+            invalid: Det oppsto et problem med å opprette denne oppføringen
+            success: Oppføringen ble opprettet
+          destroy:
+            success: Oppføringen ble slettet
+          edit:
+            title: Rediger oppføringen
+            update: Oppdater oppføringen
+          index:
+            title: Prosjekt tidslinje oppføringer
+          new:
+            create: Lag en ny oppføring
+            title: Ny oppføring
+          update:
+            invalid: Det oppsto et problem med å oppdatere oppføringen
+            success: Oppføringen ble oppdatert
+      admin_log:
+        result:
+          create: "%{user_name} opprettet resultat %{resource_name} i %{space_name}"
+          delete: "%{user_name} slettet %{resource_name} resultatet i %{space_name}"
+          update: "%{user_name} oppdaterte rusultat%{resource_name} i %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Overordnede ble ikke funnet i databasen (ID: %{id})'
+      last_activity:
+        new_result_at_html: "<span>Nytt resultat på %{link}</span>"
+      models:
+        result:
+          fields:
+            end_date: Sluttdato
+            progress: Framgang
+            start_date: Startdato
+            status: Status
+            title: Tittel
+        status:
+          fields:
+            description: Beskrivelse
+            key: Nøkkel
+            name: Navn
+            progress: Framgang
+        timeline_entry:
+          fields:
+            description: Beskrivelse
+            entry_date: Dato
+      results:
+        count:
+          results_count:
+            one: 1 resultat
+            other: "%{count} resultater"
+        filters:
+          all: Alle
+          scopes: Omfang
+        home:
+          categories_label: Kategorier
+          subcategories_label: Underkategorier
+        home_header:
+          global_status: Global utførelse status
+        nav_breadcrumb:
+          global: Global utførelse
+        search:
+          search: Søk etter handlinger
+        show:
+          stats:
+            attendees: Deltakere
+            back_to_result: Gå tilbake til resultatet
+            comments: Kommentarer
+            contributions: Bidragene
+            last_edited_by: Sist endret av
+            last_updated_at: Sist oppdatert
+            meetings: Møter
+            number_of_versions: Versjoner
+            proposals: Forslag
+            show_all_versions: Vis alle versjoner
+            version_author: Versjon forfatter
+            version_created_at: Versjon opprettet
+            version_number: Versjonsnummer
+            version_number_out_of_total: "%{current_version} ut av %{total_count}"
+            votes: Støtter
+        timeline:
+          title: Prosjektutvikling
+      versions:
+        index:
+          changes_at_title: Endringer "%{title}"
+          title: Versjoner
+        show:
+          changes_at_title: Endringer "%{title}"
+        version:
+          version_index: Versjon %{index}
+    components:
+      accountability:
+        name: Ansvarlighet
+        settings:
+          global:
+            categories_label: Navn på "Kategorier"
+            comments_enabled: Kommentarer aktivert
+            display_progress_enabled: Vis fremgang
+            heading_leaf_level_results: Navn på "Prosjekter"
+            heading_parent_level_results: Navn på "Resultater"
+            intro: Introduksjon
+            subcategories_label: Navn på "Underkategorier"
+          step:
+            comments_blocked: Kommentarer blokkert
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Forslaget %{proposal_title} er blitt inkludert i et resultat. Du kan se det fra denne siden:'
+          email_outro: Du har mottatt denne varslingen fordi du følger "%{proposal_title}". Du kan slutte å motta varsler hvis du følger den forrige linken.
+          email_subject: En oppdatering til %{proposal_title}
+          notification_title: Forslaget <a href="%{proposal_path}">%{proposal_title}</a> har blitt inkludert i <a href="%{resource_path}">%{resource_title}</a> resultatet.
+        result_progress_updated:
+          email_intro: 'Resultatet "%{resource_title}", som inkluderer forslaget "%{proposal_title}", er nå %{progress}% ferdig. Du kan se det fra denne siden:'
+          email_outro: Du har mottatt denne varslingen fordi du følger "%{proposal_title}", og dette forslaget er inkludert i resultatet "%{resource_title}". Du kan slutte å motta varsler hvis du følger den forrige linken.
+          email_subject: En oppdatering til %{resource_title} fremgang
+          notification_title: Resultatet <a href="%{resource_path}">%{resource_title}</a>, som inkluderer forslaget <a href="%{proposal_path}">%{proposal_title}</a> er nå %{progress}% ferdig.
+    metrics:
+      results:
+        description: Antall genererte resultater
+        object: resultater
+        title: Resultater
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Resultater
+    participatory_spaces:
+      highlighted_results:
+        see_all: Vis alle (%{count})
+    resource_links:
+      included_projects:
+        result_project: Prosjekter inkludert i dette resultatet
+      included_proposals:
+        result_proposal: Forslagene er inkludert i dette resultatet

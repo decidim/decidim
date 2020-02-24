@@ -10,7 +10,7 @@ module Decidim
       include Decidim::ApplicationHelper
       include FormFactory
       include FilterResource
-      include Orderable
+      include Decidim::Proposals::Orderable
       include Paginable
 
       helper_method :form_presenter
@@ -54,7 +54,7 @@ module Decidim
       end
 
       def show
-        raise ActionController::RoutingError, "Not Found" unless can_show_proposal?
+        raise ActionController::RoutingError, "Not Found" if @proposal.blank? || !can_show_proposal?
 
         @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
       end
@@ -65,14 +65,14 @@ module Decidim
         if proposal_draft.present?
           redirect_to edit_draft_proposal_path(proposal_draft, component_id: proposal_draft.component.id, question_slug: proposal_draft.component.participatory_space.slug)
         else
-          @form = form(ProposalWizardCreateStepForm).from_params({})
+          @form = form(ProposalWizardCreateStepForm).from_params(body: translated_proposal_body_template)
         end
       end
 
       def create
         enforce_permission_to :create, :proposal
         @step = :step_1
-        @form = form(ProposalWizardCreateStepForm).from_params(params)
+        @form = form(ProposalWizardCreateStepForm).from_params(proposal_creation_params)
 
         CreateProposal.call(@form, current_user) do
           on(:ok) do |proposal|
@@ -212,14 +212,37 @@ module Decidim
       def default_filter_params
         {
           search_text: "",
-          origin: "all",
-          activity: "",
-          category_id: "",
-          state: "except_rejected",
-          scope_id: nil,
+          origin: default_filter_origin_params,
+          activity: "all",
+          category_id: default_filter_category_params,
+          state: %w(accepted evaluating not_answered),
+          scope_id: default_filter_scope_params,
           related_to: "",
           type: "all"
         }
+      end
+
+      def default_filter_origin_params
+        filter_origin_params = %w(citizens meeting)
+        filter_origin_params << "official" if component_settings.official_proposals_enabled
+        filter_origin_params << "user_group" if current_organization.user_groups_enabled?
+        filter_origin_params
+      end
+
+      def default_filter_category_params
+        return "all" unless current_component.participatory_space.categories.any?
+
+        ["all"] + current_component.participatory_space.categories.map { |category| category.id.to_s }
+      end
+
+      def default_filter_scope_params
+        return "all" unless current_component.participatory_space.scopes.any?
+
+        if current_component.participatory_space.scope
+          ["all", current_component.participatory_space.scope.id] + current_component.participatory_space.scope.children.map { |scope| scope.id.to_s }
+        else
+          %w(all global) + current_component.participatory_space.scopes.map { |scope| scope.id.to_s }
+        end
       end
 
       def proposal_draft
@@ -270,6 +293,14 @@ module Decidim
 
       def set_participatory_text
         @participatory_text = Decidim::Proposals::ParticipatoryText.find_by(component: current_component)
+      end
+
+      def translated_proposal_body_template
+        translated_attribute component_settings.new_proposal_body_template
+      end
+
+      def proposal_creation_params
+        params[:proposal].merge(body_template: translated_proposal_body_template)
       end
     end
   end

@@ -20,15 +20,27 @@ module Decidim
       validates :title, length: { maximum: 150 }
       validates :signature_type, presence: true
       validates :type_id, presence: true
-      validates :scope_id, presence: true
+      validate :scope_exists
 
       def map_model(model)
         self.type_id = model.type.id
-        self.scope_id = model.scope.id
+        self.scope_id = model.scope&.id
       end
 
       def signature_type_updatable?
         state == "created" || state.nil?
+      end
+
+      def scope_id
+        super.presence
+      end
+
+      private
+
+      def scope_exists
+        return if scope_id.blank?
+
+        errors.add(:scope_id, :invalid) unless InitiativesTypeScope.where(decidim_initiatives_types_id: type_id, decidim_scopes_id: scope_id).exists?
       end
     end
   end

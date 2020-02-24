@@ -61,8 +61,6 @@ gl:
     account:
       data_portability_export:
         file_no_exists: O ficheiro non existe
-        invalid_token: O token fornecido non é válido.
-        no_token: Sen token fornecido
         notice: Os teus datos están en progreso. Recibirás un correo electrónico cando finalice.
       delete:
         alert: Non se pode desfacer esta acción. Se eliminas a túa conta non poderás iniciar sesión.
@@ -314,7 +312,6 @@ gl:
           email_already_exists: Outra conta usa o mesmo enderezo de correo electrónico
         new:
           complete_profile: Perfil completo
-          nickname_help: O teu identificador breve e único en %{organization}
           sign_up: Completa o teu perfil
           subtitle: Encha o seguinte formulario para completar o rexistro
           username_help: Nome público que aparece nas túas publicacións. Co obxectivo de garantir o anonimato, pode ser calquera nome.
@@ -323,7 +320,6 @@ gl:
           already_have_an_account?: Xa ten unha conta?
           newsletter: Recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
-          nickname_help: O teu identificador breve e único en %{organization}
           sign_in: Iniciar sesión
           sign_up: Rexistrarse
           sign_up_as:
@@ -498,7 +494,7 @@ gl:
           notification_title: O <a href="%{resource_path}">profile páxina</a> de %{name} (%{nickname}), quen está a seguir, foi actualizado.
     export_mailer:
       data_portability_export:
-        click_button: Fai clic no seguinte botón para descargar os teus datos. <br/> Terá o ficheiro dispoñible ata o %{date}.
+        click_button: 'Fai clic no seguinte botón para descargar os teus datos. <br/> Terá o ficheiro dispoñible ata o %{date}.'
         download: Descarga
       export:
         ready: Atopa unha versión comprimida da túa exportación.
@@ -541,16 +537,6 @@ gl:
     gamification:
       all_badges_link: Consulta todas as insignias dispoñibles.
       badges:
-        continuity:
-          conditions:
-            - Veña aquí a miúdo
-          description: Este distintivo concedeuse cando visitas a plataforma dun xeito regular. Gústanos de telo por aquí.
-          description_another: Este usuario conectouse por %{score} días consecutivos nalgún momento.
-          description_own: Conectado por %{score} días consecutivos nalgún momento.
-          name: Continuidade
-          next_level_in: Conéctese por %{score} días consecutivos para chegar ao seguinte nivel.
-          unearned_another: Este usuario non iniciou sesión máis de un día consecutivo.
-          unearned_own: Non estás conectado por máis dun día consecutivo.
         followers:
           conditions:
             - Ser activo e seguir a outras persoas seguramente fará que outras persoas sigan contigo.
@@ -1158,11 +1144,7 @@ gl:
       long_words: contén palabras que son demasiado longas (máis de 35 caracteres)
       must_start_with_caps: debe comezar cunha letra maiúscula
       nesting_too_deep: non pode estar dentro dunha subcategoría
-      not_found: non atopado
       not_locked: Non estaba bloqueado
-      not_saved:
-        one: 'O erro 1 prohibiuse que este %{resource} se gardase:'
-        other: "%{count} erros prohibidos de gardar este %{resource}:"
       too_many_marks: está a usar demasiadas marcas de puntuación consecutivas (por exemplo, e?)
       too_much_caps: está a usar letras maiúsculas (máis do 25% do texto)
       too_short: é demasiado curto (menos de 15 caracteres)

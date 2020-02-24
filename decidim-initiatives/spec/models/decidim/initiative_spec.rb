@@ -76,7 +76,7 @@ module Decidim
 
         expect(initiative.save).to be_truthy
 
-        online_allowed_type.update!(online_signature_enabled: false)
+        online_allowed_type.update!(signature_type: "offline")
 
         expect(initiative).to be_valid
       end

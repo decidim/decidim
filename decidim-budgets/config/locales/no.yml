@@ -1,0 +1,153 @@
+"no":
+  activemodel:
+    attributes:
+      project:
+        budget: Budsjett
+        decidim_category_id: Kategori
+        decidim_scope_id: Omfang
+        description: Beskrivelse
+        proposal_ids: Relaterte forslag
+        title: Tittel
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Prosjekt
+        other: Prosjekter
+  decidim:
+    budgets:
+      actions:
+        attachment_collections: Mapper
+        attachments: Vedlegg
+        confirm_destroy: Er du sikker på at du vil slette dette prosjektet?
+        destroy: Slett
+        edit: Editar
+        import: Importer forslag til prosjekter
+        new: Nytt prosjekt
+        preview: Forhåndsvis
+        title: Handlinger
+      admin:
+        models:
+          project:
+            name: Prosjekt
+        projects:
+          create:
+            invalid: Det oppstod et problem med å opprette dette prosjektet
+            success: Prosjektet ble opprettet
+          destroy:
+            success: Prosjektet ble slettet
+          edit:
+            title: Rediger prosjekt
+            update: Oppdater
+          index:
+            finished_orders: Avsluttede stemmer
+            pending_orders: Ventende stemmer
+            title: Prosjekter
+          new:
+            create: Opprett
+            title: Nytt prosjekt
+          update:
+            invalid: Det oppstod et problem med å oppdatere dette prosjektet
+            success: Prosjektet ble oppdatert
+        proposals_imports:
+          create:
+            invalid: Det oppsto et problem med å importere forslagene til prosjektet
+            success: "%{number} forslag importert til prosjekter"
+          new:
+            create: Importer forslag til prosjekter
+            no_components: Det er ingen andre forslag komponenter i dette deltaker området å importere forslagene inn i prosjekter.
+            select_component: Velg en komponent
+      admin_log:
+        project:
+          create: "%{user_name} opprettet %{resource_name} prosjektet i %{space_name} rommet"
+          delete: "%{user_name} slettet %{resource_name} prosjektet i %{space_name} rommet"
+          update: "%{user_name} oppdaterte %{resource_name} prosjektet i %{space_name} rommet"
+      models:
+        project:
+          fields:
+            title: Tittel
+      projects:
+        budget_confirm:
+          are_you_sure: Er du enig? Når du har bekrefter din stemme, kan du ikke endre den.
+          cancel: Avbryt
+          confirm: Bekreft
+          description: Dette er prosjektene du har valgt å være en del av budsjettet.
+          title: Bekreft stemme
+        budget_excess:
+          close: Lukk
+          description: Dette prosjektet overskrider det maksimale budsjettet og kan ikke bli lagt til. Hvis du ønsker, kan du slette et prosjekt du har allerede har valgt å legge til, eller avgi stemme på dine preferanser.
+          ok: OK
+          title: Maksimalt budsjett overskredet
+        budget_summary:
+          are_you_sure: Er du sikker på at du vil avbryte din stemme?
+          assigned: 'Tildelt:'
+          cancel_order: slett stemmen din og begynn på nytt
+          checked_out:
+            description: Du har allerede stemt for budsjettet. Hvis du har ombestemt deg, kan du %{cancel_link}.
+            title: Budtjett avstemning fullført
+          description: Hvilke prosjekter tror du vi bør bevilge budsjett for? Tildel minst %{minimum_budget} til prosjektene du ønsker, og stem på dine preferanser for å definere budsjettet.
+          title: Du bestemmer budsjettet
+        count:
+          projects_count:
+            one: 1 prosjekt
+            other: "%{count} prosjekter"
+        filters:
+          category: Kategori
+          scope: Omfang
+          search: Søk
+        filters_small_view:
+          close_modal: Lukk modal
+          filter: Filter
+          filter_by: Filtrer etter
+          unfold: Åpne
+        order_progress:
+          vote: Stemme
+        order_selected_projects:
+          remove: Fjern
+          selected_projects:
+            one: prosjekt valgt
+            other: prosjekter valgt
+          view: Vis
+        project:
+          add: Legg til
+          count:
+            one: 1 støtte
+            other: "%{count} støttere"
+          remove: Fjern
+          view: Vis
+        project_budget_button:
+          add: Legg til
+          added: Lagt til
+        show:
+          budget: Budsjett
+          view_all_projects: Vis alle prosjekter
+    components:
+      budgets:
+        actions:
+          vote: Stemme
+        name: Budsjetter
+        settings:
+          global:
+            announcement: Kunngjøring
+            comments_enabled: Kommentarer aktivert
+            projects_per_page: Prosjekter per side
+            resources_permissions_enabled: Handlings tillatelser kan settes for hvert møte
+            total_budget: Totalt budsjett
+            vote_threshold_percent: Stemmeterskel prosent
+          step:
+            announcement: Kunngjøring
+            comments_blocked: Kommentarer blokkert
+            show_votes: Vis stemmer
+            votes_enabled: Stemming aktivert
+    orders:
+      checkout:
+        error: Det oppstod et problem med å behandle din stemme
+        success: Stemmen din ble godtatt
+      destroy:
+        error: Det oppstod et problem med å avbryte stemmen din
+        success: Stemmen din ble kansellert
+    resource_links:
+      included_proposals:
+        project_proposal: 'Forslag inkludert i dette prosjektet:'
+  index:
+    confirmed_orders_count: Stemmer teller
+  total_budget: Totalt budsjett

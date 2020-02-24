@@ -18,6 +18,7 @@ module Decidim
         let(:organization) { create :organization }
         let(:consultation) { create :consultation, organization: organization }
         let(:question) { create :question }
+        let(:response_group) { create :response_group }
         let(:title) do
           {
             en: "Title",
@@ -30,7 +31,8 @@ module Decidim
             "response" => {
               "title_en" => title[:en],
               "title_es" => title[:es],
-              "title_ca" => title[:ca]
+              "title_ca" => title[:ca],
+              "decidim_consultations_response_group_id" => response_group
             }
           }
         end

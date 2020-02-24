@@ -1,0 +1,18 @@
+<div class="card">
+  <% if group %>
+    <div class="card__top">
+      <div class="card__content">
+        <h5 class="card__title"><%= translated_attribute group.title %></h5>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="card__content multiple_votes_form">
+    <% responses.each do |response| %>
+      <div>
+        <%= check_box_tag "responses[]", response.id, false, id: "vote_id_#{response.id}" %>
+        <%= form.label :id, translated_attribute(response.title), for: "vote_id_#{response.id}" %>
+      </div>
+    <% end %>
+  </div>
+</div>

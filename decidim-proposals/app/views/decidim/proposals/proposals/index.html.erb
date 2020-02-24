@@ -11,7 +11,7 @@
             <div class="address card__extra">
               <div class="address__icon">{{html icon}}</div>
               <div class="address__details">
-                <span>${address}</span><br />
+                <span>${address}</span><br>
               </div>
             </div>
           </div>
@@ -34,7 +34,7 @@
       <%= render partial: "count" %>
     </h2>
     <% if current_settings.creation_enabled && current_component.participatory_space.can_participate?(current_user) %>
-      <%= action_authorized_link_to :create, new_proposal_path, class: "title-action__action button small hollow", data: { "redirect_url" => new_proposal_path } do %>
+      <%= action_authorized_link_to :create, new_proposal_path, class: "title-action__action button small", data: { "redirect_url" => new_proposal_path } do %>
         <%= t(".new_proposal") %>
         <%= icon "plus" %>
       <% end %>
@@ -63,7 +63,7 @@
 </div>
 <div class="row">
 <div class="text-right">
-  <%= link_to t(".see_all_withdrawn"), proposals_path("filter[state]" => "withdrawn") %>
+  <%= link_to t(".see_all_withdrawn"), proposals_path("filter[state][]" => "withdrawn") %>
 </div>
 </div>
 <%= javascript_include_tag("decidim/filters") %>

@@ -41,6 +41,7 @@ it:
         badges_enabled: Abilita badge
         cta_button_path: Percorso del pulsante Call To Action
         cta_button_text: Testo del pulsante Chiamata all'azione
+        customize_welcome_notification: Personalizza la notifica di benvenuto
         default_locale: Lingua predefinita
         description: Descrizione
         enable_omnipresent_banner: Mostra banner onnipresente
@@ -69,14 +70,19 @@ it:
         port: Porta
         primary_color: Primario
         reference_prefix: Prefisso
+        rich_text_editor_in_public_views: Abilita l'editor di testo esteso per i partecipanti
         secondary_color: Secondario
+        send_welcome_notification: Invia notifica di benvenuto
         show_statistics: Mostra statistiche
         success_color: Successo
+        time_zone: Fuso Orario
         tos_version: Termini di versione del servizio
         twitter_handler: Gestore di Twitter
         user_groups_enabled: Abilita gruppi
-        user_name: Nome Utente
+        user_name: Pseudonimo
         warning_color: Attenzione
+        welcome_notification_body: Testo del messaggio di Benvenuto
+        welcome_notification_subject: Oggetto della mail con messaggio di Benvenuto
         youtube_handler: Gestore di YouTube
       scope:
         code: Codice
@@ -138,9 +144,24 @@ it:
         export: Esporta
         manage: Gestisci
         new: Nuovo %{name}
+        per_page: Per pagina
         permissions: Permessi
         reject: Rifiuta
         verify: Verifica
+      admin_terms_of_use:
+        accept:
+          error: Si è verificato un errore durante l'accettazione dei termini di utilizzo da parte dell'amministratore.
+          success: Ottimo! Hai accettato i termini d'uso dell'amministratore.
+        actions:
+          accept: Accetto i termini di amministrazione
+          are_you_sure: Sei sicuro di voler rifiutare i termini di amministrazione?
+          refuse: Rifiutare i termini di amministrazione
+          title: Accetta i termini e le condizioni di utilizzo
+        required_review:
+          alert: 'Richiesto: Rivedi i nostri termini di utilizzo da amministratore'
+          callout: Prenditi un momento per rivedere i Termini di utilizzo dell'amministratore. Altrimenti non sarai in grado di amministrare la piattaforma.
+          cta: Rivedili ora.
+        title: Termini di utilizzo dell'amministratore
       area_types:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo tipo di area.
@@ -232,6 +253,7 @@ it:
           success: OK, la categoria è stata aggiornata.
       component_permissions:
         update:
+          error: Si è verificato un problema durante l'aggiornamento dei permessi di questo componente.
           success: Autorizzazioni aggiornate correttamente.
       components:
         create:
@@ -271,6 +293,31 @@ it:
       exports:
         export_as: "%{name} esporta come %{export_format}"
         notice: Export in fase di elaborazione.  Riceverai un'email quando l'export sarà terminato.
+      filters:
+        category_id_eq:
+          label: Categoria
+        filter_label: Filtro
+        officialized_at_null:
+          label: Stato
+          values:
+            'false': Ufficializzato
+            'true': Non ufficializzato
+        private_space_eq:
+          label: Privato
+          values:
+            'false': Pubblico
+            'true': Privato
+        published_at_null:
+          label: Pubblicato
+          values:
+            'false': Pubblicato
+            'true': Non pubblicato (nascosto)
+        scope_id_eq:
+          label: Ambito tematico
+        search_label: Ricerca
+        search_placeholder:
+          name_or_nickname_or_email_cont: Cerca %{collection} per email, nome o pseudonimo.
+          title_cont: Cerca %{collection} per titolo.
       help_sections:
         error: Si è verificato un errore durante l'aggiornamento delle sezioni della guida
         form:
@@ -450,6 +497,7 @@ it:
           not_sent: Non inviato
           participants: 'partecipanti '
           segmented_to: 'Segmentato a %{subject}: '
+          subscribed_count: 'Sottoscritti:'
           title: Newsletters
         new:
           save: Salva
@@ -462,6 +510,7 @@ it:
           followers_help: Invia newsletter a tutti gli utenti confermati che seguono tutti gli spazi partecipativi selezionati nella lista.
           none: Nessuno
           participants_help: Invia newsletter a tutti gli utenti confermati che hanno partecipato a uno degli spazi partecipativi selezionati nella lista.
+          recipients_count: Questa newsletter verrà inviata agli utenti <strong id='recipients_count'>%{count}</strong>.
           scopes_help: Invia newsletter agli utenti che hanno uno dei campi selezionati attivati nelle impostazioni "I miei interessi".
           select_scopes: Filtra per gli utenti che hanno attivato qualsiasi ambito selezionato nelle impostazioni interessi personali del proprio account.
           select_spaces: Selezionare gli spazi per segmentare la newsletter
@@ -508,18 +557,12 @@ it:
           actions: Azioni
           badge: Distintivo
           created_at: Creato a
-          filter:
-            all: Tutti
-            not_officialized: Non ufficializzato
-            officialized: ufficializzato
-          filter_by: Filtra per
           name: Nome
           nickname: Nickname
           not_officialized: Non ufficializzato
           officialize: ufficializzare
           officialized: ufficializzato
           reofficialize: Reofficialize
-          search: Ricerca
           status: Stato
           unofficialize: Unofficialize
         new:
@@ -534,6 +577,7 @@ it:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          rich_text_editor_in_public_views_help: In alcune aree di testo, i partecipanti saranno in grado di inserire alcuni tag HTML utilizzando l'editor di testo rich text.
           social_handlers: Sociale
           twitter: Twitter
           url: URL
@@ -568,10 +612,19 @@ it:
           error: Si è verificato un errore durante l'eliminazione di un utente privato per questo spazio partecipativo.
           success: Accesso utente privato spazio distruttivo distrutto con successo.
         index:
+          import_via_csv: Importa tramite csv
           title: Utente privato dello spazio partecipativo
         new:
           create: Creare
           title: Nuovo utente privato dello spazio partecipativo.
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: Si è verificato un errore durante la lettura del file CSV.
+          success: File CSV caricato con successo, stiamo inviando un'email di invito ai partecipanti. Potrebbe richiedere un po' di tempo.
+        new:
+          explanation: Carica il tuo file CSV. Deve avere due colonne con email nella prima colonna del file e nome nell'ultima colonna del file (email, nome) degli utenti che si desidera aggiungere allo spazio partecipativo, senza intestazioni.
+          title: Carica il tuo file CSV
+          upload: Carica File
       resource_permissions:
         edit:
           submit: Invia

@@ -17,8 +17,8 @@ cs:
         automatic_hashtags: Hashtags se automaticky přidali
         body: Tělo
         category_id: Kategorie
+        decidim_scope_id: Rozsah
         has_address: Má adresu
-        scope_id: Rozsah
         state: Stát
         suggested_hashtags: Navrhované hashtags
         title: Titul
@@ -87,6 +87,7 @@ cs:
     components:
       proposals:
         actions:
+          amend: Pozměnit
           create: Vytvořit
           endorse: Potvrďte
           vote: Hlasování
@@ -95,6 +96,8 @@ cs:
         settings:
           global:
             amendments_enabled: Změny povoleny
+            amendments_enabled_help: Pokud je aktivní, nastavte funkce změny pro každý krok.
+            amendments_wizard_help_text: Nápověda průvodce k Pozměňovacím návrhům
             announcement: Oznámení
             attachments_allowed: Povolit přílohy
             can_accumulate_supports_beyond_threshold: Mohou hromadit podpěry za prahem
@@ -104,6 +107,7 @@ cs:
             minimum_votes_per_user: Minimální počet hlasů na uživatele
             new_proposal_help_text: Nový text nápovědy návrhu
             official_proposals_enabled: Byly povoleny oficiální návrhy
+            participatory_texts_disabled_help: Pokud existují stávající návrhy, nelze toto nastavení měnit. Pokud chcete tuto vlastnost povolit nebo vyhodit všechny importované návrhy v menu "participativní texty" prosím vytvořte novou složku "Návrhy", pokud ji chcete zakázat.
             participatory_texts_enabled: Povolené účastnické texty
             proposal_answering_enabled: Odpovídání návrhu je povoleno
             proposal_edit_before_minutes: Návrhy mohou být editovány autory před tím, než projde hodně minut
@@ -117,6 +121,14 @@ cs:
             threshold_per_proposal: Prah na návrh
             vote_limit: Počet hlasů na uživatele
           step:
+            amendment_creation_enabled: Umožnit pozměnění a doplnění
+            amendment_creation_enabled_help: Účastníci mohou pozměňovat návrhy.
+            amendment_promotion_enabled: Propagace pozměňování byla povolena
+            amendment_promotion_enabled_help: Autoři vylepšení budou moci podpořit návrh zamítnutého vylepšení.
+            amendment_reaction_enabled: Reakce na pozměnění byla povolena
+            amendment_reaction_enabled_help: Autoři návrhů budou moci přijmout nebo zamítnout vylepšení účastníků.
+            amendments_visibility: Viditelnost pozměňovacího návrhu
+            amendments_visibility_help: Pokud je zvolena možnost "pozměňovací návrhy jsou viditelné pouze jejich autorům", musí být účastník přihlášen, aby se seznámil s provedenými pozměňovacími návrhy.
             announcement: Oznámení
             automatic_hashtags: Do všech návrhů byly přidány značky Hashtags
             comments_blocked: Komentáře byly blokovány
@@ -294,12 +306,10 @@ cs:
         see_all: Zobrazit všechny (%{count})
     proposals:
       actions:
-        answer: Odpovědět
         edit_proposal: Upravit návrh
         import: Import z jiné součásti
         new: Nový návrh
         participatory_texts: Participující texty
-        private_notes: Soukromé poznámky
         title: Akce
       admin:
         actions:
@@ -319,6 +329,7 @@ cs:
             success: Všechny textové texty s účastí byly zrušeny.
           import:
             invalid: Formulář je neplatný!
+            invalid_file: Soubor obsahuje určitou chybu, zkuste jej prosím upravit a znovu jej nahrát.
             success: Gratulujeme, následující části byly analyzovány z importovaného dokumentu, byly převedeny na návrhy. Nyní můžete před publikováním zkontrolovat a upravit vše, co potřebujete.
           index:
             info_1: Následující oddíly byly analyzovány z importovaného dokumentu, byly převedeny na návrhy. Nyní můžete před publikováním zkontrolovat a upravit vše, co potřebujete.
@@ -343,11 +354,7 @@ cs:
           update:
             success: Úspěšný text byl úspěšně aktualizován.
         proposal_answers:
-          edit:
-            accepted: Přijato
-            answer_proposal: Odpovědět
-            evaluating: Hodnocení
-            rejected: Odmítnuto
+          form:
             title: Odpověď na návrh %{title}
         proposal_notes:
           create:
@@ -369,8 +376,10 @@ cs:
             title: Návrh aktualizace
             update: Aktualizace
           form:
+            add_images: Přidat obrázky
             attachment_legend: "(Volitelné) Přidání přílohy"
             created_in_meeting: Tento návrh pochází z jednání
+            gallery_legend: "(Volitelně) Přidat galerii obrázků"
             select_a_category: Vyberte kategorii
             select_a_meeting: Vyberte schůzku
           index:
@@ -388,6 +397,9 @@ cs:
           new:
             create: Vytvořit
             title: Vytvořte návrh
+          show:
+            created_at: Datum vzniku
+            votes_count: Počet hlasů
           update_category:
             invalid: 'Tyto návrhy již měly kategorii %{category} : %{proposals}.'
             select_a_category: Vyberte kategorii
@@ -410,12 +422,6 @@ cs:
           create:
             invalid: Při výběru vybraných návrhů došlo k chybě.
             success: Úspěšně rozdělil návrhy na nové.
-        shared:
-          info_proposal:
-            body: Tělo
-            created_at: Datum vzniku
-            proposal_votes_count: Počet hlasů
-            proposals: Návrhy
       admin_log:
         proposal:
           answer: "%{user_name} odpovídalo %{resource_name} návrh na %{space_name} prostoru"
@@ -440,7 +446,6 @@ cs:
           accepted: Přijato
           all: Všechno
           evaluating: Hodnocení
-          except_rejected: Všechno kromě zamítnuto
           rejected: Odmítnuto
         filter_type_values:
           all: Všechno
@@ -491,7 +496,6 @@ cs:
           all: Všechno
           amendment: Změny
           category: Kategorie
-          category_prompt: Kategorie Prompt
           open: otevřeno
           published: Publikováno
           related_to: Související s
@@ -645,10 +649,11 @@ cs:
         endorsements_card_row:
           comments: Komentáře
         filters:
-          activity: Aktivita
+          activity: Moje aktivita
+          all: Vše
           amendment_type: Typ
           category: Kategorie
-          category_prompt: Vyberte kategorii
+          my_proposals: Moje návrhy
           origin: Původ
           related_to: Související s
           search: Vyhledávání
@@ -675,9 +680,13 @@ cs:
           title: Vytvořte svůj návrh
         orders:
           label: 'Objednejte návrhy podle:'
+          most_commented: Nejvíce komentované
+          most_endorsed: Nejvíce schválené
+          most_followed: Nejvíce sledované
           most_voted: Nejvíce hlasovalo
           random: Náhodný
           recent: Nedávno
+          with_more_authors: S více autory
         participatory_texts:
           index:
             document_index: Index dokumentů
@@ -697,6 +706,7 @@ cs:
           view_proposal: Zobrazit návrh
         show:
           back_to: Zpět k
+          changes_at_title: Pozměňovací návrh k "%{title}"
           edit_proposal: Upravit návrh
           endorsements_list: Seznam doporučení
           hidden_endorsers_count:
@@ -706,6 +716,10 @@ cs:
             other: a %{count} dalších lidí
           link_to_collaborative_draft_help_text: Tento návrh je výsledkem společného návrhu. Zkontrolujte historii
           link_to_collaborative_draft_text: Viz schéma spolupráce
+          link_to_promoted_emendation_help_text: Tento návrh je podporované vylepšení
+          link_to_promoted_emendation_text: Podívejte se na zamítnuté vylepšení.
+          link_to_proposal_from_emendation_help_text: Toto je zamítnuté vylepšení
+          link_to_proposal_from_emendation_text: Zobrazit nabídky
           proposal_accepted_reason: 'Tento návrh byl přijat, protože:'
           proposal_in_evaluation_reason: Tento návrh se hodnotí
           proposal_rejected_reason: 'Tento návrh byl zamítnut, protože:'
@@ -715,7 +729,6 @@ cs:
           withdraw_proposal: Návrh stáhnout
         tags:
           changed_from: "(změněn z <u>%{previous_category}</u> správcem)"
-          filed_as: Soubor jako
         vote_button:
           already_voted: Již bylo hlasováno
           already_voted_hover: Zavolejte

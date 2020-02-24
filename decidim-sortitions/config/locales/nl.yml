@@ -42,7 +42,7 @@ nl:
         actions:
           destroy: Annuleer de loting
           edit: Bewerk
-          new: Nieuwe sortering
+          new: Nieuwe loting
           show: Details van de loting
         models:
           sortition:
@@ -69,14 +69,14 @@ nl:
             success: Loting succesvol aangemaakt
           destroy:
             error: De sortering kan niet worden geannuleerd.
-            success: Sortering succesvol geannuleerd
+            success: Loting succesvol geannuleerd
           edit:
-            title: Update de informatie over de sortering
+            title: Update de informatie over de loting
             update: Bijwerken
           form:
             all_categories: Alle categorieën
             select_proposal_component: Selecteer de voorgestelde set
-            title: Nieuwe sortering voor voorstellen
+            title: Nieuwe loting van de voorstellen
           index:
             title: Lotingen
           new:
@@ -86,13 +86,13 @@ nl:
           show:
             selected_proposals: Voorstellen geselecteerd voor trekking
           update:
-            error: Er is een fout opgetreden bij het bijwerken van de sortering.
-            success: Sortering succesvol bijgewerkt
+            error: Er is een fout opgetreden bij het bijwerken van de loting.
+            success: Loting succesvol bijgewerkt
       admin_log:
         sortition:
-          create: "%{user_name} heeft de %{resource_name} sortering gemaakt in %{space_name}"
-          delete: "%{user_name} heeft de %{resource_name} sortering geannuleerd in %{space_name}"
-          update: "%{user_name} heeft de %{resource_name} sortering bijgewerkt in %{space_name}"
+          create: "%{user_name} heeft de %{resource_name} loting gemaakt in %{space_name}"
+          delete: "%{user_name} heeft de %{resource_name} loting geannuleerd in %{space_name}"
+          update: "%{user_name} heeft de %{resource_name} loting bijgewerkt in %{space_name}"
       sortitions:
         count:
           proposals_count:
@@ -114,7 +114,7 @@ nl:
         linked_sortitions:
           selected_proposals: Geselecteerde voorstellen
         orders:
-          label: 'Sorteringen bestellen op:'
+          label: 'Lotingen ordenen op:'
           random: Willekeurig
           recent: recent
         results_count:
@@ -122,17 +122,17 @@ nl:
             one: geselecteerd voorstel
             other: geselecteerde voorstellen
         show:
-          algorithm: De algoritme-code van de sortering
+          algorithm: De algoritme-code van de loting
           any_category: alle categorieën
           cancelled: Geannuleerde loting
           candidate_proposal_ids: Sorteervolgorde orders en ID's
-          candidate_proposals_info: 'De sortering werd uitgevoerd tussen de volgende voorstellen (%{category_label}), met de volgende ID''s (vetgedrukt de geselecteerde voorstellen)  '
+          candidate_proposals_info: 'De loting werd uitgevoerd tussen de volgende voorstellen (%{category_label}), met de volgende ID''s (vetgedrukt de geselecteerde voorstellen)  '
           category: van de %{category} categorie
           dice_result: "(1) Resultaat dobbelsteen"
-          introduction: 'Deze pagina bevat de resultaten van de sortering %{reference}. Door middel van deze sortering is het %{target_items} aantal resultaten willekeurig geselecteerd en met een gelijke kansverdeling uit de set weergegeven voorstellen. Samen met de resultaten biedt de informatie die op deze pagina wordt weergegeven alle informatie die nodig is om garanties te maximaliseren en de resultaten te reproduceren. De sleutel tot de kwaliteit van deze sortering is de dubbele willekeurigheid die wordt geboden door het rollen van een dobbelsteen (geverifieerd door getuigen) en de precieze tijd van de sortering die input levert voor een algoritme dat een willekeurige selectie genereert. Het tijdsbestek voor de sortering is zo nauwkeurig (seconden) dat het onmogelijk is om door mensen te controleren en biedt dus een dubbele "oncontroleerbare" invoer om een ​​rechtvaardig resultaat te garanderen.  '
+          introduction: 'Deze pagina bevat de resultaten van de loting %{reference}. Door middel van deze loting is het %{target_items} aantal resultaten willekeurig geselecteerd en met een gelijke kansverdeling uit de set weergegeven voorstellen. Samen met de resultaten biedt de informatie die op deze pagina wordt weergegeven alle informatie die nodig is om garanties te maximaliseren en de resultaten te reproduceren. De sleutel tot de kwaliteit van deze loting is de dubbele willekeurigheid die wordt geboden door het rollen van een dobbelsteen (geverifieerd door getuigen) en de precieze tijd van de loting die input levert voor een algoritme dat een willekeurige selectie genereert. Het tijdsbestek voor de loting is zo nauwkeurig (seconden) dat het onmogelijk is om door mensen te controleren en biedt dus een dubbele "oncontroleerbare" invoer om een ​​rechtvaardig resultaat te garanderen.  '
           mathematical_result: Resultaat (1) x (2)
-          proposals_selected_by_sortition: Voorstellen geselecteerd door sortering
-          sortition_reproducibility_details: Sortering reproduceerbaarheidsdetails
+          proposals_selected_by_sortition: Voorstellen geselecteerd door loting
+          sortition_reproducibility_details: Loting reproduceerbaarheidsdetails
           time_seed: "(2) Tijdzaad"
           witnesses: getuigen
         sortition:
@@ -140,12 +140,12 @@ nl:
           selected_proposals:
             one: 1 voorstel geselecteerd
             other: '%{count} voorstellen geselecteerd'
-          view: Uitzicht
+          view: Bekijk
         sortition_author:
           deleted: Verwijder gebruiker
         sortition_cancel_author:
           deleted: Verwijderde gebruiker
         sortitions_count:
           count:
-            one: 1 sortering
-            other: "%{count} sorteringen "
+            one: 1 loting
+            other: "%{count} lotingen"

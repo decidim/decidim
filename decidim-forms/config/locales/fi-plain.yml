@@ -15,6 +15,8 @@ fi-pl:
             choices:
               missing: ovat puutteellisia
               too_many: liian monta
+        questionnaire:
+          request_invalid: Pyynnön käsittely ei onnistunut. Yritä uudestaan myöhemmin
   decidim:
     forms:
       admin:
@@ -80,3 +82,7 @@ fi-pl:
       user_answers_serializer:
         created_at: Vastattu
         id: Vastaa tunnus
+        ip_hash: IP-tarkistesumma
+        registered: Rekisteröitynyt
+        unregistered: Ei rekisteröitynyt
+        user_status: Käyttäjän tila

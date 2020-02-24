@@ -53,10 +53,8 @@ module Decidim
     def presenter_for_author(authorable)
       if official?
         "#{model.class.parent}::OfficialAuthorPresenter".constantize.new
-      elsif authorable.user_group
-        Decidim::UserGroupPresenter.new(authorable.user_group)
       else
-        Decidim::UserPresenter.new(authorable.author)
+        authorable.user_group&.presenter || authorable.author.presenter
       end
     end
 

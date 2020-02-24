@@ -17,6 +17,8 @@ module Decidim
     include Decidim::Initiatives::InitiativeSlug
     include Decidim::Resourceable
     include Decidim::HasReference
+    include Decidim::Randomable
+    include Decidim::Searchable
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
@@ -27,8 +29,8 @@ module Decidim
                class_name: "Decidim::InitiativesTypeScope",
                inverse_of: :initiatives
 
-    delegate :type, to: :scoped_type, allow_nil: true
-    delegate :scope, to: :scoped_type, allow_nil: true
+    delegate :type, :scope, :scope_name, to: :scoped_type, allow_nil: true
+    delegate :promoting_committee_enabled?, to: :type
 
     has_many :votes,
              foreign_key: "decidim_initiative_id",
@@ -52,7 +54,7 @@ module Decidim
              dependent: :destroy,
              as: :participatory_space
 
-    enum signature_type: [:online, :offline, :any]
+    enum signature_type: [:online, :offline, :any], _suffix: true
     enum state: [:created, :validating, :discarded, :published, :rejected, :accepted]
 
     validates :title, :description, :state, presence: true
@@ -94,12 +96,15 @@ module Decidim
     after_save :notify_state_change
     after_create :notify_creation
 
-    def self.order_randomly(seed)
-      transaction do
-        connection.execute("SELECT setseed(#{connection.quote(seed)})")
-        select('"decidim_initiatives".*, RANDOM()').order(Arel.sql("RANDOM()")).load
-      end
-    end
+    searchable_fields({
+                        participatory_space: :itself,
+                        A: :title,
+                        D: :description,
+                        datetime: :published_at
+                      },
+                      index_on_create: ->(_initiative) { false },
+                      # is Resourceable instead of ParticipatorySpaceResourceable so we can't use `visible?`
+                      index_on_update: ->(initiative) { initiative.published? })
 
     def self.future_spaces
       none
@@ -247,8 +252,8 @@ module Decidim
     end
 
     def supports_count
-      face_to_face_votes = offline_votes.nil? || online? ? 0 : offline_votes
-      digital_votes = offline? ? 0 : (initiative_votes_count + initiative_supports_count)
+      face_to_face_votes = offline_votes.nil? || online_signature_type? ? 0 : offline_votes
+      digital_votes = offline_signature_type? ? 0 : (initiative_votes_count + initiative_supports_count)
       digital_votes + face_to_face_votes
     end
 
@@ -297,15 +302,11 @@ module Decidim
     end
 
     def accepts_offline_votes?
-      Decidim::Initiatives.face_to_face_voting_allowed &&
-        (offline? || any?) &&
-        published?
+      published? && (offline_signature_type? || any_signature_type?)
     end
 
     def accepts_online_votes?
-      Decidim::Initiatives.online_voting_allowed &&
-        (online? || any?) &&
-        votes_enabled?
+      votes_enabled? && (online_signature_type? || any_signature_type?)
     end
 
     def accepts_online_unvotes?
@@ -334,7 +335,9 @@ module Decidim
     private
 
     def signature_type_allowed
-      errors.add(:signature_type, :invalid) if !published? && type.allowed_signature_types_for_initiatives.exclude?(signature_type)
+      return if published?
+
+      errors.add(:signature_type, :invalid) if type.allowed_signature_types_for_initiatives.exclude?(signature_type)
     end
 
     def notify_state_change
@@ -348,5 +351,15 @@ module Decidim
       notifier = Decidim::Initiatives::StatusChangeNotifier.new(initiative: self)
       notifier.notify
     end
+
+    # Allow ransacker to search for a key in a hstore column (`title`.`en`)
+    [:title, :description].each do |column|
+      ransacker column do |parent|
+        Arel::Nodes::InfixOperation.new("->>", parent.table[column], Arel::Nodes.build_quoted(I18n.locale.to_s))
+      end
+    end
+
+    # Allow ransacker to search on an Enum Field
+    ransacker :state, formatter: proc { |int| states[int] }
   end
 end

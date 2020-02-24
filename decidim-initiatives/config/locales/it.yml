@@ -33,6 +33,7 @@ it:
         extra_fields_legal_information: Informazioni legali sulla raccolta di dati personali
         minimum_committee_members: Minimo dei membri del comitato
         online_signature_enabled: Firma online abilitata
+        promoting_committee_enabled: Abilita la commissione promozionale
         title: Titolo
         undo_online_signatures_enabled: Consenti agli utenti di annullare le loro firme online
         validate_sms_code_on_votes: Aggiungi il passaggio di convalida del codice SMS al processo di firma
@@ -60,6 +61,18 @@ it:
     admin:
       actions:
         new_initiative_type: Nuovo tipo di iniziativa
+      filters:
+        search_placeholder:
+          title_or_description_cont: Cerca %{collection} per titolo o descrizione.
+        state_eq:
+          label: Stati
+          values:
+            accepted: Accettati
+            created: Creati
+            discarded: Scartati
+            published: Pubblicato
+            rejected: Rifiutato
+            validating: Convalida tecnica
       menu:
         initiatives: iniziative
         initiatives_types: Tipi di iniziativa
@@ -175,18 +188,8 @@ it:
             title: Informazione generale
           index:
             actions_title: Azione
-            filter:
-              accepted: Accettato
-              all: Tutti
-              created: Creato
-              discarded: Discarded
-              published: Pubblicato
-              rejected: Respinto
-              validating: Convalida tecnica
-            filter_by: Filtra per
             preview: Anteprima
             print: Stampare
-            search: Ricerca
           show:
             print: Stampare
           update:

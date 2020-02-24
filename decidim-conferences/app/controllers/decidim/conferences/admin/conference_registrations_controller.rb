@@ -9,13 +9,14 @@ module Decidim
       #
       class ConferenceRegistrationsController < Decidim::Conferences::Admin::ApplicationController
         include Concerns::ConferenceAdmin
+        include Decidim::Paginable
 
         helper_method :conference
 
         def index
           enforce_permission_to :read_conference_registrations, :conference, conference: conference
 
-          @conference_registrations = Decidim::Conferences::ConferenceRegistration.where(conference: conference).page(params[:page]).per(15)
+          @conference_registrations = paginate(Decidim::Conferences::ConferenceRegistration.where(conference: conference))
         end
 
         def export

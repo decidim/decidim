@@ -23,7 +23,9 @@ en:
         participatory_structure: How is it decided
         promoted: Promoted
         published_at: Published at
+        related_process_ids: Related processes
         scope_id: Scope
+        scope_type_max_depth_id: Scope filter depth
         scopes_enabled: Scopes enabled
         short_description: Short description
         show_statistics: Show statistics
@@ -49,6 +51,12 @@ en:
         email: Email
         name: Name
         role: Role
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Invalid document type. Accepted formats are: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Phase activated
       decidim/participatory_process_step_changed_event: Phase changed
@@ -73,8 +81,9 @@ en:
         duplicate: Duplicate
         edit: Edit
         filter:
-          all: Show all processes
+          all_processes: Show all processes
           process_groups: Process Groups
+        import_process: Import
         new_process: New process
         new_process_group: New process group
         new_process_step: New phase
@@ -148,6 +157,14 @@ en:
         update:
           error: There was a problem updating this participatory process group.
           success: Participatory process group successfully updated.
+      participatory_process_imports:
+        create:
+          error: There was a problem importing this participatory process.
+          success: Participatory process successfully imported.
+        new:
+          import: Import
+          select: Select which data you would like to import
+          title: Import participatory process
       participatory_process_publications:
         create:
           error: There was a problem publishing this participatory process.
@@ -237,6 +254,9 @@ en:
         publish: "%{user_name} published the %{resource_name} participatory process"
         unpublish: "%{user_name} unpublished the %{resource_name} participatory process"
         update: "%{user_name} updated the %{resource_name} participatory process"
+      participatory_process_group:
+        create: "%{user_name} created the %{resource_name} participatory process group"
+        update: "%{user_name} updated the %{resource_name} participatory process group"
       participatory_process_step:
         activate: "%{user_name} activated the %{resource_name} phase in the %{space_name} participatory process"
         create: "%{user_name} created the %{resource_name} phase in the %{space_name} participatory process"
@@ -289,6 +309,10 @@ en:
         participatory_process_copies:
           form:
             slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Add a document
+            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. If not set, the button will not be shown. Example: %{url}'
@@ -301,6 +325,8 @@ en:
             images: Images
             metadata: Metadata
             other: Other
+            related_processes: Related processes
+            scope_type_max_depth_help: Restrict the scope filter depth; The filter will show from general to the selected scope type.
             select_an_area: Select an Area
             select_process_group: Select a process group
             slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
@@ -356,6 +382,7 @@ en:
         participatory_scope: What is decided
         participatory_structure: How is it decided
         private_space: This is a private process
+        related_processes: Related processes
         scope: Scope
         start_date: Start date
         target: Who participates

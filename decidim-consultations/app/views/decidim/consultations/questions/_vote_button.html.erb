@@ -48,8 +48,16 @@
           </div>
         <% end %>
       <% elsif allowed_to? :vote, :question, question: question %>
-        <%= link_to "#", class: "card__button button expanded", id: "vote_button" do %>
-          <div class="vote-button-caption"><%= t "questions.vote_button.vote", scope: "decidim" %></div>
+        <% if question.multiple? %>
+          <%= link_to decidim_consultations.question_question_multiple_votes_path(question),
+                      class: "card__button button expanded",
+                      id: "multivote_button" do %>
+            <div class="vote-button-caption"><%= t "questions.vote_button.vote", scope: "decidim" %></div>
+          <% end %>
+        <% else %>
+          <%= link_to "#", class: "card__button button expanded", id: "vote_button" do %>
+            <div class="vote-button-caption"><%= t "questions.vote_button.vote", scope: "decidim" %></div>
+          <% end %>
         <% end %>
       <% else %>
         <%= authorized_vote_modal_button(question, remote: true, class: "button expanded light button--sc") do %>

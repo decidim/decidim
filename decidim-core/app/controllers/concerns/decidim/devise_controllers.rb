@@ -17,6 +17,7 @@ module Decidim
       include Decidim::LocaleSwitcher
       include ImpersonateUsers
       include NeedsPermission
+      include Decidim::SafeRedirect
 
       helper Decidim::TranslationsHelper
       helper Decidim::MetaTagsHelper
@@ -43,9 +44,9 @@ module Decidim
       end
 
       def store_current_location
-        return if params[:redirect_url].blank? || !request.format.html?
+        return if redirect_url.blank? || !request.format.html?
 
-        store_location_for(:user, params[:redirect_url])
+        store_location_for(:user, redirect_url)
       end
     end
   end

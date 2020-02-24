@@ -38,16 +38,16 @@ ca:
       organization:
         address: Nom del servidor SMTP
         alert_color: Alerta
-        badges_enabled: Habilitar insígnies
+        badges_enabled: Habilitar les ensenyes
         cta_button_path: URL del botó d'acció
         cta_button_text: Text del botó d'acció
-        customize_welcome_notification: Adaptar la notificació de benvinguda
+        customize_welcome_notification: Personalitza la notificació de benvinguda
         default_locale: Idioma per defecte
         description: Descripció
-        enable_omnipresent_banner: Mostrar banner omnipresent
+        enable_omnipresent_banner: Mostrar el banner omnipresent
         facebook_handler: Nom d'usuari de Facebook
         favicon: Icona
-        from: De la direcció de correu electrònic
+        from: Adreça des d'on s'enviaran els correus electrònics
         github_handler: Nom d'usuari de GitHub
         header_snippets: Codi personalitzat a la capçalera
         highlighted_content_banner_action_subtitle: Subtítol del botó d'acció
@@ -55,7 +55,7 @@ ca:
         highlighted_content_banner_action_url: URL del botó d'acció
         highlighted_content_banner_enabled: Mostrar el banner de contingut destacat
         highlighted_content_banner_image: Imatge
-        highlighted_content_banner_short_description: Descripció breu
+        highlighted_content_banner_short_description: Breu descripció
         highlighted_content_banner_title: Títol
         instagram_handler: Nom d'usuari a Instagram
         logo: Logotip
@@ -63,25 +63,27 @@ ca:
         official_img_footer: Logotip oficial al peu de pàgina
         official_img_header: Logotip oficial a la capçalera
         official_url: Pàgina web oficial de l'organització
-        omnipresent_banner_short_description: Descripció breu
+        omnipresent_banner_short_description: Breu descripció
         omnipresent_banner_title: Títol
         omnipresent_banner_url: URL
         password: Contrasenya
         port: Port
         primary_color: Primària
-        reference_prefix: Prefix de referència
+        reference_prefix: prefix de referència
+        rich_text_editor_in_public_views: Habilitar l'editor de text enriquit
         secondary_color: Secundari
         send_welcome_notification: Envia la notificació de benvinguda
         show_statistics: Mostrar estadístiques
         success_color: Èxit
-        tos_version: Versió del Termes de Servei
-        twitter_handler: Nom d'usuari de Twitter
+        time_zone: Zona horària
+        tos_version: Versió dels Termes de Servei
+        twitter_handler: Nom d'usuària de Twitter
         user_groups_enabled: Habilitar grups
         user_name: Àlies
         warning_color: Avís
         welcome_notification_body: Cos de la notificació de benvinguda
         welcome_notification_subject: Assumpte de la notificació de benvinguda
-        youtube_handler: Nom d'usuari de YouTube
+        youtube_handler: Nom d'usuària de YouTube
       scope:
         code: Codi
         name: Nom
@@ -142,9 +144,24 @@ ca:
         export: Exporta
         manage: Gestionar
         new: Nou %{name}
+        per_page: Per pàgina
         permissions: Permisos
         reject: Rebutjar
         verify: Verificar
+      admin_terms_of_use:
+        accept:
+          error: S'ha produït un error en acceptar els Termes i Condicions dell panell d'administració.
+          success: Genial! Has acceptat els Termes i Condicions del panell d'administració.
+        actions:
+          accept: Estic d'acord amb aquests termes
+          are_you_sure: Segur que vols rebutjar els Termes i Condicions del panell d'administració?
+          refuse: Rebutjar els termes
+          title: Accepto els Termes i Condicions d'Administració
+        required_review:
+          alert: 'Requerit: Revisa els nostres Termes i Condicions del panell d''administració'
+          callout: Si us plau dedica un moment a revisar l'actualització dels nostres Termes i Condicions del panell d'administració. En cas contrari, no podràs utilitzar la plataforma.
+          cta: Revisa-les ara.
+        title: Termes i Condicions del panell d'administració
       area_types:
         create:
           error: S'ha produït un error en crear un tipus d'àrea nova.
@@ -236,6 +253,7 @@ ca:
           success: Categoria actualitzada correctament.
       component_permissions:
         update:
+          error: S'ha produït un error actualitzant els permisos d'aquest component.
           success: Permisos actualitzats correctament.
       components:
         create:
@@ -275,6 +293,31 @@ ca:
       exports:
         export_as: "%{name} com a %{export_format}"
         notice: La teva exportació està actualment en curs. Rebràs un correu electrònic quan hagi finalitzat.
+      filters:
+        category_id_eq:
+          label: Categoria
+        filter_label: Filtre
+        officialized_at_null:
+          label: Estat
+          values:
+            'false': Oficialitza
+            'true': No oficialitzada
+        private_space_eq:
+          label: Privat
+          values:
+            'false': Públic
+            'true': Privat
+        published_at_null:
+          label: Publicat
+          values:
+            'false': Publicat
+            'true': Despublicat
+        scope_id_eq:
+          label: Àmbit
+        search_label: Cerca
+        search_placeholder:
+          name_or_nickname_or_email_cont: Buscar %{collection} per correu electrònic, nom o àlies.
+          title_cont: Buscar %{collection} per títol.
       help_sections:
         error: S'ha produït un error en actualitzar les seccions d'ajuda
         form:
@@ -454,6 +497,7 @@ ca:
           not_sent: No enviat
           participants: 'participants '
           segmented_to: 'Segmentat a %{subject}: '
+          subscribed_count: 'Subscrites:'
           title: Butlletins
         new:
           save: Desar
@@ -466,6 +510,7 @@ ca:
           followers_help: Envia el butlletí a tots els usuaris confirmats que segueixin qualsevol dels espais participatius seleccionats a la llista.
           none: Cap
           participants_help: Envia el butlletí a tots els usuaris confirmats que hagin participat a qualsevol dels espais participatius de la llista.
+          recipients_count: Aquest bulleti s'enviarà a <strong id='recipients_count'>%{count}</strong> participants.
           scopes_help: Envia el butlletí als usuaris que tinguin qualsevol dels àmbits seleccionats activat als paràmetres "Els meus interessos" del seu compte.
           select_scopes: Filtra per als usuaris que hagin activat qualsevol àmbit seleccionat a la configuració "Els meus interessos" del seu compte.
           select_spaces: Selecciona espais per segmentar el butlletí
@@ -474,7 +519,7 @@ ca:
           send_to_followers: Envia a totes les seguidores
           send_to_participants: Envia a totes les participants
           title: Selecciona les destinatàries a lliurar
-          warning: "<strong>Atenció:</strong> Aquest butlletí només s'enviarà als usuaris que hagin activat <em>Vull rebre butlletins</em> a la configuració de les notificacions."
+          warning: "<strong>Atenció:</strong> Aquest butlletí només s'enviarà a les participants que hagin activat <em>Vull rebre butlletins</em> a la configuració de les notificacions."
         send:
           no_recipients: No hi ha destinatàries per a aquesta selecció
         show:
@@ -512,18 +557,12 @@ ca:
           actions: Accions
           badge: Insígnia
           created_at: Creat el
-          filter:
-            all: Todas
-            not_officialized: No oficialitzada
-            officialized: Oficialitzada
-          filter_by: Filtra per
           name: Nom
           nickname: Àlies
           not_officialized: No oficialitzada
           officialize: Oficialitza
           officialized: Oficialitzada
           reofficialize: Torna a oficialitzar
-          search: Cerca
           status: Estat
           unofficialize: Des-oficialitzar
         new:
@@ -538,6 +577,7 @@ ca:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          rich_text_editor_in_public_views_help: En algunes àrees de text, les participants podran inserir algunes etiquetes HTML amb l'editor de text enriquit.
           social_handlers: Social
           twitter: Twitter
           url: URL
@@ -572,10 +612,19 @@ ca:
           error: S'ha produït un error en eliminar una participant participada d'aquest espai participatiu.
           success: L'accés de la participant a l'espai de participació privat s'ha eliminat correctament.
         index:
+          import_via_csv: Importar via csv
           title: Participant de l'espai participatiu privat
         new:
           create: Crear
           title: Nova participant de l'espai de participació privat.
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: S'ha produït un error en llegir el fitxer CSV.
+          success: Arxiu CSV carregat correctament, s'està enviant un missatge de correu electrònic d'invitació als participants. Pot tardar una mica.
+        new:
+          explanation: Carrega el teu arxiu CSV. Ha de tenir dues columnes amb l'adreça de correu electrònic a la primera columna i el nom a la segona (adreça electrònica, nom) dels usuaris que vulguis afegir a l'espai de participació, sense capçaleres.
+          title: Puja el fitxer CSV
+          upload: Carrega
       resource_permissions:
         edit:
           submit: Enviar
@@ -675,10 +724,10 @@ ca:
           invalid: S'ha produït un error en llegir el fitxer CSV.
           success: El fitxer CSV s'ha pujat correctament, estem verificant que els grups coincideixin amb els criteris. Això pot trigar una estona.
         reject:
-          invalid: S'ha produït un error en rebutjar aquest grup.
+          invalid: S'ha produït un error al rebutjar aquest grup.
           success: El grup s'ha rebutjat correctament
         verify:
-          invalid: S'ha produït un error en rebutjar aquest grup.
+          invalid: S'ha produït un error al verificar aquest grup.
           success: Grup verificat correctament
       user_groups:
         index:

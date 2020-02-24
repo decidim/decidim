@@ -22,7 +22,7 @@
             <% current_participatory_space.categories.first_class.each do |category| %>
               <tr>
                 <td>
-                  <%= link_to translated_attribute(category.name), edit_category_path(current_participatory_space, category) %><br />
+                  <%= link_to translated_attribute(category.name), edit_category_path(current_participatory_space, category) %><br>
                 </td>
                 <td class="table-list__actions">
                   <% if allowed_to? :update, :category, category: category %>
@@ -43,7 +43,7 @@
               <% category.subcategories.each do |subcategory| %>
                 <tr class="extra__table-list__subcategory">
                   <td>
-                    <%= link_to translated_attribute(subcategory.name), edit_category_path(current_participatory_space, subcategory) %><br />
+                    <%= link_to translated_attribute(subcategory.name), edit_category_path(current_participatory_space, subcategory) %><br>
                   </td>
                   <td class="table-list__actions">
                   <% if allowed_to? :update, :category, category: subcategory %>

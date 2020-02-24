@@ -13,6 +13,7 @@ Decidim::Core::Engine.routes.draw do
                confirmations: "decidim/devise/confirmations",
                registrations: "decidim/devise/registrations",
                passwords: "decidim/devise/passwords",
+               unlocks: "decidim/devise/unlocks",
                omniauth_callbacks: "decidim/devise/omniauth_registrations"
              }
 

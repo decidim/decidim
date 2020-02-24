@@ -22,6 +22,8 @@ ca:
             announcement: Avís
           step:
             allow_answers: Permetre respostes
+            allow_unregistered: Permet a usuàries no registrades contestar l'enquesta
+            allow_unregistered_help: Si s'activa, no caldrà iniciar sessió per a contestar l'enquesta. Això pot comportar que les dades siguin poc fiables i serà més vulnerable a atacs automatitzats. Feu-ho servir amb cura!
             announcement: Avís
     events:
       surveys:
@@ -53,4 +55,5 @@ ca:
       surveys:
         answer:
           invalid: S'ha produït un error en respondre l'enquesta.
+          spam_detected: Hi ha hagut un problema contestant el formulari. Potser has estat massa ràpid, ho pots tornar a intentar?
           success: Enquesta resposta correctament.

@@ -69,8 +69,6 @@ ca:
     account:
       data_portability_export:
         file_no_exists: L'arxiu no existeix
-        invalid_token: El token proporcionat no és vàlid.
-        no_token: Token no proporcionat
         notice: La descàrrega de les teves dades està en curs. Rebràs un correu electrònic quan estigui completa.
       delete:
         alert: Aquesta acció no es pot desfer. Si elimines el teu compte, no podràs iniciar sessió.
@@ -90,6 +88,9 @@ ca:
         error: S'ha produït un error en actualitzar el teu compte.
         success: El teu compte s'ha actualitzat correctament.
         success_with_email_confirmation: El teu compte s'ha actualitzat correctament. Rebràs un correu electrònic per confirmar la teva nova adreça de correu electrònic.
+    admin:
+      actions:
+        cancel: Cancel·la
     admin_log:
       area:
         create: "%{user_name} ha creat l'àrea %{resource_name}"
@@ -116,6 +117,7 @@ ca:
         update: "%{user_name} ha actualitzat la configuració de l'organització"
       participatory_space_private_user:
         create: "%{user_name} ha convidat %{resource_name} com a participant privada"
+        create_via_csv: "%{user_name} ha convidat %{resource_name} via csv per a ser un participant privat"
         delete: "%{user_name} ha eliminat %{resource_name} com a participant privada"
       scope:
         create: "%{user_name} ha creat l'àmbit %{resource_name}"
@@ -137,6 +139,8 @@ ca:
         reject: "%{user_name} ha rebutjat la verificació del grup %{resource_name}"
         verify: "%{user_name} ha verificat el grup %{resource_name}"
         verify_via_csv: "%{user_name} ha verificat el grup %{resource_name} a través d'un fitxer CSV"
+    admin_terms_of_use:
+      default_body: "<h2>TERMES D'ÚS PER ADMINS</h2><p>Donem per fet que has rebut l'habitual explicació de l'administrador del sistema local. En general es redueix a aquestes tres coses:</p><ol><li>Respectar la privadesa dels altres.</li><li>Penseu abans de fer clic.</li><li>A un gran poder l'hi correspon gran responsabilitat.</li></ol>"
     amendments:
       accepted:
         error: S'ha produït un error en acceptar l'esmena.
@@ -156,15 +160,15 @@ ca:
         title: Esmenes similars
       created:
         error: S'ha produït un error durant la creació de l’esmena.
-        success: El projecte d’esmena ha estat creat amb èxit.
+        success: L'esborrany d’esmena ha estat creat amb èxit.
       destroy_draft:
-        error: S'ha produït un error en suprimir l'esborrany de la proposta.
-        success: L'esborrany de proposta s'ha eliminat correctament.
+        error: S'ha produït un error en suprimir l'esborrany de l'esmena.
+        success: L'esborrany d'esmena s'ha eliminat correctament.
       edit_draft:
         discard: Descarta aquest esborrany
-        discard_confirmation: Estàs segur de que vols descartar l'esborrany d'aquesta proposta?
+        discard_confirmation: Estàs segur de que vols descartar l'esborrany d'aquesta esmena?
         send: Vista prèvia
-        title: Edita l'esmena del Projecte
+        title: Edita l'esborrany d'esmena
       emendation:
         actions:
           button_accept: Acceptar
@@ -172,21 +176,21 @@ ca:
           help_text: Revisa els canvis i accepta o rebutja aquesta esmena. S'enviarà una notificació a la seva autora(es).
         announcement:
           accepted: |-
-            Aquesta esmena per al %{amendable_type} %{amendable_link} ha estat acceptada a <strong>%{announcement_date}</strong>.
+            Aquesta esmena per la %{amendable_type} %{proposal_link} ha estat acceptada el <strong>%{date}</strong>.
           evaluating: |-
-            Aquesta esmena per a %{amendable_type} %{amendable_link} está essent avaluada.
+            L' esmena per a %{amendable_type} %{proposal_link} está essent avaluada.
           promoted: Promocionar a %{amendable_type}.
-          rejected: Aquesta esmena de la %{amendable_type} %{amendable_link} ha estat rebutjada el <strong>%{announcement_date}</strong>.
+          rejected: L' esmena de la %{amendable_type} %{proposal_link} ha estat rebutjada el <strong>%{date}</strong>.
           withdrawn: |-
-            Aquesta esmena de la %{amendable_type} %{amendable_link} ha estat retirada per l'autora.
+            L' esmena de la %{amendable_type} %{proposal_link} ha estat retirada per l'autora.
       new:
         amendment_author: Autora de l'esmena
-        send: Crea
+        send: Crear
         title: Crear esborrany d'esmena
       preview_draft:
         modify: Modificar
-        publish: Publica
-        title: Publica l'esmena del projecte
+        publish: Publicar
+        title: Publicar l'esborrany d'esmena
       promoted:
         error: S'ha produït un error en publicar l'esmena com una nova proposta
         success: L'esmena s'ha publicat com una nova proposta correctament
@@ -202,20 +206,20 @@ ca:
         help_text: Esteu revisant una esmena al %{model_name}
         send: Accepta l'esmena
       update_draft:
-        error: Hi va haver un problema en actualitzar el projecte d'esmena.
-        success: Projecte d'esmena actualitzat amb èxit.
+        error: S'ha produït un error en actualitzar l'esborrany de l'esmena.
+        success: Esborrany d'esmena actualitzat correctament.
       visibility_options:
         all: Les esmenes són visibles per a tothom
         participants: Les esmenes són visibles únicament per als seus autors
       withdraw:
         error: S'ha produït un error en retirar l'esmena
-        success: L'esmena ha estat retirada amb èxit
+        success: L'esmena s'ha retirat correctament
       wizard_step_form:
         steps:
           '1': Crea la teva esmena
-          '2': Compareu la vostra esmena
-          '3': Completeu la vostra esmena
-          '4': Publiqueu la vostra esmena
+          '2': Compara la teva esmena
+          '3': Completa la teva esmena
+          '4': Publica la teva esmena
     anonymous_user: Anònim
     application:
       collection:
@@ -227,6 +231,7 @@ ca:
       photos:
         related_photos: Imatges relacionades
     author:
+      avatar: Avatar
       comments:
         one: comentari
         other: comentaris
@@ -317,7 +322,7 @@ ca:
             comments_blocked: Comentaris bloquejats
             dummy_step_attribute_1: Atribut de fase de prova 1
             dummy_step_attribute_2: Atribut de fase de prova 2
-            dummy_step_translatable_text: Text de passa traduïble de proves
+            dummy_step_translatable_text: Text de fase traduïble de proves
     contact: Contacte
     content_blocks:
       footer_sub_hero:
@@ -360,7 +365,7 @@ ca:
           email_already_exists: Un altre compte està utilitzant la mateixa adreça de correu electrònic
         new:
           complete_profile: Completa el perfil
-          nickname_help: El teu àlies (@sobrenom) a %{organization}
+          nickname_help: El teu àlies a %{organization}
           sign_up: Si us plau, completa el teu perfil
           subtitle: Si us plau, omple el següent formulari per tal de completar la teva inscripció
           username_help: Nom públic que apareix als teus missatges. Amb l'objectiu de garantir l'anonimat, pot ser qualsevol nom.
@@ -369,7 +374,7 @@ ca:
           already_have_an_account?: Ja tens un compte?
           newsletter: Vull rebre un butlletí ocasional amb informació rellevant
           newsletter_title: Permís de contacte
-          nickname_help: El teu àlies (@sobrenom) a %{organization}
+          nickname_help: El teu àlies a %{organization}
           password_help: "%{minimun_characters} caràcters mínim, no ha de ser massa comú (per exemple 123456) i ha de ser diferent del teu nom d'usuari i la teva adreça de correu electrònic."
           sign_in: Entra
           sign_up: Registra't
@@ -545,7 +550,7 @@ ca:
           notification_title: El <a href="%{resource_path}"> perfi l</a> de %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
     export_mailer:
       data_portability_export:
-        click_button: Fes clic al botó següent per descarregar les teves dades. <br/> tindràs disponible el fitxer fins a %{date}.
+        click_button: 'Fes clic al botó següent per descarregar les teves dades. <br/> tindràs disponible el fitxer fins a %{date}.'
         download: Descarregar
       export:
         ready: S'adjunta una versió comprimida de l'exportació.
@@ -583,21 +588,14 @@ ca:
       current_image: Imatge actual
       default_image: Imatge predeterminada
       errors:
+        decidim/user:
+          password: La contrasenya és massa curta.
+          password_confirmation: La confirmació de la contrasenya no coincideix amb la contrasenya.
         error: Hi ha un error en aquest camp.
       remove_this_file: Eliminar aquest arxiu
     gamification:
       all_badges_link: Veure totes les insígnies disponibles.
       badges:
-        continuity:
-          conditions:
-            - Ve aquí sovint
-          description: Aquesta insígnia es concedeix al visitar la plataforma de forma regular. Ens encanta tenir-te per aquí!
-          description_another: Aquesta participant s'ha connectat durant %{score} dies consecutius en algun moment.
-          description_own: T'has connectat durant %{score} dies consecutius en algun moment.
-          name: Continuïtat
-          next_level_in: Connecta't durant %{score} dies consecutius per arribar al següent nivell!
-          unearned_another: Aquesta participant no ha iniciat sessió durant més d'un dia consecutiu.
-          unearned_own: No t'has connectat més d'un dia consecutiu.
         followers:
           conditions:
             - Ser activa i seguir a altres persones segurament farà que altres persones et segueixin.
@@ -1054,8 +1052,8 @@ ca:
       wizard_aside:
         back: Enrere
       wizard_header:
-        see_steps: veure les fases
-        step_of: Fase %{current_step} de %{total_steps}
+        see_steps: veure els passos
+        step_of: Pas %{current_step} de %{total_steps}
   devise:
     confirmations:
       confirmed: La teva adreça de correu electrònic s'ha confirmat correctament.
@@ -1208,14 +1206,15 @@ ca:
       cycle_detected: un dels pares de l'àmbit no pot ser un dels seus descendents
       expired: ha caducat, si us plau, sol·licita'n un de nou
       file_size_is_less_than_or_equal_to: la mida del fitxer ha de ser menor que o igual a %{count}
+      invalid_time_zone: no és una zona horària vàlida
       long_words: conté paraules massa llargues (més de 35 caràcters)
       must_start_with_caps: ha de començar amb una lletra majúscula
       nesting_too_deep: no pot estar dins d'una subcategoria
-      not_found: No trobat
+      not_found: No es pot trobar. Us heu inscrit prèviament?
       not_locked: No estava bloquejat
       not_saved:
-        one: 'Un error ha impedit que es guardés aquest %{resource}:'
-        other: "%{count} errors han impedit que es guardés aquest %{resource}:"
+        one: 'S''ha produït un error en processar la teva sol·licitud:'
+        other: 'S''han produït múltiples errors en processar la vostra sol·licitud:'
       too_many_marks: Estàs fent servir massa signes de puntuació consecutius (p. ex. i?)
       too_much_caps: Estàs utilitzant massa lletres majúscules (més del 25% del text)
       too_short: És massa curt (menys de 15 caràcters)
@@ -1307,18 +1306,24 @@ ca:
       day_of_year: "%d/%m/%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      default: "%a, %d %b %Y %H:%M:%S %z"
       devise:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      long: "%B %d, %Y %H:%M"
+      short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
     directions:
       left: Esborrats
       right: Addicions
     dropdown:
+      choose_diff_view_html: 'Vista HTML:'
       choose_diff_view_mode: 'Mode de vista de comparació:'
+      option_escaped: Escapada
       option_split: Costat per costat
+      option_unescaped: No escapada
       option_unified: Unificat
   views:
     pagination:

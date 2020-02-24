@@ -9,7 +9,7 @@
     </div>
 
     <div class="row column hashtags__container">
-      <%= form.text_area :body, rows: 10, class: "js-hashtags", hashtaggable: true, value: form_presenter.body(extras: false).strip %>
+      <%= form.editor :body, hashtaggable: true, value: form_presenter.body(extras: false).strip %>
     </div>
 
     <% if @form.component_automatic_hashtags.any? %>
@@ -66,6 +66,30 @@
     <% if current_participatory_space.has_subscopes? %>
       <div class="row column">
         <%= scopes_picker_field form, :scope_id %>
+      </div>
+    <% end %>
+
+    <% if component_settings.attachments_allowed? %>
+      <div class="row column gallery__container">
+        <fieldset>
+          <legend><%= t(".gallery_legend") %></legend>
+
+          <% if @form.photos.any? %>
+            <% @form.photos.each do |photo| %>
+              <div class="callout gallery__item" data-closable>
+                <%= image_tag photo.thumbnail_url, class: "thumbnail", alt: photo.file.file.filename %>
+                <%= form.hidden_field :photos, multiple: true, value: photo.id, id: "photo-#{photo.id}" %>
+                <button class="close-button" aria-label="Close" type="button" data-close>
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            <% end %>
+          <% end %>
+
+          <div class="row column">
+            <%= form.file_field :add_photos, multiple: true, label: t(".add_images") %>
+          </div>
+        </fieldset>
       </div>
     <% end %>
 

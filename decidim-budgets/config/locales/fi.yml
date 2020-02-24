@@ -92,7 +92,7 @@ fi:
             other: "%{count} suunnitelmaa"
         filters:
           category: Aihepiiri
-          category_prompt: Valitse aihepiiri
+          scope: Teema
           search: Haku
         filters_small_view:
           close_modal: Sulje ikkuna
@@ -105,7 +105,7 @@ fi:
           remove: Poista
           selected_projects:
             one: suunnitelma valittu
-            other: projektia valittu
+            other: suunnitelmaa valittu
           view: Näytä
         project:
           add: Lisää
@@ -135,7 +135,7 @@ fi:
             vote_threshold_percent: Äänestyksen kynnysprosentti
           step:
             announcement: Ilmoitus
-            comments_blocked: Kommentit on estetty
+            comments_blocked: Kommentointi estetty
             show_votes: Näytä äänet
             votes_enabled: Äänestys on käytössä
     orders:

@@ -7,11 +7,12 @@ module Decidim
       #
       class PartnersController < Decidim::Conferences::Admin::ApplicationController
         include Concerns::ConferenceAdmin
+        include Decidim::Paginable
 
         def index
           enforce_permission_to :index, :partner
 
-          @partners = collection.page(params[:page]).per(15)
+          @partners = paginate(collection)
         end
 
         def new

@@ -1,0 +1,79 @@
+"no":
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nytt blogg-innlegg
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Innlegg
+        other: Innlegg
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Er du sikker på at du vil slette dette innlegget?
+        destroy: Slett
+        edit: Editar
+        new: Nytt innlegg
+        title: Handlinger
+      admin:
+        models:
+          components:
+            body: Tekst
+          post:
+            name: Innlegg
+        posts:
+          create:
+            invalid: Det oppstod et problem med å opprette dette innlegget
+            success: Innlegget ble opprettet
+          destroy:
+            success: Innlegget ble slettet
+          edit:
+            save: Oppdater
+          index:
+            title: Innlegg
+          new:
+            create: Opprett
+            title: Opprett innlegg
+          update:
+            invalid: Det oppstod et problem med å lagre dette innlegget.
+            success: Innlegget ble lagret
+      last_activity:
+        new_post_at_html: "<span>Nytt innlegg på %{link}</span>"
+      models:
+        post:
+          fields:
+            author: Forfatter
+            body: Tekst
+            created_at: Opprettet på
+            title: tittel
+      posts:
+        show:
+          view: Vis
+        sidebar_blog:
+          comments: kommentarer
+          most_commented_posts: Mest kommenterte innlegg
+      read_more: Les mer
+    components:
+      blogs:
+        name: Blogg
+        settings:
+          global:
+            announcement: Kunngjøring
+            comments_enabled: Kommentarer aktivert
+          step:
+            announcement: Kunngjøring
+            comments_blocked: Kommentarer blokkert
+    events:
+      blogs:
+        post_created:
+          email_intro: Innlegget "%{resource_title}" er publisert til "%{participatory_space_title}" som du følger.
+          email_outro: Du har mottatt denne varslingen fordi du følger "%{participatory_space_title}". Du kan slutte å følge den fra den forrige lenken.
+          email_subject: Nytt innlegg publisert i %{participatory_space_title}
+          notification_title: Innlegget <a href="%{resource_path}">%{resource_title}</a> er blitt publisert til %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Innlegg
+    participatory_processes:
+      statistics:
+        posts_count: Innlegg

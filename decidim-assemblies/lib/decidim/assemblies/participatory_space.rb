@@ -10,9 +10,12 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
 
   participatory_space.permissions_class_name = "Decidim::Assemblies::Permissions"
 
+  participatory_space.query_type = "Decidim::Assemblies::AssemblyType"
+
   participatory_space.register_resource(:assembly) do |resource|
     resource.model_class_name = "Decidim::Assembly"
     resource.card = "decidim/assemblies/assembly"
+    resource.searchable = true
   end
 
   participatory_space.context(:public) do |context|
@@ -67,8 +70,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         composition: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(3)
         end,
-        assembly_type: "others",
-        assembly_type_other: Decidim::Faker::Localized.word,
+        assembly_type: Decidim::AssembliesType.create!(organization: organization, title: Decidim::Faker::Localized.word),
         creation_date: 1.day.from_now,
         created_by: "others",
         created_by_other: Decidim::Faker::Localized.word,
@@ -149,6 +151,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
       )
 
       [assembly, child].each do |current_assembly|
+        current_assembly.add_to_index_as_search_resource
         attachment_collection = Decidim::AttachmentCollection.create!(
           name: Decidim::Faker::Localized.word,
           description: Decidim::Faker::Localized.sentence(5),

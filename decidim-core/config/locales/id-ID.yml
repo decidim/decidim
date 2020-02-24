@@ -58,8 +58,6 @@ id:
     account:
       data_portability_export:
         file_no_exists: File tidak ada
-        invalid_token: Token yang diberikan tidak valid.
-        no_token: Tidak ada token yang disediakan
         notice: Data Anda sedang dalam proses. Anda akan menerima email setelah selesai.
       delete:
         alert: Tindakan ini tidak bisa dibatalkan. Jika Anda menghapus akun Anda, Anda tidak akan dapat masuk.
@@ -308,7 +306,6 @@ id:
           email_already_exists: Akun lain menggunakan alamat email yang sama
         new:
           complete_profile: Profil lengkap
-          nickname_help: Pengidentifikasi singkat dan unik Anda di %{organization}
           sign_up: Silakan lengkapi profil Anda
           subtitle: Silakan isi formulir berikut untuk menyelesaikan pendaftaran
           username_help: Nama publik yang muncul di pos Anda. Dengan tujuan menjamin anonimitas, dapat berupa nama apa pun.
@@ -317,7 +314,6 @@ id:
           already_have_an_account?: Sudah memiliki akun?
           newsletter: Terima sesekali newsletter dengan informasi yang relevan
           newsletter_title: Izin kontak
-          nickname_help: Pengidentifikasi singkat dan unik Anda di %{organization}
           sign_in: Masuk
           sign_up: Daftar
           sign_up_as:
@@ -496,7 +492,7 @@ id:
           notification_title: Halaman <a href="%{resource_path}">profil</a> dari %{name} (%{nickname}), yang Anda ikuti, telah diperbarui.
     export_mailer:
       data_portability_export:
-        click_button: Klik tombol berikutnya untuk mengunduh data Anda. <br/> Anda akan memiliki file yang tersedia hingga %{date}.
+        click_button: 'Klik tombol berikutnya untuk mengunduh data Anda. <br/> Anda akan memiliki file yang tersedia hingga %{date}.'
         download: Unduh
       export:
         ready: Silakan temukan terlampir versi zip dari ekspor Anda.
@@ -539,16 +535,6 @@ id:
     gamification:
       all_badges_link: Lihat semua lencana yang tersedia.
       badges:
-        continuity:
-          conditions:
-            - Sering ke sini
-          description: Lencana ini diberikan saat Anda mengunjungi platform dengan cara biasa. Kami suka ada Anda di sini!
-          description_another: Pengguna ini telah terhubung selama %{score} hari berturut-turut di beberapa titik.
-          description_own: Anda telah terhubung selama %{score} hari berturut-turut di beberapa titik.
-          name: Kontinuitas
-          next_level_in: Terhubung selama %{score} hari berturut-turut untuk mencapai level berikutnya!
-          unearned_another: Pengguna ini belum masuk selama lebih dari satu hari berturut-turut.
-          unearned_own: Anda belum terhubung selama lebih dari satu hari berturut-turut.
         followers:
           conditions:
             - Menjadi aktif dan mengikuti orang lain pasti akan membuat orang lain mengikuti Anda.
@@ -1154,10 +1140,7 @@ id:
       long_words: mengandung kata-kata yang terlalu panjang (lebih dari 35 karakter)
       must_start_with_caps: harus dimulai dengan huruf kapital
       nesting_too_deep: tidak dapat berada di dalam suatu subkategori
-      not_found: tidak ditemukan
       not_locked: tidak terkunci
-      not_saved:
-        other: "%{count} kesalahan melarang %{resource} ini disimpan:"
       too_many_marks: menggunakan terlalu banyak tanda baca (misalnya! dan?)
       too_much_caps: menggunakan terlalu banyak huruf besar (lebih dari 25% dari teks)
       too_short: terlalu pendek (kurang dari 15 karakter)

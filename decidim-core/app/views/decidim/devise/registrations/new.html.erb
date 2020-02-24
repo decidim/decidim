@@ -34,9 +34,9 @@
               </div>
             </div>
 
-            <div class="user-person">
+            <div class="user-nickname">
               <div class="field">
-                <%= f.text_field :nickname, help_text: t(".nickname_help", organization: current_organization.name) %>
+                <%= f.text_field :nickname, help_text: t(".nickname_help", organization: current_organization.name), prefix: { value: "@", small: 1, large: 1 } %>
               </div>
             </div>
 

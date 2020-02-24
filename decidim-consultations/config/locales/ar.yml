@@ -19,6 +19,8 @@ ar:
         hashtag: رابطة هاشتاق
         hero_image: الصورة الرئيسية
         i_frame_url: عنوان URL لنظام التصويت الخارجي
+        max_votes: الحد الأقصى لعدد الأصوات
+        min_votes: الحد الأدنى لعدد الأصوات
         origin_scope: نطاق
         origin_title: الأصل
         origin_url: العنوان الشبكي الأصلي
@@ -32,6 +34,8 @@ ar:
         title: عنوان
         vote: نظام التصويت الخارجي
         what_is_decided: ما الذي تقرر
+      response:
+        decidim_consultations_response_group_id: الفريق
     errors:
       vote:
         decidim_consultations_response_id:
@@ -69,9 +73,11 @@ ar:
   decidim:
     admin:
       actions:
+        back_to_responses: العودة إلى الأجوبة
         new_consultation: استشارة جديدة
         new_question: سؤال جديد
         new_response: استجابة جديدة
+        new_response_group: فريق جديد
         publish_results: نشر النتائج
         unpublish_results: نتائج غير منشورة
       consultation_publications:
@@ -103,6 +109,9 @@ ar:
         new:
           create: إنشاء
           title: استشارة جديدة
+        results:
+          participants: "%{count} مشارِكين"
+          total_votes: 'المجموع: %{count} أصوات'
         update:
           error: كانت هناك مشكلة في تحديث هذه المشاورة.
           success: تم تحديث المشاورة بنجاح.
@@ -111,8 +120,10 @@ ar:
         consultations_submenu:
           info: معلومات
           questions: الأسئلة
+          results: النتائج
         questions_submenu:
           components: المكونات
+          configuration: الإعدادا
           consultation: تشاور
           info: معلومات
           responses: استجابات
@@ -144,6 +155,7 @@ ar:
         response:
           fields:
             created_at: أنشئت في
+            response_group: الفريق
             title: عنوان
           name:
             zero: استجابات
@@ -152,6 +164,9 @@ ar:
             few: استجابات
             many: استجابات
             other: استجابات
+      question_configuration:
+        form:
+          title: الإعداد المتقدّم
       question_publications:
         create:
           error: حدثت مشكلة في نشر هذا السؤال.
@@ -178,6 +193,13 @@ ar:
         update:
           error: حدثت مشكلة أثناء تحديث هذا السؤال.
           success: تم تحديث السؤال بنجاح.
+      response_groups:
+        edit:
+          update: تحديث
+        form:
+          title: معلومات عامة
+        new:
+          create: إنشاء
       responses:
         create:
           error: كانت هناك مشكلة في إنشاء استجابة جديدة.
@@ -199,6 +221,7 @@ ar:
         consultations: المشاورات
         questions: الأسئلة
         responses: استجابات
+        results: النتائج
     consultations:
       admin:
         content_blocks:
@@ -267,9 +290,20 @@ ar:
           few: يصوت من
           many: يصوت من
           other: يصوت من
+      question_multiple_votes:
+        results_rules:
+          total_participants: لقد شارك مجموع يقدّر بـ %{count} أشخاص في التصويت.
+        voting_rules:
+          title: 'التصويت خاضع للقواعد التالية:'
+          vote_limit:
+            description: يمكنك التصويت إلى غاية %{limit} خيارات.
+            left: متبقي
+            votes: أصوات
       question_votes:
         create:
           error: كانت هناك مشكلة في التصويت على السؤال
+          title_error: خطأ في التصويت!
+          title_success: تم تسجيل التصويت بنجاح
       regular_questions:
         title: أسئلة لهذا التشاور
       show:
@@ -314,6 +348,7 @@ ar:
         already_voted: صوت بالفعل
         already_voted_hover: إلغاء التصويت
         starting_from: بدءا من %{date}
+        verification_required: تحقق من حسابك قبل التصويت
         vote: تصويت
       vote_modal:
         contextual_help: من فضلك ، حدد خيار.
@@ -323,6 +358,10 @@ ar:
         confirm: تؤكد
         contextual_help: يرجى تأكيد الخيار المحدد.
         title: 'التشاور: تأكيد التصويت'
+    resources:
+      consultations:
+        actions:
+          vote: صوِّت
   layouts:
     decidim:
       admin:
@@ -336,3 +375,4 @@ ar:
         unfold: كشف
       question_header:
         back_to_consultation: انظر جميع المشاورات
+        back_to_question: العودة إلى السؤال

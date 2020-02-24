@@ -22,7 +22,9 @@ fi:
         participatory_structure: Miten päätetään
         promoted: Korostettu
         published_at: Julkaisuaika
+        related_process_ids: Liittyvät prosessit
         scope_id: Teema
+        scope_type_max_depth_id: Teema-suodattimen syvyys
         scopes_enabled: Teemat käytössä
         short_description: Lyhyt kuvaus
         show_statistics: Näytä tilastot
@@ -48,6 +50,12 @@ fi:
         email: Sähköposti
         name: Nimi
         role: Rooli
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Virheellinen asiakirjan tyyppi. Hyväksytyt tiedostomuodot ovat: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Vaihe aktivoitu
       decidim/participatory_process_step_changed_event: Vaihe muutettu
@@ -72,8 +80,9 @@ fi:
         duplicate: Kopioi
         edit: Muokkaa
         filter:
-          all: Näytä kaikki prosessit
+          all_processes: Näytä kaikki prosessit
           process_groups: Prosessiryhmät
+        import_process: Tuo
         new_process: Uusi prosessi
         new_process_group: Uusi prosessiryhmä
         new_process_step: Uusi vaihe
@@ -147,6 +156,14 @@ fi:
         update:
           error: Osallisuusprosessien ryhmän päivitys epäonnistui.
           success: Osallisuusprosessien ryhmän päivitys onnistui.
+      participatory_process_imports:
+        create:
+          error: Virhe tuotaessa tätä osallisuusprosessia.
+          success: Osallisuusprosessi tuotu onnistuneesti.
+        new:
+          import: Tuo
+          select: Valitse, mitkä tiedot haluat tuoda
+          title: Tuo osallisuusprosessi
       participatory_process_publications:
         create:
           error: Osallisuusprosessin julkaisu epäonnistui.
@@ -236,6 +253,9 @@ fi:
         publish: "%{user_name} julkaisi osallisuusprosessin %{resource_name}"
         unpublish: "%{user_name} muutti osallisuusprosessin %{resource_name} julkaisemattomaksi"
         update: "%{user_name} päivitti osallisuusprosessin %{resource_name}"
+      participatory_process_group:
+        create: "%{user_name} loi osallisuusprosessien ryhmän %{resource_name}"
+        update: "%{user_name} päivitti osallisuusprosessien ryhmää %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} aktivoi vaiheen %{resource_name} osallisuusprosessissa %{space_name}"
         create: "%{user_name} loi vaiheen %{resource_name} osallisuusprosessissa %{space_name}"
@@ -288,6 +308,10 @@ fi:
         participatory_process_copies:
           form:
             slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Lisää asiakirja
+            slug_help: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Käytä osittaisia ​​polkuja, ei kokonaisia URL-osoitteita. Hyväksyy kirjaimet, numerot, väliviivat ja kauttaviivat. Arvon täytyy alkaa kirjaimella. Jos asetusta ei ole asetettu, painiketta ei näytetä. Esimerkki: %{url}'
@@ -300,6 +324,8 @@ fi:
             images: Kuvat
             metadata: Metatiedot
             other: Muut
+            related_processes: Liittyvät prosessit
+            scope_type_max_depth_help: Rajaa teemasuodattimen syvyyttä; suodatin näyttää yleisestä teemasta valittuun teematyyppiin saakka.
             select_an_area: Valitse alue
             select_process_group: Valitse prosessiryhmä
             slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
@@ -344,7 +370,7 @@ fi:
             all: Kaikki
             past: Menneet
             upcoming: Tulevat
-          see: Katso
+          see: Näytä
         index:
           loading: Ladataan tulokset...
       show:
@@ -355,6 +381,7 @@ fi:
         participatory_scope: Mitä päätetään
         participatory_structure: Miten päätetään
         private_space: Tämä on yksityinen prosessi
+        related_processes: Liittyvät prosessit
         scope: Teema
         start_date: Alkamispäivä
         target: Kuka osallistuu

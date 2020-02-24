@@ -24,16 +24,20 @@ module Decidim
         broadcast(:ok)
       end
 
+      attr_reader :form
+
       private
 
       def answer_questionnaire
         Answer.transaction do
-          @form.answers.each do |form_answer|
+          form.answers.each do |form_answer|
             answer = Answer.new(
               user: @current_user,
               questionnaire: @questionnaire,
               question: form_answer.question,
-              body: form_answer.body
+              body: form_answer.body,
+              session_token: form.context.session_token,
+              ip_hash: form.context.ip_hash
             )
 
             form_answer.selected_choices.each do |choice|

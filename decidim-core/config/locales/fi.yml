@@ -69,8 +69,6 @@ fi:
     account:
       data_portability_export:
         file_no_exists: Tiedostoa ei ole olemassa
-        invalid_token: Varmennustunniste ei kelpaa.
-        no_token: Varmennustunniste puuttuu
         notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
       delete:
         alert: Tätä toimintoa ei voi peruuttaa. Jos poistat käyttäjätilisi, et voi enää kirjautua sisään.
@@ -90,6 +88,9 @@ fi:
         error: Tilisi päivitys epäonnistui.
         success: Tilisi päivitys onnistui.
         success_with_email_confirmation: Tilisi päivittäminen onnistui. Sähköpostiisi on lähetetty viesti uuden sähköpostiosoitteesi vahvistamiseksi.
+    admin:
+      actions:
+        cancel: Peruuta
     admin_log:
       area:
         create: "%{user_name} loi %{resource_name} alueen"
@@ -116,6 +117,7 @@ fi:
         update: "%{user_name} päivitti organisaation asetuksia"
       participatory_space_private_user:
         create: "%{user_name} kutsui %{resource_name} yksityiseksi käyttäjaksi"
+        create_via_csv: "%{user_name} kutsui yksityisen osallistujan %{resource_name} CSV-tuonnin kautta"
         delete: "%{user_name} poisti yksityisen käyttäjän %{resource_name}"
       scope:
         create: "%{user_name} loi %{resource_name} teeman"
@@ -137,6 +139,8 @@ fi:
         reject: "%{user_name} hylkäsi käyttäjäryhmän %{resource_name} vahvistaminen"
         verify: "%{user_name} vahvisti käyttäjäryhmän %{resource_name}"
         verify_via_csv: "%{user_name} vahvisti käyttäjäryhmän %{resource_name} CSV-tiedoston avulla"
+    admin_terms_of_use:
+      default_body: "<h2>HALLINTAKÄYTTÄJÄN KÄYTTÖEHDOT</h2><p>Oletamme, että olet saanut järjestelmänvalvojalta koulutuksen järjestelmän turvalliseen hallintakäyttöön. Usein siinä korostuu seuraavat asiat:</p><ol><li>Kunnioita muiden käyttäjien yksityisyyttä ja tietosuojaa.</li><li>Mieti hetki ennen kuin klikkaat painikkeita.</li><li>Mitä enemmän sinulla on valtaa, sitä enemmän sinulla on vastuuta tekemisistäsi.</li></ol>"
     amendments:
       accepted:
         error: Muutoksen hyväksyntä epäonnistui.
@@ -230,6 +234,7 @@ fi:
       photos:
         related_photos: Liittyvät kuvat
     author:
+      avatar: Avatar
       comments:
         one: kommentti
         other: kommentit
@@ -313,6 +318,10 @@ fi:
             enable_pads_creation: Ota käyttöön muistioiden luominen
             resources_permissions_enabled: Resurssien käyttöoikeudet ovat käytössä
           step:
+            amendment_creation_enabled: Muutosten luonti käytössä
+            amendment_promotion_enabled: Muutosten siirto uusiksi ehdotuksiksi käytössä
+            amendment_reaction_enabled: Reaktiot käytössä muutoksille
+            amendments_visibility: Muutosten näkyvyys
             comments_blocked: Kommentit estetty
             dummy_step_attribute_1: Esimerkkivaiheen tietue 1
             dummy_step_attribute_2: Esimerkkivaiheen tietue 2
@@ -359,7 +368,7 @@ fi:
           email_already_exists: Toinen käyttäjätili käyttää samaa sähköpostiosoitetta
         new:
           complete_profile: Viimeistele profiilisi
-          nickname_help: Nimimerkkisi (@nimi) organisaatiossa %{organization}
+          nickname_help: Nimimerkkisi organisaatiossa %{organization}
           sign_up: Viimeistele profiilsi
           subtitle: Täytä seuraava lomake viimeistelläksesi rekisteröitymisesi
           username_help: Julkinen nimi, joka näkyy viesteissäsi. Anonyymiteetin taataksemme, voi olla mikä tahansa nimi.
@@ -368,7 +377,7 @@ fi:
           already_have_an_account?: Onko sinulla jo käyttäjätili?
           newsletter: Vastaanota silloin tällöin olennaista tietoa sisältävä uutiskirje
           newsletter_title: Yhteydenottolupa
-          nickname_help: Nimimerkkisi (@nimi) organisaatiossa %{organization}
+          nickname_help: Nimimerkkisi organisaatiossa %{organization}
           password_help: "Tulee sisältää vähintään %{minimun_characters} merkkiä, ei voi olla yleisesti käytetty salasana (esim. 123456), eikä voi vastata nimimerkkiäsi tai sähköpostiosoitettasi."
           sign_in: Kirjaudu sisään
           sign_up: Rekisteröidy
@@ -544,7 +553,7 @@ fi:
           notification_title: Seuraamasi käyttäjän %{name} (%{nickname}) <a href="%{resource_path}">profiilisivua</a> on päivitetty.
     export_mailer:
       data_portability_export:
-        click_button: Klikkaa seuraavaa painiketta ladataksesi tietosi. <br/> Tiedosto on käytettävissäsi %{date} saakka.
+        click_button: 'Klikkaa seuraavaa painiketta ladataksesi tietosi. <br/> Tiedosto on käytettävissäsi %{date} saakka.'
         download: Lataa
       export:
         ready: Tähän viestiin on liitetty palvelusta löytyvät tiedot zip-pakettina.
@@ -582,21 +591,14 @@ fi:
       current_image: Nykyinen kuva
       default_image: Oletuskuva
       errors:
+        decidim/user:
+          password: Salasana on liian lyhyt.
+          password_confirmation: Salasanan vahvistuksen on oltava sama kuin salasanan.
         error: Tässä kentässä on virhe.
       remove_this_file: Poista tiedosto
     gamification:
       all_badges_link: Kaikki saatavilla olevat kunniamerkit.
       badges:
-        continuity:
-          conditions:
-            - Käy täällä usein
-          description: Tämä kunniamerkki myönnetään, kun vierailet alustalla säännöllisesti. Mukavaa, että olet mukana!
-          description_another: Tämä käyttäjä on vieraillut alustalla %{score} peräkkäisenä päivänä jossakin vaiheessa.
-          description_own: Olet vieraillut alustalla %{score} peräkkäisenä päivänä jossakin vaiheessa.
-          name: Jatkuvuus
-          next_level_in: Vieraile alustalla %{score} peräkkäisenä päivänä päästäksesi seuraavalle tasolle!
-          unearned_another: Tämä käyttäjä on kirjautunut sisään ainoastaan yhtenä peräkkäisenä päivänä.
-          unearned_own: Et ole kirjautunut palveluun kuin yhtenä peräkkäisenä päivänä.
         followers:
           conditions:
             - Saat varmasti muut seuraamaan sinua ollessasi aktiivinen ja seuraamalla itse muita ihmisiä.
@@ -869,7 +871,7 @@ fi:
         statistics:
           answers_count: Kyselyiden vastauksia
           assemblies_count: Kehitysryhmiä
-          comments_count: Kommenteja
+          comments_count: Kommentteja
           conferences_count: Konferensseja
           debates_count: Keskusteluja
           endorsements_count: Suosituksia
@@ -884,7 +886,7 @@ fi:
           results_count: Tuloksia
           surveys_count: Kyselyjä
           users_count: Osallistujia
-          votes_count: Ääniä
+          votes_count: Kannatuksia
         sub_hero:
           register: Rekisteröidy
       index:
@@ -1208,14 +1210,15 @@ fi:
       cycle_detected: teeman isäntä ei voi olla sen jälkeläinen
       expired: on vanhentunut, pyydä uutta
       file_size_is_less_than_or_equal_to: tiedoston koko tulee olla %{count} tai vähemmän
+      invalid_time_zone: virheellinen aikavyöhyke
       long_words: sisältää liian pitkiä sanoja (yli 35 merkkiä)
       must_start_with_caps: tulee alkaa isolla kirjaimella
       nesting_too_deep: ei voi olla ala-aihepiirin sisällä
-      not_found: ei löydy
+      not_found: ei löydetty. Oletko jo rekisteröitynyt?
       not_locked: ei lukittu
       not_saved:
-        one: '1 virhe esti %{resource} tallentamisen:'
-        other: "%{count} virhettä esti %{resource} tallentamisen:"
+        one: 'Virhe käsiteltäessä pyyntöä:'
+        other: 'Virheitä käsiteltäessä pyyntöä:'
       too_many_marks: liian monta välimerkkiä peräkkäin (esim. ! ja ?)
       too_much_caps: liian monta isoa kirjainta (yli 25% tekstistä)
       too_short: liian lyhyt (alle 15 merkkiä)
@@ -1307,18 +1310,24 @@ fi:
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%B %d. %Y"
       decidim_short: "%d.%m.%Y %H:%M"
+      default: "%a, %d. %b %Y %H:%M:%S %z"
       devise:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y klo %k:%M"
+      long: "%B %d., %Y %H:%M"
+      short: "%d.%m.%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
     directions:
       left: Poistot
       right: Lisäykset
     dropdown:
+      choose_diff_view_html: 'HTML-tarkastelutapa:'
       choose_diff_view_mode: 'Vertailutila:'
+      option_escaped: Teknisten elementtien käsittely käytössä
       option_split: Vierekkäin
+      option_unescaped: Teknisten elementtien käsittely pois käytöstä
       option_unified: Yhdistetty
   views:
     pagination:

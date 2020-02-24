@@ -24,7 +24,7 @@ module Decidim
           mandatory: mandatory,
           question_type: question_type,
           max_choices: max_choices,
-          answer_options: [
+          options: [
             { "body" => Decidim::Faker::Localized.sentence },
             { "body" => Decidim::Faker::Localized.sentence },
             { "body" => Decidim::Faker::Localized.sentence }

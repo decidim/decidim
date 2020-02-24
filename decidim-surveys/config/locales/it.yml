@@ -22,17 +22,19 @@ it:
             announcement: Annuncio
           step:
             allow_answers: Consenti risposte
+            allow_unregistered: Consenti agli utenti non registrati di rispondere al sondaggio
+            allow_unregistered_help: Se attivo, nessun login sarà richiesto per rispondere all'indagine. Questo può portare a dati inaffidabili e sarà più vulnerabile agli attacchi automatizzati. Utilizzare con cautela!
             announcement: Annuncio
     events:
       surveys:
         survey_closed:
           email_intro: Il questionario %{resource_title} in %{participatory_space_title} è stato chiuso.
-          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche facendo click su pulsante Smetti di seguire nella pagina del processo o del contenuto che stai seguendo.
           email_subject: Un questionario in %{participatory_space_title} si è concluso
           notification_title: Il questionario <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> si è concluso.
         survey_opened:
           email_intro: 'Il questionario %{resource_title} in %{participatory_space_title} è ora aperto. Puoi partecipare da questa pagina:'
-          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche facendo click su pulsante Smetti di seguire nella pagina del processo o del contenuto che stai seguendo.
           email_subject: Un nuovo questionario su %{participatory_space_title}
           notification_title: Il questionario <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> è ora aperto.
     metrics:
@@ -53,4 +55,5 @@ it:
       surveys:
         answer:
           invalid: Ci sono stati degli errori durante il salvataggio dell'indagine.
+          spam_detected: C'è stato un problema nella risposta al modulo. Forse sei stato troppo veloce, puoi riprovare?
           success: Il questionario è stato salvato correttamente.

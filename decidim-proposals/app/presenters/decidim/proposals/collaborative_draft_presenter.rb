@@ -5,10 +5,7 @@ module Decidim
     #
     # Decorator for collaborative drafts
     #
-    class CollaborativeDraftPresenter < SimpleDelegator
-      include Rails.application.routes.mounted_helpers
-      include ActionView::Helpers::UrlHelper
-
+    class CollaborativeDraftPresenter < ProposalPresenter
       def author
         coauthorship = __getobj__.coauthorships.first
         @author ||= if coauthorship.user_group
@@ -18,22 +15,10 @@ module Decidim
                     end
       end
 
-      def collaborative_draft
-        __getobj__
-      end
+      alias collaborative_draft proposal
 
       def collaborative_draft_path
         Decidim::ResourceLocatorPresenter.new(collaborative_draft).path
-      end
-
-      def title(links: false, extras: true, html_escape: false)
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(collaborative_draft.title)
-        renderer.render(links: links, extras: extras, html_escape: html_escape).html_safe
-      end
-
-      def body(links: false, extras: true, strip_tags: false)
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(collaborative_draft.body)
-        renderer.render(links: links, extras: extras, strip_tags: strip_tags).html_safe
       end
     end
   end

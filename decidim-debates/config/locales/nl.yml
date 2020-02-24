@@ -33,13 +33,13 @@ nl:
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
-            creation_enabled: Gebruikers kunnen geen debat aanmaken
+            creation_enabled: Gebruikers kunnen zelf debat aanmaken
     debates:
       actions:
         confirm_destroy: Ben je zeker?
         destroy: Verwijder
         edit: Bewerk
-        new: Nieuwe %{name}
+        new: Nieuw %{name}
         title: acties
       admin:
         debates:
@@ -111,7 +111,7 @@ nl:
           space_followers:
             email_intro: |-
               Hallo,
-              Een nieuw debat "%{resource_title}" is opgezet op de %{space_title} participatieruimte, bekijk het en draag bij:
+              Een nieuw debat "%{resource_title}" is opgezet op de %{space_title} inspraakruimte, bekijk het en draag bij:
             email_outro: Je hebt deze melding ontvangen omdat je de %{space_title} participatorische ruimte volgt. Je kan de meldingen deactiveren door te klikken op de voorgaande link.
             email_subject: Nieuw debat "%{resource_title}" op %{space_title}
             notification_title: Het <a href="%{resource_path}">%{resource_title}</a> debat is gemaakt op <a href="%{space_path}">%{space_title}</a>.

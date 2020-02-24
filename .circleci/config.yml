@@ -12,6 +12,7 @@ defaults: &defaults
     - image: postgres
       environment:
         POSTGRES_USER: postgres
+        POSTGRES_HOST_AUTH_METHOD: trust
   working_directory: /app
 
 references:
@@ -21,14 +22,14 @@ references:
   restore_ruby_cache: &restore_ruby_cache
     restore_cache:
       keys:
-        - bundler-dependencies-{{ checksum "Gemfile.lock" }}
+        - bundler-dependencies-2.6.5-{{ checksum "Gemfile.lock" }}
   install_ruby_dependencies: &install_ruby_dependencies
     run:
       name: Install ruby dependencies
       command: cd decidim-$CIRCLE_JOB && bundle install
   save_ruby_cache: &save_ruby_cache
     save_cache:
-      key: bundler-dependencies-{{ checksum "Gemfile.lock" }}
+      key: bundler-dependencies-2.6.5-{{ checksum "Gemfile.lock" }}
       paths:
         - /usr/local/bundle/
   wait_for_db: &wait_for_db
@@ -62,7 +63,7 @@ references:
   run_rspec: &run_rspec
     run:
       name: Run RSpec
-      command: mkdir ~/rspec && cd decidim-$CIRCLE_JOB && bundle exec rake
+      command: mkdir ~/rspec && cd decidim-$CIRCLE_JOB && bundle exec rake SPEC_OPTS="--format documentation"
   format_test_coverage: &format_test_coverage
     run:
       name: Format CodeClimate test coverage
@@ -114,7 +115,7 @@ jobs:
       - *wait_for_db
       - run:
           name: Run main folder RSpec
-          command: mkdir ~/rspec && bundle exec rspec --format progress --format RspecJunitFormatter -o ~/rspec/rspec.xml
+          command: mkdir ~/rspec && bundle exec rspec --format documentation --format RspecJunitFormatter -o ~/rspec/rspec.xml
       - run:
           name: Run rubocop
           command: bundle exec rubocop

@@ -67,8 +67,6 @@ pl:
     account:
       data_portability_export:
         file_no_exists: Plik nie istnieje
-        invalid_token: Podany token jest nieprawidłowy.
-        no_token: Nie podano tokena
         notice: Twoje dane są obecnie w toku. Otrzymasz e-mail po zakończeniu.
       delete:
         alert: Nie można cofnąć tej czynności. Jeśli usuniesz konto, nie będzie można się już logować z jego pomocą.
@@ -326,7 +324,6 @@ pl:
           email_already_exists: Inne konto korzysta z tego samego adresu e-mail
         new:
           complete_profile: Pełny profil
-          nickname_help: Twój krótki, niepowtarzalny identyfikator w %{organization}
           sign_up: Proszę wypełnić swój profil
           subtitle: Proszę wypełnić poniższy formularz, aby dokończyć rejestrację
           username_help: Publiczne nazwisko wyświetlane na Twoich postów. W celu zagwarantowania anonimowości może być dowolna nazwa.
@@ -335,7 +332,6 @@ pl:
           already_have_an_account?: Posiadasz już konto?
           newsletter: Odbieraj okazjonalne biuletyny z odpowiednimi informacjami
           newsletter_title: Skontaktuj się z uprawnieniami
-          nickname_help: Twój krótki, niepowtarzalny identyfikator w %{organization}
           sign_in: Zaloguj Się
           sign_up: Zapisz się
           sign_up_as:
@@ -510,7 +506,7 @@ pl:
           notification_title: Zmieniono <a href="%{resource_path}">profil strony</a> z %{name} (%{nickname}), którego obserwujesz.
     export_mailer:
       data_portability_export:
-        click_button: Kliknij następny przycisk, aby pobrać swoje dane. <br/> Plik będzie dostępny do %{date}.
+        click_button: 'Kliknij następny przycisk, aby pobrać swoje dane. <br/> Plik będzie dostępny do %{date}.'
         download: Pobieranie
       export:
         ready: Znajdź załączoną wersję eksportowanego pliku.
@@ -553,16 +549,6 @@ pl:
     gamification:
       all_badges_link: Zobacz wszystkie dostępne odznaki.
       badges:
-        continuity:
-          conditions:
-            - Chodź tu często
-          description: Ta odznaka jest przyznawana podczas regularnego odwiedzania platformy. Lubimy mieć cię tutaj!
-          description_another: Ten użytkownik nawiązał połączenie przez %{score} kolejnych dni w pewnym momencie.
-          description_own: W pewnym momencie łączyłeś się przez %{score} kolejnych dni.
-          name: Ciągłość
-          next_level_in: Łącz przez %{score} kolejnych dni, aby przejść do następnego poziomu!
-          unearned_another: Ten użytkownik nie zalogował się przez więcej niż jeden kolejny dzień.
-          unearned_own: Nie łączyłeś się przez więcej niż jeden kolejny dzień.
         followers:
           conditions:
             - Bycie aktywnym i podążanie za innymi ludźmi z pewnością sprawi, że inne osoby będą za Tobą podążać.
@@ -1174,13 +1160,7 @@ pl:
       long_words: zawiera słowa, które są zbyt długie (powyżej 35 znaków)
       must_start_with_caps: musi zaczynać się od dużej litery
       nesting_too_deep: Nie może być wewnątrz podkategorii
-      not_found: nie znaleziono
       not_locked: nie był zablokowany
-      not_saved:
-        one: '1 błąd uniemożliwił zapisanie tego %{resource}:'
-        few: "%{count} błędów uniemożliwiło zapisanie tego %{resource}:"
-        many: "%{count} błędów uniemożliwiło zapisanie tego %{resource}:"
-        other: "%{count} błędów uniemożliwiło zapisanie tego %{resource}:"
       too_many_marks: używa zbyt wielu kolejnych znaków interpunkcyjnych (np.! i?)
       too_much_caps: używa zbyt dużej liczby wielkich liter (ponad 25% tekstu)
       too_short: jest za krótki (poniżej 15 znaków)

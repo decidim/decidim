@@ -17,11 +17,11 @@ fi:
         automatic_hashtags: Hashtagit lisätty automaattisesti
         body: Ehdotuksen kuvaus
         category_id: Aihepiiri
+        decidim_scope_id: Teema
         has_address: Ehdotuksella on sijainti
-        scope_id: Teema
         state: Tila
         suggested_hashtags: Ehdotetut hashtagit
-        title: Ehdotuksen nimi
+        title: Otsikko
         user_group_id: Luo ehdotus käyttäjänä
       proposal_answer:
         answer: Vastaa
@@ -42,6 +42,7 @@ fi:
             attachment:
               needs_to_be_reattached: Liitettävä uudelleen
             body:
+              cant_be_equal_to_template: ei voi vastata mallipohjaa
               identical: JA otsikko ei voi olla täysin sama
             title:
               identical: JA kuvaus ei voi olla täysin sama
@@ -74,6 +75,23 @@ fi:
         one: Kannatus
         other: Kannatukset
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Tyyppi
+          values:
+            'false': Ehdotukset
+            'true': Muutokset
+        search_placeholder:
+          id_string_or_title_cont: '%{collection}: Hae ID-numeron tai otsikon perusteella'
+        state_eq:
+          values:
+            evaluating: Arvioitavana
+            withdrawn: Peruutettu
+        state_null:
+          label: Tila
+          values:
+            'true': Vastaamaton
     components:
       proposals:
         actions:
@@ -85,6 +103,7 @@ fi:
         name: Ehdotukset
         settings:
           global:
+            allow_card_image: Salli kuva ehdotuskortilla
             amendments_enabled: Muutokset käytössä
             amendments_enabled_help: Jos käytössä, määritä asetukset kullekin vaiheelle.
             amendments_wizard_help_text: Muutoksen luonnin ohjeteksti
@@ -95,8 +114,11 @@ fi:
             comments_enabled: Kommentit käytössä
             geocoding_enabled: Geokoodaus käytössä
             minimum_votes_per_user: Kannatusten vähimmäismäärä käyttäjää kohden
+            new_proposal_body_template: Uuden ehdotuksen leipätekstin mallipohja
+            new_proposal_body_template_help: Voit määritellä esitäytetyn oletustekstin, joka uusille ehdotuksille näytetään automaattisesti
             new_proposal_help_text: Uuden ehdotuksen ohjeteksti
             official_proposals_enabled: Viralliset ehdotukset käytössä
+            participatory_texts_disabled_help: Tätä asetusta ei voi muuttaa, mikäli ehdotuksia on jo olemassa. Luo uusi "Ehdotukset-komponentti", mikäli haluat ottaa tämän ominaisuuden käyttöön tai hylkää kaikki tuodut ehdotukset "Ehdotusaineistot" -toiminnosta, mikäli haluat ottaa sen pois käytöstä.
             participatory_texts_enabled: Ehdotusaineistot ovat käytössä
             proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
             proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia tämän ajan sisällä (minuuttia)
@@ -104,14 +126,14 @@ fi:
             proposal_limit: Ehdotusten enimmäismäärä käyttäjää kohden
             proposal_wizard_step_1_help_text: Ehdotuksen luonnin "Luo" -vaiheen ohjeteksti
             proposal_wizard_step_2_help_text: Ehdotuksen luonnin "Vertaile" -vaiheen ohjeteksti
-            proposal_wizard_step_3_help_text: Ehdotuksen luonnin "Valmis" -vaiheen ohjeteksti
+            proposal_wizard_step_3_help_text: Ehdotuksen luonnin "Viimeistele" -vaiheen ohjeteksti
             proposal_wizard_step_4_help_text: Ehdotuksen luonnin "Julkaise" -vaiheen ohjeteksti
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle ehdotukselle
-            threshold_per_proposal: Ehdotusten äänten määrän kynnysarvo
+            threshold_per_proposal: Ehdotusten kannatusten määrän kynnysarvo
             vote_limit: Käytettävissä olevien kannatusten määrä käyttäjää kohden
           step:
-            amendment_creation_enabled: Muutosten luonti on käytössä
-            amendment_creation_enabled_help: Osallistuja voi muuttaa ehdotuksia.
+            amendment_creation_enabled: Muutosten luonti käytössä
+            amendment_creation_enabled_help: Osallistujat voivat lisätä muutoksia ehdotuksiin.
             amendment_promotion_enabled: Muutosten siirto uusiksi ehdotuksiksi käytössä
             amendment_promotion_enabled_help: Muutosten laatijat voivat siirtää hylättyjä muutoksia uusiksi ehdotuksiksi.
             amendment_reaction_enabled: Reaktiot käytössä muutoksille
@@ -120,7 +142,7 @@ fi:
             amendments_visibility_help: Jos asetus "Muutokset ovat näkyvillä ainoastaan niiden laatijoille" on määritetty, osallistujien tulee kirjautua sisään nähdäkseen tehdyt muutokset.
             announcement: Ilmoitus
             automatic_hashtags: Hashtagit lisätty kaikkiin ehdotuksiin
-            comments_blocked: Kommentit on estetty
+            comments_blocked: Kommentointi estetty
             creation_enabled: Ehdotuksen luominen käytössä
             endorsements_blocked: Suositukset estetty
             endorsements_enabled: Suositukset käytössä
@@ -295,12 +317,11 @@ fi:
         see_all: Näytä kaikki (%{count})
     proposals:
       actions:
-        answer: Vastaa
         edit_proposal: Muokkaa ehdotusta
         import: Tuo toisesta komponentista
         new: Uusi ehdotus
         participatory_texts: Ehdotusaineistot
-        private_notes: Omat muistiinpanot
+        show: Näytä ehdotus
         title: Toiminnot
       admin:
         actions:
@@ -320,6 +341,7 @@ fi:
             success: Kaikki ehdotusaineistojen luonnokset on hylätty.
           import:
             invalid: Lomake on virheellinen!
+            invalid_file: Tässä tiedostossa on jokin virhe. Yritä korjata tiedoston sisältö ja lataa se uudestaan.
             success: Onnittelut, seuraavat osiot on tuotu aineistosta ja muutettu ehdotuksiksi. Voit tarkistaa ja muuttaa niitä ennen julkaisua.
           index:
             info_1: Seuraavat osiot on tuotu aineistosta ja muutettu ehdotuksiksi. Voit tarkistaa ja muuttaa niitä ennen julkaisua.
@@ -344,7 +366,7 @@ fi:
           update:
             success: Ehdotusaineiston päivittäminen onnistui.
         proposal_answers:
-          edit:
+          form:
             accepted: Hyväksytty
             answer_proposal: Vastaa
             evaluating: Arvioitavana
@@ -370,8 +392,10 @@ fi:
             title: Päivitä ehdotusta
             update: Päivitä
           form:
+            add_images: Lisää kuvia
             attachment_legend: "(Valinnainen) Lisää liite"
             created_in_meeting: Tämä ehdotus on luotu tapaamisessa
+            gallery_legend: "(Vapaaehtoinen) Lisää kuvagalleria"
             select_a_category: Valitse aihepiiri
             select_a_meeting: Valitse tapaaminen
           index:
@@ -389,6 +413,29 @@ fi:
           new:
             create: Luo
             title: Luo ehdotus
+          show:
+            amendments_count: Muutosten lukumäärä
+            authors: Laatijat
+            body: Sisältöteksti
+            comments_count: Kommenttien lukumäärä
+            comments_negative_count: Vastaan
+            comments_neutral_count: Neutraali
+            comments_positive_count: Puolesta
+            created_at: Luonnin ajankohta
+            documents: Asiakirjat
+            endorsements_count: Suositusten lukumäärä
+            endorsements_ranking: Luokittelu suositusten mukaan
+            endorsers: Suosittelijat
+            link: Linkki
+            n_more_endorsers:
+              one: ja 1 muu
+              other: ja %{count} muuta
+            photos: Kuvat
+            proposals: Ehdotukset
+            ranking: "%{ranking} / %{total}"
+            related_meetings: Liittyvät tapahtumat
+            votes_count: Kannatusten määrä
+            votes_ranking: Luokittelu suositusten mukaan
           update_category:
             invalid: 'Näissä ehdotuksissa oli jo aihepiiri %{category}: %{proposals}.'
             select_a_category: Valitse aihepiiri
@@ -411,12 +458,6 @@ fi:
           create:
             invalid: Valittujen ehdotusten jakaminen epäonnistui.
             success: Ehdotukset jaettiin onnistuneesti uusiksi ehdotuksiksi.
-        shared:
-          info_proposal:
-            body: Tekstin runko
-            created_at: Luonnin ajankohta
-            proposal_votes_count: Kannatusten määrä
-            proposals: Ehdotukset
       admin_log:
         proposal:
           answer: "%{user_name} vastasi ehdotukseen %{resource_name} tilassa %{space_name}"
@@ -431,17 +472,21 @@ fi:
         rejected: Hylätty
         withdrawn: Peruutettu
       application_helper:
+        filter_category_values:
+          all: Kaikki
         filter_origin_values:
           all: Kaikki
           citizens: Kansalaiset
           meetings: Tapaamiset
           official: Virallinen
           user_groups: Käyttäjäryhmät
+        filter_scope_values:
+          all: Kaikki
         filter_state_values:
           accepted: Hyväksytyt
           all: Kaikki
           evaluating: Arvioitavana
-          except_rejected: Kaikki paitsi hylätyt
+          not_answered: Vastaamaton
           rejected: Hylätty
         filter_type_values:
           all: Kaikki
@@ -490,10 +535,10 @@ fi:
           all: Kaikki
           amendment: Muutokset
           category: Aihepiiri
-          category_prompt: Aihepiiri-ilmoitus
           open: Avaa
           published: Julkaistu
           related_to: Liittyy
+          scope: Teema
           search: Hae
           state: Tila
           withdrawn: Peruttu
@@ -534,7 +579,7 @@ fi:
           hidden_authors_count:
             one: ja %{count} muu henkilö
             other: ja %{count} muuta henkilöä
-          info-message: Tämä on <strong>yhteistyöluonnos</strong> ehdotukselle. Tämä tarkoittaa, että voit auttaa tekijöitä muodostamaan ehdotuksen alla olevan kommenttikohdan avulla tai parantaa sitä suoraan pyytämällä käyttöoikeutta sen muokkaamiseksi. Kun tekijät antavat sinulle käyttöoikeuden, voit tehdä muutoksia tähän luonnokseen.
+          info-message: Tämä on <strong>yhteistyöluonnos</strong> ehdotukselle. Tämä tarkoittaa, että voit auttaa laatijoita muodostamaan ehdotuksen alhaalta löytyvän kommentointitoiminnon avulla tai parantaa sitä suoraan pyytämällä muokkausoikeutta ehdotukseen. Kun laatijat antavat sinulle muokkausoikeuden, voit tehdä muutoksia tähän luonnokseen.
           of_versions: "( %{number}:sta)"
           publish: Julkaise
           publish_info: Julkaise tämän luonnosversio tai
@@ -640,14 +685,17 @@ fi:
         endorsements_card_row:
           comments: Kommentit
         filters:
-          activity: Aktiivisuus
+          activity: Oma toiminta
+          all: Kaikki
           amendment_type: Tyyppi
           category: Aihepiiri
-          category_prompt: Valitse aihepiiri
+          my_proposals: Omat ehdotukset
           origin: Alkuperä
           related_to: Liittyy aiheeseen
+          scope: Teema
           search: Haku
           state: Tila
+          type: Tyyppi
           voted: Kannatettu
         filters_small_view:
           close_modal: Sulje ikkuna
@@ -668,9 +716,13 @@ fi:
           title: Luo ehdotuksesi
         orders:
           label: 'Järjestä ehdotukset:'
+          most_commented: Eniten kommentoidut
+          most_endorsed: Eniten suositellut
+          most_followed: Eniten seuratut
           most_voted: Eniten kannatuksia saaneet
           random: Satunnainen
           recent: Viimeisimmät
+          with_more_authors: Eniten laatijoita
         participatory_texts:
           index:
             document_index: Asiakirjan hakemisto
@@ -709,7 +761,6 @@ fi:
           withdraw_proposal: Peruuta ehdotus
         tags:
           changed_from: "(muutettu aihepiiristä <u>%{previous_category}</u> ylläpitäjä toimesta)"
-          filed_as: Merkitty
         vote_button:
           already_voted: Jo kannatettu
           already_voted_hover: Peru kannatuksesi

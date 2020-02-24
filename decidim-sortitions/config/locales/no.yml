@@ -1,0 +1,151 @@
+"no":
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Sorterings informasjon
+        decidim_category_id: Kategorier av settet med forslag der du vil bruke trekningen
+        decidim_proposals_component_id: Forslag satt
+        dice: Resultat av terningkast. Rull en 6-sidet terning, eller finn en annen tilfeldig måte å generere et tall fra 1 til 6, og legg inn det resulterende tallet foran noen vitner. Dette bidrar til kvaliteten og garanterer tilfeldigheten til resultatet
+        target_items: Antall forslag som skal velges (indikerer antall forslag du vil skal bli valgt ved å trekke mange av gruppen av forslag du har valgt tidligere)
+        title: Tittel
+        witnesses: Tilbaketrukket
+    models:
+      decidim/sortitions/create_sortition_event: Sortering
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Sortering
+        other: Sorteringer
+  decidim:
+    components:
+      sortitions:
+        name: Sorteringer
+        settings:
+          global:
+            comments_enabled: Kommentarer aktivert
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: Sorteringen "%{resource_title}" er blitt lagt til "%{participatory_space_title}" som du følger.
+          email_outro: Du har mottatt denne varslingen fordi du følger "%{participatory_space_title}". Du kan slutte å følge den fra den forrige lenken.
+          email_subject: Ny sortering lagt til %{participatory_space_title}
+          notification_title: Sorteringen <a href="%{resource_path}">%{resource_title}</a> har blitt lagt til %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Sorteringer
+    participatory_processes:
+      statistics:
+        sortitions_count: Sorteringer
+    sortitions:
+      admin:
+        actions:
+          destroy: Avbryt sorteringen
+          edit: Editar
+          new: Ny sortering
+          show: Sorterings detaljer
+        models:
+          sortition:
+            fields:
+              category: Kategori
+              created_at: Opprettelsesdato
+              decidim_proposals_component: Forslags komponent
+              dice: Terning
+              reference: Referanse
+              request_timestamp: Uavgjort tid
+              seed: Seed
+              target_items: Gjenstander å velge
+              title: Tittel
+            name:
+              one: Sortering
+              other: Sorteringer
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Er du sikker på at du vil avbryte denne sorteringen?
+            destroy: Avbryt sortering
+            title: Avbryting av sorteringen
+          create:
+            error: Det oppstod et problem med å lage en ny sortering.
+            success: Sorteringen ble opprettet
+          destroy:
+            error: Kan ikke avbryte sorteringen.
+            success: Sorteringen ble avbrutt
+          edit:
+            title: Oppdater informasjonen om sorteringen
+            update: Oppdater
+          form:
+            all_categories: Alle kategorier
+            select_proposal_component: Velg forslagets set
+            title: Ny sortering for forslag
+          index:
+            title: Sorteringer
+          new:
+            confirm: Ved å trykke på neste knapp vil Decidim registrere dato og tid (med presisjon på sekunder) og sammen med terningkastet vil denne informasjonen bli brukt til å generere et tilfeldig valg. Denne handlingen vil ikke kunne gjøres om, når knappen er klikket blir resultatet av denne trekningen publisert, sammen med dataene som er lagt inn i dette skjemaet og ikke kan endres, vennligst sjekk innholdet nøye
+            create: Opprett
+            title: Ny sortering
+          show:
+            selected_proposals: Forslag valgt for trekning
+          update:
+            error: Det oppstod et problem med å oppdatere sorteringen.
+            success: Sorteringen ble oppdatert
+      admin_log:
+        sortition:
+          create: "%{user_name} opprettet %{resource_name} sorteringen i %{space_name}"
+          delete: "%{user_name} kansellerte %{resource_name} sorteringen i %{space_name}"
+          update: "%{user_name} oppdaterte %{resource_name} sorteringen i %{space_name}"
+      sortitions:
+        count:
+          proposals_count:
+            one: 1 forslag
+            other: "%{count} forslag"
+        filters:
+          active: Aktiv
+          all: Alle
+          cancelled: Avbrutt
+          category: Kategori
+          category_prompt: Velg en kategori
+          search: Søk
+          state: Status
+        filters_small_view:
+          close_modal: Lukk modal
+          filter: Filter
+          filter_by: Filtrer etter
+          unfold: Åpne
+        linked_sortitions:
+          selected_proposals: Utvalgte forslag
+        orders:
+          label: 'Sorter sorteringer etter:'
+          random: Tilfeldig
+          recent: Nylig
+        results_count:
+          count:
+            one: valgt forslag
+            other: utvalgte forslag
+        show:
+          algorithm: Sorterings algoritmekode
+          any_category: fra alle kategorier
+          cancelled: Avbrutt sortering
+          candidate_proposal_ids: Sorterings forslags ordre og IDer
+          candidate_proposals_info: 'Sorteringen ble gjennomført blant følgende forslag (%{category_label}), med følgende ID-er (i fet skrift, de valgte forslagene)  '
+          category: fra kategorien %{category}
+          dice_result: "(1) Terning resultat"
+          introduction: 'Denne siden inneholder resultatene av sorteringen %{reference}. Ved hjelp av denne sorteringen er %{target_items} antall resultater valgt tilfeldig og med en lik sannsynlighetsfordeling fra settet av forslag som blir vist nedenfor. Sammen med resultatene gir informasjonen som vises på denne siden all nødvendig informasjon for å maksimere garantier og for å reprodusere resultatene. Nøkkelen til kvaliteten på denne sorteringen er dobbelt tilfeldighet gitt ved rulling av terninger (bekreftet av vitner) og den nøyaktige tiden for sorteringen som gir input til en algoritme som genererer et tilfeldig utvalg. Tids-seedet for sorteringen er så nøyaktig (sekunder) at det er umulig å kontrollere av mennesker og gir dermed et dobbelt "ukontrollerbart" input for å garantere et rettferdig resultat.  '
+          mathematical_result: Resultat (1) x (2)
+          proposals_selected_by_sortition: Forslag valgt etter sortering
+          sortition_reproducibility_details: Detaljer for sorterings reproduksjonbarhet
+          time_seed: "(2) Tids seed"
+          witnesses: Tilbaketrukket
+        sortition:
+          random_seed: Tilfeldig seed
+          selected_proposals:
+            one: forslag valgt
+            other: forslag valgt
+          view: Vis
+        sortition_author:
+          deleted: Slettet deltaker
+        sortition_cancel_author:
+          deleted: Slettet deltaker
+        sortitions_count:
+          count:
+            one: 1 sortering
+            other: "%{count} sorteringer"

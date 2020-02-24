@@ -50,6 +50,28 @@ shared_examples "Managing component permissions" do
     end
   end
 
+  context "when failing to set permissions" do
+    before do
+      # rubocop:disable RSpec/AnyInstance
+      allow_any_instance_of(Decidim::Admin::PermissionsForm).to receive(:valid?).and_return(false)
+      # rubocop:enable RSpec/AnyInstance
+      within ".component-#{component.id}" do
+        click_link "Permissions"
+      end
+      within "form.new_component_permissions" do
+        within ".foo-permission" do
+          check "Example authorization (Direct)"
+          fill_in "Postal code", with: "08002"
+        end
+        find("*[type=submit]").click
+      end
+    end
+
+    it "renders the form again" do
+      expect(page).to have_content("problem")
+    end
+  end
+
   context "when unsetting permissions" do
     before do
       component.update!(

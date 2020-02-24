@@ -37,7 +37,7 @@ describe "InitiativeTypesController", type: :system do
         en: "A longer description"
       )
 
-      check "Online signature enabled"
+      select("Online", from: "Signature type")
 
       attach_file "Banner image", Decidim::Dev.asset("city2.jpeg")
 
@@ -61,7 +61,7 @@ describe "InitiativeTypesController", type: :system do
         en: "My updated initiative type"
       )
 
-      uncheck "Online signature enabled"
+      select("In-person", from: "Signature type")
       uncheck "Enable participants to undo their online signatures"
 
       click_button "Update"
@@ -72,7 +72,7 @@ describe "InitiativeTypesController", type: :system do
     end
   end
 
-  context "when delting an initiative type" do
+  context "when deleting an initiative type" do
     let(:initiatives_type) { create :initiatives_type, organization: organization }
 
     it "Deletes the initiative type" do

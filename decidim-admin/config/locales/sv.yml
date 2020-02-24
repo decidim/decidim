@@ -41,6 +41,7 @@ sv:
         badges_enabled: Aktivera märken
         cta_button_path: Uppmaningens knappsökväg
         cta_button_text: Uppmaningens knapptext
+        customize_welcome_notification: Anpassa välkomstmeddelande
         default_locale: Förvalt språk och region
         description: Beskrivning
         enable_omnipresent_banner: Visa banner på alla sidor
@@ -70,6 +71,7 @@ sv:
         primary_color: Primär
         reference_prefix: Referensprefix
         secondary_color: Sekundär
+        send_welcome_notification: Skicka välkomstmeddelande
         show_statistics: Visa statistik
         success_color: Färdigt
         tos_version: Version på användarvillkor
@@ -77,6 +79,8 @@ sv:
         user_groups_enabled: Aktivera grupper
         user_name: Användarnamn
         warning_color: Varning
+        welcome_notification_body: Välkomstmeddelandetext
+        welcome_notification_subject: Välkomstmeddeleandeämne
         youtube_handler: YouTube-hanterare
       scope:
         code: Kod
@@ -470,7 +474,6 @@ sv:
           send_to_followers: Skicka till följare
           send_to_participants: Skicka till deltagare
           title: Välj mottagare att skicka till
-          warning: "<strong>Obs:</strong> Detta nyhetsbrev kommer endast att skickas till de användare som har markerat <em>Jag vill få nyhetsbrev</em> i sina meddelandeinställningar."
         send:
           no_recipients: Inga mottagare för det här urvalet
         show:
@@ -508,18 +511,12 @@ sv:
           actions: Åtgärder
           badge: Märke
           created_at: Skapad
-          filter:
-            all: Alla
-            not_officialized: Ej gjord officiell
-            officialized: Gjord officiell
-          filter_by: Filtrera efter
           name: Namn
           nickname: Användarnamn
           not_officialized: Ej gjord officiell
           officialize: Gör officiell
           officialized: Gjord officiell
           reofficialize: Gör officiell igen
-          search: Sök
           status: Status
           unofficialize: Sluta gör officiell
         new:
@@ -568,10 +565,15 @@ sv:
           error: Det gick inte att ta bort en privat deltagare från deltagarutrymmet.
           success: Åtkomsten för privat deltagare till deltagarutrymmet har tagits bort.
         index:
+          import_via_csv: Importera via csv
           title: Privat deltagare i deltagarutrymme
         new:
           create: Skapa
           title: Ny privat deltagare i deltagarutrymme.
+      participatory_space_private_users_csv_imports:
+        new:
+          title: Ladda upp din CSV-fil
+          upload: Ladda upp
       resource_permissions:
         edit:
           submit: Skicka in

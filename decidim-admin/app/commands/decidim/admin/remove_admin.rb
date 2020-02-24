@@ -35,7 +35,7 @@ module Decidim
       attr_reader :user, :current_user
 
       def user_role
-        user.admin? ? :admin : user.roles
+        user.admin? ? :admin : user.roles.last
       end
     end
   end

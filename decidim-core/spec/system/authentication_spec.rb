@@ -322,6 +322,95 @@ describe "Authentication", type: :system do
         expect(page).to have_no_content(user.name)
       end
     end
+
+    context "with lockable account" do
+      Devise.maximum_attempts = 3
+      let!(:maximum_attempts) { Devise.maximum_attempts }
+
+      describe "when attempting to login with failing password" do
+        describe "before locking" do
+          before do
+            visit decidim.root_path
+            find(".sign-in-link").click
+
+            (maximum_attempts - 2).times do
+              within ".new_user" do
+                fill_in :user_email, with: user.email
+                fill_in :user_password, with: "not-the-pasword"
+                find("*[type=submit]").click
+              end
+            end
+          end
+
+          it "shows the last attempt warning before locking the account" do
+            within ".new_user" do
+              fill_in :user_email, with: user.email
+              fill_in :user_password, with: "not-the-pasword"
+              find("*[type=submit]").click
+            end
+
+            expect(page).to have_content("You have one more attempt before your account is locked.")
+          end
+        end
+
+        describe "locks the account" do
+          before do
+            visit decidim.root_path
+            find(".sign-in-link").click
+
+            (maximum_attempts - 1).times do
+              within ".new_user" do
+                fill_in :user_email, with: user.email
+                fill_in :user_password, with: "not-the-pasword"
+                find("*[type=submit]").click
+              end
+            end
+          end
+
+          it "when reached maximum failed attempts" do
+            within ".new_user" do
+              fill_in :user_email, with: user.email
+              fill_in :user_password, with: "not-the-pasword"
+              perform_enqueued_jobs { find("*[type=submit]").click }
+            end
+
+            expect(page).to have_content("Your account is locked.")
+            expect(emails.count).to eq(1)
+          end
+        end
+      end
+
+      describe "Resend unlock instructions email" do
+        before do
+          user.lock_access!
+
+          visit decidim.new_user_unlock_path
+        end
+
+        it "resends the unlock instructions" do
+          within ".new_user" do
+            fill_in :user_email, with: user.email
+            perform_enqueued_jobs { find("*[type=submit]").click }
+          end
+
+          expect(page).to have_content("You will receive an email with instructions for how to unlock your account in a few minutes.")
+          expect(emails.count).to eq(1)
+        end
+      end
+
+      describe "Unlock account" do
+        before do
+          user.lock_access!
+          perform_enqueued_jobs { user.send_unlock_instructions }
+        end
+
+        it "unlocks the user account" do
+          visit last_email_link
+
+          expect(page).to have_content("Your account has been successfully unlocked. Please sign in to continue")
+        end
+      end
+    end
   end
 
   context "when a user is already registered with a social provider" do

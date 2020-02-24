@@ -30,7 +30,6 @@ module Decidim
       return unless event_class
       return unless resource
       return unless recipient
-      return unless notification.event_class_instance.notifiable?
 
       notification.save!
     end

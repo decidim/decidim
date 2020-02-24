@@ -18,6 +18,7 @@ module Decidim
       allow(view).to receive(:params).and_return(handler: "dummy_authorization_handler")
       allow(view).to receive(:authorizations_path).and_return("/authorizations")
       allow(view).to receive(:stored_location).and_return("/processes")
+      allow(view).to receive(:redirect_url).and_return("/")
     end
 
     it "renders the form from the partial" do

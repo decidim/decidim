@@ -11,7 +11,7 @@
         <% if geolocation_enabled? %>
           <%= cell "decidim/meetings/meetings_map", upcoming_events %>
         <% else %>
-          <% upcoming_events.last(4).each do |event| %>
+          <% (upcoming_events - upcoming_events.first(4)).each do |event| %>
             <%= card_for event, size: :s %>
           <% end %>
         <% end %>

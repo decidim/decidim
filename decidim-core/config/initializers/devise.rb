@@ -223,27 +223,27 @@ Devise.setup do |config|
   # Defines which strategy will be used to lock an account.
   # :failed_attempts = Locks an account after a number of failed attempts to sign in.
   # :none            = No lock strategy. You should handle locking by yourself.
-  # config.lock_strategy = :failed_attempts
+  config.lock_strategy = :failed_attempts
 
   # Defines which key will be used when locking and unlocking an account
-  # config.unlock_keys = [:email]
+  config.unlock_keys = [:email]
 
   # Defines which strategy will be used to unlock an account.
   # :email = Sends an unlock link to the user email
   # :time  = Re-enables login after a certain amount of time (see :unlock_in below)
   # :both  = Enables both strategies
   # :none  = No unlock strategy. You should handle unlocking by yourself.
-  # config.unlock_strategy = :both
+  config.unlock_strategy = :both
 
   # Number of authentication tries before locking an account if lock_strategy
   # is failed attempts.
-  # config.maximum_attempts = 20
+  config.maximum_attempts = 20
 
   # Time interval to unlock the account if :time is enabled as unlock_strategy.
-  # config.unlock_in = 1.hour
+  config.unlock_in = 1.hour
 
   # Warn on the last attempt before the account is locked.
-  # config.last_attempt_warning = true
+  config.last_attempt_warning = true
 
   # ==> Configuration for :recoverable
   #
@@ -296,28 +296,6 @@ Devise.setup do |config|
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
-
-  # ==> OmniAuth
-  # Add a new OmniAuth provider. Check the wiki for more information on setting
-  # up on your models and hooks.
-  config.omniauth :developer, fields: [:name, :nickname, :email] if Rails.application.secrets.dig(:omniauth, :developer).present?
-  if Rails.application.secrets.dig(:omniauth, :facebook).present?
-    config.omniauth :facebook,
-                    Rails.application.secrets.omniauth[:facebook][:app_id],
-                    Rails.application.secrets.omniauth[:facebook][:app_secret],
-                    scope: :email,
-                    info_fields: "name,email,verified"
-  end
-  if Rails.application.secrets.dig(:omniauth, :twitter).present?
-    config.omniauth :twitter,
-                    Rails.application.secrets.omniauth[:twitter][:api_key],
-                    Rails.application.secrets.omniauth[:twitter][:api_secret]
-  end
-  if Rails.application.secrets.dig(:omniauth, :google_oauth2).present?
-    config.omniauth :google_oauth2,
-                    Rails.application.secrets.omniauth[:google_oauth2][:client_id],
-                    Rails.application.secrets.omniauth[:google_oauth2][:client_secret]
-  end
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

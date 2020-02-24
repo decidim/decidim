@@ -13,6 +13,7 @@ module Decidim
     private
 
     def tos_accepted_by_user
+      return true unless request.format.html?
       return true unless current_user
       return if current_user.tos_accepted?
       return if permitted_paths?
@@ -40,6 +41,13 @@ module Decidim
     end
 
     def redirect_to_tos
+      # Store the location where the user needs to be redirected to after the
+      # TOS is agreed.
+      store_location_for(
+        current_user,
+        stored_location_for(current_user) || request.path
+      )
+
       flash[:notice] = flash[:notice] if flash[:notice]
       flash[:secondary] = t("required_review.alert", scope: "decidim.pages.terms_and_conditions")
       redirect_to tos_path

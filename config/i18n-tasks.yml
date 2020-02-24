@@ -95,6 +95,7 @@ ignore_missing:
   - email_outro
   - notification_title
   - decidim.wizard_step_form_cell.*
+  - decidim.proposals.application_helper.activity_filter_values.*
 
 # Consider these keys used:
 ignore_unused:
@@ -117,8 +118,12 @@ ignore_unused:
   - decidim.participatory_processes.statistics.*
   - decidim.proposals.answers.*
   - decidim.proposals.proposals.orders.*
+  - decidim.proposals.proposals.show.proposal_accepted_reason
+  - decidim.proposals.proposals.show.proposal_in_evaluation_reason
+  - decidim.proposals.proposals.show.proposal_rejected_reason
   - decidim.resource_links.*
   - decidim.system.default_pages.placeholders.*
+  - decidim.system.organizations.omniauth_settings.*
   - decidim.verifications.id_documents.{dni,nie,passport}
   - errors.messages.*
   - invisible_captcha.*
@@ -194,6 +199,14 @@ ignore_unused:
   - decidim.proposals.admin.participatory_texts.new_import.accepted_mime_types.*
   - decidim.amendments.visibility_options.*
   - decidim.wizard_step_form.*
+  - decidim.proposals.proposals.filters.*
+  - decidim.admin.filters.*
+  - decidim.admin_terms_of_use.default_body
+  - decidim.admin.admin_terms_of_use.required_review.alert
+  - layouts.decidim.widget.*
+  - layouts.decidim.assembly_widgets.*
+  - layouts.decidim.conference_widgets.*
+  - layouts.decidim.participatory_process_widgets.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

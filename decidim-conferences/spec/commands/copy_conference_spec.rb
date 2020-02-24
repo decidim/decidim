@@ -72,10 +72,10 @@ module Decidim::Conferences
 
       it "duplicates a conference and the categories" do
         expect { subject.call }.to change { Decidim::Category.count }.by(1)
-        expect(Decidim::Category.distinct.pluck(:decidim_participatory_space_id).count).to eq 2
+        expect(Decidim::Category.unscoped.distinct.pluck(:decidim_participatory_space_id).count).to eq 2
 
-        old_conference_category = Decidim::Category.first
-        new_conference_category = Decidim::Category.last
+        old_conference_category = Decidim::Category.unscoped.first
+        new_conference_category = Decidim::Category.unscoped.last
 
         expect(new_conference_category.name).to eq(old_conference_category.name)
         expect(new_conference_category.description).to eq(old_conference_category.description)

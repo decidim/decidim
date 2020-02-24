@@ -126,6 +126,8 @@ module Decidim
 
       private
 
+      # Prevents PaperTrail from creating versions while producing proposals from a document.
+      # A first version will be created when publishing the Participatory Text.
       def create_proposal(title, body, participatory_text_level)
         attributes = {
           component: @component,
@@ -134,15 +136,17 @@ module Decidim
           participatory_text_level: participatory_text_level
         }
 
-        proposal = Decidim::Proposals::ProposalBuilder.create(
-          attributes: attributes,
-          author: @component.organization,
-          action_user: @current_user
-        )
+        PaperTrail.request(enabled: false) do
+          proposal = Decidim::Proposals::ProposalBuilder.create(
+            attributes: attributes,
+            author: @component.organization,
+            action_user: @current_user
+          )
 
-        @last_position = proposal.position
+          @last_position = proposal.position
 
-        proposal
+          proposal
+        end
       end
     end
   end

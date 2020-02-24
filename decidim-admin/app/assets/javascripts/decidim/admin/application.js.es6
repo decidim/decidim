@@ -1,4 +1,4 @@
-// = require jquery
+// = require jquery3
 // = require foundation
 // = require rails-ujs
 // = require ./tab_focus
@@ -19,6 +19,8 @@
 // = require ./sortable
 // = require decidim/input_tags
 // = require decidim/input_hashtags
+// = require decidim/input_mentions
+// = require jquery.serializejson
 // = require_self
 
 window.Decidim = window.Decidim || {};

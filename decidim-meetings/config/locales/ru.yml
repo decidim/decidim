@@ -22,6 +22,7 @@ ru:
         location_hints: Как добраться
         organizer_id: Организация
         private_meeting: Частная встреча
+        registration_form_enabled: Регистрационная форма включена
         registration_terms: Условия регистрации
         registrations_enabled: Регистрация включена
         start_time: Время начала
@@ -95,10 +96,13 @@ ru:
       meetings:
         meeting_closed:
           affected_user:
+            email_intro: 'Ваша встреча «%{resource_title}» завершена. Вы можете прочитать итоги на странице:'
+            email_outro: Вы получили это уведомление, потому что вы организовали встречу "%{resource_title}".
             email_subject: Встреча "%{resource_title}" закончена
             notification_title: Встреча <a href="%{resource_path}">%{resource_title}</a> закончена.
           follower:
             email_intro: 'Встреча «%{resource_title}» закончена. Вы можете прочитать итоги на странице:'
+            email_outro: Вы получили это уведомление, потому что вы следите за встречей «%{resource_title}». Вы можете перестать за ней следить, перейдя по приведенной выше ссылке.
             email_subject: Встреча "%{resource_title}" закончена
             notification_title: Встреча <a href="%{resource_path}">%{resource_title}</a> закончена.
         meeting_created:
@@ -106,6 +110,8 @@ ru:
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
           email_subject: В %{participatory_space_title} добавлена новая встреча
           notification_title: В %{participatory_space_title} была добавлена встреча <a href="%{resource_path}">%{resource_title}</a>
+        meeting_registration_confirmed:
+          notification_title: Ваша регистрация на встречу <a href="%{resource_url}">%{resource_title}</a> была подтверждена. Ваш регистрационный код %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: Число мест, забронированных на встречу "%{resource_title}", превысило %{percentage}% процентов%.
           email_outro: Вы получили это уведомление, потому что вы являетесь администратором пространства соучастия этой встречи.
@@ -117,7 +123,9 @@ ru:
           email_subject: Встреча "%{resource_title}" обновлена
           notification_title: Встреча <a href="%{resource_path}">%{resource_title}</a> обновлена.
         registration_code_validated:
+          email_intro: Ваш регистрационный код «%{registration_code}» для встречи %{resource_title} был подтвержден.
           email_outro: Вы получили это уведомление, потому что ваш регистрационный код для встречи «%{resource_title}» был подтвержден.
+          email_subject: Ваш регистрационный код «%{registration_code}» для встречи %{resource_title} был подтвержден
           notification_title: Ваш регистрационный код «%{registration_code}» для встречи <a href="%{resource_path}">%{resource_title}</a> был подтвержден.
         registrations_enabled:
           email_intro: 'Открылась регистрация на встречу «%{resource_title}». Вы можете зарегистрироваться на странице:'
@@ -129,6 +137,17 @@ ru:
           email_outro: Вы получили это уведомление, потому что вы следите за встречей «%{resource_title}». Вы можете перестать за ней следить, перейдя по приведенной выше ссылке.
           email_subject: Встреча "%{resource_title}" начнется менее чем через 48 часов.
           notification_title: Встреча <a href="%{resource_path}">%{resource_title}</a> начнется менее чем через 48 часов.
+    gamification:
+      badges:
+        attended_meetings:
+          conditions:
+            - Зарегистрируйтесь на встречи, в которых вы хотите принять участие
+          description: Этот значок будет получен, когда вы примете участие в нескольких встречах лицом к лицу.
+          description_another: Этот участник принял участие в %{score} встречах.
+          description_own: Вы приняли участие в %{score} встречах.
+          next_level_in: Примите участие еще в %{score} встречах, чтобы достичь следующего уровня!
+          unearned_another: Этот участник еще не участвовал ни в одной встрече.
+          unearned_own: Вы еще не участвовали ни в одной встрече.
     meetings:
       actions:
         agenda: Повестка дня
@@ -175,6 +194,7 @@ ru:
             invalid: При попытке обновить эту повестку дня произошла ошибка
             success: Повестка дня успешно обновлена
         exports:
+          meetings: Встречи
           registrations: Регистрации
         invite_join_meeting_mailer:
           invite:
@@ -264,8 +284,10 @@ ru:
           form:
             available_slots_help: Оставьте его равным 0, если у вас не ограничено количество мест.
             invites: Приглашения
+            registration_form: Форма регистрации
             reserved_slots_help: Оставьте его равным 0, если у вас нет забронированных мест
             reserved_slots_less_than: Должен быть меньше или равен %{count}
+            title: Регистрации
           update:
             invalid: При попытке сохранить настройки регистрации произошла ошибка.
             success: Настройки регистрации на встречу успешно сохранены.
@@ -289,6 +311,24 @@ ru:
         minutes:
           create: "%{user_name} создал протокол встречи %{resource_name} в пространстве %{space_name}"
           update: "%{user_name} обновил протокол встречи %{resource_name} в пространстве %{space_name}"
+      calendar_modal:
+        calendar_url: Ссылка на календарь
+        close_window: Закрыть окно
+        export_calendar: Экспорт календаря
+      content_blocks:
+        upcoming_events:
+          name: Предстоящие события
+          upcoming_events: Предстоящие встречи
+      directory:
+        meetings:
+          index:
+            all: Все
+            date: Дата
+            meetings: Встречи
+            past: Прошедшие
+            upcoming: Предстоящие
+      last_activity:
+        new_meeting_at_html: "<span>Новая встреча в %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -328,7 +368,13 @@ ru:
           meeting_report: Отчет о встрече
           no_slots_available: Не осталось мест
           organizations: Участвующие организации
+          registration_code_help_text: Ваш регистрационный код
+          registration_state:
+            validated: ПОДТВЕРЖДЕНО
+            validation_pending: ОЖИДАНИЕ ПОДТВЕРЖДЕНИЯ
           view: Посмотреть
+      meetings_map:
+        view_meeting: Посмотреть встречу
       models:
         invite:
           fields:
@@ -366,6 +412,11 @@ ru:
       types:
         private_meeting: Частная встреча
         transparent: Прозрачная
+    metrics:
+      meetings:
+        description: Количество созданных встреч
+        object: встречи
+        title: Встречи
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
@@ -374,6 +425,7 @@ ru:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Прошедшие встречи
+        see_all: Посмотреть все (%{count})
         upcoming_meetings: Предстоящие встречи
       upcoming_meeting_for_card:
         upcoming_meeting: Предстоящая встреча

@@ -95,7 +95,7 @@ module Decidim
     end
 
     def translated_one_locale(type, name, locale, options = {})
-      return hashtaggable_text_field(type, name, locale, options.merge(value: options[:value])) if options[:hashtaggable]
+      return hashtaggable_text_field(type, name, locale, options) if options[:hashtaggable]
 
       send(
         type,
@@ -216,7 +216,6 @@ module Decidim
                    []
                  end
       html_options = {}
-
       select(name, @template.options_for_select(categories, selected: selected, disabled: disabled), options, html_options)
     end
 
@@ -595,14 +594,14 @@ module Decidim
 
     def categories_for_select(scope)
       sorted_main_categories = scope.first_class.includes(:subcategories).sort_by do |category|
-        translated_attribute(category.name, category.participatory_space.organization)
+        [category.weight, translated_attribute(category.name, category.participatory_space.organization)]
       end
 
       sorted_main_categories.flat_map do |category|
         parent = [[translated_attribute(category.name, category.participatory_space.organization), category.id]]
 
         sorted_subcategories = category.subcategories.sort_by do |subcategory|
-          translated_attribute(subcategory.name, subcategory.participatory_space.organization)
+          [subcategory.weight, translated_attribute(subcategory.name, subcategory.participatory_space.organization)]
         end
 
         sorted_subcategories.each do |subcategory|

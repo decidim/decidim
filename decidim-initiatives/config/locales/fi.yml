@@ -33,6 +33,7 @@ fi:
         extra_fields_legal_information: Oikeudelliset tiedot koskien henkilötietojen keräämistä
         minimum_committee_members: Komitean jäsenten vähimmäismäärä
         online_signature_enabled: Online-allekirjoitus on käytössä
+        promoting_committee_enabled: Ota käyttöön kannatuskomitea
         title: Otsikko
         undo_online_signatures_enabled: Verkossa tehtyjen allekirjoitusten peruuttaminen käytössä
         validate_sms_code_on_votes: Lisää tekstiviestikoodin validointivaihe allekirjoitusprosessiin
@@ -60,6 +61,18 @@ fi:
     admin:
       actions:
         new_initiative_type: Uusi aloitetyyppi
+      filters:
+        search_placeholder:
+          title_or_description_cont: '%{collection}: Hae otsikon tai kuvauksen perusteella'
+        state_eq:
+          label: Tila
+          values:
+            accepted: Hyväksytty
+            created: Luotu
+            discarded: Peruutettu
+            published: Julkaistu
+            rejected: Hylätty
+            validating: Teknisessä validoinnissa
       menu:
         initiatives: Aloitteet
         initiatives_types: Aloitetyypit
@@ -153,8 +166,8 @@ fi:
           index:
             approve: Hyväksy
             confirm_revoke: Oletko varma?
-            invite_to_committee_help: Jaa tämä linkki ja kutsu muita käyttäjiä tukikomiteaan
-            no_members_yet: Tukikomiteassa ei ole jäseniä
+            invite_to_committee_help: Jaa tämä linkki ja kutsu muita käyttäjiä kannatuskomiteaan
+            no_members_yet: Kannatuskomiteassa ei ole jäseniä
             revoke: Kumoa
             title: Komitean jäsenet
         content_blocks:
@@ -175,18 +188,8 @@ fi:
             title: Yleistä tietoa
           index:
             actions_title: Toiminnot
-            filter:
-              accepted: Hyväksytyt
-              all: Kaikki
-              created: Luodut
-              discarded: Hylätyt
-              published: Julkaistut
-              rejected: Torjutut
-              validating: Teknisessä validoinnissa
-            filter_by: Suodata
             preview: Esikatsele
             print: Tulosta
-            search: Hae
           show:
             print: Tulosta
           update:
@@ -247,7 +250,7 @@ fi:
       committee_requests:
         new:
           continue: Jatka
-          help_text: Olet hakemassa jäsenyyttä tämän aloitteen tukikomiteasta
+          help_text: Olet hakemassa jäsenyyttä tämän aloitteen kannatuskomiteasta
         spawn:
           success: Hakemuksesi on lähetetty aloitteen laatijalle.
       content_blocks:
@@ -281,7 +284,7 @@ fi:
           more_information: "(Lisää tietoa)"
         promotal_committee:
           back: Takaisin
-          individual_help_text: Tämäntyyppisen kansalaisaloite edellyttää, että edistämiskomissio koostuu vähintään %{committee_size} henkilöstä (todistajat). Sinun on jaettava seuraava linkki muiden tähän aloitteeseen osallistuvien ihmisten kanssa. Kun yhteyshenkilösi saavat tämän linkin, heidän on noudatettava esitettyjä ohjeita.
+          individual_help_text: Tämäntyyppisen kansalaisaloite edellyttää, että kannatuskomitea koostuu vähintään %{committee_size} henkilöstä (todistajat). Sinun on jaettava seuraava linkki muiden tähän aloitteeseen osallistuvien ihmisten kanssa. Kun yhteyshenkilösi saavat tämän linkin, heidän on noudatettava esitettyjä ohjeita.
           more_information: "(Lisää tietoa)"
         select_initiative_type:
           back: Takaisin
@@ -291,7 +294,7 @@ fi:
           select_initiative_type_help: Kansalaisaloitteet ovat keino, jolla kansalaiset voivat osallistua viralliseen päätöksentekoon. Päättävät elimet, kuten kaupungin- tai kunnanvaltuusto, voivat tehdä toimenpiteitä, jotka vaikuttavat kansalaisten edun mukaisesti lainsäädäntöön. Millaisen aloitteen sinä haluat laatia?
         share_committee_link:
           continue: Jatka
-          invite_to_committee_help: Kutsulinkki lähetettäväksi tukikomitean jäsenille
+          invite_to_committee_help: Kutsulinkki lähetettäväksi kannatuskomitean jäsenille
         show_similar_initiatives:
           back: Takaisin
           compare_help: Jos jokin seuraavista aloitteista on samankaltainen omasi kanssa, suosittelemme, että allekirjoitat sen. Tällä tavoin aloitteellasi on enemmän mahdollisuuksia toteutua.
@@ -416,7 +419,7 @@ fi:
         more_information: Tässä on lisätietoja aloitteen laatimisprosessista.
         progress_report_body_for: Aloite %{title} on saavuttanut %{percentage}% tarvittavista kannatuksista.
         progress_report_for: 'Yhteenveto aloitteesta: %{title}'
-        promotal_committee_help: Muista, että sinun täytyy kutsua vähintään %{member_count} henkilöä suosittelukomiteaan. Kutsu ihmisiä suosittelukomiteaan lähettämällä heille seuraava linkki
+        promotal_committee_help: Muista, että sinun täytyy kutsua vähintään %{member_count} henkilöä kannatuskomiteaan. Kutsu ihmisiä kannatuskomiteaan lähettämällä heille seuraava linkki
         status_change_body_for: 'Aloitteen %{title} tila on muuttunut, uusi tila: %{state}'
         status_change_for: Aloitteen %{title} tila on muuttunut
         technical_validation_body_for: Aloitteelle %{title} on pyydetty teknistä validointia.

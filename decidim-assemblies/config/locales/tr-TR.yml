@@ -263,7 +263,6 @@ tr:
         others: Diğerleri
         public: halka açık
       filter:
-        all: Her tür montaj
         commission: komisyon
         consultative_advisory: Danışma / Danışma
         executive: yönetici

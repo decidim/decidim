@@ -9,12 +9,15 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
   end
 
   participatory_space.query_type = "Decidim::ParticipatoryProcesses::ParticipatoryProcessType"
+  participatory_space.query_finder = "Decidim::ParticipatoryProcesses::ParticipatoryProcessFinder"
+  participatory_space.query_list = "Decidim::ParticipatoryProcesses::ParticipatoryProcessList"
 
   participatory_space.permissions_class_name = "Decidim::ParticipatoryProcesses::Permissions"
 
   participatory_space.register_resource(:participatory_process) do |resource|
     resource.model_class_name = "Decidim::ParticipatoryProcess"
     resource.card = "decidim/participatory_processes/process"
+    resource.searchable = true
   end
 
   participatory_space.register_resource(:participatory_process_group) do |resource|
@@ -31,6 +34,14 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
   participatory_space.context(:admin) do |context|
     context.engine = Decidim::ParticipatoryProcesses::AdminEngine
     context.layout = "layouts/decidim/admin/participatory_process"
+  end
+
+  participatory_space.exports :participatory_processes do |export|
+    export.collection do |participatory_process|
+      Decidim::ParticipatoryProcess.where(id: participatory_process.id)
+    end
+
+    export.serializer Decidim::ParticipatoryProcesses::ParticipatoryProcessSerializer
   end
 
   participatory_space.seeds do
@@ -94,6 +105,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
       ) do
         Decidim::ParticipatoryProcess.create!(params)
       end
+      process.add_to_index_as_search_resource
 
       Decidim::ParticipatoryProcessStep.find_or_initialize_by(
         participatory_process: process,

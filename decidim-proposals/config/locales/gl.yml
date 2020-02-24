@@ -18,7 +18,6 @@ gl:
         body: Corpo
         category_id: Categoría
         has_address: Ten enderezo
-        scope_id: Alcance
         state: Estado
         suggested_hashtags: Hashtags suxeridos
         title: Título
@@ -284,12 +283,10 @@ gl:
         see_all: Ver todos (%{count})
     proposals:
       actions:
-        answer: Resposta
         edit_proposal: Editar proposta
         import: Importar dende outro compoñente
         new: Nova proposta
         participatory_texts: Textos participativos
-        private_notes: Notas privadas
         title: Accións
       admin:
         actions:
@@ -333,11 +330,7 @@ gl:
           update:
             success: Texto participativo actualizado con éxito.
         proposal_answers:
-          edit:
-            accepted: Aceptada
-            answer_proposal: Resposta
-            evaluating: Avaliación
-            rejected: Rexeitado
+          form:
             title: Resposta á proposta %{title}
         proposal_notes:
           create:
@@ -378,6 +371,9 @@ gl:
           new:
             create: Crear
             title: Crear proposta
+          show:
+            created_at: Data de creación
+            votes_count: Reconto de votos
           update_category:
             invalid: 'Estas propostas xa tiñan a categoría %{category} : %{proposals}.'
             select_a_category: Selecciona unha categoría
@@ -400,12 +396,6 @@ gl:
           create:
             invalid: Produciuse un erro dividindo as propostas seleccionadas.
             success: Reaccionou con éxito as propostas en novas.
-        shared:
-          info_proposal:
-            body: Corpo
-            created_at: Data de creación
-            proposal_votes_count: Reconto de votos
-            proposals: Propostas
       admin_log:
         proposal:
           answer: "%{user_name} respondeu á proposta %{resource_name} no espazo %{space_name}"
@@ -430,7 +420,6 @@ gl:
           accepted: Aceptada
           all: Todo
           evaluating: Avaliación
-          except_rejected: Todos excepto rexeitados
           rejected: Rexeitado
         filter_type_values:
           all: Todo
@@ -479,7 +468,6 @@ gl:
           all: Todo
           amendment: Enmendas
           category: Categoría
-          category_prompt: Aviso de categoría
           open: Aberto
           published: Publicado
           related_to: Relacionado con
@@ -629,10 +617,8 @@ gl:
         endorsements_card_row:
           comments: Comentarios
         filters:
-          activity: Actividade
           amendment_type: Tipo
           category: Categoría
-          category_prompt: Selecciona unha categoría
           origin: Orixe
           related_to: Relacionado con
           search: Busca
@@ -693,7 +679,6 @@ gl:
           withdraw_proposal: Retire a proposta
         tags:
           changed_from: "(cambiado de <u>%{previous_category}</u> por un administrador)"
-          filed_as: Arquivo como
         vote_button:
           already_voted: Xa votou
           already_voted_hover: Unvocar

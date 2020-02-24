@@ -475,18 +475,12 @@ pl:
           actions: działania
           badge: Odznaka
           created_at: Utworzono w
-          filter:
-            all: Wszystko
-            not_officialized: Nie oficjalny
-            officialized: Oficjalny
-          filter_by: Filtruj według
           name: Nazwa
           nickname: Przezwisko
           not_officialized: Nie oficjalny
           officialize: Oficjalizuj
           officialized: Oficjalny
           reofficialize: Reofficialize
-          search: Szukaj
           status: Status
           unofficialize: Nieoficjalne
         new:

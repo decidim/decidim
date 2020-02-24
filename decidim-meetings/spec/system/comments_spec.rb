@@ -6,7 +6,7 @@ describe "Comments", type: :system do
   let!(:component) { create(:component, manifest_name: :meetings, organization: organization) }
   let!(:participatory_space) { component.participatory_space }
   let!(:participatory_process_admin) do
-    user = create(:user, :confirmed, organization: organization)
+    user = create(:user, :confirmed, :admin_terms_accepted, organization: organization)
     Decidim::ParticipatoryProcessUserRole.create!(
       role: :admin,
       user: user,

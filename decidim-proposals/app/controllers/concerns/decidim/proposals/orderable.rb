@@ -9,20 +9,18 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
-        helper_method :order, :available_orders, :random_seed
+        include Decidim::Orderable
 
         private
-
-        # Gets how the proposals should be ordered based on the choice made by the user.
-        def order
-          @order ||= detect_order(params[:order]) || default_order
-        end
 
         # Available orders based on enabled settings
         def available_orders
           @available_orders ||= begin
             available_orders = %w(random recent)
             available_orders << "most_voted" if most_voted_order_available?
+            available_orders << "most_endorsed" if current_settings.endorsements_enabled?
+            available_orders << "most_commented" if component_settings.comments_enabled?
+            available_orders << "most_followed" << "with_more_authors"
             available_orders
           end
         end
@@ -43,23 +41,22 @@ module Decidim
           most_voted_order_available? && current_settings.votes_blocked?
         end
 
-        # Returns: A random float number between -1 and 1 to be used as a random seed at the database.
-        def random_seed
-          @random_seed ||= (params[:random_seed] ? params[:random_seed].to_f : (rand * 2 - 1))
-        end
-
-        def detect_order(candidate)
-          available_orders.detect { |order| order == candidate }
-        end
-
         def reorder(proposals)
           case order
-          when "random"
-            proposals.order_randomly(random_seed)
+          when "most_commented"
+            proposals.left_joins(:comments).group(:id).order(Arel.sql("COUNT(decidim_comments_comments.id) DESC"))
+          when "most_endorsed"
+            proposals.order(proposal_endorsements_count: :desc)
+          when "most_followed"
+            proposals.left_joins(:follows).group(:id).order(Arel.sql("COUNT(decidim_follows.id) DESC"))
           when "most_voted"
             proposals.order(proposal_votes_count: :desc)
+          when "random"
+            proposals.order_randomly(random_seed)
           when "recent"
             proposals.order(published_at: :desc)
+          when "with_more_authors"
+            proposals.order(coauthorships_count: :desc)
           end
         end
       end

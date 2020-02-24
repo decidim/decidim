@@ -14,10 +14,11 @@ module Decidim
             )
           end
           let(:proposals) do
-            proposals = create_list(:proposal, 3, component: current_component)
+            proposals = create_list(:proposal, 3, :draft, component: current_component)
             proposals.each_with_index do |proposal, idx|
               level = Decidim::Proposals::ParticipatoryTextSection::LEVELS.keys[idx]
               proposal.update(participatory_text_level: level)
+              proposal.versions.destroy_all
             end
             proposals
           end
@@ -38,10 +39,19 @@ module Decidim
             instance_double(
               PreviewParticipatoryTextForm,
               current_component: current_component,
+              current_user: create(:user, organization: current_component.organization),
               proposals: proposal_modifications
             )
           end
-          let(:command) { described_class.new(form) }
+          let!(:command) { described_class.new(form) }
+
+          it "creates a version for each proposal", versioning: true do
+            expect { command.call }.to broadcast(:ok)
+
+            proposals.each do |proposal|
+              expect(proposal.reload.versions.count).to eq(1)
+            end
+          end
 
           describe "when form modifies proposals" do
             context "with valid values" do

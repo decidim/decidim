@@ -12,7 +12,7 @@
           </div>
 
           <div class="field hashtags__container">
-            <%= form.text_area :body, rows: 10, class: "js-hashtags", hashtaggable: true %>
+            <%= text_editor_for_proposal_body(form) %>
           </div>
 
           <% if current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>

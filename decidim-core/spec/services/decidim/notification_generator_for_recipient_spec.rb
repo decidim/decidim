@@ -24,20 +24,5 @@ describe Decidim::NotificationGeneratorForRecipient do
       expect(notification.resource).to eq resource
       expect(notification.extra["received_as"]).to eq "affected_user"
     end
-
-    context "when the event is not notifiable" do
-      class NonNotifiableEvent < Decidim::Events::BaseEvent
-        def notifiable?
-          false
-        end
-      end
-      let(:event_class) { NonNotifiableEvent }
-
-      it "does not create the notification" do
-        expect do
-          subject.generate
-        end.not_to change(Decidim::Notification, :count)
-      end
-    end
   end
 end

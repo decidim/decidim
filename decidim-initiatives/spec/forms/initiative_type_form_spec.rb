@@ -11,6 +11,7 @@ module Decidim
         let(:organization) { create :organization }
         let(:initiatives_type) { create(:initiatives_type, organization: organization) }
         let(:title) { Decidim::Faker::Localized.sentence(5) }
+        let(:promoting_committee_enabled) { true }
         let(:minimum_committee_members) { 5 }
         let(:attributes) do
           {
@@ -18,6 +19,7 @@ module Decidim
             description: Decidim::Faker::Localized.sentence(25),
             online_signature_enabled: false,
             undo_online_signatures_enabled: false,
+            promoting_committee_enabled: promoting_committee_enabled,
             minimum_committee_members: minimum_committee_members,
             banner_image: Decidim::Dev.test_file("city2.jpeg", "image/jpeg")
           }
@@ -45,6 +47,14 @@ module Decidim
           let(:title) { nil }
 
           it { is_expected.to be_invalid }
+        end
+
+        context "when the promoting committee is not enabled" do
+          let(:promoting_committee_enabled) { false }
+
+          it "sets 0 as minimum committee members" do
+            expect(subject.minimum_committee_members).to eq(0)
+          end
         end
       end
     end

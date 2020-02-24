@@ -6,6 +6,7 @@ ar:
         field: مجالي
         start_date: تاريخ البداية
         title: العنوان
+        translatable_text: نص قابل للترجمة
         updated_at: تم التحديث في
   decidim:
     dummy:

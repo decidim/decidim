@@ -11,10 +11,11 @@ module Decidim
       helper_method :meetings, :meeting, :registration, :search
 
       def index
-        return unless search.results.empty? && params.dig("filter", "date") != "past"
+        return unless search.results.blank? && params.dig("filter", "date") != "past"
 
         @past_meetings = search_klass.new(search_params.merge(date: "past"))
-        unless @past_meetings.results.empty?
+
+        if @past_meetings.results.present?
           params[:filter] ||= {}
           params[:filter][:date] = "past"
           @forced_past_meetings = true

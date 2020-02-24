@@ -269,7 +269,6 @@ pl:
         others: Inni
         public: Publiczny
       filter:
-        all: Wszystkie rodzaje złożeń
         commission: Komisja
         consultative_advisory: Konsultacyjne / doradcze
         executive: Wykonawczy

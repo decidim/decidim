@@ -3,8 +3,11 @@
 module Decidim
   # The main application controller that inherits from Rails.
   class ApplicationController < ::DecidimController
+    include Browser::ActionController
+
     include NeedsOrganization
     include LocaleSwitcher
+    include UseOrganizationTimeZone
     include NeedsPermission
     include PayloadInfo
     include ImpersonateUsers
@@ -12,6 +15,7 @@ module Decidim
     include HttpCachingDisabler
     include ActionAuthorization
     include ForceAuthentication
+    include SafeRedirect
 
     helper Decidim::MetaTagsHelper
     helper Decidim::DecidimFormHelper
@@ -41,8 +45,6 @@ module Decidim
 
     skip_before_action :disable_http_caching, unless: :user_signed_in?
 
-    before_action :track_continuity_badge
-
     private
 
     # Stores the url where the user will be redirected after login.
@@ -51,10 +53,24 @@ module Decidim
     # In Devise controllers we only store the URL if it's from the params, we don't
     # want to overwrite the stored URL for a Devise one.
     def store_current_location
-      return if (devise_controller? && params[:redirect_url].blank?) || !request.format.html?
+      return if skip_store_location?
 
-      value = params[:redirect_url] || request.url
+      value = redirect_url || request.url
       store_location_for(:user, value)
+    end
+
+    def skip_store_location?
+      # Skip if Devise already handles the redirection
+      return true if devise_controller? && redirect_url.blank?
+      # Skip for all non-HTML requests"
+      return true unless request.format.html?
+      # Skip if a signed in user requests the TOS page without having agreed to
+      # the TOS. Most of the times this is because of a redirect to the TOS
+      # page (in which case the desired location is somewhere else after the
+      # TOS is agreed).
+      return true if current_user && !current_user.tos_accepted? && request.path == tos_path
+
+      false
     end
 
     def user_has_no_permission_path
@@ -74,12 +90,6 @@ module Decidim
     # displays the JS response instead of the HTML one.
     def add_vary_header
       response.headers["Vary"] = "Accept"
-    end
-
-    def track_continuity_badge
-      return unless current_user
-
-      Decidim::ContinuityBadgeTracker.new(current_user).track!(Time.zone.today)
     end
   end
 end

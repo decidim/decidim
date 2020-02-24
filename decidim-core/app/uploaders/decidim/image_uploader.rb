@@ -5,7 +5,7 @@ module Decidim
   class ImageUploader < ApplicationUploader
     include CarrierWave::MiniMagick
 
-    process :validate_size, :validate_dimensions
+    process :validate_size, :validate_dimensions, :strip
     process quality: Decidim.image_uploader_quality
 
     # CarrierWave automatically calls this method and validates the content
@@ -14,6 +14,20 @@ module Decidim
       [
         %r{image\/}
       ]
+    end
+
+    # Strips out all embedded information from the image
+    def strip
+      manipulate! do |img|
+        img.strip
+        img
+      end
+    end
+
+    # Add a white list of extensions which are allowed to be uploaded.
+    # For images you might use something like this:
+    def extension_white_list
+      %w(jpg jpeg gif png bmp ico)
     end
 
     # A simple check to avoid DoS with maliciously crafted images, or just to

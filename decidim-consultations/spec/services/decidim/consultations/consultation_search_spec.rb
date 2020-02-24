@@ -4,6 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Consultations
+    # Refers to the filter in consultations list view
     describe ConsultationSearch do
       subject do
         described_class.new(

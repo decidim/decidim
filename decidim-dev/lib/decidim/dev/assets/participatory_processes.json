@@ -1,0 +1,434 @@
+[
+  {
+    "id": 1,
+    "title": {
+      "ca": "Laborum totam et nisi autem.",
+      "en": "Tempora esse debitis in ut.",
+      "es": "Eum quia ut maiores officia."
+    },
+    "subtitle": {
+      "ca": "Sit ut.",
+      "en": "Consequatur sed.",
+      "es": "In laudantium."
+    },
+    "slug": "distinctio-cupiditate",
+    "hashtag": "harum",
+    "short_description": {
+      "ca": "<p>Harum magnam id.</p>",
+      "en": "<p>Aut quam doloribus.</p>",
+      "es": "<p>Vel eaque voluptatem.</p>"
+    },
+    "description": {
+      "ca": "<p>Eius velit earum. Dolorem consequuntur ullam. Atque autem non.</p>",
+      "en": "<p>Ad quaerat consequuntur. Voluptas dignissimos eos. Eos saepe et.</p>",
+      "es": "<p>Omnis similique illo. Expedita adipisci qui. Voluptas cupiditate qui.</p>"
+    },
+    "announcement": null,
+    "start_date": "2019-10-02",
+    "end_date": "2019-12-02",
+    "remote_hero_image_url": "http://localhost:3000/uploads/decidim/participatory_process/hero_image/1/city.jpeg",
+    "remote_banner_image_url": "http://localhost:3000/uploads/decidim/participatory_process/banner_image/1/city2.jpeg",
+    "developer_group": {
+      "ca": "Reiciendis.",
+      "en": "Nostrum.",
+      "es": "Aut."
+    },
+    "local_area": {
+      "ca": "Eum necessitatibus.",
+      "en": "Aspernatur perspiciatis.",
+      "es": "A laudantium."
+    },
+    "meta_scope": {
+      "ca": "sint",
+      "en": "voluptas",
+      "es": "ullam"
+    },
+    "participatory_scope": {
+      "ca": "Ad.",
+      "en": "Amet.",
+      "es": "Excepturi."
+    },
+    "participatory_structure": {
+      "ca": "Eos est.",
+      "en": "Quaerat mollitia.",
+      "es": "Vel iusto."
+    },
+    "target": {
+      "ca": "Ratione amet harum.",
+      "en": "Deserunt nulla modi.",
+      "es": "Aut quae ipsa."
+    },
+    "area": {
+      "id": null,
+      "name": {
+        "en": "",
+        "ca": "",
+        "es": ""
+      }
+    },
+    "participatory_process_group": {
+      "id": 1,
+      "name": {
+        "ca": "Molestias pariatur eaque.",
+        "en": "Iure iusto ut.",
+        "es": "Pariatur culpa reprehenderit."
+      },
+      "description": {
+        "ca": "<p>Et accusamus debitis. Sint voluptatem velit. Quia architecto at.</p>",
+        "en": "<p>Sunt eius labore. Odit fugiat numquam. Et consequatur pariatur.</p>",
+        "es": "<p>Rerum aperiam omnis. Optio est quo. Odit est eveniet.</p>"
+      },
+      "remote_hero_image_url": "http://localhost:3000/uploads/decidim/participatory_process_group/hero_image/1/city.jpeg"
+    },
+    "scope": {
+      "id": 1,
+      "name": {
+        "ca": "South Carolina",
+        "en": "South Carolina",
+        "es": "South Carolina"
+      }
+    },
+    "private_space": false,
+    "promoted": true,
+    "scopes_enabled": true,
+    "show_statistics": true,
+    "participatory_process_steps": [
+      {
+        "id": 1,
+        "title": {
+          "ca": "Quo.",
+          "en": "Magni.",
+          "es": "Praesentium."
+        },
+        "description": {
+          "ca": "<p>Est placeat ut. Odit eum consequatur. Aliquam consequatur molestiae.</p>",
+          "en": "<p>Possimus similique repudiandae. Sunt praesentium incidunt. Ipsam qui ullam.</p>",
+          "es": "<p>Quo cum amet. Ea quis aut. Voluptas sed quis.</p>"
+        },
+        "start_date": "2019-09-02",
+        "end_date": "2019-12-02",
+        "cta_path": null,
+        "cta_text": {
+        },
+        "active": true,
+        "position": 0
+      }
+    ],
+    "participatory_process_categories": [
+      {
+        "id": 1,
+        "name": {
+          "ca": "Rerum quo dicta asperiores officiis.",
+          "en": "Illum nesciunt praesentium explicabo qui.",
+          "es": "Consequatur dolorem aspernatur quia aut."
+        },
+        "description": {
+          "ca": "<p>Qui eaque possimus. Dolores doloremque veniam. Voluptatem nostrum omnis.</p>",
+          "en": "<p>Placeat vitae id. Nam amet pariatur. Quasi omnis magni.</p>",
+          "es": "<p>Repellendus voluptatem praesentium. Deserunt et et. Doloremque minus magni.</p>"
+        },
+        "parent_id": null,
+        "subcategories": null
+      },
+      {
+        "id": 2,
+        "name": {
+          "ca": "Dolorem velit est nihil aut.",
+          "en": "Expedita sint earum rerum consequatur.",
+          "es": "Labore pariatur numquam qui recusandae."
+        },
+        "description": {
+          "ca": "<p>Porro dolores nobis. Ut qui provident. Quasi beatae ducimus.</p>",
+          "en": "<p>Tempore voluptatum sequi. Sed asperiores sit. Illum in quo.</p>",
+          "es": "<p>Dignissimos esse omnis. Non temporibus commodi. Nemo corrupti est.</p>"
+        },
+        "parent_id": null,
+        "subcategories": [
+          {
+            "id": 3,
+            "name": {
+              "ca": "Quibusdam a ratione sit sint.",
+              "en": "Adipisci doloremque deserunt sit quo.",
+              "es": "Eaque iusto nemo minus doloribus."
+            },
+            "description": {
+              "ca": "<p>Voluptatem similique soluta. Quidem fugit voluptas. Repellat suscipit id.</p>",
+              "en": "<p>Animi quae ipsum. Perferendis alias molestiae. Voluptas aut dolorem.</p>",
+              "es": "<p>Id quisquam nisi. Vel doloremque et. Voluptas et totam.</p>"
+            },
+            "parent_id": 2
+          },
+          {
+            "id": 4,
+            "name": {
+              "ca": "A consequuntur pariatur ratione dolor.",
+              "en": "Dolor fugit provident illo mollitia.",
+              "es": "Pariatur sit nemo culpa impedit."
+            },
+            "description": {
+              "ca": "<p>Voluptate ad neque. Reprehenderit id a. Voluptatem et beatae.</p>",
+              "en": "<p>Atque eum aut. Repellat eos vero. Pariatur ipsa culpa.</p>",
+              "es": "<p>Libero et a. Nihil reprehenderit esse. Ducimus ab similique.</p>"
+            },
+            "parent_id": 2
+          },
+          {
+            "id": 5,
+            "name": {
+              "ca": "Voluptatem quasi porro minima dolorum.",
+              "en": "Nihil ratione ducimus tempora magni.",
+              "es": "Libero ut voluptatem atque sequi."
+            },
+            "description": {
+              "ca": "<p>Accusantium nihil modi. Voluptas non officia. Repellendus placeat et.</p>",
+              "en": "<p>Accusamus doloremque dolorem. Rerum nemo provident. Alias ad quia.</p>",
+              "es": "<p>Dolores nihil non. Ratione dolore et. Nihil facere fugiat.</p>"
+            },
+            "parent_id": 2
+          },
+          {
+            "id": 6,
+            "name": {
+              "ca": "Enim qui voluptatem et error.",
+              "en": "Aliquid quia non et illum.",
+              "es": "Similique accusantium rerum provident maxime."
+            },
+            "description": {
+              "ca": "<p>Enim laboriosam dignissimos. Placeat voluptas dignissimos. Voluptatem temporibus aut.</p>",
+              "en": "<p>Quis in perferendis. Veritatis ad doloremque. Impedit rerum consequatur.</p>",
+              "es": "<p>Et ut mollitia. Voluptatem ducimus sint. Corrupti in id.</p>"
+            },
+            "parent_id": 2
+          },
+          {
+            "id": 7,
+            "name": {
+              "ca": "Amet in hic consectetur maxime.",
+              "en": "Aut minima vel repudiandae magnam.",
+              "es": "Vel inventore id autem aspernatur."
+            },
+            "description": {
+              "ca": "<p>Eius ducimus aut. Ratione mollitia voluptatem. Sint repellat dolores.</p>",
+              "en": "<p>Aliquam ut sed. Quod pariatur voluptatum. Similique qui temporibus.</p>",
+              "es": "<p>Repellendus esse quibusdam. Explicabo vel quia. Quia ut quidem.</p>"
+            },
+            "parent_id": 2
+          },
+          {
+            "id": 8,
+            "name": {
+              "ca": "Labore numquam in fugiat fugit.",
+              "en": "Amet ut doloribus alias et.",
+              "es": "Est qui repudiandae dolor neque."
+            },
+            "description": {
+              "ca": "<p>Consequatur minima non. Ipsa eligendi suscipit. Est molestiae impedit.</p>",
+              "en": "<p>Quaerat nesciunt ut. Voluptatibus voluptates deserunt. Aliquid et ducimus.</p>",
+              "es": "<p>Nulla eius occaecati. Dignissimos earum nisi. Iure nihil possimus.</p>"
+            },
+            "parent_id": 2
+          }
+        ]
+      }
+    ],
+    "attachments": {
+      "attachment_collections": [
+        {
+          "id": 1,
+          "name": {
+            "ca": "assumenda",
+            "en": "cumque",
+            "es": "rem"
+          },
+          "weight": 0,
+          "description": {
+            "ca": "Ratione quae ut expedita placeat.",
+            "en": "Enim velit nulla nihil expedita.",
+            "es": "Pariatur excepturi veritatis cumque sed."
+          }
+        }
+      ],
+      "files": [
+        {
+          "id": 3,
+          "title": {
+            "ca": "Facilis unde.",
+            "en": "Reprehenderit quo.",
+            "es": "Autem consequatur."
+          },
+          "weight": 0,
+          "description": {
+            "ca": "Numquam aut beatae repudiandae minima.",
+            "en": "Sequi non eum minus impedit.",
+            "es": "Consequatur quis perferendis consequuntur repudiandae."
+          },
+          "attachment_collection": {
+            "name": null,
+            "weight": null,
+            "description": null
+          },
+          "remote_file_url": "http://localhost:3000/uploads/decidim/attachment/file/3/Exampledocument.pdf"
+        },
+        {
+          "id": 2,
+          "title": {
+            "ca": "Libero sed.",
+            "en": "Aut cum.",
+            "es": "Voluptas quisquam."
+          },
+          "weight": 0,
+          "description": {
+            "ca": "Similique vitae voluptas quae qui.",
+            "en": "Sapiente velit voluptatem id delectus.",
+            "es": "Facere eum nam adipisci culpa."
+          },
+          "attachment_collection": {
+            "name": null,
+            "weight": null,
+            "description": null
+          },
+          "remote_file_url": "http://localhost:3000/uploads/decidim/attachment/file/2/city.jpeg"
+        },
+        {
+          "id": 1,
+          "title": {
+            "ca": "Ea rerum.",
+            "en": "Possimus quia.",
+            "es": "Quod fugit."
+          },
+          "weight": 0,
+          "description": {
+            "ca": "Suscipit minus sit sit reprehenderit.",
+            "en": "Accusamus non iure ut reprehenderit.",
+            "es": "Inventore voluptatum nobis et ut."
+          },
+          "attachment_collection": {
+            "name": {
+              "ca": "assumenda",
+              "en": "cumque",
+              "es": "rem"
+            },
+            "weight": 0,
+            "description": {
+              "ca": "Ratione quae ut expedita placeat.",
+              "en": "Enim velit nulla nihil expedita.",
+              "es": "Pariatur excepturi veritatis cumque sed."
+            }
+          },
+          "remote_file_url": "http://localhost:3000/uploads/decidim/attachment/file/1/Exampledocument.pdf"
+        }
+      ]
+    },
+    "components": [
+      {
+        "manifest_name": "accountability",
+        "id": 15,
+        "name": {
+          "ca": "Seguiment",
+          "en": "Accountability",
+          "es": "Seguimiento"
+        },
+        "participatory_space_id": 2,
+        "participatory_space_type": "Decidim::ParticipatoryProcess",
+        "settings": {
+          "comments_enabled": true,
+          "intro": {
+            "ca": "<p>Sapiente animi quo at.</p>",
+            "en": "<p>Voluptatem praesentium maxime vitae.</p>",
+            "es": "<p>Illum veritatis porro nulla.</p>"
+          },
+          "intro_en": "<p>Voluptatem praesentium maxime vitae.</p>",
+          "intro_ca": "<p>Sapiente animi quo at.</p>",
+          "intro_es": "<p>Illum veritatis porro nulla.</p>",
+          "categories_label": {
+            "ca": "alias",
+            "en": "aut",
+            "es": "omnis"
+          },
+          "categories_label_en": "aut",
+          "categories_label_ca": "alias",
+          "categories_label_es": "omnis",
+          "subcategories_label": {
+            "ca": "rerum",
+            "en": "reprehenderit",
+            "es": "nostrum"
+          },
+          "subcategories_label_en": "reprehenderit",
+          "subcategories_label_ca": "rerum",
+          "subcategories_label_es": "nostrum",
+          "heading_parent_level_results": {
+            "ca": "et",
+            "en": "explicabo",
+            "es": "officiis"
+          },
+          "heading_parent_level_results_en": "explicabo",
+          "heading_parent_level_results_ca": "et",
+          "heading_parent_level_results_es": "officiis",
+          "heading_leaf_level_results": {
+            "ca": "consectetur",
+            "en": "illum",
+            "es": "sunt"
+          },
+          "heading_leaf_level_results_en": "illum",
+          "heading_leaf_level_results_ca": "consectetur",
+          "heading_leaf_level_results_es": "sunt",
+          "display_progress_enabled": true
+        },
+        "weight": 0,
+        "permissions": null,
+        "published_at": "2019-10-02 13:08:43 UTC"
+      },
+      {
+        "manifest_name": "blogs",
+        "id": 18,
+        "name": {
+          "ca": "Blog",
+          "en": "Blog",
+          "es": "Blog"
+        },
+        "participatory_space_id": 2,
+        "participatory_space_type": "Decidim::ParticipatoryProcess",
+        "settings": {
+          "announcement": {
+            "ca": null,
+            "en": null,
+            "es": null
+          },
+          "announcement_en": null,
+          "announcement_ca": null,
+          "announcement_es": null,
+          "comments_enabled": true
+        },
+        "weight": 0,
+        "permissions": null,
+        "published_at": "2019-10-02 13:08:47 UTC"
+      },
+      {
+        "manifest_name": "budgets",
+        "id": 13,
+        "name": {
+          "ca": "Pressupostos",
+          "en": "Budgets",
+          "es": "Presupuestos"
+        },
+        "participatory_space_id": 2,
+        "participatory_space_type": "Decidim::ParticipatoryProcess",
+        "settings": {
+          "projects_per_page": 12,
+          "total_budget": 100000000,
+          "vote_threshold_percent": 70,
+          "comments_enabled": true,
+          "resources_permissions_enabled": true,
+          "announcement": {
+          },
+          "announcement_en": null,
+          "announcement_ca": null,
+          "announcement_es": null
+        },
+        "weight": 0,
+        "permissions": null,
+        "published_at": "2019-10-02 13:08:42 UTC"
+      }
+    ]
+  }
+]

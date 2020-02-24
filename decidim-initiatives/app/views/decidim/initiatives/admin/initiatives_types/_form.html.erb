@@ -13,15 +13,19 @@
     </div>
 
     <div class="row column">
-      <%= form.check_box :online_signature_enabled %>
+      <%= form.select :signature_type, form.object.signature_type_options %>
     </div>
 
     <div class="row column">
       <%= form.check_box :undo_online_signatures_enabled %>
     </div>
 
-    <div class="row column">
-      <%= form.number_field :minimum_committee_members, min: 0, step: 1 %>
+    <div class="row column" id="promoting-committee-details">
+      <%= form.check_box :promoting_committee_enabled %>
+
+      <div class="row column minimum-committee-members-details">
+        <%= form.number_field :minimum_committee_members, min: 0, step: 1 %>
+      </div>
     </div>
 
     <div class="row column">
@@ -56,3 +60,5 @@
 
   </div>
 </div>
+
+<%= javascript_include_tag "decidim/initiatives/admin/initiatives_types.js" %>

@@ -1,5 +1,5 @@
 // = require decidim/core/bundle.js
-// = require jquery
+// = require jquery3
 // = require rails-ujs
 // = require decidim/foundation
 // = require modernizr
@@ -18,10 +18,12 @@
 // = require decidim/editor
 // = require decidim/input_tags
 // = require decidim/input_hashtags
+// = require decidim/input_mentions
 // = require decidim/ajax_modals
 // = require decidim/conferences
 // = require decidim/tooltip_keep_on_hover
 // = require decidim/diff_mode_dropdown
+// = require decidim/check_boxes_tree
 // = require_tree ./decidim/vizzs
 
 // = require_self

@@ -12,6 +12,10 @@ module Decidim
       rescue ArgumentError
         nil
       end
+
+      def type
+        Axiom::Types::Time
+      end
     end
   end
 end

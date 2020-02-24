@@ -151,7 +151,7 @@ nl:
         home_header:
           global_status: Globale uitvoeringstatus
         nav_breadcrumb:
-          global: Wereldwijde uitvoering
+          global: Globale uitvoering
         search:
           search: Zoek naar acties
         show:
@@ -183,7 +183,7 @@ nl:
           version_index: Versie %{index}
     components:
       accountability:
-        name: Verantwoordelijkheid
+        name: Opvolging
         settings:
           global:
             categories_label: Naam voor "Categorieën"
@@ -215,7 +215,7 @@ nl:
     participatory_processes:
       participatory_process_groups:
         highlighted_results:
-          results: resultaten
+          results: Resultaten
     participatory_spaces:
       highlighted_results:
         see_all: Alles zien (%{count})

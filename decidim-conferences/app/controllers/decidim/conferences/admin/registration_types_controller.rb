@@ -8,11 +8,12 @@ module Decidim
       class RegistrationTypesController < Decidim::Conferences::Admin::ApplicationController
         include Concerns::ConferenceAdmin
         include Decidim::ApplicationHelper
+        include Decidim::Paginable
 
         def index
           enforce_permission_to :index, :registration_type
 
-          @registration_types = collection.page(params[:page]).per(15)
+          @registration_types = paginate(collection)
         end
 
         def new

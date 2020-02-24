@@ -47,6 +47,7 @@ module Decidim
 
       describe "texts" do
         let(:type) { :text }
+        let(:options) { { rows: 6 } }
 
         it "is supported" do
           expect(form).to receive(:text_area).with(:test, options)

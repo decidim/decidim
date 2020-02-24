@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   layout :set_layout
 
   def show
-    if request.format.pdf?
+    if request.format.pdf? && valid_path?
       send_file(
         Rails.root.join("app", "views", params[:layout], params[:id]).to_s,
         filename: params[:id].split("/").last,
@@ -17,6 +17,11 @@ class PagesController < ApplicationController
   end
 
   private
+
+  def valid_path?
+    file_path = Rails.root.join("app", "views", params[:layout], params[:id]).to_s
+    file_path.dirname.to_s.start_with?(Rails.root.to_s)
+  end
 
   def set_layout
     params[:layout] || "application"

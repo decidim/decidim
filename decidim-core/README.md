@@ -20,6 +20,10 @@ And then execute:
 bundle
 ```
 
+## Users
+
+User authentication is set up with [`Devise`](https://github.com/plataformatec/devise) with its modules, see the [`Decidim::User`](https://github.com/decidim/decidim/blob/master/decidim-core/app/models/decidim/user.rb) model configuration and its setup [initializer](https://github.com/decidim/decidim/blob/master/decidim-core/config/initializers/devise.rb).
+
 ## Amendments
 
 Core implements an Amendment feature that can be activated in the components. As of now, it's only implemented in the proposal component.
@@ -47,7 +51,22 @@ This module also includes the following models to Decidim's Global Search:
 - `Searchable` module: A concern with the features needed when you want a model to be searchable.
 - `SearchableResource` class: The ActiveRecord that finally includes PgSearch and maps the indexed documents into a model.
 
+### Adding an artifact to Global Search
+
 Models that want to be indexed must include `Searchable` and declare `Searchable.searchable_fields`.
+
+They should be registered as resources. In their manifest, in the `register_resource` section, the artifact should be declared searchable.
+This can be done in an initializer (like user does), in a participatory_space manifest, or in a component manifest. i.e.:
+
+```ruby
+      initializer "decidim.core.register_resources" do
+        Decidim.register_resource(:user) do |resource|
+          resource.model_class_name = "Decidim::User"
+          resource.card = "decidim/user_profile"
+          resource.searchable = true
+        end
+        ...
+```
 
 ## Metrics docs
 

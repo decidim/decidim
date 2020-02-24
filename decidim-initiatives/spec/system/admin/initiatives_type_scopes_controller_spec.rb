@@ -25,6 +25,20 @@ describe "InitiativeTypeScopesController", type: :system do
         expect(page).to have_content("A new scope for the given initiative type has been created")
       end
     end
+
+    it "allows creating initiative type scopes with a Global scope" do
+      click_link "New Initiative type scope"
+      fill_in :initiatives_type_scope_supports_required, with: 10
+      click_button "Create"
+
+      within ".callout-wrapper" do
+        expect(page).to have_content("A new scope for the given initiative type has been created")
+      end
+
+      within ".edit_initiative_type" do
+        expect(page).to have_content("Global scope")
+      end
+    end
   end
 
   context "when editing an initiative type scope" do

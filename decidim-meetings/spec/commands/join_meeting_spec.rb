@@ -87,7 +87,11 @@ module Decidim::Meetings
         expect { subject.call }.to change { Decidim::Gamification.status_for(user, :attended_meetings).score }.from(0).to(1)
       end
 
-      context "and exists and invite for the user" do
+      it "makes the user follow the meeting" do
+        expect { subject.call }.to change { Decidim::Follow.where(user: user, followable: meeting).count }.from(0).to(1)
+      end
+
+      context "and exists an invite for the user" do
         let!(:invite) { create(:invite, meeting: meeting, user: user) }
 
         it "marks the invite as accepted" do
@@ -201,7 +205,8 @@ module Decidim::Meetings
     context "when the registration form is a questionnaire" do
       let!(:questionnaire) { create(:questionnaire) }
       let!(:question) { create(:questionnaire_question, questionnaire: questionnaire) }
-      let(:registration_form) { Decidim::Forms::QuestionnaireForm.from_model(questionnaire) }
+      let(:session_token) { "some-token" }
+      let(:registration_form) { Decidim::Forms::QuestionnaireForm.from_model(questionnaire).with_context(session_token: session_token) }
 
       context "and the registration form is invalid" do
         it "broadcast invalid_form" do

@@ -117,13 +117,6 @@
         <%= form.text_field :official_url %>
       </div>
     </div>
-
-    <% if Decidim.enable_html_header_snippets %>
-      <div class="row column">
-        <%= form.text_area :header_snippets %>
-        <p class="help-text"><%= t(".header_snippets_help") %></p>
-      </div>
-    <% end %>
   </div>
 </div>
 

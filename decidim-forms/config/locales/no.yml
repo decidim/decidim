@@ -1,0 +1,88 @@
+"no":
+  activemodel:
+    attributes:
+      answer:
+        body: Svar
+      question:
+        max_choices: Maksimalt antall valg
+        question_type: Type
+      questionnaire_question:
+        mandatory: Obligatorisk
+    errors:
+      models:
+        answer:
+          attributes:
+            choices:
+              missing: er ikke fullstendig
+              too_many: er for mange
+        questionnaire:
+          request_invalid: Det har oppstod en feil med håndtering av forespørselen. Prøv på nytt
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: Beskrivelse
+            tos: Tjenestevilkår
+        questionnaires:
+          answer_option:
+            answer_option: Svaralternativ
+            free_text: Fri tekst
+            remove: Fjern
+            statement: Uttalelse
+          edit:
+            save: Lagre
+            title: Tittel
+          form:
+            add_question: Legg til spørsmål
+            already_answered_warning: Skjemaet er allerede besvart av noen brukere derfor kan du ikke endre spørsmålene.
+          question:
+            add_answer_option: Legg til svaralternativ
+            any: Alle
+            description: Beskrivelse
+            down: Ned
+            question: Spørsmål
+            remove: Fjern
+            statement: Uttalelse
+            up: Opp
+          update:
+            invalid: Det oppstod et problem med å lagre dette skjema.
+            success: Skjemaene ble lagret.
+      errors:
+        answer:
+          body: Teksten kan ikke være blank
+      question_types:
+        long_answer: Langt svar
+        multiple_option: Flere alternativer
+        short_answer: Kort svar
+        single_option: Enkelt alternativ
+        sorting: Sortering
+      questionnaires:
+        answer:
+          invalid: Det oppstod et problem med å svare på skjemaet.
+          success: Skjema ble besvart.
+        question:
+          max_choices: 'Maksimum valg: %{n}'
+        show:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Logg på med kontoen din</a> eller <a href="%{sign_up_link}">opprett en</a> for å svare på skjemaet.
+            title: Svar på skjemaet
+          are_you_sure: Denne handlingen kan ikke angres, og du kan ikke redigere svarene dine. Er du sikker?
+          questionnaire_answered:
+            body: Dy har allerede svart på dette skjemaet.
+            title: Allerede besvart
+          questionnaire_closed:
+            body: Skjemaet er lukket og kan ikke besvares.
+            title: Skjema lukket
+          questionnaire_for_private_users:
+            body: Skjemaet er bare tilgjengelig for private brukere
+            title: Skjema lukket
+          submit: Send inn
+          tos_agreement: Ved å delta godtar du vilkårene for bruk
+      user_answers_serializer:
+        created_at: Besvart på
+        id: Svar ID
+        ip_hash: Ip Hash
+        registered: Registrert
+        unregistered: Uregistrert
+        user_status: Brukerstatus

@@ -3,6 +3,8 @@
 module Decidim
   # A Helper to render and link amendments to resources.
   module AmendmentsHelper
+    include RichTextEditorHelper
+
     # Renders the emendations of an amendable resource
     #
     # Returns Html grid of CardM.
@@ -43,8 +45,17 @@ module Decidim
     def amend_button_for(amendable)
       return unless amendments_enabled? && amendable.amendable?
       return unless current_component.current_settings.amendment_creation_enabled
+      return unless can_participate_in_private_space?
 
       cell("decidim/amendable/amend_button_card", amendable)
+    end
+
+    # Checks if the user can participate in a participatory space
+    # based on its settings related with Decidim::HasPrivateUsers.
+    def can_participate_in_private_space?
+      return true unless current_participatory_space.class.included_modules.include?(HasPrivateUsers)
+
+      current_participatory_space.can_participate?(current_user)
     end
 
     # Returns Html action button cards for an emendation
@@ -98,8 +109,9 @@ module Decidim
 
     # Renders a UserGroup select field in a form.
     def user_group_select_field(form, name)
+      user_groups = UserGroups::ManageableUserGroups.for(current_user).verified
       form.select(name,
-                  current_user.user_groups.verified.map { |g| [g.name, g.id] },
+                  user_groups.map { |g| [g.name, g.id] },
                   selected: form.object.user_group_id.presence,
                   include_blank: current_user.name,
                   label: t("new.amendment_author", scope: "decidim.amendments"))
@@ -110,6 +122,29 @@ module Decidim
     def amendments_form_fields_label(attribute)
       model_name = amendable.model_name.singular_route_key
       I18n.t(attribute, scope: "activemodel.attributes.#{model_name}")
+    end
+
+    def amendments_form_field_for(attribute, form, original_resource)
+      options = {
+        class: "js-hashtags",
+        hashtaggable: true,
+        label: amendments_form_fields_label(attribute),
+        value: amendments_form_fields_value(original_resource, attribute)
+      }
+
+      case attribute
+      when :title
+        form.text_field(:title, options)
+      when :body
+        text_editor_for(form, :body, options)
+      end
+    end
+
+    # If the content is safe, HTML tags are sanitized, otherwise, they are stripped.
+    def render_emendation_body(emendation)
+      body = present(emendation).body(links: true, strip_tags: !rich_text_editor_in_public_views?)
+
+      rich_text_editor_in_public_views? ? decidim_sanitize(body) : simple_format(body, {}, sanitize: false)
     end
 
     # Return the edited field value or presents the original attribute value in a form.

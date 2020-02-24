@@ -35,6 +35,7 @@ module Decidim
       def create_category
         Category.create!(
           name: form.name,
+          weight: form.weight,
           description: form.description,
           parent_id: form.parent_id,
           participatory_space: @participatory_space

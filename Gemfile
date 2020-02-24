@@ -11,7 +11,7 @@ gem "decidim-initiatives", path: "."
 
 gem "bootsnap", "~> 1.4"
 
-gem "puma", "~> 3.12"
+gem "puma", "~> 3.12.2"
 gem "uglifier", "~> 4.1"
 
 gem "faker", "~> 1.9"

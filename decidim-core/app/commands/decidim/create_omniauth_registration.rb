@@ -21,7 +21,12 @@ module Decidim
       verify_oauth_signature!
 
       begin
-        return broadcast(:ok, existing_identity.user) if existing_identity
+        if existing_identity
+          user = existing_identity.user
+          verify_user_confirmed(user)
+
+          return broadcast(:ok, user)
+        end
         return broadcast(:invalid) if form.invalid?
 
         transaction do
@@ -48,7 +53,12 @@ module Decidim
         organization: organization
       )
 
-      unless @user.persisted?
+      if @user.persisted?
+        # If user has left the account unconfirmed and later on decides to sign
+        # in with omniauth with an already verified account, the account needs
+        # to be marked confirmed.
+        @user.skip_confirmation! if !@user.confirmed? && @user.email == verified_email
+      else
         @user.email = (verified_email || form.email)
         @user.name = form.name
         @user.nickname = form.normalized_nickname
@@ -82,6 +92,14 @@ module Decidim
         provider: form.provider,
         uid: form.uid
       )
+    end
+
+    def verify_user_confirmed(user)
+      return true if user.confirmed?
+      return false if user.email != verified_email
+
+      user.skip_confirmation!
+      user.save!
     end
 
     def verify_oauth_signature!

@@ -15,6 +15,8 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
+        resources :assemblies_types
+
         resources :assemblies, param: :slug, except: [:show, :destroy] do
           resource :publish, controller: "assembly_publications", only: [:create, :destroy]
           resources :copies, controller: "assembly_copies", only: [:new, :create]
@@ -53,6 +55,9 @@ module Decidim
           resources :participatory_space_private_users, controller: "participatory_space_private_users" do
             member do
               post :resend_invitation, to: "participatory_space_private_users#resend_invitation"
+            end
+            collection do
+              resource :participatory_space_private_users_csv_import, only: [:new, :create], path: "csv_import"
             end
           end
         end

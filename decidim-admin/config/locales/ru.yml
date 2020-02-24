@@ -36,13 +36,18 @@ ru:
         organization_url: Веб-адрес организации
         redirect_uri: URI перенаправления
       organization:
+        address: Имя хоста SMTP
+        alert_color: Оповещение
+        badges_enabled: Включить значки
         cta_button_path: Путь кнопки "Призвать к действию"
         cta_button_text: Текст кнопки «Призвать к действию»
+        customize_welcome_notification: Настроить уведомления о приветствии
         default_locale: Язык по умолчанию
         description: Описание
         enable_omnipresent_banner: Показывать вездесущий баннер
         facebook_handler: Обработчик Facebook
         favicon: Значок
+        from: Отправитель сообщения
         github_handler: Обработчик GitHub
         header_snippets: Сниппеты для гипертекстовых заголовков страниц сайта
         highlighted_content_banner_action_subtitle: Подзаголовок кнопки действия
@@ -61,10 +66,21 @@ ru:
         omnipresent_banner_short_description: Краткое описание
         omnipresent_banner_title: Заголовок
         omnipresent_banner_url: Веб-адрес
+        password: Пароль
+        port: Порт
+        primary_color: Основной
         reference_prefix: Справочный префикс
+        secondary_color: Дополнительный
+        send_welcome_notification: Отправить приветственное уведомление
         show_statistics: Показывать статистику
+        success_color: Успешно
         tos_version: Версия условий участия
         twitter_handler: Обработчик Twitter
+        user_groups_enabled: Включить группы
+        user_name: Имя пользователя
+        warning_color: Предупреждение
+        welcome_notification_body: Текст приветствия
+        welcome_notification_subject: Тема приветствия
         youtube_handler: Обработчик YouTube
       scope:
         code: Код
@@ -81,14 +97,29 @@ ru:
         changed_notably: Произошли заметные изменения.
         content: Содержание
         organization: Организация
+        show_in_footer: Показать в подвале
         slug: Сокращенный веб-адрес
         title: Название
+        weight: Вес
+      static_page_topic:
+        description: Описание
+        show_in_footer: Показать в подвале
+        title: Заголовок
+        weight: Вес
+      user_group_csv_verification:
+        file: Файл
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
               must_be_ssl: URI перенаправления должен быть SSL URI
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: Недопустимый файл изображения
+            official_img_header:
+              allowed_file_content_types: Недопустимый файл изображения
   activerecord:
     attributes:
       decidim/static_page:
@@ -243,6 +274,9 @@ ru:
       exports:
         export_as: "%{name} как %{export_format}"
         notice: Идет сохранение в виде файла. Вы получите электронное письмо, когда оно будет завершено.
+      help_sections:
+        form:
+          save: Сохранить
       impersonatable_users:
         index:
           filter:
@@ -296,10 +330,12 @@ ru:
         areas: Участки
         configuration: Конфигурация
         dashboard: Панель управления
+        help_sections: Разделы справки
         homepage: Домашняя страница
         impersonations: Выступления в роли участника
         newsletters: Рассылки новостей
         oauth_applications: Приложения OAuth
+        participants: Участники
         scope_types: Виды охвата
         scopes: Охваты
         settings: Настройки
@@ -339,6 +375,7 @@ ru:
             created_at: 'Создано:'
             progress: Продвижение
             sent_at: 'Отправлено:'
+            sent_to: Отправлено
             subject: Тема
           name: Рассылка новостей
         oauth_application:
@@ -404,7 +441,15 @@ ru:
         form:
           interpolations_hint: 'Подсказка: вы можете использовать «%{name}» в любом месте основного текста или темы, и оно будет заменено именем получателя.'
         index:
+          all: все
+          all_users: 'Все пользователи '
+          and: 'и '
           confirm_delete: Вы действительно хотите удалить эту рассылку новостей?
+          followers: 'подписчики '
+          has_been_sent_to: 'Отправлено: '
+          no_scopes: Нет областей
+          not_sent: Не отправлено
+          participants: 'участники '
           title: Рассылки новостей
         new:
           save: Сохранить
@@ -412,6 +457,10 @@ ru:
         select_recipients_to_deliver:
           confirm_deliver: Вы уверены, что хотите доставить эту рассылку новостей? Это действие нельзя будет отменить.
           deliver: Доставить рассылку новостей
+          none: Нет
+          participants_help: Отправляет новостную рассылку всем подтвержденным пользователям, которые участвовали в любом из выбранных пространств в списке.
+          send_to_all_users: Отправить всем пользователям
+          send_to_followers: Отправить подписчикам
         show:
           preview: Предпросмотр
           subject: Тема
@@ -446,18 +495,12 @@ ru:
           actions: Действия
           badge: Знак отличия
           created_at: 'Создано:'
-          filter:
-            all: Все
-            not_officialized: Не имеет служебного статуса
-            officialized: Имеет служебный статус
-          filter_by: 'Отобрать по признаку:'
           name: Имя
           nickname: Псевдоним
           not_officialized: Не имеет служебного статуса
           officialize: Предоставить служебный статус
           officialized: Имеет служебный статус
           reofficialize: Вновь предоставить служебный статус
-          search: Поиск
           status: Состояние
           unofficialize: Отменить служебный статус
         new:
@@ -589,6 +632,10 @@ ru:
             pending: В ожидании
             rejected: Отклонено
             verified: Проверено
+      user_groups_csv_verifications:
+        new:
+          title: Загрузите ваш CSV файл
+          upload: Загрузить
       users:
         create:
           error: При приглашении этого участника произошла ошибка.
@@ -603,6 +650,7 @@ ru:
         new:
           create: Пригласить
           title: Пригласить участника в качестве администратора
+      view_public_page: Просмотреть общедоступную страницу
     forms:
       errors:
         impersonate_user:
@@ -613,12 +661,16 @@ ru:
         hide: Скрыть
         not_hidden: Не скрыт
         title: Действия
+        unhide: Отобразить
         unreport: Отменить жалобу
       admin:
         reportable:
           hide:
             invalid: При попытке скрыть ресурс произошла ошибка.
             success: Ресурс успешно скрыт.
+          unhide:
+            invalid: При отображении ресурса возникла проблема.
+            success: Ресурс успешно отображен.
           unreport:
             invalid: При отмене жалобы на ресурс произошла ошибка.
             success: Жалоба на ресурс успешно отменена.

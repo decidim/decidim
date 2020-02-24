@@ -67,6 +67,7 @@ describe Decidim::Proposals::CollaborativeDraftCell, type: :cell do
           expect(subject).to have_css(".author-data--small", count: 3)
         end
       end
+
       it "renders the see_more link" do
         within ".card__content" do
           expect.to have_link(".collapsible-list__see-more")
@@ -80,6 +81,7 @@ describe Decidim::Proposals::CollaborativeDraftCell, type: :cell do
       it "renders the card with the .success class" do
         expect(subject).to have_css(".card.success")
       end
+
       it "renders the open state" do
         within ".card__text" do
           expect(subject).to have_css(".success.card__text--status")
@@ -94,6 +96,7 @@ describe Decidim::Proposals::CollaborativeDraftCell, type: :cell do
       it "renders the card with the .alert class" do
         expect(subject).to have_css(".card.alert")
       end
+
       it "renders the open state" do
         within ".card__text" do
           expect(subject).to have_css(".alert.card__text--status")
@@ -108,6 +111,7 @@ describe Decidim::Proposals::CollaborativeDraftCell, type: :cell do
       it "renders the card with the .secondary class" do
         expect(subject).to have_css(".card.secondary")
       end
+
       it "renders the open state" do
         within ".card__text" do
           expect(subject).to have_css(".secondary.card__text--status")

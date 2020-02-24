@@ -10,7 +10,7 @@ hu:
         title: Műveletek
       admins:
         create:
-          error: Hiba történt egy új rendszergazda létrehozásakor.
+          error: Hiba történt egy új admin létrehozásakor.
           success: Admin létrehozása sikeres
         destroy:
           success: Admin törlése sikeres
@@ -24,7 +24,7 @@ hu:
           title: Új admin
         update:
           error: Hiba történt az admin frissítése során.
-          success: Admin frissítése sikeres
+          success: Admin sikeresen frissítve
       default_pages:
         placeholders:
           content: Adj hozzá értelmes tartalmat az admin irányítópult %{page} statikus oldalához.
@@ -47,12 +47,13 @@ hu:
           fields:
             created_at: 'Létrehozva:'
             name: Név
+            omniauth_settings: Omniauth beállítások
             smtp_settings: SMTP beállítások
           name: Szervezet
       organizations:
         create:
-          error: Hiba történt egy új szervezet létrehozása során.
-          success: Szervezet létrehozása sikeres.
+          error: Hiba történt az új szervezet létrehozása során.
+          success: Szervezet sikeresen létrehozva.
         edit:
           secondary_hosts_hint: Mindegyiket új sorba írd be
         index:
@@ -61,13 +62,26 @@ hu:
           reference_prefix_hint: A hivatkozási előtag az erőforrások azonosítására szolgál a szervezetek esetében
           secondary_hosts_hint: Mindegyiket új sorba írd be
           title: Új szervezet
+        omniauth_settings:
+          enabled: Engedélyezve
+          facebook:
+            app_id: Alkalmazás ID
+            app_secret: Alkalmazás titkos kulcs
+          google_oauth2:
+            client_id: Ügyfél ID
+            client_secret: Client Secret
+          icon: Ikon
+          icon_path: Ikon elérési útja
+          twitter:
+            api_key: API-kulcs
+            api_secret: API Titkos
         update:
           error: Hiba történt a szervezet frissítése során.
-          success: Szervezet frissítése sikeres.
+          success: Szervezet sikeresen frissítve.
         users_registration_mode:
           disabled: A hozzáférés csak külső fiókokkal végezhető el
-          enabled: Engedélyezze a felhasználók regisztrálását és bejelentkezését
-          existing: Ne engedélyezze a felhasználók regisztrációját, hanem engedélyezze a meglévő felhasználók számára a bejelentkezést
+          enabled: Engedélyezi a felhasználók regisztrálását és bejelentkezését
+          existing: A felhasználók regisztrációját nem, hanem a meglévő felhasználók bejelentkezését engedélyezi
       shared:
         notices:
           no_organization_warning_html: 'A kezdéshez hozz létre egy szervezetet. Mielőtt folytatnád, olvasd el az útmutatót: %{guide}.'

@@ -22,7 +22,7 @@ module Decidim
 
       include FilterResource
       include Paginable
-      include Orderable
+      include Decidim::Initiatives::Orderable
       include TypeSelectorOptions
       include NeedsInitiative
 

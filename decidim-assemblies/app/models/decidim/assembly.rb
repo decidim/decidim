@@ -31,9 +31,9 @@ module Decidim
     include Decidim::Loggable
     include Decidim::ParticipatorySpaceResourceable
     include Decidim::HasPrivateUsers
+    include Decidim::Searchable
 
     SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github].freeze
-    ASSEMBLY_TYPES = %w(government executive consultative_advisory participatory working_group commission others).freeze
     CREATED_BY = %w(city_council public others).freeze
 
     belongs_to :organization,
@@ -42,6 +42,10 @@ module Decidim
     belongs_to :area,
                foreign_key: "decidim_area_id",
                class_name: "Decidim::Area",
+               optional: true
+    belongs_to :assembly_type,
+               foreign_key: "decidim_assemblies_type_id",
+               class_name: "Decidim::AssembliesType",
                optional: true
     has_many :categories,
              foreign_key: "decidim_participatory_space_id",
@@ -68,6 +72,18 @@ module Decidim
     after_create :set_parents_path
     after_update :set_parents_path, :update_children_paths, if: :saved_change_to_parent_id?
 
+    searchable_fields({
+                        scope_id: :decidim_scope_id,
+                        participatory_space: :itself,
+                        A: :title,
+                        B: :subtitle,
+                        C: :short_description,
+                        D: :description,
+                        datetime: :published_at
+                      },
+                      index_on_create: ->(_assembly) { false },
+                      index_on_update: ->(assembly) { assembly.visible? })
+
     # Overwriting existing method Decidim::HasPrivateUsers.visible_for
     def self.visible_for(user)
       if user
@@ -85,7 +101,7 @@ module Decidim
 
     # Overwriting existing method Decidim::HasPrivateUsers.public_spaces
     def self.public_spaces
-      where(private_space: false).or(where(private_space: true).where(is_transparent: true))
+      where(private_space: false).or(where(private_space: true).where(is_transparent: true)).published
     end
 
     # Scope to return only the promoted assemblies.
@@ -123,13 +139,6 @@ module Decidim
 
     def ancestors
       self_and_ancestors.where.not(id: id)
-    end
-
-    def can_participate?(user)
-      return true unless private_space?
-      return false unless user
-
-      users.include?(user)
     end
 
     def translated_title
@@ -195,7 +204,7 @@ module Decidim
 
     # Allow ransacker to search for a key in a hstore column (`title`.`en`)
     ransacker :title do |parent|
-      Arel::Nodes::InfixOperation.new("->", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
+      Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
     end
   end
 end

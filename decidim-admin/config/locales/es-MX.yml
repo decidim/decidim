@@ -41,6 +41,7 @@ es-MX:
         badges_enabled: Habilitar insignias
         cta_button_path: Ruta del botón de acción principal
         cta_button_text: Texto del botón de acción principal
+        customize_welcome_notification: Personalizar notificación de bienvenida
         default_locale: Idioma predeterminado
         description: Descripción
         enable_omnipresent_banner: Mostrar banner omnipresente
@@ -69,14 +70,19 @@ es-MX:
         port: Puerto
         primary_color: Primario
         reference_prefix: Prefijo de la referencia
+        rich_text_editor_in_public_views: Habilitar editor de texto enriquecido para las participantes
         secondary_color: Secundario
+        send_welcome_notification: Enviar notificación de bienvenida
         show_statistics: Mostrar estadísticas
         success_color: Éxito
+        time_zone: Zona Horaria
         tos_version: Versión de los Términos de Servicio
         twitter_handler: Nombre de Twitter
         user_groups_enabled: Habilitar grupos de usuarios
         user_name: Nombre de usuario
         warning_color: Advertencia
+        welcome_notification_body: Cuerpo del mensaje de notificación de bienvenida
+        welcome_notification_subject: Asunto del mensaje de notificación de bienvenida
         youtube_handler: Nombre de YouTube
       scope:
         code: Código
@@ -138,9 +144,24 @@ es-MX:
         export: Exportar
         manage: Gestionar
         new: Nuevo %{name}
+        per_page: Por página
         permissions: Permisos
         reject: Rechazar
         verify: Verificar
+      admin_terms_of_use:
+        accept:
+          error: Ha habido un error al aceptar los Términos y Condiciones de Administración.
+          success: '¡Genial! Has aceptado los Términos y Condiciones de Administración.'
+        actions:
+          accept: Estoy de acuerdo con estos Términos y Condiciones de Administración
+          are_you_sure: '¿Estás seguro de rechazar los Términos y Condiciones de Administración?'
+          refuse: Rechazar los Términos y Condiciones de Administración
+          title: Acepto los Términos y Condiciones de Administración
+        required_review:
+          alert: 'Requerido: revisa nuestros Términos y Condiciones de Administración'
+          callout: Por favor dedica un momento a revisar la actualización de nuestros Términos y Condiciones de Administración. De lo contrario, no podrás usar la plataforma.
+          cta: Revísalos ahora.
+        title: Términos y Condiciones de Administración
       area_types:
         create:
           error: Hubo un error al crear un nuevo tipo de área.
@@ -161,6 +182,7 @@ es-MX:
           error: Hubo un error al crear una nueva área.
           success: Área creada correctamente.
         destroy:
+          has_spaces: El área tiene espacios dependientes, no debe tener dependencias para ser eliminada.
           success: Área destruida correctamente
         edit:
           title: Editar área
@@ -231,6 +253,7 @@ es-MX:
           success: Categoría actualizada correctamente.
       component_permissions:
         update:
+          error: Hubo un problema al actualizar los permisos de este componente.
           success: Permisos actualizados con éxito.
       components:
         create:
@@ -270,6 +293,31 @@ es-MX:
       exports:
         export_as: "%{name} como %{export_format}"
         notice: Su exportación está actualmente en curso. Recibirá un correo electrónico cuando esté completo.
+      filters:
+        category_id_eq:
+          label: Categoría
+        filter_label: Filtro
+        officialized_at_null:
+          label: Estado
+          values:
+            'false': Oficializada
+            'true': No oficializada
+        private_space_eq:
+          label: Privado
+          values:
+            'false': Público
+            'true': Privado
+        published_at_null:
+          label: Publicado
+          values:
+            'false': Publicada
+            'true': Sin publicar
+        scope_id_eq:
+          label: Ámbito
+        search_label: Buscar
+        search_placeholder:
+          name_or_nickname_or_email_cont: Buscar %{collection} por correo electrónico, nombre o alias.
+          title_cont: Buscar %{collection} por título.
       help_sections:
         error: Se ha producido un error al actualizar las secciones de ayuda
         form:
@@ -449,6 +497,7 @@ es-MX:
           not_sent: No enviado
           participants: 'participantes '
           segmented_to: 'Segmentado para %{subject}: '
+          subscribed_count: 'Suscritas:'
           title: Boletines
         new:
           save: Guardar
@@ -461,6 +510,7 @@ es-MX:
           followers_help: Envía el boletín de noticias a todas las participantes confirmadas que sigan cualquier espacio participativo seleccionado en la lista.
           none: Ninguno
           participants_help: Envía el boletín de noticias a todas las participantes confirmadas que hayan participado en cualquier espacio participativo seleccionado de la lista.
+          recipients_count: Este boletín se enviará a <strong id='recipients_count'>%{count}</strong> usuarias.
           scopes_help: Envía el boletín de noticias a las participantes que tengan cualquiera de los ámbitos activados en su configuración de "Mis intereses".
           select_scopes: Filtrar para las participantes que hayan activado cualquier ámbito en su configuración de "Mis intereses".
           select_spaces: Selecciona espacios para segmentar el boletín
@@ -507,18 +557,12 @@ es-MX:
           actions: Acciones
           badge: Distintivo
           created_at: Creado el
-          filter:
-            all: Todas
-            not_officialized: No oficializado
-            officialized: Oficializado
-          filter_by: Filtrado por
           name: Nombre
           nickname: Apodo
           not_officialized: No oficializado
           officialize: Oficializar
           officialized: Oficializado
           reofficialize: Re-oficializar
-          search: Buscar
           status: Estado
           unofficialize: Des-oficializar
         new:
@@ -533,6 +577,7 @@ es-MX:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          rich_text_editor_in_public_views_help: En algunas áreas de texto, los participantes podrán insertar algunas etiquetas HTML utilizando el editor de texto enriquecido.
           social_handlers: Social
           twitter: Twitter
           url: URL
@@ -567,10 +612,19 @@ es-MX:
           error: Se ha producido un error al eliminar un usuario privado para este espacio participativo.
           success: El acceso de usuarios privados del espacio participativo se eliminado con éxito.
         index:
+          import_via_csv: Importar vía csv
           title: Usuario privado de espacio participativo.
         new:
           create: Crear
           title: Nuevo usuario privado en el espacio participativo.
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: Se ha producido un error al leer el archivo CSV.
+          success: Archivo CSV subido correctamente, estamos enviando un correo electrónico de invitación a las participantes. Esto puede tardar un tiempo.
+        new:
+          explanation: Sube tu archivo CSV. Debe tener dos columnas con correo electrónico en la primera columna del archivo y nombre en la última columna del archivo (correo electrónico, nombre) de las participantes que quieras añadir al espacio participativo, sin cabeceras.
+          title: Sube tu archivo CSV
+          upload: Subir
       resource_permissions:
         edit:
           submit: Enviar

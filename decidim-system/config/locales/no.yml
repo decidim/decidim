@@ -1,0 +1,90 @@
+"no":
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Er du sikker på at du vil slette dette?
+        destroy: Slett
+        edit: Editar
+        new: Nytt
+        save: Lagre
+        title: Handlinger
+      admins:
+        create:
+          error: Det oppstod et problem med å opprette en ny administrator.
+          success: Admin opprettet
+        destroy:
+          success: Admin ble slettet
+        edit:
+          title: Endre administrator
+          update: Oppdater
+        index:
+          title: Adminer
+        new:
+          create: Opprett
+          title: Ny administrator
+        update:
+          error: Det oppsto et problem med å oppdatere administratoren.
+          success: Admin ble oppdatert
+      default_pages:
+        placeholders:
+          content: Legg til meningsfylt innhold til den statiske siden %{page} på administrator kontrollpanelet.
+          title: Standard tittel for %{page}
+      menu:
+        admins: Adminer
+        dashboard: Skrivebord
+        organizations: Organisasjoner
+      models:
+        admin:
+          fields:
+            created_at: Opprettet på
+            email: Epost
+          name: Administrator
+          validations:
+            email_uniqueness: en annen administrator med samme email eksisterer allerede
+        organization:
+          actions:
+            save_and_invite: Opprett organisasjon og inviter administrator
+          fields:
+            created_at: Opprettet på
+            name: Navn
+            omniauth_settings: Omniauth innstillinger
+            smtp_settings: SMTP innstillinger
+          name: Organisasjon
+      organizations:
+        create:
+          error: Det oppstod et problem med å opprette en ny organisasjon.
+          success: Organisasjonen ble opprettet.
+        edit:
+          secondary_hosts_hint: Skriv inn hver enkelt av dem på en ny linje
+        index:
+          title: Organisasjoner
+        new:
+          reference_prefix_hint: Referanse prefikset brukes til å identifisere ressurser på tvers av alle organisasjoner
+          secondary_hosts_hint: Skriv inn hver enkelt av dem på en ny linje
+          title: Ny organisasjon
+        omniauth_settings:
+          enabled: Aktivert
+          facebook:
+            app_id: App ID
+            app_secret: App hemmelighet
+          google_oauth2:
+            client_id: Klient ID
+            client_secret: Klient hemmlighet
+          icon: Ikon
+          icon_path: Ikon sti
+          twitter:
+            api_key: API-nøkkel
+            api_secret: API secret
+        update:
+          error: Det oppstod et problem med å oppdatere denne organisasjon.
+          success: Organisasjonen ble oppdatert.
+        users_registration_mode:
+          disabled: Tilgang kan bare gjøres med eksterne kontoer
+          enabled: Tillat deltakerne å registrere og logge inn
+          existing: Ikke la deltakerne registrere seg, men la eksisterende deltakere logge inn
+      shared:
+        notices:
+          no_organization_warning_html: Du må opprette en organisasjon for å starte. Vær sikker på at du leser %{guide} før du fortsetter.
+          our_getting_started_guide: vår begynner guide
+      titles:
+        dashboard: Skrivebord

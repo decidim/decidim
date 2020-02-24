@@ -2,7 +2,7 @@ ca:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Autor
+        decidim_user_group_id: Autoria
         description: Descripció
         offline_votes: Signatures presencials
         scope_id: Àmbit
@@ -26,20 +26,21 @@ ca:
       initiatives_committee_member:
         user: Membre del comitè
       initiatives_type:
-        banner_image: Imatge de banner
+        banner_image: Imatge del bàner
         collect_user_extra_fields: Recopilar les dades personals de la participant amb la signatura
         description: Descripció
         document_number_authorization_handler: Autorització per verificar el número de document en les signatures
         extra_fields_legal_information: Informació legal sobre la recollida de dades personals
-        minimum_committee_members: Mínim de membres de la comissió
+        minimum_committee_members: Nombre mínim de membres de la comissió
         online_signature_enabled: S'ha activat la signatura digital
+        promoting_committee_enabled: Habilita el comitè promotor
         title: Títol
         undo_online_signatures_enabled: Permetre a les participants desfer les seves signatures digitals
-        validate_sms_code_on_votes: Afegeix el pas de la validació mitjançant SMS al procés de signatura
+        validate_sms_code_on_votes: Afegeix el pas de validació mitjançant SMS al procés de signatura
       initiatives_vote:
         date_of_birth: Data de naixement
         document_number: Número de document
-        name_and_surname: Nom i cognom
+        name_and_surname: Nom i cognoms
         postal_code: Codi postal
       organization_data:
         address: Adreça
@@ -60,13 +61,25 @@ ca:
     admin:
       actions:
         new_initiative_type: Nou tipus d'iniciativa
+      filters:
+        search_placeholder:
+          title_or_description_cont: Cerca %{collection} per títol o descripció.
+        state_eq:
+          label: Estat
+          values:
+            accepted: Acceptada
+            created: Creada
+            discarded: Descartada
+            published: Publicada
+            rejected: Rebutjada
+            validating: Validació tècnica
       menu:
         initiatives: Iniciatives
         initiatives_types: Tipus d'iniciatives
       models:
         initiatives:
           fields:
-            created_at: Creat a
+            created_at: Data de creació
             id: ID
             state: Estat
             supports_count: Signatures
@@ -74,11 +87,11 @@ ca:
         initiatives_type_scope:
           fields:
             scope: Àmbit
-            supports_required: Signatures requerides
+            supports_required: Signatures necessàries
           name: Àmbit del tipus d'iniciativa
         initiatives_types:
           fields:
-            created_at: Creat a
+            created_at: Creat el
             title: Tipus d'iniciatives
           name: Tipus d'iniciativa
         initiatives_votes:
@@ -88,12 +101,12 @@ ca:
             hash: Hash
             initiative_end_date: Data de finalització
             initiative_id: ID de la iniciativa
-            initiative_signatures_count: Nombre de signatures
+            initiative_signatures_count: Nombre de signatures digitals
             initiative_start_date: Data d'inici
             initiative_title: Títol de la iniciativa
-            name_and_surname: Nom i cognom
+            name_and_surname: Nom i cognoms
             postal_code: Codi postal
-            time_and_date: Hora i data
+            time_and_date: Data i hora
             timestamp: Marca de temps
       titles:
         initiatives: Iniciatives
@@ -103,7 +116,7 @@ ca:
         initiative_extended:
           email_intro: La data de finalització de recollida de signatures per a la iniciativa %{resource_title} s'ha ampliat!
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{resource_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: Ampliat el termini de recollida de signatures per a aquesta iniciativa!
+          email_subject: S'ha ampliat la data de finalització de la recollida de signatura de la iniciativa!
           notification_title: El termini de recollida de signatures per a la iniciativa <a href="%{resource_path}">%{resource_title}</a> s'ha ampliat.
         milestone_completed:
           affected_user:
@@ -121,8 +134,8 @@ ca:
         initiatives:
           conditions:
             - Anar a l'espai d'Iniciatives
-            - Segueix els passos per crear una nova iniciativa
-          description: Aquest distintiu es concedeix quan llances noves iniciatives, unint-te amb altres per dur-les a terme.
+            - Segueix les passes per crear una nova iniciativa
+          description: Aquest distintiu es concedeix quan promous noves iniciatives, unint-te amb altres per dur-les a terme.
           description_another: Aquesta participant ha publicat %{score} iniciatives.
           description_own: Tens %{score} iniciatives publicades.
           name: Iniciatives publicades
@@ -144,7 +157,7 @@ ca:
             answer: Resposta
             title: Resposta per %{title}
           info_initiative:
-            created_at: Creada a
+            created_at: Creada el
             description: Descripció
             initiative_votes_count: Recompte de signatures
             initiatives: Iniciatives
@@ -175,18 +188,8 @@ ca:
             title: Informació general
           index:
             actions_title: Acció
-            filter:
-              accepted: Acceptat
-              all: Totes
-              created: Creada
-              discarded: Rebutjada
-              published: Publicada
-              rejected: Rebutjada
-              validating: Validació tècnica
-            filter_by: Filtra per
             preview: Vista prèvia
             print: Imprimir
-            search: Cerca
           show:
             print: Imprimir
           update:

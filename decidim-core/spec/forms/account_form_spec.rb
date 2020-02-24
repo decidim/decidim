@@ -98,6 +98,14 @@ module Decidim
           expect(subject).to be_valid
         end
       end
+
+      context "with invalid characters" do
+        let(:nickname) { "foo@bar" }
+
+        it "is invalid" do
+          expect(subject).not_to be_valid
+        end
+      end
     end
 
     describe "password" do

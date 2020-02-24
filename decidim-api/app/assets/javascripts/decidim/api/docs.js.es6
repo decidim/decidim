@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-undef */
 
-// = require jquery
+// = require jquery3
 // = require decidim/api/react
 // = require decidim/api/react-dom
 // = require decidim/api/graphql-docs

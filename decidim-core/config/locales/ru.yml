@@ -3,12 +3,21 @@ ru:
     attributes:
       account:
         delete_reason: Причина для удаления вашей учетной записи
+      group:
+        about: О группе
+        avatar: Аватар
+        document_number: Номер документа
+        email: Эл. адрес
+        name: Название
+        nickname: Псевдоним
+        phone: Телефон
       report:
         details: Дополнительные комментарии
       user:
         about: Об участнике
         email: Ваш адрес электронной почты
         name: Ваше имя
+        nickname: Псевдоним
         password: Пароль
         password_confirmation: Подтвердите свой пароль
         personal_url: Личный веб-адрес
@@ -16,7 +25,13 @@ ru:
     models:
       decidim/attachment_created_event: Прикрепленный файл
       decidim/component_published_event: Действующая составляющая
+      decidim/demoted_membership: Больше не администратор группы
+      decidim/gamification/badge_earned_event: Значок получен
+      decidim/gamification/level_up_event: Вы повысили свой уровень
+      decidim/join_request_accepted_event: Запрос на присоединение принят
+      decidim/join_request_rejected_event: Запрос на присоединение отклонен
       decidim/profile_updated_event: Профиль обновлен
+      decidim/removed_from_group: Удален из группы
   activerecord:
     attributes:
       decidim/user:
@@ -46,8 +61,6 @@ ru:
     account:
       data_portability_export:
         file_no_exists: Файла не существует
-        invalid_token: Предоставленный токен недействителен.
-        no_token: Не предоставлен токен
         notice: Идет сохранение в виде файла. Вы получите электронное письмо, когда оно будет завершено.
       delete:
         alert: Это действие нельзя будет отменить. Если вы удалите свою учетную запись, вы не сможете больше входить в систему.
@@ -91,6 +104,10 @@ ru:
         update: "%{user_name} обновил приложение OAuth %{resource_name}"
       organization:
         update: "%{user_name} обновил настройки организации"
+      participatory_space_private_user:
+        create: "%{user_name} пригласил %{resource_name} стать частным участником"
+        create_via_csv: "%{user_name} пригласил %{resource_name} через csv стать частным участником"
+        delete: "%{user_name} удалил участника %{resource_name} как приватного участника"
       scope:
         create: "%{user_name} добавил охват %{resource_name}"
         create_with_parent: "%{user_name} создал охват %{resource_name} внутри охвата %{parent_scope}"
@@ -110,7 +127,36 @@ ru:
       user_group:
         reject: "%{user_name} отклонил подтверждение группы участников %{resource_name}"
         verify: "%{user_name} подтвердил группу участников %{resource_name}"
+        verify_via_csv: "%{user_name} подтвердил группу %{resource_name} через CSV файл"
     amendments:
+      accepted:
+        error: Произошла ошибка при принятии поправки.
+        success: Поправка была успешно принята.
+      amendable:
+        amended_by: Исправлено
+        button: Изменить %{model_name}
+        help_text: Улучшить этот %{model_name}, изменив его %{amendable_fields}
+        promote_button: Повысить до %{model_name}
+      compare_draft:
+        continue: Продолжить
+      edit_draft:
+        send: Предпросмотр
+      emendation:
+        actions:
+          button_accept: Принять
+          button_reject: Отклонить
+      new:
+        send: Создать
+        title: Создать черновик поправок
+      preview_draft:
+        modify: Изменить
+        publish: Опубликовать
+        title: Опубликовать черновик поправок
+      promoted:
+        error: Возникла проблема с опубликованием поправки в качестве нового предложения
+        success: Эта поправка была успешно опубликована как новое предложение
+      review:
+        back: Назад
       wizard_step_form:
         steps:
           '1': Create your amendment
@@ -167,7 +213,9 @@ ru:
           explanation: Срок действия подтверждения вашей личности истек. Чтобы выполнить это действие, вам необходимо снова подтвердить свою личность с помощью «%{authorization}».
           title: Срок действия подтверждения личности истек
         incomplete:
+          cancel: Отменить
           explanation: 'Несмотря на то, что вы подтвердили свою личность с помощью «%{authorization}», мы просим вас заново подтвердить свою личность, потому что нам не хватает следующих данных:'
+          invalid_field: "%{field}"
           reauthorize: Заново подтвердить свою личность
           title: Пожалуйста, заново подтвердите свою личность
         missing:
@@ -183,7 +231,14 @@ ru:
           invalid_field: "Для %{field} недопустимо значение %{value}."
           ok: Хорошо
           title: Не подтвердили свою личность
+        unconfirmed:
+          title: Подтвердите вашу электронную почту
     collapsible_list:
+      hidden_elements_count:
+        one: и еще %{count}
+        few: и еще %{count}
+        many: и еще %{count}
+        other: и еще %{count}
       see_less: "(читать меньше)"
       see_more: "(читать подробнее)"
     components:
@@ -212,12 +267,22 @@ ru:
         name: Баннер рекомендуемого содержимого
       how_to_participate:
         name: Как принять участие
+      html:
+        html_content: HTML-содержимое
+        name: HTML-блок
+      last_activity:
+        name: Последняя активность
+        title: Последняя активность
+        view_all: Посмотреть всё
+      metrics:
+        name: Метрики организации
       stats:
         name: Статистика организации
       sub_hero:
         name: Под-богатырский баннер
     core:
       actions:
+        login_before_access: Пожалуйста, войдите под вашей учётной записью перед получением доступа
         unauthorized: Вы не имеете прав для выполнения этого действия
     data_portability:
       export:
@@ -226,13 +291,15 @@ ru:
         download_data: Загрузить данные
         download_data_description: Файл со всеми сведениями, связанными с учетной записью, будет отправлен на <strong>%{user_email}</strong>
         request_data: Запросить данные
+    datepicker:
+      help_text: 'Ожидаемый формат: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
           email_already_exists: Другая учетная запись использует тот же адрес электронной почты
         new:
           complete_profile: Заполните профиль
-          nickname_help: Ваш короткий, уникальный псевдоним в %{organization}
+          nickname_help: Ваш псевдоним в %{organization}
           sign_up: Пожалуйста, заполните свой профиль
           subtitle: Пожалуйста, заполните следующую форму, чтобы завершить регистрацию
           username_help: Общедоступное имя, которое отображается в ваших сообщениях. В целях обеспечения анонимности оно может быть любым.
@@ -241,7 +308,8 @@ ru:
           already_have_an_account?: У вас уже есть учетная запись?
           newsletter: Получать время от времени рассылку со свежими новостями
           newsletter_title: Разрешение на связь с вами
-          nickname_help: Ваш короткий, уникальный псевдоним в %{organization}
+          nickname_help: Ваш псевдоним в %{organization}
+          password_help: "Минимум %{minimun_characters} символов, не должен быть слишком распространенным (например, 123456) и должен отличаться от вашего имени и электронной почты."
           sign_in: Войти
           sign_up: Зарегистрироваться
           sign_up_as:
@@ -255,6 +323,8 @@ ru:
         new:
           are_you_new?: Вы впервые на этой площадке?
           register: Создать учетную запись
+          sign_in_disabled: Вы можете получить доступ с помощью внешней учетной записи
+          sign_up_disabled: Регистрация отключена, вы можете использовать существующую учетную запись для доступа
       shared:
         newsletter_modal:
           buttons:
@@ -290,6 +360,16 @@ ru:
         content_doesnt_exist: Этот адрес неверен или был удален.
         title: Не удается найти страницу, которую вы ищете
     events:
+      amendments:
+        amendment_accepted:
+          affected_user:
+            email_intro: 'Для %{amendable_title} была принята поправка. Вы можете увидеть ее на этой странице:'
+            email_outro: Вы получили это уведомление, потому что вы автор %{amendable_title}.
+            email_subject: Принята поправка для %{amendable_title} от %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">Эта поправка</a> создана <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> была принята для <a href="%{amendable_path}">%{amendable_title}</a>.
+          follower:
+            email_intro: 'Для %{amendable_title} была принята поправка. Вы можете увидеть ее на этой странице:'
+            email_outro: Вы получили это уведомление, потому что вы следите за «%{amendable_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
       attachments:
         attachment_created:
           email_intro: 'В %{resource_title} добавили новый документ. Вы можете посмотреть его на странице:'
@@ -317,7 +397,7 @@ ru:
           notification_title: Страница <a href="%{resource_path}">профиля</a> участника %{name} (%{nickname}), за которым вы следите, была обновлена.
     export_mailer:
       data_portability_export:
-        click_button: Нажмите следующую кнопку, чтобы загрузить данные. <br/> Файл будет доступен до %{date}.
+        click_button: 'Нажмите следующую кнопку, чтобы загрузить данные. <br/> Файл будет доступен до %{date}.'
         download: Скачать
       export:
         ready: К настоящему прилагается в архивированном виде сохраненный вами файл.
@@ -356,6 +436,48 @@ ru:
       errors:
         error: В этом поле есть ошибка.
       remove_this_file: Удалить этот файл
+    gamification:
+      badges:
+        index:
+          how: Как вы можете его получить
+          title: Значки
+        invitations:
+          name: Приглашения
+      level: Уровень %{level}
+    group_admins:
+      actions:
+        demote_admin: Удалить админа
+      index:
+        current_admins: 'Текущие администраторы:'
+        manage_admins: Управление админами
+    group_invites:
+      accept_invitation: Принять
+      index:
+        invite: Пригласить
+      reject_invitation: Отклонить
+    group_members:
+      actions:
+        are_you_sure: Вы уверены?
+        remove_from_group: Удалить участника
+      index:
+        manage_members: Управление участниками
+    groups:
+      actions:
+        are_you_sure: Вы уверены?
+      edit:
+        edit_user_group: Изменить группу
+        update_user_group: Обновить группу
+      form:
+        document_number_help: Не использовать дефисы и пробелы
+        email_help: Электронная почта вашей организации, ассоциации, коллектива, группы и т.д.
+        phone_help: Не использовать дефисы и пробелы
+      join:
+        error: Возникла проблема при присоединении к группе
+        success: Запрос на присоединение успешно создан. Администратор рассмотрит ваш запрос перед тем, как принять вас в группу.
+    last_activities:
+      all: Все виды активности
+      index:
+        last_activity: Последняя активность
     log:
       base_presenter:
         create: "%{user_name} добавил %{resource_name}"
@@ -378,6 +500,7 @@ ru:
     managed_users:
       expired_session: Текущий сеанс выступления в роли участника истек.
     menu:
+      help: Справка
       home: Главная
     messaging:
       conversation_mailer:
@@ -397,6 +520,7 @@ ru:
         index:
           no_conversations: У вас еще нет бесед
         reply:
+          send: Отправить
           title: Ответить
         start:
           send: Отправить
@@ -510,8 +634,17 @@ ru:
       show:
         followers: Читают
         following: Следит за
+      sidebar:
+        badges:
+          info: Значки заработаны за выполнение определенных действий на платформе.
+          title: Значки
       user:
+        confirmation_instructions_sent: Письмо с инструкциями по подтверждению отправлено
+        create_user_group: Создать группу
         edit_profile: Редактировать профиль
+        edit_user_group: Изменить профиль группы
+        fill_in_email_to_confirm_it: Пожалуйста, заполните электронную почту вашей группы для подтверждения
+        invite_user: Пригласить участника
     reported_mailer:
       hide:
         hello: Здравствуйте, %{name}!
@@ -558,6 +691,8 @@ ru:
         report: Пожаловаться
         spam: Содержит кликоловки (манипулятивно-сенсационные заголовки), рекламу, мошенничество или лохотроны.
         title: Пожаловаться на проблему
+      floating_help:
+        help: Справка
       follow_button:
         sign_in_before_follow: Пожалуйста, войдите в учетную запись, прежде чем выполнять это действие
       login_modal:
@@ -573,14 +708,54 @@ ru:
         share_link: Поделиться ссылкой
       version_author:
         deleted: Удаленный участник
+    wizard_step_form:
+      wizard_aside:
+        back: Назад
+      wizard_header:
+        see_steps: посмотреть шаги
+        step_of: Шаг %{current_step} из %{total_steps}
   devise:
+    confirmations:
+      confirmed: Ваш адрес электронной почты был успешно подтвержден.
+      new:
+        resend_confirmation_instructions: Повторно отправить инструкции по подтверждению
+      send_instructions: Вы получите письмо с инструкциями по подтверждению вашего адреса электронной почты в течение нескольких минут.
+      send_paranoid_instructions: Если ваш адрес электронной почты существует в нашей базе данных, вы получите письмо с инструкциями по подтверждению вашего адреса электронной почты в течение нескольких минут.
+    failure:
+      already_authenticated: Вы уже авторизованы.
+      inactive: Ваш аккаунт еще не активирован.
+      invalid: Неверный %{authentication_keys} или пароль.
+      invited: У вас есть приглашение, примите его, чтобы завершить создание учетной записи.
+      last_attempt: У вас есть еще одна попытка, прежде чем ваша учетная запись будет заблокирована.
+      locked: Ваша учетная запись заблокирована.
+      not_found_in_database: Неверный %{authentication_keys} или пароль.
+      timeout: Ваша сессия истекла. Пожалуйста, войдите снова, чтобы продолжить.
+      unauthenticated: Вам нужно войти или зарегистрироваться, чтобы продолжить.
     invitations:
       edit:
         header: Завершите создание своей учетной записи
         nickname_help: Ваш уникальный псевдоним в %{organization}.
         submit_button: Сохранить
         subtitle: Если вы принимаете приглашение, укажите, пожалуйста, свой псевдоним и пароль.
+      invitation_removed: Ваше приглашение было удалено.
+      invitation_token_invalid: Предоставленный токен приглашения недействителен!
+      new:
+        header: Отправить приглашение
+        submit_button: Отправить приглашение
+      no_invitations_remaining: Приглашений не осталось
+      send_instructions: Приглашение было отправлено на %{email}.
+      updated: Ваш пароль был успешно установлен. Вы вошли в систему.
+      updated_not_active: Ваш пароль был успешно установлен.
     mailer:
+      confirmation_instructions:
+        action: Подтвердить мой аккаунт
+        greeting: Добро пожаловать %{recipient}!
+        instruction: 'Вы можете подтвердить вашу учетную запись электронной почты по ссылке ниже:'
+        subject: Инструкции по подтверждению
+      email_changed:
+        greeting: Здравствуйте, %{recipient}!
+        message: Мы связываемся с вами, чтобы уведомить о том, что ваш адрес электронной почты изменен на %{email}.
+        subject: Адрес электронной почты изменен
       invitation_instructions:
         accept: Принять приглашение
         accept_until: Срок действия этого приглашения закончится %{due_date}.
@@ -593,6 +768,7 @@ ru:
         someone_invited_you: Кто-то пригласил вас в %{application}. Вы можете принять это приглашение по ссылке ниже.
         someone_invited_you_as_admin: Кто-то пригласил вас в качестве администратора %{application}, вы можете принять это приглашение по ссылке ниже.
         someone_invited_you_as_private_user: Кто-то пригласил вас в качестве частного участника %{application}, вы можете принять это приглашение по ссылке ниже.
+        subject: Инструкция по приглашению
       invite_admin:
         subject: Вам было предложено распоряжаться %{organization}
       invite_collaborator:
@@ -608,11 +784,38 @@ ru:
     passwords:
       edit:
         new_password: Пароль
+    registrations:
+      new:
+        sign_up: Зарегистрироваться
+      signed_up: Добро пожаловать! Вы успешно зарегистрировались.
+      signed_up_but_inactive: Вы успешно зарегистрировались. Однако вы не можете войти в систему, потому что учетная запись еще не активирована.
+      signed_up_but_locked: Вы успешно зарегистрировались. Однако вы не можете войти в систему, потому что ваша учетная запись заблокирована.
+    sessions:
+      new:
+        sign_in: Войти
+      signed_in: Вход выполнен успешно.
+      signed_out: Вы вышли.
+    shared:
+      links:
+        back: Назад
+        didn_t_receive_confirmation_instructions: Не получили инструкцию по подтверждению?
+        didn_t_receive_unlock_instructions: Не получили инструкцию по разблокировке?
+        forgot_your_password: Забыли пароль?
+        sign_in: Войти
+        sign_in_with_provider: Войти с помощью %{provider}
+        sign_up: Зарегистрироваться
+    unlocks:
+      new:
+        resend_unlock_instructions: Повторно отправить инструкции по разблокировке
+      send_instructions: Вы получите письмо с инструкциями по разблокированию учетной записи в течение нескольких минут.
+      send_paranoid_instructions: Если ваша учетная запись существует, вы получите письмо с инструкциями о том, как ее разблокировать в течение нескольких минут.
+      unlocked: Ваша учетная запись успешно разблокирована. Пожалуйста, войдите, чтобы продолжить.
   doorkeeper:
     scopes:
       public: Обнародованные сведения о вас.
   errors:
     messages:
+      already_confirmed: уже был подтвержден, попробуйте войти
       content_type_whitelist_error: этот тип файла недопустим
       cycle_detected: родитель охвата не может быть одним из его потомков
       file_size_is_less_than_or_equal_to: размер файла должен быть меньше или равен %{count}

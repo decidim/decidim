@@ -12,7 +12,7 @@ module Decidim
       end
 
       def authorization_handler_options(handler_name)
-        find_handler(handler_name)[:options]
+        find_handler(handler_name)&.dig("options") || {}
       end
 
       def manifest(handler_name)
@@ -20,7 +20,7 @@ module Decidim
       end
 
       def options_schema(handler_name)
-        options_manifest(handler_name).schema.new(find_handler(handler_name)["options"] || {})
+        options_manifest(handler_name).schema.new(authorization_handler_options(handler_name))
       end
 
       def options_attributes(handler_name)

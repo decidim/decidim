@@ -106,6 +106,29 @@ module Decidim
         end
       end
 
+      context "when a text field with hashtaggable option" do
+        let(:output) do
+          available_locales.each do |loc|
+            resource.name[loc] = "dummy name value #{loc}"
+          end
+          builder.translated :text_field, :name, hashtaggable: true
+        end
+
+        it "renders a multilingual input with correct value" do
+          available_locales.each do |loc|
+            expect(parsed.css("input[type='text'][value='dummy name value #{loc}']")).not_to be_empty
+          end
+        end
+
+        context "with a single locale" do
+          let(:available_locales) { %w(en) }
+
+          it "renders a single input" do
+            expect(parsed.css("input[type='text'][value]").first.attributes["value"].value).not_to be_empty
+          end
+        end
+      end
+
       context "with an editor field" do
         let(:output) do
           builder.translated :editor, :short_description
@@ -173,10 +196,13 @@ module Decidim
       subject { Nokogiri::HTML(output) }
 
       let!(:component) { create(:component) }
-      let!(:category) { create(:category, name: { "en" => "Nice category" }, participatory_space: component.participatory_space) }
-      let!(:other_category) { create(:category, name: { "en" => "A better category" }, participatory_space: component.participatory_space) }
-      let!(:subcategory) { create(:category, name: { "en" => "Subcategory" }, parent: category, participatory_space: component.participatory_space) }
+      let!(:category) { create(:category, name: { "en" => "Nice category" }, weight: weight1, participatory_space: component.participatory_space) }
+      let!(:other_category) { create(:category, name: { "en" => "A better category" }, weight: weight2, participatory_space: component.participatory_space) }
+      let!(:subcategory) { create(:category, name: { "en" => "Subcategory" }, weight: weight3, parent: category, participatory_space: component.participatory_space) }
       let(:scope) { component.categories }
+      let(:weight1) { 0 }
+      let(:weight2) { 0 }
+      let(:weight3) { 0 }
 
       let(:options) { {} }
       let(:output) { builder.categories_select(:category_id, scope, options) }
@@ -207,16 +233,38 @@ module Decidim
         end
       end
 
-      it "sorts main categories by name" do
-        expect(subject.css("option")[0].text).to eq(other_category.name["en"])
-        expect(subject.css("option")[1].text).to eq(category.name["en"])
+      context "when no weight is defined" do
+        it "sorts main categories by name" do
+          expect(subject.css("option")[0].text).to eq(other_category.name["en"])
+          expect(subject.css("option")[1].text).to eq(category.name["en"])
+        end
+
+        it "sorts subcategories by name" do
+          subcategory2 = create(:category, name: { "en" => "First subcategory" }, parent: category, participatory_space: component.participatory_space)
+
+          expect(subject.css("option")[2].text).to eq("- #{subcategory2.name["en"]}")
+          expect(subject.css("option")[3].text).to eq("- #{subcategory.name["en"]}")
+        end
       end
 
-      it "sorts subcategories by name" do
-        subcategory2 = create(:category, name: { "en" => "First subcategory" }, parent: category, participatory_space: component.participatory_space)
+      context "when weight is defined" do
+        let(:weight1) { 1 }
+        let(:weight2) { 2 }
+        let(:weight3) { 1 }
 
-        expect(subject.css("option")[2].text).to eq("- #{subcategory2.name["en"]}")
-        expect(subject.css("option")[3].text).to eq("- #{subcategory.name["en"]}")
+        it "sorts main categories by weight" do
+          expect(subject.css("option")[0].text).to eq(category.name["en"])
+          expect(subject.css("option")[2].text).to eq(other_category.name["en"])
+        end
+
+        it "sorts subcategories by weight" do
+          subcategory2 = create(:category, name: { "en" => "First subcategory" }, weight: 2, parent: category, participatory_space: component.participatory_space)
+
+          expect(subject.css("option")[0].text).to eq(category.name["en"])
+          expect(subject.css("option")[1].text).to eq("- #{subcategory.name["en"]}")
+          expect(subject.css("option")[2].text).to eq("- #{subcategory2.name["en"]}")
+          expect(subject.css("option")[3].text).to eq(other_category.name["en"])
+        end
       end
 
       context "when a category doesn't have the translation in the current locale" do

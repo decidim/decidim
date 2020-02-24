@@ -143,7 +143,7 @@ module Decidim
     end
 
     def render_space?
-      context[:show_space].presence && model.respond_to?(:participatory_space)
+      context[:show_space].presence && model.respond_to?(:participatory_space) && model.participatory_space.present?
     end
 
     def render_top?

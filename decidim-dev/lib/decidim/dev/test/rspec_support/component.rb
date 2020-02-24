@@ -178,6 +178,7 @@ RSpec.configure do |config|
     ActiveRecord::Migration.suppress_messages do
       unless ActiveRecord::Base.connection.data_source_exists?("decidim_dummy_resources_dummy_resources")
         ActiveRecord::Migration.create_table :decidim_dummy_resources_dummy_resources do |t|
+          t.jsonb :translatable_text
           t.string :title
           t.string :body
           t.text :address
@@ -189,6 +190,7 @@ RSpec.configure do |config|
           t.references :decidim_component, index: false
           t.integer :decidim_author_id, index: false
           t.string :decidim_author_type, index: false
+          t.integer :decidim_user_group_id, index: false
           t.references :decidim_category, index: false
           t.references :decidim_scope, index: false
           t.string :reference

@@ -16,7 +16,9 @@ module Decidim
           helper Decidim::Forms::ApplicationHelper
           include FormFactory
 
-          helper_method :questionnaire_for, :questionnaire, :allow_answers?, :update_url
+          helper_method :questionnaire_for, :questionnaire, :allow_answers?, :visitor_can_answer?, :visitor_already_answered?, :update_url
+
+          invisible_captcha on_spam: :spam_detected
 
           def show
             @form = form(Decidim::Forms::QuestionnaireForm).from_model(questionnaire)
@@ -26,7 +28,7 @@ module Decidim
           def answer
             enforce_permission_to :answer, :questionnaire
 
-            @form = form(Decidim::Forms::QuestionnaireForm).from_params(params)
+            @form = form(Decidim::Forms::QuestionnaireForm).from_params(params, session_token: session_token)
 
             Decidim::Forms::AnswerQuestionnaire.call(@form, current_user, questionnaire) do
               on(:ok) do
@@ -47,6 +49,22 @@ module Decidim
           # return true if the questionnaire can receive answers
           def allow_answers?
             raise "#{self.class.name} is expected to implement #allow_answers?"
+          end
+
+          # Public: Method to be implemented at the controller if needed. You need to
+          # return true if the questionnaire can receive answers by unregistered users
+          def allow_unregistered?
+            false
+          end
+
+          # Public: return true if the current user (if logged) can answer the questionnaire
+          def visitor_can_answer?
+            current_user || allow_unregistered?
+          end
+
+          # Public: return true if the current user (or session visitor) can answer the questionnaire
+          def visitor_already_answered?
+            questionnaire.answered_by?(current_user || tokenize(session[:session_id]))
           end
 
           # Public: Returns a String or Object that will be passed to `redirect_to` after
@@ -77,6 +95,35 @@ module Decidim
 
           def questionnaire
             @questionnaire ||= Questionnaire.includes(questions: :answer_options).find_by(questionnaire_for: questionnaire_for)
+          end
+
+          def spam_detected
+            enforce_permission_to :answer, :questionnaire
+
+            @form = form(Decidim::Forms::QuestionnaireForm).from_params(params)
+
+            flash.now[:alert] = I18n.t("answer.spam_detected", scope: i18n_flashes_scope)
+            render template: "decidim/forms/questionnaires/show"
+          end
+
+          def ip_hash
+            return nil unless request&.remote_ip
+
+            @ip_hash ||= tokenize(request&.remote_ip)
+          end
+
+          # token is used as a substitute of user_id if unregistered
+          def session_token
+            id = current_user&.id
+            session_id = request.session[:session_id] if request&.session
+
+            return nil unless id || session_id
+
+            @session_token ||= tokenize(id || session_id)
+          end
+
+          def tokenize(id)
+            Digest::MD5.hexdigest("#{id}-#{Rails.application.secrets.secret_key_base}")
           end
         end
       end

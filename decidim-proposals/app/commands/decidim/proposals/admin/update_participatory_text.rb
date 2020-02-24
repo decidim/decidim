@@ -35,14 +35,18 @@ module Decidim
 
         attr_reader :form
 
+        # Prevents PaperTrail from creating versions while updating participatory text proposals.
+        # A first version will be created when publishing the Participatory Text.
         def update_contents_and_resort_proposals(form)
-          form.proposals.each do |prop_form|
-            proposal = Decidim::Proposals::Proposal.where(component: form.current_component).find(prop_form.id)
-            proposal.set_list_position(prop_form.position) if proposal.position != prop_form.position
-            proposal.title = prop_form.title
-            proposal.body = prop_form.body if proposal.participatory_text_level == Decidim::Proposals::ParticipatoryTextSection::LEVELS[:article]
+          PaperTrail.request(enabled: false) do
+            form.proposals.each do |prop_form|
+              proposal = Proposal.where(component: form.current_component).find(prop_form.id)
+              proposal.set_list_position(prop_form.position) if proposal.position != prop_form.position
+              proposal.title = prop_form.title
+              proposal.body = prop_form.body if proposal.participatory_text_level == ParticipatoryTextSection::LEVELS[:article]
 
-            add_failure(proposal) unless proposal.save
+              add_failure(proposal) unless proposal.save
+            end
           end
           raise ActiveRecord::Rollback if @failures.any?
         end

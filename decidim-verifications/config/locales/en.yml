@@ -105,7 +105,7 @@ en:
             title: You need to activate the csv census for this organization
           new:
             file: ".csv file with emails data"
-            info: 'Must be a file with CSV format with one column: email'
+            info: 'Must be a file in CSV format with only one column with the email address:'
             submit: Upload file
             title: Upload a new census
         authorizations:

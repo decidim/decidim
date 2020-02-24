@@ -72,8 +72,9 @@ sv:
         duplicate: Duplicera
         edit: Redigera
         filter:
-          all: Visa alla processer
+          all_processes: Visa alla processer
           process_groups: Processgrupper
+        import_process: Importera
         new_process: Ny process
         new_process_group: Ny processgrupp
         new_process_step: Nytt steg
@@ -146,6 +147,11 @@ sv:
         update:
           error: Det gick inte att uppdatera deltagarprocessgruppen.
           success: Deltagarprocessgruppen har uppdaterats.
+      participatory_process_imports:
+        new:
+          import: Importera
+          select: Välj vilka data som du vill importera
+          title: Importera deltagarprocess
       participatory_process_publications:
         create:
           error: Det gick inte att publicera deltagarprocessen.
@@ -287,6 +293,10 @@ sv:
         participatory_process_copies:
           form:
             slug_help: 'URL-slugs används till att generera de URL:er som pekar på processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Lägg till ett dokument
+            slug_help: 'URL-slugs används till att generera de URL: er som pekar på processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Använd relativa sökvägar, inte fullständiga URL: er här. Tar emot bokstäver, siffror, streck och snedstreck, och måste börja med en bokstav. Om den inte anges visas inte knappen. Exempel: %{url}'

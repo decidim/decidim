@@ -22,6 +22,8 @@ fi-pl:
             announcement: Ilmoitus
           step:
             allow_answers: Salli vastaukset
+            allow_unregistered: Salli rekisteröitymättömien käyttäjien vastata tähän kyselyyn
+            allow_unregistered_help: Mikäli tämä asetus on päällä, käyttäjien ei tarvitse kirjautua sisään vastatakseen kyselyyn. Tämä voi johtaa heikkolaatuiseen tai epäluotettavaan tietoon ja tekee automaattisista hyökkäyksistä helpompaa. Käytä harkiten!
             announcement: Ilmoitus
     events:
       surveys:
@@ -53,4 +55,5 @@ fi-pl:
       surveys:
         answer:
           invalid: Kyselyyn vastaaminen epäonnistui.
+          spam_detected: Kyselyn vastaamisessa tapahtui virhe. Ehkä olit liian nopea, voisitko yrittää uudestaan?
           success: Kyselyyn vastattu onnistuneesti.

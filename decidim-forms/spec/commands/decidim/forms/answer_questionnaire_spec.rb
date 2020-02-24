@@ -5,8 +5,23 @@ require "spec_helper"
 module Decidim
   module Forms
     describe AnswerQuestionnaire do
+      def tokenize(id)
+        Digest::MD5.hexdigest("#{id}-#{Rails.application.secrets.secret_key_base}")
+      end
+
       let(:current_organization) { create(:organization) }
       let(:current_user) { create(:user, organization: current_organization) }
+      let(:session_id) { "session-string" }
+      let(:session_token) { tokenize(current_user&.id || session_id) }
+      let(:remote_ip) { "1.1.1.1" }
+      let(:ip_hash) { tokenize(remote_ip) }
+      let(:request) do
+        double(
+          session: { session_id: session_id },
+          remote_ip: remote_ip
+        )
+      end
+
       let(:participatory_process) { create(:participatory_process, organization: current_organization) }
       let(:questionnaire) { create(:questionnaire, questionnaire_for: participatory_process) }
       let(:question_1) { create(:questionnaire_question, questionnaire: questionnaire) }
@@ -44,7 +59,9 @@ module Decidim
         QuestionnaireForm.from_params(
           form_params
         ).with_context(
-          current_organization: current_organization
+          current_organization: current_organization,
+          session_token: session_token,
+          ip_hash: ip_hash
         )
       end
       let(:command) { described_class.new(form, current_user, questionnaire) }
@@ -83,6 +100,61 @@ module Decidim
           expect(Answer.first.body).to eq("This is my first answer")
           expect(Answer.second.choices.pluck(:body)).to eq(%w(My second answer))
           expect(Answer.third.choices.pluck(:body, :position)).to eq([["Third", 0], ["answer", 1]])
+        end
+
+        # This is to ensure that always exists a uniq identifier per-user
+        context "and user is registered" do
+          let(:ip_hash) { nil }
+
+          it "broadcasts ok" do
+            expect { command.call }.to broadcast(:ok)
+          end
+
+          it "have answers with session_token information" do
+            command.call
+
+            expect(Answer.first.session_token).to eq(tokenize(current_user.id))
+            expect(Answer.first.ip_hash).to eq(nil)
+            expect(Answer.second.session_token).to eq(tokenize(current_user.id))
+            expect(Answer.second.ip_hash).to eq(nil)
+            expect(Answer.third.session_token).to eq(tokenize(current_user.id))
+            expect(Answer.third.ip_hash).to eq(nil)
+          end
+        end
+      end
+
+      describe "when the user is unregistered" do
+        let(:current_user) { nil }
+
+        context "and session exists" do
+          it "broadcasts ok" do
+            expect { command.call }.to broadcast(:ok)
+          end
+
+          it "have answers session/ip information" do
+            command.call
+
+            expect(Answer.first.session_token).to eq(tokenize(session_id))
+            expect(Answer.first.ip_hash).to eq(ip_hash)
+            expect(Answer.second.session_token).to eq(tokenize(session_id))
+            expect(Answer.second.ip_hash).to eq(ip_hash)
+            expect(Answer.third.session_token).to eq(tokenize(session_id))
+            expect(Answer.third.ip_hash).to eq(ip_hash)
+          end
+        end
+
+        context "and session is missing" do
+          let(:session_token) { nil }
+
+          it "broadcasts invalid" do
+            expect { command.call }.to broadcast(:invalid)
+          end
+
+          it "doesn't create questionnaire answers" do
+            expect do
+              command.call
+            end.not_to change(Answer, :count)
+          end
         end
       end
     end

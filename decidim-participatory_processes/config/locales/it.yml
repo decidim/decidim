@@ -22,6 +22,7 @@ it:
         participatory_structure: Come è deciso?
         promoted: Promossa
         published_at: Pubblicato a
+        related_process_ids: Processi correlati
         scope_id: Obiettivi
         scopes_enabled: Gli ambiti abilitati
         short_description: Descrizione breve
@@ -48,6 +49,12 @@ it:
         email: Email
         name: Titolo
         role: Ruolo
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Tipo di documento non valido. I formati accettati sono: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Fase attivata
       decidim/participatory_process_step_changed_event: Fase modificata
@@ -72,8 +79,9 @@ it:
         duplicate: Duplica
         edit: Modifica
         filter:
-          all: Mostra tutti i processi
+          all_processes: Mostra tutti i processi
           process_groups: Gruppi di processi
+        import_process: Importa
         new_process: Nuovo processo
         new_process_group: Nuovo gruppo di processi
         new_process_step: Nuova fase
@@ -136,6 +144,7 @@ it:
           title: Duplica il processo partecipativo
       participatory_process_groups:
         destroy:
+          error: Si è verificato un errore durante la cancellazione del gruppo di processi partecipativi.
           success: Gruppo di processi partecipativi cancellato con successo.
         edit:
           title: Aggiorna un gruppo di processi
@@ -146,6 +155,14 @@ it:
         update:
           error: Si è verificato un errore aggiornando questo gruppo di processi partecipativi.
           success: Il gruppo di processi partecipativi è stato modificato con successo.
+      participatory_process_imports:
+        create:
+          error: Si è verificato un problema nell'importazione di questo processo partecipativo.
+          success: Processo partecipativo importato con successo.
+        new:
+          import: Importa
+          select: Seleziona quali dati vuoi importare
+          title: Importa processo partecipativo
       participatory_process_publications:
         create:
           error: Si è verificato un errore durante la pubblicazione di questo processo partecipativo.
@@ -235,6 +252,9 @@ it:
         publish: "%{user_name} pubblicato il %{resource_name} processo partecipativo"
         unpublish: "%{user_name} non pubblicato il %{resource_name} processo partecipativo"
         update: "%{user_name} ha aggiornato il processo partecipativo %{resource_name}"
+      participatory_process_group:
+        create: "%{user_name} ha creato il gruppo di processi partecipativi %{resource_name}"
+        update: "%{user_name} ha aggiornato il gruppo di processo partecipativo %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} attivato il passaggio %{resource_name} nel processo partecipativo %{space_name}"
         create: "%{user_name} ha creato il passaggio %{resource_name} nel processo partecipativo %{space_name}"
@@ -287,6 +307,10 @@ it:
         participatory_process_copies:
           form:
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo processo. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Aggiungi documento
+            slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo processo. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Utilizza percorsi parziali, non URL completi qui. Accetta lettere, numeri, trattini e barre e deve iniziare con una lettera. Se non impostato, il pulsante non verrà mostrato. Esempio: %{url}'
@@ -299,6 +323,7 @@ it:
             images: immagini
             metadata: Metadati
             other: Altro
+            related_processes: Processi correlati
             select_an_area: Seleziona un'area
             select_process_group: Seleziona un gruppo di processi
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo processo. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
@@ -354,6 +379,7 @@ it:
         participatory_scope: Che cosa si decide
         participatory_structure: Come si decide
         private_space: Questo è un processo privato
+        related_processes: Processi correlati
         scope: Obiettivi
         start_date: Data di inizio
         target: Chi partecipa

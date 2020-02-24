@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "decidim/diffy_extension"
+
 module Decidim
   # This cell renders the diff between `:old_data` and `:new_data`.
   class DiffCell < Decidim::ViewModel
@@ -10,12 +12,12 @@ module Decidim
       render locals: { data: data }
     end
 
-    def diff_unified(data)
-      render locals: { data: data }
+    def diff_unified(data, format)
+      render locals: { data: data, format: format }
     end
 
-    def diff_split(data, direction)
-      render locals: { data: data, direction: direction }
+    def diff_split(data, direction, format)
+      render locals: { data: data, direction: direction, format: format }
     end
 
     private
@@ -25,9 +27,16 @@ module Decidim
       model
     end
 
-    # DiffRenderer class for the current_version's item.
+    # The item associated with the current_version.
+    def item
+      current_version.item
+    end
+
+    # DiffRenderer class for the current_version's item; falls back to `BaseDiffRenderer`.
     def diff_renderer_class
       "#{current_version.item_type.deconstantize}::DiffRenderer".constantize
+    rescue NameError
+      Decidim::BaseDiffRenderer
     end
 
     # Caches a DiffRenderer instance for the current_version.
@@ -48,15 +57,13 @@ module Decidim
     # changes between lines.
     #
     # Returns an HTML-safe string.
-    def output_unified_diff(data)
-      return unless data
-
+    def output_unified_diff(data, format)
       Diffy::Diff.new(
-        data[:old_value],
-        data[:new_value],
+        data[:old_value].to_s,
+        data[:new_value].to_s,
         allow_empty_diff: false,
         include_plus_and_minus_in_html: true
-      ).to_s(:html).html_safe
+      ).to_s(format)
     end
 
     # Outputs the diff as HTML with side-by-side changes between lines.
@@ -64,16 +71,20 @@ module Decidim
     # The left side represents deletions while the right side represents insertions.
     #
     # Returns an HTML-safe string.
-    def output_split_diff(data, direction)
-      return unless data && direction
-
+    def output_split_diff(data, direction, format)
       Diffy::SplitDiff.new(
-        data[:old_value],
-        data[:new_value],
+        data[:old_value].to_s,
+        data[:new_value].to_s,
         allow_empty_diff: false,
-        format: :html,
+        format: format,
         include_plus_and_minus_in_html: true
       ).send(direction)
+    end
+
+    # Gives the option to view HTML unescaped for better user experience.
+    # Official means created from admin (where rich text editor is enabled).
+    def show_html_view_dropdown?
+      item.try(:official?) || current_organization.rich_text_editor_in_public_views?
     end
   end
 end

@@ -1,0 +1,103 @@
+[
+  {
+    "id": 1,
+    "title": {
+      "ca": "Laborum totam et nisi autem.",
+      "en": "Tempora esse debitis in ut.",
+      "es": "Eum quia ut maiores officia."
+    },
+    "subtitle": {
+      "ca": "Sit ut.",
+      "en": "Consequatur sed.",
+      "es": "In laudantium."
+    },
+    "slug": "distinctio-cupiditate",
+    "hashtag": "harum",
+    "short_description": {
+      "ca": "<p>Harum magnam id.</p>",
+      "en": "<p>Aut quam doloribus.</p>",
+      "es": "<p>Vel eaque voluptatem.</p>"
+    },
+    "description": {
+      "ca": "<p>Eius velit earum. Dolorem consequuntur ullam. Atque autem non.</p>",
+      "en": "<p>Ad quaerat consequuntur. Voluptas dignissimos eos. Eos saepe et.</p>",
+      "es": "<p>Omnis similique illo. Expedita adipisci qui. Voluptas cupiditate qui.</p>"
+    },
+    "announcement": null,
+    "start_date": "2019-10-02",
+    "end_date": "2019-12-02",
+    "remote_hero_image_url": "http://localhost:3000/uploads/decidim/participatory_process/hero_image/1/city.jpeg",
+    "remote_banner_image_url": "http://localhost:3000/uploads/decidim/participatory_process/banner_image/1/city2.jpeg",
+    "developer_group": {
+      "ca": "Reiciendis.",
+      "en": "Nostrum.",
+      "es": "Aut."
+    },
+    "local_area": {
+      "ca": "Eum necessitatibus.",
+      "en": "Aspernatur perspiciatis.",
+      "es": "A laudantium."
+    },
+    "meta_scope": {
+      "ca": "sint",
+      "en": "voluptas",
+      "es": "ullam"
+    },
+    "participatory_scope": {
+      "ca": "Ad.",
+      "en": "Amet.",
+      "es": "Excepturi."
+    },
+    "participatory_structure": {
+      "ca": "Eos est.",
+      "en": "Quaerat mollitia.",
+      "es": "Vel iusto."
+    },
+    "target": {
+      "ca": "Ratione amet harum.",
+      "en": "Deserunt nulla modi.",
+      "es": "Aut quae ipsa."
+    },
+    "area": {
+      "id": null,
+      "name": {
+        "en": "",
+        "ca": "",
+        "es": ""
+      }
+    },
+    "participatory_process_group": {
+      "id": 1,
+      "name": {
+        "ca": "Molestias pariatur eaque.",
+        "en": "Iure iusto ut.",
+        "es": "Pariatur culpa reprehenderit."
+      },
+      "description": {
+        "ca": "<p>Et accusamus debitis. Sint voluptatem velit. Quia architecto at.</p>",
+        "en": "<p>Sunt eius labore. Odit fugiat numquam. Et consequatur pariatur.</p>",
+        "es": "<p>Rerum aperiam omnis. Optio est quo. Odit est eveniet.</p>"
+      },
+      "remote_hero_image_url": "http://localhost:3000/uploads/decidim/participatory_process_group/hero_image/1/city.jpeg"
+    },
+    "scope": {
+      "id": 1,
+      "name": {
+        "ca": "South Carolina",
+        "en": "South Carolina",
+        "es": "South Carolina"
+      }
+    },
+    "private_space": false,
+    "promoted": true,
+    "scopes_enabled": true,
+    "show_statistics": true,
+    "participatory_process_steps": null,
+    "participatory_process_categories": null,
+    "attachments": {
+      "attachment_collections": null,
+      "files": null
+    },
+    "components": null
+  }
+]

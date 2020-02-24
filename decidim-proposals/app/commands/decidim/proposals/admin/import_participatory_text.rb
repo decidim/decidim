@@ -28,6 +28,8 @@ module Decidim
           end
 
           broadcast(:ok)
+        rescue StandardError
+          broadcast(:invalid_file)
         end
 
         private

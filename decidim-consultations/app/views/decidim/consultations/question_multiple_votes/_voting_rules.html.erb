@@ -1,0 +1,29 @@
+<div class="row column voting-rules">
+  <div class="callout secondary">
+    <div class="row">
+      <div class="columns medium-8 large-9">
+        <h3 class="heading3"><%= t(".title") %></h3>
+        <ul>
+          <li><%= t(".vote_limit.description", limit: question.max_votes) %></li>
+          <li><%= t(".minimum_votes_per_user.description", votes: question.min_votes) %></li>
+        </ul>
+        <% if question.instructions %>
+          <%= decidim_sanitize translated_attribute question.instructions %>
+        <% end %>
+      </div>
+      <div class="columns medium-4 large-3">
+        <div class="card card--nomargin text-center remaining-votes-counter">
+          <div class="card__content">
+            <span class="definition-data__title"><%= t(".vote_limit.left", limit: question.max_votes) %></span>
+            <span id="remaining-votes-count" class="extra__suport-number">
+              <%= question.max_votes %>
+            </span>
+            <span class="extra__suport-text"><%= t(".vote_limit.votes") %></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag "decidim/consultations/utils_multiple" %>

@@ -20,6 +20,7 @@ module Decidim
       include Decidim::Hashtaggable
       include Decidim::Forms::HasQuestionnaire
       include Decidim::Paddable
+      include Decidim::ActsAsAuthor
 
       belongs_to :organizer, foreign_key: "organizer_id", class_name: "Decidim::User", optional: true
       has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id", dependent: :destroy
@@ -59,6 +60,12 @@ module Decidim
       # Return registrations of a particular meeting made by users representing a group
       def user_group_registrations
         registrations.where.not(decidim_user_group_id: nil)
+      end
+
+      # Returns the presenter for this author, to be used in the views.
+      # Required by ActsAsAuthor.
+      def presenter
+        Decidim::Meetings::MeetingPresenter.new(self)
       end
 
       def self.log_presenter_class_for(_log)

@@ -1,5 +1,5 @@
 <% if initiative.answered? && translated_attribute(initiative.answer).present? %>
-  <br />
+  <br>
   <div class="row column">
     <div class="callout success">
       <h5><%= t(initiative.state, scope: "decidim.initiatives.initiatives.result.answer_title") %>:</h5>
@@ -17,7 +17,7 @@
 <% end %>
 
 <% if initiative.rejected? %>
-  <br />
+  <br>
   <div class="row column">
     <div class="callout warning">
       <h5><%= t(".initiative_rejected_reason") %></h5>

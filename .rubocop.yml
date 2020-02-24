@@ -1231,7 +1231,7 @@ RSpec/MessageSpies:
   Enabled: false
 
 RSpec/MultipleExpectations:
-  Max: 17
+  Enabled: false
 
 RSpec/NestedGroups:
   Max: 7
@@ -1240,6 +1240,12 @@ RSpec/NamedSubject:
   Enabled: false
 
 RSpec/VerifiedDoubles:
+  Enabled: false
+
+RSpec/LeakyConstantDeclaration:
+  Enabled: false
+
+RSpec/DescribedClass:
   Enabled: false
 
 inherit_from: .rubocop_rails.yml

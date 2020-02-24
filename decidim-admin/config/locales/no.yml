@@ -1,0 +1,809 @@
+"no":
+  activemodel:
+    attributes:
+      area:
+        area_type: Områdetype
+        name: Navn
+        organization: Organisasjon
+      area_type:
+        name: Navn
+        organization: Organisasjon
+        plural: Flertall
+      attachment:
+        attachment_collection_id: Mapper
+        description: Beskrivelse
+        file: Fil
+        title: Tittel
+      attachment_collection:
+        description: Beskrivelse
+        name: Navn
+      category:
+        description: Beskrivelse
+        name: Navn
+        parent_id: Forelder
+      component:
+        name: Navn
+        published_at: Publisert den
+        weight: Vekt
+      id: ID
+      newsletter:
+        body: Tekst
+        subject: Emne
+      oauth_application:
+        name: Navn
+        organization_logo: Organisasjonslogo (Firkant)
+        organization_name: Navn på organisasjonen
+        organization_url: Orginasjonens URL
+        redirect_uri: Omdiriger URI
+      organization:
+        address: SMTP vertsnavn
+        alert_color: Varsel
+        badges_enabled: Aktiver merker
+        cta_button_path: Kall til Handlingsknappens vei
+        cta_button_text: Kall til Handlingsknappens tekst
+        customize_welcome_notification: Tilpass dine velkomst varsler
+        default_locale: Standard språk
+        description: Beskrivelse
+        enable_omnipresent_banner: Vis enerådende banner
+        facebook_handler: Facebook brukernavn
+        favicon: Ikon
+        from: Fra e-postadresse
+        github_handler: GitHub brukernavn
+        header_snippets: Topptekstutdrag
+        highlighted_content_banner_action_subtitle: Handlingsknapp undertittel
+        highlighted_content_banner_action_title: Handlingsknapp tittel
+        highlighted_content_banner_action_url: Handlingsknapp URL
+        highlighted_content_banner_enabled: Vis det markerte innholdsbanner
+        highlighted_content_banner_image: Bilde
+        highlighted_content_banner_short_description: Kort beskrivelse
+        highlighted_content_banner_title: Tittel
+        instagram_handler: Instagram brukernavn
+        logo: Logo
+        name: Navn
+        official_img_footer: Offisiell logo footer
+        official_img_header: Offisiell logo header
+        official_url: Offisiell organisasjons URL
+        omnipresent_banner_short_description: Kort beskrivelse
+        omnipresent_banner_title: Tittel
+        omnipresent_banner_url: URL
+        password: Passord
+        port: Port
+        primary_color: Primært
+        reference_prefix: Referanse prefiks
+        rich_text_editor_in_public_views: Aktiver rik-tekst-redigering for deltakere
+        secondary_color: Sekundær
+        send_welcome_notification: Send velkomst varsel
+        show_statistics: Vis statistikk
+        success_color: Vellykket
+        time_zone: Tidssone
+        tos_version: Vilkår for tjenester versjon
+        twitter_handler: Twitter brukernavn
+        user_groups_enabled: Aktiver grupper
+        user_name: Brukernavn
+        warning_color: Advarsel
+        welcome_notification_body: Velkomst varslings tekst
+        welcome_notification_subject: Velkomst varslings emne
+        youtube_handler: YouTube brukernavn
+      scope:
+        code: Kode
+        name: Navn
+        organization: Organisasjon
+        parent_id: Forelder
+        scope_type: Omfangstype
+        scope_type_id: Omfangstype
+      scope_type:
+        name: Navn
+        organization: Organisasjon
+        plural: Flertall
+      static_page:
+        changed_notably: Det har vært merkbare endringer.
+        content: Innhold
+        organization: Organisasjon
+        show_in_footer: Vis i bunnteksten
+        slug: URL slug
+        title: Tittel
+        weight: Vekt
+      static_page_topic:
+        description: Beskrivelse
+        show_in_footer: Vis i bunnteksten
+        title: Tittel
+        weight: Vekt
+      user_group_csv_verification:
+        file: Fil
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: Omdirigerings URI må være en SSL URI
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: Ugyldig bildefil
+            official_img_header:
+              allowed_file_content_types: Ugyldig bildefil
+  activerecord:
+    attributes:
+      decidim/static_page:
+        content: Innhold
+        slug: URL slug
+        title: Tittel
+      doorkeeper/application:
+        authorize_url: Autoriser URL
+        client_id: Klient ID
+        client_secret: Klient Hemmlighet
+        organization_name: Navn på organisasjonen
+        organization_url: Orginasjonens URL
+        redirect_uri: Omdiriger URI
+        site: Nettside
+  decidim:
+    admin:
+      actions:
+        add: Legg til
+        browse: Bla gjennom
+        export: Eksport
+        manage: Administrer
+        new: Nytt %{name}
+        per_page: Per side
+        permissions: Tillatelser
+        reject: Avvis
+        verify: Verifiser
+      admin_terms_of_use:
+        accept:
+          error: Det oppstod et problem med å godkjenne administrator vilkårene.
+          success: Flott! Du har godtatt administratorenes vilkår for bruk.
+        actions:
+          accept: Jeg er enig med disse administrasjonsvilkårene
+          are_you_sure: Er du sikker på å nekte administrasjons vilkårene?
+          refuse: Avslå administratorvilkårene
+          title: Godta vilkårene for bruk
+        required_review:
+          alert: 'Påkrevd: Gå gjennom administrasjons vilkårene våre'
+          callout: Vennligst ta deg tid til å se gjennom administrator Vilkår for Bruk. Ellers vil du ikke kunne administrere plattformen.
+          cta: Se over dem nå.
+        title: Administrator vilkår for bruk
+      area_types:
+        create:
+          error: Det oppstod et problem med å lage en ny områdetype.
+          success: Områdetypen ble opprettet.
+        destroy:
+          success: Områdetype ble ødelagt
+        edit:
+          title: Rediger områdetype
+          update: Oppdater
+        new:
+          create: Opprett områdetype
+          title: Ny områdetype
+        update:
+          error: Det oppstod et problem med å oppdatere denne områdetypen.
+          success: Områdetypen ble oppdatert
+      areas:
+        create:
+          error: Det oppstod et problem med å opprette et nytt område.
+          success: Området ble opprettet.
+        destroy:
+          has_spaces: Område har avhengige rom, den må ikke ha avhengigheter for å bli slettet.
+          success: Området ble ødelagt
+        edit:
+          title: Endre området
+          update: Oppdater
+        new:
+          create: Opprett område
+          title: Nytt område
+        no_areas: Ingen Områder
+        update:
+          error: Det oppstod et problem med å oppdatere dette området.
+          success: Området ble oppdatert
+      attachment_collections:
+        create:
+          error: Det oppstod et problem med å opprette en ny mappe.
+          success: Mappen ble opprettet.
+        destroy:
+          success: Mappen ble ødelagt.
+        edit:
+          title: Rediger mappe
+          update: Oppdater
+        index:
+          attachment_collection_used: Denne mappen kan ikke fjernes fordi den er i bruk.
+          attachment_collections_title: Vedleggsmapper
+        new:
+          create: Opprett
+          title: Ny mappe
+        update:
+          error: Det oppstod et problem med å oppdatere denne mappen.
+          success: Mappen ble oppdatert.
+      attachments:
+        create:
+          error: Det oppsto et problem med å opprette et nytt vedlegg.
+          success: Vedlegget ble opprettet.
+        destroy:
+          success: Vedlegg ble ødelagt.
+        edit:
+          title: Rediger vedlegg
+          update: Oppdater
+        index:
+          attachments_title: Vedlegg
+        new:
+          create: Opprett vedlegg
+          title: Nytt vedlegg
+        update:
+          error: Det oppsto et problem med å oppdatere dette vedlegget.
+          success: Vedlegg ble oppdatert.
+      autocomplete:
+        no_results: Ingen resultat funnet
+        search_prompt: Skriv minst tre tegn for å søke
+      categories:
+        create:
+          error: Det oppstod et problem med å oppdatere denne kategorien.
+          success: Kategorien opprettet.
+        destroy:
+          error: Det oppstod et problem med å slette denne kategorien. Vennligst slett alle underkategorier først, sørg for at ingen andre enheter hører til denne kategorien, og prøv igjen.
+          success: Kategorien slettet.
+        edit:
+          title: Rediger kategori
+          update: Oppdater
+        index:
+          categories_title: Kategorier
+          category_used: Denne kategorien kan ikke fjernes fordi den er i bruk.
+        new:
+          create: Opprett kategori
+          title: Ny kategori
+        update:
+          error: Det oppstod et problem med å oppdatere denne kategorien.
+          success: Kategorien oppdatert.
+      component_permissions:
+        update:
+          error: Det oppstod et problem med å oppdatere tillatelsene til denne komponenten.
+          success: Tillatelsene ble oppdatert.
+      components:
+        create:
+          error: Det oppstod et problem med å opprette denne komponenten.
+          success: Komponent ble opprettet.
+        destroy:
+          error: Det oppstod et problem med å ødelegge denne komponenten.
+          success: Komponent ble slettet.
+        edit:
+          title: Rediger komponent
+          update: Oppdater
+        form:
+          default_step_settings: Standard trinn innstillinger
+          global_settings: Globale innstillinger
+          step_settings: Trinninnstillinger
+        index:
+          add: Legg til komponent
+          headers:
+            actions: Handlinger
+            name: Komponentnavn
+            type: Komponenttype
+        new:
+          add: Legg til komponent
+          title: 'Legg til komponent: %{name}'
+        publish:
+          success: Komponenten har blitt publisert.
+        title: Komponenter
+        unpublish:
+          success: Komponenten har blitt avpublisert.
+        update:
+          error: Det oppstod et problem med å oppdatere denne komponenten.
+          success: Komponenten ble oppdatert.
+      dashboard:
+        show:
+          view_more_logs: Vis flere logger
+          welcome: Velkommen til Decidim administrator Panel.
+      exports:
+        export_as: "%{name} som %{export_format}"
+        notice: Eksporten din holder på. Du vil få en e-mail når den er ferdig.
+      filters:
+        category_id_eq:
+          label: Kategori
+        filter_label: Filter
+        officialized_at_null:
+          label: Stat
+          values:
+            'false': Offisialisert
+            'true': Ikke offisialisert
+        private_space_eq:
+          label: Privat
+          values:
+            'false': Offentlig
+            'true': Privat
+        published_at_null:
+          label: Publisert
+          values:
+            'false': Publisert
+            'true': Avpublisert
+        scope_id_eq:
+          label: Omfang
+        search_label: Søk
+        search_placeholder:
+          name_or_nickname_or_email_cont: Søk %{collection} via email, navn eller kallenavn.
+          title_cont: Søk %{collection} etter tittel.
+      help_sections:
+        error: Det oppsto et problem med å oppdatere hjelpeseksjonene
+        form:
+          save: Lagre
+        success: Hjelpeseksjoner ble oppdatert
+      impersonatable_users:
+        index:
+          filter:
+            all: Alle
+            managed: Fikk til
+            not_managed: Ikke klart
+          filter_by: Filtrer etter
+          impersonate: Etterligne
+          impersonate_new_managed_user: Administrer ny deltaker
+          managed: Fikk til
+          name: Navn
+          needs_authorization_warning: Du trenger minst én autorisasjon aktivert for denne organisasjonen.
+          not_managed: Ikke klart
+          promote: Promoter
+          search: Søk
+          status: Status
+          view_logs: Vis logger
+      impersonations:
+        close_session:
+          error: Det oppstod et problem med å lukke den gjeldene deltaker-styringsøkten.
+          success: Den nåværende etterligningsøkten er avsluttet.
+        create:
+          error: Det oppstod et problem med å administrere deltakeren.
+          success: Den administrerte deltakeren ble opprettet.
+        form:
+          authorization_method: Autoriseringsmetode
+          name: Navn
+          reason: Årsak
+        new:
+          impersonate: Etterligne
+          impersonate_existing_managed_user: Administrer deltaker "%{name}"
+          impersonate_existing_user: Administrer deltaker "%{name}"
+          impersonate_new_managed_user: Administrer ny deltaker
+      logs:
+        logs_list:
+          no_logs_yet: Det er ingen logger ennå
+      managed_users:
+        promotion:
+          error: Det oppstod et problem med å promotere den administrerte deltakeren.
+          success: Den administrerte deltakeren ble promotert.
+        promotions:
+          new:
+            explanation: Styrte deltakere kan bli promotert til standard deltakere. Dette betyr at de vil bli invitert til applikasjonen og du vil ikke kunne administrere dem lenger. De inviterte deltakerene vil motta en email så de kan akseptere invitasjonen.
+            new_managed_user_promotion: Ny administrert deltaker forfremmelse
+            promote: Promoter
+      menu:
+        admin_log: Admin aktivitet logg
+        admins: Adminer
+        appearance: Utseende
+        area_types: Områdetyper
+        areas: Områder
+        configuration: Konfigurasjon
+        dashboard: Skrivebord
+        help_sections: Hjelpeseksjoner
+        homepage: Hjemmeside
+        impersonations: Etterligninger
+        newsletters: Nyhetsbrev
+        oauth_applications: OAuth applikasjoner
+        participants: Deltakere
+        scope_types: Omfangstyper
+        scopes: Omfang
+        settings: Innstillinger
+        static_pages: Sider
+        user_groups: Grupper
+        users: Deltakere
+      models:
+        area:
+          fields:
+            area_type: Områdetype
+            name: Navn
+        area_type:
+          fields:
+            name: Navn
+            plural: Flertall
+        attachment:
+          fields:
+            collection: Mappe
+            content_type: Type
+            file_size: Størrelse
+            title: Tittel
+          name: Vedlegg
+        attachment_collection:
+          name: Mappe
+        category:
+          name: Kategori
+        impersonation_log:
+          fields:
+            admin: Administrator
+            ended_at: Avsluttet
+            expired_at: Utgått på
+            reason: Årsak
+            started_at: Startet på
+            user: Deltaker
+        newsletter:
+          fields:
+            created_at: Opprettet på
+            progress: Framgang
+            sent_at: Sendt på
+            sent_to: Send til
+            subject: Emne
+          name: Nyhetsbrev
+        oauth_application:
+          fields:
+            created_at: Opprettet på
+            name: Navn
+          name: OAuth applikasjon
+        participatory_space_private_user:
+          name: Deltakerområdets private deltaker
+        scope:
+          fields:
+            name: Navn
+            scope_type: Omfangstype
+        scope_type:
+          fields:
+            name: Navn
+            plural: Flertall
+        static_page:
+          fields:
+            created_at: Opprettet på
+            title: Tittel
+        user:
+          fields:
+            created_at: Opprettelsesdato
+            email: Epost
+            last_sign_in_at: Siste påloggingsdato
+            name: Navn
+            role: Rolle
+            roles:
+              admin: Administrator
+              user_manager: Deltaker sjef
+          name: Deltaker
+        user_group:
+          fields:
+            actions: Handlinger
+            created_at: Opprettet på
+            document_number: Dokumentnummer
+            name: Navn
+            phone: Telefon
+            state: Stat
+            users_count: Deltakere teller
+      moderations:
+        index:
+          title: Moderering
+        report:
+          reasons:
+            does_not_belong: Tilhører ikke
+            offensive: Offensiv
+            spam: Søppelpost
+      newsletters:
+        create:
+          error: Det oppstod et problem med å opprette dette nyhetsbrevet.
+          success: Nyhetsbrev opprettet. Vennligst se gjennom det før du sender.
+        deliver:
+          error: Det oppstod et problem med å levere dette nyhetsbrevet.
+          success: Nyhetsbrevet ble levert.
+        destroy:
+          error_already_sent: 'Kan ikke ødelegge nyhetsbrevet: Det er allerede sendt.'
+          success: Nyhetsbrevet ble ødelagt.
+        edit:
+          save_and_preview: Lagre og forhåndsvis
+          title: Rediger nyhetsbrev
+        form:
+          interpolations_hint: 'Hint: Du kan bruke "%{name}" hvor som helst i teksten eller emnet, og det blir erstattet av mottakerens navn.'
+        index:
+          all: alle
+          all_users: 'Alle brukere '
+          and: 'og '
+          confirm_delete: Er du sikker på at du vil slette dette nyhetsbrevet?
+          followers: 'følgere '
+          has_been_sent_to: 'Har blitt sendt til: '
+          no_scopes: Ingen omfang
+          not_sent: Ikke sendt
+          participants: 'deltakere '
+          segmented_to: 'Segmentert til %{subject}: '
+          subscribed_count: 'Abonnert:'
+          title: Nyhetsbrev
+        new:
+          save: Lagre
+          title: Nytt nyhetsbrev
+        select_recipients_to_deliver:
+          all_spaces: Alle
+          all_users_help: Sender nyhetsbrev til alle bekreftede brukere.
+          confirm_deliver: Er du sikker på at du vil levere dette nyhetsbrevet? Denne handlingen kan ikke angres.
+          deliver: Lever nyhetsbrev
+          followers_help: Sender nyhetsbrev til alle bekreftede brukere som følger noen av de valgte deltakerområdene på listen.
+          none: Ingen
+          participants_help: Sender nyhetsbrev til alle bekreftede brukere som har deltatt i noen av de valgte deltakerområdene på listen.
+          recipients_count: Dette nyhetsbrevet vil bli sendt til <strong id='recipients_count'>%{count}</strong> brukere.
+          scopes_help: Sender nyhetsbrev til brukere som har noen av de valgte omfangene aktivert i kontoens "Mine interesser" innstillinger.
+          select_scopes: Filtrer for brukere som har aktivert et valgt omfang i innstillingene for Mine interesser.
+          select_spaces: Velg rom for å segmentere nyhetsbrevet
+          select_users: Velg hvilke brukere du vil sende nyhetsbrevet
+          send_to_all_users: Send til alle brukere
+          send_to_followers: Send til følgere
+          send_to_participants: Send til deltakerne
+          title: Velg mottakere som skal leveres
+          warning: "<strong>Oppmerksomhet:</strong> Dette nyhetsbrevet vil bare bli sendt til brukere som har aktivert <em>Jeg ønsker å motta nyhetsbrev</em> i varslingsinnstillingene."
+        send:
+          no_recipients: Ingen mottakere for dette valget
+        show:
+          preview: Forhåndsvis
+          select_recipients_to_deliver: Velg mottakere som skal leveres
+          subject: Emne
+        update:
+          error: Det oppstod et problem med å oppdatere dette nyhetsbrevet.
+          success: Nyhetsbrev oppdatert. Vennligst se gjennom det før du sender.
+      oauth_applications:
+        create:
+          error: Det oppstod et problem med å oppdatere denne applikasjonen.
+          success: Søknaden ble opprettet.
+        destroy:
+          error: Det oppstod et problem med å ødelegge denne applikasjonen.
+          success: Søknaden ble ødelagt.
+        edit:
+          save: Lagre
+          title: Rediger applikasjon
+        index:
+          confirm_delete: Er du sikker på at du vil slette dette programmet?
+          title: OAuth applikasjoner
+        new:
+          save: Lagre
+          title: Ny applikasjon
+        update:
+          error: Det oppstod et problem med å oppdatere denne applikasjonen.
+          success: Søknaden ble oppdatert.
+      officializations:
+        create:
+          success: Deltaker ble offisialisert
+        destroy:
+          success: Deltaker ble uoffisialisert
+        index:
+          actions: Handlinger
+          badge: Merke
+          created_at: Opprette På
+          name: Navn
+          nickname: Kallenavn
+          not_officialized: Ikke offisialisert
+          officialize: Offisialiser
+          officialized: Offisialisert
+          reofficialize: Offisialiser igjen
+          status: Status
+          unofficialize: Uoffisialisert
+        new:
+          badge: Offisialiserings merke
+          officialize: Offisialiser
+          title: Offisialiser deltaker "%{name}"
+      organization:
+        edit:
+          title: Rediger organisasjon
+          update: Oppdater
+        form:
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
+          rich_text_editor_in_public_views_help: I noen tekstområder vil deltakerne kunne sette inn noen HTML-tagger med å bruke den rike tekst redigereren.
+          social_handlers: Sosial
+          twitter: Twitter
+          url: Url
+          youtube: YouTube
+        update:
+          error: Det oppstod et problem med å oppdatere denne organisasjon.
+          success: Organisasjonen ble oppdatert.
+      organization_appearance:
+        edit:
+          update: Oppdater
+        form:
+          colors_title: Organisasjonens farger
+          cta_button_path_help: 'Du kan overskrive hvor Kall til Handlingsknappen på hjemmesiden lenker til. Bruk delvise veier, ikke fullstendige URLer her. Godtar bokstaver, tall, tankestreker og skråstreker, og må starte med en bokstav. Kall til Handlingknappen vises på hjemmesiden mellom velkomstteksten og beskrivelsen. Eksempel: %{url}'
+          cta_button_text_help: Du kan overskrive Handlingsknappens tekst på hjemmesiden for hvert tilgjengelige språk i organisasjonen. Hvis ikke satt, blir standardverdien brukt. Kall til Handlingknappen vises på hjemmesiden mellom velkomstteksten og beskrivelsen.
+          header_snippets_help: "Bruk dette feltet til å legge til ting i HTML head. Den vanligste bruken er å integrere tredjeparts tjenester som krever litt ekstra JavaScript eller CSS. Du kan også bruke den til å legge til ekstra meta tags til HTML. Merk at dette bare blir gjengitt på offentlige sider, ikke i \nadministrator seksjonen."
+          homepage_appearance_title: Endre hjemmesidens utseende
+          homepage_highlighted_content_banner_title: Markert innholdsbanner
+          layout_appearance_title: Rediger layout utseende
+          omnipresent_banner_appearance_title: Endre enerådende banner
+      organization_homepage:
+        edit:
+          active_content_blocks: Aktive innholdsblokkerer
+          inactive_content_blocks: Inaktivt innholdsblokkerer
+      organization_homepage_content_blocks:
+        edit:
+          update: Oppdater
+      participatory_space_private_users:
+        create:
+          error: Det oppstod et problem med å legge til en privat deltaker for dette deltakerområdet.
+          success: Deltakerområde privat deltaker tilgang opprettet.
+        destroy:
+          error: Det oppstod et problem med å slette en privat deltaker for dette deltakerområdet.
+          success: Deltakerområde privat deltaker tilgang ødelagt.
+        index:
+          import_via_csv: Improter via csv
+          title: Deltakerområdets private deltaker
+        new:
+          create: Opprett
+          title: Ny deltaker område privat deltaker.
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: Det oppstod et problem med å lese CSV-filen.
+          success: CSV fil lastet opp. Vi sender en invitasjons email til deltakerne. Dette kan ta en stund.
+        new:
+          explanation: Last opp CSV filen din. Den må ha to kolonner; med e-post i den første kolonnen av filen og navn i den andre kolonnen av filen (e-post, navn) til brukerne som du vil legge til deltakerområdet, uten overskrifter.
+          title: Last opp din CSV fil
+          upload: Last opp
+      resource_permissions:
+        edit:
+          submit: Send inn
+          title: Endre tillatelser
+        update:
+          success: Tillatelsene ble oppdatert.
+      scope_types:
+        create:
+          error: Det oppstod et problem med å lage en ny omfangstype.
+          success: Omfangstypen ble opprettet.
+        destroy:
+          success: Omfangstype ble ødelagt
+        edit:
+          title: Rediger omfangstype
+          update: Oppdater
+        new:
+          create: Opprett omfangstype
+          title: Nytt omfang
+        update:
+          error: Det oppstod et problem med å oppdatere denne omfangstypen.
+          success: Omfangstypen ble oppdatert
+      scopes:
+        create:
+          error: Det oppstod et problem med å opprette et nytt omfang.
+          success: Omfang ble opprettet.
+        destroy:
+          success: Omfanget ble ødelagt
+        edit:
+          title: Rediger omfang
+          update: Oppdater
+        new:
+          create: Opprett omfang
+          title: Nytt omfang
+        no_scopes: Ingen omfang på dette nivået.
+        update:
+          error: Det oppstod et problem med å oppdatere dette omfanget.
+          success: Omfanget ble oppdatert
+      static_page_topics:
+        create:
+          error: Det oppstod et problem med å opprette et nytt emne.
+          success: Emnet ble opprettet.
+        destroy:
+          success: Emnet ble ødelagt
+        edit:
+          title: Rediger emne
+          update: Oppdater emne
+        new:
+          create: Opprett emne
+          title: Nytt emne
+        update:
+          error: Det oppstod et problem med å oppdatere dette emnet.
+          success: Emnet ble oppdatert
+      static_pages:
+        actions:
+          view: Vis offentlig side
+        create:
+          error: Det oppstod et problem med å opprette en ny side.
+          success: Siden ble opprettet.
+        destroy:
+          success: Siden ble ødelagt
+        edit:
+          changed_notably_help: Hvis avkrysset, vil deltakerne bli varslet om å godta de nye vilkårene og betingelsene.
+          title: Rediger side
+          update: Oppdater
+        form:
+          none: Ingen
+          slug_help: 'Bruk delte stier, ikke fullstendige nettadresser her. Godtar bokstaver, tall, streker og skråstreker, og må starte med en bokstav. Eksempel: %{url}'
+        index:
+          last_notable_change: Siste merkbare endring
+        new:
+          create: Opprett side
+          title: Ny side
+        topic:
+          destroy: Fjern emne
+          edit: Rediger emne
+          empty: Det er ingen side under dette emnet
+          without_topic: Sider uten emne
+        update:
+          error: Det oppstod et problem med å oppdatere denne siden.
+          success: Siden ble oppdatert
+      titles:
+        admin_log: Admin logg
+        area_types: Områdetyper
+        areas: Områder
+        authorization_workflows: Verifiseringsmetoder
+        dashboard: Skrivebord
+        impersonatable_users: Håndterbare deltakere
+        impersonations: Deltakernes administrasjon
+        participants: Deltakere
+        scope_types: Omfangstyper
+        scopes: Omfang
+        static_pages: Sider
+        user_groups: Grupper
+        users: Deltakere
+      user_group:
+        csv_verify:
+          invalid: Det oppstod et problem med å lese CSV-filen.
+          success: CSV fil lastet opp, vi bekrefter gruppene som samsvarer med kriteriene. Dette kan ta en stund.
+        reject:
+          invalid: Det oppstod et problem med å avvise denne gruppen.
+          success: Gruppen ble avvist
+        verify:
+          invalid: Det oppstod et problem med å verifisere denne gruppen.
+          success: Gruppen ble verifisert
+      user_groups:
+        index:
+          filter:
+            all: Alle
+            pending: Venter
+            rejected: Avvist
+            verified: Verifisert
+          filter_by: Filtrer etter
+          search: Søk
+          state:
+            pending: Venter
+            rejected: Avvist
+            verified: Verifisert
+          verify_via_csv: Verifiser via CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Last opp CSV-filen din. Den må ha de offisielle e-postene til gruppene i organisasjonen din i den første kolonnen av filen, uten overskrifter. Bare grupper som har bekreftet e-posten deres og har en e-post som vises i CSV-filen, vil bli validert.
+          title: Last opp din CSV fil
+          upload: Last opp
+      users:
+        create:
+          error: Det oppstod et problem med å invitere denne administratoren.
+          success: Deltakeren ble invitert.
+        destroy:
+          error: Det oppstod et problem med å prøve å slette denne administratoren.
+          success: Deltakeren er ikke lengre en administrator.
+        form:
+          email: Epost
+          name: Navn
+          role: Rolle
+        new:
+          create: Inviter
+          title: Inviter deltaker som administrator
+      view_public_page: Vis offentlig side
+    forms:
+      errors:
+        impersonate_user:
+          reason: Du må oppgi en grunn når du administrerer en ikke administrert deltaker
+    moderations:
+      actions:
+        hidden: Skjult
+        hide: Skjul
+        not_hidden: Ikke skjult
+        title: Handlinger
+        unhide: Ikke skjul
+        unreport: Urapporter
+      admin:
+        reportable:
+          hide:
+            invalid: Det oppstod et problem med å skjule ressursen.
+            success: Ressursen ble skjult.
+          unhide:
+            invalid: Det oppstod et problem med å skjule ressursen.
+            success: Ressursen ble ugjemt.
+          unreport:
+            invalid: Det oppstod et problem med å avrapportere ressursen.
+            success: Ressursen ble urapportert.
+      models:
+        moderation:
+          fields:
+            hidden_at: Skjult på
+            report_count: Antall
+            reportable: Rapporterbar
+            reported_content_url: Rapportert innholds URL
+            reports: Rapporter
+            visit_url: Besøk URL
+  errors:
+    messages:
+      invalid_json: Ugyldig JSON
+  layouts:
+    decidim:
+      admin:
+        newsletters:
+          title: Nyhetsbrev
+        settings:
+          title: Innstillinger
+        users:
+          title: Deltakere

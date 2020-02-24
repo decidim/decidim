@@ -13,7 +13,6 @@ module Decidim
     def index
       Search.call(term, current_organization, filters, page_params) do
         on(:ok) do |results|
-          # results.page(params[:page]).per(params[:per_page])
           results_count = results.sum { |results_by_type| results_by_type.last[:count] }
           expose(sections: results, results_count: results_count)
         end

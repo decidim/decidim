@@ -18,6 +18,7 @@ module Decidim
     include Decidim::HasPrivateUsers
     include Decidim::Loggable
     include Decidim::ParticipatorySpaceResourceable
+    include Decidim::Searchable
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
@@ -48,6 +49,10 @@ module Decidim
              foreign_type: "decidim_participatory_space_type",
              dependent: :destroy,
              as: :participatory_space
+    belongs_to :scope_type_max_depth,
+               foreign_key: "decidim_scope_type_id",
+               class_name: "Decidim::ScopeType",
+               optional: true
 
     has_many :components, as: :participatory_space, dependent: :destroy
 
@@ -62,6 +67,18 @@ module Decidim
     scope :past, -> { where(arel_table[:end_date].lt(Date.current)) }
     scope :upcoming, -> { where(arel_table[:start_date].gt(Date.current)) }
     scope :active, -> { where(arel_table[:start_date].lteq(Date.current).and(arel_table[:end_date].gt(Date.current).or(arel_table[:end_date].eq(nil)))) }
+
+    searchable_fields({
+                        scope_id: :decidim_scope_id,
+                        participatory_space: :itself,
+                        A: :title,
+                        B: :subtitle,
+                        C: :short_description,
+                        D: :description,
+                        datetime: :published_at
+                      },
+                      index_on_create: ->(_process) { false },
+                      index_on_update: ->(process) { process.visible? })
 
     # Scope to return only the promoted processes.
     #
@@ -131,13 +148,6 @@ module Decidim
       slug
     end
 
-    def can_participate?(user)
-      return true unless private_space?
-      return false unless user
-
-      users.include?(user)
-    end
-
     # Overrides the method from `Participable`.
     def moderators
       "#{admin_module_name}::Moderators".constantize.for(self)
@@ -145,7 +155,7 @@ module Decidim
 
     # Allow ransacker to search for a key in a hstore column (`title`.`en`)
     ransacker :title do |parent|
-      Arel::Nodes::InfixOperation.new("->", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
+      Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
     end
   end
 end

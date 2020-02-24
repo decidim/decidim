@@ -6,6 +6,7 @@ sv:
         field: Mitt fält
         start_date: Startdatum
         title: Titel
+        translatable_text: Översättningsbar text
         updated_at: Uppdaterad
   decidim:
     dummy:

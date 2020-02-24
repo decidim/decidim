@@ -10,6 +10,8 @@ module Decidim
     include Decidim::Traceable
     include Decidim::Loggable
     include Decidim::ParticipatorySpaceResourceable
+    include Decidim::Randomable
+    include Decidim::Searchable
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
@@ -40,6 +42,16 @@ module Decidim
     scope :finished, -> { published.where("end_voting_date < ?", Time.now.utc) }
     scope :order_by_most_recent, -> { order(created_at: :desc) }
 
+    searchable_fields({
+                        participatory_space: :itself,
+                        A: :title,
+                        B: :subtitle,
+                        D: :description,
+                        datetime: :published_at
+                      },
+                      index_on_create: ->(_process) { false },
+                      index_on_update: ->(process) { process.visible? })
+
     def to_param
       slug
     end
@@ -68,6 +80,10 @@ module Decidim
       @total_votes ||= questions.published.sum(:votes_count)
     end
 
+    def total_participants
+      @total_participants ||= questions.published.joins(:votes).select(:decidim_author_id).distinct.count
+    end
+
     # This method exists with the only purpose of getting rid of whats seems to be an issue in
     # the new scope picker: This engine is a bit special: consultations and questions are a kind of
     # nested participatory spaces. When a new question is created the consultation is the participatory space.
@@ -77,15 +93,13 @@ module Decidim
       nil
     end
 
-    def self.order_randomly(seed)
-      transaction do
-        connection.execute("SELECT setseed(#{connection.quote(seed)})")
-        select('"decidim_consultations".*, RANDOM()').order(Arel.sql("RANDOM()")).load
-      end
-    end
-
     def closed?
       !active?
+    end
+
+    # Allow ransacker to search for a key in a hstore column (`title`.`en`)
+    ransacker :title do |parent|
+      Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
     end
   end
 end

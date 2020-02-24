@@ -48,7 +48,7 @@ nl:
             title: titel
       posts:
         show:
-          view: Uitzicht
+          view: Bekijk
         sidebar_blog:
           comments: reacties
           most_commented_posts: Bericht met meeste reacties
@@ -76,4 +76,4 @@ nl:
           posts_count: berichten
     participatory_processes:
       statistics:
-        posts_count: berichten
+        posts_count: Berichten

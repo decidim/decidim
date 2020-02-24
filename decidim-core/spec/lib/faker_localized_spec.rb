@@ -65,6 +65,15 @@ module Decidim
           expect(subject[:ca]).to eq "<p>foo</p>"
         end
       end
+
+      describe "prefixed" do
+        subject { described_class.prefixed("example text") }
+
+        it "prefixes the msg with the corresponding locale" do
+          expect(subject[:en]).to eq "EN: example text"
+          expect(subject[:ca]).to eq "CA: example text"
+        end
+      end
     end
   end
 end

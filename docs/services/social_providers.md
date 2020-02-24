@@ -1,6 +1,18 @@
 # Social providers integration
 
-If you want to enable sign up through social providers like Facebook you will need to generate app credentials and write them into the Rails secrets file: `config/secrets.yml`.
+If you want to enable sign up through social providers like Facebook you will need to generate app credentials and store them in one of the following places:
+
+- In the Rails secrets file: `config/secrets.yml`. This configuration will be shared by all tenants.
+- In the site configuration (ex. system/organizations/1/edit). This configuration overrides the one in `config/secrets.yml`.
+
+Take into account that for a social provider integration appearing in the organization form, it must also be defined in `config/secrets.yml` (but the values are optional). For example:
+
+```yaml
+twitter:
+  enabled: false # disabled by default, unless activated in the organization
+  api_key:
+  api_secret:
+```
 
 ## Facebook
 
@@ -12,7 +24,7 @@ If you want to enable sign up through social providers like Facebook you will ne
 1. Validate the captcha.
 1. Ignore the source code and fill in the URL field with `https://YOUR_DECIDIM_HOST/users/auth/facebook/callback`
 1. Navigate to the application dashboard and copy the APP_ID and APP_SECRET
-1. Paste credentials in `config/secrets.yml`. Ensure the `enabled` attribute is `true`.
+1. Paste credentials in `config/secrets.yml` or in the organization configuration. Ensure the `enabled` attribute is `true`.
 
 ## Twitter
 
@@ -24,7 +36,7 @@ If you want to enable sign up through social providers like Facebook you will ne
 1. Check the 'Developer Agreement' checkbox and click the 'Create your Twitter application' button.
 1. Navigate to the "Keys and Access Tokens" tab and copy the API_KEY and API_SECRET.
 1. (Optional) Navigate to the "Permissions" tab and check the "Request email addresses from users" checkbox.
-1. Paste credentials in `config/secrets.yml`. Ensure the `enabled` attribute is `true`.
+1. Paste credentials in `config/secrets.yml` or in the organization configuration. Ensure the `enabled` attribute is `true`.
 
 ## Google
 
@@ -38,7 +50,7 @@ If you want to enable sign up through social providers like Facebook you will ne
 1. Click on `Credentials` tab and click on "Create credentials" button. Select `OAuth client ID`.
 1. Select `Web applications`. Fill in the `Authorized Javascript origins` with your url. Then fill in the `Authorized redirect URIs` with your url and append the path `/users/auth/google_oauth2/callback`.
 1. Copy the CLIENT_ID AND CLIENT_SECRET
-1. Paste credentials in `config/secrets.yml`. Ensure the `enabled` attribute is `true`.
+1. Paste credentials in `config/secrets.yml` or in the organization configuration. Ensure the `enabled` attribute is `true`.
 
 ## Custom providers
 
@@ -46,7 +58,7 @@ If you want to enable sign up through social providers like Facebook you will ne
 * The provider should implement an [OmniAuth](https://github.com/omniauth/omniauth) strategy.
 * You can use any of the [existing OnmiAuth strategies](https://github.com/omniauth/omniauth/wiki/List-of-Strategies).
 * Or you can create a new strategy, as the [Decidim OmniAuth Strategy](https://github.com/decidim/omniauth-decidim). This strategy allow users from a Decidim instance to login in other Decidim instance. For example, this strategy is used to allow [decidim.barcelona](https://decidim.barcelona) users to log into [meta.decidim.barcelona](https://meta.decidim.barcelona).
-* Once you have defined your strategy, you can configure it in the `config/secrets.yml`, as it is done for the built-in providers.
+* Once you have defined your strategy, you can configure it in the `config/secrets.yml` or in the organization configuration, as it is done for the built-in providers.
 * By default, Decidim will search in its icons library for an icon named as the provider. You can change this adding an `icon` or `icon_path` attribute to the provider configuration. The `icon` attribute sets the icon name to look for in the Decidim's icons library. The `icon_path` attribute sets the route to the image that should be used.
 * Here is an example of the configuration section for the Decidim strategy, using an icon located on the application's `app/assets/images` folder:
 

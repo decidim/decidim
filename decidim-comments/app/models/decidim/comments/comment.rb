@@ -39,6 +39,18 @@ module Decidim
 
       delegate :organization, to: :commentable
 
+      def self.positive
+        where(alignment: 1)
+      end
+
+      def self.neutral
+        where(alignment: 0)
+      end
+
+      def self.negative
+        where(alignment: -1)
+      end
+
       def participatory_space
         return root_commentable if root_commentable.is_a?(Decidim::Participable)
 
@@ -92,7 +104,7 @@ module Decidim
 
       # Public: Returns the comment message ready to display (it is expected to include HTML)
       def formatted_body
-        @formatted_body ||= Decidim::ContentProcessor.render(sanitized_body)
+        @formatted_body ||= Decidim::ContentProcessor.render(sanitized_body, "div")
       end
 
       def self.export_serializer
@@ -104,6 +116,12 @@ module Decidim
                                   .where("decidim_comments_comments.decidim_author_id IN (?)", Decidim::User.where(organization: space.organization).pluck(:id))
                                   .where("decidim_comments_comments.decidim_author_type IN (?)", "Decidim::UserBaseEntity")
                                   .map(&:author).pluck(:id).flatten.compact.uniq
+      end
+
+      def can_participate?(user)
+        return true unless root_commentable&.respond_to?(:can_participate?)
+
+        root_commentable.can_participate?(user)
       end
 
       private
@@ -119,9 +137,22 @@ module Decidim
         self.depth = commentable.depth + 1 if commentable.respond_to?(:depth)
       end
 
-      # Private: Returns the comment body sanitized, stripping HTML tags
+      # Private: Returns the comment body sanitized, sanitizing HTML tags
       def sanitized_body
-        Rails::Html::Sanitizer.full_sanitizer.new.sanitize(body)
+        Rails::Html::WhiteListSanitizer.new.sanitize(
+          render_markdown(body),
+          scrubber: Decidim::Comments::UserInputScrubber.new
+        ).try(:html_safe)
+      end
+
+      # Private: Initializes the Markdown parser
+      def markdown
+        @markdown ||= Decidim::Comments::Markdown.new
+      end
+
+      # Private: converts the string from markdown to html
+      def render_markdown(string)
+        markdown.render(string)
       end
     end
   end

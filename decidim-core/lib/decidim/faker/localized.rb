@@ -168,6 +168,16 @@ module Decidim
           result.update(locale => text)
         end.with_indifferent_access
       end
+
+      # Prefixes the +msg+ for each available locale and returns as a Hash
+      # of the form `locale => prefixed_msg`.
+      #
+      # Return a Hash with a value for each locale.
+      def self.prefixed(msg, locales = Decidim.available_locales)
+        locales.inject({}) do |result, locale|
+          result.update(locale => "#{locale.to_s.upcase}: #{msg}")
+        end.with_indifferent_access
+      end
     end
   end
 end

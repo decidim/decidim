@@ -33,6 +33,7 @@ fi-pl:
         extra_fields_legal_information: Oikeudelliset tiedot koskien henkilötietojen keräämistä
         minimum_committee_members: Komitean jäsenten vähimmäismäärä
         online_signature_enabled: Online-allekirjoitus on käytössä
+        promoting_committee_enabled: Ota käyttöön kannatuskomitea
         title: Otsikko
         undo_online_signatures_enabled: Salli käyttäjien peruuttaa verkossa tehdyt allekirjoitukset
         validate_sms_code_on_votes: Lisää tekstiviestikoodin validointivaihe allekirjoitusprosessiin
@@ -60,6 +61,18 @@ fi-pl:
     admin:
       actions:
         new_initiative_type: Uusi aloitetyyppi
+      filters:
+        search_placeholder:
+          title_or_description_cont: '%{collection}: Hae otsikon tai kuvauksen perusteella'
+        state_eq:
+          label: Tila
+          values:
+            accepted: Hyväksytty
+            created: Luotu
+            discarded: Peruutettu
+            published: Julkaistu
+            rejected: Hylätty
+            validating: Teknisessä validoinnissa
       menu:
         initiatives: Aloitteet
         initiatives_types: Aloitetyypit
@@ -175,18 +188,8 @@ fi-pl:
             title: Yleistä tietoa
           index:
             actions_title: Toiminnot
-            filter:
-              accepted: Hyväksytyt
-              all: Kaikki
-              created: Luodut
-              discarded: Hylätyt
-              published: Julkaistut
-              rejected: Torjutut
-              validating: Teknisessä validoinnissa
-            filter_by: Suodata
             preview: Esikatsele
             print: Tulosta
-            search: Hae
           show:
             print: Tulosta
           update:

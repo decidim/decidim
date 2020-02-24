@@ -15,6 +15,8 @@ it:
             choices:
               missing: non sono completi
               too_many: sono troppi
+        questionnaire:
+          request_invalid: C'è stato un errore di gestione della richiesta. Si prega di riprovare
   decidim:
     forms:
       admin:
@@ -80,3 +82,7 @@ it:
       user_answers_serializer:
         created_at: Risposto
         id: ID risposta
+        ip_hash: Hash Ip
+        registered: Registrato
+        unregistered: Non registrato
+        user_status: Stato utente

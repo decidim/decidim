@@ -90,8 +90,8 @@ module Decidim
 
       describe "#export_manifests" do
         it "creates manifest instances" do
-          expect(manifests[0]).to be_kind_of(Decidim::Components::ExportManifest)
-          expect(manifests[1]).to be_kind_of(Decidim::Components::ExportManifest)
+          expect(manifests[0]).to be_kind_of(Decidim::Exporters::ExportManifest)
+          expect(manifests[1]).to be_kind_of(Decidim::Exporters::ExportManifest)
         end
 
         it "initializes instances properly" do
@@ -130,6 +130,60 @@ module Decidim
           subject.permissions_class_name = "FakeTestPermissions"
 
           expect { subject.permissions_class }.to raise_error(NameError)
+        end
+      end
+    end
+
+    describe "serializes_specific_data" do
+      context "when specific_data_serializer_class_name is set" do
+        it "finds the serializer class from its name" do
+          class ::TestSerializer
+          end
+          subject.specific_data_serializer_class_name = "TestSerializer"
+
+          expect(subject.specific_data_serializer_class).to eq(TestSerializer)
+        end
+      end
+
+      context "when specific_data_serializer_class_name is not set" do
+        it "returns nil" do
+          subject.specific_data_serializer_class_name = nil
+
+          expect(subject.specific_data_serializer_class).to be_nil
+        end
+      end
+
+      context "when specific_data_serializer_class_name is set to a class that does not exist" do
+        it "raises an error" do
+          subject.specific_data_serializer_class_name = "::UnexistingSerializer"
+
+          expect { subject.specific_data_serializer_class }.to raise_error(NameError)
+        end
+      end
+
+      context "when specific_data_importer_class_name is set" do
+        it "finds the serializer class from its name" do
+          class ::TestImporter
+          end
+          subject.specific_data_importer_class_name = "TestImporter"
+
+          expect(subject.specific_data_importer_class).to eq(TestImporter)
+        end
+      end
+
+      context "when specific_data_importer_class_name is not set" do
+        it "returns nil" do
+          subject.specific_data_importer_class_name = nil
+
+          expect(subject.specific_data_importer_class).to be_nil
+        end
+      end
+
+      context "when permissions_class_name is set to a class that does not exist" do
+        it "raises an error" do
+          subject.specific_data_importer_class_name = "::UnexistingImporter"
+
+          expect { subject.specific_data_importer_class }.to raise_error(NameError)
         end
       end
     end

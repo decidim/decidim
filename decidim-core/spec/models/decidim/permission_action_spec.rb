@@ -18,9 +18,11 @@ module Decidim
       it "has different scope" do
         expect(permission_action.matches?(:testing, :check, :result)).to be false
       end
+
       it "has different action" do
         expect(permission_action.matches?(:test, :match, :result)).to be false
       end
+
       it "has different subject" do
         expect(permission_action.matches?(:test, :check, :asdf)).to be false
       end

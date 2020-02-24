@@ -10,6 +10,8 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
     Decidim::Consultation.where(organization: organization)
   end
 
+  participatory_space.query_type = "Decidim::Consultations::ConsultationType"
+
   participatory_space.context(:public) do |context|
     context.engine = Decidim::Consultations::Engine
     context.layout = "layouts/decidim/question"
@@ -24,6 +26,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
   participatory_space.register_resource(:consultation) do |resource|
     resource.model_class_name = "Decidim::Consultation"
     resource.card = "decidim/consultations/consultation"
+    resource.searchable = true
   end
 
   participatory_space.register_resource(:question) do |resource|
@@ -60,6 +63,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
     ) do
       Decidim::Consultation.create!(active_consultation_params)
     end
+    active_consultation.add_to_index_as_search_resource
 
     finished_consultation_params = {
       slug: Faker::Internet.unique.slug(nil, "-"),
@@ -86,6 +90,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
     ) do
       Decidim::Consultation.create!(finished_consultation_params)
     end
+    finished_consultation.add_to_index_as_search_resource
 
     upcoming_consultation_params = {
       slug: Faker::Internet.unique.slug(nil, "-"),
@@ -111,6 +116,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
     ) do
       Decidim::Consultation.create!(upcoming_consultation_params)
     end
+    upcoming_consultation.add_to_index_as_search_resource
 
     [finished_consultation, active_consultation, upcoming_consultation].each do |consultation|
       4.times do

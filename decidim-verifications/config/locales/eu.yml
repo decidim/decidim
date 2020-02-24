@@ -104,7 +104,6 @@ eu:
             title: Erakunde honetarako Csv errolda aktibatu behar duzu
           new:
             file: ".csv fitxategia helbide elektronikoen datuekin"
-            info: 'Fitxategi bat CSV formatuarekin izan behar da zutabe batekin: posta elektronikoa'
             submit: Kargatu fitxategia
             title: Kargatu zentsu berri bat
         authorizations:

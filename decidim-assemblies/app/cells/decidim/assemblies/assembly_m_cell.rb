@@ -64,11 +64,7 @@ module Decidim
       end
 
       def assembly_type
-        if model.assembly_type == "others"
-          translated_attribute(model.assembly_type_other)
-        else
-          t("assembly_types.#{model.assembly_type}", scope: "decidim.assemblies").to_s
-        end
+        translated_attribute model.assembly_type.title
       end
     end
   end

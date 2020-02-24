@@ -274,7 +274,7 @@ de:
             name: Treffen
         registrations:
           edit:
-            save: sparen
+            save: Speichern
             validate: Bestätigen
             validate_registration_code: Validiere den Registrierungscode
           form:
@@ -430,6 +430,7 @@ de:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Vergangene Treffen
+        see_all: Alle anzeigen (%{count})
         upcoming_meetings: Bevorstehende Treffen
       upcoming_meeting_for_card:
         upcoming_meeting: Kommendes Treffen

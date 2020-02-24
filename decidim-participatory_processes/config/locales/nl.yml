@@ -3,32 +3,33 @@ nl:
     attributes:
       participatory_process:
         announcement: Aankondiging
-        area_id: Gebied
+        area_id: Onderwerp
         banner_image: Bannerafbeelding
         copy_categories: Categorieën kopiëren
         copy_components: Kopieer onderdelen
         copy_steps: Kopieer stappen
-        decidim_area_id: Gebied
+        decidim_area_id: Onderwerp
         description: Beschrijving
-        developer_group: Promotergroep
+        developer_group: Organisator
         domain: Domein
         end_date: Einddatum
         hashtag: Hashtag
         hero_image: Afbeelding van de startpagina
         local_area: Organisatiegebied
         meta_scope: Omvang metadata
-        participatory_process_group_id: Groep thema's
-        participatory_scope: Wat wordt besloten
-        participatory_structure: Hoe is het besloten
+        participatory_process_group_id: Groep van processen
+        participatory_scope: Wat is besloten
+        participatory_structure: Hoe wordt er besloten
         promoted: Gepromoveerd
         published_at: Gepubliceerd op
+        related_process_ids: Verwante processen
         scope_id: Scope
         scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
         show_statistics: Toon statistieken
-        slug: URL slak
+        slug: URL pad
         start_date: Startdatum
-        subtitle: Ondertiteling
+        subtitle: Ondertitel
         target: Wie doet mee
         title: Titel
       participatory_process_group:
@@ -48,6 +49,12 @@ nl:
         email: E-mail
         name: Naam
         role: Rol
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Ongeldig documenttype. Geaccepteerde formaten zijn: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Stap geactiveerd
       decidim/participatory_process_step_changed_event: Stap veranderd
@@ -72,8 +79,9 @@ nl:
         duplicate: Dupliceren
         edit: Bewerken
         filter:
-          all: Toon alle processen
+          all_processes: Toon alle processen
           process_groups: Procesgroepen
+        import_process: Importeren
         new_process: Nieuw proces
         new_process_group: Nieuwe procesgroep
         new_process_step: Nieuwe stap
@@ -83,18 +91,18 @@ nl:
         resend_invitation: Uitnodiging verzenden
         unpublish: Publicatie ongedaan maken
       menu:
-        participatory_process_groups: Thema groep
-        participatory_processes: Thema's
+        participatory_process_groups: Inspraakproces groepen
+        participatory_processes: Inspraakprocessen
         participatory_processes_submenu:
-          attachment_collections: folders
-          attachment_files: bestanden
+          attachment_collections: Mappen
+          attachment_files: Bestanden
           attachments: Bijlagen
           categories: Categorieën
           components: Onderdelen
           info: Info
           moderations: Moderaties
           private_users: Privégebruikers
-          process_admins: Gebruikers verwerken
+          process_admins: Admins van het proces
           steps: Stappen
       models:
         participatory_process:
@@ -104,23 +112,23 @@ nl:
             promoted: Gemarkeerd
             published: Gepubliceerd
             title: Titel
-          name: Burgerinspraak
+          name: Inspraakproces
         participatory_process_group:
           fields:
             name: Naam
-          name: Themagroep
+          name: Groep inspraakprocessen
         participatory_process_step:
           fields:
             end_date: Einddatum
             start_date: Startdatum
             title: Titel
-          name: Stap van de burgerinspraak
+          name: Stap van het inspraakproces
         participatory_process_user_role:
           fields:
             email: E-mail
             name: Naam
             role: Rol
-          name: Participerende procesgebruiker
+          name: Admin van het participatief proces
           roles:
             admin: Administrator
             collaborator: Medewerker
@@ -133,26 +141,35 @@ nl:
         new:
           copy: Kopiëren
           select: Selecteer welke gegevens u wilt dupliceren
-          title: Burgerinspraak dupliceren
+          title: Inspraakproces dupliceren
       participatory_process_groups:
         destroy:
+          error: Er is een fout opgetreden tijdens het vernietigen van de Participatory procesgroep.
           success: Participatieve procesgroep succesvol verwijderd.
         edit:
           title: Bewerk groep
           update: Bijwerken
         new:
           create: Creëren
-          title: Nieuwe themagroep
+          title: Nieuwe groep
         update:
-          error: Er was een fout bij het bijwerken van deze participatief procesgroep.
+          error: Er is een fout opgetreden bij het bijwerken van deze participatief procesgroep.
           success: Participatief procesgroep is succesvol bijgewerkt.
+      participatory_process_imports:
+        create:
+          error: Er was een probleem bij het importeren van dit participatief proces.
+          success: Participatief proces succesvol bijgewerkt.
+        new:
+          import: Importeren
+          select: Selecteer welke gegevens u wilt importeren
+          title: Importeer participatief proces
       participatory_process_publications:
         create:
           error: Er is een fout opgetreden bij het publiceren van dit participatief proces.
           success: Participatief proces is succesvol gepubliceerd.
         destroy:
-          error: Er is een fout opgetreden bij het publiceren van dit participatief proces.
-          success: Participatief proces is succesvol gepubliceerd.
+          error: Er was een probleem bij het depubliceren van dit participatief proces.
+          success: Participatief proces is succesvol gedepubliceerd.
       participatory_process_step_activations:
         create:
           error: Er is een fout opgetreden bij het activeren van deze participatief processtap.
@@ -168,39 +185,39 @@ nl:
             last_step: Kan de laatste stap van een proces niet verwijderen.
           success: Participatieve processtap succesvol verwijderd.
         edit:
-          title: Bewerk participatieve processtap
+          title: Bewerk processtap
           update: Bijwerken
         index:
           steps_title: Stappen
         new:
-          create: creëren
-          title: Nieuwe participerende processtap
+          create: Aanmaken
+          title: Nieuwe processtap
         ordering:
-          error: Er is een fout opgetreden bij het herschikken van deze participatieve processtappen.
+          error: Er is een fout opgetreden bij het herschikken van deze processtappen.
         update:
-          error: Er is een fout opgetreden bij het bijwerken van deze participatieve processtap.
-          success: Participatief procesgroep is succesvol bijgewerkt.
+          error: Er is een fout opgetreden bij het bijwerken van deze processtap.
+          success: Fase van participatief proces succesvol bijgewerkt.
       participatory_process_user_roles:
         create:
-          error: Er is een fout opgetreden bij het toevoegen van een gebruiker aan deze burgerinspraak.
-          success: Gebruiker is succesvol toegevoegd aan dit participatieproces.
+          error: Er is een fout opgetreden bij het toevoegen van een gebruiker aan dit inspraakproces.
+          success: Admin is succesvol toegevoegd aan dit participatief proces.
         destroy:
-          success: Gebruiker is succesvol verwijderd uit dit participatieproces.
+          success: Admin succesvol verwijderd van dit participatief proces.
         edit:
-          title: Update participatieve procesgebruiker.
+          title: Werk procesbeheerder bij.
           update: Bijwerken
         index:
-          process_admins_title: Participatieve procesgebruiker
+          process_admins_title: Admins van het participatieve proces
         new:
-          create: creëren
-          title: Nieuwe participatieve procesgebruiker.
+          create: Aanmaken
+          title: Nieuwe admin voor het participatieve proces.
         update:
-          error: Er is een fout opgetreden bij het bijwerken van een gebruiker voor deze burgerinspraak.
-          success: Gebruiker is succesvol bijgewerkt voor dit participatief proces.
+          error: Er is een probleem opgetreden bij het bijwerken van een admin voor dit participatief proces.
+          success: Admin succesvol bijgewerkt voor dit participatief proces.
       participatory_processes:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuw participatief proces.
-          success: Participatief proces is succesvol gecreëerd. Configureer nu zijn stappen.
+          success: Participatief proces is succesvol gecreëerd. Configureer nu de stappen.
         edit:
           update: Bijwerken
         index:
@@ -209,21 +226,21 @@ nl:
           public: Openbaar
           published: Gepubliceerd
         new:
-          create: creëren
+          create: Aanmaken
           title: Nieuw participatief proces
         update:
-          error: Er is een fout opgetreden bij het publiceren van dit participatief proces.
-          success: Participatief procesgroep is succesvol bijgewerkt.
+          error: Er was een probleem bij het bijwerken van dit participatief proces.
+          success: Participatief proces succesvol bijgewerkt.
       participatory_processes_copies:
         create:
-          error: Er is een fout opgetreden bij het publiceren van dit participatief proces.
-          success: Participatief procesgroep is succesvol gedupliceerd.
+          error: Er is een fout opgetreden bij het dupliceren van dit participatief proces.
+          success: Participatief proces is succesvol gedupliceerd.
       participatory_processes_group:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuwe participatieve procesgroep.
-          success: Participatieve procesgroep is succesvol opgericht.
+          error: Er is een fout opgetreden bij het maken van een nieuwe groep voor participatieve processen.
+          success: Groep van participatieve processen succesvol aangemaakt.
       titles:
-        participatory_process_groups: Participatieve procesgroepen
+        participatory_process_groups: Groepen van participatieve processen
         participatory_processes: Participatieve processen
       users:
         resend_invitation:
@@ -235,24 +252,27 @@ nl:
         publish: "%{user_name} heeft de burgerinspraak %{resource_name} gepubliceerd"
         unpublish: "%{user_name}heeft de burgerinspraak %{resource_name} ongepubliceerd"
         update: "%{user_name} heeft het burgerinspraak %{resource_name} bijgewerkt"
+      participatory_process_group:
+        create: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
+        update: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
       participatory_process_step:
-        activate: "%{user_name} heeft %{resource_name} stap in de %{space_name} burgerinspraak geactiveerd"
-        create: "%{user_name} heeft de %{resource_name} stap in de %{space_name} burgerinspraak geactiveerd"
-        delete: "%{user_name} heeft de %{resource_name} stap in de %{space_name} burgerinspraak verwijderd"
-        update: "%{user_name} heeft de %{resource_name} stap in de %{space_name} burgerinspraak bijgewerkt"
+        activate: "%{user_name} heeft %{resource_name} stap in de %{space_name} het inspraakproces geactiveerd"
+        create: "%{user_name} heeft de %{resource_name} stap in het %{space_name} participatief proces geactiveerd"
+        delete: "%{user_name} heeft de %{resource_name} stap in het %{space_name} participatief proces verwijderd"
+        update: "%{user_name} heeft de %{resource_name} stap in het %{space_name} participatief proces bijgewerkt"
       participatory_process_user_role:
-        create: "%{user_name} nodigde gebruiker %{resource_name} uit voor de %{space_name} burgerinspraak"
-        delete: "%{user_name} heeft gebruiker %{resource_name} verwijderd van de %{space_name} burgerinspraak"
-        update: "%{user_name} veranderde de rol van gebruiker %{resource_name} in de %{space_name} burgerinspraak"
+        create: "%{user_name} nodigde gebruiker %{resource_name} uit voor het%{space_name} participatief proces"
+        delete: "%{user_name} heeft gebruiker %{resource_name} verwijderd uit het %{space_name} participatief proces"
+        update: "%{user_name} veranderde de rol van gebruiker %{resource_name} in het %{space_name} participatief proces"
     events:
       participatory_process:
         step_activated:
           email_intro: 'De stap %{resource_title} is nu geactiveerd voor %{participatory_space_title}. Je kan het op deze pagina bekijken:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Schakel de meldingen uit door te klikken op de vorige link.
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Schakel de meldingen uit door te klikken op de vorige link.
           email_subject: Een update naar %{participatory_space_title}
           notification_title: De stap %{resource_title} is nu geactiveerd voor <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: 'De data voor de %{resource_title} stap in %{participatory_space_title} zijn bijgewerkt. Bekijk het hier:'
+          email_intro: 'De data voor de %{resource_title} stap in %{participatory_space_title} zijn bijgewerkt. Bekijk ze hier:'
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kan de notificaties uitschakelen door te klikken op de voorgaande link.
           email_subject: Een update op %{participatory_space_title} werd uitgevoerd
           notification_title: De data voor de <a href="%{resource_path}">%{resource_title}</a> stap op <a href="%{participatory_space_url}">%{participatory_space_title}</a> zijn bijgewerkt.
@@ -263,7 +283,7 @@ nl:
           page: "<p>Een <strong>participatief proces</strong> is een reeks participerende activiteiten (bijvoorbeeld eerst een enquête invullen, vervolgens voorstellen doen, deze in persoonlijke of virtuele vergaderingen bespreken en uiteindelijk prioriteiten stellen) met als doel een beslissing te nemen en een beslissing te nemen over een specifiek onderwerp.</p> <p>Voorbeelden van participerende processen zijn: een proces van verkiezing van commissieleden (waarbij kandidaturen eerst worden gepresenteerd, vervolgens besproken en uiteindelijk een kandidatuur wordt gekozen), participatieve begrotingen (waar voorstellen worden gedaan, economisch worden gewaardeerd en met het beschikbare geld worden gestemd), een strategisch planningsproces, het gezamenlijk opstellen van een verordening of norm, het ontwerp van een stedelijke ruimte of de productie van een openbaar beleidsplan.</p>\n"
           title: Wat is een participatief proces?
     menu:
-      processes: Thema's
+      processes: Inspraakprocessen
     metrics:
       participatory_processes:
         description: Aantal participatieve processen in deze organisatie
@@ -272,43 +292,48 @@ nl:
     participatory_process_groups:
       show:
         group_participatory_processes:
-          one: 1 processen voor %{group}
+          one: 1 proces voor %{group}
           other: "%{count} processen voor %{group}"
-        title: Participerende procesgroepen
+        title: Groepen van participatieve processen
     participatory_process_steps:
       index:
-        process_steps: Stappen van het thema
-        title: Participatieve processtappen
+        process_steps: Stappen van het proces
+        title: Fases van het participatieve proces
     participatory_processes:
       admin:
         content_blocks:
           highlighted_processes:
-            max_results: Maximum aantal elementen dat kan worden weergegeven
+            max_results: Maximaal aantal te tonen elementen
         participatory_process_copies:
           form:
-            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
+            slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Document toevoegen
+            slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Gebruik hier gedeeltelijke paden, niet volledige URL''s. Accepteert letters, cijfers, streepjes en schuine strepen en moet beginnen met een letter. Als dit niet is ingesteld, wordt de knop niet weergegeven. Voorbeeld: %{url}'
+            cta_path_help: 'Gebruik hier gedeeltelijke paden, geen volledige URL''s. Accepteert letters, cijfers, streepjes en schuine strepen en moet beginnen met een letter. Als dit niet is ingesteld, wordt de knop niet weergegeven. Voorbeeld: %{url}'
             cta_text_help: Als dit niet is ingesteld, wordt de knop niet weergegeven.
         participatory_processes:
           form:
             announcement_help: De tekst die u hier invoert, wordt rechts onder de procesinformatie aan de gebruiker getoond.
-            duration: Looptijd
-            filters: filters
+            duration: Duur
+            filters: Filters
             images: Afbeeldingen
-            metadata: metadata
-            other: anders
-            select_an_area: Selecteer een gebied
+            metadata: Metadata
+            other: Overige
+            related_processes: Verwante processen
+            select_an_area: Selecteer een onderwerp
             select_process_group: Selecteer een procesgroep
-            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
+            slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
             title: Algemene informatie
             visbility: Zichtbaarheid
       content_blocks:
         highlighted_processes:
-          name: Gemarkeerde processen
+          name: Uitgelichte processen
       index:
-        title: Burgerinspraak
+        title: Inspraakproces
       last_activity:
         new_participatory_process: Nieuw participatief proces
       pages:
@@ -332,7 +357,7 @@ nl:
               one: 1 proces uit het verleden
               other: "%{count} eerdere processen"
             upcoming:
-              one: 1 aanstaande proces
+              one: 1 aankomend inspraakproces
               other: "%{count} aankomende processen"
           explanations:
             no_active: Geen actieve processen
@@ -343,17 +368,18 @@ nl:
             all: Alle
             past: Archief
             upcoming: Aankomende
-          see: Zien
+          see: Bekijk
         index:
           loading: Laden van resultaten...
       show:
-        area: Gebied
-        developer_group: Promotergroep
+        area: Onderwerp
+        developer_group: Organisator
         end_date: Einddatum
         local_area: Organisatiegebied
         participatory_scope: Wat is besloten
-        participatory_structure: Hoe is het besloten
+        participatory_structure: Hoe wordt er besloten
         private_space: Dit is een privéthema
+        related_processes: Verwante processen
         scope: Scope
         start_date: Startdatum
         target: Wie neemt deel
@@ -362,7 +388,7 @@ nl:
         answers_count: Antwoorden
         comments_count: Reacties
         debates_count: Debatten
-        endorsements_count: Aanbevelingen
+        endorsements_count: Ondersteuningen
         headline: Activiteit
         meetings_count: Vergaderingen
         orders_count: Stemmen
@@ -386,7 +412,7 @@ nl:
           take_part: Deelnemen
       participatory_processes:
         index:
-          promoted_processes: Uitgelichte thema’s
+          promoted_processes: Uitgelichte processen
         participatory_process:
           active_step: 'Huidige stap:'
           more_info: Meer informatie

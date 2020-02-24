@@ -19,6 +19,7 @@ module Decidim
     def call
       return broadcast(:invalid) if form.invalid?
 
+      delete_pending_invited_user
       create_user
 
       broadcast(:ok, @user)
@@ -29,6 +30,10 @@ module Decidim
     private
 
     attr_reader :form
+
+    def delete_pending_invited_user
+      User.invitation_not_accepted.where(email: form.email).delete_all
+    end
 
     def create_user
       @user = User.create!(

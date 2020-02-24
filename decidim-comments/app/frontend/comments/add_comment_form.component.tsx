@@ -79,6 +79,17 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
     );
   }
 
+  public componentDidMount() {
+    this._attachMentions();
+  }
+
+  /**
+   * Trick to reuse input_mentions.js logic
+   */
+  private _attachMentions() {
+    window.$(document).trigger("attach-mentions-element", this.bodyTextArea);
+  }
+
   /**
    * Render the form heading based on showTitle prop
    * @private
@@ -137,7 +148,9 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
           {this._renderCommentAs()}
           <div className="field">
             <label className="show-for-sr" htmlFor={`add-comment-${type}-${id}`}>{I18n.t("components.add_comment_form.form.body.label")}</label>
-            {this._renderTextArea()}
+            <div className="hashtags__container">
+              {this._renderTextArea()}
+            </div>
             {this._renderTextAreaError()}
             <button
               type="submit"

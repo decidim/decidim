@@ -23,6 +23,7 @@ ru:
         entry_date: Дата
     models:
       decidim/accountability/proposal_linked_event: Предложение, включенное в этот итог
+      decidim/accountability/result_progress_updated_event: Прогресс результатов обновлен
   activerecord:
     models:
       decidim/accountability/result:
@@ -118,6 +119,8 @@ ru:
         value_types:
           parent_presenter:
             not_found: 'Родительский объект не найден в базе данных (ID: %{id})'
+      last_activity:
+        new_result_at_html: "<span>Новый результат в %{link}</span>"
       models:
         result:
           fields:
@@ -203,10 +206,22 @@ ru:
           email_outro: Вы получили это уведомление, потому что вы следите за "%{proposal_title}". Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: Обновление %{proposal_title}
           notification_title: Предложение <a href="%{proposal_path}">%{proposal_title}</a> было включено в итог <a href="%{resource_path}">%{resource_title}</a>.
+        result_progress_updated:
+          email_intro: 'Результат "%{resource_title}", который включает предложение "%{proposal_title}", теперь завершено на %{progress}%. Вы можете увидеть его на этой странице:'
+          email_outro: Вы получили это уведомление, потому что вы следите за "%{proposal_title}", и это предложение включено в результат "%{resource_title}". Вы можете прекратить получение уведомлений, перейдя по предыдущей ссылке.
+          notification_title: Результат <a href="%{resource_path}">%{resource_title}</a>, который включает предложение <a href="%{proposal_path}">%{proposal_title}</a>, теперь %{progress}% завершен.
+    metrics:
+      results:
+        description: Количество сгенерированных результатов
+        object: результаты
+        title: Результаты
     participatory_processes:
       participatory_process_groups:
         highlighted_results:
           results: Итоги
+    participatory_spaces:
+      highlighted_results:
+        see_all: Посмотреть все (%{count})
     resource_links:
       included_projects:
         result_project: Проекты, включенные в эти итоги

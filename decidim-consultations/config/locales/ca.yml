@@ -19,6 +19,9 @@ ca:
         hashtag: Hashtag
         hero_image: Imatge de la pàgina d'inici
         i_frame_url: URL del sistema de votació externa
+        instructions: Instruccions addicionals per la votació
+        max_votes: Número màxim de vots
+        min_votes: Número mínim de vots
         origin_scope: Àmbit
         origin_title: Origen
         origin_url: URL d'origen
@@ -32,11 +35,24 @@ ca:
         title: Títol
         vote: Sistema de votació extern
         what_is_decided: Què es decideix
+      response:
+        decidim_consultations_response_group_id: Grup
     errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: El número de vots ha de ser més gran o igual que el mínim.
       vote:
         decidim_consultations_response_id:
           not_found: La resposta no trobada.
   activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: El número de vots és invàlid
     models:
       decidim/consultation:
         one: Consulta
@@ -53,10 +69,13 @@ ca:
   decidim:
     admin:
       actions:
+        back_to_responses: Torna a les respostes
         new_consultation: Nova consulta
         new_question: Nova pregunta
         new_response: Nova resposta
+        new_response_group: Nou grup
         publish_results: Publica els resultats
+        response_groups: Administra els grups de respostes
         unpublish_results: Despublicar resultats
       consultation_publications:
         create:
@@ -87,6 +106,10 @@ ca:
         new:
           create: Crear
           title: Nova consulta
+        results:
+          not_visible: Els resultats estaran disponibles quan la consulta hagi acabat
+          participants: "%{count} participants"
+          total_votes: 'Total: %{count} vots'
         update:
           error: S'ha produït un error en actualitzar aquesta consulta.
           success: La consulta s'ha actualitzat correctament.
@@ -95,8 +118,10 @@ ca:
         consultations_submenu:
           info: Informació
           questions: Preguntes
+          results: Resultats
         questions_submenu:
           components: Components
+          configuration: Configuració
           consultation: Consulta
           info: Informació
           responses: Respostes
@@ -120,10 +145,16 @@ ca:
         response:
           fields:
             created_at: Creat el
+            response_group: Grup
             title: Títol
           name:
             one: Resposta
             other: Respostes
+      question_configuration:
+        disable_external_voting: Si us plau, deshabilita la votació externa per la configuració avançada
+        form:
+          help: Configura preguntes amb opcions de resposta múltiples augmentant el nombre màxim de respostes que pot triar un participant. El valor màxim per defecte és 1, el que significa que només es pot seleccionar una resposta.
+          title: Configuració avançada
       question_publications:
         create:
           error: S'ha produït un error en publicar aquesta pregunta.
@@ -150,6 +181,24 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquesta pregunta.
           success: La pregunta s'ha actualitzat correctament.
+      response_groups:
+        create:
+          error: S'ha produït un error en crear un nou grup de respostes.
+          success: Grup de respostes creat correctament.
+        destroy:
+          error: S'ha produït un error a l'eliminat el grup de respostes. Comprova que cap resposta depèn d'això.
+          success: Grup de respostes esborrat correctament.
+        edit:
+          update: Actualitza
+        form:
+          title: Informació general
+        help: Fes servir els grups per a organitzar les opcions múltiples en paquets.
+        new:
+          create: Crear
+          title: Nou grup de respostes
+        update:
+          error: Hi ha un problema actualitzant la resposta.
+          success: Resposta actualitzada directament.
       responses:
         create:
           error: Se ha producido un error al crear una nueva respuesta.
@@ -170,7 +219,9 @@ ca:
       titles:
         consultations: Consultes
         questions: Preguntes
+        response_groups: Grups de repsostes
         responses: Respostes
+        results: Resultats
     consultations:
       admin:
         content_blocks:
@@ -227,9 +278,28 @@ ca:
         votes_out_of:
           one: vot d'un total de
           other: vots d'un total de
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: Les participants poden distribuir un mínim de %{votes} suports entre les diferents opcions.
+          title: En aquesta pregunta, es permeten múltiples respostes
+          total_participants: Un total de %{count} persones han participat a la consulta.
+          vote_limit:
+            description: Les participants poden votar fins a %{limit} opcions.
+        voting_rules:
+          minimum_votes_per_user:
+            description: Has de repartir un mínim de %{votes} vots entre les diferents opcions.
+          title: 'La votació es regeix per la normativa següent:'
+          vote_limit:
+            description: Pots votar fins a %{limit} opcions.
+            left: Restant
+            votes: Vots
       question_votes:
         create:
           error: Hi ha hagut errors en votar la pregunta
+          success: Pots canviar-lo fins a la finalització de la consulta. Només l'última vot serà acceptat.
+          title_error: S'ha produit un error al votar
+          title_success: Vot enregistrat correctament
       regular_questions:
         title: Preguntes per a aquesta consulta
       show:
@@ -274,6 +344,7 @@ ca:
         already_voted: Ja votat
         already_voted_hover: Revocar el vot
         starting_from: A partir de %{date}
+        verification_required: Verifica el teu compte per votar
         vote: Votació
       vote_modal:
         contextual_help: Si us plau, selecciona una opció.
@@ -283,6 +354,10 @@ ca:
         confirm: Confirma
         contextual_help: Si us plau, confirma l'opció seleccionada.
         title: 'Consulta: confirma el vot'
+    resources:
+      consultations:
+        actions:
+          vote: Vota
   layouts:
     decidim:
       admin:
@@ -296,3 +371,4 @@ ca:
         unfold: Desplegar
       question_header:
         back_to_consultation: Veure totes les consultes
+        back_to_question: Tornar a la pregunta

@@ -2,6 +2,7 @@
 
 require "decidim/settings_manifest"
 require "decidim/participatory_space_context_manifest"
+require "decidim/exporters/export_manifest"
 
 module Decidim
   # This class handles all the logic associated to configuring a participatory
@@ -23,6 +24,8 @@ module Decidim
     attribute :route_name, String
 
     attribute :query_type, String, default: "Decidim::Core::ParticipatorySpaceType"
+    attribute :query_finder, String, default: "Decidim::Core::ParticipatorySpaceFinder"
+    attribute :query_list, String, default: "Decidim::Core::ParticipatorySpaceList"
 
     # An array with the name of the classes that will be exported with
     # the data portability feature for this component. For example, `Decidim::<MyModule>::<MyClass>``
@@ -124,6 +127,38 @@ module Decidim
     # Returns nothing.
     def register_resource(name, &block)
       Decidim.register_resource(name, &block)
+    end
+
+    # Public: Registers an export artifact with a name and its properties
+    # defined in `Decidim::Exporters::ExportManifest`.
+    #
+    # Export artifacts provide a unified way for processes to register
+    # exportable collections serialized via a `Serializer` that eventually
+    # are transformed to their formats.
+    #
+    # name  - The name of the artifact for this export. Should be unique in the
+    # context of the space.
+    # block - A block that receives the manifest as its only argument.
+    #
+    # Returns nothing.
+    def exports(name, &block)
+      return unless name
+
+      @exports ||= []
+      @exports << [name, block]
+      @export_manifests = nil
+    end
+
+    # Pubic: Returns a collection of previously registered export manifests
+    # for this space.
+    #
+    # Returns an Array of <Decidim::Exporters::ExportManifest>.
+    def export_manifests
+      @export_manifests ||= Array(@exports).map do |(name, block)|
+        Decidim::Exporters::ExportManifest.new(name, self).tap do |manifest|
+          block.call(manifest)
+        end
+      end
     end
   end
 end

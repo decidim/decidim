@@ -6,6 +6,7 @@ it:
         field: Il mio campo
         start_date: Data d'inizio
         title: Titolo
+        translatable_text: Testo traducibile
         updated_at: Aggiornato a
   decidim:
     dummy:

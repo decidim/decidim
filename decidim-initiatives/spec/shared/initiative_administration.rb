@@ -4,7 +4,7 @@ shared_context "when admins initiative" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization: organization) }
   let(:author) { create(:user, :confirmed, organization: organization) }
-  let!(:other_initiatives_type) { create(:initiatives_type, organization: organization) }
+  let!(:other_initiatives_type) { create(:initiatives_type, organization: organization, signature_type: "any") }
   let!(:other_initiatives_type_scope) { create(:initiatives_type_scope, type: other_initiatives_type) }
 
   let!(:initiative) { create(:initiative, organization: organization, author: author) }

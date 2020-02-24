@@ -16,6 +16,36 @@ describe Decidim::ActivityCell, type: :cell do
     create(:dummy_resource, component: component, published_at: published_at)
   end
 
+  describe "user" do
+    subject { described_class.new(model) }
+
+    let(:published_at) { Time.current }
+    let(:author) { create(:user, organization: component.organization) }
+
+    context "when the author is a user group" do
+      before do
+        resource.author = author
+        resource.user_group = create(:user_group, :verified, organization: component.organization, users: [author])
+        resource.save!
+      end
+
+      it "returns the user group" do
+        expect(subject.user).to eq(resource.user_group)
+      end
+    end
+
+    context "when the author is a user" do
+      before do
+        resource.author = author
+        resource.save!
+      end
+
+      it "returns the user" do
+        expect(subject.user).to eq(resource.author)
+      end
+    end
+  end
+
   describe "renderable?" do
     subject { described_class.new(model) }
 

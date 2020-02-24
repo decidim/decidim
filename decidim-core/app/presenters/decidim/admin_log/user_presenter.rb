@@ -30,7 +30,7 @@ module Decidim
       end
 
       def user_role
-        action_log.extra.dig("extra", "invited_user_role")
+        Array(action_log.extra.dig("extra", "invited_user_role")).last
       end
 
       def user_badge

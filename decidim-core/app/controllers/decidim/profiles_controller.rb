@@ -65,10 +65,12 @@ module Decidim
     end
 
     def ensure_profile_holder
-      raise ActionController::RoutingError, "No user or user group with the given nickname" unless profile_holder
+      raise ActionController::RoutingError, "No user or user group with the given nickname" if !profile_holder || profile_holder.nickname.blank?
     end
 
     def profile_holder
+      return if params[:nickname].blank?
+
       @profile_holder ||= Decidim::User.find_by(
         nickname: params[:nickname],
         organization: current_organization

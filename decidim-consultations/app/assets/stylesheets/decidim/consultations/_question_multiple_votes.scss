@@ -1,0 +1,22 @@
+.question-masonry-group{
+  $masonry-css-column-gap: $global-margin;
+
+  column-count: 1;
+  column-gap: $masonry-css-column-gap;
+
+  @include breakpoint(map-get($breakpoints, medium)){
+    column-count: 2;
+  }
+
+  @include breakpoint(map-get($breakpoints, large)){
+    column-count: 3;
+  }
+
+  .column{
+    // override float styles from foundation
+    float: none !important;
+    width: auto !important;
+    break-inside: avoid;
+    margin-bottom: $masonry-css-column-gap;
+  }
+}

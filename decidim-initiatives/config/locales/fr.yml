@@ -5,7 +5,7 @@ fr:
         decidim_user_group_id: Auteur
         description: Description
         offline_votes: Votes en présentiel
-        scope_id: Périmètre d'application
+        scope_id: Secteur
         signature_end_date: Fin de la période de collecte des signatures
         signature_start_date: Début de la période de collecte des signatures
         signature_type: Type de collecte des signatures
@@ -29,10 +29,11 @@ fr:
         banner_image: Image d'en-tête
         collect_user_extra_fields: Collecter les données personnelles de l'utilisateur lors de la signature
         description: Description
-        document_number_authorization_handler: Autorisation de vérifier le numéro de document sur les votes
+        document_number_authorization_handler: Niveau d'autorisation nécessaire pour signer les initiatives de ce type d'initiative
         extra_fields_legal_information: Informations juridiques sur la collecte de données personnelles
         minimum_committee_members: Minimum de membres du comité
         online_signature_enabled: Signature en ligne activée
+        promoting_committee_enabled: Activer les comités de promotion sur ce type d'initiative (témoin. s dont l'invitation par l'auteur est obligatoire pour la validation de l'initiative si cette fonctionnalité est activée)
         title: Titre
         undo_online_signatures_enabled: Autoriser les utilisateurs à annuler leurs signatures en ligne
         validate_sms_code_on_votes: Ajouter une étape de validation du code SMS au processus de signature
@@ -62,7 +63,7 @@ fr:
         new_initiative_type: Nouveau type d'initiative
       menu:
         initiatives: Initiatives
-        initiatives_types: Types d'initiative
+        initiatives_types: Types d'initiatives
       models:
         initiatives:
           fields:
@@ -73,9 +74,9 @@ fr:
             title: Initiatives
         initiatives_type_scope:
           fields:
-            scope: Périmètre d'application
-            supports_required: Soutiens requis
-          name: Type d'initiative
+            scope: Secteur
+            supports_required: Signatures requises
+          name: Secteur du type d'initiative
         initiatives_types:
           fields:
             created_at: Créé à
@@ -85,7 +86,7 @@ fr:
           fields:
             date_of_birth: Date de naissance
             document_number: Numéro de document
-            hash: Hacher
+            hash: Hash
             initiative_end_date: Date de fin
             initiative_id: ID d'initiative
             initiative_signatures_count: Nombre de signatures
@@ -107,7 +108,7 @@ fr:
           notification_title: La date de fin de recueil des signatures pour l'initiative <a href="%{resource_path}">%{resource_title}</a> a été prolongée.
         milestone_completed:
           affected_user:
-            email_intro: Votre initiative %{resource_title} a réalisé le %{percentage}% de signatures!
+            email_intro: Votre initiative %{resource_title} a atteint %{percentage}% de signatures!
             email_outro: Vous avez reçu cette notification car vous êtes l'auteur de l'initiative %{resource_title}.
             email_subject: Nouvelle étape franchie !
             notification_title: Votre initiative <a href="%{resource_path}">%{resource_title}</a> a atteint les %{percentage}% de signatures.
@@ -115,15 +116,15 @@ fr:
             email_intro: L'initiative %{resource_title} a atteint %{percentage}% des signatures requises !
             email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
             email_subject: Nouvelle étape franchie !
-            notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
+            notification_title: L'initiative <a href="%{resource_path}">%{resource_title}</a> a atteint les %{percentage}% de signatures.
     gamification:
       badges:
         initiatives:
           conditions:
-            - Accéder à l'espace de participation d'Initiatives
+            - Accéder à l'espace Initiatives
             - Suivez les étapes pour créer une nouvelle initiative
           description: Ce badge vous est attribué lorsque vous lancez de nouvelles initiatives, en partenariat avec d’autres pour les mener à bien.
-          description_another: Cet utilisateur a reçu %{score} initiatives publiées.
+          description_another: Ce participant a publié %{score} initiatives.
           description_own: Vous avez publié %{score} initiatives.
           name: Initiatives publiées
           next_level_in: Obtenez %{score} autres initiatives publiées pour atteindre le niveau supérieur!
@@ -134,7 +135,7 @@ fr:
         initiatives:
           contextual: "<p>Une <strong>initiative</strong> est une proposition qui peut être favorisée par toute personne de leur propre initiative (indépendamment des autres canaux ou espaces de participation) grâce à la collecte de signatures (numériques) pour l'organisation de mener une action spécifique (modifier un règlement, initier un projet, changer le nom d’un département ou d’une rue, etc.).</p> <p>Les promoteurs d'une initiative peuvent définir ses objectifs, rassembler un soutien, débattre, la diffuser et définir des points de rencontre où des signatures peuvent être collectées auprès des participants ou des débats ouverts à d'autres participants.</p> <p>Exemples: Une initiative peut collecter des signatures pour organiser une consultation de toutes les personnes d'une organisation, pour créer ou réunir une assemblée, ou pour lancer un processus d'augmentation budgétaire pour un territoire ou une zone de l'organisation. Au cours du processus de collecte des signatures, davantage de personnes peuvent ajouter à cette demande et la transmettre à l’organisation.</p>\n"
           page: "<p>Une initiative est une proposition qui peut être promue par n'importe qui de sa propre initiative (indépendamment des autres canaux ou espaces de participation) grâce à la collecte de signatures (numériques) permettant à l'organisation de réaliser une action spécifique (modifier un règlement, initier un projet , changez le nom d’un département ou d’une rue, etc.).</p> <p>Les promoteurs d'une initiative peuvent définir ses objectifs, rassembler un soutien, débattre, la diffuser et définir des points de rencontre où des signatures peuvent être collectées auprès des participants ou des débats ouverts à d'autres participants.</p> <p>Exemples: Une initiative peut collecter des signatures pour organiser une consultation de toutes les personnes d'une organisation, pour créer ou réunir une assemblée, ou pour lancer un processus d'augmentation budgétaire pour un territoire ou une zone de l'organisation. Au cours du processus de collecte de signatures, davantage de personnes peuvent ajouter à cette demande et la transmettre à l’organisation.</p>\n"
-          title: Quelles sont les initiatives?
+          title: Comment fonctionnent les initiatives ?
     initiatives:
       actions:
         answer: Réponse
@@ -145,9 +146,9 @@ fr:
             title: Répondez pour %{title}
           info_initiative:
             created_at: Créé à
-            description: La description
-            initiative_votes_count: Les votes comptent
-            initiatives: Les initiatives
+            description: Description
+            initiative_votes_count: Nombre de votes
+            initiatives: Initiatives
             state: Etat
         committee_requests:
           index:
@@ -162,12 +163,12 @@ fr:
             max_results: Quantité maximale d'éléments à afficher
         initiatives:
           edit:
-            accept: Signer la pétition
-            confirm: Êtes-vous certain ?
-            discard: Dépublier la pétition
+            accept: Accepter l'initiative
+            confirm: Êtes-vous sûr(e) ?
+            discard: Dépublier l'initiative
             export_pdf_signatures: Exporter PDF des signatures
             export_votes: Exporter la liste des votes
-            reject: Rejeter la pétition
+            reject: Rejeter l'initiative
             send_to_technical_validation: Envoyer à la validation technique
             success: L'initiative a été envoyée à la validation technique
             update: Mettre à jour
@@ -175,18 +176,8 @@ fr:
             title: Informations générales
           index:
             actions_title: Action
-            filter:
-              accepted: Acceptée
-              all: Tout
-              created: Créée
-              discarded: Retirée
-              published: Publiée
-              rejected: Rejetée
-              validating: Validation technique
-            filter_by: Filtrer par
             preview: Aperçu
             print: Impression
-            search: Rechercher
           show:
             print: Impression
           update:
@@ -195,22 +186,22 @@ fr:
         initiatives_type_scopes:
           create:
             error: Une erreur s'est produite
-            success: Un nouveau périmètre d'application pour ce type d'initiative a été créé
+            success: Un nouveau secteur a été créé pour ce type d'initiative
           destroy:
-            success: Le périmètre d'application a été supprimé avec succès
+            success: Le secteur a été supprimé avec succès
           edit:
             back: Retour
             confirm_destroy: Êtes-vous certain ?
-            destroy: Effacer
-            title: Modifier le périmètre d'application de ce type d'initiative
+            destroy: Supprimer
+            title: Modifier le secteur de ce type d'initiative
             update: Mettre à jour
           new:
             back: Retour
             create: Créer
-            title: Créer un type de périmètre d'application pour les initiatives
+            title: Créer un type de secteur pour les initiatives
           update:
             error: Une erreur s'est produite
-            success: Le périmètre d'application a été mis à jour avec succès
+            success: Le secteur a été mis à jour avec succès
         initiatives_types:
           create:
             error: Une erreur s'est produite
@@ -219,12 +210,12 @@ fr:
             success: Le type d'initiative a été supprimé avec succès
           edit:
             confirm_destroy: Êtes-vous certain ?
-            destroy: Effacer
+            destroy: Supprimer
             update: Mettre à jour
           form:
-            title: Information générale
+            title: informations générales
           initiative_type_scopes:
-            title: Périmètre d'application pour ce type d'initiative
+            title: Secteurs pour ce type d'initiative
           new:
             create: Créer
             title: Nouveau type d'initiative
@@ -252,27 +243,27 @@ fr:
           success: Votre demande a été envoyée à l'auteur de l'initiative.
       content_blocks:
         highlighted_initiatives:
-          name: Initiatives soulignées
+          name: Initiatives mises en avant
       create_initiative:
         fill_data:
           back: Retour
           continue: Continuer
-          fill_data_help: "<ul> <li>Vérifier le contenu de votre initiative. Votre titre est-il facile à comprendre ? L'objectif de votre pétition est-il clair ?</li> <li>Vous devez choisir le type de recueil des signatures : en présentiel, en ligne ou une combinaison des deux</li> <li>Quelle est la portée géographique de l'initiative ? Ville, arrondissement, quartier ?</li> </ul>"
+          fill_data_help: "<ul> <li>Vérifier le contenu de votre initiative. Votre titre est-il facile à comprendre ? L'objectif de votre pétition est-il clair ?</li> <li>Vous devez choisir le type de recueil des signatures : en présentiel, en ligne ou une combinaison des deux</li> <li>Quelle est le secteur géographique de l'initiative ? Ville, arrondissement, quartier ?</li> </ul>"
           initiative_type: Type d'initiative
           more_information: "(Plus d'informations)"
           select_scope: Sélectionnez une portée
         finish:
           back: Retour
-          back_to_initiatives: Retour aux initiatives
+          back_to_initiatives: Retour à l'index des initiatives
           callout_text: Bravo ! Votre initiative a été créée avec succès.
-          go_to_my_initiatives: Aller à mes initiatives
+          go_to_my_initiatives: Consulter mes initiatives
           more_information: "(Plus d'informations)"
         finish_help:
           access_reminder: Rappelez-vous que vous serez toujours en mesure d'accéder à vos initiatives via le menu utilisateur.
           help_for_organizations: Si vous êtes une association, vous devrez télécharger les procès-verbaux du conseil d'administration de toutes les organisations qui constituent le Comité de promotion
           help_in_person_signatures: Si vous avez choisi de recueillir les signatures en présentiel ou de façon combinée, vous devrez télécharger les informations requises.
-          help_text: N'oubliez pas que pour valider correctement l'initiative, vous devez accéder au panneau d'administration dans lequel vous trouverez le menu utilisateur, télécharger les informations requises et l'envoyer pour traitement.
-          initiatives_page_link: Vous pouvez consulter toutes ces informations sur le %{link} dédié à l'information sur les initiatives.
+          help_text: N'oubliez pas que pour valider correctement l'initiative, vous devez accéder au panneau d'administration dans lequel vous trouverez le menu utilisateur, télécharger les informations requises et l'envoyer pour validation technique.
+          initiatives_page_link: Vous pouvez consulter toutes ces informations sur la %{link} dédié à l'information sur les initiatives.
           page: page
         previous_form:
           back: Retour
@@ -287,7 +278,7 @@ fr:
           back: Retour
           choose_html: Je veux créer un <strong>%{title}</strong>
           more_information: "(Plus d'informations)"
-          select: Je veux promouvoir cette initiative
+          select: Créer une initiative
           select_initiative_type_help: Les initiatives sont un moyen par lequel la communauté des citoyens peut se manifester afin que le conseil municipal entreprenne des actions d'intérêt général qui relèvent des champs de compétence municipaux. Quelle initiative voulez-vous lancer ?
         share_committee_link:
           continue: Continuer
@@ -357,7 +348,7 @@ fr:
           search: Rechercher
           state: État
           type: Type
-          type_prompt: Sélectionnez un type
+          type_prompt: Sélectionnez un type d'initiative
         filters_small_view:
           close_modal: Fermer la fenêtre
           filter: Filtre
@@ -384,10 +375,10 @@ fr:
             published: Cette proposition est publiée parce que
             rejected: Cette proposition a été rejetée parce que
             validating: Cette proposition est en cours d'évaluation
-          initiative_rejected_reason: Cette initiative a été rejetée en raison du manque de soutien.
+          initiative_rejected_reason: Cette initiative a été rejetée car elle n'a pas atteint le nombre de signatures requis dans le délai de collecte.
         show:
-          any_vote_method: Cette initiative recueille le soutien en ligne ainsi qu'en présentiel.
-          follow_description: Recevoir une notification lorsqu'il y a des nouvelles dans cette initiative
+          any_vote_method: Cette initiative recueille des signatures en ligne ainsi qu'en présentiel.
+          follow_description: Recevoir une notification lorsqu'il y a des actualités sur cette initiative
           offline_method: Cette initiative ne recueille que des soutiens en présentiel.
         signature_identities:
           select_identity: Sélectionner l'identifiant de l'utilisateur
@@ -437,7 +428,7 @@ fr:
     resources:
       initiatives_type:
         actions:
-          title: actes
+          title: Actions
           vote: Vote
   layouts:
     decidim:
@@ -449,12 +440,12 @@ fr:
           information: Informations
       initiative_creation_header:
         back: Retour
-        fill_data: Créer
-        finish: Fin
-        previous_form: Début
+        fill_data: Complétez votre initiative
+        finish: Publiez votre initiative
+        previous_form: Créez votre initiative
         promotal_committee: Comité de promotion
-        select_initiative_type: Sélectionner
-        show_similar_initiatives: Comparer
+        select_initiative_type: Sélectionnez le type de d'initiative
+        show_similar_initiatives: Comparez avec les autres initiatives
         step: Étape %{current} de %{total}
         title: Créer une nouvelle initiative
       initiative_header:
@@ -463,13 +454,13 @@ fr:
         back: Retour
         fill_personal_data: Complétez vos données
         finish: terminer
-        finished: Signature de l'initiative créée
+        finished: Initiative signée avec succès
         see_steps: voir les étapes
         select_identity: Sélectionner une identité
         sms_code: Vérification du code SMS
         sms_phone_number: numéro de téléphone portable
         step: Étape %{current} sur %{total}
-        title: Signe %{initiative_title}
+        title: Signer %{initiative_title}
       initiatives:
         initiative:
           check: Découvrez l'initiative

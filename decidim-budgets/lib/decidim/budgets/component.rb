@@ -13,6 +13,8 @@ Decidim.register_component(:budgets) do |component|
 
   component.newsletter_participant_entities = ["Decidim::Budgets::Order"]
 
+  component.query_type = "Decidim::Budgets::BudgetsType"
+
   component.actions = %(vote)
 
   component.on(:before_destroy) do |instance|
@@ -24,6 +26,7 @@ Decidim.register_component(:budgets) do |component|
     resource.template = "decidim/budgets/projects/linked_projects"
     resource.card = "decidim/budgets/project"
     resource.actions = %(vote)
+    resource.searchable = true
   end
 
   component.register_stat :projects_count, primary: true, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|

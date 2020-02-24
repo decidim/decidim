@@ -4,21 +4,22 @@ require "decidim/faker/localized"
 require "decidim/dev"
 
 FactoryBot.define do
-  factory :initiatives_type, class: Decidim::InitiativesType do
+  factory :initiatives_type, class: "Decidim::InitiativesType" do
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
     organization
-    online_signature_enabled { true }
+    signature_type { :online }
     undo_online_signatures_enabled { true }
+    promoting_committee_enabled { true }
     minimum_committee_members { 3 }
 
     trait :online_signature_enabled do
-      online_signature_enabled { true }
+      signature_type { :online }
     end
 
     trait :online_signature_disabled do
-      online_signature_enabled { false }
+      signature_type { :offline }
     end
 
     trait :undo_online_signatures_enabled do
@@ -27,6 +28,15 @@ FactoryBot.define do
 
     trait :undo_online_signatures_disabled do
       undo_online_signatures_enabled { false }
+    end
+
+    trait :promoting_committee_enabled do
+      promoting_committee_enabled { true }
+    end
+
+    trait :promoting_committee_disabled do
+      promoting_committee_enabled { false }
+      minimum_committee_members { 0 }
     end
 
     trait :with_user_extra_fields_collection do
@@ -39,7 +49,7 @@ FactoryBot.define do
     end
   end
 
-  factory :initiatives_type_scope, class: Decidim::InitiativesTypeScope do
+  factory :initiatives_type_scope, class: "Decidim::InitiativesTypeScope" do
     type { create(:initiatives_type) }
     scope { create(:scope, organization: type.organization) }
     supports_required { 1000 }
@@ -49,7 +59,7 @@ FactoryBot.define do
     end
   end
 
-  factory :initiative, class: Decidim::Initiative do
+  factory :initiative, class: "Decidim::Initiative" do
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     organization
@@ -62,7 +72,7 @@ FactoryBot.define do
 
     scoped_type do
       create(:initiatives_type_scope,
-             type: create(:initiatives_type, organization: organization))
+             type: create(:initiatives_type, organization: organization, signature_type: signature_type))
     end
 
     after(:create) do |initiative|
@@ -86,6 +96,10 @@ FactoryBot.define do
 
     trait :published do
       state { "published" }
+    end
+
+    trait :unpublished do
+      published_at { nil }
     end
 
     trait :accepted do
@@ -136,12 +150,12 @@ FactoryBot.define do
     end
   end
 
-  factory :initiative_user_vote, class: Decidim::InitiativesVote do
+  factory :initiative_user_vote, class: "Decidim::InitiativesVote" do
     initiative { create(:initiative) }
     author { create(:user, :confirmed, organization: initiative.organization) }
   end
 
-  factory :organization_user_vote, class: Decidim::InitiativesVote do
+  factory :organization_user_vote, class: "Decidim::InitiativesVote" do
     initiative { create(:initiative) }
     author { create(:user, :confirmed, organization: initiative.organization) }
     decidim_user_group_id { create(:user_group).id }
@@ -150,7 +164,7 @@ FactoryBot.define do
     end
   end
 
-  factory :initiatives_committee_member, class: Decidim::InitiativesCommitteeMember do
+  factory :initiatives_committee_member, class: "Decidim::InitiativesCommitteeMember" do
     initiative { create(:initiative) }
     user { create(:user, :confirmed, organization: initiative.organization) }
     state { "accepted" }

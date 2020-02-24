@@ -89,10 +89,20 @@ FactoryBot.define do
       external_voting { true }
       i_frame_url { "http://example.org" }
     end
+
+    trait :multiple do
+      min_votes { 2 }
+      max_votes { 3 }
+    end
   end
 
   factory :response, class: "Decidim::Consultations::Response" do
     question
+    title { generate_localized_title }
+  end
+
+  factory :response_group, class: "Decidim::Consultations::ResponseGroup" do
+    question { create(:question, :multiple) }
     title { generate_localized_title }
   end
 

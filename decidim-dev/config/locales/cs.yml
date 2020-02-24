@@ -6,6 +6,7 @@ cs:
         field: Moje pole
         start_date: Počáteční datum
         title: Titul
+        translatable_text: Přeložitelný text
         updated_at: Aktualizováno na
   decidim:
     dummy:

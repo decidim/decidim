@@ -3,6 +3,14 @@ ar:
     attributes:
       account:
         delete_reason: سبب حذف حسابك
+      group:
+        about: عن
+        avatar: الصورة الرمزية
+        document_number: رقم المستند
+        email: البريد الإلكتروني
+        name: الإسم
+        nickname: الاسم المستعار
+        phone: الهاتف
       report:
         details: تعليقات إضافية
       user:
@@ -73,8 +81,6 @@ ar:
     account:
       data_portability_export:
         file_no_exists: الملف غير موجود
-        invalid_token: الرمز المميز المقدم غير صالح.
-        no_token: لا رمزية المقدمة
         notice: يتم تنزيل بياناتك حاليًا. ستتلقى بريدًا إلكترونيًا عند اكتماله.
       delete:
         alert: لا يمكن التراجع عن هذا الإجراء. إذا حذفت حسابك ، فلن تتمكن من تسجيل الدخول.
@@ -94,6 +100,9 @@ ar:
         error: حدثت مشكلة أثناء تحديث حسابك.
         success: تم تحديث حسابك بنجاح.
         success_with_email_confirmation: تم تحديث حسابك بنجاح. ستتلقى بريدًا إلكترونيًا لتأكيد عنوان بريدك الإلكتروني الجديد.
+    admin:
+      actions:
+        cancel: إلغاء
     admin_log:
       area:
         create: "%{user_name} خلق المنطقة %{resource_name}"
@@ -151,6 +160,11 @@ ar:
         help_text: تحسين هذا %{model_name} عن طريق تعديل %{amendable_fields}الخاص به
         promote_confirm_text: هل أنت متأكد من رغبتك في الترويج لهذا الإصدار؟
         section_heading: التعديلات (%{count})
+      compare_draft:
+        continue: متابعة
+      edit_draft:
+        discard: تجاهل هذه المسودة
+        send: معاينة
       emendation:
         actions:
           button_accept: قبول
@@ -169,6 +183,10 @@ ar:
             من قبل المؤلف.
       new:
         amendment_author: مؤلف التعديل
+        send: إنشاء
+      preview_draft:
+        modify: تعديل
+        publish: انشر
       promoted:
         error: كانت هناك مشكلة في نشر التعديل كاقتراح جديد
         success: تم نشر التعديل بنجاح كمقترح جديد
@@ -183,9 +201,9 @@ ar:
       wizard_step_form:
         steps:
           '1': إنشاء التعديل الخاص بك
-          '2': Compare your amendment
-          '3': Complete your amendment
-          '4': Publish your amendment
+          '2': قارن تعديلك
+          '3': اكمل تعديلك
+          '4': انشر تعديلك
     anonymous_user: مجهول
     application:
       collection:
@@ -240,6 +258,7 @@ ar:
       content:
         incomplete:
           cancel: إلغاء
+          invalid_field: "%{field}"
         unauthorized:
           ok: موافق
           title: غير مخوّل
@@ -315,7 +334,6 @@ ar:
           email_already_exists: يستخدم حساب آخر عنوان البريد الإلكتروني نفسه
         new:
           complete_profile: الملف الشخصي الكامل
-          nickname_help: الاسم المستعار الخاص بك (@ كنية) في %{organization}
           sign_up: يرجى استكمال ملف التعريف الخاص بك
           subtitle: يرجى ملء النموذج التالي من أجل استكمال التسجيل
           username_help: الاسم العام الذي يظهر في مشاركاتك. بهدف ضمان عدم الكشف عن هويته ، يمكن أن يكون أي اسم.
@@ -324,9 +342,8 @@ ar:
           already_have_an_account?: هل لديك حساب؟
           newsletter: تلقي رسالة إخبارية من حين لآخر مع المعلومات ذات الصلة
           newsletter_title: الاتصال إذن
-          nickname_help: الاسم المستعار الخاص بك (@ كنية) في %{organization}
           sign_in: تسجيل الدخول
-          sign_up: سجل
+          sign_up: انشئ حسابًا
           sign_up_as:
             legend: الاشتراك باسم
           subtitle: اشترك للمشاركة في المناقشات ودعم المقترحات.
@@ -503,7 +520,7 @@ ar:
           notification_title: و <a href="%{resource_path}">صفحة الملف الشخصي</a> من %{name} (%{nickname})، الذي كنت التالية، وقد تم تحديثها.
     export_mailer:
       data_portability_export:
-        click_button: انقر فوق الزر التالي لتنزيل بياناتك. <br/> سيكون لديك ملف متاح حتى %{date}.
+        click_button: 'انقر فوق الزر التالي لتنزيل بياناتك. <br/> سيكون لديك ملف متاح حتى %{date}.'
         download: تحميل
       export:
         ready: يرجى الاطلاع على نسخة مضغوطة من التصدير.
@@ -541,21 +558,13 @@ ar:
       current_image: الصورة الحالية
       default_image: الصورة الافتراضية
       errors:
+        decidim/user:
+          password: الكلمة السرية قصيرة جدا.
         error: يوجد خطأ في هذا المجال.
       remove_this_file: أزل هذا الملف
     gamification:
       all_badges_link: رؤية جميع الشارات المتاحة.
       badges:
-        continuity:
-          conditions:
-            - تعال هنا في كثير من الأحيان
-          description: تُمنح هذه الشارة عند زيارة المنصة بطريقة منتظمة. نود وجودك هنا!
-          description_another: تم توصيل هذا المشارك لمدة %{score} أيام متتالية في وقت ما
-          description_own: لقد قمت بالاتصال لمدة %{score} أيام متتالية في مرحلة ما.
-          name: استمرارية
-          next_level_in: الاتصال لمدة %{score} أيام متتالية للوصول إلى المستوى التالي!
-          unearned_another: لم يسجل هذا المشارك الدخول لأكثر من يوم واحد على التوالي.
-          unearned_own: أنت غير متصل لأكثر من يوم واحد على التوالي.
         followers:
           conditions:
             - كونك نشيطًا ومتابعة أشخاصًا آخرين سيجعل بالتأكيد أشخاصًا آخرين يتبعونك.
@@ -979,7 +988,7 @@ ar:
         sign_in_before_follow: يرجى تسجيل الدخول قبل تنفيذ هذا الإجراء
       login_modal:
         please_sign_in: الرجاء تسجيل الدخول
-        sign_up: سجل
+        sign_up: انشئ حسابًا
       participatory_space_filters:
         filters:
           areas: المناطق
@@ -1012,6 +1021,12 @@ ar:
     welcome_notification:
       default_body: <p>مرحبا {{name}}، شكرا لانضمامك {{organization}} ومرحبا بكم!</p><ul><li>إذا كنت ترغب في الحصول على فكرة سريعة عما يمكنك القيام به هنا ، ألق نظرة على قسم <a href="{{help_url}}">Help</a> .</li><li>بمجرد قراءتها ، ستحصل على أول شارة. فيما يلي قائمة تضم <a href="{{badges_url}}">الشارات</a> التي يمكنك الحصول عليها وأنت تشارك في {{organization}}</li><li>أخيرًا وليس آخرًا ، انضم إلى أشخاص آخرين ، وشارك معهم تجربة المشاركة والمشاركة في {{organization}}. قم بتقديم مقترحات وتعليقات ومناقشات وفكر في كيفية المساهمة في الصالح العام وتقديم حجج للإقناع والاستماع والقراءة حتى تقتنع ، والتعبير عن أفكارك بطريقة ملموسة ومباشرة ، والاستجابة بصبر وقرار ، والدفاع عن أفكارك والحفاظ عليها بعقل متفتح للتعاون والانضمام إلى أفكار الآخرين.</li></ul>
       default_subject: شكرا لانضمامك {{organization}}!
+    wizard_step_form:
+      wizard_aside:
+        back: العودة
+      wizard_header:
+        see_steps: عرض الخطوات
+        step_of: الخطوة %{current_step} مِن %{total_steps}
   devise:
     confirmations:
       confirmed: تم تأكيد عنوان بريدك الإلكتروني بنجاح.
@@ -1122,7 +1137,7 @@ ar:
         update: تحديث
         we_need_your_current_password_to_confirm_your_changes: نحتاج كلمة المرور الحالية لتأكيد تغييراتك
       new:
-        sign_up: سجل
+        sign_up: انشئ حسابًا
       signed_up: أهلا بك! لقد اشتركت بنجاح
       signed_up_but_inactive: لقد اشتركت بنجاح ومع ذلك ، لم نتمكن من تسجيل الدخول لأن حسابك لم يتم تنشيطه بعد.
       signed_up_but_locked: لقد اشتركت بنجاح ومع ذلك ، لم نتمكن من تسجيل الدخول لأن حسابك مغلق.
@@ -1143,7 +1158,7 @@ ar:
         forgot_your_password: نسيت رقمك السري؟
         sign_in: تسجيل الدخول
         sign_in_with_provider: تسجيل الدخول مع %{provider}
-        sign_up: سجل
+        sign_up: انشئ حسابًا
       minimum_password_length:
         zero: "(%{count} حرف كحد أدنى)"
         one: "(%{count} حرف كحد أدنى)"
@@ -1168,18 +1183,11 @@ ar:
       cycle_detected: لا يمكن أن يكون والد النطاق أحد أحفاده
       expired: انتهت صلاحيتها ، يرجى طلب واحدة جديدة
       file_size_is_less_than_or_equal_to: يجب أن يكون حجم الملف أقل من أو يساوي %{count}
+      invalid_time_zone: ليست بمنطقة زمنية صالحة
       long_words: يحتوي على كلمات طويلة جدًا (أكثر من 35 حرفًا)
       must_start_with_caps: يجب أن تبدأ بحرف كبير
       nesting_too_deep: لا يمكن أن يكون داخل فئة فرعية
-      not_found: غير معثور عليه
       not_locked: لم يكن مغلقا
-      not_saved:
-        zero: "%{count} أخطاء تمنع حفظ هذا %{resource}:"
-        one: '1 خطأ يحظر حفظ هذا %{resource}:'
-        two: "%{count} أخطاء تمنع حفظ هذا %{resource}:"
-        few: "%{count} أخطاء تمنع حفظ هذا %{resource}:"
-        many: "%{count} أخطاء تمنع حفظ هذا %{resource}:"
-        other: "%{count} أخطاء تمنع حفظ هذا %{resource}:"
       too_many_marks: يستخدم الكثير من علامات الترقيم المتتالية (مثل! و؟)
       too_much_caps: يستخدم عددًا كبيرًا جدًا من الأحرف الكبيرة (أكثر من 25٪ من النص)
       too_short: قصير جدًا (أقل من 15 حرفًا)
@@ -1203,7 +1211,7 @@ ar:
         close_menu: إغلاق القائمة
         navigation: التنقل
         sign_in: تسجيل الدخول
-        sign_up: سجل
+        sign_up: انشئ حسابًا
       impersonation_warning:
         close_session: اغلق الموسم
         description_html: أنت تدير المشارك <b>%{user_name}</b>.
@@ -1253,12 +1261,15 @@ ar:
     qq: Qzone
     reddit: رديت
     share_to: شارك في %{name}
+    telegram: تلغرام
     tumblr: نعرفكم
     twitter: تويتر
     vkontakte: فكونتاكتي
     wechat: WeChat
     wechat_footer: افتح WeChat الخاص بك ، وانقر فوق الزر "اكتشاف" ، ثم انقر فوق "مسح رمز الاستجابة السريعة" القائمة.
     weibo: سينا ويبو
+    whatsapp_app: واتساب
+    whatsapp_web: واتساب
     xing: شينغ
   time:
     formats:
@@ -1273,6 +1284,13 @@ ar:
           invitation_instructions:
             accept_until_format: "%B %d، %Y %I:%M %p"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: المحذوفات
+      right: الإضافات
+    dropdown:
+      option_split: جنبًا ﺇﻟﻰ ﺟﻨﺐ
+      option_unified: مُوَحَّدة
   views:
     pagination:
       first: "&laquo; أولاً"

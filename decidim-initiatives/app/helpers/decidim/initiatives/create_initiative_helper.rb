@@ -6,10 +6,17 @@ module Decidim
     module CreateInitiativeHelper
       def signature_type_options(initiative_form)
         return all_signature_type_options unless initiative_form.signature_type_updatable?
-        return online_signature_type_options unless Decidim::Initiatives.face_to_face_voting_allowed
-        return offline_signature_type_options unless online_signature_allowed?(initiative_form)
 
-        all_signature_type_options
+        type = ::Decidim::InitiativesType.find(initiative_form.type_id)
+        allowed_signatures = type.allowed_signature_types_for_initiatives
+
+        if allowed_signatures == %w(online)
+          online_signature_type_options
+        elsif allowed_signatures == %w(offline)
+          offline_signature_type_options
+        else
+          all_signature_type_options
+        end
       end
 
       private
@@ -45,14 +52,6 @@ module Decidim
             ), type
           ]
         end
-      end
-
-      def online_signature_allowed?(initiative_form)
-        Decidim::Initiatives.online_voting_allowed && online_signature_enabled_in_type?(initiative_form)
-      end
-
-      def online_signature_enabled_in_type?(initiative_form)
-        ::Decidim::InitiativesType.find(initiative_form.type_id).online_signature_enabled
       end
     end
   end

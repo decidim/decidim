@@ -2,34 +2,35 @@ ca:
   activemodel:
     attributes:
       participatory_process:
-        announcement: Avís
+        announcement: Anunci
         area_id: Àrea
-        banner_image: Imatge de banner
-        copy_categories: Copiar categories
-        copy_components: Copiar components
+        banner_image: Imatge de bàner
+        copy_categories: Copiar les categories
+        copy_components: Copiar els components
         copy_steps: Copiar les fases
         decidim_area_id: Àrea
         description: Descripció
         developer_group: Grup promotor
         domain: Àrees municipals
         end_date: Data de finalització
-        hashtag: Hashtag
+        hashtag: Etiqueta (hashtag)
         hero_image: Imatge de portada
         local_area: Àrea d'organització
         meta_scope: Metadades d'àmbit
         participatory_process_group_id: Grup de processos
-        participatory_scope: Què es decideix
+        participatory_scope: El que es decideix
         participatory_structure: Com es decideix
         promoted: Destacat
         published_at: Publicat el
+        related_process_ids: Processos relacionats
         scope_id: Àmbit
         scopes_enabled: Àmbits habilitats
-        short_description: Descripció breu
+        short_description: Breu descripció
         show_statistics: Mostra estadístiques
         slug: Nom curt d'URL
         start_date: Data d'inici
         subtitle: Subtítol
-        target: Qui participa
+        target: Qui hi participa
         title: Títol
       participatory_process_group:
         description: Descripció
@@ -41,13 +42,19 @@ ca:
         cta_text: Text del botó d'acció
         description: Descripció
         end_date: Data de finalització
-        short_description: Descripció breu
+        short_description: Breu descripció
         start_date: Data d'inici
         title: Títol
       participatory_process_user_role:
         email: Correu electrònic
         name: Nom
         role: Rol
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Tipus de document no vàlid. Els formats acceptats són: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Fase activada
       decidim/participatory_process_step_changed_event: Fase modificada
@@ -57,8 +64,8 @@ ca:
         one: Procés participatiu
         other: Processos participatius
       decidim/participatory_process_group:
-        one: Grups de processos participatius
-        other: Grups de procés participatiu
+        one: Grup de processos participatius
+        other: Grups de processos participatius
       decidim/participatory_process_step:
         one: Fase
         other: Fases
@@ -67,20 +74,21 @@ ca:
       actions:
         activate: Activar
         configure: Configurar
-        confirm_destroy: Confirma eliminació
+        confirm_destroy: Confirma l'eliminació
         destroy: Suprimeix
         duplicate: Duplicar
         edit: Editar
         filter:
-          all: Mostra tots els processos
+          all_processes: Mostra tots els processos
           process_groups: Grups de processos
+        import_process: Importar
         new_process: Nou procés
         new_process_group: Nou grup de processos
         new_process_step: Nova fase
         new_process_user_role: Nova administradora del procés
         preview: Previsualitzar
         publish: Publicar
-        resend_invitation: Reenviar invitació
+        resend_invitation: Reenviar la invitació
         unpublish: Despublicar
       menu:
         participatory_process_groups: Grups de processos
@@ -136,6 +144,7 @@ ca:
           title: Duplica procés participatiu
       participatory_process_groups:
         destroy:
+          error: Hi ha hagut un error eliminant aquest grup de processos participatius.
           success: El grup de processos participatius s'ha eliminat correctament.
         edit:
           title: Edita grup de procés
@@ -146,6 +155,14 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquest grup de processos participatius.
           success: Grup de processos participatius actualitzat correctament.
+      participatory_process_imports:
+        create:
+          error: S'ha produït un error en actualitzar aquest procés participatiu.
+          success: El procés participatiu s'ha importat correctament.
+        new:
+          import: Importar
+          select: Selecciona quines dades vols importar.
+          title: Importar el procés participatiu
       participatory_process_publications:
         create:
           error: S'ha produït un error en publicar aquest procés participatiu.
@@ -235,6 +252,9 @@ ca:
         publish: "%{user_name} ha publicat el procés participatiu %{resource_name}"
         unpublish: "%{user_name} ha despublicat el procés participatiu %{resource_name}"
         update: "%{user_name} ha actualitzat el procés participatiu %{resource_name}"
+      participatory_process_group:
+        create: "%{user_name} ha creat el grup de processos participatius %{resource_name}"
+        update: "%{user_name} ha actualitzat el grup de processos participatius %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} ha activat la fase %{resource_name} en el procés participatiu %{space_name}"
         create: "%{user_name} ha creat la fase %{resource_name} en el procés participatiu %{space_name}"
@@ -287,6 +307,10 @@ ca:
         participatory_process_copies:
           form:
             slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Afegeix un document
+            slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Utilitza rutes parcials, no URL complerts aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. Si no s''estableix cap ruta, el botó no es mostrarà. Exemple: %{url}'
@@ -299,6 +323,7 @@ ca:
             images: Imatges
             metadata: Metadades
             other: Altres
+            related_processes: Processos relacionats
             select_an_area: Selecciona una àrea
             select_process_group: Selecciona un grup de processos
             slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
@@ -354,6 +379,7 @@ ca:
         participatory_scope: Què es decideix
         participatory_structure: Com es decideix
         private_space: Aquest és un procés privat
+        related_processes: Processos relacionats
         scope: Àmbit
         start_date: Data d'inici
         target: Qui participa

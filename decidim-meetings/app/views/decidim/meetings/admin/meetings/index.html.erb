@@ -28,7 +28,7 @@
           <% meetings.each do |meeting| %>
             <tr data-id="<%= meeting.id %>">
               <td>
-                <%= present(meeting).title %><br />
+                <%= present(meeting).title %><br>
               </td>
               <td>
                 <% if meeting.start_time %>

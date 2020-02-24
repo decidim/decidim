@@ -19,10 +19,20 @@ module Decidim
       include Decidim::Loggable
       include Decidim::DataPortability
       include Decidim::NewsletterParticipant
+      include Decidim::Searchable
 
       component_manifest_name "debates"
 
       validates :title, presence: true
+
+      searchable_fields({
+                          participatory_space: { component: :participatory_space },
+                          A: :title,
+                          D: :description,
+                          datetime: :start_time
+                        },
+                        index_on_create: ->(debate) { debate.visible? },
+                        index_on_update: ->(debate) { debate.visible? })
 
       def self.log_presenter_class_for(_log)
         Decidim::Debates::AdminLog::DebatePresenter
@@ -89,11 +99,6 @@ module Decidim
       # Public: Identifies the commentable type in the API.
       def commentable_type
         self.class.name
-      end
-
-      # Public: Overrides the `notifiable?` Notifiable concern method.
-      def notifiable?(_context)
-        false
       end
 
       # Public: Override Commentable concern method `users_to_notify_on_comment_created`

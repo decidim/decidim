@@ -29,4 +29,22 @@ describe "Search", type: :system do
       expect(page).to have_selector(".filters__section")
     end
   end
+
+  context "when the device is a mobile" do
+    before do
+      driven_by(:iphone)
+      switch_to_host(organization.host)
+      visit decidim.root_path
+
+      within ".topbar .topbar__menu" do
+        page.find("button").click
+      end
+    end
+
+    it "shows the mobile version of the search form" do
+      within ".off-canvas .search-off-canvas-holder" do
+        expect(page).to have_css("#form-search_topbar")
+      end
+    end
+  end
 end

@@ -1,0 +1,41 @@
+"no":
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: Opprettet på
+        field: Mitt felt
+        start_date: Startdato
+        title: Tittel
+        translatable_text: Oversettbar tekst
+        updated_at: Oppdatert på
+  decidim:
+    dummy:
+      admin:
+        exports:
+          dummies: Dukker
+    gamification:
+      badges:
+        test:
+          conditions:
+            - Bruk et testmiljø for decidim.
+          description: Deltakerne får dette merket ved å lage tester.
+          description_another: Denne deltakeren har opprettet %{score} tester.
+          description_own: Du har opprettet %{score} tester.
+          name: Tester
+          next_level_in: Opprett %{score} flere tester for å nå neste nivå!
+          unearned_another: Denne deltakeren har ikke opprettet en test ennå.
+          unearned_own: Du har ikke laget noen tester ennå.
+    pages:
+      home:
+        statistics:
+          bar: Felt
+          dummies_count_high: Dukker høy
+          dummies_count_medium: Dukker medium
+          foo: Foo
+    participatory_processes:
+      statistics:
+        dummies_count_high: Dukker høy
+        dummies_count_medium: Dukker medium
+    resource_links:
+      test_link:
+        dummy_resource_dummy: Relaterte dukke

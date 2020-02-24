@@ -22,6 +22,8 @@ fr:
             announcement: Annonce
           step:
             allow_answers: Autoriser les réponses
+            allow_unregistered: Autoriser les utilisateurs non inscrits à répondre à l'enquête
+            allow_unregistered_help: Si activé, aucun login ne sera nécessaire pour répondre à l'enquête. Cela peut conduire à des données pauvres ou non fiables et rend plus vulnérable aux attaques automatiques. A utiliser avec précaution !
             announcement: Annonce
     events:
       surveys:
@@ -53,4 +55,5 @@ fr:
       surveys:
         answer:
           invalid: Votre réponse à l'enquête comporte des erreurs.
+          spam_detected: Il y a eu un problème lors de la réponse au questionnaire. Peut-être avez-vous été trop rapide, pouvez-vous réessayer ?
           success: Votre réponse à l'enquête a bien été enregistrée.

@@ -5,6 +5,8 @@ shared_examples "manage assemblies" do
     let(:image3_filename) { "city3.jpeg" }
     let(:image3_path) { Decidim::Dev.asset(image3_filename) }
 
+    let(:assembly_parent_id_options) { page.find("#assembly_parent_id").find_all("option").map(&:value) }
+
     before do
       click_link translated(assembly.title)
     end
@@ -21,6 +23,7 @@ shared_examples "manage assemblies" do
       attach_file :assembly_banner_image, image3_path
 
       within ".edit_assembly" do
+        expect(assembly_parent_id_options).not_to include(assembly.id)
         fill_in "assembly[creation_date]", with: Date.yesterday
         fill_in "assembly[included_at]", with: Date.current
         fill_in "assembly[duration]", with: Date.tomorrow
@@ -157,5 +160,9 @@ shared_examples "manage assemblies" do
 
       expect(page).to have_admin_callout("successfully")
     end
+  end
+
+  it "shows the Assemblies link to manage nested assemblies" do
+    expect(page).to have_link("Assemblies", href: decidim_admin_assemblies.assemblies_path(q: { parent_id_eq: assembly.id }))
   end
 end

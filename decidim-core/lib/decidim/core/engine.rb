@@ -40,6 +40,7 @@ require "kaminari"
 require "batch-loader"
 require "etherpad-lite"
 require "diffy"
+require "anchored"
 
 require "decidim/api"
 
@@ -184,28 +185,13 @@ module Decidim
 
       initializer "decidim.notifications" do
         Decidim::EventsManager.subscribe(/^decidim\.events\./) do |event_name, data|
-          EmailNotificationGeneratorJob.perform_later(
-            event_name,
-            data[:event_class],
-            data[:resource],
-            data[:followers],
-            data[:affected_users],
-            data[:extra]
-          )
-          NotificationGeneratorJob.perform_later(
-            event_name,
-            data[:event_class],
-            data[:resource],
-            data[:followers],
-            data[:affected_users],
-            data[:extra]
-          )
+          EventPublisherJob.perform_later(event_name, data)
         end
       end
 
       initializer "decidim.content_processors" do |_app|
         Decidim.configure do |config|
-          config.content_processors += [:user, :hashtag]
+          config.content_processors += [:user, :hashtag, :link]
         end
       end
 
@@ -240,13 +226,6 @@ module Decidim
           # https://github.com/doorkeeper-gem/doorkeeper/wiki/Using-Scopes
           default_scopes :public
           optional_scopes []
-
-          # Change the native redirect uri for client apps
-          # When clients register with the following redirect uri, they won't be redirected to any server and the authorization code will be displayed within the provider
-          # The value can be any string. Use nil to disable this feature. When disabled, clients must provide a valid URL
-          # (Similar behaviour: https://developers.google.com/accounts/docs/OAuth2InstalledApp#choosingredirecturi)
-          #
-          native_redirect_uri "urn:ietf:wg:oauth:2.0:oob"
 
           # Forces the usage of the HTTPS protocol in non-native redirect uris (enabled
           # by default in non-development environments). OAuth2 delegates security in
@@ -399,10 +378,6 @@ module Decidim
         Decidim::Gamification.register_badge(:followers) do |badge|
           badge.levels = [1, 15, 30, 60, 100]
           badge.reset = ->(user) { user.followers.count }
-        end
-
-        Decidim::Gamification.register_badge(:continuity) do |badge|
-          badge.levels = [2, 10, 30, 60, 180, 365]
         end
       end
 

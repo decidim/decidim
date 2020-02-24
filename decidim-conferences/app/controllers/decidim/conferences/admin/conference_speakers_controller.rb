@@ -8,13 +8,14 @@ module Decidim
       class ConferenceSpeakersController < Decidim::Conferences::Admin::ApplicationController
         helper Decidim::Conferences::Admin::ConferenceSpeakersHelper
         include Concerns::ConferenceAdmin
+        include Decidim::Paginable
 
         def index
           enforce_permission_to :index, :conference_speaker
 
           @query = params[:q]
 
-          @conference_speakers = Decidim::Conferences::Admin::ConferenceSpeakers.for(collection, @query).page(params[:page]).per(15)
+          @conference_speakers = paginate(Decidim::Conferences::Admin::ConferenceSpeakers.for(collection, @query))
         end
 
         def new

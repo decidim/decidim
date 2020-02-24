@@ -27,6 +27,8 @@ module Decidim
         let(:latitude) { 40.1234 }
         let(:longitude) { 2.1234 }
         let(:attachment_params) { nil }
+        let(:uploaded_photos) { [] }
+        let(:photos) { [] }
         let(:created_in_meeting) { false }
         let(:meeting_id) { nil }
 
@@ -38,6 +40,8 @@ module Decidim
               address: address,
               has_address: has_address,
               attachment: attachment_params,
+              photos: photos,
+              add_photos: uploaded_photos,
               created_in_meeting: created_in_meeting,
               meeting_id: meeting_id,
               user_group_id: nil
@@ -83,7 +87,28 @@ module Decidim
               it "sets the meeting as author" do
                 command.call
 
-                expect(Decidim::Proposals::Proposal.last.authors).to include(meetings.first)
+                expect(Decidim::Proposals::Proposal.last.authors).to include(meeting_as_author)
+              end
+
+              it "links the proposal and the meeting" do
+                command.call
+                proposal = Decidim::Proposals::Proposal.last
+                proposal_linked_meetings = proposal.linked_resources(:meeting, "proposals_from_meeting")
+
+                expect(proposal_linked_meetings).to include(meeting_as_author)
+              end
+
+              context "when the meeting is already linked to other proposals" do
+                let(:another_proposal) { create :proposal, component: component }
+
+                it "keeps the old proposals linked" do
+                  another_proposal.link_resources(meeting_as_author, "proposals_from_meeting")
+                  command.call
+                  proposal = Decidim::Proposals::Proposal.last
+                  linked_proposals = meeting_as_author.linked_resources(:proposal, "proposals_from_meeting")
+
+                  expect(linked_proposals).to match_array([proposal, another_proposal])
+                end
               end
             end
 
@@ -171,6 +196,43 @@ module Decidim
                     title: ""
                   }
                 end
+
+                it "broadcasts ok" do
+                  expect { command.call }.to broadcast(:ok)
+                end
+              end
+            end
+
+            context "when galleries are allowed", processing_uploads_for: Decidim::AttachmentUploader do
+              let(:component) { create(:proposal_component, :with_attachments_allowed) }
+              let(:attachment_params) do
+                {
+                  title: "Pdf attachment",
+                  file: Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf")
+                }
+              end
+              let(:uploaded_photos) do
+                [
+                  Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
+                  Decidim::Dev.test_file("city.jpeg", "image/jpeg")
+                ]
+              end
+
+              it "creates a gallery for the proposal" do
+                expect { command.call }.to change(Decidim::Attachment, :count).by(3)
+                last_proposal = Decidim::Proposals::Proposal.last
+                expect(last_proposal.photos.count).to eq(2)
+                last_attachment = Decidim::Attachment.last
+                expect(last_attachment.attached_to).to eq(last_proposal)
+              end
+
+              context "when gallery is left blank" do
+                let(:attachment_params) do
+                  {
+                    title: ""
+                  }
+                end
+                let(:uploaded_photos) { [] }
 
                 it "broadcasts ok" do
                   expect { command.call }.to broadcast(:ok)

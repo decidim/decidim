@@ -20,6 +20,8 @@ module Decidim
         attribute :created_in_meeting, Boolean
         attribute :meeting_id, Integer
         attribute :suggested_hashtags, Array[String]
+        attribute :photos, Array[String]
+        attribute :add_photos, Array
 
         validates :title, :body, presence: true
         validates :title, length: { maximum: 150 }
@@ -116,6 +118,7 @@ module Decidim
         # this problem.
         def notify_missing_attachment_if_errored
           errors.add(:attachment, :needs_to_be_reattached) if errors.any? && attachment.present?
+          errors.add(:add_photos, :needs_to_be_reattached) if errors.any? && add_photos.present?
         end
 
         def ordered_hashtag_list(string)

@@ -8,10 +8,10 @@ module Decidim
         super(Assembly.all, options)
       end
 
-      def search_assembly_type
-        return query if assembly_type == "all"
+      def search_type_id
+        return query if type_id.blank?
 
-        query.where(assembly_type: assembly_type)
+        query.where(decidim_assemblies_type_id: type_id)
       end
     end
   end

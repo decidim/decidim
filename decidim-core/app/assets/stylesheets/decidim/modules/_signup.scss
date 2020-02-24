@@ -58,3 +58,60 @@
     text-align: center;
   }
 }
+
+.user-nickname{
+  label .row{
+    div:first-of-type{
+      // this is the prefix div
+      @extend .input-group-label;
+
+      border-#{$global-right}: 0;
+      width: 8%;
+      height: 3rem;
+      border-top-left-radius: $input-radius;
+      border-bottom-left-radius: $input-radius;
+
+      .prefix{
+        display: inline-block;
+        height: 2.9rem;
+        padding-top: .8rem;
+      }
+    }
+
+    div:last-of-type{
+      // this is the input div
+      @extend .input-group-field;
+
+      width: 92%;
+      height: 3rem;
+
+      input{
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+
+  label.is-invalid-label .row{
+    margin-bottom: $form-spacing;
+
+    div:first-of-type{
+      // this is the prefix div
+      background-color: mix($input-background-invalid, $light-gray, 8%);
+      border-color: $input-error-color;
+    }
+
+    div:last-of-type{
+      // this is the input div
+      height: 4.2rem;
+
+      .form-error.is-visible{
+        margin-left: -8%;
+      }
+    }
+  }
+
+  .help-text{
+    margin-top: 1rem;
+  }
+}

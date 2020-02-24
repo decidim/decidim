@@ -23,6 +23,18 @@ module Decidim
           expect(ids).to include(*meetings.map(&:id).map(&:to_s))
           expect(ids).not_to include(*other_meetings.map(&:id).map(&:to_s))
         end
+
+        context "when private" do
+          before do
+            meetings.first.update(private_meeting: true, transparent: false)
+          end
+
+          it "returns the public meetings" do
+            ids = response["meetings"]["edges"].map { |edge| edge["node"]["id"] }
+            expect(ids).not_to include(meetings.first.id.to_s)
+            expect(ids).to include(meetings.second.id.to_s)
+          end
+        end
       end
 
       describe "meeting" do
@@ -39,6 +51,14 @@ module Decidim
 
         context "when the meeting doesn't belong to the component" do
           let!(:meeting) { create(:meeting, component: create(:meeting_component)) }
+
+          it "returns null" do
+            expect(response["meeting"]).to be_nil
+          end
+        end
+
+        context "when private" do
+          let!(:meeting) { create(:meeting, component: model, private_meeting: true, transparent: false) }
 
           it "returns null" do
             expect(response["meeting"]).to be_nil

@@ -172,18 +172,8 @@ id:
             title: Informasi Umum
           index:
             actions_title: Tindakan
-            filter:
-              accepted: Diterima
-              all: Semua
-              created: Dibuat
-              discarded: Dibuang
-              published: Diterbitkan
-              rejected: Ditolak
-              validating: Validasi teknis
-            filter_by: Filter berdasarkan
             preview: Preview
             print: Mencetak
-            search: Pencarian
           show:
             print: Mencetak
           update:

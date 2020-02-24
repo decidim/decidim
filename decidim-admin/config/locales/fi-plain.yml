@@ -70,10 +70,12 @@ fi-pl:
         port: Portti
         primary_color: Ensisijainen
         reference_prefix: Viitteen etuliite
+        rich_text_editor_in_public_views: Ota käyttöön rikas tekstieditori osallistujille
         secondary_color: Toissijainen
         send_welcome_notification: Lähetä tervetuloilmoitus
         show_statistics: Näytä tilastot
         success_color: Onnistuminen
+        time_zone: Aikavyöhyke
         tos_version: Käyttöehtojen versio
         twitter_handler: Twitter-käsittelijä
         user_groups_enabled: Ota käyttäjäryhmät käyttöön
@@ -142,9 +144,24 @@ fi-pl:
         export: Vie
         manage: Hallitse
         new: Uusi %{name}
+        per_page: Per sivu
         permissions: Oikeudet
         reject: Hylkää
         verify: Vahvista
+      admin_terms_of_use:
+        accept:
+          error: Hallintakäyttäjän ehtojen hyväksymisessä tapahtui virhe.
+          success: Hienoa! Olet hyväksynyt hallintakäyttäjän ehdot.
+        actions:
+          accept: Hyväksyn nämä hallintakäyttäjän ehdot
+          are_you_sure: Haluatko varmasti olla hyväksymättä hallintakäyttäjän ehtoja?
+          refuse: Kieltäydy hyväksymästä hallintakäyttäjän ehtoja
+          title: Hyväksy käyttöehdot
+        required_review:
+          alert: 'Vaadittu: tutustu hallintakäyttäjän ehtoihimme'
+          callout: Ole hyvä ja tutustu hallintakäyttäjän käyttöehtoihin. Ehtojen hyväksyminen vaaditaan, jotta saat oikeudet järjestelmän hallintatoimintoihin.
+          cta: Tutustu nyt.
+        title: Hallintakäyttäjän käyttöehdot
       area_types:
         create:
           error: Uuden aluetyypin luomisessa tapahtui virhe.
@@ -236,6 +253,7 @@ fi-pl:
           success: Aihepiiri päivitetty onnistuneesti.
       component_permissions:
         update:
+          error: Komponentin oikeuksien päivitys epäonnistui.
           success: Käyttöoikeudet päivitetty onnistuneesti.
       components:
         create:
@@ -275,6 +293,31 @@ fi-pl:
       exports:
         export_as: "%{name} muodossa %{export_format}"
         notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
+      filters:
+        category_id_eq:
+          label: Aihepiiri
+        filter_label: Suodata
+        officialized_at_null:
+          label: Tila
+          values:
+            'false': Virallistettu
+            'true': Ei virallistettu
+        private_space_eq:
+          label: Yksityinen
+          values:
+            'false': Julkinen
+            'true': Yksityinen
+        published_at_null:
+          label: Julkaistu
+          values:
+            'false': Julkaistu
+            'true': Julkaisematon
+        scope_id_eq:
+          label: Teema
+        search_label: Hae
+        search_placeholder:
+          name_or_nickname_or_email_cont: '%{collection}: Hae sähköpostilla, nimellä tai nimimerkillä'
+          title_cont: '%{collection}: Hae otsikon perusteella'
       help_sections:
         error: Ohjeosioiden päivittämisessä tapahtui virhe
         form:
@@ -454,6 +497,7 @@ fi-pl:
           not_sent: Ei lähetetty
           participants: 'osallistujat '
           segmented_to: 'Kohdennettu vastaanottajille %{subject}: '
+          subscribed_count: 'Tilaukset:'
           title: Uutiskirjeet
         new:
           save: Tallenna
@@ -466,6 +510,7 @@ fi-pl:
           followers_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille, jotka seuraavat jotain listan osallisuustiloista.
           none: Ei kenellekään
           participants_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille, jotka ovat osallistuneet jossain listan valituista osallisuustiloista.
+          recipients_count: Tämä uutiskirje lähetetään <strong id='recipients_count'>%{count}</strong>:lle käyttäjälle.
           scopes_help: Lähetä uutiskirje käyttäjille, jotka ovat valinneet minkä tahansa teeman heidän tilinsä "Kiinnostuksen kohteet" -asetuksesta.
           select_scopes: Suodata käyttäjiä, jotka ovat valinneet minkä tahansa teeman tilinsä "Kiinnostuksen kohteet" -asetuksesta.
           select_spaces: Valitse tilat, joille haluat kohdistaa uutiskirjeen
@@ -474,7 +519,7 @@ fi-pl:
           send_to_followers: Lähetä seuraajille
           send_to_participants: Lähetä osallistujille
           title: Valitse vastaanottajat
-          warning: "<strong>Huomio:</strong> Tämä uutiskirje lähetetään ainoastaan käyttäjille, jotka ovat valinneet <em>Haluan vastaanottaa uutiskirjeitä</em> -asetuksen heidän tilinsä ilmoitusasetuksista."
+          warning: "<strong>Huomio:</strong> Tämä uutiskirje lähetetään ainoastaan käyttäjille, jotka ovat valinneet asetuksen <em>Haluan vastaanottaa uutiskirjeitä</em> tilinsä ilmoitusasetuksista."
         send:
           no_recipients: Ei vastaanottajia tälle valinnalle
         show:
@@ -512,18 +557,12 @@ fi-pl:
           actions: Toiminnot
           badge: Kunniamerkki
           created_at: Luontihetki
-          filter:
-            all: Kaikki
-            not_officialized: Ei virallistettu
-            officialized: Virallistettu
-          filter_by: Suodata
           name: Nimi
           nickname: Nimimerkki
           not_officialized: Ei virallistettu
           officialize: Virallista
           officialized: Virallistettu
           reofficialize: Virallista uudestaan
-          search: Hae
           status: Tila
           unofficialize: Poista virallistaminen
         new:
@@ -538,6 +577,7 @@ fi-pl:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          rich_text_editor_in_public_views_help: Joissain tekstikentissä osallistujat voivat syöttää tiettyjä HTML-elementtejä rikkaan tekstieditorin kautta.
           social_handlers: Sosiaalinen media
           twitter: Twitter
           url: URL
@@ -572,10 +612,19 @@ fi-pl:
           error: Tapahtui virhe poistettaessa osallisuustilan yksityistä käyttäjää.
           success: Osallisuustilaa koskeva yksityisen käyttäjän käyttöoikeus tuhottu onnistuneesti.
         index:
+          import_via_csv: Tuo CSV-tiedostosta
           title: Osallisuustilan yksityinen käyttäjä
         new:
           create: Luo
           title: Uusi osallisuustilan yksityinen käyttäjä.
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: CSV-tiedostossa on ongelma.
+          success: CSV-tiedosto ladattu onnistuneesti. Lähetämme kutsusähköpostin osallistujille. Tämä voi kestää hetken.
+        new:
+          explanation: 'Lataa CSV-tiedosto osallisuustilan käyttäjistä. Tiedostossa on oltava kaksi saraketta tuotaville käyttäjille ilman sarakeotsikoita: sähköpostiosoitteet ensimmäisessä ja nimi toisessa sarakkeessa (sähköposti, nimi). '
+          title: Lataa CSV-tiedosto
+          upload: Lataa
       resource_permissions:
         edit:
           submit: Lähetä

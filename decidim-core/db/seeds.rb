@@ -120,7 +120,8 @@ if !Rails.env.production? || ENV["SEED"]
     tos_agreement: true,
     personal_url: Faker::Internet.url,
     about: Faker::Lorem.paragraph(2),
-    accepted_tos_version: organization.tos_version
+    accepted_tos_version: organization.tos_version,
+    admin_terms_accepted_at: Time.current
   )
 
   regular_user = Decidim::User.find_or_initialize_by(email: "user@example.org")
@@ -138,6 +139,24 @@ if !Rails.env.production? || ENV["SEED"]
     about: Faker::Lorem.paragraph(2),
     accepted_tos_version: organization.tos_version
   )
+
+  locked_user = Decidim::User.find_or_initialize_by(email: "locked_user@example.org")
+
+  locked_user.update!(
+    name: Faker::Name.name,
+    nickname: Faker::Twitter.unique.screen_name,
+    password: "decidim123456",
+    password_confirmation: "decidim123456",
+    confirmed_at: Time.current,
+    locale: I18n.default_locale,
+    organization: organization,
+    tos_agreement: true,
+    personal_url: Faker::Internet.url,
+    about: Faker::Lorem.paragraph(2),
+    accepted_tos_version: organization.tos_version
+  )
+
+  locked_user.lock_access!
 
   Decidim::Messaging::Conversation.start!(
     originator: admin,

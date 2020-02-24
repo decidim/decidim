@@ -7,10 +7,11 @@ module Decidim
       #
       class ConferenceUserRolesController < Decidim::Conferences::Admin::ApplicationController
         include Concerns::ConferenceAdmin
+        include Decidim::Paginable
 
         def index
           enforce_permission_to :index, :conference_user_role
-          @conference_user_roles = collection
+          @conference_user_roles = paginate(collection)
         end
 
         def new

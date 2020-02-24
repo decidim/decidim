@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "decidim/core/test/shared_examples/acts_as_author_examples"
 require "decidim/core/test/shared_examples/authorable"
 require "decidim/core/test/shared_examples/coauthorable"
 require "decidim/core/test/shared_examples/publicable"
@@ -42,3 +43,7 @@ require "decidim/core/test/shared_examples/amendable/amendment_accepted_event_ex
 require "decidim/core/test/shared_examples/amendable/amendment_rejected_event_examples"
 require "decidim/core/test/shared_examples/amendable/amendment_promoted_event_examples"
 require "decidim/core/test/shared_examples/uncommentable_component_examples"
+require "decidim/core/test/shared_examples/searchable_resources_shared_context"
+require "decidim/core/test/shared_examples/searchable_participatory_space_examples"
+require "decidim/core/test/shared_examples/has_private_users"
+require "decidim/core/test/shared_examples/rich_text_editor_examples"

@@ -78,8 +78,12 @@ module Decidim
         @visible_emendations ||= model.visible_emendations_for(current_user)
       end
 
+      def amendmendment_creation_enabled?
+        (current_component.settings.amendments_enabled? && current_settings.amendment_creation_enabled?)
+      end
+
       def amend_button_disabled?
-        !(current_component.settings.amendments_enabled? && current_settings.amendment_creation_enabled?)
+        !amendmendment_creation_enabled?
       end
     end
   end

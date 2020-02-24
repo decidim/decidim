@@ -20,6 +20,13 @@ RSpec.configure do |config|
   config.include Decidim::WardenTestHelpers, type: :system
   config.include Devise::Test::ControllerHelpers, type: :controller
 
+  config.before :each, type: :cell do
+    if controller
+      allow(controller).to receive(:current_organization).and_return(try(:organization) || try(:current_organization) || nil)
+      allow(controller).to receive(:current_user).and_return(try(:user) || try(:current_user) || nil)
+    end
+  end
+
   config.after :each, type: :system do
     Warden.test_reset!
   end

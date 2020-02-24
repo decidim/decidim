@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+require "bundler"
 require "thor"
 require "active_support/inflector"
 require "decidim/core/version"
@@ -30,8 +31,8 @@ module Decidim
         template "Rakefile", "#{component_folder}/Rakefile"
         template "LICENSE-AGPLv3.txt", "#{component_folder}/LICENSE-AGPLv3.txt"
         template "README.md.erb", "#{component_folder}/README.md"
-        template ".gitignore", "#{component_folder}/.gitignore"
-        template ".circleci/config.yml", "#{component_folder}/.circleci/config.yml"
+        template "gitignore", "#{component_folder}/.gitignore"
+        template "circleci/config.yml", "#{component_folder}/.circleci/config.yml"
 
         app_folder = "#{component_folder}/app"
         template "app/assets/config/component_manifest.js", "#{app_folder}/assets/config/decidim_#{component_name}_manifest.js"

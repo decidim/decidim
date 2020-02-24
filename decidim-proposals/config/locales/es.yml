@@ -17,8 +17,8 @@ es:
         automatic_hashtags: Hashtags añadidos automáticamente
         body: Cuerpo
         category_id: Categoría
+        decidim_scope_id: Ámbito
         has_address: Tiene dirección
-        scope_id: Ámbito
         state: Estado
         suggested_hashtags: Hashtags sugeridos
         title: Título
@@ -42,6 +42,7 @@ es:
             attachment:
               needs_to_be_reattached: Es necesario volver a adjuntar el fichero
             body:
+              cant_be_equal_to_template: no puede ser igual a la plantilla
               identical: Y el título no puede ser idéntico
             title:
               identical: Y el cuerpo no puede ser idéntico
@@ -74,9 +75,27 @@ es:
         one: Apoyo
         other: Apoyos
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Tipo
+          values:
+            'false': Propuestas
+            'true': Enmiendas
+        search_placeholder:
+          id_string_or_title_cont: Buscar %{collection} por ID o título.
+        state_eq:
+          values:
+            evaluating: En evaluación
+            withdrawn: Retirado
+        state_null:
+          label: Estado
+          values:
+            'true': No contestado
     components:
       proposals:
         actions:
+          amend: Enmendar
           create: Crear
           endorse: Adherirse
           vote: Dar apoyo
@@ -85,6 +104,8 @@ es:
         settings:
           global:
             amendments_enabled: Enmiendas habilitadas
+            amendments_enabled_help: Si está activo, configura las opciones de enmiendas para cada fase.
+            amendments_wizard_help_text: Asistente de ayuda de las enmiendas
             announcement: Aviso
             attachments_allowed: Permitir adjuntos
             can_accumulate_supports_beyond_threshold: Puede acumular apoyos más allá del umbral
@@ -92,8 +113,11 @@ es:
             comments_enabled: Comentarios habilitados
             geocoding_enabled: Geocodificación habilitada
             minimum_votes_per_user: Apoyos mínimos por participante
+            new_proposal_body_template: Plantilla para el texto de nueva propuesta
+            new_proposal_body_template_help: Puede definir el texto predefinido que tendrán las nuevas propuestas
             new_proposal_help_text: Texto de ayuda al crear una propuesta
             official_proposals_enabled: Propuestas oficiales habilitadas
+            participatory_texts_disabled_help: No se puede interactuar con esta configuración si hay propuestas existentes. Por favor, crea un nuevo componente de propuesta si quieres activar esta característica o descartar todas las propuestas importadas en el menú "Textos Participativos" si quieres desactivarla.
             participatory_texts_enabled: Textos participativos habilitados
             proposal_answering_enabled: Respuesta a propuestas habilitada
             proposal_edit_before_minutes: Las propuestas pueden ser editadas por las autoras antes de que pasen estos minutos
@@ -107,6 +131,14 @@ es:
             threshold_per_proposal: Umbral por propuesta
             vote_limit: Límite de apoyos por participante
           step:
+            amendment_creation_enabled: Creación de enmienda activada
+            amendment_creation_enabled_help: La participante puede modificar las propuestas.
+            amendment_promotion_enabled: Promoción de enmienda activada
+            amendment_promotion_enabled_help: Las autoras de la enmienda podrán promover la enmienda rechazada como nueva propuesta.
+            amendment_reaction_enabled: Reacción de enmienda activada
+            amendment_reaction_enabled_help: Las autoras de la propuesta podrán aceptar o rechazar las enmiendas de otras participantes.
+            amendments_visibility: Visibilidad de la enmienda
+            amendments_visibility_help: Si se selecciona la opción "Las enmiendas son visibles sólo para sus autoras", las participantes deberán iniciar sesión para ver las enmiendas realizadas.
             announcement: Aviso
             automatic_hashtags: Hashtags añadidos a todas las propuestas.
             comments_blocked: Comentarios bloqueados
@@ -284,12 +316,11 @@ es:
         see_all: Ver todo (%{count})
     proposals:
       actions:
-        answer: Responder
         edit_proposal: Editar propuesta
         import: Importar desde otro componente
         new: Nueva propuesta
         participatory_texts: Textos participativos
-        private_notes: Notas privadas
+        show: Ver propuesta
         title: Acciones
       admin:
         actions:
@@ -309,6 +340,7 @@ es:
             success: Todos los borradores de textos participativos han sido descartados.
           import:
             invalid: '¡El formulario no es válido!'
+            invalid_file: El archivo contiene un error, por favor intenta editar el contenido del archivo y volver a subirlo.
             success: Enhorabuena, las secciones siguientes se han convertido en propuestas. Ahora puedes revisarlas y ajustarlas antes de publicar.
           index:
             info_1: Las secciones siguientes se han convertido en propuestas. Ahora puedes revisarlas y ajustarlas antes de publicar.
@@ -333,11 +365,11 @@ es:
           update:
             success: Texto participativo actualizado correctamente.
         proposal_answers:
-          edit:
-            accepted: Aceptada
+          form:
+            accepted: Aceptadas
             answer_proposal: Respuesta
             evaluating: En evaluación
-            rejected: Rechazada
+            rejected: Rechazadas
             title: Responder a la propuesta %{title}
         proposal_notes:
           create:
@@ -359,8 +391,10 @@ es:
             title: Actualizar propuesta
             update: Actualizar
           form:
+            add_images: Añadir imágenes
             attachment_legend: "(Opcional) Añadir un archivo adjunto"
             created_in_meeting: Esta propuesta procede de un encuentro
+            gallery_legend: "(Opcional) Añadir una galería de imágenes"
             select_a_category: Selecciona una categoría
             select_a_meeting: Selecciona un encuentro
           index:
@@ -378,6 +412,29 @@ es:
           new:
             create: Crear
             title: Crear propuesta
+          show:
+            amendments_count: Número de enmiendas
+            authors: Autoras
+            body: Cuerpo
+            comments_count: Número de comentarios
+            comments_negative_count: En contra
+            comments_neutral_count: Neutral
+            comments_positive_count: A favor
+            created_at: Fecha de creación
+            documents: Documentos
+            endorsements_count: Número de adhesiones
+            endorsements_ranking: Clasificación por adhesiones
+            endorsers: Adheridas
+            link: Enlace
+            n_more_endorsers:
+              one: y 1 más
+              other: y %{count} más
+            photos: Fotos
+            proposals: Propuestas
+            ranking: "%{ranking} de %{total}"
+            related_meetings: Encuentros relacionados
+            votes_count: Número de apoyos
+            votes_ranking: Clasificación por apoyos
           update_category:
             invalid: 'Estas propuestas ya tenían la categoría %{category} : %{proposals}.'
             select_a_category: Selecciona una categoría
@@ -400,12 +457,6 @@ es:
           create:
             invalid: Se ha producido un error al dividir las propuestas seleccionadas.
             success: Las propuestas se han dividido en otras nuevas con éxito.
-        shared:
-          info_proposal:
-            body: Cuerpo
-            created_at: Fecha de creación
-            proposal_votes_count: Número de apoyos
-            proposals: Propuestas
       admin_log:
         proposal:
           answer: "%{user_name} respondió a la propuesta %{resource_name} en el espacio %{space_name}"
@@ -430,7 +481,6 @@ es:
           accepted: Aceptada
           all: Todas
           evaluating: En evaluación
-          except_rejected: Todas excepto las rechazadas
           rejected: Rechazada
         filter_type_values:
           all: Todas
@@ -479,7 +529,6 @@ es:
           all: Todas
           amendment: Enmiendas
           category: Categoría
-          category_prompt: Aviso de categoría
           open: Abierto
           published: Publicado
           related_to: Relacionado con
@@ -629,14 +678,17 @@ es:
         endorsements_card_row:
           comments: Comentarios
         filters:
-          activity: Actividad
+          activity: Mi actividad
+          all: Todo
           amendment_type: Tipo
           category: Categoría
-          category_prompt: Selecciona una categoría
+          my_proposals: Mis propuestas
           origin: Origen
           related_to: Relacionadas con
+          scope: Ámbito
           search: Buscar
           state: Estado
+          type: Tipo
           voted: Has dado apoyo
         filters_small_view:
           close_modal: Cerrar ventana
@@ -657,9 +709,13 @@ es:
           title: Crear tu propuesta
         orders:
           label: 'Ordenar propuestas por:'
+          most_commented: Más comentadas
+          most_endorsed: Con más adhesiones
+          most_followed: Con más seguidoras
           most_voted: Con más apoyos
           random: Aleatorio
           recent: Reciente
+          with_more_authors: Con más autoras
         participatory_texts:
           index:
             document_index: Índice del documento
@@ -677,6 +733,7 @@ es:
           view_proposal: Ver propuesta
         show:
           back_to: Volver a
+          changes_at_title: Enmienda a "%{title}"
           edit_proposal: Editar propuesta
           endorsements_list: Lista de adhesiones
           hidden_endorsers_count:
@@ -684,6 +741,10 @@ es:
             other: y %{count} personas más
           link_to_collaborative_draft_help_text: Esta propuesta es el resultado de un borrador colaborativo. Revisa el historial
           link_to_collaborative_draft_text: Ver el borrador colaborativo
+          link_to_promoted_emendation_help_text: Esta propuesta es una proviene de una enmienda
+          link_to_promoted_emendation_text: Ver la enmienda rechazada.
+          link_to_proposal_from_emendation_help_text: Esta es una enmienda rechazada
+          link_to_proposal_from_emendation_text: Ver la propuesta
           proposal_accepted_reason: 'Esta propuesta ha sido aceptada porque:'
           proposal_in_evaluation_reason: Se está evaluando esta propuesta
           proposal_rejected_reason: 'Esta propuesta ha sido rechazada porque:'
@@ -693,7 +754,6 @@ es:
           withdraw_proposal: Retirar propuesta
         tags:
           changed_from: "(cambiado desde <u>%{previous_category}</u> por una administradora)"
-          filed_as: Archivado como
         vote_button:
           already_voted: Ya has dado tu apoyo
           already_voted_hover: Retirar tu apoyo
