@@ -1,4 +1,4 @@
-<% if user_role_config.component_is_whitelisted?(component.manifest_name) %>
+<% if user_role_config.component_is_accessible?(component.manifest_name) %>
   <tr class="component-<%= component.id %>">
     <td>
       <%= link_to main_component_path(component), target: "_blank" do %>

@@ -10,7 +10,7 @@ module Decidim
       # Checks whether the given manifest name is accepted for this role.
       #
       # Returns a boolean.
-      def component_is_whitelisted?(manifest_name)
+      def component_is_accessible?(manifest_name)
         return true if accepted_components == [:all]
 
         accepted_components.include?(manifest_name.to_sym)
