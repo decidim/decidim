@@ -290,29 +290,69 @@ shared_examples_for "display conditions" do
     end
 
     context "when a question has a display condition of type 'match'" do
+      let!(:condition_value) { { en: "something" } }
+      let!(:display_condition) { create(:display_condition, condition_type: "match", question: question, condition_question: condition_question, condition_value: condition_value) }
+
+      before do
+        visit questionnaire_public_path
+      end
+
       context "when the condition_question type is short answer" do
-        it "shows the question if the condition is fulfilled"
-        it "does not show the question if the condition is not fulfilled"
+        let!(:condition_question) { condition_question_short_answer }
+
+        it "shows the question only if the condition is fulfilled" do
+          expect_question_to_be_visible(false)
+
+          fill_in "questionnaire_answers_0", with: "Aren't we all expecting #{condition_value[:en]}?"
+          change_focus
+
+          expect_question_to_be_visible(true)
+
+          fill_in "questionnaire_answers_0", with: "Now upcase #{condition_value[:en].upcase}!"
+          change_focus
+
+          expect_question_to_be_visible(true)
+
+          fill_in "questionnaire_answers_0", with: "Cacatua"
+          change_focus
+
+          expect_question_to_be_visible(false)
+        end
       end
 
       context "when the condition_question type is long answer" do
-        it "shows the question if the condition is fulfilled"
-        it "does not show the question if the condition is not fulfilled"
+        let!(:condition_question) { condition_question_long_answer }
+
+        it "shows the question only if the condition is fulfilled" do
+          expect_question_to_be_visible(false)
+
+          fill_in "questionnaire_answers_0", with: "Aren't we all expecting #{condition_value[:en]}?"
+          change_focus
+
+          expect_question_to_be_visible(true)
+
+          fill_in "questionnaire_answers_0", with: "Now upcase #{condition_value[:en].upcase}!"
+          change_focus
+
+          expect_question_to_be_visible(true)
+
+          fill_in "questionnaire_answers_0", with: "Cacatua"
+          change_focus
+
+          expect_question_to_be_visible(false)
+        end
       end
 
       context "when the condition_question type is single option" do
-        it "shows the question if the condition is fulfilled"
-        it "does not show the question if the condition is not fulfilled"
+        it "shows the question only if the condition is fulfilled"
       end
 
       context "when the condition_question type is multiple option" do
-        it "shows the question if the condition is fulfilled"
-        it "does not show the question if the condition is not fulfilled"
+        it "shows the question only if the condition is fulfilled"
       end
 
       context "when the condition_question type is sorting" do
-        it "shows the question if the condition is fulfilled"
-        it "does not show the question if the condition is not fulfilled"
+        it "shows the question only if the condition is fulfilled"
       end
     end
 
