@@ -5,103 +5,141 @@ shared_examples_for "display conditions" do
     login_as user, scope: :user
   end
 
+  def expect_question_to_be_visible(visible)
+    expect(page).to have_css(conditioned_question_id, visible: visible)
+  end
+
+  def answer_options
+    3.times.to_a.map { |x| { "body" => Hash[[:en, :es, :ca].map { |key| [key, "Body #{x}"] }] } }
+  end
+
+  def condition_question_short_answer
+    create(:questionnaire_question, questionnaire: questionnaire, question_type: "short_answer", position: 1)
+  end
+
+  def condition_question_long_answer
+    create(:questionnaire_question, questionnaire: questionnaire, question_type: "long_answer", position: 1)
+  end
+
+  def condition_question_single_option
+    create(:questionnaire_question, questionnaire: questionnaire, question_type: "single_option", position: 1, options: answer_options)
+  end
+
+  def condition_question_multiple_option
+    create(:questionnaire_question, questionnaire: questionnaire, question_type: "multiple_option", position: 1, options: answer_options)
+  end
+
   context "when a question has a display condition" do
+    let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 2) }
+    let!(:conditioned_question_id) { "#questionnaire_answers_1" }
+
     context "when condition is of type 'answered'" do
-      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 2) }
       let!(:display_condition) { create(:display_condition, condition_type: "answered", question: question, condition_question: condition_question) }
-      let!(:answer_options) { 3.times.to_a.map { |x| { "body" => Hash[[:en, :es, :ca].map { |key| [key, "Body #{x}"] }] } } }
 
       before do
         visit questionnaire_public_path
       end
 
       context "when the condition_question type is short answer" do
-        let!(:condition_question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "short_answer", position: 1) }
+        let!(:condition_question) { condition_question_short_answer }
 
         it "does not show the question if the condition is not fulfilled" do
-          expect(page).to have_css("#questionnaire_answers_1", visible: false)
+          expect_question_to_be_visible(false)
         end
 
         it "shows the question if the condition is fulfilled" do
           fill_in "questionnaire_answers_0", with: "Cacatua"
           check "questionnaire_tos_agreement"
 
-          expect(page).to have_css("#questionnaire_answers_1", visible: true)
+          expect_question_to_be_visible(true)
         end
       end
 
       context "when the condition_question type is long answer" do
-        let!(:condition_question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "long_answer", position: 1) }
+        let!(:condition_question) { condition_question_long_answer }
 
         it "does not show the question if the condition is not fulfilled" do
-          expect(page).to have_css("#questionnaire_answers_1", visible: false)
+          expect_question_to_be_visible(false)
         end
 
         it "shows the question if the condition is fulfilled" do
           fill_in "questionnaire_answers_0", with: "Cacatua"
           check "questionnaire_tos_agreement"
 
-          expect(page).to have_css("#questionnaire_answers_1", visible: true)
+          expect_question_to_be_visible(true)
         end
       end
 
       context "when the condition_question type is single option" do
-        let!(:condition_question) do
-          create(:questionnaire_question, questionnaire: questionnaire, question_type: "single_option", position: 1, options: answer_options)
-        end
+        let!(:condition_question) { condition_question_single_option }
 
         it "does not show the question if the condition is not fulfilled" do
-          expect(page).to have_css("#questionnaire_answers_1", visible: false)
+          expect_question_to_be_visible(false)
         end
 
         it "shows the question if the condition is fulfilled" do
           choose condition_question.answer_options.first.body["en"]
           check "questionnaire_tos_agreement"
 
-          expect(page).to have_css("#questionnaire_answers_1", visible: true)
+          expect_question_to_be_visible(true)
         end
       end
 
       context "when the condition_question type is multiple option" do
-        let!(:condition_question) do
-          create(:questionnaire_question, questionnaire: questionnaire, question_type: "multiple_option", position: 1, options: answer_options)
-        end
+        let!(:condition_question) { condition_question_multiple_option }
 
         it "does not show the question if the condition is not fulfilled" do
-          expect(page).to have_css("#questionnaire_answers_1", visible: false)
+          expect_question_to_be_visible(false)
         end
 
         it "shows the question if the condition is fulfilled" do
           check condition_question.answer_options.first.body["en"]
           check "questionnaire_tos_agreement"
 
-          expect(page).to have_css("#questionnaire_answers_1", visible: true)
+          expect_question_to_be_visible(true)
         end
-      end
-
-      context "when the condition_question type is sorting" do
-        it "shows the question if the condition is fulfilled"
-        it "does not show the question if the condition is not fulfilled"
       end
     end
 
     context "when a question has a display condition of type 'not_answered'" do
+      let!(:display_condition) { create(:display_condition, condition_type: "not_answered", question: question, condition_question: condition_question) }
+
+      before do
+        visit questionnaire_public_path
+      end
+
       context "when the condition_question type is short answer" do
-        it "shows the question if the condition is fulfilled"
-        it "does not show the question if the condition is not fulfilled"
+        let!(:condition_question) { condition_question_short_answer }
+
+        it "shows the question if the condition is fulfilled" do
+          expect_question_to_be_visible(true)
+        end
+
+        it "does not show the question if the condition is not fulfilled" do
+          fill_in "questionnaire_answers_0", with: "Cacatua"
+          check "questionnaire_tos_agreement"
+
+          expect_question_to_be_visible(false)
+        end
       end
 
       context "when the condition_question type is long answer" do
+        let!(:condition_question) { condition_question_long_answer }
+
         it "shows the question if the condition is fulfilled"
         it "does not show the question if the condition is not fulfilled"
       end
 
       context "when the condition_question type is single option" do
+        let!(:condition_question) { condition_question_single_option }
+
         it "shows the question if the condition is fulfilled"
         it "does not show the question if the condition is not fulfilled"
       end
 
       context "when the condition_question type is multiple option" do
+        let!(:condition_question) { condition_question_multiple_option }
+
         it "shows the question if the condition is fulfilled"
         it "does not show the question if the condition is not fulfilled"
       end
