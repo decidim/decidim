@@ -252,15 +252,15 @@ shared_examples_for "display conditions" do
         let!(:condition_question) { condition_question_single_option }
 
         it "shows the question only if the condition is fulfilled" do
-          expect_question_to_be_visible(true)
-
-          choose condition_question.answer_options.first.body["en"]
-
           expect_question_to_be_visible(false)
 
           choose condition_question.answer_options.second.body["en"]
 
           expect_question_to_be_visible(true)
+
+          choose condition_question.answer_options.first.body["en"]
+
+          expect_question_to_be_visible(false)
         end
       end
 
@@ -268,23 +268,23 @@ shared_examples_for "display conditions" do
         let!(:condition_question) { condition_question_multiple_option }
 
         it "shows the question only if the condition is fulfilled" do
-          expect_question_to_be_visible(true)
-
-          check condition_question.answer_options.first.body["en"]
-
           expect_question_to_be_visible(false)
-
-          uncheck condition_question.answer_options.first.body["en"]
-
-          expect_question_to_be_visible(true)
 
           check condition_question.answer_options.second.body["en"]
 
           expect_question_to_be_visible(true)
 
+          uncheck condition_question.answer_options.second.body["en"]
+
+          expect_question_to_be_visible(false)
+
           check condition_question.answer_options.first.body["en"]
 
           expect_question_to_be_visible(false)
+
+          check condition_question.answer_options.second.body["en"]
+
+          expect_question_to_be_visible(true)
         end
       end
     end
