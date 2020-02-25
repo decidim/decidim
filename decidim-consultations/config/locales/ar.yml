@@ -302,6 +302,7 @@ ar:
           other: يصوت من
       question_multiple_votes:
         results_rules:
+          title: خيارات عديدة متاحة مسموحة للإجابة على هذا السؤال
           total_participants: لقد شارك مجموع يقدّر بـ %{count} أشخاص في التصويت.
           vote_limit:
             description: يمكن للمشارِكين التصويت على %{limit} خيارات كأقصى حد.
