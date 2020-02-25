@@ -114,6 +114,8 @@ ar:
           error: حدثت مشكلة في تكرار هذا التجميع.
           success: الجمعية مكررة بنجاح.
       assemblies_types:
+        create:
+          success: تم إنشاء نوع الجمعية بنجاح.
         new:
           create: إنشاء
           title: نوع جديد للجمعية
@@ -176,9 +178,11 @@ ar:
           info: معلومات
           moderations: الإعتدال
           private_users: المستخدمون الخاصون
+        assemblies_types: نوع التجمّعات
       models:
         assemblies_types:
           fields:
+            created_at: تم إنشاؤها في
             title: العنوان
         assembly:
           fields:
@@ -212,6 +216,7 @@ ar:
             moderator: مُشرف
       titles:
         assemblies: الجمعيات
+        assemblies_types: أنواع التجمّعات
     admin_log:
       assembly:
         create: "%{user_name} أنشأ الجمعية %{resource_name}"
