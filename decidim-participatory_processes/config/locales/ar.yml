@@ -402,8 +402,10 @@ ar:
         comments_count: تعليقات
         debates_count: المناقشات
         endorsements_count: موافقات
+        followers_count: المُتابِعون
         headline: نشاط
         meetings_count: اجتماعات
+        no_stats: لا توجد أية احصائيات إلى حد الآن.
         orders_count: الدعم
         pages_count: صفحات
         participants_count: المشاركين
