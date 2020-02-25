@@ -163,6 +163,8 @@ ar:
         section_heading: التعديلات (%{count})
       compare_draft:
         continue: متابعة
+      destroy_draft:
+        success: تم حذف مسودة التعديل بنجاح.
       edit_draft:
         discard: تجاهل هذه المسودة
         send: معاينة
@@ -300,12 +302,17 @@ ar:
             comments_enabled: تم تمكين التعليقات
             dummy_global_attribute_1: السمة الدمية 1
             dummy_global_attribute_2: السمة الدمية 2
+            dummy_global_translatable_text: نص افتراضي قابل للترجمة
             enable_pads_creation: تمكين إنشاء منصات
             resources_permissions_enabled: تم تمكين أذونات الموارد
           step:
+            amendment_creation_enabled: إنشاء التعديلات مُفعّلة
+            amendment_promotion_enabled: ترقية التعديلات مُفعّلة
+            amendments_visibility: طريقة عرض التعديلات
             comments_blocked: تم حظر التعليقات
             dummy_step_attribute_1: الخطوة الدمية السمة 1
             dummy_step_attribute_2: الخطوة الدمية السمة 2
+            dummy_step_translatable_text: نص افتراضي للخطوة قابل للترجمة
     contact: اتصل
     content_blocks:
       footer_sub_hero:
@@ -574,6 +581,7 @@ ar:
       errors:
         decidim/user:
           password: الكلمة السرية قصيرة جدا.
+          password_confirmation: يجب أن يكون تأكيد كلمة المرور مطابق للكلمة السرية.
         error: يوجد خطأ في هذا المجال.
       remove_this_file: أزل هذا الملف
     gamification:
