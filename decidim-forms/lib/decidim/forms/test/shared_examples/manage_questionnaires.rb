@@ -678,6 +678,10 @@ shared_examples_for "manage questionnaires" do
                 options = questions.map { |question| question["body"]["en"] }
                 options << "Select a question"
                 expect(page).to have_select("Question", options: options)
+
+                within "select[id$=decidim_condition_question_id]" do
+                  expect(page.find("option[data-type='#{questions.last.question_type}'][value='#{questions.last.id}']")).to be_disabled
+                end
               end
             end
           end
