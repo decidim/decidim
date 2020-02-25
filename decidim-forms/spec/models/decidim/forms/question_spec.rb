@@ -10,11 +10,16 @@ module Decidim
       let(:questionnaire) { create(:questionnaire) }
       let(:question_type) { "short_answer" }
       let(:question) { build(:questionnaire_question, questionnaire: questionnaire, question_type: question_type) }
+      let(:display_conditions) { create_list(:display_condition, 2, question: question) }
 
       it { is_expected.to be_valid }
 
       it "has an association of questionnaire" do
         expect(subject.questionnaire).to eq(questionnaire)
+      end
+
+      it "has an association of display_conditions" do
+        expect(subject.display_conditions).to contain_exactly(*display_conditions)
       end
 
       context "when question type doesn't exists in allowed types" do

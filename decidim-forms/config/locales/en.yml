@@ -31,6 +31,25 @@ en:
             free_text: Free text
             remove: Remove
             statement: Statement
+          display_condition:
+            answer_option: Answer option
+            condition_question: Question
+            condition_type: Operator
+            condition_types:
+              answered: Answered
+              equal: Equal
+              match: Includes text
+              not_answered: Not answered
+              not_equal: Not equal
+            condition_value: Included text
+            display_condition: Display condition
+            mandatory: This condition needs to be satisfied always regardless the status of other conditions
+            question: Question statement
+            remove: Remove
+            save_warning: Remember to save the form before configuring display conditions
+            select_answer_option: Select answer option
+            select_condition_question: Select a question
+            select_condition_type: Select a condition type
           edit:
             save: Save
             title: Title
@@ -39,6 +58,7 @@ en:
             already_answered_warning: The form is already answered by some users so you cannot modify its questions.
           question:
             add_answer_option: Add answer option
+            add_display_condition: Add display condition
             any: Any
             description: Description
             down: Down

@@ -76,4 +76,21 @@ FactoryBot.define do
     answer
     answer_option { create(:answer_option, question: answer.question) }
   end
+
+  factory :display_condition, class: "Decidim::Forms::DisplayCondition" do
+    condition_question { create(:questionnaire_question) }
+    question { create(:questionnaire_question, position: 1) }
+    condition_type { :answered }
+    mandatory { true }
+
+    trait :equal do
+      condition_type { :equal }
+      answer_option { create(:answer_option, question: condition_question) }
+    end
+
+    trait :match do
+      condition_type { :match }
+      condition_value { generate_localized_title }
+    end
+  end
 end

@@ -40,8 +40,14 @@
 
                 <%= decidim_form_for(@form, url: update_url, method: :post, html: { class: "form answer-questionnaire" }) do |form| %>
                   <%= invisible_captcha %>
+
                   <% @form.answers.each_with_index do |answer, answer_idx| %>
-                    <div class="row column">
+                    <div class="row column question" data-conditioned="<%= answer.question.display_conditions.any? %>" data-question-id="<%= answer.question.id %>">
+                      
+                      <% answer.question.display_conditions.each do |display_condition| %>
+                        <%= content_tag :div, nil,  class: "display-condition", data: display_condition.to_html_data %>
+                      <% end %>
+
                       <%= fields_for "questionnaire[answers][#{answer_idx}]", answer do |answer_form| %>
                         <%= render "decidim/forms/questionnaires/answer", answer_form: answer_form, answer: answer, answer_idx: answer_idx, disabled: !current_participatory_space.can_participate?(current_user) %>
                       <% end %>

@@ -24,9 +24,15 @@
   <% if questionnaire.questions_editable? %>
     <%= fields_for "questionnaire[questions][#{blank_question.to_param}]", blank_question do |question_form| %>
       <script type="text/template" class="decidim-template">
-        <%= render "decidim/forms/admin/questionnaires/question", form: question_form, id: tabs_id_for_question(blank_question), editable: questionnaire.questions_editable?, child_template_selector: "#answer-option-template-dummy" %>
+        <%= render "decidim/forms/admin/questionnaires/question",
+              form: question_form,
+              id: tabs_id_for_question(blank_question),
+              editable: questionnaire.questions_editable?,
+              answer_option_template_selector: "#answer-option-template-dummy",
+              display_condition_template_selector: "#display-condition-template-dummy" %>
       </script>
       <%= render "decidim/forms/admin/questionnaires/answer_option_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "answer-option-template-dummy" %>
+      <%= render "decidim/forms/admin/questionnaires/display_condition_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "display-condition-template-dummy" %>
     <% end %>
   <% else %>
     <div class="callout warning">
@@ -37,8 +43,14 @@
   <div class="questionnaire-questions-list">
     <% @form.questions.each_with_index do |question, index| %>
       <%= fields_for "questionnaire[questions][]", question do |question_form| %>
-        <%= render "decidim/forms/admin/questionnaires/question", form: question_form, id: tabs_id_for_question(question), editable: questionnaire.questions_editable?, child_template_selector: "#answer-option-template-#{index}" %>
+        <%= render "decidim/forms/admin/questionnaires/question",
+          form: question_form,
+          id: tabs_id_for_question(question),
+          editable: questionnaire.questions_editable?,
+          answer_option_template_selector: "#answer-option-template-#{index}",
+          display_condition_template_selector: "#display-condition-template-#{index}" %>
         <%= render "decidim/forms/admin/questionnaires/answer_option_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "answer-option-template-#{index}" %>
+        <%= render "decidim/forms/admin/questionnaires/display_condition_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "display-condition-template-#{index}" %>
       <% end %>
     <% end %>
   </div>

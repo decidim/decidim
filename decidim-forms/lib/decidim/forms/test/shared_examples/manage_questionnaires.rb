@@ -610,6 +610,16 @@ shared_examples_for "manage questionnaires" do
         have_button("Up").and have_no_button("Down")
       end
     end
+
+    context "when adding display conditions to a question" do
+      # Condition_question select is filled with saved questions from questionnaire
+      # Condition_type select is filled with conditions based on condition_question's question_type
+      # Answer_options select is filled with options from selected condition_question
+      # Value is initially empty
+      # Mandatory is initially false?
+      context "when removing a display condition from a question" do
+      end
+    end
   end
 
   context "when the questionnaire is already answered" do

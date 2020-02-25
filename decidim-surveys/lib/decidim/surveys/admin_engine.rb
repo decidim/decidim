@@ -10,6 +10,7 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
+        get "/answer_options", to: "surveys#answer_options", as: :answer_options_survey
         put "/", to: "surveys#update", as: :survey
         root to: "surveys#edit"
       end
