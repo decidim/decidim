@@ -38,13 +38,13 @@ module Decidim
           condition_question.answer_options
         end
 
-        def questions_for_select(questionnaire)
+        def questions_for_select(questionnaire, id)
           questionnaire.questions.map do |question|
             [
               question.translated_body,
               question.id,
               {
-                "disabled" => (question.question_type == "sorting" || question.id == decidim_question_id),
+                "disabled" => (question.question_type == "sorting" || question.id == id),
                 "data-type" => question.question_type
               }
             ]
@@ -92,7 +92,9 @@ module Decidim
         def condition_question_position
           return if decidim_question_id.blank?
 
-          errors.add(:decidim_question_id, :invalid) if question.position.zero?
+          byebug
+
+          errors.add(:decidim_question_id, :invalid) unless question.position&.positive?
         end
       end
     end

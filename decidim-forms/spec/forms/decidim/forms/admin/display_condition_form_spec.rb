@@ -111,7 +111,7 @@ module Decidim
         end
 
         describe "#questions_for_select" do
-          let(:questions_for_select) { subject.questions_for_select(questionnaire) }
+          let(:questions_for_select) { subject.questions_for_select(questionnaire, question.id) }
 
           it "returns an array of arrays containing translated body, id, and a hash" do
             expect(questions_for_select.first.first).to eq(questionnaire.questions.first.translated_body)

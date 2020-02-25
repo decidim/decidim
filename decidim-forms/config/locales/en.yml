@@ -34,7 +34,7 @@ en:
           display_condition:
             answer_option: Answer option
             condition_question: Question
-            condition_type: Operator
+            condition_type: Condition
             condition_types:
               answered: Answered
               equal: Equal

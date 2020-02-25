@@ -23,10 +23,10 @@
       <%=
         form.select(
           :decidim_condition_question_id,
-          options_for_select(display_condition.questions_for_select(questionnaire), selected: display_condition.decidim_condition_question_id),
+          options_for_select(display_condition.questions_for_select(questionnaire, question.id), selected: display_condition.decidim_condition_question_id),
           { prompt: t(".select_condition_question"), label: t(".condition_question") },
           disabled: !editable,
-          data: { url: answer_options_url }
+          data: { url: answer_options_url(id: question.id) }
         )
       %>
     </div>
