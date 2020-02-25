@@ -26,6 +26,7 @@ ar:
         scope_id: نطاق
         scopes_enabled: النطاقات المُفعّلَة
         short_description: وصف قصير
+        show_metrics: اظهر المقاييس
         show_statistics: عرض الإحصائيات
         slug: سبيكة العنوان الشبكي
         start_date: تاريخ البدء
