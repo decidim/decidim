@@ -116,9 +116,14 @@ ar:
       assemblies_types:
         create:
           success: تم إنشاء نوع الجمعية بنجاح.
+        destroy:
+          success: تم حذف نوع الجمعية بنجاح.
         new:
           create: إنشاء
           title: نوع جديد للجمعية
+        update:
+          error: حدثت مشكلة أثناء تحديث نوع هذه الجمعية.
+          success: تم تحديث نوع الجمعية بنجاح.
       assembly_copies:
         new:
           copy: نسخ
@@ -227,6 +232,8 @@ ar:
         create: "%{user_name} أنشأ العضو %{resource_name} في الجمعية %{space_name}"
         delete: "%{user_name} إزالة العضو %{resource_name} من الجمعية %{space_name}"
         update: "%{user_name} بتحديث العضو %{resource_name} في الجمعية %{space_name}"
+      assembly_type:
+        create: "قام %{user_name} بإنشاء نوع الجمعية %{resource_name}"
       assembly_user_role:
         create: "%{user_name} دعا %{resource_name} إلى %{space_name} الجمعية"
         delete: "%{user_name} أزال المشارك %{resource_name} من الجمعية %{space_name}"
