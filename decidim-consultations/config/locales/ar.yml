@@ -200,6 +200,8 @@ ar:
           title: معلومات عامة
         new:
           create: إنشاء
+        update:
+          success: تم تحديث الإجابة بنجاح.
       responses:
         create:
           error: كانت هناك مشكلة في إنشاء استجابة جديدة.
