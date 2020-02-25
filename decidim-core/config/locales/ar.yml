@@ -157,6 +157,7 @@ ar:
         amended_by: عدلت من قبل
         button: تعديل %{model_name}
         help_text: تحسين هذا %{model_name} عن طريق تعديل %{amendable_fields}الخاص به
+        promote_button: ترقية إلى صفة %{model_name}
         promote_confirm_text: هل أنت متأكد من رغبتك في الترويج لهذا الإصدار؟
         section_heading: التعديلات (%{count})
       compare_draft:
@@ -183,12 +184,17 @@ ar:
       new:
         amendment_author: مؤلف التعديل
         send: إنشاء
+        title: إنشاء مسودة تعديل
       preview_draft:
         modify: تعديل
         publish: انشر
+        title: نشر مسودة التعديل
       promoted:
         error: كانت هناك مشكلة في نشر التعديل كاقتراح جديد
         success: تم نشر التعديل بنجاح كمقترح جديد
+      publish_draft:
+        error: حدثت هناك مشكلة أثناء نشر التعديل.
+        success: تم نشر التعديل بنجاح.
       rejected:
         error: حدثت مشكلة في رفض هذا التعديل ، يرجى إعادة المحاولة لاحقًا
         success: تم رفض التعديل بنجاح
@@ -197,6 +203,12 @@ ar:
         heading: مراجعة التعديل
         help_text: أنت تراجع التعديل على %{model_name}
         send: قبول التعديل
+      update_draft:
+        error: حدثت هناك مشكلة أثناء تحديث مسودة التعديل.
+        success: تم تحديث مسودة التعديل بنجاح.
+      visibility_options:
+        all: التعديلات مرئية وظاهرة للجميع
+        participants: التعديلات مرئية وظاهرة لمؤلّفيها فقط
       wizard_step_form:
         steps:
           '1': إنشاء التعديل الخاص بك
