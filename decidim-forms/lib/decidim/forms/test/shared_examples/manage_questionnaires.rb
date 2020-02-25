@@ -634,33 +634,35 @@ shared_examples_for "manage questionnaires" do
       end
 
       context "when questionnaire has more than one question" do
-        let!(:questions) do
-          [
-            create(:questionnaire_question, questionnaire: questionnaire, body: Decidim::Faker::Localized.sentence, question_type: "short_answer"),
-            create(:questionnaire_question, questionnaire: questionnaire, body: Decidim::Faker::Localized.sentence, question_type: "long_answer"),
-            create(:questionnaire_question, questionnaire: questionnaire, body: Decidim::Faker::Localized.sentence, question_type: "single_option", options: answer_options),
-            create(:questionnaire_question, questionnaire: questionnaire, body: Decidim::Faker::Localized.sentence, question_type: "multiple_option", options: answer_options)
-          ]
-        end
+        let!(:question_short_answer) { create(:questionnaire_question, questionnaire: questionnaire, body: Decidim::Faker::Localized.sentence, question_type: "short_answer") }
+        let!(:question_long_answer) { create(:questionnaire_question, questionnaire: questionnaire, body: Decidim::Faker::Localized.sentence, question_type: "long_answer") }
+        let!(:question_single_option) { create(:questionnaire_question, questionnaire: questionnaire, body: Decidim::Faker::Localized.sentence, question_type: "single_option", options: answer_options) }
+        let!(:question_multiple_option) { create(:questionnaire_question, questionnaire: questionnaire, body: Decidim::Faker::Localized.sentence, question_type: "multiple_option", options: answer_options) }
 
         before do
           visit questionnaire_edit_path
         end
 
         context "when clicking add display condition button" do
-          it "adds a new display condition form with all correct elements" do
-            within "form.edit_questionnaire" do
-              within ".questionnaire-question:last-of-type" do
-                click_button "Add display condition"
+          it "loads an empty value field" do
+            within ".questionnaire-question:last-of-type" do
+              click_button "Add display condition"
 
-                within ".questionnaire-question-display-condition:last-of-type" do
-                  expect(page).to have_select("Question")
-                  expect(page).to have_select("Condition")
-                  expect(page).to have_selector("[id$=mandatory]")
+              select question_single_option.body["en"], from: "Question"
+              select "Includes text", from: "Condition"
 
-                  select "Answered", from: "Condition"
-                  expect(page).to have_no_select("Answer option")
-                end
+              within ".questionnaire-question-display-condition:last-of-type" do
+                expect(page).to have_nested_field("condition_value_en", with: "")
+              end
+            end
+          end
+
+          it "loads a mandatory field with false value" do
+            within ".questionnaire-question:last-of-type" do
+              click_button "Add display condition"
+
+              within ".questionnaire-question-display-condition:last-of-type" do
+                expect(page).to have_no_css("[id$=mandatory][checked]")
               end
             end
           end
