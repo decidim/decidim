@@ -393,7 +393,17 @@ ar:
             create: إنشاء
             title: إنشاء اقتراح
           show:
+            authors: المؤلفون
+            body: المحتوى
+            comments_count: تعداد التعليقات
+            comments_negative_count: ضد
+            comments_neutral_count: محايد
+            comments_positive_count: مع
             created_at: تاريخ الإنشاء
+            photos: الصور
+            proposals: المقترحات
+            ranking: "%{ranking} مِن %{total}"
+            related_meetings: ملتقيات ذات صلة
             votes_count: يدعم العد
           update_category:
             invalid: 'هذه المقترحات لديها بالفعل فئة %{category} : %{proposals}.'
@@ -431,16 +441,21 @@ ar:
         rejected: مرفوض
         withdrawn: سحب
       application_helper:
+        filter_category_values:
+          all: الكل
         filter_origin_values:
           all: الكل
           citizens: المواطنون
           meetings: اجتماعات
           official: الرسمية
           user_groups: المجموعات
+        filter_scope_values:
+          all: الكل
         filter_state_values:
           accepted: وافقت
           all: الكل
           evaluating: تقييم
+          not_answered: لم تتم الإجابة عليها
           rejected: مرفوض
         filter_type_values:
           all: الكل
@@ -496,6 +511,7 @@ ar:
           open: افتح
           published: نشرت
           related_to: متعلق ب
+          scope: النطاق
           search: بحث
           state: الحالة
           withdrawn: سحب
@@ -687,6 +703,7 @@ ar:
           label: 'ترتيب المقترحات حسب:'
           most_commented: الأكثر تعليقًا عليها
           most_endorsed: التي تحصلت على أكبر دعم
+          most_followed: الأكثر متابَعة
           most_voted: التي تحصلت على أكبر دعم
           random: عشوائية
           recent: الأخيرة
@@ -727,6 +744,8 @@ ar:
           proposal_accepted_reason: 'تم قبول هذا الاقتراح بسبب:'
           proposal_in_evaluation_reason: هذا الاقتراح قيد التقييم
           proposal_rejected_reason: 'تم رفض هذا الاقتراح بسبب:'
+          read_less: اقرأ أقل
+          read_more: اقرأ المزيد
           report: أبلغ عن
           withdraw_btn_hint: يمكنك سحب اقتراحك إذا غيرت رأيك ، طالما أنك لم تتلق أي دعم. لم يتم حذف الاقتراح ، وسوف يظهر في قائمة المقترحات المسحوبة.
           withdraw_confirmation: هل أنت متأكد أنك تريد سحب هذا الاقتراح؟
