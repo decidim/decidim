@@ -278,12 +278,10 @@ id:
         see_all: Lihat semua (%{count})
     proposals:
       actions:
-        answer: Menjawab
         edit_proposal: Edit proposal
         import: Impor dari komponen lain
         new: Proposal baru
         participatory_texts: Teks partisipatif
-        private_notes: Catatan pribadi
         title: Tindakan
       admin:
         actions:
@@ -327,11 +325,7 @@ id:
           update:
             success: Teks partisipatif berhasil diperbarui.
         proposal_answers:
-          edit:
-            accepted: Diterima
-            answer_proposal: Menjawab
-            evaluating: Mengevaluasi
-            rejected: Ditolak
+          form:
             title: Jawaban untuk proposal %{title}
         proposal_notes:
           create:
@@ -372,6 +366,9 @@ id:
           new:
             create: Membuat
             title: Buat proposal
+          show:
+            created_at: Tanggal pembuatan
+            votes_count: Suara menghitung
           update_category:
             invalid: 'Proposal ini sudah memiliki kategori %{category} : %{proposals}.'
             select_a_category: Silakan pilih kategori
@@ -394,12 +391,6 @@ id:
           create:
             invalid: Terjadi kesalahan saat membagi proposal yang dipilih.
             success: Berhasil membagi proposal menjadi proposal baru.
-        shared:
-          info_proposal:
-            body: Tubuh
-            created_at: Tanggal pembuatan
-            proposal_votes_count: Suara menghitung
-            proposals: Proposal
       admin_log:
         proposal:
           answer: "%{user_name} menjawab %{resource_name} proposal pada %{space_name} ruang"
@@ -424,7 +415,6 @@ id:
           accepted: Diterima
           all: Semua
           evaluating: Mengevaluasi
-          except_rejected: Semua kecuali ditolak
           rejected: Ditolak
         filter_type_values:
           all: Semua
@@ -472,7 +462,6 @@ id:
           all: Semua
           amendment: Amandemen
           category: Kategori
-          category_prompt: Kategori Prompt
           open: Buka
           published: Diterbitkan
           related_to: Berhubungan dengan
@@ -622,7 +611,6 @@ id:
         filters:
           amendment_type: Mengetik
           category: Kategori
-          category_prompt: Pilih Kategori
           origin: Asal
           related_to: Berhubungan dengan
           search: Pencarian
@@ -680,7 +668,6 @@ id:
           withdraw_proposal: Tarik proposal
         tags:
           changed_from: "(diubah dari <u>%{previous_category}</u> oleh administrator)"
-          filed_as: Diarsipkan sebagai
         vote_button:
           already_voted: Sudah memilih
           already_voted_hover: Batalkan suara

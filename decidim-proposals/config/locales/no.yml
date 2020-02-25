@@ -42,6 +42,7 @@
             attachment:
               needs_to_be_reattached: Må festes på nytt
             body:
+              cant_be_equal_to_template: kan ikke være lik malen
               identical: OG tittelen kan ikke være identisk
             title:
               identical: OG teksten kan ikke være identisk
@@ -74,6 +75,23 @@
         one: Støtte
         other: Støttere
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Type
+          values:
+            'false': Forslag
+            'true': Endringer
+        search_placeholder:
+          id_string_or_title_cont: Søk %{collection} etter ID eller tittel.
+        state_eq:
+          values:
+            evaluating: Vurderer
+            withdrawn: Tilbaketrukket
+        state_null:
+          label: Status
+          values:
+            'true': Ikke besvart
     components:
       proposals:
         actions:
@@ -85,6 +103,7 @@
         name: Forslag
         settings:
           global:
+            allow_card_image: Tillat kortbilde
             amendments_enabled: Endringer aktivert
             amendments_enabled_help: Hvis aktiv, konfigurer du endringsfunksjoner for hvert trinn.
             amendments_wizard_help_text: Endrings Veiviser hjelpetekst
@@ -95,6 +114,8 @@
             comments_enabled: Kommentarer aktivert
             geocoding_enabled: Geokoding aktivert
             minimum_votes_per_user: Minimum støtter per bruker
+            new_proposal_body_template: Nytt forslag korppsmal
+            new_proposal_body_template_help: Du kan definere forhåndsutfylt tekst som de nye forslagene vil ha
             new_proposal_help_text: Ny forslag hjelpetekst
             official_proposals_enabled: Offisielle forslag aktivert
             participatory_texts_disabled_help: Kan ikke samhandle med denne innstillingen hvis det finnes eksisterende forslag. Vennligst, opprett et nytt "Forslags komponent" hvis du vil aktivere denne funksjonen eller forkaste alle importerte forslag i `Deltakende tekster` -menyen hvis du vil deaktivere den.
@@ -114,12 +135,13 @@
             amendment_creation_enabled: Oppretting av endringer aktivert
             amendment_creation_enabled_help: Deltakeren kan endre forslag.
             amendment_promotion_enabled: Forfremmelse av endringer aktivert
-            amendment_promotion_enabled_help: Emandasjons forfattere vil være i stand til å fremme til Forslag den avviste emendasjonen.
+            amendment_promotion_enabled_help: Emandasjons forfattere vil være i stand til å forfremme til Forslag den avviste emendasjonen.
             amendment_reaction_enabled: Endrings reaksjon aktivert
             amendment_reaction_enabled_help: Forslagets forfattere vil kunne godta eller avvise Deltakerens emendasjoner.
             amendments_visibility: Endringens synlighet
             amendments_visibility_help: Hvis alternativet "Endringer er bare synlige for forfatterne" er valgt, må deltaker være logget inn for å se endringene som er gjort.
             announcement: Kunngjøring
+            answers_with_costs: Aktiver kostnader på forslag til svar
             automatic_hashtags: Hashtagger lagt til i alle forslag
             comments_blocked: Kommentarer blokkert
             creation_enabled: Opprettelse av forslag aktivert
@@ -129,7 +151,7 @@
             suggested_hashtags: Hashtagger foreslått til deltakere for nye forslag
             votes_blocked: Støtter blokkert
             votes_enabled: Støtter aktivert
-            votes_hidden: Støtter gjemt (hvis støtter er aktivert, sjekke du av dette vil det skjule antall støtter)
+            votes_hidden: Støtter skjult (hvis støtter er aktivert, sjekke du av dette vil det skjule antall støtter)
     events:
       proposals:
         collaborative_draft_access_accepted:
@@ -296,12 +318,11 @@
         see_all: Vis alle (%{count})
     proposals:
       actions:
-        answer: Svar
         edit_proposal: Rediger forslaget
         import: Importer fra en annen komponent
         new: Nytt forslag
         participatory_texts: Deltakende tekster
-        private_notes: Private notater
+        show: Vis forslag
         title: Handlinger
       admin:
         actions:
@@ -346,7 +367,7 @@
           update:
             success: Deltakende tekst ble oppdatert.
         proposal_answers:
-          edit:
+          form:
             accepted: Aksepterte
             answer_proposal: Svar
             evaluating: Vurderer
@@ -393,6 +414,29 @@
           new:
             create: Opprett
             title: Opprett forslag
+          show:
+            amendments_count: Endringer teller
+            authors: Forfattere
+            body: Tekst
+            comments_count: Kommentarer teller
+            comments_negative_count: Imot
+            comments_neutral_count: Nøytral
+            comments_positive_count: Tjeneste
+            created_at: Opprettelsesdato
+            documents: Dokumenter
+            endorsements_count: Påtegnelser teller
+            endorsements_ranking: Rankingliste av påtegninger
+            endorsers: Påtegnelser
+            link: Lenke
+            n_more_endorsers:
+              one: og 1 til
+              other: og %{count} til
+            photos: Bilder
+            proposals: Forslag
+            ranking: "%{ranking} av %{total}"
+            related_meetings: Relaterte møter
+            votes_count: Støtter antall
+            votes_ranking: Rangering etter støttere
           update_category:
             invalid: 'Disse forslagene hadde allerede %{category} kategorien: %{proposals}.'
             select_a_category: Velg en kategori
@@ -409,18 +453,12 @@
             select_states: Sjekk statusen til forslagene som skal importeres
         proposals_merges:
           create:
-            invalid: Det oppsto et problem med å slå sammen de valgte forslagene.
+            invalid: Det oppstod et problem med å slå sammen de valgte forslagene.
             success: Slo sammen forslagene til et nytt ett.
         proposals_splits:
           create:
             invalid: Det oppstod et problem med å splitte de valgte forslagene.
             success: Delte forslagene vellykket til nye.
-        shared:
-          info_proposal:
-            body: Tekst
-            created_at: Opprettelsesdato
-            proposal_votes_count: Støtter antall
-            proposals: Forslag
       admin_log:
         proposal:
           answer: "%{user_name} svarte på %{resource_name} forslaget på %{space_name} rommet"
@@ -435,17 +473,21 @@
         rejected: Avvist
         withdrawn: Trukket tilbake
       application_helper:
+        filter_category_values:
+          all: Alle
         filter_origin_values:
           all: Alle
           citizens: Borgere
           meetings: Møter
           official: Offisiell
           user_groups: Grupper
+        filter_scope_values:
+          all: Alle
         filter_state_values:
           accepted: Aksepterte
           all: Alle
           evaluating: Vurderer
-          except_rejected: Alle unntatt avvist
+          not_answered: Ikke besvart
           rejected: Avvist
         filter_type_values:
           all: Alle
@@ -494,10 +536,10 @@
           all: Alle
           amendment: Endringer
           category: Kategori
-          category_prompt: Kategori ledetekst
           open: Åpen
           published: Publisert
           related_to: Relatert til
+          scope: Omfang
           search: Søk
           state: Status
           withdrawn: Trukket tilbake
@@ -538,6 +580,7 @@
           hidden_authors_count:
             one: og %{count} til person
             other: og %{count} flere personer
+          info-message: Dette er et <strong>samarbeids utkast</strong> for et forslag. Dette betyr at du kan hjelpe forfatterne å forme forslaget med bruk av kommentarfeltet nedenfor eller forbedre det direkte med å be om tilgang til å redigere det. Når forfatterne gir deg tilgang, vil du kunne redigere utkastet.
           of_versions: "(av %{number})"
           publish: Publiser
           publish_info: Publiser denne versjonen av utkastet eller
@@ -647,12 +690,13 @@
           all: Alle
           amendment_type: Type
           category: Kategori
-          category_prompt: Velg en kategori
           my_proposals: Mine forslag
           origin: Opprinnelse
           related_to: Relatert til
+          scope: Omfang
           search: Søk
           state: Status
+          type: Type
           voted: Støttet
         filters_small_view:
           close_modal: Lukk modal
@@ -700,25 +744,27 @@
           changes_at_title: Endring til "%{title}"
           edit_proposal: Rediger forslaget
           endorsements_list: Liste over Påtegnelser
+          estimated_cost: Estimert kostnad
           hidden_endorsers_count:
             one: og %{count} til person
             other: og %{count} flere personer
           link_to_collaborative_draft_help_text: Dette forslaget er resultatet av et samarbeids utkast. Gå gjennom historien
           link_to_collaborative_draft_text: Se samarbeids utkastet
-          link_to_promoted_emendation_help_text: Dette forslaget er en fremmet emendasjon
+          link_to_promoted_emendation_help_text: Dette forslaget er en forfremmet emendasjon
           link_to_promoted_emendation_text: Se den avviste emendasjonen.
           link_to_proposal_from_emendation_help_text: Dette er en avvist emendasjon
           link_to_proposal_from_emendation_text: Se forslaget
           proposal_accepted_reason: 'Dette forslaget ble akseptert fordi:'
           proposal_in_evaluation_reason: Dette forslaget blir evaluert
           proposal_rejected_reason: 'Dette forslaget ble avvist fordi:'
+          read_less: Vis mindre
+          read_more: Les mer
           report: Rapport
           withdraw_btn_hint: Du kan trekke tilbake forslaget ditt hvis du ombestemmer deg, så lenge du ikke har fått noe støtte. Forslaget er ikke slettet, den vil vises i listen av tilbaketrukne forslag.
           withdraw_confirmation: Er du sikker på at du vil trekke dette forslaget tilbake?
           withdraw_proposal: Trekk tilbake forslag
         tags:
           changed_from: "(endret fra <u>%{previous_category}</u> av en administrator)"
-          filed_as: Arkivert som
         vote_button:
           already_voted: Støttet allerede
           already_voted_hover: Trekk tilbake støtte

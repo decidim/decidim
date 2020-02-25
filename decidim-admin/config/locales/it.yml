@@ -144,9 +144,24 @@ it:
         export: Esporta
         manage: Gestisci
         new: Nuovo %{name}
+        per_page: Per pagina
         permissions: Permessi
         reject: Rifiuta
         verify: Verifica
+      admin_terms_of_use:
+        accept:
+          error: Si è verificato un errore durante l'accettazione dei termini di utilizzo da parte dell'amministratore.
+          success: Ottimo! Hai accettato i termini d'uso dell'amministratore.
+        actions:
+          accept: Accetto i termini di amministrazione
+          are_you_sure: Sei sicuro di voler rifiutare i termini di amministrazione?
+          refuse: Rifiutare i termini di amministrazione
+          title: Accetta i termini e le condizioni di utilizzo
+        required_review:
+          alert: 'Richiesto: Rivedi i nostri termini di utilizzo da amministratore'
+          callout: Prenditi un momento per rivedere i Termini di utilizzo dell'amministratore. Altrimenti non sarai in grado di amministrare la piattaforma.
+          cta: Rivedili ora.
+        title: Termini di utilizzo dell'amministratore
       area_types:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo tipo di area.
@@ -278,6 +293,31 @@ it:
       exports:
         export_as: "%{name} esporta come %{export_format}"
         notice: Export in fase di elaborazione.  Riceverai un'email quando l'export sarà terminato.
+      filters:
+        category_id_eq:
+          label: Categoria
+        filter_label: Filtro
+        officialized_at_null:
+          label: Stato
+          values:
+            'false': Ufficializzato
+            'true': Non ufficializzato
+        private_space_eq:
+          label: Privato
+          values:
+            'false': Pubblico
+            'true': Privato
+        published_at_null:
+          label: Pubblicato
+          values:
+            'false': Pubblicato
+            'true': Non pubblicato (nascosto)
+        scope_id_eq:
+          label: Ambito tematico
+        search_label: Ricerca
+        search_placeholder:
+          name_or_nickname_or_email_cont: Cerca %{collection} per email, nome o pseudonimo.
+          title_cont: Cerca %{collection} per titolo.
       help_sections:
         error: Si è verificato un errore durante l'aggiornamento delle sezioni della guida
         form:
@@ -457,6 +497,7 @@ it:
           not_sent: Non inviato
           participants: 'partecipanti '
           segmented_to: 'Segmentato a %{subject}: '
+          subscribed_count: 'Sottoscritti:'
           title: Newsletters
         new:
           save: Salva
@@ -469,6 +510,7 @@ it:
           followers_help: Invia newsletter a tutti gli utenti confermati che seguono tutti gli spazi partecipativi selezionati nella lista.
           none: Nessuno
           participants_help: Invia newsletter a tutti gli utenti confermati che hanno partecipato a uno degli spazi partecipativi selezionati nella lista.
+          recipients_count: Questa newsletter verrà inviata agli utenti <strong id='recipients_count'>%{count}</strong>.
           scopes_help: Invia newsletter agli utenti che hanno uno dei campi selezionati attivati nelle impostazioni "I miei interessi".
           select_scopes: Filtra per gli utenti che hanno attivato qualsiasi ambito selezionato nelle impostazioni interessi personali del proprio account.
           select_spaces: Selezionare gli spazi per segmentare la newsletter
@@ -535,6 +577,7 @@ it:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          rich_text_editor_in_public_views_help: In alcune aree di testo, i partecipanti saranno in grado di inserire alcuni tag HTML utilizzando l'editor di testo rich text.
           social_handlers: Sociale
           twitter: Twitter
           url: URL

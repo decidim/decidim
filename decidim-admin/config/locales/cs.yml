@@ -74,6 +74,7 @@ cs:
         send_welcome_notification: Odeslat uvítací oznámení
         show_statistics: Zobrazit statistiky
         success_color: Úspěch
+        time_zone: Časové pásmo
         tos_version: Verze podmínek služby
         twitter_handler: Twitter handler
         user_groups_enabled: Povolit skupiny
@@ -142,9 +143,24 @@ cs:
         export: Exportovat
         manage: Spravovat
         new: Nový %{name}
+        per_page: Na stránku
         permissions: Oprávnění
         reject: Odmítnout
         verify: Ověřit
+      admin_terms_of_use:
+        accept:
+          error: Při přijímání správcovských podmínek použití došlo k chybě.
+          success: Skvělé! Přijali jste administrátorské podmínky použití.
+        actions:
+          accept: Souhlasím s těmito podmínkami administrátora
+          are_you_sure: Opravdu chcete odmítnout administrátorské podmínky?
+          refuse: Odmítnout administrátorské podmínky
+          title: Souhlasit s podmínkami používání
+        required_review:
+          alert: 'Vyžadováno: Zkontrolujte naše administrátorské podmínky použití'
+          callout: Věnujte prosím chvilku a přečtěte si administrátorské podmínky použití. V opačném případě nebudete moci platformu spravovat.
+          cta: Zkontrolovat je nyní.
+        title: Administrátorské podmínky použití
       area_types:
         create:
           error: Při vytváření nového typu oblasti došlo k chybě.
@@ -276,6 +292,31 @@ cs:
       exports:
         export_as: "%{name} jako %{export_format}"
         notice: Váš export právě probíhá. Po jeho dokončení obdržíte e-mail.
+      filters:
+        category_id_eq:
+          label: Kategorie
+        filter_label: Filtr
+        officialized_at_null:
+          label: Stav
+          values:
+            'false': Oficializováno
+            'true': Neoficializováno
+        private_space_eq:
+          label: Soukromé
+          values:
+            'false': Veřejné
+            'true': Soukromé
+        published_at_null:
+          label: Zveřejněno
+          values:
+            'false': Zveřejněno
+            'true': Nezveřejněno
+        scope_id_eq:
+          label: Rozsah
+        search_label: Hledat
+        search_placeholder:
+          name_or_nickname_or_email_cont: Hledat %{collection} podle e-mailu, jména nebo přezdívky.
+          title_cont: Hledat %{collection} podle názvu.
       help_sections:
         error: Při aktualizaci sekcí nápovědy došlo k chybě
         form:
@@ -455,6 +496,7 @@ cs:
           not_sent: Neodesláno
           participants: 'uživatelé '
           segmented_to: 'Rozděleno na %{subject}: '
+          subscribed_count: 'Přihlášeno:'
           title: Zpravodaje
         new:
           save: Uložit
@@ -467,6 +509,7 @@ cs:
           followers_help: Poslat zpravodaj všem potvrzeným uživatelům, kteří sledují všechny vybrané participační prostory v seznamu.
           none: Žádný
           participants_help: Odešle newsletter všem potvrzeným uživatelům, kteří se zúčastnili některého z vybraných participačních prostorů v seznamu.
+          recipients_count: Tento newsletter bude odeslán <strong id='recipients_count'>%{count}</strong> uživatelům.
           scopes_help: Poslat newsletter uživatelům, kteří mají některé z vybraných oblastí aktivovaných v nastavení svého účtu "Moje zájmy".
           select_scopes: Filtrovat uživatele, kteří aktivovali jakýkoli vybraný rozsah v nastavení jejich účtu Moje Zájmy.
           select_spaces: Vybrat mezery pro rozdělení zpravodaje
@@ -533,6 +576,7 @@ cs:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          rich_text_editor_in_public_views_help: V některých textových oblastech budou účastníci moci vložit některé HTML tagy pomocí textového editoru.
           social_handlers: Sociální
           twitter: Cvrlikání
           url: Url

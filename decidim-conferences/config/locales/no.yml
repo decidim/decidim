@@ -2,19 +2,64 @@
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Relaterte Forsamlinger
         banner_image: Bannerafbeelding
+        consultations_ids: Relaterte konsultasjoner
+        copy_categories: Kopier kategorier
+        copy_components: Kopier komponenter
+        copy_features: Kopier funksjoner
+        decidim_scope_id: Omfang
+        description: Beskrivelse
+        hashtag: Hastag
+        hero_image: Hjem bilde
+        participatory_processes_ids: Relaterte deltakerprosesser
+        promoted: Fremhevet
+        published_at: Publisert på
+        scope_id: Omfang
+        scopes_enabled: Omfang aktivert
+        short_description: Kort beskrivelse
+        show_statistics: Vis statistikk
+        slogan: Slagord
+        slug: URL slug
         title: Tittel
+      conference_speaker:
+        full_name: Fullt navn
       conference_user_role:
         email: Epost
         name: Navn
+        role: Rolle
+    errors:
+      models:
+        conference_registration_invite:
+          attributes:
+            email:
+              already_invited: Denne e-postadressen er allerede invitert
   activerecord:
     models:
       decidim/conference:
         one: Konferanse
         other: Konferanser
+      decidim/conference_speaker:
+        one: Konferansetaler
+        other: Konferansetalere
+      decidim/conference_user_role:
+        one: Konferansens bruker rolle
+        other: Konferansens bruker roller
   decidim:
     admin:
+      actions:
+        confirm: Bekreft
+        new_conference: Ny Konferanse
+        send_diplomas: Send deltakerbevis
+      conference_copies:
+        new:
+          copy: Kopier
+          select: Velg hvilke data du vil duplisere
+          title: Duplisert konferanse
       conference_publications:
+        create:
+          error: Det oppstod et problem med å publisere denne konferansen.
+          success: Konferansen ble publisert.
         destroy:
           error: Det oppstod et problem med å avpublisere denne konferansen.
           success: Konferansen ble avpublisert.
@@ -24,9 +69,21 @@
           success: Konferanse registrering ble bekreftet.
       conference_speakers:
         create:
-          error: Det oppstod et problem med å legge en foredragsholder til denne konferansen.
+          error: Det oppstod et problem med å legge en konferansetaler til denne konferansen.
+          success: Konferansetaler ble opprettet.
+        destroy:
+          success: Konferansetaler ble slettet.
+        edit:
+          title: Oppdater konferansetaler.
+          update: Oppdater
+        index:
+          conference_speakers_title: Konferansetalere
+        new:
+          create: Opprett
+          title: Ny konferansetaler.
         update:
           error: Det oppstod et problem med å oppdatere denne konferansetaleren.
+          success: Konferansetaler ble oppdatert.
       conference_user_roles:
         create:
           error: Det oppstod et problem med å legge til en administrator til denne konferansen.
@@ -35,19 +92,38 @@
           success: Konferanse administrator ble fjernet.
         edit:
           title: Oppdater konferanse administrator.
+          update: Oppdater
         index:
           conference_admins_title: konferanse administratorer
         new:
+          create: Opprett
           title: Ny konferanse administrator.
         update:
           error: Det oppstod et problem med å oppdatere denne konferanse administratoren.
           success: Konferanse administrator ble oppdatert.
       conferences:
+        create:
+          error: Det oppstod et problem med å opprette denne konferansen.
+          success: Konferansen ble opprettet.
+        edit:
+          update: Oppdater
+        exports:
+          registrations: Registreringer
+        form:
+          title: Generell Informasjon
+        index:
+          not_published: Ikke publisert
+          published: Publisert
         new:
+          create: Opprett
           title: Konferanse
+        update:
+          error: Det oppstod et problem med å oppdatere denne konferansen.
+          success: Konferansen ble oppdatert.
       conferences_copies:
         create:
           error: Det oppstod et problem med å duplisere denne konferansen.
+          success: Konferansen ble duplisert.
       media_links:
         create:
           error: Det oppstod et problem med å opprette en ny media lenke.
@@ -56,74 +132,120 @@
           success: Media Lenke slettet.
         edit:
           title: Oppdater media lenke.
+          update: Oppdater
         index:
           media_links_title: Media Lenker
         new:
+          create: Opprett
           title: Media Lenke
         update:
           error: Det oppstod et problem med å oppdatere denne media lenken.
           success: Media Lenke ble oppdatert.
       menu:
+        conferences: Konferanser
         conferences_submenu:
+          attachment_collections: Mapper
+          attachment_files: Filer
           attachments: Vedlegg
           categories: Kategorier
           components: Komponenter
           conference_admins: Konferanse administratorer
+          conference_invites: Invitasjoner
+          conference_speakers: Talere
           diploma: Sertifikat for Oppmøte
+          info: Info
           media_links: Media Lenker
+          moderations: Moderering
+          partners: Partnere
+          registration_types: Registrerings Typer
+          registrations: Registreringer
+          user_registrations: Bruker Registreringer
       models:
         conference:
           fields:
+            created_at: Opprettet på
+            promoted: Fremhevet
+            published: Publisert
             title: Tittel
         conference_speaker:
           fields:
             affiliation: Tilknytning
+            full_name: Fullt navn
+            position: Stilling
+          name: Konferanse Taler
         conference_user_role:
           fields:
             email: Epost
             name: Navn
+            role: Rolle
           name: Konferanse Administrator
           roles:
             admin: Administrator
             collaborator: Samarbeidspartner
+            moderator: Moderator
         media_link:
           fields:
+            date: Dato
             link: Lenke
             title: Tittel
           name: Media Lenke
         partner:
           fields:
             link: Lenke
+            logo: Logo
             name: Navn
+            partner_type: Type
+          name: Partner
           types:
             collaborator: Samarbeidspartner
+            main_promotor: Hovedpromotør
         registration_type:
           fields:
             conference_meetings: Konferanse møter
+            price: Pris
+            registrations_count: Registrerings teller
             title: Tittel
+            weight: Vekt
+          name: Registreringstype
       partners:
         create:
           error: Det oppstod et problem med å legge til en partner for denne konferansen.
           success: Konferansepartner ble lagt til.
         destroy:
           success: Konferansepartner ble fjernet.
+        edit:
+          title: Oppdater partner.
+          update: Oppdater
+        new:
+          create: Opprett
+          title: Ny partner
         update:
           error: Det oppstod et problem med å oppdatere en partner for denne konferansen.
           success: Konferansepartner ble oppdatert.
       registration_type_publications:
         create:
           error: Det oppstod et problem med å publisere denne registreringstypen.
+          success: Registreringstypen ble publisert.
         destroy:
           error: Det oppstod et problem med å avpublisere denne registreringstypen.
+          success: Registreringstypen ble avpublisert.
       registration_types:
         create:
           error: Det oppstod et problem med å legge til en registreringstype for denne konferansen.
-          success: Konferanse registrerings-type ble lagt til.
+          success: Konferanse registrerings-typen ble lagt til.
         destroy:
-          success: Konferanse registrerings-type ble fjernet.
+          success: Konferanse registrerings-typen ble fjernet.
+        edit:
+          title: Oppdater registreringstype.
+          update: Oppdater
+        new:
+          create: Opprett
+          title: Ny registreringstype
         update:
           error: Det oppstod et problem med å oppdatere en registreringstype for denne konferansen.
           success: Konferanse registrerings-type ble oppdatert.
+      titles:
+        conferences: Konferanser
     admin_log:
       conference:
         create: "%{user_name} opprettet %{resource_name} konferansen"
@@ -148,14 +270,20 @@
           delete: "%{user_name} fjernet admin %{resource_name} fra %{space_name} konferansen"
           update: "%{user_name} oppdaterte %{resource_name} i %{space_name} konferansen"
         registration_type:
-          create: "%{user_name} opprettet redigerings typen %{resource_name} i %{space_name} konferansen"
+          create: "%{user_name} opprettet redigeringstypen %{resource_name} i %{space_name} konferansen"
           publish: "%{user_name} publiserte %{resource_name} registreringstypen i %{space_name} konferansen"
-          unpublish: "%{user_name} avpubliserte %{resource_name} registrerings typen in i %{space_name} konferansen"
-          update: "%{user_name} oppdaterte redigerings typen %{resource_name} i %{space_name} konferansen"
+          unpublish: "%{user_name} avpubliserte %{resource_name} registreringstypen in i %{space_name} konferansen"
+          update: "%{user_name} oppdaterte redigeringstypen %{resource_name} i %{space_name} konferansen"
       media_link:
         create: "%{user_name} opprettet %{resource_name} media linken i %{space_name} konferansen"
         delete: "%{user_name} fjernet %{resource_name} media lenken fra %{space_name} konferansen"
         update: "%{user_name} oppdaterte %{resource_name} media lenken i %{space_name} konferansen"
+    conference_program:
+      index:
+        title: Program
+    conference_speakers:
+      index:
+        title: Talere
     conferences:
       admin:
         conference_copies:
@@ -166,24 +294,60 @@
             error: Det oppstod et problem med å invitere deltakeren til å delta på konferansen.
             success: Deltakeren ble invitert til å delta konferansen.
           form:
-            attendee_type: Deltaker type
+            attendee_type: Deltakertype
+            existing_user: Eksisterende deltaker
             invite_explanation: Deltakeren vil bli invitert til å delta på konferansen og i organisasjonen også.
+            non_user: Ikke eksisterende deltaker
+            select_user: Velg deltaker
           index:
             filter:
               accepted: Aksepterte
               all: Alle
+              rejected: Avvist
+              sent: Sendt
+            filter_by: Filtrer etter
+            invite_attendee: Inviter deltaker
+            invites: Invitasjoner
+            search: Søk
           new:
             explanation: Deltakeren vil bli invitert til å delta en konferanse. Hvis e-posten hennes ikke er registrert, vil hun også bli invitert i organisasjonen.
+            invite: Inviter
+            new_invite: Inviter deltaker
+        conference_registrations:
+          index:
+            registrations: Registreringer
+        conference_speakers:
+          form:
+            existing_user: Eksisterende deltaker
+            non_user: Ingen deltakende
+            select_user: Velg deltaker
+            user_type: Deltakertype
+          index:
+            search: Søk
         conferences:
           form:
             available_slots_help: Sett den til 0 hvis du har ubegrensede plasser tilgjengelig.
+            registrations_count:
+              one: Det har vært 1 registrering.
+              other: Det har vært %{count} registreringer.
             slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne konferansen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
         diplomas:
           edit:
+            save: Lagre
             title: Sertifikat for Oppmøte
         invite_join_conference_mailer:
           invite:
+            decline: Avvis invitasjon '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} har invitert deg til å delta et foredrag på %{application}. Du kan avvise eller godta gjennom lenkene nedenfor."
+            registration: Påmelding til '%{conference_title}'
+        partners:
+          index:
+            title: Partnere
+        registration_types:
+          form:
+            select_conference_meetings: Velg konferansemøter
+          index:
+            title: Registreringstyper
         send_conference_diploma_mailer:
           diploma:
             diploma_html: Du finner sertifikatet for deltagelse for konferansen <a href="%{url}">%{title}</a> i vedleggene.
@@ -197,29 +361,76 @@
       conference:
         registration_confirm:
           cancel: Avbryt
+          confirm: Bekreft
         show:
+          free: Fri
           going: Møtende
+          no_slots_available: Ingen plasser tilgjengelig
+          registration: Registrering
       conference_program:
         program_meeting:
           content: Innhold
           location: Plassering
+          speakers: Talere
+          streaming: Strømming
+        show:
+          day: Dag
+          program: Program
       conference_registration_mailer:
         confirmation:
           confirmed_html: Din påmelding til konferansen <a href="%{url}">%{title}</a> er bekreftet.
           details_1: 'Du er registrert på konferansen med %{registration_type} typen. Det koster %{price}, og du kan delta på følgende arrangementer:'
           details_2: Du finner konferansens detaljer i vedlegget.
         pending_validation:
+          confirmation_pending: Du vil motta bekreftelsen innen kort tid
           details: 'Du har registrert deg på %{registration_type} type med en kostnad på %{price}, og du kan delta på følgende arrangementer:'
           pending_html: Din påmelding til konferansen <a href="%{url}">%{title}</a> venter på bekreftelse.
+      conference_registrations:
+        create:
+          invalid: Det oppstod et problem med å bli med i denne konferansen.
+          success: Du har blitt med i konferansen.
+        decline_invitation:
+          invalid: Det oppstod et problem med å avslå invitasjonen.
+          success: Du har avslått invitasjonen.
+        destroy:
+          invalid: Det oppstod et problem med å forlate denne konferansen.
+          success: Du har forlatt konferansen.
+      conference_speaker:
+        go_to_twitter: Gå til Twitter
+        more_info: mer info
+        personal_website: Personlig nettside
+        show:
+          more_info: mer info
+      conference_speaker_cell:
+        personal_url:
+          personal_website: Personlig nettside
+        twitter_handle:
+          go_to_twitter: Gå til Twitter
+      conference_speakers:
+        index:
+          speakers: Talere
       conferences:
         partners:
           collaborators: Partnere
+          main_promotors: Planleggere
+        show:
+          login_as: Du er innlogget som %{name} <%{email}>
+          make_conference_registration: 'Foreta din registrering til denne konferansen:'
+          register: Registrer
+      content_blocks:
+        highlighted_conferences:
+          name: Fremhevede konferanser
+      index:
+        title: Konferanser
       mailer:
         conference_registration_mailer:
           confirmation:
-            subject: Registreringen av konferansen din er bekreftet
+            subject: Registrering av konferansen din er bekreftet
           pending_validation:
             subject: Registrering av konferansen din venter på bekreftelse
+        invite_join_conference_mailer:
+          invite:
+            subject: Invitasjon til å delta en konferanse
         send_conference_diploma_mailer:
           diploma:
             subject: Ditt konferanse deltakelsesbevis er sendt
@@ -228,34 +439,70 @@
           fields:
             email: Epost
             name: Navn
+            registration_type: Registreringstype
+            sent_at: Sendt på
             status: Status
           status:
             accepted: Aksepterte (%{at})
+            rejected: Avvist (%{at})
+            sent: Sendt
         conference_registration:
           fields:
             email: Epost
             name: Navn
+            registration_type: Registreringstype
             state: Status
+            states:
+              confirmed: Bekreftet
+              pending: Venter
       pages:
         home:
           highlighted_conferences:
             active_conferences: Aktive konferanser
+            see_all_conferences: Se alle konferanser
       photo:
         show:
           close_modal: Lukk modal
+          photo: Bilde
+      photos_list:
+        show:
+          related_photos: Bilder
       registration_types:
         index:
           choose_an_option: 'Velg ditt registrerings alternativ:'
+          login_as: Du er innlogget som %{name} <%{email}>
+          register: Registrer
+          title: Registreringstyper
       shared:
         conference_user_login:
+          already_account: Har du allerede en konto i decidim?
+          new_user: Ny bruker?
+          sign_in: Logg inn for å registrere deg på konferansen
           sign_up: Opprett en konto i decidim for å registrere deg på konferansen
+      show:
+        details: Detaljer
+        introduction: Introduksjon
+        objectives: Mål
+        related_assemblies: Relaterte forsamlinger
+        related_consultations: Relaterte konsultasjoner
+        related_participatory_processes: Relaterte deltakerprosesser
       statistics:
         answers_count: Svar
         comments_count: Kommentarer
+        conference_count: Konferanser
+        debates_count: Debatter
         endorsements_count: Påtegnelser
         headline: Aktivitet
+        meetings_count: Møter
+        orders_count: Støtter
         pages_count: Sider
+        posts_count: Innlegg
+        projects_count: Prosjekter
+        proposals_count: Forslag
+        results_count: Resultater
         surveys_count: Undersøkelse
+        users_count: Deltakere
+        votes_count: Støtter
     events:
       conferences:
         conference_registration_confirmed:
@@ -264,13 +511,14 @@
           notification_title: Din påmelding til konferansen <a href="%{resource_url}">%{resource_title}</a> venter på å bli bekreftet.
         conference_registrations_over_percentage:
           email_intro: '"%{resource_title}" konferansens okkuperte plasser er over %{percentage}%.'
-          email_outro: Du har mottatt denne varslingen fordi du er administrator for konferansens deltaker-område.
+          email_outro: Du har mottatt denne varslingen fordi du er administrator for konferansens deltakerområde.
           email_subject: '"%{resource_title}" konferansens okkuperte plasser er over %{percentage}%'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> konferansens okkuperte plasser er over %{percentage}%.
         conference_updated:
           email_intro: 'Konferansen "%{resource_title}" var oppdatert. Du kan lese den nye versjonen fra siden:'
           email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}" konferansen. Du kan slutte å følge den fra den forrige lenken.
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> konferansen ble oppdatert.
+          email_subject: Konferansen "%{resource_title}" ble oppdatert
+          notification_title: Konferansen <a href="%{resource_path}">%{resource_title}</a> ble oppdatert.
         registrations_enabled:
           email_intro: '"%{resource_title}" konferansen har muliggjort registreringer. Du kan registrere deg selv på siden:'
           email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}" konferansen. Du kan slutte å følge den fra den forrige lenken.
@@ -279,6 +527,7 @@
         upcoming_conference:
           email_intro: 'Konferansen "%{resource_title}" holdes om 2 dager. Du kan lese beskrivelsen fra siden:'
           email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}" konferansen. Du kan slutte å følge den fra den forrige lenken.
+          email_subject: Konferansen "%{resource_title}" er kommende!
           notification_title: <a href="%{resource_path}">%{resource_title}</a> konferansen er om 2 dager.
     log:
       value_types:
@@ -288,10 +537,35 @@
       index:
         description: Lenker om denne konferansen
         title: Media og Lenker
+    menu:
+      conferences: Konferanser
+  devise:
+    mailer:
+      join_conference:
+        subject: Invitasjon til å delta en konferanse
   layouts:
     decidim:
+      conference_hero:
+        register: Registrer
+      conference_widgets:
+        show:
+          take_part: Delta
       conferences:
+        conference:
+          more_info: Mer info
+          take_part: Delta
+        index:
+          promoted_conferences: Fremhevede konferanser
         order_by_conferences:
           conferences:
             one: "%{count} konferanse"
             other: "%{count} konferanser"
+        promoted_conference:
+          more_info: Mer info
+          take_part: Delta
+      conferences_nav:
+        conference_menu_item: Informasjon
+        conference_partners_menu_item: Partnere
+        conference_speaker_menu_item: Talere
+        media: Medier
+        venues: Arenaer

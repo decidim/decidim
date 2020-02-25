@@ -5,16 +5,16 @@ module Decidim
     # Custom helpers, scoped to the collaborative_draft resource.
     #
     module CollaborativeDraftHelper
-      def collaborative_drafts_states_collection
+      def filter_collaborative_drafts_state_values
         scope = "decidim.proposals.collaborative_drafts.filters"
-        @collaborative_drafts_states_collection ||= begin
-          collection = []
-          collection << ["all", t("all", scope: scope)]
-          collection << ["open", t("open", scope: scope)]
-          collection << ["withdrawn", t("withdrawn", scope: scope)]
-          collection << ["published", t("published", scope: scope)]
-          collection
-        end
+        Decidim::CheckBoxesTreeHelper::TreeNode.new(
+          Decidim::CheckBoxesTreeHelper::TreePoint.new("", t("all", scope: scope)),
+          [
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("open", t("open", scope: scope)),
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("withdrawn", t("withdrawn", scope: scope)),
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("published", t("published", scope: scope))
+          ]
+        )
       end
 
       def accept_request_button_label

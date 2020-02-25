@@ -104,6 +104,7 @@ en:
         name: Proposals
         settings:
           global:
+            allow_card_image: Allow card image
             amendments_enabled: Amendments enabled
             amendments_enabled_help: If active, configure Amendment features for each step.
             amendments_wizard_help_text: Amendments Wizard help text
@@ -141,6 +142,7 @@ en:
             amendments_visibility: Amendment visibility
             amendments_visibility_help: If the option "Amendments are visible only to their authors" is selected, participant must be logged in to see the amendments made.
             announcement: Announcement
+            answers_with_costs: Enable costs on proposal answers
             automatic_hashtags: Hashtags added to all proposals
             comments_blocked: Comments blocked
             creation_enabled: Proposal creation enabled
@@ -472,17 +474,21 @@ en:
         rejected: Rejected
         withdrawn: Withdrawn
       application_helper:
+        filter_category_values:
+          all: All
         filter_origin_values:
           all: All
           citizens: Citizens
           meetings: Meetings
           official: Official
           user_groups: Groups
+        filter_scope_values:
+          all: All
         filter_state_values:
           accepted: Accepted
           all: All
           evaluating: Evaluating
-          except_rejected: All except rejected
+          not_answered: Not answered
           rejected: Rejected
         filter_type_values:
           all: All
@@ -531,10 +537,10 @@ en:
           all: All
           amendment: Amendments
           category: Category
-          category_prompt: Category Prompt
           open: Open
           published: Published
           related_to: Related to
+          scope: Scope
           search: Search
           state: Status
           withdrawn: Withdrawn
@@ -685,7 +691,6 @@ en:
           all: All
           amendment_type: Type
           category: Category
-          category_prompt: Select a category
           my_proposals: My proposals
           origin: Origin
           related_to: Related to
@@ -740,6 +745,7 @@ en:
           changes_at_title: Amendment to "%{title}"
           edit_proposal: Edit proposal
           endorsements_list: List of Endorsements
+          estimated_cost: Estimated cost
           hidden_endorsers_count:
             one: and %{count} more person
             other: and %{count} more people
@@ -752,6 +758,8 @@ en:
           proposal_accepted_reason: 'This proposal has been accepted because:'
           proposal_in_evaluation_reason: This proposal is being evaluated
           proposal_rejected_reason: 'This proposal has been rejected because:'
+          read_less: Read less
+          read_more: Read more
           report: Report
           withdraw_btn_hint: You can withdraw your proposal if you change your mind, as long as you have not received any support. The proposal is not deleted, it will appear in the list of withdrawn proposals.
           withdraw_confirmation: Are you sure you want to withdraw this proposal?
