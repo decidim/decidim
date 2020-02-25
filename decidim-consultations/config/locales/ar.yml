@@ -19,6 +19,7 @@ ar:
         hashtag: رابطة هاشتاق
         hero_image: الصورة الرئيسية
         i_frame_url: عنوان URL لنظام التصويت الخارجي
+        instructions: تعليمات إضافية خاصة بالتصويت
         max_votes: الحد الأقصى لعدد الأصوات
         min_votes: الحد الأدنى لعدد الأصوات
         origin_scope: نطاق
@@ -41,6 +42,12 @@ ar:
         decidim_consultations_response_id:
           not_found: الرد غير موجود.
   activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: عدد الأصوات غير صالح
     models:
       decidim/consultation:
         zero: المشاورات
@@ -201,6 +208,7 @@ ar:
         new:
           create: إنشاء
         update:
+          error: وقعت هناك مشكلة عند تحديث هذه الإجابة.
           success: تم تحديث الإجابة بنجاح.
       responses:
         create:
@@ -295,6 +303,8 @@ ar:
       question_multiple_votes:
         results_rules:
           total_participants: لقد شارك مجموع يقدّر بـ %{count} أشخاص في التصويت.
+          vote_limit:
+            description: يمكن للمشارِكين التصويت على %{limit} خيارات كأقصى حد.
         voting_rules:
           title: 'التصويت خاضع للقواعد التالية:'
           vote_limit:
