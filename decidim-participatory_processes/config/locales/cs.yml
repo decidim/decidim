@@ -84,7 +84,7 @@ cs:
         duplicate: Duplikát
         edit: Upravit
         filter:
-          all: Zobrazit všechny procesy
+          all_processes: Zobrazit všechny procesy
           process_groups: Skupiny procesů
         import_process: Importovat
         new_process: Nový proces

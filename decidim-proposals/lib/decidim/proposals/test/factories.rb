@@ -223,6 +223,14 @@ FactoryBot.define do
       end
     end
 
+    trait :with_card_image_allowed do
+      settings do
+        {
+          allow_card_image: true
+        }
+      end
+    end
+
     trait :with_extra_hashtags do
       transient do
         automatic_hashtags { "AutoHashtag AnotherAutoHashtag" }
@@ -319,6 +327,10 @@ FactoryBot.define do
       state { "accepted" }
       answer { generate_localized_title }
       answered_at { Time.current }
+    end
+
+    trait :not_answered do
+      state { nil }
     end
 
     trait :draft do

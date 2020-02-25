@@ -1,0 +1,25 @@
+is-IS:
+  decidim:
+    components:
+      surveys:
+        actions:
+          answer: Svara
+        name: Könnun
+        settings:
+          global:
+            announcement: Tilkynning
+          step:
+            allow_answers: Leyfa svörum
+            announcement: Tilkynning
+    events:
+      surveys:
+        survey_closed:
+          email_intro: Könnunin %{resource_title} í %{participatory_space_title} hefur verið lokuð.
+          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{participatory_space_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
+          email_subject: Könnun er lokið í %{participatory_space_title}
+          notification_title: Könnunin <a href="%{resource_path}">%{resource_title}</a> í <a href="%{participatory_space_url}">%{participatory_space_title}</a> er lokið.
+        survey_opened:
+          email_intro: 'Könnunin %{resource_title} í %{participatory_space_title} er nú opin. Þú getur tekið þátt í henni frá þessari síðu:'
+          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{participatory_space_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
+          email_subject: Ný könnun á %{participatory_space_title}
+          notification_title: Könnunin <a href="%{resource_path}">%{resource_title}</a> í <a href="%{participatory_space_url}">%{participatory_space_title}</a> er nú opin.

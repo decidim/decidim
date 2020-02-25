@@ -61,8 +61,6 @@ eu:
     account:
       data_portability_export:
         file_no_exists: Fitxategia ez dago
-        invalid_token: Ordezkatutako tokia baliogabea da.
-        no_token: No token emandako
         notice: Zure datuak une honetan egiten ari dira. Mezu elektroniko bat jasoko duzu beteta dagoenean.
       delete:
         alert: Ekintza hau ezin da desegin. Zure kontua ezabatzen baduzu, ezin izango duzu saioa hasi.
@@ -496,7 +494,7 @@ eu:
           notification_title: <a href="%{resource_path}">profile orriaren 1233_4_1_321 %{name} (%{nickname}) jarraitzen ari zarenean, eguneratu egin da.
     export_mailer:
       data_portability_export:
-        click_button: Egin klik hurrengo botoian zure datuak deskargatzeko. <br/> Fitxategia eskuragarri izango duzu %{date}arte.
+        click_button: 'Egin klik hurrengo botoian zure datuak deskargatzeko. <br/> Fitxategia eskuragarri izango duzu %{date}arte.'
         download: Deskarga
       export:
         ready: Atxikita aurkituko duzu zure esportazioaren bertsio trinkotua.
@@ -539,16 +537,6 @@ eu:
     gamification:
       all_badges_link: Ikusi eskuragarri dauden txapak.
       badges:
-        continuity:
-          conditions:
-            - Zatoz hemen sarritan
-          description: Txartela hau modu erregularrean bisitatzen duzunean ematen da. Gustatzen zait hemen!
-          description_another: Erabiltzaile honek une batez %{score} egunez konektatua dago.
-          description_own: Zenbait puntutan eguneko %{score} egunetarako konektatuta zaude.
-          name: Continuity
-          next_level_in: Konektatu %{score} egun jarraian hurrengo mailara iristeko!
-          unearned_another: Erabiltzaile honek ez du saioa hasi egun bat baino gehiagoz.
-          unearned_own: Ez duzu egun bat baino gehiagoz konektaturik.
         followers:
           conditions:
             - Beste pertsona batzuei aktibo eta jarraitzen zaien ziurgabetasuna beste pertsona batzuek segituko dute.

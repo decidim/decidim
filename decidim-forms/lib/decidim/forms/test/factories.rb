@@ -31,6 +31,11 @@ FactoryBot.define do
     end
 
     body { generate_localized_title }
+    description do
+      Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+        generate_localized_title
+      end
+    end
     mandatory { false }
     position { 0 }
     question_type { Decidim::Forms::Question::TYPES.first }

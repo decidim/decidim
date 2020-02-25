@@ -507,18 +507,12 @@ tr:
           actions: Eylemler
           badge: rozet
           created_at: At düzenlendi
-          filter:
-            all: Herşey
-            not_officialized: Resmi değil
-            officialized: resmileştirilmiş
-          filter_by: Tarafından filtre
           name: isim
           nickname: Takma ad
           not_officialized: Resmi değil
           officialize: ', resmiyete'
           officialized: resmileştirilmiş
           reofficialize: Reofficialize
-          search: Arama
           status: durum
           unofficialize: Unofficialize
         new:

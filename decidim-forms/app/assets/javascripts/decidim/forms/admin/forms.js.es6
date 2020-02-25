@@ -1,3 +1,5 @@
+/* eslint-disable max-lines */
+
 // = require ./auto_buttons_by_min_items.component
 // = require ./auto_select_options_by_total_items.component
 // = require ./auto_select_options_from_url.component
@@ -118,37 +120,14 @@
 
   const dynamicFieldsForAnswerOptions = {};
 
-  const createDynamicFieldsForDisplayConditions = (fieldId) => {
-    return createDynamicFields({
-      placeholderId: "questionnaire-question-display-condition-id",
-      wrapperSelector: `#${fieldId} ${displayConditionsWrapperSelector}`,
-      containerSelector: ".questionnaire-question-display-conditions-list",
-      fieldSelector: displayConditionFieldSelector,
-      addFieldButtonSelector: addDisplayConditionButtonSelector,
-      removeFieldButtonSelector: displayConditionRemoveFieldButtonSelector,
-      onAddField: ($field) => {
-        initializeDisplayConditionField($field);
-      },
-      onRemoveField: () => {
-      }
-    });
+  const isMultipleChoiceOption = (value) => {
+    return value === "single_option" || value === "multiple_option" || value === "sorting"
   };
 
-  const initializeDisplayConditionField = ($field) => {
-    const autoSelectByUrl = createAutoSelectOptionsFromUrl($field);
-    autoSelectByUrl.run();
-
-    $field.find(displayConditionQuestionSelector).on("change", (event) => {
-      onDisplayConditionQuestionChange($field);
-    });
-
-    $field.find(displayConditionTypeSelector).on("change", (event) => {
-      onDisplayConditionTypeChange($field);
-    });
-
-    onDisplayConditionTypeChange($field);
-    onDisplayConditionQuestionChange($field);
-  }
+  const getSelectedQuestionType = (select) => {
+    const selectedOption = select.options[select.selectedIndex];
+    return $(selectedOption).data("type");
+  };
 
   const onDisplayConditionQuestionChange = ($field) => {
     const $questionSelector = $field.find(displayConditionQuestionSelector);
@@ -171,7 +150,9 @@
       const $option = $(option);
       const value = $option.val();
 
-      if (!value) return;
+      if (!value) {
+        return;
+      }
 
       $option.show();
 
@@ -197,23 +178,54 @@
 
     const isMultiple = isMultipleChoiceOption(selectedQuestionType);
 
-    if (value == "match") { $valueWrapper.show(); }
-    else { $valueWrapper.hide(); }
+    if (value === "match") {
+      $valueWrapper.show();
+    }
+    else {
+      $valueWrapper.hide();
+    }
 
-    if (isMultiple && (value == "not_equal" || value == "equal")) { $answerOptionWrapper.show(); }
-    else { $answerOptionWrapper.hide(); }
+    if (isMultiple && (value === "not_equal" || value === "equal")) {
+      $answerOptionWrapper.show();
+    }
+    else {
+      $answerOptionWrapper.hide();
+    }
+  };
+
+  const initializeDisplayConditionField = ($field) => {
+    const autoSelectByUrl = createAutoSelectOptionsFromUrl($field);
+    autoSelectByUrl.run();
+
+    $field.find(displayConditionQuestionSelector).on("change", () => {
+      onDisplayConditionQuestionChange($field);
+    });
+
+    $field.find(displayConditionTypeSelector).on("change", () => {
+      onDisplayConditionTypeChange($field);
+    });
+
+    onDisplayConditionTypeChange($field);
+    onDisplayConditionQuestionChange($field);
+  }
+
+  const createDynamicFieldsForDisplayConditions = (fieldId) => {
+    return createDynamicFields({
+      placeholderId: "questionnaire-question-display-condition-id",
+      wrapperSelector: `#${fieldId} ${displayConditionsWrapperSelector}`,
+      containerSelector: ".questionnaire-question-display-conditions-list",
+      fieldSelector: displayConditionFieldSelector,
+      addFieldButtonSelector: addDisplayConditionButtonSelector,
+      removeFieldButtonSelector: displayConditionRemoveFieldButtonSelector,
+      onAddField: ($field) => {
+        initializeDisplayConditionField($field);
+      },
+      onRemoveField: () => {
+      }
+    });
   };
 
   const dynamicFieldsForDisplayConditions = {};
-
-  const isMultipleChoiceOption = (value) => {
-    return value === "single_option" || value === "multiple_option" || value === "sorting"
-  };
-
-  const getSelectedQuestionType = (select) => {
-    const selectedOption = select.options[select.selectedIndex];
-    return $(selectedOption).data("type");
-  };
 
   const setupInitialQuestionAttributes = ($target) => {
     const fieldId = $target.attr("id");

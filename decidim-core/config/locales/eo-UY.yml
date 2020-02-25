@@ -59,8 +59,6 @@ eo:
     account:
       data_portability_export:
         file_no_exists: Dosiero ne ekzistas
-        invalid_token: La provizita tokeno ne validas.
-        no_token: Neniu tokeno provizita
         notice: La malŝarĝo de viaj datumoj nuntempe progresas. Vi ricevos retpoŝton kiam ĝi estos kompleta.
       delete:
         alert: Ĉi tiu ago ne eblas. Se vi forigas vian konton, vi ne povos ensaluti.
@@ -81,10 +79,6 @@ eo:
           '2': Compare your amendment
           '3': Complete your amendment
           '4': Publish your amendment
-    gamification:
-      badges:
-        continuity:
-          next_level_in: Konekti por %{score} sinsekvaj tagoj por atingi la sekvan nivelon!
     group_admins:
       demote:
         success: Partoprenanto sukcese forigita de administranto

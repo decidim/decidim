@@ -27,6 +27,7 @@ FactoryBot.define do
     participatory_scope { generate_localized_title }
     participatory_structure { generate_localized_title }
     announcement { generate_localized_title }
+    show_metrics { true }
     show_statistics { true }
     private_space { false }
     start_date { Date.current }
@@ -43,6 +44,10 @@ FactoryBot.define do
 
     trait :published do
       published_at { Time.current }
+    end
+
+    trait :private do
+      private_space { true }
     end
 
     trait :with_steps do

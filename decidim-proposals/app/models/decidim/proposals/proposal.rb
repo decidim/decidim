@@ -25,6 +25,8 @@ module Decidim
       include Decidim::NewsletterParticipant
       include Decidim::Randomable
 
+      POSSIBLE_STATES = %w(not_answered evaluating accepted rejected withdrawn).freeze
+
       fingerprint fields: [:title, :body]
 
       amendable(
@@ -53,11 +55,33 @@ module Decidim
       scope :rejected, -> { where(state: "rejected") }
       scope :evaluating, -> { where(state: "evaluating") }
       scope :withdrawn, -> { where(state: "withdrawn") }
+      scope :not_answered, -> { where(state: nil) }
       scope :except_rejected, -> { where.not(state: "rejected").or(where(state: nil)) }
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
       scope :drafts, -> { where(published_at: nil) }
       scope :except_drafts, -> { where.not(published_at: nil) }
       scope :published, -> { where.not(published_at: nil) }
+      scope :official_origin, lambda {
+        where.not(coauthorships_count: 0)
+             .joins(:coauthorships)
+             .where(decidim_coauthorships: { decidim_author_type: "Decidim::Organization" })
+      }
+      scope :citizens_origin, lambda {
+        where.not(coauthorships_count: 0)
+             .joins(:coauthorships)
+             .where.not(decidim_coauthorships: { decidim_author_type: "Decidim::Organization" })
+      }
+      scope :user_group_origin, lambda {
+        where.not(coauthorships_count: 0)
+             .joins(:coauthorships)
+             .where(decidim_coauthorships: { decidim_author_type: "Decidim::UserBaseEntity" })
+             .where.not(decidim_coauthorships: { decidim_user_group_id: nil })
+      }
+      scope :meeting_origin, lambda {
+        where.not(coauthorships_count: 0)
+             .joins(:coauthorships)
+             .where(decidim_coauthorships: { decidim_author_type: "Decidim::Meetings::Meeting" })
+      }
 
       acts_as_list scope: :decidim_component_id
 
@@ -250,6 +274,23 @@ module Decidim
         Arel.sql(query)
       end
 
+      ransacker :id_string do
+        Arel.sql(%{cast("decidim_proposals_proposals"."id" as text)})
+      end
+
+      ransacker :is_emendation do |_parent|
+        query = <<-SQL
+        (
+          SELECT EXISTS (
+            SELECT 1 FROM decidim_amendments
+            WHERE decidim_amendments.decidim_emendation_type = 'Decidim::Proposals::Proposal'
+            AND decidim_amendments.decidim_emendation_id = decidim_proposals_proposals.id
+          )
+        )
+        SQL
+        Arel.sql(query)
+      end
+
       def self.export_serializer
         Decidim::Proposals::ProposalSerializer
       end
@@ -269,6 +310,14 @@ module Decidim
 
         limit = updated_at + component.settings.proposal_edit_before_minutes.minutes
         Time.current < limit
+      end
+
+      def process_amendment_state_change!
+        return unless %w(accepted rejected evaluating withdrawn).member?(amendment.state)
+
+        PaperTrail.request(enabled: false) do
+          update!(state: amendment.state)
+        end
       end
 
       private

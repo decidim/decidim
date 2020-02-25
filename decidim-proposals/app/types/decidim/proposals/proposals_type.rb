@@ -8,27 +8,24 @@ module Decidim
       name "Proposals"
       description "A proposals component of a participatory space."
 
-      connection :proposals, ProposalType.connection_type do
-        resolve ->(component, _args, _ctx) {
-                  ProposalsTypeHelper.base_scope(component).includes(:component)
-                }
-      end
+      connection :proposals,
+                 type: ProposalType.connection_type,
+                 description: "List all proposals",
+                 function: ProposalListHelper.new(model_class: Proposal)
 
-      field(:proposal, ProposalType) do
-        argument :id, !types.ID
-
-        resolve ->(component, args, _ctx) {
-          ProposalsTypeHelper.base_scope(component).find_by(id: args[:id])
-        }
-      end
+      field :proposal,
+            type: ProposalType,
+            description: "Finds one proposal",
+            function: ProposalFinderHelper.new(model_class: Proposal)
     end
 
-    module ProposalsTypeHelper
-      def self.base_scope(component)
-        Proposal
-          .where(component: component)
-          .published
-      end
+    class ProposalListHelper < Decidim::Core::ComponentListBase
+      argument :order, ProposalInputSort, "Provides several methods to order the results"
+      argument :filter, ProposalInputFilter, "Provides several methods to filter the results"
+    end
+
+    class ProposalFinderHelper < Decidim::Core::ComponentFinderBase
+      argument :id, !types.ID, "The ID of the proposal"
     end
   end
 end
