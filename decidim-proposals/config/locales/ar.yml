@@ -116,6 +116,7 @@ ar:
         name: اقتراحات
         settings:
           global:
+            allow_card_image: السماح بالبطاقة الصورية
             amendments_enabled: تم تمكين التعديلات
             announcement: إعلان
             attachments_allowed: السماح للمرفقات
@@ -124,6 +125,7 @@ ar:
             comments_enabled: تم تمكين التعليقات
             geocoding_enabled: تم تمكين الترميز الجغرافي
             minimum_votes_per_user: الحد الأدنى من الدعم لكل مستخدم
+            new_proposal_body_template: نموذج جديد لمحتوى المُقتَرَح
             new_proposal_help_text: نص مساعدة اقتراح جديد
             official_proposals_enabled: تم تمكين المقترحات الرسمية
             participatory_texts_enabled: تم تمكين النصوص التشاركية
@@ -139,6 +141,7 @@ ar:
             threshold_per_proposal: عتبة لكل اقتراح
             vote_limit: حد الدعم لكل مشارك
           step:
+            amendments_visibility: رؤية التعديل
             announcement: إعلان
             automatic_hashtags: علامات التصنيف المضافة إلى جميع المقترحات
             comments_blocked: تم حظر التعليقات
@@ -400,6 +403,8 @@ ar:
             comments_neutral_count: محايد
             comments_positive_count: مع
             created_at: تاريخ الإنشاء
+            documents: المستندات
+            link: الرابط
             photos: الصور
             proposals: المقترحات
             ranking: "%{ranking} مِن %{total}"
