@@ -8,6 +8,20 @@ PR [\#5676](https://github.com/decidim/decidim/pull/5676) introduced a deprecati
 
 - `Decidim::ParticipatorySpaceResourceable#link_participatory_spaces_resources` should be renamed to `link_participatory_space_resources` (notice singular `spaces`)
 
+PR [\#5768](https://github.com/decidim/decidim/pull/5768) introduced a deprecation warning:
+
+- `:here_app_id ` and `:here_app_code` that might be configured in `config/initializers/decidim.rb` are no longer valid authorization key-values for the HERE Maps API. Now it is required to generate and API key using the keyword `:here_api_key` to replace the old ones:
+
+`config/initializers/decidim.rb`:
+```ruby
+  Geocoder configuration
+    config.geocoder = {
+    #...
+      here_api_key: Rails.application.secrets.geocoder[:here_api_key],
+    #...
+  }
+```
+
 ### Upgrade notes
 
 - **Assembly types**
