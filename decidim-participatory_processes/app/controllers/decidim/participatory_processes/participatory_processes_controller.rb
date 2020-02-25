@@ -6,7 +6,7 @@ module Decidim
     # public layout.
     class ParticipatoryProcessesController < Decidim::ParticipatoryProcesses::ApplicationController
       include ParticipatorySpaceContext
-      participatory_space_layout only: [:show, :statistics]
+      participatory_space_layout only: [:show, :all_metrics]
       include FilterResource
 
       helper_method :collection,
@@ -28,7 +28,7 @@ module Decidim
         enforce_permission_to :read, :process, process: current_participatory_space
       end
 
-      def statistics
+      def all_metrics
         enforce_permission_to :read, :process, process: current_participatory_space
       end
 
