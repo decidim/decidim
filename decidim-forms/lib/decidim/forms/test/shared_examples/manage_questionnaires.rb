@@ -670,6 +670,18 @@ shared_examples_for "manage questionnaires" do
             end
           end
 
+          it "fills condition_question select with saved questions from questionnaire" do
+            within ".questionnaire-question:last-of-type" do
+              click_button "Add display condition"
+
+              within ".questionnaire-question-display-condition:last-of-type" do
+                options = questions.map { |question| question["body"]["en"] }
+                options << "Select a question"
+                expect(page).to have_select("Question", options: options)
+              end
+            end
+          end
+
           it "fills answer_options select with correct options" do
             within ".questionnaire-question:last-of-type" do
               click_button "Add display condition"
