@@ -670,6 +670,21 @@ shared_examples_for "manage questionnaires" do
             end
           end
 
+          it "fills answer_options select with correct options" do
+            within ".questionnaire-question:last-of-type" do
+              click_button "Add display condition"
+
+              within ".questionnaire-question-display-condition:last-of-type" do
+                select question_single_option.body["en"], from: "Question"
+                select "Equal", from: "Condition"
+
+                options = answer_options.map { |option| option["body"]["en"] }
+                options << "Select answer option"
+                expect(page).to have_select("Answer option", options: options)
+              end
+            end
+          end
+
           it "loads an empty value field" do
             within ".questionnaire-question:last-of-type" do
               click_button "Add display condition"
@@ -688,7 +703,8 @@ shared_examples_for "manage questionnaires" do
               click_button "Add display condition"
 
               within ".questionnaire-question-display-condition:last-of-type" do
-                expect(page).to have_no_css("[id$=mandatory][checked]")
+                expect(page).to have_selector("[id$=mandatory]")
+                expect(page).to have_no_selector("[id$=mandatory][checked]")
               end
             end
           end
