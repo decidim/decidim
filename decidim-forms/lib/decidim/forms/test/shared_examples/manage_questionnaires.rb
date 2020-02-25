@@ -644,6 +644,32 @@ shared_examples_for "manage questionnaires" do
         end
 
         context "when clicking add display condition button" do
+          it "adds a new display condition form with all correct elements" do
+            within "form.edit_questionnaire" do
+              within ".questionnaire-question:last-of-type" do
+                click_button "Add display condition"
+
+                within ".questionnaire-question-display-condition:last-of-type" do
+                  expect(page).to have_select("Question")
+                  expect(page).to have_select("Condition")
+                  expect(page).to have_selector("[id$=mandatory]")
+
+                  select question_single_option.body["en"], from: "Question"
+                  select "Answered", from: "Condition"
+
+                  expect(page).to have_no_select("Answer option")
+                  expect(page).to have_no_css("[id$=condition_value_en]", visible: true)
+
+                  select question_single_option.body["en"], from: "Question"
+                  select "Equal", from: "Condition"
+
+                  expect(page).to have_select("Answer option")
+                  expect(page).to have_no_css("[id$=condition_value_en]", visible: true)
+                end
+              end
+            end
+          end
+
           it "loads an empty value field" do
             within ".questionnaire-question:last-of-type" do
               click_button "Add display condition"
