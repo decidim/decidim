@@ -405,6 +405,7 @@ ar:
             ranking: "%{ranking} مِن %{total}"
             related_meetings: ملتقيات ذات صلة
             votes_count: يدعم العد
+            votes_ranking: ترتيب حسب الدّعم المتلقّى
           update_category:
             invalid: 'هذه المقترحات لديها بالفعل فئة %{category} : %{proposals}.'
             select_a_category: الرجاء تحديد الفئة
@@ -731,6 +732,7 @@ ar:
           changes_at_title: تعديل على "%{title}"
           edit_proposal: تعديل الاقتراح
           endorsements_list: قائمة المصادقة
+          estimated_cost: التكلفة التقديرية
           hidden_endorsers_count:
             zero: و %{count} المزيد من الناس
             one: و %{count} شخص آخر
