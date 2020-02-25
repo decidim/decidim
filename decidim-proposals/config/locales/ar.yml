@@ -685,6 +685,7 @@ ar:
           label: 'ترتيب المقترحات حسب:'
           most_commented: الأكثر تعليقًا عليها
           most_endorsed: التي تحصلت على أكبر دعم
+          most_followed: الأكثر متابَعة
           most_voted: التي تحصلت على أكبر دعم
           random: عشوائية
           recent: الأخيرة
