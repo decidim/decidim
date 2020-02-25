@@ -93,7 +93,7 @@ en:
             other: "%{count} projects"
         filters:
           category: Category
-          category_prompt: Select a category
+          scope: Scope
           search: Search
         filters_small_view:
           close_modal: Close modal

@@ -8,7 +8,7 @@
           <%= default_item[:name] %>
         </div>
       </button>
-      <div class="row column process-nav__content" id="process-nav-content" data-toggler=".is-active">
+      <div class="row column process-nav__content <%= browser.mobile? ? "is-active" : "" %>" id="process-nav-content" data-toggler=".is-active">
         <ul>
           <% items.each_with_index do |item, index| %>
             <li class="<%= "is-active" if item[:active] %> <%= "hide-for-medium" if index > max_items %>">

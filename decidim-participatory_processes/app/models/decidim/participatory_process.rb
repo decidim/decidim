@@ -49,6 +49,10 @@ module Decidim
              foreign_type: "decidim_participatory_space_type",
              dependent: :destroy,
              as: :participatory_space
+    belongs_to :scope_type_max_depth,
+               foreign_key: "decidim_scope_type_id",
+               class_name: "Decidim::ScopeType",
+               optional: true
 
     has_many :components, as: :participatory_space, dependent: :destroy
 
@@ -151,7 +155,7 @@ module Decidim
 
     # Allow ransacker to search for a key in a hstore column (`title`.`en`)
     ransacker :title do |parent|
-      Arel::Nodes::InfixOperation.new("->", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
+      Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
     end
   end
 end

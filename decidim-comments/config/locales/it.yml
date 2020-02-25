@@ -42,6 +42,7 @@ it:
           against: Contro
           in_favor: A favore
         deleted_user: Utente cancellato
+        hide_replies: Nascondi risposte
         reply: Rispondi
         report:
           action: Report
@@ -54,6 +55,8 @@ it:
             offensive: Vi sono contenuti razzisti, sessisti, offensivi, attacchi di carattere personale, minacce di morte o altro tipo di minacci, istigazioni al suicidio o altre forme d'odio verbale.
             spam: Contiene pubblicità, truffe, clickbait ("esca da click") o altro contenuto mirato ad attrarre traffico internet.
           title: Segnala un problema
+        show_replies: Mostra %{replies_count} risposte
+        single_comment_link_title: Ottieni link a singolo commento
       comment_order_selector:
         order:
           best_rated: Favoriti

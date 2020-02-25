@@ -204,7 +204,7 @@ module Decidim
 
     # Allow ransacker to search for a key in a hstore column (`title`.`en`)
     ransacker :title do |parent|
-      Arel::Nodes::InfixOperation.new("->", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
+      Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
     end
   end
 end
