@@ -296,12 +296,10 @@ it:
         see_all: Vedi tutto (%{count})
     proposals:
       actions:
-        answer: Risposta
         edit_proposal: Modifica proposta
         import: Importa da un altro componente
         new: Nuova proposta
         participatory_texts: Testi partecipativi
-        private_notes: Note private
         title: Azioni
       admin:
         actions:
@@ -346,11 +344,7 @@ it:
           update:
             success: Testo partecipativo aggiornato correttamente.
         proposal_answers:
-          edit:
-            accepted: Accettata
-            answer_proposal: Risposta
-            evaluating: Valutare
-            rejected: Rifiutata
+          form:
             title: Risposta per la proposta %{title}
         proposal_notes:
           create:
@@ -393,6 +387,9 @@ it:
           new:
             create: Crea
             title: Crea una proposta
+          show:
+            created_at: Data di creazione
+            votes_count: Contare i voti
           update_category:
             invalid: 'Queste proposte avevano già la categoria %{category} : %{proposals}.'
             select_a_category: Si prega di selezionare una categoria
@@ -415,12 +412,6 @@ it:
           create:
             invalid: Si è verificato un errore durante la divisione delle proposte selezionate.
             success: Suddiviso con successo le proposte in nuove.
-        shared:
-          info_proposal:
-            body: Corpo
-            created_at: Data di creazione
-            proposal_votes_count: Contare i voti
-            proposals: proposte
       admin_log:
         proposal:
           answer: "%{user_name} ha risposto alla proposta %{resource_name} sullo spazio %{space_name}"
@@ -445,7 +436,6 @@ it:
           accepted: Accettato
           all: Tutti
           evaluating: Valutare
-          except_rejected: Tutto tranne rifiutato
           rejected: Respinto
         filter_type_values:
           all: Tutti
@@ -494,7 +484,6 @@ it:
           all: Tutti
           amendment: Modifiche
           category: Categoria
-          category_prompt: Prompt di categoria
           open: Aperto
           published: Pubblicato
           related_to: Relativo a
@@ -648,7 +637,6 @@ it:
           all: Tutti
           amendment_type: genere
           category: Categoria
-          category_prompt: Scegli una categoria
           my_proposals: Le mie proposte
           origin: Origine
           related_to: Associata a
@@ -719,7 +707,6 @@ it:
           withdraw_proposal: Ritirare la proposta
         tags:
           changed_from: "(modificato da <u>%{previous_category}</u> da un amministratore)"
-          filed_as: Classificato come
         vote_button:
           already_voted: Già votata
           already_voted_hover: Annullare il voto

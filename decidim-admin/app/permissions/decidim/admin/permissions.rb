@@ -16,7 +16,13 @@ module Decidim
           return permission_action
         end
 
-        return user_manager_permissions if user_manager?
+        if user_manager?
+          begin
+            allow! if user_manager_permissions.allowed?
+          rescue Decidim::PermissionAction::PermissionNotSetError
+            nil
+          end
+        end
 
         allow! if user_can_enter_space_area?(require_admin_terms_accepted: true)
 

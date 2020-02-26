@@ -58,6 +58,7 @@ PATH
     decidim-comments (0.21.0.pre.dev)
       decidim-core (= 0.21.0.pre.dev)
       jquery-rails (~> 4.3)
+      redcarpet (~> 3.4)
     decidim-conferences (0.21.0.pre.dev)
       decidim-core (= 0.21.0.pre.dev)
       decidim-meetings (= 0.21.0.pre.dev)
@@ -409,7 +410,7 @@ GEM
     graphiql-rails (1.4.11)
       railties
       sprockets-rails
-    graphql (1.9.17)
+    graphql (1.10.1)
     hashdiff (1.0.0)
     hashie (3.6.0)
     highline (2.0.3)

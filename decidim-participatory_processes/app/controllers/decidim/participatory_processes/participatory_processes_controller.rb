@@ -9,7 +9,13 @@ module Decidim
       participatory_space_layout only: [:show, :statistics]
       include FilterResource
 
-      helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :metrics, :default_date_filter
+      helper_method :collection,
+                    :promoted_participatory_processes,
+                    :participatory_processes,
+                    :stats,
+                    :metrics,
+                    :default_date_filter,
+                    :related_processes
 
       def index
         raise ActionController::RoutingError, "Not Found" if published_processes.none?
@@ -91,6 +97,14 @@ module Decidim
         return "past" if published_processes.any?(&:past?)
 
         "all"
+      end
+
+      def related_processes
+        @related_processes ||=
+          current_participatory_space
+          .linked_participatory_space_resources(:participatory_processes, "related_processes")
+          .published
+          .all
       end
     end
   end

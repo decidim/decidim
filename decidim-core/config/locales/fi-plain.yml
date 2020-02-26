@@ -88,6 +88,9 @@ fi-pl:
         error: Tilisi päivityksessä tapahtui virhe.
         success: Tilisi on onnistuneesti päivitetty.
         success_with_email_confirmation: Tilisi päivitettiin onnistuneesti. Sähköpostiisi on lähetetty viesti uuden sähköpostiosoitteesi vahvistamiseksi.
+    admin:
+      actions:
+        cancel: Peruuta
     admin_log:
       area:
         create: "%{user_name} loi %{resource_name} alueen"
@@ -231,6 +234,7 @@ fi-pl:
       photos:
         related_photos: Liittyvät kuvat
     author:
+      avatar: Avatar
       comments:
         one: kommentti
         other: kommentit

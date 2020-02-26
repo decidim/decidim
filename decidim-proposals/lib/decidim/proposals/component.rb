@@ -34,6 +34,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :geocoding_enabled, type: :boolean, default: false
     settings.attribute :attachments_allowed, type: :boolean, default: false
+    settings.attribute :allow_card_image, type: :boolean, default: false
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :collaborative_drafts_enabled, type: :boolean, default: false
     settings.attribute :participatory_texts_enabled, type: :boolean, default: false
@@ -57,6 +58,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :comments_blocked, type: :boolean, default: false
     settings.attribute :creation_enabled, type: :boolean
     settings.attribute :proposal_answering_enabled, type: :boolean, default: true
+    settings.attribute :answers_with_costs, type: :boolean, default: false
     settings.attribute :amendment_creation_enabled, type: :boolean, default: true
     settings.attribute :amendment_reaction_enabled, type: :boolean, default: true
     settings.attribute :amendment_promotion_enabled, type: :boolean, default: true
@@ -248,7 +250,7 @@ Decidim.register_component(:proposals) do |component|
           scope: Faker::Boolean.boolean(0.5) ? global : scopes.sample,
           title: "#{proposal.title} #{Faker::Lorem.sentence(1)}",
           body: "#{proposal.body} #{Faker::Lorem.sentence(3)}",
-          state: nil,
+          state: "evaluating",
           answer: nil,
           answered_at: Time.current,
           published_at: Time.current
