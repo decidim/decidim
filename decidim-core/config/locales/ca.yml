@@ -580,6 +580,7 @@ ca:
       create:
         button: Seguir
         error: S'ha produït un error en seguir aquest recurs.
+        participatory_space: Seguint
       destroy:
         button: Deixar de seguir
         error: S'ha produït un error en deixar de seguir aquest recurs.
