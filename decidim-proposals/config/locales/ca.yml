@@ -732,6 +732,7 @@ ca:
           creation_date: 'Data de creació: %{date}'
           view_proposal: Veure proposta
         show:
+          answer: Respondre
           back_to: Torna
           changes_at_title: Esmena a "%{title}"
           edit_proposal: Edita proposta
