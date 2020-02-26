@@ -28,7 +28,6 @@ en:
         questionnaires:
           actions:
             back: Back to questions
-            export: Export responses
             show: Show responses
           answer_option:
             answer_option: Answer option
@@ -38,15 +37,12 @@ en:
           answers:
             actions:
               back: Back to responses
-              export: Export
               show: Show answers
             empty: No answers yet
             export:
               answer:
                 title: 'Response #%{number}'
               title: Responses
-            export_response:
-              title: Response for %{token}
             index:
               title: Responses
             show:
