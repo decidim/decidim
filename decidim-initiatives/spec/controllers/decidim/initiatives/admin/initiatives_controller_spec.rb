@@ -337,7 +337,7 @@ module Decidim
             end
 
             it "does not pass to technical validation phase" do
-              created_initiative.type.update_attribute(:minimum_committee_members, 4)
+              created_initiative.type.update(minimum_committee_members: 4)
               get :send_to_technical_validation, params: { slug: created_initiative.to_param }
 
               created_initiative.reload
@@ -345,7 +345,7 @@ module Decidim
             end
 
             it "does pass to technical validation phase" do
-              created_initiative.type.update_attribute(:minimum_committee_members, 3)
+              created_initiative.type.update(minimum_committee_members: 3)
               get :send_to_technical_validation, params: { slug: created_initiative.to_param }
 
               created_initiative.reload
