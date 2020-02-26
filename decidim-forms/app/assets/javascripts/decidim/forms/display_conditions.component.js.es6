@@ -10,15 +10,15 @@
       this.mandatory = options.mandatory;
       this.value = options.value;
       this.onFulfilled = options.onFulfilled;
-      this._bindEvent();
+      this.bindEvent();
     }
 
-    _bindEvent() {
-      this._checkCondition();
-      this._getInputsToListen().on("change", this._checkCondition.bind(this));
+    bindEvent() {
+      this.checkCondition();
+      this.getInputsToListen().on("change", this.checkCondition.bind(this));
     }
 
-    _getInputValue() {
+    getInputValue() {
       const $conditionWrapperField = $(`.question[data-question-id='${this.conditionQuestion}']`);
       const $textInput = $conditionWrapperField.find("textarea, input[type='text']:not([name$=\\[custom_body\\]])");
 
@@ -45,7 +45,7 @@
       return multipleInput;
     }
 
-    _getInputsToListen() {
+    getInputsToListen() {
       const $conditionWrapperField = $(`.question[data-question-id='${this.conditionQuestion}']`);
       const $textInput = $conditionWrapperField.find("textarea, input[type='text']:not([name$=\\[custom_body\\]])");
 
@@ -58,32 +58,68 @@
       return $conditionWrapperField.find(".collection-input").find("input:not([type='hidden'])");
     }
 
-    _checkCondition() {
-      const value = this._getInputValue();
-      const simpleValue = typeof (value) !== "object";
+    checkAnsweredCondition(value) {
+      if (typeof (value) !== "object") {
+        return Boolean(value);
+      }
+
+      return Boolean(value.some((it) => it.value));
+    }
+
+    checkNotAnsweredCondition(value) {
+      return !this.checkAnsweredCondition(value);
+    }
+
+    checkEqualCondition(value) {
+      if (value.length) {
+        return value.some((it) => it.id === this.answerOption.toString());
+      }
+      return false;
+    }
+
+    checkNotEqualCondition(value) {
+      if (value.length) {
+        return value.every((it) => it.id !== this.answerOption.toString());
+      }
+      return false;
+    }
+
+    checkMatchCondition(value) {
+      let regexp = new RegExp(this.value, "i");
+
+      if (typeof (value) !== "object") {
+        return Boolean(value.match(regexp));
+      }
+
+      return value.some(function (it) {
+        return it.text
+          ? it.text.match(regexp)
+          : it.value.match(regexp)
+      });
+    }
+
+    checkCondition() {
+      const value = this.getInputValue();
       let fulfilled = false;
 
       switch (this.type) {
       case "answered":
-        if (simpleValue ? Boolean(value) : Boolean(value.some((it) => it.value))) {
-          fulfilled = true;
-        }
+        fulfilled = this.checkAnsweredCondition(value);
         break;
       case "not_answered":
-        if (simpleValue ? !value : !value.some((it) => it.value)) {
-          fulfilled = true;
-        }
+        fulfilled = this.checkNotAnsweredCondition(value);
         break;
       case "equal":
-        fulfilled = value.length ? value.some((it) => it.id === this.answerOption) : false;
+        fulfilled = this.checkEqualCondition(value);
         break;
       case "not_equal":
-        fulfilled = value.length ? value.every((it) => it.id !== this.answerOption) : false;
+        fulfilled = this.checkNotEqualCondition(value);
         break;
       case "match":
-        const regexp = new RegExp(this.value, "i");
-        const match = simpleValue ? value.match(regexp) : value.some((it) => (it.text ? it.text.match(regexp) : it.value.match(regexp)));
-        fulfilled = Boolean(match);
+        fulfilled = this.checkMatchCondition(value);
+        break;
+      default:
+        fulfilled = false;
         break;
       }
 
@@ -96,10 +132,10 @@
       this.wrapperField = options.wrapperField;
       this.conditions = {};
       this.showCount = 0;
-      this._initializeConditions();
+      this.initializeConditions();
     }
 
-    _initializeConditions() {
+    initializeConditions() {
       const $conditionElements = this.wrapperField.find(".display-condition");
 
       $conditionElements.each((idx, el) => {
@@ -115,13 +151,13 @@
           mandatory: $condition.data("mandatory"),
           value: $condition.data("value"),
           onFulfilled: (fulfilled) => {
-            this._onFulfilled(id, fulfilled);
+            this.onFulfilled(id, fulfilled);
           }
         });
       });
     }
 
-    _mustShow() {
+    mustShow() {
       const conditions = Object.values(this.conditions);
       const mandatoryConditions = conditions.filter((condition) => condition.mandatory);
       const nonMandatoryConditions = conditions.filter((condition) => !condition.mandatory);
@@ -134,24 +170,24 @@
 
     }
 
-    _onFulfilled(id, fulfilled) {
+    onFulfilled(id, fulfilled) {
       this.conditions[id].fulfilled = fulfilled;
 
-      if (this._mustShow()) {
-        this._showQuestion();
+      if (this.mustShow()) {
+        this.showQuestion();
       }
       else {
-        this._hideQuestion();
+        this.hideQuestion();
       }
     }
 
-    _showQuestion() {
+    showQuestion() {
       this.wrapperField.fadeIn();
       this.wrapperField.find("input, textarea").prop("disabled", null);
       this.showCount++;
     }
 
-    _hideQuestion() {
+    hideQuestion() {
       if (this.showCount) {
         this.wrapperField.fadeOut();
       }
