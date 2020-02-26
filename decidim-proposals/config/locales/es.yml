@@ -103,6 +103,7 @@ es:
         name: Propuestas
         settings:
           global:
+            allow_card_image: Permitir tarjeta con imagen
             amendments_enabled: Enmiendas habilitadas
             amendments_enabled_help: Si está activo, configura las opciones de enmiendas para cada fase.
             amendments_wizard_help_text: Asistente de ayuda de las enmiendas
@@ -732,6 +733,7 @@ es:
           creation_date: 'Fecha de creación: %{date}'
           view_proposal: Ver propuesta
         show:
+          answer: Responder
           back_to: Volver a
           changes_at_title: Enmienda a "%{title}"
           edit_proposal: Editar propuesta
