@@ -118,6 +118,7 @@ describe "Conversations", type: :system do
         visit_inbox
         click_link interlocutor.name
         fill_in "message_body", with: "Please reply!"
+        expect(page).to have_content("Send")
         click_button "Send"
       end
 
