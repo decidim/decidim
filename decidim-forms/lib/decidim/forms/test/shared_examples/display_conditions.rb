@@ -16,10 +16,8 @@ shared_examples_for "display conditions" do
   let!(:conditioned_question_id) { "#questionnaire_answers_1" }
   let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 2) }
 
-  let(:condition_question_short_answer) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "short_answer", position: 1) }
-  let(:condition_question_long_answer) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "long_answer", position: 1) }
-  let(:condition_question_single_option) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "single_option", position: 1, options: answer_options) }
-  let(:condition_question_multiple_option) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "multiple_option", position: 1, options: answer_options) }
+  let!(:condition_question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: condition_question_type, position: 1, options: condition_question_options) }
+  let(:condition_question_options) { [] }
 
   let(:answer_options) do
     3.times.to_a.map do |x|
@@ -39,7 +37,7 @@ shared_examples_for "display conditions" do
       end
 
       context "when the condition_question type is short answer" do
-        let!(:condition_question) { condition_question_short_answer }
+        let!(:condition_question_type) { "short_answer" }
 
         it "shows the question only if the condition is fulfilled" do
           expect_question_to_be_visible(false)
@@ -57,7 +55,7 @@ shared_examples_for "display conditions" do
       end
 
       context "when the condition_question type is long answer" do
-        let!(:condition_question) { condition_question_long_answer }
+        let!(:condition_question_type) { "long_answer" }
 
         it "shows the question only if the condition is fulfilled" do
           expect_question_to_be_visible(false)
@@ -75,7 +73,8 @@ shared_examples_for "display conditions" do
       end
 
       context "when the condition_question type is single option" do
-        let!(:condition_question) { condition_question_single_option }
+        let!(:condition_question_type) { "single_option" }
+        let!(:condition_question_options) { answer_options }
 
         it "shows the question only if the condition is fulfilled" do
           expect_question_to_be_visible(false)
@@ -91,7 +90,8 @@ shared_examples_for "display conditions" do
       end
 
       context "when the condition_question type is multiple option" do
-        let!(:condition_question) { condition_question_multiple_option }
+        let!(:condition_question_type) { "multiple_option" }
+        let!(:condition_question_options) { answer_options }
 
         it "shows the question only if the condition is fulfilled" do
           expect_question_to_be_visible(false)
@@ -123,7 +123,7 @@ shared_examples_for "display conditions" do
       end
 
       context "when the condition_question type is short answer" do
-        let!(:condition_question) { condition_question_short_answer }
+        let!(:condition_question_type) { "short_answer" }
 
         it "shows the question only if the condition is fulfilled" do
           expect_question_to_be_visible(true)
@@ -141,7 +141,7 @@ shared_examples_for "display conditions" do
       end
 
       context "when the condition_question type is long answer" do
-        let!(:condition_question) { condition_question_long_answer }
+        let!(:condition_question_type) { "long_answer" }
 
         it "shows the question only if the condition is fulfilled" do
           expect_question_to_be_visible(true)
@@ -159,7 +159,8 @@ shared_examples_for "display conditions" do
       end
 
       context "when the condition_question type is single option" do
-        let!(:condition_question) { condition_question_single_option }
+        let!(:condition_question_type) { "single_option" }
+        let!(:condition_question_options) { answer_options }
 
         it "shows the question only if the condition is fulfilled" do
           expect_question_to_be_visible(true)
@@ -171,7 +172,8 @@ shared_examples_for "display conditions" do
       end
 
       context "when the condition_question type is multiple option" do
-        let!(:condition_question) { condition_question_multiple_option }
+        let!(:condition_question_type) { "multiple_option" }
+        let!(:condition_question_options) { answer_options }
 
         it "shows the question only if the condition is fulfilled" do
           expect_question_to_be_visible(true)
@@ -195,7 +197,8 @@ shared_examples_for "display conditions" do
       end
 
       context "when the condition_question type is single option" do
-        let!(:condition_question) { condition_question_single_option }
+        let!(:condition_question_type) { "single_option" }
+        let!(:condition_question_options) { answer_options }
 
         it "shows the question only if the condition is fulfilled" do
           expect_question_to_be_visible(false)
@@ -211,7 +214,8 @@ shared_examples_for "display conditions" do
       end
 
       context "when the condition_question type is multiple option" do
-        let!(:condition_question) { condition_question_multiple_option }
+        let!(:condition_question_type) { "multiple_option" }
+        let!(:condition_question_options) { answer_options }
 
         it "shows the question only if the condition is fulfilled" do
           expect_question_to_be_visible(false)
@@ -243,7 +247,8 @@ shared_examples_for "display conditions" do
       end
 
       context "when the condition_question type is single option" do
-        let!(:condition_question) { condition_question_single_option }
+        let!(:condition_question_type) { "single_option" }
+        let!(:condition_question_options) { answer_options }
 
         it "shows the question only if the condition is fulfilled" do
           expect_question_to_be_visible(false)
@@ -259,7 +264,8 @@ shared_examples_for "display conditions" do
       end
 
       context "when the condition_question type is multiple option" do
-        let!(:condition_question) { condition_question_multiple_option }
+        let!(:condition_question_type) { "multiple_option" }
+        let!(:condition_question_options) { answer_options }
 
         it "shows the question only if the condition is fulfilled" do
           expect_question_to_be_visible(false)
@@ -292,7 +298,7 @@ shared_examples_for "display conditions" do
       end
 
       context "when the condition_question type is short answer" do
-        let!(:condition_question) { condition_question_short_answer }
+        let!(:condition_question_type) { "short_answer" }
 
         it "shows the question only if the condition is fulfilled" do
           expect_question_to_be_visible(false)
@@ -315,7 +321,7 @@ shared_examples_for "display conditions" do
       end
 
       context "when the condition_question type is long answer" do
-        let!(:condition_question) { condition_question_long_answer }
+        let!(:condition_question_type) { "long_answer" }
 
         it "shows the question only if the condition is fulfilled" do
           expect_question_to_be_visible(false)
@@ -338,7 +344,8 @@ shared_examples_for "display conditions" do
       end
 
       context "when the condition_question type is single option" do
-        let!(:condition_question) { condition_question_single_option }
+        let!(:condition_question_type) { "single_option" }
+        let!(:condition_question_options) { answer_options }
         let!(:condition_value) { { en: condition_question.answer_options.first.body["en"].split.second.upcase } }
 
         it "shows the question only if the condition is fulfilled" do
@@ -351,7 +358,8 @@ shared_examples_for "display conditions" do
       end
 
       context "when the condition_question type is single option with free text" do
-        let!(:condition_question) { condition_question_single_option }
+        let!(:condition_question_type) { "single_option" }
+        let!(:condition_question_options) { answer_options }
         let!(:condition_value) { { en: "forty two" } }
 
         it "shows the question only if the condition is fulfilled" do
@@ -375,7 +383,8 @@ shared_examples_for "display conditions" do
       end
 
       context "when the condition_question type is multiple option" do
-        let!(:condition_question) { condition_question_multiple_option }
+        let!(:condition_question_type) { "multiple_option" }
+        let!(:condition_question_options) { answer_options }
         let!(:condition_value) { { en: "forty two" } }
 
         it "shows the question only if the condition is fulfilled" do
@@ -409,7 +418,8 @@ shared_examples_for "display conditions" do
     end
 
     context "when all conditions are mandatory" do
-      let!(:condition_question) { condition_question_single_option }
+      let!(:condition_question_type) { "single_option" }
+      let!(:condition_question_options) { answer_options }
       let!(:display_conditions) do
         [
           create(:display_condition, condition_type: "answered", question: question, condition_question: condition_question, mandatory: true),
@@ -431,10 +441,11 @@ shared_examples_for "display conditions" do
     end
 
     context "when all conditions are non-mandatory" do
-      let!(:condition_question) { condition_question_multiple_option }
+      let!(:condition_question_type) { "multiple_option" }
+      let!(:condition_question_options) { answer_options }
       let!(:display_conditions) do
         [
-          create(:display_condition, condition_type: "equal", question: question, condition_question: condition_question, answer_option: condition_question.answer_options.first),
+          create(:display_condition, condition_type: "equal", question: question, condition_question: condition_question, mandatory: false, answer_option: condition_question.answer_options.first),
           create(:display_condition, condition_type: "not_equal", question: question, condition_question: condition_question, mandatory: false, answer_option: condition_question.answer_options.third)
         ]
       end
