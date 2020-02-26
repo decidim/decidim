@@ -740,6 +740,7 @@ fi:
           creation_date: 'Luontiaika: %{date}'
           view_proposal: Näytä ehdotus
         show:
+          answer: Vastaa
           back_to: Takaisin
           changes_at_title: Muokkaus kohteelle "%{title}"
           edit_proposal: Muokkaa ehdotusta
