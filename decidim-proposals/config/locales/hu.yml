@@ -740,6 +740,7 @@ hu:
           creation_date: 'Létrehozás: %{date}'
           view_proposal: Javaslat megtekintése
         show:
+          answer: Válasz
           back_to: Vissza a
           changes_at_title: A (z) "%{title}" módosítása
           edit_proposal: Javaslat szerkesztése
