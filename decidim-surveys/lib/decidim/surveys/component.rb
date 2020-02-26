@@ -117,19 +117,21 @@ Decidim.register_component(:surveys) do |component|
       visibility: "all"
     )
 
-    %w(short_answer long_answer).each do |text_question_type|
+    %w(short_answer long_answer).each_with_index do |text_question_type, index|
       Decidim::Forms::Question.create!(
         questionnaire: questionnaire,
         body: Decidim::Faker::Localized.paragraph,
-        question_type: text_question_type
+        question_type: text_question_type,
+        position: index
       )
     end
 
-    %w(single_option multiple_option).each do |multiple_choice_question_type|
+    %w(single_option multiple_option).each_with_index do |multiple_choice_question_type, index|
       question = Decidim::Forms::Question.create!(
         questionnaire: questionnaire,
         body: Decidim::Faker::Localized.paragraph,
-        question_type: multiple_choice_question_type
+        question_type: multiple_choice_question_type,
+        position: index + 2
       )
 
       3.times do
