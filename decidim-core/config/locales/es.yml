@@ -580,6 +580,7 @@ es:
       create:
         button: Seguir
         error: Se ha producido un error al seguir este recurso.
+        participatory_space: Siguiendo
       destroy:
         button: Dejar de seguir
         error: Se ha producido un error al dejar de seguir este recurso.
