@@ -43,7 +43,6 @@
 
                   <% @form.answers.each_with_index do |answer, answer_idx| %>
                     <div class="row column question" data-conditioned="<%= answer.question.display_conditions.any? %>" data-question-id="<%= answer.question.id %>">
-                      
                       <% answer.question.display_conditions.each do |display_condition| %>
                         <%= content_tag :div, nil,  class: "display-condition", data: display_condition.to_html_data %>
                       <% end %>
