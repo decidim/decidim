@@ -49,8 +49,6 @@
       const $conditionWrapperField = $(`.question[data-question-id='${this.conditionQuestion}']`);
       const $textInput = $conditionWrapperField.find("textarea, input[type='text']:not([name$=\\[custom_body\\]])");
 
-      $conditionWrapperField.attr("style", "background: #ccffaa");
-
       if ($textInput.length) {
         return $textInput;
       }
@@ -103,24 +101,24 @@
       let fulfilled = false;
 
       switch (this.type) {
-      case "answered":
-        fulfilled = this.checkAnsweredCondition(value);
-        break;
-      case "not_answered":
-        fulfilled = this.checkNotAnsweredCondition(value);
-        break;
-      case "equal":
-        fulfilled = this.checkEqualCondition(value);
-        break;
-      case "not_equal":
-        fulfilled = this.checkNotEqualCondition(value);
-        break;
-      case "match":
-        fulfilled = this.checkMatchCondition(value);
-        break;
-      default:
-        fulfilled = false;
-        break;
+        case "answered":
+          fulfilled = this.checkAnsweredCondition(value);
+          break;
+        case "not_answered":
+          fulfilled = this.checkNotAnsweredCondition(value);
+          break;
+        case "equal":
+          fulfilled = this.checkEqualCondition(value);
+          break;
+        case "not_equal":
+          fulfilled = this.checkNotEqualCondition(value);
+          break;
+        case "match":
+          fulfilled = this.checkMatchCondition(value);
+          break;
+        default:
+          fulfilled = false;
+          break;
       }
 
       this.onFulfilled(fulfilled);
