@@ -9,4 +9,3 @@ Decidim::Dev.dummy_app_path = File.expand_path(File.join("..", "spec", "decidim_
 require "decidim/dev/test/base_spec_helper"
 
 require "decidim/forms/test"
-require "decidim/forms/test/shared_examples/display_conditions"
