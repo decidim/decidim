@@ -11,9 +11,9 @@ module Decidim
 
       # GET /resource/invitation/accept?invitation_token=abcdef
       def edit
-        # if the resource was invited but registered before accepting the invitation
-        if resource.try(:confirmed?) || resource.try(:confirmation_sent_at?)
-          resource.accept_invitation!
+        if resource_was_invited_but_registered_before_accepting_the_invitation?
+          resource.accept_invitation
+          resource.save!
           flash[:notice] = t("devise.invitations.already_registered", email: resource.email)
           return redirect_to after_accept_path_for(resource)
         end
@@ -52,6 +52,10 @@ module Decidim
 
       def configure_permitted_parameters
         devise_parameter_sanitizer.permit(:accept_invitation, keys: [:nickname, :tos_agreement, :newsletter_notifications])
+      end
+
+      def resource_was_invited_but_registered_before_accepting_the_invitation?
+        resource.try(:confirmed?) || resource.try(:confirmation_sent_at?)
       end
     end
   end
