@@ -634,10 +634,32 @@ shared_examples_for "manage questionnaires" do
       end
 
       context "when questionnaire has more than one question" do
-        let!(:question_short_answer) { create(:questionnaire_question, questionnaire: questionnaire, body: Decidim::Faker::Localized.sentence, question_type: "short_answer") }
-        let!(:question_long_answer) { create(:questionnaire_question, questionnaire: questionnaire, body: Decidim::Faker::Localized.sentence, question_type: "long_answer") }
-        let!(:question_single_option) { create(:questionnaire_question, questionnaire: questionnaire, body: Decidim::Faker::Localized.sentence, question_type: "single_option", options: answer_options) }
-        let!(:question_multiple_option) { create(:questionnaire_question, questionnaire: questionnaire, body: Decidim::Faker::Localized.sentence, question_type: "multiple_option", options: answer_options) }
+        let!(:question_short_answer) do
+          create(:questionnaire_question,
+                 questionnaire: questionnaire,
+                 body: Decidim::Faker::Localized.sentence,
+                 question_type: "short_answer")
+        end
+        let!(:question_long_answer) do
+          create(:questionnaire_question,
+                 questionnaire: questionnaire,
+                 body: Decidim::Faker::Localized.sentence,
+                 question_type: "long_answer")
+        end
+        let!(:question_single_option) do
+          create(:questionnaire_question,
+                 questionnaire: questionnaire,
+                 body: Decidim::Faker::Localized.sentence,
+                 question_type: "single_option",
+                 options: answer_options)
+        end
+        let!(:question_multiple_option) do
+          create(:questionnaire_question,
+                 questionnaire: questionnaire,
+                 body: Decidim::Faker::Localized.sentence,
+                 question_type: "multiple_option",
+                 options: answer_options)
+        end
 
         before do
           visit questionnaire_edit_path
