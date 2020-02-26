@@ -63,7 +63,7 @@ ca:
         one: Procés participatiu
         other: Processos participatius
       decidim/participatory_process_group:
-        one: Grup de processos participatius
+        one: Grups de processos participatius
         other: Grups de processos participatius
       decidim/participatory_process_step:
         one: Fase
