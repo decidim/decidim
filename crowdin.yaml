@@ -1,3 +1,4 @@
+commit_message: "[ci skip]"
 files:
   - source: /**/locales/en.yml
     translation: /**/locales/%locale%.yml
