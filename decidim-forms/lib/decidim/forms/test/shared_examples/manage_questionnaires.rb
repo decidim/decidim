@@ -661,6 +661,8 @@ shared_examples_for "manage questionnaires" do
                  options: answer_options)
         end
 
+        let(:questions) { [question_short_answer, question_long_answer, question_single_option, question_multiple_option] }
+
         before do
           visit questionnaire_edit_path
         end
@@ -702,9 +704,7 @@ shared_examples_for "manage questionnaires" do
                 expect(page).to have_select("Question", options: options)
 
                 within "select[id$=decidim_condition_question_id]" do
-                  elements = page.all("option[data-type]")
-                  expect(elements.map { |e| e[:"data-type"] }).to eq(questions.map(&:question_type))
-                  expect(page.find("option[value='#{questions.last.id}']")).to be_disabled
+                  expect(page.find("option[data-type='#{questions.last.question_type}'][value='#{questions.last.id}']")).to be_disabled
                 end
               end
             end
