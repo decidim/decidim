@@ -83,6 +83,13 @@ module Decidim
              .joins(:coauthorships)
              .where(decidim_coauthorships: { decidim_author_type: "Decidim::Meetings::Meeting" })
       }
+      scope :sort_by_valuation_assignments_count_asc, lambda {
+        order(sort_by_valuation_assignments_count_nulls_last_query + "ASC NULLS FIRST")
+      }
+
+      scope :sort_by_valuation_assignments_count_desc, lambda {
+        order(sort_by_valuation_assignments_count_nulls_last_query + "DESC NULLS LAST")
+      }
 
       def self.with_valuation_assigned_to(user, space)
         valuator_roles = space.user_roles(:valuator).where(user: user)
@@ -282,16 +289,16 @@ module Decidim
         Arel.sql(query)
       end
 
-      # method for sort_link by number of valuation assignments
-      ransacker :valuation_assignments_count do
-        query = <<-SQL
-        (SELECT COUNT(decidim_proposals_valuation_assignments.id)
-         FROM decidim_proposals_valuation_assignments
-         WHERE decidim_proposals_valuation_assignments.decidim_proposal_id = decidim_proposals_proposals.id
-         GROUP BY decidim_proposals_valuation_assignments.decidim_proposal_id
-         )
+      # Defines the base query so that ransack can actually sort by this value
+      def self.sort_by_valuation_assignments_count_nulls_last_query
+        <<-SQL
+        (
+          SELECT COUNT(decidim_proposals_valuation_assignments.id)
+          FROM decidim_proposals_valuation_assignments
+          WHERE decidim_proposals_valuation_assignments.decidim_proposal_id = decidim_proposals_proposals.id
+          GROUP BY decidim_proposals_valuation_assignments.decidim_proposal_id
+        )
         SQL
-        Arel.sql(query)
       end
 
       # method to filter by assigned valuator role ID
