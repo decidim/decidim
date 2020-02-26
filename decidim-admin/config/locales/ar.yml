@@ -565,6 +565,8 @@ ar:
           create: إنشاء
           title: مشارك جديد الفضاء الخاص المشارك.
       participatory_space_private_users_csv_imports:
+        create:
+          invalid: حدثت مشكلة أثناء قراءة ملف CSV.
         new:
           title: حمّل ملف CSV الخاص بك
           upload: حمّل
