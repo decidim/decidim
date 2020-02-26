@@ -687,6 +687,7 @@ nl:
           creation_date: 'Aangemaakt op: %{date}'
           view_proposal: Bekijk voorstel
         show:
+          answer: Antwoord
           back_to: Terug naar
           changes_at_title: Amendement op "%{title}"
           edit_proposal: Bewerk voorstel
