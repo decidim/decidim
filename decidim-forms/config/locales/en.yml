@@ -44,7 +44,6 @@ en:
             condition_value: Included text
             display_condition: Display condition
             mandatory: This condition needs to be satisfied always regardless the status of other conditions
-            question: Question statement
             remove: Remove
             save_warning: Remember to save the form before configuring display conditions
             select_answer_option: Select answer option
