@@ -96,7 +96,7 @@ en:
           label: Status
           values:
             'true': Not answered
-        valuator_role_ids_eq:
+        valuator_role_ids_has:
           label: Assigned to valuator
     components:
       proposals:

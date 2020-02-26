@@ -302,14 +302,20 @@ module Decidim
       end
 
       # method to filter by assigned valuator role ID
-      ransacker :valuator_role_ids do
+      def self.valuator_role_ids_has(value)
         query = <<-SQL
-        (SELECT decidim_proposals_valuation_assignments.valuator_role_id
-         FROM decidim_proposals_valuation_assignments
-         WHERE decidim_proposals_valuation_assignments.decidim_proposal_id = decidim_proposals_proposals.id
-         )
+        :value = any(
+          (SELECT decidim_proposals_valuation_assignments.valuator_role_id
+          FROM decidim_proposals_valuation_assignments
+          WHERE decidim_proposals_valuation_assignments.decidim_proposal_id = decidim_proposals_proposals.id
+          )
+        )
         SQL
-        Arel.sql(query)
+        where(query, value: value)
+      end
+
+      def self.ransackable_scopes(_auth = nil)
+        [:valuator_role_ids_has]
       end
 
       ransacker :id_string do
