@@ -41,7 +41,7 @@ en:
             empty: No answers yet
             export:
               answer:
-                title: "Response #%{number}"
+                title: 'Response #%{number}'
             index:
               title: Responses
             show:
