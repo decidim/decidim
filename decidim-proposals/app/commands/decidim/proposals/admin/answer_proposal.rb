@@ -40,11 +40,16 @@ module Decidim
             proposal,
             form.current_user
           ) do
-            proposal.update!(
+            attributes = {
               state: @form.state,
               answer: @form.answer,
-              answered_at: Time.current
-            )
+              answered_at: Time.current,
+              cost: @form.cost,
+              cost_report: @form.cost_report,
+              execution_period: @form.execution_period
+            }
+
+            proposal.update!(attributes)
           end
         end
 

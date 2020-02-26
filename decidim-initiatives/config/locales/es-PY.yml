@@ -33,6 +33,7 @@ es-PY:
         extra_fields_legal_information: Información legal sobre la recogida de datos personales.
         minimum_committee_members: Mínimo de miembros del comité.
         online_signature_enabled: Firma en línea habilitada
+        promoting_committee_enabled: Habilitar el comité promotor
         title: Título
         undo_online_signatures_enabled: Permitir a los usuarios deshacer sus firmas en línea
         validate_sms_code_on_votes: Añadir paso de validación de código SMS al proceso de firma
@@ -60,6 +61,18 @@ es-PY:
     admin:
       actions:
         new_initiative_type: Nuevo tipo de iniciativa
+      filters:
+        search_placeholder:
+          title_or_description_cont: Buscar %{collection} por título o descripción.
+        state_eq:
+          label: Estado
+          values:
+            accepted: Aceptado
+            created: Creado
+            discarded: Descartado
+            published: Publicado
+            rejected: Rechazado
+            validating: Validación técnica
       menu:
         initiatives: Iniciativas
         initiatives_types: Tipos de Iniciativa

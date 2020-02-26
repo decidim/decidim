@@ -12,7 +12,11 @@ module Decidim
           let(:form) { ProposalAnswerForm.from_params(form_params).with_context(current_user: current_user) }
           let(:form_params) do
             {
-              state: "rejected", answer: { en: "Foo" }
+              state: "rejected",
+              answer: { en: "Foo" },
+              cost: 2000,
+              cost_report: { en: "Cost report" },
+              execution_period: { en: "Execution period" }
             }
           end
 

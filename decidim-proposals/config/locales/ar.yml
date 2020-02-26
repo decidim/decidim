@@ -17,6 +17,7 @@ ar:
         automatic_hashtags: علامات التصنيف المضافة تلقائيًا
         body: الجسم
         category_id: الفئة
+        decidim_scope_id: النطاق
         has_address: لديه عنوان
         state: حالة
         suggested_hashtags: الهاشتاج المقترحة
@@ -93,6 +94,17 @@ ar:
         many: الدعم
         other: الدعم
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: النوع
+          values:
+            'false': مقترحات
+            'true': تعديلات
+        state_null:
+          label: الحالة
+          values:
+            'true': لم تتم الإجابة عليها
     components:
       proposals:
         actions:
@@ -186,6 +198,8 @@ ar:
             email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف "%{resource_title}".
             email_subject: تم قبول الاقتراح الخاص بك
             notification_title: تم قبول اقتراحك <a href="%{resource_path}">%{resource_title}</a>.
+          follower:
+            notification_title: لقد تم قبول المُقتَرح <a href="%{resource_path}">%{resource_title}</a>.
         proposal_endorsed:
           email_intro: '%{endorser_name} %{endorser_nickname}، الذي تتابعه ، وافق للتو على الاقتراح "%{resource_title}" ونعتقد أنه قد يكون مثيرا للاهتمام بالنسبة لك. التحقق من ذلك والمساهمة:'
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{endorser_nickname}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
@@ -289,12 +303,10 @@ ar:
         see_all: شاهد الكل (%{count})
     proposals:
       actions:
-        answer: إجابة
         edit_proposal: تعديل الاقتراح
         import: استيراد من مكون آخر
         new: عرض جديد
         participatory_texts: النصوص التشاركية
-        private_notes: ملاحظات خاصة
         title: أفعال
       admin:
         actions:
@@ -338,11 +350,7 @@ ar:
           update:
             success: تم تحديث النص التشاركي بنجاح.
         proposal_answers:
-          edit:
-            accepted: وافقت
-            answer_proposal: إجابة
-            evaluating: تقييم
-            rejected: مرفوض
+          form:
             title: الإجابة على الاقتراح %{title}
         proposal_notes:
           create:
@@ -384,6 +392,9 @@ ar:
           new:
             create: إنشاء
             title: إنشاء اقتراح
+          show:
+            created_at: تاريخ الإنشاء
+            votes_count: يدعم العد
           update_category:
             invalid: 'هذه المقترحات لديها بالفعل فئة %{category} : %{proposals}.'
             select_a_category: الرجاء تحديد الفئة
@@ -406,12 +417,6 @@ ar:
           create:
             invalid: كانت هناك مشكلة في تقسيم المقترحات المحددة.
             success: تم تقسيم المقترحات بنجاح إلى مقترحات جديدة.
-        shared:
-          info_proposal:
-            body: الجسم
-            created_at: تاريخ الإنشاء
-            proposal_votes_count: يدعم العد
-            proposals: اقتراحات
       admin_log:
         proposal:
           answer: "%{user_name} أجاب على الاقتراح %{resource_name} على %{space_name} الفضاء"
@@ -488,7 +493,6 @@ ar:
           all: الكل
           amendment: تعديلات
           category: الفئة
-          category_prompt: الفئة موجه
           open: افتح
           published: نشرت
           related_to: متعلق ب
@@ -650,12 +654,13 @@ ar:
           all: الكل
           amendment_type: نوع
           category: الفئة
-          category_prompt: اختر تصنيف
           my_proposals: اقتراحاتي
           origin: الأصل
           related_to: متعلق ب
+          scope: النطاق
           search: بحث
           state: الحالة
+          type: النوع
           voted: أيد
         filters_small_view:
           close_modal: إغلاق مشروط
@@ -728,7 +733,6 @@ ar:
           withdraw_proposal: سحب الاقتراح
         tags:
           changed_from: "(تم التغيير من <u>%{previous_category}</u> بواسطة مسؤول)"
-          filed_as: قدم كما
         vote_button:
           already_voted: معتمد بالفعل
           already_voted_hover: سحب الدعم

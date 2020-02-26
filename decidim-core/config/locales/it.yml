@@ -88,6 +88,9 @@ it:
         error: Si è verificato un errore durante l'aggiornamento del tuo account.
         success: Il tuo account è stato aggiornato correttamente.
         success_with_email_confirmation: Il tuo account è stato aggiornato correttamente. Riceverai un'email per confermare il tuo nuovo indirizzo email.
+    admin:
+      actions:
+        cancel: Annulla
     admin_log:
       area:
         create: "%{user_name} ha creato l'area %{resource_name}"
@@ -136,6 +139,8 @@ it:
         reject: "%{user_name} respinto il %{resource_name} verifica del gruppo di utenti"
         verify: "%{user_name} verificato il %{resource_name} gruppo di utenti"
         verify_via_csv: "%{user_name} verificato il %{resource_name} gruppo di utenti tramite un file CSV"
+    admin_terms_of_use:
+      default_body: "<h2>TERMINI DI UTILIZZO DELL' AMMINISTRATORE</h2><p>Ci auguriamo che tu abbia ricevuto la usuale raccomandazione dall'amministratore del sistema locale. Solitamente si riduce a queste tre cose:</p><ol><li>Rispetta la privacy degli altri.</li><li>Pensa prima di cliccare.</li><li>Da grande potenzialità derivano grandi responsabilità.</li></ol>"
     amendments:
       accepted:
         error: Si è verificato un errore durante l'accettazione dell'emendamento.
@@ -229,6 +234,7 @@ it:
       photos:
         related_photos: Immagini relative
     author:
+      avatar: Avatar
       comments:
         one: commento
         other: Commenti
@@ -1134,7 +1140,7 @@ it:
         subject: Sblocca le istruzioni
     omniauth_callbacks:
       failure: Impossibile autenticare da %{kind} perché "%{reason}".
-      success: Autenticato con successo da %{kind} account.
+      success: Autenticato con successo da account %{kind}.
     passwords:
       edit:
         change_my_password: Cambia la mia password
@@ -1204,6 +1210,7 @@ it:
       cycle_detected: Il genitore di un ambito non può essere uno dei suoi discendenti
       expired: è scaduto, si prega di richiederne uno nuovo
       file_size_is_less_than_or_equal_to: la dimensione del file deve essere inferiore o uguale a %{count}
+      invalid_time_zone: non è un fuso orario valido
       long_words: contiene parole troppo lunghe (oltre 35 caratteri)
       must_start_with_caps: deve iniziare con una lettera maiuscola
       nesting_too_deep: Non può stare all'interno di una subcategoria
@@ -1316,8 +1323,11 @@ it:
       left: Eliminazioni
       right: Aggiunte
     dropdown:
+      choose_diff_view_html: 'Modalità visualizzazione HTML:'
       choose_diff_view_mode: 'Modalità di visualizzazione confronto:'
+      option_escaped: Escaped
       option_split: Affiancati
+      option_unescaped: Unescaped
       option_unified: Unificato
   views:
     pagination:
