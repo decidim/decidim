@@ -26,6 +26,7 @@ interface CommentProps {
   isRootComment?: boolean;
   votable?: boolean;
   rootCommentable: AddCommentFormCommentableFragment;
+  singleCommentId?: string;
   orderBy: string;
 }
 
@@ -412,7 +413,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @returns {Void|ReactElement} - Render the AddCommentForm component or not
    */
   private _renderReplyForm() {
-    const { session, comment, rootCommentable, orderBy } = this.props;
+    const { session, comment, rootCommentable, orderBy, singleCommentId } = this.props;
     const { showReplyForm } = this.state;
     const { comment: { userAllowedToComment } } = this.props;
 
@@ -426,6 +427,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
           onCommentAdded={this.toggleReplyForm}
           autoFocus={true}
           rootCommentable={rootCommentable}
+          singleCommentId={singleCommentId}
           orderBy={orderBy}
         />
       );

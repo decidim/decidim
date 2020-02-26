@@ -17,6 +17,7 @@ interface CommentThreadProps {
   } | null;
   votable?: boolean;
   rootCommentable: AddCommentFormCommentableFragment;
+  singleCommentId?: string;
   orderBy: string;
 }
 
@@ -33,7 +34,7 @@ class CommentThread extends React.Component<CommentThreadProps> {
   };
 
   public render() {
-    const { comment, session, votable, rootCommentable, orderBy } = this.props;
+    const { comment, session, votable, rootCommentable, orderBy, singleCommentId } = this.props;
 
     return (
       <div>
@@ -45,6 +46,7 @@ class CommentThread extends React.Component<CommentThreadProps> {
             votable={votable}
             isRootComment={true}
             rootCommentable={rootCommentable}
+            singleCommentId={singleCommentId}
             orderBy={orderBy}
           />
         </div>

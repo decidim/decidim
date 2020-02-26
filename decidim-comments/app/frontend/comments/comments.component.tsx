@@ -94,8 +94,8 @@ export class Comments extends React.Component<CommentsProps, { page: number }> {
           {this._renderSingleCommentWarning()}
           {this._renderBlockedCommentsForUserWarning()}
           {this._renderBlockedCommentsWarning()}
-          {this._renderCommentThreads()}
           {this._renderAddCommentForm()}
+          {this._renderCommentThreads()}
         </section>
       </div>
     );
@@ -215,7 +215,7 @@ export class Comments extends React.Component<CommentsProps, { page: number }> {
    * @returns {ReactComponent[]} - A collection of CommentThread components
    */
   private _renderCommentThreads() {
-    const { session, commentable, orderBy } = this.props;
+    const { session, commentable, orderBy, singleCommentId } = this.props;
     const { comments, commentsHaveVotes } = commentable;
 
     return comments.map(comment => (
@@ -225,6 +225,7 @@ export class Comments extends React.Component<CommentsProps, { page: number }> {
         session={session}
         votable={commentsHaveVotes}
         rootCommentable={commentable}
+        singleCommentId={singleCommentId}
         orderBy={orderBy}
       />
     ));

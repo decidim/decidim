@@ -18,10 +18,10 @@ import {
 
 interface AddCommentFormProps {
   session:
-    | (AddCommentFormSessionFragment & {
-        user: any;
-      })
-    | null;
+  | (AddCommentFormSessionFragment & {
+    user: any;
+  })
+  | null;
   commentable: AddCommentFormCommentableFragment;
   rootCommentable: AddCommentFormCommentableFragment;
   showTitle?: boolean;
@@ -36,6 +36,7 @@ interface AddCommentFormProps {
   }) => void;
   onCommentAdded?: () => void;
   orderBy: string;
+  singleCommentId?: string;
 }
 
 interface AddCommentFormState {
@@ -55,7 +56,7 @@ export const MAX_LENGTH = 1000;
 export class AddCommentForm extends React.Component<
   AddCommentFormProps,
   AddCommentFormState
-> {
+  > {
   public static defaultProps = {
     showTitle: true,
     submitButtonClassName: "button button--sc",
@@ -461,6 +462,7 @@ const AddCommentFormWithMutation = graphql<
               commentableId: ownProps.rootCommentable.id,
               commentableType: ownProps.rootCommentable.type,
               orderBy: ownProps.orderBy,
+              singleCommentId: null,
               page: null
             };
             const prev = store.readQuery<GetCommentsQuery>({
