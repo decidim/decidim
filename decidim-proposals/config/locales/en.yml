@@ -53,6 +53,7 @@ en:
     models:
       decidim/proposals/accepted_proposal_event: Proposal accepted
       decidim/proposals/admin/update_proposal_category_event: Proposal category changed
+      decidim/proposals/admin/update_proposal_scope_event: Proposal scope changed
       decidim/proposals/creation_enabled_event: Proposal creation enabled
       decidim/proposals/endorsing_enabled_event: Proposal endorsing enabled
       decidim/proposals/evaluating_proposal_event: Proposal is being evaluated
@@ -466,8 +467,8 @@ en:
             success: 'Proposals successfully updated to the %{subject_name} category: %{proposals}.'
           update_scope:
             invalid: 'These proposals already had the %{subject_name} scope: %{proposals}.'
-            select_a_scope: Please select a scope
             select_a_proposal: Please select a proposal
+            select_a_scope: Please select a scope
             success: 'Proposals successfully updated to the %{subject_name} scope: %{proposals}.'
         proposals_imports:
           create:

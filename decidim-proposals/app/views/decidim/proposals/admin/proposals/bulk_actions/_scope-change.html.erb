@@ -6,8 +6,7 @@
       <% end %>
     </div>
 
-    <%= bulk_scopes_select # current_component.participatory_space.scopes
-    %>
+    <%= scopes_picker_tag(:scope_id, try(:current_participatory_space)&.scope) %>
 
     <%= submit_tag(t("decidim.proposals.admin.proposals.index.update_scope_button"), id: "js-submit-scope-change-proposals", class: "button small button--simple float-left") %>
 
