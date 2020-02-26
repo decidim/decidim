@@ -702,7 +702,9 @@ shared_examples_for "manage questionnaires" do
                 expect(page).to have_select("Question", options: options)
 
                 within "select[id$=decidim_condition_question_id]" do
-                  expect(page.find("option[data-type='#{questions.last.question_type}'][value='#{questions.last.id}']")).to be_disabled
+                  elements = page.all("option[data-type]")
+                  expect(elements.map { |e| e[:"data-type"] }).to eq(questions.map(&:question_type))
+                  expect(page.find("option[value='#{questions.last.id}']")).to be_disabled
                 end
               end
             end
