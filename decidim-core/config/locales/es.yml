@@ -865,7 +865,7 @@ es:
           participate: Participa
           welcome: Bienvenida a %{organization}!
         metrics:
-          headline: Participación en cifras
+          headline: Métricas
         statistics:
           answers_count: Encuestas realizadas
           assemblies_count: Asambleas
@@ -895,8 +895,8 @@ es:
         topics: Temas
       participatory_space:
         metrics:
-          headline: Participación en cifras
-          link: Muestra todas las estadísticas
+          headline: Métricas
+          link: Muestra todas las métricas
       terms_and_conditions:
         accept:
           error: Se ha producido un error al aceptar los Términos y Condiciones.
