@@ -16,7 +16,14 @@ shared_examples_for "display conditions" do
   let!(:conditioned_question_id) { "#questionnaire_answers_1" }
   let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 2) }
 
-  let!(:condition_question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: condition_question_type, position: 1, options: condition_question_options) }
+  let!(:condition_question) do
+    create(:questionnaire_question,
+           questionnaire: questionnaire,
+           question_type: condition_question_type,
+           position: 1,
+           options: condition_question_options)
+  end
+
   let(:condition_question_options) { [] }
 
   let(:answer_options) do
@@ -30,7 +37,12 @@ shared_examples_for "display conditions" do
 
   context "when a question has a display condition" do
     context "when condition is of type 'answered'" do
-      let!(:display_condition) { create(:display_condition, condition_type: "answered", question: question, condition_question: condition_question) }
+      let!(:display_condition) do
+        create(:display_condition,
+               condition_type: "answered",
+               question: question,
+               condition_question: condition_question)
+      end
 
       before do
         visit questionnaire_public_path
@@ -116,7 +128,12 @@ shared_examples_for "display conditions" do
     end
 
     context "when a question has a display condition of type 'not_answered'" do
-      let!(:display_condition) { create(:display_condition, condition_type: "not_answered", question: question, condition_question: condition_question) }
+      let!(:display_condition) do
+        create(:display_condition,
+               condition_type: "not_answered",
+               question: question,
+               condition_question: condition_question)
+      end
 
       before do
         visit questionnaire_public_path
@@ -190,7 +207,13 @@ shared_examples_for "display conditions" do
     end
 
     context "when a question has a display condition of type 'equal'" do
-      let!(:display_condition) { create(:display_condition, condition_type: "equal", question: question, condition_question: condition_question, answer_option: condition_question.answer_options.first) }
+      let!(:display_condition) do
+        create(:display_condition,
+               condition_type: "equal",
+               question: question,
+               condition_question: condition_question,
+               answer_option: condition_question.answer_options.first)
+      end
 
       before do
         visit questionnaire_public_path
@@ -240,7 +263,13 @@ shared_examples_for "display conditions" do
     end
 
     context "when a question has a display condition of type 'not_equal'" do
-      let!(:display_condition) { create(:display_condition, condition_type: "not_equal", question: question, condition_question: condition_question, answer_option: condition_question.answer_options.first) }
+      let!(:display_condition) do
+        create(:display_condition,
+               condition_type: "not_equal",
+               question: question,
+               condition_question: condition_question,
+               answer_option: condition_question.answer_options.first)
+      end
 
       before do
         visit questionnaire_public_path
@@ -291,7 +320,13 @@ shared_examples_for "display conditions" do
 
     context "when a question has a display condition of type 'match'" do
       let!(:condition_value) { { en: "something" } }
-      let!(:display_condition) { create(:display_condition, condition_type: "match", question: question, condition_question: condition_question, condition_value: condition_value) }
+      let!(:display_condition) do
+        create(:display_condition,
+               condition_type: "match",
+               question: question,
+               condition_question: condition_question,
+               condition_value: condition_value)
+      end
 
       before do
         visit questionnaire_public_path
@@ -422,8 +457,17 @@ shared_examples_for "display conditions" do
       let!(:condition_question_options) { answer_options }
       let!(:display_conditions) do
         [
-          create(:display_condition, condition_type: "answered", question: question, condition_question: condition_question, mandatory: true),
-          create(:display_condition, condition_type: "not_equal", question: question, condition_question: condition_question, mandatory: true, answer_option: condition_question.answer_options.second)
+          create(:display_condition,
+                 condition_type: "answered",
+                 question: question,
+                 condition_question: condition_question,
+                 mandatory: true),
+          create(:display_condition,
+                 condition_type: "not_equal",
+                 question: question,
+                 condition_question: condition_question,
+                 mandatory: true,
+                 answer_option: condition_question.answer_options.second)
         ]
       end
 
@@ -445,8 +489,18 @@ shared_examples_for "display conditions" do
       let!(:condition_question_options) { answer_options }
       let!(:display_conditions) do
         [
-          create(:display_condition, condition_type: "equal", question: question, condition_question: condition_question, mandatory: false, answer_option: condition_question.answer_options.first),
-          create(:display_condition, condition_type: "not_equal", question: question, condition_question: condition_question, mandatory: false, answer_option: condition_question.answer_options.third)
+          create(:display_condition,
+                 condition_type: "equal",
+                 question: question,
+                 condition_question: condition_question,
+                 mandatory: false,
+                 answer_option: condition_question.answer_options.first),
+          create(:display_condition,
+                 condition_type: "not_equal",
+                 question: question,
+                 condition_question: condition_question,
+                 mandatory: false,
+                 answer_option: condition_question.answer_options.third)
         ]
       end
 
@@ -468,7 +522,6 @@ shared_examples_for "display conditions" do
       end
     end
 
-    context "when a mandatory question has conditions that have not been fulfilled" do
-    end
+    context "when a mandatory question has conditions that have not been fulfilled"
   end
 end

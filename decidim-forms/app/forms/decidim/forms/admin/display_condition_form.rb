@@ -92,8 +92,6 @@ module Decidim
         def condition_question_position
           return if decidim_question_id.blank?
 
-          byebug
-
           errors.add(:decidim_question_id, :invalid) unless question.position&.positive?
         end
       end

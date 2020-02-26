@@ -15,7 +15,8 @@ module Decidim
 
           included do
             helper Decidim::Forms::Admin::ApplicationHelper
-            helper_method :questionnaire_for, :questionnaire, :blank_question, :blank_answer_option, :blank_display_condition, :question_types, :display_condition_types, :update_url, :answer_options_url
+            helper_method :questionnaire_for, :questionnaire, :blank_question, :blank_answer_option,
+                          :blank_display_condition, :question_types, :display_condition_types, :update_url, :answer_options_url
 
             def edit
               enforce_permission_to :update, :questionnaire, questionnaire: questionnaire
