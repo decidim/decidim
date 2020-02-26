@@ -40,8 +40,6 @@ en:
               show: Show answers
             empty: No answers yet
             export:
-              answer:
-                title: 'Response #%{number}'
               title: Responses
             index:
               title: Responses
