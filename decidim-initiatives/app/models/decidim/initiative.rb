@@ -68,7 +68,7 @@ module Decidim
 
     scope :open, lambda {
       published
-        .where.not(state: [:discarded, :rejected, :accepted])
+        .where.not(state: [:discarded, :rejected, :accepted, :created])
         .where("signature_start_date <= ?", Date.current)
         .where("signature_end_date >= ?", Date.current)
     }
