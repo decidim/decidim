@@ -17,6 +17,19 @@ module Decidim::Assemblies
         expect(subject.count).to eq(3)
         expect(subject).to eq(assemblies)
       end
+
+      context "when assembly is nil" do
+        let(:assembly) { nil }
+
+        it "returns all assemblies" do
+          expected = assemblies
+          expected << child_assembly
+          expected << grand_child_assembly
+
+          expect(subject.count).to eq(5)
+          expect(subject).to match_array(expected)
+        end
+      end
     end
   end
 end

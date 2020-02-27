@@ -16,7 +16,11 @@ module Decidim
       end
 
       def query
-        Assembly.where(organization: @organization).where.not(id: @assembly).where.not(id: descendant_ids)
+        available_assemblies = Assembly.where(organization: @organization).where.not(id: @assembly)
+
+        return available_assemblies if @assembly.blank?
+
+        available_assemblies.where.not(id: descendant_ids)
       end
 
       private
