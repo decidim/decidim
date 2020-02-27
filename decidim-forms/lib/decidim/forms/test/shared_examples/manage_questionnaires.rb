@@ -741,7 +741,8 @@ shared_examples_for "manage questionnaires" do
 
                 options = answer_options.map { |option| option["body"]["en"] }
                 options << "Select answer option"
-                expect(page).to have_select("Answer option", options: options)
+
+                expect(page).to have_select("Answer option", options: options, wait: 5)
               end
             end
           end
