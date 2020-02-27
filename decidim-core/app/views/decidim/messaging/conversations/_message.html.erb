@@ -9,6 +9,6 @@
     </div>
   </div>
   <div class="message__content">
-    <%= simple_format(message.formatted_body) %>
+    <%= simple_format(message.sanitized_body) %>
   </div>
 </article>
