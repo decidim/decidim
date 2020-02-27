@@ -665,6 +665,7 @@ de:
           creation_date: 'Erstellt am %{date}'
           view_proposal: Vorschlag anzeigen
         show:
+          answer: Antworten
           back_to: Zurück zu
           edit_proposal: Vorschlag bearbeiten
           endorsements_list: Liste der Befürworter
