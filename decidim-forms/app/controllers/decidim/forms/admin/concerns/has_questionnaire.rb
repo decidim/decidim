@@ -48,7 +48,6 @@ module Decidim
             end
 
             def answer_options
-              # TODO: enforce_permission_to :update, :questionnaire, questionnaire: questionnaire
               respond_to do |format|
                 format.json do
                   question_id = params["id"]
@@ -76,7 +75,8 @@ module Decidim
               url_for(questionnaire.questionnaire_for)
             end
 
-            # TODO: Doc
+            # Returns the url to get the answer options json (for the display conditions form)
+            # for the question with id = params[:id]
             def answer_options_url(params)
               url_for([questionnaire.questionnaire_for, action: :answer_options, format: :json, **params])
             end
