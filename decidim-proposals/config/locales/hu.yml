@@ -318,6 +318,7 @@ hu:
         see_all: Összes (%{count})
     proposals:
       actions:
+        answer_proposal: Javaslat megválaszolása
         edit_proposal: Javaslat szerkesztése
         import: Importálás egy másik elemből
         new: Új javaslat
