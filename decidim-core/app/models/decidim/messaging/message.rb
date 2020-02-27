@@ -53,7 +53,7 @@ module Decidim
       end
 
       private
-      
+
       def sender_is_participant
         errors.add(:sender, :invalid) unless conversation.participants.include?(sender)
       end
