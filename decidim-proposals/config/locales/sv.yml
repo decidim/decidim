@@ -293,6 +293,7 @@ sv:
         see_all: Visa alla (%{count})
     proposals:
       actions:
+        answer_proposal: Besvara förslag
         edit_proposal: Redigera förslag
         import: Importera från en annan komponent
         new: Nytt förslag
