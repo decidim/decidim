@@ -30,10 +30,12 @@ module Decidim
         attribute :participatory_process_group_id, Integer
         attribute :scope_id, Integer
         attribute :related_process_ids, Array[Integer]
+        attribute :scope_type_max_depth_id, Integer
 
         attribute :private_space, Boolean
         attribute :promoted, Boolean
         attribute :scopes_enabled, Boolean
+        attribute :show_metrics, Boolean
         attribute :show_statistics, Boolean
 
         attribute :end_date, Decidim::Attributes::LocalizedDate
@@ -68,6 +70,10 @@ module Decidim
 
         def scope
           @scope ||= current_organization.scopes.find_by(id: scope_id)
+        end
+
+        def scope_type_max_depth
+          @scope_type_max_depth ||= current_organization.scope_types.find_by(id: scope_type_max_depth_id)
         end
 
         def area

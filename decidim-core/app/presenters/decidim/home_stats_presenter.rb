@@ -49,7 +49,7 @@ module Decidim
     private
 
     def global_stats(conditions)
-      Decidim.stats.except([:users_count, :processes_count])
+      Decidim.stats.except([:users_count, :processes_count, :followers_count])
              .filter(conditions)
              .with_context(organization)
              .map { |name, data| [name, data] }
@@ -57,7 +57,10 @@ module Decidim
 
     def component_stats(conditions)
       Decidim.component_manifests.flat_map do |component|
-        component.stats.filter(conditions).with_context(published_components).map { |name, data| [name, data] }
+        component.stats.except([:supports_count])
+                 .filter(conditions)
+                 .with_context(published_components)
+                 .map { |name, data| [name, data] }
       end
     end
 

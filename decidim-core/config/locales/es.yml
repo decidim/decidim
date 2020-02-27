@@ -231,6 +231,7 @@ es:
       photos:
         related_photos: Imágenes relacionadas
     author:
+      avatar: Avatar
       comments:
         one: comentario
         other: comentarios
@@ -579,6 +580,7 @@ es:
       create:
         button: Seguir
         error: Se ha producido un error al seguir este recurso.
+        participatory_space: Siguiendo
       destroy:
         button: Dejar de seguir
         error: Se ha producido un error al dejar de seguir este recurso.
@@ -863,7 +865,7 @@ es:
           participate: Participa
           welcome: Bienvenida a %{organization}!
         metrics:
-          headline: Participación en cifras
+          headline: Métricas
         statistics:
           answers_count: Encuestas realizadas
           assemblies_count: Asambleas
@@ -893,8 +895,8 @@ es:
         topics: Temas
       participatory_space:
         metrics:
-          headline: Participación en cifras
-          link: Muestra todas las estadísticas
+          headline: Métricas
+          link: Muestra todas las métricas
       terms_and_conditions:
         accept:
           error: Se ha producido un error al aceptar los Términos y Condiciones.

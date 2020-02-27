@@ -66,6 +66,7 @@ module Decidim
             short_description: form.short_description,
             scopes_enabled: form.scopes_enabled,
             scope: form.scope,
+            scope_type_max_depth: form.scope_type_max_depth,
             private_space: form.private_space,
             developer_group: form.developer_group,
             local_area: form.local_area,
@@ -77,6 +78,7 @@ module Decidim
             start_date: form.start_date,
             end_date: form.end_date,
             participatory_process_group: form.participatory_process_group,
+            show_metrics: form.show_metrics,
             show_statistics: form.show_statistics,
             announcement: form.announcement
           }

@@ -367,13 +367,14 @@ de:
         meetings_count: Meetings
         orders_count: Stimmen
         pages_count: Seiten
+        participants_count: Teilnehmer
         processes_count: Beteiligungsprozesse
         projects_count: Projekte
         proposals_count: Vorschläge
         results_count: Ergebnisse
+        supports_count: Stimmen
         surveys_count: Umfragen
         users_count: Teilnehmer
-        votes_count: Stimmen
   layouts:
     decidim:
       participatory_process_groups:

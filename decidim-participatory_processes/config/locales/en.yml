@@ -25,8 +25,10 @@ en:
         published_at: Published at
         related_process_ids: Related processes
         scope_id: Scope
+        scope_type_max_depth_id: Scope filter depth
         scopes_enabled: Scopes enabled
         short_description: Short description
+        show_metrics: Show metrics
         show_statistics: Show statistics
         slug: URL slug
         start_date: Start date
@@ -325,6 +327,7 @@ en:
             metadata: Metadata
             other: Other
             related_processes: Related processes
+            scope_type_max_depth_help: Restrict the scope filter depth; The filter will show from general to the selected scope type.
             select_an_area: Select an Area
             select_process_group: Select a process group
             slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
@@ -390,17 +393,20 @@ en:
         comments_count: Comments
         debates_count: Debates
         endorsements_count: Endorsements
-        headline: Activity
+        followers_count: Followers
+        headline: Statistics
         meetings_count: Meetings
+        no_stats: There are no statistics yet.
         orders_count: Supports
         pages_count: Pages
+        participants_count: Participants
         processes_count: Processes
         projects_count: Projects
         proposals_count: Proposals
         results_count: Results
+        supports_count: Supports
         surveys_count: Surveys
         users_count: Participants
-        votes_count: Supports
   layouts:
     decidim:
       participatory_process_groups:

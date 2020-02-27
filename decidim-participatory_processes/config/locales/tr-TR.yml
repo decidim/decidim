@@ -367,13 +367,14 @@ tr:
         meetings_count: Toplantılar
         orders_count: oy
         pages_count: Sayfalar
+        participants_count: Katılımcılar
         processes_count: Süreçler
         projects_count: Projeler
         proposals_count: Teklif
         results_count: Sonuçlar
+        supports_count: oy
         surveys_count: Anketler
         users_count: Katılımcılar
-        votes_count: oy
   layouts:
     decidim:
       participatory_process_groups:

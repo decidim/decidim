@@ -22,9 +22,12 @@ es:
         participatory_structure: Cómo se decide
         promoted: Destacado
         published_at: Publicado en
+        related_process_ids: Procesos relacionados
         scope_id: Ámbito
+        scope_type_max_depth_id: Profundidad del filtro de ámbito
         scopes_enabled: Ámbitos habilitados
         short_description: Descripción breve
+        show_metrics: Mostrar métricas
         show_statistics: Mostrar estadísticas
         slug: Texto corto de URL
         start_date: Fecha de inicio
@@ -322,6 +325,8 @@ es:
             images: Imágenes
             metadata: Metadatos
             other: Otro
+            related_processes: Procesos relacionados
+            scope_type_max_depth_help: Restringe la profundidad del filtro de ámbito; se mostrará el filtro desde el ámbito general hasta el seleccionado.
             select_an_area: Seleccione una área
             select_process_group: Selecciona un grupo de procesos
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
@@ -377,6 +382,7 @@ es:
         participatory_scope: Qué se decide
         participatory_structure: Cómo se decide
         private_space: Este es un proceso privado
+        related_processes: Procesos relacionados
         scope: Ámbito
         start_date: Fecha de inicio
         target: Quién participa
@@ -386,17 +392,20 @@ es:
         comments_count: Comentarios
         debates_count: Debates
         endorsements_count: Adhesiones
-        headline: Actividad
+        followers_count: Seguidoras
+        headline: Estatísticas
         meetings_count: Encuentros presenciales
+        no_stats: No hay estadísticas aún.
         orders_count: Apoyos
         pages_count: Páginas
+        participants_count: Participantes
         processes_count: Procesos
         projects_count: Proyectos
         proposals_count: Propuestas
         results_count: Resultados
+        supports_count: Apoyos
         surveys_count: Encuestas
         users_count: Participantes
-        votes_count: Apoyos
   layouts:
     decidim:
       participatory_process_groups:
