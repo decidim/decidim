@@ -781,6 +781,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0)
   uglifier (~> 4.1)
   web-console (~> 3.5)
+  wicked_pdf (~> 1.4)
 
 RUBY VERSION
    ruby 2.5.3p105
