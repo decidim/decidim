@@ -56,9 +56,7 @@ module Decidim
 
               update_nested_model(form_answer_option, answer_option_attributes, question.answer_options)
             end
-          end
 
-          update_nested_model(form_question, question_attributes, @questionnaire.questions) do |question|
             form_question.display_conditions.each do |form_display_condition|
               type = form_display_condition.condition_type
 
