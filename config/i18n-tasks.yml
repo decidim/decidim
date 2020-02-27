@@ -204,6 +204,7 @@ ignore_unused:
   - decidim.proposals.models.proposal.fields.*
   - decidim.admin_terms_of_use.default_body
   - decidim.admin.admin_terms_of_use.required_review.alert
+  - decidim.budgets.projects.orders.*
   - layouts.decidim.widget.*
   - layouts.decidim.assembly_widgets.*
   - layouts.decidim.conference_widgets.*
