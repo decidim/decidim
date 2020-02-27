@@ -31,7 +31,7 @@ module Decidim
       # Returns nothing.
       def create
         notify_mentioned_users
-        notify_mentioned_groups if mentioned_groups
+        notify_mentioned_groups
         notify_parent_comment_author
         notify_author_followers
         notify_commentable_recipients
@@ -49,9 +49,10 @@ module Decidim
       end
 
       def notify_mentioned_groups
+        return unless mentioned_groups
+
         mentioned_groups.each do |group|
-          group_users = UserGroups::AcceptedMemberships.for(group).map(&:user)
-          affected_users = group_users - already_notified_users
+          affected_users = group.accepted_users - already_notified_users
           @already_notified_users += affected_users
 
           notify(:user_group_mentioned, affected_users: affected_users, extra: { group: group })

@@ -142,10 +142,6 @@ $(() => {
         let $tribute = $(".tribute-container");
         $tribute.appendTo($parent);
 
-        // Remove the inline styles, relative to absolute positioning
-        // If allowSpaces is activated this flashes continuosly the container
-        // $tribute.removeAttr("style");
-
         // Parent adaptation
         $parent.addClass("is-active");
       } else {
