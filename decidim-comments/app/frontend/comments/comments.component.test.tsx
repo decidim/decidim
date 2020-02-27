@@ -54,7 +54,7 @@ describe("<Comments />", () => {
   it("renders loading-comments class and the respective loading text", () => {
     const wrapper = shallow(<Comments commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} loading={true} />);
     expect(wrapper.find(".loading-comments").exists()).toBeTruthy();
-    expect(wrapper.find("h3").text()).toEqual("Loading comments ...");
+    expect(wrapper.find("h2").text()).toEqual("Loading comments ...");
   });
 
   it("renders a div of id comments", () => {
@@ -91,7 +91,7 @@ describe("<Comments />", () => {
   it("renders comments count", () => {
     const wrapper = shallow(<Comments commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
     const rex = new RegExp(`${commentable.comments.length} comments`);
-    expect(wrapper.find("h3.section-heading").text()).toMatch(rex);
+    expect(wrapper.find("h2.section-heading").text()).toMatch(rex);
   });
 
   it("renders a AddCommentForm component and pass the commentable 'commentsHaveAlignment' as a prop", () => {
