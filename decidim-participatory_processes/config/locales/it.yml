@@ -393,13 +393,14 @@ it:
         meetings_count: Eventi
         orders_count: Voti
         pages_count: Pagine
+        participants_count: Partecipanti
         processes_count: Processi
         projects_count: Progetti
         proposals_count: Proposte
         results_count: Risultati
+        supports_count: Voti
         surveys_count: indagini
         users_count: Partecipanti
-        votes_count: Voti
   layouts:
     decidim:
       participatory_process_groups:
