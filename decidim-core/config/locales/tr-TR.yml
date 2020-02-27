@@ -61,8 +61,6 @@ tr:
     account:
       data_portability_export:
         file_no_exists: Dosya bulunmuyor
-        invalid_token: Sağlanan simge geçersiz.
-        no_token: Sağlanan jeton yok
         notice: Verileriniz şu anda devam ediyor. Tamamlandığında bir e-posta alacaksınız.
       delete:
         alert: Bu işlem geri alınamaz. Hesabınızı silerseniz, giriş yapamazsınız.
@@ -511,7 +509,7 @@ tr:
           notification_title: <a href="%{resource_path}">profil sayfası</a> arasında %{name} (%{nickname}izlediğiniz), güncellendi.
     export_mailer:
       data_portability_export:
-        click_button: Verilerinizi indirmek için sonraki düğmeye tıklayın. <br/> Dosyaya %{date}kadar sahip olacaksınız.
+        click_button: 'Verilerinizi indirmek için sonraki düğmeye tıklayın. <br/> Dosyaya %{date}kadar sahip olacaksınız.'
         download: İndir
       export:
         ready: Lütfen ihracatınızın bir sıkıştırılmış versiyonunu ekte bulabilirsiniz.
@@ -554,16 +552,6 @@ tr:
     gamification:
       all_badges_link: Tüm mevcut rozetleri görün.
       badges:
-        continuity:
-          conditions:
-            - Buraya sık sık gel
-          description: Bu rozeti, platformu düzenli bir şekilde ziyaret ettiğinizde verilir. Burada olmanızı seviyoruz!
-          description_another: Bu kullanıcı bir noktada %{score} ardışık gün için bağlandı.
-          description_own: Bir noktada %{score} ardışık gün için bağlandınız.
-          name: süreklilik
-          next_level_in: Bir sonraki seviyeye geçmek için %{score} ardışık güne bağlanın!
-          unearned_another: Bu kullanıcı art arda birden fazla gün için giriş yapmadı.
-          unearned_own: Birden fazla ardışık güne bağlı değilsiniz.
         followers:
           conditions:
             - Aktif olmak ve diğer insanları takip etmek kesinlikle başka insanların sizi takip etmesini sağlayacaktır.

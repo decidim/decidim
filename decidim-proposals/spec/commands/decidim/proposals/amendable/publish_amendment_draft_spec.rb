@@ -23,7 +23,11 @@ module Decidim
       let(:form) { Decidim::Amendable::PublishForm.from_model(amendment).with_context(context) }
       let(:command) { described_class.new(form) }
 
-      include_examples "publish amendment draft"
+      include_examples "publish amendment draft" do
+        it "changes the emendation state" do
+          expect { command.call } .to change { emendation.reload[:state] } .from(nil).to("evaluating")
+        end
+      end
     end
   end
 end

@@ -91,6 +91,9 @@ en:
         error: There was a problem updating your account.
         success: Your account was successfully updated.
         success_with_email_confirmation: Your account was successfully updated. You'll receive an email to confirm your new email address.
+    admin:
+      actions:
+        cancel: Cancel
     admin_log:
       area:
         create: "%{user_name} created the %{resource_name} area"
@@ -236,6 +239,7 @@ en:
       photos:
         related_photos: Related images
     author:
+      avatar: Avatar
       comments:
         one: comment
         other: comments
@@ -588,6 +592,7 @@ en:
       create:
         button: Follow
         error: There was a problem following this resource.
+        participatory_space: Already following the participatory space
       destroy:
         button: Stop following
         error: There was a problem unfollowing this resource.

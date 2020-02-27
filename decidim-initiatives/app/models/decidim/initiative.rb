@@ -351,5 +351,15 @@ module Decidim
       notifier = Decidim::Initiatives::StatusChangeNotifier.new(initiative: self)
       notifier.notify
     end
+
+    # Allow ransacker to search for a key in a hstore column (`title`.`en`)
+    [:title, :description].each do |column|
+      ransacker column do |parent|
+        Arel::Nodes::InfixOperation.new("->>", parent.table[column], Arel::Nodes.build_quoted(I18n.locale.to_s))
+      end
+    end
+
+    # Allow ransacker to search on an Enum Field
+    ransacker :state, formatter: proc { |int| states[int] }
   end
 end

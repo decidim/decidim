@@ -9,6 +9,8 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
   end
 
   participatory_space.query_type = "Decidim::ParticipatoryProcesses::ParticipatoryProcessType"
+  participatory_space.query_finder = "Decidim::ParticipatoryProcesses::ParticipatoryProcessFinder"
+  participatory_space.query_list = "Decidim::ParticipatoryProcesses::ParticipatoryProcessList"
 
   participatory_space.permissions_class_name = "Decidim::ParticipatoryProcesses::Permissions"
 

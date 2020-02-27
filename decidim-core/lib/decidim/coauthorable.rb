@@ -72,11 +72,18 @@ module Decidim
         coauthorships.where(author: author).exists?
       end
 
-      # Returns the identities for the authors, whether they are user groups or users.
+      # Returns the identities for the authors, whether they are user groups, users or others.
       #
-      # Returns an Array of User and/or UserGroups.
+      # Returns an Array of User, UserGroups or any other entity capable object (such as Organization).
       def identities
         coauthorships.order(:created_at).collect(&:identity)
+      end
+
+      # Returns the identities for the authors, only if they are user groups or users.
+      #
+      # Returns an Array of User and/or UserGroups.
+      def user_identities
+        coauthorships.where(decidim_author_type: "Decidim::UserBaseEntity").order(:created_at).collect(&:identity)
       end
 
       # Syntactic sugar to access first coauthor as a Coauthorship.

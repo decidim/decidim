@@ -65,17 +65,21 @@ $filters-padding-y: 1rem;
   padding: $filters-padding-x $filters-padding-y;
 
   &:first-of-type{
-    padding-top: $filters-padding-x*1.5;
+    padding-top: $filters-padding-x * 1.5;
   }
 
   &:last-of-type{
-    padding-bottom: $filters-padding-x*1.5;
+    padding-bottom: $filters-padding-x * 1.5;
     border-bottom: none;
   }
 
   label{
     line-height: 1.2;
     margin-bottom: .4rem;
+
+    &[data-global-checkbox]{
+      font-weight: 600;
+    }
   }
 
   .button{
@@ -87,6 +91,36 @@ $filters-padding-y: 1rem;
     color: var(--primary);
     text-decoration: underline;
     margin-right: $global-margin;
+  }
+}
+
+.filters__subfilters{
+  & > .filters__subfilters{
+    padding-left: $filters-padding-x / 2;
+  }
+}
+
+.filters__has-subfilters{
+  display: flex;
+  justify-content: space-between;
+}
+
+.filters__icon-is-open,
+.filters__icon-is-closed{
+  font-size: .5em;
+}
+
+.filters__icon-is-open{
+  display: none;
+}
+
+.filters__is-open{
+  .filters__icon-is-open{
+    display: inline-block;
+  }
+
+  .filters__icon-is-closed{
+    display: none;
   }
 }
 

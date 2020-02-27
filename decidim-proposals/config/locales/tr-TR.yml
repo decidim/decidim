@@ -289,12 +289,10 @@ tr:
         see_all: Tümünü gör (%{count})
     proposals:
       actions:
-        answer: Cevap
         edit_proposal: Teklifi düzenle
         import: Başka bir bileşenden içe aktar
         new: Yeni teklif
         participatory_texts: Katılımcı metinler
-        private_notes: Özel notlar
         title: Eylemler
       admin:
         actions:
@@ -338,11 +336,7 @@ tr:
           update:
             success: Katılımcı metin başarıyla güncellendi.
         proposal_answers:
-          edit:
-            accepted: Kabul edilmiş
-            answer_proposal: Cevap
-            evaluating: değerlendirilmesi
-            rejected: Reddedilen
+          form:
             title: Teklifin cevabı %{title}
         proposal_notes:
           create:
@@ -383,6 +377,9 @@ tr:
           new:
             create: yaratmak
             title: Teklif oluştur
+          show:
+            created_at: Oluşturulma tarihi
+            votes_count: Oy sayısı
           update_category:
             invalid: 'Bu teklifler zaten %{category} kategorisine sahipti: %{proposals}.'
             select_a_category: Lütfen bir kategori seçin
@@ -405,12 +402,6 @@ tr:
           create:
             invalid: Seçilen teklifleri bölen bir hata oluştu.
             success: Teklifleri başarılı bir şekilde yenilere ayırdı.
-        shared:
-          info_proposal:
-            body: Vücut
-            created_at: Oluşturulma tarihi
-            proposal_votes_count: Oy sayısı
-            proposals: Teklif
       admin_log:
         proposal:
           answer: "%{user_name} , %{space_name} uzayda %{resource_name} teklifi yanıtladı"
@@ -435,7 +426,6 @@ tr:
           accepted: Kabul edilmiş
           all: Herşey
           evaluating: değerlendirilmesi
-          except_rejected: Reddedilenlerin tümü hariç
           rejected: Reddedilen
         filter_type_values:
           all: Herşey
@@ -484,7 +474,6 @@ tr:
           all: Herşey
           amendment: Değişiklikler
           category: Kategori
-          category_prompt: Kategori İstemi
           open: Açık
           published: Yayınlanan
           related_to: İle ilgili
@@ -636,7 +625,6 @@ tr:
         filters:
           amendment_type: tip
           category: Kategori
-          category_prompt: bir kategori seç
           origin: Menşei
           related_to: İle ilgili
           search: Arama
@@ -698,7 +686,6 @@ tr:
           withdraw_proposal: Teklifi geri çek
         tags:
           changed_from: "(bir yönetici tarafından <u>%{previous_category}</u> değiştirildi)"
-          filed_as: Olarak dosyalandı
         vote_button:
           already_voted: Çoktan oy verildi
           already_voted_hover: Unvote

@@ -154,10 +154,8 @@ uk:
           proposals: Пропозиції
     proposals:
       actions:
-        answer: Відповісти
         import: Запозичити з іншої складової
         new: Додати нову пропозицію
-        private_notes: Приватні примітки
         title: Дії
       admin:
         actions:
@@ -169,11 +167,7 @@ uk:
           proposal:
             name: Пропозиція
         proposal_answers:
-          edit:
-            accepted: Прийнято
-            answer_proposal: Відповісти
-            evaluating: Розглядається
-            rejected: Відхилено
+          form:
             title: Відповідь на пропозицію %{title}
         proposal_notes:
           create:
@@ -204,6 +198,9 @@ uk:
           new:
             create: Внести
             title: Створити пропозицію
+          show:
+            created_at: Дата створення
+            votes_count: Кількість голосів
           update_category:
             invalid: 'Ці пропозиції вже відносились до категорії %{category}: %{proposals}.'
             select_a_category: Будь ласка, виберіть категорію
@@ -218,12 +215,6 @@ uk:
             no_components: У цьому просторі співучасті немає інших складових пропозицій, звідки можна було б запозичити пропозиції.
             select_component: Будь ласка, оберіть складову
             select_states: Перевірте стани пропозицій, які бажаєте запозичити
-        shared:
-          info_proposal:
-            body: Основний текст
-            created_at: Дата створення
-            proposal_votes_count: Кількість голосів
-            proposals: Пропозиції
       admin_log:
         proposal:
           answer: "%{user_name} відповів на пропозицію %{resource_name} у просторі %{space_name}"
@@ -240,8 +231,6 @@ uk:
         filter_origin_values:
           citizens: Громадяни
           official: Службове
-        filter_state_values:
-          except_rejected: Усі, окрім відхилених
       create:
         error: При спробі збереження цієї пропозиції сталися помилки.
         success: Пропозицію успішно створено. Збережено як чернетку.
@@ -303,7 +292,6 @@ uk:
           comments: Коментарі
         filters:
           category: Категорія
-          category_prompt: Оберіть категорію
           origin: Джерело
           related_to: Пов'язане з
           search: Шукати
@@ -356,7 +344,6 @@ uk:
           withdraw_proposal: Зняти пропозицію
         tags:
           changed_from: "(перенесено з <u>%{previous_category}</u> адміністратором)"
-          filed_as: Відмічено як
         vote_button:
           already_voted: Вже проголосували
           already_voted_hover: Скасувати голос
