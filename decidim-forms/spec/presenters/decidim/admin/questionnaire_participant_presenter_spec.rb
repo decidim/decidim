@@ -10,7 +10,7 @@ module Decidim
     let!(:user) { create(:user, organization: questionnaire.questionnaire_for.organization) }
     let!(:questions) { 3.downto(1).map { |n| create :questionnaire_question, questionnaire: questionnaire, position: n } }
     let!(:answers) { questions.map { |question| create :answer, user: user, questionnaire: questionnaire, question: question } }
-    let!(:answer) { subject.answers.first }
+    let!(:answer) { subject.answers.first.answer }
     let!(:session_token) { answers.first.session_token }
 
     describe "ip_hash" do
@@ -49,7 +49,7 @@ module Decidim
 
     describe "answers" do
       it "returns the participant's answers" do
-        expect(subject.answers).to eq(answers)
+        expect(subject.answers.map(&:answer)).to eq(answers)
       end
     end
 
