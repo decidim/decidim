@@ -677,6 +677,7 @@ fr:
           creation_date: 'Création : %{date}'
           view_proposal: Voir la proposition
         show:
+          answer: Répondre
           back_to: Retour à
           changes_at_title: Amendement de (%{title}"
           edit_proposal: Modifier la proposition

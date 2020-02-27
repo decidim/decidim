@@ -143,10 +143,13 @@ ar:
         export: تصدير
         manage: تدبير
         new: جديد %{name}
+        per_page: في كل صفحة
         permissions: تصريحات
         reject: رفض
         verify: التحقق
       admin_terms_of_use:
+        accept:
+          success: رائع! لقد قمت بالموافقة على شروط الإستخدام للمدير.
         actions:
           accept: أوافق على شروط المدير هذه
           are_you_sure: هل أنت متأكد مِن أنك رافض لشروط المدير؟
@@ -285,6 +288,7 @@ ar:
       filters:
         category_id_eq:
           label: الفئة
+        filter_label: تصفية
         officialized_at_null:
           label: الحالة
           values:
@@ -592,6 +596,8 @@ ar:
           create: إنشاء
           title: مشارك جديد الفضاء الخاص المشارك.
       participatory_space_private_users_csv_imports:
+        create:
+          invalid: حدثت مشكلة أثناء قراءة ملف CSV.
         new:
           title: حمّل ملف CSV الخاص بك
           upload: حمّل

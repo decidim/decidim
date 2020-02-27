@@ -668,6 +668,7 @@ tr:
           creation_date: 'Oluşturma: %{date}'
           view_proposal: Teklifi görüntüle
         show:
+          answer: Cevap
           back_to: Geri
           edit_proposal: Teklifi düzenle
           endorsements_list: Onay Listesi
