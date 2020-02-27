@@ -116,7 +116,7 @@ module Decidim
           html.join(" ").html_safe
         end
 
-        def icon_link_to_proposal_tr(proposal)
+        def icon_with_link_to_proposal(proposal)
           icon, tooltip = if allowed_to?(:create, :proposal_answer, proposal: proposal) && !proposal.emendation?
                             [
                               "comment-square",
