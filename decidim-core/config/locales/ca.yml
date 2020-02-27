@@ -300,6 +300,10 @@ ca:
       see_less: "(veure menys)"
       see_more: "(veure més)"
     components:
+      component_order_selector:
+        order:
+          all_types: Tots els tipus
+        title: 'Ordenar per:'
       dummy:
         actions:
           bar: Bar

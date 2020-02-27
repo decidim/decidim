@@ -6,6 +6,23 @@
       </div>
     <% else %>
       <div class="row">
+        <div class="row collapse order-by">
+          <div class="order-by__dropdown order-by__dropdown--right">
+            <span class="order-by__text"><%= t "decidim.components.component_order_selector.title" %></span>
+            <ul class="dropdown menu" data-dropdown-menu>
+              <li>
+                <a href="#">All types</a><!-- Change this to a dynamic value -->
+                <ul class="menu">
+                  <li><a href="#"><%= t "decidim.components.component_order_selector.order.all_types" %></a></li>
+                  <% Decidim::Component.pluck(:name).uniq.each do |component_name| %>
+                    <li><%= link_to component_name[controller.locale.to_s], "#" %></li>
+                  <% end %>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
         <%= cell "decidim/activities", activities %>
       </div>
 

@@ -304,6 +304,10 @@ en:
       see_less: "(see less)"
       see_more: "(see more)"
     components:
+      component_order_selector:
+        order:
+          all_types: All types
+        title: 'Order by:'
       dummy:
         actions:
           bar: Bar
