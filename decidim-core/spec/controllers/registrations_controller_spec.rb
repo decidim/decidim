@@ -7,6 +7,7 @@ module Decidim
     routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create(:organization) }
+    let(:email) { "test@example.org" }
 
     before do
       request.env["devise.mapping"] = ::Devise.mappings[:user]
@@ -14,7 +15,6 @@ module Decidim
     end
 
     describe "POST create" do
-      let(:email) { "test@example.org" }
       let(:params) do
         {
           user: {
@@ -28,6 +28,11 @@ module Decidim
             newsletter: "0"
           }
         }
+      end
+
+      def send_form_and_expect_rendering_the_new_template_again
+        post :create, params: params
+        expect(controller).to render_template "new"
       end
 
       context "when the user created is active for authentication" do
@@ -49,8 +54,20 @@ module Decidim
         let(:email) { nil }
 
         it "renders the new template" do
-          post :create, params: params
-          expect(controller).to render_template "new"
+          send_form_and_expect_rendering_the_new_template_again
+        end
+      end
+
+      context "when the registering user has pending invitations" do
+        let(:user) { create(:user, organization: organization, email: email) }
+
+        before do
+          user.invite!
+        end
+
+        it "informs the user she must accept the pending invitation" do
+          send_form_and_expect_rendering_the_new_template_again
+          expect(controller.flash.now[:notice]).to have_content("You have a pending invitation, accept it to finish creating your account")
         end
       end
     end

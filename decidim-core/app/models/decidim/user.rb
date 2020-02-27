@@ -80,6 +80,12 @@ module Decidim
     # Returns a String.
     attr_accessor :invitation_instructions
 
+    # Returns The user corresponding to the given +email+ if it exists and has pending invitations,
+    #   otherwise returns nil.
+    def self.has_pending_invitations?(organization_id, email)
+      invitation_not_accepted.find_by(decidim_organization_id: organization_id, email: email)
+    end
+
     # Returns the presenter for this author, to be used in the views.
     # Required by ActsAsAuthor.
     def presenter
