@@ -741,6 +741,7 @@ en:
           creation_date: 'Creation: %{date}'
           view_proposal: View proposal
         show:
+          answer: Answer
           back_to: Back to
           changes_at_title: Amendment to "%{title}"
           edit_proposal: Edit proposal

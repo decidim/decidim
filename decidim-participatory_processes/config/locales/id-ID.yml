@@ -359,13 +359,14 @@ id:
         meetings_count: Rapat
         orders_count: Suara
         pages_count: Halaman
+        participants_count: Peserta
         processes_count: Proses
         projects_count: Proyek
         proposals_count: Proposal
         results_count: Hasil
+        supports_count: Suara
         surveys_count: Survei
         users_count: Peserta
-        votes_count: Suara
   layouts:
     decidim:
       participatory_process_groups:

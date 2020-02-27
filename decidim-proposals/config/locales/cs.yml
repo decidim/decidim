@@ -705,6 +705,7 @@ cs:
           creation_date: 'Tvorba: %{date}'
           view_proposal: Zobrazit návrh
         show:
+          answer: Odpovědět
           back_to: Zpět k
           changes_at_title: Pozměňovací návrh k "%{title}"
           edit_proposal: Upravit návrh
