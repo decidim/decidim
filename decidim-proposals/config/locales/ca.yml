@@ -318,6 +318,7 @@ ca:
         see_all: Veure tots (%{count})
     proposals:
       actions:
+        answer_proposal: Respondre a la proposta
         edit_proposal: Edita la proposta
         import: Importa des d'un altre component
         new: Nova proposta
