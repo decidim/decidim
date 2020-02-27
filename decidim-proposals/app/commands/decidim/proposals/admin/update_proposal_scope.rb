@@ -5,6 +5,7 @@ module Decidim
     module Admin
       #  A command with all the business logic when an admin batch updates proposals scope.
       class UpdateProposalScope < Rectify::Command
+        include TranslatableAttributes
         # Public: Initializes the command.
         #
         # scope_id - the scope id to update
@@ -30,9 +31,19 @@ module Decidim
           return broadcast(:invalid_scope) if @scope.blank?
           return broadcast(:invalid_proposal_ids) if @proposal_ids.blank?
 
-          @response[:scope_name] = translated_attribute(@scope.name)
-          Proposal.where(id: @proposal_ids).find_each do |proposal|
-            if @scope == proposal.scope
+          update_proposals_scope
+
+          broadcast(:update_proposals_scope, @response)
+        end
+
+        private
+
+        attr_reader :scope, :proposal_ids
+
+        def update_proposals_scope
+          @response[:scope_name] = translated_attribute(scope.name, scope.organization)
+          Proposal.where(id: proposal_ids).find_each do |proposal|
+            if scope == proposal.scope
               @response[:errored] << proposal.title
             else
               transaction do
@@ -42,15 +53,11 @@ module Decidim
               @response[:successful] << proposal.title
             end
           end
-
-          broadcast(:update_proposals_scope, @response)
         end
-
-        private
 
         def update_proposal_scope(proposal)
           proposal.update!(
-            scope: @scope
+            scope: scope
           )
         end
 

@@ -1,12 +1,6 @@
 # frozen_string_literal: true
 
 shared_examples "when managing proposals scope as an admin" do
-  let(:parent_scope) { create :scope, participatory_space: participatory_process }
-  let(:scope) { create :scope, participatory_space: participatory_process, parent_id: parent_scope.id }
-  let!(:my_scope) { create :scope, participatory_space: participatory_process, parent_id: parent_scope.id }
-  let!(:proposal_first) { reportables.first }
-  let!(:proposal_last) { reportables.last }
-
   context "when in the Proposals list page" do
     it "shows a checkbox to select each proposal" do
       expect(page).to have_css(".table-list tbody .js-proposal-list-check", count: 4)
@@ -50,26 +44,11 @@ shared_examples "when managing proposals scope as an admin" do
         end
 
         it "shows the scope select" do
-          expect(page).to have_css("select#scope_id", count: 1)
+          expect(page).to have_css("#scope_id.data-picker.picker-single", count: 1)
         end
 
         it "shows an update button" do
-          expect(page).to have_css("button#js-submit-edit-scope", count: 1)
-        end
-      end
-
-      context "when submiting form" do
-        before do
-          click_button "Actions"
-          click_button "Change scope"
-          within "#js-form-recategorize-proposals" do
-            select translated(scope.name), from: :scope_id
-            page.find("button#js-submit-edit-scope").click
-          end
-        end
-
-        it "changes to selected scope" do
-          expect(page).to have_selector(".success")
+          expect(page).to have_css("button#js-submit-scope-change-proposals", count: 1)
         end
       end
     end
