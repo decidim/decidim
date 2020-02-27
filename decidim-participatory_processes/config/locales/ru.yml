@@ -347,13 +347,14 @@ ru:
         meetings_count: Встреч
         orders_count: Голосов
         pages_count: Страниц
+        participants_count: Участников
         processes_count: Движений
         projects_count: Проектов
         proposals_count: Предложений
         results_count: Итогов
+        supports_count: Голосов
         surveys_count: Опросов
         users_count: Участников
-        votes_count: Голосов
   layouts:
     decidim:
       participatory_process_groups:

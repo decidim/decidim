@@ -393,13 +393,14 @@ nl:
         meetings_count: Vergaderingen
         orders_count: Stemmen
         pages_count: Pagina's
+        participants_count: Deelnemers
         processes_count: Thema's
         projects_count: Projecten
         proposals_count: Voorstellen
         results_count: Resultaten
+        supports_count: Stemmen
         surveys_count: Enquêtes
         users_count: Deelnemers
-        votes_count: Stemmen
   layouts:
     decidim:
       participatory_process_groups:

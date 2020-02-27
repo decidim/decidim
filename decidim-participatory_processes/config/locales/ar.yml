@@ -22,9 +22,11 @@ ar:
         participatory_structure: كيف تقرر ذلك
         promoted: رقية
         published_at: نشرت في
+        related_process_ids: المسارات ذات الصلة
         scope_id: نطاق
         scopes_enabled: النطاقات المُفعّلَة
         short_description: وصف قصير
+        show_metrics: اظهر المقاييس
         show_statistics: عرض الإحصائيات
         slug: سبيكة العنوان الشبكي
         start_date: تاريخ البدء
@@ -162,6 +164,7 @@ ar:
       participatory_process_imports:
         new:
           import: استيراد
+          title: استيراد مسار تشاركي
       participatory_process_publications:
         create:
           error: كانت هناك مشكلة في نشر هذه العملية التشاركية.
@@ -322,6 +325,7 @@ ar:
             images: صور
             metadata: البيانات الوصفية
             other: آخر
+            related_processes: المسارات ذات الصلة
             select_an_area: اختر منطقة
             select_process_group: حدد مجموعة عملية
             slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذه العملية. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
@@ -393,6 +397,7 @@ ar:
         participatory_scope: ما الذي تقرر
         participatory_structure: كيف تقرر ذلك
         private_space: هذه عملية خاصة
+        related_processes: المسارات ذات الصلة
         scope: نطاق
         start_date: تاريخ البدء
         target: من يشارك
@@ -402,17 +407,20 @@ ar:
         comments_count: تعليقات
         debates_count: المناقشات
         endorsements_count: موافقات
+        followers_count: المُتابِعون
         headline: نشاط
         meetings_count: اجتماعات
+        no_stats: لا توجد أية احصائيات إلى حد الآن.
         orders_count: الدعم
         pages_count: صفحات
+        participants_count: المشاركين
         processes_count: العمليات
         projects_count: مشاريع
         proposals_count: اقتراحات
         results_count: النتائج
+        supports_count: الدعم
         surveys_count: الدراسات الاستقصائية
         users_count: المشاركين
-        votes_count: الدعم
   layouts:
     decidim:
       participatory_process_groups:

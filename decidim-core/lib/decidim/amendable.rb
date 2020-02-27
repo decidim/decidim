@@ -127,16 +127,16 @@ module Decidim
     # Returns the emendations of an amendable that are visible to the user
     # based on the component's amendments settings and filtering out the "drafts".
     def visible_emendations_for(user)
-      pubslished_emendations = emendations.published
-      return pubslished_emendations unless component.settings.amendments_enabled
+      published_emendations = emendations.published
+      return published_emendations unless component.settings.amendments_enabled
 
       case component.current_settings.amendments_visibility
       when "participants"
         return self.class.none unless user
 
-        pubslished_emendations.where("decidim_amendments.decidim_user_id = ?", user.id)
+        published_emendations.where("decidim_amendments.decidim_user_id = ?", user.id)
       else # Assume 'all'
-        pubslished_emendations
+        published_emendations
       end
     end
 
@@ -159,6 +159,9 @@ module Decidim
         add_coauthor(author, user_group: user_group)
       end
     end
+
+    # Callback called when amendment state is updated
+    def process_amendment_state_change!; end
 
     # Returns an Array of Decidim::User.
     def notifiable_identities
