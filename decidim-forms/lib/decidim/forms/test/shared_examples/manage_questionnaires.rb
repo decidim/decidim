@@ -670,54 +670,44 @@ shared_examples_for "manage questionnaires" do
         context "when clicking add display condition button" do
           it "adds a new display condition form with all correct elements" do
             within "form.edit_questionnaire" do
-              within ".questionnaire-question:last-of-type" do
-                click_button "Add display condition"
+              within_add_display_condition do
+                expect(page).to have_select("Question")
+                expect(page).to have_select("Condition")
+                expect(page).to have_selector("[id$=mandatory]")
 
-                within ".questionnaire-question-display-condition:last-of-type" do
-                  expect(page).to have_select("Question")
-                  expect(page).to have_select("Condition")
-                  expect(page).to have_selector("[id$=mandatory]")
+                select question_single_option.body["en"], from: "Question"
+                select "Answered", from: "Condition"
 
-                  select question_single_option.body["en"], from: "Question"
-                  select "Answered", from: "Condition"
+                expect(page).to have_no_select("Answer option")
+                expect(page).to have_no_css("[id$=condition_value_en]", visible: true)
 
-                  expect(page).to have_no_select("Answer option")
-                  expect(page).to have_no_css("[id$=condition_value_en]", visible: true)
+                select question_single_option.body["en"], from: "Question"
+                select "Equal", from: "Condition"
 
-                  select question_single_option.body["en"], from: "Question"
-                  select "Equal", from: "Condition"
-
-                  expect(page).to have_select("Answer option")
-                  expect(page).to have_no_css("[id$=condition_value_en]", visible: true)
-                end
+                expect(page).to have_select("Answer option")
+                expect(page).to have_no_css("[id$=condition_value_en]", visible: true)
               end
             end
           end
 
           it "fills condition_question select with saved questions from questionnaire" do
-            within ".questionnaire-question:last-of-type" do
-              click_button "Add display condition"
+            within_add_display_condition do
+              options = questions.map { |question| question["body"]["en"] }
+              options << "Select a question"
+              expect(page).to have_select("Question", options: options)
 
-              within ".questionnaire-question-display-condition:last-of-type" do
-                options = questions.map { |question| question["body"]["en"] }
-                options << "Select a question"
-                expect(page).to have_select("Question", options: options)
-
-                within "select[id$=decidim_condition_question_id]" do
-                  elements = page.all("option[data-type]")
-                  expect(elements.map { |e| e[:"data-type"] }).to eq(questions.map(&:question_type))
-                  expect(page.find("option[value='#{questions.last.id}']")).to be_disabled
-                end
+              within "select[id$=decidim_condition_question_id]" do
+                elements = page.all("option[data-type]")
+                expect(elements.map { |e| e[:"data-type"] }).to eq(questions.map(&:question_type))
+                expect(page.find("option[value='#{questions.last.id}']")).to be_disabled
               end
             end
           end
 
-          it "fills condition_type select with correct options" do
-            within ".questionnaire-question:last-of-type" do
-              click_button "Add display condition"
-
-              within ".questionnaire-question-display-condition:last-of-type" do
-                select questions.first.body["en"], from: "Question"
+          context "when a text question is selected" do
+            it "fills condition_type select with correct options" do
+              within_add_display_condition do
+                select question_short_answer.body["en"], from: "Question"
 
                 options = ["Select a condition type", "Answered", "Not answered", "Includes text"]
 
@@ -725,33 +715,37 @@ shared_examples_for "manage questionnaires" do
                 option_elements = option_elements.to_a.reject { |o| o[:style].match? "display: none" }
 
                 expect(option_elements.map(&:text)).to eq(options)
+              end
+            end
+          end
 
-                # select another question and check options match question type
+          context "when an options question is selected" do
+            it "fills condition_type select with correct options" do
+              within_add_display_condition do
+                select question_single_option.body["en"], from: "Question"
+
+                options = ["Select a condition type", "Answered", "Not answered", "Equal", "Not equal", "Includes text"]
+
+                option_elements = page.all("select[id$=condition_type] option")
+                option_elements = option_elements.to_a.reject { |o| o[:style].match? "display: none" }
+
+                expect(option_elements.map(&:text)).to eq(options)
               end
             end
           end
 
           it "loads an empty value field" do
-            within ".questionnaire-question:last-of-type" do
-              click_button "Add display condition"
-
+            within_add_display_condition do
               select question_single_option.body["en"], from: "Question"
               select "Includes text", from: "Condition"
-
-              within ".questionnaire-question-display-condition:last-of-type" do
-                expect(page).to have_nested_field("condition_value_en", with: "")
-              end
+              expect(page).to have_nested_field("condition_value_en", with: "")
             end
           end
 
           it "loads a mandatory field with false value" do
-            within ".questionnaire-question:last-of-type" do
-              click_button "Add display condition"
-
-              within ".questionnaire-question-display-condition:last-of-type" do
-                expect(page).to have_selector("[id$=mandatory]")
-                expect(page).to have_no_selector("[id$=mandatory][checked]")
-              end
+            within_add_display_condition do
+              expect(page).to have_selector("[id$=mandatory]")
+              expect(page).to have_no_selector("[id$=mandatory][checked]")
             end
           end
         end
@@ -799,5 +793,15 @@ shared_examples_for "manage questionnaires" do
 
   def nested_form_field_selector(attribute)
     "[id$=#{attribute}]"
+  end
+
+  def within_add_display_condition
+    within ".questionnaire-question:last-of-type" do
+      click_button "Add display condition"
+
+      within ".questionnaire-question-display-condition:last-of-type" do
+        yield
+      end
+    end
   end
 end
