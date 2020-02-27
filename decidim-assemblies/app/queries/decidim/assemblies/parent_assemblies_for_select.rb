@@ -16,7 +16,19 @@ module Decidim
       end
 
       def query
-        Assembly.where(organization: @organization).where.not(id: @assembly)
+        Assembly.where(organization: @organization).where.not(id: @assembly).where.not(id: descendant_ids)
+      end
+
+      private
+
+      def descendant_ids
+        recursive_children(@assembly).flatten
+      end
+
+      def recursive_children(model)
+        model.children.map do |child|
+          [recursive_children(child), child.id]
+        end
       end
     end
   end
