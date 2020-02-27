@@ -132,7 +132,6 @@ Decidim.register_component(:proposals) do |component|
 
   component.exports :comments do |exports|
     exports.collection do |component_instance|
-      byebug
       Decidim::Comments::Export.comments_for_resource(
         Decidim::Proposals::Proposal, component_instance
       )
