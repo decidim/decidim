@@ -274,6 +274,8 @@ ar:
         incomplete:
           cancel: إلغاء
           invalid_field: "%{field}"
+        pending:
+          title: لا يزال الترخيص قيد انتظار التأكيد
         unauthorized:
           ok: موافق
           title: غير مخوّل
