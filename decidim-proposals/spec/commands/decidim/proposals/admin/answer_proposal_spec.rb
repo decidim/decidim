@@ -11,7 +11,14 @@ module Decidim
         let(:command) { described_class.new(form, proposal) }
         let(:proposal) { create(:proposal) }
         let(:current_user) { create(:user, :admin) }
-        let(:form) { ProposalAnswerForm.from_params(form_params).with_context(current_user: current_user, current_component: proposal.component) }
+        let(:form) do
+          ProposalAnswerForm.from_params(form_params).with_context(
+            current_user: current_user,
+            current_component: proposal.component,
+            current_organization: proposal.component.organization
+          )
+        end
+
         let(:form_params) do
           {
             internal_state: "rejected",
@@ -20,10 +27,6 @@ module Decidim
             cost_report: { en: "Cost report" },
             execution_period: { en: "Execution period" }
           }
-        end
-
-        before do
-          expect(form).to receive(:invalid?).and_return(false)
         end
 
         it "broadcasts ok" do

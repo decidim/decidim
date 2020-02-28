@@ -26,8 +26,10 @@ module Decidim
           return broadcast(:invalid) unless proposals.any?
 
           proposals.each do |proposal|
-            mark_proposal_as_answered(proposal)
-            NotifyProposalAnswer.call(proposal, nil)
+            transaction do
+              mark_proposal_as_answered(proposal)
+              notify_proposal_answer(proposal)
+            end
           end
 
           broadcast(:ok)
@@ -54,6 +56,10 @@ module Decidim
           ) do
             proposal.update!(state_published_at: Time.current)
           end
+        end
+
+        def notify_proposal_answer(proposal)
+          NotifyProposalAnswer.call(proposal, nil)
         end
       end
     end

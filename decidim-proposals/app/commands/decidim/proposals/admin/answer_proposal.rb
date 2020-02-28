@@ -25,9 +25,10 @@ module Decidim
 
           store_initial_proposal_state
 
-          answer_proposal
-
-          NotifyProposalAnswer.call(proposal, initial_state) if initial_has_state_published || form.publish_answer?
+          transaction do
+            answer_proposal
+            notify_proposal_answer
+          end
 
           broadcast(:ok)
         end
@@ -55,6 +56,12 @@ module Decidim
 
             proposal.update!(attributes)
           end
+        end
+
+        def notify_proposal_answer
+          return unless initial_has_state_published || form.publish_answer?
+
+          NotifyProposalAnswer.call(proposal, initial_state)
         end
 
         def store_initial_proposal_state

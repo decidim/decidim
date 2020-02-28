@@ -75,7 +75,7 @@ module Decidim
         let(:proposal) { build(:proposal, :accepted) }
 
         it { is_expected.to be_answered }
-        it { is_expected.to be_state_published }
+        it { is_expected.to be_published_state }
         it { is_expected.to be_accepted }
       end
 
@@ -83,7 +83,7 @@ module Decidim
         let(:proposal) { build(:proposal, :rejected) }
 
         it { is_expected.to be_answered }
-        it { is_expected.to be_state_published }
+        it { is_expected.to be_published_state }
         it { is_expected.to be_rejected }
       end
 
@@ -257,7 +257,7 @@ module Decidim
 
         it { is_expected.not_to be_accepted }
         it { is_expected.to be_answered }
-        it { is_expected.not_to be_state_published }
+        it { is_expected.not_to be_published_state }
       end
 
       describe "#with_valuation_assigned_to" do
