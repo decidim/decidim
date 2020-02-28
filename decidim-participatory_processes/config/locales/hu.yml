@@ -206,13 +206,11 @@ hu:
         destroy:
           success: Felhasználó eltávolítása a részvételi folyamatból sikeres.
         edit:
-          title: Részvételi folyamat adminisztrátor frissítése.
           update: Frissítés
         index:
           process_admins_title: Részvételi folyamat adminisztrátorok
         new:
           create: Létrehozás
-          title: Új részvételi folyamat adminisztrátor.
         update:
           error: Hiba a felhasználó részvételi folyamatban történő frissítése során.
           success: Felhasználó frissítése a részvételi folyamatban sikeres.
