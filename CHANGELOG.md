@@ -70,6 +70,11 @@ Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now sup
 - **decidim-participatory_processes** Statistics and Metrics Improvements[\#5688](https://github.com/decidim/decidim/pull/5688)
 - **decidim-proposals** and **decidim-budgets**: Improve navigation and visualization of proposals and projects by scope, category, origin and status [\#5654](https://github.com/decidim/decidim/pull/5654)
 - **decidim-proposals**: Let admins add cost reports to proposals [\#5695](https://github.com/decidim/decidim/pull/5695)
+- **decidim-conferences**: Add Valuator role [\#5687](https://github.com/decidim/decidim/pull/5687)
+- **decidim-initiatives**: Add Valuator role [\#5687](https://github.com/decidim/decidim/pull/5687)
+- **decidim-participatory_processes**: Add Valuator role [\#5687](https://github.com/decidim/decidim/pull/5687)
+- **decidim-proposals**: Let Valuators only answer and leave private notes on proposals [\#5687](https://github.com/decidim/decidim/pull/5687)
+- **decidim-core**: Let exporters filter collection by user triggering the action [\#5687](https://github.com/decidim/decidim/pull/5687)
 
 **Changed**:
 
