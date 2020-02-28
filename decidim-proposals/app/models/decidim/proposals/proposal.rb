@@ -188,7 +188,8 @@ module Decidim
       #
       # Returns Boolean.
       def state
-        return nil if !published_answer? && !withdrawn?
+        return amendment.state if emendation?
+        return nil unless published_state? || withdrawn?
 
         super
       end
@@ -199,14 +200,16 @@ module Decidim
       #
       # Returns Boolean.
       def internal_state
+        return amendment.state if emendation?
+
         self[:state]
       end
 
-      # Public: Checks if the organization has published answer for the proposal.
+      # Public: Checks if the organization has published the state for the proposal.
       #
       # Returns Boolean.
-      def published_answer?
-        answered? && answered_at.present?
+      def published_state?
+        emendation? || state_published_at.present?
       end
 
       # Public: Checks if the organization has given an answer for the proposal.
@@ -398,7 +401,10 @@ module Decidim
         return unless %w(accepted rejected evaluating withdrawn).member?(amendment.state)
 
         PaperTrail.request(enabled: false) do
-          update!(state: amendment.state)
+          update!(
+            state: amendment.state,
+            state_published_at: Time.current
+          )
         end
       end
 
