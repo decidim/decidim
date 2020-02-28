@@ -274,12 +274,6 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
   end
 
   describe "proposals exporter" do
-    let!(:assigned_proposal) { create :proposal }
-    let(:component) { assigned_proposal.component }
-    let!(:unassigned_proposal) { create :proposal, component: component }
-    let(:participatory_process) { component.participatory_space }
-    let(:organization) { participatory_process.organization }
-
     subject do
       component
         .manifest
@@ -288,6 +282,12 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
         .collection
         .call(component, user)
     end
+
+    let!(:assigned_proposal) { create :proposal }
+    let(:component) { assigned_proposal.component }
+    let!(:unassigned_proposal) { create :proposal, component: component }
+    let(:participatory_process) { component.participatory_space }
+    let(:organization) { participatory_process.organization }
 
     context "when the user is a valuator" do
       let!(:user) { create :user, admin: false, organization: organization }
