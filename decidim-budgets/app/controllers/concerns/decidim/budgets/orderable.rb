@@ -18,11 +18,11 @@ module Decidim
           @available_orders ||= begin
             available_orders = []
 
-            if most_voted_order_available?
-              available_orders << "most_voted"
-            else
-              available_orders << "random"
-            end
+            available_orders << if most_voted_order_available?
+                                  "most_voted"
+                                else
+                                  "random"
+                                end
 
             available_orders += %w(highest_cost lowest_cost)
             available_orders
@@ -49,7 +49,8 @@ module Decidim
             projects.order(budget: :asc)
           when "most_voted"
             if most_voted_order_available?
-              projects.sort(&:confirmed_orders_count)
+              ids = projects.sort_by(&:confirmed_orders_count).map(&:id).reverse
+              projects.ordered_ids(ids)
             else
               projects
             end
