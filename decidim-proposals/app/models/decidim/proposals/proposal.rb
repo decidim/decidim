@@ -52,12 +52,13 @@ module Decidim
 
       geocoded_by :address, http_headers: ->(proposal) { { "Referer" => proposal.component.organization.host } }
 
-      scope :accepted, -> { where(state: "accepted") }
-      scope :rejected, -> { where(state: "rejected") }
-      scope :evaluating, -> { where(state: "evaluating") }
+      scope :answered, -> { where.not(answered_at: nil) }
+      scope :not_answered, -> { where(answered_at: nil) }
+      scope :accepted, -> { answered.where(state: "accepted") }
+      scope :rejected, -> { answered.where(state: "rejected") }
+      scope :evaluating, -> { answered.where(state: "evaluating") }
       scope :withdrawn, -> { where(state: "withdrawn") }
-      scope :not_answered, -> { where(state: nil) }
-      scope :except_rejected, -> { where.not(state: "rejected").or(where(state: nil)) }
+      scope :except_rejected, -> { where.not(state: "rejected").or(not_answered) }
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
       scope :drafts, -> { where(published_at: nil) }
       scope :except_drafts, -> { where.not(published_at: nil) }
@@ -179,39 +180,64 @@ module Decidim
         published_at.present?
       end
 
+      # Public: Returns the published state of the proposal.
+      #
+      # Returns Boolean.
+      def state
+        return nil if !published_answer? && !withdrawn?
+
+        super
+      end
+
+      alias_attribute :internal_state, :state
+
+      # Public: Returns the internal state of the proposal.
+      #
+      # Returns Boolean.
+      def internal_state
+        self[:state]
+      end
+
+      # Public: Checks if the organization has published answer for the proposal.
+      #
+      # Returns Boolean.
+      def published_answer?
+        answered? && answered_at.present?
+      end
+
       # Public: Checks if the organization has given an answer for the proposal.
       #
       # Returns Boolean.
       def answered?
-        answered_at.present? && state.present?
-      end
-
-      # Public: Checks if the organization has accepted a proposal.
-      #
-      # Returns Boolean.
-      def accepted?
-        answered? && state == "accepted"
-      end
-
-      # Public: Checks if the organization has rejected a proposal.
-      #
-      # Returns Boolean.
-      def rejected?
-        answered? && state == "rejected"
-      end
-
-      # Public: Checks if the organization has marked the proposal as evaluating it.
-      #
-      # Returns Boolean.
-      def evaluating?
-        answered? && state == "evaluating"
+        internal_state.present?
       end
 
       # Public: Checks if the author has withdrawn the proposal.
       #
       # Returns Boolean.
       def withdrawn?
-        state == "withdrawn"
+        internal_state == "withdrawn"
+      end
+
+      # Public: Checks if the organization has accepted a proposal.
+      #
+      # Returns Boolean.
+      def accepted?
+        state == "accepted"
+      end
+
+      # Public: Checks if the organization has rejected a proposal.
+      #
+      # Returns Boolean.
+      def rejected?
+        state == "rejected"
+      end
+
+      # Public: Checks if the organization has marked the proposal as evaluating it.
+      #
+      # Returns Boolean.
+      def evaluating?
+        state == "evaluating"
       end
 
       # Public: Overrides the `reported_content_url` Reportable concern method.
@@ -261,7 +287,7 @@ module Decidim
       def editable_by?(user)
         return true if draft?
 
-        !answered? && within_edit_time_limit? && !copied_from_other_component? && created_by?(user)
+        !published_answer? && within_edit_time_limit? && !copied_from_other_component? && created_by?(user)
       end
 
       # Checks whether the user can withdraw the given proposal.
@@ -316,6 +342,14 @@ module Decidim
 
       def self.ransackable_scopes(_auth = nil)
         [:valuator_role_ids_has]
+      end
+
+      ransacker :published_answer do
+        Arel.sql("answered_at IS NULL AND state IS NOT NULL")
+      end
+
+      ransacker :state do
+        Arel.sql("CASE WHEN answered_at IS NULL THEN NULL ELSE state END")
       end
 
       ransacker :id_string do

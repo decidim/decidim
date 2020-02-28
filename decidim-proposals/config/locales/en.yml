@@ -155,6 +155,7 @@ en:
             endorsements_blocked: Endorsements blocked
             endorsements_enabled: Endorsements enabled
             proposal_answering_enabled: Proposal answering enabled
+            publish_answers_immediately: Publish proposal answers immediately
             suggested_hashtags: Hashtags suggested to participants for new proposals
             votes_blocked: Supports blocked
             votes_enabled: Supports enabled

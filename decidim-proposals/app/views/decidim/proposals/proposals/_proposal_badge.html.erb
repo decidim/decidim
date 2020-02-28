@@ -1,4 +1,4 @@
-<% if proposal.answered? %>
+<% if proposal.published_answer? %>
   <span class="<%= proposal_state_badge_css_class(proposal.state) %> label proposal-status"><%= humanize_proposal_state proposal.state %></span>
 <% end %>
 <% if proposal.withdrawn? %>
