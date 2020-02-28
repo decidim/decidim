@@ -336,7 +336,6 @@ en:
         import: Import from another component
         new: New proposal
         participatory_texts: Participatory texts
-        publish_answers: Publish answers
         show: Show proposal
         title: Actions
       admin:
@@ -504,8 +503,8 @@ en:
         proposal:
           answer: "%{user_name} answered the %{resource_name} proposal on the %{space_name} space"
           create: "%{user_name} created the %{resource_name} proposal on the %{space_name} space as an official proposal"
-          update: "%{user_name} updated the %{resource_name} official proposal on the %{space_name} space"
           publish_answer: "%{user_name} published the answer to %{resource_name} proposal on the %{space_name} space"
+          update: "%{user_name} updated the %{resource_name} official proposal on the %{space_name} space"
         proposal_note:
           create: "%{user_name} left a private note on the %{resource_name} proposal on the %{space_name} space"
         valuation_assignment:
@@ -674,8 +673,8 @@ en:
             id: ID
             notes: Notes
             official_proposal: Official proposal
-            published_at: Published at
             published_answer: Published answer
+            published_at: Published at
             scope: Scope
             state: Status
             title: Title
