@@ -662,6 +662,7 @@ gl:
           creation_date: 'Creación: %{date}'
           view_proposal: Ver proposta
         show:
+          answer: Resposta
           back_to: Voltar
           edit_proposal: Editar proposta
           endorsements_list: Lista de avales

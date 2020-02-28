@@ -103,6 +103,7 @@ hu:
         name: Javaslatok
         settings:
           global:
+            allow_card_image: Kártyakép engedélyezése
             amendments_enabled: A módosítások engedélyezve vannak
             amendments_enabled_help: Ha aktív, minden lépéshez konfigurálja a Módosítás funkciókat.
             amendments_wizard_help_text: Módosítások Varázsló súgószöveg
@@ -140,6 +141,7 @@ hu:
             amendments_visibility: A módosítás láthatósága
             amendments_visibility_help: Ha a „Módosítások csak a szerzőik számára láthatóak” opciót választják, akkor a résztvevőnek be kell jelentkeznie a módosítások megtekintéséhez.
             announcement: Közlemény
+            answers_with_costs: Költségek engedélyezése javaslati válaszoknál
             automatic_hashtags: Hashtagek hozzáadva minden javaslathoz
             comments_blocked: Megjegyzések letiltva
             creation_enabled: Javaslat létrehozása engedélyezve
@@ -738,10 +740,12 @@ hu:
           creation_date: 'Létrehozás: %{date}'
           view_proposal: Javaslat megtekintése
         show:
+          answer: Válasz
           back_to: Vissza a
           changes_at_title: A (z) "%{title}" módosítása
           edit_proposal: Javaslat szerkesztése
           endorsements_list: Jóváhagyások listája
+          estimated_cost: Becsült költség
           hidden_endorsers_count:
             one: és még %{count} személy
             other: és még %{count} ember
@@ -754,6 +758,8 @@ hu:
           proposal_accepted_reason: 'Ezt a javaslatot elfogadták, mert:'
           proposal_in_evaluation_reason: Javaslat értékelése folyamatban
           proposal_rejected_reason: 'Ezt a javaslatot elutasították, mert:'
+          read_less: Rövidebben
+          read_more: Bővebben
           report: Jelentés
           withdraw_btn_hint: Ha meggondoltad magad, az első támogatás megszerzéséig bármikor visszavonhatod a javaslatod. A javaslat nem törlődik automatikusan, hanem a visszavont javaslatok listájára kerül.
           withdraw_confirmation: Biztosan visszavonod ezt a javaslatot?

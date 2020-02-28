@@ -141,6 +141,7 @@ fi-pl:
             amendments_visibility: Muutosten näkyvyys
             amendments_visibility_help: Jos asetus "Muutokset ovat näkyvillä ainoastaan niiden laatijoille" on määritetty, osallistujien tulee kirjautua sisään nähdäkseen tehdyt muutokset.
             announcement: Ilmoitus
+            answers_with_costs: Ota käyttöön kustannusarviointi ehdotusten vastauksissa
             automatic_hashtags: Hashtagit lisätty kaikkiin ehdotuksiin
             comments_blocked: Kommentit on estetty
             creation_enabled: Ehdotuksen luominen käytössä
@@ -739,10 +740,12 @@ fi-pl:
           creation_date: 'Luontiaika: %{date}'
           view_proposal: Näytä ehdotus
         show:
+          answer: Vastaa
           back_to: Takaisin
           changes_at_title: Muokkaus kohteelle "%{title}"
           edit_proposal: Muokkaa ehdotusta
           endorsements_list: Luettelo suositteluista
+          estimated_cost: Arvioitu kustannus
           hidden_endorsers_count:
             one: ja %{count} muu henkilö
             other: ja %{count} muuta henkilöä
@@ -755,6 +758,8 @@ fi-pl:
           proposal_accepted_reason: 'Tämä ehdotus on hyväksytty, koska:'
           proposal_in_evaluation_reason: Tämä ehdotus on arvioitavana
           proposal_rejected_reason: 'Tämä ehdotus on hylätty, koska:'
+          read_less: Vähennä tekstiä
+          read_more: Lue lisää
           report: Ilmoita
           withdraw_btn_hint: Jos muutat mieltäsi, voit perua ehdotuksesi, mikäli se ei ole saanut kannatusta. Ehdotusta ei poisteta, se näkyy peruutettujen ehdotusten luettelossa.
           withdraw_confirmation: Haluatko varmasti peruuttaa tämän ehdotuksen?
