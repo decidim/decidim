@@ -76,4 +76,10 @@ FactoryBot.define do
     answer
     answer_option { create(:answer_option, question: answer.question) }
   end
+
+  factory :question_matrix_row, class: "Decidim::Forms::QuestionMatrixRow" do
+    question { create(:questionnaire_question) }
+    body { generate_localized_title }
+    position { 0 }
+  end
 end
