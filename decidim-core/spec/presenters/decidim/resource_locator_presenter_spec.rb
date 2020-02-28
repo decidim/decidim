@@ -41,6 +41,12 @@ module Decidim
         it { is_expected.to eq("/processes/my-process/f/1/dummy_resources/1") }
       end
 
+      describe "#show" do
+        subject { described_class.new(participatory_process).show }
+
+        it { is_expected.to start_with("/admin/participatory_processes/my-process") }
+      end
+
       describe "#edit" do
         subject { described_class.new(participatory_process).edit }
 

@@ -347,7 +347,7 @@ en:
       metrics:
         name: Organization metrics
       stats:
-        name: Organization stats
+        name: Organization statistics
       sub_hero:
         name: Sub hero banner
     core:
@@ -873,7 +873,7 @@ en:
           participate: Participate
           welcome: Welcome to %{organization}!
         metrics:
-          headline: Participation in figures
+          headline: Metrics
         statistics:
           answers_count: Completed Surveys
           assemblies_count: Assemblies
@@ -903,8 +903,8 @@ en:
         topics: Topics
       participatory_space:
         metrics:
-          headline: Participation in figures
-          link: Show all statistics
+          headline: Metrics
+          link: Show all metrics
       terms_and_conditions:
         accept:
           error: There was a problem accepting the terms and conditions.

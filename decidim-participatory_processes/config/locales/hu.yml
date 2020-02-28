@@ -27,6 +27,7 @@ hu:
         scope_type_max_depth_id: Hatáskör szűrő mélység
         scopes_enabled: Hatáskörök engedélyezve
         short_description: Rövid leírás
+        show_metrics: Mutatók megjelenítése
         show_statistics: Statisztikák megjelenítése
         slug: URL slug
         start_date: Kezdő dátum
@@ -391,17 +392,20 @@ hu:
         comments_count: Hozzászólások
         debates_count: Viták
         endorsements_count: Jóváhagyások
+        followers_count: Követők
         headline: Tevékenység
         meetings_count: Találkozók
+        no_stats: Nincsenek mutatók még.
         orders_count: Szavazatok
         pages_count: Oldalak
+        participants_count: Résztvevők
         processes_count: Folyamatok
         projects_count: Projektek
         proposals_count: Javaslatok
         results_count: Eredmények
+        supports_count: Szavazatok
         surveys_count: Felmérések
         users_count: Résztvevők
-        votes_count: Szavazatok
   layouts:
     decidim:
       participatory_process_groups:

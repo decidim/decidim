@@ -103,6 +103,7 @@ es-MX:
         name: Propuestas
         settings:
           global:
+            allow_card_image: Permitir tarjeta con imagen
             amendments_enabled: Enmiendas habilitadas
             amendments_enabled_help: Si está activo, configura las opciones de enmiendas para cada fase.
             amendments_wizard_help_text: Asistente de ayuda de las enmiendas
@@ -140,6 +141,7 @@ es-MX:
             amendments_visibility: Visibilidad de la enmienda
             amendments_visibility_help: Si se selecciona la opción "Las enmiendas son visibles sólo para sus autoras", las participantes deberán iniciar sesión para ver las enmiendas realizadas.
             announcement: Aviso
+            answers_with_costs: Habilitar coste en las respuestas a propuestas
             automatic_hashtags: Hashtags añadidos a todas las propuestas.
             comments_blocked: Comentarios bloqueados
             creation_enabled: Habilitar creación de propuestas
@@ -732,6 +734,7 @@ es-MX:
           creation_date: 'Fecha de creación: %{date}'
           view_proposal: Ver propuesta
         show:
+          answer: Respuesta
           back_to: Volver a
           changes_at_title: Enmienda a "%{title}"
           edit_proposal: Editar propuesta

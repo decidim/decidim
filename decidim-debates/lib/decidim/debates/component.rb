@@ -32,6 +32,11 @@ Decidim.register_component(:debates) do |component|
     Decidim::Debates::Debate.where(component: components).not_hidden.count
   end
 
+  component.register_stat :followers_count, tag: :followers, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, _start_at, _end_at|
+    debates_ids = Decidim::Debates::Debate.where(component: components).not_hidden.pluck(:id)
+    Decidim::Follow.where(decidim_followable_type: "Decidim::Debates::Debate", decidim_followable_id: debates_ids).count
+  end
+
   component.register_resource(:debate) do |resource|
     resource.model_class_name = "Decidim::Debates::Debate"
     resource.card = "decidim/debates/debate"

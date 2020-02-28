@@ -662,6 +662,7 @@ pt-BR:
           creation_date: 'Criação: %{date}'
           view_proposal: Ver proposta
         show:
+          answer: Responder
           back_to: De volta a
           edit_proposal: Editar proposta
           endorsements_list: Lista de avais
