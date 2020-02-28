@@ -26,7 +26,7 @@ shared_examples "merge proposals" do
 
       context "when less than one proposal is checked" do
         before do
-          page.find("#proposals_bulk.js-check-all").set(false)
+          visit current_path
           page.first(".js-proposal-list-check").set(true)
         end
 
