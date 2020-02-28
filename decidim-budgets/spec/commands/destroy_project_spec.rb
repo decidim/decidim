@@ -7,6 +7,7 @@ module Decidim::Budgets
     subject { described_class.new(project, current_user) }
 
     let(:project) { create :project }
+    let!(:image) { create(:attachment, :with_image, attached_to: project) }
     let(:organization) { project.component.organization }
     let(:current_user) { create :user, :admin, :confirmed, organization: organization }
 
@@ -14,6 +15,10 @@ module Decidim::Budgets
       it "destroys the project" do
         subject.call
         expect { project.reload }.to raise_error(ActiveRecord::RecordNotFound)
+      end
+
+      it "destroys the attached image" do
+        expect { subject.call }.to change(Decidim::Attachment, :count).by(-1)
       end
 
       it "traces the action", versioning: true do

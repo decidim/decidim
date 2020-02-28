@@ -56,7 +56,8 @@ module Decidim
 
       # maybe a custom settings options would be nice
       def gallery_allowed?
-        @form.current_component.settings.attachments_allowed?
+        @attached_to.component.manifest.name == :budgets ||
+          @attached_to.component.settings.attachments_allowed?
       end
 
       def process_gallery?

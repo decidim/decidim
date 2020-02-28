@@ -12,6 +12,8 @@ module Decidim::Budgets
     let(:current_component) { create :component, manifest_name: :budgets, participatory_space: participatory_process }
     let(:scope) { create :scope, organization: organization }
     let(:category) { create :category, participatory_space: participatory_process }
+    let(:uploaded_images) { [] }
+    let(:photos) { [] }
     let(:proposal_component) do
       create(:component, manifest_name: :proposals, participatory_space: participatory_process)
     end
@@ -32,6 +34,8 @@ module Decidim::Budgets
         proposal_ids: proposals.map(&:id),
         scope: scope,
         category: category,
+        photos: photos,
+        add_photos: uploaded_images,
         current_component: current_component
       )
     end
@@ -82,6 +86,31 @@ module Decidim::Budgets
         subject.call
         linked_proposals = project.linked_resources(:proposals, "included_proposals")
         expect(linked_proposals).to match_array(proposals)
+      end
+
+      context "when uploading images", processing_uploads_for: Decidim::AttachmentUploader do
+        let(:uploaded_images) do
+          [
+            Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
+            Decidim::Dev.test_file("city2.jpeg", "image/jpeg")
+          ]
+        end
+
+        it "creates a gallery for the project" do
+          expect { subject.call }.to change(Decidim::Attachment, :count).by(2)
+          project = Decidim::Budgets::Project.last
+          expect(project.photos.count).to eq(2)
+          last_attachment = Decidim::Attachment.last
+          expect(last_attachment.attached_to).to eq(project)
+        end
+
+        context "when gallery is left blank" do
+          let(:uploaded_images) { [] }
+
+          it "broadcasts ok" do
+            expect { subject.call }.to broadcast(:ok)
+          end
+        end
       end
     end
   end

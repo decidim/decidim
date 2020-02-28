@@ -6,6 +6,9 @@ module Decidim
       # This command is executed when the user changes a Project from the admin
       # panel.
       class UpdateProject < Rectify::Command
+        include Decidim::Proposals::AttachmentMethods
+        include Decidim::Proposals::GalleryMethods
+
         # Initializes an UpdateProject Command.
         #
         # form - The form from which to get the data.
@@ -13,6 +16,7 @@ module Decidim
         def initialize(form, project)
           @form = form
           @project = project
+          @attached_to = project
         end
 
         # Updates the project if valid.
@@ -21,9 +25,16 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
+          if process_gallery?
+            build_gallery
+            return broadcast(:invalid) if gallery_invalid?
+          end
+
           transaction do
             update_project
             link_proposals
+            create_gallery if process_gallery?
+            photo_cleanup!
           end
 
           broadcast(:ok)
@@ -31,7 +42,7 @@ module Decidim
 
         private
 
-        attr_reader :project, :form
+        attr_reader :project, :form, :gallery
 
         def update_project
           Decidim.traceability.update!(
