@@ -356,7 +356,7 @@ module Decidim
       end
 
       ransacker :state do
-        Arel.sql("CASE WHEN answered_at IS NULL THEN NULL ELSE state END")
+        Arel.sql("CASE WHEN state = 'withdrawn' THEN 'withdrawn' WHEN state_published_at IS NULL THEN NULL ELSE state END")
       end
 
       ransacker :id_string do
