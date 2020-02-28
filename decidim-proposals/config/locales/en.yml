@@ -32,6 +32,9 @@ en:
       proposals_import:
         import_proposals: Import proposals
         keep_authors: Keep original authors
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: Valuator name
     errors:
       models:
         participatory_text:
@@ -93,6 +96,8 @@ en:
           label: Status
           values:
             'true': Not answered
+        valuator_role_ids_has:
+          label: Assigned to valuator
     components:
       proposals:
         actions:
@@ -403,6 +408,8 @@ en:
             select_a_meeting: Select a meeting
           index:
             actions: Actions
+            assign_to_valuator: Assign to valuator
+            assign_to_valuator_button: Assign
             cancel: Cancel
             change_category: Change category
             merge: Merge into a new one
@@ -412,12 +419,15 @@ en:
             split: Split proposals
             split_button: Split
             title: Proposals
+            unassign_from_valuator: Unassign from valuator
+            unassign_from_valuator_button: Unassign
             update: Update
           new:
             create: Create
             title: Create proposal
           show:
             amendments_count: Amendments count
+            assigned_valuators: Assigned valuators
             authors: Authors
             body: Body
             comments_count: Comments count
@@ -437,6 +447,9 @@ en:
             proposals: Proposals
             ranking: "%{ranking} of %{total}"
             related_meetings: Related meetings
+            remove_assignment: Remove assignment
+            remove_assignment_confirmation: Are you sure you want to remove the valuator from this proposal?
+            valuators: Valuators
             votes_count: Supports count
             votes_ranking: Ranking by supports
           update_category:
@@ -461,6 +474,13 @@ en:
           create:
             invalid: There was a problem spliting the selected proposals.
             success: Successfully splitted the proposals into new ones.
+        valuation_assignments:
+          create:
+            invalid: There was an error assigning proposals to a valuator
+            success: Proposals assigned to a valuator successfully
+          delete:
+            invalid: There was an error unassigning proposals from a valuator
+            success: Valuator unassigned from proposals successfully
       admin_log:
         proposal:
           answer: "%{user_name} answered the %{resource_name} proposal on the %{space_name} space"
@@ -468,6 +488,9 @@ en:
           update: "%{user_name} updated the %{resource_name} official proposal on the %{space_name} space"
         proposal_note:
           create: "%{user_name} left a private note on the %{resource_name} proposal on the %{space_name} space"
+        valuation_assignment:
+          create: "%{user_name} assigned the %{resource_name} proposal to a valuator"
+          delete: "%{user_name} unassigned a valuator from the %{proposal_title} proposal"
       answers:
         accepted: Accepted
         evaluating: Evaluating
@@ -635,6 +658,8 @@ en:
             scope: Scope
             state: Status
             title: Title
+            valuator: Valuator
+            valuators: Valuators
             votes: Votes
       new:
         limit_reached: You can't create new proposals since you've exceeded the limit.
