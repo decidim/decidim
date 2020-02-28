@@ -206,13 +206,11 @@ es-PY:
         destroy:
           success: Usuario eliminado con éxito de este proceso participativo.
         edit:
-          title: Editar usuario del proceso
           update: Actualizar
         index:
           process_admins_title: Usuarios del proceso
         new:
           create: Crear
-          title: Nuevo usuario del proceso
         update:
           error: Ha habido un error al actualizar un usuario para este proceso participativo.
           success: Usuario actualizado correctamente para este proceso participativo.
