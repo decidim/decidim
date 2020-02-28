@@ -128,6 +128,7 @@ ar:
             threshold_per_proposal: عتبة لكل اقتراح
             vote_limit: حد الدعم لكل مشارك
           step:
+            amendment_creation_enabled_help: يمكن للمشارِك إدخال تعديلات على المقتَرَحات.
             amendments_visibility: رؤية التعديل
             announcement: إعلان
             automatic_hashtags: علامات التصنيف المضافة إلى جميع المقترحات
@@ -371,6 +372,7 @@ ar:
             add_images: إضافة صور
             attachment_legend: "(اختياري) إضافة مرفق"
             created_in_meeting: هذا الاقتراح يأتي من اجتماع
+            gallery_legend: "(اختياري) إضافة معرض للصور"
             select_a_category: اختر تصنيف
             select_a_meeting: اختيار اجتماع
           index:
