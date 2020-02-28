@@ -63,11 +63,11 @@ body{
 .layout-content{
   flex-grow: 1;
   max-width: 100%;
+  overflow: scroll;
 }
 
 .container{
   padding: 1rem;
-  max-width: 1200px;
 
   @include breakpoint(mediumlarge){
     padding: 2rem;
