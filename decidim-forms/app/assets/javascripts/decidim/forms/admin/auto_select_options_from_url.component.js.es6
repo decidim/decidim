@@ -23,7 +23,9 @@
 
         data.forEach((option) => {
           let optionElement = $(`<option value="${option.id}">${option.body}</option>`).appendTo(select);
-          if (option.id == selectedValue) optionElement.attr("selected", true);
+          if (option.id === selectedValue) {
+            optionElement.attr("selected", true);
+          }
         });
 
         if (selectedValue) {
