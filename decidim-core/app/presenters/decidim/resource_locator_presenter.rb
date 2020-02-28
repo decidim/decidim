@@ -47,6 +47,15 @@ module Decidim
       admin_collection_route("path", options)
     end
 
+    # Builds the admin show path to the resource.
+    #
+    # options - An optional hash of options to pass to the Rails router
+    #
+    # Returns a String.
+    def show(options = {})
+      admin_route_proxy.send("#{member_route_name}_path", resource, options)
+    end
+
     # Builds the admin edit path to the resource.
     #
     # options - An optional hash of options to pass to the Rails router

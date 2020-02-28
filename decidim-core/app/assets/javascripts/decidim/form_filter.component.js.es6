@@ -11,8 +11,10 @@
       this.$form = $form;
       this.id = this.$form.attr("id") || this._getUID();
       this.mounted = false;
+      this.changeEvents = true;
 
-      this._onFormChange = this._delayed(this._onFormChange.bind(this));
+      this._updateInitialState();
+      this._onFormChange = exports.delayed(this, this._onFormChange.bind(this));
       this._onPopState = this._onPopState.bind(this);
 
       if (window.Decidim.PopStateHandler) {
@@ -56,17 +58,7 @@
           this.currentFormRequest = e.originalEvent.detail[0];
         });
 
-        this.$form.on("ajax:before", () => {
-          this.$form.find(".ignore-filters input, .ignore-filters select, .ignore-filter").each((idx, elem) => {
-            elem.disabled = true;
-          });
-        });
-
-        this.$form.on("ajax:send", () => {
-          this.$form.find(".ignore-filters input, .ignore-filters select, .ignore-filter").each((idx, elem) => {
-            elem.disabled = false;
-          });
-        });
+        exports.theCheckBoxesTree.setContainerForm(this.$form);
 
         exports.Decidim.History.registerCallback(`filters-${this.id}`, (state) => {
           this._onPopState(state);
@@ -75,27 +67,36 @@
     }
 
     /**
-     * Finds the current location.
+     * Sets path in the browser history with the initial filters state, to allow to restoring it when using browser history.
      * @private
-     * @returns {String} - Returns the current location.
+     * @returns {Void} - Returns nothing.
      */
-    _getLocation() {
-      return exports.location.toString();
+    _updateInitialState() {
+      const [initialPath, initialState] = this._currentStateAndPath();
+      initialState._path = initialPath
+      exports.Decidim.History.replaceState(null, initialState);
     }
 
     /**
-     * Finds the values of the location params that match the given regexp.
+     * Finds the current location.
+     * @param {boolean} withHost - include the host part in the returned location
      * @private
-     * @param {Regexp} regex - a Regexp to match the params.
-     * @returns {String[]} - An array of values of the params that match the regexp.
+     * @returns {String} - Returns the current location.
      */
-    _getLocationParams(regex) {
-      const location = decodeURIComponent(this._getLocation());
-      let values = location.match(regex);
-      if (values) {
-        values = values.map((val) => val.match(/=(.*)/)[1]);
+    _getLocation(withHost = true) {
+      const state = exports.Decidim.History.state();
+      let path = "";
+
+      if (state && state._path) {
+        path = state._path;
+      } else {
+        path = exports.location.pathname + exports.location.search + exports.location.hash;
       }
-      return values;
+
+      if (withHost) {
+        return exports.location.origin + path;
+      }
+      return path;
     }
 
     /**
@@ -153,7 +154,9 @@
      * @returns {Void} - Returns nothing.
      */
     _clearForm() {
-      this.$form.find("input[type=checkbox]").attr("checked", false);
+      this.$form.find("input[type=checkbox]").each((index, element) => {
+        element.checked = element.indeterminate = false;
+      });
       this.$form.find("input[type=radio]").attr("checked", false);
       this.$form.find(".data-picker").each((_index, picker) => {
         exports.theDataPicker.clear(picker);
@@ -174,6 +177,7 @@
      * @returns {Void} - Returns nothing.
      */
     _onPopState(state) {
+      this.changeEvents = false;
       this._clearForm();
 
       const filterParams = this._parseLocationFilterValues();
@@ -185,22 +189,25 @@
         const fieldIds = Object.keys(filterParams);
 
         // Iterate the filter params and set the correct form values
-        fieldIds.forEach((fieldId) => {
-          let field = null;
+        fieldIds.forEach((fieldName) => {
+          let value = filterParams[fieldName];
 
-          // Since we are using Ruby on Rails generated forms the field ids for a
-          // checkbox or a radio button has the following form: filter_${key}_${value}
-          field = this.$form.find(`input#filter_${fieldId}_${filterParams[fieldId]}`);
-          if (field.length > 0) {
-            field[0].checked = true;
+          if (Array.isArray(value)) {
+            let checkboxes = this.$form.find(`input[type=checkbox][name="filter[${fieldName}][]"]`);
+            window.theCheckBoxesTree.updateChecked(checkboxes, value);
           } else {
-            // If the field is not a checkbox neither a radio it means is a input or a select.
-            // Ruby on Rails ensure the ids are constructed like this: filter_${key}
-            field = this.$form.find(`input#filter_${fieldId},select#filter_${fieldId}`);
-
-            if (field.length > 0) {
-              field.val(filterParams[fieldId]);
-            }
+            this.$form.find(`*[name="filter[${fieldName}]"]`).each((index, element) => {
+              switch (element.type) {
+              case "hidden":
+                break;
+              case "radio":
+              case "checkbox":
+                element.checked = value === element.value;
+                break;
+              default:
+                element.value = value;
+              }
+            });
           }
         });
       }
@@ -217,6 +224,8 @@
       if (this.popStateSubmiter) {
         exports.Rails.fire(this.$form[0], "submit");
       }
+
+      this.changeEvents = true;
     }
 
     /**
@@ -225,26 +234,45 @@
      * @returns {Void} - Returns nothing.
      */
     _onFormChange() {
+      if (!this.changeEvents) {
+        return;
+      }
+
+      const [newPath, newState] = this._currentStateAndPath();
+      const path = this._getLocation(false);
+
+      if (newPath === path) {
+        return;
+      }
+
+      exports.Rails.fire(this.$form[0], "submit");
+      exports.Decidim.History.pushState(newPath, newState);
+    }
+
+    /**
+     * Calculates the path and the state associated to the filters inputs.
+     * @private
+     * @returns {Array} - Returns an array with the path and the state for the current filters state.
+     */
+    _currentStateAndPath() {
       const formAction = this.$form.attr("action");
       const params = this.$form.find(":not(.ignore-filters)").find("select:not(.ignore-filter), input:not(.ignore-filter)").serialize();
 
-      let newUrl = "";
-      let newState = {};
-
-      exports.Rails.fire(this.$form[0], "submit");
+      let path = "";
+      let state = {};
 
       if (formAction.indexOf("?") < 0) {
-        newUrl = `${formAction}?${params}`;
+        path = `${formAction}?${params}`;
       } else {
-        newUrl = `${formAction}&${params}`;
+        path = `${formAction}&${params}`;
       }
 
       // Stores picker information for selected values (value, text and link) in the state object
       $(".data-picker", this.$form).each((_index, picker) => {
-        newState[picker.id] = exports.theDataPicker.save(picker);
+        state[picker.id] = exports.theDataPicker.save(picker);
       })
 
-      exports.Decidim.History.pushState(newUrl, newState);
+      return [path, state];
     }
 
     /**
@@ -254,30 +282,6 @@
      */
     _getUID() {
       return `filter-form-${new Date().setUTCMilliseconds()}-${Math.floor(Math.random() * 10000000)}`;
-    }
-
-    /**
-     * Returns a function, that, as long as it continues to be invoked, will not
-     * be triggered. The function will be called after it stops being called for
-     * N milliseconds.
-     * @param {Function} func - the function to be executed.
-     * @param {int} wait - number of milliseconds to wait before executing the function.
-     * @private
-     * @returns {Void} - Returns nothing.
-     */
-    _delayed(func, wait) {
-      let that = this,
-          timeout = null;
-
-      return function(...args) {
-        if (timeout) {
-          clearTimeout(timeout);
-        }
-        timeout = setTimeout(() => {
-          timeout = null;
-          Reflect.apply(func, that, args);
-        }, wait);
-      }
     }
   }
 

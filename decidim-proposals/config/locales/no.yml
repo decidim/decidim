@@ -740,6 +740,7 @@
           creation_date: 'Opprettet: %{date}'
           view_proposal: Se forslag
         show:
+          answer: Svar
           back_to: Tilbake til
           changes_at_title: Endring til "%{title}"
           edit_proposal: Rediger forslaget
