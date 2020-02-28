@@ -52,6 +52,25 @@ module Decidim
               command.call
             end.not_to change(User, :count)
           end
+
+          context "when the user was already invited" do
+            let(:user) { build(:user, email: email, organization: organization) }
+
+            before do
+              user.invite!
+              clear_enqueued_jobs
+            end
+
+            it "receives the invitation email again" do
+              expect do
+                command.call
+                user.reload
+              end.to change(User, :count).by(0)
+                                         .and broadcast(:invalid)
+                .and change(user.reload, :invitation_token)
+              expect(ActionMailer::DeliveryJob).to have_been_enqueued.on_queue("mailers")
+            end
+          end
         end
 
         describe "when the form is valid" do

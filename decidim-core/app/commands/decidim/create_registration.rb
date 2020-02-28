@@ -17,7 +17,11 @@ module Decidim
     #
     # Returns nothing.
     def call
-      return broadcast(:invalid) if form.invalid?
+      if form.invalid?
+        user = User.has_pending_invitations?(form.current_organization.id, form.email)
+        user.invite!(user.invited_by) if user
+        return broadcast(:invalid)
+      end
 
       create_user
 
