@@ -31,7 +31,7 @@ module Decidim
         end
 
         it "publish the proposal answer" do
-          expect { subject }.to change { proposal.reload.published_answer? } .to(true)
+          expect { subject }.to change { proposal.reload.published_state? } .to(true)
         end
 
         it "changes the proposal state" do
@@ -105,7 +105,7 @@ module Decidim
           end
 
           it "doesn't publish the proposal answer" do
-            expect { subject }.not_to change { proposal.reload.published_answer? } .from(false)
+            expect { subject }.not_to change { proposal.reload.published_state? } .from(false)
           end
 
           it "doesn't notify the proposal answer" do

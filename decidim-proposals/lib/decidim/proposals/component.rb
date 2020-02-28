@@ -309,11 +309,11 @@ Decidim.register_component(:proposals) do |component|
           about: Faker::Lorem.paragraph(2)
         )
 
-        Decidim::Proposals::ProposalVote.create!(proposal: proposal, author: author) unless proposal.published_answer? && proposal.rejected?
+        Decidim::Proposals::ProposalVote.create!(proposal: proposal, author: author) unless proposal.published_state? && proposal.rejected?
         Decidim::Proposals::ProposalVote.create!(proposal: emendation, author: author) if emendation
       end
 
-      unless proposal.published_answer? && proposal.rejected?
+      unless proposal.published_state? && proposal.rejected?
         (n * 2).times do |index|
           email = "endorsement-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-endr#{index}@example.org"
           name = "#{Faker::Name.name} #{participatory_space.id} #{n} endr#{index}"

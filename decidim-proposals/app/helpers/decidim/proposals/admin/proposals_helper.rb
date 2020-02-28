@@ -31,7 +31,7 @@ module Decidim
 
         def proposal_complete_state(proposal)
           state = humanize_proposal_state(proposal.state)
-          state += " (#{humanize_proposal_state(proposal.internal_state)})" if proposal.answered? && !proposal.published_answer?
+          state += " (#{humanize_proposal_state(proposal.internal_state)})" if proposal.answered? && !proposal.published_state?
           state.html_safe
         end
 

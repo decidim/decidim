@@ -5,7 +5,7 @@ $(document).ready(function () {
   }
 
   let selectedProposalsNotPublishedAnswerCount = function() {
-    return $('.table-list [data-published-answer=false] .js-check-all-proposal:checked').length
+    return $('.table-list [data-published-state=false] .js-check-all-proposal:checked').length
   }
 
   window.selectedProposalsCountUpdate = function() {

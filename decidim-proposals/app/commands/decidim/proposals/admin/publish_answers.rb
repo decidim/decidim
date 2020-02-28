@@ -40,7 +40,8 @@ module Decidim
         def proposals
           @proposals ||= Decidim::Proposals::Proposal
                          .published
-                         .answers_not_published
+                         .answered
+                         .state_not_published
                          .where(component: component)
                          .where(id: proposal_ids)
         end
@@ -51,7 +52,7 @@ module Decidim
             proposal,
             user
           ) do
-            proposal.update!(answered_at: Time.current)
+            proposal.update!(state_published_at: Time.current)
           end
         end
       end

@@ -21,7 +21,7 @@ module Decidim
         #
         # Returns nothing.
         def call
-          return broadcast(:noop) unless proposal.published_answer? && state_changed?
+          return broadcast(:noop) unless proposal.published_state? && state_changed?
 
           notify_followers
           increment_score

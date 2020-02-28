@@ -19,7 +19,7 @@ module Decidim
         end
 
         it "publish the answers" do
-          expect { subject }.to change { proposals.map { |proposal| proposal.reload.published_answer? } .uniq } .to([true])
+          expect { subject }.to change { proposals.map { |proposal| proposal.reload.published_state? } .uniq } .to([true])
         end
 
         it "changes the proposals published state" do
@@ -58,7 +58,7 @@ module Decidim
           end
 
           it "doesn't publish the answers" do
-            expect { subject }.not_to(change { proposals.map { |proposal| proposal.reload.published_answer? } .uniq })
+            expect { subject }.not_to(change { proposals.map { |proposal| proposal.reload.published_state? } .uniq })
           end
 
           it "doesn't trace the action" do

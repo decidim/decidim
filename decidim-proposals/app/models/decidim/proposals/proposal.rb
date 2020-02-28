@@ -54,13 +54,15 @@ module Decidim
 
       scope :answered, -> { where.not(answered_at: nil) }
       scope :not_answered, -> { where(answered_at: nil) }
-      scope :answers_not_published, -> { where(answered_at: nil).where.not(state: nil) }
 
-      scope :accepted, -> { answered.where(state: "accepted") }
-      scope :rejected, -> { answered.where(state: "rejected") }
-      scope :evaluating, -> { answered.where(state: "evaluating") }
+      scope :state_not_published, -> { where(state_published_at: nil) }
+      scope :state_published, -> { where.not(state_published_at: nil).where.not(state: nil) }
+
+      scope :accepted, -> { state_published.where(state: "accepted") }
+      scope :rejected, -> { state_published.where(state: "rejected") }
+      scope :evaluating, -> { state_published.where(state: "evaluating") }
       scope :withdrawn, -> { where(state: "withdrawn") }
-      scope :except_rejected, -> { where.not(state: "rejected").or(not_answered) }
+      scope :except_rejected, -> { where.not(state: "rejected").or(state_not_published) }
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
       scope :drafts, -> { where(published_at: nil) }
       scope :except_drafts, -> { where.not(published_at: nil) }
@@ -211,7 +213,7 @@ module Decidim
       #
       # Returns Boolean.
       def answered?
-        internal_state.present?
+        answered_at.present?
       end
 
       # Public: Checks if the author has withdrawn the proposal.
@@ -289,7 +291,7 @@ module Decidim
       def editable_by?(user)
         return true if draft?
 
-        !published_answer? && within_edit_time_limit? && !copied_from_other_component? && created_by?(user)
+        !published_state? && within_edit_time_limit? && !copied_from_other_component? && created_by?(user)
       end
 
       # Checks whether the user can withdraw the given proposal.
@@ -346,8 +348,8 @@ module Decidim
         [:valuator_role_ids_has]
       end
 
-      ransacker :published_answer do
-        Arel.sql("answered_at IS NULL AND state IS NOT NULL")
+      ransacker :state_published do
+        Arel.sql("state_published_at IS NOT NULL OR state IS NULL")
       end
 
       ransacker :state do
