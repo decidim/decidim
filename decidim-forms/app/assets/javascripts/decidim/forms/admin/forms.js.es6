@@ -23,7 +23,7 @@
   const displayConditionQuestionSelector = "select[name$=\\[decidim_condition_question_id\\]]";
   const displayConditionAnswerOptionSelector = "select[name$=\\[decidim_answer_option_id\\]]";
   const displayConditionTypeSelector = "select[name$=\\[condition_type\\]]";
-  const displayConditionDeletedSelector = "input[name$=\\[deleted\\]]";
+  const deletedInputSelector = "input[name$=\\[deleted\\]]";
 
   const displayConditionValueWrapperSelector = ".questionnaire-question-display-condition-value";
   const displayconditionAnswerOptionWrapperSelector = ".questionnaire-question-display-condition-answer-option";
@@ -34,11 +34,11 @@
     $(fieldSelector).each((idx, el) => {
       const $question = $(el);
       if (idx) {
-        $question.find(displayConditionsWrapperSelector).find(displayConditionDeletedSelector).val("false");
+        $question.find(displayConditionsWrapperSelector).find(deletedInputSelector).val("false");
         $question.find(displayConditionsWrapperSelector).show();
       }
       else {
-        $question.find(displayConditionsWrapperSelector).find(displayConditionDeletedSelector).val("true");
+        $question.find(displayConditionsWrapperSelector).find(deletedInputSelector).val("true");
         $question.find(displayConditionsWrapperSelector).hide();
       }
     });
@@ -306,6 +306,10 @@
 
       $field.find(answerOptionRemoveFieldButtonSelector).each((idx, el) => {
         dynamicFieldsForAnswerOptions[$field.attr("id")]._removeField(el);
+      });
+
+      $field.find(displayConditionRemoveFieldButtonSelector).each((idx, el) => {
+        dynamicFieldsForDisplayConditions[$field.attr("id")]._removeField(el);
       });
     },
     onMoveUpField: () => {

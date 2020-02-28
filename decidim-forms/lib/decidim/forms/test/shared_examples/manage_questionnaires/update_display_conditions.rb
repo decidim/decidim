@@ -4,19 +4,21 @@ require "spec_helper"
 
 shared_examples_for "update display conditions" do
   context "when loading a saved display condition" do
-    let(:display_condition_condition_question) { questions.first }
-    let(:display_condition_question) { questions.second }
-    let(:condition_type) { :answered }
-    let(:answer_option) { nil }
+    let!(:condition_question_type) { "short_answer" }
+    let!(:condition_question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: condition_question_type, position: 1) }
+    let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "short_answer", position: 2) }
+    let!(:condition_type) { :answered }
+    let!(:answer_option) { nil }
+
+    let!(:display_condition) do
+      create(:display_condition,
+             question: question,
+             condition_question: condition_question,
+             condition_type: condition_type,
+             answer_option: answer_option)
+    end
 
     before do
-      within_add_display_condition do
-        select display_condition_condition_question.body["en"], from: "Question"
-        select condition_type, from: "Condition"
-      end
-
-      click_button "Save"
-
       visit questionnaire_edit_path
     end
 
@@ -26,66 +28,65 @@ shared_examples_for "update display conditions" do
 
     it "loads condition_question in select" do
       within ".questionnaire-question-display-condition" do
-        expect(page).to have_selected_option(display_condition.condition_question.body["en"])
+        expect(page).to have_select("Question", selected: condition_question.body["en"])
       end
     end
 
     it "loads condition_type in select" do
       within ".questionnaire-question-display-condition" do
-        expect(page).to have_selected_option("Answered")
+        expect(page).to have_select("Condition", selected: "Answered")
       end
     end
 
     context "when condition_type is :equal" do
-      let!(:answer_option) { question_single_option.answer_options.first }
-      let!(:display_condition_condition_question) { question_single_option }
-      let!(:display_condition_question) { question_multiple_option }
+      let!(:condition_question_type) { "single_option" }
+      let!(:answer_option) { create(:answer_option, question: condition_question) }
       let!(:condition_type) { :equal }
 
       it "loads answer_option in select" do
         within ".questionnaire-question-display-condition" do
-          expect(page).to have_selected_option("Equal")
-          expect(page).to have_selected_option(answer_option.body["en"])
+          expect(page).to have_select("Condition", selected: "Equal")
+          expect(page).to have_select("Answer option", selected: answer_option.body["en"])
         end
       end
     end
-  end
 
-  it "can be removed" do
-    within ".questionnaire-question-display-condition:last-of-type" do
-      click_button "Remove"
-    end
-
-    click_button "Save"
-
-    visit questionnaire_edit_path
-
-    expect(page).to have_selector(".questionnaire-question-display-condition", count: 0)
-  end
-
-  it "still removes the question even if previous editions rendered the conditions invalid" do
-    within "form.edit_questionnaire" do
-      expect(page).to have_selector(".questionnaire-question", count: 1)
-
-      within ".questionnaire-question-display-condition:first-of-type" do
-        select question_short_answer, from: "Question"
-        select "Includes text", from: "Condition"
-        fill_in find_nested_form_field_locator("body_en"), with: ""
-      end
-
-      within ".questionnaire-question" do
-        click_button "Remove", match: :first
+    it "can be removed" do
+      within ".questionnaire-question-display-condition:last-of-type" do
+        click_button "Remove"
       end
 
       click_button "Save"
+
+      visit questionnaire_edit_path
+
+      expect(page).to have_selector(".questionnaire-question-display-condition", count: 0)
     end
 
-    expect(page).to have_admin_callout("successfully")
+    it "still removes the question even if previous editions rendered the conditions invalid" do
+      within "form.edit_questionnaire" do
+        expect(page).to have_selector(".questionnaire-question", count: 2)
 
-    visit questionnaire_edit_path
+        within ".questionnaire-question-display-condition:first-of-type" do
+          select condition_question.body["en"], from: "Question"
+          select "Includes text", from: "Condition"
+          fill_in find_nested_form_field_locator("condition_value_en"), with: ""
+        end
 
-    within "form.edit_questionnaire" do
-      expect(page).to have_selector(".questionnaire-question", count: 0)
+        within ".questionnaire-question:last-of-type" do
+          click_button "Remove", match: :first
+        end
+
+        click_button "Save"
+      end
+
+      expect(page).to have_admin_callout("successfully")
+
+      visit questionnaire_edit_path
+
+      within "form.edit_questionnaire" do
+        expect(page).to have_selector(".questionnaire-question", count: 1)
+      end
     end
   end
 end
