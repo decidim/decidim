@@ -11,8 +11,8 @@ module Decidim
         helper Proposals::ApplicationHelper
         helper Decidim::Proposals::Admin::ProposalRankingsHelper
         helper Decidim::Messaging::ConversationHelper
+        helper_method :proposals, :query, :form_presenter, :proposal, :proposal_ids
         helper Proposals::Admin::ProposalBulkActionsHelper
-        helper_method :proposals, :query, :form_presenter, :proposal
 
         def show
           @notes_form = form(ProposalNoteForm).instance
@@ -45,9 +45,8 @@ module Decidim
 
         def update_category
           enforce_permission_to :update, :proposal_category
-          @proposal_ids = params[:proposal_ids]
 
-          Admin::UpdateProposalCategory.call(params[:category][:id], params[:proposal_ids]) do
+          Admin::UpdateProposalCategory.call(params[:category][:id], proposal_ids) do
             on(:invalid_category) do
               flash.now[:error] = I18n.t(
                 "proposals.update_category.select_a_category",
@@ -69,6 +68,18 @@ module Decidim
             respond_to do |format|
               format.js
             end
+          end
+        end
+
+        def publish_answers
+          enforce_permission_to :publish_answers, :proposals
+
+          Decidim::Proposals::PublishAnswersJob.perform_later(current_component, current_user, proposal_ids)
+
+          flash.now[:notice] = I18n.t("proposals.publish_answers.success", scope: "decidim")
+
+          respond_to do |format|
+            format.js
           end
         end
 
@@ -137,6 +148,10 @@ module Decidim
 
         def proposal
           @proposal ||= collection.find(params[:id])
+        end
+
+        def proposal_ids
+          @proposal_ids ||= params[:proposal_ids]
         end
 
         def update_proposals_bulk_response_successful(response, subject)

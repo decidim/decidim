@@ -54,6 +54,8 @@ module Decidim
 
       scope :answered, -> { where.not(answered_at: nil) }
       scope :not_answered, -> { where(answered_at: nil) }
+      scope :answers_not_published, -> { where(answered_at: nil).where.not(state: nil) }
+
       scope :accepted, -> { answered.where(state: "accepted") }
       scope :rejected, -> { answered.where(state: "rejected") }
       scope :evaluating, -> { answered.where(state: "evaluating") }
