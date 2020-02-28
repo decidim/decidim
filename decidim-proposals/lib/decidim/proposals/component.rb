@@ -114,9 +114,9 @@ Decidim.register_component(:proposals) do |component|
       space = component_instance.participatory_space
 
       collection = Decidim::Proposals::Proposal
-        .published
-        .where(component: component_instance)
-        .includes(:category, :component)
+                   .published
+                   .where(component: component_instance)
+                   .includes(:category, :component)
 
       if space.user_roles(:valuator).where(user: user).any?
         collection.with_valuation_assigned_to(user, space)
