@@ -418,12 +418,15 @@ hu:
             split: Javaslatok szétválasztása
             split_button: Szétválasztás
             title: Javaslatok
+            unassign_from_valuator: Visszarendelés értékelőtől
+            unassign_from_valuator_button: Visszarendelés
             update: Frissítés
           new:
             create: Létrehozás
             title: Javaslat létrehozása
           show:
             amendments_count: Módosítás száma (%{count}
+            assigned_valuators: Hozzárendelt értékelők
             authors: Szerzők
             body: Szöveg
             comments_count: Hozzászólások száma
@@ -443,6 +446,8 @@ hu:
             proposals: Javaslatok
             ranking: "%{total} -ból %{ranking}"
             related_meetings: Kapcsolódó találkozók
+            remove_assignment: Hozzárendelés eltávolítsa
+            remove_assignment_confirmation: Biztosan eltávolítja az értékelőt ebből a javaslatból?
             valuators: Értékelők
             votes_count: Támogatók száma
             votes_ranking: Támogatások szerinti rangsorolás
@@ -469,7 +474,11 @@ hu:
             invalid: Hiba történt a kiválasztott javaslatok szétválasztása során.
             success: A javaslatokat sikeresen újakra osztottuk.
         valuation_assignments:
+          create:
+            invalid: Hiba történt a javaslatok értékelőhöz való rendelésekor
+            success: Javaslatok sikeresen értékelőhöz rendelve
           delete:
+            invalid: Hiba történt a javaslatok értékbecslőtől való visszarendelésekor
             success: Értékelő sikeresen visszarendelve a javaslatoktól
       admin_log:
         proposal:
@@ -478,6 +487,9 @@ hu:
           update: "%{user_name} frissítette az %{resource_name} hivatalos javaslatot a %{space_name} helyre"
         proposal_note:
           create: "%{user_name} privát megjegyzést hagyott a(z) %{resource_name} javaslathoz itt: %{space_name}"
+        valuation_assignment:
+          create: "A(z) %{user_name} a %{resource_name} javaslatot értékelőhöz rendelte hozzá"
+          delete: "A(z) %{user_name} a %{resource_name} javaslatot értékelőtől rendelte vissza"
       answers:
         accepted: Elfogadva
         evaluating: Értékelés
