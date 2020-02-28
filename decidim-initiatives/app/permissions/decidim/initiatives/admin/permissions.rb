@@ -151,6 +151,8 @@ module Decidim
                       initiative.signature_end_date < Date.current &&
                       initiative.percentage < 100
             toggle_allow(allowed)
+          when :send_to_technical_validation
+            toggle_allow(allowed_to_send_to_technical_validation?)
           else
             allow!
           end
@@ -180,17 +182,19 @@ module Decidim
           when :update
             toggle_allow(initiative.created?)
           when :send_to_technical_validation
-            allowed = initiative.created? && (
-                        !initiative.created_by_individual? ||
-                        initiative.enough_committee_members?
-                      )
-
-            toggle_allow(allowed)
+            toggle_allow(allowed_to_send_to_technical_validation?)
           when :manage_membership
             toggle_allow(initiative.promoting_committee_enabled?)
           else
             disallow!
           end
+        end
+
+        def allowed_to_send_to_technical_validation?
+          initiative.created? && (
+            !initiative.created_by_individual? ||
+            initiative.enough_committee_members?
+          )
         end
       end
     end

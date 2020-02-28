@@ -682,6 +682,7 @@ pl:
           creation_date: 'Tworzenie: %{date}'
           view_proposal: Wyświetl propozycję
         show:
+          answer: Odpowiedź
           back_to: Wrócić do
           edit_proposal: Edytuj propozycję
           endorsements_list: Lista rekomendacji
