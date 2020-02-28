@@ -461,7 +461,7 @@ shared_examples "manage proposals" do
 
   def go_to_admin_proposal_page(proposal)
     within find("tr", text: proposal.title) do
-      click_link "Show"
+      find("a", class: "action-icon--show-proposal").click
     end
   end
 

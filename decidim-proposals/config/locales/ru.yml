@@ -333,6 +333,7 @@ ru:
           creation_date: 'Создано: %{date}'
           view_proposal: Просмотреть предложение
         show:
+          answer: Ответить
           edit_proposal: Редактировать предложение
           endorsements_list: Список тех, кто поддержал
           proposal_accepted_reason: 'Это предложение было принято, поскольку:'

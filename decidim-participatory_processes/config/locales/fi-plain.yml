@@ -27,6 +27,7 @@ fi-pl:
         scope_type_max_depth_id: Teema-suodattimen syvyys
         scopes_enabled: Teemat käytössä
         short_description: Lyhyt kuvaus
+        show_metrics: Näytä tilastot
         show_statistics: Näytä tilastot
         slug: URL-tunniste
         start_date: Alkamispäivä
@@ -391,17 +392,20 @@ fi-pl:
         comments_count: Kommentteja
         debates_count: Keskusteluja
         endorsements_count: Suosituksia
+        followers_count: Seuraajia
         headline: Tilastot
         meetings_count: Tapahtumia
+        no_stats: Tilastoja ei ole vielä saatavilla.
         orders_count: Ääniä
         pages_count: Sivuja
+        participants_count: Osallistujia
         processes_count: Prosesseja
         projects_count: Suunnitelmia
         proposals_count: Ehdotuksia
         results_count: Tuloksia
+        supports_count: Ääniä
         surveys_count: Kyselyitä
         users_count: Osallistujia
-        votes_count: Ääniä
   layouts:
     decidim:
       participatory_process_groups:

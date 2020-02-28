@@ -685,6 +685,7 @@ it:
           creation_date: 'Creazione: %{date}'
           view_proposal: Visualizza la proposta
         show:
+          answer: Risposta
           back_to: Torna a
           changes_at_title: Modifica a "%{title}"
           edit_proposal: Modifica la proposta
