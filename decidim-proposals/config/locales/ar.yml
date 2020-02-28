@@ -31,6 +31,9 @@ ar:
       proposals_import:
         import_proposals: مقترحات الاستيراد
         keep_authors: الحفاظ على المؤلفين الأصلي
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: اسم المُقيِّم
     errors:
       models:
         participatory_text:
@@ -105,6 +108,8 @@ ar:
           label: الحالة
           values:
             'true': لم تتم الإجابة عليها
+        valuator_role_ids_has:
+          label: تم إسناده إلى مُقيِّم
     components:
       proposals:
         actions:
@@ -141,6 +146,7 @@ ar:
             threshold_per_proposal: عتبة لكل اقتراح
             vote_limit: حد الدعم لكل مشارك
           step:
+            amendment_creation_enabled_help: يمكن للمشارِك إدخال تعديلات على المقتَرَحات.
             amendments_visibility: رؤية التعديل
             announcement: إعلان
             automatic_hashtags: علامات التصنيف المضافة إلى جميع المقترحات
@@ -306,6 +312,7 @@ ar:
         see_all: شاهد الكل (%{count})
     proposals:
       actions:
+        answer_proposal: الرد على المُقتَرَح
         edit_proposal: تعديل الاقتراح
         import: استيراد من مكون آخر
         new: عرض جديد
@@ -354,6 +361,9 @@ ar:
             success: تم تحديث النص التشاركي بنجاح.
         proposal_answers:
           form:
+            accepted: تم قبوله
+            evaluating: قيد التقييم
+            rejected: تم رفضه
             title: الإجابة على الاقتراح %{title}
         proposal_notes:
           create:
@@ -378,10 +388,12 @@ ar:
             add_images: إضافة صور
             attachment_legend: "(اختياري) إضافة مرفق"
             created_in_meeting: هذا الاقتراح يأتي من اجتماع
+            gallery_legend: "(اختياري) إضافة معرض للصور"
             select_a_category: اختر تصنيف
             select_a_meeting: اختيار اجتماع
           index:
             actions: أفعال
+            assign_to_valuator: أسنِده إلى مُقيِّم
             cancel: إلغاء
             change_category: تغيير الفئة
             merge: دمج في واحدة جديدة
@@ -391,11 +403,14 @@ ar:
             split: تقسيم المقترحات
             split_button: انشق، مزق
             title: اقتراحات
+            unassign_from_valuator: إلغاء الإسناد مِن المُقيِّم
+            unassign_from_valuator_button: إلغاء الإسناد
             update: تحديث
           new:
             create: إنشاء
             title: إنشاء اقتراح
           show:
+            amendments_count: تعداد التعديلات
             authors: المؤلفون
             body: المحتوى
             comments_count: تعداد التعليقات
@@ -409,6 +424,7 @@ ar:
             proposals: المقترحات
             ranking: "%{ranking} مِن %{total}"
             related_meetings: ملتقيات ذات صلة
+            valuators: المُقيِّمون
             votes_count: يدعم العد
             votes_ranking: ترتيب حسب الدّعم المتلقّى
           update_category:
@@ -433,6 +449,9 @@ ar:
           create:
             invalid: كانت هناك مشكلة في تقسيم المقترحات المحددة.
             success: تم تقسيم المقترحات بنجاح إلى مقترحات جديدة.
+        valuation_assignments:
+          create:
+            success: لقد تم إسناد المُقتَرحات إلى مُقيِّم بنجاح
       admin_log:
         proposal:
           answer: "%{user_name} أجاب على الاقتراح %{resource_name} على %{space_name} الفضاء"
@@ -615,6 +634,8 @@ ar:
             scope: نطاق
             state: الحالة
             title: عنوان
+            valuator: مُقيِّم
+            valuators: المُقيِّمون
             votes: الأصوات
       new:
         limit_reached: لا يمكنك إنشاء مقترحات جديدة لأنك تجاوزت الحد.
