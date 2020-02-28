@@ -31,6 +31,9 @@ hu:
       proposals_import:
         import_proposals: Javaslatok importálása
         keep_authors: Eredeti szerzők megtartása
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: Értékelő neve
     errors:
       models:
         participatory_text:
@@ -92,6 +95,8 @@ hu:
           label: Állapot
           values:
             'true': Nem megválaszolt
+        valuator_role_ids_has:
+          label: Értékelőhöz rendelve
     components:
       proposals:
         actions:
@@ -402,6 +407,8 @@ hu:
             select_a_meeting: Válasszon egy találkozót
           index:
             actions: Műveletek
+            assign_to_valuator: Értékelőhöz rendel
+            assign_to_valuator_button: Hozzárendel
             cancel: Mégse
             change_category: Kategória módosítása
             merge: Összeolvasztás egy újba
@@ -436,6 +443,7 @@ hu:
             proposals: Javaslatok
             ranking: "%{total} -ból %{ranking}"
             related_meetings: Kapcsolódó találkozók
+            valuators: Értékelők
             votes_count: Támogatók száma
             votes_ranking: Támogatások szerinti rangsorolás
           update_category:
@@ -460,6 +468,9 @@ hu:
           create:
             invalid: Hiba történt a kiválasztott javaslatok szétválasztása során.
             success: A javaslatokat sikeresen újakra osztottuk.
+        valuation_assignments:
+          delete:
+            success: Értékelő sikeresen visszarendelve a javaslatoktól
       admin_log:
         proposal:
           answer: "%{user_name} válaszolt a(z) %{resource_name} javaslatra itt: %{space_name}"
@@ -634,6 +645,8 @@ hu:
             scope: Hatáskör
             state: Állapot
             title: Cím
+            valuator: Értékelő
+            valuators: Értékelők
             votes: Szavazatok
       new:
         limit_reached: Nem hozhatsz létre új javaslatokat, mert túllépted a maximumot.
