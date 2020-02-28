@@ -2,9 +2,13 @@
   <div class="card--list__text">
     <div>
       <%= link_to project, class: "card__link" do %>
-        <span class="card__title budget-list__title">
+        <% if project.photos.first %>
+          <%= image_tag project.photos.first.thumbnail_url, class:"thumbnail" %>
+        <% end %>
+        <h5 class="card__title budget-list__title">
           <%= translated_attribute project.title %>
-        </span>
+        </h5>
+        <%= decidim_sanitize(translated_attribute(project.description)) %>
       <% end %>
       <%= cell "decidim/tags", project, context: { extra_classes: ["tags--project"] } %>
     </div>
