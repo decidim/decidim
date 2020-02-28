@@ -40,7 +40,8 @@ shared_examples_for "update display conditions" do
 
     context "when condition_type is :equal" do
       let!(:condition_question_type) { "single_option" }
-      let!(:answer_option) { create(:answer_option, question: condition_question) }
+      let!(:answer_options) { create_list(:answer_option, 3, question: condition_question) }
+      let!(:answer_option) { answer_options.third }
       let!(:condition_type) { :equal }
 
       it "loads answer_option in select" do
