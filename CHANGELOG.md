@@ -102,6 +102,7 @@ Please check [0.21-stable](https://github.com/decidim/decidim/blob/0.21-stable/C
 
 **Fixed**:
 
+- **decidim-admin**, **decidim-proposals**: Fix proposal card layout. [\#5783](https://github.com/decidim/decidim/pull/5783)
 - **decidim-core**: [FIX] Add description pop up required [\#5771](https://github.com/decidim/decidim/pull/5771)
 - **decidim-admin**: Fixed css visual issues with dynamic filters. [\#5801](https://github.com/decidim/decidim/pull/5801)
 - **decidim-admin**: Fixed dynamic filters showing ID. [\#5786](https://github.com/decidim/decidim/pull/5786)
