@@ -6,9 +6,17 @@
       <% end %>
     </div>
 
-    <%= scopes_picker_tag(:scope_id, try(:current_participatory_space)&.scope) %>
+    <%= scopes_picker_tag(
+          :scope_id,
+          try(:current_participatory_space)&.scope,
+          field: t("models.proposal.fields.scope", scope: "decidim.proposals")
+        ) %>
 
-    <%= submit_tag(t("decidim.proposals.admin.proposals.index.update_scope_button"), id: "js-submit-scope-change-proposals", class: "button small button--simple float-left") %>
+    <%= submit_tag(
+          t("decidim.proposals.admin.proposals.index.update_scope_button"),
+          id: "js-submit-scope-change-proposals",
+          class: "button small button--simple float-left"
+        ) %>
 
     <button id="js-cancel-scope-change-proposals" class="button tiny clear compact js-cancel-bulk-action" type="button">
       <%= t("decidim.proposals.admin.proposals.index.cancel") %>
