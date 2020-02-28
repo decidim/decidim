@@ -19,10 +19,16 @@
 
       $.getJSON(url, params, function (data) {
         select.find("option:not([value=''])").remove();
+        const selectedValue = select.data("selected");
 
         data.forEach((option) => {
-          $(`<option value="${option.id}">${option.body}</option>`).appendTo(select);
+          let optionElement = $(`<option value="${option.id}">${option.body}</option>`).appendTo(select);
+          if (option.id == selectedValue) optionElement.attr("selected", true);
         });
+
+        if (selectedValue) {
+          select.val(selectedValue);
+        }
       });
     }
   }
