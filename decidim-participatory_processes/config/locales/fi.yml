@@ -206,13 +206,11 @@ fi:
         destroy:
           success: Käyttäjä poistettiin onnistuneesti tästä osallisuusprosessista.
         edit:
-          title: Päivitä osallisuusprosessin hallintakäyttäjä.
           update: Päivitä
         index:
           process_admins_title: Osallisuusprosessin hallintakäyttäjät
         new:
           create: Luo
-          title: Uusi osallisuusprosessin hallintakäyttäjä.
         update:
           error: Tämän osallisuusprosessin hallintakäyttäjän päivitys epäonnistui.
           success: Osallisuusprosessin hallintakäyttäjän päivitys onnistui.
