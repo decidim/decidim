@@ -672,6 +672,7 @@ sv:
           creation_date: 'Skapat: %{date}'
           view_proposal: Visa förslag
         show:
+          answer: Svara
           back_to: Tillbaka till
           changes_at_title: Ändring till %{title}
           edit_proposal: Redigera förslag

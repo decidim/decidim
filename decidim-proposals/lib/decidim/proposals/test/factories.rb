@@ -433,4 +433,13 @@ FactoryBot.define do
     description { "<script>alert(\"DESCRIPTION\");</script>\n" + Faker::Lorem.sentences(3).join("\n") }
     component { create(:proposal_component) }
   end
+
+  factory :valuation_assignment, class: "Decidim::Proposals::ValuationAssignment" do
+    proposal
+    valuator_role do
+      space = proposal.component.participatory_space
+      organization = space.organization
+      build :participatory_process_user_role, role: :valuator, user: build(:user, organization: organization)
+    end
+  end
 end

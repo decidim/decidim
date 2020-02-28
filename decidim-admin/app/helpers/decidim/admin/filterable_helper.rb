@@ -76,9 +76,11 @@ module Decidim
       end
 
       def i18n_filter_value(filter, value)
-        t(value, scope: "decidim.admin.filters.#{filter}.values")
-      rescue I18n::MissingTranslationData
-        find_dynamic_translation(filter, value)
+        if I18n.exists?("decidim.admin.filters.#{filter}.values.#{value}")
+          t(value, scope: "decidim.admin.filters.#{filter}.values")
+        else
+          find_dynamic_translation(filter, value)
+        end
       end
 
       def applied_filters_hidden_field_tags

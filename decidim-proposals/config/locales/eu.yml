@@ -662,6 +662,7 @@ eu:
           creation_date: 'Sorkuntza: %{date}'
           view_proposal: Ikusi proposamena
         show:
+          answer: Erantzuna
           back_to: Itzuli
           edit_proposal: Editatu proposamena
           endorsements_list: Onarpenen zerrenda

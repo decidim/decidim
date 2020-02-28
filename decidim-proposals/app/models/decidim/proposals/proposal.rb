@@ -24,6 +24,7 @@ module Decidim
       include Decidim::Amendable
       include Decidim::NewsletterParticipant
       include Decidim::Randomable
+      include Decidim::Proposals::Valuatable
 
       POSSIBLE_STATES = %w(not_answered evaluating accepted rejected withdrawn).freeze
 
@@ -82,6 +83,20 @@ module Decidim
              .joins(:coauthorships)
              .where(decidim_coauthorships: { decidim_author_type: "Decidim::Meetings::Meeting" })
       }
+      scope :sort_by_valuation_assignments_count_asc, lambda {
+        order(sort_by_valuation_assignments_count_nulls_last_query + "ASC NULLS FIRST")
+      }
+
+      scope :sort_by_valuation_assignments_count_desc, lambda {
+        order(sort_by_valuation_assignments_count_nulls_last_query + "DESC NULLS LAST")
+      }
+
+      def self.with_valuation_assigned_to(user, space)
+        valuator_roles = space.user_roles(:valuator).where(user: user)
+
+        includes(:valuation_assignments)
+          .where(decidim_proposals_valuation_assignments: { valuator_role_id: valuator_roles })
+      end
 
       acts_as_list scope: :decidim_component_id
 
@@ -272,6 +287,35 @@ module Decidim
          )
         SQL
         Arel.sql(query)
+      end
+
+      # Defines the base query so that ransack can actually sort by this value
+      def self.sort_by_valuation_assignments_count_nulls_last_query
+        <<-SQL
+        (
+          SELECT COUNT(decidim_proposals_valuation_assignments.id)
+          FROM decidim_proposals_valuation_assignments
+          WHERE decidim_proposals_valuation_assignments.decidim_proposal_id = decidim_proposals_proposals.id
+          GROUP BY decidim_proposals_valuation_assignments.decidim_proposal_id
+        )
+        SQL
+      end
+
+      # method to filter by assigned valuator role ID
+      def self.valuator_role_ids_has(value)
+        query = <<-SQL
+        :value = any(
+          (SELECT decidim_proposals_valuation_assignments.valuator_role_id
+          FROM decidim_proposals_valuation_assignments
+          WHERE decidim_proposals_valuation_assignments.decidim_proposal_id = decidim_proposals_proposals.id
+          )
+        )
+        SQL
+        where(query, value: value)
+      end
+
+      def self.ransackable_scopes(_auth = nil)
+        [:valuator_role_ids_has]
       end
 
       ransacker :id_string do
