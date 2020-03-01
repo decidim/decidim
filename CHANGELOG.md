@@ -28,7 +28,6 @@ Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now sup
 
 **Added**:
 - **decidim-core**: Add new language: Greek [#5597](https://github.com/decidim/decidim/pull/5597)
-
 - **decidim-initiatives**: An admin can only send the initiative to technical validation if it has enough committee members. [\#5762](https://github.com/decidim/decidim/pull/5762)
 - **decidim-proposals**: Add images to proposal cards [\#5640](https://github.com/decidim/decidim/pull/5640)
 - **decidim-api**: Added documentation to use the API (newcomers friendly). [\#5582](https://github.com/decidim/decidim/pull/5582)
@@ -90,6 +89,7 @@ Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now sup
 
 **Fixed**:
 
+-**decidim-surveys**: Fix n+1 query on surveys. [\#5813](https://github.com/decidim/decidim/pull/5813)
 - **decidim-initiatives**: Fix initiative state bug [\#5805](https://github.com/decidim/decidim/pull/5805)
 - **decidim-admin**, **decidim-proposals**: Fix proposal card layout. [\#5783](https://github.com/decidim/decidim/pull/5783)
 - **decidim-core**: [FIX] Add description pop up required [\#5771](https://github.com/decidim/decidim/pull/5771)
