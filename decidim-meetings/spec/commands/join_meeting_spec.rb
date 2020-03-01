@@ -206,7 +206,12 @@ module Decidim::Meetings
       let!(:questionnaire) { create(:questionnaire) }
       let!(:question) { create(:questionnaire_question, questionnaire: questionnaire) }
       let(:session_token) { "some-token" }
-      let(:registration_form) { Decidim::Forms::QuestionnaireForm.from_model(questionnaire).with_context(session_token: session_token) }
+      let(:answers) do
+        questionnaire.questions.map do |question|
+          Decidim::Forms::AnswerForm.from_model(Decidim::Forms::Answer.new(question: question))
+        end
+      end
+      let(:registration_form) { Decidim::Forms::QuestionnaireForm.new(answers: answers).with_context(session_token: session_token) }
 
       context "and the registration form is invalid" do
         it "broadcast invalid_form" do
