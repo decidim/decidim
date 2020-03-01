@@ -6,7 +6,13 @@ module Decidim
   module Forms
     describe QuestionnaireForm do
       subject do
-        described_class.from_model(questionnaire).with_context(context)
+        described_class.new(answers: answers).with_context(context)
+      end
+
+      let(:answers) do
+        questionnaire.questions.map do |question|
+          AnswerForm.from_model(Decidim::Forms::Answer.new(question: question))
+        end
       end
 
       let!(:questionnaire) { create(:questionnaire) }
