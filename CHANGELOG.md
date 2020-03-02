@@ -75,6 +75,7 @@ Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now sup
 - **decidim-participatory_processes**: Add Valuator role [\#5687](https://github.com/decidim/decidim/pull/5687)
 - **decidim-proposals**: Let Valuators only answer and leave private notes on proposals [\#5687](https://github.com/decidim/decidim/pull/5687)
 - **decidim-core**: Let exporters filter collection by user triggering the action [\#5687](https://github.com/decidim/decidim/pull/5687)
+- **decidim-budgets**: Allow projects to be sorted by different criteria [\#5808](https://github.com/decidim/decidim/pull/5808)
 
 **Changed**:
 
