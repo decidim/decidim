@@ -19,7 +19,7 @@ module Decidim
                   else
                     CollaborativeDraft.where(component: current_component).find(params[:collaborative_draft_id])
                   end
-    end
+      end
 
       def current_version
         return nil unless params[:id].to_i.positive?

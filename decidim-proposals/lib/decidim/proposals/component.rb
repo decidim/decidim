@@ -193,7 +193,7 @@ Decidim.register_component(:proposals) do |component|
                                             ["accepted", Decidim::Faker::Localized.sentence(10), nil]
                                           else
                                             [nil, nil, nil]
-                                   end
+                                          end
 
       params = {
         component: component,
