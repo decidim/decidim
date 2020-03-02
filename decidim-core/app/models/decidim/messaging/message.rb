@@ -44,22 +44,15 @@ module Decidim
         recipients.each { |recipient| receipts.build(recipient: recipient) }
       end
 
-      # Public: Returns the comment body sanitized, sanitizing HTML tags
-      def sanitized_body
-        Rails::Html::WhiteListSanitizer.new.sanitize(
-          body_with_links,
-          scrubber: Decidim::UserInputScrubber.new
-        ).try(:html_safe)
+      # Public: Returns the comment body with links
+      def body_with_links
+        Decidim::ContentRenderers::LinkRenderer.new(body).render
       end
 
       private
 
       def sender_is_participant
         errors.add(:sender, :invalid) unless conversation.participants.include?(sender)
-      end
-
-      def body_with_links
-        Decidim::ContentRenderers::LinkRenderer.new(body).render
       end
     end
   end
