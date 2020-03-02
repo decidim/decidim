@@ -1,9 +1,9 @@
-<table class="question-matrix table">
+<table class="questionnaire-question-matrix table">
   <thead>
     <tr>
       <td></td>
       <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
-        <td class="pull-right"><%= translated_attribute(answer_option.body) %></td>
+        <td><%= translated_attribute(answer_option.body) %></td>
       <% end %>
     </tr>
   </thead>
@@ -14,18 +14,18 @@
         <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
           <% choice = answer.choices.first %>
           <% choice_id = "#{field_id}_matrix_row_#{row_idx}_choice_#{idx}" %>
-          <td class="pull-right">
+          <td>
             <div class="collection-input">
-              <%= radio_button_tag "questionnaire[answers][#{answer_idx}][choices][][body]",
+              <%= radio_button_tag "questionnaire[answers][#{answer_idx}][rows][#{row_idx}][choices][][body]",
                                     translated_attribute(answer_option.body),
                                     answer_option.id == choice.try(:answer_option_id),
                                     id: "#{choice_id}_body", disabled: disabled %>
-              <%= hidden_field_tag "questionnaire[answers][#{answer_idx}][choices][][answer_option_id]",
+              <%= hidden_field_tag "questionnaire[answers][#{answer_idx}][rows][#{row_idx}][choices][][answer_option_id]",
                                     answer_option.id,
                                     id: "#{choice_id}_answer_option",
                                     disabled: true %>
               <% if answer_option.free_text %>
-                <%= text_field_tag "questionnaire[answers][#{answer_idx}][choices][][custom_body]",
+                <%= text_field_tag "questionnaire[answers][#{answer_idx}][rows][#{row_idx}][choices][][custom_body]",
                 choice.try(:custom_body),
                 id: "#{choice_id}_custom_body",
                 disabled: true %>

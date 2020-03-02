@@ -35,3 +35,24 @@
 .questionnaire-question_readonly-answer{
   font-weight: normal;
 }
+
+.questionnaire-question-matrix {
+  .collection-input {
+    display: flex;
+    
+    input[type="checkbox"], input[type="radio"] {
+      &~input[type="text"] {
+        margin-left: .5rem;
+      }
+    }
+  }
+
+  tr, tr:nth-child(2n) {
+    background: initial;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  td {
+    border-right: 1px solid #f0f0f0;
+  }
+}
