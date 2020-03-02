@@ -156,7 +156,7 @@ module Decidim
     # defined in `Decidim::Exporters::ExportManifest`.
     #
     # Export artifacts provide an unified way for components to register
-    # exportable collections serialized via a `Serializer` than eventually
+    # exportable collections serialized via a `Serializer` that eventually
     # are transformed to their formats.
     #
     # name  - The name of the artifact. Should be unique in the context of

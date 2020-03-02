@@ -11,6 +11,7 @@ module Decidim
         helper Proposals::ApplicationHelper
         helper Decidim::Proposals::Admin::ProposalRankingsHelper
         helper Decidim::Messaging::ConversationHelper
+        helper Proposals::Admin::ProposalBulkActionsHelper
         helper_method :proposals, :query, :form_presenter, :proposal
 
         def show
