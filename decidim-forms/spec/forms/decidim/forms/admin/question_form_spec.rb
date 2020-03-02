@@ -54,6 +54,23 @@ module Decidim
           end
         end
 
+        context "when the question has no matrix rows" do
+          it "is valid if question type is not matrix_single or matrix_multiple" do
+            attributes[:question_type] = "short_answer"
+            expect(subject).to be_valid
+          end
+
+          it "is invalid if question type is matrix_single" do
+            attributes[:question_type] = "matrix_single"
+            expect(subject).not_to be_valid
+          end
+
+          it "is invalid if question type is matrix_multiple" do
+            attributes[:question_type] = "matrix_multiple"
+            expect(subject).not_to be_valid
+          end
+        end
+
         context "when the question has answer options" do
           let!(:question_type) { "multiple_option" }
 

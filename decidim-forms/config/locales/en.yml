@@ -37,8 +37,13 @@ en:
           form:
             add_question: Add question
             already_answered_warning: The form is already answered by some users so you cannot modify its questions.
+          matrix_row:
+            matrix_row: Row
+            remove: Remove
+            statement: Statement
           question:
             add_answer_option: Add answer option
+            add_matrix_row: Add row
             any: Any
             description: Description
             down: Down
@@ -58,6 +63,8 @@ en:
         short_answer: Short answer
         single_option: Single option
         sorting: Sorting
+        matrix_single: Matrix (Single)
+        matrix_multiple: Matrix (Multiple)
       questionnaires:
         answer:
           invalid: There was a problem answering the form.
