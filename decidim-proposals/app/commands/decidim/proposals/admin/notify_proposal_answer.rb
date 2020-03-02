@@ -21,11 +21,11 @@ module Decidim
         #
         # Returns nothing.
         def call
-          return broadcast(:noop) unless proposal.published_state? && state_changed?
-
-          transaction do
-            increment_score
-            notify_followers
+          if proposal.published_state? && state_changed?
+            transaction do
+              increment_score
+              notify_followers
+            end
           end
 
           broadcast(:ok)

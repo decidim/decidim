@@ -74,8 +74,8 @@ module Decidim
         context "when the proposal published state has not changed" do
           let(:initial_state) { "accepted" }
 
-          it "broadcasts noop" do
-            expect { command.call }.to broadcast(:noop)
+          it "broadcasts ok" do
+            expect { command.call }.to broadcast(:ok)
           end
 
           it "doesn't notify the proposal followers" do
@@ -85,7 +85,7 @@ module Decidim
             subject
           end
 
-          it "doesn't increment the accepted proposals counter" do
+          it "doesn't modify the accepted proposals counter" do
             expect { subject }.not_to(change { Gamification.status_for(current_user, :accepted_proposals).score })
           end
         end
