@@ -15,7 +15,6 @@ module Decidim
           organization: current_organization,
           granted: true
         ).query
-
       end
     end
   end
