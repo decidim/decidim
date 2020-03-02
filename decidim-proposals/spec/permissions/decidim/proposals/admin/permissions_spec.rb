@@ -201,6 +201,7 @@ describe Decidim::Proposals::Admin::Permissions do
   end
 
   describe "proposal answers publishing" do
+    let(:user) { create(:user) }
     let(:action) do
       { scope: :admin, action: :publish_answers, subject: :proposals }
     end
