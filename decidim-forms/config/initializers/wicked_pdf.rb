@@ -1,3 +1,5 @@
+require "wicked_pdf"
+
 # frozen_string_literal: true
 
 # WickedPDF Global Configuration
