@@ -17,28 +17,23 @@ module Decidim
         def available_orders
           @available_orders ||= begin
             available_orders = []
-
-            available_orders << if most_voted_order_available?
-                                  "most_voted"
-                                else
-                                  "random"
-                                end
-
+            available_orders << "random" if voting_is_open? || !votes_are_visible?
+            available_orders << "most_voted" if votes_are_visible?
             available_orders += %w(highest_cost lowest_cost)
             available_orders
           end
         end
 
         def default_order
-          if most_voted_order_available?
-            detect_order("most_voted")
-          else
-            "random"
-          end
+          available_orders.first
         end
 
-        def most_voted_order_available?
-          !current_settings.votes_enabled? && current_settings.show_votes?
+        def voting_is_open?
+          current_settings.votes_enabled?
+        end
+
+        def votes_are_visible?
+          current_settings.show_votes?
         end
 
         def reorder(projects)
@@ -48,7 +43,7 @@ module Decidim
           when "lowest_cost"
             projects.order(budget: :asc)
           when "most_voted"
-            if most_voted_order_available?
+            if votes_are_visible?
               ids = projects.sort_by(&:confirmed_orders_count).map(&:id).reverse
               projects.ordered_ids(ids)
             else
