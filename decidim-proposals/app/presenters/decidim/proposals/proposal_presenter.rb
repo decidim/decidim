@@ -74,7 +74,7 @@ module Decidim
             pending_state_change = version.changeset.delete("state")
           end
 
-          next if Decidim::Proposals::DiffRenderer.new(version).diff.empty?
+          next if version.event == "update" && Decidim::Proposals::DiffRenderer.new(version).diff.empty?
 
           version
         end.compact
