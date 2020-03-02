@@ -201,6 +201,7 @@ ignore_unused:
   - decidim.wizard_step_form.*
   - decidim.proposals.proposals.filters.*
   - decidim.admin.filters.*
+  - decidim.proposals.models.proposal.fields.*
   - decidim.admin_terms_of_use.default_body
   - decidim.admin.admin_terms_of_use.required_review.alert
   - layouts.decidim.widget.*

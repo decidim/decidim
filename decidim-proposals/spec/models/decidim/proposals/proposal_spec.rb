@@ -241,6 +241,20 @@ module Decidim
           it { is_expected.not_to be_withdrawable_by(author) }
         end
       end
+
+      describe "#with_valuation_assigned_to" do
+        let(:user) { create :user, organization: organization }
+        let(:space) { component.participatory_space }
+        let!(:valuator_role) { create :participatory_process_user_role, role: :valuator, user: user, participatory_process: space }
+        let(:assigned_proposal) { create :proposal, component: component }
+        let!(:assignment) { create :valuation_assignment, proposal: assigned_proposal, valuator_role: valuator_role }
+
+        it "only returns the assigned proposals for the given space" do
+          results = described_class.with_valuation_assigned_to(user, space)
+
+          expect(results).to eq([assigned_proposal])
+        end
+      end
     end
   end
 end
