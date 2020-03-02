@@ -183,16 +183,16 @@ Decidim.register_component(:proposals) do |component|
     end
 
     5.times do |n|
-      state, answer, answered_at = if n > 3
-                                     ["accepted", Decidim::Faker::Localized.sentence(10), Time.current]
-                                   elsif n > 2
-                                     ["rejected", nil, Time.current]
-                                   elsif n > 1
-                                     ["evaluating", nil, Time.current]
-                                   elsif n.positive?
-                                     ["accepted", Decidim::Faker::Localized.sentence(10), nil]
-                                   else
-                                     [nil, nil, nil]
+      state, answer, state_published_at = if n > 3
+                                            ["accepted", Decidim::Faker::Localized.sentence(10), Time.current]
+                                          elsif n > 2
+                                            ["rejected", nil, Time.current]
+                                          elsif n > 1
+                                            ["evaluating", nil, Time.current]
+                                          elsif n.positive?
+                                            ["accepted", Decidim::Faker::Localized.sentence(10), nil]
+                                          else
+                                            [nil, nil, nil]
                                    end
 
       params = {
@@ -203,7 +203,8 @@ Decidim.register_component(:proposals) do |component|
         body: Faker::Lorem.paragraphs(2).join("\n"),
         state: state,
         answer: answer,
-        answered_at: answered_at,
+        answered_at: state.present? ? Time.current : nil,
+        state_published_at: state_published_at,
         published_at: Time.current
       }
 
