@@ -102,6 +102,7 @@ Please check [0.21-stable](https://github.com/decidim/decidim/blob/0.21-stable/C
 
 **Fixed**:
 
+- **decidim-core**: Do not allow invited users to sign up. [\#5803](https://github.com/decidim/decidim/pull/5803)
 - **decidim-initiatives**: Fix initiative state bug [\#5805](https://github.com/decidim/decidim/pull/5805)
 - **decidim-admin**, **decidim-proposals**: Fix proposal card layout. [\#5783](https://github.com/decidim/decidim/pull/5783)
 - **decidim-core**: [FIX] Add description pop up required [\#5771](https://github.com/decidim/decidim/pull/5771)
