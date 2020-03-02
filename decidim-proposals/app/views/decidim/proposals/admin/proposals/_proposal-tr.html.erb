@@ -6,7 +6,10 @@
     <%= proposal.id %><br>
   </td>
   <td>
-    <%= decidim_html_escape(present(proposal).title).html_safe %><br>
+    <%= link_to(
+     decidim_html_escape(present(proposal).title).html_safe,
+     proposal_path(proposal)
+    ) %><br>
   </td>
   <td>
     <% if proposal.category %>
@@ -41,11 +44,13 @@
     </td>
   <% end %>
 
-  <% if allowed_to? :create, :proposal_note %>
-    <td>
-      <%= proposal.proposal_notes_count %>
-    </td>
-  <% end %>
+  <td>
+    <%= proposal.proposal_notes_count %>
+  </td>
+
+  <td class="valuators-count">
+    <%= proposal.valuation_assignments.count %>
+  </td>
 
   <td>
     <%= l proposal.created_at, format: :decidim_short %>
