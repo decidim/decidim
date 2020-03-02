@@ -5,6 +5,7 @@ require "spec_helper"
 module Decidim::Verifications
   describe RevokeByConditionAuthorizations do
     subject { described_class.new(organization, current_user, form) }
+
     let(:params) do
       {
         impersonated_only: impersonated_only,
