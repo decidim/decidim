@@ -80,7 +80,7 @@
               </p>
 
               <ol>
-                <%= cell("decidim/forms/question_readonly", collection: @questionnaire.questions) %>
+                <%= cell("decidim/forms/question_readonly", collection: @questionnaire.questions.not_conditioned) %>
               </ol>
             </div>
           <% end %>

@@ -33,7 +33,8 @@ module Decidim
 
       validates :question_type, inclusion: { in: TYPES }
 
-      scope :previous_to, ->(position) { where("position < ?", position || 0) }
+      scope :conditioned, -> { includes(:display_conditions).where.not(decidim_forms_display_conditions: { id: nil }) }
+      scope :not_conditioned, -> { includes(:display_conditions).where(decidim_forms_display_conditions: { id: nil }) }
 
       def multiple_choice?
         %w(single_option multiple_option sorting).include?(question_type)
