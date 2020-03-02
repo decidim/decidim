@@ -32,7 +32,7 @@ module Decidim
       )
 
       def self.ordered_ids(ids)
-        order(Arel.sql "position(id::text in '#{ids.join(",")}')")
+        order(Arel.sql("position(id::text in '#{ids.join(",")}')"))
       end
 
       def self.log_presenter_class_for(_log)
