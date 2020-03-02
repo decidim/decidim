@@ -6,17 +6,20 @@ module Decidim
     # has been updated through time.
     class VersionsController < Decidim::Proposals::ApplicationController
       helper Decidim::TraceabilityHelper
+
+      include Decidim::ApplicationHelper
+
       helper_method :current_version, :item
 
       private
 
       def item
         @item ||= if params[:proposal_id]
-                    Proposal.where(component: current_component).find(params[:proposal_id])
+                    present(Proposal.where(component: current_component).find(params[:proposal_id]))
                   else
                     CollaborativeDraft.where(component: current_component).find(params[:collaborative_draft_id])
                   end
-      end
+    end
 
       def current_version
         return nil unless params[:id].to_i.positive?
