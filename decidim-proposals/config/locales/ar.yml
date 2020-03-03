@@ -246,6 +246,8 @@ ar:
           email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف الاقتراح.
           email_subject: تم تحديث فئة %{resource_title} اقتراح
           notification_title: تم تحديث فئة اقتراح <a href="%{resource_path}">%{resource_title}</a> بواسطة مسؤول.
+        proposal_update_scope:
+          email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف الاقتراح.
         voting_enabled:
           email_intro: 'يمكنك دعم المقترحات في %{participatory_space_title}! ابدأ المشاركة في هذه الصفحة:'
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{participatory_space_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
@@ -428,10 +430,10 @@ ar:
             votes_count: يدعم العد
             votes_ranking: ترتيب حسب الدّعم المتلقّى
           update_category:
-            invalid: 'هذه المقترحات لديها بالفعل فئة %{category} : %{proposals}.'
             select_a_category: الرجاء تحديد الفئة
             select_a_proposal: يرجى اختيار الاقتراح
-            success: 'تم تحديث الاقتراحات بنجاح إلى فئة %{category} : %{proposals}.'
+          update_scope:
+            select_a_proposal: يرجى اختيار الاقتراح
         proposals_imports:
           create:
             invalid: كانت هناك مشكلة في استيراد المقترحات
@@ -779,8 +781,6 @@ ar:
           withdraw_btn_hint: يمكنك سحب اقتراحك إذا غيرت رأيك ، طالما أنك لم تتلق أي دعم. لم يتم حذف الاقتراح ، وسوف يظهر في قائمة المقترحات المسحوبة.
           withdraw_confirmation: هل أنت متأكد أنك تريد سحب هذا الاقتراح؟
           withdraw_proposal: سحب الاقتراح
-        tags:
-          changed_from: "(تم التغيير من <u>%{previous_category}</u> بواسطة مسؤول)"
         vote_button:
           already_voted: معتمد بالفعل
           already_voted_hover: سحب الدعم
