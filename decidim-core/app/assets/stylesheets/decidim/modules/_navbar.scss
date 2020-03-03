@@ -2,6 +2,7 @@
 
 $navbar-bg: $dark-gray;
 $navbar-bg-hover: rgba(white, .02);
+$navbar-bg-focus: $primary;
 $navbar-color: rgba(white, .5);
 $navbar-color-hover: $white;
 $navbar-active-color: $white;
@@ -458,9 +459,14 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
   padding: 1em 2em;
   color: $navbar-color;
 
-  &:hover,
-  &:focus{
+  &:hover{
     background: $navbar-bg-hover;
+    color: $navbar-color-hover;
+    text-decoration: underline;
+  }
+
+  &:focus{
+    background-color: $navbar-bg-focus;
     color: $navbar-color-hover;
     text-decoration: underline;
   }
