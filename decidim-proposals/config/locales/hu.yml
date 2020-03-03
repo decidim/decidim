@@ -257,6 +257,8 @@ hu:
           email_outro: Ezt az értesítést kaptad, mert te vagy a javaslat szerzője.
           email_subject: A(z) %{resource_title} című javaslat frissítve
           notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslat kategóriát az admin frissítette.
+        proposal_update_scope:
+          email_outro: Ezt az értesítést kaptad, mert te vagy a javaslat szerzője.
         voting_enabled:
           email_intro: 'Szavazhatsz a javaslatokról itt: %{participatory_space_title}! Láss munkának ezen az oldalon:'
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
@@ -452,10 +454,10 @@ hu:
             votes_count: Támogatók száma
             votes_ranking: Támogatások szerinti rangsorolás
           update_category:
-            invalid: 'A javaslatok már a(z) %{category} kategóriába tartoznak: %{proposals}.'
             select_a_category: Kérlek, válassz kategóriát
             select_a_proposal: Kérlek, válassz javaslatot
-            success: 'A javaslatok frissítése a(z) %{category} kategóriában sikeres: %{proposals}.'
+          update_scope:
+            select_a_proposal: Kérlek, válassz javaslatot
         proposals_imports:
           create:
             invalid: Probléma merült fel a javaslatok importálásakor
@@ -790,8 +792,6 @@ hu:
           withdraw_btn_hint: Ha meggondoltad magad, az első támogatás megszerzéséig bármikor visszavonhatod a javaslatod. A javaslat nem törlődik automatikusan, hanem a visszavont javaslatok listájára kerül.
           withdraw_confirmation: Biztosan visszavonod ezt a javaslatot?
           withdraw_proposal: Javaslat visszavonása
-        tags:
-          changed_from: "(<u>%{previous_category}</u> a rendszergazda megváltoztatta)"
         vote_button:
           already_voted: Már szavazott
           already_voted_hover: Szavazat visszavonása
