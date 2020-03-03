@@ -4,7 +4,7 @@ The participatory democracy framework.
 
 > Free Open-Source participatory democracy, citizen participation and open government for cities and organizations
 
-[Decidim](https://decidim.org) is a participatory democracy framework, written in Ruby on Rails, originally developed for the Barcelona City government online and offline participation website. Installing these libraries will provide you a generator and gems to help you develop web applications like the ones found on [example applications](#example-applications) or like [our demo application](http://staging.decidim.codegram.com).
+[Decidim](https://decidim.org) is a participatory democracy framework, written in Ruby on Rails, originally developed for the Barcelona City government online and offline participation website. Installing these libraries will provide you a generator and gems to help you develop web applications like the ones found on [example applications](#example-applications) or like [our demo application](http://try.decidim.org).
 
 All members of the Decidim community agree with [Decidim Social Contract or Code of Democratic Guarantees](http://www.decidim.org/contract/).
 
@@ -22,8 +22,8 @@ Code quality
 [![Maintainability](https://api.codeclimate.com/v1/badges/ad8fa445086e491486b6/maintainability)](https://codeclimate.com/github/decidim/decidim/maintainability)
 [![Crowdin](https://d322cqt584bo4o.cloudfront.net/decidim/localized.svg)](https://crowdin.com/project/decidim)
 [![Inline docs](http://inch-ci.org/github/decidim/decidim.svg?branch=master)](http://inch-ci.org/github/decidim/decidim)
-[![Accessibility issues](https://rocketvalidator.com/badges/a11y_issues.svg?url=http://staging.decidim.codegram.com/)](https://rocketvalidator.com/badges/link?url=http://staging.decidim.codegram.com/&report=a11y)
-[![HTML issues](https://rocketvalidator.com/badges/html_issues.svg?url=http://staging.decidim.codegram.com/)](https://rocketvalidator.com/badges/link?url=http://staging.decidim.codegram.com/&report=html)
+[![Accessibility issues](https://rocketvalidator.com/badges/a11y_issues.svg?url=http://try.decidim.org/)](https://rocketvalidator.com/badges/link?url=http://try.decidim.org/&report=a11y)
+[![HTML issues](https://rocketvalidator.com/badges/html_issues.svg?url=http://try.decidim.org/)](https://rocketvalidator.com/badges/link?url=http://try.decidim.org/&report=html)
 
 
 ---
@@ -156,7 +156,7 @@ If you plan to release your application you'll need to publish it using the same
 
 Since Decidim is a ruby gem, you can check out the [dependent repositories](https://github.com/decidim/decidim/network/dependents?type=application) to see how many applications are on the wild or tests that other developers have made. Here's a partial list with some of the projects that have used Decidim:
 
-* [Demo](http://staging.decidim.codegram.com)
+* [Demo](http://try.decidim.org)
 * [Decidim Barcelona](https://decidim.barcelona) - [View code](https://github.com/AjuntamentdeBarcelona/decidim-barcelona)
 * [L'H ON Participa](https://www.lhon-participa.cat) - [View code](https://github.com/HospitaletDeLlobregat/decidim-hospitalet)
 * [Decidim Terrassa](https://participa.terrassa.cat) - [View code](https://github.com/AjuntamentDeTerrassa/decidim-terrassa)
