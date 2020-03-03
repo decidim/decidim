@@ -110,11 +110,19 @@ Decidim.register_component(:proposals) do |component|
   end
 
   component.exports :proposals do |exports|
-    exports.collection do |component_instance|
-      Decidim::Proposals::Proposal
-        .published
-        .where(component: component_instance)
-        .includes(:category, component: { participatory_space: :organization })
+    exports.collection do |component_instance, user|
+      space = component_instance.participatory_space
+
+      collection = Decidim::Proposals::Proposal
+                   .published
+                   .where(component: component_instance)
+                   .includes(:category, :component)
+
+      if space.user_roles(:valuator).where(user: user).any?
+        collection.with_valuation_assigned_to(user, space)
+      else
+        collection
+      end
     end
 
     exports.include_in_open_data = true

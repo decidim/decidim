@@ -13,6 +13,16 @@ edit_link(
 )
 %>
 
+<%
+extra_admin_link(
+  resource_locator(@proposal).show(anchor: "proposal-answer"),
+  :create,
+  :proposal_answer,
+  { proposal: @proposal },
+  { name: t(".answer"), icon: "comment-square" }
+)
+%>
+
 <%= render partial: "voting_rules" %>
 <% if component_settings.participatory_texts_enabled? %>
   <div class="row column">

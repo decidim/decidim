@@ -23,16 +23,17 @@ shared_examples "merge proposals" do
       it "shows the change action option" do
         expect(page).to have_selector(:link_or_button, "Merge into a new one")
       end
+    end
 
-      context "when less than one proposal is checked" do
-        before do
-          page.find("#proposals_bulk.js-check-all").set(false)
-          page.first(".js-proposal-list-check").set(true)
-        end
+    context "when less than one proposal is checked" do
+      before do
+        page.find("#proposals_bulk.js-check-all").set(false)
+        page.first(".js-proposal-list-check").set(true)
+        click_button "Actions"
+      end
 
-        it "does not show the merge action option" do
-          expect(page).to have_no_selector(:link_or_button, "Merge into a new one")
-        end
+      it "does not show the merge action option" do
+        expect(page).to have_no_selector(:link_or_button, "Merge into a new one")
       end
     end
 

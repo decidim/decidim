@@ -278,4 +278,42 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       end
     end
   end
+
+  describe "proposals exporter" do
+    subject do
+      component
+        .manifest
+        .export_manifests
+        .find { |manifest| manifest.name == :proposals }
+        .collection
+        .call(component, user)
+    end
+
+    let!(:assigned_proposal) { create :proposal }
+    let(:component) { assigned_proposal.component }
+    let!(:unassigned_proposal) { create :proposal, component: component }
+    let(:participatory_process) { component.participatory_space }
+    let(:organization) { participatory_process.organization }
+
+    context "when the user is a valuator" do
+      let!(:user) { create :user, admin: false, organization: organization }
+      let!(:valuator_role) { create :participatory_process_user_role, role: :valuator, user: user, participatory_process: participatory_process }
+
+      before do
+        create :valuation_assignment, proposal: assigned_proposal, valuator_role: valuator_role
+      end
+
+      it "only exports assigned proposals" do
+        expect(subject).to eq([assigned_proposal])
+      end
+    end
+
+    context "when the user is an admin" do
+      let!(:user) { create :user, admin: true, organization: organization }
+
+      it "exports all proposals from the component" do
+        expect(subject).to match_array([unassigned_proposal, assigned_proposal])
+      end
+    end
+  end
 end
