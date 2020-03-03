@@ -63,8 +63,8 @@ en:
         short_answer: Short answer
         single_option: Single option
         sorting: Sorting
-        matrix_single: Matrix (Single)
-        matrix_multiple: Matrix (Multiple)
+        matrix_single: Matrix (Single option)
+        matrix_multiple: Matrix (Multiple option)
       questionnaires:
         answer:
           invalid: There was a problem answering the form.

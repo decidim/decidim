@@ -154,18 +154,27 @@ shared_examples_for "manage questionnaires" do
 
       select "Long answer", from: "Type"
       expect(page).to have_no_selector(".questionnaire-question-answer-option")
+      expect(page).to have_no_selector(".questionnaire-question-matrix-row")
 
       select "Single option", from: "Type"
       expect(page).to have_selector(".questionnaire-question-answer-option", count: 2)
+      expect(page).to have_no_selector(".questionnaire-question-matrix-row")
 
       select "Multiple option", from: "Type"
       expect(page).to have_selector(".questionnaire-question-answer-option", count: 2)
+      expect(page).to have_no_selector(".questionnaire-question-matrix-row")
 
-      select "Single option", from: "Type"
+      select "Matrix (Multiple option)", from: "Type"
       expect(page).to have_selector(".questionnaire-question-answer-option", count: 2)
+      expect(page).to have_selector(".questionnaire-question-matrix-row", count: 2)
 
       select "Short answer", from: "Type"
       expect(page).to have_no_selector(".questionnaire-question-answer-option")
+      expect(page).to have_no_selector(".questionnaire-question-matrix-row")
+
+      select "Matrix (Single option)", from: "Type"
+      expect(page).to have_selector(".questionnaire-question-answer-option", count: 2)
+      expect(page).to have_selector(".questionnaire-question-matrix-row", count: 2)
     end
 
     it "does not incorrectly reorder when clicking answer options" do
