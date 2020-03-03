@@ -114,10 +114,10 @@ module Decidim
             # :cache_prefix => "..."
           }
           # to use an API key:
-          config[:api_key] = if Decidim.geocoder&.[](:here_api_key).present?
-                               [Decidim.geocoder&.fetch(:here_api_key)]
+          config[:api_key] = if Decidim.geocoder[:here_api_key].present?
+                               [Decidim.geocoder.fetch(:here_api_key)]
                              else
-                               [Decidim.geocoder&.fetch(:here_app_id), Decidim.geocoder&.fetch(:here_app_code)]
+                               [Decidim.geocoder.fetch(:here_app_id), Decidim.geocoder.fetch(:here_app_code)]
                              end
           Geocoder.configure(config)
         end
