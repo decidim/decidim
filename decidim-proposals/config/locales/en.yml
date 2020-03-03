@@ -438,6 +438,7 @@ en:
             title: Create proposal
           publish_answers:
             number_of_proposals: Answers for %{number} proposals will be published.
+            select_a_proposal: Please select a proposal
           show:
             amendments_count: Amendments count
             assigned_valuators: Assigned valuators
@@ -856,7 +857,7 @@ en:
         error: There was a problem publishing the proposal.
         success: Proposal successfully published.
       publish_answers:
-        success: Proposals answers will be published in a few minutes.
+        success: Proposals answers successfully published.
       update:
         error: There was a problem saving the proposal.
         success: Proposal successfully updated.

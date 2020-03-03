@@ -74,9 +74,18 @@ module Decidim
         def publish_answers
           enforce_permission_to :publish_answers, :proposals
 
-          Decidim::Proposals::PublishAnswersJob.perform_later(current_component, current_user, proposal_ids)
+          Decidim::Proposals::Admin::PublishAnswers.call(current_component, current_user, proposal_ids) do
+            on(:invalid) do
+              flash.now[:alert] = t(
+                "proposals.publish_answers.select_a_proposal",
+                scope: "decidim.proposals.admin"
+              )
+            end
 
-          flash.now[:notice] = I18n.t("proposals.publish_answers.success", scope: "decidim")
+            on(:ok) do
+              flash.now[:notice] = I18n.t("proposals.publish_answers.success", scope: "decidim")
+            end
+          end
 
           respond_to do |format|
             format.js
@@ -85,9 +94,8 @@ module Decidim
 
         def update_scope
           enforce_permission_to :update, :proposal_scope
-          @proposal_ids = params[:proposal_ids]
 
-          Admin::UpdateProposalScope.call(params[:scope_id], params[:proposal_ids]) do
+          Admin::UpdateProposalScope.call(params[:scope_id], proposal_ids) do
             on(:invalid_scope) do
               flash.now[:error] = t(
                 "proposals.update_scope.select_a_scope",
