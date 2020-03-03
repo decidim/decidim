@@ -14,6 +14,8 @@ PR [\#5676](https://github.com/decidim/decidim/pull/5676) introduced a deprecati
 
 Here maps API has changed, including the way clients authenticate. Thus, former `app_id` and `app_code` credentials are now deprecated in favour of a unique `api_key` token. For your current application to continue working with Here maps services generate an `api_key` and configure it as explained in [Decidim's geocoding documentation](https://github.com/decidim/decidim/blob/master/docs/services/geocoding.md).
 
+If you would like to stay with the old api (app_id + app_code), you should force `geocoder` gem version to `1.5.2` in your application. This is because `geocoder v1.6.0` only supports the new Here api (app_key).
+
 - **Assembly types**
 
 In order to prevent errors while upgrading multi-servers envirnoments, the fields `assembly_type` and `assembly_type_other` are maintained. Future releases will take care of this.
