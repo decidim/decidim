@@ -205,6 +205,34 @@ shared_examples_for "manage questionnaires" do
       end
     end
 
+    it "does not incorrectly reorder when clicking matrix rows" do
+      click_button "Add question"
+      select "Matrix (Multiple option)", from: "Type"
+      2.times { click_button "Add row" }
+
+      within ".questionnaire-question-matrix-row:first-of-type" do
+        fill_in find_nested_form_field_locator("body_en"), with: "Something"
+      end
+
+      within ".questionnaire-question-matrix-row:last-of-type" do
+        fill_in find_nested_form_field_locator("body_en"), with: "Else"
+      end
+
+      # If JS events for option reordering are incorrectly bound, clicking on
+      # the field to gain focus can cause the options to get inverted... :S
+      within ".questionnaire-question-matrix-row:first-of-type" do
+        find_nested_form_field("body_en").click
+      end
+
+      within ".questionnaire-question-matrix-row:first-of-type" do
+        expect(page).to have_nested_field("body_en", with: "Something")
+      end
+
+      within ".questionnaire-question-matrix-row:last-of-type" do
+        expect(page).to have_nested_field("body_en", with: "Else")
+      end
+    end
+
     it "preserves question form across submission failures" do
       click_button "Add question"
       select "Long answer", from: "Type"
@@ -228,6 +256,25 @@ shared_examples_for "manage questionnaires" do
       select "Single option", from: "Type"
 
       within ".questionnaire-question-answer-option:first-of-type" do
+        expect(page).to have_no_nested_field("body_en", with: "Something")
+      end
+    end
+
+    it "does not preserve spurious matrix rows from previous type selections" do
+      click_button "Add question"
+      select "Matrix (Single option)", from: "Type"
+
+      within ".questionnaire-question-matrix-row:first-of-type" do
+        fill_in find_nested_form_field_locator("body_en"), with: "Something"
+      end
+
+      select "Long answer", from: "Type"
+
+      click_button "Save"
+
+      select "Matrix (Single option)", from: "Type"
+
+      within ".questionnaire-question-matrix-row:first-of-type" do
         expect(page).to have_no_nested_field("body_en", with: "Something")
       end
     end
@@ -259,6 +306,23 @@ shared_examples_for "manage questionnaires" do
       end
 
       expect(page).to have_select("Maximum number of choices", selected: "3")
+    end
+
+    it "preserves matrix rows form across submission failures" do
+      click_button "Add question"
+      select "Matrix (Multiple option)", from: "Type"
+
+      within ".questionnaire-question-matrix-row:first-of-type" do
+        fill_in find_nested_form_field_locator("body_en"), with: "Something"
+      end
+
+      click_button "Add row"
+
+      click_button "Save"
+
+      within ".questionnaire-question-matrix-row:first-of-type" do
+        expect(page).to have_nested_field("body_en", with: "Something")
+      end
     end
 
     it "allows switching translated field tabs after form failures" do
