@@ -53,6 +53,7 @@ en:
     models:
       decidim/proposals/accepted_proposal_event: Proposal accepted
       decidim/proposals/admin/update_proposal_category_event: Proposal category changed
+      decidim/proposals/admin/update_proposal_scope_event: Proposal scope changed
       decidim/proposals/creation_enabled_event: Proposal creation enabled
       decidim/proposals/endorsing_enabled_event: Proposal endorsing enabled
       decidim/proposals/evaluating_proposal_event: Proposal is being evaluated
@@ -258,6 +259,11 @@ en:
           email_outro: You have received this notification because you are the author of the proposal.
           email_subject: The %{resource_title} proposal category has been updated
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal category has been updated by an admin.
+        proposal_update_scope:
+          email_intro: 'An admin has updated the scope of your proposal "%{resource_title}", check it out in this page:'
+          email_outro: You have received this notification because you are the author of the proposal.
+          email_subject: The %{resource_title} proposal scope has been updated
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal scope has been updated by an admin.
         voting_enabled:
           email_intro: 'You can support proposals in %{participatory_space_title}! Start participating in this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
@@ -412,6 +418,7 @@ en:
             assign_to_valuator_button: Assign
             cancel: Cancel
             change_category: Change category
+            change_scope: Change scope
             merge: Merge into a new one
             merge_button: Merge
             select_component: Select a component
@@ -422,6 +429,7 @@ en:
             unassign_from_valuator: Unassign from valuator
             unassign_from_valuator_button: Unassign
             update: Update
+            update_scope_button: Update Scope
           new:
             create: Create
             title: Create proposal
@@ -453,10 +461,15 @@ en:
             votes_count: Supports count
             votes_ranking: Ranking by supports
           update_category:
-            invalid: 'These proposals already had the %{category} category: %{proposals}.'
+            invalid: 'These proposals already had the %{subject_name} category: %{proposals}.'
             select_a_category: Please select a category
             select_a_proposal: Please select a proposal
-            success: 'Proposals successfully updated to the %{category} category: %{proposals}.'
+            success: 'Proposals successfully updated to the %{subject_name} category: %{proposals}.'
+          update_scope:
+            invalid: 'These proposals already had the %{subject_name} scope: %{proposals}.'
+            select_a_proposal: Please select a proposal
+            select_a_scope: Please select a scope
+            success: 'Proposals successfully updated to the %{subject_name} scope: %{proposals}.'
         proposals_imports:
           create:
             invalid: There was a problem importing the proposals
@@ -792,7 +805,7 @@ en:
           withdraw_confirmation: Are you sure you want to withdraw this proposal?
           withdraw_proposal: Withdraw proposal
         tags:
-          changed_from: "(changed from <u>%{previous_category}</u> by an administrator)"
+          changed_from: "(changed from <u>%{previous_name}</u> by an administrator)"
         vote_button:
           already_voted: Already supported
           already_voted_hover: Withdraw support
