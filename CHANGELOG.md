@@ -16,6 +16,23 @@ Here maps API has changed, including the way clients authenticate. Thus, former 
 
 If you would like to stay with the old api (app_id + app_code), you should force `geocoder` gem version to `1.5.2` in your application. This is because `geocoder v1.6.0` only supports the new Here api (app_key).
 
+Here is a summary of the different configurations depending on the Here api that is going to be used.
+
+Old/legacy Here api:
+
+- geocoder 1.5
+- initializer with:
+  - app_code
+  - app_id
+  - static_map_url: "https://image.maps.cit.api.here.com/mia/1.6/mapview"
+
+New Here api:
+
+- geocoder 1.
+- initializer with:
+  - api_key
+  - static_map_url: "https://image.maps.cit.api.here.com/mia/1.6/mapview"
+
 - **Assembly types**
 
 In order to prevent errors while upgrading multi-servers envirnoments, the fields `assembly_type` and `assembly_type_other` are maintained. Future releases will take care of this.
