@@ -9,6 +9,10 @@
   padding-left: 8px;
   line-height: 1;
   position: relative;
+
+  &:hover{
+    text-decoration: underline;
+  }
 }
 
 .logo-wrapper span::before{
