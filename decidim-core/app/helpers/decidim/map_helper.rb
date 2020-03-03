@@ -30,7 +30,7 @@ module Decidim
         class: "google-map",
         id: "map",
         "data-markers-data" => markers_data.to_json,
-        "data-here-api-key" => Decidim.geocoder[:here_api_key],
+        "data-here-api-key" => Decidim.geocoder[:here_api_key]
       }
       content = capture { yield }.html_safe
       content_tag :div, class: "row column" do

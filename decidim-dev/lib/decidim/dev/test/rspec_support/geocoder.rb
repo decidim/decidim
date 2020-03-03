@@ -18,7 +18,7 @@ RSpec.configure do |config|
     # Set geocoder configuration in test mode
     Decidim.geocoder = {
       static_map_url: "https://www.example.org/my_static_map",
-      here_api_key: "1234123412341234",
+      here_api_key: "1234123412341234"
     }
     Geocoder.configure(lookup: :test)
   end

@@ -32,7 +32,7 @@ module Decidim
         w: @options[:width],
         h: @options[:height],
         f: "1",
-        api_key: Decidim.geocoder.fetch(:here_api_key),
+        api_key: Decidim.geocoder.fetch(:here_api_key)
       }
 
       URI.parse(Decidim.geocoder.fetch(:static_map_url)).tap do |uri|
