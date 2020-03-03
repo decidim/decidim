@@ -352,7 +352,16 @@ module Decidim
       end
 
       ransacker :state_published do
-        Arel.sql("state_published_at IS NOT NULL OR state IS NULL")
+        Arel.sql("CASE
+          WHEN EXISTS (
+            SELECT 1 FROM decidim_amendments
+            WHERE decidim_amendments.decidim_emendation_type = 'Decidim::Proposals::Proposal'
+            AND decidim_amendments.decidim_emendation_id = decidim_proposals_proposals.id
+          ) THEN 0
+          WHEN state_published_at IS NULL AND answered_at IS NOT NULL THEN 2
+          WHEN state_published_at IS NOT NULL THEN 1
+          ELSE 0 END
+        ")
       end
 
       ransacker :state do

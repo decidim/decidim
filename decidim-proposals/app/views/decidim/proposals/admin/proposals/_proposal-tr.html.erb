@@ -35,7 +35,7 @@
 
   <% unless current_settings.publish_answers_immediately? %>
     <td>
-      <% if proposal.answered? %>
+      <% if proposal.answered? && !proposal.emendation? %>
         <%= humanize_boolean proposal.published_state? %>
       <% else %>
         -
