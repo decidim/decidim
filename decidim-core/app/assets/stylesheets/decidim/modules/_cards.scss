@@ -113,6 +113,20 @@ $datetime-bg: var(--primary);
 }
 
 .card__text{
+  a{
+    text-decoration: underline;
+
+    &:hover{
+      color: darken($secondary, 20%);
+    }
+
+    &:focus{
+      background-color: $secondary;
+      color: $white;
+      outline: none;
+    }
+  }
+
   .card__text--status{
     font-weight: bold;
     text-transform: uppercase;
@@ -274,6 +288,16 @@ $datetime-bg: var(--primary);
   border-top: $border;
   margin-top: -1px;
 
+  div span a:hover{
+    text-decoration: underline;
+  }
+
+  div span a:focus{
+    background-color: $secondary;
+    outline: none;
+    color: $white;
+  }
+
   .card-data__item--centerblock{
     margin: 0 auto;
   }
@@ -401,11 +425,20 @@ $datetime-bg: var(--primary);
 /* Card Link */
 .card__link{
   color: $anchor-color;
+  text-decoration: underline;
 
-  &:hover,
+  &:hover{
+    color: darken($secondary, 20%);
+  }
+
   &:focus{
-    color: $anchor-color;
-    text-decoration: underline;
+    outline: none;
+
+    .card__title{
+      background-color: $secondary;
+      color: white;
+      text-decoration: none;
+    }
   }
 }
 

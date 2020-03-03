@@ -44,6 +44,12 @@ $author-data-color: $muted;
 
   .author-data__main{
     margin: 0;
+
+    &:focus{
+      background-color: $secondary;
+      color: $white;
+      outline: none;
+    }
   }
 
   .author--flex,
@@ -114,6 +120,15 @@ $author-data-color: $muted;
 .author--inline{
   display: inline-block;
 
+  a:focus{
+    outline: none;
+
+    .author__name{
+      background-color: $secondary;
+      color: $white;
+    }
+  }
+
   span{
     padding-right: 5px;
   }
@@ -125,6 +140,12 @@ $author-data-color: $muted;
   font-weight: 600;
   align-self: center;
   color: $author-color;
+
+  &:focus{
+    background-color: $secondary;
+    color: $white;
+    outline: none;
+  }
 }
 
 a:hover .author__name{

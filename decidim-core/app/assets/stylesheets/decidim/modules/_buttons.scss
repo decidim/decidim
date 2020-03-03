@@ -40,10 +40,15 @@
     background-color: transparent;
     color: var(--primary);
     border-color: var(--primary);
+    text-decoration: underline;
 
     &:hover,
     &:focus{
+      background-color: $primary;
+      color: $white;
+      box-shadow: 10px 5px 5px black;
       text-decoration: underline;
+      outline: none;
     }
   }
 
