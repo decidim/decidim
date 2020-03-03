@@ -28,6 +28,7 @@ FactoryBot.define do
   factory :questionnaire_question, class: "Decidim::Forms::Question" do
     transient do
       options { [] }
+      rows { [] }
     end
 
     body { generate_localized_title }
@@ -47,6 +48,14 @@ FactoryBot.define do
           question.answer_options.build(
             body: option["body"],
             free_text: option["free_text"]
+          )
+        end
+      end
+
+      if question.matrix_rows.empty?
+        evaluator.rows.each do |row|
+          question.matrix_rows.build(
+            body: row["body"]
           )
         end
       end
