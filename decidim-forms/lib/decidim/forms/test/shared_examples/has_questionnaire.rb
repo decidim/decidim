@@ -330,7 +330,7 @@ shared_examples_for "has questionnaire" do
       it "renders the answer as a textarea" do
         visit questionnaire_public_path
 
-        expect(page).to have_selector("textarea#questionnaire_answer_0")
+        expect(page).to have_selector("textarea#questionnaire_answers_0")
       end
     end
 
