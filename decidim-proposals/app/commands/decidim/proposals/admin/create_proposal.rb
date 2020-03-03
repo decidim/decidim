@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when a user creates a new proposal.
       class CreateProposal < Rectify::Command
-        include AttachmentMethods
+        include Decidim::AttachmentMethods
         include GalleryMethods
         include HashtagsMethods
 

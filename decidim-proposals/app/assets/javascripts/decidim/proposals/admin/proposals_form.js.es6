@@ -20,10 +20,4 @@ $(() => {
     toggleDisabledHiddenFields();
 
   }
-
-  // has to be moved to core when moving gallery_methods
-  $(document).on("closed.zf.callout", (event) => {
-    $(event.target).remove();
-  });
-
 });

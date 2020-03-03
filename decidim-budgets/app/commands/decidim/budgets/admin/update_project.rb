@@ -6,8 +6,8 @@ module Decidim
       # This command is executed when the user changes a Project from the admin
       # panel.
       class UpdateProject < Rectify::Command
-        include Decidim::Proposals::AttachmentMethods
-        include Decidim::Proposals::GalleryMethods
+        include Decidim::AttachmentMethods
+        include Decidim::GalleryMethods
 
         # Initializes an UpdateProject Command.
         #

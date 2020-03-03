@@ -398,10 +398,8 @@ en:
             title: Update proposal
             update: Update
           form:
-            add_images: Add images
             attachment_legend: "(Optional) Add an attachment"
             created_in_meeting: This proposal comes from a meeting
-            gallery_legend: "(Optional) Add an image gallery"
             select_a_category: Select a category
             select_a_meeting: Select a meeting
           index:

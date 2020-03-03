@@ -6,8 +6,8 @@ module Decidim
       # This command is executed when the user creates a Project from the admin
       # panel.
       class CreateProject < Rectify::Command
-        include Decidim::Proposals::AttachmentMethods
-        include Decidim::Proposals::GalleryMethods
+        include Decidim::AttachmentMethods
+        include Decidim::GalleryMethods
 
         def initialize(form)
           @form = form

@@ -4,7 +4,7 @@ module Decidim
   module Proposals
     # A command with all the business logic when a user creates a new collaborative draft.
     class CreateCollaborativeDraft < Rectify::Command
-      include AttachmentMethods
+      include Decidim::AttachmentMethods
       include HashtagsMethods
 
       # Public: Initializes the command.

@@ -1,5 +1,13 @@
 .gallery__container{
   width: 100%;
+  fieldset{
+    border: 1px solid $light-gray;
+    padding: .5rem;
+    margin-bottom: 1rem;
+  }
+  legend{
+    padding: .25rem;
+  }
 
   .thumbnail{
     max-height: 100px;
