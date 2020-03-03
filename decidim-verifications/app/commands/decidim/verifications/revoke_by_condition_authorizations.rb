@@ -25,7 +25,7 @@ module Decidim
         return broadcast(:invalid) unless @form.valid?
 
         # Date format
-        before_date = @form.before_date_picker.strftime("%d/%m/%Y")
+        before_date = @form.before_date_picker
         # Check before date
         if before_date.present?
 
