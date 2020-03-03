@@ -6,7 +6,10 @@
     <%= proposal.id %><br>
   </td>
   <td>
-    <%= decidim_html_escape(present(proposal).title).html_safe %><br>
+    <%= link_to(
+     decidim_html_escape(present(proposal).title).html_safe,
+     proposal_path(proposal)
+    ) %><br>
   </td>
   <td>
     <% if proposal.category %>
@@ -41,11 +44,13 @@
     </td>
   <% end %>
 
-  <% if allowed_to? :create, :proposal_note %>
-    <td>
-      <%= proposal.proposal_notes_count %>
-    </td>
-  <% end %>
+  <td>
+    <%= proposal.proposal_notes_count %>
+  </td>
+
+  <td class="valuators-count">
+    <%= proposal.valuation_assignments.count %>
+  </td>
 
   <td>
     <%= l proposal.created_at, format: :decidim_short %>
@@ -56,15 +61,7 @@
       <%= icon_link_to "pencil", edit_proposal_path(proposal), t("actions.edit_proposal", scope: "decidim.proposals"), class: "action-icon--edit-proposal" %>
     <% end %>
 
-    <% if allowed_to? :create, :proposal_note %>
-      <%= icon_link_to "chat", proposal_proposal_notes_path(proposal_id: proposal.id), t("actions.private_notes", scope: "decidim.proposals"), class: "action-icon--index-notes" %>
-    <% end %>
-
-    <% if allowed_to? :create, :proposal_answer and !proposal.emendation? %>
-      <%= icon_link_to "comment-square", edit_proposal_proposal_answer_path(proposal_id: proposal.id, id: proposal.id), t("actions.answer", scope: "decidim.proposals"), class: " icon--small" %>
-    <% else %>
-      <%= icon "comment-square", scope: "decidim.proposals.admin", class: "action-icon action-icon--disabled" %>
-    <% end %>
+    <%= icon_with_link_to_proposal(proposal) %>
 
     <%= resource_permissions_link(proposal) %>
 

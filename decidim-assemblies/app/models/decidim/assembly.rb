@@ -151,6 +151,13 @@ module Decidim
       closing_date < Date.current
     end
 
+    def user_roles(role_name = nil)
+      roles = Decidim::AssemblyUserRole.where(assembly: self)
+      return roles if role_name.blank?
+
+      roles.where(role: role_name)
+    end
+
     private
 
     # When an assembly changes their parent, we need to update the parents_path attribute
@@ -204,7 +211,7 @@ module Decidim
 
     # Allow ransacker to search for a key in a hstore column (`title`.`en`)
     ransacker :title do |parent|
-      Arel::Nodes::InfixOperation.new("->", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
+      Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
     end
   end
 end

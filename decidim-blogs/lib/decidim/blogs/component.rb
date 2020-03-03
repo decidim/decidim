@@ -8,6 +8,8 @@ Decidim.register_component(:blogs) do |component|
   component.icon = "decidim/blogs/icon.svg"
   component.permissions_class_name = "Decidim::Blog::Permissions"
 
+  component.query_type = "Decidim::Blogs::BlogsType"
+
   component.on(:before_destroy) do |instance|
     raise StandardError, "Can't remove this component" if Decidim::Blogs::Post.where(component: instance).any?
   end

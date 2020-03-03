@@ -13,6 +13,16 @@ edit_link(
 )
 %>
 
+<%
+extra_admin_link(
+  resource_locator(@proposal).show(anchor: "proposal-answer"),
+  :create,
+  :proposal_answer,
+  { proposal: @proposal },
+  { name: t(".answer"), icon: "comment-square" }
+)
+%>
+
 <%= render partial: "voting_rules" %>
 <% if component_settings.participatory_texts_enabled? %>
   <div class="row column">
@@ -86,6 +96,9 @@ edit_link(
       <% end %>
       <% if component_settings.geocoding_enabled? %>
         <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @proposal } %>
+      <% end %>
+      <% if proposal_has_costs? && current_settings.answers_with_costs? %>
+        <%= cell("decidim/proposals/cost_report", @proposal) %>
       <% end %>
       <%= cell "decidim/proposals/proposal_tags", @proposal %>
     </div>

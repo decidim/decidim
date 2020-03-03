@@ -1,0 +1,35 @@
+<div id="proposal-costs" class="card card--secondary" data-toggler=".expanded-text">
+  <div class="card__content">
+    <div class="mb-s">
+      <div class="data-title">
+        <h3 class="data-title__over">
+          <%= t("decidim.proposals.proposals.show.estimated_cost") %>
+        </h3>
+        <div>
+          <strong class="data-title__main">
+            <%= cost %>
+          </strong>
+        </div>
+        <div class="data-title__sub">
+          <%= execution_period %>
+        </div>
+      </div>
+    </div>
+    <div id="execution-cost-short" class="text-toggle__short">
+      <%= cost_report_short %>
+      <% if needs_text_toggle? %>
+      <button class="muted-link" data-toggle="proposal-costs">
+        <%= t("decidim.proposals.proposals.show.read_more") %>
+      </button>
+      <% end %>
+    </div>
+    <% if needs_text_toggle? %>
+    <div id="execution-cost-long" class="text-toggle__long">
+      <%= cost_report %>
+      <button class="muted-link" data-toggle="proposal-costs">
+        <%= t("decidim.proposals.proposals.show.read_less") %>
+      </button>
+    </div>
+    <% end %>
+  </div>
+</div>

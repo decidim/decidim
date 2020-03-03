@@ -1,0 +1,40 @@
+<div class="filters__section">
+  <div class="fcell filter">
+    <ul class="dropdown menu" data-dropdown-menu data-close-on-click-inside="false">
+      <li>
+        <a href="#" class="dropdown button">
+          <%= t("filter_label", scope: "decidim.admin.filters") %>
+        </a>
+        <%= dropdown_submenu(submenu_options_tree) %>
+      </li>
+    </ul>
+  </div>
+  <div class="fcell search">
+    <%= search_form_for(query, url: url_for) do |form| %>
+      <%= applied_filters_hidden_field_tags %>
+      <div class="input-group">
+        <%= form.search_field(
+              search_field_predicate,
+              class: "input-group-field",
+              label: false,
+              placeholder: t(search_field_predicate,
+                             collection: collection_name,
+                             scope: "decidim.admin.filters.search_placeholder")
+            ) %>
+        <div class="input-group-button">
+          <button type="submit" class="button button--muted">
+            <%= icon "magnifying-glass", aria_label: t("search_label", scope: "decidim.admin.filters") %>
+          </button>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="card-section fcell grid-x">
+  <div class="cell medium-10 filter-status">
+    <%= applied_filters_tags %>
+  </div>
+  <div class="cell auto text-right">
+    <%= admin_filters_pagination %>
+  </div>
+</div>

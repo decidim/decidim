@@ -69,7 +69,7 @@ id:
         duplicate: Duplikat
         edit: Edit
         filter:
-          all: Tampilkan semua proses
+          all_processes: Tampilkan semua proses
           process_groups: Kelompok Proses
         new_process: Proses baru
         new_process_group: Grup proses baru
@@ -359,13 +359,14 @@ id:
         meetings_count: Rapat
         orders_count: Suara
         pages_count: Halaman
+        participants_count: Peserta
         processes_count: Proses
         projects_count: Proyek
         proposals_count: Proposal
         results_count: Hasil
+        supports_count: Suara
         surveys_count: Survei
         users_count: Peserta
-        votes_count: Suara
   layouts:
     decidim:
       participatory_process_groups:

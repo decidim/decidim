@@ -175,18 +175,8 @@ eu:
             title: Informazio orokorra
           index:
             actions_title: Ekintza
-            filter:
-              accepted: Onartu
-              all: guztiak
-              created: Sortu
-              discarded: baztertutako
-              published: Argitaratutako
-              rejected: Baztertuta
-              validating: Balidazio teknikoa
-            filter_by: Iragazi arabera
             preview: Aurreikusi
             print: Inprimatu
-            search: Search
           show:
             print: Inprimatu
           update:

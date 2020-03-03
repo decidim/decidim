@@ -72,7 +72,7 @@ pt-BR:
         duplicate: Duplicar
         edit: Editar
         filter:
-          all: Mostrar todos os processos
+          all_processes: Mostrar todos os processos
           process_groups: Grupos de Processos
         new_process: Novo processo
         new_process_group: Novo grupo de processos
@@ -367,13 +367,14 @@ pt-BR:
         meetings_count: Reuniões
         orders_count: Votos
         pages_count: Páginas
+        participants_count: Participantes
         processes_count: Processos
         projects_count: Projetos
         proposals_count: Propostas
         results_count: Resultados
+        supports_count: Votos
         surveys_count: pesquisas
         users_count: Participantes
-        votes_count: Votos
   layouts:
     decidim:
       participatory_process_groups:

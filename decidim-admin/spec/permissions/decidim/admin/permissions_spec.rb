@@ -9,7 +9,6 @@ describe Decidim::Admin::Permissions do
   let(:organization) { build :organization }
   let(:context) { {} }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
-  let(:space_permissions) { instance_double(Decidim::ParticipatoryProcesses::Permissions, allowed?: space_allows) }
   let(:registrations_enabled) { true }
   let(:action) do
     { scope: :admin, action: action_name, subject: action_subject }
@@ -49,6 +48,21 @@ describe Decidim::Admin::Permissions do
     let(:user) { build :user, :user_manager }
 
     it_behaves_like "delegates permissions to", Decidim::Admin::UserManagerPermissions
+
+    context "when entering a space area with space admin role" do
+      let(:action) do
+        { scope: :admin, action: :enter, subject: :space_area }
+      end
+      let(:participatory_process) { create(:participatory_process, organization: user.organization) }
+
+      before do
+        ::Decidim::ParticipatoryProcessUserRole.create(user: user, participatory_process: participatory_process, role: :admin)
+      end
+
+      it "allows users to enter the space area" do
+        expect { subject }.to raise_error(Decidim::PermissionAction::PermissionNotSetError)
+      end
+    end
   end
 
   context "when action is not registered" do

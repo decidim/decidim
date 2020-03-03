@@ -223,6 +223,14 @@ FactoryBot.define do
       end
     end
 
+    trait :with_card_image_allowed do
+      settings do
+        {
+          allow_card_image: true
+        }
+      end
+    end
+
     trait :with_extra_hashtags do
       transient do
         automatic_hashtags { "AutoHashtag AnotherAutoHashtag" }
@@ -319,6 +327,10 @@ FactoryBot.define do
       state { "accepted" }
       answer { generate_localized_title }
       answered_at { Time.current }
+    end
+
+    trait :not_answered do
+      state { nil }
     end
 
     trait :draft do
@@ -420,5 +432,14 @@ FactoryBot.define do
     title { "<script>alert(\"TITLE\");</script> " + generate(:title) }
     description { "<script>alert(\"DESCRIPTION\");</script>\n" + Faker::Lorem.sentences(3).join("\n") }
     component { create(:proposal_component) }
+  end
+
+  factory :valuation_assignment, class: "Decidim::Proposals::ValuationAssignment" do
+    proposal
+    valuator_role do
+      space = proposal.component.participatory_space
+      organization = space.organization
+      build :participatory_process_user_role, role: :valuator, user: build(:user, organization: organization)
+    end
   end
 end

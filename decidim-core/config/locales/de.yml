@@ -62,15 +62,13 @@ de:
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
-      decidim_with_day_and_month_name: "%A %d %b %Y"
+      decidim_with_day_and_month_name: "%A, %d. %b %Y"
       decidim_with_month_name: "%d %B %Y"
-      decidim_with_month_name_short: "%d %b"
+      decidim_with_month_name_short: "%d. %b"
   decidim:
     account:
       data_portability_export:
         file_no_exists: Diese Datei existiert nicht
-        invalid_token: Der angegebene Token ist ungültig.
-        no_token: Kein Token angegeben
         notice: Ihre Daten werden gerade bereitgestellt. Sie erhalten nach Fertigstellung eine E-Mail.
       delete:
         alert: Diese Aktion kann nicht rückgängig gemacht werden. Wenn Sie Ihr Konto löschen, können Sie sich nicht mehr anmelden.
@@ -542,7 +540,7 @@ de:
           notification_title: Die <a href="%{resource_path}">Profilseite</a> von %{name} (%{nickname}), der Sie folgen, wurde aktualisiert.
     export_mailer:
       data_portability_export:
-        click_button: Klicken Sie auf die Schaltfläche "Weiter", um Ihre Daten herunterzuladen. <br/> Sie haben die Datei bis %{date}verfügbar.
+        click_button: 'Klicken Sie auf die Schaltfläche "Weiter", um Ihre Daten herunterzuladen. <br/> Sie haben die Datei bis %{date}verfügbar.'
         download: Herunterladen
       export:
         ready: Anbei finden Sie eine gezippte Version Ihres Exports.
@@ -587,16 +585,6 @@ de:
     gamification:
       all_badges_link: Sieh dir alle verfügbaren Abzeichen an.
       badges:
-        continuity:
-          conditions:
-            - Komm oft hierher
-          description: Dieses Abzeichen wird gewährt, wenn Sie die Plattform regelmäßig besuchen. Wir möchten dich hier in der Nähe haben!
-          description_another: Dieser Benutzer hat sich irgendwann einmal für %{score} aufeinanderfolgende Tage verbunden.
-          description_own: Sie haben an einem bestimmten Punkt für %{score} aufeinanderfolgende Tage verbunden.
-          name: Kontinuität
-          next_level_in: Verbinde dich für %{score} aufeinanderfolgende Tage, um zum nächsten Level zu gelangen!
-          unearned_another: Dieser Benutzer hat sich länger als einen Tag nicht angemeldet.
-          unearned_own: Sie haben seit mehr als einem aufeinanderfolgenden Tag keine Verbindung hergestellt.
         followers:
           conditions:
             - Aktiv zu sein und anderen Menschen zu folgen, wird sicherlich andere Menschen dazu bringen, dir zu folgen.
@@ -1300,8 +1288,8 @@ de:
       day_of_week: "%a"
       day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
-      decidim_day_of_year: "%d %B %Y"
-      decidim_short: "%d/%m/%Y %H:%M"
+      decidim_day_of_year: "%d. %B %Y"
+      decidim_short: "%d.%m.%Y %H:%M"
       devise:
         mailer:
           invitation_instructions:

@@ -13,6 +13,7 @@ describe "Admin manages proposals", type: :system do
   include_context "when managing a component as an admin"
 
   it_behaves_like "manage proposals"
+  it_behaves_like "view proposal details from admin"
   it_behaves_like "manage moderations"
   it_behaves_like "export proposals"
   it_behaves_like "manage announcements"
@@ -23,4 +24,5 @@ describe "Admin manages proposals", type: :system do
   it_behaves_like "manage proposals permissions"
   it_behaves_like "merge proposals"
   it_behaves_like "split proposals"
+  it_behaves_like "filter proposals"
 end

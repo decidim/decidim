@@ -1,7 +1,7 @@
 <div id="js-bulk-actions-wrapper">
   <button
     id="js-bulk-actions-button"
-    class="button button--nomargin tiny success light dropdown"
+    class="button button--nomargin tiny success light dropdown hide"
     type="button"
     data-toggle="js-bulk-actions-dropdown">
     <%= t("decidim.proposals.admin.proposals.index.actions") %>
@@ -29,6 +29,16 @@
       <li>
         <button type="button" data-action="split-proposals">
           <%= t("decidim.proposals.admin.proposals.index.split") %>
+        </button>
+      </li>
+      <li>
+        <button type="button" data-action="assign-proposals-to-valuator">
+          <%= t("decidim.proposals.admin.proposals.index.assign_to_valuator") %>
+        </button>
+      </li>
+      <li>
+        <button type="button" data-action="unassign-proposals-from-valuator">
+          <%= t("decidim.proposals.admin.proposals.index.unassign_from_valuator") %>
         </button>
       </li>
     </ul>

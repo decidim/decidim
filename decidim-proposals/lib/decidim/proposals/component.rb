@@ -34,6 +34,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :geocoding_enabled, type: :boolean, default: false
     settings.attribute :attachments_allowed, type: :boolean, default: false
+    settings.attribute :allow_card_image, type: :boolean, default: false
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :collaborative_drafts_enabled, type: :boolean, default: false
     settings.attribute :participatory_texts_enabled, type: :boolean, default: false
@@ -57,6 +58,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :comments_blocked, type: :boolean, default: false
     settings.attribute :creation_enabled, type: :boolean
     settings.attribute :proposal_answering_enabled, type: :boolean, default: true
+    settings.attribute :answers_with_costs, type: :boolean, default: false
     settings.attribute :amendment_creation_enabled, type: :boolean, default: true
     settings.attribute :amendment_reaction_enabled, type: :boolean, default: true
     settings.attribute :amendment_promotion_enabled, type: :boolean, default: true
@@ -87,7 +89,7 @@ Decidim.register_component(:proposals) do |component|
     Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).accepted.not_hidden.count
   end
 
-  component.register_stat :votes_count, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
+  component.register_stat :supports_count, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
     proposals = Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.not_hidden
     Decidim::Proposals::ProposalVote.where(proposal: proposals).count
   end
@@ -102,12 +104,25 @@ Decidim.register_component(:proposals) do |component|
     Decidim::Comments::Comment.where(root_commentable: proposals).count
   end
 
+  component.register_stat :followers_count, tag: :followers, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
+    proposals_ids = Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.not_hidden.pluck(:id)
+    Decidim::Follow.where(decidim_followable_type: "Decidim::Proposals::Proposal", decidim_followable_id: proposals_ids).count
+  end
+
   component.exports :proposals do |exports|
-    exports.collection do |component_instance|
-      Decidim::Proposals::Proposal
-        .published
-        .where(component: component_instance)
-        .includes(:category, component: { participatory_space: :organization })
+    exports.collection do |component_instance, user|
+      space = component_instance.participatory_space
+
+      collection = Decidim::Proposals::Proposal
+                   .published
+                   .where(component: component_instance)
+                   .includes(:category, :component)
+
+      if space.user_roles(:valuator).where(user: user).any?
+        collection.with_valuation_assigned_to(user, space)
+      else
+        collection
+      end
     end
 
     exports.include_in_open_data = true
@@ -248,7 +263,7 @@ Decidim.register_component(:proposals) do |component|
           scope: Faker::Boolean.boolean(0.5) ? global : scopes.sample,
           title: "#{proposal.title} #{Faker::Lorem.sentence(1)}",
           body: "#{proposal.body} #{Faker::Lorem.sentence(3)}",
-          state: nil,
+          state: "evaluating",
           answer: nil,
           answered_at: Time.current,
           published_at: Time.current

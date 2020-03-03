@@ -72,7 +72,7 @@ eu:
         duplicate: Kopiatu
         edit: Editatu
         filter:
-          all: Erakutsi prozesu guztiak
+          all_processes: Erakutsi prozesu guztiak
           process_groups: Prozesu taldeak
         new_process: Prozesu berria
         new_process_group: Prozesu talde berria
@@ -367,13 +367,14 @@ eu:
         meetings_count: Topaketak
         orders_count: Euskarriak
         pages_count: Orriak
+        participants_count: Parte-hartzaileak
         processes_count: Prozesuak
         projects_count: Proiektuak
         proposals_count: Proposamenak
         results_count: Emaitzak
+        supports_count: Euskarriak
         surveys_count: Inkestak
         users_count: Parte-hartzaileak
-        votes_count: Euskarriak
   layouts:
     decidim:
       participatory_process_groups:

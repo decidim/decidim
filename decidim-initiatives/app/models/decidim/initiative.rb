@@ -68,7 +68,7 @@ module Decidim
 
     scope :open, lambda {
       published
-        .where.not(state: [:discarded, :rejected, :accepted])
+        .where.not(state: [:discarded, :rejected, :accepted, :created])
         .where("signature_start_date <= ?", Date.current)
         .where("signature_end_date >= ?", Date.current)
     }
@@ -332,6 +332,13 @@ module Decidim
       organization.available_authorizations.include?("sms") && type.validate_sms_code_on_votes?
     end
 
+    # Public: Returns an empty object. This method should be implemented by
+    # `ParticipatorySpaceResourceable`, but for some reason this model does not
+    # implement this interface.
+    def user_role_config_for(_user, _role_name)
+      Decidim::ParticipatorySpaceRoleConfig::Base.new(:empty_role_name)
+    end
+
     private
 
     def signature_type_allowed
@@ -351,5 +358,15 @@ module Decidim
       notifier = Decidim::Initiatives::StatusChangeNotifier.new(initiative: self)
       notifier.notify
     end
+
+    # Allow ransacker to search for a key in a hstore column (`title`.`en`)
+    [:title, :description].each do |column|
+      ransacker column do |parent|
+        Arel::Nodes::InfixOperation.new("->>", parent.table[column], Arel::Nodes.build_quoted(I18n.locale.to_s))
+      end
+    end
+
+    # Allow ransacker to search on an Enum Field
+    ransacker :state, formatter: proc { |int| states[int] }
   end
 end
