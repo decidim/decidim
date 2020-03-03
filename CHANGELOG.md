@@ -27,8 +27,8 @@ For those who have not changed the Rails `config.time_zone` (thus using UTC glob
 Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now supports removal of user's data portability expired files from Amazon S3. Check out the [scheduled tasks in the getting started guide](https://github.com/decidim/decidim/blob/master/docs/getting_started.md#scheduled-tasks) for information in how to configure it.
 
 **Added**:
-- **decidim-core**: Add new language: Greek [#5597](https://github.com/decidim/decidim/pull/5597)
 
+- **decidim-core**: Add new language: Greek [#5597](https://github.com/decidim/decidim/pull/5597)
 - **decidim-initiatives**: An admin can only send the initiative to technical validation if it has enough committee members. [\#5762](https://github.com/decidim/decidim/pull/5762)
 - **decidim-proposals**: Add images to proposal cards [\#5640](https://github.com/decidim/decidim/pull/5640)
 - **decidim-api**: Added documentation to use the API (newcomers friendly). [\#5582](https://github.com/decidim/decidim/pull/5582)
@@ -76,6 +76,7 @@ Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now sup
 - **decidim-proposals**: Let Valuators only answer and leave private notes on proposals [\#5687](https://github.com/decidim/decidim/pull/5687)
 - **decidim-core**: Let exporters filter collection by user triggering the action [\#5687](https://github.com/decidim/decidim/pull/5687)
 - **decidim-budgets**: Allow projects to be sorted by different criteria [\#5808](https://github.com/decidim/decidim/pull/5808)
+- **decidim-admin**: Admin can bulk update proposal's scope [\5759](https://github.com/decidim/decidim/pull/5759)
 
 **Changed**:
 
