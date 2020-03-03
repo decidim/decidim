@@ -252,6 +252,8 @@ es-MX:
           email_outro: Recibiste esta notificación porque eres autor/a de la propuesta.
           email_subject: La categoría de la propuesta %{resource_title} ha sido actualizada
           notification_title: La categoría de la propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido actualizada por un/a administrador/a.
+        proposal_update_scope:
+          email_outro: Recibiste esta notificación porque eres autor/a de la propuesta.
         voting_enabled:
           email_intro: '¡Puedes votar propuestas en %{participatory_space_title}! Empieza a participar en esta página:'
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
@@ -438,10 +440,10 @@ es-MX:
             votes_count: Número de apoyos
             votes_ranking: Clasificación por apoyos
           update_category:
-            invalid: 'Estas propuestas ya tenían la categoría %{category} : %{proposals}.'
             select_a_category: Por favor selecciona una categoría
             select_a_proposal: Por favor selecciona una propuesta
-            success: 'Propuestas actualizadas correctamente en la categoría %{category}: %{proposals}.'
+          update_scope:
+            select_a_proposal: Por favor selecciona una propuesta
         proposals_imports:
           create:
             invalid: Ha habido un problema al importar las propuestas
@@ -764,8 +766,6 @@ es-MX:
           withdraw_btn_hint: Puedes retirar tu propuesta si cambias de opinión, siempre que no haya recibido ningún soporte. La propuesta no se eliminará, aparecerá en la lista de propuestas retiradas.
           withdraw_confirmation: '¿Estás seguro de retirar esta propuesta?'
           withdraw_proposal: Retirar propuesta
-        tags:
-          changed_from: "(cambiado desde <u>%{previous_category}</u> por un administrador)"
         vote_button:
           already_voted: Ya has dado tu apoyo
           already_voted_hover: Retirar tu apoyo
