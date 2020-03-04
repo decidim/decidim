@@ -45,6 +45,7 @@ module Decidim
                 body: choice.body,
                 custom_body: choice.custom_body,
                 decidim_answer_option_id: choice.answer_option_id,
+                decidim_question_matrix_row_id: choice.matrix_row_id,
                 position: choice.position
               )
             end
