@@ -216,6 +216,7 @@
   display: inline-block;
   text-decoration: underline;
 
+  &:hover,
   &:focus{
     background-color: $primary;
     text-decoration: none;
