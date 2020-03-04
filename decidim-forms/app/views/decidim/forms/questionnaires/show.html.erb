@@ -3,19 +3,21 @@
   description: translated_attribute(questionnaire.description),
 }) %>
 
+<% columns = allow_answers? && visitor_can_answer? && @form.answers.map(&:question).any?(&:matrix?) ? 9 : 6 %>
+
 <%= render partial: "decidim/shared/component_announcement" %>
 
 <div class="row columns">
   <h2 class="section-heading"><%= translated_attribute questionnaire.title %></h2>
   <div class="row">
-    <div class="columns large-6 medium-centered lead">
+    <div class="columns large-<%= columns %> medium-centered lead">
       <%= decidim_sanitize translated_attribute questionnaire.description %>
     </div>
   </div>
 </div>
 
 <div class="row">
-  <div class="columns large-6 medium-centered">
+  <div class="columns large-<%= columns %> medium-centered">
     <div class="card">
       <div class="card__content">
         <% if allow_answers? %>
