@@ -37,6 +37,12 @@
           text-decoration: underline;
         }
 
+        a:focus{
+          background-color: $secondary;
+          color: $white;
+          outline: none;
+        }
+
         p{
           font-weight: 600;
           margin-bottom: .75rem;
@@ -75,6 +81,10 @@
           strong{
             font-weight: 600;
             color: $secondary;
+
+            &:hover{
+              text-decoration: underline;
+            }
           }
 
           .progress-figure{

@@ -44,12 +44,6 @@ $author-data-color: $muted;
 
   .author-data__main{
     margin: 0;
-
-    &:focus{
-      background-color: $secondary;
-      color: $white;
-      outline: none;
-    }
   }
 
   .author--flex,
@@ -89,6 +83,16 @@ $author-data-color: $muted;
 .author-data__main{
   display: inline;
   margin-right: .8rem;
+
+  a:focus{
+    background-color: $secondary;
+    color: $white;
+    outline: none;
+
+    .author__name{
+      color: $white;
+    }
+  }
 }
 
 .author-data__extra{
@@ -98,6 +102,13 @@ $author-data-color: $muted;
   > span,
   > a{
     margin-right: 1rem;
+  }
+
+  button:focus,
+  a:focus{
+    background-color: $secondary;
+    color: $white;
+    outline: none;
   }
 
   @include breakpoint(large){
@@ -140,6 +151,10 @@ $author-data-color: $muted;
   font-weight: 600;
   align-self: center;
   color: $author-color;
+
+  &:hover{
+    text-decoration: underline;
+  }
 
   &:focus{
     background-color: $secondary;

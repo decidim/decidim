@@ -88,6 +88,12 @@ $datetime-bg: var(--primary);
 .card__button{
   margin-bottom: 0;
   cursor: pointer;
+
+  &:focus{
+    background-color: $secondary;
+    outline: none;
+    color: $white;
+  }
 }
 
 .card__type{
@@ -425,7 +431,6 @@ $datetime-bg: var(--primary);
 /* Card Link */
 .card__link{
   color: $anchor-color;
-  text-decoration: underline;
 
   &:hover{
     color: darken($secondary, 20%);
@@ -444,6 +449,10 @@ $datetime-bg: var(--primary);
 
 .card__link--block{
   display: block;
+
+  &:focus{
+    outline: 3px solid $secondary;
+  }
 }
 
 /* Card list */

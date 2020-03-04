@@ -150,6 +150,12 @@ $nav-border-width: 3px;
     text-decoration: underline;
   }
 
+  &:focus{
+    background-color: $primary;
+    color: $white;
+    outline: none;
+  }
+
   svg{
     margin-right: .4em;
     width: 25px;
