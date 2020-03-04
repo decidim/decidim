@@ -10,6 +10,13 @@ module Decidim
       belongs_to :answer_option,
                  class_name: "AnswerOption",
                  foreign_key: "decidim_answer_option_id"
+
+      belongs_to :matrix_row,
+                 class_name: "QuestionMatrixRow",
+                 foreign_key: "decidim_question_matrix_row_id",
+                 optional: true
+
+      validates :matrix_row, presence: true, if: -> { answer.question.matrix? }
     end
   end
 end

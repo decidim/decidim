@@ -84,6 +84,7 @@ FactoryBot.define do
   factory :answer_choice, class: "Decidim::Forms::AnswerChoice" do
     answer
     answer_option { create(:answer_option, question: answer.question) }
+    matrix_row { create(:question_matrix_row, question: answer.question) }
   end
 
   factory :question_matrix_row, class: "Decidim::Forms::QuestionMatrixRow" do
