@@ -59,7 +59,7 @@ module Decidim
         end
 
         def notify_proposal_answer
-          return unless initial_has_state_published || form.publish_answer?
+          return if !initial_has_state_published && !form.publish_answer?
 
           NotifyProposalAnswer.call(proposal, initial_state)
         end

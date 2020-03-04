@@ -194,6 +194,7 @@ module Decidim
         super
       end
 
+      # This is only used to define the setter, as the getter will be overriden below.
       alias_attribute :internal_state, :state
 
       # Public: Returns the internal state of the proposal.
