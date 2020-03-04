@@ -10,12 +10,10 @@ module Decidim
     describe ProposalInputSort, type: :graphql do
       include_context "with a graphql type"
 
-      subject { proposal }
-
       let(:type_class) { Decidim::Proposals::ProposalsType }
 
       let(:model) { create(:proposal_component) }
-      let!(:models) { create_list(:proposal, 3, :published, component: model) }
+      let!(:models) { create_list(:proposal, 3, :with_endorsements, :published, component: model) }
 
       context "when sorting by proposals id" do
         include_examples "connection has input sort", "proposals", "id"
@@ -26,14 +24,12 @@ module Decidim
       end
 
       context "when sorting by endorsement_count" do
-        let!(:endorsements) { create_list(:endorsement, 3, resource: subject) }
-
         describe "ASC" do
           let(:query) { %[{ proposals(order: {endorsementCount: "ASC"}) { edges { node { id } } } }] }
 
           it "returns the most endorsed last" do
             expect(response["proposals"]["edges"].count).to eq(3)
-            expect(response["proposals"]["edges"].last["node"]["id"]).to eq(models.last.id.to_s)
+            expect(response["proposals"]["edges"].last["node"]["id"]).to eq(models.first.id.to_s)
           end
         end
 

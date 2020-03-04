@@ -14,7 +14,7 @@ module Decidim
                description: "Sort by number of endorsements, valid values are ASC or DESC",
                required: false,
                prepare: ->(value, _ctx) do
-                          { proposal_endorsements_count: value }
+                          { endorsements_count: value }
                         end
       argument :voteCount,
                type: String,
