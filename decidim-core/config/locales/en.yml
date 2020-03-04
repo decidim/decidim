@@ -1,4 +1,5 @@
 ---
+
 en:
   activemodel:
     attributes:
@@ -68,6 +69,7 @@ en:
       decidim_with_month_name_short: "%d %b"
   decidim:
     accessibility:
+      skip_button: Skip to main content
       logo: "%{organization}'s official logo"
     account:
       data_portability_export:
