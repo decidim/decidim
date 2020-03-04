@@ -110,6 +110,26 @@ module Decidim
           expect(subject).not_to be_valid
         end
       end
+
+      context "when the question type is matrix" do
+        let(:question_type) { "matrix_multiple" }
+
+        before do
+          subject.choices = [
+            { "answer_option_id" => "1", "body" => "foo", "matrix_row_id" => "3" },
+            { "answer_option_id" => "2", "body" => "bar", "matrix_row_id" => "2" },
+            { "answer_option_id" => "3", "body" => "baz", "matrix_row_id" => "1" }
+          ]
+        end
+
+        it "is valid when defining attribute matrix_row_id for each choice" do
+          expect(subject).to be_valid
+        end
+
+        it "saves correct matrix_row_id for each choice" do
+          expect(subject.choices.map(&:matrix_row_id)).to eq [3, 2, 1]
+        end
+      end
     end
   end
 end
