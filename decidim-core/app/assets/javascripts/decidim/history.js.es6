@@ -29,10 +29,25 @@
     }
   };
 
+  const replaceState = (url, state = null) => {
+    if (window.history) {
+      window.history.replaceState(state, null,  url);
+    }
+  };
+
+  const state = () => {
+    if (window.history) {
+      return window.history.state;
+    }
+    return null;
+  };
+
   exports.Decidim = exports.Decidim || {};
   exports.Decidim.History = {
     registerCallback,
     unregisterCallback,
-    pushState
+    pushState,
+    replaceState,
+    state
   };
 })(window);

@@ -24,7 +24,7 @@ $(document).ready(function () {
     }
   }
 
-  let hideBulkActionsButton = function(force = false) {
+  window.hideBulkActionsButton = function(force = false) {
     if(selectedProposalsCount() == 0 || force == true){
       $("#js-bulk-actions-button").addClass('hide');
       $("#js-bulk-actions-dropdown").removeClass('is-open');
@@ -35,12 +35,12 @@ $(document).ready(function () {
     $("#js-other-actions-wrapper").removeClass('hide');
   }
 
-  let hideOtherActionsButtons = function() {
+  window.hideOtherActionsButtons = function() {
     $("#js-other-actions-wrapper").addClass('hide');
   }
 
   window.hideBulkActionForms = function() {
-    return $(".js-bulk-action-form").addClass('hide');
+    $(".js-bulk-action-form").addClass('hide');
   }
 
   if ($('.js-bulk-action-form').length) {
@@ -57,8 +57,8 @@ $(document).ready(function () {
         })
 
         $(`#js-${action}-actions`).removeClass('hide');
-        hideBulkActionsButton(true);
-        hideOtherActionsButtons();
+        window.hideBulkActionsButton(true);
+        window.hideOtherActionsButtons();
       }
     })
 
@@ -71,7 +71,7 @@ $(document).ready(function () {
         showBulkActionsButton();
       } else {
         $(".js-check-all-proposal").closest('tr').removeClass('selected');
-        hideBulkActionsButton();
+        window.hideBulkActionsButton();
       }
 
       selectedProposalsCountUpdate();
@@ -96,12 +96,12 @@ $(document).ready(function () {
         showBulkActionsButton();
         $(this).closest('tr').addClass('selected');
       } else {
-        hideBulkActionsButton();
+        window.hideBulkActionsButton();
         $(this).closest('tr').removeClass('selected');
       }
 
       if ($('.js-check-all-proposal:checked').length === 0) {
-        hideBulkActionsButton();
+        window.hideBulkActionsButton();
       }
 
       $('.js-bulk-action-form').find(".js-proposal-id-"+proposal_id).prop('checked', checked);
