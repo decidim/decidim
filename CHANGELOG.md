@@ -8,6 +8,20 @@ PR [\#5676](https://github.com/decidim/decidim/pull/5676) introduced a deprecati
 
 - `Decidim::ParticipatorySpaceResourceable#link_participatory_spaces_resources` should be renamed to `link_participatory_space_resources` (notice singular `spaces`)
 
+PR [\#5768](https://github.com/decidim/decidim/pull/5768) introduced a deprecation warning:
+
+- `:here_app_id ` and `:here_app_code` that might be configured in `config/initializers/decidim.rb` are no longer valid authorization key-values for the HERE Maps API. Now it is required to generate and API key using the keyword `:here_api_key` to replace the old ones:
+
+`config/initializers/decidim.rb`:
+```ruby
+  Geocoder configuration
+    config.geocoder = {
+    #...
+      here_api_key: Rails.application.secrets.geocoder[:here_api_key],
+    #...
+  }
+```
+
 ### Upgrade notes
 
 - **Geocoder**
@@ -102,6 +116,7 @@ Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now sup
 
 **Changed**:
 
+- **decidim-core**: Upgrade leaflet-HERE Maps javascript library to use new apiKey authentication method [\#5768](https://github.com/decidim/decidim/pull/5768)
 - **decidim-core**: Upgrade geocoder to be able to use the new Here geolocation API. [\#5644](https://github.com/decidim/decidim/pull/5644)
 - **decidim-core**: Shorten the 100 chars default last activity cards description lenght to 80 chars [\#5742](https://github.com/decidim/decidim/pull/5742)
 - **decidim-core**: Show the number of followers when the button "follow" appears. [\#5593](https://github.com/decidim/decidim/pull/5593)
