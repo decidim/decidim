@@ -27,7 +27,7 @@ module Decidim
       end
 
       def has_badge?
-        published_state? || withdrawn? || emendation?
+        published_state? || withdrawn?
       end
 
       def has_link_to_resource?
