@@ -52,6 +52,25 @@ module Decidim
               command.call
             end.not_to change(User, :count)
           end
+
+          context "when the user was already invited" do
+            let(:user) { build(:user, email: email, organization: organization) }
+
+            before do
+              user.invite!
+              clear_enqueued_jobs
+            end
+
+            it "receives the invitation email again" do
+              expect do
+                command.call
+                user.reload
+              end.to change(User, :count).by(0)
+                                         .and broadcast(:invalid)
+                .and change(user.reload, :invitation_token)
+              expect(ActionMailer::DeliveryJob).to have_been_enqueued.on_queue("mailers")
+            end
+          end
         end
 
         describe "when the form is valid" do
@@ -84,18 +103,6 @@ module Decidim
                 command.call
                 expect(User.last.newsletter_notifications_at).to eq(nil)
               end.to change(User, :count).by(1)
-            end
-          end
-
-          context "when a user was invited but never accepted" do
-            let!(:pending_user) do
-              create(:user, email: email, organization: organization, invitation_token: "foobar", invitation_accepted_at: nil)
-            end
-
-            it "deletes the previous user and creates a new one" do
-              command.call
-
-              expect(Decidim::User.exists?(id: pending_user.id)).to be false
             end
           end
         end
