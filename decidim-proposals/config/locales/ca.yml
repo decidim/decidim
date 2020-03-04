@@ -103,6 +103,7 @@ ca:
         name: Propostes
         settings:
           global:
+            allow_card_image: Permetre targeta amb imatge
             amendments_enabled: Esmenes habilitades
             amendments_enabled_help: Si l'actives, configura les funcionalitats de l'esmena per cada fase.
             amendments_wizard_help_text: Text d'ajuda al crear una nova esmena
@@ -140,6 +141,7 @@ ca:
             amendments_visibility: Visibilitat de les esmenes
             amendments_visibility_help: Si es selecciona l'opció "Les esmenes són visibles únicament per als seus autors", els participants han d'estar identificats per a veure les esmenes realitzades.
             announcement: Avís
+            answers_with_costs: Habilitar cost en les respostes a propostes
             automatic_hashtags: Hashtags afegits a totes les propostes
             comments_blocked: Comentaris bloquejats
             creation_enabled: Habilitar la creació de propostes
@@ -250,6 +252,8 @@ ca:
           email_outro: Has rebut aquesta notificació perquè ets autora de la proposta.
           email_subject: S'ha actualitzat la categoria de la proposta %{resource_title}
           notification_title: La categoria de la proposta <a href="%{resource_path}">%{resource_title}</a> ha estat actualitzada per una administradora.
+        proposal_update_scope:
+          email_outro: Has rebut aquesta notificació perquè ets autora de la proposta.
         voting_enabled:
           email_intro: 'Pots començar a donar suports a les propostes de %{participatory_space_title}! Comença a participar en aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
@@ -316,6 +320,7 @@ ca:
         see_all: Veure tots (%{count})
     proposals:
       actions:
+        answer_proposal: Respondre a la proposta
         edit_proposal: Edita la proposta
         import: Importa des d'un altre component
         new: Nova proposta
@@ -436,10 +441,10 @@ ca:
             votes_count: Nombre de suports
             votes_ranking: Classificació per suports
           update_category:
-            invalid: 'Aquestes propostes ja tenien la categoria %{category}: %{proposals}.'
             select_a_category: Selecciona una categoria
             select_a_proposal: Selecciona una proposta
-            success: 'Les propostes s''han actualitzat correctament a la categoria %{category}: %{proposals}.'
+          update_scope:
+            select_a_proposal: Selecciona una proposta
         proposals_imports:
           create:
             invalid: S'ha produït un error en importar les propostes
@@ -471,16 +476,21 @@ ca:
         rejected: Rebutjada
         withdrawn: Retirada
       application_helper:
+        filter_category_values:
+          all: Totes
         filter_origin_values:
           all: Totes
           citizens: Ciutadania
           meetings: Trobades
           official: Oficial
           user_groups: Grups
+        filter_scope_values:
+          all: Tots
         filter_state_values:
           accepted: Acceptada
           all: Totes
           evaluating: En avaluació
+          not_answered: Sense resposta
           rejected: Rebutjada
         filter_type_values:
           all: Totes
@@ -532,6 +542,7 @@ ca:
           open: Obert
           published: Publicat
           related_to: Relacionat amb
+          scope: Àmbit
           search: Cerca
           state: Estat
           withdrawn: Retirat
@@ -732,10 +743,12 @@ ca:
           creation_date: 'Data de creació: %{date}'
           view_proposal: Veure proposta
         show:
+          answer: Respondre
           back_to: Torna
           changes_at_title: Esmena a "%{title}"
           edit_proposal: Edita proposta
           endorsements_list: Llistat d'adhesions
+          estimated_cost: Cost estimat
           hidden_endorsers_count:
             one: i %{count} persona més
             other: i %{count} persones més
@@ -748,12 +761,12 @@ ca:
           proposal_accepted_reason: 'Aquesta proposta ha estat acceptada perquè:'
           proposal_in_evaluation_reason: S'està avaluant aquesta proposta
           proposal_rejected_reason: 'Aquesta proposta ha estat rebutjada perquè:'
+          read_less: Llegir menys
+          read_more: Llegir més
           report: Denúncia
           withdraw_btn_hint: Pots retirar la teva proposta si canvies d'opinió, sempre que no hagis rebut cap suport. La proposta no s'esborra, apareixerà a la llista de propostes retirades.
           withdraw_confirmation: Segur que vols retirar aquesta proposta?
           withdraw_proposal: Retirar proposta
-        tags:
-          changed_from: "(modificat de <u>%{previous_category}</u> per una administradora)"
         vote_button:
           already_voted: Ja li has donat suport
           already_voted_hover: Retira suport
