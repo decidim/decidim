@@ -6,16 +6,16 @@ require "csv"
 describe "Participatory Processes", type: :system, download: true do
   let(:date) { Time.zone.today - 1.week }
   let(:organization) { create(:organization) }
-  let(:show_statistics) { true }
+  let(:show_metrics) { true }
   let(:participatory_process) do
     create(
       :participatory_process,
       organization: organization,
-      show_statistics: show_statistics
+      show_metrics: show_metrics
     )
   end
 
-  context "when show all the metric charts" do
+  context "when metrics are enabled" do
     let(:metrics) do
       Decidim.metrics_registry.all.each do |metric_registry|
         create(:metric, metric_type: metric_registry.metric_name, day: date,
@@ -29,10 +29,10 @@ describe "Participatory Processes", type: :system, download: true do
     before do
       switch_to_host(organization.host)
       metrics
-      visit decidim_participatory_processes.statistics_participatory_process_path(participatory_process)
+      visit decidim_participatory_processes.all_metrics_participatory_process_path(participatory_process)
     end
 
-    it "check if charts are present" do
+    it "renders the metric charts" do
       # BIG CHART
       Decidim.metrics_registry.filtered(scope: "participatory_process", block: "big").each do |metric_manifest|
         expect(page).to have_css(%(##{metric_manifest.metric_name}_chart))
@@ -71,6 +71,30 @@ describe "Participatory Processes", type: :system, download: true do
     def check_title_and_description(metric_name)
       find("div[id='#{metric_name}_chart']").find(:xpath, "../h3", class: "metric-title", count: 1, visible: :all)
       find("div[id='#{metric_name}_chart']").find(:xpath, "../p", class: "metric-description", count: 1, visible: :all)
+    end
+  end
+
+  context "when show metrics are disabled" do
+    let(:show_metrics) { false }
+
+    before do
+      switch_to_host(organization.host)
+      visit decidim_participatory_processes.all_metrics_participatory_process_path(participatory_process)
+    end
+
+    it "does not render any metric chart" do
+      # BIG CHART
+      Decidim.metrics_registry.filtered(scope: "participatory_process", block: "big").each do |metric_manifest|
+        expect(page).to have_no_css(%(##{metric_manifest.metric_name}_chart))
+      end
+      # MEDIUM CHARTS
+      Decidim.metrics_registry.filtered(scope: "participatory_process", block: "medium").each do |metric_manifest|
+        expect(page).to have_no_css(%(##{metric_manifest.metric_name}_chart))
+      end
+      # LITTLE CHARTS
+      Decidim.metrics_registry.filtered(scope: "participatory_process", block: "small").each do |metric_manifest|
+        expect(page).to have_no_css(%(##{metric_manifest.metric_name}_chart))
+      end
     end
   end
 end

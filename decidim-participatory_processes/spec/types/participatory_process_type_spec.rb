@@ -183,6 +183,15 @@ module Decidim
         end
       end
 
+      describe "showMetrics" do
+        let(:query) { "{ showMetrics }" }
+
+        it "returns if the process has metrics available" do
+          expect(response["showMetrics"]).to be_in([true, false])
+          expect(response["showMetrics"]).to eq(model.show_metrics)
+        end
+      end
+
       describe "showStatistics" do
         let(:query) { "{ showStatistics }" }
 
