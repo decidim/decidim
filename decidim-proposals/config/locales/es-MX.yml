@@ -252,6 +252,8 @@ es-MX:
           email_outro: Recibiste esta notificación porque eres autor/a de la propuesta.
           email_subject: La categoría de la propuesta %{resource_title} ha sido actualizada
           notification_title: La categoría de la propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido actualizada por un/a administrador/a.
+        proposal_update_scope:
+          email_outro: Recibiste esta notificación porque eres autor/a de la propuesta.
         voting_enabled:
           email_intro: '¡Puedes votar propuestas en %{participatory_space_title}! Empieza a participar en esta página:'
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
@@ -371,7 +373,7 @@ es-MX:
             accepted: Aceptadas
             answer_proposal: Respuesta
             evaluating: En evaluación
-            rejected: Rechazadas
+            rejected: Rechazada
             title: Responder a la propuesta %{title}
         proposal_notes:
           create:
@@ -426,7 +428,7 @@ es-MX:
             documents: Documentos
             endorsements_count: Número de adhesiones
             endorsements_ranking: Clasificación por adhesiones
-            endorsers: Adheridas
+            endorsers: Se han adherido
             link: Enlace
             n_more_endorsers:
               one: y 1 más
@@ -438,10 +440,10 @@ es-MX:
             votes_count: Número de apoyos
             votes_ranking: Clasificación por apoyos
           update_category:
-            invalid: 'Estas propuestas ya tenían la categoría %{category} : %{proposals}.'
             select_a_category: Por favor selecciona una categoría
             select_a_proposal: Por favor selecciona una propuesta
-            success: 'Propuestas actualizadas correctamente en la categoría %{category}: %{proposals}.'
+          update_scope:
+            select_a_proposal: Por favor selecciona una propuesta
         proposals_imports:
           create:
             invalid: Ha habido un problema al importar las propuestas
@@ -473,16 +475,21 @@ es-MX:
         rejected: Rechazada
         withdrawn: Retirada
       application_helper:
+        filter_category_values:
+          all: Todas
         filter_origin_values:
           all: Todos
           citizens: Ciudadanía
           meetings: Encuentros
           official: Oficial
           user_groups: Grupos de Usuarios
+        filter_scope_values:
+          all: Todos
         filter_state_values:
           accepted: Aceptado
           all: Todos
           evaluating: En evaluación
+          not_answered: Sin respuesta
           rejected: Rechazado
         filter_type_values:
           all: Todos
@@ -534,6 +541,7 @@ es-MX:
           open: Abierto
           published: Publicado
           related_to: Relacionado con
+          scope: Ámbito
           search: Buscar
           state: Estado
           withdrawn: Retirado
@@ -739,6 +747,7 @@ es-MX:
           changes_at_title: Enmienda a "%{title}"
           edit_proposal: Editar propuesta
           endorsements_list: Lista de adhesiones
+          estimated_cost: Coste estimado
           hidden_endorsers_count:
             one: y %{count} persona más
             other: y %{count} personas más
@@ -751,12 +760,12 @@ es-MX:
           proposal_accepted_reason: 'Esta propuesta ha sido aceptada porque:'
           proposal_in_evaluation_reason: Esta propuesta está siendo evaluada
           proposal_rejected_reason: 'Esta propuesta ha sido rechazada porque:'
+          read_less: Leer menos
+          read_more: Leer más
           report: Denunciar
           withdraw_btn_hint: Puedes retirar tu propuesta si cambias de opinión, siempre que no haya recibido ningún soporte. La propuesta no se eliminará, aparecerá en la lista de propuestas retiradas.
           withdraw_confirmation: '¿Estás seguro de retirar esta propuesta?'
           withdraw_proposal: Retirar propuesta
-        tags:
-          changed_from: "(cambiado desde <u>%{previous_category}</u> por un administrador)"
         vote_button:
           already_voted: Ya has dado tu apoyo
           already_voted_hover: Retirar tu apoyo

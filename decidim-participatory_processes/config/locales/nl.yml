@@ -204,13 +204,11 @@ nl:
         destroy:
           success: Admin succesvol verwijderd van dit participatief proces.
         edit:
-          title: Werk procesbeheerder bij.
           update: Bijwerken
         index:
           process_admins_title: Admins van het participatieve proces
         new:
           create: Aanmaken
-          title: Nieuwe admin voor het participatieve proces.
         update:
           error: Er is een probleem opgetreden bij het bijwerken van een admin voor dit participatief proces.
           success: Admin succesvol bijgewerkt voor dit participatief proces.

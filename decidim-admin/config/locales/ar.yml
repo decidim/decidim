@@ -70,6 +70,7 @@ ar:
         port: المَنفذ
         primary_color: ابتدائي
         reference_prefix: بادئة المرجع
+        rich_text_editor_in_public_views: إتاحة محرر النص الغني للمشارِكين
         secondary_color: ثانوي
         send_welcome_notification: إرسال إشعار بالترحيب
         show_statistics: عرض الإحصائيات
@@ -155,6 +156,8 @@ ar:
           are_you_sure: هل أنت متأكد مِن أنك رافض لشروط المدير؟
           refuse: ارفض شروط المدير
           title: وافق على شروط وأحكام الإستخدام
+        required_review:
+          cta: راجِعها الآن.
         title: شروط الاستخدام الخاصة بالمدير
       area_types:
         create:

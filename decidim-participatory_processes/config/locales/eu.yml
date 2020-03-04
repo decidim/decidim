@@ -187,13 +187,11 @@ eu:
         destroy:
           success: Parte hartzaile prozesu honetatik arrakastaz ezabatu da erabiltzailea.
         edit:
-          title: Editatu prozesuaren erabiltzailea.
           update: Eguneratu
         index:
           process_admins_title: Prozesuaren erabiltzaileak
         new:
           create: Sortu
-          title: Prozesuaren erabiltzaile berria.
         update:
           error: Errore bat gertatu da parte hartzaile prozesu honetarako erabiltzaile bat.
           success: Ongi eguneratu da erabiltzailea prozesu partizipatibo honetarako.

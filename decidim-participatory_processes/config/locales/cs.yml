@@ -209,13 +209,11 @@ cs:
         destroy:
           success: Uživatel byl úspěšně odstraněn z tohoto participačního procesu.
         edit:
-          title: Aktualizovat uživatele participačního procesu.
           update: Aktualizace
         index:
           process_admins_title: Uživatelé účastnických procesů
         new:
           create: Vytvořit
-          title: Nový účastník procesu procesu.
         update:
           error: Došlo k chybě při aktualizaci uživatele pro tento participační proces.
           success: Uživatel byl úspěšně aktualizován pro tento participační proces.
