@@ -524,5 +524,51 @@ shared_examples_for "has questionnaire" do
         expect(page).to have_content("are not complete")
       end
     end
+
+    context "when question type is matrix_single" do
+      let(:matrix_rows) { Array.new(2) { { "body" => Decidim::Faker::Localized.sentence } } }
+      let(:answer_options) { Array.new(2) { { "body" => Decidim::Faker::Localized.sentence } } }
+
+      let!(:question) do
+        create(
+          :questionnaire_question,
+          questionnaire: questionnaire,
+          question_type: "matrix_single",
+          rows: matrix_rows,
+          options: answer_options
+        )
+      end
+
+      it "renders the question answers as a collection of check boxes sortable on click" do
+        visit questionnaire_public_path
+
+        expect(page).to have_selector(".radio-button-collection input[type=radio]", count: 4)
+
+        expect(page).to have_content(matrix_rows.map { |row| row["body"]["en"] }.join("\n"))
+        expect(page).to have_content(answer_options.map { |option| option["body"]["en"] }.join(" "))
+
+        radio_buttons = page.all(".radio-button-collection input[type=radio]")
+
+        choose radio_buttons.first[:id]
+        choose radio_buttons.last[:id]
+
+        check "questionnaire_tos_agreement"
+
+        accept_confirm { click_button "Submit" }
+
+        within ".success.flash" do
+          expect(page).to have_content("successfully")
+        end
+
+        visit questionnaire_public_path
+
+        expect(page).to have_content("You have already answered this form.")
+        expect(page).to have_no_i18n_content(question.body)
+
+        actual_choices = Decidim::Forms::Answer.last.choices.pluck(:decidim_answer_option_id, :decidim_question_matrix_row_id)
+        expected_choices = [[question.answer_options.first.id, question.matrix_rows.first.id], [question.answer_options.last.id, question.matrix_rows.last.id]]
+        expect(actual_choices).to eq(expected_choices)
+      end
+    end
   end
 end
