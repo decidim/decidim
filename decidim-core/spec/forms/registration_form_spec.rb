@@ -73,7 +73,7 @@ module Decidim
       context "and is pending to accept the invitation" do
         let!(:user) { create(:user, organization: organization, email: email, invitation_token: "foo", invitation_accepted_at: nil) }
 
-        it { is_expected.to be_valid }
+        it { is_expected.to be_invalid }
       end
     end
 
