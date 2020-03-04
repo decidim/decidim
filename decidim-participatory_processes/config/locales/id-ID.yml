@@ -184,13 +184,11 @@ id:
         destroy:
           success: Pengguna berhasil dihapus dari proses partisipatif ini.
         edit:
-          title: Perbarui pengguna proses partisipatif.
           update: Memperbarui
         index:
           process_admins_title: Pengguna proses partisipatif
         new:
           create: Membuat
-          title: Pengguna proses partisipatif baru.
         update:
           error: Terjadi kesalahan saat memperbarui pengguna untuk proses partisipatif ini.
           success: Pengguna berhasil diperbarui untuk proses partisipatif ini.

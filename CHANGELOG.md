@@ -16,6 +16,28 @@ This new version of Decidim has extracted the Endorsement feature into a generic
 To keep current Decidim::Proposals::Proposal's endorsement information, endorsements are copied into the new `Decidim::Endorsable` tables and counter cache columns. This is done via migrations.
 
 After this, `Decidim::Proposals::ProposalEndorsement` and the corresponding counter cache column in `decidim_proposals_proposal.proposal_endorsements_count` should be removed. To do so, Decidim will provide the corresponding migration in the next release.
+- **Geocoder**
+
+Here maps API has changed, including the way clients authenticate. Thus, former `app_id` and `app_code` credentials are now deprecated in favour of a unique `api_key` token. For your current application to continue working with Here maps services generate an `api_key` and configure it as explained in [Decidim's geocoding documentation](https://github.com/decidim/decidim/blob/master/docs/services/geocoding.md).
+
+If you would like to stay with the old api (app_id + app_code), you should force `geocoder` gem version to `1.5.2` in your application. This is because `geocoder v1.6.0` only supports the new Here api (app_key).
+
+Here is a summary of the different configurations depending on the Here api that is going to be used.
+
+Old/legacy Here api:
+
+- geocoder 1.5
+- initializer with:
+  - app_code
+  - app_id
+  - static_map_url: "https://image.maps.cit.api.here.com/mia/1.6/mapview"
+
+New Here api:
+
+- geocoder 1.
+- initializer with:
+  - api_key
+  - static_map_url: "https://image.maps.cit.api.here.com/mia/1.6/mapview"
 
 - **Assembly types**
 
@@ -88,6 +110,7 @@ Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now sup
 
 **Changed**:
 
+- **decidim-core**: Upgrade geocoder to be able to use the new Here geolocation API. [\#5644](https://github.com/decidim/decidim/pull/5644)
 - **decidim-core**: Shorten the 100 chars default last activity cards description lenght to 80 chars [\#5742](https://github.com/decidim/decidim/pull/5742)
 - **decidim-core**: Show the number of followers when the button "follow" appears. [\#5593](https://github.com/decidim/decidim/pull/5593)
 - **decidim-dev**: Be liberal with Puma's declared version condition. [\#5650](https://github.com/decidim/decidim/pull/5650)
@@ -101,6 +124,7 @@ Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now sup
 
 **Fixed**:
 
+- **decidim-core** and **decidim-dev**: Solve puma's GHSA-84j7-475p-hp8v vulnerability, and nokogiri's CVE-2020-7595 vulnerability. [\#5820](https://github.com/decidim/decidim/pull/5820)
 - **decidim-core**: Do not allow invited users to sign up. [\#5803](https://github.com/decidim/decidim/pull/5803)
 - **decidim-initiatives**: Fix initiative state bug [\#5805](https://github.com/decidim/decidim/pull/5805)
 - **decidim-admin**, **decidim-proposals**: Fix proposal card layout. [\#5783](https://github.com/decidim/decidim/pull/5783)
