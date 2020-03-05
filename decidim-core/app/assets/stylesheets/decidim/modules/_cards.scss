@@ -438,7 +438,8 @@ $datetime-bg: var(--primary);
   }
 
   &:focus{
-    a, .card__title{
+    a,
+    .card__title{
       outline: 3px solid $secondary;
     }
   }
