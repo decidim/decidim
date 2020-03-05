@@ -10,10 +10,13 @@ $footer-bg: $black;
   a{
     color: darken($medium-gray, 40%);
 
-    &:hover,
-    &:focus{
+    &:hover,{
       color: darken($medium-gray, 20%);
       text-decoration: underline;
+    }
+
+    &:focus{
+      outline: 2px solid $primary;
     }
   }
 }
@@ -24,12 +27,6 @@ $footer-bg: $black;
   position: relative;
   padding: 1rem 0;
   min-height: 76px;
-
-  a:focus{
-    background-color: $primary;
-    color: $white;
-    outline: none;
-  }
 }
 
 .main-footer__badge{
@@ -100,10 +97,6 @@ $footer-bg: $black;
 .mini-footer{
   padding: 1rem 0;
   background-color: $footer-bg;
-
-  a:focus{
-    outline: 3px solid $primary;
-  }
 }
 
 .cc-badge{

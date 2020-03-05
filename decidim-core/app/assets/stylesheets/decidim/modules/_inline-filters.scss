@@ -30,6 +30,10 @@
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
     }
+
+    &:focus{
+      outline: 2px solid $secondary;
+    }
   }
 
   .dropdown-pane{
@@ -41,6 +45,14 @@
       a{
         display: block;
         padding: $global-padding;
+
+        &:hover{
+          text-decoration: underline;
+        }
+
+        &:focus{
+          outline: 2px solid $secondary;
+        }
       }
 
       &:not(:last-child){

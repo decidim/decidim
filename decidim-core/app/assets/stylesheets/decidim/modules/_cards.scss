@@ -51,6 +51,15 @@ $datetime-bg: var(--primary);
 .card__content{
   padding: $card-padding-small;
 
+  a:hover{
+    text-decoration: underline;
+  }
+
+  .text-center a:focus,
+  li a:focus{
+    outline: 2px solid $secondary;
+  }
+
   &:not(:only-child){
     padding-bottom: $card-padding-small / 2;
   }
@@ -75,6 +84,14 @@ $datetime-bg: var(--primary);
 
 .card__title{
   @extend .heading5;
+
+  &hover{
+    text-decoration: underline;
+  }
+
+  &:focus{
+    outline: 2px solid $secondary;
+  }
 }
 
 .card__header{
@@ -88,12 +105,6 @@ $datetime-bg: var(--primary);
 .card__button{
   margin-bottom: 0;
   cursor: pointer;
-
-  &:focus{
-    background-color: $secondary;
-    outline: none;
-    color: $white;
-  }
 }
 
 .card__type{
@@ -119,18 +130,13 @@ $datetime-bg: var(--primary);
 }
 
 .card__text{
-  a{
+  a:hover{
+    color: darken($secondary, 20%);
     text-decoration: underline;
+  }
 
-    &:hover{
-      color: darken($secondary, 20%);
-    }
-
-    &:focus{
-      background-color: $secondary;
-      color: $white;
-      outline: none;
-    }
+  a:focus{
+    outline: 2px solid $secondary;
   }
 
   .card__text--status{
@@ -217,6 +223,14 @@ $datetime-bg: var(--primary);
   border-radius: 0 0 $card-border-radius $card-border-radius;
   clear: both;
 
+  a:hover{
+    text-decoration: underline;
+  }
+
+  a:focus{
+    outline: 2px solid $secondary;
+  }
+
   .card__content{
     display: flex;
   }
@@ -277,6 +291,16 @@ $datetime-bg: var(--primary);
   margin: 0;
   display: flex;
   flex-wrap: wrap;
+
+  a:hover{
+    text-decoration: underline;
+  }
+
+  a:focus,
+  span:focus,
+  button:focus{
+    outline: 2px solid $secondary;
+  }
 }
 
 .card-data__item{
@@ -293,16 +317,6 @@ $datetime-bg: var(--primary);
   margin-right: -1px;
   border-top: $border;
   margin-top: -1px;
-
-  div span a:hover{
-    text-decoration: underline;
-  }
-
-  div span a:focus{
-    background-color: $secondary;
-    outline: none;
-    color: $white;
-  }
 
   .card-data__item--centerblock{
     margin: 0 auto;
@@ -433,24 +447,21 @@ $datetime-bg: var(--primary);
   color: $anchor-color;
 
   &:hover{
-    color: darken($secondary, 20%);
     text-decoration: underline;
   }
 
   &:focus{
-    a,
-    .card__title{
-      outline: 3px solid $secondary;
+    outline: 2px solid $secondary;
+
+    h2,
+    h3{
+      outline: 2px solid $secondary;
     }
   }
 }
 
 .card__link--block{
   display: block;
-
-  &:focus{
-    outline: 3px solid $secondary;
-  }
 }
 
 /* Card list */
@@ -637,6 +648,14 @@ $datetime-bg: var(--primary);
 
   .card__title{
     @extend .heading2;
+
+    &:hover{
+      text-decoration: underline;
+    }
+
+    &:focus{
+      outline: 2px solid $secondary;
+    }
   }
 
   .card__content{

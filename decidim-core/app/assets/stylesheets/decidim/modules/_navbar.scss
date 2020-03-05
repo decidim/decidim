@@ -263,6 +263,14 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
 .topbar__dropmenu > ul > li > a{
   color: $medium-gray;
 
+  &:hover{
+    text-decoration: underline;
+  }
+
+  &:focus{
+    outline: 2px solid $primary;
+  }
+
   &::after{
     margin-top: -1px !important;
     border-top-color: $medium-gray !important;
@@ -392,16 +400,13 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
   a{
     color: $medium-gray;
     font-weight: 600;
-    text-decoration: underline;
 
     &:hover{
-      color: $anchor-color;
+      text-decoration: underline;
     }
 
     &:focus{
-      background-color: $primary;
-      text-decoration: none;
-      outline: none;
+      outline: 2px solid $primary;
     }
   }
 

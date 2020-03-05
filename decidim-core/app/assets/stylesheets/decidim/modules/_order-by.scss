@@ -9,6 +9,14 @@ $order-border: $border;
   align-items: baseline;
   flex-wrap: wrap;
 
+  a:hover{
+    text-decoration: underline;
+  }
+
+  a:focus{
+    outline: 2px solid $secondary;
+  }
+
   & + &{
     @include breakpoint(medium){
       margin-left: $global-margin;
@@ -30,10 +38,6 @@ $order-border: $border;
       padding: 0;
       margin-left: .5rem;
       margin-top: .25rem;
-    }
-
-    .is-dropdown-submenu-item:hover{
-      text-decoration: underline;
     }
   }
 }

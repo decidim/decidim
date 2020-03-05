@@ -1,5 +1,13 @@
 .accountability{
   .categories{
+    a:hover{
+      text-decoration: underline;
+    }
+
+    a:focus{
+      outline: 2px solid $secondary;
+    }
+
     .categories--header{
       border-bottom: 1px solid $medium-gray;
       padding-bottom: 1rem;
@@ -31,16 +39,6 @@
 
         @include breakpoint(medium){
           height: calc(100% - 1.875rem);
-        }
-
-        a:hover{
-          text-decoration: underline;
-        }
-
-        a:focus{
-          background-color: $secondary;
-          color: $white;
-          outline: none;
         }
 
         p{
@@ -81,10 +79,6 @@
           strong{
             font-weight: 600;
             color: $secondary;
-
-            &:hover{
-              text-decoration: underline;
-            }
           }
 
           .progress-figure{
