@@ -434,15 +434,12 @@ $datetime-bg: var(--primary);
 
   &:hover{
     color: darken($secondary, 20%);
+    text-decoration: underline;
   }
 
   &:focus{
-    outline: none;
-
-    .card__title{
-      background-color: $secondary;
-      color: white;
-      text-decoration: none;
+    a, .card__title{
+      outline: 3px solid $secondary;
     }
   }
 }

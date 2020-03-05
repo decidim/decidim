@@ -9,16 +9,6 @@ $margin-l: $global-margin * 5;
   margin-bottom: $margin-sm;
   word-wrap: break-word;
 
-  a:hover{
-    text-decoration: underline;
-  }
-
-  a:focus{
-    background-color: $secondary;
-    color: $white;
-    outline: none;
-  }
-
   @include breakpoint(large){
     margin-bottom: $margin-m;
   }
