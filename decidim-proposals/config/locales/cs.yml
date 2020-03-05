@@ -31,6 +31,9 @@ cs:
       proposals_import:
         import_proposals: Návrhy na dovoz
         keep_authors: Uchovávejte původní autory
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: Název hodnotitele
     errors:
       models:
         participatory_text:
@@ -49,6 +52,7 @@ cs:
     models:
       decidim/proposals/accepted_proposal_event: Návrh byl akceptován
       decidim/proposals/admin/update_proposal_category_event: Kategorie nabídky se změnila
+      decidim/proposals/admin/update_proposal_scope_event: Rozsah návrhu se změnil
       decidim/proposals/creation_enabled_event: Vytváření návrhu je povoleno
       decidim/proposals/endorsing_enabled_event: Povolení návrhu je povoleno
       decidim/proposals/evaluating_proposal_event: Návrh je hodnocen
@@ -102,6 +106,8 @@ cs:
           label: Stav
           values:
             'true': Nezodpovězeno
+        valuator_role_ids_has:
+          label: Přiřazeno k hodnotiteli
     components:
       proposals:
         actions:
@@ -330,6 +336,7 @@ cs:
         see_all: Zobrazit všechny (%{count})
     proposals:
       actions:
+        answer_proposal: Odpověď na návrh
         edit_proposal: Upravit návrh
         import: Import z jiné součásti
         new: Nový návrh
@@ -413,17 +420,24 @@ cs:
             select_a_meeting: Vyberte schůzku
           index:
             actions: Akce
+            assign_to_valuator: Přiřadit hodnotiteli
+            assign_to_valuator_button: Přiřadit
             cancel: zrušení
             change_category: Změnit kategorii
+            change_scope: Změnit rozsah
             merge: Sloučit do nového
             merge_button: Spojit
             publish: Publikovat
+            publish_answers: Publikovat odpovědi
             select_component: Vyberte součást
             selected: vybraný
             split: Rozdělit návrhy
             split_button: Rozdělit
             title: Návrhy
+            unassign_from_valuator: Zrušit přiřazení od hodnotitele
+            unassign_from_valuator_button: Zrušit přiřazení
             update: Aktualizace
+            update_scope_button: Aktualizovat rozsah
           new:
             create: Vytvořit
             title: Vytvořte návrh
@@ -431,17 +445,34 @@ cs:
             select_a_proposal: Vyberte prosím návrh
           show:
             amendments_count: Počet pozměňovacích návrhů
+            assigned_valuators: Přiřazení hodnotitelé
             authors: Autoři
             body: Tělo
             comments_count: Počet komentářů
             comments_negative_count: Proti
+            comments_neutral_count: Neutrální
+            comments_positive_count: Oblíbené
             created_at: Datum vzniku
+            documents: Dokumenty
+            endorsements_count: Počet položek
+            endorsements_ranking: Pořadí podle položek
+            link: Odkaz
+            photos: Fotky
+            proposals: Návrhy
+            ranking: "%{ranking} z %{total}"
+            related_meetings: Související schůzky
+            remove_assignment: Odstranit přiřazení
+            remove_assignment_confirmation: Jste si jisti, že chcete odstranit hodnotitele z tohoto návrhu?
+            valuators: Hodnotitelé
             votes_count: Počet hlasů
+            votes_ranking: Hodnocení podle podpory
           update_category:
+            invalid: 'Tyto návrhy již mají kategorii %{subject_name} : %{proposals}.'
             select_a_category: Vyberte kategorii
             select_a_proposal: Vyberte prosím návrh
           update_scope:
             select_a_proposal: Vyberte prosím návrh
+            select_a_scope: Vyberte prosím rozsah
         proposals_imports:
           create:
             invalid: Při importu návrhů došlo k problému
@@ -473,16 +504,21 @@ cs:
         rejected: Odmítnuto
         withdrawn: Staženo
       application_helper:
+        filter_category_values:
+          all: Vše
         filter_origin_values:
           all: Všechno
           citizens: Občané
           meetings: Setkání
           official: Oficiální
           user_groups: Skupiny uživatelů
+        filter_scope_values:
+          all: Vše
         filter_state_values:
           accepted: Přijato
           all: Všechno
           evaluating: Hodnocení
+          not_answered: Nezodpovězeno
           rejected: Odmítnuto
         filter_type_values:
           all: Všechno
@@ -536,6 +572,7 @@ cs:
           open: otevřeno
           published: Publikováno
           related_to: Související s
+          scope: Rozsah
           search: Vyhledávání
           state: Stát
           withdrawn: Staženo
@@ -627,10 +664,13 @@ cs:
             id: ID
             notes: Poznámky
             official_proposal: Oficiální návrh
+            published_answer: Publikovaná odpověď
             published_at: Publikováno v
             scope: Rozsah
             state: Stát
             title: Titul
+            valuator: Hodnotitel
+            valuators: Hodnotitelé
             votes: Hlasy
       new:
         limit_reached: Nelze vytvořit nové návrhy, protože jste překročili limit.
@@ -693,8 +733,10 @@ cs:
           my_proposals: Moje návrhy
           origin: Původ
           related_to: Související s
+          scope: Rozsah
           search: Vyhledávání
           state: Stát
+          type: Typ
           voted: Hlasoval
         filters_small_view:
           close_modal: Zavřít modální
@@ -747,6 +789,7 @@ cs:
           changes_at_title: Pozměňovací návrh k "%{title}"
           edit_proposal: Upravit návrh
           endorsements_list: Seznam doporučení
+          estimated_cost: Odhadované náklady
           hidden_endorsers_count:
             one: a %{count} další osoba
             few: a %{count} dalších lidí
@@ -761,10 +804,14 @@ cs:
           proposal_accepted_reason: 'Tento návrh byl přijat, protože:'
           proposal_in_evaluation_reason: Tento návrh se hodnotí
           proposal_rejected_reason: 'Tento návrh byl zamítnut, protože:'
+          read_less: Číst méně
+          read_more: Číst více
           report: Zpráva
           withdraw_btn_hint: Pokud změníte názor, můžete svůj návrh stáhnout, pokud jste nedostali žádnou podporu. Návrh není zrušen, objeví se v seznamu stažených návrhů.
           withdraw_confirmation: Opravdu chcete tento návrh stáhnout?
           withdraw_proposal: Návrh stáhnout
+        tags:
+          changed_from: "(změněn z <u>%{previous_name}</u> správcem)"
         vote_button:
           already_voted: Již bylo hlasováno
           already_voted_hover: Zavolejte
