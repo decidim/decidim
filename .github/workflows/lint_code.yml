@@ -37,7 +37,7 @@ jobs:
       - name: Recover JS dependency cache
         uses: actions/cache@v1
         with:
-          path: ./node_modules
+          path: ~/.npm
           key: ${{ runner.OS }}-jsdeps-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             ${{ runner.OS }}-jsdeps-${{ env.cache-name }}-
