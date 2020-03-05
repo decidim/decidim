@@ -364,6 +364,7 @@ pt-BR:
             change_category: Alterar categoria
             merge: Junte-se a um novo
             merge_button: Combinar
+            publish: Publicar
             select_component: Selecionar componente
             selected: selecionado
             split: Dividir propostas
@@ -373,6 +374,8 @@ pt-BR:
           new:
             create: Criar
             title: Criar proposta
+          publish_answers:
+            select_a_proposal: Selecione uma proposta
           show:
             created_at: Data de criação
             votes_count: Contagem de votos
