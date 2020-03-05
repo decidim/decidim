@@ -122,24 +122,27 @@ Remember to follow the Gitflow branching workflow.
 ### Create the release branch
 
 
-### PRE-release
+### Release Candidates
 
-If this is a **major PRE version** release:
+If this is a **Release Candidate version** release:
 
 1. Go to develop with `git checkout develop`
 1. Create the release branch `git checkout -b release/x.y.z && git push origin release/x.y.z`, where release/x.y.z is the Gitflow release branch for this version.
-1. Update `.decidim-version` to the new major development version `release/x.y.z.pre.1`
+1. Update `.decidim-version` to the new "major" development version `release/x.y.z.rc1`
 1. Run `bin/rake update_versions`, this will update all references to the new version.
 1. Run `bin/rake bundle`, this will update all the `Gemfile.lock` files
 1. Run `bin/rake webpack`, this will update the JavaScript bundle.
-1. Commit all the changes: `git add . && git commit -m "Bump to pre-release version" && git push origin release/x.y.z`.
+1. Commit all the changes: `git add . && git commit -m "Bump to rcXX version" && git push origin release/x.y.z`.
 1. Follow the link resulting from the previous command to create the PR for the new version.
-1. Normally here a deploy to metadecidim is done during, at least, one week to validate the stability of the version.
-1. During the validation period bugfixes will go directly to the current release/x.y.z branch
+1. Usually, at this point, a deploy to meta-decidim is done during, at least, one week to validate the stability of the version.
+1. During the validation period bugfixes will go directly to the current `release/x.y.z` branch and ported to `develop`.
+1. During the validation period, translations to the officially supported languages must be added to Crowdin and when done, merged into `develop` and `release/x.y.z`. For each PR that Crowdin performs to `develop` it should:
+  1. Be merged into `develop` for future releases
+  1. Cherry-pick the merge commit resulting from the previous step and PR it to the `release/x.y.z` branch
 
 Mark `develop` as the reference to the next release:
 
-1. Go to develop with `git checkout develop`
+1. Go back to develop with `git checkout develop`
 1. Turn develop into the dev branch for the next release:
   1. Update `.decidim-version` to the new `dev` development version: x.y.z.dev
   1. Run `bin/rake update_versions`, this will update all references to the new version.
@@ -147,8 +150,7 @@ Mark `develop` as the reference to the next release:
   1. Run `bin/rake webpack`, this will update the JavaScript bundle.
 1. Push the changes `git add . && git commit -m "Bump develop to next release version" && git push origin develop`
 
-### If this is a **major version** release:
-
+### DELETE THIS PART? If this is a **Minor version** release:
 
 1. Update `SECURITY.md` and change the supported version to the new version.
 1. Run `bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems.
@@ -166,7 +168,10 @@ To branch the stable version and let master be the new devel branch again:
   1. Run `bin/rake webpack`, this will update the JavaScript bundle.
 
 
-Releasing new ***patch versions*** is quite easy, it's the same process whether it's a new version or a patch:
+### Releasing new **x.y-stable** versions
+
+TODO:
+Releasing new ***x.y-stable*** is quite easy, it's the same process whether it's a new version or a patch:
 
 1. Checkout the branch you want to release: `git checkout -b VERSION-stable`
 1. Update `.decidim-version` to the new version number.
