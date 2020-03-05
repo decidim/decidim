@@ -62,6 +62,11 @@ ar:
           secondary_hosts_hint: أدخل كل واحد منهم في سطر جديد
           title: منظمة جديدة
         omniauth_settings:
+          facebook:
+            app_secret: سر التطبيق
+          google_oauth2:
+            client_id: معرف العميل ID
+            client_secret: الرمز السري للعميل
           icon: الأيقونة
           icon_path: مسار الأيقونة
           twitter:

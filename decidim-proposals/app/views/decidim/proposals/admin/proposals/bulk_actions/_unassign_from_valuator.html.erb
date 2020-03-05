@@ -1,0 +1,15 @@
+<div id="js-unassign-proposals-from-valuator-actions" class="hide js-bulk-action-form">
+  <%= form_tag(valuation_assignment_path, method: :delete, id: "js-form-unassign-proposals-from-valuator", class: "flex--cc flex-gap--1") do %>
+    <div class="checkboxes hide">
+      <% proposals.each do |proposal| %>
+        <%= check_box_tag "proposal_ids[]", proposal.id, false, class: "js-check-all-proposal js-proposal-id-#{proposal.id}" %>
+      <% end %>
+    </div>
+
+    <%= bulk_valuators_select(current_participatory_space, t("decidim.proposals.admin.proposals.index.unassign_from_valuator")) %>
+
+    <%= submit_tag(t("decidim.proposals.admin.proposals.index.unassign_from_valuator_button"), id: "js-submit-unassign-proposals-from-valuator", class: "button small button--simple float-left") %>
+
+    <button id="js-cancel-unassign-proposals-from-valuator" class="button tiny clear compact js-cancel-bulk-action" type="button"><%= t("decidim.proposals.admin.proposals.index.cancel") %></button>
+  <% end %>
+</div>

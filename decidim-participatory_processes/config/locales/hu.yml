@@ -135,6 +135,7 @@ hu:
             admin: Admin
             collaborator: Közreműködő
             moderator: Moderátor
+            valuator: Értékelő
         user:
           fields:
             invitation_accepted_at: 'Meghívó elfogadva:'
@@ -206,13 +207,13 @@ hu:
         destroy:
           success: Felhasználó eltávolítása a részvételi folyamatból sikeres.
         edit:
-          title: Részvételi folyamat adminisztrátor frissítése.
+          title: Frissíti a részvételi folyamat adminisztrátorát
           update: Frissítés
         index:
           process_admins_title: Részvételi folyamat adminisztrátorok
         new:
           create: Létrehozás
-          title: Új részvételi folyamat adminisztrátor.
+          title: Új részvételi folyamat adminisztrátor
         update:
           error: Hiba a felhasználó részvételi folyamatban történő frissítése során.
           success: Felhasználó frissítése a részvételi folyamatban sikeres.

@@ -252,6 +252,8 @@ ca:
           email_outro: Has rebut aquesta notificació perquè ets autora de la proposta.
           email_subject: S'ha actualitzat la categoria de la proposta %{resource_title}
           notification_title: La categoria de la proposta <a href="%{resource_path}">%{resource_title}</a> ha estat actualitzada per una administradora.
+        proposal_update_scope:
+          email_outro: Has rebut aquesta notificació perquè ets autora de la proposta.
         voting_enabled:
           email_intro: 'Pots començar a donar suports a les propostes de %{participatory_space_title}! Comença a participar en aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
@@ -318,6 +320,7 @@ ca:
         see_all: Veure tots (%{count})
     proposals:
       actions:
+        answer_proposal: Respondre a la proposta
         edit_proposal: Edita la proposta
         import: Importa des d'un altre component
         new: Nova proposta
@@ -438,10 +441,10 @@ ca:
             votes_count: Nombre de suports
             votes_ranking: Classificació per suports
           update_category:
-            invalid: 'Aquestes propostes ja tenien la categoria %{category}: %{proposals}.'
             select_a_category: Selecciona una categoria
             select_a_proposal: Selecciona una proposta
-            success: 'Les propostes s''han actualitzat correctament a la categoria %{category}: %{proposals}.'
+          update_scope:
+            select_a_proposal: Selecciona una proposta
         proposals_imports:
           create:
             invalid: S'ha produït un error en importar les propostes
@@ -764,8 +767,6 @@ ca:
           withdraw_btn_hint: Pots retirar la teva proposta si canvies d'opinió, sempre que no hagis rebut cap suport. La proposta no s'esborra, apareixerà a la llista de propostes retirades.
           withdraw_confirmation: Segur que vols retirar aquesta proposta?
           withdraw_proposal: Retirar proposta
-        tags:
-          changed_from: "(modificat de <u>%{previous_category}</u> per una administradora)"
         vote_button:
           already_voted: Ja li has donat suport
           already_voted_hover: Retira suport
