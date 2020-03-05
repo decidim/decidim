@@ -43,7 +43,7 @@ jobs:
             ${{ runner.OS }}-jsdeps-${{ env.cache-name }}-
             ${{ runner.OS }}-jsdeps-
             ${{ runner.OS }}-
-      - run: npm ci --verbose --cache ~/.npm
+      - run: npm ci --cache ~/.npm
         name: Install JS deps
       - run: bundle exec rubocop -P
         name: Lint Ruby files
