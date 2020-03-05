@@ -17,7 +17,11 @@ module Decidim
         let(:execution_period) { nil }
         let(:params) do
           {
-            state: state, answer: answer, cost: cost, cost_report: cost_report, execution_period: execution_period
+            internal_state: state,
+            answer: answer,
+            cost: cost,
+            cost_report: cost_report,
+            execution_period: execution_period
           }
         end
 
