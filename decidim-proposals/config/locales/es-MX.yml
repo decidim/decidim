@@ -407,6 +407,7 @@ es-MX:
             change_category: Cambiar categoría
             merge: Fusionar en una nueva
             merge_button: Fusionar
+            publish: Publicar
             select_component: Selecciona un componente
             selected: seleccionado
             split: Propuestas divididas
@@ -416,6 +417,8 @@ es-MX:
           new:
             create: Crear
             title: Crear propuesta
+          publish_answers:
+            select_a_proposal: Por favor selecciona una propuesta
           show:
             amendments_count: Número de enmiendas
             authors: Autoras
