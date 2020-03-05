@@ -16,6 +16,10 @@ $margin-l: $global-margin * 5;
 
 .m-bottom{
   margin-bottom: $margin-s;
+
+  a:focus{
+    outline: 3px solid $secondary;
+  }
 }
 
 // helpers
