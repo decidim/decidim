@@ -148,6 +148,7 @@ ca:
             endorsements_blocked: Adhesions bloquejades
             endorsements_enabled: Adhesions habilitades
             proposal_answering_enabled: Resposta a propostes activada
+            publish_answers_immediately: Publica les respostes a les propostes immediatament
             suggested_hashtags: Hashtags suggerits a les participants per a noves propostes
             votes_blocked: Suports bloquejats
             votes_enabled: Suports habilitats
@@ -409,6 +410,7 @@ ca:
             merge: Uneix-te a un de nou
             merge_button: Fusionar
             publish: Publica
+            publish_answers: Publica respostes
             select_component: Selecciona un component
             selected: seleccionat
             split: Dividir propostes
@@ -419,6 +421,7 @@ ca:
             create: Crea
             title: Crea proposta
           publish_answers:
+            number_of_proposals: Es publicaran les respostes per a %{number} propostes.
             select_a_proposal: Selecciona una proposta
           show:
             amendments_count: Número d'esmenes
@@ -469,6 +472,7 @@ ca:
         proposal:
           answer: "%{user_name} ha respost a la proposta %{resource_name} a l'espai %{space_name}"
           create: "%{user_name} ha creat la proposta %{resource_name} sobre l'espai %{space_name} com a proposta oficial"
+          publish_answer: "En %{user_name} ha publicat una resposta a la proposta %{resource_name} a l'espai %{space_name}"
           update: "%{user_name} ha actualitzat la proposta oficial %{resource_name} sobre l'espai %{space_name}"
         proposal_note:
           create: "%{user_name} ha deixat una nota privada a la proposta %{resource_name} dins l'espai %{space_name}"
@@ -635,6 +639,7 @@ ca:
             id: Identificador
             notes: Notes
             official_proposal: Proposta oficial
+            published_answer: Resposta publicada
             published_at: Publicat a
             scope: Àmbit
             state: Estat
@@ -812,6 +817,8 @@ ca:
       publish:
         error: Hi ha hagut un error en publicar la proposta.
         success: La proposta s'ha publicat correctament.
+      publish_answers:
+        success: Actualitzat correctament les respostes a les propostes.
       update:
         error: Hi ha hagut un error en desar la proposta.
         success: La proposta s'ha actualitzat correctament.
