@@ -149,6 +149,7 @@ Please check [0.21-stable](https://github.com/decidim/decidim/blob/0.21-stable/C
 
 **Fixed**:
 
+- **decidim-core** adapt API classes to the release of the graphql gem v1.10.4 [\#5829](https://github.com/decidim/decidim/pull/5829)
 - **decidim-core** Fixes the integration between the use of older and new versions of geocoder using HERE maps [\#5822](https://github.com/decidim/decidim/pull/5822)
 - **decidim-core** and **decidim-dev**: Solve puma's GHSA-84j7-475p-hp8v vulnerability, and nokogiri's CVE-2020-7595 vulnerability. [\#5820](https://github.com/decidim/decidim/pull/5820)
 - **decidim-core**: Do not allow invited users to sign up. [\#5803](https://github.com/decidim/decidim/pull/5803)
