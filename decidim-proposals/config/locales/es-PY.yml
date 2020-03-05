@@ -407,6 +407,7 @@ es-PY:
             change_category: Cambiar categoría
             merge: Sumérgete en uno nuevo
             merge_button: Unir
+            publish: Publicar
             select_component: Seleccione un componente
             selected: seleccionado
             split: Propuestas divididas
@@ -416,6 +417,8 @@ es-PY:
           new:
             create: Crear
             title: Crear propuesta
+          publish_answers:
+            select_a_proposal: Por favor selecciona una propuesta
           show:
             amendments_count: Número de enmiendas
             authors: Autoras
