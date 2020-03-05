@@ -34,16 +34,7 @@ jobs:
             ${{ runner.OS }}-
       - run: bundle install --path vendor/bundle --jobs 4 --retry 3
         name: Install Ruby deps
-      - name: Recover JS dependency cache
-        uses: actions/cache@v1
-        with:
-          path: ~/.npm
-          key: ${{ runner.OS }}-jsdeps-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.OS }}-jsdeps-${{ env.cache-name }}-
-            ${{ runner.OS }}-jsdeps-
-            ${{ runner.OS }}-
-      - run: npm ci --cache ~/.npm
+      - run: npm ci
         name: Install JS deps
       - run: bundle exec rubocop -P
         name: Lint Ruby files
