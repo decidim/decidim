@@ -164,6 +164,7 @@ cs:
             endorsements_blocked: Uzávěry blokovány
             endorsements_enabled: Povolení byla povolena
             proposal_answering_enabled: Odpovídání návrhu je povoleno
+            publish_answers_immediately: Okamžitě publikovat odpovědi návrhu
             suggested_hashtags: Hashtags navrhl uživatelům nové návrhy
             votes_blocked: Hlasování bylo blokováno
             votes_enabled: Hlasování povoleno
@@ -497,6 +498,8 @@ cs:
           update: "%{user_name} aktualizoval %{resource_name} oficiální návrh na %{space_name} místa"
         proposal_note:
           create: "%{user_name} zanechal soukromou poznámku k návrhu %{resource_name} na %{space_name} prostoru"
+        valuation_assignment:
+          create: "%{user_name} přiřadil návrh %{resource_name} hodnotiteli"
       answers:
         accepted: Přijato
         evaluating: Hodnocení
@@ -856,6 +859,8 @@ cs:
       publish:
         error: Při publikování návrhu došlo k chybám.
         success: Návrh byl úspěšně publikován.
+      publish_answers:
+        success: Odpovědi na návrhy byly úspěšně zveřejněny.
       update:
         error: Při ukládání návrhu došlo k chybám.
         success: Návrh byl úspěšně aktualizován.
