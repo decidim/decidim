@@ -375,6 +375,7 @@ sv:
             change_category: Ändra kategori
             merge: Sammanfoga till en ny
             merge_button: Slå ihop
+            publish: Publicera
             select_component: Välj en komponent
             selected: valda
             split: Delade förslag
@@ -384,6 +385,8 @@ sv:
           new:
             create: Skapa
             title: Skapa förslag
+          publish_answers:
+            select_a_proposal: Välj ett förslag
           show:
             created_at: Skapelsedatum
             votes_count: Antal röster
