@@ -42,6 +42,7 @@ cs:
             attachment:
               needs_to_be_reattached: Potřebuje být znovu připojen
             body:
+              cant_be_equal_to_template: nelze se rovnat šabloně
               identical: A název nemůže být totožný
             title:
               identical: Tělo A nemůže být totožné
@@ -84,6 +85,23 @@ cs:
         many: Hlasy
         other: Hlasy
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Typ
+          values:
+            'false': Návrhy
+            'true': Pozměňovací návrhy
+        search_placeholder:
+          id_string_or_title_cont: Hledat %{collection} podle ID nebo názvu.
+        state_eq:
+          values:
+            evaluating: Hodnocení
+            withdrawn: Odebráno
+        state_null:
+          label: Stav
+          values:
+            'true': Nezodpovězeno
     components:
       proposals:
         actions:
@@ -95,6 +113,7 @@ cs:
         name: Návrhy
         settings:
           global:
+            allow_card_image: Povolit obrázek karty
             amendments_enabled: Změny povoleny
             amendments_enabled_help: Pokud je aktivní, nastavte funkce změny pro každý krok.
             amendments_wizard_help_text: Nápověda průvodce k Pozměňovacím návrhům
@@ -105,6 +124,8 @@ cs:
             comments_enabled: Komentáře povoleny
             geocoding_enabled: Geokódování povoleno
             minimum_votes_per_user: Minimální počet hlasů na uživatele
+            new_proposal_body_template: Šablona těla nového návrhu
+            new_proposal_body_template_help: Můžete definovat předem vyplněný text, který budou mít nové návrhy
             new_proposal_help_text: Nový text nápovědy návrhu
             official_proposals_enabled: Byly povoleny oficiální návrhy
             participatory_texts_disabled_help: Pokud existují stávající návrhy, nelze toto nastavení měnit. Pokud chcete tuto vlastnost povolit nebo vyhodit všechny importované návrhy v menu "participativní texty" prosím vytvořte novou složku "Návrhy", pokud ji chcete zakázat.
@@ -130,6 +151,7 @@ cs:
             amendments_visibility: Viditelnost pozměňovacího návrhu
             amendments_visibility_help: Pokud je zvolena možnost "pozměňovací návrhy jsou viditelné pouze jejich autorům", musí být účastník přihlášen, aby se seznámil s provedenými pozměňovacími návrhy.
             announcement: Oznámení
+            answers_with_costs: Povolit náklady na odpovědi návrhu
             automatic_hashtags: Do všech návrhů byly přidány značky Hashtags
             comments_blocked: Komentáře byly blokovány
             creation_enabled: Vytváření návrhu je povoleno
@@ -312,6 +334,7 @@ cs:
         import: Import z jiné součásti
         new: Nový návrh
         participatory_texts: Participující texty
+        show: Zobrazit návrh
         title: Akce
       admin:
         actions:
@@ -357,6 +380,10 @@ cs:
             success: Úspěšný text byl úspěšně aktualizován.
         proposal_answers:
           form:
+            accepted: Přijato
+            answer_proposal: Odpověď
+            evaluating: Hodnocení
+            rejected: Zamítnuto
             title: Odpověď na návrh %{title}
         proposal_notes:
           create:
@@ -403,6 +430,11 @@ cs:
           publish_answers:
             select_a_proposal: Vyberte prosím návrh
           show:
+            amendments_count: Počet pozměňovacích návrhů
+            authors: Autoři
+            body: Tělo
+            comments_count: Počet komentářů
+            comments_negative_count: Proti
             created_at: Datum vzniku
             votes_count: Počet hlasů
           update_category:
