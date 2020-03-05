@@ -408,6 +408,7 @@ ca:
             change_category: Canvia la categoria
             merge: Uneix-te a un de nou
             merge_button: Fusionar
+            publish: Publica
             select_component: Selecciona un component
             selected: seleccionat
             split: Dividir propostes
@@ -417,6 +418,8 @@ ca:
           new:
             create: Crea
             title: Crea proposta
+          publish_answers:
+            select_a_proposal: Selecciona una proposta
           show:
             amendments_count: Número d'esmenes
             authors: Autores
