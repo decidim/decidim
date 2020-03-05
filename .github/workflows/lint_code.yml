@@ -1,0 +1,47 @@
+name: "[CI] Lint"
+on: [push]
+
+env:
+  RUBY_VERSION: 2.5.3
+  NODE_VERSION: 12.9.1
+
+jobs:
+  lint:
+    name: Lint code
+    runs-on: ubuntu-latest
+    steps:
+      - uses: rokroskar/workflow-run-cleanup-action@v0.2.2
+        if: "github.ref != 'refs/heads/master' || github.ref != 'refs/heads/develop'"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      - uses: actions/checkout@v2.0.0
+        with:
+          fetch-depth: 1
+      - uses: ruby/setup-ruby@master
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+      - uses: actions/setup-node@master
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Recover Ruby dependency cache
+        uses: actions/cache@v1
+        with:
+          path: ./vendor/bundle
+          key: ${{ runner.OS }}-rubydeps-${{ hashFiles('Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.OS }}-rubydeps-${{ env.cache-name }}-
+            ${{ runner.OS }}-rubydeps-
+            ${{ runner.OS }}-
+      - run: bundle install --path vendor/bundle --jobs 4 --retry 3
+        name: Install Ruby deps
+      - name: Recover JS dependency cache
+        uses: actions/cache@v1
+        with:
+          path: ./node_modules
+          key: ${{ runner.OS }}-jsdeps-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-jsdeps-${{ env.cache-name }}-
+            ${{ runner.OS }}-jsdeps-
+            ${{ runner.OS }}-
+      - run: npm ci --verbose
+        name: Install JS deps
