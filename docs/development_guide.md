@@ -135,10 +135,6 @@ If this is a **Release Candidate version** release:
 1. Commit all the changes: `git add . && git commit -m "Bump to rcXX version" && git push origin release/x.y.z`.
 1. Follow the link resulting from the previous command to create the PR for the new version.
 1. Usually, at this point, a deploy to meta-decidim is done during, at least, one week to validate the stability of the version.
-1. During the validation period bugfixes will go directly to the current `release/x.y.z` branch and ported to `develop`.
-1. During the validation period, translations to the officially supported languages must be added to Crowdin and when done, merged into `develop` and `release/x.y.z`. For each PR that Crowdin performs to `develop` it should:
-  1. Be merged into `develop` for future releases
-  1. Cherry-pick the merge commit resulting from the previous step and PR it to the `release/x.y.z` branch
 
 Mark `develop` as the reference to the next release:
 
@@ -149,6 +145,20 @@ Mark `develop` as the reference to the next release:
   1. Run `bin/rake bundle`, this will update all the `Gemfile.lock` files
   1. Run `bin/rake webpack`, this will update the JavaScript bundle.
 1. Push the changes `git add . && git commit -m "Bump develop to next release version" && git push origin develop`
+
+#### During the validation period
+
+TODO
+1. During the validation period bugfixes will go directly to the current `release/x.y.z` branch and ported to `develop`.
+1. During the validation period, translations to the officially supported languages must be added to Crowdin and when done, merged into `develop` and `release/x.y.z`. For each PR that Crowdin performs to `develop` it should:
+  1. Be merged into `develop` for future releases
+  1. Cherry-pick the merge commit resulting from the previous step and PR it to the `release/x.y.z` branch
+
+Adding bugfixes during the release validation period
+TODO
+
+Merging into `master` after the validation period
+TODO
 
 ### DELETE THIS PART? If this is a **Minor version** release:
 
