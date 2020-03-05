@@ -410,7 +410,7 @@ GEM
     graphiql-rails (1.4.11)
       railties
       sprockets-rails
-    graphql (1.10.3)
+    graphql (1.10.4)
     hashdiff (1.0.0)
     hashie (4.1.0)
     highline (2.0.3)
