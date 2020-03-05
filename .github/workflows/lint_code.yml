@@ -45,3 +45,9 @@ jobs:
             ${{ runner.OS }}-
       - run: npm ci --verbose
         name: Install JS deps
+      - run: bundle exec rubocop
+        name: Lint Ruby files
+      - run: npm run lint
+        name: Lint JS files
+      - run: ./.circleci/run_erblint.sh
+        name: Lint ERB files
