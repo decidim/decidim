@@ -16,7 +16,7 @@ module Decidim
       validate :max_choices, if: -> { question.max_choices }
       validate :all_choices, if: -> { question.question_type == "sorting" }
 
-      delegate :mandatory_body?, :mandatory_choices?, to: :question
+      delegate :mandatory_body?, :mandatory_choices?, :matrix?, to: :question
 
       attr_writer :question
 
@@ -50,7 +50,11 @@ module Decidim
       private
 
       def max_choices
-        errors.add(:choices, :too_many) if selected_choices.size > question.max_choices
+        if matrix? && selected_choices.group_by(&:matrix_row_id).values.any? { |choices| choices.size > question.max_choices }
+          errors.add(:choices, :too_many)
+        elsif selected_choices.size > question.max_choices
+          errors.add(:choices, :too_many)
+        end
       end
 
       def all_choices
