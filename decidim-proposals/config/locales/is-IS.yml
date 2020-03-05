@@ -247,6 +247,7 @@ is-IS:
           creation_date: 'Sköpun: %{date}'
           view_proposal: Skoða tillögu
         show:
+          answer: Svara
           edit_proposal: Breyta tillögu
           proposal_accepted_reason: 'Þessi tillaga hefur verið samþykkt vegna þess að:'
           proposal_in_evaluation_reason: Þessi tillaga er metin

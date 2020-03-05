@@ -19,7 +19,8 @@
   $("#js-form-recategorize-proposals #category_id").removeClass("is-invalid-input")
   $(".js-check-all").prop('checked', false);
   $(".js-check-all-proposal").prop('checked', false);
-  window.hideRecategorizeProposalActions()
+  window.hideBulkActionsButton();
+  window.hideBulkActionForms();
   window.showOtherActionsButtons();
   window.selectedProposalsCountUpdate();
 <% end %>

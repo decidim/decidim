@@ -652,6 +652,7 @@ id:
           creation_date: 'Penciptaan: %{date}'
           view_proposal: Lihat proposal
         show:
+          answer: Menjawab
           back_to: Kembali ke
           edit_proposal: Edit proposal
           endorsements_list: Daftar Endorsemen
