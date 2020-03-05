@@ -390,6 +390,7 @@ cs:
             change_category: Změnit kategorii
             merge: Sloučit do nového
             merge_button: Spojit
+            publish: Publikovat
             select_component: Vyberte součást
             selected: vybraný
             split: Rozdělit návrhy
@@ -399,6 +400,8 @@ cs:
           new:
             create: Vytvořit
             title: Vytvořte návrh
+          publish_answers:
+            select_a_proposal: Vyberte prosím návrh
           show:
             created_at: Datum vzniku
             votes_count: Počet hlasů
