@@ -9,7 +9,7 @@ module Decidim
         module HasQuestionnaireAnswersUrlHelper
           def self.included(base)
             base.helper_method :questionnaire_url, :questionnaire_participants_url,
-                               :questionnaire_participant_answers_url
+                               :questionnaire_participant_answers_url, :questionnaire_export_response_url
           end
 
           # You can implement this method in your controller to change the URL
@@ -28,6 +28,10 @@ module Decidim
           # where the user's questionnaire answers will be shown.
           def questionnaire_participant_answers_url(session_token)
             url_for([:show, questionnaire.questionnaire_for, session_token: session_token])
+          end
+
+          def questionnaire_export_response_url(session_token)
+            url_for([:export_response, questionnaire.questionnaire_for, session_token: session_token, format: "pdf"])
           end
         end
       end

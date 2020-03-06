@@ -18,18 +18,12 @@ module Decidim
         html = controller.render_to_string(
           template: template,
           layout: layout,
-          locals: { collection: collection }
+          locals: { collection: participants }
         )
 
         document = WickedPdf.new.pdf_from_string(html, orientation: orientation)
 
         ExportData.new(document, "pdf")
-      end
-
-      protected
-
-      def controller
-        @controller ||= ActionController::Base.new
       end
 
       # may be overwritten if needed
@@ -45,6 +39,16 @@ module Decidim
       # implementing classes should return a valid ERB path here
       def layout
         raise NotImplementedError
+      end
+
+      protected
+
+      def controller
+        @controller ||= ActionController::Base.new
+      end
+
+      def participants
+        collection.map { |answer| Decidim::Forms::Admin::QuestionnaireParticipantPresenter.new(participant: answer.first) }
       end
     end
   end

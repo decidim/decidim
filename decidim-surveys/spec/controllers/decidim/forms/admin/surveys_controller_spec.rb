@@ -57,6 +57,25 @@ module Decidim
             expect(response).to render_template(:show)
           end
         end
+
+        describe "export_response" do
+          let(:filename) { "Response for #{session_token}.pdf" }
+          let(:params) do
+            {
+              component_id: survey.component.id,
+              participatory_process_slug: survey.component.participatory_space.slug,
+              id: survey.id,
+              session_token: session_token
+            }
+          end
+
+          it "renders a pdf with a response" do
+            get :export_response, params: params
+
+            expect(response.content_type).to eq("application/pdf")
+            expect(response.headers["Content-Disposition"]).to eq("inline; filename=\"#{filename}\"")
+          end
+        end
       end
     end
   end

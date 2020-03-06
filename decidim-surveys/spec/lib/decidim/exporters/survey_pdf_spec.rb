@@ -2,10 +2,10 @@
 
 require "spec_helper"
 
-load "decidim/exporters/survey_pdf"
+load "decidim/exporters/form_pdf"
 
 module Decidim
-  describe Exporters::SurveyPDF do
+  describe Exporters::FormPDF do
     # include Decidim::TranslationsHelper
 
     subject do

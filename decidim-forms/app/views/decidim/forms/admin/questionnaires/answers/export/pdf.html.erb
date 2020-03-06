@@ -1,4 +1,4 @@
-<% questionnaire = collection.first.first.questionnaire %>
+<% questionnaire = collection.first.questionnaire %>
 
 <div class="questionnaire-answers">
   <div class="header">
@@ -6,6 +6,7 @@
     <div class="description">
       <%== translated_attribute(questionnaire.description).html_safe %>
     </div>
+    <h2><%= t("title", scope: "decidim.forms.admin.questionnaires.answers.index", total: collection.count) %></h2>
   </div>
 
   <%= render partial: "decidim/forms/admin/questionnaires/answers/export/answer", collection: collection, locals: { questionnaire: questionnaire }, as: :participant %>

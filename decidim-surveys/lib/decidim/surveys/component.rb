@@ -70,7 +70,7 @@ Decidim.register_component(:surveys) do |component|
       Decidim::Forms::QuestionnaireUserAnswers.for(survey.questionnaire)
     end
 
-    exports.formats %w(CSV JSON Excel SurveyPDF)
+    exports.formats %w(CSV JSON Excel FormPDF)
 
     exports.serializer Decidim::Forms::UserAnswersSerializer
   end

@@ -7,8 +7,8 @@ module Decidim
     # Inherits from abstract PDF exporter. This class is used to set
     # the parameters used to create a PDF when exporting Survey Answers.
     #
-    class SurveyPDF < PDF
-      # i18n-tasks-use t('decidim.admin.exports.formats.SurveyPDF')
+    class FormPDF < PDF
+      # i18n-tasks-use t('decidim.admin.exports.formats.FormPDF')
 
       def controller
         super.class_eval do

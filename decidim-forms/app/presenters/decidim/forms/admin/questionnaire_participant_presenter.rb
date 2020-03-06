@@ -21,6 +21,8 @@ module Decidim
           participant.created_at
         end
 
+        delegate :questionnaire, to: :participant
+
         def registered?
           participant.decidim_user_id.present?
         end
@@ -40,7 +42,7 @@ module Decidim
           with_choices = query.where.not("decidim_forms_questions.question_type in (?)", %w(short_answer long_answer))
                               .where("decidim_forms_answers.id IN (SELECT decidim_answer_id FROM decidim_forms_answer_choices)").count
 
-          (with_body + with_choices).to_f / participant.questionnaire.questions.count * 100
+          (with_body + with_choices).to_f / questionnaire.questions.count * 100
         end
 
         private

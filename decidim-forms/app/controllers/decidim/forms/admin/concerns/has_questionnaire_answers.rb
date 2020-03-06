@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "decidim/exporters/form_pdf"
+
 module Decidim
   module Forms
     module Admin
@@ -42,6 +44,15 @@ module Decidim
               render template: "decidim/forms/admin/questionnaires/answers/show"
             end
 
+            def export_response
+              enforce_permission_to :export_response, :questionnaire_answers
+
+              participant = participant(participants_query.participant(params[:session_token]))
+
+              # i18n-tasks-use t("decidim.forms.admin.questionnaires.answers.export_response.title")
+              render_answers_pdf t("export_response.title", scope: i18n_scope, token: participant.session_token), [participant]
+            end
+
             # Public: The only method to be implemented at the controller. You need to
             # return the object that will hold the questionnaire.
             def questionnaire_for
@@ -49,6 +60,19 @@ module Decidim
             end
 
             private
+
+            def i18n_scope
+              "decidim.forms.admin.questionnaires.answers"
+            end
+
+            def render_answers_pdf(title, collection)
+              exporter = Decidim::Exporters::FormPDF.new([])
+
+              render pdf: title,
+                     template: exporter.template,
+                     layout: exporter.layout,
+                     locals: { collection: collection }
+            end
 
             def questionnaire
               @questionnaire ||= Questionnaire.find_by(questionnaire_for: questionnaire_for)
