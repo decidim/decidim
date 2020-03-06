@@ -46,6 +46,7 @@ jobs:
             ${{ runner.OS }}-
       - run: bundle install --path vendor/bundle --jobs 4 --retry 3
         name: Install Ruby deps
+        working-directory: ${{ env.DECIDIM_MODULE }}
       - run: bundle exec rake test_app
         name: Create test app
       - run: mkdir -p ./spec/decidim_dummy_app/tmp/screenshots
