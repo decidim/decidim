@@ -1,0 +1,5 @@
+var $activitiesContainer = $('#activities-container'),
+    $decidimPaginateContainer = $('#decidim-paginate-container');
+
+$activitiesContainer.html('<%= j(cell("decidim/activities", activities).to_s).strip.html_safe %>');
+$decidimPaginateContainer.html('<%= j(decidim_paginate(activities).to_s).strip.html_safe %>');

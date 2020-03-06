@@ -106,10 +106,11 @@
     </div>
 
     <div class="row column">
-      <%= form.areas_select :area_id,
-                            areas_for_select(current_organization),
-                            selected: current_assembly.try(:decidim_area_id),
-                            include_blank: t(".select_an_area") %>
+      <%= form.custom_select :areas,
+                             :area_id,
+                             areas_for_select(current_organization),
+                             selected: current_assembly.try(:decidim_area_id),
+                             include_blank: t(".select_an_area") %>
     </div>
   </div>
 

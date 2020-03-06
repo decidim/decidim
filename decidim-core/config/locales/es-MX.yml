@@ -303,10 +303,6 @@ es-MX:
       see_less: "(ver menos)"
       see_more: "(ver más)"
     components:
-      component_order_selector:
-        order:
-          all_types: Todos los tipos
-        title: 'Ordenar por:'
       dummy:
         actions:
           bar: Bar

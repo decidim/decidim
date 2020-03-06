@@ -307,7 +307,7 @@ en:
       component_order_selector:
         order:
           all_types: All types
-        title: 'Order by:'
+        title: 'Filter by:'
       dummy:
         actions:
           bar: Bar

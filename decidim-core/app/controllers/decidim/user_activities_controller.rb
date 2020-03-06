@@ -5,6 +5,7 @@ module Decidim
   class UserActivitiesController < Decidim::ApplicationController
     include Paginable
     include UserGroups
+    include FilterResource
 
     helper Decidim::ResourceHelper
     helper_method :activities, :user
@@ -20,9 +21,14 @@ module Decidim
         ActivitySearch.new(
           organization: current_organization,
           user: user,
-          resource_type: "all"
+          # resource_type: "all",
+          resource_type: filter.resource_type
         ).run
       )
+    end
+
+    def default_filter_params
+      { resource_type: nil }
     end
   end
 end

@@ -5,11 +5,13 @@ module Decidim
   class UserTimelineController < Decidim::ApplicationController
     include Paginable
     include UserGroups
+    include FilterResource
 
     helper Decidim::ResourceHelper
     helper_method :activities, :user
 
     def index
+      debugger
       raise ActionController::RoutingError, "Not Found" if current_user != user
     end
 
@@ -26,15 +28,20 @@ module Decidim
       @activities ||= paginate(
         ActivitySearch.new(
           organization: current_organization,
-          resource_type: "all",
+          #resource_type: "all",
           scopes: current_user.interested_scopes,
-          follows: follows
+          follows: follows,
+          resource_type: filter.resource_type
         ).run
       )
     end
 
     def follows
       @follows ||= Decidim::Follow.where(user: user)
+    end
+
+    def default_filter_params
+      { resource_type: nil }
     end
   end
 end
