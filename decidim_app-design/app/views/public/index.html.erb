@@ -76,6 +76,17 @@
           <li><%= link_to "Propuesta con enmienda aceptada", page_path("amendments/proposal-view-with-amendment-approved") %></li>
           <li><%= link_to "Propuesta con enmienda rechazada", page_path("amendments/proposal-view-with-amendment-rejected") %></li>
         </ul>
+        <h2 class="section-heading">Presupuestos participativos</h2>
+        <ul>
+          <li><%= link_to "Presupuestos - Iniciar votación", page_path("projects-budget-start") %></li>
+          <li><%= link_to "Presupuestos - Votación en distrito", page_path("projects-budget") %></li>
+          <li><%= link_to "Presupuestos - Vista de proyecto", page_path("project-budget-view") %></li>
+          <li><%= link_to "Presupuestos - Votos excedidos", page_path("projects-budget-excess") %></li>
+          <li><%= link_to "Presupuestos - Confirmar voto", page_path("projects-budget-confirm") %></li>
+          <li><%= link_to "Presupuestos - Voto confirmado (elegir otro distrito)", page_path("projects-budget-next") %></li>
+          <li><%= link_to "Presupuestos - Voto confirmado (sin más distritos)", page_path("projects-budget-two-districts") %></li>
+          <li><%= link_to "Presupuestos - Votación realizada", page_path("projects-budget-finish") %></li>
+        </ul>
         <h2 class="section-heading">Initiatives</h2>
         <ul>
           <li><%= link_to "Iniciativa", page_path("initiatives/initiative-view") %></li>
@@ -240,14 +251,6 @@
             </ul>
           </li>
           <li><%= link_to "Resultado", page_path("action-view") %></li>
-        </ul>
-        <h2 class="section-heading">Presupuestos participativos</h2>
-        <ul>
-          <li><%= link_to "Presupuestos - Lista de proyectos", page_path("projects-budget") %></li>
-          <li><%= link_to "Presupuestos - Ver proyecto", page_path("project-budget-view") %></li>
-          <li><%= link_to "Presupuestos - Confirmar voto", page_path("projects-budget-confirm") %></li>
-          <li><%= link_to "Presupuestos - Votos excedidos", page_path("projects-budget-excess") %></li>
-          <li><%= link_to "Presupuestos - Votación finalizada", page_path("projects-budget-finish") %></li>
         </ul>
         <h2 class="section-heading">User</h2>
         <ul>
