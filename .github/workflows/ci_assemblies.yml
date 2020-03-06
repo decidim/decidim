@@ -55,7 +55,7 @@ jobs:
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
       - uses: actions/upload-artifact@v2-preview
-        if: success()
+        if: always()
         with:
           name: screenshots
           path: ./spec/decidim_dummy_app/tmp/screenshots
