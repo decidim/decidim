@@ -13,7 +13,7 @@
         <thead>
           <tr>
             <th>#</th>
-            <th><%= translated_attribute @participants.first.first_answer&.question&.body %></th>
+            <th><%= first_table_th(@participants.first) %></th>
             <th><%= t("user_status",   scope: "decidim.forms.user_answers_serializer") %></th>
             <th><%= t("ip_hash",       scope: "decidim.forms.user_answers_serializer") %></th>
             <th><%= t("completion",    scope: "decidim.forms.user_answers_serializer") %></th>
@@ -27,9 +27,9 @@
               <td><%= idx + 1 + page_offset %></td>
               <td>
                 <% if allowed_to? :show, :questionnaire_answers %>
-                  <%= link_to participant.first_answer&.body, questionnaire_participant_answers_url(participant.session_token) %>
+                  <%= link_to first_table_td(participant), questionnaire_participant_answers_url(participant.session_token) %>
                 <% else %>
-                  <%= participant.first_answer&.body %></td>
+                  <%= first_table_td(participant) %></td>
                 <% end %>
               <td><%= participant.status %></td>
               <td><%= participant.ip_hash %></td>

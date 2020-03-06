@@ -35,7 +35,7 @@ module Decidim
           sibilings.map { |answer| QuestionnaireAnswerPresenter.new(answer: answer) }
         end
 
-        def first_answer
+        def first_short_answer
           short = sibilings.where("decidim_forms_questions.question_type in (?)", %w(short_answer))
           short.first
         end
