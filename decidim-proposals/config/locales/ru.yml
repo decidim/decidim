@@ -194,12 +194,15 @@ ru:
             actions: Действия
             cancel: Отменить
             change_category: Изменить категорию
+            publish: Обнародовать
             selected: выбранные
             title: Предложения
             update: Обновить
           new:
             create: Внести
             title: Создать предложение
+          publish_answers:
+            select_a_proposal: Пожалуйста, выберите предложение
           show:
             created_at: Дата создания
             votes_count: Количество голосов

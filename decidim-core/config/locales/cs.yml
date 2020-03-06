@@ -242,6 +242,7 @@ cs:
       photos:
         related_photos: Související fotografie
     author:
+      avatar: Avatar
       comments:
         one: komentář
         few: komentáře
@@ -598,6 +599,7 @@ cs:
       create:
         button: Sledovat
         error: Při sledování tohoto zdroje došlo k chybě.
+        participatory_space: Již sledujete participační prostor
       destroy:
         button: Ukončit sledování
         error: Při sledování tohoto zdroje došlo k chybě.

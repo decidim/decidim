@@ -359,6 +359,7 @@ id:
             change_category: Ubah kategori
             merge: Bergabunglah dengan yang baru
             merge_button: Menggabungkan
+            publish: Menerbitkan
             select_component: Pilih komponen
             selected: terpilih
             split: Bagi proposal
@@ -368,6 +369,8 @@ id:
           new:
             create: Membuat
             title: Buat proposal
+          publish_answers:
+            select_a_proposal: Silakan pilih proposal
           show:
             created_at: Tanggal pembuatan
             votes_count: Suara menghitung
