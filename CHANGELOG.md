@@ -66,6 +66,7 @@ Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now sup
 **Added**:
 
 - **decidim-comments**: Comments can mention groups and its members are notified. [\#5763](https://github.com/decidim/decidim/pull/5763)
+- **decidim-core**: Support node.js semver rules for release candidates. [#5828](https://github.com/decidim/decidim/pull/5828)
 - **decidim-core**: Add new language: Greek [#5597](https://github.com/decidim/decidim/pull/5597)
 - **decidim-initiatives**: An admin can only send the initiative to technical validation if it has enough committee members. [\#5762](https://github.com/decidim/decidim/pull/5762)
 - **decidim-proposals**: Add images to proposal cards [\#5640](https://github.com/decidim/decidim/pull/5640)
