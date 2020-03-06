@@ -400,6 +400,7 @@ ar:
             change_category: تغيير الفئة
             merge: دمج في واحدة جديدة
             merge_button: دمج
+            publish: نشر
             select_component: حدد المكون
             selected: المحدد
             split: تقسيم المقترحات
@@ -411,6 +412,8 @@ ar:
           new:
             create: إنشاء
             title: إنشاء اقتراح
+          publish_answers:
+            select_a_proposal: يرجى اختيار الاقتراح
           show:
             amendments_count: تعداد التعديلات
             authors: المؤلفون

@@ -70,6 +70,7 @@ cs:
         port: Port
         primary_color: Hlavní
         reference_prefix: Referenční předpona
+        rich_text_editor_in_public_views: Povolit plnohodnotný textový editor pro účastníky
         secondary_color: Sekundární
         send_welcome_notification: Odeslat uvítací oznámení
         show_statistics: Zobrazit statistiky

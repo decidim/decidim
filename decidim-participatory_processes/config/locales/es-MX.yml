@@ -135,6 +135,7 @@ es-MX:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
+            valuator: Evaluadora
         user:
           fields:
             invitation_accepted_at: Invitación aceptada el día
@@ -206,11 +207,13 @@ es-MX:
         destroy:
           success: Usuario eliminado con éxito de este proceso participativo.
         edit:
+          title: Actualitzar administradora del proceso particiaptivo
           update: Actualizar
         index:
           process_admins_title: Usuarios del proceso
         new:
           create: Crear
+          title: Nueva administradora del proceso participativo
         update:
           error: Ha habido un error al actualizar un usuario para este proceso participativo.
           success: Usuario actualizado correctamente para este proceso participativo.

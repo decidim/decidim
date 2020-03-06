@@ -407,6 +407,7 @@
             change_category: Endre kategori
             merge: Slå sammen til en ny
             merge_button: Slå sammen
+            publish: Publiser
             select_component: Velg en komponent
             selected: valgt
             split: Delte forslag
@@ -416,6 +417,8 @@
           new:
             create: Opprett
             title: Opprett forslag
+          publish_answers:
+            select_a_proposal: Vennligst velg et forslag
           show:
             amendments_count: Endringer teller
             authors: Forfattere
