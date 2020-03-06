@@ -49,8 +49,12 @@ jobs:
       - run: bundle exec rake
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
-      - uses: actions/upload-artifact@v2-preview
+      - name: Check if screenshots folder exists
         if: always()
+        run: test -d ./spec/decidim_dummy_app/tmp/screenshots
+      - uses: actions/upload-artifact@v2-preview
+        name: When present, upload screenshots of test failures
+        if: success()
         with:
           name: screenshots
           path: ./spec/decidim_dummy_app/tmp/screenshots
