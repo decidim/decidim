@@ -64,7 +64,7 @@ fr:
         email: E-mail
         name: 'Nom
 
-          '
+'
         role: Fonction
   activerecord:
     models:
