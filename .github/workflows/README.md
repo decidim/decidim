@@ -31,3 +31,8 @@ Individual workflows with changes:
 - run: npm run test
   name: Test JS files
 ```
+
+- Proposals specs are split in three workflows:
+  - `ci_proposals_system_admin.yml`: Runs the system specs for the admin section
+  - `ci_proposals_system_public.yml`: Runs the system specs for the public section
+  - `ci_proposals_unit_tests.yml`: Runs the unit tests
