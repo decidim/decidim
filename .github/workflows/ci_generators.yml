@@ -46,8 +46,7 @@ jobs:
             ${{ runner.OS }}-
       - run: bundle install --path vendor/bundle --jobs 4 --retry 3
         name: Install Ruby deps
-      - run: bundle config --local path ../vendor/bundle
-        working-directory: ${{ env.DECIDIM_MODULE }}
+      - run: cp -R vendor/bundle decidim-generators
       - run: bundle exec rake
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
