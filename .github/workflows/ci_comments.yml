@@ -3,6 +3,7 @@ on: [push]
 
 env:
   RUBY_VERSION: 2.5.3
+  NODE_VERSION: 12.9.1
   DECIDIM_MODULE: decidim-comments
 
 jobs:
@@ -35,6 +36,9 @@ jobs:
       - uses: ruby/setup-ruby@master
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
+      - uses: actions/setup-node@master
+        with:
+          node-version: ${{ env.NODE_VERSION }}
       - name: Recover Ruby dependency cache
         uses: actions/cache@v1
         with:
@@ -46,6 +50,10 @@ jobs:
             ${{ runner.OS }}-
       - run: bundle install --path vendor/bundle --jobs 4 --retry 3
         name: Install Ruby deps
+      - run: npm ci
+        name: Install JS deps
+      - run: npm run test
+        name: Test JS files
       - run: bundle exec rake test_app
         name: Create test app
       - run: mkdir -p ./spec/decidim_dummy_app/tmp/screenshots
