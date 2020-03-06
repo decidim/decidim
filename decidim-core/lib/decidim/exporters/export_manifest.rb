@@ -74,12 +74,13 @@ module Decidim
 
       DEFAULT_FORMATS = %w(CSV JSON Excel).freeze
 
-      # Public: Sets the available formats an argument is provided and
-      # loads the required exporters, returns the array with default available
+      # Public: Sets the available formats if an argument is provided and
+      # loads the required exporters, returns the array with the default available
       # formats otherwise.
       #
       # The formats array is used to define which exporters are available
-      # in the component.
+      # in the component. Each member of the array is a string with the name
+      # of the exporter class that will instantiated when needed.
       #
       # formats - The array containing the available formats.
       #

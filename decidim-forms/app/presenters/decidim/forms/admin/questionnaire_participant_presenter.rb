@@ -15,7 +15,7 @@ module Decidim
         end
 
         def record
-          @record ||= QuestionnaireParticipant.new(questionnaire, session_token).query
+          @record ||= QuestionnaireParticipant.for(questionnaire, session_token)
         end
 
         def ip_hash

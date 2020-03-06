@@ -25,10 +25,6 @@ module Decidim
       def layout
         "decidim/forms/admin/questionnaires/questionnaire_answers.html.erb"
       end
-
-      def orientation
-        "Portrait"
-      end
     end
   end
 end
