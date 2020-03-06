@@ -157,7 +157,7 @@ module Decidim
       end
 
       def semver_friendly_version
-        version.gsub(/\.pre/, "-pre").gsub(/\.dev/, "-dev")
+        version.gsub(/\.pre/, "-pre").gsub(/\.dev/, "-dev").gsub(/.rc(\d*)/, "-rc\\1")
       end
 
       def version_file
