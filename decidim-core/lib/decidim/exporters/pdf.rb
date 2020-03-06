@@ -46,7 +46,6 @@ module Decidim
       def layout
         raise NotImplementedError
       end
-
     end
   end
 end

@@ -7,27 +7,22 @@ module Decidim
       # Presenter for questionnaire response
       #
       class QuestionnaireParticipantPresenter < Rectify::Presenter
-        attribute :questionnaire, Decidim::Forms::Questionnaire
-        attribute :session_token
+        attribute :participant, Decidim::Forms::Answer
 
-        def query
-          @query ||= QuestionnaireParticipant.new(questionnaire, session_token)
-        end
-
-        def record
-          @record ||= QuestionnaireParticipant.for(questionnaire, session_token)
+        def session_token
+          participant.session_token || "-"
         end
 
         def ip_hash
-          record.ip_hash || "-"
+          participant.ip_hash || "-"
         end
 
         def answered_at
-          answers_query.first.created_at
+          participant.created_at
         end
 
         def registered?
-          record.decidim_user_id.present?
+          participant.decidim_user_id.present?
         end
 
         def status
@@ -35,17 +30,23 @@ module Decidim
         end
 
         def answers
-          answers_query.map { |answer| QuestionnaireAnswerPresenter.new(answer: answer) }
+          sibilings.map { |answer| QuestionnaireAnswerPresenter.new(answer: answer) }
         end
 
         def completion
-          answers_query.count / questionnaire.questions.count * 100
+          query = sibilings.joins(:question)
+          with_body = query.where("decidim_forms_questions.question_type in (?)", %w(short_answer long_answer))
+                           .where.not(body: "").count
+          with_choices = query.where.not("decidim_forms_questions.question_type in (?)", %w(short_answer long_answer))
+                              .where("decidim_forms_answers.id IN (SELECT decidim_answer_id FROM decidim_forms_answer_choices)").count
+
+          (with_body + with_choices).to_f / participant.questionnaire.questions.count * 100
         end
 
         private
 
-        def answers_query
-          query.answers.order(:created_at)
+        def sibilings
+          Answer.where(session_token: participant.session_token)
         end
       end
     end

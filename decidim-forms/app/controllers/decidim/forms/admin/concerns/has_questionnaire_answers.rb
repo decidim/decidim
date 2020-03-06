@@ -29,6 +29,7 @@ module Decidim
 
               @query = paginate(collection)
               @participants = participants(@query)
+              @total = participants_query.count_participants
 
               render template: "decidim/forms/admin/questionnaires/answers/index"
             end
@@ -36,7 +37,7 @@ module Decidim
             def show
               enforce_permission_to :show, :questionnaire_answers
 
-              @participant = participant
+              @participant = participant(participants_query.participant(params[:session_token]))
 
               render template: "decidim/forms/admin/questionnaires/answers/show"
             end
@@ -53,17 +54,20 @@ module Decidim
               @questionnaire ||= Questionnaire.find_by(questionnaire_for: questionnaire_for)
             end
 
-            def collection
-              @collection ||= QuestionnaireParticipants.new(questionnaire).query
+            def participants_query
+              QuestionnaireParticipants.new(questionnaire)
             end
 
-            def participant(session_token = nil)
-              session_token ||= params[:session_token]
-              Decidim::Forms::Admin::QuestionnaireParticipantPresenter.new(questionnaire: questionnaire, session_token: session_token)
+            def collection
+              @collection ||= participants_query.participants
+            end
+
+            def participant(answer)
+              Decidim::Forms::Admin::QuestionnaireParticipantPresenter.new(participant: answer)
             end
 
             def participants(query)
-              query.map { |p| participant(p.session_token) }
+              query.map { |answer| participant(answer) }
             end
           end
         end

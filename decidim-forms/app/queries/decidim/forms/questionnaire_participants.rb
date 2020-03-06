@@ -21,7 +21,19 @@ module Decidim
       # Finds all participants (unique session_tokens).
       def query
         Answer.where(questionnaire: @questionnaire)
-              .select(:session_token, :decidim_user_id, :ip_hash).distinct
+      end
+
+      def participant(session_token)
+        query.find_by(session_token: session_token)
+      end
+
+      def participants
+        subquery = query.select("DISTINCT ON (decidim_forms_answers.session_token) decidim_forms_answers.*")
+        Answer.select("*").from(subquery).order(:created_at)
+      end
+
+      def count_participants
+        query.select(:session_token).distinct.count
       end
     end
   end
