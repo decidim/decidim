@@ -92,6 +92,7 @@ ca:
             other: "%{count} projectes"
         filters:
           category: Categoria
+          scope: Àmbit
           search: Cerca
         filters_small_view:
           close_modal: Tancar finestra

@@ -183,6 +183,7 @@ ca:
             admin: Administradora
             collaborator: Col·laboradora
             moderator: Moderadora
+            valuator: Avaluadora
         media_link:
           fields:
             date: Data

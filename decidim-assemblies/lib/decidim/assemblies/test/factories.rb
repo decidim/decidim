@@ -137,6 +137,21 @@ FactoryBot.define do
     end
   end
 
+  factory :assembly_valuator, parent: :user, class: "Decidim::User" do
+    transient do
+      assembly { create(:assembly) }
+    end
+
+    organization { assembly.organization }
+
+    after(:create) do |user, evaluator|
+      create :assembly_user_role,
+             user: user,
+             assembly: evaluator.assembly,
+             role: :valuator
+    end
+  end
+
   factory :assembly_member, class: "Decidim::AssemblyMember" do
     assembly { create(:assembly) }
 
