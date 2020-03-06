@@ -44,7 +44,7 @@ jobs:
             ${{ runner.OS }}-rubydeps-${{ env.cache-name }}-
             ${{ runner.OS }}-rubydeps-
             ${{ runner.OS }}-
-      - run: bundle install --path vendor/bundle --jobs 4 --retry 3
+      - run: bundle install --jobs 4 --retry 3
         name: Install Ruby deps
         working-directory: ${{ env.DECIDIM_MODULE }}
       - run: bundle exec rake
