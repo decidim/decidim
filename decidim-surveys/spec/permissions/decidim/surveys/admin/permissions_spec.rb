@@ -70,14 +70,6 @@ describe Decidim::Surveys::Admin::Permissions do
     it { is_expected.to eq true }
   end
 
-  context "when exporting all survey answers" do
-    let(:action) do
-      { scope: :admin, action: :export, subject: :questionnaire_answers }
-    end
-
-    it { is_expected.to eq true }
-  end
-
   context "when exporting a participant's survey answers" do
     let(:action) do
       { scope: :admin, action: :export_response, subject: :questionnaire_answers }
