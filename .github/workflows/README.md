@@ -8,14 +8,13 @@ We use GitHub Actions as CI.
 
 Individual workflows with changes:
 
-- `ci_generators.yml`: Does not need to create the test app, so this command is removed. Screenshots uploads and chromedriver setup steps are also removed. We also set `bundle config --local path ../vendor/bundle` after running `bundle install`:
+- `ci_generators.yml`: Does not need to create the test app, so this command is removed. Screenshots uploads and chromedriver setup steps are also removed. We also customize the gems path after running `bundle install`:
 
 ```yml
 # ci_generators.yml
 - run: bundle install --path vendor/bundle --jobs 4 --retry 3
   name: Install Ruby deps
-- run: bundle config --local path ../vendor/bundle
-  working-directory: ${{ env.DECIDIM_MODULE }}
+- run: cp -R vendor/bundle decidim-generators
 - run: bundle exec rake
   name: RSpec
   working-directory: ${{ env.DECIDIM_MODULE }}
