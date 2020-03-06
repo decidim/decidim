@@ -266,6 +266,9 @@ en:
           more_information: "(More information)"
           select_scope: Select a scope
         finish:
+          confirm: Confirm
+          send_my_initiative: Send my initiative
+          edit_my_initiative: Edit my initiatives
           back: Back
           back_to_initiatives: Back to initiatives
           callout_text: Congratulations! Your citizen initiative has been successfully created.

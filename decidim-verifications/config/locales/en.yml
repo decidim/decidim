@@ -72,6 +72,7 @@ en:
           unconfirmed: You need to confirm your email in order to authorize yourself.
         first_login:
           actions:
+            sms: sms
             another_dummy_authorization_handler: Verify against another example of authorization handler
             csv_census: Verify against the organization's census
             dummy_authorization_handler: Verify against the example authorization handler

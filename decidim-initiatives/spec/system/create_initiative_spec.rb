@@ -34,7 +34,14 @@ describe "Initiative", type: :system do
     context "without validation" do
       let(:initiative_type_minimum_committee_members) { 2 }
       let(:signature_type) { "any" }
-      let(:initiative_type) { create(:initiatives_type, organization: organization, minimum_committee_members: initiative_type_minimum_committee_members, signature_type: signature_type) }
+      let(:initiative_type_promoting_committee_enabled) { true }
+      let(:initiative_type) do
+        create(:initiatives_type,
+               organization: organization,
+               minimum_committee_members: initiative_type_minimum_committee_members,
+               promoting_committee_enabled: initiative_type_promoting_committee_enabled,
+               signature_type: signature_type)
+      end
       let!(:other_initiative_type) { create(:initiatives_type, organization: organization) }
       let!(:initiative_type_scope) { create(:initiatives_type_scope, type: initiative_type) }
       let!(:other_initiative_type_scope) { create(:initiatives_type_scope, type: initiative_type) }
@@ -228,17 +235,51 @@ describe "Initiative", type: :system do
           select(translated(initiative_type_scope.scope.name, locale: :en), from: "Scope")
           select("Online", from: "Signature collection type")
           find_button("Continue").click
-
-          find_link("Continue").click
         end
 
-        it "finish view is shown" do
-          expect(page).to have_content("Finish")
+        context "when minimum committee size is above zero" do
+          before do
+            find_link("Continue").click
+          end
+
+          it "finish view is shown" do
+            expect(page).to have_content("Finish")
+          end
+
+          it "Offers contextual help" do
+            within ".callout.secondary" do
+              expect(page).to have_content("Congratulations! Your citizen initiative has been successfully created.")
+            end
+          end
+
+          it "displays an edit link" do
+            within ".column.actions" do
+              expect(page).to have_link("Edit my initiative")
+            end
+          end
         end
 
-        it "Offers contextual help" do
-          within ".callout.secondary" do
-            expect(page).to have_content("Congratulations! Your citizen initiative has been successfully created.")
+        context "when minimum committee size is zero" do
+          let(:initiative) { build(:initiative, organization: organization, scoped_type: initiative_type_scope) }
+          let(:initiative_type_minimum_committee_members) { 0 }
+
+          it "displays a send to technical validation link" do
+            within ".column.actions" do
+              expect(page).to have_link("Send my initiative")
+              expect(page).to have_selector "a[data-confirm='Confirm']"
+            end
+          end
+        end
+
+        context "when promoting committee is not enabled" do
+          let(:initiative) { build(:initiative, organization: organization, scoped_type: initiative_type_scope) }
+          let(:initiative_type_promoting_committee_enabled) { false }
+
+          it "displays a send to technical validation link" do
+            within ".column.actions" do
+              expect(page).to have_link("Send my initiative")
+              expect(page).to have_selector "a[data-confirm='Confirm']"
+            end
           end
         end
       end
