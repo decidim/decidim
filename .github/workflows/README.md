@@ -19,3 +19,15 @@ Individual workflows with changes:
   name: RSpec
   working-directory: ${{ env.DECIDIM_MODULE }}
 ```
+
+- `ci_comments.yml`: Runs tests for the JS files. Tests must run from the project root folder. You'll need to install NodeJS and the JS dependencies:
+
+```yml
+- uses: actions/setup-node@master
+  with:
+    node-version: ${{ env.NODE_VERSION }}
+- run: npm ci
+  name: Install JS deps
+- run: npm run test
+  name: Test JS files
+```
