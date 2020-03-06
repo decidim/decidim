@@ -12,6 +12,8 @@
 
 ## Fixed
 
+- **decidim-proposals**: Fix for the proposals that have theirs state not published [#5832](https://github.com/decidim/decidim/pull/5832)
+
 ## Removed
 
 ## Previous versions
