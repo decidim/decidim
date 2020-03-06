@@ -8,7 +8,7 @@ module Decidim
         #
         module HasQuestionnaireAnswersPaginationHelper
           def self.included(base)
-            base.helper_method :prev_url, :next_url, :first?, :last?
+            base.helper_method :prev_url, :next_url, :first?, :last?, :current_idx
           end
 
           def prev_url

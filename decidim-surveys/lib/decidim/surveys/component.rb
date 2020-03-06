@@ -43,7 +43,7 @@ Decidim.register_component(:surveys) do |component|
     surveys.count
   end
 
-  component.register_stat :answers_count, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
+  component.register_stat :answers_count, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
     surveys = Decidim::Surveys::Survey.includes(:questionnaire).where(component: components)
     answers = Decidim::Forms::Answer.where(questionnaire: surveys.map(&:questionnaire))
     answers = answers.where("created_at >= ?", start_at) if start_at.present?

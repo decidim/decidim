@@ -46,9 +46,9 @@ en:
             export_response:
               title: Response for %{token}
             index:
-              title: '%{total} total responses'
+              title: "%{total} total responses"
             show:
-              title: Answers
+              title: 'Answer #%{number}'
           edit:
             save: Save
             title: Title

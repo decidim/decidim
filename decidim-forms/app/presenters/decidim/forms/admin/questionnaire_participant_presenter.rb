@@ -35,12 +35,16 @@ module Decidim
           sibilings.map { |answer| QuestionnaireAnswerPresenter.new(answer: answer) }
         end
 
+        def first_answer
+          short = sibilings.where("decidim_forms_questions.question_type in (?)", %w(short_answer))
+          short.first
+        end
+
         def completion
-          query = sibilings.joins(:question)
-          with_body = query.where("decidim_forms_questions.question_type in (?)", %w(short_answer long_answer))
-                           .where.not(body: "").count
-          with_choices = query.where.not("decidim_forms_questions.question_type in (?)", %w(short_answer long_answer))
-                              .where("decidim_forms_answers.id IN (SELECT decidim_answer_id FROM decidim_forms_answer_choices)").count
+          with_body = sibilings.where("decidim_forms_questions.question_type in (?)", %w(short_answer long_answer))
+                               .where.not(body: "").count
+          with_choices = sibilings.where.not("decidim_forms_questions.question_type in (?)", %w(short_answer long_answer))
+                                  .where("decidim_forms_answers.id IN (SELECT decidim_answer_id FROM decidim_forms_answer_choices)").count
 
           (with_body + with_choices).to_f / questionnaire.questions.count * 100
         end
@@ -48,7 +52,7 @@ module Decidim
         private
 
         def sibilings
-          Answer.where(session_token: participant.session_token)
+          Answer.where(session_token: participant.session_token).joins(:question).order("decidim_forms_questions.position ASC")
         end
       end
     end

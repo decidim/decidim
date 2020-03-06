@@ -12,7 +12,8 @@
       <table class="table-list">
         <thead>
           <tr>
-            <th><%= t("session_token", scope: "decidim.forms.user_answers_serializer") %></th>
+            <th>#</th>
+            <th><%= translated_attribute @participants.first.first_answer&.question&.body %></th>
             <th><%= t("user_status",   scope: "decidim.forms.user_answers_serializer") %></th>
             <th><%= t("ip_hash",       scope: "decidim.forms.user_answers_serializer") %></th>
             <th><%= t("completion",    scope: "decidim.forms.user_answers_serializer") %></th>
@@ -21,13 +22,14 @@
           </tr>
         </thead>
         <tbody>
-          <% @participants.each do |participant| %>
+          <% @participants.each_with_index do |participant, idx| %>
             <tr>
+              <td><%= idx + 1 + page_offset %></td>
               <td>
                 <% if allowed_to? :show, :questionnaire_answers %>
-                  <%= link_to participant.session_token, questionnaire_participant_answers_url(participant.session_token) %>
+                  <%= link_to participant.first_answer&.body, questionnaire_participant_answers_url(participant.session_token) %>
                 <% else %>
-                  <%= participant.session_token %></td>
+                  <%= participant.first_answer&.body %></td>
                 <% end %>
               <td><%= participant.status %></td>
               <td><%= participant.ip_hash %></td>

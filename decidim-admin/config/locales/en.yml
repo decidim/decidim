@@ -296,8 +296,8 @@ en:
         formats:
           CSV: CSV
           Excel: Excel
-          JSON: JSON
           FormPDF: PDF
+          JSON: JSON
         notice: Your export is currently in progress. You'll receive an email when it's complete.
       filters:
         category_id_eq:
