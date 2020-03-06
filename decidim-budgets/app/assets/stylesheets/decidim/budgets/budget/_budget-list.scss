@@ -31,8 +31,8 @@
     margin-left: $card-padding-small / 2;
 
     @include breakpoint(medium) {
-      width: 7rem;
-      height: 5rem;
+      width: 6rem;
+      height: 4rem;
       flex-shrink: 0;
       margin: $card-padding;
     }
@@ -51,6 +51,8 @@
     @include breakpoint(medium) {
       padding: $card-padding;
       padding-left: 0;
+      display: flex;
+      align-items: center;
     }
   }
 
@@ -133,5 +135,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    &--disabled {
+      pointer-events: none;
+    }
   }
 }

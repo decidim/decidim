@@ -36,9 +36,11 @@
             </div>
             <div class="budget-list__data">
               <span class="budget-list__data__number budget-list__number show-for-medium">22.000.000€</span>
-              <a href="#" class="button tiny hollow budget-list__action">
-                <%= icon("check", class: "icon--small", aria_label: "Afegir", role: "img") %>
-              </a>
+              <% if !locals[:showFinished] %>
+                <a href="#" class="button tiny hollow budget-list__action">
+                  <%= icon("check", class: "icon--small", aria_label: "Afegir", role: "img") %>
+                </a>
+              <% end %>
             </div>
           </div>
           <div class="budget-list__item">
@@ -56,10 +58,17 @@
               </div>
             </div>
             <div class="budget-list__data budget-list__data--added">
+              <% if locals[:showFinished] == true %>
+                <span class="button tiny success budget-list__action budget-list__action--disabled">
+                  <%= icon("check", class: "icon--small", aria_label: "Afegit", role: "img") %>
+                </span>
+              <% end %>
               <span class="budget-list__data__number budget-list__number show-for-medium">30.000€</span>
-              <a href="#" class="button tiny success budget-list__action">
-                <%= icon("check", class: "icon--small", aria_label: "Afegit", role: "img") %>
-              </a>
+              <% if !locals[:showFinished] %>
+                <a href="#" class="button tiny success budget-list__action">
+                  <%= icon("check", class: "icon--small", aria_label: "Afegit", role: "img") %>
+                </a>
+              <% end %>
             </div>
           </div>
 
