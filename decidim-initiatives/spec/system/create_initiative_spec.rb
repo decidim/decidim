@@ -91,6 +91,30 @@ describe "Initiative", type: :system do
         end
       end
 
+      context "when there is only one initiative type" do
+        let!(:other_initiative_type) { nil }
+
+        it "doesn't displays initiative types" do
+          expect(page).not_to have_current_path(decidim_initiatives.create_initiative_path(id: :select_initiative_type))
+        end
+
+        it "Has a hidden field with the selected initiative type" do
+          expect(page).to have_xpath("//input[@id='initiative_type_id']", visible: false)
+          expect(find(:xpath, "//input[@id='initiative_type_id']", visible: false).value).to eq(initiative_type.id.to_s)
+        end
+
+        it "Have fields for title and description" do
+          expect(page).to have_xpath("//input[@id='initiative_title']")
+          expect(page).to have_xpath("//input[@id='initiative_description']", visible: false)
+        end
+
+        it "Offers contextual help" do
+          within ".callout.secondary" do
+            expect(page).to have_content("What does the initiative consist of? Write down the title and description. We recommend a short and concise title and a description focused on the proposed solution.")
+          end
+        end
+      end
+
       context "when Show similar initiatives" do
         let!(:initiative) { create(:initiative, organization: organization) }
 
