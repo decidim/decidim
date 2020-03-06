@@ -374,6 +374,7 @@ pl:
             change_category: Zmień kategorię
             merge: Połącz się z nowym
             merge_button: Łączyć
+            publish: Publikować
             select_component: Wybierz składnik
             selected: wybrany
             split: Podziel propozycje
@@ -383,6 +384,8 @@ pl:
           new:
             create: Stwórz
             title: Utwórz propozycję
+          publish_answers:
+            select_a_proposal: Wybierz propozycję
           show:
             created_at: Data utworzenia
             votes_count: Liczenie głosów

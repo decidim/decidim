@@ -140,12 +140,15 @@ is-IS:
             actions: Aðgerðir
             cancel: Hætta við
             change_category: Breyta flokki
+            publish: Birta
             selected: valin
             title: Tillögur
             update: Uppfæra
           new:
             create: Búa til
             title: Búðu tillögu
+          publish_answers:
+            select_a_proposal: Vinsamlegast veldu tillögu
           show:
             created_at: Sköpunardegi
           update_category:
