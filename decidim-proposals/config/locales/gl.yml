@@ -364,6 +364,7 @@ gl:
             change_category: Cambiar categoría
             merge: Unirse a un novo
             merge_button: Fusionar
+            publish: Publicar
             select_component: Seleccione un compoñente
             selected: seleccionado
             split: Dividir propostas
@@ -373,6 +374,8 @@ gl:
           new:
             create: Crear
             title: Crear proposta
+          publish_answers:
+            select_a_proposal: Selecciona unha proposta
           show:
             created_at: Data de creación
             votes_count: Reconto de votos

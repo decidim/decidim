@@ -420,6 +420,7 @@ hu:
             change_scope: Hatáskör megváltoztatása
             merge: Összeolvasztás egy újba
             merge_button: Összeolvasztás
+            publish: Közzétesz
             select_component: Összetevő választása
             selected: kiválasztva
             split: Javaslatok szétválasztása
@@ -432,6 +433,8 @@ hu:
           new:
             create: Létrehozás
             title: Javaslat létrehozása
+          publish_answers:
+            select_a_proposal: Kérlek, válassz javaslatot
           show:
             amendments_count: Módosítás száma (%{count}
             assigned_valuators: Hozzárendelt értékelők
