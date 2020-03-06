@@ -503,9 +503,13 @@ es-PY:
         proposal:
           answer: "%{user_name} respondió la propuesta %{resource_name} en el espacio %{space_name}"
           create: "%{user_name} creó la propuesta %{resource_name} en el espacio %{space_name} como una propuesta oficial"
+          publish_answer: "%{user_name} publicó la respuesta a la propuesta %{resource_name} en el espacio %{space_name}"
           update: "%{user_name} actualizó la %{resource_name} propuesta oficial en el espacio %{space_name}"
         proposal_note:
           create: "%{user_name} dejó una nota privada sobre la propuesta %{resource_name} en el espacio %{space_name}"
+        valuation_assignment:
+          create: "%{user_name} asignó la propuesta %{resource_name} a una evaluadora"
+          delete: "%{user_name} desasignó una evaluadora de la propuesta %{proposal_title}"
       answers:
         accepted: Aceptadas
         evaluating: En evaluación
@@ -669,10 +673,13 @@ es-PY:
             id: Identificador
             notes: Notas
             official_proposal: Propuesta oficial
+            published_answer: Respuesta publicada
             published_at: Publicado el
             scope: Ámbito
             state: Estado
             title: Título
+            valuator: Evaluadora
+            valuators: Evaluadoras
             votes: Votos
       new:
         limit_reached: No puedes crear nuevas propuestas ya que has superado el límite.
@@ -804,6 +811,8 @@ es-PY:
           withdraw_btn_hint: Puedes retirar tu propuesta si cambias de opinión, siempre que no haya recibido ningún soporte. La propuesta no se elimina, aparecerá en la lista de propuestas retiradas.
           withdraw_confirmation: '¿Seguro que quieres retirar esta propuesta?'
           withdraw_proposal: Retirar propuesta
+        tags:
+          changed_from: "(modificado desde <u>%{previous_name}</u> por una administradora)"
         vote_button:
           already_voted: Ya votado
           already_voted_hover: Retirar voto
@@ -846,6 +855,8 @@ es-PY:
       publish:
         error: Ha habido errores al publicar la propuesta.
         success: Propuesta publicada con éxito.
+      publish_answers:
+        success: Las respuestas a las propuestas han sido publicadas correctamente.
       update:
         error: Ha habido errores al guardar la propuesta.
         success: Propuesta actualizada con éxito.
