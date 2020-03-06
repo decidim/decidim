@@ -370,6 +370,7 @@ tr:
             change_category: Kategoriyi değiştir
             merge: Yeni biriyle birleştir
             merge_button: birleşmek
+            publish: Yayınla
             select_component: Bir bileşen seç
             selected: seçilmiş
             split: Bölünmüş teklifler
@@ -379,6 +380,8 @@ tr:
           new:
             create: yaratmak
             title: Teklif oluştur
+          publish_answers:
+            select_a_proposal: Lütfen bir teklif seçin
           show:
             created_at: Oluşturulma tarihi
             votes_count: Oy sayısı

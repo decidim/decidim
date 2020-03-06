@@ -183,6 +183,7 @@ es:
             admin: Administradora
             collaborator: Colaboradora
             moderator: Moderadora
+            valuator: Evaluadora
         media_link:
           fields:
             date: Fecha

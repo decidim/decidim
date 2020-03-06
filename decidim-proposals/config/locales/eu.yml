@@ -364,6 +364,7 @@ eu:
             change_category: Aldatu kategoria
             merge: Bateratu berri bat sartu
             merge_button: Batu
+            publish: Argitaratu
             select_component: Hautatu osagaia
             selected: hautatutako
             split: Proposamen banatuak
@@ -373,6 +374,8 @@ eu:
           new:
             create: Sortu
             title: Sortu proposamena
+          publish_answers:
+            select_a_proposal: Aukeratu proposamen bat
           show:
             created_at: Sortze data
             votes_count: Botoen zenbaketa

@@ -367,6 +367,7 @@ de:
             change_category: Kategorie ändern
             merge: Zu einem neuen zusammenführen
             merge_button: Zusammenführen
+            publish: Veröffentlichen
             select_component: Komponente auswählen
             selected: ausgewählt
             split: Vorschläge aufteilen
@@ -376,6 +377,8 @@ de:
           new:
             create: Erstellen
             title: Vorschlag erstellen
+          publish_answers:
+            select_a_proposal: Bitte wählen Sie einen Vorschlag
           show:
             created_at: Erstellungsdatum
             votes_count: Anzahl der Unterstützungen
