@@ -103,6 +103,7 @@ es:
         name: Propuestas
         settings:
           global:
+            allow_card_image: Permitir tarjeta con imagen
             amendments_enabled: Enmiendas habilitadas
             amendments_enabled_help: Si está activo, configura las opciones de enmiendas para cada fase.
             amendments_wizard_help_text: Asistente de ayuda de las enmiendas
@@ -140,6 +141,7 @@ es:
             amendments_visibility: Visibilidad de la enmienda
             amendments_visibility_help: Si se selecciona la opción "Las enmiendas son visibles sólo para sus autoras", las participantes deberán iniciar sesión para ver las enmiendas realizadas.
             announcement: Aviso
+            answers_with_costs: Habilitar coste en las respuestas a propuestas
             automatic_hashtags: Hashtags añadidos a todas las propuestas.
             comments_blocked: Comentarios bloqueados
             creation_enabled: Habilitar creación de propuestas
@@ -250,6 +252,8 @@ es:
           email_outro: Recibiste esta notificación porque eres autora de la propuesta.
           email_subject: La categoría de la propuesta %{resource_title} ha sido actualizada
           notification_title: La categoría de la propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido actualizada por una administradora.
+        proposal_update_scope:
+          email_outro: Recibiste esta notificación porque eres autora de la propuesta.
         voting_enabled:
           email_intro: '¡Puedes apoyar propuestas en %{participatory_space_title}! Empieza a participar en esta página:'
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
@@ -369,7 +373,7 @@ es:
             accepted: Aceptadas
             answer_proposal: Respuesta
             evaluating: En evaluación
-            rejected: Rechazadas
+            rejected: Rechazada
             title: Responder a la propuesta %{title}
         proposal_notes:
           create:
@@ -424,7 +428,7 @@ es:
             documents: Documentos
             endorsements_count: Número de adhesiones
             endorsements_ranking: Clasificación por adhesiones
-            endorsers: Adheridas
+            endorsers: Se han adherido
             link: Enlace
             n_more_endorsers:
               one: y 1 más
@@ -436,10 +440,10 @@ es:
             votes_count: Número de apoyos
             votes_ranking: Clasificación por apoyos
           update_category:
-            invalid: 'Estas propuestas ya tenían la categoría %{category} : %{proposals}.'
             select_a_category: Selecciona una categoría
             select_a_proposal: Selecciona una propuesta
-            success: 'Propuestas actualizadas correctamente a la categoría %{category}: %{proposals}.'
+          update_scope:
+            select_a_proposal: Selecciona una propuesta
         proposals_imports:
           create:
             invalid: Se ha producido un error al importar las propuestas
@@ -471,16 +475,21 @@ es:
         rejected: Rechazada
         withdrawn: Retirada
       application_helper:
+        filter_category_values:
+          all: Todas
         filter_origin_values:
           all: Todas
           citizens: Ciudadanía
           meetings: Encuentros
           official: Oficial
           user_groups: Grupos
+        filter_scope_values:
+          all: Todos
         filter_state_values:
           accepted: Aceptada
           all: Todas
           evaluating: En evaluación
+          not_answered: Sin respuesta
           rejected: Rechazada
         filter_type_values:
           all: Todas
@@ -532,6 +541,7 @@ es:
           open: Abierto
           published: Publicado
           related_to: Relacionado con
+          scope: Ámbito
           search: Buscar
           state: Estado
           withdrawn: Retirado
@@ -732,10 +742,12 @@ es:
           creation_date: 'Fecha de creación: %{date}'
           view_proposal: Ver propuesta
         show:
+          answer: Responder
           back_to: Volver a
           changes_at_title: Enmienda a "%{title}"
           edit_proposal: Editar propuesta
           endorsements_list: Lista de adhesiones
+          estimated_cost: Coste estimado
           hidden_endorsers_count:
             one: y %{count} persona más
             other: y %{count} personas más
@@ -748,12 +760,12 @@ es:
           proposal_accepted_reason: 'Esta propuesta ha sido aceptada porque:'
           proposal_in_evaluation_reason: Se está evaluando esta propuesta
           proposal_rejected_reason: 'Esta propuesta ha sido rechazada porque:'
+          read_less: Leer menos
+          read_more: Leer más
           report: Denunciar
           withdraw_btn_hint: Puedes retirar tu propuesta si cambias de opinión, siempre que no haya recibido ningún apoyo. La propuesta no se eliminará, aparecerá en la lista de propuestas retiradas.
           withdraw_confirmation: '¿Seguro que quieres retirar esta propuesta?'
           withdraw_proposal: Retirar propuesta
-        tags:
-          changed_from: "(cambiado desde <u>%{previous_category}</u> por una administradora)"
         vote_button:
           already_voted: Ya has dado tu apoyo
           already_voted_hover: Retirar tu apoyo

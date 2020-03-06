@@ -240,6 +240,8 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste autorem návrhu.
           email_subject: Kategorie návrhů %{resource_title} byla aktualizována
           notification_title: Kategorie návrhu <a href="%{resource_path}">%{resource_title}</a> byla aktualizována administrátorem.
+        proposal_update_scope:
+          email_outro: Toto oznámení jste obdrželi, protože jste autorem návrhu.
         voting_enabled:
           email_intro: 'Můžete hlasovat návrhy v %{participatory_space_title}! Začněte se účastnit této stránky:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
@@ -401,10 +403,10 @@ cs:
             created_at: Datum vzniku
             votes_count: Počet hlasů
           update_category:
-            invalid: 'Tyto návrhy již měly kategorii %{category} : %{proposals}.'
             select_a_category: Vyberte kategorii
             select_a_proposal: Vyberte prosím návrh
-            success: 'Návrhy byly úspěšně aktualizovány do kategorie %{category} : %{proposals}.'
+          update_scope:
+            select_a_proposal: Vyberte prosím návrh
         proposals_imports:
           create:
             invalid: Při importu návrhů došlo k problému
@@ -705,6 +707,7 @@ cs:
           creation_date: 'Tvorba: %{date}'
           view_proposal: Zobrazit návrh
         show:
+          answer: Odpovědět
           back_to: Zpět k
           changes_at_title: Pozměňovací návrh k "%{title}"
           edit_proposal: Upravit návrh
@@ -727,8 +730,6 @@ cs:
           withdraw_btn_hint: Pokud změníte názor, můžete svůj návrh stáhnout, pokud jste nedostali žádnou podporu. Návrh není zrušen, objeví se v seznamu stažených návrhů.
           withdraw_confirmation: Opravdu chcete tento návrh stáhnout?
           withdraw_proposal: Návrh stáhnout
-        tags:
-          changed_from: "(změněn z <u>%{previous_category}</u> správcem)"
         vote_button:
           already_voted: Již bylo hlasováno
           already_voted_hover: Zavolejte
