@@ -22,7 +22,9 @@ shared_examples_for "manage questionnaire answers" do
   end
 
   context "when there are answers" do
-    let!(:answer) { create :answer, questionnaire: questionnaire, question: first }
+    let!(:answer1) { create :answer, questionnaire: questionnaire, question: first }
+    let!(:answer2) { create :answer, body: "second answer", questionnaire: questionnaire, question: first }
+    let!(:answer3) { create :answer, questionnaire: questionnaire, question: second }
 
     it "shows the answer admin link" do
       visit questionnaire_edit_path
@@ -36,8 +38,10 @@ shared_examples_for "manage questionnaire answers" do
       end
 
       it "shows the anwers page" do
-        expect(page).to have_content(answer.body)
-        expect(page).to have_content(answer.question.body["en"].upcase)
+        expect(page).to have_content(answer1.body)
+        expect(page).to have_content(answer1.question.body["en"].upcase)
+        expect(page).to have_content(answer2.body)
+        expect(page).to have_content(answer2.question.body["en"].upcase)
       end
 
       it "shows the percentage" do
@@ -49,6 +53,8 @@ shared_examples_for "manage questionnaire answers" do
       end
 
       it "has an export link" do
+        expect(page).to have_link(answer1.body)
+        expect(page).to have_link(answer2.body)
         expect(page).to have_link("Export")
       end
 
@@ -56,10 +62,46 @@ shared_examples_for "manage questionnaire answers" do
         let(:first_type) { "long_answer" }
 
         it "shows session token" do
-          expect(page).not_to have_content(answer.body)
-          expect(page).to have_content(answer.session_token)
+          expect(page).not_to have_content(answer1.body)
+          expect(page).to have_content(answer1.session_token)
+          expect(page).to have_content(answer2.session_token)
+          expect(page).to have_content(answer3.session_token)
           expect(page).to have_content("USER IDENTIFIER")
         end
+      end
+    end
+
+    context "and managing individual answer page" do
+      let!(:answer11) { create :answer, questionnaire: questionnaire, body: "", user: answer1.user, question: second }
+
+      before do
+        visit questionnaire_edit_path
+        click_link "Show responses"
+      end
+
+      it "shows all the questions and responses" do
+        click_link answer1.body, match: :first
+        expect(page).to have_content(first.body["en"])
+        expect(page).to have_content(second.body["en"])
+        expect(page).to have_content(answer1.body)
+      end
+
+      it "first answer has a next link" do
+        click_link answer1.body, match: :first
+        expect(page).to have_link("Next ›")
+        expect(page).not_to have_link("‹ Prev")
+      end
+
+      it "second answer has prev/next links" do
+        click_link answer2.body, match: :first
+        expect(page).to have_link("Next ›")
+        expect(page).to have_link("‹ Prev")
+      end
+
+      it "third answer has prev link" do
+        click_link answer3.session_token, match: :first
+        expect(page).not_to have_link("Next ›")
+        expect(page).to have_link("‹ Prev")
       end
     end
   end
