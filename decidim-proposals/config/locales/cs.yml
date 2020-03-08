@@ -270,6 +270,7 @@ cs:
           email_subject: Kategorie návrhů %{resource_title} byla aktualizována
           notification_title: Kategorie návrhu <a href="%{resource_path}">%{resource_title}</a> byla aktualizována administrátorem.
         proposal_update_scope:
+          email_intro: 'Administrátor aktualizoval rozsah vašeho návrhu "%{resource_title}", podívejte se na tuto stránku:'
           email_outro: Toto oznámení jste obdrželi, protože jste autorem návrhu.
         voting_enabled:
           email_intro: 'Můžete hlasovat návrhy v %{participatory_space_title}! Začněte se účastnit této stránky:'
