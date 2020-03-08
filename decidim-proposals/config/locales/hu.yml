@@ -154,6 +154,7 @@ hu:
             endorsements_blocked: Jóváhagyások letiltva
             endorsements_enabled: Jóváhagyások engedélyezve
             proposal_answering_enabled: Javaslat válasz engedélyezve
+            publish_answers_immediately: Javaslati válaszok azonnali közzététele
             suggested_hashtags: Hashtagek javasolva a felhasználóknak új javaslatokra
             votes_blocked: Szavazás letiltva
             votes_enabled: Szavazás engedélyezve
@@ -421,6 +422,7 @@ hu:
             merge: Összeolvasztás egy újba
             merge_button: Összeolvasztás
             publish: Közzétesz
+            publish_answers: Válaszok közzététele
             select_component: Összetevő választása
             selected: kiválasztva
             split: Javaslatok szétválasztása
@@ -434,6 +436,7 @@ hu:
             create: Létrehozás
             title: Javaslat létrehozása
           publish_answers:
+            number_of_proposals: A %{number} -s számú javaslatra adott válaszokat közzétesszük.
             select_a_proposal: Kérlek, válassz javaslatot
           show:
             amendments_count: Módosítás száma (%{count}
@@ -500,6 +503,7 @@ hu:
         proposal:
           answer: "%{user_name} válaszolt a(z) %{resource_name} javaslatra itt: %{space_name}"
           create: "%{user_name} létrehozta a(z) %{resource_name} javaslatot (hivatalos) itt: %{space_name}"
+          publish_answer: "%{user_name} közzétette a(z) %{resource_name} javaslat válaszát a(z) %{space_name} mezőben"
           update: "%{user_name} frissítette az %{resource_name} hivatalos javaslatot a %{space_name} helyre"
         proposal_note:
           create: "%{user_name} privát megjegyzést hagyott a(z) %{resource_name} javaslathoz itt: %{space_name}"
@@ -669,6 +673,7 @@ hu:
             id: ID
             notes: Jegyzetek
             official_proposal: Hivatalos javaslat
+            published_answer: Közzétett válasz
             published_at: 'Közzétéve:'
             scope: Hatáskör
             state: Állapot
@@ -850,6 +855,8 @@ hu:
       publish:
         error: Hiba történt a javaslat közzététele során.
         success: Javaslat közzététele sikeres.
+      publish_answers:
+        success: A javaslati válaszok közzététele sikeres volt.
       update:
         error: Hiba történt a javaslat mentése során.
         success: Javaslat frissítése sikeres.
