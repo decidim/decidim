@@ -272,6 +272,8 @@ cs:
         proposal_update_scope:
           email_intro: 'Administrátor aktualizoval rozsah vašeho návrhu "%{resource_title}", podívejte se na tuto stránku:'
           email_outro: Toto oznámení jste obdrželi, protože jste autorem návrhu.
+          email_subject: Rámec návrhu %{resource_title} byl aktualizován
+          notification_title: Rozsah návrhu <a href="%{resource_path}">%{resource_title}</a> byl aktualizován správcem.
         voting_enabled:
           email_intro: 'Můžete hlasovat návrhy v %{participatory_space_title}! Začněte se účastnit této stránky:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
@@ -472,7 +474,9 @@ cs:
             invalid: 'Tyto návrhy již mají kategorii %{subject_name} : %{proposals}.'
             select_a_category: Vyberte kategorii
             select_a_proposal: Vyberte prosím návrh
+            success: 'Návrhy úspěšně aktualizovány do kategorie %{subject_name}: %{proposals}.'
           update_scope:
+            invalid: 'Tyto návrhy již měly rozsah %{subject_name}: %{proposals}.'
             select_a_proposal: Vyberte prosím návrh
             select_a_scope: Vyberte prosím rozsah
         proposals_imports:
@@ -492,6 +496,10 @@ cs:
           create:
             invalid: Při výběru vybraných návrhů došlo k chybě.
             success: Úspěšně rozdělil návrhy na nové.
+        valuation_assignments:
+          delete:
+            invalid: Došlo k chybě při odebírání návrhů od hodnotitele
+            success: Hodnotitel byl úspěšně odebrán z návrhů
       admin_log:
         proposal:
           answer: "%{user_name} odpovídalo %{resource_name} návrh na %{space_name} prostoru"
