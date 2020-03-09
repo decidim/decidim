@@ -15,7 +15,7 @@ module Decidim
       validates :selected_choices, presence: true, if: :mandatory_choices?
 
       validate :max_choices, if: -> { question.max_choices }
-      validate :all_choices, if: -> { question.question_type == "sorting" }
+      validate :all_choices, if: -> { question.question_type == "sorting" || question.matrix? }
 
       delegate :mandatory_body?, :mandatory_choices?, :matrix?, to: :question
 
