@@ -13,6 +13,6 @@ SimpleCov.command_name ENV["COMMAND_NAME"] || File.basename(Dir.pwd)
 SimpleCov.merge_timeout 1800
 
 if ENV["CI"]
-  require "codecov"
-  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+  require "simplecov-cobertura"
+  SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
 end
