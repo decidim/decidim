@@ -23,16 +23,19 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          answer_proposal
-          notify_followers
-          increment_score
+          store_initial_proposal_state
+
+          transaction do
+            answer_proposal
+            notify_proposal_answer
+          end
 
           broadcast(:ok)
         end
 
         private
 
-        attr_reader :form, :proposal
+        attr_reader :form, :proposal, :initial_has_state_published, :initial_state
 
         def answer_proposal
           Decidim.traceability.perform_action!(
@@ -41,59 +44,29 @@ module Decidim
             form.current_user
           ) do
             attributes = {
-              state: @form.state,
-              answer: @form.answer,
+              state: form.state,
+              answer: form.answer,
               answered_at: Time.current,
-              cost: @form.cost,
-              cost_report: @form.cost_report,
-              execution_period: @form.execution_period
+              cost: form.cost,
+              cost_report: form.cost_report,
+              execution_period: form.execution_period
             }
+
+            attributes[:state_published_at] = Time.current if !initial_has_state_published && form.publish_answer?
 
             proposal.update!(attributes)
           end
         end
 
-        def notify_followers
-          return if (proposal.previous_changes.keys & %w(state)).empty?
+        def notify_proposal_answer
+          return if !initial_has_state_published && !form.publish_answer?
 
-          if proposal.accepted?
-            publish_event(
-              "decidim.events.proposals.proposal_accepted",
-              Decidim::Proposals::AcceptedProposalEvent
-            )
-          elsif proposal.rejected?
-            publish_event(
-              "decidim.events.proposals.proposal_rejected",
-              Decidim::Proposals::RejectedProposalEvent
-            )
-          elsif proposal.evaluating?
-            publish_event(
-              "decidim.events.proposals.proposal_evaluating",
-              Decidim::Proposals::EvaluatingProposalEvent
-            )
-          end
+          NotifyProposalAnswer.call(proposal, initial_state)
         end
 
-        def publish_event(event, event_class)
-          Decidim::EventsManager.publish(
-            event: event,
-            event_class: event_class,
-            resource: proposal,
-            affected_users: proposal.notifiable_identities,
-            followers: proposal.followers - proposal.notifiable_identities
-          )
-        end
-
-        def increment_score
-          return unless proposal.accepted?
-
-          proposal.coauthorships.find_each do |coauthorship|
-            if coauthorship.user_group
-              Decidim::Gamification.increment_score(coauthorship.user_group, :accepted_proposals)
-            else
-              Decidim::Gamification.increment_score(coauthorship.author, :accepted_proposals)
-            end
-          end
+        def store_initial_proposal_state
+          @initial_has_state_published = proposal.published_state?
+          @initial_state = proposal.state
         end
       end
     end

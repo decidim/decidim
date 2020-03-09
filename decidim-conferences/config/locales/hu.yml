@@ -183,6 +183,7 @@ hu:
             admin: Adminisztrátor
             collaborator: Együttműködő
             moderator: moderátor
+            valuator: Értékelő
         media_link:
           fields:
             date: Dátum

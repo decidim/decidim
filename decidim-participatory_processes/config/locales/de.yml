@@ -187,13 +187,11 @@ de:
         destroy:
           success: Der Benutzer wurde erfolgreich aus diesem partizipativen Prozess entfernt.
         edit:
-          title: Benutzer des Beteiligungsprozesses aktualisieren.
           update: Aktualisieren
         index:
           process_admins_title: Partizipative Prozessbenutzer
         new:
           create: Erstellen
-          title: Neuer partizipativer Prozessbenutzer.
         update:
           error: Für diesen partizipativen Prozess wurde ein Fehler bei einem Benutzer aktualisiert.
           success: Der Benutzer wurde für diesen partizipativen Prozess erfolgreich aktualisiert.
@@ -367,13 +365,14 @@ de:
         meetings_count: Meetings
         orders_count: Stimmen
         pages_count: Seiten
+        participants_count: Teilnehmer
         processes_count: Beteiligungsprozesse
         projects_count: Projekte
         proposals_count: Vorschläge
         results_count: Ergebnisse
+        supports_count: Stimmen
         surveys_count: Umfragen
         users_count: Teilnehmer
-        votes_count: Stimmen
   layouts:
     decidim:
       participatory_process_groups:

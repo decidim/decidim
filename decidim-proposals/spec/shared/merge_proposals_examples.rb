@@ -16,21 +16,21 @@ shared_examples "merge proposals" do
     end
 
     context "when click the bulk action button" do
-      before do
-        click_button "Actions"
-      end
-
       it "shows the change action option" do
+        click_button "Actions"
+
         expect(page).to have_selector(:link_or_button, "Merge into a new one")
       end
 
-      context "when less than one proposal is checked" do
+      context "when only one proposal is checked" do
         before do
           page.find("#proposals_bulk.js-check-all").set(false)
           page.first(".js-proposal-list-check").set(true)
         end
 
         it "does not show the merge action option" do
+          click_button "Actions"
+
           expect(page).to have_no_selector(:link_or_button, "Merge into a new one")
         end
       end

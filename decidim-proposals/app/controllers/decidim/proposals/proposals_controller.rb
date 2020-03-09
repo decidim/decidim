@@ -13,7 +13,7 @@ module Decidim
       include Decidim::Proposals::Orderable
       include Paginable
 
-      helper_method :form_presenter
+      helper_method :proposal_presenter, :form_presenter
 
       before_action :authenticate_user!, only: [:new, :create, :complete]
       before_action :ensure_is_draft, only: [:compare, :complete, :preview, :publish, :edit_draft, :update_draft, :destroy_draft]
@@ -266,6 +266,10 @@ module Decidim
         return true if @proposal&.amendable? || current_user&.admin?
 
         Proposal.only_visible_emendations_for(current_user, current_component).published.include?(@proposal)
+      end
+
+      def proposal_presenter
+        @proposal_presenter ||= present(@proposal)
       end
 
       def form_proposal_params
