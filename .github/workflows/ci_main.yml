@@ -40,3 +40,7 @@ jobs:
         name: Install JS deps
       - run: bundle exec rspec
         name: RSpec
+      - uses: codecov/codecov-action@v1
+        with:
+          file: ./coverage/coverage.xml
+          name: main-folder
