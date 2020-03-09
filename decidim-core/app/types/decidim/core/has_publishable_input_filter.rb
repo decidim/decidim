@@ -4,7 +4,7 @@ module Decidim
   module Core
     module HasPublishableInputFilter
       def self.included(child_class)
-        child_class.argument :publishedBefore,
+        child_class.argument :published_before,
                              type: String,
                              description: "List result published **before** (and **excluding**) this date. Expected format `YYYY-MM-DD`",
                              required: false,
@@ -13,7 +13,7 @@ module Decidim
                                  model_class.arel_table[:published_at].lt(date_to_iso8601(date, :publishedBefore))
                                end
                              end
-        child_class.argument :publishedSince,
+        child_class.argument :published_since,
                              type: String,
                              description: "List result published after (and **including**) this date. Expected format `YYYY-MM-DD`",
                              required: false,

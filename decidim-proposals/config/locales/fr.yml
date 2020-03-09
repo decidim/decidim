@@ -229,6 +229,8 @@ fr:
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de la proposition.
           email_subject: La catégorie de la proposition %{resource_title} a été mise à jour
           notification_title: La catégorie de la proposition <a href="%{resource_path}">%{resource_title}</a> a été mise à jour par un administrateur.
+        proposal_update_scope:
+          email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de la proposition.
         voting_enabled:
           email_intro: 'Vous pouvez soutenir les propositions de %{participatory_space_title} ! Participez ici :'
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
@@ -377,6 +379,7 @@ fr:
             change_category: Changer de catégorie
             merge: Fusionner dans un nouveau
             merge_button: Fusionner
+            publish: Publier
             select_component: Sélectionnez un composant
             selected: choisi
             split: Fractionner la proposition
@@ -386,14 +389,16 @@ fr:
           new:
             create: Créer
             title: Créer une proposition
+          publish_answers:
+            select_a_proposal: Veuillez sélectionner une proposition
           show:
             created_at: Date de création
             votes_count: Nombre de votes
           update_category:
-            invalid: 'Ces propositions avaient déjà la catégorie %{category} : %{proposals}.'
             select_a_category: Veuillez sélectionner une catégorie
             select_a_proposal: Veuillez sélectionner une proposition
-            success: 'Les propositions ont bien été mises à jour dans la catégorie %{category} : %{proposals}.'
+          update_scope:
+            select_a_proposal: Veuillez sélectionner une proposition
         proposals_imports:
           create:
             invalid: Un problème est survenu lors de l'importation des propositions
@@ -698,8 +703,6 @@ fr:
           withdraw_btn_hint: Si vous changez d'avis et tant que votre proposition n'a pas reçu de vote, commentaire et/ou soutien, vous pouvez toujours la retirer. Cette dernière ne sera pas supprimée mais elle apparaîtra dans la liste des propositions retirées.
           withdraw_confirmation: Êtes-vous sûr de vouloir retirer cette proposition ?
           withdraw_proposal: Retirer la proposition
-        tags:
-          changed_from: "(modifié depuis <u>%{previous_category}</u> par un administrateur)"
         vote_button:
           already_voted: Déjà votée
           already_voted_hover: Retirer le vote

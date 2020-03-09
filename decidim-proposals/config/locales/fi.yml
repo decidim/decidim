@@ -252,6 +252,8 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen tekijä.
           email_subject: Ehdotuksen %{resource_title} aihepiiri on päivitetty
           notification_title: Järjestelmänvalvoja on päivittänyt ehdotuksen <a href="%{resource_path}">%{resource_title}</a> aihepiirin.
+        proposal_update_scope:
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen tekijä.
         voting_enabled:
           email_intro: 'Voit kannattaa ehdotuksia kohteessa %{participatory_space_title}! Osallistu tällä sivulla:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
@@ -405,6 +407,7 @@ fi:
             change_category: Vaihda aihepiiri
             merge: Yhdistä uuteen
             merge_button: Yhdistä
+            publish: Julkaise
             select_component: Valitse komponentti
             selected: valittu
             split: Jaa ehdotuksia
@@ -414,6 +417,8 @@ fi:
           new:
             create: Luo
             title: Luo ehdotus
+          publish_answers:
+            select_a_proposal: Valitse ehdotus
           show:
             amendments_count: Muutosten lukumäärä
             authors: Laatijat
@@ -438,10 +443,10 @@ fi:
             votes_count: Kannatusten määrä
             votes_ranking: Luokittelu suositusten mukaan
           update_category:
-            invalid: 'Näissä ehdotuksissa oli jo aihepiiri %{category}: %{proposals}.'
             select_a_category: Valitse aihepiiri
             select_a_proposal: Valitse ehdotus
-            success: 'Ehdotukset päivitettiin onnistuneesti aihepiiriin %{category}: %{proposals}.'
+          update_scope:
+            select_a_proposal: Valitse ehdotus
         proposals_imports:
           create:
             invalid: Ehdotuksien tuominen epäonnistui
@@ -764,8 +769,6 @@ fi:
           withdraw_btn_hint: Jos muutat mieltäsi, voit perua ehdotuksesi, mikäli se ei ole saanut kannatusta. Ehdotusta ei poisteta, se näkyy peruutettujen ehdotusten luettelossa.
           withdraw_confirmation: Haluatko varmasti peruuttaa tämän ehdotuksen?
           withdraw_proposal: Peruuta ehdotus
-        tags:
-          changed_from: "(muutettu aihepiiristä <u>%{previous_category}</u> ylläpitäjä toimesta)"
         vote_button:
           already_voted: Jo kannatettu
           already_voted_hover: Peru kannatuksesi

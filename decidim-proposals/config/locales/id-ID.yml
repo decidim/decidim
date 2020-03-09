@@ -212,6 +212,8 @@ id:
           email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah penulis proposal.
           email_subject: Kategori proposal %{resource_title} telah diperbarui
           notification_title: Kategori proposal <a href="%{resource_path}">%{resource_title}</a> telah diperbarui oleh admin.
+        proposal_update_scope:
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah penulis proposal.
         voting_enabled:
           email_intro: 'Anda dapat memilih proposal dalam %{participatory_space_title}! Mulai berpartisipasi di halaman ini:'
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{participatory_space_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
@@ -357,6 +359,7 @@ id:
             change_category: Ubah kategori
             merge: Bergabunglah dengan yang baru
             merge_button: Menggabungkan
+            publish: Menerbitkan
             select_component: Pilih komponen
             selected: terpilih
             split: Bagi proposal
@@ -366,14 +369,16 @@ id:
           new:
             create: Membuat
             title: Buat proposal
+          publish_answers:
+            select_a_proposal: Silakan pilih proposal
           show:
             created_at: Tanggal pembuatan
             votes_count: Suara menghitung
           update_category:
-            invalid: 'Proposal ini sudah memiliki kategori %{category} : %{proposals}.'
             select_a_category: Silakan pilih kategori
             select_a_proposal: Silakan pilih proposal
-            success: 'Proposal berhasil diperbarui ke kategori %{category} : %{proposals}.'
+          update_scope:
+            select_a_proposal: Silakan pilih proposal
         proposals_imports:
           create:
             invalid: Ada masalah saat mengimpor proposal
@@ -667,8 +672,6 @@ id:
           withdraw_btn_hint: Anda dapat menarik proposal Anda jika Anda berubah pikiran, selama Anda belum menerima dukungan apa pun. Proposal tidak dihapus, itu akan muncul dalam daftar proposal yang ditarik.
           withdraw_confirmation: Apakah Anda yakin untuk membatalkan proposal ini?
           withdraw_proposal: Tarik proposal
-        tags:
-          changed_from: "(diubah dari <u>%{previous_category}</u> oleh administrator)"
         vote_button:
           already_voted: Sudah memilih
           already_voted_hover: Batalkan suara
