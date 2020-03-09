@@ -2,6 +2,8 @@ name: "[CI] Conferences"
 on: [push]
 
 env:
+  CI: "true"
+  SIMPLECOV: "true"
   RUBY_VERSION: 2.5.3
   DECIDIM_MODULE: decidim-conferences
 
