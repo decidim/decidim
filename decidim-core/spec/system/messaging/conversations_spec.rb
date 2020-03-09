@@ -117,8 +117,8 @@ describe "Conversations", type: :system do
       before do
         visit_inbox
         click_link interlocutor.name
-        fill_in "message_body", with: "Please reply!"
         expect(page).to have_content("Send")
+        fill_in "message_body", with: "Please reply!"
         click_button "Send"
       end
 
@@ -133,11 +133,11 @@ describe "Conversations", type: :system do
           visit_inbox
         end
 
-        it "appears as unread" do
+        it "appears as unread", :slow do
           expect(page).to have_selector(".card--list__item .card--list__counter", text: "2")
         end
 
-        it "appears as read after it's seen" do
+        it "appears as read after it's seen", :slow do
           click_link user.name
           expect(page).to have_content("Please reply!")
 

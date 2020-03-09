@@ -12,8 +12,6 @@ const scrollToBottom = () => {
   }
 };
 
-document.onreadystatechange = () => {
-  if (document.readyState === "complete") {
-    scrollToBottom();
-  }
-};
+$(document).ready(function() {
+  scrollToBottom();
+})
