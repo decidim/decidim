@@ -218,6 +218,8 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor des Angebots sind.
           email_subject: Die Vorschlagskategorie %{resource_title} wurde aktualisiert
           notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Vorschlagskategorie wurde von einem Administrator aktualisiert.
+        proposal_update_scope:
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor des Angebots sind.
         voting_enabled:
           email_intro: 'Sie können Vorschläge in %{participatory_space_title}abstimmen! Starten Sie die Teilnahme an dieser Seite:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
@@ -284,12 +286,10 @@ de:
         see_all: Alle anzeigen (%{count})
     proposals:
       actions:
-        answer: Antworten
         edit_proposal: Vorschlag bearbeiten
         import: Importieren von einer anderen Komponente
         new: Neuer Vorschlag
         participatory_texts: Partizipative Texte
-        private_notes: Private Notizen
         title: Aktionen
       admin:
         actions:
@@ -333,11 +333,7 @@ de:
           update:
             success: Partizipativer Text erfolgreich aktualisiert.
         proposal_answers:
-          edit:
-            accepted: Angenommen
-            answer_proposal: Antworten
-            evaluating: In Bearbeitung
-            rejected: Abgelehnt
+          form:
             title: Antwort auf Vorschlag %{title}
         proposal_notes:
           create:
@@ -371,6 +367,7 @@ de:
             change_category: Kategorie ändern
             merge: Zu einem neuen zusammenführen
             merge_button: Zusammenführen
+            publish: Veröffentlichen
             select_component: Komponente auswählen
             selected: ausgewählt
             split: Vorschläge aufteilen
@@ -380,11 +377,16 @@ de:
           new:
             create: Erstellen
             title: Vorschlag erstellen
+          publish_answers:
+            select_a_proposal: Bitte wählen Sie einen Vorschlag
+          show:
+            created_at: Erstellungsdatum
+            votes_count: Anzahl der Unterstützungen
           update_category:
-            invalid: 'Diese Vorschläge hatten bereits die Kategorie %{category} : %{proposals}.'
             select_a_category: Bitte wählen Sie eine Kategorie
             select_a_proposal: Bitte wählen Sie einen Vorschlag
-            success: 'Vorschläge, die erfolgreich in die %{category} Kategorie aktualisiert wurden: %{proposals}.'
+          update_scope:
+            select_a_proposal: Bitte wählen Sie einen Vorschlag
         proposals_imports:
           create:
             invalid: Beim Importieren der Vorschläge ist ein Problem aufgetreten
@@ -402,12 +404,6 @@ de:
           create:
             invalid: Beim Teilen der ausgewählten Vorschläge ist ein Fehler aufgetreten.
             success: Die Vorschläge wurden erfolgreich in neue aufgeteilt.
-        shared:
-          info_proposal:
-            body: Haupttext
-            created_at: Erstellungsdatum
-            proposal_votes_count: Anzahl der Unterstützungen
-            proposals: Vorschläge
       admin_log:
         proposal:
           answer: "%{user_name} beantwortete den %{resource_name} Vorschlag auf den %{space_name} Feldern"
@@ -432,7 +428,6 @@ de:
           accepted: Angenommen
           all: Alle
           evaluating: In Bearbeitung
-          except_rejected: Alle außer abgelehnte
           rejected: Abgelehnt
         filter_type_values:
           all: Alle
@@ -481,7 +476,6 @@ de:
           all: Alle
           amendment: Änderungsanträge
           category: Kategorie
-          category_prompt: Kategorie Eingabeaufforderung
           open: Offen
           published: Veröffentlicht
           related_to: In Zusammenhang mit
@@ -633,7 +627,6 @@ de:
         filters:
           amendment_type: Art
           category: Kategorie
-          category_prompt: Wählen Sie eine Kategorie
           origin: Ursprung
           related_to: Bezüglich
           search: Suche
@@ -677,6 +670,7 @@ de:
           creation_date: 'Erstellt am %{date}'
           view_proposal: Vorschlag anzeigen
         show:
+          answer: Antworten
           back_to: Zurück zu
           edit_proposal: Vorschlag bearbeiten
           endorsements_list: Liste der Befürworter
@@ -693,9 +687,6 @@ de:
           withdraw_btn_hint: Sie können Ihren Vorschlag zurückziehen, wenn Sie es sich anders überlegen, solange Sie keine Unterstützung erhalten haben. Der Vorschlag wird nicht gelöscht, er erscheint in der Liste der zurückgezogenen Vorschläge.
           withdraw_confirmation: Sind Sie sicher, diesen Vorschlag zurückzuziehen?
           withdraw_proposal: Vorschlag zurückziehen
-        tags:
-          changed_from: "(geändert von <u>%{previous_category}</u> durch einen Administrator)"
-          filed_as: Abgelegt als
         vote_button:
           already_voted: Bereits unterstützt
           already_voted_hover: Unterstützung zurückziehen

@@ -24,6 +24,7 @@ module Decidim
       include Decidim::Amendable
       include Decidim::NewsletterParticipant
       include Decidim::Randomable
+      include Decidim::Proposals::Valuatable
 
       POSSIBLE_STATES = %w(not_answered evaluating accepted rejected withdrawn).freeze
 
@@ -51,12 +52,17 @@ module Decidim
 
       geocoded_by :address, http_headers: ->(proposal) { { "Referer" => proposal.component.organization.host } }
 
-      scope :accepted, -> { where(state: "accepted") }
-      scope :rejected, -> { where(state: "rejected") }
-      scope :evaluating, -> { where(state: "evaluating") }
+      scope :answered, -> { where.not(answered_at: nil) }
+      scope :not_answered, -> { where(answered_at: nil) }
+
+      scope :state_not_published, -> { where(state_published_at: nil) }
+      scope :state_published, -> { where.not(state_published_at: nil).where.not(state: nil) }
+
+      scope :accepted, -> { state_published.where(state: "accepted") }
+      scope :rejected, -> { state_published.where(state: "rejected") }
+      scope :evaluating, -> { state_published.where(state: "evaluating") }
       scope :withdrawn, -> { where(state: "withdrawn") }
-      scope :not_answered, -> { where(state: nil) }
-      scope :except_rejected, -> { where.not(state: "rejected").or(where(state: nil)) }
+      scope :except_rejected, -> { where.not(state: "rejected").or(state_not_published) }
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
       scope :drafts, -> { where(published_at: nil) }
       scope :except_drafts, -> { where.not(published_at: nil) }
@@ -82,6 +88,20 @@ module Decidim
              .joins(:coauthorships)
              .where(decidim_coauthorships: { decidim_author_type: "Decidim::Meetings::Meeting" })
       }
+      scope :sort_by_valuation_assignments_count_asc, lambda {
+        order(sort_by_valuation_assignments_count_nulls_last_query + "ASC NULLS FIRST")
+      }
+
+      scope :sort_by_valuation_assignments_count_desc, lambda {
+        order(sort_by_valuation_assignments_count_nulls_last_query + "DESC NULLS LAST")
+      }
+
+      def self.with_valuation_assigned_to(user, space)
+        valuator_roles = space.user_roles(:valuator).where(user: user)
+
+        includes(:valuation_assignments)
+          .where(decidim_proposals_valuation_assignments: { valuator_role_id: valuator_roles })
+      end
 
       acts_as_list scope: :decidim_component_id
 
@@ -164,39 +184,68 @@ module Decidim
         published_at.present?
       end
 
+      # Public: Returns the published state of the proposal.
+      #
+      # Returns Boolean.
+      def state
+        return amendment.state if emendation?
+        return nil unless published_state? || withdrawn?
+
+        super
+      end
+
+      # This is only used to define the setter, as the getter will be overriden below.
+      alias_attribute :internal_state, :state
+
+      # Public: Returns the internal state of the proposal.
+      #
+      # Returns Boolean.
+      def internal_state
+        return amendment.state if emendation?
+
+        self[:state]
+      end
+
+      # Public: Checks if the organization has published the state for the proposal.
+      #
+      # Returns Boolean.
+      def published_state?
+        emendation? || state_published_at.present?
+      end
+
       # Public: Checks if the organization has given an answer for the proposal.
       #
       # Returns Boolean.
       def answered?
-        answered_at.present? && state.present?
-      end
-
-      # Public: Checks if the organization has accepted a proposal.
-      #
-      # Returns Boolean.
-      def accepted?
-        answered? && state == "accepted"
-      end
-
-      # Public: Checks if the organization has rejected a proposal.
-      #
-      # Returns Boolean.
-      def rejected?
-        answered? && state == "rejected"
-      end
-
-      # Public: Checks if the organization has marked the proposal as evaluating it.
-      #
-      # Returns Boolean.
-      def evaluating?
-        answered? && state == "evaluating"
+        answered_at.present?
       end
 
       # Public: Checks if the author has withdrawn the proposal.
       #
       # Returns Boolean.
       def withdrawn?
-        state == "withdrawn"
+        internal_state == "withdrawn"
+      end
+
+      # Public: Checks if the organization has accepted a proposal.
+      #
+      # Returns Boolean.
+      def accepted?
+        state == "accepted"
+      end
+
+      # Public: Checks if the organization has rejected a proposal.
+      #
+      # Returns Boolean.
+      def rejected?
+        state == "rejected"
+      end
+
+      # Public: Checks if the organization has marked the proposal as evaluating it.
+      #
+      # Returns Boolean.
+      def evaluating?
+        state == "evaluating"
       end
 
       # Public: Overrides the `reported_content_url` Reportable concern method.
@@ -246,7 +295,7 @@ module Decidim
       def editable_by?(user)
         return true if draft?
 
-        !answered? && within_edit_time_limit? && !copied_from_other_component? && created_by?(user)
+        !published_state? && within_edit_time_limit? && !copied_from_other_component? && created_by?(user)
       end
 
       # Checks whether the user can withdraw the given proposal.
@@ -272,6 +321,52 @@ module Decidim
          )
         SQL
         Arel.sql(query)
+      end
+
+      # Defines the base query so that ransack can actually sort by this value
+      def self.sort_by_valuation_assignments_count_nulls_last_query
+        <<-SQL
+        (
+          SELECT COUNT(decidim_proposals_valuation_assignments.id)
+          FROM decidim_proposals_valuation_assignments
+          WHERE decidim_proposals_valuation_assignments.decidim_proposal_id = decidim_proposals_proposals.id
+          GROUP BY decidim_proposals_valuation_assignments.decidim_proposal_id
+        )
+        SQL
+      end
+
+      # method to filter by assigned valuator role ID
+      def self.valuator_role_ids_has(value)
+        query = <<-SQL
+        :value = any(
+          (SELECT decidim_proposals_valuation_assignments.valuator_role_id
+          FROM decidim_proposals_valuation_assignments
+          WHERE decidim_proposals_valuation_assignments.decidim_proposal_id = decidim_proposals_proposals.id
+          )
+        )
+        SQL
+        where(query, value: value)
+      end
+
+      def self.ransackable_scopes(_auth = nil)
+        [:valuator_role_ids_has]
+      end
+
+      ransacker :state_published do
+        Arel.sql("CASE
+          WHEN EXISTS (
+            SELECT 1 FROM decidim_amendments
+            WHERE decidim_amendments.decidim_emendation_type = 'Decidim::Proposals::Proposal'
+            AND decidim_amendments.decidim_emendation_id = decidim_proposals_proposals.id
+          ) THEN 0
+          WHEN state_published_at IS NULL AND answered_at IS NOT NULL THEN 2
+          WHEN state_published_at IS NOT NULL THEN 1
+          ELSE 0 END
+        ")
+      end
+
+      ransacker :state do
+        Arel.sql("CASE WHEN state = 'withdrawn' THEN 'withdrawn' WHEN state_published_at IS NULL THEN NULL ELSE state END")
       end
 
       ransacker :id_string do
@@ -310,6 +405,17 @@ module Decidim
 
         limit = updated_at + component.settings.proposal_edit_before_minutes.minutes
         Time.current < limit
+      end
+
+      def process_amendment_state_change!
+        return unless %w(accepted rejected evaluating withdrawn).member?(amendment.state)
+
+        PaperTrail.request(enabled: false) do
+          update!(
+            state: amendment.state,
+            state_published_at: Time.current
+          )
+        end
       end
 
       private

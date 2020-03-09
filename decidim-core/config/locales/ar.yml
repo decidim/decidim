@@ -100,6 +100,9 @@ ar:
         error: حدثت مشكلة أثناء تحديث حسابك.
         success: تم تحديث حسابك بنجاح.
         success_with_email_confirmation: تم تحديث حسابك بنجاح. ستتلقى بريدًا إلكترونيًا لتأكيد عنوان بريدك الإلكتروني الجديد.
+    admin:
+      actions:
+        cancel: إلغاء
     admin_log:
       area:
         create: "%{user_name} خلق المنطقة %{resource_name}"
@@ -155,13 +158,17 @@ ar:
         amended_by: عدلت من قبل
         button: تعديل %{model_name}
         help_text: تحسين هذا %{model_name} عن طريق تعديل %{amendable_fields}الخاص به
+        promote_button: ترقية إلى صفة %{model_name}
         promote_confirm_text: هل أنت متأكد من رغبتك في الترويج لهذا الإصدار؟
         section_heading: التعديلات (%{count})
       compare_draft:
         continue: متابعة
+      destroy_draft:
+        success: تم حذف مسودة التعديل بنجاح.
       edit_draft:
         discard: تجاهل هذه المسودة
         send: معاينة
+        title: تحرير مسودة التعديل
       emendation:
         actions:
           button_accept: قبول
@@ -174,6 +181,7 @@ ar:
           evaluating: |-
             هذا التعديل لل %{amendable_type} %{amendable_link}
             قيد التقييم.
+          promoted: تمت ترقيته إلى %{amendable_type}.
           rejected: تم رفض تعديل %{amendable_type} %{amendable_link} هذا في <strong>%{announcement_date}</strong>.
           withdrawn: |-
             تم سحب هذا التعديل على %{amendable_type} %{amendable_link}
@@ -181,12 +189,17 @@ ar:
       new:
         amendment_author: مؤلف التعديل
         send: إنشاء
+        title: إنشاء مسودة تعديل
       preview_draft:
         modify: تعديل
         publish: انشر
+        title: نشر مسودة التعديل
       promoted:
         error: كانت هناك مشكلة في نشر التعديل كاقتراح جديد
         success: تم نشر التعديل بنجاح كمقترح جديد
+      publish_draft:
+        error: حدثت هناك مشكلة أثناء نشر التعديل.
+        success: تم نشر التعديل بنجاح.
       rejected:
         error: حدثت مشكلة في رفض هذا التعديل ، يرجى إعادة المحاولة لاحقًا
         success: تم رفض التعديل بنجاح
@@ -195,11 +208,17 @@ ar:
         heading: مراجعة التعديل
         help_text: أنت تراجع التعديل على %{model_name}
         send: قبول التعديل
+      update_draft:
+        error: حدثت هناك مشكلة أثناء تحديث مسودة التعديل.
+        success: تم تحديث مسودة التعديل بنجاح.
+      visibility_options:
+        all: التعديلات مرئية وظاهرة للجميع
+        participants: التعديلات مرئية وظاهرة لمؤلّفيها فقط
       wizard_step_form:
         steps:
           '1': إنشاء التعديل الخاص بك
           '2': قارن تعديلك
-          '3': Complete your amendment
+          '3': اكمل تعديلك
           '4': انشر تعديلك
     anonymous_user: مجهول
     application:
@@ -216,6 +235,7 @@ ar:
       photos:
         related_photos: الصور ذات الصلة
     author:
+      avatar: الصورة الرمزية
       comments:
         zero: تعليقات
         one: تعليق
@@ -256,6 +276,8 @@ ar:
         incomplete:
           cancel: إلغاء
           invalid_field: "%{field}"
+        pending:
+          title: لا يزال الترخيص قيد انتظار التأكيد
         unauthorized:
           ok: موافق
           title: غير مخوّل
@@ -283,12 +305,17 @@ ar:
             comments_enabled: تم تمكين التعليقات
             dummy_global_attribute_1: السمة الدمية 1
             dummy_global_attribute_2: السمة الدمية 2
+            dummy_global_translatable_text: نص افتراضي قابل للترجمة
             enable_pads_creation: تمكين إنشاء منصات
             resources_permissions_enabled: تم تمكين أذونات الموارد
           step:
+            amendment_creation_enabled: إنشاء التعديلات مُفعّلة
+            amendment_promotion_enabled: ترقية التعديلات مُفعّلة
+            amendments_visibility: طريقة عرض التعديلات
             comments_blocked: تم حظر التعليقات
             dummy_step_attribute_1: الخطوة الدمية السمة 1
             dummy_step_attribute_2: الخطوة الدمية السمة 2
+            dummy_step_translatable_text: نص افتراضي للخطوة قابل للترجمة
     contact: اتصل
     content_blocks:
       footer_sub_hero:
@@ -557,6 +584,7 @@ ar:
       errors:
         decidim/user:
           password: الكلمة السرية قصيرة جدا.
+          password_confirmation: يجب أن يكون تأكيد كلمة المرور مطابق للكلمة السرية.
         error: يوجد خطأ في هذا المجال.
       remove_this_file: أزل هذا الملف
     gamification:
@@ -1180,6 +1208,7 @@ ar:
       cycle_detected: لا يمكن أن يكون والد النطاق أحد أحفاده
       expired: انتهت صلاحيتها ، يرجى طلب واحدة جديدة
       file_size_is_less_than_or_equal_to: يجب أن يكون حجم الملف أقل من أو يساوي %{count}
+      invalid_time_zone: ليست بمنطقة زمنية صالحة
       long_words: يحتوي على كلمات طويلة جدًا (أكثر من 35 حرفًا)
       must_start_with_caps: يجب أن تبدأ بحرف كبير
       nesting_too_deep: لا يمكن أن يكون داخل فئة فرعية

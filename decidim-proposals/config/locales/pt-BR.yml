@@ -217,6 +217,8 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque você é o autor da proposta.
           email_subject: A categoria de proposta %{resource_title} foi atualizada
           notification_title: A <a href="%{resource_path}">%{resource_title}</a> categoria de proposta foi atualizada por um administrador.
+        proposal_update_scope:
+          email_outro: Você recebeu esta notificação porque você é o autor da proposta.
         voting_enabled:
           email_intro: 'Você pode votar propostas em %{participatory_space_title}! Comece a participar nesta página:'
           email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
@@ -283,12 +285,10 @@ pt-BR:
         see_all: Ver todos (%{count})
     proposals:
       actions:
-        answer: Responda
         edit_proposal: Editar proposta
         import: Importar de outro componente
         new: Nova proposta
         participatory_texts: Textos participativos
-        private_notes: Notas privadas
         title: Ações
       admin:
         actions:
@@ -332,11 +332,7 @@ pt-BR:
           update:
             success: Texto participativo atualizado com sucesso.
         proposal_answers:
-          edit:
-            accepted: Aceitaram
-            answer_proposal: Responda
-            evaluating: Avaliando
-            rejected: Rejeitado
+          form:
             title: Resposta para a proposta %{title}
         proposal_notes:
           create:
@@ -368,6 +364,7 @@ pt-BR:
             change_category: Alterar categoria
             merge: Junte-se a um novo
             merge_button: Combinar
+            publish: Publicar
             select_component: Selecionar componente
             selected: selecionado
             split: Dividir propostas
@@ -377,11 +374,16 @@ pt-BR:
           new:
             create: Criar
             title: Criar proposta
+          publish_answers:
+            select_a_proposal: Selecione uma proposta
+          show:
+            created_at: Data de criação
+            votes_count: Contagem de votos
           update_category:
-            invalid: 'Essas propostas já tinham a categoria %{category} : %{proposals}.'
             select_a_category: Selecione uma categoria
             select_a_proposal: Selecione uma proposta
-            success: 'Propostas atualizadas com êxito para a categoria %{category} : %{proposals}.'
+          update_scope:
+            select_a_proposal: Selecione uma proposta
         proposals_imports:
           create:
             invalid: Tem havido um problema ao importar as propostas
@@ -399,12 +401,6 @@ pt-BR:
           create:
             invalid: Ocorreu um erro ao dividir as propostas selecionadas.
             success: Dividiu com sucesso as propostas em novas.
-        shared:
-          info_proposal:
-            body: Corpo
-            created_at: Data de criação
-            proposal_votes_count: Contagem de votos
-            proposals: Propostas
       admin_log:
         proposal:
           answer: "%{user_name} respondeu a proposta %{resource_name} no espaço %{space_name}"
@@ -429,7 +425,6 @@ pt-BR:
           accepted: Aceitaram
           all: Todos
           evaluating: Avaliando
-          except_rejected: Todos exceto rejeitados
           rejected: Rejeitado
         filter_type_values:
           all: Todos
@@ -478,7 +473,6 @@ pt-BR:
           all: Todos
           amendment: Emendas
           category: Categoria
-          category_prompt: Prompt de categoria
           open: Aberto
           published: Publicados
           related_to: Relacionado a
@@ -630,7 +624,6 @@ pt-BR:
         filters:
           amendment_type: Tipo
           category: Categoria
-          category_prompt: Selecionar uma categoria
           origin: Origem
           related_to: Relacionado a
           search: Pesquisa
@@ -674,6 +667,7 @@ pt-BR:
           creation_date: 'Criação: %{date}'
           view_proposal: Ver proposta
         show:
+          answer: Responder
           back_to: De volta a
           edit_proposal: Editar proposta
           endorsements_list: Lista de avais
@@ -689,9 +683,6 @@ pt-BR:
           withdraw_btn_hint: Você pode retirar sua proposta se mudar de idéia, desde que não tenha recebido nenhum suporte. A proposta não é excluída, ela aparecerá na lista de propostas retiradas.
           withdraw_confirmation: Tem certeza de retirar essa proposta?
           withdraw_proposal: Retirar proposta
-        tags:
-          changed_from: "(alterado de <u>%{previous_category}</u> por um administrador)"
-          filed_as: Arquivado como
         vote_button:
           already_voted: Já votou
           already_voted_hover: Unvote

@@ -118,7 +118,7 @@ jobs:
           command: mkdir ~/rspec && bundle exec rspec --format documentation --format RspecJunitFormatter -o ~/rspec/rspec.xml
       - run:
           name: Run rubocop
-          command: bundle exec rubocop
+          command: bundle exec rubocop -P
       - run:
           name: Run erblint
           command: /app/.circleci/run_erblint.sh

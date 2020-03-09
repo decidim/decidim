@@ -217,6 +217,8 @@ gl:
           email_outro: Recibiches esta notificación porque es o autor da proposta.
           email_subject: A categoría de proposta %{resource_title} foi actualizada
           notification_title: A categoría de proposta <a href="%{resource_path}">%{resource_title}</a> foi actualizada por un administrador.
+        proposal_update_scope:
+          email_outro: Recibiches esta notificación porque es o autor da proposta.
         voting_enabled:
           email_intro: 'Podes votar propostas en %{participatory_space_title}. Comezar a participar nesta páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
@@ -283,12 +285,10 @@ gl:
         see_all: Ver todos (%{count})
     proposals:
       actions:
-        answer: Resposta
         edit_proposal: Editar proposta
         import: Importar dende outro compoñente
         new: Nova proposta
         participatory_texts: Textos participativos
-        private_notes: Notas privadas
         title: Accións
       admin:
         actions:
@@ -332,11 +332,7 @@ gl:
           update:
             success: Texto participativo actualizado con éxito.
         proposal_answers:
-          edit:
-            accepted: Aceptada
-            answer_proposal: Resposta
-            evaluating: Avaliación
-            rejected: Rexeitado
+          form:
             title: Resposta á proposta %{title}
         proposal_notes:
           create:
@@ -368,6 +364,7 @@ gl:
             change_category: Cambiar categoría
             merge: Unirse a un novo
             merge_button: Fusionar
+            publish: Publicar
             select_component: Seleccione un compoñente
             selected: seleccionado
             split: Dividir propostas
@@ -377,11 +374,16 @@ gl:
           new:
             create: Crear
             title: Crear proposta
+          publish_answers:
+            select_a_proposal: Selecciona unha proposta
+          show:
+            created_at: Data de creación
+            votes_count: Reconto de votos
           update_category:
-            invalid: 'Estas propostas xa tiñan a categoría %{category} : %{proposals}.'
             select_a_category: Selecciona unha categoría
             select_a_proposal: Selecciona unha proposta
-            success: 'As propostas actualizáronse con éxito á categoría %{category} : %{proposals}.'
+          update_scope:
+            select_a_proposal: Selecciona unha proposta
         proposals_imports:
           create:
             invalid: Produciuse un problema na importación das propostas
@@ -399,12 +401,6 @@ gl:
           create:
             invalid: Produciuse un erro dividindo as propostas seleccionadas.
             success: Reaccionou con éxito as propostas en novas.
-        shared:
-          info_proposal:
-            body: Corpo
-            created_at: Data de creación
-            proposal_votes_count: Reconto de votos
-            proposals: Propostas
       admin_log:
         proposal:
           answer: "%{user_name} respondeu á proposta %{resource_name} no espazo %{space_name}"
@@ -429,7 +425,6 @@ gl:
           accepted: Aceptada
           all: Todo
           evaluating: Avaliación
-          except_rejected: Todos excepto rexeitados
           rejected: Rexeitado
         filter_type_values:
           all: Todo
@@ -478,7 +473,6 @@ gl:
           all: Todo
           amendment: Enmendas
           category: Categoría
-          category_prompt: Aviso de categoría
           open: Aberto
           published: Publicado
           related_to: Relacionado con
@@ -630,7 +624,6 @@ gl:
         filters:
           amendment_type: Tipo
           category: Categoría
-          category_prompt: Selecciona unha categoría
           origin: Orixe
           related_to: Relacionado con
           search: Busca
@@ -674,6 +667,7 @@ gl:
           creation_date: 'Creación: %{date}'
           view_proposal: Ver proposta
         show:
+          answer: Resposta
           back_to: Voltar
           edit_proposal: Editar proposta
           endorsements_list: Lista de avales
@@ -689,9 +683,6 @@ gl:
           withdraw_btn_hint: Pode retirar a súa proposta se cambia de opinión, sempre que non teña recibido ningún apoio. A proposta non se elimina, aparecerá na lista de propostas retiradas.
           withdraw_confirmation: '¿Estás seguro de retirar esta proposta?'
           withdraw_proposal: Retire a proposta
-        tags:
-          changed_from: "(cambiado de <u>%{previous_category}</u> por un administrador)"
-          filed_as: Arquivo como
         vote_button:
           already_voted: Xa votou
           already_voted_hover: Unvocar

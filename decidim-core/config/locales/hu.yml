@@ -140,7 +140,7 @@ hu:
         verify: "%{user_name} ellenőrizte a(z) %{resource_name} felhasználói csoportot"
         verify_via_csv: "%{user_name} az %{resource_name} felhasználói csoportot CSV-fájlon keresztül ellenőrizte"
     admin_terms_of_use:
-      default_body: "<h2>ADMIN FELHASZNÁLÓI FELTÉTELEK</h2><p>Bízunk benne, hogy a szokásos előadást megkaptad a helyi rendszergazdától. Ez rendszerint e három dologra bontható le:</p><ol><li>Tiszteld mások magánéletét.</li><li>Gondolkodj, mielőtt kattintasz.</li><li>A nagy hatalom, nagy felelősségvállalás jár.</li></ol>"
+      default_body: "<h2>ADMIN FELHASZNÁLÓI FELTÉTELEK</h2><p>Bízunk benne, hogy a szokásos előadást megkaptad a helyi rendszergazdától. Ez rendszerint e három dologra bontható le:</p><ol><li>Tiszteld mások magánéletét.</li><li>Gondolkodj, mielőtt kattintasz.</li><li>A nagy hatalommal, nagy felelősségvállalás is jár!</li></ol>"
     amendments:
       accepted:
         error: A módosítás elfogadása közben hiba történt.
@@ -233,6 +233,7 @@ hu:
       photos:
         related_photos: Kapcsolódó képek
     author:
+      avatar: Profilkép
       comments:
         one: megjegyzés
         other: megjegyzések
@@ -550,7 +551,7 @@ hu:
           notification_title: '%{name} (%{nickname}) (akit egyébként követsz) <a href="%{resource_path}">profil oldala</a> frissült.'
     export_mailer:
       data_portability_export:
-        click_button: 'Kattints a következő gombra az adatok letöltéséhez. <br/> A fájl eddig lesz elérhető: %{date}.'
+        click_button: 'Kattints a következő gombra az adataid letöltéséhez. <br/> A fájl eddig lesz elérhető: %{date}.<br/> Szükséged lesz egy Zip fájlt kezelő szoftverre a megnyitásához <a href=''https://www.7-zip.org/''>7-Zip</a> . Jelszó: %{password}'
         download: Letöltés
       export:
         ready: Mellékelve találod az exportálás tömörített változatát.
@@ -580,6 +581,7 @@ hu:
       create:
         button: Követés
         error: Hiba történt az erőforrás követése során.
+        participatory_space: Már követed a részvételi teret
       destroy:
         button: Követés törlése
         error: Hiba történt az erőforrás követésének visszavonásakor.
@@ -989,8 +991,8 @@ hu:
         unfold: Kibont
       results:
         results:
-          one: "%{count} eredmény"
-          other: "%{count} eredmény"
+          one: "%{count} találat"
+          other: "%{count} eredmények"
         view_all: Összes megtekintése (%{count})
     shared:
       embed_modal:

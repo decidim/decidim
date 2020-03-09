@@ -183,6 +183,7 @@ es-MX:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
+            valuator: Evaluadora
         media_link:
           fields:
             date: Fecha

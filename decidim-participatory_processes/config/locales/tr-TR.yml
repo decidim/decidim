@@ -187,13 +187,11 @@ tr:
         destroy:
           success: Kullanıcı bu katılımcı işlemden başarıyla kaldırıldı.
         edit:
-          title: Katılımcı süreç kullanıcısını güncelleyin.
           update: Güncelleştirme
         index:
           process_admins_title: Katılımcı süreç kullanıcıları
         new:
           create: yaratmak
-          title: Yeni katılımcı süreç kullanıcısı.
         update:
           error: Bu katılımcı işlem için bir kullanıcı güncellendi bir hata oluştu.
           success: Kullanıcı bu katılımcı süreç için başarıyla güncellendi.
@@ -367,13 +365,14 @@ tr:
         meetings_count: Toplantılar
         orders_count: oy
         pages_count: Sayfalar
+        participants_count: Katılımcılar
         processes_count: Süreçler
         projects_count: Projeler
         proposals_count: Teklif
         results_count: Sonuçlar
+        supports_count: oy
         surveys_count: Anketler
         users_count: Katılımcılar
-        votes_count: oy
   layouts:
     decidim:
       participatory_process_groups:

@@ -75,6 +75,23 @@ fi-pl:
         one: Ääni
         other: Äänet
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Tyyppi
+          values:
+            'false': Ehdotukset
+            'true': Muutokset
+        search_placeholder:
+          id_string_or_title_cont: '%{collection}: Hae ID-numeron tai otsikon perusteella'
+        state_eq:
+          values:
+            evaluating: Arvioitavana
+            withdrawn: Peruutettu
+        state_null:
+          label: Tila
+          values:
+            'true': Vastaamaton
     components:
       proposals:
         actions:
@@ -86,6 +103,7 @@ fi-pl:
         name: Ehdotukset
         settings:
           global:
+            allow_card_image: Salli kuva ehdotuskortilla
             amendments_enabled: Muutokset käytössä
             amendments_enabled_help: Jos käytössä, määritä asetukset kullekin vaiheelle.
             amendments_wizard_help_text: Muutoksen luonnin ohjeteksti
@@ -123,6 +141,7 @@ fi-pl:
             amendments_visibility: Muutosten näkyvyys
             amendments_visibility_help: Jos asetus "Muutokset ovat näkyvillä ainoastaan niiden laatijoille" on määritetty, osallistujien tulee kirjautua sisään nähdäkseen tehdyt muutokset.
             announcement: Ilmoitus
+            answers_with_costs: Ota käyttöön kustannusarviointi ehdotusten vastauksissa
             automatic_hashtags: Hashtagit lisätty kaikkiin ehdotuksiin
             comments_blocked: Kommentit on estetty
             creation_enabled: Ehdotuksen luominen käytössä
@@ -233,6 +252,8 @@ fi-pl:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen tekijä.
           email_subject: Ehdotuksen %{resource_title} aihepiiri on päivitetty
           notification_title: Järjestelmänvalvoja on päivittänyt ehdotuksen <a href="%{resource_path}">%{resource_title}</a> aihepiirin.
+        proposal_update_scope:
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen tekijä.
         voting_enabled:
           email_intro: 'Voit äänestää ehdotuksia kohteessa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
@@ -299,12 +320,11 @@ fi-pl:
         see_all: Näytä kaikki (%{count})
     proposals:
       actions:
-        answer: Vastaa
         edit_proposal: Muokkaa ehdotusta
         import: Tuo toisesta komponentista
         new: Uusi ehdotus
         participatory_texts: Ehdotusaineistot
-        private_notes: Omat muistiinpanot
+        show: Näytä ehdotus
         title: Toiminnot
       admin:
         actions:
@@ -349,7 +369,7 @@ fi-pl:
           update:
             success: Ehdotusaineisto päivitettiin onnistuneesti.
         proposal_answers:
-          edit:
+          form:
             accepted: Hyväksytty
             answer_proposal: Vastaa
             evaluating: Arvioitavana
@@ -387,6 +407,7 @@ fi-pl:
             change_category: Vaihda aihepiiri
             merge: Yhdistä uuteen
             merge_button: Yhdistä
+            publish: Julkaise
             select_component: Valitse komponentti
             selected: valittu
             split: Jaa ehdotuksia
@@ -396,11 +417,36 @@ fi-pl:
           new:
             create: Luo
             title: Luo ehdotus
+          publish_answers:
+            select_a_proposal: Valitse ehdotus
+          show:
+            amendments_count: Muutosten lukumäärä
+            authors: Laatijat
+            body: Sisältöteksti
+            comments_count: Kommenttien lukumäärä
+            comments_negative_count: Vastaan
+            comments_neutral_count: Neutraali
+            comments_positive_count: Puolesta
+            created_at: Luonnin ajankohta
+            documents: Asiakirjat
+            endorsements_count: Suositusten lukumäärä
+            endorsements_ranking: Luokittelu suositusten mukaan
+            endorsers: Suosittelijat
+            link: Linkki
+            n_more_endorsers:
+              one: ja 1 muu
+              other: ja %{count} muuta
+            photos: Kuvat
+            proposals: Ehdotukset
+            ranking: "%{ranking} / %{total}"
+            related_meetings: Liittyvät tapahtumat
+            votes_count: Äänten määrä
+            votes_ranking: Luokittelu suositusten mukaan
           update_category:
-            invalid: 'Näissä ehdotuksissa oli jo aihepiiri %{category}: %{proposals}.'
             select_a_category: Valitse aihepiiri
             select_a_proposal: Valitse ehdotus
-            success: 'Ehdotukset päivitettiin onnistuneesti aihepiiriin %{category}: %{proposals}.'
+          update_scope:
+            select_a_proposal: Valitse ehdotus
         proposals_imports:
           create:
             invalid: Ehdotuksien tuomisessa esiintyi ongelma
@@ -418,12 +464,6 @@ fi-pl:
           create:
             invalid: Jaettaessa ehdotuksia esiintyi virhe.
             success: Ehdotukset jaettiin onnistuneesti uusiksi ehdotuksiksi.
-        shared:
-          info_proposal:
-            body: Tekstin runko
-            created_at: Luonnin ajankohta
-            proposal_votes_count: Äänten määrä
-            proposals: Ehdotukset
       admin_log:
         proposal:
           answer: "%{user_name} vastasi ehdotukseen %{resource_name} tilassa %{space_name}"
@@ -438,17 +478,21 @@ fi-pl:
         rejected: Hylätty
         withdrawn: Peruutettu
       application_helper:
+        filter_category_values:
+          all: Kaikki
         filter_origin_values:
           all: Kaikki
           citizens: Kansalaiset
           meetings: Tapaamiset
           official: Virallinen
           user_groups: Käyttäjäryhmät
+        filter_scope_values:
+          all: Kaikki
         filter_state_values:
           accepted: Hyväksytyt
           all: Kaikki
           evaluating: Arvioitavana
-          except_rejected: Kaikki paitsi hylätyt
+          not_answered: Vastaamaton
           rejected: Hylätty
         filter_type_values:
           all: Kaikki
@@ -497,10 +541,10 @@ fi-pl:
           all: Kaikki
           amendment: Muutokset
           category: Aihepiiri
-          category_prompt: Aihepiiri-ilmoitus
           open: Avaa
           published: Julkaistu
           related_to: Liittyy
+          scope: Teema
           search: Hae
           state: Tila
           withdrawn: Peruttu
@@ -651,12 +695,13 @@ fi-pl:
           all: Kaikki
           amendment_type: Tyyppi
           category: Aihepiiri
-          category_prompt: Valitse aihepiiri
           my_proposals: Omat ehdotukset
           origin: Alkuperä
           related_to: Liittyy aiheeseen
+          scope: Teema
           search: Haku
           state: Tila
+          type: Tyyppi
           voted: Äänestetty
         filters_small_view:
           close_modal: Sulje ikkuna
@@ -700,10 +745,12 @@ fi-pl:
           creation_date: 'Luontiaika: %{date}'
           view_proposal: Näytä ehdotus
         show:
+          answer: Vastaa
           back_to: Takaisin
           changes_at_title: Muokkaus kohteelle "%{title}"
           edit_proposal: Muokkaa ehdotusta
           endorsements_list: Luettelo suositteluista
+          estimated_cost: Arvioitu kustannus
           hidden_endorsers_count:
             one: ja %{count} muu henkilö
             other: ja %{count} muuta henkilöä
@@ -716,13 +763,12 @@ fi-pl:
           proposal_accepted_reason: 'Tämä ehdotus on hyväksytty, koska:'
           proposal_in_evaluation_reason: Tämä ehdotus on arvioitavana
           proposal_rejected_reason: 'Tämä ehdotus on hylätty, koska:'
+          read_less: Vähennä tekstiä
+          read_more: Lue lisää
           report: Ilmoita
           withdraw_btn_hint: Jos muutat mieltäsi, voit perua ehdotuksesi, mikäli se ei ole saanut kannatusta. Ehdotusta ei poisteta, se näkyy peruutettujen ehdotusten luettelossa.
           withdraw_confirmation: Haluatko varmasti peruuttaa tämän ehdotuksen?
           withdraw_proposal: Peruuta ehdotus
-        tags:
-          changed_from: "(muutettu aihepiiristä <u>%{previous_category}</u> ylläpitäjä toimesta)"
-          filed_as: Merkitty
         vote_button:
           already_voted: Jo äänestetty
           already_voted_hover: Peru äänesi
