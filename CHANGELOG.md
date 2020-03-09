@@ -2,7 +2,7 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
-## Upgrade notes
+### Upgrade notes
 
 PR [\#5676](https://github.com/decidim/decidim/pull/5676) introduced a deprecation warning:
 
@@ -148,17 +148,19 @@ Please check [0.21-stable](https://github.com/decidim/decidim/blob/0.21-stable/C
 - **decidim-comments**: Hide and show comment threads [#5655](https://github.com/decidim/decidim/pull/5655)
 - **decidim-core**: Amendable resources can react to amendment state changes [#5703](https://github.com/decidim/decidim/pull/5703)
 ## Added
+### Added
 
 - **decidim-core**: Support node.js semver rules for release candidates. [#5828](https://github.com/decidim/decidim/pull/5828)
 
-## Changed
+### Changed
 
-## Fixed
+### Fixed
 
+- **decidim-admin**: Fix: let components without step settings be added [\#5568](https://github.com/decidim/decidim/pull/5568)
 - **decidim-proposals**: Fix for the proposals that have theirs state not published [#5832](https://github.com/decidim/decidim/pull/5832)
 
-## Removed
+### Removed
 
-## Previous versions
+### Previous versions
 
 Please check [0.21-stable](https://github.com/decidim/decidim/blob/0.21-stable/CHANGELOG.md) for previous changes.
