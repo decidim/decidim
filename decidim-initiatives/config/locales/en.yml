@@ -1,6 +1,12 @@
 ---
 en:
   activemodel:
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Needs to be reattached
     attributes:
       initiative:
         decidim_user_group_id: Author
