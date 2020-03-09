@@ -8,6 +8,7 @@ out.each do |mod|
   name = mod.gsub("decidim-", "")
   next if name == "core"
   next if name == "generators"
+  next if name == "proposals"
 
   clean_name = name.capitalize.gsub("_", " ")
 
