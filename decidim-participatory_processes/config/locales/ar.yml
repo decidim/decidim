@@ -162,6 +162,7 @@ ar:
       participatory_process_imports:
         new:
           import: استيراد
+          title: استيراد مسار تشاركي
       participatory_process_publications:
         create:
           error: كانت هناك مشكلة في نشر هذه العملية التشاركية.
