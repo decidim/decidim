@@ -103,7 +103,7 @@ Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now sup
 - **decidim-admin**: Admin can bulk update proposal's scope [\5759](https://github.com/decidim/decidim/pull/5759)
 ### Added
 
-- **decidim-core**: Support node.js semver rules for release candidates. [#5828](https://github.com/decidim/decidim/pull/5828)
+- **decidim-core**: Support node.js semver rules for release candidates. [\#5828](https://github.com/decidim/decidim/pull/5828)
 
 - **decidim-core**: Upgrade geocoder to be able to use the new Here geolocation API. [\#5644](https://github.com/decidim/decidim/pull/5644)
 - **decidim-core**: Shorten the 100 chars default last activity cards description lenght to 80 chars [\#5742](https://github.com/decidim/decidim/pull/5742)
@@ -120,8 +120,9 @@ Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now sup
 
 ### Fixed
 
+- **decidim-sortitions**: Fix incorrect proposals sortition. [\5620](https://github.com/decidim/decidim/pull/5620)
 - **decidim-admin**: Fix: let components without step settings be added [\#5568](https://github.com/decidim/decidim/pull/5568)
-- **decidim-proposals**: Fix for the proposals that have theirs state not published [#5832](https://github.com/decidim/decidim/pull/5832)
+- **decidim-proposals**: Fix for the proposals that have theirs state not published [\#5832](https://github.com/decidim/decidim/pull/5832)
 
 ### Removed
 
