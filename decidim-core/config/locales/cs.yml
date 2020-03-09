@@ -126,7 +126,7 @@ cs:
         delete: "%{user_name} uživatele %{resource_name} odstranil jako soukromého uživatele"
       scope:
         create: "%{user_name} vytvořilo %{resource_name} rozsah"
-        create_with_parent: "%{user_name} vytvořilo %{resource_name} rozsah uvnitř rozsahu %{parent_scope}"
+        create_with_parent: "%{user_name} vytvořil %{resource_name} rozsah uvnitř rozsahu %{parent_scope}"
         delete: "%{user_name} odstranil %{resource_name} rozsah"
         delete_with_parent: "%{user_name} odstranilo %{resource_name} rozsah uvnitř rozsahu %{parent_scope}"
         update: "%{user_name} aktualizoval rozsah %{resource_name}"
