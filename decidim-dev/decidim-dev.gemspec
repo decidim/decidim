@@ -25,7 +25,6 @@ Gem::Specification.new do |s|
   s.add_dependency "factory_bot_rails", "~> 4.8"
 
   s.add_dependency "byebug", "~> 11.0"
-  s.add_dependency "codecov", "~> 0.1.16"
   s.add_dependency "db-query-matchers", "~> 0.9.0"
   s.add_dependency "erb_lint", "~> 0.0.28"
   s.add_dependency "i18n-tasks", "~> 0.9.18"
@@ -41,7 +40,8 @@ Gem::Specification.new do |s|
   s.add_dependency "rubocop-rails", "~> 2.0"
   s.add_dependency "rubocop-rspec", "~> 1.21"
   s.add_dependency "selenium-webdriver", "~> 3.142"
-  s.add_dependency "simplecov", "~> 0.17.1"
+  s.add_dependency "simplecov", "~> 0.18.5"
+  s.add_dependency "simplecov-cobertura", "~> 1.3.1"
   s.add_dependency "system_test_html_screenshots", "~> 0.1.1"
   s.add_dependency "webmock", "~> 3.6"
   s.add_dependency "wisper-rspec", "~> 1.0"

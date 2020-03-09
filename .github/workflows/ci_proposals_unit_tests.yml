@@ -56,6 +56,10 @@ jobs:
       - run: bundle exec rspec --exclude-pattern 'spec/system/**/*_spec.rb'
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
+      - uses: codecov/codecov-action@v1
+        with:
+          file: ./coverage/coverage.xml
+          name: ${{ env.DECIDIM_MODULE }}
       - uses: actions/upload-artifact@v2-preview
         if: always()
         with:
