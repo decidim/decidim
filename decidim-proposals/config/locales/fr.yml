@@ -379,6 +379,7 @@ fr:
             change_category: Changer de catégorie
             merge: Fusionner dans un nouveau
             merge_button: Fusionner
+            publish: Publier
             select_component: Sélectionnez un composant
             selected: choisi
             split: Fractionner la proposition
@@ -388,6 +389,8 @@ fr:
           new:
             create: Créer
             title: Créer une proposition
+          publish_answers:
+            select_a_proposal: Veuillez sélectionner une proposition
           show:
             created_at: Date de création
             votes_count: Nombre de votes

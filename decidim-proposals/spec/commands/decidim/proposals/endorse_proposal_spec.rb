@@ -46,7 +46,7 @@ module Decidim
 
         context "when the endorsement is not valid" do
           before do
-            proposal.update(answered_at: Time.current, state: "rejected")
+            proposal.update(answered_at: Time.current, state: "rejected", state_published_at: Time.current)
           end
 
           it "broadcasts invalid" do
@@ -79,7 +79,7 @@ module Decidim
 
         context "when the endorsement is not valid" do
           before do
-            proposal.update(answered_at: Time.current, state: "rejected")
+            proposal.update(answered_at: Time.current, state: "rejected", state_published_at: Time.current)
           end
 
           it "Do not increase the endorsements counter by one" do
