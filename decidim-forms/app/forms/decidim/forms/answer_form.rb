@@ -9,6 +9,7 @@ module Decidim
       attribute :question_id, String
       attribute :body, String
       attribute :choices, Array[AnswerChoiceForm]
+      attribute :matrix_choices, Array[AnswerChoiceForm]
 
       validates :body, presence: true, if: :mandatory_body?
       validates :selected_choices, presence: true, if: :mandatory_choices?
@@ -50,8 +51,8 @@ module Decidim
       private
 
       def max_choices
-        if matrix? && selected_choices.group_by(&:matrix_row_id).values.any? { |choices| choices.size > question.max_choices }
-          errors.add(:choices, :too_many)
+        if matrix?
+          errors.add(:choices, :too_many) if selected_choices.group_by(&:matrix_row_id).values.any? { |choices| choices.count > question.max_choices }
         elsif selected_choices.size > question.max_choices
           errors.add(:choices, :too_many)
         end
