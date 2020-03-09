@@ -54,6 +54,9 @@ module Decidim
           # Every user allowed by the space can unassign a valuator from proposals
           can_unassign_valuator_from_proposals?
 
+          # Only admin users can publish many answers at once
+          toggle_allow(user.admin?) if permission_action.subject == :proposals && permission_action.action == :publish_answers
+
           if permission_action.subject == :participatory_texts && participatory_texts_are_enabled?
             # Every user allowed by the space can manage (import, update and publish) participatory texts to proposals
             allow! if permission_action.action == :manage

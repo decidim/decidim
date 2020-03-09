@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Filter Proposals", type: :system do
+describe "Filter Proposals", :slow, type: :system do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
@@ -212,6 +212,47 @@ describe "Filter Proposals", type: :system do
 
           within ".card--proposal" do
             expect(page).to have_content("REJECTED")
+          end
+        end
+
+        context "when there are proposals with answers not published" do
+          let!(:proposal) { create(:proposal, :accepted_not_published, component: component, scope: scope) }
+
+          before do
+            create(:proposal, :accepted, component: component, scope: scope)
+
+            visit_component
+          end
+
+          it "shows only accepted proposals with published answers" do
+            within ".filters .state_check_boxes_tree_filter" do
+              check "All"
+              uncheck "All"
+              check "Accepted"
+            end
+
+            expect(page).to have_css(".card--proposal", count: 1)
+            expect(page).to have_content("1 PROPOSAL")
+
+            within ".card--proposal" do
+              expect(page).to have_content("ACCEPTED")
+            end
+          end
+
+          it "shows accepted proposals with not published answers as not answered" do
+            within ".filters .state_check_boxes_tree_filter" do
+              check "All"
+              uncheck "All"
+              check "Not answered"
+            end
+
+            expect(page).to have_css(".card--proposal", count: 1)
+            expect(page).to have_content("1 PROPOSAL")
+
+            within ".card--proposal" do
+              expect(page).to have_content(proposal.title)
+              expect(page).not_to have_content("ACCEPTED")
+            end
           end
         end
       end
