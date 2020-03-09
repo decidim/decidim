@@ -123,6 +123,7 @@ describe "Conversations", type: :system do
       end
 
       it "appears as the last message", :slow do
+        click_button "Send"
         expect(page).to have_selector(".message:last-child", text: "Please reply!")
       end
 
