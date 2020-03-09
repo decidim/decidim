@@ -193,13 +193,11 @@ sv:
         destroy:
           success: Administratören togs bort från deltagarprocessen.
         edit:
-          title: Uppdatera administratören för deltagarprocessen.
           update: Uppdatera
         index:
           process_admins_title: Administratörer för deltagarprocessen
         new:
           create: Skapa
-          title: Ny administratör för deltagarprocess.
         update:
           error: Det gick inte att uppdatera administratören för deltagarprocessen.
           success: Administratören har uppdaterats för deltagarprocessen.

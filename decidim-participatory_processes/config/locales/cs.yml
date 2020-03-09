@@ -22,9 +22,12 @@ cs:
         participatory_structure: Jak se to rozhoduje
         promoted: Propagováno
         published_at: Publikováno v
+        related_process_ids: Související procesy
         scope_id: Rozsah
+        scope_type_max_depth_id: Hloubka filtru rozsahu
         scopes_enabled: Schopnosti povoleny
         short_description: Stručný popis
+        show_metrics: Zobrazit metriku
         show_statistics: Zobrazit statistiky
         slug: URL slug
         start_date: Počáteční datum
@@ -138,6 +141,7 @@ cs:
             admin: Správce
             collaborator: Spolupracovník
             moderator: Moderátor
+            valuator: Hodnotitel
         user:
           fields:
             invitation_accepted_at: Pozvánka byla přijata na
@@ -209,13 +213,13 @@ cs:
         destroy:
           success: Uživatel byl úspěšně odstraněn z tohoto participačního procesu.
         edit:
-          title: Aktualizovat uživatele participačního procesu.
+          title: Aktualizovat správce participačního procesu
           update: Aktualizace
         index:
           process_admins_title: Uživatelé účastnických procesů
         new:
           create: Vytvořit
-          title: Nový účastník procesu procesu.
+          title: Nový správce participačního procesu
         update:
           error: Došlo k chybě při aktualizaci uživatele pro tento participační proces.
           success: Uživatel byl úspěšně aktualizován pro tento participační proces.
@@ -330,6 +334,8 @@ cs:
             images: snímky
             metadata: Metadata
             other: jiný
+            related_processes: Související procesy
+            scope_type_max_depth_help: Omezit hloubku filtru rozsahu. Filtr se zobrazí od obecného k vybranému typu rozsahu.
             select_an_area: Vyberte oblast
             select_process_group: Vyberte skupinu procesů
             slug_help: 'Sloupce adres URL se používají k vygenerování adres URL, které směřují k tomuto procesu. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
@@ -393,6 +399,7 @@ cs:
         participatory_scope: Co se rozhodlo
         participatory_structure: Jak se to rozhoduje
         private_space: Jedná se o soukromý proces
+        related_processes: Související procesy
         scope: Rozsah
         start_date: Počáteční datum
         target: Kdo se účastní
@@ -402,8 +409,10 @@ cs:
         comments_count: Komentáře
         debates_count: Debaty
         endorsements_count: Potvrzení
+        followers_count: Sledující
         headline: Aktivita
         meetings_count: Setkání
+        no_stats: Zatím nejsou žádné statistiky.
         orders_count: Hlasy
         pages_count: Stránky
         participants_count: Účastníci

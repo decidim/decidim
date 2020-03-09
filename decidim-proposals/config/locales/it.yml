@@ -230,6 +230,8 @@ it:
           email_outro: Hai ricevuto questa notifica perché sei l'autore della proposta.
           email_subject: La categoria di proposta %{resource_title} è stata aggiornata
           notification_title: La categoria <a href="%{resource_path}">%{resource_title}</a> proposta è stata aggiornata da un amministratore.
+        proposal_update_scope:
+          email_outro: Hai ricevuto questa notifica perché sei l'autore della proposta.
         voting_enabled:
           email_intro: 'Puoi votare le proposte in %{participatory_space_title}! Inizia a partecipare a questa pagina:'
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche facendo clich su pulsante Smetti di seguire nella pagina del processo o del contenuto che stai seguendo.
@@ -378,6 +380,7 @@ it:
             change_category: Cambia categoria
             merge: Unisci a uno nuovo
             merge_button: fondersi
+            publish: Pubblica
             select_component: Seleziona un componente
             selected: selezionato
             split: Proposte divise
@@ -387,14 +390,16 @@ it:
           new:
             create: Crea
             title: Crea una proposta
+          publish_answers:
+            select_a_proposal: Si prega di selezionare una proposta
           show:
             created_at: Data di creazione
             votes_count: Contare i voti
           update_category:
-            invalid: 'Queste proposte avevano già la categoria %{category} : %{proposals}.'
             select_a_category: Si prega di selezionare una categoria
             select_a_proposal: Si prega di selezionare una proposta
-            success: 'Proposte aggiornate con successo alla categoria %{category} : %{proposals}.'
+          update_scope:
+            select_a_proposal: Si prega di selezionare una proposta
         proposals_imports:
           create:
             invalid: C'è stato un problema nell'importazione delle proposte
@@ -706,8 +711,6 @@ it:
           withdraw_btn_hint: Puoi ritirare la tua proposta se cambi idea, purché non abbia ricevuto alcun supporto. La proposta non viene cancellata, apparirà nell'elenco delle proposte ritirate.
           withdraw_confirmation: Sei sicuro di ritirare questa proposta?
           withdraw_proposal: Ritirare la proposta
-        tags:
-          changed_from: "(modificato da <u>%{previous_category}</u> da un amministratore)"
         vote_button:
           already_voted: Già votata
           already_voted_hover: Annullare il voto

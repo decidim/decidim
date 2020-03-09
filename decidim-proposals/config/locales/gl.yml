@@ -217,6 +217,8 @@ gl:
           email_outro: Recibiches esta notificación porque es o autor da proposta.
           email_subject: A categoría de proposta %{resource_title} foi actualizada
           notification_title: A categoría de proposta <a href="%{resource_path}">%{resource_title}</a> foi actualizada por un administrador.
+        proposal_update_scope:
+          email_outro: Recibiches esta notificación porque es o autor da proposta.
         voting_enabled:
           email_intro: 'Podes votar propostas en %{participatory_space_title}. Comezar a participar nesta páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
@@ -362,6 +364,7 @@ gl:
             change_category: Cambiar categoría
             merge: Unirse a un novo
             merge_button: Fusionar
+            publish: Publicar
             select_component: Seleccione un compoñente
             selected: seleccionado
             split: Dividir propostas
@@ -371,14 +374,16 @@ gl:
           new:
             create: Crear
             title: Crear proposta
+          publish_answers:
+            select_a_proposal: Selecciona unha proposta
           show:
             created_at: Data de creación
             votes_count: Reconto de votos
           update_category:
-            invalid: 'Estas propostas xa tiñan a categoría %{category} : %{proposals}.'
             select_a_category: Selecciona unha categoría
             select_a_proposal: Selecciona unha proposta
-            success: 'As propostas actualizáronse con éxito á categoría %{category} : %{proposals}.'
+          update_scope:
+            select_a_proposal: Selecciona unha proposta
         proposals_imports:
           create:
             invalid: Produciuse un problema na importación das propostas
@@ -678,8 +683,6 @@ gl:
           withdraw_btn_hint: Pode retirar a súa proposta se cambia de opinión, sempre que non teña recibido ningún apoio. A proposta non se elimina, aparecerá na lista de propostas retiradas.
           withdraw_confirmation: '¿Estás seguro de retirar esta proposta?'
           withdraw_proposal: Retire a proposta
-        tags:
-          changed_from: "(cambiado de <u>%{previous_category}</u> por un administrador)"
         vote_button:
           already_voted: Xa votou
           already_voted_hover: Unvocar
