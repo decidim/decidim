@@ -446,6 +446,7 @@ cs:
             create: Vytvořit
             title: Vytvořte návrh
           publish_answers:
+            number_of_proposals: Odpovědi na %{number} návrhů budou publikovány.
             select_a_proposal: Vyberte prosím návrh
           show:
             amendments_count: Počet pozměňovacích návrhů
@@ -460,6 +461,7 @@ cs:
             documents: Dokumenty
             endorsements_count: Počet položek
             endorsements_ranking: Pořadí podle položek
+            endorsers: Podporovatelé
             link: Odkaz
             photos: Fotky
             proposals: Návrhy
@@ -479,6 +481,7 @@ cs:
             invalid: 'Tyto návrhy již měly rozsah %{subject_name}: %{proposals}.'
             select_a_proposal: Vyberte prosím návrh
             select_a_scope: Vyberte prosím rozsah
+            success: 'Návrhy byly úspěšně aktualizovány v rozsahu %{subject_name}: %{proposals}.'
         proposals_imports:
           create:
             invalid: Při importu návrhů došlo k problému
@@ -497,6 +500,9 @@ cs:
             invalid: Při výběru vybraných návrhů došlo k chybě.
             success: Úspěšně rozdělil návrhy na nové.
         valuation_assignments:
+          create:
+            invalid: Při přiřazování návrhů hodnotiteli došlo k chybě
+            success: Návrhy úspěšně přiřazené hodnotiteli
           delete:
             invalid: Došlo k chybě při odebírání návrhů od hodnotitele
             success: Hodnotitel byl úspěšně odebrán z návrhů
@@ -504,11 +510,13 @@ cs:
         proposal:
           answer: "%{user_name} odpovídalo %{resource_name} návrh na %{space_name} prostoru"
           create: "%{user_name} vytvořil %{resource_name} návrh na %{space_name} prostoru jako oficiální návrh"
+          publish_answer: "%{user_name} zveřejnil odpověď na návrh %{resource_name} ve skupině %{space_name}"
           update: "%{user_name} aktualizoval %{resource_name} oficiální návrh na %{space_name} místa"
         proposal_note:
           create: "%{user_name} zanechal soukromou poznámku k návrhu %{resource_name} na %{space_name} prostoru"
         valuation_assignment:
           create: "%{user_name} přiřadil návrh %{resource_name} hodnotiteli"
+          delete: "%{user_name} odebral hodnotitele z návrhu %{proposal_title}"
       answers:
         accepted: Přijato
         evaluating: Hodnocení
