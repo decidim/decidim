@@ -59,7 +59,7 @@ jobs:
       - uses: codecov/codecov-action@v1
         with:
           file: ./coverage/coverage.xml
-          name: ${{ env.DECIDIM_MODULE }}
+          name: decidim-proposals-system-admin
       - uses: actions/upload-artifact@v2-preview
         if: always()
         with:
