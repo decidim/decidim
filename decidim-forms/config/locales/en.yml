@@ -59,12 +59,12 @@ en:
           body: Body can't be blank
       question_types:
         long_answer: Long answer
+        matrix_multiple: Matrix (Multiple option)
+        matrix_single: Matrix (Single option)
         multiple_option: Multiple option
         short_answer: Short answer
         single_option: Single option
         sorting: Sorting
-        matrix_single: Matrix (Single option)
-        matrix_multiple: Matrix (Multiple option)
       questionnaires:
         answer:
           invalid: There was a problem answering the form.
