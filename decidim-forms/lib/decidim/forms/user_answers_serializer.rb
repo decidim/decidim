@@ -28,13 +28,27 @@ module Decidim
       private
 
       def normalize_body(answer)
-        answer.body || normalize_choices(answer.choices)
+        answer.body || normalize_choices(answer, answer.choices)
       end
 
-      def normalize_choices(choices)
-        choices.map do |choice|
-          choice.try(:custom_body) || choice.try(:body)
+      def normalize_choices(answer, choices)
+        if answer.question.matrix?
+          normalize_matrix_choices(answer, choices)
+        else
+          choices.map do |choice|
+            choice.try(:custom_body) || choice.try(:body)
+          end
         end
+      end
+
+      def normalize_matrix_choices(answer, choices)
+        choices.group_by(&:matrix_row).map do |matrix_row, row_choices|
+          row_choices.map! do |choice|
+            choice.try(:custom_body) || choice.try(:body)
+          end
+
+          [translated_attribute(answer.question.matrix_rows.find_by(id: matrix_row.id).body), row_choices]
+        end.to_h
       end
 
       def answer_translated_attribute_name(attribute)

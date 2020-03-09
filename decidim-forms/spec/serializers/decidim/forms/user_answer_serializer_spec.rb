@@ -31,13 +31,28 @@ module Decidim
       end
 
       let!(:singlechoice_question) { create :questionnaire_question, questionnaire: questionnaire, question_type: "single_option" }
-      let!(:singlechoice_answer_options) { create_list :answer_option, 2, question: multichoice_question }
+      let!(:singlechoice_answer_options) { create_list :answer_option, 2, question: singlechoice_question }
       let!(:singlechoice_answer) do
         create :answer, questionnaire: questionnaire, question: singlechoice_question, user: user, body: nil
       end
       let!(:singlechoice_answer_choice) do
         answer_option = singlechoice_answer_options.first
         create :answer_choice, answer: singlechoice_answer, answer_option: answer_option, body: answer_option.body[I18n.locale.to_s], custom_body: "Free text"
+      end
+
+      let!(:matrixmultiple_question) { create :questionnaire_question, questionnaire: questionnaire, question_type: "matrix_multiple" }
+      let!(:matrixmultiple_answer_options) { create_list :answer_option, 2, question: matrixmultiple_question }
+      let!(:matrixmultiple_rows) { create_list :question_matrix_row, 2, question: matrixmultiple_question }
+      let!(:matrixmultiple_answer) do
+        create :answer, questionnaire: questionnaire, question: matrixmultiple_question, user: user, body: nil
+      end
+      let!(:matrixmultiple_answer_choices) do
+        matrixmultiple_answer_options.map do |answer_option|
+          [
+            create(:answer_choice, answer: matrixmultiple_answer, answer_option: answer_option, matrix_row: matrixmultiple_rows.first, body: answer_option.body[I18n.locale.to_s]),
+            create(:answer_choice, answer: matrixmultiple_answer, answer_option: answer_option, matrix_row: matrixmultiple_rows.second, body: answer_option.body[I18n.locale.to_s])
+          ]
+        end.flatten
       end
 
       describe "#serialize" do
@@ -50,12 +65,23 @@ module Decidim
             )
           end
 
+          serialized_matrix_answer = matrixmultiple_rows.map do |row|
+            key = translated(row.body, locale: I18n.locale)
+            value = matrixmultiple_answer_choices.select { |c| c.matrix_row.id == row.id }.map(&:body)
+
+            [key, value]
+          end.to_h
+
           expect(serialized).to include(
             "4. #{translated(multichoice_question.body, locale: I18n.locale)}" => multichoice_answer_choices.map(&:body)
           )
 
           expect(serialized).to include(
             "5. #{translated(singlechoice_question.body, locale: I18n.locale)}" => ["Free text"]
+          )
+
+          expect(serialized).to include(
+            "6. #{translated(matrixmultiple_question.body, locale: I18n.locale)}" => serialized_matrix_answer
           )
         end
 
