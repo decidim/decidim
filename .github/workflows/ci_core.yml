@@ -2,6 +2,7 @@ name: "[CI] Core"
 on: [push]
 
 env:
+  CI: "true"
   RUBY_VERSION: 2.5.3
   DECIDIM_MODULE: decidim-core
 
