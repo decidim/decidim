@@ -143,6 +143,8 @@ ru:
           email_outro: Вы получили это уведомление, потому что вы являетесь автором предложения.
           email_subject: Обновлена категория предложений %{resource_title}
           notification_title: Категория предложений <a href="%{resource_path}">%{resource_title}</a> была обновлена ​​администратором.
+        proposal_update_scope:
+          email_outro: Вы получили это уведомление, потому что вы являетесь автором предложения.
         voting_enabled:
           email_intro: 'Теперь вы можете голосовать по предложениям в %{participatory_space_title}! Начните со страницы:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
@@ -154,10 +156,8 @@ ru:
           proposals: Предложения
     proposals:
       actions:
-        answer: Ответить
         import: Позаимствовать из другой составляющей
         new: Внести новое предложение
-        private_notes: Частные примечания
         title: Действия
       admin:
         actions:
@@ -169,11 +169,7 @@ ru:
           proposal:
             name: Предложение
         proposal_answers:
-          edit:
-            accepted: Принято
-            answer_proposal: Ответить
-            evaluating: Рассматривается
-            rejected: Отклонено
+          form:
             title: Ответ на предложение %{title}
         proposal_notes:
           create:
@@ -198,17 +194,23 @@ ru:
             actions: Действия
             cancel: Отменить
             change_category: Изменить категорию
+            publish: Обнародовать
             selected: выбранные
             title: Предложения
             update: Обновить
           new:
             create: Внести
             title: Создать предложение
+          publish_answers:
+            select_a_proposal: Пожалуйста, выберите предложение
+          show:
+            created_at: Дата создания
+            votes_count: Количество голосов
           update_category:
-            invalid: 'Эти предложения уже относились к категории %{category}: %{proposals}.'
             select_a_category: Пожалуйста, выберите категорию
             select_a_proposal: Пожалуйста, выберите предложение
-            success: 'Предложения успешно перенесены в категорию %{category}: %{proposals}.'
+          update_scope:
+            select_a_proposal: Пожалуйста, выберите предложение
         proposals_imports:
           create:
             invalid: При попытке позаимствовать эти предложения произошла ошибка
@@ -218,12 +220,6 @@ ru:
             no_components: В этом пространстве соучастия нет других составляющих предложений, из которых можно было бы позаимствовать предложения.
             select_component: Пожалуйста, выберите составляющую
             select_states: Проверьте состояние предложений, которые вы хотите позаимствовать
-        shared:
-          info_proposal:
-            body: Основной текст
-            created_at: Дата создания
-            proposal_votes_count: Количество голосов
-            proposals: Предложения
       admin_log:
         proposal:
           answer: "%{user_name} ответил на предложение %{resource_name} в пространстве %{space_name}"
@@ -240,8 +236,6 @@ ru:
         filter_origin_values:
           citizens: Граждане
           official: Служебные
-        filter_state_values:
-          except_rejected: Все, кроме отклоненных
       create:
         error: При попытке сохранить это предложение произошли ошибки.
         success: Предложение успешно создано. Сохранено как черновик.
@@ -303,7 +297,6 @@ ru:
           comments: Комментарии
         filters:
           category: Категория
-          category_prompt: Выберите категорию
           origin: Источник
           related_to: Связано с
           search: Поиск
@@ -345,6 +338,7 @@ ru:
           creation_date: 'Создано: %{date}'
           view_proposal: Просмотреть предложение
         show:
+          answer: Ответить
           edit_proposal: Редактировать предложение
           endorsements_list: Список тех, кто поддержал
           proposal_accepted_reason: 'Это предложение было принято, поскольку:'
@@ -354,9 +348,6 @@ ru:
           withdraw_btn_hint: Вы можете снять свое предложение, если передумаете, пока вы не получили никакой поддержки. Предложение не будет удалено, оно будет указано в списке снятых предложений.
           withdraw_confirmation: Вы действительно хотите снять это предложение?
           withdraw_proposal: Снять предложение
-        tags:
-          changed_from: "(изменено с <u>%{previous_category}</u> администратором)"
-          filed_as: Отмечено как
         vote_button:
           already_voted: Уже проголосовали
           already_voted_hover: Отменить голос

@@ -16,6 +16,7 @@ cs:
         created_by_other: Vytvořeno jinými
         creation_date: Datum vytvoření
         decidim_area_id: Oblast
+        decidim_assemblies_type_id: Typ shromáždění
         decidim_scope_id: Rozsah
         description: Popis
         developer_group: Skupina promotérů
@@ -84,6 +85,7 @@ cs:
     admin:
       actions:
         new_assembly: Nové shromáždění
+        new_assembly_type: Nový typ shromáždění
       assemblies:
         create:
           error: Při vytváření nového shromáždění došlo k chybě.
@@ -105,6 +107,17 @@ cs:
         create:
           error: Při kopírování této sestavy došlo k chybě.
           success: Sestavení úspěšně duplikováno.
+      assemblies_types:
+        create:
+          error: Při vytváření nového typu shromáždění došlo k chybě.
+          success: Typ shromáždění byl úspěšně vytvořen.
+        destroy:
+          success: Typ shromáždění byl úspěšně smazán.
+        new:
+          create: Vytvořit
+          title: Nový typ shromáždění
+        update:
+          error: Při aktualizaci tohoto typu shromáždění došlo k chybě.
       assembly_copies:
         new:
           copy: kopírovat
@@ -164,7 +177,12 @@ cs:
           info: Info
           moderations: Moderování
           private_users: Soukromí uživatelé
+        assemblies_types: Typy shromáždění
       models:
+        assemblies_types:
+          fields:
+            created_at: Vytvořeno v
+            title: Název
         assembly:
           fields:
             created_at: Vytvořeno u
@@ -195,8 +213,10 @@ cs:
             admin: Správce
             collaborator: Spolupracovník
             moderator: Moderátor
+            valuator: Hodnotitel
       titles:
         assemblies: Sestavy
+        assemblies_types: Typy shromáždění
     admin_log:
       assembly:
         create: "%{user_name} vytvořil %{resource_name} shromáždění"
@@ -230,6 +250,9 @@ cs:
             social_handlers: Sociální
             title: Obecná informace
             visbility: Viditelnost
+        assemblies_types:
+          form:
+            title: Název
         assembly_copies:
           form:
             slug_help: 'URL slug se používají k vygenerování adres URL, které odkazují na toto shromáždění. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'

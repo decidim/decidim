@@ -15,6 +15,8 @@ es:
             choices:
               missing: no están completos
               too_many: son demasiados
+        questionnaire:
+          request_invalid: Ha ocurrido un error al enviar tu solicitud. Inténtalo de nuevo
   decidim:
     forms:
       admin:
@@ -80,3 +82,7 @@ es:
       user_answers_serializer:
         created_at: Respondido el
         id: Identificador de respuesta
+        ip_hash: Hash de Dirección IP
+        registered: Registrado
+        unregistered: No registrado
+        user_status: Estado del usuario

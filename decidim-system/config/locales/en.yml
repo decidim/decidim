@@ -48,6 +48,7 @@ en:
           fields:
             created_at: Created at
             name: Name
+            omniauth_settings: Omniauth settings
             smtp_settings: SMTP settings
           name: Organization
       organizations:
@@ -62,6 +63,19 @@ en:
           reference_prefix_hint: The reference prefix is used to uniquely identify resources across all organization
           secondary_hosts_hint: Enter each one of them in a new line
           title: New organization
+        omniauth_settings:
+          enabled: Enabled
+          facebook:
+            app_id: App ID
+            app_secret: App secret
+          google_oauth2:
+            client_id: Client ID
+            client_secret: Client secret
+          icon: Icon
+          icon_path: Icon path
+          twitter:
+            api_key: API key
+            api_secret: API secret
         update:
           error: There was a problem updating this organization.
           success: Organization successfully updated.

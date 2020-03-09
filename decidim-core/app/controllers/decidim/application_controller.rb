@@ -3,6 +3,8 @@
 module Decidim
   # The main application controller that inherits from Rails.
   class ApplicationController < ::DecidimController
+    include Browser::ActionController
+
     include NeedsOrganization
     include LocaleSwitcher
     include UseOrganizationTimeZone

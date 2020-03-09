@@ -6,6 +6,7 @@ module Decidim
     #
     class OrganizationsController < Decidim::System::ApplicationController
       helper_method :current_organization
+      helper Decidim::OmniauthHelper
 
       def new
         @form = form(RegisterOrganizationForm).instance

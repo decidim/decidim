@@ -24,6 +24,8 @@ module Decidim
     attribute :route_name, String
 
     attribute :query_type, String, default: "Decidim::Core::ParticipatorySpaceType"
+    attribute :query_finder, String, default: "Decidim::Core::ParticipatorySpaceFinder"
+    attribute :query_list, String, default: "Decidim::Core::ParticipatorySpaceList"
 
     # An array with the name of the classes that will be exported with
     # the data portability feature for this component. For example, `Decidim::<MyModule>::<MyClass>``
@@ -111,6 +113,24 @@ module Decidim
     # Returns a Class.
     def permissions_class
       permissions_class_name&.constantize
+    end
+
+    # Public: Stores an instance of StatsRegistry
+    def stats
+      @stats ||= StatsRegistry.new
+    end
+
+    # Public: Registers a stat inside a participatory_space manifest.
+    #
+    # name - The name of the stat
+    # options - A hash of options
+    #         * primary: Whether the stat is primary or not.
+    #         * priority: The priority of the stat used for render issues.
+    # block - A block that receive the components to filter out the stat.
+    #
+    # Returns nothing.
+    def register_stat(name, options = {}, &block)
+      stats.register(name, options, &block)
     end
 
     # Public: Registers a resource. Exposes a DSL defined by

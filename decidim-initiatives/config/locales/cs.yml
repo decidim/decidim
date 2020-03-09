@@ -67,6 +67,16 @@ cs:
     admin:
       actions:
         new_initiative_type: Nový typ iniciativy
+      filters:
+        state_eq:
+          label: Stav
+          values:
+            accepted: Přijato
+            created: Vytvořeno
+            discarded: Zahozeno
+            published: Publikováno
+            rejected: Zamítnuto
+            validating: Technické ověření
       menu:
         initiatives: Iniciativy
         initiatives_types: Typy iniciativ
@@ -182,18 +192,8 @@ cs:
             title: Obecná informace
           index:
             actions_title: Akce
-            filter:
-              accepted: Přijato
-              all: Vše
-              created: Vytvořeno
-              discarded: Vyřazeno
-              published: Publikováno
-              rejected: Odmítnuto
-              validating: Technická validace
-            filter_by: Filtrovat podle
             preview: Náhled
             print: Tisk
-            search: Vyhledávání
           show:
             print: Vytisknout
           update:

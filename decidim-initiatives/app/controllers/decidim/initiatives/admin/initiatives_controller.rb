@@ -9,6 +9,7 @@ module Decidim
       class InitiativesController < Decidim::Initiatives::Admin::ApplicationController
         include Decidim::Initiatives::NeedsInitiative
         include Decidim::Initiatives::TypeSelectorOptions
+        include Decidim::Initiatives::Admin::Filterable
 
         helper Decidim::Initiatives::InitiativeHelper
         helper Decidim::Initiatives::CreateInitiativeHelper
@@ -16,18 +17,7 @@ module Decidim
         # GET /admin/initiatives
         def index
           enforce_permission_to :list, :initiative
-
-          @query = params[:q]
-          @state = params[:state]
-          @initiatives = ManageableInitiatives
-                         .for(
-                           current_organization,
-                           current_user,
-                           @query,
-                           @state
-                         )
-                         .page(params[:page])
-                         .per(15)
+          @initiatives = filtered_collection
         end
 
         # GET /admin/initiatives/:id
@@ -164,6 +154,10 @@ module Decidim
         end
 
         private
+
+        def collection
+          @collection ||= ManageableInitiatives.for(current_user)
+        end
 
         def pdf_signature_service
           @pdf_signature_service ||= Decidim.pdf_signature_service.to_s.safe_constantize

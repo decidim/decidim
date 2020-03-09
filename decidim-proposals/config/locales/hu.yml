@@ -31,6 +31,9 @@ hu:
       proposals_import:
         import_proposals: Javaslatok importálása
         keep_authors: Eredeti szerzők megtartása
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: Értékelő neve
     errors:
       models:
         participatory_text:
@@ -42,12 +45,14 @@ hu:
             attachment:
               needs_to_be_reattached: Újra kell csatolni
             body:
+              cant_be_equal_to_template: nem lehet egyenlő a sablonnal
               identical: A cím nem lehet azonos
             title:
               identical: A szövegtörzs nem lehet azonos
     models:
       decidim/proposals/accepted_proposal_event: Javaslat elfogadva
       decidim/proposals/admin/update_proposal_category_event: Javaslat kategória megváltozott
+      decidim/proposals/admin/update_proposal_scope_event: Javaslat hatáskör megváltozott
       decidim/proposals/creation_enabled_event: Javaslat létrehozása engedélyezve
       decidim/proposals/endorsing_enabled_event: Javaslat jóváhagyás engedélyezve
       decidim/proposals/evaluating_proposal_event: Javaslat értékelése folyamatban
@@ -74,6 +79,25 @@ hu:
         one: Támogatás
         other: Szavazások
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Típus
+          values:
+            'false': Javaslatok
+            'true': Módosítások
+        search_placeholder:
+          id_string_or_title_cont: Keresés %{collection} ID vagy cím alapján.
+        state_eq:
+          values:
+            evaluating: Értékelés
+            withdrawn: Visszavonva
+        state_null:
+          label: Állapot
+          values:
+            'true': Nem megválaszolt
+        valuator_role_ids_has:
+          label: Értékelőhöz rendelve
     components:
       proposals:
         actions:
@@ -85,6 +109,7 @@ hu:
         name: Javaslatok
         settings:
           global:
+            allow_card_image: Kártyakép engedélyezése
             amendments_enabled: A módosítások engedélyezve vannak
             amendments_enabled_help: Ha aktív, minden lépéshez konfigurálja a Módosítás funkciókat.
             amendments_wizard_help_text: Módosítások Varázsló súgószöveg
@@ -95,6 +120,8 @@ hu:
             comments_enabled: Megjegyzések engedélyezve
             geocoding_enabled: Geokódolás engedélyezve
             minimum_votes_per_user: Minimális támogatás felhasználónként
+            new_proposal_body_template: Új javaslat szövegtörzse
+            new_proposal_body_template_help: Előre meghatározott szöveg beállítása, amelyet az új Javaslatok használnak
             new_proposal_help_text: Új javaslat súgószöveg
             official_proposals_enabled: Hivatalos javaslatok engedélyezve
             participatory_texts_disabled_help: Meglévő javaslatok esetén nem lehet alkalmazni ezt a beállítást. Legyen szíves, egy új 'Javaslatok komponens' -t hozzon létre, hogy ezt a funkciót használja, vagy vesse el az importált javaslatokat a "Részvételi Szövegek" menüben, ha ki akarja kapcsolni.
@@ -120,6 +147,7 @@ hu:
             amendments_visibility: A módosítás láthatósága
             amendments_visibility_help: Ha a „Módosítások csak a szerzőik számára láthatóak” opciót választják, akkor a résztvevőnek be kell jelentkeznie a módosítások megtekintéséhez.
             announcement: Közlemény
+            answers_with_costs: Költségek engedélyezése javaslati válaszoknál
             automatic_hashtags: Hashtagek hozzáadva minden javaslathoz
             comments_blocked: Megjegyzések letiltva
             creation_enabled: Javaslat létrehozása engedélyezve
@@ -230,6 +258,11 @@ hu:
           email_outro: Ezt az értesítést kaptad, mert te vagy a javaslat szerzője.
           email_subject: A(z) %{resource_title} című javaslat frissítve
           notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslat kategóriát az admin frissítette.
+        proposal_update_scope:
+          email_intro: 'Egy adminisztrátor frissítette a "%{resource_title}" javaslatának hatáskörét, ellenőrizze ezen az oldalon:'
+          email_outro: Ezt az értesítést kaptad, mert te vagy a javaslat szerzője.
+          email_subject: A(z) %{resource_title} javaslat hatásköre frissült
+          notification_title: A <a href="%{resource_path}">%{resource_title}</a> javaslat hatáskörét egy adminisztrátor frissítette.
         voting_enabled:
           email_intro: 'Szavazhatsz a javaslatokról itt: %{participatory_space_title}! Láss munkának ezen az oldalon:'
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
@@ -242,7 +275,7 @@ hu:
             - Válassza ki az Ön érdeklődési körének részvételi területét a beküldött pályázati ajánlatokkal
             - Próbáljon javaslatokat tenni, amelyeket végre lehet hajtani. Így nagyobb valószínűséggel fogadják el őket.
           description: Ezt a jelvényt akkor kapja meg, ha aktívan részt vesz új javaslatokkal, és ezeket elfogadják.
-          description_another: A felhasználó %{score} javaslatait elfogadták.
+          description_another: A felhasználó %{score} javaslata elfogadásra került.
           description_own: '%{score} ajánlatodat fogadták el.'
           name: Elfogadott javaslatok
           next_level_in: Szerezz még több %{score} elfogadott ajánlatot, hogy eljuss a következő szintre!
@@ -296,12 +329,12 @@ hu:
         see_all: Összes (%{count})
     proposals:
       actions:
-        answer: Válasz
+        answer_proposal: Javaslat megválaszolása
         edit_proposal: Javaslat szerkesztése
         import: Importálás egy másik elemből
         new: Új javaslat
         participatory_texts: Részvételi szövegek
-        private_notes: Privát jegyzet
+        show: Javaslat megtekintése
         title: Műveletek
       admin:
         actions:
@@ -346,10 +379,10 @@ hu:
           update:
             success: A részvételi szöveg sikeresen frissült.
         proposal_answers:
-          edit:
+          form:
             accepted: Elfogadva
             answer_proposal: Válasz
-            evaluating: Értékelés
+            evaluating: Értékelés alatt
             rejected: Elutasítva
             title: Válasz a(z) %{title} javaslatra
         proposal_notes:
@@ -380,24 +413,65 @@ hu:
             select_a_meeting: Válasszon egy találkozót
           index:
             actions: Műveletek
+            assign_to_valuator: Értékelőhöz rendel
+            assign_to_valuator_button: Hozzárendel
             cancel: Mégse
             change_category: Kategória módosítása
+            change_scope: Hatáskör megváltoztatása
             merge: Összeolvasztás egy újba
             merge_button: Összeolvasztás
+            publish: Közzétesz
             select_component: Összetevő választása
             selected: kiválasztva
             split: Javaslatok szétválasztása
             split_button: Szétválasztás
             title: Javaslatok
+            unassign_from_valuator: Visszarendelés értékelőtől
+            unassign_from_valuator_button: Visszarendelés
             update: Frissítés
+            update_scope_button: Hatáskör frissítése
           new:
             create: Létrehozás
             title: Javaslat létrehozása
+          publish_answers:
+            select_a_proposal: Kérlek, válassz javaslatot
+          show:
+            amendments_count: Módosítás száma (%{count}
+            assigned_valuators: Hozzárendelt értékelők
+            authors: Szerzők
+            body: Szöveg
+            comments_count: Hozzászólások száma
+            comments_negative_count: Ellene
+            comments_neutral_count: Semleges
+            comments_positive_count: Kedvenc
+            created_at: Létrehozás dátuma
+            documents: Dokumentumok
+            endorsements_count: Jóváhagyások száma
+            endorsements_ranking: Jóváhagyások szerinti besorolás
+            endorsers: Támogatók
+            link: Link
+            n_more_endorsers:
+              one: és még egy
+              other: és még %{count}
+            photos: Fotók
+            proposals: Javaslatok
+            ranking: "%{total} -ból %{ranking}"
+            related_meetings: Kapcsolódó találkozók
+            remove_assignment: Hozzárendelés eltávolítsa
+            remove_assignment_confirmation: Biztosan eltávolítja az értékelőt ebből a javaslatból?
+            valuators: Értékelők
+            votes_count: Támogatók száma
+            votes_ranking: Támogatások szerinti rangsorolás
           update_category:
-            invalid: 'A javaslatok már a(z) %{category} kategóriába tartoznak: %{proposals}.'
+            invalid: 'Ezeknek a javaslatoknak már megvolt a(z) %{subject_name} kategóriája: %{proposals}.'
             select_a_category: Kérlek, válassz kategóriát
             select_a_proposal: Kérlek, válassz javaslatot
-            success: 'A javaslatok frissítése a(z) %{category} kategóriában sikeres: %{proposals}.'
+            success: 'A javaslatokat sikeresen frissítették a(z) %{subject_name} kategóriához: %{proposals}.'
+          update_scope:
+            invalid: 'Ezeknek a javaslatoknak már megvolt a(z) %{subject_name} hatásköre: %{proposals}.'
+            select_a_proposal: Kérlek, válassz javaslatot
+            select_a_scope: Kérlek válassz hatáskört
+            success: 'A javaslatok frissítése a(z) %{subject_name} hatáskörben sikeres: %{proposals}.'
         proposals_imports:
           create:
             invalid: Probléma merült fel a javaslatok importálásakor
@@ -415,12 +489,13 @@ hu:
           create:
             invalid: Hiba történt a kiválasztott javaslatok szétválasztása során.
             success: A javaslatokat sikeresen újakra osztottuk.
-        shared:
-          info_proposal:
-            body: Szöveg
-            created_at: Létrehozás dátuma
-            proposal_votes_count: Szavazatok száma
-            proposals: Javaslatok
+        valuation_assignments:
+          create:
+            invalid: Hiba történt a javaslatok értékelőhöz való rendelésekor
+            success: Javaslatok sikeresen értékelőhöz rendelve
+          delete:
+            invalid: Hiba történt a javaslatok értékbecslőtől való visszarendelésekor
+            success: Értékelő sikeresen visszarendelve a javaslatoktól
       admin_log:
         proposal:
           answer: "%{user_name} válaszolt a(z) %{resource_name} javaslatra itt: %{space_name}"
@@ -428,6 +503,9 @@ hu:
           update: "%{user_name} frissítette az %{resource_name} hivatalos javaslatot a %{space_name} helyre"
         proposal_note:
           create: "%{user_name} privát megjegyzést hagyott a(z) %{resource_name} javaslathoz itt: %{space_name}"
+        valuation_assignment:
+          create: "A(z) %{user_name} a %{resource_name} javaslatot értékelőhöz rendelte hozzá"
+          delete: "A(z) %{user_name} a %{resource_name} javaslatot értékelőtől rendelte vissza"
       answers:
         accepted: Elfogadva
         evaluating: Értékelés
@@ -435,17 +513,21 @@ hu:
         rejected: Elutasítva
         withdrawn: Visszavonva
       application_helper:
+        filter_category_values:
+          all: Mind
         filter_origin_values:
           all: Minden
           citizens: Állampolgárok
           meetings: Találkozók
           official: Hivatalos
           user_groups: Felhasználói csoportok
+        filter_scope_values:
+          all: Mind
         filter_state_values:
           accepted: Elfogadva
           all: Minden
           evaluating: Értékelés
-          except_rejected: Összes elutasítva
+          not_answered: Nem megválaszolt
           rejected: Elutasítva
         filter_type_values:
           all: Minden
@@ -494,10 +576,10 @@ hu:
           all: Összes
           amendment: Módosítások
           category: Kategória
-          category_prompt: Prompt Kategória
           open: Megnyitás
           published: Közzétéve
           related_to: Kapcsolódó
+          scope: Hatáskör
           search: Keresés
           state: Állapot
           withdrawn: Visszavonva
@@ -518,7 +600,7 @@ hu:
           recent: Legutóbbi
         requests:
           accepted_request:
-            error: Nem lehet közreműködő partner, próbáld újra később.
+            error: Nem lehetsz közreműködő partner, próbáld újra később.
             success: "@%{user} elfogadva, mint közreműködő"
           access_requested:
             error: Nem sikerült befejezni a műveletet, próbáld újra később.
@@ -537,7 +619,7 @@ hu:
           final_proposal_help_text: Ez a vázlat készen áll. Nézd meg a javaslat végső verzióját
           hidden_authors_count:
             one: és még %{count} személy
-            other: és még %{count} ember
+            other: és még %{count} személy
           info-message: Ez egy javaslathoz készülő, úgynevezett <strong>közösen szerkesztett vázlat</strong>, ami azt jelenti, hogy a megjegyzések szekción keresztül, vagy közvetlen hozzáférés segítségével közösen alakíthatjátok a szöveget. Ha a szerző(k) hozzáférést biztosítanak neked, akkor módosíthatod is a vázlatot.
           of_versions: "(ennyiből: %{number})"
           publish: Közzétesz
@@ -591,16 +673,18 @@ hu:
             scope: Hatáskör
             state: Állapot
             title: Cím
+            valuator: Értékelő
+            valuators: Értékelők
             votes: Szavazatok
       new:
         limit_reached: Nem hozhatsz létre új javaslatokat, mert túllépted a maximumot.
       participatory_text_proposal:
         alternative_title: Jelenleg nincsenek részvételi szövegek
         buttons:
-          amend: módosítandó
+          amend: Módosítás
           comment: Megjegyzés
           comments: Hozzászólások
-          endorse: Támogassa
+          endorse: Támogatás
       proposal_endorsements:
         create:
           error: Hiba történt a javaslat jóváhagyása során.
@@ -618,7 +702,7 @@ hu:
           error: Hiba történt a javaslatra való szavazás során.
       proposals:
         compare:
-          continue: Folytatni
+          continue: Folytatás
           no_similars_found: Szép munka! Nincsen hasonló javaslat
           title: Hasonló javaslatok
         complete:
@@ -648,12 +732,13 @@ hu:
           all: Összes
           amendment_type: Típus
           category: Kategória
-          category_prompt: Válassz kategóriát
           my_proposals: Javaslataim
           origin: Kiindulópont
           related_to: Kapcsolódó
+          scope: Hatáskör
           search: Keresés
           state: Állapot
+          type: Típus
           voted: Szavazott
         filters_small_view:
           close_modal: Modal bezárása
@@ -674,7 +759,7 @@ hu:
           title: Hozz létre javaslatot
         orders:
           label: 'Javaslatok rendezése:'
-          most_commented: Legkommentáltabb
+          most_commented: Legtöbb hozzászólással
           most_endorsed: Legtámogatottabb
           most_followed: Legkövetettebb
           most_voted: Legtöbb szavazattal
@@ -697,10 +782,12 @@ hu:
           creation_date: 'Létrehozás: %{date}'
           view_proposal: Javaslat megtekintése
         show:
+          answer: Válasz
           back_to: Vissza a
           changes_at_title: A (z) "%{title}" módosítása
           edit_proposal: Javaslat szerkesztése
           endorsements_list: Jóváhagyások listája
+          estimated_cost: Becsült költség
           hidden_endorsers_count:
             one: és még %{count} személy
             other: és még %{count} ember
@@ -713,13 +800,14 @@ hu:
           proposal_accepted_reason: 'Ezt a javaslatot elfogadták, mert:'
           proposal_in_evaluation_reason: Javaslat értékelése folyamatban
           proposal_rejected_reason: 'Ezt a javaslatot elutasították, mert:'
+          read_less: Rövidebben
+          read_more: Bővebben
           report: Jelentés
           withdraw_btn_hint: Ha meggondoltad magad, az első támogatás megszerzéséig bármikor visszavonhatod a javaslatod. A javaslat nem törlődik automatikusan, hanem a visszavont javaslatok listájára kerül.
           withdraw_confirmation: Biztosan visszavonod ezt a javaslatot?
           withdraw_proposal: Javaslat visszavonása
         tags:
-          changed_from: "(<u>%{previous_category}</u> a rendszergazda megváltoztatta)"
-          filed_as: Iktatva mint
+          changed_from: "(egy adminisztrátor megváltoztatta <u>%{previous_name}</u> értékről)"
         vote_button:
           already_voted: Már szavazott
           already_voted_hover: Szavazat visszavonása

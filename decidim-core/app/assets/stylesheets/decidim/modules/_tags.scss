@@ -16,7 +16,7 @@ $tags-border: $border;
   }
 
   a{
-    display: block;
+    display: inline-block;
     border: $tags-border;
     padding: 0 .5rem;
   }
@@ -28,4 +28,10 @@ $tags-border: $border;
 
 .tags--inline{
   display: inline;
+}
+
+.tags--list{
+  li{
+    display: block;
+  }
 }
