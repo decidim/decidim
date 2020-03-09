@@ -150,6 +150,7 @@ Please check [0.21-stable](https://github.com/decidim/decidim/blob/0.21-stable/C
 ## Added
 ### Added
 
+- **decidim-core**: Allow to restric direct messages to only people followed by the user. [\#5720](https://github.com/decidim/decidim/pull/5720)
 - **decidim-core**: Support node.js semver rules for release candidates. [\#5828](https://github.com/decidim/decidim/pull/5828)
 
 ### Changed
