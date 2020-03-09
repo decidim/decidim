@@ -128,6 +128,7 @@ describe "Conversations", type: :system do
 
       context "and interlocutor sees it" do
         before do
+          click_button "Send"
           expect(page).to have_selector(".message:last-child", text: "Please reply!")
           relogin_as interlocutor
           visit_inbox
