@@ -9,6 +9,7 @@ out.each do |mod|
   next if name == "core"
   next if name == "generators"
   next if name == "proposals"
+  next if name == "dev"
 
   clean_name = name.capitalize.gsub("_", " ")
 
