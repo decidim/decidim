@@ -450,7 +450,7 @@ cs:
           confirm_delete: Opravdu chcete tento zpravodaj smazat?
           followers: 'sledující '
           has_been_sent_to: 'Byl poslán: '
-          no_scopes: Žádné možnosti
+          no_scopes: Žádné rozsahy
           not_sent: Neodesláno
           participants: 'uživatelé '
           segmented_to: 'Rozděleno na %{subject}: '
@@ -466,7 +466,7 @@ cs:
           followers_help: Poslat zpravodaj všem potvrzeným uživatelům, kteří sledují všechny vybrané participační prostory v seznamu.
           none: Žádný
           participants_help: Odešle newsletter všem potvrzeným uživatelům, kteří se zúčastnili některého z vybraných participačních prostorů v seznamu.
-          scopes_help: Poslat newsletter uživatelům, kteří mají některé z vybraných oblastí aktivovaných v nastavení svého účtu "Moje zájmy".
+          scopes_help: Odešle newsletter uživatelům, kteří mají některý z vybraných rozsahů aktivovaný v nastavení svého účtu "Moje zájmy".
           select_scopes: Filtrovat uživatele, kteří aktivovali jakýkoli vybraný rozsah v nastavení jejich účtu Moje Zájmy.
           select_spaces: Vybrat mezery pro rozdělení zpravodaje
           select_users: Vybrat, kterým uživatelům chcete poslat zpravodaj
@@ -539,7 +539,7 @@ cs:
           github: GitHub
           instagram: Instagram
           social_handlers: Sociální
-          twitter: Cvrlikání
+          twitter: Twitter
           url: Url
           youtube: Youtube
         update:
@@ -593,7 +593,7 @@ cs:
           success: Oprávnění byla úspěšně aktualizována.
       scope_types:
         create:
-          error: Při vytváření nového typu oboru došlo k chybě.
+          error: Při vytváření nového typu rozsahu došlo k chybě.
           success: Typ oboru byl úspěšně vytvořen.
         destroy:
           success: Typ pole rozsahu byl úspěšně zlikvidován
