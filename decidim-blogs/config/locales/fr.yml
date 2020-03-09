@@ -48,7 +48,6 @@ fr:
             title: titre
       posts:
         show:
-          back: Retourner à la liste
           view: Voir
         sidebar_blog:
           comments: commentaires
