@@ -12,7 +12,7 @@
       <tr class="radio-button-collection">
         <td><%= translated_attribute row.body %></td>
         <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
-          <% choice = answer.choices.first %>
+          <% choice = answer.choices.find { |choice| choice.answer_option_id == answer_option.id && choice.matrix_row_id == row.id } %>
           <% choice_id = "#{field_id}_matrix_row_#{row_idx}_choice_#{idx}" %>
           <td>
             <div class="collection-input">

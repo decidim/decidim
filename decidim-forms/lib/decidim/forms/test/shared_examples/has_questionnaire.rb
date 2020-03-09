@@ -543,6 +543,22 @@ shared_examples_for "has questionnaire" do
         expect(first_choice).to eq([question.answer_options.first.id, question.matrix_rows.first.id])
         expect(last_choice).to eq([question.answer_options.last.id, question.matrix_rows.last.id])
       end
+
+      it "preserves the chosen answers if submission not correct" do
+        visit questionnaire_public_path
+
+        radio_buttons = page.all(".radio-button-collection input[type=radio]")
+        choose radio_buttons[1][:id]
+
+        accept_confirm { click_button "Submit" }
+
+        within ".alert.flash" do
+          expect(page).to have_content("There was a problem answering")
+        end
+
+        radio_buttons = page.all(".radio-button-collection input[type=radio]")
+        expect(radio_buttons.map { |b| b[:checked] }).to eq([nil, "true", nil, nil])
+      end
     end
 
     context "when question type is matrix_multiple" do
@@ -629,6 +645,28 @@ shared_examples_for "has questionnaire" do
         within ".success.flash" do
           expect(page).to have_content("successfully")
         end
+      end
+
+      it "preserves the chosen answers if submission not correct" do
+        question.update!(max_choices: 2)
+
+        visit questionnaire_public_path
+
+        checkboxes = page.all(".check-box-collection input[type=checkbox]")
+        check checkboxes[0][:id]
+        check checkboxes[1][:id]
+        check checkboxes[2][:id]
+        check checkboxes[5][:id]
+
+        check "questionnaire_tos_agreement"
+        accept_confirm { click_button "Submit" }
+
+        within ".alert.flash" do
+          expect(page).to have_content("There was a problem answering")
+        end
+
+        checkboxes = page.all(".check-box-collection input[type=checkbox]")
+        expect(checkboxes.map { |c| c[:checked] }).to eq(["true", "true", "true", nil, nil, "true"])
       end
     end
   end
