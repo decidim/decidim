@@ -12,9 +12,10 @@
 
 ### Fixed
 
+- **decidim-proposals**: Use simple_format to add a wrapper to proposals body [#5753](https://github.com/decidim/decidim/pull/5753)
 - **decidim-sortitions**: Fix incorrect proposals sortition. [\5620](https://github.com/decidim/decidim/pull/5620)
 - **decidim-admin**: Fix: let components without step settings be added [\#5568](https://github.com/decidim/decidim/pull/5568)
-- **decidim-proposals**: Fix for the proposals that have theirs state not published [\#5832](https://github.com/decidim/decidim/pull/5832)
+- **decidim-proposals**: Fix proposals that have their state not published [\#5832](https://github.com/decidim/decidim/pull/5832)
 
 ### Removed
 
