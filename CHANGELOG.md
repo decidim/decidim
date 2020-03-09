@@ -5,6 +5,7 @@
 ### Upgrade notes
 
 - **New "extras" key in authorization metadata**
+### Added
 
 [\#6097](https://github.com/decidim/decidim/pull/6097) adds the possibility to have an "extras" key in the Authentication metadata that will be ignored. For example when
 signing an initiative (decidim-initiatives/app/forms/decidim/initiatives/vote_form.rb) or on Authorization renewal (decidim-verifications/app/cells/decidim/verifications/authorization_metadata/show.erb).
@@ -231,7 +232,15 @@ Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now sup
 - **decidim-proposals**: Fix relative path in mentioned proposal email [\#5852](https://github.com/decidim/decidim/pull/5852)
 
 **Removed**:
+### Changed
 
-## Previous versions
+### Fixed
+
+- **decidim-admin**: Fix: let components without step settings be added [\#5568](https://github.com/decidim/decidim/pull/5568)
+- **decidim-proposals**: Fix for the proposals that have theirs state not published [#5832](https://github.com/decidim/decidim/pull/5832)
+
+### Removed
+
+### Previous versions
 
 Please check [0.20-stable](https://github.com/decidim/decidim/blob/0.20-stable/CHANGELOG.md) for previous changes.
