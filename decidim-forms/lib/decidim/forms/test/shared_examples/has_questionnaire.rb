@@ -205,6 +205,7 @@ shared_examples_for "has questionnaire" do
           :questionnaire_question,
           questionnaire: questionnaire,
           question_type: question_type,
+          position: 1,
           options: [
             { "body" => answer_option_bodies[0] },
             { "body" => answer_option_bodies[1] },
@@ -219,6 +220,7 @@ shared_examples_for "has questionnaire" do
           questionnaire: questionnaire,
           question_type: "multiple_option",
           max_choices: 2,
+          position: 2,
           options: [
             { "body" => Decidim::Faker::Localized.sentence },
             { "body" => Decidim::Faker::Localized.sentence },
@@ -501,6 +503,7 @@ shared_examples_for "has questionnaire" do
     context "when question type is matrix_single" do
       let(:matrix_rows) { Array.new(2) { { "body" => Decidim::Faker::Localized.sentence } } }
       let(:answer_options) { Array.new(2) { { "body" => Decidim::Faker::Localized.sentence } } }
+      let(:mandatory) { false }
 
       let!(:question) do
         create(
@@ -508,7 +511,8 @@ shared_examples_for "has questionnaire" do
           questionnaire: questionnaire,
           question_type: "matrix_single",
           rows: matrix_rows,
-          options: answer_options
+          options: answer_options,
+          mandatory: mandatory
         )
       end
 
@@ -559,11 +563,33 @@ shared_examples_for "has questionnaire" do
         radio_buttons = page.all(".radio-button-collection input[type=radio]")
         expect(radio_buttons.map { |b| b[:checked] }).to eq([nil, "true", nil, nil])
       end
+
+      context "when the question is mandatory and the answer is not complete" do
+        let!(:mandatory) { true }
+
+        it "shows an error if the question is mandatory and the answer is not complete" do
+          visit questionnaire_public_path
+
+          radio_buttons = page.all(".radio-button-collection input[type=radio]")
+          choose radio_buttons[0][:id]
+
+          check "questionnaire_tos_agreement"
+          accept_confirm { click_button "Submit" }
+
+          within ".alert.flash" do
+            expect(page).to have_content("There was a problem answering")
+          end
+
+          expect(page).to have_content("Choices are not complete")
+        end
+      end
     end
 
     context "when question type is matrix_multiple" do
       let(:matrix_rows) { Array.new(2) { { "body" => Decidim::Faker::Localized.sentence } } }
       let(:answer_options) { Array.new(3) { { "body" => Decidim::Faker::Localized.sentence } } }
+      let(:max_choices) { nil }
+      let(:mandatory) { false }
 
       let!(:question) do
         create(
@@ -571,7 +597,9 @@ shared_examples_for "has questionnaire" do
           questionnaire: questionnaire,
           question_type: "matrix_multiple",
           rows: matrix_rows,
-          options: answer_options
+          options: answer_options,
+          max_choices: max_choices,
+          mandatory: mandatory
         )
       end
 
@@ -609,64 +637,88 @@ shared_examples_for "has questionnaire" do
         expect(third_choice).to eq([question.answer_options.first.id, question.matrix_rows.last.id])
       end
 
-      it "respects the max number of choices" do
-        question.update!(max_choices: 2)
+      context "when the question hax max_choices defined" do
+        let!(:max_choices) { 2 }
 
-        visit questionnaire_public_path
+        it "respects the max number of choices" do
+          visit questionnaire_public_path
 
-        expect(page).to have_content("Max choices: 2")
+          expect(page).to have_content("Max choices: 2")
 
-        checkboxes = page.all(".check-box-collection input[type=checkbox]")
+          checkboxes = page.all(".check-box-collection input[type=checkbox]")
 
-        check checkboxes[0][:id]
-        check checkboxes[1][:id]
-        check checkboxes[2][:id]
-        check checkboxes[3][:id]
-        check checkboxes[4][:id]
-        check checkboxes[5][:id]
+          check checkboxes[0][:id]
+          check checkboxes[1][:id]
+          check checkboxes[2][:id]
+          check checkboxes[3][:id]
+          check checkboxes[4][:id]
+          check checkboxes[5][:id]
 
-        check "questionnaire_tos_agreement"
+          check "questionnaire_tos_agreement"
 
-        accept_confirm { click_button "Submit" }
+          accept_confirm { click_button "Submit" }
 
-        within ".alert.flash" do
-          expect(page).to have_content("There was a problem answering")
-        end
+          within ".alert.flash" do
+            expect(page).to have_content("There was a problem answering")
+          end
 
-        expect(page).to have_content("are too many")
+          expect(page).to have_content("are too many")
 
-        checkboxes = page.all(".check-box-collection input[type=checkbox]")
+          checkboxes = page.all(".check-box-collection input[type=checkbox]")
 
-        uncheck checkboxes[0][:id]
-        uncheck checkboxes[5][:id]
+          uncheck checkboxes[0][:id]
+          uncheck checkboxes[5][:id]
 
-        accept_confirm { click_button "Submit" }
+          accept_confirm { click_button "Submit" }
 
-        within ".success.flash" do
-          expect(page).to have_content("successfully")
+          within ".success.flash" do
+            expect(page).to have_content("successfully")
+          end
         end
       end
 
-      it "preserves the chosen answers if submission not correct" do
-        question.update!(max_choices: 2)
+      context "when the submission is not correct" do
+        let!(:max_choices) { 2 }
 
-        visit questionnaire_public_path
+        it "preserves the chosen answers" do
+          visit questionnaire_public_path
 
-        checkboxes = page.all(".check-box-collection input[type=checkbox]")
-        check checkboxes[0][:id]
-        check checkboxes[1][:id]
-        check checkboxes[2][:id]
-        check checkboxes[5][:id]
+          checkboxes = page.all(".check-box-collection input[type=checkbox]")
+          check checkboxes[0][:id]
+          check checkboxes[1][:id]
+          check checkboxes[2][:id]
+          check checkboxes[5][:id]
 
-        check "questionnaire_tos_agreement"
-        accept_confirm { click_button "Submit" }
+          check "questionnaire_tos_agreement"
+          accept_confirm { click_button "Submit" }
 
-        within ".alert.flash" do
-          expect(page).to have_content("There was a problem answering")
+          within ".alert.flash" do
+            expect(page).to have_content("There was a problem answering")
+          end
+
+          checkboxes = page.all(".check-box-collection input[type=checkbox]")
+          expect(checkboxes.map { |c| c[:checked] }).to eq(["true", "true", "true", nil, nil, "true"])
         end
+      end
 
-        checkboxes = page.all(".check-box-collection input[type=checkbox]")
-        expect(checkboxes.map { |c| c[:checked] }).to eq(["true", "true", "true", nil, nil, "true"])
+      context "when the question is mandatory and the answer is not complete" do
+        let!(:mandatory) { true }
+
+        it "shows an error" do
+          visit questionnaire_public_path
+
+          checkboxes = page.all(".check-box-collection input[type=checkbox]")
+          check checkboxes[0][:id]
+
+          check "questionnaire_tos_agreement"
+          accept_confirm { click_button "Submit" }
+
+          within ".alert.flash" do
+            expect(page).to have_content("There was a problem answering")
+          end
+
+          expect(page).to have_content("Choices are not complete")
+        end
       end
     end
   end
