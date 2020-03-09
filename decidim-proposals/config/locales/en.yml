@@ -151,6 +151,7 @@ en:
             endorsements_blocked: Endorsements blocked
             endorsements_enabled: Endorsements enabled
             proposal_answering_enabled: Proposal answering enabled
+            publish_answers_immediately: Publish proposal answers immediately
             suggested_hashtags: Hashtags suggested to participants for new proposals
             votes_blocked: Supports blocked
             votes_enabled: Supports enabled
@@ -412,6 +413,8 @@ en:
             change_scope: Change scope
             merge: Merge into a new one
             merge_button: Merge
+            publish: Publish
+            publish_answers: Publish answers
             select_component: Select a component
             selected: selected
             split: Split proposals
@@ -424,6 +427,9 @@ en:
           new:
             create: Create
             title: Create proposal
+          publish_answers:
+            number_of_proposals: Answers for %{number} proposals will be published.
+            select_a_proposal: Please select a proposal
           show:
             amendments_count: Amendments count
             assigned_valuators: Assigned valuators
@@ -489,6 +495,7 @@ en:
         proposal:
           answer: "%{user_name} answered the %{resource_name} proposal on the %{space_name} space"
           create: "%{user_name} created the %{resource_name} proposal on the %{space_name} space as an official proposal"
+          publish_answer: "%{user_name} published the answer to %{resource_name} proposal on the %{space_name} space"
           update: "%{user_name} updated the %{resource_name} official proposal on the %{space_name} space"
         proposal_note:
           create: "%{user_name} left a private note on the %{resource_name} proposal on the %{space_name} space"
@@ -657,6 +664,7 @@ en:
             id: ID
             notes: Notes
             official_proposal: Official proposal
+            published_answer: Published answer
             published_at: Published at
             scope: Scope
             state: Status
@@ -823,6 +831,8 @@ en:
       publish:
         error: There was a problem publishing the proposal.
         success: Proposal successfully published.
+      publish_answers:
+        success: Proposals answers successfully published.
       update:
         error: There was a problem saving the proposal.
         success: Proposal successfully updated.

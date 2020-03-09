@@ -26,4 +26,5 @@ describe "Admin manages proposals", type: :system do
   it_behaves_like "merge proposals"
   it_behaves_like "split proposals"
   it_behaves_like "filter proposals"
+  it_behaves_like "publish answers"
 end

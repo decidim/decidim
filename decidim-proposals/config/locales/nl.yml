@@ -382,6 +382,7 @@ nl:
             change_category: Categorie wijzigen
             merge: Samenvoegen met een nieuwe
             merge_button: Samensmelten
+            publish: Publiceer
             select_component: Selecteer een component
             selected: Geselecteerd
             split: Voorstellen splitsen
@@ -391,6 +392,8 @@ nl:
           new:
             create: Creëren
             title: Maak een voorstel
+          publish_answers:
+            select_a_proposal: Selecteer een voorstel
           show:
             created_at: Aangemaakt op
             votes_count: Aantal stemmen

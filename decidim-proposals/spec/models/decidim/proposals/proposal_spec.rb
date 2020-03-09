@@ -75,6 +75,7 @@ module Decidim
         let(:proposal) { build(:proposal, :accepted) }
 
         it { is_expected.to be_answered }
+        it { is_expected.to be_published_state }
         it { is_expected.to be_accepted }
       end
 
@@ -82,6 +83,7 @@ module Decidim
         let(:proposal) { build(:proposal, :rejected) }
 
         it { is_expected.to be_answered }
+        it { is_expected.to be_published_state }
         it { is_expected.to be_rejected }
       end
 
@@ -240,6 +242,22 @@ module Decidim
 
           it { is_expected.not_to be_withdrawable_by(author) }
         end
+      end
+
+      context "when answer is not published" do
+        let(:proposal) { create(:proposal, :accepted_not_published, component: component) }
+
+        it "has accepted as the internal state" do
+          expect(proposal.internal_state).to eq("accepted")
+        end
+
+        it "has not_answered as public state" do
+          expect(proposal.state).to be_nil
+        end
+
+        it { is_expected.not_to be_accepted }
+        it { is_expected.to be_answered }
+        it { is_expected.not_to be_published_state }
       end
 
       describe "#with_valuation_assigned_to" do

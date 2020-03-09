@@ -194,12 +194,15 @@ uk:
             actions: Дії
             cancel: Скасувати
             change_category: Змінити категорію
+            publish: Оприлюднити
             selected: обрані
             title: Пропозиції
             update: Оновити
           new:
             create: Внести
             title: Створити пропозицію
+          publish_answers:
+            select_a_proposal: Будь ласка, оберіть пропозицію
           show:
             created_at: Дата створення
             votes_count: Кількість голосів
