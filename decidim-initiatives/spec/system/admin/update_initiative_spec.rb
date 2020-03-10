@@ -5,6 +5,11 @@ require "spec_helper"
 describe "User prints the initiative", type: :system do
   include_context "when admins initiative"
 
+  def attach_document
+    fill_in :initiative_attachment_title, with: "Document name"
+    attach_file :initiative_attachment_file, Decidim::Dev.asset("Exampledocument.pdf")
+  end
+
   def submit_and_validate
     find("*[type=submit]").click
 
@@ -32,6 +37,7 @@ describe "User prints the initiative", type: :system do
             select translated(other_initiatives_type.title), from: "initiative_type_id"
             select translated(other_initiatives_type_scope), from: "initiative_decidim_scope_id"
             select "In-person", from: "initiative_signature_type"
+            attach_document
           end
           submit_and_validate
         end
@@ -81,6 +87,7 @@ describe "User prints the initiative", type: :system do
             select translated(other_initiatives_type.title), from: "initiative_type_id"
             select translated(other_initiatives_type_scope), from: "initiative_decidim_scope_id"
             select "In-person", from: "initiative_signature_type"
+            attach_document
           end
           submit_and_validate
         end
@@ -97,6 +104,7 @@ describe "User prints the initiative", type: :system do
             select translated(other_initiatives_type.title), from: "initiative_type_id"
             select translated(other_initiatives_type_scope), from: "initiative_decidim_scope_id"
             select "In-person", from: "initiative_signature_type"
+            attach_document
           end
           submit_and_validate
         end

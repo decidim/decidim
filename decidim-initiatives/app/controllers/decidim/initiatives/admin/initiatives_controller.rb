@@ -28,11 +28,14 @@ module Decidim
         # GET /admin/initiatives/:id/edit
         def edit
           enforce_permission_to :edit, :initiative, initiative: current_initiative
+
+          form_attachment_model = form(AttachmentForm).from_model(current_initiative.attachments.first)
           @form = form(Decidim::Initiatives::Admin::InitiativeForm)
                   .from_model(
                     current_initiative,
                     initiative: current_initiative
                   )
+          @form.attachment = form_attachment_model
 
           render layout: "decidim/admin/initiative"
         end

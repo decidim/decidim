@@ -7,9 +7,9 @@ module Decidim
 
       def build_attachment
         @attachment = Attachment.new(
-            title: @form.attachment.title,
-            file: @form.attachment.file,
-            attached_to: @attached_to
+          title: @form.attachment.title,
+          file: @form.attachment.file,
+          attached_to: @attached_to
         )
       end
 
@@ -26,7 +26,7 @@ module Decidim
       end
 
       def process_attachments?
-        @form.attachment.present? && @form.attachment.file.present?
+        @form.attachment.file.present?
       end
     end
   end

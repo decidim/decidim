@@ -76,8 +76,8 @@ module Decidim
       context "when the attachment is present" do
         let(:attachment_params) do
           {
-              title: "My attachment",
-              file: Decidim::Dev.test_file("city.jpeg", "image/jpeg")
+            title: "My attachment",
+            file: Decidim::Dev.test_file("city.jpeg", "image/jpeg")
           }
         end
 

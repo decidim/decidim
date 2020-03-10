@@ -192,6 +192,7 @@ en:
             success: The initiative has been sent to technical validation
             update: Update
           form:
+            attachment_legend: Attachment legend
             title: General information
           index:
             actions_title: Action
@@ -265,6 +266,7 @@ en:
           name: Highlighted initiatives
       create_initiative:
         fill_data:
+          attachment_legend: Attachment legend
           back: Back
           continue: Continue
           fill_data_help: "<ul> <li>Review the content of your initiative. Is your title easy to understand? Is the objective of your initiative clear?</li> <li>You have to choose the type of signature. In-person, online or a combination of both</li> <li>Which is the geographic scope of the initiative? City, district?</li> </ul>"

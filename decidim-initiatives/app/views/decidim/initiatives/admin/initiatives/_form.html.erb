@@ -71,6 +71,21 @@
         </div>
       </div>
     <% end %>
+
+    <div class="row column">
+      <fieldset>
+        <legend><%= t(".attachment_legend") %></legend>
+        <%= form.fields_for :attachment, @form.attachment do |form| %>
+          <div class="row column">
+            <%= form.text_field :title %>
+          </div>
+
+          <div class="row column">
+            <%= form.upload :file, optional: false %>
+          </div>
+        <% end %>
+      </fieldset>
+    </div>
   </div>
 </div>
 

@@ -69,8 +69,8 @@ shared_examples "update an initiative" do
       context "when attachment is present", processing_uploads_for: Decidim::AttachmentUploader do
         let(:attachment_params) do
           {
-              title: "My attachment",
-              file: Decidim::Dev.test_file("city.jpeg", "image/jpeg")
+            title: "My attachment",
+            file: Decidim::Dev.test_file("city.jpeg", "image/jpeg")
           }
         end
 
@@ -84,7 +84,7 @@ shared_examples "update an initiative" do
         context "when attachment is left blank" do
           let(:attachment_params) do
             {
-                title: ""
+              title: ""
             }
           end
 
