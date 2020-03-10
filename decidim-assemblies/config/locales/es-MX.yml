@@ -208,6 +208,7 @@ es-MX:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
+            valuator: Evaluadora
       titles:
         assemblies: Asambleas
         assemblies_types: Tipo de asamblea

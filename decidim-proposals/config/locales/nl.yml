@@ -232,6 +232,8 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je de auteur bent van het voorstel.
           email_subject: De categorie van het %{resource_title} voorstel is bijgewerkt
           notification_title: De categorie van het <a href="%{resource_path}">%{resource_title}</a> voorstel is bijgewerkt door een beheerder.
+        proposal_update_scope:
+          email_outro: Je hebt deze melding ontvangen omdat je de auteur bent van het voorstel.
         voting_enabled:
           email_intro: 'U kunt op voorstellen in %{participatory_space_title} stemmen! Neem deel via deze pagina:'
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Schakel de meldingen uit door te klikken op de voorgaande link.
@@ -380,6 +382,7 @@ nl:
             change_category: Categorie wijzigen
             merge: Samenvoegen met een nieuwe
             merge_button: Samensmelten
+            publish: Publiceer
             select_component: Selecteer een component
             selected: Geselecteerd
             split: Voorstellen splitsen
@@ -389,14 +392,16 @@ nl:
           new:
             create: Creëren
             title: Maak een voorstel
+          publish_answers:
+            select_a_proposal: Selecteer een voorstel
           show:
             created_at: Aangemaakt op
             votes_count: Aantal stemmen
           update_category:
-            invalid: 'Deze voorstellen hadden al de %{category} categorie: %{proposals}.'
             select_a_category: Gelieve een categorie te selecteren
             select_a_proposal: Selecteer een voorstel
-            success: 'Voorstellen succesvol bijgewerkt naar de %{category} categorie: %{proposals}.'
+          update_scope:
+            select_a_proposal: Selecteer een voorstel
         proposals_imports:
           create:
             invalid: Er is een probleem opgetreden bij het importeren van de voorstellen
@@ -711,8 +716,6 @@ nl:
           withdraw_btn_hint: Je kan je voorstel intrekken als je van gedacht verandert, zolang je geen hulp hebt ontvangen. Het voorstel wordt niet verwijderd; het wordt weergegeven in de lijst met ingetrokken voorstellen.
           withdraw_confirmation: Ben je zeker dat je dit voorstel wilt intrekken?
           withdraw_proposal: Voorstel intrekken
-        tags:
-          changed_from: "(gewijzigd van <u>%{previous_category}</u> door een beheerder)"
         vote_button:
           already_voted: Al gestemd
           already_voted_hover: Stem Intrekken

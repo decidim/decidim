@@ -283,6 +283,19 @@ describe "Proposals", type: :system do
       end
     end
 
+    context "when the proposal answer has not been published" do
+      let!(:proposal) { create(:proposal, :accepted_not_published, component: component) }
+
+      it "shows the acceptance reason" do
+        visit_component
+        click_link proposal.title
+
+        expect(page).not_to have_content("Accepted")
+        expect(page).not_to have_content("This proposal has been accepted")
+        expect(page).not_to have_i18n_content(proposal.answer)
+      end
+    end
+
     context "when the proposals'a author account has been deleted" do
       let(:proposal) { proposals.first }
 

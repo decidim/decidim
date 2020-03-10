@@ -217,6 +217,8 @@ eu:
           email_outro: Jakinarazpen hau jaso duzu proposamenaren egilea delako.
           email_subject: '%{resource_title} Proposamenaren kategoria eguneratu da'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamenaren kategoria administratzaile batek eguneratu du.
+        proposal_update_scope:
+          email_outro: Jakinarazpen hau jaso duzu proposamenaren egilea delako.
         voting_enabled:
           email_intro: 'Proposamenak bozkatu ditzakezu %{participatory_space_title}-n! Hasi orri honetan parte hartzea:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
@@ -362,6 +364,7 @@ eu:
             change_category: Aldatu kategoria
             merge: Bateratu berri bat sartu
             merge_button: Batu
+            publish: Argitaratu
             select_component: Hautatu osagaia
             selected: hautatutako
             split: Proposamen banatuak
@@ -371,14 +374,16 @@ eu:
           new:
             create: Sortu
             title: Sortu proposamena
+          publish_answers:
+            select_a_proposal: Aukeratu proposamen bat
           show:
             created_at: Sortze data
             votes_count: Botoen zenbaketa
           update_category:
-            invalid: 'Proposamen hauek %{category} kategoria zeuden: %{proposals}.'
             select_a_category: Hautatu kategoria bat
             select_a_proposal: Aukeratu proposamen bat
-            success: 'Proposamenak %{category} kategorian eguneratu dira: %{proposals}.'
+          update_scope:
+            select_a_proposal: Aukeratu proposamen bat
         proposals_imports:
           create:
             invalid: Arazo bat izan da proposamenak inportatzea
@@ -678,8 +683,6 @@ eu:
           withdraw_btn_hint: Zure proposamena uka dezakezu zure kontuan aldatzen baduzu, laguntza jaso ez baduzu. Proposamena ez da ezabatu, kendutako proposamenen zerrendan agertuko da.
           withdraw_confirmation: Ziur al zaude proposamen hau kendu nahi duzula?
           withdraw_proposal: Ezabatu proposamena
-        tags:
-          changed_from: "( <u>%{previous_category}</u> administratzaile batek aldatu du)"
         vote_button:
           already_voted: Bozkatuta duzu
           already_voted_hover: Unvote

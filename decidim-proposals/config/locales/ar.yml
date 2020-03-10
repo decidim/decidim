@@ -31,6 +31,9 @@ ar:
       proposals_import:
         import_proposals: مقترحات الاستيراد
         keep_authors: الحفاظ على المؤلفين الأصلي
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: اسم المُقيِّم
     errors:
       models:
         participatory_text:
@@ -105,6 +108,8 @@ ar:
           label: الحالة
           values:
             'true': لم تتم الإجابة عليها
+        valuator_role_ids_has:
+          label: تم إسناده إلى مُقيِّم
     components:
       proposals:
         actions:
@@ -141,6 +146,7 @@ ar:
             threshold_per_proposal: عتبة لكل اقتراح
             vote_limit: حد الدعم لكل مشارك
           step:
+            amendment_creation_enabled_help: يمكن للمشارِك إدخال تعديلات على المقتَرَحات.
             amendments_visibility: رؤية التعديل
             announcement: إعلان
             automatic_hashtags: علامات التصنيف المضافة إلى جميع المقترحات
@@ -240,6 +246,8 @@ ar:
           email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف الاقتراح.
           email_subject: تم تحديث فئة %{resource_title} اقتراح
           notification_title: تم تحديث فئة اقتراح <a href="%{resource_path}">%{resource_title}</a> بواسطة مسؤول.
+        proposal_update_scope:
+          email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف الاقتراح.
         voting_enabled:
           email_intro: 'يمكنك دعم المقترحات في %{participatory_space_title}! ابدأ المشاركة في هذه الصفحة:'
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{participatory_space_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
@@ -306,6 +314,7 @@ ar:
         see_all: شاهد الكل (%{count})
     proposals:
       actions:
+        answer_proposal: الرد على المُقتَرَح
         edit_proposal: تعديل الاقتراح
         import: استيراد من مكون آخر
         new: عرض جديد
@@ -354,6 +363,9 @@ ar:
             success: تم تحديث النص التشاركي بنجاح.
         proposal_answers:
           form:
+            accepted: تم قبوله
+            evaluating: قيد التقييم
+            rejected: تم رفضه
             title: الإجابة على الاقتراح %{title}
         proposal_notes:
           create:
@@ -378,24 +390,32 @@ ar:
             add_images: إضافة صور
             attachment_legend: "(اختياري) إضافة مرفق"
             created_in_meeting: هذا الاقتراح يأتي من اجتماع
+            gallery_legend: "(اختياري) إضافة معرض للصور"
             select_a_category: اختر تصنيف
             select_a_meeting: اختيار اجتماع
           index:
             actions: أفعال
+            assign_to_valuator: أسنِده إلى مُقيِّم
             cancel: إلغاء
             change_category: تغيير الفئة
             merge: دمج في واحدة جديدة
             merge_button: دمج
+            publish: نشر
             select_component: حدد المكون
             selected: المحدد
             split: تقسيم المقترحات
             split_button: انشق، مزق
             title: اقتراحات
+            unassign_from_valuator: إلغاء الإسناد مِن المُقيِّم
+            unassign_from_valuator_button: إلغاء الإسناد
             update: تحديث
           new:
             create: إنشاء
             title: إنشاء اقتراح
+          publish_answers:
+            select_a_proposal: يرجى اختيار الاقتراح
           show:
+            amendments_count: تعداد التعديلات
             authors: المؤلفون
             body: المحتوى
             comments_count: تعداد التعليقات
@@ -409,13 +429,14 @@ ar:
             proposals: المقترحات
             ranking: "%{ranking} مِن %{total}"
             related_meetings: ملتقيات ذات صلة
+            valuators: المُقيِّمون
             votes_count: يدعم العد
             votes_ranking: ترتيب حسب الدّعم المتلقّى
           update_category:
-            invalid: 'هذه المقترحات لديها بالفعل فئة %{category} : %{proposals}.'
             select_a_category: الرجاء تحديد الفئة
             select_a_proposal: يرجى اختيار الاقتراح
-            success: 'تم تحديث الاقتراحات بنجاح إلى فئة %{category} : %{proposals}.'
+          update_scope:
+            select_a_proposal: يرجى اختيار الاقتراح
         proposals_imports:
           create:
             invalid: كانت هناك مشكلة في استيراد المقترحات
@@ -433,6 +454,9 @@ ar:
           create:
             invalid: كانت هناك مشكلة في تقسيم المقترحات المحددة.
             success: تم تقسيم المقترحات بنجاح إلى مقترحات جديدة.
+        valuation_assignments:
+          create:
+            success: لقد تم إسناد المُقتَرحات إلى مُقيِّم بنجاح
       admin_log:
         proposal:
           answer: "%{user_name} أجاب على الاقتراح %{resource_name} على %{space_name} الفضاء"
@@ -615,6 +639,8 @@ ar:
             scope: نطاق
             state: الحالة
             title: عنوان
+            valuator: مُقيِّم
+            valuators: المُقيِّمون
             votes: الأصوات
       new:
         limit_reached: لا يمكنك إنشاء مقترحات جديدة لأنك تجاوزت الحد.
@@ -758,8 +784,6 @@ ar:
           withdraw_btn_hint: يمكنك سحب اقتراحك إذا غيرت رأيك ، طالما أنك لم تتلق أي دعم. لم يتم حذف الاقتراح ، وسوف يظهر في قائمة المقترحات المسحوبة.
           withdraw_confirmation: هل أنت متأكد أنك تريد سحب هذا الاقتراح؟
           withdraw_proposal: سحب الاقتراح
-        tags:
-          changed_from: "(تم التغيير من <u>%{previous_category}</u> بواسطة مسؤول)"
         vote_button:
           already_voted: معتمد بالفعل
           already_voted_hover: سحب الدعم

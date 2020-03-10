@@ -223,6 +223,8 @@ tr:
           email_outro: Bu bildirimi aldınız çünkü teklifin yazarı sizsiniz.
           email_subject: '%{resource_title} teklif kategorisi güncellendi'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> teklif kategorisi bir yönetici tarafından güncellendi.
+        proposal_update_scope:
+          email_outro: Bu bildirimi aldınız çünkü teklifin yazarı sizsiniz.
         voting_enabled:
           email_intro: 'Teklifleri %{participatory_space_title}oylayabilirsiniz! Bu sayfaya katılmaya başlayın:'
           email_outro: Bu bildirimi, %{participatory_space_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
@@ -368,6 +370,7 @@ tr:
             change_category: Kategoriyi değiştir
             merge: Yeni biriyle birleştir
             merge_button: birleşmek
+            publish: Yayınla
             select_component: Bir bileşen seç
             selected: seçilmiş
             split: Bölünmüş teklifler
@@ -377,14 +380,16 @@ tr:
           new:
             create: yaratmak
             title: Teklif oluştur
+          publish_answers:
+            select_a_proposal: Lütfen bir teklif seçin
           show:
             created_at: Oluşturulma tarihi
             votes_count: Oy sayısı
           update_category:
-            invalid: 'Bu teklifler zaten %{category} kategorisine sahipti: %{proposals}.'
             select_a_category: Lütfen bir kategori seçin
             select_a_proposal: Lütfen bir teklif seçin
-            success: 'Teklifler başarıyla %{category} kategorisine güncellendi: %{proposals}.'
+          update_scope:
+            select_a_proposal: Lütfen bir teklif seçin
         proposals_imports:
           create:
             invalid: Teklifleri içe aktarırken bir sorun oluştu
@@ -685,8 +690,6 @@ tr:
           withdraw_btn_hint: Herhangi bir destek almadığınız sürece fikrinizi değiştirirseniz teklifinizi geri çekebilirsiniz. Teklif silinmemiş, iptal edilen teklifler listesinde görünecektir.
           withdraw_confirmation: Bu teklifi geri çektiğinizden emin misiniz?
           withdraw_proposal: Teklifi geri çek
-        tags:
-          changed_from: "(bir yönetici tarafından <u>%{previous_category}</u> değiştirildi)"
         vote_button:
           already_voted: Çoktan oy verildi
           already_voted_hover: Unvote
