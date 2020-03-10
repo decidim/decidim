@@ -16,6 +16,7 @@ module Decidim
         -> { Decidim::Core::AmendableInterface },
         -> { Decidim::Core::AmendableEntityInterface },
         -> { Decidim::Core::TraceableInterface },
+        -> { Decidim::Core::EndorsableInterface },
         -> { Decidim::Core::TimestampsInterface }
       ]
 
@@ -55,17 +56,6 @@ module Decidim
         resolve ->(proposal, _, _) {
           proposal.authors.first if proposal.official_meeting?
         }
-      end
-
-      field :endorsements, !types[Decidim::Core::AuthorInterface], "The endorsements of this proposal." do
-        resolve ->(proposal, _, _) {
-          proposal.endorsements.map(&:normalized_author)
-        }
-      end
-
-      field :endorsementsCount, types.Int do
-        description "The total amount of endorsements the proposal has received"
-        property :endorsements_count
       end
 
       field :voteCount, types.Int do
