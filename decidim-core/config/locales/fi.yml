@@ -425,6 +425,8 @@ fi:
           this_application_will_not_be_able_to: 'Tämä sovellus ei voi:'
           update_profile: Päivittää profiiliasi
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> haluaa käyttää tiliäsi"
+    endorsable:
+      endorsements: Suosituksia
     errors:
       internal_server_error:
         title: Palvelimellamme tapahtui virhe
