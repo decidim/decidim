@@ -42,5 +42,5 @@ jobs:
         name: Lint Ruby files
       - run: npm run lint
         name: Lint JS files
-      - run: ./.circleci/run_erblint.sh
+      - run: ./.github/run_erblint.sh
         name: Lint ERB files
