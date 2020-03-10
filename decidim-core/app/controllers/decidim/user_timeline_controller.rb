@@ -27,7 +27,6 @@ module Decidim
       @activities ||= paginate(
         ActivitySearch.new(
           organization: current_organization,
-          #resource_type: "all",
           scopes: current_user.interested_scopes,
           follows: follows,
           resource_type: filter.resource_type

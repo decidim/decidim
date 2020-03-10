@@ -87,7 +87,8 @@ describe "User timeline", type: :system do
     end
 
     it "displays activities filter" do
-      expect(page).to have_select("filter[resource_type]",
+      expect(page).to have_select(
+        "filter[resource_type]",
         selected: "All types",
         with_options: ["All types"]
       )
