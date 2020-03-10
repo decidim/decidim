@@ -55,18 +55,11 @@ module Decidim
     end
 
     # Wrap the areas select in a custom fieldset.
-    # def areas_select(method, collection, options = {})
-    #   fieldset_wrapper(options[:legend_title], "#{method}_areas_select_filter") do
-    #     super(method, collection, options)
-    #   end
-    # end
-
-    # Wrap the resources select in a custom fieldset.
-    # def resources_select(method, collection, options = {})
-    #   fieldset_wrapper(options[:legend_title], "#{method}_resources_select_filter") do
-    #     super(method, collection, options)
-    #   end
-    # end
+    def areas_select(method, collection, options = {})
+      fieldset_wrapper(options[:legend_title], "#{method}_areas_select_filter") do
+        super(method, collection, options)
+      end
+    end
 
     # Wrap the custom select in a custom fieldset.
     # Any *_select can be used as a custom_select; what changes is the superclass method,

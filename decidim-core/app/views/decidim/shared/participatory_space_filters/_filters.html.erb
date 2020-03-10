@@ -3,12 +3,11 @@
     <%= scopes_picker_filter form, :scope_id, checkboxes_on_top %>
   </div>
   <div class="columns mediumlarge-6 large-5">
-    <%= form.custom_select :areas,
-                           :area_id,
-                           areas_for_select(current_organization),
-                           legend_title: t(".areas"),
-                           label: false,
-                           selected: filter.area_id,
-                           include_blank: t(".select_an_area") %>
+    <%= form.areas_select :area_id,
+                          areas_for_select(current_organization),
+                          legend_title: t(".areas"),
+                          label: false,
+                          selected: filter.area_id,
+                          include_blank: t(".select_an_area") %>
   </div>
 <% end %>
