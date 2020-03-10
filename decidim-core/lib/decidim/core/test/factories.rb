@@ -360,6 +360,44 @@ FactoryBot.define do
     trait :with_permissions do
       settings { { Random.rand => Random.new.bytes(5) } }
     end
+
+    transient do
+      participatory_space_with_steps do
+        create(:participatory_process_step,
+               active: true,
+               end_date: 1.month.from_now,
+               participatory_process: participatory_space)
+        participatory_space.reload
+        participatory_space.steps.reload
+      end
+    end
+
+    trait :with_endorsements_enabled do
+      step_settings do
+        participatory_space_with_steps if participatory_space.active_step.nil?
+        {
+          participatory_space.active_step.id => { endorsements_enabled: true }
+        }
+      end
+    end
+
+    trait :with_endorsements_disabled do
+      step_settings do
+        participatory_space_with_steps if participatory_space.active_step.nil?
+        {
+          participatory_space.active_step.id => { endorsements_enabled: false }
+        }
+      end
+    end
+
+    trait :with_endorsements_blocked do
+      step_settings do
+        participatory_space_with_steps if participatory_space.active_step.nil?
+        {
+          participatory_space.active_step.id => { endorsements_blocked: true }
+        }
+      end
+    end
   end
 
   factory :scope_type, class: "Decidim::ScopeType" do
@@ -403,6 +441,11 @@ FactoryBot.define do
   end
 
   factory :dummy_resource, class: "Decidim::DummyResources::DummyResource" do
+    transient do
+      users { nil }
+      # user_groups correspondence to users is by sorting order
+      user_groups { [] }
+    end
     title { generate(:name) }
     component { create(:component, manifest_name: "dummy") }
     author { create(:user, :confirmed, organization: component.organization) }
@@ -410,6 +453,14 @@ FactoryBot.define do
 
     trait :published do
       published_at { Time.current }
+    end
+
+    trait :with_endorsements do
+      after :create do |resource|
+        5.times.collect do
+          create(:endorsement, resource: resource, author: build(:user, organization: resource.component.organization))
+        end
+      end
     end
   end
 
@@ -582,5 +633,16 @@ FactoryBot.define do
     trait :rejected do
       state { "rejected" }
     end
+  end
+
+  factory :endorsement, class: "Decidim::Endorsement" do
+    resource { build(:dummy_resource) }
+    author { resource.try(:creator_author) || resource.try(:author) || build(:user, organization: resource.organization) }
+  end
+
+  factory :user_group_endorsement, class: "Decidim::Endorsement" do
+    resource { build(:dummy_resource) }
+    author { build(:user, organization: resource.organization) }
+    user_group { create(:user_group, verified_at: Time.current, organization: resource.organization, users: [author]) }
   end
 end
