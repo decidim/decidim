@@ -36,6 +36,10 @@ references:
     run:
       name: Wait for db
       command: dockerize -wait tcp://localhost:5432 -timeout 2m
+  install_test_reporter: &install_test_reporter
+    run:
+      name: Install CodeClimate test reporter
+      command: /app/.circleci/install_cc_test_reporter.sh
   create_test_db: &create_test_db
     run:
       name: Create test DB
@@ -60,6 +64,10 @@ references:
     run:
       name: Run RSpec
       command: mkdir ~/rspec && cd decidim-$CIRCLE_JOB && bundle exec rake SPEC_OPTS="--format documentation"
+  format_test_coverage: &format_test_coverage
+    run:
+      name: Format CodeClimate test coverage
+      command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.$CIRCLE_JOB.json coverage/.resultset.json
   persist_coverage_to_workspace: &persist_coverage_to_workspace
     persist_to_workspace:
       root: coverage
@@ -78,6 +86,7 @@ jobs:
       - run:
           name: Generate test app
           command: bundle exec rake test_app
+      - *install_test_reporter
       - persist_to_workspace:
           root: /app
           paths:
@@ -124,6 +133,8 @@ jobs:
       - *save_ruby_cache
       - *wait_for_db
       - *run_rspec
+      - *install_test_reporter
+      - *format_test_coverage
       - *store_test_results
       - *persist_coverage_to_workspace
   core:
@@ -134,6 +145,7 @@ jobs:
       - *wait_for_db
       - *create_test_db
       - *run_rspec
+      - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
@@ -147,6 +159,7 @@ jobs:
       - *wait_for_db
       - *create_test_db
       - *run_rspec
+      - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
@@ -160,6 +173,7 @@ jobs:
       - *wait_for_db
       - *create_test_db
       - *run_rspec
+      - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
@@ -173,6 +187,7 @@ jobs:
       - *wait_for_db
       - *create_test_db
       - *run_rspec
+      - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
@@ -186,6 +201,7 @@ jobs:
       - *wait_for_db
       - *create_test_db
       - *run_rspec
+      - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
@@ -199,6 +215,7 @@ jobs:
       - *wait_for_db
       - *create_test_db
       - *run_rspec
+      - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
@@ -212,6 +229,7 @@ jobs:
       - *wait_for_db
       - *create_test_db
       - *run_rspec
+      - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
@@ -225,6 +243,7 @@ jobs:
       - *wait_for_db
       - *create_test_db
       - *run_rspec
+      - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
@@ -238,6 +257,7 @@ jobs:
       - *wait_for_db
       - *create_test_db
       - *run_rspec
+      - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
@@ -251,6 +271,7 @@ jobs:
       - *wait_for_db
       - *create_test_db
       - *run_rspec
+      - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
@@ -264,6 +285,7 @@ jobs:
       - *wait_for_db
       - *create_test_db
       - *run_rspec
+      - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
@@ -277,6 +299,7 @@ jobs:
       - *wait_for_db
       - *create_test_db
       - *run_rspec
+      - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
@@ -290,6 +313,7 @@ jobs:
       - *wait_for_db
       - *create_test_db
       - *run_rspec
+      - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
@@ -303,6 +327,7 @@ jobs:
       - *wait_for_db
       - *create_test_db
       - *run_rspec
+      - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
@@ -316,6 +341,7 @@ jobs:
       - *wait_for_db
       - *create_test_db
       - *run_rspec
+      - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
@@ -329,6 +355,7 @@ jobs:
       - *wait_for_db
       - *create_test_db
       - *run_rspec
+      - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
@@ -342,6 +369,7 @@ jobs:
       - *wait_for_db
       - *create_test_db
       - *run_rspec
+      - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
@@ -355,6 +383,7 @@ jobs:
       - *wait_for_db
       - *create_test_db
       - *run_rspec
+      - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
@@ -368,6 +397,7 @@ jobs:
       - *wait_for_db
       - *create_test_db
       - *run_rspec
+      - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
@@ -381,6 +411,7 @@ jobs:
       - *wait_for_db
       - *create_test_db
       - *run_rspec
+      - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
@@ -394,6 +425,7 @@ jobs:
       - *wait_for_db
       - *create_test_db
       - *run_rspec
+      - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
