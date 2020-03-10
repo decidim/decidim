@@ -423,6 +423,8 @@ hu:
           this_application_will_not_be_able_to: 'Ez az alkalmazás nem képes erre:'
           update_profile: Frissítsd a profilod
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> szeretné használni a fiókod"
+    endorsable:
+      endorsements: Jóváhagyások
     errors:
       internal_server_error:
         title: Valami probléma volt a szerverrel
