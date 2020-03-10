@@ -13,7 +13,7 @@ module Decidim
       let(:type_class) { Decidim::Proposals::ProposalsType }
 
       let(:model) { create(:proposal_component) }
-      let!(:models) { create_list(:proposal, 3, :with_endorsements, :published, component: model) }
+      let!(:models) { create_list(:proposal, 3, :published, component: model) }
 
       context "when sorting by proposals id" do
         include_examples "connection has input sort", "proposals", "id"
@@ -24,12 +24,14 @@ module Decidim
       end
 
       context "when sorting by endorsement_count" do
+        let!(:most_endorsed) { create(:proposal, :published, :with_endorsements, component: model) }
+
         describe "ASC" do
           let(:query) { %[{ proposals(order: {endorsementCount: "ASC"}) { edges { node { id } } } }] }
 
           it "returns the most endorsed last" do
-            expect(response["proposals"]["edges"].count).to eq(3)
-            expect(response["proposals"]["edges"].last["node"]["id"]).to eq(models.first.id.to_s)
+            expect(response["proposals"]["edges"].count).to eq(4)
+            expect(response["proposals"]["edges"].last["node"]["id"]).to eq(most_endorsed.id.to_s)
           end
         end
 
@@ -37,8 +39,8 @@ module Decidim
           let(:query) { %[{ proposals(order: {endorsementCount: "DESC"}) { edges { node { id } } } }] }
 
           it "returns the most endorsed first" do
-            expect(response["proposals"]["edges"].count).to eq(3)
-            expect(response["proposals"]["edges"].first["node"]["id"]).to eq(models.last.id.to_s)
+            expect(response["proposals"]["edges"].count).to eq(4)
+            expect(response["proposals"]["edges"].first["node"]["id"]).to eq(most_endorsed.id.to_s)
           end
         end
       end
