@@ -11,7 +11,6 @@ module Decidim
     helper_method :activities, :user
 
     def index
-      debugger
       raise ActionController::RoutingError, "Not Found" if current_user != user
     end
 

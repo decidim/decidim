@@ -85,5 +85,12 @@ describe "User timeline", type: :system do
     it "doesn't show irrelevant resources" do
       expect(page).to have_no_content(resource3.title)
     end
+
+    it "displays activities filter" do
+      expect(page).to have_select("filter[resource_type]",
+        selected: "All types",
+        with_options: ["All types"]
+      )
+    end
   end
 end

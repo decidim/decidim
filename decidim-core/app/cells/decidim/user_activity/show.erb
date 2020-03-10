@@ -10,15 +10,14 @@
 
         <%# debugger %>
         <%= filter_form_for context[:filter] do |form| %>
-          <div class="column large 1">HOLA</div>
           <div class="columns mediumlarge-6 large-5">
             <%= form.custom_select :resources,
                                    :resource_type,
                                    Decidim::ActionLog.all,
-                                   legend_title: "Show",
+                                   legend_title: "Show:",
                                    label: false,
                                    selected: context[:filter].resource_type,
-                                   include_blank: "Select a resource" %>
+                                   include_blank: "All types" %>
           </div>
         <% end %>
       </div>
