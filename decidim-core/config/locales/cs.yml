@@ -441,6 +441,8 @@ cs:
           this_application_will_not_be_able_to: 'Tato aplikace nebude moci:'
           update_profile: Aktualizujte svůj profil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> chce používat váš účet"
+    endorsable:
+      endorsements: Potvrzení
     errors:
       internal_server_error:
         title: Vyskytl se problém s naším serverem
