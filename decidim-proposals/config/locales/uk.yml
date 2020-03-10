@@ -143,6 +143,8 @@ uk:
           email_outro: Ви отримали це сповіщення, оскільки ви є автором цієї пропозиції.
           email_subject: Категорію пропозиції %{resource_title} було оновлено
           notification_title: Адміністратор оновив категорію пропозиції <a href="%{resource_path}">%{resource_title}</a>.
+        proposal_update_scope:
+          email_outro: Ви отримали це сповіщення, оскільки ви є автором цієї пропозиції.
         voting_enabled:
           email_intro: 'Ви можете голосувати щодо пропозицій у %{participatory_space_title}! Почніть брати участь зі сторінки:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
@@ -192,20 +194,23 @@ uk:
             actions: Дії
             cancel: Скасувати
             change_category: Змінити категорію
+            publish: Оприлюднити
             selected: обрані
             title: Пропозиції
             update: Оновити
           new:
             create: Внести
             title: Створити пропозицію
+          publish_answers:
+            select_a_proposal: Будь ласка, оберіть пропозицію
           show:
             created_at: Дата створення
             votes_count: Кількість голосів
           update_category:
-            invalid: 'Ці пропозиції вже відносились до категорії %{category}: %{proposals}.'
             select_a_category: Будь ласка, виберіть категорію
             select_a_proposal: Будь ласка, оберіть пропозицію
-            success: 'Пропозиції успішно перенесені до категорії %{category}: %{proposals}.'
+          update_scope:
+            select_a_proposal: Будь ласка, оберіть пропозицію
         proposals_imports:
           create:
             invalid: При запозиченні цих пропозицій сталася помилка
@@ -343,8 +348,6 @@ uk:
           withdraw_btn_hint: Ви можете зняти свою пропозицію, якщо ви передумали, доки ви не отримали жодної підтримки. Пропозиція не видаляється, вона з'явиться у списку відкликаних пропозицій.
           withdraw_confirmation: Ви впевнені, що бажаєте зняти цю пропозицію?
           withdraw_proposal: Зняти пропозицію
-        tags:
-          changed_from: "(перенесено з <u>%{previous_category}</u> адміністратором)"
         vote_button:
           already_voted: Вже проголосували
           already_voted_hover: Скасувати голос

@@ -189,6 +189,7 @@ cs:
             admin: Správce
             collaborator: Spolupracovník
             moderator: Moderátor
+            valuator: Hodnotitel
         media_link:
           fields:
             date: datum

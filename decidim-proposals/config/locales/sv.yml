@@ -227,6 +227,8 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du är författare till förslaget.
           email_subject: Förslagskategorin %{resource_title} har uppdaterats
           notification_title: Förslagskategorin <a href="%{resource_path}">%{resource_title}</a> har uppdaterats av en administratör.
+        proposal_update_scope:
+          email_outro: Du har fått det här meddelandet eftersom du är författare till förslaget.
         voting_enabled:
           email_intro: 'Du kan rösta på förslag på %{participatory_space_title}! Börja delta på den här sidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
@@ -293,6 +295,7 @@ sv:
         see_all: Visa alla (%{count})
     proposals:
       actions:
+        answer_proposal: Besvara förslag
         edit_proposal: Redigera förslag
         import: Importera från en annan komponent
         new: Nytt förslag
@@ -372,6 +375,7 @@ sv:
             change_category: Ändra kategori
             merge: Sammanfoga till en ny
             merge_button: Slå ihop
+            publish: Publicera
             select_component: Välj en komponent
             selected: valda
             split: Delade förslag
@@ -381,14 +385,16 @@ sv:
           new:
             create: Skapa
             title: Skapa förslag
+          publish_answers:
+            select_a_proposal: Välj ett förslag
           show:
             created_at: Skapelsedatum
             votes_count: Antal röster
           update_category:
-            invalid: 'Dessa förslag hade redan %{category} kategorin: %{proposals}.'
             select_a_category: Välj en kategori
             select_a_proposal: Välj ett förslag
-            success: 'Förslag som har uppdaterats till %{category} kategorin: %{proposals}.'
+          update_scope:
+            select_a_proposal: Välj ett förslag
         proposals_imports:
           create:
             invalid: Det uppstod ett problem med att importera förslagen
@@ -693,8 +699,6 @@ sv:
           withdraw_btn_hint: Du kan dra tillbaka ett förslag om du ändrar dig, så länge som det inte har fått något stöd. Förslaget raderas inte utan kommer att visas i listan över förslag som dragits tillbaka.
           withdraw_confirmation: Är du säker på att dra tillbaka detta förslag?
           withdraw_proposal: Dra tillbaka förslaget
-        tags:
-          changed_from: "(ändrad från <u>%{previous_category}</u> av en administratör)"
         vote_button:
           already_voted: Redan röstat
           already_voted_hover: Ta bort sin röst
