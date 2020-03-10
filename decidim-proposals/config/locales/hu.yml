@@ -56,7 +56,6 @@ hu:
       decidim/proposals/creation_enabled_event: Javaslat létrehozása engedélyezve
       decidim/proposals/endorsing_enabled_event: Javaslat jóváhagyás engedélyezve
       decidim/proposals/evaluating_proposal_event: Javaslat értékelése folyamatban
-      decidim/proposals/proposal_endorsed_event: Javaslat jóváhagyva
       decidim/proposals/proposal_mentioned_event: Javaslat megemlítve
       decidim/proposals/publish_proposal_event: Javaslat közzétéve
       decidim/proposals/rejected_proposal_event: Javaslat elutasítva
@@ -69,9 +68,6 @@ hu:
       decidim/proposals/proposal:
         one: Javaslat
         other: javaslatok
-      decidim/proposals/proposal_endorsement:
-        one: Jóváhagyás
-        other: Jóváhagyások
       decidim/proposals/proposal_note:
         one: Megjegyzés
         other: Megjegyzések
@@ -212,11 +208,6 @@ hu:
             email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{resource_title}". Leiratkozás az előző link segítségével.'
             email_subject: A követett javaslatot elfogadták
             notification_title: A <a href="%{resource_path}">%{resource_title}</a> című javaslatot elfogadták.
-        proposal_endorsed:
-          email_intro: '%{endorser_name} %{endorser_nickname}, akit követel, épp most fogadta el a "%{resource_title}" javaslatot, és úgy gondoljuk, hogy érdekes lehet. Nézze meg és járuljon hozzá:'
-          email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{endorser_nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
-          email_subject: "%{endorser_nickname} támogatta az új javaslatot"
-          notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslat jóváhagyva általa: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.'
         proposal_evaluating:
           affected_user:
             email_intro: 'A "%{resource_title}" ajánlat jelenleg értékelés alatt áll. Ellenőrizheti a választ ezen az oldalon:'
@@ -669,7 +660,6 @@ hu:
           fields:
             category: Kategória
             comments: Hozzászólások
-            endorsements: Jóváhagyások
             id: ID
             notes: Jegyzetek
             official_proposal: Hivatalos javaslat
@@ -690,18 +680,6 @@ hu:
           comment: Megjegyzés
           comments: Hozzászólások
           endorse: Támogatás
-      proposal_endorsements:
-        create:
-          error: Hiba történt a javaslat jóváhagyása során.
-        identities:
-          done: Kész
-          select_identity: Válassz azonosítót
-      proposal_endorsements_helper:
-        endorsement_button:
-          already_endorsed: Jóváhagyva
-          endorse: Jóváhagy
-        render_endorsements_button_card_part:
-          endorse: Jóváhagy
       proposal_votes:
         create:
           error: Hiba történt a javaslatra való szavazás során.
@@ -728,10 +706,6 @@ hu:
           discard_confirmation: Biztos vagy benne, hogy elveted ezt a vázlatot?
           send: Előnézet
           title: Javaslat vázlatok szerkesztése
-        endorsement_identities_cabin:
-          endorse: Jóváhagy
-        endorsements_card_row:
-          comments: Hozzászólások
         filters:
           activity: Tevékenységeim
           all: Összes
@@ -790,6 +764,7 @@ hu:
           answer: Válasz
           back_to: Vissza a
           changes_at_title: A (z) "%{title}" módosítása
+          comments: Hozzászólások
           edit_proposal: Javaslat szerkesztése
           endorsements_list: Jóváhagyások listája
           estimated_cost: Becsült költség
