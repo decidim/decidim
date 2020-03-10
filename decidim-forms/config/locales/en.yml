@@ -40,8 +40,10 @@ en:
           question:
             add_answer_option: Add answer option
             any: Any
+            collapse: Collapse
             description: Description
             down: Down
+            expand: Expand
             question: Question
             remove: Remove
             statement: Statement
