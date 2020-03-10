@@ -69,14 +69,11 @@ describe Decidim::Verifications::AuthorizationsBeforeDate do
   describe "when no filtering" do
     it_behaves_like "a correct usage of the query" do
       let(:parameters) do
-        { organization: organization, date: now, granted: nil }
+        { organization: organization, date: now }
       end
 
       let(:expectation) do
         [
-          created_prev_week,
-          created_prev_month,
-          created_prev_year,
           granted_now,
           granted_prev_week,
           granted_prev_month,

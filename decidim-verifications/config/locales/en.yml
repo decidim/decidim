@@ -34,7 +34,7 @@ en:
           destroy:
             confirm: Revoke before date authorizations can not be undone. Are you sure you want to continue?
             confirm_all: Revoke all the authorizations can not be undone. Are you sure you want to continue?
-          destroy_nok: Has been a problem within authorizations revocation.
+          destroy_nok: There's been a problem while revoking authorizations.
           destroy_ok: All matched authorizations had been revocated successfully!
           info: There are a total of %{count} verified participants.
           no_data: No verified participants

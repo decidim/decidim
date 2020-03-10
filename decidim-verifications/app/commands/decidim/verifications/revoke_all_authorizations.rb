@@ -2,7 +2,7 @@
 
 module Decidim
   module Verifications
-    # A command to revoken authorizations
+    # A command to revoke authorizations
     class RevokeAllAuthorizations < Rectify::Command
       # Public: Initializes the command.
       #
@@ -20,18 +20,20 @@ module Decidim
       #
       # Returns nothing.
       def call
-        auths_arr = Decidim::Verifications::Authorizations.new(
+        return broadcast(:invalid) unless @organization
+
+        auths = Decidim::Verifications::Authorizations.new(
           organization: organization,
           granted: true
-        ).query.to_a
+        ).query
 
-        auths_arr.each do |auth|
+        auths.find_each do |auth|
           Decidim.traceability.perform_action!(
-            :delete,
+            :destroy,
             auth,
             current_user
           ) do
-            auth.delete
+            auth.destroy
           end
         end
 

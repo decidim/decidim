@@ -22,37 +22,34 @@ module Decidim
       #
       # Returns nothing.
       def call
+        return broadcast(:invalid) unless @organization
         return broadcast(:invalid) unless @form.valid?
 
-        # Date format
-        before_date = @form.before_date_picker
         # Check before date
-        if before_date.present?
-
-          # Check if before_date, then filter it
-          authorizations_to_revoke = if @form.impersonated_only == true
+        if @form.before_date.present?
+          authorizations_to_revoke = if @form.impersonated_only?
                                        Decidim::Verifications::AuthorizationsBeforeDate.new(
                                          organization: organization,
-                                         date: before_date,
+                                         date: @form.before_date,
                                          granted: true,
                                          impersonated_only: @form.impersonated_only
                                        )
                                      else
                                        Decidim::Verifications::AuthorizationsBeforeDate.new(
                                          organization: organization,
-                                         date: before_date,
+                                         date: @form.before_date,
                                          granted: true
                                        )
                                      end
 
-          auths_arr = authorizations_to_revoke.query.to_a
-          auths_arr.each do |auth|
+          auths = authorizations_to_revoke.query
+          auths.find_each do |auth|
             Decidim.traceability.perform_action!(
-              :delete,
+              :destroy,
               auth,
               current_user
             ) do
-              auth.delete
+              auth.destroy
             end
           end
 
@@ -61,8 +58,6 @@ module Decidim
         else
           broadcast(:invalid)
         end
-      rescue StandardError => e
-        broadcast(:invalid, e.message)
       end
 
       private

@@ -9,7 +9,7 @@ module Decidim::Verifications
     let(:params) do
       {
         impersonated_only: impersonated_only,
-        before_date_picker: before_date
+        before_date: before_date
       }
     end
     let(:form) do
@@ -56,7 +56,7 @@ module Decidim::Verifications
     let(:user5) { create(:user, :admin, :confirmed, organization: organization, managed: true) }
 
     describe "when creating a revoke all authorizations command" do
-      context "with organization not set but impersonated_only & before_date" do
+      context "with organization not set neither current_user but impersonated_only & before_date" do
         let(:organization) { nil }
         let(:current_user) { nil }
 
@@ -151,7 +151,7 @@ module Decidim::Verifications
           impersonated_authorizations.to_a.each do |auth|
             expect(Decidim.traceability)
               .to receive(:perform_action!)
-              .with(:delete, auth, current_user)
+              .with(:destroy, auth, current_user)
               .and_call_original
           end
           expect { subject.call }.to change(Decidim::ActionLog, :count)
@@ -215,7 +215,7 @@ module Decidim::Verifications
           granted_authorizations.to_a.each do |auth|
             expect(Decidim.traceability)
               .to receive(:perform_action!)
-              .with(:delete, auth, current_user)
+              .with(:destroy, auth, current_user)
               .and_call_original
           end
           expect { subject.call }.to change(Decidim::ActionLog, :count)

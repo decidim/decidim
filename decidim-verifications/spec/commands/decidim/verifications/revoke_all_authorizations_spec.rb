@@ -76,7 +76,7 @@ module Decidim::Verifications
           granted_authorizations.to_a.each do |auth|
             expect(Decidim.traceability)
               .to receive(:perform_action!)
-              .with(:delete, auth, current_user)
+              .with(:destroy, auth, current_user)
               .and_call_original
           end
           expect { subject.call }.to change(Decidim::ActionLog, :count)

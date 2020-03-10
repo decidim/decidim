@@ -8,9 +8,9 @@ module Decidim
       #
       # @param organization [Organization] The organization where this authorization belongs to
       # @param date [Date] The verification's date of an authorization
-      # @param granted [boolean] Whether granted auths or not
-      # @param impersonated_only [boolean] Whether impersonated or not
-      def initialize(organization:, date:, granted:, impersonated_only: nil)
+      # @param granted [boolean] Whether return granted auths only or not granted only
+      # @param impersonated_only [boolean] Whether return impersonated auths only
+      def initialize(organization:, date:, granted: true, impersonated_only: false)
         @organization = organization
         @date = date
         @granted = granted
@@ -21,9 +21,11 @@ module Decidim
       #
       # Returns an ActiveRecord::Relation.
       def query
+        return Decidim::Authorization.none unless organization
+
         query = Decidim::Authorization.left_outer_joins(:organization).where(decidim_organizations: { id: organization.id })
 
-        if impersonated_only == true
+        if impersonated_only
           query = query
                   .left_outer_joins(:user)
                   .where(decidim_users: { decidim_organization_id: organization.id })
@@ -32,11 +34,11 @@ module Decidim
 
         query = query.where("#{Decidim::Authorization.table_name}.created_at < ?", date) unless date.nil?
 
-        if granted == true
-          query = query.where.not(granted_at: nil)
-        elsif granted == false
-          query = query.where(granted_at: nil)
-        end
+        query = if granted
+                  query.where.not(granted_at: nil)
+                else
+                  query.where(granted_at: nil)
+                end
 
         query
       end

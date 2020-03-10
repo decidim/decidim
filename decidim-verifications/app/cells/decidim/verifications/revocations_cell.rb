@@ -2,9 +2,8 @@
 
 module Decidim
   module Verifications
+    # This cell renders revocation options - Revoke all or Revoke before date
     class RevocationsCell < Decidim::ViewModel
-      # This cell renders revocation options - Revoke all or Revoke before date
-
       def show
         @form = Decidim::Verifications::Admin::RevocationsBeforeDateForm.from_params(params)
         render
