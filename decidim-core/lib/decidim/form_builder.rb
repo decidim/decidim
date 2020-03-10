@@ -258,7 +258,8 @@ module Decidim
     #
     # Returns a String.
     def resources_select(name, collection, options = {})
-      resources = collection
+      resources =
+        collection
         .pluck(:resource_type).uniq
         .map { |r| [r.split("::").last.gsub(/(?!^[A-ZÑÁ-Ú])[A-ZÑÁ-Ú]/) { |l| " " + l }, r] }
         .reject do |r|

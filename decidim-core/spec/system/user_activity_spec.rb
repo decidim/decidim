@@ -68,4 +68,3 @@ describe "User activity", type: :system do
     end
   end
 end
-
