@@ -18,19 +18,6 @@ describe "show", type: :system do
       expect(page).to have_content proposal.title[I18n.locale.to_s]
     end
 
-    it "shows the back button" do
-      expect(page).to have_link(href: "#{main_component_path(component)}proposals")
-    end
-  end
-
-  context "when clicking the back button" do
-    before do
-      visit_component
-      click_link(href: "#{main_component_path(component)}proposals")
-    end
-
-    it "redirect the user to index proposals" do
-      expect(page).to have_current_path("#{main_component_path(component)}proposals")
-    end
+    it_behaves_like "going back to list button"
   end
 end
