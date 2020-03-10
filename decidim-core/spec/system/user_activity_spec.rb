@@ -58,5 +58,14 @@ describe "User activity", type: :system do
         expect(page).to have_no_content(resource2.title)
       end
     end
+
+    it "displays activities filter" do
+      expect(page).to have_select(
+        "filter[resource_type]",
+        selected: "All types",
+        with_options: ["All types"]
+      )
+    end
   end
 end
+
