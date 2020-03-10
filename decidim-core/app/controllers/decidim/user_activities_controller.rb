@@ -21,7 +21,6 @@ module Decidim
         ActivitySearch.new(
           organization: current_organization,
           user: user,
-          # resource_type: "all",
           resource_type: filter.resource_type
         ).run
       )
