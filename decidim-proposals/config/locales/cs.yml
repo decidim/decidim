@@ -56,7 +56,6 @@ cs:
       decidim/proposals/creation_enabled_event: Vytváření návrhu je povoleno
       decidim/proposals/endorsing_enabled_event: Povolení návrhu je povoleno
       decidim/proposals/evaluating_proposal_event: Návrh je hodnocen
-      decidim/proposals/proposal_endorsed_event: Návrh byl schválen
       decidim/proposals/proposal_mentioned_event: Návrh byl zmíněn
       decidim/proposals/publish_proposal_event: Návrh byl zveřejněn
       decidim/proposals/rejected_proposal_event: Návrh byl zamítnut
@@ -73,11 +72,6 @@ cs:
         few: Návrhy
         many: Návrhy
         other: Návrhy
-      decidim/proposals/proposal_endorsement:
-        one: Schválení
-        few: Potvrzení
-        many: Potvrzení
-        other: Potvrzení
       decidim/proposals/proposal_note:
         one: Poznámka
         few: Poznámky
@@ -222,11 +216,6 @@ cs:
             email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
             email_subject: Návrh, který sledujete, byl přijat
             notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> byl přijat.
-        proposal_endorsed:
-          email_intro: '%{endorser_name} %{endorser_nickname}, který sledujete, právě schválil návrh "%{resource_title}" a myslíme si, že by pro vás mohl být zajímavý. Vyzkoušejte to a přispějte:'
-          email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{endorser_nickname}. Po předchozím propojení můžete přestat přijímat oznámení.
-          email_subject: "%{endorser_nickname} schválila nový návrh"
-          notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> byl schválen <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           affected_user:
             email_intro: 'Váš návrh "%{resource_title}" se právě vyhodnocuje. V této stránce můžete zkontrolovat odpověď:'
@@ -680,7 +669,6 @@ cs:
           fields:
             category: Kategorie
             comments: Komentáře
-            endorsements: Potvrzení
             id: ID
             notes: Poznámky
             official_proposal: Oficiální návrh
@@ -700,18 +688,6 @@ cs:
           amend: Pozměňovací návrh
           comment: Komentář
           comments: Komentáře
-          endorse: Potvrďte
-      proposal_endorsements:
-        create:
-          error: Při schválení návrhu došlo k chybám.
-        identities:
-          done: Hotovo
-          select_identity: Vyberte identitu
-      proposal_endorsements_helper:
-        endorsement_button:
-          already_endorsed: Potvrzeno
-          endorse: Potvrďte
-        render_endorsements_button_card_part:
           endorse: Potvrďte
       proposal_votes:
         create:
@@ -741,10 +717,6 @@ cs:
           discard_confirmation: Opravdu chcete tuto návrh zakázat?
           send: Náhled
           title: Upravit koncept návrhu
-        endorsement_identities_cabin:
-          endorse: Potvrďte
-        endorsements_card_row:
-          comments: Komentáře
         filters:
           activity: Moje aktivita
           all: Vše
@@ -807,6 +779,7 @@ cs:
           answer: Odpovědět
           back_to: Zpět k
           changes_at_title: Pozměňovací návrh k "%{title}"
+          comments: Komentáře
           edit_proposal: Upravit návrh
           endorsements_list: Seznam doporučení
           estimated_cost: Odhadované náklady
