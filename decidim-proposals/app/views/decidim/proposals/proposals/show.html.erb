@@ -68,7 +68,18 @@ extra_admin_link(
               <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
               <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } %>
             <% end %>
-            <%= render partial: "endorsements_card_row", locals: { proposal: @proposal } %>
+            <div class="row collapse buttons__row">
+              <% if endorsements_enabled? %>
+                <div class="column small-9 collapse">
+                  <%= endorsement_buttons_cell(@proposal) %>
+                </div>
+              <% end %>
+              <div class="column collapse <%= endorsements_enabled? ? "small-3" : "" %>">
+                <%= link_to "#comments", class: "button small compact hollow secondary button--nomargin expanded" do %>
+                    <%= icon "comment-square", class: "icon--small", aria_label: t(".comments"), role: "img" %> <%= @proposal.comments.count %>
+                <% end %>
+              </div>
+            </div>
             <br>
             <%= follow_button_for(@proposal) %>
           </div>
@@ -110,7 +121,7 @@ extra_admin_link(
     <%= linked_resources_for @proposal, :meetings, "proposals_from_meeting" %>
     <%= linked_resources_for @proposal, :proposals, "copied_from_component" %>
 
-    <%= cell "decidim/proposals/endorsers_list", @proposal, context: { current_user: current_user } %>
+    <%= cell "decidim/endorsers_list", @proposal %>
     <%= amendments_for @proposal %>
   </div>
 </div>

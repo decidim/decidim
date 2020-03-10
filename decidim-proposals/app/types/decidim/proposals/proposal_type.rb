@@ -65,7 +65,7 @@ module Decidim
 
       field :endorsementsCount, types.Int do
         description "The total amount of endorsements the proposal has received"
-        property :proposal_endorsements_count
+        property :endorsements_count
       end
 
       field :voteCount, types.Int do
