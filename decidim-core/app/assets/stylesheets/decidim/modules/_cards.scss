@@ -255,6 +255,9 @@ $datetime-bg: var(--primary);
   [data-toggler] {
     margin-bottom: -0.5rem;
   }
+  &.inline-block{
+    display: inline-block;
+  }
 }
 
 .card__voting {
@@ -266,6 +269,22 @@ $datetime-bg: var(--primary);
   font-size: 1.3rem;
   font-weight: 600;
   line-height: 1;
+}
+
+/* Card activity date */
+.card__activity-date{
+  margin-bottom: 0.5rem;
+  &.inline-block{
+    display: inline-block;
+    &.before-content::before{
+      content: "";
+      margin-right: 0.8rem;
+      border-right: $border;
+      height: 0.7rem;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
 }
 
 /* Card data */
