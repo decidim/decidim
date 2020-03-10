@@ -545,6 +545,24 @@ shared_examples_for "manage questionnaires" do
         it_behaves_like "switching questions order"
       end
 
+      context "when collapsing a question" do
+        before do
+          within ".questionnaire-question:first-of-type" do
+            page.find(".question--collapse").click
+          end
+        end
+
+        it "changes the toggle button" do
+          within ".questionnaire-question:first-of-type" do
+            expect(page.find(".question--collapse .icon")[:"aria-label"]).to eq("Expand")
+          end
+        end
+
+        it "hides the question card section" do
+          expect(page).not_to have_selector("#questionnaire_question_5-question-card")
+        end
+      end
+
       it "properly decides which button to show after adding/removing questions" do
         click_button "Add question"
 
