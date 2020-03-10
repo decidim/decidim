@@ -580,6 +580,7 @@ ca:
       create:
         button: Seguir
         error: S'ha produït un error en seguir aquest recurs.
+        participatory_space: Seguint
       destroy:
         button: Deixar de seguir
         error: S'ha produït un error en deixar de seguir aquest recurs.
@@ -864,7 +865,7 @@ ca:
           participate: Participa
           welcome: Benvinguda a %{organization}!
         metrics:
-          headline: Participació en xifres
+          headline: Mètriques
         statistics:
           answers_count: Enquestes realitzades
           assemblies_count: Assemblees
@@ -894,8 +895,8 @@ ca:
         topics: Temes
       participatory_space:
         metrics:
-          headline: Participació en xifres
-          link: Mostra totes les estadístiques
+          headline: Mètriques
+          link: Mostra totes les mètriques
       terms_and_conditions:
         accept:
           error: S'ha produït un error en acceptar els Termes i Condicions.
