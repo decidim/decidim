@@ -34,6 +34,7 @@ en:
       decidim/profile_updated_event: Profile updated
       decidim/promote_to_admin: Promoted to group admin
       decidim/removed_from_group: Removed from group
+      decidim/resource_endorsed_event: Resurce endorsed
   activerecord:
     attributes:
       decidim/user:
@@ -47,6 +48,9 @@ en:
       decidim/amendment:
         one: Amendment
         other: Amendments
+      decidim/endorsement:
+        one: Endorsement
+        other: Endorsements
       decidim/user:
         one: Participant
         other: Participants
@@ -239,6 +243,9 @@ en:
       comments:
         one: comment
         other: comments
+      endorsements:
+        one: endorsement
+        other: endorsements
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Get verified by introducing a passport number starting with "A"
@@ -430,6 +437,15 @@ en:
           this_application_will_not_be_able_to: 'This application will not be able to:'
           update_profile: Update your profile
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> wants to use your account"
+    endorsable:
+      endorsements: Endorsements
+    endorsement_buttons_cell:
+      already_endorsed: Endorsed
+      endorse: Endorse
+    endorsements:
+      identities:
+        done: Done
+        select_identity: Select identity
     errors:
       internal_server_error:
         title: There was a problem with our server
@@ -550,6 +566,11 @@ en:
           notification_title: You have been removed from the <a href="%{resource_path}">%{user_group_name}</a> group.
       notification_event:
         notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
+      resource_endorsed:
+        email_intro: '%{endorser_name} %{endorser_nickname}, who you are following, has just endorsed "%{resource_title}" and we think it may be interesting to you. Check it out and contribute:'
+        email_outro: You have received this notification because you are following %{endorser_nickname}. You can stop receiving notifications following the previous link.
+        email_subject: "%{endorser_nickname} has performed a new endorsement"
+        notification_title: The <a href="%{resource_path}">%{resource_title}</a> %{resource_type} has been endorsed by <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: The <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
@@ -971,6 +992,9 @@ en:
       create:
         error: An error ocurred while creating the report. Please, try it again.
         success: The report has been created successfully and it will be reviewed by an admin.
+    resource_endorsements:
+      create:
+        error: There was a problem during the endorsement action.
     scopes:
       global: Global scope
       picker:
