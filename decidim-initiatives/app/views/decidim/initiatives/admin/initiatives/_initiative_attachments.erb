@@ -31,12 +31,10 @@
     <% if allowed_to?(:update, :initiative, initiative: current_initiative) %>
       <%= aria_selected_link_to t(".edit"),
                                 decidim_admin_initiatives.initiative_attachments_path(current_participatory_space),
-                                class: "button"
-      %>
+                                class: "button" %>
       <%= aria_selected_link_to t(".new"),
                                 decidim_admin_initiatives.new_initiative_attachment_path(current_participatory_space),
-                                class: "button"
-      %>
+                                class: "button" %>
     <% else %>
       <%= link_to t(".edit"), "#", class: "button muted disabled" %>
       <%= link_to t(".new"), "#", class: "button muted disabled" %>
