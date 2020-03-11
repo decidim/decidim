@@ -49,6 +49,12 @@ module Decidim
         end
       end
 
+      def show_email
+        enforce_permission_to :show_email, :user, user: user
+
+        render :show_email, layout: false
+      end
+
       private
 
       def collection
