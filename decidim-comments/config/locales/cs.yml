@@ -4,6 +4,7 @@ cs:
       decidim/comments/comment_by_followed_user_event: Komentář
       decidim/comments/comment_created_event: Komentář
       decidim/comments/reply_created_event: Odpověď na komentář
+      decidim/comments/user_group_mentioned_event: Zmínit se
       decidim/comments/user_mentioned_event: Zmínit se
   activerecord:
     models:
