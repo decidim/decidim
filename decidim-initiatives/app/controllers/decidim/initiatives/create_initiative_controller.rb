@@ -110,8 +110,8 @@ module Decidim
 
       def similar_initiatives
         @similar_initiatives ||= Decidim::Initiatives::SimilarInitiatives
-                                     .for(current_organization, @form)
-                                     .all
+                                 .for(current_organization, @form)
+                                 .all
       end
 
       def build_form(klass, parameters)
@@ -157,7 +157,7 @@ module Decidim
         return false unless initiative_type.promoting_committee_enabled?
 
         minimum_committee_members = initiative_type.minimum_committee_members ||
-            Decidim::Initiatives.minimum_committee_members
+                                    Decidim::Initiatives.minimum_committee_members
         minimum_committee_members.present? && minimum_committee_members.positive?
       end
     end
