@@ -6,7 +6,6 @@
 
 - **Endorsements**
 
-
 This new version of Decidim has extracted the Endorsement feature into a generic concern that can now be applied to many resources.
 To keep current Decidim::Proposals::Proposal's endorsement information, endorsements are copied into the new `Decidim::Endorsable` tables and counter cache columns. This is done via migrations.
 
