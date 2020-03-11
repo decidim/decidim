@@ -148,7 +148,7 @@ module Decidim::Verifications
         end
 
         it "traces the action", versioning: true do
-          impersonated_authorizations.to_a.each do |auth|
+          impersonated_authorizations.find_each do |auth|
             expect(Decidim.traceability)
               .to receive(:perform_action!)
               .with(:destroy, auth, current_user)
@@ -212,7 +212,7 @@ module Decidim::Verifications
         end
 
         it "traces the action", versioning: true do
-          granted_authorizations.to_a.each do |auth|
+          granted_authorizations.find_each do |auth|
             expect(Decidim.traceability)
               .to receive(:perform_action!)
               .with(:destroy, auth, current_user)

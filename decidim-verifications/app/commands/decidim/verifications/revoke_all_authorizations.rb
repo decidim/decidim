@@ -38,8 +38,6 @@ module Decidim
         end
 
         broadcast(:ok)
-      rescue StandardError => e
-        broadcast(:invalid, e.message)
       end
 
       private
