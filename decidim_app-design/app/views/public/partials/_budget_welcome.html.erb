@@ -1,4 +1,4 @@
-<div class="reveal" data-reveal id="budget-modal">
+<div class="reveal" data-reveal id="budget-modal-info">
     <div class="reveal__header">
         <h3 class="reveal__title">Tú decides los presupuestos</h3>
         <button class="close-button" data-close aria-label="Close modal" type="button">
@@ -13,11 +13,11 @@
 
     <p>
       Elige los presupuestos de tu distrito y después, los de otro a tu elección
-      (si lo prefieres, puedes <a href="#">empezar por otro distrito</a>).
+      (si lo prefieres, puedes <%= link_to "empezar por otro distrito", page_path("projects-budget-welcome") %>).
     </p>
     <div class="row">
         <div class="columns medium-8 medium-offset-2">
-            <button class="button expanded">Empezar</button>
+            <button class="button expanded">Continuar</button>
         </div>
     </div>
 </div>

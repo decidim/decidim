@@ -13,20 +13,14 @@
       <div class="columns medium-7 mediumlarge-8">
         <div class="section">
           <p class="lead">
-            Has votado los presupuestos del <strong>distrito de Gràcia</strong>.
+            Has votado los presupuestos del <a href="#"><strong>distrito de Gràcia</strong></a>
+            y del <a href="#"><strong>distrito de Ciutat Vella</strong></a>.
           </p>
           <p>
-            <a href="#" class="button">Ver propuestas votadas</a>
+            Ya has finalizado la votación de los dos distritos. ¡Muchas gracias por haber participado!
           </p>
         </div>
-        <div class="section">
-          <p class="lead">
-            Has votado los presupuestos del <strong>distrito de Ciutat Vella</strong>.
-          </p>
-          <p>
-            <a href="#" class="button">Ver propuestas votadas</a>
-          </p>
-        </div>
+        <%= partial "budget_districts", locals: {votedOne: true, votedTwo: true} %>
       </div>
     </div>
   </div>
