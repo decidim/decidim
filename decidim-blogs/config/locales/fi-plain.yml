@@ -48,6 +48,7 @@ fi-pl:
             title: otsikko
       posts:
         show:
+          comments: Kommentit
           view: Näytä
         sidebar_blog:
           comments: kommentit
@@ -63,6 +64,8 @@ fi-pl:
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
+            endorsements_blocked: Suositukset estetty
+            endorsements_enabled: Suositukset käytössä
     events:
       blogs:
         post_created:
