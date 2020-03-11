@@ -26,23 +26,7 @@ module Decidim
       context "when sorting by endorsement_count" do
         let!(:most_endorsed) { create(:proposal, :published, :with_endorsements, component: model) }
 
-        describe "ASC" do
-          let(:query) { %[{ proposals(order: {endorsementCount: "ASC"}) { edges { node { id } } } }] }
-
-          it "returns the most endorsed last" do
-            expect(response["proposals"]["edges"].count).to eq(4)
-            expect(response["proposals"]["edges"].last["node"]["id"]).to eq(most_endorsed.id.to_s)
-          end
-        end
-
-        describe "DESC" do
-          let(:query) { %[{ proposals(order: {endorsementCount: "DESC"}) { edges { node { id } } } }] }
-
-          it "returns the most endorsed first" do
-            expect(response["proposals"]["edges"].count).to eq(4)
-            expect(response["proposals"]["edges"].first["node"]["id"]).to eq(most_endorsed.id.to_s)
-          end
-        end
+        include_examples "connection has endorsement_count sort", "proposals"
       end
 
       context "when sorting by vote_count" do
