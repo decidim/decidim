@@ -14,7 +14,7 @@ A typical query would look like:
   {
     participatoryProcesses {
       components {
-        ...on Posts {
+        ...on Blogs {
           posts(filter:{ createdBefore: \"2020-01-01\" }) {
             id
           }

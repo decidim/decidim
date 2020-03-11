@@ -43,7 +43,7 @@ module Decidim
         @query
       end
 
-      # By default, any model in its defaul scope
+      # By default, any model uses the default scope for queries
       # Particular implementations may restrict this by adding
       # additional constrains
       def query_scope
