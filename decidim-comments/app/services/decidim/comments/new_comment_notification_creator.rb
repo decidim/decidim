@@ -17,9 +17,12 @@ module Decidim
       # comment - the Comment from which to generate notifications.
       # mentioned_users - An ActiveRecord::Relation of the users that have been
       #   mentioned
-      def initialize(comment, mentioned_users)
+      # mentioned_groups - And ActiveRecord::Relation of the user_groups that have
+      #   been mentioned
+      def initialize(comment, mentioned_users, mentioned_groups = nil)
         @comment = comment
         @mentioned_users = mentioned_users
+        @mentioned_groups = mentioned_groups
         @already_notified_users = [comment.author]
       end
 
@@ -28,6 +31,7 @@ module Decidim
       # Returns nothing.
       def create
         notify_mentioned_users
+        notify_mentioned_groups
         notify_parent_comment_author
         notify_author_followers
         notify_commentable_recipients
@@ -35,13 +39,24 @@ module Decidim
 
       private
 
-      attr_reader :comment, :mentioned_users, :already_notified_users
+      attr_reader :comment, :mentioned_users, :mentioned_groups, :already_notified_users
 
       def notify_mentioned_users
         affected_users = mentioned_users - already_notified_users
         @already_notified_users += affected_users
 
         notify(:user_mentioned, affected_users: affected_users)
+      end
+
+      def notify_mentioned_groups
+        return unless mentioned_groups
+
+        mentioned_groups.each do |group|
+          affected_users = group.accepted_users - already_notified_users
+          @already_notified_users += affected_users
+
+          notify(:user_group_mentioned, affected_users: affected_users, extra: { group: group })
+        end
       end
 
       # Notifies the author of a comment that their comment has been replied.
@@ -90,7 +105,7 @@ module Decidim
           extra: {
             comment_id: comment.id
           }
-        }.merge(users)
+        }.deep_merge(users)
 
         Decidim::EventsManager.publish(data)
       end

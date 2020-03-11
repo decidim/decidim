@@ -197,7 +197,7 @@ module Decidim
 
       initializer "decidim.content_processors" do |_app|
         Decidim.configure do |config|
-          config.content_processors += [:user, :hashtag, :link]
+          config.content_processors += [:user, :user_group, :hashtag, :link]
         end
       end
 
