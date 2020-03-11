@@ -4,7 +4,7 @@ We use GitHub Actions as CI.
 
 - `lint_code.yml`: runs the linters for Ruby, JS and ERB files.
 - `ci_main.yml`: runs the tests for the main folder
-- `ci_core.yml`: Runs the tests for eh `decidim-core` module. This workflow serves as a template for the rest of modules, since setup is mostly the same. In order to make changes, `cd` into the workflows folder and run `ruby generate_workflows.rb`.
+- `ci_core.yml`: runs the tests for the `decidim-core` module. The remaining workflows (except noted) are based on this one.
 
 Individual workflows with changes:
 
@@ -33,6 +33,7 @@ Individual workflows with changes:
 ```
 
 - Proposals specs are split in three workflows:
+
   - `ci_proposals_system_admin.yml`: Runs the system specs for the admin section
   - `ci_proposals_system_public.yml`: Runs the system specs for the public section
   - `ci_proposals_unit_tests.yml`: Runs the unit tests
