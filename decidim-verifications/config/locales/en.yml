@@ -72,13 +72,13 @@ en:
           unconfirmed: You need to confirm your email in order to authorize yourself.
         first_login:
           actions:
-            sms: sms
             another_dummy_authorization_handler: Verify against another example of authorization handler
             csv_census: Verify against the organization's census
             dummy_authorization_handler: Verify against the example authorization handler
             dummy_authorization_workflow: Verify against the example authorization workflow
             id_documents: Get verified by uploading your identity document
             postal_letter: Get verified by receiving a verification code through postal mail
+            sms: sms
           title: Verify your identity
           verify_with_these_options: 'These are the available options to verify your identity:'
         new:
