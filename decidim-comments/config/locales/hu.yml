@@ -92,6 +92,10 @@ hu:
           email_outro: Ezt az értesítést azért kaptad, mert valaki választolt a mejegyzésedre.
           email_subject: "%{author_name} megjegyzést tett a kommentedhez itt: %{resource_title}"
           notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> válaszolt a megjegyzésedre itt: <a href="%{resource_path}">%{resource_title}</a>'
+        user_group_mentioned:
+          email_outro: Azért kapta ezt az értesítést, mert tagja annak a(z) %{group_name} csoportnak, amelyet a(z) %{resource_title} megemlített.
+          email_subject: A(z) %{resource_title} -ban említettek, a(z) %{group_name} tagjaként
+          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> -ban a <a href="%{author_path}">%{author_name} %{author_nickname}</a> megemlített a(z) <a href="%{group_path}">%{group_name} %{group_nickname} </a> tagjaként
         user_mentioned:
           email_intro: Valaki említette a neved
           email_outro: Ezt az értesítést azért kaptad, mert korábban megemlítettek a(z) "%{resource_title}" témában.
