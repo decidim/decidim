@@ -13,11 +13,15 @@ module Decidim
 
       helper_method :username_list, :conversation
 
+      # Shows the form to initiate a conversation with an user (the recipient)
+      # recipient is passed via GET parameter:
+      #   - if the recipient does not exists, goes back to the users profile page
+      #   - if the user already has a conversation with the user, redirects to the initiated conversation
       def new
         @form = form(ConversationForm).from_params(params)
         conversation = conversation_between(current_user, @form.recipient)
 
-        return redirect_back(fallback_location: profile_path(current_user.nickname)) && return unless @form.recipient
+        return redirect_back(fallback_location: profile_path(current_user.nickname)) unless @form.recipient
 
         return redirect_to conversation_path(conversation) if conversation
 
