@@ -18,6 +18,7 @@ All members of the Decidim community agree with [Decidim Social Contract or Code
 
 Code quality
 
+[![codecov](https://codecov.io/gh/decidim/decidim/branch/develop/graph/badge.svg)](https://codecov.io/gh/decidim/decidim)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ad8fa445086e491486b6/maintainability)](https://codeclimate.com/github/decidim/decidim/maintainability)
 [![Crowdin](https://d322cqt584bo4o.cloudfront.net/decidim/localized.svg)](https://crowdin.com/project/decidim)
 [![Inline docs](http://inch-ci.org/github/decidim/decidim.svg?branch=master)](http://inch-ci.org/github/decidim/decidim)
