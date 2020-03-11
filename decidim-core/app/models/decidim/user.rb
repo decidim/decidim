@@ -199,6 +199,11 @@ module Decidim
       end
     end
 
+    # return the groups where this user has been accepted
+    def accepted_user_groups
+      UserGroups::AcceptedUserGroups.for(self)
+    end
+
     protected
 
     # Overrides devise email required validation.

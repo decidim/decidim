@@ -164,12 +164,18 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       let(:stats_name) { :endorsements_count }
 
       before do
-        create_list :proposal_endorsement, 2, proposal: proposal
-        create_list :proposal_endorsement, 3, proposal: hidden_proposal
+        # rubocop:disable FactoryBot/CreateList
+        2.times do
+          create(:endorsement, resource: proposal, author: build(:user, organization: organization))
+        end
+        3.times do
+          create(:endorsement, resource: hidden_proposal, author: build(:user, organization: organization))
+        end
+        # rubocop:enable FactoryBot/CreateList
       end
 
       it "counts the endorsements from visible proposals" do
-        expect(Decidim::Proposals::ProposalEndorsement.count).to eq 5
+        expect(Decidim::Endorsement.count).to eq 5
         expect(subject).to eq 2
       end
     end
