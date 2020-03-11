@@ -153,6 +153,8 @@ module Decidim
             !subject_user.admin? &&
             subject_user.roles.empty? &&
             Decidim::ImpersonationLog.active.where(admin: user).empty?
+        when :show_email
+          user.admin?
         when :destroy
           subject_user != user
         else

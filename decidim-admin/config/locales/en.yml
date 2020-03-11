@@ -564,6 +564,7 @@ en:
           officialize: Officialize
           officialized: Officialized
           reofficialize: Reofficialize
+          show_email: Show email address
           status: Status
           unofficialize: Unofficialize
         new:
