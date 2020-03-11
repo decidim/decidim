@@ -27,7 +27,7 @@ module Decidim
               .where(organization: options.fetch(:organization))
 
       query = query.where(user: options[:user]) if options[:user]
-      query = query.where(resource_type: options[:resource_type]) if options[:resource_type]
+      query = query.where(resource_type: options[:resource_name]) if options[:resource_name]
 
       query = filter_follows(query)
 
