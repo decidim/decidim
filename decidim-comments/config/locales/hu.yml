@@ -4,6 +4,7 @@ hu:
       decidim/comments/comment_by_followed_user_event: Megjegyzés
       decidim/comments/comment_created_event: Megjegyzés
       decidim/comments/reply_created_event: Hozzászólás válasz
+      decidim/comments/user_group_mentioned_event: Említés
       decidim/comments/user_mentioned_event: Említés
   activerecord:
     models:
