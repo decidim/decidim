@@ -4,6 +4,7 @@ pt:
       decidim/comments/comment_by_followed_user_event: Comente
       decidim/comments/comment_created_event: Comente
       decidim/comments/reply_created_event: Comentário resposta
+      decidim/comments/user_group_mentioned_event: Menção
       decidim/comments/user_mentioned_event: Menção
   activerecord:
     models:
