@@ -41,16 +41,16 @@ module Decidim
       end
 
       let!(:matrixmultiple_question) { create :questionnaire_question, questionnaire: questionnaire, question_type: "matrix_multiple" }
-      let!(:matrixmultiple_answer_options) { create_list :answer_option, 2, question: matrixmultiple_question }
-      let!(:matrixmultiple_rows) { create_list :question_matrix_row, 2, question: matrixmultiple_question }
+      let!(:matrixmultiple_answer_options) { create_list :answer_option, 3, question: matrixmultiple_question }
+      let!(:matrixmultiple_rows) { create_list :question_matrix_row, 3, question: matrixmultiple_question }
       let!(:matrixmultiple_answer) do
         create :answer, questionnaire: questionnaire, question: matrixmultiple_question, user: user, body: nil
       end
       let!(:matrixmultiple_answer_choices) do
-        matrixmultiple_answer_options.map do |answer_option|
+        matrixmultiple_rows.map do |row|
           [
-            create(:answer_choice, answer: matrixmultiple_answer, answer_option: answer_option, matrix_row: matrixmultiple_rows.first, body: answer_option.body[I18n.locale.to_s]),
-            create(:answer_choice, answer: matrixmultiple_answer, answer_option: answer_option, matrix_row: matrixmultiple_rows.second, body: answer_option.body[I18n.locale.to_s])
+            create(:answer_choice, answer: matrixmultiple_answer, answer_option: matrixmultiple_answer_options.first, matrix_row: row, body: matrixmultiple_answer_options.first.body[I18n.locale.to_s]),
+            create(:answer_choice, answer: matrixmultiple_answer, answer_option: matrixmultiple_answer_options.last, matrix_row: row, body: matrixmultiple_answer_options.last.body[I18n.locale.to_s])
           ]
         end.flatten
       end
@@ -67,9 +67,11 @@ module Decidim
 
           serialized_matrix_answer = matrixmultiple_rows.map do |row|
             key = translated(row.body, locale: I18n.locale)
-            value = matrixmultiple_answer_choices.select { |c| c.matrix_row.id == row.id }.map(&:body)
+            choices = matrixmultiple_answer_options.map do |option|
+              matrixmultiple_answer_choices.find { |choice| choice.matrix_row == row && choice.answer_option == option }
+            end
 
-            [key, value]
+            [key, choices.map { |choice| choice&.body }]
           end.to_h
 
           expect(serialized).to include(

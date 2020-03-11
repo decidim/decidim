@@ -42,12 +42,15 @@ module Decidim
       end
 
       def normalize_matrix_choices(answer, choices)
-        choices.group_by(&:matrix_row).map do |matrix_row, row_choices|
-          row_choices.map! do |choice|
+        answer.question.matrix_rows.map do |matrix_row|
+          row_body = translated_attribute(matrix_row.body)
+
+          row_choices = answer.question.answer_options.map do |answer_option|
+            choice = choices.find_by(matrix_row: matrix_row, answer_option: answer_option)
             choice.try(:custom_body) || choice.try(:body)
           end
 
-          [translated_attribute(answer.question.matrix_rows.find_by(id: matrix_row.id).body), row_choices]
+          [row_body, row_choices]
         end.to_h
       end
 
