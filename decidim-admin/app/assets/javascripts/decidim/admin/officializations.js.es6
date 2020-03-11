@@ -12,6 +12,7 @@ $(() => {
   $("[data-toggle=showEmailModal]").on("click", (event) => {
   	event.preventDefault()
 
+    $button.show()
   	$button.attr("data-open-url", event.currentTarget.href)
   	$full_name.text($(event.currentTarget).data("full-name"))
   	$email.html("")
