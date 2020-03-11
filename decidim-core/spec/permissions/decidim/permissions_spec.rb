@@ -169,6 +169,8 @@ describe Decidim::Permissions do
       end
     end
 
+    it_behaves_like "with endorsable permissions can perform actions related to endorsable"
+
     context "when action is on notifications" do
       let(:action_subject) { :notification }
 
