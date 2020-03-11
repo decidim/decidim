@@ -52,6 +52,8 @@ module Decidim
       def show_email
         enforce_permission_to :show_email, :user, user: user
 
+        Decidim.traceability.perform_action! :show_email, user, current_user
+
         render :show_email, layout: false
       end
 
