@@ -26,7 +26,7 @@ module Decidim
       end
 
       def process_attachments?
-        @form.attachment.file.present?
+        @form.attachment && @form.attachment.file.present?
       end
     end
   end

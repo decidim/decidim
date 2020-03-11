@@ -72,20 +72,9 @@
       </div>
     <% end %>
 
-    <div class="row column">
-      <fieldset>
-        <legend><%= t(".attachment_legend") %></legend>
-        <%= form.fields_for :attachment, @form.attachment do |form| %>
-          <div class="row column">
-            <%= form.text_field :title %>
-          </div>
-
-          <div class="row column">
-            <%= form.upload :file, optional: false %>
-          </div>
-        <% end %>
-      </fieldset>
-    </div>
+    <% if allowed_to?(:read, :attachment, initiative: current_participatory_space) %>
+      <%= render partial: "initiative_attachments", locals: { current_initiative: current_initiative, current_participatory_space: current_participatory_space } %>
+    <% end %>
   </div>
 </div>
 
