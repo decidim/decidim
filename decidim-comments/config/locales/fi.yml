@@ -4,6 +4,7 @@ fi:
       decidim/comments/comment_by_followed_user_event: Kommentti
       decidim/comments/comment_created_event: Kommentti
       decidim/comments/reply_created_event: Vastaus kommentiin
+      decidim/comments/user_group_mentioned_event: Maininta
       decidim/comments/user_mentioned_event: Maininta
   activerecord:
     models:
