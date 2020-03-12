@@ -8,25 +8,23 @@ module Decidim
       name "Blogs"
       description "A blogs component of a participatory space."
 
-      connection :posts, PostType.connection_type do
-        resolve ->(component, _args, _ctx) {
-                  PostsTypeHelper.base_scope(component).includes(:component)
-                }
-      end
-
-      field(:post, PostType) do
-        argument :id, !types.ID
-
-        resolve ->(component, args, _ctx) {
-          PostsTypeHelper.base_scope(component).find_by(id: args[:id])
-        }
-      end
+      connection :posts,
+                 type: PostType.connection_type,
+                 description: "List all posts",
+                 function: PostListHelper.new(model_class: Post)
+      field :post,
+            type: PostType,
+            description: "Finds one post",
+            function: PostFinderHelper.new(model_class: Post)
     end
 
-    module PostsTypeHelper
-      def self.base_scope(component)
-        Post.where(component: component)
-      end
+    class PostListHelper < Decidim::Core::ComponentListBase
+      argument :order, PostInputSort, "Provides several methods to order the results"
+      argument :filter, PostInputFilter, "Provides several methods to filter the results"
+    end
+
+    class PostFinderHelper < Decidim::Core::ComponentFinderBase
+      argument :id, !types.ID, "The ID of the post"
     end
   end
 end

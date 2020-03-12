@@ -229,6 +229,15 @@ shared_examples "comments" do
           expect(page).not_to have_selector(".tribute-container")
         end
       end
+
+      context "when mentioning a group" do
+        let!(:mentioned_group) { create(:user_group, :confirmed, organization: organization) }
+        let(:content) { "A confirmed user group mention: @#{mentioned_group.nickname}" }
+
+        it "shows the tribute container" do
+          expect(page).to have_selector(".tribute-container")
+        end
+      end
     end
 
     describe "mentions", :slow do
