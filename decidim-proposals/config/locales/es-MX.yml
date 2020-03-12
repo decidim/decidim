@@ -220,7 +220,6 @@ es-MX:
             email_subject: Una propuesta que estás siguiendo está siendo evaluada
             notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> está siendo evaluada.
         proposal_mentioned:
-          email_intro: Tu propuesta "%{mentioned_proposal_title}" se ha mencionado <a href="%{resource_path}">en este espacio</a> en los comentarios.
           email_outro: Has recibido esta notificación porque eres autor de "%{resource_title}".
           email_subject: Tu propuesta "%{mentioned_proposal_title}" ha sido mencionada
           notification_title: Tu propuesta "%{mentioned_proposal_title}" se ha mencionado <a href="%{resource_path}">en este espacio</a> en los comentarios.
