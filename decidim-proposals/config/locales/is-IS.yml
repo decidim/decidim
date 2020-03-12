@@ -71,7 +71,6 @@ is-IS:
             email_subject: Tillaga sem þú fylgir er metin
             notification_title: <a href="%{resource_path}">%{resource_title}</a> tillögunni er metið.
         proposal_mentioned:
-          email_intro: Tillaga þín "%{mentioned_proposal_title}" hefur verið nefnd <a href="%{resource_path}">í þessu rými</a> í athugasemdunum.
           email_subject: Tillagan þín "%{mentioned_proposal_title}" hefur verið minnst
           notification_title: Tillaga þín "%{mentioned_proposal_title}" hefur verið nefnd <a href="%{resource_path}">í þessu rými</a> í athugasemdunum.
         proposal_published:
