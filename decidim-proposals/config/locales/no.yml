@@ -213,7 +213,6 @@
             email_subject: Et forslag du følger blir evaluert
             notification_title: <a href="%{resource_path}">%{resource_title}</a> forslaget blir evaluert.
         proposal_mentioned:
-          email_intro: Forslaget ditt "%{mentioned_proposal_title}" har blitt nevnt <a href="%{resource_path}">i dette området</a> i kommentarene.
           email_outro: Du har mottatt denne varslingen fordi du er en forfatter av "%{resource_title}".
           email_subject: Forslaget ditt "%{mentioned_proposal_title}" er blitt nevnt
           notification_title: Forslaget ditt "%{mentioned_proposal_title}" har blitt nevnt <a href="%{resource_path}">i dette området</a> i kommentarene.
