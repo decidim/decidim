@@ -208,7 +208,6 @@ ar:
             email_subject: يتم تقييم الاقتراح الخاص بك
             notification_title: يتم تقييم الاقتراح الخاص بك <a href="%{resource_path}">%{resource_title}</a>.
         proposal_mentioned:
-          email_intro: لقد تم ذكر اقتراحك "%{mentioned_proposal_title}" <a href="%{resource_path}">في هذه المساحة</a> في التعليقات.
           email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف "%{resource_title}".
           email_subject: تم ذكر اقتراحك "%{mentioned_proposal_title}"
           notification_title: لقد تم ذكر اقتراحك "%{mentioned_proposal_title}" <a href="%{resource_path}">في هذه المساحة</a> في التعليقات.
