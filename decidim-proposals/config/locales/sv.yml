@@ -188,7 +188,6 @@ sv:
             email_subject: Ett förslag som du följer utvärderas
             notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> utvärderas.
         proposal_mentioned:
-          email_intro: Ditt förslag "%{mentioned_proposal_title}" har nämnts <a href="%{resource_path}">i det här utrymmet</a> i kommentarerna.
           email_outro: Du har fått den här meddelandet eftersom du är en författare till "%{resource_title}".
           email_subject: Ditt förslag "%{mentioned_proposal_title}" har nämnts
           notification_title: Ditt förslag "%{mentioned_proposal_title}" har nämnts <a href="%{resource_path}">i det här utrymmet</a> i kommentarerna.
