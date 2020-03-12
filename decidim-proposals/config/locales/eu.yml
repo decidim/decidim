@@ -178,7 +178,6 @@ eu:
             email_subject: Jarraitzen ari zaren proposamena ebaluatzen ari da
             notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena ebaluatzen ari da.
         proposal_mentioned:
-          email_intro: '"%{mentioned_proposal_title}" zure proposamena <a href="%{resource_path}"></a> espazio honetan aipatu da iruzkinetan.'
           email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" egilearena delako.
           email_subject: Zure proposamena "%{mentioned_proposal_title}" aipatu da
           notification_title: '"%{mentioned_proposal_title}" zure proposamena <a href="%{resource_path}"></a> espazio honetan aipatu da iruzkinetan.'
