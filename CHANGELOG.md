@@ -159,6 +159,11 @@ Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now sup
 - **decidim-core**: Fix: use of browse history with filters [#5749](https://github.com/decidim/decidim/pull/5749)
 - **decidim-budgets**: Add a missing fix applied to proposals in [\#5654](https://github.com/decidim/decidim/pull/5654) but not to projects [\#5743](https://github.com/decidim/decidim/pull/5743)
 - **decidim-proposals**: Admin: fix "Answer Proposal" action tooltip [/#5750](https://github.com/decidim/decidim/pull/5750)
+- **decidim-proposals**: Fix relative path in mentioned proposal email [\#5852](https://github.com/decidim/decidim/pull/5852)
+- **decidim-proposals**: Use simple_format to add a wrapper to proposals body [\#5753](https://github.com/decidim/decidim/pull/5753)
+- **decidim-sortitions**: Fix incorrect proposals sortition. [\#5620](https://github.com/decidim/decidim/pull/5620)
+- **decidim-admin**: Fix: let components without step settings be added [\#5568](https://github.com/decidim/decidim/pull/5568)
+- **decidim-proposals**: Fix proposals that have their state not published [\#5832](https://github.com/decidim/decidim/pull/5832)
 
 **Removed**:
 
