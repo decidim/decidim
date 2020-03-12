@@ -6,7 +6,7 @@ module Decidim
     # shouldn't be necessary to expand it to add new authorization schemes.
     class AuthorizationsController < ApplicationController
       helper_method :handler, :unauthorized_methods
-      before_action :valid_handler, only: [:new, :create]
+      before_action :valid_handler, only: [:new, :create, :renew]
 
       include Decidim::UserProfile
       helper Decidim::DecidimFormHelper
@@ -42,6 +42,25 @@ module Decidim
           on(:invalid) do
             flash[:alert] = t("authorizations.create.error", scope: "decidim.verifications")
             render action: :new
+          end
+        end
+      end
+
+      def renew
+        authorization = Decidim::Authorization.find_by(
+          user: current_user,
+          name: handler.handler_name
+        )
+
+        DestroyUserAuthorization.call(authorization) do
+          on(:ok, authorization) do
+            flash[:notice] = t("authorizations.destroy.success", scope: "decidim.verifications")
+            redirect_to new_authorization_path(handler: authorization.name)
+          end
+
+          on(:invalid) do
+            flash[:alert] = t("authorizations.destroy.error", scope: "decidim.verifications")
+            redirect_to authorizations_path
           end
         end
       end

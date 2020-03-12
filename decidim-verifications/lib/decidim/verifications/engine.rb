@@ -11,6 +11,7 @@ module Decidim
           resources :authorizations, only: [:new, :create, :index] do
             collection do
               get :first_login
+              get :renew
             end
           end
 

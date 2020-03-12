@@ -47,6 +47,21 @@ module Decidim
       !granted_at.nil?
     end
 
+    # Returns true if the authorization is renewable by the participant
+    def renewable?
+      return unless workflow_manifest
+      return unless renewable_at < Time.current
+
+      workflow_manifest.renewable
+    end
+
+    # for development pourposes, to be removed
+    def wait_time
+      return unless renewable?
+
+      "#{workflow_manifest.renewable}: renewable_at: #{renewable_at} | time_between_renews: #{workflow_manifest.time_between_renews}"
+    end
+
     # Calculates at when this authorization will expire, if it needs to.
     #
     # Returns nil if the authorization does not expire.
@@ -70,6 +85,14 @@ module Decidim
 
     def workflow_manifest
       @workflow_manifest ||= Decidim::Verifications.find_workflow_manifest(name)
+    end
+
+    # Calculates when this authorization can be reseted, if desired.
+    #
+    # time_between_renews defaults to zero
+    # Returns an ActiveSupport::TimeWithZone.
+    def renewable_at
+      (granted_at || created_at) + workflow_manifest.time_between_renews
     end
   end
 end

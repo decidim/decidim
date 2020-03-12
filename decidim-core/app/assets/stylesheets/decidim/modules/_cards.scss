@@ -505,8 +505,8 @@ $datetime-bg: var(--primary);
 
 /* Card list */
 .card--list {
-  .card--list__item:not(:last-of-type),
-  *:not(:last-of-type) .card--list__item {
+  .card--list__item:not(:last-child),
+  *:not(:last-child) .card--list__item {
     border-bottom: $border;
   }
 }

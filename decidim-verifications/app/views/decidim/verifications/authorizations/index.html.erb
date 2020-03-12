@@ -3,13 +3,19 @@
     <% if @granted_authorizations.any? %>
       <div class="card card--list">
         <% @granted_authorizations.each do |authorization| %>
+          <% authorization_method = Decidim::Verifications::Adapter.from_element(authorization.name) %>
           <% if authorization.expired? %>
-            <% authorization_method = Decidim::Verifications::Adapter.from_element(authorization.name) %>
-            <%= link_to authorization_method.root_path do %>
+            <%= link_to authorization_method.root_path, title: t(".expired_verification"), class: "card--list__item" do %>
               <% render partial: "granted_authorization", locals: { authorization: authorization } %>
             <% end %>
+          <% elsif authorization.renewable? %>
+            <%= link_to authorization_method.renew_path, title: t(".renew_verification"), class: "card--list__item authorization-renewable" do %>
+              <%= render partial: "granted_authorization", locals: { authorization: authorization } %>
+            <% end %>
           <% else %>
-            <%= render partial: "granted_authorization", locals: { authorization: authorization } %>
+            <div class="card--list__item">
+              <%= render partial: "granted_authorization", locals: { authorization: authorization } %>
+            </div>
           <% end %>
         <% end %>
       </div>

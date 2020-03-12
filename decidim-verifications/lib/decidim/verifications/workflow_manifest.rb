@@ -34,7 +34,8 @@ module Decidim
       attribute :form, String
       attribute :expires_in, ActiveSupport::Duration, default: 0.minutes
       attribute :action_authorizer, String
-
+      attribute :renewable, Boolean, default: false
+      attribute :time_between_renews, ActiveSupport::Duration, default: 0.minutes
       validate :engine_or_form
 
       attribute :name, String
