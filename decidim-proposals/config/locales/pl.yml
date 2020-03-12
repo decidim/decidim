@@ -186,7 +186,6 @@ pl:
             email_subject: Propozycja, którą obserwujesz, jest oceniana
             notification_title: Trwa ocena oferty <a href="%{resource_path}">%{resource_title}</a>.
         proposal_mentioned:
-          email_intro: Twoja propozycja "%{mentioned_proposal_title}" została wspomniana <a href="%{resource_path}">w tym miejscu</a> w komentarzach.
           email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem "%{resource_title}".
           email_subject: Twoja propozycja "%{mentioned_proposal_title}" została wymieniona
           notification_title: Twoja propozycja "%{mentioned_proposal_title}" została wspomniana <a href="%{resource_path}">w tym miejscu</a> w komentarzach.
