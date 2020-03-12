@@ -174,7 +174,6 @@ id:
             email_subject: Proposal yang Anda ikuti sedang dievaluasi
             notification_title: Proposal <a href="%{resource_path}">%{resource_title}</a> sedang dievaluasi.
         proposal_mentioned:
-          email_intro: Proposal Anda "%{mentioned_proposal_title}" telah disebutkan <a href="%{resource_path}">dalam ruang</a> di komentar.
           email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah pengarang "%{resource_title}".
           email_subject: Proposal Anda "%{mentioned_proposal_title}" telah disebutkan
           notification_title: Proposal Anda "%{mentioned_proposal_title}" telah disebutkan <a href="%{resource_path}">dalam ruang</a> di komentar.
