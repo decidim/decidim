@@ -143,6 +143,8 @@ ru:
           email_outro: Вы получили это уведомление, потому что вы являетесь автором предложения.
           email_subject: Обновлена категория предложений %{resource_title}
           notification_title: Категория предложений <a href="%{resource_path}">%{resource_title}</a> была обновлена ​​администратором.
+        proposal_update_scope:
+          email_outro: Вы получили это уведомление, потому что вы являетесь автором предложения.
         voting_enabled:
           email_intro: 'Теперь вы можете голосовать по предложениям в %{participatory_space_title}! Начните со страницы:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
@@ -192,20 +194,23 @@ ru:
             actions: Действия
             cancel: Отменить
             change_category: Изменить категорию
+            publish: Обнародовать
             selected: выбранные
             title: Предложения
             update: Обновить
           new:
             create: Внести
             title: Создать предложение
+          publish_answers:
+            select_a_proposal: Пожалуйста, выберите предложение
           show:
             created_at: Дата создания
             votes_count: Количество голосов
           update_category:
-            invalid: 'Эти предложения уже относились к категории %{category}: %{proposals}.'
             select_a_category: Пожалуйста, выберите категорию
             select_a_proposal: Пожалуйста, выберите предложение
-            success: 'Предложения успешно перенесены в категорию %{category}: %{proposals}.'
+          update_scope:
+            select_a_proposal: Пожалуйста, выберите предложение
         proposals_imports:
           create:
             invalid: При попытке позаимствовать эти предложения произошла ошибка
@@ -343,8 +348,6 @@ ru:
           withdraw_btn_hint: Вы можете снять свое предложение, если передумаете, пока вы не получили никакой поддержки. Предложение не будет удалено, оно будет указано в списке снятых предложений.
           withdraw_confirmation: Вы действительно хотите снять это предложение?
           withdraw_proposal: Снять предложение
-        tags:
-          changed_from: "(изменено с <u>%{previous_category}</u> администратором)"
         vote_button:
           already_voted: Уже проголосовали
           already_voted_hover: Отменить голос

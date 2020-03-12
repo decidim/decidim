@@ -46,7 +46,7 @@ module Decidim
           when "most_commented"
             proposals.left_joins(:comments).group(:id).order(Arel.sql("COUNT(decidim_comments_comments.id) DESC"))
           when "most_endorsed"
-            proposals.order(proposal_endorsements_count: :desc)
+            proposals.order(endorsements_count: :desc)
           when "most_followed"
             proposals.left_joins(:follows).group(:id).order(Arel.sql("COUNT(decidim_follows.id) DESC"))
           when "most_voted"

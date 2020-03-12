@@ -94,6 +94,8 @@ is-IS:
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú ert höfundur tillögunnar.
           email_subject: '%{resource_title} tillöguflokkinn hefur verið uppfærður'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> tillögu flokkurinn hefur verið uppfærður af admin.
+        proposal_update_scope:
+          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú ert höfundur tillögunnar.
         voting_enabled:
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{participatory_space_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
     participatory_processes:
@@ -138,19 +140,22 @@ is-IS:
             actions: Aðgerðir
             cancel: Hætta við
             change_category: Breyta flokki
+            publish: Birta
             selected: valin
             title: Tillögur
             update: Uppfæra
           new:
             create: Búa til
             title: Búðu tillögu
+          publish_answers:
+            select_a_proposal: Vinsamlegast veldu tillögu
           show:
             created_at: Sköpunardegi
           update_category:
-            invalid: 'Þessar tillögur áttu nú þegar %{category} flokkinn: %{proposals}.'
             select_a_category: Vinsamlegast veldu flokk
             select_a_proposal: Vinsamlegast veldu tillögu
-            success: 'Tillögur uppfærðar í %{category} flokkanum: %{proposals}.'
+          update_scope:
+            select_a_proposal: Vinsamlegast veldu tillögu
         proposals_imports:
           create:
             success: "%{number} tillögur tókst að flytja inn"
@@ -255,8 +260,6 @@ is-IS:
           report: Skýrsla
           withdraw_btn_hint: Þú getur afturkallað tillöguna þína ef þú skiptir um skoðun, svo lengi sem þú hefur ekki fengið stuðning. Tillagan er ekki eytt, hún mun birtast á lista yfir afturkallað tillögur.
           withdraw_proposal: Afturkalla tillögu
-        tags:
-          changed_from: "(breytt frá <u>%{previous_category}</u> af stjórnanda)"
         votes_count:
           most_popular_proposal: Vinsælasta tillöguna
         voting_rules:

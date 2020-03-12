@@ -218,6 +218,8 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor des Angebots sind.
           email_subject: Die Vorschlagskategorie %{resource_title} wurde aktualisiert
           notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Vorschlagskategorie wurde von einem Administrator aktualisiert.
+        proposal_update_scope:
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor des Angebots sind.
         voting_enabled:
           email_intro: 'Sie können Vorschläge in %{participatory_space_title}abstimmen! Starten Sie die Teilnahme an dieser Seite:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
@@ -365,6 +367,7 @@ de:
             change_category: Kategorie ändern
             merge: Zu einem neuen zusammenführen
             merge_button: Zusammenführen
+            publish: Veröffentlichen
             select_component: Komponente auswählen
             selected: ausgewählt
             split: Vorschläge aufteilen
@@ -374,14 +377,16 @@ de:
           new:
             create: Erstellen
             title: Vorschlag erstellen
+          publish_answers:
+            select_a_proposal: Bitte wählen Sie einen Vorschlag
           show:
             created_at: Erstellungsdatum
             votes_count: Anzahl der Unterstützungen
           update_category:
-            invalid: 'Diese Vorschläge hatten bereits die Kategorie %{category} : %{proposals}.'
             select_a_category: Bitte wählen Sie eine Kategorie
             select_a_proposal: Bitte wählen Sie einen Vorschlag
-            success: 'Vorschläge, die erfolgreich in die %{category} Kategorie aktualisiert wurden: %{proposals}.'
+          update_scope:
+            select_a_proposal: Bitte wählen Sie einen Vorschlag
         proposals_imports:
           create:
             invalid: Beim Importieren der Vorschläge ist ein Problem aufgetreten
@@ -682,8 +687,6 @@ de:
           withdraw_btn_hint: Sie können Ihren Vorschlag zurückziehen, wenn Sie es sich anders überlegen, solange Sie keine Unterstützung erhalten haben. Der Vorschlag wird nicht gelöscht, er erscheint in der Liste der zurückgezogenen Vorschläge.
           withdraw_confirmation: Sind Sie sicher, diesen Vorschlag zurückzuziehen?
           withdraw_proposal: Vorschlag zurückziehen
-        tags:
-          changed_from: "(geändert von <u>%{previous_category}</u> durch einen Administrator)"
         vote_button:
           already_voted: Bereits unterstützt
           already_voted_hover: Unterstützung zurückziehen

@@ -24,8 +24,10 @@ es-MX:
         published_at: Publicado en
         related_process_ids: Procesos relacionados
         scope_id: Ámbito
+        scope_type_max_depth_id: Profundidad del filtro de ámbito
         scopes_enabled: Ámbitos habilitados
         short_description: Descripción breve
+        show_metrics: Mostrar métricas
         show_statistics: Mostrar estadísticas
         slug: Texto corto de URL
         start_date: Fecha de inicio
@@ -133,6 +135,7 @@ es-MX:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
+            valuator: Evaluadora
         user:
           fields:
             invitation_accepted_at: Invitación aceptada el día
@@ -204,13 +207,13 @@ es-MX:
         destroy:
           success: Usuario eliminado con éxito de este proceso participativo.
         edit:
-          title: Editar usuario del proceso
+          title: Actualitzar administradora del proceso particiaptivo
           update: Actualizar
         index:
           process_admins_title: Usuarios del proceso
         new:
           create: Crear
-          title: Nuevo usuario del proceso
+          title: Nueva administradora del proceso participativo
         update:
           error: Ha habido un error al actualizar un usuario para este proceso participativo.
           success: Usuario actualizado correctamente para este proceso participativo.
@@ -324,6 +327,7 @@ es-MX:
             metadata: Metadatos
             other: Otro
             related_processes: Procesos relacionados
+            scope_type_max_depth_help: Restringe la profundidad del filtro de ámbito; se mostrará el filtro desde el ámbito general hasta el seleccionado.
             select_an_area: Seleccione una área
             select_process_group: Seleccione un grupo de proceso
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
@@ -389,8 +393,10 @@ es-MX:
         comments_count: Comentarios
         debates_count: Debates
         endorsements_count: Adhesiones
+        followers_count: Seguidoras
         headline: Actividad
         meetings_count: Encuentros
+        no_stats: No hay estadísticas aún.
         orders_count: Votos
         pages_count: Páginas
         participants_count: Participantes

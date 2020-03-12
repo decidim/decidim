@@ -26,7 +26,9 @@ module Decidim
             return Decidim::Proposals::Proposal
                    .except_withdrawn
                    .except_drafts
-                   .where("created_at < ?", request_timestamp)
+                   .except_rejected
+                   .not_hidden
+                   .where("decidim_proposals_proposals.created_at < ?", request_timestamp)
                    .where(component: sortition.decidim_proposals_component)
                    .order(id: :asc)
           end
@@ -36,6 +38,8 @@ module Decidim
             .joins(:categorization)
             .except_withdrawn
             .except_drafts
+            .except_rejected
+            .not_hidden
             .where(component: sortition.decidim_proposals_component)
             .where("decidim_proposals_proposals.created_at < ?", request_timestamp)
             .where("decidim_categorizations.decidim_category_id = ?", category.id)

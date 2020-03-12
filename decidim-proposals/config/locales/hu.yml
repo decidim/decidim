@@ -31,6 +31,9 @@ hu:
       proposals_import:
         import_proposals: Javaslatok importálása
         keep_authors: Eredeti szerzők megtartása
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: Értékelő neve
     errors:
       models:
         participatory_text:
@@ -49,6 +52,7 @@ hu:
     models:
       decidim/proposals/accepted_proposal_event: Javaslat elfogadva
       decidim/proposals/admin/update_proposal_category_event: Javaslat kategória megváltozott
+      decidim/proposals/admin/update_proposal_scope_event: Javaslat hatáskör megváltozott
       decidim/proposals/creation_enabled_event: Javaslat létrehozása engedélyezve
       decidim/proposals/endorsing_enabled_event: Javaslat jóváhagyás engedélyezve
       decidim/proposals/evaluating_proposal_event: Javaslat értékelése folyamatban
@@ -92,6 +96,8 @@ hu:
           label: Állapot
           values:
             'true': Nem megválaszolt
+        valuator_role_ids_has:
+          label: Értékelőhöz rendelve
     components:
       proposals:
         actions:
@@ -252,6 +258,11 @@ hu:
           email_outro: Ezt az értesítést kaptad, mert te vagy a javaslat szerzője.
           email_subject: A(z) %{resource_title} című javaslat frissítve
           notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslat kategóriát az admin frissítette.
+        proposal_update_scope:
+          email_intro: 'Egy adminisztrátor frissítette a "%{resource_title}" javaslatának hatáskörét, ellenőrizze ezen az oldalon:'
+          email_outro: Ezt az értesítést kaptad, mert te vagy a javaslat szerzője.
+          email_subject: A(z) %{resource_title} javaslat hatásköre frissült
+          notification_title: A <a href="%{resource_path}">%{resource_title}</a> javaslat hatáskörét egy adminisztrátor frissítette.
         voting_enabled:
           email_intro: 'Szavazhatsz a javaslatokról itt: %{participatory_space_title}! Láss munkának ezen az oldalon:'
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
@@ -318,6 +329,7 @@ hu:
         see_all: Összes (%{count})
     proposals:
       actions:
+        answer_proposal: Javaslat megválaszolása
         edit_proposal: Javaslat szerkesztése
         import: Importálás egy másik elemből
         new: Új javaslat
@@ -401,21 +413,31 @@ hu:
             select_a_meeting: Válasszon egy találkozót
           index:
             actions: Műveletek
+            assign_to_valuator: Értékelőhöz rendel
+            assign_to_valuator_button: Hozzárendel
             cancel: Mégse
             change_category: Kategória módosítása
+            change_scope: Hatáskör megváltoztatása
             merge: Összeolvasztás egy újba
             merge_button: Összeolvasztás
+            publish: Közzétesz
             select_component: Összetevő választása
             selected: kiválasztva
             split: Javaslatok szétválasztása
             split_button: Szétválasztás
             title: Javaslatok
+            unassign_from_valuator: Visszarendelés értékelőtől
+            unassign_from_valuator_button: Visszarendelés
             update: Frissítés
+            update_scope_button: Hatáskör frissítése
           new:
             create: Létrehozás
             title: Javaslat létrehozása
+          publish_answers:
+            select_a_proposal: Kérlek, válassz javaslatot
           show:
             amendments_count: Módosítás száma (%{count}
+            assigned_valuators: Hozzárendelt értékelők
             authors: Szerzők
             body: Szöveg
             comments_count: Hozzászólások száma
@@ -435,13 +457,21 @@ hu:
             proposals: Javaslatok
             ranking: "%{total} -ból %{ranking}"
             related_meetings: Kapcsolódó találkozók
+            remove_assignment: Hozzárendelés eltávolítsa
+            remove_assignment_confirmation: Biztosan eltávolítja az értékelőt ebből a javaslatból?
+            valuators: Értékelők
             votes_count: Támogatók száma
             votes_ranking: Támogatások szerinti rangsorolás
           update_category:
-            invalid: 'A javaslatok már a(z) %{category} kategóriába tartoznak: %{proposals}.'
+            invalid: 'Ezeknek a javaslatoknak már megvolt a(z) %{subject_name} kategóriája: %{proposals}.'
             select_a_category: Kérlek, válassz kategóriát
             select_a_proposal: Kérlek, válassz javaslatot
-            success: 'A javaslatok frissítése a(z) %{category} kategóriában sikeres: %{proposals}.'
+            success: 'A javaslatokat sikeresen frissítették a(z) %{subject_name} kategóriához: %{proposals}.'
+          update_scope:
+            invalid: 'Ezeknek a javaslatoknak már megvolt a(z) %{subject_name} hatásköre: %{proposals}.'
+            select_a_proposal: Kérlek, válassz javaslatot
+            select_a_scope: Kérlek válassz hatáskört
+            success: 'A javaslatok frissítése a(z) %{subject_name} hatáskörben sikeres: %{proposals}.'
         proposals_imports:
           create:
             invalid: Probléma merült fel a javaslatok importálásakor
@@ -459,6 +489,13 @@ hu:
           create:
             invalid: Hiba történt a kiválasztott javaslatok szétválasztása során.
             success: A javaslatokat sikeresen újakra osztottuk.
+        valuation_assignments:
+          create:
+            invalid: Hiba történt a javaslatok értékelőhöz való rendelésekor
+            success: Javaslatok sikeresen értékelőhöz rendelve
+          delete:
+            invalid: Hiba történt a javaslatok értékbecslőtől való visszarendelésekor
+            success: Értékelő sikeresen visszarendelve a javaslatoktól
       admin_log:
         proposal:
           answer: "%{user_name} válaszolt a(z) %{resource_name} javaslatra itt: %{space_name}"
@@ -466,6 +503,9 @@ hu:
           update: "%{user_name} frissítette az %{resource_name} hivatalos javaslatot a %{space_name} helyre"
         proposal_note:
           create: "%{user_name} privát megjegyzést hagyott a(z) %{resource_name} javaslathoz itt: %{space_name}"
+        valuation_assignment:
+          create: "A(z) %{user_name} a %{resource_name} javaslatot értékelőhöz rendelte hozzá"
+          delete: "A(z) %{user_name} a %{resource_name} javaslatot értékelőtől rendelte vissza"
       answers:
         accepted: Elfogadva
         evaluating: Értékelés
@@ -633,6 +673,8 @@ hu:
             scope: Hatáskör
             state: Állapot
             title: Cím
+            valuator: Értékelő
+            valuators: Értékelők
             votes: Szavazatok
       new:
         limit_reached: Nem hozhatsz létre új javaslatokat, mert túllépted a maximumot.
@@ -765,7 +807,7 @@ hu:
           withdraw_confirmation: Biztosan visszavonod ezt a javaslatot?
           withdraw_proposal: Javaslat visszavonása
         tags:
-          changed_from: "(<u>%{previous_category}</u> a rendszergazda megváltoztatta)"
+          changed_from: "(egy adminisztrátor megváltoztatta <u>%{previous_name}</u> értékről)"
         vote_button:
           already_voted: Már szavazott
           already_voted_hover: Szavazat visszavonása
