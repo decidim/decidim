@@ -34,10 +34,10 @@ module Decidim
 
     describe "POST create" do
       context "when invalid" do
-        it "renders an error message" do
+        it "redirects the user back" do
           post :create, params: { recipient_id: 999, body: "" }
 
-          expect(response.body).to include("Conversation not started")
+          expect(response).to redirect_to("/")
         end
       end
     end
