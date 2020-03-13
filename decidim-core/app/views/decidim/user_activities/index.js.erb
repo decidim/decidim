@@ -1,5 +1,14 @@
 var $activitiesContainer = $('#activities-container'),
     $decidimPaginateContainer = $('#decidim-paginate-container');
 
-$activitiesContainer.html('<%= j(cell("decidim/activities", activities).to_s).strip.html_safe %>');
-$decidimPaginateContainer.html('<%= j(decidim_paginate(activities).to_s).strip.html_safe %>');
+<% if(activities_cell = cell("decidim/activities", activities).show) %>
+  $activitiesContainer.html('<%= j(activities_cell).strip.html_safe %>');
+  $decidimPaginateContainer.html('<%= j(decidim_paginate(activities).to_s).strip.html_safe %>');
+<% else %>
+  $activitiesContainer.html(`
+    <div class="callout warning">
+      <h5>We couldn't find any content with this criteria</h5>
+    </div>
+  `);
+  $decidimPaginateContainer.html('');
+<% end %>

@@ -6,8 +6,6 @@
       </div>
     <% else %>
       <div class="row">
-        <%#= cell "decidim/filters" %>
-
         <%= filter_form_for context[:filter] do |form| %>
           <div class="columns mediumlarge-6 large-5">
             <%= form.custom_select :resources,
