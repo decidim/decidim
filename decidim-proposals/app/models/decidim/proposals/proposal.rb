@@ -24,6 +24,7 @@ module Decidim
       include Decidim::Amendable
       include Decidim::NewsletterParticipant
       include Decidim::Randomable
+      include Decidim::Endorsable
       include Decidim::Proposals::Valuatable
 
       POSSIBLE_STATES = %w(not_answered evaluating accepted rejected withdrawn).freeze
@@ -36,8 +37,6 @@ module Decidim
       )
 
       component_manifest_name "proposals"
-
-      has_many :endorsements, foreign_key: "decidim_proposal_id", class_name: "ProposalEndorsement", dependent: :destroy, counter_cache: "proposal_endorsements_count"
 
       has_many :votes,
                -> { final },
@@ -145,10 +144,9 @@ module Decidim
 
         participants_has_voted_ids = Decidim::Proposals::ProposalVote.joins(:proposal).where(proposal: proposals).joins(:author).map(&:decidim_author_id).flatten.compact.uniq
 
-        endorsements_participants_ids = Decidim::Proposals::ProposalEndorsement.joins(:proposal)
-                                                                               .where(proposal: proposals)
-                                                                               .where(decidim_author_type: "Decidim::UserBaseEntity")
-                                                                               .map(&:decidim_author_id).flatten.compact.uniq
+        endorsements_participants_ids = Decidim::Endorsement.where(resource: proposals)
+                                                            .where(decidim_author_type: "Decidim::UserBaseEntity")
+                                                            .map(&:decidim_author_id).flatten.compact.uniq
 
         (endorsements_participants_ids + participants_has_voted_ids + coauthors_recipients_ids).flatten.compact.uniq
       end
@@ -169,19 +167,40 @@ module Decidim
         ProposalVote.where(proposal: self, author: user).any?
       end
 
-      # Public: Check if the user has endorsed the proposal.
-      # - user_group: may be nil if user is not representing any user_group.
-      #
-      # Returns Boolean.
-      def endorsed_by?(user, user_group = nil)
-        endorsements.where(author: user, user_group: user_group).any?
-      end
-
       # Public: Checks if the proposal has been published or not.
       #
       # Returns Boolean.
       def published?
         published_at.present?
+      end
+
+      # Public: Returns the published state of the proposal.
+      #
+      # Returns Boolean.
+      def state
+        return amendment.state if emendation?
+        return nil unless published_state? || withdrawn?
+
+        super
+      end
+
+      # This is only used to define the setter, as the getter will be overriden below.
+      alias_attribute :internal_state, :state
+
+      # Public: Returns the internal state of the proposal.
+      #
+      # Returns Boolean.
+      def internal_state
+        return amendment.state if emendation?
+
+        self[:state]
+      end
+
+      # Public: Checks if the organization has published the state for the proposal.
+      #
+      # Returns Boolean.
+      def published_state?
+        emendation? || state_published_at.present?
       end
 
       # Public: Returns the published state of the proposal.

@@ -130,6 +130,13 @@ module Decidim
       Decidim::Follow.where(user: self, followable: followable).any?
     end
 
+    # Public: whether the user accepts direct messages from another
+    def accepts_conversation?(user)
+      return follows?(user) if direct_message_types == "followed-only"
+
+      true
+    end
+
     def unread_conversations
       Decidim::Messaging::Conversation.unread_by(self)
     end
@@ -197,6 +204,11 @@ module Decidim
         uploader.retrieve_from_store!(filename)
         uploader.cache!(filename)
       end
+    end
+
+    # return the groups where this user has been accepted
+    def accepted_user_groups
+      UserGroups::AcceptedUserGroups.for(self)
     end
 
     protected

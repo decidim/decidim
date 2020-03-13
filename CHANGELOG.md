@@ -60,10 +60,14 @@ To upgrade it is recommended to configured the proper time zone in the admin for
 For those who have not changed the Rails `config.time_zone` (thus using UTC globally) but using dates as if they were non-UTC zones might notice that changing the organization time zone will shift all presented dates accordingly. This might require to re-edit any scheduled date in meetings or debates in order be properly displayed.
 
 - **Data portability**
+### Upgrade notes
 
-Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now supports removal of user's data portability expired files from Amazon S3. Check out the [scheduled tasks in the getting started guide](https://github.com/decidim/decidim/blob/master/docs/getting_started.md#scheduled-tasks) for information in how to configure it.
+- **Endorsements**
 
-**Added**:
+This new version of Decidim has extracted the Endorsement feature into a generic concern that can now be applied to many resources.
+To keep current Decidim::Proposals::Proposal's endorsement information, endorsements are copied into the new `Decidim::Endorsable` tables and counter cache columns. This is done via migrations.
+
+After this, `Decidim::Proposals::ProposalEndorsement` and the corresponding counter cache column in `decidim_proposals_proposal.proposal_endorsements_count` should be removed. To do so, Decidim will provide the corresponding migration in the next release.
 
 - **decidim-core**: Add new language: Greek [#5597](https://github.com/decidim/decidim/pull/5597)
 - **decidim-initiatives**: An admin can only send the initiative to technical validation if it has enough committee members. [\#5762](https://github.com/decidim/decidim/pull/5762)
@@ -114,8 +118,15 @@ Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now sup
 - **decidim-core**: Let exporters filter collection by user triggering the action [\#5687](https://github.com/decidim/decidim/pull/5687)
 - **decidim-admin**: Admin can bulk update proposal's scope [\5759](https://github.com/decidim/decidim/pull/5759)
 - **decidim-proposals**: Publish proposals anwers at once [\#5810](https://github.com/decidim/decidim/pull/5810)
+### Added
 
-**Changed**:
+- **decidim-core**: Allow to restric direct messages to only people followed by the user. [\#5720](https://github.com/decidim/decidim/pull/5720)
+- **decidim-comments**: Comments can mention groups and its members are notified. [\#5763](https://github.com/decidim/decidim/pull/5763)
+- **decidim-core**: Now messages inside conversations have their urls identified as links. [\#5755](https://github.com/decidim/decidim/pull/5755)
+- **decidim-verifications**: Added Verification's Revocation [\#5814](https://github.com/decidim/decidim/pull/5814)
+- **decidim-core**: Support node.js semver rules for release candidates. [\#5828](https://github.com/decidim/decidim/pull/5828)
+- **decidim-proposals**, **decidim-core**, **decidim-blogs**: Extract proposals' endorsements into a polymorphic concern that can now be applied no any resource. It has, in turn, been aplied to blog posts. [\#5542](https://github.com/decidim/decidim/pull/5542)
+- **decidim-proposals**, **decidim-core**, **decidim-blogs**: Apply generalized endorsements to the GraphQL API and add it to the blog posts query. [\#5847](https://github.com/decidim/decidim/pull/5847)
 
 - **decidim-core**: Upgrade leaflet-HERE Maps javascript library to use new apiKey authentication method [\#5768](https://github.com/decidim/decidim/pull/5768)
 - **decidim-core**: Upgrade geocoder to be able to use the new Here geolocation API. [\#5644](https://github.com/decidim/decidim/pull/5644)
@@ -128,8 +139,9 @@ Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now sup
 - **decidim-proposals**: Update tags layout in proposal page [\#5646](https://github.com/decidim/decidim/pull/5646)
 - **decidim-comments**: Hide and show comment threads [#5655](https://github.com/decidim/decidim/pull/5655)
 - **decidim-core**: Amendable resources can react to amendment state changes [#5703](https://github.com/decidim/decidim/pull/5703)
+### Changed
 
-**Fixed**:
+### Fixed
 
 - **decidim-proposals**: Fix proposals that have their state not published. [\#5833](https://github.com/decidim/decidim/pull/5833)
 - **decidim-core** adapt API classes to the release of the graphql gem v1.10.4 [\#5829](https://github.com/decidim/decidim/pull/5829)
@@ -159,9 +171,14 @@ Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now sup
 - **decidim-core**: Fix: use of browse history with filters [#5749](https://github.com/decidim/decidim/pull/5749)
 - **decidim-budgets**: Add a missing fix applied to proposals in [\#5654](https://github.com/decidim/decidim/pull/5654) but not to projects [\#5743](https://github.com/decidim/decidim/pull/5743)
 - **decidim-proposals**: Admin: fix "Answer Proposal" action tooltip [/#5750](https://github.com/decidim/decidim/pull/5750)
+- **decidim-proposals**: Fix relative path in mentioned proposal email [\#5852](https://github.com/decidim/decidim/pull/5852)
+- **decidim-proposals**: Use simple_format to add a wrapper to proposals body [\#5753](https://github.com/decidim/decidim/pull/5753)
+- **decidim-sortitions**: Fix incorrect proposals sortition. [\#5620](https://github.com/decidim/decidim/pull/5620)
+- **decidim-admin**: Fix: let components without step settings be added [\#5568](https://github.com/decidim/decidim/pull/5568)
+- **decidim-proposals**: Fix proposals that have their state not published [\#5832](https://github.com/decidim/decidim/pull/5832)
 
-**Removed**:
+### Removed
 
-## Previous versions
+### Previous versions
 
-Please check [0.20-stable](https://github.com/decidim/decidim/blob/0.20-stable/CHANGELOG.md) for previous changes.
+Please check [0.21-stable](https://github.com/decidim/decidim/blob/0.21-stable/CHANGELOG.md) for previous changes.
