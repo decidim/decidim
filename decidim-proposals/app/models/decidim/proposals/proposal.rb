@@ -174,16 +174,6 @@ module Decidim
         published_at.present?
       end
 
-      # Public: Returns the published state of the proposal.
-      #
-      # Returns Boolean.
-      def state
-        return amendment.state if emendation?
-        return nil unless published_state? || withdrawn?
-
-        super
-      end
-
       # This is only used to define the setter, as the getter will be overriden below.
       alias_attribute :internal_state, :state
 
