@@ -55,13 +55,6 @@ module Decidim
       workflow_manifest.renewable
     end
 
-    # for development pourposes, to be removed
-    def wait_time
-      return unless renewable?
-
-      "#{workflow_manifest.renewable}: renewable_at: #{renewable_at} | time_between_renews: #{workflow_manifest.time_between_renews}"
-    end
-
     # Calculates at when this authorization will expire, if it needs to.
     #
     # Returns nil if the authorization does not expire.
@@ -89,10 +82,10 @@ module Decidim
 
     # Calculates when this authorization can be reseted, if desired.
     #
-    # time_between_renews defaults to zero
+    # time_between_renewals defaults to zero
     # Returns an ActiveSupport::TimeWithZone.
     def renewable_at
-      (granted_at || created_at) + workflow_manifest.time_between_renews
+      (granted_at || created_at) + workflow_manifest.time_between_renewals
     end
   end
 end

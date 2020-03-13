@@ -5,7 +5,7 @@ Decidim::Verifications.register_workflow(:dummy_authorization_handler) do |workf
   workflow.action_authorizer = "DummyAuthorizationHandler::DummyActionAuthorizer"
   workflow.expires_in = 1.hour
   workflow.renewable = true
-  workflow.time_between_renews = 5.minutes
+  workflow.time_between_renewals = 5.minutes
 
   workflow.options do |options|
     options.attribute :postal_code, type: :string, default: "08001", required: false

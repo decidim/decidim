@@ -106,7 +106,7 @@ Decidim implements two type of authorization methods:
   Decidim::Verifications.register_workflow(:census) do |workflow|
     workflow.form = "myAuthorizationHandlerClass"
     workflow.renewable = true
-    workflow.time_between_renews = 5.minutes
+    workflow.time_between_renewals = 5.minutes
   end
   ```
 ### SMS verification

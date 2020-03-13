@@ -7,6 +7,8 @@ module Decidim
       # Handles verification by identity document upload
       #
       class AuthorizationsController < ApplicationController
+        include Decidim::Verifications::Renewable
+
         helper_method :authorization, :verification_type, :using_offline?, :using_online?, :available_methods
 
         before_action :load_authorization
