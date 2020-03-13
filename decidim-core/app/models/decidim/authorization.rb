@@ -49,8 +49,7 @@ module Decidim
 
     # Returns true if the authorization is renewable by the participant
     def renewable?
-      return unless workflow_manifest
-      return unless renewable_at < Time.current
+      return unless workflow_manifest && renewable_at < Time.current
 
       workflow_manifest.renewable
     end

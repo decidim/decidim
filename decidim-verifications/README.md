@@ -98,7 +98,7 @@ Decidim implements two type of authorization methods:
     authorization process.
 
 * _Renewable authorizations_.  
-  By default a participant can't renew its authorization, but this can be enabled when registering the workflow, a time between renews can be configured (zero by default):
+  By default a participant can't renew its authorization, but this can be enabled when registering the workflow, the time between renewals can be configured (one day by default):
 
   ```ruby
   # config/initializers/decidim.rb
@@ -106,7 +106,7 @@ Decidim implements two type of authorization methods:
   Decidim::Verifications.register_workflow(:census) do |workflow|
     workflow.form = "myAuthorizationHandlerClass"
     workflow.renewable = true
-    workflow.time_between_renewals = 5.minutes
+    workflow.time_between_renewals = 1.day
   end
   ```
 ### SMS verification
