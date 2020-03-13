@@ -122,6 +122,10 @@ This data won't be created in production environments, if you still want to do i
 SEED=true rails db:setup
 ```
 
+#### Notes
+
+When you run `bin/rails db:migrate` you should see a lot of output. If you don't, or if you run into errors seeding your database, try runnning `bin/rake decidim:upgrade` before.
+
 You can now start your server!
 
 ```bash
