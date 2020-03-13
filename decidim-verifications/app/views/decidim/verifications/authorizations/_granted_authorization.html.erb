@@ -4,7 +4,7 @@
     <h5 class="card--list__heading">
       <%= t("#{authorization.name}.name", scope: "decidim.authorization_handlers") %>
     </h5>
-    <span class="text-small">
+    <span class="text-small <%= "alert" if authorization.expired? %>">
       <% if authorization.expired? %>
         <%= t("expired_at", scope: "decidim.authorization_handlers", timestamp: l(authorization.expires_at, format: :long)) %>
       <% else %>

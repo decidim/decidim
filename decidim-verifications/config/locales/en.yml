@@ -97,8 +97,9 @@ en:
           title: Verify your identity
           verify_with_these_options: 'These are the available options to verify your identity:'
         index:
+          confirm_renewal: Do you wan't to request a new verification for %{authorization_name}?
           expired_verification: Verification expired
-          renew_verification: Renew verification
+          renew_verification: Click to renew verification
         new:
           authorize: Send
           authorize_with: Verify with %{authorizer}

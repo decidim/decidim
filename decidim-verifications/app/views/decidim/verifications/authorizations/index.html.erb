@@ -9,7 +9,9 @@
               <% render partial: "granted_authorization", locals: { authorization: authorization } %>
             <% end %>
           <% elsif authorization.renewable? %>
-            <%= link_to authorization_method.renew_path, title: t(".renew_verification"), class: "card--list__item authorization-renewable" do %>
+            <% authorization_name = t("#{authorization.name}.name", scope: "decidim.authorization_handlers") %>
+            <%= link_to authorization_method.renew_path, title: t(".renew_verification"), class: "card--list__item authorization-renewable",
+             "data-confirm": t(".confirm_renewal", authorization_name: authorization_name) do %>
               <%= render partial: "granted_authorization", locals: { authorization: authorization } %>
             <% end %>
           <% else %>
