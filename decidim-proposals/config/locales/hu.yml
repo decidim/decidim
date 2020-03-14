@@ -220,6 +220,7 @@ hu:
             email_subject: A követett javaslat értékelése folyamatban van
             notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> javaslat értékelése folyamatban.
         proposal_mentioned:
+          email_intro: A(z) "%{mentioned_proposal_title}" című javaslatodat említette valaki <a href="%{resource_url}">egy megjegyzésben</a>.
           email_outro: Ezt az értesítést megkapta, mert a "%{resource_title}" szerzője.
           email_subject: '"%{mentioned_proposal_title}" című javaslatod említésre került'
           notification_title: '"%{mentioned_proposal_title}" című javaslatodat említette valaki <a href="%{resource_path}">egy megjegyzésben</a>.'
