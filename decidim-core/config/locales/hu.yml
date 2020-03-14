@@ -795,6 +795,7 @@ hu:
           send: Elküld
           title: Válasz
         show:
+          not_allowed: Ez a felhasználó nem fogad el több közvetlen üzenetet.
           title: 'Beszélgetés vele: %{usernames}'
         start:
           send: Küldés
@@ -846,6 +847,8 @@ hu:
       no_notifications: Még nincs értesítés.
     notifications_settings:
       show:
+        allow_public_contact: Megengedem, hogy bárki közvetlen üzenetet küldjön nekem, akkor is, ha nem követem őket.
+        direct_messages: Közvetlen üzenetek fogadása bárkitől
         email_on_notification: Mindig, amikor értesítést kapok, egy emailt is küldünk róla.
         everything_followed: Minden, amit követek
         newsletter_notifications: Szeretnék hírleveleket kapni
@@ -1062,6 +1065,7 @@ hu:
     user_activity:
       index:
         no_activities_warning: Ez a résztvevő még nem végzett tevékenységet.
+    user_contact_disabled: Ez a résztvevő nem fogad el közvetlen üzeneteket.
     user_interests:
       show:
         my_interests: Érdeklődési köreim
