@@ -1,16 +1,15 @@
 // = require tribute
 
-const max_recipients = 9;
-var mentions_count = 0;
+const maxRecipients = 9;
+let mentionsCount = 0;
 
 const deleteRecipient = (element) => {
   // Remove recipient
   element.remove();
-  mentions_count--;
+  mentionsCount -= 1;
   // In case mentions container disable, enable again
-  if ( $(".js-multiple-mentions").prop('disabled') ) {
-    // $multipleMentionContainer.val('');
-    $(".js-multiple-mentions").prop('disabled', false);
+  if ($(".js-multiple-mentions").prop("disabled")) {
+    $(".js-multiple-mentions").prop("disabled", false);
   }
 };
 
@@ -72,16 +71,15 @@ $(() => {
     noMatchTemplate: noMatchTemplate,
     lookup: (item) => item.nickname + item.name,
     selectTemplate: function(item) {
-      mentions_count++;
-      if ( mentions_count >= max_recipients ){
-        // $multipleMentionContainer.val( 'No pueden haber más de 9 usuarios en una conversación!!' );
-        $multipleMentionContainer.prop('disabled', true);
+      mentionsCount += 1;
+      if (mentionsCount >= maxRecipients) {
+        $multipleMentionContainer.prop("disabled", true);
       }
       if (typeof item === "undefined") {
         return null;
       }
       // Set recipient profile view
-      let recipient_label = `
+      let recipientLabel = `
         <label style="padding: 0 0 10px 0" onClick="deleteRecipient(this)">
           <img src="${item.original.avatarUrl}" alt="${item.original.name}" height="35" width="35" style="border-radius: 50%;">&nbsp;
           <b>${item.original.name}</b>
@@ -89,10 +87,10 @@ $(() => {
         </label>
       `;
       // Append new recipient to DOM
-      $multipleMentionRecipientsContainer.append(recipient_label);
-      $multipleMentionContainer.val('');
+      $multipleMentionRecipientsContainer.append(recipientLabel);
+      $multipleMentionContainer.val("");
       // Clean input
-      return '';
+      return "";
     },
     menuItemTemplate: function(item) {
       let tpl = `<strong>${item.original.nickname}</strong>&nbsp;<small>${item.original.name}</small>`;
@@ -131,7 +129,7 @@ $(() => {
   };
 
   // Call only if we have containter to bind events to
-  if ( $multipleMentionContainer.length ) {
+  if ($multipleMentionContainer.length) {
     setupEvents($multipleMentionContainer);
   }
 

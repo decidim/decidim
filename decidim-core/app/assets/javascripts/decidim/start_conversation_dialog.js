@@ -1,12 +1,12 @@
 $(document).ready(function () {
-  let button = $("#start-conversation-dialog-button"),
-      addUsersConversationDialog = $("#user-conversations-add-modal");
+  let addUsersConversationDialog = $("#user-conversations-add-modal"),
+      button = $("#start-conversation-dialog-button");
 
   if (addUsersConversationDialog.length) {
     let refreshUrl = addUsersConversationDialog.data("refresh-url");
 
     button.click(function () {
-      addUsersConversationDialog.foundation('open');
+      addUsersConversationDialog.foundation("open");
     });
   }
 });
