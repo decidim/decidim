@@ -1,4 +1,5 @@
 ---
+
 en:
   activemodel:
     attributes:
@@ -52,6 +53,8 @@ en:
         initiative:
           attributes:
             attachment:
+              title: Title shouldn't be empty
+              file: File is invalid
               needs_to_be_reattached: Needs to be reattached
   activerecord:
     models:

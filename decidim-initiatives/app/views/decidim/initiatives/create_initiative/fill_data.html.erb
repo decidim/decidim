@@ -72,14 +72,15 @@
 
                 <div class="field">
                   <%= nested_form.upload :file, optional: false %>
-                  <% if @form.errors[:attachment].present? %>
-                    <% @form.errors[:attachment].each do |message| %>
-                      <small class="form-error is-visible">
-                        <%= message %>
-                      </small>
-                    <% end %>
-                  <% end %>
                 </div>
+
+                <% if @form.errors[:attachment].present? %>
+                  <% @form.errors[:attachment].each do |message| %>
+                    <small class="form-error is-visible">
+                      <%= message %>
+                    </small>
+                  <% end %>
+                <% end %>
               <% end %>
             </fieldset>
           </div>

@@ -23,6 +23,7 @@ module Decidim
       validates :type_id, presence: true
       validate :scope_exists
       validate :notify_missing_attachment_if_errored
+      validate :trigger_attachment_errors
 
       def map_model(model)
         self.type_id = model.type.id
@@ -50,7 +51,20 @@ module Decidim
       # an error, the attachment is lost, so we need a way to inform the user of
       # this problem.
       def notify_missing_attachment_if_errored
-        errors.add(:attachment, :needs_to_be_reattached) if errors.any? && attachment.present?
+        return if attachment.blank?
+
+        errors.add(:attachment, :needs_to_be_reattached) if errors.any?
+      end
+
+      def trigger_attachment_errors
+        return if attachment.blank?
+        return if attachment.valid?
+
+        attachment.errors.each { |error| errors.add(:attachment, error) }
+
+        attachment = Attachment.new(file: attachment.try(:file))
+
+        errors.add(:attachment, :file) if !attachment.save && attachment.errors.has_key?(:file)
       end
     end
   end
