@@ -43,6 +43,10 @@
       $picker.on("click", "input", (event) => {
         this._removeValue($picker, this._targetFromEvent(event));
       });
+
+      if (this.current.autosort) {
+        this._sort();
+      }
     }
 
     enabled(picker, value) {
@@ -70,6 +74,9 @@
       $.each(savedData, (_index, data) => {
         this._choose(data, false);
       });
+      if (this.current.autosort) {
+        this._sort();
+      }
     }
 
     _createModalContainer() {
@@ -95,6 +102,7 @@
         name: $picker.data("picker-name"),
         values: $picker.find(".picker-values"),
         multiple: $picker.hasClass("picker-multiple"),
+        autosort: $picker.hasClass("picker-multiple") && $picker.hasClass("picker-autosort"),
         target: $target
       };
     }
@@ -104,6 +112,7 @@
         let modalContent = $(".data_picker-modal-content", this.modal);
         modalContent.html(resp);
         this._handleLinks(modalContent);
+        this._handleCheckboxes(modalContent);
         this.modal.foundation("open");
       });
     }
@@ -129,6 +138,20 @@
       });
     }
 
+    _handleCheckboxes(content) {
+      $("input[type=checkbox][data-picker-choose]", content).each((_index, checkbox) => {
+        const $checkbox = $(checkbox);
+        checkbox.checked = this._targetFromValue($checkbox.val()) != null;
+      }).change((event) => {
+        const $checkbox = $(event.target);
+        if (event.target.checked) {
+          this._choose({ url: $checkbox.data("picker-url"), value: $checkbox.val() || "", text: $checkbox.data("picker-text") || "" }, true, false, false);
+        }
+        else {
+          this._removeValue(this.current.picker, this._targetFromValue($checkbox.val()));
+        }
+      });
+    }
 
     _choose(data, user = true, modify = true, close = true) {
       // Prevent choosing is nothing has been selected. This would otherwise
@@ -168,6 +191,10 @@
       let $input = $("input", choosenOption);
       $input.attr("value", data.value);
 
+      if (this.current.autosort) {
+        this._sort();
+      }
+
       if (user) {
         // Raise changed event
         $input.trigger("change");
@@ -179,7 +206,10 @@
       }
     }
 
-
+    _sort() {
+      const values = $(".picker-values", this.current.picker);
+      values.children().sort((a, b) => $("input", a).val() - $("input", b).val()).detach().appendTo(values);
+    }
 
     _close() {
       // Close modal and unset target element
@@ -212,6 +242,10 @@
 
     _targetFromEvent(event) {
       return event.target.parentNode;
+    }
+
+    _targetFromValue(value) {
+      return $(`[data-picker-value=${value}]`, this.current.picker).parent()[0] || null;
     }
   }
 
