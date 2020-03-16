@@ -72,7 +72,7 @@
     load(picker, savedData) {
       this._setCurrentPicker($(picker), null);
       $.each(savedData, (_index, data) => {
-        this._choose(data, false);
+        this._choose(data, { interactive: false });
       });
       if (this.current.autosort) {
         this._sort();
@@ -131,7 +131,9 @@
             if (typeof $link.data("picker-choose") === "undefined") {
               this._load(chooseUrl);
             } else {
-              this._choose({ url: chooseUrl, value: $link.data("picker-value") || "", text: $link.data("picker-text") || "" });
+              this._choose(
+                { url: chooseUrl, value: $link.data("picker-value") || "", text: $link.data("picker-text") || "" }
+              );
             }
           }
         });
@@ -141,11 +143,14 @@
     _handleCheckboxes(content) {
       $("input[type=checkbox][data-picker-choose]", content).each((_index, checkbox) => {
         const $checkbox = $(checkbox);
-        checkbox.checked = this._targetFromValue($checkbox.val()) != null;
+        checkbox.checked = this._targetFromValue($checkbox.val()) !== null;
       }).change((event) => {
         const $checkbox = $(event.target);
         if (event.target.checked) {
-          this._choose({ url: $checkbox.data("picker-url"), value: $checkbox.val() || "", text: $checkbox.data("picker-text") || "" }, true, false, false);
+          this._choose(
+            { url: $checkbox.data("picker-url"), value: $checkbox.val() || "", text: $checkbox.data("picker-text") || "" },
+            { modify: false, close: false }
+          );
         }
         else {
           this._removeValue(this.current.picker, this._targetFromValue($checkbox.val()));
@@ -153,7 +158,9 @@
       });
     }
 
-    _choose(data, user = true, modify = true, close = true) {
+    _choose(data, opts = {}) {
+      const options = Object.assign({ interactive: true, modify: true, close: true }, opts);
+
       // Prevent choosing is nothing has been selected. This would otherwise
       // cause an empty checkbox to appear in the selected values list.
       if (!data.value || data.value.length < 1) {
@@ -164,7 +171,7 @@
       let choosenOption = null;
 
       // Add or update value appearance
-      if (this.current.target && modify) {
+      if (this.current.target && options.modify) {
         let link = $("a", this.current.target);
         link.data("picker-value", data.value);
         link.attr("href", data.url);
@@ -195,12 +202,12 @@
         this._sort();
       }
 
-      if (user) {
+      if (options.interactive) {
         // Raise changed event
         $input.trigger("change");
         this._removeErrors();
 
-        if (close) {
+        if (options.close) {
           this._close();
         }
       }
@@ -208,7 +215,7 @@
 
     _sort() {
       const values = $(".picker-values", this.current.picker);
-      values.children().sort((a, b) => $("input", a).val() - $("input", b).val()).detach().appendTo(values);
+      values.children().sort((item1, item2) => $("input", item1).val() - $("input", item2).val()).detach().appendTo(values);
     }
 
     _close() {
