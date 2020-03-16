@@ -227,6 +227,8 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem wniosku.
           email_subject: Kategoria %{resource_title} propozycji została zaktualizowana
           notification_title: <a href="%{resource_path}">%{resource_title}</a> kategoria propozycji została zaktualizowana przez administratora.
+        proposal_update_scope:
+          email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem wniosku.
         voting_enabled:
           email_intro: 'Możesz głosować na propozycje w %{participatory_space_title}! Zacznij uczestniczyć w tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
@@ -372,6 +374,7 @@ pl:
             change_category: Zmień kategorię
             merge: Połącz się z nowym
             merge_button: Łączyć
+            publish: Publikować
             select_component: Wybierz składnik
             selected: wybrany
             split: Podziel propozycje
@@ -381,14 +384,16 @@ pl:
           new:
             create: Stwórz
             title: Utwórz propozycję
+          publish_answers:
+            select_a_proposal: Wybierz propozycję
           show:
             created_at: Data utworzenia
             votes_count: Liczenie głosów
           update_category:
-            invalid: 'Te propozycje miały już kategorię %{category} : %{proposals}.'
             select_a_category: Proszę wybierz kategorie
             select_a_proposal: Wybierz propozycję
-            success: 'Propozycje pomyślnie zaktualizowane do kategorii %{category} : %{proposals}.'
+          update_scope:
+            select_a_proposal: Wybierz propozycję
         proposals_imports:
           create:
             invalid: Podczas importowania propozycji wystąpił problem
@@ -700,8 +705,6 @@ pl:
           withdraw_btn_hint: Możesz wycofać swoją propozycję, jeśli zmienisz zdanie, o ile nie otrzymałeś żadnego wsparcia. Wniosek nie zostanie usunięty, pojawi się na liście wycofanych wniosków.
           withdraw_confirmation: Czy na pewno chcesz wycofać tę propozycję?
           withdraw_proposal: Wycofaj propozycję
-        tags:
-          changed_from: "(zmieniono z <u>%{previous_category}</u> przez administratora)"
         vote_button:
           already_voted: Już głosował
           already_voted_hover: Unvote

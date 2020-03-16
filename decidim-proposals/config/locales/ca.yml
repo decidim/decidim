@@ -31,6 +31,9 @@ ca:
       proposals_import:
         import_proposals: Importar propostes
         keep_authors: Mantenir l'autoria original
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: Nom de l'avaluadora
     errors:
       models:
         participatory_text:
@@ -49,6 +52,7 @@ ca:
     models:
       decidim/proposals/accepted_proposal_event: S'ha acceptat la proposta
       decidim/proposals/admin/update_proposal_category_event: S'ha canviat la categoria de la proposta
+      decidim/proposals/admin/update_proposal_scope_event: Àmbit de la proposta modificat
       decidim/proposals/creation_enabled_event: S'ha activat la creació de propostes
       decidim/proposals/endorsing_enabled_event: S'ha habilitat les adhesions a les propostes
       decidim/proposals/evaluating_proposal_event: S'està avaluant la proposta
@@ -92,6 +96,8 @@ ca:
           label: Estat
           values:
             'true': No resposta
+        valuator_role_ids_has:
+          label: Assignada a avaluadora
     components:
       proposals:
         actions:
@@ -148,6 +154,7 @@ ca:
             endorsements_blocked: Adhesions bloquejades
             endorsements_enabled: Adhesions habilitades
             proposal_answering_enabled: Resposta a propostes activada
+            publish_answers_immediately: Publica les respostes a les propostes immediatament
             suggested_hashtags: Hashtags suggerits a les participants per a noves propostes
             votes_blocked: Suports bloquejats
             votes_enabled: Suports habilitats
@@ -252,6 +259,11 @@ ca:
           email_outro: Has rebut aquesta notificació perquè ets autora de la proposta.
           email_subject: S'ha actualitzat la categoria de la proposta %{resource_title}
           notification_title: La categoria de la proposta <a href="%{resource_path}">%{resource_title}</a> ha estat actualitzada per una administradora.
+        proposal_update_scope:
+          email_intro: 'Una administradora ha actualitzat l''àmbit de la teva proposta "%{resource_title}", fes-hi una ullada:'
+          email_outro: Has rebut aquesta notificació perquè ets autora de la proposta.
+          email_subject: S'ha actualitzat l'àmbit de la proposta %{resource_title}
+          notification_title: L'àmbit de la proposta <a href="%{resource_path}">%{resource_title}</a> ha estat actualitzat per una administradora.
         voting_enabled:
           email_intro: 'Pots començar a donar suports a les propostes de %{participatory_space_title}! Comença a participar en aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
@@ -318,6 +330,7 @@ ca:
         see_all: Veure tots (%{count})
     proposals:
       actions:
+        answer_proposal: Respondre a la proposta
         edit_proposal: Edita la proposta
         import: Importa des d'un altre component
         new: Nova proposta
@@ -401,21 +414,33 @@ ca:
             select_a_meeting: Selecciona una trobada
           index:
             actions: Accions
+            assign_to_valuator: Assignar a avaluadora
+            assign_to_valuator_button: Assignar
             cancel: Cancel·lar
             change_category: Canvia la categoria
+            change_scope: Canviar àmbit
             merge: Uneix-te a un de nou
             merge_button: Fusionar
+            publish: Publica
+            publish_answers: Publica respostes
             select_component: Selecciona un component
             selected: seleccionat
             split: Dividir propostes
             split_button: Dividir
             title: Propostes
+            unassign_from_valuator: Desfer assignació a avaluadora
+            unassign_from_valuator_button: Desfer assignació
             update: Actualitza
+            update_scope_button: Actualitzar àmbit
           new:
             create: Crea
             title: Crea proposta
+          publish_answers:
+            number_of_proposals: Es publicaran les respostes per a %{number} propostes.
+            select_a_proposal: Selecciona una proposta
           show:
             amendments_count: Número d'esmenes
+            assigned_valuators: Avaluadores assignades
             authors: Autores
             body: Descripció
             comments_count: Comptador de comentaris
@@ -435,13 +460,21 @@ ca:
             proposals: Propostes
             ranking: "%{ranking} de %{total}"
             related_meetings: Trobades relacionades
+            remove_assignment: Desfer assignació
+            remove_assignment_confirmation: Segur que vols desfer l'assignació a l'avaluadora d'aquesta proposta?
+            valuators: Avaluadores
             votes_count: Nombre de suports
             votes_ranking: Classificació per suports
           update_category:
-            invalid: 'Aquestes propostes ja tenien la categoria %{category}: %{proposals}.'
+            invalid: 'Aquestes propostes ja tenien la categoria %{subject_name}: %{proposals}.'
             select_a_category: Selecciona una categoria
             select_a_proposal: Selecciona una proposta
-            success: 'Les propostes s''han actualitzat correctament a la categoria %{category}: %{proposals}.'
+            success: 'Les propostes s''han actualitzat correctament a la categoria %{subject_name}: %{proposals}.'
+          update_scope:
+            invalid: 'Aquestes propostes ja tenien l''àmbit %{subject_name}: %{proposals}.'
+            select_a_proposal: Selecciona una proposta
+            select_a_scope: Si us plau, selecciona un àmbit
+            success: 'Les propostes s''han actualitzat correctament a l''àmbit %{subject_name}: %{proposals}.'
         proposals_imports:
           create:
             invalid: S'ha produït un error en importar les propostes
@@ -459,13 +492,24 @@ ca:
           create:
             invalid: S'ha produït un error en dividir les propostes seleccionades.
             success: Les propostes s'han dividit en d'altres de noves correctament.
+        valuation_assignments:
+          create:
+            invalid: S'ha produït un error en assignar propostes a una avaluadora
+            success: Propostes assignades a avaluadora correctament
+          delete:
+            invalid: S'ha produït un error en desfer l'assignació de propostes a una avaluadora
+            success: Avaluadora desassignada correctament
       admin_log:
         proposal:
           answer: "%{user_name} ha respost a la proposta %{resource_name} a l'espai %{space_name}"
           create: "%{user_name} ha creat la proposta %{resource_name} sobre l'espai %{space_name} com a proposta oficial"
+          publish_answer: "%{user_name} ha publicat una resposta a la proposta %{resource_name} a l'espai %{space_name}"
           update: "%{user_name} ha actualitzat la proposta oficial %{resource_name} sobre l'espai %{space_name}"
         proposal_note:
           create: "%{user_name} ha deixat una nota privada a la proposta %{resource_name} dins l'espai %{space_name}"
+        valuation_assignment:
+          create: "%{user_name} ha assignat la proposta %{resource_name} a una avaluadora"
+          delete: "%{user_name} ha desfet l'assignació a una avaluadora de la proposta %{resource_name}"
       answers:
         accepted: Acceptades
         evaluating: En avaluació
@@ -629,10 +673,13 @@ ca:
             id: Identificador
             notes: Notes
             official_proposal: Proposta oficial
+            published_answer: Resposta publicada
             published_at: Publicat a
             scope: Àmbit
             state: Estat
             title: Títol
+            valuator: Avaluadora
+            valuators: Avaluadores
             votes: Suports
       new:
         limit_reached: No pots crear noves propostes perquè has superat el límit.
@@ -765,7 +812,7 @@ ca:
           withdraw_confirmation: Segur que vols retirar aquesta proposta?
           withdraw_proposal: Retirar proposta
         tags:
-          changed_from: "(modificat de <u>%{previous_category}</u> per una administradora)"
+          changed_from: "(modificat de <u>%{previous_name}</u> per una administradora)"
         vote_button:
           already_voted: Ja li has donat suport
           already_voted_hover: Retira suport
@@ -808,6 +855,8 @@ ca:
       publish:
         error: Hi ha hagut un error en publicar la proposta.
         success: La proposta s'ha publicat correctament.
+      publish_answers:
+        success: Respostes a les propostes publicades correctament.
       update:
         error: Hi ha hagut un error en desar la proposta.
         success: La proposta s'ha actualitzat correctament.

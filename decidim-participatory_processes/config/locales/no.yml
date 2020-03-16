@@ -206,13 +206,11 @@
         destroy:
           success: Administrator slettet fra denne deltaker prosessen.
         edit:
-          title: Oppdater deltaker prosess administrator.
           update: Oppdater
         index:
           process_admins_title: Deltaker prosess administratorer
         new:
           create: Opprett
-          title: Ny deltaker prosess administrator.
         update:
           error: Det oppstod et problem med å oppdatere en administrator for denne deltaker prosessen.
           success: Admin ble oppdatert for denne deltaker prosessen.

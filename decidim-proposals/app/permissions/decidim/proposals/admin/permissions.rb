@@ -33,6 +33,9 @@ module Decidim
           # Every user allowed by the space can update the category of the proposal
           allow! if permission_action.subject == :proposal_category && permission_action.action == :update
 
+          # Every user allowed by the space can update the scope of the proposal
+          allow! if permission_action.subject == :proposal_scope && permission_action.action == :update
+
           # Every user allowed by the space can import proposals from another_component
           allow! if permission_action.subject == :proposals && permission_action.action == :import
 
@@ -50,6 +53,9 @@ module Decidim
 
           # Every user allowed by the space can unassign a valuator from proposals
           can_unassign_valuator_from_proposals?
+
+          # Only admin users can publish many answers at once
+          toggle_allow(user.admin?) if permission_action.subject == :proposals && permission_action.action == :publish_answers
 
           if permission_action.subject == :participatory_texts && participatory_texts_are_enabled?
             # Every user allowed by the space can manage (import, update and publish) participatory texts to proposals

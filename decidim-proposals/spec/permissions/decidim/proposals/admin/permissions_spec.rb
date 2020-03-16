@@ -27,7 +27,8 @@ describe Decidim::Proposals::Admin::Permissions do
   let(:current_settings) do
     double(
       creation_enabled?: creation_enabled?,
-      proposal_answering_enabled: current_settings_proposal_answering_enabled?
+      proposal_answering_enabled: current_settings_proposal_answering_enabled?,
+      publish_answers_immediately: current_settings_publish_answers_immediately?
     )
   end
   let(:creation_enabled?) { true }
@@ -35,6 +36,7 @@ describe Decidim::Proposals::Admin::Permissions do
   let(:component_settings_proposal_answering_enabled?) { true }
   let(:component_settings_participatory_texts_enabled?) { true }
   let(:current_settings_proposal_answering_enabled?) { true }
+  let(:current_settings_publish_answers_immediately?) { true }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
 
   shared_examples "can create proposal notes" do
@@ -196,6 +198,21 @@ describe Decidim::Proposals::Admin::Permissions do
     end
 
     it { is_expected.to eq true }
+  end
+
+  describe "proposal answers publishing" do
+    let(:user) { create(:user) }
+    let(:action) do
+      { scope: :admin, action: :publish_answers, subject: :proposals }
+    end
+
+    it { is_expected.to eq false }
+
+    context "when user is an admin" do
+      let(:user) { create(:user, :admin) }
+
+      it { is_expected.to eq true }
+    end
   end
 
   describe "assign proposals to a valuator" do

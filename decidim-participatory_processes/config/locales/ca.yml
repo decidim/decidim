@@ -135,6 +135,7 @@ ca:
             admin: Administradora
             collaborator: Col·laboradora
             moderator: Moderadora
+            valuator: Avaluadora
         user:
           fields:
             invitation_accepted_at: Invitació acceptada el
@@ -206,13 +207,13 @@ ca:
         destroy:
           success: L'administradora s'ha eliminat correctament d'aquest procés participatiu.
         edit:
-          title: Actualitza administradora de procés participatiu.
+          title: Actualitzar administradora de procés participatiu
           update: Actualitza
         index:
           process_admins_title: Administradores del procés participatiu
         new:
           create: Crea
-          title: Nova administradora del procés participatiu.
+          title: Nova administradora del procés participatiu
         update:
           error: S'ha produït un error en actualitzar una administradora per a aquest procés participatiu.
           success: Administradora actualitzada correctament per a aquest procés participatiu.

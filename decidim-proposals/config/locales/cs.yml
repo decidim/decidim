@@ -31,6 +31,9 @@ cs:
       proposals_import:
         import_proposals: Návrhy na dovoz
         keep_authors: Uchovávejte původní autory
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: Název hodnotitele
     errors:
       models:
         participatory_text:
@@ -42,12 +45,14 @@ cs:
             attachment:
               needs_to_be_reattached: Potřebuje být znovu připojen
             body:
+              cant_be_equal_to_template: nelze se rovnat šabloně
               identical: A název nemůže být totožný
             title:
               identical: Tělo A nemůže být totožné
     models:
       decidim/proposals/accepted_proposal_event: Návrh byl akceptován
       decidim/proposals/admin/update_proposal_category_event: Kategorie nabídky se změnila
+      decidim/proposals/admin/update_proposal_scope_event: Rozsah návrhu se změnil
       decidim/proposals/creation_enabled_event: Vytváření návrhu je povoleno
       decidim/proposals/endorsing_enabled_event: Povolení návrhu je povoleno
       decidim/proposals/evaluating_proposal_event: Návrh je hodnocen
@@ -84,6 +89,25 @@ cs:
         many: Hlasy
         other: Hlasy
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Typ
+          values:
+            'false': Návrhy
+            'true': Pozměňovací návrhy
+        search_placeholder:
+          id_string_or_title_cont: Hledat %{collection} podle ID nebo názvu.
+        state_eq:
+          values:
+            evaluating: Hodnocení
+            withdrawn: Odebráno
+        state_null:
+          label: Stav
+          values:
+            'true': Nezodpovězeno
+        valuator_role_ids_has:
+          label: Přiřazeno k hodnotiteli
     components:
       proposals:
         actions:
@@ -95,6 +119,7 @@ cs:
         name: Návrhy
         settings:
           global:
+            allow_card_image: Povolit obrázek karty
             amendments_enabled: Změny povoleny
             amendments_enabled_help: Pokud je aktivní, nastavte funkce změny pro každý krok.
             amendments_wizard_help_text: Nápověda průvodce k Pozměňovacím návrhům
@@ -105,6 +130,8 @@ cs:
             comments_enabled: Komentáře povoleny
             geocoding_enabled: Geokódování povoleno
             minimum_votes_per_user: Minimální počet hlasů na uživatele
+            new_proposal_body_template: Šablona těla nového návrhu
+            new_proposal_body_template_help: Můžete definovat předem vyplněný text, který budou mít nové návrhy
             new_proposal_help_text: Nový text nápovědy návrhu
             official_proposals_enabled: Byly povoleny oficiální návrhy
             participatory_texts_disabled_help: Pokud existují stávající návrhy, nelze toto nastavení měnit. Pokud chcete tuto vlastnost povolit nebo vyhodit všechny importované návrhy v menu "participativní texty" prosím vytvořte novou složku "Návrhy", pokud ji chcete zakázat.
@@ -130,12 +157,14 @@ cs:
             amendments_visibility: Viditelnost pozměňovacího návrhu
             amendments_visibility_help: Pokud je zvolena možnost "pozměňovací návrhy jsou viditelné pouze jejich autorům", musí být účastník přihlášen, aby se seznámil s provedenými pozměňovacími návrhy.
             announcement: Oznámení
+            answers_with_costs: Povolit náklady na odpovědi návrhu
             automatic_hashtags: Do všech návrhů byly přidány značky Hashtags
             comments_blocked: Komentáře byly blokovány
             creation_enabled: Vytváření návrhu je povoleno
             endorsements_blocked: Uzávěry blokovány
             endorsements_enabled: Povolení byla povolena
             proposal_answering_enabled: Odpovídání návrhu je povoleno
+            publish_answers_immediately: Okamžitě publikovat odpovědi návrhu
             suggested_hashtags: Hashtags navrhl uživatelům nové návrhy
             votes_blocked: Hlasování bylo blokováno
             votes_enabled: Hlasování povoleno
@@ -240,6 +269,8 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste autorem návrhu.
           email_subject: Kategorie návrhů %{resource_title} byla aktualizována
           notification_title: Kategorie návrhu <a href="%{resource_path}">%{resource_title}</a> byla aktualizována administrátorem.
+        proposal_update_scope:
+          email_outro: Toto oznámení jste obdrželi, protože jste autorem návrhu.
         voting_enabled:
           email_intro: 'Můžete hlasovat návrhy v %{participatory_space_title}! Začněte se účastnit této stránky:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
@@ -306,10 +337,12 @@ cs:
         see_all: Zobrazit všechny (%{count})
     proposals:
       actions:
+        answer_proposal: Odpověď na návrh
         edit_proposal: Upravit návrh
         import: Import z jiné součásti
         new: Nový návrh
         participatory_texts: Participující texty
+        show: Zobrazit návrh
         title: Akce
       admin:
         actions:
@@ -355,6 +388,10 @@ cs:
             success: Úspěšný text byl úspěšně aktualizován.
         proposal_answers:
           form:
+            accepted: Přijato
+            answer_proposal: Odpověď
+            evaluating: Hodnocení
+            rejected: Zamítnuto
             title: Odpověď na návrh %{title}
         proposal_notes:
           create:
@@ -384,27 +421,59 @@ cs:
             select_a_meeting: Vyberte schůzku
           index:
             actions: Akce
+            assign_to_valuator: Přiřadit hodnotiteli
+            assign_to_valuator_button: Přiřadit
             cancel: zrušení
             change_category: Změnit kategorii
+            change_scope: Změnit rozsah
             merge: Sloučit do nového
             merge_button: Spojit
+            publish: Publikovat
+            publish_answers: Publikovat odpovědi
             select_component: Vyberte součást
             selected: vybraný
             split: Rozdělit návrhy
             split_button: Rozdělit
             title: Návrhy
+            unassign_from_valuator: Zrušit přiřazení od hodnotitele
+            unassign_from_valuator_button: Zrušit přiřazení
             update: Aktualizace
+            update_scope_button: Aktualizovat rozsah
           new:
             create: Vytvořit
             title: Vytvořte návrh
+          publish_answers:
+            select_a_proposal: Vyberte prosím návrh
           show:
+            amendments_count: Počet pozměňovacích návrhů
+            assigned_valuators: Přiřazení hodnotitelé
+            authors: Autoři
+            body: Tělo
+            comments_count: Počet komentářů
+            comments_negative_count: Proti
+            comments_neutral_count: Neutrální
+            comments_positive_count: Oblíbené
             created_at: Datum vzniku
+            documents: Dokumenty
+            endorsements_count: Počet položek
+            endorsements_ranking: Pořadí podle položek
+            link: Odkaz
+            photos: Fotky
+            proposals: Návrhy
+            ranking: "%{ranking} z %{total}"
+            related_meetings: Související schůzky
+            remove_assignment: Odstranit přiřazení
+            remove_assignment_confirmation: Jste si jisti, že chcete odstranit hodnotitele z tohoto návrhu?
+            valuators: Hodnotitelé
             votes_count: Počet hlasů
+            votes_ranking: Hodnocení podle podpory
           update_category:
-            invalid: 'Tyto návrhy již měly kategorii %{category} : %{proposals}.'
+            invalid: 'Tyto návrhy již mají kategorii %{subject_name} : %{proposals}.'
             select_a_category: Vyberte kategorii
             select_a_proposal: Vyberte prosím návrh
-            success: 'Návrhy byly úspěšně aktualizovány do kategorie %{category} : %{proposals}.'
+          update_scope:
+            select_a_proposal: Vyberte prosím návrh
+            select_a_scope: Vyberte prosím rozsah
         proposals_imports:
           create:
             invalid: Při importu návrhů došlo k problému
@@ -429,6 +498,8 @@ cs:
           update: "%{user_name} aktualizoval %{resource_name} oficiální návrh na %{space_name} místa"
         proposal_note:
           create: "%{user_name} zanechal soukromou poznámku k návrhu %{resource_name} na %{space_name} prostoru"
+        valuation_assignment:
+          create: "%{user_name} přiřadil návrh %{resource_name} hodnotiteli"
       answers:
         accepted: Přijato
         evaluating: Hodnocení
@@ -436,16 +507,21 @@ cs:
         rejected: Odmítnuto
         withdrawn: Staženo
       application_helper:
+        filter_category_values:
+          all: Vše
         filter_origin_values:
           all: Všechno
           citizens: Občané
           meetings: Setkání
           official: Oficiální
           user_groups: Skupiny uživatelů
+        filter_scope_values:
+          all: Vše
         filter_state_values:
           accepted: Přijato
           all: Všechno
           evaluating: Hodnocení
+          not_answered: Nezodpovězeno
           rejected: Odmítnuto
         filter_type_values:
           all: Všechno
@@ -499,6 +575,7 @@ cs:
           open: otevřeno
           published: Publikováno
           related_to: Související s
+          scope: Rozsah
           search: Vyhledávání
           state: Stát
           withdrawn: Staženo
@@ -590,10 +667,13 @@ cs:
             id: ID
             notes: Poznámky
             official_proposal: Oficiální návrh
+            published_answer: Publikovaná odpověď
             published_at: Publikováno v
             scope: Rozsah
             state: Stát
             title: Titul
+            valuator: Hodnotitel
+            valuators: Hodnotitelé
             votes: Hlasy
       new:
         limit_reached: Nelze vytvořit nové návrhy, protože jste překročili limit.
@@ -656,8 +736,10 @@ cs:
           my_proposals: Moje návrhy
           origin: Původ
           related_to: Související s
+          scope: Rozsah
           search: Vyhledávání
           state: Stát
+          type: Typ
           voted: Hlasoval
         filters_small_view:
           close_modal: Zavřít modální
@@ -710,6 +792,7 @@ cs:
           changes_at_title: Pozměňovací návrh k "%{title}"
           edit_proposal: Upravit návrh
           endorsements_list: Seznam doporučení
+          estimated_cost: Odhadované náklady
           hidden_endorsers_count:
             one: a %{count} další osoba
             few: a %{count} dalších lidí
@@ -724,12 +807,14 @@ cs:
           proposal_accepted_reason: 'Tento návrh byl přijat, protože:'
           proposal_in_evaluation_reason: Tento návrh se hodnotí
           proposal_rejected_reason: 'Tento návrh byl zamítnut, protože:'
+          read_less: Číst méně
+          read_more: Číst více
           report: Zpráva
           withdraw_btn_hint: Pokud změníte názor, můžete svůj návrh stáhnout, pokud jste nedostali žádnou podporu. Návrh není zrušen, objeví se v seznamu stažených návrhů.
           withdraw_confirmation: Opravdu chcete tento návrh stáhnout?
           withdraw_proposal: Návrh stáhnout
         tags:
-          changed_from: "(změněn z <u>%{previous_category}</u> správcem)"
+          changed_from: "(změněn z <u>%{previous_name}</u> správcem)"
         vote_button:
           already_voted: Již bylo hlasováno
           already_voted_hover: Zavolejte
@@ -774,6 +859,8 @@ cs:
       publish:
         error: Při publikování návrhu došlo k chybám.
         success: Návrh byl úspěšně publikován.
+      publish_answers:
+        success: Odpovědi na návrhy byly úspěšně zveřejněny.
       update:
         error: Při ukládání návrhu došlo k chybám.
         success: Návrh byl úspěšně aktualizován.
