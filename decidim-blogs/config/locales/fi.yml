@@ -48,6 +48,7 @@ fi:
             title: otsikko
       posts:
         show:
+          back: Takaisin listaan
           comments: Kommentit
           view: Näytä
         sidebar_blog:
