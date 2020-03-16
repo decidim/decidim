@@ -33,6 +33,12 @@ extra_admin_link(
 <% end %>
 <%= emendation_announcement_for @proposal %>
 <div class="row column view-header">
+
+  <%= link_to :proposals, class: "small hollow" do %>
+    <%= icon "chevron-left", class: "icon--small" %>
+    <%= t(".back_to_list") %>
+  <% end %>
+
   <% if @proposal.emendation? %>
     <h2 class="heading2"><%= t(".changes_at_title", title: present(@proposal.amendable).title(links: true, html_escape: true)) %></h2>
   <% else %>
