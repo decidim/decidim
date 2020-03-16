@@ -16,7 +16,6 @@ module Decidim
                        .where.not(id: current_user.id)
                        .where(organization: current_user.organization)
                        .where(id: recipient_id)
-                       # .find_by(id: recipient_id)
       end
     end
   end
