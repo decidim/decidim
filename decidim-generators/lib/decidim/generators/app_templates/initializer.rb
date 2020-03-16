@@ -192,7 +192,6 @@ Decidim.configure do |config|
   # radio buttons collection input field form for a Decidim::Component
   # step setting :amendments_visibility.
   # config.amendments_visibility_options = %w(all participants)
-
 end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales
