@@ -60,6 +60,8 @@ byebug
         enforce_permission_to :list, :conversation
 
         @conversations = UserConversations.for(current_user)
+        @form = MessageForm.new
+# byebug
       end
 
       def show
