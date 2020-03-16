@@ -13,7 +13,9 @@ module Decidim
 
       routes do
         resources :meetings do
-          resources :meeting_closes, only: [:edit, :update]
+          resources :meeting_closes, only: [:edit, :update] do
+            get :proposals_picker, on: :collection
+          end
           resource :registrations, only: [:edit, :update] do
             resources :invites, only: [:index, :create]
             resource :form, only: [:edit, :update], controller: "registration_form"
