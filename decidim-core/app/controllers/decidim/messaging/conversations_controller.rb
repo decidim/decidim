@@ -19,8 +19,8 @@ module Decidim
       #   - if the user already has a conversation with the user, redirects to the initiated conversation
       def new
         @form = form(ConversationForm).from_params(params)
-byebug
-        if @form.recipient.count > 1
+
+        if @form.recipient.is_a? Enumerable
           participants = @form.recipient.to_a.prepend(current_user)
           conversation = conversation_between_multiple(participants)
         else
@@ -29,7 +29,6 @@ byebug
 
         return redirect_back(fallback_location: profile_path(current_user.nickname)) unless @form.recipient
 
-byebug
         return redirect_to conversation_path(conversation) if conversation
 
         enforce_permission_to :create, :conversation, conversation: new_conversation(@form.recipient)
@@ -38,11 +37,9 @@ byebug
       def create
         @form = form(ConversationForm).from_params(params)
         enforce_permission_to :create, :conversation, conversation: new_conversation(@form.recipient)
-byebug
 
         StartConversation.call(@form) do
           on(:ok) do |conversation|
-byebug
             render action: :create, locals: {
               conversation: conversation,
               form: MessageForm.new
@@ -50,7 +47,6 @@ byebug
           end
 
           on(:invalid) do
-byebug
             render json: { error: I18n.t("messaging.conversations.create.error", scope: "decidim") }, status: :unprocessable_entity
           end
         end
@@ -61,7 +57,6 @@ byebug
 
         @conversations = UserConversations.for(current_user)
         @form = MessageForm.new
-# byebug
       end
 
       def show
@@ -89,18 +84,8 @@ byebug
       end
 
       def check_multiple
-        enforce_permission_to :create, :conversation
         @form = form(ConversationForm).from_params(params)
-byebug
-        users = @form.recipient.to_a
-byebug
-        # users = Decidim::User
-        #                .where.not(id: current_user.id)
-        #                .where(organization: current_user.organization)
-        #                .where(id: [15,26,19]).to_a
-byebug
-        redirect_link = link_to_current_or_new_conversation_with_multiple(users)
-byebug
+        redirect_link = link_to_current_or_new_conversation_with_multiple(@form.recipient)
         redirect_to redirect_link
       end
 
@@ -113,7 +98,11 @@ byebug
       def new_conversation(recipient)
         return nil unless recipient
 
-        Conversation.new(participants: [current_user, recipient])
+        if recipient.is_a? Enumerable
+          Conversation.new(participants: [current_user] + recipient)
+        else
+          Conversation.new(participants: [current_user, recipient])
+        end
       end
 
       def username_list(users, shorten = false)
@@ -123,14 +112,12 @@ byebug
       end
 
       def link_to_current_or_new_conversation_with_multiple(users)
-byebug
         decidim_routes = Decidim::Core::Engine.routes.url_helpers
         return decidim_routes.new_user_session_path unless user_signed_in?
-byebug
-        participants = users.prepend(current_user)
-byebug
+
+        participants = users.to_a.prepend(current_user)
         conversation = conversation_between_multiple(participants)
-byebug
+
         if conversation
           decidim_routes.conversation_path(conversation)
         else
@@ -140,7 +127,7 @@ byebug
 
       def conversation_between_multiple(participants)
         return if participants.to_set.length <= 1
-byebug
+
         UserConversations.for(participants.first).find do |conversation|
           conversation.participants.to_set == participants.to_set
         end
