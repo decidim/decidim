@@ -248,11 +248,6 @@ module Decidim
     2.days
   end
 
-  # Whether to expose the GraphiQL playground, by default true
-  config_accessor :expose_graphiql do
-    true
-  end
-
   # How long can a user remained logged in before the session expires
   config_accessor :expire_session_after do
     1.day

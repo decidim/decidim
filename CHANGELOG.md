@@ -45,10 +45,6 @@ Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now sup
 
 Due to [#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on by default.
 
-- **GraphiQL is no longer exposed in production**
-
-You can override this through the configuration flag `Decidim.config.expose_graphiql`.
-
 ### Added
 
 - **decidim-comments**: Comments can mention groups and its members are notified. [\#5763](https://github.com/decidim/decidim/pull/5763)
