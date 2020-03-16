@@ -829,6 +829,9 @@ en:
           step_3: Complete
           step_4: Publish your proposal
           step_of: Step %{current_step_num} of %{total_steps}
+      proposals_picker:
+        choose_proposals: Choose proposals
+        close: Close
       publish:
         error: There was a problem publishing the proposal.
         success: Proposal successfully published.
