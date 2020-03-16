@@ -22,7 +22,14 @@ module Decidim
         conversation = conversation_between(current_user, @form.recipient)
 
         return redirect_back(fallback_location: profile_path(current_user.nickname)) unless @form.recipient
-
+byebug
+        if @form.recipient.count > 1
+          participants = @form.recipient.to_a.prepend(current_user)
+          conversation = conversation_between_multiple(participants)
+        else
+          conversation = conversation_between(current_user, @form.recipient)
+        end
+byebug
         return redirect_to conversation_path(conversation) if conversation
 
         enforce_permission_to :create, :conversation, conversation: new_conversation(@form.recipient)
@@ -31,9 +38,11 @@ module Decidim
       def create
         @form = form(ConversationForm).from_params(params)
         enforce_permission_to :create, :conversation, conversation: new_conversation(@form.recipient)
+byebug
 
         StartConversation.call(@form) do
           on(:ok) do |conversation|
+byebug
             render action: :create, locals: {
               conversation: conversation,
               form: MessageForm.new
@@ -41,6 +50,7 @@ module Decidim
           end
 
           on(:invalid) do
+byebug
             render json: { error: I18n.t("messaging.conversations.create.error", scope: "decidim") }, status: :unprocessable_entity
           end
         end
@@ -76,6 +86,22 @@ module Decidim
         end
       end
 
+      def check_multiple
+        enforce_permission_to :create, :conversation
+        @form = form(ConversationForm).from_params(params)
+byebug
+        users = @form.recipient.to_a
+byebug
+        # users = Decidim::User
+        #                .where.not(id: current_user.id)
+        #                .where(organization: current_user.organization)
+        #                .where(id: [15,26,19]).to_a
+byebug
+        redirect_link = link_to_current_or_new_conversation_with_multiple(users)
+byebug
+        redirect_to redirect_link
+      end
+
       private
 
       def conversation
@@ -88,8 +114,34 @@ module Decidim
         Conversation.new(participants: [current_user, recipient])
       end
 
-      def username_list(users)
-        users.pluck(:name).join(", ")
+      def username_list(users, shorten = false)
+        return users.pluck(:name).join(", ") unless shorten
+        return users.pluck(:name).join(", ") unless users.count > 3
+        "#{users.first(3).pluck(:name).join(', ')} + #{users.count - 3}"
+      end
+
+      def link_to_current_or_new_conversation_with_multiple(users)
+byebug
+        decidim_routes = Decidim::Core::Engine.routes.url_helpers
+        return decidim_routes.new_user_session_path unless user_signed_in?
+byebug
+        participants = users.prepend(current_user)
+byebug
+        conversation = conversation_between_multiple(participants)
+byebug
+        if conversation
+          decidim_routes.conversation_path(conversation)
+        else
+          decidim_routes.new_conversation_path(recipient_id: users.pluck(:id))
+        end
+      end
+
+      def conversation_between_multiple(participants)
+        return if participants.to_set.length <= 1
+byebug
+        UserConversations.for(participants.first).find do |conversation|
+          conversation.participants.to_set == participants.to_set
+        end
       end
     end
   end

@@ -798,6 +798,13 @@ en:
         index:
           no_conversations: You have no conversations yet
           title: Conversations
+          new_conversation: "New conversation"
+          next: Next
+        add_conversation_users:
+          modal_title: "New message"
+          add_max_users: "Add users to conversation: 9 users max"
+          body_conversation: "Start your conversation here..."
+          max_users_limit_reached: "It can't be more than 9 users!"
         reply:
           send: Send
           title: Reply

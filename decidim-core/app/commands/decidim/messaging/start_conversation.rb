@@ -32,9 +32,11 @@ module Decidim
       private
 
       def conversation
+byebug
         @conversation ||= Conversation.start(
           originator: originator,
-          interlocutors: [form.recipient],
+          # interlocutors: [form.recipient],
+          interlocutors: form.recipient,
           body: form.body
         )
       end
