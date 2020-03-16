@@ -3,23 +3,26 @@
  */
 ((exports) => {
   class DataPicker {
-    constructor(elements) {
+    constructor(pickers) {
       this.modal = this._createModalContainer();
       this.modal.appendTo($("body"));
       this.current = null;
 
-      elements.each((_index, element) => {
-        this.activate(element);
+      pickers.each((_index, picker) => {
+        this.activate(picker);
       });
     }
 
     activate(picker) {
-      let $element = $(picker);
-      let input = "hidden",
-          name = $element.data("picker-name"),
-          values = $(".picker-values", $element);
+      let $picker = $(picker);
 
-      if ($element.hasClass("picker-multiple")) {
+      this._setCurrentPicker($picker, null);
+
+      let input = "hidden",
+          name = this.current.name,
+          values = this.current.values;
+
+      if (this.current.multiple) {
         input = "checkbox";
         name += "[]";
       }
@@ -29,16 +32,16 @@
         $(div).prepend($(`<input type="${input}" checked name="${name}" value="${value}"/>`));
       });
 
-      $element.on("click", "a", (event) => {
+      $picker.on("click", "a", (event) => {
         event.preventDefault();
-        if ($element.hasClass("disabled")) {
+        if ($picker.hasClass("disabled")) {
           return;
         }
-        this._openPicker($element, event.target.parentNode);
+        this._openPicker($picker, this._targetFromEvent(event));
       });
 
-      $element.on("click", "input", (event) => {
-        this._removeValue($element, event.target.parentNode);
+      $picker.on("click", "input", (event) => {
+        this._removeValue($picker, this._targetFromEvent(event));
       });
     }
 
@@ -76,23 +79,23 @@
               </div>`);
     }
 
-    _openPicker($picker, div) {
-      this._setCurrentPicker($picker, div);
-      this._load($("a", div).attr("href"));
+    _openPicker($picker, target) {
+      this._setCurrentPicker($picker, target);
+      this._load($("a", target).attr("href"));
     }
 
-    _setCurrentPicker($picker, div) {
-      let currentDiv = false;
-      if (div && !$(div).hasClass("picker-prompt")) {
-        currentDiv = $(div);
+    _setCurrentPicker($picker, target) {
+      let $target = false;
+      if (target && !$(target).hasClass("picker-prompt")) {
+        $target = $(target);
       }
 
       this.current = {
-        multiple: $picker.hasClass("picker-multiple"),
         picker: $picker,
         name: $picker.data("picker-name"),
         values: $picker.find(".picker-values"),
-        div: currentDiv
+        multiple: $picker.hasClass("picker-multiple"),
+        target: $target
       };
     }
 
@@ -126,7 +129,8 @@
       });
     }
 
-    _choose(data, user = true) {
+
+    _choose(data, user = true, modify = true, close = true) {
       // Prevent choosing is nothing has been selected. This would otherwise
       // cause an empty checkbox to appear in the selected values list.
       if (!data.value || data.value.length < 1) {
@@ -134,12 +138,14 @@
       }
 
       let dataText = this._escape(data.text);
+      let choosenOption = null;
 
       // Add or update value appearance
-      if (this.current.div) {
-        let link = $("a", this.current.div);
+      if (this.current.target && modify) {
+        let link = $("a", this.current.target);
         link.data("picker-value", data.value);
         link.attr("href", data.url);
+        choosenOption = this.current.target;
         link.html(dataText);
       } else {
         let input = "hidden",
@@ -149,31 +155,46 @@
           input = "checkbox";
           name += "[]";
         }
-        this.current.div = $(`<div><input type="${input}" checked name="${name}"/><a href="${data.url}" data-picker-value="${data.value}">${dataText}</a></div>`);
-        this.current.div.appendTo(this.current.values);
+
+        choosenOption = $(`<div><input type="${input}" checked name="${name}"/><a href="${data.url}" data-picker-value="${data.value}">${dataText}</a></div>`);
+        choosenOption.appendTo(this.current.values);
+
+        if (!this.current.target) {
+          this.current.target = choosenOption;
+        }
       }
 
       // Set input value
-      let $input = $("input", this.current.div);
+      let $input = $("input", choosenOption);
       $input.attr("value", data.value);
 
-      // Raise changed event
       if (user) {
+        // Raise changed event
         $input.trigger("change");
         this._removeErrors();
-        this.modal.foundation("close");
-      }
 
-      // Unselect updated value and close modal
-      this.current.div = null;
+        if (close) {
+          this._close();
+        }
+      }
     }
 
-    _removeValue($picker, div) {
-      this._setCurrentPicker($picker, div);
-      this.current.div.fadeOut(500, () => {
-        this.current.div.remove();
-        this.current.div = null;
-      });
+
+
+    _close() {
+      // Close modal and unset target element
+      this.modal.foundation("close");
+      this.current.target = null;
+    }
+
+    _removeValue($picker, target) {
+      if (target) {
+        this._setCurrentPicker($picker, target);
+        this.current.target.fadeOut(500, () => {
+          this.current.target.remove();
+          this.current.target = null;
+        });
+      }
     }
 
     _removeErrors() {
@@ -187,6 +208,10 @@
       return str.replace(/[\u00A0-\u9999<>&]/gim, function (char) {
         return `&#${char.charCodeAt(0)};`;
       });
+    }
+
+    _targetFromEvent(event) {
+      return event.target.parentNode;
     }
   }
 
