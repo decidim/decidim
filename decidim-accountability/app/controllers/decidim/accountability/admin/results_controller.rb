@@ -7,6 +7,8 @@ module Decidim
       class ResultsController < Admin::ApplicationController
         include Decidim::ApplicationHelper
         include Decidim::SanitizeHelper
+        include Decidim::Proposals::Admin::Picker
+
         helper_method :results, :parent_result, :parent_results, :statuses, :present
 
         def new
@@ -66,26 +68,6 @@ module Decidim
               flash[:notice] = I18n.t("results.destroy.success", scope: "decidim.accountability.admin")
 
               redirect_to results_path(parent_id: result.parent_id)
-            end
-          end
-        end
-
-        def proposals
-          respond_to do |format|
-            format.html do
-              render partial: "proposals"
-            end
-            format.json do
-              query = Decidim.find_resource_manifest(:proposals)
-                             .try(:resource_scope, current_component)&.order(title: :asc)
-              term = params[:term]
-              if term&.start_with?("#")
-                term.delete!("#")
-                query = query.where("CAST(id AS TEXT) LIKE ?", "#{term}%")
-              else
-                query = query.where("title ilike ?", "%#{params[:term]}%")
-              end
-              render json: query.all.collect { |p| [decidim_html_escape(present(p).title), p.id] }
             end
           end
         end

@@ -14,10 +14,9 @@ module Decidim
       routes do
         resources :statuses
         resources :results, except: [:show] do
+          get :proposals_picker, on: :collection
+
           resources :timeline_entries, except: [:show]
-          collection do
-            get :proposals
-          end
         end
         root to: "results#index"
       end
