@@ -174,25 +174,6 @@ module Decidim
         published_at.present?
       end
 
-      # This is only used to define the setter, as the getter will be overriden below.
-      alias_attribute :internal_state, :state
-
-      # Public: Returns the internal state of the proposal.
-      #
-      # Returns Boolean.
-      def internal_state
-        return amendment.state if emendation?
-
-        self[:state]
-      end
-
-      # Public: Checks if the organization has published the state for the proposal.
-      #
-      # Returns Boolean.
-      def published_state?
-        emendation? || state_published_at.present?
-      end
-
       # Public: Returns the published state of the proposal.
       #
       # Returns Boolean.
