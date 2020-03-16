@@ -19,9 +19,6 @@ module Decidim
       #   - if the user already has a conversation with the user, redirects to the initiated conversation
       def new
         @form = form(ConversationForm).from_params(params)
-        conversation = conversation_between(current_user, @form.recipient)
-
-        return redirect_back(fallback_location: profile_path(current_user.nickname)) unless @form.recipient
 byebug
         if @form.recipient.count > 1
           participants = @form.recipient.to_a.prepend(current_user)
@@ -29,6 +26,9 @@ byebug
         else
           conversation = conversation_between(current_user, @form.recipient)
         end
+
+        return redirect_back(fallback_location: profile_path(current_user.nickname)) unless @form.recipient
+
 byebug
         return redirect_to conversation_path(conversation) if conversation
 
