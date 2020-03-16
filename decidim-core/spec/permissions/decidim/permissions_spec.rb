@@ -210,49 +210,19 @@ describe Decidim::Permissions do
       context "when creating a conversation" do
         let(:action_name) { :create }
 
-        it { is_expected.to eq true }
+        it_behaves_like "restricted conversation permissions"
+      end
+
+      context "when updating a conversation" do
+        let(:action_name) { :update }
+
+        it_behaves_like "restricted conversation permissions"
       end
 
       context "when any other action on a conversation" do
         let(:action_name) { :foo }
-        let(:context) { { conversation: conversation } }
-        let(:another_user) { create :user }
 
-        context "when the originator of the conversation is the user" do
-          let!(:conversation) do
-            Decidim::Messaging::Conversation.start!(
-              originator: user,
-              interlocutors: [another_user],
-              body: "who wants apples?"
-            )
-          end
-
-          it { is_expected.to eq true }
-        end
-
-        context "when the user is an interlocutor" do
-          let!(:conversation) do
-            Decidim::Messaging::Conversation.start!(
-              originator: another_user,
-              interlocutors: [user],
-              body: "who wants apples?"
-            )
-          end
-
-          it { is_expected.to eq true }
-        end
-
-        context "when the user is not in the conversation" do
-          let!(:conversation) do
-            Decidim::Messaging::Conversation.start!(
-              originator: another_user,
-              interlocutors: [create(:user)],
-              body: "who wants apples?"
-            )
-          end
-
-          it { is_expected.to eq false }
-        end
+        it_behaves_like "general conversation permissions"
       end
     end
 

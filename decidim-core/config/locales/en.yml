@@ -806,6 +806,7 @@ en:
           send: Send
           title: Reply
         show:
+          not_allowed: This user does not accept any more direct messages.
           title: Conversation with %{usernames}
         start:
           send: Send
@@ -857,6 +858,8 @@ en:
       no_notifications: No notifications yet.
     notifications_settings:
       show:
+        allow_public_contact: Allow anyone to send me a direct message, even if I don't follow them.
+        direct_messages: Receive direct messages from anyone
         email_on_notification: I want to receive an email every time I receive a notification.
         everything_followed: Everything I follow
         newsletter_notifications: I want to receive newsletters
@@ -1073,6 +1076,7 @@ en:
     user_activity:
       index:
         no_activities_warning: This participant hasn't had any activity yet.
+    user_contact_disabled: This participant does not accept direct messages.
     user_interests:
       show:
         my_interests: My interests
