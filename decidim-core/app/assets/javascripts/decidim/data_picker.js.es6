@@ -161,12 +161,6 @@
     _choose(data, opts = {}) {
       const options = Object.assign({ interactive: true, modify: true, close: true }, opts);
 
-      // Prevent choosing is nothing has been selected. This would otherwise
-      // cause an empty checkbox to appear in the selected values list.
-      if (!data.value || data.value.length < 1) {
-        return;
-      }
-
       let dataText = this._escape(data.text);
       let choosenOption = null;
 
