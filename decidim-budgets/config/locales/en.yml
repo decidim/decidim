@@ -137,6 +137,9 @@ en:
           global:
             announcement: Announcement
             comments_enabled: Comments enabled
+            form:
+              errors:
+                budget_voting_rule_required: One voting rule is required
             projects_per_page: Projects per page
             resources_permissions_enabled: Actions permissions can be set for each meeting
             total_budget: Total budget

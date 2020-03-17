@@ -25,6 +25,7 @@ module Decidim
 
       validate :must_be_able_to_change_participatory_texts_setting
       validate :amendments_visibility_options_must_be_valid
+      validate :budget_voting_rule_enabled_setting, :budget_voting_rule_value_setting
 
       def settings?
         settings.manifest.attributes.any?
@@ -73,6 +74,29 @@ module Decidim
 
           step_settings[step].errors.add(:amendments_visibility, :inclusion)
         end
+      end
+
+      # Validations on budget settings:
+      # - a voting rule must be enabled.
+      def budget_voting_rule_enabled_setting
+        return unless manifest&.name == :budgets
+
+        i18n_error_scope = "decidim.components.budgets.settings.global.form.errors"
+        if settings.vote_rule_threshold_percent_enabled.blank? && settings.vote_rule_minimum_budget_projects_enabled.blank?
+          settings.errors.add(:vote_rule_threshold_percent_enabled, I18n.t(:budget_voting_rule_required, scope: i18n_error_scope))
+          settings.errors.add(:vote_rule_minimum_budget_projects_enabled, I18n.t(:budget_voting_rule_required, scope: i18n_error_scope))
+        end
+      end
+
+      # - the value must be a valid number
+      def budget_voting_rule_value_setting
+        invalid_percent_number = settings.vote_threshold_percent.blank? || settings.vote_threshold_percent.to_i.negative?
+        if settings.vote_rule_threshold_percent_enabled && invalid_percent_number
+          settings.errors.add(:vote_threshold_percent)
+        end
+
+        invalid_minimum_number = settings.vote_minimum_budget_projects_number.blank? || (settings.vote_minimum_budget_projects_number.to_i < 1)
+        settings.errors.add(:vote_minimum_budget_projects_number) if settings.vote_rule_minimum_budget_projects_enabled && invalid_minimum_number
       end
     end
   end
