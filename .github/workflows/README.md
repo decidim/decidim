@@ -8,7 +8,7 @@ We use GitHub Actions as CI.
 
 Individual workflows with changes:
 
-- `ci_generators.yml`: Does not need to create the test app, so this command is removed. Screenshots uploads and chromedriver setup steps are also removed. We also customize the gems path after running `bundle install`:
+- `ci_generators.yml`: `decidim-generators` does not need to create the test_app, so this command is removed. Screenshots uploads and chromedriver setup steps are also not needed for this module and thus removed. We also customize the gems path after running `bundle install`:
 
 ```yml
 # ci_generators.yml
