@@ -805,6 +805,7 @@ en:
           add_max_users: "Add users to conversation: 9 users max"
           body_conversation: "Start your conversation here..."
           max_users_limit_reached: "It can't be more than 9 users!"
+          participant_with_disabled_message_reception: "This participant has disabled message reception"
         reply:
           send: Send
           title: Reply

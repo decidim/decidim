@@ -56,3 +56,23 @@
     }
   }
 }
+.disabled-notifications{
+  color: $muted;
+  span.disabled-notifications-info{
+    font-size: rem-calc(12);
+    font-weight: normal;
+    font-style: italic;
+  }
+}
+
+.tribute-container{
+  .disabled-notifications{
+    cursor: auto;
+    margin-top: -5px;
+    margin-left: -5px;
+    margin-right: -5px;
+    margin-bottom: -5px;
+    padding: 5px;
+    z-index: 10;
+  }
+}

@@ -13,6 +13,7 @@ module Decidim
 
       field :avatarUrl, !types.String, "The author's avatar url"
       field :profilePath, !types.String, "The author's profile path"
+      field :disabledNotifications, !types.String, "The author's disabled notifications status"
       field :badge, !types.String, "The author's badge icon"
       field :organizationName, !types.String, "The authors's organization name" do
         resolve ->(obj, _args, _ctx) { obj.organization.name }

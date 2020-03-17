@@ -27,6 +27,10 @@ module Decidim
         resolve ->(group, _args, _ctx) { group.presenter.profile_path }
       end
 
+      field :disabledNotifications, !types.String, "The user group's disabled notifications status" do
+        resolve ->(user, _args, _ctx) { user.presenter.disabled_notifications }
+      end
+
       field :organizationName, !types.String, "The user group's organization name" do
         resolve ->(group, _args, _ctx) { group.organization.name }
       end

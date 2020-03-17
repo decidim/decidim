@@ -36,7 +36,7 @@ $(() => {
   }
 
   let remoteSearch = function(text, cb) {
-    let query = `{users(filter:{wildcard:"${text}"}){id,nickname,name,avatarUrl}}`;
+    let query = `{users(filter:{wildcard:"${text}"}){id,nickname,name,avatarUrl,disabledNotifications}}`;
     $.post("/api", {query: query}).
       then((response) => {
         let data = response.data.users || {};
@@ -93,7 +93,8 @@ $(() => {
       return "";
     },
     menuItemTemplate: function(item) {
-      let tpl = `<strong>${item.original.nickname}</strong>&nbsp;<small>${item.original.name}</small>`;
+      let disabled_element_class = ((item.original.disabledNotifications == ``)? `` : `class="disabled-notifications"`)
+      let tpl = `<div ${disabled_element_class}><strong>${item.original.nickname}</strong>&nbsp;<small>${item.original.name}</small>&nbsp;<span class="disabled-notifications-info">${item.original.disabledNotifications}</span></div>`;
       return tpl;
     }
   });

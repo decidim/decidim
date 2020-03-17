@@ -617,8 +617,10 @@ function () {
           }
         }
 
-        tribute.selectItemAtIndex(li.getAttribute('data-index'), event);
-        tribute.hideMenu(); // TODO: should fire with externalTrigger and target is outside of menu
+        if ($(li).find(".disabled-notifications").length == 0){
+          tribute.selectItemAtIndex(li.getAttribute('data-index'), event);
+          tribute.hideMenu(); // TODO: should fire with externalTrigger and target is outside of menu
+        }
       } else if (tribute.current.element && !tribute.current.externalTrigger) {
         tribute.current.externalTrigger = false;
         setTimeout(function () {
