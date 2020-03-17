@@ -221,10 +221,11 @@ describe "Conversations", type: :system do
           expect(page).to have_selector("textarea#message_body")
         end
 
-        it "sends a message" do
+        it "sends a message", :slow do
           visit_inbox
           click_link interlocutor.name
           fill_in "message_body", with: "Please reply!"
+          expect(page).to have_content("Send")
           click_button "Send"
 
           expect(page).to have_selector(".message:last-child", text: "Please reply!")
