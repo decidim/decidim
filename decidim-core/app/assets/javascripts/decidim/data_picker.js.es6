@@ -72,7 +72,7 @@
     load(picker, savedData) {
       this._setCurrentPicker($(picker), null);
       $.each(savedData, (_index, data) => {
-        this._choose(data, { interactive: false });
+        this._choose(data, { interactive: false, modify: false });
       });
       if (this.current.autosort) {
         this._sort();
