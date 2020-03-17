@@ -6,42 +6,44 @@
     }
 
     _runAll() {
-      this.ruleCheckboxes.forEach((el) => {
-        this.bindEvent(el);
-        this.run(el);
-      });
+      this.ruleCheckboxes.
+        each((_i, checkbox) => {
+          this._bindEvent(checkbox);
+          this.run(checkbox);
+        });
+    }
+
+    _bindEvent(target) {
+      $(target).
+        on("change", (event) => {
+          this.run(event.target);
+        });
     }
 
     run(target) {
-      let otherCheckboxes = this.ruleCheckboxes.filter(
-        (checkbox) => {
-          return checkbox !== target;
-        });
+      this.toggleTextInput(target);
 
       if ($(target).prop("checked")) {
-        this.toggleInput(target)
-        otherCheckboxes.forEach((el) => {
-          $(el).prop("checked", false);
-          this.toggleInput(el);
-        });
-      } else {
-        this.toggleInput(target);
+        this.ruleCheckboxes.
+          filter(
+            (_i, checkbox) => {
+              return checkbox !== target;
+            }).
+          prop("checked", false).
+          each(
+            (_i, checkbox) => {
+              this.toggleTextInput(checkbox);
+            });
       }
     }
 
-    toggleInput(target) {
+    toggleTextInput(target) {
       let input = $(target).closest("label").next();
       if ($(target).prop("checked")) {
         input.slideDown();
       } else {
         input.slideUp();
       }
-    }
-
-    bindEvent(target) {
-      $(target).on("change", (event) => {
-        this.run(`#${event.target.id}`);
-      });
     }
   }
 

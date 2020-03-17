@@ -4,8 +4,7 @@
   const { BudgetRuleTogglerComponent } = exports.DecidimAdmin;
 
   const budgetRuleToggler = new BudgetRuleTogglerComponent({
-    // $( "input[id^='component_settings_vote_rule_threshold_percent_enabled']" )
-    ruleCheckboxes: ["#component_settings_vote_rule_threshold_percent_enabled", "#component_settings_vote_rule_minimum_budget_projects_enabled"]
+    ruleCheckboxes: $("input[id^='component_settings_vote_rule_']")
   });
 
   budgetRuleToggler.run();
