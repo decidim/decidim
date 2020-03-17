@@ -489,6 +489,7 @@ en:
           save_and_preview: Save and preview
           title: Edit newsletter
         form:
+          cta_section_title: Call to action button
           interpolations_hint: 'Hint: You can use "%{name}" anywhere in the body or subject and it will be replaced by the recipient''s name.'
         index:
           all: all
