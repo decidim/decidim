@@ -29,6 +29,9 @@ en:
       id: ID
       newsletter:
         body: Body
+        cta_enabled: Show Call To Action button
+        cta_text: Title
+        cta_url: URL
         subject: Subject
       oauth_application:
         name: Name

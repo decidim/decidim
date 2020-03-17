@@ -1,11 +1,39 @@
-<div class="row column">
-  <%= form.translated :text_field, :subject %>
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= title %></h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row column">
+      <%= form.translated :text_field, :subject %>
+    </div>
+
+    <div class="row column">
+      <%= form.translated :editor, :body, toolbar: "basic-no-video" %>
+    </div>
+
+    <div class="row column">
+      <%= t(".interpolations_hint") %>
+    </div>
+  </div>
 </div>
 
-<div class="row column">
-  <%= form.translated :editor, :body, toolbar: "basic-no-video" %>
-</div>
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t(".cta_section_title") %></h2>
+  </div>
 
-<div class="row column">
-  <%= t(".interpolations_hint") %>
+  <div class="card-section">
+    <div class="row column">
+      <%= form.check_box :cta_enabled %>
+    </div>
+
+    <div class="row column">
+      <%= form.translated :text_field, :cta_text %>
+    </div>
+
+    <div class="row column">
+      <%= form.url_field :cta_url, required: false %>
+    </div>
+  </div>
 </div>

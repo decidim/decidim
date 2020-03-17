@@ -22,6 +22,8 @@ module Decidim
           @user,
           subject: @form.subject,
           body: @form.body,
+          cta_text: @form.cta_text,
+          cta_url: @form.cta_url,
           author: @user,
           organization: @user.organization
         )

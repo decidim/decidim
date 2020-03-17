@@ -20,6 +20,8 @@ module Decidim
       with_user(user) do
         subject = @newsletter.subject[I18n.locale.to_s].presence || @newsletter.subject[@organization.default_locale]
         body = @newsletter.body[I18n.locale.to_s].presence || @newsletter.body[@organization.default_locale]
+        @cta_text = @newsletter.cta_text[I18n.locale.to_s].presence || @newsletter.cta_text[@organization.default_locale]
+        @cta_url = @newsletter.cta_url
 
         @subject = parse_interpolations(subject, user, @newsletter.id)
         @body = parse_interpolations(body, user, @newsletter.id)
