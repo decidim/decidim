@@ -31,19 +31,19 @@ module Decidim
       @sent_scopes ||= organization.scopes.where(id: sent_scopes_ids)
     end
 
-    def sended_to_all_users?
+    def sent_to_all_users?
       extended_data["send_to_all_users"]
     end
 
-    def sended_to_followers?
+    def sent_to_followers?
       extended_data["send_to_followers"]
     end
 
-    def sended_to_participants?
+    def sent_to_participants?
       extended_data["send_to_participants"]
     end
 
-    def sended_to_partipatory_spaces
+    def sent_to_partipatory_spaces
       extended_data["participatory_space_types"]
     end
 

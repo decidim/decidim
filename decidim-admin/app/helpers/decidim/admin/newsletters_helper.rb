@@ -56,16 +56,16 @@ module Decidim
       def sent_to_users(newsletter)
         content_tag :p, style: "margin-bottom:0;" do
           concat content_tag(:strong, t("index.has_been_sent_to", scope: "decidim.admin.newsletters"), class: "text-success")
-          concat content_tag(:strong, t("index.all_users", scope: "decidim.admin.newsletters")) if newsletter.sended_to_all_users?
-          concat content_tag(:strong, t("index.followers", scope: "decidim.admin.newsletters")) if newsletter.sended_to_followers?
-          concat t("index.and", scope: "decidim.admin.newsletters") if newsletter.sended_to_followers? && newsletter.sended_to_participants?
-          concat content_tag(:strong, t("index.participants", scope: "decidim.admin.newsletters")) if newsletter.sended_to_participants?
+          concat content_tag(:strong, t("index.all_users", scope: "decidim.admin.newsletters")) if newsletter.sent_to_all_users?
+          concat content_tag(:strong, t("index.followers", scope: "decidim.admin.newsletters")) if newsletter.sent_to_followers?
+          concat t("index.and", scope: "decidim.admin.newsletters") if newsletter.sent_to_followers? && newsletter.sent_to_participants?
+          concat content_tag(:strong, t("index.participants", scope: "decidim.admin.newsletters")) if newsletter.sent_to_participants?
         end
       end
 
       def sent_to_spaces(newsletter)
         html = "<p style='margin-bottom:0;'> "
-        newsletter.sended_to_partipatory_spaces.try(:each) do |type|
+        newsletter.sent_to_partipatory_spaces.try(:each) do |type|
           next if type["ids"].blank?
 
           html += t("index.segmented_to", scope: "decidim.admin.newsletters", subject: t("activerecord.models.decidim/#{type["manifest_name"].singularize}.other"))
