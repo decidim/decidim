@@ -2,7 +2,7 @@
   <h1><%= t(".choose_proposals") %></h1>
   <input type="text" name="proposals-filter" id="proposals_filter" placeholder="<%= t("decidim.admin.filters.search_placeholder.id_string_or_title_cont", collection: proposals_collection_name) %>"/>
 </div>
-<div class="picker-content">
+<div class="picker-content picker-list">
   <ul id="proposals_list">
    <% decorated_proposals do |proposal| %>
       <li>
