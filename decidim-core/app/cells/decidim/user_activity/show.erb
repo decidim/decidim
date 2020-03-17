@@ -6,17 +6,19 @@
       </div>
     <% else %>
       <div class="row">
-        <%= filter_form_for context[:filter] do |form| %>
-          <div class="columns mediumlarge-6 large-5">
-            <%= form.custom_select :resources,
-                                   :resource_type,
-                                   Decidim::ActionLog.all,
-                                   legend_title: "Show:",
-                                   label: false,
-                                   selected: context[:filter].resource_type,
-                                   include_blank: "All types" %>
-          </div>
-        <% end %>
+        <div class="show-for-mediumlarge filters__left-legend">
+          <%= filter_form_for context[:filter] do |form| %>
+            <div class="columns mediumlarge-6 large-5">
+              <%= form.custom_select :resources,
+                                     :resource_type,
+                                     Decidim::ActionLog.all,
+                                     legend_title: "Show:",
+                                     label: false,
+                                     selected: context[:filter].resource_type,
+                                     include_blank: "All types" %>
+            </div>
+          <% end %>
+        </div>
       </div>
       <div class="row" id="activities-container">
         <%= cell "decidim/activities", activities %>
