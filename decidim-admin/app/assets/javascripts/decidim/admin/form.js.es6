@@ -1,3 +1,16 @@
+// = require ./budget_rule_toggler.component
+
+((exports) => {
+  const { BudgetRuleTogglerComponent } = exports.DecidimAdmin;
+
+  const budgetRuleToggler = new BudgetRuleTogglerComponent({
+    // $( "input[id^='component_settings_vote_rule_threshold_percent_enabled']" )
+    ruleCheckboxes: ["#component_settings_vote_rule_threshold_percent_enabled", "#component_settings_vote_rule_minimum_budget_projects_enabled"]
+  });
+
+  budgetRuleToggler.run();
+})(window);
+
 // Checks if the form contains fields with special CSS classes added in
 // Decidim::Admin::SettingsHelper and acts accordingly.
 $(() => {

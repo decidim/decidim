@@ -10,7 +10,7 @@ module Decidim
       # project - The the project to include in the order
       # current_user - The current user logged in
       def initialize(current_order, project, current_user)
-        @order = current_order
+        @order = current_order.persisted? ? current_order : nil
         @project = project
         @current_user = current_user
       end

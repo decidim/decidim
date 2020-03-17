@@ -15,7 +15,7 @@ module Decidim
         #
         # Returns an Order.
         def current_order
-          @current_order ||= Order.includes(:projects).find_by(user: current_user, component: current_component)
+          @current_order ||= Order.includes(:projects).find_by(user: current_user, component: current_component) || Order.new(user: current_user, component: current_component)
         end
 
         def current_order=(order)

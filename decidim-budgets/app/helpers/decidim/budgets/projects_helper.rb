@@ -16,6 +16,28 @@ module Decidim
         current_order&.budget_percent.to_f.floor
       end
 
+      # Return the minimum percentage of the current order budget from the total budget
+      def current_order_budget_percent_minimum
+        return 0 if current_order.minimum_projects_rule?
+
+        component_settings.vote_threshold_percent
+      end
+
+      # Return the minimum percentage of the current order budget from the total budget
+      def budget_rule_description
+        if current_order.minimum_projects_rule?
+          t(".description_minimum_projects_rule", minimum_number: current_order.minimum_projects)
+        else
+          t(".description", minimum_budget: budget_to_currency(current_order.minimum_budget))
+        end
+      end
+
+      def budget_confirm_disabled_attr
+        return if current_order_can_be_checked_out?
+
+        %( disabled= "disabled" )
+      end
+
       # Return true if the current order is checked out
       delegate :checked_out?, to: :current_order, prefix: true, allow_nil: true
 
