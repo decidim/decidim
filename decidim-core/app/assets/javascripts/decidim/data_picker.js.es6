@@ -170,6 +170,10 @@
       let dataText = this._escape(data.text);
       let choosenOption = null;
 
+      if (!this.current.target && options.modify) {
+        this.current.target = this._targetFromValue(data.value);
+      }
+
       // Add or update value appearance
       if (this.current.target && options.modify) {
         let link = $("a", this.current.target);
