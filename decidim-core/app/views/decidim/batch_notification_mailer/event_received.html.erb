@@ -1,0 +1,32 @@
+<p><%== t(".email_greeting") %></p>
+
+<p><%== t(".email_intro") %></p>
+
+<% @events.each do |event| %>
+  <%
+    event_instance = event[:event_class].constantize.new(
+      resource: event[:resource],
+      event_name: event[:event_name],
+      user: event[:user],
+      extra: event[:extra],
+      user_role: event[:user_role]
+    )
+  %>
+
+  <% if event_instance.try(:resource_text).present? %>
+    <blockquote>
+      <p>
+        <%= event_instance.resource_text.html_safe %>
+      </p>
+    </blockquote>
+  <% end %>
+
+  <% if event_instance.try(:resource_path).present? && event_instance.try(:resource_title).present? %>
+    <p>
+      <%= link_to event_instance.resource_title, event_instance.resource_url %>
+    </p>
+  <% end %>
+
+<% end %>
+
+<p><%== t(".email_outro") %></p>

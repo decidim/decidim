@@ -320,6 +320,11 @@ en:
           title: Confirm your email
       show:
         close_modal: Close modal
+    batch_notification_mailer:
+      event_received:
+        email_greeting: Email greeting
+        email_intro: Email intro
+        email_outro: Email outro
     collapsible_list:
       hidden_elements_count:
         one: and %{count} more
