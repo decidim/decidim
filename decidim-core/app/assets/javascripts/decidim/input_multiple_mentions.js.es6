@@ -94,8 +94,10 @@ $(() => {
         </label>
       `;
       // Append new recipient to DOM
-      $multipleMentionRecipientsContainer.append(recipientLabel);
-      $multipleMentionContainer.val("");
+      if (item.original.disabledNotifications == ""){
+        $multipleMentionRecipientsContainer.append(recipientLabel);
+        $multipleMentionContainer.val("");
+      }
       // Clean input
       return "";
     },
