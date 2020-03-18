@@ -1,3 +1,10 @@
+<% if @organization.colors["primary"].present? %>
+<style>
+table.button table td {
+  background: <%= @organization.colors["primary"] %> !important
+}
+</style>
+<% end %>
 <%= decidim_sanitize @body %>
 
 <% if @cta_text.present? && @cta_url.present? %>
