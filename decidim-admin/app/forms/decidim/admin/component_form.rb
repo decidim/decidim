@@ -90,6 +90,8 @@ module Decidim
 
       # - the value must be a valid number
       def budget_voting_rule_value_setting
+        return unless manifest&.name == :budgets
+
         invalid_percent_number = settings.vote_threshold_percent.blank? || settings.vote_threshold_percent.to_i.negative?
         settings.errors.add(:vote_threshold_percent) if settings.vote_rule_threshold_percent_enabled && invalid_percent_number
 
