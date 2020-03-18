@@ -56,7 +56,6 @@ ca:
       decidim/proposals/creation_enabled_event: S'ha activat la creació de propostes
       decidim/proposals/endorsing_enabled_event: S'ha habilitat les adhesions a les propostes
       decidim/proposals/evaluating_proposal_event: S'està avaluant la proposta
-      decidim/proposals/proposal_endorsed_event: Proposta adherida
       decidim/proposals/proposal_mentioned_event: Proposta esmentada
       decidim/proposals/publish_proposal_event: Proposta publicada
       decidim/proposals/rejected_proposal_event: S'ha rebutjat la proposta
@@ -69,9 +68,6 @@ ca:
       decidim/proposals/proposal:
         one: Proposta
         other: Propostes
-      decidim/proposals/proposal_endorsement:
-        one: Adhesió
-        other: Adhesions
       decidim/proposals/proposal_note:
         one: Nota
         other: Notes
@@ -212,11 +208,6 @@ ca:
             email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
             email_subject: Una proposta que segueixes ha estat acceptada
             notification_title: S'ha acceptat la proposta <a href="%{resource_path}">%{resource_title}</a>.
-        proposal_endorsed:
-          email_intro: '%{endorser_name} %{endorser_nickname}, a qui segueixes, acaba d''adherir-se a la proposta "%{resource_title}" i creiem que pot ser interessant per tu. Consulta i contribueix:'
-          email_outro: Has rebut aquesta notificació perquè estàs seguint a %{endorser_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: "%{endorser_nickname} s'ha adherit a una nova proposta"
-          notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> s'ha adherit a la proposta <a href="%{resource_path}">%{resource_title}</a>.
         proposal_evaluating:
           affected_user:
             email_intro: 'La teva proposta "%{resource_title}" s''està avaluant. Pots consultar la resposta en aquesta pàgina:'
@@ -229,7 +220,7 @@ ca:
             email_subject: S'està avaluant una proposta que segueixes
             notification_title: S'ha avaluat la proposta <a href="%{resource_path}">%{resource_title}</a>.
         proposal_mentioned:
-          email_intro: La teva proposta "%{mentioned_proposal_title}" ha estat esmentada <a href="%{resource_path}">en aquest espai</a> als comentaris.
+          email_intro: La teva proposta "%{mentioned_proposal_title}" ha estat esmentada als comentaris <a href="%{resource_url}">en aquest espai</a>.
           email_outro: Has rebut aquesta notificació perquè ets autora de "%{resource_title}".
           email_subject: S'ha mencionat la teva proposta "%{mentioned_proposal_title}"
           notification_title: La teva proposta "%{mentioned_proposal_title}" ha estat esmentada <a href="%{resource_path}">en aquest espai</a> als comentaris.
@@ -669,7 +660,6 @@ ca:
           fields:
             category: Categoria
             comments: Comentaris
-            endorsements: Adhesions
             id: Identificador
             notes: Notes
             official_proposal: Proposta oficial
@@ -689,18 +679,6 @@ ca:
           amend: Esmena
           comment: Comentari
           comments: Comentaris
-          endorse: Adherir-se
-      proposal_endorsements:
-        create:
-          error: Hi ha hagut un error en adherir-te a la proposta.
-        identities:
-          done: Fet
-          select_identity: Selecciona identitat
-      proposal_endorsements_helper:
-        endorsement_button:
-          already_endorsed: Adherida
-          endorse: Adherir-se
-        render_endorsements_button_card_part:
           endorse: Adherir-se
       proposal_votes:
         create:
@@ -728,10 +706,6 @@ ca:
           discard_confirmation: Estàs segur de que vols descartar l'esborrany d'aquesta proposta?
           send: Vista prèvia
           title: Edició l'esborrany de proposta
-        endorsement_identities_cabin:
-          endorse: Adherir-se
-        endorsements_card_row:
-          comments: Comentaris
         filters:
           activity: La meva activitat
           all: Tots
@@ -790,6 +764,7 @@ ca:
           answer: Respondre
           back_to: Torna
           changes_at_title: Esmena a "%{title}"
+          comments: Comentaris
           edit_proposal: Edita proposta
           endorsements_list: Llistat d'adhesions
           estimated_cost: Cost estimat

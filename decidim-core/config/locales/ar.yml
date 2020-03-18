@@ -416,6 +416,8 @@ ar:
           this_application_will_not_be_able_to: 'لن يكون هذا التطبيق قادرًا على:'
           update_profile: تحديث ملفك الشخصي
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> يريد استخدام حسابك"
+    endorsable:
+      endorsements: موافقات
     errors:
       internal_server_error:
         title: كانت هناك مشكلة في الخادم الخاص بنا

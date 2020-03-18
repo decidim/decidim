@@ -52,7 +52,6 @@ nl:
       decidim/proposals/creation_enabled_event: Voorstelcreatie ingeschakeld
       decidim/proposals/endorsing_enabled_event: Voorstel endorsing ingeschakeld
       decidim/proposals/evaluating_proposal_event: Dit voorstel wordt geëvalueerd
-      decidim/proposals/proposal_endorsed_event: Voorstel goedgekeurd
       decidim/proposals/proposal_mentioned_event: Voorstel vermeld
       decidim/proposals/publish_proposal_event: Voorstel gepubliceerd
       decidim/proposals/rejected_proposal_event: Voorstel afgewezen
@@ -65,9 +64,6 @@ nl:
       decidim/proposals/proposal:
         one: Voorstel
         other: voorstellen
-      decidim/proposals/proposal_endorsement:
-        one: bekrachtiging
-        other: Ondersteuningen
       decidim/proposals/proposal_note:
         one: Notitie
         other: Notes
@@ -185,11 +181,6 @@ nl:
             email_outro: Je hebt deze melding ontvangen omdat je "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
             email_subject: Een voorstel dat je volgt, is geaccepteerd
             notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is geaccepteerd.
-        proposal_endorsed:
-          email_intro: '%{endorser_name} %{endorser_nickname}, wie je volgt, heeft zojuist het ''%{resource_title}voorstel goedgekeurd en we denken dat het misschien interessant voor je is. Bekijk het en draag bij:'
-          email_outro: Je hebt deze melding ontvangen omdat je volgt %{endorser_nickname}. Meldingen uitschakelen kan door te klikken op de voorgaande link.
-          email_subject: "%{endorser_nickname} heeft een nieuw voorstel goedgekeurd"
-          notification_title: Het <a href="%{resource_path}">%{resource_title}</a> voorstel is goedgekeurd door <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           affected_user:
             email_intro: 'Uw voorstel "%{resource_title}" wordt momenteel geëvalueerd. U kunt op deze pagina zoeken naar een antwoord:'
@@ -202,7 +193,6 @@ nl:
             email_subject: Een voorstel dat je volgt, wordt geëvalueerd
             notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> wordt beoordeeld.
         proposal_mentioned:
-          email_intro: Je voorstel '%{mentioned_proposal_title}' werd in de reacties van <a href="%{resource_path}"> de ruimte </a> vernoemd.
           email_outro: U hebt deze melding ontvangen omdat u een auteur bent van "%{resource_title}".
           email_subject: Jouw voorstel "%{mentioned_proposal_title}" is vernoemd
           notification_title: Je voorstel '%{mentioned_proposal_title}' werd in de reacties van <a href="%{resource_path}"> deze </a> vernoemd.
@@ -579,7 +569,6 @@ nl:
           fields:
             category: Categorie
             comments: Reacties
-            endorsements: Goedkeuringen
             id: ID
             notes: Opmerkingen
             official_proposal: Officieel voorstel
@@ -596,18 +585,6 @@ nl:
           amend: Wijzigen
           comment: Commentaar
           comments: Commentaren
-          endorse: Onderschrijven
-      proposal_endorsements:
-        create:
-          error: Er zijn fouten opgetreden tijdens het aanbevelen van het voorstel.
-        identities:
-          done: Klaar
-          select_identity: Selecteer gebruiker
-      proposal_endorsements_helper:
-        endorsement_button:
-          already_endorsed: Aanbevolen
-          endorse: Aanbevelen
-        render_endorsements_button_card_part:
           endorse: Onderschrijven
       proposal_votes:
         create:
@@ -635,10 +612,6 @@ nl:
           discard_confirmation: Weet je zeker dat je dit voorstel wilt verwijderen?
           send: Voorbeeldweergave
           title: Bewerk voorstel
-        endorsement_identities_cabin:
-          endorse: Aanbevelen
-        endorsements_card_row:
-          comments: Commentaren
         filters:
           activity: Mijn activiteit
           all: Alle
@@ -695,6 +668,7 @@ nl:
           answer: Antwoord
           back_to: Terug naar
           changes_at_title: Amendement op "%{title}"
+          comments: Reacties
           edit_proposal: Bewerk voorstel
           endorsements_list: Lijst met aanbevelingen
           estimated_cost: Geschatte kosten

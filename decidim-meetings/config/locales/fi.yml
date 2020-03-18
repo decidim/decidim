@@ -368,6 +368,7 @@ fi:
           confirm: Vahvista
         show:
           attendees: Osallistujamäärä
+          back: Takaisin listaan
           contributions: Kontribuutioiden määrä
           going: Ilmoittautunut
           join: Ilmoittaudu tapahtumaan

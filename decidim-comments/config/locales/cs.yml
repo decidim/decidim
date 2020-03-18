@@ -4,6 +4,7 @@ cs:
       decidim/comments/comment_by_followed_user_event: Komentář
       decidim/comments/comment_created_event: Komentář
       decidim/comments/reply_created_event: Odpověď na komentář
+      decidim/comments/user_group_mentioned_event: Zmínit se
       decidim/comments/user_mentioned_event: Zmínit se
   activerecord:
     models:
@@ -95,6 +96,11 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože váš komentář byl zodpovězen.
           email_subject: "%{author_name} odpověděl váš komentář v %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> odpověděl / a svůj komentář v <a href="%{resource_path}">%{resource_title}</a>
+        user_group_mentioned:
+          email_intro: Byla zmíněna skupina, do které patříte
+          email_outro: Obdrželi jste toto oznámení, protože jste členem skupiny %{group_name}, která byla zmíněna v %{resource_title}.
+          email_subject: Byl jste zmíněn v %{resource_title} jako člen %{group_name}
+          notification_title: Byli jste zmíněni v <a href="%{resource_path}">%{resource_title}</a> od <a href="%{author_path}">%{author_name} %{author_nickname}</a> jako člen <a href="%{group_path}">%{group_name} %{group_nickname}</a>
         user_mentioned:
           email_intro: Byl jste zmíněn
           email_outro: Toto oznámení jste obdrželi, protože jste byli uvedeni v %{resource_title}.
