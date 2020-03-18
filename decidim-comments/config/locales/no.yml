@@ -4,6 +4,7 @@
       decidim/comments/comment_by_followed_user_event: Kommentar
       decidim/comments/comment_created_event: Kommentar
       decidim/comments/reply_created_event: Kommenter svar
+      decidim/comments/user_group_mentioned_event: Omtal
       decidim/comments/user_mentioned_event: Omtal
   activerecord:
     models:

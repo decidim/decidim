@@ -56,7 +56,6 @@ cs:
       decidim/proposals/creation_enabled_event: Vytváření návrhu je povoleno
       decidim/proposals/endorsing_enabled_event: Povolení návrhu je povoleno
       decidim/proposals/evaluating_proposal_event: Návrh je hodnocen
-      decidim/proposals/proposal_endorsed_event: Návrh byl schválen
       decidim/proposals/proposal_mentioned_event: Návrh byl zmíněn
       decidim/proposals/publish_proposal_event: Návrh byl zveřejněn
       decidim/proposals/rejected_proposal_event: Návrh byl zamítnut
@@ -73,11 +72,6 @@ cs:
         few: Návrhy
         many: Návrhy
         other: Návrhy
-      decidim/proposals/proposal_endorsement:
-        one: Schválení
-        few: Potvrzení
-        many: Potvrzení
-        other: Potvrzení
       decidim/proposals/proposal_note:
         one: Poznámka
         few: Poznámky
@@ -222,11 +216,6 @@ cs:
             email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
             email_subject: Návrh, který sledujete, byl přijat
             notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> byl přijat.
-        proposal_endorsed:
-          email_intro: '%{endorser_name} %{endorser_nickname}, který sledujete, právě schválil návrh "%{resource_title}" a myslíme si, že by pro vás mohl být zajímavý. Vyzkoušejte to a přispějte:'
-          email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{endorser_nickname}. Po předchozím propojení můžete přestat přijímat oznámení.
-          email_subject: "%{endorser_nickname} schválila nový návrh"
-          notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> byl schválen <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           affected_user:
             email_intro: 'Váš návrh "%{resource_title}" se právě vyhodnocuje. V této stránce můžete zkontrolovat odpověď:'
@@ -239,7 +228,6 @@ cs:
             email_subject: Návrh, který sledujete, se hodnotí
             notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> se hodnotí.
         proposal_mentioned:
-          email_intro: Váš návrh "%{mentioned_proposal_title}" byl zmíněn <a href="%{resource_path}">v tomto prostoru</a> v komentářích.
           email_outro: Toto oznámení jste obdrželi, protože jste autorem položky "%{resource_title}".
           email_subject: Váš návrh "%{mentioned_proposal_title}" byl zmíněn
           notification_title: Váš návrh "%{mentioned_proposal_title}" byl zmíněn <a href="%{resource_path}">v tomto prostoru</a> v komentářích.
@@ -270,7 +258,10 @@ cs:
           email_subject: Kategorie návrhů %{resource_title} byla aktualizována
           notification_title: Kategorie návrhu <a href="%{resource_path}">%{resource_title}</a> byla aktualizována administrátorem.
         proposal_update_scope:
+          email_intro: 'Administrátor aktualizoval rozsah vašeho návrhu "%{resource_title}", podívejte se na tuto stránku:'
           email_outro: Toto oznámení jste obdrželi, protože jste autorem návrhu.
+          email_subject: Rámec návrhu %{resource_title} byl aktualizován
+          notification_title: Rozsah návrhu <a href="%{resource_path}">%{resource_title}</a> byl aktualizován správcem.
         voting_enabled:
           email_intro: 'Můžete hlasovat návrhy v %{participatory_space_title}! Začněte se účastnit této stránky:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
@@ -443,6 +434,7 @@ cs:
             create: Vytvořit
             title: Vytvořte návrh
           publish_answers:
+            number_of_proposals: Odpovědi na %{number} návrhů budou publikovány.
             select_a_proposal: Vyberte prosím návrh
           show:
             amendments_count: Počet pozměňovacích návrhů
@@ -457,6 +449,7 @@ cs:
             documents: Dokumenty
             endorsements_count: Počet položek
             endorsements_ranking: Pořadí podle položek
+            endorsers: Podporovatelé
             link: Odkaz
             photos: Fotky
             proposals: Návrhy
@@ -471,9 +464,12 @@ cs:
             invalid: 'Tyto návrhy již mají kategorii %{subject_name} : %{proposals}.'
             select_a_category: Vyberte kategorii
             select_a_proposal: Vyberte prosím návrh
+            success: 'Návrhy úspěšně aktualizovány do kategorie %{subject_name}: %{proposals}.'
           update_scope:
+            invalid: 'Tyto návrhy již měly rozsah %{subject_name}: %{proposals}.'
             select_a_proposal: Vyberte prosím návrh
             select_a_scope: Vyberte prosím rozsah
+            success: 'Návrhy byly úspěšně aktualizovány v rozsahu %{subject_name}: %{proposals}.'
         proposals_imports:
           create:
             invalid: Při importu návrhů došlo k problému
@@ -491,15 +487,24 @@ cs:
           create:
             invalid: Při výběru vybraných návrhů došlo k chybě.
             success: Úspěšně rozdělil návrhy na nové.
+        valuation_assignments:
+          create:
+            invalid: Při přiřazování návrhů hodnotiteli došlo k chybě
+            success: Návrhy úspěšně přiřazené hodnotiteli
+          delete:
+            invalid: Došlo k chybě při odebírání návrhů od hodnotitele
+            success: Hodnotitel byl úspěšně odebrán z návrhů
       admin_log:
         proposal:
           answer: "%{user_name} odpovídalo %{resource_name} návrh na %{space_name} prostoru"
           create: "%{user_name} vytvořil %{resource_name} návrh na %{space_name} prostoru jako oficiální návrh"
+          publish_answer: "%{user_name} zveřejnil odpověď na návrh %{resource_name} ve skupině %{space_name}"
           update: "%{user_name} aktualizoval %{resource_name} oficiální návrh na %{space_name} místa"
         proposal_note:
           create: "%{user_name} zanechal soukromou poznámku k návrhu %{resource_name} na %{space_name} prostoru"
         valuation_assignment:
           create: "%{user_name} přiřadil návrh %{resource_name} hodnotiteli"
+          delete: "%{user_name} odebral hodnotitele z návrhu %{proposal_title}"
       answers:
         accepted: Přijato
         evaluating: Hodnocení
@@ -663,7 +668,6 @@ cs:
           fields:
             category: Kategorie
             comments: Komentáře
-            endorsements: Potvrzení
             id: ID
             notes: Poznámky
             official_proposal: Oficiální návrh
@@ -683,18 +687,6 @@ cs:
           amend: Pozměňovací návrh
           comment: Komentář
           comments: Komentáře
-          endorse: Potvrďte
-      proposal_endorsements:
-        create:
-          error: Při schválení návrhu došlo k chybám.
-        identities:
-          done: Hotovo
-          select_identity: Vyberte identitu
-      proposal_endorsements_helper:
-        endorsement_button:
-          already_endorsed: Potvrzeno
-          endorse: Potvrďte
-        render_endorsements_button_card_part:
           endorse: Potvrďte
       proposal_votes:
         create:
@@ -724,10 +716,6 @@ cs:
           discard_confirmation: Opravdu chcete tuto návrh zakázat?
           send: Náhled
           title: Upravit koncept návrhu
-        endorsement_identities_cabin:
-          endorse: Potvrďte
-        endorsements_card_row:
-          comments: Komentáře
         filters:
           activity: Moje aktivita
           all: Vše
@@ -789,7 +777,9 @@ cs:
         show:
           answer: Odpovědět
           back_to: Zpět k
+          back_to_list: Zpět na seznam
           changes_at_title: Pozměňovací návrh k "%{title}"
+          comments: Komentáře
           edit_proposal: Upravit návrh
           endorsements_list: Seznam doporučení
           estimated_cost: Odhadované náklady

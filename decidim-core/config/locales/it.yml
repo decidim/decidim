@@ -425,6 +425,8 @@ it:
           this_application_will_not_be_able_to: 'Questa applicazione non sarà in grado di:'
           update_profile: Aggiorna il tuo profilo
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> vuole utilizzare il tuo account"
+    endorsable:
+      endorsements: Mi piace
     errors:
       internal_server_error:
         title: C'era un problema con il nostro server

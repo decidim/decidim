@@ -16,6 +16,10 @@
 %>
 
 <div class="row column view-header">
+  <%= link_to :posts, class: "small hollow" do %>
+    <%= icon "chevron-left", class: "icon--small" %>
+    <%= t(".back") %>
+  <% end %>
   <h2 class="heading2"><%= translated_attribute post.title %></h2>
   <%= cell "decidim/author", present(post.author), from: post %>
 </div>
