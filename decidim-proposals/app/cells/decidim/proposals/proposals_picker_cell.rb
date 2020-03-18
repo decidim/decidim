@@ -6,20 +6,56 @@ module Decidim
   module Proposals
     # This cell renders the linked resource of a proposal.
     class ProposalsPickerCell < Decidim::ViewModel
+      MAX_PROPOSALS = 1000
+
       def show
-        render
+        if filtered?
+          render :proposals
+        else
+          render
+        end
       end
 
       alias component model
+
+      def filtered?
+        !search_text.nil?
+      end
 
       def picker_path
         request.path
       end
 
+      def search_text
+        params[:q]
+      end
+
+      def more_proposals?
+        @more_proposals ||= more_proposals_count.positive?
+      end
+
+      def more_proposals_count
+        @more_proposals_count ||= proposals_count - MAX_PROPOSALS
+      end
+
+      def proposals_count
+        @proposals_count ||= filtered_proposals.count
+      end
+
       def decorated_proposals
-        proposals.each do |proposal|
+        filtered_proposals.limit(MAX_PROPOSALS).each do |proposal|
           yield Decidim::Proposals::ProposalPresenter.new(proposal)
         end
+      end
+
+      def filtered_proposals
+        @filtered_proposals ||= if filtered?
+                                  proposals.where("title ILIKE ?", "%#{search_text}%")
+                                           .or(proposals.where("reference ILIKE ?", "%#{search_text}%"))
+                                           .or(proposals.where("id::text ILIKE ?", "%#{search_text}%"))
+                                else
+                                  proposals
+                                end
       end
 
       def proposals

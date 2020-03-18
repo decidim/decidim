@@ -832,6 +832,8 @@ en:
       proposals_picker:
         choose_proposals: Choose proposals
         close: Close
+        more_proposals: There are %{number} more proposals. Refine your search to locate them.
+        no_proposals: No proposals match your search criteria or there isn't any proposals.
       publish:
         error: There was a problem publishing the proposal.
         success: Proposal successfully published.
