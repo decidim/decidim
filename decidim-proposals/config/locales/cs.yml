@@ -777,6 +777,7 @@ cs:
         show:
           answer: Odpovědět
           back_to: Zpět k
+          back_to_list: Zpět na seznam
           changes_at_title: Pozměňovací návrh k "%{title}"
           comments: Komentáře
           edit_proposal: Upravit návrh
