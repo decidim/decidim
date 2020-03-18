@@ -1,5 +1,5 @@
 $(() => {
-  const $modal = $("#showEmailModal");
+  const $modal = $("#show-email-modal");
 
   if ($modal.length === 0) {
     return
@@ -9,7 +9,7 @@ $(() => {
   const $email = $("#user_email", $modal);
   const $fullName = $("#user_full_name", $modal);
 
-  $("[data-toggle=showEmailModal]").on("click", (event) => {
+  $("[data-toggle=show-email-modal]").on("click", (event) => {
     event.preventDefault()
 
     $button.show()

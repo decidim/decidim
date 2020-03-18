@@ -40,9 +40,7 @@ Decidim::Admin::Engine.routes.draw do
     end
 
     resources :officializations, only: [:new, :create, :index, :destroy], param: :user_id do
-      member do
-        get :show_email
-      end
+      get :show_email, on: :member
     end
 
     resources :impersonatable_users, only: [:index] do

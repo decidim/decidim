@@ -222,7 +222,7 @@ describe "Admin manages officializations", type: :system do
         click_link "Show email"
       end
 
-      within "#showEmailModal" do
+      within "#show-email-modal" do
         expect(page).to have_content("Show participant email address")
         expect(page).not_to have_content(user.email)
 
