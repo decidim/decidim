@@ -269,6 +269,256 @@ describe "Conversations", type: :system do
     end
   end
 
+  context "when multiple participants conversation" do
+    let(:user1) { create(:user, organization: organization) }
+    let(:user2) { create(:user, organization: organization) }
+    let(:user3) { create(:user, organization: organization) }
+    let(:user4) { create(:user, organization: organization) }
+    let(:user5) { create(:user, organization: organization) }
+    let(:user6) { create(:user, organization: organization) }
+    let(:user7) { create(:user, organization: organization) }
+    let(:user8) { create(:user, organization: organization) }
+    let(:user9) { create(:user, organization: organization) }
+    let(:user10) { create(:user, organization: organization) }
+
+    describe "GET conversations" do
+      context "when 2 participants conversation" do
+        let!(:conversation2) do
+          Decidim::Messaging::Conversation.start!(
+            originator: user,
+            interlocutors: [user1],
+            body: "Hi!"
+          )
+        end
+
+        before do
+          visit decidim.new_conversation_path(recipient_id: user1.id)
+        end
+
+        it "shows only 1 other participant name" do
+          within ".heading3.title-action__title" do
+            expect(page).to have_content(user1.name)
+            expect(page).not_to have_content(user.name)
+          end
+        end
+      end
+    end
+
+    describe "GET conversations" do
+      context "when 4 participants conversation" do
+        let!(:conversation4) do
+          Decidim::Messaging::Conversation.start!(
+            originator: user,
+            interlocutors: [user1, user2, user3],
+            body: "Hi all 4 people!"
+          )
+        end
+
+        before do
+          visit decidim.new_conversation_path(recipient_id: [
+                                                user1.id, user2.id, user3.id
+                                              ])
+        end
+
+        it "shows the other 3 participant name" do
+          within ".heading3.title-action__title" do
+            expect(page).to have_content(user1.name)
+            expect(page).to have_content(user2.name)
+            expect(page).to have_content(user3.name)
+            expect(page).not_to have_content(user.name)
+          end
+        end
+      end
+    end
+
+    describe "GET conversations" do
+      context "when 10 participants conversation" do
+        let!(:conversation10) do
+          Decidim::Messaging::Conversation.start!(
+            originator: user,
+            interlocutors: [user1, user2, user3, user4, user5, user6, user7, user8, user9],
+            body: "Hi all 10 people!"
+          )
+        end
+
+        before do
+          visit decidim.new_conversation_path(recipient_id: [
+                                                user1.id, user2.id, user3.id,
+                                                user4.id, user5.id, user6.id,
+                                                user7.id, user8.id, user9.id
+                                              ])
+        end
+
+        it "shows the other 9 participant name" do
+          within ".heading3.title-action__title" do
+            expect(page).to have_content(user1.name)
+            expect(page).to have_content(user2.name)
+            expect(page).to have_content(user3.name)
+            expect(page).to have_content(user4.name)
+            expect(page).to have_content(user5.name)
+            expect(page).to have_content(user6.name)
+            expect(page).to have_content(user7.name)
+            expect(page).to have_content(user8.name)
+            expect(page).to have_content(user9.name)
+            expect(page).not_to have_content(user.name)
+          end
+        end
+      end
+    end
+
+    describe "GET existent conversation" do
+      context "when 2 participants conversation" do
+        let!(:conversation2) do
+          Decidim::Messaging::Conversation.start!(
+            originator: user,
+            interlocutors: [user1],
+            body: "Hi!"
+          )
+        end
+
+        before do
+          visit decidim.conversation_path(id: conversation2.id)
+        end
+
+        it "shows only 1 other participant name" do
+          within ".heading3.title-action__title" do
+            expect(page).to have_content(user1.name)
+          end
+        end
+      end
+    end
+
+    describe "GET existent conversation" do
+      context "when 4 participants conversation" do
+        let!(:conversation4) do
+          Decidim::Messaging::Conversation.start!(
+            originator: user,
+            interlocutors: [user1, user2, user3],
+            body: "Hi all 4 people!"
+          )
+        end
+
+        before do
+          visit decidim.conversation_path(id: conversation4.id)
+        end
+
+        it "shows the other 3 participant name" do
+          within ".heading3.title-action__title" do
+            expect(page).to have_content(user1.name)
+            expect(page).to have_content(user2.name)
+            expect(page).to have_content(user3.name)
+            expect(page).not_to have_content(user.name)
+          end
+        end
+      end
+    end
+
+    describe "GET existent conversation" do
+      context "when 10 participants conversation" do
+        let!(:conversation10) do
+          Decidim::Messaging::Conversation.start!(
+            originator: user,
+            interlocutors: [user1, user2, user3, user4, user5, user6, user7, user8, user9],
+            body: "Hi all 10 people!"
+          )
+        end
+
+        before do
+          visit decidim.conversation_path(id: conversation10.id)
+        end
+
+        it "shows the other 9 participant name" do
+          within ".heading3.title-action__title" do
+            expect(page).to have_content(user1.name)
+            expect(page).to have_content(user2.name)
+            expect(page).to have_content(user3.name)
+            expect(page).to have_content(user4.name)
+            expect(page).to have_content(user5.name)
+            expect(page).to have_content(user6.name)
+            expect(page).to have_content(user7.name)
+            expect(page).to have_content(user8.name)
+            expect(page).to have_content(user9.name)
+            expect(page).not_to have_content(user.name)
+          end
+        end
+      end
+    end
+
+    describe "GET conversations index" do
+      context "when 2 participants conversation" do
+        let!(:conversation2) do
+          Decidim::Messaging::Conversation.start!(
+            originator: user,
+            interlocutors: [user1],
+            body: "Hi!"
+          )
+        end
+
+        before do
+          visit decidim.conversations_path
+        end
+
+        it "shows only the other participant name" do
+          within ".card--list__heading.heading6" do
+            expect(page).to have_content(user1.name.upcase)
+            expect(page).not_to have_content(user.name.upcase)
+          end
+        end
+      end
+    end
+
+    describe "GET conversations index" do
+      context "when 4 participants conversation" do
+        let!(:conversation4) do
+          Decidim::Messaging::Conversation.start!(
+            originator: user,
+            interlocutors: [user1, user2, user3],
+            body: "Hi all 4 people!"
+          )
+        end
+
+        before do
+          visit decidim.conversations_path
+        end
+
+        it "shows only the 3 other participant name" do
+          within ".card--list__heading.heading6" do
+            expect(page).to have_content(user1.name.upcase)
+            expect(page).to have_content(user2.name.upcase)
+            expect(page).to have_content(user3.name.upcase)
+            expect(page).not_to have_content(user.name.upcase)
+          end
+        end
+      end
+    end
+
+    describe "GET conversations index" do
+      context "when 10 participants conversation" do
+        let!(:conversation10) do
+          Decidim::Messaging::Conversation.start!(
+            originator: user,
+            interlocutors: [user1, user2, user3, user4, user5, user6, user7, user8, user9],
+            body: "Hi all 10 people!"
+          )
+        end
+
+        before do
+          visit decidim.conversations_path
+        end
+
+        it "shows only the first 3 participant name plus the number of remaining participants" do
+          within ".card--list__heading.heading6" do
+            expect(page).to have_content(user1.name.upcase)
+            expect(page).to have_content(user2.name.upcase)
+            expect(page).to have_content(user3.name.upcase)
+            expect(page).to have_content("+ 6")
+            expect(page).not_to have_content(user.name.upcase)
+          end
+        end
+      end
+    end
+  end
+
   private
 
   def start_conversation(message)

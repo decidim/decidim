@@ -68,6 +68,8 @@ cs:
       actions:
         new_initiative_type: Nový typ iniciativy
       filters:
+        search_placeholder:
+          title_or_description_cont: Hledat %{collection} podle názvu nebo popisu.
         state_eq:
           label: Stav
           values:

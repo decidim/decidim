@@ -764,6 +764,7 @@ en:
         show:
           answer: Answer
           back_to: Back to
+          back_to_list: Back to list
           changes_at_title: Amendment to "%{title}"
           comments: Comments
           edit_proposal: Edit proposal

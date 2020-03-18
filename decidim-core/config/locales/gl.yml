@@ -366,6 +366,8 @@ gl:
           this_application_will_not_be_able_to: 'Esta aplicación non poderá:'
           update_profile: Actualiza o teu perfil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> quere usar a túa conta"
+    endorsable:
+      endorsements: Aprobacións
     errors:
       internal_server_error:
         title: Produciuse un problema co noso servidor

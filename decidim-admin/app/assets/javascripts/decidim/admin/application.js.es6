@@ -22,6 +22,8 @@
 // = require decidim/input_mentions
 // = require decidim/input_multiple_mentions
 // = require jquery.serializejson
+// = require decidim/ajax_modals
+// = require ./officializations
 // = require_self
 
 window.Decidim = window.Decidim || {};

@@ -49,6 +49,7 @@ en:
             title: title
       posts:
         show:
+          back: Back to list
           comments: Comments
           view: View
         sidebar_blog:
