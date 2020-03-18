@@ -113,6 +113,12 @@ cs:
             many: vybraných projektů
             other: vybraných projektů
           view: Pohled
+        orders:
+          highest_cost: Nejvyšší náklady
+          label: Seřadit projekty podle
+          lowest_cost: Nejnižší náklady
+          most_voted: Nejvíce hlasovalo
+          random: Náhodné pořadí
         project:
           add: Přidat
           count:
