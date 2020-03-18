@@ -3,6 +3,7 @@
 const maxRecipients = 9;
 let mentionsCount = 0;
 
+/* eslint no-unused-vars: 0 */
 const deleteRecipient = (element) => {
   // Remove recipient
   element.remove();
@@ -26,6 +27,9 @@ $(() => {
   // Returns a function, that, as long as it continues to be invoked, will not
   // be triggered. The function will be called after it stops being called for
   // N milliseconds
+  /* eslint no-invalid-this: 0 */
+  /* eslint consistent-this: 0 */
+  /* eslint prefer-reflect: 0 */
   const debounce = function(callback, wait) {
     let timeout = null;
     return (...args) => {
@@ -35,6 +39,7 @@ $(() => {
     };
   }
 
+  /* eslint no-use-before-define: ["error", { "variables": false }]*/
   let remoteSearch = function(text, cb) {
     let query = `{users(filter:{wildcard:"${text}"}){id,nickname,name,avatarUrl,disabledNotifications}}`;
     $.post("/api", {query: query}).
@@ -58,6 +63,8 @@ $(() => {
 
   // tribute.js docs - http://github.com/zurb/tribute
   /* global Tribute*/
+  /* eslint multiline-ternary: 0 */
+  /* eslint no-ternary: 0 */
   let tribute = new Tribute({
     trigger: "@",
     // avoid overloading the API if the user types too fast
@@ -93,8 +100,8 @@ $(() => {
       return "";
     },
     menuItemTemplate: function(item) {
-      let disabled_element_class = ((item.original.disabledNotifications == ``)? `` : `class="disabled-notifications"`)
-      let tpl = `<div ${disabled_element_class}><strong>${item.original.nickname}</strong>&nbsp;<small>${item.original.name}</small>&nbsp;<span class="disabled-notifications-info">${item.original.disabledNotifications}</span></div>`;
+      let disabledElementClass = ((item.original.disabledNotifications === "") ? "" : "class=\"disabled-notifications\"")
+      let tpl = `<div ${disabledElementClass}><strong>${item.original.nickname}</strong>&nbsp;<small>${item.original.name}</small>&nbsp;<span class="disabled-notifications-info">${item.original.disabledNotifications}</span></div>`;
       return tpl;
     }
   });
