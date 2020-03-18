@@ -43,7 +43,7 @@ Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now sup
 
 - **SSL is forced on by default**
 
-Due to [#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on by default.
+Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on by default.
 
 ### Added
 
@@ -57,7 +57,7 @@ Due to [#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on b
 
 ### Changed
 
-- **decidim-comments**: Paginate comments [#5553](https://github.com/decidim/decidim/pull/5553)
+- **decidim-comments**: Paginate comments [\#5553](https://github.com/decidim/decidim/pull/5553)
 
 ### Fixed
 
@@ -66,19 +66,19 @@ Due to [#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on b
 - **decidim-sortitions**: Fix incorrect proposals sortition. [\#5620](https://github.com/decidim/decidim/pull/5620)
 - **decidim-admin**: Fix: let components without step settings be added [\#5568](https://github.com/decidim/decidim/pull/5568)
 - **decidim-proposals**: Fix proposals that have their state not published [\#5832](https://github.com/decidim/decidim/pull/5832)
-- **decidim-comments**: Don't allow comments deeper than a certain depth, at the API level [#5553](https://github.com/decidim/decidim/pull/5553)
-- **decidim-core**: Force SSL and HSTS [#5553](https://github.com/decidim/decidim/pull/5553)
-- **decidim-api**: Make exposing GraphiQL optional[#5553](https://github.com/decidim/decidim/pull/5553)
-- **decidim-api**: Do not expose GraphiQL in production [#5553](https://github.com/decidim/decidim/pull/5553)
-- **decidim-core**: Do not expose Ruby version in production [#5553](https://github.com/decidim/decidim/pull/5553)
-- **decidim-verifications**: Throttle failed authorization attempts [#5553](https://github.com/decidim/decidim/pull/5553)
-- **decidim-core**: Prevent timing attacks on login and avoid leaking timing info [#5553](https://github.com/decidim/decidim/pull/5553)
-- **decidim-core**: Expire sessions after 24h of creation [#5553](https://github.com/decidim/decidim/pull/5553)
-- **decidim-participatory_processes**: Do not expose process statistics in the API if hidden [#5553](https://github.com/decidim/decidim/pull/5553)
-- **decidim-core**: Invalidate sessions on logout [#5553](https://github.com/decidim/decidim/pull/5553)
-- **decidim-core**: Do now allow uploading SVGs [#5553](https://github.com/decidim/decidim/pull/5553)
-- **decidim-core**: Do not leak image processing errors [#5553](https://github.com/decidim/decidim/pull/5553)
-- **decidim-core**, **decidim-proposals**, **decidim-participatory_processes**, **decidim-meetings**, **decidim-sortitions**: XSS sanitization [#5553](https://github.com/decidim/decidim/pull/5553)
+- **decidim-comments**: Don't allow comments deeper than a certain depth, at the API level [\#5553](https://github.com/decidim/decidim/pull/5553)
+- **decidim-core**: Force SSL and HSTS [\#5553](https://github.com/decidim/decidim/pull/5553)
+- **decidim-api**: Make exposing GraphiQL optional[\#5553](https://github.com/decidim/decidim/pull/5553)
+- **decidim-api**: Do not expose GraphiQL in production [\#5553](https://github.com/decidim/decidim/pull/5553)
+- **decidim-core**: Do not expose Ruby version in production [\#5553](https://github.com/decidim/decidim/pull/5553)
+- **decidim-verifications**: Throttle failed authorization attempts [\#5553](https://github.com/decidim/decidim/pull/5553)
+- **decidim-core**: Prevent timing attacks on login and avoid leaking timing info [\#5553](https://github.com/decidim/decidim/pull/5553)
+- **decidim-core**: Expire sessions after 24h of creation [\#5553](https://github.com/decidim/decidim/pull/5553)
+- **decidim-participatory_processes**: Do not expose process statistics in the API if hidden [\#5553](https://github.com/decidim/decidim/pull/5553)
+- **decidim-core**: Invalidate sessions on logout [\#5553](https://github.com/decidim/decidim/pull/5553)
+- **decidim-core**: Do now allow uploading SVGs [\#5553](https://github.com/decidim/decidim/pull/5553)
+- **decidim-core**: Do not leak image processing errors [\#5553](https://github.com/decidim/decidim/pull/5553)
+- **decidim-core**, **decidim-proposals**, **decidim-participatory_processes**, **decidim-meetings**, **decidim-sortitions**: XSS sanitization [\#5553](https://github.com/decidim/decidim/pull/5553)
 
 **Removed**:
 
