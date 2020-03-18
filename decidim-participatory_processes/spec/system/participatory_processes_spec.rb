@@ -10,13 +10,13 @@ describe "Participatory Processes", type: :system do
   let(:hashtag) { true }
   let(:base_process) do
     create(
-      :participatory_process,
-      :active,
-      organization: organization,
-      description: { en: "Description", ca: "Descripció", es: "Descripción" },
-      short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" },
-      show_metrics: show_metrics,
-      show_statistics: show_statistics
+        :participatory_process,
+        :active,
+        organization: organization,
+        description: { en: "Description", ca: "Descripció", es: "Descripción" },
+        short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" },
+        show_metrics: show_metrics,
+        show_statistics: show_statistics
     )
   end
 
@@ -200,10 +200,10 @@ describe "Participatory Processes", type: :system do
 
       it "only shows the published linked processes" do
         participatory_process
-          .link_participatory_space_resources(
-            [published_process, unpublished_process],
-            "related_processes"
-          )
+            .link_participatory_space_resources(
+                [published_process, unpublished_process],
+                "related_processes"
+            )
         visit decidim_participatory_processes.participatory_process_path(participatory_process)
         expect(page).to have_content(translated(published_process.title))
         expect(page).to have_no_content(translated(unpublished_process.title))
@@ -295,6 +295,23 @@ describe "Participatory Processes", type: :system do
         it "the hashtags for those components are not visible" do
           expect(page).to have_no_content("#")
         end
+      end
+    end
+
+    context "when assemblies are linked to participatory process" do
+      let!(:published_assembly) { create(:assembly, :published, organization: organization) }
+      let!(:unpublished_assembly) { create(:assembly, :unpublished, organization: organization) }
+
+      before do
+        published_assembly.link_participatory_space_resources(participatory_process, "included_participatory_processes")
+        unpublished_assembly.link_participatory_space_resources(participatory_process, "included_participatory_processes")
+        visit decidim_participatory_processes.participatory_process_path(participatory_process)
+      end
+
+      it "displays related assemblies" do
+        expect(page).to have_content("RELATED ASSEMBLIES")
+        expect(page).to have_content(translated(published_assembly.title))
+        expect(page).to have_no_content(translated(unpublished_assembly.title))
       end
     end
   end

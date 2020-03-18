@@ -21,6 +21,20 @@ module Decidim
         dates = [participatory_process_step.start_date, participatory_process_step.end_date]
         dates.map { |date| date ? localize(date.to_date, format: :default) : "?" }.join(" - ")
       end
+
+      def assemblies_for_participatory_process(participatory_process_assemblies)
+        html = ""
+        html += %( <div class="section"> ).html_safe
+        html += %( <h4 class="section-heading">#{t("participatory_process.show.related_assemblies", scope: "decidim")}</h4> ).html_safe
+        html += %( <div class="row small-up-1 medium-up-2 card-grid"> ).html_safe
+        participatory_process_assemblies.each do |participatory_process_assembly|
+          html += render partial: "decidim/assemblies/assembly", locals: { assembly: participatory_process_assembly }
+        end
+        html += %( </div> ).html_safe
+        html += %( </div> ).html_safe
+
+        html.html_safe
+      end
     end
   end
 end

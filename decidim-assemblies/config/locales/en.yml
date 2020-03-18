@@ -77,6 +77,9 @@ en:
         one: Assembly user role
         other: Assembly user roles
   decidim:
+    participatory_process:
+      show:
+        related_assemblies: Related assemblies
     admin:
       actions:
         new_assembly: New assembly
