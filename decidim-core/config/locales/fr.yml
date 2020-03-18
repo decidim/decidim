@@ -414,6 +414,8 @@ fr:
           this_application_will_not_be_able_to: 'Cette application ne sera pas capable de :'
           update_profile: Mettre à jour votre profil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> veut utiliser votre compte"
+    endorsable:
+      endorsements: Soutiens
     errors:
       internal_server_error:
         title: Il y a eu un problème avec notre serveur

@@ -50,7 +50,6 @@ de:
       decidim/proposals/creation_enabled_event: Vorschlagserstellung aktiviert
       decidim/proposals/endorsing_enabled_event: Vorschlagsunterstützung aktiviert
       decidim/proposals/evaluating_proposal_event: Der Vorschlag wird geprüft
-      decidim/proposals/proposal_endorsed_event: Vorschlag unterstützt
       decidim/proposals/proposal_mentioned_event: Vorschlag erwähnt
       decidim/proposals/publish_proposal_event: Vorschlag veröffentlicht
       decidim/proposals/rejected_proposal_event: Vorschlag abgelehnt
@@ -63,9 +62,6 @@ de:
       decidim/proposals/proposal:
         one: Vorschlag
         other: Vorschläge
-      decidim/proposals/proposal_endorsement:
-        one: Befürwortung
-        other: Befürworter
       decidim/proposals/proposal_note:
         one: Anmerkung
         other: Anmerkungen
@@ -171,11 +167,6 @@ de:
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Sie können es aus dem vorherigen Link aufheben.
             email_subject: Ein Vorschlag, dem Sie folgen, wurde akzeptiert
             notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wurde angenommen.
-        proposal_endorsed:
-          email_intro: '%{endorser_name} %{endorser_nickname}, dem Sie folgen, hat gerade den Vorschlag "%{resource_title}" befürwortet, und wir denken, er könnte für Sie interessant sein. Überprüfen Sie es und tragen Sie bei:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{endorser_nickname}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
-          email_subject: "%{endorser_nickname} hat einen neuen Vorschlag befürwortet"
-          notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wurde von <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>gebilligt.
         proposal_evaluating:
           affected_user:
             email_intro: 'Ihr Angebot "%{resource_title}" wird derzeit geprüft. Sie können auf dieser Seite nach einer Antwort suchen:'
@@ -188,7 +179,6 @@ de:
             email_subject: Ein Vorschlag, dem Sie folgen, wird evaluiert
             notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wird evaluiert.
         proposal_mentioned:
-          email_intro: Ihr Vorschlag „%{mentioned_proposal_title}“ erwähnt <a href="%{resource_path}">in diesem Raum</a> in den Kommentaren.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von "%{resource_title}" sind.
           email_subject: Ihr Vorschlag "%{mentioned_proposal_title}" wurde erwähnt
           notification_title: Ihr Vorschlag „%{mentioned_proposal_title}“ erwähnt <a href="%{resource_path}">in diesem Raum</a> in den Kommentaren.
@@ -564,7 +554,6 @@ de:
           fields:
             category: Kategorie
             comments: Bemerkungen
-            endorsements: Befürworter
             id: ICH WÜRDE
             notes: Anmerkungen
             official_proposal: Offizieller Vorschlag
@@ -582,18 +571,6 @@ de:
           comment: Kommentar
           comments: Bemerkungen
           endorse: Befürworten
-      proposal_endorsements:
-        create:
-          error: Bei der Bestätigung des Vorschlags sind Fehler aufgetreten.
-        identities:
-          done: Erledigt
-          select_identity: Wählen Sie Identität
-      proposal_endorsements_helper:
-        endorsement_button:
-          already_endorsed: Befürwortet
-          endorse: Unterstützung
-        render_endorsements_button_card_part:
-          endorse: Unterstützung
       proposal_votes:
         create:
           error: Es gab Fehler bei der Abstimmung des Vorschlags.
@@ -620,10 +597,6 @@ de:
           discard_confirmation: Möchten Sie diesen Vorschlagsentwurf wirklich verwerfen?
           send: Vorschau
           title: Vorschlagsentwurf bearbeiten
-        endorsement_identities_cabin:
-          endorse: Befürwortung
-        endorsements_card_row:
-          comments: Bemerkungen
         filters:
           amendment_type: Art
           category: Kategorie
@@ -672,6 +645,7 @@ de:
         show:
           answer: Antworten
           back_to: Zurück zu
+          comments: Kommentare
           edit_proposal: Vorschlag bearbeiten
           endorsements_list: Liste der Befürworter
           hidden_endorsers_count:

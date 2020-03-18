@@ -50,6 +50,8 @@ cs:
             title: titul
       posts:
         show:
+          back: Zpět na seznam
+          comments: Komentáře
           view: Pohled
         sidebar_blog:
           comments: komentáře
@@ -65,6 +67,8 @@ cs:
           step:
             announcement: Oznámení
             comments_blocked: Komentáře byly blokovány
+            endorsements_blocked: Zápisy blokovány
+            endorsements_enabled: Zápisy povoleny
     events:
       blogs:
         post_created:
