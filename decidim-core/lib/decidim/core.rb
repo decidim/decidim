@@ -132,6 +132,11 @@ module Decidim
   # the mails.
   config_accessor :mailer_sender
 
+  # Whether SSL should be enabled or not.
+  config_accessor :force_ssl do
+    true
+  end
+
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
     %w(en ar ca de el es es-MX es-PY eu fi-pl fi fr gl hu id it nl no pl pt pt-BR ru sv tr uk)

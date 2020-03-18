@@ -258,7 +258,7 @@ module Decidim
 
       initializer "SSL and HSTS" do
         Rails.application.configure do
-          config.force_ssl = Rails.env.production?
+          config.force_ssl = Rails.env.production? && Decidim.config.force_ssl
         end
       end
 
