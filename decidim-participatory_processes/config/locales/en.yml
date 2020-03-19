@@ -280,6 +280,8 @@ en:
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: An update to %{participatory_space_title}
           notification_title: The dates for the <a href="%{resource_path}">%{resource_title}</a> phase at <a href="%{participatory_space_url}">%{participatory_space_title}</a> have been updated.
+        role_assigned:
+          notification_title: You have been assigned as %{role} for <a href="%{resource_url}">%{resource_title}</a>
     help:
       participatory_spaces:
         participatory_processes:

@@ -61,6 +61,19 @@ module Decidim
             role_params,
             extra_info
           )
+          send_notification
+        end
+
+        def send_notification
+          Decidim::EventsManager.publish(
+            event: "decidim.events.participatory_process.role_assigned",
+            event_class: Decidim::ParticipatoryProcess::ParticipatoryProcessRoleAssignedEvent,
+            resource: @participatory_process,
+            affected_users: [user],
+            extra: {
+              role: form.role
+            }
+          )
         end
 
         def existing_role
