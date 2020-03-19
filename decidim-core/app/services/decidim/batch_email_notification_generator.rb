@@ -7,6 +7,7 @@ module Decidim
     end
 
     def generate
+      return unless Decidim.config.batch_email_notifications_enabled?
       return if events.empty?
 
       users.each do |user|
@@ -18,7 +19,7 @@ module Decidim
     private
 
     def events
-      @events ||= Decidim::Notification.from_last(24.hours).unsent.order(created_at: :desc)
+      @events ||= Decidim::Notification.from_last(Decidim.config.batch_email_notifications_interval).unsent.order(created_at: :desc)
     end
 
     def events_for(user)

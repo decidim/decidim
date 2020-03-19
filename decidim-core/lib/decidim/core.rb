@@ -273,6 +273,14 @@ module Decidim
     1.day
   end
 
+  config_accessor :batch_email_notifications_enabled do
+    false
+  end
+
+  config_accessor :batch_email_notifications_interval do
+    24.hours
+  end
+
   # Exposes a configuration option: an object to configure Etherpad
   config_accessor :etherpad do
     # {

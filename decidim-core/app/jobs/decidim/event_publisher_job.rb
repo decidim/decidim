@@ -11,7 +11,7 @@ module Decidim
 
       return unless data[:force_send] || notifiable?
 
-      EmailNotificationGeneratorJob.perform_later(
+      NotificationGeneratorJob.perform_later(
         event_name,
         data[:event_class],
         data[:resource],
@@ -20,13 +20,15 @@ module Decidim
         data[:extra]
       )
 
-      NotificationGeneratorJob.perform_later(
-        event_name,
-        data[:event_class],
-        data[:resource],
-        data[:followers],
-        data[:affected_users],
-        data[:extra]
+      return if Decidim.config.batch_email_notifications_enabled?
+
+      EmailNotificationGeneratorJob.perform_later(
+          event_name,
+          data[:event_class],
+          data[:resource],
+          data[:followers],
+          data[:affected_users],
+          data[:extra]
       )
     end
 
