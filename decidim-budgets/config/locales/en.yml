@@ -139,6 +139,7 @@ en:
             comments_enabled: Comments enabled
             form:
               errors:
+                budget_voting_rule_only_one: Only one voting rule must be enabled
                 budget_voting_rule_required: One voting rule is required
             projects_per_page: Projects per page
             resources_permissions_enabled: Actions permissions can be set for each meeting

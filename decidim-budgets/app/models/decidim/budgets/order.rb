@@ -27,6 +27,8 @@ module Decidim
         less_than_or_equal_to: :maximum_budget
       }
 
+      validate :reach_minimum_projects, if: :checked_out?
+
       scope :finished, -> { where.not(checked_out_at: nil) }
       scope :pending, -> { where(checked_out_at: nil) }
 
@@ -102,6 +104,12 @@ module Decidim
         return if !user || !organization
 
         errors.add(:user, :invalid) unless user.organization == organization
+      end
+
+      def reach_minimum_projects
+        return unless minimum_projects_rule?
+
+        errors.add(:projects, :invalid) if minimum_projects > projects.count
       end
     end
   end

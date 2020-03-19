@@ -86,6 +86,11 @@ module Decidim
           settings.errors.add(:vote_rule_threshold_percent_enabled, I18n.t(:budget_voting_rule_required, scope: i18n_error_scope))
           settings.errors.add(:vote_rule_minimum_budget_projects_enabled, I18n.t(:budget_voting_rule_required, scope: i18n_error_scope))
         end
+
+        if settings.vote_rule_threshold_percent_enabled && settings.vote_rule_minimum_budget_projects_enabled
+          settings.errors.add(:vote_rule_threshold_percent_enabled, I18n.t(:budget_voting_rule_only_one, scope: i18n_error_scope))
+          settings.errors.add(:vote_rule_minimum_budget_projects_enabled, I18n.t(:budget_voting_rule_only_one, scope: i18n_error_scope))
+        end
       end
 
       # - the value must be a valid number
