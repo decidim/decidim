@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  class BatchEmailNotificationGenerator
+  class BatchEmailNotificationsGenerator
     def initialize
       @events = events
     end
@@ -11,7 +11,7 @@ module Decidim
       return if events.empty?
 
       users.each do |user|
-        BatchNotificationMailer.event_received(serialized_events(events_for(user)), Decidim::User.find(user)).deliver_later
+        BatchNotificationsMailer.event_received(serialized_events(events_for(user)), Decidim::User.find(user)).deliver_later
         mark_as_sent(events_for(user))
       end
     end

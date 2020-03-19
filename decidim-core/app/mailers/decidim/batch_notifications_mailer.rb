@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  class BatchNotificationMailer < Decidim::ApplicationMailer
+  class BatchNotificationsMailer < Decidim::ApplicationMailer
     helper Decidim::ResourceHelper
 
     def event_received(events, user)

@@ -4,7 +4,7 @@ namespace :decidim do
   namespace :batch_email_notifications do
     desc "Send email notifications in batch"
     task send: :environment do
-      Decidim::BatchEmailNotificationGeneratorJob.perform_later
+      Decidim::BatchEmailNotificationsGeneratorJob.perform_later
     end
   end
 end
