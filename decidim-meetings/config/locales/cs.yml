@@ -376,6 +376,7 @@ cs:
           confirm: Potvrdit
         show:
           attendees: Počet účastníků
+          back: Zpět na seznam
           contributions: Počet příspěvků
           going: Chystáte se
           join: Připojte se k setkání
