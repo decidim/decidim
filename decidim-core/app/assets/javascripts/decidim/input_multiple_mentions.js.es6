@@ -94,7 +94,7 @@ $(() => {
         </label>
       `;
       // Append new recipient to DOM
-      if (item.original.disabledNotifications == ""){
+      if (item.original.disabledNotifications === "") {
         $multipleMentionRecipientsContainer.append(recipientLabel);
         $multipleMentionContainer.val("");
       }
