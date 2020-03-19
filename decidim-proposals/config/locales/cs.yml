@@ -228,6 +228,7 @@ cs:
             email_subject: Návrh, který sledujete, se hodnotí
             notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> se hodnotí.
         proposal_mentioned:
+          email_intro: Váš návrh "%{mentioned_proposal_title}" byl zmíněn <a href="%{resource_url}">v této skupině</a> v komentářích.
           email_outro: Toto oznámení jste obdrželi, protože jste autorem položky "%{resource_title}".
           email_subject: Váš návrh "%{mentioned_proposal_title}" byl zmíněn
           notification_title: Váš návrh "%{mentioned_proposal_title}" byl zmíněn <a href="%{resource_path}">v tomto prostoru</a> v komentářích.
