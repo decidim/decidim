@@ -50,7 +50,6 @@ fr:
       decidim/proposals/creation_enabled_event: Autoriser la création de nouvelles propositions
       decidim/proposals/endorsing_enabled_event: Activer le module de soutiens
       decidim/proposals/evaluating_proposal_event: Proposition en cours d'évaluation
-      decidim/proposals/proposal_endorsed_event: Proposition soutenue
       decidim/proposals/proposal_mentioned_event: Proposition mentionnée
       decidim/proposals/publish_proposal_event: Proposition publiée
       decidim/proposals/rejected_proposal_event: Proposition non retenue
@@ -63,9 +62,6 @@ fr:
       decidim/proposals/proposal:
         one: Proposition
         other: Propositions
-      decidim/proposals/proposal_endorsement:
-        one: Soutien
-        other: Soutiens
       decidim/proposals/proposal_note:
         one: Remarque
         other: Remarques
@@ -182,11 +178,6 @@ fr:
             email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Vous pouvez à tout moment arrêter de la suivre en cliquant sur ce dernier lien.
             email_subject: Une proposition que vous suivez a été acceptée
             notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été acceptée.
-        proposal_endorsed:
-          email_intro: '%{endorser_name} %{endorser_nickname}, qui vous suivez, vient d’approuver la proposition "%{resource_title}" et nous pensons que cela pourrait vous intéresser. Découvrez-le et contribuez:'
-          email_outro: Vous avez reçu cette notification parce que vous suivez %{endorser_nickname}. Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
-          email_subject: "%{endorser_nickname} a soutenu une nouvelle proposition"
-          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été soutenue par <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           affected_user:
             email_intro: 'Votre proposition "%{resource_title}" est en cours d''évaluation. Vous pouvez rechercher une réponse sur cette page:'
@@ -199,7 +190,6 @@ fr:
             email_subject: Une proposition que vous suivez est en cours d'évaluation
             notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> est en cours d'évaluation.
         proposal_mentioned:
-          email_intro: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_path}">dans cet espace</a>, dans les commentaires.
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
           email_subject: Votre proposition "%{mentioned_proposal_title}" a été mentionnée
           notification_title: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_path}">dans cet espace</a>, dans les commentaires.
@@ -576,7 +566,6 @@ fr:
           fields:
             category: Catégorie
             comments: Commentaires
-            endorsements: Soutiens
             id: ID
             notes: Remarques
             official_proposal: Proposition officielle
@@ -594,18 +583,6 @@ fr:
           comment: Commentaire
           comments: commentaires
           endorse: Endosser
-      proposal_endorsements:
-        create:
-          error: Des erreurs sont survenues au moment de soutenir la proposition.
-        identities:
-          done: Terminé
-          select_identity: Sélectionnez l'utilisateur
-      proposal_endorsements_helper:
-        endorsement_button:
-          already_endorsed: Soutenue
-          endorse: Soutenir
-        render_endorsements_button_card_part:
-          endorse: Soutenir
       proposal_votes:
         create:
           error: Des erreurs se sont produites lors du soutien de la proposition.
@@ -632,10 +609,6 @@ fr:
           discard_confirmation: Êtes-vous sûr de vouloir supprimer le brouillon de votre proposition ?
           send: Aperçu
           title: Modifier le brouillon de votre proposition
-        endorsement_identities_cabin:
-          endorse: Soutenir
-        endorsements_card_row:
-          comments: Commentaires
         filters:
           amendment_type: Type
           category: Catégorie
@@ -685,6 +658,7 @@ fr:
           answer: Répondre
           back_to: Retour à
           changes_at_title: Amendement de (%{title}"
+          comments: Commentaires
           edit_proposal: Modifier la proposition
           endorsements_list: Liste des soutiens
           hidden_endorsers_count:

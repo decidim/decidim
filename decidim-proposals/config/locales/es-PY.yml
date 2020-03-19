@@ -56,7 +56,6 @@ es-PY:
       decidim/proposals/creation_enabled_event: Creación de propuesta habilitada
       decidim/proposals/endorsing_enabled_event: Aprobación de propuesta habilitada
       decidim/proposals/evaluating_proposal_event: La propuesta está siendo evaluada
-      decidim/proposals/proposal_endorsed_event: Adherido/a
       decidim/proposals/proposal_mentioned_event: Propuesta mencionada
       decidim/proposals/publish_proposal_event: Propuesta publicada
       decidim/proposals/rejected_proposal_event: Propuesta rechazada
@@ -69,9 +68,6 @@ es-PY:
       decidim/proposals/proposal:
         one: Propuesta
         other: Propuestas
-      decidim/proposals/proposal_endorsement:
-        one: Adhesión
-        other: Adhesiones
       decidim/proposals/proposal_note:
         one: Nota
         other: Notas
@@ -212,11 +208,6 @@ es-PY:
             email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
             email_subject: Una propuesta que estás siguiendo ha sido aceptada
             notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido aceptada.
-        proposal_endorsed:
-          email_intro: '%{endorser_name} %{endorser_nickname}, a quien está siguiendo, acaba de respaldar la propuesta "%{resource_title}" y creemos que puede ser interesante para usted. Échale un vistazo y contribuye:'
-          email_outro: Recibió esta notificación porque está siguiendo %{endorser_nickname}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: "%{endorser_nickname} ha reivindicado una nueva propuesta"
-          notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido reivindicada por <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           affected_user:
             email_intro: 'Su propuesta "%{resource_title}" está siendo evaluada. Puedes buscar una respuesta en esta página:'
@@ -229,7 +220,7 @@ es-PY:
             email_subject: Una propuesta que estás siguiendo está siendo evaluada
             notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> está siendo evaluada.
         proposal_mentioned:
-          email_intro: Su propuesta "%{mentioned_proposal_title}" se ha mencionado <a href="%{resource_path}">en este espacio</a> en los comentarios.
+          email_intro: Tu propuesta "%{mentioned_proposal_title}" se ha mencionado <a href="%{resource_url}">en este espacio</a> en los comentarios.
           email_outro: Has recibido esta notificación porque eres autor de "%{resource_title}".
           email_subject: Su propuesta "%{mentioned_proposal_title}" ha sido mencionada
           notification_title: Su propuesta "%{mentioned_proposal_title}" se ha mencionado <a href="%{resource_path}">en este espacio</a> en los comentarios.
@@ -669,7 +660,6 @@ es-PY:
           fields:
             category: Categoría
             comments: Comentarios
-            endorsements: Adhesión
             id: Identificador
             notes: Notas
             official_proposal: Propuesta oficial
@@ -690,18 +680,6 @@ es-PY:
           comment: Comentario
           comments: Comentarios
           endorse: Endosar
-      proposal_endorsements:
-        create:
-          error: Ha habido errores al adherirse a la propuesta.
-        identities:
-          done: Hecho
-          select_identity: Seleccionar identidad
-      proposal_endorsements_helper:
-        endorsement_button:
-          already_endorsed: Adherido
-          endorse: Adherirse
-        render_endorsements_button_card_part:
-          endorse: Adherirse
       proposal_votes:
         create:
           error: Ha habido errores al votar la propuesta.
@@ -728,10 +706,6 @@ es-PY:
           discard_confirmation: '¿Estás seguro que quieres descartar este borrador de propuesta?'
           send: Previsualizar
           title: Editar borrador de propuesta
-        endorsement_identities_cabin:
-          endorse: Adherirse
-        endorsements_card_row:
-          comments: Comentarios
         filters:
           activity: Mi actividad
           all: Todo
@@ -790,6 +764,7 @@ es-PY:
           answer: Respuesta
           back_to: De regreso
           changes_at_title: Enmienda a "%{title}"
+          comments: Comentarios
           edit_proposal: Editar propuesta
           endorsements_list: Lista de adhesiones
           estimated_cost: Coste estimado

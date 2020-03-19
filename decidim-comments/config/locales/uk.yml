@@ -4,6 +4,7 @@ uk:
       decidim/comments/comment_by_followed_user_event: Коментар
       decidim/comments/comment_created_event: Коментар
       decidim/comments/reply_created_event: Відповідь на коментар
+      decidim/comments/user_group_mentioned_event: Згадка
       decidim/comments/user_mentioned_event: Згадка
   activerecord:
     models:
