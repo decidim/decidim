@@ -563,12 +563,20 @@ cs:
           officialize: Úředně
           officialized: Úředně
           reofficialize: Reofficialize
+          show_email: Zobrazit e-mailovou adresu
           status: Postavení
           unofficialize: Neoficiálně
         new:
           badge: Oficiální odznak
           officialize: Úředně
           title: Oficializovat uživatele "%{name}"
+        show_email_modal:
+          description: Pokud potřebujete kontaktovat účastníka, můžete kliknout na tlačítko Zobrazit pro zobrazení e-mailové adresy. Tato akce bude zaznamenána.
+          email_address: E-mailová adresa
+          full_name: Celé jméno
+          hidden: skrytý
+          show: Zobrazit
+          title: Zobrazit e-mailovou adresu uživatele
       organization:
         edit:
           title: Upravit organizaci
