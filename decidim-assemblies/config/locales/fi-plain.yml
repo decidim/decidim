@@ -208,6 +208,7 @@ fi-pl:
             admin: Hallinnointikäyttäjä
             collaborator: Osallistumiskäyttäjä
             moderator: Moderoija
+            valuator: Arvioija
       titles:
         assemblies: Ryhmät
         assemblies_types: Ryhmien tyypit

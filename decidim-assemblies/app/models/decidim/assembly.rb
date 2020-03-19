@@ -151,6 +151,13 @@ module Decidim
       closing_date < Date.current
     end
 
+    def user_roles(role_name = nil)
+      roles = Decidim::AssemblyUserRole.where(assembly: self)
+      return roles if role_name.blank?
+
+      roles.where(role: role_name)
+    end
+
     private
 
     # When an assembly changes their parent, we need to update the parents_path attribute

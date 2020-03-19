@@ -135,6 +135,7 @@ es:
             admin: Administradora
             collaborator: Colaboradora
             moderator: Moderadora
+            valuator: Evaluadora
         user:
           fields:
             invitation_accepted_at: Invitación aceptada el
@@ -206,13 +207,13 @@ es:
         destroy:
           success: La administradora ha sido eliminada correctamente de este proceso participativo.
         edit:
-          title: Actualitzar administradora del proceso particiaptivo.
+          title: Actualitzar administradora del proceso particiaptivo
           update: Actualizar
         index:
           process_admins_title: Administradoras del proceso participativo
         new:
           create: Crear
-          title: Nueva administradora del proceso participativo.
+          title: Nueva administradora del proceso participativo
         update:
           error: Se ha producido un error al actualizar una administradora para este proceso participativo.
           success: Administradora actualizada correctamente para este proceso participativo.

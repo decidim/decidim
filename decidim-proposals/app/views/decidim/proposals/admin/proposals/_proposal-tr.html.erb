@@ -1,4 +1,4 @@
-<tr data-id="<%= proposal.id %>">
+<tr data-id="<%= proposal.id %>" <%= "data-published-state=false" if proposal.answered? && !proposal.published_state? %>>
   <td>
     <%= check_box_tag "proposal_ids_s[]", proposal.id, false, class: "js-check-all-proposal js-proposal-list-check  js-proposal-id-#{proposal.id}" %><br>
   </td>
@@ -6,7 +6,10 @@
     <%= proposal.id %><br>
   </td>
   <td>
-    <%= decidim_html_escape(present(proposal).title).html_safe %><br>
+    <%= link_to(
+     decidim_html_escape(present(proposal).title).html_safe,
+     proposal_path(proposal)
+    ) %><br>
   </td>
   <td>
     <% if proposal.category %>
@@ -22,12 +25,23 @@
       <% end %>
     </td>
   <% end %>
+
   <td>
     <strong class="<%= proposal_state_css_class proposal.state %>">
       <%= t("decidim/amendment", scope: "activerecord.models", count: 1) if proposal.emendation? %>
-      <%= humanize_proposal_state proposal.state %>
+      <%= proposal_complete_state proposal %>
     </strong>
   </td>
+
+  <% unless current_settings.publish_answers_immediately? %>
+    <td>
+      <% if proposal.answered? && !proposal.emendation? %>
+        <%= humanize_boolean proposal.published_state? %>
+      <% else %>
+        -
+      <% end %>
+    </td>
+  <% end %>
 
   <% if current_settings.votes_enabled? %>
     <td>
@@ -41,11 +55,13 @@
     </td>
   <% end %>
 
-  <% if allowed_to? :create, :proposal_note %>
-    <td>
-      <%= proposal.proposal_notes_count %>
-    </td>
-  <% end %>
+  <td>
+    <%= proposal.proposal_notes_count %>
+  </td>
+
+  <td class="valuators-count">
+    <%= proposal.valuation_assignments.count %>
+  </td>
 
   <td>
     <%= l proposal.created_at, format: :decidim_short %>

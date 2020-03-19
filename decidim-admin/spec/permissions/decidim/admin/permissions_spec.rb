@@ -264,6 +264,18 @@ describe Decidim::Admin::Permissions do
       end
     end
 
+    context "when show their email" do
+      let(:action_name) { :show_email }
+
+      it { is_expected.to eq true }
+
+      context "when user is not an admin" do
+        let(:user) { build :user, organization: organization }
+
+        it_behaves_like "permission is not set"
+      end
+    end
+
     context "when any other action" do
       it { is_expected.to eq true }
     end

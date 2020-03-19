@@ -16,23 +16,35 @@ module Decidim
       field :name, !types.String, "The user group's name"
 
       field :nickname, !types.String, "The user group nickname" do
-        resolve ->(obj, _args, _ctx) { UserGroupPresenter.new(obj).nickname }
+        resolve ->(group, _args, _ctx) { group.presenter.nickname }
       end
 
       field :avatarUrl, !types.String, "The user's avatar url" do
-        resolve ->(obj, _args, _ctx) { UserGroupPresenter.new(obj).avatar_url }
+        resolve ->(group, _args, _ctx) { group.presenter.avatar_url }
       end
 
       field :profilePath, !types.String, "The user group's profile url" do
-        resolve ->(obj, _args, _ctx) { UserGroupPresenter.new(obj).profile_path }
+        resolve ->(group, _args, _ctx) { group.presenter.profile_path }
+      end
+
+      field :organizationName, !types.String, "The user group's organization name" do
+        resolve ->(group, _args, _ctx) { group.organization.name }
       end
 
       field :deleted, !types.Boolean, "Whether the user group's has been deleted or not" do
-        resolve ->(obj, _args, _ctx) { UserGroupPresenter.new(obj).deleted? }
+        resolve ->(group, _args, _ctx) { group.presenter.deleted? }
       end
 
       field :badge, !types.String, "A badge for the user group" do
-        resolve ->(obj, _args, _ctx) { UserGroupPresenter.new(obj).badge }
+        resolve ->(group, _args, _ctx) { group.presenter.badge }
+      end
+
+      field :members, !types[UserType], "Members of this group" do
+        resolve ->(group, _args, _ctx) { group.accepted_users }
+      end
+
+      field :membersCount, !types.Int, "Number of members in this group" do
+        resolve ->(group, _args, _ctx) { group.accepted_memberships.count }
       end
     end
   end
