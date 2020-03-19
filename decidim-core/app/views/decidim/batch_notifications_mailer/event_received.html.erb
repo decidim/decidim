@@ -2,6 +2,15 @@
 
 <p><%== t(".email_intro") %></p>
 
+<% if see_more? %>
+  <p><%== t(".email_see_more",
+            organization_path: decidim.root_url(host: @organization.host),
+            organization_name: @organization.name.html_safe,
+            notifications_path: decidim.notifications_path)
+  %>
+  </p>
+<% end %>
+
 <% @events.each do |event| %>
   <%
     event_instance = event[:event_class].constantize.new(

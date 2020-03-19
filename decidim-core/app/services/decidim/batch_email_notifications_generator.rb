@@ -10,7 +10,11 @@ module Decidim
       return if events.empty?
 
       users.each do |user|
-        BatchNotificationsMailer.event_received(serialized_events(events_for(user)), Decidim::User.find(user)).deliver_later
+        BatchNotificationsMailer.event_received(
+            serialized_events(events_for(user)),
+            Decidim::User.find(user)
+        ).deliver_later
+
         mark_as_sent(events_for(user))
       end
     end
@@ -18,7 +22,10 @@ module Decidim
     private
 
     def events
-      @events ||= Decidim::Notification.from_last(Decidim.config.batch_email_notifications_interval).unsent.order(created_at: :desc)
+      @events ||= Decidim::Notification.from_last(Decidim.config.batch_email_notifications_interval)
+                      .unsent
+                      .order(created_at: :desc)
+                      .limit(Decidim.config.batch_email_notifications_max_length)
     end
 
     def events_for(user)

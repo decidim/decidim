@@ -281,6 +281,10 @@ module Decidim
     24.hours
   end
 
+  config_accessor :batch_email_notifications_max_length do
+    5
+  end
+
   # Exposes a configuration option: an object to configure Etherpad
   config_accessor :etherpad do
     # {
