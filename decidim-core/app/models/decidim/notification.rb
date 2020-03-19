@@ -8,7 +8,7 @@ module Decidim
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
 
     scope :unsent, -> { where(sent_at: nil) }
-    scope :from_last, ->(time) { where("created_at < ?", time.ago) }
+    scope :from_last, ->(time) { where("created_at > ?", time.ago) }
 
     def event_class_instance
       @event_class_instance ||= event_class.constantize.new(
