@@ -411,6 +411,8 @@ shared_examples_for "has questionnaire" do
         check answer_options[1]["body"][:en]
         check answer_options[2]["body"][:en]
 
+        expect(page).to have_content("too many choices")
+
         check "questionnaire_tos_agreement"
 
         accept_confirm { click_button "Submit" }
@@ -650,9 +652,19 @@ shared_examples_for "has questionnaire" do
           check checkboxes[0][:id]
           check checkboxes[1][:id]
           check checkboxes[2][:id]
+
+          expect(page).to have_content("too many choices")
+
           check checkboxes[3][:id]
           check checkboxes[4][:id]
+
+          expect(page).to have_content("too many choices")
+
           check checkboxes[5][:id]
+
+          uncheck checkboxes[0][:id]
+
+          expect(page).to have_content("too many choices")
 
           check "questionnaire_tos_agreement"
 
@@ -666,7 +678,6 @@ shared_examples_for "has questionnaire" do
 
           checkboxes = page.all(".check-box-collection input[type=checkbox]")
 
-          uncheck checkboxes[0][:id]
           uncheck checkboxes[5][:id]
 
           accept_confirm { click_button "Submit" }
