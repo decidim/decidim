@@ -9,7 +9,7 @@ module Decidim
       attribute :body, String
       attribute :recipient_id, Integer
 
-      validates :body, presence: true
+      validates :body, :recipient, presence: true
       validate :check_recipient
 
       def recipient

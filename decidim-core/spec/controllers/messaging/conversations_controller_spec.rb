@@ -101,7 +101,7 @@ module Decidim
         it "redirects the user back" do
           post :create, params: { recipient_id: 999, body: "" }
 
-          expect(response).to redirect_to("/")
+          expect(response.body).to include("Conversation not started. Try again later")
         end
       end
     end
