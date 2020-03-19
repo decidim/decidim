@@ -794,17 +794,17 @@ en:
           outro: Enjoy decidim!
           subject: You have new messages from %{sender}
       conversations:
+        add_conversation_users:
+          add_max_users: 'Add users to conversation: 9 users max'
+          modal_title: New message
+          participant_with_disabled_message_reception: This participant has disabled message reception
         create:
           error: Conversation not started. Try again later
         index:
+          new_conversation: New conversation
+          next: Next
           no_conversations: You have no conversations yet
           title: Conversations
-          new_conversation: "New conversation"
-          next: Next
-        add_conversation_users:
-          modal_title: "New message"
-          add_max_users: "Add users to conversation: 9 users max"
-          participant_with_disabled_message_reception: "This participant has disabled message reception"
         reply:
           send: Send
           title: Reply
