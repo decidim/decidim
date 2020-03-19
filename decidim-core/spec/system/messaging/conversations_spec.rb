@@ -508,9 +508,6 @@ describe "Conversations", type: :system do
 
         it "shows only the first 3 participant name plus the number of remaining participants" do
           within ".card--list__heading.heading6" do
-            expect(page).to have_content(user1.name.upcase)
-            expect(page).to have_content(user2.name.upcase)
-            expect(page).to have_content(user3.name.upcase)
             expect(page).to have_content("+ 6")
             expect(page).not_to have_content(user.name.upcase)
           end
