@@ -7,7 +7,6 @@ module Decidim
     end
 
     def generate
-      return unless Decidim.config.batch_email_notifications_enabled?
       return if events.empty?
 
       users.each do |user|

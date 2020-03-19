@@ -20,7 +20,7 @@ module Decidim
         data[:extra]
       )
 
-      return if Decidim.config.batch_email_notifications_enabled?
+      return if Decidim.config.batch_email_notifications_enabled
 
       EmailNotificationGeneratorJob.perform_later(
           event_name,
