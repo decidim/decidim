@@ -12,6 +12,8 @@ module Decidim
       return if events.empty?
 
       users.each do |user|
+        next if user.email_on_notification?
+
         BatchNotificationsMailer.event_received(
           serialized_events(events_for(user)),
           Decidim::User.find(user)
