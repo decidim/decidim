@@ -1,0 +1,54 @@
+name: "[CI] Generators"
+on: [push]
+
+env:
+  CI: "true"
+  SIMPLECOV: "true"
+  RUBY_VERSION: 2.5.3
+  DECIDIM_MODULE: decidim-generators
+
+jobs:
+  main:
+    name: Tests
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:11
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        env:
+          POSTGRES_PASSWORD: postgres
+    env:
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_HOST: localhost
+    steps:
+      - uses: rokroskar/workflow-run-cleanup-action@v0.2.2
+        if: "github.ref != 'refs/heads/master' || github.ref != 'refs/heads/develop'"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      - uses: actions/checkout@v2.0.0
+        with:
+          fetch-depth: 1
+      - uses: ruby/setup-ruby@master
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+      - name: Recover Ruby dependency cache
+        uses: actions/cache@v1
+        with:
+          path: ./vendor/bundle
+          key: ${{ runner.OS }}-rubydeps-${{ hashFiles('Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.OS }}-rubydeps-${{ env.cache-name }}-
+            ${{ runner.OS }}-rubydeps-
+            ${{ runner.OS }}-
+      - run: bundle install --jobs 4 --retry 3
+        name: Install Ruby deps
+        working-directory: ${{ env.DECIDIM_MODULE }}
+      - run: bundle exec rake
+        name: RSpec
+        working-directory: ${{ env.DECIDIM_MODULE }}
