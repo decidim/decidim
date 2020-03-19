@@ -3,12 +3,14 @@
 module Decidim
   class BatchNotificationsMailer < Decidim::ApplicationMailer
     helper Decidim::ResourceHelper
+    helper Decidim::IconHelper
     helper_method :see_more?
 
     def event_received(events, user)
       return if user.email.blank?
 
       with_user(user) do
+        @user = user
         @organization = user.organization
         @events = events
 

@@ -2,6 +2,8 @@
 
 module Decidim
   class BatchEmailNotificationsGenerator
+    include ActionView::Helpers::DateHelper
+
     def initialize
       @events = events
     end
@@ -40,7 +42,8 @@ module Decidim
             event_name: event.event_name,
             user: event.user,
             extra: event.extra,
-            user_role: event.user_role
+            user_role: event.user_role,
+            created_at: time_ago_in_words(event.created_at).capitalize
         }
       end
     end
