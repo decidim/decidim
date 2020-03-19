@@ -64,10 +64,6 @@ is-IS:
             email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{resource_title}". Þú getur sleppt því frá fyrri tengilinn.
             email_subject: Tillaga sem þú ert að fylgja hefur verið samþykkt
             notification_title: <a href="%{resource_path}">%{resource_title}</a> tillöguna hefur verið samþykkt.
-        proposal_endorsed:
-          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{endorser_nickname}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
-          email_subject: "%{endorser_nickname} hefur samþykkt nýja tillögu"
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> tillöguna hefur verið samþykkt með <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           follower:
             email_intro: 'Tillagan "%{resource_title}" er nú metin. Þú getur leitað að svari á þessari síðu:'
@@ -75,7 +71,6 @@ is-IS:
             email_subject: Tillaga sem þú fylgir er metin
             notification_title: <a href="%{resource_path}">%{resource_title}</a> tillögunni er metið.
         proposal_mentioned:
-          email_intro: Tillaga þín "%{mentioned_proposal_title}" hefur verið nefnd <a href="%{resource_path}">í þessu rými</a> í athugasemdunum.
           email_subject: Tillagan þín "%{mentioned_proposal_title}" hefur verið minnst
           notification_title: Tillaga þín "%{mentioned_proposal_title}" hefur verið nefnd <a href="%{resource_path}">í þessu rými</a> í athugasemdunum.
         proposal_published:
@@ -184,7 +179,6 @@ is-IS:
           fields:
             category: Flokkur
             comments: Athugasemdir
-            endorsements: Áritanir
             id: Auðkenni
             notes: Skýringar
             official_proposal: Opinber tillaga
@@ -193,14 +187,6 @@ is-IS:
             votes: Atkvæði
       new:
         limit_reached: Þú getur ekki búið til nýjar tillögur þar sem þú hefur farið yfir mörkin.
-      proposal_endorsements:
-        identities:
-          done: Gert
-          select_identity: Veldu auðkenni
-      proposal_endorsements_helper:
-        endorsement_button:
-          already_endorsed: Samþykkt
-          endorse: Styðja
       proposals:
         compare:
           no_similars_found: Vel gert! Engar svipaðar tillögur fundust
@@ -218,8 +204,6 @@ is-IS:
           discard_confirmation: Ertu viss um að þú viljir fleygja þessari tillögu drög?
           send: Preview
           title: Breyta tillögu drög
-        endorsement_identities_cabin:
-          endorse: Styðja
         filters:
           category: Flokkur
           origin: Uppruni
@@ -253,6 +237,7 @@ is-IS:
           view_proposal: Skoða tillögu
         show:
           answer: Svara
+          comments: Athugasemdir
           edit_proposal: Breyta tillögu
           proposal_accepted_reason: 'Þessi tillaga hefur verið samþykkt vegna þess að:'
           proposal_in_evaluation_reason: Þessi tillaga er metin

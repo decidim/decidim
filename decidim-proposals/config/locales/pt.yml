@@ -50,7 +50,6 @@ pt:
       decidim/proposals/creation_enabled_event: Criação de proposta ativada
       decidim/proposals/endorsing_enabled_event: Endosso da proposta ativado
       decidim/proposals/evaluating_proposal_event: Proposta está sendo avaliada
-      decidim/proposals/proposal_endorsed_event: Proposta endossada
       decidim/proposals/proposal_mentioned_event: Proposta mencionada
       decidim/proposals/publish_proposal_event: Proposta publicada
       decidim/proposals/rejected_proposal_event: Proposta rejeitada
@@ -63,9 +62,6 @@ pt:
       decidim/proposals/proposal:
         one: Proposta
         other: Propostas
-      decidim/proposals/proposal_endorsement:
-        one: Endosso
-        other: Endossos
       decidim/proposals/proposal_note:
         one: Nota
         other: Notas
@@ -170,11 +166,6 @@ pt:
             email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Você pode ignorá-lo do link anterior.
             email_subject: Uma proposta que você está seguindo foi aceita
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi aceita.
-        proposal_endorsed:
-          email_intro: '%{endorser_name} %{endorser_nickname}, que você está seguindo, acabou de endossar a proposta "%{resource_title}" e achamos que pode ser interessante para você. Confira e contribua:'
-          email_outro: Você recebeu esta notificação porque você está seguindo %{endorser_nickname}. Você pode parar de receber notificações após o link anterior.
-          email_subject: "%{endorser_nickname} aprovou uma nova proposta"
-          notification_title: O <a href="%{resource_path}">%{resource_title}</a> A proposta foi endossada por <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           affected_user:
             email_intro: 'Sua proposta "%{resource_title}" está sendo avaliada no momento. Você pode verificar uma resposta nesta página:'
@@ -187,7 +178,6 @@ pt:
             email_subject: Uma proposta que você está seguindo está sendo avaliada
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> está sendo avaliada.
         proposal_mentioned:
-          email_intro: Sua proposta "%{mentioned_proposal_title}" foi mencionada <a href="%{resource_path}">neste espaço</a> nos comentários.
           email_outro: Você recebeu esta notificação porque é um autor de "%{resource_title}".
           email_subject: Sua proposta "%{mentioned_proposal_title}" foi mencionada
           notification_title: Sua proposta "%{mentioned_proposal_title}" foi mencionada <a href="%{resource_path}">neste espaço</a> nos comentários.
@@ -561,7 +551,6 @@ pt:
           fields:
             category: Categoria
             comments: Comentários
-            endorsements: Endossos
             id: identidade
             notes: Notas
             official_proposal: Proposta oficial
@@ -578,18 +567,6 @@ pt:
           amend: Alterar
           comment: Comente
           comments: Comentários
-          endorse: Endossar
-      proposal_endorsements:
-        create:
-          error: Houve erros ao endossar a proposta.
-        identities:
-          done: Feito
-          select_identity: Selecione a identidade
-      proposal_endorsements_helper:
-        endorsement_button:
-          already_endorsed: Endossado
-          endorse: Endossar
-        render_endorsements_button_card_part:
           endorse: Endossar
       proposal_votes:
         create:
@@ -617,10 +594,6 @@ pt:
           discard_confirmation: Tem certeza de que deseja descartar este rascunho da proposta?
           send: Visualização
           title: Editar proposta de rascunho
-        endorsement_identities_cabin:
-          endorse: Endossar
-        endorsements_card_row:
-          comments: Comentários
         filters:
           amendment_type: Tipo
           category: Categoria
@@ -669,6 +642,7 @@ pt:
         show:
           answer: Responder
           back_to: De volta a
+          comments: Comentários
           edit_proposal: Editar proposta
           endorsements_list: Lista de endossos
           hidden_endorsers_count:
