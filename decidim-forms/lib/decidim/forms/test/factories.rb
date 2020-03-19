@@ -57,6 +57,12 @@ FactoryBot.define do
         Array.new(3).collect { build(:answer_option) }
       end
     end
+
+    trait :conditioned do
+      display_conditions do
+        Array.new(3).collect { build(:display_condition) }
+      end
+    end
   end
 
   factory :answer, class: "Decidim::Forms::Answer" do
