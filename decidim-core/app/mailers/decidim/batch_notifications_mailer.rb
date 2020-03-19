@@ -14,7 +14,7 @@ module Decidim
         @organization = user.organization
         @events = events
 
-        mail(to: user.email, subject: t(".batch_notification_subject"))
+        mail(to: user.email, subject: t(".batch_notification_subject", organization_name: @organization.name.html_safe))
       end
     end
 

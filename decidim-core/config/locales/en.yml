@@ -320,13 +320,9 @@ en:
           title: Confirm your email
       show:
         close_modal: Close modal
-    batch_notification_mailer:
-      event_received:
-        email_greeting: Email greeting
-        email_intro: Email intro
-        email_outro: Email outro
     batch_notifications_mailer:
       event_received:
+        batch_notification_subject: You have received notifications on %{organization_name}
         email_greeting: Greetings %{username}.
         email_intro: You are receiving this email because you have subscribed to resources on %{organization_name}
         email_outro: You can stop receiving notifications by visiting your <a href='%{profile_path}'>profile</a>

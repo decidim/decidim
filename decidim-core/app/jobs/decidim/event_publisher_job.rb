@@ -23,12 +23,12 @@ module Decidim
       return if Decidim.config.batch_email_notifications_enabled
 
       EmailNotificationGeneratorJob.perform_later(
-          event_name,
-          data[:event_class],
-          data[:resource],
-          data[:followers],
-          data[:affected_users],
-          data[:extra]
+        event_name,
+        data[:event_class],
+        data[:resource],
+        data[:followers],
+        data[:affected_users],
+        data[:extra]
       )
     end
 
