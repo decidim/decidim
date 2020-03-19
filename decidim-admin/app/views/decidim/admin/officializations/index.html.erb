@@ -31,6 +31,9 @@
               <td><%= translated_attribute(user.officialized_as) %></td>
 
               <td class="table-list__actions">
+                <% if allowed_to? :show_email, :user, user: user %>
+                  <%= icon_link_to "envelope-open", show_email_officialization_path(user_id: user.id), t(".show_email"), class: "action-icon action-icon--show-email", data: { full_name: user.name, toggle: "show-email-modal" } %>
+                <% end %>
                 <%= icon_link_to "envelope-closed", current_or_new_conversation_path_with(user), t("decidim.contact"), class:"action-icon--new" %>
                 <% if user.officialized? %>
                   <%= icon "circle-check", class: "action-icon action-icon--disabled" %>
@@ -50,3 +53,4 @@
     </div>
   </div>
 </div>
+<%= render "show_email_modal" %>

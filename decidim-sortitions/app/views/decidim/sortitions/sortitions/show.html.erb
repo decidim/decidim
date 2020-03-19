@@ -11,6 +11,12 @@
 </div>
 
 <div class="row column view-header">
+
+  <%= link_to :sortitions, class: "small hollow" do %>
+    <%= icon "chevron-left", class: "icon--small" %>
+    <%= t(".back") %>
+  <% end %>
+
   <h2 class="heading2"><%= translated_attribute sortition.title %></h2>
   <div class="author-data">
     <%= render partial: "sortition_author", locals: { sortition: sortition } %>

@@ -64,7 +64,8 @@ module Decidim
 
       initializer "decidim.assets" do |app|
         app.config.assets.paths << File.expand_path("../../../app/assets/stylesheets", __dir__)
-        app.config.assets.precompile += %w(decidim_core_manifest.js)
+        app.config.assets.precompile += %w(decidim_core_manifest.js
+                                           decidim/identity_selector_dialog)
 
         Decidim.component_manifests.each do |component|
           app.config.assets.precompile += [component.icon]
@@ -196,7 +197,7 @@ module Decidim
 
       initializer "decidim.content_processors" do |_app|
         Decidim.configure do |config|
-          config.content_processors += [:user, :hashtag, :link]
+          config.content_processors += [:user, :user_group, :hashtag, :link]
         end
       end
 
