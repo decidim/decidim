@@ -69,6 +69,7 @@ en:
         answer:
           invalid: There was a problem answering the form.
           success: Form successfully answered.
+          max_choices_alert: There are too many choices selected
         question:
           max_choices: 'Max choices: %{n}'
         show:

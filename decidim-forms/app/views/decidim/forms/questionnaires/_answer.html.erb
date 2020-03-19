@@ -11,6 +11,8 @@
 
 <%= answer_form.hidden_field :question_id %>
 
+<small class="form-error max-choices-alert"><%= t(".max_choices_alert") %></small>
+
 <% answer.errors.full_messages.each do |msg| %>
   <small class="form-error is-visible"><%= msg %></small>
 <% end %>
