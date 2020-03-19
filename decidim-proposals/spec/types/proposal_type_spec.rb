@@ -11,6 +11,8 @@ require "decidim/core/test/shared_examples/fingerprintable_interface_examples"
 require "decidim/core/test/shared_examples/amendable_interface_examples"
 require "decidim/core/test/shared_examples/amendable_proposals_interface_examples"
 require "decidim/core/test/shared_examples/traceable_interface_examples"
+require "decidim/core/test/shared_examples/timestamps_interface_examples"
+require "decidim/core/test/shared_examples/endorsable_interface_examples"
 
 module Decidim
   module Proposals
@@ -27,6 +29,8 @@ module Decidim
       include_examples "amendable interface"
       include_examples "amendable proposals interface"
       include_examples "traceable interface"
+      include_examples "timestamps interface"
+      include_examples "endorsable interface"
 
       describe "id" do
         let(:query) { "{ id }" }
@@ -51,23 +55,6 @@ module Decidim
           it "returns nil" do
             expect(response["voteCount"]).to eq(nil)
           end
-        end
-      end
-
-      describe "endorsementsCount" do
-        let(:query) { "{ endorsementsCount }" }
-
-        it "returns the amount of endorsements for this proposal" do
-          expect(response["endorsementsCount"]).to eq(model.endorsements.count)
-        end
-      end
-
-      describe "endorsements" do
-        let(:query) { "{ endorsements { name } }" }
-
-        it "returns the endorsements this proposal has received" do
-          endorsement_names = response["endorsements"].map { |endorsement| endorsement["name"] }
-          expect(endorsement_names).to include(*model.endorsements.map(&:author).map(&:name))
         end
       end
 
@@ -108,22 +95,6 @@ module Decidim
           it "returns when was this query answered at" do
             expect(response["answeredAt"]).to eq(model.answered_at.to_time.iso8601)
           end
-        end
-      end
-
-      describe "createdAt" do
-        let(:query) { "{ createdAt }" }
-
-        it "returns when was this query created at" do
-          expect(response["createdAt"]).to eq(model.created_at.to_time.iso8601)
-        end
-      end
-
-      describe "updatedAt" do
-        let(:query) { "{ updatedAt }" }
-
-        it "returns when was this query updated at" do
-          expect(response["updatedAt"]).to eq(model.updated_at.to_time.iso8601)
         end
       end
 

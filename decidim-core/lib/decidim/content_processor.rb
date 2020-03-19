@@ -87,11 +87,13 @@ module Decidim
     # the processed content ready to display.
     #
     # @return [String] the content processed and ready to display (it is expected to include HTML)
-    def self.render(content)
+    def self.render(content, wrapper_tag = "p")
       simple_format(
         Decidim.content_processors.reduce(content) do |result, type|
           renderer_klass(type).constantize.new(result).render
-        end
+        end,
+        {},
+        wrapper_tag: wrapper_tag
       )
     end
 

@@ -23,6 +23,7 @@ module Decidim
 
     validate :email_unique_in_organization
     validate :nickname_unique_in_organization
+    validate :no_pending_invitations_exist
 
     def newsletter_at
       return nil unless newsletter?
@@ -38,6 +39,10 @@ module Decidim
 
     def nickname_unique_in_organization
       errors.add :nickname, :taken if User.no_active_invitation.find_by(nickname: nickname, organization: current_organization).present?
+    end
+
+    def no_pending_invitations_exist
+      errors.add :base, I18n.t("devise.failure.invited") if User.has_pending_invitations?(current_organization.id, email)
     end
   end
 end

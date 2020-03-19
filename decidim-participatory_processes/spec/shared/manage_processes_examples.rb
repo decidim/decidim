@@ -5,29 +5,47 @@ shared_examples "manage processes examples" do
     let!(:process_group) { create(:participatory_process_group, organization: organization) }
     let!(:process_with_group) { create(:participatory_process, organization: organization, participatory_process_group: process_group) }
     let!(:process_without_group) { create(:participatory_process, organization: organization) }
+    let(:model_name) { participatory_process.class.model_name }
 
-    before do
-      visit decidim_admin_participatory_processes.participatory_processes_path
+    def filter_by_group(group_name)
+      visit current_path
+      within(".card-title") do
+        click_button("Process Groups")
+        click_link(group_name)
+      end
     end
 
     it "allows the user to filter processes by process_group" do
-      find("button", text: "PROCESS GROUPS").click
-      click_link translated(process_group.name)
+      filter_by_group(translated(process_group.name))
 
       expect(page).to have_content(translated(process_with_group.title))
       expect(page).not_to have_content(translated(process_without_group.title))
     end
 
+    describe "listing processes" do
+      it_behaves_like "filtering collection by published/unpublished"
+      it_behaves_like "filtering collection by private/public"
+    end
+
     context "when processes are filtered by process_group" do
-      before do
-        find("button", text: "PROCESS GROUPS").click
-        click_link translated(process_group.name)
-      end
+      before { filter_by_group(translated(process_group.name)) }
 
       it "allows the user to edit the process_group" do
         click_link translated(process_group.name)
 
         expect(page).to have_content("EDIT PROCESS GROUP")
+      end
+
+      describe "listing processes filtered by group" do
+        it_behaves_like "filtering collection by published/unpublished" do
+          let!(:published_space) { process_with_group }
+          let!(:unpublished_space) { create(:participatory_process, :unpublished, organization: organization, participatory_process_group: process_group) }
+        end
+
+        it_behaves_like "filtering collection by private/public" do
+          let!(:public_space) { process_with_group }
+          let!(:private_space) { create(:participatory_process, :private, organization: organization, participatory_process_group: process_group) }
+        end
       end
     end
   end

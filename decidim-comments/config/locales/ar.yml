@@ -4,6 +4,7 @@ ar:
       decidim/comments/comment_by_followed_user_event: تعليق
       decidim/comments/comment_created_event: تعليق
       decidim/comments/reply_created_event: تعليق الرد
+      decidim/comments/user_group_mentioned_event: أشير
       decidim/comments/user_mentioned_event: أشير
   activerecord:
     models:
@@ -50,6 +51,7 @@ ar:
           against: ضد
           in_favor: لصالح
         deleted_user: مشارك محذوف
+        hide_replies: إخفاء الردود
         reply: الرد
         report:
           action: أبلغ عن
@@ -62,6 +64,8 @@ ar:
             offensive: يحتوي على العنصرية والتمييز الجنسي والتشهير والهجمات الشخصية والتهديدات بالقتل أو طلبات الانتحار أو أي شكل من أشكال خطاب الكراهية.
             spam: يحتوي على clickbait أو الإعلان أو الخدع أو روبوت البرامج النصية.
           title: الإبلاغ عن مشكلة
+        show_replies: اظهر الردود الـ %{replies_count}
+        single_comment_link_title: الحصول على رابط نحو تعليق واحد
       comment_order_selector:
         order:
           best_rated: أفضل تصنيف
@@ -74,7 +78,10 @@ ar:
       comments:
         blocked_comments_for_user_warning: لا يمكنك التعليق في هذه اللحظة ، ولكن يمكنك قراءة التعليقات السابقة.
         blocked_comments_warning: التعليقات معطلة في هذا الوقت ، لكن يمكنك قراءة التعليقات السابقة.
+        comment_details_title: تفاصيل التعليق
         loading: جارٍ تحميل التعليقات ...
+        single_comment_warning: يمكنك الإطلاع على التعليقات المتبقية الأخرى <a href="%{url}">هنا</a>.
+        single_comment_warning_title: إنك ترى تعليقا واحدا
         title: "%{count} تعليقات"
     events:
       comments:

@@ -34,5 +34,37 @@ describe Decidim::Messaging::Conversation do
       expect(interlocutor_receipts.size).to eq(1)
       expect(interlocutor_receipts.first).to have_attributes(read_at: nil)
     end
+
+    context "when there are more than 2 participants" do
+      let(:conversation) do
+        described_class.start!(
+          originator: originator,
+          interlocutors: [interlocutor, interlocutor2],
+          body: "Hei!"
+        )
+      end
+      let(:interlocutor2) { create(:user) }
+
+      before do
+        allow(interlocutor).to receive(:accepts_conversation?).and_return(true)
+        allow(interlocutor2).to receive(:accepts_conversation?).and_return(true)
+      end
+
+      context "and some interlocutor does not accept the originator" do
+        before do
+          allow(interlocutor).to receive(:accepts_conversation?).and_return(false)
+        end
+
+        it "accept_user? returns false" do
+          expect(conversation.accept_user?(originator)).to eq(false)
+        end
+      end
+
+      context "and all the interlocutor accept the originator" do
+        it "accept_user? returns true" do
+          expect(conversation.accept_user?(originator)).to eq(true)
+        end
+      end
+    end
   end
 end

@@ -3,6 +3,11 @@
 require "spec_helper"
 
 describe "Admin manages officializations", type: :system do
+  include_context "with filterable context"
+
+  let(:model_name) { Decidim::User.model_name }
+  let(:filterable_concern) { Decidim::Admin::Officializations::Filterable }
+
   let(:organization) { create(:organization) }
 
   let!(:admin) { create(:user, :admin, :confirmed, organization: organization) }
@@ -16,7 +21,6 @@ describe "Admin manages officializations", type: :system do
 
   describe "listing officializations" do
     let!(:officialized) { create(:user, :officialized, organization: organization) }
-
     let!(:not_officialized) { create(:user, organization: organization) }
     let!(:deleted) do
       user = create(:user, organization: organization)
@@ -31,15 +35,17 @@ describe "Admin manages officializations", type: :system do
       end
     end
 
-    it "shows each user and its officialization status" do
-      expect(page).to have_selector("tr[data-user-id=\"#{officialized.id}\"]", text: officialized.name)
-      expect(page).to have_selector("tr[data-user-id=\"#{officialized.id}\"]", text: "Officialized")
-
-      expect(page).to have_no_selector("tr[data-user-id=\"#{external_not_officialized.id}\"]", text: not_officialized.name)
-
-      expect(page).to have_selector("tr[data-user-id=\"#{not_officialized.id}\"]", text: not_officialized.name)
-      expect(page).to have_selector("tr[data-user-id=\"#{not_officialized.id}\"]", text: "Not officialized")
+    it_behaves_like "a filtered collection", options: "State", filter: "Officialized" do
+      let(:in_filter) { officialized.name }
+      let(:not_in_filter) { not_officialized.name }
     end
+
+    it_behaves_like "a filtered collection", options: "State", filter: "Not officialized" do
+      let(:in_filter) { not_officialized.name }
+      let(:not_in_filter) { officialized.name }
+    end
+
+    it_behaves_like "paginating a collection"
   end
 
   describe "officializating users" do
@@ -199,6 +205,35 @@ describe "Admin manages officializations", type: :system do
       within ".profile--sidebar" do
         expect(page).to have_content(user.name)
       end
+    end
+  end
+
+  describe "retrieving the user email address" do
+    let!(:user) { create(:user, organization: organization) }
+
+    before do
+      within ".secondary-nav" do
+        click_link "Participants"
+      end
+    end
+
+    it "shows the user email to admin users and logs the action" do
+      within "tr[data-user-id=\"#{user.id}\"]" do
+        click_link "Show email"
+      end
+
+      within "#show-email-modal" do
+        expect(page).to have_content("Show participant email address")
+        expect(page).not_to have_content(user.email)
+
+        click_button "Show"
+
+        expect(page).to have_content(user.email)
+      end
+
+      visit decidim_admin.root_path
+
+      expect(page).to have_content("#{admin.name} retrieved the email of the participant #{user.name}")
     end
   end
 end

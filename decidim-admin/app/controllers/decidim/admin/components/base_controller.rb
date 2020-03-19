@@ -22,7 +22,7 @@ module Decidim
                       :parent_path
 
         before_action except: [:index, :show] do
-          enforce_permission_to :manage, :component, component: current_component
+          enforce_permission_to :manage, :component, component: current_component unless skip_manage_component_permission
         end
 
         before_action on: [:index, :show] do
@@ -58,6 +58,10 @@ module Decidim
 
         def parent_path
           @parent_path ||= ::Decidim::EngineRouter.admin_proxy(current_participatory_space).components_path
+        end
+
+        def skip_manage_component_permission
+          false
         end
       end
     end

@@ -8,6 +8,7 @@ Decidim.register_component(:accountability) do |component|
   component.icon = "decidim/accountability/icon.svg"
   component.stylesheet = "decidim/accountability/accountability"
   component.permissions_class_name = "Decidim::Accountability::Permissions"
+  component.query_type = "Decidim::Accountability::AccountabilityType"
 
   component.on(:before_destroy) do |instance|
     raise StandardError, "Can't remove this component" if Decidim::Accountability::Result.where(component: instance).any?
