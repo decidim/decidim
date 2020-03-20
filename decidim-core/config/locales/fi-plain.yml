@@ -138,6 +138,7 @@ fi-pl:
         invite: "%{user_name} kutsui käyttäjän %{resource_name} roolilla: %{role}"
         officialize: "%{user_name} virallisti käyttäjän %{resource_name}"
         remove_from_admin: "%{user_name} poisti käyttäjän %{resource_name} roolilla: %{role}"
+        show_email: "%{user_name} tarkasteli osallistujan %{resource_name} sähköpostiosoitetta"
         unofficialize: "%{user_name} poisti käyttäjän %{resource_name} virallistamisen"
       user_group:
         reject: "%{user_name} hylkäsi käyttäjäryhmän %{resource_name} vahvistaminen"
