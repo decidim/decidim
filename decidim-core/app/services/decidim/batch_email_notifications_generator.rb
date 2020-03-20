@@ -12,11 +12,11 @@ module Decidim
       return if events.empty?
 
       users.each do |user|
-        next if user.email_on_notification?
+        next unless find_user(user).email_on_notification?
 
         BatchNotificationsMailer.event_received(
           serialized_events(events_for(user)),
-          Decidim::User.find(user)
+          find_user(user)
         ).deliver_later
 
         mark_as_sent(events_for(user))
@@ -58,6 +58,10 @@ module Decidim
 
     def users
       events.pluck(:decidim_user_id).uniq
+    end
+
+    def find_user(user)
+      Decidim::User.find(user)
     end
   end
 end
