@@ -137,6 +137,13 @@ Decidim.register_component(:surveys) do |component|
       3.times do
         question.answer_options.create!(body: Decidim::Faker::Localized.sentence)
       end
+
+      question.display_conditions.create!(
+        condition_question: questionnaire.questions.find_by(position: question.position - 2),
+        question: question,
+        condition_type: :answered,
+        mandatory: true
+      )
     end
   end
 end
