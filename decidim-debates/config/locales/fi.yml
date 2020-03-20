@@ -113,7 +113,7 @@ fi:
           space_followers:
             email_intro: |-
               Hei,
-              osallisuustilaan %{space_title} on luotu uusi keskustelu "%{resource_title}", tutustu siihen ja osallistu:
+              osallistumistilaan %{space_title} on luotu uusi keskustelu "%{resource_title}", tutustu siihen ja osallistu:
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
             email_subject: Uusi keskustelu "%{resource_title}" tilassa %{space_title}
             notification_title: Keskustelu aiheesta <a href="%{resource_path}">%{resource_title}</a> luotiin kohtaan <a href="%{space_path}">%{space_title}</a>.
