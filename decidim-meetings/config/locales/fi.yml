@@ -109,7 +109,7 @@ fi:
           notification_title: Ilmoittautumisesi tapahtumaan <a href="%{resource_url}">%{resource_title}</a> on vahvistettu. Sinun ilmoittautumiskoodisi on %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: Tapahtumasta "%{resource_title}" on varattu yli %{percentage}% vapaista paikoista.
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet tapahtuman osallisuustilan ylläpitäjä.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet tapahtuman osallistumistilan ylläpitäjä.
           email_subject: Tapahtumasta "%{resource_title}" on varattu yli %{percentage}% vapaista paikoista
           notification_title: Tapahtumasta <a href="%{resource_path}">%{resource_title}</a> on varattu yli %{percentage}% vapaista paikoista.
         meeting_updated:
@@ -331,7 +331,7 @@ fi:
             meetings: Tapahtumat
             past: Menneet
             search: Hae
-            space_type: Osallisuustila
+            space_type: Osallistumistila
             upcoming: Tulevat
       last_activity:
         new_meeting_at_html: "<span>Uusi tapahtuma osoitteessa %{link}</span>"
