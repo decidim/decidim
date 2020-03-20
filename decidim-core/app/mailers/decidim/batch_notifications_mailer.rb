@@ -21,7 +21,7 @@ module Decidim
     private
 
     def see_more?
-      @events.length == Decidim.config.batch_email_notifications_max_length
+      @events.length >= Decidim.config.batch_email_notifications_max_length
     end
   end
 end
