@@ -1,5 +1,5 @@
 name: "[CI] System"
-on: [push]
+on: [push, pull_request]
 
 env:
   CI: "true"
