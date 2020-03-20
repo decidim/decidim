@@ -5,6 +5,25 @@ require "spec_helper"
 describe Decidim::EventPublisherJob do
   subject { described_class }
 
+  shared_examples "batch email notifications enabled" do
+    context "when batch email notifications enabled" do
+      before do
+        Decidim.config.batch_email_notifications_enabled = true
+      end
+
+      after do
+        Decidim.config.batch_email_notifications_enabled = false
+      end
+
+      it "doesn't enqueues email job" do
+        expect(Decidim::EmailNotificationGeneratorJob).not_to receive(:perform_later)
+        expect(Decidim::NotificationGeneratorJob).to receive(:perform_later)
+
+        subject
+      end
+    end
+  end
+
   describe "queue" do
     it "is queued to events" do
       expect(subject.queue_name).to eq "events"
@@ -19,7 +38,7 @@ describe Decidim::EventPublisherJob do
     let(:event_name) { "some_event" }
     let(:data) do
       {
-        resource: resource
+          resource: resource
       }
     end
 
@@ -37,6 +56,8 @@ describe Decidim::EventPublisherJob do
 
           subject
         end
+
+        it_behaves_like "batch email notifications enabled"
       end
 
       context "when it is not published" do
@@ -81,6 +102,8 @@ describe Decidim::EventPublisherJob do
 
           subject
         end
+
+        it_behaves_like "batch email notifications enabled"
       end
 
       context "when it is not published" do
@@ -113,6 +136,8 @@ describe Decidim::EventPublisherJob do
 
           subject
         end
+
+        it_behaves_like "batch email notifications enabled"
       end
 
       context "when it is not published" do
@@ -140,6 +165,8 @@ describe Decidim::EventPublisherJob do
         subject
       end
 
+      it_behaves_like "batch email notifications enabled"
+
       context "when it is not published" do
         let(:resource) { build(:component, :unpublished) }
 
@@ -161,6 +188,8 @@ describe Decidim::EventPublisherJob do
 
         subject
       end
+
+      it_behaves_like "batch email notifications enabled"
 
       context "when it is not published" do
         let(:resource) { build(:participatory_process, :unpublished) }
