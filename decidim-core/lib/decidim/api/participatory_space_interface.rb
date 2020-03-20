@@ -24,7 +24,7 @@ module Decidim
 
       field :stats, types[Decidim::Core::StatisticType] do
         resolve ->(participatory_space, _args, _ctx) {
-          return if participatory_space.respond_to(:show_statistics) && !participatory_space.show_statistics
+          return if participatory_space.respond_to?(:show_statistics) && !participatory_space.show_statistics
 
           published_components = Component.where(participatory_space: participatory_space).published
 
