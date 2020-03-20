@@ -46,7 +46,7 @@ module Decidim
           enforce_permission_to :update, :conference_user_role, user_role: @user_role
           @form = form(ConferenceUserRoleForm).from_params(params)
 
-          UpdateConferenceAdmin.call(@form, @user_role) do
+          UpdateConferenceAdmin.call(@form, @user_role, current_conference) do
             on(:ok) do
               flash[:notice] = I18n.t("conference_user_roles.update.success", scope: "decidim.admin")
               redirect_to conference_user_roles_path(current_conference)

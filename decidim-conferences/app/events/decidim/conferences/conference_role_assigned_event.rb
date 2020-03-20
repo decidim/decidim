@@ -2,7 +2,7 @@
 
 module Decidim
   module Conferences
-    class ConferenceRegistrationNotificationEvent < Decidim::Events::BaseEvent
+    class ConferenceRoleAssignedEvent < Decidim::Events::BaseEvent
       include Decidim::Events::NotificationEvent
 
       def notification_title
@@ -13,7 +13,8 @@ module Decidim
         {
           resource_title: resource_title,
           resource_url: resource_url,
-          scope: event_name
+          scope: event_name,
+          role: extra["role"]
         }
       end
     end

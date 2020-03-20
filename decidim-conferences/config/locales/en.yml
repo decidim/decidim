@@ -534,6 +534,8 @@ en:
           email_outro: You have received this notification because you are following the "%{resource_title}" conference. You can unfollow it from the previous link.
           email_subject: The "%{resource_title}" conference is coming!
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> conference is coming in 2 days.
+        role_assigned:
+          notification_title: You have been assigned as %{role} for conference <a href="%{resource_url}">%{resource_title}</a>
     log:
       value_types:
         conference_presenter:

@@ -5,15 +5,16 @@ module Decidim
     module Admin
       # A command with all the business logic when updated a participatory
       # process admin in the system.
-      class UpdateParticipatoryProcessAdmin < Rectify::Command
+      class UpdateParticipatoryProcessAdmin < NotifyRoleAssignedParticipatoryProcess
         # Public: Initializes the command.
         #
         # form - A form object with the params.
         # participatory_process - The ParticipatoryProcess that will hold the
         #   user role
-        def initialize(form, user_role)
+        def initialize(form, user_role, participatory_process)
           @form = form
           @user_role = user_role
+          @participatory_process = participatory_process
         end
 
         # Executes the command. Broadcasts these events:
@@ -47,6 +48,8 @@ module Decidim
             { role: form.role },
             extra_info
           )
+
+          send_notification user_role.user
         end
       end
     end

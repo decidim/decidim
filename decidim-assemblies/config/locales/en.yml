@@ -233,6 +233,10 @@ en:
         create: "%{user_name} invited %{resource_name} to the %{space_name} assembly"
         delete: "%{user_name} removed the participant %{resource_name} from the %{space_name} assembly"
         update: "%{user_name} changed the role of %{resource_name} in the %{space_name} assembly"
+    events:
+      assembly:
+        role_assigned:
+          notification_title: You have been assigned as %{role} for the assembly <a href="%{resource_url}">%{resource_title}</a>
     assemblies:
       admin:
         assemblies:
