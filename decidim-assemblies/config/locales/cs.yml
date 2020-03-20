@@ -4,9 +4,9 @@ cs:
       assembly:
         area_id: Oblast
         assembly_type: Typ shromáždění
-        assembly_type_other: Typ shromáždění jiné
+        assembly_type_other: Typ shromáždění ostatní
         banner_image: Obrázek banneru
-        closing_date: Ukončení
+        closing_date: Datum ukončení
         closing_date_reason: Důvod data ukončení
         composition: Složení
         copy_categories: Kopírovat kategorie
@@ -49,7 +49,7 @@ cs:
         subtitle: Titulky
         target: Kdo se účastní
         title: Titul
-        twitter: Cvrlikání
+        twitter: Twitter
         youtube: Youtube
       assembly_member:
         birthday: Narozeniny
@@ -105,8 +105,8 @@ cs:
           success: Shromáždění úspěšně aktualizováno.
       assemblies_copies:
         create:
-          error: Při kopírování této sestavy došlo k chybě.
-          success: Sestavení úspěšně duplikováno.
+          error: Při kopírování tohoto shromáždění došlo k chybě.
+          success: Shromáždění úspěšně duplikováno.
       assemblies_types:
         create:
           error: Při vytváření nového typu shromáždění došlo k chybě.
@@ -118,6 +118,7 @@ cs:
           title: Nový typ shromáždění
         update:
           error: Při aktualizaci tohoto typu shromáždění došlo k chybě.
+          success: Typ shromáždění byl úspěšně aktualizován.
       assembly_copies:
         new:
           copy: kopírovat
@@ -138,11 +139,11 @@ cs:
           create: Vytvořit
           title: Nový člen shromáždění.
         update:
-          error: Při aktualizaci člena této sestavy došlo k chybě.
+          error: Při aktualizaci člena tohoto shromáždění došlo k chybě.
           success: Člen byl úspěšně aktualizován pro toto shromáždění.
       assembly_publications:
         create:
-          error: Při publikování této sestavy došlo k chybě.
+          error: Při publikování tohoto shromáždění došlo k chybě.
           success: Shromáždění bylo úspěšně zveřejněno.
         destroy:
           error: Při odebrání tohoto shromáždění došlo k chybě.
@@ -150,11 +151,11 @@ cs:
       assembly_user_roles:
         create:
           error: Při přidávání administrátora pro toto shromáždění došlo k chybě.
-          success: Uživatel byl úspěšně přidán do této sestavy.
+          success: Administrátor byl úspěšně přidán do tohoto shromáždění.
         destroy:
-          success: Uživatel byl z tohoto shromáždění úspěšně odstraněn.
+          success: Administrátor byl z tohoto shromáždění úspěšně odstraněn.
         edit:
-          title: Aktualizovat uživatele sestavy.
+          title: Aktualizovat administrátora shromáždění.
           update: Aktualizace
         index:
           assembly_admins_title: Administrátoři shromáždění
@@ -162,7 +163,7 @@ cs:
           create: Vytvořit
           title: Nový administrátor shromáždění.
         update:
-          error: Došlo k chybě uživatele aktualizované pro tuto sestavu.
+          error: Při aktualizaci administrátora pro toto shromáždění došlo k chybě.
           success: Administrátor úspěšně aktualizován pro toto shromáždění.
       menu:
         assemblies: Sestavy
@@ -208,7 +209,7 @@ cs:
             email: E-mailem
             name: název
             role: Role
-          name: Správce shromáždění
+          name: Administrátor shromáždění
           roles:
             admin: Správce
             collaborator: Spolupracovník
@@ -220,17 +221,23 @@ cs:
     admin_log:
       assembly:
         create: "%{user_name} vytvořil %{resource_name} shromáždění"
-        publish: "%{user_name} publikoval %{resource_name} sestavu"
+        publish: "%{user_name} publikoval %{resource_name} shromáždění"
         unpublish: "%{user_name} odebral %{resource_name} shromáždění"
-        update: "%{user_name} aktualizovala sestavu %{resource_name}"
+        update: "%{user_name} aktualizoval shromáždění %{resource_name}"
       assembly_member:
         create: "%{user_name} vytvořil %{resource_name} člena ve shromáždění %{space_name}"
         delete: "%{user_name} odstranil %{resource_name} člena ze shromáždění %{space_name}"
-        update: "%{user_name} aktualizoval %{resource_name} člen v sestavě %{space_name}"
+        update: "%{user_name} aktualizoval %{resource_name} člena v shromáždění %{space_name}"
+      assembly_type:
+        create: "%{user_name} vytvořil typ shromáždění %{resource_name}"
+        delete: "%{user_name} odstranil člena %{resource_name} z typu shromáždění %{space_name}"
+        publish: "%{user_name} publikoval typ shromáždění %{resource_name}"
+        unpublish: "%{user_name} zneveřejnil typ shromáždění %{resource_name}"
+        update: "%{user_name} aktualizoval typ shromáždění %{resource_name}"
       assembly_user_role:
         create: "%{user_name} pozval %{resource_name} do shromáždění %{space_name}"
         delete: "%{user_name} odstranil účastníka %{resource_name} ze shromáždění %{space_name}"
-        update: "%{user_name} změnila roli %{resource_name} v sestavě %{space_name}"
+        update: "%{user_name} změnil roli %{resource_name} ve shromáždění %{space_name}"
     assemblies:
       admin:
         assemblies:
@@ -245,7 +252,7 @@ cs:
             select_a_created_by: Vyberte vytvořenou službu
             select_an_area: Vyberte oblast
             select_an_assembly_type: Vyberte typ shromáždění
-            select_parent_assembly: Vyberte sestavu rodiče
+            select_parent_assembly: Vybrat nadřazené shromáždění
             slug_help: 'URL slimy se používají k vygenerování adres URL, které odkazují na tuto sestavu. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
             social_handlers: Sociální
             title: Obecná informace
@@ -371,6 +378,8 @@ cs:
       value_types:
         assembly_presenter:
           not_found: 'Shromáždění nebylo nalezeno v databázi (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'Typ shromáždění nebyl v databázi nalezen (ID: %{id})'
     menu:
       assemblies: Sestavy
     metrics:

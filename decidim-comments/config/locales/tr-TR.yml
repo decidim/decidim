@@ -4,6 +4,7 @@ tr:
       decidim/comments/comment_by_followed_user_event: Yorum Yap
       decidim/comments/comment_created_event: Yorum Yap
       decidim/comments/reply_created_event: Yorum cevabı
+      decidim/comments/user_group_mentioned_event: Anma
       decidim/comments/user_mentioned_event: Anma
   activerecord:
     models:

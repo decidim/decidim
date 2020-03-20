@@ -27,7 +27,7 @@ module Decidim
           conversation = conversation_between(current_user, @form.recipient)
         end
 
-        return redirect_back(fallback_location: profile_path(current_user.nickname)) unless @form.recipient
+        return redirect_back(fallback_location: profile_path(current_user.nickname)) if @form.recipient.empty?
 
         return redirect_to conversation_path(conversation) if conversation
 
@@ -110,28 +110,6 @@ module Decidim
         return users.pluck(:name).join(", ") unless users.count > 3
 
         "#{users.first(3).pluck(:name).join(", ")} + #{users.count - 3}"
-      end
-
-      def link_to_current_or_new_conversation_with_multiple(users)
-        decidim_routes = Decidim::Core::Engine.routes.url_helpers
-        return decidim_routes.new_user_session_path unless user_signed_in?
-
-        participants = users.to_a.prepend(current_user)
-        conversation = conversation_between_multiple(participants)
-
-        if conversation
-          decidim_routes.conversation_path(conversation)
-        else
-          decidim_routes.new_conversation_path(recipient_id: users.pluck(:id))
-        end
-      end
-
-      def conversation_between_multiple(participants)
-        return if participants.to_set.length <= 1
-
-        UserConversations.for(participants.first).find do |conversation|
-          conversation.participants.to_set == participants.to_set
-        end
       end
     end
   end

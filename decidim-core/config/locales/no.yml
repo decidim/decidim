@@ -426,6 +426,8 @@
           this_application_will_not_be_able_to: 'Dette programmet vil ikke kunne:'
           update_profile: Oppdater profilen din
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> ønsker å bruke profilen din"
+    endorsable:
+      endorsements: Påtegnelser
     errors:
       internal_server_error:
         title: Det oppsto et problem med våre servere
