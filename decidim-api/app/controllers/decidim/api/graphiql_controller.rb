@@ -3,7 +3,7 @@
 module Decidim
   module Api
     # Base controller for `decidim-api`. All other controllers inherit from this.
-    class GraphiqlController < ::GraphiQL::Rails::EditorsController
+    class GraphiQLController < ::GraphiQL::Rails::EditorsController
       include NeedsOrganization
       include ForceAuthentication
 
