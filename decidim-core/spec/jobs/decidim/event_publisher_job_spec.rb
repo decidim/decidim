@@ -38,7 +38,7 @@ describe Decidim::EventPublisherJob do
     let(:event_name) { "some_event" }
     let(:data) do
       {
-          resource: resource
+        resource: resource
       }
     end
 
