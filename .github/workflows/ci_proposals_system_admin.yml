@@ -1,5 +1,17 @@
 name: "[CI] Proposals (system admin)"
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - develop
+      - master
+      - release/*
+      - "*-stable"
+  pull_request:
+    branches:
+      - develop
+      - master
+      - release/*
+      - "*-stable"
 
 env:
   CI: "true"
