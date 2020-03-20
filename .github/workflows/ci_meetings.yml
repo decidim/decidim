@@ -8,10 +8,7 @@ on:
       - "*-stable"
   pull_request:
     branches:
-      - develop
-      - master
-      - release/*
-      - "*-stable"
+      - "*"
 
 env:
   CI: "true"
