@@ -63,10 +63,10 @@ fi:
   activerecord:
     models:
       decidim/participatory_process:
-        one: Osallisuusprosessi
+        one: Osallistumisprosessi
         other: Osallisuusprosessit
       decidim/participatory_process_group:
-        one: Osallisuusprosessiryhmä
+        one: Osallistumisprosessiryhmä
         other: Osallisuusprosessiryhmät
       decidim/participatory_process_step:
         one: Vaihe
@@ -114,7 +114,7 @@ fi:
             promoted: Tärkeää
             published: Julkaistu
             title: Otsikko
-          name: Osallisuusprosessi
+          name: Osallistumisprosessi
         participatory_process_group:
           fields:
             name: Nimi
@@ -124,16 +124,16 @@ fi:
             end_date: Päättymispäivä
             start_date: Alkamispäivä
             title: Otsikko
-          name: Osallisuusprosessin vaihe
+          name: Osallistumisprosessin vaihe
         participatory_process_user_role:
           fields:
             email: Sähköposti
             name: Nimi
             role: Rooli
-          name: Osallisuusprosessin käyttäjä
+          name: Osallistumisprosessin käyttäjä
           roles:
             admin: Järjestelmänvalvoja
-            collaborator: Osallisuuskäyttäjä
+            collaborator: Osallistuva käyttäjä
             moderator: Moderoija
             valuator: Arvon arvioija
         user:
@@ -144,11 +144,11 @@ fi:
         new:
           copy: Kopio
           select: Valitse, mitkä tiedot haluat kopioida
-          title: Kopioi osallisuusprosessi
+          title: Kopioi osallistumisprosessi
       participatory_process_groups:
         destroy:
-          error: Osallisuusprosessien ryhmän poisto epäonnistui.
-          success: Osallisuusprosessien ryhmän poisto onnistui.
+          error: Osallistumisprosessien ryhmän poisto epäonnistui.
+          success: Osallistumisprosessien ryhmän poisto onnistui.
         edit:
           title: Muokkaa prosessiryhmää
           update: Päivitä
@@ -156,23 +156,23 @@ fi:
           create: Luo
           title: Uusi prosessiryhmä
         update:
-          error: Osallisuusprosessien ryhmän päivitys epäonnistui.
-          success: Osallisuusprosessien ryhmän päivitys onnistui.
+          error: Osallistumisprosessien ryhmän päivitys epäonnistui.
+          success: Osallistumisprosessien ryhmän päivitys onnistui.
       participatory_process_imports:
         create:
-          error: Virhe tuotaessa tätä osallisuusprosessia.
-          success: Osallisuusprosessi tuotu onnistuneesti.
+          error: Virhe tuotaessa tätä osallistumisprosessia.
+          success: Osallistumisprosessi tuotu onnistuneesti.
         new:
           import: Tuo
           select: Valitse, mitkä tiedot haluat tuoda
-          title: Tuo osallisuusprosessi
+          title: Tuo osallistumisprosessi
       participatory_process_publications:
         create:
-          error: Osallisuusprosessin julkaisu epäonnistui.
-          success: Osallisuusprosessin julkaisu onnistui.
+          error: Osallistumisprosessin julkaisu epäonnistui.
+          success: Osallistumisprosessin julkaisu onnistui.
         destroy:
-          error: Osallisuusprosessin julkaisun peruminen epäonnistui.
-          success: Osallisuusprosessin julkaisun lopetus onnistui.
+          error: Osallistumisprosessin julkaisun peruminen epäonnistui.
+          success: Osallistumisprosessin julkaisun lopetus onnistui.
       participatory_process_step_activations:
         create:
           error: Osallisuusprosessin vaiheen aktivointi epäonnistui.
