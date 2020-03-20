@@ -193,13 +193,11 @@ pl:
         destroy:
           success: Użytkownik usunięty pomyślnie z tego procesu uczestnictwa.
         edit:
-          title: Zaktualizuj uczestniczącego użytkownika procesu.
           update: Aktualizuj
         index:
           process_admins_title: Uczestniczący użytkownicy procesu
         new:
           create: Utwórz
-          title: Nowy użytkownik procesu partycypacyjnego.
         update:
           error: Wystąpił błąd podczas aktualizacji użytkownika dla tego procesu uczestnictwa.
           success: Użytkownik zaktualizował się pomyślnie dla tego procesu partycypacyjnego.

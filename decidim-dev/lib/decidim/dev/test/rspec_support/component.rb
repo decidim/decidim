@@ -64,6 +64,7 @@ module Decidim
       include Amendable
       include Decidim::NewsletterParticipant
       include Hashtaggable
+      include ::Decidim::Endorsable
 
       searchable_fields(
         scope_id: { scope: :id },
@@ -146,6 +147,8 @@ Decidim.register_component(:dummy) do |component|
     settings.attribute :amendment_reaction_enabled, type: :boolean, default: true
     settings.attribute :amendment_promotion_enabled, type: :boolean, default: true
     settings.attribute :amendments_visibility, type: :string, default: "all"
+    settings.attribute :endorsements_enabled, type: :boolean, default: false
+    settings.attribute :endorsements_blocked, type: :boolean, default: false
   end
 
   component.register_resource(:dummy_resource) do |resource|
@@ -186,6 +189,7 @@ RSpec.configure do |config|
           t.float :longitude
           t.datetime :published_at
           t.integer :coauthorships_count, null: false, default: 0
+          t.integer :endorsements_count, null: false, default: 0
 
           t.references :decidim_component, index: false
           t.integer :decidim_author_id, index: false

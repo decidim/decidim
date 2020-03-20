@@ -351,6 +351,8 @@ ru:
           this_application_will_not_be_able_to: 'Это приложение не сможет:'
           update_profile: Обновить свой профиль
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> желает использовать вашу учетную запись"
+    endorsable:
+      endorsements: Выражений поддержки
     errors:
       internal_server_error:
         title: При попытке связи с нашим сервером произошла ошибка

@@ -37,6 +37,12 @@
               <%= sort_link(query, :state, [:state, :is_emendation], t("models.proposal.fields.state", scope: "decidim.proposals") ) %>
             </th>
 
+            <% unless current_settings.publish_answers_immediately? %>
+              <th>
+                <%= sort_link(query, :state_published, t("models.proposal.fields.published_answer", scope: "decidim.proposals") ) %>
+              </th>
+            <% end %>
+
             <% if current_settings.votes_enabled? %>
               <th>
                 <%= sort_link(query, :proposal_votes_count, t("models.proposal.fields.votes", scope: "decidim.proposals") ) %>

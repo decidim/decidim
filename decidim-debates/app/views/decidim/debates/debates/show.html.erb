@@ -14,6 +14,12 @@ edit_link(
 %>
 
 <div class="row column view-header">
+
+  <%= link_to :debates, class: "small hollow" do %>
+    <%= icon "chevron-left", class: "icon--small" %>
+    <%= t(".back") %>
+  <% end %>
+
   <h2 class="heading2">
     <%== present(debate).title %>
   </h2>

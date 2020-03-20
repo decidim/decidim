@@ -187,13 +187,11 @@ pt:
         destroy:
           success: Usuário removido com sucesso deste processo participativo.
         edit:
-          title: Atualize o usuário do processo participativo.
           update: Atualizar
         index:
           process_admins_title: Usuários do processo participativo
         new:
           create: Criar
-          title: Novo usuário do processo participativo.
         update:
           error: Ocorreu um erro ao atualizar um usuário para esse processo participativo.
           success: Usuário atualizado com sucesso para este processo participativo.

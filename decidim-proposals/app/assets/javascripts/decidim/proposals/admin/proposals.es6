@@ -4,17 +4,30 @@ $(document).ready(function () {
     return $('.table-list .js-check-all-proposal:checked').length
   }
 
+  let selectedProposalsNotPublishedAnswerCount = function() {
+    return $('.table-list [data-published-state=false] .js-check-all-proposal:checked').length
+  }
+
   window.selectedProposalsCountUpdate = function() {
-    if(selectedProposalsCount() == 0){
+    const selectedProposals = selectedProposalsCount();
+    const selectedProposalsNotPublishedAnswer = selectedProposalsNotPublishedAnswerCount();
+    if(selectedProposals == 0){
       $("#js-selected-proposals-count").text("")
     } else {
-      $("#js-selected-proposals-count").text(selectedProposalsCount());
+      $("#js-selected-proposals-count").text(selectedProposals);
     }
 
-    if(selectedProposalsCount() >= 2) {
+    if(selectedProposals >= 2) {
       $('button[data-action="merge-proposals"]').parent().show();
     } else {
       $('button[data-action="merge-proposals"]').parent().hide();
+    }
+
+    if(selectedProposalsNotPublishedAnswer > 0) {
+      $('button[data-action="publish-answers"]').parent().show();
+      $('#js-form-publish-answers-number').text(selectedProposalsNotPublishedAnswer);
+    } else {
+      $('button[data-action="publish-answers"]').parent().hide();
     }
   }
 

@@ -31,10 +31,6 @@ module Decidim
           can_edit_proposal?
         when :withdraw
           can_withdraw_proposal?
-        when :endorse
-          can_endorse_proposal?
-        when :unendorse
-          can_unendorse_proposal?
         when :amend
           can_create_amendment?
         when :vote
@@ -47,7 +43,7 @@ module Decidim
       end
 
       def proposal
-        @proposal ||= context.fetch(:proposal, nil)
+        @proposal ||= context.fetch(:proposal, nil) || context.fetch(:resource, nil)
       end
 
       def voting_enabled?
@@ -80,23 +76,6 @@ module Decidim
 
       def can_withdraw_proposal?
         toggle_allow(proposal && proposal.authored_by?(user))
-      end
-
-      def can_endorse_proposal?
-        is_allowed = proposal &&
-                     authorized?(:endorse, resource: proposal) &&
-                     current_settings&.endorsements_enabled? &&
-                     !current_settings&.endorsements_blocked?
-
-        toggle_allow(is_allowed)
-      end
-
-      def can_unendorse_proposal?
-        is_allowed = proposal &&
-                     authorized?(:endorse, resource: proposal) &&
-                     current_settings&.endorsements_enabled?
-
-        toggle_allow(is_allowed)
       end
 
       def can_create_amendment?
