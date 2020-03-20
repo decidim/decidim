@@ -1,5 +1,5 @@
 name: "[CI] Sortitions"
-on: [push]
+on: [push, pull_request]
 
 env:
   CI: "true"
