@@ -138,6 +138,7 @@ hu:
         invite: "%{user_name} meghívta %{resource_name} felhasználót (szerep: %{role})"
         officialize: "%{user_name} hivatalossá tette %{resource_name} felhasználót"
         remove_from_admin: "%{user_name} eltávolította %{resource_name} felhasználót, %{role} szereppel"
+        show_email: "%{user_name} lekérdezte a(z) %{resource_name} résztvevő e-mailjét"
         unofficialize: "%{user_name} visszavonta %{resource_name} hivatalosságát"
       user_group:
         reject: "%{user_name} elutasította a(z) %{resource_name} felhasználói csoport ellenőrzését"
