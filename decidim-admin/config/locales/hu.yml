@@ -563,12 +563,20 @@ hu:
           officialize: Hivatalossá tétel
           officialized: Hivatalos
           reofficialize: Újbóli hivatalossá tétel
+          show_email: E-mail cím megjelenítése
           status: Állapot
           unofficialize: Hivatalossá tétel visszavonása
         new:
           badge: A hitelesítés jelvénye
           officialize: Hivatalossá tétel
           title: '"%{name}" hivatalossá tétele'
+        show_email_modal:
+          description: Ha közvetlenül kapcsolatba kell lépnie egy résztvevővel, akkor kattintson a Megjelenítés gombra az e-mail cím megtekintéséhez. Ez a művelet naplózásra kerül.
+          email_address: E-mail cím
+          full_name: Teljes név
+          hidden: rejtett
+          show: Megjelenítés
+          title: A résztvevő e-mail címének megjelenítése
       organization:
         edit:
           title: Szervezet szerkesztése
