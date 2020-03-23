@@ -68,8 +68,8 @@ en:
       questionnaires:
         answer:
           invalid: There was a problem answering the form.
-          success: Form successfully answered.
           max_choices_alert: There are too many choices selected
+          success: Form successfully answered.
         question:
           max_choices: 'Max choices: %{n}'
         show:
