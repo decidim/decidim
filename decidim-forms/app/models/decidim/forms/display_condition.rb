@@ -17,11 +17,11 @@ module Decidim
         when "not_answered"
           answer.blank?
         when "equal"
-          answer.choices.pluck(:decidim_answer_option_id).include?(answer_option.id)
+          answer.present? ? answer.choices.pluck(:decidim_answer_option_id).include?(answer_option.id) : false
         when "not_equal"
-          !answer.choices.pluck(:decidim_answer_option_id).include?(answer_option.id)
+          answer.present? ? !answer.choices.pluck(:decidim_answer_option_id).include?(answer_option.id) : true
         when "match"
-          condition_value.values.any? { |value| answer.body.match?(Regexp.new(value, Regexp::IGNORECASE)) }
+          answer.present? ? condition_value.values.any? { |value| answer.body.match?(Regexp.new(value, Regexp::IGNORECASE)) } : false
         end
       end
 
