@@ -422,6 +422,8 @@ ca:
           this_application_will_not_be_able_to: 'Aquesta aplicació no podrà:'
           update_profile: Actualitza el teu perfil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> vol utilitzar el teu compte"
+    endorsable:
+      endorsements: Adhesions
     errors:
       internal_server_error:
         title: Hi ha hagut un problema amb el nostre servidor
@@ -580,6 +582,7 @@ ca:
       create:
         button: Seguir
         error: S'ha produït un error en seguir aquest recurs.
+        participatory_space: Seguint
       destroy:
         button: Deixar de seguir
         error: S'ha produït un error en deixar de seguir aquest recurs.
@@ -864,7 +867,7 @@ ca:
           participate: Participa
           welcome: Benvinguda a %{organization}!
         metrics:
-          headline: Participació en xifres
+          headline: Mètriques
         statistics:
           answers_count: Enquestes realitzades
           assemblies_count: Assemblees
@@ -894,8 +897,8 @@ ca:
         topics: Temes
       participatory_space:
         metrics:
-          headline: Participació en xifres
-          link: Mostra totes les estadístiques
+          headline: Mètriques
+          link: Mostra totes les mètriques
       terms_and_conditions:
         accept:
           error: S'ha produït un error en acceptar els Termes i Condicions.

@@ -16,6 +16,12 @@ edit_link(
 %>
 
 <div class="row column view-header">
+
+  <%= link_to :meetings, class: "small hollow" do %>
+    <%= icon "chevron-left", class: "icon--small" %>
+    <%= t(".back") %>
+  <% end %>
+
   <h2 class="heading2"><%= present(meeting).title(links: true) %></h2>
   <% if meeting.organizer.present? %>
     <%= cell "decidim/author", present(meeting.organizer) %>

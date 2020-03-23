@@ -19,4 +19,6 @@
   <% if current_component.categories.any? %>
     <%= form.check_boxes_tree :category_id, filter_categories_values, legend_title: t(".category") %>
   <% end %>
+
+  <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
 <% end %>

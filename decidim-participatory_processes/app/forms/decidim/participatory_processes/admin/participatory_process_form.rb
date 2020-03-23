@@ -35,6 +35,7 @@ module Decidim
         attribute :private_space, Boolean
         attribute :promoted, Boolean
         attribute :scopes_enabled, Boolean
+        attribute :show_metrics, Boolean
         attribute :show_statistics, Boolean
 
         attribute :end_date, Decidim::Attributes::LocalizedDate

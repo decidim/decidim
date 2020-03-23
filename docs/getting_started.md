@@ -67,7 +67,7 @@ Then create a development application
 ```console
 d/bundle install
 d/rake development_app
-d/rails server
+d/rails server -b 0.0.0.0
 ```
 
 In general, to use the docker development environment, change any instruction in

@@ -40,8 +40,12 @@ module Decidim
       # `export.collection.call(artifact_type)` and, when evaluated,
       # will get passed an instance of the parent artifact type,
       # `Decidim::ParticipatorySpace` or `Decidim::Component` for example,
-      # so you can easily find the elements to export. The +collection block+
-      # in the end should return the collection of elements to be serialized.
+      # so you can easily find the elements to export.  It also receives, as a
+      # second parameter, the user triggering the action, in case you need to
+      # filter the collection based on the user.
+      #
+      # The +collection block+ in the end should return the collection of
+      # elements to be serialized.
       #
       # &block - An optional block that returns the collection once evaluated.
       #
