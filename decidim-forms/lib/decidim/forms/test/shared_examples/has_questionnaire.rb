@@ -1032,7 +1032,31 @@ shared_examples_for "has questionnaire" do
           end
         end
 
-        context "when a mandatory question has conditions that have not been fulfilled"
+        context "when a mandatory question has conditions that have not been fulfilled" do
+          let!(:condition_question_type) { "short_answer" }
+          let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 2, mandatory: true) }
+          let!(:display_conditions) do
+            [
+              create(:display_condition,
+                     condition_type: "answered",
+                     question: question,
+                     condition_question: condition_question,
+                     mandatory: true)
+            ]
+          end
+
+          it "doesn't throw error" do
+            fill_in question.body["en"], with: "My first answer"
+
+            check "questionnaire_tos_agreement"
+
+            accept_confirm { click_button "Submit" }
+
+            within ".success.flash" do
+              expect(page).to have_content("successfully")
+            end
+          end
+        end
       end
 
       private
