@@ -30,7 +30,7 @@ module Decidim
           content_block.save!
         end
 
-        broadcast(:ok)
+        broadcast(:ok, content_block)
       end
 
       private

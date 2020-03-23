@@ -7,7 +7,7 @@ module Decidim
       include Decidim::NewslettersHelper
       include Decidim::Admin::NewslettersHelper
       include Paginable
-      helper_method :newsletter, :recipients_count_query
+      helper_method :newsletter, :recipients_count_query, :content_block
 
       def index
         enforce_permission_to :index, :newsletter
@@ -17,7 +17,7 @@ module Decidim
 
       def new
         enforce_permission_to :create, :newsletter
-        @form = form(NewsletterForm).instance
+        @form = form(NewsletterForm).from_model(content_block)
       end
 
       def show
@@ -37,10 +37,10 @@ module Decidim
         enforce_permission_to :create, :newsletter
         @form = form(NewsletterForm).from_params(params)
 
-        CreateNewsletter.call(@form, current_user) do
-          on(:ok) do |newsletter|
+        CreateNewsletter.call(@form, content_block, current_user) do
+          on(:ok) do |_newsletter|
             flash.now[:notice] = I18n.t("newsletters.create.success", scope: "decidim.admin")
-            redirect_to action: :show, id: newsletter.id
+            redirect_to action: :index
           end
 
           on(:invalid) do |newsletter|
@@ -137,6 +137,18 @@ module Decidim
       def recipients_count_query
         @form ||= form(SelectiveNewsletterForm).instance
         NewsletterRecipients.for(@form).size
+      end
+
+      def content_block
+        @content_block ||= content_block_from_manifest
+      end
+
+      def content_block_from_manifest
+        Decidim::ContentBlock.new(
+          organization: current_organization,
+          scope: :newsletter_template,
+          manifest_name: params[:newsletter_template_id]
+        )
       end
     end
   end
