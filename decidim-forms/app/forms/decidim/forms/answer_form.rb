@@ -16,8 +16,6 @@ module Decidim
       validate :max_choices, if: -> { question.max_choices }
       validate :all_choices, if: -> { question.question_type == "sorting" }
 
-      delegate :mandatory_body?, :mandatory_choices?, to: :question
-
       attr_writer :question
 
       def question
@@ -48,6 +46,21 @@ module Decidim
       end
 
       private
+
+      def conditions_fulfilled
+        question.display_conditions.all? do |condition|
+          answer = question.questionnaire.answers.find_by(question: condition.condition_question)
+          condition.fulfilled?(answer)
+        end
+      end
+
+      def mandatory_body?
+        question.mandatory_body? if conditions_fulfilled
+      end
+
+      def mandatory_choices?
+        question.mandatory_choices? if conditions_fulfilled
+      end
 
       def max_choices
         errors.add(:choices, :too_many) if selected_choices.size > question.max_choices
