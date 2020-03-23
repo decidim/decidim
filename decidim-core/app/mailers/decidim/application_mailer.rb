@@ -5,6 +5,7 @@ module Decidim
   # mailers.
   class ApplicationMailer < ActionMailer::Base
     include LocalisedMailer
+    include MultitenantAssetHost
     after_action :set_smtp
 
     default from: Decidim.config.mailer_sender
