@@ -1038,15 +1038,18 @@ shared_examples_for "has questionnaire" do
           let!(:display_conditions) do
             [
               create(:display_condition,
-                     condition_type: "answered",
+                     condition_type: "match",
                      question: question,
                      condition_question: condition_question,
+                     condition_value: { en: "hey", es: "ey", ca: "ei" },
                      mandatory: true)
             ]
           end
 
           it "doesn't throw error" do
-            fill_in question.body["en"], with: "My first answer"
+            visit questionnaire_public_path
+
+            fill_in condition_question.body["en"], with: "My first answer"
 
             check "questionnaire_tos_agreement"
 
