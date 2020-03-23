@@ -97,6 +97,9 @@ en:
           questionnaire_for_private_users:
             body: The form is available only for private users
             title: Form closed
+          questionnaire_js_disabled:
+            body: Some of this form's features will be disabled. To improve your experience, please enable JavaScript in your browser.
+            title: JavaScript is disabled
           submit: Submit
           tos_agreement: By participating you accept its Terms of Service
       user_answers_serializer:

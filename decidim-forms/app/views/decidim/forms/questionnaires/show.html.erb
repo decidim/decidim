@@ -29,6 +29,14 @@
               </div>
             <% else %>
               <div class="answer-questionnaire">
+                <noscript>
+                  <div class="section">
+                    <div class="callout warning">
+                      <h5><%= t(".questionnaire_js_disabled.title") %></h5>
+                      <p><%= t(".questionnaire_js_disabled.body") %></p>
+                    </div>
+                  </div>
+                </noscript>
                 <% unless current_participatory_space.can_participate?(current_user) %>
                   <div class="section">
                     <div class="callout alert">
