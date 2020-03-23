@@ -19,7 +19,7 @@
       controllerFieldSelector: "input[type=checkbox]",
       controllerCollectionSelector: ".check-box-collection",
       alertElement: $(el).find(".max-choices-alert"),
-      maxChoices: $(el).data('max-choices')
+      maxChoices: $(el).data("max-choices")
     })
   });
 

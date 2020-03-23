@@ -16,8 +16,8 @@
 
       let alert = false;
 
-      rows.each((idx, row) => {
-        const checked = $(row).find(this.controllerFieldSelector).filter((idx, checkbox) => $(checkbox).is(":checked"));
+      rows.each((rowIdx, row) => {
+        const checked = $(row).find(this.controllerFieldSelector).filter((checkboxIdx, checkbox) => $(checkbox).is(":checked"));
 
         alert = alert || checked.length > this.maxChoices;
       });
