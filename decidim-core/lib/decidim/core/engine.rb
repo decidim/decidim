@@ -303,7 +303,7 @@ module Decidim
         end
       end
 
-      initializer "decidim.core.content_blocks" do
+      initializer "decidim.core.homepage_content_blocks" do
         Decidim.content_blocks.register(:homepage, :hero) do |content_block|
           content_block.cell = "decidim/content_blocks/hero"
           content_block.settings_form_cell = "decidim/content_blocks/hero_settings_form"
@@ -372,6 +372,20 @@ module Decidim
           content_block.settings do |settings|
             settings.attribute :html_content, type: :text, translated: true
           end
+        end
+      end
+
+      initializer "decidim.core.newsletter_templates" do
+        Decidim.content_blocks.register(:newsletter_template, :basic_only_text) do |content_block|
+          content_block.cell = "decidim/newsletter_templates/basic_only_text"
+          content_block.settings_form_cell = "decidim/newsletter_templates/basic_only_text_settings_form"
+          content_block.public_name_key = "decidim.newsletter_templates.basic_only_text.name"
+
+          content_block.settings do |settings|
+            settings.attribute :body, type: :text, translated: true
+          end
+
+          content_block.default!
         end
       end
 
