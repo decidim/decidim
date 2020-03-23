@@ -472,6 +472,10 @@ en:
             does_not_belong: Does not belong
             offensive: Offensive
             spam: Spam
+      newsletter_templates:
+        index:
+          title: Newsletter templates
+          use_template: Use this template
       newsletters:
         create:
           error: There was a problem creating this newsletter.

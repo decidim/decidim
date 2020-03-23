@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t ".title" %>
+    </h2>
+  </div>
+  <div class="card-section">
+    <% templates.each do |newsletter_template| %>
+      <p>
+        <%= newsletter_template.name %>
+        &nbsp;
+        <%= link_to(t(".use_template"), new_newsletter_template_newsletter_path(newsletter_template.name)) %>
+      </p>
+    <% end %>
+  </div>
+</div>
