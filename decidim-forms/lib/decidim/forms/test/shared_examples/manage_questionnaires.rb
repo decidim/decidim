@@ -624,12 +624,14 @@ shared_examples_for "manage questionnaires" do
     end
 
     context "when a questionnaire has an existing question with matrix rows" do
+      let!(:other_question) { create(:questionnaire_question, questionnaire: questionnaire, position: 1) }
       let!(:question) do
         create(
           :questionnaire_question,
           questionnaire: questionnaire,
           body: body,
           question_type: "matrix_single",
+          position: 2,
           options: [
             { "body" => { "en" => "cacarua" } },
             { "body" => { "en" => "cat" } },
@@ -656,13 +658,15 @@ shared_examples_for "manage questionnaires" do
 
         visit questionnaire_edit_path
 
-        expect(page).to have_selector(".questionnaire-question-matrix-row", count: 2)
-        expect(page).to have_selector(".questionnaire-question-answer-option", count: 2)
+        within ".questionnaire-question:last-of-type" do
+          expect(page).to have_selector(".questionnaire-question-matrix-row", count: 2)
+          expect(page).to have_selector(".questionnaire-question-answer-option", count: 3)
+        end
       end
 
       it "still removes the question even if previous editions rendered the rows invalid" do
         within "form.edit_questionnaire" do
-          expect(page).to have_selector(".questionnaire-question", count: 1)
+          expect(page).to have_selector(".questionnaire-question", count: 2)
 
           within ".questionnaire-question-matrix-row:first-of-type" do
             fill_in find_nested_form_field_locator("body_en"), with: ""
@@ -680,7 +684,7 @@ shared_examples_for "manage questionnaires" do
         visit questionnaire_edit_path
 
         within "form.edit_questionnaire" do
-          expect(page).to have_selector(".questionnaire-question", count: 0)
+          expect(page).to have_selector(".questionnaire-question", count: 1)
         end
       end
     end
