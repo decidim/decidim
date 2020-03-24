@@ -64,14 +64,14 @@ module Decidim
       def endorsements_count_status
         return endorsements_count unless has_link_to_resource?
 
-        link_to resource_path, title: t("decidim.proposals.models.proposal.fields.endorsements") do
+        link_to resource_path do
           endorsements_count
         end
       end
 
       def endorsements_count
         with_tooltip t("decidim.endorsable.endorsements") do
-          icon("bullhorn", class: "icon--small", role: "img") + " " + model.endorsements_count.to_s
+          icon("bullhorn", class: "icon--small") + " " + model.endorsements_count.to_s
         end
       end
 

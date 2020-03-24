@@ -47,14 +47,6 @@ module Decidim
         end
       end
 
-      def render_stats_data(component_manifest, name, data, index)
-        safe_join([
-                    index.zero? ? manifest_icon(component_manifest, role: "img") : " /&nbsp".html_safe,
-                    content_tag(:span, "#{number_with_delimiter(data)} " + I18n.t(name, scope: "decidim.participatory_processes.statistics"),
-                                class: "#{name} process_stats-text")
-                  ])
-      end
-
       def process_followers_stats(conditions)
         Decidim.stats.only([:followers_count])
                .filter(conditions)

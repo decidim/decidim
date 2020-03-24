@@ -661,7 +661,6 @@ en:
           fields:
             category: Category
             comments: Comments
-            endorsements: Endorsements
             id: ID
             notes: Notes
             official_proposal: Official proposal
