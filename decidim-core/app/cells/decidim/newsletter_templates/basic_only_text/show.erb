@@ -16,7 +16,7 @@
               <tr>
                 <th>
                   <center>
-                    <%= render partial: "layouts/decidim/mailer_logo", locals: { organization: @organization } %>
+                    <%= render partial: "layouts/decidim/mailer_logo.html", locals: { organization: organization } %>
                   </center>
                 </th>
               </tr>
@@ -26,9 +26,9 @@
             <table>
               <tr>
                 <th>
-                  <% if @organization.official_img_header? %>
-                    <%= link_to @organization.official_url do %>
-                      <%= image_tag @organization.official_img_header.url.to_s , alt: "", style: "max-height: 50px", class: "float-right" %>
+                  <% if organization.official_img_header? %>
+                    <%= link_to organization.official_url do %>
+                      <%= image_tag organization.official_img_header.url.to_s , alt: "", style: "max-height: 50px", class: "float-right" %>
                     <% end %>
                   <% end %>
                 </th>
@@ -53,7 +53,7 @@
       <table class="row content">
         <tr>
           <th class="small-12 first columns">
-            <%= yield %>
+            <%= body %>
           </th>
           <th class="expander"></th>
         </tr>
@@ -73,9 +73,9 @@
           <th class="small-12 first columns cityhall-bar">
             <div class="decidim-logo" style="float: right; text-align: right; padding-right: 16px">
               <% if @custom_url_for_mail_root.present? %>
-                <%= link_to @organization.name.html_safe, @custom_url_for_mail_root %>
+                <%= link_to organization.name.html_safe, @custom_url_for_mail_root %>
               <% else %>
-                <%= link_to @organization.name.html_safe, decidim.root_url(host: @organization.host) %>
+                <%= link_to organization.name.html_safe, decidim.root_url(host: organization.host) %>
               <% end %>
             </div>
           </th>
