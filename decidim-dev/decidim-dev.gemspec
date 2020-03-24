@@ -45,4 +45,5 @@ Gem::Specification.new do |s|
   s.add_dependency "system_test_html_screenshots", "~> 0.1.1"
   s.add_dependency "webmock", "~> 3.6"
   s.add_dependency "wisper-rspec", "~> 1.0"
+  s.add_dependency "rspec-retry", "~> 0.6.2"
 end
