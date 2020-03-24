@@ -35,6 +35,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rspec-cells", "~> 0.3.4"
   s.add_dependency "rspec-html-matchers", "~> 0.9.1"
   s.add_dependency "rspec-rails", "~> 3.7"
+  s.add_dependency "rspec-retry", "~> 0.6.2"
   s.add_dependency "rspec_junit_formatter", "~> 0.3.0"
   s.add_dependency "rubocop", "~> 0.71.0"
   s.add_dependency "rubocop-rails", "~> 2.0"
@@ -45,5 +46,4 @@ Gem::Specification.new do |s|
   s.add_dependency "system_test_html_screenshots", "~> 0.1.1"
   s.add_dependency "webmock", "~> 3.6"
   s.add_dependency "wisper-rspec", "~> 1.0"
-  s.add_dependency "rspec-retry", "~> 0.6.2"
 end
