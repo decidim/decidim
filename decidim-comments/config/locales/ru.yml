@@ -4,6 +4,7 @@ ru:
       decidim/comments/comment_by_followed_user_event: Комментарий
       decidim/comments/comment_created_event: Комментарий
       decidim/comments/reply_created_event: Ответ на комментарий
+      decidim/comments/user_group_mentioned_event: Упоминание
       decidim/comments/user_mentioned_event: Упоминание
   activerecord:
     models:

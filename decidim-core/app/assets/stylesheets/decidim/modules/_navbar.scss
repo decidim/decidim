@@ -437,14 +437,18 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
   }
 }
 
-.topbar__edit__link a{
-  color: $medium-gray;
+.topbar__admin__link{
+  a{
+    color: $medium-gray;
 
-  &:hover,
-  &:focus{
-    background: $navbar-bg-hover;
-    color: $navbar-color-hover;
-    text-decoration: underline;
+    &:hover{
+      background: $navbar-bg-hover;
+      color: $navbar-color-hover;
+    }
+  }
+
+  ~ .topbar__admin__link{
+    margin-left: 1rem;
   }
 }
 

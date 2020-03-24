@@ -12,9 +12,9 @@ module Decidim
         translatable_attribute :cost_report, String
         translatable_attribute :execution_period, String
         attribute :cost, Float
-        attribute :state, String
+        attribute :internal_state, String
 
-        validates :state, presence: true, inclusion: { in: %w(accepted rejected evaluating) }
+        validates :internal_state, presence: true, inclusion: { in: %w(accepted rejected evaluating) }
         validates :answer, translatable_presence: true, if: ->(form) { form.state == "rejected" }
 
         with_options if: :costs_required? do
@@ -23,8 +23,14 @@ module Decidim
           validates :execution_period, translatable_presence: true
         end
 
+        alias state internal_state
+
         def costs_required?
           costs_enabled? && state == "accepted"
+        end
+
+        def publish_answer?
+          current_component.current_settings.publish_answers_immediately?
         end
 
         private

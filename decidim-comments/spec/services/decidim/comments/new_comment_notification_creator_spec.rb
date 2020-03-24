@@ -108,6 +108,141 @@ describe Decidim::Comments::NewCommentNotificationCreator do
     end
   end
 
+  context "when the author mentions a group" do
+    subject { described_class.new(comment, mentioned_users, mentioned_groups) }
+
+    let(:group) { create :user_group, organization: organization, users: [another_mentioned_user] }
+    let(:mentioned_users) { [] }
+    let(:mentioned_groups) do
+      Decidim::UserGroup.where(
+        id: [
+          group.id
+        ]
+      )
+    end
+    let(:affected_group_users) do
+      Decidim::User.where(
+        id: [
+          mentioned_user.id,
+          another_mentioned_user.id
+        ]
+      )
+    end
+    let(:role) { :member }
+    let!(:pending_membership) { create(:user_group_membership, user: mentioned_user, user_group: group, role: role) }
+
+    it "notifies the group members" do
+      expect(Decidim::EventsManager)
+        .to receive(:publish)
+        .once
+        .ordered
+        .with(
+          event: "decidim.events.comments.user_group_mentioned",
+          event_class: Decidim::Comments::UserGroupMentionedEvent,
+          resource: dummy_resource,
+          affected_users: a_collection_containing_exactly(*affected_group_users),
+          extra: {
+            comment_id: comment.id,
+            group: group
+          }
+        )
+      expect(Decidim::EventsManager)
+        .to receive(:publish)
+        .twice
+        .ordered
+
+      subject.create
+    end
+
+    context "and also mentions a member of the group" do
+      let(:mentioned_users) do
+        Decidim::User.where(
+          id: [
+            mentioned_user.id
+          ]
+        )
+      end
+      let(:affected_group_users) do
+        Decidim::User.where(
+          id: [
+            another_mentioned_user.id
+          ]
+        )
+      end
+
+      it "the user mentioned does not get notified as a group member" do
+        expect(Decidim::EventsManager)
+          .to receive(:publish)
+          .once
+          .ordered
+          .with(
+            event: "decidim.events.comments.user_mentioned",
+            event_class: Decidim::Comments::UserMentionedEvent,
+            resource: dummy_resource,
+            affected_users: a_collection_containing_exactly(*mentioned_users),
+            extra: {
+              comment_id: comment.id
+            }
+          )
+        expect(Decidim::EventsManager)
+          .to receive(:publish)
+          .once
+          .ordered
+          .with(
+            event: "decidim.events.comments.user_group_mentioned",
+            event_class: Decidim::Comments::UserGroupMentionedEvent,
+            resource: dummy_resource,
+            affected_users: a_collection_containing_exactly(*affected_group_users),
+            extra: {
+              comment_id: comment.id,
+              group: group
+            }
+          )
+        expect(Decidim::EventsManager)
+          .to receive(:publish)
+          .twice
+          .ordered
+
+        subject.create
+      end
+    end
+
+    context "and a member of the group is not accepted" do
+      let(:role) { :invited }
+      let(:affected_group_users) do
+        Decidim::User.where(
+          id: [
+            another_mentioned_user.id
+          ]
+        )
+      end
+
+      it "the not accepted member is not notified" do
+        expect(Decidim::EventsManager)
+          .to receive(:publish)
+          .once
+          .ordered
+          .with(
+            event: "decidim.events.comments.user_group_mentioned",
+            event_class: Decidim::Comments::UserGroupMentionedEvent,
+            resource: dummy_resource,
+            affected_users: a_collection_containing_exactly(*affected_group_users),
+            extra: {
+              comment_id: comment.id,
+              group: group
+            }
+          )
+
+        expect(Decidim::EventsManager)
+          .to receive(:publish)
+          .twice
+          .ordered
+
+        subject.create
+      end
+    end
+  end
+
   it "notifies the followers of the author" do
     expect(Decidim::EventsManager)
       .to receive(:publish)

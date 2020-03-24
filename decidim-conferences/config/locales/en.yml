@@ -184,6 +184,7 @@ en:
             admin: Administrator
             collaborator: Collaborator
             moderator: Moderator
+            valuator: Valuator
         media_link:
           fields:
             date: Date

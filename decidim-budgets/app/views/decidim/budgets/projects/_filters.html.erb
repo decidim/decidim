@@ -25,4 +25,6 @@
                                prompt: t(".category_prompt"),
                                aria_label: t(".category") %>
   <% end %>
+
+  <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
 <% end %>

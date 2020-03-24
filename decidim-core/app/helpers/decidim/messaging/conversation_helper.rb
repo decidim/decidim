@@ -7,21 +7,33 @@ module Decidim
       # Links to the conversation between the current user and another user
       #
       def link_to_current_or_new_conversation_with(user, title = t("decidim.contact"))
-        link_to current_or_new_conversation_path_with(user), title: title do
-          icon "envelope-closed", aria_label: title, class: "icon--small"
+        conversation_path = current_or_new_conversation_path_with(user)
+        if conversation_path
+          link_to conversation_path, title: title do
+            icon "envelope-closed", aria_label: title, class: "icon--small"
+          end
+        else
+          content_tag :span, title: t("decidim.user_contact_disabled"), data: { tooltip: true } do
+            icon "envelope-closed", aria_label: title, class: "icon--small muted"
+          end
         end
       end
 
       #
       # Finds the right path to the conversation the current user and another
-      # user.
+      # user (the interlocutor).
       #
       # * If there's no current user, it returns to the login form path.
       #
-      # * If there's no prior existing conversation between the users, it
-      #   returns the new conversation form path.
+      # * If there's a prior existing conversation between the users it returns
+      #   the path to the existing conversation.
       #
-      # * Otherwise, it returns the path to the existing conversation.
+      # * If there's no prior conversation between the users, it checks if the
+      #   the interlocutor accepts the current user to new conversation.
+      #   If affirmative, it returns the new conversation form path.
+      #
+      # * Otherwise returns nil, meaning that no conversation can be established
+      #   with the interlocutor
       #
       # @param user [Decidim::User] The user to link to a conversation with
       #
@@ -35,7 +47,7 @@ module Decidim
 
         if conversation
           decidim_routes.conversation_path(conversation)
-        else
+        elsif user.accepts_conversation?(current_user)
           decidim_routes.new_conversation_path(recipient_id: user.id)
         end
       end

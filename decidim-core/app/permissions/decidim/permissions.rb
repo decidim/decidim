@@ -21,6 +21,7 @@ module Decidim
       conversation_action?
       user_group_action?
       user_group_invitations_action?
+      apply_endorsement_permissions if permission_action.subject == :endorsement
 
       permission_action
     end
@@ -104,6 +105,12 @@ module Decidim
       toggle_allow(amendment&.amender == user)
     end
 
+    def apply_endorsement_permissions
+      return disallow! if !current_settings.endorsements_enabled || current_settings.endorsements_blocked
+
+      allow!
+    end
+
     def notification_action?
       return unless permission_action.subject == :notification
       return allow! if permission_action.action == :read
@@ -114,10 +121,15 @@ module Decidim
 
     def conversation_action?
       return unless permission_action.subject == :conversation
-      return allow! if [:create, :list].include?(permission_action.action)
+      return allow! if permission_action.action == :list
 
-      conversation = context.fetch(:conversation, nil)
-      toggle_allow(conversation.participants.include?(user))
+      conversation = context.fetch(:conversation)
+
+      if [:create, :update].include?(permission_action.action)
+        return disallow! unless conversation&.accept_user? user
+      end
+
+      toggle_allow(conversation&.participants&.include?(user))
     end
 
     def user_group_action?

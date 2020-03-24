@@ -11,6 +11,7 @@ module Decidim
   # depending on the response it allows the creation of the authorization or
   # not.
   class Authorization < ApplicationRecord
+    include Decidim::Traceable
     mount_uploader :verification_attachment, Decidim::Verifications::AttachmentUploader
 
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
