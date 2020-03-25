@@ -214,6 +214,10 @@
       $field.find(answerOptionRemoveFieldButtonSelector).each((idx, el) => {
         dynamicFieldsForAnswerOptions[$field.attr("id")]._removeField(el);
       });
+      
+      $field.find(matrixRowRemoveFieldButtonSelector).each((idx, el) => {
+        dynamicFieldsForMatrixRows[$field.attr("id")]._removeField(el);
+      });
     },
     onMoveUpField: () => {
       autoLabelByPosition.run();

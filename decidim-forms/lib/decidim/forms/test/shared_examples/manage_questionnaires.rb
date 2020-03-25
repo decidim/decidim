@@ -672,7 +672,7 @@ shared_examples_for "manage questionnaires" do
             fill_in find_nested_form_field_locator("body_en"), with: ""
           end
 
-          within ".questionnaire-question" do
+          within ".questionnaire-question:last-of-type" do
             click_button "Remove", match: :first
           end
 
