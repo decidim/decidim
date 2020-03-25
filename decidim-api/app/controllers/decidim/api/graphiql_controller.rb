@@ -2,7 +2,8 @@
 
 module Decidim
   module Api
-    # Base controller for `decidim-api`. All other controllers inherit from this.
+    # Controller to serve the GraphiQL client. Used so that we can hook the
+    # `ForceAuthentication` module.
     class GraphiQLController < ::GraphiQL::Rails::EditorsController
       include NeedsOrganization
       include ForceAuthentication
