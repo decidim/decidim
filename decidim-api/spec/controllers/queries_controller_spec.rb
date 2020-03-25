@@ -7,8 +7,25 @@ module Decidim
     describe QueriesController, type: :controller do
       routes { Decidim::Api::Engine.routes }
 
+      let(:organization) { create :organization }
+
       before do
-        request.env["decidim.current_organization"] = create(:organization)
+        request.env["decidim.current_organization"] = organization
+      end
+
+      context "when the organization has private access" do
+        let(:organization) do
+          create(
+            :organization,
+            force_users_to_authenticate_before_access_organization: true
+          )
+        end
+
+        it "doesn't accept queries" do
+          post :create, params: { query: "{ __schema { queryType { name } } }" }
+
+          expect(response).to redirect_to("/users/sign_in")
+        end
       end
 
       it "executes a query" do
