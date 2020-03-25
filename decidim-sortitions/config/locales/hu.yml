@@ -124,6 +124,7 @@ hu:
         show:
           algorithm: Sorsolás algoritmus kódja
           any_category: minden kategóriából
+          back: Vissza a listához
           cancelled: Törölt sorsolás
           candidate_proposal_ids: Sorsolásos javaslatok sorrendje és azonosítói
           candidate_proposals_info: 'Sorsolásos módszer végrehajtva a következő javaslatokon: (%{category_label}), ilyen azonosítókkal (kiválasztott javaslatok vastagon kiemelve)  '
