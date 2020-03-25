@@ -23,7 +23,7 @@ describe "GraphiQL", type: :system do
     end
 
     it "forces the user to login" do
-      expect(current_path).to eq("/users/sign_in")
+      expect(page).to have_current_path("/users/sign_in")
       expect(page).to have_content("Please, login with your account before access")
     end
   end
