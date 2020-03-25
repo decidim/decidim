@@ -24,6 +24,7 @@ module Decidim
       include Decidim::Amendable
       include Decidim::NewsletterParticipant
       include Decidim::Randomable
+      include Decidim::Endorsable
       include Decidim::Proposals::Valuatable
 
       POSSIBLE_STATES = %w(not_answered evaluating accepted rejected withdrawn).freeze
@@ -36,8 +37,6 @@ module Decidim
       )
 
       component_manifest_name "proposals"
-
-      has_many :endorsements, foreign_key: "decidim_proposal_id", class_name: "ProposalEndorsement", dependent: :destroy, counter_cache: "proposal_endorsements_count"
 
       has_many :votes,
                -> { final },
@@ -52,12 +51,17 @@ module Decidim
 
       geocoded_by :address, http_headers: ->(proposal) { { "Referer" => proposal.component.organization.host } }
 
-      scope :accepted, -> { where(state: "accepted") }
-      scope :rejected, -> { where(state: "rejected") }
-      scope :evaluating, -> { where(state: "evaluating") }
+      scope :answered, -> { where.not(answered_at: nil) }
+      scope :not_answered, -> { where(answered_at: nil) }
+
+      scope :state_not_published, -> { where(state_published_at: nil) }
+      scope :state_published, -> { where.not(state_published_at: nil).where.not(state: nil) }
+
+      scope :accepted, -> { state_published.where(state: "accepted") }
+      scope :rejected, -> { state_published.where(state: "rejected") }
+      scope :evaluating, -> { state_published.where(state: "evaluating") }
       scope :withdrawn, -> { where(state: "withdrawn") }
-      scope :not_answered, -> { where(state: nil) }
-      scope :except_rejected, -> { where.not(state: "rejected").or(where(state: nil)) }
+      scope :except_rejected, -> { where.not(state: "rejected").or(state_not_published) }
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
       scope :drafts, -> { where(published_at: nil) }
       scope :except_drafts, -> { where.not(published_at: nil) }
@@ -140,10 +144,9 @@ module Decidim
 
         participants_has_voted_ids = Decidim::Proposals::ProposalVote.joins(:proposal).where(proposal: proposals).joins(:author).map(&:decidim_author_id).flatten.compact.uniq
 
-        endorsements_participants_ids = Decidim::Proposals::ProposalEndorsement.joins(:proposal)
-                                                                               .where(proposal: proposals)
-                                                                               .where(decidim_author_type: "Decidim::UserBaseEntity")
-                                                                               .map(&:decidim_author_id).flatten.compact.uniq
+        endorsements_participants_ids = Decidim::Endorsement.where(resource: proposals)
+                                                            .where(decidim_author_type: "Decidim::UserBaseEntity")
+                                                            .map(&:decidim_author_id).flatten.compact.uniq
 
         (endorsements_participants_ids + participants_has_voted_ids + coauthors_recipients_ids).flatten.compact.uniq
       end
@@ -164,14 +167,6 @@ module Decidim
         ProposalVote.where(proposal: self, author: user).any?
       end
 
-      # Public: Check if the user has endorsed the proposal.
-      # - user_group: may be nil if user is not representing any user_group.
-      #
-      # Returns Boolean.
-      def endorsed_by?(user, user_group = nil)
-        endorsements.where(author: user, user_group: user_group).any?
-      end
-
       # Public: Checks if the proposal has been published or not.
       #
       # Returns Boolean.
@@ -179,39 +174,68 @@ module Decidim
         published_at.present?
       end
 
+      # Public: Returns the published state of the proposal.
+      #
+      # Returns Boolean.
+      def state
+        return amendment.state if emendation?
+        return nil unless published_state? || withdrawn?
+
+        super
+      end
+
+      # This is only used to define the setter, as the getter will be overriden below.
+      alias_attribute :internal_state, :state
+
+      # Public: Returns the internal state of the proposal.
+      #
+      # Returns Boolean.
+      def internal_state
+        return amendment.state if emendation?
+
+        self[:state]
+      end
+
+      # Public: Checks if the organization has published the state for the proposal.
+      #
+      # Returns Boolean.
+      def published_state?
+        emendation? || state_published_at.present?
+      end
+
       # Public: Checks if the organization has given an answer for the proposal.
       #
       # Returns Boolean.
       def answered?
-        answered_at.present? && state.present?
-      end
-
-      # Public: Checks if the organization has accepted a proposal.
-      #
-      # Returns Boolean.
-      def accepted?
-        answered? && state == "accepted"
-      end
-
-      # Public: Checks if the organization has rejected a proposal.
-      #
-      # Returns Boolean.
-      def rejected?
-        answered? && state == "rejected"
-      end
-
-      # Public: Checks if the organization has marked the proposal as evaluating it.
-      #
-      # Returns Boolean.
-      def evaluating?
-        answered? && state == "evaluating"
+        answered_at.present?
       end
 
       # Public: Checks if the author has withdrawn the proposal.
       #
       # Returns Boolean.
       def withdrawn?
-        state == "withdrawn"
+        internal_state == "withdrawn"
+      end
+
+      # Public: Checks if the organization has accepted a proposal.
+      #
+      # Returns Boolean.
+      def accepted?
+        state == "accepted"
+      end
+
+      # Public: Checks if the organization has rejected a proposal.
+      #
+      # Returns Boolean.
+      def rejected?
+        state == "rejected"
+      end
+
+      # Public: Checks if the organization has marked the proposal as evaluating it.
+      #
+      # Returns Boolean.
+      def evaluating?
+        state == "evaluating"
       end
 
       # Public: Overrides the `reported_content_url` Reportable concern method.
@@ -261,7 +285,7 @@ module Decidim
       def editable_by?(user)
         return true if draft?
 
-        !answered? && within_edit_time_limit? && !copied_from_other_component? && created_by?(user)
+        !published_state? && within_edit_time_limit? && !copied_from_other_component? && created_by?(user)
       end
 
       # Checks whether the user can withdraw the given proposal.
@@ -318,6 +342,23 @@ module Decidim
         [:valuator_role_ids_has]
       end
 
+      ransacker :state_published do
+        Arel.sql("CASE
+          WHEN EXISTS (
+            SELECT 1 FROM decidim_amendments
+            WHERE decidim_amendments.decidim_emendation_type = 'Decidim::Proposals::Proposal'
+            AND decidim_amendments.decidim_emendation_id = decidim_proposals_proposals.id
+          ) THEN 0
+          WHEN state_published_at IS NULL AND answered_at IS NOT NULL THEN 2
+          WHEN state_published_at IS NOT NULL THEN 1
+          ELSE 0 END
+        ")
+      end
+
+      ransacker :state do
+        Arel.sql("CASE WHEN state = 'withdrawn' THEN 'withdrawn' WHEN state_published_at IS NULL THEN NULL ELSE state END")
+      end
+
       ransacker :id_string do
         Arel.sql(%{cast("decidim_proposals_proposals"."id" as text)})
       end
@@ -360,7 +401,10 @@ module Decidim
         return unless %w(accepted rejected evaluating withdrawn).member?(amendment.state)
 
         PaperTrail.request(enabled: false) do
-          update!(state: amendment.state)
+          update!(
+            state: amendment.state,
+            state_published_at: Time.current
+          )
         end
       end
 

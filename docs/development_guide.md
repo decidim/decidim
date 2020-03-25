@@ -85,11 +85,12 @@ bundle exec i18n-tasks normalize --locales en
 
 ### JavaScript linter
 
-We use JavaScript's lint library to ensure homogeneous formatting of JavaScrip code.
+[eslint](https://eslint.org/docs/user-guide/command-line-interface) and [tslint](https://palantir.github.io/tslint/) are used to ensure homogeneous formatting of JavaScript code.
+
+To lint and try to fix linting errors, run:
 
 ```console
-yarn install
-yarn run lint --fix
+npm run lint --fix
 ```
 
 ### Stylelinter

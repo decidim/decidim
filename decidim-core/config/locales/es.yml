@@ -422,6 +422,8 @@ es:
           this_application_will_not_be_able_to: 'Esta aplicación no podrá:'
           update_profile: Actualiza tu perfil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> quiere usar tu cuenta"
+    endorsable:
+      endorsements: Adhesiones
     errors:
       internal_server_error:
         title: Ha habido un problema con nuestro servidor

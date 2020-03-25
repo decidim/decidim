@@ -4,6 +4,7 @@ id:
       decidim/comments/comment_by_followed_user_event: Komentar
       decidim/comments/comment_created_event: Komentar
       decidim/comments/reply_created_event: Balasan komentar
+      decidim/comments/user_group_mentioned_event: Menyebut
       decidim/comments/user_mentioned_event: Menyebut
   activerecord:
     models:

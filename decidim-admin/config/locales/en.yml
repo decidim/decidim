@@ -564,12 +564,20 @@ en:
           officialize: Officialize
           officialized: Officialized
           reofficialize: Reofficialize
+          show_email: Show email address
           status: Status
           unofficialize: Unofficialize
         new:
           badge: Officialization badge
           officialize: Officialize
           title: Officialize participant "%{name}"
+        show_email_modal:
+          description: If you need to contact a participant directly you can click on the Show button to see the email address. This action will be logged.
+          email_address: Email address
+          full_name: Full name
+          hidden: hidden
+          show: Show
+          title: Show participant email address
       organization:
         edit:
           title: Edit organization

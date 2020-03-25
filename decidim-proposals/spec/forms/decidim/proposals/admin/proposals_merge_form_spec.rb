@@ -67,7 +67,7 @@ module Decidim
 
           context "when a proposal has an endorsement" do
             before do
-              create(:proposal_endorsement, proposal: proposals.sample)
+              create(:endorsement, resource: proposals.sample, author: create(:user, organization: component.participatory_space.organization))
             end
 
             it { is_expected.to be_invalid }

@@ -14,6 +14,7 @@ module Decidim
           resources :valuation_assignments, only: [:destroy]
           collection do
             post :update_category
+            post :publish_answers
             post :update_scope
             resource :proposals_import, only: [:new, :create]
             resource :proposals_merge, only: [:create]

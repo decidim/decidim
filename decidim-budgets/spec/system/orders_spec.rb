@@ -110,6 +110,18 @@ describe "Orders", type: :system do
         expect(page).to have_no_selector ".budget-list__data--added"
       end
 
+      it "is alerted when trying to leave the component before completing" do
+        visit_component
+
+        expect(page).to have_content "ASSIGNED: €25,000,000"
+
+        dismiss_confirm do
+          page.find(".logo-wrapper a").click
+        end
+
+        expect(page).to have_current_path main_component_path(component)
+      end
+
       context "and try to vote a project that exceed the total budget" do
         let!(:expensive_project) { create(:project, component: component, budget: 250_000_000) }
 
@@ -180,6 +192,16 @@ describe "Orders", type: :system do
         within ".budget-summary" do
           expect(page).to have_no_selector(".cancel-order")
         end
+      end
+
+      it "is not alerted when trying to leave the component" do
+        visit_component
+
+        expect(page).to have_content("Budget vote completed")
+
+        page.find(".logo-wrapper a").click
+
+        expect(page).to have_current_path decidim.root_path
       end
     end
 
