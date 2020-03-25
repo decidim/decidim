@@ -29,6 +29,8 @@ After this, `Decidim::Proposals::ProposalEndorsement` and the corresponding coun
 
 ### Changed
 
+- **decidim-assemblies**: Replace current meetings hook with highlighted elements hook [\#5897](https://github.com/decidim/decidim/pull/5897)
+
 ### Fixed
 
 - **decidim-proposals**: Fix relative path in mentioned proposal email [\#5852](https://github.com/decidim/decidim/pull/5852)
