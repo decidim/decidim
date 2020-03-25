@@ -47,10 +47,17 @@ module Decidim
             def export_response
               enforce_permission_to :export_response, :questionnaire_answers
 
-              participant = participant(participants_query.participant(params[:session_token]))
+              session_token = params[:session_token]
+              answers = QuestionnaireUserAnswers.for(questionnaire)
 
               # i18n-tasks-use t("decidim.forms.admin.questionnaires.answers.export_response.title")
-              render_answers_pdf t("export_response.title", scope: i18n_scope, token: participant.session_token), [participant]
+              title = t("export_response.title", scope: i18n_scope, token: session_token)
+
+              generate_answer_pdf(title, answers.select { |a| a.first.session_token == session_token })
+
+              flash[:notice] = t("decidim.admin.exports.notice")
+
+              redirect_back(fallback_location: questionnaire_participant_answers_url(session_token))
             end
 
             # Public: The only method to be implemented at the controller. You need to
@@ -65,13 +72,11 @@ module Decidim
               "decidim.forms.admin.questionnaires.answers"
             end
 
-            def render_answers_pdf(title, collection)
-              exporter = Decidim::Exporters::FormPDF.new([])
+            def generate_answer_pdf(title, collection)
+              serializer = Decidim::Forms::UserAnswersSerializer
+              export_data = Decidim::Exporters::FormPDF.new(collection, serializer).export
 
-              render pdf: title,
-                     template: exporter.template,
-                     layout: exporter.layout,
-                     locals: { collection: collection }
+              ExportMailer.export(current_user, title, export_data).deliver_now
             end
 
             def questionnaire

@@ -44,7 +44,7 @@ en:
               answer:
                 title: 'Response #%{number}'
             export_response:
-              title: Response for %{token}
+              title: survey_user_answers_%{token}
             index:
               title: "%{total} total responses"
             show:

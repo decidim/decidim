@@ -69,11 +69,11 @@ module Decidim
             }
           end
 
-          it "renders a pdf with a response" do
+          it "redirects with a flash notice message" do
             get :export_response, params: params
 
-            expect(response.content_type).to eq("application/pdf")
-            expect(response.headers["Content-Disposition"]).to eq("inline; filename=\"#{filename}\"")
+            expect(response).to be_redirect
+            expect(flash[:notice]).to be_present
           end
         end
       end

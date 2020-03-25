@@ -9,7 +9,7 @@
         <%= link_to_unless first?, t("views.pagination.previous").html_safe, prev_url, rel: "prev", class: "button tiny button--title prev" %>
       </div>
       <div class="button--title">
-        <%= link_to t("actions.export", scope: "decidim.forms.admin.questionnaires.answers"), questionnaire_export_response_url(@participant.session_token), class: "button tiny button--title export", target: :blank %>
+        <%= link_to t("actions.export", scope: "decidim.forms.admin.questionnaires.answers"), questionnaire_export_response_url(@participant.session_token), class: "button tiny button--title export" %>
         <%= link_to t("actions.back", scope: "decidim.forms.admin.questionnaires.answers"), questionnaire_participants_url, class: "button tiny button--title back" %>
       </div>
     </h2>
