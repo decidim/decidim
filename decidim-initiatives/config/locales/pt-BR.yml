@@ -175,18 +175,8 @@ pt-BR:
             title: Informação geral
           index:
             actions_title: Açao
-            filter:
-              accepted: Aceitaram
-              all: Todos
-              created: Criada
-              discarded: Descartado
-              published: Publicados
-              rejected: Rejeitado
-              validating: Validação técnica
-            filter_by: Filtrar por
             preview: Visualizar
             print: Impressão
-            search: Pesquisa
           show:
             print: Impressão
           update:

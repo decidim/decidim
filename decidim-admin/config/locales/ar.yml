@@ -70,10 +70,12 @@ ar:
         port: المَنفذ
         primary_color: ابتدائي
         reference_prefix: بادئة المرجع
+        rich_text_editor_in_public_views: إتاحة محرر النص الغني للمشارِكين
         secondary_color: ثانوي
         send_welcome_notification: إرسال إشعار بالترحيب
         show_statistics: عرض الإحصائيات
         success_color: نجاح
+        time_zone: المنطقة الزمنية
         tos_version: شروط وأحكام الخدمة
         twitter_handler: مُعرّف حساب تويتر
         user_groups_enabled: تمكين المجموعات
@@ -95,7 +97,7 @@ ar:
         plural: جمع
       static_page:
         changed_notably: كانت هناك تغييرات ملحوظة.
-        content: يحتوى
+        content: المحتوى
         organization: المنظمة
         show_in_footer: تظهر في تذييل الصفحة
         slug: سبيكة العنوان الشبكي
@@ -123,7 +125,7 @@ ar:
   activerecord:
     attributes:
       decidim/static_page:
-        content: يحتوى
+        content: المحتوى
         slug: سبيكة العنوان الشبكي
         title: العنوان
       doorkeeper/application:
@@ -142,9 +144,21 @@ ar:
         export: تصدير
         manage: تدبير
         new: جديد %{name}
+        per_page: في كل صفحة
         permissions: تصريحات
         reject: رفض
         verify: التحقق
+      admin_terms_of_use:
+        accept:
+          success: رائع! لقد قمت بالموافقة على شروط الإستخدام للمدير.
+        actions:
+          accept: أوافق على شروط المدير هذه
+          are_you_sure: هل أنت متأكد مِن أنك رافض لشروط المدير؟
+          refuse: ارفض شروط المدير
+          title: وافق على شروط وأحكام الإستخدام
+        required_review:
+          cta: راجِعها الآن.
+        title: شروط الاستخدام الخاصة بالمدير
       area_types:
         create:
           error: حدثت مشكلة أثناء إنشاء نوع منطقة جديد.
@@ -274,6 +288,31 @@ ar:
       exports:
         export_as: "%{name} ك %{export_format}"
         notice: التصدير الخاص بك قيد التقدم حاليًا. ستتلقى بريدًا إلكترونيًا عند اكتماله.
+      filters:
+        category_id_eq:
+          label: الفئة
+        filter_label: تصفية
+        officialized_at_null:
+          label: الحالة
+          values:
+            'false': تم جعله رسمي
+            'true': لم يُصبِح رسميا
+        private_space_eq:
+          label: خاص
+          values:
+            'false': علني
+            'true': خاص
+        published_at_null:
+          label: تم نشره
+          values:
+            'false': تم نشره
+            'true': لم يُنشَر
+        scope_id_eq:
+          label: النطاق
+        search_label: البحث
+        search_placeholder:
+          name_or_nickname_or_email_cont: البحث عن %{collection} بحسب عنوان البريد الإكتروني أو الإسم أو الإسم المستعار.
+          title_cont: البحث عن %{collection} بحسب العنوان.
       help_sections:
         error: حدثت مشكلة أثناء تحديث أقسام المساعدة
         form:
@@ -449,9 +488,11 @@ ar:
           confirm_delete: هل أنت متأكد من أنك تريد حذف هذه الرسالة الإخبارية؟
           followers: 'مُتابِعون '
           has_been_sent_to: 'تم إرسالها إلى: '
+          no_scopes: لا نطاقات
           not_sent: غير مرسَلة
           participants: 'مشاركون '
           segmented_to: 'مقسمه إلى %{subject}: '
+          subscribed_count: 'مُشترِك:'
           title: الرسائل الإخبارية
         new:
           save: حفظ
@@ -498,18 +539,12 @@ ar:
           actions: أفعال
           badge: شارة
           created_at: أنشئت في
-          filter:
-            all: الكل
-            not_officialized: غير رسمي
-            officialized: Officialized
-          filter_by: مصنف بواسطة
           name: اسم
           nickname: كنية
           not_officialized: غير رسمي
           officialize: الصفة الرسمية
           officialized: Officialized
           reofficialize: Reofficialize
-          search: بحث
           status: الحالة
           unofficialize: Unofficialize
         new:
@@ -564,6 +599,8 @@ ar:
           create: إنشاء
           title: مشارك جديد الفضاء الخاص المشارك.
       participatory_space_private_users_csv_imports:
+        create:
+          invalid: حدثت مشكلة أثناء قراءة ملف CSV.
         new:
           title: حمّل ملف CSV الخاص بك
           upload: حمّل

@@ -5,17 +5,21 @@
         <li><a href="<%= scopes_picker_path(**context) %>"><%= t("decidim.scopes.global") %></a></li>
       <% end %>
       <% parent_scopes.each do |scope| %>
-        <li><a href="<%= scopes_picker_path(current: scope.id, **context) %>"><%= translated_attribute(scope.name) %></a></li>
+        <li><a href="<%= scopes_picker_path(current: scope.id, max_depth: max_depth&.id, **context) %>"><%= translated_attribute(scope.name) %></a></li>
       <% end %>
     </ul>
   </div>
 
   <div class="scope-picker picker-content">
     <div class="picker-scrollable-content">
-      <% if scopes.any? %>
+      <% if scopes&.any? %>
         <ul>
           <% scopes.each do |scope| %>
-            <li><a href="<%= scopes_picker_path(current: scope.id, **context) %>"><%= translated_attribute(scope.name) %></a></li>
+            <li>
+              <a href="<%= scopes_picker_path(current: scope.id, max_depth: max_depth&.id, **context) %>">
+                <%= translated_attribute(scope.name) %>
+              </a>
+            </li>
           <% end %>
         </ul>
       <% end %>

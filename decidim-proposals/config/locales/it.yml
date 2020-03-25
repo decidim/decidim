@@ -51,7 +51,6 @@ it:
       decidim/proposals/creation_enabled_event: Creazione della proposta abilitata
       decidim/proposals/endorsing_enabled_event: Approvazione proposta abilitata
       decidim/proposals/evaluating_proposal_event: La proposta è in corso di valutazione
-      decidim/proposals/proposal_endorsed_event: Proposta approvata
       decidim/proposals/proposal_mentioned_event: Proposta menzionata
       decidim/proposals/publish_proposal_event: Proposta pubblicata
       decidim/proposals/rejected_proposal_event: Proposta respinta
@@ -64,9 +63,6 @@ it:
       decidim/proposals/proposal:
         one: Proposta
         other: proposte
-      decidim/proposals/proposal_endorsement:
-        one: Mi piace
-        other: Mi piace
       decidim/proposals/proposal_note:
         one: Nota
         other: Gli appunti
@@ -164,12 +160,12 @@ it:
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>ritirato</strong> il <a href="%{resource_path}">%{resource_title}</a> progetto collaborativo.
         creation_enabled:
           email_intro: 'Ora puoi creare nuove proposte in %{participatory_space_title}! Inizia a partecipare a questa pagina:'
-          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche facendo click su pulsante Smetti di seguire nella pagina del processo che stai seguendo.
           email_subject: Proposte ora disponibili in %{participatory_space_title}
           notification_title: Ora puoi proporre <a href="%{resource_path}">nuove proposte</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Puoi sostenere proposte in %{participatory_space_title}! Inizia a partecipare a questa pagina:'
-          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche facendo click su pulsante Smetti di seguire nella pagina del processo che stai seguendo.
           email_subject: L'approvazione delle proposte è iniziata per %{participatory_space_title}
           notification_title: È ora possibile avviare <a href="%{resource_path}">proposte di approvazione</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
@@ -183,11 +179,6 @@ it:
             email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
             email_subject: Una proposta che stai seguendo è stata accettata
             notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è stata accettata.
-        proposal_endorsed:
-          email_intro: '%{endorser_name} %{endorser_nickname}, chi stai seguendo, ha appena appoggiato la proposta "%{resource_title}" e pensiamo che potrebbe essere interessante per te. Dai un''occhiata e partecipa:'
-          email_outro: Hai ricevuto questa notifica perché stai seguendo %{endorser_nickname}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
-          email_subject: "%{endorser_nickname} ha approvato una nuova proposta"
-          notification_title: Il <a href="%{resource_path}">%{resource_title}</a> la proposta è stata approvata da <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           affected_user:
             email_intro: 'La tua proposta "%{resource_title}" è attualmente in fase di valutazione. Puoi trovare una risposta in questa pagina:'
@@ -200,7 +191,6 @@ it:
             email_subject: Una proposta che stai seguendo è in corso di valutazione
             notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è in fase di valutazione.
         proposal_mentioned:
-          email_intro: La tua proposta "%{mentioned_proposal_title}" è stata menzionata <a href="%{resource_path}">in questo spazio</a> nei commenti.
           email_outro: Hai ricevuto questa notifica perché sei un autore di "%{resource_title}".
           email_subject: La tua proposta "%{mentioned_proposal_title}" è stata menzionata
           notification_title: La tua proposta "%{mentioned_proposal_title}" è stata menzionata <a href="%{resource_path}">in questo spazio</a> nei commenti.
@@ -230,9 +220,11 @@ it:
           email_outro: Hai ricevuto questa notifica perché sei l'autore della proposta.
           email_subject: La categoria di proposta %{resource_title} è stata aggiornata
           notification_title: La categoria <a href="%{resource_path}">%{resource_title}</a> proposta è stata aggiornata da un amministratore.
+        proposal_update_scope:
+          email_outro: Hai ricevuto questa notifica perché sei l'autore della proposta.
         voting_enabled:
           email_intro: 'Puoi votare le proposte in %{participatory_space_title}! Inizia a partecipare a questa pagina:'
-          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche facendo clich su pulsante Smetti di seguire nella pagina del processo o del contenuto che stai seguendo.
           email_subject: Il voto delle proposte è iniziato per %{participatory_space_title}
           notification_title: Ora puoi iniziare <a href="%{resource_path}">proposte di voto</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
@@ -296,12 +288,10 @@ it:
         see_all: Vedi tutto (%{count})
     proposals:
       actions:
-        answer: Risposta
         edit_proposal: Modifica proposta
         import: Importa da un altro componente
         new: Nuova proposta
         participatory_texts: Testi partecipativi
-        private_notes: Note private
         title: Azioni
       admin:
         actions:
@@ -346,11 +336,7 @@ it:
           update:
             success: Testo partecipativo aggiornato correttamente.
         proposal_answers:
-          edit:
-            accepted: Accettata
-            answer_proposal: Risposta
-            evaluating: Valutare
-            rejected: Rifiutata
+          form:
             title: Risposta per la proposta %{title}
         proposal_notes:
           create:
@@ -384,6 +370,7 @@ it:
             change_category: Cambia categoria
             merge: Unisci a uno nuovo
             merge_button: fondersi
+            publish: Pubblica
             select_component: Seleziona un componente
             selected: selezionato
             split: Proposte divise
@@ -393,11 +380,16 @@ it:
           new:
             create: Crea
             title: Crea una proposta
+          publish_answers:
+            select_a_proposal: Si prega di selezionare una proposta
+          show:
+            created_at: Data di creazione
+            votes_count: Contare i voti
           update_category:
-            invalid: 'Queste proposte avevano già la categoria %{category} : %{proposals}.'
             select_a_category: Si prega di selezionare una categoria
             select_a_proposal: Si prega di selezionare una proposta
-            success: 'Proposte aggiornate con successo alla categoria %{category} : %{proposals}.'
+          update_scope:
+            select_a_proposal: Si prega di selezionare una proposta
         proposals_imports:
           create:
             invalid: C'è stato un problema nell'importazione delle proposte
@@ -415,12 +407,6 @@ it:
           create:
             invalid: Si è verificato un errore durante la divisione delle proposte selezionate.
             success: Suddiviso con successo le proposte in nuove.
-        shared:
-          info_proposal:
-            body: Corpo
-            created_at: Data di creazione
-            proposal_votes_count: Contare i voti
-            proposals: proposte
       admin_log:
         proposal:
           answer: "%{user_name} ha risposto alla proposta %{resource_name} sullo spazio %{space_name}"
@@ -445,7 +431,6 @@ it:
           accepted: Accettato
           all: Tutti
           evaluating: Valutare
-          except_rejected: Tutto tranne rifiutato
           rejected: Respinto
         filter_type_values:
           all: Tutti
@@ -494,7 +479,6 @@ it:
           all: Tutti
           amendment: Modifiche
           category: Categoria
-          category_prompt: Prompt di categoria
           open: Aperto
           published: Pubblicato
           related_to: Relativo a
@@ -583,7 +567,6 @@ it:
           fields:
             category: Categoria
             comments: Commenti
-            endorsements: Mi piace
             id: ID
             notes: Gli appunti
             official_proposal: Proposta dell'Amministrazione
@@ -600,18 +583,6 @@ it:
           amend: emendare
           comment: Commento
           comments: Commenti
-          endorse: Sostieni
-      proposal_endorsements:
-        create:
-          error: Ci sono stati errori nel sostenere la proposta.
-        identities:
-          done: Fatto
-          select_identity: Seleziona identità
-      proposal_endorsements_helper:
-        endorsement_button:
-          already_endorsed: Mi piace
-          endorse: Sostieni
-        render_endorsements_button_card_part:
           endorse: Sostieni
       proposal_votes:
         create:
@@ -639,16 +610,11 @@ it:
           discard_confirmation: Sei sicuro di voler eliminare questa bozza di proposta?
           send: Anteprima
           title: Modifica bozza di proposta
-        endorsement_identities_cabin:
-          endorse: Sostieni
-        endorsements_card_row:
-          comments: Commenti
         filters:
           activity: La mia attività
           all: Tutti
           amendment_type: genere
           category: Categoria
-          category_prompt: Scegli una categoria
           my_proposals: Le mie proposte
           origin: Origine
           related_to: Associata a
@@ -697,8 +663,10 @@ it:
           creation_date: 'Creazione: %{date}'
           view_proposal: Visualizza la proposta
         show:
+          answer: Risposta
           back_to: Torna a
           changes_at_title: Modifica a "%{title}"
+          comments: Commenti
           edit_proposal: Modifica la proposta
           endorsements_list: Elenco dei sostenitori
           hidden_endorsers_count:
@@ -717,9 +685,6 @@ it:
           withdraw_btn_hint: Puoi ritirare la tua proposta se cambi idea, purché non abbia ricevuto alcun supporto. La proposta non viene cancellata, apparirà nell'elenco delle proposte ritirate.
           withdraw_confirmation: Sei sicuro di ritirare questa proposta?
           withdraw_proposal: Ritirare la proposta
-        tags:
-          changed_from: "(modificato da <u>%{previous_category}</u> da un amministratore)"
-          filed_as: Classificato come
         vote_button:
           already_voted: Già votata
           already_voted_hover: Annullare il voto

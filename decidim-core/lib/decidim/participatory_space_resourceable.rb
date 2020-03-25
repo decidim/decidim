@@ -20,6 +20,8 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
+      extend Decidim::Deprecations
+
       # An association with all the links that point to this model.
       has_many :participatory_space_resource_links_to, as: :to, class_name: "Decidim::ParticipatorySpaceLink"
 
@@ -64,7 +66,7 @@ module Decidim
       # data      - An optional Hash to add to the link.
       #
       # Returns nothing.
-      def link_participatory_spaces_resources(resources, link_name, data = {})
+      def link_participatory_space_resources(resources, link_name, data = {})
         transaction do
           participatory_space_resource_links_from.where(name: link_name).delete_all
           Array.wrap(resources).each do |resource|
@@ -77,6 +79,7 @@ module Decidim
           end
         end
       end
+      deprecated_alias :link_participatory_spaces_resources, :link_participatory_space_resources
 
       # Public: This method will be used to represent this participatory space in other contexts, like cards
       # or search results.
@@ -96,6 +99,37 @@ module Decidim
       # - is not private
       def visible?
         published? && !try(:private_space?)
+      end
+
+      # Defines a way to get the user roles for the current participatory space.
+      # You should overwrite this method in the implementer class to define how
+      # to get the correct values.
+      #
+      # role_name - A symbol or string identifying the role name
+      #
+      # Returns an ActiveRecord::Relation with one role for each combination of
+      # `ParticipatorySpace` and `*UserRole`. `*` meaning that the concrete
+      # implementation of the `UserRole` may change depending on the
+      # `ParticipatorySpace` where it belongs to.
+      def user_roles(_role_name = nil)
+        self.class.none
+      end
+
+      def user_role_config_for(user, role_name)
+        case role_name.to_sym
+        when :organization_admin
+          Decidim::ParticipatorySpaceRoleConfig::Admin.new(user)
+        when :admin # ParticipatorySpace admin
+          Decidim::ParticipatorySpaceRoleConfig::ParticipatorySpaceAdmin.new(user)
+        when :valuator
+          Decidim::ParticipatorySpaceRoleConfig::Valuator.new(user)
+        when :moderator
+          Decidim::ParticipatorySpaceRoleConfig::Moderator.new(user)
+        when :collaborator
+          Decidim::ParticipatorySpaceRoleConfig::Collaborator.new(user)
+        else
+          Decidim::ParticipatorySpaceRoleConfig::NullObject.new(user)
+        end
       end
     end
 

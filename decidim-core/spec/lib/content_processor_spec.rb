@@ -15,13 +15,13 @@ module Decidim
       subject { processor.parse("This text contains foo and bar and another foo", context) }
 
       it "executes all registered parsers" do
-        expect(subject.rewrite).to eq("This text contains *lorem* and *ipsum* and another *lorem*")
+        expect(subject.rewrite).to eq("This text contains %lorem% and *ipsum* and another %lorem%")
         expect(subject.metadata).to eq(dummy_foo: 2, dummy_bar: 1)
       end
     end
 
     describe "#render" do
-      subject { processor.render("This text contains *lorem* and *ipsum* and another *lorem*") }
+      subject { processor.render("This text contains %lorem% and *ipsum* and another %lorem%") }
 
       it "executes all registered parsers" do
         expect(subject).to eq("<p>This text contains <em>neque dicta enim quasi</em> and <em>illo qui voluptas</em> and another <em>neque dicta enim quasi</em></p>")

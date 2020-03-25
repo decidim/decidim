@@ -50,7 +50,6 @@ id:
       decidim/proposals/creation_enabled_event: Pembuatan proposal diaktifkan
       decidim/proposals/endorsing_enabled_event: Proposal dukungan diaktifkan
       decidim/proposals/evaluating_proposal_event: Proposal sedang dievaluasi
-      decidim/proposals/proposal_endorsed_event: Proposal disetujui
       decidim/proposals/proposal_mentioned_event: Proposal disebutkan
       decidim/proposals/publish_proposal_event: Proposal dipublikasikan
       decidim/proposals/rejected_proposal_event: Proposal ditolak
@@ -61,8 +60,6 @@ id:
         other: Draf kolaboratif
       decidim/proposals/proposal:
         other: Proposal
-      decidim/proposals/proposal_endorsement:
-        other: Endorsemen
       decidim/proposals/proposal_note:
         other: Catatan
       decidim/proposals/proposal_vote:
@@ -165,11 +162,6 @@ id:
             email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti "%{resource_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
             email_subject: Proposal yang Anda ikuti telah diterima
             notification_title: Proposal <a href="%{resource_path}">%{resource_title}</a> telah diterima.
-        proposal_endorsed:
-          email_intro: '%{endorser_name} %{endorser_nickname}, yang Anda ikuti, baru saja menyetujui proposal "%{resource_title}" dan kami pikir itu mungkin menarik bagi Anda. Lihat dan sumbangkan:'
-          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{endorser_nickname}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
-          email_subject: "%{endorser_nickname} telah mengesahkan proposal baru"
-          notification_title: Proposal <a href="%{resource_path}">%{resource_title}</a> telah disetujui oleh <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           affected_user:
             email_intro: 'Proposal Anda "%{resource_title}" saat ini sedang dievaluasi. Anda dapat memeriksa jawaban di halaman ini:'
@@ -182,7 +174,6 @@ id:
             email_subject: Proposal yang Anda ikuti sedang dievaluasi
             notification_title: Proposal <a href="%{resource_path}">%{resource_title}</a> sedang dievaluasi.
         proposal_mentioned:
-          email_intro: Proposal Anda "%{mentioned_proposal_title}" telah disebutkan <a href="%{resource_path}">dalam ruang</a> di komentar.
           email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah pengarang "%{resource_title}".
           email_subject: Proposal Anda "%{mentioned_proposal_title}" telah disebutkan
           notification_title: Proposal Anda "%{mentioned_proposal_title}" telah disebutkan <a href="%{resource_path}">dalam ruang</a> di komentar.
@@ -212,6 +203,8 @@ id:
           email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah penulis proposal.
           email_subject: Kategori proposal %{resource_title} telah diperbarui
           notification_title: Kategori proposal <a href="%{resource_path}">%{resource_title}</a> telah diperbarui oleh admin.
+        proposal_update_scope:
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah penulis proposal.
         voting_enabled:
           email_intro: 'Anda dapat memilih proposal dalam %{participatory_space_title}! Mulai berpartisipasi di halaman ini:'
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{participatory_space_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
@@ -278,12 +271,10 @@ id:
         see_all: Lihat semua (%{count})
     proposals:
       actions:
-        answer: Menjawab
         edit_proposal: Edit proposal
         import: Impor dari komponen lain
         new: Proposal baru
         participatory_texts: Teks partisipatif
-        private_notes: Catatan pribadi
         title: Tindakan
       admin:
         actions:
@@ -327,11 +318,7 @@ id:
           update:
             success: Teks partisipatif berhasil diperbarui.
         proposal_answers:
-          edit:
-            accepted: Diterima
-            answer_proposal: Menjawab
-            evaluating: Mengevaluasi
-            rejected: Ditolak
+          form:
             title: Jawaban untuk proposal %{title}
         proposal_notes:
           create:
@@ -363,6 +350,7 @@ id:
             change_category: Ubah kategori
             merge: Bergabunglah dengan yang baru
             merge_button: Menggabungkan
+            publish: Menerbitkan
             select_component: Pilih komponen
             selected: terpilih
             split: Bagi proposal
@@ -372,11 +360,16 @@ id:
           new:
             create: Membuat
             title: Buat proposal
+          publish_answers:
+            select_a_proposal: Silakan pilih proposal
+          show:
+            created_at: Tanggal pembuatan
+            votes_count: Suara menghitung
           update_category:
-            invalid: 'Proposal ini sudah memiliki kategori %{category} : %{proposals}.'
             select_a_category: Silakan pilih kategori
             select_a_proposal: Silakan pilih proposal
-            success: 'Proposal berhasil diperbarui ke kategori %{category} : %{proposals}.'
+          update_scope:
+            select_a_proposal: Silakan pilih proposal
         proposals_imports:
           create:
             invalid: Ada masalah saat mengimpor proposal
@@ -394,12 +387,6 @@ id:
           create:
             invalid: Terjadi kesalahan saat membagi proposal yang dipilih.
             success: Berhasil membagi proposal menjadi proposal baru.
-        shared:
-          info_proposal:
-            body: Tubuh
-            created_at: Tanggal pembuatan
-            proposal_votes_count: Suara menghitung
-            proposals: Proposal
       admin_log:
         proposal:
           answer: "%{user_name} menjawab %{resource_name} proposal pada %{space_name} ruang"
@@ -424,7 +411,6 @@ id:
           accepted: Diterima
           all: Semua
           evaluating: Mengevaluasi
-          except_rejected: Semua kecuali ditolak
           rejected: Ditolak
         filter_type_values:
           all: Semua
@@ -472,7 +458,6 @@ id:
           all: Semua
           amendment: Amandemen
           category: Kategori
-          category_prompt: Kategori Prompt
           open: Buka
           published: Diterbitkan
           related_to: Berhubungan dengan
@@ -560,7 +545,6 @@ id:
           fields:
             category: Kategori
             comments: Komentar
-            endorsements: Endorsemen
             id: ID
             notes: Catatan
             official_proposal: Proposal resmi
@@ -577,18 +561,6 @@ id:
           amend: Merubah
           comment: Komentar
           comments: Komentar
-          endorse: Mengesahkan
-      proposal_endorsements:
-        create:
-          error: Sudah ada kesalahan saat mendukung proposal.
-        identities:
-          done: Selesai
-          select_identity: Pilih identitas
-      proposal_endorsements_helper:
-        endorsement_button:
-          already_endorsed: Didukung
-          endorse: Mengesahkan
-        render_endorsements_button_card_part:
           endorse: Mengesahkan
       proposal_votes:
         create:
@@ -615,14 +587,9 @@ id:
           discard_confirmation: Anda yakin ingin membuang draf proposal ini?
           send: Preview
           title: Edit Draf Proposal
-        endorsement_identities_cabin:
-          endorse: Mengesahkan
-        endorsements_card_row:
-          comments: Komentar
         filters:
           amendment_type: Mengetik
           category: Kategori
-          category_prompt: Pilih Kategori
           origin: Asal
           related_to: Berhubungan dengan
           search: Pencarian
@@ -664,7 +631,9 @@ id:
           creation_date: 'Penciptaan: %{date}'
           view_proposal: Lihat proposal
         show:
+          answer: Menjawab
           back_to: Kembali ke
+          comments: Komentar
           edit_proposal: Edit proposal
           endorsements_list: Daftar Endorsemen
           hidden_endorsers_count:
@@ -678,9 +647,6 @@ id:
           withdraw_btn_hint: Anda dapat menarik proposal Anda jika Anda berubah pikiran, selama Anda belum menerima dukungan apa pun. Proposal tidak dihapus, itu akan muncul dalam daftar proposal yang ditarik.
           withdraw_confirmation: Apakah Anda yakin untuk membatalkan proposal ini?
           withdraw_proposal: Tarik proposal
-        tags:
-          changed_from: "(diubah dari <u>%{previous_category}</u> oleh administrator)"
-          filed_as: Diarsipkan sebagai
         vote_button:
           already_voted: Sudah memilih
           already_voted_hover: Batalkan suara

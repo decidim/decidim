@@ -175,18 +175,8 @@ sv:
             title: Allmän information
           index:
             actions_title: Åtgärd
-            filter:
-              accepted: Godkända
-              all: Alla
-              created: Skapad
-              discarded: Förkastade
-              published: Publicerade
-              rejected: Avvisade
-              validating: Teknisk validering
-            filter_by: Filtrera efter
             preview: Förhandsvisning
             print: Skriv ut
-            search: Sök
           show:
             print: Skriv ut
           update:

@@ -18,6 +18,7 @@
           <li><%= link_to "Home con tooltips de ayuda", page_path("home-with-helpers") %></li>
           <li><%= link_to "Estadísticas", page_path("stats") %></li>
         </ul>
+
         <h2 class="section-heading">Search</h2>
         <ul>
           <li><%= link_to "Página de resultados", page_path("search") %></li>
@@ -64,6 +65,12 @@
               <li><%= link_to "Propuesta colaborativa", page_path("proposals/proposal-view-collaborative") %></li>
               <li><%= link_to "Propuesta con enlace a colaborativa", page_path("collaborative-drafts/collaborative-draft-link-from-proposal") %></li>
             </ul>
+          </li>
+        </ul>
+        <h2 class="section-heading">Comments</h2>
+        <ul>
+          <li>
+            <%= link_to "Detalle de comentario", page_path("proposals/comment-view") + "#single-comment" %>
           </li>
         </ul>
         <h2 class="section-heading">Amendments</h2>
