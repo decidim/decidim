@@ -17,7 +17,7 @@ if Rails.env.production?
   Rack::Attack.blocklist("block all access to system") do |request|
     # Requests are blocked if the return value is truthy
     if request.path.start_with?("/system")
-      Decidim.system_whitelist_ips.any? && Decidim.system_whitelist_ips.map { |ip_address| IPAddr.new(ip_address).include?(IPAddr.new(request.ip)) }.none?
+      Decidim.system_accesslist_ips.any? && Decidim.system_accesslist_ips.map { |ip_address| IPAddr.new(ip_address).include?(IPAddr.new(request.ip)) }.none?
     end
   end
 

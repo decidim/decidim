@@ -11,7 +11,7 @@ Decidim.configure do |config|
   # Restrict access to the system part with an authorized ip list.
   # You can use a single ip like ("1.2.3.4"), or an ip subnet like ("1.2.3.4/24")
   # You may specify multiple ip in an array ["1.2.3.4", "1.2.3.4/24"]
-  # config.system_whitelist_ips = ["127.0.0.1"]
+  # config.system_accesslist_ips = ["127.0.0.1"]
 
   # Geocoder configuration
   # config.geocoder = {
