@@ -53,7 +53,7 @@ module Decidim
 
       def edit
         enforce_permission_to :update, :newsletter, newsletter: newsletter
-        @form = form(NewsletterForm).from_model(newsletter)
+        @form = form(NewsletterForm).from_params(content_block.attributes.merge(subject: newsletter.subject))
       end
 
       def update
@@ -140,7 +140,7 @@ module Decidim
       end
 
       def content_block
-        @content_block ||= content_block_from_manifest
+        @content_block ||= content_block_for_newsletter || content_block_from_manifest
       end
 
       def content_block_from_manifest
@@ -149,6 +149,12 @@ module Decidim
           scope: :newsletter_template,
           manifest_name: params[:newsletter_template_id]
         )
+      end
+
+      def content_block_for_newsletter
+        return nil unless @newsletter
+
+        @content_block_for_newsletter ||= @newsletter.template
       end
     end
   end

@@ -1,4 +1,4 @@
-<%= decidim_form_for(@form, html: { class: "form edit_newsletter" }, url: new_newsletter_template_newsletter_path(params[:id])) do |f| %>
+<%= decidim_form_for(@form, html: { class: "form edit_newsletter" }, url: newsletter_path(newsletter)) do |f| %>
   <div class="card">
     <div class="card-divider">
       <h2 class="card-title"><%= t ".title" %></h2>
