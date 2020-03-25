@@ -158,26 +158,29 @@ describe "Conversations", type: :system do
       before do
         visit_inbox
         click_link interlocutor.name
+        expect(page).to have_content("Send")
         fill_in "message_body", with: "Please reply!"
         click_button "Send"
       end
 
       it "appears as the last message", :slow do
+        click_button "Send"
         expect(page).to have_selector(".message:last-child", text: "Please reply!")
       end
 
       context "and interlocutor sees it" do
         before do
+          click_button "Send"
           expect(page).to have_selector(".message:last-child", text: "Please reply!")
           relogin_as interlocutor
           visit_inbox
         end
 
-        it "appears as unread" do
+        it "appears as unread", :slow do
           expect(page).to have_selector(".card--list__item .card--list__counter", text: "2")
         end
 
-        it "appears as read after it's seen" do
+        it "appears as read after it's seen", :slow do
           click_link user.name
           expect(page).to have_content("Please reply!")
 
@@ -218,10 +221,9 @@ describe "Conversations", type: :system do
           expect(page).to have_selector("textarea#message_body")
         end
 
-        it "sends a message" do
-          visit_inbox
-          click_link interlocutor.name
+        it "sends a message", :slow do
           fill_in "message_body", with: "Please reply!"
+          expect(page).to have_content("Send")
           click_button "Send"
 
           expect(page).to have_selector(".message:last-child", text: "Please reply!")

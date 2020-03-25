@@ -1880,4 +1880,3 @@ if (window && typeof window.CustomEvent !== "function") {
 
 },{}]},{},[6])(6)
 });
-//# sourceMappingURL=tribute.js.map
