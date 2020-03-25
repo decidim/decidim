@@ -763,6 +763,7 @@ hu:
         show:
           answer: Válasz
           back_to: Vissza a
+          back_to_list: Vissza a listához
           changes_at_title: A (z) "%{title}" módosítása
           comments: Hozzászólások
           edit_proposal: Javaslat szerkesztése
