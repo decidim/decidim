@@ -9,6 +9,8 @@ module Decidim
     autoload :PDF, "decidim/exporters/pdf"
     autoload :ExportData, "decidim/exporters/export_data"
 
+    # Necessary for the i18n normalizer to locate strings not directly invoked in views:
+
     # i18n-tasks-use t('decidim.admin.exports.formats.JSON')
     # i18n-tasks-use t('decidim.admin.exports.formats.CSV')
     # i18n-tasks-use t('decidim.admin.exports.formats.Excel')
