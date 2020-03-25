@@ -25,7 +25,7 @@ module Decidim
       end
 
       def results_to_render
-        @results_to_render ||= results.limit(4)
+        @results_to_render ||= results.includes(:component, :status).limit(4)
       end
 
       def results_count
