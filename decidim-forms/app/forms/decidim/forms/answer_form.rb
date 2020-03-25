@@ -45,21 +45,21 @@ module Decidim
         choices.select(&:body)
       end
 
-      private
-
-      def conditions_fulfilled
+      def conditions_fulfilled?
         question.display_conditions.all? do |condition|
           answer = question.questionnaire.answers.find_by(question: condition.condition_question)
           condition.fulfilled?(answer)
         end
       end
 
+      private
+
       def mandatory_body?
-        question.mandatory_body? if conditions_fulfilled
+        question.mandatory_body? if conditions_fulfilled?
       end
 
       def mandatory_choices?
-        question.mandatory_choices? if conditions_fulfilled
+        question.mandatory_choices? if conditions_fulfilled?
       end
 
       def max_choices
