@@ -12,6 +12,11 @@ module Decidim
           survey
         end
 
+        # Specify where to redirect after exporting a user response
+        def questionnaire_participant_answers_url(session_token)
+          Decidim::EngineRouter.admin_proxy(survey.component).show_survey_path(session_token: session_token)
+        end
+
         private
 
         def i18n_flashes_scope
