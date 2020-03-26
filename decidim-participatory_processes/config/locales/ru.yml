@@ -186,13 +186,11 @@ ru:
         destroy:
           success: Успешно удален участник этого движения соучастия.
         edit:
-          title: Обновить участника движения соучастия.
           update: Обновить
         index:
           process_admins_title: Участники движения соучастия
         new:
           create: Создать
-          title: Добавить участника движения соучастия.
         update:
           error: При попытке обновить участника этого движения соучастия произошла ошибка.
           success: Успешно обновлен участник этого движения соучастия.
@@ -347,13 +345,14 @@ ru:
         meetings_count: Встреч
         orders_count: Голосов
         pages_count: Страниц
+        participants_count: Участников
         processes_count: Движений
         projects_count: Проектов
         proposals_count: Предложений
         results_count: Итогов
+        supports_count: Голосов
         surveys_count: Опросов
         users_count: Участников
-        votes_count: Голосов
   layouts:
     decidim:
       participatory_process_groups:

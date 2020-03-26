@@ -81,6 +81,7 @@ module Decidim
   autoload :HasResourcePermission, "decidim/has_resource_permission"
   autoload :PermissionsRegistry, "decidim/permissions_registry"
   autoload :Randomable, "decidim/randomable"
+  autoload :Endorsable, "decidim/endorsable"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -133,7 +134,12 @@ module Decidim
 
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
-    %w(en ar ca de es es-MX es-PY eu fi-pl fi fr gl hu id it nl no pl pt pt-BR ru sv tr uk)
+    %w(en ar ca de el es es-MX es-PY eu fi-pl fi fr gl hu id it nl no pl pt pt-BR ru sv tr uk)
+  end
+
+  # Exposes a configuration option: The application default locale.
+  config_accessor :default_locale do
+    :en
   end
 
   # Exposes a configuration option: an array of symbols representing processors
@@ -151,11 +157,6 @@ module Decidim
   #   Decidim::ContentRenderers::UserRenderer < BaseRenderer
   config_accessor :content_processors do
     []
-  end
-
-  # Exposes a configuration option: The application default locale.
-  config_accessor :default_locale do
-    :en
   end
 
   # Exposes a configuration option: an object to configure geocoder
@@ -212,7 +213,7 @@ module Decidim
     5.megabytes
   end
 
-  # The number of reports which an object can receive before hiding it
+  # The number of reports which a resource can receive before hiding it
   config_accessor :max_reports_before_hiding do
     3
   end
@@ -248,38 +249,58 @@ module Decidim
   end
 
   # Exposes a configuration option: an object to configure Etherpad
-  config_accessor :etherpad
+  config_accessor :etherpad do
+    # {
+    #   server: <your url>,
+    #   api_key: <your key>,
+    #   api_version: <your version>
+    # }
+  end
 
   # A base path for the uploads. If set, make sure it ends in a slash.
   # Uploads will be set to `<base_path>/uploads/`. This can be useful if you
   # want to use the same uploads place for both staging and production
   # environments, but in different folders.
-  config_accessor :base_uploads_path
+  config_accessor :base_uploads_path do
+    nil
+  end
 
-  # Exposes a configuration option: an object to deliver SMS codes to users.
-  config_accessor :sms_gateway_service
+  # The name of the class to deliver SMS codes to users.
+  #
+  # Check the example in `decidim-verifications`.
+  config_accessor :sms_gateway_service do
+    # "MyGatewayClass"
+  end
 
-  # Exposes a configuration option: an object to generate a timestamp from a
-  # document
-  config_accessor :timestamp_service
+  # The name of the class used to generate a timestamp from a document.
+  #
+  # Check the example in `decidim-initiatives`
+  config_accessor :timestamp_service do
+    # "MyTimestampService"
+  end
 
-  # Exposes a configuration option: an object to process a pdf and add a
-  # signature to the document
-  config_accessor :pdf_signature_service
+  # The name of the class used to process a pdf and add a signature to the
+  # document.
+  #
+  # Check the example in `decidim-initiatives`
+  config_accessor :pdf_signature_service do
+    # "MyPDFSignatureService"
+  end
 
-  # Exposes a configuration option: Decidim::Exporters::CSV's default column separator
+  # The Decidim::Exporters::CSV's default column separator
   config_accessor :default_csv_col_sep do
     ";"
   end
 
-  # Exposes a configuration option: An Array of Strings with the roles of a Decidim::User.
+  # The list of roles a user can have, not considering the space-specific roles.
   config_accessor :user_roles do
     %w(admin user_manager)
   end
 
-  # Exposes a configuration option: An Array of Strings that serve both as
-  # locale keys and values to construct the input collection in
+  # The list of visibility options for amendments. An Array of Strings that
+  # serve both as locale keys and values to construct the input collection in
   # Decidim::Amendment::VisibilityStepSetting::options.
+  #
   # This collection is used in Decidim::Admin::SettingsHelper to generate a
   # radio buttons collection input field form for a Decidim::Component
   # step setting :amendments_visibility.

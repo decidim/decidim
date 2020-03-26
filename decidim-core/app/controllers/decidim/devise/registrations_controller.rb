@@ -37,6 +37,7 @@ module Decidim
           end
 
           on(:invalid) do
+            flash.now[:alert] = @form.errors[:base].join(", ") if @form.errors[:base].any?
             render :new
           end
         end

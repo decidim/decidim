@@ -132,6 +132,7 @@ cs:
         show:
           algorithm: Kód algoritmu Sortition
           any_category: ze všech kategorií
+          back: Zpět na seznam
           cancelled: Zrušený výběr
           candidate_proposal_ids: Sortimentní objednávky a ID
           candidate_proposals_info: 'Rozbor byl proveden mezi následujícími návrhy (%{category_label}), s následujícími ID (označené tučně vybranými návrhy)  '
