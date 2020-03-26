@@ -26,7 +26,9 @@ After this, `Decidim::Proposals::ProposalEndorsement` and the corresponding coun
 - **decidim-budgets**: Request confirmation to exit budgets component [\#5765](https://github.com/decidim/decidim/pull/5765)
 - **decidim-admin**: Allow to see a participant's email from the admin panel [\#5849](https://github.com/decidim/decidim/pull/5849)
 - **decidim**: Add missing indexs on foreign keys on the DB [\#5885](https://github.com/decidim/decidim/pull/5885)
+
 ## Removed
+
 In order to prevent errors while upgrading multi-servers envirnoments, the fields `assembly_type` and `assembly_type_other` are maintained. Future releases will take care of this.
 
 - **Organization Time Zones**
@@ -56,8 +58,6 @@ Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on 
 - **decidim-proposals**, **decidim-core**, **decidim-blogs**: Apply generalized endorsements to the GraphQL API and add it to the blog posts query. [\#5847](https://github.com/decidim/decidim/pull/5847)
 
 ### Changed
-
-- **decidim-comments**: Paginate comments [\#5553](https://github.com/decidim/decidim/pull/5553)
 
 ### Fixed
 
