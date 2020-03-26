@@ -481,13 +481,13 @@ FactoryBot.define do
     subject { generate_localized_title }
 
     after(:create) do |newsletter, evaluator|
-       create(
+      create(
         :content_block,
         :newsletter_template,
         organization: evaluator.organization,
         scope_id: newsletter.id,
         manifest_name: "basic_only_text",
-        settings: evaluator.body.transform_keys {|key| "body_#{key}"}
+        settings: evaluator.body.transform_keys { |key| "body_#{key}" }
       )
     end
 
