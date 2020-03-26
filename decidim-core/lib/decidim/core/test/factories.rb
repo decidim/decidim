@@ -618,6 +618,7 @@ FactoryBot.define do
 
     trait :newsletter_template do
       scope_name { :newsletter_template }
+      manifest_name { :basic_only_text }
     end
   end
 

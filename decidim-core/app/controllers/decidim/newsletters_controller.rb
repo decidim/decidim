@@ -3,7 +3,8 @@
 module Decidim
   # The controller to show the newsletter on the website.
   class NewslettersController < Decidim::ApplicationController
-    layout "decidim/mailer", only: [:show]
+    layout "decidim/newsletter_base", only: [:show]
+
     helper Decidim::SanitizeHelper
     include Decidim::NewslettersHelper
 
@@ -16,7 +17,6 @@ module Decidim
       raise ActionController::RoutingError, "Not Found" unless newsletter.sent?
 
       @encrypted_token = Decidim::NewsletterEncryptor.sent_at_encrypted(@user.id, newsletter.sent_at) if @user.present?
-      @body = parse_interpolations(newsletter.body[I18n.locale.to_s], @user, newsletter.id)
     end
 
     def unsubscribe

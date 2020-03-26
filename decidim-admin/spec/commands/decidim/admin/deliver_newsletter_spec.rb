@@ -18,6 +18,10 @@ module Decidim::Admin
       let(:participatory_processes) { create_list(:participatory_process, rand(2..9), organization: organization) }
       let(:selected_participatory_processes) { [participatory_processes.first.id.to_s] }
 
+      def user_localized_body(user)
+        newsletter.template.settings.body.stringify_keys[user.locale]
+      end
+
       let(:send_to_all_users) { false }
       let(:send_to_followers) { false }
       let(:send_to_participants) { false }
@@ -57,7 +61,7 @@ module Decidim::Admin
 
             deliverable_users.each do |user|
               email = emails.find { |e| e.to.include? user.email }
-              expect(email_body(email)).to include(newsletter.body[user.locale])
+              expect(email_body(email)).to include(user_localized_body(user))
             end
 
             newsletter.reload
