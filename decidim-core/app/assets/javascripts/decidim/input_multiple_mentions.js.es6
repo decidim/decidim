@@ -1,23 +1,23 @@
 // = require tribute
 
-const maxRecipients = 9;
-let mentionsCount = 0;
-
-/* eslint no-unused-vars: 0 */
-const deleteRecipient = (element) => {
-  // Remove recipient
-  element.remove();
-  mentionsCount -= 1;
-  // In case mentions container disable, enable again
-  if ($(".js-multiple-mentions").prop("disabled")) {
-    $(".js-multiple-mentions").prop("disabled", false);
-  }
-};
-
 $(() => {
   const $multipleMentionContainer = $(".js-multiple-mentions");
   const $multipleMentionRecipientsContainer = $(".js-multiple-mentions-recipients");
   const nodatafound = $multipleMentionContainer.attr("data-noresults");
+
+  const maxRecipients = 9;
+  let mentionsCount = 0;
+
+  /* eslint no-unused-vars: 0 */
+  let deleteRecipient = function(element) {
+    // Remove recipient
+    element.remove();
+    mentionsCount -= 1;
+    // In case mentions container disable, enable again
+    if ($multipleMentionContainer.prop("disabled")) {
+      $multipleMentionContainer.prop("disabled", false);
+    }
+  };
 
   let noMatchTemplate = null
   if (nodatafound) {
@@ -41,7 +41,7 @@ $(() => {
 
   /* eslint no-use-before-define: ["error", { "variables": false }]*/
   let remoteSearch = function(text, cb) {
-    let query = `{users(filter:{wildcard:"${text}"}){id,nickname,name,avatarUrl,disabledNotifications}}`;
+    let query = `{users(filter:{wildcard:"${text}",type:"user"}){id,nickname,name,avatarUrl,disabledNotifications}}`;
     $.post("/api", {query: query}).
       then((response) => {
         let data = response.data.users || {};
@@ -66,7 +66,7 @@ $(() => {
   /* eslint multiline-ternary: 0 */
   /* eslint no-ternary: 0 */
   let tribute = new Tribute({
-    trigger: "@",
+    autocompleteMode: true,
     // avoid overloading the API if the user types too fast
     values: debounce(function (text, cb) {
       remoteSearch(text, (users) => cb(users));
@@ -87,17 +87,19 @@ $(() => {
       }
       // Set recipient profile view
       let recipientLabel = `
-        <label style="padding: 0 0 10px 0" onClick="deleteRecipient(this)">
+        <label style="padding: 0 0 10px 0">
           <img src="${item.original.avatarUrl}" alt="${item.original.name}" height="35" width="35" style="border-radius: 50%;">&nbsp;
           <b>${item.original.name}</b>
           <input type="hidden" name="recipient_id[]" value="${item.original.id}">
         </label>
       `;
+
       // Append new recipient to DOM
       if (item.original.disabledNotifications === "") {
         $multipleMentionRecipientsContainer.append(recipientLabel);
         $multipleMentionContainer.val("");
       }
+
       // Clean input
       return "";
     },
@@ -138,39 +140,26 @@ $(() => {
     });
   };
 
+  let setupRecipientEvents = function($element) {
+    $element.on("click", (event) => {
+      let $target = event.target.parentNode;
+      if ($target.tagName === "LABEL") {
+        deleteRecipient($target);
+      }
+    });
+  };
+
   // Call only if we have containter to bind events to
   if ($multipleMentionContainer.length) {
     setupEvents($multipleMentionContainer);
   }
 
-  // This allows external libraries (like React) to use the component
-  // by simply firing and event targeting the element where to attach Tribute
-  $(document).on("attach-mentions-element", (event, element) => {
-    if (!element) {
-      return;
-    }
-    tribute.attach(element);
-    // Due a bug in Tribute, re-add menu to DOM if it has been removed
-    // See https://github.com/zurb/tribute/issues/140
-    if (tribute.menu && !document.body.contains(tribute.menu)) {
-      tribute.range.getDocument().body.appendChild(tribute.menu);
-    }
-    setupEvents($(element));
-  });
+  // Call only if we have containter to bind events to
+  if ($multipleMentionRecipientsContainer.length) {
+    setupRecipientEvents($multipleMentionRecipientsContainer);
+  }
 
-  // tribute.attach($multipleMentionContainer);
-  // Tribute needs to be attached to the `.ql-editor` element as said at:
-  // https://github.com/quilljs/quill/issues/1816
-  //
-  // For this reason we need to wait a bit for quill to initialize itself.
   setTimeout(function() {
-    $multipleMentionContainer.each((index, item) => {
-      let $qlEditor = $(".ql-editor", item);
-      if ($qlEditor.length > 0) {
-        tribute.attach($qlEditor);
-      } else {
-        tribute.attach(item);
-      }
-    });
+    tribute.attach($multipleMentionContainer);
   }, 1000);
 });
