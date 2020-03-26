@@ -18,10 +18,6 @@ module Decidim::Admin
       let(:participatory_processes) { create_list(:participatory_process, rand(2..9), organization: organization) }
       let(:selected_participatory_processes) { [participatory_processes.first.id.to_s] }
 
-      def user_localized_body(user)
-        newsletter.template.settings.body.stringify_keys[user.locale]
-      end
-
       let(:send_to_all_users) { false }
       let(:send_to_followers) { false }
       let(:send_to_participants) { false }
@@ -48,6 +44,10 @@ module Decidim::Admin
       end
 
       let(:command) { described_class.new(newsletter, form, current_user) }
+
+      def user_localized_body(user)
+        newsletter.template.settings.body.stringify_keys[user.locale]
+      end
 
       shared_examples_for "selective newsletter" do
         context "when everything is ok" do
