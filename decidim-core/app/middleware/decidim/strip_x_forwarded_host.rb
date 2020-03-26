@@ -7,7 +7,7 @@ module Decidim
     end
 
     def call(env)
-      env["HTTP_X_FORWARDED_HOST"] = nil unless Decidim.config.follow_http_x_forwarded_host
+      env["HTTP_X_FORWARDED_HOST"] = nil unless Decidim.follow_http_x_forwarded_host
       @app.call(env)
     end
   end
