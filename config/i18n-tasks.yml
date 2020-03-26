@@ -209,6 +209,7 @@ ignore_unused:
   - layouts.decidim.assembly_widgets.*
   - layouts.decidim.conference_widgets.*
   - layouts.decidim.participatory_process_widgets.*
+  - decidim.newsletter_templates.basic_only_text.name
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:
