@@ -27,8 +27,7 @@ module Decidim
     # Public: Uses the `SettingsManifest` class to generate a settings schema
     # and fill it with the content blocks current settings. This eases the
     # access to those settings values.
-    #/byebu
-
+    #
     # Returns an object that responds to the settings defined in the content
     # block manifest.
     def settings
