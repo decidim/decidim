@@ -38,9 +38,9 @@ module Decidim
         @form = form(NewsletterForm).from_params(params)
 
         CreateNewsletter.call(@form, content_block, current_user) do
-          on(:ok) do |_newsletter|
+          on(:ok) do |newsletter|
             flash.now[:notice] = I18n.t("newsletters.create.success", scope: "decidim.admin")
-            redirect_to action: :index
+            redirect_to action: :show, id: newsletter.id
           end
 
           on(:invalid) do |newsletter|
@@ -146,7 +146,7 @@ module Decidim
       def content_block_from_manifest
         Decidim::ContentBlock.new(
           organization: current_organization,
-          scope: :newsletter_template,
+          scope_name: :newsletter_template,
           manifest_name: params[:newsletter_template_id]
         )
       end

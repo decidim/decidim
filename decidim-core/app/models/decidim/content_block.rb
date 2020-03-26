@@ -16,18 +16,19 @@ module Decidim
     # Public: finds the published content blocks for the given scope and
     # organization. Returns them ordered by ascending weight (lowest first).
     def self.for_scope(scope, organization:)
-      where(organization: organization, scope: scope)
+      where(organization: organization, scope_name: scope)
         .order(weight: :asc)
     end
 
     def manifest
-      @manifest ||= Decidim.content_blocks.for(scope).find { |manifest| manifest.name.to_s == manifest_name }
+      @manifest ||= Decidim.content_blocks.for(scope_name).find { |manifest| manifest.name.to_s == manifest_name }
     end
 
     # Public: Uses the `SettingsManifest` class to generate a settings schema
     # and fill it with the content blocks current settings. This eases the
     # access to those settings values.
-    #
+    #/byebu
+
     # Returns an object that responds to the settings defined in the content
     # block manifest.
     def settings
@@ -124,7 +125,7 @@ module Decidim
       end
 
       @images_container.manifest = manifest
-      @images_container.manifest_scope = scope
+      @images_container.manifest_scope = scope_name
       @images_container = @images_container.new(self)
     end
 

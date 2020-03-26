@@ -32,6 +32,8 @@ describe "Admin manages newsletters", type: :system do
         find(".button.new").click
       end
 
+      click_link "Use this template"
+
       within ".new_newsletter" do
         fill_in_i18n(
           :newsletter_subject,
@@ -42,8 +44,8 @@ describe "Admin manages newsletters", type: :system do
         )
 
         fill_in_i18n_editor(
-          :newsletter_body,
-          "#newsletter-body-tabs",
+          :newsletter_settings_body,
+          "#newsletter-settings--body-tabs",
           en: "Hello %{name}! Relevant content.",
           es: "Hola, %{name}! Contenido relevante.",
           ca: "Hola, %{name}! Contingut rellevant."
@@ -103,8 +105,8 @@ describe "Admin manages newsletters", type: :system do
         )
 
         fill_in_i18n_editor(
-          :newsletter_body,
-          "#newsletter-body-tabs",
+          :newsletter_settings_body,
+          "#newsletter-settings--body-tabs",
           en: "Relevant content.",
           es: "Contenido relevante.",
           ca: "Contingut rellevant."
