@@ -21,6 +21,15 @@ module Decidim::Conferences
       )
     end
     let(:invalid) { false }
+    let(:user_notification) do
+      {
+        event: "decidim.events.conferences.conference_registration_validation_pending",
+        event_class: ConferenceRoleAssignedEvent,
+        resource: conference,
+        affected_users: [user],
+        extra: { role: kind_of(String) }
+      }
+    end
 
     context "when the form is not valid" do
       let(:invalid) { true }
@@ -37,6 +46,12 @@ module Decidim::Conferences
 
         expect(roles.count).to eq 1
         expect(roles.first.role).to eq "admin"
+      end
+
+      it "sends a notification to the user with the role assigned" do
+        expect(Decidim::EventsManager).to receive(:publish).with(user_notification)
+
+        subject.call
       end
 
       it "doesn't add admin privileges to the user" do

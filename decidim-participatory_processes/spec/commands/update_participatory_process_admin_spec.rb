@@ -19,6 +19,15 @@ module Decidim::ParticipatoryProcesses
       )
     end
     let(:invalid) { false }
+    let(:user_notification) do
+      {
+        event: "decidim.events.participatory_process.role_assigned",
+        event_class: ParticipatoryProcessRoleAssignedEvent,
+        resource: participatory_process,
+        affected_users: [user],
+        extra: { role: kind_of(String) }
+      }
+    end
 
     context "when the form is not valid" do
       let(:invalid) { true }
@@ -50,6 +59,12 @@ module Decidim::ParticipatoryProcesses
         role.reload
 
         expect(role.role).to eq "moderator"
+      end
+
+      it "sends a notification to the user with the updated role" do
+        expect(Decidim::EventsManager).to receive(:publish).with(user_notification)
+
+        subject.call
       end
 
       it "traces the action", versioning: true do

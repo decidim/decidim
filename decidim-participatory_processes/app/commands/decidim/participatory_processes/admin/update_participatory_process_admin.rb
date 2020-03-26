@@ -11,10 +11,9 @@ module Decidim
         # form - A form object with the params.
         # participatory_process - The ParticipatoryProcess that will hold the
         #   user role
-        def initialize(form, user_role, participatory_process)
+        def initialize(form, user_role)
           @form = form
           @user_role = user_role
-          @participatory_process = participatory_process
         end
 
         # Executes the command. Broadcasts these events:

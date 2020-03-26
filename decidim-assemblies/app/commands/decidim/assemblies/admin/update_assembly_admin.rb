@@ -10,10 +10,9 @@ module Decidim
         #
         # form - A form object with the params.
         # user_role - The AssemblyUSerRole to update
-        def initialize(form, user_role, assembly)
+        def initialize(form, user_role)
           @form = form
           @user_role = user_role
-          @assembly = assembly
         end
 
         # Executes the command. Broadcasts these events:

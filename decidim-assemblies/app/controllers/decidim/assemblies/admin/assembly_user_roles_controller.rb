@@ -45,7 +45,7 @@ module Decidim
           enforce_permission_to :update, :assembly_user_role, user_role: @user_role
           @form = form(AssemblyUserRoleForm).from_params(params)
 
-          UpdateAssemblyAdmin.call(@form, @user_role, current_assembly) do
+          UpdateAssemblyAdmin.call(@form, @user_role) do
             on(:ok) do
               flash[:notice] = I18n.t("assembly_user_roles.update.success", scope: "decidim.admin")
               redirect_to assembly_user_roles_path(current_assembly)

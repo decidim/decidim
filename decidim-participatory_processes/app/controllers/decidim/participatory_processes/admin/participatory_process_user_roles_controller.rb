@@ -45,7 +45,7 @@ module Decidim
           enforce_permission_to :update, :process_user_role, process_user_role: @user_role
           @form = form(ParticipatoryProcessUserRoleForm).from_params(params)
 
-          UpdateParticipatoryProcessAdmin.call(@form, @user_role, current_participatory_process) do
+          UpdateParticipatoryProcessAdmin.call(@form, @user_role) do
             on(:ok) do
               flash[:notice] = I18n.t("participatory_process_user_roles.update.success", scope: "decidim.admin")
               redirect_to participatory_process_user_roles_path(current_participatory_process)

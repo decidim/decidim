@@ -10,10 +10,9 @@ module Decidim
         #
         # form - A form object with the params.
         # user_role - The ConferenceUSerRole to update
-        def initialize(form, user_role, conference)
+        def initialize(form, user_role)
           @form = form
           @user_role = user_role
-          @conference = conference
         end
 
         # Executes the command. Broadcasts these events:
