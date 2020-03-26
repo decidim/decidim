@@ -27,7 +27,7 @@ describe "Last activity", type: :system do
   end
 
   before do
-    create :content_block, organization: organization, scope: :homepage, manifest_name: :last_activity
+    create :content_block, organization: organization, scope_name: :homepage, manifest_name: :last_activity
     switch_to_host organization.host
   end
 

@@ -6,7 +6,7 @@ describe Decidim::Consultations::ContentBlocks::HighlightedConsultationsCell, ty
   subject { cell(content_block.cell, content_block).call }
 
   let(:organization) { create(:organization) }
-  let(:content_block) { create :content_block, organization: organization, manifest_name: :highlighted_consultations, scope: :homepage, settings: settings }
+  let(:content_block) { create :content_block, organization: organization, manifest_name: :highlighted_consultations, scope_name: :homepage, settings: settings }
   let!(:consultations) { create_list :consultation, 5, :active, organization: organization }
   let(:settings) { {} }
 

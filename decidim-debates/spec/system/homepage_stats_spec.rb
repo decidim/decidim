@@ -10,7 +10,7 @@ describe "Homepage", type: :system do
   let!(:moderation) { create :moderation, reportable: debates.first, hidden_at: 1.day.ago }
 
   before do
-    create :content_block, organization: organization, scope: :homepage, manifest_name: :stats
+    create :content_block, organization: organization, scope_name: :homepage, manifest_name: :stats
     visit decidim.root_path
   end
 

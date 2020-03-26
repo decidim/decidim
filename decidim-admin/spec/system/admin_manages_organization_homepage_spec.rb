@@ -28,7 +28,7 @@ describe "Admin manages organization homepage", type: :system do
   end
 
   context "when editing a persisted content block" do
-    let!(:content_block) { create :content_block, organization: organization, manifest_name: :hero, scope: :homepage }
+    let!(:content_block) { create :content_block, organization: organization, manifest_name: :hero, scope_name: :homepage }
 
     it "updates the settings of the content block" do
       visit decidim_admin.edit_organization_homepage_content_block_path(:hero)

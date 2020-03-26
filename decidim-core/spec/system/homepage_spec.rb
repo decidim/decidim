@@ -19,13 +19,13 @@ describe "Homepage", type: :system do
     let(:organization) { create(:organization, official_url: official_url) }
 
     before do
-      create :content_block, organization: organization, scope: :homepage, manifest_name: :hero
-      create :content_block, organization: organization, scope: :homepage, manifest_name: :sub_hero
-      create :content_block, organization: organization, scope: :homepage, manifest_name: :highlighted_content_banner
-      create :content_block, organization: organization, scope: :homepage, manifest_name: :how_to_participate
-      create :content_block, organization: organization, scope: :homepage, manifest_name: :stats
-      create :content_block, organization: organization, scope: :homepage, manifest_name: :metrics
-      create :content_block, organization: organization, scope: :homepage, manifest_name: :footer_sub_hero
+      create :content_block, organization: organization, scope_name: :homepage, manifest_name: :hero
+      create :content_block, organization: organization, scope_name: :homepage, manifest_name: :sub_hero
+      create :content_block, organization: organization, scope_name: :homepage, manifest_name: :highlighted_content_banner
+      create :content_block, organization: organization, scope_name: :homepage, manifest_name: :how_to_participate
+      create :content_block, organization: organization, scope_name: :homepage, manifest_name: :stats
+      create :content_block, organization: organization, scope_name: :homepage, manifest_name: :metrics
+      create :content_block, organization: organization, scope_name: :homepage, manifest_name: :footer_sub_hero
 
       switch_to_host(organization.host)
       visit decidim.root_path
