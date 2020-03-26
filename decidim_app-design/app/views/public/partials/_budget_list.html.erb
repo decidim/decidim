@@ -45,7 +45,7 @@
 
               </div>
             </div>
-            <div class="budget-list__data">
+            <div class="budget-list__data <% if locals[:showFinished] %> show-for-medium<% end %>">
               <span class="budget-list__data__number budget-list__number show-for-medium">22.000.000€</span>
               <% if !locals[:showFinished] %>
                 <a href="#" class="button tiny hollow budget-list__action">
