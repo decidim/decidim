@@ -24,7 +24,7 @@ module Decidim
           Decidim::ContentBlock.create(
             decidim_organization_id: organization.id,
             weight: weight,
-            scope: :homepage,
+            scope_name: :homepage,
             manifest_name: manifest.name,
             published_at: Time.current
           )

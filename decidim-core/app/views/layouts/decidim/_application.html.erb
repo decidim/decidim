@@ -5,7 +5,7 @@
   twitter_handler: current_organization.twitter_handler,
   image_url: Decidim::ContentBlock.published.find_by(
     organization: current_organization,
-    scope: :homepage,
+    scope_name: :homepage,
     manifest_name: :hero
   ).try(:images_container).try(:background_image).try(:url)
 }) %>

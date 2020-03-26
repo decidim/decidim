@@ -77,7 +77,7 @@ module Decidim
       def create_content_block(manifest_name, weight)
         Decidim::ContentBlock.create!(
           organization: organization,
-          scope: scope,
+          scope_name: scope,
           weight: weight,
           manifest_name: manifest_name
         )

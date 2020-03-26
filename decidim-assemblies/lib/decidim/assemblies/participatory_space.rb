@@ -35,7 +35,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
     Decidim::ContentBlock.create(
       organization: organization,
       weight: 32,
-      scope: :homepage,
+      scope_name: :homepage,
       manifest_name: :highlighted_assemblies,
       published_at: Time.current
     )
