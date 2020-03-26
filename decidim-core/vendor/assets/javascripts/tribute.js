@@ -617,7 +617,7 @@ function () {
           }
         }
 
-        if ($(li).find(".disabled-notifications").length == 0){
+        if (li.getElementsByClassName("disabled-tribute-element")[0]==undefined){
           tribute.selectItemAtIndex(li.getAttribute('data-index'), event);
           tribute.hideMenu(); // TODO: should fire with externalTrigger and target is outside of menu
         }

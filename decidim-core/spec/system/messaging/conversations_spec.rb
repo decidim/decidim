@@ -265,7 +265,7 @@ describe "Conversations", type: :system do
           sleep(2)
           find(".js-multiple-mentions").fill_in with: "@"
           page.execute_script('$(".js-multiple-mentions")[0].dispatchEvent(new Event("keydown"));$(".js-multiple-mentions")[0].dispatchEvent(new Event("keyup"));')
-          expect(page).to have_selector(".tribute-container .disabled-notifications")
+          expect(page).to have_selector(".tribute-container .disabled-tribute-element")
         end
       end
     end

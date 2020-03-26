@@ -104,8 +104,8 @@ $(() => {
       return "";
     },
     menuItemTemplate: function(item) {
-      let disabledElementClass = ((item.original.disabledNotifications === "") ? "" : "class=\"disabled-notifications\"")
-      let tpl = `<div ${disabledElementClass}><strong>${item.original.nickname}</strong>&nbsp;<small>${item.original.name}</small>&nbsp;<span class="disabled-notifications-info">${item.original.disabledNotifications}</span></div>`;
+      let disabledElementClass = ((item.original.disabledNotifications === "") ? "" : "class=\"disabled-tribute-element\"")
+      let tpl = `<div ${disabledElementClass}><strong>${item.original.nickname}</strong>&nbsp;<small>${item.original.name}</small>&nbsp;<span class="disabled-tribute-element-info">${item.original.disabledNotifications}</span></div>`;
       return tpl;
     }
   });

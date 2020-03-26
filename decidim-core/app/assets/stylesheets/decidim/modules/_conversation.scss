@@ -56,9 +56,9 @@
     }
   }
 }
-.disabled-notifications{
+.disabled-tribute-element{
   color: $muted;
-  span.disabled-notifications-info{
+  span.disabled-tribute-element-info{
     font-size: rem-calc(12);
     font-weight: normal;
     font-style: italic;
@@ -66,7 +66,7 @@
 }
 
 .tribute-container{
-  .disabled-notifications{
+  .disabled-tribute-element{
     cursor: auto;
     margin-top: -5px;
     margin-left: -5px;
