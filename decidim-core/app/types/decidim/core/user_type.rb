@@ -28,7 +28,7 @@ module Decidim
       end
 
       field :disabledNotifications, !types.String, "The user's disabled notifications status" do
-        resolve ->(user, _args, _ctx) { user.presenter.disabled_notifications }
+        resolve ->(user, _args, ctx) { user.presenter.disabled_message_reception_information(ctx.to_h) }
       end
 
       field :organizationName, !types.String, "The user's organization name" do
