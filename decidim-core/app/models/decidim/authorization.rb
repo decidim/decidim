@@ -49,9 +49,16 @@ module Decidim
 
     # Returns true if the authorization is renewable by the participant
     def renewable?
-      return unless workflow_manifest && renewable_at < Time.current
+      return unless workflow_manifest
 
-      workflow_manifest.renewable
+      workflow_manifest.renewable && renewable_at < Time.current
+    end
+
+    # Returns a String, the cell to be used to render the metadata
+    def cell_metadata
+      return unless workflow_manifest
+
+      workflow_manifest.cell_metadata
     end
 
     # Calculates at when this authorization will expire, if it needs to.

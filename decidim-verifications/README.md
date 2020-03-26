@@ -62,7 +62,7 @@ Decidim implements two type of authorization methods:
   # config/initializers/decidim.rb
 
   Decidim::Verifications.register_workflow(:census) do |workflow|
-    workflow.form = "<myAuthorizationHandlerClass"
+    workflow.form = "<myAuthorizationHandlerClass>"
   end
   ```
 
@@ -98,7 +98,9 @@ Decidim implements two type of authorization methods:
     authorization process.
 
 * _Renewable authorizations_.  
-  By default a participant can't renew its authorization, but this can be enabled when registering the workflow, the time between renewals can be configured (one day by default):
+  By default a participant can't renew its authorization, but this can be enabled when registering the workflow, the time between renewals can be configured (one day by default).
+
+  Optionally to change the renew modal content part of the data stored, you can set a new value for the cell used to render the metadata.
 
   ```ruby
   # config/initializers/decidim.rb
@@ -107,8 +109,10 @@ Decidim implements two type of authorization methods:
     workflow.form = "myAuthorizationHandlerClass"
     workflow.renewable = true
     workflow.time_between_renewals = 1.day
+    workflow.cell_metadata = "decidim/verifications/authorization_metadata"
   end
   ```
+
 ### SMS verification
 
 Decidim comes with a verification workflow designed to verify users by sending

@@ -23,6 +23,14 @@ module Decidim
             end
           end
         end
+
+        def renew_modal
+          enforce_permission_to :renew, :authorization, authorization: authorization
+
+          respond_to do |format|
+            format.html { render layout: nil }
+          end
+        end
       end
     end
   end

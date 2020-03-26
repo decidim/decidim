@@ -75,7 +75,7 @@ module Decidim
       when :update, :destroy
         toggle_allow(authorization.user == user && !authorization.granted?)
       when :renew
-        toggle_allow(authorization.user == user && authorization.granted?)
+        toggle_allow(authorization.user == user && authorization.granted? && authorization.renewable?)
       end
     end
 
