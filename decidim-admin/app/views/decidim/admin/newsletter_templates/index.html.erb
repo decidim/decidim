@@ -7,7 +7,7 @@
   <div class="card-section">
     <% templates.each do |newsletter_template| %>
       <p>
-        <%= newsletter_template.name %>
+        <%= t newsletter_template.public_name_key %>
         &nbsp;
         <%= link_to(t(".use_template"), new_newsletter_template_newsletter_path(newsletter_template.name)) %>
       </p>
