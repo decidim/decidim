@@ -13,7 +13,7 @@ After this, `Decidim::Proposals::ProposalEndorsement` and the corresponding coun
 
 ### Added
 
-- **decidim-forms**: Allow to view and export in PDF responses to surveys directly in the admin [#5770](https://github.com/decidim/decidim/pull/5770)
+- **decidim-forms**: Allow to view and export in PDF responses to surveys directly in the admin [\#5770](https://github.com/decidim/decidim/pull/5770)
 - **decidim-dev**: Retry failed test to avoid flaky. [\#5894](https://github.com/decidim/decidim/pull/5894)
 - **decidim-core**: Add scroll to last message and apply it on conversations. [\#5718](https://github.com/decidim/decidim/pull/5718)
 - **decidim-core**: Allow to restric direct messages to only people followed by the user. [\#5720](https://github.com/decidim/decidim/pull/5720)
