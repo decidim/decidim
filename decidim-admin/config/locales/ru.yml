@@ -495,18 +495,12 @@ ru:
           actions: Действия
           badge: Знак отличия
           created_at: 'Создано:'
-          filter:
-            all: Все
-            not_officialized: Не имеет служебного статуса
-            officialized: Имеет служебный статус
-          filter_by: 'Отобрать по признаку:'
           name: Имя
           nickname: Псевдоним
           not_officialized: Не имеет служебного статуса
           officialize: Предоставить служебный статус
           officialized: Имеет служебный статус
           reofficialize: Вновь предоставить служебный статус
-          search: Поиск
           status: Состояние
           unofficialize: Отменить служебный статус
         new:

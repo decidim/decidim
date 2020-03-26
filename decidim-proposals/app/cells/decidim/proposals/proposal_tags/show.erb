@@ -1,25 +1,27 @@
 <figure>
-  <figcaption class="text-uppercase">
-    <strong>
-      <%= t("filed_as", scope: "decidim.proposals.proposals.tags") %>
-    </strong>
-  </figcaption>
-
-  <ul>
+  <ul class="tags tags--proposal tags--list">
     <% if category.present? %>
       <li>
-        <%= link_to translated_attribute(category.name), resource_locator(model).index(filter: { category_id: category.id }) %>
+        <%= link_to translated_attribute(category.name), resource_locator(model).index(filter: { category_id: [category.id.to_s] }) %>
         <% if previous_category.present? && show_previous_category? %>
           &nbsp;
           <small class="text-small">
-            <%= t("changed_from", scope: "decidim.proposals.proposals.tags", previous_category: "#{previous_category.translated_name}").html_safe %>
+            <%= t("changed_from", scope: "decidim.proposals.proposals.tags", previous_name: "#{previous_category.translated_name}").html_safe %>
           </small>
         <% end %>
       </li>
     <% end %>
 
     <% if has_visible_scopes?(model) %>
-      <li><%= link_to translated_attribute(scope.name), resource_locator(model).index(filter: { scope_id: [scope.id] }) %></li>
+      <li>
+        <%= link_to translated_attribute(scope.name), resource_locator(model).index(filter: { scope_id: [scope.id] }) %>
+        <% if previous_scope.present? && show_previous_scope? %>
+          &nbsp;
+          <small class="text-small">
+            <%= t("changed_from", scope: "decidim.proposals.proposals.tags", previous_name: "#{translated_attribute(previous_scope.name)}").html_safe %>
+          </small>
+        <% end %>
+      </li>
     <% end %>
   </ul>
 </figure>

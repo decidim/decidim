@@ -4,6 +4,7 @@ eu:
       decidim/comments/comment_by_followed_user_event: Iruzkina
       decidim/comments/comment_created_event: Iruzkina
       decidim/comments/reply_created_event: Iruzkinaren erantzuna
+      decidim/comments/user_group_mentioned_event: Aipatu
       decidim/comments/user_mentioned_event: Aipatu
   activerecord:
     models:

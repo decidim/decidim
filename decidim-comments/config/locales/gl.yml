@@ -4,6 +4,7 @@ gl:
       decidim/comments/comment_by_followed_user_event: Comentario
       decidim/comments/comment_created_event: Comentario
       decidim/comments/reply_created_event: Comentario de resposta
+      decidim/comments/user_group_mentioned_event: Mención
       decidim/comments/user_mentioned_event: Mención
   activerecord:
     models:

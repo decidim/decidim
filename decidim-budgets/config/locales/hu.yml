@@ -92,7 +92,7 @@ hu:
             other: "%{count} projektek"
         filters:
           category: Kategória
-          category_prompt: Válassz kategóriát
+          scope: Hatáskör
           search: Keresés
         filters_small_view:
           close_modal: Modal bezárása

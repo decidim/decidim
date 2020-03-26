@@ -113,14 +113,39 @@ describe "Proposals", type: :system do
       it_behaves_like "rendering unsafe content", ".columns.mediumlarge-8.mediumlarge-pull-4"
     end
 
+    context "when it is a proposal with card image enabled" do
+      let!(:component) do
+        create(:proposal_component,
+               :with_card_image_allowed,
+               manifest: manifest,
+               participatory_space: participatory_process)
+      end
+
+      let!(:proposal) { create(:proposal, component: component) }
+      let!(:image) { create(:attachment, attached_to: proposal) }
+
+      it "shows the card image" do
+        visit_component
+        within "#proposal_#{proposal.id}" do
+          expect(page).to have_selector(".card__image")
+        end
+      end
+    end
+
     context "when it is an official meeting proposal" do
-      let!(:official_meeting_proposal) { create(:proposal, :official_meeting, component: component) }
+      include_context "with rich text editor content"
+      let!(:proposal) { create(:proposal, :official_meeting, body: content, component: component) }
+
+      before do
+        visit_component
+        click_link proposal.title
+      end
 
       it "shows the author as meeting" do
-        visit_component
-        click_link official_meeting_proposal.title
-        expect(page).to have_content(translated(official_meeting_proposal.authors.first.title))
+        expect(page).to have_content(translated(proposal.authors.first.title))
       end
+
+      it_behaves_like "rendering safe content", ".columns.mediumlarge-8.mediumlarge-pull-4"
     end
 
     context "when a proposal has comments" do
@@ -135,6 +160,38 @@ describe "Proposals", type: :system do
         comments.each do |comment|
           expect(page).to have_content(comment.body)
         end
+      end
+    end
+
+    context "when a proposal has costs" do
+      let!(:proposal) do
+        create(
+          :proposal,
+          :accepted,
+          :with_answer,
+          component: component,
+          cost: 20_000,
+          cost_report: { en: "My cost report" },
+          execution_period: { en: "My execution period" }
+        )
+      end
+      let!(:author) { create(:user, :confirmed, organization: component.organization) }
+
+      it "shows the costs" do
+        component.update!(
+          step_settings: {
+            component.participatory_space.active_step.id => {
+              answers_with_costs: true
+            }
+          }
+        )
+
+        visit_component
+        click_link proposal.title
+
+        expect(page).to have_content("20,000.00")
+        expect(page).to have_content("MY EXECUTION PERIOD")
+        expect(page).to have_content("My cost report")
       end
     end
 
@@ -197,7 +254,7 @@ describe "Proposals", type: :system do
 
       it "shows the rejection reason" do
         visit_component
-        choose "Rejected", name: "filter[state]"
+        check "Rejected"
         page.find_link(proposal.title, wait: 30)
         click_link proposal.title
 
@@ -223,6 +280,19 @@ describe "Proposals", type: :system do
           expect(page).to have_content("This proposal has been accepted")
           expect(page).to have_i18n_content(proposal.answer)
         end
+      end
+    end
+
+    context "when the proposal answer has not been published" do
+      let!(:proposal) { create(:proposal, :accepted_not_published, component: component) }
+
+      it "shows the acceptance reason" do
+        visit_component
+        click_link proposal.title
+
+        expect(page).not_to have_content("Accepted")
+        expect(page).not_to have_content("This proposal has been accepted")
+        expect(page).not_to have_i18n_content(proposal.answer)
       end
     end
 
@@ -461,7 +531,11 @@ describe "Proposals", type: :system do
 
     context "when ordering by 'most_endorsed'" do
       let!(:most_endorsed_proposal) { create(:proposal, component: component, created_at: 1.month.ago) }
-      let!(:endorsements) { create_list(:proposal_endorsement, 3, proposal: most_endorsed_proposal) }
+      let!(:endorsements) do
+        3.times.collect do
+          create(:endorsement, resource: most_endorsed_proposal, author: build(:user, organization: organization))
+        end
+      end
       let!(:less_endorsed_proposal) { create(:proposal, component: component) }
 
       it_behaves_like "ordering proposals by selected option", "Most endorsed" do

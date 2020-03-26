@@ -8,6 +8,7 @@ module Decidim
       include NeedsOrganization
       include NeedsPermission
       include ImpersonateUsers
+      include ForceAuthentication
 
       register_permissions(::Decidim::Api::ApplicationController,
                            ::Decidim::Permissions)
