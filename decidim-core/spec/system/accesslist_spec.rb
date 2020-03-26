@@ -26,7 +26,7 @@ describe "Access list", type: :system do
 
   context "when an access list has been specified" do
     before do
-      Decidim.system_accesslist_ips = ["127.0.0.1"]
+      allow(Decidim.config).to receive(:system_accesslist_ips).and_return(["127.0.0.1"])
     end
 
     it "allows access to citizen side" do
