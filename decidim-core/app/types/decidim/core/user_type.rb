@@ -11,30 +11,36 @@ module Decidim
         -> { Decidim::Core::AuthorInterface }
       ]
 
+      field :id, !types.ID, "The user's id"
+
       field :name, !types.String, "The user's name"
 
       field :nickname, !types.String, "The user's nickname" do
-        resolve ->(obj, _args, _ctx) { UserPresenter.new(obj).nickname }
+        resolve ->(user, _args, _ctx) { user.presenter.nickname }
       end
 
       field :avatarUrl, !types.String, "The user's avatar url" do
-        resolve ->(obj, _args, _ctx) { UserPresenter.new(obj).avatar_url(:thumb) }
+        resolve ->(user, _args, _ctx) { user.presenter.avatar_url(:thumb) }
       end
 
       field :profilePath, !types.String, "The user's profile url" do
-        resolve ->(obj, _args, _ctx) { UserPresenter.new(obj).profile_path }
+        resolve ->(user, _args, _ctx) { user.presenter.profile_path }
       end
 
       field :organizationName, !types.String, "The user's organization name" do
-        resolve ->(obj, _args, _ctx) { obj.organization.name }
+        resolve ->(user, _args, _ctx) { user.organization.name }
       end
 
       field :deleted, !types.Boolean, "Whether the user's account has been deleted or not" do
-        resolve ->(obj, _args, _ctx) { UserPresenter.new(obj).deleted? }
+        resolve ->(user, _args, _ctx) { user.presenter.deleted? }
       end
 
       field :badge, !types.String, "A badge for the user group" do
-        resolve ->(obj, _args, _ctx) { UserPresenter.new(obj).badge }
+        resolve ->(user, _args, _ctx) { user.presenter.badge }
+      end
+
+      field :groups, !types[UserGroupType], "Groups where this user belongs" do
+        resolve ->(user, _args, _ctx) { user.accepted_user_groups }
       end
     end
   end

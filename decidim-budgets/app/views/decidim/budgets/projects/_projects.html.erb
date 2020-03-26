@@ -1,3 +1,9 @@
+<div class="collection-sort-controls row small-up-1 medium-up-3 card-grid">
+  <div class="column">
+    <%= order_selector available_orders, i18n_scope: "decidim.budgets.projects.orders" %>
+  </div>
+</div>
+
 <div class="card card--list budget-list">
   <% projects.each do |project| %>
     <%= render partial: "project", locals: { project: project } %>

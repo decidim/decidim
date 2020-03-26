@@ -17,7 +17,31 @@ module Decidim
         .to eq Decidim::ParticipatoryProcesses::AdminLog::ParticipatoryProcessUserRolePresenter
     end
 
-    context "when the role is not admin" do
+    context "when the role is admin" do
+      let(:role) { "admin" }
+
+      it { is_expected.to be_valid }
+    end
+
+    context "when the role is collaborator" do
+      let(:role) { "collaborator" }
+
+      it { is_expected.to be_valid }
+    end
+
+    context "when the role is moderator" do
+      let(:role) { "moderator" }
+
+      it { is_expected.to be_valid }
+    end
+
+    context "when the role is valuator" do
+      let(:role) { "valuator" }
+
+      it { is_expected.to be_valid }
+    end
+
+    context "when the role does not exist" do
       let(:role) { "fake_role" }
 
       it { is_expected.not_to be_valid }

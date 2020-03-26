@@ -108,6 +108,12 @@ en:
             one: project selected
             other: projects selected
           view: View
+        orders:
+          highest_cost: Highest cost
+          label: Order projects by
+          lowest_cost: Lowest cost
+          most_voted: Most voted
+          random: Random order
         project:
           add: Add
           count:

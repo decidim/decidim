@@ -26,6 +26,18 @@ fi-pl:
   decidim:
     admin:
       menu:
+        authorization_revocation:
+          before_date_info: Hyödyllinen, jos prosessi on jo alkanut ja haluat kumota aikaisemman prosessin varmennukset ja käyttäjien oikeudet prosesseihin.
+          button: Kumoa kaikki
+          button_before: Kumoa ennen tiettyä päivämäärää luodut
+          destroy:
+            confirm: Et voi peruuttaa ennen tiettyä päivämäärää luotujen varmennusten kumoamista. Haluatko varmasti jatkaa?
+            confirm_all: Et voi peruuttaa kaikkien varmennusten kumoamista. Haluatko varmasti jatkaa?
+          destroy_nok: Varmennusten kumoamisessa tapahtui virhe.
+          destroy_ok: Kaikki pyyntöäsi vastaavat varmennukset kumottu onnistuneesti!
+          info: Yhteensä %{count} varmennettua osallistujaa.
+          no_data: Ei varmennettuja osallistujia
+          title: Vahvistusten kumoaminen
         authorization_workflows: Vahvistukset
     admin_log:
       organization:

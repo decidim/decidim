@@ -46,7 +46,8 @@ module Decidim
 
           it "calls content processors" do
             user_parser = instance_double("kind of UserParser", users: [])
-            parsed_metadata = { user: user_parser }
+            user_group_parser = instance_double("kind of UserGroupParser", groups: [])
+            parsed_metadata = { user: user_parser, user_group: user_group_parser }
             parser = instance_double("kind of parser", rewrite: "whatever", metadata: parsed_metadata)
             expect(Decidim::ContentProcessor).to receive(:parse).with(
               form.body,
@@ -62,7 +63,7 @@ module Decidim
 
             expect(NewCommentNotificationCreator)
               .to receive(:new)
-              .with(kind_of(Comment), [])
+              .with(kind_of(Comment), [], [])
               .and_return(creator_double)
 
             expect(creator_double)
@@ -113,7 +114,42 @@ module Decidim
 
               expect(NewCommentNotificationCreator)
                 .to receive(:new)
-                .with(kind_of(Comment), [mentioned_user])
+                .with(kind_of(Comment), [mentioned_user], [])
+                .and_return(creator_double)
+
+              expect(creator_double)
+                .to receive(:create)
+
+              command.call
+            end
+          end
+
+          context "and comment contains a group mention" do
+            let(:mentioned_group) { create(:user_group, organization: organization) }
+            let(:parser_context) { { current_organization: organization } }
+            let(:body) { ::Faker::Lorem.paragraph + " @#{mentioned_group.nickname}" }
+
+            it "creates a new comment with user_group mention replaced" do
+              expect(Comment).to receive(:create!).with(
+                author: author,
+                commentable: commentable,
+                root_commentable: commentable,
+                body: Decidim::ContentProcessor.parse(body, parser_context).rewrite,
+                alignment: alignment,
+                decidim_user_group_id: user_group_id
+              ).and_call_original
+
+              expect do
+                command.call
+              end.to change(Comment, :count).by(1)
+            end
+
+            it "sends the notifications" do
+              creator_double = instance_double(NewCommentNotificationCreator, create: true)
+
+              expect(NewCommentNotificationCreator)
+                .to receive(:new)
+                .with(kind_of(Comment), [], [mentioned_group])
                 .and_return(creator_double)
 
               expect(creator_double)

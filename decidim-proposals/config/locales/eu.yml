@@ -50,7 +50,6 @@ eu:
       decidim/proposals/creation_enabled_event: Proposamenaren sorrera gaituta
       decidim/proposals/endorsing_enabled_event: Onartutako proposamena gaituta
       decidim/proposals/evaluating_proposal_event: Proposamena ebaluatzen ari da
-      decidim/proposals/proposal_endorsed_event: Onartutako proposamena
       decidim/proposals/proposal_mentioned_event: Proposamena aipatua
       decidim/proposals/publish_proposal_event: Proposatutakoa argitaratua
       decidim/proposals/rejected_proposal_event: Proposamena baztertu da
@@ -63,9 +62,6 @@ eu:
       decidim/proposals/proposal:
         one: Proposamen
         other: proposamenak
-      decidim/proposals/proposal_endorsement:
-        one: abal
-        other: Oniritziak
       decidim/proposals/proposal_note:
         one: Ohar
         other: Oharrak
@@ -170,11 +166,6 @@ eu:
             email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
             email_subject: Ondorengo proposamen bat onartu da
             notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena onartu da.
-        proposal_endorsed:
-          email_intro: '%{endorser_name} %{endorser_nickname}, jarraitzen ari zarenak, "%{resource_title}" proposamena onartu du eta uste duzu zure interesgarria dela. Begiratu eta lagundu:'
-          email_outro: Jakinarazpena jaso duzu %{endorser_nickname}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: "%{endorser_nickname} proposamen berri bat onartu du"
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> onetsi du.
         proposal_evaluating:
           affected_user:
             email_intro: 'Zure proposamena "%{resource_title}" ari da ebaluatzen. Orri honetan erantzun dezakezu:'
@@ -187,7 +178,6 @@ eu:
             email_subject: Jarraitzen ari zaren proposamena ebaluatzen ari da
             notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena ebaluatzen ari da.
         proposal_mentioned:
-          email_intro: '"%{mentioned_proposal_title}" zure proposamena <a href="%{resource_path}"></a> espazio honetan aipatu da iruzkinetan.'
           email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" egilearena delako.
           email_subject: Zure proposamena "%{mentioned_proposal_title}" aipatu da
           notification_title: '"%{mentioned_proposal_title}" zure proposamena <a href="%{resource_path}"></a> espazio honetan aipatu da iruzkinetan.'
@@ -217,6 +207,8 @@ eu:
           email_outro: Jakinarazpen hau jaso duzu proposamenaren egilea delako.
           email_subject: '%{resource_title} Proposamenaren kategoria eguneratu da'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamenaren kategoria administratzaile batek eguneratu du.
+        proposal_update_scope:
+          email_outro: Jakinarazpen hau jaso duzu proposamenaren egilea delako.
         voting_enabled:
           email_intro: 'Proposamenak bozkatu ditzakezu %{participatory_space_title}-n! Hasi orri honetan parte hartzea:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
@@ -362,6 +354,7 @@ eu:
             change_category: Aldatu kategoria
             merge: Bateratu berri bat sartu
             merge_button: Batu
+            publish: Argitaratu
             select_component: Hautatu osagaia
             selected: hautatutako
             split: Proposamen banatuak
@@ -371,14 +364,16 @@ eu:
           new:
             create: Sortu
             title: Sortu proposamena
+          publish_answers:
+            select_a_proposal: Aukeratu proposamen bat
           show:
             created_at: Sortze data
             votes_count: Botoen zenbaketa
           update_category:
-            invalid: 'Proposamen hauek %{category} kategoria zeuden: %{proposals}.'
             select_a_category: Hautatu kategoria bat
             select_a_proposal: Aukeratu proposamen bat
-            success: 'Proposamenak %{category} kategorian eguneratu dira: %{proposals}.'
+          update_scope:
+            select_a_proposal: Aukeratu proposamen bat
         proposals_imports:
           create:
             invalid: Arazo bat izan da proposamenak inportatzea
@@ -556,7 +551,6 @@ eu:
           fields:
             category: Kategoria
             comments: Oharrak
-            endorsements: Oniritziak
             id: NORTASUN AGIRIA
             notes: Oharrak
             official_proposal: Proposamen ofiziala
@@ -573,18 +567,6 @@ eu:
           amend: aldatzea
           comment: Iruzkina
           comments: Oharrak
-          endorse: gatoz
-      proposal_endorsements:
-        create:
-          error: Arazoak izan dira proposamena onartzean.
-        identities:
-          done: Done
-          select_identity: Hautatu identitatea
-      proposal_endorsements_helper:
-        endorsement_button:
-          already_endorsed: abala
-          endorse: gatoz
-        render_endorsements_button_card_part:
           endorse: gatoz
       proposal_votes:
         create:
@@ -612,10 +594,6 @@ eu:
           discard_confirmation: Ziur zaude proposamenaren zirriborroa baztertu nahi duzula?
           send: Aurreikusi
           title: Editatu proposamenaren zirriborroa
-        endorsement_identities_cabin:
-          endorse: gatoz
-        endorsements_card_row:
-          comments: Oharrak
         filters:
           amendment_type: Mota
           category: Kategoria
@@ -662,7 +640,9 @@ eu:
           creation_date: 'Sorkuntza: %{date}'
           view_proposal: Ikusi proposamena
         show:
+          answer: Erantzuna
           back_to: Itzuli
+          comments: Iruzkinak
           edit_proposal: Editatu proposamena
           endorsements_list: Onarpenen zerrenda
           hidden_endorsers_count:
@@ -677,8 +657,6 @@ eu:
           withdraw_btn_hint: Zure proposamena uka dezakezu zure kontuan aldatzen baduzu, laguntza jaso ez baduzu. Proposamena ez da ezabatu, kendutako proposamenen zerrendan agertuko da.
           withdraw_confirmation: Ziur al zaude proposamen hau kendu nahi duzula?
           withdraw_proposal: Ezabatu proposamena
-        tags:
-          changed_from: "( <u>%{previous_category}</u> administratzaile batek aldatu du)"
         vote_button:
           already_voted: Bozkatuta duzu
           already_voted_hover: Unvote

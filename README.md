@@ -18,13 +18,45 @@ All members of the Decidim community agree with [Decidim Social Contract or Code
 
 Code quality
 
-[![Build Status](https://img.shields.io/circleci/project/github/decidim/decidim/master.svg)](https://circleci.com/gh/decidim/decidim)
+[![codecov](https://codecov.io/gh/decidim/decidim/branch/develop/graph/badge.svg)](https://codecov.io/gh/decidim/decidim)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ad8fa445086e491486b6/maintainability)](https://codeclimate.com/github/decidim/decidim/maintainability)
 [![Crowdin](https://d322cqt584bo4o.cloudfront.net/decidim/localized.svg)](https://crowdin.com/project/decidim)
 [![Inline docs](http://inch-ci.org/github/decidim/decidim.svg?branch=master)](http://inch-ci.org/github/decidim/decidim)
 [![Accessibility issues](https://rocketvalidator.com/badges/a11y_issues.svg?url=http://staging.decidim.codegram.com/)](https://rocketvalidator.com/badges/link?url=http://staging.decidim.codegram.com/&report=a11y)
 [![HTML issues](https://rocketvalidator.com/badges/html_issues.svg?url=http://staging.decidim.codegram.com/)](https://rocketvalidator.com/badges/link?url=http://staging.decidim.codegram.com/&report=html)
 
+Test suite
+
+<details>
+  <summary>See all</summary>
+
+[![Accountability](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Accountability/develop.svg?label=%5BCI%5D%20Accountability)](https://github.com/decidim/decidim/actions)
+[![Admin](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Admin/develop.svg?label=%5BCI%5D%20Admin)](https://github.com/decidim/decidim/actions)
+[![Api](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Api/develop.svg?label=%5BCI%5D%20Api)](https://github.com/decidim/decidim/actions)
+[![Assemblies](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Assemblies/develop.svg?label=%5BCI%5D%20Assemblies)](https://github.com/decidim/decidim/actions)
+[![Blogs](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Blogs/develop.svg?label=%5BCI%5D%20Blogs)](https://github.com/decidim/decidim/actions)
+[![Budgets](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Budgets/develop.svg?label=%5BCI%5D%20Budgets)](https://github.com/decidim/decidim/actions)
+[![Comments](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Comments/develop.svg?label=%5BCI%5D%20Comments)](https://github.com/decidim/decidim/actions)
+[![Conferences](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Conferences/develop.svg?label=%5BCI%5D%20Conferences)](https://github.com/decidim/decidim/actions)
+[![Consultations](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Consultations/develop.svg?label=%5BCI%5D%20Consultations)](https://github.com/decidim/decidim/actions)
+[![Core](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Core/develop.svg?label=%5BCI%5D%20Core)](https://github.com/decidim/decidim/actions)
+[![Debates](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Debates/develop.svg?label=%5BCI%5D%20Debates)](https://github.com/decidim/decidim/actions)
+[![Forms](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Forms/develop.svg?label=%5BCI%5D%20Forms)](https://github.com/decidim/decidim/actions)
+[![Generators](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Generators/develop.svg?label=%5BCI%5D%20Generators)](https://github.com/decidim/decidim/actions)
+[![Initiatives](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Initiatives/develop.svg?label=%5BCI%5D%20Initiatives)](https://github.com/decidim/decidim/actions)
+[![Main](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Main%20folder/develop.svg?label=%5BCI%5D%20Main)](https://github.com/decidim/decidim/actions)
+[![Meetings](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Meetings/develop.svg?label=%5BCI%5D%20Meetings)](https://github.com/decidim/decidim/actions)
+[![Pages](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Pages/develop.svg?label=%5BCI%5D%20Pages)](https://github.com/decidim/decidim/actions)
+[![Participatory processes](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Participatory%20processes/develop.svg?label=%5BCI%5D%20Participatory%20processes)](https://github.com/decidim/decidim/actions)
+[![Proposals (system admin)](<https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Proposals%20(system%20admin)/develop.svg?label=%5BCI%5D%20Proposals%20(system%20admin)>)](https://github.com/decidim/decidim/actions)
+[![Proposals (system public)](<https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Proposals%20(system%20public)/develop.svg?label=%5BCI%5D%20Proposals%20(system%20public)>)](https://github.com/decidim/decidim/actions)
+[![Proposals (unit tests)](<https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Proposals%20(unit%20tests)/develop.svg?label=%5BCI%5D%20Proposals%20(unit%20tests)>)](https://github.com/decidim/decidim/actions)
+[![Sortitions](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Sortitions/develop.svg?label=%5BCI%5D%20Sortitions)](https://github.com/decidim/decidim/actions)
+[![Surveys](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Surveys/develop.svg?label=%5BCI%5D%20Surveys)](https://github.com/decidim/decidim/actions)
+[![System](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20System/develop.svg?label=%5BCI%5D%20System)](https://github.com/decidim/decidim/actions)
+[![Verifications](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Verifications/develop.svg?label=%5BCI%5D%20Verifications)](https://github.com/decidim/decidim/actions)
+
+</details>
 
 ---
 
