@@ -53,7 +53,7 @@ module Decidim
 
       def edit
         enforce_permission_to :update, :newsletter, newsletter: newsletter
-        @form = form(NewsletterForm).from_params(content_block.attributes.merge(subject: newsletter.subject))
+        @form = form(NewsletterForm).from_model(content_block)
       end
 
       def update

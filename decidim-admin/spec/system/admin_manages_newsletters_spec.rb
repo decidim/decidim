@@ -32,7 +32,9 @@ describe "Admin manages newsletters", type: :system do
         find(".button.new").click
       end
 
-      click_link "Use this template"
+      within "#basic_only_text" do
+        click_link "Use this template"
+      end
 
       within ".new_newsletter" do
         fill_in_i18n(

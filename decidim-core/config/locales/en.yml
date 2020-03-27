@@ -834,6 +834,11 @@ en:
       basic_only_text:
         body_preview: body
         name: Basic (only text)
+      image_text_cta:
+        body_preview: body
+        cta_text_preview: Call To Action text
+        introduction_preview: introduction
+        name: Image, text and Call To Action button
     newsletters:
       unsubscribe:
         check_subscription: If you want to change your preferences, you can do so in the <a href="%{link}" target="_blank">configuration page</a>

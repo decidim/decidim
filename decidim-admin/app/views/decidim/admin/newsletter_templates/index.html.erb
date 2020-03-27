@@ -6,13 +6,15 @@
   </div>
   <div class="card-section">
     <% templates.each do |newsletter_template| %>
-      <p>
-        <%= t newsletter_template.public_name_key %>
-        &nbsp;
-        <%= link_to(t(".preview_template"), newsletter_template_path(newsletter_template.name)) %>
-        &nbsp;-&nbsp;
-        <%= link_to(t(".use_template"), new_newsletter_template_newsletter_path(newsletter_template.name)) %>
-      </p>
+      <div id="<%= newsletter_template.name %>">
+        <p>
+          <%= t newsletter_template.public_name_key %>
+          &nbsp;
+          <%= link_to(t(".preview_template"), newsletter_template_path(newsletter_template.name)) %>
+          &nbsp;-&nbsp;
+          <%= link_to(t(".use_template"), new_newsletter_template_newsletter_path(newsletter_template.name)) %>
+        </p>
+      </div>
     <% end %>
   </div>
 </div>

@@ -12,8 +12,6 @@ describe "Admin manages newsletter templates", type: :system do
   end
 
   describe "newsletter templates index" do
-    let(:recipients_count) { deliverable_users.size }
-
     it "lists the available templates" do
       visit decidim_admin.newsletters_path
 
@@ -22,6 +20,7 @@ describe "Admin manages newsletter templates", type: :system do
       end
 
       expect(page).to have_content("Basic (only text)")
+      expect(page).to have_content("Image, text and Call To Action button")
     end
   end
 
@@ -33,7 +32,9 @@ describe "Admin manages newsletter templates", type: :system do
         find(".button.new").click
       end
 
-      click_link "Preview"
+      within "#basic_only_text" do
+        click_link "Preview"
+      end
 
       expect(page).to have_content("PREVIEW TEMPLATE: BASIC (ONLY TEXT)")
 
@@ -49,7 +50,9 @@ describe "Admin manages newsletter templates", type: :system do
         find(".button.new").click
       end
 
-      click_link "Preview"
+      within "#basic_only_text" do
+        click_link "Preview"
+      end
 
       click_link "Use this template"
 

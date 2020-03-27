@@ -10,6 +10,18 @@ module Decidim
 
       translatable_attribute :subject, String
       validates :subject, translatable_presence: true
+
+      def map_model(content_block)
+        self.subject = newsletter_for(content_block).try(:subject)
+      end
+
+      private
+
+      def newsletter_for(content_block)
+        Decidim::Newsletter
+          .where(organization: content_block.organization)
+          .find_by(id: content_block.scope_id)
+      end
     end
   end
 end

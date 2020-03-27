@@ -392,6 +392,48 @@ module Decidim
 
           content_block.default!
         end
+
+        Decidim.content_blocks.register(:newsletter_template, :image_text_cta) do |content_block|
+          content_block.cell = "decidim/newsletter_templates/image_text_cta"
+          content_block.settings_form_cell = "decidim/newsletter_templates/image_text_cta_settings_form"
+          content_block.public_name_key = "decidim.newsletter_templates.image_text_cta.name"
+
+          content_block.images = [
+            {
+              name: :main_image,
+              uploader: "Decidim::HomepageImageUploader"
+            }
+          ]
+
+          content_block.settings do |settings|
+            settings.attribute(
+              :introduction,
+              type: :text,
+              translated: true,
+              preview: -> { ([I18n.t("decidim.newsletter_templates.image_text_cta.introduction_preview")] * 30).join(" ") }
+            )
+            settings.attribute(
+              :body,
+              type: :text,
+              translated: true,
+              preview: -> { ([I18n.t("decidim.newsletter_templates.image_text_cta.body_preview")] * 100).join(" ") }
+            )
+            settings.attribute(
+              :cta_text,
+              type: :text,
+              translated: true,
+              preview: -> { I18n.t("decidim.newsletter_templates.image_text_cta.cta_text_preview") }
+            )
+            settings.attribute(
+              :cta_url,
+              type: :text,
+              translated: true,
+              preview: -> { "http://decidim.org" }
+            )
+          end
+
+          content_block.default!
+        end
       end
 
       initializer "decidim.core.add_badges" do

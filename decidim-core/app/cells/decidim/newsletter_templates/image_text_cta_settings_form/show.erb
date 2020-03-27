@@ -1,0 +1,9 @@
+<% form.fields_for :settings, form.object.settings do |settings_fields| %>
+  <%= settings_fields.translated :editor, :introduction %>
+
+  <%= settings_fields.translated :text_field, :cta_text %>
+
+  <%= settings_fields.translated :text_field, :cta_url %>
+
+  <%= settings_fields.translated :editor, :body %>
+<% end %>
