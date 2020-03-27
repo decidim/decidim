@@ -14,13 +14,16 @@
   });
 
   $.unique($(".check-box-collection").parents(".answer")).each((idx, el) => {
-    createMaxChoicesAlertComponent({
-      wrapperField: $(el),
-      controllerFieldSelector: "input[type=checkbox]",
-      controllerCollectionSelector: ".check-box-collection",
-      alertElement: $(el).find(".max-choices-alert"),
-      maxChoices: $(el).data("max-choices")
-    })
+    const maxChoices = $(el).data("max-choices");
+    if (maxChoices) {
+      createMaxChoicesAlertComponent({
+        wrapperField: $(el),
+        controllerFieldSelector: "input[type=checkbox]",
+        controllerCollectionSelector: ".check-box-collection",
+        alertElement: $(el).find(".max-choices-alert"),
+        maxChoices: maxChoices
+      });
+    }
   });
 
   $(".sortable-check-box-collection").each((idx, el) => {
