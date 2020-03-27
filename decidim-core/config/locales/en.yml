@@ -798,6 +798,7 @@ en:
           add_max_users: 'Add users to conversation: 9 users max'
           modal_title: New message
           participant_with_disabled_message_reception: This participant has disabled message reception
+          no_results: No results
         create:
           error: Conversation not started. Try again later
         index:
