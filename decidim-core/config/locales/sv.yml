@@ -57,6 +57,7 @@ sv:
     'true': 'Ja'
   carrierwave:
     errors:
+      general: Fel vid bearbetning av bild
       image_too_big: Bilden är för stor
   date:
     formats:
