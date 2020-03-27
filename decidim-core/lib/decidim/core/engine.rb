@@ -386,7 +386,7 @@ module Decidim
               :body,
               type: :text,
               translated: true,
-              preview: ->{ ([I18n.t("decidim.newsletter_templates.basic_only_text.body_preview")] * 100).join(" ") }
+              preview: -> { ([I18n.t("decidim.newsletter_templates.basic_only_text.body_preview")] * 100).join(" ") }
             )
           end
 

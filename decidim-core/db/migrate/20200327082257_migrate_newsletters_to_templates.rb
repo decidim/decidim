@@ -14,9 +14,9 @@ class MigrateNewslettersToTemplates < ActiveRecord::Migration[5.2]
 
     Newsletter.find_each do |newsletter|
       existing_content_block = ContentBlock
-        .where(decidim_organization_id: newsletter.organization_id)
-        .where(scope_name: :newsletter_template)
-        .find_by(scope_id: newsletter.id)
+                               .where(decidim_organization_id: newsletter.organization_id)
+                               .where(scope_name: :newsletter_template)
+                               .find_by(scope_id: newsletter.id)
 
       next if existing_content_block
 

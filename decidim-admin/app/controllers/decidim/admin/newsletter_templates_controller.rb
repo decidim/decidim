@@ -12,8 +12,7 @@ module Decidim
         enforce_permission_to :index, :newsletter
       end
 
-      def show
-      end
+      def show; end
 
       def preview
         email = NewsletterMailer.newsletter(current_user, fake_newsletter)
@@ -29,9 +28,9 @@ module Decidim
 
       def template_manifest
         @template_manifest ||= Decidim
-          .content_blocks
-          .for(:newsletter_template)
-          .find { |manifest| manifest.name.to_s == params[:id] }
+                               .content_blocks
+                               .for(:newsletter_template)
+                               .find { |manifest| manifest.name.to_s == params[:id] }
       end
 
       def fake_newsletter

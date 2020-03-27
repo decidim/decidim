@@ -32,5 +32,4 @@ describe Decidim::Admin::FakeNewsletter do
       expect(subject.template.settings.body).to include("body body")
     end
   end
-
 end
