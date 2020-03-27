@@ -48,6 +48,7 @@ hu:
             title: cím
       posts:
         show:
+          comments: Hozzászólások
           view: Nézet
         sidebar_blog:
           comments: hozzászólások
@@ -63,6 +64,8 @@ hu:
           step:
             announcement: Közlemény
             comments_blocked: Megjegyzések letiltva
+            endorsements_blocked: Jóváhagyások letiltva
+            endorsements_enabled: Jóváhagyások engedélyezve
     events:
       blogs:
         post_created:

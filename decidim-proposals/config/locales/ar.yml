@@ -54,7 +54,6 @@ ar:
       decidim/proposals/creation_enabled_event: تمكين إنشاء الاقتراح
       decidim/proposals/endorsing_enabled_event: تمكين اقتراح الاقتراح
       decidim/proposals/evaluating_proposal_event: يجري تقييم الاقتراح
-      decidim/proposals/proposal_endorsed_event: تمت الموافقة على الاقتراح
       decidim/proposals/proposal_mentioned_event: الاقتراح المذكور
       decidim/proposals/publish_proposal_event: تم نشر الاقتراح
       decidim/proposals/rejected_proposal_event: تم رفض الاقتراح
@@ -75,13 +74,6 @@ ar:
         few: اقتراحات
         many: اقتراحات
         other: اقتراحات
-      decidim/proposals/proposal_endorsement:
-        zero: موافقات
-        one: المصادقة
-        two: موافقات
-        few: موافقات
-        many: موافقات
-        other: موافقات
       decidim/proposals/proposal_note:
         zero: ملاحظات
         one: ملحوظة
@@ -209,11 +201,6 @@ ar:
             notification_title: تم قبول اقتراحك <a href="%{resource_path}">%{resource_title}</a>.
           follower:
             notification_title: لقد تم قبول المُقتَرح <a href="%{resource_path}">%{resource_title}</a>.
-        proposal_endorsed:
-          email_intro: '%{endorser_name} %{endorser_nickname}، الذي تتابعه ، وافق للتو على الاقتراح "%{resource_title}" ونعتقد أنه قد يكون مثيرا للاهتمام بالنسبة لك. التحقق من ذلك والمساهمة:'
-          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{endorser_nickname}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-          email_subject: "%{endorser_nickname} قد صادق على اقتراح جديد"
-          notification_title: تمت الموافقة على اقتراح <a href="%{resource_path}">%{resource_title}</a> من قبل <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           affected_user:
             email_intro: 'يتم حاليًا تقييم الاقتراح الخاص بك "%{resource_title}". يمكنك التحقق من وجود إجابة في هذه الصفحة:'
@@ -221,7 +208,6 @@ ar:
             email_subject: يتم تقييم الاقتراح الخاص بك
             notification_title: يتم تقييم الاقتراح الخاص بك <a href="%{resource_path}">%{resource_title}</a>.
         proposal_mentioned:
-          email_intro: لقد تم ذكر اقتراحك "%{mentioned_proposal_title}" <a href="%{resource_path}">في هذه المساحة</a> في التعليقات.
           email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف "%{resource_title}".
           email_subject: تم ذكر اقتراحك "%{mentioned_proposal_title}"
           notification_title: لقد تم ذكر اقتراحك "%{mentioned_proposal_title}" <a href="%{resource_path}">في هذه المساحة</a> في التعليقات.
@@ -631,7 +617,6 @@ ar:
           fields:
             category: الفئة
             comments: تعليقات
-            endorsements: موافقات
             id: هوية شخصية
             notes: ملاحظات
             official_proposal: الاقتراح الرسمي
@@ -650,18 +635,6 @@ ar:
           amend: تعديل
           comment: تعليق
           comments: تعليقات
-          endorse: تأييد
-      proposal_endorsements:
-        create:
-          error: كانت هناك مشكلة في تأييد الاقتراح.
-        identities:
-          done: فعله
-          select_identity: حدد الهوية
-      proposal_endorsements_helper:
-        endorsement_button:
-          already_endorsed: أيد
-          endorse: تأييد
-        render_endorsements_button_card_part:
           endorse: تأييد
       proposal_votes:
         create:
@@ -693,10 +666,6 @@ ar:
           discard_confirmation: هل أنت متأكد من أنك تريد التخلص من مسودة الاقتراح؟
           send: معاينة
           title: تحرير مسودة الاقتراح
-        endorsement_identities_cabin:
-          endorse: تأييد
-        endorsements_card_row:
-          comments: تعليقات
         filters:
           activity: نشاطي
           all: الكل
@@ -762,6 +731,7 @@ ar:
           answer: إجابة
           back_to: ارجع الى
           changes_at_title: تعديل على "%{title}"
+          comments: تعليقات
           edit_proposal: تعديل الاقتراح
           endorsements_list: قائمة المصادقة
           estimated_cost: التكلفة التقديرية

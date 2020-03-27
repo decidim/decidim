@@ -386,6 +386,8 @@ sv:
           this_application_will_not_be_able_to: 'Det här programmet kommer inte att kunna:'
           update_profile: Uppdatera din profil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> vill använda ditt konto"
+    endorsable:
+      endorsements: Instämmanden
     errors:
       internal_server_error:
         title: Det uppstod ett problem med vår server
