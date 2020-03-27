@@ -63,6 +63,7 @@ PR [\#5768](https://github.com/decidim/decidim/pull/5768) introduced a deprecati
 **Fixed**:
 
 - **decidim-core** Fixes the integration between the use of older and new versions of geocoder using HERE maps [\#5822](https://github.com/decidim/decidim/pull/5822)
+- **decidim-core**: Apply security patch for GHSA-65cv-r6x7-79hv [\#5896](https://github.com/decidim/decidim/pull/5896)
 
 **Removed**:
 
