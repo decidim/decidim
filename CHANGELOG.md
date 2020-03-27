@@ -37,10 +37,6 @@ New Here api:
   - `here_api_key`
   - `static_map_url:` "https://image.maps.ls.hereapi.com/mia/1.6/mapview"
 
-- **Assembly types**
-
-In order to prevent errors while upgrading multi-servers envirnoments, the fields `assembly_type` and `assembly_type_other` are maintained. Future releases will take care of this.
-
 ### Deprecation warnings
 
 PR [\#5768](https://github.com/decidim/decidim/pull/5768) introduced a deprecation warning:
@@ -129,15 +125,6 @@ Decidim::Blogs::Post.find_each(&:add_to_index_as_search_resource)
 - **decidim_participatory_process**: Admin: move `:participatory_process_groups` from `:main_menu` to `:participatory_processes` `:secondary_nav`[#5545](https://github.com/decidim/decidim/pull/5545)
 - **decidim-core**: Remove the Continuity badge [#5565](https://github.com/decidim/decidim/pull/5565)
 - **decidim-core**: Remove resizing for banner images [#5567](https://github.com/decidim/decidim/pull/5567)
-- **decidim-core**: Shorten the 100 chars default last activity cards description lenght to 80 chars [\#5742](https://github.com/decidim/decidim/pull/5742)
-- **decidim-core**: Show the number of followers when the button "follow" appears. [\#5593](https://github.com/decidim/decidim/pull/5593)
-- **decidim-dev**: Be liberal with Puma's declared version condition. [\#5650](https://github.com/decidim/decidim/pull/5650)
-- **decidim-meetings**: Add width and height to meetings component icon [\#5614](https://github.com/decidim/decidim/pull/5614)
-- **decidim-proposals**: Versions box is removed and placed after the reference ID, and using the same styles. [\#5594](https://github.com/decidim/decidim/pull/5594)
-- **decidim-participatory_processes**, **decidim-conferences**, **decidim-assemblies**, **decidim-initiatives**: Use cardM cell in space embed [#5589](https://github.com/decidim/decidim/pull/5589)
-- **decidim-proposals**: Update tags layout in proposal page [\#5646](https://github.com/decidim/decidim/pull/5646)
-- **decidim-comments**: Hide and show comment threads [#5655](https://github.com/decidim/decidim/pull/5655)
-- **decidim-core**: Amendable resources can react to amendment state changes [#5703](https://github.com/decidim/decidim/pull/5703)
 
 **Fixed**:
 
