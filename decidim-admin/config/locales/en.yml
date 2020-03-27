@@ -159,7 +159,7 @@ en:
           refuse: Refuse the admin terms
           title: Agree to the terms and conditions of use
         required_review:
-          alert: "Required: Review our admin terms of use"
+          alert: 'Required: Review our admin terms of use'
           callout: Please take a moment to review Admin Terms of Use. Otherwise you won't be able to admin the platform.
           cta: Review them now.
         title: Admin Terms of Use
@@ -278,7 +278,7 @@ en:
             type: Component type
         new:
           add: Add component
-          title: "Add component: %{name}"
+          title: 'Add component: %{name}'
         publish:
           success: The component has been successfully published.
         title: Components
@@ -301,18 +301,18 @@ en:
         officialized_at_null:
           label: State
           values:
-            "false": Officialized
-            "true": Not officialized
+            'false': Officialized
+            'true': Not officialized
         private_space_eq:
           label: Private
           values:
-            "false": Public
-            "true": Private
+            'false': Public
+            'true': Private
         published_at_null:
           label: Published
           values:
-            "false": Published
-            "true": Unpublished
+            'false': Published
+            'true': Unpublished
         scope_id_eq:
           label: Scope
         search_label: Search
@@ -478,8 +478,8 @@ en:
           title: Newsletter templates
           use_template: Use this template
         show:
-          preview: "Preview template: %{template_name}"
-          use_template: "Use this template"
+          preview: 'Preview template: %{template_name}'
+          use_template: Use this template
       newsletters:
         create:
           error: There was a problem creating this newsletter.
@@ -488,7 +488,7 @@ en:
           error: There was a problem delivering this newsletter.
           success: Newsletter delivered successfully.
         destroy:
-          error_already_sent: "Can't destroy newsletter: It has already been sent."
+          error_already_sent: 'Can''t destroy newsletter: It has already been sent.'
           success: Newsletter destroyed successfully.
         edit:
           save_and_preview: Save and preview
@@ -497,16 +497,16 @@ en:
           interpolations_hint: 'Hint: You can use "%{name}" anywhere in the body or subject and it will be replaced by the recipient''s name.'
         index:
           all: all
-          all_users: "All users "
-          and: "and "
+          all_users: 'All users '
+          and: 'and '
           confirm_delete: Are you sure you want to delete this newsletter?
-          followers: "followers "
-          has_been_sent_to: "Has been sent to: "
+          followers: 'followers '
+          has_been_sent_to: 'Has been sent to: '
           no_scopes: No scopes
           not_sent: Not sent
-          participants: "participants "
-          segmented_to: "Segmented to %{subject}: "
-          subscribed_count: "Subscribed:"
+          participants: 'participants '
+          segmented_to: 'Segmented to %{subject}: '
+          subscribed_count: 'Subscribed:'
           title: Newsletters
         new:
           save: Save
@@ -607,7 +607,7 @@ en:
           update: Update
         form:
           colors_title: Organization colors
-          cta_button_path_help: "You can overwrite where the Call To Action button in the homepage links to. Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. The Call To Action button is shown in the homepage between the welcome text and the description. Example: %{url}"
+          cta_button_path_help: 'You can overwrite where the Call To Action button in the homepage links to. Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. The Call To Action button is shown in the homepage between the welcome text and the description. Example: %{url}'
           cta_button_text_help: You can overwrite the Call To Action button text in the homepage for each available language in your organization. If not set, the default value will be used. The Call To Action button is shown in the homepage between the welcome text and the description.
           header_snippets_help: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section.
           homepage_appearance_title: Edit homepage appearance
@@ -708,7 +708,7 @@ en:
           update: Update
         form:
           none: None
-          slug_help: "Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. Example: %{url}"
+          slug_help: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. Example: %{url}'
         index:
           last_notable_change: Last notable change
         new:
