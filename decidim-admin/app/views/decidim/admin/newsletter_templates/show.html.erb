@@ -1,0 +1,12 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t ".preview", template_name: t(template_manifest.public_name_key) %></h2>
+  </div>
+  <div class="card-section">
+    <iframe src="<%= preview_newsletter_template_path(template_manifest.name) %>" class="email-preview">
+    </iframe>
+  </div>
+</div>
+<div class="button--double form-general-submit">
+  <%= link_to(t(".use_template"), new_newsletter_template_newsletter_path(template_manifest.name), class: "button") %>
+</div>

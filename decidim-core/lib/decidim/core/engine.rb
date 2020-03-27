@@ -382,7 +382,12 @@ module Decidim
           content_block.public_name_key = "decidim.newsletter_templates.basic_only_text.name"
 
           content_block.settings do |settings|
-            settings.attribute :body, type: :text, translated: true
+            settings.attribute(
+              :body,
+              type: :text,
+              translated: true,
+              preview: ->{ ([I18n.t("decidim.newsletter_templates.basic_only_text.body_preview")] * 100).join(" ") }
+            )
           end
 
           content_block.default!

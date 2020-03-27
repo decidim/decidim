@@ -96,6 +96,7 @@ module Decidim
       }.freeze
 
       attribute :type, Symbol, default: :boolean
+      attribute :preview
       attribute :default
       attribute :translated, Boolean, default: false
       attribute :editor, Boolean, default: false
