@@ -30,6 +30,8 @@ After this, `Decidim::Proposals::ProposalEndorsement` and the corresponding coun
 
 ### Changed
 
+- **decidim-core**: Add whitespace: nowrap style to compact buttons. [\#5891](https://github.com/decidim/decidim/pull/5891)
+
 ### Fixed
 
 - **decidim-proposals**: Fix relative path in mentioned proposal email [\#5852](https://github.com/decidim/decidim/pull/5852)
