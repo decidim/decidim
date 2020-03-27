@@ -104,9 +104,18 @@ $(() => {
       return "";
     },
     menuItemTemplate: function(item) {
-      let disabledElementClass = ((item.original.disabledNotifications === "") ? "" : "class=\"disabled-tribute-element\"")
-      let tpl = `<div ${disabledElementClass}><strong>${item.original.nickname}</strong>&nbsp;<small>${item.original.name}</small>&nbsp;<span class="disabled-tribute-element-info">${item.original.disabledNotifications}</span></div>`;
-      return tpl;
+      let svg = "";
+      if (window.DecidimComments && item.original.__typename === "UserGroup") {
+        let icons = window.DecidimComments.assets["icons.svg"];
+        svg = `<span class="is-group">${item.original.membersCount}x <svg class="icon--members icon"><use xlink:href="${icons}#icon-members"/></svg></span>`;
+      }
+      let disabledElementClass = ((item.original.disabledNotifications === "") ? "" : "disabled-tribute-element")
+      return `<div class="tribute-item ${item.original.__typename} ${disabledElementClass}">
+      <span class="author__avatar"><img src="${item.original.avatarUrl}" alt="author-avatar"></span>
+        <strong>${item.original.nickname}</strong>
+        <small>${item.original.name}</small>
+        ${svg}
+      </div>`;
     }
   });
 
