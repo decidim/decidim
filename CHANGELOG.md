@@ -2,32 +2,21 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
-### Deprecation warnings
+**Added**:
 
-PR [\#5676](https://github.com/decidim/decidim/pull/5676) introduced a deprecation warning:
+**Changed**:
 
-- `Decidim::ParticipatorySpaceResourceable#link_participatory_spaces_resources` should be renamed to `link_participatory_space_resources` (notice singular `spaces`)
+**Fixed**:
 
-PR [\#5768](https://github.com/decidim/decidim/pull/5768) introduced a deprecation warning:
+**Removed**:
 
-- `:here_app_id ` and `:here_app_code` that might be configured in `config/initializers/decidim.rb` are no longer valid authorization key-values for the HERE Maps API. Now it is required to generate and API key using the keyword `:here_api_key` to replace the old ones:
-
-`config/initializers/decidim.rb`:
-```ruby
-  Geocoder configuration
-    config.geocoder = {
-    #...
-      here_api_key: Rails.application.secrets.geocoder[:here_api_key],
-    #...
-  }
-```
+## [0.20.1](https://github.com/decidim/decidim/tree/v0.20.1)
 
 ### Upgrade notes
 
-#### SocialShareButton
 - **Geocoder**
 
-Here maps API has changed, including the way clients authenticate. Thus, former `app_id` and `app_code` credentials are now deprecated in favour of a unique `api_key` token. For your current application to continue working with Here maps services generate an `api_key` and configure it as explained in [Decidim's geocoding documentation](https://github.com/decidim/decidim/blob/master/docs/services/geocoding.md).
+Here maps API has changed, including the way clients authenticate. Thus, former `app_id` and `app_code` crfedentials are now deprecated in favour of a unique `api_key` token. For your current application to continue working with Here maps services generate an `api_key` and configure it as explained in [Decidim's geocoding documentation](https://github.com/decidim/decidim/blob/master/docs/services/geocoding.md).
 
 If you would like to stay with the old api (app_id + app_code), you should force `geocoder` gem version to `1.5.2` in your application. This is because `geocoder v1.6.0` only supports the new Here api (app_key).
 
@@ -51,6 +40,48 @@ New Here api:
 - **Assembly types**
 
 In order to prevent errors while upgrading multi-servers envirnoments, the fields `assembly_type` and `assembly_type_other` are maintained. Future releases will take care of this.
+
+### Deprecation warnings
+
+PR [\#5768](https://github.com/decidim/decidim/pull/5768) introduced a deprecation warning:
+
+- `:here_app_id ` and `:here_app_code` that might be configured in `config/initializers/decidim.rb` are no longer valid authorization key-values for the HERE Maps API. Now it is required to generate and API key using the keyword `:here_api_key` to replace the old ones:
+
+`config/initializers/decidim.rb`:
+```ruby
+  Geocoder configuration
+    config.geocoder = {
+    #...
+      here_api_key: Rails.application.secrets.geocoder[:here_api_key],
+    #...
+  }
+```
+
+**Added**:
+
+**Changed**:
+
+- **decidim-core**: Upgrade geocoder to be able to use the new Here geolocation API. [\#5644](https://github.com/decidim/decidim/pull/5644)
+- **decidim-core**: Upgrade leaflet-HERE Maps javascript library to use new apiKey authentication method [\#5768](https://github.com/decidim/decidim/pull/5768)
+
+**Fixed**:
+
+- **decidim-core** Fixes the integration between the use of older and new versions of geocoder using HERE maps [\#5822](https://github.com/decidim/decidim/pull/5822)
+
+**Removed**:
+
+
+## [0.20.0](https://github.com/decidim/decidim/tree/v0.20.0)
+
+### Deprecation warnings
+
+PR [\#5676](https://github.com/decidim/decidim/pull/5676) introduced a deprecation warning:
+
+- `Decidim::ParticipatorySpaceResourceable#link_participatory_spaces_resources` should be renamed to `link_participatory_space_resources` (notice singular `spaces`)
+
+### Upgrade notes
+
+#### SocialShareButton
 
 Due to [#5270](https://github.com/decidim/decidim/pull/5270), the SocialShareButton gem [default configuration](https://github.com/CodiTramuntana/decidim/blob/master/decidim-generators/lib/decidim/generators/app_templates/social_share_button.rb) that decidim uses has changed so you'll want to update your configuration accordingly.
 
@@ -87,7 +118,6 @@ Decidim::Blogs::Post.find_each(&:add_to_index_as_search_resource)
 
 **Changed**:
 
-- **decidim-core**: Wait to upgrade geocoder due to lacking compatile leaflet-tilelayer-here plugin, it has been solved in next release. [\#5815](https://github.com/decidim/decidim/pull/5815)
 - **decidim-proposals, decidim-debates and decidim-initiatives**: Improved visiblity of buttons: new proposal, debate and initiative. [\#5535](https://github.com/decidim/decidim/pull/5535)
 - **decidim-proposals**: Add a filter "My proposals" at the list of proposals. [\#5512](https://github.com/decidim/decidim/pull/5512)
 - **decidim-meetings**: Change: @meetings_spaces collection to use I18n translations [#5494](https://github.com/decidim/decidim/pull/5494)
@@ -99,8 +129,6 @@ Decidim::Blogs::Post.find_each(&:add_to_index_as_search_resource)
 - **decidim_participatory_process**: Admin: move `:participatory_process_groups` from `:main_menu` to `:participatory_processes` `:secondary_nav`[#5545](https://github.com/decidim/decidim/pull/5545)
 - **decidim-core**: Remove the Continuity badge [#5565](https://github.com/decidim/decidim/pull/5565)
 - **decidim-core**: Remove resizing for banner images [#5567](https://github.com/decidim/decidim/pull/5567)
-- **decidim-core**: Upgrade leaflet-HERE Maps javascript library to use new apiKey authentication method [\#5768](https://github.com/decidim/decidim/pull/5768)
-- **decidim-core**: Upgrade geocoder to be able to use the new Here geolocation API. [\#5644](https://github.com/decidim/decidim/pull/5644)
 - **decidim-core**: Shorten the 100 chars default last activity cards description lenght to 80 chars [\#5742](https://github.com/decidim/decidim/pull/5742)
 - **decidim-core**: Show the number of followers when the button "follow" appears. [\#5593](https://github.com/decidim/decidim/pull/5593)
 - **decidim-dev**: Be liberal with Puma's declared version condition. [\#5650](https://github.com/decidim/decidim/pull/5650)
@@ -131,7 +159,6 @@ Decidim::Blogs::Post.find_each(&:add_to_index_as_search_resource)
 - **decidim-core**: Fix: Search box on mobile (menu) [#5502](https://github.com/decidim/decidim/pull/5502)
 - **decidim-core**: Fix dynamic controller extensions (undefined method `current_user`) [#5533](https://github.com/decidim/decidim/pull/5533)
 - **decidim-proposals**: Standardize proposal answer callout styles [#5530](https://github.com/decidim/decidim/pull/5530)
-- **decidim-core** Fixes the integration between the use of older and new versions of geocoder using HERE maps [\#5822](https://github.com/decidim/decidim/pull/5822)
 - **decidim-core** and **decidim-dev**: Solve puma's GHSA-84j7-475p-hp8v vulnerability, and nokogiri's CVE-2020-7595 vulnerability. [\#5820](https://github.com/decidim/decidim/pull/5820)
 - **decidim-core**: Do not allow invited users to sign up. [\#5803](https://github.com/decidim/decidim/pull/5803)
 - **decidim-initiatives**: Fix initiative state bug [\#5805](https://github.com/decidim/decidim/pull/5805)
