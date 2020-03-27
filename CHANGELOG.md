@@ -29,6 +29,8 @@ After this, `Decidim::Proposals::ProposalEndorsement` and the corresponding coun
 
 ### Changed
 
+- **decidim-accountability**, **decidim-core**, **decidim-meetings**, **decidim-proposals**: Optimize queries for performance in Homepage, process page, proposals page and coauthorable cell. [\#5903](https://github.com/decidim/decidim/pull/5903)
+
 ### Fixed
 
 - **decidim-proposals**: Fix relative path in mentioned proposal email [\#5852](https://github.com/decidim/decidim/pull/5852)
