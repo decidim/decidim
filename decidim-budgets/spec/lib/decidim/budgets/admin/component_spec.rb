@@ -12,7 +12,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
     let(:participatory_space) { component.participatory_space }
 
     let(:form) do
-      Decidim::Admin::ComponentForm.from_params(
+      Decidim::Budgets::Admin::ComponentForm.from_params(
         id: component.id,
         weight: 0,
         manifest: manifest,

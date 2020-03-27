@@ -8,6 +8,7 @@ Decidim.register_component(:budgets) do |component|
   component.icon = "decidim/budgets/icon.svg"
   component.stylesheet = "decidim/budgets/budgets"
   component.permissions_class_name = "Decidim::Budgets::Permissions"
+  component.component_form_class_name = "Decidim::Budgets::Admin::ComponentForm"
 
   component.data_portable_entities = ["Decidim::Budgets::Order"]
 
