@@ -36,16 +36,16 @@ Old/legacy Here api:
 
 - geocoder 1.5
 - initializer with:
-  - app_code
-  - app_id
-  - static_map_url: "https://image.maps.cit.api.here.com/mia/1.6/mapview"
+  - `here_app_code`
+  - `here_app_id`
+  - `static_map_url:` "https://image.maps.cit.api.here.com/mia/1.6/mapview"
 
 New Here api:
 
-- geocoder 1.
+- geocoder >= 1.6
 - initializer with:
-  - api_key
-  - static_map_url: "https://image.maps.cit.api.here.com/mia/1.6/mapview"
+  - `here_api_key`
+  - `static_map_url:` "https://image.maps.ls.hereapi.com/mia/1.6/mapview"
 
 - **Assembly types**
 
