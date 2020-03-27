@@ -61,6 +61,7 @@ hu:
     'true': 'Igen'
   carrierwave:
     errors:
+      general: Hiba történt a kép feldolgozásakor
       image_too_big: A kép mérete túl nagy
   date:
     formats:
