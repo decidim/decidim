@@ -18,14 +18,6 @@ module Decidim
                        .where.not(id: current_user.id)
                        .where(organization: current_user.organization)
                        .where(id: recipient_id)
-                       .where(direct_message_types: "all")
-                       .or(Decidim::User
-                                      .includes(:following_follows)
-                                      .where.not(id: current_user.id)
-                                      .where(organization: current_user.organization)
-                                      .where(id: recipient_id)
-                                      .where(direct_message_types: "followed-only")
-                                      .where(decidim_follows: { decidim_followable_id: current_user.id, decidim_followable_type: "Decidim::UserBaseEntity" }))
       end
 
       def check_recipient
