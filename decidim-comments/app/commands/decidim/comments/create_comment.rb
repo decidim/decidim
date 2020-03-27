@@ -7,10 +7,9 @@ module Decidim
       # Public: Initializes the command.
       #
       # form - A form object with the params.
-      def initialize(form, author, commentable)
+      def initialize(form, author)
         @form = form
         @author = author
-        @commentable = commentable
       end
 
       # Executes the command. Broadcasts these events:
@@ -36,8 +35,8 @@ module Decidim
 
         params = {
           author: @author,
-          commentable: @commentable,
-          root_commentable: root_commentable(@commentable),
+          commentable: form.commentable,
+          root_commentable: root_commentable(form.commentable),
           body: parsed.rewrite,
           alignment: form.alignment,
           decidim_user_group_id: form.user_group_id
