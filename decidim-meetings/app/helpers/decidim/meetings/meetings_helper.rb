@@ -16,7 +16,7 @@ module Decidim
       # Returns the meeting's description truncated.
       def meeting_description(meeting, max_length = 120)
         link = resource_locator(meeting).path
-        description = present(meeting).description
+        description = CGI.unescapeHTML present(meeting).description
         tail = "... #{link_to(t("read_more", scope: "decidim.meetings"), link)}".html_safe
         CGI.unescapeHTML html_truncate(description, max_length: max_length, tail: tail)
       end
