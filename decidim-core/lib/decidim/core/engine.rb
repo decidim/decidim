@@ -64,7 +64,8 @@ module Decidim
 
       initializer "decidim.assets" do |app|
         app.config.assets.paths << File.expand_path("../../../app/assets/stylesheets", __dir__)
-        app.config.assets.precompile += %w(decidim_core_manifest.js)
+        app.config.assets.precompile += %w(decidim_core_manifest.js
+                                           decidim/identity_selector_dialog)
 
         Decidim.component_manifests.each do |component|
           app.config.assets.precompile += [component.icon]
@@ -115,7 +116,7 @@ module Decidim
           }
           # to use an API key:
           config[:api_key] = if Decidim.geocoder[:here_api_key].present?
-                               [Decidim.geocoder.fetch(:here_api_key)]
+                               Decidim.geocoder.fetch(:here_api_key)
                              else
                                [Decidim.geocoder.fetch(:here_app_id), Decidim.geocoder.fetch(:here_app_code)]
                              end
@@ -196,7 +197,7 @@ module Decidim
 
       initializer "decidim.content_processors" do |_app|
         Decidim.configure do |config|
-          config.content_processors += [:user, :hashtag, :link]
+          config.content_processors += [:user, :user_group, :hashtag, :link]
         end
       end
 
@@ -242,7 +243,7 @@ module Decidim
           #
           # force_ssl_in_redirect_uri !Rails.env.development?
           #
-          force_ssl_in_redirect_uri false
+          force_ssl_in_redirect_uri true
 
           # WWW-Authenticate Realm (default "Doorkeeper").
           realm "Decidim"
@@ -253,6 +254,22 @@ module Decidim
         ActiveSupport::Inflector.inflections do |inflect|
           inflect.acronym "OAuth"
         end
+      end
+
+      initializer "SSL and HSTS" do
+        Rails.application.configure do
+          config.force_ssl = Rails.env.production? && Decidim.config.force_ssl
+        end
+      end
+
+      initializer "Disable Rack::Runtime" do
+        Rails.application.configure do
+          config.middleware.delete Rack::Runtime
+        end
+      end
+
+      initializer "Expire sessions" do
+        Rails.application.config.session_store :cookie_store, expire_after: Decidim.config.expire_session_after
       end
 
       initializer "decidim.core.register_resources" do

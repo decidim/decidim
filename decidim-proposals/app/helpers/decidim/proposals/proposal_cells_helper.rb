@@ -14,7 +14,7 @@ module Decidim
       include Decidim::TranslatableAttributes
       include Decidim::CardHelper
 
-      delegate :title, :state, :answered?, :withdrawn?, :amendable?, :emendation?, to: :model
+      delegate :title, :state, :published_state?, :withdrawn?, :amendable?, :emendation?, to: :model
 
       def has_actions?
         return context[:has_actions] if context[:has_actions].present?

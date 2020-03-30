@@ -278,6 +278,8 @@ uk:
           this_application_will_not_be_able_to: 'Цей додаток не зможе:'
           update_profile: Оновлювати ваш профіль
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> бажає використовувати ваш обліковий запис"
+    endorsable:
+      endorsements: Проявів підтримки
     errors:
       internal_server_error:
         title: При з'єднанні з нашим сервером сталася помилка

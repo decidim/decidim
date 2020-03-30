@@ -247,6 +247,16 @@ FactoryBot.define do
         }
       end
     end
+
+    trait :without_publish_answers_immediately do
+      step_settings do
+        {
+          participatory_space.active_step.id => {
+            publish_answers_immediately: false
+          }
+        }
+      end
+    end
   end
 
   factory :proposal, class: "Decidim::Proposals::Proposal" do
@@ -307,26 +317,37 @@ FactoryBot.define do
     trait :evaluating do
       state { "evaluating" }
       answered_at { Time.current }
+      state_published_at { Time.current }
     end
 
     trait :accepted do
       state { "accepted" }
       answered_at { Time.current }
+      state_published_at { Time.current }
     end
 
     trait :rejected do
       state { "rejected" }
       answered_at { Time.current }
+      state_published_at { Time.current }
     end
 
     trait :withdrawn do
       state { "withdrawn" }
     end
 
+    trait :accepted_not_published do
+      state { "accepted" }
+      answered_at { Time.current }
+      state_published_at { nil }
+      answer { generate_localized_title }
+    end
+
     trait :with_answer do
       state { "accepted" }
       answer { generate_localized_title }
       answered_at { Time.current }
+      state_published_at { Time.current }
     end
 
     trait :not_answered do
@@ -351,7 +372,9 @@ FactoryBot.define do
 
     trait :with_endorsements do
       after :create do |proposal|
-        create_list(:proposal_endorsement, 5, proposal: proposal)
+        5.times.collect do
+          create(:endorsement, resource: proposal, author: build(:user, organization: proposal.participatory_space.organization))
+        end
       end
     end
 
@@ -367,22 +390,11 @@ FactoryBot.define do
     author { build(:user, organization: proposal.organization) }
   end
 
-  factory :proposal_endorsement, class: "Decidim::Proposals::ProposalEndorsement" do
-    proposal { build(:proposal) }
-    author { build(:user, organization: proposal.organization) }
-  end
-
   factory :proposal_amendment, class: "Decidim::Amendment" do
     amendable { build(:proposal) }
     emendation { build(:proposal, component: amendable.component) }
     amender { build(:user, organization: amendable.component.participatory_space.organization) }
     state { Decidim::Amendment::STATES.sample }
-  end
-
-  factory :user_group_proposal_endorsement, class: "Decidim::Proposals::ProposalEndorsement" do
-    proposal { build(:proposal) }
-    author { build(:user, organization: proposal.organization) }
-    user_group { create(:user_group, verified_at: Time.current, organization: proposal.organization, users: [author]) }
   end
 
   factory :proposal_note, class: "Decidim::Proposals::ProposalNote" do

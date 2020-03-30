@@ -283,6 +283,19 @@ describe "Proposals", type: :system do
       end
     end
 
+    context "when the proposal answer has not been published" do
+      let!(:proposal) { create(:proposal, :accepted_not_published, component: component) }
+
+      it "shows the acceptance reason" do
+        visit_component
+        click_link proposal.title
+
+        expect(page).not_to have_content("Accepted")
+        expect(page).not_to have_content("This proposal has been accepted")
+        expect(page).not_to have_i18n_content(proposal.answer)
+      end
+    end
+
     context "when the proposals'a author account has been deleted" do
       let(:proposal) { proposals.first }
 
@@ -518,7 +531,11 @@ describe "Proposals", type: :system do
 
     context "when ordering by 'most_endorsed'" do
       let!(:most_endorsed_proposal) { create(:proposal, component: component, created_at: 1.month.ago) }
-      let!(:endorsements) { create_list(:proposal_endorsement, 3, proposal: most_endorsed_proposal) }
+      let!(:endorsements) do
+        3.times.collect do
+          create(:endorsement, resource: most_endorsed_proposal, author: build(:user, organization: organization))
+        end
+      end
       let!(:less_endorsed_proposal) { create(:proposal, component: component) }
 
       it_behaves_like "ordering proposals by selected option", "Most endorsed" do

@@ -58,6 +58,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :comments_blocked, type: :boolean, default: false
     settings.attribute :creation_enabled, type: :boolean
     settings.attribute :proposal_answering_enabled, type: :boolean, default: true
+    settings.attribute :publish_answers_immediately, type: :boolean, default: true
     settings.attribute :answers_with_costs, type: :boolean, default: false
     settings.attribute :amendment_creation_enabled, type: :boolean, default: true
     settings.attribute :amendment_reaction_enabled, type: :boolean, default: true
@@ -96,7 +97,7 @@ Decidim.register_component(:proposals) do |component|
 
   component.register_stat :endorsements_count, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
     proposals = Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).not_hidden
-    Decidim::Proposals::ProposalEndorsement.where(proposal: proposals).count
+    Decidim::Endorsement.where(resource_id: proposals.pluck(:id), resource_type: Decidim::Proposals::Proposal.name).count
   end
 
   component.register_stat :comments_count, tag: :comments do |components, start_at, end_at|
@@ -182,15 +183,17 @@ Decidim.register_component(:proposals) do |component|
     end
 
     5.times do |n|
-      state, answer = if n > 3
-                        ["accepted", Decidim::Faker::Localized.sentence(10)]
-                      elsif n > 2
-                        ["rejected", nil]
-                      elsif n > 1
-                        ["evaluating", nil]
-                      else
-                        [nil, nil]
-                      end
+      state, answer, state_published_at = if n > 3
+                                            ["accepted", Decidim::Faker::Localized.sentence(10), Time.current]
+                                          elsif n > 2
+                                            ["rejected", nil, Time.current]
+                                          elsif n > 1
+                                            ["evaluating", nil, Time.current]
+                                          elsif n.positive?
+                                            ["accepted", Decidim::Faker::Localized.sentence(10), nil]
+                                          else
+                                            [nil, nil, nil]
+                                          end
 
       params = {
         component: component,
@@ -200,7 +203,8 @@ Decidim.register_component(:proposals) do |component|
         body: Faker::Lorem.paragraphs(2).join("\n"),
         state: state,
         answer: answer,
-        answered_at: Time.current,
+        answered_at: state.present? ? Time.current : nil,
+        state_published_at: state_published_at,
         published_at: Time.current
       }
 
@@ -306,11 +310,11 @@ Decidim.register_component(:proposals) do |component|
           about: Faker::Lorem.paragraph(2)
         )
 
-        Decidim::Proposals::ProposalVote.create!(proposal: proposal, author: author) unless proposal.answered? && proposal.rejected?
+        Decidim::Proposals::ProposalVote.create!(proposal: proposal, author: author) unless proposal.published_state? && proposal.rejected?
         Decidim::Proposals::ProposalVote.create!(proposal: emendation, author: author) if emendation
       end
 
-      unless proposal.answered? && proposal.rejected?
+      unless proposal.published_state? && proposal.rejected?
         (n * 2).times do |index|
           email = "endorsement-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-endr#{index}@example.org"
           name = "#{Faker::Name.name} #{participatory_space.id} #{n} endr#{index}"
@@ -345,7 +349,7 @@ Decidim.register_component(:proposals) do |component|
               user_group: group
             )
           end
-          Decidim::Proposals::ProposalEndorsement.create!(proposal: proposal, author: author, user_group: author.user_groups.first)
+          Decidim::Endorsement.create!(resource: proposal, author: author, user_group: author.user_groups.first)
         end
       end
 

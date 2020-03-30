@@ -16,14 +16,12 @@ module Decidim
 
       def new
         @form = form(RegistrationForm).from_params(
-          user: {
-            sign_up_as: "user"
-          }
+          user: { sign_up_as: "user" }
         )
       end
 
       def create
-        @form = form(RegistrationForm).from_params(params[:user])
+        @form = form(RegistrationForm).from_params(params[:user].merge(current_locale: current_locale))
 
         CreateRegistration.call(@form) do
           on(:ok) do |user|
