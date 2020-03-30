@@ -1,25 +1,24 @@
-<article class="card card--widget">
-  <ul class="card-data">
-    <li class="card-data__item">
-      <div class="card__link text-center">
-        <%= resource_icon resource, class: "icon--large", role: "img" %>
-        <span class="text-medium mt-xs"><%= created_at %></span>
-      </div>
-    </li>
-    <li class="card-data__item card-data__item--expand">
-      <div>
-        <%= author %>
+<article class="card">
+  <div class="card__content">
+    <div class="card__text">
+      <div class="text-medium">
         <% if title.present? %>
-          <span class="text-small"><%= title %></span>
+          <%= title %>
         <% end %>
-        <br>
-        <%= link_to resource_link_path, class: "card__link" do %>
-          <span class="card__title mb-none">
-            <%= html_truncate decidim_sanitize(resource_link_text, strip_tags: true), length: 100 %>
-          </span>
-        <% end %>
-        <%= description %>
       </div>
-    </li>
-  </ul>
+    </div>
+    <div class="card__author inline-block">
+      <%= author_data = author %>
+    </div><div class="card__activity-date inline-block <%= "before-content" if author_data.present? %>">
+      <span class="text-medium mt-xs"><%= created_at %></span>
+    </div>
+    <div class="card__header mb-none">
+      <%= link_to resource_link_path, class: "card__link" do %>
+        <span class="card__title mb-none">
+          <%= html_truncate decidim_sanitize(resource_link_text, strip_tags: true), length: 100 %>
+        </span>
+      <% end %>
+      <%= description %>
+    </div>
+  </div>
 </article>
