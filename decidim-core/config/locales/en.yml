@@ -315,6 +315,14 @@ en:
         no_content: We couldn\'t find any content with this criteria
         order:
           all_types: All types
+          collaborative_draft: Collaborative Draft
+          comment: Comment
+          debate: Debate
+          initiative: Initiative
+          meeting: Meeting
+          post: Post
+          proposal: Proposal
+          question: Question
         title: "Show:"
       dummy:
         actions:

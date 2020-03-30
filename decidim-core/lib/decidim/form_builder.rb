@@ -261,10 +261,15 @@ module Decidim
       resources =
         collection
         .pluck(:resource_type).uniq
-        .map { |r| [r.split("::").last.gsub(/(?!^[A-ZÑÁ-Ú])[A-ZÑÁ-Ú]/) { |l| " " + l }, r] }
+        .map do |r|
+          [I18n.t(
+            r.split("::").last.underscore,
+            scope: "decidim.components.component_order_selector.order"
+          ), r]
+        end # .gsub(/(?!^[A-ZÑÁ-Ú])[A-ZÑÁ-Ú]/) { |l| " " + l }, r] }
         .reject do |r|
-          case r[0]
-          when "Participatory Process", "Component", "Survey", "Result", "Assembly", "Consultation"
+          case r[1].split("::").last
+          when "ParticipatoryProcess", "Component", "Survey", "Result", "Assembly", "Consultation"
             true
           end
         end
