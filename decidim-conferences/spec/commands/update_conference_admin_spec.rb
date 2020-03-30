@@ -5,6 +5,7 @@ require "spec_helper"
 module Decidim::Conferences
   describe Admin::UpdateConferenceAdmin do
     subject { described_class.new(form, user_role) }
+    let(:my_conference) {create :conference}
 
     let!(:new_role) { "collaborator" }
     let!(:user_role) do
@@ -15,17 +16,18 @@ module Decidim::Conferences
       double(
         invalid?: invalid,
         current_user: current_user,
-        role: new_role
+        role: new_role,
+        current_participatory_space: my_conference
       )
     end
     let(:current_user) { create(:user, :admin, :confirmed) }
     let(:invalid) { false }
     let(:user_notification) do
       {
-        event: "decidim.events.conferences.conference_registration_validation_pending",
+        event: "decidim.events.conferences.role_assigned",
         event_class: ConferenceRoleAssignedEvent,
-        resource: conference,
-        affected_users: [user],
+        resource: my_conference,
+        affected_users: [user_role.user],
         extra: { role: kind_of(String) }
       }
     end

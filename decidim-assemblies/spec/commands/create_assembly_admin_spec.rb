@@ -17,15 +17,16 @@ module Decidim::Assemblies
         invalid?: invalid,
         email: email,
         role: role,
-        name: name
+        name: name,
+        current_participatory_space: my_assembly
       )
     end
     let(:invalid) { false }
     let(:user_notification) do
       {
         event: "decidim.events.assembly.role_assigned",
-        event_class: AssemblyRoleAssignedEvent,
-        resource: assembly,
+        event_class: Decidim::AssemblyRoleAssignedEvent,
+        resource: my_assembly,
         affected_users: [user],
         extra: { role: kind_of(String) }
       }

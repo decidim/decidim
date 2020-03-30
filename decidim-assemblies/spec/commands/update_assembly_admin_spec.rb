@@ -5,6 +5,7 @@ require "spec_helper"
 module Decidim::Assemblies
   describe Admin::UpdateAssemblyAdmin do
     subject { described_class.new(form, user_role) }
+    let(:my_assembly) {create :assembly}
 
     let!(:new_role) { "collaborator" }
     let!(:user_role) do
@@ -15,7 +16,8 @@ module Decidim::Assemblies
       double(
         invalid?: invalid,
         current_user: current_user,
-        role: new_role
+        role: new_role,
+        current_participatory_space: my_assembly
       )
     end
     let(:current_user) { create(:user, :admin, :confirmed) }
@@ -23,9 +25,9 @@ module Decidim::Assemblies
     let(:user_notification) do
       {
         event: "decidim.events.assembly.role_assigned",
-        event_class: AssemblyRoleAssignedEvent,
-        resource: assembly,
-        affected_users: [user],
+        event_class: Decidim::AssemblyRoleAssignedEvent,
+        resource: my_assembly,
+        affected_users: [user_role.user],
         extra: { role: kind_of(String) }
       }
     end

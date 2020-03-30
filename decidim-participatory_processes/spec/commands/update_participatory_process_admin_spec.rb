@@ -8,22 +8,23 @@ module Decidim::ParticipatoryProcesses
 
     let(:my_process) { create :participatory_process }
     let(:role) { create :participatory_process_user_role, user: user, participatory_process: my_process, role: :admin }
-    let(:new_role) { :moderator }
+    let(:new_role) { "moderator" }
     let!(:current_user) { create :user, email: "some_email@example.org", organization: my_process.organization }
     let!(:user) { create :user, :confirmed, organization: my_process.organization }
     let(:form) do
       double(
         invalid?: invalid,
         current_user: current_user,
-        role: new_role
+        role: new_role,
+        current_participatory_space: my_process
       )
     end
     let(:invalid) { false }
     let(:user_notification) do
       {
         event: "decidim.events.participatory_process.role_assigned",
-        event_class: ParticipatoryProcessRoleAssignedEvent,
-        resource: participatory_process,
+        event_class: Decidim::ParticipatoryProcessRoleAssignedEvent,
+        resource: my_process,
         affected_users: [user],
         extra: { role: kind_of(String) }
       }

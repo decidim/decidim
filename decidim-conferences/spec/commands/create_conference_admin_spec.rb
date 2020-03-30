@@ -17,15 +17,16 @@ module Decidim::Conferences
         invalid?: invalid,
         email: email,
         role: role,
-        name: name
+        name: name,
+        current_participatory_space: my_conference
       )
     end
     let(:invalid) { false }
     let(:user_notification) do
       {
-        event: "decidim.events.conferences.conference_registration_validation_pending",
+        event: "decidim.events.conferences.role_assigned",
         event_class: ConferenceRoleAssignedEvent,
-        resource: conference,
+        resource: my_conference,
         affected_users: [user],
         extra: { role: kind_of(String) }
       }

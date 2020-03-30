@@ -17,15 +17,16 @@ module Decidim::ParticipatoryProcesses
         invalid?: invalid,
         email: email,
         role: role,
-        name: name
+        name: name,
+        current_participatory_space: my_process
       )
     end
     let(:invalid) { false }
     let(:user_notification) do
       {
         event: "decidim.events.participatory_process.role_assigned",
-        event_class: ParticipatoryProcessRoleAssignedEvent,
-        resource: participatory_process,
+        event_class: Decidim::ParticipatoryProcessRoleAssignedEvent,
+        resource: my_process,
         affected_users: [user],
         extra: { role: kind_of(String) }
       }
