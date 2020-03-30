@@ -1,5 +1,17 @@
 name: "[CI] Consultations"
-on: [push]
+on:
+  push:
+    branches:
+      - develop
+      - master
+      - release/*
+      - "*-stable"
+  pull_request:
+    branches:
+      - develop
+      - master
+      - release/*
+      - "*-stable"
 
 env:
   CI: "true"
