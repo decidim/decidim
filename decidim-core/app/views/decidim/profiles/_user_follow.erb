@@ -23,7 +23,7 @@
           </div>
         </div>
         <div class="card__text card--picture-offset">
-          <p><%= html_truncate profile_user.about.to_s, length: 80 %></p>
+          <p><%= html_truncate decidim_html_escape(profile_user.about.to_s), length: 80 %></p>
           <%= render partial: "decidim/shared/follow_button.html", locals: { followable: user } %>
         </div>
       </div>
