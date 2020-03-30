@@ -57,6 +57,7 @@ ca:
     'true': 'Sí'
   carrierwave:
     errors:
+      general: Error en processar la imatge
       image_too_big: La imatge és massa gran
   date:
     formats:
