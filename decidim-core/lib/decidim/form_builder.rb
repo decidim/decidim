@@ -262,11 +262,14 @@ module Decidim
         collection
         .pluck(:resource_type).uniq
         .map do |r|
-          [I18n.t(
-            r.split("::").last.underscore,
-            scope: "decidim.components.component_order_selector.order"
-          ), r]
-        end # .gsub(/(?!^[A-ZÑÁ-Ú])[A-ZÑÁ-Ú]/) { |l| " " + l }, r] }
+          [
+            I18n.t(
+              r.split("::").last.underscore,
+              scope: "decidim.components.component_order_selector.order"
+            ),
+            r
+          ]
+        end
         .reject do |r|
           case r[1].split("::").last
           when "ParticipatoryProcess", "Component", "Survey", "Result", "Assembly", "Consultation"
