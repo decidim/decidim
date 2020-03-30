@@ -5,8 +5,8 @@ require "spec_helper"
 module Decidim::Conferences
   describe Admin::UpdateConferenceAdmin do
     subject { described_class.new(form, user_role) }
-    let(:my_conference) {create :conference}
 
+    let(:my_conference) { create :conference }
     let!(:new_role) { "collaborator" }
     let!(:user_role) do
       user = create :conference_admin

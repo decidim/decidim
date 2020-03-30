@@ -5,8 +5,8 @@ require "spec_helper"
 module Decidim::Assemblies
   describe Admin::UpdateAssemblyAdmin do
     subject { described_class.new(form, user_role) }
-    let(:my_assembly) {create :assembly}
 
+    let(:my_assembly) { create :assembly }
     let!(:new_role) { "collaborator" }
     let!(:user_role) do
       user = create :assembly_admin
