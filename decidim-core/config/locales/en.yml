@@ -312,9 +312,10 @@ en:
       see_more: "(see more)"
     components:
       component_order_selector:
+        no_content: We couldn\'t find any content with this criteria
         order:
           all_types: All types
-        title: 'Filter by:'
+        title: "Show:"
       dummy:
         actions:
           bar: Bar

@@ -12,10 +12,10 @@
               <%= form.custom_select :resources,
                                      :resource_type,
                                      Decidim::ActionLog.all,
-                                     legend_title: "Show:",
+                                     legend_title: t("title", scope:"decidim.components.component_order_selector"),
                                      label: false,
                                      selected: context[:filter].resource_type,
-                                     include_blank: "All types" %>
+                                     include_blank: t("all_types", scope: "decidim.components.component_order_selector.order") %>
             </div>
           <% end %>
         </div>

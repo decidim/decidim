@@ -7,7 +7,7 @@ var $activitiesContainer = $('#activities-container'),
 <% else %>
   $activitiesContainer.html(`
     <div class="callout warning">
-      <h5>We couldn't find any content with this criteria</h5>
+      <h5><%= t("no_content", scope: "decidim.components.component_order_selector") %></h5>
     </div>
   `);
   $decidimPaginateContainer.html('');
