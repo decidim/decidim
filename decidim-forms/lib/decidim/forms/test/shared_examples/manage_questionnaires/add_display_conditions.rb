@@ -23,6 +23,16 @@ shared_examples_for "add display conditions" do
       it "doesn't display an add display condition button" do
         expect(page).to have_no_button("Add display condition")
       end
+
+      context "when creating a new question" do
+        it "disables the add display condition button if the question hasn't been saved" do
+          within "form.edit_questionnaire" do
+            click_button "Add question"
+
+            expect(page).to have_button("Add display condition", disabled: true)
+          end
+        end
+      end
     end
 
     context "when questionnaire has more than one question" do
@@ -151,6 +161,16 @@ shared_examples_for "add display conditions" do
             expect(page).to have_selector("[id$=mandatory]")
             expect(page).to have_no_selector("[id$=mandatory][checked]")
           end
+        end
+
+        it "can be removed" do
+          within_add_display_condition do
+            click_button "Remove"
+          end
+
+          click_button "Save"
+
+          expect(page).to have_admin_callout("successfully")
         end
       end
     end

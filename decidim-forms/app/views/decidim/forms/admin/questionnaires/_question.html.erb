@@ -116,7 +116,8 @@
       </div>
 
       <% if editable %>
-        <button class="button add-display-condition"><%= t(".add_display_condition") %></button>
+        <% disabled = !question.persisted? %>
+        <button <%= "disabled" if disabled %> title="<%= disabled ? t(".add_display_condition_info") : t(".add_display_condition_info") %>" class="button add-display-condition"><%= t(".add_display_condition") %></button>
       <% end %>
     </div>
   </div>
