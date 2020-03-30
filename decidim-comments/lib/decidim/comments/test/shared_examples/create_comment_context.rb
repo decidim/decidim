@@ -16,7 +16,8 @@ RSpec.shared_context "when creating a comment" do
       "comment" => {
         "body" => body,
         "alignment" => alignment,
-        "user_group_id" => user_group_id
+        "user_group_id" => user_group_id,
+        "commentable" => commentable
       }
     }
   end
@@ -27,5 +28,5 @@ RSpec.shared_context "when creating a comment" do
       current_organization: organization
     )
   end
-  let(:command) { described_class.new(form, author, commentable) }
+  let(:command) { described_class.new(form, author) }
 end

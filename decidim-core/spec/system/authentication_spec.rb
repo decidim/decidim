@@ -31,6 +31,32 @@ describe "Authentication", type: :system do
       end
     end
 
+    context "when using another langage" do
+      before do
+        within_language_menu do
+          click_link "Castellano"
+        end
+      end
+
+      it "keeps the locale settings" do
+        find(".sign-up-link").click
+
+        within ".new_user" do
+          fill_in :user_email, with: "user@example.org"
+          fill_in :user_name, with: "Responsible Citizen"
+          fill_in :user_nickname, with: "responsible"
+          fill_in :user_password, with: "DfyvHn425mYAy2HL"
+          fill_in :user_password_confirmation, with: "DfyvHn425mYAy2HL"
+          check :user_tos_agreement
+          check :user_newsletter
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("¡Bienvenida! Te has registrado con éxito.")
+        expect(last_user.locale).to eq("es")
+      end
+    end
+
     context "when being a robot" do
       it "denies the sign up" do
         find(".sign-up-link").click
