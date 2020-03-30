@@ -50,7 +50,6 @@ tr:
       decidim/proposals/creation_enabled_event: Teklif oluşturma etkin
       decidim/proposals/endorsing_enabled_event: Teklif onayı etkin
       decidim/proposals/evaluating_proposal_event: Teklif değerlendiriliyor
-      decidim/proposals/proposal_endorsed_event: Teklif onaylandı
       decidim/proposals/proposal_mentioned_event: Bahsi geçen teklif
       decidim/proposals/publish_proposal_event: Teklif yayınlandı
       decidim/proposals/rejected_proposal_event: Teklif reddedildi
@@ -63,9 +62,6 @@ tr:
       decidim/proposals/proposal:
         one: öneri
         other: Teklif
-      decidim/proposals/proposal_endorsement:
-        one: ciro
-        other: Cirolar
       decidim/proposals/proposal_note:
         one: Not
         other: notlar
@@ -176,11 +172,6 @@ tr:
             email_outro: Bu bildirimi "%{resource_title}" takip ettiğiniz için aldınız. Bir önceki bağlantıdan takip etmeyi bırakabilirsiniz.
             email_subject: Takip ettiğiniz bir teklif kabul edildi
             notification_title: <a href="%{resource_path}">%{resource_title}</a> teklif kabul edildi.
-        proposal_endorsed:
-          email_intro: 'Takip ettiğiniz %{endorser_name} %{endorser_nickname}, "%{resource_title}" teklifini onayladı ve sizin için ilginç olabileceğini düşünüyoruz. Bir göz atın ve katkıda bulunun:'
-          email_outro: Bu bildirimi, %{endorser_nickname}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
-          email_subject: "%{endorser_nickname} yeni bir teklifi onayladı"
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> teklif <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>tarafından onaylanmıştır.
         proposal_evaluating:
           affected_user:
             email_intro: 'Şu anda "%{resource_title}" teklifiniz değerlendiriliyor. Bu sayfadaki cevabı kontrol edebilirsiniz:'
@@ -193,7 +184,6 @@ tr:
             email_subject: Takip ettiğiniz bir teklif değerlendiriliyor
             notification_title: <a href="%{resource_path}">%{resource_title}</a> teklifi değerlendiriliyor.
         proposal_mentioned:
-          email_intro: Öneriniz "%{mentioned_proposal_title}" söz edilmiştir <a href="%{resource_path}">bu alanda</a> yorumlardaki.
           email_outro: Bu bildirimi, "%{resource_title}" ın bir yazarı olduğunuz için aldınız.
           email_subject: Teklifinizin "%{mentioned_proposal_title}" olduğu belirtildi
           notification_title: Öneriniz "%{mentioned_proposal_title}" söz edilmiştir <a href="%{resource_path}">bu alanda</a> yorumlardaki.
@@ -567,7 +557,6 @@ tr:
           fields:
             category: Kategori
             comments: Yorumlar
-            endorsements: Cirolar
             id: İD
             notes: notlar
             official_proposal: Resmi teklif
@@ -584,18 +573,6 @@ tr:
           amend: değiştirmek
           comment: Yorum Yap
           comments: Yorumlar
-          endorse: desteklemek
-      proposal_endorsements:
-        create:
-          error: Teklifin onaylanması sırasında hatalar oluştu.
-        identities:
-          done: tamam
-          select_identity: Kimlik seç
-      proposal_endorsements_helper:
-        endorsement_button:
-          already_endorsed: Onaylanan
-          endorse: desteklemek
-        render_endorsements_button_card_part:
           endorse: desteklemek
       proposal_votes:
         create:
@@ -623,10 +600,6 @@ tr:
           discard_confirmation: Bu teklif taslağını silmek istediğinizden emin misiniz?
           send: Ön izleme
           title: Teklif Taslaklarını Düzenle
-        endorsement_identities_cabin:
-          endorse: desteklemek
-        endorsements_card_row:
-          comments: Yorumlar
         filters:
           amendment_type: tip
           category: Kategori
@@ -675,6 +648,7 @@ tr:
         show:
           answer: Cevap
           back_to: Geri
+          comments: Yorumlar
           edit_proposal: Teklifi düzenle
           endorsements_list: Onay Listesi
           hidden_endorsers_count:

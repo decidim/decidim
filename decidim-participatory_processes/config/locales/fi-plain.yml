@@ -135,6 +135,7 @@ fi-pl:
             admin: Järjestelmänvalvoja
             collaborator: Osallisuuskäyttäjä
             moderator: Moderoija
+            valuator: Arvon arvioija
         user:
           fields:
             invitation_accepted_at: Kutsu hyväksytty
@@ -206,11 +207,13 @@ fi-pl:
         destroy:
           success: Käyttäjä poistettiin onnistuneesti tästä osallisuusprosessista.
         edit:
+          title: Päivitä osallistumisprosessin hallintakäyttäjä
           update: Päivitä
         index:
           process_admins_title: Osallisuusprosessin käyttäjät
         new:
           create: Luo
+          title: Uusi osallistumisprosessin hallintakäyttäjä
         update:
           error: Tapahtui virhe päivitettäessä käyttäjää tälle osallisuusprosessille.
           success: Tämän osallisuusprosessin käyttäjä päivitetty onnistuneesti.

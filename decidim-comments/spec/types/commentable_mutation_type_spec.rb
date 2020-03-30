@@ -20,15 +20,14 @@ module Decidim
         end
 
         it "calls CreateComment command" do
-          params = { "comment" => { "body" => body, "alignment" => alignment, "user_group_id" => nil } }
+          params = { "comment" => { "body" => body, "alignment" => alignment, "user_group_id" => nil, "commentable" => model } }
           context = { current_organization: current_organization }
           expect(Decidim::Comments::CommentForm).to receive(:from_params).with(params).and_call_original
           expect_any_instance_of(Decidim::Comments::CommentForm) # rubocop:disable RSpec/AnyInstance
             .to receive(:with_context).with(context).and_call_original
           expect(Decidim::Comments::CreateComment).to receive(:call).with(
             an_instance_of(Decidim::Comments::CommentForm),
-            current_user,
-            model
+            current_user
           ).and_call_original
           expect(response["addComment"]).to include("body" => body)
         end
