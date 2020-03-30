@@ -18,9 +18,11 @@ module Decidim
     end
 
     def preview_url(*_args)
-      preview = model.content_block.manifest.images.first[:preview]
+      manifest_images = model.content_block.manifest.images
+      image = manifest_images.find { |manifest_image| manifest_image[:name] == mounted_as } || {}
+      preview = image[:preview]
 
-      if preview.respond_to?(:call)
+      if preview && preview.respond_to?(:call)
         preview.call
       else
         preview
