@@ -6,6 +6,8 @@ module Decidim
   class ContentBlock < ApplicationRecord
     include Publicable
 
+    attr_accessor :in_preview
+
     belongs_to :organization, foreign_key: :decidim_organization_id, class_name: "Decidim::Organization"
 
     delegate :public_name_key, :has_settings?, :settings_form_cell, :cell, to: :manifest

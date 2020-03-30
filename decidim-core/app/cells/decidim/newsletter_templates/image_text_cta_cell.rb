@@ -49,6 +49,10 @@ module Decidim
         main_image_url.present?
       end
 
+      def main_image
+        image_tag main_image_url
+      end
+
       def main_image_url
         newsletter.template.images_container.main_image.url
       end

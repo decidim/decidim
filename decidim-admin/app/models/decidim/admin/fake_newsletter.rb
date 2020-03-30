@@ -16,6 +16,7 @@ module Decidim
 
       def template
         Decidim::ContentBlock.new(
+          in_preview: true,
           manifest_name: manifest.name,
           scope_name: :newsletter_template,
           settings: manifest.settings.attributes.inject({}) do |acc, (name, attrs)|

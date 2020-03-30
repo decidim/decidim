@@ -401,7 +401,9 @@ module Decidim
           content_block.images = [
             {
               name: :main_image,
-              uploader: "Decidim::HomepageImageUploader"
+              uploader: "Decidim::NewsletterTemplateImageUploader",
+              # preview: -> { "https://via.placeholder.com/550x300.png?text=550x300" }
+              preview: -> { ActionController::Base.helpers.asset_path("decidim/placeholder.jpeg") }
             }
           ]
 
