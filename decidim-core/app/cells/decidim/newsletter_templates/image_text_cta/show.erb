@@ -58,6 +58,17 @@ table.button table td {
         </tbody>
       </table>
 
+      <% if has_main_image? %>
+        <table class="row content image">
+          <tr>
+            <th class="small-12 first columns">
+              <%= image_tag main_image_url %>
+            </th>
+            <th class="expander"></th>
+          </tr>
+        </table>
+      <% end %>
+
       <table class="row content">
         <tr>
           <th class="small-12 first columns">
@@ -65,21 +76,19 @@ table.button table td {
 
             <% if has_cta? %>
               <p>&nbsp;</p>
-              <div class="cta">
-                <table class="button expanded radius">
-                  <tr>
-                    <td>
-                      <table>
-                        <tr>
-                          <td>
-                            <%= link_to cta_text, cta_url, target: :blank %>
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                </table>
-              </div>
+              <table class="button expanded radius">
+                <tr>
+                  <td>
+                    <table>
+                      <tr>
+                        <td>
+                          <%= link_to cta_text, cta_url, target: :blank %>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
               <p>&nbsp;</p>
             <% end %>
 

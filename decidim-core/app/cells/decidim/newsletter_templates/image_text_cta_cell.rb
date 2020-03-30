@@ -45,6 +45,14 @@ module Decidim
         translated_attribute(model.settings.cta_url)
       end
 
+      def has_main_image?
+        main_image_url.present?
+      end
+
+      def main_image_url
+        newsletter.template.images_container.main_image.url
+      end
+
       def organization_primary_color
         organization.colors["primary"]
       end

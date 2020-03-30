@@ -136,6 +136,7 @@ th.columns,
 th.column {
   margin: 0 auto;
   margin: 0 auto;
+  padding-right: 16px;
   padding-left: 16px;
   padding-bottom: 16px;
 }
@@ -1686,10 +1687,6 @@ table.container.main {
   background: #fefefe;
 }
 
-div.cta {
-  margin-right: 16px;
-}
-
 .custom-button {
   display: block;
   text-align: center;
@@ -1707,4 +1704,8 @@ div.cta {
   &.large {
     font-size: 1rem;
   }
+}
+
+table.content.image img {
+  width: 100%;
 }

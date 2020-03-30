@@ -32,7 +32,7 @@ describe "Admin manages newsletters", type: :system do
         find(".button.new").click
       end
 
-      within "#basic_only_text" do
+      within "#image_text_cta" do
         click_link "Use this template"
       end
 
@@ -46,11 +46,36 @@ describe "Admin manages newsletters", type: :system do
         )
 
         fill_in_i18n_editor(
+          :newsletter_settings_introduction,
+          "#newsletter-settings--introduction-tabs",
+          en: "Hello %{name}! Relevant content.",
+          es: "Hola, %{name}! Contenido relevante.",
+          ca: "Hola, %{name}! Contingut rellevant."
+        )
+
+        fill_in_i18n(
+          :newsletter_settings_cta_text,
+          "#newsletter-settings--cta_text-tabs",
+          en: "Hello %{name}! Relevant content."
+        )
+
+        fill_in_i18n(
+          :newsletter_settings_cta_url,
+          "#newsletter-settings--cta_url-tabs",
+          en: "Hello %{name}! Relevant content."
+        )
+
+        fill_in_i18n_editor(
           :newsletter_settings_body,
           "#newsletter-settings--body-tabs",
           en: "Hello %{name}! Relevant content.",
           es: "Hola, %{name}! Contenido relevante.",
           ca: "Hola, %{name}! Contingut rellevant."
+        )
+
+        attach_file(
+          "Main image",
+          Decidim::Dev.asset("city2.jpeg")
         )
 
         find("*[type=submit]").click

@@ -7,3 +7,7 @@
 
   <%= settings_fields.translated :editor, :body, label: t(".body") %>
 <% end %>
+
+<% form.fields_for :images, form.object.images do |images_fields| %>
+  <%= images_fields.upload :main_image, label: t(".main_image") %>
+<% end %>

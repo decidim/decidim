@@ -849,6 +849,7 @@ en:
         cta_text: Call To Action button text
         cta_url: Call To Action button URL
         introduction: Introduction
+        main_image: Main image
     newsletters:
       unsubscribe:
         check_subscription: If you want to change your preferences, you can do so in the <a href="%{link}" target="_blank">configuration page</a>
