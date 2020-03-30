@@ -261,15 +261,7 @@ module Decidim
       resources =
         collection
         .pluck(:resource_type).uniq
-        .map do |r|
-          [
-            I18n.t(
-              r.split("::").last.underscore,
-              scope: "decidim.components.component_order_selector.order"
-            ),
-            r
-          ]
-        end
+        .map { |r| [I18n.t(r.split("::").last.underscore, scope: "decidim.components.component_order_selector.order"), r] }
         .reject do |r|
           case r[1].split("::").last
           when "ParticipatoryProcess", "Component", "Survey", "Result", "Assembly", "Consultation"

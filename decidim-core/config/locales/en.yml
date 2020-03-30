@@ -323,7 +323,7 @@ en:
           post: Post
           proposal: Proposal
           question: Question
-        title: "Show:"
+        title: 'Show:'
       dummy:
         actions:
           bar: Bar
