@@ -1,5 +1,5 @@
 <%= render layout: "show", locals: { participants: conversation.interlocutors(current_user) } do %>
-  <div id="messages">
+  <div id="messages" class="scroll-to-last-message">
     <% conversation.messages.each do |message| %>
       <%= render "message", message: message %>
     <% end %>
