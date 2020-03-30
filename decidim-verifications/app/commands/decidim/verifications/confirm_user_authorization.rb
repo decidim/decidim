@@ -4,13 +4,17 @@ module Decidim
   module Verifications
     # A command to confirm a previous partial authorization.
     class ConfirmUserAuthorization < Rectify::Command
+      # Number of failed confirmation attempts before throttling.
+      MAX_FAILED_ATTEMPTS = 2
+
       # Public: Initializes the command.
       #
       # authorization - An Authorization to be confirmed.
       # form - A form object with the verification data to confirm it.
-      def initialize(authorization, form)
+      def initialize(authorization, form, session)
         @authorization = authorization
         @form = form
+        @session = session
       end
 
       # Executes the command. Broadcasts these events:
@@ -20,19 +24,19 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:already_confirmed) if authorization.granted?
+        return already_confirmed! if authorization.granted?
 
-        return broadcast(:invalid) unless form.valid?
+        return invalid! unless form.valid?
+
+        throttle! if too_many_failed_attempts?
 
         if confirmation_successful?
-          authorization.grant!
-
-          broadcast(:ok)
+          valid!
         else
-          broadcast(:invalid)
+          invalid!
         end
       rescue StandardError => e
-        broadcast(:invalid, e.message)
+        invalid!(e.message)
       end
 
       protected
@@ -45,7 +49,43 @@ module Decidim
 
       private
 
-      attr_reader :authorization, :form
+      def valid!
+        authorization.grant!
+        reset_failed_attempts!
+        broadcast(:ok)
+      end
+
+      def invalid!(message = nil)
+        record_failed_attempt!
+        broadcast(:invalid, message)
+      end
+
+      def already_confirmed!
+        reset_failed_attempts!
+        broadcast(:already_confirmed)
+      end
+
+      def too_many_failed_attempts?
+        failed_attempts > MAX_FAILED_ATTEMPTS
+      end
+
+      def failed_attempts
+        session[:failed_attempts] ||= 0
+      end
+
+      def reset_failed_attempts!
+        session[:failed_attempts] = 0
+      end
+
+      def record_failed_attempt!
+        session[:failed_attempts] = failed_attempts + 1
+      end
+
+      def throttle!
+        sleep rand * failed_attempts
+      end
+
+      attr_reader :authorization, :form, :session
     end
   end
 end

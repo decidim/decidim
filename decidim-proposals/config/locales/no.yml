@@ -52,7 +52,6 @@
       decidim/proposals/creation_enabled_event: Opprettelse av forslag aktivert
       decidim/proposals/endorsing_enabled_event: Forslags påtegning aktivert
       decidim/proposals/evaluating_proposal_event: Forslaget blir evaluert
-      decidim/proposals/proposal_endorsed_event: Forslag påtegnet
       decidim/proposals/proposal_mentioned_event: Forslag nevnt
       decidim/proposals/publish_proposal_event: Forslag publisert
       decidim/proposals/rejected_proposal_event: Forslag avvist
@@ -65,9 +64,6 @@
       decidim/proposals/proposal:
         one: Forslag
         other: Forslag
-      decidim/proposals/proposal_endorsement:
-        one: Påtegning
-        other: Påtegninger
       decidim/proposals/proposal_note:
         one: Merk
         other: Merknader
@@ -205,11 +201,6 @@
             email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}". Du kan slutte å følge den fra den forrige lenken.
             email_subject: Et forslag du følger har blitt akseptert
             notification_title: <a href="%{resource_path}">%{resource_title}</a> forslaget ble akseptert.
-        proposal_endorsed:
-          email_intro: '%{endorser_name}%{endorser_nickname}, som du følger, har nettopp godkjent forslaget "%{resource_title}" og vi tror det kan være interessant for deg. Sjekk det ut og bidra:'
-          email_outro: Du har mottatt denne varslingen fordi du følger %{endorser_nickname}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
-          email_subject: "%{endorser_nickname} har sluttet seg til et nytt forslag"
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> forslaget er blitt påtegnet av <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           affected_user:
             email_intro: 'Forslaget ditt "%{resource_title}" holder på å bli evaluert. Du kan se etter svar på denne siden:'
@@ -222,7 +213,6 @@
             email_subject: Et forslag du følger blir evaluert
             notification_title: <a href="%{resource_path}">%{resource_title}</a> forslaget blir evaluert.
         proposal_mentioned:
-          email_intro: Forslaget ditt "%{mentioned_proposal_title}" har blitt nevnt <a href="%{resource_path}">i dette området</a> i kommentarene.
           email_outro: Du har mottatt denne varslingen fordi du er en forfatter av "%{resource_title}".
           email_subject: Forslaget ditt "%{mentioned_proposal_title}" er blitt nevnt
           notification_title: Forslaget ditt "%{mentioned_proposal_title}" har blitt nevnt <a href="%{resource_path}">i dette området</a> i kommentarene.
@@ -630,7 +620,6 @@
           fields:
             category: Kategori
             comments: Kommentarer
-            endorsements: Påtegnelser
             id: ID
             notes: Merknader
             official_proposal: Offisielt forslag
@@ -647,18 +636,6 @@
           amend: Endre
           comment: Kommentar
           comments: Kommentarer
-          endorse: Påtegne
-      proposal_endorsements:
-        create:
-          error: Det oppstod et problem med å påtegne forslaget.
-        identities:
-          done: Ferdig
-          select_identity: Velg identitet
-      proposal_endorsements_helper:
-        endorsement_button:
-          already_endorsed: Påtegnet
-          endorse: Påtegne
-        render_endorsements_button_card_part:
           endorse: Påtegne
       proposal_votes:
         create:
@@ -686,10 +663,6 @@
           discard_confirmation: Er du sikker på at du vil forkaste dette forslaget?
           send: Forhåndsvis
           title: Rediger Forslags utkastet
-        endorsement_identities_cabin:
-          endorse: Påtegne
-        endorsements_card_row:
-          comments: Kommentarer
         filters:
           activity: Min aktivitet
           all: Alle
@@ -748,6 +721,7 @@
           answer: Svar
           back_to: Tilbake til
           changes_at_title: Endring til "%{title}"
+          comments: Kommentarer
           edit_proposal: Rediger forslaget
           endorsements_list: Liste over Påtegnelser
           estimated_cost: Estimert kostnad

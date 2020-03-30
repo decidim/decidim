@@ -27,14 +27,6 @@ module Decidim
           expect(response).to eq("applicationName" => Decidim.application_name)
         end
       end
-
-      describe "rubyVersion" do
-        let(:query) { "{ rubyVersion }" }
-
-        it "resturns the current ruby version" do
-          expect(response["rubyVersion"]).to eq(RUBY_VERSION)
-        end
-      end
     end
   end
 end
