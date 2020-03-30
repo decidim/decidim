@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -140,7 +139,7 @@ fr:
           random_seed: Valeur aléatoire
           selected_proposals:
             one: proposition sélectionnée
-            other: "%{count} propositions sélectionnées"
+            other: '%{count} propositions sélectionnées'
           view: Voir
         sortition_author:
           deleted: Utilisateur supprimé
