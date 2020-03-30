@@ -28,14 +28,14 @@ module Decidim
       has_many :down_votes, -> { where(weight: -1) }, foreign_key: "decidim_comment_id", class_name: "CommentVote", dependent: :destroy
 
       validates :body, presence: true
-      validates :depth, numericality: { greater_than_or_equal_to: 0 }
+      validates :depth, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: MAX_DEPTH }
       validates :alignment, inclusion: { in: [0, 1, -1] }
 
       validates :body, length: { maximum: 1000 }
 
       validate :commentable_can_have_comments
 
-      before_save :compute_depth
+      before_validation :compute_depth
 
       delegate :organization, to: :commentable
 

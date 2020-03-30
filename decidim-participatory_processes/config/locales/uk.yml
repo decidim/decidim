@@ -186,13 +186,11 @@ uk:
         destroy:
           success: З цього руху співучасті успішно видалено учасника.
         edit:
-          title: Оновити учасника руху співучасті.
           update: Оновити
         index:
           process_admins_title: Учасники руху співучасті
         new:
           create: Додати
-          title: Додати учасника руху співучасті.
         update:
           error: При спробі оновити учасника цього руху співучасті сталася помилка.
           success: Учасника цього руху співучасті успішно оновлено.
@@ -347,13 +345,14 @@ uk:
         meetings_count: Зустрічей
         orders_count: Голосів
         pages_count: Сторінок
+        participants_count: Учасників
         processes_count: Рухів
         projects_count: Проектів
         proposals_count: Пропозицій
         results_count: Підсумків
+        supports_count: Голосів
         surveys_count: Опитувань
         users_count: Учасників
-        votes_count: Голосів
   layouts:
     decidim:
       participatory_process_groups:

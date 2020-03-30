@@ -164,12 +164,18 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       let(:stats_name) { :endorsements_count }
 
       before do
-        create_list :proposal_endorsement, 2, proposal: proposal
-        create_list :proposal_endorsement, 3, proposal: hidden_proposal
+        # rubocop:disable FactoryBot/CreateList
+        2.times do
+          create(:endorsement, resource: proposal, author: build(:user, organization: organization))
+        end
+        3.times do
+          create(:endorsement, resource: hidden_proposal, author: build(:user, organization: organization))
+        end
+        # rubocop:enable FactoryBot/CreateList
       end
 
       it "counts the endorsements from visible proposals" do
-        expect(Decidim::Proposals::ProposalEndorsement.count).to eq 5
+        expect(Decidim::Endorsement.count).to eq 5
         expect(subject).to eq 2
       end
     end
@@ -269,6 +275,44 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
         it "is NOT shown the amendments step settings" do
           expect(page).to have_css(".amendments_step_settings", visible: false)
         end
+      end
+    end
+  end
+
+  describe "proposals exporter" do
+    subject do
+      component
+        .manifest
+        .export_manifests
+        .find { |manifest| manifest.name == :proposals }
+        .collection
+        .call(component, user)
+    end
+
+    let!(:assigned_proposal) { create :proposal }
+    let(:component) { assigned_proposal.component }
+    let!(:unassigned_proposal) { create :proposal, component: component }
+    let(:participatory_process) { component.participatory_space }
+    let(:organization) { participatory_process.organization }
+
+    context "when the user is a valuator" do
+      let!(:user) { create :user, admin: false, organization: organization }
+      let!(:valuator_role) { create :participatory_process_user_role, role: :valuator, user: user, participatory_process: participatory_process }
+
+      before do
+        create :valuation_assignment, proposal: assigned_proposal, valuator_role: valuator_role
+      end
+
+      it "only exports assigned proposals" do
+        expect(subject).to eq([assigned_proposal])
+      end
+    end
+
+    context "when the user is an admin" do
+      let!(:user) { create :user, admin: true, organization: organization }
+
+      it "exports all proposals from the component" do
+        expect(subject).to match_array([unassigned_proposal, assigned_proposal])
       end
     end
   end

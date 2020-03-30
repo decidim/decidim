@@ -24,6 +24,8 @@
 // = require decidim/tooltip_keep_on_hover
 // = require decidim/diff_mode_dropdown
 // = require decidim/check_boxes_tree
+// = require decidim/conversations
+// = require decidim/delayed
 // = require_tree ./decidim/vizzs
 
 // = require_self
@@ -36,6 +38,9 @@ window.Decidim = window.Decidim || {};
 $(() => {
   if (window.Decidim.DataPicker) {
     window.theDataPicker = new window.Decidim.DataPicker($(".data-picker"));
+  }
+  if (window.Decidim.CheckBoxesTree) {
+    window.theCheckBoxesTree = new window.Decidim.CheckBoxesTree();
   }
 
   $(document).foundation();

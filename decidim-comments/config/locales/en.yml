@@ -5,6 +5,7 @@ en:
       decidim/comments/comment_by_followed_user_event: Comment
       decidim/comments/comment_created_event: Comment
       decidim/comments/reply_created_event: Comment reply
+      decidim/comments/user_group_mentioned_event: Mention
       decidim/comments/user_mentioned_event: Mention
   activerecord:
     models:
@@ -92,6 +93,11 @@ en:
           email_outro: You have received this notification because your comment was replied.
           email_subject: "%{author_name} has replied your comment in %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> has replied your comment in <a href="%{resource_path}">%{resource_title}</a>
+        user_group_mentioned:
+          email_intro: A group you belong to has been mentioned
+          email_outro: You have received this notification because you are a member of the group %{group_name} that has been mentioned in %{resource_title}.
+          email_subject: You have been mentioned in %{resource_title} as a member of %{group_name}
+          notification_title: You have been mentioned in <a href="%{resource_path}">%{resource_title}</a> by <a href="%{author_path}">%{author_name} %{author_nickname}</a> as a member of <a href="%{group_path}">%{group_name} %{group_nickname}</a>
         user_mentioned:
           email_intro: You have been mentioned
           email_outro: You have received this notification because you have been mentioned in %{resource_title}.

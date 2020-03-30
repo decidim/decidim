@@ -11,7 +11,7 @@ module Decidim
     belongs_to :assembly, foreign_key: "decidim_assembly_id", class_name: "Decidim::Assembly", optional: true
     alias participatory_space assembly
 
-    ROLES = %w(admin collaborator moderator).freeze
+    ROLES = %w(admin collaborator moderator valuator).freeze
     validates :role, inclusion: { in: ROLES }, uniqueness: { scope: [:user, :assembly] }
     validate :user_and_assembly_same_organization
 

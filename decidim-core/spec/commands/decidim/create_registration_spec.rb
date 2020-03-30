@@ -15,6 +15,7 @@ module Decidim
         let(:password_confirmation) { password }
         let(:tos_agreement) { "1" }
         let(:newsletter) { "1" }
+        let(:current_locale) { "es" }
 
         let(:form_params) do
           {
@@ -31,7 +32,8 @@ module Decidim
         end
         let(:form) do
           RegistrationForm.from_params(
-            form_params
+            form_params,
+            current_locale: current_locale
           ).with_context(
             current_organization: organization
           )
@@ -52,6 +54,25 @@ module Decidim
               command.call
             end.not_to change(User, :count)
           end
+
+          context "when the user was already invited" do
+            let(:user) { build(:user, email: email, organization: organization) }
+
+            before do
+              user.invite!
+              clear_enqueued_jobs
+            end
+
+            it "receives the invitation email again" do
+              expect do
+                command.call
+                user.reload
+              end.to change(User, :count).by(0)
+                                         .and broadcast(:invalid)
+                .and change(user.reload, :invitation_token)
+              expect(ActionMailer::DeliveryJob).to have_been_enqueued.on_queue("mailers")
+            end
+          end
         end
 
         describe "when the form is valid" do
@@ -70,7 +91,8 @@ module Decidim
               newsletter_notifications_at: form.newsletter_at,
               email_on_notification: true,
               organization: organization,
-              accepted_tos_version: organization.tos_version
+              accepted_tos_version: organization.tos_version,
+              locale: form.current_locale
             ).and_call_original
 
             expect { command.call }.to change(User, :count).by(1)
@@ -84,18 +106,6 @@ module Decidim
                 command.call
                 expect(User.last.newsletter_notifications_at).to eq(nil)
               end.to change(User, :count).by(1)
-            end
-          end
-
-          context "when a user was invited but never accepted" do
-            let!(:pending_user) do
-              create(:user, email: email, organization: organization, invitation_token: "foobar", invitation_accepted_at: nil)
-            end
-
-            it "deletes the previous user and creates a new one" do
-              command.call
-
-              expect(Decidim::User.exists?(id: pending_user.id)).to be false
             end
           end
         end

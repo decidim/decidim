@@ -274,6 +274,7 @@
     "uuid": "^3.2.1"
   },
   "jest": {
+    "testURL": "https://decidim.dev/",
     "setupFiles": [
       "raf/polyfill",
       "<rootDir>/decidim-admin/app/frontend/entry_test.ts",
