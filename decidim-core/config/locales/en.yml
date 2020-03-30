@@ -341,6 +341,9 @@ en:
         name: Footer sub hero banner
       hero:
         name: Hero image
+      hero_settings_form:
+        background_image: Background image
+        welcome_text: Welcome text
       highlighted_content_banner:
         name: Highlighted content banner
       how_to_participate:
@@ -834,11 +837,18 @@ en:
       basic_only_text:
         body_preview: body
         name: Basic (only text)
+      basic_only_text_settings_form:
+        body: Body
       image_text_cta:
         body_preview: body
         cta_text_preview: Call To Action text
         introduction_preview: introduction
         name: Image, text and Call To Action button
+      image_text_cta_settings_form:
+        body: Body
+        cta_text: Call To Action button text
+        cta_url: Call To Action button URL
+        introduction: Introduction
     newsletters:
       unsubscribe:
         check_subscription: If you want to change your preferences, you can do so in the <a href="%{link}" target="_blank">configuration page</a>
