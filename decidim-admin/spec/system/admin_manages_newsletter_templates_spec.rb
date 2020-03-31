@@ -19,8 +19,8 @@ describe "Admin manages newsletter templates", type: :system do
         find(".button.new").click
       end
 
-      expect(page).to have_content("Basic (only text)")
-      expect(page).to have_content("Image, text and Call To Action button")
+      expect(page).to have_content("BASIC (ONLY TEXT)")
+      expect(page).to have_content("IMAGE, TEXT AND CALL TO ACTION BUTTON")
     end
   end
 
