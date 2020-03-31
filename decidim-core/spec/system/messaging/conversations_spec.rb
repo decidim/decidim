@@ -253,7 +253,7 @@ describe "Conversations", type: :system do
     end
 
     describe "on mentioned list" do
-      context "when someone has disabled notifications" do
+      context "when someone direct messages disabled" do
         let!(:interlocutor2) { create(:user, :confirmed, organization: organization, direct_message_types: "followed-only") }
 
         it "can't be selected on the mentioned list", :slow do
