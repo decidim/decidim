@@ -41,7 +41,7 @@ $(() => {
 
   /* eslint no-use-before-define: ["error", { "variables": false }]*/
   let remoteSearch = function(text, cb) {
-    let query = `{users(filter:{wildcard:"${text}",type:"user"}){id,nickname,name,avatarUrl,disabledNotifications}}`;
+    let query = `{users(filter:{wildcard:"${text}",type:"user"}){id,nickname,name,avatarUrl,directMessagesEnabled}}`;
     $.post("/api", {query: query}).
       then((response) => {
         let data = response.data.users || {};
@@ -95,7 +95,7 @@ $(() => {
       `;
 
       // Append new recipient to DOM
-      if (item.original.disabledNotifications === "") {
+      if (item.original.directMessagesEnabled === "") {
         $multipleMentionRecipientsContainer.append(recipientLabel);
         $multipleMentionContainer.val("");
       }
@@ -109,7 +109,7 @@ $(() => {
         let icons = window.DecidimComments.assets["icons.svg"];
         svg = `<span class="is-group">${item.original.membersCount}x <svg class="icon--members icon"><use xlink:href="${icons}#icon-members"/></svg></span>`;
       }
-      let disabledElementClass = ((item.original.disabledNotifications === "") ? "" : "disabled-tribute-element")
+      let disabledElementClass = ((item.original.directMessagesEnabled === "") ? "" : "disabled-tribute-element")
       return `<div class="tribute-item ${item.original.__typename} ${disabledElementClass}">
       <span class="author__avatar"><img src="${item.original.avatarUrl}" alt="author-avatar"></span>
         <strong>${item.original.nickname}</strong>
