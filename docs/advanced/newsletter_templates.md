@@ -60,3 +60,5 @@ class Decidim::NewsletterTemplates::MyTemplate < Decidim::ViewModel
   end
 end
 ```
+
+The newsletter subject is automatically interpolated.

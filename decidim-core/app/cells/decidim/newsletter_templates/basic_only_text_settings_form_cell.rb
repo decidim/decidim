@@ -2,7 +2,7 @@
 
 module Decidim
   module NewsletterTemplates
-    class BasicOnlyTextSettingsFormCell < BaseSettingsForm
+    class BasicOnlyTextSettingsFormCell < BaseSettingsFormCell
     end
   end
 end

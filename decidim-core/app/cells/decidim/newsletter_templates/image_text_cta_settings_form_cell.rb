@@ -2,7 +2,7 @@
 
 module Decidim
   module NewsletterTemplates
-    class ImageTextCtaSettingsFormCell < BaseSettingsForm
+    class ImageTextCtaSettingsFormCell < BaseSettingsFormCell
     end
   end
 end

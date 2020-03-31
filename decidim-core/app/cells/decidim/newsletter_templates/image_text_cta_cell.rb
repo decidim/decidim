@@ -4,7 +4,7 @@ require "cell/partial"
 
 module Decidim
   module NewsletterTemplates
-    class ImageTextCtaCell < BAseCell
+    class ImageTextCtaCell < BaseCell
       def show
         render :show
       end

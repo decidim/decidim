@@ -839,6 +839,7 @@ en:
         name: Basic (only text)
       basic_only_text_settings_form:
         body: Body
+        interpolations_hint: 'Hint: You can use "%{name}" anywhere in the body or subject and it will be replaced by the recipient''s name.'
       image_text_cta:
         body_preview: body
         cta_text_preview: Call To Action text
@@ -848,6 +849,7 @@ en:
         body: Body
         cta_text: Call To Action button text
         cta_url: Call To Action button URL
+        interpolations_hint: 'Hint: You can use "%{name}" anywhere in the introduction, body, CTA text or subject and it will be replaced by the recipient''s name.'
         introduction: Introduction
         main_image: Main image
     newsletters:
