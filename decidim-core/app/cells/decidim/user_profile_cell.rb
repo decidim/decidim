@@ -9,6 +9,10 @@ module Decidim
       render
     end
 
+    def unlinked_user_data
+      render
+    end
+
     def user
       model
     end

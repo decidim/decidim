@@ -1,15 +1,12 @@
 <main class="wrapper">
   <div class="row">
-    <div class="columns">
+    <div class="columns large-8">
       <div class="title-action">
         <h1 class="heading1 title-action__title">
           <%= t(".title") %>
         </h1>
       </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="columns large-8">
+
       <% if @conversations.empty? %>
         <div class="callout secondary">
           <p><%= t(".no_conversations") %></p>
@@ -47,5 +44,27 @@
         </div>
       <% end %>
     </div>
+
+    <% if mailboxes.length %>
+      <div class="columns large-4">
+        <div class="title-action">
+          <h4 class="heading4 title-action__title">
+            <%= t(".mailbox") %>
+          </h4>
+        </div>
+        <div class="card card--list user-groups">
+          <% mailboxes.each do |entity| %>
+            <div class="card--list__item">
+              <%= link_to decidim.conversations_path(params: { mailbox: entity.nickname }), class: "card--list__author" do %>
+                <%= cell("decidim/user_profile", entity).unlinked_user_data.html_safe %>
+                <span class="card--list__counter">
+                  <span><%= "0" %></span>
+                </span>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </main>

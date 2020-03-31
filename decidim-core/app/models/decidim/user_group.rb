@@ -108,10 +108,9 @@ module Decidim
     end
 
     # Accepts conversation if all their users accepts a conversation?
-    def accepts_conversation?(user)
+    def accepts_conversation?(_user)
       true
     end
-
 
     private
 

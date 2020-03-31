@@ -799,6 +799,7 @@ en:
           error: Conversation not started. Try again later
         index:
           no_conversations: You have no conversations yet
+          mailbox: Mailbox
           title: Conversations
         reply:
           send: Send

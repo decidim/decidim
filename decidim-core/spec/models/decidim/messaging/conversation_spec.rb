@@ -37,7 +37,6 @@ describe Decidim::Messaging::Conversation do
       end
     end
 
-
     context "when the originator is a group" do
       let(:originator) { create(:user_group) }
 

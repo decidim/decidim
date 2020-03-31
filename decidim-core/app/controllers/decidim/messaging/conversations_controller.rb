@@ -11,7 +11,7 @@ module Decidim
 
       before_action :authenticate_user!
 
-      helper_method :username_list, :conversation
+      helper_method :username_list, :conversation, :mailboxes
 
       # Shows the form to initiate a conversation with an user (the recipient)
       # recipient is passed via GET parameter:
@@ -49,7 +49,7 @@ module Decidim
       def index
         enforce_permission_to :list, :conversation
 
-        @conversations = UserConversations.for(current_user)
+        @conversations = UserConversations.for(current_mailbox)
       end
 
       def show
@@ -90,6 +90,21 @@ module Decidim
 
       def username_list(users)
         users.pluck(:name).join(", ")
+      end
+
+      def user_groups
+        return [] unless current_organization.user_groups_enabled?
+
+        current_user.manageable_user_groups
+      end
+
+      def mailboxes
+        ([current_user] + user_groups).reject { |group| group == current_mailbox }
+      end
+
+      def current_mailbox
+        mailbox = user_groups.find { |group| group.nickname == params[:mailbox] }
+        mailbox || current_user
       end
     end
   end
