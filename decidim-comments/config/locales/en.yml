@@ -84,7 +84,7 @@ en:
           email_subject: There is a new comment by %{author_name} in %{resource_title}
           notification_title: There is a new comment by <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>.
         comment_by_followed_user_group:
-          email_intro: "The group %{author_name} has left a comment in %{resource_title}. You can read it in this page:"
+          email_intro: 'The group %{author_name} has left a comment in %{resource_title}. You can read it in this page:'
           email_outro: You have received this notification because you are following %{author_name}. You can unfollow this group from its profile page.
           email_subject: There is a new comment by %{author_name} in %{resource_title}
           notification_title: There is a new comment by <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>.
