@@ -12,7 +12,7 @@ module Decidim
       validates :body, :recipient, presence: true
 
       def recipient
-        @recipient ||= Decidim::User
+        @recipient ||= Decidim::UserBaseEntity
                        .where.not(id: current_user.id)
                        .where(organization: current_user.organization)
                        .find_by(id: recipient_id)

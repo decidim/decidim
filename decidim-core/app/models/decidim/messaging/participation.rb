@@ -13,7 +13,7 @@ module Decidim
 
       belongs_to :participant,
                  foreign_key: :decidim_participant_id,
-                 class_name: "Decidim::User"
+                 class_name: "Decidim::UserBaseEntity"
 
       validates :conversation, :participant, presence: true
 

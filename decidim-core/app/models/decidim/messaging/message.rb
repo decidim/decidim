@@ -12,7 +12,7 @@ module Decidim
 
       belongs_to :sender,
                  foreign_key: :decidim_sender_id,
-                 class_name: "Decidim::User"
+                 class_name: "Decidim::UserBaseEntity"
 
       belongs_to :conversation,
                  foreign_key: :decidim_conversation_id,

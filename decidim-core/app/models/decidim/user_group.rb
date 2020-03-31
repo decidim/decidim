@@ -107,6 +107,12 @@ module Decidim
       accepted_memberships.map(&:user)
     end
 
+    # Accepts conversation if all their users accepts a conversation?
+    def accepts_conversation?(user)
+      true
+    end
+
+
     private
 
     # Private: Checks if the state user group is correct.
