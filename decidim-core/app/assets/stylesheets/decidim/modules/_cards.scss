@@ -622,6 +622,21 @@ $datetime-bg: var(--primary);
   }
 }
 
+.card--list__author {
+  @extend .card--list__titled-text;
+
+  padding:0.5rem 1rem 0.5rem 0;
+  margin-left: -0.5rem;
+
+  .author {
+    margin: 0;
+  }
+  .author__avatar img {
+    border-radius: 2px;
+  }
+
+}
+
 /* Card full width variant */
 .card--full {
   margin-bottom: $card-margin-bottom * 2;
