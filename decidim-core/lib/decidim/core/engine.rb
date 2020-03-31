@@ -402,7 +402,7 @@ module Decidim
             {
               name: :main_image,
               uploader: "Decidim::NewsletterTemplateImageUploader",
-              preview: -> { ActionController::Base.helpers.asset_path("decidim/placeholder.jpeg") }
+              preview: -> { ActionController::Base.helpers.asset_path("decidim/placeholder.jpg") }
             }
           ]
 
