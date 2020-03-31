@@ -27,7 +27,8 @@ module Decidim
         resolve ->(user, _args, _ctx) { user.presenter.profile_path }
       end
 
-      field :directMessagesEnabled, !types.String, "If the user making the request is logged in, it will return whether this recipient accepts a conversation or not. It will return false for non-logged requests." do
+      field :directMessagesEnabled, !types.String, "If the user making the request is logged in,
+       it will return whether this recipient accepts a conversation or not. It will return false for non-logged requests." do
         resolve ->(user, _args, ctx) { user.presenter.disabled_message_reception_information(ctx.to_h) }
       end
 

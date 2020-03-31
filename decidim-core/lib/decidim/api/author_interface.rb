@@ -13,7 +13,8 @@ module Decidim
 
       field :avatarUrl, !types.String, "The author's avatar url"
       field :profilePath, !types.String, "The author's profile path"
-      field :directMessagesEnabled, !types.String, "If the user making the request is logged in, it will return whether this recipient accepts a conversation or not. It will return false for non-logged requests."
+      field :directMessagesEnabled, !types.String, "If the user making the request is logged in,
+       it will return whether this recipient accepts a conversation or not. It will return false for non-logged requests."
       field :badge, !types.String, "The author's badge icon"
       field :organizationName, !types.String, "The authors's organization name" do
         resolve ->(obj, _args, _ctx) { obj.organization.name }
