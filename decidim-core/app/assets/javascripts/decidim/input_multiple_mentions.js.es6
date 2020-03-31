@@ -168,6 +168,9 @@ $(() => {
     setupRecipientEvents($multipleMentionRecipientsContainer);
   }
 
+  // The function will be called from debounce method in order to set some delay
+  // between each input box key press before to call search method
+  // This is to avoid overcharge server with unnecessary search calls
   setTimeout(function() {
     tribute.attach($multipleMentionContainer);
   }, 1000);
