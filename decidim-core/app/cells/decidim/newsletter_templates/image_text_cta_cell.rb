@@ -4,11 +4,7 @@ require "cell/partial"
 
 module Decidim
   module NewsletterTemplates
-    class ImageTextCtaCell < Decidim::ViewModel
-      include Decidim::SanitizeHelper
-      include Cell::ViewModel::Partial
-      include Decidim::NewslettersHelper
-
+    class ImageTextCtaCell < BAseCell
       def show
         render :show
       end
@@ -59,19 +55,6 @@ module Decidim
 
       def organization_primary_color
         organization.colors["primary"]
-      end
-
-      def organization
-        options[:organization]
-      end
-      alias current_organization organization
-
-      def newsletter
-        options[:newsletter]
-      end
-
-      def recipient_user
-        options[:recipient_user]
       end
     end
   end

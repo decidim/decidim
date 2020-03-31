@@ -2,12 +2,7 @@
 
 module Decidim
   module NewsletterTemplates
-    class ImageTextCtaSettingsFormCell < Decidim::ViewModel
-      alias form model
-
-      def content_block
-        options[:content_block]
-      end
+    class ImageTextCtaSettingsFormCell < BaseSettingsForm
     end
   end
 end

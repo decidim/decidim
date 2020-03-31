@@ -2,12 +2,7 @@
 
 module Decidim
   module NewsletterTemplates
-    class BasicOnlyTextSettingsFormCell < Decidim::ViewModel
-      alias form model
-
-      def content_block
-        options[:content_block]
-      end
+    class BasicOnlyTextSettingsFormCell < BaseSettingsForm
     end
   end
 end

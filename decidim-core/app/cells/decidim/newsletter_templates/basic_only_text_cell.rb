@@ -4,11 +4,7 @@ require "cell/partial"
 
 module Decidim
   module NewsletterTemplates
-    class BasicOnlyTextCell < Decidim::ViewModel
-      include Decidim::SanitizeHelper
-      include Cell::ViewModel::Partial
-      include Decidim::NewslettersHelper
-
+    class BasicOnlyTextCell < BaseCell
       def show
         render :show
       end
@@ -19,19 +15,6 @@ module Decidim
 
       def uninterpolated_body
         translated_attribute(model.settings.body)
-      end
-
-      def organization
-        options[:organization]
-      end
-      alias current_organization organization
-
-      def newsletter
-        options[:newsletter]
-      end
-
-      def recipient_user
-        options[:recipient_user]
       end
     end
   end
