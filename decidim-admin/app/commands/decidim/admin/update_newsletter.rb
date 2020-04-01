@@ -49,7 +49,7 @@ module Decidim
             @content_block = content_block
           end
           on(:invalid) do
-            raise "OOPS"
+            raise "There was a problem persisting the changes to the content block"
           end
         end
       end
