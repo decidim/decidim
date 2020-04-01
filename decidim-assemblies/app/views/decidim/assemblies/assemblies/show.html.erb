@@ -79,9 +79,10 @@ edit_link(
         </div>
       <% end %>
 
-      <%= render_hook(:current_participatory_space_meetings) %>
-
       <%= attachments_for current_participatory_space %>
+
+      <%= render_hook(:participatory_space_highlighted_elements) %>
+
       <% if current_participatory_space.children.visible_for(current_user).count.positive? %>
         <section id="assemblies-grid" class="section row collapse">
           <h4 class="section-heading"><%= t("children", scope: "decidim.assemblies.show") %></h4>
