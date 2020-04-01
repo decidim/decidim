@@ -39,7 +39,7 @@ describe "Admin manages newsletter templates", type: :system do
       expect(page).to have_content("PREVIEW TEMPLATE: BASIC (ONLY TEXT)")
 
       within_frame do
-        expect(page).to have_content("body body body body")
+        expect(page).to have_content("Dummy text for body")
       end
     end
 
