@@ -58,8 +58,8 @@ en:
         one: Group
         other: Groups
   booleans:
-    "false": "No"
-    "true": "Yes"
+    'false': 'No'
+    'true': 'Yes'
   carrierwave:
     errors:
       image_too_big: The image is too big
@@ -225,10 +225,10 @@ en:
         success: The amendment has been withdrawn successfully
       wizard_step_form:
         steps:
-          "1": Create your amendment
-          "2": Compare your amendment
-          "3": Complete your amendment
-          "4": Publish your amendment
+          '1': Create your amendment
+          '2': Compare your amendment
+          '3': Complete your amendment
+          '4': Publish your amendment
     anonymous_user: Anonymous
     application:
       collection:
@@ -301,7 +301,7 @@ en:
           ok: Ok
           title: Not authorized
         unconfirmed:
-          confirmation_instructions: "If you haven't received the confirmation instructions you can request them again:"
+          confirmation_instructions: 'If you haven''t received the confirmation instructions you can request them again:'
           explanation_html: In order to perform this action you need to be authorized, before doing that you need to confirm your email <strong>%{email}</strong>.
           request_confirmation_instructions: Request confirmation instructions
           title: Confirm your email
@@ -373,7 +373,7 @@ en:
         download_data_description: A file with all the information associated with the account will be sent to <strong>%{user_email}</strong>
         request_data: Request data
     datepicker:
-      help_text: "Expected format: %{datepicker_format}"
+      help_text: 'Expected format: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
@@ -437,8 +437,8 @@ en:
           see_email: See your email
           see_name: See your name
           see_username: See your nickname
-          this_application_will_be_able_to: "This application will be able to:"
-          this_application_will_not_be_able_to: "This application will not be able to:"
+          this_application_will_be_able_to: 'This application will be able to:'
+          this_application_will_not_be_able_to: 'This application will not be able to:'
           update_profile: Update your profile
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> wants to use your account"
     endorsable:
@@ -462,57 +462,57 @@ en:
       amendments:
         amendment_accepted:
           affected_user:
-            email_intro: "An amendment has been accepted for %{amendable_title}. You can see it from this page:"
+            email_intro: 'An amendment has been accepted for %{amendable_title}. You can see it from this page:'
             email_outro: You have received this notification because you are an author of %{amendable_title}.
             email_subject: Accepted amendment for %{amendable_title} from %{emendation_author_nickname}
             notification_title: The <a href="%{emendation_path}">amendment</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
-            email_intro: "An amendment has been accepted for %{amendable_title}. You can see it from this page:"
+            email_intro: 'An amendment has been accepted for %{amendable_title}. You can see it from this page:'
             email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
             email_subject: Accepted amendment for %{amendable_title} from %{emendation_author_nickname}
             notification_title: The <a href="%{emendation_path}">amendment</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
-            email_intro: "A new amendment has been created for %{amendable_title}. You can see it from this page:"
+            email_intro: 'A new amendment has been created for %{amendable_title}. You can see it from this page:'
             email_outro: You have received this notification because you are an author of %{amendable_title}.
             email_subject: New amendment for %{amendable_title}
             notification_title: A new amendment has been created for <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
-            email_intro: "A new amendment has been created for %{amendable_title}. You can see it from this page:"
+            email_intro: 'A new amendment has been created for %{amendable_title}. You can see it from this page:'
             email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
             email_subject: New amendment for %{amendable_title}
             notification_title: A new amendment has been created for <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_promoted:
           affected_user:
-            email_intro: "A rejected amendment for %{amendable_title} has been published as a new %{amendable_type}. You can see it from this page:"
+            email_intro: 'A rejected amendment for %{amendable_title} has been published as a new %{amendable_type}. You can see it from this page:'
             email_outro: You have received this notification because you are an author of %{amendable_title}.
             email_subject: An amendment from %{emendation_author_nickname} has been published as a new %{amendable_type}
             notification_title: A <a href="%{emendation_path}">rejected amendment</a> for <a href="%{amendable_path}">%{amendable_title}</a> has been published as a new %{amendable_type} by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
-            email_intro: "A rejected amendment for %{amendable_title} has been published as a new %{amendable_type}. You can see it from this page:"
+            email_intro: 'A rejected amendment for %{amendable_title} has been published as a new %{amendable_type}. You can see it from this page:'
             email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
             email_subject: An amendment from %{emendation_author_nickname} has been published as a new %{amendable_type}
             notification_title: A <a href="%{emendation_path}">rejected amendment</a> for <a href="%{amendable_path}">%{amendable_title}</a> has been published as a new %{amendable_type} by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
-            email_intro: "An amendment has been rejected for %{amendable_title}. You can see it from this page:"
+            email_intro: 'An amendment has been rejected for %{amendable_title}. You can see it from this page:'
             email_outro: You have received this notification because you are an author of %{amendable_title}.
             email_subject: Amendment rejected for %{amendable_title} from %{emendation_author_nickname}
             notification_title: The <a href="%{emendation_path}">amendment</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
-            email_intro: "An amendment has been rejected for %{amendable_title}. You can see it from this page:"
+            email_intro: 'An amendment has been rejected for %{amendable_title}. You can see it from this page:'
             email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
             email_subject: Amendment rejected for %{amendable_title} from %{emendation_author_nickname}
             notification_title: The <a href="%{emendation_path}">amendment</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
-          email_intro: "A new document has been added to %{resource_title}. You can see it from this page:"
+          email_intro: 'A new document has been added to %{resource_title}. You can see it from this page:'
           email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
           email_subject: An update to %{resource_title}
           notification_title: A <a href="%{resource_path}">new document</a> has been added to <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: "The %{resource_title} component is now active for %{participatory_space_title}. You can see it from this page:"
+          email_intro: 'The %{resource_title} component is now active for %{participatory_space_title}. You can see it from this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: An update to %{participatory_space_title}
           notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
@@ -525,7 +525,7 @@ en:
         badge_earned:
           email_intro: Congratulations! You've earned the <a href="%{resource_url}">%{badge_name} badge</a> (level %{current_level}).
           email_outro: You have received this notification because you made activity on our website.
-          email_subject: "You've earned a new badge: %{badge_name}!"
+          email_subject: 'You''ve earned a new badge: %{badge_name}!'
           notification_title: Congratulations! You've earned the <a href="%{resource_path}">%{badge_name} badge</a> (level %{current_level}).
         level_up:
           email_intro: Congratulations! You've reached level %{current_level} on the <a href="%{resource_url}">%{badge_name} badge</a>!
@@ -583,7 +583,7 @@ en:
           notification_title: The <a href="%{resource_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
     export_mailer:
       data_portability_export:
-        click_button: "Click the next button to download your data. <br/> You will have the file available until %{date}. <br/> You will need <a href='https://www.7-zip.org/'>7-Zip</a> to open it. Password: %{password}"
+        click_button: 'Click the next button to download your data. <br/> You will have the file available until %{date}. <br/> You will need <a href=''https://www.7-zip.org/''>7-Zip</a> to open it. Password: %{password}'
         download: Download
       export:
         ready: Please find attached a zipped version of your export.
@@ -632,7 +632,7 @@ en:
       badges:
         followers:
           conditions:
-            - Being active and following other people will surely make other people follow you.
+          - Being active and following other people will surely make other people follow you.
           description: This badge is granted when you reach a certain number of followers. %{organization_name} is a social and political network, weave your web to communicate with other people in the platform.
           description_another: This participant has %{score} followers.
           description_own: "%{score} people are following you."
@@ -647,9 +647,9 @@ en:
           title: Badges
         invitations:
           conditions:
-            - Use the “invite friends” link on your user page to invite your friends
-            - Customize, if you want, the message you are sending
-            - You’ll level up by sending invitations and getting them registered.
+          - Use the “invite friends” link on your user page to invite your friends
+          - Customize, if you want, the message you are sending
+          - You’ll level up by sending invitations and getting them registered.
           description: This badge is granted when you’ve invited some people and they have spend a little time to register in %{organization_name} and become participants. Thank you for making %{organization_name} known to others and helping to expand the community!
           description_another: This participant has invited %{score} people.
           description_own: You have invited %{score} people.
@@ -668,14 +668,14 @@ en:
         error: There was a problem removing this participant from the admins list
         success: Participant successfully removed from admin
       index:
-        current_admins: "Current admins:"
+        current_admins: 'Current admins:'
         manage_admins: Manage admins
     group_invites:
       accept:
         error: There was a problem accepting this invitation
         success: Invitation successfully accepted
       accept_invitation: Accept
-      accept_or_reject_group_invitations: "The following groups have invited you to join them. Accept or reject their requests:"
+      accept_or_reject_group_invitations: 'The following groups have invited you to join them. Accept or reject their requests:'
       index:
         invite: Invite
         invite_user: Invite a participant
@@ -695,7 +695,7 @@ en:
         promote_to_admin: Make admin
         remove_from_group: Remove participant
       index:
-        current_members_without_admins: "Current members (without admins):"
+        current_members_without_admins: 'Current members (without admins):'
         manage_members: Manage members
       promote:
         error: There was a problem promoting this participant
@@ -718,7 +718,7 @@ en:
       form:
         document_number_help: Do not use dashes nor spaces
         email_help: Email of your organization, association, collective, group, etc.
-        fill_in_for_verification: "Fill in these fields if you want your group to be verified:"
+        fill_in_for_verification: 'Fill in these fields if you want your group to be verified:'
         name_help: Name of your organization, association, collective, group, etc.
         nickname_help: Nickname of your organization, association, collective, group, etc. Do not use spaces nor accents.
         phone_help: Do not use dashes nor spaces
@@ -729,7 +729,7 @@ en:
         error: There was a problem leaving the group
         success: Group successfully abandoned.
       members:
-        accept_or_reject_join_requests: "The following users have applied to join this group. Accept or reject their requests:"
+        accept_or_reject_join_requests: 'The following users have applied to join this group. Accept or reject their requests:'
         accept_request: Accept
         reject_request: Reject
       new:
@@ -770,13 +770,13 @@ en:
         update_with_space: "%{user_name} updated %{resource_name} in %{space_name}"
       value_types:
         area_presenter:
-          not_found: "The area was not found on the database (ID: %{id})"
+          not_found: 'The area was not found on the database (ID: %{id})'
         area_type_presenter:
-          not_found: "The area type was not found on the database (ID: %{id})"
+          not_found: 'The area type was not found on the database (ID: %{id})'
         scope_presenter:
-          not_found: "The scope was not found on the database (ID: %{id})"
+          not_found: 'The scope was not found on the database (ID: %{id})'
         scope_type_presenter:
-          not_found: "The scope type was not found on the database (ID: %{id})"
+          not_found: 'The scope type was not found on the database (ID: %{id})'
     managed_users:
       expired_session: The current administration session of a participant has expired.
     members:
@@ -835,15 +835,15 @@ en:
         unsubscribe: To opt out of receiving this type of email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
     newsletter_templates:
       basic_only_text:
-        body_preview: "Dummy text for body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu."
+        body_preview: 'Dummy text for body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
         name: Basic (only text)
       basic_only_text_settings_form:
         body: Body
         interpolations_hint: 'Hint: You can use "%{name}" anywhere in the body or subject and it will be replaced by the recipient''s name.'
       image_text_cta:
-        body_preview: "Dummy text for body: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar."
+        body_preview: 'Dummy text for body: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
         cta_text_preview: Call To Action text
-        introduction_preview: "Dummy text for introduction: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu."
+        introduction_preview: 'Dummy text for introduction: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
         name: Image, text and Call To Action button
       image_text_cta_settings_form:
         body: Body
@@ -867,7 +867,7 @@ en:
     newsletters_opt_in_mailer:
       notify:
         body_1: The processing of personal data and its protection is becoming increasingly important for all of us. With the new General Data Protection Regulation (GDPR) of May 25, 2018, individuals have better control over their personal data. For this reason we need your "OK" to continue sending relevant information about the activities of the %{organization_name}.
-        body_2: "How can you give us your consent? Just click the following button:"
+        body_2: 'How can you give us your consent? Just click the following button:'
         body_3: With this consent you will be able to continue receiving information about the services of the platform. If, on the contrary, we do not receive a positive confirmation on your part we will stop sending you our messages. If you confirm that you want to keep being informed, you will always have the option to cancel at any time.
         button: Yes, I want to continue receiving relevant information
         greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
@@ -969,7 +969,7 @@ en:
         required_review:
           alert: We've updated our Terms of Service, please review them.
           body: Please take a moment to review updates to our Terms of Services. Otherwise you won't be able to use the platform.
-          title: "Required: Review updates to our terms of service"
+          title: 'Required: Review updates to our terms of service'
     participatory_space_private_users:
       not_allowed: You are not allowed to view this content
     profile:
@@ -1035,7 +1035,7 @@ en:
     searches:
       filters:
         back: Back to results
-        jump_to: "Jump to:"
+        jump_to: 'Jump to:'
         state:
           active: Active
           all: All
@@ -1080,12 +1080,12 @@ en:
           areas: Areas
           select_an_area: Select an area
       reference:
-        reference: "Reference: %{reference}"
+        reference: 'Reference: %{reference}'
       represent_user_group:
         represent_user_group: I represent a group
         select_user_group: Select a group
       results_per_page:
-        label: "Results per page:"
+        label: 'Results per page:'
       share_modal:
         close_window: Close window
         share: Share
@@ -1150,7 +1150,7 @@ en:
       confirmation_instructions:
         action: Confirm my account
         greeting: Welcome %{recipient}!
-        instruction: "You can confirm your email account through the link below:"
+        instruction: 'You can confirm your email account through the link below:'
         subject: Confirmation instructions
       email_changed:
         greeting: Hello %{recipient}!
@@ -1192,7 +1192,7 @@ en:
       unlock_instructions:
         action: Unlock my account
         greeting: Hello %{recipient}!
-        instruction: "Click the link below to unlock your account:"
+        instruction: 'Click the link below to unlock your account:'
         message: Your account has been locked due to an excessive amount of unsuccessful sign in attempts.
         subject: Unlock instructions
     omniauth_callbacks:
@@ -1218,7 +1218,7 @@ en:
       edit:
         are_you_sure: Are you sure?
         cancel_my_account: Cancel my account
-        currently_waiting_confirmation_for_email: "Currently waiting confirmation for: %{email}"
+        currently_waiting_confirmation_for_email: 'Currently waiting confirmation for: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: leave blank if you don't want to change it
         title: Edit %{resource}
         unhappy: Unhappy?
@@ -1274,8 +1274,8 @@ en:
       not_found: could not be found. Did you sign up previously?
       not_locked: was not locked
       not_saved:
-        one: "There's been an error processing your request:"
-        other: "There were multiple errors when processing your request:"
+        one: 'There''s been an error processing your request:'
+        other: 'There were multiple errors when processing your request:'
       too_many_marks: is using too many consecutive punctuation marks (e.g. ! and ?)
       too_much_caps: is using too many capital letters (over 25% of the text)
       too_short: is too short (under 15 characters)
@@ -1380,8 +1380,8 @@ en:
       left: Deletions
       right: Additions
     dropdown:
-      choose_diff_view_html: "HTML view mode:"
-      choose_diff_view_mode: "Compare view mode:"
+      choose_diff_view_html: 'HTML view mode:'
+      choose_diff_view_mode: 'Compare view mode:'
       option_escaped: Escaped
       option_split: Side-by-side
       option_unescaped: Unescaped
