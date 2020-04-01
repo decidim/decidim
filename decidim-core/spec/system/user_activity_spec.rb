@@ -40,6 +40,14 @@ describe "User activity", type: :system do
     create(:dummy_resource, component: component, published_at: Time.current)
   end
 
+  let!(:resource_types) do
+    Decidim::ActionLog
+      .select(:resource_type).distinct
+      .pluck(:resource_type)
+      .map { |r| r.split("::").last }
+      .reject { |r| r.match?(/ParticipatoryProcess|Component|Survey|Result|Assembly|Consultation|DummyResource|missing\stranslation/i) }
+  end
+
   before do
     switch_to_host organization.host
   end

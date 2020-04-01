@@ -59,7 +59,8 @@ describe "User timeline", type: :system do
 
   let!(:resource_types) do
     Decidim::ActionLog
-      .pluck(:resource_type).uniq
+      .select(:resource_type).distinct
+      .pluck(:resource_type)
       .map { |r| r.split("::").last }
       .reject { |r| r.match?(/ParticipatoryProcess|Component|Survey|Result|Assembly|Consultation|DummyResource|missing\stranslation/i) }
   end
