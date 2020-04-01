@@ -545,21 +545,53 @@ shared_examples_for "manage questionnaires" do
         it_behaves_like "switching questions order"
       end
 
-      context "when collapsing a question" do
-        before do
-          within ".questionnaire-question:first-of-type" do
-            page.find(".question--collapse").click
+      describe "collapsible questions" do
+        shared_examples_for "collapsing a question" do
+          it "changes the toggle button" do
+            within ".questionnaire-question:last-of-type" do
+              expect(page.find(".question--collapse .icon")[:"aria-label"]).to eq("Expand")
+            end
+          end
+
+          it "hides the question card section" do
+            within ".questionnaire-question:last-of-type" do
+              expect(page).not_to have_selector(".collapsible", visible: true)
+            end
           end
         end
 
-        it "changes the toggle button" do
-          within ".questionnaire-question:first-of-type" do
-            expect(page.find(".question--collapse .icon")[:"aria-label"]).to eq("Expand")
+        shared_examples_for "uncollapsing a question" do
+          it "changes the toggle button" do
+            within ".questionnaire-question:last-of-type" do
+              expect(page.find(".question--collapse .icon")[:"aria-label"]).to eq("Collapse")
+            end
+          end
+
+          it "shows the question card section" do
+            expect(page).to have_selector(".collapsible", visible: true)
           end
         end
 
-        it "hides the question card section" do
-          expect(page).not_to have_selector("#questionnaire_question_5-question-card")
+        context "when collapsing an existing question" do
+          before do
+            within ".questionnaire-question:last-of-type" do
+              page.find(".question--collapse").click
+            end
+          end
+
+          it_behaves_like "collapsing a question"
+        end
+
+        context "when adding a new question" do
+          before do
+            click_button "Add question"
+
+            within ".questionnaire-question:last-of-type" do
+              page.find(".question--collapse").click
+            end
+          end
+
+          it_behaves_like "collapsing a question"
         end
       end
 
