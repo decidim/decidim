@@ -60,7 +60,7 @@ module Decidim
 
     # The name of the class that handles extra logic on settings for this component.
     # Optional class, that if present receives the settings and validates them.
-    # Probably have the form of `Decidim::<MyComponent>::Admin::ComponentForm`.
+    # The suggested naming is `Decidim::<MyComponent>::Admin::ComponentForm`.
     attribute :component_form_class_name, String, default: "Decidim::Admin::ComponentForm"
 
     # Does this component have specific data to serialize and import?

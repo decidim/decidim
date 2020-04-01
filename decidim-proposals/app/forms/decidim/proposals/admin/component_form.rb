@@ -3,8 +3,8 @@
 module Decidim
   module Proposals
     module Admin
-      # A form object for Budgets used to attach a component to a participatory process from the
-      # admin panel.
+      # A form object for proposals components. Used to attach the component to
+      # a participatory process from the admin panel.
       #
       class ComponentForm < Decidim::Admin::ComponentForm
         validate :must_be_able_to_change_participatory_texts_setting

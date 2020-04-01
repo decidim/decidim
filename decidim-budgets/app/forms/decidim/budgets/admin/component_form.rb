@@ -3,8 +3,8 @@
 module Decidim
   module Budgets
     module Admin
-      # A form object for Budgets used to attach a component to a participatory process from the
-      # admin panel.
+      # A form object for the budgets component. Used to attach the component
+      # to a participatory process from the admin panel.
       #
       class ComponentForm < Decidim::Admin::ComponentForm
         validate :budget_voting_rule_enabled_setting, :budget_voting_rule_value_setting
