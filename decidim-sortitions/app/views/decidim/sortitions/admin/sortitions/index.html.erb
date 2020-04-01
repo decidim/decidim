@@ -25,7 +25,7 @@
           <% sortitions.each do |sortition| %>
           <tr>
             <td><%= sortition.reference %></td>
-            <td><%= translated_attribute sortition.title %></td>
+            <td><%= decidim_html_escape(translated_attribute(sortition.title)) %></td>
             <td><%= l sortition.created_at, format: :short %></td>
             <td class="table-list__actions">
               <%= icon_link_to "eye",
