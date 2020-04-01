@@ -33,7 +33,7 @@ module Decidim
       let(:matrix_row_ids) { matrix_rows.pluck(:id).map(&:to_s) }
       let(:form_params) do
         {
-          "answers" => [
+          "responses" => [
             {
               "body" => "This is my first answer",
               "question_id" => question_1.id
