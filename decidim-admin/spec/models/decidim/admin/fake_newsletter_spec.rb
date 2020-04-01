@@ -29,7 +29,7 @@ describe Decidim::Admin::FakeNewsletter do
     it "builds a content block with preview data" do
       expect(subject.template).to be_kind_of(Decidim::ContentBlock)
       expect(subject.template).not_to be_persisted
-      expect(subject.template.settings.body).to include("body body")
+      expect(subject.template.settings.body).to include("Dummy text for body")
     end
   end
 end
