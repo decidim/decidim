@@ -799,8 +799,11 @@ en:
           error: Conversation not started. Try again later
         index:
           no_conversations: You have no conversations yet
+          no_group_conversations: The group %{name} has no conversations yet
           mailbox: Mailbox
           title: Conversations
+          my_conversations: My conversations
+          group_conversations: "%{name} conversations"
         reply:
           send: Send
           title: Reply

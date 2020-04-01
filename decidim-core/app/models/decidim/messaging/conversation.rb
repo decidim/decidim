@@ -117,7 +117,12 @@ module Decidim
       # @return Boolean
       #
       def accept_user?(user)
-        blocked = interlocutors(user).detect { |participant| !participant.accepts_conversation?(user) }
+        # if user is a group, members are accepted
+        blocked = interlocutors(user).detect do |participant|
+          byebug
+          break if user.is_a?(Decidim::UserGroup) && user.accepted_users.include?(participant)
+          !participant.accepts_conversation?(user)
+        end
         blocked.blank?
       end
 

@@ -3,13 +3,13 @@
     <div class="columns large-8">
       <div class="title-action">
         <h1 class="heading1 title-action__title">
-          <%= t(".title") %>
+          <%= t((is_user_mailbox? ? ".my_conversations" : ".group_conversations"), name: current_mailbox.name) %>
         </h1>
       </div>
 
       <% if @conversations.empty? %>
         <div class="callout secondary">
-          <p><%= t(".no_conversations") %></p>
+          <p><%= t((is_user_mailbox? ? ".no_conversations" :  ".no_group_conversations"), name: current_mailbox.name) %></p>
         </div>
       <% else %>
         <div class="card card--list conversations">

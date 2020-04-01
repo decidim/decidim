@@ -11,7 +11,7 @@ module Decidim
 
       before_action :authenticate_user!
 
-      helper_method :username_list, :conversation, :mailboxes
+      helper_method :username_list, :conversation, :mailboxes, :current_mailbox, :is_user_mailbox?
 
       # Shows the form to initiate a conversation with an user (the recipient)
       # recipient is passed via GET parameter:
@@ -53,7 +53,7 @@ module Decidim
       end
 
       def show
-        enforce_permission_to :read, :conversation, conversation: conversation
+        enforce_permission_to :read, :conversation, conversation: conversation, mailbox: current_mailbox
 
         @conversation.mark_as_read(current_user)
 
@@ -61,7 +61,7 @@ module Decidim
       end
 
       def update
-        enforce_permission_to :update, :conversation, conversation: conversation
+        enforce_permission_to :update, :conversation, conversation: conversation, mailbox: current_mailbox
 
         @form = form(MessageForm).from_params(params)
 
@@ -105,6 +105,10 @@ module Decidim
       def current_mailbox
         mailbox = user_groups.find { |group| group.nickname == params[:mailbox] }
         mailbox || current_user
+      end
+
+      def is_user_mailbox?
+        current_mailbox.is_a? Decidim::User
       end
     end
   end
