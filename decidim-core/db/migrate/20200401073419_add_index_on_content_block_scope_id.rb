@@ -5,9 +5,7 @@ class AddIndexOnContentBlockScopeId < ActiveRecord::Migration[5.2]
     add_index(
       :decidim_content_blocks,
       :scope_id,
-      unique: true,
-      name: "idx_decidim_content_blocks_unique_scope_id",
-      where: "scope_id IS NOT null"
+      name: "idx_decidim_content_blocks_scope_id"
     )
   end
 end
