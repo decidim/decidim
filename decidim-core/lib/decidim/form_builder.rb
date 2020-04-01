@@ -262,12 +262,7 @@ module Decidim
         collection
         .pluck(:resource_type).uniq
         .map { |r| [I18n.t(r.split("::").last.underscore, scope: "decidim.components.component_order_selector.order"), r] }
-        .reject do |r|
-          case r[1].split("::").last
-          when "ParticipatoryProcess", "Component", "Survey", "Result", "Assembly", "Consultation"
-            true
-          end
-        end
+        .reject { |r| r[1].match?(/ParticipatoryProcess|Component|Survey|Result|Assembly|Consultation|DummyResource|missing\stranslation/i) }
         .sort
 
       select(name, @template.options_for_select(resources, selected: options[:selected]), options)

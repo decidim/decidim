@@ -57,6 +57,13 @@ describe "User timeline", type: :system do
     create(:action_log, action: "publish", visibility: "all", resource: resource3, organization: organization)
   end
 
+  let!(:resource_types) do
+    Decidim::ActionLog
+      .pluck(:resource_type).uniq
+      .map { |r| r.split("::").last }
+      .reject { |r| r.match?(/ParticipatoryProcess|Component|Survey|Result|Assembly|Consultation|DummyResource|missing\stranslation/i) }
+  end
+
   before do
     Decidim::Follow.create!(user: user, followable: user2)
     Decidim::Follow.create!(user: user, followable: action_log_2.participatory_space)
@@ -86,11 +93,11 @@ describe "User timeline", type: :system do
       expect(page).to have_no_content(resource3.title)
     end
 
-    it "displays activities filter" do
+    it "displays activities filter with the correct options" do
       expect(page).to have_select(
         "filter[resource_type]",
         selected: "All types",
-        with_options: ["All types"]
+        options: resource_types.push("All types")
       )
     end
   end

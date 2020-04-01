@@ -59,11 +59,11 @@ describe "User activity", type: :system do
       end
     end
 
-    it "displays activities filter" do
+    it "displays activities filter with the correct options" do
       expect(page).to have_select(
         "filter[resource_type]",
         selected: "All types",
-        with_options: ["All types"]
+        options: resource_types.push("All types")
       )
     end
   end
