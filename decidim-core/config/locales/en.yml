@@ -566,6 +566,11 @@ en:
           email_outro: You have received this notification because you were a member of that group.
           email_subject: You have been removed from the %{user_group_name} group!
           notification_title: You have been removed from the <a href="%{resource_path}">%{user_group_name}</a> group.
+        user_group_created:
+          email_intro: A new user group has been created with the name %{user_group_name}. You can now verify it in the <a href="%{groups_admin_path}">admin panel</a>.
+          email_outro: You have received this notification because you are an admin of the platform.
+          email_subject: A new user group has been created
+          notification_title: The %{user_group_name} user group has been created. You can now verify it in the <a href="%{groups_admin_path}">admin panel</a>.
       notification_event:
         notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
       resource_endorsed:

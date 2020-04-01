@@ -28,15 +28,15 @@ To publish an event to send a notification, Decidim's `EventManager` should be u
 
 ```
 # Note the convention between the `event` key, and the `event_class` that will be used later to wrap the payload and be used as the email or notification model.
-event_class = "Decidim::Comments::#{event.to_s.camelcase}Event".constantize
 data = {
-  event: "decidim.events.comments.#{event}",
-  event_class: event_class,
+  event: "decidim.events.comments.comment_created",
+  event_class: Decidim::Comments::CommentCreatedEvent,
   resource: comment.root_commentable,
   extra: {
     comment_id: comment.id
   },
-  followers: [user1, user2]
+  affected_users: [user1, user2],
+  followers: [user3, user4]
 }
 
 Decidim::EventsManager.publish(data)
