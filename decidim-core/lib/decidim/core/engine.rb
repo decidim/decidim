@@ -386,7 +386,7 @@ module Decidim
               :body,
               type: :text,
               translated: true,
-              preview: -> { ([I18n.t("decidim.newsletter_templates.basic_only_text.body_preview")] * 100).join(" ") }
+              preview: -> { I18n.t("decidim.newsletter_templates.basic_only_text.body_preview") }
             )
           end
 
@@ -411,13 +411,13 @@ module Decidim
               :introduction,
               type: :text,
               translated: true,
-              preview: -> { ([I18n.t("decidim.newsletter_templates.image_text_cta.introduction_preview")] * 30).join(" ") }
+              preview: -> { I18n.t("decidim.newsletter_templates.image_text_cta.introduction_preview") }
             )
             settings.attribute(
               :body,
               type: :text,
               translated: true,
-              preview: -> { ([I18n.t("decidim.newsletter_templates.image_text_cta.body_preview")] * 100).join(" ") }
+              preview: -> { I18n.t("decidim.newsletter_templates.image_text_cta.body_preview") }
             )
             settings.attribute(
               :cta_text,
