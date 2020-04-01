@@ -25,9 +25,8 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          transaction do
-            create_assembly_member!
-          end
+          create_assembly_member!
+          notify_assembly_member_about_new_membership
 
           broadcast(:ok)
         end
@@ -66,6 +65,16 @@ module Decidim
             ),
             log_info
           )
+        end
+
+        def notify_assembly_member_about_new_membership
+          data = {
+            event: "decidim.events.assemblies.create_assembly_member",
+            event_class: Decidim::Assemblies::CreateAssemblyMemberEvent,
+            resource: assembly,
+            followers: [form.user]
+          }
+          Decidim::EventsManager.publish(data)
         end
       end
     end
