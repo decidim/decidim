@@ -8,6 +8,8 @@ module Decidim
       # Initializes the command.
       #
       # form - The source fo data for this newsletter.
+      # content_block - An instance of `Decidim::ContentBlock` that holds the
+      #     newsletter attributes.
       # user - The User that authored this newsletter.
       def initialize(form, content_block, user)
         @form = form
