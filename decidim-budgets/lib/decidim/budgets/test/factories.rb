@@ -45,6 +45,17 @@ FactoryBot.define do
         }
       end
     end
+
+    trait :with_voting_finished do
+      step_settings do
+        {
+          participatory_space.active_step.id => {
+            votes_enabled: false,
+            show_votes: true
+          }
+        }
+      end
+    end
   end
 
   factory :project, class: "Decidim::Budgets::Project" do

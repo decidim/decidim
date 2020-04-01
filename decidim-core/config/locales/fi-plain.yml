@@ -33,6 +33,7 @@ fi-pl:
       decidim/profile_updated_event: Profiili päivitetty
       decidim/promote_to_admin: Nimetty ryhmän ylläpitäjäksi
       decidim/removed_from_group: Poistettu ryhmästä
+      decidim/resource_endorsed_event: Kohdetta suositeltu
   activerecord:
     attributes:
       decidim/user:
@@ -46,6 +47,9 @@ fi-pl:
       decidim/amendment:
         one: muutos
         other: Muutokset
+      decidim/endorsement:
+        one: Suositus
+        other: Suositusta
       decidim/user:
         one: Ei käyttäjiä
         other: Käyttäjää
@@ -238,6 +242,9 @@ fi-pl:
       comments:
         one: kommentti
         other: kommentit
+      endorsements:
+        one: suositus
+        other: suositusta
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Vahvista tilisi syöttämällä passin numero, joka alkaa kirjaimella "A"
@@ -425,6 +432,15 @@ fi-pl:
           this_application_will_not_be_able_to: 'Tämä sovellus ei voi:'
           update_profile: Päivittää profiiliasi
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> haluaa käyttää tiliäsi"
+    endorsable:
+      endorsements: Suosituksia
+    endorsement_buttons_cell:
+      already_endorsed: Suositeltu
+      endorse: Suosittele
+    endorsements:
+      identities:
+        done: Valmis
+        select_identity: Valitse henkilöllisyys
     errors:
       internal_server_error:
         title: Palvelimellamme tapahtui virhe
@@ -545,6 +561,11 @@ fi-pl:
           notification_title: Sinut on poistettu ryhmästä <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: Kohteelle <a href="%{resource_path}">%{resource_title}</a> järjestettiin tapahtuma.
+      resource_endorsed:
+        email_intro: '%{endorser_name} %{endorser_nickname}, jota seuraat, on juuri suositellut kohdetta "%{resource_title}" ja uskomme, että tämä voi kiinnostaa sinua. Tutustu ehdotukseen ja osallistu:'
+        email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet seuraat käyttäjää %{endorser_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+        email_subject: "%{endorser_nickname} on tehnyt uuden suosituksen"
+        notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> on suositellut kohdetta <a href="%{resource_path}">%{resource_title}</a>.
       users:
         profile_updated:
           email_intro: Seuraamasi käyttäjän %{name} (%{nickname}) <a href="%{resource_url}">profiilisivua</a> on päivitetty.
@@ -776,6 +797,7 @@ fi-pl:
           send: Lähetä
           title: Vastaa
         show:
+          not_allowed: Tämä käyttäjä ei ole sallinut yksityisviestejä muilta käyttäjiltä.
           title: 'Keskustelu: %{usernames}'
         start:
           send: Lähetä
@@ -827,6 +849,8 @@ fi-pl:
       no_notifications: Ei vielä ilmoituksia.
     notifications_settings:
       show:
+        allow_public_contact: Salli kenen tahansa lähettää minulle yksityisviestejä, vaikka en seuraisi heitä.
+        direct_messages: Vastaanota yksityisviestejä kaikilta
         email_on_notification: Haluan saada sähköpostia aina, kun saan ilmoituksen.
         everything_followed: Kaikki mitä seuraan
         newsletter_notifications: Haluan vastaanottaa uutiskirjeitä
@@ -966,6 +990,9 @@ fi-pl:
       create:
         error: Ilmoituksen luonnissa tapahtui virhe. Yritä uudestaan.
         success: Ilmoitus on luotu onnistuneesti ja hallintakäyttäjä tarkastaa sen.
+    resource_endorsements:
+      create:
+        error: Suosituksen antaminen ei onnistunut.
     scopes:
       global: Yleinen teema
       picker:
@@ -1040,6 +1067,7 @@ fi-pl:
     user_activity:
       index:
         no_activities_warning: Tämä käyttäjä ei ole vielä ollut aktiivinen.
+    user_contact_disabled: Tämä osallistuja ei ole sallinut yksityisviestejä muilta käyttäjiltä.
     user_interests:
       show:
         my_interests: Omat kiinnostuksen kohteet

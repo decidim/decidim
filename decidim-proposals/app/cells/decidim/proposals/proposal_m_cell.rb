@@ -19,7 +19,7 @@ module Decidim
       end
 
       def body
-        present(model).body
+        decidim_html_escape(present(model).body)
       end
 
       def has_state?
@@ -70,8 +70,8 @@ module Decidim
       end
 
       def endorsements_count
-        with_tooltip t("decidim.proposals.models.proposal.fields.endorsements") do
-          icon("bullhorn", class: "icon--small") + " " + model.proposal_endorsements_count.to_s
+        with_tooltip t("decidim.endorsable.endorsements") do
+          icon("bullhorn", class: "icon--small") + " " + model.endorsements_count.to_s
         end
       end
 

@@ -24,6 +24,7 @@
 // = require decidim/tooltip_keep_on_hover
 // = require decidim/diff_mode_dropdown
 // = require decidim/check_boxes_tree
+// = require decidim/conversations
 // = require decidim/delayed
 // = require_tree ./decidim/vizzs
 

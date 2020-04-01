@@ -412,6 +412,8 @@ de:
           this_application_will_not_be_able_to: 'Diese Anwendung kann nicht:'
           update_profile: Profil aktualisieren
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> möchte Ihr Konto verwenden"
+    endorsable:
+      endorsements: Empfehlungen
     errors:
       internal_server_error:
         title: Auf unserem Server ist ein Problem aufgetreten

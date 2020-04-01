@@ -17,5 +17,6 @@ module Decidim
     autoload :AmendableEntityInterface, "decidim/api/amendable_entity_interface"
     autoload :TraceableInterface, "decidim/api/traceable_interface"
     autoload :TimestampsInterface, "decidim/api/timestamps_interface"
+    autoload :EndorsableInterface, "decidim/api/endorsable_interface"
   end
 end

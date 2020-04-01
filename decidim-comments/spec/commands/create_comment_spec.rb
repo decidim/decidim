@@ -24,7 +24,25 @@ module Decidim
           end
         end
 
-        describe "when the form is valid" do
+        describe "when the nesting is too deep" do
+          let!(:first_comment) { create(:comment, commentable: dummy_resource) }
+          let!(:second_comment) { create(:comment, commentable: first_comment) }
+          let!(:third_comment) { create(:comment, commentable: second_comment) }
+          let!(:commentable) { create(:comment, commentable: third_comment) }
+          let(:command) { described_class.new(form, author) }
+
+          it "broadcasts invalid" do
+            expect { command.call }.to broadcast(:invalid)
+          end
+
+          it "doesn't create a comment" do
+            expect do
+              command.call
+            end.not_to change(Comment, :count)
+          end
+        end
+
+        describe "when the form is valid and the nesting is not too deep" do
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
           end
@@ -46,7 +64,8 @@ module Decidim
 
           it "calls content processors" do
             user_parser = instance_double("kind of UserParser", users: [])
-            parsed_metadata = { user: user_parser }
+            user_group_parser = instance_double("kind of UserGroupParser", groups: [])
+            parsed_metadata = { user: user_parser, user_group: user_group_parser }
             parser = instance_double("kind of parser", rewrite: "whatever", metadata: parsed_metadata)
             expect(Decidim::ContentProcessor).to receive(:parse).with(
               form.body,
@@ -62,7 +81,7 @@ module Decidim
 
             expect(NewCommentNotificationCreator)
               .to receive(:new)
-              .with(kind_of(Comment), [])
+              .with(kind_of(Comment), [], [])
               .and_return(creator_double)
 
             expect(creator_double)
@@ -113,7 +132,42 @@ module Decidim
 
               expect(NewCommentNotificationCreator)
                 .to receive(:new)
-                .with(kind_of(Comment), [mentioned_user])
+                .with(kind_of(Comment), [mentioned_user], [])
+                .and_return(creator_double)
+
+              expect(creator_double)
+                .to receive(:create)
+
+              command.call
+            end
+          end
+
+          context "and comment contains a group mention" do
+            let(:mentioned_group) { create(:user_group, organization: organization) }
+            let(:parser_context) { { current_organization: organization } }
+            let(:body) { ::Faker::Lorem.paragraph + " @#{mentioned_group.nickname}" }
+
+            it "creates a new comment with user_group mention replaced" do
+              expect(Comment).to receive(:create!).with(
+                author: author,
+                commentable: commentable,
+                root_commentable: commentable,
+                body: Decidim::ContentProcessor.parse(body, parser_context).rewrite,
+                alignment: alignment,
+                decidim_user_group_id: user_group_id
+              ).and_call_original
+
+              expect do
+                command.call
+              end.to change(Comment, :count).by(1)
+            end
+
+            it "sends the notifications" do
+              creator_double = instance_double(NewCommentNotificationCreator, create: true)
+
+              expect(NewCommentNotificationCreator)
+                .to receive(:new)
+                .with(kind_of(Comment), [], [mentioned_group])
                 .and_return(creator_double)
 
               expect(creator_double)

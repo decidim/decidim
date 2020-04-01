@@ -14,6 +14,20 @@ describe "GraphiQL", type: :system do
     visit decidim_api.graphiql_path
   end
 
+  context "when the organization has private access" do
+    let(:organization) do
+      create(
+        :organization,
+        force_users_to_authenticate_before_access_organization: true
+      )
+    end
+
+    it "forces the user to login" do
+      expect(page).to have_current_path("/users/sign_in")
+      expect(page).to have_content("Please, login with your account before access")
+    end
+  end
+
   it "is able to execute the default query" do
     find(".execute-button").click
     within ".result-window" do
