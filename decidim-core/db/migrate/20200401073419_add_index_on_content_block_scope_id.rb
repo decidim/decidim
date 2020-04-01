@@ -4,8 +4,8 @@ class AddIndexOnContentBlockScopeId < ActiveRecord::Migration[5.2]
   def change
     add_index(
       :decidim_content_blocks,
-      :scope_id,
-      name: "idx_decidim_content_blocks_scope_id"
+      [:decidim_organization_id, :scope, :scope_id, :manifest_name],
+      name: "idx_decidim_content_blocks_org_id_scope_scope_id_manifest"
     )
   end
 end
