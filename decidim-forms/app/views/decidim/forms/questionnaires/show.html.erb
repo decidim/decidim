@@ -3,7 +3,7 @@
   description: translated_attribute(questionnaire.description),
 }) %>
 
-<% columns = allow_answers? && visitor_can_answer? && @form.answers.map(&:question).any?(&:matrix?) ? 9 : 6 %>
+<% columns = allow_answers? && visitor_can_answer? && @form.responses.map(&:question).any?(&:matrix?) ? 9 : 6 %>
 
 <%= render partial: "decidim/shared/component_announcement" %>
 
