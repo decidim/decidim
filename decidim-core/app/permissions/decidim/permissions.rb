@@ -124,13 +124,13 @@ module Decidim
       return allow! if permission_action.action == :list
 
       conversation = context.fetch(:conversation)
-      mailbox = context.fetch(:mailbox)
+      mailbox = context.fetch(:mailbox, user)
 
       if [:create, :update].include?(permission_action.action)
         return disallow! unless conversation&.accept_user? mailbox
       end
 
-      toggle_allow(conversation&.participants&.include?(mailbox))
+      toggle_allow(conversation&.participating?(mailbox))
     end
 
     def user_group_action?

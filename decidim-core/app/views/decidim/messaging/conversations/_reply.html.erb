@@ -3,7 +3,7 @@
     <%= t(".title") %>
   </h5>
 
-  <%= form_for form, url: decidim.conversation_path(conversation.id), method: :put, remote: true do |f| %>
+  <%= form_for form, url: decidim.conversation_path(conversation.id, params: { mailbox: current_mailbox.nickname }), method: :put, remote: true do |f| %>
     <%= f.text_area :body, label: false, rows: 4, required: true %>
 
     <%= f.submit t(".send"), data: { disable: true } %>

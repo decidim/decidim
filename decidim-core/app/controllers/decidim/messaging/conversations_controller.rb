@@ -63,7 +63,7 @@ module Decidim
       def update
         enforce_permission_to :update, :conversation, conversation: conversation, mailbox: current_mailbox
 
-        @form = form(MessageForm).from_params(params)
+        @form = form(MessageForm).from_params(params, sender: current_mailbox)
 
         ReplyToConversation.call(conversation, @form) do
           on(:ok) do |message|
@@ -71,7 +71,7 @@ module Decidim
           end
 
           on(:invalid) do
-            render json: { error: I18n.t("messaging.conversations.update.error", scope: "decidim") }, status: :unprocessable_entity
+            render action: :update, locals: { error: I18n.t("messaging.conversations.update.error", scope: "decidim") }, status: :unprocessable_entity
           end
         end
       end
@@ -107,7 +107,7 @@ module Decidim
         mailbox || current_user
       end
 
-      def is_user_mailbox?
+      def user_mailbox?
         current_mailbox.is_a? Decidim::User
       end
     end

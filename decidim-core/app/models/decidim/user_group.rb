@@ -107,6 +107,11 @@ module Decidim
       accepted_memberships.map(&:user)
     end
 
+    # easy way to return all the admins in this group
+    def manager_users
+      UserGroups::ManageableMemberships.for(self).map(&:user)
+    end
+
     # Accepts conversation if all their users accepts a conversation?
     def accepts_conversation?(_user)
       true

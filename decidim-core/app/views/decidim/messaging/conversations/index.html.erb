@@ -3,18 +3,18 @@
     <div class="columns large-8">
       <div class="title-action">
         <h1 class="heading1 title-action__title">
-          <%= t((is_user_mailbox? ? ".my_conversations" : ".group_conversations"), name: current_mailbox.name) %>
+          <%= t((user_mailbox? ? ".my_conversations" : ".group_conversations"), name: current_mailbox.name) %>
         </h1>
       </div>
 
       <% if @conversations.empty? %>
         <div class="callout secondary">
-          <p><%= t((is_user_mailbox? ? ".no_conversations" :  ".no_group_conversations"), name: current_mailbox.name) %></p>
+          <p><%= t((user_mailbox? ? ".no_conversations" :  ".no_group_conversations"), name: current_mailbox.name) %></p>
         </div>
       <% else %>
         <div class="card card--list conversations">
           <% @conversations.each do |conversation| %>
-            <%= link_to decidim.conversation_path(conversation), class: "card--list__item" do %>
+            <%= link_to decidim.conversation_path(conversation, params: { mailbox: current_mailbox.nickname }), class: "card--list__item" do %>
               <div class="card--list__titled-text">
                 <h6 class="card--list__heading heading6">
                   <%= username_list(conversation.interlocutors(current_user)) %>

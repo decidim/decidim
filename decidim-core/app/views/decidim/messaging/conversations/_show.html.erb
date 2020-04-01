@@ -3,7 +3,7 @@
     <div class="columns">
       <div class="title-action">
         <h1 class="heading1 title-action__title">
-          <%= link_to decidim.conversations_path, class: "card--list__data__icon card--list__data__icon--back" do %>
+          <%= link_to decidim.conversations_path(params: { mailbox: current_mailbox.nickname }), class: "card--list__data__icon card--list__data__icon--back" do %>
             <%= icon "chevron-left" %>
           <% end %>
 

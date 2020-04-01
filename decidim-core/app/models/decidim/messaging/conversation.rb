@@ -118,12 +118,25 @@ module Decidim
       #
       def accept_user?(user)
         # if user is a group, members are accepted
-        blocked = interlocutors(user).detect do |participant|
-          byebug
-          break if user.is_a?(Decidim::UserGroup) && user.accepted_users.include?(participant)
-          !participant.accepts_conversation?(user)
-        end
+        blocked = interlocutors(user).detect { |participant| !participant.accepts_conversation?(user) }
         blocked.blank?
+      end
+
+      #
+      # Given a user, returns if the user is participating in the conversation
+      # for groups being part of a conversation all their admin member are accepted
+      #
+      # @return Boolean
+      #
+      def participating?(user)
+        participants.include?(user)
+        # participants.each do |participant|
+        #   return true if participant == user
+        #   if participant.is_a?(Decidim::UserGroup)
+        #     return true if participant.manager_users.include?(user)
+        #   end
+        # end
+        # false
       end
 
       #
