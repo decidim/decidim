@@ -41,7 +41,7 @@ $(() => {
 
   /* eslint no-use-before-define: ["error", { "variables": false }]*/
   let remoteSearch = function(text, cb) {
-    let query = `{users(filter:{wildcard:"${text}",type:"user"}){id,nickname,name,avatarUrl,directMessagesEnabled}}`;
+    let query = `{users(filter:{wildcard:"${text}",type:"user"}){id,nickname,name,avatarUrl,...on User{directMessagesEnabled}}}`;
     $.post("/api", {query: query}).
       then((response) => {
         let data = response.data.users || {};
