@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t(".title") %>
+      <%= link_to t("components.index.add", scope: "decidim.admin"), current_participatory_space_admin_proxy.new_component_path(type: :budgets, parent_id: current_component), class: "tiny button button--title" %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <th><%= t(".headers.name") %></th>
+          <th><%= t(".headers.type") %></th>
+          <th><%= t(".headers.actions") %></th>
+        </thead>
+
+        <tbody>
+          <%= render partial: "decidim/admin/components/component", collection: current_component.children %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

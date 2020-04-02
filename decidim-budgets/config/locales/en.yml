@@ -62,6 +62,15 @@ en:
           create: "%{user_name} created the %{resource_name} project in the %{space_name} space"
           delete: "%{user_name} deleted the %{resource_name} project in the %{space_name} space"
           update: "%{user_name} updated the %{resource_name} project in the %{space_name} space"
+      groups:
+        admin:
+          budgets:
+            index:
+              headers:
+                actions: Actions
+                name: Component name
+                type: Component type
+              title: Budgets
       models:
         project:
           fields:
