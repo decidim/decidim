@@ -33,6 +33,7 @@ cs:
       decidim/profile_updated_event: profil aktualizován
       decidim/promote_to_admin: Propagováno na správu skupiny
       decidim/removed_from_group: Odstraněna ze skupiny
+      decidim/resource_endorsed_event: Prostředky scháleny
   activerecord:
     attributes:
       decidim/user:
@@ -63,6 +64,7 @@ cs:
     'true': 'Ano'
   carrierwave:
     errors:
+      general: Chyba při zpracování obrázku
       image_too_big: Obraz je příliš velký
   date:
     formats:
@@ -72,6 +74,9 @@ cs:
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
+    accessibility:
+      logo: "Oficiální logo %{organization}"
+      skip_button: Přeskočit na hlavní obsah
     account:
       data_portability_export:
         file_no_exists: Soubor neexistuje
@@ -238,6 +243,8 @@ cs:
           few: Dokumenty
           many: Dokumenty
           other: Dokumenty
+      document:
+        download: Stáhnout soubor
       documents:
         related_documents: Související dokumenty
       photos:
@@ -574,6 +581,7 @@ cs:
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, kterého sledujete, právě schválil "%{resource_title}" a my si myslíme, že to může být pro vás zajímavé. Podívejte se na to a přispějte:'
         email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{endorser_nickname}. Po kliknutí na předchozí odkaz můžete přestat přijímat oznámení.
+        email_subject: "%{endorser_nickname} provedl nové schválení"
         notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} byl schválen <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
@@ -999,6 +1007,9 @@ cs:
       create:
         error: Při vytváření sestavy došlo k chybě. Zkuste to znovu.
         success: Zpráva byla úspěšně vytvořena a bude kontrolována administrátorem.
+    resource_endorsements:
+      create:
+        error: Během akce schválení došlo k chybě.
     scopes:
       global: Globální oblast působnosti
       picker:
@@ -1066,6 +1077,7 @@ cs:
         select_user_group: Vyberte skupinu
       results_per_page:
         label: 'Výsledky na stránku:'
+        title: Vyberte počet výsledků na stránku
       share_modal:
         close_window: Zavřete okno
         share: Sdílet
@@ -1357,6 +1369,7 @@ cs:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%B %d, %Y %H:%M"
+      long_dashed: "%Y-%m-%d %H:%M:%S"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
@@ -1373,7 +1386,12 @@ cs:
   views:
     pagination:
       first: "&laquo; První"
+      first_title: Odkaz na první stránku
       last: Poslední &raquo;
+      last_title: Odkaz na poslední stránku
       next: Další &rsaquo;
+      next_title: Odkaz na další stránku
       previous: "&lsaquo; Předchozí"
+      previous_title: Odkaz na předchozí stránku
+      title: 'Číslo stránky: '
       truncate: "&hellip;"
