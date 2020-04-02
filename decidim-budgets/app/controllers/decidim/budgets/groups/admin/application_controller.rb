@@ -12,5 +12,6 @@ module Decidim
         class ApplicationController < Decidim::Admin::Components::BaseController
         end
       end
+    end
   end
 end

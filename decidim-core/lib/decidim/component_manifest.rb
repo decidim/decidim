@@ -84,11 +84,11 @@ module Decidim
 
     # Does this component allow to have a parent component?
     attribute :allow_parent, Boolean, default: false
-    alias_method :allow_parent, :allow_parent?
+    alias allow_parent allow_parent?
 
     # Does this component allow to have children components?
     attribute :allow_children, Boolean, default: false
-    alias_method :allow_children, :allow_children?
+    alias allow_children allow_children?
 
     validates :name, presence: true
 

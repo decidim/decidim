@@ -88,13 +88,13 @@ module Decidim
     end
 
     def navigation_components
-      @navigation_components ||= current_participatory_space.components.top_level.published.or(Decidim::Component.where(id: self.try(:current_component), parent: nil))
+      @navigation_components ||= current_participatory_space.components.top_level.published.or(Decidim::Component.where(id: try(:current_component), parent: nil))
     end
 
     def navigation_component_active?(component)
-      return false unless self.try(:current_component)
+      return false unless try(:current_component)
 
-      current_component == component || current_component.parent == component
+      [current_component, current_component.parent].include?(component)
     end
   end
 end

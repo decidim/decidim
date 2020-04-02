@@ -19,12 +19,12 @@ Decidim.register_component(:budgets_groups) do |component|
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
-  component.register_stat :budgets_count, primary: true, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
-    components.sum { |component| component.children.count }
+  component.register_stat :budgets_count, primary: true, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, _start_at, _end_at|
+    components.sum { |budgets_group_component| budgets_group_component.children.count }
   end
 
   component.seeds do |participatory_space|
-    component = Decidim::Component.create!(
+    budgets_group_component = Decidim::Component.create!(
       name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :budgets_groups).i18n_name,
       manifest_name: :budgets_groups,
       published_at: Time.current,
@@ -33,7 +33,7 @@ Decidim.register_component(:budgets_groups) do |component|
 
     3.times do
       child_component = Decidim.find_component_manifest(:budgets).seed!(participatory_space)
-      child_component.update_attributes name: Decidim::Faker::Localized.sentence(2), parent_id: component.id
+      child_component.update name: Decidim::Faker::Localized.sentence(2), parent_id: budgets_group_component.id
     end
   end
 end
