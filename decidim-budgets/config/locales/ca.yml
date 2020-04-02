@@ -92,6 +92,7 @@ ca:
             other: "%{count} projectes"
         filters:
           category: Categoria
+          category_prompt: Selecciona una categoria
           scope: Àmbit
           search: Cerca
         filters_small_view:
