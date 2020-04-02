@@ -5,6 +5,7 @@ $margin-m: $global-margin * 3;
 $margin-l: $global-margin * 5;
 
 //Sections
+
 .section{
   margin-bottom: $margin-sm;
   word-wrap: break-word;
@@ -12,10 +13,23 @@ $margin-l: $global-margin * 5;
   @include breakpoint(large){
     margin-bottom: $margin-m;
   }
+
+  a:hover{
+    text-decoration: underline;
+  }
+
+  a:focus,
+  button:focus{
+    outline: 2px solid $secondary;
+  }
 }
 
 .m-bottom{
   margin-bottom: $margin-s;
+
+  a:focus{
+    outline: 2px solid $secondary;
+  }
 }
 
 // helpers
