@@ -8,23 +8,7 @@
         </li>
       <% end %>
       <% if allowed_to? :read, :component, conference: current_participatory_space %>
-        <li <% if is_active_link?(decidim_admin_conferences.components_path(current_participatory_space)) %> class="is-active" <% end %>>
-          <%= aria_selected_link_to t("components", scope: "decidim.admin.menu.conferences_submenu"), decidim_admin_conferences.components_path(current_participatory_space) %>
-          <ul id="components-list">
-            <% current_participatory_space.components.each do |component| %>
-              <% if component.manifest.admin_engine && user_role_config.component_is_accessible?(component.manifest_name) %>
-                <li <% if is_active_link?(manage_component_path(component)) || is_active_link?(decidim_admin_conferences.edit_component_path(current_participatory_space, component)) || is_active_link?(decidim_admin_conferences.edit_component_permissions_path(current_participatory_space, component)) %> class="is-active" <% end %>>
-                  <%= link_to manage_component_path(component) do %>
-                    <%= translated_attribute component.name %>
-                    <% if component.primary_stat.present? %>
-                      <span class="component-counter <%= "component-counter--off" if component.primary_stat.zero? %>"><%= component.primary_stat %></span>
-                    <% end %>
-                  <% end %>
-                </li>
-              <% end %>
-            <% end %>
-          </ul>
-        </li>
+        <%= render partial: "decidim/admin/participatory_space/components" %>
       <% end %>
       <% if allowed_to? :read, :category, conference: current_participatory_space %>
         <li <% if is_active_link?(decidim_admin_conferences.categories_path(current_participatory_space)) %> class="is-active" <% end %>>
