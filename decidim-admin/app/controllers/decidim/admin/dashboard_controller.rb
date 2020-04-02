@@ -42,7 +42,7 @@ module Decidim
           organization: current_organization,
           date: date,
           admin: admin
-        )
+        ).query.count
       end
     end
   end

@@ -714,9 +714,6 @@ en:
         update:
           error: There was a problem updating this page.
           success: Page updated successfully
-      statistic:
-        users_count:
-          no_users_count_statistics_yet: There are no users count statistics yet
       titles:
         admin_log: Admin log
         area_types: Area types
@@ -775,6 +772,14 @@ en:
         new:
           create: Invite
           title: Invite participant as administrator
+      users_statistics:
+        users_count:
+          admins: Admins
+          last_day: Last day
+          last_week: Last week
+          last_month: Last month
+          no_users_count_statistics_yet: There are no users count statistics yet
+          participants: Participants
       view_public_page: View public page
     forms:
       errors:
