@@ -26,10 +26,8 @@ module Decidim
       include Decidim::NeedsOrganization
 
       helper ParticipatorySpaceHelpers, IconHelper, ContextualHelpHelper
-      helper_method :current_participatory_space
-      helper_method :current_participatory_space_manifest
-      helper_method :current_participatory_space_context
-      helper_method :help_section, :help_id
+      helper_method :current_participatory_space, :current_participatory_space_manifest, :current_participatory_space_context,
+                    :navigation_components, :navigation_component_active?, :help_section, :help_id
     end
 
     private
@@ -87,6 +85,16 @@ module Decidim
 
     def help_id
       @help_id ||= current_participatory_space_manifest.name
+    end
+
+    def navigation_components
+      @navigation_components ||= current_participatory_space.components.top_level.published.or(Decidim::Component.where(id: self.try(:current_component), parent: nil))
+    end
+
+    def navigation_component_active?(component)
+      return false unless self.try(:current_component)
+
+      current_component == component || current_component.parent == component
     end
   end
 end
