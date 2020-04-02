@@ -67,7 +67,7 @@ cs:
           step:
             announcement: Oznámení
             comments_blocked: Komentáře byly blokovány
-            endorsements_blocked: Zápisy blokovány
+            endorsements_blocked: Schvalování blokováno
             endorsements_enabled: Zápisy povoleny
     events:
       blogs:
