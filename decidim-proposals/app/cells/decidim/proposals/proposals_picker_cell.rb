@@ -4,7 +4,7 @@ require "cell/partial"
 
 module Decidim
   module Proposals
-    # This cell renders the linked resource of a proposal.
+    # This cell renders a proposals picker.
     class ProposalsPickerCell < Decidim::ViewModel
       MAX_PROPOSALS = 1000
 
