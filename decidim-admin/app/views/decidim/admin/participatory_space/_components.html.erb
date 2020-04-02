@@ -1,7 +1,7 @@
 <li <% if is_active_link?(current_participatory_space_admin_proxy.components_path(current_participatory_space)) %> class="is-active" <% end %>>
   <%= aria_selected_link_to t("components", scope: "decidim.admin.menu"), current_participatory_space_admin_proxy.components_path(current_participatory_space) %>
   <ul id="components-list">
-    <% current_participatory_space.components.each do |component| %>
+    <% current_participatory_space.components.top_level.each do |component| %>
       <% if component.manifest.admin_engine && user_role_config.component_is_accessible?(component.manifest_name) %>
         <li <% if try(:current_component) && (current_component == component || current_component.parent == component) %> class="is-active" <% end %>>
           <%= link_to manage_component_path(component) do %>

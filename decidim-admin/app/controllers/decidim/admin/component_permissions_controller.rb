@@ -39,6 +39,8 @@ module Decidim
       def return_path
         if resource
           manage_component_path(component)
+        elsif component.parent
+          manage_component_path(component.parent)
         else
           components_path(current_participatory_space)
         end

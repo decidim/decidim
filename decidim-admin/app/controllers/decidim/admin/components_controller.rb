@@ -9,6 +9,7 @@ module Decidim
       helper_method :manifest, :components, :current_participatory_space, :parent_options
 
       include ParticipatorySpaceAdminContext
+      include Decidim::ComponentPathHelper
 
       def index
         enforce_permission_to :read, :component
@@ -33,9 +34,10 @@ module Decidim
         enforce_permission_to :create, :component
 
         CreateComponent.call(@form) do
-          on(:ok) do
+          on(:ok) do |new_component|
+            self.component = new_component
             flash[:notice] = I18n.t("components.create.success", scope: "decidim.admin")
-            redirect_to action: :index
+            redirect_to return_path
           end
 
           on(:invalid) do
@@ -62,7 +64,7 @@ module Decidim
             handle_component_settings_change(previous_settings, current_settings) if settings_changed
 
             flash[:notice] = I18n.t("components.update.success", scope: "decidim.admin")
-            redirect_to action: :index
+            redirect_to return_path
           end
 
           on(:invalid) do
@@ -79,12 +81,12 @@ module Decidim
         DestroyComponent.call(@component, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("components.destroy.success", scope: "decidim.admin")
-            redirect_to action: :index
+            redirect_to return_path
           end
 
           on(:invalid) do
             flash[:alert] = I18n.t("components.destroy.error", scope: "decidim.admin")
-            redirect_to action: :index
+            redirect_to return_path
           end
         end
       end
@@ -96,7 +98,7 @@ module Decidim
         PublishComponent.call(@component, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("components.publish.success", scope: "decidim.admin")
-            redirect_to action: :index
+            redirect_to return_path
           end
         end
       end
@@ -108,7 +110,7 @@ module Decidim
         UnpublishComponent.call(@component, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("components.unpublish.success", scope: "decidim.admin")
-            redirect_to action: :index
+            redirect_to return_path
           end
         end
       end
@@ -138,16 +140,24 @@ module Decidim
         end
       end
 
+      def return_path
+        if component.parent
+          manage_component_path(@component.parent)
+        else
+          { action: :index }
+        end
+      end
+
       def query_scope
         current_participatory_space.components
       end
 
       def components
-        @components ||= current_participatory_space.components
+        @components ||= current_participatory_space.components.top_level
       end
 
       def manifest
-        @component&.manifest || Decidim.find_component_manifest(params[:type])
+        component&.manifest || Decidim.find_component_manifest(params[:type])
       end
 
       def default_name(manifest)
@@ -158,10 +168,10 @@ module Decidim
       end
 
       def handle_component_settings_change(previous_settings, current_settings)
-        return if @component.participatory_space.allows_steps?
+        return if component.participatory_space.allows_steps?
 
         Decidim::SettingsChange.publish(
-          @component,
+          component,
           previous_settings["default_step"] || {},
           current_settings["default_step"] || {}
         )

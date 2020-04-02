@@ -25,7 +25,7 @@ module Decidim
           run_hooks
         end
 
-        broadcast(:ok)
+        broadcast(:ok, @component)
       end
 
       private
