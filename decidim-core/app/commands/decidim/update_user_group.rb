@@ -56,7 +56,7 @@ module Decidim
         event: "decidim.events.groups.user_group_updated",
         event_class: Decidim::UserGroupUpdatedEvent,
         resource: @user_group,
-        affected_users: Decidim::User.where(organization: form.current_organization, admin: true)
+        affected_users: Decidim::User.org_admins_except_me(form.current_user)
       }
 
       Decidim::EventsManager.publish(data)
