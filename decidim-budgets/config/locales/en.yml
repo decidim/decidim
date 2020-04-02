@@ -154,6 +154,13 @@ en:
             comments_blocked: Comments blocked
             show_votes: Show votes
             votes_enabled: Voting enabled
+      budgets_groups:
+        name: Budgets group
+        settings:
+          global:
+            announcement: Announcement
+          step:
+            announcement: Announcement
     orders:
       checkout:
         error: There was a problem processing your vote
