@@ -22,6 +22,7 @@ module Decidim
       return broadcast(:invalid) if form.invalid?
 
       update_user_group
+      notify_admins
 
       broadcast(:ok, @user_group)
     end
@@ -48,6 +49,17 @@ module Decidim
           document_number: form.document_number
         }
       }
+    end
+
+    def notify_admins
+      data = {
+        event: "decidim.events.groups.user_group_updated",
+        event_class: Decidim::UserGroupUpdatedEvent,
+        resource: @user_group,
+        affected_users: Decidim::User.where(organization: form.current_organization, admin: true)
+      }
+
+      Decidim::EventsManager.publish(data)
     end
   end
 end
