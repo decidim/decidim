@@ -183,6 +183,7 @@ fi:
             admin: Hallinnointikäyttäjä
             collaborator: Työryhmän jäsen
             moderator: Moderoija
+            valuator: Arvioija
         media_link:
           fields:
             date: Päivämäärä

@@ -1,6 +1,6 @@
 <% add_decidim_meta_tags({
   description: decidim_sanitize(translated_attribute(sortition.additional_info)),
-  title: translated_attribute(sortition.title),
+  title: decidim_html_escape(translated_attribute(sortition.title)),
   url: sortition_url(sortition.to_param)
 }) %>
 
@@ -11,7 +11,13 @@
 </div>
 
 <div class="row column view-header">
-  <h2 class="heading2"><%= translated_attribute sortition.title %></h2>
+
+  <%= link_to :sortitions, class: "small hollow" do %>
+    <%= icon "chevron-left", class: "icon--small" %>
+    <%= t(".back") %>
+  <% end %>
+
+  <h2 class="heading2"><%= decidim_html_escape(translated_attribute(sortition.title)) %></h2>
   <div class="author-data">
     <%= render partial: "sortition_author", locals: { sortition: sortition } %>
   </div>

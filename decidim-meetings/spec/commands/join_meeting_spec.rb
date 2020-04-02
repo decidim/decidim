@@ -217,7 +217,7 @@ module Decidim::Meetings
       context "and everything is ok" do
         before do
           registration_form.tos_agreement = true
-          registration_form.answers.first.body = "My answer response"
+          registration_form.responses.first.body = "My answer response"
         end
 
         it "broadcasts ok" do

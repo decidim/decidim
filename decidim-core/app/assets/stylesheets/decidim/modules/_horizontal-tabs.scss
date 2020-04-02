@@ -23,6 +23,10 @@
           border-bottom: 3px solid var(--primary);
         }
 
+        &:focus{
+          outline: 2px solid $secondary;
+        }
+
         &:hover{
           background: transparent;
           border-bottom: $border;
@@ -48,4 +52,14 @@
   background: transparent;
   color: inherit;
   transition: all .5s ease;
+}
+
+.tabs-panel{
+  a:hover{
+    text-decoration: underline;
+  }
+
+  a:focus{
+    outline: 2px solid $secondary;
+  }
 }

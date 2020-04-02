@@ -121,8 +121,8 @@ fr:
       badges:
         initiatives:
           conditions:
-            - Accéder à l'espace Initiatives
-            - Suivez les étapes pour créer une nouvelle initiative
+           - Accéder à l'espace Initiatives
+           - Suivez les étapes pour créer une nouvelle initiative
           description: Ce badge vous est attribué lorsque vous lancez de nouvelles initiatives, en partenariat avec d’autres pour les mener à bien.
           description_another: Ce participant a publié %{score} initiatives.
           description_own: Vous avez publié %{score} initiatives.

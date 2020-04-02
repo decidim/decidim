@@ -27,7 +27,6 @@ ru:
       decidim/proposals/creation_enabled_event: Включена возможность создания предложений
       decidim/proposals/endorsing_enabled_event: Включена возможность поддерживать предложения
       decidim/proposals/evaluating_proposal_event: Предложение сейчас рассматривается
-      decidim/proposals/proposal_endorsed_event: Предложение поддержали
       decidim/proposals/proposal_mentioned_event: Предложение упомянуто
       decidim/proposals/publish_proposal_event: Предложение обнародовано
       decidim/proposals/rejected_proposal_event: Предложение отклонено
@@ -39,11 +38,6 @@ ru:
         few: Предложения
         many: Предложений
         other: Предложений
-      decidim/proposals/proposal_endorsement:
-        one: Выражение поддержки
-        few: Выражения поддержки
-        many: Выражений поддержки
-        other: Выражений поддержки
       decidim/proposals/proposal_note:
         one: Примечание
         few: Примечания
@@ -111,10 +105,6 @@ ru:
             email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
             email_subject: Предложение, за которым вы следите, было принято
             notification_title: Предложение <a href="%{resource_path}">%{resource_title}</a> было принято.
-        proposal_endorsed:
-          email_outro: Вы получили это уведомление, потому что вы следите за «%{endorser_nickname}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
-          email_subject: "%{endorser_nickname} поддержал новое предложение"
-          notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> поддержал предложение <a href="%{resource_path}">%{resource_title}</a>.
         proposal_evaluating:
           follower:
             email_intro: 'Предложение "%{resource_title}" сейчас рассматривается. Вы можете проверить наличие ответа на странице:'
@@ -122,7 +112,6 @@ ru:
             email_subject: Предложение, за которым вы следите, сейчас рассматривается
             notification_title: Предложение <a href="%{resource_path}">%{resource_title}</a> на рассмотрении.
         proposal_mentioned:
-          email_intro: Ваше предложение «%{mentioned_proposal_title}» было упомянуто в комментариях <a href="%{resource_path}">в этом пространстве</a>.
           email_subject: Ваше предложение "%{mentioned_proposal_title}"было упомянуто
           notification_title: Ваше предложение «%{mentioned_proposal_title}» было упомянуто в комментариях <a href="%{resource_path}">в этом пространстве</a>.
         proposal_published:
@@ -143,6 +132,8 @@ ru:
           email_outro: Вы получили это уведомление, потому что вы являетесь автором предложения.
           email_subject: Обновлена категория предложений %{resource_title}
           notification_title: Категория предложений <a href="%{resource_path}">%{resource_title}</a> была обновлена ​​администратором.
+        proposal_update_scope:
+          email_outro: Вы получили это уведомление, потому что вы являетесь автором предложения.
         voting_enabled:
           email_intro: 'Теперь вы можете голосовать по предложениям в %{participatory_space_title}! Начните со страницы:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
@@ -192,20 +183,23 @@ ru:
             actions: Действия
             cancel: Отменить
             change_category: Изменить категорию
+            publish: Обнародовать
             selected: выбранные
             title: Предложения
             update: Обновить
           new:
             create: Внести
             title: Создать предложение
+          publish_answers:
+            select_a_proposal: Пожалуйста, выберите предложение
           show:
             created_at: Дата создания
             votes_count: Количество голосов
           update_category:
-            invalid: 'Эти предложения уже относились к категории %{category}: %{proposals}.'
             select_a_category: Пожалуйста, выберите категорию
             select_a_proposal: Пожалуйста, выберите предложение
-            success: 'Предложения успешно перенесены в категорию %{category}: %{proposals}.'
+          update_scope:
+            select_a_proposal: Пожалуйста, выберите предложение
         proposals_imports:
           create:
             invalid: При попытке позаимствовать эти предложения произошла ошибка
@@ -242,7 +236,6 @@ ru:
           fields:
             category: Категория
             comments: Комментарии
-            endorsements: Выражения поддержки
             id: Псевдоним
             notes: Примечания
             official_proposal: Служебное предложение
@@ -253,18 +246,6 @@ ru:
             votes: Голоса
       new:
         limit_reached: Вы не можете создавать новые предложения, так как вы превысили лимит.
-      proposal_endorsements:
-        create:
-          error: При попытке поддержать это предложение произошли ошибки.
-        identities:
-          done: Готово
-          select_identity: Выберите роль
-      proposal_endorsements_helper:
-        endorsement_button:
-          already_endorsed: Поддержано
-          endorse: Поддержать
-        render_endorsements_button_card_part:
-          endorse: Поддержать
       proposal_votes:
         create:
           error: При голосовании по этому предложению произошли ошибки.
@@ -286,10 +267,6 @@ ru:
           discard_confirmation: Вы действительно хотите отбросить этот черновик предложения?
           send: Предпросмотр
           title: Редактировать черновик предложения
-        endorsement_identities_cabin:
-          endorse: Поддержать
-        endorsements_card_row:
-          comments: Комментарии
         filters:
           category: Категория
           origin: Источник
@@ -333,6 +310,8 @@ ru:
           creation_date: 'Создано: %{date}'
           view_proposal: Просмотреть предложение
         show:
+          answer: Ответить
+          comments: Комментарии
           edit_proposal: Редактировать предложение
           endorsements_list: Список тех, кто поддержал
           proposal_accepted_reason: 'Это предложение было принято, поскольку:'
@@ -342,8 +321,6 @@ ru:
           withdraw_btn_hint: Вы можете снять свое предложение, если передумаете, пока вы не получили никакой поддержки. Предложение не будет удалено, оно будет указано в списке снятых предложений.
           withdraw_confirmation: Вы действительно хотите снять это предложение?
           withdraw_proposal: Снять предложение
-        tags:
-          changed_from: "(изменено с <u>%{previous_category}</u> администратором)"
         vote_button:
           already_voted: Уже проголосовали
           already_voted_hover: Отменить голос

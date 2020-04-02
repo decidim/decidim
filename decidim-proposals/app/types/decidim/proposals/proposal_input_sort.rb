@@ -4,19 +4,13 @@ module Decidim
   module Proposals
     class ProposalInputSort < Decidim::Core::BaseInputSort
       include Decidim::Core::HasPublishableInputSort
+      include Decidim::Core::HasEndorsableInputSort
 
       graphql_name "ProposalSort"
       description "A type used for sorting proposals"
 
       argument :id, String, "Sort by ID, valid values are ASC or DESC", required: false
-      argument :endorsementCount,
-               type: String,
-               description: "Sort by number of endorsements, valid values are ASC or DESC",
-               required: false,
-               prepare: ->(value, _ctx) do
-                          { proposal_endorsements_count: value }
-                        end
-      argument :voteCount,
+      argument :vote_count,
                type: String,
                description: "Sort by number of votes, valid values are ASC or DESC. Will be ignored if votes are hidden",
                required: false,

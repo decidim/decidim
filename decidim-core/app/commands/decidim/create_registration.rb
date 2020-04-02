@@ -17,9 +17,12 @@ module Decidim
     #
     # Returns nothing.
     def call
-      return broadcast(:invalid) if form.invalid?
+      if form.invalid?
+        user = User.has_pending_invitations?(form.current_organization.id, form.email)
+        user.invite!(user.invited_by) if user
+        return broadcast(:invalid)
+      end
 
-      delete_pending_invited_user
       create_user
 
       broadcast(:ok, @user)
@@ -30,10 +33,6 @@ module Decidim
     private
 
     attr_reader :form
-
-    def delete_pending_invited_user
-      User.invitation_not_accepted.where(email: form.email).delete_all
-    end
 
     def create_user
       @user = User.create!(
@@ -46,7 +45,8 @@ module Decidim
         tos_agreement: form.tos_agreement,
         newsletter_notifications_at: form.newsletter_at,
         email_on_notification: true,
-        accepted_tos_version: form.current_organization.tos_version
+        accepted_tos_version: form.current_organization.tos_version,
+        locale: form.current_locale
       )
     end
   end

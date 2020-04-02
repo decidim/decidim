@@ -39,7 +39,9 @@ Decidim::Admin::Engine.routes.draw do
       end
     end
 
-    resources :officializations, only: [:new, :create, :index, :destroy], param: :user_id
+    resources :officializations, only: [:new, :create, :index, :destroy], param: :user_id do
+      get :show_email, on: :member
+    end
 
     resources :impersonatable_users, only: [:index] do
       resources :promotions, controller: "managed_users/promotions", only: [:new, :create]

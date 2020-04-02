@@ -207,4 +207,33 @@ describe "Admin manages officializations", type: :system do
       end
     end
   end
+
+  describe "retrieving the user email address" do
+    let!(:user) { create(:user, organization: organization) }
+
+    before do
+      within ".secondary-nav" do
+        click_link "Participants"
+      end
+    end
+
+    it "shows the user email to admin users and logs the action" do
+      within "tr[data-user-id=\"#{user.id}\"]" do
+        click_link "Show email"
+      end
+
+      within "#show-email-modal" do
+        expect(page).to have_content("Show participant email address")
+        expect(page).not_to have_content(user.email)
+
+        click_button "Show"
+
+        expect(page).to have_content(user.email)
+      end
+
+      visit decidim_admin.root_path
+
+      expect(page).to have_content("#{admin.name} retrieved the email of the participant #{user.name}")
+    end
+  end
 end

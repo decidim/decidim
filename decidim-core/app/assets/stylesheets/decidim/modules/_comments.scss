@@ -99,6 +99,12 @@ $comment-form-bg: $light-gray;
 .comment__votes{
   float: right;
   margin-top: .5rem;
+
+  button:focus{
+    background-color: $secondary;
+    color: $white;
+    outline: none;
+  }
 }
 
 .comment__votes--up{
@@ -172,9 +178,31 @@ $comment-form-bg: $light-gray;
 
 /* Comment form */
 
+.comment__quote{
+  border-left-width: 6px;
+  font-size: 80%;
+  background-color: rgba(0, 0, 0, .03);
+  padding: 1rem;
+  margin-bottom: 1rem;
+
+  > p:last-child{
+    margin-bottom: 0;
+  }
+}
+
 .add-comment{
   background: $comment-form-bg;
   padding: $comment-padding;
+
+  a:hover{
+    text-decoration: underline;
+  }
+
+  a:focus{
+    background-color: $secondary;
+    color: $white;
+    outline: none;
+  }
 
   .button{
     margin-bottom: 0;

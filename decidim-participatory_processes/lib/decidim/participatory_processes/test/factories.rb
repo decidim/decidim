@@ -27,6 +27,7 @@ FactoryBot.define do
     participatory_scope { generate_localized_title }
     participatory_structure { generate_localized_title }
     announcement { generate_localized_title }
+    show_metrics { true }
     show_statistics { true }
     private_space { false }
     start_date { Date.current }
@@ -156,6 +157,21 @@ FactoryBot.define do
              user: user,
              participatory_process: evaluator.participatory_process,
              role: :moderator
+    end
+  end
+
+  factory :process_valuator, parent: :user, class: "Decidim::User" do
+    transient do
+      participatory_process { create(:participatory_process) }
+    end
+
+    organization { participatory_process.organization }
+
+    after(:create) do |user, evaluator|
+      create :participatory_process_user_role,
+             user: user,
+             participatory_process: evaluator.participatory_process,
+             role: :valuator
     end
   end
 

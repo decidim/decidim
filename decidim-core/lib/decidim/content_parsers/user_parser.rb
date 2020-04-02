@@ -5,8 +5,7 @@ module Decidim
     # A parser that searches user mentions in content.
     #
     # A word starting with `@` will be considered as a possible mention if
-    # they only contains letters, numbers or underscores. If the `@` is
-    # followed with an underscore, then it is not considered.
+    # they only contains letters, numbers or underscores.
     #
     # @see BaseParser Examples of how to use a content parser
     class UserParser < BaseParser
@@ -16,9 +15,8 @@ module Decidim
       #   @return [Array] an array of Decidim::User mentioned in content
       Metadata = Struct.new(:users)
 
-      # Matches a nickname if it starts with a letter or number
-      # and only contains letters, numbers or underscores.
-      MENTION_REGEX = /\B@([a-zA-Z0-9]\w*)\b/.freeze
+      # Matches a nickname if contains letters, numbers or underscores.
+      MENTION_REGEX = /\B@(\w*)\b/.freeze
 
       # Replaces found mentions matching a nickname of an existing
       # user in the current organization with a global id. Other

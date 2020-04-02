@@ -208,6 +208,7 @@ ca:
             admin: Administradora
             collaborator: Col·laboradora
             moderator: Moderadora
+            valuator: Avaluadora
       titles:
         assemblies: Assemblees
         assemblies_types: Tipus d'assemblees
