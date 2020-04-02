@@ -20,10 +20,11 @@ module Decidim
                               Decidim::Permissions)
 
       included do
+        include Decidim::Admin::ParticipatorySpaceAdminContext
         include NeedsOrganization
         include InitiativeSlug
 
-        helper_method :current_initiative, :current_participatory_space, :signature_has_steps?
+        helper_method :current_initiative, :signature_has_steps?
 
         # Public: Finds the current Initiative given this controller's
         # context.

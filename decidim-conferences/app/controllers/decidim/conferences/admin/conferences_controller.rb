@@ -6,9 +6,10 @@ module Decidim
       # Controller that allows managing conferences.
       #
       class ConferencesController < Decidim::Conferences::Admin::ApplicationController
-        helper_method :current_conference, :current_participatory_space
-        layout "decidim/admin/conferences"
         include Decidim::Conferences::Admin::Filterable
+        include Concerns::ConferenceAdmin
+
+        layout "decidim/admin/conferences"
 
         def index
           enforce_permission_to :read, :conference_list

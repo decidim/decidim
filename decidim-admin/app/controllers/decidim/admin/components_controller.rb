@@ -8,6 +8,8 @@ module Decidim
     class ComponentsController < Decidim::Admin::ApplicationController
       helper_method :manifest, :components, :current_participatory_space, :parent_options
 
+      include ParticipatorySpaceAdminContext
+
       def index
         enforce_permission_to :read, :component
         @manifests = Decidim.component_manifests

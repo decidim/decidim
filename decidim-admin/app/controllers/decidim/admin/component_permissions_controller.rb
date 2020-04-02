@@ -5,6 +5,7 @@ module Decidim
     # Controller that allows managing component and related resources permissions.
     #
     class ComponentPermissionsController < ResourcePermissionsController
+      include ParticipatorySpaceAdminContext
       include Decidim::ComponentPathHelper
 
       def edit

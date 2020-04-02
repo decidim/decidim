@@ -6,8 +6,11 @@ module Decidim
       # Controller that allows managing assemblies.
       #
       class AssembliesController < Decidim::Assemblies::Admin::ApplicationController
+        include Decidim::Admin::ParticipatorySpaceAdminContext
         include Decidim::Assemblies::Admin::Filterable
-        helper_method :current_assembly, :parent_assembly, :current_participatory_space
+
+        helper_method :current_assembly, :parent_assembly
+
         layout "decidim/admin/assemblies"
 
         def index
