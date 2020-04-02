@@ -92,6 +92,7 @@
             other: "%{count} prosjekter"
         filters:
           category: Kategori
+          category_prompt: Velg en kategori
           scope: Omfang
           search: Søk
         filters_small_view:
