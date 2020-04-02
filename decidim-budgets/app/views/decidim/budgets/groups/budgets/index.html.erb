@@ -1,0 +1,11 @@
+<%= render partial: "decidim/shared/component_announcement" %>
+
+<div class="row">
+  <div class="columns mediumlarge-4 large-3">
+    <ul>
+      <% current_component.children.published.each do |component| %>
+        <li><%= link_to translated_attribute(component.name), main_component_path(component) %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
