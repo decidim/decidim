@@ -470,6 +470,9 @@ cs:
             active_conferences: Aktivní konference
             see_all_conferences: Podívejte se na všechny konference
       photo:
+        image:
+          attributes:
+            alt: Obrázek médií
         show:
           close_modal: Zavřít modální
           photo: Fotografie
