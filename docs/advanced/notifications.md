@@ -88,16 +88,20 @@ With the previous information the event class is able to generate the following 
 Developers will be able to customize those messages by adding translations to the `config/locales/en.yml` file of the corresponding module.
 The keys to be used will have the translation scope corresponding to the event name ("decidim.events.comments.comment_by_followed_user" for example) and the key will be the content to override (email_subject, email_intro, etc.)
 
-### Email Notification contents
+### Email contents
+
+The following are the parts of the notification email:
 
 - *email_subject*, to be customized
 - email_greeting, with a good default, usually there's no need to cusomize it
 - *email_intro*, to be customized
-- *resource_text* (optional), rendered `html_safe`
-- *resource_url*, a link to the involved resource
-- email_outro
+- *resource_text* (optional), rendered `html_safe` if present
+- *resource_url*, a link to the involved resource if resource_url and resource_title are present
+- *email_outro*
 
-### Notification Notification contents
+All contents except the `email_greeting` use to require customization on each notification.
+
+### Notification contents
 
 Only the `notification_title` is generated in the event class. The rest of the contents are produced by the templates from the `resource` and the `notification` objects.
 

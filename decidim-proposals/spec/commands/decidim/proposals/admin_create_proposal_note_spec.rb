@@ -8,8 +8,12 @@ module Decidim
       describe CreateProposalNote do
         describe "call" do
           let(:proposal) { create(:proposal) }
-          let(:current_user) { create(:user, :admin, organization: proposal.component.organization) }
-          let(:form) { ProposalNoteForm.from_params(form_params).with_context(current_user: current_user) }
+          let(:organization) { proposal.component.organization }
+          let(:current_user) { create(:user, :admin, organization: organization) }
+          let!(:another_admin) { create(:user, :admin, organization: organization) }
+          let(:valuation_assignment) { create(:valuation_assignment, proposal: proposal) }
+          let!(:valuator) { valuation_assignment.valuator }
+          let(:form) { ProposalNoteForm.from_params(form_params).with_context(current_user: current_user, current_organization: organization) }
 
           let(:form_params) do
             {
@@ -59,6 +63,21 @@ module Decidim
               expect { command.call }.to change(ActionLog, :count)
               action_log = Decidim::ActionLog.last
               expect(action_log.version).to be_present
+            end
+
+            it "notifies the admins and the valuators" do
+              expect(Decidim::EventsManager)
+                .to receive(:publish)
+                .once
+                .ordered
+                .with(
+                  event: "decidim.events.proposals.admin.proposal_note_created",
+                  event_class: Decidim::Proposals::Admin::ProposalNoteCreatedEvent,
+                  resource: proposal,
+                  affected_users: a_collection_containing_exactly(another_admin, valuator)
+                )
+
+              command.call
             end
           end
         end
