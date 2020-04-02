@@ -77,9 +77,6 @@ en:
         one: Assembly user role
         other: Assembly user roles
   decidim:
-    participatory_process:
-      show:
-        related_assemblies: Related assemblies
     admin:
       actions:
         new_assembly: New assembly
@@ -385,6 +382,9 @@ en:
         description: Number of assemblies created
         object: assemblies
         title: Assemblies
+    participatory_process:
+      show:
+        related_assemblies: Related assemblies
   errors:
     messages:
       cannot_be_blank: can not be blank
