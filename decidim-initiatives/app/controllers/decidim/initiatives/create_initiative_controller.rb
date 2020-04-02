@@ -12,6 +12,7 @@ module Decidim
       include Decidim::FormFactory
       include InitiativeHelper
       include TypeSelectorOptions
+      include SingleInitiativeType
 
       helper Decidim::Admin::IconLinkHelper
       helper InitiativeHelper
@@ -43,7 +44,7 @@ module Decidim
       def select_initiative_type_step(_parameters)
         session[:initiative] = {}
 
-        if single_initiative?
+        if single_initiative_type?
           redirect_to next_wizard_path
           return
         end
@@ -115,8 +116,8 @@ module Decidim
       end
 
       def build_form(klass, parameters)
-        @form = if single_initiative?
-                  form(klass).from_params(parameters.merge(type_id: current_organization_initiatives.first.id))
+        @form = if single_initiative_type?
+                  form(klass).from_params(parameters.merge(type_id: current_organization_initiatives_type.first.id))
                 else
                   form(klass).from_params(parameters)
                 end
@@ -134,14 +135,6 @@ module Decidim
 
       def current_initiative
         Initiative.find(session_initiative[:id]) if session_initiative.has_key?(:id)
-      end
-
-      def current_organization_initiatives
-        Decidim::InitiativesType.where(organization: current_organization)
-      end
-
-      def single_initiative?
-        current_organization_initiatives.count == 1
       end
 
       def initiative_type

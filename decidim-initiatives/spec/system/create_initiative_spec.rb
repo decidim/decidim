@@ -98,6 +98,12 @@ describe "Initiative", type: :system do
           expect(page).not_to have_current_path(decidim_initiatives.create_initiative_path(id: :select_initiative_type))
         end
 
+        it "doesn't display the 'choose' step" do
+          within ".wizard__steps" do
+            expect(page).not_to have_content("Choose")
+          end
+        end
+
         it "Has a hidden field with the selected initiative type" do
           expect(page).to have_xpath("//input[@id='initiative_type_id']", visible: false)
           expect(find(:xpath, "//input[@id='initiative_type_id']", visible: false).value).to eq(initiative_type.id.to_s)
@@ -147,40 +153,57 @@ describe "Initiative", type: :system do
       context "when Create initiative" do
         let(:initiative) { build(:initiative) }
 
-        before do
-          find_button("I want to promote this initiative").click
-          fill_in "Title", with: translated(initiative.title, locale: :en)
-          fill_in_editor "initiative_description", with: translated(initiative.description, locale: :en)
-          find_button("Continue").click
-        end
+        context "when there is several initiatives type" do
+          before do
+            find_button("I want to promote this initiative").click
+            fill_in "Title", with: translated(initiative.title, locale: :en)
+            fill_in_editor "initiative_description", with: translated(initiative.description, locale: :en)
+            find_button("Continue").click
+          end
 
-        it "Create view is shown" do
-          expect(page).to have_content("Create")
-        end
+          it "Create view is shown" do
+            expect(page).to have_content("Create")
+          end
 
-        it "Offers contextual help" do
-          within ".callout.secondary" do
-            expect(page).to have_content("Review the content of your initiative. Is your title easy to understand? Is the objective of your initiative clear?")
-            expect(page).to have_content("You have to choose the type of signature. In-person, online or a combination of both")
-            expect(page).to have_content("Which is the geographic scope of the initiative? City, district?")
+          it "Offers contextual help" do
+            within ".callout.secondary" do
+              expect(page).to have_content("Review the content of your initiative. Is your title easy to understand? Is the objective of your initiative clear?")
+              expect(page).to have_content("You have to choose the type of signature. In-person, online or a combination of both")
+              expect(page).to have_content("Which is the geographic scope of the initiative? City, district?")
+            end
+          end
+
+          it "Information collected in previous steps is already filled" do
+            expect(find(:xpath, "//input[@id='initiative_type_id']", visible: false).value).to eq(initiative_type.id.to_s)
+            expect(find(:xpath, "//input[@id='initiative_title']").value).to eq(translated(initiative.title, locale: :en))
+            expect(find(:xpath, "//input[@id='initiative_description']", visible: false).value).to eq(translated(initiative.description, locale: :en))
+          end
+
+          context "when only one signature collection and scope are available" do
+            let(:other_initiative_type_scope) { nil }
+            let(:initiative_type) { create(:initiatives_type, organization: organization, minimum_committee_members: initiative_type_minimum_committee_members, signature_type: "offline") }
+
+            it "hides and automatically selects the values" do
+              expect(page).not_to have_content("Signature collection type")
+              expect(page).not_to have_content("Scope")
+              expect(find(:xpath, "//input[@id='initiative_type_id']", visible: false).value).to eq(initiative_type.id.to_s)
+              expect(find(:xpath, "//input[@id='initiative_signature_type']", visible: false).value).to eq("offline")
+            end
           end
         end
 
-        it "Information collected in previous steps is already filled" do
-          expect(find(:xpath, "//input[@id='initiative_type_id']", visible: false).value).to eq(initiative_type.id.to_s)
-          expect(find(:xpath, "//input[@id='initiative_title']").value).to eq(translated(initiative.title, locale: :en))
-          expect(find(:xpath, "//input[@id='initiative_description']", visible: false).value).to eq(translated(initiative.description, locale: :en))
-        end
+        context "when there is only one initiative type" do
+          let!(:other_initiative_type) { nil }
 
-        context "when only one signature collection and scope are available" do
-          let(:other_initiative_type_scope) { nil }
-          let(:initiative_type) { create(:initiatives_type, organization: organization, minimum_committee_members: initiative_type_minimum_committee_members, signature_type: "offline") }
+          before do
+            fill_in "Title", with: translated(initiative.title, locale: :en)
+            fill_in_editor "initiative_description", with: translated(initiative.description, locale: :en)
+            find_button("Continue").click
+          end
 
-          it "hides and automatically selects the values" do
-            expect(page).not_to have_content("Signature collection type")
-            expect(page).not_to have_content("Scope")
-            expect(find(:xpath, "//input[@id='initiative_type_id']", visible: false).value).to eq(initiative_type.id.to_s)
-            expect(find(:xpath, "//input[@id='initiative_signature_type']", visible: false).value).to eq("offline")
+          it "have no 'Initiative type' grey field" do
+            expect(page).not_to have_content("Initiative type")
+            expect(page).not_to have_css("#type_description")
           end
         end
       end
