@@ -14,6 +14,7 @@ module Decidim
       validates :name, translatable_presence: true
 
       attribute :weight, Integer, default: 0
+      attribute :parent_id, Integer
 
       attribute :manifest, Object
       attribute :participatory_space, Object

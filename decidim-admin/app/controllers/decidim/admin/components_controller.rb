@@ -6,12 +6,11 @@ module Decidim
     # admin panel.
     #
     class ComponentsController < Decidim::Admin::ApplicationController
-      helper_method :manifest, :current_participatory_space
+      helper_method :manifest, :components, :current_participatory_space, :parent_options
 
       def index
         enforce_permission_to :read, :component
         @manifests = Decidim.component_manifests
-        @components = current_participatory_space.components
       end
 
       def new
@@ -20,7 +19,8 @@ module Decidim
         @component = Component.new(
           name: default_name(manifest),
           manifest_name: params[:type],
-          participatory_space: current_participatory_space
+          participatory_space: current_participatory_space,
+          parent_id: params[:parent_id]
         )
 
         @form = form(@component.form_class).from_model(@component)
@@ -113,6 +113,8 @@ module Decidim
 
       private
 
+      attr_accessor :component
+
       # Processes the component params so the form object defined in the manifest (component_form_class_name)
       # can assign and validate the attributes when using #from_params.
       def component_params
@@ -138,6 +140,10 @@ module Decidim
         current_participatory_space.components
       end
 
+      def components
+        @components ||= current_participatory_space.components
+      end
+
       def manifest
         @component&.manifest || Decidim.find_component_manifest(params[:type])
       end
@@ -157,6 +163,12 @@ module Decidim
           previous_settings["default_step"] || {},
           current_settings["default_step"] || {}
         )
+      end
+
+      def parent_options
+        return [] unless component.allow_parent?
+
+        @parent_options ||= component.participatory_space.components.select(&:allow_children?)
       end
     end
   end

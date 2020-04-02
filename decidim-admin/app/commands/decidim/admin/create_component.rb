@@ -38,6 +38,7 @@ module Decidim
           name: form.name,
           participatory_space: form.participatory_space,
           weight: form.weight,
+          parent_id: form.parent_id,
           settings: form.settings,
           default_step_settings: form.default_step_settings,
           step_settings: form.step_settings
