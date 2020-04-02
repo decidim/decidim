@@ -452,7 +452,7 @@ cs:
     endorsable:
       endorsements: Potvrzení
     endorsement_buttons_cell:
-      already_endorsed: Zapsáno
+      already_endorsed: Schváleno
       endorse: Zapsat
     endorsements:
       identities:
