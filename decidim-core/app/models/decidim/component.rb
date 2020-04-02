@@ -10,6 +10,11 @@ module Decidim
     include Traceable
     include Loggable
 
+    has_many :children, foreign_key: "parent_id", class_name: "Decidim::Component", inverse_of: :parent, dependent: :destroy
+    belongs_to :parent, foreign_key: "parent_id", class_name: "Decidim::Component", inverse_of: :children, optional: true
+
+    scope :top_level, -> { where parent: nil }
+
     belongs_to :participatory_space, polymorphic: true
 
     default_scope { order(arel_table[:weight].asc, arel_table[:manifest_name].asc) }
