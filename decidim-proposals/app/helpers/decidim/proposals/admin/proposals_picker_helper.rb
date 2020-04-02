@@ -21,7 +21,7 @@ module Decidim
           }
 
           form.data_picker(field, picker_options, prompt_params) do |item|
-            { url: url, text: present(item).full_title }
+            { url: url, text: present(item).id_and_title }
           end
         end
       end

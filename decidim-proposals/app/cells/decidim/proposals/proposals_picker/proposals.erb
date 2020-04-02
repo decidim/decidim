@@ -1,7 +1,7 @@
 <ul id="proposals_list">
   <% decorated_proposals do |proposal| %>
     <li>
-      <label><input type="checkbox" data-picker-text="<%= proposal.full_title(html_escape: true) %>" data-picker-url="<%= picker_path %>" value="<%= proposal.id %>" data-picker-choose> <%= proposal.full_title(html_escape: true) %> (<%= proposal.reference %>)</label>
+      <label><input type="checkbox" data-picker-text="<%= proposal.id_and_title(html_escape: true) %>" data-picker-url="<%= picker_path %>" value="<%= proposal.id %>" data-picker-choose> <%= proposal.id_and_title(html_escape: true) %> (<%= proposal.reference %>)</label>
     </li>
   <% end %>
   <% if more_proposals? %>

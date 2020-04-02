@@ -45,7 +45,7 @@ module Decidim
         renderer.render(links: links, extras: extras).html_safe
       end
 
-      def full_title(links: false, extras: true, html_escape: false)
+      def id_and_title(links: false, extras: true, html_escape: false)
         "##{proposal.id} - #{title(links: links, extras: extras, html_escape: html_escape)}"
       end
 
