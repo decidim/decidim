@@ -92,6 +92,7 @@ es-MX:
             other: "%{count} proyectos"
         filters:
           category: Categoría
+          category_prompt: Selecciona una categoría
           scope: Ámbito
           search: Buscar
         filters_small_view:
