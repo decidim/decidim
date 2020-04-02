@@ -37,6 +37,8 @@ en:
           form:
             add_question: Add question
             already_answered_warning: The form is already answered by some users so you cannot modify its questions.
+            collapse: Collapse all questions
+            expand: Expand all questions
           question:
             add_answer_option: Add answer option
             any: Any

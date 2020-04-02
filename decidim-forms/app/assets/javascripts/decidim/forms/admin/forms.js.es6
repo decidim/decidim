@@ -206,6 +206,14 @@
     setupInitialQuestionAttributes($target);
   });
 
+  $("button.collapse-all").on("click", () => {
+    $(".collapsible").addClass("hide");
+  });
+
+  $("button.expand-all").on("click", () => {
+    $(".collapsible").removeClass("hide");
+  });
+
   autoLabelByPosition.run();
   autoButtonsByPosition.run();
 })(window);
