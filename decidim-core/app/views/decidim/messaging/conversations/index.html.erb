@@ -19,24 +19,29 @@
       <div class="reveal collapse"
            id="user-conversations-add-modal"
            data-reveal>
-
+            <div class="wrapper--inner">
+              <button class="close-button" aria-label="Close alert" type="button" data-close>
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
             <%= decidim_form_for(@form, url: conversations_check_multiple_url, html: { class: "form new_attachment" }) do |f| %>
-              <div class="container">
+              <div class="container wrapper--inner">
                 <div class="row">
                   <div class="columns large-12">
                     <%= render "add_conversation_users", object: f, locals: { title: "new title" } %>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="columns large-12">
-                    <div class="button--double form-general-submit">
-                      <%= f.submit t(".next") %>
+                <div class="wrapper wrapper--inner">
+                  <div class="row">
+                    <div class="large-12">
+                      <div class="button--double form-general-submit float-right">
+                        <%= f.submit t(".next") %>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             <% end %>
-
       </div>
       <%= javascript_include_tag "decidim/start_conversation_dialog" %>
     </div>

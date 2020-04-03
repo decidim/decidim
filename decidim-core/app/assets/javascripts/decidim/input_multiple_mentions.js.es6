@@ -91,6 +91,7 @@ $(() => {
           <img src="${item.original.avatarUrl}" alt="${item.original.name}" height="35" width="35" style="border-radius: 50%;">&nbsp;
           <b>${item.original.name}</b>
           <input type="hidden" name="recipient_id[]" value="${item.original.id}">
+          <b class="float-right">X</b>
         </label>
       `;
 
