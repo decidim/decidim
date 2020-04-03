@@ -4,7 +4,7 @@
       <div class="title-action">
         <h1 class="heading3 title-action__title">
           <%= link_to decidim.conversations_path, class: "card--list__data__icon card--list__data__icon--back" do %>
-            <%= icon "chevron-left" %>
+            <%= icon "chevron-left", role: "img" %>
           <% end %>
 
           <%= t(".title", usernames: username_list(participants)) %>

@@ -21,7 +21,7 @@ module Decidim
     end
 
     def icon_options
-      return { class: "icon--small" } if inline?
+      return { class: "icon--small", role: "img" } if inline?
 
       {}
     end

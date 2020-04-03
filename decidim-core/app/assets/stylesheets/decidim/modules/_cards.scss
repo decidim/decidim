@@ -61,6 +61,15 @@ $datetime-bg: var(--primary);
 .card__content {
   padding: $card-padding-small;
 
+  a:hover{
+    text-decoration: underline;
+  }
+
+  .text-center a:focus,
+  li a:focus{
+    outline: 2px solid $secondary;
+  }
+
   &:not(:only-child) {
     padding-bottom: $card-padding-small / 2;
   }
@@ -85,6 +94,14 @@ $datetime-bg: var(--primary);
 
 .card__title {
   @extend .heading5;
+
+  &hover{
+    text-decoration: underline;
+  }
+
+  &:focus{
+    outline: 2px solid $secondary;
+  }
 }
 
 .card__header {
@@ -126,6 +143,16 @@ $datetime-bg: var(--primary);
   &:first-child {
     margin-top: -0.25em; //balances top alignment in card
   }
+
+  a:hover{
+    color: darken($secondary, 20%);
+    text-decoration: underline;
+  }
+
+  a:focus{
+    outline: 2px solid $secondary;
+  }
+
   .card__text--status {
     font-weight: bold;
     text-transform: uppercase;
@@ -215,6 +242,14 @@ $datetime-bg: var(--primary);
   border-radius: 0 0 $card-border-radius $card-border-radius;
   clear: both;
 
+  a:hover{
+    text-decoration: underline;
+  }
+
+  a:focus{
+    outline: 2px solid $secondary;
+  }
+
   .card__content {
     display: flex;
   }
@@ -294,6 +329,16 @@ $datetime-bg: var(--primary);
   margin: 0;
   display: flex;
   flex-wrap: wrap;
+
+  a:hover{
+    text-decoration: underline;
+  }
+
+  a:focus,
+  span:focus,
+  button:focus{
+    outline: 2px solid $secondary;
+  }
 }
 
 .card-data__item {
@@ -441,6 +486,16 @@ $datetime-bg: var(--primary);
 
   &:hover {
     color: $anchor-color;
+    text-decoration: underline;
+  }
+
+  &:focus{
+    outline: 2px solid $secondary;
+
+    h2,
+    h3{
+      outline: 2px solid $secondary;
+    }
   }
 }
 
@@ -632,6 +687,14 @@ $datetime-bg: var(--primary);
 
   .card__title {
     @extend .heading2;
+
+    &:hover{
+      text-decoration: underline;
+    }
+
+    &:focus{
+      outline: 2px solid $secondary;
+    }
   }
 
   .card__content {
