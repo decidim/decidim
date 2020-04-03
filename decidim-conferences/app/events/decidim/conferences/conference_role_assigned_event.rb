@@ -2,8 +2,9 @@
 
 module Decidim
   module Conferences
-    class ConferenceRoleAssignedEvent < Decidim::Events::BaseEvent
+    class ConferenceRoleAssignedEvent < Decidim::Events::SimpleEvent
       include Decidim::Events::NotificationEvent
+      include Decidim::Events::AuthorEvent
 
       def i18n_role
         I18n.t(extra["role"], "decidim.admin.models.conference_user_role.roles", default: extra["role"])

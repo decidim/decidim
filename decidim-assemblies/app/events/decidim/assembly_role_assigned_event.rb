@@ -1,8 +1,9 @@
 # frozen-string_literal: true
 
 module Decidim
-  class AssemblyRoleAssignedEvent < Decidim::Events::BaseEvent
+  class AssemblyRoleAssignedEvent < Decidim::Events::SimpleEvent
     include Decidim::Events::NotificationEvent
+    include Decidim::Events::AuthorEvent
 
     def i18n_role
       I18n.t(extra["role"], "decidim.admin.models.conference_user_role.roles", default: extra["role"])

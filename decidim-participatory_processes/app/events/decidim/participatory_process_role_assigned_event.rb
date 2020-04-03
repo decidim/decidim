@@ -1,8 +1,9 @@
 # frozen-string_literal: true
 
 module Decidim
-  class ParticipatoryProcessRoleAssignedEvent < Decidim::Events::BaseEvent
+  class ParticipatoryProcessRoleAssignedEvent < Decidim::Events::SimpleEvent
     include Decidim::Events::NotificationEvent
+    include Decidim::Events::AuthorEvent
 
     def notification_title
       I18n.t("notification_title", i18n_options).html_safe
