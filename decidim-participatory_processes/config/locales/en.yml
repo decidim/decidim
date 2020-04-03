@@ -273,7 +273,7 @@ en:
         role_assigned:
           email_intro: You have been assigned as %{role} for participatory process <a href="%{resource_title}</a>
           email_outro: You have received this notification because you are %{role} of the "%{resource_title}" participatory process.
-          email_subject:  You have been assigned as %{role} for "%{resource_title}"
+          email_subject: You have been assigned as %{role} for "%{resource_title}"
           notification_title: You have been assigned as %{role} for <a href="%{resource_url}">%{resource_title}</a>
         step_activated:
           email_intro: 'The %{resource_title} phase is now active for %{participatory_space_title}. You can see it from this page:'

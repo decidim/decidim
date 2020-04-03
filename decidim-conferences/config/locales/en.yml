@@ -532,7 +532,7 @@ en:
         role_assigned:
           email_intro: You have been assigned as %{role} for conference <a href="%{resource_title}</a>
           email_outro: You have received this notification because you are %{role} of the "%{resource_title}" conference.
-          email_subject:  You have been assigned as %{role} for "%{resource_title}"
+          email_subject: You have been assigned as %{role} for "%{resource_title}"
           notification_title: You have been assigned as %{role} for conference <a href="%{resource_url}">%{resource_title}</a>
         upcoming_conference:
           email_intro: 'The "%{resource_title}" conference is taking place in 2 days. You can read the description from its page:'
