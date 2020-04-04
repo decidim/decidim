@@ -63,10 +63,10 @@ fi:
   activerecord:
     models:
       decidim/participatory_process:
-        one: Osallisuusprosessi
+        one: Osallistumisprosessi
         other: Osallisuusprosessit
       decidim/participatory_process_group:
-        one: Osallisuusprosessiryhmä
+        one: Osallistumisprosessiryhmä
         other: Osallisuusprosessiryhmät
       decidim/participatory_process_step:
         one: Vaihe
