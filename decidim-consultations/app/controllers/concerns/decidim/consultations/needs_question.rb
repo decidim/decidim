@@ -7,6 +7,8 @@ module Decidim
     module NeedsQuestion
       def self.enhance_controller(instance_or_module)
         instance_or_module.class_eval do
+          include ParticipatorySpaceContext
+
           helper_method :current_question, :previous_question, :next_question, :previous_published_question, :next_published_question,
                         :current_consultation, :current_participatory_space, :stats, :sorted_results
 

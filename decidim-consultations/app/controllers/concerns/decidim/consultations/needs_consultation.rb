@@ -7,6 +7,8 @@ module Decidim
     module NeedsConsultation
       def self.enhance_controller(instance_or_module)
         instance_or_module.class_eval do
+          include ParticipatorySpaceContext
+
           helper_method :current_consultation
         end
       end
