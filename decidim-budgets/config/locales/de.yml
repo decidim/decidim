@@ -92,6 +92,7 @@ de:
             other: "%{count} Projekte"
         filters:
           category: Kategorie
+          scope: Umfang
           search: Suche
         filters_small_view:
           close_modal: Modal schließen
