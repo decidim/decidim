@@ -16,6 +16,7 @@ sv:
         created_by_other: Skapad av andra
         creation_date: Skapad datum
         decidim_area_id: Område
+        decidim_assemblies_type_id: Typ av församling
         decidim_scope_id: Omfång
         description: Beskrivning
         developer_group: Kampanjgrupp
@@ -99,6 +100,9 @@ sv:
         create:
           error: Det gick inte att duplicera församlingen.
           success: Församlingen har duplicerats.
+      assemblies_types:
+        new:
+          create: Skapa
       assembly_copies:
         new:
           copy: Kopiera
@@ -159,6 +163,10 @@ sv:
           moderations: Moderering
           private_users: Privata användare
       models:
+        assemblies_types:
+          fields:
+            created_at: Skapad
+            title: Titel
         assembly:
           fields:
             created_at: Skapad
@@ -224,6 +232,9 @@ sv:
             social_handlers: Socialt
             title: Allmän information
             visbility: Synlighet
+        assemblies_types:
+          form:
+            title: Titel
         assembly_copies:
           form:
             slug_help: 'URL-slugs används till att generera de URL:er som pekar på församlingen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
