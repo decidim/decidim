@@ -60,6 +60,16 @@ tr:
     admin:
       actions:
         new_initiative_type: Yeni girişim türü
+      filters:
+        state_eq:
+          label: Belirtmek, bildirmek
+          values:
+            accepted: Kabul edilmiş
+            created: düzenlendi
+            discarded: Atılan
+            published: Yayınlanan
+            rejected: Reddedilen
+            validating: Teknik doğrulama
       menu:
         initiatives: Girişimler
         initiatives_types: Girişim türleri
