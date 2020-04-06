@@ -88,6 +88,9 @@ nl:
         error: Er is een fout opgetreden bij het bijwerken van uw account.
         success: Uw account is bijgewerkt.
         success_with_email_confirmation: Uw account is bijgewerkt. U ontvangt een e-mail ter bevestiging van uw nieuwe e-mailadres.
+    admin:
+      actions:
+        cancel: annuleren
     admin_log:
       area:
         create: "%{user_name} heeft %{resource_name} aangemaakt"
@@ -229,6 +232,7 @@ nl:
       photos:
         related_photos: Gerelateerde foto 's
     author:
+      avatar: Profielafbeelding
       comments:
         one: commentaar
         other: commentaren
@@ -549,7 +553,6 @@ nl:
           notification_title: De <a href="%{resource_path}">profile page</a> van %{name} (%{nickname}), die je volgt, is bijgewerkt.
     export_mailer:
       data_portability_export:
-        click_button: 'Klik op de volgende knop om je gegevens te downloaden. <br/> Het bestand is beschikbaar tot %{date}. <br/> Je hebt <a href=''https://www.7-zip.org/''>7-Zip</a> nodig om het te openen. Wachtwoord: %{password}'
         download: Download
       export:
         ready: In de bijlage vindt u een versie van uw export.
@@ -579,7 +582,6 @@ nl:
       create:
         button: Volgen
         error: Er is een fout opgetreden na deze bron.
-        participatory_space: U volgt de participatieve ruimte al
       destroy:
         button: Stop met volgen
         error: Er is een fout opgetreden bij het stoppen met volgen van deze bron.
@@ -1207,7 +1209,6 @@ nl:
       cycle_detected: De ouder van een scope kan niet een van zijn afstammelingen zijn
       expired: is verlopen, vraag een nieuwe aan
       file_size_is_less_than_or_equal_to: bestandsgrootte moet kleiner zijn dan %{count}
-      invalid_time_zone: is geen geldige tijdszone
       long_words: bevat woorden die te lang zijn (meer dan 35 tekens)
       must_start_with_caps: moet beginnen met een hoofdletter
       nesting_too_deep: kan niet binnen een subcategorie zijn
@@ -1320,7 +1321,6 @@ nl:
       left: Verwijderingen
       right: Toevoegingen
     dropdown:
-      choose_diff_view_html: 'HTML weergavemodus:'
       choose_diff_view_mode: 'Vergelijk weergavemodus:'
       option_split: Naast elkaar
       option_unified: Verenigd
