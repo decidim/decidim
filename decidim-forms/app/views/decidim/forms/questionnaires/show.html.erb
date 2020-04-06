@@ -6,7 +6,7 @@
 <%= render partial: "decidim/shared/component_announcement" %>
 
 <div class="row columns">
-  <h2 class="section-heading"><%= translated_attribute questionnaire.title %></h2>
+  <h3 class="section-heading"><%= translated_attribute questionnaire.title %></h3>
   <div class="row">
     <div class="columns large-6 medium-centered lead">
       <%= decidim_sanitize translated_attribute questionnaire.description %>
@@ -40,9 +40,9 @@
 
                 <%= decidim_form_for(@form, url: update_url, method: :post, html: { class: "form answer-questionnaire" }) do |form| %>
                   <%= invisible_captcha %>
-                  <% @form.answers.each_with_index do |answer, answer_idx| %>
+                  <% @form.responses.each_with_index do |answer, answer_idx| %>
                     <div class="row column">
-                      <%= fields_for "questionnaire[answers][#{answer_idx}]", answer do |answer_form| %>
+                      <%= fields_for "questionnaire[responses][#{answer_idx}]", answer do |answer_form| %>
                         <%= render "decidim/forms/questionnaires/answer", answer_form: answer_form, answer: answer, answer_idx: answer_idx, disabled: !current_participatory_space.can_participate?(current_user) %>
                       <% end %>
                     </div>
@@ -82,7 +82,7 @@
         <% else %>
           <div class="section">
             <div class="callout warning">
-              <h5><%= t(".questionnaire_closed.title") %></h5>
+              <h4><%= t(".questionnaire_closed.title") %></h4>
               <p><%= t(".questionnaire_closed.body") %></p>
             </div>
           </div>

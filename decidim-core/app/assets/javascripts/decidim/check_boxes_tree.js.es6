@@ -99,9 +99,9 @@
         const checkedInputs = document.querySelectorAll(
           `#${checksContext} input[type='checkbox']:checked`
         );
-        const indeterminateInputs = Array.from(checkedInputs).filter((checkbox) => checkbox.indeterminate)
+        const indeterminateInputs = Array.from(totalInputs).filter((checkbox) => checkbox.indeterminate)
 
-        if (checkedInputs.length === 0) {
+        if (checkedInputs.length === 0 && indeterminateInputs.length === 0) {
           global.checked = false;
           global.indeterminate = false;
         } else if (checkedInputs.length === totalInputs.length && indeterminateInputs.length === 0) {
@@ -152,9 +152,9 @@
       const checkedSiblings = document.querySelectorAll(
         `#${checkBoxContext} > div > [data-children-checkbox] > input:checked, #${checkBoxContext} > [data-children-checkbox] > input:checked`
       );
-      const indeterminateSiblings = Array.from(checkedSiblings).filter((checkbox) => checkbox.indeterminate)
+      const indeterminateSiblings = Array.from(totalCheckSiblings).filter((checkbox) => checkbox.indeterminate)
 
-      if (checkedSiblings.length === 0) {
+      if (checkedSiblings.length === 0 && indeterminateSiblings.length === 0) {
         parentCheck.checked = false;
         parentCheck.indeterminate = false;
       } else if (checkedSiblings.length === totalCheckSiblings.length && indeterminateSiblings.length === 0) {
