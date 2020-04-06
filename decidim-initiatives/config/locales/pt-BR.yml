@@ -60,6 +60,16 @@ pt-BR:
     admin:
       actions:
         new_initiative_type: Novo tipo de iniciativa
+      filters:
+        state_eq:
+          label: Estado
+          values:
+            accepted: Aceitaram
+            created: Criada
+            discarded: Descartado
+            published: Publicados
+            rejected: Rejeitado
+            validating: Validação técnica
       menu:
         initiatives: Iniciativas
         initiatives_types: Tipos de iniciativa
