@@ -1,0 +1,14 @@
+<%= action_authorized_button_to "vote",
+      order_line_item_path(project_id: model),
+      method: vote_button_method,
+      remote: true,
+      class: "button tiny budget-list__action #{vote_button_class}",
+      data: {
+        disable: true,
+        budget: model.budget,
+        "redirect-url": resource_path
+      },
+      disabled: vote_button_disabled?,
+      title: vote_button_label do %>
+  <%= icon("check", class: "icon--small", aria_label: vote_button_label, role: "img") %>
+<% end %>
