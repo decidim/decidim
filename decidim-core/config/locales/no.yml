@@ -139,6 +139,8 @@
         reject: "%{user_name} avslo %{resource_name} gruppens verifikasjon"
         verify: "%{user_name} verifiserte gruppen %{resource_name}"
         verify_via_csv: "%{user_name} verifiserte gruppen %{resource_name} via en CSV fil"
+    admin_terms_of_use:
+      default_body: "<h2>ADMINISTRATOR BRUKERVILKÅR</h2><p>Vi stoler på at du har mottatt det vanlige foredraget fra den lokale systemadministratoren. Det handlet vanligvis om disse tre tingene:</p><ol><li>Respekter andres privatliv.</li><li>Tenk før du klikker.</li><li>Med stor makt kommer stort ansvar.</li></ol>"
     amendments:
       accepted:
         error: En feil oppstod under godkjenningen av endringen.
@@ -554,6 +556,7 @@
           notification_title: <a href="%{resource_path}">Profilsiden</a> til %{name} (%{nickname}), som du følger er blitt oppdatert.
     export_mailer:
       data_portability_export:
+        click_button: 'Trykk på den neste knappen for å laste ned dataene dine. <br/> Du vil ha filen tilgjengelig frem til %{date}. <br/> Du vil trenge <a href=''https://www.7-zip.org/''>7-Zip</a> for å åpne den. Passord: %{password}'
         download: Last ned
       export:
         ready: Vennligst finn vedlagte en zip-versjon av eksporten din.
@@ -583,6 +586,7 @@
       create:
         button: Følg
         error: Det oppstod et problem med å følge denne ressursen.
+        participatory_space: Følger allerede deltakerområdet
       destroy:
         button: Stopp å følge
         error: Det oppstod et problem med å slutte å følge denne ressursen.
@@ -1210,6 +1214,7 @@
       cycle_detected: forelderen til et omfang kan ikke være en av dens etterkommere
       expired: har utløpt, vennligst be om ny
       file_size_is_less_than_or_equal_to: filstørrelse må være mindre enn eller lik %{count}
+      invalid_time_zone: er ikke en gyldig tidssone
       long_words: inneholder ord som er for lange (over 35 tegn)
       must_start_with_caps: må starte med en stor bokstav
       nesting_too_deep: kan ikke være inni en underkategori
@@ -1322,8 +1327,11 @@
       left: Slettinger
       right: Tillegg
     dropdown:
+      choose_diff_view_html: 'HTML visningsmodus:'
       choose_diff_view_mode: 'Sammenlign visningsmodus:'
+      option_escaped: Rømt
       option_split: Side-ved-side
+      option_unescaped: Urømt
       option_unified: Udefinert
   views:
     pagination:
