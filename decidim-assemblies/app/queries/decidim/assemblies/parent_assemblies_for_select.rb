@@ -15,6 +15,9 @@ module Decidim
         @assembly = assembly
       end
 
+      # Finds the available assemblies
+      #
+      # Returns an ActiveRecord::Relation.
       def query
         available_assemblies = Assembly.where(organization: @organization).where.not(id: @assembly)
 
