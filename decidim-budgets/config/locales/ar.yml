@@ -100,7 +100,7 @@ ar:
             other: "%{count} مشاريع"
         filters:
           category: الفئة
-          scope: النطاق
+          scope: نطاق
           search: بحث
         filters_small_view:
           close_modal: إغلاق مشروط
