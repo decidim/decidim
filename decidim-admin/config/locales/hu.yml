@@ -300,7 +300,7 @@ hu:
         officialized_at_null:
           label: Állapot
           values:
-            'false': Hivatalossá téve
+            'false': Hivatalos
             'true': Nem hivatalos
         private_space_eq:
           label: Magán
