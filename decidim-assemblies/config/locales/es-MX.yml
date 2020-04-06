@@ -16,7 +16,7 @@ es-MX:
         created_by_other: Creado por otro
         creation_date: Fecha de creacion
         decidim_area_id: Área
-        decidim_assemblies_type_id: Tipo de asamblea
+        decidim_assemblies_type_id: Tipo de montaje
         decidim_scope_id: Ámbito
         description: Descripción
         developer_group: Grupo promotor
@@ -176,7 +176,7 @@ es-MX:
       models:
         assemblies_types:
           fields:
-            created_at: Creado el
+            created_at: Fecha de creación
             title: Título
         assembly:
           fields:
