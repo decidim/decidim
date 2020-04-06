@@ -20,6 +20,7 @@ module Decidim::Admin
         weight: 3,
         invalid?: !valid,
         valid?: valid,
+        parent_id: nil,
         settings: {
           dummy_global_attribute_1: true,
           dummy_global_attribute_2: false

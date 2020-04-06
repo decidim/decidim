@@ -21,6 +21,7 @@ module Decidim::Admin
         weight: 2,
         manifest: manifest,
         participatory_space: participatory_process,
+        parent_id: nil,
         settings: {
           dummy_global_attribute_1: true,
           dummy_global_attribute_2: false
