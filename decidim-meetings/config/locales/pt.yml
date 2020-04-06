@@ -232,3 +232,216 @@ pt:
             success: Reunião fechada com sucesso
           create:
             invalid: Tem havido um problema ao criar esta reunião
+            success: Reunião criada com sucesso
+          destroy:
+            success: Reunião excluída com êxito
+          edit:
+            update: Actualizar
+          form:
+            select_organizer: Selecione o organizador
+          index:
+            title: Reuniões
+          new:
+            create: Criar
+            title: Criar reunião
+          service:
+            description: Descrição
+            down: Baixa
+            remove: Remover
+            service: Serviço
+            title: Título
+            up: Acima
+          services:
+            add_service: Adicionar serviço
+            services: Serviços
+          update:
+            invalid: Tem havido um problema ao atualizar esta reunião
+            success: Reunião atualizada com sucesso
+        minutes:
+          create:
+            invalid: Houve um problema ao criar esta ata
+            success: Minutos criados com sucesso
+          edit:
+            update: Atualizar
+          new:
+            create: Crio
+            title: Crie minutos
+          update:
+            invalid: Houve um problema ao atualizar esta ata
+            success: Minutos atualizados com sucesso
+        models:
+          meeting:
+            name: encontro
+        registrations:
+          edit:
+            save: Salve 
+            validate: Validar
+            validate_registration_code: Validar código de registro
+          form:
+            available_slots_help: Deixe-o para 0 se você tiver slots ilimitados disponíveis.
+            invites: Convites
+            registration_form: Formulário de registro
+            registrations_count:
+              one: Houve %{count} registro.
+              other: Houve %{count} inscrições.
+            reserved_slots_help: Deixe para 0 se você não tiver slots reservados
+            reserved_slots_less_than: Deve ser menor ou igual a %{count}
+          update:
+            invalid: Ocorreu um problema ao salvar as configurações de registro.
+            success: Configurações de registro de reunião salvas com sucesso.
+          validate_registration_code:
+            invalid: Este código de registro é inválido.
+            success: Código de registro validado com sucesso.
+      admin_log:
+        invite:
+          create: "%{user_name} convidados %{attendee_name} a participar de %{resource_name} reunião no espaço %{space_name}"
+          deleted: "%{user_name} uninvited %{attendee_name} de juntar %{resource_name} reunião no espaço %{space_name}"
+          update: "%{user_name} convidados %{attendee_name} a participar de %{resource_name} reunião no espaço %{space_name}"
+        meeting:
+          close: "%{user_name} fechou a reunião %{resource_name} no espaço %{space_name}"
+          create: "%{user_name} criou a reunião %{resource_name} no espaço %{space_name}"
+          delete: "%{user_name} eliminou a reunião %{resource_name} no espaço %{space_name}"
+          export_registrations: "%{user_name} exportou os registros da reunião %{resource_name} no espaço %{space_name}"
+          update: "%{user_name} atualizou a reunião %{resource_name} no espaço %{space_name}"
+          value_types:
+            organizer_presenter:
+              not_found: 'O organizador não foi encontrado no banco de dados (ID: %{id})'
+        minutes:
+          create: "%{user_name} criou a ata da reunião %{resource_name} no espaço %{space_name}"
+          update: "%{user_name} atualizou a ata da reunião %{resource_name} no espaço %{space_name}"
+      calendar_modal:
+        calendar_url: URL do calendário
+        close_window: Janela fechada
+        export_calendar: Calendário de exportação
+      conference_venues: Locais de conferência
+      content_blocks:
+        upcoming_events:
+          name: Próximos eventos
+          upcoming_events: Próximos encontros
+          view_all_events: Ver tudo
+      directory:
+        meetings:
+          index:
+            all: Todos
+            date: Encontro
+            meetings: Reuniões
+            past: Passado
+            search: Pesquisa
+            space_type: Espaço participativo
+            upcoming: próximos
+      last_activity:
+        new_meeting_at_html: "<span>Nova reunião em %{link}</span>"
+      mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: Convite para participar de uma reunião
+        registration_mailer:
+          confirmation:
+            subject: O registro da sua reunião foi confirmado
+      meeting:
+        not_allowed: Você não tem permissão para ver esta reunião
+      meetings:
+        filters:
+          category: Categoria
+          category_prompt: Selecione uma categoria
+          date: Encontro
+          past: Passado
+          search: Pesquisa
+          upcoming: próximos
+        filters_small_view:
+          close_modal: Fechar modal
+          filter: Filtro
+          filter_by: Filtrar por
+          unfold: Desdobrar
+        meeting_minutes:
+          meeting_minutes: Atas de Reunião
+          related_information: Informação relacionada
+        meetings:
+          no_meetings_warning: Nenhuma reunião corresponde aos seus critérios de pesquisa ou não há nenhuma reunião agendada.
+          upcoming_meetings_warning: Atualmente, não há reuniões agendadas, mas aqui você pode encontrar todas as reuniões anteriores listadas.
+        registration_confirm:
+          cancel: Cancelar
+          confirm: confirme
+        show:
+          attendees: Contagem de participantes
+          contributions: Contagem de Contribuições
+          going: Indo
+          join: Participe da reunião
+          meeting_report: Relatório de reunião
+          no_slots_available: Não há slots disponíveis
+          organizations: Organizações participantes
+          registration_code_help_text: Seu código de registro
+          registration_state:
+            validated: VALIDADO
+            validation_pending: VALIDAÇÃO PENDENTE
+          remaining_slots:
+            one: "%{count} slot restante"
+            other: "%{count} slots restantes"
+          view: Visão
+      meetings_map:
+        view_meeting: Ver reunião
+      models:
+        invite:
+          fields:
+            email: O email
+            name: Nome
+            sent_at: Enviado em
+            status: Status
+          status:
+            accepted: Aceito (%{at})
+            rejected: Rejeitado (%{at})
+            sent: Enviei
+        meeting:
+          fields:
+            closed: Fechadas
+            end_time: Data final
+            map: Mapa
+            start_time: Data de início
+            title: Título
+      read_more: "(consulte Mais informação)"
+      registration_mailer:
+        confirmation:
+          confirmed_html: Seu registro para a reunião <a href="%{url}">%{title}</a> foi confirmado.
+          details: Você encontrará os detalhes da reunião no anexo.
+          registration_code: Seu código de registro é %{code}.
+      registrations:
+        create:
+          invalid: Houve um problema ao se juntar a essa reunião.
+          success: Você se juntou à reunião com sucesso.
+        decline_invitation:
+          invalid: Houve um problema ao recusar o convite.
+          success: Você recusou o convite com sucesso.
+        destroy:
+          invalid: Tem havido um problema ao sair desta reunião.
+          success: Você saiu da reunião com sucesso.
+      types:
+        private_meeting: Reunião privada
+        transparent: Transparente
+    metrics:
+      meetings:
+        description: Número de reuniões criadas
+        object: reuniões
+        title: Reuniões
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Reuniões anteriores
+          upcoming_meetings: Próximas reuniões
+    participatory_spaces:
+      highlighted_meetings:
+        past_meetings: Reuniões anteriores
+        see_all: Ver todos (%{count})
+        upcoming_meetings: Próximas reuniões
+      upcoming_meeting_for_card:
+        upcoming_meeting: Próxima reunião
+    resource_links:
+      meetings_through_proposals:
+        meeting_result: 'Resultados relacionados:'
+        result_meeting: 'Reuniões relacionadas:'
+      proposals_from_meeting:
+        meeting_proposal: 'Propostas relacionadas:'
+        proposal_meeting: 'Reuniões relacionadas:'
+  devise:
+    mailer:
+      join_meeting:
+        subject: Convite para participar de uma reunião
