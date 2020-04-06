@@ -93,6 +93,7 @@ nl:
         filters:
           category: Categorie
           category_prompt: Kies een categorie
+          scope: Reikwijdte
           search: Zoeken
         filters_small_view:
           close_modal: Dialoogvenster sluiten
