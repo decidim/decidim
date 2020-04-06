@@ -265,6 +265,15 @@ pl:
       exports:
         export_as: "%{name} jako %{export_format}"
         notice: Twój eksport jest obecnie w toku. Po jego zakończeniu otrzymasz e-maila.
+      filters:
+        category_id_eq:
+          label: Kategoria
+        officialized_at_null:
+          label: Stan
+          values:
+            'false': Oficjalny
+            'true': Nie oficjalny
+        search_label: Szukaj
       help_sections:
         error: Wystąpił błąd podczas aktualizowania sekcji pomocy
         form:
