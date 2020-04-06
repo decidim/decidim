@@ -1,1 +1,41 @@
 ru:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: 'Создано:'
+        field: Мое поле
+        start_date: Дата начала
+        title: Название
+        translatable_text: Переводимый текст
+        updated_at: 'Обновлено:'
+  decidim:
+    dummy:
+      admin:
+        exports:
+          dummies: Примеры сохранения
+    gamification:
+      badges:
+        test:
+          conditions:
+            - Используйте тестовую среду для decidim.
+          description: Участники получают этот значок за написание тестов.
+          description_another: Этот участник написал %{score} тестов.
+          description_own: Вы написали %{score} тест.
+          name: Тесты
+          next_level_in: Напишите еще %{score} тестов, чтобы достичь следующего уровня!
+          unearned_another: Этот участник еще не написал тестов.
+          unearned_own: Вы еще не написали тестов.
+    pages:
+      home:
+        statistics:
+          bar: Пример переменной 1
+          dummies_count_high: Пример наибольшего количества
+          dummies_count_medium: Пример среднего количества
+          foo: Пример переменной 2
+    participatory_processes:
+      statistics:
+        dummies_count_high: Пример наибольшего количества
+        dummies_count_medium: Пример среднего количества
+    resource_links:
+      test_link:
+        dummy_resource_dummy: Пример соотносящегося ресурса
