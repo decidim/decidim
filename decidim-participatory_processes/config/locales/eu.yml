@@ -22,6 +22,7 @@ eu:
         participatory_structure: Nola erabakitzen da?
         promoted: Nabarmendua
         published_at: Argitaratu at
+        related_process_ids: Elkarrekin lotutako prozesuak
         scope_id: Esparrua
         scopes_enabled: Esparru gaituak
         short_description: Deskribapen laburra
@@ -297,6 +298,7 @@ eu:
             images: Irudiak
             metadata: Metadata
             other: Beste
+            related_processes: Elkarrekin lotutako prozesuak
             select_an_area: Hautatu eremu bat
             select_process_group: Hautatu prozesu talde bat
             slug_help: 'URL slugs erabiltzen dira prozesu hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
@@ -352,6 +354,7 @@ eu:
         participatory_scope: Zer erabaki
         participatory_structure: Nola erabakitzen da?
         private_space: Prozesu pribatua da
+        related_processes: Elkarrekin lotutako prozesuak
         scope: Esparrua
         start_date: Hasiera-data
         target: Nork parte hartzen du
