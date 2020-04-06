@@ -47,6 +47,7 @@ cs:
           against: Proti
           in_favor: Ve prospěch
         deleted_user: Vymazaný uživatel
+        hide_replies: Skrýt odpovědi
         reply: Odpověď
         report:
           action: Zpráva
@@ -59,6 +60,8 @@ cs:
             offensive: Obsahuje rasismus, sexismus, podvody, osobní útoky, hrozby smrti, žádosti o sebevraždu nebo jakoukoli formu projevy nenávisti.
             spam: Obsahuje clickbait, reklama, podvody nebo skripty.
           title: Nahlásit problém
+        show_replies: Zobrazit %{replies_count} odpovědí
+        single_comment_link_title: Získat odkaz na jeden komentář
       comment_order_selector:
         order:
           best_rated: Nejlépe hodnocené
@@ -71,7 +74,10 @@ cs:
       comments:
         blocked_comments_for_user_warning: V tuto chvíli nemůžete komentovat, ale můžete si přečíst předchozí.
         blocked_comments_warning: Komentáře jsou v tuto chvíli zakázány, ale můžete si přečíst předchozí.
+        comment_details_title: Podrobnosti komentáře
         loading: Načítání komentářů ...
+        single_comment_warning: Můžete zkontrolovat zbytek komentářů <a href="%{url}">zde</a>.
+        single_comment_warning_title: Vidíte jeden komentář
         title: "%{count} komentářů"
     events:
       comments:
