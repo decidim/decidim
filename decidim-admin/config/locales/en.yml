@@ -776,8 +776,8 @@ en:
         users_count:
           admins: Admins
           last_day: Last day
-          last_week: Last week
           last_month: Last month
+          last_week: Last week
           no_users_count_statistics_yet: There are no users count statistics yet
           participants: Participants
       view_public_page: View public page

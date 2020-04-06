@@ -8,8 +8,8 @@ module Decidim
       #
       # @param organization [Organization] Current organization
       # @param date [Date] Period time to make users count check
-      # @param admin [String] Possible values : t for Admin or f for participant
-      def initialize(organization:, date:, admin:)
+      # @param admin [boolean] Possible values : t for Admin or f for participant
+      def initialize(organization:, date:, admin: false)
         @organization = organization
         @date = date
         @admin = admin
@@ -21,14 +21,10 @@ module Decidim
       def query
         return Decidim::User.none unless organization
         return Decidim::User.none unless date
-        return Decidim::User.none unless admin
 
         query = Decidim::User.left_outer_joins(:organization).where(decidim_organizations: { id: organization.id })
-
         query = query.where("#{Decidim::User.table_name}.current_sign_in_at >= ?", date) unless date.nil?
-
         query = query.where(admin: admin)
-
         query
       end
 

@@ -1,7 +1,7 @@
-<div class="card">
+<div class="card users_statistics">
   <div class="card-divider">
     <h2 class="card-title">
-      <%= t "decidim.admin.titles.statistics" %>
+      <%= t("decidim.admin.titles.statistics") %>
     </h2>
   </div>
   <div class="table-scroll">
@@ -10,7 +10,7 @@
       <p class="users_count"><%= t(".no_users_count_statistics_yet") %></p>
     </div>
     <% else %>
-    <table class="table-list">
+    <table class="table-list users_count" >
       <thead>
         <tr>
           <th></th>
@@ -21,13 +21,13 @@
       </thead>
       <tbody>
         <tr>
-          <td><%= t(".participants") %></td>
+          <td class="title"><%= t(".participants") %></td>
           <td><%= result[:total_participants_last_month] %></td>
           <td><%= result[:total_participants_last_week] %></td>
           <td><%= result[:total_participants_last_24] %></td>
         </tr>
         <tr>
-          <td><%= t(".admins") %></td>
+          <td class="title"><%= t(".admins") %></td>
           <td><%= result[:total_admins_last_month] %></td>
           <td><%= result[:total_admins_last_week] %></td>
           <td><%= result[:total_admins_last_24] %></td>
