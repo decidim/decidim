@@ -8,6 +8,7 @@ module Decidim
       class ConferencesController < Decidim::Conferences::Admin::ApplicationController
         include Decidim::Conferences::Admin::Filterable
         include Concerns::ConferenceAdmin
+        participatory_space_admin_layout only: [:edit]
 
         layout "decidim/admin/conferences"
 
