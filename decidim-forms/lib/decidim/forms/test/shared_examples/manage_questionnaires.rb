@@ -577,10 +577,26 @@ shared_examples_for "manage questionnaires" do
       end
 
       describe "collapsible questions" do
+        context "when clicking on Expand all button" do
+          it "expands all questions" do
+            click_button "Expand all questions"
+            expect(page).to have_selector(".collapsible", visible: true)
+            expect(page).to have_selector(".question--collapse .icon-collapse", count: questionnaire.questions.count)
+          end
+        end
+
+        context "when clicking on Collapse all button" do
+          it "collapses all questions" do
+            click_button "Collapse all questions"
+            expect(page).not_to have_selector(".collapsible", visible: true)
+            expect(page).to have_selector(".question--collapse .icon-expand", count: questionnaire.questions.count)
+          end
+        end
+
         shared_examples_for "collapsing a question" do
           it "changes the toggle button" do
             within ".questionnaire-question:last-of-type" do
-              expect(page.find(".question--collapse .icon")[:"aria-label"]).to eq("Collapse")
+              expect(page).to have_selector(".icon-expand")
             end
           end
 
@@ -594,7 +610,7 @@ shared_examples_for "manage questionnaires" do
         shared_examples_for "uncollapsing a question" do
           it "changes the toggle button" do
             within ".questionnaire-question:last-of-type" do
-              expect(page.find(".question--collapse .icon")[:"aria-label"]).to eq("Expand")
+              expect(page).to have_selector(".icon-collapse")
             end
           end
 
