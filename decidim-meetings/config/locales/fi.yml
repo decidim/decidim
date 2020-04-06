@@ -412,6 +412,7 @@ fi:
       registrations:
         create:
           invalid: Tapahtumaan liittyminen epäonnistui.
+          success: Olet liittynyt tapahtumaan onnistuneesti.
         decline_invitation:
           invalid: Kutsun hylkääminen epäonnistui.
           success: Olet hylännyt kutsun onnistuneesti.
