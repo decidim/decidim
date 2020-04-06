@@ -88,6 +88,9 @@ fr:
         error: Une erreur s'est produite lors de la mise à jour de votre compte.
         success: Votre compte a été mis à jour avec succès.
         success_with_email_confirmation: Votre compte a été mis à jour avec succès. Vous recevrez un email pour confirmer votre nouvelle adresse email.
+    admin:
+      actions:
+        cancel: Annuler
     admin_log:
       area:
         create: "%{user_name} a créé la zone d'application %{resource_name}"
@@ -229,6 +232,7 @@ fr:
       photos:
         related_photos: Photos associées
     author:
+      avatar: Avatar
       comments:
         one: commentaire
         other: commentaires
@@ -544,7 +548,6 @@ fr:
           notification_title: Le <a href="%{resource_path}">profil public</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
     export_mailer:
       data_portability_export:
-        click_button: 'Cliquez sur le bouton suivant pour télécharger vos données. <br/> Le fichier sera disponible jusqu''au %{date}.'
         download: Télécharger
       export:
         ready: Vous trouverez ci-joint une version zippée de votre exportation.
