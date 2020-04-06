@@ -95,15 +95,15 @@ cs:
           label: Typ
           values:
             'false': Návrhy
-            'true': Pozměňovací návrhy
+            'true': Změny
         search_placeholder:
           id_string_or_title_cont: Hledat %{collection} podle ID nebo názvu.
         state_eq:
           values:
             evaluating: Hodnocení
-            withdrawn: Odebráno
+            withdrawn: Staženo
         state_null:
-          label: Stav
+          label: Stát
           values:
             'true': Nezodpovězeno
         valuator_role_ids_has:
@@ -392,9 +392,9 @@ cs:
         proposal_answers:
           form:
             accepted: Přijato
-            answer_proposal: Odpověď
+            answer_proposal: Odpovědět
             evaluating: Hodnocení
-            rejected: Zamítnuto
+            rejected: Odmítnuto
             title: Odpověď na návrh %{title}
         proposal_notes:
           create:
@@ -525,7 +525,7 @@ cs:
         withdrawn: Staženo
       application_helper:
         filter_category_values:
-          all: Vše
+          all: Všechno
         filter_origin_values:
           all: Všechno
           citizens: Občané
@@ -533,7 +533,7 @@ cs:
           official: Oficiální
           user_groups: Skupiny uživatelů
         filter_scope_values:
-          all: Vše
+          all: Všechno
         filter_state_values:
           accepted: Přijato
           all: Všechno
