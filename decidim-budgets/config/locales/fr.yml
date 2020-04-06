@@ -93,6 +93,7 @@ fr:
         filters:
           category: Catégorie
           category_prompt: Sélectionner une catégorie
+          scope: Périmètre d'application
           search: Rechercher
         filters_small_view:
           close_modal: Fermez la fenêtre
