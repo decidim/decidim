@@ -61,6 +61,16 @@ nl:
     admin:
       actions:
         new_initiative_type: Nieuw initiatiefstype
+      filters:
+        state_eq:
+          label: Status
+          values:
+            accepted: Aanvaard
+            created: gemaakt
+            discarded: Afgedankte
+            published: Gepubliceerd
+            rejected: Afgewezen
+            validating: Technische validatie
       menu:
         initiatives: initiatieven
         initiatives_types: Initiatieftypes
