@@ -16,6 +16,7 @@ id:
         created_by_other: Dibuat oleh lainnya
         creation_date: Tanggal Diciptakan
         decidim_area_id: Daerah
+        decidim_assemblies_type_id: Tipe perakitan
         decidim_scope_id: Cakupan
         description: Deskripsi
         developer_group: Grup promotor
@@ -96,6 +97,9 @@ id:
         create:
           error: Ada kesalahan saat menduplikasi majelis ini.
           success: Majelis berhasil digandakan.
+      assemblies_types:
+        new:
+          create: Membuat
       assembly_copies:
         new:
           copy: Salinan
@@ -156,6 +160,10 @@ id:
           moderations: Moderasi
           private_users: Pengguna pribadi
       models:
+        assemblies_types:
+          fields:
+            created_at: Dibuat di
+            title: Judul
         assembly:
           fields:
             created_at: Dibuat di
@@ -221,6 +229,9 @@ id:
             social_handlers: Sosial
             title: Informasi Umum
             visbility: Visibilitas
+        assemblies_types:
+          form:
+            title: Judul
         assembly_copies:
           form:
             slug_help: 'Slug URL digunakan untuk menghasilkan URL yang mengarah ke rakitan ini. Hanya menerima huruf, angka, dan tanda hubung, dan harus dimulai dengan huruf. Contoh: %{url}'
