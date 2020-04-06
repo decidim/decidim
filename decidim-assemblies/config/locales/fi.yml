@@ -79,7 +79,6 @@ fi:
     admin:
       actions:
         new_assembly: Uusi ryhmä
-        new_assembly_type: Uusi ryhmätyyppi
       assemblies:
         create:
           error: Uuden ryhmän luonti epäonnistui.
@@ -102,17 +101,8 @@ fi:
           error: Ryhmän kopiointi epäonnistui.
           success: Ryhmän kopiointi onnistui.
       assemblies_types:
-        create:
-          error: Uuden ryhmätyypin luonti epäonnistui.
-          success: Ryhmätyypin luonti onnistui.
-        destroy:
-          success: Ryhmätyypin poisto onnistui.
         new:
           create: Luo
-          title: Uusi ryhmätyyppi
-        update:
-          error: Ryhmätyypin päivitys epäonnistui.
-          success: Ryhmätyypin päivitys onnistui.
       assembly_copies:
         new:
           copy: Kopioi
@@ -172,7 +162,6 @@ fi:
           info: Tiedot
           moderations: Moderoinnit
           private_users: Yksityiset käyttäjät
-        assemblies_types: Ryhmien tyypit
       models:
         assemblies_types:
           fields:
@@ -211,7 +200,6 @@ fi:
             valuator: Arvioija
       titles:
         assemblies: Ryhmät
-        assemblies_types: Ryhmien tyypit
     admin_log:
       assembly:
         create: "%{user_name} loi %{resource_name} ryhmän"
@@ -222,12 +210,6 @@ fi:
         create: "%{user_name} loi %{resource_name} jäsenen %{space_name} ryhmässä"
         delete: "%{user_name} poisti %{resource_name} jäsenen %{space_name} ryhmästä"
         update: "%{user_name} päivitti %{resource_name} jäsenen %{space_name} ryhmään"
-      assembly_type:
-        create: "%{user_name} loi ryhmätyypin %{resource_name}"
-        delete: "%{user_name} poisti käyttäjän %{resource_name} ryhmätyypistä %{space_name}"
-        publish: "%{user_name} julkaisi ryhmätyypin %{resource_name}"
-        unpublish: "%{user_name} lopetti ryhmätyypin %{resource_name} julkaisun"
-        update: "%{user_name} päivitti ryhmätyypin %{resource_name}"
       assembly_user_role:
         create: "%{user_name} kutsui %{resource_name} %{space_name} ryhmään"
         delete: "%{user_name} poisti käyttäjän %{resource_name} ryhmästä %{space_name}"
@@ -372,8 +354,6 @@ fi:
       value_types:
         assembly_presenter:
           not_found: 'Ryhmää ei löytynyt tietokannasta (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'Ryhmätyyppiä ei löytynyt tietokannasta (ID-numero: %{id})'
     menu:
       assemblies: Ryhmät
     metrics:
