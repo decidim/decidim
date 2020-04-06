@@ -16,6 +16,7 @@ eu:
         created_by_other: Beste batek sortua
         creation_date: Data sortu da
         decidim_area_id: Area
+        decidim_assemblies_type_id: Muntatze-mota
         decidim_scope_id: esparrua
         description: Deskribapena
         developer_group: Sustatzailearen taldea
@@ -99,6 +100,9 @@ eu:
         create:
           error: Errorea gertatu da batzar hau kopiatzean.
           success: Batzarra zuzen bikoiztu da.
+      assemblies_types:
+        new:
+          create: Sortu
       assembly_copies:
         new:
           copy: Kopiatu
@@ -159,6 +163,10 @@ eu:
           moderations: Moderazioak
           private_users: Erabiltzaile pribatuak
       models:
+        assemblies_types:
+          fields:
+            created_at: Sortze-data
+            title: Prozesu partizipatiboen multzoak
         assembly:
           fields:
             created_at: Sortze-data
@@ -224,6 +232,9 @@ eu:
             social_handlers: Gizarte
             title: Informazio orokorra
             visbility: ikusgarritasuna
+        assemblies_types:
+          form:
+            title: Prozesu partizipatiboen multzoak
         assembly_copies:
           form:
             slug_help: 'URL slugs erabiltzen dira muntatze hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
