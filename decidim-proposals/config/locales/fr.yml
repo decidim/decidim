@@ -72,6 +72,7 @@ fr:
     admin:
       filters:
         is_emendation_true:
+          label: Type
           values:
             'false': Propositions
             'true': Amendements
@@ -628,8 +629,155 @@ fr:
         edit:
           attachment_legend: "(Facultatif) Ajouter une pièce jointe"
           back: Retour
+          select_a_category: Veuillez sélectionner une catégorie
+          send: Envoyer
+          title: Modifier la proposition
+        edit_draft:
+          discard: Supprimer ce brouillon
+          discard_confirmation: Êtes-vous sûr de vouloir supprimer le brouillon de votre proposition ?
+          send: Aperçu
+          title: Modifier le brouillon de votre proposition
         filters:
+          amendment_type: Type
+          category: Catégorie
+          origin: Auteurs
+          related_to: Liées à
           scope: Portée
+          search: Rechercher
+          state: État
+          type: Type
+          voted: Ne montrer que les propositions pour lesquelles j'ai voté
+        filters_small_view:
+          close_modal: Fermer la fenêtre de dialogue
+          filter: Filtrer
+          filter_by: Filtrer par
+          unfold: Voir plus
+        index:
+          collaborative_drafts_list: Accéder aux brouillons collaboratifs
+          new_proposal: Nouvelle proposition
+          see_all_withdrawn: Voir toutes les propositions retirées
+          view_proposal: Voir la proposition
+        linked_proposals:
+          proposal_votes:
+            one: vote
+            other: votes
+        new:
+          send: Continuer
+          title: Créer une proposition
+        orders:
+          label: 'Classement des propositions par :'
+          most_voted: Les plus votées
+          random: Aléatoire
+          recent: Les plus récentes
+        participatory_texts:
+          index:
+            document_index: Index de document
+          view_index:
+            see_index: Voir index
+        preview:
+          modify: Modifier la proposition
+          proposal_edit_before_minutes:
+            one: Vous avez la possibilité de modifier cette proposition dans la première minute suivant sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.
+            other: Vous avez la possibilité de modifier cette proposition dans les %{count} minutes suivant sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.
+          publish: Publier
+          title: Publier la proposition
+        proposal:
+          creation_date: 'Création : %{date}'
+          view_proposal: Voir la proposition
         show:
           answer: Répondre
+          back_to: Retour à
+          changes_at_title: Amendement de (%{title}"
           comments: Commentaires
+          edit_proposal: Modifier la proposition
+          endorsements_list: Liste des soutiens
+          hidden_endorsers_count:
+            one: et %{count} personne de plus
+            other: et %{count} autres personnes
+          link_to_collaborative_draft_help_text: Cette proposition est le résultat d'un projet collaboratif. Revoir l'histoire
+          link_to_collaborative_draft_text: Voir le brouillon collaboratif
+          link_to_promoted_emendation_help_text: Cette proposition est un amendement promu
+          link_to_promoted_emendation_text: Voir les demandes de modification rejetées.
+          link_to_proposal_from_emendation_help_text: Ceci est une demande de modification rejetée
+          link_to_proposal_from_emendation_text: Voir la proposition
+          proposal_accepted_reason: 'Cette proposition a été retenue parce que :'
+          proposal_in_evaluation_reason: Cette proposition est en cours d'évaluation
+          proposal_rejected_reason: 'Cette proposition n''a pas été retenue parce que :'
+          report: Signaler
+          withdraw_btn_hint: Si vous changez d'avis et tant que votre proposition n'a pas reçu de vote, commentaire et/ou soutien, vous pouvez toujours la retirer. Cette dernière ne sera pas supprimée mais elle apparaîtra dans la liste des propositions retirées.
+          withdraw_confirmation: Êtes-vous sûr de vouloir retirer cette proposition ?
+          withdraw_proposal: Retirer la proposition
+        vote_button:
+          already_voted: Déjà votée
+          already_voted_hover: Retirer le vote
+          maximum_votes_reached: Nombre maximum de votes atteint
+          no_votes_remaining: Aucun vote restant
+          vote: Voter
+          votes_blocked: Votes désactivés
+        votes_count:
+          count:
+            one: VOTE
+            other: VOTES
+          most_popular_proposal: Proposition la plus populaire
+          need_more_votes: Besoin de plus de votes
+        voting_rules:
+          can_accumulate_supports_beyond_threshold:
+            description: Chaque proposition doit rassembler plus de %{limit} votes
+          minimum_votes_per_user:
+            description: Vous devez répartir un minimum de %{votes} voix entre différentes propositions.
+            given_enough_votes: Vous avez donné suffisamment de soutien.
+            supports_remaining: Vous devez voter %{remaining_votes} proposition supplémentaire pour que vos votes soient pris en compte.
+          proposal_limit:
+            description: Vous pouvez créer jusqu'à %{limit} propositions.
+          threshold_per_proposal:
+            description: Pour être acceptées, les propositions doivent atteindre %{limit} votes
+          title: 'Le vote est soumis aux règles suivantes :'
+          vote_limit:
+            description: Vous pouvez voter pour %{limit} propositions au maximum.
+            left: Restant
+            votes: Votes
+        wizard_aside:
+          back: Retour
+          info: Vous créez une <strong>proposition</strong>.
+        wizard_steps:
+          see_steps: voir les étapes
+          step_1: Créer une proposition
+          step_2: Comparer aux autres propositions
+          step_3: Compléter votre proposition
+          step_4: Publier votre proposition
+          step_of: Étape %{current_step_num} sur %{total_steps}
+      publish:
+        error: Il y a eu des erreurs lors de la publication de la proposition.
+        success: Proposition publiée avec succès.
+      update:
+        error: Des erreurs se sont produites lors de l'enregistrement de la proposition.
+        success: Proposition mise à jour avec succès.
+      update_draft:
+        error: Des erreurs sont survenues lors de l'enregistrement du brouillon de la proposition.
+        success: Le brouillon de proposition a été mis à jour.
+      versions:
+        changes_at_title: Changements à "%{title}"
+        index:
+          title: Versions
+        stats:
+          back_to_collaborative_draft: Revenir au brouillon collaboratif
+          back_to_proposal: Retourner à la proposition
+          number_of_versions: Versions
+          show_all_versions: Afficher toutes les versions
+          version_author: Auteur de la version
+          version_created_at: Version créée à
+          version_number: Numéro de version
+          version_number_out_of_total: "%{current_version} sur %{total_count}"
+        version:
+          version_index: Version %{index}
+      withdraw:
+        errors:
+          has_supports: Cette proposition ne peut pas être retirée car elle dispose déjà de supports.
+    resource_links:
+      copied_from_component:
+        proposal_proposal: Propositions associées
+      included_projects:
+        project_result: 'Réalisations apparaissant dans ce projet :'
+      included_proposals:
+        proposal_project: 'Proposition figurant dans ces projets :'
+        proposal_result: 'Proposition figurant dans ces réalisations :'
