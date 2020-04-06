@@ -74,6 +74,21 @@ it:
         one: Votazione
         other: voti
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: genere
+          values:
+            'false': proposte
+            'true': Modifiche
+        state_eq:
+          values:
+            evaluating: Valutare
+            withdrawn: Ritirato
+        state_null:
+          label: Stato
+          values:
+            'true': Non risposto
     components:
       proposals:
         actions:
@@ -346,6 +361,10 @@ it:
             success: Testo partecipativo aggiornato correttamente.
         proposal_answers:
           form:
+            accepted: Accettata
+            answer_proposal: Risposta
+            evaluating: Valutare
+            rejected: Rifiutata
             title: Risposta per la proposta %{title}
         proposal_notes:
           create:
@@ -392,7 +411,10 @@ it:
           publish_answers:
             select_a_proposal: Si prega di selezionare una proposta
           show:
+            authors: autori
+            body: Corpo
             created_at: Data di creazione
+            proposals: proposte
             votes_count: Contare i voti
           update_category:
             select_a_category: Si prega di selezionare una categoria
@@ -430,16 +452,21 @@ it:
         rejected: Rifiutata
         withdrawn: Ritirato
       application_helper:
+        filter_category_values:
+          all: Tutti
         filter_origin_values:
           all: Tutti
           citizens: Cittadini
           meetings: Incontri
           official: Ufficiale
           user_groups: Gruppi di utenti
+        filter_scope_values:
+          all: Tutti
         filter_state_values:
           accepted: Accettato
           all: Tutti
           evaluating: Valutare
+          not_answered: Non risposto
           rejected: Respinto
         filter_type_values:
           all: Tutti
@@ -491,6 +518,7 @@ it:
           open: Aperto
           published: Pubblicato
           related_to: Relativo a
+          scope: Scopo
           search: Ricerca
           state: Stato
           withdrawn: Ritirato
@@ -644,8 +672,10 @@ it:
           my_proposals: Le mie proposte
           origin: Origine
           related_to: Associata a
+          scope: Scopo
           search: Cerca
           state: Stato
+          type: genere
           voted: Votata
         filters_small_view:
           close_modal: Chiudi modalità
