@@ -87,11 +87,11 @@ es:
         state_eq:
           values:
             evaluating: En evaluación
-            withdrawn: Retirado
+            withdrawn: Retirada
         state_null:
           label: Estado
           values:
-            'true': No contestado
+            'true': No contestada
         valuator_role_ids_has:
           label: Asignada a evaluadora
     components:
@@ -517,12 +517,12 @@ es:
           official: Oficial
           user_groups: Grupos
         filter_scope_values:
-          all: Todos
+          all: Todas
         filter_state_values:
           accepted: Aceptada
           all: Todas
           evaluating: En evaluación
-          not_answered: Sin respuesta
+          not_answered: No contestada
           rejected: Rechazada
         filter_type_values:
           all: Todas
@@ -761,7 +761,7 @@ es:
           creation_date: 'Fecha de creación: %{date}'
           view_proposal: Ver propuesta
         show:
-          answer: Responder
+          answer: Respuesta
           back_to: Volver a
           changes_at_title: Enmienda a "%{title}"
           comments: Comentarios
