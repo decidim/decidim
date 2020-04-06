@@ -265,6 +265,15 @@ id:
       exports:
         export_as: "%{name} sebagai %{export_format}"
         notice: Ekspor Anda sedang dalam proses. Anda akan menerima email setelah selesai.
+      filters:
+        category_id_eq:
+          label: Kategori
+        officialized_at_null:
+          label: Negara
+          values:
+            'false': Diresmikan
+            'true': Tidak resmi
+        search_label: Pencarian
       help_sections:
         error: Terjadi kesalahan saat memperbarui bagian bantuan
         form:
