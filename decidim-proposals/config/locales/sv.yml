@@ -69,6 +69,21 @@ sv:
         one: Röst
         other: Röster
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Typ
+          values:
+            'false': Förslag
+            'true': Tillägg
+        state_eq:
+          values:
+            evaluating: Utvärderas
+            withdrawn: Tillbakadragna
+        state_null:
+          label: Status
+          values:
+            'true': Ej besvarade
     components:
       proposals:
         actions:
@@ -334,6 +349,10 @@ sv:
             success: Deltagartexten har uppdaterats.
         proposal_answers:
           form:
+            accepted: Godkända
+            answer_proposal: Svara
+            evaluating: Utvärderas
+            rejected: Avvisade
             title: Svar på förslaget %{title}
         proposal_notes:
           create:
@@ -378,7 +397,10 @@ sv:
           publish_answers:
             select_a_proposal: Välj ett förslag
           show:
+            authors: Författare
+            body: Innehåll
             created_at: Skapelsedatum
+            proposals: Förslag
             votes_count: Antal röster
           update_category:
             select_a_category: Välj en kategori
@@ -416,16 +438,21 @@ sv:
         rejected: Avvisade
         withdrawn: Tillbakadragna
       application_helper:
+        filter_category_values:
+          all: Alla
         filter_origin_values:
           all: Alla
           citizens: Medborgare
           meetings: Möten
           official: Officiella
           user_groups: Grupper
+        filter_scope_values:
+          all: Alla
         filter_state_values:
           accepted: Godkända
           all: Alla
           evaluating: utvärdera
+          not_answered: Ej besvarade
           rejected: avvisade
         filter_type_values:
           all: Alla
@@ -477,6 +504,7 @@ sv:
           open: Öppna
           published: Publicerade
           related_to: Relaterade till
+          scope: Omfång
           search: Sök
           state: Status
           withdrawn: Tillbakadragna
@@ -610,8 +638,10 @@ sv:
           category: Kategori
           origin: Ursprung
           related_to: Relaterade till
+          scope: Omfång
           search: Sök
           state: Status
+          type: Typ
           voted: Röstade
         filters_small_view:
           close_modal: Stäng fönster
