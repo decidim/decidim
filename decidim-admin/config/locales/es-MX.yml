@@ -550,4 +550,221 @@ es-MX:
         edit:
           update: Actualizar
         form:
-          colors_title: Colores de la organización
+          colors_title: Colores de organizacion
+          cta_button_path_help: 'Puedes sobrescribir el enlace al botón de acción principal en la página principal. Usa rutas parciales, no URLs completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción. Ejemplo: %{url}'
+          cta_button_text_help: Puedes sobrescribir el texto del botón de acción principal en la página de inicio para cada idioma disponible en tu organización. Si no está configurado, se usará el valor predeterminado. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción.
+          header_snippets_help: Utiliza este campo para agregar cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieran JavaScript o CSS adicionales. Además, puedes usarlo para agregar etiquetas HTML adicionales. Ten en cuenta que esto sólo se mostrará en las páginas públicas, no en la sección de administración.
+          homepage_appearance_title: Editar apariencia de página de inicio
+          homepage_highlighted_content_banner_title: Banner de contenido resaltado
+          layout_appearance_title: Editar apariencia de diseño global
+          omnipresent_banner_appearance_title: Editar banner omnipresente
+      organization_homepage:
+        edit:
+          active_content_blocks: Bloques de contenido activos
+          inactive_content_blocks: Bloques de contenido inactivos
+      organization_homepage_content_blocks:
+        edit:
+          update: Actualizar
+      participatory_space_private_users:
+        create:
+          error: Hubo un error al agregar un usuario privado para este espacio participativo.
+          success: El acceso a usuarios privados de espacio participativo creado con éxito.
+        destroy:
+          error: Se ha producido un error al eliminar un usuario privado para este espacio participativo.
+          success: El acceso de usuarios privados del espacio participativo se eliminado con éxito.
+        index:
+          import_via_csv: Importar vía csv
+          title: Usuario privado de espacio participativo.
+        new:
+          create: Crear
+          title: Nuevo usuario privado en el espacio participativo.
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: Se ha producido un error al leer el archivo CSV.
+          success: Archivo CSV subido correctamente, estamos enviando un correo electrónico de invitación a las participantes. Esto puede tardar un tiempo.
+        new:
+          explanation: Sube tu archivo CSV. Debe tener dos columnas con correo electrónico en la primera columna del archivo y nombre en la última columna del archivo (correo electrónico, nombre) de las participantes que quieras añadir al espacio participativo, sin cabeceras.
+          title: Sube tu archivo CSV
+          upload: Subir
+      resource_permissions:
+        edit:
+          submit: Enviar
+          title: Editar permisos
+        update:
+          success: Permisos actualizados con éxito.
+      scope_types:
+        create:
+          error: Se ha producido un error al crear un nuevo tipo de ámbito.
+          success: Tipo de ámbito creado correctamente.
+        destroy:
+          success: Tipo de ámbito destruido correctamente
+        edit:
+          title: Editar tipo de ámbito
+          update: Actualizar
+        new:
+          create: Crear tipo de ámbito
+          title: Nuevo ámbito
+        update:
+          error: Se ha producido un error al actualizar este tipo de ámbito.
+          success: Tipo de ámbito actualizado con éxito
+      scopes:
+        create:
+          error: Se ha producido un error al crear un nuevo ámbito.
+          success: Ámbito creado correctamente.
+        destroy:
+          success: Ámbito eliminado con éxito
+        edit:
+          title: Editar alcance
+          update: Actualizar
+        new:
+          create: Crear ámbito
+          title: Nuevo ámbito
+        no_scopes: No hay ámbitos en este nivel.
+        update:
+          error: Se produjo un error en la actualización de este ámbito.
+          success: Ámbito actualizado correctamente
+      static_page_topics:
+        create:
+          error: Se ha producido un error al crear un nuevo tema.
+          success: Tema creado correctamente.
+        destroy:
+          success: Tema eliminado correctamente
+        edit:
+          title: Editar tema
+          update: Actualizar tema
+        new:
+          create: Crear tema
+          title: Nuevo tema
+        update:
+          error: Se ha producido un error al actualizar este tema.
+          success: Tema actualizado correctamente
+      static_pages:
+        actions:
+          view: Ver la página pública
+        create:
+          error: Se ha producido un error al crear una nueva página.
+          success: La página se ha creado correctamente. Sigue ahora con la configuración de las fases.
+        destroy:
+          success: La página se ha eliminado correctamente.
+        edit:
+          changed_notably_help: Si se marca, se notificará a los usuarios que acepten los nuevos Términos y Condiciones.
+          title: Editar página
+          update: Actualizar
+        form:
+          none: Ninguna
+          slug_help: 'Usa rutas parciales, no direcciones URL completas aquí. Acepta letras, números, guiones y barras diagonales, y debe comenzar con una letra. Ejemplo: %{url}'
+        index:
+          last_notable_change: Último cambio notable
+        new:
+          create: Crear página
+          title: Nueva página
+        topic:
+          destroy: Eliminar tema
+          edit: Editar tema
+          empty: No hay ninguna página para este tema
+          without_topic: Páginas sin tema
+        update:
+          error: Se ha producido un error en la actualización de ésta página.
+          success: La página se ha actualizado correctamente.
+      titles:
+        admin_log: Registro de actividad de administradores
+        area_types: Tipos de área
+        areas: Áreas
+        authorization_workflows: Métodos de verificación
+        dashboard: Panel de control
+        impersonatable_users: Usuarios manejables
+        impersonations: Gestion de usuarios
+        participants: Usuarios
+        scope_types: Tipos de ámbito
+        scopes: Ámbitos
+        static_pages: Páginas
+        user_groups: Grupos de usuarios
+        users: Usuarios
+      user_group:
+        csv_verify:
+          invalid: Se produjo un error al leer el archivo CSV.
+          success: El archivo CSV se cargó correctamente, estamos verificando los grupos de usuarios que coinciden con los criterios. Esto podría tomar un tiempo.
+        reject:
+          invalid: Se ha producido un error al rechazar este grupo de usuarios.
+          success: Grupo de usuarios rechazado correctamente
+        verify:
+          invalid: Se ha producido un error al verificar este grupo de usuarios.
+          success: Grupo de usuarios verificado correctamente
+      user_groups:
+        index:
+          filter:
+            all: Todos
+            pending: Pendiente
+            rejected: Rechazados
+            verified: Verificados
+          filter_by: Filtrar por
+          search: Buscar
+          state:
+            pending: Pendiente
+            rejected: Rechazado
+            verified: Verificado
+          verify_via_csv: Verificar a través de CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Sube tu archivo CSV. Debe tener los correos electrónicos oficiales de los grupos de usuarios en su organización en la primera columna del archivo, sin encabezados. Solo se validarán los grupos de usuarios que hayan confirmado su correo electrónico y que tengan un correo electrónico que aparece en el archivo CSV.
+          title: Sube tu archivo CSV
+          upload: Subir
+      users:
+        create:
+          error: Hubo un error al invitar a este usuario.
+          success: Usuario invitado con éxito.
+        destroy:
+          error: Hubo un error al tratar de eliminar este usuario.
+          success: El usuario ya no es un administrador.
+        form:
+          email: Correo electrónico
+          name: Nombre
+          role: Rol
+        new:
+          create: Invitar
+          title: Invitar a un usuario como administrador
+      view_public_page: Ver página pública
+    forms:
+      errors:
+        impersonate_user:
+          reason: Debe proporcionar una razón para impersonar a un usuario no administrado
+    moderations:
+      actions:
+        hidden: Ocultas
+        hide: Esconder
+        not_hidden: No ocultas
+        title: Acciones
+        unhide: Ocultar
+        unreport: Cancelar denuncia
+      admin:
+        reportable:
+          hide:
+            invalid: Ha habido un error al ocultar el contenido.
+            success: Contenido ocultado con éxito.
+          unhide:
+            invalid: Ha habido un problema al no encontrar el recurso.
+            success: Recurso exitosamente no oculto.
+          unreport:
+            invalid: Ha habido un problema cancelando la denuncia.
+            success: Denuncia cancelada correctamente.
+      models:
+        moderation:
+          fields:
+            hidden_at: Fecha de ocultación
+            report_count: Recuento
+            reportable: Tipo
+            reported_content_url: URL del contenido reportado
+            reports: Denuncias
+            visit_url: Visita la URL
+  errors:
+    messages:
+      invalid_json: JSON no válido
+  layouts:
+    decidim:
+      admin:
+        newsletters:
+          title: Boletines
+        settings:
+          title: Ajustes
+        users:
+          title: Usuarios
