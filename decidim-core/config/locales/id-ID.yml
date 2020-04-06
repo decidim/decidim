@@ -497,6 +497,7 @@ id:
           notification_title: Halaman <a href="%{resource_path}">profil</a> dari %{name} (%{nickname}), yang Anda ikuti, telah diperbarui.
     export_mailer:
       data_portability_export:
+        click_button: 'Klik tombol berikutnya untuk mengunduh data Anda. <br/> Anda akan memiliki file yang tersedia hingga %{date}.'
         download: Unduh
       export:
         ready: Silakan temukan terlampir versi zip dari ekspor Anda.
