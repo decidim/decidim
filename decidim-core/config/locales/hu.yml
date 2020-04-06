@@ -145,8 +145,6 @@ hu:
         reject: "%{user_name} elutasította a(z) %{resource_name} felhasználói csoport ellenőrzését"
         verify: "%{user_name} ellenőrizte a(z) %{resource_name} felhasználói csoportot"
         verify_via_csv: "%{user_name} az %{resource_name} felhasználói csoportot CSV-fájlon keresztül ellenőrizte"
-    admin_terms_of_use:
-      default_body: "<h2>ADMIN FELHASZNÁLÓI FELTÉTELEK</h2><p>Bízunk benne, hogy a szokásos előadást megkaptad a helyi rendszergazdától. Ez rendszerint e három dologra bontható le:</p><ol><li>Tiszteld mások magánéletét.</li><li>Gondolkodj, mielőtt kattintasz.</li><li>A nagy hatalommal, nagy felelősségvállalás is jár!</li></ol>"
     amendments:
       accepted:
         error: A módosítás elfogadása közben hiba történt.
@@ -574,7 +572,6 @@ hu:
           notification_title: '%{name} (%{nickname}) (akit egyébként követsz) <a href="%{resource_path}">profil oldala</a> frissült.'
     export_mailer:
       data_portability_export:
-        click_button: 'Kattints a következő gombra az adataid letöltéséhez. <br/> A fájl eddig lesz elérhető: %{date}.<br/> Szükséged lesz egy Zip fájlt kezelő szoftverre a megnyitásához <a href=''https://www.7-zip.org/''>7-Zip</a> . Jelszó: %{password}'
         download: Letöltés
       export:
         ready: Mellékelve találod az exportálás tömörített változatát.
@@ -604,7 +601,6 @@ hu:
       create:
         button: Követés
         error: Hiba történt az erőforrás követése során.
-        participatory_space: Már követed a részvételi teret
       destroy:
         button: Követés törlése
         error: Hiba történt az erőforrás követésének visszavonásakor.
@@ -1239,7 +1235,6 @@ hu:
       cycle_detected: a hatáskör parentje nem lehet ahhoz kötőd elem
       expired: lejárt, kérjen újat
       file_size_is_less_than_or_equal_to: 'fájlméret maximum ekkora lehet: %{count}'
-      invalid_time_zone: ez nem érvényes időzóna
       long_words: olyan szavakat tartalmaz, amelyek túl hosszúak (több mint 35 karakter)
       must_start_with_caps: nagybetűvel kell kezdenie
       nesting_too_deep: nem lehet alkategóriában belüli
@@ -1352,11 +1347,8 @@ hu:
       left: Törlések
       right: Kiegészítések
     dropdown:
-      choose_diff_view_html: 'HTML megtekintési mód:'
       choose_diff_view_mode: 'Összehasonlító nézet mód:'
-      option_escaped: Feloldott
       option_split: Egymás mellet
-      option_unescaped: Feloldatlan
       option_unified: Egyesített
   views:
     pagination:
