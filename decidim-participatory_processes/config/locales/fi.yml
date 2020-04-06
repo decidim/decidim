@@ -24,6 +24,7 @@ fi:
         published_at: Julkaisuaika
         related_process_ids: Liittyvät prosessit
         scope_id: Teema
+        scope_type_max_depth_id: Teema-suodattimen syvyys
         scopes_enabled: Teemat käytössä
         short_description: Lyhyt kuvaus
         show_metrics: Näytä tilastot
@@ -326,6 +327,7 @@ fi:
             metadata: Metatiedot
             other: Muut
             related_processes: Liittyvät prosessit
+            scope_type_max_depth_help: Rajaa teemasuodattimen syvyyttä; suodatin näyttää yleisestä teemasta valittuun teematyyppiin saakka.
             select_an_area: Valitse alue
             select_process_group: Valitse prosessiryhmä
             slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
