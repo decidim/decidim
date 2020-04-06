@@ -151,8 +151,6 @@ cs:
         reject: "%{user_name} odmítl ověření skupiny %{resource_name} uživatelů"
         verify: "%{user_name} ověřilo %{resource_name} uživatelskou skupinu"
         verify_via_csv: "%{user_name} ověřilo %{resource_name} skupinu uživatelů prostřednictvím souboru CSV"
-    admin_terms_of_use:
-      default_body: "<h2>ADMIN TERMY POUŽITÍ</h2><p>Věříme, že jste obdrželi obvyklou lekci od místního správce systému. Obvykle se zredukuje na tyto tři věci:</p><ol><li>Respektujte soukromí ostatních.</li><li>Zamysleme se před kliknutím.</li><li>S velkou mocí přichází velká odpovědnost.</li></ol>"
     amendments:
       accepted:
         error: Při přijímání změny došlo k chybě.
@@ -591,7 +589,6 @@ cs:
           notification_title: <a href="%{resource_path}">profilová stránka</a> od %{name} (%{nickname}), kterou sledujete, byla aktualizována.
     export_mailer:
       data_portability_export:
-        click_button: 'Klepnutím na další tlačítko stáhnete data. <br/> Soubor bude k dispozici až do %{date}.'
         download: Stažení
       export:
         ready: V příloze naleznete exportovanou exportovanou verzi.
@@ -621,7 +618,6 @@ cs:
       create:
         button: Sledovat
         error: Při sledování tohoto zdroje došlo k chybě.
-        participatory_space: Již sledujete participační prostor
       destroy:
         button: Ukončit sledování
         error: Při sledování tohoto zdroje došlo k chybě.
@@ -1261,7 +1257,6 @@ cs:
       cycle_detected: rodič oboru nemůže být jedním z jeho potomků
       expired: uplynula, požádejte o novou
       file_size_is_less_than_or_equal_to: velikost souboru musí být menší nebo rovna %{count}
-      invalid_time_zone: není platné časové pásmo
       long_words: obsahuje slova, která jsou příliš dlouhá (přes 35 znaků)
       must_start_with_caps: musí začínat velkým písmenem
       nesting_too_deep: nemůže být uvnitř podkategorie
@@ -1377,11 +1372,8 @@ cs:
       left: Smazané
       right: Dodatky
     dropdown:
-      choose_diff_view_html: 'Režim HTML zobrazení:'
       choose_diff_view_mode: 'Mód srovnávacího zobrazení:'
-      option_escaped: Escapované
       option_split: Vedle sebe (Sbs)
-      option_unescaped: Neošetřené Esc
       option_unified: Sjednocené
   views:
     pagination:
