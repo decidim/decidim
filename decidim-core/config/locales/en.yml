@@ -72,6 +72,9 @@ en:
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
+    accessibility:
+      logo: "%{organization}'s official logo"
+      skip_button: Skip to main content
     account:
       data_portability_export:
         file_no_exists: File does not exist
@@ -236,6 +239,8 @@ en:
         documents:
           one: Document
           other: Documents
+      document:
+        download: Download file
       documents:
         related_documents: Related documents
       photos:
@@ -1065,6 +1070,7 @@ en:
         select_user_group: Select a group
       results_per_page:
         label: 'Results per page:'
+        title: Select number of results per page
       share_modal:
         close_window: Close window
         share: Share
@@ -1352,6 +1358,7 @@ en:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%B %d, %Y %H:%M"
+      long_dashed: "%Y-%m-%d %H:%M:%S"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
@@ -1368,7 +1375,12 @@ en:
   views:
     pagination:
       first: "&laquo; First"
+      first_title: Link to the first page
       last: Last &raquo;
+      last_title: Link to the last page
       next: Next &rsaquo;
+      next_title: Link to the next page
       previous: "&lsaquo; Prev"
+      previous_title: Link to the previous page
+      title: 'Page number: '
       truncate: "&hellip;"

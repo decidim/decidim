@@ -153,6 +153,14 @@ hr{
 
 .page-title{
   margin-bottom: 3rem;
+
+  a:hover{
+    text-decoration: underline;
+  }
+
+  a:focus{
+    outline: 2px solid $secondary;
+  }
 }
 
 .text-highlight{
