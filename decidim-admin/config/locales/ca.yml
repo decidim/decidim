@@ -563,12 +563,20 @@ ca:
           officialize: Oficialitza
           officialized: Oficialitzada
           reofficialize: Torna a oficialitzar
+          show_email: Mostra l'adreça de correu
           status: Estat
           unofficialize: Des-oficialitzar
         new:
           badge: Insígnia d'oficialització
           officialize: Oficialitza
           title: Oficialitza la participant "%{name}"
+        show_email_modal:
+          description: Si necessites contactar a un participant directament pots clicar al botó Mostra per veure la seva adreça de correu electrònic. Aquesta acció s'auditarà.
+          email_address: Adreça de correu electrònic
+          full_name: Nom complet
+          hidden: ocult
+          show: Mostra
+          title: Mostra l'adreça de correu electrònic de la participant
       organization:
         edit:
           title: Edita organització
