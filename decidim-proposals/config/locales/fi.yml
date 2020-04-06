@@ -45,6 +45,7 @@ fi:
             attachment:
               needs_to_be_reattached: Liitettävä uudelleen
             body:
+              cant_be_equal_to_template: ei voi vastata mallipohjaa
               identical: JA otsikko ei voi olla täysin sama
             title:
               identical: JA kuvaus ei voi olla täysin sama
@@ -81,6 +82,8 @@ fi:
           values:
             'false': Ehdotukset
             'true': Muutokset
+        search_placeholder:
+          id_string_or_title_cont: '%{collection}: Hae ID-numeron tai otsikon perusteella'
         state_eq:
           values:
             evaluating: Arvioitavana
@@ -102,6 +105,7 @@ fi:
         name: Ehdotukset
         settings:
           global:
+            allow_card_image: Salli kuva ehdotuskortilla
             amendments_enabled: Muutokset käytössä
             amendments_enabled_help: Jos käytössä, määritä asetukset kullekin vaiheelle.
             amendments_wizard_help_text: Muutoksen luonnin ohjeteksti
@@ -112,6 +116,8 @@ fi:
             comments_enabled: Kommentit käytössä
             geocoding_enabled: Geokoodaus käytössä
             minimum_votes_per_user: Kannatusten vähimmäismäärä käyttäjää kohden
+            new_proposal_body_template: Uuden ehdotuksen leipätekstin mallipohja
+            new_proposal_body_template_help: Voit määritellä esitäytetyn oletustekstin, joka uusille ehdotuksille näytetään automaattisesti
             new_proposal_help_text: Uuden ehdotuksen ohjeteksti
             official_proposals_enabled: Viralliset ehdotukset käytössä
             participatory_texts_disabled_help: Tätä asetusta ei voi muuttaa, mikäli ehdotuksia on jo olemassa. Luo uusi "Ehdotukset-komponentti", mikäli haluat ottaa tämän ominaisuuden käyttöön tai hylkää kaikki tuodut ehdotukset "Ehdotusaineistot" -toiminnosta, mikäli haluat ottaa sen pois käytöstä.
@@ -137,6 +143,7 @@ fi:
             amendments_visibility: Muutosten näkyvyys
             amendments_visibility_help: Jos asetus "Muutokset ovat näkyvillä ainoastaan niiden laatijoille" on määritetty, osallistujien tulee kirjautua sisään nähdäkseen tehdyt muutokset.
             announcement: Ilmoitus
+            answers_with_costs: Ota käyttöön kustannusarviointi ehdotusten vastauksissa
             automatic_hashtags: Hashtagit lisätty kaikkiin ehdotuksiin
             comments_blocked: Kommentointi estetty
             creation_enabled: Ehdotuksen luominen käytössä
@@ -319,6 +326,7 @@ fi:
         import: Tuo toisesta komponentista
         new: Uusi ehdotus
         participatory_texts: Ehdotusaineistot
+        show: Näytä ehdotus
         title: Toiminnot
       admin:
         actions:
@@ -422,15 +430,32 @@ fi:
             number_of_proposals: Julkaistaan %{number} vastausta ehdotuksille.
             select_a_proposal: Valitse ehdotus
           show:
+            amendments_count: Muutosten lukumäärä
             assigned_valuators: Arvioijat
             authors: Tekijät
             body: Ehdotuksen kuvaus
+            comments_count: Kommenttien lukumäärä
+            comments_negative_count: Vastaan
+            comments_neutral_count: Neutraali
+            comments_positive_count: Puolesta
             created_at: Luonnin ajankohta
+            documents: Asiakirjat
+            endorsements_count: Suositusten lukumäärä
+            endorsements_ranking: Luokittelu suositusten mukaan
+            endorsers: Suosittelijat
+            link: Linkki
+            n_more_endorsers:
+              one: ja 1 muu
+              other: ja %{count} muuta
+            photos: Kuvat
             proposals: Ehdotukset
+            ranking: "%{ranking} / %{total}"
+            related_meetings: Liittyvät tapahtumat
             remove_assignment: Poista tehtävä arvioijalta
             remove_assignment_confirmation: Haluatko varmasti poistaa arvioijan tältä ehdotukselta?
             valuators: Arvioijat
             votes_count: Kannatusten määrä
+            votes_ranking: Luokittelu suositusten mukaan
           update_category:
             invalid: 'Näillä ehdotuksilla oli jo aihepiiri %{subject_name}: %{proposals}.'
             select_a_category: Valitse aihepiiri
@@ -743,6 +768,7 @@ fi:
           comments: Kommentit
           edit_proposal: Muokkaa ehdotusta
           endorsements_list: Luettelo suositteluista
+          estimated_cost: Arvioitu kustannus
           hidden_endorsers_count:
             one: ja %{count} muu henkilö
             other: ja %{count} muuta henkilöä
@@ -755,6 +781,8 @@ fi:
           proposal_accepted_reason: 'Tämä ehdotus on hyväksytty, koska:'
           proposal_in_evaluation_reason: Tämä ehdotus on arvioitavana
           proposal_rejected_reason: 'Tämä ehdotus on hylätty, koska:'
+          read_less: Vähennä tekstiä
+          read_more: Lue lisää
           report: Ilmoita
           withdraw_btn_hint: Jos muutat mieltäsi, voit perua ehdotuksesi, mikäli se ei ole saanut kannatusta. Ehdotusta ei poisteta, se näkyy peruutettujen ehdotusten luettelossa.
           withdraw_confirmation: Haluatko varmasti peruuttaa tämän ehdotuksen?
