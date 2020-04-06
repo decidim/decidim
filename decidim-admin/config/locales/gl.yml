@@ -265,6 +265,15 @@ gl:
       exports:
         export_as: "%{name} como %{export_format}"
         notice: A súa exportación está en progreso. Recibirás un correo electrónico cando finalice.
+      filters:
+        category_id_eq:
+          label: Categoría
+        officialized_at_null:
+          label: Estado
+          values:
+            'false': Oficializado
+            'true': Non oficializado
+        search_label: Busca
       help_sections:
         error: Produciuse un erro ao actualizar as seccións de axuda
         form:
