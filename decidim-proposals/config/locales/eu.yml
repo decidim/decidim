@@ -72,6 +72,7 @@ eu:
     admin:
       filters:
         is_emendation_true:
+          label: Mota
           values:
             'false': proposamenak
             'true': Aldaketak
@@ -80,6 +81,7 @@ eu:
             evaluating: Ebaluatzen
             withdrawn: kendu
         state_null:
+          label: Estatu
           values:
             'true': Erantzun gabe
     components:
@@ -371,6 +373,7 @@ eu:
             change_category: Aldatu kategoria
             merge: Bateratu berri bat sartu
             merge_button: Batu
+            publish: Argitaratu
             select_component: Hautatu osagaia
             selected: hautatutako
             split: Proposamen banatuak
@@ -383,6 +386,7 @@ eu:
           publish_answers:
             select_a_proposal: Aukeratu proposamen bat
           show:
+            authors: Egileak
             body: Gorputzeko
             created_at: Sortze data
             proposals: proposamenak
@@ -483,10 +487,277 @@ eu:
           send: Bidali
           title: Editatu lankidetza zirriborroa
         filters:
+          all: guztiak
+          amendment: Aldaketak
+          category: Kategoria
+          open: Open
+          published: Argitaratutako
+          related_to: Lotutako gaiak
           scope: esparrua
+          search: Search
+          state: Estatu
+          withdrawn: kendu
+        filters_small_view:
+          close_modal: Itxi modal
+          filter: Filter
+          filter_by: Iragazi arabera
+          unfold: Zabaldu
+        new:
+          send: Jarraitu
+          title: Sortu zure lankidetza zirriborroa
+        new_collaborative_draft_button:
+          new_collaborative_draft: Lankidetza proiektu berria
+        orders:
+          label: 'Eskaerak bidali:'
+          most_contributed: Gehien lagunduta
+          random: Random
+          recent: Berriki
+        requests:
+          accepted_request:
+            error: Ezin izan da kolaboratzaile gisa onartu, saiatu berriro geroago.
+            success: "@%{user} behar bezala onartu da kolaboratzaile gisa"
+          access_requested:
+            error: Zure eskaera ezin da amaitu, saiatu berriro geroago.
+            success: Zure lankidetzarako eskaera ongi bidali da
+          collaboration_requests:
+            accept_request: Onartu
+            reject_request: Ukatu
+            title: Lankidetza eskaerak
+          rejected_request:
+            error: Ezin izan da laguntzailea baztertu, saiatu berriro geroago.
+            success: "@%{user} behar bezala baztertu da kolaboratzaile gisa"
+        show:
+          back: Back
+          edit: Editatu lankidetza zirriborroa
+          final_proposal: azken proposamena
+          final_proposal_help_text: Abisua amaitu da. Azken bukatutako proposamena ikus dezakezu
+          hidden_authors_count:
+            one: eta %{count} pertsona gehiago
+            other: eta beste %{count} pertsona
+          info-message: Hau da <strong>elkarlanerako zirriborroa</strong> proposamen bat da. Horrek esan nahi du bere egileek lagundu dezakezula proposamena, beheko iruzkinen atala erabiliz edo zuzenean hobetzeko editatzeko sarbidea eskatuz. Egileek sarbidea ematen dizutenean, zirriborro honen aldaketak egin ahal izango dituzu.
+          of_versions: "( %{number})"
+          publish: Argitaratu
+          publish_info: Argitaratu zirriborroaren bertsio hau edo
+          published_proposal: argitaratutako proposamena
+          request_access: Eskatu sarbidea
+          requested_access: Eskatutako sarbidea
+          see_other_versions: ikusi beste bertsio batzuk
+          version: '%{number}bertsioa'
+          version_history: ikusi bertsioaren historia proposamen honetarako
+          withdraw: kendu zirriborroa
+        states:
+          open: Open
+          published: Argitaratutako
+          withdrawn: kendu
+        update:
+          error: Lankidetza zirriborroa gordetzean erroreak gertatu dira.
+          success: Laguntza-proiektua ondo eguneratu da.
+        wizard_aside:
+          back: Back
+          info: Bat sortzen ari zara <strong>elkarlanerako zirriborroa</strong>.
+        wizard_steps:
+          see_steps: ikusi urratsak
+          step_1: Sortu zure lankidetza zirriborroa
+          step_2: Konparatu zirriborroekin alderatu
+          step_3: Bete lankidetza zirriborroa
+          step_of: Step %{current_step_num} of %{total_steps}
+      create:
+        error: Erroreak gertatu dira proposamena gordetzean.
+        success: Onartutako proposamena. Zirriborro gisa gorde da.
+      destroy_draft:
+        error: Arazoak izan dira proposamenaren zirriborroa ezabatzean.
+        success: Proposamenaren zirriborroa zuzen ezabatu da.
+      last_activity:
+        new_proposal_at_html: "<span> %{link}</span>proposamen berria"
+      models:
+        collaborative_draft:
+          fields:
+            authors: Egileak
+            comments: Oharrak
+            contributions: Ekarpenak
+        proposal:
+          fields:
+            category: Kategoria
+            comments: Oharrak
+            id: NORTASUN AGIRIA
+            notes: Oharrak
+            official_proposal: Proposamen ofiziala
+            published_at: Argitaratu at
+            scope: Esparrua
+            state: Egoera
+            title: Titulua
+            votes: Euskarriak
+      new:
+        limit_reached: Ezin duzu proposamen berririk sortu muga gainditu zenuenetik.
+      participatory_text_proposal:
+        alternative_title: Une honetan ez dago partaidetzazko testurik
+        buttons:
+          amend: aldatzea
+          comment: Iruzkina
+          comments: Oharrak
+          endorse: gatoz
+      proposal_votes:
+        create:
+          error: Erroreak gertatu dira proposamena bozkatzean.
       proposals:
+        compare:
+          continue: Jarraitu
+          no_similars_found: Ongi egina! Ez da antzeko proposamenik aurkitu
+          title: Proposamen antzekoak
+        complete:
+          send: Bidali
+          title: Zure proposamena osatzea
+        count:
+          proposals_count:
+            one: "%{count} proposamen"
+            other: "%{count} proposamen"
+        edit:
+          attachment_legend: "(Aukerakoa) Gehitu eranskina"
+          back: Back
+          select_a_category: Hautatu kategoria bat
+          send: Bidali
+          title: Editatu proposamena
+        edit_draft:
+          discard: Ezabatu zirriborro hau
+          discard_confirmation: Ziur zaude proposamenaren zirriborroa baztertu nahi duzula?
+          send: Aurreikusi
+          title: Editatu proposamenaren zirriborroa
         filters:
+          amendment_type: Mota
+          category: Kategoria
+          origin: Jatorria
+          related_to: Honekin lotuta
           scope: esparrua
+          search: Bilatu
+          state: Egoera
+          type: Mota
+          voted: Bozkatuta
+        filters_small_view:
+          close_modal: Itxi leihoa
+          filter: Iragazi
+          filter_by: 'Iragazi honen arabera:'
+          unfold: Zabaldu
+        index:
+          collaborative_drafts_list: Sar zaitez elkarlanerako zirriborroak
+          new_proposal: Proposamen berria
+          see_all_withdrawn: Ikusi guztiak kendutako proposamenak
+          view_proposal: Ikusi proposamena
+        linked_proposals:
+          proposal_votes:
+            one: proiektuaren alde egin
+            other: euskarriak
+        new:
+          send: Jarraitu
+          title: Sortu zure proposamena
+        orders:
+          label: 'Antolatu proposamenak honen arabera:'
+          most_voted: Bozkatuenak
+          random: Ausazkoa eran
+          recent: Berrienak
+        participatory_texts:
+          index:
+            document_index: Dokumentuaren indizea
+          view_index:
+            see_index: Ikusi indizea
+        preview:
+          modify: Aldatu proposamena
+          proposal_edit_before_minutes:
+            one: Proposamen hau argitaratu ondoren, lehenengo proposamena editatu ahal izango duzu. Behin leiho hau igarotzen denean, ezingo duzu proposamen hori editatu.
+            other: Proposamen hau editatu ahal izango duzu lehenengo %{count} Proposamenaren ondoren argitaratutako minutuak. Behin leiho hau igarotzen denean, ezingo duzu proposamen hori editatu.
+          publish: Argitaratu
+          title: Argitaratu zure proposamena
+        proposal:
+          creation_date: 'Sorkuntza: %{date}'
+          view_proposal: Ikusi proposamena
         show:
           answer: Erantzuna
+          back_to: Itzuli
           comments: Iruzkinak
+          edit_proposal: Editatu proposamena
+          endorsements_list: Onarpenen zerrenda
+          hidden_endorsers_count:
+            one: eta %{count} pertsona gehiago
+            other: eta beste %{count} pertsona
+          link_to_collaborative_draft_help_text: Proposamen hau lankidetza-zirriborro baten emaitza da. Berrikusi historia
+          link_to_collaborative_draft_text: Ikusi lankidetza zirriborroa
+          proposal_accepted_reason: 'Proposamen hau onartu da arrazoi hauengatik:'
+          proposal_in_evaluation_reason: Proposamen hau ebaluatzen ari da
+          proposal_rejected_reason: 'Proposamen hau baztertu da arrazoi hauengatik:'
+          report: Salatu
+          withdraw_btn_hint: Zure proposamena uka dezakezu zure kontuan aldatzen baduzu, laguntza jaso ez baduzu. Proposamena ez da ezabatu, kendutako proposamenen zerrendan agertuko da.
+          withdraw_confirmation: Ziur al zaude proposamen hau kendu nahi duzula?
+          withdraw_proposal: Ezabatu proposamena
+        vote_button:
+          already_voted: Bozkatuta duzu
+          already_voted_hover: Unvote
+          maximum_votes_reached: Vote muga iritsi da
+          no_votes_remaining: Ez da gelditzen botorik
+          vote: Proiektuaren alde egin
+          votes_blocked: Bozketa desaktibatu da
+        votes_count:
+          count:
+            one: SOSTENGU
+            other: SOSTENGU
+          most_popular_proposal: Proposamenrik ezagunena
+          need_more_votes: Botoak gehiago behar dituzu
+        voting_rules:
+          can_accumulate_supports_beyond_threshold:
+            description: Proposamen bakoitza %{limit} euskarri baino gehiagotan pilatu daiteke
+          minimum_votes_per_user:
+            description: Gutxienez %{votes} boto eman behar dituzu proposamen desberdinen artean.
+            given_enough_votes: Onartutako euskarri guztiak eman dituzu.
+            supports_remaining: '%{remaining_votes} boto gehiago proposatu behar dituzu zure botoak kontuan hartzeko.'
+          proposal_limit:
+            description: '%{limit} proposamen sortu ditzakezu.'
+          threshold_per_proposal:
+            description: Onartutako proposamenak %{limit} euskarri behar ditu
+          title: 'Botoak honako arauak ditu:'
+          vote_limit:
+            description: '%{limit} proposamenari bozkatu ahal zaizkio.'
+            left: Emateke
+            votes: Euskarriak
+        wizard_aside:
+          back: Back
+          info: 123_8_0_321 | proposamen bat</strong>da. |
+        wizard_steps:
+          see_steps: ikusi urratsak
+          step_1: Sortu zure proposamena
+          step_2: konparatu
+          step_3: osoa
+          step_4: Argitaratu zure proposamena
+          step_of: Urratsa %{current_step_num} de %{total_steps}
+      publish:
+        error: Arazoak izan dira proposamena argitaratzean.
+        success: Proposamena ondo argitaratua.
+      update:
+        error: Arazoak izan dira proposamena gordetzean.
+        success: Proposamena ondo eguneratu da.
+      update_draft:
+        error: Arazoak izan dira proposamenaren aurrebista gordetzean.
+        success: Proposamenaren zirriborroa eguneratu da.
+      versions:
+        changes_at_title: Aldaketak "%{title}" -n
+        index:
+          title: bertsioak
+        stats:
+          back_to_collaborative_draft: Itzuli lankidetza zirriborrora
+          back_to_proposal: Joan proposamenari
+          number_of_versions: bertsioak
+          show_all_versions: Erakutsi bertsio guztiak
+          version_author: Egile-bertsioa
+          version_created_at: Bertsioa sortua
+          version_number: Bertsio zenbakia
+          version_number_out_of_total: "%{current_version} out of %{total_count}"
+        version:
+          version_index: '%{index}bertsioa'
+      withdraw:
+        errors:
+          has_supports: Proposamen hau ezin da kendu, dagoeneko onartzen duelako.
+    resource_links:
+      copied_from_component:
+        proposal_proposal: Lotutako proposamenak
+      included_projects:
+        project_result: 'Proiektu honetan agertzen diren emaitzak:'
+      included_proposals:
+        proposal_project: 'Proiektu hauetatik sortutako proposamena:'
+        proposal_result: 'Emaitza hauetatik sortutako proposamena:'
