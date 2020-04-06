@@ -88,6 +88,9 @@ de:
         error: Beim Aktualisieren Ihres Kontos ist ein Fehler aufgetreten.
         success: Ihr Konto wurde erfolgreich aktualisiert.
         success_with_email_confirmation: Ihr Konto wurde erfolgreich aktualisiert. Sie erhalten eine E-Mail zur Bestätigung Ihrer neuen E-Mail-Adresse.
+    admin:
+      actions:
+        cancel: Stornieren
     admin_log:
       area:
         create: "%{user_name} hat den %{resource_name} Bereich erstellt"
@@ -227,6 +230,7 @@ de:
       photos:
         related_photos: Ähnliche Bilder
     author:
+      avatar: Profilbild
       comments:
         one: Kommentar
         other: Kommentare
@@ -542,7 +546,6 @@ de:
           notification_title: Die <a href="%{resource_path}">Profilseite</a> von %{name} (%{nickname}), der Sie folgen, wurde aktualisiert.
     export_mailer:
       data_portability_export:
-        click_button: 'Klicken Sie auf die Schaltfläche "Weiter", um Ihre Daten herunterzuladen. <br/> Sie haben die Datei bis %{date}verfügbar.'
         download: Herunterladen
       export:
         ready: Anbei finden Sie eine gezippte Version Ihres Exports.
