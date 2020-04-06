@@ -132,3 +132,22 @@ tr:
             projects_per_page: Sayfa başına projeler
             resources_permissions_enabled: Her toplantı için eylem izinleri ayarlanabilir
             total_budget: Toplam bütçe
+            vote_threshold_percent: Oy eşiği yüzde
+          step:
+            announcement: duyuru
+            comments_blocked: Yorumlar engellendi
+            show_votes: Oyları göster
+            votes_enabled: Oylama etkin
+    orders:
+      checkout:
+        error: Oyunuzu işleme koymada bir sorun oluştu
+        success: Oyunuz başarıyla kabul edildi
+      destroy:
+        error: Oyunuzu iptal ederken bir sorun oluştu
+        success: Oyunuz başarıyla iptal edildi
+    resource_links:
+      included_proposals:
+        project_proposal: 'Bu projede yer alan teklifler:'
+  index:
+    confirmed_orders_count: Oy sayısı
+  total_budget: Toplam bütçe
