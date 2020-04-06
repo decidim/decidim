@@ -511,6 +511,7 @@ pl:
           notification_title: Zmieniono <a href="%{resource_path}">profil strony</a> z %{name} (%{nickname}), którego obserwujesz.
     export_mailer:
       data_portability_export:
+        click_button: 'Kliknij następny przycisk, aby pobrać swoje dane. <br/> Plik będzie dostępny do %{date}.'
         download: Pobieranie
       export:
         ready: Znajdź załączoną wersję eksportowanego pliku.
