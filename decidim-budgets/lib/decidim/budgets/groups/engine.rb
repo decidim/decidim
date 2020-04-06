@@ -8,6 +8,8 @@ module Decidim
       class Engine < ::Rails::Engine
         isolate_namespace Decidim::Budgets::Groups
 
+        paths["lib/tasks"] = nil
+
         routes do
           root to: "budgets#index"
         end
