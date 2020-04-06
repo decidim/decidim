@@ -583,7 +583,7 @@ fi-pl:
       create:
         button: Seuraa
         error: Tämän kohteen seuraamisessa tapahtui virhe.
-        participatory_space: Seuraat jo osallisuustilaa
+        participatory_space: Seuraat jo osallistumistilaa
       destroy:
         button: Lopeta seuranta
         error: Tämän kohteen seuraamisen lopetuksessa tapahtui virhe.
