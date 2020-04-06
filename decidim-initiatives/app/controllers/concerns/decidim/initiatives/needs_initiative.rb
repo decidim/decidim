@@ -35,7 +35,6 @@ module Decidim
 
         alias_method :current_participatory_space, :current_initiative
 
-
         def current_participatory_space_manifest
           @current_participatory_space_manifest ||= Decidim.find_participatory_space_manifest(:initiatives)
         end
