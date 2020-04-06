@@ -24,6 +24,7 @@ ca:
         published_at: Publicat el
         related_process_ids: Processos relacionats
         scope_id: Àmbit
+        scope_type_max_depth_id: Profunditat del filtre d'àmbit
         scopes_enabled: Àmbits habilitats
         short_description: Breu descripció
         show_metrics: Mostrar mètriques
@@ -326,6 +327,7 @@ ca:
             metadata: Metadades
             other: Altres
             related_processes: Processos relacionats
+            scope_type_max_depth_help: Restringeix la profunditat del filtre d'àmbit. Es mostrarà des del filtre general fins al filtre seleccionat.
             select_an_area: Selecciona una àrea
             select_process_group: Selecciona un grup de processos
             slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
@@ -384,7 +386,50 @@ ca:
         related_processes: Processos relacionats
         scope: Àmbit
         start_date: Data d'inici
+        target: Qui participa
+        unspecified: Sense especificar
       statistics:
+        answers_count: Respostes
+        comments_count: Comentaris
+        debates_count: Debats
+        endorsements_count: Adhesions
         followers_count: Seguidores
         headline: Estadístiques
+        meetings_count: Trobades presencials
         no_stats: Encara no hi ha estadístiques.
+        orders_count: Suports
+        pages_count: Pàgines
+        participants_count: Participants
+        processes_count: Processos
+        projects_count: Projectes
+        proposals_count: Propostes
+        results_count: Resultats
+        supports_count: Suports
+        surveys_count: Enquestes
+        users_count: Participants
+  layouts:
+    decidim:
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Explorar
+          processes_count: 'Processos:'
+      participatory_process_widgets:
+        show:
+          active_step: Fase activa
+          take_part: Participa
+      participatory_processes:
+        index:
+          promoted_processes: Processos destacats
+        participatory_process:
+          active_step: 'Fase actual:'
+          more_info: Més informació
+          take_part: Participa
+        promoted_process:
+          active_step: 'Fase actual:'
+          more_info: Més informació
+          take_part: Participa
+      process_header_steps:
+        step: Fase %{current} de %{total}
+        view_steps: Veure les fases
+      process_navigation:
+        process_menu_item: El procés
