@@ -182,8 +182,8 @@ cs:
       models:
         assemblies_types:
           fields:
-            created_at: Vytvořeno v
-            title: Název
+            created_at: Vytvořeno u
+            title: Titul
         assembly:
           fields:
             created_at: Vytvořeno u
@@ -259,7 +259,7 @@ cs:
             visbility: Viditelnost
         assemblies_types:
           form:
-            title: Název
+            title: Titul
         assembly_copies:
           form:
             slug_help: 'URL slug se používají k vygenerování adres URL, které odkazují na toto shromáždění. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
