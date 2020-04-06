@@ -293,10 +293,10 @@ ar:
           label: الفئة
         filter_label: تصفية
         officialized_at_null:
-          label: الحالة
+          label: حالة
           values:
-            'false': تم جعله رسمي
-            'true': لم يُصبِح رسميا
+            'false': Officialized
+            'true': غير رسمي
         private_space_eq:
           label: خاص
           values:
@@ -309,7 +309,7 @@ ar:
             'true': لم يُنشَر
         scope_id_eq:
           label: النطاق
-        search_label: البحث
+        search_label: بحث
         search_placeholder:
           name_or_nickname_or_email_cont: البحث عن %{collection} بحسب عنوان البريد الإكتروني أو الإسم أو الإسم المستعار.
           title_cont: البحث عن %{collection} بحسب العنوان.
