@@ -18,14 +18,6 @@ module Decidim
 
         private
 
-        def proposals_admin_routes
-          @proposals_admin_routes ||= Decidim::Proposals::AdminEngine.routes.url_helpers
-        end
-
-        def component
-          @component ||= resource.component
-        end
-
         def organization
           @organization ||= component.participatory_space.organization
         end
