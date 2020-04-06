@@ -304,7 +304,6 @@ module Decidim
         name: options[:name] || "#{@object_name}[#{attribute}]"
       }
       picker_options[:class] += " is-invalid-input" if error?(attribute)
-      picker_options[:class] += " picker-autosort" if options[:autosort]
 
       items = object.send(attribute).collect { |item| [item, yield(item)] }
 
