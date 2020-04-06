@@ -85,7 +85,6 @@ cs:
     admin:
       actions:
         new_assembly: Nové shromáždění
-        new_assembly_type: Nový typ shromáždění
       assemblies:
         create:
           error: Při vytváření nového shromáždění došlo k chybě.
@@ -108,17 +107,8 @@ cs:
           error: Při kopírování tohoto shromáždění došlo k chybě.
           success: Shromáždění úspěšně duplikováno.
       assemblies_types:
-        create:
-          error: Při vytváření nového typu shromáždění došlo k chybě.
-          success: Typ shromáždění byl úspěšně vytvořen.
-        destroy:
-          success: Typ shromáždění byl úspěšně smazán.
         new:
           create: Vytvořit
-          title: Nový typ shromáždění
-        update:
-          error: Při aktualizaci tohoto typu shromáždění došlo k chybě.
-          success: Typ shromáždění byl úspěšně aktualizován.
       assembly_copies:
         new:
           copy: kopírovat
@@ -178,12 +168,11 @@ cs:
           info: Info
           moderations: Moderování
           private_users: Soukromí uživatelé
-        assemblies_types: Typy shromáždění
       models:
         assemblies_types:
           fields:
-            created_at: Vytvořeno v
-            title: Název
+            created_at: Vytvořeno u
+            title: Titul
         assembly:
           fields:
             created_at: Vytvořeno u
@@ -217,7 +206,6 @@ cs:
             valuator: Hodnotitel
       titles:
         assemblies: Sestavy
-        assemblies_types: Typy shromáždění
     admin_log:
       assembly:
         create: "%{user_name} vytvořil %{resource_name} shromáždění"
@@ -228,12 +216,6 @@ cs:
         create: "%{user_name} vytvořil %{resource_name} člena ve shromáždění %{space_name}"
         delete: "%{user_name} odstranil %{resource_name} člena ze shromáždění %{space_name}"
         update: "%{user_name} aktualizoval %{resource_name} člena v shromáždění %{space_name}"
-      assembly_type:
-        create: "%{user_name} vytvořil typ shromáždění %{resource_name}"
-        delete: "%{user_name} odstranil člena %{resource_name} z typu shromáždění %{space_name}"
-        publish: "%{user_name} publikoval typ shromáždění %{resource_name}"
-        unpublish: "%{user_name} zneveřejnil typ shromáždění %{resource_name}"
-        update: "%{user_name} aktualizoval typ shromáždění %{resource_name}"
       assembly_user_role:
         create: "%{user_name} pozval %{resource_name} do shromáždění %{space_name}"
         delete: "%{user_name} odstranil účastníka %{resource_name} ze shromáždění %{space_name}"
@@ -259,7 +241,7 @@ cs:
             visbility: Viditelnost
         assemblies_types:
           form:
-            title: Název
+            title: Titul
         assembly_copies:
           form:
             slug_help: 'URL slug se používají k vygenerování adres URL, které odkazují na toto shromáždění. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
@@ -386,8 +368,6 @@ cs:
       value_types:
         assembly_presenter:
           not_found: 'Shromáždění nebylo nalezeno v databázi (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'Typ shromáždění nebyl v databázi nalezen (ID: %{id})'
     menu:
       assemblies: Sestavy
     metrics:
