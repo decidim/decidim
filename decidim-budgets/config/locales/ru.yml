@@ -97,6 +97,7 @@ ru:
         filters:
           category: Категория
           category_prompt: Выберите категорию
+          scope: Охват
           search: Поиск
         filters_small_view:
           close_modal: Закрыть окошко
