@@ -29,10 +29,12 @@ shared_context "when a simple event" do
   let(:resource_path) { resource_locator(resource).path }
   let(:resource_url) { resource_locator(resource).url }
   let(:resource_title) { resource.title["en"] }
+  # to be used when resource is a component resource, not a participatory space, in which case should be overriden
   let(:participatory_space) { resource.participatory_space }
   let(:participatory_space_title) { participatory_space.title["en"] }
   let(:participatory_space_path) { Decidim::ResourceLocatorPresenter.new(participatory_space).path }
   let(:participatory_space_url) { Decidim::ResourceLocatorPresenter.new(participatory_space).url }
+  let(:component) { resource.component }
   let(:author) do
     if resource.respond_to?(:creator_author)
       resource.creator_author

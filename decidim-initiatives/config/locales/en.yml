@@ -114,6 +114,12 @@ en:
         initiatives_types: Initiative types
     events:
       initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: The initiative "%{resource_title}" has been sent to technical validation. Check it out at <a href="%{admin_initiative_url}">the admin panel</a>
+            email_outro: You have received this notification because you are an admin of the platform.
+            email_subject: Initiative "%{resource_title}" was sent to technical validation.
+            notification_title: The initiative "%{resource_title}" has been sent to technical validation. Check it out at <a href="%{admin_initiative_path}">the admin panel</a>
         initiative_extended:
           email_intro: The signatures end date for the initiative %{resource_title} have been extended!
           email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
