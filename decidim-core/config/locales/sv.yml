@@ -89,6 +89,9 @@ sv:
         error: Det gick inte att uppdatera ditt konto.
         success: Ditt konto har uppdaterats.
         success_with_email_confirmation: Ditt konto har uppdaterats. Du får ett e-brev för att bekräfta din nya e-postadress.
+    admin:
+      actions:
+        cancel: Avbryt
     admin_log:
       area:
         create: "%{user_name} skapade området %{resource_name}"
@@ -205,7 +208,7 @@ sv:
       photos:
         related_photos: Relaterade bilder
     author:
-      avatar: Avatar
+      avatar: Profilbild
       comments:
         one: kommentar
         other: kommentarer
