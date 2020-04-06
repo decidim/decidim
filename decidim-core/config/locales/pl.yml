@@ -86,6 +86,9 @@ pl:
         error: Podczas aktualizowania konta wystąpił błąd.
         success: Twoje konto zostało zaktualizowane pomyślnie.
         success_with_email_confirmation: Twoje konto zostało pomyślnie zaktualizowane. W celu potwierdzenia Twojego nowego adresu e-mail otrzymasz na niego wiadomość.
+    admin:
+      actions:
+        cancel: Anuluj
     admin_log:
       area:
         create: "%{user_name} utworzył obszar %{resource_name}"
@@ -508,7 +511,6 @@ pl:
           notification_title: Zmieniono <a href="%{resource_path}">profil strony</a> z %{name} (%{nickname}), którego obserwujesz.
     export_mailer:
       data_portability_export:
-        click_button: 'Kliknij następny przycisk, aby pobrać swoje dane. <br/> Plik będzie dostępny do %{date}.'
         download: Pobieranie
       export:
         ready: Znajdź załączoną wersję eksportowanego pliku.
