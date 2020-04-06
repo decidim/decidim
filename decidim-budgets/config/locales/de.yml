@@ -93,6 +93,7 @@ de:
         filters:
           category: Kategorie
           category_prompt: Wählen Sie eine Kategorie
+          scope: Umfang
           search: Suche
         filters_small_view:
           close_modal: Modal schließen
