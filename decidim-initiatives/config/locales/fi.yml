@@ -62,6 +62,8 @@ fi:
       actions:
         new_initiative_type: Uusi aloitetyyppi
       filters:
+        search_placeholder:
+          title_or_description_cont: '%{collection}: Hae otsikon tai kuvauksen perusteella'
         state_eq:
           label: Tila
           values:
