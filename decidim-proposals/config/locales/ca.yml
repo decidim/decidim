@@ -381,10 +381,10 @@ ca:
             success: El text participatiu s'ha actualitzat correctament.
         proposal_answers:
           form:
-            accepted: Acceptada
+            accepted: Acceptades
             answer_proposal: Resposta
             evaluating: En avaluació
-            rejected: Rebutjat
+            rejected: Rebutjada
             title: Respondre a la proposta %{title}
         proposal_notes:
           create:
@@ -442,7 +442,7 @@ ca:
             amendments_count: Número d'esmenes
             assigned_valuators: Avaluadores assignades
             authors: Autores
-            body: Descripció
+            body: Cos
             comments_count: Comptador de comentaris
             comments_negative_count: En contra
             comments_neutral_count: Neutral
@@ -526,12 +526,12 @@ ca:
           official: Oficial
           user_groups: Grups
         filter_scope_values:
-          all: Tots
+          all: Totes
         filter_state_values:
           accepted: Acceptada
           all: Totes
           evaluating: En avaluació
-          not_answered: Sense resposta
+          not_answered: No resposta
           rejected: Rebutjada
         filter_type_values:
           all: Totes
@@ -787,7 +787,7 @@ ca:
           creation_date: 'Data de creació: %{date}'
           view_proposal: Veure proposta
         show:
-          answer: Respondre
+          answer: Resposta
           back_to: Torna
           changes_at_title: Esmena a "%{title}"
           edit_proposal: Edita proposta
