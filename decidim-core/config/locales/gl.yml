@@ -499,6 +499,7 @@ gl:
           notification_title: O <a href="%{resource_path}">profile páxina</a> de %{name} (%{nickname}), quen está a seguir, foi actualizado.
     export_mailer:
       data_portability_export:
+        click_button: 'Fai clic no seguinte botón para descargar os teus datos. <br/> Terá o ficheiro dispoñible ata o %{date}.'
         download: Descarga
       export:
         ready: Atopa unha versión comprimida da túa exportación.
