@@ -97,6 +97,7 @@ pl:
         filters:
           category: Kategoria
           category_prompt: Wybierz kategorię
+          scope: Zakres
           search: Szukanie
         filters_small_view:
           close_modal: Zamknij modal
