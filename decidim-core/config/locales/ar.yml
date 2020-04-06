@@ -546,7 +546,6 @@ ar:
           notification_title: و <a href="%{resource_path}">صفحة الملف الشخصي</a> من %{name} (%{nickname})، الذي كنت التالية، وقد تم تحديثها.
     export_mailer:
       data_portability_export:
-        click_button: 'انقر فوق الزر التالي لتنزيل بياناتك. <br/> سيكون لديك ملف متاح حتى %{date}.'
         download: تحميل
       export:
         ready: يرجى الاطلاع على نسخة مضغوطة من التصدير.
@@ -1210,7 +1209,6 @@ ar:
       cycle_detected: لا يمكن أن يكون والد النطاق أحد أحفاده
       expired: انتهت صلاحيتها ، يرجى طلب واحدة جديدة
       file_size_is_less_than_or_equal_to: يجب أن يكون حجم الملف أقل من أو يساوي %{count}
-      invalid_time_zone: ليست بمنطقة زمنية صالحة
       long_words: يحتوي على كلمات طويلة جدًا (أكثر من 35 حرفًا)
       must_start_with_caps: يجب أن تبدأ بحرف كبير
       nesting_too_deep: لا يمكن أن يكون داخل فئة فرعية
