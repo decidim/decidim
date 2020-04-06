@@ -91,7 +91,7 @@ es-PY:
         state_null:
           label: Estado
           values:
-            'true': No contestado
+            'true': No contestada
         valuator_role_ids_has:
           label: Asignada a evaluadora
     components:
@@ -432,7 +432,7 @@ es-PY:
           show:
             amendments_count: Número de enmiendas
             assigned_valuators: Evaluadoras asignadas
-            authors: Autoras
+            authors: Autores
             body: Cuerpo
             comments_count: Número de comentarios
             comments_negative_count: En contra
@@ -509,7 +509,7 @@ es-PY:
         withdrawn: Retirado
       application_helper:
         filter_category_values:
-          all: Todas
+          all: Todos
         filter_origin_values:
           all: Todos
           citizens: Ciudadanía
@@ -522,7 +522,7 @@ es-PY:
           accepted: Aceptado
           all: Todos
           evaluating: Evaluando
-          not_answered: Sin respuesta
+          not_answered: No contestada
           rejected: Rechazado
         filter_type_values:
           all: Todos
