@@ -22,6 +22,7 @@ sv:
         participatory_structure: Hur det bestäms
         promoted: Annonserad
         published_at: Publicerad
+        related_process_ids: Relaterade processer
         scope_id: Omfång
         scopes_enabled: Omfång aktiverade
         short_description: Kort beskrivning
@@ -307,6 +308,7 @@ sv:
             images: Bilder
             metadata: Metadata
             other: Andra
+            related_processes: Relaterade processer
             select_an_area: Välj ett område
             select_process_group: Välj en processgrupp
             slug_help: 'URL-slugs används till att generera de URL:er som pekar på processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
@@ -362,6 +364,7 @@ sv:
         participatory_scope: Vad som bestäms
         participatory_structure: Hur bestäms det
         private_space: Detta är en privat process
+        related_processes: Relaterade processer
         scope: Omfång
         start_date: Startdatum
         target: Vilka deltar
