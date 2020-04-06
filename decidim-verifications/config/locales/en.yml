@@ -27,6 +27,18 @@ en:
   decidim:
     admin:
       menu:
+        authorization_revocation:
+          before_date_info: Useful if the process has already begun and you want to revoke the permissions of the previous process.
+          button: Revoke all
+          button_before: Revoke before date
+          destroy:
+            confirm: Revoke before date authorizations can not be undone. Are you sure you want to continue?
+            confirm_all: Revoke all the authorizations can not be undone. Are you sure you want to continue?
+          destroy_nok: There's been a problem while revoking authorizations.
+          destroy_ok: All matched authorizations had been revocated successfully!
+          info: There are a total of %{count} verified participants.
+          no_data: No verified participants
+          title: Verifications's revocation
         authorization_workflows: Verifications
     admin_log:
       organization:

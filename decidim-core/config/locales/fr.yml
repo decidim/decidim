@@ -414,6 +414,8 @@ fr:
           this_application_will_not_be_able_to: 'Cette application ne sera pas capable de :'
           update_profile: Mettre à jour votre profil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> veut utiliser votre compte"
+    endorsable:
+      endorsements: Soutiens
     errors:
       internal_server_error:
         title: Il y a eu un problème avec notre serveur
@@ -1153,7 +1155,7 @@ fr:
         currently_waiting_confirmation_for_email: 'En attente de confirmation pour: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: laisser vide si vous ne voulez pas le changer
         title: Modifier %{resource}
-        unhappy: Pas satisfait ? 
+        unhappy: Pas satisfait ?
         update: Mettre à jour
         we_need_your_current_password_to_confirm_your_changes: nous avons besoin de votre mot de passe actuel pour confirmer vos modifications
       new:

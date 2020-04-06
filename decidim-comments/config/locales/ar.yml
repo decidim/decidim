@@ -4,6 +4,7 @@ ar:
       decidim/comments/comment_by_followed_user_event: تعليق
       decidim/comments/comment_created_event: تعليق
       decidim/comments/reply_created_event: تعليق الرد
+      decidim/comments/user_group_mentioned_event: أشير
       decidim/comments/user_mentioned_event: أشير
   activerecord:
     models:

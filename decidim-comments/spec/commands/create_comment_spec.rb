@@ -24,7 +24,25 @@ module Decidim
           end
         end
 
-        describe "when the form is valid" do
+        describe "when the nesting is too deep" do
+          let!(:first_comment) { create(:comment, commentable: dummy_resource) }
+          let!(:second_comment) { create(:comment, commentable: first_comment) }
+          let!(:third_comment) { create(:comment, commentable: second_comment) }
+          let!(:commentable) { create(:comment, commentable: third_comment) }
+          let(:command) { described_class.new(form, author) }
+
+          it "broadcasts invalid" do
+            expect { command.call }.to broadcast(:invalid)
+          end
+
+          it "doesn't create a comment" do
+            expect do
+              command.call
+            end.not_to change(Comment, :count)
+          end
+        end
+
+        describe "when the form is valid and the nesting is not too deep" do
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
           end

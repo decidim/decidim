@@ -4,6 +4,7 @@ ca:
       decidim/comments/comment_by_followed_user_event: Comentari
       decidim/comments/comment_created_event: Comentari
       decidim/comments/reply_created_event: Resposta al comentari
+      decidim/comments/user_group_mentioned_event: Mencionar
       decidim/comments/user_mentioned_event: Mencionar
   activerecord:
     models:

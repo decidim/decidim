@@ -27,7 +27,6 @@ uk:
       decidim/proposals/creation_enabled_event: Внесення пропозицій увімкнено
       decidim/proposals/endorsing_enabled_event: Увімкнене надання підтримки пропозиціям
       decidim/proposals/evaluating_proposal_event: Пропозиція розглядається
-      decidim/proposals/proposal_endorsed_event: Пропозицію підтримано
       decidim/proposals/proposal_mentioned_event: Пропозицію було згадано
       decidim/proposals/publish_proposal_event: Пропозицію оприлюднено
       decidim/proposals/rejected_proposal_event: Пропозицію відхилено
@@ -39,11 +38,6 @@ uk:
         few: Пропозиції
         many: Пропозицій
         other: Пропозицій
-      decidim/proposals/proposal_endorsement:
-        one: Прояв підтримки
-        few: Прояви підтримки
-        many: Проявів підтримки
-        other: Проявів підтримки
       decidim/proposals/proposal_note:
         one: Примітка
         few: Примітки
@@ -111,10 +105,6 @@ uk:
             email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
             email_subject: Пропозиція, за якою ви стежите, була прийнята
             notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було прийнято.
-        proposal_endorsed:
-          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{endorser_nickname}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
-          email_subject: "%{endorser_nickname} підтримав нову пропозицію"
-          notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> підтримав пропозицію <a href="%{resource_path}">%{resource_title}</a>.
         proposal_evaluating:
           follower:
             email_intro: 'Пропозиція "%{resource_title}" зараз розглядається. Ви можете перевірити наявність відповіді на сторінці:'
@@ -122,7 +112,6 @@ uk:
             email_subject: Пропозиція, за якою ви стежите, зараз розглядається
             notification_title: Пропозиція <a href="%{resource_path}">%{resource_title}</a> розглядається.
         proposal_mentioned:
-          email_intro: Вашу пропозицію "%{mentioned_proposal_title}" було згадано в коментарях <a href="%{resource_path}">в цьому просторі</a>.
           email_subject: Вашу пропозицію "%{mentioned_proposal_title}" було згадано
           notification_title: Вашу пропозицію "%{mentioned_proposal_title}" було згадано в коментарях <a href="%{resource_path}">в цьому просторі</a>.
         proposal_published:
@@ -247,7 +236,6 @@ uk:
           fields:
             category: Категорія
             comments: Коментарі
-            endorsements: Прояви підтримки
             id: Псевдонім
             notes: Примітки
             official_proposal: Службова пропозиція
@@ -258,18 +246,6 @@ uk:
             votes: Голоси
       new:
         limit_reached: Ви не можете вносити нові пропозиції, оскільки ви перевищили ліміт.
-      proposal_endorsements:
-        create:
-          error: При спробі надати підтримку цій пропозиції виникла помилка.
-        identities:
-          done: Зроблено
-          select_identity: Оберіть роль
-      proposal_endorsements_helper:
-        endorsement_button:
-          already_endorsed: Підтримано
-          endorse: Підтримати
-        render_endorsements_button_card_part:
-          endorse: Підтримати
       proposal_votes:
         create:
           error: При голосуванні щодо пропозиції сталися помилки.
@@ -291,10 +267,6 @@ uk:
           discard_confirmation: Ви дійсно бажаєте відкинути чернетку цієї пропозиції?
           send: Попередній перегляд
           title: Редагувати чернетку пропозиції
-        endorsement_identities_cabin:
-          endorse: Підтримати
-        endorsements_card_row:
-          comments: Коментарі
         filters:
           category: Категорія
           origin: Джерело
@@ -339,6 +311,7 @@ uk:
           view_proposal: Переглянути пропозицію
         show:
           answer: Відповісти
+          comments: Коментарі
           edit_proposal: Редагувати пропозицію
           endorsements_list: Перелік тих, хто підтримав
           proposal_accepted_reason: 'Ця пропозиція була прийнята, тому що:'
