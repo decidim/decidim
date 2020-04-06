@@ -70,10 +70,12 @@
         port: Port
         primary_color: Primært
         reference_prefix: Referanse prefiks
+        rich_text_editor_in_public_views: Aktiver rik-tekst-redigering for deltakere
         secondary_color: Sekundær
         send_welcome_notification: Send velkomst varsel
         show_statistics: Vis statistikk
         success_color: Vellykket
+        time_zone: Tidssone
         tos_version: Vilkår for tjenester versjon
         twitter_handler: Twitter brukernavn
         user_groups_enabled: Aktiver grupper
@@ -142,9 +144,24 @@
         export: Eksport
         manage: Administrer
         new: Nytt %{name}
+        per_page: Per side
         permissions: Tillatelser
         reject: Avvis
         verify: Verifiser
+      admin_terms_of_use:
+        accept:
+          error: Det oppstod et problem med å godkjenne administrator vilkårene.
+          success: Flott! Du har godtatt administratorenes vilkår for bruk.
+        actions:
+          accept: Jeg er enig med disse administrasjonsvilkårene
+          are_you_sure: Er du sikker på å nekte administrasjons vilkårene?
+          refuse: Avslå administratorvilkårene
+          title: Godta vilkårene for bruk
+        required_review:
+          alert: 'Påkrevd: Gå gjennom administrasjons vilkårene våre'
+          callout: Vennligst ta deg tid til å se gjennom administrator Vilkår for Bruk. Ellers vil du ikke kunne administrere plattformen.
+          cta: Se over dem nå.
+        title: Administrator vilkår for bruk
       area_types:
         create:
           error: Det oppstod et problem med å lage en ny områdetype.
@@ -279,12 +296,28 @@
       filters:
         category_id_eq:
           label: Kategori
+        filter_label: Filter
         officialized_at_null:
           label: Stat
           values:
             'false': Offisialisert
             'true': Ikke offisialisert
+        private_space_eq:
+          label: Privat
+          values:
+            'false': Offentlig
+            'true': Privat
+        published_at_null:
+          label: Publisert
+          values:
+            'false': Publisert
+            'true': Avpublisert
+        scope_id_eq:
+          label: Omfang
         search_label: Søk
+        search_placeholder:
+          name_or_nickname_or_email_cont: Søk %{collection} via email, navn eller kallenavn.
+          title_cont: Søk %{collection} etter tittel.
       help_sections:
         error: Det oppsto et problem med å oppdatere hjelpeseksjonene
         form:
@@ -464,6 +497,7 @@
           not_sent: Ikke sendt
           participants: 'deltakere '
           segmented_to: 'Segmentert til %{subject}: '
+          subscribed_count: 'Abonnert:'
           title: Nyhetsbrev
         new:
           save: Lagre
@@ -476,6 +510,7 @@
           followers_help: Sender nyhetsbrev til alle bekreftede brukere som følger noen av de valgte deltakerområdene på listen.
           none: Ingen
           participants_help: Sender nyhetsbrev til alle bekreftede brukere som har deltatt i noen av de valgte deltakerområdene på listen.
+          recipients_count: Dette nyhetsbrevet vil bli sendt til <strong id='recipients_count'>%{count}</strong> brukere.
           scopes_help: Sender nyhetsbrev til brukere som har noen av de valgte omfangene aktivert i kontoens "Mine interesser" innstillinger.
           select_scopes: Filtrer for brukere som har aktivert et valgt omfang i innstillingene for Mine interesser.
           select_spaces: Velg rom for å segmentere nyhetsbrevet
@@ -542,6 +577,7 @@
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          rich_text_editor_in_public_views_help: I noen tekstområder vil deltakerne kunne sette inn noen HTML-tagger med å bruke den rike tekst redigereren.
           social_handlers: Sosial
           twitter: Twitter
           url: Url
