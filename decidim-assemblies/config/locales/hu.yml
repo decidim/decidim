@@ -176,7 +176,7 @@ hu:
       models:
         assemblies_types:
           fields:
-            created_at: Létrehozva
+            created_at: 'Létrehozva:'
             title: Cím
         assembly:
           fields:
