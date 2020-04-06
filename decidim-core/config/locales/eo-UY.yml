@@ -67,32 +67,9 @@ eo:
         confirm:
           close: Fermu la fenestron
     amendments:
-      accepted:
-        success: La amendo estis akceptita sukcese.
-      amendable:
-        amended_by: Modifita de
-        button: Amendi %{model_name}
-        error: Okazis eraro ŝanĝante ĉi tiun rimedon.
-      edit_draft:
-        send: Antaŭvido
       wizard_step_form:
         steps:
           '1': Create your amendment
           '2': Compare your amendment
           '3': Complete your amendment
           '4': Publish your amendment
-    group_admins:
-      demote:
-        success: Partoprenanto sukcese forigita de administranto
-  devise:
-    sessions:
-      new:
-        sign_in: Ensaluti
-    unlocks:
-      send_instructions: Vi ricevos retpoŝton kun instrukcioj pri kiel malŝlosi vian konton en kelkaj minutoj.
-  layouts:
-    decidim:
-      user_menu:
-        sign_out: Elsaluti
-  locale:
-    name: Angla
