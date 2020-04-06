@@ -67,11 +67,11 @@ es:
         state_eq:
           label: Estado
           values:
-            accepted: Aceptado
-            created: Creado
-            discarded: Descartado
-            published: Publicado
-            rejected: Rechazado
+            accepted: Aceptada
+            created: Creada
+            discarded: Descartada
+            published: Publicada
+            rejected: Rechazada
             validating: Validación técnica
       menu:
         initiatives: Iniciativas
