@@ -144,6 +144,8 @@ fi:
         reject: "%{user_name} hylkäsi käyttäjäryhmän %{resource_name} vahvistaminen"
         verify: "%{user_name} vahvisti käyttäjäryhmän %{resource_name}"
         verify_via_csv: "%{user_name} vahvisti käyttäjäryhmän %{resource_name} CSV-tiedoston avulla"
+    admin_terms_of_use:
+      default_body: "<h2>HALLINTAKÄYTTÄJÄN KÄYTTÖEHDOT</h2><p>Oletamme, että olet saanut järjestelmänvalvojalta koulutuksen järjestelmän turvalliseen hallintakäyttöön. Usein siinä korostuu seuraavat asiat:</p><ol><li>Kunnioita muiden käyttäjien yksityisyyttä ja tietosuojaa.</li><li>Mieti hetki ennen kuin klikkaat painikkeita.</li><li>Mitä enemmän sinulla on valtaa, sitä enemmän sinulla on vastuuta tekemisistäsi.</li></ol>"
     amendments:
       accepted:
         error: Muutoksen hyväksyntä epäonnistui.
@@ -573,6 +575,7 @@ fi:
           notification_title: Seuraamasi käyttäjän %{name} (%{nickname}) <a href="%{resource_path}">profiilisivua</a> on päivitetty.
     export_mailer:
       data_portability_export:
+        click_button: 'Klikkaa seuraavaa painiketta ladataksesi tietosi. <br/> Tiedosto on käytettävissäsi %{date} saakka.'
         download: Lataa
       export:
         ready: Tähän viestiin on liitetty palvelusta löytyvät tiedot zip-pakettina.
@@ -1237,6 +1240,7 @@ fi:
       cycle_detected: teeman isäntä ei voi olla sen jälkeläinen
       expired: on vanhentunut, pyydä uutta
       file_size_is_less_than_or_equal_to: tiedoston koko tulee olla %{count} tai vähemmän
+      invalid_time_zone: virheellinen aikavyöhyke
       long_words: sisältää liian pitkiä sanoja (yli 35 merkkiä)
       must_start_with_caps: tulee alkaa isolla kirjaimella
       nesting_too_deep: ei voi olla ala-aihepiirin sisällä
@@ -1349,8 +1353,11 @@ fi:
       left: Poistot
       right: Lisäykset
     dropdown:
+      choose_diff_view_html: 'HTML-tarkastelutapa:'
       choose_diff_view_mode: 'Vertailutila:'
+      option_escaped: Teknisten elementtien käsittely käytössä
       option_split: Vierekkäin
+      option_unescaped: Teknisten elementtien käsittely pois käytöstä
       option_unified: Yhdistetty
   views:
     pagination:
