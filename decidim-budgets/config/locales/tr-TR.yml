@@ -93,6 +93,7 @@ tr:
         filters:
           category: Kategori
           category_prompt: bir kategori seç
+          scope: kapsam
           search: Arama
         filters_small_view:
           close_modal: Kalıcı modal
