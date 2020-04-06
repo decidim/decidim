@@ -62,6 +62,8 @@ it:
       actions:
         new_initiative_type: Nuovo tipo di iniziativa
       filters:
+        search_placeholder:
+          title_or_description_cont: Cerca %{collection} per titolo o descrizione.
         state_eq:
           label: Stato
           values:
