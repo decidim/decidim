@@ -92,6 +92,7 @@ sv:
             other: "%{count} projekt"
         filters:
           category: Kategori
+          scope: Omfång
           search: Sök
         filters_small_view:
           close_modal: Stäng fönstret
