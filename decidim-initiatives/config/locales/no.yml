@@ -62,6 +62,8 @@
       actions:
         new_initiative_type: Ny intiativtype
       filters:
+        search_placeholder:
+          title_or_description_cont: Søk %{collection} etter tittel eller beskrivelse.
         state_eq:
           label: Stat
           values:
