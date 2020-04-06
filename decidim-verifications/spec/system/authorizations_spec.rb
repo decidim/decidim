@@ -172,6 +172,38 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
               expect(page).to have_css(".authorization-renewable")
             end
           end
+
+          it "shows a modal with renew information" do
+            within_user_menu do
+              click_link "My account"
+            end
+
+            click_link "Authorizations"
+            click_link "Example authorization"
+
+            within "#renew-modal" do
+              expect(page).to have_content("Example authorization")
+              expect(page).to have_content("This is the data of the current verification:")
+              expect(page).to have_content("Continue")
+              expect(page).to have_content("Cancel")
+            end
+          end
+
+          describe "and clicks on the button to renew" do
+            it "shows the verification form to start again" do
+              within_user_menu do
+                click_link "My account"
+              end
+              click_link "Authorizations"
+              click_link "Example authorization"
+              within "#renew-modal" do
+                click_link "Continue"
+              end
+
+              expect(page).to have_content("Document number")
+              expect(page).to have_button "Send"
+            end
+          end
         end
       end
 
