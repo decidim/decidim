@@ -157,11 +157,6 @@ fi:
           are_you_sure: Haluatko varmasti olla hyväksymättä hallintakäyttäjän ehtoja?
           refuse: Kieltäydy hyväksymästä hallintakäyttäjän ehtoja
           title: Hyväksy käyttöehdot
-        required_review:
-          alert: 'Vaadittu: tutustu hallintakäyttäjän ehtoihimme'
-          callout: Ole hyvä ja tutustu hallintakäyttäjän käyttöehtoihin. Ehtojen hyväksyminen vaaditaan, jotta saat oikeudet järjestelmän hallintatoimintoihin.
-          cta: Tutustu nyt.
-        title: Hallintakäyttäjän käyttöehdot
       area_types:
         create:
           error: Uuden aluetyypin luonti epäonnistui.
@@ -296,28 +291,12 @@ fi:
       filters:
         category_id_eq:
           label: Aihepiiri
-        filter_label: Suodata
         officialized_at_null:
           label: Tila
           values:
             'false': Virallistettu
             'true': Ei virallistettu
-        private_space_eq:
-          label: Yksityinen
-          values:
-            'false': Julkinen
-            'true': Yksityinen
-        published_at_null:
-          label: Julkaistu
-          values:
-            'false': Julkaistu
-            'true': Julkaisematon
-        scope_id_eq:
-          label: Teema
         search_label: Hae
-        search_placeholder:
-          name_or_nickname_or_email_cont: '%{collection}: Hae sähköpostilla, nimellä tai nimimerkillä'
-          title_cont: '%{collection}: Hae otsikon perusteella'
       help_sections:
         error: Ohjeosioiden päivitys epäonnistui
         form:
@@ -497,7 +476,6 @@ fi:
           not_sent: Ei lähetetty
           participants: 'osallistujat '
           segmented_to: 'Kohdennettu vastaanottajille %{subject}: '
-          subscribed_count: 'Tilaukset:'
           title: Uutiskirjeet
         new:
           save: Tallenna
@@ -510,7 +488,6 @@ fi:
           followers_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille, jotka seuraavat jotain listan osallistumistiloista.
           none: Ei kenellekään
           participants_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille, jotka ovat osallistuneet jossain listan valituista osallistumistiloista.
-          recipients_count: Tämä uutiskirje lähetetään <strong id='recipients_count'>%{count}</strong>:lle käyttäjälle.
           scopes_help: Lähetä uutiskirje käyttäjille, jotka ovat valinneet minkä tahansa teeman heidän tilinsä "Kiinnostuksen kohteet" -asetuksesta.
           select_scopes: Suodata käyttäjiä, jotka ovat valinneet minkä tahansa teeman tilinsä "Kiinnostuksen kohteet" -asetuksesta.
           select_spaces: Valitse tilat, joille haluat kohdistaa uutiskirjeen
@@ -585,7 +562,6 @@ fi:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
-          rich_text_editor_in_public_views_help: Joissain tekstikentissä osallistujat voivat syöttää tiettyjä HTML-elementtejä rikkaan tekstieditorin kautta.
           social_handlers: Sosiaalinen media
           twitter: Twitter
           url: URL
