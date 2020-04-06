@@ -93,6 +93,7 @@ it:
         filters:
           category: Categoria
           category_prompt: Scegli una categoria
+          scope: Ambito tematico
           search: Cerca
         filters_small_view:
           close_modal: Chiudi modalità
