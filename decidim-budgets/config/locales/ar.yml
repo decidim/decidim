@@ -101,7 +101,7 @@ ar:
         filters:
           category: الفئة
           category_prompt: اختر تصنيف
-          scope: النطاق
+          scope: نطاق
           search: بحث
         filters_small_view:
           close_modal: إغلاق مشروط
