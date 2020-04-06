@@ -176,7 +176,7 @@ es:
       models:
         assemblies_types:
           fields:
-            created_at: Creado el
+            created_at: Fecha de creación
             title: Título
         assembly:
           fields:
