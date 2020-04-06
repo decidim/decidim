@@ -93,6 +93,7 @@ pt:
         filters:
           category: Categoria
           category_prompt: Selecione uma categoria
+          scope: Âmbito
           search: Pesquisa
         filters_small_view:
           close_modal: Fechar modal
