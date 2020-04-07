@@ -25,7 +25,7 @@
           class: "column button light button--sc success",
           id: "vote_button-#{proposal.id}"
         ) do %>
-          <%= icon("check", class: "icon--small") %>
+          <%= icon("check", class: "icon--small", role: "img") %>
           <%= t("decidim.proposals.proposals.vote_button.already_voted") %>
         <% end %>
       <% else %>

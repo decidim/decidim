@@ -1,11 +1,11 @@
 <div class="row collapse">
-  <h2 id="initiatives-count" class="title-action__title section-heading">
+  <h1 id="initiatives-count" class="title-action__title section-heading">
     <%= render partial: "count" %>
-  </h2>
+  </h1>
   <% if allowed_to? :create, :initiative %>
     <%= link_to create_initiative_path(:select_initiative_type), class: "title-action__action button small" do %>
         <%= t(".new_initiative") %>
-        <%= icon "plus" %>
+        <%= icon "plus", aria_label: t(".new_initiative"), role: "img" %>
     <% end %>
   <% end %>
 </div>
