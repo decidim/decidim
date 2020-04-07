@@ -96,6 +96,8 @@ module Decidim
         let(:instagram_handler) { "lorem" }
         let(:youtube_handler) { "lorem" }
         let(:github_handler) { "lorem" }
+        let(:parent_id) { nil }
+        let(:assembly_id) { nil }
         let(:attributes) do
           {
             "assembly" => {
@@ -142,7 +144,8 @@ module Decidim
               "facebook_handler" => facebook_handler,
               "instagram_handler" => instagram_handler,
               "youtube_handler" => youtube_handler,
-              "github_handler" => github_handler
+              "github_handler" => github_handler,
+              "parent_id" => parent_id
             }
           }
         end
@@ -265,6 +268,129 @@ module Decidim
               expect(subject).to be_valid
             end
           end
+        end
+
+        context "when assembly has a parent_id" do
+          let(:parent_id) { create(:assembly, organization: organization) }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when the parent is also a child" do
+          let(:assembly) { create(:assembly, organization: organization) }
+          let(:attributes) do
+            {
+              assembly: {
+                id: assembly.id,
+                title_en: "Foo title",
+                title_ca: "Foo title",
+                title_es: "Foo title",
+                subtitle_en: assembly.subtitle,
+                subtitle_ca: assembly.subtitle,
+                subtitle_es: assembly.subtitle,
+                slug: "another-slug",
+                hashtag: assembly.hashtag,
+                meta_scope: assembly.meta_scope,
+                hero_image: nil,
+                banner_image: nil,
+                promoted: assembly.promoted,
+                description_en: assembly.description,
+                description_ca: assembly.description,
+                description_es: assembly.description,
+                short_description_en: assembly.short_description,
+                short_description_ca: assembly.short_description,
+                short_description_es: assembly.short_description,
+                current_organization: assembly.organization,
+                scopes_enabled: assembly.scopes_enabled,
+                scope: assembly.scope,
+                area: assembly.area,
+                errors: assembly.errors,
+                show_statistics: assembly.show_statistics,
+                participatory_processes_ids: nil,
+                purpose_of_action: assembly.purpose_of_action,
+                composition: assembly.composition,
+                decidim_assemblies_type_id: assembly_type_id,
+                creation_date: assembly.creation_date,
+                created_by: assembly.created_by,
+                created_by_other: assembly.created_by_other,
+                duration: assembly.duration,
+                included_at: assembly.included_at,
+                closing_date: assembly.closing_date,
+                closing_date_reason: assembly.closing_date_reason,
+                internal_organisation: assembly.internal_organisation,
+                is_transparent: assembly.is_transparent,
+                special_features: assembly.special_features,
+                twitter_handler: assembly.twitter_handler,
+                facebook_handler: assembly.facebook_handler,
+                instagram_handler: assembly.instagram_handler,
+                youtube_handler: assembly.youtube_handler,
+                github_handler: assembly.github_handler,
+                parent_id: child_assembly
+              }
+            }
+          end
+          let(:child_assembly) { create(:assembly, :with_parent, parent: assembly, organization: organization) }
+
+          it { is_expected.not_to be_valid }
+        end
+
+        context "when the parent is also a grandchild" do
+          let(:assembly) { create(:assembly, organization: organization) }
+          let(:attributes) do
+            {
+              assembly: {
+                id: assembly.id,
+                title_en: "Foo title",
+                title_ca: "Foo title",
+                title_es: "Foo title",
+                subtitle_en: assembly.subtitle,
+                subtitle_ca: assembly.subtitle,
+                subtitle_es: assembly.subtitle,
+                slug: "another-slug",
+                hashtag: assembly.hashtag,
+                meta_scope: assembly.meta_scope,
+                hero_image: nil,
+                banner_image: nil,
+                promoted: assembly.promoted,
+                description_en: assembly.description,
+                description_ca: assembly.description,
+                description_es: assembly.description,
+                short_description_en: assembly.short_description,
+                short_description_ca: assembly.short_description,
+                short_description_es: assembly.short_description,
+                current_organization: assembly.organization,
+                scopes_enabled: assembly.scopes_enabled,
+                scope: assembly.scope,
+                area: assembly.area,
+                errors: assembly.errors,
+                show_statistics: assembly.show_statistics,
+                participatory_processes_ids: nil,
+                purpose_of_action: assembly.purpose_of_action,
+                composition: assembly.composition,
+                decidim_assemblies_type_id: assembly_type_id,
+                creation_date: assembly.creation_date,
+                created_by: assembly.created_by,
+                created_by_other: assembly.created_by_other,
+                duration: assembly.duration,
+                included_at: assembly.included_at,
+                closing_date: assembly.closing_date,
+                closing_date_reason: assembly.closing_date_reason,
+                internal_organisation: assembly.internal_organisation,
+                is_transparent: assembly.is_transparent,
+                special_features: assembly.special_features,
+                twitter_handler: assembly.twitter_handler,
+                facebook_handler: assembly.facebook_handler,
+                instagram_handler: assembly.instagram_handler,
+                youtube_handler: assembly.youtube_handler,
+                github_handler: assembly.github_handler,
+                parent_id: grandchild_assembly
+              }
+            }
+          end
+          let(:child_assembly) { create(:assembly, :with_parent, parent: assembly, organization: organization) }
+          let(:grandchild_assembly) { create(:assembly, :with_parent, parent: child_assembly, organization: organization) }
+
+          it { is_expected.not_to be_valid }
         end
       end
     end

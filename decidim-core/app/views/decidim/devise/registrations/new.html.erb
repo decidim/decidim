@@ -4,7 +4,7 @@
   <%= render "decidim/devise/shared/links" %>
 <% end %>
 
-<main class="wrapper">
+<div class="wrapper">
 <div class="row collapse">
   <div class="row collapse">
     <div class="columns large-8 large-centered text-center page-title">
@@ -56,7 +56,7 @@
 
         <div class="card" id="card__tos">
           <div class="card__content">
-            <legend><%= t(".tos_title") %></legend>
+            <h3><%= t(".tos_title") %></h3>
 
             <p class="tos-text">
               <%= strip_tags(translated_attribute(terms_and_conditions_page.content)) %>
@@ -70,13 +70,10 @@
 
         <div class="card" id="card__newsletter">
           <div class="card__content">
-            <legend><%= t(".newsletter_title") %></legend>
-
-            <fieldset>
+            <h3><%= t(".newsletter_title") %></h3>
               <div class="field">
                 <%= f.check_box :newsletter, label: t(".newsletter"), checked: @form.newsletter %>
               </div>
-            </fieldset>
           </div>
         </div>
 
@@ -92,5 +89,5 @@
     </div>
   </div>
 </div>
-</main>
+</div>
 <%= render "decidim/devise/shared/newsletter_modal" %>

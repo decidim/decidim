@@ -25,8 +25,8 @@ module Decidim
         expect(parsed.css(".filters__section fieldset")).not_to be_empty
       end
 
-      it "adds a legend tag with a h6 tag inside with value provided by 'legend' option" do
-        expect(parsed.css("legend h6.heading6").first.text).to eq("Date")
+      it "adds a legend tag with a mini-title class inside with value provided by 'legend' option" do
+        expect(parsed.css("legend.mini-title").first.text).to eq("Date")
       end
     end
 

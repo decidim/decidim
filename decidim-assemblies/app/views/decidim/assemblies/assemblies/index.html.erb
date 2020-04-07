@@ -20,10 +20,10 @@ edit_link(
 
   <section id="assemblies-chart" class="row column section">
     <div class="row column">
-      <h2 class="section-heading"><%= t("assemblies.index.organizational_chart", scope: "layouts.decidim") %></h2>
-      <article id="orgchart-<%= SecureRandom.hex(5) %>" class="card orgchart js-orgchart absolutes" data-url="<%= decidim_assemblies.assemblies_path(format: :json) %>">
+      <h3 class="section-heading"><%= t("assemblies.index.organizational_chart", scope: "layouts.decidim") %></h3>
+      <div id="orgchart-<%= SecureRandom.hex(5) %>" class="card orgchart js-orgchart absolutes" data-url="<%= decidim_assemblies.assemblies_path(format: :json) %>">
         <button class="medium-1 m-s top left button small hollow invisible js-reset-orgchart"><%= t("assemblies.index.reset_chart", scope: "layouts.decidim") %></button>
-      </article>
+      </div>
     </div>
   </section>
 <% end %>
