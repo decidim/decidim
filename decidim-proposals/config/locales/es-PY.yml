@@ -763,6 +763,7 @@ es-PY:
         show:
           answer: Respuesta
           back_to: De regreso
+          back_to_list: Volver al listado
           changes_at_title: Enmienda a "%{title}"
           comments: Comentarios
           edit_proposal: Editar propuesta
