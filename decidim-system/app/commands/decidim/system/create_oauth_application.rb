@@ -23,7 +23,7 @@ module Decidim
           organization_logo: @form.organization_logo,
           redirect_uri: @form.redirect_uri,
           scopes: "public",
-          organization: @form.current_organization
+          organization: Decidim::Organization.find_by(name: @form.organization_name)
         )
 
         broadcast(:ok, @application)
