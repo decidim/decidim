@@ -92,6 +92,11 @@ es-MX:
           email_outro: Has recibido esta notificación porque tu comentario fue respondido.
           email_subject: "%{author_name} ha respondido a tu comentario en %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha respondido a tu comentario en <a href="%{resource_path}">%{resource_title}</a>
+        user_group_mentioned:
+          email_intro: Se ha mencionado un grupo al que perteneces
+          email_outro: Has recibido esta notificación porque formas parte del grupo %{group_name} que ha sido mencionado en %{resource_title}.
+          email_subject: Te han mencionado en %{resource_title} como miembro de %{group_name}
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> te ha mencionado en <a href="%{resource_path}">%{resource_title}</a> como miembro de <a href="%{group_path}">%{group_name} %{group_nickname}</a>
         user_mentioned:
           email_intro: Has sido mencionado
           email_outro: Has recibido esta notificación porque has sido mencionado en %{resource_title}.
