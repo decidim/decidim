@@ -6,23 +6,18 @@ module Decidim
     #
     class OAuthApplicationsController < Admin::ApplicationController
       def index
-        enforce_permission_to :read, :oauth_application
         @oauth_applications = collection.page(params[:page]).per(15)
       end
 
       def show
         @oauth_application = collection.find(params[:id])
-        enforce_permission_to :read, :oauth_application
       end
 
       def new
-        enforce_permission_to :create, :oauth_application
         @form = form(OAuthApplicationForm).instance
       end
 
       def create
-        enforce_permission_to :create, :oauth_application
-
         @form = form(OAuthApplicationForm).from_params(params)
 
         CreateOAuthApplication.call(@form) do
@@ -40,13 +35,11 @@ module Decidim
 
       def edit
         @oauth_application = collection.find(params[:id])
-        enforce_permission_to :update, :oauth_application, oauth_application: @oauth_application
         @form = form(OAuthApplicationForm).from_model(@oauth_application)
       end
 
       def update
         @oauth_application = collection.find(params[:id])
-        enforce_permission_to :update, :oauth_application, oauth_application: @oauth_application
         @form = form(OAuthApplicationForm).from_params({ organization_logo: @oauth_application.organization_logo }.merge(params.to_unsafe_h))
 
         UpdateOAuthApplication.call(@oauth_application, @form, current_user) do
@@ -65,7 +58,6 @@ module Decidim
 
       def destroy
         @oauth_application = collection.find(params[:id])
-        enforce_permission_to :destroy, :oauth_application, oauth_application: @oauth_application
 
         DestroyOAuthApplication.call(@oauth_application, current_user) do
           on(:ok) do
