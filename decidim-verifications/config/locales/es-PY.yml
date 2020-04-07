@@ -26,6 +26,12 @@ es-PY:
   decidim:
     admin:
       menu:
+        authorization_revocation:
+          before_date_info: Útil si el proceso ya ha comenzado y quieres revocar los permisos del proceso anterior.
+          button: Revocar todo
+          button_before: Revocar antes de la fecha
+          destroy:
+            confirm: La revocación de las autorizaciones anteriores a esta fecha no se puede deshacer. ¿Seguro que quieres continuar?
         authorization_workflows: Verificaciones
     admin_log:
       organization:
