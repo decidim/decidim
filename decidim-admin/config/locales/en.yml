@@ -30,12 +30,6 @@ en:
       newsletter:
         body: Body
         subject: Subject
-      oauth_application:
-        name: Name
-        organization_logo: Organization logo (square)
-        organization_name: Organization name
-        organization_url: Organization URL
-        redirect_uri: Redirect URI
       organization:
         address: SMTP hostname
         alert_color: Alert
@@ -113,10 +107,6 @@ en:
         file: File
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: The redirect URI must be a SSL URI
         organization:
           attributes:
             official_img_footer:
@@ -381,7 +371,6 @@ en:
         homepage: Homepage
         impersonations: Impersonations
         newsletters: Newsletters
-        oauth_applications: OAuth applications
         participants: Participants
         scope_types: Scope types
         scopes: Scopes
@@ -425,11 +414,6 @@ en:
             sent_to: Sent to
             subject: Subject
           name: Newsletter
-        oauth_application:
-          fields:
-            created_at: Created at
-            name: Name
-          name: OAuth application
         participatory_space_private_user:
           name: Participatory space private participant
         scope:
@@ -530,25 +514,6 @@ en:
         update:
           error: There was a problem updating this newsletter.
           success: Newsletter updated successfully. Please review it before sending.
-      oauth_applications:
-        create:
-          error: There was a problem creating this application.
-          success: Application created successfully.
-        destroy:
-          error: There was a problem destroying this application.
-          success: Application destroyed successfully.
-        edit:
-          save: Save
-          title: Edit application
-        index:
-          confirm_delete: Are you sure you want to delete this application?
-          title: OAuth applications
-        new:
-          save: Save
-          title: New application
-        update:
-          error: There was a problem updating this application.
-          success: Application updated successfully.
       officializations:
         create:
           success: Participant successfully officialized
