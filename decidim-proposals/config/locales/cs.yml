@@ -89,7 +89,7 @@ cs:
         actions:
           amend: Pozměnit
           create: Vytvořit
-          endorse: Potvrďte
+          endorse: Schválit
           vote: Hlasování
           withdraw: Ustoupit
         name: Návrhy
@@ -133,8 +133,8 @@ cs:
             automatic_hashtags: Do všech návrhů byly přidány značky Hashtags
             comments_blocked: Komentáře byly blokovány
             creation_enabled: Vytváření návrhu je povoleno
-            endorsements_blocked: Uzávěry blokovány
-            endorsements_enabled: Povolení byla povolena
+            endorsements_blocked: Schvalování blokováno
+            endorsements_enabled: Schvalování povoleno
             proposal_answering_enabled: Odpovídání návrhu je povoleno
             suggested_hashtags: Hashtags navrhl uživatelům nové návrhy
             votes_blocked: Hlasování bylo blokováno
@@ -178,7 +178,7 @@ cs:
           email_subject: Návrhy jsou nyní k dispozici v %{participatory_space_title}
           notification_title: Nyní můžete předložit <a href="%{resource_path}">nových návrhů</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
-          email_intro: 'Můžete podpořit návrhy v %{participatory_space_title}! Začněte se účastnit této stránky:'
+          email_intro: 'Můžete schválit návrhy v %{participatory_space_title}! Začněte se účastnit této stránky:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Schválení návrhů bylo zahájeno po dobu %{participatory_space_title}
           notification_title: Nyní můžete začít <a href="%{resource_path}">schválení návrhů</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -286,9 +286,9 @@ cs:
         object: návrhy
         title: Přijaté návrhy
       endorsements:
-        description: Počet potvrzení generovaných v návrzích
-        object: potvrzení
-        title: Potvrzení
+        description: Počet schvalování k návrhům
+        object: schvalování
+        title: Schvalování
       proposals:
         description: Počet vytvořených návrhů
         object: návrhy
@@ -597,7 +597,7 @@ cs:
           fields:
             category: Kategorie
             comments: Komentáře
-            endorsements: Potvrzení
+            endorsements: Schválení
             id: ID
             notes: Poznámky
             official_proposal: Oficiální návrh
@@ -614,19 +614,19 @@ cs:
           amend: Pozměňovací návrh
           comment: Komentář
           comments: Komentáře
-          endorse: Potvrďte
+          endorse: Schválit
       proposal_endorsements:
         create:
           error: Při schválení návrhu došlo k chybám.
         identities:
           done: Hotovo
-          select_identity: Vyberte identitu
+          select_identity: Vybrat identitu
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Potvrzeno
+          already_endorsed: Schváleno
           endorse: Potvrďte
         render_endorsements_button_card_part:
-          endorse: Potvrďte
+          endorse: Schváleno
       proposal_votes:
         create:
           error: Při hlasování o návrhu došlo k chybám.
@@ -656,7 +656,7 @@ cs:
           send: Náhled
           title: Upravit koncept návrhu
         endorsement_identities_cabin:
-          endorse: Potvrďte
+          endorse: Schváleno
         endorsements_card_row:
           comments: Komentáře
         filters:
@@ -720,7 +720,7 @@ cs:
           back_to: Zpět k
           changes_at_title: Pozměňovací návrh k "%{title}"
           edit_proposal: Upravit návrh
-          endorsements_list: Seznam doporučení
+          endorsements_list: Seznam Schválení
           hidden_endorsers_count:
             one: a %{count} další osoba
             few: a %{count} dalších lidí
