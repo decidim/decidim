@@ -4,7 +4,7 @@ module Decidim
   module System
     # Controller that allows managing OAuth applications at the admin panel.
     #
-    class OAuthApplicationsController < Admin::ApplicationController
+    class OAuthApplicationsController < Decidim::System::ApplicationController
       helper Decidim::Admin::AttributesDisplayHelper
 
       def index
