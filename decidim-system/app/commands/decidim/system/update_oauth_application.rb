@@ -17,7 +17,6 @@ module Decidim
 
       def call
         return broadcast(:invalid) unless @form.valid?
-        return broadcast(:invalid) unless @user.organization == @application.organization
 
         @application = Decidim.traceability.update!(
           @application,
