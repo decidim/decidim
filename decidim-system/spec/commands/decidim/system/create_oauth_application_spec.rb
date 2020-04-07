@@ -6,11 +6,12 @@ module Decidim::System
   describe CreateOAuthApplication, processing_uploads_for: Decidim::ImageUploader do
     subject { described_class.call(form) }
 
+    let(:organization) { create(:organization) }
     let(:params) do
       {
         name: "Meta Decidim",
-        organization_name: "Ajuntament de Barcelona",
-        organization_url: "http://www.barcelona.cat",
+        organization_name: organization.name,
+        organization_url: organization.host,
         organization_logo: file,
         redirect_uri: "https://meta.decidim.barcelona/users/auth/decidim"
       }
@@ -21,7 +22,6 @@ module Decidim::System
         "image/jpg"
       )
     end
-    let(:organization) { create(:organization) }
     let(:context) do
       {
         current_user: create(:user, organization: organization),

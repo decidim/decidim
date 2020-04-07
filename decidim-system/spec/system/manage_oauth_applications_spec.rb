@@ -5,14 +5,12 @@ require "spec_helper"
 describe "Manage OAuth applications", type: :system do
   include ActionView::Helpers::SanitizeHelper
 
-  let(:admin) { create :user, :admin, :confirmed }
-  let(:organization) { admin.organization }
+  let(:admin) { create :admin }
+  let(:organization) { create :organization }
 
   before do
-    switch_to_host(organization.host)
-    login_as admin, scope: :user
-    visit decidim_admin.root_path
-    click_link "OAuth applications"
+    login_as admin, scope: :admin
+    visit decidim_system.oauth_applications_path
   end
 
   it "can create new applications" do
@@ -21,14 +19,14 @@ describe "Manage OAuth applications", type: :system do
     within ".new_oauth_application" do
       fill_in :oauth_application_name, with: "Meta Decidim"
       fill_in :oauth_application_redirect_uri, with: "https://example.org/oauth/decidim"
-      fill_in :oauth_application_organization_name, with: "Ajuntament de Barcelona"
-      fill_in :oauth_application_organization_url, with: "https://www.barcelona.cat"
+      fill_in :oauth_application_organization_name, with: organization.name
+      fill_in :oauth_application_organization_url, with: organization.host
       attach_file "Organization logo", Decidim::Dev.asset("city.jpeg")
 
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_content("successfully")
 
     within "table" do
       expect(page).to have_content("Meta Decidim")
@@ -52,7 +50,7 @@ describe "Manage OAuth applications", type: :system do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_content("successfully")
 
       within "table" do
         expect(page).to have_content("Test application")
@@ -64,7 +62,7 @@ describe "Manage OAuth applications", type: :system do
         accept_confirm { click_link "Delete" }
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_content("successfully")
 
       within "table" do
         expect(page).to have_no_content(application.name)
