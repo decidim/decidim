@@ -61,6 +61,7 @@ en:
           fields:
             created_at: Created at
             name: Name
+            organization_name: Organization name
           name: OAuth application
         organization:
           actions:
