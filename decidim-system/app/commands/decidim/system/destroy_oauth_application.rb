@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Admin
+  module System
     # This command deals with destroying an application from the admin panel.
     class DestroyOAuthApplication < Rectify::Command
       # Public: Initializes the command.

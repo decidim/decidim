@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Admin
+  module System
     # Updates the OAuth application given form data.
     class UpdateOAuthApplication < Rectify::Command
       # Initializes the command.

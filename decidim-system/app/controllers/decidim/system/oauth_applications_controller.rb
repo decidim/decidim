@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Admin
+  module System
     # Controller that allows managing OAuth applications at the admin panel.
     #
     class OAuthApplicationsController < Admin::ApplicationController

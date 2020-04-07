@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Admin
+  module System
     # Creates an OAuthApplication.
     class CreateOAuthApplication < Rectify::Command
       # Initializes the command.

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Admin
+  module System
     # The form that validates the data to construct a valid OAuthApplication.
     class OAuthApplicationForm < Decidim::Form
       mimic :oauth_application
