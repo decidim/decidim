@@ -3,6 +3,8 @@
 SimpleCov.start do
   root File.expand_path("..", ENV["ENGINE_ROOT"])
 
+  track_files "**/*.rb"
+
   add_filter "decidim-dev/lib/decidim/dev/test/ext/screenshot_helper.rb"
   add_filter "/spec/decidim_dummy_app/"
   add_filter "/vendor/"
