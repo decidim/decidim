@@ -46,7 +46,7 @@ module Decidim
                     position: 3,
                     active: :inclusive
 
-          menu.item I18n.t("menu.oauth_applications", scope: "decidim.admin"),
+          menu.item I18n.t("menu.oauth_applications", scope: "decidim.system"),
                     decidim_system.oauth_applications_path,
                     position: 4,
                     active: [%w(decidim/system/oauth_applications), []]
