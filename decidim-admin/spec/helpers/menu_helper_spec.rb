@@ -17,7 +17,7 @@ module Decidim
 
         it "renders the default main menu" do
           expect(default_main_menu).to \
-            have_selector("li", count: 12) &
+            have_selector("li", count: 11) &
             have_link("Dashboard", href: "/admin/") &
             have_link("Processes", href: "/admin/participatory_processes") &
             have_link("Conferences", href: "/admin/conferences") &
