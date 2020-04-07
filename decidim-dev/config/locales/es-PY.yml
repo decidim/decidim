@@ -9,6 +9,12 @@ es-PY:
         translatable_text: Texto traducible
         updated_at: Actualizado en
   decidim:
+    components:
+      dummy:
+        settings:
+          step:
+            endorsements_blocked: Adhesiones bloqueadas
+            endorsements_enabled: Adhesiones habilitadas
     dummy:
       admin:
         exports:
