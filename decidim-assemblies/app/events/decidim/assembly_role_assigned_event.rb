@@ -5,6 +5,10 @@ module Decidim
     include Decidim::Events::NotificationEvent
     include Decidim::Events::AuthorEvent
 
+    def notification_title
+      I18n.t("notification_title", i18n_options).html_safe
+    end
+
     def i18n_role
       I18n.t(extra["role"], "decidim.admin.models.conference_user_role.roles", default: extra["role"])
     end
@@ -16,10 +20,6 @@ module Decidim
         scope: event_name,
         role: i18n_role
       }
-    end
-
-    def notification_title
-      I18n.t("notification_title", i18n_options).html_safe
     end
   end
 end
