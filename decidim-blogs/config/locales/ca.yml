@@ -48,7 +48,7 @@ ca:
             title: títol
       posts:
         show:
-          back: Torna al llistat
+          back: Tornar al llistat
           comments: Comentaris
           view: Veure
         sidebar_blog:
