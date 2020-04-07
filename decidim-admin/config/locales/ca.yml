@@ -571,7 +571,7 @@ ca:
           officialize: Oficialitza
           title: Oficialitza la participant "%{name}"
         show_email_modal:
-          description: Si necessites contactar a un participant directament pots clicar al botó Mostra per veure la seva adreça de correu electrònic. Aquesta acció s'auditarà.
+          description: Si necessites contactar a una participant directament pots clicar al botó Mostra per veure la seva adreça de correu electrònic. Aquesta acció s'auditarà.
           email_address: Adreça de correu electrònic
           full_name: Nom complet
           hidden: ocult
