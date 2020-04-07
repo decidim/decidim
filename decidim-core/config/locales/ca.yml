@@ -90,7 +90,7 @@ ca:
         success_with_email_confirmation: El teu compte s'ha actualitzat correctament. Rebràs un correu electrònic per confirmar la teva nova adreça de correu electrònic.
     admin:
       actions:
-        cancel: Cancel·la
+        cancel: Cancel·lar
     admin_log:
       area:
         create: "%{user_name} ha creat l'àrea %{resource_name}"
@@ -422,8 +422,6 @@ ca:
           this_application_will_not_be_able_to: 'Aquesta aplicació no podrà:'
           update_profile: Actualitza el teu perfil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> vol utilitzar el teu compte"
-    endorsable:
-      endorsements: Adhesions
     errors:
       internal_server_error:
         title: Hi ha hagut un problema amb el nostre servidor

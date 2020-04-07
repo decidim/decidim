@@ -65,13 +65,13 @@ it:
         search_placeholder:
           title_or_description_cont: Cerca %{collection} per titolo o descrizione.
         state_eq:
-          label: Stati
+          label: Stato
           values:
-            accepted: Accettati
-            created: Creati
-            discarded: Scartati
+            accepted: Accettato
+            created: Creato
+            discarded: Discarded
             published: Pubblicato
-            rejected: Rifiutato
+            rejected: Respinto
             validating: Convalida tecnica
       menu:
         initiatives: iniziative

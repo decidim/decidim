@@ -66,6 +66,16 @@ pl:
     admin:
       actions:
         new_initiative_type: Nowy typ inicjatywy
+      filters:
+        state_eq:
+          label: Stan
+          values:
+            accepted: Przyjęty
+            created: Stworzony
+            discarded: Odrzucona
+            published: Opublikowany
+            rejected: Odrzucono
+            validating: Walidacja techniczna
       menu:
         initiatives: Inicjatywy
         initiatives_types: Rodzaje inicjatyw

@@ -275,6 +275,15 @@ fr:
       exports:
         export_as: "%{name} en format %{export_format}"
         notice: Votre exportation est en cours. Vous recevrez un e-mail quand elle sera terminée.
+      filters:
+        category_id_eq:
+          label: Catégorie
+        officialized_at_null:
+          label: État
+          values:
+            'false': Validé
+            'true': Non validé
+        search_label: Rechercher
       help_sections:
         error: Une erreur s'est produite lors de la mise à jour des sections d'aide.
         form:

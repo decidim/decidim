@@ -16,6 +16,7 @@ tr:
         created_by_other: Diğer tarafından oluşturuldu
         creation_date: Tarih oluşturuldu
         decidim_area_id: alan
+        decidim_assemblies_type_id: Montaj tipi
         decidim_scope_id: kapsam
         description: Açıklama
         developer_group: Tanıtım grubu
@@ -99,6 +100,9 @@ tr:
         create:
           error: Bu derlemeyi çoğaltırken bir hata oluştu.
           success: Montaj başarıyla kopyalandı.
+      assemblies_types:
+        new:
+          create: yaratmak
       assembly_copies:
         new:
           copy: kopya
@@ -159,6 +163,10 @@ tr:
           moderations: Denetimler
           private_users: Özel kullanıcılar
       models:
+        assemblies_types:
+          fields:
+            created_at: Düzenlendi
+            title: Başlık
         assembly:
           fields:
             created_at: Düzenlendi
@@ -224,6 +232,9 @@ tr:
             social_handlers: Sosyal
             title: Genel bilgi
             visbility: görünürlük
+        assemblies_types:
+          form:
+            title: Başlık
         assembly_copies:
           form:
             slug_help: 'URL sümükleri, bu derleme işaret eden URL''leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'

@@ -80,6 +80,9 @@ gl:
         error: Produciuse un erro ao actualizar a túa conta.
         success: A túa conta foi actualizada correctamente.
         success_with_email_confirmation: A túa conta foi actualizada correctamente. Recibirá un correo electrónico para confirmar o seu novo enderezo de correo electrónico.
+    admin:
+      actions:
+        cancel: Cancelar
     admin_log:
       area:
         create: "%{user_name} creou a área %{resource_name}"
@@ -366,8 +369,6 @@ gl:
           this_application_will_not_be_able_to: 'Esta aplicación non poderá:'
           update_profile: Actualiza o teu perfil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> quere usar a túa conta"
-    endorsable:
-      endorsements: Aprobacións
     errors:
       internal_server_error:
         title: Produciuse un problema co noso servidor

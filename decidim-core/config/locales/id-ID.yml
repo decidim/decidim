@@ -77,6 +77,9 @@ id:
         error: Terjadi kesalahan saat memperbarui akun Anda.
         success: Akun Anda telah berhasil diperbarui.
         success_with_email_confirmation: Akun Anda telah berhasil diperbarui. Anda akan menerima email untuk mengonfirmasi alamat email baru Anda.
+    admin:
+      actions:
+        cancel: Membatalkan
     admin_log:
       area:
         create: "%{user_name} menciptakan %{resource_name} area"
@@ -364,8 +367,6 @@ id:
           this_application_will_not_be_able_to: 'Aplikasi ini tidak akan dapat:'
           update_profile: Perbarui profil Anda
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> ingin menggunakan akun Anda"
-    endorsable:
-      endorsements: Endorsemen
     errors:
       internal_server_error:
         title: Ada masalah dengan server kami

@@ -80,6 +80,9 @@ tr:
         error: Hesabınız güncellenirken bir hata oluştu.
         success: Hesabınız başarıyla güncellendi.
         success_with_email_confirmation: Hesabınız başarıyla güncellendi. Yeni e-posta adresinizi onaylamak için bir e-posta alacaksınız.
+    admin:
+      actions:
+        cancel: İptal etmek
     admin_log:
       area:
         create: "%{user_name} %{resource_name} alanı oluşturdu"
@@ -381,8 +384,6 @@ tr:
           this_application_will_not_be_able_to: 'Bu uygulama mümkün olmayacaktır:'
           update_profile: profilinizi güncelleyin
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> hesabınızı kullanmak istiyor"
-    endorsable:
-      endorsements: Cirolar
     errors:
       internal_server_error:
         title: Sunucumuzla ilgili bir sorun oluştu

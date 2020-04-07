@@ -176,7 +176,7 @@ ca:
       models:
         assemblies_types:
           fields:
-            created_at: Creat el
+            created_at: Data de creació
             title: Títol
         assembly:
           fields:

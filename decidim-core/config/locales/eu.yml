@@ -80,6 +80,9 @@ eu:
         error: Errorea gertatu da zure kontua eguneratzean.
         success: Zure kontua zuzen eguneratu da.
         success_with_email_confirmation: Zure kontua zuzen eguneratu da. Mezu elektroniko bat jasoko duzu zure helbide elektroniko berria baieztatzeko.
+    admin:
+      actions:
+        cancel: Utzi
     admin_log:
       area:
         create: "%{user_name} %{resource_name} eremua sortu zen"
@@ -366,8 +369,6 @@ eu:
           this_application_will_not_be_able_to: 'Aplikazio honek ezin izango du:'
           update_profile: Eguneratu profila
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> zure kontua erabili nahi du"
-    endorsable:
-      endorsements: Oniritziak
     errors:
       internal_server_error:
         title: Arazo bat izan da gure zerbitzariarekin

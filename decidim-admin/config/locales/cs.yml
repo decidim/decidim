@@ -298,10 +298,10 @@ cs:
           label: Kategorie
         filter_label: Filtr
         officialized_at_null:
-          label: Stav
+          label: Stát
           values:
-            'false': Oficializováno
-            'true': Neoficializováno
+            'false': Úředně
+            'true': Není oficializováno
         private_space_eq:
           label: Soukromé
           values:
@@ -314,7 +314,7 @@ cs:
             'true': Nezveřejněno
         scope_id_eq:
           label: Rozsah
-        search_label: Hledat
+        search_label: Vyhledávání
         search_placeholder:
           name_or_nickname_or_email_cont: Hledat %{collection} podle e-mailu, jména nebo přezdívky.
           title_cont: Hledat %{collection} podle názvu.

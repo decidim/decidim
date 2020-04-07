@@ -88,6 +88,9 @@ fr:
         error: Une erreur s'est produite lors de la mise à jour de votre compte.
         success: Votre compte a été mis à jour avec succès.
         success_with_email_confirmation: Votre compte a été mis à jour avec succès. Vous recevrez un email pour confirmer votre nouvelle adresse email.
+    admin:
+      actions:
+        cancel: Annuler
     admin_log:
       area:
         create: "%{user_name} a créé la zone d'application %{resource_name}"
@@ -229,6 +232,7 @@ fr:
       photos:
         related_photos: Photos associées
     author:
+      avatar: Avatar
       comments:
         one: commentaire
         other: commentaires
@@ -414,8 +418,6 @@ fr:
           this_application_will_not_be_able_to: 'Cette application ne sera pas capable de :'
           update_profile: Mettre à jour votre profil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> veut utiliser votre compte"
-    endorsable:
-      endorsements: Soutiens
     errors:
       internal_server_error:
         title: Il y a eu un problème avec notre serveur

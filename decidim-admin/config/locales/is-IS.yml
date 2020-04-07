@@ -241,6 +241,15 @@ is-IS:
       exports:
         export_as: "%{name} sem %{export_format}"
         notice: Útflutningur þinn er í gangi. Þú færð tölvupóst þegar það er lokið.
+      filters:
+        category_id_eq:
+          label: Flokkur
+        officialized_at_null:
+          label: Ríki
+          values:
+            'false': Opinberað
+            'true': Ekki opinberað
+        search_label: Leita
       impersonatable_users:
         index:
           filter:

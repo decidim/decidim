@@ -86,6 +86,9 @@ pl:
         error: Podczas aktualizowania konta wystąpił błąd.
         success: Twoje konto zostało zaktualizowane pomyślnie.
         success_with_email_confirmation: Twoje konto zostało pomyślnie zaktualizowane. W celu potwierdzenia Twojego nowego adresu e-mail otrzymasz na niego wiadomość.
+    admin:
+      actions:
+        cancel: Anuluj
     admin_log:
       area:
         create: "%{user_name} utworzył obszar %{resource_name}"
@@ -378,8 +381,6 @@ pl:
           this_application_will_not_be_able_to: 'Ta aplikacja nie będzie w stanie:'
           update_profile: Zaktualizuj swój profil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> chce używać Twojego konta"
-    endorsable:
-      endorsements: Adnotacje
     errors:
       internal_server_error:
         title: Wystąpił problem z naszym serwerem

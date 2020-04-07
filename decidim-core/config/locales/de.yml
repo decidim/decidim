@@ -88,6 +88,9 @@ de:
         error: Beim Aktualisieren Ihres Kontos ist ein Fehler aufgetreten.
         success: Ihr Konto wurde erfolgreich aktualisiert.
         success_with_email_confirmation: Ihr Konto wurde erfolgreich aktualisiert. Sie erhalten eine E-Mail zur Bestätigung Ihrer neuen E-Mail-Adresse.
+    admin:
+      actions:
+        cancel: Stornieren
     admin_log:
       area:
         create: "%{user_name} hat den %{resource_name} Bereich erstellt"
@@ -227,6 +230,7 @@ de:
       photos:
         related_photos: Ähnliche Bilder
     author:
+      avatar: Profilbild
       comments:
         one: Kommentar
         other: Kommentare
@@ -412,8 +416,6 @@ de:
           this_application_will_not_be_able_to: 'Diese Anwendung kann nicht:'
           update_profile: Profil aktualisieren
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> möchte Ihr Konto verwenden"
-    endorsable:
-      endorsements: Empfehlungen
     errors:
       internal_server_error:
         title: Auf unserem Server ist ein Problem aufgetreten

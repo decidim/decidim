@@ -52,6 +52,7 @@ nl:
       decidim/proposals/creation_enabled_event: Voorstelcreatie ingeschakeld
       decidim/proposals/endorsing_enabled_event: Voorstel endorsing ingeschakeld
       decidim/proposals/evaluating_proposal_event: Dit voorstel wordt geëvalueerd
+      decidim/proposals/proposal_endorsed_event: Voorstel goedgekeurd
       decidim/proposals/proposal_mentioned_event: Voorstel vermeld
       decidim/proposals/publish_proposal_event: Voorstel gepubliceerd
       decidim/proposals/rejected_proposal_event: Voorstel afgewezen
@@ -64,6 +65,9 @@ nl:
       decidim/proposals/proposal:
         one: Voorstel
         other: voorstellen
+      decidim/proposals/proposal_endorsement:
+        one: bekrachtiging
+        other: Ondersteuningen
       decidim/proposals/proposal_note:
         one: Notitie
         other: Notes
@@ -71,6 +75,21 @@ nl:
         one: Stem
         other: stemmen
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Type
+          values:
+            'false': Voorstellen
+            'true': wijzigingen
+        state_eq:
+          values:
+            evaluating: Aan het beoordelen
+            withdrawn: Ingetrokken
+        state_null:
+          label: Status
+          values:
+            'true': Nog niet beantwoord
     components:
       proposals:
         actions:
@@ -181,6 +200,11 @@ nl:
             email_outro: Je hebt deze melding ontvangen omdat je "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
             email_subject: Een voorstel dat je volgt, is geaccepteerd
             notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is geaccepteerd.
+        proposal_endorsed:
+          email_intro: '%{endorser_name} %{endorser_nickname}, wie je volgt, heeft zojuist het ''%{resource_title}voorstel goedgekeurd en we denken dat het misschien interessant voor je is. Bekijk het en draag bij:'
+          email_outro: Je hebt deze melding ontvangen omdat je volgt %{endorser_nickname}. Meldingen uitschakelen kan door te klikken op de voorgaande link.
+          email_subject: "%{endorser_nickname} heeft een nieuw voorstel goedgekeurd"
+          notification_title: Het <a href="%{resource_path}">%{resource_title}</a> voorstel is goedgekeurd door <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           affected_user:
             email_intro: 'Uw voorstel "%{resource_title}" wordt momenteel geëvalueerd. U kunt op deze pagina zoeken naar een antwoord:'
@@ -339,6 +363,10 @@ nl:
             success: Participatieve tekst succesvol bijgewerkt.
         proposal_answers:
           form:
+            accepted: Aanvaard
+            answer_proposal: Antwoord
+            evaluating: Aan het beoordelen
+            rejected: Geweigerd
             title: Antwoord voor voorstel %{title}
         proposal_notes:
           create:
@@ -372,7 +400,7 @@ nl:
             change_category: Categorie wijzigen
             merge: Samenvoegen met een nieuwe
             merge_button: Samensmelten
-            publish: Publiceer
+            publish: Publiceren
             select_component: Selecteer een component
             selected: Geselecteerd
             split: Voorstellen splitsen
@@ -385,7 +413,10 @@ nl:
           publish_answers:
             select_a_proposal: Selecteer een voorstel
           show:
+            authors: auteurs
+            body: Tekstgedeelte
             created_at: Aangemaakt op
+            proposals: Voorstellen
             votes_count: Aantal stemmen
           update_category:
             select_a_category: Gelieve een categorie te selecteren
@@ -423,16 +454,21 @@ nl:
         rejected: Geweigerd
         withdrawn: Ingetrokken
       application_helper:
+        filter_category_values:
+          all: Alle
         filter_origin_values:
           all: Alle
           citizens: Burgers
           meetings: vergaderingen
           official: Officieel
           user_groups: Groepen
+        filter_scope_values:
+          all: Alle
         filter_state_values:
           accepted: Aanvaard
           all: Alle
           evaluating: Evalueren
+          not_answered: Nog niet beantwoord
           rejected: Afgewezen
         filter_type_values:
           all: Alle
@@ -484,6 +520,7 @@ nl:
           open: Open
           published: Gepubliceerd
           related_to: Gerelateerd aan
+          scope: Scope
           search: Zoeken
           state: Status
           withdrawn: teruggetrokken
@@ -569,6 +606,7 @@ nl:
           fields:
             category: Categorie
             comments: Reacties
+            endorsements: Goedkeuringen
             id: ID
             notes: Opmerkingen
             official_proposal: Officieel voorstel
@@ -585,6 +623,18 @@ nl:
           amend: Wijzigen
           comment: Commentaar
           comments: Commentaren
+          endorse: Onderschrijven
+      proposal_endorsements:
+        create:
+          error: Er zijn fouten opgetreden tijdens het aanbevelen van het voorstel.
+        identities:
+          done: Klaar
+          select_identity: Selecteer gebruiker
+      proposal_endorsements_helper:
+        endorsement_button:
+          already_endorsed: Aanbevolen
+          endorse: Aanbevelen
+        render_endorsements_button_card_part:
           endorse: Onderschrijven
       proposal_votes:
         create:
@@ -612,6 +662,10 @@ nl:
           discard_confirmation: Weet je zeker dat je dit voorstel wilt verwijderen?
           send: Voorbeeldweergave
           title: Bewerk voorstel
+        endorsement_identities_cabin:
+          endorse: Aanbevelen
+        endorsements_card_row:
+          comments: Commentaren
         filters:
           activity: Mijn activiteit
           all: Alle
@@ -620,8 +674,10 @@ nl:
           my_proposals: Mijn voorstellen
           origin: Oorsprong
           related_to: Gerelateerd aan
+          scope: Scope
           search: Zoeken
           state: Status
+          type: Type
           voted: Gestemd
         filters_small_view:
           close_modal: Dialoogvenster sluiten
@@ -668,7 +724,6 @@ nl:
           answer: Antwoord
           back_to: Terug naar
           changes_at_title: Amendement op "%{title}"
-          comments: Reacties
           edit_proposal: Bewerk voorstel
           endorsements_list: Lijst met aanbevelingen
           estimated_cost: Geschatte kosten

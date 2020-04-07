@@ -80,6 +80,9 @@ ru:
         error: При попытке обновить вашу учетную запись произошла ошибка.
         success: Ваша учетная запись была успешно обновлена.
         success_with_email_confirmation: Ваша учетная запись была успешно обновлена. Вы получите электронное письмо, чтобы подтвердить свой новый адрес электронной почты.
+    admin:
+      actions:
+        cancel: Отменить
     admin_log:
       area:
         create: "%{user_name} добавил участок %{resource_name}"
@@ -176,6 +179,7 @@ ru:
       photos:
         related_photos: Сопутствующие фотографии
     author:
+      avatar: Аватар
       comments:
         one: комментарий
         few: комментария
@@ -351,8 +355,6 @@ ru:
           this_application_will_not_be_able_to: 'Это приложение не сможет:'
           update_profile: Обновить свой профиль
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> желает использовать вашу учетную запись"
-    endorsable:
-      endorsements: Выражений поддержки
     errors:
       internal_server_error:
         title: При попытке связи с нашим сервером произошла ошибка

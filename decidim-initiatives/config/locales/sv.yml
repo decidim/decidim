@@ -60,6 +60,16 @@ sv:
     admin:
       actions:
         new_initiative_type: Ny initiativtyp
+      filters:
+        state_eq:
+          label: Status
+          values:
+            accepted: Godkända
+            created: Skapad
+            discarded: Förkastade
+            published: Publicerade
+            rejected: Avvisade
+            validating: Teknisk validering
       menu:
         initiatives: Initiativ
         initiatives_types: Initiativtyper

@@ -56,6 +56,7 @@ fi-pl:
       decidim/proposals/creation_enabled_event: Ehdotuksen luominen käytössä
       decidim/proposals/endorsing_enabled_event: Ehdotuksen suosittelu käytössä
       decidim/proposals/evaluating_proposal_event: Ehdotus on arvioitavana
+      decidim/proposals/proposal_endorsed_event: Ehdotusta suositeltiin
       decidim/proposals/proposal_mentioned_event: Ehdotus mainittiin
       decidim/proposals/publish_proposal_event: Ehdotus julkaistiin
       decidim/proposals/rejected_proposal_event: Ehdotus hylättiin
@@ -68,6 +69,9 @@ fi-pl:
       decidim/proposals/proposal:
         one: Ehdotus
         other: Ehdotukset
+      decidim/proposals/proposal_endorsement:
+        one: Suositus
+        other: Suositukset
       decidim/proposals/proposal_note:
         one: Huomautus
         other: Huomautuksia
@@ -208,6 +212,11 @@ fi-pl:
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat "%{resource_title}". Voit lopettaa sen seuraamisen edellä esitetyn linkin kautta.
             email_subject: Seuraamasi ehdotus on hyväksytty
             notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> on hyväksytty.
+        proposal_endorsed:
+          email_intro: '%{endorser_name} %{endorser_nickname}, jota seuraat, on juuri suositellut ehdotusta "%{resource_title}" ja uskomme, että tämä voi kiinnostaa sinua. Tutustu ehdotukseen ja osallistu:'
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet seuraat %{endorser_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_subject: "%{endorser_nickname} on suositellut uutta ehdotusta"
+          notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> on suositellut ehdotusta <a href="%{resource_path}">%{resource_title}</a>.
         proposal_evaluating:
           affected_user:
             email_intro: 'Ehdotustasi "%{resource_title}" arvioidaan parhaillaan. Voit tarkistaa vastauksen täältä:'
@@ -373,7 +382,7 @@ fi-pl:
         proposal_answers:
           form:
             accepted: Hyväksytty
-            answer_proposal: Vastaa
+            answer_proposal: Vastaus
             evaluating: Arvioitavana
             rejected: Hylätty
             title: 'Vastaa ehdotukseen: %{title}'
@@ -432,8 +441,8 @@ fi-pl:
           show:
             amendments_count: Muutosten lukumäärä
             assigned_valuators: Arvioijat
-            authors: Laatijat
-            body: Sisältöteksti
+            authors: Tekijät
+            body: Ehdotuksen kuvaus
             comments_count: Kommenttien lukumäärä
             comments_negative_count: Vastaan
             comments_neutral_count: Neutraali
@@ -660,6 +669,7 @@ fi-pl:
           fields:
             category: Aihepiiri
             comments: Kommentit
+            endorsements: Suositukset
             id: ID
             notes: Huomautuksia
             official_proposal: Virallinen ehdotus
@@ -679,6 +689,18 @@ fi-pl:
           amend: Muuta
           comment: Kommentti
           comments: Kommentit
+          endorse: Suosittele
+      proposal_endorsements:
+        create:
+          error: Ehdotuksen suosittelemisessa on esiintynyt virheitä.
+        identities:
+          done: Valmis
+          select_identity: Valitse henkilöllisyys
+      proposal_endorsements_helper:
+        endorsement_button:
+          already_endorsed: Suositeltu
+          endorse: Suosittele
+        render_endorsements_button_card_part:
           endorse: Suosittele
       proposal_votes:
         create:
@@ -706,6 +728,10 @@ fi-pl:
           discard_confirmation: Haluatko varmasti hylätä tämän ehdotusluonnoksen?
           send: Esikatselu
           title: Muokkaa ehdotusluonnosta
+        endorsement_identities_cabin:
+          endorse: Suosittele
+        endorsements_card_row:
+          comments: Kommentit
         filters:
           activity: Oma toiminta
           all: Kaikki
@@ -761,11 +787,9 @@ fi-pl:
           creation_date: 'Luontiaika: %{date}'
           view_proposal: Näytä ehdotus
         show:
-          answer: Vastaa
+          answer: Vastaus
           back_to: Takaisin
-          back_to_list: Takaisin listaan
           changes_at_title: Muokkaus kohteelle "%{title}"
-          comments: Kommentit
           edit_proposal: Muokkaa ehdotusta
           endorsements_list: Luettelo suositteluista
           estimated_cost: Arvioitu kustannus

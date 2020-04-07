@@ -16,6 +16,7 @@ uk:
         created_by_other: Створено кимось іншим
         creation_date: Дата створення
         decidim_area_id: Дільниця
+        decidim_assemblies_type_id: Різновид зборів
         decidim_scope_id: Обсяг
         description: Опис
         developer_group: Робочий гурт з просування
@@ -104,6 +105,9 @@ uk:
         create:
           error: При спробі створити копію цих зборів сталася помилка.
           success: Успішно створено копію зборів.
+      assemblies_types:
+        new:
+          create: Додати
       assembly_copies:
         new:
           copy: Скопіювати
@@ -164,6 +168,10 @@ uk:
           moderations: Дії з модерації
           private_users: Приватні учасники
       models:
+        assemblies_types:
+          fields:
+            created_at: 'Додано:'
+            title: Назва
         assembly:
           fields:
             created_at: 'Додано:'
@@ -222,6 +230,9 @@ uk:
             slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на ці збори. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
             social_handlers: Соціальні мережі
             title: Загальні відомості
+        assemblies_types:
+          form:
+            title: Назва
         assembly_copies:
           form:
             slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на ці збори. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'

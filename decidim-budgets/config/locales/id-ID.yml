@@ -90,6 +90,7 @@ id:
             other: "%{count} proyek"
         filters:
           category: Kategori
+          scope: Cakupan
           search: Pencarian
         filters_small_view:
           close_modal: Tutup modal

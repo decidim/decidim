@@ -22,6 +22,7 @@ id:
         participatory_structure: Bagaimana cara memutuskannya
         promoted: Dipromosikan
         published_at: Diterbitkan di
+        related_process_ids: Proses terkait
         scope_id: Cakupan
         scopes_enabled: Lingkup diaktifkan
         short_description: Deskripsi Singkat
@@ -293,6 +294,7 @@ id:
             images: Gambar
             metadata: Metadata
             other: Lain
+            related_processes: Proses terkait
             select_an_area: Pilih suatu Area
             select_process_group: Pilih grup proses
             slug_help: 'Slug URL digunakan untuk menghasilkan URL yang mengarah ke proses ini. Hanya menerima huruf, angka, dan tanda hubung, dan harus dimulai dengan huruf. Contoh: %{url}'
@@ -344,6 +346,7 @@ id:
         participatory_scope: Apa yang diputuskan
         participatory_structure: Bagaimana cara memutuskannya
         private_space: Ini adalah proses pribadi
+        related_processes: Proses terkait
         scope: Cakupan
         start_date: Mulai tanggal
         target: Yang berpartisipasi

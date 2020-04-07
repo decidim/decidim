@@ -243,6 +243,15 @@ uk:
       exports:
         export_as: "%{name} як %{export_format}"
         notice: Зараз відбувається збереження у вигляді файлу. Ви отримаєте електронного листа після його завершення.
+      filters:
+        category_id_eq:
+          label: Категорія
+        officialized_at_null:
+          label: Стан
+          values:
+            'false': Має службовий статус
+            'true': Не має службового статусу
+        search_label: Шукати
       impersonatable_users:
         index:
           filter:
