@@ -6,6 +6,7 @@ SimpleCov.start do
   track_files "**/*.rb"
 
   add_filter "decidim-dev/lib/decidim/dev/test/ext/screenshot_helper.rb"
+  add_filter "/config/"
   add_filter "/migrate/"
   add_filter "/spec/decidim_dummy_app/"
   add_filter "/vendor/"
