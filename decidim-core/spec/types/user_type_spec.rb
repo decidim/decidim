@@ -5,7 +5,6 @@ require "decidim/api/test/type_context"
 
 module Decidim
   module Core
-    
     describe UserType, type: :graphql do
       include_context "with a graphql type"
 
@@ -70,15 +69,17 @@ module Decidim
           end
         end
       end
-      
+
       describe "directMessagesEnabled" do
         let(:query) { "{ ...on User { directMessagesEnabled } }" }
+
         it "returns the direct messages status" do
           expect(response).to include("directMessagesEnabled" => "true")
         end
-        
+
         context "when user direct messages disabled" do
-          let(:model) { create(:user, direct_message_types: "followed-only")}
+          let(:model) { create(:user, direct_message_types: "followed-only") }
+
           it "returns the direct_messages status" do
             expect(response).to include("directMessagesEnabled" => "false")
           end
