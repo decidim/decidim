@@ -30,6 +30,14 @@ es-MX:
           before_date_info: Útil si el proceso ya ha comenzado y quieres revocar los permisos del proceso anterior.
           button: Revocar todo
           button_before: Revocar antes de la fecha
+          destroy:
+            confirm: La revocación de las autorizaciones anteriores a esta fecha no se puede deshacer. ¿Seguro que quieres continuar?
+            confirm_all: La revocación de todas las autorizaciones no se puede deshacer. ¿Seguro que quieres continuar?
+          destroy_nok: Ha habido un problema al revocar las autorizaciones.
+          destroy_ok: Todas las autorizaciones coincidentes se han revocado correctamente
+          info: Hay un total de %{count} participantes verificadas.
+          no_data: No hay participantes verificadas
+          title: Revocación de las autorizaciones
         authorization_workflows: Verificaciones
     admin_log:
       organization:
