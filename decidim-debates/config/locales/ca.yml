@@ -96,6 +96,8 @@ ca:
           create: Crear
           select_a_category: Si us plau, selecciona una categoria
           title: Nou debat
+        show:
+          back: Torna al llistat
       last_activity:
         new_debate_at_html: "<span>Nou debat a %{link}</span>"
       models:
