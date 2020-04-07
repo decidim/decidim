@@ -1,7 +1,7 @@
 <div class="text-center">
   <button class="share-link link text-center" data-open="socialShare">
     <%= t(".share") %>
-    <%= icon "share", class: "icon--after" %>
+    <%= icon "share", class: "icon--after", role: "img" %>
   </button>
 </div>
 <div class="reveal" id="socialShare" data-reveal>
@@ -17,8 +17,9 @@
         image: decidim_meta_image_url,
         desc: h(decidim_meta_description),
         via: decidim_meta_twitter_handler) %>
-    <a class="button" data-open="urlShare">
-      <%= icon "link-intact" %>
+    <a href="#" class="button" data-open="urlShare">
+      <%= icon "link-intact", role: "img", aria_label: t(".share_link") %>
+      <%= t(".share_link") %>
     </a>
   </div>
 </div>
@@ -29,7 +30,7 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <input type="text" value="<%= "#{decidim_meta_url}" %>" readonly>
+  <input type="text" title="<%= t(".share_link") %>" value="<%= "#{decidim_meta_url}" %>" readonly>
 </div>
 
 <%= javascript_include_tag "decidim/social_share" %>
