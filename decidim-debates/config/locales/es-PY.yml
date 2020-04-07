@@ -96,6 +96,8 @@ es-PY:
           create: Crear
           select_a_category: Por favor, selecciona una categoría
           title: Nuevo debate
+        show:
+          back: Volver al listado
       last_activity:
         new_debate_at_html: "<span>Nuevo debate en %{link}</span>"
       models:
