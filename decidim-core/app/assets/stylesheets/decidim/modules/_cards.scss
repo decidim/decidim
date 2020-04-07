@@ -518,6 +518,10 @@ $datetime-bg: var(--primary);
 
   .card--list--mini & {
     padding-left: $card-padding-small;
+    .card__link {
+      display: flex;
+      align-items: center;
+    }
   }
 
   @include breakpoint(medium) {
@@ -564,6 +568,9 @@ $datetime-bg: var(--primary);
 
   .card--list--mini & {
     padding: 0.5rem 0.5rem 0.5rem 0;
+    > * {
+      flex-grow: 1;
+    }
   }
 
   .author {
@@ -605,6 +612,33 @@ $datetime-bg: var(--primary);
 
   .card--list--mini & {
     padding: 0.5rem $card-padding-small;
+  }
+}
+
+.card--list__data-added {
+  background-color: tint($success, 80%);
+  a {
+    color: $body-font-color;
+  }
+}
+
+.card--list__check {
+  margin-bottom: 0;
+  border-radius: 50%;
+  align-self: center;
+  flex-shrink: 0;
+  width: 2em;
+  height: 2em;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  &--disabled {
+    pointer-events: none;
+  }
+  svg {
+    flex-basis: auto;
   }
 }
 
