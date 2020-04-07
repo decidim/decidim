@@ -763,6 +763,7 @@ ca:
         show:
           answer: Resposta
           back_to: Torna
+          back_to_list: Torna al llistat
           changes_at_title: Esmena a "%{title}"
           comments: Comentaris
           edit_proposal: Edita proposta
