@@ -24,21 +24,6 @@ $(() => {
     noMatchTemplate = () => `<li>${nodatafound}</li>`;
   }
 
-  // Returns a function, that, as long as it continues to be invoked, will not
-  // be triggered. The function will be called after it stops being called for
-  // N milliseconds
-  /* eslint no-invalid-this: 0 */
-  /* eslint consistent-this: 0 */
-  /* eslint prefer-reflect: 0 */
-  const debounce = function(callback, wait) {
-    let timeout = null;
-    return (...args) => {
-      const context = this;
-      clearTimeout(timeout);
-      timeout = setTimeout(() => callback.apply(context, args), wait);
-    };
-  }
-
   /* eslint no-use-before-define: ["error", { "variables": false }]*/
   let remoteSearch = function(text, cb) {
     let query = `{users(filter:{wildcard:"${text}",type:"user"}){id,nickname,name,avatarUrl,...on User{directMessagesEnabled}}}`;
@@ -68,9 +53,9 @@ $(() => {
   let tribute = new Tribute({
     autocompleteMode: true,
     // avoid overloading the API if the user types too fast
-    values: debounce(function (text, cb) {
+    values: function (text, cb) {
       remoteSearch(text, (users) => cb(users));
-    }, 250),
+    },
     positionMenu: true,
     menuContainer: null,
     menuItemLimit: 10,
@@ -87,11 +72,11 @@ $(() => {
       }
       // Set recipient profile view
       let recipientLabel = `
-        <label style="padding: 0 0 10px 0">
-          <img src="${item.original.avatarUrl}" alt="${item.original.name}" height="35" width="35" style="border-radius: 50%;">&nbsp;
+        <label style="padding: 0 0 10px 0"">
+          <img src="${item.original.avatarUrl}" alt="${item.original.name}" height="35" width="35" style="border-radius: 50%;" aria-label="${item.original.name}">&nbsp;
           <b>${item.original.name}</b>
           <input type="hidden" name="recipient_id[]" value="${item.original.id}">
-          <b class="float-right">X</b>
+          <b class="float-right">&times;</b>
         </label>
       `;
 
@@ -162,17 +147,11 @@ $(() => {
   // Call only if we have containter to bind events to
   if ($multipleMentionContainer.length) {
     setupEvents($multipleMentionContainer);
+    tribute.attach($multipleMentionContainer);
   }
 
   // Call only if we have containter to bind events to
   if ($multipleMentionRecipientsContainer.length) {
     setupRecipientEvents($multipleMentionRecipientsContainer);
   }
-
-  // The function will be called from debounce method in order to set some delay
-  // between each input box key press before to call search method
-  // This is to avoid overcharge server with unnecessary search calls
-  setTimeout(function() {
-    tribute.attach($multipleMentionContainer);
-  }, 1000);
 });
