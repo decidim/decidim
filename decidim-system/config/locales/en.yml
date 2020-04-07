@@ -47,6 +47,7 @@ en:
       menu:
         admins: Admins
         dashboard: Dashboard
+        oauth_applications: OAuth applications
         organizations: Organizations
       models:
         admin:
