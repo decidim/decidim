@@ -14,7 +14,7 @@ module Decidim
             have_link("Dashboard", href: "/system/") &
             have_link("Organizations", href: "/system/organizations") &
             have_link("Admins", href: "/system/admins") &
-            have_link("OAuth Applications", href: "/system/oauth_applications")
+            have_link("OAuth applications", href: "/system/oauth_applications")
         end
 
         it "selects the correct default active option" do
