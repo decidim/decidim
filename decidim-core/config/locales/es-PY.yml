@@ -804,7 +804,7 @@ es-PY:
           send: Enviar
           title: Respuesta
         show:
-          not_allowed: Este usuario no acepta mensajes directos.
+          not_allowed: Esta participante no acepta mensajes directos.
           title: Conversacion con %{usernames}
         start:
           send: Enviar
