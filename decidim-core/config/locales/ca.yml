@@ -47,6 +47,9 @@ ca:
       decidim/amendment:
         one: Esmena
         other: Esmenes
+      decidim/endorsement:
+        one: Adhesió
+        other: Adhesions
       decidim/user:
         one: Participant
         other: Participants
@@ -243,6 +246,9 @@ ca:
       comments:
         one: comentari
         other: comentaris
+      endorsements:
+        one: adhesió
+        other: adhesions
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Verifica't introduint un número de passaport que comenci per "A"
