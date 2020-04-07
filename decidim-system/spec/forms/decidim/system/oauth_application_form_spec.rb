@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  module Admin
+  module System
     describe OAuthApplicationForm, processing_uploads_for: Decidim::ImageUploader do
       subject do
         described_class.from_params(attributes).with_context(context)

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-module Decidim::Admin
+module Decidim::System
   describe DestroyOAuthApplication do
     subject { described_class.new(application, user) }
 

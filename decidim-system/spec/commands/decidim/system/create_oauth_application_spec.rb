@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-module Decidim::Admin
+module Decidim::System
   describe CreateOAuthApplication, processing_uploads_for: Decidim::ImageUploader do
     subject { described_class.call(form) }
 
