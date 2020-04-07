@@ -124,6 +124,7 @@ es-MX:
         show:
           algorithm: Código de algoritmo del sorteo
           any_category: de todas las categorías
+          back: Volver al listado
           cancelled: Cancelación de la clasificación
           candidate_proposal_ids: Orden de propuestas de clasificación e ID
           candidate_proposals_info: 'La clasificación se realizó entre las siguientes propuestas (%{category_label}), con los siguientes ID (en negrita las propuestas seleccionadas)  '
