@@ -21,6 +21,7 @@ module Decidim
 
           include Decidim::Admin::ParticipatorySpaceAdminContext
           participatory_space_admin_layout
+          layout "layouts/decidim/admin/question"
 
           def current_participatory_space
             return current_consultation if params.has_key? :consultation_slug
