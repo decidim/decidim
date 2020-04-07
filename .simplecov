@@ -6,6 +6,8 @@ SimpleCov.start do
   add_filter "decidim-dev/lib/decidim/dev/test/ext/screenshot_helper.rb"
   add_filter "/spec/decidim_dummy_app/"
   add_filter "/vendor/"
+  add_filter "/spec/"
+  add_filter "/test/"
 end
 
 SimpleCov.command_name ENV["COMMAND_NAME"] || File.basename(Dir.pwd)
