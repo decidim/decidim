@@ -12,6 +12,7 @@ module Decidim
     attribute :password_confirmation, String
     attribute :newsletter, Boolean
     attribute :tos_agreement, Boolean
+    attribute :current_locale, String
 
     validates :name, presence: true
     validates :nickname, presence: true, format: /\A[\w\-]+\z/, length: { maximum: Decidim::User.nickname_max_length }

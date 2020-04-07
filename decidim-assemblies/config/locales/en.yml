@@ -311,6 +311,7 @@ en:
         home:
           highlighted_assemblies:
             active_assemblies: Active assemblies
+            assemblies_button_title: Link to the Assemblies page displaying all the assemblies
             see_all_assemblies: See all assemblies
         user_profile:
           member_of:
@@ -341,6 +342,7 @@ en:
         related_participatory_processes: Related participatory processes
         scope: Scope
         social_networks: Social Networks
+        social_networks_title: Share this assembly on
         target: Who participates
       statistics:
         answers_count: Answers
@@ -352,6 +354,7 @@ en:
         meetings_count: Meetings
         orders_count: Supports
         pages_count: Pages
+        posts_count: Posts
         projects_count: Projects
         proposals_count: Proposals
         results_count: Results
@@ -363,6 +366,11 @@ en:
         designated_on: Designated on
       index:
         title: Members
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Link to the Conferences page displaying all the conferences
     help:
       participatory_spaces:
         assemblies:
@@ -382,6 +390,17 @@ en:
         description: Number of assemblies created
         object: assemblies
         title: Assemblies
+    pages:
+      home:
+        hero:
+          participate_title: Participate to the platform's processes
+        sub_hero:
+          register_title: Sign up to create an account on the platform
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Link to the Processes page displaying all the processes
   errors:
     messages:
       cannot_be_blank: can not be blank

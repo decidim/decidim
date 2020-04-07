@@ -7,6 +7,14 @@ $order-border: $border;
   display: flex;
   align-items: baseline;
   flex-wrap: wrap;
+
+  a:hover{
+    text-decoration: underline;
+  }
+
+  a:focus{
+    outline: 2px solid $secondary;
+  }
 }
 
 .results-per-page__dropdown{

@@ -6,14 +6,14 @@
         <h1 class="text-highlight hero-heading mb-none">
           <%= translated_attribute(current_participatory_space.title) %>
         </h1>
-        <h3 class="text-highlight">
+        <h2 class="text-highlight">
           <% if current_participatory_space.hashtag.present? %>
             <span class="process-header__hashtag card__link">
               <%= link_to "##{current_participatory_space.hashtag}", "https://twitter.com/hashtag/#{current_participatory_space.hashtag}", target: "_blank" %>
             </span>
           <% end %>
           <%= translated_attribute(current_participatory_space.slogan) %>
-        </h3>
+        </h2>
       </div>
     </div>
     <div class="row">
@@ -26,17 +26,13 @@
         </div>
         <% if current_participatory_space.registrations_enabled? %>
           <div class="column medium-3 end">
-            <%= link_to decidim_conferences.conference_registration_types_path(current_participatory_space) do %>
-              <button type="button" class="button button--sc light expanded"><%= t(".register") %></button>
-            <% end %>
+            <%= link_to t(".register"), decidim_conferences.conference_registration_types_path(current_participatory_space), class:"button button--sc light expanded" %>
           </div>
         <% end %>
         <% current_participatory_space.components.where(manifest_name: "meetings").each do |component_meeting| %>
           <% if component_meeting.published? || component_meeting == self.try(:current_component) %>
             <div class="column medium-3 end">
-              <%= link_to decidim_conferences.conference_conference_program_path(current_participatory_space, id: component_meeting.id) do %>
-                <button type="button" class="button button--sc secondary light expanded"><%= translated_attribute(component_meeting.name) %></button>
-              <% end %>
+              <%= link_to translated_attribute(component_meeting.name), decidim_conferences.conference_conference_program_path(current_participatory_space, id: component_meeting.id), class:"button button--sc secondary light expanded" %>
             </div>
           <% end %>
         <% end %>
