@@ -563,12 +563,20 @@ es:
           officialize: Oficializa
           officialized: Oficializada
           reofficialize: Vuelve a oficializar
+          show_email: Mostrar la dirección de correo electrónico
           status: Estado
           unofficialize: Des-oficializar
         new:
           badge: Insignia de oficialización
           officialize: Oficializar
           title: Oficializar participante "%{name}"
+        show_email_modal:
+          description: Si necesitas contactar directamente con una participante, puedes hacer clic en el botón Mostrar para ver la dirección de correo electrónico. Esta acción se registrará.
+          email_address: Dirección de correo electrónico
+          full_name: Nombre completo
+          hidden: oculto
+          show: Mostrar
+          title: Mostrar dirección de correo del participante
       organization:
         edit:
           title: Editar organización
