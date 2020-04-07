@@ -366,6 +366,11 @@ en:
         designated_on: Designated on
       index:
         title: Members
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Link to the Conferences page displaying all the conferences
     events:
       assemblies:
         create_assembly_member:
@@ -373,11 +378,6 @@ en:
           email_outro: You have received this notification because you have been invited to an assembly. Check the <a href="%{resource_path}">assembly page</a> to contribute!
           email_subject: You have been invited to be a member of the %{resource_name} assembly!
           notification_title: You have been invited to join the <a href="%{resource_path}">%{resource_name}</a> assembly. Check the <a href="%{resource_path}">assembly page</a> to contribute!
-    conferences:
-      pages:
-        home:
-          highlighted_conferences:
-            conferences_button_title: Link to the Conferences page displaying all the conferences
     help:
       participatory_spaces:
         assemblies:
