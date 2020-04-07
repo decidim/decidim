@@ -11,7 +11,7 @@ module Decidim
 
           helper_method :current_consultation
 
-          alias current_participatory_space current_consultation
+          alias_method :current_participatory_space, :current_consultation
         end
       end
 

@@ -12,7 +12,7 @@ module Decidim
           helper_method :current_question, :previous_question, :next_question, :previous_published_question, :next_published_question,
                         :current_consultation, :current_participatory_space, :stats, :sorted_results
 
-          alias current_participatory_space current_question
+          alias_method :current_participatory_space, :current_question
 
           helper Decidim::WidgetUrlsHelper
         end
