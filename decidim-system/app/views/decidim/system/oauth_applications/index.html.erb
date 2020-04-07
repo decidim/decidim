@@ -9,8 +9,9 @@
 <table class="stack">
   <thead>
     <tr>
-      <th><%= t("models.oauth_application.fields.organization_name", scope: "decidim.system") %></th>
+      <th></th>
       <th><%= t("models.oauth_application.fields.name", scope: "decidim.system") %></th>
+      <th><%= t("models.oauth_application.fields.organization_name", scope: "decidim.system") %></th>
       <th><%= t("models.oauth_application.fields.created_at", scope: "decidim.system") %></th>
       <th class="actions"><%= t("actions.title", scope: "decidim.system") %></th>
     </tr>
@@ -19,10 +20,13 @@
     <% @oauth_applications.each do |oauth_application| %>
       <tr>
         <td>
-          <%= link_to oauth_application.organization_name, oauth_application.organization %><br>
+          <%= image_tag oauth_application.organization_logo.url %>
         </td>
         <td>
           <%= link_to oauth_application.name, oauth_application %><br>
+        </td>
+        <td>
+          <%= link_to oauth_application.organization_name, oauth_application.organization %><br>
         </td>
         <td>
           <%= l oauth_application.created_at, format: :short %>
