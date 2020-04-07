@@ -28,8 +28,7 @@ module Decidim
             have_link("Participants", href: "/admin/users") &
             have_link("Newsletters", href: "/admin/newsletters") &
             have_link("Settings", href: "/admin/organization/edit") &
-            have_link("Admin activity log", href: "/admin/logs") &
-            have_link("OAuth applications", href: "/admin/oauth_applications")
+            have_link("Admin activity log", href: "/admin/logs")
         end
 
         it "selects the correct default active option" do

@@ -79,8 +79,6 @@ Decidim::Admin::Engine.routes.draw do
       put :accept
     end
 
-    resources :oauth_applications
-
     root to: "dashboard#show"
   end
 end
