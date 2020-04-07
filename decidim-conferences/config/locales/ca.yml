@@ -462,6 +462,9 @@ ca:
             active_conferences: Jornades actives
             see_all_conferences: Veure totes les jornades
       photo:
+        image:
+          attributes:
+            alt: Imatge
         show:
           close_modal: Tanca el modal
           photo: Imatge
