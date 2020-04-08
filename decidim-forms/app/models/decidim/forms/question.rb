@@ -16,6 +16,9 @@ module Decidim
 
       validates :question_type, inclusion: { in: TYPES }
 
+      scope :with_body, -> { where(question_type: %w(short_answer long_answer)) }
+      scope :with_choices, -> { where.not(question_type: %w(short_answer long_answer)) }
+
       def multiple_choice?
         %w(single_option multiple_option sorting).include?(question_type)
       end

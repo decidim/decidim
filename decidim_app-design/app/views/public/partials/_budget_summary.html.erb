@@ -1,12 +1,7 @@
 <div class="card budget-summary" data-progress-reference>
   <div class="card__content">
-    <h3 class="heading3">Tú decides los presupuestos</h3>
-    <p>
-      ¿En qué proyectos crees que debería trabajar el Ayuntamiento el próximo año?
-      <br>Asigna como mínimo 75 millones a los proyectos que quieras y vota con
-       tus preferencias cómo serán los próximos presupuestos.
-    </p>
-    <div class="budget-summary__total">
+    <h3 class="heading3">Presupuestos para Gràcia</h3>
+     <div class="budget-summary__total">
       <span class="mini-title">Presupuesto total:
         <strong class="mini-title__strong mini-title__strong--highlight">
           100.000.000€
@@ -46,6 +41,8 @@
     <div>
       <span class="mini-title">Asignado: <strong class="mini-title__strong">30.000.000€</strong></span>
     </div>
+    <button class="link" data-open="budget-modal-info">Más información</button>
+    <%= partial "budget_welcome" %>
   </div>
 
   <div class="card__content budget-summary__selected">

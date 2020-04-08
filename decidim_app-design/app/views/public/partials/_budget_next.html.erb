@@ -1,0 +1,22 @@
+<div class="reveal" data-reveal id="budget-modal">
+    <div class="reveal__header">
+        <h3 class="reveal__title">Votación de distrito completada</h3>
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <p>
+      Has votado en el <strong>distrito de Gràcia</strong> correctamente.
+    </p>
+    <p>
+      Además de votar en tu distrito, puedes votar los presupuestos de uno de los
+      siguientes distritos:
+    </p>
+    <%= partial "budget_districts", locals: { votedOne: true } %>
+
+    <div class="row">
+        <div class="columns text-center">
+            <button class="link">No votar en otros distritos</button>
+        </div>
+    </div>
+</div>

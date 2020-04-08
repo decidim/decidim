@@ -10,6 +10,7 @@ describe "Admin manages surveys", type: :system do
   include_context "when managing a component as an admin"
 
   it_behaves_like "manage questionnaires"
+  it_behaves_like "manage questionnaire answers"
   it_behaves_like "export survey user answers"
   it_behaves_like "manage announcements"
 
