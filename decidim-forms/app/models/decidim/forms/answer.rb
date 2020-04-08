@@ -42,6 +42,12 @@ module Decidim
         answers.pluck(:decidim_user_id).flatten.compact.uniq
       end
 
+      def answered?
+        return choices.size.positive? if question.multiple_choice?
+
+        body.present?
+      end
+
       private
 
       def user_questionnaire_same_organization
