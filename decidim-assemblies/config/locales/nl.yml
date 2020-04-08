@@ -16,6 +16,7 @@ nl:
         created_by_other: Aangemaakt door iemand anders
         creation_date: Gemaakt op
         decidim_area_id: onderwerp
+        decidim_assemblies_type_id: Groepstype
         decidim_scope_id: Bereik
         description: Beschrijving
         developer_group: Organisator
@@ -101,7 +102,7 @@ nl:
           success: Groep succesvol gedupliceerd.
       assemblies_types:
         new:
-          create: Aanmaken
+          create: creëren
       assembly_copies:
         new:
           copy: Kopiëren

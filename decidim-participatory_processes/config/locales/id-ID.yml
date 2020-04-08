@@ -22,6 +22,7 @@ id:
         participatory_structure: Bagaimana cara memutuskannya
         promoted: Dipromosikan
         published_at: Diterbitkan di
+        related_process_ids: Proses terkait
         scope_id: Cakupan
         scopes_enabled: Lingkup diaktifkan
         short_description: Deskripsi Singkat
@@ -184,13 +185,11 @@ id:
         destroy:
           success: Pengguna berhasil dihapus dari proses partisipatif ini.
         edit:
-          title: Perbarui pengguna proses partisipatif.
           update: Memperbarui
         index:
           process_admins_title: Pengguna proses partisipatif
         new:
           create: Membuat
-          title: Pengguna proses partisipatif baru.
         update:
           error: Terjadi kesalahan saat memperbarui pengguna untuk proses partisipatif ini.
           success: Pengguna berhasil diperbarui untuk proses partisipatif ini.
@@ -295,6 +294,7 @@ id:
             images: Gambar
             metadata: Metadata
             other: Lain
+            related_processes: Proses terkait
             select_an_area: Pilih suatu Area
             select_process_group: Pilih grup proses
             slug_help: 'Slug URL digunakan untuk menghasilkan URL yang mengarah ke proses ini. Hanya menerima huruf, angka, dan tanda hubung, dan harus dimulai dengan huruf. Contoh: %{url}'
@@ -346,6 +346,7 @@ id:
         participatory_scope: Apa yang diputuskan
         participatory_structure: Bagaimana cara memutuskannya
         private_space: Ini adalah proses pribadi
+        related_processes: Proses terkait
         scope: Cakupan
         start_date: Mulai tanggal
         target: Yang berpartisipasi
@@ -359,13 +360,14 @@ id:
         meetings_count: Rapat
         orders_count: Suara
         pages_count: Halaman
+        participants_count: Peserta
         processes_count: Proses
         projects_count: Proyek
         proposals_count: Proposal
         results_count: Hasil
+        supports_count: Suara
         surveys_count: Survei
         users_count: Peserta
-        votes_count: Suara
   layouts:
     decidim:
       participatory_process_groups:

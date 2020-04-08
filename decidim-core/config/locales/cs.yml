@@ -127,7 +127,7 @@ cs:
         delete: "%{user_name} uživatele %{resource_name} odstranil jako soukromého uživatele"
       scope:
         create: "%{user_name} vytvořilo %{resource_name} rozsah"
-        create_with_parent: "%{user_name} vytvořilo %{resource_name} rozsah uvnitř rozsahu %{parent_scope}"
+        create_with_parent: "%{user_name} vytvořil %{resource_name} rozsah uvnitř rozsahu %{parent_scope}"
         delete: "%{user_name} odstranil %{resource_name} rozsah"
         delete_with_parent: "%{user_name} odstranilo %{resource_name} rozsah uvnitř rozsahu %{parent_scope}"
         update: "%{user_name} aktualizoval rozsah %{resource_name}"
@@ -242,6 +242,7 @@ cs:
       photos:
         related_photos: Související fotografie
     author:
+      avatar: Avatar
       comments:
         one: komentář
         few: komentáře
@@ -598,6 +599,7 @@ cs:
       create:
         button: Sledovat
         error: Při sledování tohoto zdroje došlo k chybě.
+        participatory_space: Již sledujete participační prostor
       destroy:
         button: Ukončit sledování
         error: Při sledování tohoto zdroje došlo k chybě.
@@ -1235,6 +1237,11 @@ cs:
       nesting_too_deep: nemůže být uvnitř podkategorie
       not_found: nemůže být nalezeno. Zaregistrovali jste se dříve?
       not_locked: nebyla zamčená
+      not_saved:
+        one: 'Při zpracování vašeho požadavku došlo k chybě:'
+        few: 'Při zpracování vašeho požadavku došlo k několika chybám:'
+        many: 'Při zpracování vašeho požadavku došlo k mnoha chybám:'
+        other: 'Při zpracování vašeho požadavku došlo k nějakým chybám:'
       too_many_marks: používá příliš mnoho po sobě jdoucích interpunkčních znamének (např.! a?)
       too_much_caps: používá příliš mnoho velkých písmen (více než 25% textu)
       too_short: je příliš krátká (pod 15 znaků)

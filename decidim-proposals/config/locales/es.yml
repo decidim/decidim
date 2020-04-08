@@ -31,6 +31,9 @@ es:
       proposals_import:
         import_proposals: Importar propuestas
         keep_authors: Mantener autoría original
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: Nombre de la evaluadora
     errors:
       models:
         participatory_text:
@@ -49,6 +52,7 @@ es:
     models:
       decidim/proposals/accepted_proposal_event: Propuesta aceptada
       decidim/proposals/admin/update_proposal_category_event: Categoría de la propuesta cambiada
+      decidim/proposals/admin/update_proposal_scope_event: Ámbito de propuesta cambiado
       decidim/proposals/creation_enabled_event: Creación de propuestas habilitada
       decidim/proposals/endorsing_enabled_event: Adhesión a propuesta habilitada
       decidim/proposals/evaluating_proposal_event: La propuesta está siendo evaluada
@@ -87,11 +91,13 @@ es:
         state_eq:
           values:
             evaluating: En evaluación
-            withdrawn: Retirado
+            withdrawn: Retirada
         state_null:
           label: Estado
           values:
-            'true': No contestado
+            'true': No contestada
+        valuator_role_ids_has:
+          label: Asignada a evaluadora
     components:
       proposals:
         actions:
@@ -103,6 +109,7 @@ es:
         name: Propuestas
         settings:
           global:
+            allow_card_image: Permitir tarjeta con imagen
             amendments_enabled: Enmiendas habilitadas
             amendments_enabled_help: Si está activo, configura las opciones de enmiendas para cada fase.
             amendments_wizard_help_text: Asistente de ayuda de las enmiendas
@@ -140,12 +147,14 @@ es:
             amendments_visibility: Visibilidad de la enmienda
             amendments_visibility_help: Si se selecciona la opción "Las enmiendas son visibles sólo para sus autoras", las participantes deberán iniciar sesión para ver las enmiendas realizadas.
             announcement: Aviso
+            answers_with_costs: Habilitar coste en las respuestas a propuestas
             automatic_hashtags: Hashtags añadidos a todas las propuestas.
             comments_blocked: Comentarios bloqueados
             creation_enabled: Habilitar creación de propuestas
             endorsements_blocked: Adhesiones bloqueadas
             endorsements_enabled: Adhesiones habilitadas
             proposal_answering_enabled: Respuesta a propuestas activadas
+            publish_answers_immediately: Publicar respuestas a las propuestas inmediatamente
             suggested_hashtags: Hashtags sugeridos a las participantes para nuevas propuestas
             votes_blocked: Apoyos bloqueados
             votes_enabled: Apoyos habilitados
@@ -220,7 +229,7 @@ es:
             email_subject: Una propuesta que estás siguiendo está siendo evaluada
             notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> está siendo evaluada.
         proposal_mentioned:
-          email_intro: Tu propuesta "%{mentioned_proposal_title}" se ha mencionado <a href="%{resource_path}">en este espacio</a> en los comentarios.
+          email_intro: Tu propuesta "%{mentioned_proposal_title}" se ha mencionado <a href="%{resource_url}"> en este espacio</a> en los comentarios.
           email_outro: Has recibido esta notificación porque eres autora de "%{resource_title}".
           email_subject: Tu propuesta "%{mentioned_proposal_title}" ha sido mencionada
           notification_title: Tu propuesta "%{mentioned_proposal_title}" se ha mencionado <a href="%{resource_path}">en este espacio</a> en los comentarios.
@@ -250,6 +259,11 @@ es:
           email_outro: Recibiste esta notificación porque eres autora de la propuesta.
           email_subject: La categoría de la propuesta %{resource_title} ha sido actualizada
           notification_title: La categoría de la propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido actualizada por una administradora.
+        proposal_update_scope:
+          email_intro: 'Una administradora ha actualizado el ámbito de tu propuesta "%{resource_title}", puedes comprobarlo en esta página:'
+          email_outro: Recibiste esta notificación porque eres autora de la propuesta.
+          email_subject: El ámbito de la propuesta %{resource_title} ha sido actualizado
+          notification_title: El ámbito de la propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido actualizado por una administradora.
         voting_enabled:
           email_intro: '¡Puedes apoyar propuestas en %{participatory_space_title}! Empieza a participar en esta página:'
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
@@ -316,6 +330,7 @@ es:
         see_all: Ver todo (%{count})
     proposals:
       actions:
+        answer_proposal: Responder a la propuesta
         edit_proposal: Editar propuesta
         import: Importar desde otro componente
         new: Nueva propuesta
@@ -369,7 +384,7 @@ es:
             accepted: Aceptadas
             answer_proposal: Respuesta
             evaluating: En evaluación
-            rejected: Rechazadas
+            rejected: Rechazada
             title: Responder a la propuesta %{title}
         proposal_notes:
           create:
@@ -399,21 +414,33 @@ es:
             select_a_meeting: Selecciona un encuentro
           index:
             actions: Acciones
+            assign_to_valuator: Asignar a evaluadora
+            assign_to_valuator_button: Asignar
             cancel: Cancelar
             change_category: Cambiar categoría
+            change_scope: Cambiar ámbito
             merge: Fusionar en una nueva
             merge_button: Fusionar
+            publish: Publicar
+            publish_answers: Publicar respuestas
             select_component: Selecciona un componente
             selected: seleccionado
             split: Dividir propuestas
             split_button: Dividir
             title: Propuestas
+            unassign_from_valuator: Desasignar de evaluadora
+            unassign_from_valuator_button: Desasignar
             update: Actualizar
+            update_scope_button: Actualizar ámbito
           new:
             create: Crear
             title: Crear propuesta
+          publish_answers:
+            number_of_proposals: Se publicarán las respuestas para %{number} propuestas.
+            select_a_proposal: Selecciona una propuesta
           show:
             amendments_count: Número de enmiendas
+            assigned_valuators: Evaluadoras asignadas
             authors: Autoras
             body: Cuerpo
             comments_count: Número de comentarios
@@ -424,7 +451,7 @@ es:
             documents: Documentos
             endorsements_count: Número de adhesiones
             endorsements_ranking: Clasificación por adhesiones
-            endorsers: Adheridas
+            endorsers: Se han adherido
             link: Enlace
             n_more_endorsers:
               one: y 1 más
@@ -433,13 +460,21 @@ es:
             proposals: Propuestas
             ranking: "%{ranking} de %{total}"
             related_meetings: Encuentros relacionados
+            remove_assignment: Deshacer asignación
+            remove_assignment_confirmation: '¿Seguro que quieres desasignar a la evaluadora de esta propuesta?'
+            valuators: Evaluadoras
             votes_count: Número de apoyos
             votes_ranking: Clasificación por apoyos
           update_category:
-            invalid: 'Estas propuestas ya tenían la categoría %{category} : %{proposals}.'
+            invalid: 'Estas propuestas ya tenían la categoría %{subject_name}: %{proposals}.'
             select_a_category: Selecciona una categoría
             select_a_proposal: Selecciona una propuesta
-            success: 'Propuestas actualizadas correctamente a la categoría %{category}: %{proposals}.'
+            success: 'Propuestas actualizadas correctamente a la categoría %{subject_name}: %{proposals}.'
+          update_scope:
+            invalid: 'Estas propuestas ya tenían el ámbito %{subject_name}: %{proposals}.'
+            select_a_proposal: Selecciona una propuesta
+            select_a_scope: Por favor, selecciona un ámbito
+            success: 'Propuestas actualizadas correctamente al ámbito %{subject_name}: %{proposals}.'
         proposals_imports:
           create:
             invalid: Se ha producido un error al importar las propuestas
@@ -457,13 +492,24 @@ es:
           create:
             invalid: Se ha producido un error al dividir las propuestas seleccionadas.
             success: Las propuestas se han dividido en otras nuevas con éxito.
+        valuation_assignments:
+          create:
+            invalid: Se ha producido un error al asignar propuestas a una evaluadora
+            success: Propuestas asignadas a una evaluadora correctamente
+          delete:
+            invalid: Se ha producido un error al desasignar propuestas a una evaluadora
+            success: Evaluadora desasignada correctamente
       admin_log:
         proposal:
           answer: "%{user_name} respondió a la propuesta %{resource_name} en el espacio %{space_name}"
           create: "%{user_name} creó la propuesta %{resource_name} en el espacio %{space_name} como una propuesta oficial"
+          publish_answer: "%{user_name} publicó la respuesta a la propuesta %{resource_name} en el espacio %{space_name}"
           update: "%{user_name} ha actualizado la propuesta oficial %{resource_name} en el espacio %{space_name}"
         proposal_note:
           create: "%{user_name} dejó una nota privada en la propuesta %{resource_name} en el espacio %{space_name}"
+        valuation_assignment:
+          create: "%{user_name} asignó la propuesta %{resource_name} a una evaluadora"
+          delete: "%{user_name} desasignó una evaluadora de la propuesta %{proposal_title}"
       answers:
         accepted: Aceptadas
         evaluating: En evaluación
@@ -471,16 +517,21 @@ es:
         rejected: Rechazada
         withdrawn: Retirada
       application_helper:
+        filter_category_values:
+          all: Todas
         filter_origin_values:
           all: Todas
           citizens: Ciudadanía
           meetings: Encuentros
           official: Oficial
           user_groups: Grupos
+        filter_scope_values:
+          all: Todas
         filter_state_values:
           accepted: Aceptada
           all: Todas
           evaluating: En evaluación
+          not_answered: No contestada
           rejected: Rechazada
         filter_type_values:
           all: Todas
@@ -532,6 +583,7 @@ es:
           open: Abierto
           published: Publicado
           related_to: Relacionado con
+          scope: Ámbito
           search: Buscar
           state: Estado
           withdrawn: Retirado
@@ -621,10 +673,13 @@ es:
             id: Identificador
             notes: Notas
             official_proposal: Propuesta oficial
+            published_answer: Respuesta publicada
             published_at: Publicado el
             scope: Ámbito
             state: Estado
             title: Título
+            valuator: Evaluadora
+            valuators: Evaluadoras
             votes: Apoyos
       new:
         limit_reached: No puedes crear nuevas propuestas porqué has superado el límite.
@@ -732,10 +787,12 @@ es:
           creation_date: 'Fecha de creación: %{date}'
           view_proposal: Ver propuesta
         show:
+          answer: Respuesta
           back_to: Volver a
           changes_at_title: Enmienda a "%{title}"
           edit_proposal: Editar propuesta
           endorsements_list: Lista de adhesiones
+          estimated_cost: Coste estimado
           hidden_endorsers_count:
             one: y %{count} persona más
             other: y %{count} personas más
@@ -748,12 +805,14 @@ es:
           proposal_accepted_reason: 'Esta propuesta ha sido aceptada porque:'
           proposal_in_evaluation_reason: Se está evaluando esta propuesta
           proposal_rejected_reason: 'Esta propuesta ha sido rechazada porque:'
+          read_less: Leer menos
+          read_more: Leer más
           report: Denunciar
           withdraw_btn_hint: Puedes retirar tu propuesta si cambias de opinión, siempre que no haya recibido ningún apoyo. La propuesta no se eliminará, aparecerá en la lista de propuestas retiradas.
           withdraw_confirmation: '¿Seguro que quieres retirar esta propuesta?'
           withdraw_proposal: Retirar propuesta
         tags:
-          changed_from: "(cambiado desde <u>%{previous_category}</u> por una administradora)"
+          changed_from: "(modificado desde <u>%{previous_name}</u> por una administradora)"
         vote_button:
           already_voted: Ya has dado tu apoyo
           already_voted_hover: Retirar tu apoyo
@@ -796,6 +855,8 @@ es:
       publish:
         error: Se ha producido un error al publicar la propuesta.
         success: Propuesta publicada correctamente.
+      publish_answers:
+        success: Las respuestas a las propuestas han sido publicadas correctamente.
       update:
         error: Se ha producido un error al guardar la propuesta.
         success: Propuesta actualizada correctamente.

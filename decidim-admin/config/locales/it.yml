@@ -295,12 +295,12 @@ it:
         notice: Export in fase di elaborazione.  Riceverai un'email quando l'export sarà terminato.
       filters:
         category_id_eq:
-          label: Categoria
+          label: Categorie
         filter_label: Filtro
         officialized_at_null:
           label: Stato
           values:
-            'false': Ufficializzato
+            'false': ufficializzato
             'true': Non ufficializzato
         private_space_eq:
           label: Privato

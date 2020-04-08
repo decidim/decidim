@@ -176,7 +176,7 @@ ca:
       models:
         assemblies_types:
           fields:
-            created_at: Creat el
+            created_at: Data de creació
             title: Títol
         assembly:
           fields:
@@ -208,6 +208,7 @@ ca:
             admin: Administradora
             collaborator: Col·laboradora
             moderator: Moderadora
+            valuator: Avaluadora
       titles:
         assemblies: Assemblees
         assemblies_types: Tipus d'assemblees

@@ -73,6 +73,21 @@ pt-BR:
         one: Voto
         other: Votos
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Tipo
+          values:
+            'false': Propostas
+            'true': Emendas
+        state_eq:
+          values:
+            evaluating: Avaliando
+            withdrawn: Retirado
+        state_null:
+          label: Estado
+          values:
+            'true': Não respondido
     components:
       proposals:
         actions:
@@ -187,7 +202,6 @@ pt-BR:
             email_subject: Uma proposta que você está seguindo está sendo avaliada
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> está sendo avaliada.
         proposal_mentioned:
-          email_intro: Sua proposta "%{mentioned_proposal_title}" foi mencionada <a href="%{resource_path}">neste espaço</a> nos comentários.
           email_outro: Você recebeu esta notificação porque é um autor de "%{resource_title}".
           email_subject: Sua proposta "%{mentioned_proposal_title}" foi mencionada
           notification_title: Sua proposta "%{mentioned_proposal_title}" foi mencionada <a href="%{resource_path}">neste espaço</a> nos comentários.
@@ -217,6 +231,8 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque você é o autor da proposta.
           email_subject: A categoria de proposta %{resource_title} foi atualizada
           notification_title: A <a href="%{resource_path}">%{resource_title}</a> categoria de proposta foi atualizada por um administrador.
+        proposal_update_scope:
+          email_outro: Você recebeu esta notificação porque você é o autor da proposta.
         voting_enabled:
           email_intro: 'Você pode votar propostas em %{participatory_space_title}! Comece a participar nesta página:'
           email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
@@ -331,6 +347,10 @@ pt-BR:
             success: Texto participativo atualizado com sucesso.
         proposal_answers:
           form:
+            accepted: Aceitaram
+            answer_proposal: Responda
+            evaluating: Avaliando
+            rejected: Rejeitado
             title: Resposta para a proposta %{title}
         proposal_notes:
           create:
@@ -362,6 +382,7 @@ pt-BR:
             change_category: Alterar categoria
             merge: Junte-se a um novo
             merge_button: Combinar
+            publish: Publicar
             select_component: Selecionar componente
             selected: selecionado
             split: Dividir propostas
@@ -371,14 +392,19 @@ pt-BR:
           new:
             create: Criar
             title: Criar proposta
+          publish_answers:
+            select_a_proposal: Selecione uma proposta
           show:
+            authors: Autores
+            body: Corpo
             created_at: Data de criação
+            proposals: Propostas
             votes_count: Contagem de votos
           update_category:
-            invalid: 'Essas propostas já tinham a categoria %{category} : %{proposals}.'
             select_a_category: Selecione uma categoria
             select_a_proposal: Selecione uma proposta
-            success: 'Propostas atualizadas com êxito para a categoria %{category} : %{proposals}.'
+          update_scope:
+            select_a_proposal: Selecione uma proposta
         proposals_imports:
           create:
             invalid: Tem havido um problema ao importar as propostas
@@ -410,16 +436,21 @@ pt-BR:
         rejected: Rejeitado
         withdrawn: Retirado
       application_helper:
+        filter_category_values:
+          all: Todos
         filter_origin_values:
           all: Todos
           citizens: Cidadãos
           meetings: Reuniões
           official: Oficial
           user_groups: Grupos de usuários
+        filter_scope_values:
+          all: Todos
         filter_state_values:
           accepted: Aceitaram
           all: Todos
           evaluating: Avaliando
+          not_answered: Não respondido
           rejected: Rejeitado
         filter_type_values:
           all: Todos
@@ -471,6 +502,7 @@ pt-BR:
           open: Aberto
           published: Publicados
           related_to: Relacionado a
+          scope: Escopo
           search: Pesquisa
           state: Estado
           withdrawn: Retirado
@@ -621,8 +653,10 @@ pt-BR:
           category: Categoria
           origin: Origem
           related_to: Relacionado a
+          scope: Escopo
           search: Pesquisa
           state: Estado
+          type: Tipo
           voted: Votado
         filters_small_view:
           close_modal: Fechar modal
@@ -662,6 +696,7 @@ pt-BR:
           creation_date: 'Criação: %{date}'
           view_proposal: Ver proposta
         show:
+          answer: Responda
           back_to: De volta a
           edit_proposal: Editar proposta
           endorsements_list: Lista de avais
@@ -677,8 +712,6 @@ pt-BR:
           withdraw_btn_hint: Você pode retirar sua proposta se mudar de idéia, desde que não tenha recebido nenhum suporte. A proposta não é excluída, ela aparecerá na lista de propostas retiradas.
           withdraw_confirmation: Tem certeza de retirar essa proposta?
           withdraw_proposal: Retirar proposta
-        tags:
-          changed_from: "(alterado de <u>%{previous_category}</u> por um administrador)"
         vote_button:
           already_voted: Já votou
           already_voted_hover: Unvote

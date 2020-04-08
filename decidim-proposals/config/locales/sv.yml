@@ -73,6 +73,21 @@ sv:
         one: Röst
         other: Röster
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Typ
+          values:
+            'false': Förslag
+            'true': Tillägg
+        state_eq:
+          values:
+            evaluating: Utvärderas
+            withdrawn: Tillbakadragna
+        state_null:
+          label: Status
+          values:
+            'true': Ej besvarade
     components:
       proposals:
         actions:
@@ -197,7 +212,6 @@ sv:
             email_subject: Ett förslag som du följer utvärderas
             notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> utvärderas.
         proposal_mentioned:
-          email_intro: Ditt förslag "%{mentioned_proposal_title}" har nämnts <a href="%{resource_path}">i det här utrymmet</a> i kommentarerna.
           email_outro: Du har fått den här meddelandet eftersom du är en författare till "%{resource_title}".
           email_subject: Ditt förslag "%{mentioned_proposal_title}" har nämnts
           notification_title: Ditt förslag "%{mentioned_proposal_title}" har nämnts <a href="%{resource_path}">i det här utrymmet</a> i kommentarerna.
@@ -227,6 +241,8 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du är författare till förslaget.
           email_subject: Förslagskategorin %{resource_title} har uppdaterats
           notification_title: Förslagskategorin <a href="%{resource_path}">%{resource_title}</a> har uppdaterats av en administratör.
+        proposal_update_scope:
+          email_outro: Du har fått det här meddelandet eftersom du är författare till förslaget.
         voting_enabled:
           email_intro: 'Du kan rösta på förslag på %{participatory_space_title}! Börja delta på den här sidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
@@ -293,6 +309,7 @@ sv:
         see_all: Visa alla (%{count})
     proposals:
       actions:
+        answer_proposal: Besvara förslag
         edit_proposal: Redigera förslag
         import: Importera från en annan komponent
         new: Nytt förslag
@@ -341,6 +358,10 @@ sv:
             success: Deltagartexten har uppdaterats.
         proposal_answers:
           form:
+            accepted: Godkända
+            answer_proposal: Svara
+            evaluating: Utvärderas
+            rejected: Avvisade
             title: Svar på förslaget %{title}
         proposal_notes:
           create:
@@ -372,6 +393,7 @@ sv:
             change_category: Ändra kategori
             merge: Sammanfoga till en ny
             merge_button: Slå ihop
+            publish: Publicera
             select_component: Välj en komponent
             selected: valda
             split: Delade förslag
@@ -381,14 +403,19 @@ sv:
           new:
             create: Skapa
             title: Skapa förslag
+          publish_answers:
+            select_a_proposal: Välj ett förslag
           show:
+            authors: Författare
+            body: Innehåll
             created_at: Skapelsedatum
+            proposals: Förslag
             votes_count: Antal röster
           update_category:
-            invalid: 'Dessa förslag hade redan %{category} kategorin: %{proposals}.'
             select_a_category: Välj en kategori
             select_a_proposal: Välj ett förslag
-            success: 'Förslag som har uppdaterats till %{category} kategorin: %{proposals}.'
+          update_scope:
+            select_a_proposal: Välj ett förslag
         proposals_imports:
           create:
             invalid: Det uppstod ett problem med att importera förslagen
@@ -420,16 +447,21 @@ sv:
         rejected: Avvisade
         withdrawn: Tillbakadragna
       application_helper:
+        filter_category_values:
+          all: Alla
         filter_origin_values:
           all: Alla
           citizens: Medborgare
           meetings: Möten
           official: Officiella
           user_groups: Grupper
+        filter_scope_values:
+          all: Alla
         filter_state_values:
           accepted: Godkända
           all: Alla
           evaluating: utvärdera
+          not_answered: Ej besvarade
           rejected: avvisade
         filter_type_values:
           all: Alla
@@ -481,6 +513,7 @@ sv:
           open: Öppna
           published: Publicerade
           related_to: Relaterade till
+          scope: Omfång
           search: Sök
           state: Status
           withdrawn: Tillbakadragna
@@ -631,8 +664,10 @@ sv:
           category: Kategori
           origin: Ursprung
           related_to: Relaterade till
+          scope: Omfång
           search: Sök
           state: Status
+          type: Typ
           voted: Röstade
         filters_small_view:
           close_modal: Stäng fönster
@@ -672,6 +707,7 @@ sv:
           creation_date: 'Skapat: %{date}'
           view_proposal: Visa förslag
         show:
+          answer: Svara
           back_to: Tillbaka till
           changes_at_title: Ändring till %{title}
           edit_proposal: Redigera förslag
@@ -692,8 +728,6 @@ sv:
           withdraw_btn_hint: Du kan dra tillbaka ett förslag om du ändrar dig, så länge som det inte har fått något stöd. Förslaget raderas inte utan kommer att visas i listan över förslag som dragits tillbaka.
           withdraw_confirmation: Är du säker på att dra tillbaka detta förslag?
           withdraw_proposal: Dra tillbaka förslaget
-        tags:
-          changed_from: "(ändrad från <u>%{previous_category}</u> av en administratör)"
         vote_button:
           already_voted: Redan röstat
           already_voted_hover: Ta bort sin röst

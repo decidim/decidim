@@ -55,6 +55,18 @@ ru:
         many: Голосов
         other: Голосов
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          values:
+            'false': Предложения
+        state_eq:
+          values:
+            evaluating: Рассматривается
+            withdrawn: Отозван
+        state_null:
+          values:
+            'true': Без ответов
     components:
       proposals:
         actions:
@@ -122,7 +134,6 @@ ru:
             email_subject: Предложение, за которым вы следите, сейчас рассматривается
             notification_title: Предложение <a href="%{resource_path}">%{resource_title}</a> на рассмотрении.
         proposal_mentioned:
-          email_intro: Ваше предложение «%{mentioned_proposal_title}» было упомянуто в комментариях <a href="%{resource_path}">в этом пространстве</a>.
           email_subject: Ваше предложение "%{mentioned_proposal_title}"было упомянуто
           notification_title: Ваше предложение «%{mentioned_proposal_title}» было упомянуто в комментариях <a href="%{resource_path}">в этом пространстве</a>.
         proposal_published:
@@ -143,6 +154,8 @@ ru:
           email_outro: Вы получили это уведомление, потому что вы являетесь автором предложения.
           email_subject: Обновлена категория предложений %{resource_title}
           notification_title: Категория предложений <a href="%{resource_path}">%{resource_title}</a> была обновлена ​​администратором.
+        proposal_update_scope:
+          email_outro: Вы получили это уведомление, потому что вы являетесь автором предложения.
         voting_enabled:
           email_intro: 'Теперь вы можете голосовать по предложениям в %{participatory_space_title}! Начните со страницы:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
@@ -168,6 +181,10 @@ ru:
             name: Предложение
         proposal_answers:
           form:
+            accepted: Принято
+            answer_proposal: Ответить
+            evaluating: Рассматривается
+            rejected: Отклонено
             title: Ответ на предложение %{title}
         proposal_notes:
           create:
@@ -198,14 +215,17 @@ ru:
           new:
             create: Внести
             title: Создать предложение
+          publish_answers:
+            select_a_proposal: Пожалуйста, выберите предложение
           show:
             created_at: Дата создания
+            proposals: Предложения
             votes_count: Количество голосов
           update_category:
-            invalid: 'Эти предложения уже относились к категории %{category}: %{proposals}.'
             select_a_category: Пожалуйста, выберите категорию
             select_a_proposal: Пожалуйста, выберите предложение
-            success: 'Предложения успешно перенесены в категорию %{category}: %{proposals}.'
+          update_scope:
+            select_a_proposal: Пожалуйста, выберите предложение
         proposals_imports:
           create:
             invalid: При попытке позаимствовать эти предложения произошла ошибка
@@ -231,6 +251,8 @@ ru:
         filter_origin_values:
           citizens: Граждане
           official: Служебные
+        filter_state_values:
+          not_answered: Без ответов
       create:
         error: При попытке сохранить это предложение произошли ошибки.
         success: Предложение успешно создано. Сохранено как черновик.
@@ -333,6 +355,7 @@ ru:
           creation_date: 'Создано: %{date}'
           view_proposal: Просмотреть предложение
         show:
+          answer: Ответить
           edit_proposal: Редактировать предложение
           endorsements_list: Список тех, кто поддержал
           proposal_accepted_reason: 'Это предложение было принято, поскольку:'
@@ -342,8 +365,6 @@ ru:
           withdraw_btn_hint: Вы можете снять свое предложение, если передумаете, пока вы не получили никакой поддержки. Предложение не будет удалено, оно будет указано в списке снятых предложений.
           withdraw_confirmation: Вы действительно хотите снять это предложение?
           withdraw_proposal: Снять предложение
-        tags:
-          changed_from: "(изменено с <u>%{previous_category}</u> администратором)"
         vote_button:
           already_voted: Уже проголосовали
           already_voted_hover: Отменить голос

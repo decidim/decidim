@@ -39,6 +39,7 @@ module Decidim
         end
         let(:slug) { "slug" }
         let(:attachment) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
+        let(:show_metrics) { true }
         let(:show_statistics) { true }
         let(:attributes) do
           {
@@ -58,6 +59,7 @@ module Decidim
               "hero_image" => attachment,
               "banner_image" => attachment,
               "slug" => slug,
+              "show_metrics" => show_metrics,
               "show_statistics" => show_statistics
             }
           }

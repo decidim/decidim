@@ -55,6 +55,18 @@ uk:
         many: Голосів
         other: Голосів
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          values:
+            'false': Пропозиції
+        state_eq:
+          values:
+            evaluating: Розглядається
+            withdrawn: Відкликана
+        state_null:
+          values:
+            'true': Без відповідей
     components:
       proposals:
         actions:
@@ -122,7 +134,6 @@ uk:
             email_subject: Пропозиція, за якою ви стежите, зараз розглядається
             notification_title: Пропозиція <a href="%{resource_path}">%{resource_title}</a> розглядається.
         proposal_mentioned:
-          email_intro: Вашу пропозицію "%{mentioned_proposal_title}" було згадано в коментарях <a href="%{resource_path}">в цьому просторі</a>.
           email_subject: Вашу пропозицію "%{mentioned_proposal_title}" було згадано
           notification_title: Вашу пропозицію "%{mentioned_proposal_title}" було згадано в коментарях <a href="%{resource_path}">в цьому просторі</a>.
         proposal_published:
@@ -143,6 +154,8 @@ uk:
           email_outro: Ви отримали це сповіщення, оскільки ви є автором цієї пропозиції.
           email_subject: Категорію пропозиції %{resource_title} було оновлено
           notification_title: Адміністратор оновив категорію пропозиції <a href="%{resource_path}">%{resource_title}</a>.
+        proposal_update_scope:
+          email_outro: Ви отримали це сповіщення, оскільки ви є автором цієї пропозиції.
         voting_enabled:
           email_intro: 'Ви можете голосувати щодо пропозицій у %{participatory_space_title}! Почніть брати участь зі сторінки:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
@@ -168,6 +181,10 @@ uk:
             name: Пропозиція
         proposal_answers:
           form:
+            accepted: Прийнято
+            answer_proposal: Відповісти
+            evaluating: Розглядається
+            rejected: Відхилено
             title: Відповідь на пропозицію %{title}
         proposal_notes:
           create:
@@ -198,14 +215,17 @@ uk:
           new:
             create: Внести
             title: Створити пропозицію
+          publish_answers:
+            select_a_proposal: Будь ласка, оберіть пропозицію
           show:
             created_at: Дата створення
+            proposals: Пропозиції
             votes_count: Кількість голосів
           update_category:
-            invalid: 'Ці пропозиції вже відносились до категорії %{category}: %{proposals}.'
             select_a_category: Будь ласка, виберіть категорію
             select_a_proposal: Будь ласка, оберіть пропозицію
-            success: 'Пропозиції успішно перенесені до категорії %{category}: %{proposals}.'
+          update_scope:
+            select_a_proposal: Будь ласка, оберіть пропозицію
         proposals_imports:
           create:
             invalid: При запозиченні цих пропозицій сталася помилка
@@ -231,6 +251,8 @@ uk:
         filter_origin_values:
           citizens: Громадяни
           official: Службове
+        filter_state_values:
+          not_answered: Без відповідей
       create:
         error: При спробі збереження цієї пропозиції сталися помилки.
         success: Пропозицію успішно створено. Збережено як чернетку.
@@ -333,6 +355,7 @@ uk:
           creation_date: 'Внесено: %{date}'
           view_proposal: Переглянути пропозицію
         show:
+          answer: Відповісти
           edit_proposal: Редагувати пропозицію
           endorsements_list: Перелік тих, хто підтримав
           proposal_accepted_reason: 'Ця пропозиція була прийнята, тому що:'
@@ -342,8 +365,6 @@ uk:
           withdraw_btn_hint: Ви можете зняти свою пропозицію, якщо ви передумали, доки ви не отримали жодної підтримки. Пропозиція не видаляється, вона з'явиться у списку відкликаних пропозицій.
           withdraw_confirmation: Ви впевнені, що бажаєте зняти цю пропозицію?
           withdraw_proposal: Зняти пропозицію
-        tags:
-          changed_from: "(перенесено з <u>%{previous_category}</u> адміністратором)"
         vote_button:
           already_voted: Вже проголосували
           already_voted_hover: Скасувати голос

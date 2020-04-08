@@ -16,6 +16,7 @@ de:
         created_by_other: Erstellt von anderen
         creation_date: Datum erstellt
         decidim_area_id: Bereich
+        decidim_assemblies_type_id: Montageart
         decidim_scope_id: Umfang
         description: Beschreibung
         developer_group: Promoter-Gruppe
@@ -99,6 +100,9 @@ de:
         create:
           error: Beim Duplizieren dieses Gremiums ist ein Fehler aufgetreten.
           success: Das Gremium wurde erfolgreich dupliziert.
+      assemblies_types:
+        new:
+          create: Erstellen
       assembly_copies:
         new:
           copy: Kopieren
@@ -159,6 +163,10 @@ de:
           moderations: Moderationen
           private_users: Private Benutzer
       models:
+        assemblies_types:
+          fields:
+            created_at: Hergestellt in
+            title: Titel
         assembly:
           fields:
             created_at: Hergestellt in
@@ -224,6 +232,9 @@ de:
             social_handlers: Sozial
             title: Allgemeine Information
             visbility: Sichtweite
+        assemblies_types:
+          form:
+            title: Titel
         assembly_copies:
           form:
             slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Assembly verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'

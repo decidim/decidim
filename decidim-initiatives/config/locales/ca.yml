@@ -69,7 +69,7 @@ ca:
           values:
             accepted: Acceptada
             created: Creada
-            discarded: Descartada
+            discarded: Rebutjada
             published: Publicada
             rejected: Rebutjada
             validating: Validació tècnica

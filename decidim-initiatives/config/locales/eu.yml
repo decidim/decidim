@@ -60,6 +60,16 @@ eu:
     admin:
       actions:
         new_initiative_type: Ekimen mota berria
+      filters:
+        state_eq:
+          label: Estatu
+          values:
+            accepted: Onartu
+            created: Sortu
+            discarded: baztertutako
+            published: Argitaratutako
+            rejected: Baztertuta
+            validating: Balidazio teknikoa
       menu:
         initiatives: Ekimenak
         initiatives_types: Ekimen motak

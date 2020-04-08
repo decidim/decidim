@@ -69,9 +69,9 @@ fi:
           values:
             accepted: Hyväksytty
             created: Luotu
-            discarded: Peruutettu
+            discarded: Hylätty
             published: Julkaistu
-            rejected: Hylätty
+            rejected: Torjuttu
             validating: Teknisessä validoinnissa
       menu:
         initiatives: Aloitteet

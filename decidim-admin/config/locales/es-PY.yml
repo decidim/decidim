@@ -300,8 +300,8 @@ es-PY:
         officialized_at_null:
           label: Estado
           values:
-            'false': Oficializada
-            'true': No oficializada
+            'false': Oficializado
+            'true': No oficializado
         private_space_eq:
           label: Privado
           values:

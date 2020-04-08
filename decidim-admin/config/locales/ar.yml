@@ -70,6 +70,7 @@ ar:
         port: المَنفذ
         primary_color: ابتدائي
         reference_prefix: بادئة المرجع
+        rich_text_editor_in_public_views: إتاحة محرر النص الغني للمشارِكين
         secondary_color: ثانوي
         send_welcome_notification: إرسال إشعار بالترحيب
         show_statistics: عرض الإحصائيات
@@ -143,15 +144,20 @@ ar:
         export: تصدير
         manage: تدبير
         new: جديد %{name}
+        per_page: في كل صفحة
         permissions: تصريحات
         reject: رفض
         verify: التحقق
       admin_terms_of_use:
+        accept:
+          success: رائع! لقد قمت بالموافقة على شروط الإستخدام للمدير.
         actions:
           accept: أوافق على شروط المدير هذه
           are_you_sure: هل أنت متأكد مِن أنك رافض لشروط المدير؟
           refuse: ارفض شروط المدير
           title: وافق على شروط وأحكام الإستخدام
+        required_review:
+          cta: راجِعها الآن.
         title: شروط الاستخدام الخاصة بالمدير
       area_types:
         create:
@@ -285,11 +291,12 @@ ar:
       filters:
         category_id_eq:
           label: الفئة
+        filter_label: تصفية
         officialized_at_null:
-          label: الحالة
+          label: حالة
           values:
-            'false': تم جعله رسمي
-            'true': لم يُصبِح رسميا
+            'false': Officialized
+            'true': غير رسمي
         private_space_eq:
           label: خاص
           values:
@@ -302,7 +309,7 @@ ar:
             'true': لم يُنشَر
         scope_id_eq:
           label: النطاق
-        search_label: البحث
+        search_label: بحث
         search_placeholder:
           name_or_nickname_or_email_cont: البحث عن %{collection} بحسب عنوان البريد الإكتروني أو الإسم أو الإسم المستعار.
           title_cont: البحث عن %{collection} بحسب العنوان.
@@ -592,6 +599,8 @@ ar:
           create: إنشاء
           title: مشارك جديد الفضاء الخاص المشارك.
       participatory_space_private_users_csv_imports:
+        create:
+          invalid: حدثت مشكلة أثناء قراءة ملف CSV.
         new:
           title: حمّل ملف CSV الخاص بك
           upload: حمّل

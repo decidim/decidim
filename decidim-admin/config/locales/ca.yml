@@ -300,7 +300,7 @@ ca:
         officialized_at_null:
           label: Estat
           values:
-            'false': Oficialitza
+            'false': Oficialitzada
             'true': No oficialitzada
         private_space_eq:
           label: Privat
@@ -314,7 +314,7 @@ ca:
             'true': Despublicat
         scope_id_eq:
           label: Àmbit
-        search_label: Cerca
+        search_label: Cercar
         search_placeholder:
           name_or_nickname_or_email_cont: Buscar %{collection} per correu electrònic, nom o àlies.
           title_cont: Buscar %{collection} per títol.

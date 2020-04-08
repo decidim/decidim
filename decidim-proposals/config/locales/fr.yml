@@ -73,6 +73,21 @@ fr:
         one: Vote
         other: Votes
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Type
+          values:
+            'false': Propositions
+            'true': Amendements
+        state_eq:
+          values:
+            evaluating: En cours d'évaluation
+            withdrawn: Retirée
+        state_null:
+          label: État
+          values:
+            'true': En attente de réponse
     components:
       proposals:
         actions:
@@ -199,7 +214,6 @@ fr:
             email_subject: Une proposition que vous suivez est en cours d'évaluation
             notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> est en cours d'évaluation.
         proposal_mentioned:
-          email_intro: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_path}">dans cet espace</a>, dans les commentaires.
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
           email_subject: Votre proposition "%{mentioned_proposal_title}" a été mentionnée
           notification_title: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_path}">dans cet espace</a>, dans les commentaires.
@@ -229,6 +243,8 @@ fr:
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de la proposition.
           email_subject: La catégorie de la proposition %{resource_title} a été mise à jour
           notification_title: La catégorie de la proposition <a href="%{resource_path}">%{resource_title}</a> a été mise à jour par un administrateur.
+        proposal_update_scope:
+          email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de la proposition.
         voting_enabled:
           email_intro: 'Vous pouvez soutenir les propositions de %{participatory_space_title} ! Participez ici :'
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
@@ -344,6 +360,10 @@ fr:
             success: Texte participatif mis à jour avec succès.
         proposal_answers:
           form:
+            accepted: Retenue
+            answer_proposal: Répondre
+            evaluating: En cours d'évaluation
+            rejected: Non retenue
             title: Réponse à la proposition %{title}
         proposal_notes:
           create:
@@ -377,6 +397,7 @@ fr:
             change_category: Changer de catégorie
             merge: Fusionner dans un nouveau
             merge_button: Fusionner
+            publish: Publier
             select_component: Sélectionnez un composant
             selected: choisi
             split: Fractionner la proposition
@@ -386,14 +407,19 @@ fr:
           new:
             create: Créer
             title: Créer une proposition
+          publish_answers:
+            select_a_proposal: Veuillez sélectionner une proposition
           show:
+            authors: Auteurs
+            body: Corps
             created_at: Date de création
+            proposals: Propositions
             votes_count: Nombre de votes
           update_category:
-            invalid: 'Ces propositions avaient déjà la catégorie %{category} : %{proposals}.'
             select_a_category: Veuillez sélectionner une catégorie
             select_a_proposal: Veuillez sélectionner une proposition
-            success: 'Les propositions ont bien été mises à jour dans la catégorie %{category} : %{proposals}.'
+          update_scope:
+            select_a_proposal: Veuillez sélectionner une proposition
         proposals_imports:
           create:
             invalid: Un problème est survenu lors de l'importation des propositions
@@ -425,16 +451,21 @@ fr:
         rejected: Non retenue
         withdrawn: Retirée
       application_helper:
+        filter_category_values:
+          all: Tout
         filter_origin_values:
           all: Tout
           citizens: Propositions citoyennes
           meetings: Des réunions
           official: Propositions officielles
           user_groups: Groupes d'utilisateurs
+        filter_scope_values:
+          all: Tout
         filter_state_values:
           accepted: Accepté
           all: Tout
           evaluating: En cours d'évaluation
+          not_answered: En attente de réponse
           rejected: Rejeté
         filter_type_values:
           all: Tout
@@ -486,6 +517,7 @@ fr:
           open: Ouvrir
           published: Publié
           related_to: Lié à
+          scope: Portée
           search: Chercher
           state: État
           withdrawn: Retiré
@@ -636,8 +668,10 @@ fr:
           category: Catégorie
           origin: Auteurs
           related_to: Liées à
+          scope: Portée
           search: Rechercher
           state: État
+          type: Type
           voted: Ne montrer que les propositions pour lesquelles j'ai voté
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
@@ -677,6 +711,7 @@ fr:
           creation_date: 'Création : %{date}'
           view_proposal: Voir la proposition
         show:
+          answer: Répondre
           back_to: Retour à
           changes_at_title: Amendement de (%{title}"
           edit_proposal: Modifier la proposition
@@ -697,8 +732,6 @@ fr:
           withdraw_btn_hint: Si vous changez d'avis et tant que votre proposition n'a pas reçu de vote, commentaire et/ou soutien, vous pouvez toujours la retirer. Cette dernière ne sera pas supprimée mais elle apparaîtra dans la liste des propositions retirées.
           withdraw_confirmation: Êtes-vous sûr de vouloir retirer cette proposition ?
           withdraw_proposal: Retirer la proposition
-        tags:
-          changed_from: "(modifié depuis <u>%{previous_category}</u> par un administrateur)"
         vote_button:
           already_voted: Déjà votée
           already_voted_hover: Retirer le vote

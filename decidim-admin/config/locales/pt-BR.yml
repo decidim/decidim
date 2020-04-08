@@ -265,6 +265,15 @@ pt-BR:
       exports:
         export_as: "%{name} como %{export_format}"
         notice: Sua exportação está atualmente em andamento. Você receberá um e-mail quando estiver completo.
+      filters:
+        category_id_eq:
+          label: Categoria
+        officialized_at_null:
+          label: Situação
+          values:
+            'false': Oficializado
+            'true': Não oficializado
+        search_label: Buscar
       help_sections:
         error: Houve um erro ao atualizar as seções de ajuda
         form:

@@ -7,9 +7,9 @@ version with security updates.
 
 | Version | Supported          |
 | ------- | ------------------ |
+| 0.21.x   | :white_check_mark: |
 | 0.20.x   | :white_check_mark: |
-| 0.19.x   | :white_check_mark: |
-| <= 0.17   | :x:                |
+| <= 0.19   | :x:                |
 
 ## Reporting a Vulnerability
 

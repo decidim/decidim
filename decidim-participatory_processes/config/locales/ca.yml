@@ -24,8 +24,10 @@ ca:
         published_at: Publicat el
         related_process_ids: Processos relacionats
         scope_id: Àmbit
+        scope_type_max_depth_id: Profunditat del filtre d'àmbit
         scopes_enabled: Àmbits habilitats
         short_description: Breu descripció
+        show_metrics: Mostrar mètriques
         show_statistics: Mostra estadístiques
         slug: Nom curt d'URL
         start_date: Data d'inici
@@ -64,7 +66,7 @@ ca:
         one: Procés participatiu
         other: Processos participatius
       decidim/participatory_process_group:
-        one: Grup de processos participatius
+        one: Grups de processos participatius
         other: Grups de processos participatius
       decidim/participatory_process_step:
         one: Fase
@@ -133,6 +135,7 @@ ca:
             admin: Administradora
             collaborator: Col·laboradora
             moderator: Moderadora
+            valuator: Avaluadora
         user:
           fields:
             invitation_accepted_at: Invitació acceptada el
@@ -204,13 +207,13 @@ ca:
         destroy:
           success: L'administradora s'ha eliminat correctament d'aquest procés participatiu.
         edit:
-          title: Actualitza administradora de procés participatiu.
+          title: Actualitzar administradora de procés participatiu
           update: Actualitza
         index:
           process_admins_title: Administradores del procés participatiu
         new:
           create: Crea
-          title: Nova administradora del procés participatiu.
+          title: Nova administradora del procés participatiu
         update:
           error: S'ha produït un error en actualitzar una administradora per a aquest procés participatiu.
           success: Administradora actualitzada correctament per a aquest procés participatiu.
@@ -324,6 +327,7 @@ ca:
             metadata: Metadades
             other: Altres
             related_processes: Processos relacionats
+            scope_type_max_depth_help: Restringeix la profunditat del filtre d'àmbit. Es mostrarà des del filtre general fins al filtre seleccionat.
             select_an_area: Selecciona una àrea
             select_process_group: Selecciona un grup de processos
             slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
@@ -389,17 +393,20 @@ ca:
         comments_count: Comentaris
         debates_count: Debats
         endorsements_count: Adhesions
-        headline: Activitat
+        followers_count: Seguidores
+        headline: Estadístiques
         meetings_count: Trobades presencials
+        no_stats: Encara no hi ha estadístiques.
         orders_count: Suports
         pages_count: Pàgines
+        participants_count: Participants
         processes_count: Processos
         projects_count: Projectes
         proposals_count: Propostes
         results_count: Resultats
+        supports_count: Suports
         surveys_count: Enquestes
         users_count: Participants
-        votes_count: Suports
   layouts:
     decidim:
       participatory_process_groups:

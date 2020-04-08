@@ -79,12 +79,12 @@ ar:
         state_eq:
           label: الحالة
           values:
-            accepted: تم قبوله
+            accepted: وافقت
             created: تمّ إنشاؤه
-            discarded: تم تجاهله
-            published: تم نشره
-            rejected: تم رفضه
-            validating: تأكيد تقني
+            discarded: التخلص منها
+            published: نشرت
+            rejected: مرفوض
+            validating: المصادقة الفنية
       menu:
         initiatives: المبادرات
         initiatives_types: أنواع المبادرة

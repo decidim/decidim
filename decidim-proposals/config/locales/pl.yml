@@ -83,6 +83,21 @@ pl:
         many: Głosy
         other: Głosy
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Rodzaj
+          values:
+            'false': Propozycje
+            'true': Poprawki
+        state_eq:
+          values:
+            evaluating: Ocena
+            withdrawn: Wycofane
+        state_null:
+          label: Stan
+          values:
+            'true': Bez odpowiedzi
     components:
       proposals:
         actions:
@@ -197,7 +212,6 @@ pl:
             email_subject: Propozycja, którą obserwujesz, jest oceniana
             notification_title: Trwa ocena oferty <a href="%{resource_path}">%{resource_title}</a>.
         proposal_mentioned:
-          email_intro: Twoja propozycja "%{mentioned_proposal_title}" została wspomniana <a href="%{resource_path}">w tym miejscu</a> w komentarzach.
           email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem "%{resource_title}".
           email_subject: Twoja propozycja "%{mentioned_proposal_title}" została wymieniona
           notification_title: Twoja propozycja "%{mentioned_proposal_title}" została wspomniana <a href="%{resource_path}">w tym miejscu</a> w komentarzach.
@@ -227,6 +241,8 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem wniosku.
           email_subject: Kategoria %{resource_title} propozycji została zaktualizowana
           notification_title: <a href="%{resource_path}">%{resource_title}</a> kategoria propozycji została zaktualizowana przez administratora.
+        proposal_update_scope:
+          email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem wniosku.
         voting_enabled:
           email_intro: 'Możesz głosować na propozycje w %{participatory_space_title}! Zacznij uczestniczyć w tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
@@ -341,6 +357,10 @@ pl:
             success: Tekst uczestnictwa został zaktualizowany pomyślnie.
         proposal_answers:
           form:
+            accepted: Przyjęty
+            answer_proposal: Odpowiedź
+            evaluating: Ocena
+            rejected: Odrzucone
             title: Odpowiedź na wniosek %{title}
         proposal_notes:
           create:
@@ -372,6 +392,7 @@ pl:
             change_category: Zmień kategorię
             merge: Połącz się z nowym
             merge_button: Łączyć
+            publish: Publikować
             select_component: Wybierz składnik
             selected: wybrany
             split: Podziel propozycje
@@ -381,14 +402,19 @@ pl:
           new:
             create: Stwórz
             title: Utwórz propozycję
+          publish_answers:
+            select_a_proposal: Wybierz propozycję
           show:
+            authors: Autorski
+            body: Ciało
             created_at: Data utworzenia
+            proposals: Propozycje
             votes_count: Liczenie głosów
           update_category:
-            invalid: 'Te propozycje miały już kategorię %{category} : %{proposals}.'
             select_a_category: Proszę wybierz kategorie
             select_a_proposal: Wybierz propozycję
-            success: 'Propozycje pomyślnie zaktualizowane do kategorii %{category} : %{proposals}.'
+          update_scope:
+            select_a_proposal: Wybierz propozycję
         proposals_imports:
           create:
             invalid: Podczas importowania propozycji wystąpił problem
@@ -420,16 +446,21 @@ pl:
         rejected: Odrzucone
         withdrawn: Wycofane
       application_helper:
+        filter_category_values:
+          all: Wszystko
         filter_origin_values:
           all: Wszystko
           citizens: Obywatele
           meetings: Spotkania
           official: Urzędnik
           user_groups: Grupy użytkowników
+        filter_scope_values:
+          all: Wszystko
         filter_state_values:
           accepted: Przyjęty
           all: Wszystko
           evaluating: Ewaluacja
+          not_answered: Bez odpowiedzi
           rejected: Odrzucono
         filter_type_values:
           all: Wszystko
@@ -483,6 +514,7 @@ pl:
           open: otwarty
           published: Opublikowany
           related_to: Związany z
+          scope: Zakres
           search: Szukaj
           state: Stan
           withdrawn: Wycofane
@@ -637,8 +669,10 @@ pl:
           category: Kategoria
           origin: Pochodzenie
           related_to: Związany z
+          scope: Zakres
           search: Szukanie
           state: Stan
+          type: Rodzaj
           voted: Głosował
         filters_small_view:
           close_modal: Zamknij modal
@@ -682,6 +716,7 @@ pl:
           creation_date: 'Tworzenie: %{date}'
           view_proposal: Wyświetl propozycję
         show:
+          answer: Odpowiedź
           back_to: Wrócić do
           edit_proposal: Edytuj propozycję
           endorsements_list: Lista rekomendacji
@@ -699,8 +734,6 @@ pl:
           withdraw_btn_hint: Możesz wycofać swoją propozycję, jeśli zmienisz zdanie, o ile nie otrzymałeś żadnego wsparcia. Wniosek nie zostanie usunięty, pojawi się na liście wycofanych wniosków.
           withdraw_confirmation: Czy na pewno chcesz wycofać tę propozycję?
           withdraw_proposal: Wycofaj propozycję
-        tags:
-          changed_from: "(zmieniono z <u>%{previous_category}</u> przez administratora)"
         vote_button:
           already_voted: Już głosował
           already_voted_hover: Unvote

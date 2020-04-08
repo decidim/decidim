@@ -31,6 +31,9 @@ ar:
       proposals_import:
         import_proposals: مقترحات الاستيراد
         keep_authors: الحفاظ على المؤلفين الأصلي
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: اسم المُقيِّم
     errors:
       models:
         participatory_text:
@@ -97,14 +100,20 @@ ar:
     admin:
       filters:
         is_emendation_true:
-          label: النوع
+          label: نوع
           values:
-            'false': مقترحات
+            'false': اقتراحات
             'true': تعديلات
+        state_eq:
+          values:
+            evaluating: تقييم
+            withdrawn: سحب
         state_null:
           label: الحالة
           values:
-            'true': لم تتم الإجابة عليها
+            'true': بلا جواب
+        valuator_role_ids_has:
+          label: تم إسناده إلى مُقيِّم
     components:
       proposals:
         actions:
@@ -116,6 +125,7 @@ ar:
         name: اقتراحات
         settings:
           global:
+            allow_card_image: السماح بالبطاقة الصورية
             amendments_enabled: تم تمكين التعديلات
             announcement: إعلان
             attachments_allowed: السماح للمرفقات
@@ -124,6 +134,7 @@ ar:
             comments_enabled: تم تمكين التعليقات
             geocoding_enabled: تم تمكين الترميز الجغرافي
             minimum_votes_per_user: الحد الأدنى من الدعم لكل مستخدم
+            new_proposal_body_template: نموذج جديد لمحتوى المُقتَرَح
             new_proposal_help_text: نص مساعدة اقتراح جديد
             official_proposals_enabled: تم تمكين المقترحات الرسمية
             participatory_texts_enabled: تم تمكين النصوص التشاركية
@@ -139,6 +150,8 @@ ar:
             threshold_per_proposal: عتبة لكل اقتراح
             vote_limit: حد الدعم لكل مشارك
           step:
+            amendment_creation_enabled_help: يمكن للمشارِك إدخال تعديلات على المقتَرَحات.
+            amendments_visibility: رؤية التعديل
             announcement: إعلان
             automatic_hashtags: علامات التصنيف المضافة إلى جميع المقترحات
             comments_blocked: تم حظر التعليقات
@@ -212,7 +225,6 @@ ar:
             email_subject: يتم تقييم الاقتراح الخاص بك
             notification_title: يتم تقييم الاقتراح الخاص بك <a href="%{resource_path}">%{resource_title}</a>.
         proposal_mentioned:
-          email_intro: لقد تم ذكر اقتراحك "%{mentioned_proposal_title}" <a href="%{resource_path}">في هذه المساحة</a> في التعليقات.
           email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف "%{resource_title}".
           email_subject: تم ذكر اقتراحك "%{mentioned_proposal_title}"
           notification_title: لقد تم ذكر اقتراحك "%{mentioned_proposal_title}" <a href="%{resource_path}">في هذه المساحة</a> في التعليقات.
@@ -237,6 +249,8 @@ ar:
           email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف الاقتراح.
           email_subject: تم تحديث فئة %{resource_title} اقتراح
           notification_title: تم تحديث فئة اقتراح <a href="%{resource_path}">%{resource_title}</a> بواسطة مسؤول.
+        proposal_update_scope:
+          email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف الاقتراح.
         voting_enabled:
           email_intro: 'يمكنك دعم المقترحات في %{participatory_space_title}! ابدأ المشاركة في هذه الصفحة:'
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{participatory_space_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
@@ -303,6 +317,7 @@ ar:
         see_all: شاهد الكل (%{count})
     proposals:
       actions:
+        answer_proposal: الرد على المُقتَرَح
         edit_proposal: تعديل الاقتراح
         import: استيراد من مكون آخر
         new: عرض جديد
@@ -351,6 +366,10 @@ ar:
             success: تم تحديث النص التشاركي بنجاح.
         proposal_answers:
           form:
+            accepted: وافقت
+            answer_proposal: إجابة
+            evaluating: تقييم
+            rejected: مرفوض
             title: الإجابة على الاقتراح %{title}
         proposal_notes:
           create:
@@ -375,31 +394,53 @@ ar:
             add_images: إضافة صور
             attachment_legend: "(اختياري) إضافة مرفق"
             created_in_meeting: هذا الاقتراح يأتي من اجتماع
+            gallery_legend: "(اختياري) إضافة معرض للصور"
             select_a_category: اختر تصنيف
             select_a_meeting: اختيار اجتماع
           index:
             actions: أفعال
+            assign_to_valuator: أسنِده إلى مُقيِّم
             cancel: إلغاء
             change_category: تغيير الفئة
             merge: دمج في واحدة جديدة
             merge_button: دمج
+            publish: نشر
             select_component: حدد المكون
             selected: المحدد
             split: تقسيم المقترحات
             split_button: انشق، مزق
             title: اقتراحات
+            unassign_from_valuator: إلغاء الإسناد مِن المُقيِّم
+            unassign_from_valuator_button: إلغاء الإسناد
             update: تحديث
           new:
             create: إنشاء
             title: إنشاء اقتراح
+          publish_answers:
+            select_a_proposal: يرجى اختيار الاقتراح
           show:
+            amendments_count: تعداد التعديلات
+            authors: المؤلفون
+            body: الجسم
+            comments_count: تعداد التعليقات
+            comments_negative_count: ضد
+            comments_neutral_count: محايد
+            comments_positive_count: مع
             created_at: تاريخ الإنشاء
+            documents: المستندات
+            link: الرابط
+            photos: الصور
+            proposals: اقتراحات
+            ranking: "%{ranking} مِن %{total}"
+            related_meetings: ملتقيات ذات صلة
+            valuators: المُقيِّمون
             votes_count: يدعم العد
+            votes_ranking: ترتيب حسب الدّعم المتلقّى
           update_category:
-            invalid: 'هذه المقترحات لديها بالفعل فئة %{category} : %{proposals}.'
             select_a_category: الرجاء تحديد الفئة
             select_a_proposal: يرجى اختيار الاقتراح
-            success: 'تم تحديث الاقتراحات بنجاح إلى فئة %{category} : %{proposals}.'
+          update_scope:
+            select_a_proposal: يرجى اختيار الاقتراح
         proposals_imports:
           create:
             invalid: كانت هناك مشكلة في استيراد المقترحات
@@ -417,6 +458,9 @@ ar:
           create:
             invalid: كانت هناك مشكلة في تقسيم المقترحات المحددة.
             success: تم تقسيم المقترحات بنجاح إلى مقترحات جديدة.
+        valuation_assignments:
+          create:
+            success: لقد تم إسناد المُقتَرحات إلى مُقيِّم بنجاح
       admin_log:
         proposal:
           answer: "%{user_name} أجاب على الاقتراح %{resource_name} على %{space_name} الفضاء"
@@ -431,16 +475,21 @@ ar:
         rejected: مرفوض
         withdrawn: سحب
       application_helper:
+        filter_category_values:
+          all: الكل
         filter_origin_values:
           all: الكل
           citizens: المواطنون
           meetings: اجتماعات
           official: الرسمية
           user_groups: المجموعات
+        filter_scope_values:
+          all: الكل
         filter_state_values:
           accepted: وافقت
           all: الكل
           evaluating: تقييم
+          not_answered: بلا جواب
           rejected: مرفوض
         filter_type_values:
           all: الكل
@@ -496,6 +545,7 @@ ar:
           open: افتح
           published: نشرت
           related_to: متعلق ب
+          scope: نطاق
           search: بحث
           state: الحالة
           withdrawn: سحب
@@ -593,6 +643,8 @@ ar:
             scope: نطاق
             state: الحالة
             title: عنوان
+            valuator: مُقيِّم
+            valuators: المُقيِّمون
             votes: الأصوات
       new:
         limit_reached: لا يمكنك إنشاء مقترحات جديدة لأنك تجاوزت الحد.
@@ -657,10 +709,10 @@ ar:
           my_proposals: اقتراحاتي
           origin: الأصل
           related_to: متعلق ب
-          scope: النطاق
+          scope: نطاق
           search: بحث
           state: الحالة
-          type: النوع
+          type: نوع
           voted: أيد
         filters_small_view:
           close_modal: إغلاق مشروط
@@ -687,6 +739,7 @@ ar:
           label: 'ترتيب المقترحات حسب:'
           most_commented: الأكثر تعليقًا عليها
           most_endorsed: التي تحصلت على أكبر دعم
+          most_followed: الأكثر متابَعة
           most_voted: التي تحصلت على أكبر دعم
           random: عشوائية
           recent: الأخيرة
@@ -710,10 +763,12 @@ ar:
           creation_date: 'الإنشاء: %{date}'
           view_proposal: عرض الاقتراح
         show:
+          answer: إجابة
           back_to: ارجع الى
           changes_at_title: تعديل على "%{title}"
           edit_proposal: تعديل الاقتراح
           endorsements_list: قائمة المصادقة
+          estimated_cost: التكلفة التقديرية
           hidden_endorsers_count:
             zero: و %{count} المزيد من الناس
             one: و %{count} شخص آخر
@@ -727,12 +782,12 @@ ar:
           proposal_accepted_reason: 'تم قبول هذا الاقتراح بسبب:'
           proposal_in_evaluation_reason: هذا الاقتراح قيد التقييم
           proposal_rejected_reason: 'تم رفض هذا الاقتراح بسبب:'
+          read_less: اقرأ أقل
+          read_more: اقرأ المزيد
           report: أبلغ عن
           withdraw_btn_hint: يمكنك سحب اقتراحك إذا غيرت رأيك ، طالما أنك لم تتلق أي دعم. لم يتم حذف الاقتراح ، وسوف يظهر في قائمة المقترحات المسحوبة.
           withdraw_confirmation: هل أنت متأكد أنك تريد سحب هذا الاقتراح؟
           withdraw_proposal: سحب الاقتراح
-        tags:
-          changed_from: "(تم التغيير من <u>%{previous_category}</u> بواسطة مسؤول)"
         vote_button:
           already_voted: معتمد بالفعل
           already_voted_hover: سحب الدعم

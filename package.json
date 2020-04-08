@@ -1,7 +1,7 @@
 {
   "name": "decidim",
   "description": "The participatory democracy framework",
-  "version": "0.21.0-pre-dev",
+  "version": "0.21.0",
   "repository": {
     "url": "git@github.com:decidim/decidim.git",
     "type": "git"
@@ -274,6 +274,7 @@
     "uuid": "^3.2.1"
   },
   "jest": {
+    "testURL": "https://decidim.dev/",
     "setupFiles": [
       "raf/polyfill",
       "<rootDir>/decidim-admin/app/frontend/entry_test.ts",

@@ -73,6 +73,21 @@ tr:
         one: Oy
         other: oy
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: tip
+          values:
+            'false': Teklif
+            'true': Değişiklikler
+        state_eq:
+          values:
+            evaluating: değerlendirilmesi
+            withdrawn: çekilmiş
+        state_null:
+          label: Belirtmek, bildirmek
+          values:
+            'true': Cevaplanmadı
     components:
       proposals:
         actions:
@@ -193,7 +208,6 @@ tr:
             email_subject: Takip ettiğiniz bir teklif değerlendiriliyor
             notification_title: <a href="%{resource_path}">%{resource_title}</a> teklifi değerlendiriliyor.
         proposal_mentioned:
-          email_intro: Öneriniz "%{mentioned_proposal_title}" söz edilmiştir <a href="%{resource_path}">bu alanda</a> yorumlardaki.
           email_outro: Bu bildirimi, "%{resource_title}" ın bir yazarı olduğunuz için aldınız.
           email_subject: Teklifinizin "%{mentioned_proposal_title}" olduğu belirtildi
           notification_title: Öneriniz "%{mentioned_proposal_title}" söz edilmiştir <a href="%{resource_path}">bu alanda</a> yorumlardaki.
@@ -223,6 +237,8 @@ tr:
           email_outro: Bu bildirimi aldınız çünkü teklifin yazarı sizsiniz.
           email_subject: '%{resource_title} teklif kategorisi güncellendi'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> teklif kategorisi bir yönetici tarafından güncellendi.
+        proposal_update_scope:
+          email_outro: Bu bildirimi aldınız çünkü teklifin yazarı sizsiniz.
         voting_enabled:
           email_intro: 'Teklifleri %{participatory_space_title}oylayabilirsiniz! Bu sayfaya katılmaya başlayın:'
           email_outro: Bu bildirimi, %{participatory_space_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
@@ -337,6 +353,10 @@ tr:
             success: Katılımcı metin başarıyla güncellendi.
         proposal_answers:
           form:
+            accepted: Kabul edilmiş
+            answer_proposal: Cevap
+            evaluating: değerlendirilmesi
+            rejected: Reddedilen
             title: Teklifin cevabı %{title}
         proposal_notes:
           create:
@@ -368,6 +388,7 @@ tr:
             change_category: Kategoriyi değiştir
             merge: Yeni biriyle birleştir
             merge_button: birleşmek
+            publish: Yayınla
             select_component: Bir bileşen seç
             selected: seçilmiş
             split: Bölünmüş teklifler
@@ -377,14 +398,19 @@ tr:
           new:
             create: yaratmak
             title: Teklif oluştur
+          publish_answers:
+            select_a_proposal: Lütfen bir teklif seçin
           show:
+            authors: Yazarlar
+            body: Vücut
             created_at: Oluşturulma tarihi
+            proposals: Teklif
             votes_count: Oy sayısı
           update_category:
-            invalid: 'Bu teklifler zaten %{category} kategorisine sahipti: %{proposals}.'
             select_a_category: Lütfen bir kategori seçin
             select_a_proposal: Lütfen bir teklif seçin
-            success: 'Teklifler başarıyla %{category} kategorisine güncellendi: %{proposals}.'
+          update_scope:
+            select_a_proposal: Lütfen bir teklif seçin
         proposals_imports:
           create:
             invalid: Teklifleri içe aktarırken bir sorun oluştu
@@ -416,16 +442,21 @@ tr:
         rejected: Reddedilen
         withdrawn: çekilmiş
       application_helper:
+        filter_category_values:
+          all: Herşey
         filter_origin_values:
           all: Herşey
           citizens: Vatandaşlar
           meetings: Toplantılar
           official: Resmi
           user_groups: Kullanıcı Grupları
+        filter_scope_values:
+          all: Herşey
         filter_state_values:
           accepted: Kabul edilmiş
           all: Herşey
           evaluating: değerlendirilmesi
+          not_answered: Cevaplanmadı
           rejected: Reddedilen
         filter_type_values:
           all: Herşey
@@ -477,6 +508,7 @@ tr:
           open: Açık
           published: Yayınlanan
           related_to: İle ilgili
+          scope: kapsam
           search: Arama
           state: Belirtmek, bildirmek
           withdrawn: çekilmiş
@@ -627,8 +659,10 @@ tr:
           category: Kategori
           origin: Menşei
           related_to: İle ilgili
+          scope: kapsam
           search: Arama
           state: Belirtmek, bildirmek
+          type: tip
           voted: oy
         filters_small_view:
           close_modal: Yakın kalıcı
@@ -668,6 +702,7 @@ tr:
           creation_date: 'Oluşturma: %{date}'
           view_proposal: Teklifi görüntüle
         show:
+          answer: Cevap
           back_to: Geri
           edit_proposal: Teklifi düzenle
           endorsements_list: Onay Listesi
@@ -684,8 +719,6 @@ tr:
           withdraw_btn_hint: Herhangi bir destek almadığınız sürece fikrinizi değiştirirseniz teklifinizi geri çekebilirsiniz. Teklif silinmemiş, iptal edilen teklifler listesinde görünecektir.
           withdraw_confirmation: Bu teklifi geri çektiğinizden emin misiniz?
           withdraw_proposal: Teklifi geri çek
-        tags:
-          changed_from: "(bir yönetici tarafından <u>%{previous_category}</u> değiştirildi)"
         vote_button:
           already_voted: Çoktan oy verildi
           already_voted_hover: Unvote

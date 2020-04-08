@@ -88,6 +88,9 @@ nl:
         error: Er is een fout opgetreden bij het bijwerken van uw account.
         success: Uw account is bijgewerkt.
         success_with_email_confirmation: Uw account is bijgewerkt. U ontvangt een e-mail ter bevestiging van uw nieuwe e-mailadres.
+    admin:
+      actions:
+        cancel: annuleren
     admin_log:
       area:
         create: "%{user_name} heeft %{resource_name} aangemaakt"
@@ -229,6 +232,7 @@ nl:
       photos:
         related_photos: Gerelateerde foto 's
     author:
+      avatar: Profielafbeelding
       comments:
         one: commentaar
         other: commentaren
