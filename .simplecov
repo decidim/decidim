@@ -6,7 +6,9 @@ SimpleCov.start do
   root File.expand_path("..", ENV["ENGINE_ROOT"])
 
   # We make sure we track all Ruby files, to avoid skipping unrequired files
-  track_files "**/*.rb"
+  # We need to include the `../` section, otherwise it only tracks files from the
+  # `ENGINE_ROOT` folder for some reason.
+  track_files "../**/*.rb"
 
   # We ignore some of the files because they are never tested
   add_filter "/config/"
