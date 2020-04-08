@@ -4,14 +4,11 @@ on:
     branches:
       - develop
       - master
-      - release/*
+      - "release/**"
       - "*-stable"
   pull_request:
     branches:
-      - develop
-      - master
-      - release/*
-      - "*-stable"
+      - "*"
 
 env:
   CI: "true"
