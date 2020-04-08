@@ -10,9 +10,10 @@ PR [\#5676](https://github.com/decidim/decidim/pull/5676) introduced a deprecati
 
 PR [\#5768](https://github.com/decidim/decidim/pull/5768) introduced a deprecation warning:
 
-- `:here_app_id ` and `:here_app_code` that might be configured in `config/initializers/decidim.rb` are no longer valid authorization key-values for the HERE Maps API. Now it is required to generate and API key using the keyword `:here_api_key` to replace the old ones:
+- `:here_app_id` and `:here_app_code` that might be configured in `config/initializers/decidim.rb` are no longer valid authorization key-values for the HERE Maps API. Now it is required to generate and API key using the keyword `:here_api_key` to replace the old ones:
 
 `config/initializers/decidim.rb`:
+
 ```ruby
   Geocoder configuration
     config.geocoder = {
@@ -116,6 +117,7 @@ Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now sup
 - **decidim-proposals**: Publish proposals anwers at once [\#5810](https://github.com/decidim/decidim/pull/5810)
 
 **Changed**:
+
 - **decidim-dev**: Retry failed test to avoid flaky. [\#5894](https://github.com/decidim/decidim/pull/5894)
 - **decidim-core**: Add scroll to last message and apply it on conversations. [\#5718](https://github.com/decidim/decidim/pull/5718)
 - **decidim-core**: Allow to restric direct messages to only people followed by the user. [\#5720](https://github.com/decidim/decidim/pull/5720)
