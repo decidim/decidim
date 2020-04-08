@@ -153,6 +153,8 @@ PATH
       wisper-rspec (~> 1.0)
     decidim-forms (0.22.0.dev)
       decidim-core (= 0.22.0.dev)
+      wicked_pdf (~> 1.4)
+      wkhtmltopdf-binary (~> 0.12)
     decidim-generators (0.22.0.dev)
       decidim-core (= 0.22.0.dev)
     decidim-initiatives (0.22.0.dev)
@@ -784,6 +786,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0)
   uglifier (~> 4.1)
   web-console (~> 3.5)
+  wicked_pdf (~> 1.4)
 
 RUBY VERSION
    ruby 2.5.3p105
