@@ -4,6 +4,7 @@ $(() => {
   const $multipleMentionContainer = $(".js-multiple-mentions");
   const $multipleMentionRecipientsContainer = $(".js-multiple-mentions-recipients");
   const nodatafound = $multipleMentionContainer.attr("data-noresults");
+  const directMessageDisabled = $multipleMentionContainer.attr("data-direct-messages-disabled");
 
   const maxRecipients = 9;
   let mentionsCount = 0;
@@ -96,7 +97,7 @@ $(() => {
       `;
 
       // Append new recipient to DOM
-      if (item.original.directMessagesEnabled === "") {
+      if (item.original.directMessagesEnabled === "true") {
         $multipleMentionRecipientsContainer.append(recipientLabel);
         $multipleMentionContainer.val("");
       }
@@ -110,12 +111,14 @@ $(() => {
         let icons = window.DecidimComments.assets["icons.svg"];
         svg = `<span class="is-group">${item.original.membersCount}x <svg class="icon--members icon"><use xlink:href="${icons}#icon-members"/></svg></span>`;
       }
-      let disabledElementClass = ((item.original.directMessagesEnabled === "") ? "" : "disabled-tribute-element")
+      let disabledElementClass = ((item.original.directMessagesEnabled === "true") ? "" : "disabled-tribute-element")
+      let disabledElementMessage = ((item.original.directMessagesEnabled === "true") ? "" : `&nbsp;<span class="disabled-tribute-element-info">${directMessageDisabled}</span>`)
       return `<div class="tribute-item ${item.original.__typename} ${disabledElementClass}">
       <span class="author__avatar"><img src="${item.original.avatarUrl}" alt="author-avatar"></span>
         <strong>${item.original.nickname}</strong>
         <small>${item.original.name}</small>
         ${svg}
+        ${disabledElementMessage}
       </div>`;
     }
   });

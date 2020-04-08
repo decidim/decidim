@@ -36,11 +36,11 @@ module Decidim
       decidim.profile_path(__getobj__.nickname)
     end
 
-    def disabled_message_reception_information(context)
+    def direct_messages_enabled?(context)
       if __getobj__.respond_to?("accepts_conversation?") && !__getobj__.accepts_conversation?(context[:current_user])
-        I18n.t("decidim.messaging.conversations.add_conversation_users.participant_with_disabled_message_reception")
+        false
       else
-        ""
+        true
       end
     end
 
