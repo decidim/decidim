@@ -809,8 +809,8 @@ en:
         create:
           error: Conversation not started. Try again later
         index:
-          new_conversation: New conversation
           next: Next
+          new_conversation: New conversation
           no_conversations: You have no conversations yet
           title: Conversations
         reply:
