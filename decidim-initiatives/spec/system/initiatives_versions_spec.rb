@@ -20,12 +20,11 @@ describe "Explore versions", versioning: true, type: :system do
     )
   end
   let(:command) { Decidim::Initiatives::Admin::UpdateInitiative.new(initiative, form, user) }
+  let(:initiative_path) { decidim_initiatives.initiative_path(initiative) }
 
   before do
     switch_to_host(organization.host)
   end
-
-  let(:initiative_path) { decidim_initiatives.initiative_path(initiative) }
 
   context "when visiting an initiative details" do
     it "has only one version" do
