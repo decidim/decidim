@@ -136,7 +136,7 @@ fr:
       badges:
         commented_debates:
           conditions:
-           - Choisissez un débat ouvert pour participer à
+            - Choisissez un débat ouvert pour participer à
           description: Ce badge est attribué lorsque vous participez activement aux différents débats en laissant vos commentaires.
           description_another: Cet utilisateur a participé à %{score} débats.
           description_own: Vous avez participé à %{score} débats.
