@@ -79,8 +79,8 @@ sv:
         user_groups_enabled: Aktivera grupper
         user_name: Användarnamn
         warning_color: Varning
-        welcome_notification_body: Välkomstmeddelandetext
-        welcome_notification_subject: Välkomstmeddeleandeämne
+        welcome_notification_body: Välkomstmeddelandets brödtext
+        welcome_notification_subject: Välkomstmeddelandets ämnesrad
         youtube_handler: YouTube-hanterare
       scope:
         code: Kod
@@ -470,7 +470,7 @@ sv:
         select_recipients_to_deliver:
           all_spaces: Alla
           all_users_help: Skickar nyhetsbrevet till alla bekräftade användare.
-          confirm_deliver: Är du säker på att du vill leverera detta nyhetsbrev? Den här åtgärden kan inte ångras.
+          confirm_deliver: Vill du skicka nyhetsbrevet? Den här åtgärden kan inte ångras.
           deliver: Leverera nyhetsbrev
           followers_help: Skickar nyhetsbrevet till alla bekräftade användare som följer något av de markerade deltagarutrymmena i listan.
           none: Inga
@@ -581,8 +581,8 @@ sv:
           title: Ny privat deltagare i deltagarutrymme.
       participatory_space_private_users_csv_imports:
         new:
-          title: Ladda upp din CSV-fil
-          upload: Ladda upp
+          title: Skicka CSV-fil
+          upload: Skicka
       resource_permissions:
         edit:
           submit: Skicka in
