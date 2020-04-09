@@ -134,9 +134,9 @@ Mark `develop` as the reference to the next release:
   1. Run `bin/rake bundle`, this will update all the `Gemfile.lock` files
   1. Run `bin/rake webpack`, this will update the JavaScript bundle.
 1. Update `SECURITY.md` and change the supported version to the new version.
-1. Update the `CHANGELOG.MD`. At the top you should have an `Unreleased` header with the `Added`, `Changed`, `Fixed` and `Removed` empty sections. After that, the header with the current version and link.
+1. Update the `CHANGELOG.MD`. At the top you should have an `Unreleased` header with the `Added`, `Changed`, `Fixed` and `Removed` empty sections. After that, the header with the current version and link with the same beforementioned sections and a `Previous versions` header at the bottom that links to the previous minor release stable branch.
 
-  ```
+  ```markdown
   ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
   ### Added
@@ -146,6 +146,11 @@ Mark `develop` as the reference to the next release:
   ### Fixed
 
   ### Removed
+
+  ## [v0.XX.0](https://github.com/decidim/decidim/releases/tag/v0.XX.0)
+
+  ### Added
+  ...
 
   ## Previous versions
 
