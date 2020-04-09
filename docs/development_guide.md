@@ -188,6 +188,7 @@ Once Release Candidates have been tested, merging into `master` after the valida
 1. Before merging the PR to upgrade `master`, create the stable branch for the previous vesion. So, if this is the release of v0.22.0, branch `0.21-stable` from `master`. These stable branches will be able to receive bugfixes, backports and will be the origin of patch releases for older releases.
 1. Merge the PR to `master` and remove `release/x.y.z` branch.
 1. Run `git checkout master && bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems.
+1. Once all the gems are published you should create a new release at this repository, just go to the [releases page](https://github.com/decidim/decidim/releases) and create a new one.
 1. Update Decidim's Docker repository as explained in the Docker images section.
 
 #### Releasing patch versions
@@ -207,4 +208,4 @@ Releasing new versions from an ***x.y-stable*** branch is quite easy. The proces
 
 #### Docker images for each release
 
-1. Finally, you should update our [Docker repository](https://github.com/decidim/docker) so new images are build for the new release. To do it, just update `DECIDIM_VERSION` at [circle.yml](https://github.com/decidim/docker/blob/master/circle.yml).
+1. After each release, you should update our [Docker repository](https://github.com/decidim/docker) so new images are build for the new release. To do it, just update `DECIDIM_VERSION` at [circle.yml](https://github.com/decidim/docker/blob/master/circle.yml).
