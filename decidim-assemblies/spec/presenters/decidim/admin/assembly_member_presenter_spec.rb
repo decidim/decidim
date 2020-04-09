@@ -21,6 +21,19 @@ module Decidim
       end
     end
 
+    describe "email" do
+      subject { described_class.new(assembly_member).email }
+
+      it { is_expected.to eq "email@gamil.com" }
+
+      context "when member is an existing user" do
+        let(:user) { build(:user, name: "Julia G.", nickname: "julia_g", email: "email@gmail.com") }
+        let(:assembly_member) { build(:assembly_member, full_name: "Full name", user: user) }
+
+        it { is_expected.to eq "email@gmail.com" }
+      end
+    end
+
     describe "position" do
       subject { described_class.new(assembly_member).position }
 

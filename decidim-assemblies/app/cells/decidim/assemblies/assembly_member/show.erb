@@ -22,6 +22,9 @@
                   <% else %>
                     <div class="author__nickname">&nbsp;</div>
                   <% end %>
+                  <% if email.present? %>
+                    <%= email %>
+                  <% end %>
                 </div>
               <% else %>
                 <div class="author__avatar"><%= image_tag asset_path("decidim/default-avatar.svg"), alt: "member-avatar" %></div>
