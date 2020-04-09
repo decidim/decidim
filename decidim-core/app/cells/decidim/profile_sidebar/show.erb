@@ -1,7 +1,7 @@
 <div class="card profile--sidebar">
-  <%= image_tag profile_user.avatar_url(:profile), class: "card__image card__image--larger" %>
+  <%= image_tag profile_user.avatar_url(:profile), class: "card__image card__image--larger", alt: "avatar #{profile_user.name}" %>
   <div class="card__content">
-    <h5>
+    <h1 class="profile--sidebar--title">
       <div><strong><%= profile_user.name %></strong></div>
       <span class="text-small"><%= profile_user.nickname %></span>
       <% if can_contact_user? %>
@@ -9,7 +9,7 @@
           <%= link_to_current_or_new_conversation_with(profile_holder) %>
         </span>
       <% end %>
-    </h5>
+    </h1>
     <div class="mb-s text-compact">
       <small><%= decidim_html_escape(profile_user.about.to_s) %></small>
     </div>
@@ -20,7 +20,7 @@
   <% if profile_user.badge.present? %>
     <div class="badge-card__content">
       <span>
-        <%= icon profile_user.badge, class: "author__verified" %>
+        <%= icon profile_user.badge, class: "author__verified", role: "img" %>
       </span>
       <span>
         <%= officialization_text %>
@@ -34,26 +34,26 @@
         <div class="mr-s">
           <%= link_to profile_followers_path(nickname: profile_holder.nickname) do %>
             <%= t("decidim.profiles.show.followers") %>
-            <h2 class="heading2"><strong><%= profile_user.followers_count %></strong></h2>
+            <span class="heading2"><strong><%= profile_user.followers_count %></strong></span>
           <% end %>
         </div>
         <div class="ml-s">
           <%= link_to profile_following_path(nickname: profile_holder.nickname) do %>
             <%= t("decidim.profiles.show.following") %>
-            <h2 class="heading2"><strong><%= profile_user.following_count %></strong></h2>
+            <span class="heading2"><strong><%= profile_user.following_count %></strong></span>
           <% end %>
         </div>
       <% else %>
         <div class="mr-s">
           <%= link_to profile_followers_path(nickname: profile_holder.nickname) do %>
             <%= t("decidim.profiles.show.followers") %>
-            <h1 class="heading1"><%= profile_user.followers_count %></h1>
+            <span class="heading1"><%= profile_user.followers_count %></span>
           <% end %>
         </div>
         <div class="ml-s">
           <%= link_to profile_members_path(nickname: profile_holder.nickname) do %>
             <%= t("decidim.profiles.show.members") %>
-            <h1 class="heading1"><%= profile_user.members_count %></h1>
+            <span class="heading1"><%= profile_user.members_count %></span>
           <% end %>
         </div>
       <% end %>
@@ -67,7 +67,7 @@
           <strong class="muted"><%= t("decidim.profiles.sidebar.badges.title") %></strong>
           <div class="badge-tip badge-tip--inline">
             <div data-tooltip data-position="top" title="<%= t("decidim.profiles.sidebar.badges.info") %>" aria-describedby="badges-tooltip" data-yeti-box="badges-tooltip" data-toggle="badges-tooltip" data-resize="badges-tooltip" class="has-tip" data-events="resize">
-              <%= icon "info", class: "icon--small" %>
+              <%= icon "info", class: "icon--small", role: "img" %>
             </div>
           </div>
         </div>

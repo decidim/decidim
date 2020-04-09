@@ -42,7 +42,7 @@
               <td>
                 <% if assembly.promoted? %>
                   <span data-tooltip class="icon-state icon-highlight" aria-haspopup="true" data-disable-hover="false" title="<%= t("models.assembly.fields.promoted", scope: "decidim.admin") %>">
-                    <%= icon "star" %>
+                    <%= icon "star", role: "img" %>
                   </span>
                 <% end %>
                 <% if allowed_to? :update, :assembly, assembly: assembly %>
