@@ -13,12 +13,17 @@ module Decidim
 
       let(:current_user) { create(:user, organization: initiative.organization) }
 
+      let(:user_scope) { create(:scope, organization: organization) }
+      let(:resident) { "1" }
+
       let(:personal_data) do
         {
           name_and_surname: "James Morgan McGill",
           document_number: "01234567A",
           date_of_birth: 40.years.ago,
-          postal_code: "87111"
+          postal_code: "87111",
+          resident: resident,
+          user_scope_id: user_scope.id
         }
       end
 
@@ -59,6 +64,18 @@ module Decidim
 
         context "when personal data is present" do
           it { is_expected.to be_valid }
+        end
+
+        context "when scope is not valid" do
+          let(:user_scope) { -1 }
+
+          it { is_expected.not_to be_valid }
+        end
+
+        context "when resident is not checked" do
+          let(:resident) { "0" }
+
+          it { is_expected.not_to be_valid }
         end
       end
 

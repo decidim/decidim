@@ -8,6 +8,8 @@ module Decidim
       let(:form_klass) { VoteForm }
       let(:organization) { create(:organization) }
       let(:initiative) { create(:initiative, organization: organization) }
+      let(:user_scope) { create(:scope, organization: organization) }
+      let(:resident) { true }
 
       let(:current_user) { create(:user, organization: initiative.organization) }
       let(:form) do
@@ -29,7 +31,9 @@ module Decidim
           name_and_surname: ::Faker::Name.name,
           document_number: ::Faker::IDNumber.spanish_citizen_number,
           date_of_birth: ::Faker::Date.birthday(18, 40),
-          postal_code: ::Faker::Address.zip_code
+          postal_code: ::Faker::Address.zip_code,
+          resident: resident,
+          user_scope_id: user_scope.id
         }
       end
 

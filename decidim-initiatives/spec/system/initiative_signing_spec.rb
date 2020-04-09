@@ -9,6 +9,7 @@ describe "Initiative signing", type: :system do
   end
   let(:confirmed_user) { create(:user, :confirmed, organization: organization) }
   let(:authorizations) { %w(dummy_authorization_handler another_dummy_authorization_handler) }
+  let!(:user_scope){ create(:scope, organization:organization) }
 
   before do
     allow(Decidim::Initiatives)
@@ -283,6 +284,8 @@ describe "Initiative signing", type: :system do
       select "January", from: :initiatives_vote_date_of_birth_2i
       select "1", from: :initiatives_vote_date_of_birth_3i
       fill_in :initiatives_vote_postal_code, with: "01234"
+      select translated(user_scope.name), from: :initiatives_vote_user_scope_id
+      check :resident
 
       click_button "Continue"
 

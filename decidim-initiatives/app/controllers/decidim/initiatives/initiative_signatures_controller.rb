@@ -16,7 +16,7 @@ module Decidim
 
       helper InitiativeHelper
 
-      helper_method :initiative_type, :extra_data_legal_information
+      helper_method :initiative_type, :extra_data_legal_information, :user_scopes
 
       # GET /initiatives/:initiative_id/initiative_signatures/:step
       def show
@@ -201,6 +201,10 @@ module Decidim
         initial_wizard_steps.unshift(:fill_personal_data) if fill_personal_data_step?
 
         self.steps = initial_wizard_steps
+      end
+
+      def user_scopes
+        @user_scopes ||= current_organization.scopes
       end
     end
   end

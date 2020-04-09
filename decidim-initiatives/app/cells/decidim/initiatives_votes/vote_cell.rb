@@ -37,6 +37,14 @@ module Decidim
         model.created_at
       end
 
+      def user_scope
+        metadata[:user_scope]
+      end
+
+      def resident
+        metadata[:resident]
+      end
+
       protected
 
       def encryptor

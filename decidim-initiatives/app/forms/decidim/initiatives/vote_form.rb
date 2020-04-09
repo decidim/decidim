@@ -14,6 +14,8 @@ module Decidim
       attribute :name_and_surname, String
       attribute :document_number, String
       attribute :date_of_birth, Date
+      attribute :user_scope_id, Integer
+      attribute :resident, Boolean
 
       attribute :postal_code, String
       attribute :encrypted_metadata, String
@@ -31,6 +33,8 @@ module Decidim
       validate :document_number_authorized, if: :required_personal_data?
       validate :document_number_uniqueness, if: :required_personal_data?
       validate :personal_data_consistent_with_metadata, if: :required_personal_data?
+      validate :user_scope_belongs_to_organization?, if: :required_personal_data?
+      validates :resident, acceptance: true, if: :required_personal_data?
 
       def initiative
         @initiative ||= Decidim::Initiative.find_by(id: initiative_id)
@@ -42,7 +46,9 @@ module Decidim
         { name_and_surname: name_and_surname,
           document_number: document_number,
           date_of_birth: date_of_birth,
-          postal_code: postal_code }
+          postal_code: postal_code,
+          user_scope_id: user_scope_id,
+          resident: resident }
       end
 
       def encrypted_metadata
@@ -145,6 +151,16 @@ module Decidim
                                                     postal_code: postal_code,
                                                     scope_id: child_scope&.id)
         end.unshift(authorization_handler).map(&:metadata)
+      end
+
+      def user_scope_belongs_to_organization?
+        return if user_scope_id.blank?
+
+        current_organization.scopes.include? user_scope
+      end
+
+      def user_scope
+        @user_scope ||= Decidim::Scope.find(user_scope_id) if user_scope_id.present?
       end
     end
   end
