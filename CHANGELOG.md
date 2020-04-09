@@ -2,6 +2,16 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+### Added
+
+### Changed
+
+### Fixed
+
+### Removed
+
+## [v0.21.0](https://github.com/decidim/decidim/releases/tag/v0.21.0)
+
 ### Deprecation warnings
 
 PR [\#5676](https://github.com/decidim/decidim/pull/5676) introduced a deprecation warning:
