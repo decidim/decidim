@@ -23,6 +23,10 @@ $author-data-color: $muted;
     &:hover {
       color: $anchor-color;
     }
+
+    &:focus{
+      outline: 2px solid $secondary;
+    }
   }
 
   .author__name {
@@ -130,6 +134,7 @@ $author-data-color: $muted;
 
 a:hover .author__name {
   color: inherit;
+  text-decoration: underline;
 }
 
 .author__avatar {
