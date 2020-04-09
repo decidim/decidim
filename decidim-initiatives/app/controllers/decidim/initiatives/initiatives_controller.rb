@@ -25,6 +25,7 @@ module Decidim
       include Decidim::Initiatives::Orderable
       include TypeSelectorOptions
       include NeedsInitiative
+      include SingleInitiativeType
 
       helper_method :collection, :initiatives, :filter, :stats
 

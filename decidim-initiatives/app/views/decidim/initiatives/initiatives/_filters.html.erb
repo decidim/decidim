@@ -26,6 +26,7 @@
                                     legend_title: t(".author") %>
   <% end %>
 
+  <% unless single_initiative_type? %>
   <div class="filters__section">
     <fieldset>
       <legend><h6 class="heading6"><%= t ".type" %></h6></legend>
@@ -38,7 +39,7 @@
                                        multiple: true %>
     </fieldset>
   </div>
-
+  <% end %>
   <%= scopes_picker_field form, :scope_id, root: nil %>
 
   <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
