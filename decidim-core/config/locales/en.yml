@@ -809,8 +809,9 @@ en:
         create:
           error: Conversation not started. Try again later
         index:
-          next: Next
+          close: 'Close modal'
           new_conversation: New conversation
+          next: Next
           no_conversations: You have no conversations yet
           title: Conversations
         reply:

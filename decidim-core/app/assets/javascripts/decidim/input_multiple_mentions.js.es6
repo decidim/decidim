@@ -88,19 +88,24 @@ $(() => {
       }
       // Set recipient profile view
       let recipientLabel = `
-        <label style="padding: 0 0 10px 0"">
+        <label style="padding: 0 0 10px 0">
           <img src="${item.original.avatarUrl}" alt="${item.original.name}" height="35" width="35" style="border-radius: 50%;" aria-label="${item.original.name}">&nbsp;
           <b>${item.original.name}</b>
           <input type="hidden" name="recipient_id[]" value="${item.original.id}">
-          <b class="float-right">&times;</b>
+          <div class="float-right">&times;</div>
         </label>
       `;
 
       // Append new recipient to DOM
       if (item.original.directMessagesEnabled === "true") {
-        $multipleMentionRecipientsContainer.append(recipientLabel);
+        $multipleMentionRecipientsContainer.append($(recipientLabel));
         $multipleMentionContainer.val("");
       }
+
+      // In order to add tabindex accessibility control to each recipient in list
+      $multipleMentionRecipientsContainer.find("label").each(function( index ) {
+        $( this ).find("div").attr("tabIndex", 0).attr("aria-controls", 0).attr("aria-label", "Close").attr("role", "tab");
+      });
 
       // Clean input
       return "";
@@ -154,7 +159,15 @@ $(() => {
   };
 
   let setupRecipientEvents = function($element) {
+    // Allow delete with click on element in recipients list
     $element.on("click", (event) => {
+      let $target = event.target.parentNode;
+      if ($target.tagName === "LABEL") {
+        deleteRecipient($target);
+      }
+    });
+    // Allow delete with keypress on element in recipients list
+    $element.on("keypress", (event) => {
       let $target = event.target.parentNode;
       if ($target.tagName === "LABEL") {
         deleteRecipient($target);
