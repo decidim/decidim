@@ -38,63 +38,65 @@
         </thead>
         <tbody>
           <% @assemblies.each do |assembly| %>
-            <tr>
-              <td>
-                <% if assembly.promoted? %>
-                  <span data-tooltip class="icon-state icon-highlight" aria-haspopup="true" data-disable-hover="false" title="<%= t("models.assembly.fields.promoted", scope: "decidim.admin") %>">
-                    <%= icon "star", role: "img" %>
-                  </span>
-                <% end %>
-                <% if allowed_to? :update, :assembly, assembly: assembly %>
-                  <%= link_to translated_attribute(assembly.title), edit_assembly_path(assembly) %><br>
-                <% elsif allowed_to? :read, :component, assembly: assembly %>
-                  <%= link_to translated_attribute(assembly.title), components_path(assembly) %><br>
-                <% elsif allowed_to? :preview, :assembly, assembly: assembly %>
-                  <%= link_to translated_attribute(assembly.title), decidim_assemblies.assembly_path(assembly) %><br>
-                <% elsif allowed_to? :read, :moderation, assembly: assembly %>
-                  <%= link_to translated_attribute(assembly.title), moderations_path(assembly) %><br>
-                <% else %>
-                  <%= translated_attribute(assembly.title) %>
-                <% end %>
-              </td>
-              <td>
-                <%= l(assembly.created_at, format: :short) %>
-              </td>
-              <td class="table-list__state">
-                <% if assembly.private_space? %>
-                  <strong class="text-alert"><%= t("assemblies.index.private", scope: "decidim.admin") %></strong>
-                <% else %>
-                  <strong class="text-success"><%= t("assemblies.index.public", scope: "decidim.admin") %></strong>
-                <% end %>
-              </td>
-              <td class="table-list__state">
-                <% if assembly.published? %>
-                  <strong class="text-success"><%= t("assemblies.index.published", scope: "decidim.admin") %></strong>
-                <% else %>
-                  <strong class="text-alert"><%= t("assemblies.index.not_published", scope: "decidim.admin") %></strong>
-                <% end %>
-              </td>
-              <td class="table-list__actions">
-                <% if allowed_to? :create, :assembly, assembly: assembly %>
-                  <%= icon_link_to "clipboard", new_assembly_copy_path(assembly), t("actions.duplicate", scope: "decidim.admin"), class: "action-icon--copy" %>
-                <% end %>
+            <% if allowed_to? :list, :assembly, assembly: assembly %>
+              <tr>
+                <td>
+                  <% if assembly.promoted? %>
+                    <span data-tooltip class="icon-state icon-highlight" aria-haspopup="true" data-disable-hover="false" title="<%= t("models.assembly.fields.promoted", scope: "decidim.admin") %>">
+                      <%= icon "star", role: "img" %>
+                    </span>
+                  <% end %>
+                  <% if allowed_to? :update, :assembly, assembly: assembly %>
+                    <%= link_to translated_attribute(assembly.title), edit_assembly_path(assembly) %><br>
+                  <% elsif allowed_to? :read, :component, assembly: assembly %>
+                    <%= link_to translated_attribute(assembly.title), components_path(assembly) %><br>
+                  <% elsif allowed_to? :preview, :assembly, assembly: assembly %>
+                    <%= link_to translated_attribute(assembly.title), decidim_assemblies.assembly_path(assembly) %><br>
+                  <% elsif allowed_to? :read, :moderation, assembly: assembly %>
+                    <%= link_to translated_attribute(assembly.title), moderations_path(assembly) %><br>
+                  <% else %>
+                    <%= translated_attribute(assembly.title) %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= l(assembly.created_at, format: :short) %>
+                </td>
+                <td class="table-list__state">
+                  <% if assembly.private_space? %>
+                    <strong class="text-alert"><%= t("assemblies.index.private", scope: "decidim.admin") %></strong>
+                  <% else %>
+                    <strong class="text-success"><%= t("assemblies.index.public", scope: "decidim.admin") %></strong>
+                  <% end %>
+                </td>
+                <td class="table-list__state">
+                  <% if assembly.published? %>
+                    <strong class="text-success"><%= t("assemblies.index.published", scope: "decidim.admin") %></strong>
+                  <% else %>
+                    <strong class="text-alert"><%= t("assemblies.index.not_published", scope: "decidim.admin") %></strong>
+                  <% end %>
+                </td>
+                <td class="table-list__actions">
+                  <% if allowed_to? :create, :assembly, assembly: assembly %>
+                    <%= icon_link_to "clipboard", new_assembly_copy_path(assembly), t("actions.duplicate", scope: "decidim.admin"), class: "action-icon--copy" %>
+                  <% end %>
 
-                <% if allowed_to? :update, :assembly, assembly: assembly %>
-                  <%= icon_link_to "pencil", edit_assembly_path(assembly), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
-                <% end %>
+                  <% if allowed_to? :update, :assembly, assembly: assembly %>
+                    <%= icon_link_to "pencil", edit_assembly_path(assembly), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
+                  <% end %>
 
-                <% if assembly.children.count.positive? || allowed_to?(:create, :assembly) %>
-                  <%= icon_link_to "dial",
-                      url_for(query_params_with(parent_id_eq: assembly.id)),
-                      t("decidim.admin.titles.assemblies"),
-                      class: "action-icon--dial #{'highlighted' if assembly.children.count.positive?}" %>
-                <% end %>
+                  <% if assembly.children.count.positive? || allowed_to?(:create, :assembly) %>
+                    <%= icon_link_to "dial",
+                        url_for(query_params_with(parent_id_eq: assembly.id)),
+                        t("decidim.admin.titles.assemblies"),
+                        class: "action-icon--dial #{'highlighted' if assembly.children.count.positive?}" %>
+                  <% end %>
 
-                <% if allowed_to? :preview, :assembly, assembly: assembly %>
-                  <%= icon_link_to "eye", decidim_assemblies.assembly_path(assembly), t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview" %>
-                <% end %>
-              </td>
-            </tr>
+                  <% if allowed_to? :preview, :assembly, assembly: assembly %>
+                    <%= icon_link_to "eye", decidim_assemblies.assembly_path(assembly), t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview" %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
           <% end %>
         </tbody>
       </table>

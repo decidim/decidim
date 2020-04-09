@@ -30,6 +30,7 @@ module Decidim
         return permission_action unless permission_action.scope == :admin
 
         user_can_read_assembly_list?
+        user_can_list_assembly_list?
         user_can_read_current_assembly?
         user_can_create_assembly?
 
@@ -170,6 +171,20 @@ module Decidim
         return unless read_assembly_list_permission_action?
 
         toggle_allow(user.admin? || has_manageable_assemblies?)
+      end
+
+      # The list of assemblies the user is able to list
+      # In case of user being admin of child assembly even parent assembly
+      # should be listed to be able to navigate to child assembly
+      def user_can_list_assembly_list?
+        return unless permission_action.action == :list &&
+                      permission_action.subject == :assembly
+
+        assemblies = AssembliesWithUserRole.for(user)
+        parent_assemblies = Decidim::Assembly.where(id: assemblies.pluck(:parent_id))
+
+        allowed_list_of_assemblies = assemblies + parent_assemblies
+        toggle_allow(allowed_list_of_assemblies.uniq.member?(assembly))
       end
 
       def user_can_read_current_assembly?
