@@ -55,6 +55,8 @@ Decidim.register_component(:surveys) do |component|
   component.actions = %w(answer)
 
   component.settings(:global) do |settings|
+    settings.attribute :scopes_enabled, type: :boolean, default: false
+    settings.attribute :scope_id, type: :integer
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 

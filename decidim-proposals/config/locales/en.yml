@@ -135,6 +135,8 @@ en:
             proposal_wizard_step_3_help_text: Proposal wizard "Complete" step help text
             proposal_wizard_step_4_help_text: Proposal wizard "Publish" step help text
             resources_permissions_enabled: Actions permissions can be set for each proposal
+            scope_id: Scope
+            scopes_enabled: Scopes enabled
             threshold_per_proposal: Threshold per proposal
             vote_limit: Support limit per participant
           step:

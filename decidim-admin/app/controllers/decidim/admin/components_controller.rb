@@ -23,7 +23,10 @@ module Decidim
           name: default_name(manifest),
           manifest_name: params[:type],
           participatory_space: current_participatory_space,
-          parent_id: params[:parent_id]
+          parent_id: params[:parent_id],
+          settings: {
+            scope_id: current_participatory_space.scope.try(:id)
+          }
         )
 
         @form = form(@component.form_class).from_model(@component)

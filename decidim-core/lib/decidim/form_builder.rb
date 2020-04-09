@@ -279,7 +279,7 @@ module Decidim
     # Returns a String.
     def scopes_picker(attribute, options = {})
       picker_options = {
-        id: "#{@object_name}_#{attribute}",
+        id: "#{sanitize_for_dom_selector(@object_name)}_#{attribute}",
         class: "picker-#{options[:multiple] ? "multiple" : "single"}",
         name: "#{@object_name}[#{attribute}]"
       }
@@ -702,6 +702,10 @@ module Decidim
 
     def sanitize_tabs_selector(id)
       id.tr("[", "-").tr("]", "-")
+    end
+
+    def sanitize_for_dom_selector(name)
+      name.to_s.parameterize.underscore
     end
   end
 end
