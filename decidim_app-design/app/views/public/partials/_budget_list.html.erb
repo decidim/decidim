@@ -3,13 +3,19 @@
 <main>
   <%= partial "process_header" %>
   <div class="wrapper">
-    <div class="row column">
       <% if locals[:showFinished] == true %>
-        <%= partial "budget_finished" %>
+        <div class="row column">
+          <%= partial "budget_finished" %>
+        </div>
+      <% elsif locals[:showSelected] == true %>
+        <div class="row column view-header">
+          <h2 class="heading2">Presupuestos seleccionados para Gràcia</h2>
+        </div>
       <% else %>
-       <%= partial "budget_summary" %>
+        <div class="row column">
+        <%= partial "budget_summary" %>
+        </div>
       <% end %>
-    </div>
 
     <div class="row">
       <div class="columns mediumlarge-4 large-3">
@@ -22,10 +28,11 @@
             <div class="budget-list__image">
               <%= image_tag Faker::Boolean.boolean(0.3) ? "hero-home.jpg" : Faker::Boolean.boolean(0.3) ? "gracia.jpg" : "superilles.jpg" %>
             </div>
-            <div class="budget-list__text">
+            <div class="budget-list__text card__text">
               <div>
                 <a href="#" class="card__link">
                   <h5 class="card__title budget-list__title">
+                    <% if locals[:showSelected] == true  %><span class="card__text--status success">aceptada</span><br><% end %>
                     Diagnòstic sobre l'existència i la necessitat de menjadors socials per a gent gran al Districte
                   </h5>
                 </a>
@@ -45,9 +52,12 @@
 
               </div>
             </div>
-            <div class="budget-list__data <% if locals[:showFinished] %> show-for-medium<% end %>">
-              <span class="budget-list__data__number budget-list__number show-for-medium">22.000.000€</span>
-              <% if !locals[:showFinished] %>
+            <div class="budget-list__data <% if locals[:showFinished] || locals[:showSelected]  %> show-for-medium<% end %>">
+              <div class="budget-list__data__number budget-list__number show-for-medium">
+                22.000.000€
+                <% if locals[:showSelected] %><div class="text-uppercase text-small">5533 votes</div><% end %>
+              </div>
+              <% if !locals[:showFinished] &&  !locals[:showSelected] %>
                 <a href="#" class="button tiny hollow budget-list__action">
                   <%= icon("check", class: "icon--small", aria_label: "Afegir", role: "img") %>
                 </a>
@@ -58,10 +68,11 @@
             <div class="budget-list__image">
               <%= image_tag Faker::Boolean.boolean(0.3) ? "hero-home.jpg" : Faker::Boolean.boolean(0.3) ? "gracia.jpg" : "superilles.jpg" %>
             </div>
-            <div class="budget-list__text">
+            <div class="budget-list__text card__text">
               <div>
                 <a href="#" class="card__link">
                   <h5 class="card__title budget-list__title">
+                    <% if locals[:showFinished] == true || locals[:showSelected] == true  %><span class="card__text--status success">aceptada</span><br><% end %>
                     Diagnòstic sobre l'existència i la necessitat de menjadors
                   </h5>
                 </a>
@@ -77,17 +88,20 @@
                     </li>
                   </ul>
                 </div>
-                <span class="budget-list__data__number budget-list__number hide-for-medium">30.000€</span>
+                <div class="budget-list__data__number budget-list__number hide-for-medium">30.000€</div>
               </div>
             </div>
             <div class="budget-list__data budget-list__data--added">
-              <% if locals[:showFinished] == true %>
+              <% if locals[:showFinished] == true || locals[:showSelected] == true  %>
                 <span class="button tiny success budget-list__action budget-list__action--disabled">
                   <%= icon("check", class: "icon--small", aria_label: "Afegit", role: "img") %>
                 </span>
               <% end %>
-              <span class="budget-list__data__number budget-list__number show-for-medium">30.000€</span>
-              <% if !locals[:showFinished] %>
+              <div class="budget-list__data__number budget-list__number show-for-medium">
+                30.000€
+                <% if locals[:showSelected] %><div class="text-uppercase text-small">2541 votes</div><% end %>
+              </div>
+              <% if !locals[:showFinished] && !locals[:showSelected]  %>
                 <a href="#" class="button tiny success budget-list__action">
                   <%= icon("check", class: "icon--small", aria_label: "Afegit", role: "img") %>
                 </a>
