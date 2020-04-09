@@ -1,9 +1,9 @@
-.table-list tbody tr td.title {
+.table-list.users_count tbody tr td.title {
   text-align: center;
   color: $medium-gray;
 }
 
-.table-list th {
+.table-list.users_count th {
   text-transform: capitalize;
 }
 
