@@ -802,14 +802,14 @@ en:
       conversations:
         add_conversation_users:
           add_max_users: 'Add users to conversation: 9 users max'
-          add_users_placeholder: 'Search...'
+          add_users_placeholder: Search...
           modal_title: New conversation
           no_results: No results
           participant_with_disabled_message_reception: This participant has disabled message reception
         create:
           error: Conversation not started. Try again later
         index:
-          close: 'Close modal'
+          close: Close modal
           new_conversation: New conversation
           next: Next
           no_conversations: You have no conversations yet

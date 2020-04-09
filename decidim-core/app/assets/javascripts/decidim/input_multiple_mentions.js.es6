@@ -103,8 +103,8 @@ $(() => {
       }
 
       // In order to add tabindex accessibility control to each recipient in list
-      $multipleMentionRecipientsContainer.find("label").each(function( index ) {
-        $( this ).find("div").attr("tabIndex", 0).attr("aria-controls", 0).attr("aria-label", "Close").attr("role", "tab");
+      $multipleMentionRecipientsContainer.find("label").each(function(index) {
+        $(this).find("div").attr("tabIndex", 0).attr("aria-controls", 0).attr("aria-label", "Close").attr("role", "tab");
       });
 
       // Clean input
