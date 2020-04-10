@@ -1,0 +1,10 @@
+<div class="row columns">
+  <%= link_to main_component_path(model.parent), class: "small hollow" do %>
+    <%= icon "chevron-left"%>
+    <%= t("back_to", parent_name: translated_attribute(model.parent.name), scope: "decidim.budgets.groups.projects.index") %>
+  <% end %>
+
+  <h3 class="page-heading">
+    <%= translated_attribute(model.name) %>
+  </h3>
+</div>

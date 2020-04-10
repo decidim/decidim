@@ -12,6 +12,9 @@ Decidim.register_component(:budgets_groups) do |component|
   component.allow_children = true
 
   component.settings(:global) do |settings|
+    settings.attribute :title, type: :string, translated: true
+    settings.attribute :description, type: :text, translated: true, editor: true
+    settings.attribute :announcement, type: :text, translated: true
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 

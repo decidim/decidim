@@ -1,11 +1,12 @@
 <%= render partial: "decidim/shared/component_announcement" %>
 
 <div class="row">
-  <div class="columns mediumlarge-4 large-3">
-    <ul>
+  <div class="columns medium-7 mediumlarge-8">
+    <%= cell("decidim/budgets/groups/budgets_group_header", component_settings) %>
+
+    <div class="card card--list card--list--mini">
       <% current_component.children.published.each do |component| %>
-        <li><%= link_to translated_attribute(component.name), main_component_path(component) %></li>
+        <%= cell("decidim/budgets/groups/budget_list_item",component) %>
       <% end %>
-    </ul>
   </div>
 </div>

@@ -66,11 +66,15 @@ en:
         admin:
           budgets:
             index:
+              add: Add Budget Component
               headers:
                 actions: Actions
                 name: Component name
                 type: Component type
-              title: Budgets
+              title: Budgets Group
+        projects:
+          index:
+            back_to: Back to %{parent_name}
       models:
         project:
           fields:
@@ -168,6 +172,8 @@ en:
         settings:
           global:
             announcement: Announcement
+            description: Description
+            title: Title
           step:
             announcement: Announcement
     orders:
