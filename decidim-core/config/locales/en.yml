@@ -994,10 +994,15 @@ en:
         report_html: <p>The following <a href="%{url}">content</a> has been hidden automatically.</p>
         subject: A resource has been hidden automatically
       report:
+        details: Details
         hello: Hello %{name},
         manage_moderations: Manage moderations
+        participatory_space: Participatory space
+        reason: Reason
         report_html: <p>The following <a href="%{url}">content</a> has been reported.</p>
         subject: A resource has been reported
+        user_email: User email
+        user_name: User name
     reports:
       create:
         error: An error ocurred while creating the report. Please, try it again.

@@ -4,6 +4,37 @@
   <%= t(".report_html", { url: reported_content_url }) %>
 </p>
 
-<p>
-  <%= link_to t(".manage_moderations"), manage_moderations_url %>
-</p>
+<br>
+
+<p><b><%= t(".participatory_space") %></b></p>
+<p><%= translated_attribute @participatory_space.title %></p>
+
+<p><b><%= t(".reason") %></b></p>
+<p><%= @report.reason %></p>
+
+<p><b><%= t(".details") %></b></p>
+<blockquote>
+  <%= @report.details %>
+</blockquote>
+
+<p><b><%= t(".user_email") %></b></p>
+<p><%= @report.user.email %></p>
+
+<p><b><%= t(".user_name") %></b></p>
+<p><%= @report.user.name %></p>
+
+<br>
+
+<table class="button radius" style="margin: 16px auto;">
+  <tr>
+    <td>
+      <table>
+        <tr>
+          <td>
+            <%= link_to t(".manage_moderations"), manage_moderations_url, class: "button",  target: "_blank" %>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
