@@ -296,7 +296,7 @@ sv:
         participatory_process_imports:
           form:
             document_legend: Lägg till ett dokument
-            slug_help: 'URL-slugs används till att generera de URL: er som pekar på processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
+            slug_help: 'URL-slugs används till att generera de URL:er som pekar på processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Använd relativa sökvägar, inte fullständiga URL: er här. Tar emot bokstäver, siffror, streck och snedstreck, och måste börja med en bokstav. Om den inte anges visas inte knappen. Exempel: %{url}'
