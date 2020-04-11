@@ -112,6 +112,7 @@ sv:
           title: Ny grupptyp
         update:
           error: Det gick inte att uppdatera grupptypen.
+          success: Grupptypen har uppdaterats.
       assembly_copies:
         new:
           copy: Kopiera
@@ -218,6 +219,12 @@ sv:
         create: "%{user_name} skapade medlemmen %{resource_name} i gruppen %{space_name}"
         delete: "%{user_name} tog bort medlemmen %{resource_name} från gruppen %{space_name}"
         update: "%{user_name} uppdaterade medlemmen %{resource_name} i gruppen %{space_name}"
+      assembly_type:
+        create: "%{user_name} skapade grupptypen %{resource_name}"
+        delete: "%{user_name} tog bort medlemmen %{resource_name} från grupptypen %{space_name}"
+        publish: "%{user_name} publicerade grupptypen %{resource_name}"
+        unpublish: "%{user_name} avpublicerade grupptypen %{resource_name}"
+        update: "%{user_name} uppdaterade grupptypen %{resource_name}"
       assembly_user_role:
         create: "%{user_name} bjöd in %{resource_name} till gruppen %{space_name}"
         delete: "%{user_name} tog bort deltagaren %{resource_name} från gruppen %{space_name}"
@@ -330,6 +337,7 @@ sv:
         related_participatory_processes: Relaterade deltagarprocesser
         scope: Omfång
         social_networks: Sociala nätverk
+        social_networks_title: Dela denna grupp på
         target: Vilka deltar
       statistics:
         answers_count: Svar
@@ -363,6 +371,8 @@ sv:
       value_types:
         assembly_presenter:
           not_found: 'Gruppen hittades inte i databasen (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'Grupptypen hittades inte i databasen (ID: %{id})'
     menu:
       assemblies: Församlingar
     metrics:
