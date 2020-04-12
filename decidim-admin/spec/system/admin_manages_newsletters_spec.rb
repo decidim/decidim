@@ -34,19 +34,19 @@ describe "Admin manages newsletters", type: :system do
 
       within ".new_newsletter" do
         fill_in_i18n(
-          :newsletter_subject,
-          "#newsletter-subject-tabs",
-          en: "A fancy newsletter for %{name}",
-          es: "Un correo electrónico muy chulo para %{name}",
-          ca: "Un correu electrònic flipant per a %{name}"
+            :newsletter_subject,
+            "#newsletter-subject-tabs",
+            en: "A fancy newsletter for %{name}",
+            es: "Un correo electrónico muy chulo para %{name}",
+            ca: "Un correu electrònic flipant per a %{name}"
         )
 
         fill_in_i18n_editor(
-          :newsletter_body,
-          "#newsletter-body-tabs",
-          en: "Hello %{name}! Relevant content.",
-          es: "Hola, %{name}! Contenido relevante.",
-          ca: "Hola, %{name}! Contingut rellevant."
+            :newsletter_body,
+            "#newsletter-body-tabs",
+            en: "Hello %{name}! Relevant content.",
+            es: "Hola, %{name}! Contenido relevante.",
+            ca: "Hola, %{name}! Contingut rellevant."
         )
 
         find("*[type=submit]").click
@@ -62,14 +62,14 @@ describe "Admin manages newsletters", type: :system do
       create(:newsletter,
              organization: organization,
              subject: {
-               en: "A fancy newsletter for %{name}",
-               es: "Un correo electrónico muy chulo para %{name}",
-               ca: "Un correu electrònic flipant per a %{name}"
+                 en: "A fancy newsletter for %{name}",
+                 es: "Un correo electrónico muy chulo para %{name}",
+                 ca: "Un correu electrònic flipant per a %{name}"
              },
              body: {
-               en: "Hello %{name}! Relevant content.",
-               es: "Hola, %{name}! Contenido relevante.",
-               ca: "Hola, %{name}! Contingut rellevant."
+                 en: "Hello %{name}! Relevant content.",
+                 es: "Hola, %{name}! Contenido relevante.",
+                 ca: "Hola, %{name}! Contingut rellevant."
              })
     end
 
@@ -95,19 +95,19 @@ describe "Admin manages newsletters", type: :system do
 
       within ".edit_newsletter" do
         fill_in_i18n(
-          :newsletter_subject,
-          "#newsletter-subject-tabs",
-          en: "A fancy newsletter",
-          es: "Un correo electrónico muy chulo",
-          ca: "Un correu electrònic flipant"
+            :newsletter_subject,
+            "#newsletter-subject-tabs",
+            en: "A fancy newsletter",
+            es: "Un correo electrónico muy chulo",
+            ca: "Un correu electrònic flipant"
         )
 
         fill_in_i18n_editor(
-          :newsletter_body,
-          "#newsletter-body-tabs",
-          en: "Relevant content.",
-          es: "Contenido relevante.",
-          ca: "Contingut rellevant."
+            :newsletter_body,
+            "#newsletter-body-tabs",
+            en: "Relevant content.",
+            es: "Contenido relevante.",
+            ca: "Contingut rellevant."
         )
 
         find("*[type=submit]").click
@@ -128,7 +128,7 @@ describe "Admin manages newsletters", type: :system do
         visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
         perform_enqueued_jobs do
           within(".newsletter_deliver") do
-            find(:css, "#newsletter_send_to_all_users").set(true)
+            switch_check_box("Send to all users")
           end
 
           within "#recipients_count" do
@@ -163,9 +163,9 @@ describe "Admin manages newsletters", type: :system do
         visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
         perform_enqueued_jobs do
           within(".newsletter_deliver") do
-            uncheck("Send to all users")
-            check("Send to followers")
-            uncheck("Send to participants")
+            unswitch_check_box("Send to all users")
+            switch_check_box("Send to followers")
+            unswitch_check_box("Send to participants")
             within ".participatory_processes-block" do
               select translated(participatory_processes.first.title), from: :newsletter_participatory_space_types_participatory_processes__ids
             end
@@ -203,9 +203,9 @@ describe "Admin manages newsletters", type: :system do
         visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
         perform_enqueued_jobs do
           within(".newsletter_deliver") do
-            uncheck("Send to all users")
-            uncheck("Send to followers")
-            check("Send to participants")
+            unswitch_check_box("Send to all users")
+            unswitch_check_box("Send to followers")
+            switch_check_box("Send to participants")
             within ".participatory_processes-block" do
               select translated(component.participatory_space.title), from: :newsletter_participatory_space_types_participatory_processes__ids
             end
@@ -250,9 +250,9 @@ describe "Admin manages newsletters", type: :system do
         visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
         perform_enqueued_jobs do
           within(".newsletter_deliver") do
-            uncheck("Send to all users")
-            check("Send to followers")
-            check("Send to participants")
+            unswitch_check_box("Send to all users")
+            switch_check_box("Send to followers")
+            switch_check_box("Send to participants")
             within ".participatory_processes-block" do
               select translated(component.participatory_space.title), from: :newsletter_participatory_space_types_participatory_processes__ids
             end
