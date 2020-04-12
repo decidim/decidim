@@ -50,8 +50,8 @@ describe "Admin manages organization", type: :system do
       context "when customizing it" do
         it "shows the custom fields and stores them" do
           visit decidim_admin.edit_organization_path
-          switch "Send welcome notification"
-          switch "Customize welcome notification"
+          switch_check_box "Send welcome notification"
+          switch_check_box "Customize welcome notification"
 
           fill_in_i18n :organization_welcome_notification_subject, "#organization-welcome_notification_subject-tabs",
                        en: "Well hello!"
