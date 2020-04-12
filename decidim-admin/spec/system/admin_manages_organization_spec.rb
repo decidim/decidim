@@ -37,7 +37,7 @@ describe "Admin manages organization", type: :system do
     context "when not customizing it" do
       it "doesn't show the customization fields" do
         visit decidim_admin.edit_organization_path
-        check "Send welcome notification"
+        switch "Send welcome notification"
         expect(page).not_to have_content("Welcome notification subject")
         click_button "Update"
         expect(page).to have_content("updated successfully")
@@ -50,8 +50,8 @@ describe "Admin manages organization", type: :system do
       context "when customizing it" do
         it "shows the custom fields and stores them" do
           visit decidim_admin.edit_organization_path
-          check "Send welcome notification"
-          check "Customize welcome notification"
+          switch "Send welcome notification"
+          switch "Customize welcome notification"
 
           fill_in_i18n :organization_welcome_notification_subject, "#organization-welcome_notification_subject-tabs",
                        en: "Well hello!"
