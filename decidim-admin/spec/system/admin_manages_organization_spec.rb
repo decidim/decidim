@@ -37,7 +37,7 @@ describe "Admin manages organization", type: :system do
     context "when not customizing it" do
       it "doesn't show the customization fields" do
         visit decidim_admin.edit_organization_path
-        switch "Send welcome notification"
+        switch_check_box "Send welcome notification"
         expect(page).not_to have_content("Welcome notification subject")
         click_button "Update"
         expect(page).to have_content("updated successfully")
