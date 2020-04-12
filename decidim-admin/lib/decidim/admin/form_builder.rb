@@ -5,6 +5,18 @@ module Decidim
     # This custom FormBuilder extends the FormBuilder present in core with
     # fields only used in admin.
     class FormBuilder < Decidim::FormBuilder
+      def switch_check_box(attribute, options = {}, checked_value = "1", unchecked_value = "0")
+        label = @object.class.human_attribute_name(attribute)
+
+        content_tag(:div, class: "switch tiny switch-with-label") do
+          label(attribute) do
+            check_box(attribute, options.merge({ label: false, class: "switch-input" }), checked_value, unchecked_value) +
+                content_tag(:span, nil, class: "switch-paddle") +
+                content_tag(:span, label, class: "switch-label")
+          end
+        end
+      end
+
       # Generates a select field with autocompletion using ajax
       #
       # @param [Symbol] attribute
@@ -45,18 +57,18 @@ module Decidim
         template = ""
         template += label(attribute, (options[:label] || label_for(attribute)) + required_for_attribute(attribute)) unless options[:label] == false
         template += content_tag(:div, nil, class: options[:class], data: {
-                                  autocomplete: {
-                                    name: options[:name] || "#{@object_name}[#{attribute}]",
-                                    options: [selected].compact,
-                                    placeholder: prompt_options[:placeholder],
-                                    searchURL: prompt_options[:url],
-                                    selected: selected ? selected[:value] : "",
-                                    searchPromptText: options[:search_prompt] || I18n.t("autocomplete.search_prompt", scope: "decidim.admin"),
-                                    noResultsText: options[:no_results] || I18n.t("autocomplete.no_results", scope: "decidim.admin")
-                                  },
-                                  autocomplete_for: attribute,
-                                  plugin: "autocomplete"
-                                })
+            autocomplete: {
+                name: options[:name] || "#{@object_name}[#{attribute}]",
+                options: [selected].compact,
+                placeholder: prompt_options[:placeholder],
+                searchURL: prompt_options[:url],
+                selected: selected ? selected[:value] : "",
+                searchPromptText: options[:search_prompt] || I18n.t("autocomplete.search_prompt", scope: "decidim.admin"),
+                noResultsText: options[:no_results] || I18n.t("autocomplete.no_results", scope: "decidim.admin")
+            },
+            autocomplete_for: attribute,
+            plugin: "autocomplete"
+        })
         template += error_for(attribute, options) if error?(attribute)
         template.html_safe
       end
