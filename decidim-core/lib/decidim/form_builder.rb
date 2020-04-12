@@ -28,6 +28,24 @@ module Decidim
     end
     # rubocop:enable Metrics/ParameterLists
 
+    # Public: generates a switch check box and adds help
+    # text and errors.
+    #
+    # attribute - the name of the field
+    # options - a Hash with options
+    #
+    # Renders a switchable check box.
+    def switch_check_box(attribute, options = {}, checked_value = "1", unchecked_value = "0")
+      text = options[:label].presence || default_label_text(object, attribute)
+
+      content_tag(:div, class: "switch tiny switch-with-label") do
+        custom_label(attribute, text, options.merge(class: "switch-label"), true) do
+          check_box(attribute, options.merge(label: false, class: "switch-input"), checked_value, unchecked_value) +
+            content_tag(:span, nil, class: "switch-paddle")
+        end
+      end
+    end
+
     # Public: generates a radio buttons input from a collection and adds help
     # text and errors.
     #

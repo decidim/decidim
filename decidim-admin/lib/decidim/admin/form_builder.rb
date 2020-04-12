@@ -5,17 +5,6 @@ module Decidim
     # This custom FormBuilder extends the FormBuilder present in core with
     # fields only used in admin.
     class FormBuilder < Decidim::FormBuilder
-      def switch_check_box(attribute, options = {}, checked_value = "1", unchecked_value = "0")
-        text = options[:label].presence || default_label_text(object, attribute)
-
-        content_tag(:div, class: "switch tiny switch-with-label") do
-          custom_label(attribute, text, options.merge(class: "switch-label"), true) do
-            check_box(attribute, options.merge(label: false, class: "switch-input"), checked_value, unchecked_value) +
-              content_tag(:span, nil, class: "switch-paddle")
-          end
-        end
-      end
-
       # Generates a select field with autocompletion using ajax
       #
       # @param [Symbol] attribute
