@@ -2,8 +2,8 @@ sv:
   activemodel:
     attributes:
       consultation:
-        banner_image: Banner image
-        decidim_highlighted_scope_id: Markerat omfattning
+        banner_image: Bannerbild
+        decidim_highlighted_scope_id: Markerat omfång
         description: Beskrivning
         end_voting_date: Omröstningen avslutas
         introductory_image: Introduktionsbild
@@ -14,22 +14,22 @@ sv:
         subtitle: Underrubrik
         title: Titel
       question:
-        banner_image: Banner image
+        banner_image: Bannerbild
         decidim_scope_id: Kommundelsområde
         hashtag: Hashtag
         hero_image: Hembild
         i_frame_url: URL till externt röstningssystem
-        instructions: Fler instruktioner för röstning
+        instructions: Ytterligare anvisningar för röstning
         max_votes: Max antal röster
         min_votes: Minsta antal röster
         origin_scope: Omfång
         origin_title: Ursprung
         origin_url: Ursprungs-URL
         participatory_scope: Deltagaromfång
-        promoter_group: Promotorgrupp
+        promoter_group: Kampanjgrupp
         question_context: Kontext
         reference: Referens
-        scope: Kommunala området
+        scope: Kommundelsområde
         slug: URL-slug
         subtitle: Underrubrik
         title: Titel
