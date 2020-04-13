@@ -300,7 +300,7 @@ sv:
       hero:
         name: Hjältebild
       highlighted_content_banner:
-        name: Highlighted content banner
+        name: Banner för uppmärksammat innehåll
       how_to_participate:
         name: Hur du deltar
       html:
@@ -311,7 +311,7 @@ sv:
         title: Senaste aktiviteten
         view_all: Visa alla
       metrics:
-        name: Organisationsstatistik
+        name: Organisationsmetrik
       stats:
         name: Organisationsstatistik
       sub_hero:
