@@ -227,24 +227,24 @@ sv:
           notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har lagts till %{participatory_space_title}
         proposal_rejected:
           affected_user:
-            email_intro: 'Ditt förslag "%{resource_title}" har avvisats. Du kan läsa svaret på den här sidan:'
-            email_outro: Du har fått den här meddelandet eftersom du är en författare till "%{resource_title}".
+            email_intro: 'Ditt förslag "%{resource_title}" har avslagits. Du kan läsa svaret på den här sidan:'
+            email_outro: Du har fått den här meddelandet eftersom du är en författare av %{resource_title}".
             email_subject: Ditt förslag har avslagits
-            notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> har avvisats.
+            notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> har avslagits.
           follower:
             email_intro: 'Förslaget "%{resource_title}" har avslagits. Du kan läsa svaret på den här sidan:'
             email_outro: Du har fått det här meddelandet eftersom du följer "%{resource_title}". Du kan sluta att följa det via föregående länk.
             email_subject: Ett förslag som du följer har avslagits
             notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har avslagits.
         proposal_update_category:
-          email_intro: 'En administratör har uppdaterat kategorin av ditt förslag "%{resource_title}", kolla in det:'
+          email_intro: 'En administratör har uppdaterat kategorin för ditt förslag "%{resource_title}", ta en titt på följande sida:'
           email_outro: Du har fått det här meddelandet eftersom du är författare till förslaget.
           email_subject: Förslagskategorin %{resource_title} har uppdaterats
           notification_title: Förslagskategorin <a href="%{resource_path}">%{resource_title}</a> har uppdaterats av en administratör.
         proposal_update_scope:
           email_outro: Du har fått det här meddelandet eftersom du är författare till förslaget.
         voting_enabled:
-          email_intro: 'Du kan rösta på förslag på %{participatory_space_title}! Börja delta på den här sidan:'
+          email_intro: 'Du kan stödja förslag i %{participatory_space_title}! Börja delta på den här sidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
           email_subject: Omröstningar för förslag har börjat för %{participatory_space_title}
           notification_title: Du kan nu börja <a href="%{resource_path}">röstningsförslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
