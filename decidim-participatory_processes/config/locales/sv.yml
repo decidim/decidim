@@ -376,14 +376,14 @@ sv:
         endorsements_count: Underskrifter
         headline: Aktivitet
         meetings_count: Möten
-        orders_count: Röster
+        orders_count: Stöder
         pages_count: Sidor
         participants_count: Deltagare
         processes_count: Processer
         projects_count: Projekt
         proposals_count: Förslag
         results_count: Resultat
-        supports_count: Röster
+        supports_count: Stöder
         surveys_count: Undersökningar
         users_count: Deltagare
   layouts:
