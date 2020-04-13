@@ -173,18 +173,23 @@ module Decidim
         toggle_allow(user.admin? || has_manageable_assemblies?)
       end
 
-      # The list of assemblies the user is able to list
+      # Checks whether the user can list the current given assembly or not.
+      #
       # In case of user being admin of child assembly even parent assembly
       # should be listed to be able to navigate to child assembly
       def user_can_list_assembly_list?
         return unless permission_action.action == :list &&
                       permission_action.subject == :assembly
 
-        assemblies = AssembliesWithUserRole.for(user)
-        parent_assemblies = Decidim::Assembly.where(id: assemblies.pluck(:parent_id))
+        toggle_allow(user.admin? || allowed_list_of_assemblies?)
+      end
 
-        allowed_list_of_assemblies = assemblies + parent_assemblies
-        toggle_allow(allowed_list_of_assemblies.uniq.member?(assembly))
+      def allowed_list_of_assemblies?
+        assemblies = AssembliesWithUserRole.for(user)
+        parent_assemblies = assemblies.flat_map { |assembly| [assembly.id] + assembly.ancestors.pluck(:id) }
+
+        allowed_list_of_assemblies = Decidim::Assembly.where(id: assemblies + parent_assemblies)
+        allowed_list_of_assemblies.uniq.member?(assembly)
       end
 
       def user_can_read_current_assembly?
