@@ -257,7 +257,7 @@ sv:
         working_group: Arbetsgrupp
       content_blocks:
         highlighted_assemblies:
-          name: Annonserade församlingar
+          name: Annonserade grupper
       created_by:
         city_council: Stadsfullmäktige
         others: Övriga
