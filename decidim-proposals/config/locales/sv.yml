@@ -168,7 +168,7 @@ sv:
           email_intro: 'Du kan instämma med förslag på %{participatory_space_title}! Börja att delta på den här sidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
           email_subject: Instämmande i förslag har startat för %{participatory_space_title}
-          notification_title: Du kan nu börja <a href="%{resource_path}">godkänna förslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Du kan nu börja att <a href="%{resource_path}">instämma i förslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
             email_intro: 'Ditt förslag "%{resource_title}" har godkänts. Du kan läsa svaret på den här sidan:'
