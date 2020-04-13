@@ -246,8 +246,8 @@ sv:
         voting_enabled:
           email_intro: 'Du kan stödja förslag i %{participatory_space_title}! Börja delta på den här sidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
-          email_subject: Omröstningar för förslag har börjat för %{participatory_space_title}
-          notification_title: Du kan nu börja <a href="%{resource_path}">röstningsförslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_subject: Förslagsstöd har påbörjats för %{participatory_space_title}
+          notification_title: Du kan nu börja att <a href="%{resource_path}">stödja förslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:
@@ -391,12 +391,12 @@ sv:
             actions: Åtgärder
             cancel: Avbryt
             change_category: Ändra kategori
-            merge: Sammanfoga till en ny
+            merge: Slå samman till ett nytt
             merge_button: Slå ihop
             publish: Publicera
             select_component: Välj en komponent
             selected: valda
-            split: Delade förslag
+            split: Dela förslag
             split_button: Dela
             title: Förslag
             update: Uppdatera
@@ -418,16 +418,16 @@ sv:
             select_a_proposal: Välj ett förslag
         proposals_imports:
           create:
-            invalid: Det uppstod ett problem med att importera förslagen
+            invalid: Det gick inte att importera förslagen
             success: "%{number} förslag har importerats"
           new:
             create: Importera förslag
             no_components: Det finns inga andra förslagskomponenter i detta deltagarutrymme att importera förslagen från.
             select_component: Välj en komponent
-            select_states: Kontrollera tillstånden för de förslag som ska importeras
+            select_states: Kontrollera status för förslagen som ska importeras
         proposals_merges:
           create:
-            invalid: Det fanns ett fel att slå samman de valda förslagen.
+            invalid: Det gick inte att slå samman de valda förslagen.
             success: Framgångsrikt fusionerade förslagen till en ny.
         proposals_splits:
           create:
