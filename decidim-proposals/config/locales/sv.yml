@@ -124,9 +124,9 @@ sv:
             endorsements_enabled: Instämmanden aktiverade
             proposal_answering_enabled: Svar på förslag aktiverat
             suggested_hashtags: Förslag på hashtags för nya förslag till deltagare
-            votes_blocked: Röstande blockerat
-            votes_enabled: Röstning aktiverat
-            votes_hidden: Röster dolda (om röster är aktiverade, kommer detta att gömma antalet röster)
+            votes_blocked: Blockerat stöd
+            votes_enabled: Stöd aktiverat
+            votes_hidden: Stöd dolda (om stöd är aktiverade, kommer detta att gömma antalet stöd)
     events:
       proposals:
         collaborative_draft_access_accepted:
@@ -167,7 +167,7 @@ sv:
         endorsing_enabled:
           email_intro: 'Du kan instämma med förslag på %{participatory_space_title}! Börja att delta på den här sidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
-          email_subject: Förslag till godkännande har startat för %{participatory_space_title}
+          email_subject: Instämmande i förslag har startat för %{participatory_space_title}
           notification_title: Du kan nu börja <a href="%{resource_path}">godkänna förslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
