@@ -560,7 +560,7 @@ sv:
       errors:
         decidim/user:
           password: Lösenordet är för kort.
-          password_confirmation: Lösenordsbekräftelsen måste stämma överens med angivet lösenord.
+          password_confirmation: Lösenordsbekräftelsen måste överensstämma med lösenordet.
         error: Det finns ett fel i det här fältet.
       remove_this_file: Ta bort den här filen
     gamification:
