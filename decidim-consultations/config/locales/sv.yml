@@ -47,7 +47,7 @@ sv:
         decidim/consultations/vote:
           attributes:
             question:
-              invalid_num_votes: Antalet röster är ogiltigt
+              invalid_num_votes: Ogiltigt antal röster
     models:
       decidim/consultation:
         one: Samråd
@@ -64,7 +64,7 @@ sv:
   decidim:
     admin:
       actions:
-        back_to_responses: Tillbaka till svaren
+        back_to_responses: Tillbaka till svar
         new_consultation: Nytt samråd
         new_question: Ny fråga
         new_response: Nytt svar
@@ -340,4 +340,4 @@ sv:
         unfold: Veckla ut
       question_header:
         back_to_consultation: Visa alla samråd
-        back_to_question: Tillbaks till frågan
+        back_to_question: Tillbaka till frågan
