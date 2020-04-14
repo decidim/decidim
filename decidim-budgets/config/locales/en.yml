@@ -86,6 +86,7 @@ en:
             description: You've already voted for the budget. If you've changed your mind, you can %{cancel_link}.
             title: Budget vote completed
           description: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
+          description_minimum_projects_rule: What projects do you think we should allocate budget for? Select at least %{minimum_number} projects you want and vote with your preferences to define the budget.
           title: You decide the budget
         count:
           projects_count:
@@ -137,9 +138,16 @@ en:
           global:
             announcement: Announcement
             comments_enabled: Comments enabled
+            form:
+              errors:
+                budget_voting_rule_only_one: Only one voting rule must be enabled
+                budget_voting_rule_required: One voting rule is required
             projects_per_page: Projects per page
             resources_permissions_enabled: Actions permissions can be set for each meeting
             total_budget: Total budget
+            vote_minimum_budget_projects_number: Minimum number of projects to vote
+            vote_rule_minimum_budget_projects_enabled: 'Enable rule: Minimum number of projects to be voted on'
+            vote_rule_threshold_percent_enabled: 'Enable rule: Minimum budget percentage'
             vote_threshold_percent: Vote threshold percent
           step:
             announcement: Announcement
