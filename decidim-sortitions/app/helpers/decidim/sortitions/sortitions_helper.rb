@@ -3,6 +3,7 @@
 module Decidim
   module Sortitions
     module SortitionsHelper
+      include Decidim::SanitizeHelper
       include Decidim::TranslationsHelper
 
       def proposal_path(proposal)

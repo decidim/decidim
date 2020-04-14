@@ -1,0 +1,34 @@
+<%
+@title = "Propuesta -- Decidim Barcelona"
+@activesection = "processes"
+@activepage = "proposals"
+%>
+
+<%= partial "template_top" %>
+
+<main>
+  <%= partial "process_header" %>
+  <div class="wrapper">
+    <div class="row">
+      <div class="columns medium-7 mediumlarge-8">
+        <div class="section">
+          <p class="lead">
+            Has votado los presupuestos del <a href="#"><strong>distrito de Gràcia</strong></a>.
+          </p>
+          <p class="lead">
+            Si has cambiado de opinión, puedes <a href="#">eliminar tu voto y volver a empezar</a>.
+          </p>
+        </div>
+        <div class="section">
+          <p>
+            Además de votar en tu distrito, puedes votar los presupuestos de uno de los
+            siguientes distritos:
+          </p>
+          <%= partial "budget_districts", locals: { votedOne: true } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>

@@ -24,6 +24,9 @@ Decidim.configure do |config|
   # more info.
   # config.content_processors = []
 
+  # Whether SSL should be enabled or not.
+  # config.force_ssl = true
+
   # Geocoder configuration
   # config.geocoder = {
   #   static_map_url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview",

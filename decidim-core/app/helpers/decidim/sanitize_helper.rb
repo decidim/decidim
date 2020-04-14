@@ -14,12 +14,20 @@ module Decidim
     # html - A string representing user-inputted HTML.
     #
     # Returns an HTML-safe String.
-    def decidim_sanitize(html)
-      sanitize(html, scrubber: Decidim::UserInputScrubber.new)
+    def decidim_sanitize(html, options = {})
+      if options[:strip_tags]
+        strip_tags sanitize(html, scrubber: Decidim::UserInputScrubber.new)
+      else
+        sanitize(html, scrubber: Decidim::UserInputScrubber.new)
+      end
     end
 
     def decidim_html_escape(text)
       ERB::Util.unwrapped_html_escape(text.to_str)
+    end
+
+    def decidim_url_escape(text)
+      decidim_html_escape(text).sub(/^javascript:/, "")
     end
   end
 end

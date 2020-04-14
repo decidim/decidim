@@ -28,7 +28,7 @@ module Decidim
       private
 
       def checkout!
-        return unless @order
+        return unless @order && @order.valid?
 
         @order.with_lock do
           @order.checked_out_at = Time.current

@@ -12,7 +12,7 @@ module Decidim
         enforce_permission_to :vote, :project, project: project
 
         respond_to do |format|
-          AddLineItem.call(current_order, project, current_user) do
+          AddLineItem.call(persisted_current_order, project, current_user) do
             on(:ok) do |order|
               self.current_order = order
               format.html { redirect_to :back }

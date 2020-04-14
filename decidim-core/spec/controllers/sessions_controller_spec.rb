@@ -67,6 +67,23 @@ module Decidim
           end
         end
       end
+
+      describe "DELETE destroy" do
+        let(:user) { create(:user, :confirmed) }
+
+        before do
+          request.env["decidim.current_organization"] = user.organization
+          request.env["devise.mapping"] = ::Devise.mappings[:user]
+
+          sign_in user
+        end
+
+        it "clears the current user" do
+          delete :destroy
+
+          expect(controller.current_user).to be_nil
+        end
+      end
     end
   end
 end
