@@ -195,6 +195,7 @@ Once Release Candidates have been tested, merging into `master` after the valida
 1. Run `git checkout master && bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems.
 1. Once all the gems are published you should create a new release at this repository, just go to the [releases page](https://github.com/decidim/decidim/releases) and create a new one.
 1. Update Decidim's Docker repository as explained in the Docker images section.
+1. Remove from Crowdin branches that are not officially supported anymore. That way they don't synchronize with Github.
 
 #### Releasing patch versions
 
