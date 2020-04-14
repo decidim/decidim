@@ -109,7 +109,7 @@ Decidim implements two type of authorization methods:
     workflow.form = "myAuthorizationHandlerClass"
     workflow.renewable = true
     workflow.time_between_renewals = 1.day
-    workflow.cell_metadata = "decidim/verifications/authorization_metadata"
+    workflow.metadata_cell = "decidim/verifications/authorization_metadata"
   end
   ```
 

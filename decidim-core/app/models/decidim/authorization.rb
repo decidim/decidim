@@ -55,10 +55,10 @@ module Decidim
     end
 
     # Returns a String, the cell to be used to render the metadata
-    def cell_metadata
+    def metadata_cell
       return unless workflow_manifest
 
-      workflow_manifest.cell_metadata
+      workflow_manifest.metadata_cell
     end
 
     # Calculates at when this authorization will expire, if it needs to.
@@ -88,7 +88,8 @@ module Decidim
 
     # Calculates when this authorization can be reseted, if desired.
     #
-    # time_between_renewals defaults to zero
+    # **time_between_renewals** is defined in `workflow_manifest.time_between_renewals`
+    # defaults to 1 day
     # Returns an ActiveSupport::TimeWithZone.
     def renewable_at
       (granted_at || created_at) + workflow_manifest.time_between_renewals

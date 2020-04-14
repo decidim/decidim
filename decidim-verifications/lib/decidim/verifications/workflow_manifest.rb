@@ -36,7 +36,7 @@ module Decidim
       attribute :action_authorizer, String
       attribute :renewable, Boolean, default: true
       attribute :time_between_renewals, ActiveSupport::Duration, default: 1.day
-      attribute :cell_metadata, String, default: "decidim/verifications/authorization_metadata"
+      attribute :metadata_cell, String, default: "decidim/verifications/authorization_metadata"
 
       validate :engine_or_form
 

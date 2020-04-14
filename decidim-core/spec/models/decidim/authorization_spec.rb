@@ -27,8 +27,8 @@ module Decidim
         expect(authorization).to be_renewable
       end
 
-      it "has cell_metadata" do
-        expect(authorization.cell_metadata).to be_kind_of String
+      it "has metadata_cell" do
+        expect(authorization.metadata_cell).to be_kind_of String
       end
     end
   end

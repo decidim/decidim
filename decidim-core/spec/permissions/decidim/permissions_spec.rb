@@ -102,7 +102,7 @@ describe Decidim::Permissions do
     it_behaves_like "permission is not set"
   end
 
-  context "when subject is on authorization" do
+  context "when subject is an authorization" do
     let(:context) { { authorization: authorization } }
     let(:user) { authorization.user }
     let(:action_name) { nil }
