@@ -1,5 +1,13 @@
 .accountability{
   .categories{
+    a:hover{
+      text-decoration: underline;
+    }
+
+    a:focus{
+      outline: 2px solid $secondary;
+    }
+
     .categories--header{
       border-bottom: 1px solid $medium-gray;
       padding-bottom: 1rem;

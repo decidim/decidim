@@ -1,14 +1,22 @@
 # frozen_string_literal: true
 
 SimpleCov.start do
+  # `ENGINE_ROOT` holds the name of the engine we're testing.
+  # This brings us to the main Decidim folder.
   root File.expand_path("..", ENV["ENGINE_ROOT"])
 
-  add_filter "decidim-dev/lib/decidim/dev/test/ext/screenshot_helper.rb"
-  add_filter "/spec/decidim_dummy_app/"
-  add_filter "/vendor/"
-end
+  # We make sure we track all Ruby files, to avoid skipping unrequired files
+  # We need to include the `../` section, otherwise it only tracks files from the
+  # `ENGINE_ROOT` folder for some reason.
+  track_files "../**/*.rb"
 
-SimpleCov.command_name ENV["COMMAND_NAME"] || File.basename(Dir.pwd)
+  # We ignore some of the files because they are never tested
+  add_filter "/config/"
+  add_filter "/migrate/"
+  add_filter "/vendor/"
+  add_filter "/spec/"
+  add_filter "/test/"
+end
 
 SimpleCov.merge_timeout 1800
 

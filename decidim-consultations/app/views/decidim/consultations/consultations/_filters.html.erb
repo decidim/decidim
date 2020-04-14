@@ -5,10 +5,11 @@
         <%= form.search_field :search_text,
                               label: false,
                               class: "input-group-field",
-                              placeholder: t("consultations.filters.search", scope: "decidim") %>
+                              placeholder: t("consultations.filters.search", scope: "decidim"),
+                              title: t("consultations.filters.search", scope: "decidim") %>
         <div class="input-group-button">
-          <button type="submit" class="button button--muted">
-            <%= icon "magnifying-glass", aria_label: t("consultations.filters.search", scope: "decidim") %>
+          <button type="submit" class="button button--muted" aria-label="<%= t("consultations.filters.search", scope: "decidim") %>">
+            <%= icon "magnifying-glass", aria_label: t("consultations.filters.search", scope: "decidim"), role: "img" %>
           </button>
         </div>
       </div>
