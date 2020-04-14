@@ -55,7 +55,7 @@ Decidim.register_component(:budgets) do |component|
 
   component.settings(:global) do |settings|
     settings.attribute :scopes_enabled, type: :boolean, default: false
-    settings.attribute :scope_id, type: :integer
+    settings.attribute :scope_id, type: :scope
     settings.attribute :projects_per_page, type: :integer, default: 12
     settings.attribute :total_budget, type: :integer, default: 100_000_000
     settings.attribute :vote_rule_threshold_percent_enabled, type: :boolean, default: true
