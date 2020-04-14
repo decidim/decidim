@@ -58,6 +58,11 @@ module Decidim
     # probably have the form of `Decidim::<MyComponent>::Permissions`.
     attribute :permissions_class_name, String, default: "Decidim::DefaultPermissions"
 
+    # The name of the class that handles extra logic on settings for this component.
+    # Optional class, that if present receives the settings and validates them.
+    # The suggested naming is `Decidim::<MyComponent>::Admin::ComponentForm`.
+    attribute :component_form_class_name, String, default: "Decidim::Admin::ComponentForm"
+
     # Does this component have specific data to serialize and import?
     # Beyond the attributes in decidim_component table.
     attribute :serializes_specific_data, Boolean, default: false
@@ -213,6 +218,15 @@ module Decidim
     # Returns a Class.
     def permissions_class
       permissions_class_name&.constantize
+    end
+
+    # Public: Finds the form class from its component, using the
+    # `component_form_class_name` attribute. If the class does not exist,
+    # it raises an exception. If the class name is not set, it returns nil.
+    #
+    # Returns a Class.
+    def component_form_class
+      component_form_class_name&.constantize
     end
 
     # Public: Finds the specific data serializer class from its name, using the
