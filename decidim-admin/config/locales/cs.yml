@@ -88,7 +88,7 @@ cs:
         code: Kód
         name: název
         organization: Organizace
-        parent_id: Nadřazený prvek
+        parent_id: Nadřazený
         scope_type: Typ rozsahu
         scope_type_id: Typ rozsahu
       scope_type:
