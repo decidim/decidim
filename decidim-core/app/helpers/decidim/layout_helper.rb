@@ -39,7 +39,7 @@ module Decidim
       html_properties["class"] = (["icon--#{name}"] + _icon_classes(options)).join(" ")
 
       content_tag :svg, html_properties do
-        content_tag :use, nil, "xlink:href" => "#{asset_path("decidim/icons.svg")}#icon-#{name}"
+        content_tag :use, nil, "href" => "#{asset_path("decidim/icons.svg")}#icon-#{name}"
       end
     end
 
@@ -55,10 +55,17 @@ module Decidim
 
       if path.split(".").last == "svg"
         asset = Rails.application.assets_manifest.find_sources(path).first
-        asset.gsub("<svg ", "<svg class=\"#{classes.join(" ")}\" ").html_safe
+        asset.gsub("<svg ", "<svg class=\"#{classes.join(" ")}\" #{role(options)}").html_safe
       else
         image_tag(path, class: classes.join(" "), style: "display: none")
       end
+    end
+
+    # Allows to create role attribute according to accessibility rules
+    #
+    # Returns role attribute string if role option is specified
+    def role(options = {})
+      "role=\"#{options[:role]}\" " if options[:role]
     end
 
     def _icon_classes(options = {})
