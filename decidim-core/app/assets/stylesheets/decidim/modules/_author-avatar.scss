@@ -62,10 +62,9 @@ $author-data-color: $muted;
     margin-left: 0;
 
     img {
+      max-width: none;
       margin-top: auto;
       width: rem-calc(54);
-      height: rem-calc(54);
-      object-fit: cover;
     }
   }
 
@@ -151,9 +150,8 @@ a:hover .author__name {
 
   img {
     border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    object-fit: cover;
+    width: 100%;
+    max-width: 25px;
     margin-top: -5px;
   }
 }
@@ -164,8 +162,7 @@ a:hover .author__name {
   }
 
   img {
-    width: 20px;
-    height: 20px;
+    max-width: 20px;
     margin-top: -3px;
   }
 }
