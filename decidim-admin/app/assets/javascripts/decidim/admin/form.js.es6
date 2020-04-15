@@ -1,3 +1,15 @@
+// = require ./budget_rule_toggler.component
+
+((exports) => {
+  const { BudgetRuleTogglerComponent } = exports.DecidimAdmin;
+
+  const budgetRuleToggler = new BudgetRuleTogglerComponent({
+    ruleCheckboxes: $("input[id^='component_settings_vote_rule_']")
+  });
+
+  budgetRuleToggler.run();
+})(window);
+
 // Checks if the form contains fields with special CSS classes added in
 // Decidim::Admin::SettingsHelper and acts accordingly.
 $(() => {

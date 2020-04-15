@@ -7,19 +7,20 @@ module Decidim::Budgets
     subject { described_class.new(current_order, component) }
 
     let(:user) { create(:user) }
+    let(:voting_rule) { :with_total_budget_and_vote_threshold_percent }
     let(:component) do
       create(
         :budget_component,
-        :with_total_budget_and_vote_threshold_percent,
+        voting_rule,
         organization: user.organization
       )
     end
 
-    let(:project) { create(:project, component: component, budget: 90_000_000) }
+    let(:projects) { create_list(:project, 2, component: component, budget: 45_000_000) }
 
     let(:order) do
       order = create(:order, user: user, component: component)
-      order.projects << project
+      order.projects << projects
       order.save!
       order
     end
@@ -46,11 +47,23 @@ module Decidim::Budgets
       end
     end
 
-    context "when the order total budget doesn't exceed the threshold" do
-      let(:project) { create(:project, component: component, budget: 30_000_000) }
+    context "when the voting rule is set to threshold percent" do
+      context "when the order total budget doesn't exceed the threshold" do
+        let(:projects) { create_list(:project, 2, component: component, budget: 30_000_000) }
 
-      it "broadcasts invalid" do
-        expect { subject.call }.to broadcast(:invalid)
+        it "broadcasts invalid" do
+          expect { subject.call }.to broadcast(:invalid)
+        end
+      end
+    end
+
+    context "when the voting rule is set to minimum projects number" do
+      context "and the order doesn't reach the minimum number of projects" do
+        let(:voting_rule) { :with_total_budget_and_minimum_budget_projects }
+
+        it "broadcasts invalid" do
+          expect { subject.call }.to broadcast(:invalid)
+        end
       end
     end
   end
