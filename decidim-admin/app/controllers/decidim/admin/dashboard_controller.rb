@@ -38,7 +38,7 @@ module Decidim
       end
 
       def users_count(date, admin)
-        @users_count ||= Decidim::Admin::ActiveUsersCounter.new(
+        @users_count = Decidim::Admin::ActiveUsersCounter.new(
           organization: current_organization,
           date: date,
           admin: admin
