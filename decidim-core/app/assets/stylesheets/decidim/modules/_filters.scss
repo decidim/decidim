@@ -64,6 +64,13 @@ $filters-padding-y: 1rem;
   border-bottom: $border;
   padding: $filters-padding-x $filters-padding-y;
 
+  input:focus,
+  button:focus,
+  select:focus,
+  a:focus{
+    outline: 2px solid $secondary;
+  }
+
   &:first-of-type{
     padding-top: $filters-padding-x * 1.5;
   }
@@ -165,6 +172,10 @@ $filters-padding-y: 1rem;
 .filters__search{
   .input-group{
     margin-bottom: 0;
+
+    input:focus{
+      outline: 2px solid $secondary;
+    }
   }
 }
 

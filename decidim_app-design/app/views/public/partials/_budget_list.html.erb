@@ -1,0 +1,105 @@
+<%= partial "template_top" %>
+
+<main>
+  <%= partial "process_header" %>
+  <div class="wrapper">
+    <div class="row column">
+      <% if locals[:showFinished] == true %>
+        <%= partial "budget_finished" %>
+      <% else %>
+       <%= partial "budget_summary" %>
+      <% end %>
+    </div>
+
+    <div class="row">
+      <div class="columns mediumlarge-4 large-3">
+        <%= partial "filters_budget" %>
+      </div>
+      <div class="columns mediumlarge-8 large-9">
+        <%= partial "order_by_budget" %>
+        <div class="budget-list">
+          <div class="budget-list__item">
+            <div class="budget-list__image">
+              <%= image_tag Faker::Boolean.boolean(0.3) ? "hero-home.jpg" : Faker::Boolean.boolean(0.3) ? "gracia.jpg" : "superilles.jpg" %>
+            </div>
+            <div class="budget-list__text">
+              <div>
+                <a href="#" class="card__link">
+                  <h5 class="card__title budget-list__title">
+                    Diagnòstic sobre l'existència i la necessitat de menjadors socials per a gent gran al Districte
+                  </h5>
+                </a>
+                <div class="show-for-medium">
+                  <ul class="tags tags--proposal">
+                    <li>
+                      <a href="#">
+                        El Raval
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">Transició ecològica</a>
+                    </li>
+                  </ul>
+                </div>
+                <span class="budget-list__data__number budget-list__number hide-for-medium">22.000.000€</span>
+
+              </div>
+            </div>
+            <div class="budget-list__data <% if locals[:showFinished] %> show-for-medium<% end %>">
+              <span class="budget-list__data__number budget-list__number show-for-medium">22.000.000€</span>
+              <% if !locals[:showFinished] %>
+                <a href="#" class="button tiny hollow budget-list__action">
+                  <%= icon("check", class: "icon--small", aria_label: "Afegir", role: "img") %>
+                </a>
+              <% end %>
+            </div>
+          </div>
+          <div class="budget-list__item">
+            <div class="budget-list__image">
+              <%= image_tag Faker::Boolean.boolean(0.3) ? "hero-home.jpg" : Faker::Boolean.boolean(0.3) ? "gracia.jpg" : "superilles.jpg" %>
+            </div>
+            <div class="budget-list__text">
+              <div>
+                <a href="#" class="card__link">
+                  <h5 class="card__title budget-list__title">
+                    Diagnòstic sobre l'existència i la necessitat de menjadors
+                  </h5>
+                </a>
+                <div class="show-for-medium">
+                  <ul class="tags tags--proposal">
+                    <li>
+                      <a href="#">
+                        El Raval
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">Transició ecològica</a>
+                    </li>
+                  </ul>
+                </div>
+                <span class="budget-list__data__number budget-list__number hide-for-medium">30.000€</span>
+              </div>
+            </div>
+            <div class="budget-list__data budget-list__data--added">
+              <% if locals[:showFinished] == true %>
+                <span class="button tiny success budget-list__action budget-list__action--disabled">
+                  <%= icon("check", class: "icon--small", aria_label: "Afegit", role: "img") %>
+                </span>
+              <% end %>
+              <span class="budget-list__data__number budget-list__number show-for-medium">30.000€</span>
+              <% if !locals[:showFinished] %>
+                <a href="#" class="button tiny success budget-list__action">
+                  <%= icon("check", class: "icon--small", aria_label: "Afegit", role: "img") %>
+                </a>
+              <% end %>
+            </div>
+          </div>
+
+        </div>
+        <%= partial "pagination" %>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>

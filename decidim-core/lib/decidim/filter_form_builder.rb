@@ -83,8 +83,8 @@ module Decidim
     def fieldset_wrapper(legend_title, extra_class)
       @template.content_tag(:div, "", class: "filters__section #{extra_class}") do
         @template.content_tag(:fieldset) do
-          @template.content_tag(:legend) do
-            @template.content_tag(:h6, legend_title, class: "heading6")
+          @template.content_tag(:legend, class: "mini-title") do
+            legend_title
           end + yield
         end
       end
