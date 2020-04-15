@@ -969,6 +969,7 @@ en:
         following: Follows
         groups: Groups
         members: Members
+        conversations: Conversations
         timeline: Timeline
         view_full_profile: View full profile
       sidebar:
@@ -1080,6 +1081,10 @@ en:
     user_activity:
       index:
         no_activities_warning: This participant hasn't had any activity yet.
+    user_conversations:
+      index:
+        conversations_info: Conversations are private. no one else can see them. A conversation can be started with any participant or group registered on the platform.
+        no_conversations_warning: There are no conversations yet.
     user_contact_disabled: This participant does not accept direct messages.
     user_interests:
       show:

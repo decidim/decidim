@@ -30,6 +30,12 @@ module Decidim
       current_user && current_user == profile_holder
     end
 
+    def manageable_group?
+      return false unless profile_holder.is_a?(Decidim::UserGroup)
+
+      current_user && current_user.manageable_user_groups.include?(profile_holder)
+    end
+
     def profile_tabs
       return render :user_group_tabs if profile_holder.is_a?(Decidim::UserGroup)
 

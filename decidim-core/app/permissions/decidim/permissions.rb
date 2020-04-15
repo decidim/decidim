@@ -129,7 +129,7 @@ module Decidim
         return disallow! unless conversation&.accept_user? user
       end
 
-      toggle_allow(conversation&.participants&.include?(user))
+      toggle_allow(conversation&.participating?(user))
     end
 
     def user_group_action?

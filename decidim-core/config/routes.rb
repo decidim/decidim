@@ -99,6 +99,7 @@ Decidim::Core::Engine.routes.draw do
     get "members", to: "profiles#members", as: "profile_members"
     get "activity", to: "user_activities#index", as: "profile_activity"
     get "timeline", to: "user_timeline#index", as: "profile_timeline"
+    get "conversations", to: "user_conversations#index", as: "profile_conversations"
   end
 
   resources :pages, only: [:index, :show], format: false
