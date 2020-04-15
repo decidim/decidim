@@ -36,7 +36,7 @@ cs:
         organization_url: URL organizace
         redirect_uri: Přesměrování URI
       organization:
-        address: Název hostitele SMTP
+        address: SMTP hostname
         alert_color: Upozornění
         badges_enabled: Povolit odznaky
         cta_button_path: Cesta tlačítka Výzvy k akci
