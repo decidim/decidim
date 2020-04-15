@@ -87,6 +87,7 @@ cs:
             description: Už jste hlasovali pro rozpočet. Pokud jste změnili názor, můžete %{cancel_link}.
             title: Rozpočet byl dokončen
           description: Jaké projekty by podle vás měly přidělit rozpočet? Přidejte nejméně %{minimum_budget} projektům, které chcete, a hlasujte podle svých preferencí a definujte rozpočet.
+          description_minimum_projects_rule: Na jaké projekty bychom podle vás měli vyčlenit rozpočet? Vyberte alespoň %{minimum_number} projektů, které chcete a hlasujte s vašimi preferencemi pro definování rozpočtu.
           title: Rozhodnete se pro rozpočet
         count:
           projects_count:
@@ -144,9 +145,16 @@ cs:
           global:
             announcement: Oznámení
             comments_enabled: Komentáře povoleny
+            form:
+              errors:
+                budget_voting_rule_only_one: Pouze jedno hlasovací pravidlo musí být povoleno
+                budget_voting_rule_required: Je vyžadováno jedno pravidlo hlasování
             projects_per_page: Projekty na stránku
             resources_permissions_enabled: Nastavení oprávnění lze nastavit pro každou schůzku
             total_budget: Celkový rozpočet
+            vote_minimum_budget_projects_number: Minimální počet projektů k hlasování
+            vote_rule_minimum_budget_projects_enabled: 'Povolit pravidlo: Minimální počet projektů, o kterých se má hlasovat'
+            vote_rule_threshold_percent_enabled: 'Povolit pravidlo: minimální procento rozpočtu'
             vote_threshold_percent: Hlasovací procentní podíl
           step:
             announcement: Oznámení
