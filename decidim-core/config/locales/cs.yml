@@ -909,7 +909,7 @@ cs:
           participate: Účastnit se
           welcome: Vítejte na %{organization}!
         metrics:
-          headline: Účast na číslech
+          headline: Metrika
         statistics:
           answers_count: Dokončené průzkumy
           assemblies_count: Sestavy
@@ -939,8 +939,8 @@ cs:
         topics: Témata
       participatory_space:
         metrics:
-          headline: Účast na číslech
-          link: Zobrazit všechny statistiky
+          headline: Metrika
+          link: Zobrazit všechny metriky
       terms_and_conditions:
         accept:
           error: Při přijímání smluvních podmínek došlo k chybě.
@@ -1393,5 +1393,5 @@ cs:
       next_title: Odkaz na další stránku
       previous: "&lsaquo; Předchozí"
       previous_title: Odkaz na předchozí stránku
-      title: 'Číslo stránky: '
+      title: 'Číslo strany: '
       truncate: "&hellip;"
