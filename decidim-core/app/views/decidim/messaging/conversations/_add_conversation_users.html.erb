@@ -7,8 +7,15 @@
     </div>
     <div class="row">
       <div class="row columns mentions__container">
-        <label><%= t(".add_max_users") %></label>
-        <input type="text" class="js-multiple-mentions mentions__container" placeholder="<%= t(".add_users_placeholder") %>" data-noresults="<%= t(".no_results") %>" data-tribute="yes" contenteditable="true" data-direct-messages-disabled="<%= t("decidim.messaging.conversations.add_conversation_users.participant_with_disabled_message_reception") %>">
+        <label for="add_conversation_users"><%= t(".add_max_users") %></label>
+        <input id="add_conversation_users" type="text"
+            class="js-multiple-mentions mentions__container"
+            placeholder="<%= t(".add_users_placeholder") %>"
+            data-noresults="<%= t(".no_results") %>"
+            data-tribute="yes"
+            contenteditable="true"
+            data-direct-messages-disabled="<%= t("decidim.messaging.conversations.add_conversation_users.participant_with_disabled_message_reception") %>"
+            aria-expanded="false">
       </div>
       <div class="columns large-12">
         <div class="js-multiple-mentions-recipients"></div>
