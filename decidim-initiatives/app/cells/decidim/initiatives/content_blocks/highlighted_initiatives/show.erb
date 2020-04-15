@@ -7,10 +7,11 @@
           <div class="column">
             <article class="card card--initiative card--mini">
               <%= link_to decidim_initiatives.initiative_path(initiative), class: "card__link" do %>
+                <span class="show-for-sr"><%= translated_attribute initiative.title %></span>
               <% end %>
               <div class="card__content">
                 <%= link_to decidim_initiatives.initiative_path(initiative), class: "card__link" do %>
-                  <h4 class="card__title"><%= decidim_html_escape(translated_attribute(initiative.title)) %></h4>
+                  <span class="card__title"><%= decidim_html_escape(translated_attribute(initiative.title)) %></span>
                 <% end %>
               </div>
             </article>
