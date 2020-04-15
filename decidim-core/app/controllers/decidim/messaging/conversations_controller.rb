@@ -11,7 +11,7 @@ module Decidim
 
       before_action :authenticate_user!
 
-      helper_method :username_list, :conversation, :mailboxes, :current_mailbox, :is_user_mailbox?
+      helper_method :username_list, :conversation
 
       # Shows the form to initiate a conversation with an user (the recipient)
       # recipient is passed via GET parameter:
@@ -49,11 +49,11 @@ module Decidim
       def index
         enforce_permission_to :list, :conversation
 
-        @conversations = UserConversations.for(current_mailbox)
+        @conversations = UserConversations.for(current_user)
       end
 
       def show
-        enforce_permission_to :read, :conversation, conversation: conversation, mailbox: current_mailbox
+        enforce_permission_to :read, :conversation, conversation: conversation
 
         @conversation.mark_as_read(current_user)
 
@@ -61,9 +61,9 @@ module Decidim
       end
 
       def update
-        enforce_permission_to :update, :conversation, conversation: conversation, mailbox: current_mailbox
+        enforce_permission_to :update, :conversation, conversation: conversation
 
-        @form = form(MessageForm).from_params(params, sender: current_mailbox)
+        @form = form(MessageForm).from_params(params)
 
         ReplyToConversation.call(conversation, @form) do
           on(:ok) do |message|
@@ -71,7 +71,7 @@ module Decidim
           end
 
           on(:invalid) do
-            render action: :update, locals: { error: I18n.t("messaging.conversations.update.error", scope: "decidim") }, status: :unprocessable_entity
+            render json: { error: I18n.t("messaging.conversations.update.error", scope: "decidim") }, status: :unprocessable_entity
           end
         end
       end
@@ -90,25 +90,6 @@ module Decidim
 
       def username_list(users)
         users.pluck(:name).join(", ")
-      end
-
-      def user_groups
-        return [] unless current_organization.user_groups_enabled?
-
-        current_user.manageable_user_groups
-      end
-
-      def mailboxes
-        ([current_user] + user_groups).reject { |group| group == current_mailbox }
-      end
-
-      def current_mailbox
-        mailbox = user_groups.find { |group| group.nickname == params[:mailbox] }
-        mailbox || current_user
-      end
-
-      def user_mailbox?
-        current_mailbox.is_a? Decidim::User
       end
     end
   end

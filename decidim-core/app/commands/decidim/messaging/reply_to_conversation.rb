@@ -34,7 +34,7 @@ module Decidim
       private
 
       def sender
-        form.context.sender
+        form.current_user
       end
 
       def message

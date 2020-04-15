@@ -1,8 +1,2 @@
-$(".add-message .text-alert").remove();
-
-<% if defined?(message) %>
-  $("#messages").append("<%= j(render "message", message: message).html_safe %>");
-  $(".new_message textarea#message_body").val("");
-<% else %>
-  $(".add-message").append("<p class='text-alert'><%= j(error) %></p>");
-<% end %>
+$("#messages").append("<%= j(render "message", message: message).html_safe %>");
+$(".new_message textarea#message_body").val("");

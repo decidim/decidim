@@ -803,11 +803,7 @@ en:
         create:
           error: Conversation not started. Try again later
         index:
-          group_conversations: "%{name} conversations"
-          mailbox: Mailbox
-          my_conversations: My conversations
           no_conversations: You have no conversations yet
-          no_group_conversations: The group %{name} has no conversations yet
           title: Conversations
         reply:
           send: Send

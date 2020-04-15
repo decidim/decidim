@@ -1,20 +1,23 @@
 <main class="wrapper">
   <div class="row">
-    <div class="columns large-8">
+    <div class="columns">
       <div class="title-action">
         <h1 class="heading1 title-action__title">
-          <%= t((user_mailbox? ? ".my_conversations" : ".group_conversations"), name: current_mailbox.name) %>
+          <%= t(".title") %>
         </h1>
       </div>
-
+    </div>
+  </div>
+  <div class="row">
+    <div class="columns large-8">
       <% if @conversations.empty? %>
         <div class="callout secondary">
-          <p><%= t((user_mailbox? ? ".no_conversations" :  ".no_group_conversations"), name: current_mailbox.name) %></p>
+          <p><%= t(".no_conversations") %></p>
         </div>
       <% else %>
         <div class="card card--list conversations">
           <% @conversations.each do |conversation| %>
-            <%= link_to decidim.conversation_path(conversation, params: { mailbox: current_mailbox.nickname }), class: "card--list__item" do %>
+            <%= link_to decidim.conversation_path(conversation), class: "card--list__item" do %>
               <div class="card--list__titled-text">
                 <h6 class="card--list__heading heading6">
                   <%= username_list(conversation.interlocutors(current_user)) %>
@@ -44,27 +47,5 @@
         </div>
       <% end %>
     </div>
-
-    <% if mailboxes.length %>
-      <div class="columns large-4">
-        <div class="title-action">
-          <h4 class="heading4 title-action__title">
-            <%= t(".mailbox") %>
-          </h4>
-        </div>
-        <div class="card card--list user-groups">
-          <% mailboxes.each do |entity| %>
-            <div class="card--list__item">
-              <%= link_to decidim.conversations_path(params: { mailbox: entity.nickname }), class: "card--list__author" do %>
-                <%= cell("decidim/user_profile", entity).unlinked_user_data.html_safe %>
-                <span class="card--list__counter">
-                  <span><%= "0" %></span>
-                </span>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
   </div>
 </main>
