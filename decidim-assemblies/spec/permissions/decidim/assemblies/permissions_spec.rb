@@ -462,5 +462,62 @@ describe Decidim::Assemblies::Permissions do
 
       it { is_expected.to eq false }
     end
+
+    context "when listing assemblies list" do
+      let!(:user) { create :user, organization: organization }
+      let(:context) { { assembly: assembly } }
+
+      context "when assembly is a root assembly" do
+        before do
+          create :assembly_user_role, user: user, assembly: assembly
+        end
+
+        let(:action) do
+          { scope: :admin, action: :list, subject: :assembly }
+        end
+
+        it { is_expected.to eq(true) }
+      end
+
+      context "when the assembly has one ancestor" do
+        before do
+          create :assembly_user_role, user: user, assembly: child_assembly
+        end
+
+        let(:child_assembly) { create :assembly, parent: assembly, organization: organization }
+        let(:action) do
+          { scope: :admin, action: :list, subject: :assembly }
+        end
+
+        it { is_expected.to eq(true) }
+      end
+
+      context "when the assembly has more than one ancestor" do
+        before do
+          create :assembly_user_role, user: user, assembly: grand_child_assembly
+        end
+
+        let(:child_assembly) { create :assembly, parent: assembly, organization: organization }
+        let(:grand_child_assembly) { create :assembly, parent: child_assembly, organization: organization }
+        let(:action) do
+          { scope: :admin, action: :list, subject: :assembly }
+        end
+
+        it { is_expected.to eq(true) }
+      end
+
+      context "when the assembly has one ancestor" do
+        before do
+          create :assembly_user_role, user: user, assembly: assembly.parent
+        end
+
+        let!(:assembly) { create :assembly, :with_parent, organization: organization }
+        let(:action) do
+          { scope: :admin, action: :list, subject: :assembly }
+        end
+
+        it { is_expected.to eq(false) }
+      end
+    end
   end
 end
