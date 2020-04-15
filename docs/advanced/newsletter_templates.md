@@ -41,7 +41,7 @@ Inside the block, first we define the path of the cell we'll use to render the e
 
 Then we define the cell that will be used to render the form in the admin section. This form needs to show inputs for the attributes defined when registering the template. It will receive the `form` object to render the input fields. We suggest this cell to inherit from `Decidim::NewsletterTemplates::BaseSettingsFormCell`.
 
-In the third line inside the block we define the I18n path to the public name of the template. This name will serve as identifier for the users, so be sure to make it descriptive.
+In the third line inside the block we define the I18n path to the public name of the template. This name will serve as identifier for the users who write the newsletters, so be sure to make it descriptive.
 
 After that we define the images this newsletter supports. We give it a unique name, the class name of the uploader we'll use (the example one is the default one, but you might want to customize this value) and a way to preview this image. This preview image will only be used in the "Preview" page of the template, it's not a fallback. If you want a fallback, please implement it through a custom uploader (see `carrierwave`'s docs for that). There's no limit of the amount of images you add.
 

@@ -96,6 +96,7 @@ module Decidim
       }.freeze
 
       attribute :type, Symbol, default: :boolean
+      # Expects a Proc. You can use this to return fake data to preview the attribute.
       attribute :preview
       attribute :default
       attribute :translated, Boolean, default: false
