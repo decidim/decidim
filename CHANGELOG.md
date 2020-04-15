@@ -42,7 +42,6 @@ Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on 
 
 - **decidim-admin**: Allow to see a participant's email from the admin panel [\#5849](https://github.com/decidim/decidim/pull/5849)
 - **decidim**: Add missing indexs on foreign keys on the DB [\#5885](https://github.com/decidim/decidim/pull/5885)
-
 - **decidim-core**: Redesign activity cards for the home page [#5672](https://github.com/decidim/decidim/pull/5672)
 - **decidim-core**: Redesign activity cards on Timeline and Activity Tabs for a consistent user experience [#5779](https://github.com/decidim/decidim/issues/5779)
 - **decidim-proposals**: Update rspec proposal_activity_cell_spec to check existence of card\_\_content css class instead of car-data css class [#5779](https://github.com/decidim/decidim/issues/5779)
@@ -53,6 +52,7 @@ Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on 
 - **decidim-budgets**: Projects filter by multiple categories [/#5992](https://github.com/decidim/decidim/pull/5992)
 
 - **decidim-assemblies** **decidim-conferences** **decidim-participatory-processes**: Notify users on adding roles. [#5886](https://github.com/decidim/decidim/pull/5886)
+
 ### Changed
 
 - **decidim-accountability**, **decidim-core**, **decidim-meetings**, **decidim-proposals**: Optimize queries for performance in Homepage, process page, proposals page and coauthorable cell. [\#5903](https://github.com/decidim/decidim/pull/5903)
