@@ -41,6 +41,28 @@ shared_examples_for "general conversation permissions" do
 
     it { is_expected.to eq false }
   end
+
+  context "when the interlocutor is specified in the context" do
+    let(:context) { { conversation: conversation, interlocutor: interlocutor } }
+    let(:originator) { interlocutor }
+    let(:interlocutor) { create :user }
+
+    let!(:conversation) do
+      Decidim::Messaging::Conversation.start!(
+        originator: originator,
+        interlocutors: [another_user],
+        body: "who wants apples?"
+      )
+    end
+
+    it { is_expected.to eq true }
+
+    context "and accessing user's conversation" do
+      let(:originator) { user }
+
+      it { is_expected.to eq false }
+    end
+  end
 end
 
 shared_examples_for "restricted conversation permissions" do

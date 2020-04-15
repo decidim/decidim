@@ -1,13 +1,34 @@
 <div class="user-activity">
-  <div id="activities" class="columns small-12">
+  <div id="conversations" class="columns small-12">
 
       <div class="callout secondary">
         <%= t "decidim.user_conversations.index.conversations_info" %>
       </div>
-
-      <div class="row">
-        <%= t "decidim.user_conversations.index.no_conversations_warning" %>
+      <% if conversations.length == 0 %>
+        <div class="callout">
+          <%= t "decidim.user_conversations.index.no_conversations_warning" %>
       </div>
+      <% else %>
+      <div class="row">
+        <div class="card card--list conversations">
+        <% conversations.each do |conversation| %>
+            <%= link_to decidim.profile_conversation_path(nickname: user.nickname, id: conversation), class: "card--list__item" do %>
+              <div class="card--list__titled-text">
+                <h6 class="card--list__heading heading6">
+                  <%= conversation.last_message.friendly_created_at %>
+                </h6>
+              </div>
+              <div class="card--list__data">
+                <span class="card--list__data__icon">
+                  <%= icon "chevron-right", role: "img" %>
+                </span>
+              </div>
+
+            <% end %>
+        <% end %>
+        </div>
+      </div>
+      <% end %>
 
   </div>
 </div>

@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 module Decidim
-  class UserConversationsCell < Decidim::ViewModel
+  class UserConversationCell < Decidim::ViewModel
     include Cell::ViewModel::Partial
     include Decidim::LayoutHelper
-    include CellsPaginateHelper
     include Decidim::Core::Engine.routes.url_helpers
 
     def user
@@ -15,8 +14,8 @@ module Decidim
       render :show
     end
 
-    def conversations
-      context[:conversations] || []
+    def conversation
+      context[:conversation]
     end
   end
 end

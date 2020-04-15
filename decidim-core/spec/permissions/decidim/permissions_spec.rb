@@ -200,6 +200,7 @@ describe Decidim::Permissions do
 
     context "when action is on conversations" do
       let(:action_subject) { :conversation }
+      let(:interlocutor) { nil }
 
       context "when listing conversations" do
         let(:action_name) { :list }
