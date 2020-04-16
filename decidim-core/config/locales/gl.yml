@@ -712,6 +712,7 @@ gl:
         create:
           error: Non se iniciou a conversa. Téntao de novo máis tarde
         index:
+          close: Pechar modal
           no_conversations: Aínda non tes conversas
           title: Conversas
         reply:
