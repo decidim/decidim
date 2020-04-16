@@ -4,15 +4,6 @@
 
 ### Upgrade notes
 
-- **Assembly types**
-
-In order to prevent errors while upgrading multi-servers envirnoments, the fields `assembly_type` and `assembly_type_other` are maintained. Future releases will take care of this.
-
-**Added**:
-
-- **decidim-assemblies**: Added configurable assembly types. [\#5616](https://github.com/decidim/decidim/pull/5616)
-
-**Changed**:
 - **Endorsements**
 
 This new version of Decidim has extracted the Endorsement feature into a generic concern that can now be applied to many resources.
@@ -22,9 +13,6 @@ After this, `Decidim::Proposals::ProposalEndorsement` and the corresponding coun
 
 - **Data portability**
 
-- **decidim-assemblies**: Removed legacy `assembly_type` fields. [\#5617](https://github.com/decidim/decidim/pull/5617)
-
-## Previous versions
 Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now supports removal of user's data portability expired files from Amazon S3. Check out the [scheduled tasks in the getting started guide](https://github.com/decidim/decidim/blob/master/docs/getting_started.md#scheduled-tasks) for information in how to configure it.
 
 - **SSL is forced on by default**
@@ -93,6 +81,8 @@ Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on 
 - **decidim-core**: Fix the scopes picker rendereding escaped characters [#5939](https://github.com/decidim/decidim/pull/5939)
 
 ### Removed
+
+- **decidim-assemblies**: Removed legacy `assembly_type` fields. [\#5617](https://github.com/decidim/decidim/pull/5617)
 
 ### Previous versions
 
