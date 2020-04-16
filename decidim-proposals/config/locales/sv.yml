@@ -31,6 +31,9 @@ sv:
       proposals_import:
         import_proposals: Importera förslag
         keep_authors: Behåll originalförfattare
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: Värderarens namn
     errors:
       models:
         participatory_text:
@@ -42,12 +45,14 @@ sv:
             attachment:
               needs_to_be_reattached: Måste bifogas igen
             body:
+              cant_be_equal_to_template: kan inte vara detsamma som mallen
               identical: OCH titeln kan inte vara identisk
             title:
               identical: OCH innehållet kan inte vara identiskt
     models:
       decidim/proposals/accepted_proposal_event: Förslag accepterat
       decidim/proposals/admin/update_proposal_category_event: Förslagskategori ändrad
+      decidim/proposals/admin/update_proposal_scope_event: Ändrat förslagets omfång
       decidim/proposals/creation_enabled_event: Skapande av förslag aktiverat
       decidim/proposals/endorsing_enabled_event: Stöttande av förslag aktiverat
       decidim/proposals/evaluating_proposal_event: Förslaget utvärderas
@@ -77,6 +82,8 @@ sv:
           values:
             'false': Förslag
             'true': Tillägg
+        search_placeholder:
+          id_string_or_title_cont: Sök %{collection} efter ID eller titel.
         state_eq:
           values:
             evaluating: Utvärderas
@@ -85,6 +92,8 @@ sv:
           label: Status
           values:
             'true': Ej besvarade
+        valuator_role_ids_has:
+          label: Tilldelad till värderare
     components:
       proposals:
         actions:
@@ -96,6 +105,7 @@ sv:
         name: Förslag
         settings:
           global:
+            allow_card_image: Tillåt kortbild
             amendments_enabled: Ändringar möjliga
             amendments_enabled_help: Om aktivt, konfigurera ändringsfunktioner till varje steg.
             amendments_wizard_help_text: Hjälptext för guiden för ändringsförslag
@@ -106,6 +116,8 @@ sv:
             comments_enabled: Kommentarer aktiverade
             geocoding_enabled: Geokodning aktiverad
             minimum_votes_per_user: Minsta antal röster per användare
+            new_proposal_body_template: Innehållsmall för nytt förslag
+            new_proposal_body_template_help: Du kan ange den redan ifyllda texten för nya förslag
             new_proposal_help_text: Hjälptext om nya förslag
             official_proposals_enabled: Officiella förslag aktiverade
             participatory_texts_disabled_help: Det går inte att ändra denna inställning om det finns befintliga förslag. Skapa en ny `Förslagskomponent` om du vill aktivera funktionen, eller kasta alla importerade förslag i menyn `Deltagande texter` om du vill avaktivera den.
@@ -131,12 +143,14 @@ sv:
             amendments_visibility: Ändringens synlighet
             amendments_visibility_help: Om alternativet "Ändringsförslag visas endast för sina författare" är markerat måste deltagaren vara inloggad för att kunna se ändringarna.
             announcement: Meddelande
+            answers_with_costs: Tillåt kostnader i svar på förslag
             automatic_hashtags: Hashtags läggs till i alla förslag
             comments_blocked: Kommentarer blockerade
             creation_enabled: Skapande av förslag aktiverat
             endorsements_blocked: Instämmanden är blockerade
             endorsements_enabled: Instämmanden aktiverade
             proposal_answering_enabled: Svar på förslag aktiverat
+            publish_answers_immediately: Publicera svar på förslag omedelbart
             suggested_hashtags: Förslag på hashtags för nya förslag till deltagare
             votes_blocked: Blockerat stöd
             votes_enabled: Stöd aktiverat
@@ -206,6 +220,7 @@ sv:
             email_subject: Ett förslag som du följer utvärderas
             notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> utvärderas.
         proposal_mentioned:
+          email_intro: Ditt förslag "%{mentioned_proposal_title}" har nämnts i kommentarerna i <a href="%{resource_url}">det här utrymmet</a>.
           email_outro: Du har fått den här meddelandet eftersom du är en författare av %{resource_title}".
           email_subject: Ditt förslag "%{mentioned_proposal_title}" har nämnts
           notification_title: Ditt förslag "%{mentioned_proposal_title}" har nämnts <a href="%{resource_path}">i det här utrymmet</a> i kommentarerna.
@@ -437,6 +452,7 @@ sv:
             remove_assignment_confirmation: Vill du ta bort värderaren från förslaget?
             valuators: Värderare
             votes_count: Antal röster
+            votes_ranking: Sortera efter stöd
           update_category:
             select_a_category: Välj en kategori
             select_a_proposal: Välj ett förslag
@@ -729,6 +745,7 @@ sv:
           comments: Kommentarer
           edit_proposal: Redigera förslag
           endorsements_list: Lista över instämmanden
+          estimated_cost: Beräknad kostnad
           hidden_endorsers_count:
             one: och %{count} till person
             other: och %{count} till personer
@@ -741,10 +758,14 @@ sv:
           proposal_accepted_reason: 'Detta förslag har antagits eftersom:'
           proposal_in_evaluation_reason: Detta förslag utvärderas
           proposal_rejected_reason: 'Detta förslag har avslagits på grund av att:'
+          read_less: Läs mindre
+          read_more: Läs mer
           report: Rapport
           withdraw_btn_hint: Du kan dra tillbaka ett förslag om du ändrar dig, så länge som det inte har fått något stöd. Förslaget raderas inte utan kommer att visas i listan över förslag som dragits tillbaka.
           withdraw_confirmation: Är du säker på att dra tillbaka detta förslag?
           withdraw_proposal: Dra tillbaka förslaget
+        tags:
+          changed_from: "(ändrad från <u>%{previous_name}</u> av en administratör)"
         vote_button:
           already_voted: Redan röstat
           already_voted_hover: Ta bort sin röst
@@ -787,6 +808,8 @@ sv:
       publish:
         error: Det gick inte att publicera förslaget.
         success: Förslag har publicerats.
+      publish_answers:
+        success: Svar på förslagen har publicerats.
       update:
         error: Det gick inte att spara förslaget.
         success: Förslaget har uppdaterats.
