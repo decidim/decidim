@@ -23,7 +23,7 @@ describe "decidim_meetings:clean_registration_forms", type: :task do
       task.execute(months: months)
 
       expect { questionnaire.reload }.to raise_error(ActiveRecord::RecordNotFound)
-      expect(meeting).to be_present
+      expect(meeting.reload).to be_present
     end
   end
 
@@ -38,6 +38,7 @@ describe "decidim_meetings:clean_registration_forms", type: :task do
       task.execute(months: months)
 
       expect(questionnaire.reload).to be_present
+      expect(meeting.reload).to be_present
     end
   end
 end
