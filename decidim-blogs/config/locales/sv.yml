@@ -48,6 +48,8 @@ sv:
             title: titel
       posts:
         show:
+          back: Tillbaka till listan
+          comments: Kommentarer
           view: Visa
         sidebar_blog:
           comments: kommentarer
@@ -63,6 +65,8 @@ sv:
           step:
             announcement: Meddelande
             comments_blocked: Kommentarer blockerade
+            endorsements_blocked: Instämmanden är blockerade
+            endorsements_enabled: Instämmanden tillåtna
     events:
       blogs:
         post_created:
