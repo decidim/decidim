@@ -282,6 +282,7 @@ sv:
         results_rules:
           minimum_votes_per_user:
             description: Deltagarna kunde fördela minst %{votes} röster mellan olika alternativ.
+          title: Flera val är möjliga som svar på denna fråga
           total_participants: Sammanlagt deltog %{count} personer i omröstningen.
           vote_limit:
             description: Deltagarna kunde rösta på upp till %{limit} alternativ.
