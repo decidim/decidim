@@ -16,14 +16,8 @@
     <%= form.check_boxes_tree :scope_id, filter_scopes_values, legend_title: t(".scope") %>
   <% end %>
 
-  <% if current_component.categories.any? %>
-    <%= form.categories_select :category_id,
-                               current_component.categories,
-                               legend_title: t(".category"),
-                               disable_parents: false,
-                               label: "",
-                               prompt: t(".category_prompt"),
-                               aria_label: t(".category") %>
+  <% if current_participatory_space.categories.any? %>
+    <%= form.check_boxes_tree :category_id, filter_categories_values, legend_title: t(".category") %>
   <% end %>
 
   <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
