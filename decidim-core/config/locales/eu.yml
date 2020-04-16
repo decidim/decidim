@@ -712,6 +712,7 @@ eu:
         create:
           error: Ez da elkarrizketa hasi. Saiatu berriro geroago
         index:
+          close: Itxi modal
           no_conversations: Oraindik ez duzu elkarrizketarik
           title: Elkarrizketak
         reply:
