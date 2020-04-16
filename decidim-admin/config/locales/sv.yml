@@ -284,7 +284,14 @@ sv:
           values:
             'false': Gjord officiell
             'true': Ej gjord officiell
+        published_at_null:
+          values:
+            'true': Ej publicerat
+        scope_id_eq:
+          label: Omfång
         search_label: Sök
+        search_placeholder:
+          name_or_nickname_or_email_cont: Sök i %{collection} efter e-post, namn eller smeknamn.
       help_sections:
         error: Det gick inte att uppdatera hjälpavsnitten
         form:
