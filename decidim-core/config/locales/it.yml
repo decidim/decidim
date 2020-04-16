@@ -771,6 +771,7 @@ it:
         create:
           error: La conversazione non è iniziata. Riprovare più tardi
         index:
+          close: Chiudi modale
           no_conversations: Non hai ancora conversazioni
           title: conversazioni
         reply:
