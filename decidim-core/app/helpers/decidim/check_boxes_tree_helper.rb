@@ -83,7 +83,7 @@ module Decidim
     end
 
     def filter_scopes_values
-      main_scopes = current_participatory_space.scope.present? ? [current_participatory_space.scope] : current_participatory_space.scopes.top_level
+      main_scopes = current_component.scope.present? ? [current_component.scope] : current_participatory_space.scopes.top_level
 
       scopes_values = main_scopes.includes(:scope_type, :children).flat_map do |scope|
         TreeNode.new(

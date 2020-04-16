@@ -9,6 +9,7 @@ module Decidim
     include Publicable
     include Traceable
     include Loggable
+    include Scopable
 
     has_many :children, foreign_key: "parent_id", class_name: "Decidim::Component", inverse_of: :parent, dependent: :destroy
     belongs_to :parent, foreign_key: "parent_id", class_name: "Decidim::Component", inverse_of: :children, optional: true
@@ -91,6 +92,19 @@ module Decidim
       return false unless user
 
       participatory_space.can_participate?(user)
+    end
+
+    # Public: Returns the component Scope
+    # overrides the method from Scopable
+    def scope
+      return participatory_space.scope unless scopes_enabled
+
+      participatory_space.scopes.find_by(id: settings.scope_id)
+    end
+
+    # overrides the method from Scopable
+    def scopes_enabled
+      settings.try(:scopes_enabled)
     end
 
     delegate :serializes_specific_data?, to: :manifest

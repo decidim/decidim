@@ -12,8 +12,8 @@
     </div>
   </div>
 
-  <% if current_participatory_space.has_subscopes? %>
-    <%= form.check_boxes_tree :scope_id, filter_scopes_values, legend_title: t(".scope") %>
+  <% if current_component.has_subscopes? %>
+  <%= form.check_boxes_tree :scope_id, filter_scopes_values, legend_title: t(".scope") %>
   <% end %>
 
   <% if current_participatory_space.categories.any? %>
