@@ -458,6 +458,8 @@ sv:
             select_a_proposal: Välj ett förslag
           update_scope:
             select_a_proposal: Välj ett förslag
+            select_a_scope: Välj ett omfång
+            success: 'Förslag som har uppdaterats till omfånget %{subject_name}: %{proposals}.'
         proposals_imports:
           create:
             invalid: Det gick inte att importera förslagen
@@ -475,6 +477,10 @@ sv:
           create:
             invalid: Det gick inte att splittra de valda förslagen.
             success: Framgångsrikt splittrade förslagen till nya.
+        valuation_assignments:
+          create:
+            invalid: Det gick inte att tilldela förslag till en värderare
+            success: Förslag tilldelades till en värderare
       admin_log:
         proposal:
           answer: "%{user_name} svarade på förslaget %{resource_name} på utrymmet %{space_name}"
@@ -644,10 +650,13 @@ sv:
             id: ID
             notes: Anteckningar
             official_proposal: Officiellt förslag
+            published_answer: Publicerat svar
             published_at: Publicerad
             scope: Omfång
             state: Status
             title: Titel
+            valuator: Värderare
+            valuators: Värderare
             votes: Röster
       new:
         limit_reached: Du kan inte skapa nya förslag eftersom du har överskridit gränsen.
@@ -741,6 +750,7 @@ sv:
         show:
           answer: Svara
           back_to: Tillbaka till
+          back_to_list: Tillbaka till listan
           changes_at_title: Ändring till %{title}
           comments: Kommentarer
           edit_proposal: Redigera förslag
