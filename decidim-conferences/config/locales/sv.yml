@@ -183,6 +183,7 @@ sv:
             admin: Administratör
             collaborator: Medarbetare
             moderator: Moderator
+            valuator: Värderare
         media_link:
           fields:
             date: Datum
