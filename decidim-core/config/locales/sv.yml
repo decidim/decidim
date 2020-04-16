@@ -218,9 +218,9 @@ sv:
       wizard_step_form:
         steps:
           '1': Skapa ändringsförslag
-          '2': Compare your amendment
-          '3': Complete your amendment
-          '4': Publish your amendment
+          '2': Jämför ändringsförslag
+          '3': Slutför ändringsförslaget
+          '4': Publicera ändringsförslaget
     anonymous_user: Anonym
     application:
       collection:
@@ -312,12 +312,18 @@ sv:
             comments_enabled: Kommentarer på
             dummy_global_attribute_1: Dummy Attribut 1
             dummy_global_attribute_2: Dummy Attribut 2
+            dummy_global_translatable_text: Översättningsbar exempeltext
             enable_pads_creation: Aktivera skapande av memo
             resources_permissions_enabled: Resursbehörigheter på
           step:
+            amendment_creation_enabled: Tillåt att skapa ändringsförslag
+            amendment_promotion_enabled: Tillåt att annonsera ändringsförslag
+            amendment_reaction_enabled: Tillåt reaktioner på ändringsförslag
+            amendments_visibility: Synlighet för ändringsförslag
             comments_blocked: Kommentarer blockerade
             dummy_step_attribute_1: Dummy Step Attribut 1
             dummy_step_attribute_2: Dummy Step Attribut 2
+            dummy_step_translatable_text: Översättningsbar text för exempelsteg
     contact: Kontakt
     content_blocks:
       footer_sub_hero:
@@ -343,6 +349,7 @@ sv:
         name: Sub hjälte banner
     core:
       actions:
+        login_before_access: Logga in före åtkomst
         unauthorized: Du har inte behörighet att utföra denna åtgärd
     data_portability:
       export:
@@ -359,6 +366,7 @@ sv:
           email_already_exists: Ett annat konto använder samma e-postadress
         new:
           complete_profile: Slutför profil
+          nickname_help: Ditt alias i %{organization}
           sign_up: Var god slutför din profil
           subtitle: Slutför registreringen genom att fylla i följande formulär
           username_help: Offentligt namn som visas i dina inlägg. Du kan ange ett annat namn än ditt eget, om du vill vara anonym.
@@ -367,6 +375,7 @@ sv:
           already_have_an_account?: Har du redan ett konto?
           newsletter: Få enstaka nyhetsbrev med relevant information
           newsletter_title: Kontakttillstånd
+          nickname_help: Ditt alias i %{organization}
           password_help: "Minst %{minimun_characters} tecken, får inte vara för vanligt (som 123456) och måste vara skilt från ditt användarnamn och din e-postadress."
           sign_in: Logga in
           sign_up: Registrera dig
@@ -1047,6 +1056,7 @@ sv:
         back: Tillbaka
       wizard_header:
         see_steps: visa steg
+        step_of: Steg %{current_step} av %{total_steps}
   devise:
     confirmations:
       confirmed: Din e-postadress har bekräftats.
@@ -1203,7 +1213,11 @@ sv:
       long_words: innehåller ord som är för långa (över 35 tecken)
       must_start_with_caps: måste börja med en stor bokstav
       nesting_too_deep: kan inte vara inuti en underkategori
+      not_found: kunde inte hittas. Har du registrerat dig tidigare?
       not_locked: låstes inte
+      not_saved:
+        one: 'Det finns ett fel i din begäran:'
+        other: 'Det finns flera fel i din begäran:'
       too_many_marks: använder för många på varandra följande skiljetecken (t.ex. ! och ?)
       too_much_caps: använder för många stora bokstäver (över 25% av texten)
       too_short: är för kort (under 15 tecken)
