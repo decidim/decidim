@@ -762,6 +762,7 @@ ar:
         create:
           error: لم تبدأ المحادثة. حاول مرة أخرى في وقت لاحق
         index:
+          close: إغلاق مشروط
           no_conversations: ليس لديك محادثات حتى الآن
           title: المحادثات
         reply:
