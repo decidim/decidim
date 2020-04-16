@@ -70,6 +70,22 @@ module Decidim
         end
       end
 
+      describe "directMessagesEnabled" do
+        let(:query) { "{ ...on User { directMessagesEnabled } }" }
+
+        it "returns the direct messages status" do
+          expect(response).to include("directMessagesEnabled" => "true")
+        end
+
+        context "when user direct messages disabled" do
+          let(:model) { create(:user, direct_message_types: "followed-only") }
+
+          it "returns the direct_messages status" do
+            expect(response).to include("directMessagesEnabled" => "false")
+          end
+        end
+      end
+
       describe "organizationName" do
         let(:query) { "{ organizationName }" }
 

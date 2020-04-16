@@ -9,6 +9,45 @@
     </div>
   </div>
   <div class="row">
+
+    <div class="columns large-8">
+      <div class="float-right">
+        <button id="start-conversation-dialog-button" type="button" name="button" class="button small">
+          <%= t(".new_conversation") %>
+        </button>
+      </div>
+      <div class="reveal collapse"
+           id="user-conversations-add-modal"
+           data-reveal>
+            <div class="wrapper--inner">
+              <button class="close-button" aria-label="<%= t(".close") %>" type="button" data-close>
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <%= decidim_form_for(@form, url: conversations_check_multiple_url, html: { class: "form new_attachment" }) do |f| %>
+              <div class="container wrapper--inner">
+                <div class="row">
+                  <div class="columns large-12">
+                    <%= render "add_conversation_users", object: f, locals: { title: "new title" } %>
+                  </div>
+                </div>
+                <div class="wrapper wrapper--inner">
+                  <div class="row">
+                    <div class="large-12">
+                      <div class="button--double form-general-submit float-right">
+                        <%= f.submit t(".next") %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+      </div>
+      <%= javascript_include_tag "decidim/start_conversation_dialog" %>
+    </div>
+
+  </div>
+  <div class="row">
     <div class="columns large-8">
       <% if @conversations.empty? %>
         <div class="callout secondary">
@@ -20,7 +59,7 @@
             <%= link_to decidim.conversation_path(conversation), class: "card--list__item" do %>
               <div class="card--list__titled-text">
                 <h6 class="card--list__heading heading6">
-                  <%= username_list(conversation.interlocutors(current_user)) %>
+                  <%= username_list(conversation.interlocutors(current_user), true) %>
                 </h6>
 
                 <span class="card--list__annotation">
