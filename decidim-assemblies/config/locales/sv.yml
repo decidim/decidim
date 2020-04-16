@@ -172,6 +172,7 @@ sv:
           info: Info
           moderations: Moderering
           private_users: Privata användare
+        assemblies_types: Typer av församlingar
       models:
         assemblies_types:
           fields:
@@ -207,8 +208,10 @@ sv:
             admin: Administratör
             collaborator: Medarbetare
             moderator: Moderator
+            valuator: Värderare
       titles:
         assemblies: Församlingar
+        assemblies_types: Typer av församlingar
     admin_log:
       assembly:
         create: "%{user_name} skapade gruppen %{resource_name}"
