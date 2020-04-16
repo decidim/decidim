@@ -31,6 +31,9 @@ sv:
       proposals_import:
         import_proposals: Importera förslag
         keep_authors: Behåll originalförfattare
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: Värderarens namn
     errors:
       models:
         participatory_text:
@@ -42,12 +45,14 @@ sv:
             attachment:
               needs_to_be_reattached: Måste bifogas igen
             body:
+              cant_be_equal_to_template: kan inte vara detsamma som mallen
               identical: OCH titeln kan inte vara identisk
             title:
               identical: OCH innehållet kan inte vara identiskt
     models:
       decidim/proposals/accepted_proposal_event: Förslag accepterat
       decidim/proposals/admin/update_proposal_category_event: Förslagskategori ändrad
+      decidim/proposals/admin/update_proposal_scope_event: Ändrat förslagets omfång
       decidim/proposals/creation_enabled_event: Skapande av förslag aktiverat
       decidim/proposals/endorsing_enabled_event: Stöttande av förslag aktiverat
       decidim/proposals/evaluating_proposal_event: Förslaget utvärderas
@@ -81,6 +86,8 @@ sv:
           values:
             'false': Förslag
             'true': Tillägg
+        search_placeholder:
+          id_string_or_title_cont: Sök %{collection} efter ID eller titel.
         state_eq:
           values:
             evaluating: Utvärderas
@@ -89,6 +96,8 @@ sv:
           label: Status
           values:
             'true': Ej besvarade
+        valuator_role_ids_has:
+          label: Tilldelad till värderare
     components:
       proposals:
         actions:
@@ -100,6 +109,7 @@ sv:
         name: Förslag
         settings:
           global:
+            allow_card_image: Tillåt kortbild
             amendments_enabled: Ändringar möjliga
             amendments_enabled_help: Om aktivt, konfigurera ändringsfunktioner till varje steg.
             amendments_wizard_help_text: Hjälptext för guiden för ändringsförslag
@@ -110,6 +120,8 @@ sv:
             comments_enabled: Kommentarer aktiverade
             geocoding_enabled: Geokodning aktiverad
             minimum_votes_per_user: Minsta antal röster per användare
+            new_proposal_body_template: Innehållsmall för nytt förslag
+            new_proposal_body_template_help: Du kan ange den redan ifyllda texten för nya förslag
             new_proposal_help_text: Hjälptext om nya förslag
             official_proposals_enabled: Officiella förslag aktiverade
             participatory_texts_disabled_help: Det går inte att ändra denna inställning om det finns befintliga förslag. Skapa en ny `Förslagskomponent` om du vill aktivera funktionen, eller kasta alla importerade förslag i menyn `Deltagande texter` om du vill avaktivera den.
@@ -135,12 +147,14 @@ sv:
             amendments_visibility: Ändringens synlighet
             amendments_visibility_help: Om alternativet "Ändringsförslag visas endast för sina författare" är markerat måste deltagaren vara inloggad för att kunna se ändringarna.
             announcement: Meddelande
+            answers_with_costs: Tillåt kostnader i svar på förslag
             automatic_hashtags: Hashtags läggs till i alla förslag
             comments_blocked: Kommentarer blockerade
             creation_enabled: Skapande av förslag aktiverat
             endorsements_blocked: Instämmanden är blockerade
             endorsements_enabled: Instämmanden aktiverade
             proposal_answering_enabled: Svar på förslag aktiverat
+            publish_answers_immediately: Publicera svar på förslag omedelbart
             suggested_hashtags: Förslag på hashtags för nya förslag till deltagare
             votes_blocked: Blockerat stöd
             votes_enabled: Stöd aktiverat
@@ -418,13 +432,35 @@ sv:
             create: Skapa
             title: Skapa förslag
           publish_answers:
+            number_of_proposals: Svar på %{number} förslag kommer att publiceras.
             select_a_proposal: Välj ett förslag
           show:
+            amendments_count: Antal ändringsförslag
+            assigned_valuators: Tilldelade värderare
             authors: Författare
             body: Innehåll
+            comments_count: Antal kommentarer
+            comments_negative_count: Mot
+            comments_neutral_count: Neutral
+            comments_positive_count: För
             created_at: Skapelsedatum
+            documents: Dokument
+            endorsements_count: Antal instämmanden
+            endorsements_ranking: Sortera efter instämmanden
+            endorsers: Instämmer
+            link: Länk
+            n_more_endorsers:
+              one: och 1 till
+              other: och %{count} till
+            photos: Bilder
             proposals: Förslag
+            ranking: "%{ranking} av %{total}"
+            related_meetings: Relaterade möten
+            remove_assignment: Ta bort tilldelning
+            remove_assignment_confirmation: Vill du ta bort värderaren från förslaget?
+            valuators: Värderare
             votes_count: Antal röster
+            votes_ranking: Sortera efter stöd
           update_category:
             select_a_category: Välj en kategori
             select_a_proposal: Välj ett förslag
