@@ -85,6 +85,7 @@ sv:
             description: Du har redan röstat för budgeten. Om du har ändrat dig kan du %{cancel_link}.
             title: Budgetomröstning slutförd
           description: Vilka projekt tycker du att vi borde avsätta budget till? Tilldela minst %{minimum_budget} till de projekt som du vill ha och definiera budgeten genom att rösta med dina val.
+          description_minimum_projects_rule: Vilka projekt tycker du att vi borde avsätta budget till? Välj minst %{minimum_number} projekt som du vill ha och definiera budgeten genom att rösta med dina val.
           title: Du bestämmer budgeten
         count:
           projects_count:
@@ -108,6 +109,12 @@ sv:
             one: valt projekt
             other: valda projekt
           view: Visa
+        orders:
+          highest_cost: Dyrast
+          label: Ordna projekt efter
+          lowest_cost: Lägsta kostnad
+          most_voted: Mest röster
+          random: Slumpmässig ordning
         project:
           add: Lägg till
           count:
@@ -130,9 +137,16 @@ sv:
           global:
             announcement: Meddelande
             comments_enabled: Kommentarer aktiverade
+            form:
+              errors:
+                budget_voting_rule_only_one: Endast en röstningsregel får vara aktiverad
+                budget_voting_rule_required: En röstningsregel krävs
             projects_per_page: Projekt per sida
             resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje möte
             total_budget: Total budget
+            vote_minimum_budget_projects_number: Minsta antal projekt att rösta om
+            vote_rule_minimum_budget_projects_enabled: 'Aktivera regel: Minsta antal projekt att rösta om'
+            vote_rule_threshold_percent_enabled: 'Aktivera regel: Lägsta procentandel av budget'
             vote_threshold_percent: Tröskel för röster i procent
           step:
             announcement: Meddelande
