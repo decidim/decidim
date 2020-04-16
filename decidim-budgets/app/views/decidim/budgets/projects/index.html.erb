@@ -1,5 +1,9 @@
 <%= render partial: "decidim/shared/component_announcement" %>
 
+<% if current_component.parent %>
+  <%= cell("decidim/budgets/groups/budget_projects_header", current_component) %>
+<% end %>
+
 <% if current_user.present? && current_settings.votes_enabled? && current_participatory_space.can_participate?(current_user) %>
   <div class="row column">
     <%= render partial: "budget_summary", locals: { include_heading: true } %>

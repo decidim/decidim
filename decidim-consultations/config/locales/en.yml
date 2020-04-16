@@ -121,7 +121,6 @@ en:
           questions: Questions
           results: Results
         questions_submenu:
-          components: Components
           configuration: Configuration
           consultation: Consultation
           info: Information

@@ -15,26 +15,26 @@
 
       <% if allowed_to?(:update, :component, component: component) %>
         <% if component.published? %>
-          <%= icon_link_to "x", url_for(action: :unpublish, id: component, controller: "components"), t("actions.unpublish", scope: "decidim.admin"), class: "action-icon--unpublish", method: :put %>
+          <%= icon_link_to "x", current_participatory_space_admin_proxy.unpublish_component_path(component), t("actions.unpublish", scope: "decidim.admin"), class: "action-icon--unpublish", method: :put %>
         <% else %>
-          <%= icon_link_to "check", url_for(action: :publish, id: component, controller: "components"), t("actions.publish", scope: "decidim.admin"), class: "action-icon--publish", method: :put %>
+          <%= icon_link_to "check", current_participatory_space_admin_proxy.publish_component_path(component), t("actions.publish", scope: "decidim.admin"), class: "action-icon--publish", method: :put %>
         <% end %>
       <% end %>
 
       <% if allowed_to? :update, :component, component: component %>
-        <%= icon_link_to "cog", url_for(action: :edit, id: component, controller: "components"), t("actions.configure", scope: "decidim.admin"), class: "action-icon--configure" %>
+        <%= icon_link_to "cog", current_participatory_space_admin_proxy.edit_component_path(component), t("actions.configure", scope: "decidim.admin"), class: "action-icon--configure" %>
       <% end %>
 
       <% if allowed_to? :update, :component, component: component %>
         <% if component.manifest.actions.empty? %>
           <%= icon "key", class: "action-icon action-icon--disabled" %>
         <% else %>
-          <%= icon_link_to "key", url_for(action: :edit, component_id: component, controller: "component_permissions"), t("actions.permissions", scope: "decidim.admin"), class: "action-icon--permissions" %>
+          <%= icon_link_to "key", current_participatory_space_admin_proxy.edit_component_permissions_path(component), t("actions.permissions", scope: "decidim.admin"), class: "action-icon--permissions" %>
         <% end %>
       <% end %>
 
       <% if allowed_to? :destroy, :component, component: component %>
-        <%= icon_link_to "circle-x", url_for(action: :destroy, id: component, controller: "components"), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete %>
+        <%= icon_link_to "circle-x", current_participatory_space_admin_proxy.component_path(component), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete %>
       <% end %>
     </td>
   </tr>

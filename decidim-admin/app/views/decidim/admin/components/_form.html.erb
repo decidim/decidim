@@ -7,6 +7,9 @@
     <div class="row column">
       <%= form.translated :text_field, :name, autofocus: true %>
       <%= form.number_field :weight %>
+      <% if parent_options.any? %>
+        <%= form.select :parent_id, parent_options.map{|component| [translated_attribute(component.name), component.id] }, include_blank: true %>
+      <% end %>
 
       <% if form.object.settings? %>
         <fieldset class="global-settings">

@@ -1,0 +1,17 @@
+<div class="<%= card_class %>">
+  <div class="card--list__text">
+    <%= link_to main_component_path(model), class: link_class do %>
+      <% if order %>
+        <strong>
+          <%= translated_attribute(model.name) %>
+        </strong>
+
+        <span class="button tiny success card--list__check card--list__check--disabled">
+          <%= icon "check" %>
+        </span>
+      <% else %>
+        <%= translated_attribute(model.name) %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
