@@ -250,6 +250,9 @@ sv:
         publish: "%{user_name} publicerade deltagarprocessen %{resource_name}"
         unpublish: "%{user_name} avpublicerade deltagarprocessen %{resource_name}"
         update: "%{user_name} uppdaterade deltagarprocessen %{resource_name}"
+      participatory_process_group:
+        create: "%{user_name} skapade deltagarprocessgruppen %{resource_name}"
+        update: "%{user_name} uppdaterade deltagarprocessgruppen %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} aktiverade steget %{resource_name} i deltagarprocessen %{space_name}"
         create: "%{user_name} skapade steget %{resource_name} i deltagarprocessen %{space_name}"
