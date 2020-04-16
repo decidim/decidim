@@ -27,6 +27,11 @@ module Decidim
         resolve ->(user, _args, _ctx) { user.presenter.profile_path }
       end
 
+      field :directMessagesEnabled, !types.String, "If the user making the request is logged in,
+       it will return whether this recipient accepts a conversation or not. It will return false for non-logged requests." do
+        resolve ->(user, _args, ctx) { user.presenter.direct_messages_enabled?(ctx.to_h) }
+      end
+
       field :organizationName, !types.String, "The user's organization name" do
         resolve ->(user, _args, _ctx) { user.organization.name }
       end
