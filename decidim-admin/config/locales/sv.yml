@@ -236,6 +236,7 @@ sv:
           success: Kategorin har uppdaterats.
       component_permissions:
         update:
+          error: Det gick inte att uppdatera behörigheterna för denna komponent.
           success: Behörigheterna har uppdaterats.
       components:
         create:
@@ -483,6 +484,7 @@ sv:
           send_to_followers: Skicka till följare
           send_to_participants: Skicka till deltagare
           title: Välj mottagare att skicka till
+          warning: "<strong>Obs:</strong> Detta nyhetsbrev kommer endast att skickas till de användare som har markerat <em>Jag vill få nyhetsbrev</em> i sina meddelandeinställningar."
         send:
           no_recipients: Inga mottagare för det här urvalet
         show:
@@ -580,7 +582,11 @@ sv:
           create: Skapa
           title: Ny privat deltagare i deltagarutrymme.
       participatory_space_private_users_csv_imports:
+        create:
+          invalid: Det gick inte att läsa CSV-filen.
+          success: CSV-filen har skickats in och vi skickar inbjudan via e-brev till deltagarna. Det kan ta en stund.
         new:
+          explanation: Skicka in din CSV-fil. Den måste ha två kolumner över de användare som du vill lägga till deltagarutrymmet, utan rubriker, med e-postadressen i den första kolumnen i filen och namnet i den sista kolumnen i filen (e-post, namn).
           title: Skicka CSV-fil
           upload: Skicka
       resource_permissions:
