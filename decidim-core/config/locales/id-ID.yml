@@ -710,6 +710,7 @@ id:
         create:
           error: Percakapan tidak dimulai. Coba lagi nanti
         index:
+          close: Tutup modal
           no_conversations: Anda belum memiliki percakapan
           title: Percakapan
         reply:
