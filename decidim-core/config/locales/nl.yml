@@ -770,6 +770,7 @@ nl:
         create:
           error: Gesprek niet gestart. Probeer het later nogmaals
         index:
+          close: Sluit venster
           no_conversations: Je hebt nog geen gesprekken
           title: conversaties
         reply:
