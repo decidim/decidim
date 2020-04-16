@@ -308,6 +308,7 @@ sv:
         import: Importera från en annan komponent
         new: Nytt förslag
         participatory_texts: Deltagartexter
+        show: Visa förslag
         title: Åtgärder
       admin:
         actions:
@@ -386,17 +387,24 @@ sv:
             select_a_meeting: Välj ett möte
           index:
             actions: Åtgärder
+            assign_to_valuator: Tilldela till värderare
+            assign_to_valuator_button: Tilldela
             cancel: Avbryt
             change_category: Ändra kategori
+            change_scope: Ändra omfång
             merge: Slå samman till ett nytt
             merge_button: Slå ihop
             publish: Publicera
+            publish_answers: Publicera svar
             select_component: Välj en komponent
             selected: valda
             split: Dela förslag
             split_button: Dela
             title: Förslag
+            unassign_from_valuator: Ta bort tilldelning till värderare
+            unassign_from_valuator_button: Ta bort tilldelning
             update: Uppdatera
+            update_scope_button: Uppdatera omfång
           new:
             create: Skapa
             title: Skapa förslag
