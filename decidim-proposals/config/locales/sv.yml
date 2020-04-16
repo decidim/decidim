@@ -409,12 +409,33 @@ sv:
             create: Skapa
             title: Skapa förslag
           publish_answers:
+            number_of_proposals: Svar på %{number} förslag kommer att publiceras.
             select_a_proposal: Välj ett förslag
           show:
+            amendments_count: Antal ändringsförslag
+            assigned_valuators: Tilldelade värderare
             authors: Författare
             body: Innehåll
+            comments_count: Antal kommentarer
+            comments_negative_count: Mot
+            comments_neutral_count: Neutral
+            comments_positive_count: För
             created_at: Skapelsedatum
+            documents: Dokument
+            endorsements_count: Antal instämmanden
+            endorsements_ranking: Sortera efter instämmanden
+            endorsers: Instämmer
+            link: Länk
+            n_more_endorsers:
+              one: och 1 till
+              other: och %{count} till
+            photos: Bilder
             proposals: Förslag
+            ranking: "%{ranking} av %{total}"
+            related_meetings: Relaterade möten
+            remove_assignment: Ta bort tilldelning
+            remove_assignment_confirmation: Vill du ta bort värderaren från förslaget?
+            valuators: Värderare
             votes_count: Antal röster
           update_category:
             select_a_category: Välj en kategori
