@@ -183,6 +183,7 @@ sv:
             admin: Administratör
             collaborator: Medarbetare
             moderator: Moderator
+            valuator: Värderare
         media_link:
           fields:
             date: Datum
@@ -461,6 +462,9 @@ sv:
             active_conferences: Aktiva konferenser
             see_all_conferences: Visa alla konferenser
       photo:
+        image:
+          attributes:
+            alt: Mediabild
         show:
           close_modal: Stäng fönstret
           photo: Bild
