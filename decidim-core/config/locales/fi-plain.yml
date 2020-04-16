@@ -792,6 +792,7 @@ fi-pl:
         create:
           error: Keskustelua ei aloitettu. Yritä myöhemmin uudelleen
         index:
+          close: Sulje ikkuna
           no_conversations: Sinulla ei vielä ole keskusteluja
           title: Keskustelut
         reply:
