@@ -149,7 +149,6 @@ en:
           attachment_files: Files
           attachments: Attachments
           categories: Categories
-          components: Components
           conference_admins: Conference admins
           conference_invites: Invites
           conference_speakers: Speakers

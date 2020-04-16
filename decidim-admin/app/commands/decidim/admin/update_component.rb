@@ -42,6 +42,7 @@ module Decidim
         @component.settings = form.settings
         @component.default_step_settings = form.default_step_settings
         @component.step_settings = form.step_settings
+        @component.parent_id = form.parent_id
 
         @settings_changed = @component.settings_changed?
 

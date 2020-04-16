@@ -375,6 +375,7 @@ en:
         appearance: Appearance
         area_types: Area types
         areas: Areas
+        components: Components
         configuration: Configuration
         dashboard: Dashboard
         help_sections: Help sections

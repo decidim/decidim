@@ -10,15 +10,12 @@ module Decidim
       # the sidebar, preload the assembly, etc.
       module InitiativeAdmin
         extend ActiveSupport::Concern
-        include InitiativeSlug
 
         included do
+          include Decidim::Admin::ParticipatorySpaceAdminContext
           include NeedsInitiative
 
-          include Decidim::Admin::ParticipatorySpaceAdminContext
           participatory_space_admin_layout
-
-          alias_method :current_participatory_space, :current_initiative
         end
       end
     end
