@@ -394,6 +394,7 @@ uk:
         create:
           error: Бесіда не розпочата. Спробуйте ще раз пізніше
         index:
+          close: Закрити віконце
           no_conversations: У вас ще немає бесід
         reply:
           title: Відповісти
