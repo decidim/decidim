@@ -808,6 +808,7 @@ cs:
         create:
           error: Konverzace se nespustí. Zkuste to později znovu
         index:
+          close: Zavřít okno
           no_conversations: Nemáte zatím žádné konverzace
           title: Konverzace
         reply:
