@@ -37,6 +37,7 @@ sv:
           destroy_ok: Alla auktoriseringar som överensstämmer har återkallats!
           info: Det finns totalt %{count} verifierade deltagare.
           no_data: Inga verifierade deltagare
+          title: Återkallande av verifiering
         authorization_workflows: Verifieringar
     admin_log:
       organization:
