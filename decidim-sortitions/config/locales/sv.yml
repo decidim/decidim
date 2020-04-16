@@ -124,6 +124,7 @@ sv:
         show:
           algorithm: Tilldelningens algoritmkod
           any_category: från alla kategorier
+          back: Tillbaka till listan
           cancelled: Avbruten tilldelning
           candidate_proposal_ids: Förslagens ordning och ID i tilldelningen
           candidate_proposals_info: 'Tilldelningen gjordes bland följande förslag (%{category_label}), med följande ID (de utvalda förslagen i fetstil)  '
