@@ -805,10 +805,18 @@ cs:
           outro: Užijte si rozhodování!
           subject: Máte nové zprávy od %{sender}
       conversations:
+        add_conversation_users:
+          add_max_users: 'Přidat uživatele do konverzace: nejvýše 9 uživatelů'
+          add_users_placeholder: Hledat...
+          modal_title: Nová konverzace
+          no_results: Žádné výsledky
+          participant_with_disabled_message_reception: Tento uživatel zakázal příjem zpráv
         create:
           error: Konverzace se nespustí. Zkuste to později znovu
         index:
           close: Zavřít okno
+          new_conversation: Nová konverzace
+          next: Další
           no_conversations: Nemáte zatím žádné konverzace
           title: Konverzace
         reply:
