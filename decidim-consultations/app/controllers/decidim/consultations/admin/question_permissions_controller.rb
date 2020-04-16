@@ -7,7 +7,6 @@ module Decidim
       # permissions in the admin panel.
       class QuestionPermissionsController < Decidim::Admin::ResourcePermissionsController
         include QuestionAdmin
-        # layout "decidim/admin/Question"
 
         register_permissions(::Decidim::Consultations::Admin::QuestionPermissionsController,
                              ::Decidim::Consultations::Permissions,

@@ -1,6 +1,6 @@
 <%
-  components = current_participatory_space.components.published.where.not(manifest_name: "meetings")
-  meeting_components = current_participatory_space.components.published.where(manifest_name: "meetings")
+  components = navigation_components.select { |component| component.manifest_name != "meetings" }
+  meeting_components = navigation_components.select { |component| component.manifest_name == "meetings" }
 %>
 
 <%=
@@ -34,7 +34,7 @@
     {
       name: translated_attribute(component.name),
       url: main_component_path(component),
-      active: is_active_link?(main_component_path(component), :inclusive)
+      active: navigation_component_active?(component)
     }
   end + [
     current_participatory_space.attachments.any? || current_participatory_space.media_links.any? ? {

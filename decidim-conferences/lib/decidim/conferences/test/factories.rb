@@ -57,6 +57,7 @@ FactoryBot.define do
     end
 
     organization { conference.organization }
+    admin_terms_accepted_at { Time.zone.now }
 
     after(:create) do |user, evaluator|
       create :conference_user_role,

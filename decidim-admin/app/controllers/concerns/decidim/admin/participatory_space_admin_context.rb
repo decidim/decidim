@@ -29,6 +29,7 @@ module Decidim
         helper_method :current_participatory_space
         helper_method :current_participatory_space_manifest
         helper_method :current_participatory_space_context
+        helper_method :current_participatory_space_admin_proxy
 
         delegate :manifest, to: :current_participatory_space, prefix: true
       end
@@ -55,6 +56,10 @@ module Decidim
 
       def layout
         current_participatory_space_manifest.context(current_participatory_space_context).layout
+      end
+
+      def current_participatory_space_admin_proxy
+        @current_participatory_space_admin_proxy ||= EngineRouter.admin_proxy(current_participatory_space)
       end
     end
   end
