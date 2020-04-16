@@ -82,6 +82,14 @@ module Decidim
     #
     attribute :specific_data_importer_class_name, String
 
+    # Does this component allow to have a parent component?
+    attribute :allow_parent, Boolean, default: false
+    alias allow_parent allow_parent?
+
+    # Does this component allow to have children components?
+    attribute :allow_children, Boolean, default: false
+    alias allow_children allow_children?
+
     validates :name, presence: true
 
     # Public: Registers a hook to this manifest. Hooks get fired when some

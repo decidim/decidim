@@ -35,6 +35,10 @@ module Decidim
 
         alias_method :current_participatory_space, :current_initiative
 
+        def current_participatory_space_manifest
+          @current_participatory_space_manifest ||= Decidim.find_participatory_space_manifest(:initiatives)
+        end
+
         # Public: Wether the current initiative belongs to an initiative type
         # which requires one or more step before creating a signature
         #

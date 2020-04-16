@@ -10,6 +10,8 @@ Decidim.register_component(:budgets) do |component|
   component.permissions_class_name = "Decidim::Budgets::Permissions"
   component.component_form_class_name = "Decidim::Budgets::Admin::ComponentForm"
 
+  component.allow_parent = true
+
   component.data_portable_entities = ["Decidim::Budgets::Order"]
 
   component.newsletter_participant_entities = ["Decidim::Budgets::Order"]
@@ -117,5 +119,7 @@ Decidim.register_component(:budgets) do |component|
       )
       Decidim::Comments::Seed.comments_for(project)
     end
+
+    component
   end
 end
