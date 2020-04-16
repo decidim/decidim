@@ -1356,13 +1356,19 @@ sv:
       left: Raderingar
       right: Tillägg
     dropdown:
+      choose_diff_view_html: 'HTML-visningsläge:'
       choose_diff_view_mode: 'Visningsläge för jämförelse:'
       option_split: Sida vid sida
       option_unified: Sammanslagen
   views:
     pagination:
       first: "&laquo; Första"
+      first_title: Länk till första sidan
       last: Sista &raquo;
+      last_title: Länk till sista sidan
       next: Nästa &rsaquo;
+      next_title: Länk till nästa sida
       previous: "&lsaquo; Föregående"
+      previous_title: Länk till föregående sida
+      title: 'Sidnummer: '
       truncate: "&hellip;"
