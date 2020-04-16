@@ -773,6 +773,7 @@
         create:
           error: Samtalen har ikke startet. Prøv igjen senere
         index:
+          close: Lukk modal
           no_conversations: Du har ingen samtaler ennå
           title: Samtaler
         reply:
