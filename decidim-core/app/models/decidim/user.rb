@@ -11,8 +11,6 @@ module Decidim
     include Decidim::Searchable
     include Decidim::ActsAsAuthor
 
-    OMNIAUTH_PROVIDERS = [:facebook, :twitter, :google_oauth2, (:developer if Rails.env.development?)].compact
-
     class Roles
       def self.all
         Decidim.config.user_roles
@@ -22,7 +20,7 @@ module Decidim
     devise :invitable, :database_authenticatable, :registerable, :confirmable, :timeoutable,
            :recoverable, :rememberable, :trackable, :lockable,
            :decidim_validatable, :decidim_newsletterable,
-           :omniauthable, omniauth_providers: OMNIAUTH_PROVIDERS,
+           :omniauthable, omniauth_providers: Decidim::OmniauthProvider.available.keys,
                           request_keys: [:env], reset_password_keys: [:decidim_organization_id, :email],
                           confirmation_keys: [:decidim_organization_id, :email]
 
@@ -82,6 +80,12 @@ module Decidim
     # Returns a String.
     attr_accessor :invitation_instructions
 
+    # Returns the user corresponding to the given +email+ if it exists and has pending invitations,
+    #   otherwise returns nil.
+    def self.has_pending_invitations?(organization_id, email)
+      invitation_not_accepted.find_by(decidim_organization_id: organization_id, email: email)
+    end
+
     # Returns the presenter for this author, to be used in the views.
     # Required by ActsAsAuthor.
     def presenter
@@ -126,6 +130,13 @@ module Decidim
       Decidim::Follow.where(user: self, followable: followable).any?
     end
 
+    # Public: whether the user accepts direct messages from another
+    def accepts_conversation?(user)
+      return follows?(user) if direct_message_types == "followed-only"
+
+      true
+    end
+
     def unread_conversations
       Decidim::Messaging::Conversation.unread_by(self)
     end
@@ -166,6 +177,10 @@ module Decidim
       accepted_tos_version.to_i >= organization.tos_version.to_i
     end
 
+    def admin_terms_accepted?
+      return true if admin_terms_accepted_at
+    end
+
     # Whether this user can be verified against some authorization or not.
     def verifiable?
       confirmed? || managed? || being_impersonated?
@@ -181,6 +196,28 @@ module Decidim
 
     def interested_scopes
       @interested_scopes ||= organization.scopes.where(id: interested_scopes_ids)
+    end
+
+    # Caches a Decidim::DataPortabilityUploader with the retrieved file.
+    def data_portability_file(filename)
+      @data_portability_file ||= DataPortabilityUploader.new.tap do |uploader|
+        uploader.retrieve_from_store!(filename)
+        uploader.cache!(filename)
+      end
+    end
+
+    # return the groups where this user has been accepted
+    def accepted_user_groups
+      UserGroups::AcceptedUserGroups.for(self)
+    end
+
+    def authenticatable_salt
+      "#{super}#{session_token}"
+    end
+
+    def invalidate_all_sessions!
+      self.session_token = SecureRandom.hex
+      save!
     end
 
     protected

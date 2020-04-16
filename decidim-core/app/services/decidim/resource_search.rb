@@ -25,24 +25,24 @@ module Decidim
 
     # Handle the category_id filter
     def search_category_id
+      return query if category_ids.include?("all")
+
       query
         .includes(:categorization)
-        .where(decidim_categorizations: { decidim_category_id: category_ids })
+        .where(decidim_categorizations: { decidim_category_id: all_category_ids })
     end
 
-    # Handles the scope_id filter. When we want to show only those that do not
-    # have a scope_id set, we cannot pass an empty String or nil because Searchlight
+    # Handles the scope_ids filter. When we want to show only those that do not
+    # have a scope_ids set, we cannot pass an empty String or nil because Searchlight
     # will automatically filter out these params, so the method will not be used.
     # Instead, we need to pass a fake ID and then convert it inside. In this case,
-    # in order to select those elements that do not have a scope_id set we use
+    # in order to select those elements that do not have a scope_ids set we use
     # `"global"` as parameter, and in the method we do the needed changes to search
     # properly.
     def search_scope_id
-      clean_scope_ids = if scope_id.is_a?(Hash)
-                          scope_id.values
-                        else
-                          [scope_id].flatten
-                        end
+      return query if scope_ids.include?("all")
+
+      clean_scope_ids = scope_ids
 
       conditions = []
       conditions << "#{query.model_name.plural}.decidim_scope_id IS NULL" if clean_scope_ids.delete("global")
@@ -55,12 +55,28 @@ module Decidim
 
     # Private: Creates an array of category ids.
     # It contains categories' subcategories ids as well.
-    def category_ids
+    def all_category_ids
+      cat_ids = category_ids.without("without")
+
       component
         .categories
-        .where(id: category_id)
-        .or(component.categories.where(parent_id: category_id))
-        .pluck(:id)
+        .where(id: cat_ids)
+        .or(component.categories.where(parent_id: cat_ids))
+        .pluck(:id).tap { |ids| ids.prepend(nil) if category_ids.include?("without") }
+    end
+
+    # Private: Returns an array with checked category ids.
+    def category_ids
+      [category_id].flatten
+    end
+
+    # Private: Returns an array with checked scope ids.
+    def scope_ids
+      if scope_id.is_a?(Hash)
+        scope_id.values
+      else
+        [scope_id].flatten
+      end
     end
 
     # Private: Since component is not used by a search method we need

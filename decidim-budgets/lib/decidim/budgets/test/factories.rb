@@ -15,13 +15,35 @@ FactoryBot.define do
     trait :with_total_budget_and_vote_threshold_percent do
       transient do
         total_budget { 100_000_000 }
+        vote_rule_threshold_percent_enabled { true }
+        vote_rule_minimum_budget_projects_enabled { false }
         vote_threshold_percent { 70 }
       end
 
       settings do
         {
           total_budget: total_budget,
+          vote_rule_threshold_percent_enabled: vote_rule_threshold_percent_enabled,
+          vote_rule_minimum_budget_projects_enabled: vote_rule_minimum_budget_projects_enabled,
           vote_threshold_percent: vote_threshold_percent
+        }
+      end
+    end
+
+    trait :with_total_budget_and_minimum_budget_projects do
+      transient do
+        total_budget { 100_000_000 }
+        vote_rule_threshold_percent_enabled { false }
+        vote_rule_minimum_budget_projects_enabled { true }
+        vote_minimum_budget_projects_number { 3 }
+      end
+
+      settings do
+        {
+          total_budget: total_budget,
+          vote_rule_threshold_percent_enabled: vote_rule_threshold_percent_enabled,
+          vote_rule_minimum_budget_projects_enabled: vote_rule_minimum_budget_projects_enabled,
+          vote_minimum_budget_projects_number: vote_minimum_budget_projects_number
         }
       end
     end
@@ -40,6 +62,17 @@ FactoryBot.define do
       step_settings do
         {
           participatory_space.active_step.id => {
+            show_votes: true
+          }
+        }
+      end
+    end
+
+    trait :with_voting_finished do
+      step_settings do
+        {
+          participatory_space.active_step.id => {
+            votes_enabled: false,
             show_votes: true
           }
         }

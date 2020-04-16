@@ -2,28 +2,28 @@
   <div class="filters__section">
     <div class="filters__search">
       <div class="input-group">
-        <%= form.search_field :search_text, label: false, class: "input-group-field", placeholder: t(".search") %>
+        <%= form.search_field :search_text, label: false, class: "input-group-field", placeholder: t(".search"), title: t(".search") %>
         <div class="input-group-button">
-          <button type="submit" class="button button--muted">
-            <%= icon "magnifying-glass", aria_label: t(".search") %>
+          <button type="submit" class="button button--muted" aria-label="<%= t(".search") %>">
+            <%= icon "magnifying-glass", aria_label: t(".search"), role: "img" %>
           </button>
         </div>
       </div>
     </div>
   </div>
 
-  <%= form.collection_radio_buttons :state, collaborative_drafts_states_collection, :first, :last, legend_title: t(".state") %>
+  <%= form.check_boxes_tree :state, filter_collaborative_drafts_state_values, legend_title: t(".state") %>
 
   <% if linked_classes_for(Decidim::Proposals::CollaborativeDraft).any? %>
     <%= form.collection_radio_buttons :related_to, linked_classes_filter_values_for(Decidim::Proposals::CollaborativeDraft), :first, :last, legend_title: t(".related_to") %>
   <% end %>
 
   <% if current_participatory_space.has_subscopes? %>
-    <%= scopes_picker_filter form, :scope_id %>
+    <%= form.check_boxes_tree :scope_id, filter_scopes_values, legend_title: t(".scope") %>
   <% end %>
 
   <% if current_component.categories.any? %>
-    <%= form.categories_select :category_id, current_component.categories, legend_title: t(".category"), disable_parents: false, label: false, prompt: t(".category_prompt") %>
+    <%= form.check_boxes_tree :category_id, filter_categories_values, legend_title: t(".category") %>
   <% end %>
 
   <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>

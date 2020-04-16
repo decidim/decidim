@@ -1,6 +1,6 @@
 <div class="row columns">
   <%= link_to :back, class: "muted-link" do %>
-    <%= icon "chevron-left", class: "icon--small" %>
+    <%= icon "chevron-left", class: "icon--small", role: "img" %>
     <%= t(".back") %>
   <% end %>
   <h2 class="section-heading"><%= t(".title") %></h2>
@@ -16,7 +16,7 @@
           </div>
 
           <div class="field">
-            <%= form.text_area :description, rows: 10 %>
+            <%= text_editor_for_debate_description(form) %>
           </div>
 
           <% if current_participatory_space.categories&.any? %>

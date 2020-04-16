@@ -10,6 +10,12 @@ module Decidim
       def has_actions?
         false
       end
+
+      def endorsements_count
+        with_tooltip t("decidim.endorsable.endorsements") do
+          icon("bullhorn", class: "icon--small") + " " + model.endorsements_count.to_s
+        end
+      end
     end
   end
 end

@@ -238,6 +238,9 @@ es:
           edit:
             update: Actualizar
           form:
+            address_help: 'Dirección: usada por Geocoder para encontrar la ubicación'
+            location_help: 'Ubicación: mensaje dirigido a las participantes indicando el lugar donde reunirse'
+            location_hints_help: 'Sugerencias de ubicación: información adicional. Ejemplo: la planta del edificio'
             select_organizer: Selecciona la organizadora
           index:
             title: Encuentros
@@ -408,7 +411,7 @@ es:
       registrations:
         create:
           invalid: Se ha producido un error al inscribirte a este encuentro.
-          success: Te has inscrito al encuentro con éxito.
+          success: Te has inscrito al encuentro con éxito. Al estar inscrita recibirás una notificación si se producen actualizaciones.
         decline_invitation:
           invalid: Se ha producido un error al declinar la invitación.
           success: Has rechazado la invitación con éxito.

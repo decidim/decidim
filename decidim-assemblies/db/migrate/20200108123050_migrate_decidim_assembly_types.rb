@@ -2,7 +2,6 @@
 
 # Migrates freezed assembly types to a table where to configure them
 class MigrateDecidimAssemblyTypes < ActiveRecord::Migration[5.2]
-  # LEGACY_TYPES = %w(government executive consultative_advisory participatory working_group commission others).freeze
   LEGACY_TYPES = {
     "government" => "Government",
     "executive" => "Executive",

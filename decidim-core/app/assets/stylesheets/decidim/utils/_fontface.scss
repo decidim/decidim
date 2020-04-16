@@ -27,3 +27,13 @@
     font-url('decidim/Source_Sans_Pro_900.woff') format('woff'),
     font-url('decidim/Source_Sans_Pro_900.ttf') format('truetype');
 }
+
+@font-face{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 900;
+  src:
+    asset-data-url('decidim/Roboto-Regular.woff2') format('woff2'),
+    font-url('decidim/Roboto-Regular.woff') format('woff'),
+    font-url('decidim/Roboto-Regular.ttf') format('truetype');
+}

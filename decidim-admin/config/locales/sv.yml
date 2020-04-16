@@ -511,18 +511,12 @@ sv:
           actions: Åtgärder
           badge: Märke
           created_at: Skapad
-          filter:
-            all: Alla
-            not_officialized: Ej gjord officiell
-            officialized: Gjord officiell
-          filter_by: Filtrera efter
           name: Namn
           nickname: Användarnamn
           not_officialized: Ej gjord officiell
           officialize: Gör officiell
           officialized: Gjord officiell
           reofficialize: Gör officiell igen
-          search: Sök
           status: Status
           unofficialize: Sluta gör officiell
         new:

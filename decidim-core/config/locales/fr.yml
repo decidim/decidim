@@ -69,8 +69,6 @@ fr:
     account:
       data_portability_export:
         file_no_exists: Le fichier n'existe pas
-        invalid_token: Le jeton fourni est invalide.
-        no_token: Aucun jeton fourni
         notice: Votre export est actuellement en cours. Vous recevrez un email quand il sera complet.
       delete:
         alert: Cette action ne peut pas être annulée. Si vous supprimez votre compte, vous ne pourrez plus vous connecter.
@@ -416,6 +414,8 @@ fr:
           this_application_will_not_be_able_to: 'Cette application ne sera pas capable de :'
           update_profile: Mettre à jour votre profil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> veut utiliser votre compte"
+    endorsable:
+      endorsements: Soutiens
     errors:
       internal_server_error:
         title: Il y a eu un problème avec notre serveur
@@ -544,7 +544,7 @@ fr:
           notification_title: Le <a href="%{resource_path}">profil public</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
     export_mailer:
       data_portability_export:
-        click_button: Cliquez sur le bouton suivant pour télécharger vos données. <br/> Le fichier sera disponible jusqu'au %{date}.
+        click_button: 'Cliquez sur le bouton suivant pour télécharger vos données. <br/> Le fichier sera disponible jusqu''au %{date}.'
         download: Télécharger
       export:
         ready: Vous trouverez ci-joint une version zippée de votre exportation.
@@ -590,16 +590,6 @@ fr:
     gamification:
       all_badges_link: Voir tous les badges disponibles.
       badges:
-        continuity:
-          conditions:
-            - Viens ici souvent
-          description: Ce badge est attribué lorsque vous visitez la plate-forme de manière régulière. Nous aimons vous avoir ici!
-          description_another: Cet utilisateur s'est connecté pendant %{score} jours consécutifs à un moment donné.
-          description_own: Vous vous êtes connecté pendant %{score} jours consécutifs à un moment donné.
-          name: Continuité
-          next_level_in: Connectez-vous pendant %{score} jours consécutifs pour passer au niveau suivant!
-          unearned_another: Cet utilisateur ne s'est pas connecté depuis plus d'un jour consécutif.
-          unearned_own: Vous n'êtes pas connecté depuis plus d'un jour consécutif.
         followers:
           conditions:
             - Être actif et suivre les autres incitera sûrement les autres à vous suivre.
@@ -1071,7 +1061,7 @@ fr:
       invalid: '%{authentication_keys} ou mot de passe invalide.'
       invited: Vous avez une invitation en attente, acceptez-la pour terminer la création de votre compte.
       last_attempt: Vous avez encore une tentative avant que votre compte soit verrouillé.
-      locked: Ton compte est bloqué.
+      locked: Votre compte est bloqué.
       not_found_in_database: '%{authentication_keys} ou mot de passe invalide.'
       timeout: Votre session a expiré. Veuillez vous connecter à nouveau pour continuer.
       unauthenticated: Vous devez vous connecter ou vous inscrire avant de continuer.
@@ -1136,7 +1126,7 @@ fr:
       unlock_instructions:
         action: Débloquer mon compte
         greeting: Bonjour %{recipient}!
-        instruction: 'Cliquez sur le lien ci-dessous pour débloquer votre compte:'
+        instruction: 'Cliquez sur le lien ci-dessous pour débloquer votre compte :'
         message: Votre compte a été verrouillé en raison d'une quantité excessive de tentatives de connexion infructueuses.
         subject: Instructions de déverrouillage
     omniauth_callbacks:
@@ -1165,7 +1155,7 @@ fr:
         currently_waiting_confirmation_for_email: 'En attente de confirmation pour: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: laisser vide si vous ne voulez pas le changer
         title: Modifier %{resource}
-        unhappy: Pas satisfait ? 
+        unhappy: Pas satisfait ?
         update: Mettre à jour
         we_need_your_current_password_to_confirm_your_changes: nous avons besoin de votre mot de passe actuel pour confirmer vos modifications
       new:
@@ -1186,7 +1176,7 @@ fr:
       links:
         back: Retour
         didn_t_receive_confirmation_instructions: Vous n'avez pas reçu d'instructions de confirmation?
-        didn_t_receive_unlock_instructions: Vous n'avez pas reçu d'instructions de confirmation?
+        didn_t_receive_unlock_instructions: Si la plateforme vous indique que votre compte est bloqué, cliquez ici pour recevoir les instructions de déblocage
         forgot_your_password: Mot de passe oublié?
         sign_in: S'identifier
         sign_in_with_provider: Se connecter avec %{provider}

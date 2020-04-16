@@ -50,7 +50,6 @@ gl:
       decidim/proposals/creation_enabled_event: Creación de proposta habilitada
       decidim/proposals/endorsing_enabled_event: Aprobación da proposta habilitada
       decidim/proposals/evaluating_proposal_event: A proposta está a ser avaliada
-      decidim/proposals/proposal_endorsed_event: Proposta aprobada
       decidim/proposals/proposal_mentioned_event: Proposta mencionada
       decidim/proposals/publish_proposal_event: Proposta publicada
       decidim/proposals/rejected_proposal_event: Proposta rexeitada
@@ -63,9 +62,6 @@ gl:
       decidim/proposals/proposal:
         one: Proposta
         other: Propostas
-      decidim/proposals/proposal_endorsement:
-        one: Aprobación
-        other: Aprobacións
       decidim/proposals/proposal_note:
         one: Nota
         other: Notas
@@ -170,11 +166,6 @@ gl:
             email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
             email_subject: Aceptouse unha proposta que estás seguindo
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi aceptada.
-        proposal_endorsed:
-          email_intro: '%{endorser_name} %{endorser_nickname}, quen está seguindo, acaba de aprobar a proposta "%{resource_title}" e pensamos que pode ser interesante para ti. Consulte e contribúa:'
-          email_outro: Recibiches esta notificación porque estás seguindo %{endorser_nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
-          email_subject: "%{endorser_nickname} aprobou unha nova proposta"
-          notification_title: A <a href="%{resource_path}">%{resource_title}</a> proposta foi aprobada por <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           affected_user:
             email_intro: 'A túa proposta "%{resource_title}" está a ser avaliada. Podes consultar unha resposta nesta páxina:'
@@ -187,7 +178,6 @@ gl:
             email_subject: Estase evaluando unha proposta que estás seguindo
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> está a ser avaliada.
         proposal_mentioned:
-          email_intro: A túa proposta "%{mentioned_proposal_title}" foi mencionada <a href="%{resource_path}">neste espazo</a> nos comentarios.
           email_outro: Recibiches esta notificación porque es un autor de "%{resource_title}".
           email_subject: Enviouse a súa proposta "%{mentioned_proposal_title}"
           notification_title: A túa proposta "%{mentioned_proposal_title}" foi mencionada <a href="%{resource_path}">neste espazo</a> nos comentarios.
@@ -217,6 +207,8 @@ gl:
           email_outro: Recibiches esta notificación porque es o autor da proposta.
           email_subject: A categoría de proposta %{resource_title} foi actualizada
           notification_title: A categoría de proposta <a href="%{resource_path}">%{resource_title}</a> foi actualizada por un administrador.
+        proposal_update_scope:
+          email_outro: Recibiches esta notificación porque es o autor da proposta.
         voting_enabled:
           email_intro: 'Podes votar propostas en %{participatory_space_title}. Comezar a participar nesta páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
@@ -283,12 +275,10 @@ gl:
         see_all: Ver todos (%{count})
     proposals:
       actions:
-        answer: Resposta
         edit_proposal: Editar proposta
         import: Importar dende outro compoñente
         new: Nova proposta
         participatory_texts: Textos participativos
-        private_notes: Notas privadas
         title: Accións
       admin:
         actions:
@@ -332,11 +322,7 @@ gl:
           update:
             success: Texto participativo actualizado con éxito.
         proposal_answers:
-          edit:
-            accepted: Aceptada
-            answer_proposal: Resposta
-            evaluating: Avaliación
-            rejected: Rexeitado
+          form:
             title: Resposta á proposta %{title}
         proposal_notes:
           create:
@@ -368,6 +354,7 @@ gl:
             change_category: Cambiar categoría
             merge: Unirse a un novo
             merge_button: Fusionar
+            publish: Publicar
             select_component: Seleccione un compoñente
             selected: seleccionado
             split: Dividir propostas
@@ -377,11 +364,16 @@ gl:
           new:
             create: Crear
             title: Crear proposta
+          publish_answers:
+            select_a_proposal: Selecciona unha proposta
+          show:
+            created_at: Data de creación
+            votes_count: Reconto de votos
           update_category:
-            invalid: 'Estas propostas xa tiñan a categoría %{category} : %{proposals}.'
             select_a_category: Selecciona unha categoría
             select_a_proposal: Selecciona unha proposta
-            success: 'As propostas actualizáronse con éxito á categoría %{category} : %{proposals}.'
+          update_scope:
+            select_a_proposal: Selecciona unha proposta
         proposals_imports:
           create:
             invalid: Produciuse un problema na importación das propostas
@@ -399,12 +391,6 @@ gl:
           create:
             invalid: Produciuse un erro dividindo as propostas seleccionadas.
             success: Reaccionou con éxito as propostas en novas.
-        shared:
-          info_proposal:
-            body: Corpo
-            created_at: Data de creación
-            proposal_votes_count: Reconto de votos
-            proposals: Propostas
       admin_log:
         proposal:
           answer: "%{user_name} respondeu á proposta %{resource_name} no espazo %{space_name}"
@@ -429,7 +415,6 @@ gl:
           accepted: Aceptada
           all: Todo
           evaluating: Avaliación
-          except_rejected: Todos excepto rexeitados
           rejected: Rexeitado
         filter_type_values:
           all: Todo
@@ -478,7 +463,6 @@ gl:
           all: Todo
           amendment: Enmendas
           category: Categoría
-          category_prompt: Aviso de categoría
           open: Aberto
           published: Publicado
           related_to: Relacionado con
@@ -567,7 +551,6 @@ gl:
           fields:
             category: Categoría
             comments: Comentarios
-            endorsements: Aprobacións
             id: ID
             notes: Notas
             official_proposal: Proposta oficial
@@ -584,18 +567,6 @@ gl:
           amend: Modificar
           comment: Comentario
           comments: Comentarios
-          endorse: Endosar
-      proposal_endorsements:
-        create:
-          error: Houbo erros ao aprobar a proposta.
-        identities:
-          done: Feito
-          select_identity: Seleccionar identidade
-      proposal_endorsements_helper:
-        endorsement_button:
-          already_endorsed: Aprobado
-          endorse: Endosar
-        render_endorsements_button_card_part:
           endorse: Endosar
       proposal_votes:
         create:
@@ -623,14 +594,9 @@ gl:
           discard_confirmation: '¿Estás seguro de que desexas descartar este borrador de proposta?'
           send: Vista previa
           title: Editar borrador de proposta
-        endorsement_identities_cabin:
-          endorse: Endosar
-        endorsements_card_row:
-          comments: Comentarios
         filters:
           amendment_type: Tipo
           category: Categoría
-          category_prompt: Selecciona unha categoría
           origin: Orixe
           related_to: Relacionado con
           search: Busca
@@ -674,7 +640,9 @@ gl:
           creation_date: 'Creación: %{date}'
           view_proposal: Ver proposta
         show:
+          answer: Resposta
           back_to: Voltar
+          comments: Comentarios
           edit_proposal: Editar proposta
           endorsements_list: Lista de avales
           hidden_endorsers_count:
@@ -689,9 +657,6 @@ gl:
           withdraw_btn_hint: Pode retirar a súa proposta se cambia de opinión, sempre que non teña recibido ningún apoio. A proposta non se elimina, aparecerá na lista de propostas retiradas.
           withdraw_confirmation: '¿Estás seguro de retirar esta proposta?'
           withdraw_proposal: Retire a proposta
-        tags:
-          changed_from: "(cambiado de <u>%{previous_category}</u> por un administrador)"
-          filed_as: Arquivo como
         vote_button:
           already_voted: Xa votou
           already_voted_hover: Unvocar

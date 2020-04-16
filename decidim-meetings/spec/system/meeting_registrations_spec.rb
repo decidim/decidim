@@ -142,7 +142,7 @@ describe "Meeting registrations", type: :system do
         end
 
         context "and they ARE NOT part of a verified user group" do
-          it "they can join the meeting" do
+          it "they can join the meeting and automatically follow it" do
             visit_meeting
 
             within ".card.extra" do
@@ -158,6 +158,7 @@ describe "Meeting registrations", type: :system do
 
             expect(page).to have_css(".button", text: "GOING")
             expect(page).to have_text("19 slots remaining")
+            expect(page).to have_text("Stop following")
           end
         end
 

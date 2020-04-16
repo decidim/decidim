@@ -60,6 +60,11 @@ module Decidim
         template += error_for(attribute, options) if error?(attribute)
         template.html_safe
       end
+
+      # Calls Decidim::FormBuilder#editor with default options for admin.
+      def editor(name, options = {})
+        super(name, { toolbar: :full, lines: 25 }.merge(options))
+      end
     end
   end
 end

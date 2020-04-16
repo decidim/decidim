@@ -67,7 +67,7 @@ Then create a development application
 ```console
 d/bundle install
 d/rake development_app
-d/rails server
+d/rails server -b 0.0.0.0
 ```
 
 In general, to use the docker development environment, change any instruction in
@@ -103,8 +103,15 @@ Visit [http://localhost:3000](http://localhost:3000) to see your app running.
 
 Decidim comes pre-configured with some safe defaults, but can be changed through the `config/initializers/decidim.rb` file in your app. Check the comments there or read the comments in [the source file](https://github.com/decidim/decidim/blob/master/decidim-core/lib/decidim/core.rb) (the part with the `config_accessor` calls) for more up-to-date info.
 
-If you want to run the automatic rake task to delete data portability files, write in `crontab -e`
-`0 0 * * * cd /Users/you/projects/myrailsapp && /usr/local/bin/rake RAILS_ENV=production decidim:delete_data_portability_files`
+### Scheduled tasks
+
+For Decidim to function as expected, there are some background tasks that should be scheduled to be executed regularly.
+
+- Expired *data portability* files should be removed. To do it, write a `crontab -e` line like: `0 0 * * * cd /Users/you/projects/myrailsapp && /usr/local/bin/rake RAILS_ENV=production decidim:delete_data_portability_files`
+- *Metrics* also require a cron to be computed nightly. Find more information in the [related documentation](https://github.com/decidim/decidim/blob/master/docs/advanced/mertics.md#Configuration).
+- *Open Data* is also produced nightly via a scheduled job. Find more information in the [open-data documentation](https://github.com/decidim/decidim/blob/master/docs/advanced/open-data.md).
+
+### Further configuration
 
 We also have other guides on how to configure some extra components:
 

@@ -16,12 +16,29 @@ module Decidim
         current_order&.budget_percent.to_f.floor
       end
 
+      # Return the minimum percentage of the current order budget from the total budget
+      def current_order_budget_percent_minimum
+        return 0 if current_order.minimum_projects_rule?
+
+        component_settings.vote_threshold_percent
+      end
+
+      def budget_confirm_disabled_attr
+        return if current_order_can_be_checked_out?
+
+        %( disabled="disabled" )
+      end
+
       # Return true if the current order is checked out
       delegate :checked_out?, to: :current_order, prefix: true, allow_nil: true
 
       # Return true if the user can continue to the checkout process
       def current_order_can_be_checked_out?
         current_order&.can_checkout?
+      end
+
+      def projects_base_url
+        URI.parse(root_url).tap { |uri| uri.query = uri.fragment = nil } .to_s
       end
     end
   end

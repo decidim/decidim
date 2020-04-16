@@ -24,6 +24,11 @@ module Decidim::Meetings::Calendar
         expect(event).to receive(:to_ical)
         subject.to_ical
       end
+
+      it "dates are in UTC" do
+        expect(subject.to_ical).to include(event.dtstart.strftime("DTSTART:%Y%m%dT%H%M%SZ"))
+        expect(subject.to_ical).to include(event.dtend.strftime("DTEND:%Y%m%dT%H%M%SZ"))
+      end
     end
   end
 end

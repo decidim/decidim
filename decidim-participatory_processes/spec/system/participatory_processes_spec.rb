@@ -5,6 +5,7 @@ require "decidim/core/test/shared_examples/has_contextual_help"
 
 describe "Participatory Processes", type: :system do
   let(:organization) { create(:organization) }
+  let(:show_metrics) { true }
   let(:show_statistics) { true }
   let(:hashtag) { true }
   let(:base_process) do
@@ -14,6 +15,7 @@ describe "Participatory Processes", type: :system do
       organization: organization,
       description: { en: "Description", ca: "Descripció", es: "Descripción" },
       short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" },
+      show_metrics: show_metrics,
       show_statistics: show_statistics
     )
   end
@@ -109,7 +111,7 @@ describe "Participatory Processes", type: :system do
 
     it "lists the active processes" do
       within "#processes-grid" do
-        within "#processes-grid h2" do
+        within "#processes-grid h3" do
           expect(page).to have_content("3 ACTIVE PROCESSES")
         end
 
@@ -192,6 +194,22 @@ describe "Participatory Processes", type: :system do
       let(:collection_for) { participatory_process }
     end
 
+    context "when it has some linked processes" do
+      let(:published_process) { create :participatory_process, :published, organization: organization }
+      let(:unpublished_process) { create :participatory_process, :unpublished, organization: organization }
+
+      it "only shows the published linked processes" do
+        participatory_process
+          .link_participatory_space_resources(
+            [published_process, unpublished_process],
+            "related_processes"
+          )
+        visit decidim_participatory_processes.participatory_process_path(participatory_process)
+        expect(page).to have_content(translated(published_process.title))
+        expect(page).to have_no_content(translated(unpublished_process.title))
+      end
+    end
+
     context "and the process has some components" do
       it "shows the components" do
         within ".process-nav" do
@@ -200,15 +218,8 @@ describe "Participatory Processes", type: :system do
         end
       end
 
-      it "shows the stats for those components" do
-        within ".process_stats" do
-          expect(page).to have_content("3 PROPOSALS")
-          expect(page).to have_no_content("0 MEETINGS")
-        end
-      end
-
-      context "and organization show_statistics attribute is true" do
-        let(:organization) { create(:organization, show_statistics: true) }
+      context "and the process metrics are enabled" do
+        let(:organization) { create(:organization) }
         let(:metrics) do
           Decidim.metrics_registry.filtered(highlight: true, scope: "participatory_process").each do |metric_registry|
             create(:metric, metric_type: metric_registry.metric_name, day: Time.zone.today - 1.week, organization: organization, participatory_space_type: Decidim::ParticipatoryProcess.name, participatory_space_id: participatory_process.id, cumulative: 5, quantity: 2)
@@ -221,38 +232,67 @@ describe "Participatory Processes", type: :system do
         end
 
         it "shows the metrics charts" do
+          expect(page).to have_css("h3.section-heading", text: "METRICS")
+
           within "#metrics" do
-            expect(page).to have_content(/Participation in figures/i)
             Decidim.metrics_registry.filtered(highlight: true, scope: "participatory_process").each do |metric_registry|
               expect(page).to have_css(%(##{metric_registry.metric_name}_chart))
             end
           end
         end
 
-        it "check link its present" do
+        it "renders a link to all metrics" do
           within "#metrics" do
-            expect(page).to have_link("Show all statistics")
+            expect(page).to have_link("Show all metrics")
           end
         end
 
         it "click link" do
-          click_link("Show all statistics")
-          have_current_path(decidim_participatory_processes.statistics_participatory_process_path(participatory_process))
+          click_link("Show all metrics")
+          have_current_path(decidim_participatory_processes.all_metrics_participatory_process_path(participatory_process))
         end
       end
 
-      context "and the process stats are not enabled" do
+      context "and the process statistics are enabled" do
+        let(:show_statistics) { true }
+
+        it "the stats for those components are visible" do
+          within "#participatory_process-statistics" do
+            expect(page).to have_css("h4.section-heading", text: "STATISTICS")
+            expect(page).to have_css(".process-stats__title", text: "PROPOSALS")
+            expect(page).to have_css(".process-stats__number", text: "3")
+            expect(page).to have_no_css(".process-stats__title", text: "MEETINGS")
+            expect(page).to have_no_css(".process-stats__number", text: "0")
+          end
+        end
+      end
+
+      context "and the process statistics are not enabled" do
         let(:show_statistics) { false }
 
         it "the stats for those components are not visible" do
-          expect(page).to have_no_content("3 PROPOSALS")
+          expect(page).to have_no_css("h4.section-heading", text: "STATISTICS")
+          expect(page).to have_no_css(".process-stats__title", text: "PROPOSALS")
+          expect(page).to have_no_css(".process-stats__number", text: "3")
+        end
+      end
+
+      context "and the process metrics are not enabled" do
+        let(:show_metrics) { false }
+
+        it "the metrics for the participatory processes are not rendered" do
+          expect(page).to have_no_css("h4.section-heading", text: "METRICS")
+        end
+
+        it "has no link to all metrics" do
+          expect(page).to have_no_link("Show all metrics")
         end
       end
 
       context "and the process doesn't have hashtag" do
         let(:hashtag) { false }
 
-        it "the stats for those components are not visible" do
+        it "the hashtags for those components are not visible" do
           expect(page).to have_no_content("#")
         end
       end

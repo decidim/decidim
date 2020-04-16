@@ -4,7 +4,8 @@ require "spec_helper"
 
 describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
   let!(:component) { create(:proposal_component) }
-  let!(:current_user) { create(:user, :admin, organization: component.participatory_space.organization) }
+  let(:organization) { component.organization }
+  let!(:current_user) { create(:user, :admin, organization: organization) }
 
   describe "on destroy" do
     context "when there are no proposals for the component" do
@@ -33,16 +34,24 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
   end
 
   describe "on update" do
+    let(:manifest) { component.manifest }
+    let(:participatory_space) { component.participatory_space }
+    let(:active_step_id) { participatory_space.active_step.id }
     let(:form) do
-      instance_double(
-        Decidim::Admin::ComponentForm,
-        invalid?: !valid,
+      Decidim::Proposals::Admin::ComponentForm.from_params(
+        id: component.id,
         weight: 0,
-        name: {},
+        manifest: manifest,
+        participatory_space: participatory_space,
+        name: generate_localized_title,
         default_step_settings: {},
-        settings: settings,
-        step_settings: step_settings
-      )
+        settings: new_settings(:global, settings),
+        step_settings: { active_step_id => new_settings(:step, step_settings) }
+      ).with_context(current_organization: organization)
+    end
+
+    def new_settings(name, data)
+      Decidim::Component.build_settings(manifest, name, data, organization)
     end
 
     describe "participatory_texts_enabled" do
@@ -50,8 +59,6 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       let(:step_settings) { {} }
 
       context "when there are no proposals for the component" do
-        let(:valid) { true }
-
         it "updates the component" do
           expect do
             Decidim::Admin::UpdateComponent.call(form, component)
@@ -60,8 +67,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       end
 
       context "when there are proposals for the component" do
-        let(:proposal) { create(:proposal, component: component) }
-        let(:valid) { false }
+        let!(:proposal) { create(:proposal, component: component) }
 
         it "does NOT update the component" do
           expect do
@@ -73,17 +79,10 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
 
     describe "amendments_visibility" do
       let(:settings) { { amendments_enabled: true } }
-      let(:step_settings) do
-        {
-          component.participatory_space.active_step.id => {
-            amendments_visibility: amendment_visibility_option
-          }
-        }
-      end
+      let(:step_settings) { { amendments_visibility: amendment_visibility_option } }
 
       context "when the amendment visibility option is valid" do
         let(:amendment_visibility_option) { "all" }
-        let(:valid) { true }
 
         it "updates the component" do
           expect do
@@ -94,7 +93,6 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
 
       context "when the amendment visibility option is NOT valid" do
         let(:amendment_visibility_option) { "INVALID" }
-        let(:valid) { false }
 
         it "does NOT update the component" do
           expect do
@@ -148,8 +146,8 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       end
     end
 
-    describe "votes_count" do
-      let(:stats_name) { :votes_count }
+    describe "supports_count" do
+      let(:stats_name) { :supports_count }
 
       before do
         create_list :proposal_vote, 2, proposal: proposal
@@ -166,12 +164,18 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       let(:stats_name) { :endorsements_count }
 
       before do
-        create_list :proposal_endorsement, 2, proposal: proposal
-        create_list :proposal_endorsement, 3, proposal: hidden_proposal
+        # rubocop:disable FactoryBot/CreateList
+        2.times do
+          create(:endorsement, resource: proposal, author: build(:user, organization: organization))
+        end
+        3.times do
+          create(:endorsement, resource: hidden_proposal, author: build(:user, organization: organization))
+        end
+        # rubocop:enable FactoryBot/CreateList
       end
 
       it "counts the endorsements from visible proposals" do
-        expect(Decidim::Proposals::ProposalEndorsement.count).to eq 5
+        expect(Decidim::Endorsement.count).to eq 5
         expect(subject).to eq 2
       end
     end
@@ -197,7 +201,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
     end
 
     before do
-      switch_to_host(component.organization.host)
+      switch_to_host(organization.host)
       login_as current_user, scope: :user
     end
 
@@ -271,6 +275,44 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
         it "is NOT shown the amendments step settings" do
           expect(page).to have_css(".amendments_step_settings", visible: false)
         end
+      end
+    end
+  end
+
+  describe "proposals exporter" do
+    subject do
+      component
+        .manifest
+        .export_manifests
+        .find { |manifest| manifest.name == :proposals }
+        .collection
+        .call(component, user)
+    end
+
+    let!(:assigned_proposal) { create :proposal }
+    let(:component) { assigned_proposal.component }
+    let!(:unassigned_proposal) { create :proposal, component: component }
+    let(:participatory_process) { component.participatory_space }
+    let(:organization) { participatory_process.organization }
+
+    context "when the user is a valuator" do
+      let!(:user) { create :user, admin: false, organization: organization }
+      let!(:valuator_role) { create :participatory_process_user_role, role: :valuator, user: user, participatory_process: participatory_process }
+
+      before do
+        create :valuation_assignment, proposal: assigned_proposal, valuator_role: valuator_role
+      end
+
+      it "only exports assigned proposals" do
+        expect(subject).to eq([assigned_proposal])
+      end
+    end
+
+    context "when the user is an admin" do
+      let!(:user) { create :user, admin: true, organization: organization }
+
+      it "exports all proposals from the component" do
+        expect(subject).to match_array([unassigned_proposal, assigned_proposal])
       end
     end
   end

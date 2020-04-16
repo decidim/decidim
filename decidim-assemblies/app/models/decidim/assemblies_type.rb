@@ -3,6 +3,9 @@
 module Decidim
   # Assembly type.
   class AssembliesType < ApplicationRecord
+    include Decidim::Traceable
+    include Decidim::Loggable
+
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"
@@ -13,5 +16,9 @@ module Decidim
              dependent: :nullify
 
     validates :title, presence: true
+
+    def self.log_presenter_class_for(_log)
+      Decidim::Assemblies::AdminLog::AssembliesTypePresenter
+    end
   end
 end

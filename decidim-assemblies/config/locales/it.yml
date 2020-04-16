@@ -159,6 +159,9 @@ it:
           moderations: Moderazione
           private_users: Utenti privati
       models:
+        assemblies_types:
+          fields:
+            title: Titolo
         assembly:
           fields:
             created_at: Data/ora di creazione
@@ -191,6 +194,7 @@ it:
             moderator: Moderatore
       titles:
         assemblies: assemblee
+        assemblies_types: Tipo di assemblea
     admin_log:
       assembly:
         create: "%{user_name} ha creato l'assemblaggio %{resource_name}"
@@ -201,6 +205,12 @@ it:
         create: "%{user_name} creato il membro %{resource_name} nel %{space_name} assembly"
         delete: "%{user_name} rimosso il membro %{resource_name} dal gruppo %{space_name}"
         update: "%{user_name} aggiornato il %{resource_name} membro nel %{space_name} assembly"
+      assembly_type:
+        create: "%{user_name} ha creato il tipo di assemblea %{resource_name}"
+        delete: "%{user_name} ha rimosso il %{resource_name} membro dal tipo di assemblea %{space_name}"
+        publish: "%{user_name} ha creato il tipo di assemblea %{resource_name}"
+        unpublish: "%{user_name} ha rimosso la pubblicazione del tipo di assembly %{resource_name}"
+        update: "%{user_name} ha aggiornato il tipo di assemblea %{resource_name}"
       assembly_user_role:
         create: "%{user_name} invitato %{resource_name} all'assemblea %{space_name}"
         delete: "%{user_name} rimosso l'utente %{resource_name} dall'assembly %{space_name}"
@@ -224,6 +234,9 @@ it:
             social_handlers: Sociale
             title: Informazioni generali
             visbility: Visibilità
+        assemblies_types:
+          form:
+            title: Titolo
         assembly_copies:
           form:
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo assembly. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
@@ -342,6 +355,8 @@ it:
       value_types:
         assembly_presenter:
           not_found: 'L''assembly non è stato trovato nel database (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'Il tipo di assemblea non è stato trovato nel database (ID: %{id})'
     menu:
       assemblies: assemblee
     metrics:

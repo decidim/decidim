@@ -22,9 +22,12 @@ fi:
         participatory_structure: Miten päätetään
         promoted: Korostettu
         published_at: Julkaisuaika
+        related_process_ids: Liittyvät prosessit
         scope_id: Teema
+        scope_type_max_depth_id: Teema-suodattimen syvyys
         scopes_enabled: Teemat käytössä
         short_description: Lyhyt kuvaus
+        show_metrics: Näytä tilastot
         show_statistics: Näytä tilastot
         slug: URL-tunniste
         start_date: Alkamispäivä
@@ -78,7 +81,7 @@ fi:
         duplicate: Kopioi
         edit: Muokkaa
         filter:
-          all: Näytä kaikki prosessit
+          all_processes: Näytä kaikki prosessit
           process_groups: Prosessiryhmät
         import_process: Tuo
         new_process: Uusi prosessi
@@ -132,6 +135,7 @@ fi:
             admin: Järjestelmänvalvoja
             collaborator: Osallisuuskäyttäjä
             moderator: Moderoija
+            valuator: Arvon arvioija
         user:
           fields:
             invitation_accepted_at: Kutsu hyväksytty
@@ -203,13 +207,13 @@ fi:
         destroy:
           success: Käyttäjä poistettiin onnistuneesti tästä osallisuusprosessista.
         edit:
-          title: Päivitä osallisuusprosessin hallintakäyttäjä.
+          title: Päivitä osallistumisprosessin hallintakäyttäjä
           update: Päivitä
         index:
           process_admins_title: Osallisuusprosessin hallintakäyttäjät
         new:
           create: Luo
-          title: Uusi osallisuusprosessin hallintakäyttäjä.
+          title: Uusi osallistumisprosessin hallintakäyttäjä
         update:
           error: Tämän osallisuusprosessin hallintakäyttäjän päivitys epäonnistui.
           success: Osallisuusprosessin hallintakäyttäjän päivitys onnistui.
@@ -322,6 +326,8 @@ fi:
             images: Kuvat
             metadata: Metatiedot
             other: Muut
+            related_processes: Liittyvät prosessit
+            scope_type_max_depth_help: Rajaa teemasuodattimen syvyyttä; suodatin näyttää yleisestä teemasta valittuun teematyyppiin saakka.
             select_an_area: Valitse alue
             select_process_group: Valitse prosessiryhmä
             slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
@@ -377,6 +383,7 @@ fi:
         participatory_scope: Mitä päätetään
         participatory_structure: Miten päätetään
         private_space: Tämä on yksityinen prosessi
+        related_processes: Liittyvät prosessit
         scope: Teema
         start_date: Alkamispäivä
         target: Kuka osallistuu
@@ -386,17 +393,20 @@ fi:
         comments_count: Kommenttia
         debates_count: Keskustelua
         endorsements_count: Suositusta
+        followers_count: Seuraajia
         headline: Tilastot
         meetings_count: Tapahtumaa
+        no_stats: Tilastoja ei ole vielä saatavilla.
         orders_count: Kannatusta
         pages_count: Sivua
+        participants_count: Osallistujaa
         processes_count: Prosessia
         projects_count: Suunnitelmaa
         proposals_count: Ehdotusta
         results_count: Tulosta
+        supports_count: Kannatusta
         surveys_count: Kyselyä
         users_count: Osallistujaa
-        votes_count: Kannatusta
   layouts:
     decidim:
       participatory_process_groups:

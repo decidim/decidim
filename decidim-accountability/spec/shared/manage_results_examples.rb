@@ -3,6 +3,12 @@
 shared_examples "manage results" do
   include_context "when managing an accountability component as an admin"
 
+  describe "admin form" do
+    before { click_on "New Result", match: :first }
+
+    it_behaves_like "having a rich text editor", "new_result", "full"
+  end
+
   context "when having existing proposals" do
     let!(:proposal_component) { create(:proposal_component, participatory_space: participatory_space) }
     let!(:proposals) { create_list :proposal, 5, component: proposal_component, skip_injection: true }

@@ -1,5 +1,5 @@
 <h2 class="process-title-summary">
-  <%= translated_attribute(sortition.title) %>
+  <%= decidim_html_escape(translated_attribute(sortition.title)) %>
 </h2>
 
 <%= decidim_form_for(@form, html: { class: "form edit_sortition" }) do |form| %>

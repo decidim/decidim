@@ -7,11 +7,13 @@ module Decidim::Assemblies
     subject { described_class.new(assembly_type, form) }
 
     let(:organization) { create :organization }
+    let(:user) { create :user, :admin, :confirmed, organization: organization }
     let(:assembly_type) { create :assemblies_type, organization: organization }
     let(:title) { Decidim::Faker::Localized.literal("New title") }
     let(:form) do
       double(
         invalid?: invalid,
+        current_user: user,
         title: title
       )
     end
@@ -33,6 +35,17 @@ module Decidim::Assemblies
 
       it "updates the title of the assembly_type" do
         expect(translated(assembly_type.title)).to eq("New title")
+      end
+
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:update!)
+          .with(assembly_type, user, hash_including(:title))
+          .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
       end
     end
   end

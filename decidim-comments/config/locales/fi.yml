@@ -4,6 +4,7 @@ fi:
       decidim/comments/comment_by_followed_user_event: Kommentti
       decidim/comments/comment_created_event: Kommentti
       decidim/comments/reply_created_event: Vastaus kommentiin
+      decidim/comments/user_group_mentioned_event: Maininta
       decidim/comments/user_mentioned_event: Maininta
   activerecord:
     models:
@@ -42,6 +43,7 @@ fi:
           against: Vastaan
           in_favor: Puolesta
         deleted_user: Poistettu käyttäjä
+        hide_replies: Piilota vastaukset
         reply: Vastaa
         report:
           action: Tee ilmoitus
@@ -54,6 +56,8 @@ fi:
             offensive: Sisältää rasismia, seksismiä, haukkumista, henkilökohtaisia hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai muuta vihapuhetta.
             spam: Sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
           title: Ilmoita ongelmasta
+        show_replies: Näytä %{replies_count} vastausta
+        single_comment_link_title: Hae linkki yksittäiseen kommenttiin
       comment_order_selector:
         order:
           best_rated: Parhaiksi arvioidut
@@ -66,7 +70,10 @@ fi:
       comments:
         blocked_comments_for_user_warning: Et voi kommentoida tällä hetkellä, mutta voit lukea aikaisempia kommentteja.
         blocked_comments_warning: Kommentit on poistettu käytöstä tällä hetkellä, mutta voit lukea aikaisempia kommentteja.
+        comment_details_title: Kommentin yksityiskohdat
         loading: Ladataan kommentteja ...
+        single_comment_warning: Voit katsoa loput kommentit <a href="%{url}">täältä</a>.
+        single_comment_warning_title: Näet yhden kommentin
         title: "%{count} kommenttia"
     events:
       comments:
@@ -85,6 +92,11 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska kommenttiisi vastattiin.
           email_subject: "%{author_name} on vastannut kommentiisi %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on vastannut kommentiisi kohdassa <a href="%{resource_path}">%{resource_title}</a>
+        user_group_mentioned:
+          email_intro: Ryhmä, jonka jäsen olet, on mainittu
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet jäsenenä ryhmässä %{group_name} ja ryhmä on mainittu kohteessa %{resource_title}.
+          email_subject: Sinut on mainittu kohteessa %{resource_title} ryhmän %{group_name} jäsenenä
+          notification_title: Käyttäjä <a href="%{author_path}">%{author_name}%{author_nickname}</a> on maininnut sinut kohteessa <a href="%{resource_path}">%{resource_title}</a> ryhmän <a href="%{group_path}">%{group_name} %{group_nickname}</a> jäsenenä
         user_mentioned:
           email_intro: Sinut on mainittu
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska sinut on mainittu kohdssa %{resource_title}.

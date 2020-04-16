@@ -110,6 +110,18 @@ describe "Orders", type: :system do
         expect(page).to have_no_selector ".budget-list__data--added"
       end
 
+      it "is alerted when trying to leave the component before completing" do
+        visit_component
+
+        expect(page).to have_content "ASSIGNED: €25,000,000"
+
+        dismiss_confirm do
+          page.find(".logo-wrapper a").click
+        end
+
+        expect(page).to have_current_path main_component_path(component)
+      end
+
       context "and try to vote a project that exceed the total budget" do
         let!(:expensive_project) { create(:project, component: component, budget: 250_000_000) }
 
@@ -153,6 +165,92 @@ describe "Orders", type: :system do
           end
         end
       end
+
+      context "when the voting rule is set to threshold percent" do
+        before do
+          visit_component
+        end
+
+        it "shows the rule description" do
+          within ".card.budget-summary" do
+            expect(page).to have_content("Assign at least €70,000,000 to the projects you want and vote")
+          end
+        end
+
+        context "when the order total budget doesn't exceed the threshold" do
+          it "cannot vote" do
+            within "#order-progress" do
+              expect(page).to have_button("Vote", disabled: true)
+            end
+          end
+        end
+
+        context "when the order total budget exceeds the threshold" do
+          let(:projects) { create_list(:project, 2, component: component, budget: 36_000_000) }
+          let(:order_percent) { create(:order, user: user, component: component) }
+
+          before do
+            order.destroy!
+            order_percent.projects << projects
+            order_percent.save!
+          end
+
+          it "can vote" do
+            visit_component
+            within "#order-progress" do
+              expect(page).to have_button("Vote", disabled: false)
+            end
+          end
+        end
+      end
+
+      context "when the voting rule is set to minimum projects" do
+        before do
+          order.destroy!
+        end
+
+        let(:component) do
+          create(:budget_component,
+                 :with_total_budget_and_minimum_budget_projects,
+                 manifest: manifest,
+                 participatory_space: participatory_process)
+        end
+
+        let!(:order_min) { create(:order, user: user, component: component) }
+
+        it "shows the rule description" do
+          visit_component
+
+          within ".card.budget-summary" do
+            expect(page).to have_content("Select at least 3 projects you want and vote")
+          end
+        end
+
+        context "when the order total budget doesn't reach the minimum" do
+          it "cannot vote" do
+            visit_component
+
+            within "#order-progress" do
+              expect(page).to have_button("Vote", disabled: true)
+            end
+          end
+        end
+
+        context "when the order total budget exceeds the minimum" do
+          before do
+            order_min.projects = projects
+            order_min.save!
+          end
+
+          it "can vote" do
+            visit_component
+
+            within "#order-progress" do
+              expect(page).to have_button("Vote", disabled: false)
+            end
+          end
+        end
+      end
     end
 
     context "and has a finished order" do
@@ -180,6 +278,16 @@ describe "Orders", type: :system do
         within ".budget-summary" do
           expect(page).to have_no_selector(".cancel-order")
         end
+      end
+
+      it "is not alerted when trying to leave the component" do
+        visit_component
+
+        expect(page).to have_content("Budget vote completed")
+
+        page.find(".logo-wrapper a").click
+
+        expect(page).to have_current_path decidim.root_path
       end
     end
 

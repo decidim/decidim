@@ -23,11 +23,11 @@ module Decidim
           participatory_space: current_participatory_space
         )
 
-        @form = form(ComponentForm).from_model(@component)
+        @form = form(@component.form_class).from_model(@component)
       end
 
       def create
-        @form = form(ComponentForm).from_params(form_params)
+        @form = form(manifest.component_form_class).from_params(component_params)
         enforce_permission_to :create, :component
 
         CreateComponent.call(@form) do
@@ -47,12 +47,12 @@ module Decidim
         @component = query_scope.find(params[:id])
         enforce_permission_to :update, :component, component: @component
 
-        @form = form(ComponentForm).from_model(@component)
+        @form = form(@component.form_class).from_model(@component)
       end
 
       def update
         @component = query_scope.find(params[:id])
-        @form = form(ComponentForm).from_params(form_params)
+        @form = form(@component.form_class).from_params(component_params)
         enforce_permission_to :update, :component, component: @component
 
         UpdateComponent.call(@form, @component) do
@@ -113,28 +113,25 @@ module Decidim
 
       private
 
-      # Returns a Class with the attributes sanitized, coerced  and filtered
-      # to the right type. See Decidim::SettingsManifest#schema.
-      def new_settings_schema(name, data)
-        manifest.settings(name).schema.new(data, current_organization.default_locale)
-      end
-
-      # Processes the component params so Decidim::Admin::ComponentForm
+      # Processes the component params so the form object defined in the manifest (component_form_class_name)
       # can assign and validate the attributes when using #from_params.
-      def form_params
-        form_params = params[:component].permit!
-        form_params[:id] = params[:id]
-        form_params[:manifest] = manifest
-        form_params[:participatory_space] = current_participatory_space
-        form_params[:settings] = new_settings_schema(:global, form_params[:settings])
-        if form_params[:default_step_settings]
-          form_params[:default_step_settings] = new_settings_schema(:step, form_params[:default_step_settings])
-        else
-          form_params[:step_settings].each do |key, value|
-            form_params[:step_settings][key] = new_settings_schema(:step, value)
+      def component_params
+        new_settings = proc { |name, data| Component.build_settings(manifest, name, data, current_organization) }
+
+        params[:component].permit!.tap do |hsh|
+          hsh[:id] = params[:id]
+          hsh[:manifest] = manifest
+          hsh[:participatory_space] = current_participatory_space
+          hsh[:settings] = new_settings.call(:global, hsh[:settings])
+          if hsh[:default_step_settings]
+            hsh[:default_step_settings] = new_settings.call(:step, hsh[:default_step_settings])
+          else
+            hsh[:step_settings] ||= {}
+            hsh[:step_settings].each do |key, value|
+              hsh[:step_settings][key] = new_settings.call(:step, value)
+            end
           end
         end
-        form_params
       end
 
       def query_scope

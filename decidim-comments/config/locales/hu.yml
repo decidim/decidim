@@ -4,6 +4,7 @@ hu:
       decidim/comments/comment_by_followed_user_event: Megjegyzés
       decidim/comments/comment_created_event: Megjegyzés
       decidim/comments/reply_created_event: Hozzászólás válasz
+      decidim/comments/user_group_mentioned_event: Említés
       decidim/comments/user_mentioned_event: Említés
   activerecord:
     models:
@@ -42,6 +43,7 @@ hu:
           against: Ellenzem
           in_favor: Támogatom
         deleted_user: Törölt felhasználó
+        hide_replies: Válaszok elrejtése
         reply: Válasz
         report:
           action: Jelentés
@@ -54,6 +56,8 @@ hu:
             offensive: Rasszizmust, szexizmust, gyalázkodást, személyeskedést, halálos fenyegetést, öngyilkosságra való felhívást vagy gyűlöletbeszédet tartalmaz.
             spam: Klikkvadászat, reklám, átverés vagy script bot.
           title: Jelentem a problémát
+        show_replies: '%{replies_count} válasz mutatása'
+        single_comment_link_title: Link a kommenthez
       comment_order_selector:
         order:
           best_rated: Legjobbra értékelt
@@ -66,7 +70,10 @@ hu:
       comments:
         blocked_comments_for_user_warning: Ebben a pillanatban nem tud megjegyzéseket tenni, de elolvashatja az előzőeket.
         blocked_comments_warning: A megjegyzések jelenleg le vannak tiltva, de a korábbiakat elolvashatod.
+        comment_details_title: Megjegyzés részletei
         loading: Hozzászólások betöltése ...
+        single_comment_warning: A többi hozzászólást <a href="%{url}">itt</a> ellenőrizheti.
+        single_comment_warning_title: Egyetlen megjegyzést látsz
         title: "%{count} megjegyzés"
     events:
       comments:
@@ -85,6 +92,11 @@ hu:
           email_outro: Ezt az értesítést azért kaptad, mert valaki választolt a mejegyzésedre.
           email_subject: "%{author_name} megjegyzést tett a kommentedhez itt: %{resource_title}"
           notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> válaszolt a megjegyzésedre itt: <a href="%{resource_path}">%{resource_title}</a>'
+        user_group_mentioned:
+          email_intro: Említettek egy csoportot, amelybe tartozol
+          email_outro: Azért kapta ezt az értesítést, mert tagja annak a(z) %{group_name} csoportnak, amelyet a(z) %{resource_title} megemlített.
+          email_subject: A(z) %{resource_title} -ban említettek, a(z) %{group_name} tagjaként
+          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> -ban a <a href="%{author_path}">%{author_name} %{author_nickname}</a> megemlített a(z) <a href="%{group_path}">%{group_name} %{group_nickname} </a> tagjaként
         user_mentioned:
           email_intro: Valaki említette a neved
           email_outro: Ezt az értesítést azért kaptad, mert korábban megemlítettek a(z) "%{resource_title}" témában.

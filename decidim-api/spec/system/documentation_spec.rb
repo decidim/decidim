@@ -17,7 +17,9 @@ describe "Documentation", type: :system do
         expect(page).to have_content(organization.name)
       end
 
-      expect(page).to have_content("Root query")
+      within ".info" do
+        expect(page).to have_content("ABOUT THE GRAPHQL API")
+      end
     end
   end
 end
