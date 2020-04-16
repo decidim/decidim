@@ -724,6 +724,7 @@ pl:
         create:
           error: Rozmowa nie rozpoczęła się. Spróbuj ponownie później
         index:
+          close: Zamknij modalne
           no_conversations: Nie masz jeszcze żadnych rozmów
           title: Rozmowy
         reply:
