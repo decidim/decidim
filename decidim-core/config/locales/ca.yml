@@ -795,6 +795,7 @@ ca:
         create:
           error: No s'ha iniciat la conversa. Torna-ho a provar més tard
         index:
+          close: Tanca modal
           no_conversations: Encara no tens converses
           title: Converses
         reply:
