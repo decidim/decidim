@@ -727,6 +727,7 @@ tr:
         create:
           error: Konuşma başlamadı. Daha sonra tekrar deneyin
         index:
+          close: Yakın kalıcı
           no_conversations: Henüz konuşma yok
           title: Konuşmalar
         reply:
