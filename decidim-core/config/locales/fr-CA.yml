@@ -764,6 +764,7 @@ fr-CA:
         create:
           error: La conversation n'a pas commencé. Réessayez plus tard
         index:
+          close: Fermer la fenêtre
           no_conversations: Vous n'avez encore aucune conversation
           title: Conversations
         reply:
