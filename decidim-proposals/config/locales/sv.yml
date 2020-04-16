@@ -17,6 +17,7 @@ sv:
         automatic_hashtags: Hashtags läggs till automatiskt
         body: Innehåll
         category_id: Kategori
+        decidim_scope_id: Omfång
         has_address: Har adress
         state: Status
         suggested_hashtags: Föreslagna hashtags
@@ -101,6 +102,7 @@ sv:
           global:
             amendments_enabled: Ändringar möjliga
             amendments_enabled_help: Om aktivt, konfigurera ändringsfunktioner till varje steg.
+            amendments_wizard_help_text: Hjälptext för guiden för ändringsförslag
             announcement: Meddelande
             attachments_allowed: Tillåt bilagor
             can_accumulate_supports_beyond_threshold: Kan samla in stöd bortom tröskeln
@@ -110,6 +112,7 @@ sv:
             minimum_votes_per_user: Minsta antal röster per användare
             new_proposal_help_text: Hjälptext om nya förslag
             official_proposals_enabled: Officiella förslag aktiverade
+            participatory_texts_disabled_help: Det går inte att ändra denna inställning om det finns befintliga förslag. Skapa en ny `Förslagskomponent` om du vill aktivera funktionen, eller kasta alla importerade förslag i menyn `Deltagande texter` om du vill avaktivera den.
             participatory_texts_enabled: Deltagartexter är aktiverade
             proposal_answering_enabled: Aktiverat svar på förslag
             proposal_edit_before_minutes: Förslag kan redigeras av författare inom så här många minuter
@@ -333,6 +336,7 @@ sv:
             success: Alla utkast till deltagartexter har kastats.
           import:
             invalid: Formuläret är ogiltig!
+            invalid_file: Filen innehåller något fel. Försök att redigera innehållet i filen och skicka in den igen.
             success: Grattis, följande avsnitt har omvandlats till förslag. Nu kan du granska och göra ändringar i dem innan de publiceras.
           index:
             info_1: Följande avsnitt har omvandlats till förslag. Nu kan du granska och göra ändringar i dem innan de publiceras.
@@ -383,8 +387,10 @@ sv:
             title: Uppdatera förslag
             update: Uppdatera
           form:
+            add_images: Lägg till bilder
             attachment_legend: "(Valfritt) Lägg till en bilaga"
             created_in_meeting: Detta förslag kommer från ett möte
+            gallery_legend: "(Valfritt) Lägg till ett bildgalleri"
             select_a_category: Välj en kategori
             select_a_meeting: Välj ett möte
           index:
@@ -660,8 +666,11 @@ sv:
         endorsements_card_row:
           comments: Kommentarer
         filters:
+          activity: Min aktivitet
+          all: Allt
           amendment_type: Typ
           category: Kategori
+          my_proposals: Mina förslag
           origin: Ursprung
           related_to: Relaterade till
           scope: Omfång
@@ -688,9 +697,13 @@ sv:
           title: Skapa ditt förslag
         orders:
           label: 'Ordna förslag efter:'
+          most_commented: Mest kommenterade
+          most_endorsed: Mest instämda i
+          most_followed: Mest följda
           most_voted: Mest röstade
           random: Slumpmässig
           recent: Senaste
+          with_more_authors: Med fler författare
         participatory_texts:
           index:
             document_index: Dokumentindex
