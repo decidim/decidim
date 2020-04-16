@@ -524,6 +524,7 @@ ru:
         create:
           error: Беседа не началась. Попробуйте позже
         index:
+          close: Закрыть окошко
           no_conversations: У вас еще нет бесед
         reply:
           send: Отправить
