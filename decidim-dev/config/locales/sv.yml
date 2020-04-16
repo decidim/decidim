@@ -9,6 +9,12 @@ sv:
         translatable_text: Översättningsbar text
         updated_at: Uppdaterad
   decidim:
+    components:
+      dummy:
+        settings:
+          step:
+            endorsements_blocked: Instämmanden är blockerade
+            endorsements_enabled: Instämmanden tillåtna
     dummy:
       admin:
         exports:
