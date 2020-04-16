@@ -139,6 +139,8 @@ sv:
         reject: "%{user_name} avvisade gruppverifieringen för %{resource_name}"
         verify: "%{user_name} verifierade gruppen %{resource_name}"
         verify_via_csv: "%{user_name} verifierade gruppen %{resource_name} via en CSV-fil"
+    admin_terms_of_use:
+      default_body: "<h2>ANVÄNDARVILLKOR FÖR ADMINISTRATÖRER</h2><p>Vi förutsätter att du har fått den vanliga föreläsningen från den lokala systemadministratören. Det brukar bygga på tre saker:</p><ol><li>Respektera andras integritet.</li><li>Tänk innan du klickar.</li><li>Med stora krafter följer stort ansvar.</li></ol>"
     amendments:
       accepted:
         error: Ett fel uppstod när ändringen skulle godkännas.
@@ -580,6 +582,7 @@ sv:
       create:
         button: Följ
         error: Det gick inte att följa resursen.
+        participatory_space: Följer redan deltagarutrymmet
       destroy:
         button: Sluta följa
         error: Det gick inte att sluta följa den här resursen.
@@ -1207,6 +1210,7 @@ sv:
       cycle_detected: en omfattnings förälder kan inte vara ett av dess barn
       expired: har förfallit, men du kan begära en ny
       file_size_is_less_than_or_equal_to: Filstorleken måste vara mindre än eller lika med %{count}
+      invalid_time_zone: är inte en giltig tidszon
       long_words: innehåller ord som är för långa (över 35 tecken)
       must_start_with_caps: måste börja med en stor bokstav
       nesting_too_deep: kan inte vara inuti en underkategori
@@ -1316,6 +1320,7 @@ sv:
       left: Raderingar
       right: Tillägg
     dropdown:
+      choose_diff_view_html: 'HTML-visningsläge:'
       choose_diff_view_mode: 'Visningsläge för jämförelse:'
       option_split: Sida vid sida
       option_unified: Sammanslagen
