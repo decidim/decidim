@@ -284,6 +284,9 @@ sv:
           values:
             'false': Gjord officiell
             'true': Ej gjord officiell
+        published_at_null:
+          values:
+            'true': Ej publicerat
         search_label: Sök
       help_sections:
         error: Det gick inte att uppdatera hjälpavsnitten
