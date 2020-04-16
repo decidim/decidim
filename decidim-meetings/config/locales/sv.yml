@@ -238,6 +238,9 @@ sv:
           edit:
             update: Uppdatera
           form:
+            address_help: 'Adress: anger en plats för Geocoder'
+            location_help: 'Plats: meddelande till användarna som anger mötesplats'
+            location_hints_help: 'Detaljer om platsen: ytterligare information, som våning i byggnaden'
             select_organizer: Välj arrangören
           index:
             title: Möten
