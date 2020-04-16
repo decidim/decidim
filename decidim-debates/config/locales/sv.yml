@@ -96,6 +96,8 @@ sv:
           create: Skapa
           select_a_category: Välj en kategori
           title: Ny debatt
+        show:
+          back: Tillbaka till listan
       last_activity:
         new_debate_at_html: "<span>Ny debatt i %{link}</span>"
       models:
