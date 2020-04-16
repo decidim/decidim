@@ -1212,6 +1212,9 @@ sv:
       nesting_too_deep: kan inte vara inuti en underkategori
       not_found: kunde inte hittas. Har du registrerat dig tidigare?
       not_locked: låstes inte
+      not_saved:
+        one: 'Det finns ett fel i din begäran:'
+        other: 'Det finns flera fel i din begäran:'
       too_many_marks: använder för många på varandra följande skiljetecken (t.ex. ! och ?)
       too_much_caps: använder för många stora bokstäver (över 25% av texten)
       too_short: är för kort (under 15 tecken)
