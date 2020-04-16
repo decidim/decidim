@@ -1001,8 +1001,8 @@ en:
         reason: Reason
         report_html: <p>The following <a href="%{url}">content</a> has been reported.</p>
         subject: A resource has been reported
-        user_email: User email
-        user_name: User name
+        user: User
+        content: Reported content
     reports:
       create:
         error: An error ocurred while creating the report. Please, try it again.

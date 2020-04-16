@@ -17,11 +17,14 @@
   <%= @report.details %>
 </blockquote>
 
-<p><b><%= t(".user_email") %></b></p>
-<p><%= @report.user.email %></p>
+<p><b><%= t(".content") %></b></p>
+<blockquote>
+  <h5><%= @report.moderation.reportable.try(:title) %></h5>
+  <p><%= @report.moderation.reportable.try(:body) %></p>
+</blockquote>
 
-<p><b><%= t(".user_name") %></b></p>
-<p><%= @report.user.name %></p>
+<p><b><%= t(".user") %></b></p>
+<p><%= link_to @report.user.name, decidim.profile_path(@report.user.nickname), target: :blank %></p>
 
 <br>
 
