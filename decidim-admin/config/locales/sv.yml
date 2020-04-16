@@ -70,10 +70,12 @@ sv:
         port: Port
         primary_color: Primär
         reference_prefix: Referensprefix
+        rich_text_editor_in_public_views: Aktivera rik textredigering för deltagare
         secondary_color: Sekundär
         send_welcome_notification: Skicka välkomstmeddelande
         show_statistics: Visa statistik
         success_color: Färdigt
+        time_zone: Tidszon
         tos_version: Version på användarvillkor
         twitter_handler: Twitter-hanterare
         user_groups_enabled: Aktivera grupper
@@ -142,9 +144,24 @@ sv:
         export: Exportera
         manage: Hantera
         new: Ny %{name}
+        per_page: Per sida
         permissions: Behörigheter
         reject: Avvisa
         verify: Kontrollera
+      admin_terms_of_use:
+        accept:
+          error: Ett fel inträffade när användarvillkoren för administratörer skulle accepteras.
+          success: Du har godkänt användarvillkoren för administratörer.
+        actions:
+          accept: Jag godkänner villkoren för administratörer
+          are_you_sure: Vill du avvisa villkoren för administratörer?
+          refuse: Avvisa villkoren för administratörer
+          title: Godkänn användarvillkoren
+        required_review:
+          alert: 'Krav: granska villkoren för administratörer'
+          callout: Granska användarvillkoren för administratörer. Annars kan du inte administrera plattformen.
+          cta: Granska dem nu.
+        title: Användarvillkor för administratörer
       area_types:
         create:
           error: Det gick inte att skapa en ny områdestyp.
@@ -279,19 +296,28 @@ sv:
       filters:
         category_id_eq:
           label: Kategori
+        filter_label: Filtrera
         officialized_at_null:
           label: Status
           values:
             'false': Gjord officiell
             'true': Ej gjord officiell
-        published_at_null:
+        private_space_eq:
+          label: Privat
           values:
+            'false': Offentlig
+            'true': Privat
+        published_at_null:
+          label: Publicerade
+          values:
+            'false': Publicerade
             'true': Ej publicerat
         scope_id_eq:
           label: Omfång
         search_label: Sök
         search_placeholder:
           name_or_nickname_or_email_cont: Sök i %{collection} efter e-post, namn eller smeknamn.
+          title_cont: Sök %{collection} efter titel.
       help_sections:
         error: Det gick inte att uppdatera hjälpavsnitten
         form:
@@ -471,6 +497,7 @@ sv:
           not_sent: Inte skickat
           participants: 'deltagare '
           segmented_to: 'Segmenterad till %{subject}: '
+          subscribed_count: 'Prenumeranter:'
           title: Nyhetsbrev
         new:
           save: Spara
@@ -483,6 +510,7 @@ sv:
           followers_help: Skickar nyhetsbrevet till alla bekräftade användare som följer något av de markerade deltagarutrymmena i listan.
           none: Inga
           participants_help: Skickar nyhetsbrevet till alla bekräftade användare som har deltagit i något av de markerade deltagarutrymmena i listan.
+          recipients_count: Detta nyhetsbrev kommer att skickas till <strong id='recipients_count'>%{count}</strong> användare.
           scopes_help: Skickar nyhetsbrev till användare som har något av de valda omfången markerade under "Mina intressen" i sina konton.
           select_scopes: Filtrera för användare som har aktiverat något av de markerade omfången under Mina intressen i sina konton.
           select_spaces: Segmentera nyhetsbrevet genom att markera utrymmen
