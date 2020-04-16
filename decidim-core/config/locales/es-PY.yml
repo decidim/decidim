@@ -798,6 +798,7 @@ es-PY:
         create:
           error: Conversación no iniciada. Inténtalo más tarde
         index:
+          close: Cerrar modal
           no_conversations: Aún no tienes conversaciones
           title: Conversaciones
         reply:
