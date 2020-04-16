@@ -368,6 +368,7 @@ sv:
           confirm: Bekräfta
         show:
           attendees: Antal deltagare
+          back: Tillbaka till listan
           contributions: Antal bidrag
           going: Jag kommer
           join: Gå med i mötet
