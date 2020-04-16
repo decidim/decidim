@@ -24,8 +24,10 @@ sv:
         published_at: Publicerad
         related_process_ids: Relaterade processer
         scope_id: Omfång
+        scope_type_max_depth_id: Djup på omfångsfilter
         scopes_enabled: Omfång aktiverade
         short_description: Kort beskrivning
+        show_metrics: Visa mätvärden
         show_statistics: Visa statistik
         slug: URL-slug
         start_date: Startdatum
@@ -205,11 +207,13 @@ sv:
         destroy:
           success: Administratören togs bort från deltagarprocessen.
         edit:
+          title: Uppdatera administratör för deltagarprocess
           update: Uppdatera
         index:
           process_admins_title: Administratörer för deltagarprocessen
         new:
           create: Skapa
+          title: Ny administratör för deltagarprocess
         update:
           error: Det gick inte att uppdatera administratören för deltagarprocessen.
           success: Administratören har uppdaterats för deltagarprocessen.
@@ -323,6 +327,7 @@ sv:
             metadata: Metadata
             other: Andra
             related_processes: Relaterade processer
+            scope_type_max_depth_help: Begränsa djupet på omfångsfilter; filtret kommer att visa från allmän till den valda omfångstypen.
             select_an_area: Välj ett område
             select_process_group: Välj en processgrupp
             slug_help: 'URL-slugs används till att generera de URL:er som pekar på processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
