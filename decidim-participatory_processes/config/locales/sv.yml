@@ -133,6 +133,7 @@ sv:
             admin: Administratör
             collaborator: Medarbetare
             moderator: Moderator
+            valuator: Värderare
         user:
           fields:
             invitation_accepted_at: Inbjudan godkänd
@@ -387,8 +388,10 @@ sv:
         comments_count: Kommentarer
         debates_count: Debatter
         endorsements_count: Underskrifter
+        followers_count: Följare
         headline: Aktivitet
         meetings_count: Möten
+        no_stats: Det finns ingen statistik ännu.
         orders_count: Stöder
         pages_count: Sidor
         participants_count: Deltagare
