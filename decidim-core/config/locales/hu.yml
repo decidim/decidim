@@ -791,6 +791,7 @@ hu:
         create:
           error: A beszélgetés megakadt. Próbáld újra később
         index:
+          close: Modal bezárása
           no_conversations: Még nincsenek beszélgetések
           title: Beszélgetések
         reply:
