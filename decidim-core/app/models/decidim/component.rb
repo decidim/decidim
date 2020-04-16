@@ -103,8 +103,17 @@ module Decidim
     end
 
     # overrides the method from Scopable
+    #
+    # Returns a boolean.
     def scopes_enabled
       settings.try(:scopes_enabled)
+    end
+
+    # Whether the component or participatory_space has subscopes or not.
+    #
+    # Returns a boolean.
+    def has_subscopes?
+      scopes_enabled || participatory_space.scopes_enabled && subscopes.any?
     end
 
     delegate :serializes_specific_data?, to: :manifest

@@ -36,7 +36,7 @@
       </div>
     </div>
     <div class="row">
-      <% if current_participatory_space.has_subscopes? %>
+      <% if current_component.has_subscopes? %>
         <div class="columns xlarge-6">
           <%= scopes_picker_field form, :decidim_scope_id %>
         </div>
