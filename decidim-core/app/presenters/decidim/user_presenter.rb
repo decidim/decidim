@@ -37,9 +37,8 @@ module Decidim
     end
 
     def direct_messages_enabled?(context)
-     return false unless  __getobj__.respond_to?(:accepts_conversation?)
-     __getobj__.accepts_conversation?(context[:current_user])
-      end
+      return false unless __getobj__.respond_to?(:accepts_conversation?)
+      __getobj__.accepts_conversation?(context[:current_user])
     end
 
     def display_mention
