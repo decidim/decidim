@@ -795,6 +795,7 @@ es:
         create:
           error: No se ha iniciado la conversación. Inténtalo de nuevo más tarde
         index:
+          close: Cierra modal
           no_conversations: Aún no tienes conversaciones
           title: Conversaciones
         reply:
