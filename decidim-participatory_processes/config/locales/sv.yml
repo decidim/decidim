@@ -144,6 +144,7 @@ sv:
           title: Duplicera deltagarprocess
       participatory_process_groups:
         destroy:
+          error: Det gick inte att förstöra deltagarprocessgruppen.
           success: Deltagarprocessgruppen har raderats.
         edit:
           title: Redigera processgrupp
@@ -155,6 +156,9 @@ sv:
           error: Det gick inte att uppdatera deltagarprocessgruppen.
           success: Deltagarprocessgruppen har uppdaterats.
       participatory_process_imports:
+        create:
+          error: Det gick inte att importera deltagarprocessen.
+          success: Deltagarprocessen har importerats.
         new:
           import: Importera
           select: Välj vilka data som du vill importera
