@@ -118,6 +118,7 @@ sv:
         update: "%{user_name} uppdaterade organisationsinställningarna"
       participatory_space_private_user:
         create: "%{user_name} uppmanade %{resource_name} att vara en privat deltagare"
+        create_via_csv: "%{user_name} bjöd in %{resource_name} till att vara en privat deltagare via CSV"
         delete: "%{user_name} tog deltagaren %{resource_name} som en privat deltagare"
       scope:
         create: "%{user_name} skapade omfattningen %{resource_name}"
@@ -154,11 +155,19 @@ sv:
         section_heading: Ändringar (%{count})
       compare_draft:
         continue: Fortsätt
+        no_similars_found: Hittade inga liknande ändringsförslag.
+        title: Liknande ändringsförslag
       created:
         error: Ett fel uppstod när ändringsutkastet skulle skapas.
+        success: Skapade utkast till ändringsförslag.
+      destroy_draft:
+        error: Det gick inte att radera utkastet till ändringsförslag.
+        success: Utkastet till ändringsförslag har raderats.
       edit_draft:
         discard: Släng utkastet
+        discard_confirmation: Vill du ta bort utkastet till ändringsförslag?
         send: Förhandsvisa
+        title: Redigera utkast till ändringsförslag
       emendation:
         actions:
           button_accept: Acceptera
@@ -171,18 +180,24 @@ sv:
           evaluating: |-
             Detta ändringsförslag till %{amendable_type} %{proposal_link}
             utvärderas just nu.
+          promoted: Gör till ett %{amendable_type}.
           rejected: "Detta ändringsförslag till %{amendable_type} %{amendable_link}\navslogs <strong>%{announcement_date}</strong>."
           withdrawn: |-
             Detta ändringsförslag till %{amendable_type} %{proposal_link} har dragits tillbaka av författaren.
       new:
         amendment_author: Förslagsställare
         send: Skapa
+        title: Skapa utkast till ändringsförslag
       preview_draft:
         modify: Ändra
         publish: Publicera
+        title: Publicera utkast till ändringsförslag
       promoted:
         error: Det gick inte att publicera ändringen som ett nytt förslag
         success: Ändringsförslaget har publicerats som ett nytt förslag
+      publish_draft:
+        error: Det gick inte att publicera ändringsförslaget.
+        success: Ändringsförslaget har publicerats.
       rejected:
         error: Det gick inte av avslå detta ändringsförslag, försök igen senare
         success: Ändringsförslaget har avslagits
@@ -191,6 +206,15 @@ sv:
         heading: Granska ändringsförslaget
         help_text: Du granskar ett ändringsförslag till %{model_name}
         send: Godkänn ändring
+      update_draft:
+        error: Det gick inte att uppdatera utkastet till ändringsförslag.
+        success: Utkastet till ändringsförslag har uppdaterats.
+      visibility_options:
+        all: Ändringsförslag är synliga för alla
+        participants: Ändringsförslag är endast synliga för författarna
+      withdraw:
+        error: Det gick inte att dra tillbaka ändringsförslaget
+        success: Ändringsförslaget har dragits tillbaka
       wizard_step_form:
         steps:
           '1': Skapa ändringsförslag
