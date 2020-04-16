@@ -229,6 +229,7 @@ sv:
             email_subject: Ett förslag som du följer utvärderas
             notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> utvärderas.
         proposal_mentioned:
+          email_intro: Ditt förslag "%{mentioned_proposal_title}" har nämnts i kommentarerna i <a href="%{resource_url}">det här utrymmet</a>.
           email_outro: Du har fått den här meddelandet eftersom du är en författare av %{resource_title}".
           email_subject: Ditt förslag "%{mentioned_proposal_title}" har nämnts
           notification_title: Ditt förslag "%{mentioned_proposal_title}" har nämnts <a href="%{resource_path}">i det här utrymmet</a> i kommentarerna.
@@ -769,6 +770,7 @@ sv:
           changes_at_title: Ändring till %{title}
           edit_proposal: Redigera förslag
           endorsements_list: Lista över instämmanden
+          estimated_cost: Beräknad kostnad
           hidden_endorsers_count:
             one: och %{count} till person
             other: och %{count} till personer
@@ -781,10 +783,14 @@ sv:
           proposal_accepted_reason: 'Detta förslag har antagits eftersom:'
           proposal_in_evaluation_reason: Detta förslag utvärderas
           proposal_rejected_reason: 'Detta förslag har avslagits på grund av att:'
+          read_less: Läs mindre
+          read_more: Läs mer
           report: Rapport
           withdraw_btn_hint: Du kan dra tillbaka ett förslag om du ändrar dig, så länge som det inte har fått något stöd. Förslaget raderas inte utan kommer att visas i listan över förslag som dragits tillbaka.
           withdraw_confirmation: Är du säker på att dra tillbaka detta förslag?
           withdraw_proposal: Dra tillbaka förslaget
+        tags:
+          changed_from: "(ändrad från <u>%{previous_name}</u> av en administratör)"
         vote_button:
           already_voted: Redan röstat
           already_voted_hover: Ta bort sin röst
@@ -827,6 +833,8 @@ sv:
       publish:
         error: Det gick inte att publicera förslaget.
         success: Förslag har publicerats.
+      publish_answers:
+        success: Svar på förslagen har publicerats.
       update:
         error: Det gick inte att spara förslaget.
         success: Förslaget har uppdaterats.
