@@ -712,6 +712,7 @@ pt:
         create:
           error: Conversa não iniciada. Tente mais tarde
         index:
+          close: Fechar modal
           no_conversations: Ainda não há conversas
           title: Conversas
         reply:
