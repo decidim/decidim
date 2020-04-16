@@ -296,7 +296,9 @@ sv:
       question_votes:
         create:
           error: Det gick inte att rösta i frågan
+          success: Du kan ändra den upp till slutet av samrådet. Endast den sista rösten räknas.
           title_error: Röstningsfel!
+          title_success: Rösten har tagits emot
       regular_questions:
         title: Frågor för detta samråd
       show:
