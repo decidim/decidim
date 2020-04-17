@@ -794,10 +794,18 @@ sv:
           outro: Njut av decidim!
           subject: Du har fått nya meddelanden från %{sender}
       conversations:
+        add_conversation_users:
+          add_max_users: 'Lägg till användare i samtalet: högst 9'
+          add_users_placeholder: Sök...
+          modal_title: Nytt samtal
+          no_results: Inga resultat
+          participant_with_disabled_message_reception: Deltagaren har avaktiverat att ta emot meddelanden
         create:
           error: Konversationen har inte startat. Försök igen senare
         index:
           close: Stäng modal
+          new_conversation: Nytt samtal
+          next: Nästa
           no_conversations: Du har inga konversationer än
           title: Samtal
         reply:
