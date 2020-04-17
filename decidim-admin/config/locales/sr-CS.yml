@@ -14,3 +14,4 @@ sr:
         actions:
           accept: Prihvatam uslove korišćenja koje je odredio administrator
           are_you_sure: Da li ste sigurni da ne želite da prihvatite uslove korišćenja koje zahteva administrator?
+          refuse: Ne prihvatam uslove korišćenja koje je odredio administrator
