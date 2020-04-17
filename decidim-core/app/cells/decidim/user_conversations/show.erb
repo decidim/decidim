@@ -1,13 +1,13 @@
 <div class="user-activity">
-  <div id="conversations" class="columns small-12">
+  <div class="callout secondary">
+    <%= t "decidim.user_conversations.index.conversations_info" %>
+  </div>
 
-      <div class="callout secondary">
-        <%= t "decidim.user_conversations.index.conversations_info" %>
-      </div>
+  <div id="conversations" class="columns">
       <% if conversations.length == 0 %>
         <div class="callout">
           <%= t "decidim.user_conversations.index.no_conversations_warning" %>
-      </div>
+        </div>
       <% else %>
       <div class="row">
         <div class="card card--list conversations">
@@ -15,20 +15,32 @@
             <%= link_to decidim.profile_conversation_path(nickname: user.nickname, id: conversation), class: "card--list__item" do %>
               <div class="card--list__titled-text">
                 <h6 class="card--list__heading heading6">
-                  <%= conversation.last_message.friendly_created_at %>
+                  <%= username_list(conversation.interlocutors(current_user), true) %>
                 </h6>
+
+                <span class="card--list__annotation">
+                  <%= conversation.last_message.friendly_created_at %>
+                </span>
+
+                <span class="text-small">
+                  <%= truncate conversation.last_message.body, length: 150 %>
+                </span>
+
+                <% if conversation.unread_count(current_user) > 0 %>
+                  <span class="card--list__counter">
+                    <span><%= conversation.unread_count(current_user) %></span>
+                  </span>
+                <% end %>
               </div>
               <div class="card--list__data">
                 <span class="card--list__data__icon">
                   <%= icon "chevron-right", role: "img" %>
                 </span>
               </div>
-
             <% end %>
         <% end %>
         </div>
       </div>
       <% end %>
-
   </div>
 </div>

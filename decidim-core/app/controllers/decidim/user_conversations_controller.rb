@@ -8,6 +8,7 @@ module Decidim
   class UserConversationsController < Decidim::ApplicationController
     include Paginable
     include UserGroups
+    include FormFactory
 
     before_action :authenticate_user!
     before_action :ensure_profile_manager
@@ -21,6 +22,22 @@ module Decidim
 
     def show
       enforce_permission_to :show, :conversation, interlocutor: user, conversation: conversation
+    end
+
+    def update
+      enforce_permission_to :update, :conversation, interlocutor: user, conversation: conversation
+
+      @form = form(Messaging::MessageForm).from_params(params, sender: user)
+
+      Messaging::ReplyToConversation.call(conversation, @form) do
+        on(:ok) do |message|
+          render action: :update, locals: { message: message }
+        end
+
+        on(:invalid) do
+          render action: :update, locals: { error: I18n.t("user_conversations.update.error", scope: "decidim") }, status: :unprocessable_entity
+        end
+      end
     end
 
     private

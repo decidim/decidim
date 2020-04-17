@@ -6,6 +6,7 @@ module Decidim
     include Decidim::LayoutHelper
     include CellsPaginateHelper
     include Decidim::Core::Engine.routes.url_helpers
+    include Messaging::ConversationHelper
 
     def user
       model

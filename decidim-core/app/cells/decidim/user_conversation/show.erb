@@ -1,8 +1,32 @@
 <div class="user-activity">
-  <div id="conversation" class="columns small-12">
+  <div id="conversation" class="columns">
 
-<%= link_to "back-to-conversations", decidim.profile_conversations_path(nickname: user.nickname) %>
+    <div class="title-action">
+      <h1 class="heading3 title-action__title">
+        <%= link_to decidim.profile_conversations_path(nickname: user.nickname), class: "card--list__data__icon card--list__data__icon--back" do %>
+          <%= icon "chevron-left", role: "img" %>
+        <% end %>
 
-conversation #<%= conversation.id %>
+        <%= t "decidim.user_conversation.show.title", usernames: username_list(participants) %>
+      </h1>
+    </div>
+
+    <div id="conversation">
+      <div id="messages" class="scroll-to-last-message">
+        <% conversation.messages.each do |msg| %>
+          <%= message(msg) %>
+        <% end %>
+      </div>
+
+      <% if conversation.accept_user?(current_user) %>
+        <%= render :reply %>
+      <% else %>
+        <em><%= t "decidim.user_conversation.show.not_allowed" %></em>
+      <% end %>
+    </div>
+
+
+
+
   </div>
 </div>

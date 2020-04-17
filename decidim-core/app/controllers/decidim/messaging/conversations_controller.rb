@@ -11,7 +11,7 @@ module Decidim
 
       before_action :authenticate_user!
 
-      helper_method :username_list, :conversation
+      helper_method :conversation
 
       # Shows the form to initiate a conversation with an user (the recipient)
       # recipient is passed via GET parameter:
@@ -35,7 +35,7 @@ module Decidim
       end
 
       def create
-        @form = form(ConversationForm).from_params(params)
+        @form = form(ConversationForm).from_params(params, sender: current_user)
         enforce_permission_to :create, :conversation, conversation: new_conversation(@form.recipient)
 
         StartConversation.call(@form) do
@@ -70,7 +70,7 @@ module Decidim
       def update
         enforce_permission_to :update, :conversation, conversation: conversation
 
-        @form = form(MessageForm).from_params(params)
+        @form = form(MessageForm).from_params(params, sender: current_user)
 
         ReplyToConversation.call(conversation, @form) do
           on(:ok) do |message|
@@ -103,13 +103,6 @@ module Decidim
         else
           Conversation.new(participants: [current_user, recipient])
         end
-      end
-
-      def username_list(users, shorten = false)
-        return users.pluck(:name).join(", ") unless shorten
-        return users.pluck(:name).join(", ") unless users.count > 3
-
-        "#{users.first(3).pluck(:name).join(", ")} + #{users.count - 3}"
       end
     end
   end

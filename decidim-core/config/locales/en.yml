@@ -1091,10 +1091,19 @@ en:
       index:
         no_activities_warning: This participant hasn't had any activity yet.
     user_contact_disabled: This participant does not accept direct messages.
+    user_conversation:
+      show:
+        title: Conversation with %{usernames}
+        not_allowed: This user does not accept any more direct messages.
+      reply:
+        send: Send
+        title: Reply
     user_conversations:
       index:
         conversations_info: Conversations are private. no one else can see them. A conversation can be started with any participant or group registered on the platform.
         no_conversations_warning: There are no conversations yet.
+      update:
+        error: Message not sent. Try again later
     user_interests:
       show:
         my_interests: My interests
