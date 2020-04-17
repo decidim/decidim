@@ -120,7 +120,7 @@ sv:
             new_proposal_body_template_help: Du kan ange den förifyllda texten för nya förslag
             new_proposal_help_text: Hjälptext om nya förslag
             official_proposals_enabled: Officiella förslag aktiverade
-            participatory_texts_disabled_help: Det går inte att ändra denna inställning om det finns befintliga förslag. Skapa en ny `Förslagskomponent` om du vill aktivera funktionen, eller kasta alla importerade förslag i menyn `Deltagande texter` om du vill avaktivera den.
+            participatory_texts_disabled_help: Det går inte att ändra denna inställning om det finns befintliga förslag. Skapa en ny `Förslagskomponent` om du vill aktivera funktionen, eller kasta alla importerade förslag under menyn `Deltagartexter` om du vill avaktivera den.
             participatory_texts_enabled: Deltagartexter är aktiverade
             proposal_answering_enabled: Aktiverat svar på förslag
             proposal_edit_before_minutes: Förslag kan redigeras av författare inom så här många minuter
@@ -264,9 +264,9 @@ sv:
       badges:
         accepted_proposals:
           conditions:
-            - Välj deltagarutrymme av intresse med inlämning av förslag aktiverade
-            - Försök att lägga fram förslag som kan utföras. På detta sätt är de mer benägna att accepteras.
-          description: Detta märke beviljas när du aktivt deltar med nya förslag och dessa accepteras.
+            - Välj det deltagarutrymme där inlämning av förslag är aktiverat som är av intresse
+            - Försök att lägga fram förslag som kan genomföras. De har lättare att bli accepterade.
+          description: Detta märke beviljas när du aktivt deltar med nya förslag som blir accepterade.
           description_another: Den här användaren har fått %{score} förslag accepterade.
           description_own: '%{score} av dina förslag har antagits.'
           name: Antagna förslag
@@ -275,20 +275,20 @@ sv:
           unearned_own: Du har inga antagna förslag än.
         proposal_votes:
           conditions:
-            - Bläddra och spendera lite tid på att läsa andras förslag
-            - Ge stöd till de förslag du tycker om eller hitta intressanta
-          description: Detta märke beviljas när du stöder andra människors förslag.
+            - Bläddra runt och ägna lite tid åt att läsa andras förslag
+            - Ge stöd till de förslag som du tycker om eller tycker är intressanta
+          description: Du får detta märke när du stöder förslag från andra.
           description_another: Denna användare har gett stöd till %{score} förslag.
           description_own: Du har gett stöd till %{score} förslag.
           name: Stött förslag
           next_level_in: Ge stöd till %{score} fler förslag för att nå nästa nivå!
-          unearned_another: Den här användaren har inte stöttat några förslag än.
+          unearned_another: Den här användaren har inte stött några förslag än.
           unearned_own: Du har inte gett stöd till några förslag än.
         proposals:
           conditions:
-            - Välj deltagarutrymme av intresse med inlämning av förslag aktiverade
+            - Välj det deltagarutrymme där inlämning av förslag är aktiverat som är av intresse
             - Skapa ett nytt förslag
-          description: Detta märke beviljas när du aktivt deltar med nya förslag.
+          description: Du får detta märke när du aktivt deltar med nya förslag.
           description_another: Den här användaren har skapat %{score} förslag.
           description_own: Du har skapat %{score} förslag.
           name: Förslag
@@ -297,7 +297,7 @@ sv:
           unearned_own: Du har inte skapat några förslag än.
     metrics:
       accepted_proposals:
-        description: Antal förslag accepterade av användarna
+        description: Antal accepterade förslag
         object: förslag
         title: Godkända förslag
       endorsements:
@@ -309,7 +309,7 @@ sv:
         object: förslag
         title: Förslag
       votes:
-        description: Antal röster som genereras i förslag från användare
+        description: Antal stöd till förslag
         object: röster
         title: Röster
     participatory_processes:
