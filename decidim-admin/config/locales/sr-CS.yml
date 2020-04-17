@@ -37,8 +37,17 @@ sr:
           label: Opseg
         search_placeholder:
           name_or_nickname_or_email_cont: Pretraži %{collection} prema e-pošti, imenu ili nadimku.
+          title_cont: Pretraži %{collection} prema nazivu.
+      newsletters:
+        index:
+          subscribed_count: 'Pratioci:'
       officializations:
+        index:
+          show_email: Prikaži adresu e-pošte
         show_email_modal:
+          description: Ako je neophodno da učesnika direktno kontaktirate možete upotrebiti dugme Prikaži kako bi videli adresu E-pošte. Ova aktivnost će biti zabeležena.
           email_address: E-pošta
           full_name: Puno ime
           hidden: sakriveno
+          show: Prikaži
+          title: Prikaži adresu e-pošte učesnika
