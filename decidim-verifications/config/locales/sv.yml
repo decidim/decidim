@@ -89,6 +89,7 @@ sv:
             dummy_authorization_workflow: Verifiera med exemplet på arbetsflöde för auktorisering
             id_documents: Verifiera dig genom att skicka in din identitetshandling
             postal_letter: Verifiera dig genom att ta emot en verifieringskod via fysiskt brev
+            sms: sms
           title: Verifiera din identitet
           verify_with_these_options: 'Det här är de tillgängliga alternativen för att verifiera din identitet:'
         new:
