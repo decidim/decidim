@@ -50,7 +50,7 @@ sv:
             title:
               identical: OCH innehållet kan inte vara identiskt
     models:
-      decidim/proposals/accepted_proposal_event: Förslag accepterat
+      decidim/proposals/accepted_proposal_event: Förslag antagit
       decidim/proposals/admin/update_proposal_category_event: Förslagskategori ändrad
       decidim/proposals/admin/update_proposal_scope_event: Ändrat förslagets omfång
       decidim/proposals/creation_enabled_event: Skapande av förslag aktiverat
@@ -85,7 +85,7 @@ sv:
           label: Typ
           values:
             'false': Förslag
-            'true': Tillägg
+            'true': Ändringsförslag
         search_placeholder:
           id_string_or_title_cont: Sök %{collection} efter ID eller titel.
         state_eq:
@@ -205,8 +205,8 @@ sv:
           affected_user:
             email_intro: 'Ditt förslag "%{resource_title}" har godkänts. Du kan läsa svaret på den här sidan:'
             email_outro: Du har fått den här meddelandet eftersom du är en författare av %{resource_title}".
-            email_subject: Ditt förslag har godkänts
-            notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> har godkänts.
+            email_subject: Ditt förslag har antagits
+            notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> har antagits.
           follower:
             email_intro: 'Förslaget "%{resource_title}" har antagits. Läs svaret på den här sidan:'
             email_outro: Du har fått det här meddelandet eftersom du följer "%{resource_title}". Du kan sluta att följa det via föregående länk.
@@ -274,13 +274,13 @@ sv:
         accepted_proposals:
           conditions:
             - Välj det deltagarutrymme där inlämning av förslag är aktiverat som är av intresse
-            - Försök att lägga fram förslag som kan genomföras. De har lättare att bli accepterade.
-          description: Detta märke beviljas när du aktivt deltar med nya förslag som blir accepterade.
-          description_another: Den här användaren har fått %{score} förslag accepterade.
+            - Försök att lägga fram förslag som kan genomföras. De har lättare att bli antagna.
+          description: Detta märke beviljas när du aktivt deltar med nya förslag som blir antagna.
+          description_another: Den här användaren har fått %{score} förslag antagna.
           description_own: '%{score} av dina förslag har antagits.'
           name: Antagna förslag
           next_level_in: Få %{score} fler förslag antagna för att nå nästa nivå!
-          unearned_another: Den här användaren har inte fått några förslag accepterade än.
+          unearned_another: Den här användaren har inte fått några förslag antagna än.
           unearned_own: Du har inga antagna förslag än.
         proposal_votes:
           conditions:
@@ -306,9 +306,9 @@ sv:
           unearned_own: Du har inte skapat några förslag än.
     metrics:
       accepted_proposals:
-        description: Antal accepterade förslag
+        description: Antal antagna förslag
         object: förslag
-        title: Godkända förslag
+        title: Antagna förslag
       endorsements:
         description: Antal instämmanden med förslag
         object: instämmanden
@@ -381,7 +381,7 @@ sv:
             success: Deltagartexten har uppdaterats.
         proposal_answers:
           form:
-            accepted: Godkända
+            accepted: Antagna
             answer_proposal: Svara
             evaluating: Utvärderas
             rejected: Avvisade
@@ -511,7 +511,7 @@ sv:
           create: "%{user_name} tilldelade förslaget %{resource_name} till en värderare"
           delete: "%{user_name} tog bort en värderare från förslaget %{proposal_title}"
       answers:
-        accepted: Godkända
+        accepted: Antagna
         evaluating: Utvärderas
         not_answered: Ej besvarade
         rejected: Avvisade
@@ -535,8 +535,8 @@ sv:
           rejected: avvisade
         filter_type_values:
           all: Alla
-          amendments: Tillägg
-          proposals: förslag
+          amendments: Ändringsförslag
+          proposals: Förslag
       collaborative_drafts:
         collaborative_draft:
           publish:
