@@ -46,7 +46,7 @@ module Decidim
       end
 
       def originator
-        form.current_user
+        form.context.sender
       end
 
       attr_reader :form

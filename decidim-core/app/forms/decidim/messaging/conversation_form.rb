@@ -15,8 +15,8 @@ module Decidim
       def recipient
         @recipient ||= Decidim::UserBaseEntity
                        .includes(:following_follows)
-                       .where.not(id: current_user.id)
-                       .where(organization: current_user.organization)
+                       .where.not(id: context.sender.id)
+                       .where(organization: context.sender.organization)
                        .where(id: recipient_id)
       end
 

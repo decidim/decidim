@@ -8,10 +8,23 @@ module Decidim::Messaging
     let(:user) { create(:user, :confirmed, organization: organization) }
     let!(:command) { described_class.new(form) }
     let(:interlocutor) { create(:user, organization: organization) }
+    let(:sender) { user }
+    let(:context) do
+      {
+        current_user: user,
+        sender: sender
+      }
+    end
+    let(:form) do
+      ConversationForm.from_params(params).with_context(context)
+    end
 
     context "when the form is invalid" do
-      let(:form) do
-        ConversationForm.from_params(body: "", recipient_id: interlocutor.id).with_context(current_user: user)
+      let(:params) do
+        {
+          body: "",
+          recipient_id: interlocutor.id
+        }
       end
 
       it "does not create a conversation" do
@@ -30,11 +43,11 @@ module Decidim::Messaging
     end
 
     context "when the form is valid" do
-      let(:form) do
-        ConversationForm.from_params(
+      let(:params) do
+        {
           body: "<3 from Patagonia",
           recipient_id: interlocutor.id
-        ).with_context(current_user: user)
+        }
       end
 
       it "creates a conversation with one message" do

@@ -6,21 +6,30 @@ module Decidim::Messaging
   describe ReplyToConversation do
     let(:organization) { create(:organization) }
     let(:user) { create(:user, :confirmed, organization: organization) }
-    let(:interlocutor) { create(:user) }
+    let(:sender) { user }
+    let(:originator) { create(:user) }
 
     let(:conversation) do
       Conversation.start!(
-        originator: interlocutor,
+        originator: originator,
         interlocutors: [user],
         body: "Initial message"
       )
+    end
+    let(:context) do
+      {
+        sender: sender
+      }
+    end
+    let(:form) do
+      MessageForm.from_params(params).with_context(context)
     end
 
     let!(:command) { described_class.new(conversation, form) }
 
     context "when the form is invalid" do
-      let(:form) do
-        MessageForm.from_params(body: "")
+      let(:params) do
+        { body: "" }
       end
 
       it "does not create a message" do
@@ -39,10 +48,8 @@ module Decidim::Messaging
     end
 
     context "when the form is valid" do
-      let(:form) do
-        MessageForm.from_params(
-          body: "<3 from Patagonia"
-        ).with_context(current_user: user)
+      let(:params) do
+        { body: "<3 from Patagonia" }
       end
 
       it "creates a message with two receipts" do
