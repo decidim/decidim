@@ -11,6 +11,7 @@ FactoryBot.define do
     organization
     signature_type { :online }
     undo_online_signatures_enabled { true }
+    custom_signature_end_date_enabled { false }
     promoting_committee_enabled { true }
     minimum_committee_members { 3 }
 
@@ -28,6 +29,14 @@ FactoryBot.define do
 
     trait :undo_online_signatures_disabled do
       undo_online_signatures_enabled { false }
+    end
+
+    trait :custom_signature_end_date_enabled do
+      custom_signature_end_date_enabled { true }
+    end
+
+    trait :custom_signature_end_date_disabled do
+      custom_signature_end_date_enabled { false }
     end
 
     trait :promoting_committee_enabled do

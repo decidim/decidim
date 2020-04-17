@@ -29,6 +29,7 @@ en:
       initiatives_type:
         banner_image: Banner image
         collect_user_extra_fields: Collect participant personal data on signature
+        custom_signature_end_date_enabled: Enable selecting end of signature collection period
         description: Description
         document_number_authorization_handler: Authorization to verify document number on signatures
         extra_fields_legal_information: Legal information about the collection of personal data
