@@ -223,11 +223,11 @@ sv:
         delete: "%{user_name} tog bort medlemmen %{resource_name} från gruppen %{space_name}"
         update: "%{user_name} uppdaterade medlemmen %{resource_name} i gruppen %{space_name}"
       assembly_type:
-        create: "%{user_name} skapade grupptypen %{resource_name}"
-        delete: "%{user_name} tog bort medlemmen %{resource_name} från grupptypen %{space_name}"
-        publish: "%{user_name} publicerade grupptypen %{resource_name}"
-        unpublish: "%{user_name} avpublicerade grupptypen %{resource_name}"
-        update: "%{user_name} uppdaterade grupptypen %{resource_name}"
+        create: "%{user_name} skapade församlingstypen %{resource_name}"
+        delete: "%{user_name} tog bort medlemmen %{resource_name} från församlingstypen %{space_name}"
+        publish: "%{user_name} publicerade församlingstypen %{resource_name}"
+        unpublish: "%{user_name} avpublicerade församlingstypen %{resource_name}"
+        update: "%{user_name} uppdaterade församlingstypen %{resource_name}"
       assembly_user_role:
         create: "%{user_name} bjöd in %{resource_name} till gruppen %{space_name}"
         delete: "%{user_name} tog bort deltagaren %{resource_name} från gruppen %{space_name}"
