@@ -274,8 +274,11 @@ cs:
           back: Zpět
           back_to_initiatives: Zpět na iniciativy
           callout_text: Gratulujeme! Vaše občanská iniciativa byla úspěšně vytvořena.
+          confirm: Potvrdit
+          edit_my_initiative: Upravit mé iniciativy
           go_to_my_initiatives: Jít na mé iniciativy
           more_information: "(Více informací)"
+          send_my_initiative: Poslat moji iniciativu
         finish_help:
           access_reminder: Nezapomeňte, že budete mít vždy přístup k vašim iniciativám prostřednictvím uživatelského menu.
           help_for_organizations: Pokud jste asociace, musíte nahrát zápisy ze správní rady všech organizací, které tvoří Komise pro podporu
