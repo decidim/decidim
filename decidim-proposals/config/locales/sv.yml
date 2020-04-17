@@ -260,7 +260,10 @@ sv:
           email_subject: Förslagskategorin %{resource_title} har uppdaterats
           notification_title: Förslagskategorin <a href="%{resource_path}">%{resource_title}</a> har uppdaterats av en administratör.
         proposal_update_scope:
+          email_intro: 'En administratör har uppdaterat omfånget för ditt förslag "%{resource_title}", ta en titt på följande sida:'
           email_outro: Du har fått det här meddelandet eftersom du är författare till förslaget.
+          email_subject: Omfånget för förslaget %{resource_title} har uppdaterats
+          notification_title: Omfånget för förslaget <a href="%{resource_path}">%{resource_title}</a> har uppdaterats av en administratör.
         voting_enabled:
           email_intro: 'Du kan stödja förslag i %{participatory_space_title}! Börja delta på den här sidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
@@ -463,9 +466,12 @@ sv:
             votes_count: Antal röster
             votes_ranking: Sortera efter stöd
           update_category:
+            invalid: 'Dessa förslag var redan i kategorin %{subject_name}: %{proposals}.'
             select_a_category: Välj en kategori
             select_a_proposal: Välj ett förslag
+            success: 'Förslag som har uppdaterats till kategorin %{subject_name}: %{proposals}.'
           update_scope:
+            invalid: 'Dessa förslag hade redan omfånget %{subject_name}: %{proposals}.'
             select_a_proposal: Välj ett förslag
             select_a_scope: Välj ett omfång
             success: 'Förslag som har uppdaterats till omfånget %{subject_name}: %{proposals}.'
@@ -490,13 +496,20 @@ sv:
           create:
             invalid: Det gick inte att tilldela förslag till en värderare
             success: Förslag tilldelades till en värderare
+          delete:
+            invalid: Det gick inte att ta bort tilldelningen av förslag från en värderare
+            success: Värderaren är inte längre tilldelad till förslagen
       admin_log:
         proposal:
           answer: "%{user_name} svarade på förslaget %{resource_name} på utrymmet %{space_name}"
           create: "%{user_name} skapade förslaget %{resource_name} på utrymmet %{space_name} som ett officiellt förslag"
+          publish_answer: "%{user_name} publicerade svaret på förslaget %{resource_name} i utrymmet %{space_name}"
           update: "%{user_name} uppdaterade det officiella förslaget %{resource_name} på utrymmet %{space_name}"
         proposal_note:
           create: "%{user_name} lämnade en privat anteckning på förslaget %{resource_name} på utrymmet %{space_name}"
+        valuation_assignment:
+          create: "%{user_name} tilldelade förslaget %{resource_name} till en värderare"
+          delete: "%{user_name} tog bort en värderare från förslaget %{proposal_title}"
       answers:
         accepted: Godkända
         evaluating: Utvärderas
