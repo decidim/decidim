@@ -9,4 +9,9 @@ sr:
         per_page: Po stranici
       admin_terms_of_use:
         accept:
-          error: Greška u postupku prihvatanja uslova korišćenja definisanih od administratora.
+          error: Greška u postupku prihvatanja uslova korišćenja koje je odredio administrator.
+          success: Odlično! Prihvatili ste uslove korišćenja koje je odredio administrator.
+        actions:
+          accept: Prihvatam uslove korišćenja koje je odredio administrator
+          are_you_sure: Da li ste sigurni da ne želite da prihvatite uslove korišćenja koje zahteva administrator?
+          refuse: Ne prihvatam uslove korišćenja koje je odredio administrator
