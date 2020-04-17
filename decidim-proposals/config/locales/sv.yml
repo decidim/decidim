@@ -117,7 +117,7 @@ sv:
             geocoding_enabled: Geokodning aktiverad
             minimum_votes_per_user: Minsta antal röster per användare
             new_proposal_body_template: Innehållsmall för nytt förslag
-            new_proposal_body_template_help: Du kan ange den redan ifyllda texten för nya förslag
+            new_proposal_body_template_help: Du kan ange den förifyllda texten för nya förslag
             new_proposal_help_text: Hjälptext om nya förslag
             official_proposals_enabled: Officiella förslag aktiverade
             participatory_texts_disabled_help: Det går inte att ändra denna inställning om det finns befintliga förslag. Skapa en ny `Förslagskomponent` om du vill aktivera funktionen, eller kasta alla importerade förslag i menyn `Deltagande texter` om du vill avaktivera den.
