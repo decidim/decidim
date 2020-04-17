@@ -812,7 +812,7 @@ sv:
           send: Skicka
           title: Svara
         show:
-          not_allowed: Användaren accepterar inte fler direktmeddelanden.
+          not_allowed: Användaren tar inte emot fler direktmeddelanden.
           title: Samtal med %{usernames}
         start:
           send: Skicka
@@ -1083,7 +1083,7 @@ sv:
     user_activity:
       index:
         no_activities_warning: Den här användaren har inte haft någon aktivitet än.
-    user_contact_disabled: Deltagaren accepterar inte direktmeddelanden.
+    user_contact_disabled: Deltagaren tar inte emot inte direktmeddelanden.
     user_interests:
       show:
         my_interests: Mina intressen
