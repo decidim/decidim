@@ -273,7 +273,7 @@ describe "Conversations", type: :system do
 
   context "when multiple participants conversation" do
     let(:user1) { create(:user, organization: organization) }
-    let(:user2) { create(:user, organization: organization) }
+    let(:user2) { create(:user_group, organization: organization) }
     let(:user3) { create(:user, organization: organization) }
     let(:user4) { create(:user, organization: organization) }
     let(:user5) { create(:user, organization: organization) }
