@@ -580,7 +580,7 @@ sv:
           notification_title: <a href="%{resource_path}">Profilsidan</a> för %{name} (%{nickname}), som du följer, har uppdaterats.
     export_mailer:
       data_portability_export:
-        click_button: 'Klicka på nästa knapp för att ladda ner dina data. <br/> Du kommer att få filen tillgänglig fram till %{date}.'
+        click_button: 'Hämta dina data genom att klicka på Nästa. <br/> Filen kommer att vara tillgänglig till och med %{date}. <br/> Du behöver <a href=''https://www.7-zip.org/''>7-Zip</a> för att öppna den. Lösenord: %{password}'
         download: Hämta
       export:
         ready: En komprimerad version av exporten är bifogad.
@@ -610,7 +610,7 @@ sv:
       create:
         button: Följ
         error: Det gick inte att följa resursen.
-        participatory_space: Följer redan deltagarutrymmet
+        participatory_space: Du följer redan deltagarutrymmet
       destroy:
         button: Sluta följa
         error: Det gick inte att sluta följa den här resursen.
