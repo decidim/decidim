@@ -444,7 +444,7 @@ sv:
             sent_at: Skickad
             status: Status
           status:
-            accepted: Accepterad (%{at})
+            accepted: Accepterade (%{at})
             rejected: Avvisad (%{at})
             sent: Skickad
         conference_registration:
