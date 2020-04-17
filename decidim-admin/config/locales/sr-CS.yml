@@ -1,1 +1,5 @@
 sr:
+  activemodel:
+    attributes:
+      organization:
+        time_zone: Vremenska zona
