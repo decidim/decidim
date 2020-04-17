@@ -1,0 +1,37 @@
+<%
+@title = "Propuesta -- Decidim Barcelona"
+@activesection = "processes"
+@activepage = "proposals"
+%>
+
+<%= partial "template_top" %>
+
+<main>
+  <%= partial "process_header" %>
+  <div class="wrapper">
+    <div class="row">
+      <div class="columns medium-7 mediumlarge-8">
+        <h1 class="heading3">Tú decides los presupuestos</h1>
+        <div class="section">
+          <p class="lead">
+            ¿En qué proyectos crees que debería trabajar el Ayuntamiento durante el próximo año? Asigna como mínimo 75 millones a los proyectos que quieras y vota con tus preferencias cómo serán los próximos presupuestos.
+          </p>
+          <p>
+            Elige los presupuestos de tu distrito y después, los de otro a tu elección.</p>
+          <p>
+            <a href="#" class="button">Votar en el distrito de Gràcia</a>
+          </p>
+        </div>
+        <div class="section">
+          <p>
+            Además de votar en tu distrito, puedes votar los presupuestos de uno de los
+            siguientes distritos:
+          </p>
+          <%= partial "budget_districts", locals: {} %>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>

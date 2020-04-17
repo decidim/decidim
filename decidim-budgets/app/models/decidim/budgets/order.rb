@@ -27,6 +27,8 @@ module Decidim
         less_than_or_equal_to: :maximum_budget
       }
 
+      validate :reach_minimum_projects, if: :checked_out?
+
       scope :finished, -> { where.not(checked_out_at: nil) }
       scope :pending, -> { where(checked_out_at: nil) }
 
@@ -42,6 +44,8 @@ module Decidim
 
       # Public: Check if the order total budget is enough to checkout
       def can_checkout?
+        return minimum_projects <= projects.count if minimum_projects_rule?
+
         total_budget.to_f >= minimum_budget
       end
 
@@ -52,7 +56,7 @@ module Decidim
 
       # Public: Returns the required minimum budget to checkout
       def minimum_budget
-        return 0 unless component
+        return 0 unless component || minimum_projects_rule?
 
         component.settings.total_budget.to_f * (component.settings.vote_threshold_percent.to_f / 100)
       end
@@ -62,6 +66,20 @@ module Decidim
         return 0 unless component
 
         component.settings.total_budget.to_f
+      end
+
+      # Public: Returns if it is required a minimum projects limit to checkout
+      def minimum_projects_rule?
+        return unless component
+
+        component.settings.vote_rule_minimum_budget_projects_enabled
+      end
+
+      # Public: Returns the required minimum projects to checkout
+      def minimum_projects
+        return 0 unless component
+
+        component.settings.vote_minimum_budget_projects_number
       end
 
       def self.user_collection(user)
@@ -86,6 +104,12 @@ module Decidim
         return if !user || !organization
 
         errors.add(:user, :invalid) unless user.organization == organization
+      end
+
+      def reach_minimum_projects
+        return unless minimum_projects_rule?
+
+        errors.add(:projects, :invalid) if minimum_projects > projects.count
       end
     end
   end

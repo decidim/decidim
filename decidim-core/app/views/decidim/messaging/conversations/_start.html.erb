@@ -4,7 +4,9 @@
   </h5>
 
   <%= form_for form, url: decidim.conversations_path, remote: true do |f| %>
-    <%= f.hidden_field :recipient_id %>
+    <% @form.recipient.each do |recipient| %>
+      <%= f.hidden_field :recipient_id, id: nil, name: "conversation[recipient_id][]", value: recipient.id %>
+    <% end %>
     <%= f.text_area :body, label: false, rows: 4, required: true %>
 
     <%= f.submit t(".send") %>
