@@ -9,13 +9,15 @@ sr:
         per_page: Po stranici
       admin_terms_of_use:
         accept:
-          error: Greška u postupku prihvatanja uslova korišćenja koje je odredio administrator.
-          success: Odlično! Prihvatili ste uslove korišćenja koje je odredio administrator.
+          error: Greška u postupku prihvatanja uslova korišćenja za administratore.
+          success: Odlično! Prihvatili ste uslove korišćenja za administratore.
         actions:
-          accept: Prihvatam uslove korišćenja koje je odredio administrator
-          are_you_sure: Da li ste sigurni da ne želite da prihvatite uslove korišćenja koje zahteva administrator?
-          refuse: Ne prihvatam uslove korišćenja koje je odredio administrator
+          accept: Prihvatam uslove korišćenja za administratore
+          are_you_sure: Da li ste sigurni da ne prihvatate uslove korišćenja za administratore?
+          refuse: Ne prihvatam uslove korišćenja za administratore
           title: Prihvatam propisane načine i uslove korišćenja
+        required_review:
+          alert: 'Obavezno: Pročitajte naše uslove korišćenja za administratore'
       filters:
         filter_label: Filter
         private_space_eq:
