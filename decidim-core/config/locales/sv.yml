@@ -238,7 +238,7 @@ sv:
           one: Dokument
           other: Dokument
       document:
-        download: Hämta fel
+        download: Hämta fil
       documents:
         related_documents: Relaterade dokument
       photos:
@@ -937,8 +937,8 @@ sv:
         topics: Ämnen
       participatory_space:
         metrics:
-          headline: Deltagande i siffror
-          link: Visa all statistik
+          headline: Mätvärden
+          link: Visa alla mätvärden
       terms_and_conditions:
         accept:
           error: Det uppstod ett problem med att godkänna villkoren.
