@@ -373,7 +373,7 @@ sv:
         assembly_presenter:
           not_found: 'Gruppen hittades inte i databasen (ID: %{id})'
         assembly_type_presenter:
-          not_found: 'Grupptypen hittades inte i databasen (ID: %{id})'
+          not_found: 'Församlingstypen hittades inte i databasen (ID: %{id})'
     menu:
       assemblies: Församlingar
     metrics:
