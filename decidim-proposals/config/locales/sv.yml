@@ -825,23 +825,23 @@ sv:
             one: STÖDER
             other: STÖDER
           most_popular_proposal: Mest populära förslaget
-          need_more_votes: Behöver fler röster
+          need_more_votes: Behöver mer stöd
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Varje förslag kan samla mer än %{limit} stöd
           minimum_votes_per_user:
-            description: Du måste distribuera minst %{votes} röster mellan olika förslag.
+            description: Du måste fördela minst %{votes} stöd mellan olika förslag.
             given_enough_votes: Du har gett tillräckligt med stöd.
-            supports_remaining: Du måste rösta %{remaining_votes} ytterligare förslag för att dina röster ska beaktas.
+            supports_remaining: Du måste stödja ytterligare %{remaining_votes} förslag för att dina stöd ska beaktas.
           proposal_limit:
             description: Du kan skapa upp till %{limit} förslag.
           threshold_per_proposal:
             description: För att valideras måste förslag nå stöd från %{limit}
-          title: 'Röstning är föremål för följande regler:'
+          title: 'Stöd är föremål för följande regler:'
           vote_limit:
-            description: Du kan rösta upp till %{limit} förslag.
+            description: Du kan stödja upp till %{limit} förslag.
             left: Kvar
-            votes: Röster
+            votes: Stöder
         wizard_aside:
           back: Tillbaka
           info: Du skapar ett <strong>förslag</strong>.
