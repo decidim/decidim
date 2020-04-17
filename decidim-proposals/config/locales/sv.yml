@@ -251,6 +251,7 @@ sv:
           email_subject: Förslagskategorin %{resource_title} har uppdaterats
           notification_title: Förslagskategorin <a href="%{resource_path}">%{resource_title}</a> har uppdaterats av en administratör.
         proposal_update_scope:
+          email_intro: 'En administratör har uppdaterat omfånget för ditt förslag "%{resource_title}", ta en titt på följande sida:'
           email_outro: Du har fått det här meddelandet eftersom du är författare till förslaget.
         voting_enabled:
           email_intro: 'Du kan stödja förslag i %{participatory_space_title}! Börja delta på den här sidan:'
