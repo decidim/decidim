@@ -2,6 +2,7 @@ sr:
   activemodel:
     attributes:
       organization:
+        rich_text_editor_in_public_views: Omogući korisnicima uređivanje teksta sa formatiranjem
         time_zone: Vremenska zona
   decidim:
     admin:
@@ -41,3 +42,8 @@ sr:
       newsletters:
         index:
           subscribed_count: 'Pratioci:'
+        select_recipients_to_deliver:
+          recipients_count: Ovaj bilten biće dostavljen <strong id='recipients_count'>%{count}</strong> korisnicima.
+      organization:
+        form:
+          rich_text_editor_in_public_views_help: U pojedinim delovima teksta učesnici će uz pomoć programa moći da ubace HTML oznake.
