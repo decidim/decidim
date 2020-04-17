@@ -18,6 +18,9 @@ sr:
           title: Prihvatam propisane načine i uslove korišćenja
         required_review:
           alert: 'Obavezno: Pročitajte naše uslove korišćenja za administratore'
+          callout: Molimo da proučite Uslove korišćenja za administratore. U suprotnom nećete moći da upravljate platformom.
+          cta: Proučite uslove sada.
+        title: Uslovi korišćenja za administratore
       filters:
         filter_label: Filter
         private_space_eq:
@@ -32,6 +35,8 @@ sr:
             'true': Neobjavljeno
         scope_id_eq:
           label: Opseg
+        search_placeholder:
+          name_or_nickname_or_email_cont: Pretraži %{collection} prema e-pošti, imenu ili nadimku.
       officializations:
         show_email_modal:
           email_address: E-pošta
