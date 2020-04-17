@@ -523,7 +523,7 @@ sv:
           all: Alla
           evaluating: Utvärderas
           not_answered: Ej besvarade
-          rejected: avvisade
+          rejected: Avvisade
         filter_type_values:
           all: Alla
           amendments: Ändringsförslag
@@ -792,14 +792,14 @@ sv:
         vote_button:
           already_voted: Redan stött
           already_voted_hover: Dra tillbaka stöd
-          maximum_votes_reached: Röstningsgränsen uppnådd
-          no_votes_remaining: Inga röster kvar
-          vote: Rösta
-          votes_blocked: Röstning inaktiverad
+          maximum_votes_reached: Uppnått stödgränsen
+          no_votes_remaining: Inga stöd kvar
+          vote: Stöd
+          votes_blocked: Stöd är avaktiverat
         votes_count:
           count:
-            one: RÖST
-            other: RÖSTER
+            one: STÖDER
+            other: STÖDER
           most_popular_proposal: Mest populära förslaget
           need_more_votes: Behöver fler röster
         voting_rules:
