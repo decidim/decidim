@@ -79,7 +79,7 @@ sv:
     admin:
       actions:
         new_assembly: Ny grupp
-        new_assembly_type: Ny typ av grupp
+        new_assembly_type: Ny typ av församling
       assemblies:
         create:
           error: Det gick inte att skapa en ny grupp.
@@ -104,15 +104,15 @@ sv:
       assemblies_types:
         create:
           error: Det gick inte att skapa en ny typ av grupp.
-          success: Grupptypen skapades framgångsrikt.
+          success: Församlingstypen har skapats.
         destroy:
-          success: Grupptypen har raderats.
+          success: Församlingstypen har raderats.
         new:
           create: Skapa
-          title: Ny grupptyp
+          title: Ny typ av församling
         update:
-          error: Det gick inte att uppdatera grupptypen.
-          success: Grupptypen har uppdaterats.
+          error: Det gick inte att uppdatera församlingstypen.
+          success: Församlingstypen har uppdaterats.
       assembly_copies:
         new:
           copy: Kopiera
