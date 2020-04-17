@@ -384,7 +384,7 @@ sv:
           recent: Senaste
         result:
           answer_title:
-            accepted: Detta förslag har godkänts eftersom
+            accepted: Detta förslag har antagits eftersom
             created: Detta förslag har skapats
             discarded: Detta förslag har förkastats eftersom
             published: Detta förslag publiceras eftersom
