@@ -26,6 +26,19 @@ module Decidim
         managed_user || real_user
       end
 
+      # Clear the `@real_user` instance variable because otherwise that would be
+      # the return value for any `current_user` calls after the user has already
+      # signed out.
+      # See:
+      # https://github.com/heartcombo/devise/blob/97a6fd289548226d7b0638848259566605418529/lib/devise/controllers/sign_in_out.rb#L80
+      def sign_out(resource_or_scope = nil)
+        result = super
+
+        @real_user = nil
+
+        result
+      end
+
       def impersonation_session_ends_at
         @impersonation_session_ends_at ||= impersonation_log.started_at + Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes
       end
