@@ -8,12 +8,46 @@ module Decidim
 
     let(:organization) { create(:organization) }
     let(:user) { create :user, :confirmed, organization: organization }
+    let(:user1) { create(:user, organization: organization) }
+    let(:user2) { create(:user, organization: organization) }
+    let(:user3) { create(:user, organization: organization) }
+    let(:user4) { create(:user, organization: organization) }
+    let(:user5) { create(:user, organization: organization) }
+    let(:user6) { create(:user, organization: organization) }
+    let(:user7) { create(:user, organization: organization) }
+    let(:user8) { create(:user, organization: organization) }
+    let(:user9) { create(:user, organization: organization) }
+    let(:user10) { create(:user, organization: organization) }
 
-    let(:conversation) do
+    let!(:conversation) do
       Messaging::Conversation.start!(
         originator: user,
         interlocutors: [create(:user)],
         body: "Hi!"
+      )
+    end
+
+    let!(:conversation2) do
+      Messaging::Conversation.start!(
+        originator: user,
+        interlocutors: [user1],
+        body: "Hi!"
+      )
+    end
+
+    let!(:conversation4) do
+      Messaging::Conversation.start!(
+        originator: user,
+        interlocutors: [user1, user2, user3],
+        body: "Hi to all three people!"
+      )
+    end
+
+    let!(:conversation10) do
+      Messaging::Conversation.start!(
+        originator: user,
+        interlocutors: [user1, user2, user3, user4, user5, user6, user7, user8, user9],
+        body: "Hi to all six people!"
       )
     end
 
@@ -32,12 +66,42 @@ module Decidim
       end
     end
 
+    describe "GET new" do
+      context "when previous yet created conversation with 2 participant" do
+        subject { get :new, params: { recipient_id: user1.id } }
+
+        it "redirects to previous 2 participant created conversation" do
+          expect(subject).to redirect_to conversation_path(conversation2)
+        end
+      end
+    end
+
+    describe "GET new" do
+      context "when previous yet created conversation 4 participants" do
+        subject { get :new, params: { recipient_id: [user1.id, user2.id, user3.id] } }
+
+        it "redirects to previous 4 participants created conversation" do
+          expect(subject).to redirect_to conversation_path(conversation4)
+        end
+      end
+    end
+
+    describe "GET new" do
+      context "when previous yet created conversation 10 participants" do
+        subject { get :new, params: { recipient_id: [user1.id, user2.id, user3.id, user4.id, user5.id, user6.id, user7.id, user8.id, user9.id] } }
+
+        it "redirects to previous 10 participants created conversation" do
+          expect(subject).to redirect_to conversation_path(conversation10)
+        end
+      end
+    end
+
     describe "POST create" do
       context "when invalid" do
         it "redirects the user back" do
           post :create, params: { recipient_id: 999, body: "" }
 
-          expect(response).to redirect_to("/")
+          expect(response.body).to include("Conversation not started. Try again later")
         end
       end
     end
