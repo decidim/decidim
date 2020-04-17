@@ -23,3 +23,10 @@ sr:
           values:
             'false': Javno
             'true': Privatno
+        published_at_null:
+          label: Objavljeno
+          values:
+            'false': Objavljeno
+            'true': Neobjavljeno
+        scope_id_eq:
+          label: Opseg
