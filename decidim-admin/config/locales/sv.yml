@@ -311,7 +311,7 @@ sv:
           label: Publicerade
           values:
             'false': Publicerade
-            'true': Ej publicerat
+            'true': Ej publicerade
         scope_id_eq:
           label: Omfång
         search_label: Sök
