@@ -367,9 +367,9 @@ sv:
               md: Markdown
               odt: Odt
             bottom_hint: "(Du kommer att kunna förhandsvisa och sortera dokumentavsnitt)"
-            document_legend: 'Lägg till ett dokument mindre än 2 MB, varje sektion tills 3 nivåer djup kommer att analyseras i förslag. Suported format är: %{valid_mime_types}'
-            title: ADD DOKUMENT
-            upload_document: Ladda upp dokument
+            document_legend: 'Lägg till ett dokument som är mindre än 2MB, varje avsnitt upp till 3 nivåers djup kommer läsas in till förslagen. Möjliga format är: %{valid_mime_types}'
+            title: LÄGG TILL DOKUMENT
+            upload_document: Skicka in dokument
           publish:
             invalid: Kunde inte publicera förslag
             success: Alla förslag har publicerats
@@ -463,7 +463,7 @@ sv:
             remove_assignment: Ta bort tilldelning
             remove_assignment_confirmation: Vill du ta bort värderaren från förslaget?
             valuators: Värderare
-            votes_count: Antal röster
+            votes_count: Antal stöd
             votes_ranking: Sortera efter stöd
           update_category:
             invalid: 'Dessa förslag var redan i kategorin %{subject_name}: %{proposals}.'
@@ -487,11 +487,11 @@ sv:
         proposals_merges:
           create:
             invalid: Det gick inte att slå samman de valda förslagen.
-            success: Framgångsrikt fusionerade förslagen till en ny.
+            success: Förslagen har sammanfogats till ett nytt förslag.
         proposals_splits:
           create:
-            invalid: Det gick inte att splittra de valda förslagen.
-            success: Framgångsrikt splittrade förslagen till nya.
+            invalid: Det gick inte att dela upp de valda förslagen.
+            success: Förslagen har delats upp till nya förslag.
         valuation_assignments:
           create:
             invalid: Det gick inte att tilldela förslag till en värderare
@@ -528,9 +528,9 @@ sv:
         filter_scope_values:
           all: Alla
         filter_state_values:
-          accepted: Godkända
+          accepted: Antagna
           all: Alla
-          evaluating: utvärdera
+          evaluating: Utvärderas
           not_answered: Ej besvarade
           rejected: avvisade
         filter_type_values:
@@ -604,7 +604,7 @@ sv:
           recent: Senaste
         requests:
           accepted_request:
-            error: Kunde inte accepteras som samarbetspartner, försök igen senare.
+            error: Kunde inte godkännas som samarbetspartner, försök igen senare.
             success: "@%{user} har godkänts som bidragsgivare"
           access_requested:
             error: Din förfrågan kunde inte slutföras, försök igen senare.
