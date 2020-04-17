@@ -12,7 +12,7 @@ SimpleCov.start do
 
   # We ignore some of the files because they are never tested
   add_filter "/config/"
-  add_filter "/migrate/"
+  add_filter "/db/"
   add_filter "/vendor/"
   add_filter "/spec/"
   add_filter "/test/"
