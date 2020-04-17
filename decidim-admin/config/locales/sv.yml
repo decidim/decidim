@@ -365,7 +365,7 @@ sv:
           success: Den hanterade användaren har befordrats.
         promotions:
           new:
-            explanation: Hanterade deltagare kan befordras till vanliga deltagare. Det innebär att de kommer att bli inbjudna till tillämpningen och du kommer inte att kunna hantera dem igen. Den inbjudna deltagaren får ett e-brev om att godkänna inbjudan.
+            explanation: Hanterade deltagare kan befordras till vanliga deltagare. Det innebär att de kommer att bli inbjudna till programmet och du kommer inte att kunna hantera dem igen. Den inbjudna deltagaren får ett e-brev om att godkänna inbjudan.
             new_managed_user_promotion: Befordra ny hanterad användare
             promote: Befordra
       menu:
