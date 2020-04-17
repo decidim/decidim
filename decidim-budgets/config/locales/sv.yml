@@ -110,7 +110,7 @@ sv:
             other: valda projekt
           view: Visa
         orders:
-          highest_cost: Dyrast
+          highest_cost: Högst kostnad
           label: Ordna projekt efter
           lowest_cost: Lägsta kostnad
           most_voted: Mest röster
