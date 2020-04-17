@@ -3,3 +3,7 @@ sr:
     attributes:
       organization:
         time_zone: Vremenska zona
+  decidim:
+    admin:
+      actions:
+        per_page: Po stranici
