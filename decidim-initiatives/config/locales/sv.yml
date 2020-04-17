@@ -268,8 +268,11 @@ sv:
           back: Tillbaka
           back_to_initiatives: Tillbaka till initiativ
           callout_text: Grattis! Ditt medborgarinitiativ har skapats.
+          confirm: Bekräfta
+          edit_my_initiative: Redigera mina initiativ
           go_to_my_initiatives: Gå till mina initiativ
           more_information: "(Mer information)"
+          send_my_initiative: Skicka mitt initiativ
         finish_help:
           access_reminder: Kom ihåg att du alltid kan komma åt dina initiativ via deltagarmenyn.
           help_for_organizations: Om du är en förening måste du skicka in protokollen från styrelserna för alla organisationer som bildar kampanjutskottet
