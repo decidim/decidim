@@ -15,3 +15,23 @@ sr:
           accept: Prihvatam uslove korišćenja koje je odredio administrator
           are_you_sure: Da li ste sigurni da ne želite da prihvatite uslove korišćenja koje zahteva administrator?
           refuse: Ne prihvatam uslove korišćenja koje je odredio administrator
+          title: Prihvatam propisane načine i uslove korišćenja
+      filters:
+        filter_label: Filter
+        private_space_eq:
+          label: Privatno
+          values:
+            'false': Javno
+            'true': Privatno
+        published_at_null:
+          label: Objavljeno
+          values:
+            'false': Objavljeno
+            'true': Neobjavljeno
+        scope_id_eq:
+          label: Opseg
+      officializations:
+        show_email_modal:
+          email_address: E-pošta
+          full_name: Puno ime
+          hidden: sakriveno
