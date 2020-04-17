@@ -44,7 +44,7 @@ sv:
         other: Talare
       decidim/conference_user_role:
         one: Konferensanvändarroll
-        other: Konferenceanvändarroller
+        other: Konferensanvändarroller
   decidim:
     admin:
       actions:
