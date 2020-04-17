@@ -30,6 +30,7 @@
 // = require_tree ./decidim/vizzs
 
 // = require_self
+// = require decidim/assets
 // = require decidim/floating_help
 
 /* globals svg4everybody */
