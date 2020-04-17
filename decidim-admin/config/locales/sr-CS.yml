@@ -2,6 +2,7 @@ sr:
   activemodel:
     attributes:
       organization:
+        rich_text_editor_in_public_views: Omogući korisnicima uređivanje teksta sa formatiranjem
         time_zone: Vremenska zona
   decidim:
     admin:
@@ -41,13 +42,18 @@ sr:
       newsletters:
         index:
           subscribed_count: 'Pratioci:'
+        select_recipients_to_deliver:
+          recipients_count: Ovaj bilten biće dostavljen <strong id='recipients_count'>%{count}</strong> korisnicima.
       officializations:
         index:
           show_email: Prikaži adresu e-pošte
         show_email_modal:
           description: Ako je neophodno da učesnika direktno kontaktirate možete upotrebiti dugme Prikaži kako bi videli adresu E-pošte. Ova aktivnost će biti zabeležena.
-          email_address: E-pošta
+          email_address: Adrеsa е-poštе
           full_name: Puno ime
           hidden: sakriveno
           show: Prikaži
           title: Prikaži adresu e-pošte učesnika
+      organization:
+        form:
+          rich_text_editor_in_public_views_help: U pojedinim delovima teksta učesnici će uz pomoć programa moći da ubace HTML oznake.
