@@ -41,11 +41,12 @@ module Decidim
       #
       # @return (see .start)
       #
-      def self.start!(originator:, interlocutors:, body:)
+      def self.start!(originator:, interlocutors:, body:, user: nil)
         conversation = start(
           originator: originator,
           interlocutors: interlocutors,
-          body: body
+          body: body,
+          user: user
         )
 
         conversation.save!
@@ -57,17 +58,18 @@ module Decidim
       # Initiates a conversation between a user and a set of interlocutors with
       # an initial message.
       #
-      # @param originator [Decidim::User] The user starting the conversation
+      # @param originator [Decidim::UserBaseEntity] The user or group starting the conversation
       # @param interlocutors [Array<Decidim::User>] The set of interlocutors in
       #   the conversation (not including the originator).
       # @param body [String] The content of the initial message
+      # @param user [Decidim::User] The user starting the conversation in case originator is a group
       #
       # @return [Decidim::Messaging::Conversation] The newly created conversation
       #
-      def self.start(originator:, interlocutors:, body:)
+      def self.start(originator:, interlocutors:, body:, user: nil)
         conversation = new(participants: [originator] + interlocutors)
 
-        conversation.add_message(sender: originator, body: body)
+        conversation.add_message(sender: originator, body: body, user: user)
 
         conversation
       end
@@ -78,8 +80,8 @@ module Decidim
       #
       # @return (see #add_message)
       #
-      def add_message!(sender:, body:)
-        add_message(sender: sender, body: body)
+      def add_message!(sender:, body:, user: nil)
+        add_message(sender: sender, body: body, user: user)
 
         save!
       end
@@ -87,15 +89,16 @@ module Decidim
       #
       # Appends a message to this conversation
       #
-      # @param sender [Decidim::User] The sender of the message
+      # @param sender [Decidim::UserBaseEntity] The sender of the message
       # @param body [String] The content of the message
+      # @param user [Decidim::User] The user sending the message in case sender is a group
       #
       # @return [Decidim::Messaging::Message] The newly created message
       #
-      def add_message(sender:, body:)
+      def add_message(sender:, body:, user: nil)
         message = messages.build(sender: sender, body: body)
 
-        message.envelope_for(interlocutors(sender))
+        message.envelope_for(recipients: interlocutors(sender))
 
         message
       end

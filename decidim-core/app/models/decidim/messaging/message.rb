@@ -36,10 +36,15 @@ module Decidim
       # including also a receipt for the remitent (sender) of the message.
       # Receipts are unread by default, except for the sender's receipt.
       #
-      # @param recipients [Array<Decidim::User>]
+      # If the sender is a UserGroup then receipts will be created for its managers
+      # a "from" user can be specified to avoid create a receipt for the real user sending the message
       #
-      def envelope_for(recipients)
-        receipts.build(recipient: sender, read_at: Time.current)
+      # @param recipients [Array<Decidim::UserBaseEntity>] Users or groups receiving the message
+      # @param from [Array<Decidim::User>] the user sending the message in case sender is a group
+      #
+      def envelope_for(recipients:, from: nil)
+        from = sender if sender.is_a? User
+        receipts.build(recipient: from, read_at: Time.current) if from.is_a? User
 
         recipients.each { |recipient| receipts.build(recipient: recipient) }
       end

@@ -15,7 +15,7 @@
             <%= link_to decidim.profile_conversation_path(nickname: user.nickname, id: conversation), class: "card--list__item" do %>
               <div class="card--list__titled-text">
                 <h6 class="card--list__heading heading6">
-                  <%= username_list(conversation.interlocutors(current_user), true) %>
+                  <%= username_list(conversation.interlocutors(user), true) %>
                 </h6>
 
                 <span class="card--list__annotation">
