@@ -540,7 +540,7 @@ sv:
       collaborative_drafts:
         collaborative_draft:
           publish:
-            error: Det har uppstått ett fel vid publicering av samarbetsförslaget.
+            error: Det gick inte att publicera det gemensamma utkastet.
             irreversible_action_modal:
               body: Efter att utkastet har publicerats som ett förslag går det inte längre att redigera utkastet. Förslaget kommer inte acceptera nya författare eller bidrag.
               cancel: Dra tillbaka
@@ -549,7 +549,7 @@ sv:
             success: Det gemensamma utkastet har publicerats som ett förslag.
           view_collaborative_draft: Visa gemensamt utkast
           withdraw:
-            error: Det har uppstått fel vid stängningen av samarbetsutkastet.
+            error: Det gick inte att stänga det gemensamma utkastet.
             irreversible_action_modal:
               body: Efter att utkastet stängs går det inte längre att redigera. Utkastet accepterar inte nya författare eller bidrag.
               cancel: Dra tillbaka
@@ -565,10 +565,10 @@ sv:
           title: Färdigställ det gemensamma utkastet
         count:
           drafts_count:
-            one: "%{count} samarbetsförslag"
-            other: "%{count} samarbetsförslag"
+            one: "%{count} gemensamt utkast"
+            other: "%{count} gemensamma utkast"
         create:
-          error: Det uppstod ett problem med att skapa dessa samarbetsutkast
+          error: Det gick inte att skapa det gemensamma utkastet
           success: Det gemensamma utkastet har skapats.
         edit:
           attachment_legend: "(Valfritt) Lägg till en bilaga"
@@ -578,7 +578,7 @@ sv:
           title: Redigera gemensamt utkast
         filters:
           all: Alla
-          amendment: Tillägg
+          amendment: Ändringsförslag
           category: Kategori
           open: Öppna
           published: Publicerade
@@ -607,8 +607,8 @@ sv:
             error: Kunde inte godkännas som samarbetspartner, försök igen senare.
             success: "@%{user} har godkänts som bidragsgivare"
           access_requested:
-            error: Din förfrågan kunde inte slutföras, försök igen senare.
-            success: Din begäran om samarbete är skickad
+            error: Din begäran kunde inte behandlas, försök igen senare.
+            success: Din begäran om samarbete har skickats
           collaboration_requests:
             accept_request: Godkänn
             reject_request: Avvisa
@@ -620,7 +620,7 @@ sv:
           back: Tillbaka
           edit: Redigera gemensamt utkast
           final_proposal: sista förslaget
-          final_proposal_help_text: Detta utkast är färdigt. Du kan se det slutgiltiga förslaget
+          final_proposal_help_text: Detta utkast är klart. Du kan se det slutliga förslaget
           hidden_authors_count:
             one: och %{count} mer person
             other: och %{count} fler personer
@@ -640,7 +640,7 @@ sv:
           published: Publicerat
           withdrawn: Tillbakadraget
         update:
-          error: Det har uppstått fel när du sparade samarbetsutkastet.
+          error: Det gick inte att spara det gemensamma utkastet.
           success: Det gemensamma utkastet har uppdaterats.
         wizard_aside:
           back: Tillbaka
@@ -704,7 +704,7 @@ sv:
           endorse: Instäm
       proposal_votes:
         create:
-          error: Det har uppstått fel när man röstade om förslaget.
+          error: Det gick inte att stödja förslaget.
       proposals:
         compare:
           continue: Fortsätt
@@ -744,7 +744,7 @@ sv:
           search: Sök
           state: Status
           type: Typ
-          voted: Röstade
+          voted: Stöder
         filters_small_view:
           close_modal: Stäng fönster
           filter: Filtrera
@@ -757,8 +757,8 @@ sv:
           view_proposal: Visa förslag
         linked_proposals:
           proposal_votes:
-            one: röst
-            other: röster
+            one: stöd
+            other: stöd
         new:
           send: Fortsätt
           title: Skapa ditt förslag
@@ -767,7 +767,7 @@ sv:
           most_commented: Mest kommenterade
           most_endorsed: Mest instämda i
           most_followed: Mest följda
-          most_voted: Mest röstade
+          most_voted: Mest stöd
           random: Slumpmässig
           recent: Senaste
           with_more_authors: Med fler författare
@@ -814,8 +814,8 @@ sv:
         tags:
           changed_from: "(ändrad från <u>%{previous_name}</u> av en administratör)"
         vote_button:
-          already_voted: Redan röstat
-          already_voted_hover: Ta bort sin röst
+          already_voted: Redan stött
+          already_voted_hover: Dra tillbaka stöd
           maximum_votes_reached: Röstningsgränsen uppnådd
           no_votes_remaining: Inga röster kvar
           vote: Rösta
