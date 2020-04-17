@@ -65,7 +65,7 @@ sv:
         omniauth_settings:
           enabled: Aktiverad
           facebook:
-            app_id: App-Id
+            app_id: App-ID
             app_secret: App-hemlighet
           google_oauth2:
             client_id: Klient-ID
