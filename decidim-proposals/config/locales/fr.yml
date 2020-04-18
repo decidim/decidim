@@ -666,9 +666,12 @@ fr:
           title: Créer une proposition
         orders:
           label: 'Classement des propositions par :'
+          most_endorsed: Le plus soutenu
+          most_followed: Le plus suivi
           most_voted: Les plus votées
           random: Aléatoire
           recent: Les plus récentes
+          with_more_authors: Avec le plus d'auteurs
         participatory_texts:
           index:
             document_index: Index de document
