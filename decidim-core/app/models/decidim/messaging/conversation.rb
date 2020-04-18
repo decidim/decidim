@@ -98,7 +98,7 @@ module Decidim
       def add_message(sender:, body:, user: nil)
         message = messages.build(sender: sender, body: body)
 
-        message.envelope_for(recipients: interlocutors(sender))
+        message.envelope_for(recipients: interlocutors(sender), from: user)
 
         message
       end
@@ -133,13 +133,6 @@ module Decidim
       #
       def participating?(user)
         participants.include?(user)
-        # participants.each do |participant|
-        #   return true if participant == user
-        #   if participant.is_a?(Decidim::UserGroup)
-        #     return true if participant.manager_users.include?(user)
-        #   end
-        # end
-        # false
       end
 
       #

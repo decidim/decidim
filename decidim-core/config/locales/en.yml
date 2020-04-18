@@ -794,11 +794,21 @@ en:
           intro: "%{sender} has started a new conversation with you. Click here to see it:"
           outro: Enjoy decidim!
           subject: "%{sender} has started a conversation with you"
+        comanagers_new_conversation:
+          greeting: Hi, %{recipient}!
+          intro: "%{manager} has started a new conversation in the name of %{sender}. Click here to see it:"
+          outro: Enjoy decidim!
+          subject: "%{manager} has started a new conversation as a %{sender}"
         new_message:
           greeting: Hi, %{recipient}!
           intro: "%{sender} has posted new messages in your conversation. Click here to see them:"
           outro: Enjoy decidim!
           subject: You have new messages from %{sender}
+        comanagers_new_message:
+          greeting: Hi, %{recipient}!
+          intro: "%{manager} has posted new messages in a conversation in the name of %{sender}. Click here to see them:"
+          outro: Enjoy decidim!
+          subject: "%{manager} has send new messages as a %{sender}"
       conversations:
         add_conversation_users:
           add_max_users: 'Add users to conversation: 9 users max'

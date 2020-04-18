@@ -22,6 +22,7 @@ module Decidim
 
         if conversation.save
           notify_interlocutors
+          notify_comanagers if originator.is_a?(UserGroup)
 
           broadcast(:ok, conversation)
         else
@@ -35,13 +36,34 @@ module Decidim
         @conversation ||= Conversation.start(
           originator: originator,
           interlocutors: form.recipient,
-          body: form.body
+          body: form.body,
+          user: form.context.current_user
         )
       end
 
       def notify_interlocutors
-        conversation.interlocutors(originator).each do |recipient|
+        @already_notified = [form.context.current_user]
+        valid_interlocutors.each do |recipient|
+          next if @already_notified.include?(recipient)
+
           ConversationMailer.new_conversation(originator, recipient, conversation).deliver_later
+          @already_notified.push(recipient)
+        end
+      end
+
+      def notify_comanagers
+        originator.managers.each do |recipient|
+          next if @already_notified.include?(recipient)
+
+          ConversationMailer.comanagers_new_conversation(form.context.current_user, originator, recipient, conversation).deliver_later
+          @already_notified.push(recipient)
+        end
+      end
+
+      # returns all interlocutors should be notified, adding group managers in case of a group
+      def valid_interlocutors
+        conversation.interlocutors(originator).flat_map do |recipient|
+          recipient.is_a?(UserGroup) ? recipient.managers : recipient
         end
       end
 

@@ -43,10 +43,17 @@ module Decidim
       # @param from [Array<Decidim::User>] the user sending the message in case sender is a group
       #
       def envelope_for(recipients:, from: nil)
-        from = sender if sender.is_a? User
-        receipts.build(recipient: from, read_at: Time.current) if from.is_a? User
+        @from = sender.is_a?(User) ? sender : from
+        @already_notified = [@from]
 
-        recipients.each { |recipient| receipts.build(recipient: recipient) }
+        receipts.build(recipient: @from, read_at: Time.current) if @from.is_a?(User)
+
+        all_recipients(recipients).each do |recipient|
+          next if @already_notified.include?(recipient)
+
+          receipts.build(recipient: recipient)
+          @already_notified.push(recipient)
+        end
       end
 
       # Public: Returns the comment body with links
@@ -55,6 +62,15 @@ module Decidim
       end
 
       private
+
+      # returns all posible recipients from a list of users or groups
+      def all_recipients(recipients)
+        users = recipients.flat_map do |recipient|
+          recipient.is_a?(UserGroup) ? recipient.managers : recipient
+        end
+        users += sender.managers if sender.is_a?(UserGroup)
+        users
+      end
 
       def sender_is_participant
         errors.add(:sender, :invalid) unless conversation.participants.include?(sender)

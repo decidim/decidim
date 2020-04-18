@@ -24,6 +24,7 @@ module Decidim
 
         if message.save
           notify_interlocutors
+          notify_comanagers if sender.is_a?(UserGroup)
 
           broadcast(:ok, message)
         else
@@ -38,12 +39,34 @@ module Decidim
       end
 
       def message
-        @message ||= conversation.add_message(sender: sender, body: form.body)
+        @message ||= conversation.add_message(sender: sender, body: form.body, user: form.context.current_user)
       end
 
       def notify_interlocutors
-        conversation.interlocutors(sender).each do |recipient|
-          ConversationMailer.new_message(sender, recipient, conversation, message).deliver_later if conversation.unread_count(recipient) == 1
+        @already_notified = [form.context.current_user]
+        valid_interlocutors.each do |recipient|
+          next if @already_notified.include?(recipient)
+          next unless conversation.unread_count(recipient) == 1
+
+          ConversationMailer.new_message(sender, recipient, conversation, message).deliver_later
+          @already_notified.push(recipient)
+        end
+      end
+
+      def notify_comanagers
+        sender.managers.each do |recipient|
+          next if @already_notified.include?(recipient)
+          next unless conversation.unread_count(recipient) == 1
+
+          ConversationMailer.comanagers_new_message(form.context.current_user, sender, recipient, conversation, message).deliver_later
+          @already_notified.push(recipient)
+        end
+      end
+
+      # returns all interlocutors should be notified, adding group managers in case of a group
+      def valid_interlocutors
+        conversation.interlocutors(sender).flat_map do |recipient|
+          recipient.is_a?(UserGroup) ? recipient.managers : recipient
         end
       end
 

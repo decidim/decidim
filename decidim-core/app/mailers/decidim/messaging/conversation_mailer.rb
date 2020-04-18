@@ -15,6 +15,17 @@ module Decidim
         )
       end
 
+      def comanagers_new_conversation(manager, group, user, conversation)
+        notification_mail(
+          from: group,
+          to: user,
+          conversation: conversation,
+          message: conversation.messages.first.body,
+          action: "comanagers_new_conversation",
+          manager: manager
+        )
+      end
+
       def new_message(sender, user, conversation, message)
         notification_mail(
           from: sender,
@@ -25,26 +36,41 @@ module Decidim
         )
       end
 
+      def comanagers_new_message(manager, sender, user, conversation, message)
+        notification_mail(
+          from: sender,
+          to: user,
+          conversation: conversation,
+          message: message.body,
+          action: "comanagers_new_message",
+          manager: manager
+        )
+      end
+
       private
 
-      def notification_mail(from:, to:, conversation:, action:, message: nil)
+      # rubocop:disable Metrics/ParameterLists
+      def notification_mail(from:, to:, conversation:, action:, message: nil, manager: nil)
         with_user(to) do
           @organization = to.organization
           @conversation = conversation
-          @sender = from.name
-          @recipient = to.name
+          @sender = from
+          @recipient = to
+          @manager = manager
           @message = message
           @host = @organization.host
 
           subject = I18n.t(
             "conversation_mailer.#{action}.subject",
             scope: "decidim.messaging",
-            sender: @sender
+            sender: @sender,
+            manager: @manager
           )
 
           mail(to: to.email, subject: subject)
         end
       end
+      # rubocop:enable Metrics/ParameterLists
     end
   end
 end
