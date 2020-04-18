@@ -17,6 +17,7 @@ fr:
         automatic_hashtags: Hashtags ajoutés automatiquement
         body: Corps du texte
         category_id: Catégorie
+        decidim_scope_id: Portée
         has_address: Renseigner une adresse
         state: État
         suggested_hashtags: Hashtags suggérés
@@ -638,8 +639,11 @@ fr:
           send: Aperçu
           title: Modifier le brouillon de votre proposition
         filters:
+          activity: Mon activité
+          all: Tout
           amendment_type: Type
           category: Catégorie
+          my_proposals: Mes propositions
           origin: Auteurs
           related_to: Liées à
           scope: Portée
@@ -666,8 +670,9 @@ fr:
           title: Créer une proposition
         orders:
           label: 'Classement des propositions par :'
-          most_endorsed: Le plus soutenu
-          most_followed: Le plus suivi
+          most_commented: Les plus commentées
+          most_endorsed: Les plus soutenues
+          most_followed: Les plus suivies
           most_voted: Les plus votées
           random: Aléatoire
           recent: Les plus récentes
