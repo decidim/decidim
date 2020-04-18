@@ -666,6 +666,7 @@ fr-CA:
           title: Créer une proposition
         orders:
           label: 'Classement des propositions par :'
+          most_endorsed: Le plus soutenu
           most_voted: Les plus votées
           random: Aléatoire
           recent: Les plus récentes
