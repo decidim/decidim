@@ -1,1 +1,13 @@
 sr:
+  decidim:
+    admin:
+      actions:
+        new_assembly_type: Novi tip skupštine
+      assemblies_types:
+        create:
+          error: Nastao je problem pri stvaranju novog tipa skupštine.
+          success: Tip skupštine uspešno stvoren.
+        destroy:
+          success: Tip skupštine uspešno obrisan.
+        new:
+          title: Novi tip skupštine
