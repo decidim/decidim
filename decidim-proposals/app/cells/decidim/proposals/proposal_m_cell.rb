@@ -19,7 +19,7 @@ module Decidim
       end
 
       def body
-        decidim_html_escape(present(model).body)
+        present(model).body
       end
 
       def has_state?

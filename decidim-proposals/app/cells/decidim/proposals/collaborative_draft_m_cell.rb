@@ -23,7 +23,7 @@ module Decidim
       end
 
       def description
-        decidim_html_escape(present(model).body).truncate(100, separator: /\s/)
+        present(model).body.truncate(100, separator: /\s/)
       end
 
       def has_badge?
