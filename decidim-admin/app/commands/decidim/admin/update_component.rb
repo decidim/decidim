@@ -34,12 +34,20 @@ module Decidim
 
       def update_component
         @previous_settings = @component.attributes["settings"].dup
-
         @component.name = form.name
-        @component.settings = form.settings
-        @component.default_step_settings = form.default_step_settings
-        @component.step_settings = form.step_settings
         @component.weight = form.weight
+
+        @component.settings = restore_disabled_settings("global", form.settings) do |attribute, settings|
+          settings[attribute] = @previous_settings["global"][attribute]
+        end
+        @component.default_step_settings = restore_disabled_settings("step", form.default_step_settings) do |attribute, settings|
+          settings[attribute] = @previous_settings["default_step"][attribute]
+        end
+        @component.step_settings = restore_disabled_settings("step", form.step_settings) do |attribute, settings|
+          settings.keys.each do |step|
+            settings[attribute] = @previous_settings["steps"][step][attribute]
+          end
+        end
 
         @settings_changed = @component.settings_changed?
 
@@ -56,6 +64,16 @@ module Decidim
 
       def current_settings
         @component.attributes["settings"]
+      end
+
+      def restore_disabled_settings(step, settings)
+        @component.manifest.settings(step).attributes.select do |attribute, obj|
+          obj.disabled?(component: @component)
+        end.each do |attribute, obj|
+          yield(attribute.to_s, settings)
+        end
+
+        settings
       end
     end
   end
