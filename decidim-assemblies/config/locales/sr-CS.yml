@@ -11,3 +11,8 @@ sr:
           success: Tip skupštine uspešno obrisan.
         new:
           title: Novi tip skupštine
+        update:
+          error: Nastao je problem pri ažuriranju ovog tipa skupštine.
+          success: Tip skupštine uspešno ažuriran.
+      menu:
+        assemblies_types: Tipovi skupština
