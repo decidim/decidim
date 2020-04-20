@@ -25,3 +25,29 @@ sr:
     admin_log:
       assembly_type:
         create: "%{user_name} je stvorio tip skupa %{resource_name}"
+        delete: "%{user_name} je uklonio člana %{resource_name} iz tipa skupa %{space_name}"
+        publish: "%{user_name} je objavio tip skupa %{resource_name}"
+        unpublish: "%{user_name} je odustao od objavljivanja tipa skupa %{resource_name}"
+        update: "%{user_name} je ažurirao tip skupa %{resource_name}"
+    assemblies:
+      pages:
+        home:
+          highlighted_assemblies:
+            assemblies_button_title: Veza ka strani Skupovi koja prikazuje sve skupove
+      show:
+        social_networks_title: Podelite ovaj skup na
+      statistics:
+        posts_count: Objave
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Veza ka strani Konferencije koja prikazuje sve konferencije
+    log:
+      value_types:
+        assembly_type_presenter:
+          not_found: 'Ovaj tip skupa nije pronađen u bazi podataka (ID: %{id})'
+    pages:
+      home:
+        hero:
+          participate_title: Učestvujte u procesima platforme
