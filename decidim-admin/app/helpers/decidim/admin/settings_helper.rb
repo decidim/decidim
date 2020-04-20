@@ -32,8 +32,10 @@ module Decidim
           help_text = text_for_setting(name, "disabled", i18n_scope)
         end
         help_text ||= text_for_setting(name, "help", i18n_scope)
+        help_text_options = help_text ? { help_text: help_text } : {}
 
-        options = { label: t(name, scope: i18n_scope), help_text: help_text }
+        options = { label: t(name, scope: i18n_scope) }
+                    .merge(help_text_options)
                     .merge(extra_options_for_type(form_method))
                     .merge(options)
 

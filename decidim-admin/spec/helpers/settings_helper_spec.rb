@@ -5,17 +5,25 @@ require "spec_helper"
 module Decidim
   module Admin
     describe SettingsHelper do
-      let(:options) { {} }
-      let(:attribute) { double(type: type, translated?: false, editor?: false) }
+      let(:options) { { label: "A test", disabled: disabled } }
+      let(:disabled) { false }
       let(:type) { :boolean }
       let(:name) { :test }
-
-      let(:form) do
-        double
+      let(:value) { nil }
+      let(:i18n_scope) { "decidim.components.dummy.settings.global" }
+      let(:form) { double(object: double(name => value)) }
+      let(:choices) { [] }
+      let(:attribute) do
+        Decidim::SettingsManifest::Attribute.new(
+          type: type,
+          translated?: false,
+          editor?: false,
+          choices: choices
+        )
       end
 
       def render_input
-        helper.settings_attribute_input(form, attribute, name, options)
+        helper.settings_attribute_input(form, attribute, name, i18n_scope, options)
       end
 
       describe "booleans" do
@@ -23,7 +31,16 @@ module Decidim
 
         it "is supported" do
           expect(form).to receive(:check_box).with(:test, options)
-          render_input
+          expect(render_input).not_to include("disabled_container")
+        end
+
+        context "when disabled" do
+          let(:disabled) { true }
+
+          it "is supported" do
+            expect(form).to receive(:check_box).with(:test, options)
+            expect(render_input).to include("disabled_container")
+          end
         end
       end
 
@@ -47,56 +64,53 @@ module Decidim
 
       describe "texts" do
         let(:type) { :text }
-        let(:options) { { rows: 6 } }
+        let(:extra_options) { options.merge(rows: 6) }
 
         it "is supported" do
-          expect(form).to receive(:text_area).with(:test, options)
+          expect(form).to receive(:text_area).with(:test, extra_options)
           render_input
         end
       end
 
-      describe "amendments_visibility_form_field" do
-        let(:name) { :amendments_visibility }
-        let(:collection_radio_buttons_arguments) do
+      describe "enums" do
+        let(:type) { :enum }
+        let(:value) { "a" }
+        let(:full_choices) do
           [
-            :amendments_visibility,
-            [["Amendments are visible to all", "all"], ["Amendments are visible only to their authors", "participants"]],
-            :last,
-            :first,
-            { checked: "all" },
-            { class: "amendments_step_settings" }
+            ["A choice", "a"],
+            ["B choice", "b"],
+            ["C choice", "c"]
           ]
         end
-        let(:component) do
-          create(
-            :component,
-            :with_amendments_enabled,
-            manifest_name: "proposals",
-            participatory_space: participatory_process
+
+        let(:choices) { full_choices.map(&:last) }
+
+        it "is supported" do
+          expect(form).to receive(:collection_radio_buttons).with(
+            :test,
+            full_choices,
+            :last,
+            :first,
+            { checked: "a" },
+            options
           )
+          render_input
         end
 
-        before do
-          expect(form).to receive(:object).and_return(settings_manifest)
-        end
-
-        describe "when the component has step_settings" do
-          let(:participatory_process) { create(:participatory_process, :with_steps) }
-          let(:step_id) { participatory_process.active_step.id.to_s }
-          let(:settings_manifest) { component.step_settings[step_id] }
-
-          it "is supported" do
-            expect(form).to receive(:collection_radio_buttons).with(*collection_radio_buttons_arguments)
-            render_input
+        context "when choices is a lambda function" do
+          let(:choices) do
+            -> { full_choices.map(&:last) }
           end
-        end
-
-        describe "when the component does NOT have step_settings" do
-          let(:participatory_process) { create(:participatory_process) }
-          let(:settings_manifest) { component.default_step_settings }
 
           it "is supported" do
-            expect(form).to receive(:collection_radio_buttons).with(*collection_radio_buttons_arguments)
+            expect(form).to receive(:collection_radio_buttons).with(
+              :test,
+              full_choices,
+              :last,
+              :first,
+              { checked: "a" },
+              options
+            )
             render_input
           end
         end

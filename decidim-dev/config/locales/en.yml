@@ -13,6 +13,12 @@ en:
     components:
       dummy:
         settings:
+          global:
+            test: A test
+            test_choices:
+              a: A choice
+              b: B choice
+              c: C choice
           step:
             endorsements_blocked: Endorsements blocked
             endorsements_enabled: Endorsements enabled
