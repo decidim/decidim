@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class AddIndexOnContentBlockScopedResourceId < ActiveRecord::Migration[5.2]
+class AddIndexOnContentBlockScopeId < ActiveRecord::Migration[5.2]
   def change
     add_index(
       :decidim_content_blocks,
