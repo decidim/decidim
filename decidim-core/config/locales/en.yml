@@ -1102,6 +1102,8 @@ en:
         no_activities_warning: This participant hasn't had any activity yet.
     user_contact_disabled: This participant does not accept direct messages.
     user_conversation:
+      new:
+        title: New conversation with %{usernames}
       show:
         title: Conversation with %{usernames}
         not_allowed: This user does not accept any more direct messages.
@@ -1122,6 +1124,8 @@ en:
         participant_with_disabled_message_reception: This participant has disabled message reception
       update:
         error: Message not sent. Try again later
+      create:
+        error: The message could not be sent. Try again later
     user_interests:
       show:
         my_interests: My interests

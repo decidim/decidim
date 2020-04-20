@@ -3,7 +3,11 @@
     <%= t("decidim.user_conversation.reply.title") %>
   </h5>
 
-  <%= form_for form_ob, url: decidim.profile_conversation_path(nickname: user.nickname, id: conversation.id), method: :put, remote: true do |f| %>
+  <%= form_for form_ob, url: conversation_form_path, method: :put, remote: true do |f| %>
+    <% recipients.each do |recipient| %>
+      <%= f.hidden_field :recipient_id, id: nil, name: "conversation[recipient_id][]", value: recipient.id %>
+    <% end %>
+
     <%= f.text_area :body, label: false, rows: 4, required: true %>
 
     <%= f.submit t("decidim.user_conversation.reply.send"), data: { disable: true } %>

@@ -17,6 +17,9 @@ module Decidim
     helper Decidim::ResourceHelper
     helper_method :user, :conversations, :conversation
 
+    # overwrite original rescue_from to ensure we print ajax messages on ajax forms
+    rescue_from Decidim::ActionForbidden, with: :ajax_user_has_no_permission
+
     def index
       enforce_permission_to :list, :conversation, interlocutor: user
     end
@@ -46,18 +49,42 @@ module Decidim
 
       return redirect_back(fallback_location: profile_path(user.nickname)) if @form.recipient.empty?
 
-      conversation = conversation_between_multiple([user] + @form.recipient)
+      @conversation = new_conversation(@form.recipient)
 
       # redirect to existing conversation if already started
-      return redirect_to profile_conversation_path(nickname: user.nickname, id: conversation.id) if conversation
+      return redirect_to profile_conversation_path(nickname: user.nickname, id: @conversation.id) if @conversation.id
 
-      @conversation = Messaging::Conversation.new(participants: [user] + @form.recipient)
       enforce_permission_to :create, :conversation, interlocutor: user, conversation: @conversation
 
       render :show
     end
 
+    def create
+      @form = form(Messaging::ConversationForm).from_params(params, sender: user)
+      @conversation = new_conversation(@form.recipient)
+
+      enforce_permission_to :create, :conversation, interlocutor: user, conversation: @conversation
+
+
+      Messaging::StartConversation.call(@form) do
+        on(:ok) do |conversation|
+          render action: :update, locals: { message: conversation }
+        end
+        on(:invalid) do
+          render action: :update, locals: { error: I18n.t("user_conversations.create.error", scope: "decidim") }, status: :unprocessable_entity
+        end
+      end
+    end
+
     private
+
+    # instead of original redirect and flash message,
+    # rescue ajax calls and print the update.js view that prints the info on the message ajax form
+    def ajax_user_has_no_permission
+      return user_has_no_permission unless request.xhr?
+
+      render action: :update, locals: { error: I18n.t("actions.unauthorized", scope: "decidim.core") }, status: :unprocessable_entity
+    end
 
     def user
       @user ||= Decidim::UserBaseEntity.find_by(nickname: params[:nickname], organization: current_organization)
@@ -69,6 +96,13 @@ module Decidim
 
     def conversation
       @conversation ||= Messaging::Conversation.find(params[:id])
+    end
+
+    def new_conversation(recipients)
+      conversation = conversation_between_multiple([user] + recipients)
+      return conversation if conversation
+
+      Messaging::Conversation.new(participants: [user] + recipients)
     end
 
     def ensure_profile_manager
