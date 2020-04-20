@@ -6,6 +6,7 @@ module Decidim
   describe Component do
     subject { component }
 
+    let!(:organization) { create(:organization) }
     let(:component) { build(:component, manifest_name: "dummy") }
 
     it { is_expected.to be_valid }
@@ -33,6 +34,55 @@ module Decidim
       end
     end
 
+    describe "with no scope setting" do
+      subject { component }
+
+      let(:component) { create(:component, manifest_name: "another_dummy", participatory_space: participatory_space) }
+      let(:participatory_space) do
+        create(:participatory_process, scopes_enabled: false, organization: organization)
+      end
+
+      it "returns falsey for component scopes_enabled" do
+        expect(subject.scopes_enabled).to be_falsey
+      end
+
+      it "returns falsey for participatory_space scopes_enabled" do
+        expect(participatory_space.scopes_enabled).to be_falsey
+      end
+
+      it "returns falsey for component subscopes" do
+        expect(subject).not_to have_subscopes
+      end
+    end
+
+    describe "with a participatory_space with scopes" do
+      subject { component }
+
+      let(:component) { create(:component, manifest_name: "another_dummy", participatory_space: participatory_space) }
+      let(:participatory_space) do
+        create(:participatory_process, organization: organization, scopes_enabled: true,
+                                       scope: space_scope)
+      end
+      let(:space_scope) { create(:scope, organization: organization) }
+      let!(:space_subscope) { create(:scope, parent: space_scope) }
+
+      it "returns falsey for component scopes_enabled" do
+        expect(subject.scopes_enabled).to be_falsey
+      end
+
+      it "returns true for participatory_space scopes_enabled" do
+        expect(participatory_space.scopes_enabled).to eq true
+      end
+
+      it "returns the participatory_space scope" do
+        expect(subject.scope).to eq space_scope
+      end
+
+      it "returns true for subscopes" do
+        expect(subject).to have_subscopes
+      end
+    end
+
     describe "with scope setting" do
       let!(:organization) { create(:organization) }
       let(:participatory_space) do
@@ -54,7 +104,8 @@ module Decidim
         let(:space_scope) { create :scope, organization: organization }
         let(:space_scopes_enabled) { true }
         let(:component_scopes_enabled) { true }
-        let(:component_scope) { create(:scope, organization: organization) }
+        let(:component_scope) { create(:scope, parent: space_scope, organization: organization) }
+        let(:component_subscope) { create(:scope, parent: component_scope, organization: organization) }
 
         it "returns true for component scopes_enabled" do
           expect(subject.scopes_enabled).to eq true
@@ -63,6 +114,10 @@ module Decidim
         it "returns the component scope" do
           expect(subject.scope).to eq component_scope
           expect(participatory_space.scope).to eq space_scope
+        end
+
+        it "returns true for the component subscopes" do
+          expect(subject).to have_subscopes
         end
       end
 
