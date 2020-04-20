@@ -1112,6 +1112,14 @@ en:
       index:
         conversations_info: Conversations are private. no one else can see them. A conversation can be started with any participant or group registered on the platform.
         no_conversations_warning: There are no conversations yet.
+        new_conversation: New conversation
+        close: Close
+        next: Next
+        add_max_users: 'Add users to conversation: 9 users max'
+        add_users_placeholder: Search...
+        modal_title: New conversation
+        no_results: No results
+        participant_with_disabled_message_reception: This participant has disabled message reception
       update:
         error: Message not sent. Try again later
     user_interests:

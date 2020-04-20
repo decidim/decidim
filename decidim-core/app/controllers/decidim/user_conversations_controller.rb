@@ -9,6 +9,7 @@ module Decidim
     include Paginable
     include UserGroups
     include FormFactory
+    include Messaging::ConversationHelper
 
     before_action :authenticate_user!
     before_action :ensure_profile_manager
@@ -38,6 +39,22 @@ module Decidim
           render action: :update, locals: { error: I18n.t("user_conversations.update.error", scope: "decidim") }, status: :unprocessable_entity
         end
       end
+    end
+
+    def new
+      @form = form(Messaging::ConversationForm).from_params(params, sender: user)
+
+      return redirect_back(fallback_location: profile_path(user.nickname)) if @form.recipient.empty?
+
+      conversation = conversation_between_multiple([user] + @form.recipient)
+
+      # redirect to existing conversation if already started
+      return redirect_to profile_conversation_path(nickname: user.nickname, id: conversation.id) if conversation
+
+      @conversation = Messaging::Conversation.new(participants: [user] + @form.recipient)
+      enforce_permission_to :create, :conversation, interlocutor: user, conversation: @conversation
+
+      render :show
     end
 
     private

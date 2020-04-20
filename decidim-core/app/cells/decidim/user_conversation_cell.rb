@@ -14,7 +14,9 @@ module Decidim
     end
 
     def show
-      render :show
+      return render :show if conversation.id
+
+      render :new
     end
 
     def message(message)
