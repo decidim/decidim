@@ -1,6 +1,8 @@
 <p><%= t(".greeting", recipient: @recipient.name) %></p>
 
-<p><%= t(".intro", sender: @sender.name, manager: @manager.name) %></p>
+<p><%= t(".admin_in_group", group: @sender.name) %></p>
+
+<p><%= t(".intro", group: @sender.name, manager: @third_party.name) %></p>
 
 <blockquote>
   <p>

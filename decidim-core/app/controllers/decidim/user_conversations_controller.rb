@@ -81,7 +81,7 @@ module Decidim
       end
 
       Messaging::StartConversation.call(@form) do
-        on(:ok) do |conversation|
+        on(:ok) do |_conversation|
           flash[:notice] = I18n.t("user_conversations.create.success", scope: "decidim")
           return redirect_to profile_conversations_path(nickname: user.nickname)
         end
@@ -132,6 +132,7 @@ module Decidim
       # next line may be removed if in the future user conversations are handled in the
       # profile page as well
       return redirect_to conversations_path if user == current_user
+
       # if the previous line is removed, next must be uncommented to ensure only authorized
       # users access to the page
       # return if user == current_user

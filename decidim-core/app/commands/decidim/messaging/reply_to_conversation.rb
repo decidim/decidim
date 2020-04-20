@@ -44,30 +44,35 @@ module Decidim
 
       def notify_interlocutors
         @already_notified = [form.context.current_user]
-        valid_interlocutors.each do |recipient|
-          next if @already_notified.include?(recipient)
-          next unless conversation.unread_count(recipient) == 1
 
-          ConversationMailer.new_message(sender, recipient, conversation, message).deliver_later
-          @already_notified.push(recipient)
+        conversation.interlocutors(sender).each do |recipient|
+          if recipient.is_a?(UserGroup)
+            recipient.managers.each do |manager|
+              notify(manager) do
+                ConversationMailer.new_group_message(sender, manager, conversation, message, recipient).deliver_later
+              end
+            end
+          else
+            notify(recipient) do
+              ConversationMailer.new_message(sender, recipient, conversation, message).deliver_later
+            end
+          end
         end
       end
 
       def notify_comanagers
         sender.managers.each do |recipient|
-          next if @already_notified.include?(recipient)
-          next unless conversation.unread_count(recipient) == 1
-
-          ConversationMailer.comanagers_new_message(form.context.current_user, sender, recipient, conversation, message).deliver_later
-          @already_notified.push(recipient)
+          notify(recipient) do
+            ConversationMailer.comanagers_new_message(sender, recipient, conversation, message, form.context.current_user).deliver_later
+          end
         end
       end
 
-      # returns all interlocutors should be notified, adding group managers in case of a group
-      def valid_interlocutors
-        conversation.interlocutors(sender).flat_map do |recipient|
-          recipient.is_a?(UserGroup) ? recipient.managers : recipient
-        end
+      def notify(recipient)
+        return unless conversation.unread_count(recipient) == 1
+
+        yield unless @already_notified.include?(recipient)
+        @already_notified.push(recipient)
       end
 
       attr_reader :conversation, :form

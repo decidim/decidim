@@ -32,6 +32,10 @@ module Decidim
 
       private
 
+      def originator
+        form.context.sender
+      end
+
       def conversation
         @conversation ||= Conversation.start(
           originator: originator,
@@ -43,32 +47,33 @@ module Decidim
 
       def notify_interlocutors
         @already_notified = [form.context.current_user]
-        valid_interlocutors.each do |recipient|
-          next if @already_notified.include?(recipient)
 
-          ConversationMailer.new_conversation(originator, recipient, conversation).deliver_later
-          @already_notified.push(recipient)
+        conversation.interlocutors(originator).each do |recipient|
+          if recipient.is_a?(UserGroup)
+            recipient.managers.each do |manager|
+              notify(manager) do
+                ConversationMailer.new_group_conversation(originator, manager, conversation, recipient).deliver_later
+              end
+            end
+          else
+            notify(recipient) do
+              ConversationMailer.new_conversation(originator, recipient, conversation).deliver_later
+            end
+          end
         end
       end
 
       def notify_comanagers
         originator.managers.each do |recipient|
-          next if @already_notified.include?(recipient)
-
-          ConversationMailer.comanagers_new_conversation(form.context.current_user, originator, recipient, conversation).deliver_later
-          @already_notified.push(recipient)
+          notify(recipient) do
+            ConversationMailer.comanagers_new_conversation(originator, recipient, conversation, form.context.current_user).deliver_later
+          end
         end
       end
 
-      # returns all interlocutors should be notified, adding group managers in case of a group
-      def valid_interlocutors
-        conversation.interlocutors(originator).flat_map do |recipient|
-          recipient.is_a?(UserGroup) ? recipient.managers : recipient
-        end
-      end
-
-      def originator
-        form.context.sender
+      def notify(recipient)
+        yield unless @already_notified.include?(recipient)
+        @already_notified.push(recipient)
       end
 
       attr_reader :form
