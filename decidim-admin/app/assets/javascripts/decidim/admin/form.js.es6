@@ -23,13 +23,17 @@ $(() => {
 
   // Target fields:
   // - amendments_wizard_help_text
-  // - all fields with ".amendments_step_settings" class
+  // - amendments_visibility
+  // - amendment_creation_enabled
+  // - amendment_reaction_enabled
+  // - amendment_promotion_enabled
+
   // (1) Hides target fields if amendments_enabled component setting is NOT checked.
   // (2) Toggles visibilty of target fields when amendments_enabled component setting is clicked.
   const $amendmentsEnabled = $("input#component_settings_amendments_enabled");
 
   if ($amendmentsEnabled.length > 0) {
-    const $amendmentStepSettings = $(".amendments_visibility_container, .amendment_creation_enabled_container, .amendment_reaction_enabled_container, .amendment_promotion_enabled_container");
+    const $amendmentStepSettings = $(".amendments_wizard_help_text_container, .amendments_visibility_container, .amendment_creation_enabled_container, .amendment_reaction_enabled_container, .amendment_promotion_enabled_container");
 
     if ($amendmentsEnabled.is(":not(:checked)")) {
       $amendmentStepSettings.hide();

@@ -144,7 +144,7 @@ en:
             amendment_promotion_enabled_help: Emandation authors will be able to promote to Proposal the rejected emendation.
             amendment_reaction_enabled: Amendment reaction enabled
             amendment_reaction_enabled_help: Proposal's authors will be able to accept or reject Participant's emendations.
-            amendments_visibility: Amendment visibility
+            amendments_visibility: Amendments visibility
             amendments_visibility_choices:
               all: Amendments are visible to all
               participants: Amendments are visible only to their authors
