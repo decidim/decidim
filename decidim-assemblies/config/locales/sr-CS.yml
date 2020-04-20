@@ -51,3 +51,10 @@ sr:
       home:
         hero:
           participate_title: Učestvujte u procesima platforme
+        sub_hero:
+          register_title: Registrujte se na platformu
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Veza ka strani Procesi koja prikazuje sve procese
