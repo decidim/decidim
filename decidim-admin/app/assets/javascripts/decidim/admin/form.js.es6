@@ -29,17 +29,14 @@ $(() => {
   const $amendmentsEnabled = $("input#component_settings_amendments_enabled");
 
   if ($amendmentsEnabled.length > 0) {
-    const $amendmentWizardHelpText = $("[id*='amendments_wizard_help_text']").parent();
-    const $amendmentStepSettings = $(".amendments_step_settings").parent();
+    const $amendmentStepSettings = $(".amendments_visibility_container, .amendment_creation_enabled_container, .amendment_reaction_enabled_container, .amendment_promotion_enabled_container");
 
     if ($amendmentsEnabled.is(":not(:checked)")) {
-      $amendmentWizardHelpText.hide();
-      $amendmentStepSettings.hide().siblings(".help-text").hide();
+      $amendmentStepSettings.hide();
     }
 
     $amendmentsEnabled.click(() => {
-      $amendmentWizardHelpText.toggle();
-      $amendmentStepSettings.toggle().siblings(".help-text").toggle();
+      $amendmentStepSettings.toggle();
     });
   }
 });
