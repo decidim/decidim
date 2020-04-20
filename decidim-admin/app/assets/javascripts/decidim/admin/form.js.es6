@@ -13,10 +13,10 @@
 // Checks if the form contains fields with special CSS classes added in
 // Decidim::Admin::SettingsHelper and acts accordingly.
 $(() => {
-  // Prevents checkbox with ".participatory_texts_disabled" class from being clicked.
-  const $participatoryTexts = $(".participatory_texts_disabled");
+  // Prevents disabled containers from being modified.
+  const $disabledContainer = $(".disabled_container input");
 
-  $participatoryTexts.click((event) => {
+  $disabledContainer.click((event) => {
     event.preventDefault();
     return false;
   });

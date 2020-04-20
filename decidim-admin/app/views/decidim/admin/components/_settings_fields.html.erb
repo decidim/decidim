@@ -3,8 +3,8 @@
     form,
     settings_attribute,
     field_name,
-    label: t("decidim.components.#{manifest.name}.settings.#{settings_name}.#{field_name}"),
+    "decidim.components.#{manifest.name}.settings.#{settings_name}",
     tabs_prefix: tabs_prefix,
-    help_text: help_text_for_component_setting(field_name, settings_name, manifest.name)
+    disabled: settings_attribute.disabled?(component: @component)
   ) %>
 <% end %>
