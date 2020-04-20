@@ -16,7 +16,7 @@ class MigrateNewslettersToTemplates < ActiveRecord::Migration[5.2]
       existing_content_block = ContentBlock
                                .where(decidim_organization_id: newsletter.organization_id)
                                .where(scope_name: :newsletter_template)
-                               .find_by(scope_id: newsletter.id)
+                               .find_by(scoped_resource_id: newsletter.id)
 
       next if existing_content_block
 
@@ -24,7 +24,7 @@ class MigrateNewslettersToTemplates < ActiveRecord::Migration[5.2]
         decidim_organization_id: newsletter.organization_id,
         manifest_name: :basic_only_text,
         scope_name: :newsletter_template,
-        scope_id: newsletter.id,
+        scoped_resource_id: newsletter.id,
         settings: newsletter.body.transform_keys { |key| "body_#{key}" }
       )
       content_block.save!

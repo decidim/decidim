@@ -485,7 +485,7 @@ FactoryBot.define do
         :content_block,
         :newsletter_template,
         organization: evaluator.organization,
-        scope_id: newsletter.id,
+        scoped_resource_id: newsletter.id,
         manifest_name: "basic_only_text",
         settings: evaluator.body.transform_keys { |key| "body_#{key}" }
       )

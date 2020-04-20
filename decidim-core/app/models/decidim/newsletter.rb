@@ -50,7 +50,7 @@ module Decidim
     def template
       Decidim::ContentBlock
         .for_scope(:newsletter_template, organization: organization)
-        .find_by(scope_id: id)
+        .find_by(scoped_resource_id: id)
     end
 
     private

@@ -21,7 +21,7 @@ module Decidim
       def newsletter_for(content_block)
         Decidim::Newsletter
           .where(organization: content_block.organization)
-          .find_by(id: content_block.scope_id)
+          .find_by(id: content_block.scoped_resource_id)
       end
     end
   end

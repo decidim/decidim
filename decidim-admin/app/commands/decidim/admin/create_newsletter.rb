@@ -45,7 +45,7 @@ module Decidim
       def create_content_block
         UpdateContentBlock.call(form, content_block, user) do
           on(:ok) do |content_block|
-            content_block.update(scope_id: newsletter.id)
+            content_block.update(scoped_resource_id: newsletter.id)
             @content_block = content_block
           end
           on(:invalid) do

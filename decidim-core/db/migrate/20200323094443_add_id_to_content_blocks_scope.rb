@@ -2,6 +2,6 @@
 
 class AddIdToContentBlocksScope < ActiveRecord::Migration[5.2]
   def change
-    add_column :decidim_content_blocks, :scope_id, :integer
+    add_column :decidim_content_blocks, :scoped_resource_id, :integer
   end
 end
