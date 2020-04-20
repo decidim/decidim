@@ -2,17 +2,30 @@ sr:
   decidim:
     admin:
       actions:
-        new_assembly_type: Novi tip skupštine
+        new_assembly_type: Novi tip skupа
       assemblies_types:
         create:
-          error: Nastao je problem pri stvaranju novog tipa skupštine.
-          success: Tip skupštine uspešno stvoren.
+          error: Nastao je problem pri stvaranju novog tipa skupа.
+          success: Tip skupа uspešno stvoren.
         destroy:
-          success: Tip skupštine uspešno obrisan.
+          success: Tip skupа uspešno obrisan.
         new:
-          title: Novi tip skupštine
+          title: Novi tip skupа
         update:
-          error: Nastao je problem pri ažuriranju ovog tipa skupštine.
-          success: Tip skupštine uspešno ažuriran.
+          error: Nastao je problem pri ažuriranju ovog tipa skupа.
+          success: Tip skupа uspešno ažuriran.
       menu:
-        assemblies_types: Tipovi skupština
+        assemblies_types: Tipovi skupova
+      models:
+        assembly_user_role:
+          roles:
+            valuator: Procenjivač
+      titles:
+        assemblies_types: Tipovi skupova
+    admin_log:
+      assembly_type:
+        create: "%{user_name} je stvorio tip skupa %{resource_name}"
+        delete: "%{user_name} je uklonio člana %{resource_name} iz tipa skupa %{space_name}"
+        publish: "%{user_name} je objavio tip skupa %{resource_name}"
+        unpublish: "%{user_name} je odustao od objavljivanja tipa skupa %{resource_name}"
+        update: "%{user_name} je ažurirao tip skupa %{resource_name}"
