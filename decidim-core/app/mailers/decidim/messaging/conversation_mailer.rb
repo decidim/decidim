@@ -63,8 +63,8 @@ module Decidim
           subject = I18n.t(
             "conversation_mailer.#{action}.subject",
             scope: "decidim.messaging",
-            sender: @sender,
-            manager: @manager
+            sender: @sender.name,
+            manager: @manager&.name
           )
 
           mail(to: to.email, subject: subject)

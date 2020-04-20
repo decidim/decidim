@@ -18,7 +18,7 @@ module Decidim
       #   - if the recipient does not exists, goes back to the users profile page
       #   - if the user already has a conversation with the user, redirects to the initiated conversation
       def new
-        @form = form(ConversationForm).from_params(params)
+        @form = form(ConversationForm).from_params(params, sender: current_user)
 
         if @form.recipient.is_a? Enumerable
           participants = @form.recipient.to_a.prepend(current_user)

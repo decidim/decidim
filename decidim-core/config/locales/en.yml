@@ -789,26 +789,26 @@ en:
       home: Home
     messaging:
       conversation_mailer:
-        new_conversation:
-          greeting: Hi, %{recipient}!
-          intro: "%{sender} has started a new conversation with you. Click here to see it:"
-          outro: Enjoy decidim!
-          subject: "%{sender} has started a conversation with you"
         comanagers_new_conversation:
           greeting: Hi, %{recipient}!
           intro: "%{manager} has started a new conversation in the name of %{sender}. Click here to see it:"
           outro: Enjoy decidim!
           subject: "%{manager} has started a new conversation as a %{sender}"
-        new_message:
-          greeting: Hi, %{recipient}!
-          intro: "%{sender} has posted new messages in your conversation. Click here to see them:"
-          outro: Enjoy decidim!
-          subject: You have new messages from %{sender}
         comanagers_new_message:
           greeting: Hi, %{recipient}!
           intro: "%{manager} has posted new messages in a conversation in the name of %{sender}. Click here to see them:"
           outro: Enjoy decidim!
           subject: "%{manager} has send new messages as a %{sender}"
+        new_conversation:
+          greeting: Hi, %{recipient}!
+          intro: "%{sender} has started a new conversation with you. Click here to see it:"
+          outro: Enjoy decidim!
+          subject: "%{sender} has started a conversation with you"
+        new_message:
+          greeting: Hi, %{recipient}!
+          intro: "%{sender} has posted new messages in your conversation. Click here to see them:"
+          outro: Enjoy decidim!
+          subject: You have new messages from %{sender}
       conversations:
         add_conversation_users:
           add_max_users: 'Add users to conversation: 9 users max'
@@ -1104,28 +1104,31 @@ en:
     user_conversation:
       new:
         title: New conversation with %{usernames}
-      show:
-        title: Conversation with %{usernames}
-        not_allowed: This user does not accept any more direct messages.
       reply:
         send: Send
-        title: Reply
+        title_new: Message
+        title_reply: Reply
+      show:
+        not_allowed: This user does not accept any more direct messages.
+        title: Conversation with %{usernames}
     user_conversations:
+      create:
+        error: The message could not be created. Try again later
+        existing_error: The message could not be created. The conversation already exists, please try again now.
+        success: Conversation started successfully!
       index:
-        conversations_info: Conversations are private. no one else can see them. A conversation can be started with any participant or group registered on the platform.
-        no_conversations_warning: There are no conversations yet.
-        new_conversation: New conversation
-        close: Close
-        next: Next
         add_max_users: 'Add users to conversation: 9 users max'
         add_users_placeholder: Search...
+        close: Close
+        conversations_info: Conversations are private. no one else can see them. A conversation can be started with any participant or group registered on the platform.
         modal_title: New conversation
+        new_conversation: New conversation
+        next: Next
+        no_conversations_warning: There are no conversations yet.
         no_results: No results
         participant_with_disabled_message_reception: This participant has disabled message reception
       update:
         error: Message not sent. Try again later
-      create:
-        error: The message could not be sent. Try again later
     user_interests:
       show:
         my_interests: My interests

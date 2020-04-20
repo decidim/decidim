@@ -1,9 +1,9 @@
 <div class="add-message">
   <h5 class="section-heading">
-    <%= t("decidim.user_conversation.reply.title") %>
+    <%= title %>
   </h5>
 
-  <%= form_for form_ob, url: conversation_form_path, method: :put, remote: true do |f| %>
+  <%= reply_form do |f| %>
     <% recipients.each do |recipient| %>
       <%= f.hidden_field :recipient_id, id: nil, name: "conversation[recipient_id][]", value: recipient.id %>
     <% end %>

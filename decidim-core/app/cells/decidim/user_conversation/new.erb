@@ -14,7 +14,7 @@
     <div id="conversation">
       <div id="messages"></div>
 
-      <%= render :reply %>
+      <%= render view: :reply, locals: { title: t("decidim.user_conversation.reply.title_new") } %>
 
     </div>
   </div>

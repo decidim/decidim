@@ -19,7 +19,7 @@
       </div>
 
       <% if conversation.accept_user?(current_user) %>
-        <%= render :reply %>
+        <%= render view: :reply, locals: { title: t("decidim.user_conversation.reply.title_reply") } %>
       <% else %>
         <em><%= t "decidim.user_conversation.show.not_allowed" %></em>
       <% end %>

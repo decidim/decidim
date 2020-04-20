@@ -19,7 +19,7 @@ module Decidim
       # Returns nothing.
       def call
         return broadcast(:invalid) if form.invalid?
-byebug
+
         if conversation.save
           notify_interlocutors
           notify_comanagers if originator.is_a?(UserGroup)

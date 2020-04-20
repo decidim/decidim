@@ -5,8 +5,6 @@ module Decidim
     include Cell::ViewModel::Partial
     include Decidim::LayoutHelper
     include CellsPaginateHelper
-    # include Decidim::FormFactory
-    # include Decidim::ApplicationHelper
     include Decidim::Core::Engine.routes.url_helpers
     include Messaging::ConversationHelper
 
