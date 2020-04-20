@@ -67,11 +67,9 @@ module Decidim
       end
 
       def restore_disabled_settings(step, settings)
-        @component.manifest.settings(step).attributes.select do |attribute, obj|
-          obj.disabled?(component: @component)
-        end.each do |attribute, obj|
-          yield(attribute.to_s, settings)
-        end
+        @component.manifest.settings(step).attributes
+                  .select { |_attribute, obj| obj.disabled?(component: @component) }
+                  .each { |attribute, _obj| yield(attribute.to_s, settings) }
 
         settings
       end

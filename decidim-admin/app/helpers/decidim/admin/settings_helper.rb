@@ -35,9 +35,9 @@ module Decidim
         help_text_options = help_text ? { help_text: help_text } : {}
 
         options = { label: t(name, scope: i18n_scope) }
-                    .merge(help_text_options)
-                    .merge(extra_options_for_type(form_method))
-                    .merge(options)
+                  .merge(help_text_options)
+                  .merge(extra_options_for_type(form_method))
+                  .merge(options)
 
         content_tag(:div, class: container_class) do
           if attribute.translated?
@@ -96,7 +96,7 @@ module Decidim
       # Build options for enum attributes
       def build_enum_choices(name, i18n_scope, choices)
         choices.map do |choice|
-          [ t("#{name}_choices.#{choice}", scope: i18n_scope), choice ]
+          [t("#{name}_choices.#{choice}", scope: i18n_scope), choice]
         end
       end
     end
