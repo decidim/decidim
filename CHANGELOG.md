@@ -56,6 +56,8 @@ Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on 
 - **decidim-assemblies** **decidim-conferences** **decidim-participatory-processes**: Notify users on adding roles. [#5886](https://github.com/decidim/decidim/pull/5886)
 - **decidim-budgets**: Projects filter by multiple categories [/#5992](https://github.com/decidim/decidim/pull/5992)
 - **decidim-initiatives**: Add pages for versioning. [\#5935](https://github.com/decidim/decidim/pull/5935)
+- **decidim-core**: Added support for enum settings for components [#6001](https://github.com/decidim/decidim/pull/6001)
+- **decidim-core**: Added support for disabling settings for components [#6001](https://github.com/decidim/decidim/pull/6001)
 
 ### Changed
 
