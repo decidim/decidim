@@ -1,4 +1,13 @@
 sr:
+  activemodel:
+    models:
+      decidim/resource_endorsed_event: Resurs podržan
+  activerecord:
+    models:
+      decidim/endorsement:
+        one: Podržavanje
+        few: Podržavanja
+        other: Podržavanja
   decidim:
     amendments:
       wizard_step_form:
