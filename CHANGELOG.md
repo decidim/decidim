@@ -49,6 +49,9 @@ Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on 
 - **decidim-budgets**: Send email with summary on order checkout [\#6006](https://github.com/decidim/decidim/pull/6006)
 - **decidim-budgets**: Projects filter by multiple categories [/#5992](https://github.com/decidim/decidim/pull/5992)
 
+- **decidim-proposals**: Update rspec proposal_activity_cell_spec to check existence of card__content css class instead of car-data css class [#5779](https://github.com/decidim/decidim/issues/5779)
+- **decidim-comments**: Update rspec comment_activity_cell_spec to check existence of card__content css class instead of car-data css class[#5779](https://github.com/decidim/decidim/issues/5779)
+- **decidim-initiatives**: Add setting in `Decidim::InitiativesType` to enable users to set a custom signature end date in their initiatives. [\#5998](https://github.com/decidim/decidim/pull/5998)
 ### Changed
 
 - **decidim-assemblies**: Replace current meetings hook with highlighted elements hook [\#5897](https://github.com/decidim/decidim/pull/5897)

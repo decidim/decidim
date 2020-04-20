@@ -72,14 +72,18 @@ module Decidim
       end
 
       def promotal_committee_step(parameters)
+        @form = build_form(Decidim::Initiatives::InitiativeForm, parameters)
+        unless @form.valid?
+          redirect_to previous_wizard_path(validate_form: true)
+          return
+        end
+
         skip_step unless promotal_committee_required?
 
         if session_initiative.has_key?(:id)
           render_wizard
           return
         end
-
-        @form = build_form(Decidim::Initiatives::InitiativeForm, parameters)
 
         CreateInitiative.call(@form, current_user) do
           on(:ok) do |initiative|
@@ -110,6 +114,7 @@ module Decidim
 
       def build_form(klass, parameters)
         @form = form(klass).from_params(parameters)
+        @form = @form.with_context(initiative_type: initiative_type) if initiative_type_id
         attributes = @form.attributes_with_values
         session[:initiative] = session_initiative.merge(attributes)
         @form.valid? if params[:validate_form]
@@ -126,7 +131,11 @@ module Decidim
       end
 
       def initiative_type
-        @initiative_type ||= InitiativesType.find(session_initiative[:type_id] || @form&.type_id)
+        @initiative_type ||= InitiativesType.find(initiative_type_id)
+      end
+
+      def initiative_type_id
+        session_initiative[:type_id] || @form&.type_id
       end
 
       def session_initiative
