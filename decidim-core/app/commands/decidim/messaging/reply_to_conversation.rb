@@ -68,8 +68,11 @@ module Decidim
         end
       end
 
+      # in order for a recipient to receive an email it should not have direct-messages disabled
+      # if direct-messages are disabled, only send if he follows the sending user
       def notify(recipient)
         return unless conversation.unread_count(recipient) == 1
+        return unless recipient.accepts_conversation?(form.context.current_user)
 
         yield unless @already_notified.include?(recipient)
         @already_notified.push(recipient)
