@@ -82,6 +82,8 @@
         new:
           authorize: Send
           authorize_with: Verifiser med %{authorizer}
+        renew_modal:
+          cancel: Avbryt
         skip_verification: Du kan hoppe over dette for nå og %{link}
         start_exploring: begynn å utforske
       csv_census:
