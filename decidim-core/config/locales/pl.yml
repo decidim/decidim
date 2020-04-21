@@ -207,6 +207,7 @@ pl:
         explanation: Uzyskaj weryfikację, wprowadzając numer paszportu zaczynający się od litery "A"
         fields:
           passport_number: Numer paszportu
+          postal_code: Kod pocztowy
         name: Kolejna przykładowa autoryzacja
       dummy_authorization_handler:
         explanation: Uzyskaj weryfikację, wprowadzając numer dokumentu kończący się na "X"
