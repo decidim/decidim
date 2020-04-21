@@ -50,7 +50,7 @@ Decidim.register_component(:meetings) do |component|
 
   component.settings(:global) do |settings|
     settings.attribute :scopes_enabled, type: :boolean, default: false
-    settings.attribute :scope_id, type: :integer
+    settings.attribute :scope_id, type: :scope
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :default_registration_terms, type: :text, translated: true, editor: true
     settings.attribute :comments_enabled, type: :boolean, default: true
