@@ -2,7 +2,8 @@
 <%= t(
   ".voted_on_space_with_scope",
   space_name: translated_attribute(@space.title),
-  scope_name: translated_attribute(@component.scope.name)
+  scope_name: translated_attribute(@component.scope.name),
+  scope_type: translated_attribute(@component.scope.scope_type.name)
 ) %>
 <% else %>
 <%= t(
