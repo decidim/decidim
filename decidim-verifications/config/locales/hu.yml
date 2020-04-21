@@ -82,6 +82,8 @@ hu:
         new:
           authorize: Küldés
           authorize_with: 'Ellenőrizd ezzel: %{authorizer}'
+        renew_modal:
+          cancel: Mégse
         skip_verification: Most hagyd ki ezt a lépést és %{link}
         start_exploring: felfedezés indul
       csv_census:
