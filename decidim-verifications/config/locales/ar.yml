@@ -82,6 +82,8 @@ ar:
         new:
           authorize: إرسال
           authorize_with: تحقق مع %{authorizer}
+        renew_modal:
+          cancel: إلغاء
         skip_verification: يمكنك تخطي هذا الآن و %{link}
         start_exploring: البدء في استكشاف
       csv_census:
