@@ -94,6 +94,8 @@ es-PY:
         new:
           authorize: Enviar
           authorize_with: Verificar con %{authorizer}
+        renew_modal:
+          cancel: Cancelar
         skip_verification: Puedes saltarte este paso por ahora y %{link}
         start_exploring: empezar a explorar
       csv_census:
