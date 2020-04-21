@@ -6,7 +6,7 @@ module Decidim
       queue_as :default
 
       def perform(order)
-        return unless order&.user&.email.present?
+        return if order&.user&.email.blank?
 
         OrderSummaryMailer.order_summary(order).deliver_now
       end
