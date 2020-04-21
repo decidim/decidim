@@ -82,6 +82,8 @@ id:
         new:
           authorize: Kirim
           authorize_with: Verifikasi dengan %{authorizer}
+        renew_modal:
+          cancel: Membatalkan
         skip_verification: Anda dapat melewati ini untuk sekarang dan %{link}
         start_exploring: mulai menjelajah
       csv_census:
