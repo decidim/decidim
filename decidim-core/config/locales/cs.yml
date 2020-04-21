@@ -261,6 +261,7 @@ cs:
         explanation: Ověřte si zavedením čísla pasu začínajícím písmenem "A"
         fields:
           passport_number: Číslo pasu
+          postal_code: Poštovní směrovací číslo
         name: Další příklad oprávnění
       dummy_authorization_handler:
         explanation: Ověřte se zavedením čísla dokumentu končícího "X"
