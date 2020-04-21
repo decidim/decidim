@@ -251,6 +251,7 @@ hu:
         explanation: Ellenőriztesd magad egy "A" betűvel kezdődő útlevél számmal
         fields:
           passport_number: Útlevélszám
+          postal_code: Irányítószám
         name: Egy másik példa feljogosításra
       dummy_authorization_handler:
         explanation: Ellenőriztesd magad egy "A" betűvel kezdődő dokumentum azonosítóval
