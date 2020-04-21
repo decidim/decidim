@@ -79,7 +79,6 @@ module Decidim
         flash[:alert] = I18n.t("user_conversations.create.existing_error", scope: "decidim")
         return redirect_to profile_conversation_path(nickname: user.nickname, id: @conversation.id)
       end
-
       Messaging::StartConversation.call(@form) do
         on(:ok) do |_conversation|
           flash[:notice] = I18n.t("user_conversations.create.success", scope: "decidim")
