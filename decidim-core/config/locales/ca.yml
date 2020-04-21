@@ -254,6 +254,7 @@ ca:
         explanation: Verifica't introduint un número de passaport que comenci per "A"
         fields:
           passport_number: Número de passaport
+          postal_code: Codi postal
         name: Una altra autorització d'exemple
       dummy_authorization_handler:
         explanation: Verifica't introduint un número de document que finalitzi amb "X"
