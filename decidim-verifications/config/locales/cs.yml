@@ -89,12 +89,13 @@ cs:
             dummy_authorization_workflow: Ověřte proti pracovnímu postupu autorizace
             id_documents: Získejte ověření odesláním dokladu totožnosti
             postal_letter: Ověřte si, zda obdržíte ověřovací kód poštou
-            sms: sms
           title: Potvrďte vaši identitu
           verify_with_these_options: 'Jsou to dostupné možnosti k ověření totožnosti:'
         new:
           authorize: Poslat
           authorize_with: Ověřte pomocí %{authorizer}
+        renew_modal:
+          cancel: zrušení
         skip_verification: Můžete to přeskočit nyní a %{link}
         start_exploring: začít zkoumat
       csv_census:
