@@ -241,6 +241,7 @@ fr:
         explanation: Obtenir une vérification en saisissant un numéro de passeport commençant par "A"
         fields:
           passport_number: Numéro de passeport
+          postal_code: Code postal
         name: Un autre exemple d'autorisation
       dummy_authorization_handler:
         explanation: Obtenir une vérification en saisissant un numéro de document se terminant par "X"
