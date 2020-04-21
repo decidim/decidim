@@ -30,6 +30,7 @@ Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on 
 - **decidim-comments**: Comments can mention groups and its members are notified. [\#5763](https://github.com/decidim/decidim/pull/5763)
 - **decidim-core**: Now messages inside conversations have their urls identified as links. [\#5755](https://github.com/decidim/decidim/pull/5755)
 - **decidim-verifications**: Added Verification's Revocation [\#5814](https://github.com/decidim/decidim/pull/5814)
+- **decidim-verifications**: Participants can renew verifications [\#5854](https://github.com/decidim/decidim/pull/5854)
 - **decidim-core**: Support node.js semver rules for release candidates. [\#5828](https://github.com/decidim/decidim/pull/5828)
 - **decidim-proposals**, **decidim-core**, **decidim-blogs**: Extract proposals' endorsements into a polymorphic concern that can now be applied no any resource. It has, in turn, been aplied to blog posts. [\#5542](https://github.com/decidim/decidim/pull/5542)
 - **decidim-proposals**, **decidim-core**, **decidim-blogs**: Apply generalized endorsements to the GraphQL API and add it to the blog posts query. [\#5847](https://github.com/decidim/decidim/pull/5847)
@@ -45,6 +46,7 @@ Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on 
 - **decidim-comments**: Update rspec comment_activity_cell_spec to check existence of card__content css class instead of car-data css class[#5779](https://github.com/decidim/decidim/issues/5779)
 - **decidim-core**: Fix clearing the current_user after sign out [#5823](https://github.com/decidim/decidim/pull/5823)
 - **decidim-budgets**: Send email with summary on order checkout [\#6006](https://github.com/decidim/decidim/pull/6006)
+- **decidim-budgets**: Projects filter by multiple categories [/#5992](https://github.com/decidim/decidim/pull/5992)
 
 ### Changed
 

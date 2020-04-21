@@ -258,6 +258,7 @@ en:
         explanation: Get verified by introducing a passport number starting with "A"
         fields:
           passport_number: Passport number
+          postal_code: Postal code
         name: Another example authorization
       dummy_authorization_handler:
         explanation: Get verified by introducing a document number ending with "X"
