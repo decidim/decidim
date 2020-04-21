@@ -256,6 +256,7 @@ sv:
         explanation: Bli bekräftad genom att ange ett passnummer som inleds med "A"
         fields:
           passport_number: Passnummer
+          postal_code: Postnummer
         name: Ett annat exempel på auktorisering
       dummy_authorization_handler:
         explanation: Bli bekräftad genom att ange ett dokumentnummer som avslutas med "X"
