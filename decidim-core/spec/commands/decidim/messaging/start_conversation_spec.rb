@@ -47,7 +47,7 @@ module Decidim::Messaging
       end
     end
 
-    shared_examples "a valid conversation" do |num_recipients|
+    shared_examples "a valid conversation" do |num_recipients, num_emails|
       let(:params) do
         {
           body: "<3 from Patagonia",
@@ -70,39 +70,66 @@ module Decidim::Messaging
       it "sends a notification to #{num_recipients} recipients" do
         expect do
           perform_enqueued_jobs { command.call }
-        end.to change(emails, :count).by(num_recipients)
+        end.to change(emails, :count).by(num_emails)
       end
     end
 
     context "when the sender and interlocutor are users" do
       context "and current_user exists" do
-        it_behaves_like "a valid conversation", 1
+        it_behaves_like "a valid conversation", 1, 1
       end
 
       context "and current_user is nil" do
         let(:current_user) { nil }
 
-        it_behaves_like "a valid conversation", 1
+        it_behaves_like "a valid conversation", 1, 1
       end
     end
 
     context "when the interlocutor is a group and sender is a user" do
       let(:interlocutor) { user_group }
 
-      it_behaves_like "a valid conversation", 2
+      it_behaves_like "a valid conversation", 2, 2
+
+      context "and the group has users with direct messages disabled" do
+        before do
+          extra_user.direct_message_types = "followed-only"
+          extra_user.save!
+        end
+
+        it_behaves_like "a valid conversation", 2, 1
+      end
     end
 
     context "when the interlocutor is an user and sender is a group" do
       let(:sender) { user_group }
 
-      it_behaves_like "a valid conversation", 2
+      it_behaves_like "a valid conversation", 2, 2
+
+      context "and the group has users with direct messages disabled" do
+        before do
+          extra_user.direct_message_types = "followed-only"
+          extra_user.save!
+        end
+
+        it_behaves_like "a valid conversation", 2, 1
+      end
     end
 
     context "when the sender and interlocutor are groups" do
       let(:sender) { user_group }
       let(:interlocutor) { another_user_group }
 
-      it_behaves_like "a valid conversation", 2
+      it_behaves_like "a valid conversation", 2, 2
+
+      context "and the group has users with direct messages disabled" do
+        before do
+          extra_user.direct_message_types = "followed-only"
+          extra_user.save!
+        end
+
+        it_behaves_like "a valid conversation", 2, 1
+      end
     end
   end
 end

@@ -95,7 +95,6 @@ module Decidim::Messaging
       end
 
       it_behaves_like "valid message with receipts", 2
-
       it_behaves_like "send emails", 1
 
       context "and the originator is a group" do
@@ -110,6 +109,13 @@ module Decidim::Messaging
 
         it_behaves_like "valid message with receipts", 3
         it_behaves_like "send emails", 2
+
+        context "and the group has users with direct messages disabled" do
+          let(:extra_user) { create(:user, :confirmed, organization: organization, direct_message_types: "followed-only") }
+
+          it_behaves_like "valid message with receipts", 3
+          it_behaves_like "send emails", 1
+        end
       end
 
       context "and the sender is a group" do
@@ -124,6 +130,13 @@ module Decidim::Messaging
 
         it_behaves_like "valid message with receipts", 3
         it_behaves_like "send emails", 2
+
+        context "and the group has users with direct messages disabled" do
+          let(:extra_user) { create(:user, :confirmed, organization: organization, direct_message_types: "followed-only") }
+
+          it_behaves_like "valid message with receipts", 3
+          it_behaves_like "send emails", 1
+        end
       end
     end
   end

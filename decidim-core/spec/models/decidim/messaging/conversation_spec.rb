@@ -37,18 +37,6 @@ describe Decidim::Messaging::Conversation do
       end
     end
 
-    context "when the originator is a group" do
-      let(:originator) { create(:user_group) }
-
-      include_examples "create receipts for everyone"
-    end
-
-    context "when the interlocutor is a group" do
-      let(:interlocutor) { create(:user_group) }
-
-      include_examples "create receipts for everyone"
-    end
-
     context "when there are more than 2 participants" do
       let(:conversation) do
         described_class.start!(
@@ -79,6 +67,18 @@ describe Decidim::Messaging::Conversation do
           expect(conversation.accept_user?(originator)).to eq(true)
         end
       end
+    end
+
+    context "when the originator is a group" do
+      let(:originator) { create(:user_group) }
+
+      include_examples "create receipts for everyone"
+    end
+
+    context "when the interlocutor is a group" do
+      let(:interlocutor) { create(:user_group) }
+
+      include_examples "create receipts for everyone"
     end
   end
 end
