@@ -241,6 +241,7 @@ nl:
         explanation: Wordt geverifieerd door een paspoortnummer in te voeren dat begint met 'A'
         fields:
           passport_number: Paspoortnummer
+          postal_code: Postcode
         name: Een ander voorbeeld toestemming
       dummy_authorization_handler:
         explanation: Wordt geverifieerd door een documentnummer in te voeren dat eindigt op 'X'
