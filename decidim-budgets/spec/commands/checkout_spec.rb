@@ -37,6 +37,12 @@ module Decidim::Budgets
         order.reload
         expect(order.checked_out_at).not_to be_nil
       end
+
+      it "schedules a job to send an email with the summary" do
+        expect(SendOrderSummaryJob).to receive(:perform_later).with(order)
+
+        subject.call
+      end
     end
 
     context "when the order is not present" do
