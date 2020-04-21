@@ -29,15 +29,15 @@ describe "Conversations", type: :system do
   shared_examples "create new conversation" do
     it "allows sending an initial message", :slow do
       start_conversation("Is this a Ryanair style democracy?")
-      expect(page).to have_selector(".message:last-child", text: "Is this a Ryanair style democracy?")
+      expect(page).to have_selector(".conversation-chat:last-child", text: "Is this a Ryanair style democracy?")
     end
 
     it "redirects to an existing conversation if it exists already", :slow do
       start_conversation("Is this a Ryanair style democracy?")
-      expect(page).to have_selector(".message:last-child", text: "Is this a Ryanair style democracy?")
+      expect(page).to have_selector(".conversation-chat:last-child", text: "Is this a Ryanair style democracy?")
 
       visit decidim.new_conversation_path(recipient_id: recipient.id)
-      expect(page).to have_selector(".message:last-child", text: "Is this a Ryanair style democracy?")
+      expect(page).to have_selector(".conversation-chat:last-child", text: "Is this a Ryanair style democracy?")
     end
   end
 
@@ -75,7 +75,7 @@ describe "Conversations", type: :system do
 
           it "redirects to the existing conversation" do
             visit decidim.new_conversation_path(recipient_id: recipient.id)
-            expect(page).to have_selector(".message:last-child", text: "Is this a Ryanair style democracy?")
+            expect(page).to have_selector(".conversation-chat:last-child", text: "Is this a Ryanair style democracy?")
           end
         end
       end
@@ -107,15 +107,14 @@ describe "Conversations", type: :system do
       visit_inbox
 
       within ".conversations" do
-        expect(page).to have_selector(".card--list__item", text: /#{interlocutor.name}/i)
-        expect(page).to have_selector(".card--list__item", text: "who wants apples?")
-        expect(page).to have_selector(".card--list__item", text: /\d{2}:\d{2}/)
+        expect(page).to have_selector(".card.card--widget", text: /#{interlocutor.name}/i)
+        expect(page).to have_selector(".card.card--widget", text: "who wants apples?")
       end
     end
 
     it "allows entering a conversation" do
       visit_inbox
-      click_link interlocutor.name
+      click_link "chevron"
 
       expect(page).to have_content("Conversation with #{interlocutor.name}")
       expect(page).to have_content("who wants apples?")
@@ -157,7 +156,7 @@ describe "Conversations", type: :system do
     context "when a message is sent" do
       before do
         visit_inbox
-        click_link interlocutor.name
+        click_link "chevron"
         expect(page).to have_content("Send")
         fill_in "message_body", with: "Please reply!"
         click_button "Send"
@@ -165,13 +164,13 @@ describe "Conversations", type: :system do
 
       it "appears as the last message", :slow do
         click_button "Send"
-        expect(page).to have_selector(".message:last-child", text: "Please reply!")
+        expect(page).to have_selector(".conversation-chat:last-child", text: "Please reply!")
       end
 
       context "and interlocutor sees it" do
         before do
           click_button "Send"
-          expect(page).to have_selector(".message:last-child", text: "Please reply!")
+          expect(page).to have_selector(".conversation-chat:last-child", text: "Please reply!")
           relogin_as interlocutor
           visit_inbox
         end
@@ -181,7 +180,7 @@ describe "Conversations", type: :system do
         end
 
         it "appears as read after it's seen", :slow do
-          click_link user.name
+          click_link "chevron"
           expect(page).to have_content("Please reply!")
 
           find("a.card--list__data__icon--back").click
@@ -196,7 +195,7 @@ describe "Conversations", type: :system do
       context "and interlocutor does not follow user" do
         before do
           visit_inbox
-          click_link interlocutor.name
+          click_link "chevron"
         end
 
         it "allows user to see old messages" do
@@ -214,7 +213,7 @@ describe "Conversations", type: :system do
 
         before do
           visit_inbox
-          click_link interlocutor.name
+          click_link "chevron"
         end
 
         it "show the sending form" do
@@ -226,7 +225,7 @@ describe "Conversations", type: :system do
           expect(page).to have_content("Send")
           click_button "Send"
 
-          expect(page).to have_selector(".message:last-child", text: "Please reply!")
+          expect(page).to have_selector(".conversation-chat:last-child", text: "Please reply!")
         end
       end
     end
@@ -298,7 +297,7 @@ describe "Conversations", type: :system do
         end
 
         it "shows only 1 other participant name" do
-          within ".heading3.title-action__title" do
+          within ".conversation-header .ml-s" do
             expect(page).to have_content(user1.name)
             expect(page).not_to have_content(user.name)
           end
@@ -323,7 +322,7 @@ describe "Conversations", type: :system do
         end
 
         it "shows the other 3 participant name" do
-          within ".heading3.title-action__title" do
+          within ".conversation-header .ml-s" do
             expect(page).to have_content(user1.name)
             expect(page).to have_content(user2.name)
             expect(page).to have_content(user3.name)
@@ -352,7 +351,7 @@ describe "Conversations", type: :system do
         end
 
         it "shows the other 9 participant name" do
-          within ".heading3.title-action__title" do
+          within ".conversation-header .ml-s" do
             expect(page).to have_content(user1.name)
             expect(page).to have_content(user2.name)
             expect(page).to have_content(user3.name)
@@ -383,7 +382,7 @@ describe "Conversations", type: :system do
         end
 
         it "shows only 1 other participant name" do
-          within ".heading3.title-action__title" do
+          within ".conversation-header .ml-s" do
             expect(page).to have_content(user1.name)
           end
         end
@@ -405,7 +404,7 @@ describe "Conversations", type: :system do
         end
 
         it "shows the other 3 participant name" do
-          within ".heading3.title-action__title" do
+          within ".conversation-header .ml-s" do
             expect(page).to have_content(user1.name)
             expect(page).to have_content(user2.name)
             expect(page).to have_content(user3.name)
@@ -430,7 +429,7 @@ describe "Conversations", type: :system do
         end
 
         it "shows the other 9 participant name" do
-          within ".heading3.title-action__title" do
+          within ".conversation-header .ml-s" do
             expect(page).to have_content(user1.name)
             expect(page).to have_content(user2.name)
             expect(page).to have_content(user3.name)
@@ -461,9 +460,9 @@ describe "Conversations", type: :system do
         end
 
         it "shows only the other participant name" do
-          within ".card--list__heading.heading6" do
-            expect(page).to have_content(user1.name.upcase)
-            expect(page).not_to have_content(user.name.upcase)
+          within ".mr-s > strong" do
+            expect(page).to have_content(user1.name)
+            expect(page).not_to have_content(user.name)
           end
         end
       end
@@ -484,11 +483,11 @@ describe "Conversations", type: :system do
         end
 
         it "shows only the 3 other participant name" do
-          within ".card--list__heading.heading6" do
-            expect(page).to have_content(user1.name.upcase)
-            expect(page).to have_content(user2.name.upcase)
-            expect(page).to have_content(user3.name.upcase)
-            expect(page).not_to have_content(user.name.upcase)
+          within ".mr-s > strong" do
+            expect(page).to have_content(user1.name)
+            expect(page).to have_content(user2.name)
+            expect(page).to have_content(user3.name)
+            expect(page).not_to have_content(user.name)
           end
         end
       end
@@ -509,7 +508,7 @@ describe "Conversations", type: :system do
         end
 
         it "shows only the first 3 participant name plus the number of remaining participants" do
-          within ".card--list__heading.heading6" do
+          within ".mr-s > strong" do
             expect(page).to have_content("+ 6")
             expect(page).not_to have_content(user.name.upcase)
           end

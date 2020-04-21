@@ -1,21 +1,32 @@
 <main class="wrapper">
-  <div class="row">
-    <div class="columns">
-      <div class="title-action">
-        <h1 class="heading3 title-action__title">
+  <div class="tabs-panel is-active" id="conversations" role="tabpanel" aria-labelledby="conversations-label">
+    <div class="conversation">
+
+      <div class="conversation-header flex--cc absolutes">
+        <div class="left center mr-s">
           <%= link_to decidim.conversations_path, class: "card--list__data__icon card--list__data__icon--back" do %>
             <%= icon "chevron-left", role: "img" %>
           <% end %>
+        </div>
+        <%= link_to decidim.conversations_path do %>
+          <% if participants.count == 1 %>
+            <%= image_tag participants.first.avatar_url, alt: t("decidim.author.avatar") %>
+          <% else %>
+            <%= image_tag current_user.avatar.default_url, alt: t("decidim.author.avatar") %>
+          <% end %>
+        <% end %>
 
-          <%= t(".title", usernames: username_list(participants)) %>
-        </h1>
+        <div class="ml-s">
+          <% if participants.count == 1 %>
+            <%= t(".chat_with") %> <strong><%= participants.first.name %></strong><br><span class="muted">@<%= participants.first.nickname %></span>
+          <% else %>
+            <%= t(".title", usernames: username_list(participants)) %>
+          <% end %>
+        </div>
       </div>
-    </div>
-  </div>
 
-  <div class="row">
-    <div id="conversation" class="columns large-8">
       <%= yield %>
+
     </div>
   </div>
 </main>

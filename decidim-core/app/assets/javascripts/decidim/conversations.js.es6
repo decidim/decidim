@@ -6,7 +6,7 @@
 const scrollToLastMessage = () => {
   if ($(".scroll-to-last-message").length > 0) {
     window.scrollTo({
-      top: $(".message:last-child").offset().top,
+      top: $(".conversation-chat:last-child").offset().top,
       behavior: "smooth"
     });
   }

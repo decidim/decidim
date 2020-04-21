@@ -54,34 +54,58 @@
           <p><%= t(".no_conversations") %></p>
         </div>
       <% else %>
-        <div class="card card--list conversations">
+        <div class="tabs-panel is-active conversations" id="conversations" role="tabpanel" aria-labelledby="conversations-label">
           <% @conversations.each do |conversation| %>
-            <%= link_to decidim.conversation_path(conversation), class: "card--list__item" do %>
-              <div class="card--list__titled-text">
-                <h6 class="card--list__heading heading6">
-                  <%= username_list(conversation.interlocutors(current_user), true) %>
-                </h6>
-
-                <span class="card--list__annotation">
-                  <%= conversation.last_message.friendly_created_at %>
-                </span>
-
-                <span class="text-small">
-                  <%= truncate conversation.last_message.body, length: 150 %>
-                </span>
-
-                <% if conversation.unread_count(current_user) > 0 %>
-                  <span class="card--list__counter">
-                    <span><%= conversation.unread_count(current_user) %></span>
-                  </span>
-                <% end %>
-              </div>
-              <div class="card--list__data">
-                <span class="card--list__data__icon">
-                  <%= icon "chevron-right", role: "img" %>
-                </span>
-              </div>
-            <% end %>
+            <div class="card card--widget">
+              <ul class="card-data">
+                <li class="card-data__item">
+                  <div class="card__link text-center">
+                    <div class="user-header__avatar">
+                      <% if conversation.interlocutors(current_user).count == 1 %>
+                        <%= image_tag conversation.interlocutors(current_user).first.avatar_url, alt: t("decidim.author.avatar") %>
+                      <% else %>
+                        <%= image_tag current_user.avatar.default_url, alt: t("decidim.author.avatar") %>
+                      <% end %>
+                    </div>
+                    <span class="text-medium mt-xs"><%= Date::ABBR_DAYNAMES[conversation.created_at.wday] %> <%= conversation.created_at.wday %></span>
+                  </div>
+                </li>
+                <li class="card-data__item card--list__item card-data__item--expand absolutes">
+                  <div class="mr-s">
+                    <% if conversation.interlocutors(current_user).count == 1 %>
+                      <%= t(".from") %>: <strong><%= conversation.interlocutors(current_user).first.name %> <span class="muted">@<%= conversation.interlocutors(current_user).first.nickname %></span></strong>
+                    <% else %>
+                      <%= t(".from") %>: <strong><%= username_list(conversation.interlocutors(current_user), true) %></strong>
+                    <% end %>
+                    <br>
+                    <span class="muted">
+                      <%= truncate conversation.last_message.body, length: 150 %>
+                    </span>
+                    <br>
+                    <span class="text-small">
+                      <%= t(".last_message") %>:
+                      <strong>
+                        <% if I18n.locale != :en %>
+                          <%= t(".ago") %> <%= time_ago_in_words(Time.parse(conversation.last_message.created_at.to_s)) %>
+                        <% else %>
+                          <%= time_ago_in_words(Time.parse(conversation.last_message.created_at.to_s)) %> <%= t(".ago") %>
+                        <% end %>
+                      </strong>
+                    </span>
+                    <% if conversation.unread_count(current_user) > 0 %>
+                      <span class="card--list__counter">
+                        <span><%= conversation.unread_count(current_user) %></span>
+                      </span>
+                    <% end %>
+                  </div>
+                  <div class="right center mr-s">
+                    <%= link_to decidim.conversation_path(conversation), id: "chevron", class: "user-header__avatar", "data-tabs-target": "conversation" do %>
+                      <%= icon "chevron-right", class: "card__link icon--big" %>
+                    <% end %>
+                  </div>
+                </li>
+              </ul>
+            </div>
           <% end %>
         </div>
       <% end %>
