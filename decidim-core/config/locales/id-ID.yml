@@ -192,6 +192,7 @@ id:
         explanation: Dapatkan verifikasi dengan memperkenalkan nomor paspor dimulai dengan "A"
         fields:
           passport_number: Nomor paspor
+          postal_code: Kode Pos
         name: Contoh otorisasi lain
       dummy_authorization_handler:
         explanation: Dapatkan verifikasi dengan memperkenalkan nomor dokumen yang diakhiri dengan "X"
