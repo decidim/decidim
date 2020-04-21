@@ -243,6 +243,7 @@ it:
         explanation: Ottenere verificato introducendo un numero di passaporto che inizia con "A"
         fields:
           passport_number: Numero di passaporto
+          postal_code: Codice postale
         name: Un'altra autorizzazione di esempio
       dummy_authorization_handler:
         explanation: Ottieni la verifica introducendo un numero di documento che termina con "X"
