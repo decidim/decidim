@@ -62,6 +62,10 @@ module Decidim
               @notify_extended = true if form.signature_end_date != initiative.signature_end_date &&
                                          form.signature_end_date > initiative.signature_end_date
             end
+          else
+            if initiative.custom_signature_end_date_enabled? && initiative.created?
+              attrs[:signature_end_date] = form.signature_end_date
+            end
           end
 
           attrs

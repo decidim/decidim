@@ -113,13 +113,18 @@ module Decidim
       end
 
       def build_form(klass, parameters)
-        @form = form(klass).from_params(parameters)
-        @form = @form.with_context(initiative_type: initiative_type) if initiative_type_id
+        @form = form(klass).from_params(parameters, extra_context)
         attributes = @form.attributes_with_values
         session[:initiative] = session_initiative.merge(attributes)
         @form.valid? if params[:validate_form]
 
         @form
+      end
+
+      def extra_context
+        return {} unless initiative_type_id
+
+        {initiative_type: initiative_type}
       end
 
       def scopes
