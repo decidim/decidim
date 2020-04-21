@@ -16,7 +16,18 @@ describe "ProfileConversations", type: :system do
     login_as user, scope: :user
   end
 
-  context "when user has no conversations" do
+  context "when visiting profile page" do
+    before do
+      login_as another_user, scope: :user
+      visit decidim.profile_path(nickname: profile.nickname)
+    end
+
+    it "has a contact link" do
+      expect(page).to have_link(title: "Contact", href: decidim.new_conversation_path(recipient_id: profile.id))
+    end
+  end
+
+  context "when profile has no conversations" do
     before { visit_inbox }
 
     it "shows a notice informing about that" do
@@ -54,41 +65,193 @@ describe "ProfileConversations", type: :system do
 
     it_behaves_like "create new conversation"
 
-    # context "and recipient has restricted communications" do
-    #   let(:recipient) { create(:user, direct_message_types: "followed-only", organization: organization) }
+    context "and recipient has restricted communications" do
+      let(:recipient) { create(:user, direct_message_types: "followed-only", organization: organization) }
 
-    #   context "and recipient does not follow user" do
-    #     it "redirects user with access error" do
-    #       expect(page).not_to have_current_path decidim.new_conversation_path(recipient_id: recipient.id)
-    #       expect(page).to have_content("You are not authorized to perform this action")
-    #     end
+      context "and recipient does not follow user" do
+        it "redirects user with access error" do
+          expect(page).not_to have_current_path decidim.new_profile_conversation_path(nickname: profile.nickname, recipient_id: recipient.id)
+          expect(page).to have_content("You are not authorized to perform this action")
+        end
 
-    #     context "and a conversation exists already" do
-    #       let!(:conversation) do
-    #         Decidim::Messaging::Conversation.start!(
-    #           originator: user,
-    #           interlocutors: [recipient],
-    #           body: "Is this a Ryanair style democracy?"
-    #         )
-    #       end
+        context "and a conversation exists already" do
+          let!(:conversation) do
+            Decidim::Messaging::Conversation.start!(
+              originator: profile,
+              interlocutors: [recipient],
+              body: "Is this a Ryanair style democracy?"
+            )
+          end
 
-    #       it "redirects to the existing conversation" do
-    #         visit decidim.new_conversation_path(recipient_id: recipient.id)
-    #         expect(page).to have_selector(".message:last-child", text: "Is this a Ryanair style democracy?")
-    #       end
-    #     end
-    #   end
+          it "shows the existing conversation" do
+            visit decidim.profile_conversation_path(nickname: profile.nickname, id: conversation.id)
+            expect(page).to have_selector(".message:last-child", text: "Is this a Ryanair style democracy?")
+          end
+        end
+      end
 
-    #   context "and recipient follows user" do
-    #     let!(:follow) { create :follow, user: recipient, followable: user }
+      context "and recipient follows user" do
+        let!(:follow) { create :follow, user: recipient, followable: profile }
 
-    #     before do
-    #       visit decidim.new_conversation_path(recipient_id: recipient.id)
-    #     end
+        before do
+          visit decidim.new_profile_conversation_path(nickname: profile.nickname, recipient_id: recipient.id)
+        end
 
-    #     it_behaves_like "create new conversation"
-    #   end
-    # end
+        it_behaves_like "create new conversation"
+      end
+    end
+  end
+
+  context "when profile has conversations" do
+    let(:interlocutor) { create(:user, :confirmed, organization: organization) }
+
+    let!(:conversation) do
+      Decidim::Messaging::Conversation.start!(
+        originator: profile,
+        interlocutors: [interlocutor],
+        body: "who wants apples?"
+      )
+    end
+
+    it "shows profile's conversation list" do
+      visit_inbox
+
+      within ".conversations" do
+        expect(page).to have_selector(".card--list__item", text: /#{interlocutor.name}/i)
+        expect(page).to have_selector(".card--list__item", text: "who wants apples?")
+        expect(page).to have_selector(".card--list__item", text: /\d{2}:\d{2}/)
+      end
+    end
+
+    it "allows entering a conversation" do
+      visit_inbox
+      click_link interlocutor.name
+
+      expect(page).to have_content("Conversation with #{interlocutor.name}")
+      expect(page).to have_content("who wants apples?")
+    end
+
+    context "and some of them are unread" do
+      before do
+        conversation.add_message!(sender: interlocutor, body: "I want one")
+
+        visit_inbox
+      end
+
+      it "shows the topbar button as active" do
+        within ".topbar__user__logged" do
+          expect(page).to have_selector("a.topbar__conversations.is-active")
+        end
+      end
+
+      it "shows the number of unread messages per conversation" do
+        expect(page).to have_selector(".card--list__item .card--list__counter", text: "2")
+      end
+    end
+
+    context "and they are read" do
+      before do
+        visit decidim.profile_conversation_path(nickname: profile.nickname, id: conversation.id)
+        visit_inbox
+      end
+
+      it "does not show an unread count" do
+        expect(page).to have_no_selector(".card--list__item .card--list__counter")
+      end
+    end
+
+    context "when a message is sent" do
+      before do
+        visit_inbox
+        click_link interlocutor.name
+        expect(page).to have_content("Send")
+        fill_in "message_body", with: "Please reply!"
+        click_button "Send"
+      end
+
+      it "appears as the last message", :slow do
+        click_button "Send"
+        expect(page).to have_selector(".message:last-child", text: "Please reply!")
+      end
+
+      context "and interlocutor sees it" do
+        before do
+          click_button "Send"
+          expect(page).to have_selector(".message:last-child", text: "Please reply!")
+          relogin_as interlocutor
+          visit decidim.conversations_path
+        end
+
+        it "appears as unread", :slow do
+          expect(page).to have_selector(".card--list__item .card--list__counter", text: "2")
+        end
+
+        it "appears as read after it's seen", :slow do
+          click_link profile.name
+          expect(page).to have_content("Please reply!")
+
+          find("a.card--list__data__icon--back").click
+          expect(page).to have_no_selector(".card--list__item .card--list__counter")
+        end
+      end
+    end
+
+    context "when interlocutor has restricted conversations" do
+      let(:interlocutor) { create(:user, :confirmed, direct_message_types: "followed-only", organization: organization) }
+
+      context "and interlocutor does not follow profile" do
+        before do
+          visit_inbox
+          click_link interlocutor.name
+        end
+
+        it "allows profile to see old messages" do
+          expect(page).to have_content("Conversation with #{interlocutor.name}")
+          expect(page).to have_content("who wants apples?")
+        end
+
+        it "does not show the sending form" do
+          expect(page).not_to have_selector("textarea#message_body")
+        end
+      end
+
+      context "and interlocutor follows profile" do
+        let!(:follow) { create :follow, user: interlocutor, followable: profile }
+
+        before do
+          visit_inbox
+          click_link interlocutor.name
+        end
+
+        it "show the sending form" do
+          expect(page).to have_selector("textarea#message_body")
+        end
+
+        it "sends a message", :slow do
+          fill_in "message_body", with: "Please reply!"
+          expect(page).to have_content("Send")
+          click_button "Send"
+
+          expect(page).to have_selector(".message:last-child", text: "Please reply!")
+        end
+      end
+    end
+
+    describe "on mentioned list" do
+      context "when someone direct messages disabled" do
+        let!(:interlocutor2) { create(:user, :confirmed, organization: organization, direct_message_types: "followed-only") }
+
+        it "can't be selected on the mentioned list", :slow do
+          visit_inbox
+          expect(page).to have_content("New conversation")
+          click_button "New conversation"
+          expect(page).to have_selector(".js-multiple-mentions")
+          find(".js-multiple-mentions").fill_in with: "@"
+          page.execute_script('$(".js-multiple-mentions")[0].dispatchEvent(new Event("keydown"));$(".js-multiple-mentions")[0].dispatchEvent(new Event("keyup"));')
+          expect(page).to have_selector(".tribute-container .disabled-tribute-element")
+        end
+      end
+    end
   end
 
   private
