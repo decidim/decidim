@@ -94,6 +94,8 @@ ca:
         new:
           authorize: Enviar
           authorize_with: Verifica amb %{authorizer}
+        renew_modal:
+          cancel: Cancel·lar
         skip_verification: Pots ometre-ho per ara i %{link}
         start_exploring: comença a explorar
       csv_census:
