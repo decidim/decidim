@@ -254,6 +254,7 @@ es:
         explanation: Verifícate introduciendo un número de pasaporte que comience por "A"
         fields:
           passport_number: Número de pasaporte
+          postal_code: Código postal
         name: Otro ejemplo de autorización
       dummy_authorization_handler:
         explanation: Verifícate introduciendo un número de documento que termine con "X"
