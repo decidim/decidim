@@ -134,7 +134,7 @@ Decidim.register_component(:dummy) do |component|
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :dummy_global_attribute_1, type: :boolean
     settings.attribute :dummy_global_attribute_2, type: :boolean
-    settings.attribute :disabled_attribute, type: :boolean, default: true, disabled: ->(context) { true }
+    settings.attribute :disabled_attribute, type: :boolean, default: true, disabled: ->(_context) { true }
     settings.attribute :enable_pads_creation, type: :boolean, default: false
     settings.attribute :amendments_enabled, type: :boolean, default: false
     settings.attribute :dummy_global_translatable_text, type: :text, translated: true, editor: true, required: true

@@ -14,6 +14,7 @@ en:
       dummy:
         settings:
           global:
+            disabled_attribute: Disabled attribute
             test: A test
             test_choices:
               a: A choice

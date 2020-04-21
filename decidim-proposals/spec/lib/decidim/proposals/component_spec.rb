@@ -183,7 +183,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
           "Amendments visibility",
           "Amendment creation enabled",
           "Amendment reaction enabled",
-          "Amendment promotion enabled",
+          "Amendment promotion enabled"
         ]
       end
 
