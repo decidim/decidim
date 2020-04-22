@@ -33,21 +33,15 @@ module Decidim
       private
 
       def update_component
-        @previous_settings = @component.attributes["settings"].dup
+        @previous_settings = @component.attributes["settings"].with_indifferent_access
         @component.name = form.name
         @component.weight = form.weight
 
-        @component.settings = restore_disabled_settings("global", form.settings) do |attribute, settings|
-          settings[attribute] = @previous_settings["global"][attribute]
-        end
-        @component.default_step_settings = restore_disabled_settings("step", form.default_step_settings) do |attribute, settings|
-          settings[attribute] = @previous_settings["default_step"][attribute]
-        end
-        @component.step_settings = restore_disabled_settings("step", form.step_settings) do |attribute, settings|
-          settings.keys.each do |step|
-            settings[attribute] = @previous_settings["steps"][step][attribute]
-          end
-        end
+        restore_disabled_settings!
+
+        @component.settings = form.settings
+        @component.default_step_settings = form.default_step_settings
+        @component.step_settings = form.step_settings
 
         @settings_changed = @component.settings_changed?
 
@@ -66,12 +60,26 @@ module Decidim
         @component.attributes["settings"]
       end
 
-      def restore_disabled_settings(step, settings)
-        @component.manifest.settings(step).attributes
-                  .select { |_attribute, obj| obj.disabled?(component: @component) }
-                  .each { |attribute, _obj| yield(attribute.to_s, settings) }
+      # Keep previous values for disabled settings
+      def restore_disabled_settings!
+        browse_disabled_settings("global") do |attribute|
+          form.settings[attribute] = @previous_settings.dig("global", attribute)
+        end
 
-        settings
+        browse_disabled_settings("step") do |attribute|
+          form.default_step_settings[attribute] = @previous_settings.dig("default_step", attribute) if form.default_step_settings.present?
+          if form.step_settings.present?
+            form.step_settings.each do |step_name, step|
+              step[attribute] = @previous_settings.dig("steps", step_name, attribute)
+            end
+          end
+        end
+      end
+
+      def browse_disabled_settings(settings_name)
+        @component.manifest.settings(settings_name).attributes
+                  .select { |_attribute, obj| obj.disabled?(component: @component) }
+                  .each { |attribute, _obj| yield(attribute) }
       end
     end
   end

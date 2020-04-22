@@ -6,7 +6,7 @@ module Decidim::Admin
   describe UpdateComponent do
     let!(:participatory_process) { create(:participatory_process, :with_steps) }
     let(:step) { participatory_process.steps.first }
-    let!(:component) { create(:component, participatory_space: participatory_process) }
+    let!(:component) { create(:component, :with_one_step, participatory_space: participatory_process) }
     let(:manifest) { component.manifest }
 
     let(:form) do
@@ -28,13 +28,15 @@ module Decidim::Admin
         default_step_settings: {
           step.id.to_s => {
             dummy_step_attribute_1: true,
-            dummy_step_attribute_2: false
+            dummy_step_attribute_2: false,
+            disabled_step_attribute: false
           }
         },
         step_settings: {
           step.id.to_s => {
             dummy_step_attribute_1: true,
-            dummy_step_attribute_2: false
+            dummy_step_attribute_2: false,
+            disabled_step_attribute: false
           }
         }
       )
@@ -57,6 +59,7 @@ module Decidim::Admin
         step_settings = component.step_settings[step.id.to_s]
         expect(step_settings.dummy_step_attribute_1).to eq(true)
         expect(step_settings.dummy_step_attribute_2).to eq(false)
+        expect(step_settings.disabled_step_attribute).to eq(true)
       end
 
       it "fires the hooks" do

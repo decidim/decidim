@@ -21,6 +21,7 @@ en:
               b: B choice
               c: C choice
           step:
+            disabled_step_attribute: Disabled step attribute
             endorsements_blocked: Endorsements blocked
             endorsements_enabled: Endorsements enabled
     dummy:
