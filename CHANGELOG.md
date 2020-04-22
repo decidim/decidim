@@ -35,6 +35,30 @@ PR [\#5768](https://github.com/decidim/decidim/pull/5768) introduced a deprecati
 
 ### Upgrade notes
 
+- **Omniauth settings for each tenant**
+
+Thanks to [\#5516](https://github.com/decidim/decidim/pull/5516) it is now possible to customize which omniauth providers are enabled on each of the organizations in a multitenant installation.
+
+This modification changes the way devise omniauth providers are activated. It is now automatic, so all providers declared in the secrets file are loaded into `Decidim::OmniauthProvider#available` and then activated in `Decidim::User` `devise` declaration.
+
+To make it clear, installations with custom Omniauth providers must remove the provider configuration from the corresponding `config/initializer/omniauth_xxx.rb` (just remove the whole file if it is the only thing declared there). 
+The recommended way to go is to configure `config/secrets.yml` with the variables needed (can be filled with dummy data) and then go to `yourinstallation.tld/system` to configure the valid values for the tenant.
+
+```
+# This block should be kept
+if Rails.application.secrets.dig(:omniauth, :decidim, :enabled)
+  Devise.setup do |config|
+    config.omniauth :decidim,
+                    Rails.application.secrets.dig(:omniauth, :decidim, :client_id),
+                    Rails.application.secrets.dig(:omniauth, :decidim, :client_secret),
+                    Rails.application.secrets.dig(:omniauth, :decidim, :site_url),
+                    scope: :public
+  end
+end
+# this line should be removed
+Decidim::User.omniauth_providers << :decidim
+```
+
 - **Geocoder**
 
 Here maps API has changed, including the way clients authenticate. Thus, former `app_id` and `app_code` credentials are now deprecated in favour of a unique `api_key` token. For your current application to continue working with Here maps services generate an `api_key` and configure it as explained in [Decidim's geocoding documentation](https://github.com/decidim/decidim/blob/master/docs/services/geocoding.md).
