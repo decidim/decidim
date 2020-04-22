@@ -269,8 +269,11 @@ en:
           back: Back
           back_to_initiatives: Back to initiatives
           callout_text: Congratulations! Your citizen initiative has been successfully created.
+          confirm: Confirm
+          edit_my_initiative: Edit my initiatives
           go_to_my_initiatives: Go to my initiatives
           more_information: "(More information)"
+          send_my_initiative: Send my initiative
         finish_help:
           access_reminder: Remember that you will always be able to access your initiatives through the participant menu.
           help_for_organizations: If you are an association you will have to upload the minutes of the management board of all the organisations that form the Promoting Commission

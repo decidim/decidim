@@ -307,6 +307,13 @@ module Decidim
     ";"
   end
 
+  # Exposes a configuration option: HTTP_X_FORWADED_HOST header follow-up.
+  # If a caching system is in place, it can also allow cache and log poisoning attacks,
+  # allowing attackers to control the contents of caches and logs that could be used for other attacks.
+  config_accessor :follow_http_x_forwarded_host do
+    false
+  end
+
   # The list of roles a user can have, not considering the space-specific roles.
   config_accessor :user_roles do
     %w(admin user_manager)
