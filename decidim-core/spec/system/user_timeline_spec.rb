@@ -59,10 +59,17 @@ describe "User timeline", type: :system do
 
   let!(:resource_types) do
     Decidim::ActionLog
-      .select(:resource_type).distinct
-      .pluck(:resource_type)
-      .map { |r| r.split("::").last }
-      .reject { |r| r.match?(/ParticipatoryProcess|Component|Survey|Result|Assembly|Consultation|DummyResource|missing\stranslation/i) }
+      .select(:resource_type)
+      .where(resource_type: %w[Decidim::Proposals::CollaborativeDraft
+                               Decidim::Comments::Comment
+                               Decidim::Debates::Debate
+                               Decidim::Initiative
+                               Decidim::Meetings::Meeting
+                               Decidim::Blogs::Post
+                               Decidim::Proposals::Proposal
+                               Decidim::Consultations::Question])
+      .distinct
+      .map { |r| r.resource_type.split("::").last }
   end
 
   before do
