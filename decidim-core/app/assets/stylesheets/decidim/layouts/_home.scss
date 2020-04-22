@@ -145,6 +145,12 @@
   margin-top: 1rem;
   padding: 1.2rem 1rem;
 
+  &:hover,
+  &:focus{
+    box-shadow: 10px 5px 5px black;
+    outline: none;
+  }
+
   @include breakpoint(medium){
     margin-top: 2rem;
   }
@@ -208,6 +214,16 @@
   margin-top: 2rem;
   color: var(--primary);
   display: inline-block;
+  text-decoration: underline;
+
+  &:hover,
+  &:focus{
+    background-color: $primary;
+    text-decoration: none;
+    outline: none;
+    color: $white;
+    box-shadow: 10px 5px 5px black;
+  }
 
   .icon{
     vertical-align: -1px;

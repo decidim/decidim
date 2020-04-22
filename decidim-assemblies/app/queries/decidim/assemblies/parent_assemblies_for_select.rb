@@ -15,8 +15,27 @@ module Decidim
         @assembly = assembly
       end
 
+      # Finds the available assemblies
+      #
+      # Returns an ActiveRecord::Relation.
       def query
-        Assembly.where(organization: @organization).where.not(id: @assembly)
+        available_assemblies = Assembly.where(organization: @organization).where.not(id: @assembly)
+
+        return available_assemblies if @assembly.blank?
+
+        available_assemblies.where.not(id: descendant_ids)
+      end
+
+      private
+
+      def descendant_ids
+        recursive_children(@assembly).flatten
+      end
+
+      def recursive_children(model)
+        model.children.map do |child|
+          [recursive_children(child), child.id]
+        end
       end
     end
   end

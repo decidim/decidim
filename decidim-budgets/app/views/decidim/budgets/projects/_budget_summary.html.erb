@@ -8,7 +8,13 @@
         </p>
       <% else %>
         <h3 class="heading3"><%= t(".title") %></h3>
-        <p><%= t(".description", minimum_budget: budget_to_currency(current_order&.minimum_budget)) %></p>
+        <p>
+          <% if current_order.minimum_projects_rule? %>
+            <%= t(".description_minimum_projects_rule", minimum_number: current_order.minimum_projects) %>
+          <% else %>
+            <%= t(".description", minimum_budget: budget_to_currency(current_order.minimum_budget)) %>
+          <% end %>
+        </p>
       <% end %>
     <% end %>
 

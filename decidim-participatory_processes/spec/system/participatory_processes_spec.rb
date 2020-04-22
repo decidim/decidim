@@ -111,7 +111,7 @@ describe "Participatory Processes", type: :system do
 
     it "lists the active processes" do
       within "#processes-grid" do
-        within "#processes-grid h2" do
+        within "#processes-grid h3" do
           expect(page).to have_content("3 ACTIVE PROCESSES")
         end
 
@@ -232,7 +232,7 @@ describe "Participatory Processes", type: :system do
         end
 
         it "shows the metrics charts" do
-          expect(page).to have_css("h4.section-heading", text: "METRICS")
+          expect(page).to have_css("h3.section-heading", text: "METRICS")
 
           within "#metrics" do
             Decidim.metrics_registry.filtered(highlight: true, scope: "participatory_process").each do |metric_registry|

@@ -11,9 +11,7 @@ module Decidim
     # CarrierWave automatically calls this method and validates the content
     # type fo the temp file to match against any of these options.
     def content_type_whitelist
-      [
-        %r{image\/}
-      ]
+      extension_whitelist.map { |ext| "image/#{ext}" }
     end
 
     # Strips out all embedded information from the image
@@ -26,7 +24,7 @@ module Decidim
 
     # Add a white list of extensions which are allowed to be uploaded.
     # For images you might use something like this:
-    def extension_white_list
+    def extension_whitelist
       %w(jpg jpeg gif png bmp ico)
     end
 
@@ -50,6 +48,13 @@ module Decidim
 
     def max_image_height_or_width
       3840
+    end
+
+    def manipulate!
+      super
+    rescue CarrierWave::ProcessingError => e
+      Rails.logger.error(e)
+      raise CarrierWave::ProcessingError, I18n.t("carrierwave.errors.general")
     end
 
     private
