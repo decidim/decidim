@@ -369,5 +369,27 @@ module Decidim
 
     # Allow ransacker to search on an Enum Field
     ransacker :state, formatter: proc { |int| states[int] }
+
+    # method for sort_link by number of supports
+    ransacker :supports_count do
+      query = <<~SQL
+        (
+          SELECT 
+            CASE
+              WHEN signature_type = 0 THEN 0
+              ELSE COALESCE(offline_votes, 0)
+            END 
+            +
+            CASE
+              WHEN signature_type = 1 THEN 0
+              ELSE initiative_votes_count + initiative_supports_count
+            END
+           FROM decidim_initiatives as initiatives
+          WHERE initiatives.id = decidim_initiatives.id
+          GROUP BY initiatives.id
+        )
+      SQL
+      Arel.sql(query)
+    end
   end
 end
