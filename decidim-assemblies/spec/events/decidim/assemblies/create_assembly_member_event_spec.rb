@@ -34,7 +34,7 @@ describe Decidim::Assemblies::CreateAssemblyMemberEvent do
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title)
-        .to include(%(You have been invited to join the <a href="#{resource_path}">#{assembly_title}</a> assembly. Check the <a href="#{resource_path}">assembly page</a> to contribute!))
+        .to include(%(You have been registered as a member of Assembly <a href="#{resource_path}">#{assembly_title}</a>. Check the <a href="#{resource_path}">assembly page</a> to contribute!))
     end
   end
 end
