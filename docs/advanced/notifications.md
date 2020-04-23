@@ -7,13 +7,13 @@ In Decidim, notifications may mean two things:
 
 So, in the wider sense, notifications are messages that are sent to the users, admins or participants, when something interesting occurs in the platform.
 
-Each notification is sent via two communication channels: email and 
+Each notification is sent via two communication channels: email and internal notifications.
 
 ## A Decidim Event
 
 Technically, a Decidim event is nothing but an `ActiveSupport::Notification` with a payload of the form
 
-```
+```ruby
 ActiveSupport::Notifications.publish(
   event,
   event_class: event_class.name,
@@ -26,7 +26,7 @@ ActiveSupport::Notifications.publish(
 
 To publish an event to send a notification, Decidim's `EventManager` should be used:
 
-```
+```ruby
 # Note the convention between the `event` key, and the `event_class` that will be used later to wrap the payload and be used as the email or notification model.
 data = {
   event: "decidim.events.comments.comment_created",
@@ -48,7 +48,8 @@ Both, `EmailNotificationGenerator` and `NotificationGenerator` are use the same 
 - **event_class**: A class that wraps the event.
 - **resource**: an instance of a class implementing the `Decidim::Resource` concern.
 - **followers**: a collection of Users that receive the notification because they're following it.
-- **affected_users**: a collection of Users that receive the notification because they're affected by it
+- **affected_users**: a collection of Users that receive the notification because they're affected by it.
+- **force_send**: boolean indicating if EventPublisherJob should skip the `notifiable?` check it performs before notifying.
 - **extra**: a Hash with extra information to be included in the notification.
 
 Again, both generators will check for each user
