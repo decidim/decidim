@@ -261,14 +261,14 @@ module Decidim
       resources =
         collection
         .select(:resource_type)
-        .where(resource_type: %w[Decidim::Proposals::CollaborativeDraft
+        .where(resource_type: %w(Decidim::Proposals::CollaborativeDraft
                                  Decidim::Comments::Comment
                                  Decidim::Debates::Debate
                                  Decidim::Initiative
                                  Decidim::Meetings::Meeting
                                  Decidim::Blogs::Post
                                  Decidim::Proposals::Proposal
-                                 Decidim::Consultations::Question])
+                                 Decidim::Consultations::Question)
         .distinct
         .map { |r| [I18n.t(r.resource_type.split("::").last.underscore, scope: "decidim.components.component_order_selector.order"), r.resource_type] }
         .sort
