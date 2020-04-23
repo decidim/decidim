@@ -253,8 +253,8 @@ module Decidim
       end
     end
 
-    describe 'sorting by supports count' do
-      subject(:sorter) { described_class.ransack({"s" => "supports_count desc"}) }
+    describe "sorting" do
+      subject(:sorter) { described_class.ransack("s" => "supports_count desc") }
 
       before do
         create(:initiative, organization: organization, signature_type: "offline")
@@ -265,7 +265,7 @@ module Decidim
         create(:initiative, organization: organization, signature_type: "any", initiative_votes_count: 3, initiative_supports_count: 2, offline_votes: 3)
       end
 
-      it "sorts initiatives" do
+      it "sorts initiatives by supports count" do
         expect(sorter.result.map(&:supports_count)).to eq([8, 5, 4, 3, 1, 0])
       end
     end

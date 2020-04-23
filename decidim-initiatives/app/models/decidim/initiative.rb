@@ -374,11 +374,11 @@ module Decidim
     ransacker :supports_count do
       query = <<~SQL
         (
-          SELECT 
+          SELECT
             CASE
               WHEN signature_type = 0 THEN 0
               ELSE COALESCE(offline_votes, 0)
-            END 
+            END
             +
             CASE
               WHEN signature_type = 1 THEN 0
