@@ -432,8 +432,6 @@ en:
         promotal_committee_help: Remember that you must invite at least %{member_count} people to promoter committee. Forward the following link to invite people to the promoter committee
         status_change_body_for: 'The initiative %{title} has changed its status to: %{state}'
         status_change_for: The initiative %{title} has changed its status
-        technical_validation_body_for: The initiative %{title} has requested its technical validation.
-        technical_validation_for: The initiative %{title} has requested its technical validation.
       last_activity:
         new_initiative: New initiative
       pages:

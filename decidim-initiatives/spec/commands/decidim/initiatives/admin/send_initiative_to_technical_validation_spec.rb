@@ -37,6 +37,7 @@ module Decidim
               .with(
                 event: "decidim.events.initiatives.admin.initiative_sent_to_technical_validation",
                 event_class: Decidim::Initiatives::Admin::InitiativeSentToTechnicalValidationEvent,
+                force_send: true,
                 resource: initiative,
                 affected_users: a_collection_containing_exactly(another_admin)
               )
