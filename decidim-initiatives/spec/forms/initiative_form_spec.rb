@@ -51,13 +51,13 @@ module Decidim
         end
 
         context "when custom date is in the future" do
-          let(:custom_signature_end_date) { {signature_end_date: Date.tomorrow} }
+          let(:custom_signature_end_date) { { signature_end_date: Date.tomorrow } }
 
           it { is_expected.to be_valid }
         end
 
         context "when custom date is not in the future" do
-          let(:custom_signature_end_date) { {signature_end_date: Date.current} }
+          let(:custom_signature_end_date) { { signature_end_date: Date.current } }
 
           it { is_expected.to be_invalid }
         end
