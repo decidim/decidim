@@ -21,10 +21,11 @@ module Decidim
     def call
       return broadcast(:invalid) if form.invalid?
 
+      was_verified = user_group.verified?
       update_user_group
-      notify_admins
+      notify_admins if was_verified
 
-      broadcast(:ok, @user_group)
+      broadcast(:ok, user_group)
     end
 
     private

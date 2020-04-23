@@ -70,19 +70,34 @@ module Decidim
             expect(user_group.name).to eq "My super duper group"
           end
 
-          it "notifies the admins" do
-            expect(Decidim::EventsManager)
-              .to receive(:publish)
-              .once
-              .ordered
-              .with(
-                event: "decidim.events.groups.user_group_updated",
-                event_class: Decidim::UserGroupUpdatedEvent,
-                resource: user_group,
-                affected_users: a_collection_containing_exactly(*Decidim::User.where(organization: organization, admin: true).all)
-              )
+          context "when the user group has NOT been verified" do
+            it "does not notify the admins" do
+              expect(Decidim::EventsManager)
+                .not_to receive(:publish)
 
-            command.call
+              command.call
+            end
+          end
+
+          context "when the user group has been verified" do
+            before do
+              user_group.verify!
+            end
+
+            it "notifies the admins" do
+              expect(Decidim::EventsManager)
+                .to receive(:publish)
+                .once
+                .ordered
+                .with(
+                  event: "decidim.events.groups.user_group_updated",
+                  event_class: Decidim::UserGroupUpdatedEvent,
+                  resource: user_group,
+                  affected_users: a_collection_containing_exactly(*Decidim::User.where(organization: organization, admin: true).all)
+                )
+
+              command.call
+            end
           end
 
           context "when the avatar is not updated" do
