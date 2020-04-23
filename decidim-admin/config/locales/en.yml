@@ -472,6 +472,14 @@ en:
             does_not_belong: Does not belong
             offensive: Offensive
             spam: Spam
+      newsletter_templates:
+        index:
+          preview_template: Preview
+          title: Newsletter templates
+          use_template: Use this template
+        show:
+          preview: 'Preview template: %{template_name}'
+          use_template: Use this template
       newsletters:
         create:
           error: There was a problem creating this newsletter.
@@ -485,8 +493,6 @@ en:
         edit:
           save_and_preview: Save and preview
           title: Edit newsletter
-        form:
-          interpolations_hint: 'Hint: You can use "%{name}" anywhere in the body or subject and it will be replaced by the recipient''s name.'
         index:
           all: all
           all_users: 'All users '
