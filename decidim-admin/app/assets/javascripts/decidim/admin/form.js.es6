@@ -13,10 +13,10 @@
 // Checks if the form contains fields with special CSS classes added in
 // Decidim::Admin::SettingsHelper and acts accordingly.
 $(() => {
-  // Prevents disabled containers from being modified.
-  const $disabledContainer = $(".disabled_container input");
+  // Prevents readonly containers from being modified.
+  const $readonlyContainer = $(".readonly_container input");
 
-  $disabledContainer.click((event) => {
+  $readonlyContainer.click((event) => {
     event.preventDefault();
     return false;
   });

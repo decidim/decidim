@@ -14,16 +14,16 @@ en:
       dummy:
         settings:
           global:
-            disabled_attribute: Disabled attribute
+            readonly_attribute: Readonly attribute
             test: A test
             test_choices:
               a: A choice
               b: B choice
               c: C choice
           step:
-            disabled_step_attribute: Disabled step attribute
             endorsements_blocked: Endorsements blocked
             endorsements_enabled: Endorsements enabled
+            readonly_step_attribute: Readonly step attribute
     dummy:
       admin:
         exports:

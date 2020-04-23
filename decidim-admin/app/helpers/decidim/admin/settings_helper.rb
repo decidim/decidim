@@ -27,9 +27,9 @@ module Decidim
         form_method = form_method_for_attribute(attribute)
 
         container_class = "#{name}_container"
-        if options[:disabled]
-          container_class += " disabled_container"
-          help_text = text_for_setting(name, "disabled", i18n_scope)
+        if options[:readonly]
+          container_class += " readonly_container"
+          help_text = text_for_setting(name, "readonly", i18n_scope)
         end
         help_text ||= text_for_setting(name, "help", i18n_scope)
         help_text_options = help_text ? { help_text: help_text } : {}

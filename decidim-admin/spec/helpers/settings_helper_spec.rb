@@ -5,8 +5,8 @@ require "spec_helper"
 module Decidim
   module Admin
     describe SettingsHelper do
-      let(:options) { { label: "A test", disabled: disabled } }
-      let(:disabled) { false }
+      let(:options) { { label: "A test", readonly: readonly } }
+      let(:readonly) { false }
       let(:type) { :boolean }
       let(:name) { :test }
       let(:value) { nil }
@@ -31,15 +31,15 @@ module Decidim
 
         it "is supported" do
           expect(form).to receive(:check_box).with(:test, options)
-          expect(render_input).not_to include("disabled_container")
+          expect(render_input).not_to include("readonly_container")
         end
 
-        context "when disabled" do
-          let(:disabled) { true }
+        context "when readonly" do
+          let(:readonly) { true }
 
           it "is supported" do
             expect(form).to receive(:check_box).with(:test, options)
-            expect(render_input).to include("disabled_container")
+            expect(render_input).to include("readonly_container")
           end
         end
       end

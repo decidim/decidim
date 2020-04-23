@@ -71,7 +71,7 @@ Each attribute defined can be described through properties:
 * `text` and `string` attributes can be `translated`, which will allow admin users to enter values for every language.
 * `text` attributes can use an `editor` to edit them as HTML code
 * `enum` attributes should have a `choices` attributes that list all the possible values. This could be a lambda function.
-* they can be `disabled` in some cases, throught a lambda function that received the current component within the `context`.
+* they can be `readonly` in some cases, throught a lambda function that received the current component within the `context`.
 
 ```ruby
 # :my_component is the unique name of the component that will be globally registered.
@@ -86,7 +86,7 @@ Decidim.register_component(:my_component) do |component|
   component.settings(:step) do |settings|
     settings.attribute :a_text_setting, type: :text, default: false, required: true, translated: true, editor: true
     settings.attribute :a_lambda_enum_setting, type: :enum, default: "all", choices: -> { SomeClass.enum_options }
-    settings.attribute :a_disable_setting, type: :string, disable: ->(context) { SomeClass.disabler(context[:component]) }
+    settings.attribute :a_readonly_setting, type: :string, readonly: ->(context) { SomeClass.readonly?(context[:component]) }
   end
 
   ...
@@ -97,4 +97,4 @@ Each setting should have one or more translation texts related for the admin zon
 
 * `decidim.components.[component_name].settings.[global|step].[attribute_name]`: Admin label for the setting.
 * `decidim.components.[component_name].settings.[global|step].[attribute_name]_help`: Additional text with help for the setting use.
-* `decidim.components.[component_name].settings.[global|step].[attribute_name]_disabled`: Additional text for the setting when it is disabled.
+* `decidim.components.[component_name].settings.[global|step].[attribute_name]_readonly`: Additional text for the setting when it is readonly.

@@ -5,6 +5,6 @@
     field_name,
     "decidim.components.#{manifest.name}.settings.#{settings_name}",
     tabs_prefix: tabs_prefix,
-    disabled: settings_attribute.disabled?(component: @component)
+    readonly: settings_attribute.readonly?(component: @component)
   ) %>
 <% end %>

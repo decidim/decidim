@@ -37,7 +37,7 @@ module Decidim
         @component.name = form.name
         @component.weight = form.weight
 
-        restore_disabled_settings!
+        restore_readonly_settings!
 
         @component.settings = form.settings
         @component.default_step_settings = form.default_step_settings
@@ -60,13 +60,13 @@ module Decidim
         @component.attributes["settings"]
       end
 
-      # Keep previous values for disabled settings
-      def restore_disabled_settings!
-        browse_disabled_settings("global") do |attribute|
+      # Keep previous values for readonly settings
+      def restore_readonly_settings!
+        browse_readonly_settings("global") do |attribute|
           form.settings[attribute] = @previous_settings.dig("global", attribute)
         end
 
-        browse_disabled_settings("step") do |attribute|
+        browse_readonly_settings("step") do |attribute|
           form.default_step_settings[attribute] = @previous_settings.dig("default_step", attribute) if form.default_step_settings.present?
           if form.step_settings.present?
             form.step_settings.each do |step_name, step|
@@ -76,9 +76,9 @@ module Decidim
         end
       end
 
-      def browse_disabled_settings(settings_name)
+      def browse_readonly_settings(settings_name)
         @component.manifest.settings(settings_name).attributes
-                  .select { |_attribute, obj| obj.disabled?(component: @component) }
+                  .select { |_attribute, obj| obj.readonly?(component: @component) }
                   .each { |attribute, _obj| yield(attribute) }
       end
     end
