@@ -41,6 +41,10 @@ module Decidim::Admin
       end
       let(:command) { described_class.new(newsletter, form, current_user) }
 
+      def user_localized_body(user)
+        newsletter.template.settings.body.stringify_keys[user.locale]
+      end
+
       shared_examples_for "selective newsletter" do
         context "when everything is ok" do
           it "updates the counters and delivers to the right users" do
@@ -53,7 +57,7 @@ module Decidim::Admin
 
             deliverable_users.each do |user|
               email = emails.find { |e| e.to.include? user.email }
-              expect(email_body(email)).to include(newsletter.body[user.locale])
+              expect(email_body(email)).to include(user_localized_body(user))
             end
 
             newsletter.reload

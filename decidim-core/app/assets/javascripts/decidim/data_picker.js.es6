@@ -140,7 +140,7 @@
         let link = $("a", this.current.div);
         link.data("picker-value", data.value);
         link.attr("href", data.url);
-        link.text(dataText);
+        link.html(dataText);
       } else {
         let input = "hidden",
             name = this.current.name;
