@@ -4,6 +4,8 @@ module Decidim
   module Verifications
     module PostalLetter
       class AuthorizationsController < ApplicationController
+        include Decidim::Verifications::Renewable
+
         helper_method :authorization
 
         before_action :load_authorization

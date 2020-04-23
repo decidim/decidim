@@ -45,6 +45,10 @@ module Decidim
         renderer.render(links: links, extras: extras).html_safe
       end
 
+      def id_and_title(links: false, extras: true, html_escape: false)
+        "##{proposal.id} - #{title(links: links, extras: extras, html_escape: html_escape)}"
+      end
+
       def body(links: false, extras: true, strip_tags: false)
         text = proposal.body
         text = strip_tags(text) if strip_tags

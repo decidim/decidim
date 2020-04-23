@@ -19,9 +19,15 @@ module Decidim
       #   - if the user already has a conversation with the user, redirects to the initiated conversation
       def new
         @form = form(ConversationForm).from_params(params)
-        conversation = conversation_between(current_user, @form.recipient)
 
-        return redirect_back(fallback_location: profile_path(current_user.nickname)) unless @form.recipient
+        if @form.recipient.is_a? Enumerable
+          participants = @form.recipient.to_a.prepend(current_user)
+          conversation = conversation_between_multiple(participants)
+        else
+          conversation = conversation_between(current_user, @form.recipient)
+        end
+
+        return redirect_back(fallback_location: profile_path(current_user.nickname)) if @form.recipient.empty?
 
         return redirect_to conversation_path(conversation) if conversation
 
@@ -50,6 +56,7 @@ module Decidim
         enforce_permission_to :list, :conversation
 
         @conversations = UserConversations.for(current_user)
+        @form = MessageForm.new
       end
 
       def show
@@ -76,6 +83,12 @@ module Decidim
         end
       end
 
+      def check_multiple
+        @form = form(ConversationForm).from_params(params)
+        redirect_link = link_to_current_or_new_conversation_with_multiple(@form.recipient)
+        redirect_to redirect_link
+      end
+
       private
 
       def conversation
@@ -85,11 +98,18 @@ module Decidim
       def new_conversation(recipient)
         return nil unless recipient
 
-        Conversation.new(participants: [current_user, recipient])
+        if recipient.is_a? Enumerable
+          Conversation.new(participants: [current_user] + recipient)
+        else
+          Conversation.new(participants: [current_user, recipient])
+        end
       end
 
-      def username_list(users)
-        users.pluck(:name).join(", ")
+      def username_list(users, shorten = false)
+        return users.pluck(:name).join(", ") unless shorten
+        return users.pluck(:name).join(", ") unless users.count > 3
+
+        "#{users.first(3).pluck(:name).join(", ")} + #{users.count - 3}"
       end
     end
   end
