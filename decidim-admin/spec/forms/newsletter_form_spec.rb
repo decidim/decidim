@@ -36,12 +36,6 @@ module Decidim
 
         it { is_expected.to be_invalid }
       end
-
-      context "when there's no body" do
-        let(:body) { nil }
-
-        it { is_expected.to be_invalid }
-      end
     end
   end
 end
