@@ -43,13 +43,13 @@ module Decidim
         clear_enqueued_jobs
       end
 
-      it "does not send an email" do
+      it "sends the invitation instructions" do
         command.call
-        expect(ActionMailer::DeliveryJob).not_to have_been_enqueued.on_queue("mailers")
+        expect(ActionMailer::DeliveryJob).to have_been_enqueued.on_queue("mailers")
       end
 
-      it "broadcasts invalid" do
-        expect { command.call }.to broadcast(:invalid)
+      it "broadcasts ok" do
+        expect { command.call }.to broadcast(:ok)
       end
     end
   end
