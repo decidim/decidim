@@ -55,7 +55,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
     Decidim::ContentBlock.create(
       organization: organization,
       weight: 31,
-      scope: :homepage,
+      scope_name: :homepage,
       manifest_name: :highlighted_processes,
       published_at: Time.current
     )

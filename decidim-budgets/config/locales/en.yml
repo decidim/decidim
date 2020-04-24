@@ -66,6 +66,12 @@ en:
         project:
           fields:
             title: Title
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'The projects that you have selected are:'
+          subject: You have voted on the %{space_name} participatory space
+          voted_on_space: You have voted on the budgets for the %{space_name} participatory space.
+          voted_on_space_with_scope: You have voted on the budgets for the %{space_name} participatory space on %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Do you agree? Once you have confirmed your vote, you can not change it.
@@ -94,7 +100,6 @@ en:
             other: "%{count} projects"
         filters:
           category: Category
-          category_prompt: Select a category
           scope: Scope
           search: Search
         filters_small_view:
