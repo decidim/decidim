@@ -19,6 +19,8 @@ module Decidim
             get :proposals
           end
         end
+        get :import_results, to: "import_results#new"
+        post :import_results, to: "import_results#create"
         root to: "results#index"
       end
 

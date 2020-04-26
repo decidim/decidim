@@ -1,0 +1,110 @@
+# frozen_string_literal: true
+
+require "csv"
+
+module Decidim
+  module Accountability
+    # This class handles importing results from a CSV file.
+    # Needs a `current_component` param with a `Decidim::component`
+    # in order to import the results in that component.
+    class ResultsCSVImporter
+      include Decidim::FormFactory
+
+      # Public: Initializes the service.
+      # component     - A Decidim::component to import the results into.
+      # csv_file      - The contents of the CSV to read.
+      def initialize(component, csv_file, current_user)
+        @component = component
+        @csv_file = csv_file
+
+        @extra_context = {
+          current_component: component,
+          current_organization: component.organization,
+          current_user: current_user,
+          current_participatory_space: component.participatory_space
+        }
+      end
+
+      def import!
+        errors = []
+
+        ActiveRecord::Base.transaction do
+          i = 1
+          csv = CSV.new(@csv_file, headers: true, col_sep: ";")
+          while (row = csv.shift).present?
+            i += 1
+            next if row.empty?
+
+            params = {}
+            params["result"] = row.to_hash
+            params["result"]["parent_id"] = row["parent/id"]
+            default_locale = @component.participatory_space.organization.default_locale
+            available_locales = @component.participatory_space.organization.available_locales
+            params["result"].merge!(get_locale_attribues(default_locale, available_locales, :title, :row))
+            params["result"].merge!(get_locale_attribues(default_locale, available_locales, :description, :row))
+            params["result"].merge!(get_proposal_ids(row["proposal_urls"]))
+            existing_result = Decidim::Accountability::Result.find_by(id: row["id"]) if row["id"].present?
+            @form = form(Decidim::Accountability::Admin::ResultForm).from_params(params, @extra_context)
+
+            begin
+              params["result"]["start_date"] = Date.parse(row["start_date"]) if row["start_date"].present?
+            rescue ArgumentError
+              @form.errors.add(:start_date, :invalid_date)
+            end
+
+            begin
+              params["result"]["end_date"] = Date.parse(row["end_date"]) if row["end_date"].present?
+            rescue ArgumentError
+              @form.errors.add(:end_date, :invalid_date)
+            end
+
+            errors << [i, @form.errors.full_messages] if @form.errors.any?
+
+            if existing_result.present?
+              Decidim::Accountability::Admin::UpdateResult.call(@form, existing_result) do
+                on(:invalid) do
+                  errors << [i, @form.errors.full_messages]
+                end
+              end
+            else
+              Decidim::Accountability::Admin::CreateResult.call(@form) do
+                on(:invalid) do
+                  errors << [i, @form.errors.full_messages]
+                end
+              end
+            end
+          end
+
+          raise ActiveRecord::Rollback if errors.any?
+
+          Rails.logger.info "Processed: #{i}"
+        end
+
+        errors
+      end
+
+      private
+
+      def get_locale_attributes(default_locale, available_locales, field, row)
+        array_field_localized = available_locales.map do |locale|
+          if row["#{field}/#{locale}"].present?
+            ["#{field}_#{locale}", row["#{field}/#{locale}"]]
+          else
+            ["#{field}_#{locale}", row["#{field}/#{default_locale}"]]
+          end
+        end
+
+        Hash[*array_field_localized.flatten]
+      end
+
+      def get_proposal_ids(proposal_urls)
+        if proposal_urls.present?
+          proposal_urls = proposal_urls.split(";")
+          { "proposal_ids" => proposal_urls.map { |proposal_url| proposal_url.scan(/\d$/).first.to_i } }
+        else
+          {}
+        end
+      end
+    end
+  end
+end
