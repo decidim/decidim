@@ -5,12 +5,10 @@ module Decidim
     queue_as :metrics
 
     def perform(manager_class, organization_id, day = nil)
-      p "Running job"
       organization = Decidim::Organization.find_by(id: organization_id)
       return unless organization
 
       metric = manager_class.constantize.new(day, organization)
-      byebug
       metric.save if metric.valid?
     end
   end
