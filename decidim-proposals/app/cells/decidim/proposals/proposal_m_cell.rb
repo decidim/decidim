@@ -19,7 +19,7 @@ module Decidim
       end
 
       def body
-        present(model).body
+        decidim_sanitize(present(model).body)
       end
 
       def has_state?
