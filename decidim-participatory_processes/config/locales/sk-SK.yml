@@ -1,1 +1,26 @@
 sk:
+  activemodel:
+    attributes:
+      participatory_process:
+        scope_type_max_depth_id: Hĺbka filtra rozsahu
+        show_metrics: Zobraziť všetky metriky
+  decidim:
+    admin:
+      models:
+        participatory_process_user_role:
+          roles:
+            valuator: Hodnotiteľ
+      participatory_process_user_roles:
+        edit:
+          title: Aktualizovať administrátora participatívneho procesu
+        new:
+          title: Nový administrátor participatívneho procesu
+    participatory_processes:
+      admin:
+        participatory_processes:
+          form:
+            scope_type_max_depth_help: Obmedziť hĺbku filtra rozsahu; filter umožňuje zobraziť všeobecné alebo vybrané druhy rozsahov.
+      statistics:
+        followers_count: Sledujúci
+        headline: Štatistiky
+        no_stats: Zatiaľ nie sú žiadne štatistiky.
