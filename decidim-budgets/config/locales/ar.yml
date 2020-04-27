@@ -100,7 +100,6 @@ ar:
             other: "%{count} مشاريع"
         filters:
           category: الفئة
-          category_prompt: اختر تصنيف
           scope: نطاق
           search: بحث
         filters_small_view:
