@@ -1,5 +1,7 @@
 sk:
   decidim:
+    admin_terms_of_use:
+      default_body: "<h2>Administrátorské podmienky použitia</h2><p>Veríme, že ste obdržali obvyklý úvod od miestneho systémového administrátora. Zvyčajne sú v jadre tieto tri veci:</p><ol><li>Rešpektujte súkromie iných.</li><li>Myslite skôr, než kliknete.</li><li>S veľkou mocou prichádza veľká zodpovednosť.</li></ol>"
     amendments:
       wizard_step_form:
         steps:
@@ -7,3 +9,20 @@ sk:
           '2': Compare your amendment
           '3': Complete your amendment
           '4': Publish your amendment
+    content_blocks:
+      stats:
+        name: Štatistiky organizácie
+    export_mailer:
+      data_portability_export:
+        click_button: 'Kliknite na tlačítko pre stiahnutie Vašich dát. <br/> Súbor bude dostupný do %{date}. <br/> Budete potrebovať <a href=''https://www.7-zip.org/''>7-Zip software</a> na jeho otvorenie a rozbalenie. Heslo: %{password}'
+    follows:
+      create:
+        participatory_space: Už sledujete participatívny priestor
+    pages:
+      home:
+        metrics:
+          headline: Metrika
+      participatory_space:
+        metrics:
+          headline: Metriky
+          link: Zobraziť všetky metriky
