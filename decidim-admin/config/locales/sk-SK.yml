@@ -39,3 +39,11 @@ sk:
         search_placeholder:
           name_or_nickname_or_email_cont: Hľadať {collection} podľa e-mailu, mena alebo prezývky.
           title_cont: Hľadať %{collection} podľa titulku.
+      newsletters:
+        index:
+          subscribed_count: 'Prihlásené na odber:'
+        select_recipients_to_deliver:
+          recipients_count: Tento spravodaj bude zasielaný <strong id='recipients_count'>%{count}</strong> používateľom.
+      organization:
+        form:
+          rich_text_editor_in_public_views_help: V niektorých textových oknách budú účastníci môcť vkladať niektoré HTML tagy pomocou pokročilého textového editoru.
