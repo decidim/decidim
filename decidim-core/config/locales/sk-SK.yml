@@ -5,6 +5,7 @@ sk:
         delete_reason: Dôvod odstránenie účtu
       group:
         about: O nás
+        avatar: Avatar
         document_number: Číslo dokumentu
         email: E-mail
         name: Meno
@@ -21,12 +22,51 @@ sk:
         password_confirmation: Potvrdenie hesla
         personal_url: Osobné adresa URL
         remove_avatar: Odstrániť avatara
+    models:
+      decidim/attachment_created_event: Príloha
+      decidim/component_published_event: Aktívna súčasť
+      decidim/demoted_membership: Už nie je správcom skupiny
+      decidim/gamification/badge_earned_event: Odznak získaný
+      decidim/gamification/level_up_event: Postúpili ste o úroveň vyššie
+      decidim/join_request_accepted_event: Žiadosť o pridanie bola prijatá
+      decidim/join_request_rejected_event: Žiadosť o pridanie bola zamietnutá
+      decidim/profile_updated_event: Profil aktualizovaný
+      decidim/promote_to_admin: Povýšený na správcu skupiny
+      decidim/removed_from_group: Odstránený zo skupiny
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Súčasné heslo
+        email: E-mail
+        name: Prezývka
+        password: Heslo
+        password_confirmation: Potvrdenie hesla
+        remember_me: Zapamätať si ma
+    models:
+      decidim/amendment:
+        one: Zmena
+        few: Zmeny
+        many: Zmeny
+        other: Zmeny
+      decidim/user:
+        one: Účastník
+        few: Účastníci
+        many: Účastníci
+        other: Účastníci
+      decidim/user_group:
+        one: Skupina
+        few: Skupiny
+        many: Skupiny
+        other: Skupiny
+  booleans:
+    'false': 'Nie'
+    'true': 'Áno'
   carrierwave:
     errors:
-      image_too_big: Obraz je príliš veľký
+      image_too_big: Obrázok je príliš veľký
   date:
     formats:
-      decidim_short: "% d /% m /% Y"
+      decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "% d% b% Y"
       decidim_with_day_and_month_name: "% A% d% b% Y"
       decidim_with_month_name: "% d% B% Y"
@@ -186,6 +226,7 @@ sk:
       photos:
         related_photos: Súvisiace fotografie
     author:
+      avatar: Avatar
       comments:
         one: komentár
         few: komentáre
