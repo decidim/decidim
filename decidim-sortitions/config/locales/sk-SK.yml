@@ -1,6 +1,137 @@
 sk:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Informácie o žrebovacie voľbe
+        decidim_category_id: Kategória sady návrhov, v ktorých chcete použiť remízu
+        decidim_proposals_component_id: Návrhy sú nastavené
+        dice: Výsledok vojne. Otočte šesťstranné zápustku alebo vyhľadajte iný náhodný spôsob, ako vygenerovať číslo od 1 do 6, a zadajte tu výsledné číslo pred niektorými svedkami. To prispieva ku kvalite a zárukám náhodnosti výsledku
+        target_items: Počet návrhov, ktoré majú byť vybrané (udáva počet návrhov, ktoré chcete vybrať, čerpaním zo skupiny návrhov, ktoré ste predtým vybrali)
+        title: Titul
+        witnesses: Svedkovia
   decidim:
-    sortitions:
+    components:
       sortitions:
+        settings:
+          global:
+            comments_enabled: Komentáre povolené
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: Riadok "% {resource_title}" bol pridaný k "% {participatory_space_title}", ktorý sledujete.
+          email_outro: Toto oznámenie ste dostali, pretože ste sledovali "% {participatory_space_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
+          email_subject: Nová sortie bola pridaná k číslu% {participatory_space_title}
+          notification_title: Výsledok <a href="%{resource_path}">% {resource_title} </a> bol pridaný k% {participatory_space_title}
+    sortitions:
+      admin:
+        actions:
+          destroy: Zrušiť výber
+          edit: Upraviť
+          new: Nové rozvrhnutie
+          show: Podrobnosti o žrebovacie voľbe
+        models:
+          sortition:
+            fields:
+              category: Kategória
+              created_at: Dátum vzniku
+              decidim_proposals_component: Súčasť návrhov
+              dice: Kocky
+              request_timestamp: Doba kreslenie
+              seed: Semienko
+              target_items: Položky, ktoré chcete vybrať
+              title: Titul
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Naozaj chcete túto ponuku zrušiť?
+            destroy: Zrušiť výber
+            title: Zrušenie výberového konania
+          create:
+            error: Pri vytváraní nového rozloženia došlo k chybe.
+            success: Sorta bola úspešne vytvorená
+          destroy:
+            error: Výber nemožno zrušiť.
+            success: Sorta bola úspešne zrušená
+          edit:
+            title: Aktualizujte informácie o žrebovacie voľbe
+            update: Aktualizácia
+          form:
+            all_categories: Všetky kategórie
+            select_proposal_component: Vyberte návrhy
+            title: Nové návrhy na návrhy
+          new:
+            confirm: Stlačením ďalšieho tlačidla Decidim zaznamenáte dátum a čas (s presnosťou na sekundy) a spoločne s kolieskom o kockách budú tieto informácie použité pre generovanie náhodného výberu. Akcia bude nevratná, po kliknutí na tlačidlo sa výsledky tejto kresby uverejní s údajmi uvedenými v tomto formulári a nemožno ich zmeniť, skontrolujte prosím pozorne obsah
+            create: Vytvoriť
+            title: Nové rozvrhnutie
+          show:
+            selected_proposals: Návrhy vybrané pre kreslenie
+          update:
+            error: Pri aktualizácii výberu došlo k chybe.
+            success: Sortifikace bola úspešne aktualizovaná
+      admin_log:
+        sortition:
+          create: "% {USER_NAME} vytvoril% {resource_name} sortit v% {space_name}"
+          delete: "% {USER_NAME} zrušil% {resource_name} sortit v% {space_name}"
+          update: "% {USER_NAME} aktualizoval% {resource_name} Soroti v% {space_name}"
+      sortitions:
+        count:
+          proposals_count:
+            one: 1
+            few: "% {count} návrhov"
+            many: "% {count} návrhov"
+            other: "% {count} návrhov"
+        filters:
+          active: Aktívne
+          all: Všetko
+          cancelled: Zrušil
+          category: Kategória
+          category_prompt: Vyberte kategóriu
+          search: Vyhľadávanie
+          state: Štát
+        filters_small_view:
+          close_modal: Zatvoriť modálne
+          filter_by: Filtrovať podľa
+        linked_sortitions:
+          selected_proposals: Vybrané návrhy
+        orders:
+          label: 'Objednať sortitions podľa:'
+          random: Náhodný
+          recent: Nedávno
+        results_count:
+          count:
+            one: vybraný návrh
+            few: vybrané návrhy
+            many: vybrané návrhy
+            other: vybrané návrhy
         show:
+          algorithm: Kód algoritmu Sortition
+          any_category: zo všetkých kategórií
           back: Späť na zoznam
+          cancelled: Zrušené výber
+          candidate_proposal_ids: žrebovacie volbaní objednávky a ID
+          candidate_proposals_info: 'Rozbor bol vykonaný medzi nasledujúcimi návrhmi (% {category_label}), s nasledujúcimi ID (označené tučne vybranými návrhy)'
+          category: z kategórie% {category}
+          dice_result: "(1) Výsledok kocky"
+          introduction: 'Táto stránka obsahuje výsledky výberu% {referencie}. Prostredníctvom tohto výberu bolo vybratých% {target_items} počet výsledkov náhodne a s rovnakým rozdelením pravdepodobnosti zo súboru návrhov zobrazených nižšie. Spolu s výsledkami informácie zobrazené na tejto stránke poskytujú všetky informácie potrebné pre maximalizáciu záruk a reprodukciu výsledkov. Kľúčom k kvalite tohto rozvratu je dvojitá náhodnosť, ktorú poskytuje viazanie kocky (overené svedkami) a presný čas výberu, ktorý poskytuje vstup pre algoritmus, ktorý generuje náhodný výber. Časové osivo pre žrebovacie voľba je tak presné (sekundy), že nie je možné ovládať ľudí, a tak poskytnúť dvojitý "nekontrolovateľný" vstup, ktorý zaručí spravodlivý výsledok. '
+          mathematical_result: Výsledok (1) x (2)
+          proposals_selected_by_sortition: Návrhy vybrané výberom
+          sortition_reproducibility_details: Sortifikace reprodukovateľnosti
+          time_seed: "(2) Časové osivo"
+          witnesses: Svedkovia
+        sortition:
+          random_seed: Náhodné osivo
+          selected_proposals:
+            one: vybraný návrh
+            few: vybraných návrhov
+            many: vybraných návrhov
+            other: vybraných návrhov
+          view: Pohľad
+        sortition_author:
+          deleted: Vymazaný užívateľ
+        sortition_cancel_author:
+          deleted: Vymazaný užívateľ
+        sortitions_count:
+          count:
+            one: 1 sortie
+            few: "% {count} sortitions"
+            many: "% {count} sortitions"
+            other: "% {count} sortitions"
