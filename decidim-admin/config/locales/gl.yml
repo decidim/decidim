@@ -426,6 +426,9 @@ gl:
             does_not_belong: Non pertence
             offensive: Ofensivo
             spam: Correo non desexado
+      newsletter_templates:
+        index:
+          preview_template: Vista previa
       newsletters:
         create:
           error: Produciuse un erro ao crear este boletín informativo.
@@ -439,8 +442,6 @@ gl:
         edit:
           save_and_preview: Gardar e previsualizar
           title: Editar boletín informativo
-        form:
-          interpolations_hint: 'Consello: podes usar "%{name}" en calquera parte do corpo ou asunto e será substituído polo nome do destinatario.'
         index:
           confirm_delete: '¿Estás seguro de que queres eliminar este boletín informativo?'
           title: Boletíns informativos
