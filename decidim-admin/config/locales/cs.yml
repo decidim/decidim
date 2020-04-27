@@ -24,7 +24,7 @@ cs:
       component:
         name: název
         published_at: Publikováno v
-        weight: Hmotnost
+        weight: Váha
       id: ID
       newsletter:
         body: Tělo
