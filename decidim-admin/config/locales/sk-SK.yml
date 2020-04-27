@@ -1,1 +1,41 @@
 sk:
+  activemodel:
+    attributes:
+      organization:
+        rich_text_editor_in_public_views: Povoliť pokročilý textový editor pre účastníkov
+        time_zone: Časové pásmo
+  decidim:
+    admin:
+      actions:
+        per_page: Na stranu
+      admin_terms_of_use:
+        accept:
+          error: Pri odsúhlasení podmienok použitia nastala chyba.
+          success: Skvele! Odsúhlasili ste podmienky použitia pre administrátorov.
+        actions:
+          accept: Súhlasím s týmito podmienkami použitia.
+          are_you_sure: Ste si istí, že chcete odmietnuť podmienky použitia pre administrátorov?
+          refuse: "Odmietnuť podmienky použitia pre administrátorov.\n"
+          title: Súhasím s podmienkami použitia.
+        required_review:
+          alert: 'Vyžaduje sa: oboznámiť sa s administrátorskými podmienkami použitia'
+          callout: Prosíme, nájdite si chvíľu pre oboznámenie sa s administrátorskými podmienkami použitia, inak nebudete môcť spravovať platformu.
+          cta: Oboznámte sa s nimi teraz.
+        title: Administrátorské podmienky použitia
+      filters:
+        filter_label: Filter
+        private_space_eq:
+          label: Súkromné
+          values:
+            'false': Verejné
+            'true': Súkromné
+        published_at_null:
+          label: Zverejnené
+          values:
+            'false': Zverejnené
+            'true': Nepublikované
+        scope_id_eq:
+          label: Rozsah
+        search_placeholder:
+          name_or_nickname_or_email_cont: Hľadať {collection} podľa e-mailu, mena alebo prezývky.
+          title_cont: Hľadať %{collection} podľa titulku.
