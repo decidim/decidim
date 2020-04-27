@@ -297,6 +297,8 @@ sk:
         category_id_eq:
           label: Kategória
         filter_label: Filter
+        officialized_at_null:
+          label: Štát
         private_space_eq:
           label: Súkromné
           values:
@@ -423,6 +425,49 @@ sk:
           fields:
             created_at: Vytvorené
             name: Názov
+          name: OAuth aplikácia
+        participatory_space_private_user:
+          name: Účastníci participatívnych procesov
+        scope:
+          fields:
+            name: Meno
+            scope_type: Typ rozsahu
+        scope_type:
+          fields:
+            name: Meno
+            plural: Množné číslo
+        static_page:
+          fields:
+            created_at: Vytvorené
+            title: Názov
+        user:
+          fields:
+            created_at: Dátum vytvorenia
+            email: E-mail
+            last_sign_in_at: Naposledy prihlásený
+            name: Meno
+            role: Rola
+            roles:
+              admin: Admin
+              user_manager: Správca účastníkov
+          name: Účastník
+        user_group:
+          fields:
+            actions: Akcie
+            created_at: Vytvorené
+            document_number: Číslo dokumentu
+            name: Meno
+            phone: Telefón
+            state: Štát
+            users_count: Počet účastníkov
+      moderations:
+        index:
+          title: Moderovanie
+        report:
+          reasons:
+            does_not_belong: Nehodí sa
+            offensive: Urážlivé
+            spam: Spam
       newsletter_templates:
         index:
           title: Šablóny spravodaja
@@ -431,6 +476,18 @@ sk:
           preview: 'Ukážka šablóny: %{template_name}'
           use_template: Použiť túto šablónu
       newsletters:
+        create:
+          error: Vyskytol sa problém s vytváraním spravodaja.
+          success: Spravodaj úspešne vytvorený. Prosíme skontrolujte ho pred odoslaním.
+        deliver:
+          error: Vyskytol sa problém s doručením spravodaja.
+          success: Spravodaj doručený úspešne.
+        destroy:
+          error_already_sent: 'Nedá sa zrušiť spravodaj - už bol odoslaný.'
+          success: Spravodaj úspešne vymazaný.
+        edit:
+          save_and_preview: Uložiť a ukázať náhľad
+          title: Upraviť spravodaj
         index:
           subscribed_count: 'Prihlásené na odber:'
         select_recipients_to_deliver:
