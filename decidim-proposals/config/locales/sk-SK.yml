@@ -409,13 +409,20 @@ sk:
           create:
             invalid: Pri udeľovaní návrhov ku hodnotiteľovi nastala chyba
             success: Návrhy úspešne pridelené hodnotiteľovi
+          delete:
+            invalid: Pri rušení pridelených návrhov ku hodnotiteľovi nastala chyba
+            success: Návrhy úspešne odobrané hodnotiteľovi
       admin_log:
         proposal:
           answer: "% {USER_NAME} zodpovedalo% {resource_name} návrh na% {space_name} priestoru"
           create: "% {USER_NAME} vytvoril% {resource_name} návrh na% {space_name} priestoru ako oficiálny návrh"
+          publish_answer: "%{user_name} publikoval odpoveď na návrh %{resource_name} v priestore %{space_name}"
           update: "% {USER_NAME} aktualizoval% {resource_name} oficiálny návrh na% {space_name} miesta"
         proposal_note:
           create: "% {USER_NAME} zanechal súkromnú poznámku k návrhu% {resource_name} na% {space_name} priestoru"
+        valuation_assignment:
+          create: "%{user_name} pridelil návrh %{resource_name} hodnotiteľovi"
+          delete: "%{user_name} odobral hodnotiteľovi návrh %{proposal_title}"
       application_helper:
         filter_category_values:
           all: Všetko
@@ -571,10 +578,13 @@ sk:
             comments: Komentáre
             notes: Poznámky
             official_proposal: Oficiálne návrh
+            published_answer: Zverejnená odpoveď
             published_at: Publikované v
             scope: Rozsah
             state: Štát
             title: Titul
+            valuator: Hodnotiteľ
+            valuators: Hodnotitelia
             votes: Hlasy
       new:
         limit_reached: Nie je možné vytvoriť nové návrhy, pretože ste prekročili limit.
@@ -671,10 +681,12 @@ sk:
         show:
           answer: Odpovedať
           back_to: Späť k
+          back_to_list: Späť na zoznam
           changes_at_title: doplňujúci návrh k "% {title}"
           comments: Komentáre
           edit_proposal: Upraviť návrh
           endorsements_list: Zoznam Schválenie
+          estimated_cost: Odhadované náklady
           hidden_endorsers_count:
             one: a% {count} ďalšia osoba
             few: a% {count} ďalších ľudí
@@ -689,10 +701,14 @@ sk:
           proposal_accepted_reason: 'Tento návrh bol prijatý, pretože:'
           proposal_in_evaluation_reason: Tento návrh sa hodnotí
           proposal_rejected_reason: 'Tento návrh bol zamietnutý, pretože:'
+          read_less: Čítať menej
+          read_more: Čítať ďalej
           report: Správa
           withdraw_btn_hint: Ak zmeníte názor, môžete svoj návrh stiahnuť, ak ste nedostali žiadnu podporu. Návrh nie je zrušený, objaví sa v zozname stiahnutých návrhov.
           withdraw_confirmation: Naozaj chcete tento návrh stiahnuť?
           withdraw_proposal: Návrh stiahnuť
+        tags:
+          changed_from: "(zmenené z kategórie <u>% {previous_category} </u> správcom)"
         vote_button:
           already_voted: Už bolo hlasované
           already_voted_hover: Zavolajte
@@ -734,9 +750,16 @@ sk:
           step_3: Kompletné
           step_4: Publikujte svoj návrh
           step_of: Krok% {current_step_num} z% {total_steps}
+      proposals_picker:
+        choose_proposals: Zvoliť návrhy
+        close: Zavrieť
+        more_proposals: Celkovo je tu o %{number} návrhov viac. Hľadajte s podrobnejšími nastaveniami.
+        no_proposals: Žiadne návrhy nezodpovedajú vašim kritériám vyhľadávania alebo nie sú žiadne plánované.
       publish:
         error: Pri publikovaní návrhu došlo k chybám.
         success: Návrh bol úspešne publikovaný.
+      publish_answers:
+        success: Odpovede na návrhy boli úspešne publikované.
       update:
         error: Pri ukladaní návrhu došlo k chybám.
         success: Návrh bol úspešne aktualizovaný.
