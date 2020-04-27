@@ -24,7 +24,7 @@ cs:
       component:
         name: název
         published_at: Publikováno v
-        weight: Hmotnost
+        weight: Váha
       id: ID
       newsletter:
         body: Tělo
@@ -471,6 +471,9 @@ cs:
             does_not_belong: Nepatří
             offensive: Urážlivý
             spam: Spam
+      newsletter_templates:
+        index:
+          preview_template: Náhled
       newsletters:
         create:
           error: Při vytváření tohoto zpraodaje došlo k chybě.
@@ -484,8 +487,6 @@ cs:
         edit:
           save_and_preview: Uložit a zobrazit náhled
           title: Upravit zpravodaj
-        form:
-          interpolations_hint: 'Tip: Můžete použít "%{name}" kdekoli v těle nebo předmětu zprávy a bude nahrazeno jménem příjemce.'
         index:
           all: vše
           all_users: 'Všichni uživatelé'
