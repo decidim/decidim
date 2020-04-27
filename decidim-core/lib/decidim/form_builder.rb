@@ -268,7 +268,7 @@ module Decidim
                                  Decidim::Meetings::Meeting
                                  Decidim::Blogs::Post
                                  Decidim::Proposals::Proposal
-                                 Decidim::Consultations::Question)
+                                 Decidim::Consultations::Question))
         .distinct
         .map { |r| [I18n.t(r.resource_type.split("::").last.underscore, scope: "decidim.components.component_order_selector.order"), r.resource_type] }
         .sort
