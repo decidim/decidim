@@ -1,1 +1,12 @@
 sk:
+  decidim:
+    admin:
+      models:
+        conference_user_role:
+          roles:
+            valuator: Hodnotiteľ
+    conferences:
+      photo:
+        image:
+          attributes:
+            alt: Obrázok
