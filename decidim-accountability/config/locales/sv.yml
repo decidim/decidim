@@ -58,17 +58,11 @@ sv:
           edit:
             title: Redigera resultat
             update: Uppdatera resultat
-          form:
-            add_proposal: Lägg till förslag
           index:
             title: Resultat
           new:
             create: Skapa resultat
             title: Nytt resultat
-          proposals:
-            close: Stäng
-            current_selection: Aktuellt urval
-            select: Välj
           update:
             invalid: Det gick inte att uppdatera det här resultatet
             success: Resultatet har uppdaterats
