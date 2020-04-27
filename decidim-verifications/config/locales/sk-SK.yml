@@ -1,1 +1,35 @@
 sk:
+  decidim:
+    admin:
+      menu:
+        authorization_revocation:
+          before_date_info: Užitočné, pokiaľ už proces začal, a chcete zrušiť povolenia, nastavené v predchádzajúcom procese.
+          button: Zrušiť všetky
+          button_before: Zrušiť všetky pred dátumom
+          destroy:
+            confirm: Zrušenie všetkých autorizácií pred dátumom je nenávratné. Ste si istí, že chcete pokračovať?
+            confirm_all: Zrušenie všetkých autorizácií je nenávratné. Ste si istí, že chcete pokračovať?
+          destroy_nok: Pri rušení autorizácií nastal problém.
+          destroy_ok: Všetky zvolené autorizácie boli úspešne zrušené!
+          info: Je tu celkovo %{count} overených účastníkov.
+          no_data: Žiadni overení účastníci
+          title: Zrušenie verifikácie
+    verifications:
+      authorizations:
+        authorization_metadata:
+          info: 'Údaje ku tejto verifikácii:'
+          no_data_stored: Žiadne uložené údaje.
+        destroy:
+          error: Počas rušenia autorizácie nastal problém.
+          success: Úspešne ste vymazali autorizáciu.
+        first_login:
+          actions:
+            sms: Overte svoj účet prostsredníctvom SMS
+        index:
+          expired_verification: Overovací kód vypršal
+          show_renew_info: Kliknite na obnovenie verifikácie
+        renew_modal:
+          close: zavrieť
+          continue: Pokračovať
+          info_renew: Ak chcete nahrať údaje, pokračujte s obnovou
+          title: Obnoviť verifikáciu
