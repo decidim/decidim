@@ -2,7 +2,25 @@ sk:
   activemodel:
     models:
       decidim/resource_endorsed_event: Zdroj podporený
+  activerecord:
+    models:
+      decidim/endorsement:
+        one: Podpora
+        few: Podpory
+        many: Podpory
+        other: Podpory
+  carrierwave:
+    errors:
+      general: Chyba spracovania obrázku
   decidim:
+    accessibility:
+      logo: "Oficiálne logo organizácie %{organization}"
+      skip_button: Prejsť na hlavný obsah
+    admin_log:
+      user:
+        show_email: "%{user_name} obdržal e-mail od účastníka %{resource_name}"
+    admin_terms_of_use:
+      default_body: "<h2>Administrátorské podmienky použitia</h2><p>Veríme, že ste obdržali obvyklý úvod od miestneho systémového administrátora. Zvyčajne sú v jadre tieto tri veci:</p><ol><li>Rešpektujte súkromie iných.</li><li>Myslite skôr, než kliknete.</li><li>S veľkou mocou prichádza veľká zodpovednosť.</li></ol>"
     amendments:
       wizard_step_form:
         steps:
@@ -10,3 +28,56 @@ sk:
           '2': Compare your amendment
           '3': Complete your amendment
           '4': Publish your amendment
+    application:
+      document:
+        download: Stiahnuť súbor
+    author:
+      endorsements:
+        one: podpora
+        few: podpory
+        many: podpory
+        other: podpory
+    content_blocks:
+      hero_settings_form:
+        background_image: Obrázok pozadia
+        welcome_text: Úvodný text
+      stats:
+        name: Štatistiky organizácie
+    endorsement_buttons_cell:
+      already_endorsed: Podporené
+      endorse: Podporiť
+    endorsements:
+      identities:
+        done: Hotovo
+        select_identity: Zvoliť identitu
+    events:
+      resource_endorsed:
+        email_intro: '%{endorser_name}%{endorser_nickname}, ktorého sledujete, práve podporill %{resource_title} a myslíme, že by vás to mohlo zaujímať. Pozrite sa a prispejte aj vy:'
+        email_outro: Túto notifikáciu ste dostali, pretože sledujete%{endorser_nickname}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
+        email_subject: "%{endorser_nickname} práve podporil ďalšiu vec"
+        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} bol podporený účastníkom <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
+    export_mailer:
+      data_portability_export:
+        click_button: 'Kliknite na tlačítko pre stiahnutie Vašich dát. <br/> Súbor bude dostupný do %{date}. <br/> Budete potrebovať <a href=''https://www.7-zip.org/''>7-Zip software</a> na jeho otvorenie a rozbalenie. Heslo: %{password}'
+    follows:
+      create:
+        participatory_space: Už sledujete participatívny priestor
+    messaging:
+      conversations:
+        add_conversation_users:
+          add_max_users: 'Pridajte účastníkov do konverzácie: nanajvýš 9 účastníkov'
+          add_users_placeholder: Hľadať...
+          modal_title: Nová konverzácia
+          no_results: Žiadne výsledky
+          participant_with_disabled_message_reception: Tento účastník zablokoval prijímanie správ
+        index:
+          new_conversation: Nová konverzácia
+          next: Nasledujúce
+        show:
+          not_allowed: Tento používateľ neprijíma žiadne priame správy.
+    newsletter_templates:
+      basic_only_text:
+        body_preview: 'Lorem ipsum: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Základné (iba text)
+      basic_only_text_settings_form:
+        body: Telo textu
