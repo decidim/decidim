@@ -1,1 +1,13 @@
 sk:
+  decidim:
+    blogs:
+      posts:
+        show:
+          back: Späť na zoznam
+          comments: Komentáre
+    components:
+      blogs:
+        settings:
+          step:
+            endorsements_blocked: Zablokované schválenia
+            endorsements_enabled: Povolené schválenia
