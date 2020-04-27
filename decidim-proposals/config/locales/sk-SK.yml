@@ -1,1 +1,90 @@
 sk:
+  activemodel:
+    attributes:
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: Meno hodnotiteľa
+    errors:
+      models:
+        proposal:
+          attributes:
+            body:
+              cant_be_equal_to_template: nemôže byť rovnaké, ako šablóna
+    models:
+      decidim/proposals/admin/update_proposal_scope_event: Rozsah návrhu zmenený
+  decidim:
+    admin:
+      filters:
+        search_placeholder:
+          id_string_or_title_cont: Hľadať %{collection} podľa titulku alebo ID.
+        valuator_role_ids_has:
+          label: Priradené ku hodnotiteľov
+    components:
+      proposals:
+        settings:
+          global:
+            allow_card_image: Povoliť kartové obrázky
+            new_proposal_body_template: Telo šablóny nového návrhu
+            new_proposal_body_template_help: Môžete definovať predvyplnený text, ktorý budú mať všetky nové návrhy
+          step:
+            answers_with_costs: Povoliť náklady v rámci odpovedí na návrhy
+            publish_answers_immediately: Publikovať odpovede na návrhy okamžite
+    events:
+      proposals:
+        proposal_mentioned:
+          email_intro: Váš návrh %{mentioned_proposal_title} bol zmienený v komentároch v <a href="%{resource_url}">tomto priestore</a>.
+        proposal_update_scope:
+          email_intro: 'Admin upravil rozsah Vašeho návrhu %{resource_title}, pozrite sa na to na tejto stránke:'
+          email_subject: Rozsah návrhu %{resource_title} bol aktualizovaný
+          notification_title: Rozsah návrhu <a href="%{resource_path}">%{resource_title}</a> bol aktualizovaný administrátorom.
+    proposals:
+      actions:
+        answer_proposal: Odpoveď na návrh
+        show: Ukázať návrh
+      admin:
+        proposals:
+          index:
+            assign_to_valuator: Priradiť ku hodnotiteľovi
+            assign_to_valuator_button: Priradiť
+            change_scope: Zmeniť rozsah
+            publish_answers: Zverejniť odpovede
+            unassign_from_valuator: Zrušiť priradenie ku hodnotiteľovi
+            unassign_from_valuator_button: Zrušiť priradenie
+            update_scope_button: Aktualizovať rozsah
+          publish_answers:
+            number_of_proposals: Odpovede pre %{number} návrhov budú zverejnené.
+          show:
+            amendments_count: Počet zmien
+            assigned_valuators: Priradení hodnotitelia
+            comments_count: Počet komentárov
+            comments_negative_count: Proti
+            comments_neutral_count: Neutrálne
+            comments_positive_count: Za
+            documents: Dokumenty
+            endorsements_count: Počet podporení
+            endorsements_ranking: Umiestnenie podľa množstva podpory
+            endorsers: Podporovatelia
+            link: Odkaz
+            n_more_endorsers:
+              one: a 1 ďalší
+              few: + %{count} ďalších
+              many: + %{count} ďalších
+              other: + %{count} ďalších
+            photos: Fotografie
+            ranking: "%{ranking} z celkového %{total}"
+            related_meetings: Podobné stretnutia
+            remove_assignment: Zrušiť priradenie
+            remove_assignment_confirmation: Ste si istý, že chcete odstrániť hodnotiteľa z návrhu?
+            valuators: Hodnotiteľ
+            votes_ranking: Umiestnenie podľa hlasov
+          update_category:
+            invalid: 'Tieto návrhy už majú kategóriu %{subject_name}: %{proposals}.'
+            success: 'Návrhy úspešne pridané do kategórie %{subject_name}: %{proposals}.'
+          update_scope:
+            invalid: 'Tieto návrhy už mali %{subject_name} rozsah: %{proposals}.'
+            select_a_scope: Prosím, zvoľte rozsah
+            success: 'Návrhy úspešne pridané do kategórie %{subject_name}: %{proposals}.'
+        valuation_assignments:
+          create:
+            invalid: Pri udeľovaní návrhov ku hodnotiteľovi nastala chyba
+            success: Návrhy úspešne pridelené hodnotiteľovi
