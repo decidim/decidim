@@ -1,1 +1,21 @@
 sk:
+  decidim:
+    system:
+      models:
+        organization:
+          fields:
+            omniauth_settings: Nastavenia Omniauth
+      organizations:
+        omniauth_settings:
+          enabled: Povolené
+          facebook:
+            app_id: ID aplikácie
+            app_secret: Tajný kľúč aplikácie
+          google_oauth2:
+            client_id: ID klienta
+            client_secret: Tajný kľúč klienta
+          icon: Ikona
+          icon_path: Odkaz na ikonu
+          twitter:
+            api_key: API kľúč
+            api_secret: Tajný kľúč API
