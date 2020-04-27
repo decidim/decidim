@@ -5,6 +5,7 @@ sk:
         delete_reason: Dôvod odstránenie účtu
       group:
         about: O nás
+        avatar: Avatar
         document_number: Číslo dokumentu
         email: E-mail
         name: Meno
@@ -22,14 +23,50 @@ sk:
         personal_url: Osobné adresa URL
         remove_avatar: Odstrániť avatara
     models:
+      decidim/attachment_created_event: Príloha
+      decidim/component_published_event: Aktívna súčasť
+      decidim/demoted_membership: Už nie je správcom skupiny
+      decidim/gamification/badge_earned_event: Odznak získaný
+      decidim/gamification/level_up_event: Postúpili ste o úroveň vyššie
+      decidim/join_request_accepted_event: Žiadosť o pridanie bola prijatá
+      decidim/join_request_rejected_event: Žiadosť o pridanie bola zamietnutá
+      decidim/profile_updated_event: Profil aktualizovaný
+      decidim/promote_to_admin: Povýšený na správcu skupiny
+      decidim/removed_from_group: Odstránený zo skupiny
       decidim/resource_endorsed_event: Zdroj podporený
   activerecord:
+    attributes:
+      decidim/user:
+        current_password: Súčasné heslo
+        email: E-mail
+        name: Prezývka
+        password: Heslo
+        password_confirmation: Potvrdenie hesla
+        remember_me: Zapamätať si ma
     models:
+      decidim/amendment:
+        one: Zmena
+        few: Zmeny
+        many: Zmeny
+        other: Zmeny
       decidim/endorsement:
         one: Podpora
         few: Podpory
         many: Podpory
         other: Podpory
+      decidim/user:
+        one: Účastník
+        few: Účastníci
+        many: Účastníci
+        other: Účastníci
+      decidim/user_group:
+        one: Skupina
+        few: Skupiny
+        many: Skupiny
+        other: Skupiny
+  booleans:
+    'false': 'Nie'
+    'true': 'Áno'
   carrierwave:
     errors:
       general: Chyba spracovania obrázku
@@ -202,6 +239,7 @@ sk:
       photos:
         related_photos: Súvisiace fotografie
     author:
+      avatar: Avatar
       comments:
         one: komentár
         few: komentáre
@@ -746,7 +784,7 @@ sk:
         name: Základné (iba text)
       basic_only_text_settings_form:
         body: Telo textu
-        interpolations_hint: 'Aha: môžete použiť skratku "%{name}" kdekoľvek v tele alebo predmete, a tá bude nahradená skutočným menom prijímateľa.'
+        interpolations_hint: 'Tip: môžete použiť skratku "%{name}" kdekoľvek v tele alebo predmete, a tá bude nahradená skutočným menom prijímateľa.'
       image_text_cta:
         body_preview: 'Lorem ipsum: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
         cta_text_preview: Text Výzva do akcie
@@ -756,7 +794,7 @@ sk:
         body: Telo
         cta_text: Text tlačítka Výzva do akcie
         cta_url: URL odkaz na tlačítko Výzva do akcie
-        interpolations_hint: 'Aha: môžete použiť skratku "%{name}" kdekoľvek v úvode, tele alebo výzve do akcie, a tá bude nahradená skutočným menom prijímateľa.'
+        interpolations_hint: 'Tip: môžete použiť skratku "%{name}" kdekoľvek v úvode, tele alebo výzve do akcie, a tá bude nahradená skutočným menom prijímateľa.'
         introduction: Úvod
         main_image: Hlavný obrázok
     newsletters:
