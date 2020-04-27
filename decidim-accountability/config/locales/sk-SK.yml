@@ -1,1 +1,110 @@
 sk:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Stav
+        decidim_category_id: Kategória
+        decidim_scope_id: Rozsah
+        description: Popis
+        end_date: Koniec
+        progress: Postup
+        project_ids: Zahrnuté projekty
+        proposals: Zahrnuté návrhy
+        start_date: Začiatok 
+        title: Názov
+        updated_at: Aktualizované
+      status:
+        description: Popis
+        key: Kľúč
+        name: Meno
+        progress: Postup
+      timeline_entry:
+        description: Popis
+        entry_date: Dátum
+    models:
+      decidim/accountability/proposal_linked_event: Návrh, zahrnutý vo výsledku
+      decidim/accountability/result_progress_updated_event: Aktualizovaný pokrok vo výsledku
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Výsledok
+        few: Výsledky
+        many: Výsledky
+        other: Výsledky
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Naozaj chcete odstrániť toto %{name}?
+        destroy: Odstrániť
+        edit: Upraviť
+        new: Nový %{name}
+        preview: Ukážka
+        timeline_entries: Vývoj projektu
+        title: Akcie
+      admin:
+        exports:
+          results: Výsledky
+        models:
+          result:
+            name: Výsledok
+          status:
+            name: Stav
+          timeline_entry:
+            name: Časová osa
+        results:
+          create:
+            invalid: Vyskytol sa problém s vytváraním výsledku
+            success: Výsledok úspešne vytvorený
+          destroy:
+            success: Výsledok úspešne odstránený
+          edit:
+            title: Upraviť výsledok
+            update: Aktualizovať výsledok
+          index:
+            title: Výsledky
+          new:
+            create: Vytvoriť výsledok
+            title: Nový výsledok
+          update:
+            invalid: Vyskytol sa problém s aktualizáciou výsledku
+            success: Výsledok úspešne aktualizovaný
+        shared:
+          subnav:
+            statuses: Stavy
+        statuses:
+          create:
+            invalid: Vyskytol sa problém s vytváraním tohoto stavu
+            success: Stav bol úspešne vytvorený
+          destroy:
+            success: Stav bol úspešne odstránený
+          edit:
+            title: Upraviť status
+            update: Aktualizovať stav
+          index:
+            title: Stavy
+          new:
+            create: Vytvoriť nový stav
+            title: Nový stav
+          update:
+            invalid: Vyskytol sa problém s aktualizáciou stavu
+            success: Stav bol úspešne aktualizovaný
+        timeline_entries:
+          create:
+            invalid: Vyskytol sa problém s vytváraním tohoto vstupu
+            success: Vstup úspešne vytvorený
+          destroy:
+            success: Vstup úspešne odstránený
+          edit:
+            title: Upraviť vstup
+            update: Aktualizovať vstup
+          index:
+            title: Časová osa projektu
+          new:
+            create: Vytvoriť nový záznam
+            title: Nový záznam
+          update:
+            invalid: Vyskytol sa problém s aktualizáciou tohoto záznamu
+            success: Záznam úspešne aktualizovaný
+      admin_log:
+        result:
+          create: "%{user_name} vytvoril výsledok %{resource_name} v %{space_name}"
