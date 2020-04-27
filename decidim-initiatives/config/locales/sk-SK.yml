@@ -1,1 +1,12 @@
 sk:
+  decidim:
+    admin:
+      filters:
+        search_placeholder:
+          title_or_description_cont: Hľadať %{collection} podľa názvu alebo popisu.
+    initiatives:
+      create_initiative:
+        finish:
+          confirm: Potvrdiť
+          edit_my_initiative: Upraviť moje iniciatívy
+          send_my_initiative: Odoslať moje iniciatívy
