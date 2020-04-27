@@ -437,6 +437,9 @@ fr-CA:
             does_not_belong: N'appartient pas
             offensive: Agressif
             spam: Spam
+      newsletter_templates:
+        index:
+          preview_template: Aperçu
       newsletters:
         create:
           error: Il y a eu une erreur lors de la création de cette newsletter.
@@ -450,8 +453,6 @@ fr-CA:
         edit:
           save_and_preview: Enregistrer et prévisualiser
           title: Modifier la newsletter
-        form:
-          interpolations_hint: 'Astuce : Vous pouvez utiliser "%{name}" (sans les guillemets) n''importe où dans le corps ou le sujet et il sera remplacé par le nom du destinataire.'
         index:
           all: tous
           all_users: 'Tous les utilisateurs '
