@@ -3,10 +3,6 @@ $message-padding: 1rem;
 
 /* Messages */
 
-.message{
-  @extend .card;
-}
-
 .unread_message__counter {
   $counter-size: 25px;
   $counter-font-size: $counter-size - 12px;
@@ -30,7 +26,7 @@ $message-padding: 1rem;
 /* Message form */
 
 .add-message{
-  @extend .message;
+  @extend .card;
 
   padding: $message-padding;
 
