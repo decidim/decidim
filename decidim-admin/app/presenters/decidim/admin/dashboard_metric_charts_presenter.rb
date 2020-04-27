@@ -5,15 +5,13 @@ module Decidim
     class DashboardMetricChartsPresenter < Decidim::MetricChartsPresenter
       attribute :summary, Boolean
 
-      def render_not_highlighted(highlighted_metrics)
+      def not_highlighted
         safe_join(
           not_highlighted_metrics.map do |metric|
             render_metrics_data(metric.metric_name, klass: not_highlighted_classes, graph_klass: "small")
           end
         )
       end
-
-      private
 
       def highlighted_metrics
         return super unless summary?
@@ -36,6 +34,8 @@ module Decidim
           %w(comments meetings accepted_proposals results).include? registry.metric_name
         end
       end
+
+      private
 
       def highlighted_classes
         "cell medium-6"

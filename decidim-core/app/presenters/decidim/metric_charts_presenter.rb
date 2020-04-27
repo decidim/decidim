@@ -5,37 +5,6 @@ module Decidim
   class MetricChartsPresenter < Rectify::Presenter
     # Public: Render a collection of primary metrics.
     def highlighted
-      render_highlighted(highlighted_metrics)
-    end
-
-    # Public: Render a collection of metrics that are not primary.
-    def not_highlighted
-      render_not_highlighted(not_highlighted_metrics)
-    end
-
-    private
-
-    def highlighted_metrics
-      Decidim.metrics_registry.filtered(highlight: true, scope: "home")
-    end
-
-    def not_highlighted_metrics
-      Decidim.metrics_registry.filtered(highlight: false, scope: "home")
-    end
-
-    def highlighted_classes
-      "column medium-4"
-    end
-
-    def not_highlighted_classes
-      "column medium-6"
-    end
-
-    def not_highlighted_wrapper_classes
-      "column medium-4"
-    end
-
-    def render_highlighted(highlighted_metrics)
       safe_join(
         highlighted_metrics.map do |metric|
           render_metrics_data(metric.metric_name, klass: highlighted_classes)
@@ -43,7 +12,8 @@ module Decidim
       )
     end
 
-    def render_not_highlighted(not_highlighted_metrics)
+    # Public: Render a collection of metrics that are not primary.
+    def not_highlighted
       safe_join(
         not_highlighted_metrics.in_groups_of(2).map do |metrics_group|
           content_tag :div, class: not_highlighted_wrapper_classes do
@@ -57,6 +27,28 @@ module Decidim
           end
         end
       )
+    end
+
+    def highlighted_metrics
+      Decidim.metrics_registry.filtered(highlight: true, scope: "home")
+    end
+
+    def not_highlighted_metrics
+      Decidim.metrics_registry.filtered(highlight: false, scope: "home")
+    end
+
+    private
+
+    def highlighted_classes
+      "column medium-4"
+    end
+
+    def not_highlighted_classes
+      "column medium-6"
+    end
+
+    def not_highlighted_wrapper_classes
+      "column medium-4"
     end
 
     def render_metrics_data(metric_name, opts = {})
