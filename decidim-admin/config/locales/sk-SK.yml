@@ -299,6 +299,9 @@ sk:
         filter_label: Filter
         officialized_at_null:
           label: Štát
+          values:
+            'false': Oficiálni
+            'true': Neoficiálni
         private_space_eq:
           label: Súkromné
           values:
@@ -535,10 +538,44 @@ sk:
       oauth_applications:
         create:
           error: Pri vytváraní aplikácie došlo k chybe.
-          success: Oblasť úspešne vytvorená.
-      officializations:
+          success: Aplikácia úspešne vytvorená.
+        destroy:
+          error: Pri mazaní aplikácie došlo k chybe.
+          success: Aplikácia úspešne vymazaná.
+        edit:
+          save: Uložiť
+          title: Upraviť aplikáciu
         index:
+          confirm_delete: Naozaj chcete túto aplikáciu vymazať?
+          title: OAuth aplikácie
+        new:
+          save: Uložiť
+          title: Nová aplikácia
+        update:
+          error: Pri aktualizácii aplikácie došlo k chybe.
+          success: Aplikácia úspešne aktualizovaná.
+      officializations:
+        create:
+          success: Užívateľ úspešne zoficiálnený
+        destroy:
+          success: Užívateľ úspešne zneoficiálnený
+        index:
+          actions: Akcie
+          badge: Odznak
+          created_at: Vytvorené
+          name: Meno
+          nickname: Prezývka
+          not_officialized: Neoficializovaní
+          officialize: Oficializovať
+          officialized: Oficializovaní
+          reofficialize: Znovu oficializovať
           show_email: Ukázať e-mailovú adresu
+          status: Stav
+          unofficialize: Zneoficiálniť
+        new:
+          badge: Odznak oficializácie
+          officialize: Oficializovať
+          title: Oficializovať účastníka "%{name}"
         show_email_modal:
           description: Ak potrebujete účastníka kontaktovať priamo, môžete kliknúť na tlačidlo "Ukázať" pre zobrazenie e-mailovej adresy. Táto udalosť bude logovaná.
           email_address: E-mailová adresa
@@ -547,5 +584,30 @@ sk:
           show: Zobraziť
           title: Zobraziť e-mailovú adresu účastníka
       organization:
+        edit:
+          title: Upraviť organizáciu
+          update: Aktualizovať
         form:
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
           rich_text_editor_in_public_views_help: V niektorých textových oknách budú účastníci môcť vkladať niektoré HTML tagy pomocou pokročilého textového editoru.
+          social_handlers: Sociálne
+          twitter: Twitter
+          url: URL
+          youtube: YouTube
+        update:
+          error: Pri aktualizácii organizácie došlo k chybe.
+          success: Organizácia úspešne aktualizovaná.
+      organization_appearance:
+        edit:
+          update: Aktualizovať
+        form:
+          colors_title: Farby organizácie
+          cta_button_path_help: 'Môžete prepísať, kam tlačidlo Výzva do Akcie na úvodnej stránke odkazuje. Používajte relatívne adresy, nie celé URL. Akceptuje písmená, čísla, pomlčky a lomky, ale musí začínať písmenom. Tlačidlo Výzva do Akcie sa zobrazuje na úvodnej strane medzi úvodným textom a popisom. Príklad: %{url}'
+          cta_button_text_help: Môžete prepísať tlačidlo Výzva do Akcie pre každý dostupný jazyk Vašej organizácie. Ak to nespravíte, bude použitý primárny jazyk. Tlačidlo Výzva do Akcie sa zobrazuje na úvodnej strane medzi úvodným textom a popisom.
+          header_snippets_help: Použite pole pre pridanie vecí do HTML hlavičky. Najbežnejšie využitie je integrácia služieb tretích strán, JavaScriptu a CSS. Tiež môžete pridať ďalšie meta tagy. Tieto veci sa zobrazia iba na verejných stránkach, nie administrátorskej.
+          homepage_appearance_title: Upraviť vzhľad úvodnej obrazovky
+          homepage_highlighted_content_banner_title: Banner so zdôrazneným obsahom
+          layout_appearance_title: Upraviť vzhľad 
+          omnipresent_banner_appearance_title: Upraviť všadeprítomný banner
