@@ -11,6 +11,7 @@
   <% end %>
 
   <div class="grid-x grid-margin-x">
+    <% if allowed_to? :read, :activity_graph %>
       <div class="cell small-6">
         <%= render(
           partial: "decidim/admin/activity_graphs/activity_graphs",
@@ -20,6 +21,7 @@
           }
         ) %>
       </div>
+    <% end %>
 
     <% if allowed_to? :read, :admin_log %>
       <div class="cell small-6">

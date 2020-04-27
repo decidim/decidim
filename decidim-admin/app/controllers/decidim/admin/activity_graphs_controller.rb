@@ -6,6 +6,7 @@ module Decidim
       helper_method :activity_graphs_presenter
 
       def index
+        enforce_permission_to :read, :activity_graph
       end
 
       private
