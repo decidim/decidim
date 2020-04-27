@@ -3,7 +3,7 @@
 module Decidim
   module Assemblies
     module Admin
-      # A command to notify users when a role is assigned for a participatory process
+      # A command to notify users when a role is assigned for an assembly
       class NotifyRoleAssignedToAssembly < Rectify::Command
         def send_notification(user)
           Decidim::EventsManager.publish(
