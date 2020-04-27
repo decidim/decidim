@@ -1,9 +1,87 @@
 sk:
   activemodel:
     attributes:
+      area:
+        area_type: Typ oblasti
+        name: Názov
+        organization: Organizácia
+      area_type:
+        name: Názov
+        organization: Organizácia
+        plural: Množné číslo
+      attachment:
+        attachment_collection_id: Priečinok
+        description: Popis
+        file: Súbor
+        title: Názov
+      attachment_collection:
+        description: Popis
+        name: Názov
+      category:
+        description: Popis
+        name: Názov
+        parent_id: Nadradené
+      component:
+        name: Meno
+        published_at: Publikované na
+        weight: Váha
+      id: ID
+      newsletter:
+        body: Telo textu
+        subject: Predmet
+      oauth_application:
+        name: Meno
+        organization_logo: Logo organizácie (štvorec)
+        organization_name: Názov organizácie
+        organization_url: Odkaz na stránku organizácie 
+        redirect_uri: Presmerovať URI
       organization:
+        address: SMTP hostname
+        alert_color: Upozornenie
+        badges_enabled: Povoliť odznaky
+        cta_button_path: URL odkaz na tlačítko Výzva do akcie
+        cta_button_text: Text tlačítka Výzva do akcie
+        customize_welcome_notification: Prispôsobte uvítanie
+        default_locale: Predvolený jazyk
+        description: Popis
+        enable_omnipresent_banner: Zobraziť všadeprítomný banner
+        facebook_handler: Facebook handler
+        favicon: Ikona
+        from: Z e-mailovej adresy
+        github_handler: GitHub handler
+        header_snippets: Krátke kódy v HTML hlavičke
+        highlighted_content_banner_action_subtitle: Podnadpis tlačítka Akcie
+        highlighted_content_banner_action_title: Nadpis tlačítka Akcie
+        highlighted_content_banner_action_url: Odkaz tlačítka Akcie
+        highlighted_content_banner_enabled: Zobraziť banner so zvýrazneným obsahom
+        highlighted_content_banner_image: Obrázok
+        highlighted_content_banner_short_description: Krátky popis
+        highlighted_content_banner_title: Názov
+        instagram_handler: Instagram handler
+        logo: Logo
+        name: Meno
+        official_img_footer: Oficiálne logo v zápätí
+        official_img_header: Oficiálne logo v záhlaví
+        official_url: Oficiálna stránka organizácie
+        omnipresent_banner_short_description: Krátky popis
+        omnipresent_banner_title: Názov
+        omnipresent_banner_url: Adresa URL
+        password: Heslo
+        port: Port
+        primary_color: Primárne
+        reference_prefix: Referenčná predpona
         rich_text_editor_in_public_views: Povoliť pokročilý textový editor pre účastníkov
+        secondary_color: Sekundárne
+        send_welcome_notification: Poslať úvodné privítanie
+        show_statistics: Zobrazenie štatistík
+        success_color: Úspech
         time_zone: Časové pásmo
+        tos_version: Verzia podmienok použitia
+        twitter_handler: Twitter handler
+        user_groups_enabled: Povoliť skupiny
+        user_name: Používateľské meno
+        warning_color: Varovanie
+        welcome_notification_body: Telo textu úvodného privítania
   decidim:
     admin:
       actions:
