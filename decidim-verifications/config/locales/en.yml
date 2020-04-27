@@ -78,10 +78,16 @@ en:
         name: Code by postal letter
     verifications:
       authorizations:
+        authorization_metadata:
+          info: 'This is the data of the current verification:'
+          no_data_stored: No data stored.
         create:
           error: There was a problem creating the authorization.
           success: You've been successfully authorized.
           unconfirmed: You need to confirm your email in order to authorize yourself.
+        destroy:
+          error: There was a problem deleting the authorization.
+          success: You've successfully deleted the authorization.
         first_login:
           actions:
             another_dummy_authorization_handler: Verify against another example of authorization handler
@@ -90,12 +96,21 @@ en:
             dummy_authorization_workflow: Verify against the example authorization workflow
             id_documents: Get verified by uploading your identity document
             postal_letter: Get verified by receiving a verification code through postal mail
-            sms: sms
+            sms: Get verified by receiving a SMS verification code
           title: Verify your identity
           verify_with_these_options: 'These are the available options to verify your identity:'
+        index:
+          expired_verification: Verification expired
+          show_renew_info: Click to renew verification
         new:
           authorize: Send
           authorize_with: Verify with %{authorizer}
+        renew_modal:
+          cancel: Cancel
+          close: close
+          continue: Continue
+          info_renew: If you want to update the data, continue with the renewal
+          title: Renew Verification
         skip_verification: You can skip this for now and %{link}
         start_exploring: start exploring
       csv_census:
