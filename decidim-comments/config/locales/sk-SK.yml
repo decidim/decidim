@@ -1,1 +1,11 @@
 sk:
+  decidim:
+    components:
+      comment:
+        hide_replies: Skryť odpovede
+        show_replies: Zobraziť %{replies_count} odpovedí
+        single_comment_link_title: Odkaz na komentár
+      comments:
+        comment_details_title: Podrobnosti komentára
+        single_comment_warning: Zvyšné komentáre zobrazíte  <a href="%{url}">tu</a>.
+        single_comment_warning_title: Zobrazujete jeden komentár
