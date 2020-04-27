@@ -39,3 +39,28 @@ sk:
         search_placeholder:
           name_or_nickname_or_email_cont: Hľadať {collection} podľa e-mailu, mena alebo prezývky.
           title_cont: Hľadať %{collection} podľa titulku.
+      newsletter_templates:
+        index:
+          title: Šablóny spravodaja
+          use_template: Použiť túto šablónu
+        show:
+          preview: 'Ukážka šablóny: %{template_name}'
+          use_template: Použiť túto šablónu
+      newsletters:
+        index:
+          subscribed_count: 'Prihlásené na odber:'
+        select_recipients_to_deliver:
+          recipients_count: Tento spravodaj bude zasielaný <strong id='recipients_count'>%{count}</strong> používateľom.
+      officializations:
+        index:
+          show_email: Ukázať e-mailovú adresu
+        show_email_modal:
+          description: Ak potrebujete účastníka kontaktovať priamo, môžete kliknúť na tlačidlo "Ukázať" pre zobrazenie e-mailovej adresy. Táto udalosť bude logovaná.
+          email_address: E-mailová adresa
+          full_name: Meno a priezvisko
+          hidden: skryté
+          show: Zobraziť
+          title: Zobraziť e-mailovú adresu účastníka
+      organization:
+        form:
+          rich_text_editor_in_public_views_help: V niektorých textových oknách budú účastníci môcť vkladať niektoré HTML tagy pomocou pokročilého textového editoru.
