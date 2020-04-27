@@ -471,6 +471,9 @@ hu:
             does_not_belong: Nem tartozik hozzá
             offensive: Offenzív
             spam: Spam
+      newsletter_templates:
+        index:
+          preview_template: Előnézet
       newsletters:
         create:
           error: Hiba történt a hírlevél létrehozása során.
@@ -484,8 +487,6 @@ hu:
         edit:
           save_and_preview: Mentés és előnézet
           title: Hírlevél szerkesztése
-        form:
-          interpolations_hint: 'Tipp: a(z) "%{name}" nevet a tárgyban és a szövegben is használhatod, az helyettesítve lesz a címzett nevével.'
         index:
           all: mind
           all_users: 'Minden felhasználó'
