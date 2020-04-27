@@ -289,6 +289,10 @@ sk:
       dashboard:
         show:
           view_more_logs: Zobraziť viac logov
+          welcome: Vitajte v Administrátorskom Paneli Decidim.
+      exports:
+        export_as: "%{name} ako %{export_format}"
+        notice: Váš export práve prebieha. Obdržíte e-mail po dokončení.
       filters:
         filter_label: Filter
         private_space_eq:
@@ -303,9 +307,36 @@ sk:
             'true': Nepublikované
         scope_id_eq:
           label: Rozsah
+        search_label: Hľadať
         search_placeholder:
           name_or_nickname_or_email_cont: Hľadať {collection} podľa e-mailu, mena alebo prezývky.
           title_cont: Hľadať %{collection} podľa titulku.
+      help_sections:
+        error: Pri aktualizácií sekcie Pomoc došlo ku chybe
+        form:
+          save: Uložiť
+        success: Sekcia Pomoc úspešne aktualizovaná
+      impersonatable_users:
+        index:
+          filter:
+            all: Všetko
+            managed: Spravované
+            not_managed: Nespravované
+          filter_by: Filtrovať podľa
+          impersonate: Vydávať sa za používateľa
+          impersonate_new_managed_user: Správa nového používateľa
+          managed: Spravované
+          name: Meno
+          needs_authorization_warning: Musíte mať pre túto organizáciu povolenú aspoň jednu autorizáciu.
+          not_managed: Nespravované
+          promote: Propagovať
+          search: Hľadať
+          status: Stav
+          view_logs: Prezrieť záznam
+      impersonations:
+        close_session:
+          error: Pri zrušení tejto inštancie správovania užívateľa došlo k chybe.
+          success: Vydávanie sa za užívateľa úspešne skončilo.
       newsletter_templates:
         index:
           title: Šablóny spravodaja
