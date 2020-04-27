@@ -53,6 +53,26 @@ describe "User prints the initiative", type: :system do
           expect(page).to have_no_css("*[type=submit]")
         end
       end
+
+      context "when initiative has attachments enabled" do
+        it "allows to manage attachments" do
+          page.find(".action-icon--edit").click
+          within ".secondary-nav" do
+            expect(page).to have_link("Attachments")
+          end
+        end
+      end
+
+      context "when initiative has attachments disabled" do
+        let(:initiative_type) { create(:initiatives_type, :attachments_disabled, organization: organization) }
+
+        it "does not allow to manage attachments" do
+          page.find(".action-icon--edit").click
+          within ".secondary-nav" do
+            expect(page).not_to have_link("Attachments")
+          end
+        end
+      end
     end
 
     context "and user is admin" do

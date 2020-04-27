@@ -69,6 +69,8 @@ module Decidim
         def attachment_action?
           return unless permission_action.subject == :attachment
 
+          disallow! && return unless initiative.attachments_enabled?
+
           attachment = context.fetch(:attachment, nil)
           attached = attachment&.attached_to
 

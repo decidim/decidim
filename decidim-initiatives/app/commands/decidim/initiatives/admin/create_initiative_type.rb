@@ -41,6 +41,7 @@ module Decidim
             title: form.title,
             description: form.description,
             signature_type: form.signature_type,
+            attachments_enabled: form.attachments_enabled,
             undo_online_signatures_enabled: form.undo_online_signatures_enabled,
             promoting_committee_enabled: form.promoting_committee_enabled,
             minimum_committee_members: form.minimum_committee_members,
