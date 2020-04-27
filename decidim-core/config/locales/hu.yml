@@ -789,10 +789,18 @@ hu:
           outro: Üdvözlünk a Decidimen!
           subject: 'Új üzenetek érkeztek tőle: %{sender}'
       conversations:
+        add_conversation_users:
+          add_max_users: 'Felhasználók hozzáadása a beszélgetéshez: legfeljebb 9 felhasználó'
+          add_users_placeholder: Keres...
+          modal_title: Új beszélgetés
+          no_results: Nincs eredmény
+          participant_with_disabled_message_reception: Ez a résztvevő letiltotta az üzenetek fogadását
         create:
           error: A beszélgetés megakadt. Próbáld újra később
         index:
           close: Modal bezárása
+          new_conversation: Új beszélgetés
+          next: Következő
           no_conversations: Még nincsenek beszélgetések
           title: Beszélgetések
         reply:
