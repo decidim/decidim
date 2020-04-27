@@ -1,0 +1,24 @@
+<%= javascript_include_tag "decidim/vizzs" %>
+<%= stylesheet_link_tag "decidim/vizzs" %>
+
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t "decidim.admin.titles.activity_graphs" %>
+    </h2>
+  </div>
+
+<div class="grid-y grid-padding-y">
+  <div class="cell grid-x grid-padding-x">
+    <%= activity_graphs_presenter.highlighted %>
+  </div>
+
+  <div class="cell grid-x grid-padding-x">
+    <%= activity_graphs_presenter.not_highlighted %>
+  </div>
+</div>
+</div>
+
+<% if show_link_to_more %>
+  <div class="text-center"><%= link_to t(".see_more_graphs"), activity_graphs_path %></div>
+<% end %>

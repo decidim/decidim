@@ -10,16 +10,26 @@
     <%= cell("decidim/announcement", admin_terms_announcement_args ) %>
   <% end %>
 
-  <% if allowed_to? :read, :admin_log %>
-    <div class="row">
-      <h3 class="card-title">
-      </h3>
-      <%= render partial: "decidim/admin/logs/logs_list", locals: { logs: latest_action_logs } %>
-      <% if latest_action_logs.any? %>
-        <div class="text-center"><%= link_to t(".view_more_logs"), logs_path %></div>
-      <% end %>
-    </div>
-  <% end %>
+  <div class="grid-x grid-margin-x">
+      <div class="cell small-6">
+        <%= render(
+          partial: "decidim/admin/activity_graphs/activity_graphs",
+          locals: {
+            activity_graphs_presenter: activity_graphs_presenter,
+            show_link_to_more: true
+          }
+        ) %>
+      </div>
+
+    <% if allowed_to? :read, :admin_log %>
+      <div class="cell small-6">
+        <%= render partial: "decidim/admin/logs/logs_list", locals: { logs: latest_action_logs } %>
+        <% if latest_action_logs.any? %>
+          <div class="text-center"><%= link_to t(".view_more_logs"), logs_path %></div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 
   <% if current_user.admin_terms_accepted? %>
     <p class="text-right">

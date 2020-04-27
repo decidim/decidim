@@ -27,7 +27,7 @@
 // = require decidim/check_boxes_tree
 // = require decidim/conversations
 // = require decidim/delayed
-// = require_tree ./decidim/vizzs
+// = require decidim/vizzs
 
 // = require_self
 // = require decidim/floating_help
