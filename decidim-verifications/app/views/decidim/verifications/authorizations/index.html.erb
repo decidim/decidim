@@ -4,22 +4,28 @@
       <div class="card card--list">
         <% @granted_authorizations.each do |authorization| %>
           <% if authorization.expired? %>
-            <% authorization_method = Decidim::Verifications::Adapter.from_element(authorization.name) %>
-            <%= link_to authorization_method.root_path do %>
+            <%= link_to authorization_method(authorization).root_path, title: t(".expired_verification"), class: "card--list__item" do %>
               <% render partial: "granted_authorization", locals: { authorization: authorization } %>
             <% end %>
+          <% elsif authorization.renewable? %>
+            <%= link_to "#", title: t(".show_renew_info"), data: { open: "renew-modal", "open-url": renew_modal_authorizations_path(handler: authorization.name) }, class: "card--list__item authorization-renewable" do %>
+               <%= render partial: "granted_authorization", locals: { authorization: authorization } %>
+            <% end %>
           <% else %>
-            <%= render partial: "granted_authorization", locals: { authorization: authorization } %>
+            <div class="card--list__item">
+              <%= render partial: "granted_authorization", locals: { authorization: authorization } %>
+            </div>
           <% end %>
         <% end %>
       </div>
+
+      <div id="renew-modal" data-reveal class="reveal" aria-labelledby="<%= t("renew_modal.title", scope: "decidim.verifications.authorizations") %>" aria-hidden="true" role="dialog"></div>
     <% end %>
 
     <% if @pending_authorizations.any? %>
       <div class="card card--list">
         <% @pending_authorizations.each do |authorization| %>
-          <% authorization_method = Decidim::Verifications::Adapter.from_element(authorization.name) %>
-          <%= link_to authorization_method.resume_authorization_path do %>
+          <%= link_to authorization_method(authorization).resume_authorization_path do %>
             <div class="card--list__item">
               <div class="card--list__text">
                 <%= icon "reload", class: "card--list__icon", role: "img" %>

@@ -14,7 +14,7 @@ module Decidim
         @author ||= if official?
                       Decidim::Proposals::OfficialAuthorPresenter.new
                     else
-                      coauthorship = coauthorships.first
+                      coauthorship = coauthorships.includes(:author, :user_group).first
                       coauthorship.user_group&.presenter || coauthorship.author.presenter
                     end
       end
@@ -43,6 +43,10 @@ module Decidim
 
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
         renderer.render(links: links, extras: extras).html_safe
+      end
+
+      def id_and_title(links: false, extras: true, html_escape: false)
+        "##{proposal.id} - #{title(links: links, extras: extras, html_escape: html_escape)}"
       end
 
       def body(links: false, extras: true, strip_tags: false)

@@ -19,5 +19,17 @@ module Decidim
         expect(authorization).not_to be_valid
       end
     end
+
+    context "when verification is granted" do
+      let!(:authorization) { create(:authorization, name: "dummy_authorization_handler") }
+
+      it "has renewable? method" do
+        expect(authorization).to be_renewable
+      end
+
+      it "has metadata_cell" do
+        expect(authorization.metadata_cell).to be_kind_of String
+      end
+    end
   end
 end

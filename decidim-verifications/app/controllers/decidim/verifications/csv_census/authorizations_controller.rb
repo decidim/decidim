@@ -4,13 +4,15 @@ module Decidim
   module Verifications
     module CsvCensus
       class AuthorizationsController < Decidim::ApplicationController
+        include Decidim::Verifications::Renewable
+
         helper_method :authorization
 
         before_action :load_authorization
 
         def new
           @form = CensusForm.from_params(user: current_user)
-          ConfirmCensusAuthorization.call(@authorization, @form) do
+          ConfirmCensusAuthorization.call(@authorization, @form, session) do
             on(:ok) do
               flash[:notice] = t("authorizations.new.success", scope: "decidim.verifications.csv_census")
             end
