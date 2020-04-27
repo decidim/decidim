@@ -1,1 +1,29 @@
 sk:
+  decidim:
+    budgets:
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'Vybrali ste tieto projekty:'
+          subject: Hlasovali ste na participatívnom priestore %{space_name}
+          voted_on_space: Hlasovali ste za rozpočet na participatívnom priestore %{space_name}.
+          voted_on_space_with_scope: Hlasovali ste za rozpočet na participatívnom priestore %{space_name} za %{scope_name} (%{scope_type}).
+      projects:
+        budget_summary:
+          description_minimum_projects_rule: Na ktoré projekty by sme podľa Vás mali vyčleniť rozpočet? Vyberte si aspoň %{minimum_number} projektov, ktoré chcete, a hlasujte podľa svojich preferencií za rozpočet.
+        orders:
+          highest_cost: Najvyššie náklady
+          label: Zoradiť projekty podľa
+          lowest_cost: Najnižšie náklady
+          most_voted: Najviac hlasov
+          random: Náhodné poradie
+    components:
+      budgets:
+        settings:
+          global:
+            form:
+              errors:
+                budget_voting_rule_only_one: Povolený smie byť iba jeden spôsob hlasovania
+                budget_voting_rule_required: Požaduje sa jeden spôsob hlasovania
+            vote_minimum_budget_projects_number: Minimálny počet projektov, za ktoré je možné hlasovať
+            vote_rule_minimum_budget_projects_enabled: 'Povoliť pravidlo: Minimálny počet projektov, za ktoré je možné hlasovať'
+            vote_rule_threshold_percent_enabled: 'Povoliť pravidlo: Minimálne percento rozpočtu'
