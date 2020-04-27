@@ -294,6 +294,8 @@ sk:
         export_as: "%{name} ako %{export_format}"
         notice: Váš export práve prebieha. Obdržíte e-mail po dokončení.
       filters:
+        category_id_eq:
+          label: Kategória
         filter_label: Filter
         private_space_eq:
           label: Súkromné
@@ -329,14 +331,98 @@ sk:
           name: Meno
           needs_authorization_warning: Musíte mať pre túto organizáciu povolenú aspoň jednu autorizáciu.
           not_managed: Nespravované
-          promote: Propagovať
+          promote: Povýšiť
           search: Hľadať
           status: Stav
           view_logs: Prezrieť záznam
       impersonations:
         close_session:
-          error: Pri zrušení tejto inštancie správovania užívateľa došlo k chybe.
+          error: Pri zrušení tejto inštancie správovania účastníka došlo k chybe.
           success: Vydávanie sa za užívateľa úspešne skončilo.
+        create:
+          error: Došlo k chybe pri spravovaní tohto účastníka.
+          success: Spravovaný účastník bol úspešne vytvorený.
+        form:
+          authorization_method: Metóda autorizácie
+          name: Názov
+          reason: Dôvod
+        new:
+          impersonate: Vydávať sa za používateľa
+          impersonate_existing_managed_user: Spravovanie účastníka "%{name}"
+          impersonate_existing_user: Spravovanie účastníka "%{name}"
+          impersonate_new_managed_user: Správa nového používateľa
+      logs:
+        logs_list:
+          no_logs_yet: Zatiaľ nie sú žiadne záznamy
+      managed_users:
+        promotion:
+          error: Došlo k chybe pri povýšení spravovaného používateľa.
+          success: Spravovaný účastník bol úspešne povýšený.
+        promotions:
+          new:
+            explanation: Spravovaní účastníci môžu byť povýšení na štandardných účastníkov. To znamená, že budú pozvaní do aplikácie, a už ich nebudete môcť spravovať. Pozvaný účastník obdrží e-mail s Vašou pozvánkou.
+            new_managed_user_promotion: Povýšenie nového spravovaného účastníka
+            promote: Povýšiť
+      menu:
+        admin_log: Záznam aktivity administrátora
+        admins: Administrátori
+        appearance: Vzhľad
+        area_types: Typy oblastí
+        areas: Oblasti
+        configuration: Konfigurácia
+        dashboard: Hlavný panel
+        help_sections: Sekcie Pomoci
+        homepage: Domovská stránka
+        impersonations: Vydávanie sa za používateľa
+        newsletters: Spravodaje
+        oauth_applications: OAuth aplikácie
+        participants: Účastníci
+        scope_types: Typy rozsahu
+        scopes: Rozsahy
+        settings: Nastavenia
+        static_pages: Stránky
+        user_groups: Skupiny
+        users: Účastníci
+      models:
+        area:
+          fields:
+            area_type: Typy oblastí
+            name: Názov
+        area_type:
+          fields:
+            name: Názov
+            plural: Množné číslo
+        attachment:
+          fields:
+            collection: Priečinok
+            content_type: Typ
+            file_size: Veľkosť
+            title: Názov
+          name: Príloha
+        attachment_collection:
+          name: Priečinok
+        category:
+          name: Kategória
+        impersonation_log:
+          fields:
+            admin: Admin
+            ended_at: Ukončené
+            expired_at: Platnosť do
+            reason: Dôvod
+            started_at: Začaté
+            user: Účastník
+        newsletter:
+          fields:
+            created_at: Vytvorené
+            progress: Postup
+            sent_at: Odoslané v
+            sent_to: Odoslané
+            subject: Predmet
+          name: Spravodaj
+        oauth_application:
+          fields:
+            created_at: Vytvorené
+            name: Názov
       newsletter_templates:
         index:
           title: Šablóny spravodaja
