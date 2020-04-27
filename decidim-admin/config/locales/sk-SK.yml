@@ -611,3 +611,72 @@ sk:
           homepage_highlighted_content_banner_title: Banner so zdôrazneným obsahom
           layout_appearance_title: Upraviť vzhľad 
           omnipresent_banner_appearance_title: Upraviť všadeprítomný banner
+      organization_homepage:
+        edit:
+          active_content_blocks: Bloky aktívneho obsahu
+          inactive_content_blocks: Bloky neaktívneho obsahu
+      organization_homepage_content_blocks:
+        edit:
+          update: Aktualizovať
+      participatory_space_private_users:
+        create:
+          error: Pri pridávaní súkromného používateľa pre tento participačný priestor došlo k chybe.
+          success: Participatívny priestor bol sprístupnený súkromnému užívateľovi.
+        destroy:
+          error: Pri vymazaní súkromného používateľa pre tento participačný priestor došlo k chybe.
+          success: Participatívny priestor bol zneprístupnený súkromnému užívateľovi.
+        index:
+          import_via_csv: Import z CSV
+          title: Súkromný účastník participatívneho priestoru
+        new:
+          create: Vytvoriť
+          title: Nový súkromný účastník participatívneho priestoru.
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: Vyskytol sa problém s čítaním súboru CSV.
+          success: Súbor CSV nahraný úspešne, posielame pozvánku e-mailom pre používateľov. Môže to chvíľu trvať.
+        new:
+          explanation: Nahrajte súbor CSV. Musí obsahovať 2 stĺpce - v prvom stĺpci je e-mail a v druhom meno užívateľov, ktorých chcete pridať do participatívneho priestoru. Súbor musí byť bez hlavičky.
+          title: Nahrať súbor CSV
+          upload: Nahrať
+      resource_permissions:
+        edit:
+          submit: Potvrdiť
+          title: Upraviť oprávnenia
+        update:
+          success: Práva úspešne aktualizované.
+      scope_types:
+        create:
+          error: Pri tvorbe nového typu rozsahu nastala chyba.
+          success: Nový typ rozsahu úspešne vytvorený.
+        destroy:
+          success: Typ rozsahu úspešne vymazaný
+        edit:
+          title: Upraviť typ rozsahu
+          update: Aktualizovať
+        new:
+          create: Vytvoriť nový typ rozsahu
+          title: Nový rozsah
+        update:
+          error: Pri aktualizácii typu rozsahu nastala chyba.
+          success: Nový typ rozsahu úspešne aktualizovaný.
+      scopes:
+        create:
+          error: Pri tvorbe nového rozsahu nastala chyba.
+          success: Nový rozsah úspešne vytvorený.
+        destroy:
+          success: Rozsah úspešne vymazaný
+        edit:
+          title: Upraviť rozsah
+          update: Aktualizovať
+        new:
+          create: Vytvoriť rozsah
+          title: Nový rozsah
+        no_scopes: Žiadne rozsahy na tejto úrovni.
+        update:
+          error: Pri aktualizácii rozsahu nastala chyba.
+          success: Nový rozsah úspešne aktualizovaný
+      static_page_topics:
+        create:
+          error: Pri tvorbe novej témy nastala chyba.
+          success: Téma vytvorená úspešne.
