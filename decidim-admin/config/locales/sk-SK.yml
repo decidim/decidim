@@ -60,7 +60,7 @@ sk:
         instagram_handler: Instagram handler
         logo: Logo
         name: Meno
-        official_img_footer: Oficiálne logo v zápätí
+        official_img_footer: Oficiálne logo v päte
         official_img_header: Oficiálne logo v záhlaví
         official_url: Oficiálna stránka organizácie
         omnipresent_banner_short_description: Krátky popis
@@ -82,10 +82,72 @@ sk:
         user_name: Používateľské meno
         warning_color: Varovanie
         welcome_notification_body: Telo textu úvodného privítania
+        welcome_notification_subject: Predmet textu úvodného privítania
+        youtube_handler: YouTube handler
+      scope:
+        code: Kód
+        name: Názov
+        organization: Organizácia
+        parent_id: Nadradené
+        scope_type: Typ rozsahu
+        scope_type_id: Typ rozsahu
+      scope_type:
+        name: Názov
+        organization: Organizácia
+        plural: Množné číslo
+      static_page:
+        changed_notably: Nastali výrazné zmeny
+        content: Obsah
+        organization: Organizácia
+        show_in_footer: Zobraziť v päte
+        slug: URL krátky odkaz
+        title: Názov
+        weight: Váha
+      static_page_topic:
+        description: Popis
+        show_in_footer: Zobraziť v päte
+        title: Názov
+        weight: Váha
+      user_group_csv_verification:
+        file: Súbor
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: Presmerovacie URI musí byť SSL URI
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: Nefunkčný obrázkový súbor
+            official_img_header:
+              allowed_file_content_types: Nefunkčný obrázkový súbor
+  activerecord:
+    attributes:
+      decidim/static_page:
+        content: Obsah
+        slug: URL krátky odkaz
+        title: Názov
+      doorkeeper/application:
+        authorize_url: Autorizovať URL
+        client_id: ID klienta
+        client_secret: Tajný kľúč klienta
+        organization_name: Názov organizácie
+        organization_url: Odkaz na stránku organizácie 
+        redirect_uri: Presmerovanie URI
+        site: Webstránka
   decidim:
     admin:
       actions:
+        add: Pridať
+        browse: Prechádzať
+        export: Exportovať
+        manage: Správa
+        new: Nový %{name}
         per_page: Na stranu
+        permissions: Práva
+        reject: Odmietnuť
+        verify: Overiť
       admin_terms_of_use:
         accept:
           error: Pri odsúhlasení podmienok použitia nastala chyba.
@@ -100,6 +162,65 @@ sk:
           callout: Prosíme, nájdite si chvíľu pre oboznámenie sa s administrátorskými podmienkami použitia, inak nebudete môcť spravovať platformu.
           cta: Oboznámte sa s nimi teraz.
         title: Administrátorské podmienky použitia
+      area_types:
+        create:
+          error: Pri tvorbe nového typu oblasti nastala chyba.
+          success: Nový typ oblasti úspešne vytvorený.
+        destroy:
+          success: Typ oblasti úspešne vymazaný
+        edit:
+          title: Upraviť typ oblasti
+          update: Aktualizovať
+        new:
+          create: Vytvoriť nový typ oblasti
+          title: Nový typ oblasti
+        update:
+          error: Pri aktualizácii typu oblasti nastala chyba.
+          success: Nový typ oblasti úspešne aktualizovaný
+      areas:
+        create:
+          error: Pri tvorbe novej oblasti nastala chyba.
+          success: Oblasť úspešne vytvorená.
+        destroy:
+          has_spaces: Oblasť má priradené priestory, ktoré nesmie mať, ak má byť vymazaná.
+          success: Oblasť úspešne vymazaná
+        edit:
+          title: Upravit oblasť
+          update: Aktualizovať
+        new:
+          create: Vytvoriť oblasť
+          title: Nová oblasť
+        no_areas: Žiadne oblasti
+        update:
+          error: Pri aktualizácii oblasti nastala chyba.
+          success: Oblasť úspešne aktualizovaná
+      attachment_collections:
+        create:
+          error: Pri tvorbe nového priečinka nastala chyba.
+          success: Priečinok bol úspešne vytvorený.
+        destroy:
+          success: Priečinok úspešne vymazaný.
+        edit:
+          title: Upraviť priečinok
+          update: Aktualizovať
+        index:
+          attachment_collection_used: Tento priečinok nemôže byť odstránený, pretože je používaný.
+          attachment_collections_title: Priečinky s prílohami
+        new:
+          create: Vytvoriť
+          title: Nový priečinok
+        update:
+          error: Pri aktualizácii priečinku nastala chyba.
+          success: Priečinok bol úspešne aktualizovaný.
+      attachments:
+        create:
+          error: Nastal problém pri tvorbe novej prílohy.
+          success: Príloha bola vytvorená úspešne.
+        destroy:
+          success: Príloha bola vymazaná úspešne.
+        edit:
+          title: Upraviť prílohu
+          update: Aktualizovať
       filters:
         filter_label: Filter
         private_space_eq:
