@@ -471,6 +471,9 @@ es-MX:
             does_not_belong: No pertenece
             offensive: Ofensiva
             spam: Contenido no deseado
+      newsletter_templates:
+        index:
+          preview_template: Previsualizar
       newsletters:
         create:
           error: Se ha producido un error al crear este boletín.
@@ -484,8 +487,6 @@ es-MX:
         edit:
           save_and_preview: Guardar y vista previa
           title: Editar boletín
-        form:
-          interpolations_hint: 'Sugerencia: Puede utilizar "%{name}" en cualquier parte del cuerpo o asunto y será reemplazado por el nombre del destinatario.'
         index:
           all: todos
           all_users: 'Todos los usuarios '
