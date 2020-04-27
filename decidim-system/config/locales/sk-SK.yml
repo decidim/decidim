@@ -1,6 +1,29 @@
 sk:
   decidim:
     system:
+      actions:
+        confirm_destroy: Naozaj chcete odstrániť?
+        destroy: Odstrániť
+        edit: Upraviť
+        new: Nový
+        save: Uložit
+        title: Akcie
+      admins:
+        create:
+          error: Pri tvorbe nového správcu nastala chyba.
+          success: Správca úspešne vytvorený
+        destroy:
+          success: Správca úspešne vymazaný
+        edit:
+          title: Upraviť správcu
+          update: Aktualizovať
+        index:
+          title: Administrátori
+        new:
+          create: Vytvoriť
+          title: Nový správca
+        update:
+          error: Pri aktualizácii správcu nastala chyba.
       models:
         organization:
           fields:
