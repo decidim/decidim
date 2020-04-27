@@ -93,7 +93,6 @@ sv:
             other: "%{count} projekt"
         filters:
           category: Kategori
-          category_prompt: Välj en kategori
           scope: Omfång
           search: Sök
         filters_small_view:
