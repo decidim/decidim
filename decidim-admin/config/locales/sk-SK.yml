@@ -221,6 +221,74 @@ sk:
         edit:
           title: Upraviť prílohu
           update: Aktualizovať
+        index:
+          attachments_title: Prílohy
+        new:
+          create: Vytvoriť prílohu
+          title: Nová príloha
+        update:
+          error: Nastal problém pri aktualizácii prílohy.
+          success: Príloha bola upravená úspešne.
+      autocomplete:
+        no_results: Neboli nájdené žiadne výsledky
+        search_prompt: Prosím, zadajte min. 3 znaky pre vyhľadávanie
+      categories:
+        create:
+          error: Vyskytol sa problém s vytváraním tejto kategórie.
+          success: Kategória vytvorená úspešne.
+        destroy:
+          error: Vyskytol sa problém pri vymazávaní tejto kategórie. Prosíme, vymažte najprv všetky podkategórie a uistite sa, že do tejto kategórie nič nepatrí, a potom skúste znova.
+          success: Kategória vymazaná úspešne.
+        edit:
+          title: Upraviť kategóriu
+          update: Aktualizovať
+        index:
+          categories_title: Kategórie
+          category_used: Táto kategória nemôže byť odstránená, pretože je používaná.
+        new:
+          create: Vytvoriť kategóriu
+          title: Nová kategória
+        update:
+          error: Vyskytol sa problém s aktualizáciou tejto kategórie.
+          success: Kategória upravená úspešne.
+      component_permissions:
+        update:
+          error: Vyskytol sa problém pri zmene práv pre súčasť.
+          success: Práva úspešne aktualizované.
+      components:
+        create:
+          error: Vyskytol sa problém s vytvorením tejto súčasti.
+          success: Súčasť bola vytvorená úspešne.
+        destroy:
+          error: Vyskytol sa problém s vymazaním tejto súčasti.
+          success: Súčasť bola vymazaná úspešne.
+        edit:
+          title: Upraviť súčasť
+          update: Aktualizovať
+        form:
+          default_step_settings: Predvolené nastavenia pre kroky
+          global_settings: Globálne nastavenia
+          step_settings: Nastavenia krokov
+        index:
+          add: Pridať súčasť
+          headers:
+            actions: Akcie
+            name: Názov súčasti
+            type: Typ súčasti
+        new:
+          add: Pridať súčasť
+          title: 'Pridať súčasť: %{name}'
+        publish:
+          success: Súčasť bola úspešne publikovaná.
+        title: Súčasti
+        unpublish:
+          success: Publikácia súčasti bola úspešne zrušená.
+        update:
+          error: Vyskytol sa problém s aktualizáciou tejto súčasti.
+          success: Súčasť bola úspešne aktualizovaná.
+      dashboard:
+        show:
+          view_more_logs: Zobraziť viac logov
       filters:
         filter_label: Filter
         private_space_eq:
