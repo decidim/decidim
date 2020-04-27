@@ -474,6 +474,10 @@ cs:
       newsletter_templates:
         index:
           preview_template: Náhled
+          title: Šablony zpravodaje
+          use_template: Použít tuto šablonu
+        show:
+          preview: 'Náhled šablony: %{template_name}'
       newsletters:
         create:
           error: Při vytváření tohoto zpraodaje došlo k chybě.
