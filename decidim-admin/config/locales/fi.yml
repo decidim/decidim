@@ -471,6 +471,9 @@ fi:
             does_not_belong: Ei kuulu
             offensive: Loukkaava
             spam: Roskaposti
+      newsletter_templates:
+        index:
+          preview_template: Esikatsele
       newsletters:
         create:
           error: Uutiskirjeen luonti epäonnistui.
@@ -484,8 +487,6 @@ fi:
         edit:
           save_and_preview: Tallenna ja esikatsele
           title: Muokkaa uutiskirjettä
-        form:
-          interpolations_hint: 'Vihje: Voit käyttää "%{name}" -merkkijonoa missä tahansa viestin rungossa, mikä korvataan vastaanottajan nimellä.'
         index:
           all: kaikki
           all_users: 'Kaikki käyttäjät '
