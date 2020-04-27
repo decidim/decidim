@@ -1,7 +1,7 @@
 # frozen-string_literal: true
 
 module Decidim
-  class AssemblyRoleAssignedEvent < Decidim::Events::SimpleEvent
+  class RoleAssignedToAssemblyEvent < Decidim::Events::SimpleEvent
     include Decidim::Events::NotificationEvent
     include Decidim::Events::AuthorEvent
 

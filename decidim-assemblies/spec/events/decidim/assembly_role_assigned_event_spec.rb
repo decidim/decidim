@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::AssemblyRoleAssignedEvent do
+describe Decidim::RoleAssignedToAssemblyEvent do
   include_context "when a simple event"
 
   let(:resource) { create :assembly }

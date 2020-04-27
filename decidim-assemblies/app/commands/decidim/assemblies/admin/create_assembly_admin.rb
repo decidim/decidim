@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when creating a new participatory
       # process admin in the system.
-      class CreateAssemblyAdmin < NotifyRoleAssignedAssembly
+      class CreateAssemblyAdmin < NotifyRoleAssignedToAssembly
         # Public: Initializes the command.
         #
         # form - A form object with the params.

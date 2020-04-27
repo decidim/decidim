@@ -4,7 +4,7 @@ module Decidim
   module ParticipatoryProcesses
     module Admin
       # A command to notify users when a role is assigned for a participatory process
-      class NotifyRoleAssignedParticipatoryProcess < Rectify::Command
+      class NotifyRoleAssignedToParticipatoryProcess < Rectify::Command
         def send_notification(user)
           Decidim::EventsManager.publish(
             event: "decidim.events.participatory_process.role_assigned",

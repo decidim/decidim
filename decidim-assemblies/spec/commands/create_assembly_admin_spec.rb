@@ -25,7 +25,7 @@ module Decidim::Assemblies
     let(:user_notification) do
       {
         event: "decidim.events.assembly.role_assigned",
-        event_class: Decidim::AssemblyRoleAssignedEvent,
+        event_class: Decidim::RoleAssignedToAssemblyEvent,
         resource: my_assembly,
         affected_users: [user],
         extra: { role: kind_of(String) }

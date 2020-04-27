@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when creating a new conference
       # admin in the system.
-      class CreateConferenceAdmin < NotifyRoleAssignedConference
+      class CreateConferenceAdmin < NotifyRoleAssignedToConference
         # Public: Initializes the command.
         #
         # form - A form object with the params.

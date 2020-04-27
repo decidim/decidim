@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when updated a participatory
       # process admin in the system.
-      class UpdateParticipatoryProcessAdmin < NotifyRoleAssignedParticipatoryProcess
+      class UpdateParticipatoryProcessAdmin < NotifyRoleAssignedToParticipatoryProcess
         # Public: Initializes the command.
         #
         # form - A form object with the params.
