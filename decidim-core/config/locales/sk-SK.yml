@@ -1,4 +1,7 @@
 sk:
+  activemodel:
+    models:
+      decidim/resource_endorsed_event: Zdroj podporený
   decidim:
     amendments:
       wizard_step_form:
