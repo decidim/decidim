@@ -40,8 +40,8 @@ module Decidim
             params["result"]["parent_id"] = row["parent/id"]
             default_locale = @component.participatory_space.organization.default_locale
             available_locales = @component.participatory_space.organization.available_locales
-            params["result"].merge!(get_locale_attribues(default_locale, available_locales, :title, :row))
-            params["result"].merge!(get_locale_attribues(default_locale, available_locales, :description, :row))
+            params["result"].merge!(get_locale_attributes(default_locale, available_locales, :title, row))
+            params["result"].merge!(get_locale_attributes(default_locale, available_locales, :description, row))
             params["result"].merge!(get_proposal_ids(row["proposal_urls"]))
             existing_result = Decidim::Accountability::Result.find_by(id: row["id"]) if row["id"].present?
             @form = form(Decidim::Accountability::Admin::ResultForm).from_params(params, @extra_context)
