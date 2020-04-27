@@ -1,1 +1,11 @@
 sk:
+  decidim:
+    admin:
+      actions:
+        new_assembly_type: Nový typ zhromaždenia
+      assemblies_types:
+        create:
+          error: Pri tvorbe nového typu zhromaždenia nastala chyba.
+          success: Nový typ zhromaždenia úspešne vytvorený.
+        destroy:
+          success: Typ zhromaždenia úspešne zmazaný.
