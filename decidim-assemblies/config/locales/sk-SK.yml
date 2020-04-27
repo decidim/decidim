@@ -1,1 +1,35 @@
 sk:
+  decidim:
+    admin:
+      actions:
+        new_assembly_type: Nový typ zhromaždenia
+      assemblies_types:
+        create:
+          error: Pri tvorbe nového typu zhromaždenia nastala chyba.
+          success: Nový typ zhromaždenia úspešne vytvorený.
+        destroy:
+          success: Typ zhromaždenia úspešne zmazaný.
+        new:
+          title: "N"
+        update:
+          error: Pri tvorbe nového typu zhromaždenia nastala chyba.
+          success: Typ zhromaždenia úspešne aktualizovaný.
+      menu:
+        assemblies_types: Typy zhromaždení
+      models:
+        assembly_user_role:
+          roles:
+            valuator: Hodnotiteľ
+      titles:
+        assemblies_types: Typy zhromaždení
+    admin_log:
+      assembly_type:
+        create: "%{user_name} vytvoril %{resource_name} nový typ zhromaždenia"
+        delete: "%{user_name} odstránil %{resource_name} používateľa z typu zhromaždenia %{space_name}"
+        publish: "%{user_name} vytvoril nový typ zhromaždenia %{resource_name}"
+        unpublish: "%{user_name} zrušil publikovanie typu zhromaždenia %{resource_name}"
+        update: "%{user_name} aktualizoval typ zhromaždenia %{resource_name}"
+    log:
+      value_types:
+        assembly_type_presenter:
+          not_found: 'Typ zhromaždenia nebol nájdený v databáze (ID: %{id})'
