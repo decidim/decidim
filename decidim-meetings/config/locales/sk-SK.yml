@@ -1,1 +1,6 @@
 sk:
+  decidim:
+    meetings:
+      registrations:
+        create:
+          success: Pripojili ste sa úspešne ku stretnutiu. Pretože ste sa naň zaregistrovali, pošleme Vám upozornenie v prípade zmien a nových udalostí.
