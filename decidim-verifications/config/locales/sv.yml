@@ -77,6 +77,8 @@ sv:
         name: Kod via fysiskt brev
     verifications:
       authorizations:
+        authorization_metadata:
+          no_data_stored: Ingen data lagrad.
         create:
           error: Det gick inte att skapa auktoriseringen.
           success: Du har auktoriserats.
@@ -96,6 +98,9 @@ sv:
           authorize_with: Verifiera med %{authorizer}
         renew_modal:
           cancel: Avbryt
+          close: stäng
+          continue: Fortsätt
+          title: Förnya verifiering
         skip_verification: Du kan hoppa över detta just nu och %{link}
         start_exploring: börja utforska
       csv_census:
