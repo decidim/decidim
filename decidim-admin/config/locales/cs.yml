@@ -478,6 +478,7 @@ cs:
           use_template: Použít tuto šablonu
         show:
           preview: 'Náhled šablony: %{template_name}'
+          use_template: Použít tuto šablonu
       newsletters:
         create:
           error: Při vytváření tohoto zpraodaje došlo k chybě.
