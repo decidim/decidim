@@ -471,6 +471,9 @@ sv:
             does_not_belong: Hör inte hemma
             offensive: Stötande
             spam: Skräp
+      newsletter_templates:
+        index:
+          preview_template: Förhandsvisa
       newsletters:
         create:
           error: Det gick inte att skapa nyhetsbrevet.
@@ -484,8 +487,6 @@ sv:
         edit:
           save_and_preview: Spara och förhandsvisa
           title: Redigera nyhetsbrev
-        form:
-          interpolations_hint: 'Tips: Du kan använda "%{name}" var som helst i brödtexten eller ämnet och det kommer att ersättas av mottagarens namn.'
         index:
           all: alla
           all_users: 'Alla användare '
