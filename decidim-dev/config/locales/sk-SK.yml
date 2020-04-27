@@ -18,7 +18,7 @@ sk:
     dummy:
       admin:
         exports:
-          dummies: Náhrady
+          dummies: Indikátory
     gamification:
       badges:
         test:
@@ -35,3 +35,4 @@ sk:
       home:
         statistics:
           bar: Stĺpec
+          foo: Test
