@@ -7,6 +7,26 @@ $message-padding: 1rem;
   @extend .card;
 }
 
+.unread_message__counter {
+  $counter-size: 25px;
+  $counter-font-size: $counter-size - 12px;
+
+  background-color: $secondary;
+  border-radius: 50%;
+  color: $white;
+  font-size: $counter-font-size;
+  font-weight: 600;
+  margin-left: auto;
+  margin-right: 5%;
+  width: $counter-size;
+
+  span {
+    display: block;
+    line-height: $counter-size;
+    text-align: center;
+  }
+}
+
 /* Message form */
 
 .add-message{

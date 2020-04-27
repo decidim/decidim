@@ -92,12 +92,12 @@
                         <% end %>
                       </strong>
                     </span>
-                    <% if conversation.unread_count(current_user) > 0 %>
-                      <span class="card--list__counter">
-                        <span><%= conversation.unread_count(current_user) %></span>
-                      </span>
-                    <% end %>
                   </div>
+                  <% if conversation.unread_count(current_user) > 0 %>
+                    <span class="unread_message__counter">
+                      <span><%= conversation.unread_count(current_user) %></span>
+                    </span>
+                  <% end %>
                   <div class="right center mr-s">
                     <%= link_to decidim.conversation_path(conversation), id: "chevron", class: "user-header__avatar", "data-tabs-target": "conversation" do %>
                       <%= icon "chevron-right", class: "card__link icon--big" %>
