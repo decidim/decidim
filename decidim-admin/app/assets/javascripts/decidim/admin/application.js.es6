@@ -20,6 +20,7 @@
 // = require decidim/input_tags
 // = require decidim/input_hashtags
 // = require decidim/input_mentions
+// = require decidim/vizzs
 // = require jquery.serializejson
 // = require decidim/ajax_modals
 // = require ./officializations
