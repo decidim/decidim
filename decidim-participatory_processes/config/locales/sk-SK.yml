@@ -276,13 +276,13 @@ sk:
     events:
       participatory_process:
         step_activated:
-          email_intro: 'Krok%{resource_title} je teraz aktívny pre%{participatory_space_title}. Môžete ju vidieť z tejto stránky: '
-          email_outro: Toto oznámenie ste dostali, pretože ste sledovali%{participatory_space_title}. Po predchádzajúcom prepojení môžete prestať prijímať oznámenia.
+          email_intro: 'Krok%{resource_title} je teraz aktívny pre %{participatory_space_title}. Môžete ju vidieť z tejto stránky: '
+          email_outro: Toto oznámenie ste dostali, pretože sledujete %{participatory_space_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
           email_subject: Aktualizácia na%{participatory_space_title}
           notification_title: Krok%{resource_title} je teraz aktívny pre <a href="%{resource_path}">%{participatory_space_title} </a>
         step_changed:
-          email_intro: 'Boli aktualizované dátum pre krok%{resource_title} v%{participatory_space_title}. Môžete ju vidieť z tejto stránky: '
-          email_outro: Toto oznámenie ste dostali, pretože ste sledovali%{participatory_space_title}. Po predchádzajúcom prepojení môžete prestať prijímať oznámenia.
+          email_intro: 'Boli aktualizované dátum pre krok%{resource_title} v %{participatory_space_title}. Môžete ju vidieť z tejto stránky: '
+          email_outro: Toto oznámenie ste dostali, pretože sledujete %{participatory_space_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
           email_subject: Aktualizácia na%{participatory_space_title}
           notification_title: Boli aktualizované dáta pre krok <a href="%{resource_path}">%{resource_title} </a> vo <a href="%{participatory_space_url}">%{participatory_space_title} </a>.
     help:
