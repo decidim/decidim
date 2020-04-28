@@ -93,8 +93,11 @@ cs:
         search_placeholder:
           id_string_or_title_cont: Hledat %{collection} podle ID nebo názvu.
         state_eq:
+          label: Stát
           values:
+            accepted: Přijato
             evaluating: Hodnocení
+            rejected: Odmítnuto
             withdrawn: Staženo
         state_null:
           label: Stát
