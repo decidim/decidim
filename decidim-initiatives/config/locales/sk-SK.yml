@@ -46,6 +46,23 @@ sk:
         address: Adresa
         id_document: Doklad totožnosti
         name: Kompletné meno
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Iniciatíva
+        few: Iniciatívy
+        many: Iniciatívy
+        other: Iniciatívy
+      decidim/initiative_comittee:
+        one: Komisia
+        few: Komisie
+        many: Komisie
+        other: Komisie
+      decidim/initiative_vote:
+        one: Podpis
+        few: Podpisy
+        many: Podpisy
+        other: Podpisy
   decidim:
     admin:
       actions:
@@ -60,6 +77,7 @@ sk:
         initiatives:
           fields:
             created_at: Vytvorené u
+            id: ID
             state: Štát
             supports_count: Podpisy
             title: Iniciatívy
@@ -77,6 +95,7 @@ sk:
           fields:
             date_of_birth: Dátum narodenia
             document_number: Číslo dokumentu
+            hash: Hash
             initiative_end_date: Dátum ukončenia
             initiative_id: ID iniciatívy
             initiative_signatures_count: Počet podpisov
@@ -93,7 +112,7 @@ sk:
       initiatives:
         initiative_extended:
           email_intro: Podpisový termín pre iniciatívu%{resource_title} bol rozšírený!
-          email_outro: Toto oznámenie ste dostali, pretože ste sledovali%{resource_title}. Na nasledujúcom odkaze môžete prestať odoberať oznámenia.
+          email_outro: Toto oznámenie ste dostali, pretože sledujete %{resource_title}. Na nasledujúcom odkaze môžete prestať odoberať oznámenia.
           email_subject: Dátum ukončenia podpisov iniciatívy bolo rozšírené!
           notification_title: Koniec konca podpise iniciatívy <a href="%{resource_path}">%{resource_title} </a> bol predĺžený.
         milestone_completed:
@@ -104,9 +123,15 @@ sk:
             notification_title: Vaša iniciatíva <a href="%{resource_path}">%{resource_title} </a> dosiahla%{percentage}% podpisov.
           follower:
             email_intro: Iniciatíva%{resource_title} dosiahla%{percentage}% podpisov!
-            email_outro: Toto oznámenie ste dostali, pretože ste sledovali%{resource_title}. Po predchádzajúcom prepojení môžete prestať prijímať oznámenia.
+            email_outro: Toto oznámenie ste dostali, pretože sledujete %{resource_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
             email_subject: Nový míľnik dokončený!
             notification_title: Iniciatíva <a href="%{resource_path}">%{resource_title} </a> dosiahla%{percentage}% podpisov.
+    gamification:
+      badges:
+        initiatives:
+          conditions:
+            - Prejsť na priestor Iniciatív
+            - Nasledovať kroky pre vytvorenie novej iniciatívy
     help:
       participatory_spaces:
         initiatives:
@@ -227,7 +252,7 @@ sk:
           help_for_organizations: Ak ste asociácie, musíte nahrať zápisy zo správnej rady všetkých organizácií, ktoré tvoria Komisie pre podporu
           help_in_person_signatures: Ak ste sa rozhodli vyzdvihnúť podpisy osobne alebo v kombinácii s online, budete musieť nahrať požadované informácie.
           help_text: Nezabudnite, že pre správne spracovanie iniciatívy musíte pristupovať k administračnému panelu, kde nájdete užívateľské menu, nahrať požadované informácie a odoslať ich na spracovanie.
-          initiatives_page_link: Môžete si pozrieť všetky tieto informácie na odkaze%{link} určenom na informovanie o iniciatívach.
+          initiatives_page_link: Môžete si pozrieť všetky tieto informácie na odkaze %{link} určenom na informovanie o iniciatívach.
           page: stránka
         previous_form:
           back: Späť
@@ -255,12 +280,12 @@ sk:
       events:
         create_initiative_event:
           email_intro: "% {AUTHOR_NAME}% {author_nickname}, ktorého sledujete, vytvoril novú iniciatívu, skontroloval ju a prispel:"
-          email_outro: Toto oznámenie ste dostali, pretože ste sledovali%{author_nickname}. Po predchádzajúcom prepojení môžete prestať prijímať oznámenia.
+          email_outro: Toto oznámenie ste dostali, pretože sledujete %{author_nickname}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
           email_subject: Nová iniciatíva od%{author_nickname}
           notification_title: Iniciatíva <a href="%{resource_path}">% {resource_title} </a> bola vytvorená <a href="%{author_path}">% {AUTHOR_NAME}% {author_nickname} </a>.
         endorse_initiative_event:
           email_intro: "% {AUTHOR_NAME}% {author_nickname}, ktorého sledujete, schválil nasledujúce iniciatívu, možno chcete prispieť k konverzáciu:"
-          email_outro: Toto oznámenie ste dostali, pretože ste sledovali%{author_nickname}. Po predchádzajúcom prepojení môžete prestať prijímať oznámenia.
+          email_outro: Toto oznámenie ste dostali, pretože sledujete %{author_nickname}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
           email_subject: Iniciatíva bola schválená od%{author_nickname}
           notification_title: Iniciatíva <a href="%{resource_path}">% {resource_title} </a> bola schválená <a href="%{author_path}">% {AUTHOR_NAME}% {author_nickname} </a>.
       index:
