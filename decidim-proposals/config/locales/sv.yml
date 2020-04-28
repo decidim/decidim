@@ -115,7 +115,7 @@ sv:
             amendments_wizard_help_text: Hjälptext för guiden för ändringsförslag
             announcement: Meddelande
             attachments_allowed: Tillåt bilagor
-            can_accumulate_supports_beyond_threshold: Kan samla in stöd bortom tröskeln
+            can_accumulate_supports_beyond_threshold: Kan samla in röster bortom tröskeln
             collaborative_drafts_enabled: Samarbetsutkast aktiverat
             comments_enabled: Kommentarer aktiverade
             geocoding_enabled: Geokodning aktiverad
@@ -204,7 +204,7 @@ sv:
         proposal_accepted:
           affected_user:
             email_intro: 'Ditt förslag "%{resource_title}" har godkänts. Du kan läsa svaret på den här sidan:'
-            email_outro: Du har fått den här meddelandet eftersom du är en författare av %{resource_title}".
+            email_outro: Du har fått det här meddelandet eftersom du är en författare av %{resource_title}".
             email_subject: Ditt förslag har antagits
             notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> har antagits.
           follower:
@@ -220,7 +220,7 @@ sv:
         proposal_evaluating:
           affected_user:
             email_intro: 'Ditt förslag "%{resource_title}" utvärderas för närvarande. Du kan söka efter ett svar på den här sidan:'
-            email_outro: Du har fått den här meddelandet eftersom du är en författare av %{resource_title}".
+            email_outro: Du har fått det här meddelandet eftersom du är en författare av %{resource_title}".
             email_subject: Ditt förslag utvärderas
             notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> utvärderas.
           follower:
@@ -230,7 +230,7 @@ sv:
             notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> utvärderas.
         proposal_mentioned:
           email_intro: Ditt förslag "%{mentioned_proposal_title}" har nämnts i kommentarerna i <a href="%{resource_url}">det här utrymmet</a>.
-          email_outro: Du har fått den här meddelandet eftersom du är en författare av %{resource_title}".
+          email_outro: Du har fått det här meddelandet eftersom du är en författare av %{resource_title}".
           email_subject: Ditt förslag "%{mentioned_proposal_title}" har nämnts
           notification_title: Ditt förslag "%{mentioned_proposal_title}" har nämnts <a href="%{resource_path}">i det här utrymmet</a> i kommentarerna.
         proposal_published:
@@ -240,13 +240,13 @@ sv:
           notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> publicerades av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: Förslaget "%{resource_title}" har lagts till i "%{participatory_space_title}" som du följer.
-          email_outro: Du har fått den här meddelandet eftersom du följer "%{participatory_space_title}". Du kan sluta att ta emot meddelanden genom att följa föregående länk.
+          email_outro: Du har fått det här meddelandet eftersom du följer "%{participatory_space_title}". Du kan sluta att ta emot meddelanden genom att följa föregående länk.
           email_subject: Nytt förslag "%{resource_title}" lades till %{participatory_space_title}
           notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har lagts till %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'Ditt förslag "%{resource_title}" har avslagits. Du kan läsa svaret på den här sidan:'
-            email_outro: Du har fått den här meddelandet eftersom du är en författare av %{resource_title}".
+            email_outro: Du har fått det här meddelandet eftersom du är en författare av %{resource_title}".
             email_subject: Ditt förslag har avslagits
             notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> har avslagits.
           follower:
