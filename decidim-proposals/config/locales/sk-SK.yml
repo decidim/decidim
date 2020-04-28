@@ -62,8 +62,11 @@ sk:
         search_placeholder:
           id_string_or_title_cont: Hľadať %{collection} podľa titulku alebo ID.
         state_eq:
+          label: Štát
           values:
+            accepted: Prijal
             evaluating: Hodnotenie
+            rejected: Odmietnuté
         state_null:
           label: Štát
         valuator_role_ids_has:
