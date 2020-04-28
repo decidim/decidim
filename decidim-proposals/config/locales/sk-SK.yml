@@ -14,7 +14,7 @@ sk:
         address: Adresa
         answer: Odpovedať
         answered_at: odpovedané na
-        automatic_hashtags: hashtags sa automaticky pridali
+        automatic_hashtags: Hashtagy sa automaticky pridali
         body: Telo
         category_id: Kategória
         decidim_scope_id: Rozsah
@@ -26,10 +26,10 @@ sk:
       proposal_answer:
         answer: Odpovedať
       proposals_copy:
-        copy_proposals: Chápem, že to bude importovať všetky návrhy z vybrané komponenty na aktuálne a že táto akcia nemôže byť zrušená.
-        origin_component_id: Komponent pre kopírovanie návrhov z
+        copy_proposals: Rozumiem, že toto importuje všetky návrhy z vybranej súčasti do aktuálnej, a že táto akcia nemôže byť vrátená.
+        origin_component_id: Súčasť, z ktorej sa skopírujú návrhy
       proposals_import:
-        import_proposals: Návrhy na dovoz
+        import_proposals: Importovať návrhy
         keep_authors: Uchovávajte pôvodnej autormi
       valuation_assignment:
         admin_log:
