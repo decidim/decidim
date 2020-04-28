@@ -403,7 +403,7 @@ shared_examples "manage meetings" do
         fill_in :close_meeting_attendees_count, with: 12
         fill_in :close_meeting_contributions_count, with: 44
         fill_in :close_meeting_attending_organizations, with: "Neighbours Association, Group of People Complaining About Something and Other People"
-        select decidim_html_escape(proposals.first.title), from: :close_meeting_proposal_ids
+        proposals_pick(select_data_picker(:close_meeting_proposals, multiple: true), proposals.first(2))
         click_button "Close"
       end
 

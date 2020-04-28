@@ -258,6 +258,7 @@ en:
         explanation: Get verified by introducing a passport number starting with "A"
         fields:
           passport_number: Passport number
+          postal_code: Postal code
         name: Another example authorization
       dummy_authorization_handler:
         explanation: Get verified by introducing a document number ending with "X"
@@ -347,6 +348,9 @@ en:
         name: Footer sub hero banner
       hero:
         name: Hero image
+      hero_settings_form:
+        background_image: Background image
+        welcome_text: Welcome text
       highlighted_content_banner:
         name: Highlighted content banner
       how_to_participate:
@@ -850,6 +854,25 @@ en:
         note: You received this email because you're subscribed to newsletters on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
         see_on_website: Can’t see this email correctly? View it on the <a href="%{link}" target="_blank">website</a>.
         unsubscribe: To opt out of receiving this type of email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
+    newsletter_templates:
+      basic_only_text:
+        body_preview: 'Dummy text for body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Basic (only text)
+      basic_only_text_settings_form:
+        body: Body
+        interpolations_hint: 'Hint: You can use "%{name}" anywhere in the body or subject and it will be replaced by the recipient''s name.'
+      image_text_cta:
+        body_preview: 'Dummy text for body: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
+        cta_text_preview: Call To Action text
+        introduction_preview: 'Dummy text for introduction: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Image, text and Call To Action button
+      image_text_cta_settings_form:
+        body: Body
+        cta_text: Call To Action button text
+        cta_url: Call To Action button URL
+        interpolations_hint: 'Hint: You can use "%{name}" anywhere in the introduction, body, CTA text or subject and it will be replaced by the recipient''s name.'
+        introduction: Introduction
+        main_image: Main image
     newsletters:
       unsubscribe:
         check_subscription: If you want to change your preferences, you can do so in the <a href="%{link}" target="_blank">configuration page</a>
