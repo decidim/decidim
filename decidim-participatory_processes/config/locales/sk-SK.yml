@@ -56,11 +56,31 @@ sk:
         participatory_process:
           attributes:
             document:
-              invalid_document_type: 'Neplatný typ dokumentu. Prijateľné formáty sú:% {valid_mime_types} '
+              invalid_document_type: 'Neplatný typ dokumentu. Prijateľné formáty sú:%{valid_mime_types} '
+    models:
+      decidim/participatory_process_step_activated_event: Krok aktivovaný
+      decidim/participatory_process_step_changed_event: Krok zmenený
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Participatívny proces
+        few: Participatívne procesy
+        many: Participatívne procesy
+        other: Participatívne procesy
+      decidim/participatory_process_group:
+        one: Skupina participatívnych procesov
+        few: Skupiny participatívnych procesov
+        many: Skupiny participatívnych procesov
+        other: Skupiny participatívnych procesov
+      decidim/participatory_process_step:
+        one: Krok
+        few: Kroky
+        many: Kroky
+        other: Kroky
   decidim:
     admin:
       actions:
-        activate: aktivovať
+        activate: Aktivovať
         configure: Konfigurovať
         confirm_destroy: Potvrďte zmazanie
         destroy: Odstrániť
@@ -77,6 +97,7 @@ sk:
         preview: Náhľad
         publish: Publikovať
         resend_invitation: Znovu poslať pozvánku
+        unpublish: Zrušiť zverejnenie
       menu:
         participatory_process_groups: Skupiny procesov
         participatory_processes: Procesy
@@ -118,6 +139,7 @@ sk:
           name: Užívateľ participatívneho procesu
           roles:
             admin: Správca
+            collaborator: Spolupracovník
             moderator: Moderátor
             valuator: Hodnotiteľ
         user:
@@ -237,6 +259,7 @@ sk:
       participatory_process:
         create: "% {USER_NAME} vytvoril% {resource_name} participačné proces"
         publish: "% {USER_NAME} publikoval% {resource_name} participačné proces"
+        unpublish: "%{user_name} zrušil zverejnenie participatívneho procesu %{resource_name}"
         update: "% {USER_NAME} aktualizoval% {resource_name} participačné proces"
       participatory_process_group:
         create: "% {USER_NAME} vytvoril skupinu% {resource_name} na participačné proces"
@@ -253,34 +276,40 @@ sk:
     events:
       participatory_process:
         step_activated:
-          email_intro: 'Krok% {resource_title} je teraz aktívny pre% {participatory_space_title}. Môžete ju vidieť z tejto stránky: '
-          email_outro: Toto oznámenie ste dostali, pretože ste sledovali% {participatory_space_title}. Po predchádzajúcom prepojení môžete prestať prijímať oznámenia.
-          email_subject: Aktualizácia na% {participatory_space_title}
-          notification_title: Krok% {resource_title} je teraz aktívny pre <a href="%{resource_path}">% {participatory_space_title} </a>
+          email_intro: 'Krok%{resource_title} je teraz aktívny pre%{participatory_space_title}. Môžete ju vidieť z tejto stránky: '
+          email_outro: Toto oznámenie ste dostali, pretože ste sledovali%{participatory_space_title}. Po predchádzajúcom prepojení môžete prestať prijímať oznámenia.
+          email_subject: Aktualizácia na%{participatory_space_title}
+          notification_title: Krok%{resource_title} je teraz aktívny pre <a href="%{resource_path}">%{participatory_space_title} </a>
         step_changed:
-          email_intro: 'Boli aktualizované dátum pre krok% {resource_title} v% {participatory_space_title}. Môžete ju vidieť z tejto stránky: '
-          email_outro: Toto oznámenie ste dostali, pretože ste sledovali% {participatory_space_title}. Po predchádzajúcom prepojení môžete prestať prijímať oznámenia.
-          email_subject: Aktualizácia na% {participatory_space_title}
-          notification_title: Boli aktualizované dáta pre krok <a href="%{resource_path}">% {resource_title} </a> vo <a href="%{participatory_space_url}">% {participatory_space_title} </a>.
+          email_intro: 'Boli aktualizované dátum pre krok%{resource_title} v%{participatory_space_title}. Môžete ju vidieť z tejto stránky: '
+          email_outro: Toto oznámenie ste dostali, pretože ste sledovali%{participatory_space_title}. Po predchádzajúcom prepojení môžete prestať prijímať oznámenia.
+          email_subject: Aktualizácia na%{participatory_space_title}
+          notification_title: Boli aktualizované dáta pre krok <a href="%{resource_path}">%{resource_title} </a> vo <a href="%{participatory_space_url}">%{participatory_space_title} </a>.
     help:
       participatory_spaces:
         participatory_processes:
-          page: "<p> <strong> participačné proces </ strong> je sled aktivít participatívneho charakteru (napr. Najprv vyplnenie prieskumu, následné podávanie návrhov, diskusia o nich v rámci osobných alebo virtuálnych stretnutí a nakoniec ich prioritizácie) s cieľom definovať a rozhodnúť na konkrétnu tému. </ p> <p> Príklady participačných procesov sú: proces voľby členov komisie (kde sú kandidatúry prvýkrát predstavené, potom diskutované a nakoniec je vybraná kandidatúra), participačné rozpočty (kde sú návrhy predložené, ekonomicky oceňované a hlasovanie s dostupnými prostriedky); proces strategického plánovania, spoločné vypracovanie nariadenia alebo normy, návrh mestského priestoru alebo vypracovanie plánu verejného poriadku. </ p> \\ n "
-          title: Čo je participačné proces?
+          contextual: "<p><strong>Participatívny proces</strong> je sled participačných aktivít (napr. vyplnenie prieskumu, vytvorenie návrhov, diskutovanie o návrhoch naživo alebo virtuálne, a nakoniec prioritizácia návrhov) s cieěom definovať a rozhodnúť o konkrétnej téme</p>. <p>Príklady participatívnych procesov sú: proces voľby členov komisie (kde sú predstavení kandidáti, potom sa o nich diskutuje a nakoniec sa zvolia), participatívne rozpočty (kde sú vytvorené návrhy, finančne nacenené a nakoniec sa o nich hlasuje podľa rozpočtu), alebo strategický proces plánovania, spoločná tvorba regulácie alebo normy, návrh mestského priestoru, či tvorba spoločnej verejnej politiky, či plánu.</p>"
+          page: "<p><strong>Participatívny proces</strong> je sled participačných aktivít (napr. vyplnenie prieskumu, vytvorenie návrhov, diskutovanie o návrhoch naživo alebo virtuálne, a nakoniec prioritizácia návrhov) s cieěom definovať a rozhodnúť o konkrétnej téme</p>. <p>Príklady participatívnych procesov sú: proces voľby členov komisie (kde sú predstavení kandidáti, potom sa o nich diskutuje a nakoniec sa zvolia), participatívne rozpočty (kde sú vytvorené návrhy, finančne nacenené a nakoniec sa o nich hlasuje podľa rozpočtu), alebo strategický proces plánovania, spoločná tvorba regulácie alebo normy, návrh mestského priestoru, či tvorba spoločnej verejnej politiky, či plánu.</p>"
+          title: Čo je participatívny proces?
     menu:
       processes: Procesy
+    metrics:
+      participatory_processes:
+        description: Počet participatívnych procesov v tejto organizácii
+        object: participatívne procesy
+        title: Participatívne procesy
     participatory_process_groups:
       show:
         group_participatory_processes:
-          one: 1 pre% {group}
-          few: "% {count} procesov pre% {group}"
-          many: "% {count} procesov pre% {group}"
-          other: "% {count} procesov pre% {group}"
-        title: Skupiny zúčastnených procesov
+          one: 1 proces pre %{group}
+          few: "%{count} procesy pre %{group}"
+          many: "%{count} procesov pre %{group}"
+          other: "%{count} procesov pre %{group}"
+        title: Skupiny participatívnych procesov
     participatory_process_steps:
       index:
-        process_steps: Procesné kroky
-        title: Stacionárne kroky procesu
+        process_steps: Kroky procesu
+        title: Kroky participatívneho procesu
     participatory_processes:
       admin:
         content_blocks:
@@ -288,14 +317,14 @@ sk:
             max_results: Maximálne množstvo prvkov, ktoré chcete zobraziť
         participatory_process_copies:
           form:
-            slug_help: 'Stĺpce adries URL sa používajú na vygenerovanie adries URL, ktoré smerujú k tomuto procesu. Prijme iba písmená, čísla a pomlčky a musí začínať písmenom. Príklad:% {url} '
+            slug_help: 'Stĺpce adries URL sa používajú na vygenerovanie adries URL, ktoré smerujú k tomuto procesu. Prijme iba písmená, čísla a pomlčky a musí začínať písmenom. Príklad:%{url} '
         participatory_process_imports:
           form:
             document_legend: Pridať dokument
-            slug_help: 'URL slug sa používajú na vygenerovanie adries URL, ktoré odkazujú na toto zhromaždenie. Prijme iba písmená, čísla a pomlčky a musí začínať písmenom. Príklad:% {url} '
+            slug_help: 'URL slug sa používajú na vygenerovanie adries URL, ktoré odkazujú na toto zhromaždenie. Prijme iba písmená, čísla a pomlčky a musí začínať písmenom. Príklad:%{url} '
         participatory_process_steps:
           form:
-            cta_path_help: 'Použite tu čiastočné cesty, nie úplné adresy URL. Prijme písmená, čísla, pomlčky a lomítka a musí začínať písmenom. Ak nie je nastavené, tlačidlo sa nezobrazí. Príklad:% {url} '
+            cta_path_help: 'Použite tu čiastočné cesty, nie úplné adresy URL. Prijme písmená, čísla, pomlčky a lomítka a musí začínať písmenom. Ak nie je nastavené, tlačidlo sa nezobrazí. Príklad:%{url} '
             cta_text_help: Ak nie je nastavené, tlačidlo sa nezobrazí.
         participatory_processes:
           form:
@@ -303,12 +332,13 @@ sk:
             duration: Čas trvania
             filters: Filtre
             images: snímky
+            metadata: Metadata
             other: iný
             related_processes: Súvisiace procesy
             scope_type_max_depth_help: Obmedziť hĺbku filtra rozsahu; filter umožňuje zobraziť všeobecné alebo vybrané druhy rozsahov.
             select_an_area: Vyberte rozsah
             select_process_group: Vyberte skupinu procesov
-            slug_help: 'Stĺpce adries URL sa používajú na vygenerovanie adries URL, ktoré smerujú k tomuto procesu. Prijme iba písmená, čísla a pomlčky a musí začínať písmenom. Príklad:% {url} '
+            slug_help: 'Stĺpce adries URL sa používajú na vygenerovanie adries URL, ktoré smerujú k tomuto procesu. Prijme iba písmená, čísla a pomlčky a musí začínať písmenom. Príklad:%{url} '
             title: Všeobecná informácia
             visbility: Viditeľnosť
       content_blocks:
@@ -331,22 +361,32 @@ sk:
           counters:
             active:
               one: 1 aktívny proces
-              few: "% {count} aktívnych procesov"
-              many: "% {count} aktívnych procesov"
-              other: "% {count} aktívnych procesov"
+              few: "%{count} aktívnych procesov"
+              many: "%{count} aktívnych procesov"
+              other: "%{count} aktívnych procesov"
             all:
               one: 1
-              few: "% {count} procesov"
-              many: "% {count} procesov"
-              other: "% {count} procesov"
+              few: "%{count} procesov"
+              many: "%{count} procesov"
+              other: "%{count} procesov"
+            past:
+              one: 1 uplynulý proces
+              few: "%{count} uplynulé procesy"
+              many: "%{count} uplynulých procesov"
+              other: "%{count} uplynulých procesov"
             upcoming:
-              one: 1 nadchádzajúce proces
-              few: "% {count} nadchádzajúcich procesov"
-              many: "% {count} nadchádzajúcich procesov"
-              other: "% {count} nadchádzajúcich procesov"
+              one: 1 nadchádzajúci proces
+              few: "%{count} nadchádzajúcich procesov"
+              many: "%{count} nadchádzajúcich procesov"
+              other: "%{count} nadchádzajúcich procesov"
+          explanations:
+            no_active: Žiadne aktívne procesy
+            no_active_nor_upcoming: Žiadne aktívne alebo nadchádzajúce procesy
+            no_active_nor_upcoming_callout: Nie sú žiadne aktívne alebo nadchádzajúce procesy. Tu je zoznam uplynulých.
           names:
             active: Aktívne
             all: Všetko
+            past: Uplynulé
             upcoming: Nadchádzajúce
           see: Vidieť
         index:
@@ -405,7 +445,7 @@ sk:
           more_info: Viac informácií
           take_part: Zúčastniť sa
       process_header_steps:
-        step: Krok% {current} z% {total}
+        step: Krok%{current} z%{total}
         view_steps: Zobraziť kroky
       process_navigation:
         process_menu_item: Proces
