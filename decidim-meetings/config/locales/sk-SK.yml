@@ -38,8 +38,8 @@ sk:
         meeting_agenda:
           attributes:
             base:
-              too_many_minutes: Čas trvania položiek presahuje dobu trvania konferencie o% {count} minút
-              too_many_minutes_child: Dĺžka podradené položky presahuje dobu o% {count} minút z nadradenej položku programu "% {parent_title}"
+              too_many_minutes: Čas trvania položiek presahuje dobu trvania konferencie o%{count} minút
+              too_many_minutes_child: Dĺžka podradené položky presahuje dobu o%{count} minút z nadradenej položku programu "%{parent_title}"
         meeting_registration_invite:
           attributes:
             email:
@@ -73,47 +73,47 @@ sk:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'Vaše stretnutie "% {resource_title}" bola uzavretá. Závery zo svojej stránky môžete prečítať: '
-            email_outro: Toto oznámenie ste dostali, pretože ste usporiadali schôdzku "% {resource_title}".
-            email_subject: Schôdzka "% {resource_title}" bola uzavretá
-            notification_title: Schôdzka <a href="%{resource_path}">% {resource_title} </a> bola uzavretá.
+            email_intro: 'Vaše stretnutie "%{resource_title}" bola uzavretá. Závery zo svojej stránky môžete prečítať: '
+            email_outro: Toto oznámenie ste dostali, pretože ste usporiadali schôdzku "%{resource_title}".
+            email_subject: Schôdzka "%{resource_title}" bola uzavretá
+            notification_title: Schôdzka <a href="%{resource_path}">%{resource_title} </a> bola uzavretá.
           follower:
-            email_intro: 'Schôdzka "% {resource_title}" bola uzavretá. Závery zo svojej stránky môžete prečítať: '
-            email_outro: Toto upozornenie ste dostali, pretože postupujete po stretnutí "% {resource_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
-            email_subject: Schôdzka "% {resource_title}" bola uzavretá
-            notification_title: Schôdzka <a href="%{resource_path}">% {resource_title} </a> bola uzavretá.
+            email_intro: 'Schôdzka "%{resource_title}" bola uzavretá. Závery zo svojej stránky môžete prečítať: '
+            email_outro: Toto upozornenie ste dostali, pretože postupujete po stretnutí "%{resource_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
+            email_subject: Schôdzka "%{resource_title}" bola uzavretá
+            notification_title: Schôdzka <a href="%{resource_path}">%{resource_title} </a> bola uzavretá.
         meeting_created:
-          email_intro: Schôdzka "% {resource_title}" bola pridaná k "% {participatory_space_title}", ktorú sledujete.
-          email_outro: Toto oznámenie ste dostali, pretože ste sledovali "% {participatory_space_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
-          email_subject: Nové stretnutia boli pridané k% {participatory_space_title}
-          notification_title: Stretnutie <a href="%{resource_path}">% {resource_title} </a> bolo pridané do% {participatory_space_title}
+          email_intro: Schôdzka "%{resource_title}" bola pridaná k "%{participatory_space_title}", ktorú sledujete.
+          email_outro: Toto oznámenie ste dostali, pretože ste sledovali "%{participatory_space_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
+          email_subject: Nové stretnutia boli pridané k%{participatory_space_title}
+          notification_title: Stretnutie <a href="%{resource_path}">%{resource_title} </a> bolo pridané do%{participatory_space_title}
         meeting_registration_confirmed:
-          notification_title: Vaša registrácia pre stretnutie <a href="%{resource_url}">% {resource_title} </a> bola potvrdená. Váš registračný kód je% {registration_code}.
+          notification_title: Vaša registrácia pre stretnutie <a href="%{resource_url}">%{resource_title} </a> bola potvrdená. Váš registračný kód je%{registration_code}.
         meeting_registrations_over_percentage:
-          email_intro: Počet schôdzok obsadených schôdzí "% {resource_title}" je vyššia ako% {percentage}%.
+          email_intro: Počet schôdzok obsadených schôdzí "%{resource_title}" je vyššia ako%{percentage}%.
           email_outro: Toto oznámenie ste dostali, pretože ste administrátor participačného priestoru schôdzky.
-          email_subject: Schôdzky obsadené schôdzkou "% {resource_title}" sú nad% {percentage}%
-          notification_title: Počet obsadených slotov <a href="%{resource_path}">% {resource_title} </a> je vyššia ako% {percentage}%.
+          email_subject: Schôdzky obsadené schôdzkou "%{resource_title}" sú nad%{percentage}%
+          notification_title: Počet obsadených slotov <a href="%{resource_path}">%{resource_title} </a> je vyššia ako%{percentage}%.
         meeting_updated:
-          email_intro: 'Schôdzka "% {resource_title}" bola aktualizovaná. Nová verzia si môžete prečítať na stránke: '
-          email_outro: Toto upozornenie ste dostali, pretože postupujete po stretnutí "% {resource_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
-          email_subject: Schôdzka "% {resource_title}" bola aktualizovaná
-          notification_title: Schôdzka <a href="%{resource_path}">% {resource_title} </a> bola aktualizovaná.
+          email_intro: 'Schôdzka "%{resource_title}" bola aktualizovaná. Nová verzia si môžete prečítať na stránke: '
+          email_outro: Toto upozornenie ste dostali, pretože postupujete po stretnutí "%{resource_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
+          email_subject: Schôdzka "%{resource_title}" bola aktualizovaná
+          notification_title: Schôdzka <a href="%{resource_path}">%{resource_title} </a> bola aktualizovaná.
         registration_code_validated:
-          email_intro: Váš registračný kód "% {registration_code}" pre stretnutie "% {resource_title}" bol overený.
-          email_outro: Toto oznámenie ste dostali, pretože bol overený váš registračný kód pre schôdzku "% {resource_title}".
-          email_subject: Váš registračný kód "% {registration_code}" pre stretnutie "% {resource_title}" bol overený
-          notification_title: Váš registračný kód "% {registration_code}" pre stretnutie <a href="%{resource_path}">% {resource_title} </a> bol overený.
+          email_intro: Váš registračný kód "%{registration_code}" pre stretnutie "%{resource_title}" bol overený.
+          email_outro: Toto oznámenie ste dostali, pretože bol overený váš registračný kód pre schôdzku "%{resource_title}".
+          email_subject: Váš registračný kód "%{registration_code}" pre stretnutie "%{resource_title}" bol overený
+          notification_title: Váš registračný kód "%{registration_code}" pre stretnutie <a href="%{resource_path}">%{resource_title} </a> bol overený.
         registrations_enabled:
-          email_intro: 'Schôdzka "% {resource_title}" povolila registrácie. Môžete sa zaregistrovať na svojej stránke: '
-          email_outro: Toto upozornenie ste dostali, pretože postupujete po stretnutí "% {resource_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
-          email_subject: Schôdzka "% {resource_title}" povolila registrácie.
-          notification_title: Schôdzka <a href="%{resource_path}">% {resource_title} </a> povolila registrácie.
+          email_intro: 'Schôdzka "%{resource_title}" povolila registrácie. Môžete sa zaregistrovať na svojej stránke: '
+          email_outro: Toto upozornenie ste dostali, pretože postupujete po stretnutí "%{resource_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
+          email_subject: Schôdzka "%{resource_title}" povolila registrácie.
+          notification_title: Schôdzka <a href="%{resource_path}">%{resource_title} </a> povolila registrácie.
         upcoming_meeting:
-          email_intro: Schôdzka "% {resource_title}" začne za menej ako 48 hodín.
-          email_outro: Toto upozornenie ste dostali, pretože postupujete po stretnutí "% {resource_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
-          email_subject: Schôdzka "% {resource_title}" začne za menej ako 48 hodín.
-          notification_title: Stretnutie <a href="%{resource_path}">% {resource_title} </a> sa začne za menej ako 48 hodín.
+          email_intro: Schôdzka "%{resource_title}" začne za menej ako 48 hodín.
+          email_outro: Toto upozornenie ste dostali, pretože postupujete po stretnutí "%{resource_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
+          email_subject: Schôdzka "%{resource_title}" začne za menej ako 48 hodín.
+          notification_title: Stretnutie <a href="%{resource_path}">%{resource_title} </a> sa začne za menej ako 48 hodín.
     meetings:
       actions:
         agenda: Denný program
@@ -165,8 +165,8 @@ sk:
         invite_join_meeting_mailer:
           invite:
             decline: Odmietnuť pozvanie
-            invited_you_to_join_a_meeting: "% {invited_by} vás pozýva na schôdzku na% {application}. Môžete ho odmietnuť alebo prijať prostredníctvom nižšie uvedených odkazov."
-            join: Pripojte sa k schôdzke '% {meeting_title}'
+            invited_you_to_join_a_meeting: "%{invited_by} vás pozýva na schôdzku na%{application}. Môžete ho odmietnuť alebo prijať prostredníctvom nižšie uvedených odkazov."
+            join: Pripojte sa k schôdzke '%{meeting_title}'
         invites:
           create:
             error: Pri pozvanie užívateľa k schôdzke došlo k problému.
@@ -255,12 +255,12 @@ sk:
             invites: Pozvánky
             registration_form: Registračný formulár
             registrations_count:
-              one: Bola tu registrácia% {count}.
-              few: Bolo tu% {count} registrácií.
-              many: Bolo tu% {count} registrácií.
-              other: Bolo tu% {count} registrácií.
+              one: Bola tu registrácia%{count}.
+              few: Bolo tu%{count} registrácií.
+              many: Bolo tu%{count} registrácií.
+              other: Bolo tu%{count} registrácií.
             reserved_slots_help: Nechajte ju na 0, ak nemáte vyhradenej sloty
-            reserved_slots_less_than: Musí byť menšie alebo rovné% {count}
+            reserved_slots_less_than: Musí byť menšie alebo rovné%{count}
             title: Registrácia
           update:
             invalid: Vyskytol sa problém pri ukladaní nastavení registrácie.
@@ -281,7 +281,7 @@ sk:
           update: "% {USER_NAME} aktualizovalo% {resource_name} schôdzku v priestore% {space_name}"
           value_types:
             organizer_presenter:
-              not_found: 'Organizátor nebol nájdený v databáze (ID:% {id})'
+              not_found: 'Organizátor nebol nájdený v databáze (ID:%{id})'
         minutes:
           create: "% {USER_NAME} vytvorilo zápisy zo schôdzky% {resource_name} v priestore% {space_name}"
           update: "% {USER_NAME} aktualizoval zápisy zo schôdzky% {resource_name} na% {space_name} miesta"
@@ -305,7 +305,7 @@ sk:
             space_type: Zúčastňujú priestor
             upcoming: Nadchádzajúce
       last_activity:
-        new_meeting_at_html: "<span> Nové stretnutie v% {link} </ span>"
+        new_meeting_at_html: "<span> Nové stretnutie v%{link} </ span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -348,10 +348,10 @@ sk:
             validated: DOKÁZANÝ
             validation_pending: OVERENIE ČAKÁ NA SCHVÁLENIE
           remaining_slots:
-            one: "% {count} zostávajúceho slotu"
-            few: "% {count} zostávajúcich blokov"
-            many: "% {count} zostávajúcich blokov"
-            other: "% {count} zostávajúcich blokov"
+            one: "%{count} zostávajúceho slotu"
+            few: "%{count} zostávajúcich blokov"
+            many: "%{count} zostávajúcich blokov"
+            other: "%{count} zostávajúcich blokov"
           view: Zobrazenie
       meetings_map:
         view_meeting: Zobraziť schôdzku
@@ -363,8 +363,8 @@ sk:
             sent_at: Odoslané v
             status: Stav
           status:
-            accepted: Prijal (% {at})
-            rejected: Odmietnuté (% {at})
+            accepted: Prijal (%{at})
+            rejected: Odmietnuté (%{at})
             sent: Odoslaná
         meeting:
           fields:
@@ -375,9 +375,9 @@ sk:
       read_more: "(Prečítajte si viac)"
       registration_mailer:
         confirmation:
-          confirmed_html: Vaša registrácia pre stretnutie <a href="%{url}">% {title} </a> bola potvrdená.
+          confirmed_html: Vaša registrácia pre stretnutie <a href="%{url}">%{title} </a> bola potvrdená.
           details: Podrobnosti schôdzky nájdete v prílohe.
-          registration_code: Váš registračný kód je% {code}.
+          registration_code: Váš registračný kód je%{code}.
       registrations:
         create:
           invalid: Na schôdzi došlo k problému.
@@ -399,7 +399,7 @@ sk:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Minulé schôdze
-        see_all: Zobraziť všetky (% {count})
+        see_all: Zobraziť všetky (%{count})
         upcoming_meetings: Nadchádzajúce schôdzky
       upcoming_meeting_for_card:
         upcoming_meeting: Nadchádzajúce schôdzka
