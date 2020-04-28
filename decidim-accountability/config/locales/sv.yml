@@ -199,7 +199,7 @@ sv:
       accountability:
         proposal_linked:
           email_intro: 'Förslaget "%{proposal_title}" har tagits med i ett resultat. Visa det från den här sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer "%{proposal_title}". Du kan sluta att ta emot meddelanden genom att följa föregående länk.
+          email_outro: Du har fått det här meddelandet eftersom du följer "%{proposal_title}". Du kan sluta att ta emot meddelanden genom att följa föregående länk.
           email_subject: En uppdatering till %{proposal_title}
           notification_title: Förslaget <a href="%{proposal_path}">%{proposal_title}</a> har tagits med i resultatet <a href="%{resource_path}">%{resource_title}</a>.
         result_progress_updated:
