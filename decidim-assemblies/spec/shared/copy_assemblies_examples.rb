@@ -55,7 +55,7 @@ shared_examples "copy assemblies" do
     end
 
     it "copies the assembly with categories" do
-      page.check("assembly[copy_categories]")
+      switch_check_box("Copy categories")
       click_button "Copy"
 
       expect(page).to have_content("successfully")
@@ -71,7 +71,7 @@ shared_examples "copy assemblies" do
     end
 
     it "copies the assembly with components" do
-      page.check("assembly[copy_components]")
+      switch_check_box("Copy components")
       click_button "Copy"
 
       expect(page).to have_content("successfully")

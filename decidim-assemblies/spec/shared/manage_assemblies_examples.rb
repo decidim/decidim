@@ -149,7 +149,7 @@ shared_examples "manage assemblies" do
     it "disables the scope for the assembly" do
       click_link translated(assembly.title)
 
-      uncheck :assembly_scopes_enabled
+      unswitch_check_box "Scopes enabled"
 
       expect(page).to have_selector("#assembly_scope_id.disabled")
       expect(page).to have_selector("#assembly_scope_id .picker-values div input[disabled]", visible: false)
