@@ -48,3 +48,41 @@ sk:
           update:
             invalid: Vyskytol sa problém s ukladaním formulára.
             success: Formulár úspešne uložený.
+      errors:
+        answer:
+          body: Telo nemôže byť prázdne
+      question_types:
+        long_answer: Dlhá odpoveď 
+        multiple_option: Viacero možností
+        short_answer: Krátka odpoveď
+        single_option: Jedna možnosť
+        sorting: Zoradenie
+      questionnaires:
+        answer:
+          invalid: Vyskytol sa problém s odpovedaním na formulár.
+          success: Formulár úspešne zodpovedaný.
+        question:
+          max_choices: 'Maximum možností: %{n}'
+        show:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Prihláste sa so svojím účtom</a> alebo <a href="%{sign_up_link}"> sa zaregistrujte</a>, aby ste mohli odpovedať.
+            title: Odpovedať na formulár
+          are_you_sure: Táto akcia sa nedá vrátiť späť, a nebudete môcť upraviť svoje odpovede. Ste si istí?
+          questionnaire_answered:
+            body: Na tento formulár už ste dopovedali.
+            title: Už ste odpovedali
+          questionnaire_closed:
+            body: Tento formulár je už uzavretý a nedá sa naň odpovedať.
+            title: Formulár je uzavretý.
+          questionnaire_for_private_users:
+            body: Formulár je otvorený len pre súkromných používateľov
+            title: Formulár je uzavretý
+          submit: Poslať
+          tos_agreement: Účasťou súhlasíte s našimi Podmienkami použitia
+      user_answers_serializer:
+        created_at: Odpovedané na 
+        id: ID odpovede
+        ip_hash: IP Hash
+        registered: Registrovaný
+        unregistered: Neregistrovaný
+        user_status: Status Užívateľa
