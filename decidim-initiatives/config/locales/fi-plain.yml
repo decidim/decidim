@@ -65,13 +65,10 @@ fi-pl:
         search_placeholder:
           title_or_description_cont: '%{collection}: Hae otsikon tai kuvauksen perusteella'
         state_eq:
-          label: Maakunta/osavaltio
           values:
-            accepted: Hyväksytty
             created: Luotu
             discarded: Hylätty
             published: Julkaistu
-            rejected: Torjuttu
             validating: Teknisessä validoinnissa
       menu:
         initiatives: Aloitteet
