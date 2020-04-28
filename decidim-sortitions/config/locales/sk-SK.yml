@@ -2,12 +2,12 @@ sk:
   activemodel:
     attributes:
       sortition:
-        additional_info: Informácie o žrebovacie voľbe
-        decidim_category_id: Kategória sady návrhov, v ktorých chcete použiť remízu
+        additional_info: Informácie o voľbe losovaním
+        decidim_category_id: Kategórie sady návrhov, v ktorých chcete použiť remízu
         decidim_proposals_component_id: Návrhy sú nastavené
-        dice: Výsledok vojne. Otočte šesťstranné zápustku alebo vyhľadajte iný náhodný spôsob, ako vygenerovať číslo od 1 do 6, a zadajte tu výsledné číslo pred niektorými svedkami. To prispieva ku kvalite a zárukám náhodnosti výsledku
-        target_items: Počet návrhov, ktoré majú byť vybrané (udáva počet návrhov, ktoré chcete vybrať, čerpaním zo skupiny návrhov, ktoré ste predtým vybrali)
-        title: Titul
+        dice: Výsledok hodu kockou. Hoďte 6-strananou kockou alebo vyhľadajte iný náhodný spôsob, ako vygenerovať číslo od 1 do 6, a zadajte tu výsledné číslo pred niekoľkými svedkami. To prispieva ku kvalite a záruke náhodnosti výsledku.
+        target_items: Počet návrhov, ktoré majú byť vybrané (udáva počet návrhov, ktoré chcete vybrať zo skupiny návrhov, ktoré ste predtým vybrali)
+        title: Názov
         witnesses: Svedkovia
     models:
       decidim/sortitions/create_sortition_event: Voľba losovaním
@@ -28,7 +28,7 @@ sk:
     events:
       sortitions:
         sortition_created:
-          email_intro: Vvoľba losovaním "% {resource_title}" bola pridanýák "% {participatory_space_title}", ktorý sledujete.
+          email_intro: Vvoľba losovaním "% {resource_title}" bola pridaná ku "% {participatory_space_title}", ktorý sledujete.
           email_outro: Toto oznámenie ste dostali, pretože ste sledovali "% {participatory_space_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
           email_subject: Nová voľba losovaním bola pridaná ku %{participatory_space_title}
           notification_title: Vvoľba losovaním <a href="%{resource_path}">% {resource_title} </a> bola pridaná ku %{participatory_space_title}
@@ -42,10 +42,10 @@ sk:
     sortitions:
       admin:
         actions:
-          destroy: Zrušiť výber
+          destroy: Zrušiť voľbu losovaním
           edit: Upraviť
-          new: Nové rozvrhnutie
-          show: Podrobnosti o žrebovacie voľbe
+          new: Nová voľba losovaním
+          show: Podrobnosti o voľbe losovaním
         models:
           sortition:
             fields:
@@ -53,23 +53,29 @@ sk:
               created_at: Dátum vzniku
               decidim_proposals_component: Súčasť návrhov
               dice: Kocky
+              reference: Odkazy
               request_timestamp: Doba kreslenie
               seed: Semienko
               target_items: Položky, ktoré chcete vybrať
               title: Titul
+            name:
+              one: Voľba losovaním
+              few: Voľby losovaním
+              many: Voľby losovaním
+              other: Voľby losovaním
         sortitions:
           confirm_destroy:
-            confirm_destroy: Naozaj chcete túto ponuku zrušiť?
-            destroy: Zrušiť výber
-            title: Zrušenie výberového konania
+            confirm_destroy: Naozaj chcete túto voľbu zrušiť?
+            destroy: Zrušiť voľbu
+            title: Zrušenie voľby losovaním
           create:
-            error: Pri vytváraní nového rozloženia došlo k chybe.
-            success: Sorta bola úspešne vytvorená
+            error: Pri vytváraní novej voľby došlo k chybe.
+            success: Voľba losovaním bola úspešne vytvorená
           destroy:
-            error: Výber nemožno zrušiť.
-            success: Sorta bola úspešne zrušená
+            error: Voľbu nemožno zrušiť.
+            success: Voľba bola úspešne zrušená
           edit:
-            title: Aktualizujte informácie o žrebovacie voľbe
+            title: Aktualizujte informácie o voľbe losovaním
             update: Aktualizácia
           form:
             all_categories: Všetky kategórie
