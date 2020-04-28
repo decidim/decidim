@@ -1,5 +1,41 @@
 sk:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Kategória
+        decidim_category_id: Kategória
+        description: Popis
+        end_time: Končí
+        information_updates: Aktualizácia Informácií
+        instructions: Inštrukcie ku zapojeniu
+        start_time: Začiatok
+        title: Názov
+        user_group_id: Vytvoriť debatu ako
+    models:
+      decidim/debates/create_debate_event: Debata
+      decidim/debates/creation_disabled_event: Debaty zakázané
+      decidim/debates/creation_enabled_event: Debaty povolené
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Debata
+        few: Debaty
+        many: Debaty
+        other: Debaty
   decidim:
+    components:
+      debates:
+        actions:
+          create: Vytvoriť
+        name: Debaty
+        settings:
+          global:
+            announcement: Oznámenie
+            comments_enabled: Komentáre povolené
+          step:
+            announcement: Oznámenie
+            comments_blocked: Komentáre blokované
+            creation_enabled: Vytvorenie debaty používateľmi povolené
     debates:
       debates:
         show:
