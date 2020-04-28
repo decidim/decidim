@@ -29,13 +29,10 @@ is-IS:
     admin:
       filters:
         state_eq:
-          label: Ríki
           values:
-            accepted: Samþykkt
             created: Búið til
             discarded: Fargað
             published: Published
-            rejected: Hafnað
             validating: Tæknilegar staðfestingar
       menu:
         initiatives: Frumkvæði
