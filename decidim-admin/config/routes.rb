@@ -53,7 +53,15 @@ Decidim::Admin::Engine.routes.draw do
       end
     end
 
-    resources :newsletters do
+    resources :newsletter_templates, only: [:index, :show] do
+      resources :newsletters, only: [:new, :create]
+
+      member do
+        get :preview
+      end
+    end
+
+    resources :newsletters, except: [:new, :create] do
       member do
         get :recipients_count
         get :preview

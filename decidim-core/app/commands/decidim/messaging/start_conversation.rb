@@ -34,7 +34,7 @@ module Decidim
       def conversation
         @conversation ||= Conversation.start(
           originator: originator,
-          interlocutors: [form.recipient],
+          interlocutors: form.recipient,
           body: form.body
         )
       end
