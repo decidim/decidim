@@ -1,1 +1,50 @@
 sk:
+  activemodel:
+    attributes:
+      answer:
+        body: Odpoveď
+      question:
+        max_choices: Maximálny počet možností
+        question_type: Typ
+      questionnaire_question:
+        mandatory: Povinné
+    errors:
+      models:
+        answer:
+          attributes:
+            choices:
+              missing: nie je kompletné
+              too_many: je príliš veľa
+        questionnaire:
+          request_invalid: Počas požiadavku sa vyskytla chyba, skúste to znova.
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: Popis
+            tos: Podmienky použitia
+        questionnaires:
+          answer_option:
+            answer_option: Možnosť odpovede
+            free_text: Voľný text
+            remove: Odstrániť
+            statement: Prehlásenie
+          edit:
+            save: Uložiť
+            title: Názov
+          form:
+            add_question: Pridať otázku
+            already_answered_warning: Na formulár už niekto odpovedal, takže nemôžete meniť jeho otázky.
+          question:
+            add_answer_option: Pridať možnosť odpovede
+            any: Akékoľvek
+            description: Popis
+            down: Nadol
+            question: Otázka
+            remove: Odstrániť
+            statement: Prehlásenie
+            up: Hore
+          update:
+            invalid: Vyskytol sa problém s ukladaním formulára.
+            success: Formulár úspešne uložený.
