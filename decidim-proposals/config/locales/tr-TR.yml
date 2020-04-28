@@ -77,8 +77,11 @@ tr:
             'false': Teklif
             'true': Değişiklikler
         state_eq:
+          label: Belirtmek, bildirmek
           values:
+            accepted: Kabul edilmiş
             evaluating: değerlendirilmesi
+            rejected: Reddedilen
             withdrawn: çekilmiş
         state_null:
           label: Belirtmek, bildirmek
