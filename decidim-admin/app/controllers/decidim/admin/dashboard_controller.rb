@@ -6,7 +6,7 @@ module Decidim
     #
     class DashboardController < Decidim::Admin::ApplicationController
       helper_method :latest_action_logs
-      helper_method :activity_graphs_presenter
+      helper_method :metrics_presenter
 
       def show
         enforce_permission_to :read, :admin_dashboard
@@ -23,8 +23,8 @@ module Decidim
                                 .first(5)
       end
 
-      def activity_graphs_presenter
-        @activity_graphs_presenter ||= Decidim::Admin::DashboardMetricChartsPresenter.new(
+      def metrics_presenter
+        @metrics_presenter ||= Decidim::Admin::DashboardMetricChartsPresenter.new(
           summary: true,
           organization: current_organization
         )
