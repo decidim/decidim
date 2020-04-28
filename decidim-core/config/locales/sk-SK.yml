@@ -639,7 +639,25 @@ sk:
             - Ak budete aktívni a budete sledovať ďalších ľudí, budú sledovať aj ľudia Vás.
           description: Tento odznak obdržíte za dosiahnutie určitého počtu sledovateľov. %{organization_name} je sociálna a politická sieť, komunikujte teda aj s ďalšími ľuďmi na platforme.
           description_another: Tento účastník má %{score} nasledovateľov.
+          description_own: "%{score} ľudí Vás sleduje."
+          name: Sledujúci
+          next_level_in: Pre dosiahnutie ďalšej úrovne Vás musí sledovať o %{score} ľudí viac!
+          unearned_another: Tento účastník zatiaľ nemá žiadnych sledovateľov.
+          unearned_own: Zatiaľ nemáte žiadnych sledovateľov.
+        index:
+          badge_title: "%{name} odznak"
+          how: Ako ho môžete získať
+          page_description: Odznaky sú uznaním aktivity účastníkov a ich pokroku na platforme. Keď začnete objavovať platformu, zúčastňovať sa na nej a pracovať na nej, získate rôzne odznaky. Tu je zoznam odznakov a spôsoby, ako ich môžete získať.
+          title: Odznaky
         invitations:
+          conditions:
+            - Použite odkaz "pozvať priateľov" na Vašej osobnej stránke pre pozvanie priateľov.
+            - Upravte, ak chcete, správu, ktorú posielate.
+            - Na ďalšiu úroveň sa dostanete rozosielaním a prijatím pozvánok.
+          description: Tento odznak obdržíte, ak ste pozvali pár ľudí, ktorí strávili čas registráciou v %{organization_name} a stali sa účastníkmi. Ďakujeme, že ste ostatným ukázali %{organization_name} a pomohli rozšíriť komunitu!
+          description_another: Tento účastník pozval %{score} ľudí.
+          description_own: Pozvali ste %{score} ľudí.
+          name: Pozvánky
           next_level_in: Pozvite o %{score} ľudí viac pre dosiahnutie ďalšej úrovne!
           unearned_another: Tento účastník zatiaľ nikoho nepozval.
           unearned_own: Zatial ste nikoho nepozvali.
@@ -808,6 +826,21 @@ sk:
           title: Spusťte konverzaci
         update:
           error: Zpráva nebyla odeslána. Zkuste to později znovu
+    metrics:
+      download:
+        csv: Stiahnuť údaje (CSV)
+      followers:
+        description: Počet účastníkov, ktorí sledujú tento participatívny priestor
+        object: sledujúci
+        title: Sledujúci
+      participants:
+        description: Počet aktívnych účastníkov v organizácii
+        object: účastníci
+        title: Účastníci
+      users:
+        description: Počet účastníkov v organizácii
+        object: účastníci
+        title: Účastníci
     newsletter_mailer:
       newsletter:
         note: Tento e-mail jste obdrželi, protože jste odběrateli bulletinů na %{organization_name}. Můžete změnit nastavení na <a href="%{link}">oznámení straně</a>.
@@ -967,6 +1000,10 @@ sk:
         members: Členovia
         timeline: Časová os
         view_full_profile: Zobraziť celý profil
+      sidebar:
+        badges:
+          info: Odznaky získate za určité aktivity a účasť na platforme.
+          title: Odznaky
       user:
         confirmation_instructions_sent: Boli odoslané pokyny pre potvrdenie e-mailu
         create_user_group: Vytvoriť skupinu
@@ -1004,6 +1041,7 @@ sk:
         choose: Vybrat
         title: Vyberte %{field}
       prompt: Vyberte oblast
+      scopes: Rozsahy
     search:
       results_found_for_term: '%{count} Výsledky pre vyhľadávanie: "%{term}"'
       term_input_placeholder: Vyhľadávanie
@@ -1015,9 +1053,12 @@ sk:
           active: Aktívne
           all: Všetko
           future: Budúcnosť
+          past: Uplynulé
       filters_small_view:
         close_modal: Zatvoriť modálne
+        filter: Filter
         filter_by: Filtrovať podľa
+        unfold: Rozbaliť
       results:
         results:
           one: "%{count} výsledek"
@@ -1032,6 +1073,7 @@ sk:
         embed_link: Vložiť
       extended_navigation_bar:
         more: Viac
+        unfold: Rozbaliť
       flag_modal:
         already_reported: Tento obsah je už nahlásený a bude kontrolovaný administrátorom.
         close: Zavrieť
@@ -1135,34 +1177,34 @@ sk:
         hello: Dobrý deň%{email},
         ignore: |-
           | - Ak nechcete prijať pozvánku, ignorujte tento e-mail. <br /> Váš účet nebude vytvorený, kým nevstúpite do vyššie uvedeného odkazu a nastavíte prezývku a heslo.
-        invited_you_as_admin: "%{invited_by} vás pozval ako administrátora z%{application}. Môžete ho prijať prostredníctvom nižšie uvedeného odkazu."
-        invited_you_as_private_user: "%{invited_by} vás pozval ako súkromného užívateľa%{application}. Môžete ho prijať prostredníctvom nižšie uvedeného odkazu."
-        someone_invited_you: Niekto vás pozval na%{application}. Môžete ho prijať prostredníctvom nižšie uvedeného odkazu.
+        invited_you_as_admin: "%{invited_by} vás pozval ako administrátora na %{application}. Môžete pozvanie prijať prostredníctvom nižšie uvedeného odkazu."
+        invited_you_as_private_user: "%{invited_by} vás pozval ako súkromného užívateľa na %{application}. Môžete pozvanie prijať prostredníctvom nižšie uvedeného odkazu."
+        someone_invited_you: Niekto vás pozval na%{application}. Môžete pozvanie prijať prostredníctvom nižšie uvedeného odkazu.
         someone_invited_you_as_admin: Niekto Vás pozval ako administrátora%{application}, môžete ho prijať pomocou nižšie uvedeného odkazu.
         someone_invited_you_as_private_user: Niekto vás pozval ako private_user%{application}, môžete ho prijať pomocou nižšie uvedeného odkazu.
         subject: Pokyny k pozvánkam
       invite_admin:
-        subject: Bol ste pozvaný na spravovanie%{organization}
+        subject: Bol ste pozvaný na spravovanie %{organization}
       invite_collaborator:
-        subject: Bol ste pozvaný na spoluprácu na%{organization}
+        subject: Bol ste pozvaný na spoluprácu na %{organization}
       invite_private_user:
-        subject: Boli ste pozvaní do súkromného procesu participácie na%{organization}
+        subject: Boli ste pozvaní do súkromného procesu participácie na %{organization}
       organization_admin_invitation_instructions:
-        subject: Bol ste pozvaný na spravovanie%{organization}
+        subject: Bol ste pozvaný na spravovanie %{organization}
       password_change:
-        greeting: Dobrý deň%{recipient}!
+        greeting: Dobrý deň, %{recipient}!
         message: Kontaktujeme vás, aby ste vás upozornili, že vaše heslo bolo zmenené.
         subject: heslo zmenené
       reset_password_instructions:
         action: Zmeňte heslo
-        greeting: Dobrý deň%{recipient}!
+        greeting: Dobrý deň, %{recipient}!
         instruction: Niekto požiadal o odkaz na zmenu hesla a môžete to vykonať pomocou nižšie uvedeného odkazu.
         instruction_2: Ak ste o to nepožiadali, ignorujte tento e-mail.
         instruction_3: Vaše heslo sa nezmení, kým nevstúpite do vyššie uvedeného odkazu a vytvoríte nový.
         subject: Resetujte pokyny na zadanie hesla
       unlock_instructions:
         action: Odomknite svoj účet
-        greeting: Dobrý deň%{recipient}!
+        greeting: Dobrý deň, %{recipient}!
         instruction: 'Kliknutím na odkaz nižšie odomknete svoj účet:'
         message: Váš účet bol uzamknutý kvôli nadmernému počtu neúspešných pokusov o prihlásenie.
         subject: Odomknite pokyny
@@ -1311,12 +1353,44 @@ sk:
     password_too_long: je to moc dlhé
     password_too_short: je príliš krátke
   social_share_button:
-    email: E-mailom
-    facebook: Reddit
+    delicious: Delicious
+    douban: Douban
+    email: E-mail
+    facebook: Facebook
     google_bookmark: Záložka Google
-    hacker_news: Hackerské správy
+    google_plus: Google+
+    hacker_news: Hacker News
+    linkedin: Linkedin
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
     share_to: Zdieľať na%{name}
+    telegram: Telegram
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: WeChat
     wechat_footer: Otvorte Wechat, kliknite na tlačidlo "Objavte" a potom kliknite na ponuku "Skenovať QR kód".
+    weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
+    xing: Xing
+  time:
+    formats:
+      day_of_month: "%b %d"
+      day_of_week: "%a"
+      day_of_week_long: "%a %e"
+      day_of_year: "%d.%m.%y"
+      decidim_day_of_year: "%d %B %Y"
+      decidim_short: "%d/%m/%Y %H:%M"
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %d, %Y %I:%M %p"
+      long: "%B %d, %Y %H:%M"
+      short: "%d/%m/%Y %H:%M"
+      time_of_day: "%H:%M"
   versions:
     directions:
       left: Smazané
@@ -1331,3 +1405,4 @@ sk:
       last: Poslední &raquo;
       next: Další &rsaquo;
       previous: "&lsaquo; Předchozí"
+      truncate: "&hellip;"
