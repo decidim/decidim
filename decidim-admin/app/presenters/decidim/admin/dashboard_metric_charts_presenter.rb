@@ -38,11 +38,15 @@ module Decidim
       private
 
       def highlighted_classes
-        "cell medium-6"
+        return "cell medium-6" if summary?
+
+        "cell medium-4"
       end
 
       def not_highlighted_classes
-        "cell medium-3"
+        return "cell medium-3" if summary?
+
+        "cell medium-2"
       end
 
       def not_highlighted_wrapper_classes
