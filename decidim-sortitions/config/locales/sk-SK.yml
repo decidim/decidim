@@ -9,19 +9,36 @@ sk:
         target_items: Počet návrhov, ktoré majú byť vybrané (udáva počet návrhov, ktoré chcete vybrať, čerpaním zo skupiny návrhov, ktoré ste predtým vybrali)
         title: Titul
         witnesses: Svedkovia
+    models:
+      decidim/sortitions/create_sortition_event: Voľba losovaním
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Voľba losovaním
+        few: Voľby losovaním
+        many: Voľby losovaním
+        other: Voľby losovaním
   decidim:
     components:
       sortitions:
+        name: Voľby losovaním
         settings:
           global:
             comments_enabled: Komentáre povolené
     events:
       sortitions:
         sortition_created:
-          email_intro: Riadok "% {resource_title}" bol pridaný k "% {participatory_space_title}", ktorý sledujete.
+          email_intro: Vvoľba losovaním "% {resource_title}" bola pridanýák "% {participatory_space_title}", ktorý sledujete.
           email_outro: Toto oznámenie ste dostali, pretože ste sledovali "% {participatory_space_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
-          email_subject: Nová sortie bola pridaná k číslu% {participatory_space_title}
-          notification_title: Výsledok <a href="%{resource_path}">% {resource_title} </a> bol pridaný k% {participatory_space_title}
+          email_subject: Nová voľba losovaním bola pridaná ku %{participatory_space_title}
+          notification_title: Vvoľba losovaním <a href="%{resource_path}">% {resource_title} </a> bola pridaná ku %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Voľby losovaním
+    participatory_processes:
+      statistics:
+        sortitions_count: Voľby losovaním
     sortitions:
       admin:
         actions:
