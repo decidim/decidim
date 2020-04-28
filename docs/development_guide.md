@@ -129,10 +129,10 @@ Mark `develop` as the reference to the next release:
 
 1. Go back to develop with `git checkout develop`
 1. Turn develop into the `dev` branch for the next release:
-  1. Update `.decidim-version` to the new `dev` development version: `x.y.z.dev`
-  1. Run `bin/rake update_versions`, this will update all references to the new version.
-  1. Run `bin/rake bundle`, this will update all the `Gemfile.lock` files
-  1. Run `bin/rake webpack`, this will update the JavaScript bundle.
+    1. Update `.decidim-version` to the new `dev` development version: `x.y.z.dev`
+    1. Run `bin/rake update_versions`, this will update all references to the new version.
+    1. Run `bin/rake bundle`, this will update all the `Gemfile.lock` files
+    1. Run `bin/rake webpack`, this will update the JavaScript bundle.
 1. Update `SECURITY.md` and change the supported version to the new version.
 1. Update the `CHANGELOG.MD`. At the top you should have an `Unreleased` header with the `Added`, `Changed`, `Fixed` and `Removed` empty sections. After that, the header with the current version and link with the same beforementioned sections and a `Previous versions` header at the bottom that links to the previous minor release stable branch.
 
@@ -196,8 +196,8 @@ Once Release Candidates have been tested, merging into `master` after the valida
 1. Once all the gems are published you should create a new release at this repository, just go to the [releases page](https://github.com/decidim/decidim/releases) and create a new one.
 1. Update Decidim's Docker repository as explained in the Docker images section.
 1. Update Crowdin synchronization configuration with Github:
-  1. Add the new `x.y-stable` branch.
-  1. Remove from Crowdin branches that are not officially supported anymore. That way they don't synchronize with Github.
+    1. Add the new `x.y-stable` branch.
+    1. Remove from Crowdin branches that are not officially supported anymore. That way they don't synchronize with Github.
 
 #### Releasing patch versions
 
