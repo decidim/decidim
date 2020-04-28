@@ -121,12 +121,12 @@ sv:
         milestone_completed:
           affected_user:
             email_intro: Ditt initiativ %{resource_title} har uppnått %{percentage}% underskrifter!
-            email_outro: Du har fått den här meddelandet eftersom du är författaren av initiativet %{resource_title}.
+            email_outro: Du har fått det här meddelandet eftersom du är författaren av initiativet %{resource_title}.
             email_subject: Uppnådde ny milstolpe!
             notification_title: Ditt initiativ <a href="%{resource_path}">%{resource_title}</a> har uppnått %{percentage}% underskrifter.
           follower:
             email_intro: Initiativet %{resource_title} har uppnått %{percentage}% underskrifter!
-            email_outro: Du har fått den här meddelandet eftersom du följer %{resource_title}. Du kan sluta att ta emot meddelanden via föregående länk.
+            email_outro: Du har fått det här meddelandet eftersom du följer %{resource_title}. Du kan sluta att ta emot meddelanden via föregående länk.
             email_subject: Uppnådde ny milstolpe!
             notification_title: Initiativet <a href="%{resource_path}">%{resource_title}</a> har uppnått %{percentage}% underskrifter.
     gamification:
