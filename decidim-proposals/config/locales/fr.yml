@@ -78,8 +78,11 @@ fr:
             'false': Propositions
             'true': Amendements
         state_eq:
+          label: État
           values:
+            accepted: Retenue
             evaluating: En cours d'évaluation
+            rejected: Non retenue
             withdrawn: Retirée
         state_null:
           label: État
