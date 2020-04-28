@@ -21,5 +21,9 @@ module Decidim
     def decidim_html_escape(text)
       ERB::Util.unwrapped_html_escape(text.to_str)
     end
+
+    def decidim_url_escape(text)
+      decidim_html_escape(text).sub(/^javascript:/, "")
+    end
   end
 end

@@ -68,6 +68,8 @@ module Decidim
                 mandatory: form_display_condition.mandatory
               }
 
+              next if form_display_condition.deleted? && form_display_condition.id.blank?
+
               update_nested_model(form_display_condition, display_condition_attributes, question.display_conditions)
             end
           end

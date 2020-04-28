@@ -18,11 +18,11 @@
           <div class="card--list__item">
             <div class="card--list__text">
               <div>
-                <%= link_to meeting.minutes.video_url, meeting.minutes.video_url, target: "_blank", rel: "noopener" %>
+                <%= link_to decidim_url_escape(meeting.minutes.video_url), decidim_html_escape(meeting.minutes.video_url), target: "_blank", rel: "noopener" %>
               </div>
             </div>
             <div class="card--list__data">
-              <%= link_to meeting.minutes.video_url, target: "_blank", class: "card--list__data__icon", rel: "noopener" do %>
+              <%= link_to decidim_url_escape(meeting.minutes.video_url), target: "_blank", class: "card--list__data__icon", rel: "noopener" do %>
                 <%= icon "external-link" %>
               <% end %>
             </div>
@@ -32,11 +32,11 @@
           <div class="card--list__item">
             <div class="card--list__text">
               <div>
-                <%= link_to meeting.minutes.audio_url, meeting.minutes.audio_url, target: "_blank", rel: "noopener" %>
+                <%= link_to decidim_url_escape(meeting.minutes.audio_url), decidim_html_escape(meeting.minutes.audio_url), target: "_blank", rel: "noopener" %>
               </div>
             </div>
             <div class="card--list__data">
-              <%= link_to meeting.minutes.audio_url, target: "_blank", class: "card--list__data__icon", rel: "noopener" do %>
+              <%= link_to decidim_url_escape(meeting.minutes.audio_url), target: "_blank", class: "card--list__data__icon", rel: "noopener" do %>
                 <%= icon "external-link" %>
               <% end %>
             </div>

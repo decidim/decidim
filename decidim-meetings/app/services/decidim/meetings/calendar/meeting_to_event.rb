@@ -39,7 +39,7 @@ module Decidim
           @event.dtstart = Icalendar::Values::DateTime.new(meeting.start_time.utc, "tzid" => "UTC")
           @event.dtend = Icalendar::Values::DateTime.new(meeting.end_time.utc, "tzid" => "UTC")
           @event.summary = present(meeting).title
-          @event.description = strip_tags(present(meeting).description)
+          @event.description = strip_tags(CGI.unescapeHTML(present(meeting).description))
           @event.location = meeting.address
           @event.geo = [meeting.latitude, meeting.longitude]
           @event.url = url_for(meeting)
