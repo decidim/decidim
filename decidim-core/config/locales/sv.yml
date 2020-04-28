@@ -461,7 +461,7 @@ sv:
         amendment_accepted:
           affected_user:
             email_intro: 'Ett ändringsförslag har godkänts för %{amendable_title}. Visa det från den här sidan:'
-            email_outro: Du har fått den här meddelandet eftersom du är en författare av %{amendable_title}.
+            email_outro: Du har fått det här meddelandet eftersom du är en författare av %{amendable_title}.
             email_subject: Bifallet ändringsförslag till %{amendable_title} från %{emendation_author_nickname}
             notification_title: <a href="%{emendation_path}">Ändringsförslaget</a> från av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> till <a href="%{amendable_path}">%{amendable_title}</a> har bifallits.
           follower:
@@ -472,7 +472,7 @@ sv:
         amendment_created:
           affected_user:
             email_intro: 'Ett nytt ändringsförslag har skapats för %{amendable_title}. Du kan se det från den här sidan:'
-            email_outro: Du har fått den här meddelandet eftersom du är en författare till %{amendable_title}.
+            email_outro: Du har fått det här meddelandet eftersom du är en författare till %{amendable_title}.
             email_subject: Nytt ändringsförslag till %{amendable_title}
             notification_title: Ett nytt ändringsförslag har skapats till <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
@@ -483,7 +483,7 @@ sv:
         amendment_promoted:
           affected_user:
             email_intro: 'Ett avslaget ändringsförslag till %{amendable_title} har publicerats som en ny %{amendable_type}. Du kan se det på den här sidan:'
-            email_outro: Du har fått den här meddelandet eftersom du är en författare av %{amendable_title}.
+            email_outro: Du har fått det här meddelandet eftersom du är en författare av %{amendable_title}.
             email_subject: Ett ändringsförslag från %{emendation_author_nickname} har publicerats som ett nytt %{amendable_type}
             notification_title: Ett <a href="%{emendation_path}">avslaget ändringsförslag</a> till <a href="%{amendable_path}">%{amendable_title}</a> har publicerats som ett nytt %{amendable_type} av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
@@ -505,19 +505,19 @@ sv:
       attachments:
         attachment_created:
           email_intro: 'Ett nytt dokument har lagts till i %{resource_title}. Du kan se det från den här sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer %{resource_title}. Du kan sluta att ta emot meddelanden genom att följa föregående länk.
+          email_outro: Du har fått det här meddelandet eftersom du följer %{resource_title}. Du kan sluta att ta emot meddelanden genom att följa föregående länk.
           email_subject: En uppdatering till %{resource_title}
           notification_title: Ett <a href="%{resource_path}"> nytt dokument</a> har lagts till <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
           email_intro: 'Komponenten %{resource_title} är nu aktiv för %{participatory_space_title}. Du kan se den från den här sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden om du följer föregående länk.
+          email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden om du följer föregående länk.
           email_subject: En uppdatering till %{participatory_space_title}
           notification_title: '%{resource_title} komponenten är nu aktiv för <a href="%{resource_path}">%{participatory_space_title}</a>'
       email_event:
         email_greeting: Hej %{user_name},
         email_intro: 'Det har varit en uppdatering till "%{resource_title}". Du kan se den från den här sidan:'
-        email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan sluta att följa det från föregående länk.
+        email_outro: Du har fått det här meddelandet eftersom du följer "%{resource_title}". Du kan sluta att följa det från föregående länk.
         email_subject: En uppdatering till %{resource_title}
       gamification:
         badge_earned:
@@ -533,7 +533,7 @@ sv:
       groups:
         demoted_membership:
           email_intro: En administratör för gruppen <a href="%{resource_url}">%{user_group_name}</a> har tagit bort dina administratörsrättigheter för den gruppen.
-          email_outro: Du har fått den här meddelandet eftersom du är medlem i den gruppen.
+          email_outro: Du har fått det här meddelandet eftersom du är medlem i den gruppen.
           email_subject: Du är inte längre en administratör för gruppen %{user_group_name}!
           notification_title: Du är inte längre en administratör för gruppen <a href="%{resource_path}">%{user_group_name}</a>.
         invited_to_group:
@@ -911,7 +911,7 @@ sv:
           headline: Deltagande i siffror
         statistics:
           answers_count: Genomförda undersökningar
-          assemblies_count: Sammankomster
+          assemblies_count: Grupper
           comments_count: Kommentarer
           conferences_count: Konferenser
           debates_count: Debatter
