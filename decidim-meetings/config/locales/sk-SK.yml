@@ -337,6 +337,7 @@ sk:
             all: Všetko
             date: dátum
             meetings: Stretnutie
+            past: Uplynulé
             search: Vyhľadávanie
             space_type: Zúčastňujú priestor
             upcoming: Nadchádzajúce
@@ -356,12 +357,14 @@ sk:
           category: Kategória
           category_prompt: Vyberte kategóriu
           date: dátum
+          past: Uplynulé
           search: Vyhľadávanie
           upcoming: Nadchádzajúce
         filters_small_view:
           close_modal: Zatvoriť modálne
           filter: Filter
           filter_by: Filtrovať podľa
+          unfold: Rozbaliť
         meeting_minutes:
           meeting_minutes: Zápisnica z porady
           related_information: Súvisiace informácie
@@ -372,6 +375,7 @@ sk:
           cancel: Zrušiť
           confirm: Potvrdiť
         show:
+          attendees: Počet účastníkov
           back: Späť na zoznam
           contributions: Počet príspevkov
           going: Chystáte sa
