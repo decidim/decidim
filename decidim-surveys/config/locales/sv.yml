@@ -15,7 +15,7 @@ sv:
     components:
       surveys:
         actions:
-          answer: Svara
+          answer: Svar
         name: Enkät
         settings:
           global:
