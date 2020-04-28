@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 module Decidim
-  # A command with the business logic to invite an user to an organization.
-  class InviteUserAgain < Rectify::Command
+  # A command with the business logic to invite a user to
+  # a private participatory space.
+  class InviteUserToPrivateParticipatorySpace < Rectify::Command
     # Public: Initializes the command.
     #
     # form - A form object with the params.
@@ -12,10 +13,7 @@ module Decidim
     end
 
     def call
-      return broadcast(:invalid) unless user&.invited_to_sign_up?
-
       user.invite!(user.invited_by, invitation_instructions: instructions)
-
       broadcast(:ok)
     end
 

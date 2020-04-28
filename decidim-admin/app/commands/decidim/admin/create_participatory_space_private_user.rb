@@ -66,7 +66,7 @@ module Decidim
           organization: private_user_to.organization
         )
 
-        InviteUserAgain.call(@existing_user, invitation_instructions) if @existing_user && !@existing_user.invitation_accepted?
+        InviteUserToPrivateParticipatorySpace.call(@existing_user, invitation_instructions) if @existing_user && !@existing_user.invitation_accepted?
 
         @existing_user
       end
