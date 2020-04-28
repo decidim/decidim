@@ -2,7 +2,7 @@ sv:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Relaterade församlingar
+        assemblies_ids: Relaterade grupper
         banner_image: Bannerbild
         consultations_ids: Relaterade samråd
         copy_categories: Kopiera kategorier
@@ -484,7 +484,7 @@ sv:
         details: Detaljer
         introduction: Introduktion
         objectives: Mål
-        related_assemblies: Relaterade församlingar
+        related_assemblies: Relaterade grupper
         related_consultations: Relaterade samråd
         related_participatory_processes: Relaterade deltagandeprocesser
       statistics:
@@ -527,7 +527,7 @@ sv:
           notification_title: Konferensen <a href="%{resource_path}">%{resource_title}</a> tar nu emot registreringar.
         upcoming_conference:
           email_intro: 'Konferensen "%{resource_title}" äger rum om två dagar. Läs mer på dess sida:'
-          email_outro: Du har fått den här meddelandet eftersom du följer konferensen "%{resource_title}". Du kan sluta att följa den från föregående länk.
+          email_outro: Du har fått det här meddelandet eftersom du följer konferensen "%{resource_title}". Du kan sluta att följa den från föregående länk.
           email_subject: Konferensen "%{resource_title}" kommer!
           notification_title: Konferensen <a href="%{resource_path}">%{resource_title}</a> börjar om två dagar.
     log:
