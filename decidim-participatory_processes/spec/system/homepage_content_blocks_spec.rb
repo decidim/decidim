@@ -19,7 +19,7 @@ describe "Homepage processes content blocks", type: :system do
   let!(:promoted_external_process) { create(:participatory_process, :promoted) }
 
   before do
-    create :content_block, organization: organization, scope: :homepage, manifest_name: :highlighted_processes
+    create :content_block, organization: organization, scope_name: :homepage, manifest_name: :highlighted_processes
     switch_to_host(organization.host)
   end
 
