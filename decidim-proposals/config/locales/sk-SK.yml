@@ -14,7 +14,7 @@ sk:
         address: Adresa
         answer: Odpovedať
         answered_at: odpovedané na
-        automatic_hashtags: hashtags sa automaticky pridali
+        automatic_hashtags: Hashtagy sa automaticky pridali
         body: Telo
         category_id: Kategória
         decidim_scope_id: Rozsah
@@ -26,11 +26,11 @@ sk:
       proposal_answer:
         answer: Odpovedať
       proposals_copy:
-        copy_proposals: Chápem, že to bude importovať všetky návrhy z vybrané komponenty na aktuálne a že táto akcia nemôže byť zrušená.
-        origin_component_id: Komponent pre kopírovanie návrhov z
+        copy_proposals: Rozumiem, že toto importuje všetky návrhy z vybranej súčasti do aktuálnej, a že táto akcia nemôže byť vrátená.
+        origin_component_id: Súčasť, z ktorej sa skopírujú návrhy
       proposals_import:
-        import_proposals: Návrhy na dovoz
-        keep_authors: Uchovávajte pôvodnej autormi
+        import_proposals: Importovať návrhy
+        keep_authors: Uchovať pôvodných autorov
       valuation_assignment:
         admin_log:
           valuator_role_id: Meno hodnotiteľa
@@ -39,18 +39,27 @@ sk:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: 'Neplatný typ dokumentu. Prijaté formáty sú:% {valid_mime_types} '
+              invalid_document_type: 'Neplatný typ dokumentu. Prijateľné formáty sú: %{valid_mime_types} '
         proposal:
           attributes:
             attachment:
-              needs_to_be_reattached: Potrebuje byť znovu pripojený
+              needs_to_be_reattached: Je potrebné priložiť znovu
             body:
               cant_be_equal_to_template: nemôže byť rovnaké, ako šablóna
               identical: A názov nemôže byť totožný
             title:
-              identical: Telo A nemôže byť totožné
+              identical: A telo nemôže byť totožné
     models:
+      decidim/proposals/accepted_proposal_event: Návrh akceptovaný
+      decidim/proposals/admin/update_proposal_category_event: Kategória návrhu zmenená
       decidim/proposals/admin/update_proposal_scope_event: Rozsah návrhu zmenený
+      decidim/proposals/creation_enabled_event: Tvorba návrhu povolená
+      decidim/proposals/endorsing_enabled_event: Podpora návrhu povolená
+      decidim/proposals/evaluating_proposal_event: Tento návrh sa hodnotí
+      decidim/proposals/proposal_mentioned_event: Návrh spomenutý
+      decidim/proposals/publish_proposal_event: Návrh publikovaný
+      decidim/proposals/rejected_proposal_event: Návrh odmietnutý
+      decidim/proposals/voting_enabled_event: Povolenie hlasovania o návrhu
   decidim:
     admin:
       filters:
