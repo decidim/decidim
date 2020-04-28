@@ -85,8 +85,11 @@ fi:
         search_placeholder:
           id_string_or_title_cont: '%{collection}: Hae ID-numeron tai otsikon perusteella'
         state_eq:
+          label: Tila
           values:
+            accepted: Hyväksytty
             evaluating: Arvioitavana
+            rejected: Hylätty
             withdrawn: Peruutettu
         state_null:
           label: Tila
