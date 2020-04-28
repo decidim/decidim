@@ -18,7 +18,7 @@ sk:
     dummy:
       admin:
         exports:
-          dummies: Indikátory
+          dummies: Indikátory (dummy variable)
     gamification:
       badges:
         test:
