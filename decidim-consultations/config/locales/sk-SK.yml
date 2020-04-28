@@ -289,3 +289,42 @@ sk:
               few: Hlasovanie končí za <strong>%{count} dni</strong>
               many: Hlasovanie končí za <strong>%{count} dni</strong>
               other: Hlasovanie končí za <strong>%{count} dni</strong>
+            voting_ends_today: Hlasovanie končí <strong>dnes</strong>
+      question:
+        take_part: Zapojte sa
+        view_results: Zobraziť výsledky
+        votes_out_of:
+          one: hlas z 
+          few: hlasov z
+          many: hlasov z
+          other: hlasov z
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: Musíte rozdeliť minimálne %{votes} hlasov medzi rôzne možnosti.
+          title: V tejto otázke boli povolené viaceré možnosti
+          total_participants: Celkovo %{count} ľudí hlasovalo
+          vote_limit:
+            description: Účastníci mohli hlasovať až za %{limit} možností
+        voting_rules:
+          minimum_votes_per_user:
+            description: Musíte rozdeliť minimálne %{votes} hlasov medzi rôzne možnosti.
+          title: 'Hlasovanie podlieha týmto pravidlám:'
+          vote_limit:
+            description: Môžete hlasovať až pre %{limit} možností.
+            left: Zostáva
+            votes: Hlasy
+      question_votes:
+        create:
+          error: Nastal problém pri hlasovaní
+          success: Svoj hlas môžete zmeniť až do konca konzultácie. Platný bude až posledný hlas.
+          title_error: Chyba hlasovania!
+          title_success: Hlas úspešne zaregistrovaný
+      regular_questions:
+        title: Otázky z tejto konzultácie
+      show:
+        badge_name:
+          finished: Dokončené
+          open: Otvorené
+          open_votes: Otvorené hlasy
+          published_results: Zverejnené výsledky
