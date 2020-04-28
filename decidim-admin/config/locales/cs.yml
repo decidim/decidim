@@ -24,7 +24,7 @@ cs:
       component:
         name: název
         published_at: Publikováno v
-        weight: Hmotnost
+        weight: Váha
       id: ID
       newsletter:
         body: Tělo
@@ -36,7 +36,7 @@ cs:
         organization_url: URL organizace
         redirect_uri: Přesměrování URI
       organization:
-        address: Název hostitele SMTP
+        address: SMTP hostname
         alert_color: Upozornění
         badges_enabled: Povolit odznaky
         cta_button_path: Cesta tlačítka Výzvy k akci
@@ -88,7 +88,7 @@ cs:
         code: Kód
         name: název
         organization: Organizace
-        parent_id: Nadřazený prvek
+        parent_id: Nadřazený
         scope_type: Typ rozsahu
         scope_type_id: Typ rozsahu
       scope_type:
