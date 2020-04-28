@@ -59,7 +59,7 @@ describe "Admin copies participatory process", type: :system do
     end
 
     it "copies the process with steps" do
-      page.check("participatory_process[copy_steps]")
+      switch_check_box("Copy steps")
       click_button "Copy"
 
       expect(page).to have_content("successfully")
@@ -75,7 +75,7 @@ describe "Admin copies participatory process", type: :system do
     end
 
     it "copies the process with categories" do
-      page.check("participatory_process[copy_categories]")
+      switch_check_box("Copy categories")
       click_button "Copy"
 
       expect(page).to have_content("successfully")
@@ -91,7 +91,7 @@ describe "Admin copies participatory process", type: :system do
     end
 
     it "copies the process with components" do
-      page.check("participatory_process[copy_components]")
+      switch_check_box("Copy components")
       click_button "Copy"
 
       expect(page).to have_content("successfully")

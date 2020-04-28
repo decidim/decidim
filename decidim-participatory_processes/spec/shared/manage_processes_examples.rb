@@ -178,7 +178,7 @@ shared_examples "manage processes examples" do
     it "disables the scope for a participatory process" do
       click_link translated(participatory_process.title)
 
-      uncheck :participatory_process_scopes_enabled
+      unswitch_check_box("Scopes enabled")
 
       expect(page).to have_selector("#participatory_process_scope_id.disabled")
       expect(page).to have_selector("#participatory_process_scope_id .picker-values div input[disabled]", visible: false)

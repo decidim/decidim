@@ -111,7 +111,7 @@
 
   <div class="card-section">
     <div class="row column">
-      <%= form.check_box :scopes_enabled %>
+      <%= form.switch_check_box :scopes_enabled %>
     </div>
 
     <div class="row column">
@@ -152,10 +152,10 @@
     </div>
 
     <div class="row column">
-      <%= form.check_box :private_space %>
+      <%= form.switch_check_box :private_space %>
     </div>
         <div class="row column">
-      <%= form.check_box :promoted %>
+      <%= form.switch_check_box :promoted %>
     </div>
   </div>
 
@@ -180,11 +180,11 @@
 
   <div class="card-section">
     <div class="row column">
-      <%= form.check_box :show_statistics %>
+      <%= form.switch_check_box :show_statistics %>
     </div>
 
     <div class="row column">
-      <%= form.check_box :show_metrics %>
+      <%= form.switch_check_box :show_metrics %>
     </div>
   </div>
 </div>
