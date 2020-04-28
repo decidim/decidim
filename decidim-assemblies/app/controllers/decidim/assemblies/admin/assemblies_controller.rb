@@ -7,7 +7,7 @@ module Decidim
       #
       class AssembliesController < Decidim::Assemblies::Admin::ApplicationController
         include Decidim::Assemblies::Admin::Filterable
-        helper_method :current_assembly, :parent_assembly, :current_participatory_space
+        helper_method :current_assembly, :parent_assembly, :current_participatory_space, :assemblies_settings
         layout "decidim/admin/assemblies"
 
         def index
@@ -92,6 +92,11 @@ module Decidim
             hero_image: current_assembly.hero_image,
             banner_image: current_assembly.banner_image
           }.merge(params[:assembly].to_unsafe_h)
+        end
+
+
+        def assemblies_settings
+          @assemblies_settings = AssembliesSetting.find_by(organization: current_organization)
         end
       end
     end

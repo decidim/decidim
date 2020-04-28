@@ -10,6 +10,5 @@ module Decidim
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"
 
-    validates :organization_chart_enable
   end
 end

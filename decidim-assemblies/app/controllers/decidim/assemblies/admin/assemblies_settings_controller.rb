@@ -6,14 +6,13 @@ module Decidim
       # Controller used to manage the assemblies settings for the current
       # organization.
       class AssembliesSettingsController < Decidim::Assemblies::Admin::ApplicationController
+        helper_method :assemblies_settings
         layout "decidim/admin/assemblies"
 
         # GET /admin/assemblies_settings/edit
         def edit
-          enforce_permission_to :edit, :assembly_setting, assembly_setting: current_assembly_setting
-          @form = assembly_setting_form
-                  .from_model(current_assembly_setting,
-                              assembly_type: current_assembly_setting)
+          enforce_permission_to :edit, :assemblies_settings, assemblies_settings: current_assemblies_settings
+          @form = assemblies_settings_form.from_model(current_assemblies_settings)
         end
 
         def index
@@ -45,12 +44,18 @@ module Decidim
         #   @available_assemblies_settings ||= AssembliesSetting.where(organization: current_organization)
         # end
 
-        def current_assembly_setting
-          @current_assembly_setting ||= AssembliesSetting.find(params[:id])
+        def current_assemblies_settings
+          @current_assemblies_settings ||= Decidim::AssembliesSetting.find_by(organization: current_organization)
         end
 
-        def assembly_setting_form
+        def assemblies_settings_form
           form(Decidim::Assemblies::Admin::AssembliesSettingForm)
+        end
+
+        private
+
+        def assemblies_settings
+          @assemblies_setting = Decidim::AssembliesSetting.find_by(organization: current_organization)
         end
       end
     end
