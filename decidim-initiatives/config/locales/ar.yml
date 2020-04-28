@@ -77,13 +77,10 @@ ar:
         search_placeholder:
           title_or_description_cont: البحث عن %{collection} بحسب العنوان أو الوصف.
         state_eq:
-          label: الحالة
           values:
-            accepted: وافقت
             created: تمّ إنشاؤه
             discarded: التخلص منها
             published: نشرت
-            rejected: مرفوض
             validating: المصادقة الفنية
       menu:
         initiatives: المبادرات
