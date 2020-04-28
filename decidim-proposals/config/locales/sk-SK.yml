@@ -60,6 +60,28 @@ sk:
       decidim/proposals/publish_proposal_event: Návrh publikovaný
       decidim/proposals/rejected_proposal_event: Návrh odmietnutý
       decidim/proposals/voting_enabled_event: Povolenie hlasovania o návrhu
+  activerecord:
+    models:
+      decidim/proposals/collaborative_draft:
+        one: Spoločný návrh
+        few: Spoločné návrhy
+        many: Spoločné návrhy
+        other: Spoločné návrhy
+      decidim/proposals/proposal:
+        one: Návrh
+        few: Návrhy
+        many: Návrhy
+        other: Návrhy
+      decidim/proposals/proposal_note:
+        one: Poznámka
+        few: Poznámky
+        many: Poznámky
+        other: Poznámky
+      decidim/proposals/proposal_vote:
+        one: Podpora
+        few: Podpory
+        many: Podpory
+        other: Podpory
   decidim:
     admin:
       filters:
@@ -85,21 +107,22 @@ sk:
         actions:
           amend: Upraviť
           create: Vytvoriť
+          endorse: Schváliť
           vote: Hlasovanie
-          withdraw: Ustúpiť
+          withdraw: Vrátiť späť
         name: Návrhy
         settings:
           global:
             allow_card_image: Povoliť kartové obrázky
-            amendments_enabled: Zmeny povolené
-            amendments_enabled_help: Ak je aktívny, nastavte funkcie zmeny pre každý krok.
-            amendments_wizard_help_text: Pomoc sprievodca k Pozmeňujúcim návrhom
+            amendments_enabled: Pozmeňujúce návrhy povolené
+            amendments_enabled_help: Ak je aktívne, nastavte funkcie Pozmeňujúcich návrhov pre každý krok.
+            amendments_wizard_help_text: Sprievodca Pozmeňujúcimi návrhmi
             announcement: Oznámenie
             attachments_allowed: Povoliť prílohy
-            can_accumulate_supports_beyond_threshold: Môžu hromadiť podpery za prahom
-            collaborative_drafts_enabled: Schopnosti spolupráce sú povolené
+            can_accumulate_supports_beyond_threshold: Môžu získať finančnú podporu nad stanovenú hranicu
+            collaborative_drafts_enabled: Spoločné návrhy sú povolené
             comments_enabled: Komentáre povolené
-            geocoding_enabled: geokódování povolené
+            geocoding_enabled: Geokódovanie povolené
             minimum_votes_per_user: Minimálny počet hlasov na užívateľa
             new_proposal_body_template: Telo šablóny nového návrhu
             new_proposal_body_template_help: Môžete definovať predvyplnený text, ktorý budú mať všetky nové návrhy
