@@ -14,12 +14,6 @@ module Decidim
         end
       end
 
-      # def email
-      #   if user
-      #     "#{user.email}"
-      #   end
-      # end
-
       def position
         return position_other if __getobj__.position == "other"
 

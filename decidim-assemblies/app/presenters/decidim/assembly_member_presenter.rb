@@ -19,10 +19,6 @@ module Decidim
       user.nickname if user
     end
 
-    # def email
-    #   user.email if user
-    # end
-
     def personal_information
       [
         gender.presence,
