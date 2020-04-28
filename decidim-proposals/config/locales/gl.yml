@@ -77,8 +77,11 @@ gl:
             'false': Propostas
             'true': Enmendas
         state_eq:
+          label: Estado
           values:
+            accepted: Aceptada
             evaluating: Avaliación
+            rejected: Rexeitado
             withdrawn: Retirada
         state_null:
           label: Estado
