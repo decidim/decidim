@@ -474,6 +474,11 @@ sv:
       newsletter_templates:
         index:
           preview_template: Förhandsvisa
+          title: Nyhetsbrev mallar
+          use_template: Använd den här mallen
+        show:
+          preview: 'Förhandsgranska mall: %{template_name}'
+          use_template: Använd den här mallen
       newsletters:
         create:
           error: Det gick inte att skapa nyhetsbrevet.
