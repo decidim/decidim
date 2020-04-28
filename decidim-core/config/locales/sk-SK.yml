@@ -285,15 +285,17 @@ sk:
       foo_authorization:
         fields:
           bar: Stĺpec
+          foo: Foo
         name: Foo autorizácie
       granted_at: Udelené v %{timestamp}
       sms:
         explanation: Pošlite číslo mobilného telefónu, aby sme mohli overiť vašu totožnosť.
         name: Kód cez SMS
-      started_at: Začal v%{timestamp}
+      started_at: Začal v %{timestamp}
     authorization_modals:
       content:
         expired:
+          authorize: Znovu overte pomocou "%{authorization}"
           explanation: Platnosť vášho oprávnenia vypršala. Ak chcete vykonať túto akciu, musíte byť znova autorizovaný s "%{authorization}".
           title: Platnosť oprávnenia vypršala
         incomplete:
@@ -303,6 +305,7 @@ sk:
           reauthorize: Znovu autorizovať
           title: Znovu autorizujte
         missing:
+          authorize: Overte pomocou %{authorization}"
           explanation: Ak chcete vykonať túto akciu, musíte byť autorizovaní pomocou "%{authorization}".
           title: Je potrebná autorizácia
         pending:
@@ -331,6 +334,7 @@ sk:
       dummy:
         actions:
           bar: Lišta
+          foo: Foo
         name: Zástupná časť
         settings:
           global:
@@ -370,6 +374,8 @@ sk:
         name: Posledná aktivita
         title: Posledná aktivita
         view_all: Zobraziť všetko
+      metrics:
+        name: Štatistika organizácie
       stats:
         name: Štatistiky organizácie
       sub_hero:
@@ -393,7 +399,7 @@ sk:
           email_already_exists: Iný účet používa rovnakú e-mailovú adresu
         new:
           complete_profile: Kompletné profil
-          nickname_help: Vaša prezývka v%{organization}
+          nickname_help: Vaša prezývka v %{organization}
           sign_up: Prosím, vyplňte svoj profil
           subtitle: Pre dokončenie registrácie vyplňte prosím nasledujúci formulár
           username_help: Verejné meno, ktoré sa zobrazí vo vašich príspevkoch. S cieľom zaručiť anonymitu môže byť akékoľvek meno.
@@ -402,7 +408,7 @@ sk:
           already_have_an_account?: Už máte účet?
           newsletter: Dostávajte príležitostný spravodajca s relevantnými informáciami
           newsletter_title: Povolenie kontaktu
-          nickname_help: Vaša prezývka v%{organization}
+          nickname_help: Vaša prezývka v %{organization}
           password_help: "%{minimun_characters} minimum znakov, nesmie byť príliš bežné (napr. 123456) a musí byť iné ako vaše prezývka a váš e-mail."
           sign_in: Prihlásiť sa
           sign_up: Zaregistrovať sa
@@ -411,8 +417,8 @@ sk:
           subtitle: Registrujte sa, aby ste sa zúčastnili diskusií a návrhov podpory.
           terms: podmienky používania
           tos_agreement: Prihlásením súhlasíte s%{link}.
-          tos_title: Zmluvné podmienky
-          username_help: Verejné meno, ktoré sa zobrazí vo vašich príspevkoch. S cieľom zaručiť anonymitu môže byť akékoľvek meno.
+          tos_title: Podmienky používania
+          username_help: Verejné meno, ktoré sa zobrazí vo vašich príspevkoch. S cieľom zaručiť anonymitu to môže byť akékoľvek meno.
       sessions:
         new:
           are_you_new?: Ste na tejto platforme noví?
@@ -472,7 +478,7 @@ sk:
             notification_title: <a href="%{emendation_path}"> zmena </a> vytvorené <a href="%{emendation_author_path}">%{emendation_author_nickname} </a> bol prijatý <a href = "%{amendable_path}" >%{amendable_title} </a>.
           follower:
             email_intro: 'Zmena bola prijatá pre %{amendable_title}. Môžete ju vidieť z tejto stránky: '
-            email_outro: Toto oznámenie ste dostali, pretože ste sledovali %{amendable_title}. Po kliknutí na predchádzajúcu odkaz môžete prestať prijímať oznámenia.
+            email_outro: Toto oznámenie ste dostali, pretože sledujete %{amendable_title}. Po kliknutí na predchádzajúcu odkaz môžete prestať prijímať oznámenia.
             email_subject: doplňujúci návrh prijatý pre %{amendable_title} od%{emendation_author_nickname}
             notification_title: <a href="%{emendation_path}"> zmena </a> vytvorené <a href="%{emendation_author_path}">%{emendation_author_nickname} </a> bol prijatý <a href = "%{amendable_path}" >%{amendable_title} </a>.
         amendment_created:
@@ -483,7 +489,7 @@ sk:
             notification_title: Bol vytvorený nový pozmeňovací návrh pre <a href="%{amendable_path}">%{amendable_title} </a>.
           follower:
             email_intro: 'Nová zmena bola vytvorená pre %{amendable_title}. Môžete ju vidieť z tejto stránky: '
-            email_outro: Toto oznámenie ste dostali, pretože ste sledovali %{amendable_title}. Po kliknutí na predchádzajúcu odkaz môžete prestať prijímať oznámenia.
+            email_outro: Toto oznámenie ste dostali, pretože sledujete %{amendable_title}. Po kliknutí na predchádzajúcu odkaz môžete prestať prijímať oznámenia.
             email_subject: Nový pozmeňovací návrh pre %{Amendable_title}
             notification_title: Bol vytvorený nový pozmeňovací návrh pre <a href="%{amendable_path}">%{amendable_title} </a>.
         amendment_promoted:
@@ -494,7 +500,7 @@ sk:
             notification_title: <a href="%{emendation_path}"> zamietnuť zmenu </a> pre <a href="%{amendable_path}">%{amendable_title} </a> bola publikovaná ako nový%{amendable_type} od <a href = "%{emendation_author_path}">%{emendation_author_nickname} </a>.
           follower:
             email_intro: 'Označenie odmietnutej pre číslo %{amendable_title} bolo povýšené na nezávislý%{amendable_type}. Môžete ju vidieť z tejto stránky: '
-            email_outro: Toto oznámenie ste dostali, pretože ste sledovali %{amendable_title}. Po predchádzajúcom prepojení môžete prestať prijímať oznámenia.
+            email_outro: Toto oznámenie ste dostali, pretože sledujete %{amendable_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
             email_subject: Zmena z%{emendation_author_nickname} bola uverejnená ako nová%{amendable_type}
             notification_title: <a href="%{emendation_path}"> zamietnuť zmenu </a> pre <a href="%{amendable_path}">%{amendable_title} </a> bola publikovaná ako nový%{amendable_type} od <a href = "%{emendation_author_path}">%{emendation_author_nickname} </a>.
         amendment_rejected:
@@ -505,25 +511,25 @@ sk:
             notification_title: <a href="%{emendation_path}"> zmena </a> vytvorené <a href="%{emendation_author_path}">%{emendation_author_nickname} </a> bola odmietnutá <a href = "%{amendable_path}" >%{amendable_title} </a>.
           follower:
             email_intro: 'Oznámenie bolo zamietnuté za %{amendable_title}. Môžete ju vidieť z tejto stránky: '
-            email_outro: Toto oznámenie ste dostali, pretože ste sledovali %{amendable_title}. Po predchádzajúcom prepojení môžete prestať prijímať oznámenia.
+            email_outro: Toto oznámenie ste dostali, pretože sledujete %{amendable_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
             email_subject: Zmena bola zamietnutá pre %{amendable_title} od%{emendation_author_nickname}
             notification_title: <a href="%{emendation_path}"> zmena </a> vytvorené <a href="%{emendation_author_path}">%{emendation_author_nickname} </a> bola odmietnutá <a href = "%{amendable_path}" >%{amendable_title} </a>.
       attachments:
         attachment_created:
           email_intro: 'Do dokumentu%{resource_title} bol pridaný nový dokument. Môžete ho vidieť z tejto stránky: '
-          email_outro: Toto oznámenie ste dostali, pretože ste sledovali %{resource_title}. Po predchádzajúcom prepojení môžete prestať prijímať oznámenia.
+          email_outro: Toto oznámenie ste dostali, pretože sledujete %{resource_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
           email_subject: Aktualizácia na %{resource_title}
           notification_title: Do <a href="%{attached_to_url}">%{resource_title} </a> bol pridaný <a href="%{resource_path}"> nový dokument </a>
       components:
         component_published:
           email_intro: 'Komponent%{resource_title} je teraz aktívny pre %{participatory_space_title}. Môžete ju vidieť z tejto stránky: '
-          email_outro: Toto oznámenie ste dostali, pretože ste sledovali %{participatory_space_title}. Po predchádzajúcom prepojení môžete prestať prijímať oznámenia.
+          email_outro: Toto oznámenie ste dostali, pretože sledujete %{participatory_space_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
           email_subject: Aktualizácia na %{participatory_space_title}
           notification_title: Súčasť%{resource_title} je teraz aktívny pre <a href="%{resource_path}">%{participatory_space_title} </a>
       email_event:
         email_greeting: Zdravím %{user_name},
         email_intro: 'Došlo k aktualizácii na hodnotu "%{resource_title}". Môžete ju vidieť z tejto stránky: '
-        email_outro: Toto oznámenie ste dostali, pretože ste sledovali "%{resource_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
+        email_outro: Toto oznámenie ste dostali, pretože sledujete "%{resource_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
         email_subject: Aktualizácia na %{resource_title}
       gamification:
         badge_earned:
@@ -576,13 +582,13 @@ sk:
         notification_title: Došlo k udalosti <a href="%{resource_path}">%{resource_title} </a>.
       resource_endorsed:
         email_intro: '%{endorser_name}%{endorser_nickname}, ktorého sledujete, práve podporill %{resource_title} a myslíme, že by vás to mohlo zaujímať. Pozrite sa a prispejte aj vy:'
-        email_outro: Túto notifikáciu ste dostali, pretože sledujete%{endorser_nickname}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
+        email_outro: Túto notifikáciu ste dostali, pretože sledujete %{endorser_nickname}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
         email_subject: "%{endorser_nickname} práve podporil ďalšiu vec"
         notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} bol podporený účastníkom <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: <a href="%{resource_url}"> profilová stránka </a> zo %{name} (%{nickname}), ktorú sledujete, bola aktualizovaná.
-          email_outro: Toto oznámenie ste dostali, pretože ste sledovali %{nickname}. Po predchádzajúcom prepojení môžete prestať prijímať oznámenia.
+          email_outro: Toto oznámenie ste dostali, pretože sledujete %{nickname}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
           email_subject: "%{nickname} aktualizoval svoj profil"
           notification_title: <a href="%{resource_path}"> profilová stránka </a> od%{name} (%{nickname}), ktorú sledujete, bola aktualizovaná.
     export_mailer:
@@ -791,12 +797,12 @@ sk:
     messaging:
       conversation_mailer:
         new_conversation:
-          greeting: Ahoj, %{recipient}!
+          greeting: Dobrý deň, %{recipient}!
           intro: "%{sender} zahájil novú diskusiu s vami. Kliknite sem pre zobrazenie:"
           outro: Užite si rozhodovanie!
           subject: "%{sender} začal s vami konverzovať"
         new_message:
-          greeting: Ahoj, %{recipient}!
+          greeting: Dobrý deň, %{recipient}!
           intro: "%{sender} poslala nové správy vo vašej konverzácii. Kliknite sem pre ich zobrazenie:"
           outro: Užite si rozhodovanie!
           subject: Máte nové správy od %{sender}
@@ -884,7 +890,7 @@ sk:
         body_3: S týmto súhlasom budete môcť pokračovať v prijímaní informácií o službách platformy. Pokiaľ naopak nedostaneme pozitívne potvrdenie z vášho hľadiska, prestaneme vám posielať naše správy. Ak potvrdíte, že chcete byť stále informovaný, máte vždy možnosť kedykoľvek zrušiť.
         button: Áno, chcem aj naďalej prijímať relevantné informácie
         greetings: Zdravím, <br/>%{organization_name} <br/> <a href="%{organization_url}">%{organization_url} </a>
-        hello: Ahoj,
+        hello: Dobrý deň,
         subject: Chcete stále dostávať relevantné informácie o %{organization_name}?
     notifications:
       no_notifications: Zatiaľ žiadne oznámenie.
@@ -941,7 +947,7 @@ sk:
           conferences_count: Konferencia
           debates_count: Debaty
           endorsements_count: Potvrdenie
-          headline: Aktuálny stav%{organization}
+          headline: Aktuálny stav %{organization}
           meetings_count: Stretnutie
           orders_count: Hlasy
           pages_count: Stránky
@@ -1148,7 +1154,7 @@ sk:
     invitations:
       edit:
         header: Dokončite vytvorenie účtu
-        nickname_help: Vaša prezývka v%{organization}.
+        nickname_help: Vaša prezývka v %{organization}.
         submit_button: Uložiť
         subtitle: Ak prijmete pozvánku, nastavte svoju prezývku a heslo.
       invitation_removed: Vaša pozvánka bola odstránená.
@@ -1163,7 +1169,7 @@ sk:
     mailer:
       confirmation_instructions:
         action: Potvrďte svoj účet
-        greeting: Vitajte%{recipient}!
+        greeting: Vitajte %{recipient}!
         instruction: 'E-mail o účte môžete potvrdiť pomocou nižšie uvedeného odkazu:'
         subject: Pokyny pre potvrdenie
       email_changed:
@@ -1172,7 +1178,7 @@ sk:
         subject: E-mail bol zmenený
       invitation_instructions:
         accept: Prijať pozvanie
-        accept_until: Tejto pozvánke vyprší platnosť v%{due_date}.
+        accept_until: Tejto pozvánke vyprší platnosť v %{due_date}.
         decline: Odmietnuť pozvaním
         hello: Dobrý deň%{email},
         ignore: |-
@@ -1234,7 +1240,7 @@ sk:
         currently_waiting_confirmation_for_email: 'Aktuálne čaká potvrdenie o:%{email}'
         leave_blank_if_you_don_t_want_to_change_it: ponechajte prázdne, ak nechcete zmeniť
         title: Upraviť%{resource}
-        unhappy: Nešťastný?
+        unhappy: Nespokojný?
         update: Aktualizácia
         we_need_your_current_password_to_confirm_your_changes: pre potvrdenie zmien potrebujeme vaše aktuálne heslo
       new:
@@ -1261,10 +1267,10 @@ sk:
         sign_in_with_provider: Prihlásiť sa cez%{provider}
         sign_up: Prihlásiť sa
       minimum_password_length:
-        one: "(Minimálne%{count} znakov)"
-        few: "(Minimálne%{count} znakov)"
-        many: "(Minimálne%{count} znakov)"
-        other: "(Minimálne%{count} znakov)"
+        one: "(Minimálne %{count} znakov)"
+        few: "(Minimálne %{count} znakov)"
+        many: "(Minimálne %{count} znakov)"
+        other: "(Minimálne %{count} znakov)"
     unlocks:
       new:
         resend_unlock_instructions: Obnovte pokyny k odomknutiu
