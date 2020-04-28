@@ -5,9 +5,9 @@ module Decidim
     class DashboardMetricChartsPresenter < Decidim::MetricChartsPresenter
       attribute :summary, Boolean
 
-      def not_highlighted
+      def render_not_highlighted(metrics)
         safe_join(
-          not_highlighted_metrics.map do |metric|
+          metrics.map do |metric|
             render_metrics_data(metric.metric_name, klass: not_highlighted_classes, graph_klass: "small")
           end
         )
