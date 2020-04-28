@@ -831,6 +831,9 @@ sv:
           step_3: Slutför
           step_4: Publicera ditt förslag
           step_of: Steg %{current_step_num} av %{total_steps}
+      proposals_picker:
+        choose_proposals: Välj förslag
+        close: Stäng
       publish:
         error: Det gick inte att publicera förslaget.
         success: Förslag har publicerats.
