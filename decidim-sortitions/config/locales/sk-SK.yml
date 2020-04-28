@@ -28,10 +28,10 @@ sk:
     events:
       sortitions:
         sortition_created:
-          email_intro: Vvoľba losovaním "% {resource_title}" bola pridaná ku "% {participatory_space_title}", ktorý sledujete.
-          email_outro: Toto oznámenie ste dostali, pretože ste sledovali "% {participatory_space_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
+          email_intro: Vvoľba losovaním "%{resource_title}" bola pridaná ku "%{participatory_space_title}", ktorý sledujete.
+          email_outro: Toto oznámenie ste dostali, pretože ste sledovali "%{participatory_space_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
           email_subject: Nová voľba losovaním bola pridaná ku %{participatory_space_title}
-          notification_title: Vvoľba losovaním <a href="%{resource_path}">% {resource_title} </a> bola pridaná ku %{participatory_space_title}
+          notification_title: Vvoľba losovaním <a href="%{resource_path}">%{resource_title} </a> bola pridaná ku %{participatory_space_title}
     pages:
       home:
         statistics:
@@ -99,9 +99,9 @@ sk:
         count:
           proposals_count:
             one: 1
-            few: "% {count} návrhov"
-            many: "% {count} návrhov"
-            other: "% {count} návrhov"
+            few: "%{count} návrhov"
+            many: "%{count} návrhov"
+            other: "%{count} návrhov"
         filters:
           active: Aktívne
           all: Všetko
@@ -130,8 +130,8 @@ sk:
           any_category: zo všetkých kategórií
           cancelled: Zrušené výber
           candidate_proposal_ids: žrebovacie volbaní objednávky a ID
-          candidate_proposals_info: 'Rozbor bol vykonaný medzi nasledujúcimi návrhmi (% {category_label}), s nasledujúcimi ID (označené tučne vybranými návrhy)'
-          category: z kategórie% {category}
+          candidate_proposals_info: 'Rozbor bol vykonaný medzi nasledujúcimi návrhmi (%{category_label}), s nasledujúcimi ID (označené tučne vybranými návrhy)'
+          category: z kategórie%{category}
           dice_result: "(1) Výsledok kocky"
           introduction: 'Táto stránka obsahuje výsledky výberu% {referencie}. Prostredníctvom tohto výberu bolo vybratých% {target_items} počet výsledkov náhodne a s rovnakým rozdelením pravdepodobnosti zo súboru návrhov zobrazených nižšie. Spolu s výsledkami informácie zobrazené na tejto stránke poskytujú všetky informácie potrebné pre maximalizáciu záruk a reprodukciu výsledkov. Kľúčom k kvalite tohto rozvratu je dvojitá náhodnosť, ktorú poskytuje viazanie kocky (overené svedkami) a presný čas výberu, ktorý poskytuje vstup pre algoritmus, ktorý generuje náhodný výber. Časové osivo pre žrebovacie voľba je tak presné (sekundy), že nie je možné ovládať ľudí, a tak poskytnúť dvojitý "nekontrolovateľný" vstup, ktorý zaručí spravodlivý výsledok. '
           mathematical_result: Výsledok (1) x (2)
@@ -154,6 +154,6 @@ sk:
         sortitions_count:
           count:
             one: 1 sortie
-            few: "% {count} sortitions"
-            many: "% {count} sortitions"
-            other: "% {count} sortitions"
+            few: "%{count} sortitions"
+            many: "%{count} sortitions"
+            other: "%{count} sortitions"
