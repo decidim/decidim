@@ -66,13 +66,10 @@ en:
         search_placeholder:
           title_or_description_cont: Search %{collection} by title or description.
         state_eq:
-          label: State
           values:
-            accepted: Accepted
             created: Created
             discarded: Discarded
             published: Published
-            rejected: Rejected
             validating: Technical validation
       menu:
         initiatives: Initiatives
