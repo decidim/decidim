@@ -78,8 +78,11 @@ it:
             'false': proposte
             'true': Modifiche
         state_eq:
+          label: Stato
           values:
+            accepted: Accettata
             evaluating: Valutare
+            rejected: Rifiutata
             withdrawn: Ritirato
         state_null:
           label: Stato
