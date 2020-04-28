@@ -88,8 +88,8 @@ describe Decidim::Admin::Permissions do
     end
   end
 
-  describe "activity graphs" do
-    let(:action_subject) { :activity_graph }
+  describe "metrics" do
+    let(:action_subject) { :metrics }
 
     it_behaves_like "permission is not set"
 

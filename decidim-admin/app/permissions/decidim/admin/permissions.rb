@@ -31,7 +31,7 @@ module Decidim
 
         if user.admin? && admin_terms_accepted?
           allow! if read_admin_log_action?
-          allow! if read_activity_graphs_action?
+          allow! if read_metrics_action?
           allow! if static_page_action?
           allow! if organization_action?
           allow! if user_action?
@@ -97,8 +97,8 @@ module Decidim
         end
       end
 
-      def read_activity_graphs_action?
-        permission_action.subject == :activity_graph &&
+      def read_metrics_action?
+        permission_action.subject == :metrics &&
           permission_action.action == :read
       end
 
