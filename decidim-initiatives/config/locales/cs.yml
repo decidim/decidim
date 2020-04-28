@@ -71,13 +71,10 @@ cs:
         search_placeholder:
           title_or_description_cont: Hledat %{collection} podle názvu nebo popisu.
         state_eq:
-          label: Stát
           values:
-            accepted: Přijato
             created: Vytvořeno
             discarded: Vyřazeno
             published: Publikováno
-            rejected: Odmítnuto
             validating: Technická validace
       menu:
         initiatives: Iniciativy
