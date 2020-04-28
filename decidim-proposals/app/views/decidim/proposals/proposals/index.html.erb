@@ -59,6 +59,12 @@
   </div>
   <div id="proposals" class="columns mediumlarge-8 large-9">
     <%= render partial: "proposals" %>
+    <% partial_filters = render partial: "filters" %>
+    <% if @proposals.count == 0%>
+      <div class="callout secondary">
+        <p><%= "There isn't any proposal yet." %></p>
+      </div>
+    <%end%>
   </div>
 </div>
 <div class="row">
