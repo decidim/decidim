@@ -3,7 +3,9 @@ sk:
     attributes:
       config:
         available_methods: Dostupné metódy
+        offline: Offline
         offline_explanation: Pokyny pre overenie offline
+        online: Online
       id_document_information:
         document_number: Číslo dokumentu (s písmenom)
         document_type: Typ dokumentu
@@ -16,8 +18,11 @@ sk:
         email: Užívateľský email
       postal_letter_address:
         full_address: Celá adresa
+      postal_letter_confirmation:
+        verification_code: Overovací kód
       postal_letter_postage:
         full_address: Celá adresa
+        verification_code: Overovací kód
   decidim:
     admin:
       menu:
@@ -57,7 +62,7 @@ sk:
       name: názov
       postal_letter:
         explanation: Pošleme vám poštové list s kódom, ktorý budete musieť zadať, aby sme mohli overiť vašu adresu
-        name: Kód poštovým listom
+        name: Kód poštou
     verifications:
       authorizations:
         create:
@@ -67,7 +72,7 @@ sk:
         first_login:
           actions:
             another_dummy_authorization_handler: Overte proti inému príkladu poverenia pre autorizáciu
-            csv_census: Overte sčítanie organizácie
+            csv_census: Overte voči cenzu organizácie
             dummy_authorization_handler: Overte proti príklade poverenia autorizácie
             dummy_authorization_workflow: Overte proti pracovnému postupu autorizácie
             id_documents: Získajte overenie odoslaním dokladu totožnosti
@@ -75,8 +80,9 @@ sk:
           title: Potvrďte vašu identitu
           verify_with_these_options: 'Sú to dostupné možnosti na overenie totožnosti:'
         new:
-          authorize_with: Overte pomocou% {authorizer}
-        skip_verification: Môžete to preskočiť teraz a% {link}
+          authorize: Odoslať
+          authorize_with: Overte pomocou %{authorizer}
+        skip_verification: Môžete to teraz preskočiť a % {link}
         start_exploring: začať skúmať
       csv_census:
         admin:
@@ -90,13 +96,14 @@ sk:
             confirm: Odstrániť všetky sčítanie nemožno vrátiť späť. Ste si istý, že chcete pokračovať?
             title: Zmazať všetky dáta sčítania
           index:
+            data: Celkovo je načítaných %{count} záznamov. Posledný nahraný bol %{due_date}.
             empty: Neexistujú údaje o sčítaní. Pomocou nižšie uvedeného formulára ho importujte pomocou súboru CSV.
             title: Aktuálne údaje o sčítaní
           instructions:
             body: Ak chcete urobiť, musíte vstúpiť do správy systému a pridať oprávnenia csv_census organizáciu
             title: Pre túto organizáciu musíte aktivovať csv sčítanie
           new:
-            file: ".csv súbor s dátami e-mailov"
+            file: ".CSV súbor s dátami e-mailov"
             info: 'Must byť súborom vo formáte CSV s iba jedným stĺpcom s e-mailovou adresou:'
             submit: Nahrať súbor
             title: Nahrajte nové sčítanie
@@ -146,6 +153,8 @@ sk:
         authorizations:
           choose:
             choose_a_type: 'Vyberte, ako chcete overiť:'
+            offline: Offline
+            online: Online
             title: Overte svoju identitu
           create:
             error: Pri nahrávaní dokumentu sa vyskytol problém
