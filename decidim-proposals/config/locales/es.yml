@@ -85,8 +85,11 @@ es:
         search_placeholder:
           id_string_or_title_cont: Buscar %{collection} por ID o título.
         state_eq:
+          label: Estado
           values:
+            accepted: Aceptadas
             evaluating: En evaluación
+            rejected: Rechazada
             withdrawn: Retirada
         state_null:
           label: Estado
