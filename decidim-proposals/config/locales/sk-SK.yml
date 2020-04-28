@@ -30,7 +30,7 @@ sk:
         origin_component_id: Súčasť, z ktorej sa skopírujú návrhy
       proposals_import:
         import_proposals: Importovať návrhy
-        keep_authors: Uchovávajte pôvodnej autormi
+        keep_authors: Uchovať pôvodných autorov
       valuation_assignment:
         admin_log:
           valuator_role_id: Meno hodnotiteľa
@@ -39,18 +39,40 @@ sk:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: 'Neplatný typ dokumentu. Prijaté formáty sú:% {valid_mime_types} '
+              invalid_document_type: 'Neplatný typ dokumentu. Prijateľné formáty sú: %{valid_mime_types} '
         proposal:
           attributes:
             attachment:
-              needs_to_be_reattached: Potrebuje byť znovu pripojený
+              needs_to_be_reattached: Je potrebné priložiť znovu
             body:
               cant_be_equal_to_template: nemôže byť rovnaké, ako šablóna
               identical: A názov nemôže byť totožný
             title:
-              identical: Telo A nemôže byť totožné
+              identical: A telo nemôže byť totožné
     models:
+      decidim/proposals/accepted_proposal_event: Návrh akceptovaný
+      decidim/proposals/admin/update_proposal_category_event: Kategória návrhu zmenená
       decidim/proposals/admin/update_proposal_scope_event: Rozsah návrhu zmenený
+      decidim/proposals/creation_enabled_event: Tvorba návrhu povolená
+      decidim/proposals/endorsing_enabled_event: Podpora návrhu povolená
+      decidim/proposals/evaluating_proposal_event: Tento návrh sa hodnotí
+      decidim/proposals/proposal_endorsed_event: Návrh podporený
+      decidim/proposals/proposal_mentioned_event: Návrh spomenutý
+      decidim/proposals/publish_proposal_event: Návrh publikovaný
+      decidim/proposals/rejected_proposal_event: Návrh odmietnutý
+      decidim/proposals/voting_enabled_event: Povolenie hlasovania o návrhu
+  activerecord:
+    models:
+      decidim/proposals/collaborative_draft:
+        one: Kolaboratívny náčrt
+        few: Kolaboratívne náčrty
+        many: Kolaboratívne náčrty
+        other: Kolaboratívne náčrty
+      decidim/proposals/proposal:
+        one: Návrh
+        few: Návrhy
+        many: Návrhy
+        other: Návrhy
   decidim:
     admin:
       filters:
