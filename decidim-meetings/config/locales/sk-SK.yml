@@ -44,6 +44,30 @@ sk:
           attributes:
             email:
               already_invited: Tento e-mail už bol pozvaný
+    models:
+      decidim/meetings/close_meeting_event: Stretnutie uzavreté
+      decidim/meetings/create_meeting_event: Stretnutie
+      decidim/meetings/meeting_registrations_enabled_event: Registrácia povolené
+      decidim/meetings/meeting_registrations_over_percentage_event: Registrácie prekročené
+      decidim/meetings/upcoming_meeting_event: Nadchádzajúce stretnutie
+      decidim/meetings/update_meeting_event: Stretnutie aktualizované
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Stretnutie
+        few: Stretnutia
+        many: Stretnutia
+        other: Stretnutia
+      decidim/meetings/minutes:
+        one: Zápis
+        few: Zápisy
+        many: Zápisy
+        other: Zápisy
+      decidim/meetings/registration:
+        one: Registrácia
+        few: Registrácie
+        many: Registrácie
+        other: Registrácie
   decidim:
     admin:
       meeting_copies:
@@ -84,11 +108,11 @@ sk:
             notification_title: Schôdzka <a href="%{resource_path}">%{resource_title} </a> bola uzavretá.
         meeting_created:
           email_intro: Schôdzka "%{resource_title}" bola pridaná k "%{participatory_space_title}", ktorú sledujete.
-          email_outro: Toto oznámenie ste dostali, pretože ste sledovali "%{participatory_space_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
+          email_outro: Toto oznámenie ste dostali, pretože sledujete "%{participatory_space_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
           email_subject: Nové stretnutia boli pridané k%{participatory_space_title}
           notification_title: Stretnutie <a href="%{resource_path}">%{resource_title} </a> bolo pridané do%{participatory_space_title}
         meeting_registration_confirmed:
-          notification_title: Vaša registrácia pre stretnutie <a href="%{resource_url}">%{resource_title} </a> bola potvrdená. Váš registračný kód je%{registration_code}.
+          notification_title: Vaša registrácia pre stretnutie <a href="%{resource_url}">%{resource_title} </a> bola potvrdená. Váš registračný kód je %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: Počet schôdzok obsadených schôdzí "%{resource_title}" je vyššia ako%{percentage}%.
           email_outro: Toto oznámenie ste dostali, pretože ste administrátor participačného priestoru schôdzky.
@@ -114,6 +138,18 @@ sk:
           email_outro: Toto upozornenie ste dostali, pretože postupujete po stretnutí "%{resource_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
           email_subject: Schôdzka "%{resource_title}" začne za menej ako 48 hodín.
           notification_title: Stretnutie <a href="%{resource_path}">%{resource_title} </a> sa začne za menej ako 48 hodín.
+    gamification:
+      badges:
+        attended_meetings:
+          conditions:
+            - Registrujte sa pre stretnutia, ktorých sa chcete zúčastniť
+          description: Tento odznak ste dostali za aktívnu účasť na stretnutiach naživo.
+          description_another: Tento účastník sa zúčastnil %{score} stretnutí.
+          description_own: Zúčastnili ste sa %{score} stretnutí.
+          name: Stretnutia, ktorých ste sa zúčastnili
+          next_level_in: Zúčastnite sa ďalších %{score} stretnutí pre dosiahnutie ďalšej úrovne!
+          unearned_another: Tento účastník sa nezúčastnil žiadneho stretnutia.
+          unearned_own: Zatiaľ ste sa nezúčastnili žiadnych stretnutí.
     meetings:
       actions:
         agenda: Denný program
@@ -305,7 +341,7 @@ sk:
             space_type: Zúčastňujú priestor
             upcoming: Nadchádzajúce
       last_activity:
-        new_meeting_at_html: "<span> Nové stretnutie v%{link} </ span>"
+        new_meeting_at_html: "<span> Nové stretnutie v %{link} </ span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -370,6 +406,7 @@ sk:
           fields:
             closed: Zatvorené
             end_time: Dátum ukončenia
+            map: Mapa
             start_time: Dátum začatia
             title: Titul
       read_more: "(Prečítajte si viac)"
@@ -377,7 +414,7 @@ sk:
         confirmation:
           confirmed_html: Vaša registrácia pre stretnutie <a href="%{url}">%{title} </a> bola potvrdená.
           details: Podrobnosti schôdzky nájdete v prílohe.
-          registration_code: Váš registračný kód je%{code}.
+          registration_code: Váš registračný kód je %{code}.
       registrations:
         create:
           invalid: Na schôdzi došlo k problému.
@@ -391,6 +428,11 @@ sk:
       types:
         private_meeting: Privátne stretnutie
         transparent: Priehľadný
+    metrics:
+      meetings:
+        description: Počet vytvorených stretnutí
+        object: stretnutia
+        title: Stretnutia
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
