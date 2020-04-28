@@ -463,6 +463,9 @@ en:
             active_conferences: Active conferences
             see_all_conferences: See all conferences
       photo:
+        image:
+          attributes:
+            alt: Media picture
         show:
           close_modal: Close modal
           photo: Image

@@ -28,6 +28,7 @@ module Decidim
         attribute :image
         attribute :born_at, Date
         attribute :start_time, DateTime
+        attribute :scopes, [::Decidim::Scope]
 
         translatable_attribute :name, String
         translatable_attribute :short_description, String
@@ -604,6 +605,24 @@ module Decidim
           it "doesn't render the delete checkbox" do
             expect(parsed.css('input[type="checkbox"]')).to be_empty
           end
+        end
+      end
+    end
+
+    describe "#data_picker" do
+      context "when used without options" do
+        let(:options) { {} }
+        let(:prompt_params) { {} }
+        let(:output) do
+          builder.data_picker(:scopes, options, prompt_params)
+        end
+
+        before do
+          expect(helper).to receive(:render).and_return("[rendering]")
+        end
+
+        it "renders a hidden field and a container for the editor" do
+          expect(parsed.css("label[for='resource_scopes']").text).to eq("Scopes")
         end
       end
     end

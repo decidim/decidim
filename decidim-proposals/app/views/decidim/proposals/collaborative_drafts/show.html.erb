@@ -14,7 +14,7 @@
 
 <div class="row column view-header">
   <%= link_to collaborative_drafts_path do %>
-    <%= icon "chevron-left", class: "icon--small" %>
+    <%= icon "chevron-left", class: "icon--small", aria_label: t(".back"), role: "img" %>
     <%= t(".back") %>
   <% end %>
 
@@ -77,21 +77,21 @@
         <ul class="card-data">
           <li class="card-data__item authors_status">
             <%= with_tooltip t("decidim.proposals.models.collaborative_draft.fields.authors") do %>
-              <%= icon("people", class: "icon--small") + " " + "#{@collaborative_draft.versions.group_by(&:whodunnit).size}" %>
+              <%= icon("people", class: "icon--small", role: "img") + " " + "#{@collaborative_draft.versions.group_by(&:whodunnit).size}" %>
             <% end %>
           </li>
 
           <li class="card-data__item versions_status">
             <%= link_to collaborative_draft_versions_path(@collaborative_draft) do %>
               <%= with_tooltip t("decidim.proposals.models.collaborative_draft.fields.contributions") do %>
-                <%= icon("pencil", class: "icon--small") + " " + "#{@collaborative_draft.versions.count}" %>
+                <%= icon("pencil", class: "icon--small", role: "img") + " " + "#{@collaborative_draft.versions.count}" %>
               <% end %>
             <% end %>
           </li>
           <li class="card-data__item">
             <%= link_to "#comments" do %>
               <%= with_tooltip t("decidim.proposals.models.collaborative_draft.fields.comments") do %>
-                <%= icon("comment-square", class: "icon--small") + " " + "#{@collaborative_draft.comments.count}" %>
+                <%= icon("comment-square", class: "icon--small", role: "img") + " " + "#{@collaborative_draft.comments.count}" %>
               <% end %>
             <% end %>
           </li>

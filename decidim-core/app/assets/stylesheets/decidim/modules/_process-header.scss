@@ -82,6 +82,12 @@
 .process-header__hashtag{
   font-weight: 600;
 
+  a:focus{
+    background-color: $secondary;
+    color: $white;
+    outline: none;
+  }
+
   &::after{
     content: "·";
     margin-left: .5rem;

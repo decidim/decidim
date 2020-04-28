@@ -6,7 +6,7 @@
           <%= search_field_tag :q, @query,label: false, class: "input-group-field", placeholder: t(".search") %>
           <div class="input-group-button">
             <button type="submit" class="button button--muted">
-              <%= icon "magnifying-glass", aria_label: t(".search") %>
+              <%= icon "magnifying-glass", aria_label: t(".search"), role: "img" %>
             </button>
           </div>
         </div>

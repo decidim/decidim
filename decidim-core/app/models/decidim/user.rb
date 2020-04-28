@@ -211,6 +211,15 @@ module Decidim
       UserGroups::AcceptedUserGroups.for(self)
     end
 
+    def authenticatable_salt
+      "#{super}#{session_token}"
+    end
+
+    def invalidate_all_sessions!
+      self.session_token = SecureRandom.hex
+      save!
+    end
+
     protected
 
     # Overrides devise email required validation.

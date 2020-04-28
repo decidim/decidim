@@ -78,7 +78,7 @@ module Decidim
       content_tag :p, class: "pull-right mt-s" do
         link_to "#", class: "metric-downloader", data: { metric: metric_name } do
           content_tag :small, class: "text-small" do
-            content_tag :u, I18n.t("decidim.metrics.download.csv")
+            content_tag :span, I18n.t("decidim.metrics.download.csv")
           end
         end
       end

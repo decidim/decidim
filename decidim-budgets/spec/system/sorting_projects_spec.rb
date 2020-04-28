@@ -30,7 +30,7 @@ describe "Sorting projects", type: :system do
       visit_component
       within ".order-by" do
         expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random order")
-        page.find("a", text: "Random order").click
+        page.find("a", text: "Random order").hover
         click_link(selected_option)
       end
     end
