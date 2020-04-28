@@ -81,8 +81,11 @@
         search_placeholder:
           id_string_or_title_cont: Søk %{collection} etter ID eller tittel.
         state_eq:
+          label: Delstat
           values:
+            accepted: Aksepterte
             evaluating: Vurderer
+            rejected: Avvist
             withdrawn: Trukket tilbake
         state_null:
           label: Status
