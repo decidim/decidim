@@ -29,7 +29,7 @@ sk:
         authorization_workflows: Overenie
     admin_log:
       organization:
-        update_id_documents_config: "% {USER_NAME} aktualizovala konfiguráciu overenie dokumentov identít"
+        update_id_documents_config: "%{user_name} aktualizovala konfiguráciu overenie dokumentov identít"
       user:
         grant_id_documents_offline_verification: "% {USER_NAME} overené% {resource_name} pomocou overenia dokumentov offline"
     authorization_handlers:
