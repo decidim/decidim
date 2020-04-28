@@ -65,13 +65,10 @@ hu:
         search_placeholder:
           title_or_description_cont: Keresés cím vagy leírás alapján a %{collection} -ban.
         state_eq:
-          label: Állapot
           values:
-            accepted: Elfogadva
             created: Létrehozva
             discarded: Elvetve
             published: Közzétéve
-            rejected: Elutasítva
             validating: Technikai érvényesítés
       menu:
         initiatives: Kezdeményezések
