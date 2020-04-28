@@ -25,7 +25,13 @@ module Decidim
         # Returns nothing.
         def map_model(model)
           self.proposal_ids = model.linked_resources(:proposals, "proposals_from_meeting").pluck(:id)
-          self.proposals = model.sibling_scope(:proposals)
+        end
+
+        def proposals
+          @proposals ||= Decidim.find_resource_manifest(:proposals)
+                                .try(:resource_scope, current_component)
+                                &.where(id: proposal_ids)
+                                &.order(title: :asc)
         end
       end
     end
