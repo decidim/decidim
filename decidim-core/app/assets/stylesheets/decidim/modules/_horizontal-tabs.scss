@@ -65,16 +65,20 @@
 }
 
 .responsive-tab-block{
-  @media only screen and (max-width: 639px) {
+  @media only screen and (max-width: 639px){
     overflow: hidden;
     height: 44px;
-    &>ul.tabs{
+
+    & > ul.tabs{
       flex-direction: column;
-      &>li{
+
+      & > li{
         flex: 0 0 auto;
+
         &.is-active{
           -webkit-box-ordinal-group: -1; // fixes older Safari issues
           order: -1;
+
           &::before{
             display: block;
             content: " ";
@@ -87,22 +91,27 @@
             border-top: 5px solid #f00;
             margin-top: 20px;
           }
-          &> a:focus{ 
-            outline: 0px !important;
+
+          & > a:focus{
+            outline: 0 !important;
           }
         }
+
         & > a{
           border-bottom: 3px solid transparent;
           color: green;
+
           &:focus{
-            outline: 0px !important;
+            outline: 0 !important;
           }
         }
       }
     }
+
     &.expanded{
       height: auto;
-      &>ul.tabs > li.is-active::before{
+
+      & > ul.tabs > li.is-active::before{
         transform: rotate(180deg);
       }
     }
