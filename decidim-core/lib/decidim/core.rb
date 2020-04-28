@@ -198,6 +198,11 @@ module Decidim
     end
   end
 
+  # Exposes a configuration option: the whitelist ips
+  config_accessor :system_accesslist_ips do
+    []
+  end
+
   # Exposes a configuration option: the currency unit
   config_accessor :currency_unit do
     "€"
@@ -300,6 +305,13 @@ module Decidim
   # The Decidim::Exporters::CSV's default column separator
   config_accessor :default_csv_col_sep do
     ";"
+  end
+
+  # Exposes a configuration option: HTTP_X_FORWADED_HOST header follow-up.
+  # If a caching system is in place, it can also allow cache and log poisoning attacks,
+  # allowing attackers to control the contents of caches and logs that could be used for other attacks.
+  config_accessor :follow_http_x_forwarded_host do
+    false
   end
 
   # The list of roles a user can have, not considering the space-specific roles.

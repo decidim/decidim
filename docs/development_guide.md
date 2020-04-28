@@ -50,6 +50,18 @@ git checkout -b feature/xxx
 
 Implement the feature, and open a Pull Request as normal, but against `develop` branch. As this is the most common operation, `develop` is the default branch instead of `master`.
 
+## Git commit messages and Pull Request titles
+
+We recommend following [this guide](https://chris.beams.io/posts/git-commit/) for making good git commit messages. It also applies to Pull Request titles. The summary is:
+
+1.  Separate subject from body with a blank line
+1.  Limit the subject line to 50 characters
+1.  Capitalize the subject line
+1.  Do not end the subject line with a period
+1.  Use the imperative mood in the subject line
+1.  Wrap the body at 72 characters
+1.  Use the body to explain what and why vs. how
+
 ## During development
 
 When creating new migrations in Decidim's modules, you will need to "apply" this migrations to your development_app. The way to do this is by copying the migration from your module into the db/migrate dir of your development_app. Luckily we already have a script that automates this: it copies all missing migrations in development_app/db/migrate. The command is:
