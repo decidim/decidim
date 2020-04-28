@@ -266,6 +266,7 @@ sk:
       foo_authorization:
         fields:
           bar: Stĺpec
+          foo: Foo
         name: Foo autorizácie
       granted_at: Udelené v %{timestamp}
       sms:
@@ -275,6 +276,7 @@ sk:
     authorization_modals:
       content:
         expired:
+          authorize: Znovu overte pomocou "%{authorization}"
           explanation: Platnosť vášho oprávnenia vypršala. Ak chcete vykonať túto akciu, musíte byť znova autorizovaný s "%{authorization}".
           title: Platnosť oprávnenia vypršala
         incomplete:
@@ -284,6 +286,7 @@ sk:
           reauthorize: Znovu autorizovať
           title: Znovu autorizujte
         missing:
+          authorize: Overte pomocou %{authorization}"
           explanation: Ak chcete vykonať túto akciu, musíte byť autorizovaní pomocou "%{authorization}".
           title: Je potrebná autorizácia
         pending:
@@ -312,6 +315,7 @@ sk:
       dummy:
         actions:
           bar: Lišta
+          foo: Foo
         name: Zástupná časť
         settings:
           global:
@@ -348,6 +352,8 @@ sk:
         name: Posledná aktivita
         title: Posledná aktivita
         view_all: Zobraziť všetko
+      metrics:
+        name: Štatistika organizácie
       stats:
         name: Štatistiky organizácie
       sub_hero:
@@ -389,8 +395,8 @@ sk:
           subtitle: Registrujte sa, aby ste sa zúčastnili diskusií a návrhov podpory.
           terms: podmienky používania
           tos_agreement: Prihlásením súhlasíte s%{link}.
-          tos_title: Zmluvné podmienky
-          username_help: Verejné meno, ktoré sa zobrazí vo vašich príspevkoch. S cieľom zaručiť anonymitu môže byť akékoľvek meno.
+          tos_title: Podmienky používania
+          username_help: Verejné meno, ktoré sa zobrazí vo vašich príspevkoch. S cieľom zaručiť anonymitu to môže byť akékoľvek meno.
       sessions:
         new:
           are_you_new?: Ste na tejto platforme noví?
@@ -1164,7 +1170,7 @@ sk:
         currently_waiting_confirmation_for_email: 'Aktuálne čaká potvrdenie o:%{email}'
         leave_blank_if_you_don_t_want_to_change_it: ponechajte prázdne, ak nechcete zmeniť
         title: Upraviť%{resource}
-        unhappy: Nešťastný?
+        unhappy: Nespokojný?
         update: Aktualizácia
         we_need_your_current_password_to_confirm_your_changes: pre potvrdenie zmien potrebujeme vaše aktuálne heslo
       new:
