@@ -82,14 +82,14 @@ sk:
         new:
           authorize: Odoslať
           authorize_with: Overte pomocou %{authorizer}
-        skip_verification: Môžete to teraz preskočiť a % {link}
+        skip_verification: Môžete to teraz preskočiť a %{link}
         start_exploring: začať skúmať
       csv_census:
         admin:
           census:
             create:
               error: Pri importe sčítaní došlo k chybe.
-              success: Úspešne importované% {count} položiek (% {errors} chýb)
+              success: Úspešne importované%{count} položiek (%{errors} chýb)
             destroy_all:
               success: Všetky dáta sčítania boli zmazané
           destroy:
@@ -113,10 +113,10 @@ sk:
             success: Účet bol úspešne overený.
       dummy_authorization:
         extra_explanation:
-          one: Účasť je obmedzená na užívateľov s poštovým smerovacím číslom% {postal_codes}.
-          few: 'Účasť je obmedzená na používateľov s niektorým z nasledujúcich poštových smerovacích čísel:% {postal_codes}.'
-          many: 'Účasť je obmedzená na používateľov s niektorým z nasledujúcich poštových smerovacích čísel:% {postal_codes}.'
-          other: 'Účasť je obmedzená na používateľov s niektorým z nasledujúcich poštových smerovacích čísel:% {postal_codes}.'
+          one: Účasť je obmedzená na užívateľov s poštovým smerovacím číslom%{postal_codes}.
+          few: 'Účasť je obmedzená na používateľov s niektorým z nasledujúcich poštových smerovacích čísel:%{postal_codes}.'
+          many: 'Účasť je obmedzená na používateľov s niektorým z nasledujúcich poštových smerovacích čísel:%{postal_codes}.'
+          other: 'Účasť je obmedzená na používateľov s niektorým z nasledujúcich poštových smerovacích čísel:%{postal_codes}.'
       id_documents:
         admin:
           config:
@@ -144,9 +144,10 @@ sk:
               verify: Overte
           pending_authorizations:
             index:
+              config: Konfigurácia
               offline_verification: Overenie offline
               title: Čakajúci overenie online
-              verification_number: 'Overenie #% {n}'
+              verification_number: 'Overenie #%{n}'
           rejections:
             create:
               success: Overenie bolo zamietnuté. Používateľ bude vyzvaný, aby zmenil svoje dokumenty
@@ -172,7 +173,9 @@ sk:
             title: Nahrajte svoj doklad totožnosti
           update:
             error: Pri načítaní dokumentu došlo k problému
-            success: Dokument bol úspešne obnovený
+            success: Dokument bol úspešne znovunahraný
+        dni: IČO
+        nie: DIČ
         passport: Cestovný pas
       postal_letter:
         admin:
@@ -184,6 +187,7 @@ sk:
               not_yet_sent: Doteraz nebola odoslaná
               title: Prebiehajúce overovanie
               username: Užívateľské meno
+              verification_code: Overovací kód
           postages:
             create:
               error: Chyba pri označovaní listu
@@ -212,6 +216,7 @@ sk:
           edit:
             confirm_destroy: Naozaj chcete obnoviť overovací kód?
             destroy: Obnoviť overovací kód
+            resend: Neprišiel Vám overovací kód?
             send: Potvrdiť
             title: Zadajte overovací kód, ktorý ste obdržali
           new:
