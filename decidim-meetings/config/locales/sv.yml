@@ -102,7 +102,7 @@ sv:
             notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> stängdes.
         meeting_created:
           email_intro: Mötet "%{resource_title}" har lagts till i "%{participatory_space_title}" som du följer.
-          email_outro: Du har fått den här meddelandet eftersom du följer "%{participatory_space_title}". Du kan avfölja det vid föregående länk.
+          email_outro: Du har fått det här meddelandet eftersom du följer "%{participatory_space_title}". Du kan avfölja det vid föregående länk.
           email_subject: Nytt möte har lagts till i %{participatory_space_title}
           notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> har lagts till i %{participatory_space_title}
         meeting_registration_confirmed:
@@ -119,17 +119,17 @@ sv:
           notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> uppdaterades.
         registration_code_validated:
           email_intro: Din anmälningskod "%{registration_code}" till mötet "%{resource_title}" har validerats.
-          email_outro: Du har fått den här meddelandet eftersom din registreringskod för mötet "%{resource_title}" har validerats.
+          email_outro: Du har fått det här meddelandet eftersom din registreringskod för mötet "%{resource_title}" har validerats.
           email_subject: Din anmälningskod "%{registration_code}" till mötet "%{resource_title}" har validerats
           notification_title: Din registreringskod "%{registration_code}" för mötet <a href="%{resource_path}">%{resource_title}</a> har validerats.
         registrations_enabled:
           email_intro: 'Mötet "%{resource_title}" har aktiverat registreringar. Du kan registrera dig själv på dess sida:'
-          email_outro: Du har fått den här meddelandet eftersom du följer mötet "%{resource_title}". Du kan sluta följa det på föregående länk.
+          email_outro: Du har fått det här meddelandet eftersom du följer mötet "%{resource_title}". Du kan sluta följa det på föregående länk.
           email_subject: Mötet "%{resource_title}" har aktiverat registreringar.
           notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> har aktiverat registreringar.
         upcoming_meeting:
           email_intro: Mötet "%{resource_title}" börjar om mindre än 48 timmar.
-          email_outro: Du har fått den här meddelandet eftersom du följer mötet "%{resource_title}". Du kan sluta följa det på föregående länk.
+          email_outro: Du har fått det här meddelandet eftersom du följer mötet "%{resource_title}". Du kan sluta följa det på föregående länk.
           email_subject: Mötet "%{resource_title}" börjar om färre än 48 timmar.
           notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> startar inom mindre än 48 timmar.
     gamification:
