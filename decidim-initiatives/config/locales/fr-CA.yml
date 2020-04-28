@@ -63,13 +63,10 @@ fr-CA:
         new_initiative_type: Nouveau type d'initiative
       filters:
         state_eq:
-          label: Etat
           values:
-            accepted: Acceptée
             created: Créée
             discarded: Retirée
             published: Publiée
-            rejected: Rejetée
             validating: Validation technique
       menu:
         initiatives: Initiatives
