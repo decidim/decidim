@@ -45,7 +45,7 @@ To make it clear, installations with custom Omniauth providers must remove the p
 The recommended way to go is to configure `config/secrets.yml` with the variables needed (can be filled with dummy data) and then go to `yourinstallation.tld/system` to configure the valid values for the tenant.
 
 ```
-# This block should be kept
+# The following should be removed from any initializer and moved into Rails secrets
 if Rails.application.secrets.dig(:omniauth, :decidim, :enabled)
   Devise.setup do |config|
     config.omniauth :decidim,
@@ -55,9 +55,12 @@ if Rails.application.secrets.dig(:omniauth, :decidim, :enabled)
                     scope: :public
   end
 end
-# this line should be removed
 Decidim::User.omniauth_providers << :decidim
 ```
+
+Maintainers of custom omniauth providers will need to add translations for the translatable settings names in organization's system administration panel.
+
+Documentation regarding oauth providers has been updated: https://github.com/decidim/decidim/blob/develop/docs/services/social_providers.md
 
 - **Geocoder**
 
