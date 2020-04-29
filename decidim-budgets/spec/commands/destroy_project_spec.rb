@@ -12,13 +12,13 @@ module Decidim::Budgets
     let(:current_user) { create :user, :admin, :confirmed, organization: organization }
 
     context "when everything is ok" do
+      it_behaves_like "admin destroys resource gallery" do
+        let(:command) { described_class.new(project, current_user) }
+      end
+
       it "destroys the project" do
         subject.call
         expect { project.reload }.to raise_error(ActiveRecord::RecordNotFound)
-      end
-
-      it "destroys the attached image" do
-        expect { subject.call }.to change(Decidim::Attachment, :count).by(-1)
       end
 
       it "traces the action", versioning: true do

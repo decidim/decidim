@@ -6,7 +6,7 @@ module Decidim
     # and collaborative draft commands.
     # Allows to create several image attachments at once
     module GalleryMethods
-      include Decidim::GalleryMethods
+      include ::Decidim::GalleryMethods
 
       private
 

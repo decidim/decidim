@@ -12,7 +12,7 @@ module Decidim::Budgets
     let(:current_component) { create :component, manifest_name: :budgets, participatory_space: participatory_process }
     let(:scope) { create :scope, organization: organization }
     let(:category) { create :category, participatory_space: participatory_process }
-    let(:uploaded_images) { [] }
+    let(:uploaded_photos) { [] }
     let(:photos) { [] }
     let(:proposal_component) do
       create(:component, manifest_name: :proposals, participatory_space: participatory_process)
@@ -35,7 +35,7 @@ module Decidim::Budgets
         scope: scope,
         category: category,
         photos: photos,
-        add_photos: uploaded_images,
+        add_photos: uploaded_photos,
         current_component: current_component
       )
     end
@@ -88,29 +88,9 @@ module Decidim::Budgets
         expect(linked_proposals).to match_array(proposals)
       end
 
-      context "when uploading images", processing_uploads_for: Decidim::AttachmentUploader do
-        let(:uploaded_images) do
-          [
-            Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-            Decidim::Dev.test_file("city2.jpeg", "image/jpeg")
-          ]
-        end
-
-        it "creates a gallery for the project" do
-          expect { subject.call }.to change(Decidim::Attachment, :count).by(2)
-          project = Decidim::Budgets::Project.last
-          expect(project.photos.count).to eq(2)
-          last_attachment = Decidim::Attachment.last
-          expect(last_attachment.attached_to).to eq(project)
-        end
-
-        context "when gallery is left blank" do
-          let(:uploaded_images) { [] }
-
-          it "broadcasts ok" do
-            expect { subject.call }.to broadcast(:ok)
-          end
-        end
+      it_behaves_like "admin creates resource gallery" do
+        let(:command) { described_class.new(form) }
+        let(:resource_class) { Decidim::Budgets::Project }
       end
     end
   end
