@@ -102,6 +102,10 @@ en:
         create:
           error: There was a problem duplicating this assembly.
           success: Assembly successfully duplicated.
+      assemblies_settings:  
+        update:
+          error: There was a problem updating settings.
+          success: Settings updated successfully.
       assemblies_types:
         create:
           error: There was a problem creating a new assembly type.
@@ -174,7 +178,7 @@ en:
           moderations: Moderations
           private_users: Private users
         assemblies_types: Assemblies types
-        assemblies_settings: Assemblies Settings
+        assemblies_settings: Settings
       models:
         assemblies_types:
           fields:
@@ -254,6 +258,11 @@ en:
             social_handlers: Social
             title: General Information
             visbility: Visibility
+        assemblies_settings:
+          form:
+            title: Settings
+          edit:
+            update: Update
         assemblies_types:
           form:
             title: Title

@@ -3,15 +3,15 @@
 module Decidim
     module Assemblies
       module Admin
-        # A command with all the business logic when updating assembly
+        # A command with all the business logic when updating assemblies
         # settings in the system.
         class UpdateAssembliesSetting < Rectify::Command
           # Public: Initializes the command.
           #
           # assemblies_setting - A assemblies_setting object to update.
           # form - A form object with the params.
-          def initialize(assemblies_setting, form)
-            @assemblies_setting = assemblies_setting
+          def initialize(assemblies_settings, form)
+            @assemblies_settings = assemblies_settings
             @form = form
           end
   
@@ -31,14 +31,16 @@ module Decidim
   
           private
   
-          attr_reader :form
+          attr_reader :form, :assemblies_settings
   
           def update_assemblies_setting!
-            Decidim.traceability.update!(
-              @assemblies_setting,
-              form.current_user,
-              title: form.title
-            )
+            if @assemblies_settings
+              @assemblies_settings = Decidim.traceability.update!(
+                @assemblies_settings,
+                form.current_user,
+                enable_organization_chart: form.enable_organization_chart
+              )
+            end
           end
         end
       end

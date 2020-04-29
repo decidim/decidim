@@ -9,7 +9,7 @@ module Decidim
 				
 				mimic :assemblies_setting
 
-				attribute :organization_chart_enable, Boolean
+				attribute :enable_organization_chart, Boolean
 			end
 		end
 	end

@@ -6,7 +6,6 @@ module Decidim
       # Controller used to manage the assemblies settings for the current
       # organization.
       class AssembliesSettingsController < Decidim::Assemblies::Admin::ApplicationController
-        helper_method :assemblies_settings
         layout "decidim/admin/assemblies"
 
         # GET /admin/assemblies_settings/edit
@@ -15,17 +14,14 @@ module Decidim
           @form = assemblies_settings_form.from_model(current_assemblies_settings)
         end
 
-        def index
-        end
-
         # PUT /admin/assemblies_settings/:id
         def update
-          enforce_permission_to :update, :assembly_setting, assembly_setting: current_assembly_setting
+          enforce_permission_to :update, :assemblies_settings, assemblies_settings: current_assemblies_settings
 
-          @form = assembly_setting_form
-                  .from_params(params, assembly_type: current_assembly_setting)
+          @form = assemblies_settings_form
+                  .from_params(params, assemblies_settings: current_assemblies_settings)
 
-          UpdateAssembliesSetting.call(current_assembly_setting, @form) do
+          UpdateAssembliesSetting.call(current_assemblies_settings, @form) do
             on(:ok) do
               flash[:notice] = I18n.t("assemblies_settings.update.success", scope: "decidim.admin")
               redirect_to edit_assemblies_settings_path
@@ -38,24 +34,14 @@ module Decidim
           end
         end
 
-        # private
-
-        # def available_assemblies_settings
-        #   @available_assemblies_settings ||= AssembliesSetting.where(organization: current_organization)
-        # end
+        private
 
         def current_assemblies_settings
-          @current_assemblies_settings ||= Decidim::AssembliesSetting.find_by(organization: current_organization)
+          @current_assemblies_settings = Decidim::AssembliesSetting.find_by!(decidim_organization_id: current_organization.id)
         end
 
         def assemblies_settings_form
           form(Decidim::Assemblies::Admin::AssembliesSettingForm)
-        end
-
-        private
-
-        def assemblies_settings
-          @assemblies_setting = Decidim::AssembliesSetting.find_by(organization: current_organization)
         end
       end
     end

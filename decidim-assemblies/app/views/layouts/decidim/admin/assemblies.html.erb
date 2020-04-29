@@ -12,8 +12,8 @@
         </li>
       <% end %>
       <% if allowed_to?(:read, :assemblies_settings) %>
-        <li <% if is_active_link?(decidim_admin_assemblies.edit_assemblies_setting_path) %> class="is-active" <% end %>>
-          <%= aria_selected_link_to I18n.t("menu.assemblies_settings", scope: "decidim.admin"), decidim_admin_assemblies.edit_assemblies_setting_path %>
+        <li <% if is_active_link?(decidim_admin_assemblies.edit_assemblies_settings_path) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to I18n.t("menu.assemblies_settings", scope: "decidim.admin"), decidim_admin_assemblies.edit_assemblies_settings_path %>
         </li>
       <% end %>
     </ul>
