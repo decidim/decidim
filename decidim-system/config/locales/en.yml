@@ -65,6 +65,10 @@ en:
           title: New organization
         omniauth_settings:
           enabled: Enabled
+          Decidim:
+            client_id: Client ID
+            client_secret: Client secret
+            site_url: Site URL
           facebook:
             app_id: App ID
             app_secret: App secret
