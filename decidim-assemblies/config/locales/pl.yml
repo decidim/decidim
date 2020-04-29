@@ -16,6 +16,7 @@ pl:
         created_by_other: Stworzony przez inne
         creation_date: Data utworzenia
         decidim_area_id: Powierzchnia
+        decidim_assemblies_type_id: Typ zespołu
         decidim_scope_id: Zakres
         description: Opis
         developer_group: Grupa promotorów
@@ -105,6 +106,9 @@ pl:
         create:
           error: Podczas duplikowania tego zestawu wystąpił błąd.
           success: Złożenie zostało powielone.
+      assemblies_types:
+        new:
+          create: Utwórz
       assembly_copies:
         new:
           copy: Kopiuj
@@ -165,6 +169,10 @@ pl:
           moderations: Modernizacje
           private_users: Prywatni użytkownicy
       models:
+        assemblies_types:
+          fields:
+            created_at: Utworzono w
+            title: Tytuł
         assembly:
           fields:
             created_at: Utworzono w
@@ -230,6 +238,9 @@ pl:
             social_handlers: Społeczny
             title: Informacje ogólne
             visbility: Widoczność
+        assemblies_types:
+          form:
+            title: Tytuł
         assembly_copies:
           form:
             slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten zespół. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'

@@ -80,6 +80,9 @@ eu:
         error: Errorea gertatu da zure kontua eguneratzean.
         success: Zure kontua zuzen eguneratu da.
         success_with_email_confirmation: Zure kontua zuzen eguneratu da. Mezu elektroniko bat jasoko duzu zure helbide elektroniko berria baieztatzeko.
+    admin:
+      actions:
+        cancel: Utzi
     admin_log:
       area:
         create: "%{user_name} %{resource_name} eremua sortu zen"
@@ -194,6 +197,7 @@ eu:
         explanation: Egiaztatu pasaportearen zenbakia "A"
         fields:
           passport_number: Pasaporte zenbakia
+          postal_code: Posta kodea
         name: Beste adibide bat baimena
       dummy_authorization_handler:
         explanation: Egiaztatu "X" ren bukaerako dokumentu-zenbaki batekin sartuz.
@@ -709,6 +713,7 @@ eu:
         create:
           error: Ez da elkarrizketa hasi. Saiatu berriro geroago
         index:
+          close: Itxi modal
           no_conversations: Oraindik ez duzu elkarrizketarik
           title: Elkarrizketak
         reply:

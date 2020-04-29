@@ -300,7 +300,7 @@ hu:
         officialized_at_null:
           label: Állapot
           values:
-            'false': Hivatalossá téve
+            'false': Hivatalos
             'true': Nem hivatalos
         private_space_eq:
           label: Magán
@@ -471,6 +471,9 @@ hu:
             does_not_belong: Nem tartozik hozzá
             offensive: Offenzív
             spam: Spam
+      newsletter_templates:
+        index:
+          preview_template: Előnézet
       newsletters:
         create:
           error: Hiba történt a hírlevél létrehozása során.
@@ -484,8 +487,6 @@ hu:
         edit:
           save_and_preview: Mentés és előnézet
           title: Hírlevél szerkesztése
-        form:
-          interpolations_hint: 'Tipp: a(z) "%{name}" nevet a tárgyban és a szövegben is használhatod, az helyettesítve lesz a címzett nevével.'
         index:
           all: mind
           all_users: 'Minden felhasználó'
@@ -563,12 +564,20 @@ hu:
           officialize: Hivatalossá tétel
           officialized: Hivatalos
           reofficialize: Újbóli hivatalossá tétel
+          show_email: E-mail cím megjelenítése
           status: Állapot
           unofficialize: Hivatalossá tétel visszavonása
         new:
           badge: A hitelesítés jelvénye
           officialize: Hivatalossá tétel
           title: '"%{name}" hivatalossá tétele'
+        show_email_modal:
+          description: Ha közvetlenül kapcsolatba kell lépnie egy résztvevővel, akkor kattintson a Megjelenítés gombra az e-mail cím megtekintéséhez. Ez a művelet naplózásra kerül.
+          email_address: E-mail cím
+          full_name: Teljes név
+          hidden: rejtett
+          show: Megjelenítés
+          title: A résztvevő e-mail címének megjelenítése
       organization:
         edit:
           title: Szervezet szerkesztése
