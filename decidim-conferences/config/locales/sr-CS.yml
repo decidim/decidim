@@ -1,0 +1,7 @@
+sr:
+  decidim:
+    admin:
+      models:
+        conference_user_role:
+          roles:
+            valuator: Procenjivač

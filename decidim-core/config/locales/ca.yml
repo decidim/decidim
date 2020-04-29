@@ -550,7 +550,7 @@ ca:
           notification_title: El <a href="%{resource_path}"> perfi l</a> de %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
     export_mailer:
       data_portability_export:
-        click_button: 'Fes clic al botó següent per descarregar les teves dades. <br/> tindràs disponible el fitxer fins a %{date}.'
+        click_button: 'Fes clic al botó següent per descarregar les teves dades. <br/> tindràs disponible el fitxer fins a %{date}. <br/> Et caldrà <a href=''https://www.7-zip.org/''>7-Zip</a> per obrir-lo. Contrasenya: %{password}'
         download: Descarregar
       export:
         ready: S'adjunta una versió comprimida de l'exportació.
