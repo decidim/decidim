@@ -236,7 +236,6 @@ describe "Admin manages newsletters", type: :system do
 
     context "when participants are selected" do
       let(:recipients_count) { deliverable_users.size }
-      let!(:component) { create(:dummy_component, organization: newsletter.organization) }
 
       let!(:participants) do
         deliverable_users.each do |participant|
@@ -274,7 +273,6 @@ describe "Admin manages newsletters", type: :system do
 
     context "when selecting both followers and participants" do
       let(:recipients_count) { (followers + participants).size }
-      let!(:component) { create(:dummy_component, organization: newsletter.organization) }
       let!(:deliverable_users2) { create_list(:user, 5, :confirmed, newsletter_notifications_at: Time.current, organization: organization) }
 
       let!(:followers) do
