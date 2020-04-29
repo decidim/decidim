@@ -85,6 +85,7 @@ fr:
             description: Vous avez déjà voté pour le budget. Si vous avez changé d'avis, vous pouvez %{cancel_link}.
             title: Vote du budget terminé
           description: A quels projets pensez-vous que nous devrions allouer un budget ? Assignez au moins %{minimum_budget} aux projets que vous soutenez et votez selon vos préférences pour définir le budget.
+          description_minimum_projects_rule: A quels projets pensez-vous que nous devrions allouer un budget ? Assignez au moins %{minimum_number} aux projets que vous soutenez et votez selon vos préférences pour définir le budget.
           title: Vous décidez du budget
         count:
           projects_count:
@@ -92,6 +93,7 @@ fr:
             other: "%{count} projets"
         filters:
           category: Catégorie
+          scope: Périmètre d'application
           search: Rechercher
         filters_small_view:
           close_modal: Fermez la fenêtre
@@ -128,9 +130,16 @@ fr:
           global:
             announcement: Annonce
             comments_enabled: Activer le module de commentaire
+            form:
+              errors:
+                budget_voting_rule_only_one: Une seule règle de vote doit être activée
+                budget_voting_rule_required: Une règle de vote est requise
             projects_per_page: Projets par page
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque réunion
             total_budget: Budget total
+            vote_minimum_budget_projects_number: Nombre minimum de projets à voter
+            vote_rule_minimum_budget_projects_enabled: 'Activer la règle : Nombre minimum de projets à voter'
+            vote_rule_threshold_percent_enabled: 'Activer la règle : Pourcentage de budget minimum'
             vote_threshold_percent: Pourcentage du budget à atteindre pour voter
           step:
             announcement: Annonce

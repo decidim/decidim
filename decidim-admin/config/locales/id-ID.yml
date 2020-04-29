@@ -265,6 +265,15 @@ id:
       exports:
         export_as: "%{name} sebagai %{export_format}"
         notice: Ekspor Anda sedang dalam proses. Anda akan menerima email setelah selesai.
+      filters:
+        category_id_eq:
+          label: Kategori
+        officialized_at_null:
+          label: Negara
+          values:
+            'false': Diresmikan
+            'true': Tidak resmi
+        search_label: Pencarian
       help_sections:
         error: Terjadi kesalahan saat memperbarui bagian bantuan
         form:
@@ -417,6 +426,9 @@ id:
             does_not_belong: Bukan milik
             offensive: Serangan
             spam: Spam
+      newsletter_templates:
+        index:
+          preview_template: Preview
       newsletters:
         create:
           error: Terjadi kesalahan saat membuat buletin ini.
@@ -430,8 +442,6 @@ id:
         edit:
           save_and_preview: Simpan dan pratinjau
           title: Edit buletin
-        form:
-          interpolations_hint: 'Petunjuk: Anda dapat menggunakan "%{name}" di mana saja di dalam tubuh atau subjek dan itu akan diganti dengan nama penerima.'
         index:
           confirm_delete: Anda yakin ingin menghapus buletin ini?
           title: Nawala
