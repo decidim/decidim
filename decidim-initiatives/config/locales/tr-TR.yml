@@ -60,13 +60,6 @@ tr:
     admin:
       actions:
         new_initiative_type: Yeni girişim türü
-      filters:
-        state_eq:
-          values:
-            created: düzenlendi
-            discarded: Atılan
-            published: Yayınlanan
-            validating: Teknik doğrulama
       menu:
         initiatives: Girişimler
         initiatives_types: Girişim türleri

@@ -57,13 +57,6 @@ id:
     admin:
       actions:
         new_initiative_type: Jenis inisiatif baru
-      filters:
-        state_eq:
-          values:
-            created: Dibuat
-            discarded: Dibuang
-            published: Diterbitkan
-            validating: Validasi teknis
       menu:
         initiatives: Inisiatif
         initiatives_types: Jenis inisiatif

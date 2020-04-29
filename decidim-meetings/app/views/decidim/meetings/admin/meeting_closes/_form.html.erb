@@ -22,7 +22,12 @@
       </div>
     </div>
     <div class="row column">
-      <%= proposals_picker(form, :proposals, proposals_picker_meeting_meeting_closes_path(meeting)) %>
+      <% if @form.proposals %>
+        <%= form.select :proposal_ids,
+                      @form.proposals.order(title: :asc).map{|proposal| [decidim_html_escape(present(proposal).title), proposal.id]},
+                      { include_blank: true },
+                      { multiple: true, class: "chosen-select" } %>
+      <% end %>
     </div>
   </div>
 </div>

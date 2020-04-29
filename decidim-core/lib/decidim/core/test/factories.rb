@@ -471,25 +471,12 @@ FactoryBot.define do
   end
 
   factory :newsletter, class: "Decidim::Newsletter" do
-    transient do
-      body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    end
-
     author { build(:user, :confirmed, organization: organization) }
     organization
 
     subject { generate_localized_title }
 
-    after(:create) do |newsletter, evaluator|
-      create(
-        :content_block,
-        :newsletter_template,
-        organization: evaluator.organization,
-        scoped_resource_id: newsletter.id,
-        manifest_name: "basic_only_text",
-        settings: evaluator.body.transform_keys { |key| "body_#{key}" }
-      )
-    end
+    body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
 
     trait :sent do
       sent_at { Time.current }
@@ -611,15 +598,10 @@ FactoryBot.define do
 
   factory :content_block, class: "Decidim::ContentBlock" do
     organization
-    scope_name { :homepage }
+    scope { :homepage }
     manifest_name { :hero }
     weight { 1 }
     published_at { Time.current }
-
-    trait :newsletter_template do
-      scope_name { :newsletter_template }
-      manifest_name { :basic_only_text }
-    end
   end
 
   factory :hashtag, class: "Decidim::Hashtag" do

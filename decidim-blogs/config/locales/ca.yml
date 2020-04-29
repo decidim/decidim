@@ -48,8 +48,6 @@ ca:
             title: títol
       posts:
         show:
-          back: Tornar al llistat
-          comments: Comentaris
           view: Veure
         sidebar_blog:
           comments: comentaris
@@ -65,8 +63,6 @@ ca:
           step:
             announcement: Avís
             comments_blocked: Comentaris bloquejats
-            endorsements_blocked: Adhesions bloquejades
-            endorsements_enabled: Adhesions habilitades
     events:
       blogs:
         post_created:

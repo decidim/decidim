@@ -26,7 +26,7 @@ module Decidim
       #
       # Returns an Array<Attachment>
       def documents
-        @documents ||= attachments.includes(:attachment_collection).select(&:document?)
+        @documents ||= attachments.select(&:document?)
       end
 
       # All the attachments that are documents for this process that has a collection.

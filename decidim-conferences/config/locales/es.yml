@@ -462,9 +462,6 @@ es:
             active_conferences: Jornadas activas
             see_all_conferences: Ver todas las jornadas
       photo:
-        image:
-          attributes:
-            alt: Imagen multimedia
         show:
           close_modal: Cerrar modal
           photo: Imagen

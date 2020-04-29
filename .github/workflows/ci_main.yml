@@ -7,8 +7,8 @@ on:
       - release/*
       - "*-stable"
   pull_request:
-    branches-ignore:
-      - "l10n_*"
+    branches:
+      - "*"
 
 env:
   CI: "true"
@@ -49,3 +49,7 @@ jobs:
         name: Install JS deps
       - run: bundle exec rspec
         name: RSpec
+      - uses: codecov/codecov-action@v1
+        with:
+          file: ./coverage/coverage.xml
+          name: main-folder

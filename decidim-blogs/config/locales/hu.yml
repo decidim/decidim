@@ -48,7 +48,6 @@ hu:
             title: cím
       posts:
         show:
-          back: Vissza a listához
           comments: Hozzászólások
           view: Nézet
         sidebar_blog:

@@ -26,10 +26,8 @@
       <% end %>
     <% end %>
   <% else %>
-    <%= action_authorized_button_to(
-      :follow,
+    <%= button_to(
       decidim.follow_path,
-      resource: model,
       class: button_classes,
       params: { follow: { followable_gid: model.to_sgid.to_s, inline: inline? } },
       data: { tooltip: true, disable_hover: false },

@@ -13,7 +13,6 @@ describe Decidim::Verifications::Adapter do
         expect(wrapper.name).to eq("dummy_authorization_handler")
         expect(wrapper.key).to eq("dummy_authorization_handler")
         expect(wrapper.root_path).to eq("/authorizations/new?handler=dummy_authorization_handler")
-        expect(wrapper.renew_path).to eq("/authorizations/renew?handler=dummy_authorization_handler")
       end
     end
 
@@ -26,7 +25,6 @@ describe Decidim::Verifications::Adapter do
         expect(wrapper.name).to eq("dummy_authorization_workflow")
         expect(wrapper.key).to eq("dummy_authorization_workflow")
         expect(wrapper.root_path).to eq("/dummy_authorization_workflow/")
-        expect(wrapper.renew_path).to eq("/dummy_authorization_workflow/renew_authorization")
       end
     end
   end

@@ -28,7 +28,7 @@ module Decidim
       end
 
       #
-      # Unregisters a verification workflow using the workflow manifest API
+      # Registers a verification workflow using the workflow manifest API
       #
       def unregister_workflow(name)
         manifest = find_workflow_manifest(name)

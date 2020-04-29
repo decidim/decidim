@@ -240,7 +240,6 @@
         explanation: Bli verifisert med å introdusere et passnummer som starter med "A"
         fields:
           passport_number: Pass nummer
-          postal_code: Postnummer
         name: Et annet eksempel autorisering
       dummy_authorization_handler:
         explanation: Bli verifisert med å introdusere et dokumentnummer som starter med "X"
@@ -774,7 +773,6 @@
         create:
           error: Samtalen har ikke startet. Prøv igjen senere
         index:
-          close: Lukk modal
           no_conversations: Du har ingen samtaler ennå
           title: Samtaler
         reply:

@@ -9,12 +9,6 @@ ca:
         translatable_text: Text traduïble
         updated_at: Actualitzat el
   decidim:
-    components:
-      dummy:
-        settings:
-          step:
-            endorsements_blocked: Adhesions bloquejades
-            endorsements_enabled: Adhesions habilitades
     dummy:
       admin:
         exports:

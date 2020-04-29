@@ -18,7 +18,6 @@ module Decidim
           @highlighted_assemblies ||= OrganizationPrioritizedAssemblies
                                       .new(current_organization, current_user)
                                       .query
-                                      .includes([:organization])
                                       .limit(max_results)
         end
 

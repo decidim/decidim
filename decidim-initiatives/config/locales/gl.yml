@@ -60,13 +60,6 @@ gl:
     admin:
       actions:
         new_initiative_type: Novo tipo de iniciativa
-      filters:
-        state_eq:
-          values:
-            created: Creada
-            discarded: Descartou
-            published: Publicado
-            validating: Validación técnica
       menu:
         initiatives: Iniciativas
         initiatives_types: Tipos de iniciativa

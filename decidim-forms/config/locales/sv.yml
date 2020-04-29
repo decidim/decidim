@@ -16,7 +16,7 @@ sv:
               missing: är inte fullständiga
               too_many: är för många
         questionnaire:
-          request_invalid: Ett fel uppstod när begäran skulle hanteras. Försök igen
+          request_invalid: Ett fel uppstod när begäran skulle hanteras. Vänligen försök igen
   decidim:
     forms:
       admin:
@@ -82,7 +82,7 @@ sv:
       user_answers_serializer:
         created_at: Besvarad
         id: Svars-ID
-        ip_hash: Ip-hash
+        ip_hash: Ip Hash
         registered: Registrerad
-        unregistered: Ej registrerad
+        unregistered: Oregistrerad
         user_status: Användarstatus

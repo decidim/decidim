@@ -7,8 +7,8 @@ on:
       - release/*
       - "*-stable"
   pull_request:
-    branches-ignore:
-      - "l10n_*"
+    branches:
+      - "*"
 
 env:
   CI: "true"

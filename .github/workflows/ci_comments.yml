@@ -7,8 +7,8 @@ on:
       - release/*
       - "*-stable"
   pull_request:
-    branches-ignore:
-      - "l10n_*"
+    branches:
+      - "*"
 
 env:
   CI: "true"
@@ -73,8 +73,10 @@ jobs:
       - run: bundle exec rake
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
-      - run: ./.github/upload_coverage.sh $DECIDIM_MODULE $GITHUB_EVENT_PATH
-        name: Upload coverage
+      - uses: codecov/codecov-action@v1
+        with:
+          file: ./coverage/coverage.xml
+          name: ${{ env.DECIDIM_MODULE }}
       - uses: actions/upload-artifact@v2-preview
         if: always()
         with:

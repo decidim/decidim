@@ -10,18 +10,12 @@ module Decidim
       attribute :recipient_id, Integer
 
       validates :body, :recipient, presence: true
-      validate :check_recipient
 
       def recipient
         @recipient ||= Decidim::User
-                       .includes(:following_follows)
                        .where.not(id: current_user.id)
                        .where(organization: current_user.organization)
-                       .where(id: recipient_id)
-      end
-
-      def check_recipient
-        !@recipient.empty?
+                       .find_by(id: recipient_id)
       end
     end
   end

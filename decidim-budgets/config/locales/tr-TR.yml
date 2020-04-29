@@ -92,7 +92,6 @@ tr:
             other: "%{count} proje"
         filters:
           category: Kategori
-          scope: kapsam
           search: Arama
         filters_small_view:
           close_modal: Kalıcı modal

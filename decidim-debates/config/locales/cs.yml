@@ -100,8 +100,6 @@ cs:
           create: Vytvořit
           select_a_category: Vyberte kategorii
           title: Nová debata
-        show:
-          back: Zpět na seznam
       last_activity:
         new_debate_at_html: "<span>Nová diskuse na %{link}</span>"
       models:

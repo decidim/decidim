@@ -44,11 +44,9 @@ end
 
 ## Managing content blocks
 
-Content blocks registered under the `:homepage` scope can be seen in the admin area, under Settings -> Homepage. You need to be an organization admin in order to enter this section.
+Currently content blocks are only used in the homepage. You can manage them in the admin area, under Settings -> Homepage. you need to be an organization admin in order to enter this section.
 
-You'll see all the registered content blocks for the `:homepage` scope, those active and those inactive. You can reorder blocks and (un)publish them.
-
-Another use for content blocks, for example, can be seen at the newsletter templates system.
+You'll see all the registered content blocks, those active and those inactive. You can reorder blocks and (un)publish them.
 
 ## Rendering content blocks
 

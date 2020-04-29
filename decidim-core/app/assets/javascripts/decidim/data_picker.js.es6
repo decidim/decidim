@@ -3,26 +3,23 @@
  */
 ((exports) => {
   class DataPicker {
-    constructor(pickers) {
+    constructor(elements) {
       this.modal = this._createModalContainer();
       this.modal.appendTo($("body"));
       this.current = null;
 
-      pickers.each((_index, picker) => {
-        this.activate(picker);
+      elements.each((_index, element) => {
+        this.activate(element);
       });
     }
 
     activate(picker) {
-      let $picker = $(picker);
-
-      this._setCurrentPicker($picker, null);
-
+      let $element = $(picker);
       let input = "hidden",
-          name = this.current.name,
-          values = this.current.values;
+          name = $element.data("picker-name"),
+          values = $(".picker-values", $element);
 
-      if (this.current.multiple) {
+      if ($element.hasClass("picker-multiple")) {
         input = "checkbox";
         name += "[]";
       }
@@ -32,21 +29,17 @@
         $(div).prepend($(`<input type="${input}" checked name="${name}" value="${value}"/>`));
       });
 
-      $picker.on("click", "a", (event) => {
+      $element.on("click", "a", (event) => {
         event.preventDefault();
-        if ($picker.hasClass("disabled")) {
+        if ($element.hasClass("disabled")) {
           return;
         }
-        this._openPicker($picker, this._targetFromEvent(event));
+        this._openPicker($element, event.target.parentNode);
       });
 
-      $picker.on("click", "input", (event) => {
-        this._removeValue($picker, this._targetFromEvent(event));
+      $element.on("click", "input", (event) => {
+        this._removeValue($element, event.target.parentNode);
       });
-
-      if (this.current.autosort) {
-        this._sort();
-      }
     }
 
     enabled(picker, value) {
@@ -72,11 +65,8 @@
     load(picker, savedData) {
       this._setCurrentPicker($(picker), null);
       $.each(savedData, (_index, data) => {
-        this._choose(data, { interactive: false, modify: false });
+        this._choose(data, false);
       });
-      if (this.current.autosort) {
-        this._sort();
-      }
     }
 
     _createModalContainer() {
@@ -86,24 +76,23 @@
               </div>`);
     }
 
-    _openPicker($picker, target) {
-      this._setCurrentPicker($picker, target);
-      this._load($("a", target).attr("href"));
+    _openPicker($picker, div) {
+      this._setCurrentPicker($picker, div);
+      this._load($("a", div).attr("href"));
     }
 
-    _setCurrentPicker($picker, target) {
-      let $target = false;
-      if (target && !$(target).hasClass("picker-prompt")) {
-        $target = $(target);
+    _setCurrentPicker($picker, div) {
+      let currentDiv = false;
+      if (div && !$(div).hasClass("picker-prompt")) {
+        currentDiv = $(div);
       }
 
       this.current = {
+        multiple: $picker.hasClass("picker-multiple"),
         picker: $picker,
         name: $picker.data("picker-name"),
         values: $picker.find(".picker-values"),
-        multiple: $picker.hasClass("picker-multiple"),
-        autosort: $picker.hasClass("picker-multiple") && $picker.hasClass("picker-autosort"),
-        target: $target
+        div: currentDiv
       };
     }
 
@@ -112,7 +101,6 @@
         let modalContent = $(".data_picker-modal-content", this.modal);
         modalContent.html(resp);
         this._handleLinks(modalContent);
-        this._handleCheckboxes(modalContent);
         this.modal.foundation("open");
       });
     }
@@ -131,50 +119,28 @@
             if (typeof $link.data("picker-choose") === "undefined") {
               this._load(chooseUrl);
             } else {
-              this._choose(
-                { url: chooseUrl, value: $link.data("picker-value") || "", text: $link.data("picker-text") || "" }
-              );
+              this._choose({ url: chooseUrl, value: $link.data("picker-value") || "", text: $link.data("picker-text") || "" });
             }
           }
         });
       });
     }
 
-    _handleCheckboxes(content) {
-      $("input[type=checkbox][data-picker-choose]", content).each((_index, checkbox) => {
-        const $checkbox = $(checkbox);
-        checkbox.checked = this._targetFromValue($checkbox.val()) !== null;
-      }).change((event) => {
-        const $checkbox = $(event.target);
-        if (event.target.checked) {
-          this._choose(
-            { url: $checkbox.data("picker-url"), value: $checkbox.val() || "", text: $checkbox.data("picker-text") || "" },
-            { modify: false, close: false }
-          );
-        }
-        else {
-          this._removeValue(this.current.picker, this._targetFromValue($checkbox.val()));
-        }
-      });
-    }
-
-    _choose(data, opts = {}) {
-      const options = Object.assign({ interactive: true, modify: true, close: true }, opts);
-
-      let dataText = this._escape(data.text);
-      let choosenOption = null;
-
-      if (!this.current.target && options.modify) {
-        this.current.target = this._targetFromValue(data.value);
+    _choose(data, user = true) {
+      // Prevent choosing is nothing has been selected. This would otherwise
+      // cause an empty checkbox to appear in the selected values list.
+      if (!data.value || data.value.length < 1) {
+        return;
       }
 
+      let dataText = this._escape(data.text);
+
       // Add or update value appearance
-      if (this.current.target && options.modify) {
-        let link = $("a", this.current.target);
+      if (this.current.div) {
+        let link = $("a", this.current.div);
         link.data("picker-value", data.value);
         link.attr("href", data.url);
-        choosenOption = this.current.target;
-        link.html(dataText);
+        link.text(dataText);
       } else {
         let input = "hidden",
             name = this.current.name;
@@ -183,53 +149,31 @@
           input = "checkbox";
           name += "[]";
         }
-
-        choosenOption = $(`<div><input type="${input}" checked name="${name}"/><a href="${data.url}" data-picker-value="${data.value}">${dataText}</a></div>`);
-        choosenOption.appendTo(this.current.values);
-
-        if (!this.current.target) {
-          this.current.target = choosenOption;
-        }
+        this.current.div = $(`<div><input type="${input}" checked name="${name}"/><a href="${data.url}" data-picker-value="${data.value}">${dataText}</a></div>`);
+        this.current.div.appendTo(this.current.values);
       }
 
       // Set input value
-      let $input = $("input", choosenOption);
+      let $input = $("input", this.current.div);
       $input.attr("value", data.value);
 
-      if (this.current.autosort) {
-        this._sort();
-      }
-
-      if (options.interactive) {
-        // Raise changed event
+      // Raise changed event
+      if (user) {
         $input.trigger("change");
         this._removeErrors();
-
-        if (options.close) {
-          this._close();
-        }
+        this.modal.foundation("close");
       }
+
+      // Unselect updated value and close modal
+      this.current.div = null;
     }
 
-    _sort() {
-      const values = $(".picker-values", this.current.picker);
-      values.children().sort((item1, item2) => $("input", item1).val() - $("input", item2).val()).detach().appendTo(values);
-    }
-
-    _close() {
-      // Close modal and unset target element
-      this.modal.foundation("close");
-      this.current.target = null;
-    }
-
-    _removeValue($picker, target) {
-      if (target) {
-        this._setCurrentPicker($picker, target);
-        this.current.target.fadeOut(500, () => {
-          this.current.target.remove();
-          this.current.target = null;
-        });
-      }
+    _removeValue($picker, div) {
+      this._setCurrentPicker($picker, div);
+      this.current.div.fadeOut(500, () => {
+        this.current.div.remove();
+        this.current.div = null;
+      });
     }
 
     _removeErrors() {
@@ -243,14 +187,6 @@
       return str.replace(/[\u00A0-\u9999<>&]/gim, function (char) {
         return `&#${char.charCodeAt(0)};`;
       });
-    }
-
-    _targetFromEvent(event) {
-      return event.target.parentNode;
-    }
-
-    _targetFromValue(value) {
-      return $(`[data-picker-value=${value}]`, this.current.picker).parent()[0] || null;
     }
   }
 

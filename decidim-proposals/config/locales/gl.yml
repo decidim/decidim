@@ -69,24 +69,6 @@ gl:
         one: Vota
         other: Votos
   decidim:
-    admin:
-      filters:
-        is_emendation_true:
-          label: Tipo
-          values:
-            'false': Propostas
-            'true': Enmendas
-        state_eq:
-          label: Estado
-          values:
-            accepted: Aceptada
-            evaluating: Avaliación
-            rejected: Rexeitado
-            withdrawn: Retirada
-        state_null:
-          label: Estado
-          values:
-            'true': Non respondeu
     components:
       proposals:
         actions:
@@ -341,10 +323,6 @@ gl:
             success: Texto participativo actualizado con éxito.
         proposal_answers:
           form:
-            accepted: Aceptada
-            answer_proposal: Resposta
-            evaluating: Avaliación
-            rejected: Rexeitado
             title: Resposta á proposta %{title}
         proposal_notes:
           create:
@@ -389,10 +367,7 @@ gl:
           publish_answers:
             select_a_proposal: Selecciona unha proposta
           show:
-            authors: Autores
-            body: Corpo
             created_at: Data de creación
-            proposals: Propostas
             votes_count: Reconto de votos
           update_category:
             select_a_category: Selecciona unha categoría
@@ -430,21 +405,16 @@ gl:
         rejected: Rexeitado
         withdrawn: Retirada
       application_helper:
-        filter_category_values:
-          all: Todo
         filter_origin_values:
           all: Todo
           citizens: Cidadáns
           meetings: Reunións
           official: Oficial
           user_groups: Grupos de usuarios
-        filter_scope_values:
-          all: Todo
         filter_state_values:
           accepted: Aceptada
           all: Todo
           evaluating: Avaliación
-          not_answered: Non respondeu
           rejected: Rexeitado
         filter_type_values:
           all: Todo
@@ -496,7 +466,6 @@ gl:
           open: Aberto
           published: Publicado
           related_to: Relacionado con
-          scope: Alcance
           search: Busca
           state: Estado
           withdrawn: Retirada
@@ -630,10 +599,8 @@ gl:
           category: Categoría
           origin: Orixe
           related_to: Relacionado con
-          scope: Alcance
           search: Busca
           state: Estado
-          type: Tipo
           voted: Votado
         filters_small_view:
           close_modal: Pechar modal

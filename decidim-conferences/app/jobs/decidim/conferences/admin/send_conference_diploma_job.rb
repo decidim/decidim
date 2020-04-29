@@ -11,7 +11,7 @@ module Decidim
           return unless confirmed_registrations.any?
 
           confirmed_registrations.each do |registration_confirmed|
-            SendConferenceDiplomaMailer.diploma(conference, registration_confirmed.user).deliver_later
+            SendConferenceDiplomaMailer.diploma(conference, registration_confirmed.user).deliver_now
           end
         end
       end

@@ -6,8 +6,7 @@ module Decidim::Meetings
   describe Admin::CloseMeetingForm do
     subject { described_class.from_params(attributes).with_context(context) }
 
-    let(:meeting) { create(:meeting, component: component) }
-    let(:component) { create(:meeting_component) }
+    let(:meeting) { create(:meeting) }
     let(:attributes) do
       {
         closing_report: closing_report,
@@ -20,13 +19,7 @@ module Decidim::Meetings
     let(:attendees_count) { 10 }
     let(:contributions_count) { 20 }
     let(:attending_organizations) { "Foo, bar & baz" }
-    let(:context) do
-      {
-        current_organization: meeting.organization,
-        current_component: component,
-        current_participatory_space: component.participatory_space
-      }
-    end
+    let(:context) { { current_organization: meeting.organization } }
 
     it { is_expected.to be_valid }
 
@@ -67,10 +60,13 @@ module Decidim::Meetings
     end
 
     describe "map_model" do
-      subject { described_class.from_model(meeting).with_context(context) }
+      subject { described_class.from_model(meeting) }
 
-      let(:proposal_component) { create(:proposal_component, participatory_space: component.participatory_space) }
+      let(:proposal_component) do
+        create(:component, manifest_name: :proposals, participatory_space: meeting.component.participatory_space)
+      end
       let(:proposals) { create_list(:proposal, 3, component: proposal_component) }
+      let(:meeting) { create(:meeting) }
 
       before do
         meeting.link_resources(proposals, "proposals_from_meeting")

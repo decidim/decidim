@@ -293,10 +293,10 @@ ar:
           label: الفئة
         filter_label: تصفية
         officialized_at_null:
-          label: حالة
+          label: الحالة
           values:
-            'false': Officialized
-            'true': غير رسمي
+            'false': تم جعله رسمي
+            'true': لم يُصبِح رسميا
         private_space_eq:
           label: خاص
           values:
@@ -309,7 +309,7 @@ ar:
             'true': لم يُنشَر
         scope_id_eq:
           label: النطاق
-        search_label: بحث
+        search_label: البحث
         search_placeholder:
           name_or_nickname_or_email_cont: البحث عن %{collection} بحسب عنوان البريد الإكتروني أو الإسم أو الإسم المستعار.
           title_cont: البحث عن %{collection} بحسب العنوان.
@@ -466,9 +466,6 @@ ar:
             does_not_belong: لا ينتمي
             offensive: هجومي
             spam: بريد مؤذي
-      newsletter_templates:
-        index:
-          preview_template: معاينة
       newsletters:
         create:
           error: كانت هناك مشكلة في إنشاء هذه الرسالة الإخبارية.
@@ -482,6 +479,8 @@ ar:
         edit:
           save_and_preview: حفظ والمعاينة
           title: تحرير النشرة الإخبارية
+        form:
+          interpolations_hint: 'تلميح: يمكنك استخدام "%{name}" في أي مكان في الجسم أو الموضوع وسيتم استبداله باسم المستلم.'
         index:
           all: الكل
           all_users: 'كافة المستخدمين '

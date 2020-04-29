@@ -19,7 +19,6 @@
 // = require decidim/input_tags
 // = require decidim/input_hashtags
 // = require decidim/input_mentions
-// = require decidim/input_multiple_mentions
 // = require decidim/ajax_modals
 // = require decidim/conferences
 // = require decidim/tooltip_keep_on_hover

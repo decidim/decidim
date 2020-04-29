@@ -27,7 +27,7 @@ shared_examples "manage results" do
           ca: "El meu nou títol"
         )
 
-        proposals_pick(select_data_picker(:result_proposals, multiple: true), proposals.last(2))
+        proposal_pick(select_data_picker(:result_proposals, multiple: true), proposals.last)
 
         find("*[type=submit]").click
       end
@@ -58,7 +58,7 @@ shared_examples "manage results" do
           ca: "Descripció més llarga"
         )
 
-        proposals_pick(select_data_picker(:result_proposals, multiple: true), proposals.first(2))
+        proposal_pick(select_data_picker(:result_proposals, multiple: true), proposals.first)
         scope_pick(select_data_picker(:result_decidim_scope_id), scope)
         select translated(category.name), from: :result_decidim_category_id
 

@@ -26,18 +26,6 @@ sv:
   decidim:
     admin:
       menu:
-        authorization_revocation:
-          before_date_info: Användbart om processen har påbörjats och du vill återkalla behörigheterna för den tidigare processen.
-          button: Återkalla alla
-          button_before: Återkalla före datum
-          destroy:
-            confirm: Återkallande av auktorisering före datum kan inte ångras. Vill du fortsätta?
-            confirm_all: Det går inte att ångra återkallande av alla auktoriseringar. Vill du fortsätta?
-          destroy_nok: Det gick inte att återkalla auktoriseringar.
-          destroy_ok: Alla auktoriseringar som överensstämmer har återkallats!
-          info: Det finns totalt %{count} verifierade deltagare.
-          no_data: Inga verifierade deltagare
-          title: Återkallande av verifiering
         authorization_workflows: Verifieringar
     admin_log:
       organization:
@@ -77,8 +65,6 @@ sv:
         name: Kod via fysiskt brev
     verifications:
       authorizations:
-        authorization_metadata:
-          no_data_stored: Ingen data lagrad.
         create:
           error: Det gick inte att skapa auktoriseringen.
           success: Du har auktoriserats.
@@ -96,11 +82,6 @@ sv:
         new:
           authorize: Skicka
           authorize_with: Verifiera med %{authorizer}
-        renew_modal:
-          cancel: Avbryt
-          close: stäng
-          continue: Fortsätt
-          title: Förnya verifiering
         skip_verification: Du kan hoppa över detta just nu och %{link}
         start_exploring: börja utforska
       csv_census:

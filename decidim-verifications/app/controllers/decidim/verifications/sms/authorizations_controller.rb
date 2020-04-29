@@ -4,8 +4,6 @@ module Decidim
   module Verifications
     module Sms
       class AuthorizationsController < ApplicationController
-        include Decidim::Verifications::Renewable
-
         helper_method :authorization
 
         def new

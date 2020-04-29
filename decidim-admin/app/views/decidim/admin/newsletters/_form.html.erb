@@ -2,4 +2,10 @@
   <%= form.translated :text_field, :subject %>
 </div>
 
-<%= cell content_block.settings_form_cell, form, content_block: content_block %>
+<div class="row column">
+  <%= form.translated :editor, :body, toolbar: "basic-no-video" %>
+</div>
+
+<div class="row column">
+  <%= t(".interpolations_hint") %>
+</div>

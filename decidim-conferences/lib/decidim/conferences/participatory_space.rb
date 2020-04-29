@@ -41,7 +41,7 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
     Decidim::ContentBlock.create(
       organization: organization,
       weight: 33,
-      scope_name: :homepage,
+      scope: :homepage,
       manifest_name: :highlighted_conferences,
       published_at: Time.current
     )

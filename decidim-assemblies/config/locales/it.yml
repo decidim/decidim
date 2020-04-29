@@ -16,7 +16,6 @@ it:
         created_by_other: Creato da altri
         creation_date: Data di creazione
         decidim_area_id: La zona
-        decidim_assemblies_type_id: Tipo di assemblea
         decidim_scope_id: Scopo
         description: Descrizione
         developer_group: Promotore
@@ -100,9 +99,6 @@ it:
         create:
           error: Si è verificato un errore durante la duplicazione di questa assemblea.
           success: L'assemblea è stata duplicata con successo.
-      assemblies_types:
-        new:
-          create: Crea
       assembly_copies:
         new:
           copy: Copia
@@ -165,7 +161,6 @@ it:
       models:
         assemblies_types:
           fields:
-            created_at: Data/ora di creazione
             title: Titolo
         assembly:
           fields:

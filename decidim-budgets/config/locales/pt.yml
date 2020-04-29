@@ -92,7 +92,6 @@ pt:
             other: "%{count} projetos"
         filters:
           category: Categoria
-          scope: Âmbito
           search: Pesquisa
         filters_small_view:
           close_modal: Fechar modal

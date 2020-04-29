@@ -92,7 +92,6 @@ it:
             other: "%{count} progetti"
         filters:
           category: Categoria
-          scope: Ambito tematico
           search: Cerca
         filters_small_view:
           close_modal: Chiudi modalità

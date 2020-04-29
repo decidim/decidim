@@ -82,8 +82,6 @@ eu:
         new:
           authorize: Bidali
           authorize_with: Egiaztatu %{authorizer} rekin
-        renew_modal:
-          cancel: Utzi
         skip_verification: Hau saltatu dezakezu oraingoz eta %{link}
         start_exploring: Hasi esploratzen
       csv_census:
