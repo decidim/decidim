@@ -41,7 +41,6 @@ module Decidim
                           query.where("email ILIKE ?", "%#{term}%")
                         )
                       end
-
               render json: query.all.collect { |u| { value: u.id, label: "#{u.name} (@#{u.nickname}) #{u.email}" } }
             else
               render json: []
