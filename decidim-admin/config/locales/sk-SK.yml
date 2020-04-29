@@ -666,3 +666,144 @@ sk:
         create:
           error: Pri tvorbe novej témy nastala chyba.
           success: Téma vytvorená úspešne.
+        destroy:
+          success: Téma úspešne zničená.
+        edit:
+          title: Upraviť tému
+          update: Aktualizovať tému
+        new:
+          create: Vytvoriť tému
+          title: Nová téma
+        update:
+          error: Pri aktualizácii témy nastala chyba.
+          success: Téma úspešne aktualizovaná
+      static_pages:
+        actions:
+          view: Zobraziť verejnú stránku
+        create:
+          error: Pri tvorbe novej stránky nastala chyba.
+          success: Nová stránka úspešne vytvorená.
+        destroy:
+          success: Stránka úspešne vymazaná
+        edit:
+          changed_notably_help: Ak je zaškrtnuté, účastníci dostanú oznámenie o zmene Podmienok použitia.
+          title: Upraviť stránku
+          update: Aktualizovať
+        form:
+          none: Žiadne
+          slug_help: 'Použite tu čiastočné cesty, nie úplné adresy URL. Prijme písmená, čísla, pomlčky a lomítka a musí začínať písmenom. Príklad: %{url}'
+        index:
+          last_notable_change: Posledná výrazná úprava
+        new:
+          create: Vytvoriť stránku
+          title: Nová stránka
+        topic:
+          destroy: Odstrániť tému
+          edit: Upraviť tému
+          empty: Pod témou nie je žiadna stránka
+          without_topic: Stránky bez témy
+        update:
+          error: Pri aktualizácii stránky nastala chyba.
+          success: Stránka úspešne aktualizovaná
+      titles:
+        admin_log: Záznam činnosti admina
+        area_types: Typy oblastí
+        areas: Oblasti
+        authorization_workflows: Metódy overovania
+        dashboard: Hlavný panel
+        impersonatable_users: Spravovateľní účastníci
+        impersonations: Správa účastníkov
+        participants: Účastníci
+        scope_types: Typy rozsahov
+        scopes: Rozsahy
+        static_pages: Stránky
+        user_groups: Skupiny
+        users: Účastníci
+      user_group:
+        csv_verify:
+          invalid: Vyskytol sa problém s čítaním súboru CSV.
+          success: Súbor CSV nahraný úspešne, overujeme skupiny, spĺňajúce kritériá. Môže to chvíľu trvať.
+        reject:
+          invalid: Nastal problém pri odmietaní tejto skupiny.
+          success: Skupina úspešne odmietnutá
+        verify:
+          invalid: Nastal problém pri overovaní tejto skupiny.
+          success: Skupina úspešne verifikovaná
+      user_groups:
+        index:
+          filter:
+            all: Všetko
+            pending: Čakajúce
+            rejected: Odmietnuté
+            verified: Overené
+          filter_by: Filtrovať podľa
+          search: Hľadať
+          state:
+            pending: Čakajúce
+            rejected: Odmietnuté
+            verified: Overené
+          verify_via_csv: Overte pomocou CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Nahrajte svoj súbor CSV. Musí obsahovať oficiálne e-maily skupín vo Vašej organizácii v prvom stĺpci, bez hlavičiek. Iba skupiny, ktoré overili svoj e-mail a CSV obsahuje ich e-mail, budú validované.
+          title: Nahrať súbor CSV
+          upload: Nahrať
+      users:
+        create:
+          error: Pri pozývaní administrátora nastal problém.
+          success: Užívateľ pozvaný úspešne.
+        destroy:
+          error: Pri mazaní administrátora nastal problém.
+          success: Účastník už nie je administrátorom.
+        form:
+          email: E-mail
+          name: Meno
+          role: Rola
+        new:
+          create: Pozvať
+          title: Pozvať účastníka ako administrátora
+      view_public_page: Zobraziť verejnú stránku
+    forms:
+      errors:
+        impersonate_user:
+          reason: Musíte zadať dôvod, keď spravujete nespravovaného účastníka
+    moderations:
+      actions:
+        hidden: Skryté
+        hide: Skryť
+        not_hidden: Neskryté
+        title: Akcie
+        unhide: Odkryť
+        unreport: Zrušiť nahlásenie
+      admin:
+        reportable:
+          hide:
+            invalid: Pri skrývaní tohto zdroja sa vyskytla chyba.
+            success: Zdroj úspešne skrytý.
+          unhide:
+            invalid: Nastal problém pri odkrývaní zdroja.
+            success: Zdroj úspešne odkrytý.
+          unreport:
+            invalid: Nastal problém pri rušení nahlásenia zdroja.
+            success: Nahlásenie zdroja úspešne zrušené.
+      models:
+        moderation:
+          fields:
+            hidden_at: Skryté
+            report_count: Počet
+            reportable: Nahlásiteľné
+            reported_content_url: Nahlásiť URL obsahu
+            reports: Nahlásenia
+            visit_url: Navštíviť URL
+  errors:
+    messages:
+      invalid_json: Neplatný JSON
+  layouts:
+    decidim:
+      admin:
+        newsletters:
+          title: Spravodaje
+        settings:
+          title: Nastavenia
+        users:
+          title: Účastníci

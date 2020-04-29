@@ -1218,6 +1218,7 @@ sk:
       cycle_detected: rodič odbore nemôže byť jedným z jeho potomkov
       expired: uplynula, požiadajte o novú
       file_size_is_less_than_or_equal_to: veľkosť súboru musí byť menšia alebo rovná%{count}
+      invalid_time_zone: nie je platná časová zóna
       long_words: obsahuje slová, ktoré sú príliš dlhé (cez 35 znakov)
       must_start_with_caps: musí začínať veľkým písmenom
       nesting_too_deep: nemôže byť vnútri podkategórie
@@ -1332,8 +1333,11 @@ sk:
       left: Smazané
       right: Dodatky
     dropdown:
+      choose_diff_view_html: 'Mód zobrazenia HTML:'
       choose_diff_view_mode: 'Mód srovnávacího zobrazení:'
+      option_escaped: Nepoužívané 
       option_split: Vedle sebe (Sbs)
+      option_unescaped: Používané
       option_unified: Sjednocené
   views:
     pagination:
