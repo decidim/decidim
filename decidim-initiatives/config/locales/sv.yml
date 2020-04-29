@@ -33,6 +33,7 @@ sv:
         extra_fields_legal_information: Juridisk information om insamling av personuppgifter
         minimum_committee_members: Minsta antal kommittémedlemmar
         online_signature_enabled: Digitala signaturer är aktiverade
+        promoting_committee_enabled: Tillåt kampanjutskott
         title: Titel
         undo_online_signatures_enabled: Tillåt deltagare att ångra sina online-underskrifter
         validate_sms_code_on_votes: Lägg till SMS-validering till signeringsprocessen
@@ -60,6 +61,15 @@ sv:
     admin:
       actions:
         new_initiative_type: Ny initiativtyp
+      filters:
+        search_placeholder:
+          title_or_description_cont: Sök %{collection} efter titel eller beskrivning.
+        state_eq:
+          values:
+            created: Skapad
+            discarded: Förkastade
+            published: Publicerade
+            validating: Teknisk validering
       menu:
         initiatives: Initiativ
         initiatives_types: Initiativtyper
@@ -108,12 +118,12 @@ sv:
         milestone_completed:
           affected_user:
             email_intro: Ditt initiativ %{resource_title} har uppnått %{percentage}% underskrifter!
-            email_outro: Du har fått den här meddelandet eftersom du är författaren av initiativet %{resource_title}.
+            email_outro: Du har fått det här meddelandet eftersom du är författaren av initiativet %{resource_title}.
             email_subject: Uppnådde ny milstolpe!
             notification_title: Ditt initiativ <a href="%{resource_path}">%{resource_title}</a> har uppnått %{percentage}% underskrifter.
           follower:
             email_intro: Initiativet %{resource_title} har uppnått %{percentage}% underskrifter!
-            email_outro: Du har fått den här meddelandet eftersom du följer %{resource_title}. Du kan sluta att ta emot meddelanden via föregående länk.
+            email_outro: Du har fått det här meddelandet eftersom du följer %{resource_title}. Du kan sluta att ta emot meddelanden via föregående länk.
             email_subject: Uppnådde ny milstolpe!
             notification_title: Initiativet <a href="%{resource_path}">%{resource_title}</a> har uppnått %{percentage}% underskrifter.
     gamification:
@@ -132,8 +142,8 @@ sv:
     help:
       participatory_spaces:
         initiatives:
-          contextual: "<p>Ett <strong>initiativ</strong> är ett förslag om att organisationen ska genomföra en specifik åtgärd (ändra en stadga, påbörja ett projekt, ändra namn på en avdelning eller en gata, osv.), som kan föras fram av vem som helst på eget initiativ (oberoende av andra kanaler eller deltagarutrymmen) genom insamling av (digitala) underskrifter.</p> <p>Initiativtagarna kan definiera sina mål, samla stöd, debattera, sprida initiativet och ange samlingspunkter där underskrifter kan samlas in från deltagarna eller där debatten är öppen för andra deltagare.</p> <p>Exempel: Ett initiativ kan samla signaturer för att kalla till samråd med alla medlemmar i en organisation, eller att skapa eller sammankalla en församling, eller att påbörja en utökning av budgeten för ett område i organisationen. Under processen att samla in underskrifter kan fler människor stödja kravet och sprida det inom organisationen.</p>\n"
-          page: "<p>Ett <strong>initiativ</strong> är ett förslag om att organisationen ska genomföra en specifik åtgärd (ändra en stadga, påbörja ett projekt, ändra namn på en avdelning eller en gata, osv.), som kan föras fram av vem som helst på eget initiativ (oberoende av andra kanaler eller deltagarutrymmen) genom insamling av (digitala) underskrifter.</p> <p>Initiativtagarna kan definiera sina mål, samla stöd, debattera, sprida initiativet och ange samlingspunkter där underskrifter kan samlas in från deltagarna eller där debatten är öppen för andra deltagare.</p> <p>Exempel: Ett initiativ kan samla signaturer för att kalla till samråd med alla medlemmar i en organisation, eller att skapa eller sammankalla en församling, eller att påbörja en utökning av budgeten för ett område i organisationen. Under processen att samla in underskrifter kan fler människor stödja kravet och sprida det inom organisationen.</p>\n"
+          contextual: "<p>Ett <strong>initiativ</strong> är ett förslag om att organisationen ska genomföra en specifik åtgärd (ändra en stadga, påbörja ett projekt, ändra namn på en avdelning eller en gata, osv.), som kan föras fram av vem som helst på eget initiativ (oberoende av andra kanaler eller deltagarutrymmen) genom insamling av (digitala) underskrifter.</p> <p>Initiativtagarna kan definiera sina mål, samla stöd, debattera, sprida initiativet och ange samlingspunkter där underskrifter kan samlas in från deltagarna eller där debatten är öppen för andra deltagare.</p> <p>Exempel: Ett initiativ kan samla signaturer för att kalla till samråd med alla medlemmar i en organisation, eller att skapa en grupp, eller att påbörja en utökning av budgeten för ett område i organisationen. Under processen att samla in underskrifter kan fler människor stödja kravet och sprida det inom organisationen.</p>\n"
+          page: "<p>Ett <strong>initiativ</strong> är ett förslag om att organisationen ska genomföra en specifik åtgärd (ändra en stadga, påbörja ett projekt, ändra namn på en avdelning eller en gata, osv.), som kan föras fram av vem som helst på eget initiativ (oberoende av andra kanaler eller deltagarutrymmen) genom insamling av (digitala) underskrifter.</p> <p>Initiativtagarna kan definiera sina mål, samla stöd, debattera, sprida initiativet och ange samlingspunkter där underskrifter kan samlas in från deltagarna eller där debatten är öppen för andra deltagare.</p> <p>Exempel: Ett initiativ kan samla signaturer för att kalla till samråd med alla medlemmar i en organisation, eller att skapa en grupp, eller att påbörja en utökning av budgeten för ett område i organisationen. Under processen att samla in underskrifter kan fler människor stödja kravet och sprida det inom organisationen.</p>\n"
           title: Vad är initiativ?
     initiatives:
       actions:
@@ -255,8 +265,11 @@ sv:
           back: Tillbaka
           back_to_initiatives: Tillbaka till initiativ
           callout_text: Grattis! Ditt medborgarinitiativ har skapats.
+          confirm: Bekräfta
+          edit_my_initiative: Redigera mina initiativ
           go_to_my_initiatives: Gå till mina initiativ
           more_information: "(Mer information)"
+          send_my_initiative: Skicka mitt initiativ
         finish_help:
           access_reminder: Kom ihåg att du alltid kan komma åt dina initiativ via deltagarmenyn.
           help_for_organizations: Om du är en förening måste du skicka in protokollen från styrelserna för alla organisationer som bildar kampanjutskottet
@@ -294,10 +307,10 @@ sv:
           email_subject: Nytt initiativ från %{author_nickname}
           notification_title: Initiativet <a href="%{resource_path}">%{resource_title}</a> skapades av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, som du följer, har antagit följande initiativ. Kanske du vill bidra till diskussionen:"
+          email_intro: "%{author_name} %{author_nickname}, som du följer, har instämt i följande initiativ. Kanske du vill bidra till diskussionen:"
           email_outro: Du har fått det här meddelandet eftersom du följer %{author_nickname}. Du kan sluta att ta emot meddelanden via föregående länk.
-          email_subject: Initiativet stöds av %{author_nickname}
-          notification_title: Initiativet <a href="%{resource_path}">%{resource_title}</a> antogs av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          email_subject: '%{author_nickname} instämmer i Initiativet'
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> instämde i initiativet <a href="%{resource_path}">%{resource_title}</a>.
       index:
         title: Initiativ
       initiative_signatures:
@@ -368,7 +381,7 @@ sv:
           recent: Senaste
         result:
           answer_title:
-            accepted: Detta förslag har godkänts eftersom
+            accepted: Detta förslag har antagits eftersom
             created: Detta förslag har skapats
             discarded: Detta förslag har förkastats eftersom
             published: Detta förslag publiceras eftersom

@@ -88,6 +88,9 @@ fr:
         error: Une erreur s'est produite lors de la mise à jour de votre compte.
         success: Votre compte a été mis à jour avec succès.
         success_with_email_confirmation: Votre compte a été mis à jour avec succès. Vous recevrez un email pour confirmer votre nouvelle adresse email.
+    admin:
+      actions:
+        cancel: Annuler
     admin_log:
       area:
         create: "%{user_name} a créé la zone d'application %{resource_name}"
@@ -229,6 +232,7 @@ fr:
       photos:
         related_photos: Photos associées
     author:
+      avatar: Avatar
       comments:
         one: commentaire
         other: commentaires
@@ -237,6 +241,7 @@ fr:
         explanation: Obtenir une vérification en saisissant un numéro de passeport commençant par "A"
         fields:
           passport_number: Numéro de passeport
+          postal_code: Code postal
         name: Un autre exemple d'autorisation
       dummy_authorization_handler:
         explanation: Obtenir une vérification en saisissant un numéro de document se terminant par "X"
@@ -760,6 +765,7 @@ fr:
         create:
           error: La conversation n'a pas commencé. Réessayez plus tard
         index:
+          close: Fermer la fenêtre
           no_conversations: Vous n'avez encore aucune conversation
           title: Conversations
         reply:
@@ -1155,7 +1161,7 @@ fr:
         currently_waiting_confirmation_for_email: 'En attente de confirmation pour: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: laisser vide si vous ne voulez pas le changer
         title: Modifier %{resource}
-        unhappy: Pas satisfait ?
+        unhappy: Pas satisfait ? 
         update: Mettre à jour
         we_need_your_current_password_to_confirm_your_changes: nous avons besoin de votre mot de passe actuel pour confirmer vos modifications
       new:

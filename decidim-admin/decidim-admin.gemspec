@@ -25,8 +25,8 @@ Gem::Specification.new do |s|
   s.add_dependency "devise-i18n", "~> 1.2"
   s.add_dependency "devise_invitable", "~> 1.7"
   s.add_dependency "jquery-rails", "~> 4.3"
-  s.add_dependency "sassc", "~> 1.12", ">= 1.12.1"
-  s.add_dependency "sassc-rails", "~> 1.3"
+  s.add_dependency "sassc", "~> 2.2.1"
+  s.add_dependency "sassc-rails", "~> 2.1.2"
 
   s.add_development_dependency "decidim-dev", Decidim::Admin.version
   s.add_development_dependency "decidim-participatory_processes", Decidim::Admin.version

@@ -77,14 +77,11 @@ ar:
         search_placeholder:
           title_or_description_cont: البحث عن %{collection} بحسب العنوان أو الوصف.
         state_eq:
-          label: الحالة
           values:
-            accepted: تم قبوله
             created: تمّ إنشاؤه
-            discarded: تم تجاهله
-            published: تم نشره
-            rejected: تم رفضه
-            validating: تأكيد تقني
+            discarded: التخلص منها
+            published: نشرت
+            validating: المصادقة الفنية
       menu:
         initiatives: المبادرات
         initiatives_types: أنواع المبادرة

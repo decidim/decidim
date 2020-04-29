@@ -38,7 +38,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
     let(:participatory_space) { component.participatory_space }
     let(:active_step_id) { participatory_space.active_step.id }
     let(:form) do
-      Decidim::Admin::ComponentForm.from_params(
+      Decidim::Proposals::Admin::ComponentForm.from_params(
         id: component.id,
         weight: 0,
         manifest: manifest,

@@ -17,6 +17,7 @@ fr:
         automatic_hashtags: Hashtags ajoutés automatiquement
         body: Corps du texte
         category_id: Catégorie
+        decidim_scope_id: Portée
         has_address: Renseigner une adresse
         state: État
         suggested_hashtags: Hashtags suggérés
@@ -69,6 +70,24 @@ fr:
         one: Vote
         other: Votes
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Type
+          values:
+            'false': Propositions
+            'true': Amendements
+        state_eq:
+          label: État
+          values:
+            accepted: Retenue
+            evaluating: En cours d'évaluation
+            rejected: Non retenue
+            withdrawn: Retirée
+        state_null:
+          label: État
+          values:
+            'true': En attente de réponse
     components:
       proposals:
         actions:
@@ -230,8 +249,8 @@ fr:
       badges:
         accepted_proposals:
           conditions:
-           - Choisissez l'espace de participation qui vous intéresse avec la soumission des propositions activée
-           - Essayez de faire des propositions qui peuvent être réalisées. De cette façon, ils sont plus susceptibles d'être acceptés.
+            - Choisissez l'espace de participation qui vous intéresse avec la soumission des propositions activée
+            - Essayez de faire des propositions qui peuvent être réalisées. De cette façon, ils sont plus susceptibles d'être acceptés.
           description: Ce badge est attribué lorsque vous participez activement à de nouvelles propositions et que celles-ci sont acceptées.
           description_another: '%{score} des propositions de cet utilisateur ont été acceptées.'
           description_own: '%{score} de vos propositions ont été acceptées.'
@@ -241,8 +260,8 @@ fr:
           unearned_own: Aucune de vos propositions n'a encore été acceptée.
         proposal_votes:
           conditions:
-           - Parcourir et passer du temps à lire les propositions d'autres personnes
-           - Soutenez les propositions que vous aimez ou trouvez intéressantes
+            - Parcourir et passer du temps à lire les propositions d'autres personnes
+            - Soutenez les propositions que vous aimez ou trouvez intéressantes
           description: Ce badge est attribué lorsque vous soutenez les propositions d'autres personnes.
           description_another: Cet utilisateur a soutenu %{score} propositions.
           description_own: Vous avez soutenu %{score} propositions.
@@ -252,8 +271,8 @@ fr:
           unearned_own: Vous n'avez soutenu aucune proposition pour le moment.
         proposals:
           conditions:
-           - Choisissez l'espace de participation qui vous intéresse avec la soumission des propositions activée
-           - Créer une nouvelle proposition
+            - Choisissez l'espace de participation qui vous intéresse avec la soumission des propositions activée
+            - Créer une nouvelle proposition
           description: Ce badge est attribué lorsque vous participez activement à de nouvelles propositions.
           description_another: Cet utilisateur a créé %{score} propositions.
           description_own: Vous avez créé %{score} propositions.
@@ -336,6 +355,10 @@ fr:
             success: Texte participatif mis à jour avec succès.
         proposal_answers:
           form:
+            accepted: Retenue
+            answer_proposal: Répondre
+            evaluating: En cours d'évaluation
+            rejected: Non retenue
             title: Réponse à la proposition %{title}
         proposal_notes:
           create:
@@ -382,7 +405,10 @@ fr:
           publish_answers:
             select_a_proposal: Veuillez sélectionner une proposition
           show:
+            authors: Auteurs
+            body: Corps
             created_at: Date de création
+            proposals: Propositions
             votes_count: Nombre de votes
           update_category:
             select_a_category: Veuillez sélectionner une catégorie
@@ -420,16 +446,21 @@ fr:
         rejected: Non retenue
         withdrawn: Retirée
       application_helper:
+        filter_category_values:
+          all: Tout
         filter_origin_values:
           all: Tout
           citizens: Propositions citoyennes
           meetings: Des réunions
           official: Propositions officielles
           user_groups: Groupes d'utilisateurs
+        filter_scope_values:
+          all: Tout
         filter_state_values:
           accepted: Accepté
           all: Tout
           evaluating: En cours d'évaluation
+          not_answered: En attente de réponse
           rejected: Rejeté
         filter_type_values:
           all: Tout
@@ -481,6 +512,7 @@ fr:
           open: Ouvrir
           published: Publié
           related_to: Lié à
+          scope: Portée
           search: Chercher
           state: État
           withdrawn: Retiré
@@ -610,12 +642,17 @@ fr:
           send: Aperçu
           title: Modifier le brouillon de votre proposition
         filters:
+          activity: Mon activité
+          all: Tout
           amendment_type: Type
           category: Catégorie
+          my_proposals: Mes propositions
           origin: Auteurs
           related_to: Liées à
+          scope: Portée
           search: Rechercher
           state: État
+          type: Type
           voted: Ne montrer que les propositions pour lesquelles j'ai voté
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
@@ -636,9 +673,13 @@ fr:
           title: Créer une proposition
         orders:
           label: 'Classement des propositions par :'
+          most_commented: Les plus commentées
+          most_endorsed: Les plus soutenues
+          most_followed: Les plus suivies
           most_voted: Les plus votées
           random: Aléatoire
           recent: Les plus récentes
+          with_more_authors: Avec le plus d'auteurs
         participatory_texts:
           index:
             document_index: Index de document

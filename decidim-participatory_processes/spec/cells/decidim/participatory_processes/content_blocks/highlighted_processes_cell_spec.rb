@@ -6,7 +6,7 @@ describe Decidim::ParticipatoryProcesses::ContentBlocks::HighlightedProcessesCel
   subject { cell(content_block.cell, content_block).call }
 
   let(:organization) { create(:organization) }
-  let(:content_block) { create :content_block, organization: organization, manifest_name: :highlighted_processes, scope: :homepage, settings: settings }
+  let(:content_block) { create :content_block, organization: organization, manifest_name: :highlighted_processes, scope_name: :homepage, settings: settings }
   let!(:processes) { create_list :participatory_process, 5, organization: organization }
   let(:settings) { {} }
 
