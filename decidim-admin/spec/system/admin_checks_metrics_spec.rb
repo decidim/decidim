@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin checks activity graphs", type: :system do
+describe "Admin checks metrics", type: :system do
   let(:organization) { create(:organization) }
 
   let!(:user) { create(:user, :admin, :confirmed, organization: organization) }
@@ -13,7 +13,7 @@ describe "Admin checks activity graphs", type: :system do
     visit decidim_admin.root_path
   end
 
-  it "lists activity graphs" do
-    expect(page).to have_content("ACTIVITY GRAPHS")
+  it "lists metrics" do
+    expect(page).to have_content("METRICS")
   end
 end
