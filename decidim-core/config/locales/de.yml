@@ -239,6 +239,7 @@ de:
         explanation: Lassen Sie sich verifizieren, indem Sie eine Reisepassnummer eingeben, die mit "A" beginnt
         fields:
           passport_number: Reisepassnummer
+          postal_code: Postleitzahl
         name: Ein weiteres Beispiel für eine Berechtigung
       dummy_authorization_handler:
         explanation: Lassen Sie sich verifizieren, indem Sie eine Dokumentennummer eingeben, die mit "X" endet
@@ -761,6 +762,7 @@ de:
         create:
           error: Die Unterhaltung wurde nicht gestartet. Versuchen Sie es später noch einmal
         index:
+          close: Modal schließen
           no_conversations: Du hast noch keine Unterhaltungen
           title: Gespräche
         reply:

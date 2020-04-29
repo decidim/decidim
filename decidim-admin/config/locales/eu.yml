@@ -426,6 +426,9 @@ eu:
             does_not_belong: Ez du zer ikusirik
             offensive: Iraingarria
             spam: Spam
+      newsletter_templates:
+        index:
+          preview_template: Aurreikusi
       newsletters:
         create:
           error: ' Errorea gertatu da buletin hau sortzean.'
@@ -439,8 +442,6 @@ eu:
         edit:
           save_and_preview: Gorde eta aurreikusi
           title: Editatu buletina
-        form:
-          interpolations_hint: 'Iradokizuna: "%{name}" erabil dezakezu gaiaren edo testuaren edozein tokitan, eta horren ordez hartzailearen izena agertuko da.'
         index:
           confirm_delete: Ziur zaude buletin hau deuseztatu nahi duzula?
           title: Buletinak

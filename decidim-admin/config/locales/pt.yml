@@ -426,6 +426,9 @@ pt:
             does_not_belong: Não pertence
             offensive: Ofensiva
             spam: Spam
+      newsletter_templates:
+        index:
+          preview_template: Visualização
       newsletters:
         create:
           error: Ocorreu um erro ao criar este boletim informativo.
@@ -439,8 +442,6 @@ pt:
         edit:
           save_and_preview: Salvar e visualizar
           title: Editar boletim
-        form:
-          interpolations_hint: 'Dica: você pode usar "%{name}" em qualquer parte do corpo ou assunto e será substituído pelo nome do destinatário.'
         index:
           confirm_delete: Tem certeza de que deseja excluir esta newsletter?
           title: boletins informativos

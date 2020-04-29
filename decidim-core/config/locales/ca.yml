@@ -254,6 +254,7 @@ ca:
         explanation: Verifica't introduint un número de passaport que comenci per "A"
         fields:
           passport_number: Número de passaport
+          postal_code: Codi postal
         name: Una altra autorització d'exemple
       dummy_authorization_handler:
         explanation: Verifica't introduint un número de document que finalitzi amb "X"
@@ -578,7 +579,7 @@ ca:
           notification_title: El <a href="%{resource_path}"> perfi l</a> de %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
     export_mailer:
       data_portability_export:
-        click_button: 'Fes clic al botó següent per descarregar les teves dades. <br/> tindràs disponible el fitxer fins a %{date}.'
+        click_button: 'Fes clic al botó següent per descarregar les teves dades. <br/> tindràs disponible el fitxer fins a %{date}. <br/> Et caldrà <a href=''https://www.7-zip.org/''>7-Zip</a> per obrir-lo. Contrasenya: %{password}'
         download: Descarregar
       export:
         ready: S'adjunta una versió comprimida de l'exportació.
@@ -795,6 +796,7 @@ ca:
         create:
           error: No s'ha iniciat la conversa. Torna-ho a provar més tard
         index:
+          close: Tanca modal
           no_conversations: Encara no tens converses
           title: Converses
         reply:

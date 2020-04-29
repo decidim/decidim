@@ -261,6 +261,7 @@ cs:
         explanation: Ověřte si zavedením čísla pasu začínajícím písmenem "A"
         fields:
           passport_number: Číslo pasu
+          postal_code: Poštovní směrovací číslo
         name: Další příklad oprávnění
       dummy_authorization_handler:
         explanation: Ověřte se zavedením čísla dokumentu končícího "X"
@@ -352,6 +353,9 @@ cs:
         name: Zápatí pod hlavním pruhem
       hero:
         name: Hlavní obrázek
+      hero_settings_form:
+        background_image: Obrázek pozadí
+        welcome_text: Uvítací text
       highlighted_content_banner:
         name: Zvýrazněný obsahový pruh
       how_to_participate:
@@ -805,9 +809,18 @@ cs:
           outro: Užijte si rozhodování!
           subject: Máte nové zprávy od %{sender}
       conversations:
+        add_conversation_users:
+          add_max_users: 'Přidat uživatele do konverzace: nejvýše 9 uživatelů'
+          add_users_placeholder: Hledat...
+          modal_title: Nová konverzace
+          no_results: Žádné výsledky
+          participant_with_disabled_message_reception: Tento uživatel zakázal příjem zpráv
         create:
           error: Konverzace se nespustí. Zkuste to později znovu
         index:
+          close: Zavřít okno
+          new_conversation: Nová konverzace
+          next: Další
           no_conversations: Nemáte zatím žádné konverzace
           title: Konverzace
         reply:
@@ -841,6 +854,25 @@ cs:
         note: Tento e-mail jste obdrželi, protože jste odběrateli bulletinů na %{organization_name}. Můžete změnit nastavení na <a href="%{link}">oznámení straně</a>.
         see_on_website: Nelze vidět tento e-mail správně? Zobrazte jej na webu <a href="%{link}" target="_blank"></a>.
         unsubscribe: Chcete-li odhlásit přijímání tento typ e-mailů, <a href="%{link}" target="_blank" class="unsubscribe">Odhlásit</a>.
+    newsletter_templates:
+      basic_only_text:
+        body_preview: 'Zástupný text pro tělo zprávy: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Základní (pouze text)
+      basic_only_text_settings_form:
+        body: Tělo
+        interpolations_hint: 'Tip: Můžete použít "%{name}" kdekoli v těle nebo předmětu a bude nahrazeno jménem příjemce.'
+      image_text_cta:
+        body_preview: 'Dummy text for body: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
+        cta_text_preview: Text tlačítka Výzvy k akci
+        introduction_preview: 'Zástupný text pro úvod: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Tlačítko obrázek, text a Výzva k akci
+      image_text_cta_settings_form:
+        body: Tělo
+        cta_text: Text tlačítka Výzvy k akci
+        cta_url: URL tlačítka Výzvy k akci
+        interpolations_hint: 'Tip: Můžete použít "%{name}" kdekoli v těle, Výzvy k akci, nebo předmětu zprávy a bude nahrazeno jménem příjemce.'
+        introduction: Úvod
+        main_image: Hlavní obrázek
     newsletters:
       unsubscribe:
         check_subscription: Chcete-li změnit nastavení, můžete tak učinit v <a href="%{link}" target="_blank">konfigurační stránce</a>
@@ -909,7 +941,7 @@ cs:
           participate: Účastnit se
           welcome: Vítejte na %{organization}!
         metrics:
-          headline: Účast na číslech
+          headline: Metrika
         statistics:
           answers_count: Dokončené průzkumy
           assemblies_count: Sestavy
@@ -939,8 +971,8 @@ cs:
         topics: Témata
       participatory_space:
         metrics:
-          headline: Účast na číslech
-          link: Zobrazit všechny statistiky
+          headline: Metrika
+          link: Zobrazit všechny metriky
       terms_and_conditions:
         accept:
           error: Při přijímání smluvních podmínek došlo k chybě.
@@ -1393,5 +1425,5 @@ cs:
       next_title: Odkaz na další stránku
       previous: "&lsaquo; Předchozí"
       previous_title: Odkaz na předchozí stránku
-      title: 'Číslo stránky: '
+      title: 'Číslo strany: '
       truncate: "&hellip;"

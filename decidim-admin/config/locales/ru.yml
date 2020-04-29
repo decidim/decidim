@@ -434,6 +434,9 @@ ru:
             does_not_belong: Неприемлемо
             offensive: Оскорбительно
             spam: Спам
+      newsletter_templates:
+        index:
+          preview_template: Предпросмотр
       newsletters:
         create:
           error: При попытке создать эту рассылку новостей произошла ошибка.
@@ -447,8 +450,6 @@ ru:
         edit:
           save_and_preview: Сохранить и предварительно просмотреть
           title: Редактировать рассылку новостей
-        form:
-          interpolations_hint: 'Подсказка: вы можете использовать «%{name}» в любом месте основного текста или темы, и оно будет заменено именем получателя.'
         index:
           all: все
           all_users: 'Все пользователи '

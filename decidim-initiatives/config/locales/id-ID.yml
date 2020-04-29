@@ -59,13 +59,10 @@ id:
         new_initiative_type: Jenis inisiatif baru
       filters:
         state_eq:
-          label: Negara
           values:
-            accepted: Diterima
             created: Dibuat
             discarded: Dibuang
             published: Diterbitkan
-            rejected: Ditolak
             validating: Validasi teknis
       menu:
         initiatives: Inisiatif

@@ -85,8 +85,11 @@ hu:
         search_placeholder:
           id_string_or_title_cont: Keresés %{collection} ID vagy cím alapján.
         state_eq:
+          label: Állapot
           values:
+            accepted: Elfogadva
             evaluating: Értékelés
+            rejected: Elutasítva
             withdrawn: Visszavonva
         state_null:
           label: Állapot

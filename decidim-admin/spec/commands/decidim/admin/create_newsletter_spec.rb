@@ -7,19 +7,23 @@ module Decidim::Admin
     describe "call" do
       let(:user) { create(:user, organization: organization) }
       let(:organization) { create(:organization) }
+      let(:content_block) do
+        build(:content_block, :newsletter_template, organization: organization, manifest_name: :basic_only_text)
+      end
+      let(:newsletter_subject) { Decidim::Faker::Localized.paragraph(3) }
+      let(:newsletter_body) { Decidim::Faker::Localized.paragraph(3) }
 
       let(:form) do
-        double(
-          subject: Decidim::Faker::Localized.paragraph(3),
-          body: Decidim::Faker::Localized.paragraph(3),
-          valid?: validity
-        )
+        Decidim::Admin::NewsletterForm.from_params(
+          subject: newsletter_subject,
+          settings: newsletter_body.transform_keys { |key| "body_#{key}" }
+        ).with_context(current_organization: organization)
       end
 
-      let(:command) { described_class.new(form, user) }
+      let(:command) { described_class.new(form, content_block, user) }
 
       describe "when the form is not valid" do
-        let(:validity) { false }
+        let(:newsletter_subject) { nil }
 
         it "broadcasts invalid" do
           expect { command.call }.to broadcast(:invalid)
@@ -52,10 +56,16 @@ module Decidim::Admin
           expect(action_log.version.event).to eq "create"
         end
 
-        it "creates a new category" do
+        it "creates a new newsletter" do
           expect do
             command.call
           end.to change(Decidim::Newsletter, :count).by(1)
+        end
+
+        it "creates a new content block" do
+          expect do
+            command.call
+          end.to change(Decidim::ContentBlock, :count).by(1)
         end
 
         it "creates a newsletter with the right attributes" do
@@ -66,7 +76,8 @@ module Decidim::Admin
           expect(newsletter.organization).to eq(organization)
           expect(newsletter.subject).to eq(form.subject.stringify_keys)
           expect(newsletter.sent?).to eq(false)
-          expect(newsletter.body).to eq(form.body.stringify_keys)
+          expect(newsletter.template).to be_present
+          expect(newsletter.template.settings.body.stringify_keys).to eq(newsletter_body.stringify_keys)
         end
       end
     end

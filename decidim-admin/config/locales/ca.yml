@@ -471,6 +471,9 @@ ca:
             does_not_belong: No pertany
             offensive: Ofensiu
             spam: Contingut no desitjat
+      newsletter_templates:
+        index:
+          preview_template: Previsualitzar
       newsletters:
         create:
           error: S'ha produït un error en crear aquest butlletí.
@@ -484,8 +487,6 @@ ca:
         edit:
           save_and_preview: Desar i vista prèvia
           title: Editar butlletí
-        form:
-          interpolations_hint: 'Pista: Pots utilitzar "%{name}" en qualsevol part del cos o assumpte i serà reemplaçat pel nom del destinatari.'
         index:
           all: totes
           all_users: 'Totes les participants '

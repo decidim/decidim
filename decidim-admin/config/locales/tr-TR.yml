@@ -433,6 +433,9 @@ tr:
             does_not_belong: Ait değil
             offensive: saldırgan
             spam: İstenmeyen e
+      newsletter_templates:
+        index:
+          preview_template: Ön izleme
       newsletters:
         create:
           error: Bu bülteni oluştururken bir hata oluştu.
@@ -446,8 +449,6 @@ tr:
         edit:
           save_and_preview: Kaydet ve önizle
           title: Bülten düzenle
-        form:
-          interpolations_hint: 'İpucu: Gövde veya nesnenin herhangi bir yerinde "%{name}" kullanabilir ve alıcının adıyla değiştirilir.'
         index:
           all: tümü
           all_users: 'Tüm kullanıcılar '

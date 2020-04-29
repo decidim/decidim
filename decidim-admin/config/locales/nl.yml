@@ -454,6 +454,9 @@ nl:
             does_not_belong: Hoort niet
             offensive: Aanvallend
             spam: Spam
+      newsletter_templates:
+        index:
+          preview_template: Voorbeeld
       newsletters:
         create:
           error: Er is een fout opgetreden bij het maken van deze nieuwsbrief.
@@ -467,8 +470,6 @@ nl:
         edit:
           save_and_preview: Opslaan en previewen
           title: Bewerk nieuwsbrief
-        form:
-          interpolations_hint: 'Hint: U kunt "%{name}" overal in de body of onderwerp gebruiken en het wordt vervangen door de naam van de ontvanger.'
         index:
           all: alle
           all_users: 'Alle gebruikers '

@@ -1,0 +1,17 @@
+<% form.fields_for :settings, form.object.settings do |settings_fields| %>
+  <%= settings_fields.translated :editor, :introduction, label: t(".introduction") %>
+
+  <%= settings_fields.translated :text_field, :cta_text, label: t(".cta_text") %>
+
+  <%= settings_fields.translated :text_field, :cta_url, label: t(".cta_url") %>
+
+  <%= settings_fields.translated :editor, :body, label: t(".body") %>
+<% end %>
+
+<% form.fields_for :images, form.object.images do |images_fields| %>
+  <%= images_fields.upload :main_image, label: t(".main_image") %>
+<% end %>
+
+<div class="row column">
+  <%= t(".interpolations_hint") %>
+</div>

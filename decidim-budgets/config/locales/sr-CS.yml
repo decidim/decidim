@@ -1,0 +1,23 @@
+sr:
+  decidim:
+    budgets:
+      projects:
+        budget_summary:
+          description_minimum_projects_rule: Za koje projekte mislite da bi trebalo da odvojimo sredstva u budžetu? Odaberite bar %{minimum_number} projekata koje želite, glasajte za predloge koji vam se sviđaju i tako pomognite u definisanju budžeta.
+        orders:
+          highest_cost: Najveća cena
+          label: Poređaj projekte po
+          lowest_cost: Najniža cena
+          most_voted: Najviše glasova
+          random: Slučajan redosled
+    components:
+      budgets:
+        settings:
+          global:
+            form:
+              errors:
+                budget_voting_rule_only_one: Samo jedno pravilo glasanja mora biti omogućeno
+                budget_voting_rule_required: Jedno pravilo glasanja je obavezno
+            vote_minimum_budget_projects_number: Minimum projekata za glasanje
+            vote_rule_minimum_budget_projects_enabled: 'Omogući pravilo: Minimalni broj projekata o kojima se glasa'
+            vote_rule_threshold_percent_enabled: 'Omogući pravilo: Minimalni procenta budžeta'

@@ -197,6 +197,7 @@ gl:
         explanation: Verifique a introdución dun número de pasaporte que comeza con "A"
         fields:
           passport_number: Número de pasaporte
+          postal_code: Código postal
         name: Outra autorización de exemplo
       dummy_authorization_handler:
         explanation: Verifique a introdución dun número de documento que acabe con "X"
@@ -712,6 +713,7 @@ gl:
         create:
           error: Non se iniciou a conversa. Téntao de novo máis tarde
         index:
+          close: Pechar modal
           no_conversations: Aínda non tes conversas
           title: Conversas
         reply:

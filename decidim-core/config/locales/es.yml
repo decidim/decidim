@@ -254,6 +254,7 @@ es:
         explanation: Verifícate introduciendo un número de pasaporte que comience por "A"
         fields:
           passport_number: Número de pasaporte
+          postal_code: Código postal
         name: Otro ejemplo de autorización
       dummy_authorization_handler:
         explanation: Verifícate introduciendo un número de documento que termine con "X"
@@ -795,6 +796,7 @@ es:
         create:
           error: No se ha iniciado la conversación. Inténtalo de nuevo más tarde
         index:
+          close: Cierra modal
           no_conversations: Aún no tienes conversaciones
           title: Conversaciones
         reply:

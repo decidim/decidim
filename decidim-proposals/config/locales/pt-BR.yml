@@ -77,8 +77,11 @@ pt-BR:
             'false': Propostas
             'true': Emendas
         state_eq:
+          label: Estado
           values:
+            accepted: Aceitaram
             evaluating: Avaliando
+            rejected: Rejeitado
             withdrawn: Retirado
         state_null:
           label: Estado

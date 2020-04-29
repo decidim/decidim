@@ -90,7 +90,6 @@ id:
             other: "%{count} proyek"
         filters:
           category: Kategori
-          category_prompt: Pilih Kategori
           scope: Cakupan
           search: Pencarian
         filters_small_view:
