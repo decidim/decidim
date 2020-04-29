@@ -16,7 +16,7 @@ ar:
         created_by_other: التي أنشأتها الآخرون
         creation_date: تاريخ الإنشاء
         decidim_area_id: المنطقة
-        decidim_assemblies_type_id: نوع الجمعية
+        decidim_assemblies_type_id: نوع التجمع
         decidim_scope_id: النطاق
         description: الوصف
         developer_group: مجموعة المروجين
@@ -187,7 +187,7 @@ ar:
       models:
         assemblies_types:
           fields:
-            created_at: تم إنشاؤها في
+            created_at: تاريخ الإنشاء
             title: العنوان
         assembly:
           fields:

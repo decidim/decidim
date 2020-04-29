@@ -1,0 +1,60 @@
+sr:
+  decidim:
+    admin:
+      actions:
+        new_assembly_type: Novi tip veća
+      assemblies_types:
+        create:
+          error: Nastao je problem pri stvaranju novog tipa veća.
+          success: Tip veća uspešno stvoren.
+        destroy:
+          success: Tip veća uspešno obrisan.
+        new:
+          title: Novi tip veća
+        update:
+          error: Nastao je problem pri ažuriranju ovog tipa veća.
+          success: Tip veća uspešno ažuriran.
+      menu:
+        assemblies_types: Tipovi veća
+      models:
+        assembly_user_role:
+          roles:
+            valuator: Procenjivač
+      titles:
+        assemblies_types: Tipovi veća
+    admin_log:
+      assembly_type:
+        create: "%{user_name} je stvorio tip veća %{resource_name}"
+        delete: "%{user_name} je uklonio člana %{resource_name} iz tipa veća %{space_name}"
+        publish: "%{user_name} je objavio tip veća %{resource_name}"
+        unpublish: "%{user_name} je odustao od objavljivanja tipa veća %{resource_name}"
+        update: "%{user_name} je ažurirao tip veća %{resource_name}"
+    assemblies:
+      pages:
+        home:
+          highlighted_assemblies:
+            assemblies_button_title: Veza ka strani Veća koja prikazuje sva veća
+      show:
+        social_networks_title: Podelite ovo veće na
+      statistics:
+        posts_count: Objave
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Veza ka strani Konferencije koja prikazuje sve konferencije
+    log:
+      value_types:
+        assembly_type_presenter:
+          not_found: 'Ovaj tip veća nije pronađen u bazi podataka (ID: %{id})'
+    pages:
+      home:
+        hero:
+          participate_title: Učestvujte u procesima platforme
+        sub_hero:
+          register_title: Registrujte se na platformu
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Veza ka strani Procesi koja prikazuje sve procese

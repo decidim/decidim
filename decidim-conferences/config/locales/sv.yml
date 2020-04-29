@@ -2,7 +2,7 @@ sv:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Relaterade församlingar
+        assemblies_ids: Relaterade grupper
         banner_image: Bannerbild
         consultations_ids: Relaterade samråd
         copy_categories: Kopiera kategorier
@@ -44,7 +44,7 @@ sv:
         other: Talare
       decidim/conference_user_role:
         one: Konferensanvändarroll
-        other: Konferenceanvändarroller
+        other: Konferensanvändarroller
   decidim:
     admin:
       actions:
@@ -183,6 +183,7 @@ sv:
             admin: Administratör
             collaborator: Medarbetare
             moderator: Moderator
+            valuator: Värderare
         media_link:
           fields:
             date: Datum
@@ -443,7 +444,7 @@ sv:
             sent_at: Skickad
             status: Status
           status:
-            accepted: Accepterad (%{at})
+            accepted: Accepterade (%{at})
             rejected: Avvisad (%{at})
             sent: Skickad
         conference_registration:
@@ -461,6 +462,9 @@ sv:
             active_conferences: Aktiva konferenser
             see_all_conferences: Visa alla konferenser
       photo:
+        image:
+          attributes:
+            alt: Mediabild
         show:
           close_modal: Stäng fönstret
           photo: Bild
@@ -483,7 +487,7 @@ sv:
         details: Detaljer
         introduction: Introduktion
         objectives: Mål
-        related_assemblies: Relaterade församlingar
+        related_assemblies: Relaterade grupper
         related_consultations: Relaterade samråd
         related_participatory_processes: Relaterade deltagandeprocesser
       statistics:
@@ -491,10 +495,10 @@ sv:
         comments_count: Kommentarer
         conference_count: Konferenser
         debates_count: Debatter
-        endorsements_count: påskrifter
+        endorsements_count: Instämmanden
         headline: Aktivitet
         meetings_count: Möten
-        orders_count: Röster
+        orders_count: Stödjer
         pages_count: Sidor
         posts_count: Inlägg
         projects_count: Projekt
@@ -502,7 +506,7 @@ sv:
         results_count: Resultat
         surveys_count: Undersökningar
         users_count: Deltagare
-        votes_count: Röster
+        votes_count: Stödjer
     events:
       conferences:
         conference_registration_confirmed:
@@ -526,7 +530,7 @@ sv:
           notification_title: Konferensen <a href="%{resource_path}">%{resource_title}</a> tar nu emot registreringar.
         upcoming_conference:
           email_intro: 'Konferensen "%{resource_title}" äger rum om två dagar. Läs mer på dess sida:'
-          email_outro: Du har fått den här meddelandet eftersom du följer konferensen "%{resource_title}". Du kan sluta att följa den från föregående länk.
+          email_outro: Du har fått det här meddelandet eftersom du följer konferensen "%{resource_title}". Du kan sluta att följa den från föregående länk.
           email_subject: Konferensen "%{resource_title}" kommer!
           notification_title: Konferensen <a href="%{resource_path}">%{resource_title}</a> börjar om två dagar.
     log:

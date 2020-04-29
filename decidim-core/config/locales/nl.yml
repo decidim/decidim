@@ -88,6 +88,9 @@ nl:
         error: Er is een fout opgetreden bij het bijwerken van uw account.
         success: Uw account is bijgewerkt.
         success_with_email_confirmation: Uw account is bijgewerkt. U ontvangt een e-mail ter bevestiging van uw nieuwe e-mailadres.
+    admin:
+      actions:
+        cancel: annuleren
     admin_log:
       area:
         create: "%{user_name} heeft %{resource_name} aangemaakt"
@@ -229,6 +232,7 @@ nl:
       photos:
         related_photos: Gerelateerde foto 's
     author:
+      avatar: Profielafbeelding
       comments:
         one: commentaar
         other: commentaren
@@ -237,6 +241,7 @@ nl:
         explanation: Wordt geverifieerd door een paspoortnummer in te voeren dat begint met 'A'
         fields:
           passport_number: Paspoortnummer
+          postal_code: Postcode
         name: Een ander voorbeeld toestemming
       dummy_authorization_handler:
         explanation: Wordt geverifieerd door een documentnummer in te voeren dat eindigt op 'X'
@@ -766,6 +771,7 @@ nl:
         create:
           error: Gesprek niet gestart. Probeer het later nogmaals
         index:
+          close: Sluit venster
           no_conversations: Je hebt nog geen gesprekken
           title: conversaties
         reply:

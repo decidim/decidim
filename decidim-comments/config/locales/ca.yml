@@ -92,6 +92,11 @@ ca:
           email_outro: Has rebut aquesta notificació perquè s'ha respost el teu comentari.
           email_subject: "%{author_name} ha respost el teu comentari a %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha respost el teu comentari a <a href="%{resource_path}">%{resource_title}</a>
+        user_group_mentioned:
+          email_intro: Un grup al qual pertanys ha estat esmentat
+          email_outro: Has rebut aquesta notificació perquè formes part del grup %{group_name} que ha estat esmentat a %{resource_title}.
+          email_subject: T'han esmentat a %{resource_title} com a membre de %{group_name}
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> t'ha esmentat com a membre de <a href="%{group_path}">%{group_name} %{group_nickname}</a> a <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Has estat esmentada
           email_outro: Has rebut aquesta notificació perquè has estat esmentada a %{resource_title}.

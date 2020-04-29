@@ -69,6 +69,24 @@ de:
         one: Unterstützung
         other: Unterstützer
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Art
+          values:
+            'false': Vorschläge
+            'true': Änderungsanträge
+        state_eq:
+          label: Zustand
+          values:
+            accepted: Angenommen
+            evaluating: In Bewertung
+            rejected: Abgelehnt
+            withdrawn: Zurückgezogen
+        state_null:
+          label: Status
+          values:
+            'true': Unbeantwortet
     components:
       proposals:
         actions:
@@ -324,6 +342,10 @@ de:
             success: Partizipativer Text erfolgreich aktualisiert.
         proposal_answers:
           form:
+            accepted: Angenommen
+            answer_proposal: Antworten
+            evaluating: In Bewertung
+            rejected: Abgelehnt
             title: Antwort auf Vorschlag %{title}
         proposal_notes:
           create:
@@ -370,7 +392,10 @@ de:
           publish_answers:
             select_a_proposal: Bitte wählen Sie einen Vorschlag
           show:
+            authors: Autoren
+            body: Haupttext
             created_at: Erstellungsdatum
+            proposals: Vorschläge
             votes_count: Anzahl der Unterstützungen
           update_category:
             select_a_category: Bitte wählen Sie eine Kategorie
@@ -408,16 +433,21 @@ de:
         rejected: Abgelehnt
         withdrawn: Zurückgezogen
       application_helper:
+        filter_category_values:
+          all: Alle
         filter_origin_values:
           all: Alle
           citizens: Bürger
           meetings: Meetings
           official: Offiziell
           user_groups: Benutzergruppen
+        filter_scope_values:
+          all: Alle
         filter_state_values:
           accepted: Angenommen
           all: Alle
           evaluating: In Bearbeitung
+          not_answered: Unbeantwortet
           rejected: Abgelehnt
         filter_type_values:
           all: Alle
@@ -469,6 +499,7 @@ de:
           open: Offen
           published: Veröffentlicht
           related_to: In Zusammenhang mit
+          scope: Umfang
           search: Suchen
           state: Status
           withdrawn: Zurückgezogen
@@ -602,8 +633,10 @@ de:
           category: Kategorie
           origin: Ursprung
           related_to: Bezüglich
+          scope: Umfang
           search: Suche
           state: Zustand
+          type: Art
           voted: Gewählt
         filters_small_view:
           close_modal: Modal schließen
