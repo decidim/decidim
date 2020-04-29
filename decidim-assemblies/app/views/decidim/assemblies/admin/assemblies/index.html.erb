@@ -38,6 +38,7 @@
         </thead>
         <tbody>
           <% @assemblies.each do |assembly| %>
+            <% next unless allowed_to? :list, :assembly, assembly: assembly %>
             <tr>
               <td>
                 <% if assembly.promoted? %>

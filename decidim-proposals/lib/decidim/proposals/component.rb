@@ -20,6 +20,7 @@ Decidim.register_component(:proposals) do |component|
   component.query_type = "Decidim::Proposals::ProposalsType"
 
   component.permissions_class_name = "Decidim::Proposals::Permissions"
+  component.component_form_class_name = "Decidim::Proposals::Admin::ComponentForm"
 
   component.settings(:global) do |settings|
     settings.attribute :vote_limit, type: :integer, default: 0

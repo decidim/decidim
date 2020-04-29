@@ -1,0 +1,116 @@
+sk:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Komentár
+      decidim/comments/comment_created_event: Komentár
+      decidim/comments/reply_created_event: Odpoveď
+      decidim/comments/user_group_mentioned_event: Zmienka
+      decidim/comments/user_mentioned_event: Zmienka
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Komentár
+        few: Komentáre
+        many: Komentáre
+        other: Komentáre
+      decidim/comments/comment_vote:
+        one: Hlas
+        few: Hlasy
+        many: Hlasy
+        other: Hlasy
+  decidim:
+    comments:
+      comments: Komentáre
+      last_activity:
+        new_comment_at_html: "<span>Nový komentár na %{link}</span>"
+      votes:
+        create:
+          error: Pri hlasovaní za komentár sa vyskytol problém.
+    components:
+      add_comment_form:
+        account_message: <a href="%{sign_in_url}">Prihláste sa so svojím účtom</a> alebo <a href="%{sign_up_url}"> sa zaregistrujte</a>, aby ste pridali svoj komentár.
+        form:
+          body:
+            label: Komentár
+            placeholder: Čo si myslíte o tomto?
+          form_error: Tento text je požadovaný a nesmie byť dlhší, než %{length} znakov.
+          submit: Odoslať
+          user_group_id:
+            label: Komentovať ako
+        opinion:
+          neutral: Neutrálne
+        remaining_characters: "Zostáva %{count} znakov"
+        remaining_characters_1: "Zostáva %{count} znakov"
+        title: Pridajte svoj komentár
+      comment:
+        alignment:
+          against: Proti
+          in_favor: Za
+        deleted_user: Zmazaný účastník
+        hide_replies: Skryť odpovede
+        reply: Odpovedať
+        report:
+          action: Nahlásiť
+          already_reported: Tento obsah už bol nahlásený, a je v procese kontroly.
+          close: Zavrieť
+          description: Je tento obsah nevhodný?
+          details: Ďalšie komentáre
+          reasons:
+            does_not_belong: Obsahuje ilegálnu činnosť, vyhrážky, osobné informácie, alebo niečo ďalšie, o čom si myslíte, že nepatrí na %{organization_name}.
+            offensive: Obsahuje rasizmus, sexizmus, urážky, osobné útoky, vyhrážky alebo inú podobu nenávistného prejavu.
+            spam: Obsahuje clickbait, reklamy, scam alebo je to skriptovací robot.
+          title: Nahlásenie problému
+        show_replies: Zobraziť %{replies_count} odpovedí
+        single_comment_link_title: Odkaz na komentár
+      comment_order_selector:
+        order:
+          best_rated: Najlepšie hodnotené
+          most_discussed: Najviac diskutované
+          older: Staršie
+          recent: Nedávne
+        title: 'Zoradiť podľa:'
+      comment_thread:
+        title: Konverzácia s %{authorName}
+      comments:
+        blocked_comments_for_user_warning: V súčasnosti nemôžete komentovať, ale môžete si prečítať predchádzajúce komentáre.
+        blocked_comments_warning: Komentáre nie sú v súčasnosti povolené, ale môžete si prečítať predchádzajúce komentáre.
+        comment_details_title: Podrobnosti komentára
+        loading: Nahrávanie komentárov...
+        single_comment_warning: Zvyšné komentáre zobrazíte  <a href="%{url}">tu</a>.
+        single_comment_warning_title: Zobrazujete jeden komentár
+        title: "%{count} komentárov"
+    events:
+      comments:
+        comment_by_followed_user:
+          email_intro: "%{author_name} komentoval na %{resource_title}. Môžete si to prečítať na stránke:"
+          email_outro: Túto notifikáciu ste dostali, pretože sledujete autora "%{author_name}". Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
+          email_subject: Je nový komentár od %{author_name} na %{resource_title}
+          notification_title: Je nový komentár od <a href="%{author_path}">%{author_name}%{author_nickname}</a> na <a href="%{resource_path}">%{resource_title}</a>.
+        comment_created:
+          email_intro: "%{resource_title} bol okomentovaný. Komentár si môžete prečítať na stránke:"
+          email_outro: Túto notifikáciu ste dostali, pretože sledujete "%{resource_title}" alebo autora. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
+          email_subject: Je nový komentár od %{author_name} na %{resource_title}
+          notification_title: Je nový komentár od <a href="%{author_path}">%{author_name}%{author_nickname}</a> na <a href="%{resource_path}">%{resource_title}</a>
+        reply_created:
+          email_intro: "%{author_name} odpovedal na váš komentár na %{resource_title}. Môžete si to prečítať na stránke:"
+          email_outro: Túto notifikáciu ste dostali, pretože niekto odpovedal na Váš komentár.
+          email_subject: "%{author_name} odpovedal na Váš komentár na %{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name}%{author_nickname}</a> odpovedal na váš komentár na <a href="%{resource_path}">%{resource_title}</a>
+        user_group_mentioned:
+          email_intro: Skupina, do ktorej patríte, bola zmienená
+          email_outro: Dostali ste túto notifikáciu, pretože ste členom skupiny %{group_name}, ktorá bola spomenutá v %{resource_title}.
+          email_subject: Boli ste spomenutí v %{resource_title}, ako člen skupiny %{group_name}
+          notification_title: Boli ste zmienení v <a href="%{resource_path}">%{resource_title}</a> autorom <a href="%{author_path}">%{author_name} %{author_nickname}</a> ako člen skupiny <a href="%{group_path}">%{group_name} %{group_nickname}</a>
+        user_mentioned:
+          email_intro: Niekto vás spomenul
+          email_outro: Túto notifikáciu ste dostali, pretože ste boli spomenutí na %{resource_title}.
+          email_subject: Boli ste spomenutí na %{resource_title}
+          notification_title: Boli ste spomenutí <a href="%{author_path}">%{author_name}%{author_nickname}</a> na <a href="%{resource_path}">%{resource_title}</a>
+    metrics:
+      comments:
+        description: Počet komentárov všetkých účastníkov
+        object: komentáre
+        title: Komentáre
+  errors:
+    messages:
+      cannot_have_comments: nie je možné komentovať
