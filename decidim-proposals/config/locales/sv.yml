@@ -834,6 +834,8 @@ sv:
       proposals_picker:
         choose_proposals: Välj förslag
         close: Stäng
+        more_proposals: Det finns ytterligare %{number} förslag. Förfina dina sökkriterier för att hitta dem.
+        no_proposals: Inga förslag matchar dina sökkriterier eller det finns inget förslag.
       publish:
         error: Det gick inte att publicera förslaget.
         success: Förslag har publicerats.
