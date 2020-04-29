@@ -67,6 +67,12 @@ cs:
         project:
           fields:
             title: Titul
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'Vybrané projekty jsou:'
+          subject: Hlasovali jste o účastnickém prostoru %{space_name}
+          voted_on_space: Hlasovali jste o rozpočtech pro participační prostor %{space_name}.
+          voted_on_space_with_scope: Hlasovali jste o rozpočtech pro participační prostor %{space_name} na %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Souhlasíš? Jakmile potvrdíte své hlasování, nemůžete to změnit.
