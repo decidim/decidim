@@ -65,6 +65,12 @@ sv:
         project:
           fields:
             title: Titel
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'De projekt som du har valt är:'
+          subject: Du har röstat i deltagarutrymmet %{space_name}
+          voted_on_space: Du har röstat på budgetarna i deltagarutrymmet %{space_name}.
+          voted_on_space_with_scope: Du har röstat på budgetarna i deltagarutrymmet %{space_name} för %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Håller du med? När du har bekräftat din röst kan du inte ändra den.
