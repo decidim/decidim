@@ -18,10 +18,12 @@
 </blockquote>
 
 <p><b><%= t(".content") %></b></p>
-<blockquote>
-  <h5><%= @report.moderation.reportable.try(:title) %></h5>
-  <p><%= @report.moderation.reportable.try(:body) %></p>
-</blockquote>
+<% if @content_title || @content_body %>
+  <blockquote>
+    <h5><%= @content_title %></h5>
+    <p><%= @content_body %></p>
+  </blockquote>
+<% end %>
 
 <p><b><%= t(".user") %></b></p>
 <p><%= link_to @report.user.name, decidim.profile_path(@report.user.nickname), target: :blank %></p>

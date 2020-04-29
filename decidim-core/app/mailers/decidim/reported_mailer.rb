@@ -14,6 +14,8 @@ module Decidim
         @participatory_space = @report.moderation.participatory_space
         @organization = user.organization
         @user = user
+        @content_title = @report.moderation.reportable.try(:title)
+        @content_body = @report.moderation.reportable.try(:body)
         subject = I18n.t("report.subject", scope: "decidim.reported_mailer")
         mail(to: user.email, subject: subject)
       end
@@ -39,5 +41,6 @@ module Decidim
     def manage_moderations_url
       @manage_moderations_url ||= EngineRouter.admin_proxy(@participatory_space).moderations_url(host: @organization.host)
     end
+
   end
 end
