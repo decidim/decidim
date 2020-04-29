@@ -96,7 +96,7 @@ module Decidim
 
         errors.add(:base, :invalid) unless authorized? &&
                                            authorization_handler &&
-                                           authorization_handler_metadata_variations.any? { |variation| authorization.metadata.symbolize_keys == variation.symbolize_keys }
+                                           authorization_handler_metadata_variations.any? { |variation| authorization.metadata.symbolize_keys.except(:extras) == variation.symbolize_keys.except(:extras) }
       end
 
       def author
