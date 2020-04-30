@@ -10,7 +10,9 @@
     <%= cell("decidim/announcement", admin_terms_announcement_args ) %>
   <% end %>
 
-  <%= render partial: "decidim/admin/users_statistics/users_count", locals: { result: users_counter } %>
+  <% if current_user.admin? && current_user.organization&.id == current_organization.id %>
+    <%= render partial: "decidim/admin/users_statistics/users_count", locals: { result: users_counter } %>
+  <% end %>
 
   <% if allowed_to? :read, :admin_log %>
     <div class="row">
