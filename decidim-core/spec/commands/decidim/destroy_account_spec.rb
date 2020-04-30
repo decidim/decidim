@@ -80,54 +80,6 @@ module Decidim
           command.call
         end.to change(Follow, :count).by(-2)
       end
-
-      it "deletes assembly user role" do
-        create(:assembly_user_role, user: user)
-
-        expect do
-          command.call
-        end.to change(AssemblyUserRole, :count).by(-1)
-      end
-
-      it "deletes assembly member" do
-        create(:assembly_member, user: user)
-
-        expect do
-          command.call
-        end.to change(AssemblyMember, :count).by(-1)
-      end
-
-      it "deletes participatory space private user" do
-        create(:participatory_space_private_user, user: user)
-
-        expect do
-          command.call
-        end.to change(ParticipatorySpacePrivateUser, :count).by(-1)
-      end
-
-      it "deletes participatory process user role" do
-        create(:participatory_process_user_role, user: user)
-
-        expect do
-          command.call
-        end.to change(ParticipatoryProcessUserRole, :count).by(-1)
-      end
-
-      it "deletes conference user role" do
-        create(:conference_user_role, user: user)
-
-        expect do
-          command.call
-        end.to change(ConferenceUserRole, :count).by(-1)
-      end
-
-      it "deletes conference speaker" do
-        create(:conference_speaker, user: user)
-
-        expect do
-          command.call
-        end.to change(ConferenceSpeaker, :count).by(-1)
-      end
     end
   end
 end

@@ -6,7 +6,6 @@ require "decidim/dev"
 require "decidim/participatory_processes/test/factories"
 require "decidim/assemblies/test/factories"
 require "decidim/comments/test/factories"
-require "decidim/conferences/test/factories"
 
 def generate_localized_title
   Decidim::Faker::Localized.localized { generate(:title) }
