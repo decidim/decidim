@@ -20,12 +20,13 @@ module Decidim
         destroy_user_identities
         destroy_user_group_memberships
         destroy_follows
-        destroy_assembly_user_roles
-        destroy_assembly_member
-        destroy_participatory_space_private_user
-        destroy_participatory_process_user_roles
-        destroy_conference_user_roles
-        destroy_conference_speaker
+        # destroy_assembly_user_roles
+        # destroy_assembly_member
+        # destroy_participatory_space_private_user
+        # destroy_participatory_process_user_roles
+        # destroy_conference_user_roles
+        # destroy_conference_speaker
+        delegate_destroy_to_participatory_spaces
       end
 
       broadcast(:ok)
@@ -57,28 +58,34 @@ module Decidim
       Decidim::Follow.where(user: @user).destroy_all
     end
 
-    def destroy_assembly_user_roles
-      Decidim::AssemblyUserRole.where(user: @user).destroy_all
-    end
+    # def destroy_assembly_user_roles
+    #   Decidim::AssemblyUserRole.where(user: @user).destroy_all
+    # end
 
-    def destroy_assembly_member
-      Decidim::AssemblyMember.where(user: @user).destroy_all
-    end
+    # def destroy_assembly_member
+    #   Decidim::AssemblyMember.where(user: @user).destroy_all
+    # end
 
-    def destroy_participatory_space_private_user
-      Decidim::ParticipatorySpacePrivateUser.where(user: @user).destroy_all
-    end
+    # def destroy_participatory_space_private_user
+    #   Decidim::ParticipatorySpacePrivateUser.where(user: @user).destroy_all
+    # end
 
-    def destroy_participatory_process_user_roles
-      Decidim::ParticipatoryProcessUserRole.where(user: @user).destroy_all
-    end
+    # def destroy_participatory_process_user_roles
+    #   Decidim::ParticipatoryProcessUserRole.where(user: @user).destroy_all
+    # end
 
-    def destroy_conference_user_roles
-      Decidim::ConferenceUserRole.where(user: @user).destroy_all
-    end
+    # def destroy_conference_user_roles
+    #   Decidim::ConferenceUserRole.where(user: @user).destroy_all
+    # end
 
-    def destroy_conference_speaker
-      Decidim::ConferenceSpeaker.where(user: @user).destroy_all
+    # def destroy_conference_speaker
+    #   Decidim::ConferenceSpeaker.where(user: @user).destroy_all
+    # end
+
+    def delegate_destroy_to_participatory_spaces
+      Decidim.participatory_space_manifests.each do |space_manifest|
+        space_manifest.invoke_on_destroy_account(@user)
+      end
     end
   end
 end
