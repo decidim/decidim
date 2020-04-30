@@ -6,6 +6,9 @@
 
 <br>
 
+<p><b><%= t(".date") %></b></p>
+<p><%= l @report.created_at, format: :short %></p>
+
 <p><b><%= t(".participatory_space") %></b></p>
 <p><%= translated_attribute @participatory_space.title %></p>
 

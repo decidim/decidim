@@ -1003,6 +1003,7 @@ en:
         subject: A resource has been reported
         user: User
         content: Reported content
+        date: Reported on
     reports:
       create:
         error: An error ocurred while creating the report. Please, try it again.

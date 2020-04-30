@@ -38,6 +38,10 @@ module Decidim
           expect(email_body(mail)).to match(report.details)
         end
 
+        it "includes the creation date of the report" do
+          expect(email_body(mail)).to match(I18n.l(report.created_at, format: :short))
+        end
+
         it "includes the reported content" do
           expect(email_body(mail)).to match(reportable.title["en"])
           expect(email_body(mail)).to match(reportable.body["en"])
