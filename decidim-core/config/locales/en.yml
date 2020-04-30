@@ -1001,7 +1001,7 @@ en:
         reason: Reason
         report_html: <p>The following <a href="%{url}">content</a> has been reported.</p>
         subject: A resource has been reported
-        user: User
+        authors: Authors
         content: Reported content
         date: Reported on
     reports:

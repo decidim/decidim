@@ -9,6 +9,7 @@ module Decidim
     let(:component) { create(:component, organization: organization) }
     let(:reportable) { create(:proposal, title: Decidim::Faker::Localized.sentence, body: Decidim::Faker::Localized.paragraph(3)) }
     let(:moderation) { create(:moderation, reportable: reportable, participatory_space: component.participatory_space, report_count: 1) }
+    let(:author) { reportable.creator_identity }
     let!(:report) { create(:report, moderation: moderation, details: "bacon eggs spam") }
     let(:decidim) { Decidim::Core::Engine.routes.url_helpers }
 
@@ -55,7 +56,7 @@ module Decidim
         end
 
         it "includes the name of the author and a link to their profile" do
-          expect(mail).to have_link(report.user.name, href: decidim.profile_url(report.user.nickname, host: organization.host))
+          expect(mail).to have_link(author.name, href: decidim.profile_url(author.nickname, host: organization.host))
         end
       end
     end
