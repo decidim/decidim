@@ -41,7 +41,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
     flex-grow: 1;
     flex-basis: 0;
 
@@ -50,16 +49,18 @@
       margin-bottom: auto;
     }
 
-    input[type="checkbox"], input[type="radio"]{
+    input[type="checkbox"],
+    input[type="radio"]{
       margin-bottom: 0;
 
-      &~ input[type="text"] {
+      & ~ input[type="text"]{
         margin-left: .5rem;
       }
     }
   }
 
-  tr, tr:nth-child(2n){
+  tr,
+  tr:nth-child(2n){
     background: initial;
     border-bottom: 1px solid #f0f0f0;
   }
