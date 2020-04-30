@@ -80,6 +80,9 @@ pt:
         error: Ocorreu um erro ao actualizar a sua conta.
         success: A sua conta foi actualizada com sucesso.
         success_with_email_confirmation: A sua conta foi actualizada com sucesso. Irá receber um e-mail de confirmação do seu novo endereço.
+    admin:
+      actions:
+        cancel: Cancelar
     admin_log:
       area:
         create: "%{user_name} criou a área %{resource_name}"
@@ -194,6 +197,7 @@ pt:
         explanation: Seja verificado introduzindo um número de passaporte começando com "A"
         fields:
           passport_number: Número do passaporte
+          postal_code: Código postal
         name: Outro exemplo de autorização
       dummy_authorization_handler:
         explanation: Seja verificado através da introdução de um número de documento que termina com "X"
@@ -709,6 +713,7 @@ pt:
         create:
           error: Conversa não iniciada. Tente mais tarde
         index:
+          close: Fechar modal
           no_conversations: Ainda não há conversas
           title: Conversas
         reply:

@@ -62,17 +62,11 @@ ar:
           edit:
             title: تحرير النتيجة
             update: تحديث النتيجة
-          form:
-            add_proposal: إضافة اقتراح
           index:
             title: النتائج
           new:
             create: إنشاء نتيجة
             title: نتيجة جديدة
-          proposals:
-            close: قريب
-            current_selection: الإختيار الحالي
-            select: تحديد
           update:
             invalid: حدثت مشكلة أثناء تحديث هذه النتيجة
             success: تم تحديث النتيجة بنجاح

@@ -7,11 +7,8 @@ on:
       - release/*
       - "*-stable"
   pull_request:
-    branches:
-      - develop
-      - master
-      - release/*
-      - "*-stable"
+    branches-ignore:
+      - "l10n_*"
 
 env:
   CI: "true"
@@ -23,6 +20,7 @@ jobs:
   main:
     name: Tests
     runs-on: ubuntu-latest
+    if: "!startsWith(github.ref, 'refs/heads/l10n_')"
     services:
       postgres:
         image: postgres:11
@@ -68,10 +66,8 @@ jobs:
       - run: bundle exec rake
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
-      - uses: codecov/codecov-action@v1
-        with:
-          file: ./coverage/coverage.xml
-          name: ${{ env.DECIDIM_MODULE }}
+      - run: ./.github/upload_coverage.sh $DECIDIM_MODULE $GITHUB_EVENT_PATH
+        name: Upload coverage
       - uses: actions/upload-artifact@v2-preview
         if: always()
         with:

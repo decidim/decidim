@@ -7,8 +7,8 @@ on:
       - release/*
       - "*-stable"
   pull_request:
-    branches:
-      - "*"
+    branches-ignore:
+      - "l10n_*"
 
 env:
   CI: "true"
@@ -20,6 +20,7 @@ jobs:
   main:
     name: Tests
     runs-on: ubuntu-latest
+    if: "!startsWith(github.ref, 'refs/heads/l10n_')"
     steps:
       - uses: rokroskar/workflow-run-cleanup-action@v0.2.2
         if: "github.ref != 'refs/heads/master' || github.ref != 'refs/heads/develop'"
@@ -49,7 +50,3 @@ jobs:
         name: Install JS deps
       - run: bundle exec rspec
         name: RSpec
-      - uses: codecov/codecov-action@v1
-        with:
-          file: ./coverage/coverage.xml
-          name: main-folder

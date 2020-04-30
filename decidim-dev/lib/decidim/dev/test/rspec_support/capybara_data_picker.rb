@@ -6,8 +6,6 @@ module Capybara
       Struct.new(:data_picker, :global_value).new(find_data_picker(id, multiple: multiple), global_value)
     end
 
-    private
-
     def find_data_picker(id, multiple: nil)
       if multiple.nil?
         expect(page).to have_selector("div.data-picker##{id}")
@@ -21,6 +19,18 @@ module Capybara
       body = find(:xpath, "//body")
       expect(body).to have_selector("#data_picker-modal .picker-footer a[data-picker-choose]")
       body.find("#data_picker-modal .picker-footer a[data-picker-choose]").click
+    end
+
+    def data_picker_choose_value(value)
+      body = find(:xpath, "//body")
+      expect(body).to have_selector("#data_picker-modal input[data-picker-choose][type=checkbox][value=\"#{value}\"]")
+      body.find("#data_picker-modal input[data-picker-choose][type=checkbox][value=\"#{value}\"]").click
+    end
+
+    def data_picker_close
+      body = find(:xpath, "//body")
+      expect(body).to have_selector("#data_picker-modal .picker-footer a[data-close]")
+      body.find("#data_picker-modal .picker-footer a[data-close]").click
     end
   end
 end

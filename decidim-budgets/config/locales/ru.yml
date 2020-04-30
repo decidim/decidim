@@ -96,6 +96,7 @@ ru:
             other: "%{count} проектов"
         filters:
           category: Категория
+          scope: Охват
           search: Поиск
         filters_small_view:
           close_modal: Закрыть окошко
