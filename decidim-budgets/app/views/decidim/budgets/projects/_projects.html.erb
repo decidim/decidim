@@ -4,9 +4,10 @@
   </div>
 </div>
 
-<div class="card card--list budget-list">
+<div class="budget-list">
   <% projects.each do |project| %>
     <%= render partial: "project", locals: { project: project } %>
   <% end %>
 </div>
+
 <%= decidim_paginate projects %>
