@@ -63,10 +63,10 @@ fi:
   activerecord:
     models:
       decidim/participatory_process:
-        one: Osallisuusprosessi
+        one: Osallistumisprosessi
         other: Osallisuusprosessit
       decidim/participatory_process_group:
-        one: Osallisuusprosessiryhmä
+        one: Osallistumisprosessiryhmä
         other: Osallisuusprosessiryhmät
       decidim/participatory_process_step:
         one: Vaihe
@@ -114,7 +114,7 @@ fi:
             promoted: Tärkeää
             published: Julkaistu
             title: Otsikko
-          name: Osallisuusprosessi
+          name: Osallistumisprosessi
         participatory_process_group:
           fields:
             name: Nimi
@@ -124,16 +124,16 @@ fi:
             end_date: Päättymispäivä
             start_date: Alkamispäivä
             title: Otsikko
-          name: Osallisuusprosessin vaihe
+          name: Osallistumisprosessin vaihe
         participatory_process_user_role:
           fields:
             email: Sähköposti
             name: Nimi
             role: Rooli
-          name: Osallisuusprosessin käyttäjä
+          name: Osallistumisprosessin käyttäjä
           roles:
             admin: Järjestelmänvalvoja
-            collaborator: Osallisuuskäyttäjä
+            collaborator: Osallistuva käyttäjä
             moderator: Moderoija
             valuator: Arvon arvioija
         user:
@@ -144,11 +144,11 @@ fi:
         new:
           copy: Kopio
           select: Valitse, mitkä tiedot haluat kopioida
-          title: Kopioi osallisuusprosessi
+          title: Kopioi osallistumisprosessi
       participatory_process_groups:
         destroy:
-          error: Osallisuusprosessien ryhmän poisto epäonnistui.
-          success: Osallisuusprosessien ryhmän poisto onnistui.
+          error: Osallistumisprosessien ryhmän poisto epäonnistui.
+          success: Osallistumisprosessien ryhmän poisto onnistui.
         edit:
           title: Muokkaa prosessiryhmää
           update: Päivitä
@@ -156,71 +156,71 @@ fi:
           create: Luo
           title: Uusi prosessiryhmä
         update:
-          error: Osallisuusprosessien ryhmän päivitys epäonnistui.
-          success: Osallisuusprosessien ryhmän päivitys onnistui.
+          error: Osallistumisprosessien ryhmän päivitys epäonnistui.
+          success: Osallistumisprosessien ryhmän päivitys onnistui.
       participatory_process_imports:
         create:
-          error: Virhe tuotaessa tätä osallisuusprosessia.
-          success: Osallisuusprosessi tuotu onnistuneesti.
+          error: Virhe tuotaessa tätä osallistumisprosessia.
+          success: Osallistumisprosessi tuotu onnistuneesti.
         new:
           import: Tuo
           select: Valitse, mitkä tiedot haluat tuoda
-          title: Tuo osallisuusprosessi
+          title: Tuo osallistumisprosessi
       participatory_process_publications:
         create:
-          error: Osallisuusprosessin julkaisu epäonnistui.
-          success: Osallisuusprosessin julkaisu onnistui.
+          error: Osallistumisprosessin julkaisu epäonnistui.
+          success: Osallistumisprosessin julkaisu onnistui.
         destroy:
-          error: Osallisuusprosessin julkaisun peruminen epäonnistui.
-          success: Osallisuusprosessin julkaisun lopetus onnistui.
+          error: Osallistumisprosessin julkaisun peruminen epäonnistui.
+          success: Osallistumisprosessin julkaisun lopetus onnistui.
       participatory_process_step_activations:
         create:
-          error: Osallisuusprosessin vaiheen aktivointi epäonnistui.
-          success: Osallisuusprosessin vaiheen aktivointi onnistui.
+          error: Osallistumisprosessin vaiheen aktivointi epäonnistui.
+          success: Osallistumisprosessin vaiheen aktivointi onnistui.
       participatory_process_steps:
         create:
-          error: Uuden osallisuusprosessin vaiheen luonti epäonnistui.
-          success: Osallisuusprosessin vaiheen luonti onnistui.
+          error: Uuden osallistumisprosessin vaiheen luonti epäonnistui.
+          success: Osallistumisprosessin vaiheen luonti onnistui.
         default_title: Johdanto
         destroy:
           error:
             active_step: Aktiivista vaihetta ei voi poistaa.
             last_step: Prosessin viimeistä vaihetta ei voi poistaa.
-          success: Osallisuusprosessin vaiheen poisto onnistui.
+          success: Osallistumisprosessin vaiheen poisto onnistui.
         edit:
-          title: Muokkaa osallisuusprosessin vaihetta
+          title: Muokkaa osallistumisprosessin vaihetta
           update: Päivitä
         index:
           steps_title: Vaiheet
         new:
           create: Luo
-          title: Uusi osallisuusprosessin vaihe
+          title: Uusi osallistumisprosessin vaihe
         ordering:
-          error: Osallisuusprosessin vaiheiden järjestäminen epäonnistui.
+          error: Osallistumisprosessin vaiheiden järjestäminen epäonnistui.
         update:
-          error: Osallisuusprosessin vaiheen päivitys epäonnistui.
-          success: Osallisuusprosessin vaiheen päivitys onnistui.
+          error: Osallistumisprosessin vaiheen päivitys epäonnistui.
+          success: Osallistumisprosessin vaiheen päivitys onnistui.
       participatory_process_user_roles:
         create:
-          error: Osallisuusprosessin käyttäjän lisääminen epäonnistui.
-          success: Käyttäjä lisättiin onnistuneesti tähän osallisuusprosessiin.
+          error: Osallistumisprosessin käyttäjän lisääminen epäonnistui.
+          success: Käyttäjä lisättiin onnistuneesti tähän osallistumisprosessiin.
         destroy:
-          success: Käyttäjä poistettiin onnistuneesti tästä osallisuusprosessista.
+          success: Käyttäjä poistettiin onnistuneesti tästä osallistumisprosessista.
         edit:
           title: Päivitä osallistumisprosessin hallintakäyttäjä
           update: Päivitä
         index:
-          process_admins_title: Osallisuusprosessin hallintakäyttäjät
+          process_admins_title: Osallistumisprosessin hallintakäyttäjät
         new:
           create: Luo
           title: Uusi osallistumisprosessin hallintakäyttäjä
         update:
-          error: Tämän osallisuusprosessin hallintakäyttäjän päivitys epäonnistui.
-          success: Osallisuusprosessin hallintakäyttäjän päivitys onnistui.
+          error: Tämän osallistumisprosessin hallintakäyttäjän päivitys epäonnistui.
+          success: Osallistumisprosessin hallintakäyttäjän päivitys onnistui.
       participatory_processes:
         create:
-          error: Uuden osallisuusprosessin luonti epäonnistui.
-          success: Osallisuusprosessin luonti onnistui. Määritä nyt sen vaiheet.
+          error: Uuden osallistumisprosessin luonti epäonnistui.
+          success: Osallistumisprosessin luonti onnistui. Määritä nyt sen vaiheet.
         edit:
           update: Päivitä
         index:
@@ -230,43 +230,43 @@ fi:
           published: Julkaistu
         new:
           create: Luo
-          title: Uusi osallisuusprosessi
+          title: Uusi osallistumisprosessi
         update:
-          error: Osallisuusprosessin päivitys epäonnistui.
-          success: Osallisuusprosessin päivitys onnistui.
+          error: Osallistumisprosessin päivitys epäonnistui.
+          success: Osallistumisprosessin päivitys onnistui.
       participatory_processes_copies:
         create:
-          error: Osallisuusprosessin kopiointi epäonnistui.
-          success: Osallisuusprosessin kopiointi onnistui.
+          error: Osallistumisprosessin kopiointi epäonnistui.
+          success: Osallistumisprosessin kopiointi onnistui.
       participatory_processes_group:
         create:
-          error: Uuden osallisuusprosessien ryhmän luonti epäonnistui.
-          success: Osallisuusprosessien ryhmän luonti onnistui.
+          error: Uuden osallistumisprosessien ryhmän luonti epäonnistui.
+          success: Osallistumisprosessien ryhmän luonti onnistui.
       titles:
-        participatory_process_groups: Osallisuusprosessiryhmät
-        participatory_processes: Osallisuusprosessit
+        participatory_process_groups: Osallistumisprosessiryhmät
+        participatory_processes: Osallistumisprosessit
       users:
         resend_invitation:
           error: Kutsun uudelleenlähetys epäonnistui.
           success: Kutsun uudelleenlähetys onnistui.
     admin_log:
       participatory_process:
-        create: "%{user_name} loi osallisuusprosessin %{resource_name}"
-        publish: "%{user_name} julkaisi osallisuusprosessin %{resource_name}"
-        unpublish: "%{user_name} muutti osallisuusprosessin %{resource_name} julkaisemattomaksi"
-        update: "%{user_name} päivitti osallisuusprosessin %{resource_name}"
+        create: "%{user_name} loi osallistumisprosessin %{resource_name}"
+        publish: "%{user_name} julkaisi osallistumisprosessin %{resource_name}"
+        unpublish: "%{user_name} muutti osallistumisprosessin %{resource_name} julkaisemattomaksi"
+        update: "%{user_name} päivitti osallistumisprosessin %{resource_name}"
       participatory_process_group:
-        create: "%{user_name} loi osallisuusprosessien ryhmän %{resource_name}"
-        update: "%{user_name} päivitti osallisuusprosessien ryhmää %{resource_name}"
+        create: "%{user_name} loi osallistumisprosessien ryhmän %{resource_name}"
+        update: "%{user_name} päivitti osallistumisprosessien ryhmää %{resource_name}"
       participatory_process_step:
-        activate: "%{user_name} aktivoi vaiheen %{resource_name} osallisuusprosessissa %{space_name}"
-        create: "%{user_name} loi vaiheen %{resource_name} osallisuusprosessissa %{space_name}"
-        delete: "%{user_name} poisti vaiheen %{resource_name} osallisuusprosessissa %{space_name}"
-        update: "%{user_name} päivitti vaiheen %{resource_name} osallisuusprosessissa %{space_name}"
+        activate: "%{user_name} aktivoi vaiheen %{resource_name} osallistumisprosessissa %{space_name}"
+        create: "%{user_name} loi vaiheen %{resource_name} osallistumisprosessissa %{space_name}"
+        delete: "%{user_name} poisti vaiheen %{resource_name} osallistumisprosessissa %{space_name}"
+        update: "%{user_name} päivitti vaiheen %{resource_name} osallistumisprosessissa %{space_name}"
       participatory_process_user_role:
-        create: "%{user_name} kutsui käyttäjän %{resource_name} osallisuusprosessiin %{space_name}"
-        delete: "%{user_name} poisti käyttäjän %{resource_name} osallisuusprosessista %{space_name}"
-        update: "%{user_name} muutti käyttäjän %{resource_name} roolia osallisuusprosessissa %{space_name}"
+        create: "%{user_name} kutsui käyttäjän %{resource_name} osallistumisprosessiin %{space_name}"
+        delete: "%{user_name} poisti käyttäjän %{resource_name} osallistumisprosessista %{space_name}"
+        update: "%{user_name} muutti käyttäjän %{resource_name} roolia osallistumisprosessissa %{space_name}"
     events:
       participatory_process:
         step_activated:
@@ -282,26 +282,26 @@ fi:
     help:
       participatory_spaces:
         participatory_processes:
-          contextual: "<p><strong>Osallisuusprosessi</strong> on osallisuustoimien sarja (esim. täytä ensin kysely, tee sitten ehdotuksia, keskustele niistä kasvokkain tai virtuaalisissa tapaamisissa ja lopuksi priorisoi ne), tavoitteena päättää tietystä aiheesta.</p> <p>Esimerkkejä osallisuusprosesseista ovat komitean jäsenten valintamenettely (jossa ensin esitetään ehdokkaat, sitten keskustellaan ja lopulta valitaan jäsenet), osallistuva budjetointi (joissa tehdään ehdotuksia, arvioidaan niiden toteutushinta ja äänestetään niistä budjetoitujen varojen puitteissa) strateginen suunnitteluprosessi ja asetuksen, säädöksen, kaupunkisuunnitelman tai julkisen toimintasuunnitelman laatimisen yhteistyöstäminen.</p>\n"
-          page: "<p><strong>Osallisuusprosessi</strong> on osallisuustoimien sarja (esim. täytä ensin kysely, tee sitten ehdotuksia, keskustele niistä kasvokkain tai virtuaalisissa tapaamisissa ja lopuksi priorisoi ne), tavoitteena päättää tietystä aiheesta.</p> <p>Esimerkkejä osallisuusprosesseista ovat komitean jäsenten valintamenettely (jossa ensin esitetään ehdokkaat, sitten keskustellaan ja lopulta valitaan jäsenet), osallistuva budjetointi (joissa tehdään ehdotuksia, arvioidaan niiden toteutushinta ja äänestetään niistä budjetoitujen varojen puitteissa) strateginen suunnitteluprosessi ja asetuksen, säädöksen, kaupunkisuunnitelman tai julkisen toimintasuunnitelman laatimisen yhteistyöstäminen.</p>"
-          title: Mikä on osallisuusprosessi?
+          contextual: "<p><strong>Osallistumisprosessi</strong> on osallistumistoimien sarja (esim. täytä ensin kysely, tee sitten ehdotuksia, keskustele niistä kasvokkain tai virtuaalisissa tapaamisissa ja lopuksi priorisoi ne), tavoitteena päättää tietystä aiheesta.</p> <p>Esimerkkejä osallisuusprosesseista ovat komitean jäsenten valintamenettely (jossa ensin esitetään ehdokkaat, sitten keskustellaan ja lopulta valitaan jäsenet), osallistuva budjetointi (joissa tehdään ehdotuksia, arvioidaan niiden toteutushinta ja äänestetään niistä budjetoitujen varojen puitteissa) strateginen suunnitteluprosessi ja asetuksen, säädöksen, kaupunkisuunnitelman tai julkisen toimintasuunnitelman laatimisen yhteistyöstäminen.</p>\n"
+          page: "<p><strong>Osallistumisprosessi</strong> on osallistumistoimien sarja (esim. täytä ensin kysely, tee sitten ehdotuksia, keskustele niistä kasvokkain tai virtuaalisissa tapaamisissa ja lopuksi priorisoi ne), tavoitteena päättää tietystä aiheesta.</p> <p>Esimerkkejä osallisuusprosesseista ovat komitean jäsenten valintamenettely (jossa ensin esitetään ehdokkaat, sitten keskustellaan ja lopulta valitaan jäsenet), osallistuva budjetointi (joissa tehdään ehdotuksia, arvioidaan niiden toteutushinta ja äänestetään niistä budjetoitujen varojen puitteissa) strateginen suunnitteluprosessi ja asetuksen, säädöksen, kaupunkisuunnitelman tai julkisen toimintasuunnitelman laatimisen yhteistyöstäminen.</p>\n"
+          title: Mikä on osallistumisprosessi?
     menu:
       processes: Prosessit
     metrics:
       participatory_processes:
-        description: Osallisuusprosessien määrä tässä organisaatiossa
-        object: osallisuusprosessit
-        title: Osallisuusprosessit
+        description: Osallistumisprosessien määrä tässä organisaatiossa
+        object: osallistumisprosessit
+        title: Osallistumisprosessit
     participatory_process_groups:
       show:
         group_participatory_processes:
           one: 1 prosessi ryhmälle %{group}
           other: "%{count} prosessia ryhmälle %{group}"
-        title: Osallisuusprosessiryhmät
+        title: Osallistumisprosessiryhmät
     participatory_process_steps:
       index:
         process_steps: Prosessin vaiheet
-        title: Osallisuusprosessin vaiheet
+        title: Osallistumisprosessin vaiheet
     participatory_processes:
       admin:
         content_blocks:
@@ -337,9 +337,9 @@ fi:
         highlighted_processes:
           name: Tärkeimmät prosessit
       index:
-        title: Osallisuusprosessit
+        title: Osallistumisprosessit
       last_activity:
-        new_participatory_process: Uusi osallisuusprosessi
+        new_participatory_process: Uusi osallistumisprosessi
       pages:
         home:
           highlighted_processes:

@@ -24,7 +24,7 @@ cs:
       component:
         name: název
         published_at: Publikováno v
-        weight: Hmotnost
+        weight: Váha
       id: ID
       newsletter:
         body: Tělo
@@ -36,7 +36,7 @@ cs:
         organization_url: URL organizace
         redirect_uri: Přesměrování URI
       organization:
-        address: Název hostitele SMTP
+        address: SMTP hostname
         alert_color: Upozornění
         badges_enabled: Povolit odznaky
         cta_button_path: Cesta tlačítka Výzvy k akci
@@ -88,7 +88,7 @@ cs:
         code: Kód
         name: název
         organization: Organizace
-        parent_id: Nadřazený prvek
+        parent_id: Nadřazený
         scope_type: Typ rozsahu
         scope_type_id: Typ rozsahu
       scope_type:
@@ -298,10 +298,10 @@ cs:
           label: Kategorie
         filter_label: Filtr
         officialized_at_null:
-          label: Stav
+          label: Stát
           values:
-            'false': Oficializováno
-            'true': Neoficializováno
+            'false': Úředně
+            'true': Není oficializováno
         private_space_eq:
           label: Soukromé
           values:
@@ -314,7 +314,7 @@ cs:
             'true': Nezveřejněno
         scope_id_eq:
           label: Rozsah
-        search_label: Hledat
+        search_label: Vyhledávání
         search_placeholder:
           name_or_nickname_or_email_cont: Hledat %{collection} podle e-mailu, jména nebo přezdívky.
           title_cont: Hledat %{collection} podle názvu.
@@ -471,6 +471,14 @@ cs:
             does_not_belong: Nepatří
             offensive: Urážlivý
             spam: Spam
+      newsletter_templates:
+        index:
+          preview_template: Náhled
+          title: Šablony zpravodaje
+          use_template: Použít tuto šablonu
+        show:
+          preview: 'Náhled šablony: %{template_name}'
+          use_template: Použít tuto šablonu
       newsletters:
         create:
           error: Při vytváření tohoto zpraodaje došlo k chybě.
@@ -484,8 +492,6 @@ cs:
         edit:
           save_and_preview: Uložit a zobrazit náhled
           title: Upravit zpravodaj
-        form:
-          interpolations_hint: 'Tip: Můžete použít "%{name}" kdekoli v těle nebo předmětu zprávy a bude nahrazeno jménem příjemce.'
         index:
           all: vše
           all_users: 'Všichni uživatelé'
@@ -563,12 +569,20 @@ cs:
           officialize: Úředně
           officialized: Úředně
           reofficialize: Reofficialize
+          show_email: Zobrazit e-mailovou adresu
           status: Postavení
           unofficialize: Neoficiálně
         new:
           badge: Oficiální odznak
           officialize: Úředně
           title: Oficializovat uživatele "%{name}"
+        show_email_modal:
+          description: Pokud potřebujete kontaktovat účastníka, můžete kliknout na tlačítko Zobrazit pro zobrazení e-mailové adresy. Tato akce bude zaznamenána.
+          email_address: E-mailová adresa
+          full_name: Celé jméno
+          hidden: skrytý
+          show: Zobrazit
+          title: Zobrazit e-mailovou adresu uživatele
       organization:
         edit:
           title: Upravit organizaci

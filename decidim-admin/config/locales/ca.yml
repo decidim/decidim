@@ -300,7 +300,7 @@ ca:
         officialized_at_null:
           label: Estat
           values:
-            'false': Oficialitza
+            'false': Oficialitzada
             'true': No oficialitzada
         private_space_eq:
           label: Privat
@@ -314,7 +314,7 @@ ca:
             'true': Despublicat
         scope_id_eq:
           label: Àmbit
-        search_label: Cerca
+        search_label: Cercar
         search_placeholder:
           name_or_nickname_or_email_cont: Buscar %{collection} per correu electrònic, nom o àlies.
           title_cont: Buscar %{collection} per títol.
@@ -471,6 +471,9 @@ ca:
             does_not_belong: No pertany
             offensive: Ofensiu
             spam: Contingut no desitjat
+      newsletter_templates:
+        index:
+          preview_template: Previsualitzar
       newsletters:
         create:
           error: S'ha produït un error en crear aquest butlletí.
@@ -484,8 +487,6 @@ ca:
         edit:
           save_and_preview: Desar i vista prèvia
           title: Editar butlletí
-        form:
-          interpolations_hint: 'Pista: Pots utilitzar "%{name}" en qualsevol part del cos o assumpte i serà reemplaçat pel nom del destinatari.'
         index:
           all: totes
           all_users: 'Totes les participants '
@@ -563,12 +564,20 @@ ca:
           officialize: Oficialitza
           officialized: Oficialitzada
           reofficialize: Torna a oficialitzar
+          show_email: Mostra l'adreça de correu
           status: Estat
           unofficialize: Des-oficialitzar
         new:
           badge: Insígnia d'oficialització
           officialize: Oficialitza
           title: Oficialitza la participant "%{name}"
+        show_email_modal:
+          description: Si necessites contactar a una participant directament pots clicar al botó Mostra per veure la seva adreça de correu electrònic. Aquesta acció s'auditarà.
+          email_address: Adreça de correu electrònic
+          full_name: Nom complet
+          hidden: ocult
+          show: Mostra
+          title: Mostra l'adreça de correu electrònic de la participant
       organization:
         edit:
           title: Edita organització

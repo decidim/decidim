@@ -22,7 +22,7 @@ ar:
         participatory_structure: كيف تقرر ذلك
         promoted: رقية
         published_at: نشرت في
-        related_process_ids: المسارات ذات الصلة
+        related_process_ids: العمليات ذات الصلة
         scope_id: نطاق
         scopes_enabled: النطاقات المُفعّلَة
         short_description: وصف قصير
@@ -323,7 +323,7 @@ ar:
             images: صور
             metadata: البيانات الوصفية
             other: آخر
-            related_processes: المسارات ذات الصلة
+            related_processes: العمليات ذات الصلة
             select_an_area: اختر منطقة
             select_process_group: حدد مجموعة عملية
             slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذه العملية. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
@@ -395,7 +395,7 @@ ar:
         participatory_scope: ما الذي تقرر
         participatory_structure: كيف تقرر ذلك
         private_space: هذه عملية خاصة
-        related_processes: المسارات ذات الصلة
+        related_processes: العمليات ذات الصلة
         scope: نطاق
         start_date: تاريخ البدء
         target: من يشارك
