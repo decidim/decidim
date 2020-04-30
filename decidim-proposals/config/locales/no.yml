@@ -81,9 +81,12 @@
         search_placeholder:
           id_string_or_title_cont: Søk %{collection} etter ID eller tittel.
         state_eq:
+          label: Delstat
           values:
+            accepted: Aksepterte
             evaluating: Vurderer
-            withdrawn: Tilbaketrukket
+            rejected: Avvist
+            withdrawn: Trukket tilbake
         state_null:
           label: Status
           values:
@@ -412,7 +415,7 @@
           show:
             amendments_count: Endringer teller
             authors: Forfattere
-            body: Tekst
+            body: Body
             comments_count: Kommentarer teller
             comments_negative_count: Imot
             comments_neutral_count: Nøytral

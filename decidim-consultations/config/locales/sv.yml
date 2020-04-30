@@ -2,8 +2,8 @@ sv:
   activemodel:
     attributes:
       consultation:
-        banner_image: Banner image
-        decidim_highlighted_scope_id: Markerat omfattning
+        banner_image: Bannerbild
+        decidim_highlighted_scope_id: Markerat omfång
         description: Beskrivning
         end_voting_date: Omröstningen avslutas
         introductory_image: Introduktionsbild
@@ -14,22 +14,22 @@ sv:
         subtitle: Underrubrik
         title: Titel
       question:
-        banner_image: Banner image
+        banner_image: Bannerbild
         decidim_scope_id: Kommundelsområde
         hashtag: Hashtag
         hero_image: Hembild
         i_frame_url: URL till externt röstningssystem
-        instructions: Fler instruktioner för röstning
+        instructions: Ytterligare anvisningar för röstning
         max_votes: Max antal röster
         min_votes: Minsta antal röster
         origin_scope: Omfång
         origin_title: Ursprung
         origin_url: Ursprungs-URL
         participatory_scope: Deltagaromfång
-        promoter_group: Promotorgrupp
+        promoter_group: Kampanjgrupp
         question_context: Kontext
         reference: Referens
-        scope: Kommunala området
+        scope: Kommundelsområde
         slug: URL-slug
         subtitle: Underrubrik
         title: Titel
@@ -38,6 +38,11 @@ sv:
       response:
         decidim_consultations_response_group_id: Grupp
     errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: Maximalt antal röster bör vara högre eller lika med minimum.
       vote:
         decidim_consultations_response_id:
           not_found: Hittade inte svar.
@@ -47,7 +52,7 @@ sv:
         decidim/consultations/vote:
           attributes:
             question:
-              invalid_num_votes: Antalet röster är ogiltigt
+              invalid_num_votes: Ogiltigt antal röster
     models:
       decidim/consultation:
         one: Samråd
@@ -64,7 +69,7 @@ sv:
   decidim:
     admin:
       actions:
-        back_to_responses: Tillbaka till svaren
+        back_to_responses: Tillbaka till svar
         new_consultation: Nytt samråd
         new_question: Ny fråga
         new_response: Nytt svar
@@ -103,6 +108,7 @@ sv:
           title: Nytt samråd
         results:
           not_visible: Resultaten kommer att vara tillgängliga när samrådet har avslutats
+          participants: "%{count} deltagare"
           total_votes: 'Totalt: %{count} röster'
         update:
           error: Det gick inte att uppdatera samrådet.
@@ -145,7 +151,9 @@ sv:
             one: Svar
             other: Svar
       question_configuration:
+        disable_external_voting: Avaktivera extern röstning för avancerade konfigurationer
         form:
+          help: Skapa flervalsfrågor genom att öka det maximala antalet svar en deltagare kan ge. Det förvalda maxvärdet är 1, vilket innebär att det endast går att rösta på ett alternativ.
           title: Avancerad konfiguration
       question_publications:
         create:
@@ -174,13 +182,23 @@ sv:
           error: Det gick inte att uppdatera frågan.
           success: Frågan har uppdaterats.
       response_groups:
+        create:
+          error: Det gick inte att skapa en ny svarsgrupp.
+          success: Svarsgruppen har skapats.
+        destroy:
+          error: Det gick inte att ta bort svarsgruppen. Kontrollera att inga svar beror på den.
+          success: Svarsgruppen har raderats.
         edit:
           update: Uppdatera
         form:
           title: Allmän information
+        help: Ordna paket med flervalsfrågor med hjälp av grupper.
         new:
           create: Skapa
           title: Ny svarsgrupp
+        update:
+          error: Det gick inte att uppdatera svaret.
+          success: Svaret har uppdaterats.
       responses:
         create:
           error: Det gick inte att skapa ett nytt svar.
@@ -261,14 +279,27 @@ sv:
           one: röst av
           other: röster av
       question_multiple_votes:
-        voting_rules:
+        results_rules:
+          minimum_votes_per_user:
+            description: Deltagarna kunde fördela minst %{votes} röster mellan olika alternativ.
+          title: Flera val är möjliga som svar på denna fråga
+          total_participants: Sammanlagt deltog %{count} personer i omröstningen.
           vote_limit:
+            description: Deltagarna kunde rösta på upp till %{limit} alternativ.
+        voting_rules:
+          minimum_votes_per_user:
+            description: Du måste distribuera minst %{votes} röster mellan olika alternativ.
+          title: 'Röster måste följa följande regler:'
+          vote_limit:
+            description: Du kan rösta på upp till %{limit} alternativ.
             left: Återstående
             votes: Röster
       question_votes:
         create:
           error: Det gick inte att rösta i frågan
+          success: Du kan ändra den upp till slutet av samrådet. Endast den sista rösten räknas.
           title_error: Röstningsfel!
+          title_success: Rösten har tagits emot
       regular_questions:
         title: Frågor för detta samråd
       show:
@@ -340,4 +371,4 @@ sv:
         unfold: Veckla ut
       question_header:
         back_to_consultation: Visa alla samråd
-        back_to_question: Tillbaks till frågan
+        back_to_question: Tillbaka till frågan

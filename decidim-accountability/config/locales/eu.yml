@@ -58,17 +58,11 @@ eu:
           edit:
             title: Editatu emaitza
             update: Eguneratu emaitza
-          form:
-            add_proposal: Gehitu proposamena
           index:
             title: Emaitzak
           new:
             create: Sortu emaitza
             title: Emaitza berria
-          proposals:
-            close: Itxi
-            current_selection: Oraingo hautapena
-            select: Aukeratu
           update:
             invalid: Arazo bat izan da emaitza hau eguneratzean.
             success: Emaitza zuzen eguneratu da.

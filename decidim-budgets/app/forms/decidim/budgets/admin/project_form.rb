@@ -16,6 +16,9 @@ module Decidim
         attribute :decidim_scope_id, Integer
         attribute :decidim_category_id, Integer
         attribute :proposal_ids, Array[Integer]
+        attribute :attachment, AttachmentForm
+        attribute :photos, Array[String]
+        attribute :add_photos, Array
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
@@ -25,6 +28,8 @@ module Decidim
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
 
         validate :scope_belongs_to_participatory_space_scope
+
+        validate :notify_missing_attachment_if_errored
 
         delegate :categories, to: :current_component
 
@@ -68,6 +73,14 @@ module Decidim
 
         def scope_belongs_to_participatory_space_scope
           errors.add(:decidim_scope_id, :invalid) if current_participatory_space.out_of_scope?(scope)
+        end
+
+        # This method will add an error to the `attachment` field only if there's
+        # any error in any other field. This is needed because when the form has
+        # an error, the attachment is lost, so we need a way to inform the user of
+        # this problem.
+        def notify_missing_attachment_if_errored
+          errors.add(:add_photos, :needs_to_be_reattached) if errors.any? && add_photos.present?
         end
       end
     end

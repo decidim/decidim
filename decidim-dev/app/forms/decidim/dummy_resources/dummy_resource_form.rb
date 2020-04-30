@@ -7,6 +7,9 @@ module Decidim
 
       attribute :title, String
       attribute :body, String
+      attribute :attachment, AttachmentForm
+      attribute :photos, Array[String]
+      attribute :add_photos, Array
 
       validates :title, :body, presence: true, etiquette: true
       validates :title, length: { maximum: 150 }

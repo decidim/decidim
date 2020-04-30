@@ -22,9 +22,12 @@ sv:
         participatory_structure: Hur det bestäms
         promoted: Annonserad
         published_at: Publicerad
+        related_process_ids: Relaterade processer
         scope_id: Omfång
+        scope_type_max_depth_id: Djup på omfångsfilter
         scopes_enabled: Omfång aktiverade
         short_description: Kort beskrivning
+        show_metrics: Visa mätvärden
         show_statistics: Visa statistik
         slug: URL-slug
         start_date: Startdatum
@@ -48,6 +51,12 @@ sv:
         email: E-post
         name: Namn
         role: Roll
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Ogiltig dokumenttyp. Godkända format är: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Steg aktiverat
       decidim/participatory_process_step_changed_event: Steget har ändrats
@@ -126,6 +135,7 @@ sv:
             admin: Administratör
             collaborator: Medarbetare
             moderator: Moderator
+            valuator: Värderare
         user:
           fields:
             invitation_accepted_at: Inbjudan godkänd
@@ -137,6 +147,7 @@ sv:
           title: Duplicera deltagarprocess
       participatory_process_groups:
         destroy:
+          error: Det gick inte att förstöra deltagarprocessgruppen.
           success: Deltagarprocessgruppen har raderats.
         edit:
           title: Redigera processgrupp
@@ -148,6 +159,9 @@ sv:
           error: Det gick inte att uppdatera deltagarprocessgruppen.
           success: Deltagarprocessgruppen har uppdaterats.
       participatory_process_imports:
+        create:
+          error: Det gick inte att importera deltagarprocessen.
+          success: Deltagarprocessen har importerats.
         new:
           import: Importera
           select: Välj vilka data som du vill importera
@@ -193,11 +207,13 @@ sv:
         destroy:
           success: Administratören togs bort från deltagarprocessen.
         edit:
+          title: Uppdatera administratör för deltagarprocess
           update: Uppdatera
         index:
           process_admins_title: Administratörer för deltagarprocessen
         new:
           create: Skapa
+          title: Ny administratör för deltagarprocess
         update:
           error: Det gick inte att uppdatera administratören för deltagarprocessen.
           success: Administratören har uppdaterats för deltagarprocessen.
@@ -239,6 +255,9 @@ sv:
         publish: "%{user_name} publicerade deltagarprocessen %{resource_name}"
         unpublish: "%{user_name} avpublicerade deltagarprocessen %{resource_name}"
         update: "%{user_name} uppdaterade deltagarprocessen %{resource_name}"
+      participatory_process_group:
+        create: "%{user_name} skapade deltagarprocessgruppen %{resource_name}"
+        update: "%{user_name} uppdaterade deltagarprocessgruppen %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} aktiverade steget %{resource_name} i deltagarprocessen %{space_name}"
         create: "%{user_name} skapade steget %{resource_name} i deltagarprocessen %{space_name}"
@@ -263,8 +282,8 @@ sv:
     help:
       participatory_spaces:
         participatory_processes:
-          contextual: "<p>A <strong>deltagarprocess</strong> är en följd av deltagaraktiviteter (som att först fylla i en undersökning, sedan lägga fram förslag, diskutera dem på fysiska eller virtuella möten och slutligen att prioritera dem) i syfte att definiera och fatta beslut om ett visst ämne.</p> <p>Exempel på deltagarprocesser är: en process för val av kommittémedlemmar (där kandidaterna presenteras, diskuteras och slutligen väljs kandidaterna), deltagarbudgetar (där förslag läggs fram, utvärderas ekonomiskt och röstas om inom tillgängliga medel), en långsiktig planeringsprocess, samarbete kring ett utkast till förordning eller norm, utformningen av stadsmiljöer eller att skapa en plan för offentlig policy.</p>\n"
-          page: "<p>A <strong>deltagarprocess</strong> är en följd av deltagaraktiviteter (som att först fylla i en undersökning, sedan lägga fram förslag, diskutera dem på fysiska eller virtuella möten och slutligen att prioritera dem) i syfte att definiera och fatta beslut om ett visst ämne.</p> <p>Exempel på deltagarprocesser är: en process för val av kommittémedlemmar (där kandidaterna presenteras, diskuteras och slutligen väljs kandidaterna), deltagarbudgetar (där förslag läggs fram, utvärderas ekonomiskt och röstas om inom tillgängliga medel), en långsiktig planeringsprocess, samarbete kring ett utkast till förordning eller norm, utformningen av stadsmiljöer eller att skapa en plan för offentlig policy.</p>\n"
+          contextual: "<p>En <strong>deltagarprocess</strong> är en följd av deltagaraktiviteter (som att först fylla i en undersökning, sedan lägga fram förslag, diskutera dem på fysiska eller virtuella möten och slutligen att prioritera dem) i syfte att definiera och fatta beslut om ett visst ämne.</p> <p>Exempel på deltagarprocesser är: en process för val av kommittémedlemmar (där kandidaterna presenteras, diskuteras och slutligen väljs kandidaterna), deltagarbudgetar (där förslag läggs fram, utvärderas ekonomiskt och röstas om inom tillgängliga medel), en långsiktig planeringsprocess, samarbete kring ett utkast till förordning eller norm, utformningen av stadsmiljöer eller att skapa en plan för offentlig policy.</p>\n"
+          page: "<p>En <strong>deltagarprocess</strong> är en följd av deltagaraktiviteter (som att först fylla i en undersökning, sedan lägga fram förslag, diskutera dem på fysiska eller virtuella möten och slutligen att prioritera dem) i syfte att definiera och fatta beslut om ett visst ämne.</p> <p>Exempel på deltagarprocesser är: en process för val av kommittémedlemmar (där kandidaterna presenteras, diskuteras och slutligen väljs kandidaterna), deltagarbudgetar (där förslag läggs fram, utvärderas ekonomiskt och röstas om inom tillgängliga medel), en långsiktig planeringsprocess, samarbete kring ett utkast till förordning eller norm, utformningen av stadsmiljöer eller att skapa en plan för offentlig policy.</p>\n"
           title: Vad är en deltagarprocess?
     menu:
       processes: Processer
@@ -294,7 +313,7 @@ sv:
         participatory_process_imports:
           form:
             document_legend: Lägg till ett dokument
-            slug_help: 'URL-slugs används till att generera de URL: er som pekar på processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
+            slug_help: 'URL-slugs används till att generera de URL:er som pekar på processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Använd relativa sökvägar, inte fullständiga URL: er här. Tar emot bokstäver, siffror, streck och snedstreck, och måste börja med en bokstav. Om den inte anges visas inte knappen. Exempel: %{url}'
@@ -307,6 +326,8 @@ sv:
             images: Bilder
             metadata: Metadata
             other: Andra
+            related_processes: Relaterade processer
+            scope_type_max_depth_help: Begränsa djupet på omfångsfilter; filtret kommer att visa från allmän till den valda omfångstypen.
             select_an_area: Välj ett område
             select_process_group: Välj en processgrupp
             slug_help: 'URL-slugs används till att generera de URL:er som pekar på processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
@@ -362,6 +383,7 @@ sv:
         participatory_scope: Vad som bestäms
         participatory_structure: Hur bestäms det
         private_space: Detta är en privat process
+        related_processes: Relaterade processer
         scope: Omfång
         start_date: Startdatum
         target: Vilka deltar
@@ -371,16 +393,18 @@ sv:
         comments_count: Kommentarer
         debates_count: Debatter
         endorsements_count: Underskrifter
-        headline: Aktivitet
+        followers_count: Följare
+        headline: Statistik
         meetings_count: Möten
-        orders_count: Röster
+        no_stats: Det finns ingen statistik ännu.
+        orders_count: Stöder
         pages_count: Sidor
         participants_count: Deltagare
         processes_count: Processer
         projects_count: Projekt
         proposals_count: Förslag
         results_count: Resultat
-        supports_count: Röster
+        supports_count: Stöder
         surveys_count: Undersökningar
         users_count: Deltagare
   layouts:

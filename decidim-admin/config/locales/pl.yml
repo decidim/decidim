@@ -265,6 +265,15 @@ pl:
       exports:
         export_as: "%{name} jako %{export_format}"
         notice: Twój eksport jest obecnie w toku. Po jego zakończeniu otrzymasz e-maila.
+      filters:
+        category_id_eq:
+          label: Kategoria
+        officialized_at_null:
+          label: Stan
+          values:
+            'false': Oficjalny
+            'true': Nie oficjalny
+        search_label: Szukaj
       help_sections:
         error: Wystąpił błąd podczas aktualizowania sekcji pomocy
         form:
@@ -417,6 +426,9 @@ pl:
             does_not_belong: Nie należy
             offensive: Ofensywa
             spam: Spam
+      newsletter_templates:
+        index:
+          preview_template: Zapowiedź
       newsletters:
         create:
           error: Podczas tworzenia biuletynu wystąpił błąd.
@@ -430,8 +442,6 @@ pl:
         edit:
           save_and_preview: Zapisz i podgląd
           title: Edytuj biuletyn
-        form:
-          interpolations_hint: 'Wskazówka: w dowolnym miejscu ciała lub tematu możesz użyć "%{name}" i zostanie zastąpiona nazwą odbiorcy.'
         index:
           confirm_delete: Czy na pewno chcesz usunąć ten biuletyn?
           title: Biuletyny
