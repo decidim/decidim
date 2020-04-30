@@ -6,7 +6,8 @@ module Decidim
   class InviteUserToPrivateParticipatorySpace < Rectify::Command
     # Public: Initializes the command.
     #
-    # form - A form object with the params.
+    # user         - The user that receives the invitation instructions.
+    # instructions - The invitation instructions that is sent to the user.
     def initialize(user, instructions)
       @user = user
       @instructions = instructions
