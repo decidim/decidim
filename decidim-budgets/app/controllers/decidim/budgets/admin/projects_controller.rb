@@ -9,8 +9,9 @@ module Decidim
 
         def new
           enforce_permission_to :create, :project
-
-          @form = form(ProjectForm).instance
+          @form = form(ProjectForm).from_params(
+            attachment: form(AttachmentForm).instance
+          )
         end
 
         def create
@@ -33,13 +34,12 @@ module Decidim
 
         def edit
           enforce_permission_to :update, :project, project: project
-
           @form = form(ProjectForm).from_model(project)
+          @form.attachment = form(AttachmentForm).instance
         end
 
         def update
           enforce_permission_to :update, :project, project: project
-
           @form = form(ProjectForm).from_params(params)
 
           UpdateProject.call(@form, project) do
