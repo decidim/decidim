@@ -26,7 +26,7 @@
 <% end %>
 
 <p><b><%= t(".user") %></b></p>
-<p><%= link_to @report.user.name, decidim.profile_path(@report.user.nickname), target: :blank %></p>
+<p><%= link_to @report.user.name, user_profile_url, target: :blank %></p>
 
 <br>
 

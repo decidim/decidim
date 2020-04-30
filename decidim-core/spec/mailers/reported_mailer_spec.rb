@@ -10,6 +10,7 @@ module Decidim
     let(:reportable) { create(:proposal) }
     let(:moderation) { create(:moderation, reportable: reportable, participatory_space: component.participatory_space, report_count: 1) }
     let!(:report) { create(:report, moderation: moderation, details: "bacon eggs spam") }
+    let(:decidim) { Decidim::Core::Engine.routes.url_helpers }
 
     describe "#report" do
       let(:mail) { described_class.report(user, report) }
@@ -43,8 +44,7 @@ module Decidim
         end
 
         it "includes the name of the author and a link to their profile" do
-          link = "profile_path(report.user.nickname)"
-          expect(mail.body.encoded).to match("<a href=\"#{link}\">#{report.user.name}</a>")
+          expect(mail).to have_link(report.user.name, href: decidim.profile_url(report.user.nickname, host: organization.host))
         end
       end
     end
