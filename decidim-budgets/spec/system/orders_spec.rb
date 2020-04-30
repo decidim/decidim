@@ -24,7 +24,7 @@ describe "Orders", type: :system do
       visit_component
 
       within "#project-#{project.id}-item" do
-        page.find(".budget--list__action").click
+        page.find(".budget-list__action").click
       end
 
       expect(page).to have_css("#loginModal", visible: true)
@@ -43,7 +43,7 @@ describe "Orders", type: :system do
         visit_component
 
         within "#project-#{project.id}-item" do
-          page.find(".budget--list__action").click
+          page.find(".budget-list__action").click
         end
 
         expect(page).to have_selector ".budget-list__data--added", count: 1
@@ -79,7 +79,7 @@ describe "Orders", type: :system do
         visit_component
 
         within "#project-#{project.id}-item" do
-          page.find(".budget--list__action").click
+          page.find(".budget-list__action").click
         end
 
         expect(page).to have_content("Authorization required")
@@ -96,7 +96,7 @@ describe "Orders", type: :system do
         expect(page).to have_content "ASSIGNED: €25,000,000"
 
         within "#project-#{project.id}-item" do
-          page.find(".budget--list__action").click
+          page.find(".budget-list__action").click
         end
 
         expect(page).to have_content "ASSIGNED: €0"
@@ -129,7 +129,7 @@ describe "Orders", type: :system do
           visit_component
 
           within "#project-#{expensive_project.id}-item" do
-            page.find(".budget--list__action").click
+            page.find(".budget-list__action").click
           end
 
           expect(page).to have_css("#budget-excess", visible: true)
@@ -143,7 +143,7 @@ describe "Orders", type: :system do
           visit_component
 
           within "#project-#{other_project.id}-item" do
-            page.find(".budget--list__action").click
+            page.find(".budget-list__action").click
           end
 
           expect(page).to have_selector ".budget-list__data--added", count: 2
@@ -302,8 +302,8 @@ describe "Orders", type: :system do
       it "cannot create new orders" do
         visit_component
 
-        expect(page).to have_selector("button.budget--list__action[disabled]", count: 3)
-        expect(page).to have_no_selector(".budget-summary")
+        expect(page).to have_selector("button.budget-list__action[disabled]", count: 3)
+        expect(page).to have_no_css(".budget-summary")
       end
     end
 
