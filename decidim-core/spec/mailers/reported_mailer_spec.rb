@@ -7,7 +7,7 @@ module Decidim
     let(:organization) { create(:organization) }
     let(:user) { create(:user, :admin, organization: organization) }
     let(:component) { create(:component, organization: organization) }
-    let(:reportable) { create(:proposal) }
+    let(:reportable) { create(:proposal, title: Decidim::Faker::Localized.sentence, body: Decidim::Faker::Localized.paragraph(3)) }
     let(:moderation) { create(:moderation, reportable: reportable, participatory_space: component.participatory_space, report_count: 1) }
     let!(:report) { create(:report, moderation: moderation, details: "bacon eggs spam") }
     let(:decidim) { Decidim::Core::Engine.routes.url_helpers }
@@ -27,20 +27,20 @@ module Decidim
 
       describe "email body" do
         it "includes the participatory space name" do
-          expect(mail.body.encoded).to match(moderation.participatory_space.title["en"])
+          expect(email_body(mail)).to match(moderation.participatory_space.title["en"])
         end
 
         it "includes the report's reason" do
-          expect(mail.body.encoded).to match(report.reason)
+          expect(email_body(mail)).to match(report.reason)
         end
 
         it "includes the report's details" do
-          expect(mail.body.encoded).to match(report.details)
+          expect(email_body(mail)).to match(report.details)
         end
 
         it "includes the reported content" do
-          expect(mail.body.encoded).to match(reportable.try(:title))
-          expect(mail.body.encoded).to match(reportable.try(:body))
+          expect(email_body(mail)).to match(reportable.try(:title))
+          expect(email_body(mail)).to match(reportable.try(:body))
         end
 
         it "includes the name of the author and a link to their profile" do
