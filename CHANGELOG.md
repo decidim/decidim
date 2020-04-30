@@ -39,13 +39,26 @@ PR [\#5768](https://github.com/decidim/decidim/pull/5768) introduced a deprecati
 
 Thanks to [\#5516](https://github.com/decidim/decidim/pull/5516) it is now possible to customize which omniauth providers are enabled on each of the organizations in a multitenant installation.
 
-This modification changes the way devise omniauth providers are activated. It is now automatic, so all providers declared in the secrets file are loaded into `Decidim::OmniauthProvider#available` and then activated in `Decidim::User` `devise` declaration.
+This modification changes the way Devise omniauth providers are activated. It is now automatic, so all providers declared in the secrets file are loaded into `Decidim::OmniauthProvider#available` and then activated in `Decidim::User` `devise` declaration.
 
-To make it clear, installations with custom Omniauth providers must remove the provider configuration from the corresponding `config/initializer/omniauth_xxx.rb` (just remove the whole file if it is the only thing declared there). 
-The recommended way to go is to configure `config/secrets.yml` with the variables needed (can be filled with dummy data) and then go to `yourinstallation.tld/system` to configure the valid values for the tenant.
+If you want to enable sign up through social providers like Facebook you will need to generate app credentials and store them in one of the following places:
+
+- In the Rails secrets file: `config/secrets.yml`. This configuration will be shared by all tenants.
+- In the organization's configuration (ex. system/organizations/1/edit). This configuration overrides the one in `config/secrets.yml`.
+
+Take into account that for a social provider integration to appear in the organization form, it must also be defined in `config/secrets.yml` (but the values are optional). For example:
+
+```yaml
+twitter:
+  enabled: false # disabled by default, unless activated in the organization
+  api_key:
+  api_secret:
+```
+
+Installations with custom Omniauth providers must remove the provider configuration from the corresponding `config/initializer/omniauth_xxx.rb` (just remove the whole file if it is the only thing declared there). Then copy the required values in `config/secrets.yml` or go to `yourinstallation.tld/system` to configure the valid values for the tenant (this requires to have at least the provider with `enabled: false` in the `config/secrets.yml`).
 
 ```
-# The following should be removed from any initializer and moved into Rails secrets
+# The following should be removed from any initializer or Rails will crash when starting
 if Rails.application.secrets.dig(:omniauth, :decidim, :enabled)
   Devise.setup do |config|
     config.omniauth :decidim,
@@ -58,7 +71,7 @@ end
 Decidim::User.omniauth_providers << :decidim
 ```
 
-Maintainers of custom omniauth providers will need to add translations for the translatable settings names in organization's system administration panel.
+Maintainers of custom omniauth providers will need to add translations for the translatable settings names in organization's system administration panel, see https://github.com/decidim/decidim/pull/6042 for context.
 
 Documentation regarding oauth providers has been updated: https://github.com/decidim/decidim/blob/develop/docs/services/social_providers.md
 
