@@ -80,6 +80,9 @@ gl:
         error: Produciuse un erro ao actualizar a túa conta.
         success: A túa conta foi actualizada correctamente.
         success_with_email_confirmation: A túa conta foi actualizada correctamente. Recibirá un correo electrónico para confirmar o seu novo enderezo de correo electrónico.
+    admin:
+      actions:
+        cancel: Cancelar
     admin_log:
       area:
         create: "%{user_name} creou a área %{resource_name}"
@@ -194,6 +197,7 @@ gl:
         explanation: Verifique a introdución dun número de pasaporte que comeza con "A"
         fields:
           passport_number: Número de pasaporte
+          postal_code: Código postal
         name: Outra autorización de exemplo
       dummy_authorization_handler:
         explanation: Verifique a introdución dun número de documento que acabe con "X"
@@ -709,6 +713,7 @@ gl:
         create:
           error: Non se iniciou a conversa. Téntao de novo máis tarde
         index:
+          close: Pechar modal
           no_conversations: Aínda non tes conversas
           title: Conversas
         reply:

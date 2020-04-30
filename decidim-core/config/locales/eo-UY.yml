@@ -79,6 +79,8 @@ eo:
           '2': Compare your amendment
           '3': Complete your amendment
           '4': Publish your amendment
+    author:
+      avatar: Avataro
     group_admins:
       demote:
         success: Partoprenanto sukcese forigita de administranto

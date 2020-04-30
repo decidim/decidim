@@ -275,6 +275,15 @@ fr:
       exports:
         export_as: "%{name} en format %{export_format}"
         notice: Votre exportation est en cours. Vous recevrez un e-mail quand elle sera terminée.
+      filters:
+        category_id_eq:
+          label: Catégorie
+        officialized_at_null:
+          label: État
+          values:
+            'false': Validé
+            'true': Non validé
+        search_label: Rechercher
       help_sections:
         error: Une erreur s'est produite lors de la mise à jour des sections d'aide.
         form:
@@ -428,6 +437,9 @@ fr:
             does_not_belong: N'appartient pas
             offensive: Agressif
             spam: Spam
+      newsletter_templates:
+        index:
+          preview_template: Aperçu
       newsletters:
         create:
           error: Il y a eu une erreur lors de la création de cette newsletter.
@@ -441,8 +453,6 @@ fr:
         edit:
           save_and_preview: Enregistrer et prévisualiser
           title: Modifier la newsletter
-        form:
-          interpolations_hint: 'Astuce : Vous pouvez utiliser "%{name}" (sans les guillemets) n''importe où dans le corps ou le sujet et il sera remplacé par le nom du destinataire.'
         index:
           all: tous
           all_users: 'Tous les utilisateurs '

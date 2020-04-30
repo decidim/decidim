@@ -12,6 +12,8 @@ module Decidim::Budgets
     let(:current_component) { create :component, manifest_name: :budgets, participatory_space: participatory_process }
     let(:scope) { create :scope, organization: organization }
     let(:category) { create :category, participatory_space: participatory_process }
+    let(:uploaded_photos) { [] }
+    let(:photos) { [] }
     let(:proposal_component) do
       create(:component, manifest_name: :proposals, participatory_space: participatory_process)
     end
@@ -32,6 +34,8 @@ module Decidim::Budgets
         proposal_ids: proposals.map(&:id),
         scope: scope,
         category: category,
+        photos: photos,
+        add_photos: uploaded_photos,
         current_component: current_component
       )
     end
@@ -82,6 +86,11 @@ module Decidim::Budgets
         subject.call
         linked_proposals = project.linked_resources(:proposals, "included_proposals")
         expect(linked_proposals).to match_array(proposals)
+      end
+
+      it_behaves_like "admin creates resource gallery" do
+        let(:command) { described_class.new(form) }
+        let(:resource_class) { Decidim::Budgets::Project }
       end
     end
   end
