@@ -7,5 +7,8 @@ module Decidim
       belongs_to :organization,
                  foreign_key: "decidim_organization_id",
                  class_name: "Decidim::Organization"
+      def self.log_presenter_class_for(_log)
+        Decidim::Assemblies::AdminLog::AssembliesSettingPresenter
+      end
     end
   end

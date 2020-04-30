@@ -22,7 +22,9 @@ module Decidim
           #
           # Returns nothing.
           def call
-            return broadcast(:invalid) if form.invalid?
+            return broadcast(:invalid) if form.invalid? || unless @assemblies_settings
+              
+            end
   
             update_assemblies_setting!
   
@@ -34,13 +36,11 @@ module Decidim
           attr_reader :form, :assemblies_settings
   
           def update_assemblies_setting!
-            if @assemblies_settings
-              @assemblies_settings = Decidim.traceability.update!(
-                @assemblies_settings,
-                form.current_user,
-                enable_organization_chart: form.enable_organization_chart
-              )
-            end
+            Decidim.traceability.update!(
+              @assemblies_settings,
+              form.current_user,
+              enable_organization_chart: form.enable_organization_chart
+            )
           end
         end
       end
