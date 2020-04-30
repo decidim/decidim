@@ -271,6 +271,15 @@ tr:
       exports:
         export_as: "%{name} olarak %{export_format}"
         notice: İhracatınız şu anda devam ediyor. Tamamlandığında bir e-posta alacaksınız.
+      filters:
+        category_id_eq:
+          label: Kategori
+        officialized_at_null:
+          label: Belirtmek, bildirmek
+          values:
+            'false': resmileştirilmiş
+            'true': Resmi değil
+        search_label: Arama
       help_sections:
         error: Yardım bölümleri güncellenirken bir hata oluştu
         form:
@@ -424,6 +433,9 @@ tr:
             does_not_belong: Ait değil
             offensive: saldırgan
             spam: İstenmeyen e
+      newsletter_templates:
+        index:
+          preview_template: Ön izleme
       newsletters:
         create:
           error: Bu bülteni oluştururken bir hata oluştu.
@@ -437,8 +449,6 @@ tr:
         edit:
           save_and_preview: Kaydet ve önizle
           title: Bülten düzenle
-        form:
-          interpolations_hint: 'İpucu: Gövde veya nesnenin herhangi bir yerinde "%{name}" kullanabilir ve alıcının adıyla değiştirilir.'
         index:
           all: tümü
           all_users: 'Tüm kullanıcılar '

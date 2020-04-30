@@ -1,0 +1,168 @@
+sk:
+  activemodel:
+    attributes:
+      assembly:
+        area_id: Oblasť
+        assembly_type: Typ zhromaždenia
+        assembly_type_other: Iný typ zhromaždenia
+        banner_image: Obrázok banneru
+        closing_date: Dátum uzavretia
+        closing_date_reason: Dôvod dátumu uzavretia
+        composition: Zloženie
+        copy_categories: Kopírovať kategórie
+        copy_components: Kopírovať súčasti
+        copy_features: Kopírovať prvky
+        created_by: Vytvorené
+        created_by_other: Vytvorené iným
+        creation_date: Dátum vytvorenia
+        decidim_area_id: Oblasť
+        decidim_assemblies_type_id: Typ zhromaždenia
+        decidim_scope_id: Rozsah
+        description: Popis
+        developer_group: Propagačná skupina
+        domain: Doména
+        duration: Trvanie
+        facebook: Facebook
+        github: GitHub
+        hashtag: Hashtag
+        hero_image: Obrázok na hlavnej stránke
+        included_at: Zahrnuté v
+        instagram: Instagram
+        internal_organisation: Interné organizácie
+        is_transparent: Je transparentné
+        local_area: Oblasť organizácie
+        meta_scope: Rozsah metadát
+        parent_id: Nadradené zhromaždenie
+        participatory_processes_ids: Súvisiace participatívne procesy
+        participatory_scope: O čom sa rozhoduje
+        participatory_structure: Ako sa o tom rozhoduje
+        private_space: Súkromný priestor
+        promoted: Zvýraznené
+        published_at: Publikované
+        purpose_of_action: Cieľ aktivity
+        scope_id: Rozsah
+        scopes_enabled: Povolené rozsahy
+        short_description: Stručný opis
+        show_statistics: Zobraziť štatistiky
+        slug: URL krátky odkaz
+        special_features: Špeciálne funkcie
+        subtitle: Podnadpis
+        target: Kto sa zúčastňuje
+        title: Názov
+        twitter: Twitter
+        youtube: YouTube
+      assembly_member:
+        birthday: Dátum narodenia
+        birthplace: Miesto narodenia
+        ceased_date: Dátum ukončenia
+        designation_date: Dátum konania
+        designation_mode: Spôsob konania
+        full_name: Meno a priezvisko
+        gender: Pohlavie
+        position: Pozícia
+      assembly_user_role:
+        email: E-mail
+        name: Meno
+        role: Rola
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Zhromaždenie
+        few: Zhromaždenia
+        many: Zhromaždenia
+        other: Zhromaždenia
+      decidim/assembly_member:
+        one: Člen zhromaždenia
+        few: Členovia zhromaždenia
+        many: Členovia zhromaždenia
+        other: Členovia zhromaždenia
+      decidim/assembly_user_role:
+        one: Rola člena zhromaždenia
+        few: Role člena zhromaždenia
+        many: Role člena zhromaždenia
+        other: Role člena zhromaždenia
+  decidim:
+    admin:
+      actions:
+        new_assembly: Nové zhromaždenie
+        new_assembly_type: Nový typ zhromaždenia
+      assemblies:
+        create:
+          error: Pri tvorbe nového zhromaždenia nastala chyba.
+          success: Zhromaždenie úspešne vytvorené.
+        edit:
+          update: Aktualizovať
+        index:
+          not_published: Nepublikované
+          private: Súkromné
+          public: Verejné
+          published: Zverejnené
+        new:
+          create: Vytvoriť
+          title: Nové zhromaždenie
+        update:
+          error: Pri tvorbe nového zhromaždenia nastala chyba.
+          success: Zhromaždenie úspešne aktualizované.
+      assemblies_types:
+        create:
+          error: Pri tvorbe nového typu zhromaždenia nastala chyba.
+          success: Nový typ zhromaždenia úspešne vytvorený.
+        destroy:
+          success: Typ zhromaždenia úspešne zmazaný.
+        new:
+          create: Vytvoriť
+          title: "N"
+        update:
+          error: Pri tvorbe nového typu zhromaždenia nastala chyba.
+          success: Typ zhromaždenia úspešne aktualizovaný.
+      menu:
+        assemblies_types: Typy zhromaždení
+      models:
+        assemblies_types:
+          fields:
+            title: Názov
+        assembly_user_role:
+          roles:
+            valuator: Hodnotiteľ
+      titles:
+        assemblies_types: Typy zhromaždení
+    admin_log:
+      assembly_type:
+        create: "%{user_name} vytvoril %{resource_name} nový typ zhromaždenia"
+        delete: "%{user_name} odstránil %{resource_name} používateľa z typu zhromaždenia %{space_name}"
+        publish: "%{user_name} vytvoril nový typ zhromaždenia %{resource_name}"
+        unpublish: "%{user_name} zrušil publikovanie typu zhromaždenia %{resource_name}"
+        update: "%{user_name} aktualizoval typ zhromaždenia %{resource_name}"
+    assemblies:
+      admin:
+        assemblies_types:
+          form:
+            title: Názov
+      pages:
+        home:
+          highlighted_assemblies:
+            assemblies_button_title: Odkaz na stránku Zhromaždenia, zobrazujúcu všetky zhromaždenia
+      show:
+        social_networks_title: Zdieľať toto zhromaždenie na
+      statistics:
+        posts_count: Príspevky
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Odkaz na stránku Konferencie, zobrazujúcu všetky konferencie
+    log:
+      value_types:
+        assembly_type_presenter:
+          not_found: 'Typ zhromaždenia nebol nájdený v databáze (ID: %{id})'
+    pages:
+      home:
+        hero:
+          participate_title: Podieľajte sa na procesoch platformy
+        sub_hero:
+          register_title: Vytvorte si účet na platforme
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Odkaz na stránku Procesy, zobrazujúcu všetky procesy

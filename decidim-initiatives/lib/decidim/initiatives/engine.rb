@@ -46,6 +46,7 @@ module Decidim
               get :spawn
             end
           end
+          resources :versions, only: [:show, :index]
         end
 
         scope "/initiatives/:initiative_slug/f/:component_id" do

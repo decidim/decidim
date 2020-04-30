@@ -65,13 +65,10 @@ es-PY:
         search_placeholder:
           title_or_description_cont: Buscar %{collection} por título o descripción.
         state_eq:
-          label: Estado
           values:
-            accepted: Aceptado
             created: Creado
             discarded: Descartado
             published: Publicado
-            rejected: Rechazado
             validating: Validación técnica
       menu:
         initiatives: Iniciativas

@@ -7,8 +7,8 @@ on:
       - release/*
       - "*-stable"
   pull_request:
-    branches:
-      - "*"
+    branches-ignore:
+      - "l10n_*"
 
 env:
   CI: "true"
@@ -20,6 +20,7 @@ jobs:
   main:
     name: Tests
     runs-on: ubuntu-latest
+    if: "!startsWith(github.ref, 'refs/heads/l10n_')"
     services:
       postgres:
         image: postgres:11
