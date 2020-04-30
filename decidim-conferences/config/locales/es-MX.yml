@@ -462,6 +462,9 @@ es-MX:
             active_conferences: Conferencias activas
             see_all_conferences: Ver todas las conferencias
       photo:
+        image:
+          attributes:
+            alt: Imagen multimedia
         show:
           close_modal: Cerrar modal
           photo: Foto

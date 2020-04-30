@@ -92,6 +92,7 @@ eu:
             other: "%{count} proiektu"
         filters:
           category: Kategoria
+          scope: Esparrua
           search: Bilatu
         filters_small_view:
           close_modal: Itxi leihoa

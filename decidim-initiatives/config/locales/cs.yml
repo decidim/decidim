@@ -71,14 +71,11 @@ cs:
         search_placeholder:
           title_or_description_cont: Hledat %{collection} podle názvu nebo popisu.
         state_eq:
-          label: Stav
           values:
-            accepted: Přijato
             created: Vytvořeno
-            discarded: Zahozeno
+            discarded: Vyřazeno
             published: Publikováno
-            rejected: Zamítnuto
-            validating: Technické ověření
+            validating: Technická validace
       menu:
         initiatives: Iniciativy
         initiatives_types: Typy iniciativ
@@ -274,8 +271,11 @@ cs:
           back: Zpět
           back_to_initiatives: Zpět na iniciativy
           callout_text: Gratulujeme! Vaše občanská iniciativa byla úspěšně vytvořena.
+          confirm: Potvrdit
+          edit_my_initiative: Upravit mé iniciativy
           go_to_my_initiatives: Jít na mé iniciativy
           more_information: "(Více informací)"
+          send_my_initiative: Poslat moji iniciativu
         finish_help:
           access_reminder: Nezapomeňte, že budete mít vždy přístup k vašim iniciativám prostřednictvím uživatelského menu.
           help_for_organizations: Pokud jste asociace, musíte nahrát zápisy ze správní rady všech organizací, které tvoří Komise pro podporu
@@ -313,9 +313,9 @@ cs:
           email_subject: Nová iniciativa od %{author_nickname}
           notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> byla vytvořena <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, který sledujete, schválil následující iniciativu, možná chcete přispět k rozhovoru:"
+          email_intro: "%{author_name} %{author_nickname}, kterého sledujete, schválil následující iniciativu, možná chcete přispět k konverzaci:"
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{author_nickname}. Po předchozím propojení můžete přestat přijímat oznámení.
-          email_subject: Iniciativa byla potvrzena od %{author_nickname}
+          email_subject: Iniciativa byla schválena od %{author_nickname}
           notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> byla schválena <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: Iniciativy

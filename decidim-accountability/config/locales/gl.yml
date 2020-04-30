@@ -58,17 +58,11 @@ gl:
           edit:
             title: Editar resultado
             update: Actualizar resultado
-          form:
-            add_proposal: Engadir proposta
           index:
             title: Resultados
           new:
             create: Crear resultado
             title: Novo resultado
-          proposals:
-            close: Pechar
-            current_selection: Selección actual
-            select: Seleccionar
           update:
             invalid: Produciuse un problema ao actualizar este resultado
             success: Resultado actualizado correctamente

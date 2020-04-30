@@ -85,13 +85,16 @@ es:
         search_placeholder:
           id_string_or_title_cont: Buscar %{collection} por ID o título.
         state_eq:
+          label: Estado
           values:
+            accepted: Aceptadas
             evaluating: En evaluación
-            withdrawn: Retirado
+            rejected: Rechazada
+            withdrawn: Retirada
         state_null:
           label: Estado
           values:
-            'true': No contestado
+            'true': No contestada
         valuator_role_ids_has:
           label: Asignada a evaluadora
     components:
@@ -220,7 +223,7 @@ es:
             email_subject: Una propuesta que estás siguiendo está siendo evaluada
             notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> está siendo evaluada.
         proposal_mentioned:
-          email_intro: Tu propuesta "%{mentioned_proposal_title}" se ha mencionado <a href="%{resource_url}">en este espacio</a> en los comentarios.
+          email_intro: Tu propuesta "%{mentioned_proposal_title}" se ha mencionado <a href="%{resource_url}"> en este espacio</a> en los comentarios.
           email_outro: Has recibido esta notificación porque eres autora de "%{resource_title}".
           email_subject: Tu propuesta "%{mentioned_proposal_title}" ha sido mencionada
           notification_title: Tu propuesta "%{mentioned_proposal_title}" se ha mencionado <a href="%{resource_path}">en este espacio</a> en los comentarios.
@@ -517,12 +520,12 @@ es:
           official: Oficial
           user_groups: Grupos
         filter_scope_values:
-          all: Todos
+          all: Todas
         filter_state_values:
           accepted: Aceptada
           all: Todas
           evaluating: En evaluación
-          not_answered: Sin respuesta
+          not_answered: No contestada
           rejected: Rechazada
         filter_type_values:
           all: Todas
@@ -761,8 +764,9 @@ es:
           creation_date: 'Fecha de creación: %{date}'
           view_proposal: Ver propuesta
         show:
-          answer: Responder
+          answer: Respuesta
           back_to: Volver a
+          back_to_list: Volver al listado
           changes_at_title: Enmienda a "%{title}"
           comments: Comentarios
           edit_proposal: Editar propuesta

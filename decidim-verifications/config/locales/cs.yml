@@ -35,7 +35,9 @@ cs:
             confirm_all: Zrušení všech autorizací nelze vrátit zpět. Jste si jisti, že chcete pokračovat?
           destroy_nok: Při rušení autorizace došlo k chybě.
           destroy_ok: Všechny odpovídající autorizace byly úspěšně zrušeny!
+          info: Celkem je %{count} ověřených účastníků.
           no_data: Žádní ověření účastníci
+          title: Zrušení ověření
         authorization_workflows: Ověření
     admin_log:
       organization:
@@ -75,10 +77,16 @@ cs:
         name: Kód poštovním dopisem
     verifications:
       authorizations:
+        authorization_metadata:
+          info: 'To jsou údaje o aktuálním ověření:'
+          no_data_stored: Žádná data nebyla uložena.
         create:
           error: Při vytváření oprávnění došlo k chybě.
           success: Byl jste úspěšně autorizován.
           unconfirmed: Potřebujete potvrdit svůj e-mail, abyste se autorizovali.
+        destroy:
+          error: Při odstraňování autorizace došlo k chybě.
+          success: Autorizace byla úspěšně odstraněna.
         first_login:
           actions:
             another_dummy_authorization_handler: Ověřte proti jinému příkladu pověření pro autorizaci
@@ -87,11 +95,21 @@ cs:
             dummy_authorization_workflow: Ověřte proti pracovnímu postupu autorizace
             id_documents: Získejte ověření odesláním dokladu totožnosti
             postal_letter: Ověřte si, zda obdržíte ověřovací kód poštou
+            sms: Ověřit obdržením SMS ověřovacího kódu
           title: Potvrďte vaši identitu
           verify_with_these_options: 'Jsou to dostupné možnosti k ověření totožnosti:'
+        index:
+          expired_verification: Ověření vypršelo
+          show_renew_info: Kliknutím obnovíte ověření
         new:
           authorize: Poslat
           authorize_with: Ověřte pomocí %{authorizer}
+        renew_modal:
+          cancel: zrušení
+          close: zavřít
+          continue: Pokračovat
+          info_renew: Pokud chcete aktualizovat data, pokračujte obnovením
+          title: Obnovit ověření
         skip_verification: Můžete to přeskočit nyní a %{link}
         start_exploring: začít zkoumat
       csv_census:

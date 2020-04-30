@@ -94,6 +94,8 @@ fi-pl:
         new:
           authorize: Lähetä
           authorize_with: Vahvista palvelulla %{authorizer}
+        renew_modal:
+          cancel: Peruuta
         skip_verification: Voit ohittaa tämän nyt ja %{link}
         start_exploring: aloittaa palveluun tutustumisen
       csv_census:

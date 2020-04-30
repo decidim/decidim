@@ -7,8 +7,8 @@ on:
       - release/*
       - "*-stable"
   pull_request:
-    branches:
-      - "*"
+    branches-ignore:
+      - "l10n_*"
 
 env:
   CI: "true"
@@ -20,6 +20,7 @@ jobs:
   lint:
     name: Lint code
     runs-on: ubuntu-latest
+    if: "!startsWith(github.ref, 'refs/heads/l10n_')"
     steps:
       - uses: rokroskar/workflow-run-cleanup-action@v0.2.2
         if: "github.ref != 'refs/heads/master' || github.ref != 'refs/heads/develop'"

@@ -85,8 +85,11 @@ hu:
         search_placeholder:
           id_string_or_title_cont: Keresés %{collection} ID vagy cím alapján.
         state_eq:
+          label: Állapot
           values:
+            accepted: Elfogadva
             evaluating: Értékelés
+            rejected: Elutasítva
             withdrawn: Visszavonva
         state_null:
           label: Állapot
@@ -374,7 +377,7 @@ hu:
           form:
             accepted: Elfogadva
             answer_proposal: Válasz
-            evaluating: Értékelés alatt
+            evaluating: Értékelés
             rejected: Elutasítva
             title: Válasz a(z) %{title} javaslatra
         proposal_notes:
@@ -509,7 +512,7 @@ hu:
         withdrawn: Visszavonva
       application_helper:
         filter_category_values:
-          all: Mind
+          all: Minden
         filter_origin_values:
           all: Minden
           citizens: Állampolgárok
@@ -517,7 +520,7 @@ hu:
           official: Hivatalos
           user_groups: Felhasználói csoportok
         filter_scope_values:
-          all: Mind
+          all: Minden
         filter_state_values:
           accepted: Elfogadva
           all: Minden
@@ -763,6 +766,7 @@ hu:
         show:
           answer: Válasz
           back_to: Vissza a
+          back_to_list: Vissza a listához
           changes_at_title: A (z) "%{title}" módosítása
           comments: Hozzászólások
           edit_proposal: Javaslat szerkesztése

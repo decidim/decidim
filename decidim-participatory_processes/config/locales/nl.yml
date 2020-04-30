@@ -22,7 +22,7 @@ nl:
         participatory_structure: Hoe wordt er besloten
         promoted: Gepromoveerd
         published_at: Gepubliceerd op
-        related_process_ids: Verwante processen
+        related_process_ids: Verwante thema's
         scope_id: Scope
         scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
@@ -321,7 +321,7 @@ nl:
             images: Afbeeldingen
             metadata: Metadata
             other: Overige
-            related_processes: Verwante processen
+            related_processes: Verwante thema's
             select_an_area: Selecteer een onderwerp
             select_process_group: Selecteer een procesgroep
             slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
@@ -377,7 +377,7 @@ nl:
         participatory_scope: Wat is besloten
         participatory_structure: Hoe wordt er besloten
         private_space: Dit is een privéthema
-        related_processes: Verwante processen
+        related_processes: Verwante thema's
         scope: Scope
         start_date: Startdatum
         target: Wie neemt deel
