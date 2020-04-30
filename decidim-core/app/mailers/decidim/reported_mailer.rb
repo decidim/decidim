@@ -6,7 +6,7 @@ module Decidim
     helper Decidim::ResourceHelper
     helper Decidim::TranslationsHelper
 
-    helper_method :reported_content_url, :manage_moderations_url
+    helper_method :reported_content_url, :manage_moderations_url, :user_profile_url
 
     def report(user, report)
       with_user(user) do
@@ -42,5 +42,8 @@ module Decidim
       @manage_moderations_url ||= EngineRouter.admin_proxy(@participatory_space).moderations_url(host: @organization.host)
     end
 
+    def user_profile_url
+      @user_profile_url ||= decidim.profile_url(@report.user.nickname, host: @organization.host)
+    end
   end
 end
