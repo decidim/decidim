@@ -471,6 +471,9 @@ es:
             does_not_belong: No pertenece
             offensive: Ofensiva
             spam: Contenido no deseado
+      newsletter_templates:
+        index:
+          preview_template: Previsualizar
       newsletters:
         create:
           error: Se ha producido un error al crear este boletín.
@@ -484,8 +487,6 @@ es:
         edit:
           save_and_preview: Guardar y vista previa
           title: Editar boletín
-        form:
-          interpolations_hint: 'Pista: Puedes utilizar "%{name}" en cualquier parte del cuerpo o asunto y será reemplazado por el nombre del destinatario.'
         index:
           all: todos
           all_users: 'Todos los usuarios '
@@ -563,12 +564,20 @@ es:
           officialize: Oficializa
           officialized: Oficializada
           reofficialize: Vuelve a oficializar
+          show_email: Mostrar la dirección de correo electrónico
           status: Estado
           unofficialize: Des-oficializar
         new:
           badge: Insignia de oficialización
           officialize: Oficializar
           title: Oficializar participante "%{name}"
+        show_email_modal:
+          description: Si necesitas contactar directamente con una participante, puedes hacer clic en el botón Mostrar para ver la dirección de correo electrónico. Esta acción se registrará.
+          email_address: Dirección de correo electrónico
+          full_name: Nombre completo
+          hidden: oculto
+          show: Mostrar
+          title: Mostrar dirección de correo del participante
       organization:
         edit:
           title: Editar organización

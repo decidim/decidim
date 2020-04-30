@@ -65,13 +65,10 @@ ca:
         search_placeholder:
           title_or_description_cont: Cerca %{collection} per títol o descripció.
         state_eq:
-          label: Estat
           values:
-            accepted: Acceptada
             created: Creada
-            discarded: Descartada
+            discarded: Rebutjada
             published: Publicada
-            rejected: Rebutjada
             validating: Validació tècnica
       menu:
         initiatives: Iniciatives

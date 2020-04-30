@@ -65,13 +65,10 @@ hu:
         search_placeholder:
           title_or_description_cont: Keresés cím vagy leírás alapján a %{collection} -ban.
         state_eq:
-          label: Állapot
           values:
-            accepted: Elfogadva
             created: Létrehozva
             discarded: Elvetve
             published: Közzétéve
-            rejected: Elutasítva
             validating: Technikai érvényesítés
       menu:
         initiatives: Kezdeményezések
@@ -268,8 +265,11 @@ hu:
           back: Vissza
           back_to_initiatives: Vissza a kezdeményezésekhez
           callout_text: Gratulálunkk! Sikeresen létrehoztad az állampolgári kezdeményezést.
+          confirm: Megerősít
+          edit_my_initiative: Kezdeményezéseim szerkesztése
           go_to_my_initiatives: Ugrás a saját kezdeményezéseimhez
           more_information: "(További információk)"
+          send_my_initiative: Kezdeményezésem elküldése
         finish_help:
           access_reminder: Ne felejtsd el, hogy a menüben mindig hozzáférhetsz a kezdeményezéseihez.
           help_for_organizations: Ha egyesületként regisztrálsz, fel kell töltened az összes szerv vezetői testületének jegyzőkönyveit, amelyek megfelelnek a Támogató Bizottság feltételeinek

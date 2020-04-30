@@ -89,15 +89,18 @@ cs:
           label: Typ
           values:
             'false': Návrhy
-            'true': Pozměňovací návrhy
+            'true': Změny
         search_placeholder:
           id_string_or_title_cont: Hledat %{collection} podle ID nebo názvu.
         state_eq:
+          label: Stát
           values:
+            accepted: Přijato
             evaluating: Hodnocení
-            withdrawn: Odebráno
+            rejected: Odmítnuto
+            withdrawn: Staženo
         state_null:
-          label: Stav
+          label: Stát
           values:
             'true': Nezodpovězeno
         valuator_role_ids_has:
@@ -107,7 +110,7 @@ cs:
         actions:
           amend: Pozměnit
           create: Vytvořit
-          endorse: Potvrďte
+          endorse: Schválit
           vote: Hlasování
           withdraw: Ustoupit
         name: Návrhy
@@ -155,8 +158,8 @@ cs:
             automatic_hashtags: Do všech návrhů byly přidány značky Hashtags
             comments_blocked: Komentáře byly blokovány
             creation_enabled: Vytváření návrhu je povoleno
-            endorsements_blocked: Uzávěry blokovány
-            endorsements_enabled: Povolení byla povolena
+            endorsements_blocked: Schvalování blokováno
+            endorsements_enabled: Schvalování povoleno
             proposal_answering_enabled: Odpovídání návrhu je povoleno
             publish_answers_immediately: Okamžitě publikovat odpovědi návrhu
             suggested_hashtags: Hashtags navrhl uživatelům nové návrhy
@@ -201,7 +204,7 @@ cs:
           email_subject: Návrhy jsou nyní k dispozici v %{participatory_space_title}
           notification_title: Nyní můžete předložit <a href="%{resource_path}">nových návrhů</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
-          email_intro: 'Můžete podpořit návrhy v %{participatory_space_title}! Začněte se účastnit této stránky:'
+          email_intro: 'Můžete schválit návrhy v %{participatory_space_title}! Začněte se účastnit této stránky:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Schválení návrhů bylo zahájeno po dobu %{participatory_space_title}
           notification_title: Nyní můžete začít <a href="%{resource_path}">schválení návrhů</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -228,6 +231,7 @@ cs:
             email_subject: Návrh, který sledujete, se hodnotí
             notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> se hodnotí.
         proposal_mentioned:
+          email_intro: Váš návrh "%{mentioned_proposal_title}" byl zmíněn <a href="%{resource_url}">v této skupině</a> v komentářích.
           email_outro: Toto oznámení jste obdrželi, protože jste autorem položky "%{resource_title}".
           email_subject: Váš návrh "%{mentioned_proposal_title}" byl zmíněn
           notification_title: Váš návrh "%{mentioned_proposal_title}" byl zmíněn <a href="%{resource_path}">v tomto prostoru</a> v komentářích.
@@ -308,9 +312,9 @@ cs:
         object: návrhy
         title: Přijaté návrhy
       endorsements:
-        description: Počet potvrzení generovaných v návrzích
-        object: potvrzení
-        title: Potvrzení
+        description: Počet schvalování k návrhům
+        object: schvalování
+        title: Schvalování
       proposals:
         description: Počet vytvořených návrhů
         object: návrhy
@@ -380,9 +384,9 @@ cs:
         proposal_answers:
           form:
             accepted: Přijato
-            answer_proposal: Odpověď
+            answer_proposal: Odpovědět
             evaluating: Hodnocení
-            rejected: Zamítnuto
+            rejected: Odmítnuto
             title: Odpověď na návrh %{title}
         proposal_notes:
           create:
@@ -447,9 +451,9 @@ cs:
             comments_positive_count: Oblíbené
             created_at: Datum vzniku
             documents: Dokumenty
-            endorsements_count: Počet položek
-            endorsements_ranking: Pořadí podle položek
-            endorsers: Podporovatelé
+            endorsements_count: Počet schvalování
+            endorsements_ranking: Pořadí podle schvalování
+            endorsers: Schvalující
             link: Odkaz
             photos: Fotky
             proposals: Návrhy
@@ -513,7 +517,7 @@ cs:
         withdrawn: Staženo
       application_helper:
         filter_category_values:
-          all: Vše
+          all: Všechno
         filter_origin_values:
           all: Všechno
           citizens: Občané
@@ -521,7 +525,7 @@ cs:
           official: Oficiální
           user_groups: Skupiny uživatelů
         filter_scope_values:
-          all: Vše
+          all: Všechno
         filter_state_values:
           accepted: Přijato
           all: Všechno
@@ -687,7 +691,7 @@ cs:
           amend: Pozměňovací návrh
           comment: Komentář
           comments: Komentáře
-          endorse: Potvrďte
+          endorse: Schválit
       proposal_votes:
         create:
           error: Při hlasování o návrhu došlo k chybám.
@@ -781,7 +785,7 @@ cs:
           changes_at_title: Pozměňovací návrh k "%{title}"
           comments: Komentáře
           edit_proposal: Upravit návrh
-          endorsements_list: Seznam doporučení
+          endorsements_list: Seznam Schválení
           estimated_cost: Odhadované náklady
           hidden_endorsers_count:
             one: a %{count} další osoba
@@ -846,6 +850,11 @@ cs:
           step_3: Kompletní
           step_4: Publikujte svůj návrh
           step_of: Krok %{current_step_num} z %{total_steps}
+      proposals_picker:
+        choose_proposals: Vybrat návrhy
+        close: Zavřít
+        more_proposals: Existuje ještě %{number} návrhů. Upřesněte vaše hledání a najděte je.
+        no_proposals: Žádné návrhy neodpovídají zadaným kritériím nebo nejsou k dispozici žádné návrhy.
       publish:
         error: Při publikování návrhu došlo k chybám.
         success: Návrh byl úspěšně publikován.

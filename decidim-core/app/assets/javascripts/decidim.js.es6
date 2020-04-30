@@ -27,6 +27,7 @@
 // = require decidim/check_boxes_tree
 // = require decidim/conversations
 // = require decidim/delayed
+// = require decidim/responsive_horizontal_tabs.js
 // = require_tree ./decidim/vizzs
 
 // = require_self

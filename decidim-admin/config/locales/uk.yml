@@ -243,6 +243,15 @@ uk:
       exports:
         export_as: "%{name} як %{export_format}"
         notice: Зараз відбувається збереження у вигляді файлу. Ви отримаєте електронного листа після його завершення.
+      filters:
+        category_id_eq:
+          label: Категорія
+        officialized_at_null:
+          label: Стан
+          values:
+            'false': Має службовий статус
+            'true': Не має службового статусу
+        search_label: Шукати
       impersonatable_users:
         index:
           filter:
@@ -388,6 +397,9 @@ uk:
             does_not_belong: Неприйнятно
             offensive: Образливе
             spam: Спам
+      newsletter_templates:
+        index:
+          preview_template: Попередній перегляд
       newsletters:
         create:
           error: При спробі створити це розсилання новин сталася помилка.
@@ -401,8 +413,6 @@ uk:
         edit:
           save_and_preview: Зберегти та попередньо переглянути
           title: Редагувати розсилання новин
-        form:
-          interpolations_hint: 'Підказка: Ви можете використовувати "%{name}" будь-де в основному тексті або темі, і воно буде замінене на ім''я одержувача.'
         index:
           confirm_delete: Ви дійсно бажаєте видалити це розсилання новин?
           title: Розсилання новин

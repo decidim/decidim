@@ -265,6 +265,15 @@ pt-BR:
       exports:
         export_as: "%{name} como %{export_format}"
         notice: Sua exportação está atualmente em andamento. Você receberá um e-mail quando estiver completo.
+      filters:
+        category_id_eq:
+          label: Categoria
+        officialized_at_null:
+          label: Situação
+          values:
+            'false': Oficializado
+            'true': Não oficializado
+        search_label: Buscar
       help_sections:
         error: Houve um erro ao atualizar as seções de ajuda
         form:
@@ -417,6 +426,9 @@ pt-BR:
             does_not_belong: Não pertence
             offensive: Ofensivo
             spam: Spam
+      newsletter_templates:
+        index:
+          preview_template: Pré-visualização
       newsletters:
         create:
           error: Ocorreu um erro ao criar este boletim informativo.
@@ -430,8 +442,6 @@ pt-BR:
         edit:
           save_and_preview: Salvar e visualizar
           title: Editar boletim
-        form:
-          interpolations_hint: 'Dica: você pode usar "%{name}" em qualquer parte do corpo ou assunto e será substituído pelo nome do destinatário.'
         index:
           confirm_delete: Deseja mesmo excluir esta newsletter?
           title: Newsletters

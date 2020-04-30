@@ -16,6 +16,20 @@ is-IS:
         copy_proposals: Ég skil að þetta mun flytja allar tillögur úr völdu hlutanum í núverandi og að þessi aðgerð geti ekki snúið við.
         origin_component_id: Hluti til að afrita tillögurnar frá
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          values:
+            'false': Tillögur
+        state_eq:
+          values:
+            accepted: Samþykkt
+            evaluating: Mat
+            rejected: Hafnað
+            withdrawn: Aftakað
+        state_null:
+          values:
+            'true': Ekki svarað
     components:
       proposals:
         actions:
@@ -112,6 +126,10 @@ is-IS:
             name: Tillaga
         proposal_answers:
           form:
+            accepted: Samþykkt
+            answer_proposal: Svara
+            evaluating: Mat
+            rejected: Hafnað
             title: Svar fyrir tillögu %{title}
         proposal_notes:
           create:
@@ -135,7 +153,6 @@ is-IS:
             actions: Aðgerðir
             cancel: Hætta við
             change_category: Breyta flokki
-            publish: Birta
             selected: valin
             title: Tillögur
             update: Uppfæra
@@ -146,6 +163,7 @@ is-IS:
             select_a_proposal: Vinsamlegast veldu tillögu
           show:
             created_at: Sköpunardegi
+            proposals: Tillögur
           update_category:
             select_a_category: Vinsamlegast veldu flokk
             select_a_proposal: Vinsamlegast veldu tillögu
@@ -174,6 +192,8 @@ is-IS:
         filter_origin_values:
           citizens: Borgarar
           official: Opinber
+        filter_state_values:
+          not_answered: Ekki svarað
       models:
         proposal:
           fields:

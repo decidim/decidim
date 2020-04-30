@@ -85,8 +85,11 @@ fi:
         search_placeholder:
           id_string_or_title_cont: '%{collection}: Hae ID-numeron tai otsikon perusteella'
         state_eq:
+          label: Tila
           values:
+            accepted: Hyväksytty
             evaluating: Arvioitavana
+            rejected: Hylätty
             withdrawn: Peruutettu
         state_null:
           label: Tila
@@ -264,7 +267,7 @@ fi:
       badges:
         accepted_proposals:
           conditions:
-            - Valitse kiinnostuksesi mukaan osallisuustila, jossa ehdotusten jättäminen on mahdollista
+            - Valitse kiinnostuksesi mukaan osallistumistila, jossa ehdotusten jättäminen on mahdollista
             - Yritä luoda ehdotuksia, jotka voidaan toteuttaa. Tällä tavoin ne todennäköisesti hyväksytään.
           description: Tämä kunniamerkki myönnetään, kun luot aktiivisesti uusia ehdotuksia ja ne hyväksytään.
           description_another: Tällä käyttäjällä on %{score} hyväksyttyä ehdotusta.
@@ -286,7 +289,7 @@ fi:
           unearned_own: Et ole vielä kannattanut ehdotuksia.
         proposals:
           conditions:
-            - Valitse kiinnostuksesi mukaan osallisuustila, jossa ehdotusten jättäminen on mahdollista
+            - Valitse kiinnostuksesi mukaan osallistumistila, jossa ehdotusten jättäminen on mahdollista
             - Luo uusi ehdotus
           description: Tämä kunniamerkki myönnetään, kun luot aktiivisesti uusia ehdotuksia.
           description_another: Tämä käyttäjä on luonut %{score} ehdotusta.
@@ -373,7 +376,7 @@ fi:
         proposal_answers:
           form:
             accepted: Hyväksytty
-            answer_proposal: Vastaa
+            answer_proposal: Vastaus
             evaluating: Arvioitavana
             rejected: Hylätty
             title: 'Vastaa ehdotukseen: %{title}'
@@ -432,8 +435,8 @@ fi:
           show:
             amendments_count: Muutosten lukumäärä
             assigned_valuators: Arvioijat
-            authors: Laatijat
-            body: Sisältöteksti
+            authors: Tekijät
+            body: Ehdotuksen kuvaus
             comments_count: Kommenttien lukumäärä
             comments_negative_count: Vastaan
             comments_neutral_count: Neutraali
@@ -472,7 +475,7 @@ fi:
             success: "%{number} ehdotusta tuotu onnistuneesti"
           new:
             create: Tuo ehdotuksia
-            no_components: Tässä osallisuustilassa ei ole muita ehdotuskomponentteja ehdotusten tuomiseksi.
+            no_components: Tässä osallistumistilassa ei ole muita ehdotuskomponentteja ehdotusten tuomiseksi.
             select_component: Valitse komponentti
             select_states: Tarkista tuotavien ehdotusten tilat
         proposals_merges:
@@ -761,7 +764,7 @@ fi:
           creation_date: 'Luontiaika: %{date}'
           view_proposal: Näytä ehdotus
         show:
-          answer: Vastaa
+          answer: Vastaus
           back_to: Takaisin
           back_to_list: Takaisin listaan
           changes_at_title: Muokkaus kohteelle "%{title}"
