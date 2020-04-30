@@ -17,11 +17,11 @@
   <%= @report.details %>
 </blockquote>
 
-<p><b><%= t(".content") %></b></p>
-<% if @content_title || @content_body %>
+<% if @content.present? %>
+  <p><b><%= t(".content") %></b></p>
   <blockquote>
-    <h5><%= @content_title %></h5>
-    <p><%= @content_body %></p>
+    <h5><%= translated_attribute @content[:title] %></h5>
+    <p><%= translated_attribute @content[:body] %></p>
   </blockquote>
 <% end %>
 

@@ -39,8 +39,15 @@ module Decidim
         end
 
         it "includes the reported content" do
-          expect(email_body(mail)).to match(reportable.try(:title))
-          expect(email_body(mail)).to match(reportable.try(:body))
+          expect(email_body(mail)).to match(reportable.title["en"])
+          expect(email_body(mail)).to match(reportable.body["en"])
+        end
+
+        it "doesn't include the reported content if it's not present" do
+          reportable.title = nil
+          reportable.body = nil
+
+          expect(email_body(mail)).not_to match("<b>Content</b>")
         end
 
         it "includes the name of the author and a link to their profile" do
