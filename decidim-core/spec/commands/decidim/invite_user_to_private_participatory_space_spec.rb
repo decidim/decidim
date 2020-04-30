@@ -83,7 +83,7 @@ module Decidim
     context "when the user is a member of the private space already" do
       let!(:organization) { create :organization }
       let!(:private_participatory_space) { create(:participatory_process, organization: organization, private_space: true) }
-      let!(:user) { create :user, organization: organization, invitation_accepted_at: DateTime.now }
+      let!(:user) { create :user, organization: organization, invitation_accepted_at: Time.now }
       let!(:participatory_space_private_user) { create :participatory_space_private_user, user: user, privatable_to: private_participatory_space }
 
       before do
