@@ -92,14 +92,21 @@ ar:
     admin:
       filters:
         is_emendation_true:
-          label: النوع
+          label: نوع
           values:
-            'false': مقترحات
+            'false': اقتراحات
             'true': تعديلات
+        state_eq:
+          label: حالة
+          values:
+            accepted: وافقت
+            evaluating: تقييم
+            rejected: مرفوض
+            withdrawn: سحب
         state_null:
           label: الحالة
           values:
-            'true': لم تتم الإجابة عليها
+            'true': بلا جواب
         valuator_role_ids_has:
           label: تم إسناده إلى مُقيِّم
     components:
@@ -349,9 +356,10 @@ ar:
             success: تم تحديث النص التشاركي بنجاح.
         proposal_answers:
           form:
-            accepted: تم قبوله
-            evaluating: قيد التقييم
-            rejected: تم رفضه
+            accepted: وافقت
+            answer_proposal: إجابة
+            evaluating: تقييم
+            rejected: مرفوض
             title: الإجابة على الاقتراح %{title}
         proposal_notes:
           create:
@@ -403,7 +411,7 @@ ar:
           show:
             amendments_count: تعداد التعديلات
             authors: المؤلفون
-            body: المحتوى
+            body: الجسم
             comments_count: تعداد التعليقات
             comments_negative_count: ضد
             comments_neutral_count: محايد
@@ -412,7 +420,7 @@ ar:
             documents: المستندات
             link: الرابط
             photos: الصور
-            proposals: المقترحات
+            proposals: اقتراحات
             ranking: "%{ranking} مِن %{total}"
             related_meetings: ملتقيات ذات صلة
             valuators: المُقيِّمون
@@ -471,7 +479,7 @@ ar:
           accepted: وافقت
           all: الكل
           evaluating: تقييم
-          not_answered: لم تتم الإجابة عليها
+          not_answered: بلا جواب
           rejected: مرفوض
         filter_type_values:
           all: الكل
@@ -527,7 +535,7 @@ ar:
           open: افتح
           published: نشرت
           related_to: متعلق ب
-          scope: النطاق
+          scope: نطاق
           search: بحث
           state: الحالة
           withdrawn: سحب
@@ -674,10 +682,10 @@ ar:
           my_proposals: اقتراحاتي
           origin: الأصل
           related_to: متعلق ب
-          scope: النطاق
+          scope: نطاق
           search: بحث
           state: الحالة
-          type: النوع
+          type: نوع
           voted: أيد
         filters_small_view:
           close_modal: إغلاق مشروط

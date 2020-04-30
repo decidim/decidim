@@ -71,6 +71,24 @@ nl:
         one: Stem
         other: stemmen
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Type
+          values:
+            'false': Voorstellen
+            'true': wijzigingen
+        state_eq:
+          label: Staat
+          values:
+            accepted: Aanvaard
+            evaluating: Aan het beoordelen
+            rejected: Geweigerd
+            withdrawn: Ingetrokken
+        state_null:
+          label: Status
+          values:
+            'true': Nog niet beantwoord
     components:
       proposals:
         actions:
@@ -339,6 +357,10 @@ nl:
             success: Participatieve tekst succesvol bijgewerkt.
         proposal_answers:
           form:
+            accepted: Aanvaard
+            answer_proposal: Antwoord
+            evaluating: Aan het beoordelen
+            rejected: Geweigerd
             title: Antwoord voor voorstel %{title}
         proposal_notes:
           create:
@@ -372,7 +394,7 @@ nl:
             change_category: Categorie wijzigen
             merge: Samenvoegen met een nieuwe
             merge_button: Samensmelten
-            publish: Publiceer
+            publish: Publiceren
             select_component: Selecteer een component
             selected: Geselecteerd
             split: Voorstellen splitsen
@@ -385,7 +407,10 @@ nl:
           publish_answers:
             select_a_proposal: Selecteer een voorstel
           show:
+            authors: auteurs
+            body: Tekstgedeelte
             created_at: Aangemaakt op
+            proposals: Voorstellen
             votes_count: Aantal stemmen
           update_category:
             select_a_category: Gelieve een categorie te selecteren
@@ -423,16 +448,21 @@ nl:
         rejected: Geweigerd
         withdrawn: Ingetrokken
       application_helper:
+        filter_category_values:
+          all: Alle
         filter_origin_values:
           all: Alle
           citizens: Burgers
           meetings: vergaderingen
           official: Officieel
           user_groups: Groepen
+        filter_scope_values:
+          all: Alle
         filter_state_values:
           accepted: Aanvaard
           all: Alle
           evaluating: Evalueren
+          not_answered: Nog niet beantwoord
           rejected: Afgewezen
         filter_type_values:
           all: Alle
@@ -484,6 +514,7 @@ nl:
           open: Open
           published: Gepubliceerd
           related_to: Gerelateerd aan
+          scope: Scope
           search: Zoeken
           state: Status
           withdrawn: teruggetrokken
@@ -620,8 +651,10 @@ nl:
           my_proposals: Mijn voorstellen
           origin: Oorsprong
           related_to: Gerelateerd aan
+          scope: Scope
           search: Zoeken
           state: Status
+          type: Type
           voted: Gestemd
         filters_small_view:
           close_modal: Dialoogvenster sluiten

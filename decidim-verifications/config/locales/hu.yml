@@ -65,10 +65,16 @@ hu:
         name: Kód postai levéllel
     verifications:
       authorizations:
+        authorization_metadata:
+          info: 'Ezek a jelenlegi ellenőrzés adatai:'
+          no_data_stored: Nincs tárolt adat.
         create:
           error: Hiba történt az engedélyezés létrehozása során.
           success: Az engedélyezésed sikeres volt.
           unconfirmed: Meg kell erősítened az e-mailedet, hogy engedélyezd magad.
+        destroy:
+          error: Hiba történt a hitelesítés törlése során.
+          success: Sikeresen törölted a hitelesítést.
         first_login:
           actions:
             another_dummy_authorization_handler: Ellenőrizd az engedélykezelő másik példáját
@@ -77,11 +83,21 @@ hu:
             dummy_authorization_workflow: Ellenőrizd az engedélykezelő munkafolyamatát
             id_documents: Töltsd fel személyazonosító okmányod az ellenőrzéshez
             postal_letter: Igazold magad egy postai levél útján elküldött kód segítségével
+            sms: Hitelesítés SMS-ellenőrző kóddal
           title: Igazold személyazonosságod
           verify_with_these_options: 'Személyazonosságod ellenőrzésének különféle lehetőségei:'
+        index:
+          expired_verification: Hitelesítés lejárt
+          show_renew_info: Kattintson a hitelesítés megújításához
         new:
           authorize: Küldés
           authorize_with: 'Ellenőrizd ezzel: %{authorizer}'
+        renew_modal:
+          cancel: Mégse
+          close: bezár
+          continue: Tovább
+          info_renew: Ha frissíteni akarja az adatokat, folytassa a megújítással
+          title: Hitelesítés megújítása
         skip_verification: Most hagyd ki ezt a lépést és %{link}
         start_exploring: felfedezés indul
       csv_census:

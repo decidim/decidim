@@ -58,17 +58,11 @@ de:
           edit:
             title: Ergebnis bearbeiten
             update: Ergebnis aktualisieren
-          form:
-            add_proposal: Vorschlag hinzufügen
           index:
             title: Ergebnisse
           new:
             create: Ergebnis erstellen
             title: Neues Ergebnis
-          proposals:
-            close: Schließen
-            current_selection: Aktuelle Auswahl
-            select: Wählen
           update:
             invalid: Beim Aktualisieren dieses Ergebnisses ist ein Problem aufgetreten
             success: Ergebnis erfolgreich aktualisiert

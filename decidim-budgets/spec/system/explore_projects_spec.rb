@@ -16,7 +16,7 @@ describe "Explore projects", :slow, type: :system do
     it "shows all resources for the given component" do
       visit_component
       within "#projects" do
-        expect(page).to have_selector(".card--list__item", count: projects_count)
+        expect(page).to have_selector(".budget-list__item", count: projects_count)
       end
 
       projects.each do |project|
@@ -34,7 +34,7 @@ describe "Explore projects", :slow, type: :system do
         end
 
         within "#projects" do
-          expect(page).to have_css(".card--list__item", count: 1)
+          expect(page).to have_css(".budget-list__item", count: 1)
           expect(page).to have_content(translated(project.title))
         end
       end
@@ -52,7 +52,7 @@ describe "Explore projects", :slow, type: :system do
         end
 
         within "#projects" do
-          expect(page).to have_css(".card--list__item", count: 1)
+          expect(page).to have_css(".budget-list__item", count: 1)
           expect(page).to have_content(translated(project.title))
         end
       end
@@ -70,7 +70,7 @@ describe "Explore projects", :slow, type: :system do
         end
 
         within "#projects" do
-          expect(page).to have_css(".card--list__item", count: 1)
+          expect(page).to have_css(".budget-list__item", count: 1)
           expect(page).to have_content(translated(project.title))
         end
       end

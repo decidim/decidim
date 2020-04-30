@@ -182,8 +182,8 @@ cs:
       models:
         assemblies_types:
           fields:
-            created_at: Vytvořeno v
-            title: Název
+            created_at: Vytvořeno u
+            title: Titul
         assembly:
           fields:
             created_at: Vytvořeno u
@@ -259,7 +259,7 @@ cs:
             visbility: Viditelnost
         assemblies_types:
           form:
-            title: Název
+            title: Titul
         assembly_copies:
           form:
             slug_help: 'URL slug se používají k vygenerování adres URL, které odkazují na toto shromáždění. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
@@ -316,6 +316,7 @@ cs:
         home:
           highlighted_assemblies:
             active_assemblies: Aktivní sestavy
+            assemblies_button_title: Odkaz na stránku Shromáždění zobrazující všechna shromáždění
             see_all_assemblies: Podívejte se na všechny sestavy
         user_profile:
           member_of:
@@ -346,17 +347,19 @@ cs:
         related_participatory_processes: Související procesy participace
         scope: Rozsah
         social_networks: Sociální sítě
+        social_networks_title: Sdílet toto shromáždění na
         target: Kdo se účastní
       statistics:
         answers_count: Odpovědi
         assemblies_count: Sestavy
         comments_count: Komentáře
         debates_count: Debaty
-        endorsements_count: Potvrzení
+        endorsements_count: Schválení
         headline: Aktivita
         meetings_count: Setkání
         orders_count: Hlasy
         pages_count: Stránky
+        posts_count: Příspěvky
         projects_count: Projekty
         proposals_count: Návrhy
         results_count: Výsledek
@@ -368,6 +371,11 @@ cs:
         designated_on: Určen pro
       index:
         title: Členové
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Odkaz na stránku Konference zobrazující všechny konference
     help:
       participatory_spaces:
         assemblies:
@@ -387,6 +395,17 @@ cs:
         description: Počet sestav vytvořených
         object: sestav
         title: Sestavy
+    pages:
+      home:
+        hero:
+          participate_title: Účast na procesech platformy
+        sub_hero:
+          register_title: Přihlaste se k vytvoření účtu na platformě
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Odkaz na stránku Procesů zobrazující všechny procesy
   errors:
     messages:
       cannot_be_blank: nemůže být prázdný

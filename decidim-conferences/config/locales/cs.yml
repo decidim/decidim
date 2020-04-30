@@ -161,7 +161,7 @@ cs:
           diploma: Potvrzení o účasti
           info: Info
           media_links: Odkazy na média
-          moderations: Moderátoři
+          moderations: Moderování
           partners: Partneři
           registration_types: Typy registrace
           registrations: Registrace
@@ -470,6 +470,9 @@ cs:
             active_conferences: Aktivní konference
             see_all_conferences: Podívejte se na všechny konference
       photo:
+        image:
+          attributes:
+            alt: Obrázek médií
         show:
           close_modal: Zavřít modální
           photo: Fotografie
@@ -500,7 +503,7 @@ cs:
         comments_count: Komentáře
         conference_count: Konference
         debates_count: Debaty
-        endorsements_count: Potvrzení
+        endorsements_count: Schválení
         headline: Aktivita
         meetings_count: Setkání
         orders_count: Hlasy
