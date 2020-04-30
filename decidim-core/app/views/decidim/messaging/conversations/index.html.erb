@@ -64,7 +64,7 @@
                       <% if conversation.interlocutors(current_user).count == 1 %>
                         <%= image_tag conversation.interlocutors(current_user).first.avatar_url, alt: t("decidim.author.avatar") %>
                       <% else %>
-                        <%= image_tag current_user.avatar.default_url, alt: t("decidim.author.avatar") %>
+                        <%= image_tag current_user.avatar.default_multiuser_url, alt: t("decidim.author.avatar") %>
                       <% end %>
                     </div>
                     <span class="text-medium mt-xs"><%= Date::ABBR_DAYNAMES[conversation.created_at.wday] %> <%= conversation.created_at.wday %></span>

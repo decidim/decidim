@@ -1,5 +1,5 @@
 <main class="wrapper">
-  <div class="tabs-panel is-active" id="conversations" role="tabpanel" aria-labelledby="conversations-label">
+  <div class="columns medium-9 tabs-panel is-active" id="conversations" role="tabpanel" aria-labelledby="conversations-label">
     <div class="conversation">
 
       <div class="conversation-header flex--cc absolutes">
@@ -12,7 +12,7 @@
           <% if participants.count == 1 %>
             <%= image_tag participants.first.avatar_url, alt: t("decidim.author.avatar") %>
           <% else %>
-            <%= image_tag current_user.avatar.default_url, alt: t("decidim.author.avatar") %>
+            <%= image_tag current_user.avatar.default_multiuser_url, alt: t("decidim.author.avatar") %>
           <% end %>
         <% end %>
 
