@@ -69,6 +69,24 @@ tr:
         one: Oy
         other: oy
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: tip
+          values:
+            'false': Teklif
+            'true': Değişiklikler
+        state_eq:
+          label: Belirtmek, bildirmek
+          values:
+            accepted: Kabul edilmiş
+            evaluating: değerlendirilmesi
+            rejected: Reddedilen
+            withdrawn: çekilmiş
+        state_null:
+          label: Belirtmek, bildirmek
+          values:
+            'true': Cevaplanmadı
     components:
       proposals:
         actions:
@@ -329,6 +347,10 @@ tr:
             success: Katılımcı metin başarıyla güncellendi.
         proposal_answers:
           form:
+            accepted: Kabul edilmiş
+            answer_proposal: Cevap
+            evaluating: değerlendirilmesi
+            rejected: Reddedilen
             title: Teklifin cevabı %{title}
         proposal_notes:
           create:
@@ -373,7 +395,10 @@ tr:
           publish_answers:
             select_a_proposal: Lütfen bir teklif seçin
           show:
+            authors: Yazarlar
+            body: Vücut
             created_at: Oluşturulma tarihi
+            proposals: Teklif
             votes_count: Oy sayısı
           update_category:
             select_a_category: Lütfen bir kategori seçin
@@ -411,16 +436,21 @@ tr:
         rejected: Reddedilen
         withdrawn: çekilmiş
       application_helper:
+        filter_category_values:
+          all: Herşey
         filter_origin_values:
           all: Herşey
           citizens: Vatandaşlar
           meetings: Toplantılar
           official: Resmi
           user_groups: Kullanıcı Grupları
+        filter_scope_values:
+          all: Herşey
         filter_state_values:
           accepted: Kabul edilmiş
           all: Herşey
           evaluating: değerlendirilmesi
+          not_answered: Cevaplanmadı
           rejected: Reddedilen
         filter_type_values:
           all: Herşey
@@ -472,6 +502,7 @@ tr:
           open: Açık
           published: Yayınlanan
           related_to: İle ilgili
+          scope: kapsam
           search: Arama
           state: Belirtmek, bildirmek
           withdrawn: çekilmiş
@@ -605,8 +636,10 @@ tr:
           category: Kategori
           origin: Menşei
           related_to: İle ilgili
+          scope: kapsam
           search: Arama
           state: Belirtmek, bildirmek
+          type: tip
           voted: oy
         filters_small_view:
           close_modal: Yakın kalıcı

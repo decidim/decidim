@@ -182,7 +182,7 @@ fi:
           error: Uuden alueen luonti epäonnistui.
           success: Alueen luonti onnistui.
         destroy:
-          has_spaces: Alueella on siitä riippuvia osallisuustiloja. Sillä ei saa olla riippuvuuksia, jotta se voidaan poistaa.
+          has_spaces: Alueella on siitä riippuvia osallistumistiloja. Sillä ei saa olla riippuvuuksia, jotta se voidaan poistaa.
           success: Aluen tuhoaminen onnistui
         edit:
           title: Muokkaa aluetta
@@ -430,7 +430,7 @@ fi:
             name: Nimi
           name: OAuth-sovellus
         participatory_space_private_user:
-          name: Osallisuustilan yksityinen käyttäjä
+          name: Osallistumistilan yksityinen käyttäjä
         scope:
           fields:
             name: Nimi
@@ -471,6 +471,9 @@ fi:
             does_not_belong: Ei kuulu
             offensive: Loukkaava
             spam: Roskaposti
+      newsletter_templates:
+        index:
+          preview_template: Esikatsele
       newsletters:
         create:
           error: Uutiskirjeen luonti epäonnistui.
@@ -484,8 +487,6 @@ fi:
         edit:
           save_and_preview: Tallenna ja esikatsele
           title: Muokkaa uutiskirjettä
-        form:
-          interpolations_hint: 'Vihje: Voit käyttää "%{name}" -merkkijonoa missä tahansa viestin rungossa, mikä korvataan vastaanottajan nimellä.'
         index:
           all: kaikki
           all_users: 'Kaikki käyttäjät '
@@ -507,9 +508,9 @@ fi:
           all_users_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille.
           confirm_deliver: Haluatko varmasti toimittaa tämän uutiskirjeen? Tätä toimintoa ei voi peruuttaa.
           deliver: Toimita uutiskirje
-          followers_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille, jotka seuraavat jotain listan osallisuustiloista.
+          followers_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille, jotka seuraavat jotain listan osallistumistiloista.
           none: Ei kenellekään
-          participants_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille, jotka ovat osallistuneet jossain listan valituista osallisuustiloista.
+          participants_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille, jotka ovat osallistuneet jossain listan valituista osallistumistiloista.
           recipients_count: Tämä uutiskirje lähetetään <strong id='recipients_count'>%{count}</strong>:lle käyttäjälle.
           scopes_help: Lähetä uutiskirje käyttäjille, jotka ovat valinneet minkä tahansa teeman heidän tilinsä "Kiinnostuksen kohteet" -asetuksesta.
           select_scopes: Suodata käyttäjiä, jotka ovat valinneet minkä tahansa teeman tilinsä "Kiinnostuksen kohteet" -asetuksesta.
@@ -563,12 +564,20 @@ fi:
           officialize: Virallista
           officialized: Virallistettu
           reofficialize: Virallista uudestaan
+          show_email: Näytä sähköpostiosoite
           status: Tila
           unofficialize: Poista virallistaminen
         new:
           badge: Virallistamismerkki
           officialize: Virallista
           title: Virallista käyttäjä "%{name}"
+        show_email_modal:
+          description: Jos haluat ottaa suoraan yhteyttä osallistujaan, voit klikata Näytä-painiketta nähdäksesi hänen sähköpostiosoitteensa. Tästä toiminnosta jää jälki lokiin.
+          email_address: Sähköpostiosoite
+          full_name: Koko nimi
+          hidden: piilotettu
+          show: Näytä
+          title: Näytä osallistujan sähköpostiosoite
       organization:
         edit:
           title: Muokkaa organisaatiota
@@ -606,23 +615,23 @@ fi:
           update: Päivitä
       participatory_space_private_users:
         create:
-          error: Yksityisen käyttäjän lisääminen tähän osallisuustilaan epäonnistui.
-          success: Osallisuustilaa koskeva yksityisen käyttäjän käyttöoikeuden lisäys onnistui.
+          error: Yksityisen käyttäjän lisääminen tähän osallistumistilaan epäonnistui.
+          success: Osallistumistilaa koskeva yksityisen käyttäjän käyttöoikeuden lisäys onnistui.
         destroy:
-          error: Osallisuustilan yksityisen käyttäjän poistaminen epäonnistui.
-          success: Osallisuustilaa koskeva yksityisen käyttäjän käyttöoikeuden tuhoaminen onnistui.
+          error: Osallistumistilan yksityisen käyttäjän poistaminen epäonnistui.
+          success: Osallistumistilaa koskeva yksityisen käyttäjän käyttöoikeuden tuhoaminen onnistui.
         index:
           import_via_csv: Tuo CSV-tiedostosta
-          title: Osallisuustilan yksityinen käyttäjä
+          title: Osallistumistilan yksityinen käyttäjä
         new:
           create: Luo
-          title: Uusi osallisuustilan yksityinen käyttäjä.
+          title: Uusi osallistumistilan yksityinen käyttäjä.
       participatory_space_private_users_csv_imports:
         create:
           invalid: CSV-tiedostossa on ongelma.
           success: CSV-tiedosto ladattu onnistuneesti. Lähetämme kutsusähköpostin osallistujille. Tämä voi kestää hetken.
         new:
-          explanation: 'Lataa CSV-tiedosto osallisuustilan käyttäjistä. Tiedostossa on oltava kaksi saraketta tuotaville käyttäjille ilman sarakeotsikoita: sähköpostiosoitteet ensimmäisessä ja nimi toisessa sarakkeessa (sähköposti, nimi). '
+          explanation: 'Lataa CSV-tiedosto osallistumistilan käyttäjistä. Tiedostossa on oltava kaksi saraketta tuotaville käyttäjille ilman sarakeotsikoita: sähköpostiosoitteet ensimmäisessä ja nimi toisessa sarakkeessa (sähköposti, nimi).'
           title: Lataa CSV-tiedosto
           upload: Lataa
       resource_permissions:
