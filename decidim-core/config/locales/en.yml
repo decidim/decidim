@@ -994,6 +994,9 @@ en:
         report_html: <p>The following <a href="%{url}">content</a> has been hidden automatically.</p>
         subject: A resource has been hidden automatically
       report:
+        authors: Authors
+        content: Reported content
+        date: Reported on
         details: Details
         hello: Hello %{name},
         manage_moderations: Manage moderations
@@ -1001,9 +1004,6 @@ en:
         reason: Reason
         report_html: <p>The following <a href="%{url}">content</a> has been reported.</p>
         subject: A resource has been reported
-        authors: Authors
-        content: Reported content
-        date: Reported on
     reports:
       create:
         error: An error ocurred while creating the report. Please, try it again.
