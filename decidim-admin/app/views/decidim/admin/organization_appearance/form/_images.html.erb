@@ -7,40 +7,40 @@
     <svg id="minimap" width="400" height="300" background="#000">
       <% primary_color = current_organization.colors["primary"] %>
 
-      <rect id="body" width="380" height="280" x="10" y="36" fill="#999" />
-      <rect id="footer" width="380" height="36" x="10" y="264" fill="#000" />
-      <rect id="tab" width="120" height="24" x="10" y="10" fill="#DDD" />
-      <rect id="header" width="380" height="36" x="10" y="30" fill="#000"/>
-      <rect id="subheader" width="380" height="18" x="10" y="64" fill="#333"/>
+      <rect id="body" width="400" height="280" x="0" y="36" fill="#999" />
+      <rect id="footer" width="400" height="36" x="0" y="264" fill="#000" />
+      <rect id="tab" width="120" height="20" x="0" y="0" fill="#DDD" />
+      <rect id="header" width="400" height="36" x="0" y="20" fill="#000"/>
+      <rect id="subheader" width="400" height="18" x="0" y="56" fill="#333"/>
 
-      <text fill="#000" font-size="8" font-family="Verdana" x="32" y="24"><%= current_organization.name %></text>
+      <text fill="#000" font-size="8" font-family="Verdana" x="22" y="14"><%= current_organization.name %></text>
       
       <% if current_organization.favicon.present? %>
-        <image id="favicon" width="16" height="16" x="12" y="12" xlink:href="<%= current_organization.favicon %>"/>
+        <image id="favicon" width="16" height="16" x="2" y="2" xlink:href="<%= current_organization.favicon %>"/>
       <% else %>
-        <rect id="favicon" width="16" height="16" x="12" y="12" fill="<%= primary_color %>"/>
-        <text fill="#fff" font-size="12" font-family="Verdana" x="16" y="24">1</text>
+        <rect id="favicon" width="16" height="16" x="2" y="2" fill="<%= primary_color %>"/>
+        <text fill="#fff" font-size="12" font-family="Verdana" x="6" y="14">1</text>
       <% end %>
       
       <% if current_organization.logo.present? %>
-        <image id="logo" width="84" height="25" x="16" y="34" xlink:href="<%= current_organization.logo %>"/>
+        <image id="logo" width="84" height="25" x="6" y="24" xlink:href="<%= current_organization.logo %>"/>
       <% else %>
-        <rect id="logo" width="84" height="25" x="16" y="34" fill="<%= primary_color %>"/>
-        <text fill="#fff" font-size="12" font-family="Verdana" x="22" y="50">2</text>
+        <rect id="logo" width="84" height="25" x="6" y="24" fill="<%= primary_color %>"/>
+        <text fill="#fff" font-size="12" font-family="Verdana" x="12" y="40">2</text>
       <% end %>
       
       <% if current_organization.official_img_header.present? %>
-        <image id="official_img_header" width="32" height="16" x="358" y="38" xlink:href="<%= current_organization.official_img_header %>"/>
+        <image id="official_img_header" width="48" height="16" x="360" y="28" xlink:href="<%= current_organization.official_img_header %>"/>
       <% else %>
-        <rect id="official_img_header" width="32" height="16" x="358" y="38" fill="<%= primary_color %>"/>
-        <text fill="#fff" font-size="12" font-family="Verdana" x="360" y="50">3</text>
+        <rect id="official_img_header" width="48" height="16" x="360" y="28" fill="<%= primary_color %>"/>
+        <text fill="#fff" font-size="12" font-family="Verdana" x="364" y="40">3</text>
       <% end %>
       
       <% if current_organization.official_img_footer.present? %>
-        <image id="official_img_footer" width="35" height="11" x="10" y="270" xlink:href="<%= current_organization.official_img_footer %>"/>
+        <image id="official_img_footer" width="35" height="11" x="0" y="270" xlink:href="<%= current_organization.official_img_footer %>"/>
       <% else %>
-        <rect id="official_img_footer" width="35" height="11" x="10" y="270" fill="<%= primary_color %>"/>
-        <text fill="#fff" font-size="12" font-family="Verdana" x="14" y="280">4</text>
+        <rect id="official_img_footer" width="35" height="11" x="0" y="270" fill="<%= primary_color %>"/>
+        <text fill="#fff" font-size="12" font-family="Verdana" x="4" y="280">4</text>
       <% end %>
 
     </svg>
@@ -61,7 +61,7 @@
       </div>
 
       <div class="columns xlarge-6 preview-official_img_footer">
-        <%= form.upload :official_img_footer %> <%# 336*100 %>
+        <%= form.upload :official_img_footer %> <%# 140*45 %>
       </div>
     </div>
 
