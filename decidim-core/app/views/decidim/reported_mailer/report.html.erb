@@ -15,10 +15,12 @@
 <p><b><%= t(".reason") %></b></p>
 <p><%= @report.reason %></p>
 
-<p><b><%= t(".details") %></b></p>
-<blockquote>
-  <%= @report.details %>
-</blockquote>
+<% if @report.details.present? %>
+  <p><b><%= t(".details") %></b></p>
+  <blockquote>
+    <%= @report.details %>
+  </blockquote>
+<% end %>
 
 <% if @content.present? %>
   <p><b><%= t(".content") %></b></p>
