@@ -9,3 +9,6 @@ sr:
           '2': Compare your amendment
           '3': Complete your amendment
           '4': Publish your amendment
+    content_blocks:
+      stats:
+        name: Statistika organizacije
