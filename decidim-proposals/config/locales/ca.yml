@@ -400,10 +400,8 @@ ca:
             title: Actualitza la proposta
             update: Actualizar
           form:
-            add_images: Afegeix imatges
             attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
             created_in_meeting: Aquesta proposta prové d'una trobada
-            gallery_legend: "(Opcional) Afegeix una galeria d'imatges"
             select_a_category: Selecciona una categoria
             select_a_meeting: Selecciona una trobada
           index:
