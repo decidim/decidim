@@ -30,3 +30,16 @@ sr:
     application:
       document:
         download: Preuzmi datoteku
+    content_blocks:
+      hero_settings_form:
+        background_image: Pozadinska slika
+        welcome_text: Tekst dobrodošlice
+      stats:
+        name: Statistika organizacije
+    endorsement_buttons_cell:
+      already_endorsed: Podržano
+      endorse: Podrži
+    endorsements:
+      identities:
+        done: Gotovo
+        select_identity: Izaberite identitet
