@@ -400,10 +400,8 @@ fi:
             title: Päivitä ehdotusta
             update: Päivitä
           form:
-            add_images: Lisää kuvia
             attachment_legend: "(Valinnainen) Lisää liite"
             created_in_meeting: Tämä ehdotus on luotu tapaamisessa
-            gallery_legend: "(Vapaaehtoinen) Lisää kuvagalleria"
             select_a_category: Valitse aihepiiri
             select_a_meeting: Valitse tapaaminen
           index:

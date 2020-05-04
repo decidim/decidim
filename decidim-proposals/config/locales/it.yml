@@ -380,10 +380,8 @@ it:
             title: Aggiorna proposta
             update: Aggiornare
           form:
-            add_images: Aggiungi immagini
             attachment_legend: "(Opzionale) Aggiungere un allegato"
             created_in_meeting: Questa proposta proviene da una riunione
-            gallery_legend: "(Opzionale) Aggiungi una galleria di immagini"
             select_a_category: Scegli una categoria
             select_a_meeting: Seleziona una riunione
           index:

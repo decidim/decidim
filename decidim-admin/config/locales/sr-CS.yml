@@ -39,6 +39,13 @@ sr:
         search_placeholder:
           name_or_nickname_or_email_cont: Pretraži %{collection} prema e-pošti, imenu ili nadimku.
           title_cont: Pretraži %{collection} prema nazivu.
+      newsletter_templates:
+        index:
+          title: Šabloni biltena
+          use_template: Koristite ovaj šablon
+        show:
+          preview: 'Pregledajte šablon %{template_name}'
+          use_template: Koristite ovaj šablon
       newsletters:
         index:
           subscribed_count: 'Pratioci:'
@@ -57,3 +64,8 @@ sr:
       organization:
         form:
           rich_text_editor_in_public_views_help: U pojedinim delovima teksta učesnici će uz pomoć programa moći da ubace HTML oznake.
+      shared:
+        gallery:
+          add_images: Dodaj slike
+          delete_image: Obriši Sliku
+          gallery_legend: Dodaj galeriju slika (opciono)

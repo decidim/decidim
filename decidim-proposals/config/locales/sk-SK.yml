@@ -408,10 +408,8 @@ sk:
             title: Návrh aktualizácie
             update: Aktualizácia
           form:
-            add_images: Pridať obrázky
             attachment_legend: "(Voliteľné) Pridanie prílohy"
             created_in_meeting: Tento návrh pochádza z rokovania
-            gallery_legend: "(Voliteľne) Pridať galériu obrázkov"
             select_a_category: Vyberte kategóriu
             select_a_meeting: Vyberte schôdzku
           index:
