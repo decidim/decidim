@@ -28,6 +28,7 @@
 // = require decidim/conversations
 // = require decidim/delayed
 // = require decidim/vizzs
+// = require decidim/responsive_horizontal_tabs.js
 
 // = require_self
 // = require decidim/floating_help
