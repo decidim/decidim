@@ -79,10 +79,12 @@ sk:
             update: Aktualizácia
           form:
             all_categories: Všetky kategórie
-            select_proposal_component: Vyberte návrhy
+            select_proposal_component: Vyberte sadu návrhov
             title: Nové návrhy na návrhy
+          index:
+            title: Voľby losovaním
           new:
-            confirm: Stlačením ďalšieho tlačidla Decidim zaznamenáte dátum a čas (s presnosťou na sekundy) a spoločne s kolieskom o kockách budú tieto informácie použité pre generovanie náhodného výberu. Akcia bude nevratná, po kliknutí na tlačidlo sa výsledky tejto kresby uverejní s údajmi uvedenými v tomto formulári a nemožno ich zmeniť, skontrolujte prosím pozorne obsah
+            confirm: Stlačením ďalšieho tlačidla Decidim zaznamená dátum a čas (s presnosťou na sekundy) a spoločne s hodom kockami budú tieto informácie použité pre generovanie náhodného výberu. Akcia bude nevratná, po kliknutí na tlačidlo sa výsledky tejto kresby uverejní s údajmi uvedenými v tomto formulári a nemožno ich zmeniť, skontrolujte prosím pozorne obsah
             create: Vytvoriť
             title: Nové rozvrhnutie
           show:
@@ -92,13 +94,13 @@ sk:
             success: Sortifikace bola úspešne aktualizovaná
       admin_log:
         sortition:
-          create: "% {USER_NAME} vytvoril% {resource_name} sortit v% {space_name}"
-          delete: "% {USER_NAME} zrušil% {resource_name} sortit v% {space_name}"
-          update: "% {USER_NAME} aktualizoval% {resource_name} Soroti v% {space_name}"
+          create: "%{user_name} vytvoril %{resource_name} voľbu v priestore %{space_name}"
+          delete: "%{user_name} zrušil %{resource_name} voľbu v priestore %{space_name}"
+          update: "%{user_name} aktualizoval %{resource_name} voľbu v priestore %{space_name}"
       sortitions:
         count:
           proposals_count:
-            one: 1
+            one: 1 návrh
             few: "%{count} návrhov"
             many: "%{count} návrhov"
             other: "%{count} návrhov"
@@ -112,7 +114,9 @@ sk:
           state: Štát
         filters_small_view:
           close_modal: Zatvoriť modálne
+          filter: Filtrovať
           filter_by: Filtrovať podľa
+          unfold: Rozbaliť
         linked_sortitions:
           selected_proposals: Vybrané návrhy
         orders:
@@ -133,15 +137,15 @@ sk:
           candidate_proposal_ids: žrebovacie volbaní objednávky a ID
           candidate_proposals_info: 'Rozbor bol vykonaný medzi nasledujúcimi návrhmi (%{category_label}), s nasledujúcimi ID (označené tučne vybranými návrhy)'
           category: z kategórie %{category}
-          dice_result: "(1) Výsledok kocky"
-          introduction: 'Táto stránka obsahuje výsledky výberu% {referencie}. Prostredníctvom tohto výberu bolo vybratých% {target_items} počet výsledkov náhodne a s rovnakým rozdelením pravdepodobnosti zo súboru návrhov zobrazených nižšie. Spolu s výsledkami informácie zobrazené na tejto stránke poskytujú všetky informácie potrebné pre maximalizáciu záruk a reprodukciu výsledkov. Kľúčom k kvalite tohto rozvratu je dvojitá náhodnosť, ktorú poskytuje viazanie kocky (overené svedkami) a presný čas výberu, ktorý poskytuje vstup pre algoritmus, ktorý generuje náhodný výber. Časové osivo pre žrebovacie voľba je tak presné (sekundy), že nie je možné ovládať ľudí, a tak poskytnúť dvojitý "nekontrolovateľný" vstup, ktorý zaručí spravodlivý výsledok. '
+          dice_result: "(1) Výsledok hodu kockou"
+          introduction: 'Táto stránka obsahuje výsledky voľby losovaním %{referencie}. Prostredníctvom tohto výberu bolo vybratých %{target_items} výsledkov náhodne a s rovnakým rozložením pravdepodobnosti zo súboru návrhov zobrazených nižšie. Spolu s výsledkami informácie zobrazenými na tejto stránke poskytujú všetky informácie potrebné pre maximalizáciu záruk a reprodukciu výsledkov. Kľúčom ku kvalite tejto voľby je dvojitá náhodnosť, ktorú poskytuje hod kockou (overený svedkami) a presný čas výberu, ktorý poskytuje vstup pre algoritmus, ktorý generuje náhodný výber. Časový údaj pre voľbu je tak presný (sekundy), že nie je možné ovládať ho ľudsky, a tak poskytuje dvojitý, "nekontrolovateľný" vstup, ktorý zaručí spravodlivý výsledok. '
           mathematical_result: Výsledok (1) x (2)
           proposals_selected_by_sortition: Návrhy vybrané výberom
-          sortition_reproducibility_details: Sortifikace reprodukovateľnosti
-          time_seed: "(2) Časové osivo"
+          sortition_reproducibility_details: Detaily reprodukcie voľby losovaním
+          time_seed: "(2) Časový údaj"
           witnesses: Svedkovia
         sortition:
-          random_seed: Náhodné osivo
+          random_seed: Náhodne generovaný prvok
           selected_proposals:
             one: vybraný návrh
             few: vybraných návrhov

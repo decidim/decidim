@@ -367,10 +367,8 @@ de:
             title: Vorschlag aktualisieren
             update: Aktualisieren
           form:
-            add_images: Bilder hinzufügen
             attachment_legend: "(Optional) Anhang hinzufügen"
             created_in_meeting: Dieser Vorschlag stammt von einer Besprechung
-            gallery_legend: "(Optional) Bildergalerie hinzufügen"
             select_a_category: Kategorie auswählen
             select_a_meeting: Besprechung auswählen
           index:

@@ -20,6 +20,7 @@ jobs:
   main:
     name: Tests
     runs-on: ubuntu-latest
+    if: "!startsWith(github.head_ref, 'l10n_')"
     services:
       postgres:
         image: postgres:11

@@ -289,6 +289,7 @@ sk:
           form:
             available_slots_help: Nechajte to na 0, ak máte k dispozícii neobmedzené sloty.
             invites: Pozvánky
+            recommendation_message: Z dôvodov zachovania súkromia odporúčame, aby ste vymazali tento prihlasovací formulár, ak ho už nepoužívate. Podľa nastavenia sa vymaže 3 mesiace po ukončení stretnutia.
             registration_form: Registračný formulár
             registrations_count:
               one: Bola tu registrácia%{count}.
