@@ -138,6 +138,7 @@ fi-pl:
         invite: "%{user_name} kutsui käyttäjän %{resource_name} roolilla: %{role}"
         officialize: "%{user_name} virallisti käyttäjän %{resource_name}"
         remove_from_admin: "%{user_name} poisti käyttäjän %{resource_name} roolilla: %{role}"
+        show_email: "%{user_name} tarkasteli osallistujan %{resource_name} sähköpostiosoitetta"
         unofficialize: "%{user_name} poisti käyttäjän %{resource_name} virallistamisen"
       user_group:
         reject: "%{user_name} hylkäsi käyttäjäryhmän %{resource_name} vahvistaminen"
@@ -250,6 +251,7 @@ fi-pl:
         explanation: Vahvista tilisi syöttämällä passin numero, joka alkaa kirjaimella "A"
         fields:
           passport_number: Passin numero
+          postal_code: Postinumero
         name: Toinen esimerkkivarmennustapa
       dummy_authorization_handler:
         explanation: Vahvista tilisi syöttämällä asiakirjan numero, joka pääättyy kirjaimeen "X"
@@ -791,6 +793,7 @@ fi-pl:
         create:
           error: Keskustelua ei aloitettu. Yritä myöhemmin uudelleen
         index:
+          close: Sulje ikkuna
           no_conversations: Sinulla ei vielä ole keskusteluja
           title: Keskustelut
         reply:
