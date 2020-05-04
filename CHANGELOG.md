@@ -72,6 +72,7 @@ Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on 
 
 ### Fixed
 
+- **decidim-core**: Fix broken puma version in generator's Gemfile. [\#6060](https://github.com/decidim/decidim/pull/6060)
 - **decidim-core,decidim-system**: Fix using Decidim as a provider for omniauth authentication. [\#6042](https://github.com/decidim/decidim/pull/6042)
 - **decidim-proposals**: Fix missing values for filter values in proposals admin. [\#6013](https://github.com/decidim/decidim/pull/6013)
 - **decidim-api**: Fix broken documentation if using Decidim from a Gem. [\#5996](https://github.com/decidim/decidim/pull/5996)
