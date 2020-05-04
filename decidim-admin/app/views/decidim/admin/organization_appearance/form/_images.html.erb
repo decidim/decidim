@@ -47,21 +47,21 @@
 
     <div class="row">
       <div class="columns xlarge-6 preview-logo">
-        <%= form.upload :logo %> <%# 336*100 %>
+        <%= form.upload :logo, versions_info: current_organization.logo.versions_info %>
       </div>
 
       <div class="columns xlarge-6 preview-favicon">
-        <%= form.upload :favicon %> <%# 64*64 %>
+        <%= form.upload :favicon, versions_info: current_organization.favicon.versions_info %>
       </div>
     </div>
 
     <div class="row">
       <div class="columns xlarge-6 preview-official_img_header">
-        <%= form.upload :official_img_header %> <%# 128*128 %>
+        <%= form.upload :official_img_header, versions_info: current_organization.official_img_header.versions_info %>
       </div>
 
       <div class="columns xlarge-6 preview-official_img_footer">
-        <%= form.upload :official_img_footer %> <%# 140*45 %>
+        <%= form.upload :official_img_footer, versions_info: current_organization.official_img_footer.versions_info %>
       </div>
     </div>
 

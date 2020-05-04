@@ -22,7 +22,8 @@ module Decidim
       end
     end
 
-    def processor_dimensions
+    # Fetches info about different versions, their processors and dimensions
+    def versions_info # TODO: spec
       versions.map do |version, info|
         [
           version,

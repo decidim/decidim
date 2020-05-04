@@ -22,11 +22,9 @@ module Decidim
     # html_options - a Hash with options
     #
     # Renders a collection of check boxes.
-    # rubocop:disable Metrics/ParameterLists
     def collection_check_boxes(attribute, collection, value_attribute, text_attribute, options = {}, html_options = {})
       super + error_and_help_text(attribute, options)
     end
-    # rubocop:enable Metrics/ParameterLists
 
     # Public: generates a radio buttons input from a collection and adds help
     # text and errors.
@@ -39,11 +37,9 @@ module Decidim
     # html_options    - a Hash with options
     #
     # Renders a collection of radio buttons.
-    # rubocop:disable Metrics/ParameterLists
     def collection_radio_buttons(attribute, collection, value_attribute, text_attribute, options = {}, html_options = {})
       super + error_and_help_text(attribute, options)
     end
-    # rubocop:enable Metrics/ParameterLists
 
     # Public: Generates an form field for each locale.
     #
@@ -377,6 +373,20 @@ module Decidim
       template += label(attribute, label_for(attribute) + required_for_attribute(attribute))
       template += @template.file_field @object_name, attribute
 
+      if options[:versions_info].present?
+        template += content_tag :p, class: "versions--info description" do
+          I18n.t("versions_info", scope: "decidim.forms.images")
+        end
+        template += content_tag :div, class: "versions--info" do
+          safe_join(options[:versions_info].map do |_version, info|
+            safe_join([
+                        @template.label_tag(I18n.t("processors.#{info[:processor]}", scope: "decidim.forms.images")),
+                        @template.content_tag(:span, I18n.t("dimensions", scope: "decidim.forms.images", width: info[:dimensions].first, height: info[:dimensions].last))
+                      ])
+          end)
+        end
+      end
+
       if file_is_image?(file)
         template += if file.present?
                       @template.content_tag :label, I18n.t("current_image", scope: "decidim.forms")
@@ -554,8 +564,6 @@ module Decidim
     # options   - A Hash to build the label.
     #
     # Returns a String.
-    # rubocop:disable Metrics/CyclomaticComplexity
-    # rubocop:disable Metrics/PerceivedComplexity
     def custom_label(attribute, text, options, field_before_label = false, show_required = true)
       return block_given? ? yield.html_safe : "".html_safe if text == false
 
@@ -570,8 +578,6 @@ module Decidim
 
       label(attribute, text, options || {})
     end
-    # rubocop:enable Metrics/PerceivedComplexity
-    # rubocop:enable Metrics/CyclomaticComplexity
 
     # Private: Builds a span to be shown when there's a validation error in a field.
     # It looks for the text that will be the content in a similar way `human_attribute_name`
