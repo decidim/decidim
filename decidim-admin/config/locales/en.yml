@@ -389,6 +389,9 @@ en:
         static_pages: Pages
         user_groups: Groups
         users: Participants
+      metrics:
+        metrics:
+          see_more_metrics: See more metrics
       models:
         area:
           fields:
@@ -733,6 +736,7 @@ en:
         dashboard: Dashboard
         impersonatable_users: Manageable participants
         impersonations: Participants management
+        metrics: Metrics
         participants: Participants
         scope_types: Scope types
         scopes: Scopes

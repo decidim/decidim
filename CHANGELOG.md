@@ -51,6 +51,7 @@ Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on 
 - **decidim-core**: Add newsletter templates [\#5887](https://github.com/decidim/decidim/pull/5887)
 - **decidim-core**: Fix clearing the current_user after sign out [#5823](https://github.com/decidim/decidim/pull/5823)
 - **decidim-budgets**: Send email with summary on order checkout [\#6006](https://github.com/decidim/decidim/pull/6006)
+- **decidim-admin**: Show activity charts on admin dashboard [\#6030](https://github.com/decidim/decidim/pull/6030)
 - **decidim-budgets**: Projects filter by multiple categories [\#5992](https://github.com/decidim/decidim/pull/5992)
 - **decidim-budgets**: Improve the budget page and the project card [\#5809](https://github.com/decidim/decidim/pull/5809)
 
