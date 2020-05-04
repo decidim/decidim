@@ -1,1 +1,26 @@
 sr:
+  activemodel:
+    attributes:
+      participatory_process:
+        scope_type_max_depth_id: Obim dubine filtera
+        show_metrics: Prikaži metriku
+  decidim:
+    admin:
+      models:
+        participatory_process_user_role:
+          roles:
+            valuator: Procenjivač
+      participatory_process_user_roles:
+        edit:
+          title: Ažuriraj administratora participatornog procesa
+        new:
+          title: Novi administrator participatornog prostora
+    participatory_processes:
+      admin:
+        participatory_processes:
+          form:
+            scope_type_max_depth_help: Ograniči obim dubine filtera; Filter će pokazivati od opšteg ka odabranom tipu obima.
+      statistics:
+        followers_count: Pratioci
+        headline: Statistika
+        no_stats: Još nema statistike.

@@ -1,1 +1,6 @@
 sr:
+  decidim:
+    meetings:
+      registrations:
+        create:
+          success: Uspešno ste se pridružili sastanku. Zbog toga što ste se registrovali za ovaj sastanak, bićete obavešteni ako bude nekih promena u vezi sa njim.

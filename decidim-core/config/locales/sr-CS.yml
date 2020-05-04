@@ -9,3 +9,26 @@ sr:
           '2': Compare your amendment
           '3': Complete your amendment
           '4': Publish your amendment
+    content_blocks:
+      stats:
+        name: Statistika organizacije
+    export_mailer:
+      data_portability_export:
+        click_button: 'Kliknite na sledeće dugme da bi preuzeli svoje podatke u obliku datoteke.<br/> Moći ćete da pristupite ovom linku do %{date}. <br/> Biće vam potreban program kao što je <a href=''https://www.7-zip.org/''>7-zip</a> da bi ga otvorili. Šifra za otpakivanje datoteke:%{password}'
+    follows:
+      create:
+        participatory_space: Već pratite prostor za diskusiju
+    pages:
+      home:
+        metrics:
+          headline: Metrika
+      participatory_space:
+        metrics:
+          headline: Metrika
+          link: Prikaži svu metriku
+  errors:
+    messages:
+      invalid_time_zone: nije validna vremenska zona
+  versions:
+    dropdown:
+      choose_diff_view_html: 'HTML režim gledanja:'
