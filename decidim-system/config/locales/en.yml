@@ -64,7 +64,12 @@ en:
           secondary_hosts_hint: Enter each one of them in a new line
           title: New organization
         omniauth_settings:
+          decidim:
+            client_id: Client ID
+            client_secret: Client secret
+            site_url: Site URL
           enabled: Enabled
+          enabled_by_default: This provider is enabled by default. It can be edited but not disabled.
           facebook:
             app_id: App ID
             app_secret: App secret
