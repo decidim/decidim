@@ -274,6 +274,15 @@ de:
       exports:
         export_as: "%{name} als %{export_format}"
         notice: Ihr Export wird gerade ausgeführt. Sie erhalten nach Fertigstellung eine E-Mail.
+      filters:
+        category_id_eq:
+          label: Kategorie
+        officialized_at_null:
+          label: Zustand
+          values:
+            'false': Offizialisiert
+            'true': Nicht offiziell
+        search_label: Suche
       help_sections:
         error: Beim Aktualisieren der Hilfeabschnitte ist ein Fehler aufgetreten
         form:
@@ -427,6 +436,9 @@ de:
             does_not_belong: Gehört nicht
             offensive: Beleidigend
             spam: Spam
+      newsletter_templates:
+        index:
+          preview_template: Vorschau
       newsletters:
         create:
           error: Beim Erstellen dieses Newsletters ist ein Fehler aufgetreten.
@@ -440,8 +452,6 @@ de:
         edit:
           save_and_preview: Speichern und Vorschau
           title: Newsletter bearbeiten
-        form:
-          interpolations_hint: 'Tipp: Sie können "%{name}" an beliebiger Stelle im Hauptteil oder Betreff verwenden und sie wird durch den Namen des Empfängers ersetzt.'
         index:
           all: Alle
           all_users: 'Alle Benutzer'

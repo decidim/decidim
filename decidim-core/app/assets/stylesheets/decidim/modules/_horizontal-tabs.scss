@@ -63,3 +63,57 @@
     outline: 2px solid $secondary;
   }
 }
+
+.responsive-tab-block{
+  @media only screen and (max-width: 639px){
+    overflow: hidden;
+    height: 44px;
+
+    & > ul.tabs{
+      flex-direction: column;
+
+      & > li{
+        flex: 0 0 auto;
+
+        &.is-active{
+          -webkit-box-ordinal-group: -1; // fixes older Safari issues
+          order: -1;
+
+          &::before{
+            display: block;
+            content: " ";
+            font-weight: normal;
+            float: right;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid #f00;
+            margin-top: 20px;
+          }
+
+          & > a:focus{
+            outline: 0 !important;
+          }
+        }
+
+        & > a{
+          border-bottom: 3px solid transparent;
+          color: green;
+
+          &:focus{
+            outline: 0 !important;
+          }
+        }
+      }
+    }
+
+    &.expanded{
+      height: auto;
+
+      & > ul.tabs > li.is-active::before{
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

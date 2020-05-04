@@ -677,6 +677,11 @@ en:
         update:
           error: There was a problem updating this scope.
           success: Scope updated successfully
+      shared:
+        gallery:
+          add_images: Add images
+          delete_image: Delete Image
+          gallery_legend: Add an image gallery (Optional)
       static_page_topics:
         create:
           error: There was a problem creating a new topic.

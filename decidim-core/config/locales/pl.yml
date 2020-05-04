@@ -86,6 +86,9 @@ pl:
         error: Podczas aktualizowania konta wystąpił błąd.
         success: Twoje konto zostało zaktualizowane pomyślnie.
         success_with_email_confirmation: Twoje konto zostało pomyślnie zaktualizowane. W celu potwierdzenia Twojego nowego adresu e-mail otrzymasz na niego wiadomość.
+    admin:
+      actions:
+        cancel: Anuluj
     admin_log:
       area:
         create: "%{user_name} utworzył obszar %{resource_name}"
@@ -204,6 +207,7 @@ pl:
         explanation: Uzyskaj weryfikację, wprowadzając numer paszportu zaczynający się od litery "A"
         fields:
           passport_number: Numer paszportu
+          postal_code: Kod pocztowy
         name: Kolejna przykładowa autoryzacja
       dummy_authorization_handler:
         explanation: Uzyskaj weryfikację, wprowadzając numer dokumentu kończący się na "X"
@@ -721,6 +725,7 @@ pl:
         create:
           error: Rozmowa nie rozpoczęła się. Spróbuj ponownie później
         index:
+          close: Zamknij modalne
           no_conversations: Nie masz jeszcze żadnych rozmów
           title: Rozmowy
         reply:

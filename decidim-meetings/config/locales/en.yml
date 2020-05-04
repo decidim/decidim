@@ -284,6 +284,7 @@ en:
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
             invites: Invitations
+            recommendation_message: For privacy reasons we recommend that you delete this inscription form when you no longer need it. By default this is 3 months after the meeting has ended.
             registration_form: Registration form
             registrations_count:
               one: There has been %{count} registration.

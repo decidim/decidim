@@ -16,6 +16,7 @@ fr:
         created_by_other: Si "autres", précisez
         creation_date: Date de création
         decidim_area_id: Zone d'application
+        decidim_assemblies_type_id: Type d'assemblée
         decidim_scope_id: Périmètre d'application
         description: Description
         developer_group: Organisateur
@@ -99,6 +100,9 @@ fr:
         create:
           error: Une erreur s'est produite lors de la duplication de cette assemblée.
           success: L'assemblée a été dupliquée avec succès.
+      assemblies_types:
+        new:
+          create: Créer
       assembly_copies:
         new:
           copy: Copier
@@ -159,6 +163,10 @@ fr:
           moderations: Modérations
           private_users: Utilisateurs privés
       models:
+        assemblies_types:
+          fields:
+            created_at: Créée le
+            title: Titre
         assembly:
           fields:
             created_at: Créée le
@@ -224,6 +232,9 @@ fr:
             social_handlers: Réseaux sociaux
             title: Informations générales
             visbility: Visibilité
+        assemblies_types:
+          form:
+            title: Titre
         assembly_copies:
           form:
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui envoient vers cette agora. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'

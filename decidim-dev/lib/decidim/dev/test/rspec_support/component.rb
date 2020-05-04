@@ -65,6 +65,7 @@ module Decidim
       include Decidim::NewsletterParticipant
       include Hashtaggable
       include ::Decidim::Endorsable
+      include Decidim::HasAttachments
 
       searchable_fields(
         scope_id: { scope: :id },
