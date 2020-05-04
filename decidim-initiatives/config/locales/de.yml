@@ -60,6 +60,13 @@ de:
     admin:
       actions:
         new_initiative_type: Neuer Initiativentyp
+      filters:
+        state_eq:
+          values:
+            created: Erstellt
+            discarded: Verworfen
+            published: Veröffentlicht
+            validating: Technische Validierung
       menu:
         initiatives: Initiativen
         initiatives_types: Arten von Initiativen

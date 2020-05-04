@@ -58,17 +58,11 @@ es:
           edit:
             title: Editar resultado
             update: Actualizar resultado
-          form:
-            add_proposal: Agregar propuesta
           index:
             title: Resultados
           new:
             create: Crear resultado
             title: Nuevo resultado
-          proposals:
-            close: Cerrar
-            current_selection: Selección actual
-            select: Seleccionar
           update:
             invalid: Se ha producido un error al actualizar este resultado
             success: El resultado ha actualizado correctamente

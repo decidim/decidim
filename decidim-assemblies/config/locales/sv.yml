@@ -3,8 +3,8 @@ sv:
     attributes:
       assembly:
         area_id: Område
-        assembly_type: Typ av församling
-        assembly_type_other: Annan typ av församling
+        assembly_type: Typ av grupp
+        assembly_type_other: Annan typ av grupp
         banner_image: Bannerbild
         closing_date: Slutdatum
         closing_date_reason: Skäl till slutdatum
@@ -16,6 +16,7 @@ sv:
         created_by_other: Skapad av andra
         creation_date: Skapad datum
         decidim_area_id: Område
+        decidim_assemblies_type_id: Typ av grupp
         decidim_scope_id: Omfång
         description: Beskrivning
         developer_group: Kampanjgrupp
@@ -31,7 +32,7 @@ sv:
         is_transparent: Är transparent
         local_area: Organisationsområde
         meta_scope: Metadata för omfång
-        parent_id: Överordnad församling
+        parent_id: Överordnad grupp
         participatory_processes_ids: Relaterade deltagarprocesser
         participatory_scope: Vad bestäms
         participatory_structure: Hur bestäms det
@@ -66,22 +67,23 @@ sv:
   activerecord:
     models:
       decidim/assembly:
-        one: Församling
-        other: Församlingar
+        one: Grupp
+        other: Grupper
       decidim/assembly_member:
-        one: Medlem i församlingen
-        other: Medlemmar i församlingen
+        one: Medlem i gruppen
+        other: Medlemmar i gruppen
       decidim/assembly_user_role:
-        one: Roll i församlingen
-        other: Roller i församlingen
+        one: Roll i gruppen
+        other: Roller i gruppen
   decidim:
     admin:
       actions:
-        new_assembly: Ny församling
+        new_assembly: Ny grupp
+        new_assembly_type: Ny typ av grupp
       assemblies:
         create:
-          error: Det gick inte att skapa en ny församling.
-          success: Mötet skapades framgångsrikt.
+          error: Det gick inte att skapa en ny grupp.
+          success: Gruppen skapades framgångsrikt.
         edit:
           update: Uppdatera
         index:
@@ -91,64 +93,76 @@ sv:
           published: Publicerad
         new:
           create: Skapa
-          title: Ny församling
+          title: Ny grupp
         update:
-          error: Det gick inte att uppdatera församlingen.
-          success: Församlingen har uppdaterats.
+          error: Det gick inte att uppdatera gruppen.
+          success: Gruppen har uppdaterats.
       assemblies_copies:
         create:
-          error: Det gick inte att duplicera församlingen.
-          success: Församlingen har duplicerats.
+          error: Det gick inte att duplicera gruppen.
+          success: Gruppen har duplicerats.
+      assemblies_types:
+        create:
+          error: Det gick inte att skapa en ny typ av grupp.
+          success: Grupptypen har skapats.
+        destroy:
+          success: Grupptypen har raderats.
+        new:
+          create: Skapa
+          title: Ny grupptyp
+        update:
+          error: Det gick inte att uppdatera grupptypen.
+          success: Grupptypen har uppdaterats.
       assembly_copies:
         new:
           copy: Kopiera
           select: Välj vilka data som ska dupliceras
-          title: Duplicera församling
+          title: Duplicera grupp
       assembly_members:
         create:
-          error: Det gick inte att lägga till en medlem till församlingen.
-          success: Skapade medlem i församlingen.
+          error: Det gick inte att lägga till en medlem till gruppen.
+          success: Skapade medlem i gruppen.
         destroy:
-          success: Medlemmen har raderats från församlingen.
+          success: Medlemmen har raderats från gruppen.
         edit:
-          title: Uppdatera medlem i församlingen.
+          title: Uppdatera medlem i gruppen.
           update: Uppdatera
         index:
-          assembly_members_title: Medlemmar i församlingen
+          assembly_members_title: Medlemmar i gruppen
         new:
           create: Skapa
-          title: Ny församlingsmedlem.
+          title: Ny gruppsmedlem.
         update:
-          error: Det gick inte att uppdatera medlemmen i församlingen.
-          success: Medlemmen i församlingen har uppdaterats.
+          error: Det gick inte att uppdatera medlemmen i gruppen.
+          success: Medlemmen i gruppen har uppdaterats.
       assembly_publications:
         create:
-          error: Det gick inte att publicera församlingen.
-          success: Församlingen har publicerats.
+          error: Det gick inte att publicera gruppen.
+          success: Gruppen har publicerats.
         destroy:
-          error: Det gick inte att avpublicera församlingen.
-          success: Församlingen har avpublicerats.
+          error: Det gick inte att avpublicera gruppen.
+          success: Gruppen har avpublicerats.
       assembly_user_roles:
         create:
-          error: Det gick inte att lägga till en administratör till församlingen.
-          success: Administratören har lagts till församlingen.
+          error: Det gick inte att lägga till en administratör till gruppen.
+          success: Administratören har lagts till gruppen.
         destroy:
-          success: Administratören har tagits bort från församlingen.
+          success: Administratören har tagits bort från gruppen.
         edit:
-          title: Uppdatera församlingsadministratör.
+          title: Uppdatera gruppsadministratör.
           update: Uppdatera
         index:
-          assembly_admins_title: Församlingsadministratörer
+          assembly_admins_title: Gruppsadministratörer
         new:
           create: Skapa
-          title: Ny församlingsadministratör.
+          title: Ny gruppsadministratör.
         update:
-          error: Det gick inte att uppdatera en administratör för församlingen.
-          success: Administratören för församlingen har uppdaterats.
+          error: Det gick inte att uppdatera en administratör för gruppen.
+          success: Administratören för gruppen har uppdaterats.
       menu:
-        assemblies: Församlingar
+        assemblies: Grupper
         assemblies_submenu:
-          assembly_admins: Administratörer för församlingen
+          assembly_admins: Administratörer för gruppen
           assembly_members: Medlemmar
           attachment_collections: Mappar
           attachment_files: Filer
@@ -158,7 +172,12 @@ sv:
           info: Info
           moderations: Moderering
           private_users: Privata användare
+        assemblies_types: Typer av grupper
       models:
+        assemblies_types:
+          fields:
+            created_at: Skapad
+            title: Titel
         assembly:
           fields:
             created_at: Skapad
@@ -166,7 +185,7 @@ sv:
             promoted: Uppmärksammad
             published: Publicerad
             title: Titel
-          name: Församling
+          name: Grupp
         assembly_member:
           fields:
             ceased_date: Slutade datum
@@ -184,49 +203,60 @@ sv:
             email: E-post
             name: Namn
             role: Roll
-          name: Administratör för församlingen
+          name: Administratör för gruppen
           roles:
             admin: Administratör
             collaborator: Medarbetare
             moderator: Moderator
+            valuator: Värderare
       titles:
-        assemblies: Församlingar
+        assemblies: Grupper
+        assemblies_types: Typer av grupper
     admin_log:
       assembly:
-        create: "%{user_name} skapade församlingen %{resource_name}"
-        publish: "%{user_name} publicerade församlingen %{resource_name}"
-        unpublish: "%{user_name} avpublicerade församlingen %{resource_name}"
-        update: "%{user_name} uppdaterade församlingen %{resource_name}"
+        create: "%{user_name} skapade gruppen %{resource_name}"
+        publish: "%{user_name} publicerade gruppen %{resource_name}"
+        unpublish: "%{user_name} avpublicerade gruppen %{resource_name}"
+        update: "%{user_name} uppdaterade gruppen %{resource_name}"
       assembly_member:
-        create: "%{user_name} skapade medlemmen %{resource_name} i församlingen %{space_name}"
-        delete: "%{user_name} tog bort medlemmen %{resource_name} från församlingen %{space_name}"
-        update: "%{user_name} uppdaterade medlemmen %{resource_name} i församlingen %{space_name}"
+        create: "%{user_name} skapade medlemmen %{resource_name} i gruppen %{space_name}"
+        delete: "%{user_name} tog bort medlemmen %{resource_name} från gruppen %{space_name}"
+        update: "%{user_name} uppdaterade medlemmen %{resource_name} i gruppen %{space_name}"
+      assembly_type:
+        create: "%{user_name} skapade grupptypen %{resource_name}"
+        delete: "%{user_name} tog bort medlemmen %{resource_name} från grupptypen %{space_name}"
+        publish: "%{user_name} publicerade grupptypen %{resource_name}"
+        unpublish: "%{user_name} avpublicerade grupptypen %{resource_name}"
+        update: "%{user_name} uppdaterade grupptypen %{resource_name}"
       assembly_user_role:
-        create: "%{user_name} bjöd in %{resource_name} till församlingen %{space_name}"
-        delete: "%{user_name} tog bort deltagaren %{resource_name} från församlingen %{space_name}"
-        update: "%{user_name} ändrade rollen för %{resource_name} i församlingen %{space_name}"
+        create: "%{user_name} bjöd in %{resource_name} till gruppen %{space_name}"
+        delete: "%{user_name} tog bort deltagaren %{resource_name} från gruppen %{space_name}"
+        update: "%{user_name} ändrade rollen för %{resource_name} i gruppen %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
             duration: Varaktighet
-            duration_help: Om varaktigheten för församlingen är begränsad, välj ett slutdatum. Annars kommer den att visas som permanent.
+            duration_help: Om varaktigheten för gruppen är begränsad, välj ett slutdatum. Annars kommer den att visas som permanent.
             filters: Filter
             images: Bilder
-            included_at_help: Markera det datum då församlingen lades till i Decidim. Det behöver inte nödvändigtvis vara detsamma som datumet det skapades.
+            included_at_help: Markera det datum då gruppen lades till i Decidim. Det behöver inte nödvändigtvis vara detsamma som datumet det skapades.
             metadata: Metadata
             other: Annan
             select_a_created_by: Välj en skapad av
             select_an_area: Välj ett område
-            select_an_assembly_type: Välj typ av församling
-            select_parent_assembly: Välj överordnad församling
-            slug_help: 'URL-slugs används till att generera de URL:er som pekar på församlingen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
+            select_an_assembly_type: Välj typ av gruppen
+            select_parent_assembly: Välj överordnad gruppen
+            slug_help: 'URL-slugs används till att generera de URL:er som pekar på gruppen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
             social_handlers: Socialt
             title: Allmän information
             visbility: Synlighet
+        assemblies_types:
+          form:
+            title: Titel
         assembly_copies:
           form:
-            slug_help: 'URL-slugs används till att generera de URL:er som pekar på församlingen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
+            slug_help: 'URL-slugs används till att generera de URL:er som pekar på gruppen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
         assembly_members:
           form:
             existing_user: Befintlig deltagare
@@ -257,7 +287,7 @@ sv:
         working_group: Arbetsgrupp
       content_blocks:
         highlighted_assemblies:
-          name: Markerade möten
+          name: Annonserade grupper
       created_by:
         city_council: Stadsfullmäktige
         others: Övriga
@@ -273,21 +303,22 @@ sv:
         participatory: Deltagande
         working_group: Arbetsgrupp
       index:
-        title: Församlingar
+        title: Grupper
       last_activity:
-        new_assembly: Ny församling
+        new_assembly: Ny grupp
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktiva församlingar
-            see_all_assemblies: Visa alla församlingar
+            active_assemblies: Aktiva grupper
+            assemblies_button_title: Länk till sidan över grupper som visar alla grupper
+            see_all_assemblies: Visa alla grupper
         user_profile:
           member_of:
             member_of: Medlem av
       show:
         area: Område
-        assembly_type: Typ av församling
-        children: Församlingar
+        assembly_type: Typ av grupp
+        children: Grupper
         closing_date: Stängningsdatum
         composition: Sammansättning
         created_by: Skapad av
@@ -303,52 +334,72 @@ sv:
         local_area: Organisationsområde
         participatory_scope: Vad bestäms
         participatory_structure: Hur det bestäms
-        private_space: Detta är en privat församling
+        private_space: Detta är en privat grupp
         purpose_of_action: Syftet med åtgärden
         read_less: Läs mindre
         read_more: Läs mer
         related_participatory_processes: Relaterade deltagarprocesser
         scope: Omfång
         social_networks: Sociala nätverk
+        social_networks_title: Dela denna grupp på
         target: Vilka deltar
       statistics:
         answers_count: Svar
-        assemblies_count: Församlingar
+        assemblies_count: Grupper
         comments_count: Kommentarer
         debates_count: Debatter
-        endorsements_count: Påskrifter
+        endorsements_count: Instämmanden
         headline: Aktivitet
         meetings_count: Möten
-        orders_count: Röster
+        orders_count: Stödjer
         pages_count: Sidor
+        posts_count: Inlägg
         projects_count: Projekt
         proposals_count: Förslag
         results_count: Resultat
         surveys_count: Undersökningar
         users_count: Deltagare
-        votes_count: Röster
+        votes_count: Stödjer
     assembly_members:
       assembly_member:
         designated_on: Utsedd den
       index:
         title: Medlemmar
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Länk till sidan över konferenser som visar alla konferenser
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>En <strong>församling</strong> är en grupp medlemmar i en organisation som regelbundet träffas för att fatta beslut om ett specifikt område eller omfång inom organisationen.</p> <p>Församlingar håller möten där vissa är slutna och andra är öppna. Om de är öppna är det möjligt att delta i dem (till exempel: att närvara om det finns plats, lägga till punkter på dagordningen eller att yttra sig om de förslag och beslut som fattas av detta organ).</p> <p>Exempel: En generalförsamling (som möts en gång per år för att bestämma om organisationens verksamhetsplan samt utse dess styrelse genom omröstning), ett jämställdhetsråd (som möts varannan månad för att lägga fram förslag om hur man kan förbättra jämställdheten i organisationen) eller en utvärderingskommitté (som möts varje månad för att bevaka en process) eller en granskningsgrupp (som samlar in rapporter om incidenter eller missbruk samt förslag som kan förbättra beslutsprocedurerna) är alla exempel på sammansättningar.</p>\n"
-          page: "<p>En <strong>församling</strong> är en grupp medlemmar i en organisation som regelbundet träffas för att fatta beslut om ett specifikt område eller omfång inom organisationen.</p> <p>Församlingar håller möten där vissa är slutna och andra är öppna. Om de är öppna är det möjligt att delta i dem (till exempel: att närvara om det finns plats, lägga till punkter på dagordningen eller att yttra sig om de förslag och beslut som fattas av detta organ).</p> <p>Exempel: En generalförsamling (som möts en gång per år för att bestämma om organisationens verksamhetsplan samt utse dess styrelse genom omröstning), ett jämställdhetsråd (som möts varannan månad för att lägga fram förslag om hur man kan förbättra jämställdheten i organisationen) eller en utvärderingskommitté (som möts varje månad för att bevaka en process) eller en granskningsgrupp (som samlar in rapporter om incidenter eller missbruk samt förslag som kan förbättra beslutsprocedurerna) är alla exempel på sammansättningar.</p>\n"
-          title: Vad är församlingar?
+          contextual: "<p>En <strong>grupp</strong> är en grupp medlemmar i en organisation som regelbundet träffas för att fatta beslut om ett specifikt område eller omfång inom organisationen.</p> <p>Grupper håller möten där vissa är slutna och andra är öppna. Om de är öppna är det möjligt att delta i dem (till exempel: att närvara om det finns plats, lägga till punkter på dagordningen eller att yttra sig om de förslag och beslut som fattas av detta organ).</p> <p>Exempel: En generalförsamling (som möts en gång per år för att bestämma om organisationens verksamhetsplan samt utse dess styrelse genom omröstning), ett jämställdhetsråd (som möts varannan månad för att lägga fram förslag om hur man kan förbättra jämställdheten i organisationen) eller en utvärderingskommitté (som möts varje månad för att bevaka en process) eller en granskningsgrupp (som samlar in rapporter om incidenter eller missbruk samt förslag som kan förbättra beslutsprocedurerna) är alla exempel på grupper.</p>\n"
+          page: "<p>En <strong>grupp</strong> är en grupp medlemmar i en organisation som regelbundet träffas för att fatta beslut om ett specifikt område eller omfång inom organisationen.</p> <p>Grupper håller möten där vissa är slutna och andra är öppna. Om de är öppna är det möjligt att delta i dem (till exempel: att närvara om det finns plats, lägga till punkter på dagordningen eller att yttra sig om de förslag och beslut som fattas av detta organ).</p> <p>Exempel: En generalförsamling (som möts en gång per år för att bestämma om organisationens verksamhetsplan samt utse dess styrelse genom omröstning), ett jämställdhetsråd (som möts varannan månad för att lägga fram förslag om hur man kan förbättra jämställdheten i organisationen) eller en utvärderingskommitté (som möts varje månad för att bevaka en process) eller en granskningsgrupp (som samlar in rapporter om incidenter eller missbruk samt förslag som kan förbättra beslutsprocedurerna) är alla exempel på grupper.</p>\n"
+          title: Vad är grupper?
     log:
       value_types:
         assembly_presenter:
-          not_found: 'Församlingen hittades inte i databasen (ID: %{id})'
+          not_found: 'Gruppen hittades inte i databasen (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'Grupptypen hittades inte i databasen (ID: %{id})'
     menu:
-      assemblies: Församlingar
+      assemblies: Grupper
     metrics:
       assemblies:
-        description: Antal skapade församlingar
-        object: församlingar
-        title: Församlingar
+        description: Antal skapade grupper
+        object: grupper
+        title: Grupper
+    pages:
+      home:
+        hero:
+          participate_title: Delta i plattformens processer
+        sub_hero:
+          register_title: Skapa ett konto på plattformen genom att logga in
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Länk till sidan över processer som visar alla processer
   errors:
     messages:
       cannot_be_blank: kan inte vara tomt
@@ -359,20 +410,20 @@ sv:
           more_info: Mer information
           take_part: Delta
         index:
-          children: 'Församlingar: '
+          children: 'Grupper: '
           organizational_chart: Organisationsschema
-          promoted_assemblies: Uppmärksammade församlingar
+          promoted_assemblies: Annonserade grupper
           reset_chart: Återställ
         order_by_assemblies:
           assemblies:
-            one: "%{count} församling"
-            other: "%{count} församlingar"
+            one: "%{count} grupp"
+            other: "%{count} grupper"
         promoted_assembly:
           more_info: Mer information
           take_part: Delta
       assembly_navigation:
         assembly_member_menu_item: Medlemmar
-        assembly_menu_item: Församlingen
+        assembly_menu_item: Gruppen
       assembly_widgets:
         show:
           take_part: Delta

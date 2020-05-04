@@ -471,6 +471,9 @@
             does_not_belong: Tilhører ikke
             offensive: Offensiv
             spam: Søppelpost
+      newsletter_templates:
+        index:
+          preview_template: Forhåndsvis
       newsletters:
         create:
           error: Det oppstod et problem med å opprette dette nyhetsbrevet.
@@ -484,8 +487,6 @@
         edit:
           save_and_preview: Lagre og forhåndsvis
           title: Rediger nyhetsbrev
-        form:
-          interpolations_hint: 'Hint: Du kan bruke "%{name}" hvor som helst i teksten eller emnet, og det blir erstattet av mottakerens navn.'
         index:
           all: alle
           all_users: 'Alle brukere '

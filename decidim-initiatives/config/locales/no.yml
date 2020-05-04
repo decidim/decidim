@@ -65,13 +65,10 @@
         search_placeholder:
           title_or_description_cont: Søk %{collection} etter tittel eller beskrivelse.
         state_eq:
-          label: Stat
           values:
-            accepted: Aksepterte
             created: Opprettet
             discarded: Forkastet
             published: Publisert
-            rejected: Avvist
             validating: Teknisk validering
       menu:
         initiatives: Initiativer

@@ -203,40 +203,12 @@ module Decidim
               end
             end
 
-            context "when galleries are allowed", processing_uploads_for: Decidim::AttachmentUploader do
-              let(:component) { create(:proposal_component, :with_attachments_allowed) }
-              let(:attachment_params) do
-                {
-                  title: "Pdf attachment",
-                  file: Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf")
-                }
-              end
-              let(:uploaded_photos) do
-                [
-                  Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-                  Decidim::Dev.test_file("city.jpeg", "image/jpeg")
-                ]
-              end
-
-              it "creates a gallery for the proposal" do
-                expect { command.call }.to change(Decidim::Attachment, :count).by(3)
-                last_proposal = Decidim::Proposals::Proposal.last
-                expect(last_proposal.photos.count).to eq(2)
-                last_attachment = Decidim::Attachment.last
-                expect(last_attachment.attached_to).to eq(last_proposal)
-              end
-
-              context "when gallery is left blank" do
-                let(:attachment_params) do
-                  {
-                    title: ""
-                  }
-                end
-                let(:uploaded_photos) { [] }
-
-                it "broadcasts ok" do
-                  expect { command.call }.to broadcast(:ok)
-                end
+            context "when galleries are allowed" do
+              it_behaves_like "admin creates resource gallery" do
+                let(:component) { create(:proposal_component, :with_attachments_allowed) }
+                let(:command) { described_class.new(form) }
+                let(:resource_class) { Decidim::Proposals::Proposal }
+                let(:attachment_params) { { title: "" } }
               end
             end
           end
