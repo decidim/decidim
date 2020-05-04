@@ -4,3 +4,24 @@ sr:
       valuation_assignment:
         admin_log:
           valuator_role_id: Ime procenjivača
+    errors:
+      models:
+        proposal:
+          attributes:
+            body:
+              cant_be_equal_to_template: ne može biti jednak šablonu
+    models:
+      decidim/proposals/admin/update_proposal_scope_event: Predlog opsega izmenjen
+  decidim:
+    admin:
+      filters:
+        search_placeholder:
+          id_string_or_title_cont: Pretraži %{collection} prema identifikacionom broju ili nazivu.
+        valuator_role_ids_has:
+          label: Dodeljeno procenjivaču
+    components:
+      proposals:
+        settings:
+          global:
+            allow_card_image: Dozvoli sliku kartice
+            new_proposal_body_template: Novi predlog šablona glavnog teksta
