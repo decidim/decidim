@@ -388,10 +388,8 @@
             title: Oppdater forslag
             update: Oppdater
           form:
-            add_images: Legg til bilder
             attachment_legend: "(Valgfritt) Legg til et vedlegg"
             created_in_meeting: Dette forslaget kommer fra et møte
-            gallery_legend: "(Valgfritt) Legg til et bildegalleri"
             select_a_category: Velg en kategori
             select_a_meeting: Velg et møte
           index:

@@ -43,6 +43,13 @@ sr:
         home:
           highlighted_conferences:
             conferences_button_title: Veza ka strani Konferencije koja prikazuje sve konferencije
+    events:
+      assembly:
+        role_assigned:
+          email_intro: Imenovani ste na funkciju %{role} veća %{resource_title}.
+          email_outro: Dobili ste ovo obaveštenje zbog toga što ste %{role} veća %{resource_title}.
+          email_subject: Imenovani ste na funkciju %{role} %{resource_title}.
+          notification_title: Imenovani ste na funkciju %{role} veća <a href="%{resource_url}">%{resource_title}</a>.
     log:
       value_types:
         assembly_type_presenter:
