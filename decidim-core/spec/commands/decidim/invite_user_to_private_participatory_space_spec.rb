@@ -79,25 +79,5 @@ module Decidim
         expect(ActionMailer::DeliveryJob).to have_been_enqueued.on_queue("mailers")
       end
     end
-
-    context "when the user is a member of the private space already" do
-      let!(:organization) { create :organization }
-      let!(:private_participatory_space) { create(:participatory_process, organization: organization, private_space: true) }
-      let!(:user) { create :user, organization: organization, invitation_accepted_at: Time.current }
-      let!(:participatory_space_private_user) { create :participatory_space_private_user, user: user, privatable_to: private_participatory_space }
-
-      before do
-        clear_enqueued_jobs
-      end
-
-      it "does not send an email" do
-        command.call
-        expect(ActionMailer::DeliveryJob).not_to have_been_enqueued.on_queue("mailers")
-      end
-
-      it "broadcasts invalid" do
-        expect { command.call }.to broadcast(:invalid)
-      end
-    end
   end
 end

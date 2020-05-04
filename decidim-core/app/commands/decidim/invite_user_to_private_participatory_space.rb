@@ -14,10 +14,7 @@ module Decidim
     end
 
     def call
-      return broadcast(:invalid) if user&.invitation_accepted_at
-
       user.invite!(user.invited_by, invitation_instructions: instructions)
-
       broadcast(:ok)
     end
 
