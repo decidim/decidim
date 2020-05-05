@@ -1,19 +1,3 @@
-<% primary_color = current_organization.colors["primary"] %>
-<%
-  def dimensions(image)
-    versions = current_organization.send(image).dimensions_info
-    dimensions = %i[small medium default].map { |v| versions.dig(v, :dimensions) }.compact.first
-  end
-
-  def width(image)
-    dimensions(image)[0] / 4
-  end
-
-  def height(image)
-    dimensions(image)[1] / 4
-  end
-%>
-
 <style>
   #minimap {
     width: 400px;
@@ -28,16 +12,23 @@
     grid-template-rows: 20px 64px 24px 1fr 64px;
   }
 
-  #minimap img {
+  #minimap img, #minimap .placeholder {
     width: auto;
     max-height: 100%;
     box-sizing: border-box;
+    position: relative;
+    display: inline-block;
   }
 
   #minimap #tab {
     grid-area: tab;
     background: #ccc;
+    display: flex;
+  }
+
+  #tab span {
     font-size: 10px;
+    margin: 4px;
   }
 
   #minimap #body {
@@ -47,12 +38,12 @@
 
   #header, #footer {
     background: #000;
+    display: flex;
+    justify-content: space-between;
   }
 
   #header {
     grid-area: header;
-    display: flex;
-    justify-content: space-between;
   }
 
   #subheader {
@@ -69,20 +60,28 @@
   }
 
   #logo {
-    margin: 10px;
+    margin: auto 0;
   }
 
   #official_img_header, #official_img_footer {
-    padding: 10px 0;
+    margin: auto 0;
+  }
+
+  .placeholder {
+    background:  <%= current_organization.colors["primary"] %>
   }
 
 </style>
+
+<% size_factor = 0.3 %>
 
 <div id="minimap">
   <div id="tab">
     <%= content_tag current_organization.favicon.present? ? :img : :div,
       nil,
-      { id: "favicon" }.merge(current_organization.favicon.present? ? { src: current_organization.favicon } : { style: "min-width: #{width(:favicon)}; min-height: #{height(:favicon)}" } )
+      { id: "favicon" }.merge(current_organization.favicon.present? ?
+        { src: current_organization.favicon } :
+        { class: "placeholder", style: "width: #{image_width(current_organization, :favicon) * size_factor }px; height: #{image_height(current_organization, :favicon) * size_factor }px;" })
     %>
     <span><%= current_organization.name %></span>
   </div>
@@ -90,28 +89,28 @@
   <div id="header">
     <%= content_tag current_organization.logo.present? ? :img : :div,
       nil,
-      { id: "logo" }.merge(current_organization.logo.present? ? { src: current_organization.logo } : { style: "min-width: #{width(:logo)}; min-height: #{height(:logo)}" } )
+      { id: "logo" }.merge(current_organization.logo.present? ?
+        { src: current_organization.logo } :
+        { class: "placeholder", style: "width: #{image_width(current_organization, :logo) * size_factor }px; height: #{image_height(current_organization, :logo) * size_factor }px;" })
     %>
 
     <%= content_tag current_organization.official_img_header.present? ? :img : :div,
       nil,
-      { id: "official_img_header" }.merge(current_organization.official_img_header.present?  ? { src: current_organization.official_img_header } : { style: "min-width: #{width(:official_img_header)}; min-height: #{height(:official_img_header)}" } )
+      { id: "official_img_header" }.merge(current_organization.official_img_header.present?  ?
+        { src: current_organization.official_img_header } :
+        { class: "placeholder", style: "width: #{image_width(current_organization, :official_img_header) * size_factor }px; height: #{image_height(current_organization, :official_img_header) * size_factor }px;" })
     %>
   </div>
 
-  <div id="subheader">
-
-  </div>
-
-  <div id="body">
-  </div>
+  <div id="subheader"></div>
+  <div id="body"></div>
 
   <div id="footer">
     <%= content_tag current_organization.official_img_footer.present? ? :img : :div,
       nil,
-      { id: "official_img_footer" }.merge(current_organization.official_img_footer.present?  ? { src: current_organization.official_img_footer } : { style: "min-width: #{width(:official_img_footer)}; min-height: #{height(:official_img_footer)}" } )
+      { id: "official_img_footer" }.merge(current_organization.official_img_footer.present?  ?
+        { src: current_organization.official_img_footer } :
+        { class: "placeholder", style: "width: #{image_width(current_organization, :official_img_footer) * size_factor }px; height: #{image_height(current_organization, :official_img_footer) * size_factor }px;" })
     %>
   </div>
-  
-  
 </div>
