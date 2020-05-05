@@ -389,6 +389,9 @@ en:
         static_pages: Pages
         user_groups: Groups
         users: Participants
+      metrics:
+        metrics:
+          see_more_metrics: See more metrics
       models:
         area:
           fields:
@@ -677,6 +680,11 @@ en:
         update:
           error: There was a problem updating this scope.
           success: Scope updated successfully
+      shared:
+        gallery:
+          add_images: Add images
+          delete_image: Delete Image
+          gallery_legend: Add an image gallery (Optional)
       static_page_topics:
         create:
           error: There was a problem creating a new topic.
@@ -728,6 +736,7 @@ en:
         dashboard: Dashboard
         impersonatable_users: Manageable participants
         impersonations: Participants management
+        metrics: Metrics
         participants: Participants
         scope_types: Scope types
         scopes: Scopes

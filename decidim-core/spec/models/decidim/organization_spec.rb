@@ -61,9 +61,27 @@ module Decidim
     describe "enabled omniauth providers" do
       subject(:enabled_providers) { organization.enabled_omniauth_providers }
 
-      context "when no configuration" do
-        it "returns providers enabled in secrets.yml" do
-          expect(enabled_providers).to eq(omniauth_secrets)
+      context "when omniauth_settings are nil" do
+        context "when providers are enabled in secrets.yml" do
+          it "returns providers enabled in secrets.yml" do
+            expect(enabled_providers).to eq(omniauth_secrets)
+          end
+        end
+
+        context "when providers are not enabled in secrets.yml" do
+          let!(:previous_omniauth_secrets) { Rails.application.secrets[:omniauth] }
+
+          before do
+            Rails.application.secrets[:omniauth] = nil
+          end
+
+          after do
+            Rails.application.secrets[:omniauth] = previous_omniauth_secrets
+          end
+
+          it "returns no providers" do
+            expect(enabled_providers).to be_empty
+          end
         end
       end
 
@@ -76,15 +94,16 @@ module Decidim
             "omniauth_settings_facebook_app_secret" => Decidim::AttributeEncryptor.encrypt("overriden-app-secret"),
             "omniauth_settings_google_oauth2_enabled" => true,
             "omniauth_settings_google_oauth2_client_id" => Decidim::AttributeEncryptor.encrypt("overriden-client-id"),
-            "omniauth_settings_google_oauth2_client_secret" => Decidim::AttributeEncryptor.encrypt("overriden-client-secret")
+            "omniauth_settings_google_oauth2_client_secret" => Decidim::AttributeEncryptor.encrypt("overriden-client-secret"),
+            "omniauth_settings_twitter_enabled" => false
           }
         end
 
         before { organization.update!(omniauth_settings: omniauth_settings) }
 
-        it "returns the overriden settings" do
+        it "returns only the enabled settings" do
           expect(subject[:facebook][:app_id]).to eq("overriden-app-id")
-          expect(subject[:twitter][:api_key]).to eq("fake-twitter-api-key") # sacar a otra spec, no esta sobrescrito
+          expect(subject[:twitter]).to be(nil)
           expect(subject[:google_oauth2][:client_id]).to eq("overriden-client-id")
         end
       end

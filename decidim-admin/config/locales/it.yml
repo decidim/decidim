@@ -295,12 +295,12 @@ it:
         notice: Export in fase di elaborazione.  Riceverai un'email quando l'export sarà terminato.
       filters:
         category_id_eq:
-          label: Categoria
+          label: Categorie
         filter_label: Filtro
         officialized_at_null:
           label: Stato
           values:
-            'false': Ufficializzato
+            'false': ufficializzato
             'true': Non ufficializzato
         private_space_eq:
           label: Privato
@@ -471,6 +471,9 @@ it:
             does_not_belong: Non appartiene
             offensive: Offensivo
             spam: Spam
+      newsletter_templates:
+        index:
+          preview_template: Anteprima
       newsletters:
         create:
           error: Si è verificato un errore durante la creazione di questa newsletter.
@@ -484,8 +487,6 @@ it:
         edit:
           save_and_preview: Salva e vedi l'anteprima
           title: Modifica la Newsletter
-        form:
-          interpolations_hint: 'Suggerimento: puoi utilizzare "%{name}" ovunque nel corpo del testo  o nell''oggetto e sarà sostituito con il nome del contenitore.'
         index:
           all: tutti
           all_users: 'Tutti gli utenti '

@@ -107,6 +107,12 @@ hu:
             one: kiválasztott projekt
             other: kiválasztott projektek
           view: Nézet
+        orders:
+          highest_cost: Legmagasabb költség
+          label: Projektek rendezése
+          lowest_cost: Legalacsonyabb költség
+          most_voted: Legtöbb szavazattal
+          random: Véletlen sorrend
         project:
           add: Hozzáad
           count:

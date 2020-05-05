@@ -70,17 +70,19 @@ sv:
         port: Port
         primary_color: Primär
         reference_prefix: Referensprefix
+        rich_text_editor_in_public_views: Aktivera rik textredigering för deltagare
         secondary_color: Sekundär
         send_welcome_notification: Skicka välkomstmeddelande
         show_statistics: Visa statistik
         success_color: Färdigt
+        time_zone: Tidszon
         tos_version: Version på användarvillkor
         twitter_handler: Twitter-hanterare
         user_groups_enabled: Aktivera grupper
         user_name: Användarnamn
         warning_color: Varning
-        welcome_notification_body: Välkomstmeddelandetext
-        welcome_notification_subject: Välkomstmeddeleandeämne
+        welcome_notification_body: Välkomstmeddelandets brödtext
+        welcome_notification_subject: Välkomstmeddelandets ämnesrad
         youtube_handler: YouTube-hanterare
       scope:
         code: Kod
@@ -142,9 +144,24 @@ sv:
         export: Exportera
         manage: Hantera
         new: Ny %{name}
+        per_page: Per sida
         permissions: Behörigheter
         reject: Avvisa
         verify: Kontrollera
+      admin_terms_of_use:
+        accept:
+          error: Ett fel inträffade när användarvillkoren för administratörer skulle godkännas.
+          success: Du har godkänt användarvillkoren för administratörer.
+        actions:
+          accept: Jag godkänner villkoren för administratörer
+          are_you_sure: Vill du avvisa villkoren för administratörer?
+          refuse: Avvisa villkoren för administratörer
+          title: Godkänn användarvillkoren
+        required_review:
+          alert: 'Krav: granska villkoren för administratörer'
+          callout: Granska användarvillkoren för administratörer. Annars kan du inte administrera plattformen.
+          cta: Granska dem nu.
+        title: Användarvillkor för administratörer
       area_types:
         create:
           error: Det gick inte att skapa en ny områdestyp.
@@ -236,6 +253,7 @@ sv:
           success: Kategorin har uppdaterats.
       component_permissions:
         update:
+          error: Det gick inte att uppdatera behörigheterna för denna komponent.
           success: Behörigheterna har uppdaterats.
       components:
         create:
@@ -275,6 +293,31 @@ sv:
       exports:
         export_as: "%{name} som %{export_format}"
         notice: Exporten pågår just nu. Du får ett e-brev när den är klar.
+      filters:
+        category_id_eq:
+          label: Kategori
+        filter_label: Filtrera
+        officialized_at_null:
+          label: Status
+          values:
+            'false': Gjord officiell
+            'true': Ej gjord officiell
+        private_space_eq:
+          label: Privat
+          values:
+            'false': Offentlig
+            'true': Privat
+        published_at_null:
+          label: Publicerade
+          values:
+            'false': Publicerade
+            'true': Ej publicerade
+        scope_id_eq:
+          label: Omfång
+        search_label: Sök
+        search_placeholder:
+          name_or_nickname_or_email_cont: Sök i %{collection} efter e-post, namn eller smeknamn.
+          title_cont: Sök %{collection} efter titel.
       help_sections:
         error: Det gick inte att uppdatera hjälpavsnitten
         form:
@@ -322,7 +365,7 @@ sv:
           success: Den hanterade användaren har befordrats.
         promotions:
           new:
-            explanation: Hanterade deltagare kan befordras till vanliga deltagare. Det innebär att de kommer att bli inbjudna till tillämpningen och du kommer inte att kunna hantera dem igen. Den inbjudna deltagaren får ett e-brev om att godkänna inbjudan.
+            explanation: Hanterade deltagare kan befordras till vanliga deltagare. Det innebär att de kommer att bli inbjudna till programmet och du kommer inte att kunna hantera dem igen. Den inbjudna deltagaren får ett e-brev om att godkänna inbjudan.
             new_managed_user_promotion: Befordra ny hanterad användare
             promote: Befordra
       menu:
@@ -428,6 +471,14 @@ sv:
             does_not_belong: Hör inte hemma
             offensive: Stötande
             spam: Skräp
+      newsletter_templates:
+        index:
+          preview_template: Förhandsvisa
+          title: Nyhetsbrev mallar
+          use_template: Använd den här mallen
+        show:
+          preview: 'Förhandsgranska mall: %{template_name}'
+          use_template: Använd den här mallen
       newsletters:
         create:
           error: Det gick inte att skapa nyhetsbrevet.
@@ -441,8 +492,6 @@ sv:
         edit:
           save_and_preview: Spara och förhandsvisa
           title: Redigera nyhetsbrev
-        form:
-          interpolations_hint: 'Tips: Du kan använda "%{name}" var som helst i brödtexten eller ämnet och det kommer att ersättas av mottagarens namn.'
         index:
           all: alla
           all_users: 'Alla användare '
@@ -454,6 +503,7 @@ sv:
           not_sent: Inte skickat
           participants: 'deltagare '
           segmented_to: 'Segmenterad till %{subject}: '
+          subscribed_count: 'Prenumeranter:'
           title: Nyhetsbrev
         new:
           save: Spara
@@ -461,11 +511,12 @@ sv:
         select_recipients_to_deliver:
           all_spaces: Alla
           all_users_help: Skickar nyhetsbrevet till alla bekräftade användare.
-          confirm_deliver: Är du säker på att du vill leverera detta nyhetsbrev? Den här åtgärden kan inte ångras.
+          confirm_deliver: Vill du skicka nyhetsbrevet? Den här åtgärden kan inte ångras.
           deliver: Leverera nyhetsbrev
           followers_help: Skickar nyhetsbrevet till alla bekräftade användare som följer något av de markerade deltagarutrymmena i listan.
           none: Inga
           participants_help: Skickar nyhetsbrevet till alla bekräftade användare som har deltagit i något av de markerade deltagarutrymmena i listan.
+          recipients_count: Detta nyhetsbrev kommer att skickas till <strong id='recipients_count'>%{count}</strong> användare.
           scopes_help: Skickar nyhetsbrev till användare som har något av de valda omfången markerade under "Mina intressen" i sina konton.
           select_scopes: Filtrera för användare som har aktiverat något av de markerade omfången under Mina intressen i sina konton.
           select_spaces: Segmentera nyhetsbrevet genom att markera utrymmen
@@ -474,6 +525,7 @@ sv:
           send_to_followers: Skicka till följare
           send_to_participants: Skicka till deltagare
           title: Välj mottagare att skicka till
+          warning: "<strong>Obs:</strong> Detta nyhetsbrev kommer endast att skickas till de användare som har markerat <em>Jag vill få nyhetsbrev</em> i sina meddelandeinställningar."
         send:
           no_recipients: Inga mottagare för det här urvalet
         show:
@@ -517,12 +569,20 @@ sv:
           officialize: Gör officiell
           officialized: Gjord officiell
           reofficialize: Gör officiell igen
+          show_email: Visa e-postadress
           status: Status
           unofficialize: Sluta gör officiell
         new:
           badge: Officiellt märke
           officialize: Gör officiell
           title: Gör deltagaren "%{name}" officiell
+        show_email_modal:
+          description: Om du behöver kontakta en deltagare direkt kan du klicka på Visa för att se e-postadressen. Denna åtgärd kommer att loggas.
+          email_address: E-postadress
+          full_name: Fullständigt namn
+          hidden: dold
+          show: Visa
+          title: Visa deltagarens e-postadress
       organization:
         edit:
           title: Redigera organisation
@@ -531,6 +591,7 @@ sv:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          rich_text_editor_in_public_views_help: I vissa textfält kan deltagare använda vissa HTML-taggar med hjälp av den rika textredigeraren.
           social_handlers: Sociala
           twitter: Twitter
           url: URL
@@ -571,9 +632,13 @@ sv:
           create: Skapa
           title: Ny privat deltagare i deltagarutrymme.
       participatory_space_private_users_csv_imports:
+        create:
+          invalid: Det gick inte att läsa CSV-filen.
+          success: CSV-filen har skickats in och vi skickar inbjudningar via e-brev till deltagarna. Det kan ta en stund.
         new:
-          title: Ladda upp din CSV-fil
-          upload: Ladda upp
+          explanation: Skicka in din CSV-fil. Den måste ha två kolumner över de användare som du vill lägga till deltagarutrymmet, utan rubriker, med e-postadressen i den första kolumnen i filen och namnet i den sista kolumnen i filen (e-post, namn).
+          title: Skicka CSV-fil
+          upload: Skicka
       resource_permissions:
         edit:
           submit: Skicka in

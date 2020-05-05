@@ -107,6 +107,12 @@ ca:
             one: projecte seleccionat
             other: projectes seleccionats
           view: Veure
+        orders:
+          highest_cost: Major cost
+          label: Ordenar projectes per
+          lowest_cost: Menor cost
+          most_voted: Més votats
+          random: Ordre aleatori
         project:
           add: Afegir
           count:
