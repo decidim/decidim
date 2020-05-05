@@ -771,6 +771,10 @@ hu:
         new:
           create: Meghívás
           title: A résztvevő meghívása rendszergazdaként
+      users_statistics:
+        users_count:
+          admins: Adminok
+          participants: Résztvevők
       view_public_page: Nyilvános oldal megtekintése
     forms:
       errors:
