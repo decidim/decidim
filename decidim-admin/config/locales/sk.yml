@@ -776,6 +776,10 @@ sk:
         new:
           create: Pozvať
           title: Pozvať účastníka ako administrátora
+      users_statistics:
+        users_count:
+          admins: Administrátori
+          participants: Účastníci
       view_public_page: Zobraziť verejnú stránku
     forms:
       errors:
