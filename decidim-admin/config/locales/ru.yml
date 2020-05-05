@@ -274,6 +274,15 @@ ru:
       exports:
         export_as: "%{name} как %{export_format}"
         notice: Идет сохранение в виде файла. Вы получите электронное письмо, когда оно будет завершено.
+      filters:
+        category_id_eq:
+          label: Категория
+        officialized_at_null:
+          label: Cостояние
+          values:
+            'false': Имеет служебный статус
+            'true': Не имеет служебного статуса
+        search_label: Поиск
       help_sections:
         form:
           save: Сохранить
@@ -425,6 +434,9 @@ ru:
             does_not_belong: Неприемлемо
             offensive: Оскорбительно
             spam: Спам
+      newsletter_templates:
+        index:
+          preview_template: Предпросмотр
       newsletters:
         create:
           error: При попытке создать эту рассылку новостей произошла ошибка.
@@ -438,8 +450,6 @@ ru:
         edit:
           save_and_preview: Сохранить и предварительно просмотреть
           title: Редактировать рассылку новостей
-        form:
-          interpolations_hint: 'Подсказка: вы можете использовать «%{name}» в любом месте основного текста или темы, и оно будет заменено именем получателя.'
         index:
           all: все
           all_users: 'Все пользователи '

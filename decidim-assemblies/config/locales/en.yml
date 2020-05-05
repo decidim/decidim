@@ -378,6 +378,12 @@ en:
           email_outro: You have received this notification because you have been invited to an assembly. Check the <a href="%{resource_path}">assembly page</a> to contribute!
           email_subject: You have been invited to be a member of the %{resource_name} assembly!
           notification_title: You have been registered as a member of Assembly <a href="%{resource_path}">%{resource_name}</a>. Check the <a href="%{resource_path}">assembly page</a> to contribute!
+      assembly:
+        role_assigned:
+          email_intro: You have been assigned as %{role} for assembly "%{resource_title}".
+          email_outro: You have received this notification because you are %{role} of the "%{resource_title}" assembly.
+          email_subject: You have been assigned as %{role} for "%{resource_title}".
+          notification_title: You have been assigned as %{role} for assembly <a href="%{resource_url}">%{resource_title}</a>.
     help:
       participatory_spaces:
         assemblies:

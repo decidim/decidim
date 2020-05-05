@@ -241,6 +241,15 @@ is-IS:
       exports:
         export_as: "%{name} sem %{export_format}"
         notice: Útflutningur þinn er í gangi. Þú færð tölvupóst þegar það er lokið.
+      filters:
+        category_id_eq:
+          label: Flokkur
+        officialized_at_null:
+          label: Ríki
+          values:
+            'false': Opinberað
+            'true': Ekki opinberað
+        search_label: Leita
       impersonatable_users:
         index:
           filter:
@@ -361,6 +370,9 @@ is-IS:
             does_not_belong: Tilheyrir ekki
             offensive: Sókn
             spam: Ruslpóstur
+      newsletter_templates:
+        index:
+          preview_template: Preview
       newsletters:
         create:
           success: Fréttabréf búin til með góðum árangri. Vinsamlegast skoðaðu það áður en þú sendir það.
@@ -372,8 +384,6 @@ is-IS:
         edit:
           save_and_preview: Vista og forskoða
           title: Breyta fréttabréfinu
-        form:
-          interpolations_hint: 'Ábending: Þú getur notað "%{name}" hvar sem er í líkamanum eða efninu og það verður skipt út fyrir nafn viðtakanda.'
         index:
           confirm_delete: Ertu viss um að þú viljir eyða þessu fréttabréfi?
           title: Fréttabréf
