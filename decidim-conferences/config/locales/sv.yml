@@ -498,7 +498,7 @@ sv:
         endorsements_count: Instämmanden
         headline: Aktivitet
         meetings_count: Möten
-        orders_count: Stödjer
+        orders_count: Stöd
         pages_count: Sidor
         posts_count: Inlägg
         projects_count: Projekt
@@ -506,7 +506,7 @@ sv:
         results_count: Resultat
         surveys_count: Undersökningar
         users_count: Deltagare
-        votes_count: Stödjer
+        votes_count: Stöd
     events:
       conferences:
         conference_registration_confirmed:

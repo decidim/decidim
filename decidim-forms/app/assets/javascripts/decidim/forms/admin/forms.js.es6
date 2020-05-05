@@ -49,7 +49,10 @@
       handle: ".question-divider",
       placeholder: '<div style="border-style: dashed; border-color: #000"></div>',
       forcePlaceholderSize: true,
-      onSortUpdate: () => { autoLabelByPosition.run() }
+      onSortUpdate: () => {
+        autoLabelByPosition.run();
+        autoButtonsByPosition.run();
+      }
     });
   };
 
