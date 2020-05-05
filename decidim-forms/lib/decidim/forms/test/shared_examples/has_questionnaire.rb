@@ -62,12 +62,13 @@ shared_examples_for "has questionnaire" do
       end
 
       before do
-        answer = create(:answer, id: 1, questionnaire: questionnaire, question: question)
+        answer = create(:question_answer, id: 1, questionnaire: questionnaire, question: question)
 
         answer.choices.create!(
           answer_option: Decidim::Forms::AnswerOption.first,
           body: "Lalalilo"
         )
+        create(:answer, questionnaire: questionnaire, user: answer.user)
       end
 
       it "does not leak defaults from other answers" do

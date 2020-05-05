@@ -58,7 +58,7 @@ describe "Answer a survey", type: :system do
     end
   end
 
-  context "when the survey allow answers" do
+  context "when the survey allows answers" do
     before do
       component.update!(
         step_settings: {

@@ -5,7 +5,7 @@ shared_examples "export survey user answers" do
   let!(:questions) { create_list :questionnaire_question, 3, questionnaire: questionnaire }
   let!(:answers) do
     questions.map do |question|
-      create_list :answer, 3, questionnaire: questionnaire, question: question
+      create_list :question_answer, 3, questionnaire: questionnaire, question: question
     end.flatten
   end
 

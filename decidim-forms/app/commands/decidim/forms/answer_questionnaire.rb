@@ -24,7 +24,7 @@ module Decidim
         broadcast(:ok)
       end
 
-      attr_reader :form
+      attr_reader :form, :questionnaire, :current_user
 
       private
 
@@ -32,8 +32,8 @@ module Decidim
         Answer.transaction do
           form.responses.each do |form_answer|
             answer = Answer.new(
-              user: @current_user,
-              questionnaire: @questionnaire,
+              user: current_user,
+              questionnaire: questionnaire,
               question: form_answer.question,
               body: form_answer.body,
               session_token: form.context.session_token,
@@ -52,6 +52,12 @@ module Decidim
 
             answer.save!
           end
+
+          QuestionnaireAnswer.create!(
+            user: current_user,
+            session_token: form.context.session_token,
+            questionnaire: questionnaire
+          )
         end
       end
     end

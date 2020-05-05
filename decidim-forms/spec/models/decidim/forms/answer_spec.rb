@@ -12,7 +12,7 @@ module Decidim
       let(:participatory_process) { create(:participatory_process, organization: organization) }
       let(:questionnaire) { create(:questionnaire, questionnaire_for: participatory_process) }
       let(:question) { create(:questionnaire_question, questionnaire: questionnaire) }
-      let(:answer) { create(:answer, questionnaire: questionnaire, question: question, user: user) }
+      let(:answer) { create(:question_answer, questionnaire: questionnaire, question: question, user: user) }
 
       it { is_expected.to be_valid }
 

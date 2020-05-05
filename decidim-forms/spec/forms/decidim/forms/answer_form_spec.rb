@@ -32,7 +32,7 @@ module Decidim
         )
       end
 
-      let!(:answer) { build(:answer, user: user, questionnaire: questionnaire, question: question) }
+      let!(:answer) { build(:question_answer, user: user, questionnaire: questionnaire, question: question) }
 
       context "when everything is OK" do
         it { is_expected.to be_valid }

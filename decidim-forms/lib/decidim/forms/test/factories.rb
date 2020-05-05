@@ -68,7 +68,12 @@ FactoryBot.define do
     end
   end
 
-  factory :answer, class: "Decidim::Forms::Answer" do
+  factory :answer, class: "Decidim::Forms::QuestionnaireAnswer" do
+    questionnaire
+    user { create(:user, organization: questionnaire.questionnaire_for.organization) }
+  end
+
+  factory :question_answer, class: "Decidim::Forms::Answer" do
     body { "hola" }
     questionnaire
     question { create(:questionnaire_question, questionnaire: questionnaire) }

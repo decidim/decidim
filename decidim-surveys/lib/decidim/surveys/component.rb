@@ -31,9 +31,9 @@ Decidim.register_component(:surveys) do |component|
 
   component.on(:before_destroy) do |instance|
     survey = Decidim::Surveys::Survey.find_by(decidim_component_id: instance.id)
-    survey_answers_for_component = Decidim::Forms::Answer.where(questionnaire: survey.questionnaire)
+    answers_for_component = Decidim::Forms::QuestionnaireAnswer.where(questionnaire: survey.questionnaire)
 
-    raise "Can't destroy this component when there are survey answers" if survey_answers_for_component.any?
+    raise "Can't destroy this component when there are survey answers" if answers_for_component.any?
   end
 
   component.register_stat :surveys_count do |components, start_at, end_at|

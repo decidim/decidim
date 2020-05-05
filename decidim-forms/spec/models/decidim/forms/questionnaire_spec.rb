@@ -43,14 +43,13 @@ module Decidim
 
       describe "#answered_by?" do
         let!(:user) { create(:user, organization: questionnaire.questionnaire_for.component.participatory_space.organization) }
-        let!(:question) { create(:questionnaire_question, questionnaire: questionnaire) }
 
         it "returns false if the given user has not answered the questionnaire" do
           expect(questionnaire).not_to be_answered_by(user)
         end
 
         it "returns true if the given user has answered the questionnaire" do
-          create(:answer, questionnaire: questionnaire, question: question, user: user)
+          create(:answer, questionnaire: questionnaire, user: user)
           expect(questionnaire).to be_answered_by(user)
         end
       end

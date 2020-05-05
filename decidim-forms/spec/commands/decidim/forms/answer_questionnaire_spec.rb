@@ -89,11 +89,18 @@ module Decidim
           expect { command.call }.to broadcast(:ok)
         end
 
-        it "creates a questionnaire answer for each question answered" do
+        it "creates a question answer for each question answered" do
           expect do
             command.call
           end.to change(Answer, :count).by(3)
           expect(Answer.all.map(&:questionnaire)).to eq([questionnaire, questionnaire, questionnaire])
+        end
+
+        it "creates a questionnaire answer for the questionnaire" do
+          expect do
+            command.call
+          end.to change(QuestionnaireAnswer, :count).by(1)
+          expect(QuestionnaireAnswer.last.questionnaire).to eq(questionnaire)
         end
 
         it "creates answers with the correct information" do

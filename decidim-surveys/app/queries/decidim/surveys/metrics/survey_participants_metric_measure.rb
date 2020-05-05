@@ -15,13 +15,13 @@ module Decidim
           questionnaires = Decidim::Forms::Questionnaire.includes(:questionnaire_for)
                                                         .where(questionnaire_for_type: Decidim::Surveys::Survey.name, questionnaire_for_id: surveys.pluck(:id))
 
-          answers = Decidim::Forms::Answer.joins(:questionnaire)
+          answers = Decidim::Forms::QuestionnaireAnswer.joins(:questionnaire)
                                           .where(questionnaire: questionnaires)
-                                          .where("decidim_forms_answers.created_at <= ?", end_time)
+                                          .where("decidim_forms_questionnaire_answers.created_at <= ?", end_time)
 
           {
             cumulative_users: answers.pluck(:decidim_user_id).uniq,
-            quantity_users: answers.where("decidim_forms_answers.created_at >= ?", start_time).pluck(:decidim_user_id).uniq
+            quantity_users: answers.where("decidim_forms_questionnaire_answers.created_at >= ?", start_time).pluck(:decidim_user_id).uniq
           }
         end
       end
