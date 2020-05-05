@@ -741,6 +741,7 @@ en:
         scope_types: Scope types
         scopes: Scopes
         static_pages: Pages
+        statistics: Activity
         user_groups: Groups
         users: Participants
       user_group:
@@ -786,6 +787,14 @@ en:
         new:
           create: Invite
           title: Invite participant as administrator
+      users_statistics:
+        users_count:
+          admins: Admins
+          last_day: Last day
+          last_month: Last month
+          last_week: Last week
+          no_users_count_statistics_yet: There are no users count statistics yet
+          participants: Participants
       view_public_page: View public page
     forms:
       errors:
