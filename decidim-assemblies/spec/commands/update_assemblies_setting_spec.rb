@@ -14,7 +14,8 @@ module Decidim::Assemblies
       double(
         invalid?: invalid,
         current_user: user,
-        enable_organization_chart: enable_organization_chart      )
+        enable_organization_chart: enable_organization_chart
+      )
     end
     let(:invalid) { false }
 

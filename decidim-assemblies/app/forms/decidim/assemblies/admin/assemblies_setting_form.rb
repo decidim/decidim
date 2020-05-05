@@ -2,10 +2,10 @@
 
 module Decidim
   module Assemblies
-	  module Admin
-	  # A form object used to create assembly setting from the admin dashboard.
-		  class AssembliesSettingForm < Form
-			  include TranslatableAttributes
+    module Admin
+      # A form object used to create assembly setting from the admin dashboard.
+      class AssembliesSettingForm < Form
+        include TranslatableAttributes
 
         mimic :assemblies_setting
 

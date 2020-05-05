@@ -14,14 +14,13 @@ module Decidim
       #    AssembliesSettingPresenter.new(action_log, view_helpers).present
       class AssembliesSettingPresenter < Decidim::Log::BasePresenter
         private
+
         def i18n_labels_scope
           "activemodel.attributes.assemblies_setting"
         end
 
         def action_string
-          if action == "update"
-            "decidim.admin_log.assembly_setting.#{action}"
-          end
+          "decidim.admin_log.assembly_setting.#{action}" if action == "update"
         end
       end
     end

@@ -10,13 +10,13 @@ module Decidim
 
         # GET /admin/assemblies_settings/edit
         def edit
-          enforce_permission_to :edit, :assemblies_settings, assemblies_settings: current_assemblies_settings
+          enforce_permission_to :edit, :assemblies_setting, assemblies_settings: current_assemblies_settings
           @form = assemblies_settings_form.from_model(current_assemblies_settings)
         end
 
         # PUT /admin/assemblies_settings/:id
         def update
-          enforce_permission_to :update, :assemblies_settings, assemblies_settings: current_assemblies_settings
+          enforce_permission_to :update, :assemblies_setting, assemblies_settings: current_assemblies_settings
 
           @form = assemblies_settings_form
                   .from_params(params, assemblies_settings: current_assemblies_settings)
