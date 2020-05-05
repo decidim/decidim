@@ -17,7 +17,7 @@ edit_link(
   <% end %>
 
   <%= render partial: "parent_assemblies" %>
-  
+
   <% if current_assemblies_settings.enable_organization_chart %>
     <section id="assemblies-chart" class="row column section">
       <div class="row column">
@@ -31,3 +31,4 @@ edit_link(
 <% end %>
 <%= javascript_include_tag "decidim/filters" %>
 <%= javascript_include_tag "decidim/assemblies/orgchart" %>
+
