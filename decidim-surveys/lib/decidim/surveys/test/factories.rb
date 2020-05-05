@@ -12,7 +12,18 @@ FactoryBot.define do
   end
 
   factory :survey, class: "Decidim::Surveys::Survey" do
-    questionnaire { build(:questionnaire) }
+    transient do
+      questionnaire { :default_value }
+      questionnaires_count { 1 }
+    end
+
+    questionnaires { questionnaires_count.times.map { build(:questionnaire) } }
     component { build(:surveys_component) }
+
+    after(:build) do |survey, evaluator|
+      if evaluator.questionnaire != :default_value
+        survey.questionnaires = [evaluator.questionnaire].flatten.compact
+      end
+    end
   end
 end

@@ -35,8 +35,8 @@ module Decidim
         it { is_expected.not_to be_valid }
       end
 
-      it "has an associated questionnaire" do
-        expect(survey.questionnaire).to be_a(Decidim::Forms::Questionnaire)
+      it "has associated questionnaires" do
+        expect(survey.questionnaires.first).to be_a(Decidim::Forms::Questionnaire)
       end
     end
   end
