@@ -3,7 +3,7 @@
 module Decidim
   module Assemblies
     module AdminLog
-      # This class holds the logic to present a `Decidim::AssembliesType`
+      # This class holds the logic to present a `Decidim::AssembliesSetting`
       # for the `AdminLog` log.
       #
       # Usage should be automatic and you shouldn't need to call this class

@@ -22,7 +22,7 @@ module Decidim
           #
           # Returns nothing.
           def call
-            return broadcast(:invalid) if form.invalid? || unless @assemblies_settings
+            return broadcast(:invalid) if form.invalid? || unless assemblies_settings
               
             end
   
