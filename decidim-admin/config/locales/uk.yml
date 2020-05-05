@@ -607,6 +607,9 @@ uk:
         new:
           create: Запросити
           title: Запросити учасника в якості адміністратора
+      users_statistics:
+        users_count:
+          admins: Адміністратори
     forms:
       errors:
         impersonate_user:
