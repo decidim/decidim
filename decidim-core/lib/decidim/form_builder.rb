@@ -373,17 +373,21 @@ module Decidim
       template += label(attribute, label_for(attribute) + required_for_attribute(attribute))
       template += @template.file_field @object_name, attribute
 
-      if options[:versions_info].present?
-        template += content_tag :p, class: "versions--info description" do
-          I18n.t("versions_info", scope: "decidim.forms.images")
-        end
-        template += content_tag :div, class: "versions--info" do
-          safe_join(options[:versions_info].map do |_version, info|
-            safe_join([
-                        @template.label_tag(I18n.t("processors.#{info[:processor]}", scope: "decidim.forms.images")),
-                        @template.content_tag(:span, I18n.t("dimensions", scope: "decidim.forms.images", width: info[:dimensions].first, height: info[:dimensions].last))
-                      ])
-          end)
+      if options[:dimensions_info].present?
+        template += content_tag :div, class: "dimensions--info description" do
+          safe_join([
+                      content_tag(:span, I18n.t("dimensions_info", scope: "decidim.forms.images")),
+                      content_tag(:p, class: "dimensions--info") do
+                        safe_join(options[:dimensions_info].map do |_version, info|
+                          safe_join([
+                                      @template.content_tag(:b, I18n.t("processors.#{info[:processor]}", scope: "decidim.forms.images")),
+                                      "  ",
+                                      @template.content_tag(:span, I18n.t("dimensions", scope: "decidim.forms.images", width: info[:dimensions].first, height: info[:dimensions].last)),
+                                      "<br/>".html_safe
+                                    ])
+                        end)
+                      end
+                    ])
         end
       end
 
