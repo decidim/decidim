@@ -400,10 +400,8 @@ hu:
             title: Frissítse a javaslatot
             update: frissítés
           form:
-            add_images: Képek hozzáadása
             attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
             created_in_meeting: Ez a javaslat egy találkozóból származik
-            gallery_legend: "(opcionális) Kép hozzáadása a galériához"
             select_a_category: Válassz kategóriát
             select_a_meeting: Válasszon egy találkozót
           index:

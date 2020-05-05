@@ -5,33 +5,53 @@ module Decidim
   class MetricChartsPresenter < Rectify::Presenter
     # Public: Render a collection of primary metrics.
     def highlighted
-      render_highlighted(Decidim.metrics_registry.filtered(highlight: true, scope: "home"))
+      render_highlighted(highlighted_metrics)
     end
 
     # Public: Render a collection of metrics that are not primary.
     def not_highlighted
-      render_not_highlighted(Decidim.metrics_registry.filtered(highlight: false, scope: "home"))
+      render_not_highlighted(not_highlighted_metrics)
+    end
+
+    def highlighted_metrics
+      Decidim.metrics_registry.filtered(highlight: true, scope: "home")
+    end
+
+    def not_highlighted_metrics
+      Decidim.metrics_registry.filtered(highlight: false, scope: "home")
     end
 
     private
 
-    def render_highlighted(highlighted_metrics)
+    def highlighted_classes
+      "column medium-4"
+    end
+
+    def not_highlighted_classes
+      "column medium-6"
+    end
+
+    def not_highlighted_wrapper_classes
+      "column medium-4"
+    end
+
+    def render_highlighted(metrics)
       safe_join(
-        highlighted_metrics.map do |metric|
-          render_metrics_data(metric.metric_name, klass: "column medium-4")
+        metrics.map do |metric|
+          render_metrics_data(metric.metric_name, klass: highlighted_classes)
         end
       )
     end
 
-    def render_not_highlighted(not_highlighted_metrics)
+    def render_not_highlighted(metrics)
       safe_join(
-        not_highlighted_metrics.in_groups_of(2).map do |metrics_group|
-          content_tag :div, class: "column medium-4" do
+        metrics.in_groups_of(2).map do |metrics_group|
+          content_tag :div, class: not_highlighted_wrapper_classes do
             safe_join(
               metrics_group.map do |metric|
                 next "" if metric.blank?
 
-                render_metrics_data(metric.metric_name, klass: "column medium-6", graph_klass: "small")
+                render_metrics_data(metric.metric_name, klass: not_highlighted_classes, graph_klass: "small")
               end
             )
           end
@@ -40,14 +60,14 @@ module Decidim
     end
 
     def render_metrics_data(metric_name, opts = {})
-      content_tag :div, class: opts[:klass].presence || "column medium-6" do
+      content_tag :div, class: opts[:klass].presence || not_highlighted_classes do
         concat render_metric_chart(metric_name, opts)
         concat render_downloader(metric_name) if opts[:download]
       end
     end
 
     def render_metrics_descriptive(metric_name, opts = {})
-      content_tag :div, class: opts[:klass].presence || "column medium-6" do
+      content_tag :div, class: opts[:klass].presence || not_highlighted_classes do
         concat content_tag(:h3, opts[:title], class: "metric-title heading3 text-uppercase text-muted")
         concat content_tag(:p, opts[:description], class: "metric-description text-medium")
         concat render_metric_chart(metric_name, opts)
