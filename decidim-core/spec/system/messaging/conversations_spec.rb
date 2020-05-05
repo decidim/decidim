@@ -134,7 +134,7 @@ describe "Conversations", type: :system do
       end
 
       it "shows the number of unread messages per conversation" do
-        expect(page).to have_selector(".card--list__item .card--list__counter", text: "1")
+        expect(page).to have_selector(".card--list__item .unread_message__counter", text: "1")
       end
     end
 
@@ -149,7 +149,7 @@ describe "Conversations", type: :system do
       end
 
       it "does not show an unread count" do
-        expect(page).to have_no_selector(".card--list__item .card--list__counter")
+        expect(page).to have_no_selector(".card--list__item .unread_message__counter")
       end
     end
 
@@ -176,7 +176,7 @@ describe "Conversations", type: :system do
         end
 
         it "appears as unread", :slow do
-          expect(page).to have_selector(".card--list__item .card--list__counter", text: "2")
+          expect(page).to have_selector(".card--list__item .unread_message__counter", text: "2")
         end
 
         it "appears as read after it's seen", :slow do
@@ -184,7 +184,7 @@ describe "Conversations", type: :system do
           expect(page).to have_content("Please reply!")
 
           find("a.card--list__data__icon--back").click
-          expect(page).to have_no_selector(".card--list__item .card--list__counter")
+          expect(page).to have_no_selector(".card--list__item .unread_message__counter")
         end
       end
     end
