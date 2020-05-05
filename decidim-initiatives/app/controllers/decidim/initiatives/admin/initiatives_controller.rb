@@ -117,6 +117,17 @@ module Decidim
           end
         end
 
+        # GET /admin/initiatives/export
+        def export
+          enforce_permission_to :export, :initiatives
+
+          Decidim::Initiatives::ExportInitiativesJob.perform_later(current_user, params[:format] || default_format)
+
+          flash[:notice] = t("decidim.admin.exports.notice")
+
+          redirect_back(fallback_location: initiatives_path)
+        end
+
         # GET /admin/initiatives/:id/export_votes
         def export_votes
           enforce_permission_to :export_votes, :initiative, initiative: current_initiative
@@ -161,6 +172,10 @@ module Decidim
 
         def pdf_signature_service
           @pdf_signature_service ||= Decidim.pdf_signature_service.to_s.safe_constantize
+        end
+
+        def default_format
+          "json"
         end
       end
     end

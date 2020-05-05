@@ -301,6 +301,10 @@ module Decidim
       committee_members.approved.where(decidim_users_id: user.id).any?
     end
 
+    def author_users
+      [author].concat(committee_members.excluding_author.map(&:user))
+    end
+
     def accepts_offline_votes?
       published? && (offline_signature_type? || any_signature_type?)
     end
