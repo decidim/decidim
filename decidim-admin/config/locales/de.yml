@@ -707,6 +707,10 @@ de:
         new:
           create: Einladen
           title: Benutzer als Administrator einladen
+      users_statistics:
+        users_count:
+          admins: Admins
+          participants: Teilnehmer
       view_public_page: Öffentliche Seite anzeigen
     forms:
       errors:
