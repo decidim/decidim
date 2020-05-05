@@ -1,0 +1,69 @@
+<% primary_color = current_organization.colors["primary"] %>
+<%
+  def dimensions(image)
+    versions = current_organization.send(image).dimensions_info
+    dimensions = %i[small medium default].map { |v| versions.dig(v, :dimensions) }.compact.first
+  end
+
+  def width(image)
+    dimensions(image)[0] / 4
+  end
+
+  def height(image)
+    dimensions(image)[1] / 4
+  end
+%>
+
+<svg id="minimap" width="400" height="300" background="#000">
+  <rect id="body" width="400" height="280" x="0" y="36" fill="#999" />
+  <rect id="footer" width="400" height="<%= height(:official_img_footer) * 1.25 %>" x="0" y="<%= 300 - height(:official_img_footer) * 1.25 %>" fill="#000" />
+  <rect id="tab" width="<%= width(:logo) %>" height="<%= height(:favicon) * 2.5 %>" x="0" y="0" fill="#DDD" />
+  <rect id="header" width="400" height="<%= height(:logo) * 1.5 %>" x="0" y="<%= height(:favicon) * 2.5 %>" fill="#000"/>
+  <rect id="subheader" width="400" height="18" x="0" y="<%= (height(:logo) + height(:favicon)) * 1.5 %>" fill="#333"/>
+
+  <text fill="#000" font-size="8" font-family="Verdana" x="22" y="14"><%= current_organization.name %></text>
+  
+  <%= content_tag current_organization.favicon.present? ? :image : :rect,
+    nil,
+    {
+      id: "favicon",
+      width: 16,
+      height: 16,
+      x: 2, y: 2,
+      fill: primary_color,
+    }.merge("xlink:href" => current_organization.favicon) %>
+  <text fill="#fff" font-size="12" font-family="Verdana" x="6" y="14">1</text>
+  
+  <%= content_tag current_organization.logo.present? ? :image : :rect,
+    nil,
+    {
+      id: "logo",
+      width: width(:logo),
+      height: height(:logo),
+      x: 4, y: 24,
+      fill: primary_color,
+    }.merge("xlink:href" => current_organization.logo) %>
+  <text fill="#fff" font-size="12" font-family="Verdana" x="12" y="40">2</text>
+  
+  <%= content_tag current_organization.official_img_header.present? ? :image : :rect,
+    nil,
+    {
+      id: "official_img_header",
+      width: width(:official_img_header),
+      height: height(:official_img_header),
+      x: 360, y: 24,
+      fill: primary_color,
+    }.merge("xlink:href" => current_organization.official_img_header) %>
+  <text fill="#fff" font-size="12" font-family="Verdana" x="364" y="40">3</text>
+  
+  <%= content_tag current_organization.official_img_footer.present? ? :image : :rect,
+    nil,
+    {
+      id: "official_img_footer",
+      width: width(:official_img_footer),
+      height: height(:official_img_footer),
+      x: 0, y: 300 - height(:official_img_footer) - 6,
+      fill: primary_color,
+    }.merge("xlink:href" => current_organization.official_img_footer) %>
+  <text fill="#fff" font-size="12" font-family="Verdana" x="12" y="270">4</text>
+</svg>
