@@ -22,7 +22,7 @@ module Decidim
 
       def serialize_answers
         questions = resource.meeting.questionnaire.questions
-        answers = resource.meeting.questionnaire.answers.where(user: resource.user)
+        answers = resource.meeting.questionnaire.question_answers.where(user: resource.user)
         questions.each_with_index.inject({}) do |serialized, (question, idx)|
           answer = answers.find_by(question: question)
           serialized.update("#{idx + 1}. #{translated_attribute(question.body)}" => normalize_body(answer))

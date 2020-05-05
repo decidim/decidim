@@ -10,7 +10,7 @@ module Decidim
       end
 
       def call
-        @survey = Survey.new(component: @component, questionnaire: Decidim::Forms::Questionnaire.new)
+        @survey = Survey.new(component: @component, questionnaires: [Decidim::Forms::Questionnaire.new])
 
         @survey.save ? broadcast(:ok) : broadcast(:invalid)
       end

@@ -11,13 +11,18 @@ module Decidim
         end
 
         def calculate
-          surveys = Decidim::Surveys::Survey.joins(:component, :questionnaire).where(component: @resource)
-          questionnaires = Decidim::Forms::Questionnaire.includes(:questionnaire_for)
-                                                        .where(questionnaire_for_type: Decidim::Surveys::Survey.name, questionnaire_for_id: surveys.pluck(:id))
+          surveys = Decidim::Surveys::Survey.joins(:component, :questionnaires).where(component: @resource)
+          questionnaires = Decidim::Forms::Questionnaire
+                           .includes(:questionnaire_for)
+                           .where(
+                             questionnaire_for_type: Decidim::Surveys::Survey.name,
+                             questionnaire_for_id: surveys.pluck(:id)
+                           )
 
-          answers = Decidim::Forms::QuestionnaireAnswer.joins(:questionnaire)
-                                          .where(questionnaire: questionnaires)
-                                          .where("decidim_forms_questionnaire_answers.created_at <= ?", end_time)
+          answers = Decidim::Forms::QuestionnaireAnswer
+                    .joins(:questionnaire)
+                    .where(questionnaire: questionnaires)
+                    .where("decidim_forms_questionnaire_answers.created_at <= ?", end_time)
 
           {
             cumulative_users: answers.pluck(:decidim_user_id).uniq,

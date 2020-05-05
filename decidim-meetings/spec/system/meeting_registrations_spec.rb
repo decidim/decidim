@@ -216,7 +216,8 @@ describe "Meeting registrations", type: :system do
     end
 
     context "and the user is going to the meeting" do
-      let!(:answer) { create(:answer, questionnaire: questionnaire, question: question, user: user) }
+      let!(:answer) { create(:answer, questionnaire: questionnaire, user: user) }
+      let!(:question_answer) { create(:question_answer, questionnaire: questionnaire, question: question, user: user) }
       let!(:registration) { create(:registration, meeting: meeting, user: user) }
 
       before do

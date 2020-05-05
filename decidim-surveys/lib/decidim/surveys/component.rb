@@ -44,8 +44,8 @@ Decidim.register_component(:surveys) do |component|
   end
 
   component.register_stat :answers_count, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
-    surveys = Decidim::Surveys::Survey.includes(:questionnaire).where(component: components)
-    answers = Decidim::Forms::Answer.where(questionnaire: surveys.map(&:questionnaire))
+    surveys = Decidim::Surveys::Survey.includes(:questionnaires).where(component: components)
+    answers = Decidim::Forms::Answer.where(questionnaire: surveys.flat_map(&:questionnaires))
     answers = answers.where("created_at >= ?", start_at) if start_at.present?
     answers = answers.where("created_at <= ?", end_at) if end_at.present?
     answers.group(:session_token).count.size
@@ -107,7 +107,7 @@ Decidim.register_component(:surveys) do |component|
 
     params = {
       component: component,
-      questionnaire: questionnaire
+      questionnaires: [questionnaire]
     }
 
     Decidim.traceability.create!(

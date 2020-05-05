@@ -11,10 +11,10 @@ module Decidim
 
       included do
         has_many :questionnaires,
-                class_name: "Decidim::Forms::Questionnaire",
-                dependent: :destroy,
-                inverse_of: :questionnaire_for,
-                as: :questionnaire_for
+                 class_name: "Decidim::Forms::Questionnaire",
+                 dependent: :destroy,
+                 inverse_of: :questionnaire_for,
+                 as: :questionnaire_for
       end
     end
   end

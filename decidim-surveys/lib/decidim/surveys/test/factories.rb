@@ -21,9 +21,7 @@ FactoryBot.define do
     component { build(:surveys_component) }
 
     after(:build) do |survey, evaluator|
-      if evaluator.questionnaire != :default_value
-        survey.questionnaires = [evaluator.questionnaire].flatten.compact
-      end
+      survey.questionnaires = [evaluator.questionnaire].flatten.compact if evaluator.questionnaire != :default_value
     end
   end
 end

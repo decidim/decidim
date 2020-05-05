@@ -27,7 +27,7 @@ module Decidim::Meetings
         end
       end
 
-      context "when questtionaire enabled" do
+      context "when questionnaire enabled" do
         let(:meeting) { create :meeting, :with_registrations_enabled }
         let!(:user) { create(:user, organization: meeting.organization) }
         let!(:registration) { create(:registration, meeting: meeting, user: user) }
@@ -35,14 +35,14 @@ module Decidim::Meetings
         let!(:questions) { create_list :questionnaire_question, 3, questionnaire: meeting.questionnaire }
         let!(:answers) do
           questions.map do |question|
-            create :answer, questionnaire: meeting.questionnaire, question: question, user: user
+            create :question_answer, questionnaire: meeting.questionnaire, question: question, user: user
           end
         end
 
         let!(:multichoice_question) { create :questionnaire_question, questionnaire: meeting.questionnaire, question_type: "multiple_option" }
         let!(:multichoice_answer_options) { create_list :answer_option, 2, question: multichoice_question }
         let!(:multichoice_answer) do
-          create :answer, questionnaire: meeting.questionnaire, question: multichoice_question, user: user, body: nil
+          create :question_answer, questionnaire: meeting.questionnaire, question: multichoice_question, user: user, body: nil
         end
         let!(:multichoice_answer_choices) do
           multichoice_answer_options.map do |answer_option|
@@ -53,7 +53,7 @@ module Decidim::Meetings
         let!(:singlechoice_question) { create :questionnaire_question, questionnaire: meeting.questionnaire, question_type: "single_option" }
         let!(:singlechoice_answer_options) { create_list :answer_option, 2, question: multichoice_question }
         let!(:singlechoice_answer) do
-          create :answer, questionnaire: meeting.questionnaire, question: singlechoice_question, user: user, body: nil
+          create :question_answer, questionnaire: meeting.questionnaire, question: singlechoice_question, user: user, body: nil
         end
         let!(:singlechoice_answer_choice) do
           answer_option = singlechoice_answer_options.first
