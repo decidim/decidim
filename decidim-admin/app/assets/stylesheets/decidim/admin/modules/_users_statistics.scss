@@ -16,21 +16,3 @@
 .table-list.users_count th{
   text-transform: capitalize;
 }
-
-@media (max-width: 600px){
-  .users_statistics{
-    width: 100%;
-  }
-}
-
-@media (max-width: 900px){
-  .users_statistics{
-    width: 50%;
-  }
-}
-
-@media (min-width: 1200px){
-  .users_statistics{
-    width: 33%;
-  }
-}

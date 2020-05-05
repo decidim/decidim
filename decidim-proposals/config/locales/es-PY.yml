@@ -400,10 +400,8 @@ es-PY:
             title: Actualizar propuesta
             update: Actualizar
           form:
-            add_images: Añadir imágenes
             attachment_legend: "(Opcional) Añadir un archivo adjunto"
             created_in_meeting: Esta propuesta viene de una reunión.
-            gallery_legend: "(Opcional) Añadir una galería de imágenes"
             select_a_category: Seleccione una categoría
             select_a_meeting: Seleccione una reunion
           index:

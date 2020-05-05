@@ -1,1 +1,6 @@
 sr:
+  activemodel:
+    attributes:
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: Ime procenjivača
