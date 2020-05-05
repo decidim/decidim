@@ -19,11 +19,10 @@ module Decidim
       #
       # Returns an ActiveRecord::Relation
       def query
-        return Decidim::User.none unless organization
-        return Decidim::User.none unless date
+        return Decidim::User.none unless organization && date
 
         query = Decidim::User.left_outer_joins(:organization).where(decidim_organizations: { id: organization.id })
-        query = query.where("#{Decidim::User.table_name}.current_sign_in_at >= ?", date) unless date.nil?
+        query = query.where("#{Decidim::User.table_name}.current_sign_in_at >= ?", date)
         query = query.where(admin: admin)
         query
       end
