@@ -7,7 +7,8 @@ module Decidim
       belongs_to :questionnaire_for, polymorphic: true
 
       has_many :questions, -> { order(:position) }, class_name: "Question", foreign_key: "decidim_questionnaire_id", dependent: :destroy
-      has_many :answers, class_name: "Answer", foreign_key: "decidim_questionnaire_id", dependent: :destroy
+      has_many :answers, class_name: "QuestionnaireAnswer", foreign_key: "decidim_questionnaire_id", dependent: :destroy
+      has_many :question_answers, class_name: "Answer", foreign_key: "decidim_questionnaire_id", dependent: :destroy
 
       # Public: returns whether the questionnaire questions can be modified or not.
       def questions_editable?
@@ -17,7 +18,7 @@ module Decidim
       # Public: returns whether the questionnaire is answered by the user or not.
       def answered_by?(user)
         query = user.is_a?(String) ? { session_token: user } : { user: user }
-        answers.where(query).any? if questions.present?
+        answers.where(query).any?
       end
     end
   end
