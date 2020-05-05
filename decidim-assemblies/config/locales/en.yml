@@ -102,7 +102,7 @@ en:
         create:
           error: There was a problem duplicating this assembly.
           success: Assembly successfully duplicated.
-      assemblies_settings:  
+      assemblies_settings:
         update:
           error: There was a problem updating settings.
           success: Settings updated successfully.
@@ -166,6 +166,7 @@ en:
           success: Admin updated successfully for this assembly.
       menu:
         assemblies: Assemblies
+        assemblies_settings: Settings
         assemblies_submenu:
           assembly_admins: Assembly admins
           assembly_members: Members
@@ -177,7 +178,6 @@ en:
           info: Info
           moderations: Moderations
           private_users: Private users
-        assemblies_settings: Settings
         assemblies_types: Assemblies types
       models:
         assemblies_types:
@@ -217,7 +217,6 @@ en:
             valuator: Valuator
       titles:
         assemblies: Assemblies
-        assemblies_settings: Assemblies settings
         assemblies_types: Assemblies types
     admin_log:
       assembly:
@@ -261,16 +260,17 @@ en:
             title: General Information
             visbility: Visibility
         assemblies_settings:
-          form:
-            title: Settings for assemblies
           edit:
             update: Update
+          form:
+            title: Settings for assemblies
         assemblies_types:
           form:
             title: Title
         assembly_copies:
           form:
             slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+
         assembly_members:
           form:
             existing_user: Existing participant
