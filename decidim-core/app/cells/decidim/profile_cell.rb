@@ -41,5 +41,15 @@ module Decidim
 
       render :user_tabs
     end
+
+    def unread_count
+      @unread_count ||= Decidim::Messaging::Receipt.unread_count(current_user)
+    end
+
+    def label_conversations
+      label = I18n.t("decidim.profiles.show.conversations")
+      label = "#{label} <span class=\"badge\">#{unread_count}</span>" if unread_count
+      label
+    end
   end
 end
