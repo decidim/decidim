@@ -905,7 +905,7 @@ sv:
     own_user_groups:
       index:
         pending: Avvaktande
-        rejected: Avvisad
+        rejected: Avvisade
         verified: Verifierad
     pad_iframe:
       disclaimer: Innehållet i detta memo är skrivet av registrerade användare och uttrycker deras åsikter. %{organization} kan inte hållas ansvarig för innehållet.

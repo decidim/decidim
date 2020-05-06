@@ -679,6 +679,10 @@ pt:
         new:
           create: Convite
           title: Convide o usuário como administrador
+      users_statistics:
+        users_count:
+          admins: Administradores
+          participants: Participantes
       view_public_page: Ver página pública
     forms:
       errors:

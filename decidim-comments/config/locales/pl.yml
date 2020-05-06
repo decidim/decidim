@@ -80,6 +80,9 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_name}. Możesz przestać obserwować tego użytkownika na swojej stronie profilu.
           email_subject: Jest nowy komentarz autor %{author_name} w %{resource_title}
           notification_title: Pojawił się nowy komentarz <a href="%{author_path}">%{author_name} %{author_nickname}</a> w <a href="%{resource_path}">%{resource_title}</a>.
+        comment_by_followed_user_group:
+          email_subject: Jest nowy komentarz autor %{author_name} w %{resource_title}
+          notification_title: Pojawił się nowy komentarz <a href="%{author_path}">%{author_name} %{author_nickname}</a> w <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} został skomentowany. Możesz przeczytać komentarz na tej stronie:"
           email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz "%{resource_title}" lub jego autora. Możesz przestać go obserwować z poprzedniego linku.
