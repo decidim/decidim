@@ -54,13 +54,13 @@ twitter:
 
 ## Custom providers
 
-* You can define your own provider, to allow users from other external applications to login into Decidim.
-* The provider should implement an [OmniAuth](https://github.com/omniauth/omniauth) strategy.
-* You can use any of the [existing OnmiAuth strategies](https://github.com/omniauth/omniauth/wiki/List-of-Strategies).
-* Or you can create a new strategy, as the [Decidim OmniAuth Strategy](https://github.com/decidim/omniauth-decidim). This strategy allow users from a Decidim instance to login in other Decidim instance. For example, this strategy is used to allow [decidim.barcelona](https://decidim.barcelona) users to log into [meta.decidim.barcelona](https://meta.decidim.barcelona).
-* Once you have defined your strategy, you can configure it in the `config/secrets.yml` or in the organization configuration, as it is done for the built-in providers.
-* By default, Decidim will search in its icons library for an icon named as the provider. You can change this adding an `icon` or `icon_path` attribute to the provider configuration. The `icon` attribute sets the icon name to look for in the Decidim's icons library. The `icon_path` attribute sets the route to the image that should be used.
-* Here is an example of the configuration section for the Decidim strategy, using an icon located on the application's `app/assets/images` folder:
+- You can define your own provider, to allow users from other external applications to login into Decidim.
+- The provider should implement an [OmniAuth](https://github.com/omniauth/omniauth) strategy.
+- You can use any of the [existing OnmiAuth strategies](https://github.com/omniauth/omniauth/wiki/List-of-Strategies).
+- Or you can create a new strategy, as the [Decidim OmniAuth Strategy](https://github.com/decidim/omniauth-decidim). This strategy allow users from a Decidim instance to login in other Decidim instance. For example, this strategy is used to allow [decidim.barcelona](https://decidim.barcelona) users to log into [meta.decidim.barcelona](https://meta.decidim.barcelona).
+- Once you have defined your strategy, you can configure it in the `config/secrets.yml` or in the organization configuration, as it is done for the built-in providers.
+- By default, Decidim will search in its icons library for an icon named as the provider. You can change this adding an `icon` or `icon_path` attribute to the provider configuration. The `icon` attribute sets the icon name to look for in the Decidim's icons library. The `icon_path` attribute sets the route to the image that should be used.
+- Here is an example of the configuration section for the Decidim strategy, using an icon located on the application's `app/assets/images` folder:
 
 ```yaml
     decidim:
