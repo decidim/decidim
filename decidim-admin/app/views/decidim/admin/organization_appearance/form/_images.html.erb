@@ -9,10 +9,14 @@
   max-height: 180px;
 }
 
-.organization-images-upload > div:not(:first-child) {
+.organization-images-upload > div {
   background-color: #eee;
   border-radius: 4px;
   padding: 1rem;
+}
+
+.organization-images-upload > div:first-child {
+  background-color: #c0c0c0;
 }
 
 </style>
@@ -28,7 +32,6 @@
         <label for="minimap"><%= t(".preview") %></label>
         <%= render "decidim/admin/organization_appearance/form/minimap" %>
       </div>
-
       <div class="preview-favicon">
         <%= form.upload :favicon, dimensions_info: current_organization.favicon.dimensions_info %>
       </div>
@@ -45,7 +48,8 @@
         <%= form.upload :official_img_footer, dimensions_info: current_organization.official_img_footer.dimensions_info %>
       </div>
     </div>
-
+  </div>
+  <div class="card-section">
     <div class="row" style="display: grid; grid-template-columns: 1fr 1fr;">
       <div class="preview-official_url">
         <%= form.text_field :official_url %>
