@@ -422,8 +422,6 @@ sv:
         promotal_committee_help: Kom ihåg att du måste bjuda in minst %{member_count} personer till kampanjutskottet. Bjud in till kampanjutskottet genom att vidarebefordra följande länk
         status_change_body_for: 'Initiativet %{title} har ändrat status till: %{state}'
         status_change_for: Initiativet %{title} har ändrat status
-        technical_validation_body_for: Initiativet %{title} har begärt teknisk validering.
-        technical_validation_for: Initiativet %{title} har begärt tekniska validering.
       last_activity:
         new_initiative: Nytt initiativ
       pages:
