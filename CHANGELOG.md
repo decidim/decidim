@@ -63,6 +63,8 @@ Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on 
 - **decidim-core**: Adds new language: Slovak [\#6039](https://github.com/decidim/decidim/pull/6039)
 - **decidim-core**: Add redesign for responsive public profile navigation tabs [\#6032](https://github.com/decidim/decidim/pull/6032)
 - **decidim-initiatives**: Add pages for versioning. [\#5935](https://github.com/decidim/decidim/pull/5935)
+- **decidim-core**: Added support for enum settings for components [#6001](https://github.com/decidim/decidim/pull/6001)
+- **decidim-core**: Added support for readonly settings for components [#6001](https://github.com/decidim/decidim/pull/6001)
 
 ### Changed
 

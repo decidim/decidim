@@ -221,9 +221,6 @@ en:
       update_draft:
         error: There was a problem updating the amendment draft.
         success: Amendment draft successfully updated.
-      visibility_options:
-        all: Amendments are visible to all
-        participants: Amendments are visible only to their authors
       withdraw:
         error: An error ocurred while withdrawing the amendment
         success: The amendment has been withdrawn successfully

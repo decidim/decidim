@@ -124,8 +124,8 @@ en:
             new_proposal_body_template_help: You can define prefilled text that the new Proposals will have
             new_proposal_help_text: New proposal help text
             official_proposals_enabled: Official proposals enabled
-            participatory_texts_disabled_help: Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.
             participatory_texts_enabled: Participatory texts enabled
+            participatory_texts_enabled_readonly: Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.
             proposal_answering_enabled: Proposal answering enabled
             proposal_edit_before_minutes: Proposals can be edited by authors before this many minutes passes
             proposal_length: Maximum proposal body length
@@ -144,7 +144,10 @@ en:
             amendment_promotion_enabled_help: Emandation authors will be able to promote to Proposal the rejected emendation.
             amendment_reaction_enabled: Amendment reaction enabled
             amendment_reaction_enabled_help: Proposal's authors will be able to accept or reject Participant's emendations.
-            amendments_visibility: Amendment visibility
+            amendments_visibility: Amendments visibility
+            amendments_visibility_choices:
+              all: Amendments are visible to all
+              participants: Amendments are visible only to their authors
             amendments_visibility_help: If the option "Amendments are visible only to their authors" is selected, participant must be logged in to see the amendments made.
             announcement: Announcement
             answers_with_costs: Enable costs on proposal answers
