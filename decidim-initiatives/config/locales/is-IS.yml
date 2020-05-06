@@ -27,6 +27,13 @@ is-IS:
         name: Heill heiti
   decidim:
     admin:
+      filters:
+        state_eq:
+          values:
+            created: Búið til
+            discarded: Fargað
+            published: Published
+            validating: Tæknilegar staðfestingar
       menu:
         initiatives: Frumkvæði
         initiatives_types: Frumgerð tegundir
@@ -218,8 +225,6 @@ is-IS:
           check_initiative_details: Þú getur séð frumkvæði upplýsingar
           here: hér
         more_information: Hér hefur þú meiri upplýsingar um frumkvöðlunarferlið.
-        technical_validation_body_for: Frumkvæði %{title} hefur óskað eftir tæknilegu staðfestingu hennar.
-        technical_validation_for: Frumkvæði %{title} hefur óskað eftir tæknilegu staðfestingu hennar.
       pages:
         home:
           highlighted_initiatives:

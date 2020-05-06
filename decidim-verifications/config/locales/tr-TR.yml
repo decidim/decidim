@@ -82,6 +82,8 @@ tr:
         new:
           authorize: göndermek
           authorize_with: '%{authorizer}ile doğrulayın'
+        renew_modal:
+          cancel: İptal etmek
         skip_verification: Bunu şimdilik ve %{link}için atlayabilirsiniz.
         start_exploring: keşfetmeye başla
       csv_census:

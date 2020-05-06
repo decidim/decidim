@@ -57,6 +57,8 @@ module Decidim
       where("extended_data->>'interested_scopes' ~~ ANY('{#{ids}}')")
     }
 
+    scope :org_admins_except_me, ->(user) { where(organization: user.organization, admin: true).where.not(id: user.id) }
+
     attr_accessor :newsletter_notifications
 
     searchable_fields({

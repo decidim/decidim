@@ -84,6 +84,21 @@ module Decidim
             expect(membership.user).to eq user
             expect(membership.role).to eq "creator"
           end
+
+          it "notifies the admins" do
+            expect(Decidim::EventsManager)
+              .to receive(:publish)
+              .once
+              .ordered
+              .with(
+                event: "decidim.events.groups.user_group_created",
+                event_class: Decidim::UserGroupCreatedEvent,
+                resource: an_object_satisfying { |obj| obj.is_a?(Decidim::UserGroup) },
+                affected_users: a_collection_containing_exactly(*Decidim::User.where(organization: organization, admin: true).all)
+              )
+
+            command.call
+          end
         end
       end
     end

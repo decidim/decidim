@@ -29,7 +29,7 @@ module Decidim
             OrganizationPublishedParticipatoryProcesses.new(current_organization, current_user) |
             HighlightedParticipatoryProcesses.new |
             FilteredParticipatoryProcesses.new("active")
-          ).query.limit(max_results)
+          ).query.includes([:organization]).limit(max_results)
         end
 
         def i18n_scope

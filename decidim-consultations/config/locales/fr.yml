@@ -293,7 +293,7 @@ fr:
           vote_limit:
             description: Vous pouvez voter jusqu'à %{limit} options.
             left: Restant
-            votes: Voix
+            votes: Votes
       question_votes:
         create:
           error: Il y a eu des erreurs lors du vote sur la question
