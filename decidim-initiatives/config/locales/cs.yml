@@ -441,8 +441,6 @@ cs:
         promotal_committee_help: Nezapomeňte, že musíte vyzvat nejméně %{member_count} lidí na organizační výbor. Předání následujícího odkazu na pozvání osob do výboru předkladatelů
         status_change_body_for: 'Iniciativa %{title} změnila svůj stav na: %{state}'
         status_change_for: Iniciativa %{title} změnila svůj stav
-        technical_validation_body_for: Iniciativa %{title} požádala o svou technickou validaci.
-        technical_validation_for: Iniciativa %{title} požádala o svou technickou validaci.
       last_activity:
         new_initiative: Nová iniciativa
       pages:
