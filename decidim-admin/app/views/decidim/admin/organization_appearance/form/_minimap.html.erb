@@ -1,61 +1,66 @@
 <style>
   #minimap-wrapper {
     width: 100%;
-    padding-bottom: 75%;
+    padding-bottom: 60%;
     position: relative;
   }
   
   #minimap {
-    padding: 1rem;
     position: absolute;
     top: 0; bottom: 0; left: 0; right: 0;
     display: grid;
     grid-template-areas: "tab blank blank"
                         "header header header"
-                        "subheader subheader subheader"
+                        "navbar navbar navbar"
                         "body body body"
                         "footer footer footer";
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 20px 64px 24px 1fr 64px;
+    grid-template-columns: 20% 1fr 1fr;
+    grid-template-rows: 20px 54px 32px 1fr 80px;
   }
 
   #minimap img, #minimap .placeholder {
-    width: auto;
-    max-height: 80%;
-    box-sizing: border-box;
-    position: relative;
-    display: inline-block;
+    height: 100%;
+    padding: 5px 0;
+  }
+
+  #minimap span {
+    color: white;
+    font-size: 10px;
+    margin: 4px;
+    line-height: 12px;
   }
 
   #minimap #tab {
     grid-area: tab;
-    background: #ccc;
+    border: solid 2px #1a181d;
+    border-bottom: none;
     display: flex;
   }
 
   #tab span {
     font-size: 10px;
     margin: 4px;
+    color: #1a181d;
   }
 
   #minimap #body {
     grid-area: body;
-    background: #ccc;
+    background: #f4f4f4;
   }
 
   #header, #footer {
-    background: #000;
+    background: #1a181d;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
   }
 
   #header {
     grid-area: header;
   }
 
-  #subheader {
-    grid-area: subheader;
-    background: #999;
+  #navbar {
+    grid-area: navbar;
+    background: #2c2930;
   }
 
   #footer {
@@ -67,22 +72,14 @@
   }
 
   #logo {
-    margin: auto 0;
+    margin-right: auto;
   }
 
   #official_img_header, #official_img_footer {
-    margin: auto 0;
   }
 
   #minimap .placeholder {
     background:  <%= current_organization.colors["primary"] %>;
-  }
-
-  #minimap .placeholder span {
-    color: white;
-    font-size: 10px;
-    margin: 4px;
-    line-height: 12px;
   }
 
 </style>
@@ -113,14 +110,13 @@
       <% if current_organization.official_img_header.present? %>
         <%= image_tag current_organization.official_img_header.url, id: "official_img_header" %>
       <% else %>
-        <%= content_tag :div, nil, { id: "official_img_header", class: "placeholder", style: "width: #{image_width(current_organization, :official_img_header) * size_factor }px; height: #{image_height(current_organization, :official_img_header) * size_factor }px;"} do %>
-          <span><%= t("official_img_header", scope: "activemodel.attributes.organization") %></span>
-        <% end %>
+        <span class="float-right"><%= t("official_img_header", scope: "activemodel.attributes.organization") %> &gt; </span>
+        <%= content_tag :div, nil, { id: "official_img_header", class: "placeholder float-right", style: "width: #{image_width(current_organization, :official_img_header) * size_factor }px; height: #{image_height(current_organization, :official_img_header) * size_factor }px;"} %>
       <% end %>
 
     </div>
 
-    <div id="subheader"></div>
+    <div id="navbar"></div>
     <div id="body"></div>
 
     <div id="footer">

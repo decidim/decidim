@@ -9,6 +9,12 @@
   max-height: 180px;
 }
 
+.organization-images-upload > div:not(:first-child) {
+  background-color: #eee;
+  border-radius: 4px;
+  padding: 1rem;
+}
+
 </style>
 
 <div class="card">
@@ -19,7 +25,7 @@
   <div class="card-section">
     <div class="organization-images-upload">
       <div class="preview-minimap">
-      <label for="minimap"><%= t(".preview") %></label>
+        <label for="minimap"><%= t(".preview") %></label>
         <%= render "decidim/admin/organization_appearance/form/minimap" %>
       </div>
 
