@@ -27,8 +27,16 @@ module Decidim
       context[:conversation]
     end
 
-    def interlocutors
-      conversation.interlocutors(user)
+    def sender_is_user?(message)
+      user.id == message.sender.id
+    end
+
+    def conversation_avatar
+      if interlocutors.count == 1
+        interlocutors.first.avatar_url
+      else
+        current_user.avatar.default_multiuser_url
+      end
     end
 
     def form_ob
@@ -37,10 +45,20 @@ module Decidim
       Messaging::ConversationForm.new(recipient_id: interlocutors)
     end
 
+    def interlocutors
+      conversation.interlocutors(user)
+    end
+
+    def interlocutors_names
+      return username_list(interlocutors) unless interlocutors.count == 1
+
+      "<strong>#{interlocutors.first.name}</strong><br><span class=\"muted\">@#{interlocutors.first.nickname}</span>"
+    end
+
     def recipients
       return [] if conversation.id
 
-      conversation.interlocutors(user)
+      interlocutors
     end
 
     def reply_form(&block)

@@ -56,8 +56,18 @@
     }
   }
 }
+// Conversations in user profile pages to full length
+.user-activity{
+  .conversation{
+    .conversation-reply{
+      width: 100%;
+    }
+  }
+}
+
 .disabled-tribute-element{
   color: $muted;
+
   span.disabled-tribute-element-info{
     font-size: rem-calc(12);
     font-weight: normal;
