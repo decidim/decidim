@@ -8,6 +8,8 @@
 
 ### Fixed
 
+- **decidim-core**: Fix broken puma version in generator's Gemfile. [\#6060](https://github.com/decidim/decidim/pull/6060)
+
 ### Removed
 
 ## [v0.21.0](https://github.com/decidim/decidim/releases/tag/v0.21.0)
