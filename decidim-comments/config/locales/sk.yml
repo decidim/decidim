@@ -86,6 +86,9 @@ sk:
           email_outro: Túto notifikáciu ste dostali, pretože sledujete autora "%{author_name}". Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
           email_subject: Je nový komentár od %{author_name} na %{resource_title}
           notification_title: Je nový komentár od <a href="%{author_path}">%{author_name}%{author_nickname}</a> na <a href="%{resource_path}">%{resource_title}</a>.
+        comment_by_followed_user_group:
+          email_subject: Je nový komentár od %{author_name} na %{resource_title}
+          notification_title: Je nový komentár od <a href="%{author_path}">%{author_name}%{author_nickname}</a> na <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} bol okomentovaný. Komentár si môžete prečítať na stránke:"
           email_outro: Túto notifikáciu ste dostali, pretože sledujete "%{resource_title}" alebo autora. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
