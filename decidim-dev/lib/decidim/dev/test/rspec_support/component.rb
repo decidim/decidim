@@ -53,7 +53,7 @@ module Decidim
       include Reportable
       include Authorable
       include HasCategory
-      include ScopableComponent
+      include ScopableResource
       include Decidim::Comments::Commentable
       include Followable
       include Traceable

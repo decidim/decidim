@@ -78,6 +78,7 @@ en:
       models:
         project:
           fields:
+            scope: Scope
             title: Title
       order_summary_mailer:
         order_summary:

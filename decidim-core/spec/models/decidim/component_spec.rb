@@ -78,16 +78,16 @@ module Decidim
         expect(subject.scope).to eq space_scope
       end
 
-      it "returns true for subscopes" do
-        expect(subject).to have_subscopes
-      end
+      it { expect(subject).to have_subscopes }
     end
 
     describe "with scope setting" do
       let!(:organization) { create(:organization) }
       let(:participatory_space) do
-        create(:participatory_process, organization: organization, scopes_enabled: space_scopes_enabled,
-                                       scope: space_scope)
+        create(:participatory_process,
+               organization: organization,
+               scopes_enabled: space_scopes_enabled,
+               scope: space_scope)
       end
 
       let!(:component) do
@@ -105,7 +105,7 @@ module Decidim
         let(:space_scopes_enabled) { true }
         let(:component_scopes_enabled) { true }
         let(:component_scope) { create(:scope, parent: space_scope, organization: organization) }
-        let(:component_subscope) { create(:scope, parent: component_scope, organization: organization) }
+        let!(:component_subscope) { create(:scope, parent: component_scope, organization: organization) }
 
         it "returns true for component scopes_enabled" do
           expect(subject.scopes_enabled).to eq true
@@ -151,6 +151,31 @@ module Decidim
         it "returns no scope" do
           expect(subject.scope).to eq nil
           expect(participatory_space.scope).to eq nil
+        end
+      end
+
+      context "when component scopes are enabled and space disabled" do
+        let(:space_scope) { nil }
+        let(:space_scopes_enabled) { false }
+        let(:component_scopes_enabled) { true }
+        let(:component_scope) { create(:scope, organization: organization) }
+        let!(:component_subscope) { create(:scope, parent: component_scope) }
+
+        it "returns true for component scopes_enabled" do
+          expect(subject.scopes_enabled).to eq true
+        end
+
+        it "returns falsey for space scopes_enabled" do
+          expect(participatory_space.scopes_enabled).to eq false
+        end
+
+        it "returns the component scope" do
+          expect(subject.scope).to eq component_scope
+          expect(participatory_space.scope).to eq nil
+        end
+
+        it "returns true for the component subscopes" do
+          expect(subject).to have_subscopes
         end
       end
     end

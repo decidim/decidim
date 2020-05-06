@@ -16,7 +16,7 @@
       <%= translated_attribute proposal.category.name %>
     <% end %>
   </td>
-  <% if current_participatory_space.scopes_enabled? %>
+  <% if current_component.scopes_enabled? || current_participatory_space.scopes_enabled? %>
     <td>
       <% if proposal.scope %>
         <%= translated_attribute proposal.scope.name %>

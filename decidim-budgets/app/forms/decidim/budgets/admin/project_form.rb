@@ -26,12 +26,11 @@ module Decidim
 
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
-
-        validate :scope_belongs_to_participatory_space_scope
-
-        validate :notify_missing_attachment_if_errored
+        validates :decidim_scope_id, subscope_belongs_to_component: true, if: ->(form) { form.decidim_scope_id.present? }
 
         delegate :categories, to: :current_component
+
+        alias component current_component
 
         def map_model(model)
           self.proposal_ids = model.linked_resources(:proposals, "included_proposals").pluck(:id)
@@ -55,11 +54,11 @@ module Decidim
           @category ||= categories.find_by(id: decidim_category_id)
         end
 
-        # Finds the Scope from the given decidim_scope_id, uses participatory space scope if missing.
+        # Finds the Scope from the given decidim_scope_id, uses current_component scope if missing.
         #
         # Returns a Decidim::Scope
         def scope
-          @scope ||= @decidim_scope_id ? current_participatory_space.scopes.find_by(id: @decidim_scope_id) : current_participatory_space.scope
+          @scope ||= @decidim_scope_id ? current_component.scopes.find_by(id: @decidim_scope_id) : current_component.scope
         end
 
         # Scope identifier
@@ -67,20 +66,6 @@ module Decidim
         # Returns the scope identifier related to the project
         def decidim_scope_id
           @decidim_scope_id || scope&.id
-        end
-
-        private
-
-        def scope_belongs_to_participatory_space_scope
-          errors.add(:decidim_scope_id, :invalid) if current_participatory_space.out_of_scope?(scope)
-        end
-
-        # This method will add an error to the `attachment` field only if there's
-        # any error in any other field. This is needed because when the form has
-        # an error, the attachment is lost, so we need a way to inform the user of
-        # this problem.
-        def notify_missing_attachment_if_errored
-          errors.add(:add_photos, :needs_to_be_reattached) if errors.any? && add_photos.present?
         end
       end
     end

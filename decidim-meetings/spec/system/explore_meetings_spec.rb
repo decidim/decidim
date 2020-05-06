@@ -11,6 +11,11 @@ describe "Explore meetings", type: :system do
     create_list(:meeting, meetings_count, component: component)
   end
 
+  before do
+    component_scope = create :scope, parent: participatory_process.scope
+    component.update!(settings: { scopes_enabled: true, scope_id: component_scope.id })
+  end
+
   describe "index" do
     it "shows all meetings for the given process" do
       visit_component
@@ -73,7 +78,7 @@ describe "Explore meetings", type: :system do
         expect(page).to have_css(".card--meeting", count: 5)
       end
 
-      it "allows filtering by scope" do
+      it "allows filtering by scope", :slow do
         scope = create(:scope, organization: organization)
         meeting = meetings.first
         meeting.scope = scope
