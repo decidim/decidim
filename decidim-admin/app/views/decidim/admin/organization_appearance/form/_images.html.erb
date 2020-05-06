@@ -1,9 +1,14 @@
 <style>
 .organization-images-upload {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  grid-gap: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-gap: 3rem;
 }
+
+.organization-images-upload img {
+  max-height: 180px;
+}
+
 </style>
 
 <div class="card">
@@ -12,11 +17,12 @@
   </div>
 
   <div class="card-section">
-    <%= render "decidim/admin/organization_appearance/form/minimap" %>
-  </div>
-  
-  <div class="card-section">
     <div class="organization-images-upload">
+      <div class="preview-minimap">
+      <label for="minimap"><%= t(".preview") %></label>
+        <%= render "decidim/admin/organization_appearance/form/minimap" %>
+      </div>
+
       <div class="preview-favicon">
         <%= form.upload :favicon, dimensions_info: current_organization.favicon.dimensions_info %>
       </div>

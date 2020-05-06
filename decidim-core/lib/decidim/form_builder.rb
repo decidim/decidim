@@ -373,25 +373,9 @@ module Decidim
       template += label(attribute, label_for(attribute) + required_for_attribute(attribute))
       template += @template.file_field @object_name, attribute
 
-      if options[:dimensions_info].present?
-        template += content_tag :div, class: "dimensions--info description" do
-          safe_join([
-                      content_tag(:span, I18n.t("dimensions_info", scope: "decidim.forms.images")),
-                      content_tag(:p, class: "dimensions--info") do
-                        safe_join(options[:dimensions_info].map do |_version, info|
-                          safe_join([
-                                      @template.content_tag(:b, I18n.t("processors.#{info[:processor]}", scope: "decidim.forms.images")),
-                                      "  ",
-                                      @template.content_tag(:span, I18n.t("dimensions", scope: "decidim.forms.images", width: info[:dimensions].first, height: info[:dimensions].last)),
-                                      "<br/>".html_safe
-                                    ])
-                        end)
-                      end
-                    ])
-        end
-      end
-
       if file_is_image?(file)
+        template += image_dimensions_help(options[:dimensions_info]) if options[:dimensions_info].present?
+
         template += if file.present?
                       @template.content_tag :label, I18n.t("current_image", scope: "decidim.forms")
                     else
@@ -696,6 +680,22 @@ module Decidim
 
     def sanitize_tabs_selector(id)
       id.tr("[", "-").tr("]", "-")
+    end
+
+    def image_dimensions_help(dimensions_info)
+      content_tag :p, class: "image-dimensions-help help-text" do
+        safe_join([
+                    content_tag(:span, I18n.t("dimensions_info", scope: "decidim.forms.images")),
+                    " ",
+                    content_tag(:span) do
+                      safe_join(dimensions_info.map do |_version, info|
+                        processor = @template.content_tag(:span, I18n.t("processors.#{info[:processor]}", scope: "decidim.forms.images"))
+                        dimensions = @template.content_tag(:b, I18n.t("dimensions", scope: "decidim.forms.images", width: info[:dimensions].first, height: info[:dimensions].last))
+                        safe_join([processor, "  ", dimensions, ". ".html_safe])
+                      end)
+                    end
+                  ])
+      end
     end
   end
 end

@@ -1,7 +1,14 @@
 <style>
+  #minimap-wrapper {
+    width: 100%;
+    padding-bottom: 75%;
+    position: relative;
+  }
+  
   #minimap {
-    width: 400px;
-    height: 300px;
+    padding: 1rem;
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
     display: grid;
     grid-template-areas: "tab blank blank"
                         "header header header"
@@ -14,7 +21,7 @@
 
   #minimap img, #minimap .placeholder {
     width: auto;
-    max-height: 100%;
+    max-height: 80%;
     box-sizing: border-box;
     position: relative;
     display: inline-block;
@@ -67,50 +74,63 @@
     margin: auto 0;
   }
 
-  .placeholder {
-    background:  <%= current_organization.colors["primary"] %>
+  #minimap .placeholder {
+    background:  <%= current_organization.colors["primary"] %>;
+  }
+
+  #minimap .placeholder span {
+    color: white;
+    font-size: 10px;
+    margin: 4px;
+    line-height: 12px;
   }
 
 </style>
 
 <% size_factor = 0.3 %>
+<div id="minimap-wrapper">
+  <div id="minimap">
+    <div id="tab">
+      <% if current_organization.favicon.present? %>
+        <%= image_tag current_organization.favicon.url, id: "favicon" %>
+      <% else %>
+        <%= content_tag :div, nil, { id: "favicon", class: "placeholder", style: "width: #{image_width(current_organization, :favicon) * size_factor }px; height: #{image_height(current_organization, :favicon) * size_factor }px;"} do %>
+        <% end %>
+      <% end %>
+      
+      <span> &lt; <%= t("favicon", scope: "activemodel.attributes.organization") %></span>
+    </div>
 
-<div id="minimap">
-  <div id="tab">
-    <%= content_tag current_organization.favicon.present? ? :img : :div,
-      nil,
-      { id: "favicon" }.merge(current_organization.favicon.present? ?
-        { src: current_organization.favicon } :
-        { class: "placeholder", style: "width: #{image_width(current_organization, :favicon) * size_factor }px; height: #{image_height(current_organization, :favicon) * size_factor }px;" })
-    %>
-    <span><%= current_organization.name %></span>
-  </div>
+    <div id="header">
+      <% if current_organization.logo.present? %>
+        <%= image_tag current_organization.logo.url, id: "logo" %>
+      <% else %>
+        <%= content_tag :div, nil, { id: "logo", class: "placeholder", style: "width: #{image_width(current_organization, :logo) * size_factor }px; height: #{image_height(current_organization, :logo) * size_factor }px;"} do %>
+          <span><%= t("logo", scope: "activemodel.attributes.organization") %></span>
+        <% end %>
+      <% end %>
 
-  <div id="header">
-    <%= content_tag current_organization.logo.present? ? :img : :div,
-      nil,
-      { id: "logo" }.merge(current_organization.logo.present? ?
-        { src: current_organization.logo } :
-        { class: "placeholder", style: "width: #{image_width(current_organization, :logo) * size_factor }px; height: #{image_height(current_organization, :logo) * size_factor }px;" })
-    %>
+      <% if current_organization.official_img_header.present? %>
+        <%= image_tag current_organization.official_img_header.url, id: "official_img_header" %>
+      <% else %>
+        <%= content_tag :div, nil, { id: "official_img_header", class: "placeholder", style: "width: #{image_width(current_organization, :official_img_header) * size_factor }px; height: #{image_height(current_organization, :official_img_header) * size_factor }px;"} do %>
+          <span><%= t("official_img_header", scope: "activemodel.attributes.organization") %></span>
+        <% end %>
+      <% end %>
 
-    <%= content_tag current_organization.official_img_header.present? ? :img : :div,
-      nil,
-      { id: "official_img_header" }.merge(current_organization.official_img_header.present?  ?
-        { src: current_organization.official_img_header } :
-        { class: "placeholder", style: "width: #{image_width(current_organization, :official_img_header) * size_factor }px; height: #{image_height(current_organization, :official_img_header) * size_factor }px;" })
-    %>
-  </div>
+    </div>
 
-  <div id="subheader"></div>
-  <div id="body"></div>
+    <div id="subheader"></div>
+    <div id="body"></div>
 
-  <div id="footer">
-    <%= content_tag current_organization.official_img_footer.present? ? :img : :div,
-      nil,
-      { id: "official_img_footer" }.merge(current_organization.official_img_footer.present?  ?
-        { src: current_organization.official_img_footer } :
-        { class: "placeholder", style: "width: #{image_width(current_organization, :official_img_footer) * size_factor }px; height: #{image_height(current_organization, :official_img_footer) * size_factor }px;" })
-    %>
+    <div id="footer">
+      <% if current_organization.official_img_footer.present? %>
+        <%= image_tag current_organization.official_img_footer.url, id: "official_img_footer" %>
+      <% else %>
+        <%= content_tag :div, nil, { id: "official_img_footer", class: "placeholder", style: "width: #{image_width(current_organization, :official_img_footer) * size_factor }px; height: #{image_height(current_organization, :official_img_footer) * size_factor }px;"} do %>
+        <span><%= t("official_img_footer", scope: "activemodel.attributes.organization") %></span>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

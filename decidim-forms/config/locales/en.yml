@@ -53,7 +53,7 @@ en:
         answer:
           body: Body can't be blank
       images:
-        dimensions_info: "This image will be used with the following dimensions:"
+        dimensions_info: "This image will be:"
         dimensions: "%{width} x %{height} px"
         processors:
           resize_and_pad: "Resized and padded to"

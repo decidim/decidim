@@ -613,6 +613,7 @@ en:
           omnipresent_banner_appearance_title: Edit omnipresent banner
           images:
             layout_appearance_title: Edit layout appearance
+            preview: Preview
       organization_homepage:
         edit:
           active_content_blocks: Active content blocks
