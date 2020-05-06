@@ -2,7 +2,7 @@ cs:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: Postavení
+        decidim_accountability_status_id: Stav
         decidim_category_id: Kategorie
         decidim_scope_id: Rozsah
         description: Popis
@@ -22,8 +22,8 @@ cs:
         description: Popis
         entry_date: datum
     models:
-      decidim/accountability/proposal_linked_event: Návrh je součástí výsledku
-      decidim/accountability/result_progress_updated_event: Výsledek pokroku byl aktualizován
+      decidim/accountability/proposal_linked_event: Návrh zahrnutý do výsledku
+      decidim/accountability/result_progress_updated_event: Výsledek byl aktualizován
   activerecord:
     models:
       decidim/accountability/result:
@@ -43,12 +43,12 @@ cs:
         title: Akce
       admin:
         exports:
-          results: Výsledek
+          results: Výsledky
         models:
           result:
             name: Výsledek
           status:
-            name: Postavení
+            name: Stav
           timeline_entry:
             name: Časová položka
         results:
@@ -60,17 +60,11 @@ cs:
           edit:
             title: Upravit výsledek
             update: Aktualizovat výsledek
-          form:
-            add_proposal: Přidat návrh
           index:
-            title: Výsledek
+            title: Výsledky
           new:
-            create: Vytvořte výsledek
+            create: Vytvořit výsledek
             title: Nový výsledek
-          proposals:
-            close: Zavřít
-            current_selection: Aktuální výběr
-            select: Vybrat
           update:
             invalid: Při aktualizaci tohoto výsledku došlo k problému
             success: Výsledek byl úspěšně aktualizován
@@ -85,7 +79,7 @@ cs:
             success: Stav byl úspěšně smazán
           edit:
             title: Upravit stav
-            update: Aktualizovat status
+            update: Aktualizovat stav
           index:
             title: Stavy
           new:
@@ -97,17 +91,17 @@ cs:
         timeline_entries:
           create:
             invalid: Při vytváření této položky došlo k problému
-            success: Vstup byl úspěšně vytvořen
+            success: Položka byla úspěšně vytvořena
           destroy:
             success: Položka byla úspěšně smazána
           edit:
             title: Upravit položku
             update: Aktualizovat položku
           index:
-            title: Zadání časové osy projektu
+            title: Položky časové osy projektu
           new:
             create: Vytvořte položku
-            title: Nový záznam
+            title: Nová položka
           update:
             invalid: Došlo k problému při aktualizaci této položky
             success: Zápis byl úspěšně aktualizován
@@ -127,8 +121,8 @@ cs:
             end_date: Datum ukončení
             progress: Pokrok
             start_date: Počáteční datum
-            status: Postavení
-            title: Titul
+            status: Stav
+            title: Název
         status:
           fields:
             description: Popis
@@ -147,8 +141,8 @@ cs:
             many: "%{count} výsledků"
             other: "%{count} výsledků"
         filters:
-          all: Všechno
-          scopes: Scopes
+          all: Vše
+          scopes: Rozsahy
         home:
           categories_label: Kategorie
           subcategories_label: Podkategorie
@@ -161,7 +155,7 @@ cs:
         show:
           stats:
             attendees: Účastníci
-            back_to_result: Vraťte se k výsledku
+            back_to_result: Přejít zpět na výsledek
             comments: Komentáře
             contributions: Příspěvky
             last_edited_by: Naposledy upravil
@@ -192,13 +186,13 @@ cs:
           global:
             categories_label: Název pro "Kategorie"
             comments_enabled: Komentáře povoleny
-            display_progress_enabled: Probíhá zobrazení
+            display_progress_enabled: Zobrazit průběh
             heading_leaf_level_results: Název pro "Projekty"
             heading_parent_level_results: Název pro "Výsledky"
             intro: Intro
             subcategories_label: Název pro "Podkategorie"
           step:
-            comments_blocked: Komentáře byly blokovány
+            comments_blocked: Komentáře blokovány
     events:
       accountability:
         proposal_linked:
@@ -214,12 +208,12 @@ cs:
     metrics:
       results:
         description: Počet vygenerovaných výsledků
-        object: Výsledek
-        title: Výsledek
+        object: výsledky
+        title: Výsledky
     participatory_processes:
       participatory_process_groups:
         highlighted_results:
-          results: Výsledek
+          results: Výsledky
     participatory_spaces:
       highlighted_results:
         see_all: Zobrazit všechny (%{count})

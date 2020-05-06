@@ -13,12 +13,6 @@ module Decidim
         Decidim::Initiatives::InitiativesMailer.notify_progress(initiative, initiative.author)
       end
 
-      def notify_state_change_to_validating
-        initiative = Decidim::Initiative.first
-        initiative.state = "validating"
-        Decidim::Initiatives::InitiativesMailer.notify_validating_request(initiative, initiative.author)
-      end
-
       def notify_state_change_to_published
         initiative = Decidim::Initiative.first
         initiative.state = "published"

@@ -82,6 +82,9 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{author_name}". Leiratkozás az előző link segítségével.'
           email_subject: '%{author_name} új megjegyzése itt: %{resource_title}'
           notification_title: 'Új megjegyzés: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a>.'
+        comment_by_followed_user_group:
+          email_subject: '%{author_name} új megjegyzése itt: %{resource_title}'
+          notification_title: 'Új megjegyzés: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a>.'
         comment_created:
           email_intro: "A \"%{resource_title}\" témához megjegyzést fűzött valaki. Itt tudod elolvasni:"
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt (vagy ennek szerzőjét) követed: "%{resource_title}". Ha szeretnél, a link segítségével leiratkozhatsz.'

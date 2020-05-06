@@ -77,6 +77,24 @@ pl:
         many: Głosy
         other: Głosy
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Rodzaj
+          values:
+            'false': Propozycje
+            'true': Poprawki
+        state_eq:
+          label: Stan
+          values:
+            accepted: Przyjęty
+            evaluating: Ocena
+            rejected: Odrzucone
+            withdrawn: Wycofane
+        state_null:
+          label: Stan
+          values:
+            'true': Bez odpowiedzi
     components:
       proposals:
         actions:
@@ -331,6 +349,10 @@ pl:
             success: Tekst uczestnictwa został zaktualizowany pomyślnie.
         proposal_answers:
           form:
+            accepted: Przyjęty
+            answer_proposal: Odpowiedź
+            evaluating: Ocena
+            rejected: Odrzucone
             title: Odpowiedź na wniosek %{title}
         proposal_notes:
           create:
@@ -375,7 +397,10 @@ pl:
           publish_answers:
             select_a_proposal: Wybierz propozycję
           show:
+            authors: Autorski
+            body: Ciało
             created_at: Data utworzenia
+            proposals: Propozycje
             votes_count: Liczenie głosów
           update_category:
             select_a_category: Proszę wybierz kategorie
@@ -413,16 +438,21 @@ pl:
         rejected: Odrzucone
         withdrawn: Wycofane
       application_helper:
+        filter_category_values:
+          all: Wszystko
         filter_origin_values:
           all: Wszystko
           citizens: Obywatele
           meetings: Spotkania
           official: Urzędnik
           user_groups: Grupy użytkowników
+        filter_scope_values:
+          all: Wszystko
         filter_state_values:
           accepted: Przyjęty
           all: Wszystko
           evaluating: Ewaluacja
+          not_answered: Bez odpowiedzi
           rejected: Odrzucono
         filter_type_values:
           all: Wszystko
@@ -476,6 +506,7 @@ pl:
           open: otwarty
           published: Opublikowany
           related_to: Związany z
+          scope: Zakres
           search: Szukaj
           state: Stan
           withdrawn: Wycofane
@@ -613,8 +644,10 @@ pl:
           category: Kategoria
           origin: Pochodzenie
           related_to: Związany z
+          scope: Zakres
           search: Szukanie
           state: Stan
+          type: Rodzaj
           voted: Głosował
         filters_small_view:
           close_modal: Zamknij modal

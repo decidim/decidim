@@ -58,17 +58,11 @@ fr:
           edit:
             title: Modifier la réalisation
             update: Mise à jour de la réalisation
-          form:
-            add_proposal: Ajouter une proposition
           index:
             title: Réalisations
           new:
             create: Créer une réalisation
             title: Nouvelle réalisation
-          proposals:
-            close: Fermer
-            current_selection: Sélection actuelle
-            select: Sélectionner
           update:
             invalid: Un problème est survenu lors de la mise à jour de cette réalisation
             success: Réalisation mise à jour avec succès
