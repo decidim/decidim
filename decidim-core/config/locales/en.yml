@@ -1170,12 +1170,15 @@ en:
         add_users_placeholder: Search...
         close: Close
         conversations_info: Conversations are private. no one else can see them. A conversation can be started with any participant or group registered on the platform.
+        from: From
+        last_message: Last messsage
         modal_title: New conversation
         new_conversation: New conversation
         next: Next
         no_conversations_warning: There are no conversations yet.
         no_results: No results
         participant_with_disabled_message_reception: This participant has disabled message reception
+        time_ago: "%{time} ago"
       update:
         error: Message not sent. Try again later
     user_interests:
