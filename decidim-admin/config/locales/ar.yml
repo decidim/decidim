@@ -741,6 +741,10 @@ ar:
         new:
           create: دعا
           title: دعوة مشارك كمسؤول
+      users_statistics:
+        users_count:
+          admins: المدراء
+          participants: المشاركون
       view_public_page: عرض الصفحة العامة
     forms:
       errors:

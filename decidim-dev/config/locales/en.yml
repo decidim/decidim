@@ -13,9 +13,17 @@ en:
     components:
       dummy:
         settings:
+          global:
+            readonly_attribute: Readonly attribute
+            test: A test
+            test_choices:
+              a: A choice
+              b: B choice
+              c: C choice
           step:
             endorsements_blocked: Endorsements blocked
             endorsements_enabled: Endorsements enabled
+            readonly_step_attribute: Readonly step attribute
     dummy:
       admin:
         exports:

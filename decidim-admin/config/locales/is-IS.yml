@@ -530,6 +530,9 @@ is-IS:
           role: Hlutverk
         new:
           create: Bjóddu
+      users_statistics:
+        users_count:
+          admins: Admins
     moderations:
       actions:
         hidden: Falið

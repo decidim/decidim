@@ -21,6 +21,10 @@ Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on 
 
 ### Added
 
+- **decidim-core**: Notify admins o user_group created or updated. [\#5906](https://github.com/decidim/decidim/pull/5906)
+- **decidim-comments**: Notify user_group followers when it posts a comment. [\#5906](https://github.com/decidim/decidim/pull/5906)
+- **decidim-initiatives**: Notify admins when an initiative is sent to technical validation. [\#5906](https://github.com/decidim/decidim/pull/5906)
+- **decidim-proposals**: Notify admins and valuators when someone leaves a private note on a proposal. [\#5906](https://github.com/decidim/decidim/pull/5906)
 - **decidim-forms**: Update move up and down buttons after dragging questions when managing questionnaire. [\#5947](https://github.com/decidim/decidim/pull/5947)
 - **decidim-meetings**: Automatic task for deleting Meeting Inscription data. [\#5989](https://github.com/decidim/decidim/pull/5989)
 - **decidim-core**: Don't follow the header x forwarded host by default. [\#5899](https://github.com/decidim/decidim/pull/5899)
@@ -41,11 +45,11 @@ Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on 
 - **decidim-budgets**: Request confirmation to exit budgets component [\#5765](https://github.com/decidim/decidim/pull/5765)
 - **decidim-budgets**: Add minimum projects rule to Budgets [/#5865](https://github.com/decidim/decidim/pull/5865)
 - **decidim-proposals**: Proposals selector added [\#5863](https://github.com/decidim/decidim/pull/5863)
-
 - **decidim-admin**: Allow to see a participant's email from the admin panel [\#5849](https://github.com/decidim/decidim/pull/5849)
 - **decidim**: Add missing indexs on foreign keys on the DB [\#5885](https://github.com/decidim/decidim/pull/5885)
 - **decidim-core**: Redesign activity cards for the home page [#5672](https://github.com/decidim/decidim/pull/5672)
 - **decidim-core**: Redesign activity cards on Timeline and Activity Tabs for a consistent user experience [#5779](https://github.com/decidim/decidim/issues/5779)
+- **decidim-admin**: Counter of active users. [\#5907](https://github.com/decidim/decidim/pull/5907)
 - **decidim-proposals**: Update rspec proposal_activity_cell_spec to check existence of card\_\_content css class instead of car-data css class [#5779](https://github.com/decidim/decidim/issues/5779)
 - **decidim-comments**: Update rspec comment_activity_cell_spec to check existence of card\_\_content css class instead of car-data css class[#5779](https://github.com/decidim/decidim/issues/5779)
 - **decidim-core**: Add newsletter templates [\#5887](https://github.com/decidim/decidim/pull/5887)
@@ -54,12 +58,13 @@ Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on 
 - **decidim-admin**: Show activity charts on admin dashboard [\#6030](https://github.com/decidim/decidim/pull/6030)
 - **decidim-budgets**: Projects filter by multiple categories [\#5992](https://github.com/decidim/decidim/pull/5992)
 - **decidim-budgets**: Improve the budget page and the project card [\#5809](https://github.com/decidim/decidim/pull/5809)
-
 - **decidim-assemblies** **decidim-conferences** **decidim-participatory-processes**: Notify users on adding roles. [#5886](https://github.com/decidim/decidim/pull/5886)
 - **decidim-budgets**: Projects filter by multiple categories [/#5992](https://github.com/decidim/decidim/pull/5992)
 - **decidim-core**: Adds new language: Slovak [\#6039](https://github.com/decidim/decidim/pull/6039)
 - **decidim-core**: Add redesign for responsive public profile navigation tabs [\#6032](https://github.com/decidim/decidim/pull/6032)
 - **decidim-initiatives**: Add pages for versioning. [\#5935](https://github.com/decidim/decidim/pull/5935)
+- **decidim-core**: Added support for enum settings for components [#6001](https://github.com/decidim/decidim/pull/6001)
+- **decidim-core**: Added support for readonly settings for components [#6001](https://github.com/decidim/decidim/pull/6001)
 
 ### Changed
 

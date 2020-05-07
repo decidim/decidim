@@ -771,6 +771,10 @@ es-MX:
         new:
           create: Invitar
           title: Invitar a un usuario como administrador
+      users_statistics:
+        users_count:
+          admins: Administradores
+          participants: Participantes
       view_public_page: Ver página pública
     forms:
       errors:

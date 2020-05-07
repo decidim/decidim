@@ -403,7 +403,10 @@ cs:
         show:
           any_vote_method: Tato občanská iniciativa shromažďuje podporu online i tváří v tvář.
           follow_description: Obdržíte oznámení, pokud jsou v této iniciativě zprávy
+          of_versions: "(z %{number})"
           offline_method: Tato občanská iniciativa pouze shromažďuje podporu tváří v tvář.
+          see_other_versions: viz ostatní verze
+          version: Verze %{number}
         signature_identities:
           select_identity: Vyberte identifikátor uživatele
         signatures_count:
@@ -438,8 +441,6 @@ cs:
         promotal_committee_help: Nezapomeňte, že musíte vyzvat nejméně %{member_count} lidí na organizační výbor. Předání následujícího odkazu na pozvání osob do výboru předkladatelů
         status_change_body_for: 'Iniciativa %{title} změnila svůj stav na: %{state}'
         status_change_for: Iniciativa %{title} změnila svůj stav
-        technical_validation_body_for: Iniciativa %{title} požádala o svou technickou validaci.
-        technical_validation_for: Iniciativa %{title} požádala o svou technickou validaci.
       last_activity:
         new_initiative: Nová iniciativa
       pages:
@@ -451,6 +452,20 @@ cs:
         accepted: Přijato
         expired: Platnost vypršela
       unavailable_scope: Nedostupný rozsah
+      versions:
+        index:
+          number_of_versions: Verze
+          title: Verze
+        shared:
+          back_to_initiative: Přejít zpět na iniciativu
+          changes_at_title: Změny v "%{title}"
+        show:
+          show_all_versions: Zobrazit všechny verze
+          version_author: Autor verze
+          version_created_at: Verze vytvořena v
+          version_number_out_of_total: "%{current_version} z %{total_count}"
+        version:
+          version_index: Verze %{index}
     menu:
       initiatives: Iniciativy
     resources:
