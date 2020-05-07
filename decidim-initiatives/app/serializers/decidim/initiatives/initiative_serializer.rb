@@ -16,10 +16,10 @@ module Decidim
           signature_type: resource.signature_type,
           signatures: resource.supports_count,
           scope: {
-            name: resource.scope.name
+            name: resource.scope&.name
           },
           type: {
-            title: resource.type.title
+            title: resource.type&.title
           },
           authors: {
             id: resource.author_users.map(&:id),
