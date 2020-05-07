@@ -76,6 +76,9 @@ tr:
           email_outro: '%{author_name}takip ettiğiniz için bu bildirimi aldınız. Bu kullanıcıyı profil sayfasından takip edebilirsiniz.'
           email_subject: '%{author_name} %{resource_title}tarafından yeni bir yorum var'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> tarafından <a href="%{resource_path}">%{resource_title}</a>yeni bir yorum var.
+        comment_by_followed_user_group:
+          email_subject: '%{author_name} %{resource_title}tarafından yeni bir yorum var'
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> tarafından <a href="%{resource_path}">%{resource_title}</a>yeni bir yorum var.
         comment_created:
           email_intro: "%{resource_title} yorum yapıldı. Bu sayfadaki yorumu okuyabilirsiniz:"
           email_outro: '"%{resource_title}" veya yazarı takip ettiğiniz için bu bildirimi aldınız. Bunu önceki linkten takip edebilirsiniz.'

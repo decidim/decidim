@@ -419,8 +419,6 @@ fi:
         promotal_committee_help: Muista, että sinun täytyy kutsua vähintään %{member_count} henkilöä kannatuskomiteaan. Kutsu ihmisiä kannatuskomiteaan lähettämällä heille seuraava linkki
         status_change_body_for: 'Aloitteen %{title} tila on muuttunut, uusi tila: %{state}'
         status_change_for: Aloitteen %{title} tila on muuttunut
-        technical_validation_body_for: Aloitteelle %{title} on pyydetty teknistä validointia.
-        technical_validation_for: Aloitteelle %{title} on pyydetty teknistä validointia.
       last_activity:
         new_initiative: Uusi aloite
       pages:

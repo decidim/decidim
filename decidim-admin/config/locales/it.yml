@@ -763,6 +763,10 @@ it:
         new:
           create: Invita
           title: Invita l'utente in qualità di amministratore
+      users_statistics:
+        users_count:
+          admins: Amministratori
+          participants: I partecipanti
       view_public_page: Visualizza la pagina pubblica
     forms:
       errors:

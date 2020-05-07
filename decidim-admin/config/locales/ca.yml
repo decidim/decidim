@@ -771,6 +771,10 @@ ca:
         new:
           create: Convidar
           title: Convidar una participant com a administradora
+      users_statistics:
+        users_count:
+          admins: Administradores
+          participants: Participants
       view_public_page: Mostra la pàgina pública
     forms:
       errors:
