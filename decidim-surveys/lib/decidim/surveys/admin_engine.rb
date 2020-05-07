@@ -10,8 +10,8 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        put "/", to: "surveys#update", as: :survey
-        root to: "surveys#edit"
+        resources :questionnaires, only: [:edit, :update, :index, :delete]
+        root to: "questionnaires#index"
       end
 
       def load_seed
