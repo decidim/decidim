@@ -27,19 +27,29 @@ module Decidim
 
       private
 
+      attr_reader :survey
+
       # Returns a persisted Survey instance build from +serialized_survey+.
       def import_survey(serialized_survey, user)
         serialized_survey = serialized_survey.with_indifferent_access
-        survey = build_survey(serialized_survey)
-        serialized_questionnaire = serialized_survey[:questionnaire]
-        serialized_questions = serialized_questionnaire.delete(:questions)
+        @survey = build_survey(serialized_survey)
 
-        questionnaire = build_questionnaire(survey, serialized_questionnaire)
+        data = serialized_survey[:questionnaires].map do |serialized_questionnaire|
+          questions = serialized_questionnaire.delete(:questions)
+          questionnaire = build_questionnaire(serialized_questionnaire)
+
+          [questionnaire, questions]
+        end
+
         Decidim.traceability.perform_action!(:create, Decidim::Surveys::Survey, user) do
           survey.save!
           survey
         end
-        import_questions(questionnaire, serialized_questions)
+
+        data.each do |questionnaire, questions|
+          import_questions(questionnaire, questions)
+        end
+
         survey
       end
 
@@ -48,8 +58,8 @@ module Decidim
       end
 
       # Builds a Decidim::Forms::Questionnaire with all its questions and answer_options.
-      def build_questionnaire(survey, serialized_questionnaire)
-        survey.build_questionnaire(serialized_questionnaire.except(:id, :published_at))
+      def build_questionnaire(serialized_questionnaire)
+        @survey.questionnaires.build(serialized_questionnaire.except(:id, :published_at))
       end
 
       def import_questions(questionnaire, serialized_questions)

@@ -41,11 +41,11 @@ module Decidim
         end
       end
 
-      describe "questionnaire" do
-        let(:query) { "{ questionnaire { id }} " }
+      describe "questionnaires" do
+        let(:query) { "{ questionnaires { id }} " }
 
-        it "returns the questionnaire " do
-          expect(response["questionnaire"]["id"]).to eq(model.questionnaire.id.to_s)
+        it "returns the questionnaire" do
+          expect(response["questionnaires"].first["id"]).to eq(model.questionnaires.first.id.to_s)
         end
       end
     end

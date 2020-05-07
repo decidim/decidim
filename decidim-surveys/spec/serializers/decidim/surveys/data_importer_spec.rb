@@ -29,7 +29,7 @@ module Decidim::Surveys
         questionnaire_attrs[:questions] = questions
         [{
           id: rand(99_999),
-          questionnaire: questionnaire_attrs
+          questionnaires: [questionnaire_attrs]
         }]
       end
 
@@ -41,12 +41,12 @@ module Decidim::Surveys
           imported_survey = imported.first
           expect(imported_survey).to be_kind_of(Decidim::Surveys::Survey)
           expect(imported_survey).to be_persisted
-          questionnaire = imported_survey.questionnaire
+          questionnaire = imported_survey.questionnaires.first
           expect(questionnaire).to be_kind_of(Decidim::Forms::Questionnaire)
 
-          attribs_to_ignore = %w(id updated_at created_at questionnaire_for_id published_at)
-          expected_attrs = original_questionnaire.attributes.except(*attribs_to_ignore)
-          actual_attrs = questionnaire.attributes.except(*attribs_to_ignore)
+          attrs_to_ignore = %w(id updated_at created_at questionnaire_for_id published_at)
+          expected_attrs = original_questionnaire.attributes.except(*attrs_to_ignore)
+          actual_attrs = questionnaire.attributes.except(*attrs_to_ignore)
           expect(actual_attrs.delete("published_at")).to be_nil
           expect(actual_attrs).to eq(expected_attrs)
 

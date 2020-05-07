@@ -31,7 +31,7 @@ Decidim.register_component(:surveys) do |component|
 
   component.on(:before_destroy) do |instance|
     survey = Decidim::Surveys::Survey.find_by(decidim_component_id: instance.id)
-    answers_for_component = Decidim::Forms::QuestionnaireAnswer.where(questionnaire: survey.questionnaire)
+    answers_for_component = Decidim::Forms::QuestionnaireAnswer.where(questionnaire: survey.questionnaires)
 
     raise "Can't destroy this component when there are survey answers" if answers_for_component.any?
   end
@@ -67,7 +67,9 @@ Decidim.register_component(:surveys) do |component|
   component.exports :survey_user_answers do |exports|
     exports.collection do |f|
       survey = Decidim::Surveys::Survey.find_by(component: f)
-      Decidim::Forms::QuestionnaireUserAnswers.for(survey.questionnaire)
+      survey.questionnaires.flat_map do |questionnaire|
+        Decidim::Forms::QuestionnaireUserAnswers.for(questionnaire)
+      end
     end
 
     exports.serializer Decidim::Forms::UserAnswersSerializer
