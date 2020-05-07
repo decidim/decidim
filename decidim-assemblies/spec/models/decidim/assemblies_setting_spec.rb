@@ -8,6 +8,11 @@ module Decidim
 
     it { is_expected.to be_valid }
 
+    it "overwrites the log presenter" do
+      expect(described_class.log_presenter_class_for(:foo))
+        .to eq Decidim::Assemblies::AdminLog::AssembliesSettingPresenter
+    end
+
     context "without organization" do
       before do
         assemblies_setting.organization = nil

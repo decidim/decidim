@@ -22,7 +22,7 @@ module Decidim
         def action_string
           case action
           when "update"
-          "decidim.admin_log.assembly_setting.#{action}"
+            "decidim.admin_log.assembly_setting.#{action}"
           end
         end
       end
