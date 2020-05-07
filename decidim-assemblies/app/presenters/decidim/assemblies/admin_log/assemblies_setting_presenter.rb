@@ -20,7 +20,10 @@ module Decidim
         end
 
         def action_string
-          "decidim.admin_log.assembly_setting.#{action}" if action == "update"
+          case action
+          when "update"
+          "decidim.admin_log.assembly_setting.#{action}"
+          end
         end
       end
     end
