@@ -57,19 +57,8 @@ describe "User timeline", type: :system do
     create(:action_log, action: "publish", visibility: "all", resource: resource3, organization: organization)
   end
 
-  let!(:resource_types) do
-    Decidim::ActionLog
-      .select(:resource_type)
-      .where(resource_type: %w(Decidim::Proposals::CollaborativeDraft
-                               Decidim::Comments::Comment
-                               Decidim::Debates::Debate
-                               Decidim::Initiative
-                               Decidim::Meetings::Meeting
-                               Decidim::Blogs::Post
-                               Decidim::Proposals::Proposal
-                               Decidim::Consultations::Question))
-      .distinct
-      .map { |r| r.resource_type.split("::").last }
+  let(:resource_types) do
+    %w(Collaborative\ Draft Comment Debate Initiative Meeting Post Proposal Question)
   end
 
   before do

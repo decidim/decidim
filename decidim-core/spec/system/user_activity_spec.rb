@@ -40,7 +40,7 @@ describe "User activity", type: :system do
     create(:dummy_resource, component: component, published_at: Time.current)
   end
 
-  let!(:resource_types) do
+  let(:resource_types) do
     %w(Collaborative\ Draft Comment Debate Initiative Meeting Post Proposal Question)
   end
 
