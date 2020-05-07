@@ -72,7 +72,7 @@ module Decidim
             # You can implement this method in your controller to change the URL
             # where the user will be redirected after updating the questionnaire
             def after_update_url
-              url_for(questionnaire)
+              url_for(action: :index)
             end
 
             private
