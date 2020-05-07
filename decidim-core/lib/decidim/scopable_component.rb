@@ -16,19 +16,29 @@ module Decidim
       #
       # Returns a boolean.
       def has_subscopes?
-        (scopes_enabled? || participatory_space.scopes_enabled?) && subscopes.any?
+        (scopes_enabled? || parent_scopes_enabled?) && subscopes.any?
       end
 
       # Public: Returns the component Scope
       def scope
-        return participatory_space.scope unless scopes_enabled?
+        return parent_component_or_space.scope unless scopes_enabled?
 
-        participatory_space.scopes.find_by(id: settings.scope_id)
+        parent_component_or_space.scopes.find_by(id: settings.scope_id)
       end
 
       # Returns a boolean.
       def scopes_enabled
         settings.try(:scopes_enabled)
+      end
+
+      def parent_component_or_space
+        return parent if parent
+
+        participatory_space
+      end
+
+      def parent_scopes_enabled?
+        parent&.scopes_enabled? || participatory_space.scopes_enabled?
       end
     end
   end

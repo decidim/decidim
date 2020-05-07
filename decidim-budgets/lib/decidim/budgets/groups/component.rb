@@ -12,6 +12,8 @@ Decidim.register_component(:budgets_groups) do |component|
   component.allow_children = true
 
   component.settings(:global) do |settings|
+    settings.attribute :scopes_enabled, type: :boolean, default: false
+    settings.attribute :scope_id, type: :scope
     settings.attribute :title, type: :string, translated: true
     settings.attribute :description, type: :text, translated: true, editor: true
     settings.attribute :announcement, type: :text, translated: true

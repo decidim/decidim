@@ -181,6 +181,8 @@ en:
           global:
             announcement: Announcement
             description: Description
+            scope_id: Scope
+            scopes_enabled: Scopes enabled
             title: Title
           step:
             announcement: Announcement
