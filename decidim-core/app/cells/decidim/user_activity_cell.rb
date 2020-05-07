@@ -15,5 +15,9 @@ module Decidim
     def activities
       context[:activities]
     end
+
+    def resource_types
+      context[:resource_types]
+    end
   end
 end

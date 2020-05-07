@@ -8,7 +8,7 @@ module Decidim
     include FilterResource
 
     helper Decidim::ResourceHelper
-    helper_method :activities, :user
+    helper_method :activities, :resource_types, :user
 
     def index
       raise ActionController::RoutingError, "Not Found" if current_user != user
@@ -41,6 +41,17 @@ module Decidim
 
     def default_filter_params
       { resource_type: nil }
+    end
+
+    def resource_types
+      @resource_types = %w(Decidim::Proposals::CollaborativeDraft
+                           Decidim::Comments::Comment
+                           Decidim::Debates::Debate
+                           Decidim::Initiative
+                           Decidim::Meetings::Meeting
+                           Decidim::Blogs::Post
+                           Decidim::Proposals::Proposal
+                           Decidim::Consultations::Question)
     end
   end
 end

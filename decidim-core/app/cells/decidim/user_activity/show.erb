@@ -11,7 +11,7 @@
             <div class="columns mediumlarge-6 large-5">
               <%= form.custom_select :resources,
                                      :resource_type,
-                                     Decidim::ActionLog.all,
+                                     resource_types,
                                      legend_title: t("title", scope:"decidim.components.component_order_selector"),
                                      label: false,
                                      selected: context[:filter].resource_type,

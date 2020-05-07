@@ -250,27 +250,17 @@ module Decidim
       select(name, selectables, options)
     end
 
-    # Public: Generates a select field for resources.
+    # Public: Generates a select field for resource types.
     #
     # name       - The name of the field (usually resource_type)
-    # collection - A collection of resources (Decidim::ActionLog).
+    # collection - A collection of resource types.
     #              The options are sorted alphabetically.
     #
     # Returns a String.
     def resources_select(name, collection, options = {})
       resources =
         collection
-        .select(:resource_type)
-        .where(resource_type: %w(Decidim::Proposals::CollaborativeDraft
-                                 Decidim::Comments::Comment
-                                 Decidim::Debates::Debate
-                                 Decidim::Initiative
-                                 Decidim::Meetings::Meeting
-                                 Decidim::Blogs::Post
-                                 Decidim::Proposals::Proposal
-                                 Decidim::Consultations::Question))
-        .distinct
-        .map { |r| [I18n.t(r.resource_type.split("::").last.underscore, scope: "decidim.components.component_order_selector.order"), r.resource_type] }
+        .map { |r| [I18n.t(r.split("::").last.underscore, scope: "decidim.components.component_order_selector.order"), r] }
         .sort
 
       select(name, @template.options_for_select(resources, selected: options[:selected]), options)
