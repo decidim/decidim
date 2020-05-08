@@ -408,8 +408,6 @@ id:
         promotal_committee_help: Ingat bahwa Anda harus mengundang setidaknya %{member_count} orang ke komite promotor. Teruskan tautan berikut untuk mengundang orang ke komite promotor
         status_change_body_for: 'Inisiatif %{title} telah mengubah negaranya menjadi: %{state}'
         status_change_for: Inisiatif %{title} telah mengubah keadaannya
-        technical_validation_body_for: Inisiatif %{title} telah meminta validasi teknisnya.
-        technical_validation_for: Inisiatif %{title} telah meminta validasi teknisnya.
       last_activity:
         new_initiative: Inisiatif baru
       pages:

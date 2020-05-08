@@ -111,6 +111,12 @@ en:
         initiatives_types: Initiative types
     events:
       initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: The initiative "%{resource_title}" has been sent to technical validation. Check it out at <a href="%{admin_initiative_url}">the admin panel</a>
+            email_outro: You have received this notification because you are an admin of the platform.
+            email_subject: Initiative "%{resource_title}" was sent to technical validation.
+            notification_title: The initiative "%{resource_title}" has been sent to technical validation. Check it out at <a href="%{admin_initiative_path}">the admin panel</a>
         initiative_extended:
           email_intro: The signatures end date for the initiative %{resource_title} have been extended!
           email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
@@ -426,8 +432,6 @@ en:
         promotal_committee_help: Remember that you must invite at least %{member_count} people to promoter committee. Forward the following link to invite people to the promoter committee
         status_change_body_for: 'The initiative %{title} has changed its status to: %{state}'
         status_change_for: The initiative %{title} has changed its status
-        technical_validation_body_for: The initiative %{title} has requested its technical validation.
-        technical_validation_for: The initiative %{title} has requested its technical validation.
       last_activity:
         new_initiative: New initiative
       pages:

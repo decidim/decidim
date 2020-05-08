@@ -771,6 +771,10 @@ fi-pl:
         new:
           create: Kutsu
           title: Kutsu käyttäjä hallinnoijaksi
+      users_statistics:
+        users_count:
+          admins: Ylläpitäjät
+          participants: Osallistujat
       view_public_page: Näytä julkinen sivu
     forms:
       errors:

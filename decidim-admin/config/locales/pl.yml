@@ -679,6 +679,10 @@ pl:
         new:
           create: Zapraszam
           title: Zaproś użytkownika jako administratora
+      users_statistics:
+        users_count:
+          admins: Administratorzy
+          participants: Uczestnicy
       view_public_page: Zobacz stronę publiczną
     forms:
       errors:

@@ -68,6 +68,7 @@ module Decidim
           else
             attribute name, attribute.type_class, default: attribute.default_value
             validates name, presence: true if attribute.required
+            validates name, inclusion: { in: attribute.build_choices } if attribute.type == :enum
           end
         end
       end
@@ -92,7 +93,8 @@ module Decidim
         integer: { klass: Integer, default: 0 },
         string: { klass: String, default: nil },
         text: { klass: String, default: nil },
-        array: { klass: Array, default: [] }
+        array: { klass: Array, default: [] },
+        enum: { klass: String, default: nil }
       }.freeze
 
       attribute :type, Symbol, default: :boolean
@@ -103,6 +105,8 @@ module Decidim
       attribute :editor, Boolean, default: false
       attribute :required, Boolean, default: false
       attribute :required_for_authorization, Boolean, default: false
+      attribute :readonly
+      attribute :choices
 
       validates :type, inclusion: { in: TYPES.keys }
 
@@ -112,6 +116,14 @@ module Decidim
 
       def default_value
         default || TYPES[type][:default]
+      end
+
+      def build_choices
+        choices.try(:call) || choices
+      end
+
+      def readonly?(context)
+        readonly&.call(context)
       end
     end
   end
