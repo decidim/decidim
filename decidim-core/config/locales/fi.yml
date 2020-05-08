@@ -216,9 +216,6 @@ fi:
       update_draft:
         error: Muutosluonnoksen päivitys epäonnistui.
         success: Muutosluonnoksen päivitys onnistui.
-      visibility_options:
-        all: Muutokset ovat näkyvillä kaikille
-        participants: Muutokset ovat näkyvillä ainoastaan niiden laatijoille
       withdraw:
         error: Muutoksen peruuttaminen epäonnistui
         success: Muutoksen peruuttaminen onnistui
