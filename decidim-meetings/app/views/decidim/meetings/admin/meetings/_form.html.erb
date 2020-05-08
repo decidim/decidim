@@ -12,8 +12,14 @@
     </div>
 
     <div class="row column">
-      <%= form.text_field :address %>
+      <%= form.text_field :address, class: "geocoder", data: {
+          url: "http://localhost:3000/api/geocoder",
+          list: ".address-results-list"
+        }
+      %>
       <p class="help-text"><%= t(".address_help") %></p>
+
+      <ul class="address-results-list"></ul>
     </div>
 
     <div class="row column">

@@ -161,5 +161,7 @@ Decidim::Core::Engine.routes.draw do
     get "/me" => "doorkeeper/credentials#me"
   end
 
+  get "/api/geocoder" => "geocoder#search", format: :json
+
   root to: "homepage#show"
 end
