@@ -74,3 +74,10 @@ sr:
           gallery_legend: Dodaj galeriju slika (opciono)
       titles:
         metrics: Metrika
+        statistics: Aktivnost
+      users_statistics:
+        users_count:
+          last_day: Poslednji dan
+          last_month: Poslednji mesec
+          last_week: Poslednje nedelje
+          no_users_count_statistics_yet: Još nema statistike o broju korisnika
