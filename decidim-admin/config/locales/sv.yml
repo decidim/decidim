@@ -388,6 +388,9 @@ sv:
         static_pages: Sidor
         user_groups: Grupper
         users: Deltagare
+      metrics:
+        metrics:
+          see_more_metrics: Visa fler metrik
       models:
         area:
           fields:
@@ -727,6 +730,7 @@ sv:
         dashboard: Kontrollpanel
         impersonatable_users: Hanterbara deltagare
         impersonations: Deltagarhantering
+        metrics: Metrik
         participants: Deltagare
         scope_types: Omfattningstyper
         scopes: Omfattningar
