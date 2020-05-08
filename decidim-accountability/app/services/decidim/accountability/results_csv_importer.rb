@@ -35,14 +35,7 @@ module Decidim
             i += 1
             next if row.empty?
 
-            params = {}
-            params["result"] = row.to_hash
-            params["result"]["parent_id"] = row["parent/id"]
-            default_locale = @component.participatory_space.organization.default_locale
-            available_locales = @component.participatory_space.organization.available_locales
-            params["result"].merge!(get_locale_attributes(default_locale, available_locales, :title, row))
-            params["result"].merge!(get_locale_attributes(default_locale, available_locales, :description, row))
-            params["result"].merge!(get_proposal_ids(row["proposal_urls"]))
+            params = set_params_for_import_result_form(row, @component)
             existing_result = Decidim::Accountability::Result.find_by(id: row["id"]) if row["id"].present?
             @form = form(Decidim::Accountability::Admin::ResultForm).from_params(params, @extra_context)
 
@@ -84,6 +77,18 @@ module Decidim
       end
 
       private
+      
+      def set_params_for_import_result_form(row, component)
+        params = {}
+        params["result"] = row.to_hash
+        params["result"]["parent_id"] = row["parent/id"]
+        default_locale = component.participatory_space.organization.default_locale
+        available_locales = component.participatory_space.organization.available_locales
+        params["result"].merge!(get_locale_attributes(default_locale, available_locales, :title, row))
+        params["result"].merge!(get_locale_attributes(default_locale, available_locales, :description, row))
+        params["result"].merge!(get_proposal_ids(row["proposal_urls"]))
+        params
+      end
 
       def get_locale_attributes(default_locale, available_locales, field, row)
         array_field_localized = available_locales.map do |locale|
