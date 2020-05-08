@@ -223,9 +223,6 @@ cs:
       update_draft:
         error: Při aktualizaci pozměňovacího návrhu došlo k potížím.
         success: Pozměňovací návrh byl úspěšně aktualizován.
-      visibility_options:
-        all: Pozměňovací návrhy jsou pro všechny viditelné
-        participants: Pozměňovací návrhy jsou viditelné pouze pro jejich autory
       withdraw:
         error: Při stažení pozměňovacího návrhu došlo k chybě
         success: Pozměňovací návrh byl úspěšně stažen
