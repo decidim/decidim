@@ -422,6 +422,7 @@ describe Decidim::Assemblies::Permissions do
       it_behaves_like "allows any action on subject", :assembly_member
       it_behaves_like "allows any action on subject", :assembly_user_role
       it_behaves_like "allows any action on subject", :space_private_user
+      it_behaves_like "allows any action on subject", :assemblies_setting
     end
   end
 

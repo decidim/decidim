@@ -19,13 +19,7 @@ module Decidim
           case action
           when "update"
             "decidim.admin_log.assembly_setting.#{action}"
-          else
-            super
           end
-        end
-
-        def i18n_labels_scope
-          "activemodel.attributes.assemblies_setting"
         end
       end
     end
