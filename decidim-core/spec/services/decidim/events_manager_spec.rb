@@ -11,6 +11,7 @@ describe Decidim::EventsManager do
     let(:organization) { create :organization }
     let(:followers) { create_list :user, 3, organization: organization }
     let(:affected_users) { create_list :user, 3, organization: organization }
+    let(:force_send) { true }
 
     it "delegates the params to ActiveSupport::Notifications" do
       expect(ActiveSupport::Notifications)
@@ -21,6 +22,7 @@ describe Decidim::EventsManager do
           resource: resource,
           followers: followers,
           affected_users: affected_users,
+          force_send: force_send,
           extra: extra
         )
 
@@ -30,6 +32,7 @@ describe Decidim::EventsManager do
         resource: resource,
         followers: followers,
         affected_users: affected_users,
+        force_send: force_send,
         extra: extra
       )
     end

@@ -323,8 +323,6 @@ uk:
         promotal_committee_help: Пам'ятайте, що ви повинні запросити щонайменше %{member_count} людей до робочого гурту з просування. Перешліть їм наступне посилання, щоб запросити їх до робочого гурту з просування
         status_change_body_for: 'Стан почину %{title} змінився на: %{state}'
         status_change_for: Стан почину %{title} змінився
-        technical_validation_body_for: Почин %{title} подав запит на технічну перевірку.
-        technical_validation_for: Почин %{title} подав запит на технічну перевірку.
       pages:
         home:
           highlighted_initiatives:

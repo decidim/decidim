@@ -39,6 +39,9 @@ sr:
         search_placeholder:
           name_or_nickname_or_email_cont: Pretraži %{collection} prema e-pošti, imenu ili nadimku.
           title_cont: Pretraži %{collection} prema nazivu.
+      metrics:
+        metrics:
+          see_more_metrics: Prikaži više metrika
       newsletter_templates:
         index:
           title: Šabloni biltena
@@ -69,3 +72,5 @@ sr:
           add_images: Dodaj slike
           delete_image: Obriši Sliku
           gallery_legend: Dodaj galeriju slika (opciono)
+      titles:
+        metrics: Metrika

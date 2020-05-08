@@ -536,6 +536,11 @@ cs:
           email_outro: Toto upozornění jste obdrželi, protože jste sledovali konferenci "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
           email_subject: Konference "%{resource_title}" povolila registrace.
           notification_title: Konference <a href="%{resource_path}">%{resource_title}</a> povolila registrace.
+        role_assigned:
+          email_intro: Byli jste přiřazeni jako %{role} pro konferenci "%{resource_title}".
+          email_outro: Obdrželi jste toto oznámení, protože jste %{role} z konference "%{resource_title}".
+          email_subject: Byl jste přiřazen jako %{role} pro "%{resource_title}".
+          notification_title: Byl jste přiřazen jako %{role} pro konferenci <a href="%{resource_url}">%{resource_title}</a>.
         upcoming_conference:
           email_intro: 'Konference "%{resource_title}" se koná za 2 dny. Můžete si přečíst popis z jeho stránky:'
           email_outro: Toto upozornění jste obdrželi, protože jste sledovali konferenci "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.

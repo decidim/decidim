@@ -771,6 +771,10 @@ es:
         new:
           create: Invitar
           title: Invitar a la participante como administradora
+      users_statistics:
+        users_count:
+          admins: Administradoras
+          participants: Participantes
       view_public_page: Ver página pública
     forms:
       errors:

@@ -451,8 +451,6 @@ ar:
         promotal_committee_help: تذكر أنه يجب دعوة %{member_count} شخصًا على الأقل إلى لجنة المروجين. أرسل الرابط التالي لدعوة الناس إلى لجنة المروجين
         status_change_body_for: 'لقد غيرت المبادرة %{title} حالتها إلى: %{state}'
         status_change_for: لقد غيرت المبادرة %{title} حالتها
-        technical_validation_body_for: طلبت المبادرة %{title} التحقق من الصحة
-        technical_validation_for: طلبت المبادرة %{title} التحقق من الصحة
       last_activity:
         new_initiative: مبادرة جديدة
       pages:

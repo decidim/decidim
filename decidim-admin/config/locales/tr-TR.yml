@@ -712,6 +712,10 @@ tr:
         new:
           create: Davet et
           title: Kullanıcıyı yönetici olarak davet et
+      users_statistics:
+        users_count:
+          admins: Yöneticiler
+          participants: Katılımcılar
       view_public_page: Genel sayfayı görüntüle
     forms:
       errors:

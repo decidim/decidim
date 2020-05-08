@@ -419,8 +419,6 @@ ca:
         promotal_committee_help: Recorda que has de convidar almenys a %{member_count} persones a la Comissió Promotora. Reenvia el següent enllaç per convidar-les
         status_change_body_for: 'La iniciativa %{title} ha canviat el seu estat a: %{state}'
         status_change_for: La iniciativa %{title} ha canviat el seu estat
-        technical_validation_body_for: La iniciativa %{title} ha sol·licitat validació tècnica.
-        technical_validation_for: La iniciativa %{title} ha sol·licitat validació tècnica.
       last_activity:
         new_initiative: Nova iniciativa
       pages:

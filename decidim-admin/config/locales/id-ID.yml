@@ -679,6 +679,10 @@ id:
         new:
           create: Undang
           title: Undang pengguna sebagai administrator
+      users_statistics:
+        users_count:
+          admins: Admin
+          participants: Peserta
       view_public_page: Lihat halaman publik
     forms:
       errors:
