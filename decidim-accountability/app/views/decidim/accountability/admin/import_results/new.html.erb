@@ -16,8 +16,7 @@
   <div class="button--double form-general-submit">
     <%= submit_tag t(".import"), class: "button" %>
   </div>
-  
-  <%# it would be convenient to introduce an explanation of how the import file should be, 
-  as well as how this import process occurs with each record. (Ex: what happens to records 
-  with identifiers that already exist, etc.) %>
+  <div class="import-process-info">
+    <%= t(".info").try("html_safe") %>
+  </div>
 <% end %>
