@@ -15,15 +15,17 @@ module Decidim
       class AssembliesSettingPresenter < Decidim::Log::BasePresenter
         private
 
-        def i18n_labels_scope
-          "activemodel.attributes.assemblies_setting"
-        end
-
         def action_string
           case action
           when "update"
             "decidim.admin_log.assembly_setting.#{action}"
+          else
+            super
           end
+        end
+
+        def i18n_labels_scope
+          "activemodel.attributes.assemblies_setting"
         end
       end
     end

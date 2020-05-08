@@ -2,19 +2,28 @@
 
 require "spec_helper"
 
-module Decidim::Meetings
-  describe Decidim::Assemblies::AdminLog::AssembliesSettingPresenter, type: :helper do
-    subject(:assemblies_setting) { described_class.new(assemblies_setting) }
+module Decidim
+  describe Assemblies::AdminLog::AssembliesSettingPresenter, type: :helper do
+    subject { described_class.new(action_log, helper) }
 
-    let(:organization) { create :organization }
-    let(:value) { assemblies_setting.id }
-    let(:enable_organization_chart) { assemblies_setting.enable_organization_chart }
+    let(:action_log) do
+      create(
+        :action_log,
+        action: action
+      )
+    end
+    let(:action) { :update }
 
-    describe "update" do
-      subject { enable_organization_chart }
+    before do
+      helper.extend(Decidim::ApplicationHelper)
+      helper.extend(Decidim::TranslationsHelper)
+    end
 
-      context "when setting is updated" do
-        it { is_expected.to eq true }
+    describe "#present" do
+      context "when the setting is updated" do
+        it "shows the settings has been updated" do
+          expect(subject.present).to include("updated the assemblies settings")
+        end
       end
     end
   end
