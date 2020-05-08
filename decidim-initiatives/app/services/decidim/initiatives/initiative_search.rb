@@ -16,6 +16,7 @@ module Decidim
       def base_query
         Decidim::Initiative
           .includes(scoped_type: [:scope])
+          .joins("JOIN decidim_users ON decidim_users.id = decidim_initiatives.decidim_author_id")
           .where(organization: options[:organization])
       end
 
@@ -27,6 +28,16 @@ module Decidim
             query.where(
               "description->>'#{current_locale}' ILIKE ?",
               "%#{search_text}%"
+            )
+          )
+          .or(
+            query.where(
+              "cast(decidim_initiatives.id as text) ILIKE ?", "%#{search_text}%"
+            )
+          )
+          .or(
+            query.where(
+              "decidim_users.id IN (#{author_sql})"
             )
           )
       end
@@ -65,6 +76,15 @@ module Decidim
           .where(
             "decidim_initiatives_type_scopes.decidim_scopes_id": scope_id
           )
+      end
+
+      private
+
+      def author_sql
+        Decidim::UserBaseEntity
+          .where("name ILIKE ? OR nickname ILIKE ?", "%#{search_text}%", "%#{search_text}%")
+          .select(:id)
+          .to_sql
       end
     end
   end

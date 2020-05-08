@@ -339,6 +339,14 @@ module Decidim
       Decidim::ParticipatorySpaceRoleConfig::Base.new(:empty_role_name)
     end
 
+    def self.by_author_name_or_nickname(term)
+      return if term.blank?
+
+      author_sql = Decidim::UserBaseEntity.ransack(name_or_nickname_cont: term).result.select(:id).to_sql
+
+      where("decidim_users.id IN (#{author_sql})")
+    end
+
     private
 
     def signature_type_allowed
@@ -368,5 +376,9 @@ module Decidim
 
     # Allow ransacker to search on an Enum Field
     ransacker :state, formatter: proc { |int| states[int] }
+
+    ransacker :id_string do
+      Arel.sql(%{cast("decidim_initiatives"."id" as text)})
+    end
   end
 end
