@@ -373,9 +373,9 @@ module Decidim
       template += label(attribute, label_for(attribute) + required_for_attribute(attribute))
       template += @template.file_field @object_name, attribute
 
-      if file_is_image?(file)
-        template += image_dimensions_help(options[:dimensions_info]) if options[:dimensions_info].present?
+      template += image_dimensions_help(options[:dimensions_info]) if options[:dimensions_info].present?
 
+      if file_is_image?(file)
         template += if file.present?
                       @template.content_tag :label, I18n.t("current_image", scope: "decidim.forms")
                     else
