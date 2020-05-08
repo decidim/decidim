@@ -225,9 +225,6 @@ sk:
       update_draft:
         error: Pri aktualizácii pozmeňovacieho návrhu sa vyskytol problém.
         success: Pozmeňovací návrh bol úspešne aktualizovaný.
-      visibility_options:
-        all: Pozmeňovacie návrhy sú pre všetky viditeľné
-        participants: Pozmeňovacie návrhy sú viditeľné iba pre ich autorov
       withdraw:
         error: Pri stiahnutí pozmeňovacieho návrhu došlo k chybe
         success: Pozmeňovací návrh bol úspešne stiahnutý
