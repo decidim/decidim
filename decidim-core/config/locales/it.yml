@@ -211,9 +211,6 @@ it:
       update_draft:
         error: C'è stato un problema nell'eliminazione della bozza di emendamento.
         success: Bozza emendamento aggiornata correttamente.
-      visibility_options:
-        all: Gli emendamenti sono visibili a tutti
-        participants: Gli emendamenti sono visibili solo ai loro autori
       withdraw:
         error: Si è verificato un errore durante la creazione della proposta di emendamento
         success: L'emendamento è stato creato con successo
