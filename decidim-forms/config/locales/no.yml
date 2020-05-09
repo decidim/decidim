@@ -36,6 +36,9 @@
           form:
             add_question: Legg til spørsmål
             already_answered_warning: Skjemaet er allerede besvart av noen brukere derfor kan du ikke endre spørsmålene.
+          matrix_row:
+            remove: Fjern
+            statement: Uttalelse
           question:
             add_answer_option: Legg til svaralternativ
             any: Alle
