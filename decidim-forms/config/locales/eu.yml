@@ -34,6 +34,9 @@ eu:
           form:
             add_question: Galdera gehitu
             already_answered_warning: Galdetegia dagoeneko erantzun dio erabiltzaile batzuek, beraz, ezin dituzu bere galderak aldatu.
+          matrix_row:
+            remove: Kendu
+            statement: adierazpena
           question:
             add_answer_option: Gehitu erantzun aukera
             any: Edozein
