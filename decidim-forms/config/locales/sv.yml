@@ -36,6 +36,9 @@ sv:
           form:
             add_question: Lägg till fråga
             already_answered_warning: Frågeformuläret har redan besvarats av vissa användare så du inte kan ändra dess frågor.
+          matrix_row:
+            remove: Ta bort
+            statement: Påstående
           question:
             add_answer_option: Lägg till svarsalternativ
             any: Någon
