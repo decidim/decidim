@@ -21,7 +21,7 @@ pl:
         models:
           components:
             description: Opis
-            tos: Warunki usługi
+            tos: Warunki korzystania
         questionnaires:
           answer_option:
             answer_option: Opcja odpowiedzi
@@ -76,7 +76,7 @@ pl:
             body: Kwestionariusz jest dostępny tylko dla użytkowników prywatnych
             title: Ankieta została zamknięta
           submit: Zatwierdź
-          tos_agreement: Biorąc udział w programie, akceptujesz jego Warunki korzystania z usługi
+          tos_agreement: Biorąc udział akceptujesz Warunki korzystania z usługi
       user_answers_serializer:
         created_at: Odpowiedziałem na
         id: ID odpowiedzi
