@@ -424,7 +424,7 @@ pl:
         show:
           login_as: Jesteś zalogowany jako %{name} <%{email}>
           make_conference_registration: 'Dokonaj rejestracji na konferencji:'
-          register: Zarejestrować
+          register: Zarejestruj się
       content_blocks:
         highlighted_conferences:
           name: Wyróżnione konferencje
@@ -479,7 +479,7 @@ pl:
         index:
           choose_an_option: 'Wybierz opcję rejestracji:'
           login_as: Jesteś zalogowany jako %{name} <%{email}>
-          register: Zarejestrować
+          register: Zarejestruj się
           title: Rodzaje rejestracji
       shared:
         conference_user_login:
@@ -553,14 +553,14 @@ pl:
   layouts:
     decidim:
       conference_hero:
-        register: Zarejestrować
+        register: Zarejestruj się
       conference_widgets:
         show:
-          take_part: Wziąć udział
+          take_part: Weź udział
       conferences:
         conference:
           more_info: Więcej informacji
-          take_part: Wziąć udział
+          take_part: Weź udział
         index:
           promoted_conferences: Promowane konferencje
         order_by_conferences:
@@ -571,7 +571,7 @@ pl:
             other: "%{count} konferencji"
         promoted_conference:
           more_info: Więcej informacji
-          take_part: Wziąć udział
+          take_part: Weź udział
       conferences_nav:
         conference_menu_item: Informacja
         conference_partners_menu_item: Wzmacniacz
