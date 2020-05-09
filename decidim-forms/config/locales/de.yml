@@ -34,6 +34,9 @@ de:
           form:
             add_question: Frage hinzufügen
             already_answered_warning: Der Fragebogen wird bereits von einigen Benutzern beantwortet, sodass Sie die Fragen nicht ändern können.
+          matrix_row:
+            remove: Löschen
+            statement: Aussage
           question:
             add_answer_option: Antwortoption hinzufügen
             any: Irgendein
