@@ -40,6 +40,7 @@ pl:
         badges_enabled: Włącz odznaki
         cta_button_path: Ścieżka przycisku wezwania do działania
         cta_button_text: Tekst przycisku wezwania do działania
+        customize_welcome_notification: Dostosuj treść komunikatu powitalnego
         default_locale: Domena domyślna
         description: Opis
         enable_omnipresent_banner: Pokaż wszechobecny baner
@@ -66,12 +67,15 @@ pl:
         primary_color: Podstawowa
         reference_prefix: Prefiks referencyjny
         secondary_color: Wtórny
+        send_welcome_notification: Wyślij komunikat powitalny
         show_statistics: Pokaż statystyki
         success_color: Powodzenie
         tos_version: Warunki korzystania z usługi
         twitter_handler: Obsługa Twittera
         user_groups_enabled: Włącz grupy użytkowników
         warning_color: Ostrzeżenie
+        welcome_notification_body: Treść komunikatu powitalnego
+        welcome_notification_subject: Tytuł komunikatu powitalnego
         youtube_handler: Poradnik YouTube
       scope:
         code: Kod
@@ -129,7 +133,7 @@ pl:
     admin:
       actions:
         add: Dodaj
-        browse: Paść się
+        browse: Sprawdź
         export: Eksport
         manage: Zarządzanie
         new: Nowe %{name}
@@ -485,7 +489,7 @@ pl:
           badge: Odznaka
           created_at: Utworzono w
           name: Nazwa
-          nickname: Przezwisko
+          nickname: Alias
           not_officialized: Nie oficjalny
           officialize: Oficjalizuj
           officialized: Oficjalny
@@ -505,7 +509,7 @@ pl:
           github: GitHub
           instagram: Instagram
           social_handlers: Społeczny
-          twitter: Świergot
+          twitter: Twitter
           url: Url
           youtube: Youtube
         update:
