@@ -36,6 +36,9 @@ ca:
           form:
             add_question: Afegeix una pregunta
             already_answered_warning: No pots modificar les preguntes d'aquest formulari perquè ja ha estat contestat per algunes participants.
+          matrix_row:
+            remove: Elimina
+            statement: Declaració
           question:
             add_answer_option: Afegeix una opció de resposta
             any: Cap
