@@ -16,6 +16,8 @@ ru:
             title: Заголовок
           form:
             add_question: Добавить вопрос
+          matrix_row:
+            remove: Удалить
           question:
             add_answer_option: Добавить вариант ответа
             any: Любые
