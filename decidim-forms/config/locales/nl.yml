@@ -36,6 +36,9 @@ nl:
           form:
             add_question: Vraag toevoegen
             already_answered_warning: De vragenlijst is al door enkele gebruikers beantwoord, dus u kunt de vragen niet wijzigen.
+          matrix_row:
+            remove: Verwijderen
+            statement: Uitspraak
           question:
             add_answer_option: Antwoordoptie toevoegen
             any: Ieder
