@@ -36,6 +36,9 @@ fi:
           form:
             add_question: Lisää kysymys
             already_answered_warning: Jotkut käyttäjät ovat jo vastanneet tähän kyselylomakkeeseen, joten et voi enää muokata kysymyksiä.
+          matrix_row:
+            remove: Poista
+            statement: Selite
           question:
             add_answer_option: Lisää vastausvaihtoehto
             any: Minkä tahansa
