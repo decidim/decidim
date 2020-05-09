@@ -36,6 +36,9 @@ hu:
           form:
             add_question: Kérdés hozzáadása
             already_answered_warning: Néhány felhasználó már válaszolt a kérdőívre, így nem változtathatja meg kérdéseit.
+          matrix_row:
+            remove: Eltávolít
+            statement: Nyilatkozat
           question:
             add_answer_option: Válasz opció hozzáadása
             any: Bármilyen
