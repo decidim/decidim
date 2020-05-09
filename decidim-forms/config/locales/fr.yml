@@ -36,6 +36,9 @@ fr:
           form:
             add_question: Ajouter une question
             already_answered_warning: Certains utilisateurs ont déjà répondu au questionnaire, vous ne pouvez donc pas modifier ses questions.
+          matrix_row:
+            remove: Retirer
+            statement: Déclaration
           question:
             add_answer_option: Ajouter une option de réponse
             any: Tout
