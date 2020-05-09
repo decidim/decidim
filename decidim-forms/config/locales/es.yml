@@ -36,6 +36,9 @@ es:
           form:
             add_question: Añadir pregunta
             already_answered_warning: Algunas participantes ya han respondido el formulario, por lo que no puedes modificar las preguntas.
+          matrix_row:
+            remove: Eliminar
+            statement: Declaración
           question:
             add_answer_option: Añadir una opción de respuesta
             any: Alguna
