@@ -36,6 +36,9 @@ ar:
           form:
             add_question: أضف سؤال
             already_answered_warning: تمت الإجابة على النموذج من قبل بعض المستخدمين حتى لا تتمكن من تعديل أسئلته.
+          matrix_row:
+            remove: إزالة
+            statement: بيان
           question:
             add_answer_option: إضافة خيار الإجابة
             any: أي
