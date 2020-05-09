@@ -314,6 +314,15 @@ sv:
       see_less: "(se mindre)"
       see_more: "(se mer)"
     components:
+      component_order_selector:
+        no_content: Vi kunde inte hitta något innehåll med dessa kriterier
+        order:
+          all_types: Alla typer
+          collaborative_draft: Gemensamt utkast
+          meeting: Möte
+          proposal: Förslag
+          question: Fråga
+        title: 'Visa:'
       dummy:
         actions:
           bar: Bar
