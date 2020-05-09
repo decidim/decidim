@@ -36,6 +36,9 @@ cs:
           form:
             add_question: Přidat otázku
             already_answered_warning: Dotazník již odpověděli někteří uživatelé, takže nemusíte upravovat své dotazy.
+          matrix_row:
+            remove: Odstranit
+            statement: Prohlášení
           question:
             add_answer_option: Přidat možnost odpovědi
             any: Žádný
