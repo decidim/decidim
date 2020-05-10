@@ -37,10 +37,12 @@ cs:
             add_question: Přidat otázku
             already_answered_warning: Dotazník již odpověděli někteří uživatelé, takže nemusíte upravovat své dotazy.
           matrix_row:
+            matrix_row: Řádek
             remove: Odstranit
             statement: Prohlášení
           question:
             add_answer_option: Přidat možnost odpovědi
+            add_matrix_row: Přidat řádek
             any: Žádný
             description: Popis
             down: Dolů
@@ -56,6 +58,8 @@ cs:
           body: Tělo nemůže být prázdné
       question_types:
         long_answer: Dlouhá odpověď
+        matrix_multiple: Matice (Více možností)
+        matrix_single: Matice (Jedna možnost)
         multiple_option: Více možností
         short_answer: Stručná odpověď
         single_option: Jedna možnost
@@ -63,6 +67,7 @@ cs:
       questionnaires:
         answer:
           invalid: Při odpovědi na dotazník došlo k chybám.
+          max_choices_alert: Je vybráno příliš mnoho možností
           success: Dotazník úspěšně odpověděl.
         question:
           max_choices: 'Max možnosti: %{n}'
