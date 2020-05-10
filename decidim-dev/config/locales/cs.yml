@@ -12,9 +12,17 @@ cs:
     components:
       dummy:
         settings:
+          global:
+            readonly_attribute: Atribut pouze pro čtení
+            test: Zkouška A
+            test_choices:
+              a: Volba A
+              b: Volba B
+              c: Volba C
           step:
             endorsements_blocked: Schvalování blokováno
             endorsements_enabled: Schvalování povoleno
+            readonly_step_attribute: Atribut krok čtení
     dummy:
       admin:
         exports:
