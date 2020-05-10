@@ -321,6 +321,19 @@ cs:
       see_less: "(viz níže)"
       see_more: "(viz další)"
     components:
+      component_order_selector:
+        no_content: Nepodařilo se nám najít žádný obsah s tímto kritériem
+        order:
+          all_types: Všechny typy
+          collaborative_draft: Koordinační návrh
+          comment: Komentář
+          debate: Debata
+          initiative: Iniciativa
+          meeting: Schůzka
+          post: Příspěvek
+          proposal: Návrh
+          question: Otázka
+        title: 'Zobrazit:'
       dummy:
         actions:
           bar: Lišta
@@ -577,6 +590,16 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste byli členem této skupiny.
           email_subject: Byli jste odstraněni ze skupiny %{user_group_name}!
           notification_title: Byli jste odstraněni ze skupiny <a href="%{resource_path}">%{user_group_name}</a>.
+        user_group_created:
+          email_intro: Nová uživatelská skupina byla vytvořena s názvem %{user_group_name}. Nyní ji můžete ověřit v <a href="%{groups_admin_url}">admin panelu</a>.
+          email_outro: Toto oznámení jste obdrželi, protože jste administrátor platformy.
+          email_subject: Byla vytvořena nová skupina uživatelů
+          notification_title: Byla vytvořena uživatelská skupina %{user_group_name}. Nyní ji můžete ověřit v <a href="%{groups_admin_path}">admin panelu</a>.
+        user_group_updated:
+          email_intro: Uživatelská skupina s názvem %{user_group_name} aktualizovala svůj profil a ponechala jej neověřený. Nyní ho můžete ověřit v <a href="%{groups_admin_url}">admin panelu</a>.
+          email_outro: Toto oznámení jste obdrželi, protože jste administrátor platformy.
+          email_subject: Skupina uživatelů aktualizovala svůj profil
+          notification_title: Uživatelská skupina %{user_group_name} aktualizovala svůj profil, ponechala jej neověřený. Nyní jej můžete ověřit v <a href="%{groups_admin_path}">admin panelu</a>.
       notification_event:
         notification_title: Došlo k události <a href="%{resource_path}">%{resource_title}</a>.
       resource_endorsed:
@@ -815,15 +838,20 @@ cs:
         create:
           error: Konverzace se nespustí. Zkuste to později znovu
         index:
+          ago: před
           close: Zavřít okno
+          from: Od
+          last_message: Poslední zpráva
           new_conversation: Nová konverzace
           next: Další
           no_conversations: Nemáte zatím žádné konverzace
           title: Konverzace
         reply:
+          placeholder: Vaše odpověď...
           send: Poslat
           title: Odpověď
         show:
+          chat_with: Konverzace s
           not_allowed: Tento uživatel již nepřijímá žádné přímé zprávy.
           title: Konverzace s číslem %{usernames}
         start:
