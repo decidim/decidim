@@ -48,14 +48,6 @@ module Decidim
             expect(parsed_response).to eq([{ value: user.id, label: "#{user.name} (@#{user.nickname}) #{user.email}" }])
           end
         end
-
-        # context "when searching by email" do
-        #   it "returns the id, name, email and nickname for filtered users" do
-        #     get :users, format: :json, params: { term: user.email }
-        #     byebug
-        #     expect(parsed_response).to eq([{ value: user.id, label: "#{user.name} (@#{user.nickname}) #{user.email}" }])
-        #   end
-        # end
       end
     end
   end
