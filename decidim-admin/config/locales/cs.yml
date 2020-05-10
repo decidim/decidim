@@ -740,6 +740,7 @@ cs:
         scope_types: Typy rozsahu
         scopes: Rozsahy
         static_pages: Stránky
+        statistics: Aktivita
         user_groups: Skupiny
         users: Účastníci
       user_group:
@@ -788,6 +789,10 @@ cs:
       users_statistics:
         users_count:
           admins: Administrátoři
+          last_day: Poslední den
+          last_month: Minulý měsíc
+          last_week: Minulý týden
+          no_users_count_statistics_yet: Zatím nejsou žádné statistiky počtu uživatelů
           participants: Účastníci
       view_public_page: Zobrazit veřejnou stránku
     forms:
