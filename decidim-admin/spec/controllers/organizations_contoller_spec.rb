@@ -54,6 +54,11 @@ module Decidim
             get :users, format: :json, params: { term: user.email }
             expect(parsed_response).to eq([{ value: user.id, label: "#{user.name} (@#{user.nickname}) #{user.email}" }])
           end
+
+          it "returns empty array if email doesn't exit" do
+            get :users, format: :json, params: { term: "invalid.email@gl.com" }
+            expect(parsed_response).to eq([])
+          end
         end
       end
     end
