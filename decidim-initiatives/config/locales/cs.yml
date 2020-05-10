@@ -116,6 +116,12 @@ cs:
         initiatives_types: Typy iniciativ
     events:
       initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: Iniciativa "%{resource_title}" byla odeslána na technické potvrzení. Podívejte se na <a href="%{admin_initiative_url}">admin panel</a>
+            email_outro: Toto oznámení jste obdrželi, protože jste administrátor platformy.
+            email_subject: Iniciativa "%{resource_title}" byla odeslána na technické potvrzení.
+            notification_title: Iniciativa "%{resource_title}" byla odeslána na technické potvrzení. Podívejte se na <a href="%{admin_initiative_path}">admin panel</a>
         initiative_extended:
           email_intro: Podpisový termín pro iniciativu %{resource_title} byl rozšířen!
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{resource_title}. Na následujícím odkazu můžete přestat odebírat oznámení.
