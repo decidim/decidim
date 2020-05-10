@@ -152,6 +152,9 @@ cs:
             amendment_reaction_enabled: Reakce na pozměnění byla povolena
             amendment_reaction_enabled_help: Autoři návrhů budou moci přijmout nebo zamítnout vylepšení účastníků.
             amendments_visibility: Viditelnost pozměňovacího návrhu
+            amendments_visibility_choices:
+              all: Pozměňovací návrhy jsou viditelné pro všechny
+              participants: Pozměňovací návrhy jsou viditelné pouze pro jejich autory
             amendments_visibility_help: Pokud je zvolena možnost "pozměňovací návrhy jsou viditelné pouze jejich autorům", musí být účastník přihlášen, aby se seznámil s provedenými pozměňovacími návrhy.
             announcement: Oznámení
             answers_with_costs: Povolit náklady na odpovědi návrhu
@@ -168,6 +171,12 @@ cs:
             votes_hidden: Hlasy skryté (pokud jsou povoleny hlasy, při kontrole se skryje počet hlasů)
     events:
       proposals:
+        admin:
+          proposal_note_created:
+            email_intro: Někdo zanechal poznámku k návrhu "%{resource_title}". Podívejte se na <a href="%{admin_proposal_info_url}">admin panel</a>
+            email_outro: Obdrželi jste toto oznámení, protože můžete návrh ohodnotit.
+            email_subject: Někdo zanechal poznámku na návrh %{resource_title}.
+            notification_title: Někdo zanechal poznámku k návrhu <a href="%{resource_path}">%{resource_title}</a>. Podívejte se na <a href="%{admin_proposal_info_path}">admin panel</a>
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} byl přijat k přístupu jako přispěvatel k <a href="%{resource_path}">%{resource_title}</a> návrh spolupráce.'
           email_outro: Toto oznámení jste dostali, protože jste spolupracovníkem uživatele <a href="%{resource_path}">%{resource_title}</a>.
