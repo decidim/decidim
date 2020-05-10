@@ -60,7 +60,7 @@ module Decidim
                 end
               end
             else
-              Decidim::Accountability::Admin::CreateResult.call(@form) do
+              Decidim::Accountability::Admin::CreateImportedResult.call(@form) do
                 on(:invalid) do
                   errors << [i, @form.errors.full_messages]
                 end
