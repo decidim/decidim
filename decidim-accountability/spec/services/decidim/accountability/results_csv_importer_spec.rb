@@ -1,5 +1,6 @@
 # coding: utf-8
 # frozen_string_literal: true
+
 require "spec_helper"
 require "decidim/core/test/factories"
 require "decidim/accountability/test/factories"
@@ -17,20 +18,18 @@ describe Decidim::Accountability::ResultsCSVImporter do
     subject { described_class.new(current_component, valid_csv, current_user) }
 
     describe "#import!" do
-      
-        it "should import them" do
-          expect do 
-            t = subject.import! 
-          end.to change(Decidim::Accountability::Result, :count).by(39)
-        end
-      
+      it "Import all rows from csv file" do
+        expect do
+          subject.import!
+        end.to change(Decidim::Accountability::Result, :count).by(39)
+      end
 
       context "when results exist" do
-        let!(:result1) { create :result, component: current_component, progress: 0, id: 73}
-       
-        it "should update them" do
+        let!(:result1) { create :result, component: current_component, progress: 0, id: 73 }
+
+        it "Update the result1 progress attribute" do
           subject.import!
-      
+
           expect(result1.reload.progress.to_f).to eq 25
         end
       end
@@ -39,14 +38,13 @@ describe Decidim::Accountability::ResultsCSVImporter do
 
   context "with an invalid CSV" do
     subject { described_class.new(current_component, invalid_csv, current_user) }
-  
+
     describe "#import!" do
-      it "should return errors" do
+      it "Errors would be returned" do
         errors = subject.import!
-  
+
         expect(errors.length).to eq 3
       end
     end
   end
-
 end

@@ -77,7 +77,7 @@ module Decidim
       end
 
       private
-      
+
       def set_params_for_import_result_form(row, component)
         params = {}
         params["result"] = row.to_hash
