@@ -29,7 +29,7 @@
         </span>
       <% end %>
       <div class="right center mr-s">
-        <%= link_to decidim.profile_conversation_path(nickname: user.nickname, id: conversation), id: "chevron", class: "user-header__avatar", "data-tabs-target": "conversation" do %>
+        <%= link_to decidim.profile_conversation_path(nickname: user.nickname, id: conversation), id: "conversation-#{conversation.id}", class: "user-header__avatar", "data-tabs-target": "conversation" do %>
           <%= icon "chevron-right", class: "card__link icon--big" %>
         <% end %>
       </div>
