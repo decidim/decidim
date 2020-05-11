@@ -4,7 +4,6 @@ require "rails"
 require "active_support/all"
 
 require "pg"
-require "redis"
 
 require "devise"
 require "devise-i18n"
