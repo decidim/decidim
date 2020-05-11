@@ -34,6 +34,11 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
     context.layout = "layouts/decidim/admin/conference"
   end
 
+  participatory_space.register_on_destroy_account do |user|
+    Decidim::ConferenceUserRole.where(user: user).destroy_all
+    Decidim::ConferenceSpeaker.where(user: user).destroy_all
+  end
+
   participatory_space.seeds do
     organization = Decidim::Organization.first
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
