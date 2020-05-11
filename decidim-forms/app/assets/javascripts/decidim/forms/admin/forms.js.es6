@@ -129,7 +129,7 @@
   };
 
   const dynamicFieldsForAnswerOptions = {};
-  
+
   const createDynamicFieldsForMatrixRows = (fieldId) => {
     return createDynamicFields({
       placeholderId: "questionnaire-question-matrix-row-id",
@@ -147,15 +147,11 @@
 
   const dynamicFieldsForMatrixRows = {};
 
-  const isMultipleChoiceOption = ($selectField) => {
-    const value = $selectField.val();
-
+  const isMultipleChoiceOption = (value) => {
     return MULTIPLE_CHOICE_VALUES.indexOf(value) >= 0;
   }
 
-  const isMatrix = ($selectField) => {
-    const value = $selectField.val();
-
+  const isMatrix = (value) => {
     return MATRIX_VALUES.indexOf(value) >= 0;
   }
 
@@ -292,7 +288,7 @@
       dependentFieldsSelector: matrixRowsWrapperSelector,
       dependentInputSelector: `${matrixRowFieldSelector} input`,
       enablingCondition: ($field) => {
-        return isMatrix($field);
+        return isMatrix($field.val());
       }
     });
 
@@ -313,7 +309,7 @@
         }
       }
 
-      if (isMatrix($fieldQuestionTypeSelect)) {
+      if (isMatrix($fieldQuestionTypeSelect.val())) {
         const nRows = $fieldQuestionTypeSelect.parents(fieldSelector).find(matrixRowFieldSelector).length;
 
         if (nRows === 0) {
