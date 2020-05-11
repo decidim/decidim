@@ -120,18 +120,27 @@ shared_examples_for "add questions" do
 
     select "Long answer", from: "Type"
     expect(page).to have_no_selector(".questionnaire-question-answer-option")
+    expect(page).to have_no_selector(".questionnaire-question-matrix-row")
 
     select "Single option", from: "Type"
     expect(page).to have_selector(".questionnaire-question-answer-option", count: 2)
+    expect(page).to have_no_selector(".questionnaire-question-matrix-row")
 
     select "Multiple option", from: "Type"
     expect(page).to have_selector(".questionnaire-question-answer-option", count: 2)
+    expect(page).to have_no_selector(".questionnaire-question-matrix-row")
 
-    select "Single option", from: "Type"
+    select "Matrix (Multiple option)", from: "Type"
     expect(page).to have_selector(".questionnaire-question-answer-option", count: 2)
+    expect(page).to have_selector(".questionnaire-question-matrix-row", count: 2)
 
     select "Short answer", from: "Type"
     expect(page).to have_no_selector(".questionnaire-question-answer-option")
+    expect(page).to have_no_selector(".questionnaire-question-matrix-row")
+
+    select "Matrix (Single option)", from: "Type"
+    expect(page).to have_selector(".questionnaire-question-answer-option", count: 2)
+    expect(page).to have_selector(".questionnaire-question-matrix-row", count: 2)
   end
 
   it "does not incorrectly reorder when clicking answer options" do
@@ -158,6 +167,34 @@ shared_examples_for "add questions" do
     end
 
     within ".questionnaire-question-answer-option:last-of-type" do
+      expect(page).to have_nested_field("body_en", with: "Else")
+    end
+  end
+
+  it "does not incorrectly reorder when clicking matrix rows" do
+    click_button "Add question"
+    select "Matrix (Multiple option)", from: "Type"
+    2.times { click_button "Add row" }
+
+    within ".questionnaire-question-matrix-row:first-of-type" do
+      fill_in find_nested_form_field_locator("body_en"), with: "Something"
+    end
+
+    within ".questionnaire-question-matrix-row:last-of-type" do
+      fill_in find_nested_form_field_locator("body_en"), with: "Else"
+    end
+
+    # If JS events for option reordering are incorrectly bound, clicking on
+    # the field to gain focus can cause the options to get inverted... :S
+    within ".questionnaire-question-matrix-row:first-of-type" do
+      find_nested_form_field("body_en").click
+    end
+
+    within ".questionnaire-question-matrix-row:first-of-type" do
+      expect(page).to have_nested_field("body_en", with: "Something")
+    end
+
+    within ".questionnaire-question-matrix-row:last-of-type" do
       expect(page).to have_nested_field("body_en", with: "Else")
     end
   end
@@ -189,6 +226,25 @@ shared_examples_for "add questions" do
     end
   end
 
+  it "does not preserve spurious matrix rows from previous type selections" do
+    click_button "Add question"
+    select "Matrix (Single option)", from: "Type"
+
+    within ".questionnaire-question-matrix-row:first-of-type" do
+      fill_in find_nested_form_field_locator("body_en"), with: "Something"
+    end
+
+    select "Long answer", from: "Type"
+
+    click_button "Save"
+
+    select "Matrix (Single option)", from: "Type"
+
+    within ".questionnaire-question-matrix-row:first-of-type" do
+      expect(page).to have_no_nested_field("body_en", with: "Something")
+    end
+  end
+
   it "preserves answer options form across submission failures" do
     click_button "Add question"
     select "Multiple option", from: "Type"
@@ -216,6 +272,23 @@ shared_examples_for "add questions" do
     end
 
     expect(page).to have_select("Maximum number of choices", selected: "3")
+  end
+
+  it "preserves matrix rows form across submission failures" do
+    click_button "Add question"
+    select "Matrix (Multiple option)", from: "Type"
+
+    within ".questionnaire-question-matrix-row:first-of-type" do
+      fill_in find_nested_form_field_locator("body_en"), with: "Something"
+    end
+
+    click_button "Add row"
+
+    click_button "Save"
+
+    within ".questionnaire-question-matrix-row:first-of-type" do
+      expect(page).to have_nested_field("body_en", with: "Something")
+    end
   end
 
   it "allows switching translated field tabs after form failures" do
@@ -289,6 +362,66 @@ shared_examples_for "add questions" do
         expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
 
         select "Single option", from: "Type"
+        expect(page).to have_no_select("Maximum number of choices")
+      end
+    end
+  end
+
+  context "when adding a matrix question" do
+    before do
+      visit questionnaire_edit_path
+
+      within "form.edit_questionnaire" do
+        click_button "Add question"
+
+        within ".questionnaire-question" do
+          fill_in find_nested_form_field_locator("body_en"), with: "This is the first question"
+        end
+
+        expect(page).to have_no_content "Add answer option"
+        expect(page).to have_no_content "Add row"
+        expect(page).to have_no_select("Maximum number of choices")
+      end
+    end
+
+    it "updates the free text option selector according to the selected question type" do
+      expect(page).to have_no_selector("input[type=checkbox][id$=_free_text]")
+
+      select "Matrix (Multiple option)", from: "Type"
+      expect(page).to have_selector("input[type=checkbox][id$=_free_text]")
+
+      select "Short answer", from: "Type"
+      expect(page).to have_no_selector("input[type=checkbox][id$=_free_text]")
+
+      select "Matrix (Single option)", from: "Type"
+      expect(page).to have_selector("input[type=checkbox][id$=_free_text]")
+    end
+
+    it "updates the max choices selector according to the configured options" do
+      expect(page).to have_no_select("Maximum number of choices")
+
+      select "Matrix (Multiple option)", from: "Type"
+      expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
+
+      click_button "Add answer option"
+      expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3))
+
+      click_button "Add answer option"
+      expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3 4))
+
+      within(".questionnaire-question-answer-option:last-of-type") { click_button "Remove" }
+      expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3))
+
+      within(".questionnaire-question-answer-option:last-of-type") { click_button "Remove" }
+      expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
+
+      click_button "Add question"
+
+      within(".questionnaire-question:last-of-type") do
+        select "Matrix (Multiple option)", from: "Type"
+        expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
+
+        select "Matrix (Single option)", from: "Type"
         expect(page).to have_no_select("Maximum number of choices")
       end
     end

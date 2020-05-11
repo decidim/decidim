@@ -29,10 +29,12 @@
               id: tabs_id_for_question(blank_question),
               editable: questionnaire.questions_editable?,
               answer_option_template_selector: "#answer-option-template-dummy",
-              display_condition_template_selector: "#display-condition-template-dummy" %>
+              display_condition_template_selector: "#display-condition-template-dummy",
+              matrix_row_template_selector: "#matrix-row-template-dummy" %>
       </script>
       <%= render "decidim/forms/admin/questionnaires/answer_option_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "answer-option-template-dummy" %>
       <%= render "decidim/forms/admin/questionnaires/display_condition_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "display-condition-template-dummy" %>
+      <%= render "decidim/forms/admin/questionnaires/matrix_row_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "matrix-row-template-dummy" %>
     <% end %>
   <% else %>
     <div class="callout warning">
@@ -48,9 +50,11 @@
           id: tabs_id_for_question(question),
           editable: questionnaire.questions_editable?,
           answer_option_template_selector: "#answer-option-template-#{index}",
-          display_condition_template_selector: "#display-condition-template-#{index}" %>
+          display_condition_template_selector: "#display-condition-template-#{index}",
+          matrix_row_template_selector: "#matrix-row-template-#{index}" %>
         <%= render "decidim/forms/admin/questionnaires/answer_option_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "answer-option-template-#{index}" %>
         <%= render "decidim/forms/admin/questionnaires/display_condition_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "display-condition-template-#{index}" %>
+        <%= render "decidim/forms/admin/questionnaires/matrix_row_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "matrix-row-template-#{index}" %>
       <% end %>
     <% end %>
   </div>

@@ -17,6 +17,10 @@ module Decidim
         def tabs_id_for_question_display_condition(question, display_condition)
           "questionnaire_question_#{question.to_param}_display_condition_#{display_condition.to_param}"
         end
+
+        def tabs_id_for_question_matrix_row(question, matrix_row)
+          "questionnaire_question_#{question.to_param}_matrix_row_#{matrix_row.to_param}"
+        end
       end
     end
   end

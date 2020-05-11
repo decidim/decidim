@@ -19,6 +19,7 @@
 // = require decidim/input_tags
 // = require decidim/input_hashtags
 // = require decidim/input_mentions
+// = require decidim/input_multiple_mentions
 // = require decidim/ajax_modals
 // = require decidim/conferences
 // = require decidim/tooltip_keep_on_hover
@@ -26,7 +27,8 @@
 // = require decidim/check_boxes_tree
 // = require decidim/conversations
 // = require decidim/delayed
-// = require_tree ./decidim/vizzs
+// = require decidim/vizzs
+// = require decidim/responsive_horizontal_tabs.js
 
 // = require_self
 // = require decidim/floating_help

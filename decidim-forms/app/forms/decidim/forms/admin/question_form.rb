@@ -12,6 +12,7 @@ module Decidim
         attribute :question_type, String
         attribute :answer_options, Array[AnswerOptionForm]
         attribute :display_conditions, Array[DisplayConditionForm]
+        attribute :matrix_rows, Array[QuestionMatrixRowForm]
         attribute :max_choices, Integer
         attribute :deleted, Boolean, default: false
 
@@ -22,6 +23,8 @@ module Decidim
         validates :question_type, inclusion: { in: Decidim::Forms::Question::TYPES }
         validates :max_choices, numericality: { only_integer: true, greater_than: 1, less_than_or_equal_to: ->(form) { form.number_of_options } }, allow_blank: true
         validates :body, translatable_presence: true, unless: :deleted
+        validates :matrix_rows, presence: true, if: :matrix?
+        validates :answer_options, presence: true, if: :matrix?
 
         def to_param
           return id if id.present?
@@ -31,6 +34,12 @@ module Decidim
 
         def number_of_options
           answer_options.size
+        end
+
+        private
+
+        def matrix?
+          question_type == "matrix_single" || question_type == "matrix_multiple"
         end
       end
     end

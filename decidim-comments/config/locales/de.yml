@@ -76,6 +76,9 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_name}. Sie können diesen Benutzer von seiner Profilseite aus nicht mehr anzeigen.
           email_subject: Es gibt einen neuen Kommentar von %{author_name} in %{resource_title}
           notification_title: Es gibt einen neuen Kommentar von <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>.
+        comment_by_followed_user_group:
+          email_subject: Es gibt einen neuen Kommentar von %{author_name} in %{resource_title}
+          notification_title: Es gibt einen neuen Kommentar von <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} wurde kommentiert. Sie können den Kommentar auf dieser Seite lesen:"
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" oder seinem Autor folgen. Sie können es aus dem vorherigen Link entfernen.

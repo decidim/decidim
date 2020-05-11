@@ -15,7 +15,7 @@ module Decidim
 
           included do
             helper Decidim::Forms::Admin::ApplicationHelper
-            helper_method :questionnaire_for, :questionnaire, :blank_question, :blank_answer_option,
+            helper_method :questionnaire_for, :questionnaire, :blank_question, :blank_answer_option, :blank_matrix_row,
                           :blank_display_condition, :question_types, :display_condition_types, :update_url, :answer_options_url
 
             def edit
@@ -101,6 +101,10 @@ module Decidim
 
             def blank_display_condition
               @blank_display_condition ||= Admin::DisplayConditionForm.new
+            end
+
+            def blank_matrix_row
+              @blank_matrix_row ||= Admin::QuestionMatrixRowForm.new
             end
 
             def question_types

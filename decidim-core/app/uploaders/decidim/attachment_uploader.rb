@@ -19,7 +19,7 @@ module Decidim
 
     protected
 
-    def extension_white_list
+    def extension_whitelist
       %w(jpg jpeg gif png bmp pdf doc docx xls xlsx ppt ppx rtf txt odt ott odf otg ods ots)
     end
 

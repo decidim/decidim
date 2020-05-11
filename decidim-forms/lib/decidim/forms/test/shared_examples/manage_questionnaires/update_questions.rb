@@ -37,7 +37,7 @@ shared_examples_for "update questions" do
           expect(page).to have_content("Statement*")
           fill_in "questionnaire_questions_#{question.id}_body_en", with: ""
           check "Mandatory"
-          select "Multiple option", from: "Type"
+          select "Matrix (Multiple option)", from: "Type"
           select "2", from: "Maximum number of choices"
         end
 
@@ -45,13 +45,13 @@ shared_examples_for "update questions" do
       end
 
       expect(page).to have_admin_callout("There was a problem saving")
-      expect(page).to have_content("can't be blank", count: 3) # emtpy question, 2 empty default answer options
+      expect(page).to have_content("can't be blank", count: 5) # emtpy question, 2 empty default answer options, 2 empty default matrix rows
 
       expect(page).to have_selector("input[value='']")
       expect(page).to have_no_selector("input[value='This is the first question']")
       expect(page).to have_selector("input#questionnaire_questions_#{question.id}_mandatory[checked]")
       expect(page).to have_select("Maximum number of choices", selected: "2")
-      expect(page).to have_selector("select#questionnaire_questions_#{question.id}_question_type option[value='multiple_option'][selected]")
+      expect(page).to have_selector("select#questionnaire_questions_#{question.id}_question_type option[value='matrix_multiple'][selected]")
     end
 
     it "preserves deleted status across submission failures" do
@@ -161,6 +161,72 @@ shared_examples_for "update questions" do
 
       within "form.edit_questionnaire" do
         expect(page).to have_selector(".questionnaire-question", count: 0)
+      end
+    end
+  end
+
+  context "when a questionnaire has an existing question with matrix rows" do
+    let!(:other_question) { create(:questionnaire_question, questionnaire: questionnaire, position: 1) }
+    let!(:question) do
+      create(
+        :questionnaire_question,
+        questionnaire: questionnaire,
+        body: body,
+        question_type: "matrix_single",
+        position: 2,
+        options: [
+          { "body" => { "en" => "cacarua" } },
+          { "body" => { "en" => "cat" } },
+          { "body" => { "en" => "dog" } }
+        ],
+        rows: [
+          { "body" => { "en" => "cute" } },
+          { "body" => { "en" => "ugly" } },
+          { "body" => { "en" => "meh" } }
+        ]
+      )
+    end
+
+    before do
+      visit questionnaire_edit_path
+    end
+
+    it "allows deleting matrix rows" do
+      within ".questionnaire-question-matrix-row:last-of-type" do
+        click_button "Remove"
+      end
+
+      click_button "Save"
+
+      visit questionnaire_edit_path
+
+      within ".questionnaire-question:last-of-type" do
+        expect(page).to have_selector(".questionnaire-question-matrix-row", count: 2)
+        expect(page).to have_selector(".questionnaire-question-answer-option", count: 3)
+      end
+    end
+
+    it "still removes the question even if previous editions rendered the rows invalid" do
+      within "form.edit_questionnaire" do
+        expect(page).to have_selector(".questionnaire-question", count: 2)
+
+        within ".questionnaire-question-matrix-row:first-of-type" do
+          fill_in find_nested_form_field_locator("body_en"), with: ""
+        end
+
+        within ".questionnaire-question:last-of-type" do
+          click_button "Remove", match: :first
+        end
+
+        click_button "Save"
+      end
+
+      expect(page).to have_admin_callout("successfully")
+
+      visit questionnaire_edit_path
+
+      within "form.edit_questionnaire" do
+        expect(page).to have_selector(".questionnaire-question", count: 1)
       end
     end
   end

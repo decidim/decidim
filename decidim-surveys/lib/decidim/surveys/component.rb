@@ -145,5 +145,18 @@ Decidim.register_component(:surveys) do |component|
         mandatory: true
       )
     end
+
+    %w(matrix_single matrix_multiple).each do |matrix_question_type|
+      question = Decidim::Forms::Question.create!(
+        questionnaire: questionnaire,
+        body: Decidim::Faker::Localized.paragraph,
+        question_type: matrix_question_type
+      )
+
+      3.times do
+        question.answer_options.create!(body: Decidim::Faker::Localized.sentence)
+        question.matrix_rows.create!(body: Decidim::Faker::Localized.sentence)
+      end
+    end
   end
 end

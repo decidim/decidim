@@ -205,6 +205,7 @@ shared_examples_for "has questionnaire" do
           :questionnaire_question,
           questionnaire: questionnaire,
           question_type: question_type,
+          position: 1,
           options: [
             { "body" => answer_option_bodies[0] },
             { "body" => answer_option_bodies[1] },
@@ -219,6 +220,7 @@ shared_examples_for "has questionnaire" do
           questionnaire: questionnaire,
           question_type: "multiple_option",
           max_choices: 2,
+          position: 2,
           options: [
             { "body" => Decidim::Faker::Localized.sentence },
             { "body" => Decidim::Faker::Localized.sentence },
@@ -283,16 +285,16 @@ shared_examples_for "has questionnaire" do
         it "renders them as check boxes with attached text fields disabled by default" do
           expect(page.first(".check-box-collection")).to have_selector("input[type=checkbox]", count: 3)
 
-          expect(page).to have_field("questionnaire_answers_0_choices_2_custom_body", disabled: true, count: 1)
+          expect(page).to have_field("questionnaire_responses_0_choices_2_custom_body", disabled: true, count: 1)
 
           check answer_option_bodies[2]["en"]
 
-          expect(page).to have_field("questionnaire_answers_0_choices_2_custom_body", disabled: false, count: 1)
+          expect(page).to have_field("questionnaire_responses_0_choices_2_custom_body", disabled: false, count: 1)
         end
 
         it "saves the free text in a separate field if submission correct" do
           check answer_option_bodies[2]["en"]
-          fill_in "questionnaire_answers_0_choices_2_custom_body", with: "Cacatua"
+          fill_in "questionnaire_responses_0_choices_2_custom_body", with: "Cacatua"
 
           check "questionnaire_tos_agreement"
           accept_confirm { click_button "Submit" }
@@ -305,12 +307,12 @@ shared_examples_for "has questionnaire" do
         end
 
         it "preserves the previous custom body if submission not correct" do
-          check "questionnaire_answers_1_choices_0_body"
-          check "questionnaire_answers_1_choices_1_body"
-          check "questionnaire_answers_1_choices_2_body"
+          check "questionnaire_responses_1_choices_0_body"
+          check "questionnaire_responses_1_choices_1_body"
+          check "questionnaire_responses_1_choices_2_body"
 
           check answer_option_bodies[2]["en"]
-          fill_in "questionnaire_answers_0_choices_2_custom_body", with: "Cacatua"
+          fill_in "questionnaire_responses_0_choices_2_custom_body", with: "Cacatua"
 
           check "questionnaire_tos_agreement"
           accept_confirm { click_button "Submit" }
@@ -319,7 +321,7 @@ shared_examples_for "has questionnaire" do
             expect(page).to have_content("There was a problem answering")
           end
 
-          expect(page).to have_field("questionnaire_answers_0_choices_2_custom_body", with: "Cacatua")
+          expect(page).to have_field("questionnaire_responses_0_choices_2_custom_body", with: "Cacatua")
         end
       end
     end
@@ -409,6 +411,8 @@ shared_examples_for "has questionnaire" do
         check answer_options[1]["body"][:en]
         check answer_options[2]["body"][:en]
 
+        expect(page).to have_content("too many choices")
+
         check "questionnaire_tos_agreement"
 
         accept_confirm { click_button "Submit" }
@@ -426,33 +430,6 @@ shared_examples_for "has questionnaire" do
         within ".success.flash" do
           expect(page).to have_content("successfully")
         end
-      end
-    end
-
-    context "when question type is multiple option" do
-      let(:answer_options) { Array.new(2) { { "body" => Decidim::Faker::Localized.sentence } } }
-      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "multiple_option", options: answer_options) }
-
-      it "renders the question answers as a collection of radio buttons" do
-        visit questionnaire_public_path
-
-        expect(page).to have_selector(".check-box-collection input[type=checkbox]", count: 2)
-
-        check answer_options[0]["body"][:en]
-        check answer_options[1]["body"][:en]
-
-        check "questionnaire_tos_agreement"
-
-        accept_confirm { click_button "Submit" }
-
-        within ".success.flash" do
-          expect(page).to have_content("successfully")
-        end
-
-        visit questionnaire_public_path
-
-        expect(page).to have_content("You have already answered this form.")
-        expect(page).to have_no_i18n_content(question.body)
       end
     end
 
@@ -522,6 +499,194 @@ shared_examples_for "has questionnaire" do
         end
 
         expect(page).to have_content("are not complete")
+      end
+    end
+
+
+    context "when question type is matrix_single" do
+      let(:matrix_rows) { Array.new(2) { { "body" => Decidim::Faker::Localized.sentence } } }
+      let(:answer_options) { Array.new(2) { { "body" => Decidim::Faker::Localized.sentence } } }
+      let(:mandatory) { false }
+
+      let!(:question) do
+        create(
+          :questionnaire_question,
+          questionnaire: questionnaire,
+          question_type: "matrix_single",
+          rows: matrix_rows,
+          options: answer_options,
+          mandatory: mandatory
+        )
+      end
+
+      it "renders the question answers as a collection of radio buttons" do
+        visit questionnaire_public_path
+
+        expect(page).to have_selector(".radio-button-collection input[type=radio]", count: 4)
+
+        expect(page).to have_content(matrix_rows.map { |row| row["body"]["en"] }.join("\n"))
+        expect(page).to have_content(answer_options.map { |option| option["body"]["en"] }.join(" "))
+
+        radio_buttons = page.all(".radio-button-collection input[type=radio]")
+
+        choose radio_buttons.first[:id]
+        choose radio_buttons.last[:id]
+
+        check "questionnaire_tos_agreement"
+
+        accept_confirm { click_button "Submit" }
+
+        within ".success.flash" do
+          expect(page).to have_content("successfully")
+        end
+
+        visit questionnaire_public_path
+
+        expect(page).to have_content("You have already answered this form.")
+        expect(page).to have_no_i18n_content(question.body)
+
+        first_choice, last_choice = Decidim::Forms::Answer.last.choices.pluck(:decidim_answer_option_id, :decidim_question_matrix_row_id)
+
+        expect(first_choice).to eq([question.answer_options.first.id, question.matrix_rows.first.id])
+        expect(last_choice).to eq([question.answer_options.last.id, question.matrix_rows.last.id])
+      end
+
+      it "preserves the chosen answers if submission not correct" do
+        visit questionnaire_public_path
+
+        radio_buttons = page.all(".radio-button-collection input[type=radio]")
+        choose radio_buttons[1][:id]
+
+        accept_confirm { click_button "Submit" }
+
+        within ".alert.flash" do
+          expect(page).to have_content("There was a problem answering")
+        end
+
+        radio_buttons = page.all(".radio-button-collection input[type=radio]")
+        expect(radio_buttons.map { |b| b[:checked] }).to eq([nil, "true", nil, nil])
+      end
+
+      context "when the question is mandatory and the answer is not complete" do
+        let!(:mandatory) { true }
+
+        it "shows an error if the question is mandatory and the answer is not complete" do
+          visit questionnaire_public_path
+
+          radio_buttons = page.all(".radio-button-collection input[type=radio]")
+          choose radio_buttons[0][:id]
+
+          check "questionnaire_tos_agreement"
+          accept_confirm { click_button "Submit" }
+
+          within ".alert.flash" do
+            expect(page).to have_content("There was a problem answering")
+          end
+
+          expect(page).to have_content("Choices are not complete")
+        end
+      end
+    end
+
+    context "when question type is matrix_multiple" do
+      let(:matrix_rows) { Array.new(2) { { "body" => Decidim::Faker::Localized.sentence } } }
+      let(:answer_options) { Array.new(3) { { "body" => Decidim::Faker::Localized.sentence } } }
+      let(:max_choices) { nil }
+      let(:mandatory) { false }
+
+      let!(:question) do
+        create(
+          :questionnaire_question,
+          questionnaire: questionnaire,
+          question_type: "matrix_multiple",
+          rows: matrix_rows,
+          options: answer_options,
+          max_choices: max_choices,
+          mandatory: mandatory
+        )
+      end
+
+      it "renders the question answers as a collection of check boxes" do
+        visit questionnaire_public_path
+
+        expect(page).to have_selector(".check-box-collection input[type=checkbox]", count: 6)
+
+        expect(page).to have_content(matrix_rows.map { |row| row["body"]["en"] }.join("\n"))
+        expect(page).to have_content(answer_options.map { |option| option["body"]["en"] }.join(" "))
+
+        checkboxes = page.all(".check-box-collection input[type=checkbox]")
+
+        check checkboxes[0][:id]
+        check checkboxes[1][:id]
+        check checkboxes[3][:id]
+
+        check "questionnaire_tos_agreement"
+
+        accept_confirm { click_button "Submit" }
+
+        within ".success.flash" do
+          expect(page).to have_content("successfully")
+        end
+
+        visit questionnaire_public_path
+
+        expect(page).to have_content("You have already answered this form.")
+        expect(page).to have_no_i18n_content(question.body)
+
+        first_choice, second_choice, third_choice = Decidim::Forms::Answer.last.choices.pluck(:decidim_answer_option_id, :decidim_question_matrix_row_id)
+
+        expect(first_choice).to eq([question.answer_options.first.id, question.matrix_rows.first.id])
+        expect(second_choice).to eq([question.answer_options.second.id, question.matrix_rows.first.id])
+        expect(third_choice).to eq([question.answer_options.first.id, question.matrix_rows.last.id])
+      end
+
+      context "when the question hax max_choices defined" do
+        let!(:max_choices) { 2 }
+
+        it "respects the max number of choices" do
+          visit questionnaire_public_path
+
+          expect(page).to have_content("Max choices: 2")
+
+          checkboxes = page.all(".check-box-collection input[type=checkbox]")
+
+          check checkboxes[0][:id]
+          check checkboxes[1][:id]
+          check checkboxes[2][:id]
+
+          expect(page).to have_content("too many choices")
+
+          check checkboxes[3][:id]
+          check checkboxes[4][:id]
+
+          expect(page).to have_content("too many choices")
+
+          check checkboxes[5][:id]
+
+          uncheck checkboxes[0][:id]
+
+          expect(page).to have_content("too many choices")
+
+          check "questionnaire_tos_agreement"
+
+          accept_confirm { click_button "Submit" }
+
+          within ".alert.flash" do
+            expect(page).to have_content("There was a problem answering")
+          end
+
+          expect(page).to have_content("are too many")
+
+          checkboxes = page.all(".check-box-collection input[type=checkbox]")
+
+          uncheck checkboxes[5][:id]
+
+          accept_confirm { click_button "Submit" }
+
+          within ".success.flash" do
+            expect(page).to have_content("successfully")
+          end
+        end
       end
     end
 
@@ -961,7 +1126,7 @@ shared_examples_for "has questionnaire" do
         before do
           visit questionnaire_public_path
         end
-
+  
         context "when all conditions are mandatory" do
           let!(:condition_question_type) { "single_option" }
           let!(:condition_question_options) { answer_options }
@@ -980,20 +1145,20 @@ shared_examples_for "has questionnaire" do
                      answer_option: condition_question.answer_options.second)
             ]
           end
-
+  
           it "is displayed only if all conditions are fulfilled" do
             expect_question_to_be_visible(false)
-
+  
             choose condition_question.answer_options.second.body["en"]
-
+  
             expect_question_to_be_visible(false)
-
+  
             choose condition_question.answer_options.first.body["en"]
-
+  
             expect_question_to_be_visible(true)
           end
         end
-
+  
         context "when all conditions are non-mandatory" do
           let!(:condition_question_type) { "multiple_option" }
           let!(:condition_question_options) { answer_options }
@@ -1013,25 +1178,25 @@ shared_examples_for "has questionnaire" do
                      answer_option: condition_question.answer_options.third)
             ]
           end
-
+  
           it "is displayed if any of the conditions is fulfilled" do
             expect_question_to_be_visible(false)
-
+  
             check condition_question.answer_options.first.body["en"]
-
+  
             expect_question_to_be_visible(true)
-
+  
             uncheck condition_question.answer_options.first.body["en"]
             check condition_question.answer_options.second.body["en"]
-
+  
             expect_question_to_be_visible(true)
-
+  
             check condition_question.answer_options.first.body["en"]
-
+  
             expect_question_to_be_visible(true)
           end
         end
-
+  
         context "when a mandatory question has conditions that have not been fulfilled" do
           let!(:condition_question_type) { "short_answer" }
           let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 2, mandatory: true) }
@@ -1045,32 +1210,76 @@ shared_examples_for "has questionnaire" do
                      mandatory: true)
             ]
           end
-
+  
           it "doesn't throw error" do
             visit questionnaire_public_path
-
+  
             fill_in condition_question.body["en"], with: "My first answer"
-
+  
             check "questionnaire_tos_agreement"
-
+  
             accept_confirm { click_button "Submit" }
-
+  
             within ".success.flash" do
               expect(page).to have_content("successfully")
             end
           end
         end
       end
+    end
 
-      private
+    context "when the submission is not correct" do
+      let!(:max_choices) { 2 }
 
-      def expect_question_to_be_visible(visible)
-        expect(page).to have_css(conditioned_question_id, visible: visible)
-      end
+      it "preserves the chosen answers" do
+        visit questionnaire_public_path
 
-      def change_focus
+        checkboxes = page.all(".check-box-collection input[type=checkbox]")
+        check checkboxes[0][:id]
+        check checkboxes[1][:id]
+        check checkboxes[2][:id]
+        check checkboxes[5][:id]
+
         check "questionnaire_tos_agreement"
+        accept_confirm { click_button "Submit" }
+
+        within ".alert.flash" do
+          expect(page).to have_content("There was a problem answering")
+        end
+
+        checkboxes = page.all(".check-box-collection input[type=checkbox]")
+        expect(checkboxes.map { |c| c[:checked] }).to eq(["true", "true", "true", nil, nil, "true"])
       end
+    end
+
+    context "when the question is mandatory and the answer is not complete" do
+      let!(:mandatory) { true }
+
+      it "shows an error" do
+        visit questionnaire_public_path
+
+        checkboxes = page.all(".check-box-collection input[type=checkbox]")
+        check checkboxes[0][:id]
+
+        check "questionnaire_tos_agreement"
+        accept_confirm { click_button "Submit" }
+
+        within ".alert.flash" do
+          expect(page).to have_content("There was a problem answering")
+        end
+
+        expect(page).to have_content("Choices are not complete")
+      end
+    end
+
+    private
+
+    def expect_question_to_be_visible(visible)
+      expect(page).to have_css(conditioned_question_id, visible: visible)
+    end
+
+    def change_focus
+      check "questionnaire_tos_agreement"
     end
   end
 end

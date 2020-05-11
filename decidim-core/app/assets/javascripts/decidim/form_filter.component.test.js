@@ -22,10 +22,10 @@ describe("FormFilterComponent", () => {
           <div id="filter_somerandomid_scope_id" class="data-picker picker-multiple" data-picker-name="filter[scope_id]">
             <div class="picker-values">
               <div>
-                <a href="picker_url_1" data-picker-value="1">Scope 1</a>
+                <a href="picker_url_1" data-picker-value="3">Scope 1</a>
               </div>
               <div>
-                <a href="picker_url_2" data-picker-value="1">Scope 2</a>
+                <a href="picker_url_2" data-picker-value="4">Scope 2</a>
               </div>
             </div>
             <div class="picker-prompt">

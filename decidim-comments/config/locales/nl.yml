@@ -80,6 +80,9 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je %{author_name}volgt. Je kan deze gebruiker ontvolgen via zijn profielpagina.
           email_subject: Er is een nieuwe reactie van %{author_name} in %{resource_title}
           notification_title: Er is een nieuwe reactie van <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>.
+        comment_by_followed_user_group:
+          email_subject: Er is een nieuwe reactie van %{author_name} in %{resource_title}
+          notification_title: Er is een nieuwe reactie van <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} heeft een reactie ontvangen. Je kan de opmerking op deze pagina lezen:"
           email_outro: Je hebt deze melding ontvangen omdat je '%{resource_title}' of de auteur ervan volgt. Ontvolgen kan door te klikken op de vorige link.
