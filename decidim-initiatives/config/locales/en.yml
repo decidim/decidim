@@ -251,6 +251,18 @@ en:
         published: Published
         rejected: Rejected
         validating: Technical validation
+      application_helper:
+        filter_scope_values:
+          all: All
+        filter_state_values:
+          accepted: Accepted
+          all: All
+          answered: Answered
+          closed: Closed
+          open: Open
+          rejected: Rejected
+        filter_type_values:
+          all: All
       committee_requests:
         new:
           continue: Continue
@@ -365,6 +377,7 @@ en:
           myself: My initiatives
           open: Open
           search: Search
+          scope: Scope
           state: Status
           type: Type
           type_prompt: Select a type
