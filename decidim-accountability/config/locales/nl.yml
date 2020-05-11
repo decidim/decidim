@@ -58,17 +58,11 @@ nl:
           edit:
             title: Bewerk resultaat
             update: Update resultaat
-          form:
-            add_proposal: Voeg voorstel toe
           index:
             title: Resultaten
           new:
             create: Maak resultaat
             title: Nieuw resultaat
-          proposals:
-            close: Sluit
-            current_selection: Huidige selectie
-            select: Selecteer
           update:
             invalid: Er is een probleem opgetreden bij het bijwerken van dit resultaat
             success: Resultaat met succes bijgewerkt

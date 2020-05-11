@@ -30,7 +30,7 @@ describe "Sorting projects", type: :system do
       visit_component
       within ".order-by" do
         expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random order")
-        page.find("a", text: "Random order").click
+        page.find("a", text: "Random order").hover
         click_link(selected_option)
       end
     end
@@ -42,8 +42,8 @@ describe "Sorting projects", type: :system do
         expect(page).to have_content(selected_option)
       end
 
-      expect(page).to have_selector("#projects .card--list .card--list__item:first-child", text: translated(first_project.title))
-      expect(page).to have_selector("#projects .card--list .card--list__item:last-child", text: translated(last_project.title))
+      expect(page).to have_selector("#projects .budget-list .budget-list__item:first-child", text: translated(first_project.title))
+      expect(page).to have_selector("#projects .budget-list .budget-list__item:last-child", text: translated(last_project.title))
     end
   end
 
@@ -89,8 +89,8 @@ describe "Sorting projects", type: :system do
           expect(page).to have_content("Most voted")
         end
 
-        expect(page).to have_selector("#projects .card--list .card--list__item:first-child", text: translated(project2.title))
-        expect(page).to have_selector("#projects .card--list .card--list__item:last-child", text: translated(project1.title))
+        expect(page).to have_selector("#projects .budget-list .budget-list__item:first-child", text: translated(project2.title))
+        expect(page).to have_selector("#projects .budget-list .budget-list__item:last-child", text: translated(project1.title))
       end
     end
   end

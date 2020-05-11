@@ -14,9 +14,9 @@
     </div>
     <div class="card__header mb-none">
       <%= link_to resource_link_path, class: "card__link" do %>
-        <h5 class="card__title mb-none">
-          <%= html_truncate resource_link_text, length: 80 %>
-        </h5>
+        <span class="card__title mb-none">
+          <%= html_truncate decidim_sanitize(resource_link_text, strip_tags: true), length: 100 %>
+        </span>
       <% end %>
       <%= description %>
     </div>

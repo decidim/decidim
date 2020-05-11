@@ -2,7 +2,7 @@
   <div class="process-nav consultations-nav">
     <button class="process-nav__trigger hide-for-medium" data-toggle="process-nav-content">
       <%= icon "caret-bottom", class: "icon--small process-nav__trigger__icon", aria_label: t(".unfold"), role: "img" %>
-      <div class="process-nav__link">
+      <span class="process-nav__link">
         <% if self.try(:current_component) %>
           <%= component_icon(current_component) %>
           <%= translated_attribute(current_component.name) %>
@@ -10,7 +10,7 @@
           <%= external_icon "decidim/pages/icon.svg" %>
           <%= t ".question_menu_item" %>
         <% end %>
-      </div>
+      </span>
     </button>
 
     <%

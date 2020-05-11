@@ -101,6 +101,7 @@ is-IS:
         explanation: Fá staðfest með því að kynna vegabréfarnúmer sem byrjar með "A"
         fields:
           passport_number: Vegabréfs númer
+          postal_code: Póstnúmer
       dummy_authorization_handler:
         explanation: Fá staðfest með því að kynna skjalnúmer sem endar með "X"
         fields:

@@ -76,6 +76,9 @@ eu:
           email_outro: Jakinarazpena jaso duzu %{author_name}jarraituz gero. Erabiltzaile hau bere profileko orrialdetik jarrai dezakezu.
           email_subject: '%{author_name} %{resource_title} iruzkin berri bat dago'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a> </a> iruzkin berri bat dago.
+        comment_by_followed_user_group:
+          email_subject: '%{author_name} %{resource_title} iruzkin berri bat dago'
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a> </a> iruzkin berri bat dago.
         comment_created:
           email_intro: "%{resource_title} iruzkindu da. Orri honetan iruzkina irakur dezakezu:"
           email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" edo bere egilea jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.

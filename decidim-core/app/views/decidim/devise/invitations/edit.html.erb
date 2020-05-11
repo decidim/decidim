@@ -25,11 +25,11 @@
 
             <% if f.object.class.require_password_on_accepting %>
               <div class="field">
-                <%= f.password_field :password, required: "required", minlength: ::Devise.password_length.min, maxlength: ::Devise.password_length.max %></p>
+                <p><%= f.password_field :password, required: "required", minlength: ::Devise.password_length.min, maxlength: ::Devise.password_length.max %></p>
               </div>
 
               <div class="field">
-                <%= f.password_field :password_confirmation, required: "required", minlength: ::Devise.password_length.min, maxlength: ::Devise.password_length.max %></p>
+                <p><%= f.password_field :password_confirmation, required: "required", minlength: ::Devise.password_length.min, maxlength: ::Devise.password_length.max %></p>
               </div>
             <% end %>
           </div>
@@ -37,13 +37,10 @@
 
         <div class="card" id="card__tos">
           <div class="card__content">
-            <legend>
-              <%= t("tos_title", scope: "decidim.devise.registrations.new") %>
-            </legend>
-
-            <p class="tos-text">
-              <%= strip_tags(translated_attribute(terms_and_conditions_page.content)) %>
-            </p>
+            <fieldset>
+              <legend><%= t("tos_title", scope: "decidim.devise.registrations.new") %></legend>
+              <p class="tos-text"><%= strip_tags(translated_attribute(terms_and_conditions_page.content)) %></p>
+            </fieldset>
 
             <div class="field">
               <% link = link_to t("terms", scope: "decidim.devise.registrations.new"), page_path("terms-and-conditions"), target: "_blank" %>
@@ -55,8 +52,9 @@
 
         <div class="card" id="card__newsletter">
           <div class="card__content">
-            <legend><%= t("newsletter_title", scope: "decidim.devise.registrations.new") %></legend>
+
             <fieldset>
+              <legend><%= t("newsletter_title", scope: "decidim.devise.registrations.new") %></legend>
               <div class="field">
                 <%= label_tag :"#{resource_name}[newsletter_notifications]" do %>
                   <%= check_box_tag :"#{resource_name}[newsletter_notifications]" %>

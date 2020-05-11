@@ -57,6 +57,8 @@ module Decidim
       where("extended_data->>'interested_scopes' ~~ ANY('{#{ids}}')")
     }
 
+    scope :org_admins_except_me, ->(user) { where(organization: user.organization, admin: true).where.not(id: user.id) }
+
     attr_accessor :newsletter_notifications
 
     searchable_fields({
@@ -209,6 +211,15 @@ module Decidim
     # return the groups where this user has been accepted
     def accepted_user_groups
       UserGroups::AcceptedUserGroups.for(self)
+    end
+
+    def authenticatable_salt
+      "#{super}#{session_token}"
+    end
+
+    def invalidate_all_sessions!
+      self.session_token = SecureRandom.hex
+      save!
     end
 
     protected

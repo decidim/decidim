@@ -3,6 +3,14 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 
+# Devise failure app to randomly stall failed login attempts, to prevent timing attacks.
+class RandomStalling < Devise::FailureApp
+  def respond
+    sleep rand * 5
+    super
+  end
+end
+
 Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
@@ -301,9 +309,9 @@ Devise.setup do |config|
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
   #
-  # config.warden do |manager|
-  #   manager.failure_app = Decidim::DeviseFailureApp
-  # end
+  config.warden do |manager|
+    manager.failure_app = RandomStalling
+  end
 
   # ==> Mountable engine configurations
   # When using Devise inside an engine, let's call it `MyEngine`, and this engine

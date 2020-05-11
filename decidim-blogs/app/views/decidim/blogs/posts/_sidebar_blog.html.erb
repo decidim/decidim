@@ -9,7 +9,7 @@
         <div class="author-data author-data--nopadding">
           <%= render partial: "datetime", locals: { post: post } %>&nbsp;&nbsp;·&nbsp;&nbsp;
           <%= link_to "#{post_path(post)}#comments", title: t(".comments") do %>
-            <%= icon "comment-square", class: "icon--small", aria_label: "#{t(".comments")}", role: "img" %>
+            <%= icon "comment-square", class: "icon--small", aria_label: t(".comments"), role: "img" %>
             <%= post.comments.count %>
             <%= t(".comments") %>
           <% end %>
