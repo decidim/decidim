@@ -388,6 +388,9 @@ sk:
         static_pages: Stránky
         user_groups: Skupiny
         users: Účastníci
+      metrics:
+        metrics:
+          see_more_metrics: Zobraziť viac metrík
       models:
         area:
           fields:
@@ -676,6 +679,11 @@ sk:
         update:
           error: Pri aktualizácii rozsahu nastala chyba.
           success: Nový rozsah úspešne aktualizovaný
+      shared:
+        gallery:
+          add_images: Pridať obrázky
+          delete_image: Zmazať obrázok
+          gallery_legend: Pridať galériu (voliteľné)
       static_page_topics:
         create:
           error: Pri tvorbe novej témy nastala chyba.
@@ -727,10 +735,12 @@ sk:
         dashboard: Hlavný panel
         impersonatable_users: Spravovateľní účastníci
         impersonations: Správa účastníkov
+        metrics: Metriky
         participants: Účastníci
         scope_types: Typy rozsahov
         scopes: Rozsahy
         static_pages: Stránky
+        statistics: Aktivita
         user_groups: Skupiny
         users: Účastníci
       user_group:
@@ -779,6 +789,7 @@ sk:
       users_statistics:
         users_count:
           admins: Administrátori
+          last_day: Posledný deň
           participants: Účastníci
       view_public_page: Zobraziť verejnú stránku
     forms:
