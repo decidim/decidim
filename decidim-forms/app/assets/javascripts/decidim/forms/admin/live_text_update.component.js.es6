@@ -1,3 +1,16 @@
+/**
+ * This component allows for an element's text value to be updated with the value
+ * of an input whenever this input's value is changed.
+ *
+ * @param {object} options
+ * 
+ * Available options:
+ * {string} `inputSelector`:  The query selector to locate the input element 
+ * {string} `targetSelector`: The query selector to locate the target element 
+ * {number} `maxLength`: The maximum characters from the input value to be displayed in the target
+ * {string} `omission`: The string used to shorten the value to the given maxLength (e.g. "...")
+ * {string} `placeholder`: The string to be displayed in the target element when the input has no value
+ */
 ((exports) => {
   class LiveTextUpdateComponent {
     constructor(options = {}) {
