@@ -54,9 +54,6 @@
     hideOnLastSelector: ".move-down-question"
   });
 
-  const MULTIPLE_CHOICE_VALUES = ["single_option", "multiple_option", "sorting", "matrix_single", "matrix_multiple"];
-  const MATRIX_VALUES = ["matrix_single", "matrix_multiple"];
-
   const autoLabelByPosition = new AutoLabelByPositionComponent({
     listSelector: ".questionnaire-question:not(.hidden)",
     labelSelector: ".card-title span:first",
@@ -68,6 +65,9 @@
       removeDisplayConditionsForFirstQuestion();
     }
   });
+
+  const MULTIPLE_CHOICE_VALUES = ["single_option", "multiple_option", "sorting", "matrix_single", "matrix_multiple"];
+  const MATRIX_VALUES = ["matrix_single", "matrix_multiple"];
 
   const createAutoMaxChoicesByNumberOfAnswerOptions = (fieldId) => {
     return new AutoSelectOptionsByTotalItemsComponent({
@@ -129,6 +129,21 @@
   };
 
   const dynamicFieldsForAnswerOptions = {};
+  
+  const createDynamicFieldsForMatrixRows = (fieldId) => {
+    return createDynamicFields({
+      placeholderId: "questionnaire-question-matrix-row-id",
+      wrapperSelector: `#${fieldId} ${matrixRowsWrapperSelector}`,
+      containerSelector: ".questionnaire-question-matrix-rows-list",
+      fieldSelector: matrixRowFieldSelector,
+      addFieldButtonSelector: addMatrixRowButtonSelector,
+      removeFieldButtonSelector: matrixRowRemoveFieldButtonSelector,
+      onAddField: () => {
+      },
+      onRemoveField: () => {
+      }
+    });
+  };
 
   const dynamicFieldsForMatrixRows = {};
 
@@ -229,21 +244,6 @@
     onDisplayConditionQuestionChange($field);
   }
 
-  const createDynamicFieldsForMatrixRows = (fieldId) => {
-    return createDynamicFields({
-      placeholderId: "questionnaire-question-matrix-row-id",
-      wrapperSelector: `#${fieldId} ${matrixRowsWrapperSelector}`,
-      containerSelector: ".questionnaire-question-matrix-rows-list",
-      fieldSelector: matrixRowFieldSelector,
-      addFieldButtonSelector: addMatrixRowButtonSelector,
-      removeFieldButtonSelector: matrixRowRemoveFieldButtonSelector,
-      onAddField: () => {
-      },
-      onRemoveField: () => {
-      }
-    });
-  };
-
   const createDynamicFieldsForDisplayConditions = (fieldId) => {
     return createDynamicFields({
       placeholderId: "questionnaire-question-display-condition-id",
@@ -297,10 +297,9 @@
     });
 
     dynamicFieldsForAnswerOptions[fieldId] = createDynamicFieldsForAnswerOptions(fieldId);
-    dynamicFieldsForDisplayConditions[fieldId] = createDynamicFieldsForDisplayConditions(fieldId);
     dynamicFieldsForMatrixRows[fieldId] = createDynamicFieldsForMatrixRows(fieldId);
+    dynamicFieldsForDisplayConditions[fieldId] = createDynamicFieldsForDisplayConditions(fieldId);
 
-    const dynamicFields = dynamicFieldsForAnswerOptions[fieldId];
     const dynamicFieldsAnswerOptions = dynamicFieldsForAnswerOptions[fieldId];
     const dynamicFieldsMatrixRows = dynamicFieldsForMatrixRows[fieldId];
 
@@ -366,12 +365,12 @@
         dynamicFieldsForAnswerOptions[$field.attr("id")]._removeField(el);
       });
 
-      $field.find(displayConditionRemoveFieldButtonSelector).each((idx, el) => {
-        dynamicFieldsForDisplayConditions[$field.attr("id")]._removeField(el);
-      });
-
       $field.find(matrixRowRemoveFieldButtonSelector).each((idx, el) => {
         dynamicFieldsForMatrixRows[$field.attr("id")]._removeField(el);
+      });
+
+      $field.find(displayConditionRemoveFieldButtonSelector).each((idx, el) => {
+        dynamicFieldsForDisplayConditions[$field.attr("id")]._removeField(el);
       });
     },
     onMoveUpField: () => {

@@ -1,4 +1,4 @@
-<% field_id = "questionnaire_answers_#{answer_idx}" %>
+<% field_id = "questionnaire_responses_#{answer_idx}" %>
 <%= label_tag field_id, answer.label(answer_idx), class: "questionnaire-question" %>
 
 <% if translated_attribute(answer.question.description).present? %>

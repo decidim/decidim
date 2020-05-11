@@ -12,7 +12,7 @@ module Decidim
         @translated_body ||= translated_attribute body
       end
 
-      def json
+      def as_json(*_args)
         { id: id, body: translated_body }
       end
     end

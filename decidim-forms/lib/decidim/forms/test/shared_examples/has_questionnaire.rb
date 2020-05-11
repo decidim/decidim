@@ -239,16 +239,16 @@ shared_examples_for "has questionnaire" do
         it "renders them as radio buttons with attached text fields disabled by default" do
           expect(page).to have_selector(".radio-button-collection input[type=radio]", count: 3)
 
-          expect(page).to have_field("questionnaire_answers_0_choices_2_custom_body", disabled: true, count: 1)
+          expect(page).to have_field("questionnaire_responses_0_choices_2_custom_body", disabled: true, count: 1)
 
           choose answer_option_bodies[2]["en"]
 
-          expect(page).to have_field("questionnaire_answers_0_choices_2_custom_body", disabled: false, count: 1)
+          expect(page).to have_field("questionnaire_responses_0_choices_2_custom_body", disabled: false, count: 1)
         end
 
         it "saves the free text in a separate field if submission correct" do
           choose answer_option_bodies[2]["en"]
-          fill_in "questionnaire_answers_0_choices_2_custom_body", with: "Cacatua"
+          fill_in "questionnaire_responses_0_choices_2_custom_body", with: "Cacatua"
 
           check "questionnaire_tos_agreement"
           accept_confirm { click_button "Submit" }
@@ -266,7 +266,7 @@ shared_examples_for "has questionnaire" do
           check other_question.answer_options.third.body["en"]
 
           choose answer_option_bodies[2]["en"]
-          fill_in "questionnaire_answers_0_choices_2_custom_body", with: "Cacatua"
+          fill_in "questionnaire_responses_0_choices_2_custom_body", with: "Cacatua"
 
           check "questionnaire_tos_agreement"
           accept_confirm { click_button "Submit" }
@@ -275,7 +275,7 @@ shared_examples_for "has questionnaire" do
             expect(page).to have_content("There was a problem answering")
           end
 
-          expect(page).to have_field("questionnaire_answers_0_choices_2_custom_body", with: "Cacatua")
+          expect(page).to have_field("questionnaire_responses_0_choices_2_custom_body", with: "Cacatua")
         end
       end
 
@@ -332,7 +332,7 @@ shared_examples_for "has questionnaire" do
       it "renders the answer as a textarea" do
         visit questionnaire_public_path
 
-        expect(page).to have_selector("textarea#questionnaire_answers_0")
+        expect(page).to have_selector("textarea#questionnaire_responses_0")
       end
     end
 
@@ -342,7 +342,7 @@ shared_examples_for "has questionnaire" do
       it "renders the answer as a text field" do
         visit questionnaire_public_path
 
-        expect(page).to have_selector("input[type=text]#questionnaire_answers_0")
+        expect(page).to have_selector("input[type=text]#questionnaire_responses_0")
       end
     end
 
@@ -501,7 +501,6 @@ shared_examples_for "has questionnaire" do
         expect(page).to have_content("are not complete")
       end
     end
-
 
     context "when question type is matrix_single" do
       let(:matrix_rows) { Array.new(2) { { "body" => Decidim::Faker::Localized.sentence } } }
@@ -688,6 +687,50 @@ shared_examples_for "has questionnaire" do
           end
         end
       end
+
+      context "when the question is mandatory and the answer is not complete" do
+        let!(:mandatory) { true }
+
+        it "shows an error" do
+          visit questionnaire_public_path
+
+          checkboxes = page.all(".check-box-collection input[type=checkbox]")
+          check checkboxes[0][:id]
+
+          check "questionnaire_tos_agreement"
+          accept_confirm { click_button "Submit" }
+
+          within ".alert.flash" do
+            expect(page).to have_content("There was a problem answering")
+          end
+
+          expect(page).to have_content("Choices are not complete")
+        end
+      end
+
+      context "when the submission is not correct" do
+        let!(:max_choices) { 2 }
+
+        it "preserves the chosen answers" do
+          visit questionnaire_public_path
+
+          checkboxes = page.all(".check-box-collection input[type=checkbox]")
+          check checkboxes[0][:id]
+          check checkboxes[1][:id]
+          check checkboxes[2][:id]
+          check checkboxes[5][:id]
+
+          check "questionnaire_tos_agreement"
+          accept_confirm { click_button "Submit" }
+
+          within ".alert.flash" do
+            expect(page).to have_content("There was a problem answering")
+          end
+
+          checkboxes = page.all(".check-box-collection input[type=checkbox]")
+          expect(checkboxes.map { |c| c[:checked] }).to eq(["true", "true", "true", nil, nil, "true"])
+        end
+      end
     end
 
     describe "display conditions" do
@@ -701,7 +744,7 @@ shared_examples_for "has questionnaire" do
       end
       let(:condition_question_options) { [] }
       let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 2) }
-      let!(:conditioned_question_id) { "#questionnaire_answers_1" }
+      let!(:conditioned_question_id) { "#questionnaire_responses_1" }
       let!(:condition_question) do
         create(:questionnaire_question,
                questionnaire: questionnaire,
@@ -729,12 +772,12 @@ shared_examples_for "has questionnaire" do
             it "shows the question only if the condition is fulfilled" do
               expect_question_to_be_visible(false)
 
-              fill_in "questionnaire_answers_0", with: "Cacatua"
+              fill_in "questionnaire_responses_0", with: "Cacatua"
               change_focus
 
               expect_question_to_be_visible(true)
 
-              fill_in "questionnaire_answers_0", with: ""
+              fill_in "questionnaire_responses_0", with: ""
               change_focus
 
               expect_question_to_be_visible(false)
@@ -747,12 +790,12 @@ shared_examples_for "has questionnaire" do
             it "shows the question only if the condition is fulfilled" do
               expect_question_to_be_visible(false)
 
-              fill_in "questionnaire_answers_0", with: "Cacatua"
+              fill_in "questionnaire_responses_0", with: "Cacatua"
               change_focus
 
               expect_question_to_be_visible(true)
 
-              fill_in "questionnaire_answers_0", with: ""
+              fill_in "questionnaire_responses_0", with: ""
               change_focus
 
               expect_question_to_be_visible(false)
@@ -820,12 +863,12 @@ shared_examples_for "has questionnaire" do
             it "shows the question only if the condition is fulfilled" do
               expect_question_to_be_visible(true)
 
-              fill_in "questionnaire_answers_0", with: "Cacatua"
+              fill_in "questionnaire_responses_0", with: "Cacatua"
               change_focus
 
               expect_question_to_be_visible(false)
 
-              fill_in "questionnaire_answers_0", with: ""
+              fill_in "questionnaire_responses_0", with: ""
               change_focus
 
               expect_question_to_be_visible(true)
@@ -838,12 +881,12 @@ shared_examples_for "has questionnaire" do
             it "shows the question only if the condition is fulfilled" do
               expect_question_to_be_visible(true)
 
-              fill_in "questionnaire_answers_0", with: "Cacatua"
+              fill_in "questionnaire_responses_0", with: "Cacatua"
               change_focus
 
               expect_question_to_be_visible(false)
 
-              fill_in "questionnaire_answers_0", with: ""
+              fill_in "questionnaire_responses_0", with: ""
               change_focus
 
               expect_question_to_be_visible(true)
@@ -1013,17 +1056,17 @@ shared_examples_for "has questionnaire" do
             it "shows the question only if the condition is fulfilled" do
               expect_question_to_be_visible(false)
 
-              fill_in "questionnaire_answers_0", with: "Aren't we all expecting #{condition_value[:en]}?"
+              fill_in "questionnaire_responses_0", with: "Aren't we all expecting #{condition_value[:en]}?"
               change_focus
 
               expect_question_to_be_visible(true)
 
-              fill_in "questionnaire_answers_0", with: "Now upcase #{condition_value[:en].upcase}!"
+              fill_in "questionnaire_responses_0", with: "Now upcase #{condition_value[:en].upcase}!"
               change_focus
 
               expect_question_to_be_visible(true)
 
-              fill_in "questionnaire_answers_0", with: "Cacatua"
+              fill_in "questionnaire_responses_0", with: "Cacatua"
               change_focus
 
               expect_question_to_be_visible(false)
@@ -1036,17 +1079,17 @@ shared_examples_for "has questionnaire" do
             it "shows the question only if the condition is fulfilled" do
               expect_question_to_be_visible(false)
 
-              fill_in "questionnaire_answers_0", with: "Aren't we all expecting #{condition_value[:en]}?"
+              fill_in "questionnaire_responses_0", with: "Aren't we all expecting #{condition_value[:en]}?"
               change_focus
 
               expect_question_to_be_visible(true)
 
-              fill_in "questionnaire_answers_0", with: "Now upcase #{condition_value[:en].upcase}!"
+              fill_in "questionnaire_responses_0", with: "Now upcase #{condition_value[:en].upcase}!"
               change_focus
 
               expect_question_to_be_visible(true)
 
-              fill_in "questionnaire_answers_0", with: "Cacatua"
+              fill_in "questionnaire_responses_0", with: "Cacatua"
               change_focus
 
               expect_question_to_be_visible(false)
@@ -1076,7 +1119,7 @@ shared_examples_for "has questionnaire" do
               expect_question_to_be_visible(false)
 
               choose condition_question.answer_options.third.body["en"]
-              fill_in "questionnaire_answers_0_choices_2_custom_body", with: "The answer is #{condition_value[:en]}"
+              fill_in "questionnaire_responses_0_choices_2_custom_body", with: "The answer is #{condition_value[:en]}"
               change_focus
 
               expect_question_to_be_visible(true)
@@ -1085,7 +1128,7 @@ shared_examples_for "has questionnaire" do
               expect_question_to_be_visible(false)
 
               choose condition_question.answer_options.third.body["en"]
-              fill_in "questionnaire_answers_0_choices_2_custom_body", with: "oh no not 42 again"
+              fill_in "questionnaire_responses_0_choices_2_custom_body", with: "oh no not 42 again"
               change_focus
 
               expect_question_to_be_visible(false)
@@ -1101,7 +1144,7 @@ shared_examples_for "has questionnaire" do
               expect_question_to_be_visible(false)
 
               check condition_question.answer_options.third.body["en"]
-              fill_in "questionnaire_answers_0_choices_2_custom_body", with: "The answer is #{condition_value[:en]}"
+              fill_in "questionnaire_responses_0_choices_2_custom_body", with: "The answer is #{condition_value[:en]}"
               change_focus
 
               expect_question_to_be_visible(true)
@@ -1113,7 +1156,7 @@ shared_examples_for "has questionnaire" do
               expect_question_to_be_visible(false)
 
               check condition_question.answer_options.third.body["en"]
-              fill_in "questionnaire_answers_0_choices_2_custom_body", with: "oh no not 42 again"
+              fill_in "questionnaire_responses_0_choices_2_custom_body", with: "oh no not 42 again"
               change_focus
 
               expect_question_to_be_visible(false)
@@ -1126,7 +1169,7 @@ shared_examples_for "has questionnaire" do
         before do
           visit questionnaire_public_path
         end
-  
+
         context "when all conditions are mandatory" do
           let!(:condition_question_type) { "single_option" }
           let!(:condition_question_options) { answer_options }
@@ -1145,20 +1188,20 @@ shared_examples_for "has questionnaire" do
                      answer_option: condition_question.answer_options.second)
             ]
           end
-  
+
           it "is displayed only if all conditions are fulfilled" do
             expect_question_to_be_visible(false)
-  
+
             choose condition_question.answer_options.second.body["en"]
-  
+
             expect_question_to_be_visible(false)
-  
+
             choose condition_question.answer_options.first.body["en"]
-  
+
             expect_question_to_be_visible(true)
           end
         end
-  
+
         context "when all conditions are non-mandatory" do
           let!(:condition_question_type) { "multiple_option" }
           let!(:condition_question_options) { answer_options }
@@ -1178,25 +1221,25 @@ shared_examples_for "has questionnaire" do
                      answer_option: condition_question.answer_options.third)
             ]
           end
-  
+
           it "is displayed if any of the conditions is fulfilled" do
             expect_question_to_be_visible(false)
-  
+
             check condition_question.answer_options.first.body["en"]
-  
+
             expect_question_to_be_visible(true)
-  
+
             uncheck condition_question.answer_options.first.body["en"]
             check condition_question.answer_options.second.body["en"]
-  
+
             expect_question_to_be_visible(true)
-  
+
             check condition_question.answer_options.first.body["en"]
-  
+
             expect_question_to_be_visible(true)
           end
         end
-  
+
         context "when a mandatory question has conditions that have not been fulfilled" do
           let!(:condition_question_type) { "short_answer" }
           let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 2, mandatory: true) }
@@ -1210,65 +1253,21 @@ shared_examples_for "has questionnaire" do
                      mandatory: true)
             ]
           end
-  
+
           it "doesn't throw error" do
             visit questionnaire_public_path
-  
+
             fill_in condition_question.body["en"], with: "My first answer"
-  
+
             check "questionnaire_tos_agreement"
-  
+
             accept_confirm { click_button "Submit" }
-  
+
             within ".success.flash" do
               expect(page).to have_content("successfully")
             end
           end
         end
-      end
-    end
-
-    context "when the submission is not correct" do
-      let!(:max_choices) { 2 }
-
-      it "preserves the chosen answers" do
-        visit questionnaire_public_path
-
-        checkboxes = page.all(".check-box-collection input[type=checkbox]")
-        check checkboxes[0][:id]
-        check checkboxes[1][:id]
-        check checkboxes[2][:id]
-        check checkboxes[5][:id]
-
-        check "questionnaire_tos_agreement"
-        accept_confirm { click_button "Submit" }
-
-        within ".alert.flash" do
-          expect(page).to have_content("There was a problem answering")
-        end
-
-        checkboxes = page.all(".check-box-collection input[type=checkbox]")
-        expect(checkboxes.map { |c| c[:checked] }).to eq(["true", "true", "true", nil, nil, "true"])
-      end
-    end
-
-    context "when the question is mandatory and the answer is not complete" do
-      let!(:mandatory) { true }
-
-      it "shows an error" do
-        visit questionnaire_public_path
-
-        checkboxes = page.all(".check-box-collection input[type=checkbox]")
-        check checkboxes[0][:id]
-
-        check "questionnaire_tos_agreement"
-        accept_confirm { click_button "Submit" }
-
-        within ".alert.flash" do
-          expect(page).to have_content("There was a problem answering")
-        end
-
-        expect(page).to have_content("Choices are not complete")
       end
     end
 
