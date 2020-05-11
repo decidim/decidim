@@ -38,19 +38,8 @@ module Decidim
             params = set_params_for_import_result_form(row, @component)
             existing_result = Decidim::Accountability::Result.find_by(id: row["id"]) if row["id"].present?
             @form = form(Decidim::Accountability::Admin::ResultForm).from_params(params, @extra_context)
-
-            begin
-              params["result"]["start_date"] = Date.parse(row["start_date"]) if row["start_date"].present?
-            rescue ArgumentError
-              @form.errors.add(:start_date, :invalid_date)
-            end
-
-            begin
-              params["result"]["end_date"] = Date.parse(row["end_date"]) if row["end_date"].present?
-            rescue ArgumentError
-              @form.errors.add(:end_date, :invalid_date)
-            end
-
+            params["result"].merge!(parse_date_params(row, "start_date"))
+            params["result"].merge!(parse_date_params(row, "end_date"))
             errors << [i, @form.errors.full_messages] if @form.errors.any?
 
             if existing_result.present?
@@ -100,6 +89,15 @@ module Decidim
         end
 
         Hash[*array_field_localized.flatten]
+      end
+
+      def parse_date_params(row, field)
+        begin
+          return { field => Date.parse(row[field]) } if row[field].present?
+        rescue ArgumentError
+          @form.errors.add(field.to_sym, :invalid_date)
+        end
+        {}
       end
 
       def get_proposal_ids(proposal_urls)

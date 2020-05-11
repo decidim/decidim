@@ -5,7 +5,7 @@ shared_examples "export proposals" do
 
   it "exports a CSV" do
     find(".exports.dropdown").click
-    perform_enqueued_jobs { click_link "Proposals as CSV" }
+    perform_enqueued_jobs { click_link_or_button "Proposals as CSV" }
 
     within ".callout.success" do
       expect(page).to have_content("in progress")
@@ -18,7 +18,7 @@ shared_examples "export proposals" do
 
   it "exports a JSON" do
     find(".exports.dropdown").click
-    perform_enqueued_jobs { click_link "Proposals as JSON" }
+    perform_enqueued_jobs { click_link_or_button "Proposals as JSON" }
 
     within ".callout.success" do
       expect(page).to have_content("in progress")

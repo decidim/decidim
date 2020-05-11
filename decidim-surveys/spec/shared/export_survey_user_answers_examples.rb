@@ -13,7 +13,7 @@ shared_examples "export survey user answers" do
     visit_component_admin
 
     find(".exports.dropdown").click
-    perform_enqueued_jobs { click_link "CSV" }
+    perform_enqueued_jobs { click_link_or_button "CSV" }
 
     within ".callout.success" do
       expect(page).to have_content("in progress")
@@ -28,7 +28,7 @@ shared_examples "export survey user answers" do
     visit_component_admin
 
     find(".exports.dropdown").click
-    perform_enqueued_jobs { click_link "JSON" }
+    perform_enqueued_jobs { click_link_or_button "JSON" }
 
     within ".callout.success" do
       expect(page).to have_content("in progress")
