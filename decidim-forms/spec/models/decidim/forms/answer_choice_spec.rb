@@ -17,7 +17,7 @@ module Decidim
       let(:answer_option) { answer_options.first }
       let(:matrix_rows) { create_list(:question_matrix_row, 3, question: question) }
       let(:matrix_row) { matrix_rows.first }
-      let(:answer) { create(:answer, question: question, questionnaire: questionnaire) }
+      let(:answer) { create(:question_answer, question: question, questionnaire: questionnaire) }
       let(:answer_choice) { build(:answer_choice, answer: answer, answer_option: answer_option, matrix_row: matrix_row) }
 
       it { is_expected.to be_valid }

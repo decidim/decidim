@@ -44,7 +44,7 @@ module Decidim
       let!(:matrixmultiple_answer_options) { create_list :answer_option, 3, question: matrixmultiple_question }
       let!(:matrixmultiple_rows) { create_list :question_matrix_row, 3, question: matrixmultiple_question }
       let!(:matrixmultiple_answer) do
-        create :answer, questionnaire: questionnaire, question: matrixmultiple_question, user: user, body: nil
+        create :question_answer, questionnaire: questionnaire, question: matrixmultiple_question, user: user, body: nil
       end
       let!(:matrixmultiple_answer_choices) do
         matrixmultiple_rows.map do |row|
