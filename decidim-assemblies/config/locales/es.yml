@@ -176,7 +176,7 @@ es:
       models:
         assemblies_types:
           fields:
-            created_at: Creado el
+            created_at: Fecha de creación
             title: Título
         assembly:
           fields:
@@ -310,6 +310,7 @@ es:
         home:
           highlighted_assemblies:
             active_assemblies: Asambleas activas
+            assemblies_button_title: Enlace a la página de Asambleas que muestra todas las asambleas
             see_all_assemblies: Ver todas las asambleas
         user_profile:
           member_of:
@@ -340,6 +341,7 @@ es:
         related_participatory_processes: Procesos participativos relacionados
         scope: Ámbito
         social_networks: Redes sociales
+        social_networks_title: Compartir esta asamblea en
         target: Quién participa
       statistics:
         answers_count: Respuestas
@@ -351,6 +353,7 @@ es:
         meetings_count: Encuentros
         orders_count: Apoyos
         pages_count: Páginas
+        posts_count: Publicaciones
         projects_count: Proyectos
         proposals_count: Propuestas
         results_count: Resultados
@@ -362,6 +365,11 @@ es:
         designated_on: Designado en
       index:
         title: Miembros
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Enlace a la página de Jornadas que muestra todas las jornadas
     help:
       participatory_spaces:
         assemblies:
@@ -381,6 +389,17 @@ es:
         description: Número de asambleas creadas
         object: asambleas
         title: Asambleas
+    pages:
+      home:
+        hero:
+          participate_title: Participar en los procesos de la plataforma
+        sub_hero:
+          register_title: Regístrate para crear una cuenta en la plataforma
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Enlace a la página de Procesos que muestra todos los procesos
   errors:
     messages:
       cannot_be_blank: no puede estar en blanco

@@ -82,6 +82,9 @@
           email_outro: Du har mottatt denne varslingen fordi du følger %{author_name}. Du kan slutte å følge denne brukeren fra dems profil side.
           email_subject: Det er en ny kommentar av %{author_name} i %{resource_title}
           notification_title: Det er en ny kommentar av <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>.
+        comment_by_followed_user_group:
+          email_subject: Det er en ny kommentar av %{author_name} i %{resource_title}
+          notification_title: Det er en ny kommentar av <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} har blitt kommentert. Du kan lese kommentaren på denne siden:"
           email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}" eller dens forfatter. Du kan slutte å følge den fra den forrige lenken.

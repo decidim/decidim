@@ -1,0 +1,896 @@
+sk:
+  activemodel:
+    attributes:
+      collaborative_draft:
+        address: Adresa
+        body: Telo
+        category_id: Kategória
+        decidim_scope_id: Rozsah
+        has_address: Má adresu
+        state: Štát
+        title: Titul
+        user_group_id: Vytvoriť návrh spolupráce ako
+      proposal:
+        address: Adresa
+        answer: Odpovedať
+        answered_at: odpovedané na
+        automatic_hashtags: Hashtagy sa automaticky pridali
+        body: Telo
+        category_id: Kategória
+        decidim_scope_id: Rozsah
+        has_address: Má adresu
+        state: Štát
+        suggested_hashtags: Navrhované hashtags
+        title: Titul
+        user_group_id: Vytvoriť návrh ako
+      proposal_answer:
+        answer: Odpovedať
+      proposals_copy:
+        copy_proposals: Rozumiem, že toto importuje všetky návrhy z vybranej súčasti do aktuálnej, a že táto akcia nemôže byť vrátená.
+        origin_component_id: Súčasť, z ktorej sa skopírujú návrhy
+      proposals_import:
+        import_proposals: Importovať návrhy
+        keep_authors: Uchovať pôvodných autorov
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: Meno hodnotiteľa
+    errors:
+      models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: 'Neplatný typ dokumentu. Prijateľné formáty sú: %{valid_mime_types} '
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Je potrebné priložiť znovu
+            body:
+              cant_be_equal_to_template: nemôže byť rovnaké, ako šablóna
+              identical: A názov nemôže byť totožný
+            title:
+              identical: A telo nemôže byť totožné
+    models:
+      decidim/proposals/accepted_proposal_event: Návrh akceptovaný
+      decidim/proposals/admin/update_proposal_category_event: Kategória návrhu zmenená
+      decidim/proposals/admin/update_proposal_scope_event: Rozsah návrhu zmenený
+      decidim/proposals/creation_enabled_event: Tvorba návrhu povolená
+      decidim/proposals/endorsing_enabled_event: Podpora návrhu povolená
+      decidim/proposals/evaluating_proposal_event: Tento návrh sa hodnotí
+      decidim/proposals/proposal_mentioned_event: Návrh spomenutý
+      decidim/proposals/publish_proposal_event: Návrh publikovaný
+      decidim/proposals/rejected_proposal_event: Návrh odmietnutý
+      decidim/proposals/voting_enabled_event: Povolenie hlasovania o návrhu
+  activerecord:
+    models:
+      decidim/proposals/collaborative_draft:
+        one: Spoločný návrh
+        few: Spoločné návrhy
+        many: Spoločné návrhy
+        other: Spoločné návrhy
+      decidim/proposals/proposal:
+        one: Návrh
+        few: Návrhy
+        many: Návrhy
+        other: Návrhy
+      decidim/proposals/proposal_note:
+        one: Poznámka
+        few: Poznámky
+        many: Poznámky
+        other: Poznámky
+      decidim/proposals/proposal_vote:
+        one: Podpora
+        few: Podpory
+        many: Podpory
+        other: Podpory
+  decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Typ
+          values:
+            'false': Návrhy
+            'true': Zmeny
+        search_placeholder:
+          id_string_or_title_cont: Hľadať %{collection} podľa titulku alebo ID.
+        state_eq:
+          label: Štát
+          values:
+            accepted: Prijal
+            evaluating: Hodnotenie
+            rejected: Odmietnuté
+            withdrawn: Stiahnuté
+        state_null:
+          label: Štát
+          values:
+            'true': Nezodpovedané
+        valuator_role_ids_has:
+          label: Priradené ku hodnotiteľov
+    components:
+      proposals:
+        actions:
+          amend: Upraviť
+          create: Vytvoriť
+          endorse: Schváliť
+          vote: Hlasovanie
+          withdraw: Vrátiť späť
+        name: Návrhy
+        settings:
+          global:
+            allow_card_image: Povoliť kartové obrázky
+            amendments_enabled: Pozmeňujúce návrhy povolené
+            amendments_enabled_help: Ak je aktívne, nastavte funkcie Pozmeňujúcich návrhov pre každý krok.
+            amendments_wizard_help_text: Sprievodca Pozmeňujúcimi návrhmi
+            announcement: Oznámenie
+            attachments_allowed: Povoliť prílohy
+            can_accumulate_supports_beyond_threshold: Môžu získať finančnú podporu nad stanovenú hranicu
+            collaborative_drafts_enabled: Spoločné návrhy sú povolené
+            comments_enabled: Komentáre povolené
+            geocoding_enabled: Geokódovanie povolené
+            minimum_votes_per_user: Minimálny počet hlasov na užívateľa
+            new_proposal_body_template: Telo šablóny nového návrhu
+            new_proposal_body_template_help: Môžete definovať predvyplnený text, ktorý budú mať všetky nové návrhy
+            new_proposal_help_text: Pomocný text ku novému návrhu
+            official_proposals_enabled: Boli povolené oficiálne návrhy
+            participatory_texts_disabled_help: Ak existujú návrhy, nemožno toto nastavenie meniť. Prosíme vytvorte novú "Súčasť návrhov", ak ho chcete povoliť, alebo zahoďte všetky importované návrhy v "Participatívnych textoch" v menu, ak ho chcete zakázať.
+            participatory_texts_enabled: Povolené participatívne texty
+            proposal_answering_enabled: Odpovedanie na návrh je povolené
+            proposal_edit_before_minutes: Návrhy môžu byť editované autormi až po uplynutí toľkoto minút
+            proposal_length: Maximálna dĺžka návrhu
+            proposal_limit: Limit návrhu na užívateľa
+            proposal_wizard_step_1_help_text: Pomocný text Sprievodcu "Vytvoriť" návrh
+            proposal_wizard_step_2_help_text: Pomocný text Sprievodcu "Porovnať" návrhu
+            proposal_wizard_step_3_help_text: Pomocný text Sprievodcu "Dokončiť" návrh
+            proposal_wizard_step_4_help_text: Pomocný text Sprievodcu "Publikovať" návrh
+            resources_permissions_enabled: Pre každý návrh možno nastaviť povolenia akcie
+            threshold_per_proposal: Maximálny limit na návrh
+            vote_limit: Počet hlasov na užívateľa
+          step:
+            amendment_creation_enabled: Umožniť tvorbu Pozmeňovacích návrhov
+            amendment_creation_enabled_help: Účastníci môžu pozmeňovať návrhy.
+            amendment_promotion_enabled: Povýšenie Pozmeňovacích návrhov povolené
+            amendment_promotion_enabled_help: Autori vylepšenia budú môcť svoj zamietnutý návrh "povýšiť" na vlastný Návrh
+            amendment_reaction_enabled: Reakcia na Pozmeňovací návrh bola povolená
+            amendment_reaction_enabled_help: Autori návrhov budú môcť prijať alebo zamietnuť vylepšenia účastníkov.
+            amendments_visibility: Viditeľnosť pozmeňovacieho návrhu
+            amendments_visibility_help: Pokiaľ je zvolená možnosť "pozmeňovacie návrhy sú viditeľné len ich autorom", musí byť účastník prihlásený, aby videl pridané pozmeňovacie návrhy.
+            announcement: Oznámenie
+            answers_with_costs: Povoliť náklady v rámci odpovedí na návrhy
+            automatic_hashtags: Do všetkých návrhov boli pridané značky hashtags
+            comments_blocked: Komentáre boli blokované
+            creation_enabled: Vytváranie návrhu je povolené
+            endorsements_blocked: Schvaľovanie blokované
+            endorsements_enabled: Schvaľovanie povolené
+            proposal_answering_enabled: Odpovedanie na návrh je povolené
+            publish_answers_immediately: Publikovať odpovede na návrhy okamžite
+            suggested_hashtags: Hashtagy navrhované užívateľom pre ich nové návrhy
+            votes_blocked: Schvaľovanie bolo blokované
+            votes_enabled: Schvaľovanie povolené
+            votes_hidden: Hlasy skryté (ak sú povolené hlasy, pri kontrole sa skryje počet hlasov)
+    events:
+      proposals:
+        collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} má prístup ako prispievateľ k <a href="%{resource_path}">%{resource_title} </a> spoločnému návrhu.'
+          email_outro: Toto oznámenie ste dostali, pretože ste spolupracovníkom používateľa <a href="%{resource_path}"> %{resource_title} </a>.
+          email_subject: "%{requester_name} bol prijatý k prístupu ako prispievateľ %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname} </a> je <strong> má prístup ako prispievateľ </strong> v spoločnom návrhu <a href="%{resource_path}">%{resource_title} </a>.
+        collaborative_draft_access_rejected:
+          email_intro: '%{requester_name} mal zamietnutý prístup k projektu <a href="%{resource_path}">%{resource_title} </a>.'
+          email_outro: Toto oznámenie ste dostali, pretože ste spolupracovníkom používateľa <a href="%{resource_path}">%{resource_title} </a>.
+          email_subject: "%{requester_name} mal odmietnutý pre prístup ako prispievateľ ku %{resource_title} kolektívnemu návrhu."
+          notification_title: <a href="%{requester_path}">%{requester_name}%{requester_nickname} </a><strong> mal odmietnutý prístup ako prispievateľ </strong>ku spoločnému návrhu <a href = "%{resource_path}" >%{resource_title} </a>. 
+        collaborative_draft_access_requested:
+          email_intro: '%{requester_name} požadoval prístup ako prispievateľ. Môžete <strong> prijať alebo odmietnuť žiadosť </strong> na <a href="%{resource_path}">%{resource_title} </a> stránke spoločného návrhu.'
+          email_outro: Toto oznámenie ste dostali, pretože ste spolupracovníkom používateľa <a href="%{resource_path}">%{resource_title} </a>.
+          email_subject: "%{requester_name} požiadal o prístup ku spolupráci na %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name}%{requester_nickname} </a> požiadal o prístup ku spolupráci na <a href="%{resource_path}">%{resource_title} </a>. Prosíme <strong> prijmite alebo odmietnite žiadosť </strong>.
+        collaborative_draft_access_requester_accepted:
+          email_intro: Bol Vám povolený prístup ku prispeniu na spoločnom návrhu <a href="%{resource_path}">%{resource_title} </a>.
+          email_outro: Toto oznámenie ste dostali, pretože ste požiadali, aby ste sa stal spolupracovníkom používateľa <a href="%{resource_path}">%{resource_title} </a>.
+          email_subject: Boli ste prijatí ako prispievateľ%{resource_title}.
+          notification_title: Máte <strong> prístup ako prispievateľ </strong> na spoločnom návrhu <a href="%{resource_path}">%{resource_title} </a>.
+        collaborative_draft_access_requester_rejected:
+          email_intro: Váš prístup ku prispeniu na spoločnom návrhu <a href="%{resource_path}">%{resource_title} </a> bol odmietnutý.
+          email_outro: Toto oznámenie ste dostali, pretože ste požiadali, aby ste sa stal spolupracovníkom používateľa <a href="%{resource_path}">%{resource_title} </a>.
+          email_subject: Bol ste odmietnutý ako prispievateľ ku %{resource_title}.
+          notification_title: Boli ste <strong> odmietnutý ako prispievateľ ku </strong> spoločnému návrhu <a href="%{resource_path}">%{resource_title} </a>.
+        collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname} </a> zrušil <a href="%{resource_path}">% {resource_title} </a> návrh spolupráce.
+          email_outro: Toto oznámenie ste dostali, pretože ste spolupracovníkom používateľa <a href="%{resource_path}">%{resource_title} </a>.
+          email_subject: "% {AUTHOR_NAME}% {author_nickname} stiahol% {resource_title} návrh spolupráce."
+          notification_title: <a href="%{author_path}">% {AUTHOR_NAME}% {author_nickname} </a> <strong> stiahnuté </ strong> <a href="%{resource_path}">% {resource_title} </ a> návrh spolupráce.
+        creation_enabled:
+          email_intro: 'Teraz môžete vytvoriť nové návrhy v %{participatory_space_title}! Zúčastnite sa na tejto stránke: '
+          email_outro: Toto oznámenie ste dostali, pretože sledujete %{participatory_space_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
+          email_subject: Návrhy sú teraz k dispozícii v %{participatory_space_title}
+          notification_title: Teraz môžete predložiť <a href="%{resource_path}"> nových návrhov </a> v <a href="%{participatory_space_url}">%{participatory_space_title} </a>
+        endorsing_enabled:
+          email_intro: 'Môžete schváliť návrhy v %{participatory_space_title}! Zúčastnite sa na tejto stránke: '
+          email_outro: Toto oznámenie ste dostali, pretože sledujete %{participatory_space_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
+          email_subject: Schválenie návrhov sa začalo po dobu%{participatory_space_title}
+          notification_title: Teraz môžete začať <a href="%{resource_path}"> schválení návrhov </a> v <a href="%{participatory_space_url}">%{participatory_space_title} </a>
+        proposal_accepted:
+          affected_user:
+            email_intro: 'Váš návrh "%{resource_title}" bol prijatý. Odpoveď môžete čítať na tejto stránke: '
+            email_outro: Toto oznámenie ste dostali, pretože ste autorom položky "%{resource_title}".
+            email_subject: Váš návrh bol prijatý
+            notification_title: Váš návrh <a href="%{resource_path}">%{resource_title} </a> bol prijatý.
+          follower:
+            email_intro: 'Návrh "%{resource_title}" bol prijatý. Odpoveď môžete čítať na tejto stránke: '
+            email_outro: Toto oznámenie ste dostali, pretože sledujete "%{resource_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
+            email_subject: Návrh, ktorý sledujete, bol prijatý
+            notification_title: Návrh <a href="%{resource_path}">%{resource_title} </a> bol prijatý.
+        proposal_evaluating:
+          affected_user:
+            email_intro: 'Váš návrh "%{resource_title}" sa práve vyhodnocuje. V tejto stránke môžete skontrolovať odpoveď: '
+            email_outro: Toto oznámenie ste dostali, pretože ste autorom položky "%{resource_title}".
+            email_subject: Váš návrh je hodnotený
+            notification_title: Váš návrh <a href="%{resource_path}">%{resource_title} </a> je hodnotený.
+          follower:
+            email_intro: 'V súčasnej dobe sa hodnotí návrh "%{resource_title}". V tejto stránke môžete skontrolovať odpoveď: '
+            email_outro: Toto oznámenie ste dostali, pretože sledujete "%{resource_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
+            email_subject: Návrh, ktorý sledujete, sa hodnotí
+            notification_title: Návrh <a href="%{resource_path}">%{resource_title} </a> sa hodnotí.
+        proposal_mentioned:
+          email_intro: Váš návrh %{mentioned_proposal_title} bol zmienený v komentároch v <a href="%{resource_url}">tomto priestore</a>.
+          email_outro: Toto oznámenie ste dostali, pretože ste autorom položky "%{resource_title}".
+          email_subject: Váš návrh "%{mentioned_proposal_title}" bol spomenutý
+          notification_title: Váš návrh "%{mentioned_proposal_title}" bol spomenutý <a href="%{resource_path}"> v tomto priestore </a> v komentároch.
+        proposal_published:
+          email_intro: '% {AUTHOR_NAME}% {author_nickname}, ktorý sledujete, zverejnil nový návrh nazvaný "% {resource_title}". Vyskúšajte to a prispejte: '
+          email_outro: Toto oznámenie ste dostali, pretože sledujete %{author_nickname}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
+          email_subject: Nový návrh "%{resource_title}" o%{author_nickname}
+          notification_title: Návrh <a href="%{resource_path}">% {resource_title} </a> bol zverejnený <a href="%{author_path}">% {AUTHOR_NAME}% {author_nickname} </a>.
+        proposal_published_for_space:
+          email_intro: Návrh "%{resource_title}" bol pridaný k "%{participatory_space_title}", ktorý sledujete.
+          email_outro: Toto oznámenie ste dostali, pretože sledujete "%{participatory_space_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
+          email_subject: Nový návrh "%{resource_title}" bol pridaný k%{participatory_space_title}
+          notification_title: Návrh <a href="%{resource_path}">%{resource_title} </a> bol pridaný do%{participatory_space_title}
+        proposal_rejected:
+          affected_user:
+            email_intro: 'Váš návrh "%{resource_title}" bol zamietnutý. Odpoveď môžete čítať na tejto stránke: '
+            email_outro: Toto oznámenie ste dostali, pretože ste autorom položky "%{resource_title}".
+            email_subject: Váš návrh bol zamietnutý
+            notification_title: Váš návrh <a href="%{resource_path}">%{resource_title} </a> bol zamietnutý.
+          follower:
+            email_intro: 'Návrh "%{resource_title}" bol zamietnutý. Odpoveď môžete čítať na tejto stránke: '
+            email_outro: Toto oznámenie ste dostali, pretože sledujete "%{resource_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
+            email_subject: Návrh, ktorý sledujete, bol zamietnutý
+            notification_title: Návrh <a href="%{resource_path}">%{resource_title} </a> bol zamietnutý.
+        proposal_update_category:
+          email_intro: 'Správca aktualizoval kategórii vášho návrhu "%{resource_title}", pozrite sa na neho:'
+          email_outro: Toto oznámenie ste dostali, pretože ste autorom návrhu.
+          email_subject: Kategória návrhov %{resource_title} bola aktualizovaná
+          notification_title: Kategória návrhu <a href="%{resource_path}">%{resource_title} </a> bola aktualizovaná administrátorom.
+        proposal_update_scope:
+          email_intro: 'Admin upravil rozsah Vašeho návrhu %{resource_title}, pozrite sa na to na tejto stránke:'
+          email_outro: Toto oznámenie ste dostali, pretože ste autorom návrhu.
+          email_subject: Rozsah návrhu %{resource_title} bol aktualizovaný
+          notification_title: Rozsah návrhu <a href="%{resource_path}">%{resource_title}</a> bol aktualizovaný administrátorom.
+        voting_enabled:
+          email_intro: 'Môžete hlasovať návrhy v %{participatory_space_title}! Zúčastnite sa na tejto stránke: '
+          email_outro: Toto oznámenie ste dostali, pretože sledujete %{participatory_space_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
+          email_subject: Hlasovanie návrhov sa začalo na úrovni%{participatory_space_title}
+          notification_title: Teraz môžete začať <a href="%{resource_path}"> hlasovania </a> v <a href="%{participatory_space_url}">%{participatory_space_title} </a>
+    gamification:
+      badges:
+        accepted_proposals:
+          conditions:
+            - Vyberte si participatívny priestor, ktorý Vás zaujíma, ktorý umožňuje pridávanie návrhov.
+            - Skúste vytvoriť návrhy, ktoré sú realizovateľné. Tak budú mať väčšiu šancu na prijatie.
+          description: Tento odznak ste dostali za aktívnu participáciu novými, akceptovanými návrhmi.
+          description_another: Tento účastník má %{score} prijatých návrhov.
+          description_own: Máte %{score} prijatých návrhov.
+          name: Prijaté návrhy
+          next_level_in: Po dosiahnutí ďalších %{score} prijatých návrhov dosiahnete novú úroveň!
+          unearned_another: Tento účastník zatiaľ nemá prijaté návrhy.
+          unearned_own: Zatiaľ nemáte žiadne prijaté návrhy.
+        proposal_votes:
+          conditions:
+            - Pozrite si a prečítajte návrhy ďalších účastníkov.
+            - Pridajte podporu návrhom, ktoré sa Vám páčia, alebo Vás zaujali.
+          description: Tento odznak ste dostali za podporu návrhov ďalších účastníkov.
+          description_another: Tento účastník podporil %{score} návrhov.
+          description_own: Podporili ste %{score} návrhov.
+          name: Podpora návrhu
+          next_level_in: Podporte o %{score} návrhov viac pre dosiahnutie ďalšej úrovne!
+          unearned_another: Tento účastník zatiaľ nepodporil žiadne návrhy.
+          unearned_own: Zatiaľ ste nepodporili žiadne návrhy.
+        proposals:
+          conditions:
+            - Vyberte si participatívny priestor, ktorý Vás zaujíma, ktorý umožňuje pridávanie návrhov.
+            - Vytvorte nový návrh
+          description: Tento odznak ste dostali za aktívnu participáciu novými návrhmi.
+          description_another: Tento účastník vytvoril %{score} návrhov.
+          description_own: Vytvorili ste %{score} návrhov.
+          name: Návrhy
+          next_level_in: Vytvorte o %{score} návrhov viac pre dosiahnutie ďalšej úrovne!
+          unearned_another: Tento účastník nevytvoril žiadny návrh.
+          unearned_own: Zatiaľ ste nevytvorili žiadny návrh.
+    metrics:
+      accepted_proposals:
+        description: Počet prijatých návrhov
+        object: návrhy
+        title: Prijaté návrhy
+      endorsements:
+        description: Počet schválení návrhov
+        object: schválenia
+        title: Schválenia
+      proposals:
+        description: Počet návrhov
+        object: návrhy
+        title: Návrhy
+      votes:
+        description: Počete hlasov za návrhy
+        object: hlasy
+        title: Hlasy
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_proposals:
+          proposals: Návrhy
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Zobraziť všetky (%{count})
+    proposals:
+      actions:
+        answer_proposal: Odpoveď na návrh
+        edit_proposal: Upraviť návrh
+        import: Import z inej súčasti
+        new: Nový návrh
+        participatory_texts: Participujúce texty
+        show: Ukázať návrh
+        title: Akcia
+      admin:
+        actions:
+          preview: Náhľad
+        exports:
+          comments: Komentáre
+          proposals: Návrhy
+        models:
+          proposal:
+            name: Návrh
+        participatory_texts:
+          bulk-actions:
+            are_you_sure: Naozaj chcete vyradiť celý participačné text?
+            discard_all: Zlikvidujte všetko
+            import_doc: Importovať dokument
+          discard:
+            success: Všetky textové texty s účasťou boli zrušené.
+          import:
+            invalid: Formulár je neplatný!
+            invalid_file: Súbor obsahuje určitú chybu, skúste ho prosím upraviť a znovu ho nahrať.
+            success: Gratulujeme, nasledujúce časti boli analyzované z importovaného dokumentu, boli prevedené na návrhy. Teraz môžete pred publikovaním skontrolovať a upraviť všetko, čo potrebujete.
+          index:
+            info_1: Nasledujúce oddiely boli analyzované z importovaného dokumentu, boli prevedené na návrhy. Teraz môžete pred publikovaním skontrolovať a upraviť všetko, čo potrebujete.
+            publish_document: Publikujte dokument
+            save_draft: Uložiť koncept
+            title: NÁHĽAD PARTICIPATÍVNEHO TEXTU
+          new_import:
+            accepted_mime_types:
+              md: Markdown
+              odt: ODT
+            bottom_hint: "(Budete mať možnosť zobraziť a triediť sekcie dokumentov)"
+            document_legend: 'Pridajte dokument nižší ako 2 MB, každá sekcia až do hĺbky 3 úrovní bude analyzovaná do návrhov. Podporované formáty sú:%{valid_mime_types} '
+            title: PRIDAŤ DOKUMENT
+            upload_document: Nahrať dokument
+          publish:
+            invalid: Nemožno publikovať návrhy
+            success: Všetky návrhy boli zverejnené
+          sections:
+            article: "<em>Článok</em>"
+            section: "<em> Sekcia: </ em> <strong>%{title} </strong>"
+            sub-section: "<em> Pododdiel: </ em>%{title}"
+          update:
+            success: Úspešný text bol úspešne aktualizovaný.
+        proposal_answers:
+          form:
+            accepted: Prijal
+            answer_proposal: Odpovedať
+            evaluating: Hodnotenie
+            rejected: Odmietnuté
+            title: Odpoveď na návrh%{title}
+        proposal_notes:
+          create:
+            error: Pri vytváraní tohto návrhu nebol problém
+            success: Návrhová poznámka bola úspešne vytvorená
+          form:
+            note: Poznámka
+            submit: Predložiť
+          leave_your_note: Nechajte svoju poznámku
+          title: Súkromné ​​poznámky
+        proposals:
+          answer:
+            invalid: Pri riešení tohto problému došlo k problému
+            success: Návrh úspešne odpovedal
+          create:
+            invalid: Pri vytváraní tohto návrhu došlo k problému
+            success: Návrh bol úspešne vytvorený
+          edit:
+            title: Návrh aktualizácie
+            update: Aktualizácia
+          form:
+            attachment_legend: "(Voliteľné) Pridanie prílohy"
+            created_in_meeting: Tento návrh pochádza z rokovania
+            select_a_category: Vyberte kategóriu
+            select_a_meeting: Vyberte schôdzku
+          index:
+            actions: Akcia
+            assign_to_valuator: Priradiť ku hodnotiteľovi
+            assign_to_valuator_button: Priradiť
+            cancel: zrušenie
+            change_category: Zmeniť kategórii
+            change_scope: Zmeniť rozsah
+            merge: Zlúčiť do nového
+            merge_button: Spoj
+            publish: Publikovať
+            publish_answers: Zverejniť odpovede
+            select_component: Vyberte súčasť
+            selected: vybraný
+            split: Rozdeliť návrhy
+            split_button: Rozdeliť
+            title: Návrhy
+            unassign_from_valuator: Zrušiť priradenie ku hodnotiteľovi
+            unassign_from_valuator_button: Zrušiť priradenie
+            update: Aktualizácia
+            update_scope_button: Aktualizovať rozsah
+          new:
+            create: Vytvoriť
+            title: Vytvorte návrh
+          publish_answers:
+            number_of_proposals: Odpovede pre %{number} návrhov budú zverejnené.
+            select_a_proposal: Vyberte návrh
+          show:
+            amendments_count: Počet zmien
+            assigned_valuators: Priradení hodnotitelia
+            authors: Autori
+            body: Telo
+            comments_count: Počet komentárov
+            comments_negative_count: Proti
+            comments_neutral_count: Neutrálne
+            comments_positive_count: Za
+            created_at: Dátum vzniku
+            documents: Dokumenty
+            endorsements_count: Počet podporení
+            endorsements_ranking: Umiestnenie podľa množstva podpory
+            endorsers: Podporovatelia
+            link: Odkaz
+            n_more_endorsers:
+              one: a 1 ďalší
+              few: + %{count} ďalších
+              many: + %{count} ďalších
+              other: + %{count} ďalších
+            photos: Fotografie
+            proposals: Návrhy
+            ranking: "%{ranking} z celkového %{total}"
+            related_meetings: Podobné stretnutia
+            remove_assignment: Zrušiť priradenie
+            remove_assignment_confirmation: Ste si istý, že chcete odstrániť hodnotiteľa z návrhu?
+            valuators: Hodnotiteľ
+            votes_count: Počet hlasov
+            votes_ranking: Umiestnenie podľa hlasov
+          update_category:
+            invalid: 'Tieto návrhy už majú kategóriu %{subject_name}: %{proposals}.'
+            select_a_category: Vyberte kategóriu
+            select_a_proposal: Vyberte návrh
+            success: 'Návrhy úspešne pridané do kategórie %{subject_name}: %{proposals}.'
+          update_scope:
+            invalid: 'Tieto návrhy už mali %{subject_name} rozsah: %{proposals}.'
+            select_a_proposal: Vyberte návrh
+            select_a_scope: Prosím, zvoľte rozsah
+            success: 'Návrhy úspešne pridané do kategórie %{subject_name}: %{proposals}.'
+        proposals_imports:
+          create:
+            invalid: Pri importe návrhov došlo k problému
+            success: "%{number} návrhov bolo úspešne dovezené"
+          new:
+            create: Návrhy na dovoz
+            no_components: V tomto účastníckom priestore neexistujú žiadne iné komponenty návrhu, ktoré by mohli importovať návrhy.
+            select_component: Vyberte súčasť
+            select_states: Skontrolujte stav návrhov, ktoré chcete importovať
+        proposals_merges:
+          create:
+            invalid: Pri prepojení vybraných návrhov došlo k chybe.
+            success: Projekty boli úspešne zlúčené do novej.
+        proposals_splits:
+          create:
+            invalid: Pri výbere vybraných návrhov došlo k chybe.
+            success: Úspešne rozdelil návrhy na nové.
+        valuation_assignments:
+          create:
+            invalid: Pri udeľovaní návrhov ku hodnotiteľovi nastala chyba
+            success: Návrhy úspešne pridelené hodnotiteľovi
+          delete:
+            invalid: Pri rušení pridelených návrhov ku hodnotiteľovi nastala chyba
+            success: Návrhy úspešne odobrané hodnotiteľovi
+      admin_log:
+        proposal:
+          answer: "%{user_name} odpovedalo na %{resource_name} návrh na priestore %{space_name}"
+          create: "%{user_name} vytvoril návrh %{resource_name} na priestore %{space_name} ako oficiálny návrh"
+          publish_answer: "%{user_name} publikoval odpoveď na návrh %{resource_name} v priestore %{space_name}"
+          update: "%{user_name} aktualizoval oficiálny návrh %{resource_name} na priestore %{space_name}"
+        proposal_note:
+          create: "%{user_name} zanechal súkromnú poznámku k návrhu %{resource_name} na %{space_name} priestore."
+        valuation_assignment:
+          create: "%{user_name} pridelil návrh %{resource_name} hodnotiteľovi"
+          delete: "%{user_name} odobral hodnotiteľovi návrh %{proposal_title}"
+      answers:
+        accepted: Prijaté
+        evaluating: Hodnotené
+        not_answered: Nezodpovedané
+        rejected: Odmietnuté
+        withdrawn: Stiahnuté
+      application_helper:
+        filter_category_values:
+          all: Všetko
+        filter_origin_values:
+          all: Všetko
+          citizens: Občania
+          meetings: Stretnutie
+          official: Oficiálne
+          user_groups: Skupiny užívateľov
+        filter_scope_values:
+          all: Všetko
+        filter_state_values:
+          accepted: Prijal
+          all: Všetko
+          evaluating: Hodnotenie
+          not_answered: Nezodpovedané
+          rejected: Odmietnuté
+        filter_type_values:
+          all: Všetko
+          amendments: Zmeny
+          proposals: Návrhy
+      collaborative_drafts:
+        collaborative_draft:
+          publish:
+            error: Pri publikovaní konceptu spolupráce došlo k chybám.
+            irreversible_action_modal:
+              body: Po zverejnení návrhu ako návrhu návrh už nebude upraviteľný. Návrh neprijme nové autorov ani príspevky.
+              cancel: zrušenie
+              ok: Publikovať ako návrh
+              title: Nasledujúci akcia je nevratná
+            success: Projekt spolupráce bol úspešne zverejnený ako návrh.
+          view_collaborative_draft: Zobraziť kolektívne návrh
+          withdraw:
+            error: Došlo k chybe pri uzatvorení návrhu spolupráce.
+            irreversible_action_modal:
+              body: Po uzavretí konceptu už návrh nebude upraviteľný. Návrh neprijme nové autorov alebo príspevky.
+              cancel: zrušenie
+              ok: Vyberte návrh spolupráca
+              title: Nasledujúci akcia je nevratná
+            success: Kolaboratívne návrh bol úspešne zrušený.
+        compare:
+          mine_is_different: Môj návrh spolupráca je iný
+          no_similars_found: Výborne! Žiadny podobný návrh spolupráce nebol nájdený
+          title: Podobné návrhy spolupráce
+        complete:
+          send: Poslať
+          title: Dokončite návrh spolupráca
+        count:
+          drafts_count:
+            one: "%{count} návrh spolupráce"
+            few: "%{count} návrh spolupráce"
+            many: "%{count} návrh spolupráce"
+            other: "%{count} návrh spolupráce"
+        create:
+          error: Pri vytváraní tohto konceptu spolupráce vyskytol problém
+          success: Projekt spolupráce bol úspešne vytvorený.
+        edit:
+          attachment_legend: "(Voliteľné) Pridanie prílohy"
+          back: Zadná
+          select_a_category: Vyberte kategóriu
+          send: Poslať
+          title: Úprava konceptu spolupráce
+        filters:
+          all: Všetko
+          amendment: Zmeny
+          category: Kategória
+          open: otvorené
+          published: Publikované
+          related_to: súvisiace s
+          scope: Rozsah
+          search: Vyhľadávanie
+          state: Štát
+          withdrawn: Stiahnuté
+        filters_small_view:
+          close_modal: Zatvoriť modálne
+          filter: Filter
+          filter_by: Filtrovať podľa
+          unfold: Rozbaliť
+        new:
+          send: Pokračovať
+          title: Vytvorte návrh spolupráca
+        new_collaborative_draft_button:
+          new_collaborative_draft: Nový návrh spolupráca
+        orders:
+          label: 'Objednajte návrhy podľa:'
+          most_contributed: Väčšina prispela
+          random: Náhodný
+          recent: Nedávno
+        requests:
+          accepted_request:
+            error: Nemožno prijať ako spolupracovník, skúste to znova neskôr.
+            success: "@%{user} bol úspešne prijatý ako spolupracovník"
+          access_requested:
+            error: Vaša žiadosť nebola dokončená, skúste to znova neskôr.
+            success: Vaša žiadosť o spolupráci bola úspešne odoslaná
+          collaboration_requests:
+            accept_request: Akceptovať
+            reject_request: Odmietnuť
+            title: Žiadosti o spolupráci
+          rejected_request:
+            error: Nemohol byť odmietnutý ako spolupracovník, skúste to znova neskôr.
+            success: "@%{user} bol úspešne odmietnutý ako spolupracovník"
+        show:
+          back: Zadná
+          edit: Úprava konceptu spolupráce
+          final_proposal: konečný návrh
+          final_proposal_help_text: Tento návrh je dokončený. Môžete vidieť konečný konečný návrh
+          hidden_authors_count:
+            one: a%{count} ďalšia osoba
+            few: a%{count} ďalších ľudí
+            many: a%{count} ďalších ľudí
+            other: a%{count} ďalších ľudí
+          info-message: Jedná sa o <strong> kolaboratívne návrh </strong> k návrhu. To znamená, že môžete pomôcť ich autorom formovať návrh pomocou nižšie uvedené poznámky alebo je vylepšiť priamo tým, že požiadate o prístup k jeho úpravám. Akonáhle vám autori udelí prístup, budete môcť tento návrh uskutočniť.
+          of_versions: "(z%{number})"
+          publish: Publikovať
+          publish_info: Publikujte túto verziu konceptu alebo
+          published_proposal: zverejnený návrh
+          request_access: Požiadať o prístup
+          requested_access: Požadovaný prístup
+          see_other_versions: pozri ďalšie verzie
+          version: Verzia%{number}
+          version_history: pozri históriu verzií tohto návrhu
+          withdraw: stiahnuť návrh
+        states:
+          open: otvorené
+          published: Publikované
+          withdrawn: Stiahnuté
+        update:
+          error: Pri ukladaní schéme spolupráce došlo k chybám.
+          success: Protokol o spolupráci bol úspešne aktualizovaný.
+        wizard_aside:
+          back: Zadná
+          info: Pri vytváraní <strong> spolupráca návrhu </strong>.
+        wizard_steps:
+          see_steps: pozri kroky
+          step_1: Vytvorte návrh spolupráca
+          step_2: Porovnajte s návrhmi spolupráce
+          step_3: Dokončite návrh spolupráca
+          step_of: Krok%{current_step_num} z%{total_steps}
+      create:
+        error: Pri ukladaní návrhu došlo k chybám.
+        success: Návrh bol úspešne vytvorený. Uložené ako návrh.
+      destroy_draft:
+        error: Došlo k chybám s vymazaním návrhového návrhu.
+        success: Koncept návrhu bol úspešne zmazaný.
+      last_activity:
+        new_proposal_at_html: "<span> Nový návrh na%{link} </ span>"
+      models:
+        collaborative_draft:
+          fields:
+            authors: Autori
+            comments: Komentáre
+            contributions: Príspevky
+        proposal:
+          fields:
+            category: Kategória
+            comments: Komentáre
+            id: ID
+            notes: Poznámky
+            official_proposal: Oficiálne návrh
+            published_answer: Zverejnená odpoveď
+            published_at: Publikované v
+            scope: Rozsah
+            state: Štát
+            title: Titul
+            valuator: Hodnotiteľ
+            valuators: Hodnotitelia
+            votes: Hlasy
+      new:
+        limit_reached: Nie je možné vytvoriť nové návrhy, pretože ste prekročili limit.
+      participatory_text_proposal:
+        alternative_title: Momentálne nie sú k dispozícii žiadne príspevky
+        buttons:
+          amend: doplňujúci návrh
+          comment: Komentár
+          comments: Komentáre
+      proposal_votes:
+        create:
+          error: Pri hlasovaní o návrhu došlo k chybám.
+      proposals:
+        compare:
+          continue: Pokračovať
+          no_similars_found: Výborne! Neboli nájdené žiadne podobné návrhy
+          title: Podobné návrhy
+        complete:
+          send: Poslať
+          title: Dokončite svoj návrh
+        count:
+          proposals_count:
+            one: "%{count} návrh"
+            few: "%{count} návrhov"
+            many: "%{count} návrhov"
+            other: "%{count} návrhov"
+        edit:
+          attachment_legend: "(Voliteľné) Pridanie prílohy"
+          back: Zadná
+          select_a_category: Vyberte kategóriu
+          send: Poslať
+          title: Upraviť návrh
+        edit_draft:
+          discard: Zrušte tento návrh
+          discard_confirmation: Naozaj chcete túto návrh zakázať?
+          send: Náhľad
+          title: Upraviť koncept návrhu
+        filters:
+          activity: Moja aktivita
+          all: Všetko
+          amendment_type: Typ
+          category: Kategória
+          my_proposals: Moje návrhy
+          origin: Pôvod
+          related_to: súvisiace s
+          scope: Rozsah
+          search: Vyhľadávanie
+          state: Štát
+          type: Typ
+          voted: Hlasoval
+        filters_small_view:
+          close_modal: Zatvoriť okno
+          filter: Filter
+          filter_by: Filtrovať podľa
+          unfold: Rozbaliť
+        index:
+          collaborative_drafts_list: Získajte prístup k spolupráci
+          new_proposal: Nový návrh
+          see_all_withdrawn: Pozrite sa na všetky stiahnuté návrhy
+          view_proposal: Zobraziť návrh
+        linked_proposals:
+          proposal_votes:
+            one: hlasovanie
+            few: hlasov
+            many: hlasov
+            other: hlasov
+        new:
+          send: Pokračovať
+          title: Vytvorte svoj návrh
+        orders:
+          label: 'Objednajte návrhy podľa:'
+          most_commented: Najviac komentované
+          most_endorsed: Najviac schválené
+          most_followed: Najviac sledované
+          most_voted: Najviac hlasovalo
+          random: Náhodný
+          recent: Nedávno
+          with_more_authors: S viac autormi
+        participatory_texts:
+          index:
+            document_index: Index dokumentov
+          view_index:
+            see_index: Pozri index
+        preview:
+          modify: Upravte návrh
+          proposal_edit_before_minutes:
+            one: Tento návrh budete môcť upraviť počas prvej minúty po zverejnení návrhu. Po uplynutí tohto časového okna nebudete môcť návrh upraviť.
+            few: Budete mať možnosť upraviť tento návrh počas prvých %{count} minút po návrh zverejnený. Po uplynutí tohto časového okna nebudete môcť návrh upraviť.
+            many: Budete mať možnosť upraviť tento návrh počas prvých %{count} minút po návrh zverejnený. Po uplynutí tohto časového okna nebudete môcť návrh upraviť.
+            other: Budete mať možnosť upraviť tento návrh počas prvých %{count} minút po návrh zverejnený. Po uplynutí tohto časového okna nebudete môcť návrh upraviť.
+          publish: Publikovať
+          title: Publikujte svoj návrh
+        proposal:
+          creation_date: 'Tvorba:%{date}'
+          view_proposal: Zobraziť návrh
+        show:
+          answer: Odpovedať
+          back_to: Späť k
+          back_to_list: Späť na zoznam
+          changes_at_title: doplňujúci návrh k "%{title}"
+          comments: Komentáre
+          edit_proposal: Upraviť návrh
+          endorsements_list: Zoznam Schválenie
+          estimated_cost: Odhadované náklady
+          hidden_endorsers_count:
+            one: a%{count} ďalšia osoba
+            few: a %{count} ďalší ľudia
+            many: a %{count} ďalších ľudí
+            other: a %{count} ďalších ľudí
+          link_to_collaborative_draft_help_text: Tento návrh je výsledkom spoločného návrhu. Skontrolujte históriu
+          link_to_collaborative_draft_text: Pozri schému spolupráca
+          link_to_promoted_emendation_help_text: Tento návrh je podporované vylepšenia
+          link_to_promoted_emendation_text: Pozrite sa na zamietnuté vylepšení.
+          link_to_proposal_from_emendation_help_text: Toto je zamietnuté vylepšenie
+          link_to_proposal_from_emendation_text: Zobraziť ponuky
+          proposal_accepted_reason: 'Tento návrh bol prijatý, pretože:'
+          proposal_in_evaluation_reason: Tento návrh sa hodnotí
+          proposal_rejected_reason: 'Tento návrh bol zamietnutý, pretože:'
+          read_less: Čítať menej
+          read_more: Čítať ďalej
+          report: Správa
+          withdraw_btn_hint: Ak zmeníte názor, môžete svoj návrh stiahnuť, ak ste nedostali žiadnu podporu. Návrh nie je zrušený, objaví sa v zozname stiahnutých návrhov.
+          withdraw_confirmation: Naozaj chcete tento návrh stiahnuť?
+          withdraw_proposal: Návrh stiahnuť
+        tags:
+          changed_from: "(zmenené z kategórie <u>% {previous_category} </u> správcom)"
+        vote_button:
+          already_voted: Už bolo hlasované
+          already_voted_hover: Zavolajte
+          maximum_votes_reached: Dosiahla sa obmedzenie hlasovania
+          no_votes_remaining: Žiadne zostávajúce hlasy
+          vote: Hlasovanie
+          votes_blocked: Hlasovanie je zakázané
+        votes_count:
+          count:
+            one: HLASOVANIE
+            few: HLASOVANIE
+            many: HLASOVANIE
+            other: HLASOVANIE
+          most_popular_proposal: Najobľúbenejšie návrh
+          need_more_votes: Potrebujete viac hlasov
+        voting_rules:
+          can_accumulate_supports_beyond_threshold:
+            description: Každý návrh môže akumulovať viac ako%{limit} pomoci
+          minimum_votes_per_user:
+            description: Musíte rozdeliť minimálne %{votes} hlasov medzi rôzne návrhy.
+            given_enough_votes: Dali ste dostatok podpory.
+            supports_remaining: Musíte hlasovať o ďalších %{remaining_votes} návrhoch, aby sa vaše hlasy zohľadnili.
+          proposal_limit:
+            description: Môžete vytvoriť až %{limit} návrhov.
+          threshold_per_proposal:
+            description: Aby bolo možné overiť návrhy, je potrebné dosiahnuť %{limit} podpory
+          title: 'Hlasovanie podlieha týmto pravidlám:'
+          vote_limit:
+            description: Môžete hlasovať až pre %{limit} návrhov.
+            left: Zvyšné
+            votes: Hlasy
+        wizard_aside:
+          back: Zadná
+          info: Vytvárate <strong> návrh </strong>.
+        wizard_steps:
+          see_steps: pozri kroky
+          step_1: Vytvorte svoj návrh
+          step_2: Porovnajte
+          step_3: Kompletné
+          step_4: Publikujte svoj návrh
+          step_of: Krok %{current_step_num} z %{total_steps}
+      proposals_picker:
+        choose_proposals: Zvoliť návrhy
+        close: Zavrieť
+        more_proposals: Celkovo je tu o %{number} návrhov viac. Hľadajte s podrobnejšími nastaveniami.
+        no_proposals: Žiadne návrhy nezodpovedajú vašim kritériám vyhľadávania alebo nie sú žiadne plánované.
+      publish:
+        error: Pri publikovaní návrhu došlo k chybám.
+        success: Návrh bol úspešne publikovaný.
+      publish_answers:
+        success: Odpovede na návrhy boli úspešne publikované.
+      update:
+        error: Pri ukladaní návrhu došlo k chybám.
+        success: Návrh bol úspešne aktualizovaný.
+      update_draft:
+        error: Pri ukladaní konceptu návrhu došlo k chybám.
+        success: Návrh návrhu bol úspešne aktualizovaný.
+      versions:
+        changes_at_title: Zmeny na "%{title}"
+        index:
+          title: Verze
+        stats:
+          back_to_collaborative_draft: Vraťte se zpět do kolektivní schůzky
+          back_to_proposal: Vraťte se k návrhu
+          number_of_versions: Verze
+          show_all_versions: Zobrazit všechny verze
+          version_author: Autor verze
+          version_created_at: Verze vytvořena v
+          version_number: Číslo verze
+          version_number_out_of_total: "%{current_version} z %{total_count}"
+        version:
+          version_index: Verze %{index}
+      withdraw:
+        errors:
+          has_supports: Tento návrh nelze stáhnout, protože již má podporu.
+    resource_links:
+      copied_from_component:
+        proposal_proposal: Související návrhy
+      included_projects:
+        project_result: 'Výsledky zobrazené v tomto projektu:'
+      included_proposals:
+        proposal_project: 'Návrh se objevuje v těchto projektech:'
+        proposal_result: 'Návrh se objeví v těchto výsledcích:'

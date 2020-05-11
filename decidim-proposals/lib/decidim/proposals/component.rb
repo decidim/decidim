@@ -20,7 +20,6 @@ Decidim.register_component(:proposals) do |component|
   component.query_type = "Decidim::Proposals::ProposalsType"
 
   component.permissions_class_name = "Decidim::Proposals::Permissions"
-  component.component_form_class_name = "Decidim::Proposals::Admin::ComponentForm"
 
   component.settings(:global) do |settings|
     settings.attribute :vote_limit, type: :integer, default: 0
@@ -38,7 +37,9 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :allow_card_image, type: :boolean, default: false
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :collaborative_drafts_enabled, type: :boolean, default: false
-    settings.attribute :participatory_texts_enabled, type: :boolean, default: false
+    settings.attribute :participatory_texts_enabled,
+                       type: :boolean, default: false,
+                       readonly: ->(context) { Decidim::Proposals::Proposal.where(component: context[:component]).any? }
     settings.attribute :amendments_enabled, type: :boolean, default: false
     settings.attribute :amendments_wizard_help_text, type: :text, translated: true, editor: true, required: false
     settings.attribute :announcement, type: :text, translated: true, editor: true
@@ -64,7 +65,9 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :amendment_creation_enabled, type: :boolean, default: true
     settings.attribute :amendment_reaction_enabled, type: :boolean, default: true
     settings.attribute :amendment_promotion_enabled, type: :boolean, default: true
-    settings.attribute :amendments_visibility, type: :string, default: "all"
+    settings.attribute :amendments_visibility,
+                       type: :enum, default: "all",
+                       choices: -> { Decidim.config.amendments_visibility_options }
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :automatic_hashtags, type: :text, editor: false, required: false
     settings.attribute :suggested_hashtags, type: :text, editor: false, required: false

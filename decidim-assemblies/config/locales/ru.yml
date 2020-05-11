@@ -16,6 +16,7 @@ ru:
         created_by_other: Создано кем-то еще
         creation_date: Дата создания
         decidim_area_id: Участок
+        decidim_assemblies_type_id: Вид собрания
         decidim_scope_id: Охват
         description: Описание
         developer_group: Рабочая группа по продвижению
@@ -104,6 +105,9 @@ ru:
         create:
           error: При попытке создать копию этого собрания произошла ошибка.
           success: Успешно создана копия собрания.
+      assemblies_types:
+        new:
+          create: Добавить
       assembly_copies:
         new:
           copy: Копировать
@@ -164,6 +168,10 @@ ru:
           moderations: Действия по модерации
           private_users: Частные участники
       models:
+        assemblies_types:
+          fields:
+            created_at: 'Добавлено:'
+            title: Название
         assembly:
           fields:
             created_at: 'Добавлено:'
@@ -222,6 +230,9 @@ ru:
             slug_help: 'Сокращенные веб-адреса используются для создания ссылок на это собрание. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
             social_handlers: Социальные сети
             title: Общие сведения
+        assemblies_types:
+          form:
+            title: Название
         assembly_copies:
           form:
             slug_help: 'Сокращенные веб-адреса используются для создания ссылок на это собрание. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'

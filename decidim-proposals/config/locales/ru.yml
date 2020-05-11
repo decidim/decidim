@@ -49,6 +49,20 @@ ru:
         many: Голосов
         other: Голосов
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          values:
+            'false': Предложения
+        state_eq:
+          values:
+            accepted: Принято
+            evaluating: Рассматривается
+            rejected: Отклонено
+            withdrawn: Отозван
+        state_null:
+          values:
+            'true': Без ответов
     components:
       proposals:
         actions:
@@ -159,6 +173,10 @@ ru:
             name: Предложение
         proposal_answers:
           form:
+            accepted: Принято
+            answer_proposal: Ответить
+            evaluating: Рассматривается
+            rejected: Отклонено
             title: Ответ на предложение %{title}
         proposal_notes:
           create:
@@ -183,7 +201,6 @@ ru:
             actions: Действия
             cancel: Отменить
             change_category: Изменить категорию
-            publish: Обнародовать
             selected: выбранные
             title: Предложения
             update: Обновить
@@ -194,6 +211,7 @@ ru:
             select_a_proposal: Пожалуйста, выберите предложение
           show:
             created_at: Дата создания
+            proposals: Предложения
             votes_count: Количество голосов
           update_category:
             select_a_category: Пожалуйста, выберите категорию
@@ -225,6 +243,8 @@ ru:
         filter_origin_values:
           citizens: Граждане
           official: Служебные
+        filter_state_values:
+          not_answered: Без ответов
       create:
         error: При попытке сохранить это предложение произошли ошибки.
         success: Предложение успешно создано. Сохранено как черновик.
