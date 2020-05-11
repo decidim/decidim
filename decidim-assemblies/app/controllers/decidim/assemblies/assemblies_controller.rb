@@ -89,7 +89,7 @@ module Decidim
       end
 
       def current_assemblies_settings
-        @current_assemblies_settings = Decidim::AssembliesSetting.find_or_create_by(decidim_organization_id: current_organization.id)
+        @current_assemblies_settings ||= Decidim::AssembliesSetting.find_or_create_by(decidim_organization_id: current_organization.id)
       end
     end
   end

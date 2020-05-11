@@ -14,7 +14,6 @@ module Decidim
 
         before do
           request.env["decidim.current_organization"] = organization
-          request.env["decidim.current_assemblies_settings"] = assemblies_setting
           sign_in current_user
         end
 

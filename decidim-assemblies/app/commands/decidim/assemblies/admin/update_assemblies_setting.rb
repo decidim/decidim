@@ -4,7 +4,7 @@ module Decidim
   module Assemblies
     module Admin
       # A command with all the business logic when updating assemblies
-      # settings in the system.
+      # settings in admin area.
       class UpdateAssembliesSetting < Rectify::Command
         # Public: Initializes the command.
         #
