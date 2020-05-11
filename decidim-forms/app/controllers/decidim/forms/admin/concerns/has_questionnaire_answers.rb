@@ -53,7 +53,7 @@ module Decidim
               # i18n-tasks-use t("decidim.forms.admin.questionnaires.answers.export_response.title")
               title = t("export_response.title", scope: i18n_scope, token: session_token)
 
-              generate_answer_pdf(title, answers.select { |a| a.first.session_token == session_token })
+              Decidim::Forms::ExportQuestionnaireAnswersJob.perform_later(current_user, title, answers.select { |a| a.first.session_token == session_token })
 
               flash[:notice] = t("decidim.admin.exports.notice")
 
@@ -70,13 +70,6 @@ module Decidim
 
             def i18n_scope
               "decidim.forms.admin.questionnaires.answers"
-            end
-
-            def generate_answer_pdf(title, collection)
-              serializer = Decidim::Forms::UserAnswersSerializer
-              export_data = Decidim::Exporters::FormPDF.new(collection, serializer).export
-
-              ExportMailer.export(current_user, title, export_data).deliver_now
             end
 
             def questionnaire
