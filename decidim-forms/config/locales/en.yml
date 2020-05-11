@@ -62,6 +62,7 @@ en:
           question:
             add_answer_option: Add answer option
             add_display_condition: Add display condition
+            add_display_condition_info: Save the form to configure display conditions
             add_matrix_row: Add row
             any: Any
             description: Description
