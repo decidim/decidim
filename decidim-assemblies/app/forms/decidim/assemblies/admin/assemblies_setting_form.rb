@@ -5,7 +5,6 @@ module Decidim
     module Admin
       # A form object used to create assembly setting from the admin dashboard.
       class AssembliesSettingForm < Form
-
         mimic :assemblies_setting
 
         attribute :enable_organization_chart, Boolean
