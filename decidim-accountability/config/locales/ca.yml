@@ -58,17 +58,11 @@ ca:
           edit:
             title: Editar resultat
             update: Actualitza resultat
-          form:
-            add_proposal: Afegir proposta
           index:
             title: Resultats
           new:
             create: Crear resultat
             title: Nou resultat
-          proposals:
-            close: Tancar
-            current_selection: Selecció actual
-            select: Seleccionar
           update:
             invalid: S'ha produït un error en actualitzar aquest resultat
             success: El resultat ha estat actualitzat correctament

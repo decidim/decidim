@@ -9,6 +9,12 @@ cs:
         translatable_text: Přeložitelný text
         updated_at: Aktualizováno na
   decidim:
+    components:
+      dummy:
+        settings:
+          step:
+            endorsements_blocked: Schvalování blokováno
+            endorsements_enabled: Schvalování povoleno
     dummy:
       admin:
         exports:

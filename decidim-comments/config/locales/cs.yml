@@ -86,6 +86,9 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{author_name}. Tento uživatel můžete zrušit ze své profilové stránky.
           email_subject: K dispozici je nový komentář %{author_name} v %{resource_title}
           notification_title: K dispozici je nový komentář <a href="%{author_path}">%{author_name} %{author_nickname}</a> v <a href="%{resource_path}">%{resource_title}</a>.
+        comment_by_followed_user_group:
+          email_subject: K dispozici je nový komentář %{author_name} v %{resource_title}
+          notification_title: K dispozici je nový komentář <a href="%{author_path}">%{author_name} %{author_nickname}</a> v <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} bylo komentováno. Můžete si přečíst komentář na této stránce:"
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{resource_title}" nebo jeho autora. Můžete jej odhlásit od předchozího odkazu.

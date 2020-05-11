@@ -77,6 +77,9 @@ uk:
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{author_name}. Ви можете припинити стежити за ним на сторінці його профілю.
           email_subject: У %{resource_title} з'явився новий коментар від %{author_name}
           notification_title: У <a href="%{resource_path}">%{resource_title}</a> з'явився новий коментар від <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        comment_by_followed_user_group:
+          email_subject: У %{resource_title} з'явився новий коментар від %{author_name}
+          notification_title: У <a href="%{resource_path}">%{resource_title}</a> з'явився новий коментар від <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         comment_created:
           email_intro: "%{resource_title} прокоментували. Ви можете прочитати коментар на сторінці:"
           email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.

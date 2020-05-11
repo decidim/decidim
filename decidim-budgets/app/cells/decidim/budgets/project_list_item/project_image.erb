@@ -1,0 +1,5 @@
+<% if model.photos.first %>
+  <div class="budget-list__image">
+    <%= image_tag model.photos.first.thumbnail_url, alt: resource_title %>
+  </div>
+<% end %>

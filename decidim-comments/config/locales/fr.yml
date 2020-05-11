@@ -76,6 +76,9 @@ fr:
           email_outro: Vous avez reçu cette notification, car vous suivez %{author_name}. Vous pouvez vous désabonner de cet utilisateur depuis sa page de profil.
           email_subject: Un nouveau commentaire vient d'être déposé par %{author_name} dans %{resource_title}
           notification_title: Un nouveau commentaire a été publié par <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>.
+        comment_by_followed_user_group:
+          email_subject: Un nouveau commentaire vient d'être déposé par %{author_name} dans %{resource_title}
+          notification_title: Un nouveau commentaire a été publié par <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} a été commenté. Vous pouvez lire le commentaire sur cette page :"
           email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}" ou son auteur. Vous pouvez vous désabonner à partir du lien précédant.
