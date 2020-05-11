@@ -52,7 +52,7 @@ module Decidim
                 format.json do
                   question_id = params["id"]
                   question = Question.find_by(id: question_id)
-                  render json: question.answer_options.map { |answer_option| AnswerOptionPresenter.new(answer_option).json } if question.present?
+                  render json: question.answer_options.map { |answer_option| AnswerOptionPresenter.new(answer_option).as_json } if question.present?
                 end
               end
             end
