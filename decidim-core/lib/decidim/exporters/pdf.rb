@@ -18,7 +18,7 @@ module Decidim
         html = controller.render_to_string(
           template: template,
           layout: layout,
-          locals: { collection: participants }
+          locals: locals
         )
 
         document = WickedPdf.new.pdf_from_string(html, orientation: orientation)
@@ -41,14 +41,15 @@ module Decidim
         raise NotImplementedError
       end
 
+      # This method may be overwritten if the template needs more local variables
+      def locals
+        { collection: collection }
+      end
+
       protected
 
       def controller
         @controller ||= ActionController::Base.new
-      end
-
-      def participants
-        collection.map { |answer| Decidim::Forms::Admin::QuestionnaireParticipantPresenter.new(participant: answer.first) }
       end
     end
   end

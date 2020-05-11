@@ -25,6 +25,13 @@ module Decidim
       def layout
         "decidim/forms/admin/questionnaires/questionnaire_answers.html.erb"
       end
+
+      def locals
+        {
+          questionnaire: collection.first.first.questionnaire,
+          collection: collection.map { |answer| Decidim::Forms::Admin::QuestionnaireParticipantPresenter.new(participant: answer.first) }
+        }
+      end
     end
   end
 end
