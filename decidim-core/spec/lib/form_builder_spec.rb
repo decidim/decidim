@@ -607,6 +607,19 @@ module Decidim
           end
         end
       end
+
+      context "when :dimensions_info is passed as option" do
+        let(:attributes) { { dimensions_info: { medium: { processor: :resize_to_fit, dimensions: [100, 100] } } } }
+        let(:output) { builder.upload :image, attributes }
+
+        it "renders help message" do
+          html = output
+          expect(html).to include("<span>This image will be:</span>")
+          expect(html).to include("<span>Resized to fit</span>")
+          expect(html).to include("<b>100 x 100 px</b>")
+          expect(parsed.css("p.help-text")).not_to be_empty
+        end
+      end
     end
 
     describe "#data_picker" do
