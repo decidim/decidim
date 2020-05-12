@@ -3,6 +3,9 @@
 module Decidim
   module Forms
     # The data store for an Answer in the Decidim::Forms
+    #
+    # This model represents the an answer to a question in a questionnaire,
+    # by a given user.
     class Answer < Forms::ApplicationRecord
       include Decidim::DataPortability
       include Decidim::NewsletterParticipant
