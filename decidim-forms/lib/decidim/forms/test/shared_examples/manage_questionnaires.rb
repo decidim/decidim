@@ -213,7 +213,11 @@ shared_examples_for "manage questionnaires" do
     end
 
     it "does not incorrectly reorder when clicking matrix rows" do
+      # Unable to find visible select box "Type" that is not disabled and Unable to find input box with datalist completion "Type" that is not disabled
+
       click_button "Add question"
+      expand_all_questions
+
       select "Matrix (Multiple option)", from: "Type"
       2.times { click_button "Add row" }
 
@@ -275,6 +279,8 @@ shared_examples_for "manage questionnaires" do
 
     it "does not preserve spurious matrix rows from previous type selections" do
       click_button "Add question"
+      expand_all_questions
+
       select "Matrix (Single option)", from: "Type"
 
       within ".questionnaire-question-matrix-row:first-of-type" do
@@ -284,6 +290,7 @@ shared_examples_for "manage questionnaires" do
       select "Long answer", from: "Type"
 
       click_button "Save"
+      expand_all_questions
 
       select "Matrix (Single option)", from: "Type"
 
@@ -326,6 +333,8 @@ shared_examples_for "manage questionnaires" do
 
     it "preserves matrix rows form across submission failures" do
       click_button "Add question"
+      expand_all_questions
+
       select "Matrix (Multiple option)", from: "Type"
 
       within ".questionnaire-question-matrix-row:first-of-type" do
@@ -335,6 +344,7 @@ shared_examples_for "manage questionnaires" do
       click_button "Add row"
 
       click_button "Save"
+      expand_all_questions
 
       within ".questionnaire-question-matrix-row:first-of-type" do
         expect(page).to have_nested_field("body_en", with: "Something")
@@ -428,6 +438,7 @@ shared_examples_for "manage questionnaires" do
 
         within "form.edit_questionnaire" do
           click_button "Add question"
+          expand_all_questions
 
           within ".questionnaire-question" do
             fill_in find_nested_form_field_locator("body_en"), with: "This is the first question"
@@ -471,6 +482,7 @@ shared_examples_for "manage questionnaires" do
         expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
 
         click_button "Add question"
+        expand_all_questions
 
         within(".questionnaire-question:last-of-type") do
           select "Matrix (Multiple option)", from: "Type"
@@ -676,7 +688,7 @@ shared_examples_for "manage questionnaires" do
       end
 
       before do
-        visit questionnaire_edit_path
+        visit_questionnaire_edit_path_and_expand_all
       end
 
       it "allows deleting matrix rows" do
@@ -686,7 +698,7 @@ shared_examples_for "manage questionnaires" do
 
         click_button "Save"
 
-        visit questionnaire_edit_path
+        visit_questionnaire_edit_path_and_expand_all
 
         within ".questionnaire-question:last-of-type" do
           expect(page).to have_selector(".questionnaire-question-matrix-row", count: 2)
@@ -711,7 +723,7 @@ shared_examples_for "manage questionnaires" do
 
         expect(page).to have_admin_callout("successfully")
 
-        visit questionnaire_edit_path
+        visit_questionnaire_edit_path_and_expand_all
 
         within "form.edit_questionnaire" do
           expect(page).to have_selector(".questionnaire-question", count: 1)
