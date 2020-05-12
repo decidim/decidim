@@ -4,7 +4,7 @@
     padding-bottom: 60%;
     position: relative;
   }
-  
+
   #minimap {
     position: absolute;
     top: 0; bottom: 0; left: 0; right: 0;
@@ -91,10 +91,10 @@
       <% if current_organization.favicon.present? %>
         <%= image_tag current_organization.favicon.url, id: "favicon" %>
       <% else %>
-        <%= content_tag :div, nil, { id: "favicon", class: "placeholder", style: "width: #{image_width(current_organization, :favicon) * size_factor }px; height: #{image_height(current_organization, :favicon) * size_factor }px;"} do %>
+        <%= content_tag :div, nil, { id: "favicon", class: "placeholder", style: "width: #{image_width(current_organization, :favicon) * size_factor }px; height: #{image_height(current_organization, :favicon) * size_factor }px;" } do %>
         <% end %>
       <% end %>
-      
+
       <span> &lt; <%= t("favicon", scope: "activemodel.attributes.organization") %></span>
     </div>
 
@@ -102,7 +102,7 @@
       <% if current_organization.logo.present? %>
         <%= image_tag current_organization.logo.url, id: "logo" %>
       <% else %>
-        <%= content_tag :div, nil, { id: "logo", class: "placeholder", style: "width: #{image_width(current_organization, :logo) * size_factor }px; height: #{image_height(current_organization, :logo) * size_factor }px;"} do %>
+        <%= content_tag :div, nil, { id: "logo", class: "placeholder", style: "width: #{image_width(current_organization, :logo) * size_factor }px; height: #{image_height(current_organization, :logo) * size_factor }px;" } do %>
           <span><%= t("logo", scope: "activemodel.attributes.organization") %></span>
         <% end %>
       <% end %>
@@ -111,7 +111,7 @@
         <%= image_tag current_organization.official_img_header.url, id: "official_img_header" %>
       <% else %>
         <span class="float-right"><%= t("official_img_header", scope: "activemodel.attributes.organization") %> &gt; </span>
-        <%= content_tag :div, nil, { id: "official_img_header", class: "placeholder float-right", style: "width: #{image_width(current_organization, :official_img_header) * size_factor }px; height: #{image_height(current_organization, :official_img_header) * size_factor }px;"} %>
+        <%= content_tag :div, nil, { id: "official_img_header", class: "placeholder float-right", style: "width: #{image_width(current_organization, :official_img_header) * size_factor }px; height: #{image_height(current_organization, :official_img_header) * size_factor }px;" } %>
       <% end %>
 
     </div>
@@ -123,7 +123,7 @@
       <% if current_organization.official_img_footer.present? %>
         <%= image_tag current_organization.official_img_footer.url, id: "official_img_footer" %>
       <% else %>
-        <%= content_tag :div, nil, { id: "official_img_footer", class: "placeholder", style: "width: #{image_width(current_organization, :official_img_footer) * size_factor }px; height: #{image_height(current_organization, :official_img_footer) * size_factor }px;"} do %>
+        <%= content_tag :div, nil, { id: "official_img_footer", class: "placeholder", style: "width: #{image_width(current_organization, :official_img_footer) * size_factor }px; height: #{image_height(current_organization, :official_img_footer) * size_factor }px;" } do %>
         <span><%= t("official_img_footer", scope: "activemodel.attributes.organization") %></span>
         <% end %>
       <% end %>

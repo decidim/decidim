@@ -1,54 +1,33 @@
-<style>
-.organization-images-upload {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 3rem;
-}
-
-.organization-images-upload img {
-  max-height: 180px;
-}
-
-.organization-images-upload > div {
-  background-color: #eee;
-  border-radius: 4px;
-  padding: 1rem;
-}
-
-.organization-images-upload > div:first-child {
-  background-color: #c0c0c0;
-}
-
-</style>
-
 <div class="card">
   <div class="card-divider">
     <h2 class="card-title"><%= t ".layout_appearance_title" %></h2>
   </div>
 
   <div class="card-section">
-    <div class="organization-images-upload">
-      <div class="preview-minimap">
-        <label for="minimap"><%= t(".preview") %></label>
-        <%= render "decidim/admin/organization_appearance/form/minimap" %>
-      </div>
-      <div class="preview-favicon">
+    <div class="minimap">
+      <label for="minimap"><%= t(".preview") %></label>
+      <%= render "decidim/admin/organization_appearance/form/minimap" %>
+    </div>
+
+    <div class="organization-images">  
+      <div class="preview">
         <%= form.upload :favicon, dimensions_info: current_organization.favicon.dimensions_info %>
       </div>
-      
-      <div class="preview-logo">
+
+      <div class="preview">
         <%= form.upload :logo, dimensions_info: current_organization.logo.dimensions_info %>
       </div>
 
-      <div class="preview-official_img_header">
+      <div class="preview">
         <%= form.upload :official_img_header, dimensions_info: current_organization.official_img_header.dimensions_info %>
       </div>
 
-      <div class="preview-official_img_footer">
+      <div class="preview">
         <%= form.upload :official_img_footer, dimensions_info: current_organization.official_img_footer.dimensions_info %>
       </div>
     </div>
   </div>
+
   <div class="card-section">
     <div class="row" style="display: grid; grid-template-columns: 1fr 1fr;">
       <div class="preview-official_url">

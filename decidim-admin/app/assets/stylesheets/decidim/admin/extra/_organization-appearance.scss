@@ -1,0 +1,32 @@
+.organization-images {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(200px, 1fr));
+  grid-gap: 3rem;
+  margin-top: 3rem;
+  
+  @include breakpoint(medium down) {
+    grid-template-columns: 1fr;
+  }
+  
+  img {
+    height: 180px;
+  }
+  
+  .image-dimensions-help {
+    margin-top: 0;
+  }
+
+  .preview {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  label:not(:first-child) {
+    margin-top: auto;
+  }
+}
+
+.minimap {
+  max-width: 500px;
+}
