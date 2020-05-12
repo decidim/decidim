@@ -13,8 +13,18 @@ describe "Admin manages surveys", type: :system do
   it_behaves_like "export survey user answers"
   it_behaves_like "manage announcements"
 
-  def questionnaire_edit_path
-    manage_component_path(component)
+  def visit_questionnaire_edit_path(questionnaire = nil)
+    visit manage_component_path(component)
+
+    selector = if questionnaire
+                 find("tbody tr", text: translated(questionnaire.title))
+               else
+                 find("tbody tr")
+               end
+
+    within selector do
+      find("a", class: "action-icon--edit-questionnaire").click
+    end
   end
 
   def questionnaire_public_path

@@ -12,7 +12,7 @@ shared_examples_for "manage questionnaires" do
   end
 
   it "updates the questionnaire" do
-    visit questionnaire_edit_path
+    visit_questionnaire_edit_path
 
     new_description = {
       en: "<p>New description</p>",
@@ -34,7 +34,7 @@ shared_examples_for "manage questionnaires" do
 
   context "when the questionnaire is not already answered" do
     before do
-      visit questionnaire_edit_path
+      visit_questionnaire_edit_path
     end
 
     it "adds a few questions to the questionnaire" do
@@ -372,7 +372,7 @@ shared_examples_for "manage questionnaires" do
 
     context "when adding a multiple option question" do
       before do
-        visit questionnaire_edit_path
+        visit_questionnaire_edit_path
 
         within "form.edit_questionnaire" do
           click_button "Add question"
@@ -434,7 +434,7 @@ shared_examples_for "manage questionnaires" do
 
     context "when adding a matrix question" do
       before do
-        visit questionnaire_edit_path
+        visit_questionnaire_edit_path
 
         within "form.edit_questionnaire" do
           click_button "Add question"
@@ -580,7 +580,7 @@ shared_examples_for "manage questionnaires" do
 
         expect(page).to have_admin_callout("successfully")
 
-        visit questionnaire_edit_path
+        visit_questionnaire_edit_path
 
         within "form.edit_questionnaire" do
           expect(page).to have_selector(".questionnaire-question", count: 0)
@@ -621,7 +621,7 @@ shared_examples_for "manage questionnaires" do
       end
 
       before do
-        visit questionnaire_edit_path
+        visit_questionnaire_edit_path
       end
 
       it "allows deleting answer options" do
@@ -934,7 +934,7 @@ shared_examples_for "manage questionnaires" do
     let!(:answer) { create(:answer, questionnaire: questionnaire, user: question_answer.user) }
 
     it "cannot modify questionnaire questions" do
-      visit questionnaire_edit_path
+      visit_questionnaire_edit_path
 
       expect(page).to have_no_content("Add question")
       expect(page).to have_no_content("Remove")
