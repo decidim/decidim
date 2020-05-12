@@ -373,14 +373,11 @@ en:
         filters:
           any: Any
           author: Author
-          closed: Closed
           myself: My initiatives
-          open: Open
-          search: Search
           scope: Scope
+          search: Search
           state: Status
           type: Type
-          type_prompt: Select a type
         filters_small_view:
           close_modal: Close window
           filter: Filter
