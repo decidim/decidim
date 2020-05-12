@@ -10,12 +10,23 @@ module Decidim
         #
         # The only requirement is to define a `questionnaire_for` method that
         # returns an instance of the model that questionnaire belongs to.
-        module HasQuestionnaire
+        module HasQuestionnaires
           extend ActiveSupport::Concern
 
           included do
             helper Decidim::Forms::Admin::ApplicationHelper
-            helper_method :questionnaire_for, :questionnaire, :blank_question, :blank_answer_option, :blank_matrix_row, :question_types, :update_url
+            helper_method :questionnaire_for,
+                          :questionnaire,
+                          :questionnaires,
+                          :blank_question,
+                          :blank_answer_option,
+                          :blank_matrix_row,
+                          :question_types,
+                          :update_url
+
+            def index
+              render template: "decidim/forms/admin/questionnaires/index"
+            end
 
             def edit
               enforce_permission_to :update, :questionnaire, questionnaire: questionnaire
@@ -55,13 +66,13 @@ module Decidim
             # You can implement this method in your controller to change the URL
             # where the questionnaire will be submitted.
             def update_url
-              url_for(questionnaire.questionnaire_for)
+              url_for(questionnaire)
             end
 
             # You can implement this method in your controller to change the URL
             # where the user will be redirected after updating the questionnaire
             def after_update_url
-              url_for(questionnaire.questionnaire_for)
+              url_for(action: :index)
             end
 
             private
@@ -71,7 +82,13 @@ module Decidim
             end
 
             def questionnaire
-              @questionnaire ||= Questionnaire.find_by(questionnaire_for: questionnaire_for)
+              @questionnaire ||= questionnaires.find_by(id: params[:id])
+            end
+
+            def questionnaires
+              @questionnaires ||=
+                Questionnaire
+                .where(questionnaire_for: questionnaire_for)
             end
 
             def blank_question

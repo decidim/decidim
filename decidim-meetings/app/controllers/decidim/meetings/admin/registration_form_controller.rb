@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This controller allows an admin to manage the form to be filled when an user joins the meeting
       class RegistrationFormController < Admin::ApplicationController
-        include Decidim::Forms::Admin::Concerns::HasQuestionnaire
+        include Decidim::Forms::Admin::Concerns::HasQuestionnaires
 
         def questionnaire_for
           meeting

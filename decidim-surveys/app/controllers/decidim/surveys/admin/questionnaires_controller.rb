@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This controller allows the user to update a Page.
       class QuestionnairesController < Admin::ApplicationController
-        include Decidim::Forms::Admin::Concerns::HasMultipleQuestionnaires
+        include Decidim::Forms::Admin::Concerns::HasQuestionnaires
 
         def questionnaire_for
           survey
