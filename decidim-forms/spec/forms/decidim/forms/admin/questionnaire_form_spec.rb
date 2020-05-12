@@ -8,6 +8,7 @@ module Decidim
       describe QuestionnaireForm do
         subject do
           described_class.from_params(attributes).with_context(
+            questionnaire_for: current_organization,
             current_organization: current_organization
           )
         end

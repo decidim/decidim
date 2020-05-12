@@ -12,11 +12,21 @@ module Decidim
           return permission_action if permission_action.subject != :questionnaire
 
           case permission_action.action
-          when :export_answers, :update, :create
+          when :export_answers, :update
             permission_action.allow!
+          when :create
+            toggle_allow(survey_has_no_answers?)
           end
 
           permission_action
+        end
+
+        def survey_has_no_answers?
+          survey.questionnaire_answers.empty?
+        end
+
+        def survey
+          @survey ||= Decidim::Surveys::Survey.find_by(component: component)
         end
       end
     end

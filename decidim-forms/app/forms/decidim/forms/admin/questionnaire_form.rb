@@ -14,14 +14,20 @@ module Decidim
         attribute :published_at, Decidim::Attributes::TimeWithZone
         attribute :questions, Array[QuestionForm]
         attribute :questions_editable, Boolean, default: true
+        attribute :questionnaire_for
 
         validates :title, :tos, translatable_presence: true
+        validates :questionnaire_for, presence: true
 
         def map_model(model)
           self.questions = model.questions.map do |question|
             QuestionForm.from_model(question)
           end
           self.questions_editable = model.questions_editable?
+        end
+
+        def questionnaire_for
+          @questionnaire_for || context.questionnaire_for
         end
       end
     end

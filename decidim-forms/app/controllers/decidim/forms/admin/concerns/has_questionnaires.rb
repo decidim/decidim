@@ -32,9 +32,29 @@ module Decidim
             def new
               enforce_permission_to :create, :questionnaire
 
-              @form = form(Admin::QuestionnaireForm).from_params({})
+              @form = form(Admin::QuestionnaireForm).from_params({}, questionnaire_for: questionnaire_for)
 
               render template: "decidim/forms/admin/questionnaires/new"
+            end
+
+            def create
+              enforce_permission_to :create, :questionnaire
+
+              @form = form(Admin::QuestionnaireForm).from_params(params, questionnaire_for: questionnaire_for)
+
+              Admin::CreateQuestionnaire.call(@form) do
+                on(:ok) do
+                  # i18n-tasks-use t("decidim.forms.admin.questionnaires.create.success")
+                  flash[:notice] = I18n.t("create.success", scope: i18n_flashes_scope)
+                  redirect_to after_create_url
+                end
+
+                on(:invalid) do
+                  # i18n-tasks-use t("decidim.forms.admin.questionnaires.create.invalid")
+                  flash.now[:alert] = I18n.t("create.invalid", scope: i18n_flashes_scope)
+                  render template: "decidim/forms/admin/questionnaires/edit"
+                end
+              end
             end
 
             def edit
@@ -48,8 +68,7 @@ module Decidim
             def update
               enforce_permission_to :update, :questionnaire, questionnaire: questionnaire
 
-              params["published_at"] = Time.current if params.has_key? "save_and_publish"
-              @form = form(Admin::QuestionnaireForm).from_params(params)
+              @form = form(Admin::QuestionnaireForm).from_params(params, questionnaire_for: questionnaire_for)
 
               Admin::UpdateQuestionnaire.call(@form, questionnaire) do
                 on(:ok) do
@@ -87,6 +106,12 @@ module Decidim
             # You can implement this method in your controller to change the URL
             # where the user will be redirected after updating the questionnaire
             def after_update_url
+              url_for(action: :index)
+            end
+
+            # You can implement this method in your controller to change the URL
+            # where the user will be redirected after creating the questionnaire
+            def after_create_url
               url_for(action: :index)
             end
 

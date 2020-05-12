@@ -15,6 +15,10 @@ module Decidim
                  dependent: :destroy,
                  inverse_of: :questionnaire_for,
                  as: :questionnaire_for
+
+        def questionnaire_answers
+          Decidim::Forms::QuestionnaireAnswer.where(questionnaire: questionnaires)
+        end
       end
     end
   end

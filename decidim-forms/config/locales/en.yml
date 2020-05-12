@@ -31,6 +31,9 @@ en:
             free_text: Free text
             remove: Remove
             statement: Statement
+          create:
+            invalid: There was a problem saving the form.
+            success: Form successfully created.
           edit:
             save: Save
             title: Edit questionnaire

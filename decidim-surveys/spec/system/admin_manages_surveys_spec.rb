@@ -9,9 +9,16 @@ describe "Admin manages surveys", type: :system do
 
   include_context "when managing a component as an admin"
 
+  it_behaves_like "create questionnaires"
   it_behaves_like "manage questionnaires"
   it_behaves_like "export survey user answers"
   it_behaves_like "manage announcements"
+
+  def visit_create_questionnaire_path
+    visit manage_component_path(component)
+
+    click_link "Create"
+  end
 
   def visit_questionnaire_edit_path(questionnaire = nil)
     visit manage_component_path(component)

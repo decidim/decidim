@@ -12,6 +12,7 @@ describe Decidim::Surveys::Admin::Permissions do
     }
   end
   let(:survey_component) { create :surveys_component }
+  let!(:survey) { create :survey, component: survey_component }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
 
   context "when scope is not admin" do
@@ -52,6 +53,14 @@ describe Decidim::Surveys::Admin::Permissions do
     end
 
     it { is_expected.to eq true }
+
+    context "when it has answers" do
+      it "is not allowed" do
+        create :answer, questionnaire: survey.questionnaires.first
+
+        expect(subject).to eq false
+      end
+    end
   end
 
   context "when updating a survey" do

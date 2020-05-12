@@ -5,11 +5,9 @@ require "spec_helper"
 module Decidim
   module Forms
     module Admin
-      describe UpdateQuestionnaire do
+      describe CreateQuestionnaire do
         let(:current_organization) { create(:organization) }
         let(:participatory_process) { create(:participatory_process, organization: current_organization) }
-        let(:questionnaire) { create(:questionnaire, questionnaire_for: participatory_process) }
-        let(:published_at) { nil }
         let(:form_params) do
           {
             "title" => {
@@ -188,8 +186,7 @@ module Decidim
                   }
                 }
               }
-            },
-            "published_at" => published_at
+            }
           }
         end
         let(:form) do
@@ -200,7 +197,7 @@ module Decidim
             current_organization: current_organization
           )
         end
-        let(:command) { described_class.new(form, questionnaire) }
+        let(:command) { described_class.new(form) }
 
         describe "when the form is invalid" do
           before do
@@ -211,20 +208,20 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't update the questionnaire" do
-            expect(questionnaire).not_to receive(:update!)
-            command.call
+          it "doesn't create a questionnaire" do
+            expect { command.call }.not_to change(Decidim::Forms::Questionnaire, :count)
           end
         end
 
         describe "when the form is valid" do
+          let(:questionnaire) { Decidim::Forms::Questionnaire.last }
+
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
           end
 
-          it "updates the questionnaire" do
+          it "creates the questionnaire" do
             command.call
-            questionnaire.reload
 
             expect(questionnaire.description["en"]).to eq("<p>Content</p>")
             expect(questionnaire.questions.length).to eq(6)
@@ -256,48 +253,6 @@ module Decidim
             expect(questionnaire.questions[5].question_type).to eq("matrix_multiple")
             expect(questionnaire.questions[5].answer_options[0].free_text).to eq(true)
             expect(questionnaire.questions[5].matrix_rows[0].body["en"]).to eq(form_params["questions"]["5"]["matrix_rows"]["0"]["body"]["en"])
-          end
-        end
-
-        describe "when the questionnaire has an existing question" do
-          let!(:question) { create(:questionnaire_question, questionnaire: questionnaire) }
-
-          context "and the question should be removed" do
-            let(:form_params) do
-              {
-                "title" => {
-                  "en" => "Title",
-                  "ca" => "Title",
-                  "es" => "Title"
-                },
-                "description" => {
-                  "en" => "<p>Content</p>",
-                  "ca" => "<p>Contingut</p>",
-                  "es" => "<p>Contenido</p>"
-                },
-                "tos" => {
-                  "en" => "<p>TOS</p>",
-                  "ca" => "<p>TOS</p>",
-                  "es" => "<p>TOS</p>"
-                },
-                "questions" => [
-                  {
-                    "id" => question.id,
-                    "body" => question.body,
-                    "position" => 0,
-                    "question_type" => "short_answer",
-                    "deleted" => "true"
-                  }
-                ]
-              }
-            end
-
-            it "deletes the questionnaire question" do
-              command.call
-              questionnaire.reload
-
-              expect(questionnaire.questions.length).to eq(0)
-            end
           end
         end
       end

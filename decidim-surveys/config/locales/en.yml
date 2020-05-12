@@ -48,9 +48,12 @@ en:
         exports:
           survey_user_answers: Survey participant answers
         surveys:
+          create:
+            invalid: There was a problem saving the questionnaire.
+            success: Questionnaire successfully saved.
           update:
-            invalid: There was a problem saving the survey.
-            success: Survey successfully saved.
+            invalid: There was a problem saving the questionnaire.
+            success: Questionnaire successfully saved.
       last_activity:
         new_survey_at_html: "<span>New survey at %{link}</span>"
       surveys:
