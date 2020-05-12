@@ -12,8 +12,8 @@ describe "Admin manages meetings registration forms", type: :system do
 
   it_behaves_like "manage questionnaires"
 
-  def questionnaire_edit_path
-    Decidim::EngineRouter.admin_proxy(component).edit_meeting_registrations_form_path(meeting_id: meeting.id)
+  def visit_questionnaire_edit_path
+    visit Decidim::EngineRouter.admin_proxy(component).edit_meeting_registrations_form_path(meeting_id: meeting.id)
   end
 
   def questionnaire_public_path

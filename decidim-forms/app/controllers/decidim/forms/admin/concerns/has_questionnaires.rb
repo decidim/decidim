@@ -30,7 +30,7 @@ module Decidim
             end
 
             def new
-              enforce_permission_to :create, :questionnaire, questionnaire: questionnaire
+              enforce_permission_to :create, :questionnaire
 
               @form = form(Admin::QuestionnaireForm).from_params({})
 

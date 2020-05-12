@@ -7,6 +7,10 @@ module Decidim
       class RegistrationFormController < Admin::ApplicationController
         include Decidim::Forms::Admin::Concerns::HasQuestionnaires
 
+        def questionnaire
+          @questionnaire ||= questionnaires.first
+        end
+
         def questionnaire_for
           meeting
         end
