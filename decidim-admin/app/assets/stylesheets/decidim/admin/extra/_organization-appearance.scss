@@ -30,3 +30,88 @@
 .minimap {
   max-width: 500px;
 }
+
+#minimap-wrapper {
+  width: 100%;
+  padding-bottom: 60%;
+  position: relative;
+}
+
+#minimap {
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  display: grid;
+  grid-template-areas: "tab blank blank"
+                      "header header header"
+                      "navbar navbar navbar"
+                      "body body body"
+                      "footer footer footer";
+  grid-template-columns: 20% 1fr 1fr;
+  grid-template-rows: 20px 54px 32px 1fr 64px;
+  
+  img,
+  .placeholder {
+    height: 100%;
+    padding: 5px 0;
+  }
+
+  .placeholder {
+    background: $brand;
+  }
+
+  span {
+    color: white;
+    font-size: 10px;
+    margin: 4px;
+    line-height: 12px;
+  }
+  
+  .minimap-tab {
+    grid-area: tab;
+    background-color: darken($lighter-gray, 10%);
+    border-bottom: none;
+    display: flex;
+
+    span {
+      font-size: 10px;
+      margin: 4px;
+      color: $black;
+    }
+  }
+  
+  .minimap-body {
+    grid-area: body;
+    background: darken($lighter-gray, 10%);
+  }
+  
+  .minimap-navbar {
+    grid-area: navbar;
+    background: lighten($dark-gray, 10%);
+  }
+  
+  .minimap-header,
+  .minimap-footer {
+    background: lighten($black, 10%);
+    display: flex;
+    align-items: center;
+  }
+  
+  .minimap-header {
+    grid-area: header;
+  }
+
+  .minimap-footer {
+    grid-area: footer;
+  }
+  
+  .minimap-favicon {
+    margin: 2px;
+    background: $white;
+  }
+  
+  .minimap-logo {
+    margin-right: auto;
+  }
+}
+
+
