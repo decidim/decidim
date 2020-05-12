@@ -19,16 +19,16 @@ module Decidim
       render :new
     end
 
-    def message(message)
-      render locals: { message: message }
+    def user_grouped_messages
+      conversation.messages.includes(:sender).chunk(&:sender)
     end
 
     def conversation
       context[:conversation]
     end
 
-    def sender_is_user?(message)
-      user.id == message.sender.id
+    def sender_is_user?(sender)
+      user.id == sender.id
     end
 
     def conversation_avatar

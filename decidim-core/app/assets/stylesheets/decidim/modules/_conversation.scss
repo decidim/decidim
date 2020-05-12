@@ -27,6 +27,10 @@
       margin-left: auto;
     }
 
+    > div{
+      flex: 1;
+    }
+
     > :first-child{
       flex-shrink: 0;
     }

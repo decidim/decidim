@@ -5,8 +5,8 @@
       <%= render :conversation_header %>
 
       <div id="messages" class="scroll-to-last-message">
-        <% conversation.messages.each do |msg| %>
-          <%= message(msg) %>
+        <% user_grouped_messages.each do |sender, messages| %>
+            <%= render view: :messages, locals: {sender: sender, messages: messages} %>
         <% end %>
       </div>
 
