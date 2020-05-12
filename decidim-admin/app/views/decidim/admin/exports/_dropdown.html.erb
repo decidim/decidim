@@ -3,11 +3,7 @@
   <ul class="vertical menu add-components">
     <% component.manifest.export_manifests.each do |manifest| %>
       <% %w{CSV JSON Excel}.each do |format| %>
-        <li class="exports--format--<%= format.downcase %> exports--<%= manifest.name %>">
-          <%= form_tag exports_path(component, id: manifest.name, format: format), method: :post do %>
-            <%= submit_tag t("decidim.admin.exports.export_as", name: t("decidim.#{component.manifest.name}.admin.exports.#{manifest.name}"), export_format: format.upcase) %>
-          <% end %>
-        </li>
+        <li class="exports--format--<%= format.downcase %> exports--<%= manifest.name %>"><%= link_to t("decidim.admin.exports.export_as", name: t("decidim.#{component.manifest.name}.admin.exports.#{manifest.name}"), export_format: format.upcase), exports_path(component, id: manifest.name, format: format), method: :post %></li>
       <% end %>
     <% end %>
   </ul>
