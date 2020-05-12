@@ -164,7 +164,7 @@ sv:
             version_created_at: Version skapad
             version_number: Versionsnummer
             version_number_out_of_total: "%{current_version} av %{total_count}"
-            votes: Stöder
+            votes: Stöd
         timeline:
           title: Projektutveckling
       versions:

@@ -72,8 +72,8 @@ sv:
         one: Anteckning
         other: Anteckningar
       decidim/proposals/proposal_vote:
-        one: Röst
-        other: Röster
+        one: Stöd
+        other: Stöd
   decidim:
     admin:
       filters:
@@ -103,7 +103,7 @@ sv:
           amend: Ändra
           create: Skapa
           endorse: Instäm
-          vote: Rösta
+          vote: Stötta
           withdraw: Dra tillbaka
         name: Förslag
         settings:
@@ -114,11 +114,11 @@ sv:
             amendments_wizard_help_text: Hjälptext för guiden för ändringsförslag
             announcement: Meddelande
             attachments_allowed: Tillåt bilagor
-            can_accumulate_supports_beyond_threshold: Kan samla in röster bortom tröskeln
+            can_accumulate_supports_beyond_threshold: Kan samla in stöd bortom tröskeln
             collaborative_drafts_enabled: Samarbetsutkast aktiverat
             comments_enabled: Kommentarer aktiverade
             geocoding_enabled: Geokodning aktiverad
-            minimum_votes_per_user: Minsta antal röster per användare
+            minimum_votes_per_user: Minsta antal stöd per användare
             new_proposal_body_template: Innehållsmall för nytt förslag
             new_proposal_body_template_help: Du kan ange den förifyllda texten för nya förslag
             new_proposal_help_text: Hjälptext om nya förslag
@@ -135,7 +135,7 @@ sv:
             proposal_wizard_step_4_help_text: Förslagsguidens hjälptext för steg "Publicera"
             resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje förslag
             threshold_per_proposal: Tröskel per förslag
-            vote_limit: Röstningsgräns per användare
+            vote_limit: Stödgräns per deltagare
           step:
             amendment_creation_enabled: Skapa ändringar är aktiverat
             amendment_creation_enabled_help: Deltagare kan ändra förslag.
@@ -155,7 +155,7 @@ sv:
             proposal_answering_enabled: Svar på förslag aktiverat
             publish_answers_immediately: Publicera svar på förslag omedelbart
             suggested_hashtags: Förslag på hashtags för nya förslag till deltagare
-            votes_blocked: Blockerat stöd
+            votes_blocked: Stöd blockerat
             votes_enabled: Stöd aktiverat
             votes_hidden: Stöd dolda (om stöd är aktiverade, kommer detta att gömma antalet stöd)
     events:
@@ -400,10 +400,8 @@ sv:
             title: Uppdatera förslag
             update: Uppdatera
           form:
-            add_images: Lägg till bilder
             attachment_legend: "(Valfritt) Lägg till en bilaga"
             created_in_meeting: Detta förslag kommer från ett möte
-            gallery_legend: "(Valfritt) Lägg till ett bildgalleri"
             select_a_category: Välj en kategori
             select_a_meeting: Välj ett möte
           index:
@@ -419,8 +417,8 @@ sv:
             publish_answers: Publicera svar
             select_component: Välj en komponent
             selected: valda
-            split: Dela förslag
-            split_button: Dela
+            split: Dela upp förslag
+            split_button: Dela upp
             title: Förslag
             unassign_from_valuator: Ta bort tilldelning till värderare
             unassign_from_valuator_button: Ta bort tilldelning
@@ -673,7 +671,7 @@ sv:
             title: Titel
             valuator: Värderare
             valuators: Värderare
-            votes: Röster
+            votes: Stöd
       new:
         limit_reached: Du kan inte skapa nya förslag eftersom du har överskridit gränsen.
       participatory_text_proposal:
