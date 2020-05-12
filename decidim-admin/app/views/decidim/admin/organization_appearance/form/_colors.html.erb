@@ -1,18 +1,9 @@
-<style>
-.colors {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-  grid-gap: 3rem;
-}
-
-</style>
-
 <div class="card">
   <div class="card-divider">
     <h2 class="card-title"><%= t ".colors_title" %></h2>
   </div>
   <div class="card-section">
-    <div class="colors">
+    <div class="organization-colors">
       <%= form.color_field :primary_color, value: current_organization.colors["primary"] %>
       <%= form.color_field :secondary_color, value: current_organization.colors["secondary"] %>
       <%= form.color_field :success_color, value: current_organization.colors["success"] %>
