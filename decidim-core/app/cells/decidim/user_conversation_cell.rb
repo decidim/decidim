@@ -19,6 +19,11 @@ module Decidim
       render :new
     end
 
+    # renders a unique message, useful for ajax calls
+    def message(msg)
+      render view: :messages, locals: { sender: msg.sender, messages: [msg] }
+    end
+
     def user_grouped_messages
       conversation.messages.includes(:sender).chunk(&:sender)
     end
