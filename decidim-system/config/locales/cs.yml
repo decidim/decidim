@@ -63,7 +63,12 @@ cs:
           secondary_hosts_hint: Zadejte každý z nich do nového řádku
           title: Nová organizace
         omniauth_settings:
+          decidim:
+            client_id: Client ID
+            client_secret: Tajný klíč klienta
+            site_url: URL webu
           enabled: Povoleno
+          enabled_by_default: Tento poskytovatel je ve výchozím nastavení povolen. Může být upraven, ale ne zakázán.
           facebook:
             app_id: ID aplikace
             app_secret: Tajný klíč aplikace

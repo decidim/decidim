@@ -48,6 +48,7 @@ Decidim::Core::Engine.routes.draw do
       end
     end
     resources :conversations, only: [:new, :create, :index, :show, :update], controller: "messaging/conversations"
+    post "/conversations/check_multiple", to: "messaging/conversations#check_multiple"
     resources :notifications, only: [:index, :destroy] do
       collection do
         delete :read_all
@@ -120,6 +121,9 @@ Decidim::Core::Engine.routes.draw do
 
   resource :follow, only: [:create, :destroy]
   resource :report, only: [:create]
+  resources :endorsements, only: [:create, :destroy] do
+    get :identities, on: :member
+  end
   resources :amends, only: [:new, :reject, :accept], controller: :amendments do
     collection do
       post :create

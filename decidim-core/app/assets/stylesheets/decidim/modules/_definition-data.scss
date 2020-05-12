@@ -17,6 +17,10 @@
     a{
       display: block;
     }
+
+    a:hover{
+      text-decoration: underline;
+    }
   }
 
   &.expanded{

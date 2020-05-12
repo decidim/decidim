@@ -44,6 +44,11 @@ module Decidim
         recipients.each { |recipient| receipts.build(recipient: recipient) }
       end
 
+      # Public: Returns the comment body with links
+      def body_with_links
+        Decidim::ContentRenderers::LinkRenderer.new(body).render
+      end
+
       private
 
       def sender_is_participant

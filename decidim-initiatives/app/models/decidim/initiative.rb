@@ -68,7 +68,7 @@ module Decidim
 
     scope :open, lambda {
       published
-        .where.not(state: [:discarded, :rejected, :accepted])
+        .where.not(state: [:discarded, :rejected, :accepted, :created])
         .where("signature_start_date <= ?", Date.current)
         .where("signature_end_date >= ?", Date.current)
     }
@@ -330,6 +330,13 @@ module Decidim
     # RETURNS boolean
     def validate_sms_code_on_votes?
       organization.available_authorizations.include?("sms") && type.validate_sms_code_on_votes?
+    end
+
+    # Public: Returns an empty object. This method should be implemented by
+    # `ParticipatorySpaceResourceable`, but for some reason this model does not
+    # implement this interface.
+    def user_role_config_for(_user, _role_name)
+      Decidim::ParticipatorySpaceRoleConfig::Base.new(:empty_role_name)
     end
 
     private

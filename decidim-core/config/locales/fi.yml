@@ -33,6 +33,7 @@ fi:
       decidim/profile_updated_event: Profiili päivitetty
       decidim/promote_to_admin: Nimetty ryhmän ylläpitäjäksi
       decidim/removed_from_group: Poistettu ryhmästä
+      decidim/resource_endorsed_event: Kohdetta suositeltu
   activerecord:
     attributes:
       decidim/user:
@@ -46,6 +47,9 @@ fi:
       decidim/amendment:
         one: muutos
         other: Muutokset
+      decidim/endorsement:
+        one: Suositus
+        other: Suositusta
       decidim/user:
         one: Osallistuja
         other: Osallistujat
@@ -134,6 +138,7 @@ fi:
         invite: "%{user_name} kutsui käyttäjän %{resource_name} roolilla: %{role}"
         officialize: "%{user_name} virallisti käyttäjän %{resource_name}"
         remove_from_admin: "%{user_name} poisti käyttäjän %{resource_name} roolilla: %{role}"
+        show_email: "%{user_name} tarkasteli osallistujan %{resource_name} sähköpostiosoitetta"
         unofficialize: "%{user_name} poisti käyttäjän %{resource_name} virallistamisen"
       user_group:
         reject: "%{user_name} hylkäsi käyttäjäryhmän %{resource_name} vahvistaminen"
@@ -238,11 +243,15 @@ fi:
       comments:
         one: kommentti
         other: kommentit
+      endorsements:
+        one: suositus
+        other: suositusta
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Vahvista tilisi syöttämällä passin numero, joka alkaa kirjaimella "A"
         fields:
           passport_number: Passin numero
+          postal_code: Postinumero
         name: Toinen esimerkkivarmennustapa
       dummy_authorization_handler:
         explanation: Vahvista tilisi syöttämällä asiakirjan numero, joka pääättyy kirjaimeen "X"
@@ -404,7 +413,7 @@ fi:
             <p>Hei, oletko varma, että et halua saada uutiskirjeitä?<br>
             Ole hyvä ja harkitse uudelleen uutiskirjeiden tilausta.<br>
             Meille on erittäin tärkeää, että voit vastaanottaa silloin tällöin ​​sähköposteja tärkeistä tiedoteluontoisista asioista. Voit aina muuttaa mieltäsi ja estää uutiskirjeet käyttäjäprofiilisi ilmoitusasetusten kautta.</p>
-            <p>Jos et hyväksy uutiskirjeiden vastaanottoa, voit jäädä paitsi olennaisesta tiedosta palvelun uusista osallisuusmahdollisuuksista.<br>
+            <p>Jos et hyväksy uutiskirjeiden vastaanottoa, voit jäädä paitsi olennaisesta tiedosta palvelun uusista osallistumismahdollisuuksista.<br>
             Mikäli silti haluat estää uutiskirjeiden vastaanottamisen, ymmärrämme täysin päätöksesi.</p>
             <p>Kiitos, että jaksoit lukea tämän ilmoituksen!</p>
           title: Uutiskirjeitä koskeva ilmoitus
@@ -425,6 +434,15 @@ fi:
           this_application_will_not_be_able_to: 'Tämä sovellus ei voi:'
           update_profile: Päivittää profiiliasi
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> haluaa käyttää tiliäsi"
+    endorsable:
+      endorsements: Suositukset
+    endorsement_buttons_cell:
+      already_endorsed: Suositeltu
+      endorse: Suosittele
+    endorsements:
+      identities:
+        done: Valmis
+        select_identity: Valitse henkilöllisyys
     errors:
       internal_server_error:
         title: Palvelimellamme tapahtui virhe
@@ -545,6 +563,11 @@ fi:
           notification_title: Sinut on poistettu ryhmästä <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: Kohteelle <a href="%{resource_path}">%{resource_title}</a> järjestettiin tapahtuma.
+      resource_endorsed:
+        email_intro: '%{endorser_name} %{endorser_nickname}, jota seuraat, on juuri suositellut kohdetta "%{resource_title}" ja uskomme, että tämä voi kiinnostaa sinua. Tutustu ehdotukseen ja osallistu:'
+        email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet seuraat käyttäjää %{endorser_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+        email_subject: "%{endorser_nickname} on tehnyt uuden suosituksen"
+        notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> on suositellut kohdetta <a href="%{resource_path}">%{resource_title}</a>.
       users:
         profile_updated:
           email_intro: Seuraamasi käyttäjän %{name} (%{nickname}) <a href="%{resource_url}">profiilisivua</a> on päivitetty.
@@ -583,6 +606,7 @@ fi:
       create:
         button: Seuraa
         error: Tämän kohteen seuraaminen epäonnistui.
+        participatory_space: Seuraat jo osallistumistilaa
       destroy:
         button: Lopeta seuranta
         error: Tämän kohteen seuraamisen lopetus epäonnistui.
@@ -716,7 +740,7 @@ fi:
     help:
       main_topic:
         default_page:
-          content: "<p>Palvelussa %{organization} voit osallistua ja päättää eri aiheista ylävalikossa näkyvien osallisuustilojen kautta: prosessit, ryhmät, aloitteet ja kuulemiset.</p> <p>Jokaisessa tilassa voit osallistua: tehdä ehdotuksia - itsenäisesti tai muiden ihmisten kanssa, osallistua keskusteluihin, priorisoida toteutettavia hankkeita sekä osallistua tapaamisiin ja muihin toimiin.</p>\n"
+          content: "<p>Palvelussa %{organization} voit osallistua ja päättää eri aiheista ylävalikossa näkyvien osallistumistilojen kautta: prosessit, ryhmät, aloitteet ja kuulemiset.</p> <p>Jokaisessa tilassa voit osallistua: tehdä ehdotuksia - itsenäisesti tai muiden ihmisten kanssa, osallistua keskusteluihin, priorisoida toteutettavia hankkeita sekä osallistua tapaamisiin ja muihin toimiin.</p>\n"
           title: Mitä voin tehdä palvelussa %{organization}?
         description: Lue lisää palvelusta %{organization}
         title: Yleisiä ohjeita
@@ -769,12 +793,14 @@ fi:
         create:
           error: Keskustelua ei aloitettu. Yritä myöhemmin uudelleen
         index:
+          close: Sulje ikkuna
           no_conversations: Sinulla ei vielä ole keskusteluja
           title: Keskustelut
         reply:
           send: Lähetä
           title: Vastaa
         show:
+          not_allowed: Tämä käyttäjä ei ole sallinut yksityisviestejä muilta käyttäjiltä.
           title: 'Keskustelu: %{usernames}'
         start:
           send: Lähetä
@@ -785,7 +811,7 @@ fi:
       download:
         csv: Lataa tiedot (csv)
       followers:
-        description: Tätä osallisuustilaa seuraavien käyttäjien määrä
+        description: Tätä osallistumistilaa seuraavien käyttäjien määrä
         object: seuraajat
         title: Seuraajat
       participants:
@@ -826,6 +852,8 @@ fi:
       no_notifications: Ei vielä ilmoituksia.
     notifications_settings:
       show:
+        allow_public_contact: Salli kenen tahansa lähettää minulle yksityisviestejä, vaikka en seuraisi heitä.
+        direct_messages: Vastaanota yksityisviestejä kaikilta
         email_on_notification: Haluan saada sähköpostia aina, kun saan ilmoituksen.
         everything_followed: Kaikki mitä seuraan
         newsletter_notifications: Haluan vastaanottaa uutiskirjeitä
@@ -861,7 +889,7 @@ fi:
           proposals_explanation: Tee ehdotuksia, tue muiden tekemiä ehdotuksia ja edistä muutoksia, joita haluat nähdä.
         footer_sub_hero:
           footer_sub_hero_body: Rakennetaan avoimempi, läpinäkyvämpi ja yhteisöllisempi yhteiskunta.<br /> Liity, osallistu ja päätä.
-          footer_sub_hero_headline: Tervetuloa yhteisölliseen osallisuuspalveluun %{organization}.
+          footer_sub_hero_headline: Tervetuloa yhteisölliseen osallistumispalveluun %{organization}.
           register: Rekisteröidy
         hero:
           participate: Osallistu
@@ -965,6 +993,9 @@ fi:
       create:
         error: Raportin luonti epäonnistui. Yritä uudestaan.
         success: Ilmoituksen luonti onnistui. Hallintakäyttäjä tarkastaa sen.
+    resource_endorsements:
+      create:
+        error: Suosituksen antaminen ei onnistunut.
     scopes:
       global: Yleinen teema
       picker:
@@ -1039,6 +1070,7 @@ fi:
     user_activity:
       index:
         no_activities_warning: Tämä käyttäjä ei ole vielä ollut aktiivinen.
+    user_contact_disabled: Tämä osallistuja ei ole sallinut yksityisviestejä muilta käyttäjiltä.
     user_interests:
       show:
         my_interests: Omat kiinnostuksen kohteet
@@ -1118,7 +1150,7 @@ fi:
       invite_collaborator:
         subject: Sinut on kutsuttu osallistumaan organisaatioon %{organization}
       invite_private_user:
-        subject: Sinut on kutsuttu yksityiseen osallisuusprosessiin organisaatiossa %{organization}
+        subject: Sinut on kutsuttu yksityiseen osallistumisprosessiin organisaatiossa %{organization}
       organization_admin_invitation_instructions:
         subject: Sinut on kutsuttu hallitsemaan organisaatiota %{organization}
       password_change:

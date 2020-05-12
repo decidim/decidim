@@ -59,12 +59,14 @@ module Decidim
 
       initializer "decidim.middleware" do |app|
         app.config.middleware.insert_before Warden::Manager, Decidim::CurrentOrganization
+        app.config.middleware.insert_before Warden::Manager, Decidim::StripXForwardedHost
         app.config.middleware.use BatchLoader::Middleware
       end
 
       initializer "decidim.assets" do |app|
         app.config.assets.paths << File.expand_path("../../../app/assets/stylesheets", __dir__)
-        app.config.assets.precompile += %w(decidim_core_manifest.js)
+        app.config.assets.precompile += %w(decidim_core_manifest.js
+                                           decidim/identity_selector_dialog)
 
         Decidim.component_manifests.each do |component|
           app.config.assets.precompile += [component.icon]
@@ -100,13 +102,11 @@ module Decidim
 
       initializer "decidim.geocoding" do
         if Decidim.geocoder.present?
-          Geocoder.configure(
+          config = {
             # geocoding service (see below for supported options):
-            lookup: :here,
+            lookup: :here
             # IP address geocoding service (see below for supported options):
             # :ip_lookup => :maxmind,
-            # to use an API key:
-            api_key: [Decidim.geocoder&.fetch(:here_app_id), Decidim.geocoder&.fetch(:here_app_code)]
             # geocoding service request timeout, in seconds (default 3):
             # :timeout => 5,
             # set default units to kilometers:
@@ -114,7 +114,14 @@ module Decidim
             # caching (see below for details):
             # :cache => Redis.new,
             # :cache_prefix => "..."
-          )
+          }
+          # to use an API key:
+          config[:api_key] = if Decidim.geocoder[:here_api_key].present?
+                               Decidim.geocoder.fetch(:here_api_key)
+                             else
+                               [Decidim.geocoder.fetch(:here_app_id), Decidim.geocoder.fetch(:here_app_code)]
+                             end
+          Geocoder.configure(config)
         end
       end
 
@@ -191,7 +198,7 @@ module Decidim
 
       initializer "decidim.content_processors" do |_app|
         Decidim.configure do |config|
-          config.content_processors += [:user, :hashtag, :link]
+          config.content_processors += [:user, :user_group, :hashtag, :link]
         end
       end
 
@@ -235,9 +242,7 @@ module Decidim
           # #call can be used in order to allow conditional checks (to allow non-SSL
           # redirects to localhost for example).
           #
-          # force_ssl_in_redirect_uri !Rails.env.development?
-          #
-          force_ssl_in_redirect_uri false
+          force_ssl_in_redirect_uri !Rails.env.development?
 
           # WWW-Authenticate Realm (default "Doorkeeper").
           realm "Decidim"
@@ -248,6 +253,22 @@ module Decidim
         ActiveSupport::Inflector.inflections do |inflect|
           inflect.acronym "OAuth"
         end
+      end
+
+      initializer "SSL and HSTS" do
+        Rails.application.configure do
+          config.force_ssl = Rails.env.production? && Decidim.config.force_ssl
+        end
+      end
+
+      initializer "Disable Rack::Runtime" do
+        Rails.application.configure do
+          config.middleware.delete Rack::Runtime
+        end
+      end
+
+      initializer "Expire sessions" do
+        Rails.application.config.session_store :cookie_store, expire_after: Decidim.config.expire_session_after
       end
 
       initializer "decidim.core.register_resources" do
@@ -297,7 +318,7 @@ module Decidim
         end
       end
 
-      initializer "decidim.core.content_blocks" do
+      initializer "decidim.core.homepage_content_blocks" do
         Decidim.content_blocks.register(:homepage, :hero) do |content_block|
           content_block.cell = "decidim/content_blocks/hero"
           content_block.settings_form_cell = "decidim/content_blocks/hero_settings_form"
@@ -366,6 +387,68 @@ module Decidim
           content_block.settings do |settings|
             settings.attribute :html_content, type: :text, translated: true
           end
+        end
+      end
+
+      initializer "decidim.core.newsletter_templates" do
+        Decidim.content_blocks.register(:newsletter_template, :basic_only_text) do |content_block|
+          content_block.cell = "decidim/newsletter_templates/basic_only_text"
+          content_block.settings_form_cell = "decidim/newsletter_templates/basic_only_text_settings_form"
+          content_block.public_name_key = "decidim.newsletter_templates.basic_only_text.name"
+
+          content_block.settings do |settings|
+            settings.attribute(
+              :body,
+              type: :text,
+              translated: true,
+              preview: -> { I18n.t("decidim.newsletter_templates.basic_only_text.body_preview") }
+            )
+          end
+
+          content_block.default!
+        end
+
+        Decidim.content_blocks.register(:newsletter_template, :image_text_cta) do |content_block|
+          content_block.cell = "decidim/newsletter_templates/image_text_cta"
+          content_block.settings_form_cell = "decidim/newsletter_templates/image_text_cta_settings_form"
+          content_block.public_name_key = "decidim.newsletter_templates.image_text_cta.name"
+
+          content_block.images = [
+            {
+              name: :main_image,
+              uploader: "Decidim::NewsletterTemplateImageUploader",
+              preview: -> { ActionController::Base.helpers.asset_path("decidim/placeholder.jpg") }
+            }
+          ]
+
+          content_block.settings do |settings|
+            settings.attribute(
+              :introduction,
+              type: :text,
+              translated: true,
+              preview: -> { I18n.t("decidim.newsletter_templates.image_text_cta.introduction_preview") }
+            )
+            settings.attribute(
+              :body,
+              type: :text,
+              translated: true,
+              preview: -> { I18n.t("decidim.newsletter_templates.image_text_cta.body_preview") }
+            )
+            settings.attribute(
+              :cta_text,
+              type: :text,
+              translated: true,
+              preview: -> { I18n.t("decidim.newsletter_templates.image_text_cta.cta_text_preview") }
+            )
+            settings.attribute(
+              :cta_url,
+              type: :text,
+              translated: true,
+              preview: -> { "http://decidim.org" }
+            )
+          end
+
+          content_block.default!
         end
       end
 

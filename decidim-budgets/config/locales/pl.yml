@@ -96,6 +96,7 @@ pl:
             other: "%{count} projektów"
         filters:
           category: Kategoria
+          scope: Zakres
           search: Szukanie
         filters_small_view:
           close_modal: Zamknij modal

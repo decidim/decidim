@@ -1,0 +1,59 @@
+<section class="comments" id="single-comment">
+  <h4 class="section-heading">Detalle de comentario</h4>
+  <div class="callout primary">
+    <h5>Estás viendo un detalle de comentario</h5>
+    <p>
+      Puedes <a href="proposal-view">ver el resto de comentarios aquí</a>.
+    </p>
+  </div>
+  <div class="comment-thread comment--pinned">
+    <article class="comment">
+      <div class="comment__header">
+        <div class="author-data">
+          <div class="author-data__main">
+            <div class="author author--inline">
+              <a href="#" class="author__avatar">
+                <%= image_tag "demo-avatar.jpg" %>
+              </a>
+              <a href="#" class="author__name">
+                Marc Serres
+              </a>
+              <time datetime="2016-08-01T19:47Z">1-08-2016 21:47</time>
+            </div>
+          </div>
+          <div class="author-data__extra">
+            <%= partial "flag_empty" %>
+            <a href="<%= page_path("proposals/comment-view") + "#single-comment" %>" title="Enlace permamente">
+              <%= icon "link-intact", class: "icon--small", aria_label: "Enlace permanente" %>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="comment__content">
+        <p>
+          <span class="success label">A favor</span>
+          Quan sento parlar de contaminació acústica, penso que no hi ha veïns
+          en tota la ciutat més perjudicats que nosaltres, els que vivim al Pg
+          de la Vall d'Hebron des del 198 al 208. Per no parlar de la
+          contaminació atmosfèrica, els tubs d'escapament dels vehicles gairabé
+          s'evacuarien directament al nostre menjador si no fos que mantenim les
+          finestres i terrasses tencades de manera permanent.</p>
+      </div>
+      <div class="comment__footer">
+        <a href="" class="comment__reply muted-link">
+          Ver comentario</a>
+        <div class="comment__votes">
+          <a href="" class="comment__votes--up is-vote-selected">
+            <%= icon "chevron-top", class: "icon--small", aria_label: "Votar a favor", role: "img" %>
+            257
+          </a>
+          <a href="" class="comment__votes--down is-vote-notselected">
+            <%= icon "chevron-bottom", class: "icon--small", aria_label: "Votar en contra", role: "img" %>
+            257
+          </a>
+        </div>
+      </div>
+
+    </article>
+  </div>
+</section>

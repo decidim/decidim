@@ -97,6 +97,16 @@ module Decidim
       save!
     end
 
+    # sugar for the memberships query
+    def accepted_memberships
+      UserGroups::AcceptedMemberships.for(self)
+    end
+
+    # easy way to return all the users accepted in this group
+    def accepted_users
+      accepted_memberships.map(&:user)
+    end
+
     private
 
     # Private: Checks if the state user group is correct.

@@ -17,13 +17,11 @@ module Decidim::Admin
       end
       let(:participatory_processes) { create_list(:participatory_process, rand(2..9), organization: organization) }
       let(:selected_participatory_processes) { [participatory_processes.first.id.to_s] }
-
       let(:send_to_all_users) { false }
       let(:send_to_followers) { false }
       let(:send_to_participants) { false }
       let(:participatory_space_types) { [] }
       let(:scope_ids) { [] }
-
       let(:form_params) do
         {
           send_to_all_users: send_to_all_users,
@@ -33,7 +31,6 @@ module Decidim::Admin
           scope_ids: scope_ids
         }
       end
-
       let(:form) do
         SelectiveNewsletterForm.from_params(
           form_params
@@ -42,8 +39,11 @@ module Decidim::Admin
           current_user: current_user
         )
       end
-
       let(:command) { described_class.new(newsletter, form, current_user) }
+
+      def user_localized_body(user)
+        newsletter.template.settings.body.stringify_keys[user.locale]
+      end
 
       shared_examples_for "selective newsletter" do
         context "when everything is ok" do
@@ -57,7 +57,7 @@ module Decidim::Admin
 
             deliverable_users.each do |user|
               email = emails.find { |e| e.to.include? user.email }
-              expect(email_body(email)).to include(newsletter.body[user.locale])
+              expect(email_body(email)).to include(user_localized_body(user))
             end
 
             newsletter.reload

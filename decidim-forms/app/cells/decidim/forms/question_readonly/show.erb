@@ -9,7 +9,11 @@
 
   <% if model.multiple_choice? %>
     <ul class="questionnaire-question_readonly-answers <%= model.question_type %>">
-      <%= cell("decidim/forms/answer_readonly", collection: model.answer_options) %>
+      <% if model.matrix? %>
+        <%= cell("decidim/forms/matrix_readonly", collection: model.matrix_rows) %>
+      <% else %>
+        <%= cell("decidim/forms/answer_readonly", collection: model.matrix_rows) %>
+      <% end %>
     </ul>
   <% end %>
 </li>

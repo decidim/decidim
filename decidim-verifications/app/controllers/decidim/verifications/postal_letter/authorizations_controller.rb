@@ -4,6 +4,8 @@ module Decidim
   module Verifications
     module PostalLetter
       class AuthorizationsController < ApplicationController
+        include Decidim::Verifications::Renewable
+
         helper_method :authorization
 
         before_action :load_authorization
@@ -43,7 +45,7 @@ module Decidim
 
           @form = ConfirmationForm.from_params(params)
 
-          ConfirmUserAuthorization.call(@authorization, @form) do
+          ConfirmUserAuthorization.call(@authorization, @form, session) do
             on(:ok) do
               flash[:notice] = t("authorizations.update.success", scope: "decidim.verifications.postal_letter")
               redirect_to decidim_verifications.authorizations_path

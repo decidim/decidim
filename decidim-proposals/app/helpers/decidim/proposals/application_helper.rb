@@ -8,7 +8,8 @@ module Decidim
       include Decidim::Comments::CommentsHelper
       include PaginateHelper
       include ProposalVotesHelper
-      include ProposalEndorsementsHelper
+      include ::Decidim::EndorsableHelper
+      include ::Decidim::FollowableHelper
       include Decidim::MapHelper
       include Decidim::Proposals::MapHelper
       include CollaborativeDraftHelper
@@ -99,8 +100,11 @@ module Decidim
       # If the content is safe, HTML tags are sanitized, otherwise, they are stripped.
       def render_proposal_body(proposal)
         body = present(proposal).body(links: true, strip_tags: !safe_content?)
+        body = simple_format(body, {}, sanitize: false)
 
-        safe_content? ? decidim_sanitize(body) : simple_format(body, {}, sanitize: false)
+        return body unless safe_content?
+
+        decidim_sanitize(body)
       end
 
       # Returns :text_area or :editor based on the organization' settings.
@@ -125,10 +129,6 @@ module Decidim
           proposal: Proposal.where(component: current_component),
           author: current_user
         ).count
-      end
-
-      def follow_button_for(model, large = nil)
-        render partial: "decidim/shared/follow_button.html", locals: { followable: model, large: large }
       end
 
       def votes_count_for(model, from_proposals_list)

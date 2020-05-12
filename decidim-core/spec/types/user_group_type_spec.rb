@@ -69,6 +69,46 @@ module Decidim
           end
         end
       end
+
+      describe "organizationName" do
+        let(:query) { "{ organizationName }" }
+
+        it "returns the group's organization name" do
+          expect(response).to include("organizationName" => model.organization.name)
+        end
+      end
+
+      describe "members" do
+        let(:query) { "{ ...on UserGroup { members { id nickname } membersCount } }" }
+        let(:user) { membership.user }
+        let(:model) { membership.user_group }
+
+        context "when user accepted in the group" do
+          let(:membership) { create :user_group_membership, role: "member" }
+
+          it "returns the number of members" do
+            expect(response["membersCount"]).to eq(1)
+          end
+
+          it "returns the groups's members" do
+            members = response["members"]
+            expect(members).to include("id" => user.id.to_s, "nickname" => "@#{user.nickname}")
+          end
+        end
+
+        context "when user is not accepted yet in the group" do
+          let(:membership) { create :user_group_membership, role: "requested" }
+
+          it "returns the number of members" do
+            expect(response["membersCount"]).to eq(0)
+          end
+
+          it "returns no members" do
+            members = response["members"]
+            expect(members).to eq([])
+          end
+        end
+      end
     end
   end
 end

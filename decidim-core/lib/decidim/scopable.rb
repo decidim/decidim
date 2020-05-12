@@ -56,6 +56,16 @@ module Decidim
       scope && !scope.ancestor_of?(subscope)
     end
 
+    # If any, gets the previous scope of the object.
+    #
+    #
+    # Returns a Decidim::Scope
+    def previous_scope
+      return if versions.count <= 1
+
+      Decidim::Scope.find_by(id: versions.last.reify.decidim_scope_id)
+    end
+
     private
 
     def scope_belongs_to_organization

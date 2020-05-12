@@ -14,6 +14,7 @@ module Decidim
           resource :authorizations, only: [:new, :create, :edit, :update], as: :authorization do
             collection do
               get :choose
+              get :renew
             end
           end
 

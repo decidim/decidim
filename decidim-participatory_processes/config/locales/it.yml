@@ -204,13 +204,11 @@ it:
         destroy:
           success: Utente rimosso con successo dal ruolo di amministratore di questo processo partecipativo.
         edit:
-          title: Aggiornamento dell'utente amministratore di un processo partecipativo.
           update: Modifica
         index:
           process_admins_title: Amministratori del processo partecipativo
         new:
           create: Crea
-          title: Nuovo utente per un processo partecipativo.
         update:
           error: Si è verificato un errore durante l'aggiornamento di un utente per questo processo partecipativo.
           success: OK, è stato aggiornato l'utente per questo processo partecipativo.
@@ -393,13 +391,14 @@ it:
         meetings_count: Eventi
         orders_count: Voti
         pages_count: Pagine
+        participants_count: Partecipanti
         processes_count: Processi
         projects_count: Progetti
         proposals_count: Proposte
         results_count: Risultati
+        supports_count: Voti
         surveys_count: indagini
         users_count: Partecipanti
-        votes_count: Voti
   layouts:
     decidim:
       participatory_process_groups:

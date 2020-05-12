@@ -24,7 +24,7 @@ cs:
       component:
         name: název
         published_at: Publikováno v
-        weight: Hmotnost
+        weight: Váha
       id: ID
       newsletter:
         body: Tělo
@@ -36,7 +36,7 @@ cs:
         organization_url: URL organizace
         redirect_uri: Přesměrování URI
       organization:
-        address: Název hostitele SMTP
+        address: SMTP hostname
         alert_color: Upozornění
         badges_enabled: Povolit odznaky
         cta_button_path: Cesta tlačítka Výzvy k akci
@@ -70,6 +70,7 @@ cs:
         port: Port
         primary_color: Hlavní
         reference_prefix: Referenční předpona
+        rich_text_editor_in_public_views: Povolit plnohodnotný textový editor pro účastníky
         secondary_color: Sekundární
         send_welcome_notification: Odeslat uvítací oznámení
         show_statistics: Zobrazit statistiky
@@ -87,7 +88,7 @@ cs:
         code: Kód
         name: název
         organization: Organizace
-        parent_id: Nadřazený prvek
+        parent_id: Nadřazený
         scope_type: Typ rozsahu
         scope_type_id: Typ rozsahu
       scope_type:
@@ -297,10 +298,10 @@ cs:
           label: Kategorie
         filter_label: Filtr
         officialized_at_null:
-          label: Stav
+          label: Stát
           values:
-            'false': Oficializováno
-            'true': Neoficializováno
+            'false': Úředně
+            'true': Není oficializováno
         private_space_eq:
           label: Soukromé
           values:
@@ -313,7 +314,7 @@ cs:
             'true': Nezveřejněno
         scope_id_eq:
           label: Rozsah
-        search_label: Hledat
+        search_label: Vyhledávání
         search_placeholder:
           name_or_nickname_or_email_cont: Hledat %{collection} podle e-mailu, jména nebo přezdívky.
           title_cont: Hledat %{collection} podle názvu.
@@ -387,6 +388,9 @@ cs:
         static_pages: Stránky
         user_groups: Skupiny
         users: Účastníci
+      metrics:
+        metrics:
+          see_more_metrics: Zobrazit více metrik
       models:
         area:
           fields:
@@ -470,6 +474,14 @@ cs:
             does_not_belong: Nepatří
             offensive: Urážlivý
             spam: Spam
+      newsletter_templates:
+        index:
+          preview_template: Náhled
+          title: Šablony zpravodaje
+          use_template: Použít tuto šablonu
+        show:
+          preview: 'Náhled šablony: %{template_name}'
+          use_template: Použít tuto šablonu
       newsletters:
         create:
           error: Při vytváření tohoto zpraodaje došlo k chybě.
@@ -483,8 +495,6 @@ cs:
         edit:
           save_and_preview: Uložit a zobrazit náhled
           title: Upravit zpravodaj
-        form:
-          interpolations_hint: 'Tip: Můžete použít "%{name}" kdekoli v těle nebo předmětu zprávy a bude nahrazeno jménem příjemce.'
         index:
           all: vše
           all_users: 'Všichni uživatelé'
@@ -492,7 +502,7 @@ cs:
           confirm_delete: Opravdu chcete tento zpravodaj smazat?
           followers: 'sledující '
           has_been_sent_to: 'Byl poslán: '
-          no_scopes: Žádné možnosti
+          no_scopes: Žádné rozsahy
           not_sent: Neodesláno
           participants: 'uživatelé '
           segmented_to: 'Rozděleno na %{subject}: '
@@ -510,7 +520,7 @@ cs:
           none: Žádný
           participants_help: Odešle newsletter všem potvrzeným uživatelům, kteří se zúčastnili některého z vybraných participačních prostorů v seznamu.
           recipients_count: Tento newsletter bude odeslán <strong id='recipients_count'>%{count}</strong> uživatelům.
-          scopes_help: Poslat newsletter uživatelům, kteří mají některé z vybraných oblastí aktivovaných v nastavení svého účtu "Moje zájmy".
+          scopes_help: Odešle newsletter uživatelům, kteří mají některý z vybraných rozsahů aktivovaný v nastavení svého účtu "Moje zájmy".
           select_scopes: Filtrovat uživatele, kteří aktivovali jakýkoli vybraný rozsah v nastavení jejich účtu Moje Zájmy.
           select_spaces: Vybrat mezery pro rozdělení zpravodaje
           select_users: Vybrat, kterým uživatelům chcete poslat zpravodaj
@@ -562,12 +572,20 @@ cs:
           officialize: Úředně
           officialized: Úředně
           reofficialize: Reofficialize
+          show_email: Zobrazit e-mailovou adresu
           status: Postavení
           unofficialize: Neoficiálně
         new:
           badge: Oficiální odznak
           officialize: Úředně
           title: Oficializovat uživatele "%{name}"
+        show_email_modal:
+          description: Pokud potřebujete kontaktovat účastníka, můžete kliknout na tlačítko Zobrazit pro zobrazení e-mailové adresy. Tato akce bude zaznamenána.
+          email_address: E-mailová adresa
+          full_name: Celé jméno
+          hidden: skrytý
+          show: Zobrazit
+          title: Zobrazit e-mailovou adresu uživatele
       organization:
         edit:
           title: Upravit organizaci
@@ -578,7 +596,7 @@ cs:
           instagram: Instagram
           rich_text_editor_in_public_views_help: V některých textových oblastech budou účastníci moci vložit některé HTML tagy pomocí textového editoru.
           social_handlers: Sociální
-          twitter: Cvrlikání
+          twitter: Twitter
           url: Url
           youtube: Youtube
         update:
@@ -632,7 +650,7 @@ cs:
           success: Oprávnění byla úspěšně aktualizována.
       scope_types:
         create:
-          error: Při vytváření nového typu oboru došlo k chybě.
+          error: Při vytváření nového typu rozsahu došlo k chybě.
           success: Typ oboru byl úspěšně vytvořen.
         destroy:
           success: Typ pole rozsahu byl úspěšně zlikvidován
@@ -661,6 +679,11 @@ cs:
         update:
           error: Při aktualizaci tohoto oboru došlo k chybě.
           success: Rozsah byl úspěšně aktualizován
+      shared:
+        gallery:
+          add_images: Přidat obrázky
+          delete_image: Odstranit obrázek
+          gallery_legend: Přidat galerii obrázků (volitelné)
       static_page_topics:
         create:
           error: Při vytváření nového tématu došlo k chybě.
@@ -712,6 +735,7 @@ cs:
         dashboard: Ovládací panel
         impersonatable_users: Spravovatelní účastníci
         impersonations: Správa účastníků
+        metrics: Metriky
         participants: Uživatelé
         scope_types: Typy rozsahu
         scopes: Rozsahy
@@ -761,6 +785,10 @@ cs:
         new:
           create: Pozvat
           title: Pozvat účastníka jako administrátora
+      users_statistics:
+        users_count:
+          admins: Administrátoři
+          participants: Účastníci
       view_public_page: Zobrazit veřejnou stránku
     forms:
       errors:

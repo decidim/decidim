@@ -3,6 +3,8 @@
 module Decidim
   # This cell renders the profile of the given user.
   class UserProfileCell < Decidim::CardMCell
+    include Decidim::SanitizeHelper
+
     def user_data
       render
     end
@@ -22,7 +24,7 @@ module Decidim
     delegate :badge, to: :presented_resource
 
     def description
-      html_truncate(user.about.to_s, length: 100)
+      html_truncate(decidim_html_escape(user.about.to_s), length: 100)
     end
 
     def avatar

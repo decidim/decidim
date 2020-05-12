@@ -11,7 +11,7 @@ module Decidim
     belongs_to :conference, foreign_key: "decidim_conference_id", class_name: "Decidim::Conference", optional: true
     alias participatory_space conference
 
-    ROLES = %w(admin collaborator moderator).freeze
+    ROLES = %w(admin collaborator moderator valuator).freeze
     validates :role, inclusion: { in: ROLES }, uniqueness: { scope: [:user, :conference] }
     validate :user_and_conference_same_organization
 

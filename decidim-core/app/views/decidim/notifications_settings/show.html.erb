@@ -33,6 +33,16 @@
         <span class="switch-label"><%= t(".newsletter_notifications") %></span>
       </label>
     </div>
+
+    <p><strong><%= t(".direct_messages") %></strong></p>
+    <div class="switch tiny switch-with-label allow_public_contact">
+      <label>
+        <%= f.check_box :allow_public_contact, label: false, class: "switch-input" %>
+        <span class="switch-paddle"></span>
+        <span class="switch-label"><%= t(".allow_public_contact") %></span>
+      </label>
+    </div>
+
     <%= f.submit t(".update_notifications_settings"), disable_with: true %>
   <% end %>
 </div>

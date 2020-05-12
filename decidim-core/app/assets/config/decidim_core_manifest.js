@@ -15,3 +15,4 @@
 // = link decidim/extras/_social_share.css
 // = link decidim/social_share.js
 // = link decidim/represent_user_group.js
+// = link decidim/start_conversation_dialog.js

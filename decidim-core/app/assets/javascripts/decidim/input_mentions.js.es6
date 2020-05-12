@@ -23,10 +23,25 @@ $(() => {
     }
   });
 
+  // Returns a function, that, as long as it continues to be invoked, will not
+  // be triggered. The function will be called after it stops being called for
+  // N milliseconds
+  /* eslint no-invalid-this: 0 */
+  /* eslint consistent-this: 0 */
+  /* eslint prefer-reflect: 0 */
+  const debounce = function(callback, wait) {
+    let timeout = null;
+    return (...args) => {
+      const context = this;
+      clearTimeout(timeout);
+      timeout = setTimeout(() => callback.apply(context, args), wait);
+    };
+  }
+
   /* eslint no-use-before-define: ["error", { "variables": false }]*/
   let remoteSearch = function(text, cb) {
-    $.post("/api", {query: `{users(wildcard:"${text}") {nickname,name}}`}).
-
+    let query = `{users(filter:{wildcard:"${text}"}){nickname,name,avatarUrl,__typename,...on UserGroup{membersCount}}}`;
+    $.post("/api", {query: query}).
       then((response) => {
         let data = response.data.users || {};
         cb(data)
@@ -49,13 +64,16 @@ $(() => {
   /* global Tribute*/
   let tribute = new Tribute({
     trigger: "@",
-    values: function (text, cb) {
+    // avoid overloading the API if the user types too fast
+    values: debounce(function (text, cb) {
       remoteSearch(text, (users) => cb(users));
-    },
+    }, 250),
     positionMenu: true,
     menuContainer: null,
+    allowSpaces: true,
     menuItemLimit: 5,
     fillAttr: "nickname",
+    selectClass: "highlight",
     noMatchTemplate: noMatchTemplate,
     lookup: (item) => item.nickname + item.name,
     selectTemplate: function(item) {
@@ -89,8 +107,17 @@ $(() => {
       return item.original.nickname;
     },
     menuItemTemplate: function(item) {
-      let tpl = `<strong>${item.original.nickname}</strong>&nbsp;<small>${item.original.name}</small>`;
-      return tpl;
+      let svg = "";
+      if (window.DecidimComments && item.original.__typename === "UserGroup") {
+        let icons = window.DecidimComments.assets["icons.svg"];
+        svg = `<span class="is-group">${item.original.membersCount}x <svg class="icon--members icon"><use xlink:href="${icons}#icon-members"/></svg></span>`;
+      }
+      return `<div class="tribute-item ${item.original.__typename}">
+      <span class="author__avatar"><img src="${item.original.avatarUrl}" alt="author-avatar"></span>
+        <strong>${item.original.nickname}</strong>
+        <small>${item.original.name}</small>
+        ${svg}
+      </div>`;
     }
   });
 
@@ -114,15 +141,13 @@ $(() => {
         // We need to move the container to the wrapper selected
         let $tribute = $(".tribute-container");
         $tribute.appendTo($parent);
-        // // Remove the inline styles, relative to absolute positioning
-        $tribute.removeAttr("style");
+
         // Parent adaptation
         $parent.addClass("is-active");
       } else {
         $parent.removeClass("is-active");
       }
     });
-
   };
 
   setupEvents($mentionContainer);
