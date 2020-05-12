@@ -16,7 +16,7 @@ module Decidim
       #
       # Returns a boolean.
       def has_subscopes?
-        (scopes_enabled? || parent_scopes_enabled?) && subscopes.any?
+        (scopes_enabled? || an_ancestor_has_scopes_enabled?) && subscopes.any?
       end
 
       # Public: Returns the component Scope
@@ -32,12 +32,10 @@ module Decidim
       end
 
       def parent_component_or_space
-        return parent if parent
-
-        participatory_space
+        @parent_component_or_space ||= parent || participatory_space
       end
 
-      def parent_scopes_enabled?
+      def an_ancestor_has_scopes_enabled?
         parent&.scopes_enabled? || participatory_space.scopes_enabled?
       end
     end

@@ -67,6 +67,16 @@ module Decidim
         def decidim_scope_id
           @decidim_scope_id || scope&.id
         end
+
+        private
+
+        # This method will add an error to the `attachment` field only if there's
+        # any error in any other field. This is needed because when the form has
+        # an error, the attachment is lost, so we need a way to inform the user of
+        # this problem.
+        def notify_missing_attachment_if_errored
+          errors.add(:add_photos, :needs_to_be_reattached) if errors.any? && add_photos.present?
+        end
       end
     end
   end
