@@ -19,6 +19,8 @@ module Decidim
           included do
             include Decidim::Forms::Admin::Concerns::HasQuestionnaire
 
+            helper_method :questionnaires
+
             def index
               if questionnaire_for.questionnaires.count == 1
                 redirect_to action: :edit, id: questionnaire_for.questionnaires.first.id
@@ -42,7 +44,13 @@ module Decidim
             private
 
             def questionnaire
-              @questionnaire ||= Questionnaire.find_by(questionnaire_for: questionnaire_for, id: params[:id])
+              @questionnaire ||= questionnaires.find_by(id: params[:id])
+            end
+
+            def questionnaires
+              @questionnaires ||=
+                Questionnaire
+                .where(questionnaire_for: questionnaire_for)
             end
           end
         end

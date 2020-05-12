@@ -1,1 +1,31 @@
-<p>This is the index</p>
+<div class="card with-overflow">
+  <div class="card-divider">
+    <h2 class="card-title flex--sbc">
+      <div>
+        <%= t(".title") %>
+      </div>
+    </h2>
+  </div>
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th>
+              <%= t(".questionnaire_title") %>
+            </th>
+
+            <th>
+              <%= t(".number_of_questions") %>
+            </th>
+
+            <th class="actions">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render partial: "decidim/forms/admin/questionnaires/questionnaire", collection: questionnaires %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

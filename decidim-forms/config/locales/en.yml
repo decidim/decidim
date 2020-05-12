@@ -33,12 +33,16 @@ en:
             statement: Statement
           edit:
             save: Save
-            title: Title
+            title: Edit questionnaire
           form:
             add_question: Add question
             already_answered_warning: The form is already answered by some users so you cannot modify its questions.
             collapse: Collapse all questions
             expand: Expand all questions
+          index:
+            number_of_questions: Number of questions
+            questionnaire_title: Title
+            title: Questionnaires
           matrix_row:
             matrix_row: Row
             remove: Remove
@@ -55,6 +59,8 @@ en:
             remove: Remove
             statement: Statement
             up: Up
+          questionnaire:
+            edit: Edit
           update:
             invalid: There was a problem saving the form.
             success: Forms successfully saved.

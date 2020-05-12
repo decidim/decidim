@@ -1,0 +1,13 @@
+<tr>
+  <td>
+    <%= translated_attribute(questionnaire.title) %>
+  </td>
+
+  <td>
+    <%= questionnaire.questions.count %>
+  </td>
+
+  <td class="table-list__actions">
+    <%= icon_link_to "pencil", edit_questionnaire_path(questionnaire), t(".edit"), class: "action-icon--edit-questionnaire" %>
+  </td>
+</tr>
