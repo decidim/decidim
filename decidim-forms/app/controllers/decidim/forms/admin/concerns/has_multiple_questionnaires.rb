@@ -22,11 +22,7 @@ module Decidim
             helper_method :questionnaires
 
             def index
-              if questionnaire_for.questionnaires.count == 1
-                redirect_to action: :edit, id: questionnaire_for.questionnaires.first.id
-              else
-                render template: "decidim/forms/admin/questionnaires/index"
-              end
+              render template: "decidim/forms/admin/questionnaires/index"
             end
 
             # You can implement this method in your controller to change the URL
