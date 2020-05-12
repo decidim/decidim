@@ -27,12 +27,18 @@
       margin-left: auto;
     }
 
+    > :first-child{
+      flex-shrink: 0;
+    }
+
     > div{
       flex: 1;
     }
 
-    > :first-child{
-      flex-shrink: 0;
+    .p-s {
+      >p:last-child {
+        margin-bottom: 0;
+      }
     }
 
     img{
