@@ -4,6 +4,11 @@
       <div>
         <%= t(".title") %>
       </div>
+      <div class="flex--cc flex-gap--1">
+        <% if allowed_to? :create, :questionnaire %>
+          <%= link_to t(".new_questionnaire"), new_questionnaire_path, class: "button tiny button--simple" %>
+        <% end %>
+      </div>
     </h2>
   </div>
   <div class="card-section">

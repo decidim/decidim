@@ -22,10 +22,19 @@ module Decidim
                           :blank_answer_option,
                           :blank_matrix_row,
                           :question_types,
-                          :update_url
+                          :update_url,
+                          :create_url
 
             def index
               render template: "decidim/forms/admin/questionnaires/index"
+            end
+
+            def new
+              enforce_permission_to :create, :questionnaire, questionnaire: questionnaire
+
+              @form = form(Admin::QuestionnaireForm).from_params({})
+
+              render template: "decidim/forms/admin/questionnaires/new"
             end
 
             def edit
@@ -67,6 +76,12 @@ module Decidim
             # where the questionnaire will be submitted.
             def update_url
               url_for(questionnaire)
+            end
+
+            # You can implement this method in your controller to change the URL
+            # where the questionnaire will be submitted.
+            def create_url
+              url_for(action: :create)
             end
 
             # You can implement this method in your controller to change the URL

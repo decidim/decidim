@@ -40,6 +40,7 @@ en:
             collapse: Collapse all questions
             expand: Expand all questions
           index:
+            new_questionnaire: Create
             number_of_questions: Number of questions
             questionnaire_title: Title
             title: Questionnaires
@@ -47,6 +48,9 @@ en:
             matrix_row: Row
             remove: Remove
             statement: Statement
+          new:
+            create: Create
+            title: New questionnaire
           question:
             add_answer_option: Add answer option
             add_matrix_row: Add row

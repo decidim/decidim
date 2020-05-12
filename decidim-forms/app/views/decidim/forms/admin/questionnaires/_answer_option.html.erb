@@ -30,7 +30,7 @@
         form.check_box(
           :free_text,
           label: t(".free_text"),
-          disabled: !questionnaire.questions_editable?
+          disabled: !form.object.questions_editable?
         )
       %>
     </div>

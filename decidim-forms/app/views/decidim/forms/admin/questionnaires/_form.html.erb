@@ -26,18 +26,18 @@
     <button type="button" class="button expand-all"><%= t(".expand") %></button>
   </div>
 
-  <% if questionnaire.questions_editable? %>
+  <% if form.object.questions_editable? %>
     <%= fields_for "questionnaire[questions][#{blank_question.to_param}]", blank_question do |question_form| %>
       <script type="text/template" class="decidim-template">
         <%= render "decidim/forms/admin/questionnaires/question",
               form: question_form,
               id: tabs_id_for_question(blank_question),
-              editable: questionnaire.questions_editable?,
+              editable: form.object.questions_editable?,
               answer_option_template_selector: "#answer-option-template-dummy",
               matrix_row_template_selector: "#matrix-row-template-dummy" %>
       </script>
-      <%= render "decidim/forms/admin/questionnaires/answer_option_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "answer-option-template-dummy" %>
-      <%= render "decidim/forms/admin/questionnaires/matrix_row_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "matrix-row-template-dummy" %>
+      <%= render "decidim/forms/admin/questionnaires/answer_option_template", form: question_form, editable: form.object.questions_editable?, template_id: "answer-option-template-dummy" %>
+      <%= render "decidim/forms/admin/questionnaires/matrix_row_template", form: question_form, editable: form.object.questions_editable?, template_id: "matrix-row-template-dummy" %>
     <% end %>
   <% else %>
     <div class="callout warning">
@@ -51,21 +51,21 @@
         <%= render "decidim/forms/admin/questionnaires/question",
               form: question_form,
               id: tabs_id_for_question(question),
-              editable: questionnaire.questions_editable?,
+              editable: form.object.questions_editable?,
               answer_option_template_selector: "#answer-option-template-#{index}",
               matrix_row_template_selector: "#matrix-row-template-#{index}" %>
-        <%= render "decidim/forms/admin/questionnaires/answer_option_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "answer-option-template-#{index}" %>
-        <%= render "decidim/forms/admin/questionnaires/matrix_row_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "matrix-row-template-#{index}" %>
+        <%= render "decidim/forms/admin/questionnaires/answer_option_template", form: question_form, editable: form.object.questions_editable?, template_id: "answer-option-template-#{index}" %>
+        <%= render "decidim/forms/admin/questionnaires/matrix_row_template", form: question_form, editable: form.object.questions_editable?, template_id: "matrix-row-template-#{index}" %>
       <% end %>
     <% end %>
   </div>
 
-  <% if questionnaire.questions_editable? %>
+  <% if form.object.questions_editable? %>
     <button class="button add-question"><%= t(".add_question") %></button>
   <% end %>
 </div>
 
-<% if questionnaire.questions_editable? %>
+<% if form.object.questions_editable? %>
   <%= javascript_include_tag "decidim/forms/admin/forms" %>
 <% end %>
 

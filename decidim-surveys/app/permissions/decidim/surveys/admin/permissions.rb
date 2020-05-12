@@ -12,7 +12,7 @@ module Decidim
           return permission_action if permission_action.subject != :questionnaire
 
           case permission_action.action
-          when :export_answers, :update
+          when :export_answers, :update, :create
             permission_action.allow!
           end
 

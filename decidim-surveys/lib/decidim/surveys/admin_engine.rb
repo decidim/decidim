@@ -10,7 +10,7 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        resources :questionnaires, only: [:edit, :update, :index, :delete]
+        resources :questionnaires
         root to: "questionnaires#index"
       end
 

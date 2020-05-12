@@ -46,6 +46,14 @@ describe Decidim::Surveys::Admin::Permissions do
     it { is_expected.to eq true }
   end
 
+  context "when creating a survey" do
+    let(:action) do
+      { scope: :admin, action: :create, subject: :questionnaire }
+    end
+
+    it { is_expected.to eq true }
+  end
+
   context "when updating a survey" do
     let(:action) do
       { scope: :admin, action: :update, subject: :questionnaire }

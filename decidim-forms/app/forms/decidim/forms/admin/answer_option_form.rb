@@ -9,6 +9,7 @@ module Decidim
 
         attribute :deleted, Boolean, default: false
         attribute :free_text, Boolean
+        attribute :questions_editable, Boolean, default: true
 
         translatable_attribute :body, String
 
