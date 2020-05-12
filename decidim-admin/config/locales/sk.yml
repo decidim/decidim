@@ -790,6 +790,9 @@ sk:
         users_count:
           admins: Administrátori
           last_day: Posledný deň
+          last_month: Posledný mesiac
+          last_week: Posledný týždeň
+          no_users_count_statistics_yet: Zatiaľ nie sú žiadne štatistiky o počte užívateľov
           participants: Účastníci
       view_public_page: Zobraziť verejnú stránku
     forms:
