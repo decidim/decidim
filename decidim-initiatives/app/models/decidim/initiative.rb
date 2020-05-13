@@ -368,5 +368,9 @@ module Decidim
 
     # Allow ransacker to search on an Enum Field
     ransacker :state, formatter: proc { |int| states[int] }
+
+    ransacker :type_id do
+      Arel.sql("decidim_initiatives_type_scopes.decidim_initiatives_types_id")
+    end
   end
 end

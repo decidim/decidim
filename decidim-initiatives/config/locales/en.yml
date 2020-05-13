@@ -71,6 +71,8 @@ en:
             discarded: Discarded
             published: Published
             validating: Technical validation
+        type_id_eq:
+          label: Type
       menu:
         initiatives: Initiatives
         initiatives_types: Initiative types
@@ -111,7 +113,7 @@ en:
         initiatives_types: Initiative types
     events:
       initiatives:
-        admin:
+        label:
           initiative_sent_to_technical_validation:
             email_intro: The initiative "%{resource_title}" has been sent to technical validation. Check it out at <a href="%{admin_initiative_url}">the admin panel</a>
             email_outro: You have received this notification because you are an admin of the platform.
