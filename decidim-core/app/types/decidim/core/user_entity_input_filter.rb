@@ -46,6 +46,16 @@ module Decidim
                    op_name.or(op_nick)
                  end
                end
+      argument :exclusion,
+               type: String,
+               description: "Excludes users contained in given ids",
+               required: false,
+               prepare: ->(value, _ctx) do
+                 proc do |model_class|
+                   value = value.split(',')
+                   model_class.arel_table[:id].not_in(value)
+                 end
+               end
     end
   end
 end
