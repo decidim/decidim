@@ -11,7 +11,14 @@
   const answerOptionFieldSelector = ".questionnaire-question-answer-option";
   const answerOptionsWrapperSelector = ".questionnaire-question-answer-options";
   const answerOptionRemoveFieldButtonSelector = ".remove-answer-option";
+  const matrixRowFieldSelector = ".questionnaire-question-matrix-row";
+  const matrixRowsWrapperSelector = ".questionnaire-question-matrix-rows";
+  const matrixRowRemoveFieldButtonSelector = ".remove-matrix-row";
+  const addMatrixRowButtonSelector = ".add-matrix-row";
   const maxChoicesWrapperSelector = ".questionnaire-question-max-choices";
+
+  const MULTIPLE_CHOICE_VALUES = ["single_option", "multiple_option", "sorting", "matrix_single", "matrix_multiple"];
+  const MATRIX_VALUES = ["matrix_single", "matrix_multiple"];
 
   const autoLabelByPosition = new AutoLabelByPositionComponent({
     listSelector: ".questionnaire-question:not(.hidden)",
@@ -80,10 +87,33 @@
 
   const dynamicFieldsForAnswerOptions = {};
 
+  const createDynamicFieldsForMatrixRows = (fieldId) => {
+    return createDynamicFields({
+      placeholderId: "questionnaire-question-matrix-row-id",
+      wrapperSelector: `#${fieldId} ${matrixRowsWrapperSelector}`,
+      containerSelector: ".questionnaire-question-matrix-rows-list",
+      fieldSelector: matrixRowFieldSelector,
+      addFieldButtonSelector: addMatrixRowButtonSelector,
+      removeFieldButtonSelector: matrixRowRemoveFieldButtonSelector,
+      onAddField: () => {
+      },
+      onRemoveField: () => {
+      }
+    });
+  };
+
+  const dynamicFieldsForMatrixRows = {};
+
   const isMultipleChoiceOption = ($selectField) => {
     const value = $selectField.val();
 
-    return value === "single_option" || value === "multiple_option" || value === "sorting"
+    return MULTIPLE_CHOICE_VALUES.indexOf(value) >= 0;
+  }
+
+  const isMatrix = ($selectField) => {
+    const value = $selectField.val();
+
+    return MATRIX_VALUES.indexOf(value) >= 0;
   }
 
   const setupInitialQuestionAttributes = ($target) => {
@@ -106,21 +136,42 @@
       dependentFieldsSelector: maxChoicesWrapperSelector,
       dependentInputSelector: "select",
       enablingCondition: ($field) => {
-        return $field.val() === "multiple_option"
+        return $field.val() === "multiple_option" || $field.val() === "matrix_multiple";
+      }
+    });
+
+    createFieldDependentInputs({
+      controllerField: $fieldQuestionTypeSelect,
+      wrapperSelector: fieldSelector,
+      dependentFieldsSelector: matrixRowsWrapperSelector,
+      dependentInputSelector: `${matrixRowFieldSelector} input`,
+      enablingCondition: ($field) => {
+        return isMatrix($field);
       }
     });
 
     dynamicFieldsForAnswerOptions[fieldId] = createDynamicFieldsForAnswerOptions(fieldId);
+    dynamicFieldsForMatrixRows[fieldId] = createDynamicFieldsForMatrixRows(fieldId);
 
-    const dynamicFields = dynamicFieldsForAnswerOptions[fieldId];
+    const dynamicFieldsAnswerOptions = dynamicFieldsForAnswerOptions[fieldId];
+    const dynamicFieldsMatrixRows = dynamicFieldsForMatrixRows[fieldId];
 
     const onQuestionTypeChange = () => {
       if (isMultipleChoiceOption($fieldQuestionTypeSelect)) {
         const nOptions = $fieldQuestionTypeSelect.parents(fieldSelector).find(answerOptionFieldSelector).length;
 
         if (nOptions === 0) {
-          dynamicFields._addField();
-          dynamicFields._addField();
+          dynamicFieldsAnswerOptions._addField();
+          dynamicFieldsAnswerOptions._addField();
+        }
+      }
+
+      if (isMatrix($fieldQuestionTypeSelect)) {
+        const nRows = $fieldQuestionTypeSelect.parents(fieldSelector).find(matrixRowFieldSelector).length;
+
+        if (nRows === 0) {
+          dynamicFieldsMatrixRows._addField();
+          dynamicFieldsMatrixRows._addField();
         }
       }
     };
@@ -165,6 +216,9 @@
 
       $field.find(answerOptionRemoveFieldButtonSelector).each((idx, el) => {
         dynamicFieldsForAnswerOptions[$field.attr("id")]._removeField(el);
+      });
+      $field.find(matrixRowRemoveFieldButtonSelector).each((idx, el) => {
+        dynamicFieldsForMatrixRows[$field.attr("id")]._removeField(el);
       });
     },
     onMoveUpField: () => {

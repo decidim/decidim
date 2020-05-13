@@ -250,6 +250,22 @@ module Decidim
       select(name, selectables, options)
     end
 
+    # Public: Generates a select field for resource types.
+    #
+    # name       - The name of the field (usually resource_type)
+    # collection - A collection of resource types.
+    #              The options are sorted alphabetically.
+    #
+    # Returns a String.
+    def resources_select(name, collection, options = {})
+      resources =
+        collection
+        .map { |r| [I18n.t(r.split("::").last.underscore, scope: "decidim.components.component_order_selector.order"), r] }
+        .sort
+
+      select(name, @template.options_for_select(resources, selected: options[:selected]), options)
+    end
+
     # Public: Generates a picker field for scope selection.
     #
     # attribute     - The name of the field (usually scope_id)

@@ -28,6 +28,11 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
     context.layout = "layouts/decidim/admin/assembly"
   end
 
+  participatory_space.register_on_destroy_account do |user|
+    Decidim::AssemblyUserRole.where(user: user).destroy_all
+    Decidim::AssemblyMember.where(user: user).destroy_all
+  end
+
   participatory_space.seeds do
     organization = Decidim::Organization.first
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
