@@ -14,7 +14,7 @@ module Decidim
           case permission_action.action
           when :export_answers, :update
             permission_action.allow!
-          when :create
+          when :create, :destroy
             toggle_allow(survey_has_no_answers?)
           end
 

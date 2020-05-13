@@ -34,6 +34,9 @@ en:
           create:
             invalid: There was a problem saving the form.
             success: Form successfully created.
+          destroy:
+            invalid: There was a problem deleting the form.
+            success: Form deleted successfully.
           edit:
             save: Save
             title: Edit questionnaire
@@ -67,6 +70,8 @@ en:
             statement: Statement
             up: Up
           questionnaire:
+            delete_confirm: Are you sure?
+            delete_questionnaire: Delete
             edit: Edit
           update:
             invalid: There was a problem saving the form.

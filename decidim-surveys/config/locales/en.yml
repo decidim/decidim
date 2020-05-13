@@ -51,6 +51,9 @@ en:
           create:
             invalid: There was a problem saving the questionnaire.
             success: Questionnaire successfully saved.
+          destroy:
+            invalid: There was a problem deleting the questionnaire.
+            success: Questionnaire successfully deleted.
           update:
             invalid: There was a problem saving the questionnaire.
             success: Questionnaire successfully saved.

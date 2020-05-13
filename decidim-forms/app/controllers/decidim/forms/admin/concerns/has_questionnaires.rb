@@ -85,6 +85,24 @@ module Decidim
               end
             end
 
+            def destroy
+              enforce_permission_to :destroy, :questionnaire, questionnaire: questionnaire
+
+              Admin::DestroyQuestionnaire.call(questionnaire) do
+                on(:ok) do
+                  # i18n-tasks-use t("decidim.forms.admin.questionnaires.destroy.success")
+                  flash[:notice] = I18n.t("destroy.success", scope: i18n_flashes_scope)
+                  redirect_to action: :index
+                end
+
+                on(:invalid) do
+                  # i18n-tasks-use t("decidim.forms.admin.questionnaires.destroy.invalid")
+                  flash.now[:alert] = I18n.t("destroy.invalid", scope: i18n_flashes_scope)
+                  redirect_to action: :index
+                end
+              end
+            end
+
             # Public: The only method to be implemented at the controller. You need to
             # return the object that will hold the questionnaire.
             def questionnaire_for

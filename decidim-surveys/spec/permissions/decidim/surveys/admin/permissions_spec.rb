@@ -63,6 +63,22 @@ describe Decidim::Surveys::Admin::Permissions do
     end
   end
 
+  context "when destroying a survey" do
+    let(:action) do
+      { scope: :admin, action: :destroy, subject: :questionnaire }
+    end
+
+    it { is_expected.to eq true }
+
+    context "when it has answers" do
+      it "is not allowed" do
+        create :answer, questionnaire: survey.questionnaires.first
+
+        expect(subject).to eq false
+      end
+    end
+  end
+
   context "when updating a survey" do
     let(:action) do
       { scope: :admin, action: :update, subject: :questionnaire }
