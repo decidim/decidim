@@ -12,18 +12,12 @@
     </div>
 
     <div class="row column">
-      <%= form.text_field :address, class: "geocoder", data: {
-          url: "http://localhost:3000/api/geocoder",
-          list: ".address-results-list"
-        }
-      %>
-      <p class="help-text"><%= t(".address_help") %></p>
-
-      <ul class="address-results-list"></ul>
-    </div>
-
-    <div class="row column">
-      <%= form.translated :text_area, :location %>
+      <% prompt_options = { url: "http://localhost:3000/api/geocoder", text: t(".select_location") }
+         options = { label: t(".location") } %>
+      <%= form.autocomplete_select(:location, form.object.location, options, prompt_options) do |location|
+          { value: translated_attribute(location), label: translated_attribute(location) }
+        end %>
+      <%# form.translated :text_area, :location %>
       <p class="help-text"><%= t(".location_help") %></p>
     </div>
 
