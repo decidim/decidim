@@ -40,6 +40,10 @@ describe "User activity", type: :system do
     create(:dummy_resource, component: component, published_at: Time.current)
   end
 
+  let(:resource_types) do
+    %w(Collaborative\ Draft Comment Debate Initiative Meeting Post Proposal Question)
+  end
+
   before do
     switch_to_host organization.host
   end
@@ -57,6 +61,14 @@ describe "User activity", type: :system do
         expect(page).to have_content(comment.commentable.title)
         expect(page).to have_no_content(resource2.title)
       end
+    end
+
+    it "displays activities filter with the correct options" do
+      expect(page).to have_select(
+        "filter[resource_type]",
+        selected: "All types",
+        options: resource_types.push("All types")
+      )
     end
   end
 end

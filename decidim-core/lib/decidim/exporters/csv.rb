@@ -45,7 +45,7 @@ module Decidim
             result.merge(flatten(value, new_key))
           end
         elsif object.is_a?(Array)
-          { key.to_s => object.map(&:to_s).join(", ") }
+          { key.to_s => object.compact.map(&:to_s).join(", ") }
         else
           { key.to_s => object }
         end

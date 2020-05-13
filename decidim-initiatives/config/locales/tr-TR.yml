@@ -416,8 +416,6 @@ tr:
         promotal_committee_help: Promoter komitesine en az %{member_count} kişiyi davet etmeniz gerektiğini unutmayın. İnsanları destekleyici kuruluna davet etmek için aşağıdaki bağlantıyı yönlendirin
         status_change_body_for: 'Girişim %{title} şu şekilde değiştirdi: %{state}'
         status_change_for: Girişim %{title} durumu değişti
-        technical_validation_body_for: Girişimi %{title} teknik doğrulamayı talep etti.
-        technical_validation_for: Girişimi %{title} teknik doğrulamayı talep etti.
       last_activity:
         new_initiative: Yeni girişim
       pages:

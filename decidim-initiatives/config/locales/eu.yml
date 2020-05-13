@@ -416,8 +416,6 @@ eu:
         promotal_committee_help: Gogoan izan gutxienez %{member_count} pertsona gonbidatu behar dituzula sustatzaile batzordera. Birbidali hurrengo estekara gonbidatzeko jendea sustatzaile batzordera
         status_change_body_for: '%{title} ekimena bere egoera aldatu du: %{state}'
         status_change_for: '%{title} ekimena bere egoera aldatu du'
-        technical_validation_body_for: '%{title} ekimena balidazio teknikoa eskatu du.'
-        technical_validation_for: '%{title} ekimena balidazio teknikoa eskatu du.'
       last_activity:
         new_initiative: Ekimen berria
       pages:

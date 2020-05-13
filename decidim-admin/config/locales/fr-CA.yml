@@ -726,6 +726,10 @@ fr-CA:
         new:
           create: Inviter
           title: Inviter l'utilisateur en tant qu'administrateur
+      users_statistics:
+        users_count:
+          admins: Administrateurs
+          participants: Participants
       view_public_page: Voir la page publique
     forms:
       errors:

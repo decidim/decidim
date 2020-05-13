@@ -1,1 +1,31 @@
 sr:
+  decidim:
+    admin:
+      filters:
+        search_placeholder:
+          title_or_description_cont: Pretraži %{collection} po naslovu ili opisu.
+    initiatives:
+      create_initiative:
+        finish:
+          confirm: Potvrdi
+          edit_my_initiative: Izmeni moje inicijative
+          send_my_initiative: Pošalji moju inicijativu
+      initiatives:
+        show:
+          of_versions: "(od%{number})"
+          see_other_versions: vidi druge verzije
+          version: Verzija %{number}
+      versions:
+        index:
+          number_of_versions: Verzije
+          title: Verzije
+        shared:
+          back_to_initiative: Vrati se na inicijativu
+          changes_at_title: Promene na %{title}
+        show:
+          show_all_versions: Prikaži sve verzije
+          version_author: Autor verzije
+          version_created_at: Verzija napravljena na
+          version_number_out_of_total: "%{current_version} od %{total_count}"
+        version:
+          version_index: Verzija %{index}

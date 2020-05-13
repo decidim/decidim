@@ -416,8 +416,6 @@ pt-BR:
         promotal_committee_help: Lembre-se de que você deve convidar pelo menos %{member_count} pessoas para o comitê de promotores. Encaminhe o seguinte link para convidar pessoas para o comitê de promotores
         status_change_body_for: 'A iniciativa %{title} mudou seu estado para: %{state}'
         status_change_for: A iniciativa %{title} mudou seu estado
-        technical_validation_body_for: A iniciativa %{title} solicitou sua validação técnica.
-        technical_validation_for: A iniciativa %{title} solicitou sua validação técnica.
       last_activity:
         new_initiative: Nova iniciativa
       pages:

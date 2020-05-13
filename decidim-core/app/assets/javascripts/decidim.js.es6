@@ -27,8 +27,10 @@
 // = require decidim/check_boxes_tree
 // = require decidim/conversations
 // = require decidim/delayed
-// = require decidim/geocoder
 // = require_tree ./decidim/vizzs
+// = require decidim/vizzs
+// = require decidim/responsive_horizontal_tabs.js
+// = require decidim/geocoder
 
 // = require_self
 // = require decidim/floating_help
