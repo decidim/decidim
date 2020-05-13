@@ -376,6 +376,13 @@ cs:
         home:
           highlighted_conferences:
             conferences_button_title: Odkaz na stránku Konference zobrazující všechny konference
+    events:
+      assembly:
+        role_assigned:
+          email_intro: Byl jste označen jako %{role} pro shromáždění "%{resource_title}".
+          email_outro: Obdrželi jste toto oznámení, protože jste %{role} shromáždění "%{resource_title}.
+          email_subject: Byli jste přiřazeni jako %{role} pro "%{resource_title}".
+          notification_title: Byl jste přiřazen jako %{role} pro shromáždění <a href="%{resource_url}">%{resource_title}</a>.
     help:
       participatory_spaces:
         assemblies:

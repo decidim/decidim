@@ -416,8 +416,6 @@ gl:
         promotal_committee_help: Lembre que debes convidar polo menos a %{member_count} persoas ao comité promotor. Reenvía a seguinte ligazón para invitar persoas á comisión de promotores
         status_change_body_for: 'A iniciativa %{title} cambiou o seu estado a: %{state}'
         status_change_for: A iniciativa %{title} cambiou o seu estado
-        technical_validation_body_for: A iniciativa %{title} solicitou a súa validación técnica.
-        technical_validation_for: A iniciativa %{title} solicitou a súa validación técnica.
       last_activity:
         new_initiative: Nova iniciativa
       pages:

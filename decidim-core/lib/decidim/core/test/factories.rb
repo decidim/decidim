@@ -335,8 +335,9 @@ FactoryBot.define do
 
     trait :with_one_step do
       step_settings do
+        participatory_space_with_steps if participatory_space.active_step.nil?
         {
-          1 => { dummy_step_setting: true }
+          participatory_space.active_step.id => { dummy_step_setting: true }
         }
       end
     end

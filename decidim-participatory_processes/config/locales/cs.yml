@@ -275,6 +275,11 @@ cs:
         update: "%{user_name} změnilo roli uživatele %{resource_name} ve %{space_name} účastnických procesech"
     events:
       participatory_process:
+        role_assigned:
+          email_intro: Byli jste přiřazeni jako %{role} pro participační proces "%{resource_title}".
+          email_outro: Obdrželi jste toto oznámení, protože jste %{role} v participačním procesu "%{resource_title}.
+          email_subject: Byli jste přiřazeni jako %{role} pro "%{resource_title}".
+          notification_title: Byli jste přiřazeni jako %{role} pro participační proces <a href="%{resource_url}">%{resource_title}</a>.
         step_activated:
           email_intro: 'Krok %{resource_title} je nyní aktivní pro %{participatory_space_title}. Můžete ji vidět z této stránky:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
