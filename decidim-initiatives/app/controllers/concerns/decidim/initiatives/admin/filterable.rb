@@ -14,7 +14,7 @@ module Decidim
           private
 
           def base_query
-            return collection.joins("JOIN decidim_users ON decidim_users.id = decidim_initiatives.decidim_author_id")
+            collection.joins("JOIN decidim_users ON decidim_users.id = decidim_initiatives.decidim_author_id")
           end
 
           def search_field_predicate
