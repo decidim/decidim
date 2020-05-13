@@ -37,7 +37,7 @@ module Decidim
           )
           .or(
             query.where(
-              "decidim_users.id IN (#{author_sql})"
+              "decidim_users.name ILIKE ? OR decidim_users.nickname ILIKE ?", "%#{search_text}%", "%#{search_text}%"
             )
           )
       end
@@ -76,15 +76,6 @@ module Decidim
           .where(
             "decidim_initiatives_type_scopes.decidim_scopes_id": scope_id
           )
-      end
-
-      private
-
-      def author_sql
-        Decidim::UserBaseEntity
-          .where("name ILIKE ? OR nickname ILIKE ?", "%#{search_text}%", "%#{search_text}%")
-          .select(:id)
-          .to_sql
       end
     end
   end
