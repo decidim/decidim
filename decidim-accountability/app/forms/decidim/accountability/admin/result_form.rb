@@ -28,14 +28,16 @@ module Decidim
         validates :progress, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 100 }, if: ->(form) { form.progress.present? }
 
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
+        validates :decidim_scope_id, subscope_belongs_to_component: true, if: ->(form) { form.decidim_scope_id.present? }
+
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
 
         validates :parent, presence: true, if: ->(form) { form.parent_id.present? }
         validates :status, presence: true, if: ->(form) { form.decidim_accountability_status_id.present? }
 
-        validate :scope_belongs_to_participatory_space_scope
-
         delegate :categories, to: :current_component
+
+        alias component current_component
 
         def map_model(model)
           self.proposal_ids = model.linked_resources(:proposals, "included_proposals").pluck(:id)
@@ -59,7 +61,7 @@ module Decidim
         #
         # Returns a Decidim::Scope
         def scope
-          @scope ||= @decidim_scope_id ? current_participatory_space.scopes.find_by(id: @decidim_scope_id) : current_participatory_space.scope
+          @scope ||= @decidim_scope_id ? current_component.scopes.find_by(id: @decidim_scope_id) : current_component.scope
         end
 
         # Scope identifier
@@ -79,12 +81,6 @@ module Decidim
 
         def status
           @status ||= Decidim::Accountability::Status.find_by(component: current_component, id: decidim_accountability_status_id)
-        end
-
-        private
-
-        def scope_belongs_to_participatory_space_scope
-          errors.add(:decidim_scope_id, :invalid) if current_participatory_space.out_of_scope?(scope)
         end
       end
     end

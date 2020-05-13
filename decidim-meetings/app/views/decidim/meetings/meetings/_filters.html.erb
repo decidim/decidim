@@ -16,7 +16,7 @@
     <%= form.collection_radio_buttons :date, [["upcoming", t(".upcoming")], ["past", t(".past")]], :first, :last, legend_title: t(".date") %>
   <% end %>
 
-  <% if current_participatory_space.has_subscopes? %>
+  <% if current_component.has_subscopes? %>
     <%= scopes_picker_filter form, :scope_id %>
   <% end %>
 

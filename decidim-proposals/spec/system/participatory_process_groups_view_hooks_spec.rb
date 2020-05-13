@@ -77,6 +77,7 @@ describe "Proposals in process group home", type: :system do
 
       before do
         participatory_process.update!(scopes_enabled: true, scope: main_scope)
+        component.update!(settings: { scopes_enabled: true, scope_id: participatory_process.scope&.id })
         proposals.each { |proposal| proposal.update!(scope: child_scope) }
       end
 

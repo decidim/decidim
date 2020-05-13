@@ -53,7 +53,7 @@ module Decidim
       include Reportable
       include Authorable
       include HasCategory
-      include ScopableComponent
+      include ScopableResource
       include Decidim::Comments::Commentable
       include Followable
       include Traceable
@@ -130,6 +130,8 @@ Decidim.register_component(:dummy) do |component|
   component.newsletter_participant_entities = ["Decidim::DummyResources::DummyResource"]
 
   component.settings(:global) do |settings|
+    settings.attribute :scopes_enabled, type: :boolean, default: false
+    settings.attribute :scope_id, type: :scope
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :dummy_global_attribute_1, type: :boolean

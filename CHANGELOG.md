@@ -69,6 +69,9 @@ Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on 
 - **decidim-core**: Explain how to initialize a custom oauth2 client provider [\#6055](https://github.com/decidim/decidim/pull/6055)
 - **decidim-core**: Added support for enum settings for components [\#6001](https://github.com/decidim/decidim/pull/6001)
 - **decidim-core**: Added support for readonly settings for components [\#6001](https://github.com/decidim/decidim/pull/6001)
+- **decidim-core**: Added support for enum settings for components [#6001](https://github.com/decidim/decidim/pull/6001)
+- **decidim-core**: Added support for readonly settings for components [#6001](https://github.com/decidim/decidim/pull/6001)
+- **decidim-admin**: Scopable components: budgets, debates, meetings, proposals and surveys [\#5941](https://github.com/decidim/decidim/pull/5941)
 
 ### Changed
 
