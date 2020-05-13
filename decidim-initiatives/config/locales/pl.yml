@@ -432,8 +432,6 @@ pl:
         promotal_committee_help: Pamiętaj, że musisz zaprosić co najmniej %{member_count} osób do komitetu promotora. Prześlij poniższy link, aby zaprosić ludzi do komitetu promotora
         status_change_body_for: 'Inicjatywa %{title} zmieniła swój stan na: %{state}'
         status_change_for: Inicjatywa %{title} zmieniła swój stan
-        technical_validation_body_for: Inicjatywa %{title} zażądała technicznej weryfikacji.
-        technical_validation_for: Inicjatywa %{title} zażądała technicznej weryfikacji.
       last_activity:
         new_initiative: Nowa inicjatywa
       pages:

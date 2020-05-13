@@ -679,6 +679,10 @@ eu:
         new:
           create: Gonbit egin
           title: Gonbit egin erabiltzaile bati administratzaile gisa
+      users_statistics:
+        users_count:
+          admins: Administratzaileak
+          participants: Parte-hartzaileak
       view_public_page: Ikusi orri publikoa
     forms:
       errors:

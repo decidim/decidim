@@ -776,6 +776,10 @@ sv:
         new:
           create: Bjud in
           title: Bjud in användaren som administratör
+      users_statistics:
+        users_count:
+          admins: Administratörer
+          participants: Deltagare
       view_public_page: Visa offentlig sida
     forms:
       errors:

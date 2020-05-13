@@ -44,14 +44,6 @@ module Decidim
         expect(offline_initiative).to be_valid
       end
 
-      it "technical revission request is notified by email" do
-        expect(administrator).not_to be_nil
-        expect(Decidim::Initiatives::InitiativesMailer).to receive(:notify_validating_request)
-          .at_least(:once)
-          .and_return(message_delivery)
-        initiative.validating!
-      end
-
       it "Creation is notified by email" do
         expect(Decidim::Initiatives::InitiativesMailer).to receive(:notify_creation)
           .at_least(:once)
