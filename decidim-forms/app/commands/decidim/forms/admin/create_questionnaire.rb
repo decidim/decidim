@@ -35,6 +35,7 @@ module Decidim
           @questionnaire = Decidim::Forms::Questionnaire.create!(
             questionnaire_for: form.questionnaire_for,
             title: form.title,
+            weight: form.weight,
             description: form.description,
             tos: form.tos
           )

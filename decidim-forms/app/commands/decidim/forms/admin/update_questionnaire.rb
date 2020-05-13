@@ -19,10 +19,10 @@ module Decidim
         #
         # Broadcasts :ok if successful, :invalid otherwise.
         def call
-          return broadcast(:invalid) if @form.invalid?
+          return broadcast(:invalid) if form.invalid?
 
           Decidim::Forms::Questionnaire.transaction do
-            update_questionnaire_questions if @questionnaire.questions_editable?
+            update_questionnaire_questions if questionnaire.questions_editable?
             update_questionnaire
           end
 
@@ -31,8 +31,10 @@ module Decidim
 
         private
 
+        attr_reader :form, :questionnaire
+
         def update_questionnaire_questions
-          @form.questions.each do |form_question|
+          form.questions.each do |form_question|
             update_questionnaire_question(form_question)
           end
         end
@@ -47,7 +49,7 @@ module Decidim
             max_choices: form_question.max_choices
           }
 
-          update_nested_model(form_question, question_attributes, @questionnaire.questions) do |question|
+          update_nested_model(form_question, question_attributes, questionnaire.questions) do |question|
             form_question.answer_options.each do |form_answer_option|
               answer_option_attributes = {
                 body: form_answer_option.body,
@@ -84,9 +86,12 @@ module Decidim
         end
 
         def update_questionnaire
-          @questionnaire.update!(title: @form.title,
-                                 description: @form.description,
-                                 tos: @form.tos)
+          questionnaire.update!(
+            title: form.title,
+            weight: form.weight,
+            description: form.description,
+            tos: form.tos
+          )
         end
       end
     end

@@ -15,6 +15,7 @@ module Decidim
         attribute :questions, Array[QuestionForm]
         attribute :questions_editable, Boolean, default: true
         attribute :questionnaire_for
+        attribute :weight, Integer, default: 0
 
         validates :title, :tos, translatable_presence: true
         validates :questionnaire_for, presence: true

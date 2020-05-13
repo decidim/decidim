@@ -7,6 +7,8 @@ en:
       question:
         max_choices: Maximum number of choices
         question_type: Type
+      questionnaire:
+        weight: Weight
       questionnaire_question:
         mandatory: Mandatory
     errors:

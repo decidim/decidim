@@ -10,7 +10,7 @@ module Decidim
       has_many :answers, class_name: "QuestionnaireAnswer", foreign_key: "decidim_questionnaire_id", dependent: :destroy
       has_many :question_answers, class_name: "Answer", foreign_key: "decidim_questionnaire_id", dependent: :destroy
 
-      default_scope { order(id: :asc) }
+      default_scope { order(weight: :asc, id: :asc) }
 
       # Public: returns whether the questionnaire questions can be modified or not.
       def questions_editable?

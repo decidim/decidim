@@ -12,6 +12,9 @@
       <%= form.translated :text_field, :title, autofocus: true %>
     </div>
     <div class="row column">
+      <%= form.number_field :weight %>
+    </div>
+    <div class="row column">
       <%= form.translated :editor, :description, toolbar: :full, lines: 30, label: t("models.components.description", scope: "decidim.forms.admin") %>
     </div>
     <div class="row column">
