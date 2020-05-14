@@ -58,17 +58,11 @@ tr:
           edit:
             title: Sonucu düzenle
             update: Sonuç güncelle
-          form:
-            add_proposal: Teklif ekle
           index:
             title: Sonuçlar
           new:
             create: Sonuç oluştur
             title: Yeni sonuç
-          proposals:
-            close: Kapat
-            current_selection: Şu anki seçim
-            select: seçmek
           update:
             invalid: Bu sonucu güncellerken bir sorun oluştu
             success: Sonuç başarıyla güncellendi

@@ -65,6 +65,24 @@ id:
       decidim/proposals/proposal_vote:
         other: Suara
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Mengetik
+          values:
+            'false': Proposal
+            'true': Amandemen
+        state_eq:
+          label: Negara
+          values:
+            accepted: Diterima
+            evaluating: Mengevaluasi
+            rejected: Ditolak
+            withdrawn: Ditarik
+        state_null:
+          label: Negara
+          values:
+            'true': Tidak dijawab
     components:
       proposals:
         actions:
@@ -319,6 +337,10 @@ id:
             success: Teks partisipatif berhasil diperbarui.
         proposal_answers:
           form:
+            accepted: Diterima
+            answer_proposal: Menjawab
+            evaluating: Mengevaluasi
+            rejected: Ditolak
             title: Jawaban untuk proposal %{title}
         proposal_notes:
           create:
@@ -363,7 +385,10 @@ id:
           publish_answers:
             select_a_proposal: Silakan pilih proposal
           show:
+            authors: Penulis
+            body: Tubuh
             created_at: Tanggal pembuatan
+            proposals: Proposal
             votes_count: Suara menghitung
           update_category:
             select_a_category: Silakan pilih kategori
@@ -401,16 +426,21 @@ id:
         rejected: Ditolak
         withdrawn: Ditarik
       application_helper:
+        filter_category_values:
+          all: Semua
         filter_origin_values:
           all: Semua
           citizens: Warga
           meetings: Rapat
           official: Resmi
           user_groups: Grup Pengguna
+        filter_scope_values:
+          all: Semua
         filter_state_values:
           accepted: Diterima
           all: Semua
           evaluating: Mengevaluasi
+          not_answered: Tidak dijawab
           rejected: Ditolak
         filter_type_values:
           all: Semua
@@ -461,6 +491,7 @@ id:
           open: Buka
           published: Diterbitkan
           related_to: Berhubungan dengan
+          scope: Cakupan
           search: Pencarian
           state: Negara
           withdrawn: Ditarik
@@ -592,8 +623,10 @@ id:
           category: Kategori
           origin: Asal
           related_to: Berhubungan dengan
+          scope: Cakupan
           search: Pencarian
           state: Negara
+          type: Mengetik
           voted: Dipilih
         filters_small_view:
           close_modal: Tutup modal

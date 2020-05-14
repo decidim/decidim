@@ -6,10 +6,28 @@
       </div>
     <% else %>
       <div class="row">
+        <div class="show-for-mediumlarge filters__left-legend">
+          <%= filter_form_for context[:filter] do |form| %>
+            <div class="columns mediumlarge-6 large-5">
+              <%= form.custom_select :resources,
+                                     :resource_type,
+                                     resource_types,
+                                     legend_title: t("title", scope:"decidim.components.component_order_selector"),
+                                     label: false,
+                                     selected: context[:filter].resource_type,
+                                     include_blank: t("all_types", scope: "decidim.components.component_order_selector.order") %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="row" id="activities-container">
         <%= cell "decidim/activities", activities %>
       </div>
 
-      <%= decidim_paginate activities %>
+      <div class="row" id="decidim-paginate-container">
+        <%= decidim_paginate activities %>
+      </div>
     <% end %>
   </div>
 </div>
+<%= javascript_include_tag "decidim/filters" %>

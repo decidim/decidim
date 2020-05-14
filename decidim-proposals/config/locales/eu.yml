@@ -69,6 +69,24 @@ eu:
         one: Bozkatu
         other: Botoak
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Mota
+          values:
+            'false': proposamenak
+            'true': Aldaketak
+        state_eq:
+          label: Estatu
+          values:
+            accepted: Onartuta
+            evaluating: Ebaluatzen
+            rejected: Ukatua
+            withdrawn: kendu
+        state_null:
+          label: Estatu
+          values:
+            'true': Erantzun gabe
     components:
       proposals:
         actions:
@@ -323,6 +341,10 @@ eu:
             success: Parte hartzailearen testua behar bezala eguneratu da.
         proposal_answers:
           form:
+            accepted: Onartuta
+            answer_proposal: Erantzuna
+            evaluating: Ebaluatzen
+            rejected: Ukatua
             title: 'Erantzun proposamen honi: %{title}'
         proposal_notes:
           create:
@@ -367,7 +389,10 @@ eu:
           publish_answers:
             select_a_proposal: Aukeratu proposamen bat
           show:
+            authors: Egileak
+            body: Gorputzeko
             created_at: Sortze data
+            proposals: proposamenak
             votes_count: Botoen zenbaketa
           update_category:
             select_a_category: Hautatu kategoria bat
@@ -405,16 +430,21 @@ eu:
         rejected: Ukatua
         withdrawn: kendu
       application_helper:
+        filter_category_values:
+          all: guztiak
         filter_origin_values:
           all: guztiak
           citizens: Hiritarrak
           meetings: Bilerak
           official: Ofiziala
           user_groups: Erabiltzaile taldeak
+        filter_scope_values:
+          all: guztiak
         filter_state_values:
           accepted: Onartu
           all: guztiak
           evaluating: ebaluatzea
+          not_answered: Erantzun gabe
           rejected: Baztertuta
         filter_type_values:
           all: guztiak
@@ -466,6 +496,7 @@ eu:
           open: Open
           published: Argitaratutako
           related_to: Lotutako gaiak
+          scope: esparrua
           search: Search
           state: Estatu
           withdrawn: kendu
@@ -599,8 +630,10 @@ eu:
           category: Kategoria
           origin: Jatorria
           related_to: Honekin lotuta
+          scope: esparrua
           search: Bilatu
           state: Egoera
+          type: Mota
           voted: Bozkatuta
         filters_small_view:
           close_modal: Itxi leihoa

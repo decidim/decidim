@@ -60,17 +60,11 @@ pl:
           edit:
             title: Edytuj wynik
             update: Zaktualizuj wynik
-          form:
-            add_proposal: Dodaj propozycję
           index:
             title: wyniki
           new:
             create: Utwórz wynik
             title: Nowy wynik
-          proposals:
-            close: Blisko
-            current_selection: Obecny wybór
-            select: Wybierz
           update:
             invalid: Podczas aktualizowania tego wyniku wystąpił problem
             success: Wynik został zaktualizowany

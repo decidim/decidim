@@ -234,7 +234,7 @@ it:
       photos:
         related_photos: Immagini relative
     author:
-      avatar: Avatar
+      avatar: Immagine di profilo
       comments:
         one: commento
         other: Commenti
@@ -243,6 +243,7 @@ it:
         explanation: Ottenere verificato introducendo un numero di passaporto che inizia con "A"
         fields:
           passport_number: Numero di passaporto
+          postal_code: Codice postale
         name: Un'altra autorizzazione di esempio
       dummy_authorization_handler:
         explanation: Ottieni la verifica introducendo un numero di documento che termina con "X"
@@ -771,6 +772,7 @@ it:
         create:
           error: La conversazione non è iniziata. Riprovare più tardi
         index:
+          close: Chiudi modale
           no_conversations: Non hai ancora conversazioni
           title: conversazioni
         reply:
