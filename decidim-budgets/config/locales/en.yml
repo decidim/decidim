@@ -184,6 +184,7 @@ en:
             scope_id: Scope
             scopes_enabled: Scopes enabled
             title: Title
+            workflow: Workflow
           step:
             announcement: Announcement
     orders:
