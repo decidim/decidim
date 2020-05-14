@@ -2,7 +2,7 @@
   <% if first_step? %>
     <a></a>
   <% else %>
-    <%=  link_to questionnaire_path(id: previous_questionnaire_id) do %>
+    <%= link_to questionnaire_path(id: previous_questionnaire_id) do %>
       <%= icon "caret-left", class: "icon--small", role: "img" %>&nbsp;<%= t("decidim.forms.steps_navigation.show.back") %>
     <% end %>
   <% end %>
@@ -18,6 +18,6 @@
       }
     ) %>
   <% else %>
-    <%=  link_to t("decidim.forms.steps_navigation.show.continue"), questionnaire_path(id: next_questionnaire_id), class: "button button--sc" %>
+    <%= link_to t("decidim.forms.steps_navigation.show.continue"), questionnaire_path(id: next_questionnaire_id), class: "button button--sc" %>
   <% end %>
 </div>

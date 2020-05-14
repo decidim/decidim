@@ -27,13 +27,17 @@ module Decidim
 
           invisible_captcha on_spam: :spam_detected
 
+          def index
+            redirect_to action: :show, id: questionnaire_for.questionnaires.first.id
+          end
+
           def show
             @form = form(Decidim::Forms::QuestionnaireForm).from_model(questionnaire)
             render template: "decidim/forms/questionnaires/show"
           end
 
           def answer
-            enforce_permission_to :answer, :questionnaire
+            enforce_permission_to :answer, :questionnaire, questionnaire: questionnaire
 
             @form = form(Decidim::Forms::QuestionnaireForm).from_params(params, session_token: session_token)
 
@@ -79,13 +83,13 @@ module Decidim
           #
           # It can be redefined at controller level if you need to redirect elsewhere.
           def after_answer_path
-            questionnaire_for
+            url_for(action: :index)
           end
 
           # You can implement this method in your controller to change the URL
           # where the questionnaire will be submitted.
           def update_url
-            url_for([questionnaire_for, action: :answer])
+            url_for(id: questionnaire.id, action: :answer)
           end
 
           # You can implement this method in your controller to change the URL
@@ -107,11 +111,7 @@ module Decidim
           end
 
           def questionnaire
-            @questionnaire ||= if params[:id]
-                                 questionnaires.find(params[:id])
-                               else
-                                 questionnaires.first
-                               end
+            @questionnaire ||= questionnaires.find(params[:id])
           end
 
           def questionnaires

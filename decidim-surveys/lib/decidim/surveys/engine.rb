@@ -7,12 +7,12 @@ module Decidim
       isolate_namespace Decidim::Surveys
 
       routes do
-        resources :surveys, only: [:show] do
+        resources :surveys, only: [:index, :show] do
           member do
             post :answer
           end
         end
-        root to: "surveys#show"
+        root to: "surveys#index"
       end
 
       initializer "decidim_changes" do

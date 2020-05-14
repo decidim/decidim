@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-shared_examples_for "has questionnaire" do
+shared_examples_for "has questionnaires" do
   context "when the user is not logged in" do
     it "does not allow answering the questionnaire" do
       visit questionnaire_public_path
@@ -25,26 +25,86 @@ shared_examples_for "has questionnaire" do
       login_as user, scope: :user
     end
 
-    it "allows answering the questionnaire" do
-      visit questionnaire_public_path
+    context "with a single questionnaire" do
+      it "allows answering the questionnaire" do
+        visit questionnaire_public_path
 
-      expect(page).to have_i18n_content(questionnaire.title, upcase: true)
-      expect(page).to have_i18n_content(questionnaire.description)
+        expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+        expect(page).to have_i18n_content(questionnaire.description)
 
-      fill_in question.body["en"], with: "My first answer"
+        fill_in question.body["en"], with: "My first answer"
 
-      check "questionnaire_tos_agreement"
+        check "questionnaire_tos_agreement"
 
-      accept_confirm { click_button "Submit" }
+        within ".answer-questionnaire__submit" do
+          expect(page).to have_no_content("Back")
 
-      within ".success.flash" do
-        expect(page).to have_content("successfully")
+          accept_confirm { click_button "Submit" }
+        end
+
+        within ".success.flash" do
+          expect(page).to have_content("successfully")
+        end
+
+        visit questionnaire_public_path
+
+        expect(page).to have_content("You have already answered this form.")
+        expect(page).to have_no_i18n_content(question.body)
+      end
+    end
+
+    context "with multiple questionnaires" do
+      let!(:second_questionnaire) { create :questionnaire, questionnaire_for: questionnaire.questionnaire_for }
+
+      before do
+        visit questionnaire_public_path
       end
 
-      visit questionnaire_public_path
+      it "allows answering the first questionnaire" do
+        pending("pending!")
+        expect(page).to have_content("Step 1 of 2")
 
-      expect(page).to have_content("You have already answered this form.")
-      expect(page).to have_no_i18n_content(question.body)
+        within ".answer-questionnaire__submit" do
+          expect(page).to have_no_content("Back")
+        end
+
+        answer_first_questionnaire
+
+        expect(page).to have_no_selector(".success.flash")
+      end
+
+      it "allows revisiting previously-answered questionnaires with my answers" do
+        pending("pending!")
+        answer_first_questionnaire
+
+        click_button "Back"
+
+        expect(page).to have_content("Step 1 of 2")
+        expect(page).to have_content("My first answer")
+      end
+
+      it "finishes the submission when answering the last questionnaire" do
+        pending("pending!")
+        answer_first_questionnaire
+
+        accept_confirm { click_button "Submit" }
+
+        within ".success.flash" do
+          expect(page).to have_content("successfully")
+        end
+
+        visit questionnaire_public_path
+
+        expect(page).to have_content("You have already answered this form.")
+      end
+
+      def answer_first_questionnaire
+        fill_in question.body["en"], with: "My first answer"
+        within ".answer-questionnaire__submit" do
+          click_button "Continue"
+        end
+        expect(page).to have_content("Step 2 of 2")
+      end
     end
 
     context "when the questionnaire has already been answered by someone else" do
