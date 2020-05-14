@@ -49,6 +49,20 @@ uk:
         many: Голосів
         other: Голосів
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          values:
+            'false': Пропозиції
+        state_eq:
+          values:
+            accepted: Прийнято
+            evaluating: Розглядається
+            rejected: Відхилено
+            withdrawn: Відкликана
+        state_null:
+          values:
+            'true': Без відповідей
     components:
       proposals:
         actions:
@@ -159,6 +173,10 @@ uk:
             name: Пропозиція
         proposal_answers:
           form:
+            accepted: Прийнято
+            answer_proposal: Відповісти
+            evaluating: Розглядається
+            rejected: Відхилено
             title: Відповідь на пропозицію %{title}
         proposal_notes:
           create:
@@ -183,7 +201,6 @@ uk:
             actions: Дії
             cancel: Скасувати
             change_category: Змінити категорію
-            publish: Оприлюднити
             selected: обрані
             title: Пропозиції
             update: Оновити
@@ -194,6 +211,7 @@ uk:
             select_a_proposal: Будь ласка, оберіть пропозицію
           show:
             created_at: Дата створення
+            proposals: Пропозиції
             votes_count: Кількість голосів
           update_category:
             select_a_category: Будь ласка, виберіть категорію
@@ -225,6 +243,8 @@ uk:
         filter_origin_values:
           citizens: Громадяни
           official: Службове
+        filter_state_values:
+          not_answered: Без відповідей
       create:
         error: При спробі збереження цієї пропозиції сталися помилки.
         success: Пропозицію успішно створено. Збережено як чернетку.

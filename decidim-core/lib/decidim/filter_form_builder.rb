@@ -61,6 +61,15 @@ module Decidim
       end
     end
 
+    # Wrap the custom select in a custom fieldset.
+    # Any *_select can be used as a custom_select; what changes is the superclass method,
+    # and this one knows which one has to be called, depending on the `name` provided.
+    def custom_select(name, method, collection, options = {})
+      fieldset_wrapper(options[:legend_title], "#{method}_#{name}_select_filter") do
+        send(:"#{name}_select", method, collection, options)
+      end
+    end
+
     # Wrap the scopes picker in a custom fieldset.
     def scopes_picker(method, options = { checkboxes_on_top: true })
       fieldset_wrapper(options[:legend_title], "#{method}_scopes_picker_filter") do

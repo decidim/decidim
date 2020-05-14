@@ -7,93 +7,11 @@
   </div>
 <% end %>
 
-<% case answer.question.question_type %>
-<% when "short_answer" %>
-  <%= answer_form.text_field :body, label: false, id: field_id, disabled: disabled %>
-<% when "long_answer" %>
-  <%= answer_form.text_area :body, label: false, id: field_id, rows: 10, disabled: disabled %>
-<% when "single_option" %>
-  <div class="radio-button-collection">
-    <% choice = answer.choices.first %>
-
-    <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
-      <% choice_id = "#{field_id}_choices_#{idx}" %>
-
-      <div class="collection-input">
-        <%= label_tag "#{choice_id}_body" do %>
-          <%= radio_button_tag "questionnaire[responses][#{answer_idx}][choices][][body]",
-                              translated_attribute(answer_option.body),
-                              answer_option.id == choice.try(:answer_option_id),
-                              id: "#{choice_id}_body", disabled: disabled %>
-
-          <%= translated_attribute(answer_option.body) %>
-
-          <%= hidden_field_tag "questionnaire[responses][#{answer_idx}][choices][][answer_option_id]",
-                              answer_option.id,
-                              id: "#{choice_id}_answer_option",
-                              disabled: true %>
-        <% end %>
-
-        <% if answer_option.free_text %>
-          <%= text_field_tag "questionnaire[responses][#{answer_idx}][choices][][custom_body]",
-          choice.try(:custom_body),
-          id: "#{choice_id}_custom_body",
-          disabled: true %>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-<% when "multiple_option" %>
-  <div class="check-box-collection">
-    <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
-      <% choice = answer.selected_choices.find { |choice| choice.answer_option_id == answer_option.id } %>
-
-      <div class="collection-input">
-        <%= label_tag do %>
-          <%= check_box_tag "questionnaire[responses][#{answer_idx}][choices][#{idx}][body]",
-                            translated_attribute(answer_option.body),
-                            choice.present?, disabled: disabled %>
-
-          <%= translated_attribute(answer_option.body) %>
-
-          <%= hidden_field_tag "questionnaire[responses][#{answer_idx}][choices][#{idx}][answer_option_id]", answer_option.id %>
-        <% end %>
-
-        <% if answer_option.free_text %>
-          <%= text_field_tag "questionnaire[responses][#{answer_idx}][choices][#{idx}][custom_body]",
-          choice.try(:custom_body),
-          disabled: true %>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-<% when "sorting" %>
-  <div class="sortable-check-box-collection">
-    <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
-      <% choice = answer.selected_choices.find { |choice| choice.answer_option_id == answer_option.id } %>
-
-      <div class="collection-input">
-        <%= label_tag do %>
-          <%= check_box_tag "questionnaire[responses][#{answer_idx}][choices][#{idx}][body]",
-                            translated_attribute(answer_option.body),
-                            choice.present?, disabled: disabled %>
-
-          <span class="position"><%= choice.try(:position) %></span>
-
-          <%= translated_attribute(answer_option.body) %>
-
-          <%= hidden_field_tag "questionnaire[responses][#{answer_idx}][choices][#{idx}][position]",
-                              choice.try(:position),
-                              disabled: true %>
-
-          <%= hidden_field_tag "questionnaire[responses][#{answer_idx}][choices][#{idx}][answer_option_id]", answer_option.id %>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-<% end %>
+<%= render partial: "decidim/forms/questionnaires/answers/#{answer.question.question_type}", locals: { answer: answer, answer_form: answer_form, answer_idx: answer_idx, field_id: field_id, disabled: disabled } %>
 
 <%= answer_form.hidden_field :question_id %>
+
+<small class="form-error max-choices-alert"><%= t(".max_choices_alert") %></small>
 
 <% answer.errors.full_messages.each do |msg| %>
   <small class="form-error is-visible"><%= msg %></small>

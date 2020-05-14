@@ -3,19 +3,21 @@
   description: translated_attribute(questionnaire.description),
 }) %>
 
+<% columns = allow_answers? && visitor_can_answer? && @form.responses.map(&:question).any?(&:matrix?) ? 9 : 6 %>
+
 <%= render partial: "decidim/shared/component_announcement" %>
 
 <div class="row columns">
   <h3 class="section-heading"><%= translated_attribute questionnaire.title %></h3>
   <div class="row">
-    <div class="columns large-6 medium-centered lead">
+    <div class="columns large-<%= columns %> medium-centered lead">
       <%= decidim_sanitize translated_attribute questionnaire.description %>
     </div>
   </div>
 </div>
 
 <div class="row">
-  <div class="columns large-6 medium-centered">
+  <div class="columns large-<%= columns %> medium-centered">
     <div class="card">
       <div class="card__content">
         <% if allow_answers? %>
@@ -41,7 +43,7 @@
                 <%= decidim_form_for(@form, url: update_url, method: :post, html: { class: "form answer-questionnaire" }) do |form| %>
                   <%= invisible_captcha %>
                   <% @form.responses.each_with_index do |answer, answer_idx| %>
-                    <div class="row column">
+                    <div class="row column answer" data-max-choices="<%= answer.question.max_choices %>">
                       <%= fields_for "questionnaire[responses][#{answer_idx}]", answer do |answer_form| %>
                         <%= render "decidim/forms/questionnaires/answer", answer_form: answer_form, answer: answer, answer_idx: answer_idx, disabled: !current_participatory_space.can_participate?(current_user) %>
                       <% end %>

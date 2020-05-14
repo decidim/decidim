@@ -69,6 +69,24 @@ pt:
         one: Voto
         other: Votos
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Tipo
+          values:
+            'false': Propostas
+            'true': Emendas
+        state_eq:
+          label: Estado
+          values:
+            accepted: Aceitaram
+            evaluating: Avaliando
+            rejected: Rejeitado
+            withdrawn: Retirado
+        state_null:
+          label: Estado
+          values:
+            'true': Não respondido
     components:
       proposals:
         actions:
@@ -323,6 +341,10 @@ pt:
             success: Texto participativo atualizado com sucesso.
         proposal_answers:
           form:
+            accepted: Aceitaram
+            answer_proposal: Responda
+            evaluating: Avaliando
+            rejected: Rejeitado
             title: Resposta para a proposta %{title}
         proposal_notes:
           create:
@@ -367,7 +389,10 @@ pt:
           publish_answers:
             select_a_proposal: Selecione uma proposta
           show:
+            authors: Autores
+            body: Corpo
             created_at: Data de criação
+            proposals: Propostas
             votes_count: Contagem de votos
           update_category:
             select_a_category: Por favor, selecione uma categoria
@@ -405,16 +430,21 @@ pt:
         rejected: Rejeitado
         withdrawn: Retirado
       application_helper:
+        filter_category_values:
+          all: Todos
         filter_origin_values:
           all: Todos
           citizens: Cidadãos
           meetings: Reuniões
           official: Oficial
           user_groups: Grupos de usuários
+        filter_scope_values:
+          all: Todos
         filter_state_values:
           accepted: Aceitaram
           all: Todos
           evaluating: Avaliando
+          not_answered: Não respondido
           rejected: Rejeitado
         filter_type_values:
           all: Todos
@@ -466,6 +496,7 @@ pt:
           open: Aberto
           published: Publicados
           related_to: Relacionado a
+          scope: Escopo
           search: Pesquisa
           state: Estado
           withdrawn: Retirado
@@ -599,8 +630,10 @@ pt:
           category: Categoria
           origin: Origem
           related_to: Relacionado a
+          scope: Escopo
           search: Pesquisa
           state: Estado
+          type: Tipo
           voted: Votado
         filters_small_view:
           close_modal: Fechar modal
@@ -640,7 +673,7 @@ pt:
           creation_date: 'Criação: %{date}'
           view_proposal: Ver proposta
         show:
-          answer: Responder
+          answer: Responda
           back_to: De volta a
           comments: Comentários
           edit_proposal: Editar proposta

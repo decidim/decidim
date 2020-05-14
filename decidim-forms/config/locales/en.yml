@@ -37,8 +37,13 @@ en:
           form:
             add_question: Add question
             already_answered_warning: The form is already answered by some users so you cannot modify its questions.
+          matrix_row:
+            matrix_row: Row
+            remove: Remove
+            statement: Statement
           question:
             add_answer_option: Add answer option
+            add_matrix_row: Add row
             any: Any
             description: Description
             down: Down
@@ -54,6 +59,8 @@ en:
           body: Body can't be blank
       question_types:
         long_answer: Long answer
+        matrix_multiple: Matrix (Multiple option)
+        matrix_single: Matrix (Single option)
         multiple_option: Multiple option
         short_answer: Short answer
         single_option: Single option
@@ -61,6 +68,7 @@ en:
       questionnaires:
         answer:
           invalid: There was a problem answering the form.
+          max_choices_alert: There are too many choices selected
           success: Form successfully answered.
         question:
           max_choices: 'Max choices: %{n}'

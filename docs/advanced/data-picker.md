@@ -4,7 +4,7 @@ Simple HTML `select`s are not usable enough for the big collections of data Deci
 
 Current Decidim's selector is inspired on [this](https://medium.com/@mibosc/responsive-design-why-and-how-we-ditched-the-good-old-select-element-bc190d62eff5) article.
 
-Data Picker is a selector thought to be reusable in many contexts and kinds of data. The idea behind it is a reusable widget that opens a popup where the user will perform a given selection and, on finish, this selection is returned to the source widget in the main page. The popup is accompained by a semitransparent layer behind it to blur the background and keep the user concentrated in the current action, the selection.
+Data Picker is a selector thought to be reusable in many contexts and kinds of data. The idea behind it is a reusable widget that opens a popup where the user will perform a given selection and then return to the main page. The popup is accompained by a semitransparent layer behind it to blur the background and keep the user concentrated in the current action, the selection.
 
 ## Artifacts
 
@@ -43,13 +43,40 @@ It is a good way to implement the widget to think that it is a component that ta
 
 ### Selector popup content
 
-Anchors in the selector can have the following attributes:
-data-close: this anchor will be ignored
-href: the url to be used for choosing
-picker-choose: when 'undefined' will load the given href url. Otherwise a choose action in the component is invoked with params: `url: href, value: picker-value, text: picker-text`.
-picker-value: the selected value
-picker-text (optional): The text to be shown in the picker button.
+**Anchors** in the selector can have the following attributes:
+- data-close: this anchor will be ignored and will close the picker
+- href: the url to be used for choosing
+- picker-choose: when not present the picker will navigate as a regular anchor. Otherwise a choose action in the component is invoked with params: `url: href, value: picker-value, text: picker-text`.
+- picker-value: the selected value
+- picker-text (optional): The text to be shown in the picker button.
 
-### Returning the selection to the widget
+This is an example of a link used to choose an element:
 
-To return the selection to the widget in the main page use javascript to set the data-picker-value in the #proposal-picker-choose button.
+```html
+  <a class="button" href="[picker path browsing this element]" data-picker-text="[text]" data-picker-value="[value]" data-picker-choose>[text]</a>
+```
+
+**Checkboxes** also can be used in the selector, to allow to select several values at once. In this case, the `href` attribute is replaced with `data-picker-url` and the `data-picker-value` attribute is replaced with the `value` built-in attribute.
+
+This is an example of a checkbox that allow to choose an element without closing the picker:
+
+```html
+  <label><input type="checkbox" data-picker-url="[picker path browsing this element]" data-picker-text="[text]" value="[value]" data-picker-choose>[text]</label>
+```
+
+## Examples of use of the DataPicker
+
+- Scopes picker: Allows to browse the tree of scopes and select one or several scopes.
+  - [FormBuilder scopes picker field](../../decidim-core/lib/decidim/form_builder.rb): Basic method to render a scope picker for a form.
+  - [FilterFormBuilder scopes picker field](../../decidim-core/lib/decidim/filter_form_builder.rb): Basic method to render a scope picker for a filter form.
+  - [Scopes pickers helpers](../../decidim-core/app/helpers/decidim/scopes_helper.rb): Helpers to simplify the call to basic methods.
+  - [Global scopes picker controller](../../decidim-core/app/controllers/decidim/scopes_controller.rb): Controller used to browse the scopes on a picker in any part of the application.
+  - [Proposals' frontend form using a scopes picker](../../decidim-proposals/app/views/decidim/proposals/proposals/_edit_form_fields.html.erb): Use of a scope picker helper on a frontend page.
+  - [Proposals' admin form using a scopes picker](../../decidim-proposals/app/views/decidim/proposals/admin/proposals/_form.html.erb): Use of a scope picker helper on an admin page.
+  - [Meetings' multiple scopes picker for filtering](../../decidim-meetings/app/views/decidim/meetings/meetings/_filters.html.erb): Use of a multiple scopes picker on a filter form.
+- Proposals picker: Allows to search and select multiple proposals to be referenced from other components.
+  - [Proposals pickers helper](../../decidim-proposals/app/helpers/decidim/proposals/admin/proposals_picker_helper.rb): Helper to render a DataPicker for proposals selection.
+  - [Proposals picker concern for admin pages](../../decidim-proposals/app/controllers/concerns/decidim/proposals/admin/picker.rb): You will need to add this concern to your controller, add a route for `proposals_picker` endpoint and create a view for it to show the proposals picker in your component context.
+  - [Proposals picker cell](../../decidim-proposals/app/cells/decidim/proposals/proposals_picker_cell.rb): You can use this cell to reuse the logic in your picker view.
+  - [Accountability's admin controller with a proposals picker](../../decidim-accountability/app/controllers/decidim/accountability/admin/results_controller.rb): It only needs to add the concern (and the endpoint to the routes).
+  - [Accountability's admin view with a proposals picker](../../decidim-accountability/app/views/decidim/accountability/admin/results/proposals_picker.html.erb): It only needs to render the cell.

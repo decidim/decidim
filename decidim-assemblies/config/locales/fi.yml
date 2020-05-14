@@ -33,7 +33,7 @@ fi:
         local_area: Organisaatioalue
         meta_scope: Teeman metadata
         parent_id: Liittyvä ryhmä
-        participatory_processes_ids: Liittyvät osallisuusprosessit
+        participatory_processes_ids: Liittyvät osallistumisprosessit
         participatory_scope: Mitä päätetään
         participatory_structure: Miten päätetään
         private_space: Yksityinen tila
@@ -283,7 +283,7 @@ fi:
         executive: Johtaja
         government: Hallitus
         others: Muut
-        participatory: Osallisuus
+        participatory: Osallistuva
         working_group: Työryhmä
       content_blocks:
         highlighted_assemblies:
@@ -337,7 +337,7 @@ fi:
         purpose_of_action: Toiminnan tarkoitus
         read_less: Vähennä tekstiä
         read_more: Lue lisää
-        related_participatory_processes: Liittyvät osallisuusprosessit
+        related_participatory_processes: Liittyvät osallistumisprosessit
         scope: Teema
         social_networks: Sosiaalinen media
         target: Kuka osallistuu

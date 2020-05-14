@@ -49,17 +49,11 @@ is-IS:
           edit:
             title: Breyta niðurstöðum
             update: Uppfæra niðurstöðu
-          form:
-            add_proposal: Bæta við tillögu
           index:
             title: Niðurstöður
           new:
             create: Búa til niðurstöðu
             title: Nýtt niðurstaða
-          proposals:
-            close: Loka
-            current_selection: Núverandi val
-            select: Veldu
           update:
             success: Niðurstaða tókst að uppfæra
         shared:
