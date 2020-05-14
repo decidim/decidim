@@ -29,6 +29,18 @@ Decidim.register_component(:budgets_groups) do |component|
     components.sum { |budgets_group_component| budgets_group_component.children.count }
   end
 
+  component.on(:parent_context) do |context|
+    group_component = context[:parent_component]
+    current_user = context[:current_user]
+
+    workflow_name = group_component.settings.workflow.to_sym || Decidim::Budgets::Groups.workflows.keys.first
+
+    {
+      workflow: workflow_name,
+      workflow_instance: Decidim::Budgets::Groups.workflows[workflow_name].new(group_component, current_user)
+    }
+  end
+
   component.seeds do |participatory_space|
     budgets_group_component = Decidim::Component.create!(
       name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :budgets_groups).i18n_name,
