@@ -25,6 +25,14 @@ describe "Admin manages initiatives", type: :system do
     Decidim::Initiative.join(:scoped_type).where.not(decidim_initiatives_types_id: type).sample
   end
 
+  def initiative_with_area(area)
+    Decidim::Initiative.find_by(decidim_area_id: area)
+  end
+
+  def initiative_without_area(area)
+    Decidim::Initiative.where.not(decidim_area_id: area).sample
+  end
+
   include_context "with filterable context"
 
   let(:organization) { create(:organization) }
@@ -34,6 +42,8 @@ describe "Admin manages initiatives", type: :system do
   let(:type2) { create :initiatives_type, organization: organization }
   let(:scoped_type1) { create :initiatives_type_scope, type: type1 }
   let(:scoped_type2) { create :initiatives_type_scope, type: type2 }
+  let(:area1) { create :area, organization: organization }
+  let(:area2) { create :area, organization: organization }
 
   STATES.each do |state|
     let!("#{state}_initiative") { create_initiative_with_trait(state) }
@@ -78,6 +88,22 @@ describe "Admin manages initiatives", type: :system do
       search_by_text(translated(published_initiative.title))
 
       expect(page).to have_content(translated(published_initiative.title))
+    end
+
+    Decidim::Area.all.each do |area|
+      i18n_area = area.name[I18n.locale.to_s]
+
+      context "filtering collection by area: #{i18n_area}" do
+        before do
+          create(:initiative, organization: organization, area: area1)
+          create(:initiative, organization: organization, area: area2)
+        end
+
+        it_behaves_like "a filtered collection", options: "Area", filter: i18n_area do
+          let(:in_filter) { translated(initiative_with_area(area).title) }
+          let(:not_in_filter) { translated(initiative_without_area(area).title) }
+        end
+      end
     end
 
     it "can be searched by description" do

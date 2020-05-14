@@ -21,6 +21,7 @@ module Decidim
             attachments_enabled: true,
             custom_signature_end_date_enabled: true,
             undo_online_signatures_enabled: false,
+            area_enabled: false,
             promoting_committee_enabled: promoting_committee_enabled,
             minimum_committee_members: minimum_committee_members,
             banner_image: Decidim::Dev.test_file("city2.jpeg", "image/jpeg")

@@ -61,6 +61,12 @@
               </div>
             <% end %>
 
+            <% if initiative_type.area_enabled?%>
+              <div class="field">
+                <%= f.areas_select :area_id, areas_for_select(current_organization), prompt: t(".select_area") %>
+              </div>
+            <% end %>
+
             <% if Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
               <div class="field">
                 <%= f.select :decidim_user_group_id,
