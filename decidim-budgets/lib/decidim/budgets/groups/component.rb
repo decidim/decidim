@@ -16,12 +16,17 @@ Decidim.register_component(:budgets_groups) do |component|
     settings.attribute :scope_id, type: :scope
     settings.attribute :workflow, type: :string, default: "one"
     settings.attribute :title, type: :string, translated: true
-    settings.attribute :description, type: :text, translated: true, editor: true
-    settings.attribute :announcement, type: :text, translated: true
+    settings.attribute :description, type: :text, translated: true
+    settings.attribute :highlighted_heading, type: :text, translated: true
+    settings.attribute :list_heading, type: :text, translated: true
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
   component.settings(:step) do |settings|
+    settings.attribute :title, type: :string, translated: true
+    settings.attribute :description, type: :text, translated: true
+    settings.attribute :highlighted_heading, type: :text, translated: true
+    settings.attribute :list_heading, type: :text, translated: true
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
@@ -46,8 +51,14 @@ Decidim.register_component(:budgets_groups) do |component|
       name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :budgets_groups).i18n_name,
       manifest_name: :budgets_groups,
       published_at: Time.current,
-      participatory_space: participatory_space
+      participatory_space: participatory_space,
+      settings: {
+        title: Decidim::Faker::Localized.sentence(4),
+        description: Decidim::Faker::Localized.paragraph(3),
+        highlighted_heading: Decidim::Faker::Localized.sentence(4),
+        list_heading: Decidim::Faker::Localized.sentence(4),
         workflow: %w(one random all).sample
+      },
     )
 
     3.times do
