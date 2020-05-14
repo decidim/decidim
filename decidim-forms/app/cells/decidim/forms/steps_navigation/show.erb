@@ -1,0 +1,11 @@
+<div class="button--double form-general-submit answer-questionnaire__submit">
+  <%= form.submit(
+    t("decidim.forms.steps_navigation.show.submit"),
+    class: "button",
+    disabled: disabled?,
+    data: {
+      confirm: t("decidim.forms.steps_navigation.show.are_you_sure"),
+      disable: true
+    }
+  ) %>
+</div>

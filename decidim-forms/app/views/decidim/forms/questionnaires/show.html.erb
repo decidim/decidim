@@ -65,9 +65,13 @@
                     </div>
                   </div>
 
-                  <div class="button--double form-general-submit">
-                    <%= form.submit t(".submit"), class: "button", disabled: !current_participatory_space.can_participate?(current_user), data: { confirm: t(".are_you_sure"), disable: true } %>
-                  </div>
+                  <%= cell(
+                    "decidim/forms/steps_navigation",
+                    questionnaire,
+                    form: form,
+                    questionnaires: questionnaires,
+                    disabled: !current_participatory_space.can_participate?(current_user)
+                  ) %>
                 <% end %>
               </div>
             <% end %>

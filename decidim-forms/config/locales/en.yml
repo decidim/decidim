@@ -100,7 +100,6 @@ en:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Sign in with your account</a> or <a href="%{sign_up_link}">sign up</a> to answer the form.
             title: Answer the form
-          are_you_sure: This action cannot be undone and you will not be able to edit your answers. Are you sure?
           questionnaire_answered:
             body: You have already answered this form.
             title: Already answered
@@ -110,11 +109,15 @@ en:
           questionnaire_for_private_users:
             body: The form is available only for private users
             title: Form closed
-          submit: Submit
           tos_agreement: By participating you accept its Terms of Service
       steps_header:
-        current_step_index: "Step %{index}"
-        total_steps: "of %{total}"
+        show:
+          current_step_index: Step %{index}
+          total_steps: of %{total}
+      steps_navigation:
+        show:
+          are_you_sure: This action cannot be undone and you will not be able to edit your answers. Are you sure?
+          submit: Submit
       user_answers_serializer:
         created_at: Answered on
         id: Answer ID
