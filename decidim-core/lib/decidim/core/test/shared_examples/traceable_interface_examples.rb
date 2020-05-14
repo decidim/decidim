@@ -5,7 +5,8 @@ require "spec_helper"
 shared_examples_for "traceable interface" do
   describe "traceable", versioning: true do
     before do
-      Decidim.traceability.update!(model, model.creator_identity, title: "test")
+      author = model.respond_to?(:creator_identity) ? model.creator_identity : model.normalized_author
+      Decidim.traceability.update!(model, author, title: "test")
     end
 
     context "when field createdAt" do

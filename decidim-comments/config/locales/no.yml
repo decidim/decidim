@@ -4,6 +4,7 @@
       decidim/comments/comment_by_followed_user_event: Kommentar
       decidim/comments/comment_created_event: Kommentar
       decidim/comments/reply_created_event: Kommenter svar
+      decidim/comments/user_group_mentioned_event: Omtal
       decidim/comments/user_mentioned_event: Omtal
   activerecord:
     models:
@@ -79,6 +80,9 @@
         comment_by_followed_user:
           email_intro: "%{author_name} har lagt igjen en kommentar i %{resource_title}. Du kan lese den på denne siden:"
           email_outro: Du har mottatt denne varslingen fordi du følger %{author_name}. Du kan slutte å følge denne brukeren fra dems profil side.
+          email_subject: Det er en ny kommentar av %{author_name} i %{resource_title}
+          notification_title: Det er en ny kommentar av <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>.
+        comment_by_followed_user_group:
           email_subject: Det er en ny kommentar av %{author_name} i %{resource_title}
           notification_title: Det er en ny kommentar av <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:

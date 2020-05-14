@@ -58,17 +58,11 @@ hu:
           edit:
             title: Eredmény szerkesztése
             update: Eredmény frissítése
-          form:
-            add_proposal: Javaslat hozzáadása
           index:
             title: Eredmények
           new:
             create: Eredmény létrehozása
             title: Új eredmény
-          proposals:
-            close: Bezárás
-            current_selection: Aktuális kijelölés
-            select: Választ
           update:
             invalid: Probléma történt az eredmény frissítésekor
             success: Eredmény sikeresen frissítve

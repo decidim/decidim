@@ -9,6 +9,12 @@ fi:
         translatable_text: Käännettävä teksti
         updated_at: Päivitysaika
   decidim:
+    components:
+      dummy:
+        settings:
+          step:
+            endorsements_blocked: Suositukset estetty
+            endorsements_enabled: Suositukset käytössä
     dummy:
       admin:
         exports:

@@ -97,6 +97,8 @@ en:
           create: Create
           select_a_category: Please select a category
           title: New debate
+        show:
+          back: Back to list
       last_activity:
         new_debate_at_html: "<span>New debate at %{link}</span>"
       models:

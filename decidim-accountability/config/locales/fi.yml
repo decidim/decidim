@@ -58,17 +58,11 @@ fi:
           edit:
             title: Muokkaa tulosta
             update: Päivitä tulos
-          form:
-            add_proposal: Lisää ehdotus
           index:
             title: Tulokset
           new:
             create: Luo tulos
             title: Uusi tulos
-          proposals:
-            close: Sulje
-            current_selection: Nykyinen valinta
-            select: Valitse
           update:
             invalid: Tuloksen päivitys epäonnistui
             success: Tulos päivitetty onnistuneesti

@@ -176,7 +176,7 @@ ca:
       models:
         assemblies_types:
           fields:
-            created_at: Creat el
+            created_at: Data de creació
             title: Títol
         assembly:
           fields:
@@ -310,6 +310,7 @@ ca:
         home:
           highlighted_assemblies:
             active_assemblies: Assemblees actives
+            assemblies_button_title: Enllaç a la pàgina d'Assemblees mostrant totes les assemblees
             see_all_assemblies: Veure totes les assemblees
         user_profile:
           member_of:
@@ -340,6 +341,7 @@ ca:
         related_participatory_processes: Processos participatius relacionats
         scope: Àmbit
         social_networks: Xarxes socials
+        social_networks_title: Compartir aquesta assemblea a
         target: Qui participa
       statistics:
         answers_count: Respostes
@@ -351,6 +353,7 @@ ca:
         meetings_count: Trobades
         orders_count: Suports
         pages_count: Pàgines
+        posts_count: Publicacions
         projects_count: Projectes
         proposals_count: Propostes
         results_count: Resultats
@@ -362,6 +365,11 @@ ca:
         designated_on: Designat a
       index:
         title: Membres
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Enllaç a la pàgina de Jornades mostrant totes les jornades
     help:
       participatory_spaces:
         assemblies:
@@ -381,6 +389,17 @@ ca:
         description: Nombre d'assemblees creades
         object: assemblees
         title: Assemblees
+    pages:
+      home:
+        hero:
+          participate_title: Participa als processos de la plataforma
+        sub_hero:
+          register_title: Registra't per crear un compte a la plataforma
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Enllaç a la pàgina de Processos mostrant tots els processos
   errors:
     messages:
       cannot_be_blank: no es pot estar en blanc

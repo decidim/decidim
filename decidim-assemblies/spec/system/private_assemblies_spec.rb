@@ -24,7 +24,7 @@ describe "Private Assemblies", type: :system do
 
         it "lists all the assemblies" do
           within "#parent-assemblies" do
-            within "#parent-assemblies h2" do
+            within "#parent-assemblies h3" do
               expect(page).to have_content("2")
             end
 
@@ -45,7 +45,7 @@ describe "Private Assemblies", type: :system do
 
         it "lists all the assemblies" do
           within "#parent-assemblies" do
-            within "#parent-assemblies h2" do
+            within "#parent-assemblies h3" do
               expect(page).to have_content("2")
             end
 
@@ -69,7 +69,7 @@ describe "Private Assemblies", type: :system do
 
         it "lists only the not private assembly" do
           within "#parent-assemblies" do
-            within "#parent-assemblies h2" do
+            within "#parent-assemblies h3" do
               expect(page).to have_content("1")
             end
 
@@ -90,7 +90,7 @@ describe "Private Assemblies", type: :system do
 
         it "lists only the not private assembly" do
           within "#parent-assemblies" do
-            within "#parent-assemblies h2" do
+            within "#parent-assemblies h3" do
               expect(page).to have_content("1")
             end
 
@@ -110,7 +110,7 @@ describe "Private Assemblies", type: :system do
 
           it "lists private assemblies" do
             within "#parent-assemblies" do
-              within "#parent-assemblies h2" do
+              within "#parent-assemblies h3" do
                 expect(page).to have_content("2")
               end
 
@@ -138,7 +138,7 @@ describe "Private Assemblies", type: :system do
 
         it "lists private assemblies" do
           within "#parent-assemblies" do
-            within "#parent-assemblies h2" do
+            within "#parent-assemblies h3" do
               expect(page).to have_content("2")
             end
 

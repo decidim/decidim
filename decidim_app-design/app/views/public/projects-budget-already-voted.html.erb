@@ -1,0 +1,36 @@
+<%
+@title = "Propuesta -- Decidim Barcelona"
+@activesection = "processes"
+@activepage = "proposals"
+%>
+
+<%= partial "template_top" %>
+
+<main>
+  <%= partial "process_header" %>
+  <div class="wrapper">
+    <div class="row">
+      <div class="columns medium-7 mediumlarge-8">
+        <div class="section">
+          <p class="lead">
+            Has votado los presupuestos del <a href="#"><strong>distrito de Gràcia</strong></a>
+            y del <a href="#"><strong>distrito de Ciutat Vella</strong></a>.
+          </p>
+          <p class="lead">
+            Ya has finalizado la votación de los dos distritos. ¡Muchas gracias por haber participado!
+          </p>
+          <p>
+            Si has cambiado de opinión, puedes:
+          </p>
+          <ul>
+            <li><a href="#">Eliminar tu voto del distrito de Gràcia y volver a votar</a>.</li>
+            <li><a href="#">Eliminar tu voto del distrito de Ciutat Vella y volver a votar</a>.</li>
+          </ul>
+        </div>
+        <%= partial "budget_districts", locals: { votedOne: true, votedTwo: true } %>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>

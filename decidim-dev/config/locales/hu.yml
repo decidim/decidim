@@ -9,6 +9,12 @@ hu:
         translatable_text: Lefordítható szöveg
         updated_at: 'Frissítve:'
   decidim:
+    components:
+      dummy:
+        settings:
+          step:
+            endorsements_blocked: Jóváhagyások letiltva
+            endorsements_enabled: Jóváhagyások engedélyezve
     dummy:
       admin:
         exports:

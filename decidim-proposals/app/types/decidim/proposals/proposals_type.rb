@@ -22,10 +22,20 @@ module Decidim
     class ProposalListHelper < Decidim::Core::ComponentListBase
       argument :order, ProposalInputSort, "Provides several methods to order the results"
       argument :filter, ProposalInputFilter, "Provides several methods to filter the results"
+
+      # only querying published posts
+      def query_scope
+        super.published
+      end
     end
 
     class ProposalFinderHelper < Decidim::Core::ComponentFinderBase
       argument :id, !types.ID, "The ID of the proposal"
+
+      # only querying published posts
+      def query_scope
+        super.published
+      end
     end
   end
 end

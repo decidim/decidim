@@ -112,6 +112,16 @@ module Decidim
       end
 
       #
+      # Given a user, returns if ALL the interlocutors allow her to join the conversation
+      #
+      # @return Boolean
+      #
+      def accept_user?(user)
+        blocked = interlocutors(user).detect { |participant| !participant.accepts_conversation?(user) }
+        blocked.blank?
+      end
+
+      #
       # The most recent message in this conversation
       #
       # @return [Decidim::Messaging::Message]

@@ -96,6 +96,8 @@ hu:
           create: Létrehozás
           select_a_category: Válassz kategóriát
           title: Új vita
+        show:
+          back: Vissza a listához
       last_activity:
         new_debate_at_html: "<span>Új vita %{link}</span>"
       models:

@@ -372,7 +372,9 @@ FactoryBot.define do
 
     trait :with_endorsements do
       after :create do |proposal|
-        create_list(:proposal_endorsement, 5, proposal: proposal)
+        5.times.collect do
+          create(:endorsement, resource: proposal, author: build(:user, organization: proposal.participatory_space.organization))
+        end
       end
     end
 
@@ -388,22 +390,11 @@ FactoryBot.define do
     author { build(:user, organization: proposal.organization) }
   end
 
-  factory :proposal_endorsement, class: "Decidim::Proposals::ProposalEndorsement" do
-    proposal { build(:proposal) }
-    author { build(:user, organization: proposal.organization) }
-  end
-
   factory :proposal_amendment, class: "Decidim::Amendment" do
     amendable { build(:proposal) }
     emendation { build(:proposal, component: amendable.component) }
     amender { build(:user, organization: amendable.component.participatory_space.organization) }
     state { Decidim::Amendment::STATES.sample }
-  end
-
-  factory :user_group_proposal_endorsement, class: "Decidim::Proposals::ProposalEndorsement" do
-    proposal { build(:proposal) }
-    author { build(:user, organization: proposal.organization) }
-    user_group { create(:user_group, verified_at: Time.current, organization: proposal.organization, users: [author]) }
   end
 
   factory :proposal_note, class: "Decidim::Proposals::ProposalNote" do

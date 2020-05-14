@@ -60,17 +60,11 @@ ru:
           edit:
             title: Редактировать итог
             update: Обновить итог
-          form:
-            add_proposal: Добавить предложение
           index:
             title: Итоги
           new:
             create: Создать итог
             title: Добавить итог
-          proposals:
-            close: Закрыть
-            current_selection: Текущий выбор
-            select: Выбрать
           update:
             invalid: При попытке обновить этот итог произошла ошибка
             success: Итог успешно обновлен

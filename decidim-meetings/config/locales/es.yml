@@ -368,6 +368,7 @@ es:
           confirm: Confirmar
         show:
           attendees: Número de asistentes
+          back: Volver al listado
           contributions: Número de aportaciones
           going: Inscrito
           join: Inscríbete al encuentro

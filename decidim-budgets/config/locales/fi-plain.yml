@@ -107,6 +107,12 @@ fi-pl:
             one: suunnitelma valittu
             other: projektia valittu
           view: Näytä
+        orders:
+          highest_cost: Kallein ensin
+          label: Järjestä suunnitelmat
+          lowest_cost: Edullisin ensin
+          most_voted: Eniten ääniä saaneet ensin
+          random: Satunnainen järjestys
         project:
           add: Lisää
           count:
