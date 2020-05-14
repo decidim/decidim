@@ -153,6 +153,7 @@ en:
             other: "%{count} supports"
           remove: Remove
           view: View
+          you_voted: You voted
         project_budget_button:
           add: Add
           added: Added

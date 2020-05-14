@@ -13,8 +13,8 @@ edit_link(
 %>
 
 <div class="row column view-header">
-  <% if current_user.present? && current_settings.votes_enabled? && current_participatory_space.can_participate?(current_user) %>
-    <%= render partial: "budget_summary", locals: { include_heading: false } %>
+  <% if can_have_order? %>
+    <%= render partial: "budget_summary", locals: { full_view: false } %>
   <% end %>
   <%= link_to projects_path, class: "muted-link" do %>
     <%= icon "chevron-left", class: "icon--small", role: "img" %>

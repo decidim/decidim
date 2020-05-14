@@ -1,0 +1,9 @@
+<div class="<%= container_class %>">
+  <div class="<%= count_class %>"><%= model.confirmed_orders_count %></div>
+  <span class="text-uppercase text-small"><%= t("decidim.budgets.projects.project.count", count: model.confirmed_orders_count) %></span>
+  <% if resource_added? %>
+    <div class="<%= you_voted_class %>">
+      <%= icon("check", role: "img") %> <%= t("decidim.budgets.projects.project.you_voted") %>
+    </div>
+  <% end %>
+</div>
