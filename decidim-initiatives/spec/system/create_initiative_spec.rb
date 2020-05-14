@@ -232,7 +232,7 @@ describe "Initiative", type: :system do
         end
       end
 
-      context "when Finish" do
+      context "when Finish", processing_uploads_for: Decidim::AttachmentUploader do
         let(:initiative) { build(:initiative) }
 
         before do
