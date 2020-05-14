@@ -1,16 +1,21 @@
 <div class="<%= card_class %>">
   <div class="card--list__text">
-    <%= link_to main_component_path(model), class: link_class do %>
-      <% if order %>
+    <%= link_to main_component_path(component), class: link_class do %>
+      <% if voted? %>
         <strong>
-          <%= translated_attribute(model.name) %>
+          <%= translated_attribute(component.name) %>
         </strong>
-
         <span class="button tiny success card--list__check card--list__check--disabled">
-          <%= icon "check" %>
+          <%= icon "check", class: "icon--small", role: "img" %>
         </span>
       <% else %>
-        <%= translated_attribute(model.name) %>
+        <%= translated_attribute(component.name) %>
+
+        <% if progress? %>
+          <span class="button tiny hollow secondary card--list__check card--list__check--disabled">
+            <%= icon "bookmark", class: "icon--small", role: "img" %>
+          </span>
+        <% end %>
       <% end %>
     <% end %>
   </div>

@@ -1,7 +1,36 @@
-<h1 class="heading3">
-  <%= translated_attribute(title) %>
-</h1>
+<% unless voted? %>
+  <h1 class="heading3">
+    <%= decidim_sanitize(title) %>
+  </h1>
+<% end %>
 
-<div class="lead">
-  <%= decidim_sanitize translated_attribute(description) %>
+<div class="section">
+  <p class="lead">
+    <% if voted? %>
+      <%= t(".voted_on", links: budgets_link_list(voted)) %>
+    <% else %>
+      <%= decidim_sanitize(description) %>
+    <% end %>
+  </p>
+
+  <%= content_tag(:p, t(".finished_message"), class: :lead) if finished? %>
+
+  <% if voted? %>
+    <%= t(".if_change_opinion") %>
+
+    <% if voted.count == 1 %>
+      <%= link_to(t(".cancel_order.one"), order_path_for(voted.first), method: :delete)  %>
+    <% else %>
+      <ul>
+        <% voted.each do |budget| %>
+          <li><%= link_to(t(".cancel_order.many", name: translated_attribute(budget.name)), order_path_for(budget), method: :delete, class: "cancel-order", data: { confirm: t("projects.budget_summary.are_you_sure", scope: "decidim.budgets") }) %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+
+  <% if highlighted %>
+    <p><%= highlighted_heading %></p>
+    <p><%= link_to t(".highlighted_cta", name: translated_attribute(highlighted.name)), main_component_path(highlighted), class: :button %></p>
+  <% end %>
 </div>

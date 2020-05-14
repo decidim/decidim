@@ -72,9 +72,20 @@ en:
                 name: Component name
                 type: Component type
               title: Budgets Group
-        projects:
-          index:
-            back_to: Back to %{parent_name}
+        budgets_group_header:
+          cancel_order:
+            one: delete your vote and start over
+            many: delete your vote on %{name} and start over
+          finished_message: You've finished the voting process. ¡Thanks for participating!
+          highlighted_cta: Vote on %{name}
+          if_change_opinion: If you've changed your mind, you can
+          voted_on: You've voted on %{links}
+        budgets_group_information_modal:
+          back_to: Back to %{group_name}
+          continue: Continue
+          limit_reached: 'You may discard your pending votes on other budgets to vote on this budget:'
+          limit_reached_cancel: Discard your pending vote on %{name}
+          more_information: More information
       models:
         project:
           fields:

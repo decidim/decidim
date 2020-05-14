@@ -1,0 +1,10 @@
+<p><%= heading %></p>
+<div class="row">
+  <div class="columns mediumlarge-6">
+    <div class="card card--list card--list--mini">
+      <% budgets.each do |budget| %>
+        <%= cell("decidim/budgets/groups/budget_list_item", budget) %>
+      <% end %>
+    </div>
+  </div>
+</div>

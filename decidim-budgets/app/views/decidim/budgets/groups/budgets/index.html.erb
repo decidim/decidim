@@ -2,11 +2,7 @@
 
 <div class="row">
   <div class="columns medium-7 mediumlarge-8">
-    <%= cell("decidim/budgets/groups/budgets_group_header", component_settings) %>
-
-    <div class="card card--list card--list--mini">
-      <% current_component.children.published.each do |component| %>
-        <%= cell("decidim/budgets/groups/budget_list_item",component) %>
-      <% end %>
+    <%= cell("decidim/budgets/groups/budgets_group_header", current_component) %>
+    <%= cell("decidim/budgets/groups/budgets_list", current_component) %>
   </div>
 </div>

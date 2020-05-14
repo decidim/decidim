@@ -34,6 +34,8 @@
         <%= render partial: "order_total_budget" %>
       </span>
     </div>
+
+    <%= render_hook(:budgets_parent_information) if full_view && current_component.parent %>
   </div>
 
   <%= render partial: "order_selected_projects" %>
