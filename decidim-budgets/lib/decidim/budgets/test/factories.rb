@@ -90,10 +90,38 @@ FactoryBot.define do
   factory :order, class: "Decidim::Budgets::Order" do
     component { create(:budget_component) }
     user { create(:user, organization: component.organization) }
+
+    trait :with_projects do
+      transient do
+        projects_number { 2 }
+      end
+
+      after(:create) do |order, evaluator|
+        project_budget = (order.maximum_budget / evaluator.projects_number).to_i
+        order.projects << create_list(:project, evaluator.projects_number, budget: project_budget, component: order.component)
+        order.save!
+      end
+    end
   end
 
   factory :line_item, class: "Decidim::Budgets::LineItem" do
     order
     project { create(:project, component: order.component) }
+  end
+
+  factory :budgets_group_component, parent: :component do
+    name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :budgets_groups).i18n_name }
+    manifest_name { :budgets_groups }
+    participatory_space { create(:participatory_process, :with_steps, organization: organization) }
+
+    trait :with_children do
+      transient do
+        children_number { 3 }
+      end
+
+      after(:create) do |budgets_group, evaluator|
+        create_list(:budget_component, evaluator.children_number, organization: budgets_group.organization, parent: budgets_group)
+      end
+    end
   end
 end
