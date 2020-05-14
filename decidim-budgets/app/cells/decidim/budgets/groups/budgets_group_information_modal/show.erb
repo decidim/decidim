@@ -1,5 +1,5 @@
 <button class="link" data-open="budget-modal-info" aria-controls="budget-modal-info" aria-haspopup="true" tabindex="0"><%= t(".more_information") %></button>
-<div class="reveal" data-reveal id="budget-modal-info">
+<div class="reveal" data-reveal <%= "data-reveal-open" if discardable.any? %> id="budget-modal-info">
   <div class="reveal__header">
     <h3 class="reveal__title"><%= decidim_sanitize(title) %></h3>
     <button class="close-button" data-close aria-label="Close modal" type="button">

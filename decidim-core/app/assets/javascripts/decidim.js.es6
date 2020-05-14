@@ -50,6 +50,8 @@ $(() => {
 
   svg4everybody();
 
+  $('[data-reveal-open]').foundation('open');
+
   if (window.Decidim.formDatePicker) {
     window.Decidim.formDatePicker();
   }
