@@ -35,6 +35,7 @@
       height: 4rem;
       flex-shrink: 0;
       margin: $card-padding;
+      margin-right: 0;
     }
 
     img {
@@ -50,7 +51,6 @@
     flex-grow: 1;
     @include breakpoint(medium) {
       padding: $card-padding;
-      padding-left: 0;
       display: flex;
       align-items: center;
     }

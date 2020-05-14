@@ -1,0 +1,19 @@
+sr:
+  decidim:
+    admin:
+      models:
+        conference_user_role:
+          roles:
+            valuator: Procenjivač
+    conferences:
+      photo:
+        image:
+          attributes:
+            alt: Slika
+    events:
+      conferences:
+        role_assigned:
+          email_intro: Imenovani ste na funkciju %{role} konferencije %{resource_title}.
+          email_outro: Dobili ste ovo obaveštenje zbog toga što ste %{role} konferencije %{resource_title}.
+          email_subject: Imenovani ste na funkciju %{role} %{resource_title}.
+          notification_title: Imenovani ste na funkciju %{role} konferencije <a href="%{resource_url}">%{resource_title}</a>.

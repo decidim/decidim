@@ -13,7 +13,7 @@ $(() => {
     event.preventDefault();
   };
 
-  $projects.on("click", ".budget--list__action", (event) => {
+  $projects.on("click", ".budget-list__action", (event) => {
     const currentBudget = parseInt($budgetSummary.attr("data-current-budget"), 10);
     const $currentTarget = $(event.currentTarget);
     const projectBudget = parseInt($currentTarget.attr("data-budget"), 10);
@@ -21,7 +21,7 @@ $(() => {
     if ($currentTarget.attr("disabled")) {
       cancelEvent(event);
 
-    } else if ($currentTarget.attr("data-add") && ((currentBudget + projectBudget) > totalBudget)) {
+    } else if (($currentTarget.attr("data-add") === "true") && ((currentBudget + projectBudget) > totalBudget)) {
       $budgetExceedModal.foundation("toggle");
       cancelEvent(event);
     }

@@ -221,9 +221,6 @@ en:
       update_draft:
         error: There was a problem updating the amendment draft.
         success: Amendment draft successfully updated.
-      visibility_options:
-        all: Amendments are visible to all
-        participants: Amendments are visible only to their authors
       withdraw:
         error: An error ocurred while withdrawing the amendment
         success: The amendment has been withdrawn successfully
@@ -319,6 +316,19 @@ en:
       see_less: "(see less)"
       see_more: "(see more)"
     components:
+      component_order_selector:
+        no_content: We couldn\'t find any content with this criteria
+        order:
+          all_types: All types
+          collaborative_draft: Collaborative Draft
+          comment: Comment
+          debate: Debate
+          initiative: Initiative
+          meeting: Meeting
+          post: Post
+          proposal: Proposal
+          question: Question
+        title: 'Show:'
       dummy:
         actions:
           bar: Bar
@@ -575,6 +585,16 @@ en:
           email_outro: You have received this notification because you were a member of that group.
           email_subject: You have been removed from the %{user_group_name} group!
           notification_title: You have been removed from the <a href="%{resource_path}">%{user_group_name}</a> group.
+        user_group_created:
+          email_intro: A new user group has been created with the name %{user_group_name}. You can now verify it in the <a href="%{groups_admin_url}">admin panel</a>.
+          email_outro: You have received this notification because you are an admin of the platform.
+          email_subject: A new user group has been created
+          notification_title: The %{user_group_name} user group has been created. You can now verify it in the <a href="%{groups_admin_path}">admin panel</a>.
+        user_group_updated:
+          email_intro: A user group with the name %{user_group_name} has updated its profile, leaving it unverified. You can now verify it in the <a href="%{groups_admin_url}">admin panel</a>.
+          email_outro: You have received this notification because you are an admin of the platform.
+          email_subject: A user group has updated its profile
+          notification_title: The %{user_group_name} user group has updated its profile, leaving it unverified. You can now verify it in the <a href="%{groups_admin_path}">admin panel</a>.
       notification_event:
         notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
       resource_endorsed:
@@ -813,15 +833,20 @@ en:
         create:
           error: Conversation not started. Try again later
         index:
+          ago: ago
           close: Close modal
+          from: From
+          last_message: Last messsage
           new_conversation: New conversation
           next: Next
           no_conversations: You have no conversations yet
           title: Conversations
         reply:
+          placeholder: Your reply...
           send: Send
           title: Reply
         show:
+          chat_with: Conversation with
           not_allowed: This user does not accept any more direct messages.
           title: Conversation with %{usernames}
         start:
