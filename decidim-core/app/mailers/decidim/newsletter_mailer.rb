@@ -37,13 +37,11 @@ module Decidim
       @cell ||= ::Decidim::ViewModel.cell(
         @newsletter.template.cell,
         @newsletter.template,
-        {
-          organization: @organization,
-          newsletter: @newsletter,
-          recipient_user: @user,
-          context: {
-            controller: self
-          }
+        organization: @organization,
+        newsletter: @newsletter,
+        recipient_user: @user,
+        context: {
+          controller: self
         }
       )
     end
