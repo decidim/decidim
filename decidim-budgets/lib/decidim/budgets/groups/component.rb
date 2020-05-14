@@ -6,7 +6,6 @@ Decidim.register_component(:budgets_groups) do |component|
   component.engine = Decidim::Budgets::Groups::Engine
   component.admin_engine = Decidim::Budgets::Groups::AdminEngine
   component.icon = "decidim/budgets/groups/icon.svg"
-  component.stylesheet = "decidim/budgets/groups/budgets_groups"
   component.permissions_class_name = "Decidim::Budgets::Groups::Permissions"
 
   component.allow_children = true
