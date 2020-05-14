@@ -134,11 +134,12 @@ module Decidim
         let(:followers) do
           create_list(:user, 10, organization: organization)
         end
+        let(:admin) { create(:user, :admin, :confirmed, organization: organization) }
 
-        it "Result is notified to author and committee members" do
+        it "Result is notified to admins, author and committee members" do
           expect(Decidim::Initiatives::InitiativesMailer).to receive(:notify_state_change)
             .with(any_args)
-            .exactly(13).times
+            .exactly(14).times
             .and_return(message_delivery)
           subject.notify
         end
