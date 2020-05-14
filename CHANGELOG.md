@@ -49,6 +49,7 @@ Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on 
 - **decidim-budgets**: Add minimum projects rule to Budgets [\#5865](https://github.com/decidim/decidim/pull/5865)
 - **decidim-proposals**: Proposals selector added [\#5863](https://github.com/decidim/decidim/pull/5863)
 - **decidim-admin**: Allow to see a participant's email from the admin panel [\#5849](https://github.com/decidim/decidim/pull/5849)
+- **decidim-admin**: As an Admin, add existing participant to an assembly by searching their email [\#5952](https://github.com/decidim/decidim/pull/5952)
 - **decidim**: Add missing indexs on foreign keys on the DB [\#5885](https://github.com/decidim/decidim/pull/5885)
 - **decidim-core**: Redesign activity cards for the home page [\#5672](https://github.com/decidim/decidim/pull/5672)
 - **decidim-core**: Redesign activity cards on Timeline and Activity Tabs for a consistent user experience [\#5779](https://github.com/decidim/decidim/issues/5779)
