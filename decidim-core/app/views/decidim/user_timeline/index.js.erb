@@ -1,0 +1,14 @@
+var $activitiesContainer = $('#activities-container'),
+    $decidimPaginateContainer = $('#decidim-paginate-container');
+
+<% if(activities_cell = cell("decidim/activities", activities).show) %>
+  $activitiesContainer.html('<%= j(activities_cell).strip.html_safe %>');
+  $decidimPaginateContainer.html('<%= j(decidim_paginate(activities).to_s).strip.html_safe %>');
+<% else %>
+  $activitiesContainer.html(`
+    <div class="callout warning">
+      <h5><%= t("no_content", scope: "decidim.components.component_order_selector") %></h5>
+    </div>
+  `);
+  $decidimPaginateContainer.html('');
+<% end %>

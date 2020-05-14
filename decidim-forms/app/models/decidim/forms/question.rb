@@ -4,9 +4,15 @@ module Decidim
   module Forms
     # The data store for a Question in the Decidim::Forms component.
     class Question < Forms::ApplicationRecord
-      TYPES = %w(short_answer long_answer single_option multiple_option sorting).freeze
+      TYPES = %w(short_answer long_answer single_option multiple_option sorting matrix_single matrix_multiple).freeze
 
       belongs_to :questionnaire, class_name: "Questionnaire", foreign_key: "decidim_questionnaire_id"
+
+      has_many :matrix_rows,
+               class_name: "QuestionMatrixRow",
+               foreign_key: "decidim_question_id",
+               dependent: :destroy,
+               inverse_of: :question
 
       has_many :answer_options,
                class_name: "AnswerOption",
@@ -16,8 +22,12 @@ module Decidim
 
       validates :question_type, inclusion: { in: TYPES }
 
+      def matrix?
+        %w(matrix_single matrix_multiple).include?(question_type)
+      end
+
       def multiple_choice?
-        %w(single_option multiple_option sorting).include?(question_type)
+        %w(single_option multiple_option sorting matrix_single matrix_multiple).include?(question_type)
       end
 
       def mandatory_body?
