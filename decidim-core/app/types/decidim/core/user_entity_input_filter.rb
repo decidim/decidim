@@ -52,7 +52,7 @@ module Decidim
                required: false,
                prepare: ->(value, _ctx) do
                  proc do |model_class|
-                   value = value.split(',')
+                   value = value.split(",")
                    model_class.arel_table[:id].not_in(value)
                  end
                end
