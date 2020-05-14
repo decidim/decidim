@@ -56,6 +56,10 @@ module Decidim
     # params the user sent with the authorization form want to be persisted for
     # future use.
     #
+    # As a convention, an 'extras' key can be used to store information not
+    # directly related with authorization. Thus, everything inside this key
+    # can be easily ignored by consumers of this data.
+    #
     # Returns a Hash.
     def metadata
       {}
