@@ -4,7 +4,7 @@ module Decidim
   module Surveys
     # Exposes the survey resource so users can view and answer them.
     class SurveysController < Decidim::Surveys::ApplicationController
-      include Decidim::Forms::Concerns::HasQuestionnaire
+      include Decidim::Forms::Concerns::HasQuestionnaires
       helper Decidim::Surveys::SurveyHelper
 
       delegate :allow_answers?, :allow_unregistered?, to: :current_settings

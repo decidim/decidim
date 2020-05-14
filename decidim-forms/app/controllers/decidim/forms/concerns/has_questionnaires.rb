@@ -9,14 +9,20 @@ module Decidim
       #
       # The only requirement is to define a `questionnaire_for` method that
       # returns an instance of the model that questionnaire belongs to.
-      module HasQuestionnaire
+      module HasQuestionnaires
         extend ActiveSupport::Concern
 
         included do
           helper Decidim::Forms::ApplicationHelper
           include FormFactory
 
-          helper_method :questionnaire_for, :questionnaire, :allow_answers?, :visitor_can_answer?, :visitor_already_answered?, :update_url
+          helper_method :questionnaire_for,
+                        :questionnaire,
+                        :questionnaires,
+                        :allow_answers?,
+                        :visitor_can_answer?,
+                        :visitor_already_answered?,
+                        :update_url
 
           invisible_captcha on_spam: :spam_detected
 
@@ -94,7 +100,15 @@ module Decidim
           end
 
           def questionnaire
-            @questionnaire ||= Questionnaire.includes(questions: :answer_options).find_by(questionnaire_for: questionnaire_for)
+            @questionnaire ||= if params[:id]
+                                 questionnaires.find(params[:id])
+                               else
+                                 questionnaires.first
+                               end
+          end
+
+          def questionnaires
+            @questionnaires ||= Questionnaire.includes(questions: :answer_options).where(questionnaire_for: questionnaire_for)
           end
 
           def spam_detected

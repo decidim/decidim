@@ -31,6 +31,8 @@
               </div>
             <% else %>
               <div class="answer-questionnaire">
+                <%= cell("decidim/forms/steps_header", questionnaire, questionnaires: questionnaires) %>
+
                 <% unless current_participatory_space.can_participate?(current_user) %>
                   <div class="section">
                     <div class="callout alert">

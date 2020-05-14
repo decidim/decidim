@@ -112,6 +112,9 @@ en:
             title: Form closed
           submit: Submit
           tos_agreement: By participating you accept its Terms of Service
+      steps_header:
+        current_step_index: "Step %{index}"
+        total_steps: "of %{total}"
       user_answers_serializer:
         created_at: Answered on
         id: Answer ID
