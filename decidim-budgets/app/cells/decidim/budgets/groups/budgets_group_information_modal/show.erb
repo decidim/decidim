@@ -19,9 +19,7 @@
     </div>
   <% end %>
 
-  <p>
-    <%= highlighted_heading if highlighted %>
-  </p>
+  <%= content_tag(:p, more_information) if more_information %>
   <p>
     <%= link_to t("budgets_group_information_modal.back_to", scope: "decidim.budgets.groups", group_name: group_name), main_component_path(group_component) %>
   </p>

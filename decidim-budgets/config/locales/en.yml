@@ -195,6 +195,7 @@ en:
             description: Description
             highlighted_heading: Highlighted heading
             list_heading: List heading
+            more_information: More information
             scope_id: Scope
             scopes_enabled: Scopes enabled
             title: Title
@@ -208,6 +209,7 @@ en:
             description: Description
             highlighted_heading: Highlighted heading
             list_heading: List heading
+            more_information: More information
             title: Title
     orders:
       checkout:

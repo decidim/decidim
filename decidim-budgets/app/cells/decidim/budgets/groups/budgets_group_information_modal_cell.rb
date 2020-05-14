@@ -9,8 +9,8 @@ module Decidim
           component.parent
         end
 
-        def list_heading
-          translated_attribute(current_settings.list_heading).presence || translated_attribute(settings.list_heading)
+        def more_information
+          translated_attribute(current_settings.more_information).presence || translated_attribute(settings.more_information)
         end
 
         def group_name

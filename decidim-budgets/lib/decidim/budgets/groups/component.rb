@@ -18,6 +18,7 @@ Decidim.register_component(:budgets_groups) do |component|
     settings.attribute :description, type: :text, translated: true
     settings.attribute :highlighted_heading, type: :text, translated: true
     settings.attribute :list_heading, type: :text, translated: true
+    settings.attribute :more_information, type: :text, translated: true
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
@@ -26,6 +27,7 @@ Decidim.register_component(:budgets_groups) do |component|
     settings.attribute :description, type: :text, translated: true
     settings.attribute :highlighted_heading, type: :text, translated: true
     settings.attribute :list_heading, type: :text, translated: true
+    settings.attribute :more_information, type: :text, translated: true
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
@@ -56,6 +58,7 @@ Decidim.register_component(:budgets_groups) do |component|
         description: Decidim::Faker::Localized.paragraph(3),
         highlighted_heading: Decidim::Faker::Localized.sentence(4),
         list_heading: Decidim::Faker::Localized.sentence(4),
+        more_information: Decidim::Faker::Localized.sentence(4),
         workflow: %w(one random all).sample
       }
     )
