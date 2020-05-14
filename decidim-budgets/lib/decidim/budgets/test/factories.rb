@@ -10,7 +10,7 @@ FactoryBot.define do
   factory :budget_component, parent: :component do
     name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :budgets).i18n_name }
     manifest_name { :budgets }
-    participatory_space { create(:participatory_process, :with_steps, organization: organization) }
+    participatory_space { parent&.participatory_space || create(:participatory_process, :with_steps, organization: organization) }
 
     trait :with_total_budget_and_vote_threshold_percent do
       transient do
@@ -120,7 +120,9 @@ FactoryBot.define do
       end
 
       after(:create) do |budgets_group, evaluator|
-        create_list(:budget_component, evaluator.children_number, organization: budgets_group.organization, parent: budgets_group)
+        evaluator.children_number.times do
+          create(:budget_component, parent: budgets_group, name: generate_localized_title)
+        end
       end
     end
   end

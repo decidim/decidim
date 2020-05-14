@@ -30,7 +30,9 @@
   <% end %>
 
   <% if highlighted %>
-    <p><%= highlighted_heading %></p>
-    <p><%= link_to t("budgets_group_header.highlighted_cta", scope: "decidim.budgets.groups", name: translated_attribute(highlighted.name)), main_component_path(highlighted), class: :button %></p>
+    <div id="highlighted_budget">
+      <p><%= highlighted_heading %></p>
+      <p><%= link_to t("budgets_group_header.highlighted_cta", scope: "decidim.budgets.groups", name: translated_attribute(highlighted.name)), main_component_path(highlighted), class: :button %></p>
+    </div>
   <% end %>
 </div>
