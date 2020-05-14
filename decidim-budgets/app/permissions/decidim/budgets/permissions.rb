@@ -11,11 +11,9 @@ module Decidim
         return permission_action if permission_action.scope != :public
 
         if permission_action.subject == :order
-          if component&.parent
-            return parent_permissions
-          else
-            permission_action.allow!
-          end
+          return parent_permissions if component&.parent
+
+          permission_action.allow!
         end
 
         return permission_action if permission_action.subject != :project

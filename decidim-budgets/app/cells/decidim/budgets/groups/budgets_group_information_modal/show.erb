@@ -1,4 +1,4 @@
-<button class="link" data-open="budget-modal-info" aria-controls="budget-modal-info" aria-haspopup="true" tabindex="0"><%= t(".more_information") %></button>
+<button class="link" data-open="budget-modal-info" aria-controls="budget-modal-info" aria-haspopup="true" tabindex="0"><%= t("budgets_group_information_modal.more_information", scope: "decidim.budgets.groups") %></button>
 <div class="reveal" data-reveal <%= "data-reveal-open" if discardable.any? %> id="budget-modal-info">
   <div class="reveal__header">
     <h3 class="reveal__title"><%= decidim_sanitize(title) %></h3>
@@ -10,10 +10,10 @@
 
   <% if discardable.any? %>
     <div class="callout alert">
-      <%= t(".limit_reached") %>
+      <%= t("budgets_group_information_modal.limit_reached", scope: "decidim.budgets.groups") %>
       <ul>
       <% discardable.each do |budget| %>
-        <li><%= link_to(t(".limit_reached_cancel", name: translated_attribute(budget.name)), order_path_for(budget), method: :delete, class: "cancel-order", data: { confirm: t("projects.budget_summary.are_you_sure", scope: "decidim.budgets") }) %></li>
+        <li><%= link_to(t("budgets_group_information_modal.limit_reached_cancel", scope: "decidim.budgets.groups", name: translated_attribute(budget.name)), order_path_for(budget), method: :delete, class: "cancel-order", data: { confirm: t("projects.budget_summary.are_you_sure", scope: "decidim.budgets") }) %></li>
       <% end %>
       </ul>
     </div>
@@ -23,11 +23,11 @@
     <%= highlighted_heading if highlighted %>
   </p>
   <p>
-    <%= link_to t(".back_to", group_name: group_name), main_component_path(group_component) %>
+    <%= link_to t("budgets_group_information_modal.back_to", scope: "decidim.budgets.groups", group_name: group_name), main_component_path(group_component) %>
   </p>
   <div class="row">
     <div class="columns medium-8 medium-offset-2">
-      <button class="button expanded" data-close><%= t(".continue") %></button>
+      <button class="button expanded" data-close><%= t("budgets_group_information_modal.continue", scope: "decidim.budgets.groups") %></button>
     </div>
   </div>
 </div>

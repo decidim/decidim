@@ -17,7 +17,7 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) unless @order.present?
+        return broadcast(:invalid) if @order.blank?
 
         cancel_order!
         broadcast(:ok, @order)

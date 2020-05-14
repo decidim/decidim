@@ -7,23 +7,23 @@
 <div class="section">
   <p class="lead">
     <% if voted? %>
-      <%= t(".voted_on", links: budgets_link_list(voted)) %>
+      <%= t("budgets_group_header.voted_on", scope: "decidim.budgets.groups", links: budgets_link_list(voted)) %>
     <% else %>
       <%= decidim_sanitize(description) %>
     <% end %>
   </p>
 
-  <%= content_tag(:p, t(".finished_message"), class: :lead) if finished? %>
+  <%= content_tag(:p, t("budgets_group_header.finished_message", scope: "decidim.budgets.groups"), class: :lead) if finished? %>
 
   <% if voted? %>
-    <%= t(".if_change_opinion") %>
+    <%= t("budgets_group_header.if_change_opinion", scope: "decidim.budgets.groups") %>
 
     <% if voted.count == 1 %>
-      <%= link_to(t(".cancel_order.one"), order_path_for(voted.first), method: :delete)  %>
+      <%= link_to(t("budgets_group_header.cancel_order.only_one", scope: "decidim.budgets.groups"), order_path_for(voted.first), method: :delete)  %>
     <% else %>
       <ul>
         <% voted.each do |budget| %>
-          <li><%= link_to(t(".cancel_order.many", name: translated_attribute(budget.name)), order_path_for(budget), method: :delete, class: "cancel-order", data: { confirm: t("projects.budget_summary.are_you_sure", scope: "decidim.budgets") }) %></li>
+          <li><%= link_to(t("budgets_group_header.cancel_order.more_than_one", scope: "decidim.budgets.groups", name: translated_attribute(budget.name)), order_path_for(budget), method: :delete, class: "cancel-order", data: { confirm: t("projects.budget_summary.are_you_sure", scope: "decidim.budgets") }) %></li>
         <% end %>
       </ul>
     <% end %>
@@ -31,6 +31,6 @@
 
   <% if highlighted %>
     <p><%= highlighted_heading %></p>
-    <p><%= link_to t(".highlighted_cta", name: translated_attribute(highlighted.name)), main_component_path(highlighted), class: :button %></p>
+    <p><%= link_to t("budgets_group_header.highlighted_cta", scope: "decidim.budgets.groups", name: translated_attribute(highlighted.name)), main_component_path(highlighted), class: :button %></p>
   <% end %>
 </div>
