@@ -13,7 +13,7 @@ Decidim.register_component(:budgets_groups) do |component|
   component.settings(:global) do |settings|
     settings.attribute :scopes_enabled, type: :boolean, default: false
     settings.attribute :scope_id, type: :scope
-    settings.attribute :workflow, type: :string, default: "one"
+    settings.attribute :workflow, type: :enum, default: "one", choices: -> { Decidim::Budgets::Groups.workflows.keys.map(&:to_s) }
     settings.attribute :title, type: :string, translated: true
     settings.attribute :description, type: :text, translated: true
     settings.attribute :highlighted_heading, type: :text, translated: true
