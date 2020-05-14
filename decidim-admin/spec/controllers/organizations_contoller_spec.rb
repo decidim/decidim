@@ -36,16 +36,23 @@ module Decidim
         end
 
         context "when searching by name" do
-          it "returns the id, name and nickname for filtered users" do
+          it "returns the id, name, email and nickname for filtered users" do
             get :users, format: :json, params: { term: "daisy" }
-            expect(parsed_response).to eq([{ value: user.id, label: "#{user.name} (@#{user.nickname})" }])
+            expect(parsed_response).to eq([{ value: user.id, label: "#{user.name} (@#{user.nickname}) #{user.email}" }])
           end
         end
 
         context "when searching by nickname" do
-          it "returns the id, name and nickname for filtered users" do
+          it "returns the id, name, email and nickname for filtered users" do
             get :users, format: :json, params: { term: "@daisy" }
-            expect(parsed_response).to eq([{ value: user.id, label: "#{user.name} (@#{user.nickname})" }])
+            expect(parsed_response).to eq([{ value: user.id, label: "#{user.name} (@#{user.nickname}) #{user.email}" }])
+          end
+        end
+
+        context "when searching by email" do
+          it "returns the id, name, email and nickname for filtered users" do
+            get :users, format: :json, params: { term: user.email }
+            expect(parsed_response).to eq([{ value: user.id, label: "#{user.name} (@#{user.nickname}) #{user.email}" }])
           end
         end
       end
