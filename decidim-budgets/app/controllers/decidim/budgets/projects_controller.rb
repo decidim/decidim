@@ -7,13 +7,17 @@ module Decidim
       include FilterResource
       include NeedsCurrentOrder
       include Orderable
+      include Decidim::Budgets::Orderable
 
       helper_method :projects, :project
 
       private
 
       def projects
-        @projects ||= search.results.order_randomly(random_seed).page(params[:page]).per(current_component.settings.projects_per_page)
+        return @projects if @projects
+
+        @projects = search.results.page(params[:page]).per(current_component.settings.projects_per_page)
+        @projects = reorder(@projects)
       end
 
       def project

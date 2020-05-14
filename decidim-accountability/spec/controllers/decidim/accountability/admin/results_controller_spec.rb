@@ -29,40 +29,20 @@ module Decidim
           sign_in current_user
         end
 
-        describe "GET proposals in html format" do
-          it "renders the data-picker proposal selector" do
-            get :proposals, format: :html, params: params
-            expect(response).to render_template("decidim/accountability/admin/results/_proposals")
-          end
-        end
-
-        describe "GET proposals in json format" do
-          let(:proposal_component) { create(:proposal_component, participatory_space: participatory_space) }
-          let(:proposal) { create(:proposal, component: proposal_component) }
-          let(:rendered_title) do
-            decidim_html_escape(proposal.title).gsub("&", "\\u0026")
+        describe "GET the proposals picker" do
+          before do
+            get :proposals_picker, params: params
           end
 
-          context "when there are no results" do
-            it "returns an empty json array" do
-              get :proposals, format: :json, params: params.merge!(term: "#0")
-              expect(response.body).to eq("[]")
-            end
+          it "renders the proposals picker" do
+            expect(response).to render_template("decidim/accountability/admin/results/proposals_picker")
           end
 
-          context "when searching by id" do
-            it "returns the title and id for filtered proposals" do
-              params[:term] = "##{proposal.id}"
-              get :proposals, format: :json, params: params
-              expect(response.body).to eq("[[\"#{rendered_title}\",#{proposal.id}]]")
-            end
-          end
+          context "when filtering proposals" do
+            let(:params) { { q: "a", id: result.id } }
 
-          context "when searching by term" do
-            it "returns the title and id for filtered proposals" do
-              params[:term] = proposal.title
-              get :proposals, format: :json, params: params
-              expect(response.body).to eq("[[\"#{rendered_title}\",#{proposal.id}]]")
+            it "renders the proposals picker" do
+              expect(response).to render_template("decidim/accountability/admin/results/proposals_picker")
             end
           end
         end

@@ -234,7 +234,7 @@ it:
       photos:
         related_photos: Immagini relative
     author:
-      avatar: Avatar
+      avatar: Immagine di profilo
       comments:
         one: commento
         other: Commenti
@@ -243,6 +243,7 @@ it:
         explanation: Ottenere verificato introducendo un numero di passaporto che inizia con "A"
         fields:
           passport_number: Numero di passaporto
+          postal_code: Codice postale
         name: Un'altra autorizzazione di esempio
       dummy_authorization_handler:
         explanation: Ottieni la verifica introducendo un numero di documento che termina con "X"
@@ -425,6 +426,8 @@ it:
           this_application_will_not_be_able_to: 'Questa applicazione non sarà in grado di:'
           update_profile: Aggiorna il tuo profilo
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> vuole utilizzare il tuo account"
+    endorsable:
+      endorsements: Mi piace
     errors:
       internal_server_error:
         title: C'era un problema con il nostro server
@@ -769,6 +772,7 @@ it:
         create:
           error: La conversazione non è iniziata. Riprovare più tardi
         index:
+          close: Chiudi modale
           no_conversations: Non hai ancora conversazioni
           title: conversazioni
         reply:

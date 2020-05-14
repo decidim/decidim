@@ -27,7 +27,7 @@
           <%= hidden_field_tag :state, @state %>
           <div class="input-group-button">
             <button type="submit" class="button button--muted">
-              <%= icon "magnifying-glass", aria_label: t(".search") %>
+              <%= icon "magnifying-glass", aria_label: t(".search"), role: "img" %>
             </button>
           </div>
         </div>
@@ -81,7 +81,7 @@
                   <% if !user_group.verified? %>
                     <%= icon_link_to "circle-check", decidim_admin.verify_user_group_path(user_group), t("actions.verify", scope: "decidim.admin"), method: :put, class: "action-icon--verify" %>
                   <% else %>
-                    <%= icon "circle-check", class: "action-icon action-icon--disabled" %>
+                    <%= icon "circle-check", class: "action-icon action-icon--disabled", role: "img" %>
                   <% end %>
                 <% end %>
 
@@ -89,7 +89,7 @@
                   <% if !user_group.rejected? %>
                     <%= icon_link_to "circle-x", decidim_admin.reject_user_group_path(user_group), t("actions.reject", scope: "decidim.admin"), method: :put, class: "action-icon--reject" %>
                   <% else %>
-                    <%= icon "circle-x", class: "action-icon action-icon--disabled" %>
+                    <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img" %>
                   <% end %>
                 <% end %>
               </td>

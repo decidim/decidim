@@ -46,6 +46,14 @@ module Decidim
             expect(response["proposal"]).to be_nil
           end
         end
+
+        context "when the proposal is not published" do
+          let!(:proposal) { create(:proposal, :draft, component: model) }
+
+          it "returns null" do
+            expect(response["proposal"]).to be_nil
+          end
+        end
       end
     end
   end

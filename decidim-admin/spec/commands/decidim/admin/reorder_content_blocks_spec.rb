@@ -11,7 +11,7 @@ module Decidim::Admin
     let!(:published_block1) do
       create(
         :content_block,
-        scope: scope,
+        scope_name: scope,
         manifest_name: :hero,
         organization: organization,
         weight: 1
@@ -20,7 +20,7 @@ module Decidim::Admin
     let!(:published_block2) do
       create(
         :content_block,
-        scope: scope,
+        scope_name: scope,
         manifest_name: :sub_hero,
         organization: organization,
         weight: 2
@@ -29,7 +29,7 @@ module Decidim::Admin
     let!(:unpublished_block) do
       create(
         :content_block,
-        scope: scope,
+        scope_name: scope,
         published_at: nil,
         manifest_name: :footer_sub_hero,
         organization: organization
@@ -96,7 +96,7 @@ module Decidim::Admin
 
           expect(content_block.organization).to eq organization
           expect(content_block.weight).to eq 1
-          expect(content_block.scope).to eq scope.to_s
+          expect(content_block.scope_name).to eq scope.to_s
           expect(content_block).to be_published
         end
       end

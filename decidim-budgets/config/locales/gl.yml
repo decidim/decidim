@@ -92,6 +92,7 @@ gl:
             other: "%{count} proxectos"
         filters:
           category: Categoría
+          scope: Alcance
           search: Busca
         filters_small_view:
           close_modal: Pechar modal

@@ -5,10 +5,11 @@ module Decidim
     # This controller allows users to create and destroy their authorizations. It
     # shouldn't be necessary to expand it to add new authorization schemes.
     class AuthorizationsController < ApplicationController
-      helper_method :handler, :unauthorized_methods
+      helper_method :handler, :unauthorized_methods, :authorization_method, :authorization
       before_action :valid_handler, only: [:new, :create]
 
       include Decidim::UserProfile
+      include Decidim::Verifications::Renewable
       helper Decidim::DecidimFormHelper
       helper Decidim::CtaButtonHelper
       helper Decidim::AuthorizationFormHelper
@@ -47,6 +48,12 @@ module Decidim
       end
 
       protected
+
+      def authorization_method(authorization)
+        return unless authorization
+
+        Decidim::Verifications::Adapter.from_element(authorization.name)
+      end
 
       def handler
         @handler ||= Decidim::AuthorizationHandler.handler_for(handler_name, handler_params)
@@ -91,6 +98,15 @@ module Decidim
         return if redirect_url.blank? || !request.format.html?
 
         store_location_for(:user, redirect_url)
+      end
+
+      private
+
+      def authorization
+        @authorization ||= Decidim::Authorization.find_by(
+          user: current_user,
+          name: handler_name
+        )
       end
     end
   end

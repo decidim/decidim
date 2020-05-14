@@ -1,4 +1,4 @@
-  <div class="scope-picker picker-header">
+  <div class="scope-picker picker-header picker-list">
     <h2 id="data_picker-title"><%= title %></h2>
     <ul>
       <% unless root %>
@@ -10,7 +10,7 @@
     </ul>
   </div>
 
-  <div class="scope-picker picker-content">
+  <div class="scope-picker picker-content picker-list">
     <div class="picker-scrollable-content">
       <% if scopes&.any? %>
         <ul>
@@ -35,6 +35,6 @@
       <% end %>
           <%= t("decidim.scopes.picker.choose") %>
         </a>
-      <a class="button clear" data-close aria-label="<%= t("decidim.scopes.picker.cancel") %>"><%= t("decidim.scopes.picker.cancel") %></a>
+      <a class="button clear" href="#" data-close aria-label="<%= t("decidim.scopes.picker.cancel") %>"><%= t("decidim.scopes.picker.cancel") %></a>
     </div>
   </div>

@@ -4,6 +4,7 @@ eu:
       decidim/comments/comment_by_followed_user_event: Iruzkina
       decidim/comments/comment_created_event: Iruzkina
       decidim/comments/reply_created_event: Iruzkinaren erantzuna
+      decidim/comments/user_group_mentioned_event: Aipatu
       decidim/comments/user_mentioned_event: Aipatu
   activerecord:
     models:
@@ -73,6 +74,9 @@ eu:
         comment_by_followed_user:
           email_intro: "%{author_name} iruzkin bat utzi du %{resource_title}helbidean. Orri honetan irakur dezakezu:"
           email_outro: Jakinarazpena jaso duzu %{author_name}jarraituz gero. Erabiltzaile hau bere profileko orrialdetik jarrai dezakezu.
+          email_subject: '%{author_name} %{resource_title} iruzkin berri bat dago'
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a> </a> iruzkin berri bat dago.
+        comment_by_followed_user_group:
           email_subject: '%{author_name} %{resource_title} iruzkin berri bat dago'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a> </a> iruzkin berri bat dago.
         comment_created:

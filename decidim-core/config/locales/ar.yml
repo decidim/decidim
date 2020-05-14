@@ -248,6 +248,7 @@ ar:
         explanation: الحصول على التحقق عن طريق إدخال رقم جواز سفر يبدأ بـ "A"
         fields:
           passport_number: رقم جواز السفر
+          postal_code: الكود البريدى
         name: مثال آخر إذن
       dummy_authorization_handler:
         explanation: الحصول على التحقق من خلال إدخال رقم مستند ينتهي بـ "X"
@@ -416,6 +417,8 @@ ar:
           this_application_will_not_be_able_to: 'لن يكون هذا التطبيق قادرًا على:'
           update_profile: تحديث ملفك الشخصي
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> يريد استخدام حسابك"
+    endorsable:
+      endorsements: موافقات
     errors:
       internal_server_error:
         title: كانت هناك مشكلة في الخادم الخاص بنا
@@ -760,6 +763,7 @@ ar:
         create:
           error: لم تبدأ المحادثة. حاول مرة أخرى في وقت لاحق
         index:
+          close: إغلاق مشروط
           no_conversations: ليس لديك محادثات حتى الآن
           title: المحادثات
         reply:

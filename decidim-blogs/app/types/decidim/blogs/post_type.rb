@@ -7,7 +7,10 @@ module Decidim
       interfaces [
         -> { Decidim::Comments::CommentableInterface },
         -> { Decidim::Core::AttachableInterface },
-        -> { Decidim::Core::AuthorableInterface }
+        -> { Decidim::Core::AuthorableInterface },
+        -> { Decidim::Core::TraceableInterface },
+        -> { Decidim::Core::EndorsableInterface },
+        -> { Decidim::Core::TimestampsInterface }
       ]
 
       name "Post"
@@ -16,8 +19,6 @@ module Decidim
       field :id, !types.ID, "The internal ID of this post"
       field :title, Decidim::Core::TranslatedFieldType, "The title for this post"
       field :body, Decidim::Core::TranslatedFieldType, "The body of this post"
-      field :createdAt, Decidim::Core::DateTimeType, "The time this post was created", property: :created_at
-      field :updatedAt, Decidim::Core::DateTimeType, "The time this post was updated", property: :updated_at
     end
   end
 end

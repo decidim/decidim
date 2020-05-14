@@ -86,8 +86,11 @@ en:
         search_placeholder:
           id_string_or_title_cont: Search %{collection} by ID or title.
         state_eq:
+          label: State
           values:
+            accepted: Accepted
             evaluating: Evaluating
+            rejected: Rejected
             withdrawn: Withdrawn
         state_null:
           label: Status
@@ -121,8 +124,8 @@ en:
             new_proposal_body_template_help: You can define prefilled text that the new Proposals will have
             new_proposal_help_text: New proposal help text
             official_proposals_enabled: Official proposals enabled
-            participatory_texts_disabled_help: Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.
             participatory_texts_enabled: Participatory texts enabled
+            participatory_texts_enabled_readonly: Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.
             proposal_answering_enabled: Proposal answering enabled
             proposal_edit_before_minutes: Proposals can be edited by authors before this many minutes passes
             proposal_length: Maximum proposal body length
@@ -141,7 +144,10 @@ en:
             amendment_promotion_enabled_help: Emandation authors will be able to promote to Proposal the rejected emendation.
             amendment_reaction_enabled: Amendment reaction enabled
             amendment_reaction_enabled_help: Proposal's authors will be able to accept or reject Participant's emendations.
-            amendments_visibility: Amendment visibility
+            amendments_visibility: Amendments visibility
+            amendments_visibility_choices:
+              all: Amendments are visible to all
+              participants: Amendments are visible only to their authors
             amendments_visibility_help: If the option "Amendments are visible only to their authors" is selected, participant must be logged in to see the amendments made.
             announcement: Announcement
             answers_with_costs: Enable costs on proposal answers
@@ -158,6 +164,12 @@ en:
             votes_hidden: Supports hidden (if supports are enabled, checking this will hide the number of supports)
     events:
       proposals:
+        admin:
+          proposal_note_created:
+            email_intro: Someone has left a note on the proposal "%{resource_title}". Check it out at <a href="%{admin_proposal_info_url}">the admin panel</a>
+            email_outro: You have received this notification because you can valuate the proposal.
+            email_subject: Someone left a note on proposal %{resource_title}.
+            notification_title: Someone has left a note on the proposal <a href="%{resource_path}">%{resource_title}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} has been accepted to access as a contributor of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.'
           email_outro: You have received this notification because you are a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
@@ -221,7 +233,7 @@ en:
             email_subject: A proposal you're following is being evaluated
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal is being evaluated.
         proposal_mentioned:
-          email_intro: Your proposal "%{mentioned_proposal_title}" has been mentioned <a href="%{resource_path}">in this space</a> in the comments.
+          email_intro: Your proposal "%{mentioned_proposal_title}" has been mentioned <a href="%{resource_url}">in this space</a> in the comments.
           email_outro: You have received this notification because you are an author of "%{resource_title}".
           email_subject: Your proposal "%{mentioned_proposal_title}" has been mentioned
           notification_title: Your proposal "%{mentioned_proposal_title}" has been mentioned <a href="%{resource_path}">in this space</a> in the comments.
@@ -398,10 +410,8 @@ en:
             title: Update proposal
             update: Update
           form:
-            add_images: Add images
             attachment_legend: "(Optional) Add an attachment"
             created_in_meeting: This proposal comes from a meeting
-            gallery_legend: "(Optional) Add an image gallery"
             select_a_category: Select a category
             select_a_meeting: Select a meeting
           index:
@@ -764,6 +774,7 @@ en:
         show:
           answer: Answer
           back_to: Back to
+          back_to_list: Back to list
           changes_at_title: Amendment to "%{title}"
           comments: Comments
           edit_proposal: Edit proposal
@@ -828,6 +839,11 @@ en:
           step_3: Complete
           step_4: Publish your proposal
           step_of: Step %{current_step_num} of %{total_steps}
+      proposals_picker:
+        choose_proposals: Choose proposals
+        close: Close
+        more_proposals: There are %{number} more proposals. Refine your search to locate them.
+        no_proposals: No proposals match your search criteria or there isn't any proposals.
       publish:
         error: There was a problem publishing the proposal.
         success: Proposal successfully published.
