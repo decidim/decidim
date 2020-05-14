@@ -194,7 +194,7 @@ describe "Meeting registrations", type: :system do
     context "and has a registration form" do
       let(:registration_form_enabled) { true }
 
-      it_behaves_like "has questionnaire"
+      it_behaves_like "has questionnaires"
 
       context "when the registration form has no questions" do
         before do
