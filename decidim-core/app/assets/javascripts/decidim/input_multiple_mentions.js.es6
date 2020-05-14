@@ -41,6 +41,7 @@ $(() => {
   }
 
   /* eslint no-use-before-define: ["error", { "variables": false }]*/
+  /* eslint no-unused-expressions: 0 */
   let remoteSearch = function(text, cb) {
     let exclusionIds = "";
     $multipleMentionRecipientsContainer.find("input[name^='recipient_id']").each(function(index) {
