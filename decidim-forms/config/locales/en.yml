@@ -117,6 +117,8 @@ en:
       steps_navigation:
         show:
           are_you_sure: This action cannot be undone and you will not be able to edit your answers. Are you sure?
+          back: Back
+          continue: Continue
           submit: Submit
       user_answers_serializer:
         created_at: Answered on

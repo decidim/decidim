@@ -1,11 +1,23 @@
 <div class="button--double form-general-submit answer-questionnaire__submit">
-  <%= form.submit(
-    t("decidim.forms.steps_navigation.show.submit"),
-    class: "button",
-    disabled: disabled?,
-    data: {
-      confirm: t("decidim.forms.steps_navigation.show.are_you_sure"),
-      disable: true
-    }
-  ) %>
+  <% if first_step? %>
+    <a></a>
+  <% else %>
+    <%=  link_to questionnaire_path(id: previous_questionnaire_id) do %>
+      <%= icon "caret-left", class: "icon--small", role: "img" %>&nbsp;<%= t("decidim.forms.steps_navigation.show.back") %>
+    <% end %>
+  <% end %>
+
+  <% if last_step? %>
+    <%= form.submit(
+      t("decidim.forms.steps_navigation.show.submit"),
+      class: "button button--sc",
+      disabled: disabled?,
+      data: {
+        confirm: t("decidim.forms.steps_navigation.show.are_you_sure"),
+        disable: true
+      }
+    ) %>
+  <% else %>
+    <%=  link_to t("decidim.forms.steps_navigation.show.continue"), questionnaire_path(id: next_questionnaire_id), class: "button button--sc" %>
+  <% end %>
 </div>

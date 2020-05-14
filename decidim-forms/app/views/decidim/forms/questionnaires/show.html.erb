@@ -70,7 +70,8 @@
                     questionnaire,
                     form: form,
                     questionnaires: questionnaires,
-                    disabled: !current_participatory_space.can_participate?(current_user)
+                    disabled: !current_participatory_space.can_participate?(current_user),
+                    questionnaire_path: ->(args){show_url(id: args[:id])}
                   ) %>
                 <% end %>
               </div>

@@ -5,12 +5,14 @@ module Decidim
     # This cell renders the steps navigation (the buttons to move between steps
     # and the submit button).
     class StepsNavigationCell < Decidim::ViewModel
+      include Decidim::LayoutHelper
+
       def first_step?
-        current_index == 1
+        questionnaire.id == questionnaires_ids.first
       end
 
       def last_step?
-        current_index == total_questionnaires
+        questionnaire.id == questionnaires_ids.last
       end
 
       def total_questionnaires
@@ -18,7 +20,7 @@ module Decidim
       end
 
       def current_index
-        questionnaires_ids.index(questionnaire.id) + 1
+        questionnaires_ids.index(questionnaire.id)
       end
 
       def questionnaire
@@ -29,12 +31,24 @@ module Decidim
         options[:questionnaires].map(&:id)
       end
 
+      def previous_questionnaire_id
+        questionnaires_ids[current_index - 1]
+      end
+
+      def next_questionnaire_id
+        questionnaires_ids[current_index + 1]
+      end
+
       def form
         options[:form]
       end
 
       def disabled?
         options[:disabled]
+      end
+
+      def questionnaire_path(args)
+        options[:questionnaire_path].call(args)
       end
     end
   end

@@ -22,6 +22,7 @@ module Decidim
                         :allow_answers?,
                         :visitor_can_answer?,
                         :visitor_already_answered?,
+                        :show_url,
                         :update_url
 
           invisible_captcha on_spam: :spam_detected
@@ -85,6 +86,12 @@ module Decidim
           # where the questionnaire will be submitted.
           def update_url
             url_for([questionnaire_for, action: :answer])
+          end
+
+          # You can implement this method in your controller to change the URL
+          # where the questionnaire will be submitted.
+          def show_url(id:)
+            url_for(action: :show, id: id)
           end
 
           # Public: Method to be implemented at the controller. You need to
