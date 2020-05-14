@@ -152,7 +152,7 @@ $(() => {
         // We need to move the container to the wrapper selected
         let $tribute = $(".tribute-container");
         $tribute.appendTo($parent);
-        // // Remove the inline styles, relative to absolute positioning
+        // Remove the inline styles, relative to absolute positioning
         $tribute.removeAttr("style");
         // Parent adaptation
         $parent.addClass("is-active");
