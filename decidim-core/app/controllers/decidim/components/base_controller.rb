@@ -67,9 +67,8 @@ module Decidim
       def parent_component_context
         @parent_component_context ||= if parent_component
                                         parent_component.manifest.run_hooks(:parent_context,
-                                          parent_component: parent_component,
-                                          current_user: current_user
-                                        ).reduce({}, :merge)
+                                                                            parent_component: parent_component,
+                                                                            current_user: current_user).reduce({}, :merge)
                                       else
                                         {}
                                       end

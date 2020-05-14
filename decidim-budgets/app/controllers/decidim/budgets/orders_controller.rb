@@ -38,11 +38,7 @@ module Decidim
       end
 
       def return_path
-        if params[:return_path]
-          params[:return_path]
-        else
-          main_component_path(current_component.parent || current_component)
-        end
+        params[:return_path] || main_component_path(current_component.parent || current_component)
       end
     end
   end

@@ -74,8 +74,8 @@ en:
               title: Budgets Group
         budgets_group_header:
           cancel_order:
-            one: delete your vote and start over
             many: delete your vote on %{name} and start over
+            one: delete your vote and start over
           finished_message: You've finished the voting process. ¡Thanks for participating!
           highlighted_cta: Vote on %{name}
           if_change_opinion: If you've changed your mind, you can

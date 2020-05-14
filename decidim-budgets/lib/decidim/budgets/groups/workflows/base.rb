@@ -16,7 +16,7 @@ module Decidim
           # - component: the budgets component to consider
           #
           # Returns Boolean.
-          def highlighted?(component)
+          def highlighted?(_component)
             raise StandardError, "Not implemented"
           end
 
@@ -27,7 +27,7 @@ module Decidim
           #                      Using `false` allow UI to offer users to discard votes in progress to start voting in other component.
           #
           # Returns Boolean.
-          def vote_allowed?(component, consider_progress: true)
+          def vote_allowed?(_component, _consider_progress = true)
             raise StandardError, "Not implemented"
           end
 
@@ -51,14 +51,14 @@ module Decidim
           #
           # Returns Array.
           def voted
-            @voted ||= orders.values.map {|order_info| order_info[:order].component if order_info[:status] == :voted } .compact
+            @voted ||= orders.values.map { |order_info| order_info[:order].component if order_info[:status] == :voted } .compact
           end
 
           # Public: Return the list of budget components where the user has orders in progress.
           #
           # Returns Array.
           def progress
-            @progress ||= orders.values.map {|order_info| order_info[:order].component if order_info[:status] == :progress } .compact
+            @progress ||= orders.values.map { |order_info| order_info[:order].component if order_info[:status] == :progress } .compact
           end
 
           # Public: Return the list of budget components where the user could discard their order to vote in other components.
@@ -103,7 +103,7 @@ module Decidim
 
           def orders
             @orders ||= Decidim::Budgets::Order.includes(:projects).where(decidim_user_id: user, decidim_component_id: budgets).map do |order|
-              [order.decidim_component_id, { order: order, status: order.checked_out? ? :voted : :progress } ] if order.projects.any?
+              [order.decidim_component_id, { order: order, status: order.checked_out? ? :voted : :progress }] if order.projects.any?
             end.compact.to_h
           end
         end

@@ -15,7 +15,7 @@ module Decidim
           end
 
           # User can vote in the component where they has an order in progress or in the randomly selected component.
-          def vote_allowed?(component, consider_progress: true)
+          def vote_allowed?(component, consider_progress = true)
             if consider_progress
               progress?(component) || (progress.none? && component == random_component)
             else

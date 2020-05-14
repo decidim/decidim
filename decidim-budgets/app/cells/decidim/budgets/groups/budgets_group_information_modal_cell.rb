@@ -30,7 +30,7 @@ module Decidim
         end
 
         def should_discard_to_vote?
-          limit_reached? && workflow_instance.vote_allowed?(component, consider_progress: false)
+          limit_reached? && workflow_instance.vote_allowed?(component, false)
         end
       end
     end
