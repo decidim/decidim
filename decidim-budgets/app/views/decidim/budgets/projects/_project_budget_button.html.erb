@@ -1,9 +1,9 @@
 <div id="project-<%= project.id %>-budget-button">
   <% if current_user.present? %>
     <% if current_order && current_order.projects.include?(project) %>
-      <%= action_authorized_button_to "vote", t(".added"), order_line_item_path(project_id: project), method: :delete, remote: true, data: { disable: true, budget: project.budget, "redirect-url": project_path(project) }, disabled: !can_have_order? || current_order_checked_out?, class: "button expanded button--sc success budget--list__action" %>
+      <%= action_authorized_button_to "vote", t(".added"), order_line_item_path(project_id: project), method: :delete, remote: true, data: { disable: true, budget: project.budget, "redirect-url": project_path(project) }, disabled: !can_have_order? || current_order_checked_out?, class: "button expanded button--sc success budget-list__action" %>
     <% else %>
-      <%= action_authorized_button_to "vote", t(".add"), order_line_item_path(project_id: project), method: :post, remote: true, data: { disable: true, budget: project.budget, add: true, "redirect-url": project_path(project) }, disabled: !can_have_order? || current_order_checked_out?, class: "button expanded button--sc budget--list__action" %>
+      <%= action_authorized_button_to "vote", t(".add"), order_line_item_path(project_id: project), method: :post, remote: true, data: { disable: true, budget: project.budget, add: true, "redirect-url": project_path(project) }, disabled: !can_have_order? || current_order_checked_out?, class: "button expanded button--sc budget-list__action" %>
     <% end %>
   <% else %>
     <button class="button tiny disabled budget-list__action" data-toggle="loginModal"><%= t(".add") %></button>
