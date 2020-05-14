@@ -19,7 +19,7 @@
     <%= t("budgets_group_header.if_change_opinion", scope: "decidim.budgets.groups") %>
 
     <% if voted.count == 1 %>
-      <%= link_to(t("budgets_group_header.cancel_order.only_one", scope: "decidim.budgets.groups"), order_path_for(voted.first), method: :delete)  %>
+      <%= link_to(t("budgets_group_header.cancel_order.only_one", scope: "decidim.budgets.groups"), order_path_for(voted.first), method: :delete) %>
     <% else %>
       <ul>
         <% voted.each do |budget| %>
