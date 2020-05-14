@@ -73,7 +73,7 @@ module Decidim
 
         let(:term) { "foo_user" }
 
-        let(:model) { [user1, user2, user3, user4, user5] }
+        let(:model) { [user1, user2, user3, user4, user5, user6] }
 
         context "when search a user by nickname" do
           let(:query) { %({ users(filter: { nickname: \"#{term}\" }) { name }}) }
