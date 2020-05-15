@@ -9,6 +9,11 @@ it:
         translatable_text: Testo traducibile
         updated_at: Aggiornato a
   decidim:
+    components:
+      dummy:
+        settings:
+          global:
+            readonly_attribute: Attributi di sola lettura
     dummy:
       admin:
         exports:
