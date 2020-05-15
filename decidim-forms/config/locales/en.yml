@@ -37,6 +37,8 @@ en:
           form:
             add_question: Add question
             already_answered_warning: The form is already answered by some users so you cannot modify its questions.
+            collapse: Collapse all questions
+            expand: Expand all questions
           matrix_row:
             matrix_row: Row
             remove: Remove
@@ -45,8 +47,10 @@ en:
             add_answer_option: Add answer option
             add_matrix_row: Add row
             any: Any
+            collapse: Collapse
             description: Description
             down: Down
+            expand: Expand
             question: Question
             remove: Remove
             statement: Statement
