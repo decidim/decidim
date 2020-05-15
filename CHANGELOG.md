@@ -2,7 +2,19 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+### Upgrade notes
+
+- **New "extras" key in authorization metadata**
+
+[\#6097](https://github.com/decidim/decidim/pull/6097) adds the possibility to have an "extras" key in the Authentication metadata that will be ignored. For example when
+signing an initiative (decidim-initiatives/app/forms/decidim/initiatives/vote_form.rb) or on Authorization renewal (decidim-verifications/app/cells/decidim/verifications/authorization_metadata/show.erb).
+
+This key may be used to persist whatever information related to the user's authentication that should not be used for authenticating her.
+The use case that originated this change is the persistence of the user's gender for statistical uses.
+
 ### Added
+
+- **decidim-initiatives**: Ignore new "extras" key when checking authorization/variation metadata [\#6097](https://github.com/decidim/decidim/pull/6097)
 
 ### Changed
 
