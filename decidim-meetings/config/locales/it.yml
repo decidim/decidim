@@ -368,6 +368,7 @@ it:
           confirm: Conferma
         show:
           attendees: Conteggio dei partecipanti
+          back: Torna alla lista
           contributions: Conteggio dei contributi
           going: Parteciperò
           join: Partecipa alla riunione
