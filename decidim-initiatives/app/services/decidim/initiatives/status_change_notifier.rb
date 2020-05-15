@@ -58,12 +58,6 @@ module Decidim
       end
 
       def notify_support_result
-        Decidim::User.where(organization: initiative.organization, admin: true).each do |admin|
-          Decidim::Initiatives::InitiativesMailer
-            .notify_state_change(initiative, admin)
-            .deliver_later
-        end
-
         initiative.followers.each do |follower|
           Decidim::Initiatives::InitiativesMailer
             .notify_state_change(initiative, follower)
@@ -79,6 +73,14 @@ module Decidim
         Decidim::Initiatives::InitiativesMailer
           .notify_state_change(initiative, initiative.author)
           .deliver_later
+
+        return unless initiative.accepted?
+
+        Decidim::User.where(organization: initiative.organization, admin: true).each do |admin|
+          Decidim::Initiatives::InitiativesMailer
+            .notify_state_change(initiative, admin)
+            .deliver_later
+        end
       end
     end
   end
