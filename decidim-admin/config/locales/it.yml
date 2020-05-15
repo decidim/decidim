@@ -474,6 +474,11 @@ it:
       newsletter_templates:
         index:
           preview_template: Anteprima
+          title: Modelli Newsletter
+          use_template: Utilizza questo Modello
+        show:
+          preview: 'Modello di anteprima: %{template_name}'
+          use_template: Utilizza questo Modello
       newsletters:
         create:
           error: Si è verificato un errore durante la creazione di questa newsletter.
@@ -564,12 +569,20 @@ it:
           officialize: ufficializzare
           officialized: ufficializzato
           reofficialize: Reofficialize
+          show_email: Mostra indirizzo email
           status: Stato
           unofficialize: Unofficialize
         new:
           badge: Distintivo di ufficializzazione
           officialize: ufficializzare
           title: Utente ufficiale "%{name}"
+        show_email_modal:
+          description: Se hai bisogno di contattare un utente direttamente puoi fare clic sul pulsante Mostra per vedere l'indirizzo email. Questa azione verrà registrata.
+          email_address: Indirizzo email
+          full_name: Nome Completo
+          hidden: nascosto
+          show: Mostra
+          title: Mostra l'indirizzo email dell'utente
       organization:
         edit:
           title: Modifica l'organizzazione
@@ -663,6 +676,11 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento di questo àmbito.
           success: OK, l'àmbito è stato aggiornato.
+      shared:
+        gallery:
+          add_images: Aggiungi immagini
+          delete_image: Cancella immagine
+          gallery_legend: Aggiungi una galleria di immagini (opzionale)
       static_page_topics:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo argomento.
@@ -766,6 +784,9 @@ it:
       users_statistics:
         users_count:
           admins: Amministratori
+          last_day: Ultimo giorno
+          last_month: Mese precedente
+          last_week: Settimana precedente
           participants: I partecipanti
       view_public_page: Visualizza la pagina pubblica
     forms:
