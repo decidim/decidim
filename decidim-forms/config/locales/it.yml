@@ -37,10 +37,12 @@ it:
             add_question: Aggiungi domanda
             already_answered_warning: Alcuni utenti hanno già risposto al questionario, quindi non è possibile modificare le sue domande.
           matrix_row:
+            matrix_row: Riga
             remove: Rimuovere
             statement: dichiarazione
           question:
             add_answer_option: Aggiungi l'opzione di risposta
+            add_matrix_row: Aggiungi riga
             any: Qualunque
             description: Descrizione
             down: Giù
@@ -63,6 +65,7 @@ it:
       questionnaires:
         answer:
           invalid: Ci sono stati errori nel rispondere al questionario.
+          max_choices_alert: Sono state selezionate troppe opzioni
           success: Il questionario ha risposto con successo.
         question:
           max_choices: 'Scelte massime: %{n}'
