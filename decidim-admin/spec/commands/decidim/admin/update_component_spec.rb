@@ -6,7 +6,7 @@ module Decidim::Admin
   describe UpdateComponent do
     let!(:participatory_process) { create(:participatory_process, :with_steps) }
     let(:step) { participatory_process.steps.first }
-    let!(:component) { create(:component, participatory_space: participatory_process) }
+    let!(:component) { create(:component, :with_one_step, participatory_space: participatory_process) }
     let(:manifest) { component.manifest }
 
     let(:form) do
@@ -22,18 +22,21 @@ module Decidim::Admin
         valid?: valid,
         settings: {
           dummy_global_attribute_1: true,
-          dummy_global_attribute_2: false
+          dummy_global_attribute_2: false,
+          readonly_attribute: false
         },
         default_step_settings: {
           step.id.to_s => {
             dummy_step_attribute_1: true,
-            dummy_step_attribute_2: false
+            dummy_step_attribute_2: false,
+            readonly_step_attribute: false
           }
         },
         step_settings: {
           step.id.to_s => {
             dummy_step_attribute_1: true,
-            dummy_step_attribute_2: false
+            dummy_step_attribute_2: false,
+            readonly_step_attribute: false
           }
         }
       )
@@ -42,7 +45,7 @@ module Decidim::Admin
     describe "when valid" do
       let(:valid) { true }
 
-      it "broadcasts :ok and updates the component" do
+      it "broadcasts :ok and updates the component (except the readonly attribute)" do
         expect do
           described_class.call(form, component)
         end.to broadcast(:ok)
@@ -51,10 +54,12 @@ module Decidim::Admin
         expect(component.weight).to eq(3)
         expect(component.settings.dummy_global_attribute_1).to eq(true)
         expect(component.settings.dummy_global_attribute_2).to eq(false)
+        expect(component.settings.readonly_attribute).to eq(true)
 
         step_settings = component.step_settings[step.id.to_s]
         expect(step_settings.dummy_step_attribute_1).to eq(true)
         expect(step_settings.dummy_step_attribute_2).to eq(false)
+        expect(step_settings.readonly_step_attribute).to eq(true)
       end
 
       it "fires the hooks" do

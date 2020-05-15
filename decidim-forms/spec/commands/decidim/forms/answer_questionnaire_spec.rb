@@ -29,6 +29,8 @@ module Decidim
       let(:question_3) { create(:questionnaire_question, questionnaire: questionnaire) }
       let(:answer_options) { create_list(:answer_option, 5, question: question_2) }
       let(:answer_option_ids) { answer_options.pluck(:id).map(&:to_s) }
+      let(:matrix_rows) { create_list(:question_matrix_row, 3, question: question_2) }
+      let(:matrix_row_ids) { matrix_rows.pluck(:id).map(&:to_s) }
       let(:form_params) do
         {
           "responses" => [
@@ -38,9 +40,9 @@ module Decidim
             },
             {
               "choices" => [
-                { "answer_option_id" => answer_option_ids[0], "body" => "My" },
-                { "answer_option_id" => answer_option_ids[1], "body" => "second" },
-                { "answer_option_id" => answer_option_ids[2], "body" => "answer" }
+                { "answer_option_id" => answer_option_ids[0], "body" => "My", "matrix_row_id" => matrix_row_ids[0] },
+                { "answer_option_id" => answer_option_ids[1], "body" => "second", "matrix_row_id" => matrix_row_ids[1] },
+                { "answer_option_id" => answer_option_ids[2], "body" => "answer", "matrix_row_id" => matrix_row_ids[2] }
               ],
               "question_id" => question_2.id
             },
@@ -98,7 +100,7 @@ module Decidim
           command.call
 
           expect(Answer.first.body).to eq("This is my first answer")
-          expect(Answer.second.choices.pluck(:body)).to eq(%w(My second answer))
+          expect(Answer.second.choices.map { |a| [a.body, a.matrix_row.body] }).to eq([["My", matrix_rows.first.body], ["second", matrix_rows.second.body], ["answer", matrix_rows.third.body]])
           expect(Answer.third.choices.pluck(:body, :position)).to eq([["Third", 0], ["answer", 1]])
         end
 

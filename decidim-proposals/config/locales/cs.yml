@@ -408,10 +408,8 @@ cs:
             title: Návrh aktualizace
             update: Aktualizace
           form:
-            add_images: Přidat obrázky
             attachment_legend: "(Volitelné) Přidání přílohy"
             created_in_meeting: Tento návrh pochází z jednání
-            gallery_legend: "(Volitelně) Přidat galerii obrázků"
             select_a_category: Vyberte kategorii
             select_a_meeting: Vyberte schůzku
           index:

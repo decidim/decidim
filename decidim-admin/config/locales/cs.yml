@@ -388,6 +388,9 @@ cs:
         static_pages: Stránky
         user_groups: Skupiny
         users: Účastníci
+      metrics:
+        metrics:
+          see_more_metrics: Zobrazit více metrik
       models:
         area:
           fields:
@@ -676,6 +679,11 @@ cs:
         update:
           error: Při aktualizaci tohoto oboru došlo k chybě.
           success: Rozsah byl úspěšně aktualizován
+      shared:
+        gallery:
+          add_images: Přidat obrázky
+          delete_image: Odstranit obrázek
+          gallery_legend: Přidat galerii obrázků (volitelné)
       static_page_topics:
         create:
           error: Při vytváření nového tématu došlo k chybě.
@@ -727,6 +735,7 @@ cs:
         dashboard: Ovládací panel
         impersonatable_users: Spravovatelní účastníci
         impersonations: Správa účastníků
+        metrics: Metriky
         participants: Uživatelé
         scope_types: Typy rozsahu
         scopes: Rozsahy
@@ -776,6 +785,10 @@ cs:
         new:
           create: Pozvat
           title: Pozvat účastníka jako administrátora
+      users_statistics:
+        users_count:
+          admins: Administrátoři
+          participants: Účastníci
       view_public_page: Zobrazit veřejnou stránku
     forms:
       errors:

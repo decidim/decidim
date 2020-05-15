@@ -746,6 +746,10 @@ nl:
         new:
           create: Nodig uit
           title: Nodig deelnemer uit als beheerder
+      users_statistics:
+        users_count:
+          admins: Admins
+          participants: Deelnemers
       view_public_page: Bekijk openbare pagina
     forms:
       errors:

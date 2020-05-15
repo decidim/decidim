@@ -660,6 +660,10 @@ ru:
         new:
           create: Пригласить
           title: Пригласить участника в качестве администратора
+      users_statistics:
+        users_count:
+          admins: Администраторы
+          participants: Участники
       view_public_page: Просмотреть общедоступную страницу
     forms:
       errors:

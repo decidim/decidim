@@ -34,6 +34,7 @@ module Decidim
         notify_mentioned_groups
         notify_parent_comment_author
         notify_author_followers
+        notify_user_group_followers
         notify_commentable_recipients
       end
 
@@ -75,6 +76,15 @@ module Decidim
         @already_notified_users += followers
 
         notify(:comment_by_followed_user, followers: followers)
+      end
+
+      def notify_user_group_followers
+        return if comment.user_group.blank?
+
+        followers = comment.user_group.followers - already_notified_users
+        @already_notified_users += followers
+
+        notify(:comment_by_followed_user_group, followers: followers)
       end
 
       # Notifies the users the `comment.commentable` resource implements as necessary.

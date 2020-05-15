@@ -763,6 +763,10 @@
         new:
           create: Inviter
           title: Inviter deltaker som administrator
+      users_statistics:
+        users_count:
+          admins: Adminer
+          participants: Deltakere
       view_public_page: Vis offentlig side
     forms:
       errors:

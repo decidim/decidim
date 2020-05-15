@@ -48,6 +48,10 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
     export.serializer Decidim::ParticipatoryProcesses::ParticipatoryProcessSerializer
   end
 
+  participatory_space.register_on_destroy_account do |user|
+    Decidim::ParticipatoryProcessUserRole.where(user: user).destroy_all
+  end
+
   participatory_space.seeds do
     organization = Decidim::Organization.first
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")

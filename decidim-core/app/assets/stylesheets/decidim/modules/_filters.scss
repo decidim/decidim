@@ -178,3 +178,16 @@ $filters-padding-y: 1rem;
     }
   }
 }
+
+.filters__left-legend{
+  legend{
+    float: left;
+    padding-top: 10px;
+  }
+
+  .picker-prompt,
+  select{
+    width: 75%;
+    float: right;
+  }
+}
