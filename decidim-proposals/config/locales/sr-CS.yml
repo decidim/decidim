@@ -97,3 +97,29 @@ sr:
           create:
             invalid: Došlo je do greške pri dodeljivanju predloga procenjivaču
             success: Predlozi uspešno dodati procenjivaču
+      admin_log:
+        proposal:
+          publish_answer: "%{user_name} je objavio odgovor na predlog %{resource_name} u prostoru %{space_name}"
+        valuation_assignment:
+          create: "%{user_name} je dodao predlog %{resource_name} procenjivaču"
+      models:
+        proposal:
+          fields:
+            published_answer: Objavljeni odgovor
+            valuator: Procenjivač
+            valuators: Procenjivači
+      proposals:
+        show:
+          back_to_list: Nazad na listu
+          estimated_cost: Procenjen trošak
+          read_less: Pročitaj manje
+          read_more: Pročitaj više
+        tags:
+          changed_from: "(preimenovano iz <u>%{previous_name}</u> od strane administratora)"
+      proposals_picker:
+        choose_proposals: Izaberi predloge
+        close: Zatvori
+        more_proposals: Postoji još %{number} predloga. Smanjite obim pretrage da bi ih pregledali.
+        no_proposals: Nijedan predlog ne ispunjava kriterijume vaše pretrage, ili nema predloga.
+      publish_answers:
+        success: Odgovori na predloge uspešno objavljeni.
