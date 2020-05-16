@@ -1068,7 +1068,7 @@ sk:
     confirmations:
       confirmed: Vaša e-mailová adresa bola úspešne potvrdená.
       new:
-        resend_confirmation_instructions: Znovu odošlite potvrdzovací inštrukcia
+        resend_confirmation_instructions: Znovu odošlite potvrdzovacie inštrukcie
       send_instructions: Počas niekoľkých minút dostanete e-mail s pokynmi, ako potvrdiť e-mailovú adresu.
       send_paranoid_instructions: Ak vaša e-mailová adresa existuje v našej databáze, počas niekoľkých dostanete e-mail s inštrukciami, ako potvrdiť vašu e-mailovú adresu.
     failure:
