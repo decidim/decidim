@@ -36,14 +36,18 @@ ca:
           form:
             add_question: Afegeix una pregunta
             already_answered_warning: No pots modificar les preguntes d'aquest formulari perquè ja ha estat contestat per algunes participants.
+            collapse: Redueix totes les preguntes
+            expand: Expandeix totes les preguntes
           matrix_row:
             remove: Elimina
             statement: Declaració
           question:
             add_answer_option: Afegeix una opció de resposta
             any: Cap
+            collapse: Redueix
             description: Descripció
             down: Avall
+            expand: Expandeix
             question: Pregunta
             remove: Eliminar
             statement: Declaració
