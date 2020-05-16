@@ -435,6 +435,7 @@ hu:
       unavailable_scope: Nem áll rendelkezésre
       versions:
         index:
+          number_of_versions: Verziók
           title: Verziók
         shared:
           back_to_initiative: Vissza a kezdeményezéshez
