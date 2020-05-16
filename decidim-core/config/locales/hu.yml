@@ -314,6 +314,18 @@ hu:
       see_less: "(kevesebb)"
       see_more: "(tovább)"
     components:
+      component_order_selector:
+        order:
+          all_types: Minden típus
+          collaborative_draft: Közös vázlat
+          comment: Megjegyzés
+          debate: Vita
+          initiative: Kezdeményezés
+          meeting: Találkozó
+          post: Bejegyzés
+          proposal: Indítvány
+          question: Kérdés
+        title: 'Mutat:'
       dummy:
         actions:
           bar: Oszlop
