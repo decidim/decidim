@@ -36,6 +36,7 @@ sv:
           form:
             add_question: Lägg till fråga
             already_answered_warning: Frågeformuläret har redan besvarats av vissa användare så du inte kan ändra dess frågor.
+            expand: Expandera alla frågor
           matrix_row:
             remove: Ta bort
             statement: Påstående
@@ -44,6 +45,7 @@ sv:
             any: Någon
             description: Beskrivning
             down: Ned
+            expand: Expandera
             question: Fråga
             remove: Ta bort
             statement: Påstående
