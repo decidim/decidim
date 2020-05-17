@@ -75,7 +75,7 @@
   exports.Decidim = exports.Decidim || {};
   exports.Decidim.InputCharacterCounter = InputCharacterCounter;
 
-  $(() => {
+  exports.$(() => {
     exports.$("input[type='text'], textarea").each((_i, elem) => {
       const $input = exports.$(elem);
 
