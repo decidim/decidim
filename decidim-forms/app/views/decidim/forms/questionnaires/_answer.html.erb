@@ -1,5 +1,10 @@
 <% field_id = "questionnaire_answers_#{answer_idx}" %>
-<%= label_tag field_id, answer.label(answer_idx), class: "questionnaire-question" %>
+<% case answer.question.question_type %>
+<% when "single_option", "multiple_option", "sorting" %>
+  <label class="questionnaire-question"><%= answer.label(answer_idx) %></label>
+<% else %>
+  <%= label_tag field_id, answer.label(answer_idx), class: "questionnaire-question" %>
+<% end %>
 
 <% if translated_attribute(answer.question.description).present? %>
   <div class="help-text">
