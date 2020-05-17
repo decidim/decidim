@@ -4,6 +4,8 @@ en:
     attributes:
       account:
         delete_reason: Reason to delete your account
+      common:
+        created_at: Created at
       group:
         about: About
         avatar: Avatar

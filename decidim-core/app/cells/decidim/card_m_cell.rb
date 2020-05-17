@@ -117,7 +117,8 @@ module Decidim
     end
 
     def creation_date_status
-      l(model.created_at.to_date, format: :decidim_short)
+      explanation = content_tag(:strong, t("activemodel.attributes.common.created_at"))
+      "#{explanation}<br>#{l(model.created_at.to_date, format: :decidim_short)}"
     end
 
     def follow_status
