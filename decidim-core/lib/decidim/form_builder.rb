@@ -442,6 +442,8 @@ module Decidim
     end
 
     def upload_help(attribute, _options = {})
+      file = object.send attribute
+
       content_tag(:div, class: "help-text") do
         file_size_validator = object.singleton_class.validators_on(
           attribute
