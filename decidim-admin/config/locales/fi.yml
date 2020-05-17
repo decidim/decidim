@@ -13,7 +13,7 @@ fi:
         attachment_collection_id: Kansio
         description: Kuvaus
         file: Tiedosto
-        title: Otsikko
+        title: Tiedoston tai kuvan nimi
       attachment_collection:
         description: Kuvaus
         name: Nimi

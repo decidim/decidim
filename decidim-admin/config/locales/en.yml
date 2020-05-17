@@ -14,7 +14,7 @@ en:
         attachment_collection_id: Folder
         description: Description
         file: File
-        title: Title
+        title: Attachment or image name
       attachment_collection:
         description: Description
         name: Name
