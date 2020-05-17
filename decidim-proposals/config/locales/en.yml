@@ -365,14 +365,14 @@ en:
             info_1: The following sections have been converted to proposals. Now you can review and adjust them before publishing.
             publish_document: Publish document
             save_draft: Save draft
-            title: PREVIEW PARTICIPATORY TEXT
+            title: Preview participatory text
           new_import:
             accepted_mime_types:
               md: Markdown
               odt: Odt
             bottom_hint: "(You will be able to preview and sort document sections)"
             document_legend: 'Add a document lesser than 2MB, each section until 3 levels deep will be parsed into Proposals. Suported formats are: %{valid_mime_types}'
-            title: ADD DOCUMENT
+            title: Add document
             upload_document: Upload document
           publish:
             invalid: Could not publish proposals
