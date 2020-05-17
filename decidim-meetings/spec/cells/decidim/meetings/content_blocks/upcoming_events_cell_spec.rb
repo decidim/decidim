@@ -20,7 +20,7 @@ module Decidim
           let(:meeting) { create(:meeting, start_time: 1.week.from_now) }
 
           it "renders the events" do
-            expect(html).to have_css("article.card", count: 1)
+            expect(html).to have_css(".card", count: 1)
           end
 
           describe "upcoming events" do
