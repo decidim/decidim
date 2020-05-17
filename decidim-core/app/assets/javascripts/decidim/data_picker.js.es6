@@ -23,7 +23,6 @@
           values = this.current.values;
 
       if (this.current.multiple) {
-        input = "checkbox";
         name += "[]";
       }
 
@@ -37,7 +36,11 @@
         if ($picker.hasClass("disabled")) {
           return;
         }
-        this._openPicker($picker, this._targetFromEvent(event));
+        if ($(event.target).parent().hasClass("picker-prompt")) {
+          this._openPicker($picker, this._targetFromEvent(event));
+        } else {
+          this._removeValue($picker, this._targetFromEvent(event));
+        }
       });
 
       $picker.on("click", "input", (event) => {
@@ -179,17 +182,16 @@
         link.data("picker-value", data.value);
         link.attr("href", data.url);
         choosenOption = this.current.target;
-        link.html(dataText);
+        link.html(`&times;&nbsp;${dataText}`);
       } else {
         let input = "hidden",
             name = this.current.name;
 
         if (this.current.multiple) {
-          input = "checkbox";
           name += "[]";
         }
 
-        choosenOption = $(`<div><input type="${input}" checked name="${name}"/><a href="${data.url}" data-picker-value="${data.value}">${dataText}</a></div>`);
+        choosenOption = $(`<div><input type="${input}" checked name="${name}"/><a href="${data.url}" data-picker-value="${data.value}" class="label primary">&times;&nbsp;${dataText}</a></div>`);
         choosenOption.appendTo(this.current.values);
 
         if (!this.current.target) {
@@ -230,6 +232,15 @@
     _removeValue($picker, target) {
       if (target) {
         this._setCurrentPicker($picker, target);
+        if (!this.current.target) {
+          return;
+        }
+
+        // Trigger change
+        let $input = $("input", this.current.target);
+        $input.val("").removeAttr("checked");
+        $input.trigger("change");
+
         this.current.target.fadeOut(500, () => {
           this.current.target.remove();
           this.current.target = null;
