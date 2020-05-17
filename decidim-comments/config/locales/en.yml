@@ -18,6 +18,7 @@ en:
   decidim:
     comments:
       comments: Comments
+      comments_title: Comments count
       last_activity:
         new_comment_at_html: "<span>New comment at %{link}</span>"
       votes:

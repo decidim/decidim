@@ -17,6 +17,7 @@ sv:
   decidim:
     comments:
       comments: Kommentarer
+      comments_title: Kommentarer räknar
       last_activity:
         new_comment_at_html: "<span>Ny kommentar på %{link}</span>"
       votes:

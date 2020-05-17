@@ -17,6 +17,7 @@ fi:
   decidim:
     comments:
       comments: Kommentit
+      comments_title: Kommenttien määrä
       last_activity:
         new_comment_at_html: "<span>Uusi kommentti osoitteessa %{link}</span>"
       votes:
