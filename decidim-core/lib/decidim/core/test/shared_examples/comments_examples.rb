@@ -34,7 +34,13 @@ shared_examples "comments" do
     expect(page).to have_css(".comment", minimum: 1)
     page.find(".order-by .dropdown.menu .is-dropdown-submenu-parent").hover
 
-    click_link "Best rated"
+    within ".comments" do
+      within ".order-by__dropdown" do
+        click_link "Older" # Opens the dropdown
+        click_link "Best rated"
+      end
+    end
+
     expect(page).to have_css(".comments > div:nth-child(2)", text: "Most Rated Comment")
   end
 
