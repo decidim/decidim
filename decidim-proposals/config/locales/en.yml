@@ -646,6 +646,7 @@ en:
           success: Collaborative draft successfully updated.
         wizard_aside:
           back: Back
+          back_from_collaborative_draft: Back to collaborative drafts
           back_from_step_1: Back to collaborative drafts
           back_from_step_2: Back to collaborative drafts
           back_from_step_3: Back to compare collaborative drafts
