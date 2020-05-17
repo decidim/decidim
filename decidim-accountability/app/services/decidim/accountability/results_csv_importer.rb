@@ -108,13 +108,13 @@ module Decidim
           {}
         end
       end
-      
+
       def remove_invalid_results
-        Decidim::Accountability::Result.includes(:parent).references(:parent).
-          where(parents_decidim_accountability_results: {id: nil}).
-          where.not(parent_id: nil).each do |result|
-            DestroyResult.call(result, @extra_context[:current_user]) 
-          end
+        Decidim::Accountability::Result.includes(:parent).references(:parent)
+                                       .where(parents_decidim_accountability_results: { id: nil })
+                                       .where.not(parent_id: nil).each do |result|
+          DestroyResult.call(result, @extra_context[:current_user])
+        end
       end
     end
   end
