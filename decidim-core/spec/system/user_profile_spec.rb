@@ -21,7 +21,7 @@ describe "Profile", type: :system do
     end
 
     it "shows the profile page when clicking on the menu" do
-      within "main.wrapper" do
+      within ".wrapper" do
         expect(page).to have_content(user.nickname)
       end
     end

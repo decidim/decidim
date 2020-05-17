@@ -11,6 +11,14 @@ describe "Last activity", type: :system do
       )
     end
   end
+  Decidim::HomeActivitySearch.class_eval do
+    def resource_types
+      %w(
+        Decidim::Comments::Comment
+        Decidim::DummyResources::DummyResource
+      )
+    end
+  end
   let(:organization) { create(:organization) }
   let(:comment) { create(:comment) }
   let!(:action_log) do
@@ -38,7 +46,7 @@ describe "Last activity", type: :system do
 
     it "displays the activities at the home page" do
       within ".upcoming-events" do
-        expect(page).to have_css("article.card", count: 2)
+        expect(page).to have_css(".card--activity", count: 2)
       end
     end
 
@@ -50,7 +58,7 @@ describe "Last activity", type: :system do
       end
 
       it "shows all activities" do
-        expect(page).to have_css("article.card", count: 2)
+        expect(page).to have_css(".card--activity", count: 2)
         expect(page).to have_content(resource.title)
         expect(page).to have_content(comment.commentable.title)
       end
@@ -62,7 +70,7 @@ describe "Last activity", type: :system do
 
         expect(page).to have_content(comment.commentable.title)
         expect(page).to have_no_content(resource.title)
-        expect(page).to have_css("article.card", count: 1)
+        expect(page).to have_css(".card--activity", count: 1)
       end
 
       context "when there are activities from private spaces" do
@@ -73,7 +81,7 @@ describe "Last activity", type: :system do
         end
 
         it "doesn't show the activities" do
-          expect(page).to have_css("article.card", count: 0)
+          expect(page).to have_css(".card--activity", count: 0)
         end
       end
     end

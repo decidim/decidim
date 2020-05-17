@@ -137,7 +137,7 @@ describe "Account", type: :system do
       end
 
       it "the user can delete his account" do
-        fill_in :delete_account_delete_reason, with: "I just want to delete my account"
+        fill_in :delete_user_delete_account_delete_reason, with: "I just want to delete my account"
 
         click_button "Delete my account"
 

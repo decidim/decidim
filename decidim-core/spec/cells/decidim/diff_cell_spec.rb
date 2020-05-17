@@ -55,7 +55,7 @@ describe Decidim::DiffCell, versioning: true, type: :cell do
     end
 
     context "with diff_view_unified_unescaped" do
-      let(:html) { subject.find(".diff-for-body #diff_view_unified_unescaped") }
+      let(:html) { subject.find(".diff-for-body .diff_view_unified_unescaped") }
 
       it "renders potentially safe HTML tags unescaped" do
         expect(html).to have_selector("em", text: "em")
@@ -70,7 +70,7 @@ describe Decidim::DiffCell, versioning: true, type: :cell do
     end
 
     context "with diff_view_unified_escaped" do
-      let(:html) { subject.find(".diff-for-body #diff_view_unified_escaped") }
+      let(:html) { subject.find(".diff-for-body .diff_view_unified_escaped") }
 
       it "sanitizes potentially safe HTML tags" do
         expect(html).not_to have_selector("em")
