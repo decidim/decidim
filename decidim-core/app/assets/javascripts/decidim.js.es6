@@ -1,4 +1,5 @@
 // = require decidim/core/bundle.js
+// = require decidim/core/extrapoly.js
 // = require jquery3
 // = require rails-ujs
 // = require decidim/foundation
