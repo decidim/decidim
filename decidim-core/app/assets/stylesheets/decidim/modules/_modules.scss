@@ -1,28 +1,28 @@
 //Basic modules
-@import "margins";
-@import "typography";
-@import "title-action";
-@import "buttons";
-@import "forms";
-@import "icons";
-@import "video";
+@import "decidim/modules/margins";
+@import "decidim/modules/typography";
+@import "decidim/modules/title-action";
+@import "decidim/modules/buttons";
+@import "decidim/modules/forms";
+@import "decidim/modules/icons";
+@import "decidim/modules/video";
 
 //Foundation overrides
-@import "reveal";
+@import "decidim/modules/reveal";
 
 //Layout
-@import "layout";
-@import "navbar";
-@import "main-container";
-@import "footer";
-@import "static-pages";
+@import "decidim/modules/layout";
+@import "decidim/modules/navbar";
+@import "decidim/modules/main-container";
+@import "decidim/modules/footer";
+@import "decidim/modules/static-pages";
 
 //Cards and containers
-@import "card-grid";
-@import "cards";
-@import "extra";
-@import "definition-data";
-@import "callout";
+@import "decidim/modules/card-grid";
+@import "decidim/modules/cards";
+@import "decidim/modules/extra";
+@import "decidim/modules/definition-data";
+@import "decidim/modules/callout";
 
 //Shared modules
 @import "confirm";

@@ -1,15 +1,15 @@
-@import "variables";
+@import "decidim/variables";
 @import "foundation";
-@import "utils/settings";
+@import "decidim/utils/settings";
 
 @include foundation-everything($flex: false);
 
-@import "utils/fontface";
-@import "utils/helpers";
-@import "utils/keyframes";
-@import "utils/mixins";
-@import "utils/toggle-expand";
-@import "modules/modules";
-@import "layouts/*";
-@import "extras/*";
-@import "vizzs/*";
+@import "decidim/utils/fontface";
+@import "decidim/utils/helpers";
+@import "decidim/utils/keyframes";
+@import "decidim/utils/mixins";
+@import "decidim/utils/toggle-expand";
+@import "decidim/modules/modules";
+@import "decidim/layouts/layouts";
+@import "decidim/extras/extras";
+@import "decidim/vizzs/vizzs";
