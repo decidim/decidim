@@ -294,7 +294,7 @@ $button-background: $primary-color;
 $button-background-hover: scale-color($button-background, $lightness: -15%);
 $button-color: $white;
 $button-color-alt: $black;
-$button-shadow: 0 2px 0 #000;
+$button-shadow: 0 2px 0 rgba(0, 0, 0, .2);
 $button-radius: $global-radius;
 $button-hollow-border-width: 1px;
 $button-sizes: (
