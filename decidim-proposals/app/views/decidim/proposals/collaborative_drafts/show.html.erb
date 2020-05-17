@@ -27,7 +27,21 @@
 </div>
 
 <div class="row">
-  <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
+  <div class="columns mediumlarge-8 large-9">
+    <div class="section">
+      <%== cell("decidim/proposals/collaborative_draft_m", @collaborative_draft, full_badge: true).badge %>
+
+      <%= simple_format(present(@collaborative_draft).body(links: true, strip_tags: true), nil, sanitize: false) %>
+
+      <% if component_settings.geocoding_enabled? %>
+        <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @collaborative_draft } %>
+      <% end %>
+
+      <%= cell "decidim/tags", @collaborative_draft, context: { extra_classes: ["tags--collaborative-draft"] } %>
+    </div>
+  </div>
+
+  <div class="columns section view-side mediumlarge-4 large-3">
     <% if allowed_to?(:publish, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
       <div class="card text-center" id="collaborative_draft_publish">
         <div class="card__content">
@@ -105,20 +119,6 @@
     <%= resource_reference(@collaborative_draft) %>
 
     <%= render partial: "decidim/shared/share_modal" %>
-  </div>
-
-  <div class="columns mediumlarge-8 mediumlarge-pull-4">
-    <div class="section">
-      <%== cell("decidim/proposals/collaborative_draft_m", @collaborative_draft, full_badge: true).badge %>
-
-      <%= simple_format(present(@collaborative_draft).body(links: true, strip_tags: true), nil, sanitize: false) %>
-
-      <% if component_settings.geocoding_enabled? %>
-        <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @collaborative_draft } %>
-      <% end %>
-
-      <%= cell "decidim/tags", @collaborative_draft, context: { extra_classes: ["tags--collaborative-draft"] } %>
-    </div>
   </div>
 </div>
 
