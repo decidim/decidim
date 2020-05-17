@@ -48,14 +48,14 @@ describe "Identity document offline review", type: :system do
     submit_verification_form(doc_type: "DNI", doc_number: "XXXXXXXX", user_email: "this@doesnt.exist")
 
     expect(page).to have_content("Verification doesn't match")
-    expect(page).to have_content("INTRODUCE THE PARTICIPANT EMAIL AND THE DOCUMENT DATA")
+    expect(page).to have_content("Introduce the participant email and the document data")
   end
 
   it "shows an error when information doesn't match" do
     submit_verification_form(doc_type: "NIE", doc_number: "XXXXXXXY")
 
     expect(page).to have_content("Verification doesn't match")
-    expect(page).to have_content("INTRODUCE THE PARTICIPANT EMAIL AND THE DOCUMENT DATA")
+    expect(page).to have_content("Introduce the participant email and the document data")
   end
 
   private
