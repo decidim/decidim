@@ -31,7 +31,7 @@ describe "Explore results", versioning: true, type: :system do
     end
 
     it "shows progress" do
-      expect(page).to have_content("GLOBAL EXECUTION STATUS")
+      expect(page).to have_content("Global execution status")
       expect(page).to have_selector(".progress-figure")
     end
 
@@ -112,13 +112,13 @@ describe "Explore results", versioning: true, type: :system do
       end
 
       it "does not show version data" do
-        expect(page).not_to have_content("VERSION NUMBER")
+        expect(page).not_to have_content("Version number")
       end
     end
 
     context "when it has some versions" do
       it "does shows version data" do
-        expect(page).to have_content("VERSION NUMBER\n1")
+        expect(page).to have_content("Version number\n1")
       end
     end
 
