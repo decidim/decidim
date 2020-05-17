@@ -16,10 +16,14 @@ module Decidim
       latitude = resource.latitude
       longitude = resource.longitude
 
+      address_text = resource.try(:address)
+      address_text ||= t("latlng_text", latitude: latitude, longitude: longitude, scope: "decidim.static_map")
+      map_service_brand = t("map_service_brand", scope: "decidim.static_map")
+
       map_url = "https://www.openstreetmap.org/?mlat=#{latitude}&mlon=#{longitude}#map=#{zoom}/#{latitude}/#{longitude}"
 
       link_to map_url, target: "_blank", rel: "noopener" do
-        image_tag decidim.static_map_path(sgid: resource.to_sgid.to_s)
+        image_tag decidim.static_map_path(sgid: resource.to_sgid.to_s), alt: "#{map_service_brand} - #{address_text}"
       end
     end
 

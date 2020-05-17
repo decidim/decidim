@@ -1148,6 +1148,9 @@ en:
         share_link: Share link
       version_author:
         deleted: Deleted participant
+    static_map:
+      latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
+      map_service_brand: OpenStreetMap
     user_activity:
       index:
         no_activities_warning: This participant hasn't had any activity yet.
