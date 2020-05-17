@@ -145,12 +145,6 @@
   margin-top: 1rem;
   padding: 1.2rem 1rem;
 
-  &:hover,
-  &:focus{
-    box-shadow: 10px 5px 5px black;
-    outline: none;
-  }
-
   @include breakpoint(medium){
     margin-top: 2rem;
   }
