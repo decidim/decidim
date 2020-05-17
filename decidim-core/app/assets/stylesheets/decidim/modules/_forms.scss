@@ -47,6 +47,17 @@ label > [type='radio']{
   }
 }
 
+.switch{
+  input.switch-input{
+    &:active,
+    &:focus{
+      & + .switch-paddle{
+        outline: $anchor-outline-focus;
+      }
+    }
+  }
+}
+
 .checkboxes{
   margin-bottom: 1rem;
   display: flex;
