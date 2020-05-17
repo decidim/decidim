@@ -51,7 +51,7 @@ end
               </button>
             </div>
             <% if current_user %>
-              <nav class="topbar__dropmenu topbar__user__logged">
+              <nav role="navigation" class="topbar__dropmenu topbar__user__logged">
                 <%= link_to decidim.notifications_path, title: "notifications-link", class: "topbar__notifications #{current_user.notifications.any? ? "is-active" : ""}" do %>
                   <%= icon "bell", role:"img", aria_label: t("layouts.decidim.user_menu.notifications") %>
                 <% end %>
@@ -93,11 +93,11 @@ end
           </div>
         </div>
         <div class="show-for-medium" data-set="nav-holder">
-          <nav class="navbar js-append">
+          <div class="navbar js-append">
             <div class="row column">
               <%= main_menu.render %>
             </div>
-          </nav>
+          </div>
         </div>
 
         <main id="content">
