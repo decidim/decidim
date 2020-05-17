@@ -24,7 +24,7 @@ module Decidim
         attribute :add_photos, Array
 
         validates :title, :body, presence: true
-        validates :title, length: { maximum: 150 }
+        validates :title, length: { in: 15..150 }
         validates :address, geocoding: true, if: -> { current_component.settings.geocoding_enabled? }
         validates :category, presence: true, if: ->(form) { form.category_id.present? }
         validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
