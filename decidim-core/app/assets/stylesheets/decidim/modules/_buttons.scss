@@ -332,6 +332,16 @@
     text-decoration: underline;
   }
 
+  &.disabled,
+  &[disabled]{
+    &.focus,
+    &:hover,
+    &:focus{
+      box-shadow: none;
+      text-decoration: none;
+    }
+  }
+
   &.large{
     font-size: 1rem;
   }

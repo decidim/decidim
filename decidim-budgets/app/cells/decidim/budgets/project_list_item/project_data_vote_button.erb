@@ -11,5 +11,5 @@
       },
       disabled: vote_button_disabled?,
       title: vote_button_label do %>
-  <%= icon("check", class: "icon--small", aria_label: vote_button_label, role: "img") %>
+  <%= icon("check", class: "icon--small", aria_label: t("decidim.budgets.projects.project.remove", resource_name: translated_attribute(model.title)), role: "img") %>
 <% end %>
