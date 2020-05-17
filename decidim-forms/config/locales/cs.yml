@@ -36,6 +36,8 @@ cs:
           form:
             add_question: Přidat otázku
             already_answered_warning: Dotazník již odpověděli někteří uživatelé, takže nemusíte upravovat své dotazy.
+            collapse: Sbalit všechny úlohy
+            expand: Rozbalit všechny otázky
           matrix_row:
             matrix_row: Řádek
             remove: Odstranit
@@ -44,8 +46,10 @@ cs:
             add_answer_option: Přidat možnost odpovědi
             add_matrix_row: Přidat řádek
             any: Žádný
+            collapse: Sbalit
             description: Popis
             down: Dolů
+            expand: Rozbalit
             question: Otázka
             remove: Odstranit
             statement: Prohlášení
