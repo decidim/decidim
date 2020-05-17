@@ -57,7 +57,6 @@ input{
 }
 
 .heading6{
-  text-transform: uppercase;
   letter-spacing: .03em;
   font-weight: 600;
 
@@ -82,18 +81,17 @@ hr{
   position: relative;
   margin-bottom: 1rem;
   font-weight: 600;
-  text-transform: uppercase;
-  font-size: 1.125em;
+  font-size: 1.5em;
   letter-spacing: .05em;
 
   &::before{
     content: "";
     display: inline-block;
     width: 4px;
-    height: .8em;
+    height: 1.35em;
     background-color: var(--primary);
     margin-right: .5rem;
-    margin-bottom: -.1rem;
+    margin-bottom: -.5rem;
   }
 
   &.collapse{
@@ -107,7 +105,6 @@ hr{
 
 .mini-title{
   color: $muted;
-  text-transform: uppercase;
   font-size: .9rem;
   letter-spacing: .01em;
   font-weight: 600;
@@ -127,7 +124,6 @@ hr{
 .data-title{
   &__over{
     color: $muted;
-    text-transform: uppercase;
     font-size: .9rem;
     letter-spacing: .01em;
     font-weight: 800;
@@ -144,7 +140,6 @@ hr{
 
   &__sub{
     color: $muted;
-    text-transform: uppercase;
     font-size: .9rem;
     letter-spacing: .01em;
     line-height: 1;

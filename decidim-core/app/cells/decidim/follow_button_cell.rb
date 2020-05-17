@@ -14,7 +14,7 @@ module Decidim
     private
 
     def button_classes
-      return "card__button secondary text-uppercase follow-button mb-none" if inline?
+      return "card__button secondary follow-button mb-none" if inline?
       return "button secondary hollow expanded button--icon button--sc" if large?
 
       "button secondary hollow expanded small button--icon follow-button"

@@ -13,7 +13,7 @@ module Decidim
     def resource_version(resource, options = {})
       return unless resource.respond_to?(:amendable?) && resource.amendable?
 
-      html = %(<strong class="text-uppercase">#{localized_version("version", resource.versions_count)}</strong> #{localized_version("of_versions", resource.versions_count)})
+      html = %(<strong>#{localized_version("version", resource.versions_count)}</strong> #{localized_version("of_versions", resource.versions_count)})
 
       html += %( #{link_to(localized_version("see_other_versions"), options[:versions_path])}) if options[:versions_path]
 

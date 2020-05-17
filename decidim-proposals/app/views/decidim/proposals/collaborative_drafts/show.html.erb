@@ -45,7 +45,7 @@
           <%= cell "decidim/proposals/collaborative_draft_link_to_proposal", @collaborative_draft %>
         <% else %>
           <div>
-            <strong class="text-large text-uppercase">
+            <strong class="text-large">
               <%= t("version", scope:"decidim.proposals.collaborative_drafts.show", number: "#{@collaborative_draft.versions_count}") %>
             </strong>
             <small class="text-medium">

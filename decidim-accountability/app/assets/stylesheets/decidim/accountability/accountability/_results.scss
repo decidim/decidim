@@ -10,7 +10,6 @@
 
       p{
         font-weight: 600;
-        text-transform: uppercase;
         margin-bottom: .25rem;
         display: inline-block;
         margin-right: .5rem;
@@ -44,7 +43,6 @@
   .scope-filters{
     div{
       color: lighten($dark-gray, 50);
-      text-transform: uppercase;
       margin-bottom: .15rem;
     }
 
@@ -107,7 +105,6 @@
       margin-bottom: .5rem;
 
       .progress-text{
-        text-transform: uppercase;
         color: lighten($dark-gray, 30);
       }
 

@@ -123,7 +123,6 @@ $datetime-bg: var(--primary);
   margin-top: 0.5rem;
   margin-bottom: -0.75rem;
   font-size: 80%;
-  text-transform: uppercase;
   font-weight: 800;
   letter-spacing: 0.05em;
   color: $muted;
@@ -155,7 +154,6 @@ $datetime-bg: var(--primary);
 
   .card__text--status {
     font-weight: bold;
-    text-transform: uppercase;
 
     &::after {
       content: " ";
@@ -346,7 +344,6 @@ $datetime-bg: var(--primary);
   flex-basis: 33.33%;
   flex-grow: 1;
   text-align: center;
-  text-transform: uppercase;
   font-size: rem-calc(15);
   line-height: 1;
   color: $muted;
@@ -400,7 +397,6 @@ $datetime-bg: var(--primary);
 
 .card__popularity__data {
   text-align: center;
-  text-transform: uppercase;
   font-size: 85%;
   line-height: 1;
   margin-bottom: 0.2rem;
@@ -432,7 +428,6 @@ $datetime-bg: var(--primary);
 
 .card__support__data {
   text-align: center;
-  text-transform: uppercase;
   font-size: 85%;
   line-height: 1;
   margin-bottom: 0.2rem;
@@ -598,7 +593,6 @@ $datetime-bg: var(--primary);
   align-items: center;
   justify-content: center;
   text-align: center;
-  text-transform: uppercase;
   font-size: 85%;
   min-width: 7rem;
   line-height: 1;
@@ -684,7 +678,6 @@ $datetime-bg: var(--primary);
   }
 
   .card--list__annotation {
-    text-transform: uppercase;
     letter-spacing: 0.03em;
     font-size: 0.7em;
     font-weight: 600;
@@ -864,7 +857,6 @@ $datetime-bg: var(--primary);
   display: inline-flex;
   color: $card-id;
   padding: 0 0.5rem;
-  text-transform: uppercase;
   font-size: $small-font-size;
   font-weight: bold;
   position: absolute;
@@ -948,7 +940,6 @@ $datetime-bg: var(--primary);
 
       strong {
         color: $body-font-color;
-        text-transform: uppercase;
       }
 
       .card__icondata--address {
