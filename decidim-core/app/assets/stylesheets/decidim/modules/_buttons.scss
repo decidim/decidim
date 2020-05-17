@@ -39,6 +39,7 @@
     box-shadow: $button-shadow-focus;
     outline: $button-outline-focus;
     outline-color: var(--highlight);
+    filter: brightness($button-brightness-focus);
   }
 
   &.hover,
