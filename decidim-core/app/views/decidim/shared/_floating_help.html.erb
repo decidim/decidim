@@ -1,14 +1,14 @@
 <div class="floating-helper-container" data-help-id="floating-help-<%= id %>">
   <div class="floating-helper" id="floating-helper-tip" data-toggler=".hide">
     <div class="floating-helper__layout">
-      <div class="floating-helper__trigger" data-toggle="floating-helper-block floating-helper-tip">
+      <a href="#floating-helper-block" class="floating-helper__trigger" data-toggle="floating-helper-block floating-helper-tip">
         <div class="floating-helper__text">
           <%= t ".help" %>
         </div>
         <div class="floating-helper__icon">
           <%= icon "question-mark", class: "icon--small", role: "img" %>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 
@@ -23,8 +23,8 @@
         </div>
       </div>
     </div>
-    <div class="floating-helper__content-close" data-toggle="floating-helper-block floating-helper-tip">
+    <a href="#floating-helper-tip" class="floating-helper__content-close" data-toggle="floating-helper-block floating-helper-tip">
       <%= icon "x", class: "icon--small", role: "img" %>
-    </div>
+    </a>
   </div>
 </div>
