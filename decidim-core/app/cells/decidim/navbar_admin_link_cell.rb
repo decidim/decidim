@@ -41,11 +41,7 @@ module Decidim
     end
 
     def icon_options
-      options = if model[:icon_options].blank?
-                  {}
-                else
-                  model[:icon_options]
-                end
+      options = model[:icon_options].presence || {}
 
       options.merge(role: "img")
     end

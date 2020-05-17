@@ -109,13 +109,26 @@ module Decidim
         elsif resource.endorsed_by?(current_user)
           unendorse_label = t("decidim.endorsement_buttons_cell.already_endorsed")
           destroy_endorsement_url = path_to_destroy_endorsement(resource)
-          action_authorized_button_to(:endorse, destroy_endorsement_url, resource: resource, method: :delete, remote: true,
-                                                                         class: "button #{endorsement_button_classes} active", id: "endorsement_button") do
+          action_authorized_button_to(
+            :endorse,
+            destroy_endorsement_url,
+            resource: resource,
+            method: :delete,
+            remote: true,
+            class: "button #{endorsement_button_classes} active",
+            id: "endorsement_button"
+          ) do
             unendorse_label + render_screen_reader_context_title
           end
         else
-          action_authorized_button_to(:endorse, path_to_create_endorsement(resource), resource: resource, remote: true,
-                                                                                      class: "button #{endorsement_button_classes}", id: "endorsement_button") do
+          action_authorized_button_to(
+            :endorse,
+            path_to_create_endorsement(resource),
+            resource: resource,
+            remote: true,
+            class: "button #{endorsement_button_classes}",
+            id: "endorsement_button"
+          ) do
             endorse_translated + render_screen_reader_context_title
           end
         end
