@@ -457,12 +457,12 @@ module Decidim
     def text_area(attribute, options = {})
       field(attribute, options) do |opts|
         opts.delete(:pattern)
-        ActionView::Helpers::Tags::TextArea.new(
+        @template.send(
+          :text_area,
           @object_name,
           attribute,
-          @template,
-          opts
-        ).render
+          objectify_options(opts)
+        )
       end
     end
 
