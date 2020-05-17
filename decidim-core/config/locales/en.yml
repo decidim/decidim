@@ -1099,6 +1099,11 @@ en:
           other: "%{count} results"
         view_all: View all (%{count})
     shared:
+      confirm_modal:
+        cancel: Cancel
+        close_modal: Close modal
+        ok: OK
+        title: Confirm
       embed_modal:
         close_window: Close window
         embed: Please paste this code in your page

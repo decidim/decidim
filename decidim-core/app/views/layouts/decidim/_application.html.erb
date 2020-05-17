@@ -26,6 +26,7 @@
       <%= yield %>
     <% end %>
 
+    <%= render partial: "decidim/shared/confirm_modal" %>
     <%= render partial: "decidim/shared/login_modal" %>
     <%= render partial: "decidim/shared/authorization_modal" %>
     <%= render partial: "layouts/decidim/js_configuration" %>
