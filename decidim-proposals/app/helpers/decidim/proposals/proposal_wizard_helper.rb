@@ -146,12 +146,15 @@ module Decidim
         url
       end
 
-      def wizard_aside_back_text
+      def wizard_aside_back_text(from = nil)
+        key = "back"
+        key = "back_from_#{from}" if from
+
         case type_of
         when :collaborative_drafts
-          t("back", scope: "decidim.proposals.collaborative_drafts.wizard_aside").html_safe
+          t(key, scope: "decidim.proposals.collaborative_drafts.wizard_aside").html_safe
         else
-          t("back", scope: "decidim.proposals.proposals.wizard_aside").html_safe
+          t(key, scope: "decidim.proposals.proposals.wizard_aside").html_safe
         end
       end
 
