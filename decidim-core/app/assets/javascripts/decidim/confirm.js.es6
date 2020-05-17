@@ -93,7 +93,19 @@
           // checking.
           exports.$(element).data("confirm", null);
           exports.$(element).removeAttr("data-confirm");
-          ev.target.dispatchEvent(ev);
+
+          // The submit button click events won't do anything if they are
+          // dispatched as is. In these cases, just submit the underlying form.
+          if (ev.type === "click" &&
+            (
+              exports.$(element).is('button[type="submit"]') ||
+              exports.$(element).is('input[type="submit"]')
+            )
+          ) {
+            exports.$(element).parents("form").submit();
+          } else {
+            ev.target.dispatchEvent(ev);
+          }
         }
       });
 
