@@ -11,6 +11,21 @@ $checkboxes-minimum-width: 200px;
   line-height: 1.2;
 }
 
+.form-input-extra-before,
+.form-input-extra-after{
+  font-size: $input-error-font-size;
+  font-weight: $input-error-font-weight;
+  margin-top: $form-spacing * -.5;
+}
+
+.form-input-extra-before{
+  margin-bottom: $form-spacing / 2;
+}
+
+.form-input-extra-after{
+  margin-bottom: $form-spacing;
+}
+
 label > [type='checkbox'],
 label > [type='radio']{
   margin-bottom: 0; //fixes some problems with line-height in double-line labels

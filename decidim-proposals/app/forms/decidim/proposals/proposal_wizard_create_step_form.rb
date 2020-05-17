@@ -12,7 +12,8 @@ module Decidim
       attribute :user_group_id, Integer
 
       validates :title, :body, presence: true, etiquette: true
-      validates :title, length: { maximum: 150 }
+      validates :title, length: { in: 15..150 }
+      validates :body, length: { minimum: 15 }
 
       validate :proposal_length
       validate :body_is_not_bare_template

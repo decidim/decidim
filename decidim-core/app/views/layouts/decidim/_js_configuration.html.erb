@@ -2,8 +2,19 @@
 js_configs = {
   icons_path: image_path("decidim/icons.svg")
 }
+character_messages = {
+  "charactersAtLeast": {
+    one: t("forms.length_validator.minimum.one", count: "%count%"),
+    many: t("forms.length_validator.minimum.many", count: "%count%")
+  },
+  "charactersLeft": {
+    one: t("decidim.components.add_comment_form.remaining_characters_1", count: "%count%"),
+    many: t("decidim.components.add_comment_form.remaining_characters", count: "%count%")
+  }
+}
 %>
 
 <%= javascript_tag do %>;
   Decidim.config.set(<%== js_configs.to_json %>);
+  Decidim.InputCharacterCounter.configureMessages(<%== character_messages.to_json %>);
 <% end %>
