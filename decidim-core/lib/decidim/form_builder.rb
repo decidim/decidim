@@ -213,7 +213,7 @@ module Decidim
       disable_parents = options[:disable_parents]
 
       selected = object.send(name)
-      selected = selected.first if selected.is_a(Array) && selected.length > 1
+      selected = selected.first if selected.is_a?(Array) && selected.length > 1
       categories = categories_for_select(collection)
       disabled = if disable_parents
                    disabled_categories_for(collection)
