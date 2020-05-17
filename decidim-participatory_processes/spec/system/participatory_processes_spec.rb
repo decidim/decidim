@@ -112,7 +112,7 @@ describe "Participatory Processes", type: :system do
     it "lists the active processes" do
       within "#processes-grid" do
         within "#processes-grid h3" do
-          expect(page).to have_content("3 ACTIVE PROCESSES")
+          expect(page).to have_content("3 active processes")
         end
 
         expect(page).to have_content(translated(participatory_process.title, locale: :en))
@@ -147,7 +147,7 @@ describe "Participatory Processes", type: :system do
 
         within find("#processes-grid .column", text: translated(participatory_process.title)) do
           within ".card__footer" do
-            expect(page).to have_content("CURRENT PHASE:\nActive step")
+            expect(page).to have_content("Current phase:\nActive step")
           end
         end
       end
@@ -213,8 +213,8 @@ describe "Participatory Processes", type: :system do
     context "and the process has some components" do
       it "shows the components" do
         within ".process-nav" do
-          expect(page).to have_content(translated(proposals_component.name, locale: :en).upcase)
-          expect(page).to have_no_content(translated(meetings_component.name, locale: :en).upcase)
+          expect(page).to have_content(translated(proposals_component.name, locale: :en))
+          expect(page).to have_no_content(translated(meetings_component.name, locale: :en))
         end
       end
 
@@ -258,10 +258,10 @@ describe "Participatory Processes", type: :system do
 
         it "the stats for those components are visible" do
           within "#participatory_process-statistics" do
-            expect(page).to have_css("h4.section-heading", text: "STATISTICS")
-            expect(page).to have_css(".process-stats__title", text: "PROPOSALS")
+            expect(page).to have_css("h3.section-heading", text: "Statistics")
+            expect(page).to have_css(".process-stats__title", text: "Proposals")
             expect(page).to have_css(".process-stats__number", text: "3")
-            expect(page).to have_no_css(".process-stats__title", text: "MEETINGS")
+            expect(page).to have_no_css(".process-stats__title", text: "Meetings")
             expect(page).to have_no_css(".process-stats__number", text: "0")
           end
         end
@@ -271,8 +271,8 @@ describe "Participatory Processes", type: :system do
         let(:show_statistics) { false }
 
         it "the stats for those components are not visible" do
-          expect(page).to have_no_css("h4.section-heading", text: "STATISTICS")
-          expect(page).to have_no_css(".process-stats__title", text: "PROPOSALS")
+          expect(page).to have_no_css("h3.section-heading", text: "Statistics")
+          expect(page).to have_no_css(".process-stats__title", text: "Proposals")
           expect(page).to have_no_css(".process-stats__number", text: "3")
         end
       end
@@ -281,7 +281,7 @@ describe "Participatory Processes", type: :system do
         let(:show_metrics) { false }
 
         it "the metrics for the participatory processes are not rendered" do
-          expect(page).to have_no_css("h4.section-heading", text: "METRICS")
+          expect(page).to have_no_css("h3.section-heading", text: "Metrics")
         end
 
         it "has no link to all metrics" do

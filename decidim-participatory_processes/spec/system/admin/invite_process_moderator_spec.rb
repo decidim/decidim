@@ -26,7 +26,7 @@ describe "Invite process moderator", type: :system do
       end
 
       expect(page).to have_current_path "/admin/"
-      expect(page).to have_content("DASHBOARD")
+      expect(page).to have_content("Dashboard")
 
       visit decidim_admin.admin_terms_show_path
       find_button("I agree this admin terms").click
@@ -59,7 +59,7 @@ describe "Invite process moderator", type: :system do
       login_as moderator, scope: :user
 
       visit decidim_admin.root_path
-      expect(page).to have_content("DASHBOARD")
+      expect(page).to have_content("Dashboard")
 
       click_link "Processes"
 
