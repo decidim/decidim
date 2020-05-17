@@ -12,13 +12,6 @@ $checkboxes-minimum-width: 200px;
   line-height: 1.2;
 }
 
-.label-required{
-  cursor: help;
-  border-bottom: $abbr-underline;
-  text-decoration: none;
-  padding-right: 0;
-}
-
 .form-input-extra-before,
 .form-input-extra-after{
   display: block;

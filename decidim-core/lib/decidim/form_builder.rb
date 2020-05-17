@@ -703,10 +703,20 @@ module Decidim
 
     def required_for_attribute(attribute)
       if attribute_required?(attribute)
-        return content_tag(:span, "*", title: I18n.t("required", scope: "forms"),
-                                       data: { tooltip: true, disable_hover: false, keep_on_hover: true },
-                                       "aria-haspopup": true,
-                                       class: "label-required").html_safe
+        visible_title = content_tag(:span, "*", "aria-hidden": true)
+        screenreader_title = content_tag(
+          :span,
+          I18n.t("required", scope: "forms"),
+          class: "show-for-sr"
+        )
+        return content_tag(
+          :span,
+          visible_title + screenreader_title,
+          title: I18n.t("required", scope: "forms"),
+          data: { tooltip: true, disable_hover: false, keep_on_hover: true },
+          "aria-haspopup": true,
+          class: "label-required"
+        ).html_safe
       end
       "".html_safe
     end
