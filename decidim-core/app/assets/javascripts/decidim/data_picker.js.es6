@@ -80,8 +80,13 @@
     }
 
     _createModalContainer() {
-      return $(`<div class="small reveal" id="data_picker-modal" aria-live="assertive" role="dialog" aria-labelledby="data_picker-title" data-reveal data-multiple-opened="true">
-                <div class="data_picker-modal-content"></div>
+      // Add a header because we are referencing the title element with
+      // `aria-labelledby`. If the title doesn't exist, the "labelled by"
+      // reference is incorrect.
+      const headerHtml = '<div class="scope-picker picker-header"><h6 id="data_picker-title" class="h2"></h6></div>';
+
+      return $(`<div class="small reveal" id="data_picker-modal" aria-hidden="true" aria-live="assertive" role="dialog" aria-labelledby="data_picker-title" data-reveal data-multiple-opened="true">
+                <div class="data_picker-modal-content">${headerHtml}</div>
                 <button class="close-button" data-close type="button" data-reveal-id="data_picker-modal"><span aria-hidden="true">&times;</span></button>
               </div>`);
     }
