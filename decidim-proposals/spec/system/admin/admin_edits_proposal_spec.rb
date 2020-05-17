@@ -29,7 +29,7 @@ describe "Admin edits proposals", type: :system do
       visit_component_admin
 
       find("a.action-icon--edit-proposal").click
-      expect(page).to have_content "UPDATE PROPOSAL"
+      expect(page).to have_content "Update proposal"
 
       fill_in "Title", with: new_title
       fill_in_editor :proposal_body, with: new_body

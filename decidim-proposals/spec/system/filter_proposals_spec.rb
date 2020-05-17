@@ -37,7 +37,7 @@ describe "Filter Proposals", :slow, type: :system do
           end
 
           expect(page).to have_css(".card--proposal", count: 2)
-          expect(page).to have_content("2 PROPOSALS")
+          expect(page).to have_content("2 proposals")
         end
       end
 
@@ -53,7 +53,7 @@ describe "Filter Proposals", :slow, type: :system do
           end
 
           expect(page).to have_css(".card--proposal", count: 2)
-          expect(page).to have_content("2 PROPOSALS")
+          expect(page).to have_content("2 proposals")
         end
       end
     end
@@ -98,7 +98,7 @@ describe "Filter Proposals", :slow, type: :system do
         end
 
         expect(page).to have_css(".card--proposal", count: 1)
-        expect(page).to have_content("1 PROPOSAL")
+        expect(page).to have_content("1 proposal")
       end
     end
 
@@ -110,7 +110,7 @@ describe "Filter Proposals", :slow, type: :system do
         end
 
         expect(page).to have_css(".card--proposal", count: 2)
-        expect(page).to have_content("2 PROPOSALS")
+        expect(page).to have_content("2 proposals")
       end
     end
 
@@ -123,7 +123,7 @@ describe "Filter Proposals", :slow, type: :system do
         end
 
         expect(page).to have_css(".card--proposal", count: 3)
-        expect(page).to have_content("3 PROPOSALS")
+        expect(page).to have_content("3 proposals")
       end
     end
 
@@ -137,7 +137,7 @@ describe "Filter Proposals", :slow, type: :system do
         end
 
         expect(page).to have_css(".card--proposal", count: 1)
-        expect(page).to have_content("1 PROPOSAL")
+        expect(page).to have_content("1 proposal")
       end
     end
 
@@ -190,7 +190,7 @@ describe "Filter Proposals", :slow, type: :system do
           end
 
           expect(page).to have_css(".card--proposal", count: 1)
-          expect(page).to have_content("1 PROPOSAL")
+          expect(page).to have_content("1 proposal")
 
           within ".card--proposal" do
             expect(page).to have_content("ACCEPTED")
@@ -208,7 +208,7 @@ describe "Filter Proposals", :slow, type: :system do
           end
 
           expect(page).to have_css(".card--proposal", count: 1)
-          expect(page).to have_content("1 PROPOSAL")
+          expect(page).to have_content("1 proposal")
 
           within ".card--proposal" do
             expect(page).to have_content("REJECTED")
@@ -232,7 +232,7 @@ describe "Filter Proposals", :slow, type: :system do
             end
 
             expect(page).to have_css(".card--proposal", count: 1)
-            expect(page).to have_content("1 PROPOSAL")
+            expect(page).to have_content("1 proposal")
 
             within ".card--proposal" do
               expect(page).to have_content("ACCEPTED")
@@ -247,7 +247,7 @@ describe "Filter Proposals", :slow, type: :system do
             end
 
             expect(page).to have_css(".card--proposal", count: 1)
-            expect(page).to have_content("1 PROPOSAL")
+            expect(page).to have_content("1 proposal")
 
             within ".card--proposal" do
               expect(page).to have_content(proposal.title)
@@ -422,8 +422,8 @@ describe "Filter Proposals", :slow, type: :system do
           find('input[name="filter[type]"][value="all"]').click
 
           expect(page).to have_css(".card.card--proposal", count: 2)
-          expect(page).to have_content("2 PROPOSALS")
-          expect(page).to have_content("AMENDMENT", count: 1)
+          expect(page).to have_content("2 proposals")
+          expect(page).to have_content("Amendment", count: 1)
         end
       end
 
@@ -434,8 +434,8 @@ describe "Filter Proposals", :slow, type: :system do
           end
 
           expect(page).to have_css(".card.card--proposal", count: 1)
-          expect(page).to have_content("1 PROPOSAL")
-          expect(page).to have_content("AMENDMENT", count: 0)
+          expect(page).to have_content("1 proposal")
+          expect(page).to have_content("Amendment", count: 0)
         end
       end
 
@@ -446,8 +446,8 @@ describe "Filter Proposals", :slow, type: :system do
           end
 
           expect(page).to have_css(".card.card--proposal", count: 1)
-          expect(page).to have_content("1 PROPOSAL")
-          expect(page).to have_content("AMENDMENT", count: 1)
+          expect(page).to have_content("1 proposal")
+          expect(page).to have_content("Amendment", count: 1)
         end
       end
 
@@ -489,8 +489,8 @@ describe "Filter Proposals", :slow, type: :system do
                   choose "Amendments"
                 end
                 expect(page).to have_css(".card.card--proposal", count: 1)
-                expect(page).to have_content("1 PROPOSAL")
-                expect(page).to have_content("AMENDMENT", count: 1)
+                expect(page).to have_content("1 proposal")
+                expect(page).to have_content("Amendment", count: 1)
                 expect(page).to have_content(new_emendation.title)
                 expect(page).to have_no_content(emendation.title)
               end

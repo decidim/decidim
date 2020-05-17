@@ -16,7 +16,7 @@ shared_examples "publish answers" do
       click_button "Publish answers"
 
       within "#js-publish-answers-actions" do
-        expect(page).to have_content("ANSWERS FOR 2 PROPOSALS WILL BE PUBLISHED.")
+        expect(page).to have_content("Answers for 2 proposals will be published.")
       end
 
       perform_enqueued_jobs do

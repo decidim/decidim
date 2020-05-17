@@ -23,14 +23,14 @@ describe "Amend Proposal", versioning: true, type: :system do
     end
 
     it "is shown the amendments list" do
-      expect(page).to have_css("#amendments", text: "AMENDMENTS")
+      expect(page).to have_css("#amendments", text: "Amendments")
       within ".amendment-list" do
         expect(page).to have_content(emendation.title)
       end
     end
 
     it "is shown the amenders list" do
-      expect(page).to have_content("AMENDED BY")
+      expect(page).to have_content("Amended by")
       within ".amender-list" do
         expect(page).to have_content(emendation.creator_author.name)
       end
@@ -72,8 +72,8 @@ describe "Amend Proposal", versioning: true, type: :system do
         end
 
         it "is NOT shown the accept and reject button" do
-          expect(page).not_to have_css(".success", text: "ACCEPT")
-          expect(page).not_to have_css(".alert", text: "REJECT")
+          expect(page).not_to have_css(".success", text: "Accept")
+          expect(page).not_to have_css(".alert", text: "Reject")
         end
       end
     end
@@ -93,7 +93,7 @@ describe "Amend Proposal", versioning: true, type: :system do
         end
 
         it "is NOT shown the promote button" do
-          expect(page).not_to have_content("PROMOTE TO PROPOSAL")
+          expect(page).not_to have_content("Promote to Proposal")
           expect(page).not_to have_content("You can promote this emendation and publish it as an independent proposal")
         end
       end
@@ -305,8 +305,8 @@ describe "Amend Proposal", versioning: true, type: :system do
         end
 
         it "is shown the accept and reject button" do
-          expect(page).to have_css(".success", text: "ACCEPT")
-          expect(page).to have_css(".alert", text: "REJECT")
+          expect(page).to have_css(".success", text: "Accept")
+          expect(page).to have_css(".alert", text: "Reject")
         end
 
         context "when the user clicks on the accept button" do
@@ -316,7 +316,7 @@ describe "Amend Proposal", versioning: true, type: :system do
 
           it "is shown the amendment review form" do
             expect(page).to have_css(".edit_amendment")
-            expect(page).to have_content("REVIEW THE AMENDMENT")
+            expect(page).to have_content("Review the amendment")
             expect(page).to have_field("Title", with: emendation.title)
             expect(page).to have_field("Body", with: emendation.body)
             expect(page).to have_button("Accept amendment")
@@ -369,8 +369,8 @@ describe "Amend Proposal", versioning: true, type: :system do
         end
 
         it "is NOT shown the accept and reject button" do
-          expect(page).not_to have_css(".success", text: "ACCEPT")
-          expect(page).not_to have_css(".alert", text: "REJECT")
+          expect(page).not_to have_css(".success", text: "Accept")
+          expect(page).not_to have_css(".alert", text: "Reject")
         end
       end
     end
@@ -390,7 +390,7 @@ describe "Amend Proposal", versioning: true, type: :system do
         end
 
         it "is shown the promote button" do
-          expect(page).to have_content("PROMOTE TO PROPOSAL")
+          expect(page).to have_content("Promote to Proposal")
           expect(page).to have_content("You can promote this emendation and publish it as an independent proposal")
         end
 
@@ -400,22 +400,22 @@ describe "Amend Proposal", versioning: true, type: :system do
           end
 
           it "is shown the alert text" do
-            expect(accept_alert).to eq("Are you sure you want to promote this emendation?")
+            expect(accept_confirm).to eq("Are you sure you want to promote this emendation?")
           end
 
           it "is shown the Success Callout when the alert text is accepted" do
-            page.driver.browser.switch_to.alert.accept
+            accept_confirm
             expect(page).to have_content("The amendment has been successfully published as a new proposal")
           end
 
           context "when the user visits again the rejected emendation" do
             before do
-              page.driver.browser.switch_to.alert.accept
+              accept_confirm
               visit emendation_path
             end
 
             it "is NOT shown the promote button" do
-              expect(page).not_to have_content("PROMOTE TO PROPOSAL")
+              expect(page).not_to have_content("Promote to Proposal")
               expect(page).not_to have_content("You can promote this emendation and publish it as an independent proposal")
             end
           end
@@ -438,7 +438,7 @@ describe "Amend Proposal", versioning: true, type: :system do
         end
 
         it "is NOT shown the promote button" do
-          expect(page).not_to have_content("PROMOTE TO PROPOSAL")
+          expect(page).not_to have_content("Promote to Proposal")
           expect(page).not_to have_content("You can promote this emendation and publish it as an independent proposal")
         end
       end

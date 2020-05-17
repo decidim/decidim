@@ -190,7 +190,7 @@ describe "Proposals", type: :system do
         click_link proposal.title
 
         expect(page).to have_content("20,000.00")
-        expect(page).to have_content("MY EXECUTION PERIOD")
+        expect(page).to have_content("My execution period")
         expect(page).to have_content("My cost report")
       end
     end

@@ -187,7 +187,7 @@ describe "Support Proposal", type: :system, slow: true do
               expect(page).to have_button("Already supported")
             end
 
-            expect(page).to have_content("REMAINING\n9\nSUPPORTS")
+            expect(page).to have_content("Remaining\n9\nSupports")
           end
         end
 
@@ -237,7 +237,7 @@ describe "Support Proposal", type: :system, slow: true do
               expect(page).to have_content("0 SUPPORTS")
             end
 
-            expect(page).to have_content("REMAINING\n10\nSUPPORTS")
+            expect(page).to have_content("Remaining\n10\nSupports")
           end
         end
 
@@ -266,7 +266,7 @@ describe "Support Proposal", type: :system, slow: true do
                 expect(page).to have_content("1 SUPPORT")
               end
 
-              expect(page).to have_content("SUPPORTS DISABLED")
+              expect(page).to have_content("Supports disabled")
             end
           end
         end
@@ -318,7 +318,7 @@ describe "Support Proposal", type: :system, slow: true do
 
         within proposal_element do
           within ".card__support", match: :first do
-            expect(page).to have_content("SUPPORT LIMIT REACHED")
+            expect(page).to have_content("Support limit reached")
           end
         end
       end
@@ -331,7 +331,7 @@ describe "Support Proposal", type: :system, slow: true do
         within proposal_element do
           within ".card__support", match: :first do
             click_button "Support"
-            expect(page).to have_content("ALREADY SUPPORTED")
+            expect(page).to have_content("Already supported")
           end
         end
       end
@@ -388,19 +388,19 @@ describe "Support Proposal", type: :system, slow: true do
 
         within proposal_elements[0] do
           click_button "Support"
-          expect(page).to have_content("ALREADY SUPPORTED")
+          expect(page).to have_content("Already supported")
           expect(page).to have_content("0 SUPPORTS")
         end
 
         within proposal_elements[1] do
           click_button "Support"
-          expect(page).to have_content("ALREADY SUPPORTED")
+          expect(page).to have_content("Already supported")
           expect(page).to have_content("0 SUPPORTS")
         end
 
         within proposal_elements[2] do
           click_button "Support"
-          expect(page).to have_content("ALREADY SUPPORTED")
+          expect(page).to have_content("Already supported")
           expect(page).to have_content("1 SUPPORT")
         end
 

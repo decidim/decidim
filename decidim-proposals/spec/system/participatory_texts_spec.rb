@@ -62,7 +62,7 @@ describe "Participatory texts", type: :system do
   end
 
   shared_examples "showing the Amend buttton and amendments counter when hovered" do
-    let(:amend_button_disabled?) { page.find("a", text: "AMEND")[:disabled].present? }
+    let(:amend_button_disabled?) { page.find("a", text: "Amend")[:disabled].present? }
 
     it "shows the Amend buttton and amendments counter inside the proposal div" do
       visit_component
