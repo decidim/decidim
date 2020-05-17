@@ -1,9 +1,9 @@
 <div class="field hashtags__container">
-  <%= form.text_field :title, class: "js-hashtags", hashtaggable: true, value: form_presenter.title %>
+  <%= form.text_field :title, class: "js-hashtags", value: form_presenter.title %>
 </div>
 
 <div class="field hashtags__container">
-  <%= form.text_area :body, rows: 10, class: "js-hashtags", hashtaggable: true, value: form_presenter.body(extras: false).strip %>
+  <%= form.text_area :body, rows: 10, class: "js-hashtags", value: form_presenter.body(extras: false).strip %>
 </div>
 
 <% if @form.component_automatic_hashtags.any? %>

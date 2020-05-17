@@ -1,5 +1,5 @@
 <div class="column">
-  <article class="card card--proposal">
+  <div class="card card--proposal">
     <div class="card__content">
       <div class="card__header">
         <%= link_to proposal, target: "_blank" do %>
@@ -18,5 +18,5 @@
       <p><%= truncate(present(proposal).body(strip_tags: true), length: 100) %></p>
       <%= cell "decidim/tags", proposal, context: { extra_classes: ["tags--proposal"] } %>
     </div>
-  </article>
+  </div>
 </div>
