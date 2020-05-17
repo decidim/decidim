@@ -1,7 +1,12 @@
 <div class="order-by">
   <div class="order-by__dropdown">
     <span class="order-by__text"><%= t("#{i18n_scope}.label") %></span>
-    <ul class="dropdown menu" data-dropdown-menu>
+    <ul class="dropdown menu" data-dropdown-menu
+      data-autoclose="false"
+      data-disable-hover="true"
+      data-click-open="true"
+      data-close-on-click="true"
+    >
       <li class="is-dropdown-submenu-parent">
         <a href="#"><%= t("#{i18n_scope}.#{order}") %></a>
 
