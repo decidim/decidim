@@ -56,6 +56,7 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
 .topbar__search{
   position: relative;
   max-width: 220px; // Safari fix
+  overflow: hidden; // IE11 fix
 
   input{
     color: $navbar-color-hover;
