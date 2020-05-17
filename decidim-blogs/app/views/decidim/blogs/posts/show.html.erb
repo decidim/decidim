@@ -48,7 +48,7 @@
   <% end %>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
-      <p><%= decidim_sanitize translated_attribute post.body %></p>
+      <%= decidim_sanitize translated_attribute post.body %>
     </div>
     <%= cell "decidim/endorsers_list", post %>
   </div>
