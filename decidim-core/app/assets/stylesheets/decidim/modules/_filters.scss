@@ -178,6 +178,41 @@ $filters-padding-y: 1rem;
   }
 }
 
+.filters__help{
+  position: relative;
+
+  p:last-of-type{
+    margin-bottom: 0;
+  }
+
+  .skip{
+    left: -999px;
+    position: absolute;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    z-index: -999;
+
+    &:focus,
+    &:active{
+      background-color: $primary;
+      color: $white;
+      left: 0;
+      top: 0;
+      width: auto;
+      height: auto;
+      overflow: auto;
+      margin: 10px;
+      padding: 5px;
+      font-size: 1.4em;
+      z-index: 999;
+      outline: none;
+      position: absolute;
+    }
+  }
+}
+
 .filters__left-legend{
   legend{
     float: left;

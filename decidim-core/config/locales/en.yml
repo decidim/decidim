@@ -1113,6 +1113,9 @@ en:
         title: Report a problem
       floating_help:
         help: Help
+      filter_form_help:
+        help: The form below filters the results dynamically when the form input states are changed.
+        skip: Skip to results
       follow_button:
         sign_in_before_follow: Please sign in before performing this action
       login_modal:

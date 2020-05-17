@@ -1,0 +1,8 @@
+<div class="filters__section">
+  <div class="filters__help">
+    <p><%= t(".help") %></p>
+    <% if skip_to_id %>
+      <%= link_to t(".skip"), "##{skip_to_id}", class: "skip" %>
+    <% end %>
+  </div>
+</div>
