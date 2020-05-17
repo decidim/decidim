@@ -51,7 +51,7 @@
               <div class="field">
                 <%= f.select :scope_id,
                             scopes.map { |scope| [translated_attribute(scope.scope_name), scope&.scope&.id]},
-                            prompt: t(".select_scope") %>
+                            include_blank: t(".select_scope") %>
               </div>
             <% end %>
 
@@ -59,7 +59,7 @@
               <div class="field">
                 <%= f.select :decidim_user_group_id,
                              Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.map{ |g| [g.name, g.id] },
-                             prompt: current_user.name %>
+                             include_blank: current_user.name %>
               </div>
             <% end %>
           </div>

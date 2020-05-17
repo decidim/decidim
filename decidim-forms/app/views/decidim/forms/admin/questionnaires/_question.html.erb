@@ -123,7 +123,7 @@
         form.select(
           :max_choices,
           (2..question.number_of_options),
-          { prompt: t(".any") },
+          { include_blank: t(".any") },
           disabled: !editable
         )
       %>

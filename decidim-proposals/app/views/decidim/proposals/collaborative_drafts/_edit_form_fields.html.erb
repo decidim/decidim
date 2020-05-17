@@ -42,7 +42,7 @@
 
 <% if @form.categories&.any? %>
   <div class="field">
-    <%= form.categories_select :category_id, @form.categories, prompt: t("decidim.proposals.collaborative_drafts.edit.select_a_category") %>
+    <%= form.categories_select :category_id, @form.categories, include_blank: t("decidim.proposals.collaborative_drafts.edit.select_a_category") %>
   </div>
 <% end %>
 

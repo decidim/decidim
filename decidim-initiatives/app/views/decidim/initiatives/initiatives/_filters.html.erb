@@ -33,7 +33,7 @@
                                        Decidim::InitiativesType.where(organization: current_organization),
                                        legend_title: t(".type"),
                                        label: "",
-                                       prompt: t(".type_prompt"),
+                                       include_blank: t(".type_prompt"),
                                        remote_path: initiative_types_search_path,
                                        multiple: true,
                                        aria_label: t(".type") %>
