@@ -615,9 +615,16 @@ module Decidim
     # Returns an Integer or Nil.
     def length_for_attribute(attribute, type)
       length_validator = find_validator(attribute, ActiveModel::Validations::LengthValidator)
-      return unless length_validator
+      return length_validator.options[type] if length_validator
 
-      length_validator.options[type]
+      length_validator = find_validator(attribute, ProposalLengthValidator)
+      if length_validator
+        length = length_validator.options[type]
+        return length.call(object) if length.respond_to?(:call)
+        return length
+      end
+
+      nil
     end
 
     # Private: Finds a validator.
