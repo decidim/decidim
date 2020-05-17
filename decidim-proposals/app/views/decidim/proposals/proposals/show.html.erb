@@ -49,7 +49,34 @@ extra_admin_link(
   <% end %>
 </div>
 <div class="row">
-  <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
+  <div class="columns mediumlarge-8 large-9">
+    <div class="section">
+      <% if @proposal.emendation? %>
+        <%= cell("decidim/diff", proposal_presenter.versions.last) %>
+      <% elsif not ["section","subsection"].include? @proposal.participatory_text_level %>
+        <%== cell("decidim/proposals/proposal_m", @proposal, full_badge: true).badge %>
+        <%= render_proposal_body(@proposal) %>
+      <% end %>
+      <% if component_settings.geocoding_enabled? %>
+        <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @proposal } %>
+      <% end %>
+      <% if proposal_has_costs? && current_settings.answers_with_costs? %>
+        <%= cell("decidim/proposals/cost_report", @proposal) %>
+      <% end %>
+      <%= cell "decidim/proposals/proposal_tags", @proposal %>
+    </div>
+
+    <%= cell("decidim/announcement", proposal_reason_callout_args) if @proposal.answered? && @proposal.published_state? %>
+
+    <%= linked_resources_for @proposal, :results, "included_proposals" %>
+    <%= linked_resources_for @proposal, :projects, "included_proposals" %>
+    <%= linked_resources_for @proposal, :meetings, "proposals_from_meeting" %>
+    <%= linked_resources_for @proposal, :proposals, "copied_from_component" %>
+
+    <%= cell "decidim/endorsers_list", @proposal %>
+    <%= amendments_for @proposal %>
+  </div>
+  <div class="columns section view-side mediumlarge-4 large-3">
     <% if @proposal.amendable? && allowed_to?(:edit, :proposal, proposal: @proposal) %>
       <%= link_to t(".edit_proposal"), edit_proposal_path(@proposal), class: "button hollow expanded button--sc" %>
     <% else %>
@@ -103,33 +130,6 @@ extra_admin_link(
     <%= embed_modal_for proposal_proposal_widget_url(@proposal, format: :js), locals: { resource: @proposal } %>
     <%= cell "decidim/proposals/proposal_link_to_collaborative_draft", @proposal %>
     <%= cell "decidim/proposals/proposal_link_to_rejected_emendation", @proposal %>
-  </div>
-  <div class="columns mediumlarge-8 mediumlarge-pull-4">
-    <div class="section">
-      <% if @proposal.emendation? %>
-        <%= cell("decidim/diff", proposal_presenter.versions.last) %>
-      <% elsif not ["section","subsection"].include? @proposal.participatory_text_level %>
-        <%== cell("decidim/proposals/proposal_m", @proposal, full_badge: true).badge %>
-        <%= render_proposal_body(@proposal) %>
-      <% end %>
-      <% if component_settings.geocoding_enabled? %>
-        <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @proposal } %>
-      <% end %>
-      <% if proposal_has_costs? && current_settings.answers_with_costs? %>
-        <%= cell("decidim/proposals/cost_report", @proposal) %>
-      <% end %>
-      <%= cell "decidim/proposals/proposal_tags", @proposal %>
-    </div>
-
-    <%= cell("decidim/announcement", proposal_reason_callout_args) if @proposal.answered? && @proposal.published_state? %>
-
-    <%= linked_resources_for @proposal, :results, "included_proposals" %>
-    <%= linked_resources_for @proposal, :projects, "included_proposals" %>
-    <%= linked_resources_for @proposal, :meetings, "proposals_from_meeting" %>
-    <%= linked_resources_for @proposal, :proposals, "copied_from_component" %>
-
-    <%= cell "decidim/endorsers_list", @proposal %>
-    <%= amendments_for @proposal %>
   </div>
 </div>
 <%= attachments_for @proposal %>
