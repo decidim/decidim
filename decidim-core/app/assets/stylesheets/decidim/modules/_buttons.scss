@@ -376,20 +376,39 @@
 /* Social buttons */
 
 .button--social{
+  position: relative;
   padding: 0 1.5rem 0 0;
   text-align: left;
   display: block;
   min-width: 250px;
+
+  &::after{
+    content: "";
+    clear: both;
+  }
+}
+
+.button--social__icon,
+.button--social__text{
+  display: block;
+  padding: .85em 1rem;
 }
 
 .button--social__icon{
-  display: inline-block;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
   vertical-align: middle;
   padding: .85em 1rem;
   border-right: 1px solid rgba(black, .075);
   margin-right: .5rem;
   min-width: 3rem;
   text-align: center;
+}
+
+.button--social__text{
+  margin-left: 3rem;
 }
 
 .button--twitter{
