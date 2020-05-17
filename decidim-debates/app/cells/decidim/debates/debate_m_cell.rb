@@ -13,10 +13,6 @@ module Decidim
 
       private
 
-      def base_card_class
-        "card--debate"
-      end
-
       def title
         present(model).title
       end
