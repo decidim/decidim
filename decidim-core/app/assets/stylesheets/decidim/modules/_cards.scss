@@ -104,6 +104,10 @@ $datetime-bg: var(--primary);
   }
 }
 
+a .card__title{
+  display: inline-block;
+}
+
 .card__header {
   margin-bottom: $card-padding / 2;
 
