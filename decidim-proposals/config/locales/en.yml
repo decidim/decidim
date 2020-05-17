@@ -646,6 +646,7 @@ en:
         update:
           error: There was a problem saving the collaborative draft.
           success: Collaborative draft successfully updated.
+          title: Edit collaborative draft
         wizard_aside:
           back: Back
           back_from_collaborative_draft: Back to collaborative drafts
@@ -809,6 +810,8 @@ en:
           withdraw_proposal: Withdraw proposal
         tags:
           changed_from: "(changed from <u>%{previous_name}</u> by an administrator)"
+        update:
+          title: Update proposal
         vote_button:
           already_voted: Already supported
           already_voted_hover: Withdraw support
