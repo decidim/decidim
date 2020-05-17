@@ -14,7 +14,7 @@
 
   class InputCharacterCounter {
     static configureMessages(messages) {
-      MESSAGES = exports.$.extend(messages, DEFAULT_MESSAGES);
+      MESSAGES = exports.$.extend(DEFAULT_MESSAGES, messages);
     }
 
     constructor(input) {
