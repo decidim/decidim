@@ -14,13 +14,8 @@ module Decidim
           <div id="my_scope_input" class="data-picker picker-single" data-picker-name="my_scope_input">
             <div class="picker-values">
               <div>
-                <a href="/scopes/picker?current=#{scope.id}&amp;field=my_scope_input" data-picker-value="#{scope.id}">
-                  #{scope.name["en"]} (#{scope.scope_type.name["en"]})
-                </a>
+                <a href="/scopes/picker?current=#{scope.id}&amp;field=my_scope_input" data-picker-value="#{scope.id}">#{scope.name["en"]} (#{scope.scope_type.name["en"]})</a>
               </div>
-            </div>
-            <div class="picker-prompt">
-              <a href="/scopes/picker?field=my_scope_input">Global scope</a>
             </div>
           </div>
         HTML
