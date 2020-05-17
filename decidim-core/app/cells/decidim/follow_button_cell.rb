@@ -33,7 +33,7 @@ module Decidim
 
     def icon_options
       icon_base_options = { aria_hidden: true }
-      return icon_base_options.merge({ class: "icon--small", role: "img" }) if inline?
+      return icon_base_options.merge(class: "icon--small", role: "img") if inline?
 
       icon_base_options
     end
