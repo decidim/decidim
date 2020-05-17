@@ -56,6 +56,8 @@ module Decidim
     end
 
     def current_user_follows?
+      return false unless current_user
+
       current_user.follows?(model)
     end
 
