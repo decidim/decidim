@@ -32,9 +32,10 @@ module Decidim
     end
 
     def icon_options
-      return { class: "icon--small", role: "img" } if inline?
+      icon_base_options = { aria_hidden: true }
+      return icon_base_options.merge({ class: "icon--small", role: "img" }) if inline?
 
-      {}
+      icon_base_options
     end
 
     def render_screen_reader_title_for(resource)

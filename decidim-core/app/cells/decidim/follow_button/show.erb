@@ -4,7 +4,8 @@
       <%= button_to decidim.follow_path, class: button_classes, params: { follow: { followable_gid: model.to_sgid.to_s, inline: inline? } }, data: { disable: true }, method: :delete, remote: true do %>
         <span class="icon-wrap">
           <%= icon "bell", icon_options %>
-          <%= model.followers.count %>
+          <span aria-hidden="true"><%= model.followers.count %></span>
+          <span class="show-for-sr"><%= t("decidim.followers.followers_count", count: model.followers.count) %></span>
         </span>
         <span class="text-wrap">
           <%= t("follows.destroy.button", scope: "decidim") %>

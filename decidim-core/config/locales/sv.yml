@@ -607,6 +607,9 @@ sv:
       title: Fingeravtryck
       value: Värde
     followers:
+      followers_count:
+        one: "%{count} följare"
+        other: "%{count} följare"
       no_followers: Inga följare än.
     following:
       no_followings: Följer inte någon eller något än.
