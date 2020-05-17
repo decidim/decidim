@@ -109,7 +109,7 @@ describe "Question", type: :system do
       end
 
       it "Has the results" do
-        expect(page).to have_content("RESULTS")
+        expect(page).to have_content("Results")
         expect(page).to have_i18n_content(response.title)
         expect(page).to have_content(response.votes_count)
       end
