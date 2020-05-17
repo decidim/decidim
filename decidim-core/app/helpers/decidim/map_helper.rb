@@ -17,8 +17,8 @@ module Decidim
       longitude = resource.longitude
 
       address_text = resource.try(:address)
-      address_text ||= t("latlng_text", latitude: latitude, longitude: longitude, scope: "decidim.static_map")
-      map_service_brand = t("map_service_brand", scope: "decidim.static_map")
+      address_text ||= t("latlng_text", latitude: latitude, longitude: longitude, scope: "decidim.map.static")
+      map_service_brand = t("map_service_brand", scope: "decidim.map.static")
 
       map_url = "https://www.openstreetmap.org/?mlat=#{latitude}&mlon=#{longitude}#map=#{zoom}/#{latitude}/#{longitude}"
 
@@ -45,8 +45,15 @@ module Decidim
       end
 
       content = capture { yield }.html_safe
+      help = content_tag(:div, class: "map__help") do
+        concat content_tag(:p, t("screen_reader_explanation", scope: "decidim.map.dynamic"), class: "show-for-sr")
+        concat link_to(t("skip_button", scope: "decidim.map.dynamic"), "#map_bottom", class: "skip")
+      end
       content_tag :div, class: "row column" do
-        content_tag(:div, "", map_html_options) + content
+        concat help
+        concat content_tag(:div, "", map_html_options)
+        concat content
+        concat link_to("", "#", id: "map_bottom", name: "map_bottom")
       end
     end
   end

@@ -807,6 +807,13 @@ en:
           not_found: 'The scope type was not found on the database (ID: %{id})'
     managed_users:
       expired_session: The current administration session of a participant has expired.
+    map:
+      dynamic:
+        screen_reader_explanation: The following element is a map which presents the items on this page as map points. The element can be used with a screen reader but it may be hard to understand.
+        skip_button: Skip map
+      static:
+        latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
+        map_service_brand: OpenStreetMap
     members:
       no_members: This group doesn't have any members yet.
     menu:
@@ -1148,9 +1155,6 @@ en:
         share_link: Share link
       version_author:
         deleted: Deleted participant
-    static_map:
-      latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
-      map_service_brand: OpenStreetMap
     user_activity:
       index:
         no_activities_warning: This participant hasn't had any activity yet.
