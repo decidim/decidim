@@ -54,7 +54,7 @@ describe "Conference program", type: :system do
         visit decidim_conferences.conference_path(conference)
 
         within ".process-nav" do
-          expect(page).to have_content(translated_attribute(component.name).upcase)
+          expect(page).to have_content(translated_attribute(component.name))
           click_link translated_attribute(component.name)
         end
 

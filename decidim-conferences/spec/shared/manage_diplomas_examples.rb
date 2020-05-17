@@ -46,7 +46,7 @@ shared_examples "manage diplomas" do
         it "can send the diplomas" do
           within ".card-title" do
             expect(page).to have_selector("#send-diplomas")
-            expect(page).to have_content("SEND CERTIFICATES OF ATTENDANCE")
+            expect(page).to have_content("Send certificates of attendance")
           end
         end
 
@@ -70,7 +70,7 @@ shared_examples "manage diplomas" do
           visit_edit_diplomas_page
           within ".card-title" do
             expect(page).to have_selector("#send-diplomas.disabled")
-            expect(page).to have_content("SEND CERTIFICATES OF ATTENDANCE")
+            expect(page).to have_content("Send certificates of attendance")
           end
         end
       end
@@ -84,7 +84,7 @@ shared_examples "manage diplomas" do
         visit_edit_diplomas_page
         within ".card-title" do
           expect(page).not_to have_selector("#send-diplomas")
-          expect(page).to have_content("CERTIFICATE OF ATTENDANCE")
+          expect(page).to have_content("Certificate of Attendance")
         end
       end
     end
