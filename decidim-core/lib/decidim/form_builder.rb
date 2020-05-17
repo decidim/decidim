@@ -78,12 +78,15 @@ module Decidim
         safe_join [field_label, tabs_panels]
       end
 
+      hashtaggable = options.delete(:hashtaggable)
       tabs_content = content_tag(:div, class: "tabs-content", data: { tabs_content: tabs_id }) do
         locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
           tab_content_id = "#{tabs_id}-#{name}-panel-#{index}"
           string + content_tag(:div, class: tab_element_class_for("panel", index), id: tab_content_id) do
-            if options.delete(:hashtaggable)
+            if hashtaggable
               hashtaggable_text_field(type, name, locale, options.merge(label: false))
+            elsif type.to_sym == :editor
+              send(type, name_with_locale(name, locale), options.merge(label: false, hashtaggable: hashtaggable))
             else
               send(type, name_with_locale(name, locale), options.merge(label: false))
             end
@@ -112,6 +115,8 @@ module Decidim
     #
     # Renders form fields for each locale.
     def hashtaggable_text_field(type, name, locale, options = {})
+      options[:hashtaggable] = true if type.to_sym == :editor
+
       content_tag(:div, class: "hashtags__container") do
         if options[:value]
           send(type, name_with_locale(name, locale), options.merge(label: options[:label], value: options[:value][locale]))
@@ -181,12 +186,13 @@ module Decidim
       label_text = options[:label].to_s
       label_text = label_for(name) if label_text.blank?
       options.delete(:required)
+      hashtaggable = options.delete(:hashtaggable)
 
-      content_tag(:div, class: "editor #{"hashtags__container" if options[:hashtaggable]}") do
+      content_tag(:div, class: "editor #{"hashtags__container" if hashtaggable}") do
         template = ""
         template += "<label>#{label_text + required_for_attribute(name)}</label>" if options[:label] != false
         template += hidden_field(name, options)
-        template += content_tag(:div, nil, class: "editor-container #{"js-hashtags" if options[:hashtaggable]}", data: {
+        template += content_tag(:div, nil, class: "editor-container #{"js-hashtags" if hashtaggable}", data: {
                                   toolbar: toolbar,
                                   disabled: options[:disabled]
                                 }, style: "height: #{lines}rem")
