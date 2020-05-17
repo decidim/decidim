@@ -50,11 +50,21 @@ module Decidim
         state_classes.concat(["label", "proposal-status"]).join(" ")
       end
 
-      def statuses
-        return [:endorsements_count, :comments_count] if model.draft?
-        return [:creation_date, :endorsements_count, :comments_count] if !has_link_to_resource? || !can_be_followed?
+      def base_statuses
+        @base_statuses ||= begin
+          if endorsements_visible?
+            [:endorsements_count, :comments_count]
+          else
+            [:comments_count]
+          end
+        end
+      end
 
-        [:creation_date, :follow, :endorsements_count, :comments_count]
+      def statuses
+        return base_statuses if model.draft?
+        return [:creation_date] + base_statuses if !has_link_to_resource? || !can_be_followed?
+
+        [:creation_date, :follow] + base_statuses
       end
 
       def creation_date_status
@@ -93,6 +103,10 @@ module Decidim
 
       def can_be_followed?
         !model.withdrawn?
+      end
+
+      def endorsements_visible?
+        model.component.current_settings.endorsements_enabled?
       end
 
       def has_image?
