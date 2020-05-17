@@ -192,6 +192,56 @@ $palette: (
   }
 }
 
+@mixin button-hollow-variant($color, $hover-text-color: $white){
+  background-color: $color;
+
+  &.hover,
+  &:hover,
+  &.focus,
+  &:focus{
+    background-color: $color;
+  }
+
+  &.disabled,
+  &[disabled]{
+    &,
+    &:active,
+    &:hover,
+    &:focus{
+      background-color: $color;
+    }
+  }
+
+  &.hollow{
+    background-color: transparent;
+    color: $color;
+    border-color: $color;
+
+    &.hover,
+    &:hover,
+    &.focus,
+    &:focus{
+      border-color: $color;
+      background-color: $color;
+      color: $hover-text-color;
+    }
+
+    &.disabled,
+    &[disabled]{
+      &,
+      &:active,
+      &:hover,
+      &:focus{
+        background-color: transparent;
+        border-color: $color;
+        color: $color;
+        box-shadow: none;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
 @keyframes animation-spin{
   to{ transform: rotate(1turn); }
 }

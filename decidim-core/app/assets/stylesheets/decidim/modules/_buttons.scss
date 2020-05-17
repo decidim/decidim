@@ -96,59 +96,27 @@
   }
 
   &.secondary{
-    background-color: var(--secondary);
+    @include button-hollow-variant(var(--secondary));
+  }
 
-    &.hover,
-    &:hover,
-    &.focus,
-    &:focus{
-      background-color: var(--secondary);
-    }
+  &.success{
+    @include button-hollow-variant(var(--success));
+  }
 
-    &.disabled,
-    &[disabled]{
-      &,
-      &:active,
-      &:hover,
-      &:focus{
-        background-color: var(--secondary);
-      }
-    }
+  &.alert{
+    @include button-hollow-variant(var(--alert));
+  }
 
-    &.hollow{
-      background-color: transparent;
-      color: var(--secondary);
-      border-color: var(--secondary);
-
-      &.hover,
-      &:hover,
-      &.focus,
-      &:focus{
-        border-color: var(--secondary);
-        background-color: var(--secondary);
-        color: $white;
-      }
-
-      &.disabled,
-      &[disabled]{
-        &,
-        &:active,
-        &:hover,
-        &:focus{
-          background-color: transparent;
-          border-color: var(--secondary);
-          color: var(--secondary);
-          box-shadow: none;
-          text-decoration: none;
-        }
-      }
-    }
+  &.warning{
+    @include button-hollow-variant(var(--warning));
   }
 
   &.clear{
-    &.secondary{
+    &.secondary,
+    &.success,
+    &.alert,
+    &.warning{
       background-color: transparent;
-      color: var(--secondary);
 
       &.hover,
       &:hover,
@@ -156,6 +124,22 @@
       &:focus{
         background-color: transparent;
       }
+    }
+
+    &.secondary{
+      color: var(--secondary);
+    }
+
+    &.success{
+      color: var(--success);
+    }
+
+    &.alert{
+      color: var(--alert);
+    }
+
+    &.warning{
+      color: var(--warning);
     }
   }
 }
