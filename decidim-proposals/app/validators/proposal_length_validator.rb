@@ -8,22 +8,31 @@ class ProposalLengthValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
     return if value.blank?
 
-    validate_length(record, attribute, value)
+    validate_min_length(record, attribute, value)
+    validate_max_length(record, attribute, value)
   end
 
   private
 
-  def validate_length(record, attribute, value)
+  def validate_min_length(record, attribute, value)
     min = options[:minimum] || nil
     min = min.call(record) if min.respond_to?(:call)
-    if min && min > 0 && value.length < min
-      record.errors.add(attribute, options[:message] || :too_short)
+    if min && min.positive? && value.length < min
+      record.errors.add(
+        attribute,
+        options[:message] || :too_short
+      )
     end
+  end
 
+  def validate_max_length(record, attribute, value)
     max = options[:maximum] || nil
     max = max.call(record) if max.respond_to?(:call)
-    if max && max > 0 && value.length > max
-      record.errors.add(attribute, options[:message] || :too_long)
+    if max && max.positive? && value.length > max
+      record.errors.add(
+        attribute,
+        options[:message] || :too_long
+      )
     end
   end
 end
