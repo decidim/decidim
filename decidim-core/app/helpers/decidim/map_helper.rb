@@ -46,14 +46,16 @@ module Decidim
 
       content = capture { yield }.html_safe
       help = content_tag(:div, class: "map__help") do
-        concat content_tag(:p, t("screen_reader_explanation", scope: "decidim.map.dynamic"), class: "show-for-sr")
-        concat link_to(t("skip_button", scope: "decidim.map.dynamic"), "#map_bottom", class: "skip")
+        sr_content = content_tag(:p, t("screen_reader_explanation", scope: "decidim.map.dynamic"), class: "show-for-sr")
+        link = link_to(t("skip_button", scope: "decidim.map.dynamic"), "#map_bottom", class: "skip")
+
+        sr_content + link
       end
       content_tag :div, class: "row column" do
-        concat help
-        concat content_tag(:div, "", map_html_options)
-        concat content
-        concat link_to("", "#", id: "map_bottom", name: "map_bottom")
+        map = content_tag(:div, "", map_html_options)
+        link = link_to("", "#", id: "map_bottom", name: "map_bottom")
+
+        help + map + content + link
       end
     end
   end
