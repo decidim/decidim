@@ -6,7 +6,7 @@
         large-up-4 card-grid">
         <% highlighted_conferences.each do |conference| %>
           <div class="column">
-            <%= link_to decidim_conferences.conference_path(conference), class: "card card--conference card--mini", "aria-role": "article" do %>
+            <%= link_to decidim_conferences.conference_path(conference), class: "card card--conference card--mini" do %>
               <div aria-hidden="true" class="card__image-top"
                 style="background-image:url(<%= conference.hero_image.url %>)"></div>
               <div class="card__content">
