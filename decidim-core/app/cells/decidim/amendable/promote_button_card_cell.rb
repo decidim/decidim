@@ -44,7 +44,7 @@ module Decidim
       end
 
       def button_classes
-        "amend_button_card_cell button secondary hollow expanded button--icon button--sc"
+        "amend_button_card_cell button expanded button--icon button--sc"
       end
     end
   end
