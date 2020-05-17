@@ -314,7 +314,7 @@ describe "Support Proposal", type: :system, slow: true do
         create(:proposal_vote, proposal: proposal)
         visit_component
 
-        proposal_element = page.find("article", text: proposal.title)
+        proposal_element = page.find(".card--proposal", text: proposal.title)
 
         within proposal_element do
           within ".card__support", match: :first do
@@ -326,7 +326,7 @@ describe "Support Proposal", type: :system, slow: true do
       it "allows users to vote on proposals under the limit" do
         visit_component
 
-        proposal_element = page.find("article", text: proposal.title)
+        proposal_element = page.find(".card--proposal", text: proposal.title)
 
         within proposal_element do
           within ".card__support", match: :first do
@@ -355,7 +355,7 @@ describe "Support Proposal", type: :system, slow: true do
         create(:proposal_vote, proposal: proposal)
         visit_component
 
-        proposal_element = page.find("article", text: proposal.title)
+        proposal_element = page.find(".card--proposal", text: proposal.title)
 
         within proposal_element do
           within ".card__support", match: :first do
@@ -383,7 +383,7 @@ describe "Support Proposal", type: :system, slow: true do
         visit_component
 
         proposal_elements = proposals.map do |proposal|
-          page.find("article", text: proposal.title)
+          page.find(".card--proposal", text: proposal.title)
         end
 
         within proposal_elements[0] do
@@ -422,7 +422,7 @@ describe "Support Proposal", type: :system, slow: true do
       it "gives a point after voting" do
         visit_component
 
-        proposal_element = page.find("article", text: proposal.title)
+        proposal_element = page.find(".card--proposal", text: proposal.title)
 
         expect do
           within proposal_element do
