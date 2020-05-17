@@ -11,10 +11,14 @@ module ConfirmationHelpers
     yield if block_given?
 
     # The test can already be "within", so find the body using xpath
+    message = nil
     body = find(:xpath, "/html/body")
     within(body.find(".confirm-reveal")) do
+      message = find(".confirm-modal-content").text
       find("a.button[data-confirm-ok]").click
     end
+
+    message
   end
 
   # Overrides the Capybara default dismiss_confirm because we have replaced the
@@ -26,10 +30,14 @@ module ConfirmationHelpers
     yield if block_given?
 
     # The test can already be "within", so find the body using xpath
+    message = nil
     body = find(:xpath, "/html/body")
     within(body.find(".confirm-reveal")) do
+      message = find(".confirm-modal-content").text
       find("a.button[data-confirm-cancel]").click
     end
+
+    message
   end
 end
 
