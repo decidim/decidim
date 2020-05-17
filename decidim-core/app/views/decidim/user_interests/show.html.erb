@@ -1,3 +1,5 @@
+<% add_decidim_page_title(t("my_interests", scope: "layouts.decidim.user_profile")) %>
+
 <div class="row">
   <p><%= t(".select_your_interests") %></p>
   <%= form_for(@user_interests, url: user_interests_path, method: :put, class: "user-form") do |f| %>

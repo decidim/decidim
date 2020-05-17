@@ -1,3 +1,5 @@
+<% add_decidim_page_title(t("profile", scope: "layouts.decidim.user_menu")) %>
+
 <div class="row">
   <%= decidim_form_for(@account, url: account_path, method: :put, html: { autocomplete: "nope" }) do |f| %>
     <input autocomplete="off" name="hidden" type="password" style="display:none;">

@@ -1072,6 +1072,7 @@ en:
       prompt: Select a scope
       scopes: Scopes
     search:
+      results: Search results
       results_found_for_term: '%{count} Results for the search: "%{term}"'
       term_input_placeholder: Search
     searches:

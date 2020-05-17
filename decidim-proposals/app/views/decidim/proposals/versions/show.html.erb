@@ -1,3 +1,11 @@
+<% add_decidim_page_title(t("changes_at_title", scope: "decidim.proposals.versions", title: item.title)) %>
+<% add_decidim_page_title(t("decidim.proposals.versions.index.title")) %>
+<%
+if item.is_a?(Decidim::Proposals::CollaborativeDraft)
+  add_decidim_page_title(Decidim::Proposals::CollaborativeDraft.model_name.human(count: 2))
+end
+%>
+
 <div class="row">
   <div class="small-12 columns">
     <h2 class="heading2">
