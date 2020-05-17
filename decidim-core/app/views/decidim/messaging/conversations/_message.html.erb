@@ -3,11 +3,11 @@
     <%= image_tag message.sender.avatar_url, alt: t("decidim.author.avatar") %>
   <% end %>
   <div>
-    <article class="card">
+    <div class="card">
       <div class="p-s">
         <%= simple_format(message.body_with_links) %>
       </div>
-    </article>
+    </div>
     <span class="text-small<%= " pull-right" if (current_user.id == message.sender.id) %>"><%= message.created_at.strftime("%-m %b") %></span>
   </div>
 </div>

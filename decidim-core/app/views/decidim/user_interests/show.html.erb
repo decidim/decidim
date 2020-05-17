@@ -9,7 +9,7 @@
       <div class="clearfix m-bottom">
         <%= render partial: "scopes", locals: { scopes: @user_interests.scopes, f: f } %>
       </div>
-      <%= f.submit t(".update_my_interests"), disable_with: true %>
+      <%= f.submit t(".update_my_interests") %>
     <% else %>
       <p><%= t(".no_scopes") %></p>
     <% end %>

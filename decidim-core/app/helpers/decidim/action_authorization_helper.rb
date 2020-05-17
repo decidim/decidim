@@ -66,11 +66,11 @@ module Decidim
 
       if !current_user
         html_options["data-open"] = "loginModal"
-        url = ""
+        url = "#"
       elsif action && !action_authorized_to(action, resource: resource).ok?
         html_options["data-open"] = "authorizationModal"
         html_options["data-open-url"] = modal_path(action, resource)
-        url = ""
+        url = "#"
       end
 
       html_options["onclick"] = "event.preventDefault();" if url == ""

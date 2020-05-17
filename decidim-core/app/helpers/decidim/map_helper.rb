@@ -53,7 +53,7 @@ module Decidim
       end
       content_tag :div, class: "row column" do
         map = content_tag(:div, "", map_html_options)
-        link = link_to("", "#", id: "map_bottom", name: "map_bottom")
+        link = link_to("", "#", id: "map_bottom")
 
         help + map + content + link
       end

@@ -1,6 +1,6 @@
 <% add_decidim_page_title(t("term_input_placeholder", scope: "decidim.search")) %>
 
-<main class="wrapper">
+<div class="wrapper">
   <div class="row" id="search-count">
     <%= render partial: "count" %>
   </div>
@@ -12,6 +12,6 @@
       <%= cell "decidim/search_results", @sections, params: params %>
     </div>
   </div>
-</main>
+</div>
 <%= javascript_include_tag("decidim/filters") %>
 <%= javascript_include_tag "decidim/orders" %>

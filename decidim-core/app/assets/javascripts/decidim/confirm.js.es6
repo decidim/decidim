@@ -18,7 +18,12 @@
       this.$buttonCancel = exports.$("[data-confirm-cancel]", this.$modal);
 
       // Avoid duplicate IDs and append the new modal to the body
+      const titleId = `confirm-modal-title-${Math.random().toString(36).substring(7)}`;
+
       this.$modal.removeAttr("id");
+      $("#confirm-modal-title", this.$modal).attr("id", titleId);
+      this.$modal.attr("aria-labelledby", titleId);
+
       $("body").append(this.$modal);
       this.$modal.foundation();
     }

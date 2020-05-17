@@ -31,7 +31,7 @@
           targetId = `characters_${Math.random().toString(36).substr(2, 9)}`;
         }
 
-        this.$target = $(`<div id="${targetId}" class="form-input-extra-before" />`)
+        this.$target = $(`<span id="${targetId}" class="form-input-extra-before" />`)
         this.$input.before(this.$target);
       }
 

@@ -9,7 +9,7 @@
       </p>
     </div>
 
-    <main class="main-container tabbed-container">
+    <div class="main-container tabbed-container">
       <%= cell "decidim/tos_page", :announcement %>
 
       <div class="row collapse main-container--side-panel">
@@ -18,7 +18,7 @@
             <ul class="tabs vertical side-panel__tabs">
               <% pages.each do |sibling| %>
                 <li class="tabs-title <%= page == sibling ? "is-active" : nil %>">
-                  <%= link_to translated_attribute(sibling.title), page_path(sibling.slug), 'aria-selected': page == sibling %>
+                  <%= link_to translated_attribute(sibling.title), page_path(sibling.slug) %>
                 </li>
               <% end %>
             </ul>
@@ -40,6 +40,6 @@
       </div>
 
       <%= cell "decidim/tos_page", :sticky_form %>
-    </main>
+    </div>
   </div>
 </div>

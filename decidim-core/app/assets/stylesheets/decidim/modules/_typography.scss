@@ -284,3 +284,8 @@ var{
     )
   );
 }
+
+ul.no-bullet-indented,
+ol.no-bullet-indented{
+  list-style-type: none;
+}

@@ -18,11 +18,10 @@ module Decidim
       }
       options.merge!(checkbox_options)
 
-      if options[:is_root_check_box] == true
+      if options.delete(:is_root_check_box) == true
         options[:label_options].merge!("data-global-checkbox": "")
         options[:label_options].delete(:"data-children-checkbox")
       end
-      options[:label_options].delete(:is_root_check_box)
 
       options
     end
