@@ -430,6 +430,6 @@ fi:
           take_part: Osallistu
       process_header_steps:
         step: Vaihe %{current} / %{total}
-        view_steps: Näytä vaiheet
+        view_steps: Prosessin vaiheet
       process_navigation:
         process_menu_item: Prosessi

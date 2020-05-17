@@ -436,6 +436,6 @@ en:
           take_part: Take part
       process_header_steps:
         step: Phase %{current} of %{total}
-        view_steps: View phases
+        view_steps: Process phases
       process_navigation:
         process_menu_item: The process
