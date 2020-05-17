@@ -82,7 +82,7 @@ module Decidim
         locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
           tab_content_id = "#{tabs_id}-#{name}-panel-#{index}"
           string + content_tag(:div, class: tab_element_class_for("panel", index), id: tab_content_id) do
-            if options[:hashtaggable]
+            if options.delete(:hashtaggable)
               hashtaggable_text_field(type, name, locale, options.merge(label: false))
             else
               send(type, name_with_locale(name, locale), options.merge(label: false))
@@ -95,7 +95,7 @@ module Decidim
     end
 
     def translated_one_locale(type, name, locale, options = {})
-      return hashtaggable_text_field(type, name, locale, options) if options[:hashtaggable]
+      return hashtaggable_text_field(type, name, locale, options) if options.delete(:hashtaggable)
 
       send(
         type,
@@ -175,18 +175,21 @@ module Decidim
     #
     # Renders a container with both hidden field and editor container
     def editor(name, options = {})
-      options[:toolbar] ||= "basic"
-      options[:lines] ||= 10
       options[:disabled] ||= false
+      toolbar = options.delete(:toolbar) || "basic"
+      lines = options.delete(:lines) || 10
+      label_text = options[:label].to_s
+      label_text = label_for(name) if label_text.blank?
+      options.delete(:required)
 
       content_tag(:div, class: "editor #{"hashtags__container" if options[:hashtaggable]}") do
         template = ""
-        template += label(name, options[:label].to_s || name) + required_for_attribute(name) if options[:label] != false
+        template += "<label>#{label_text + required_for_attribute(name)}</label>" if options[:label] != false
         template += hidden_field(name, options)
         template += content_tag(:div, nil, class: "editor-container #{"js-hashtags" if options[:hashtaggable]}", data: {
-                                  toolbar: options[:toolbar],
+                                  toolbar: toolbar,
                                   disabled: options[:disabled]
-                                }, style: "height: #{options[:lines]}rem")
+                                }, style: "height: #{lines}rem")
         template += error_for(name, options) if error?(name)
         template.html_safe
       end
@@ -210,6 +213,7 @@ module Decidim
       disable_parents = options[:disable_parents]
 
       selected = object.send(name)
+      selected = selected.first if selected.length > 1
       categories = categories_for_select(collection)
       disabled = if disable_parents
                    disabled_categories_for(collection)
@@ -279,8 +283,11 @@ module Decidim
     #
     # Returns a String.
     def scopes_picker(attribute, options = {})
+      id = "#{@object_name}_#{attribute}"
+      id = "#{self.options[:namespace]}_#{id}" if self.options.has_key?(:namespace)
+
       picker_options = {
-        id: "#{@object_name}_#{attribute}",
+        id: id,
         class: "picker-#{options[:multiple] ? "multiple" : "single"}",
         name: "#{@object_name}[#{attribute}]"
       }
@@ -290,7 +297,7 @@ module Decidim
       prompt_params = yield(nil)
       scopes = selected_scopes(attribute).map { |scope| [scope, yield(scope)] }
       template = ""
-      template += label(attribute, label_for(attribute) + required_for_attribute(attribute)) unless options[:label] == false
+      template += "<label>#{label_for(attribute) + required_for_attribute(attribute)}</label>" unless options[:label] == false
       template += @template.render("decidim/scopes/scopes_picker_input",
                                    picker_options: picker_options,
                                    prompt_params: prompt_params,
@@ -388,6 +395,7 @@ module Decidim
     def upload(attribute, options = {})
       self.multipart = true
       options[:optional] = options[:optional].nil? ? true : options[:optional]
+      alt_text = label_for(attribute)
 
       file = object.send attribute
       template = ""
@@ -400,7 +408,7 @@ module Decidim
                     else
                       @template.content_tag :label, I18n.t("default_image", scope: "decidim.forms")
                     end
-        template += @template.link_to @template.image_tag(file.url), file.url, target: "_blank", rel: "noopener"
+        template += @template.link_to @template.image_tag(file.url, alt: alt_text), file.url, target: "_blank", rel: "noopener"
       elsif file_is_present?(file)
         template += @template.label_tag I18n.t("current_file", scope: "decidim.forms")
         template += @template.link_to file.file.filename, file.url, target: "_blank", rel: "noopener"
@@ -442,6 +450,19 @@ module Decidim
         text_area(attribute, options.merge(rows: 10))
       else
         text_field(attribute, options)
+      end
+    end
+
+    # Discard the pattern attribute which is not allowed for textarea elements.
+    def text_area(attribute, options = {})
+      field(attribute, options) do |opts|
+        opts.delete(:pattern)
+        ActionView::Helpers::Tags::TextArea.new(
+          @object_name,
+          attribute,
+          @template,
+          opts
+        ).render
       end
     end
 
@@ -682,10 +703,9 @@ module Decidim
 
     def required_for_attribute(attribute)
       if attribute_required?(attribute)
-        return content_tag(:abbr, "*", title: I18n.t("required", scope: "forms"),
+        return content_tag(:span, "*", title: I18n.t("required", scope: "forms"),
                                        data: { tooltip: true, disable_hover: false, keep_on_hover: true },
                                        "aria-haspopup": true,
-                                       "aria-label": I18n.t("required", scope: "forms"),
                                        class: "label-required").html_safe
       end
       "".html_safe
@@ -698,6 +718,15 @@ module Decidim
       selected = [selected] unless selected.is_a?(Array)
       selected = Decidim::Scope.where(id: selected.map(&:to_i)) unless selected.first.is_a?(Decidim::Scope)
       selected
+    end
+
+    # Private: Returns the help text and error tags at the end of the field.
+    # Modified to change the tag to a valid HTML tag inside the <label> element.
+    def error_and_help_text(attribute, options = {})
+      html = ""
+      html += content_tag(:span, options[:help_text], class: "help-text") if options[:help_text]
+      html += error_for(attribute, options) || ""
+      html.html_safe
     end
 
     def ruby_format_to_datepicker(ruby_date_format)
