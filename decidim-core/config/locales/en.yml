@@ -658,8 +658,8 @@ en:
           password_confirmation: Password confirmation must match the password.
         error: There's an error in this field.
       file_help:
-        attachment:
-          explanation: "Guidance for attachment:"
+        file:
+          explanation: "Guidance for file:"
           message_1: Has to be an image or a document.
           message_2: For images, use preferrably landscape images, the service crops the image.
         image:
