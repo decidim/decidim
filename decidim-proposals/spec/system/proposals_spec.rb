@@ -254,7 +254,9 @@ describe "Proposals", type: :system do
 
       it "shows the rejection reason" do
         visit_component
-        check "Rejected"
+        uncheck "Accepted"
+        uncheck "Evaluating"
+        uncheck "Not answered"
         page.find_link(proposal.title, wait: 30)
         click_link proposal.title
 
