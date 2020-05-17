@@ -31,7 +31,7 @@
               <%= decidim_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "register-form new_user" }) do |f| %>
                 <div>
                   <div class="field">
-                    <%= f.email_field :email, autofocus: true %>
+                    <%= f.email_field :email %>
                   </div>
                   <div class="field">
                     <%= f.password_field :password, autocomplete: "off" %>
