@@ -110,7 +110,7 @@ edit_link(
           <%= t("transparent", scope: "decidim.meetings.types") %>
         </span>
       <% end %>
-      <p><%= decidim_sanitize(present(meeting).description(links: true)) %></p>
+      <%= decidim_sanitize(present(meeting).description(links: true)) %>
       <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
       <%= render partial: "decidim/shared/tags", locals: { resource: meeting, tags_class_extra: "tags--meeting" } %>
     </div>
