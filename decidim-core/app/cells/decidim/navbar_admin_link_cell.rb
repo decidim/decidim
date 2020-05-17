@@ -39,5 +39,15 @@ module Decidim
 
       model[:link_options][:class]
     end
+
+    def icon_options
+      options = if model[:icon_options].blank?
+                  {}
+                else
+                  model[:icon_options]
+                end
+
+      options.merge(role: "img")
+    end
   end
 end
