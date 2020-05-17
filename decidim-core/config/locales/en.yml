@@ -1456,6 +1456,7 @@ en:
       option_unified: Unified
   views:
     pagination:
+      pagination: Pagination
       first: "&laquo; First"
       first_title: Link to the first page
       last: Last &raquo;
