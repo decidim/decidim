@@ -102,7 +102,7 @@ describe("FormFilterComponent", () => {
     });
 
     it("binds the form change event", () => {
-      expect(subject.$form.on).toHaveBeenCalledWith("change", "input, select", subject._onFormChange);
+      expect(subject.$form.on).toHaveBeenCalledWith("change", "input:not([data-disable-dynamic-change]), select:not([data-disable-dynamic-change])", subject._onFormChange);
     });
 
     describe("onpopstate event", () => {
