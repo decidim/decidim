@@ -32,7 +32,11 @@ module Decidim
     end
 
     def link_to_category
-      link_to category_name, category_path
+      link_to category_path do
+        sr_title = content_tag(:span, Decidim::Category.model_name.human, class: "show-for-sr")
+
+        sr_title + category_name
+      end
     end
 
     def category_name
@@ -48,7 +52,11 @@ module Decidim
     end
 
     def link_to_scope
-      link_to scope_name, scope_path
+      link_to scope_path do
+        sr_title = content_tag(:span, Decidim::Scope.model_name.human, class: "show-for-sr")
+
+        sr_title + scope_name
+      end
     end
 
     def scope_name
