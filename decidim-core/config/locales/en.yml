@@ -1347,7 +1347,7 @@ en:
     length_validator:
       minimum:
         one: at least %{count} character
-        many: at least %{count} characters
+        other: at least %{count} characters
   invisible_captcha:
     sentence_for_humans: If you are human, ignore this field
     timestamp_error_message: Sorry, that was too quick! Please resubmit.

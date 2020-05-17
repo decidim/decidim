@@ -3,11 +3,11 @@
   const DEFAULT_MESSAGES = {
     charactersAtLeast: {
       one: `at least ${COUNT_KEY} character`,
-      many: `at least ${COUNT_KEY} characters`
+      other: `at least ${COUNT_KEY} characters`
     },
     charactersLeft: {
       one: `${COUNT_KEY} character left`,
-      many: `${COUNT_KEY} characters left`
+      other: `${COUNT_KEY} characters left`
     }
   };
   let MESSAGES = DEFAULT_MESSAGES;
@@ -52,7 +52,7 @@
       const showMessages = [];
 
       if (this.minCharacters > 0) {
-        let message = MESSAGES.charactersAtLeast.many;
+        let message = MESSAGES.charactersAtLeast.other;
         if (this.minCharacters === 1) {
           message = MESSAGES.charactersAtLeast.one;
         }
@@ -61,7 +61,7 @@
 
       if (this.maxCharacters > 0) {
         const remaining = this.maxCharacters - numCharacters;
-        let message = MESSAGES.charactersLeft.many;
+        let message = MESSAGES.charactersLeft.other;
         if (remaining === 1) {
           message = MESSAGES.charactersLeft.one;
         }
