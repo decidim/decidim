@@ -69,7 +69,7 @@
     background-color: transparent;
     color: var(--primary);
     border-color: var(--primary);
-    text-decoration: underline;
+    text-decoration: $button-hollow-underline;
 
     &.hover,
     &:hover,
