@@ -27,7 +27,7 @@
         i18n_join_text,
         "#",
         class: button_classes,
-        disabled: true,
+        disabled: !model.has_available_slots?,
         data: { open: current_user.present? ? "meeting-registration-confirm-#{model.id}" : "loginModal" }
       ) %>
     <% end %>
