@@ -41,7 +41,7 @@ describe "Amendment Diff", versioning: true, type: :system do
         end
 
         within ".diff-for-body" do
-          expect(page).to have_content("BODY")
+          expect(page).to have_content("Body")
 
           within ".diff > ul > .del" do
             expect(page).to have_content("Updated one liner body")
@@ -79,7 +79,7 @@ describe "Amendment Diff", versioning: true, type: :system do
         end
 
         within ".diff-for-body" do
-          expect(page).to have_content("BODY")
+          expect(page).to have_content("Body")
 
           within ".diff > ul > .del" do
             expect(page).to have_content("Original one liner body")
@@ -156,7 +156,7 @@ describe "Amendment Diff", versioning: true, type: :system do
         end
 
         within ".diff-for-body" do
-          expect(page).to have_content("BODY")
+          expect(page).to have_content("Body")
 
           within ".diff > ul > .del" do
             expect(page).to have_content("Updated one liner body")
