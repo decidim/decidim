@@ -13,7 +13,7 @@ shared_examples "comments" do
     visit resource_path
 
     expect(page).to have_selector("#comments")
-    expect(page).to have_selector("article.comment", count: comments.length)
+    expect(page).to have_selector(".comment", count: comments.length)
 
     within "#comments" do
       comments.each do |comment|

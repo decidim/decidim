@@ -29,7 +29,7 @@ describe "Participatory Process Groups", type: :system do
     it "lists all the groups among the processes" do
       within "#processes-grid" do
         expect(page).to have_content(translated(participatory_process_group.name, locale: :en))
-        expect(page).to have_selector("article.card", count: 1)
+        expect(page).to have_selector(".card", count: 1)
 
         expect(page).to have_no_content(translated(other_group.name, locale: :en))
       end
@@ -64,7 +64,7 @@ describe "Participatory Process Groups", type: :system do
         end
 
         expect(page).to have_content(translated(group_processes.first.title, locale: :en))
-        expect(page).to have_selector("article.card", count: 2)
+        expect(page).to have_selector(".card", count: 2)
 
         expect(page).to have_no_content(translated(unpublished_group_processes.first.title, locale: :en))
       end

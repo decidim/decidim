@@ -105,7 +105,7 @@ describe "Participatory Processes", type: :system do
     it "lists all the highlighted processes" do
       within "#highlighted-processes" do
         expect(page).to have_content(translated(promoted_process.title, locale: :en))
-        expect(page).to have_selector("article.card--full", count: 1)
+        expect(page).to have_selector(".card--full", count: 1)
       end
     end
 
@@ -118,7 +118,7 @@ describe "Participatory Processes", type: :system do
         expect(page).to have_content(translated(participatory_process.title, locale: :en))
         expect(page).to have_content(translated(promoted_process.title, locale: :en))
         expect(page).to have_content(translated(group.name, locale: :en))
-        expect(page).to have_selector("article.card", count: 3)
+        expect(page).to have_selector(".card", count: 3)
 
         expect(page).to have_no_content(translated(unpublished_process.title, locale: :en))
         expect(page).to have_no_content(translated(past_process.title, locale: :en))

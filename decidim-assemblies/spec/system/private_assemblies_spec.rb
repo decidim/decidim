@@ -29,7 +29,7 @@ describe "Private Assemblies", type: :system do
             end
 
             expect(page).to have_content(translated(assembly.title, locale: :en))
-            expect(page).to have_selector("article.card", count: 2)
+            expect(page).to have_selector(".card", count: 2)
 
             expect(page).to have_content(translated(private_assembly.title, locale: :en))
           end

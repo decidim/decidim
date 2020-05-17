@@ -246,7 +246,7 @@ describe "Filter Proposals", :slow, type: :system do
               check "Not answered"
             end
 
-            expect(page).to have_css(".card--proposal", count: 1)
+            expect(page).to have_css(".card--proposal", count: 2)
             expect(page).to have_content("1 proposal")
 
             within ".card--proposal" do
