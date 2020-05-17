@@ -51,6 +51,7 @@ en:
         from: From email address
         github_handler: GitHub handler
         header_snippets: Header snippets
+        highlight_color: Highlight
         highlighted_content_banner_action_subtitle: Action button subtitle
         highlighted_content_banner_action_title: Action button title
         highlighted_content_banner_action_url: Action button URL
