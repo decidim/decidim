@@ -7,9 +7,11 @@
 ((exports) => {
   const { document } = exports;
 
+  let TEMPLATE_HTML = null;
+
   class ConfirmDialog {
-    constructor(template, sourceElement) {
-      this.$modal = exports.$(template).clone();
+    constructor(sourceElement) {
+      this.$modal = $(TEMPLATE_HTML);
       this.$source = sourceElement;
       this.$content = exports.$(".confirm-modal-content", this.$modal);
       this.$buttonConfirm = exports.$("[data-confirm-ok]", this.$modal);
@@ -17,7 +19,7 @@
 
       // Avoid duplicate IDs and append the new modal to the body
       this.$modal.removeAttr("id");
-      exports.$(template).after(this.$modal);
+      $("body").append(this.$modal);
       this.$modal.foundation();
     }
 
@@ -75,8 +77,12 @@
         return false;
       }
 
+      if (TEMPLATE_HTML === null) {
+        TEMPLATE_HTML = exports.$("#confirm-modal")[0].outerHTML;
+        exports.$("#confirm-modal").remove();
+      }
+
       const dialog = new ConfirmDialog(
-        exports.$("#confirm-modal"),
         exports.$(element)
       );
       dialog.confirm(message).then((answer) => {
