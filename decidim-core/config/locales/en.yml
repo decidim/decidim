@@ -657,6 +657,18 @@ en:
           password: The password is too short.
           password_confirmation: Password confirmation must match the password.
         error: There's an error in this field.
+      file_help:
+        attachment:
+          explanation: "Guidance for attachment:"
+          message_1: Has to be an image or a document.
+          message_2: For images, use preferrably landscape images, the service crops the image.
+        image:
+          explanation: "Guidance for image:"
+          message_1: Preferrably a landscape image that does not have any text.
+          message_2: The service crops the image.
+      file_validation:
+        allowed_file_extensions: "Allowed file extensions: %{extensions}"
+        max_file_size: "Maximum file size: %{megabytes}MB"
       remove_this_file: Remove this file
     gamification:
       all_badges_link: See all available badges.
