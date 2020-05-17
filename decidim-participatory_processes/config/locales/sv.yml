@@ -377,6 +377,7 @@ sv:
           loading: Läser in resultat...
       show:
         area: Område
+        dates: Datum
         developer_group: Kampanjgrupp
         end_date: Slutdatum
         local_area: Organisationsområde

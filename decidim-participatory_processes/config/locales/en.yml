@@ -384,6 +384,7 @@ en:
           loading: Loading results...
       show:
         area: Area
+        dates: Dates
         developer_group: Promoter group
         end_date: End date
         local_area: Organization Area
