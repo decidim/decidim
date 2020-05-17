@@ -6,7 +6,7 @@
         large-up-4 card-grid">
         <% highlighted_assemblies.each do |assembly| %>
           <div class="column">
-            <%= link_to decidim_assemblies.assembly_path(assembly), class: "card card--assembly card--mini", "aria-role": "article" do %>
+            <%= link_to decidim_assemblies.assembly_path(assembly), class: "card card--assembly card--mini" do %>
               <div aria-hidden="true" class="card__image-top"
                 style="background-image:url(<%= assembly.hero_image.url %>)"></div>
               <div class="card__content">
