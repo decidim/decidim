@@ -210,15 +210,6 @@
   display: inline-block;
   text-decoration: underline;
 
-  &:hover,
-  &:focus{
-    background-color: $primary;
-    text-decoration: none;
-    outline: none;
-    color: $white;
-    box-shadow: 10px 5px 5px black;
-  }
-
   .icon{
     vertical-align: -1px;
   }
