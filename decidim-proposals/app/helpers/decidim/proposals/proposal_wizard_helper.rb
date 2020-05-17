@@ -58,7 +58,13 @@ module Decidim
       def proposal_wizard_stepper_step(step, current_step)
         return if step == :step_4 && type_of == :collaborative_drafts
 
-        content_tag(:li, proposal_wizard_step_name(step), class: proposal_wizard_step_classes(step, current_step).to_s)
+        step_title = proposal_wizard_step_name(step)
+        if step.to_s.split("_").last.to_i == proposal_wizard_step_number(current_step)
+          current_step_title = proposal_wizard_step_name("current_step")
+          step_title = content_tag(:span, "#{current_step_title}: ", class: "show-for-sr") + step_title
+        end
+
+        content_tag(:li, step_title, class: proposal_wizard_step_classes(step, current_step).to_s)
       end
 
       # Returns the list with all the steps, in html
@@ -77,14 +83,16 @@ module Decidim
 
       # Returns a string with the current step number and the total steps number
       #
-      # step - A symbol of the target step
       def proposal_wizard_current_step_of(step)
         current_step_num = proposal_wizard_step_number(step)
-        content_tag :span, class: "text-small" do
-          concat t(:"decidim.proposals.proposals.wizard_steps.step_of", current_step_num: current_step_num, total_steps: total_steps)
+        see_steps = content_tag(:span, class: "hide-for-large") do
           concat " ("
           concat content_tag :a, t(:"decidim.proposals.proposals.wizard_steps.see_steps"), "data-toggle": "steps"
           concat ")"
+        end
+        content_tag :span, class: "text-small" do
+          concat t(:"decidim.proposals.proposals.wizard_steps.step_of", current_step_num: current_step_num, total_steps: total_steps)
+          concat see_steps
         end
       end
 

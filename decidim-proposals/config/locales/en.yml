@@ -652,11 +652,13 @@ en:
           back_from_step_4: Back to edit draft
           info: You are creating a <strong>collaborative draft</strong>.
         wizard_steps:
+          current_step: Current step
           see_steps: see steps
           step_1: Create your collaborative draft
           step_2: Compare with collaborative drafts
           step_3: Complete your collaborative draft
           step_of: Step %{current_step_num} of %{total_steps}
+          title: Collaborative draft creation steps
       create:
         error: There was a problem saving the proposal.
         success: Proposal successfully created. Saved as a Draft.
@@ -841,12 +843,14 @@ en:
           back_from_step_4: Back to edit draft
           info: You are creating a <strong>proposal</strong>.
         wizard_steps:
+          current_step: Current step
           see_steps: see steps
           step_1: Create your proposal
           step_2: Compare
           step_3: Complete
           step_4: Publish your proposal
           step_of: Step %{current_step_num} of %{total_steps}
+          title: Proposal creation steps
       proposals_picker:
         choose_proposals: Choose proposals
         close: Close
