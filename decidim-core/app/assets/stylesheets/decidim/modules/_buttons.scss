@@ -144,6 +144,20 @@
       }
     }
   }
+
+  &.clear{
+    &.secondary{
+      background-color: transparent;
+      color: var(--secondary);
+
+      &.hover,
+      &:hover,
+      &.focus,
+      &:focus{
+        background-color: transparent;
+      }
+    }
+  }
 }
 
 .progress-meter{
