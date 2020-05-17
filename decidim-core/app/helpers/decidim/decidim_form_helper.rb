@@ -17,6 +17,22 @@ module Decidim
       options[:html] ||= {}
       options[:html].update(novalidate: true)
 
+      # Generally called by form_for but we need the :url option generated
+      # already before that.
+      #
+      # See:
+      # https://github.com/rails/rails/blob/master/actionview/lib/action_view/helpers/form_helper.rb#L459
+      if !record.is_a?(String) && !record.is_a?(Symbol)
+        object = record.is_a?(Array) ? record.last : record
+        apply_form_for_options!(record, object, options) if object
+      end
+
+      # For accessibility reasons, jump to content straight after submitting
+      # the form.
+      if options.has_key?(:url) && options[:url] !~ /#.*$/
+        options[:url] += "#content" if options.has_key?(:url)
+      end
+
       output = ""
       output += base_error_messages(record).to_s
       output += form_for(record, options, &block).to_s
