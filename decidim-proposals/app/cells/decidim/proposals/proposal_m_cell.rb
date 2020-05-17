@@ -64,7 +64,7 @@ module Decidim
       def endorsements_count_status
         return endorsements_count unless has_link_to_resource?
 
-        link_to resource_path, "aria-label" => t("decidim.endorsable.endorsements"), title: t("decidim.endorsable.endorsements_count") do
+        link_to resource_path, "aria-label" => "#{t("decidim.endorsable.endorsements_count")}: #{model.endorsements_count}", title: t("decidim.endorsable.endorsements_count") do
           endorsements_count
         end
       end
