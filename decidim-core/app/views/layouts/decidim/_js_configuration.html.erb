@@ -14,7 +14,7 @@ character_messages = {
 }
 %>
 
-<%= javascript_tag do %>;
+<script>
   Decidim.config.set(<%== js_configs.to_json %>);
   Decidim.InputCharacterCounter.configureMessages(<%== character_messages.to_json %>);
-<% end %>
+</script>

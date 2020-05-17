@@ -4,6 +4,6 @@ js_configs = {
 }
 %>
 
-<%= javascript_tag do %>;
+<script>
   Decidim.config.set(<%== js_configs.to_json %>);
-<% end %>
+</script>
