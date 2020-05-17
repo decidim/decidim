@@ -31,10 +31,23 @@
 .button{
   background-color: var(--primary);
 
+  &.active,
+  &.focus,
+  &:active,
   &:hover,
   &:focus{
     background-color: var(--primary);
     filter: brightness(120%);
+  }
+
+  &.disabled,
+  &[disabled]{
+    &,
+    &:active,
+    &:hover,
+    &:focus{
+      background-color: var(--primary);
+    }
   }
 
   &.hollow{
@@ -43,17 +56,41 @@
     border-color: var(--primary);
     text-decoration: underline;
 
+    &.active,
+    &.focus,
+    &:active,
     &:hover,
     &:focus{
-      background-color: $primary;
+      background-color: var(--primary);
       color: $white;
+      outline: none;
+    }
+
+    &.focus,
+    &:hover,
+    &:focus{
       box-shadow: 10px 5px 5px black;
       text-decoration: underline;
-      outline: none;
+    }
+
+    &.disabled,
+    &[disabled]{
+      &,
+      &:active,
+      &:hover,
+      &:focus{
+        background-color: transparent;
+        border-color: var(--primary);
+        box-shadow: none;
+        text-decoration: none;
+      }
     }
   }
 
   &.secondary{
+    &.active,
+    &.focus,
+    &:active,
     &:hover,
     &:focus{
       filter: brightness(120%);
@@ -64,13 +101,34 @@
       color: var(--secondary);
       border-color: var(--secondary);
 
+      &.active,
+      &.focus,
+      &:active,
       &:hover,
       &:focus{
         background-color: $secondary;
         color: $white;
+        outline: none;
+      }
+
+      &.focus,
+      &:hover,
+      &:focus{
         box-shadow: 10px 5px 5px black;
         text-decoration: underline;
-        outline: none;
+      }
+
+      &.disabled,
+      &[disabled]{
+        &,
+        &:active,
+        &:hover,
+        &:focus{
+          background-color: transparent;
+          border-color: var(--secondary);
+          box-shadow: none;
+          text-decoration: none;
+        }
       }
     }
   }
@@ -127,10 +185,6 @@
     flex: 1;
   }
 
-  .button{
-    margin-right: 0;
-  }
-
   > :first-child,
   > :first-child *{
     border-top-right-radius: 0;
@@ -146,6 +200,12 @@
   > :not(:first-child):not(:last-child),
   > :not(:first-child):not(:last-child) *{
     border-radius: 0;
+  }
+
+  &.no-gaps{
+    .button{
+      margin-right: 0;
+    }
   }
 }
 
@@ -185,7 +245,7 @@
     left: 0;
     top: 0;
     padding: .85em;
-    border-right: 1px solid var(--secondary);
+    border-right: 1px solid $white;
     height: 100%;
     min-width: 3.5em;
     white-space: no-wrap;
@@ -204,6 +264,18 @@
 
   .icon{
     margin: 0 2px;
+  }
+
+  &.hollow{
+    .icon-wrap{
+      border-right: 1px solid var(--primary);
+    }
+
+    &.secondary{
+      .icon-wrap{
+        border-right: 1px solid var(--secondary);
+      }
+    }
   }
 
   &.small{
@@ -244,12 +316,20 @@
   letter-spacing: .05em;
   font-weight: 600;
 
+  &.active,
+  &.focus,
+  &:active,
   &:hover,
   &:focus{
     color: $white;
+    outline: none;
+  }
+
+  &.focus,
+  &:hover,
+  &:focus{
     box-shadow: 10px 5px 5px black;
     text-decoration: underline;
-    outline: none;
   }
 
   &.large{

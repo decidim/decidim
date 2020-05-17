@@ -28,7 +28,7 @@
               replace: t("decidim.proposals.proposals.vote_button.already_voted_hover"),
               "redirect-url": proposal_path(proposal)
             },
-            class: "button #{vote_button_classes(from_proposals_list)} success light",
+            class: "button #{vote_button_classes(from_proposals_list)} active light",
             id: "vote_button-#{proposal.id}"
           ) do %>
             <%= icon("check", class: "icon--small") %>

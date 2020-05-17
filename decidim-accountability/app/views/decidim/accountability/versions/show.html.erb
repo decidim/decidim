@@ -18,8 +18,8 @@
           <div class="definition-data__item versions_count">
             <span class="definition-data__title"><%= t("results.show.stats.version_number", scope: "decidim.accountability") %></span>
             <%= t("results.show.stats.version_number_out_of_total", scope: "decidim.accountability", current_version: params[:id], total_count: result.versions_count) %>
-            <%= link_to t("results.show.stats.show_all_versions", scope: "decidim.accountability"), result_versions_path(result), class: "button button--sc hollow secondary small expanded" %>
-            <%= link_to t("results.show.stats.back_to_result", scope: "decidim.accountability"), result_path(result), class: "button button--sc hollow secondary small expanded" %>
+            <%= link_to t("results.show.stats.show_all_versions", scope: "decidim.accountability"), result_versions_path(result), class: "button button--sc hollow small expanded" %>
+            <%= link_to t("results.show.stats.back_to_result", scope: "decidim.accountability"), result_path(result), class: "button button--sc hollow small expanded" %>
           </div>
           <% if current_version.whodunnit.present? %>
             <div class="definition-data__item last_revision_by">

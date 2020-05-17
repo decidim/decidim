@@ -11,7 +11,7 @@
                 <h2 class="card__title" id="<%= title_id %>"><%= decidim_html_escape(translated_attribute(process.title)) %></h2>
               <% end %>
               <%= decidim_sanitize translated_attribute(process.short_description) %>
-              <%= link_to decidim_participatory_processes.participatory_process_path(process), class: "button secondary small hollow" do %>
+              <%= link_to decidim_participatory_processes.participatory_process_path(process), class: "button small hollow" do %>
                 <span class="show-for-sr"><%= decidim_html_escape(translated_attribute(process.title)) %></span>
                 <%= t("more_information", scope: i18n_scope)  %>
               <% end %>

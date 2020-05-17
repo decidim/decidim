@@ -23,7 +23,7 @@
             <span class="definition-data__title"><%= t("results.show.stats.version_number", scope: "decidim.accountability") %></span>
             <%= result.versions.count %>
             <div class="pr-s pl-s">
-              <%= link_to t("results.show.stats.show_all_versions", scope: "decidim.accountability"), result_versions_path(result), class: "button button--sc hollow secondary small expanded" %>
+              <%= link_to t("results.show.stats.show_all_versions", scope: "decidim.accountability"), result_versions_path(result), class: "button button--sc hollow small expanded" %>
             </div>
           </div>
           <% if result.last_editor.present? %>
