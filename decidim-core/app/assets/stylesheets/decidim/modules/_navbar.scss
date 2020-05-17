@@ -55,6 +55,7 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
 
 .topbar__search{
   position: relative;
+  max-width: 220px; // Safari fix
 
   input{
     color: $navbar-color-hover;
@@ -76,10 +77,26 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
     }
   }
 
-  button{
+  .input-group-button{
+    position: relative;
+    height: 1px; // Fix for Safari and Firefox
+    vertical-align: top;
+  }
+
+  // Fix for Safari and Firefox
+  .button-wrapper{
+    position: relative;
     width: 100%;
     height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  button{
     padding: 5px;
+    border-radius: 0 $button-radius $button-radius 0;
   }
 
   form:first-child{
@@ -96,12 +113,20 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
+  // Fix for Safari
+  > div{
+    flex: 0 0 auto;
+    display: flex;
+
+    &.logo-wrapper{
+      flex: 1 0 auto;
+    }
+  }
 }
 
 .logo-wrapper{
-  display: inline-block;
   line-height: 0;
-  flex-grow: 1;
 
   a{
     display: inline-block;
