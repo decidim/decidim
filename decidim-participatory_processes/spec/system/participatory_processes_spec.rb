@@ -232,7 +232,7 @@ describe "Participatory Processes", type: :system do
         end
 
         it "shows the metrics charts" do
-          expect(page).to have_css("h3.section-heading", text: "METRICS")
+          expect(page).to have_css("h3.section-heading", text: "Metrics")
 
           within "#metrics" do
             Decidim.metrics_registry.filtered(highlight: true, scope: "participatory_process").each do |metric_registry|
