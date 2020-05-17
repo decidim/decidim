@@ -127,7 +127,7 @@ module Decidim
     def comments_count_status
       return render_comments_count unless has_link_to_resource?
 
-      link_to resource_path, "aria-label" => t("decidim.comments.comments"), title: t("decidim.comments.comments_title") do
+      link_to resource_path, "aria-label" => t("decidim.comments.comments"), title: t("decidim.comments.comments_count") do
         render_comments_count
       end
     end
