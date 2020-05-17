@@ -27,6 +27,6 @@
     const $el = $(elHtml);
     $el.attr(htmlAttributes);
 
-    return $el[0].outerHTML;
+    return $("<div />").append($el).html();
   }
 })(window);
