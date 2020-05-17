@@ -199,9 +199,10 @@ module Decidim
     # options    - An optional Hash with options:
     # - prompt   - An optional String with the text to display as prompt.
     # - disable_parents - A Boolean to disable parent categories. Defaults to `true`.
+    # html_options - HTML options for the select
     #
     # Returns a String.
-    def categories_select(name, collection, options = {})
+    def categories_select(name, collection, options = {}, html_options = {})
       options = {
         disable_parents: true
       }.merge(options)
@@ -215,7 +216,7 @@ module Decidim
                  else
                    []
                  end
-      html_options = {}
+
       select(name, @template.options_for_select(categories, selected: selected, disabled: disabled), options, html_options)
     end
 
