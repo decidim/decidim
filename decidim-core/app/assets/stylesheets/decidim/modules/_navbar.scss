@@ -318,17 +318,26 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
   padding-right: 2.5rem;
   display: none;
 
+  // hide caret down
+  .dropdown.menu > li.is-dropdown-submenu-parent > a::after{
+    display: none;
+  }
+
   @include breakpoint(medium){
     display: block;
+
+    .dropdown.menu > li.is-dropdown-submenu-parent > a::after{
+      display: block;
+
+      &:hover,
+      &:focus{
+        text-decoration: underline;
+      }
+    }
   }
 
   @media (min-width: (1300 / 16) + em){
     padding-right: 0;
-  }
-
-  // hide caret down
-  .dropdown.menu > li.is-dropdown-submenu-parent > a::after{
-    display: none;
   }
 }
 
