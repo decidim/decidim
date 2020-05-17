@@ -80,7 +80,7 @@
     }
 
     _createModalContainer() {
-      return $(`<div class="small reveal" id="data_picker-modal" aria-hidden="true" role="dialog" aria-labelledby="data_picker-title" data-reveal data-multiple-opened="true">
+      return $(`<div class="small reveal" id="data_picker-modal" aria-live="assertive" role="dialog" aria-labelledby="data_picker-title" data-reveal data-multiple-opened="true">
                 <div class="data_picker-modal-content"></div>
                 <button class="close-button" data-close type="button" data-reveal-id="data_picker-modal"><span aria-hidden="true">&times;</span></button>
               </div>`);

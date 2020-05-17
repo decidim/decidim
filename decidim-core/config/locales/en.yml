@@ -1067,10 +1067,14 @@ en:
       global: Global scope
       picker:
         cancel: Cancel
+        change: Change selected scope
         choose: Select
+        currently_selected: Currently selected scope
         title: Select %{field}
       prompt: Select a scope
       scopes: Scopes
+      scopes_picker_input:
+        select_scope: 'Select a scope (currently: %{current})'
     search:
       results: Search results
       results_found_for_term: '%{count} Results for the search: "%{term}"'
