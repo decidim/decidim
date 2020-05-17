@@ -44,7 +44,7 @@ describe("FormFilterComponent", () => {
         <fieldset>
           <input type="hidden" name="filter[state][]" id="filter_state_" value="">
           <label data-global-checkbox="" for="filter_state_all">
-            <input data-checkboxes-tree="state-options" is_root_check_box="true" value="" type="checkbox" name="filter[state][]" id="filter_state_all" class="ignore-filter">
+            <input data-checkboxes-tree="state-options" value="" type="checkbox" name="filter[state][]" id="filter_state_all" class="ignore-filter">
             All
           </label>
           <div id="state-options" class="filters__subfilters ">
