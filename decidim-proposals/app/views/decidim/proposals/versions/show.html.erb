@@ -25,7 +25,7 @@ end
             <span class="definition-data__title"><%= t("versions.stats.version_number", scope: "decidim.proposals") %></span>
             <%= t("versions.stats.version_number_out_of_total", scope: "decidim.proposals", current_version: params[:id], total_count: item.versions_count) %>
             <%= link_to t("versions.stats.show_all_versions", scope: "decidim.proposals"), resource_all_versions_path, class: "button button--sc hollow small expanded" %>
-            <%= link_to back_to_resource_path_text, back_to_resource_path, class: "button button--sc secondary small expanded" %>
+            <%= link_to back_to_resource_path_text, back_to_resource_path, class: "button button--sc small hollow expanded" %>
           </div>
           <% if current_version.whodunnit.present? %>
             <div class="definition-data__item last_revision_by">

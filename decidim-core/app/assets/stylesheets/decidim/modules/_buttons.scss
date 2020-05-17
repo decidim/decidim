@@ -93,6 +93,28 @@
         text-decoration: none;
       }
     }
+
+    &.light{
+      &.hover,
+      &:hover,
+      &.focus,
+      &:focus{
+        border-color: var(--primary);
+        background-color: var(--primary);
+        color: $white;
+      }
+
+      &.disabled,
+      &[disabled]{
+        &,
+        &:active,
+        &:hover,
+        &:focus{
+          border-color: $white;
+          color: $white;
+        }
+      }
+    }
   }
 
   &.secondary{
