@@ -77,7 +77,7 @@ describe "Homepage", type: :system do
 
         it "uses the custom values for the CTA button text" do
           within ".hero" do
-            expect(page).to have_selector("a.hero-cta", text: "SIGN UP")
+            expect(page).to have_selector("a.hero-cta", text: "Sign up")
             click_link "Sign up"
           end
 
@@ -90,7 +90,7 @@ describe "Homepage", type: :system do
 
         it "uses the custom values for the CTA button" do
           within ".hero" do
-            expect(page).to have_selector("a.hero-cta", text: "PARTICIPATE")
+            expect(page).to have_selector("a.hero-cta", text: "Participate")
             click_link "Participate"
           end
 
@@ -105,7 +105,7 @@ describe "Homepage", type: :system do
           visit decidim.root_path
 
           within ".hero" do
-            expect(page).to have_selector("a.hero-cta", text: "PARTICIPATE")
+            expect(page).to have_selector("a.hero-cta", text: "Participate")
             click_link "Participate"
           end
 
@@ -202,8 +202,8 @@ describe "Homepage", type: :system do
         it "shows the statistics block" do
           within "#statistics" do
             expect(page).to have_content("Current state of #{organization.name}")
-            expect(page).to have_content("PROCESSES")
-            expect(page).to have_content("PARTICIPANTS")
+            expect(page).to have_content("Processses")
+            expect(page).to have_content("Participants")
           end
         end
 
