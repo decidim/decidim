@@ -43,13 +43,13 @@ module Decidim
             errors << [i, @form.errors.full_messages] if @form.errors.any?
 
             if existing_result.present?
-              Decidim::Accountability::Admin::UpdateResult.call(@form, existing_result) do
+              Decidim::Accountability::Admin::UpdateImportedResult.call(@form, existing_result, params["result"]["parent/id"]) do
                 on(:invalid) do
                   errors << [i, @form.errors.full_messages]
                 end
               end
             else
-              Decidim::Accountability::Admin::CreateImportedResult.call(@form) do
+              Decidim::Accountability::Admin::CreateImportedResult.call(@form, params["result"]["parent/id"]) do
                 on(:invalid) do
                   errors << [i, @form.errors.full_messages]
                 end
@@ -61,6 +61,7 @@ module Decidim
 
           Rails.logger.info "Processed: #{i}"
         end
+        remove_invalid_results
 
         errors
       end
@@ -70,7 +71,6 @@ module Decidim
       def set_params_for_import_result_form(row, component)
         params = {}
         params["result"] = row.to_hash
-        params["result"]["parent_id"] = row["parent/id"]
         default_locale = component.participatory_space.organization.default_locale
         available_locales = component.participatory_space.organization.available_locales
         params["result"].merge!(get_locale_attributes(default_locale, available_locales, :title, row))
@@ -107,6 +107,14 @@ module Decidim
         else
           {}
         end
+      end
+      
+      def remove_invalid_results
+        Decidim::Accountability::Result.includes(:parent).references(:parent).
+          where(parents_decidim_accountability_results: {id: nil}).
+          where.not(parent_id: nil).each do |result|
+            DestroyResult.call(result, @extra_context[:current_user]) 
+          end
       end
     end
   end

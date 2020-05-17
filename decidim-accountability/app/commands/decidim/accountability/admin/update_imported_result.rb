@@ -3,26 +3,31 @@
 module Decidim
   module Accountability
     module Admin
-      # This command is executed when the user creates a Result from the admin
+      # This command is executed when the user changes a Result from the admin
       # panel.
-      class CreateImportedResult < Rectify::Command
-        def initialize(form, parent_id=nil)
+      class UpdateImportedResult < Rectify::Command
+        # Initializes an UpdateResult Command.
+        #
+        # form - The form from which to get the data.
+        # result - The current instance of the result to be updated.
+        def initialize(form, result, parent_id=nil)
           @form = form
+          @result = result
           @parent_id = parent_id
         end
 
-        # Creates the result if valid.
+        # Updates the result if valid.
         #
         # Broadcasts :ok if successful, :invalid otherwise.
         def call
-          return broadcast(:invalid) if @form.invalid?
+          return broadcast(:invalid) if form.invalid?
 
           transaction do
-            create_result
-            link_meetings
+            update_result
             link_proposals
+            link_meetings
             link_projects
-            notify_proposal_followers
+            send_notifications if should_notify_followers?
           end
 
           broadcast(:ok)
@@ -30,12 +35,12 @@ module Decidim
 
         private
 
-        attr_reader :result
+        attr_reader :result, :form
 
-        def create_result
-          params = {
-            id: @form.id,
-            component: @form.current_component,
+        def update_result
+          Decidim.traceability.update!(
+            result,
+            form.current_user,
             scope: @form.scope,
             category: @form.category,
             parent_id: @parent_id,
@@ -47,22 +52,15 @@ module Decidim
             decidim_accountability_status_id: @form.decidim_accountability_status_id,
             external_id: @form.external_id.presence,
             weight: @form.weight
-          }
-
-          @result = Decidim.traceability.create!(
-            Result,
-            @form.current_user,
-            params,
-            visibility: "all"
           )
         end
 
         def proposals
-          @proposals ||= result.sibling_scope(:proposals).where(id: @form.proposal_ids)
+          @proposals ||= result.sibling_scope(:proposals).where(id: form.proposal_ids)
         end
 
         def projects
-          @projects ||= result.sibling_scope(:projects).where(id: @form.project_ids)
+          @projects ||= result.sibling_scope(:projects).where(id: form.project_ids)
         end
 
         def meeting_ids
@@ -87,19 +85,24 @@ module Decidim
           result.link_resources(meetings, "meetings_through_proposals")
         end
 
-        def notify_proposal_followers
-          proposals.each do |proposal|
+        def send_notifications
+          result.linked_resources(:proposals, "included_proposals").each do |proposal|
             Decidim::EventsManager.publish(
-              event: "decidim.events.accountability.proposal_linked",
-              event_class: Decidim::Accountability::ProposalLinkedEvent,
+              event: "decidim.events.accountability.result_progress_updated",
+              event_class: Decidim::Accountability::ResultProgressUpdatedEvent,
               resource: result,
               affected_users: proposal.notifiable_identities,
               followers: proposal.followers - proposal.notifiable_identities,
               extra: {
+                progress: result.progress,
                 proposal_id: proposal.id
               }
             )
           end
+        end
+
+        def should_notify_followers?
+          result.previous_changes["progress"].present?
         end
       end
     end
