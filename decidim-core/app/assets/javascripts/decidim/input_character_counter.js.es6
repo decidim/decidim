@@ -32,7 +32,17 @@
         }
 
         this.$target = $(`<span id="${targetId}" class="form-input-extra-before" />`)
-        this.$input.before(this.$target);
+
+        // Prefix and suffix columns are wrapped in columns, so put the
+        // character counter before that.
+        if (
+          this.$input.parent().is(".columns") &&
+          this.$input.parent().parent().is(".row")
+        ) {
+          this.$input.parent().parent().before(this.$target);
+        } else {
+          this.$input.before(this.$target);
+        }
       }
 
       if (this.$target.length > 0 && (this.maxCharacters > 0 || this.minCharacters > 0)) {
