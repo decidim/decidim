@@ -23,10 +23,6 @@ $author-data-color: $muted;
     &:hover{
       color: $anchor-color;
     }
-
-    &:focus{
-      outline: 2px solid $secondary;
-    }
   }
 
   .author__name{

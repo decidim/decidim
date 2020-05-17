@@ -50,19 +50,7 @@ $datetime-bg: var(--primary);
   }
 }
 
-a.card{
-  &:active,
-  &:focus{
-    outline: 2px solid $secondary;
-
-    h2,
-    h3{
-      outline: 2px solid $secondary;
-    }
-  }
-}
-
-.card--nomargin {
+.card--nomargin{
   margin-bottom: 0;
 }
 
@@ -78,12 +66,7 @@ a.card{
     text-decoration: underline;
   }
 
-  .text-center a:focus,
-  li a:focus{
-    outline: 2px solid $secondary;
-  }
-
-  &:not(:only-child) {
+  &:not(:only-child){
     padding-bottom: $card-padding-small / 2;
   }
 
@@ -108,14 +91,8 @@ a.card{
 .card__title {
   @extend .heading5;
 
-  &hover{
+  &:hover{
     text-decoration: underline;
-  }
-
-  &:active,
-  &:focus{
-    z-index: 2; // Raise the focus border on top of overflowing elements
-    outline: 2px solid $secondary;
   }
 }
 
@@ -167,11 +144,7 @@ a .card__title{
     text-decoration: underline;
   }
 
-  a:focus{
-    outline: 2px solid $secondary;
-  }
-
-  .card__text--status {
+  .card__text--status{
     font-weight: bold;
 
     &::after {
@@ -263,11 +236,7 @@ a .card__title{
     text-decoration: underline;
   }
 
-  a:focus{
-    outline: 2px solid $secondary;
-  }
-
-  .card__content {
+  .card__content{
     display: flex;
   }
 }
@@ -351,10 +320,9 @@ a .card__title{
     text-decoration: underline;
   }
 
-  a:focus,
-  span:focus,
-  button:focus{
-    outline: 2px solid $secondary;
+  span:focus{
+    outline: $anchor-outline-focus;
+    outline-color: var(--highlight);
   }
 }
 
@@ -504,12 +472,9 @@ a .card__title{
   }
 
   &:focus{
-    outline: 2px solid $secondary;
-
-    h2,
-    h3{
-      outline: 2px solid $secondary;
-    }
+    z-index: 2; // Raise the focus border on top of overflowing elements
+    outline: $anchor-outline-focus;
+    outline-color: var(--highlight);
   }
 }
 
@@ -741,7 +706,8 @@ a .card__title{
     }
 
     &:focus{
-      outline: 2px solid $secondary;
+      outline: $anchor-outline-focus;
+      outline-color: var(--highlight);
     }
   }
 

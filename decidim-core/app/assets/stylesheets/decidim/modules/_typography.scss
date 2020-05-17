@@ -6,6 +6,20 @@ input{
   font-family: inherit;
 }
 
+a{
+  &:focus{
+    outline: $anchor-outline-focus;
+    outline-color: var(--highlight);
+  }
+}
+
+button{
+  &:focus{
+    outline: $button-outline-focus;
+    outline-color: var(--highlight);
+  }
+}
+
 @mixin heading($heading){
   line-height: 1.2;
   font-size:
@@ -151,10 +165,6 @@ hr{
 
   a:hover{
     text-decoration: underline;
-  }
-
-  a:focus{
-    outline: 2px solid $secondary;
   }
 }
 

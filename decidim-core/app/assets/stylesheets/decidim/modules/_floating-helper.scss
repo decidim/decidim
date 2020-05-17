@@ -21,6 +21,7 @@
   &:active,
   &:focus{
     outline: $anchor-outline-focus;
+    outline-color: var(--highlight);
   }
 
   @include breakpoint(small only){
@@ -111,8 +112,6 @@
 
   &:active,
   &:focus{
-    outline: none;
-    filter: brightness(60%);
     color: $white;
   }
 }

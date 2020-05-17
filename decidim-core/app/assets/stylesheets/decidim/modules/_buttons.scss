@@ -29,15 +29,29 @@
 }
 
 .button{
+  position: relative;
   background-color: var(--primary);
+  box-shadow: $button-shadow;
 
-  &.active,
   &.focus,
-  &:active,
-  &:hover,
   &:focus{
     background-color: var(--primary);
-    filter: brightness(120%);
+    box-shadow: $button-shadow-focus;
+    outline: $button-outline-focus;
+    outline-color: var(--highlight);
+  }
+
+  &.hover,
+  &:hover{
+    background-color: var(--primary);
+    filter: brightness($button-brightness-hover);
+  }
+
+  &.active,
+  &:active{
+    top: 2px;
+    box-shadow: $button-shadow-active;
+    filter: brightness($button-brightness-active);
   }
 
   &.disabled,
@@ -56,21 +70,13 @@
     border-color: var(--primary);
     text-decoration: underline;
 
-    &.active,
-    &.focus,
-    &:active,
+    &.hover,
     &:hover,
+    &.focus,
     &:focus{
+      border-color: var(--primary);
       background-color: var(--primary);
       color: $white;
-      outline: none;
-    }
-
-    &.focus,
-    &:hover,
-    &:focus{
-      box-shadow: 10px 5px 5px black;
-      text-decoration: underline;
     }
 
     &.disabled,
@@ -81,6 +87,7 @@
       &:focus{
         background-color: transparent;
         border-color: var(--primary);
+        color: var(--primary);
         box-shadow: none;
         text-decoration: none;
       }
@@ -88,12 +95,23 @@
   }
 
   &.secondary{
-    &.active,
-    &.focus,
-    &:active,
+    background-color: var(--secondary);
+
+    &.hover,
     &:hover,
+    &.focus,
     &:focus{
-      filter: brightness(120%);
+      background-color: var(--secondary);
+    }
+
+    &.disabled,
+    &[disabled]{
+      &,
+      &:active,
+      &:hover,
+      &:focus{
+        background-color: var(--secondary);
+      }
     }
 
     &.hollow{
@@ -101,21 +119,13 @@
       color: var(--secondary);
       border-color: var(--secondary);
 
-      &.active,
-      &.focus,
-      &:active,
+      &.hover,
       &:hover,
+      &.focus,
       &:focus{
-        background-color: $secondary;
+        border-color: var(--secondary);
+        background-color: var(--secondary);
         color: $white;
-        outline: none;
-      }
-
-      &.focus,
-      &:hover,
-      &:focus{
-        box-shadow: 10px 5px 5px black;
-        text-decoration: underline;
       }
 
       &.disabled,
@@ -126,6 +136,7 @@
         &:focus{
           background-color: transparent;
           border-color: var(--secondary);
+          color: var(--secondary);
           box-shadow: none;
           text-decoration: none;
         }
@@ -141,15 +152,6 @@
 // Overwrite Foundation hover styles in hollow disabled buttons
 .button.hollow:disabled:hover,
 .button.hollow.disabled:hover{
-  background-color: transparent;
-  border-color: var(--primary);
-  color: var(--primary);
-
-  &.secondary{
-    border-color: var(--secondary);
-    color: var(--secondary);
-  }
-
   &.success{
     border-color: var(--success);
     color: var(--success);
@@ -315,32 +317,6 @@
 .button--sc{
   letter-spacing: .05em;
   font-weight: 600;
-
-  &.active,
-  &.focus,
-  &:active,
-  &:hover,
-  &:focus{
-    color: $white;
-    outline: none;
-  }
-
-  &.focus,
-  &:hover,
-  &:focus{
-    box-shadow: 10px 5px 5px black;
-    text-decoration: underline;
-  }
-
-  &.disabled,
-  &[disabled]{
-    &.focus,
-    &:hover,
-    &:focus{
-      box-shadow: none;
-      text-decoration: none;
-    }
-  }
 
   &.large{
     font-size: 1rem;

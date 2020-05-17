@@ -53,6 +53,7 @@ label > [type='radio']{
     &:focus{
       & + .switch-paddle{
         outline: $anchor-outline-focus;
+        outline-color: var(--highlight);
       }
     }
   }
@@ -89,5 +90,6 @@ input[type=radio]{
   &:active,
   &:focus{
     outline: $input-outline-focus;
+    outline-color: var(--highlight);
   }
 }

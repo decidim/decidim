@@ -17,19 +17,10 @@ $margin-l: $global-margin * 5;
   a:hover{
     text-decoration: underline;
   }
-
-  a:focus,
-  button:focus{
-    outline: $anchor-outline-focus;
-  }
 }
 
 .m-bottom{
   margin-bottom: $margin-s;
-
-  a:focus{
-    outline: $anchor-outline-focus;
-  }
 }
 
 // helpers

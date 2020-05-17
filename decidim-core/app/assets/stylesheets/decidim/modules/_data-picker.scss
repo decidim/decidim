@@ -19,6 +19,7 @@
     &:active,
     &:focus{
       outline: $input-outline-focus;
+      outline-color: var(--highlight);
       border: 1px solid #1a181d;
       background-color: #fff;
       box-shadow: 0 0 5px #adadad;

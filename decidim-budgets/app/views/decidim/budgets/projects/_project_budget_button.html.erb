@@ -1,7 +1,7 @@
 <div id="project-<%= project.id %>-budget-button">
   <% if current_user.present? %>
     <% if current_order && current_order.projects.include?(project) %>
-      <%= action_authorized_button_to "vote", t(".added"), order_line_item_path(project_id: project), method: :delete, remote: true, data: { disable: true, budget: project.budget, "redirect-url": project_path(project) }, disabled: !current_settings.votes_enabled? || current_order_checked_out? || !current_participatory_space.can_participate?(current_user), class: "button expanded button--sc success budget--list__action", "aria-label": t(".added_descriptive", resource_name: translated_attribute(project.title)) %>
+      <%= action_authorized_button_to "vote", t(".added"), order_line_item_path(project_id: project), method: :delete, remote: true, data: { disable: true, budget: project.budget, "redirect-url": project_path(project) }, disabled: !current_settings.votes_enabled? || current_order_checked_out? || !current_participatory_space.can_participate?(current_user), class: "button expanded button--sc active budget--list__action", "aria-label": t(".added_descriptive", resource_name: translated_attribute(project.title)) %>
     <% else %>
       <%= action_authorized_button_to "vote", t(".add"), order_line_item_path(project_id: project), method: :post, remote: true, data: { disable: true, budget: project.budget, add: true, "redirect-url": project_path(project) }, disabled: !current_settings.votes_enabled? || current_order_checked_out? || !current_participatory_space.can_participate?(current_user), class: "button expanded button--sc budget--list__action", "aria-label": t(".add_descriptive", resource_name: translated_attribute(project.title)) %>
     <% end %>

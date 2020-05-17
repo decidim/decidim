@@ -23,10 +23,6 @@ $tags-border: $border;
     &:hover{
       text-decoration: underline;
     }
-
-    &:focus{
-      outline: 2px solid $secondary;
-    }
   }
 }
 
