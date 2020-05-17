@@ -14,7 +14,7 @@ describe "Explore meetings", type: :system do
   describe "index" do
     it "shows all meetings for the given process" do
       visit_component
-      expect(page).to have_selector("article.card", count: meetings_count)
+      expect(page).to have_selector(".card", count: meetings_count)
 
       meetings.each do |meeting|
         expect(page).to have_content(translated(meeting.title))

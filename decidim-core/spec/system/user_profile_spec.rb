@@ -27,7 +27,7 @@ describe "Profile", type: :system do
     end
 
     it "adds a link to edit the profile" do
-      within "main.wrapper" do
+      within ".wrapper" do
         click_link "Edit profile"
       end
 
