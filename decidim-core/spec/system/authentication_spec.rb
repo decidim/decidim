@@ -339,8 +339,7 @@ describe "Authentication", type: :system do
       end
 
       it "signs out the user" do
-        within ".topbar__user__logged" do
-          find("ul").hover
+        within_user_menu do
           find(".sign-out-link").click
         end
 
