@@ -252,7 +252,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
           it "shows that acces has been requested" do
             within ".view-side" do
-              expect(page).to have_css(".button.secondary.light.expanded.button--sc.mt-s", text: "Access requested")
+              expect(page).to have_css(".button.expanded.button--sc.mt-s", text: "Access requested")
             end
           end
 
