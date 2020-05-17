@@ -264,8 +264,8 @@ describe "Explore meetings", type: :system do
         expect(page).to have_i18n_content(meeting.closing_report)
 
         within ".definition-data" do
-          expect(page).to have_content("ATTENDEES COUNT\n#{meeting.attendees_count}")
-          expect(page).to have_content("ATTENDING ORGANIZATIONS\n#{meeting.attending_organizations}")
+          expect(page).to have_content("Attendees count\n#{meeting.attendees_count}")
+          expect(page).to have_content("Attending organizations\n#{meeting.attending_organizations}")
         end
       end
     end
@@ -277,7 +277,7 @@ describe "Explore meetings", type: :system do
 
       it "does not show contributions count" do
         within ".definition-data" do
-          expect(page).to have_no_content("CONTRIBUTIONS COUNT\n0")
+          expect(page).to have_no_content("Contributions count\n0")
         end
       end
     end
@@ -289,7 +289,7 @@ describe "Explore meetings", type: :system do
 
       it "shows contributions count" do
         within ".definition-data" do
-          expect(page).to have_content("CONTRIBUTIONS COUNT\n1")
+          expect(page).to have_content("Contributions count\n1")
         end
       end
     end

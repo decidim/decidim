@@ -46,7 +46,7 @@ describe "Meeting registrations", type: :system do
       visit_meeting
 
       within ".card.extra" do
-        expect(page).not_to have_button("JOIN MEETING")
+        expect(page).not_to have_button("Join meeting")
         expect(page).not_to have_text("20 slots remaining")
       end
     end
@@ -57,7 +57,7 @@ describe "Meeting registrations", type: :system do
       it "can't answer the registration form" do
         visit questionnaire_public_path
 
-        expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+        expect(page).to have_i18n_content(questionnaire.title)
         expect(page).to have_i18n_content(questionnaire.description)
 
         expect(page).to have_no_i18n_content(question.body)
@@ -79,7 +79,7 @@ describe "Meeting registrations", type: :system do
         visit_meeting
 
         within ".card.extra" do
-          expect(page).to have_css("button[disabled]", text: "NO SLOTS AVAILABLE")
+          expect(page).to have_css("button[disabled]", text: "No slots available")
           expect(page).to have_text("0 slots remaining")
         end
       end
@@ -94,7 +94,7 @@ describe "Meeting registrations", type: :system do
         it "can't answer the registration form" do
           visit questionnaire_public_path
 
-          expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+          expect(page).to have_i18n_content(questionnaire.title)
           expect(page).to have_i18n_content(questionnaire.description)
 
           expect(page).to have_no_i18n_content(question.body)
@@ -122,7 +122,7 @@ describe "Meeting registrations", type: :system do
           it "they have the option to sign in" do
             visit questionnaire_public_path
 
-            expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+            expect(page).to have_i18n_content(questionnaire.title)
             expect(page).to have_i18n_content(questionnaire.description)
 
             expect(page).not_to have_css(".form.answer-questionnaire")
@@ -156,7 +156,7 @@ describe "Meeting registrations", type: :system do
 
             expect(page).to have_content("successfully")
 
-            expect(page).to have_css(".button", text: "GOING")
+            expect(page).to have_css(".button", text: "Going")
             expect(page).to have_text("19 slots remaining")
             expect(page).to have_text("Stop following")
           end
@@ -181,10 +181,10 @@ describe "Meeting registrations", type: :system do
 
             expect(page).to have_content("successfully")
 
-            expect(page).to have_css(".button", text: "GOING")
+            expect(page).to have_css(".button", text: "Going")
             expect(page).to have_text("19 slots remaining")
 
-            expect(page).to have_text("ATTENDING ORGANIZATIONS")
+            expect(page).to have_text("Attending organizations")
             expect(page).to have_text(user_group.name)
           end
         end
@@ -205,7 +205,7 @@ describe "Meeting registrations", type: :system do
         it "shows the registration form without questions" do
           visit questionnaire_public_path
 
-          expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+          expect(page).to have_i18n_content(questionnaire.title)
           expect(page).to have_i18n_content(questionnaire.description)
 
           expect(page).to have_no_i18n_content(question.body)
@@ -254,7 +254,7 @@ describe "Meeting registrations", type: :system do
         expect(page).to have_content("successfully")
         expect(questionnaire.answers.where(user: user).empty?).to be(true)
 
-        expect(page).to have_css(".button", text: "JOIN MEETING")
+        expect(page).to have_css(".button", text: "Join meeting")
         expect(page).to have_text("20 slots remaining")
       end
 
@@ -264,7 +264,7 @@ describe "Meeting registrations", type: :system do
         it "can't answer the registration again" do
           visit questionnaire_public_path
 
-          expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+          expect(page).to have_i18n_content(questionnaire.title)
           expect(page).to have_i18n_content(questionnaire.description)
 
           expect(page).to have_no_i18n_content(question.body)

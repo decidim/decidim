@@ -39,7 +39,7 @@ describe "Upcoming meeting for card view hook", type: :system do
         expect(page).to have_selector(".card__icondata")
 
         within ".card__icondata" do
-          expect(page).to have_text("31 MAY 2099")
+          expect(page).to have_text("31 May 2099")
           expect(page).to have_text("12:34")
           expect(page).to have_text("13:34")
         end
