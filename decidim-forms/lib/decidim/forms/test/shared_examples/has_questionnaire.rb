@@ -7,7 +7,7 @@ shared_examples_for "has questionnaire" do
     it "does not allow answering the questionnaire" do
       visit questionnaire_public_path
 
-      expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+      expect(page).to have_i18n_content(questionnaire.title)
       expect(page).to have_i18n_content(questionnaire.description)
 
       expect(page).not_to have_css(".form.answer-questionnaire")
@@ -28,7 +28,7 @@ shared_examples_for "has questionnaire" do
     it "allows answering the questionnaire" do
       visit questionnaire_public_path
 
-      expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+      expect(page).to have_i18n_content(questionnaire.title)
       expect(page).to have_i18n_content(questionnaire.description)
 
       fill_in question.body["en"], with: "My first answer"
