@@ -22,9 +22,11 @@ module Decidim
       #
       # See:
       # https://github.com/rails/rails/blob/master/actionview/lib/action_view/helpers/form_helper.rb#L459
-      if !record.is_a?(String) && !record.is_a?(Symbol)
+      if record.is_a?(ActiveRecord::Base)
         object = record.is_a?(Array) ? record.last : record
+        format = options[:format]
         apply_form_for_options!(record, object, options) if object
+        options[:format] = format if format
       end
 
       # For accessibility reasons, jump to content straight after submitting
