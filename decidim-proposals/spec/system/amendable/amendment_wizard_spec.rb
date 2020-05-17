@@ -161,7 +161,7 @@ describe "Amendment Wizard", type: :system do
         before do
           within ".edit_amendment" do
             click_link "Discard this draft"
-            page.accept_alert
+            accept_confirm
           end
         end
 
