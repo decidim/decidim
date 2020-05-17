@@ -36,7 +36,9 @@
         if ($picker.hasClass("disabled")) {
           return;
         }
-        if ($(event.target).parent().hasClass("picker-prompt")) {
+        const isMultiPicker = $picker.hasClass("picker-multiple");
+
+        if ($(this._targetFromEvent(event)).hasClass("picker-prompt") || !isMultiPicker) {
           this._openPicker($picker, this._targetFromEvent(event));
         } else {
           this._removeValue($picker, this._targetFromEvent(event));
@@ -182,16 +184,21 @@
         link.data("picker-value", data.value);
         link.attr("href", data.url);
         choosenOption = this.current.target;
-        link.html(`&times;&nbsp;${dataText}`);
+        if (this.current.multiple) {
+          link.html(`&times;&nbsp;${dataText}`);
+        } else {
+          link.text(dataText);
+        }
       } else {
         let input = "hidden",
             name = this.current.name;
 
         if (this.current.multiple) {
           name += "[]";
+          choosenOption = $(`<div><input type="${input}" checked name="${name}"/><a href="${data.url}" data-picker-value="${data.value}" class="label primary">&times;&nbsp;${dataText}</a></div>`);
+        } else {
+          choosenOption = $(`<div><input type="${input}" checked name="${name}"/><a href="${data.url}" data-picker-value="${data.value}">${dataText}</a></div>`);
         }
-
-        choosenOption = $(`<div><input type="${input}" checked name="${name}"/><a href="${data.url}" data-picker-value="${data.value}" class="label primary">&times;&nbsp;${dataText}</a></div>`);
         choosenOption.appendTo(this.current.values);
 
         if (!this.current.target) {
@@ -232,15 +239,6 @@
     _removeValue($picker, target) {
       if (target) {
         this._setCurrentPicker($picker, target);
-        if (!this.current.target) {
-          return;
-        }
-
-        // Trigger change
-        let $input = $("input", this.current.target);
-        $input.val("").removeAttr("checked");
-        $input.trigger("change");
-
         this.current.target.fadeOut(500, () => {
           this.current.target.remove();
           this.current.target = null;
