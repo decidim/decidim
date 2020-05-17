@@ -95,7 +95,7 @@ describe "Private Participatory Processes", type: :system do
       end
 
       it "links to the individual process page" do
-        click_link(translated(private_participatory_process.title, locale: :en))
+        first(".card__link", text: translated(private_participatory_process.title, locale: :en)).click
 
         expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(private_participatory_process)
         expect(page).to have_content "This is a private process"

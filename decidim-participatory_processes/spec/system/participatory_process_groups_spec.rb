@@ -36,7 +36,7 @@ describe "Participatory Process Groups", type: :system do
     end
 
     it "links to the individual group page" do
-      click_link(translated(participatory_process_group.name, locale: :en))
+      first(".card__link", text: translated(participatory_process_group.name, locale: :en)).click
 
       expect(page).to have_current_path decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
     end
@@ -71,7 +71,7 @@ describe "Participatory Process Groups", type: :system do
     end
 
     it "links to the individual process page" do
-      click_link(translated(group_processes.first.title, locale: :en))
+      first(".card__link", text: translated(group_processes.first.title, locale: :en)).click
 
       expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(group_processes.first)
     end

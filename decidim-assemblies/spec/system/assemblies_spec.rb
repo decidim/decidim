@@ -111,7 +111,7 @@ describe "Assemblies", type: :system do
 
         expect(page).to have_content(translated(assembly.title, locale: :en))
         expect(page).to have_content(translated(promoted_assembly.title, locale: :en))
-        expect(page).to have_selector(".card", count: 2)
+        expect(page).to have_selector(".card--assembly", count: 2)
         expect(page).to have_selector(".card.card--stack", count: 1)
 
         expect(page).not_to have_content(translated(child_assembly.title, locale: :en))
@@ -120,7 +120,7 @@ describe "Assemblies", type: :system do
     end
 
     it "links to the individual assembly page" do
-      click_link(translated(assembly.title, locale: :en))
+      first(".card__link", text: translated(assembly.title, locale: :en)).click
 
       expect(page).to have_current_path decidim_assemblies.assembly_path(assembly)
     end

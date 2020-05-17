@@ -128,7 +128,7 @@ describe "Participatory Processes", type: :system do
     end
 
     it "links to the individual process page" do
-      click_link(translated(participatory_process.title, locale: :en))
+      first(".card__link", text: translated(participatory_process.title, locale: :en)).click
 
       expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(participatory_process)
     end

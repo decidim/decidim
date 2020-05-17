@@ -114,7 +114,7 @@ describe "Conferences", type: :system do
     end
 
     it "links to the individual conference page" do
-      click_link(translated(conference.title, locale: :en))
+      first(".card__link", text: translated(conference.title, locale: :en)).click
 
       expect(page).to have_current_path decidim_conferences.conference_path(conference)
     end
