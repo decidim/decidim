@@ -53,6 +53,12 @@ $(() => {
 
   svg4everybody();
 
+  // Prevent data-open buttons e.g. from submitting the underlying form in
+  // authorized action buttons.
+  $("[data-open]").on("click", (event) => {
+    event.preventDefault();
+  });
+
   if (window.Decidim.formDatePicker) {
     window.Decidim.formDatePicker();
   }
