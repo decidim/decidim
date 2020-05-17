@@ -353,6 +353,7 @@ en:
             active_step: Active phase
             more_information: More information
             participate: Participate
+            participate_in: Participate in process %{resource_name}
             see_all_processes: See all processes
       participatory_processes:
         filters:
@@ -418,6 +419,7 @@ en:
       participatory_process_groups:
         participatory_process_group:
           browse: Browse
+          browse_resource: Browse process group %{resource_name}
           processes_count: 'Processes:'
       participatory_process_widgets:
         show:
@@ -429,11 +431,15 @@ en:
         participatory_process:
           active_step: 'Current phase:'
           more_info: More info
+          more_info_about: More info about process %{resource_name}
           take_part: Take part
+          take_part_in: Take part in process %{resource_name}
         promoted_process:
           active_step: 'Current phase:'
           more_info: More info
+          more_info_about: More info about process %{resource_name}
           take_part: Take part
+          take_part_in: Take part in process %{resource_name}
       process_header_steps:
         step: Phase %{current} of %{total}
         view_steps: Process phases

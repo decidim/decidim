@@ -331,7 +331,7 @@ en:
           proposals: Proposals
     participatory_spaces:
       highlighted_proposals:
-        see_all: See all (%{count})
+        see_all: See all proposals (%{count})
     proposals:
       actions:
         answer_proposal: Answer proposal
@@ -633,7 +633,7 @@ en:
           published_proposal: published proposal
           request_access: Request access
           requested_access: Access requested
-          see_other_versions: see other versions
+          see_other_versions: see other versions for proposal %{resource_name}
           version: Version %{number}
           version_history: see version history for this proposal
           withdraw: withdraw the draft

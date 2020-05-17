@@ -7,6 +7,7 @@
         <% end %>
         <%= decidim_sanitize html_truncate(translated_attribute(promoted_process.short_description), length: 630, separator: "...") %>
         <%= link_to participatory_process_path(promoted_process), class: "button secondary small hollow card__button" do %>
+          <span class="show-for-sr"><%= decidim_html_escape(translated_attribute(promoted_process.title)) %></span>
           <%= t("participatory_processes.promoted_process.more_info", scope: "layouts.decidim") %>
         <% end %>
       </div>
@@ -17,7 +18,8 @@
         <div class="card__content row collapse">
           <div class="large-6 large-offset-6 columns">
             <%= link_to participatory_process_path(promoted_process), class: "button expanded button--sc" do %>
-              <%= t(promoted_process.cta_button_text_key, scope: "layouts.decidim.participatory_processes.promoted_process") %>
+              <span class="show-for-sr"><%= t(promoted_process.cta_button_text_key_accessible, resource_name: translated_attribute(promoted_process.title), scope: "layouts.decidim.participatory_processes.promoted_process") %></span>
+              <span aria-hidden="true"><%= t(promoted_process.cta_button_text_key, scope: "layouts.decidim.participatory_processes.promoted_process") %></span>
               <% if promoted_process.active_step %>
                 <span class="button__info">
                   <%= t("participatory_processes.promoted_process.active_step", scope: "layouts.decidim") %> <%= translated_attribute promoted_process.active_step.title %>

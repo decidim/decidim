@@ -4,6 +4,8 @@ module Decidim
   # This cell renders the button to follow the given resource.
   class FollowButtonCell < Decidim::ViewModel
     include LayoutHelper
+    include Decidim::SanitizeHelper
+    include Decidim::ResourceHelper
 
     def show
       return if model == current_user
@@ -24,6 +26,12 @@ module Decidim
       return { class: "icon--small", role: "img" } if inline?
 
       {}
+    end
+
+    def render_screen_reader_title_for(resource)
+      content_tag :span, class: "show-for-sr" do
+        decidim_html_escape(resource_title(resource))
+      end
     end
 
     # Checks whether the button will be shown inline or not. Inline buttons will

@@ -82,6 +82,7 @@ extra_admin_link(
               <% end %>
               <div class="column collapse <%= endorsements_enabled? ? "small-3" : "" %>">
                 <%= link_to "#comments", class: "button small compact hollow secondary button--nomargin expanded" do %>
+                    <span class="show-for-sr"><%= present(@proposal).title(html_escape: true) %></span>
                     <%= icon "comment-square", class: "icon--small", aria_label: t(".comments"), role: "img" %> <%= @proposal.comments.count %>
                 <% end %>
               </div>
@@ -98,8 +99,8 @@ extra_admin_link(
     <%= resource_reference(@proposal) %>
     <%= resource_version(proposal_presenter, versions_path: proposal_versions_path(@proposal)) %>
     <%= cell("decidim/fingerprint", @proposal) %>
-    <%= render partial: "decidim/shared/share_modal" %>
-    <%= embed_modal_for proposal_proposal_widget_url(@proposal, format: :js) %>
+    <%= render partial: "decidim/shared/share_modal", locals: { resource: @proposal } %>
+    <%= embed_modal_for proposal_proposal_widget_url(@proposal, format: :js), locals: { resource: @proposal } %>
     <%= cell "decidim/proposals/proposal_link_to_collaborative_draft", @proposal %>
     <%= cell "decidim/proposals/proposal_link_to_rejected_emendation", @proposal %>
   </div>

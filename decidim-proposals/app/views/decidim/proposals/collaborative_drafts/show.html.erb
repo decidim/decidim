@@ -56,7 +56,7 @@
 
           <div>
             <span class="text-medium">
-              <%= link_to t("see_other_versions", scope:"decidim.proposals.collaborative_drafts.show"), collaborative_draft_versions_path(@collaborative_draft) %>
+              <%= link_to t("see_other_versions", resource_name: decidim_html_escape(resource_title(@proposal), scope:"decidim.proposals.collaborative_drafts.show")), collaborative_draft_versions_path(@collaborative_draft) %>
             </span>
           </div>
         <% end %>
