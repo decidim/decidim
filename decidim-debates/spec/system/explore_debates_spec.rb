@@ -30,7 +30,7 @@ describe "Explore debates", type: :system do
     it "lists all debates for the given process" do
       visit path
 
-      expect(page).to have_selector("article.card", count: debates_count)
+      expect(page).to have_selector(".card", count: debates_count)
 
       debates.each do |debate|
         expect(page).to have_content(translated(debate.title))
@@ -152,7 +152,7 @@ describe "Explore debates", type: :system do
       it "does not list the hidden debates" do
         visit path
 
-        expect(page).to have_selector("article.card", count: debates_count - 1)
+        expect(page).to have_selector(".card", count: debates_count - 1)
 
         expect(page).to have_no_content(translated(debate.title))
       end
