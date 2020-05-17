@@ -7,8 +7,11 @@
       <div class="text-center">
         <%- current_organization.enabled_omniauth_providers.keys.each do |provider| %>
           <%= link_to decidim.send("user_#{provider}_omniauth_authorize_path"), class: "button button--social button--#{normalize_provider_name(provider)} button--social--mini", method: :post do %>
-            <span class="button--social__icon">
+            <span class="button--social__icon" aria-hidden="true">
               <%= oauth_icon provider %>
+            </span>
+            <span class="show-for-sr">
+              <%= t("devise.shared.links.sign_in_with_provider", provider: normalize_provider_name(provider).titleize) %>
             </span>
           <% end %>
         <% end %>
