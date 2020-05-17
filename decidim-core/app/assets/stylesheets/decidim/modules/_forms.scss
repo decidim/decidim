@@ -66,3 +66,17 @@ label > [type='radio']{
     }
   }
 }
+
+#{text-inputs()},
+textarea,
+select,
+input[type=file],
+input[type=checkbox],
+input[type=radio]{
+  outline: $input-outline;
+
+  &:active,
+  &:focus{
+    outline: $input-outline-focus;
+  }
+}
