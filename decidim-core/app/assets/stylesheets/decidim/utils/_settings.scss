@@ -294,7 +294,7 @@ $button-background: $primary-color;
 $button-background-hover: scale-color($button-background, $lightness: -15%);
 $button-color: $white;
 $button-color-alt: $black;
-$button-shadow: none;
+$button-shadow: 0 2px 0 #000;
 $button-radius: $global-radius;
 $button-hollow-border-width: 1px;
 $button-sizes: (
@@ -313,6 +313,7 @@ $button-shadow-active: inset 0 0 14px -2px $black;
 $button-shadow-focus: none;
 $button-brightness-hover: 95%;
 $button-brightness-active: 95%;
+$button-vertical-push-active: 2px;
 
 // 12. Button Group
 // ----------------

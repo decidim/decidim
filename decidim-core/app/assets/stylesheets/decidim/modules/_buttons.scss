@@ -49,7 +49,7 @@
 
   &.active,
   &:active{
-    top: 2px;
+    top: $button-vertical-push-active;
     box-shadow: $button-shadow-active;
     filter: brightness($button-brightness-active);
   }
