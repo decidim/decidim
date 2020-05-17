@@ -51,7 +51,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
     votable: false
   };
 
-  public commentNode: HTMLElement;
+  public commentNode: HTMLDivElement;
 
   constructor(props: CommentProps) {
     super(props);
@@ -95,7 +95,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
     }
   }
 
-  public getNodeReference = (commentNode: HTMLElement) => this.commentNode = commentNode;
+  public getNodeReference = (commentNode: HTMLDivElement) => this.commentNode = commentNode;
 
   public render(): JSX.Element {
     const { session, comment: { id, author, formattedBody, createdAt, formattedCreatedAt }, articleClassName } = this.props;
@@ -112,7 +112,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
     }
 
     return (
-      <article id={`comment_${id}`} className={articleClassName} ref={this.getNodeReference}>
+      <div id={`comment_${id}`} className={articleClassName} ref={this.getNodeReference}>
         <div className="comment__header">
           <div className="author-data">
             <div className="author-data__main">
@@ -146,7 +146,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
         {this._renderReplies()}
         {this._renderAdditionalReplyButton()}
         {this._renderReplyForm()}
-      </article>
+      </div>
     );
   }
 
