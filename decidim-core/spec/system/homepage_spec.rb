@@ -202,7 +202,7 @@ describe "Homepage", type: :system do
         it "shows the statistics block" do
           within "#statistics" do
             expect(page).to have_content("Current state of #{organization.name}")
-            expect(page).to have_content("Processses")
+            expect(page).to have_content("Processes")
             expect(page).to have_content("Participants")
           end
         end
@@ -322,7 +322,7 @@ describe "Homepage", type: :system do
       end
 
       it "shows the banner's action title" do
-        expect(page).to have_i18n_content(organization.highlighted_content_banner_action_title, upcase: true)
+        expect(page).to have_i18n_content(organization.highlighted_content_banner_action_title)
       end
 
       it "shows the banner's action subtitle" do
