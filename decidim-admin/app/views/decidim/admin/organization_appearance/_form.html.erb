@@ -151,6 +151,12 @@
       </div>
     </div>
 
+    <div class="row">
+      <div class="columns xlarge-6">
+        <%= form.color_field :highlight_color, value: current_organization.colors["highlight"] %>
+      </div>
+    </div>
+
     <% if Decidim.enable_html_header_snippets %>
       <div class="row column">
         <%= form.text_area :header_snippets %>
