@@ -52,7 +52,7 @@ describe "Private Space Answer a survey", type: :system do
         visit_component
 
         within ".wrapper" do
-          expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+          expect(page).to have_i18n_content(questionnaire.title)
           expect(page).to have_i18n_content(questionnaire.description)
 
           expect(page).not_to have_css(".form.answer-questionnaire")
@@ -75,7 +75,7 @@ describe "Private Space Answer a survey", type: :system do
         it "allows answering the survey" do
           visit_component
 
-          expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+          expect(page).to have_i18n_content(questionnaire.title)
           expect(page).to have_i18n_content(questionnaire.description)
 
           fill_in question.body["en"], with: "My first answer"
@@ -102,7 +102,7 @@ describe "Private Space Answer a survey", type: :system do
           visit_component
 
           within ".wrapper" do
-            expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+            expect(page).to have_i18n_content(questionnaire.title)
             expect(page).to have_i18n_content(questionnaire.description)
             expect(page).to have_content "The form is available only for private users"
             expect(page).to have_content "Form closed"
@@ -138,7 +138,7 @@ describe "Private Space Answer a survey", type: :system do
         it "allows answering the survey" do
           visit_component
 
-          expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+          expect(page).to have_i18n_content(questionnaire.title)
           expect(page).to have_i18n_content(questionnaire.description)
 
           fill_in question.body["en"], with: "My first answer"
