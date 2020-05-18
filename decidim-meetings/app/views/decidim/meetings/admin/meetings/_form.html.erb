@@ -12,7 +12,11 @@
     </div>
 
     <div class="row column">
-      <%= form.text_field :address %>
+      <% prompt_options = { url: decidim_api.geocoder_path, text: t(".select_address") }
+         options = { label: t(".address") } %>
+      <%= form.autocomplete_select(:address, form.object.address, options, prompt_options) do |address|
+          { value: translated_attribute(address), label: translated_attribute(address) }
+        end %>
       <p class="help-text"><%= t(".address_help") %></p>
     </div>
 
