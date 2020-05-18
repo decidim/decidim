@@ -14,7 +14,7 @@
               <%= decidim_sanitize translated_attribute(process.short_description) %>
               <%= link_to decidim_participatory_processes.participatory_process_path(process), class: "button small hollow" do %>
                 <span class="show-for-sr"><%= decidim_html_escape(translated_attribute(process.title)) %></span>
-                <%= t("more_information", scope: i18n_scope)  %>
+                <%= t("more_information", scope: i18n_scope) %>
               <% end %>
             </div>
           </div>
