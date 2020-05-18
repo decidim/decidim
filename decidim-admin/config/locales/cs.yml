@@ -623,7 +623,7 @@ cs:
           update: Aktualizace
       participatory_space_private_users:
         create:
-          error: Došlo k chybě přidání soukromého uživatele pro tento prostor pro účast.
+          error: Při přidávání soukromého uživatele pro tento participační prostor došlo k chybě.
           success: Úspěšně byl úspěšně vytvořen soukromý uživatelský přístup.
         destroy:
           error: Při odstraňování soukromého uživatele tohoto participačního prostoru došlo k chybě.
@@ -633,7 +633,7 @@ cs:
           title: Účastní prostor soukromý uživatel
         new:
           create: Vytvořit
-          title: Nový účastník soukromého prostoru.
+          title: Nový účastnický prostor soukromého účastníka.
       participatory_space_private_users_csv_imports:
         create:
           invalid: Při čtení souboru CSV došlo k chybě.
@@ -658,7 +658,7 @@ cs:
           title: Upravit typ pole
           update: Aktualizace
         new:
-          create: Vytvořte typ pole
+          create: Vytvořit typ rozsahu
           title: Nový rozsah
         update:
           error: Při aktualizaci tohoto typu pole došlo k chybě.
