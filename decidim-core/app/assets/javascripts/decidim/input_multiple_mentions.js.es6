@@ -45,7 +45,7 @@ $(() => {
   let remoteSearch = function(text, cb) {
     let exclusionIds = "";
     $multipleMentionRecipientsContainer.find("input[name^='recipient_id']").each(function(index) {
-      (exclusionIds.length > 1) ? (exclusionIds += `,${$(this).val()}`) : (exclusionIds += $(this).val());
+      (exclusionIds.length >= 1) ? (exclusionIds += `,${$(this).val()}`) : (exclusionIds += $(this).val());
     });
     let query = `{users(filter:{wildcard:"${text}",type:"user",exclusion:"${exclusionIds}"}){id,nickname,name,avatarUrl,...on User{directMessagesEnabled}}}`;
     $.post("/api", {query: query}).
