@@ -6,7 +6,7 @@ module Decidim
 
     def search
       @search_string = params[:term]
-      results = Geocoder.search(@search_string)
+      results = Geocoder.search(@search_string, language: params.dig(:locale) || I18n.locale)
       render json: format_results(results)
     end
 
