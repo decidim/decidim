@@ -12,7 +12,7 @@ describe "Support Proposal", type: :system, slow: true do
 
   def expect_page_not_to_include_votes
     expect(page).to have_no_button("Support")
-    expect(page).to have_no_css(".card__support__data span", text: "0 SUPPORTS")
+    expect(page).to have_no_css(".card__support__data span", text: "0 Supports")
   end
 
   context "when votes are not enabled" do
@@ -92,7 +92,7 @@ describe "Support Proposal", type: :system, slow: true do
           end
 
           within "#proposal-#{proposal.id}-votes-count" do
-            expect(page).to have_content("1 SUPPORT")
+            expect(page).to have_content("1 Support")
           end
         end
       end
@@ -110,7 +110,7 @@ describe "Support Proposal", type: :system, slow: true do
           end
 
           within "#proposal-#{proposal.id}-votes-count" do
-            expect(page).to have_content("1 SUPPORT")
+            expect(page).to have_content("1 Support")
           end
         end
 
@@ -121,7 +121,7 @@ describe "Support Proposal", type: :system, slow: true do
           end
 
           within "#proposal-#{proposal.id}-votes-count" do
-            expect(page).to have_content("0 SUPPORTS")
+            expect(page).to have_content("0 Supports")
           end
         end
       end
@@ -234,7 +234,7 @@ describe "Support Proposal", type: :system, slow: true do
             end
 
             within "#proposal-#{proposal.id}-votes-count" do
-              expect(page).to have_content("0 SUPPORTS")
+              expect(page).to have_content("0 Supports")
             end
 
             expect(page).to have_content("Remaining\n10\nSupports")
@@ -263,7 +263,7 @@ describe "Support Proposal", type: :system, slow: true do
 
             it "shows the vote count but not the vote button" do
               within "#proposal_#{proposal.id} .card__support" do
-                expect(page).to have_content("1 SUPPORT")
+                expect(page).to have_content("1 Support")
               end
 
               expect(page).to have_content("Supports disabled")
@@ -359,7 +359,7 @@ describe "Support Proposal", type: :system, slow: true do
 
         within proposal_element do
           within ".card__support", match: :first do
-            expect(page).to have_content("1 SUPPORT")
+            expect(page).to have_content("1 Support")
           end
         end
       end
@@ -389,27 +389,27 @@ describe "Support Proposal", type: :system, slow: true do
         within proposal_elements[0] do
           click_button "Support"
           expect(page).to have_content("Already supported")
-          expect(page).to have_content("0 SUPPORTS")
+          expect(page).to have_content("0 Supports")
         end
 
         within proposal_elements[1] do
           click_button "Support"
           expect(page).to have_content("Already supported")
-          expect(page).to have_content("0 SUPPORTS")
+          expect(page).to have_content("0 Supports")
         end
 
         within proposal_elements[2] do
           click_button "Support"
           expect(page).to have_content("Already supported")
-          expect(page).to have_content("1 SUPPORT")
+          expect(page).to have_content("1 Support")
         end
 
         within proposal_elements[0] do
-          expect(page).to have_content("1 SUPPORT")
+          expect(page).to have_content("1 Support")
         end
 
         within proposal_elements[1] do
-          expect(page).to have_content("1 SUPPORT")
+          expect(page).to have_content("1 Support")
         end
       end
     end
@@ -428,7 +428,7 @@ describe "Support Proposal", type: :system, slow: true do
           within proposal_element do
             within ".card__support", match: :first do
               click_button "Support"
-              expect(page).to have_content("1 SUPPORT")
+              expect(page).to have_content("1 Support")
             end
           end
         end.to change { Decidim::Gamification.status_for(user, :proposal_votes).score }.by(1)
