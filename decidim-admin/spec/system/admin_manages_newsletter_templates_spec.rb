@@ -19,8 +19,8 @@ describe "Admin manages newsletter templates", type: :system do
         find(".button.new").click
       end
 
-      expect(page).to have_content("BASIC (ONLY TEXT)")
-      expect(page).to have_content("IMAGE, TEXT AND CALL TO ACTION BUTTON")
+      expect(page).to have_content("Basic (only text)")
+      expect(page).to have_content("Image, text and Call To Action button")
     end
   end
 
@@ -36,7 +36,7 @@ describe "Admin manages newsletter templates", type: :system do
         click_link "Preview"
       end
 
-      expect(page).to have_content("PREVIEW TEMPLATE: BASIC (ONLY TEXT)")
+      expect(page).to have_content("Preview template: Basic (only text)")
 
       within_frame do
         expect(page).to have_content("Dummy text for body")
@@ -56,7 +56,7 @@ describe "Admin manages newsletter templates", type: :system do
 
       click_link "Use this template"
 
-      expect(page).to have_content("NEW NEWSLETTER")
+      expect(page).to have_content("New newsletter")
     end
   end
 end

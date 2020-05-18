@@ -21,14 +21,14 @@ describe "Admin checks metrics", type: :system do
   end
 
   it "lists metrics" do
-    expect(page).to have_content("METRICS")
+    expect(page).to have_content("Metrics")
     expect(page).to have_selector(".areachart", count: 6)
   end
 
   it "allows checking more metrics" do
     click_link "See more metrics"
 
-    expect(page).to have_content("METRICS")
+    expect(page).to have_content("Metrics")
     expect(page).to have_selector(".areachart", count: metric_manifests.count)
   end
 end
