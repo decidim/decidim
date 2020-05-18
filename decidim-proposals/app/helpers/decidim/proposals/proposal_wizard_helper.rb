@@ -96,6 +96,10 @@ module Decidim
         end
       end
 
+      def proposal_wizard_steps_title
+        t("title", scope: "decidim.proposals.#{type_of}.wizard_steps")
+      end
+
       # Returns a boolean if the step has a help text defined
       #
       # step - A symbol of the target step
