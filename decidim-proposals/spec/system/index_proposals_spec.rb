@@ -10,9 +10,9 @@ describe "Index proposals", type: :system do
     let!(:proposals) { create_list(:proposal, 3, component: component) }
 
     it "doesn't display empty message" do
-        visit_component
+      visit_component
 
-        expect(page).to have_no_content("There isn't any proposal")
+      expect(page).to have_no_content("There isn't any proposal")
     end
   end
 
@@ -24,8 +24,10 @@ describe "Index proposals", type: :system do
         expect(page).to have_content("There isn't any proposal")
       end
     end
+
     context "when there are filters" do
       let!(:proposals) { create(:proposal, :with_answer, :accepted, component: component) }
+
       it "shows filters empty message" do
         visit_component
 
