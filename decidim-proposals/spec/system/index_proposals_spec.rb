@@ -7,9 +7,9 @@ describe "Index proposals", type: :system do
   let(:manifest_name) { "proposals" }
 
   context "when there are proposals" do
-
     let!(:proposals) { create_list(:proposal, 3, component: component) }
-      it "doesn't display empty message" do
+
+    it "doesn't display empty message" do
         visit_component
 
         expect(page).to have_no_content("There isn't any proposal")
