@@ -58,7 +58,6 @@ module Decidim
               add_match_id(row["id"])
             end
 
-            @matches_ids << [row["id"], Decidim::Accountability::Result.last.id] if row["id"].present?
           end
 
           raise ActiveRecord::Rollback if errors.any?
