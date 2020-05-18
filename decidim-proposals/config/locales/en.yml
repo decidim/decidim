@@ -821,8 +821,8 @@ en:
           votes_blocked: Supports disabled
         votes_count:
           count:
-            one: SUPPORT
-            other: SUPPORTS
+            one: Support
+            other: Supports
           most_popular_proposal: Most popular proposal
           need_more_votes: Need more supports
         voting_rules:
