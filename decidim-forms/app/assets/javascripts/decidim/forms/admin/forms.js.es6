@@ -3,9 +3,10 @@
 // = require ./auto_buttons_by_min_items.component
 // = require ./auto_select_options_by_total_items.component
 // = require ./auto_select_options_from_url.component
+// = require ./live_text_update.component
 
 ((exports) => {
-  const { AutoLabelByPositionComponent, AutoButtonsByPositionComponent, AutoButtonsByMinItemsComponent, AutoSelectOptionsByTotalItemsComponent, AutoSelectOptionsFromUrl, createFieldDependentInputs, createDynamicFields, createSortList } = exports.DecidimAdmin;
+  const { AutoLabelByPositionComponent, AutoButtonsByPositionComponent, AutoButtonsByMinItemsComponent, AutoSelectOptionsByTotalItemsComponent, AutoSelectOptionsFromUrl, createLiveTextUpdateComponent, createFieldDependentInputs, createDynamicFields, createSortList } = exports.DecidimAdmin;
   const { createQuillEditor } = exports.Decidim;
 
   const wrapperSelector = ".questionnaire-questions";
@@ -105,6 +106,22 @@
       }
     });
   };
+
+  const createDynamicQuestionTitle = (fieldId) => {
+    const targetSelector = `#${fieldId} .question-title-statement`;
+    const locale = $(targetSelector).data("locale");
+    const maxLength = $(targetSelector).data("max-length");
+    const omission = $(targetSelector).data("omission");
+    const placeholder = $(targetSelector).data("placeholder");
+
+    return createLiveTextUpdateComponent({
+      inputSelector: `#${fieldId} input[name$=\\[body_${locale}\\]]`,
+      targetSelector: targetSelector,
+      maxLength: maxLength,
+      omission: omission,
+      placeholder: placeholder
+    });
+  }
 
   const createDynamicFieldsForAnswerOptions = (fieldId) => {
     const autoButtons = createAutoButtonsByMinItemsForAnswerOptions(fieldId);
@@ -262,6 +279,8 @@
     const fieldId = $target.attr("id");
     const $fieldQuestionTypeSelect = $target.find(questionTypeSelector);
 
+    createDynamicQuestionTitle(fieldId);
+
     createFieldDependentInputs({
       controllerField: $fieldQuestionTypeSelect,
       wrapperSelector: fieldSelector,
@@ -343,6 +362,10 @@
     moveUpFieldButtonSelector: ".move-up-question",
     moveDownFieldButtonSelector: ".move-down-question",
     onAddField: ($field) => {
+      const collapsibleId = $field.find(".collapsible").attr("id").replace("-question-card", "");
+      const toggleAttr = `${collapsibleId}-question-card button--collapse-question-${collapsibleId} button--expand-question-${collapsibleId}`;
+      $field.find(".question--collapse").data("toggle", toggleAttr);
+
       setupInitialQuestionAttributes($field);
       createSortableList();
 

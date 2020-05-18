@@ -8,6 +8,7 @@ shared_examples_for "update questions" do
 
     before do
       visit questionnaire_edit_path
+      expand_all_questions
     end
 
     it "modifies the question when the information is valid" do
@@ -23,7 +24,7 @@ shared_examples_for "update questions" do
 
       expect(page).to have_admin_callout("successfully")
 
-      visit questionnaire_edit_path
+      visit_questionnaire_edit_path_and_expand_all
 
       expect(page).to have_selector("input[value='Modified question']")
       expect(page).to have_no_selector("input[value='This is the first question']")
@@ -32,6 +33,8 @@ shared_examples_for "update questions" do
     end
 
     it "re-renders the form when the information is invalid and displays errors" do
+      expand_all_questions
+
       within "form.edit_questionnaire" do
         within ".questionnaire-question" do
           expect(page).to have_content("Statement*")
@@ -43,6 +46,8 @@ shared_examples_for "update questions" do
 
         click_button "Save"
       end
+
+      expand_all_questions
 
       expect(page).to have_admin_callout("There was a problem saving")
       expect(page).to have_content("can't be blank", count: 5) # emtpy question, 2 empty default answer options, 2 empty default matrix rows
@@ -129,13 +134,15 @@ shared_examples_for "update questions" do
     end
 
     it "allows deleting answer options" do
+      expand_all_questions
+
       within ".questionnaire-question-answer-option:last-of-type" do
         click_button "Remove"
       end
 
       click_button "Save"
 
-      visit questionnaire_edit_path
+      visit_questionnaire_edit_path_and_expand_all
 
       expect(page).to have_selector(".questionnaire-question-answer-option", count: 2)
     end
@@ -143,6 +150,8 @@ shared_examples_for "update questions" do
     it "still removes the question even if previous editions rendered the options invalid" do
       within "form.edit_questionnaire" do
         expect(page).to have_selector(".questionnaire-question", count: 1)
+
+        expand_all_questions
 
         within ".questionnaire-question-answer-option:first-of-type" do
           fill_in find_nested_form_field_locator("body_en"), with: ""
@@ -157,7 +166,7 @@ shared_examples_for "update questions" do
 
       expect(page).to have_admin_callout("successfully")
 
-      visit questionnaire_edit_path
+      visit_questionnaire_edit_path_and_expand_all
 
       within "form.edit_questionnaire" do
         expect(page).to have_selector(".questionnaire-question", count: 0)
@@ -188,7 +197,7 @@ shared_examples_for "update questions" do
     end
 
     before do
-      visit questionnaire_edit_path
+      visit_questionnaire_edit_path_and_expand_all
     end
 
     it "allows deleting matrix rows" do
@@ -198,7 +207,7 @@ shared_examples_for "update questions" do
 
       click_button "Save"
 
-      visit questionnaire_edit_path
+      visit_questionnaire_edit_path_and_expand_all
 
       within ".questionnaire-question:last-of-type" do
         expect(page).to have_selector(".questionnaire-question-matrix-row", count: 2)
@@ -223,7 +232,7 @@ shared_examples_for "update questions" do
 
       expect(page).to have_admin_callout("successfully")
 
-      visit questionnaire_edit_path
+      visit_questionnaire_edit_path_and_expand_all
 
       within "form.edit_questionnaire" do
         expect(page).to have_selector(".questionnaire-question", count: 1)
@@ -250,6 +259,7 @@ shared_examples_for "update questions" do
 
     before do
       visit questionnaire_edit_path
+      expand_all_questions
     end
 
     shared_examples_for "switching questions order" do
@@ -286,8 +296,77 @@ shared_examples_for "update questions" do
       it_behaves_like "switching questions order"
     end
 
+    describe "collapsible questions" do
+      context "when clicking on Expand all button" do
+        it "expands all questions" do
+          click_button "Expand all questions"
+          expect(page).to have_selector(".collapsible", visible: true)
+          expect(page).to have_selector(".question--collapse .icon-collapse", count: questionnaire.questions.count)
+        end
+      end
+
+      context "when clicking on Collapse all button" do
+        it "collapses all questions" do
+          click_button "Collapse all questions"
+          expect(page).not_to have_selector(".collapsible", visible: true)
+          expect(page).to have_selector(".question--collapse .icon-expand", count: questionnaire.questions.count)
+        end
+      end
+
+      shared_examples_for "collapsing a question" do
+        it "changes the toggle button" do
+          within ".questionnaire-question:last-of-type" do
+            expect(page).to have_selector(".icon-expand")
+          end
+        end
+
+        it "hides the question card section" do
+          within ".questionnaire-question:last-of-type" do
+            expect(page).not_to have_selector(".collapsible", visible: true)
+          end
+        end
+      end
+
+      shared_examples_for "uncollapsing a question" do
+        it "changes the toggle button" do
+          within ".questionnaire-question:last-of-type" do
+            expect(page).to have_selector(".icon-collapse")
+          end
+        end
+
+        it "shows the question card section" do
+          expect(page).to have_selector(".collapsible", visible: true)
+        end
+      end
+
+      context "when collapsing an existing question" do
+        before do
+          expand_all_questions
+          within ".questionnaire-question:last-of-type" do
+            page.find(".question--collapse").click
+          end
+        end
+
+        it_behaves_like "collapsing a question"
+      end
+
+      context "when adding a new question" do
+        before do
+          click_button "Add question"
+          expand_all_questions
+
+          within ".questionnaire-question:last-of-type" do
+            page.find(".question--collapse").click
+          end
+        end
+
+        it_behaves_like "collapsing a question"
+      end
+    end
+
     it "properly decides which button to show after adding/removing questions" do
       click_button "Add question"
+      expand_all_questions
 
       expect(page.find(".questionnaire-question:nth-of-type(1)")).to look_like_first_question
       expect(page.find(".questionnaire-question:nth-of-type(2)")).to look_like_intermediate_question
@@ -302,11 +381,15 @@ shared_examples_for "update questions" do
     end
 
     it "does not duplicate editors when adding new questions" do
-      expect { click_button "Add question" }.to change { page.all(".ql-toolbar").size }.by(1)
+      expect do
+        click_button "Add question"
+        expand_all_questions
+      end.to change { page.all(".ql-toolbar").size }.by(1)
     end
 
     it "properly decides which button to show after adding/removing answer options" do
       click_button "Add question"
+      expand_all_questions
 
       within ".questionnaire-question:last-of-type" do
         select "Single option", from: "Type"
@@ -329,6 +412,7 @@ shared_examples_for "update questions" do
       end
 
       click_button "Save"
+      expand_all_questions
 
       within ".questionnaire-question:last-of-type" do
         within ".questionnaire-question-answer-options-list" do

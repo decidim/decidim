@@ -57,6 +57,9 @@ shared_examples_for "manage questionnaires" do
 
       expect(page).to have_no_content("Add question")
       expect(page).to have_no_content("Remove")
+
+      expand_all_questions
+
       expect(page).to have_selector("input[value='This is the first question'][disabled]")
       expect(page).to have_selector("select[id$=question_type][disabled]")
       expect(page).to have_selector("select[id$=max_choices][disabled]")
@@ -94,5 +97,14 @@ shared_examples_for "manage questionnaires" do
         yield
       end
     end
+  end
+
+  def expand_all_questions
+    find(".button.expand-all").click
+  end
+
+  def visit_questionnaire_edit_path_and_expand_all
+    visit questionnaire_edit_path
+    expand_all_questions
   end
 end
