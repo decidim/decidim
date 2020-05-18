@@ -36,6 +36,7 @@ en:
             title: Title
           form:
             add_question: Add question
+            add_separator: Add separator
             already_answered_warning: The form is already answered by some users so you cannot modify its questions.
             collapse: Collapse all questions
             expand: Expand all questions
@@ -54,6 +55,11 @@ en:
             question: Question
             remove: Remove
             statement: Statement
+            up: Up
+          separator:
+            down: Down
+            remove: Remove
+            separator: Separator
             up: Up
           update:
             invalid: There was a problem saving the form.
