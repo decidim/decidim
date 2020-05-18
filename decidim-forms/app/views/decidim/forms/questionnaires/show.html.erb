@@ -58,19 +58,23 @@
                     </div>
                   <% end %>
 
-                  <div class="row column tos-agreement">
-                    <%= form.check_box :tos_agreement, label: t(".tos_agreement"), id: "questionnaire_tos_agreement", disabled: !current_participatory_space.can_participate?(current_user) %>
-                    <div class="help-text">
-                      <%= decidim_sanitize translated_attribute questionnaire.tos %>
+                  <% if questionnaire.last_step? %>
+                    <div class="row column tos-agreement">
+                      <%= form.check_box :tos_agreement, label: t(".tos_agreement"), id: "questionnaire_tos_agreement", disabled: !current_participatory_space.can_participate?(current_user) %>
+                      <div class="help-text">
+                        <%= decidim_sanitize translated_attribute questionnaire.tos %>
+                      </div>
                     </div>
-                  </div>
+                  <% end %>
 
                   <%= cell(
                     "decidim/forms/steps_navigation",
                     questionnaire,
                     form: form,
-                    questionnaires: questionnaires,
                     disabled: !current_participatory_space.can_participate?(current_user),
+                    answer_form_url: answer_form_url,
+                    answer_and_previous_step_url: answer_and_previous_step_url,
+                    answer_and_next_step_url: answer_and_next_step_url,
                     questionnaire_path: ->(args){show_url(id: args[:id])}
                   ) %>
                 <% end %>

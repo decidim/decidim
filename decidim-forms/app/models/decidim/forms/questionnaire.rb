@@ -22,6 +22,34 @@ module Decidim
         query = user.is_a?(String) ? { session_token: user } : { user: user }
         answers.where(query).any?
       end
+
+      def sibling_questionnaires
+        self.class.where(questionnaire_for: questionnaire_for)
+      end
+
+      def previous_step_id
+        sibling_questionnaires_ids[step_index - 1]
+      end
+
+      def next_step_id
+        sibling_questionnaires_ids[step_index + 1]
+      end
+
+      def step_index
+        sibling_questionnaires_ids.index(id)
+      end
+
+      def first_step?
+        id == sibling_questionnaires_ids.first
+      end
+
+      def last_step?
+        id == sibling_questionnaires_ids.last
+      end
+
+      def sibling_questionnaires_ids
+        @sibling_questionnaires_ids ||= sibling_questionnaires.pluck(:id)
+      end
     end
   end
 end

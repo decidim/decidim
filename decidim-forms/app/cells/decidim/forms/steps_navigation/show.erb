@@ -2,8 +2,14 @@
   <% if first_step? %>
     <a></a>
   <% else %>
-    <%= link_to questionnaire_path(id: previous_questionnaire_id) do %>
-      <%= icon "caret-left", class: "icon--small", role: "img" %>&nbsp;<%= t("decidim.forms.steps_navigation.show.back") %>
+    <%= form.submit(
+      icon("caret-left", class: "icon--small", role: "img") + " " + t("decidim.forms.steps_navigation.show.back"),
+      formaction: answer_and_previous_step_url,
+      class: "hollow secondary",
+      data: {
+        disable: true
+      }
+    ) do %>
     <% end %>
   <% end %>
 
@@ -12,12 +18,20 @@
       t("decidim.forms.steps_navigation.show.submit"),
       class: "button button--sc",
       disabled: disabled?,
+      formaction: answer_form_url,
       data: {
         confirm: t("decidim.forms.steps_navigation.show.are_you_sure"),
         disable: true
       }
     ) %>
   <% else %>
-    <%= link_to t("decidim.forms.steps_navigation.show.continue"), questionnaire_path(id: next_questionnaire_id), class: "button button--sc" %>
+    <%= form.submit(
+      t("decidim.forms.steps_navigation.show.continue"),
+      class: "button button--sc",
+      formaction: answer_and_next_step_url,
+      data: {
+        disable: true
+      }
+    ) %>
   <% end %>
 </div>

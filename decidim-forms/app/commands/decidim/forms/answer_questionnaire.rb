@@ -53,12 +53,20 @@ module Decidim
             answer.save!
           end
 
-          QuestionnaireAnswer.create!(
-            user: current_user,
-            session_token: form.context.session_token,
-            questionnaire: questionnaire
-          )
+          if form.in_full_form_mode
+            sibling_questionnaires.each do |questionnaire|
+              QuestionnaireAnswer.create!(
+                user: current_user,
+                session_token: form.context.session_token,
+                questionnaire: questionnaire
+              )
+            end
+          end
         end
+      end
+
+      def sibling_questionnaires
+        Decidim::Forms::Questionnaire.where(questionnaire_for: questionnaire.questionnaire_for)
       end
     end
   end

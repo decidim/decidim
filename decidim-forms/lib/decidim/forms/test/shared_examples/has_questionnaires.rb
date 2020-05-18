@@ -61,8 +61,7 @@ shared_examples_for "has questionnaires" do
       end
 
       it "allows answering the first questionnaire" do
-        pending("pending!")
-        expect(page).to have_content("Step 1 of 2")
+        expect(page).to have_content("STEP 1 OF 2")
 
         within ".answer-questionnaire__submit" do
           expect(page).to have_no_content("Back")
@@ -74,19 +73,18 @@ shared_examples_for "has questionnaires" do
       end
 
       it "allows revisiting previously-answered questionnaires with my answers" do
-        pending("pending!")
         answer_first_questionnaire
 
         click_button "Back"
 
-        expect(page).to have_content("Step 1 of 2")
+        expect(page).to have_content("STEP 1 OF 2")
         expect(page).to have_content("My first answer")
       end
 
       it "finishes the submission when answering the last questionnaire" do
-        pending("pending!")
         answer_first_questionnaire
 
+        check "questionnaire_tos_agreement"
         accept_confirm { click_button "Submit" }
 
         within ".success.flash" do
@@ -99,11 +97,13 @@ shared_examples_for "has questionnaires" do
       end
 
       def answer_first_questionnaire
+        expect(page).to have_no_selector("#questionnaire_tos_agreement")
+
         fill_in question.body["en"], with: "My first answer"
         within ".answer-questionnaire__submit" do
           click_button "Continue"
         end
-        expect(page).to have_content("Step 2 of 2")
+        expect(page).to have_content("STEP 2 OF 2")
       end
     end
 

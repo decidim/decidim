@@ -11,7 +11,7 @@ module Decidim
 
       attribute :tos_agreement, Boolean
 
-      validates :tos_agreement, allow_nil: false, acceptance: true
+      validates :tos_agreement, allow_nil: false, acceptance: true, if: :in_full_form_mode
       validate :session_token_in_context
 
       # Private: Create the responses from the questionnaire questions
@@ -28,6 +28,8 @@ module Decidim
 
         errors.add(:tos_agreement, I18n.t("activemodel.errors.models.questionnaire.request_invalid"))
       end
+
+      delegate :in_full_form_mode, to: :context
     end
   end
 end

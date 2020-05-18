@@ -9,6 +9,7 @@ module Decidim
         Digest::MD5.hexdigest("#{id}-#{Rails.application.secrets.secret_key_base}")
       end
 
+      let(:in_full_form_mode) { true }
       let(:current_organization) { create(:organization) }
       let(:current_user) { create(:user, organization: current_organization) }
       let(:session_id) { "session-string" }
@@ -62,6 +63,7 @@ module Decidim
           form_params
         ).with_context(
           current_organization: current_organization,
+          in_full_form_mode: in_full_form_mode,
           session_token: session_token,
           ip_hash: ip_hash
         )
@@ -96,11 +98,25 @@ module Decidim
           expect(Answer.all.map(&:questionnaire)).to eq([questionnaire, questionnaire, questionnaire])
         end
 
-        it "creates a questionnaire answer for the questionnaire" do
-          expect do
-            command.call
-          end.to change(QuestionnaireAnswer, :count).by(1)
-          expect(QuestionnaireAnswer.last.questionnaire).to eq(questionnaire)
+        context "when not in full form mode" do
+          let(:in_full_form_mode) { false }
+
+          it "does not create a questionnaire answer for the questionnaire" do
+            expect do
+              command.call
+            end.not_to change(QuestionnaireAnswer, :count)
+          end
+        end
+
+        context "when in full form mode" do
+          let(:in_full_form_mode) { true }
+
+          it "creates a questionnaire answer for the questionnaire" do
+            expect do
+              command.call
+            end.to change(QuestionnaireAnswer, :count).by(1)
+            expect(QuestionnaireAnswer.last.questionnaire).to eq(questionnaire)
+          end
         end
 
         it "creates answers with the correct information" do

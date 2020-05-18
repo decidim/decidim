@@ -9,7 +9,9 @@ module Decidim
       routes do
         resources :surveys, only: [:index, :show] do
           member do
-            post :answer
+            post :answer_and_previous_step
+            post :answer_and_next_step
+            post :answer_form
           end
         end
         root to: "surveys#index"

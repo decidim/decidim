@@ -13,8 +13,10 @@ module Decidim
       let!(:question) { create(:questionnaire_question, questionnaire: questionnaire) }
       let(:current_user) { create(:user) }
       let(:session_token) { "some-token" }
+      let(:in_full_form_mode) { false }
       let(:context) do
         {
+          in_full_form_mode: in_full_form_mode,
           session_token: session_token
         }
       end
@@ -23,8 +25,18 @@ module Decidim
         expect(subject.responses.length).to eq(1)
       end
 
-      context "when tos_agreement is not accepted" do
-        it { is_expected.not_to be_valid }
+      context "when not in full form mode" do
+        context "when tos_agreement is not accepted" do
+          it { is_expected.to be_valid }
+        end
+      end
+
+      context "when in full form mode" do
+        let(:in_full_form_mode) { true }
+
+        context "when tos_agreement is not accepted" do
+          it { is_expected.not_to be_valid }
+        end
       end
 
       context "when tos_agreement is accepted" do
