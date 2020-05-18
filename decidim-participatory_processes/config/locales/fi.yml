@@ -377,7 +377,6 @@ fi:
           loading: Ladataan tulokset...
       show:
         area: Alue
-        dates: Päivämäärät
         developer_group: Kehittäjäryhmä
         end_date: Päättymispäivä
         local_area: Organisaatioalue
@@ -431,6 +430,6 @@ fi:
           take_part: Osallistu
       process_header_steps:
         step: Vaihe %{current} / %{total}
-        view_steps: Prosessin vaiheet
+        view_steps: Näytä vaiheet
       process_navigation:
         process_menu_item: Prosessi

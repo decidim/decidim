@@ -50,7 +50,6 @@ sv:
         from: Från e-postadress
         github_handler: GitHub-hanterare
         header_snippets: Rubriksnuttar
-        highlight_color: Marker
         highlighted_content_banner_action_subtitle: Undertitel för Åtgärdsknapp
         highlighted_content_banner_action_title: Titel för Åtgärdsknapp
         highlighted_content_banner_action_url: URL för åtgärdsknapp

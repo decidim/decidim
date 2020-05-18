@@ -607,9 +607,6 @@ sv:
       title: Fingeravtryck
       value: Värde
     followers:
-      followers_count:
-        one: "%{count} följare"
-        other: "%{count} följare"
       no_followers: Inga följare än.
     following:
       no_followings: Följer inte någon eller något än.
@@ -1106,9 +1103,6 @@ sv:
         share_link: Dela länk
       version_author:
         deleted: Raderad deltagare
-    static_map:
-      latlng_text: 'latitud: %{latitude}, longitud: %{longitude}'
-      map_service_brand: OpenStreetMap
     user_activity:
       index:
         no_activities_warning: Den här användaren har inte haft någon aktivitet än.
