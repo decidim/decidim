@@ -10,7 +10,7 @@ module Decidim
         #
         # form - The form from which to get the data.
         # result - The current instance of the result to be updated.
-        def initialize(form, result, parent_id=nil)
+        def initialize(form, result, parent_id = nil)
           @form = form
           @result = result
           @parent_id = parent_id
