@@ -661,16 +661,16 @@ en:
         error: There's an error in this field.
       file_help:
         file:
-          explanation: "Guidance for file:"
+          explanation: 'Guidance for file:'
           message_1: Has to be an image or a document.
           message_2: For images, use preferrably landscape images, the service crops the image.
         image:
-          explanation: "Guidance for image:"
+          explanation: 'Guidance for image:'
           message_1: Preferrably a landscape image that does not have any text.
           message_2: The service crops the image.
       file_validation:
-        allowed_file_extensions: "Allowed file extensions: %{extensions}"
-        max_file_size: "Maximum file size: %{megabytes}MB"
+        allowed_file_extensions: 'Allowed file extensions: %{extensions}'
+        max_file_size: 'Maximum file size: %{megabytes}MB'
       remove_this_file: Remove this file
     gamification:
       all_badges_link: See all available badges.
@@ -1135,6 +1135,9 @@ en:
       extended_navigation_bar:
         more: More
         unfold: Unfold
+      filter_form_help:
+        help: The form below filters the search results dynamically when the search conditions are changed.
+        skip: Skip to results
       flag_modal:
         already_reported: This content is already reported and it will be reviewed by an admin.
         close: Close
@@ -1146,9 +1149,6 @@ en:
         title: Report inappropriate content
       floating_help:
         help: Help
-      filter_form_help:
-        help: The form below filters the search results dynamically when the search conditions are changed.
-        skip: Skip to results
       follow_button:
         sign_in_before_follow: Please sign in before performing this action
       login_modal:
@@ -1360,11 +1360,11 @@ en:
       too_much_caps: is using too many capital letters (over 25% of the text)
       too_short: is too short (under 15 characters)
   forms:
-    required: Required
     length_validator:
       minimum:
         one: at least %{count} character
         other: at least %{count} characters
+    required: Required
   invisible_captcha:
     sentence_for_humans: If you are human, ignore this field
     timestamp_error_message: Sorry, that was too quick! Please resubmit.
@@ -1473,13 +1473,13 @@ en:
       option_unified: Unified
   views:
     pagination:
-      pagination: Pagination
       first: "&laquo; First"
       first_title: Link to the first page
       last: Last &raquo;
       last_title: Link to the last page
       next: Next &rsaquo;
       next_title: Link to the next page
+      pagination: Pagination
       previous: "&lsaquo; Prev"
       previous_title: Link to the previous page
       title: 'Page number: '
