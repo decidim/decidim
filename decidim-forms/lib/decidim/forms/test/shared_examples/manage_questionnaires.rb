@@ -498,8 +498,7 @@ shared_examples_for "manage questionnaires" do
       let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, body: body) }
 
       before do
-        visit questionnaire_edit_path
-        expand_all_questions
+        visit_questionnaire_edit_path_and_expand_all
       end
 
       it "modifies the question when the information is valid" do
@@ -749,8 +748,7 @@ shared_examples_for "manage questionnaires" do
       end
 
       before do
-        visit questionnaire_edit_path
-        expand_all_questions
+        visit_questionnaire_edit_path_and_expand_all
       end
 
       shared_examples_for "switching questions order" do
@@ -975,7 +973,7 @@ shared_examples_for "manage questionnaires" do
   end
 
   def visit_questionnaire_edit_path_and_expand_all
-    visit questionnaire_edit_path
+    visit_questionnaire_edit_path
     expand_all_questions
   end
 end
