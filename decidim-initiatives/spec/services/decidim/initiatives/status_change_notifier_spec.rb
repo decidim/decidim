@@ -8,7 +8,6 @@ module Decidim
       let(:message_delivery) { instance_double(ActionMailer::MessageDelivery) }
       let(:organization) { create(:organization) }
       let(:author) { create(:user, organization: organization) }
-      let!(:admin) { create(:user, :admin, :confirmed, organization: organization) }
       let(:created) { false }
       let(:validating) { false }
       let(:published) { false }
@@ -136,10 +135,10 @@ module Decidim
           create_list(:user, 10, organization: organization)
         end
 
-        it "Result is notified to admins, author and committee members" do
+        it "Result is notified to author and committee members" do
           expect(Decidim::Initiatives::InitiativesMailer).to receive(:notify_state_change)
             .with(any_args)
-            .exactly(14).times
+            .exactly(13).times
             .and_return(message_delivery)
           subject.notify
         end
