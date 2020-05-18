@@ -375,7 +375,7 @@ cs:
             title: PŘEHLED ÚČASTNÍHO TEXTU
           new_import:
             accepted_mime_types:
-              md: Snížení
+              md: Markdown
               odt: Odt
             bottom_hint: "(Budete mít možnost zobrazit a třídit sekce dokumentů)"
             document_legend: 'Přidejte dokument nižší než 2 MB, každá sekce až do hloubky 3 úrovní bude analyzována do návrhů. Podporované formáty jsou: %{valid_mime_types}'
