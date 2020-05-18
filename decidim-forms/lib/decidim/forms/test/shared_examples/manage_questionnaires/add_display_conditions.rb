@@ -17,7 +17,7 @@ shared_examples_for "add display conditions" do
       let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, body: body, question_type: "short_answer") }
 
       before do
-        visit questionnaire_edit_path
+        visit_questionnaire_edit_path_and_expand_all
       end
 
       it "doesn't display an add display condition button" do
@@ -28,6 +28,7 @@ shared_examples_for "add display conditions" do
         it "disables the add display condition button if the question hasn't been saved" do
           within "form.edit_questionnaire" do
             click_button "Add question"
+            expand_all_questions
 
             expect(page).to have_button("Add display condition", disabled: true)
           end
@@ -66,7 +67,7 @@ shared_examples_for "add display conditions" do
       let(:questions) { [question_short_answer, question_long_answer, question_single_option, question_multiple_option] }
 
       before do
-        visit questionnaire_edit_path
+        visit_questionnaire_edit_path_and_expand_all
       end
 
       context "when clicking add display condition button" do
