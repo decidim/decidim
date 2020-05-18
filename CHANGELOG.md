@@ -4,6 +4,13 @@
 
 ### Upgrade notes
 
+- **Redis**
+
+Since this version `redis` gem is not a `decicim-core` dependency anymore. The PR intoducing this modification is [\#6084](https://github.com/decidim/decidim/pull/6084).
+
+If you are using `sidekiq` or other redis backed `active-job` backend make sure `redis` gem is still in your Gemfile.lock.
+If you are using another `active-job` backend, like `delayed-job`, congratulations, you now have one less dependency.
+
 - **Endorsements**
 
 This new version of Decidim has extracted the Endorsement feature into a generic concern that can now be applied to many resources.
@@ -118,6 +125,7 @@ Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on 
 ### Removed
 
 - **decidim-assemblies**: Removed legacy `assembly_type` fields. [\#5617](https://github.com/decidim/decidim/pull/5617)
+- **decidim-core**: Remove `redis` gem as a decidim-core dependency. [\#6084](https://github.com/decidim/decidim/pull/6084)
 
 ### Previous versions
 
