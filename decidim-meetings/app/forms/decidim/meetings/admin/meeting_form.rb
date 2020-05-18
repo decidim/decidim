@@ -35,7 +35,7 @@ module Decidim
         validates :current_component, presence: true
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
-        validates :decidim_scope_id, subscope_belongs_to_component: true, if: ->(form) { form.decidim_scope_id.present? }
+        validates :decidim_scope_id, scope_belongs_to_component: true, if: ->(form) { form.decidim_scope_id.present? }
         validates :organizer, presence: true, if: ->(form) { form.organizer_id.present? }
 
         delegate :categories, to: :current_component
