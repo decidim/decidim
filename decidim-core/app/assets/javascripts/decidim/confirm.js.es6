@@ -109,7 +109,13 @@
           ) {
             exports.$(element).parents("form").submit();
           } else {
-            ev.target.dispatchEvent(ev);
+            let newEv = ev;
+            if (typeof Event === "function") {
+              // Clone the event because otherwise some click events may not
+              // work properly when re-dispatched.
+              newEv = new ev.constructor(ev.type, ev);
+            }
+            ev.target.dispatchEvent(newEv);
           }
         }
       });
