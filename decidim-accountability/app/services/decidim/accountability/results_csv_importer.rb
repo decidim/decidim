@@ -55,6 +55,7 @@ module Decidim
                   errors << [i, @form.errors.full_messages]
                 end
               end
+              add_match_id(row["id"])
             end
 
             @matches_ids << [row["id"], Decidim::Accountability::Result.last.id] if row["id"].present?
@@ -113,9 +114,14 @@ module Decidim
         end
       end
 
+      def add_match_id(id)
+        last_created_result = Decidim::Accountability::Result.last
+        @matches_ids << [id, Decidim::Accountability::Result.last.id] if id.present? && last_created_result.present?
+      end
+
       def update_parents
         @matches_ids.each do |match|
-          Decidim::Accountability::Result.where(component: @component, parent_id: match.first).update_all(parent_id: match.last)
+          Decidim::Accountability::Result.where(component: @component, parent_id: match.first).find_each { |result| result.update(parent_id: match.last) }
         end
       end
 
