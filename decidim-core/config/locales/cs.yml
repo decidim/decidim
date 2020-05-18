@@ -648,7 +648,7 @@ cs:
       reached_top: Dosáhli jste nejvyšší úrovně tohoto odznaku.
     group_admins:
       actions:
-        are_you_sure: Jsi si jistá? Neodstraní uživatele ze skupiny.
+        are_you_sure: Jste si jisti? Toto uživatele ze skupiny neodstraní.
         demote_admin: Odstranit admin
       demote:
         error: Při odebrání tohoto uživatele ze seznamu administrátorů došlo k chybě
@@ -677,7 +677,7 @@ cs:
         error: Při přijímání této žádosti o spojení došlo k chybě
         success: Připojit žádost úspěšně přijat
       actions:
-        are_you_sure: Jsi si jistá?
+        are_you_sure: Jste si jisti?
         promote_to_admin: Udělat adminem
         remove_from_group: Odstranit uživatele
       index:
@@ -694,7 +694,7 @@ cs:
         success: Uživatel byl ze skupiny úspěšně odstraněn
     groups:
       actions:
-        are_you_sure: Jsi si jistá?
+        are_you_sure: Jste si jisti?
       create:
         error: Při vytváření skupiny došlo k potížím
         success: Skupina byla úspěšně vytvořena
@@ -1178,7 +1178,7 @@ cs:
     registrations:
       destroyed: Sbohem! Váš účet byl úspěšně zrušen. Doufáme, že vás brzy uvidíme.
       edit:
-        are_you_sure: Jsi si jistá?
+        are_you_sure: Jste si jisti?
         cancel_my_account: Zrušit můj účet
         currently_waiting_confirmation_for_email: 'Aktuálně čeká potvrzení o: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: ponechte prázdné, pokud nechcete změnit
