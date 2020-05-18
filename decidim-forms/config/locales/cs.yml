@@ -67,7 +67,7 @@ cs:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Přihlaste se svým účtem</a> nebo <a href="%{sign_up_link}">zaregistrujte</a> abyste odpověděli na dotazník.
             title: Odpovězte na dotazník
-          are_you_sure: Tato akce nemůže být odvolána a vaše odpovědi nebudete moci upravovat. Jsi si jistá?
+          are_you_sure: Tuto akci nelze vrátit zpět a nebudete moci upravit své odpovědi. Jste si jisti?
           questionnaire_answered:
             body: Již jste odpověděli na tento dotazník.
             title: Již jste odpověděli
