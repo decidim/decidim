@@ -38,7 +38,7 @@ cs:
             creation_enabled: Vytváření debaty účastníky povoleno
     debates:
       actions:
-        confirm_destroy: Jsi si jistá?
+        confirm_destroy: Jste si jisti?
         destroy: Odstranit
         edit: Upravit
         new: Nové %{name}
