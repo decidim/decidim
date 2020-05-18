@@ -23,6 +23,7 @@ module Decidim
           current_user: current_user,
           current_participatory_space: component.participatory_space
         }
+        @matches_ids = []
       end
 
       def import!
@@ -36,7 +37,7 @@ module Decidim
             next if row.empty?
 
             params = set_params_for_import_result_form(row, @component)
-            existing_result = Decidim::Accountability::Result.find_by(id: row["id"]) if row["id"].present?
+            existing_result = Decidim::Accountability::Result.find_by(id: row["id"], component: @component) if row["id"].present?
             @form = form(Decidim::Accountability::Admin::ResultForm).from_params(params, @extra_context)
             params["result"].merge!(parse_date_params(row, "start_date"))
             params["result"].merge!(parse_date_params(row, "end_date"))
@@ -55,12 +56,15 @@ module Decidim
                 end
               end
             end
+
+            @matches_ids << [row["id"], Decidim::Accountability::Result.last.id] if row["id"].present?
           end
 
           raise ActiveRecord::Rollback if errors.any?
 
           Rails.logger.info "Processed: #{i}"
         end
+        update_parents
         remove_invalid_results
 
         errors
@@ -106,6 +110,12 @@ module Decidim
           { "proposal_ids" => proposal_urls.map { |proposal_url| proposal_url.scan(/\d$/).first.to_i } }
         else
           {}
+        end
+      end
+
+      def update_parents
+        @matches_ids.each do |match|
+          Decidim::Accountability::Result.where(component: @component, parent_id: match.first).update_all(parent_id: match.last)
         end
       end
 

@@ -34,7 +34,6 @@ module Decidim
 
         def create_result
           params = {
-            id: @form.id,
             component: @form.current_component,
             scope: @form.scope,
             category: @form.category,
