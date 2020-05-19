@@ -36,6 +36,8 @@ it:
           form:
             add_question: Aggiungi domanda
             already_answered_warning: Alcuni utenti hanno già risposto al questionario, quindi non è possibile modificare le sue domande.
+            collapse: Comprimi tutte le domande
+            expand: Espandi tutte le domande
           matrix_row:
             matrix_row: Riga
             remove: Rimuovere
@@ -44,8 +46,10 @@ it:
             add_answer_option: Aggiungi l'opzione di risposta
             add_matrix_row: Aggiungi riga
             any: Qualunque
+            collapse: Comprimi
             description: Descrizione
             down: Giù
+            expand: Espandi
             question: Domanda
             remove: Rimuovere
             statement: dichiarazione
@@ -58,6 +62,8 @@ it:
           body: Il corpo non può essere vuoto
       question_types:
         long_answer: Risposta lunga
+        matrix_multiple: Matrice (opzione multipla)
+        matrix_single: Matrice (opzione singola)
         multiple_option: Opzione multipla
         short_answer: Risposta breve
         single_option: Opzione singola
