@@ -110,6 +110,12 @@ it:
         initiatives_types: Tipi di iniziativa
     events:
       initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: L'iniziativa "%{resource_title}" è stata inviata alla convalida tecnica. Controlla il <a href="%{admin_initiative_url}">pannello di amministrazione</a>
+            email_outro: Hai ricevuto questa notifica perché sei un amministratore della piattaforma.
+            email_subject: L'iniziativa%{resource_title}" è stata inviata alla convalida tecnica.
+            notification_title: L'iniziativa "%{resource_title}" è stata inviata alla convalida tecnica. Controlla il <a href="%{admin_initiative_path}">pannello di amministrazione</a>
         initiative_extended:
           email_intro: La data di fine delle firme per l'iniziativa %{resource_title} è stata estesa!
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{resource_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
@@ -265,8 +271,11 @@ it:
           back: Indietro
           back_to_initiatives: Torna alle iniziative
           callout_text: Complimenti! La tua iniziativa cittadina è stata creata con successo.
+          confirm: Conferma
+          edit_my_initiative: Modifica le mie iniziative
           go_to_my_initiatives: Vai alle mie iniziative
           more_information: "(Maggiori informazioni)"
+          send_my_initiative: Invia la mia iniziativa
         finish_help:
           access_reminder: Ricorda che sarai sempre in grado di accedere alle tue iniziative attraverso il menu utente.
           help_for_organizations: Se sei un'associazione dovrai caricare i verbali del consiglio di amministrazione di tutte le organizzazioni che formano la Commissione Promotrice
@@ -388,7 +397,10 @@ it:
         show:
           any_vote_method: Questa iniziativa cittadina raccoglie supporto online e faccia a faccia.
           follow_description: Ricevi una notifica quando ci sono novità in questa iniziativa
+          of_versions: "(di %{number})"
           offline_method: Questa iniziativa cittadina raccoglie solo supporti faccia a faccia.
+          see_other_versions: vedi altre versioni
+          version: Versione %{number}
         signature_identities:
           select_identity: Seleziona l'identificativo dell'utente
         signatures_count:
@@ -430,6 +442,20 @@ it:
         accepted: Accettato
         expired: Scaduto
       unavailable_scope: Ambito non disponibile
+      versions:
+        index:
+          number_of_versions: Versioni
+          title: Versioni
+        shared:
+          back_to_initiative: Torna all'iniziativa
+          changes_at_title: Modifiche a "%{title}"
+        show:
+          show_all_versions: Mostra tutte le versioni
+          version_author: Autore della versione
+          version_created_at: Versione creata il
+          version_number_out_of_total: "%{current_version} su %{total_count}"
+        version:
+          version_index: Versione %{index}
     menu:
       initiatives: iniziative
     resources:
