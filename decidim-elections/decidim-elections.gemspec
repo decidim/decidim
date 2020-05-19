@@ -16,7 +16,10 @@ Gem::Specification.new do |s|
   s.summary = "A decidim elections module"
   s.description = "The Elections module adds elections to any participatory space."
 
-  s.files = Dir["{app,config,lib}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,db,lib}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
 
   s.add_dependency "decidim-core", Decidim::Elections.version
+
+  s.add_development_dependency "decidim-admin", Decidim::Elections.version
+  s.add_development_dependency "decidim-dev", Decidim::Elections.version
 end
