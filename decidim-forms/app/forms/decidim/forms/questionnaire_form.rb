@@ -23,6 +23,16 @@ module Decidim
         end
       end
 
+      def responses_by_step
+        @responses_by_step ||= responses.split do |response|
+          response.question.separator?
+        end
+      end
+
+      def total_steps
+        responses_by_step.count
+      end
+
       def session_token_in_context
         return if context&.session_token
 
