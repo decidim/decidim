@@ -37,8 +37,8 @@ describe Decidim::Elections::Admin::CreateElection do
     expect(translated(election.title)).to eq "title"
     expect(translated(election.subtitle)).to eq "subtitle"
     expect(translated(election.description)).to eq "description"
-    expect(election.start_time).to eq start_time
-    expect(election.end_time).to eq end_time
+    expect(election.start_time).to be_within(1.second).of start_time
+    expect(election.end_time).to be_within(1.second).of end_time
   end
 
   it "sets the component" do
