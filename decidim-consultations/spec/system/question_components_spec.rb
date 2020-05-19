@@ -21,7 +21,7 @@ describe "Question", type: :system do
       visit decidim_consultations.decidim_question_proposals_path(question_slug: question.slug, component_id: component)
     end
 
-    it "finds proposal" do
+    it "finds the proposal" do
       expect(page).to have_content translated(proposal.title)
     end
   end
