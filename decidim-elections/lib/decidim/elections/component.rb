@@ -15,15 +15,13 @@ Decidim.register_component(:elections) do |component|
   # These actions permissions can be configured in the admin panel
   # component.actions = %w()
 
-  # component.settings(:global) do |settings|
-  #   # Add your global settings
-  #   # Available types: :integer, :boolean
-  #   # settings.attribute :vote_limit, type: :integer, default: 0
-  # end
+  component.settings(:global) do |settings|
+    settings.attribute :announcement, type: :text, translated: true, editor: true
+  end
 
-  # component.settings(:step) do |settings|
-  #   # Add your settings per step
-  # end
+  component.settings(:step) do |settings|
+    settings.attribute :announcement, type: :text, translated: true, editor: true
+  end
 
   component.register_resource(:election) do |resource|
     resource.model_class_name = "Decidim::Elections::Election"

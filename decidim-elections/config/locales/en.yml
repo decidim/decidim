@@ -19,6 +19,11 @@ en:
     components:
       elections:
         name: Elections
+        settings:
+          global:
+            announcement: Announcement
+          step:
+            announcement: Announcement
     elections:
       actions:
         confirm_destroy: Are you sure?
