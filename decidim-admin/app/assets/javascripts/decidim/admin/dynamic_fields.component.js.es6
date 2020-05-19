@@ -141,7 +141,13 @@
 
       $newField.find("ul.tabs").attr("data-tabs", true);
 
-      $container.find(this.fieldSelector).last().after($newField);
+      const $lastQuestion = $container.find(this.fieldSelector).last()
+      if ($lastQuestion.length > 0) {
+        $lastQuestion.after($newField);
+      } else {
+        $newField.appendTo($container);
+      }
+
       $newField.foundation();
 
       if (this.onAddField) {
