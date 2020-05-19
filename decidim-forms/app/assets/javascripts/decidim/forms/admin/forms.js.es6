@@ -222,9 +222,12 @@
     moveUpFieldButtonSelector: ".move-up-question",
     moveDownFieldButtonSelector: ".move-down-question",
     onAddField: ($field) => {
-      const collapsibleId = $field.find(".collapsible").attr("id").replace("-question-card", "");
-      const toggleAttr = `${collapsibleId}-question-card button--collapse-question-${collapsibleId} button--expand-question-${collapsibleId}`;
-      $field.find(".question--collapse").data("toggle", toggleAttr);
+      const $collapsible = $field.find(".collapsible");
+      if ($collapsible.length > 0) {
+        const collapsibleId = $collapsible.attr("id").replace("-question-card", "");
+        const toggleAttr = `${collapsibleId}-question-card button--collapse-question-${collapsibleId} button--expand-question-${collapsibleId}`;
+        $field.find(".question--collapse").data("toggle", toggleAttr);
+      }
 
       setupInitialQuestionAttributes($field);
       createSortableList();
