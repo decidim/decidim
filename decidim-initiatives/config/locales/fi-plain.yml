@@ -110,6 +110,12 @@ fi-pl:
         initiatives_types: Aloitetyypit
     events:
       initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: Aloite "%{resource_title}" on lähetetty tekniseen tarkastukseen. Tustustu siihen <a href="%{admin_initiative_url}">hallintapaneelin kautta</a>
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet palvelun hallintakäyttäjä.
+            email_subject: Aloitteelle "%{resource_title}" on pyydetty teknistä tarkastusta.
+            notification_title: Aloite "%{resource_title}" on lähetetty tekniseen tarkastukseen. Tustustu siihen <a href="%{admin_initiative_path}">hallintapaneelin kautta</a>
         initiative_extended:
           email_intro: Aloitteen %{resource_title} allekirjoitusten keräämisen aikaa on jatkettu!
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
@@ -265,8 +271,11 @@ fi-pl:
           back: Takaisin
           back_to_initiatives: Takaisin aloitteisiin
           callout_text: Onnittelut! Kansalaisaloitteesi on luotu onnistuneesti.
+          confirm: Vahvista
+          edit_my_initiative: Muokkaa omia aloitteita
           go_to_my_initiatives: Siirry omiin aloitteisiini
           more_information: "(Lisää tietoa)"
+          send_my_initiative: Lähetä aloitteeni
         finish_help:
           access_reminder: Muista, että pääset tarkastelemaan omia aloitteitasi käyttäjävalikon kautta.
           help_for_organizations: Jos olet yhdistyksen jäsen, sinun on lähetettävä johtokunnan pöytäkirjat kaikista organisaatioista, jotka liittyvät muodostettavaan kannatuskomiteaan
@@ -388,7 +397,10 @@ fi-pl:
         show:
           any_vote_method: Tämä kansalaisaloite kerää kannatuksia verkossa ja palvelun ulkopuolella.
           follow_description: Vastaanota ilmoitus, kun tätä aloitetta koskevia uutisia julkaistaan
+          of_versions: "(yhteensä %{number} kpl)"
           offline_method: Tämä kansalaisaloite kerää kannatuksia ainoastaan palvelun ulkopuolella.
+          see_other_versions: näytä muut versiot
+          version: Versio %{number}
         signature_identities:
           select_identity: Valitse käyttäjätunniste
         signatures_count:
@@ -430,6 +442,20 @@ fi-pl:
         accepted: Hyväksytyt
         expired: Vanhentuneet
       unavailable_scope: Teema ei ole saatavilla
+      versions:
+        index:
+          number_of_versions: Versiot
+          title: Versiot
+        shared:
+          back_to_initiative: Takaisin aloitteeseen
+          changes_at_title: Muutokset kohteessa "%{title}"
+        show:
+          show_all_versions: Näytä kaikki versiot
+          version_author: Versio luoja
+          version_created_at: Version luontihetki
+          version_number_out_of_total: "%{current_version} / %{total_count}"
+        version:
+          version_index: Versio %{index}
     menu:
       initiatives: Aloitteet
     resources:
