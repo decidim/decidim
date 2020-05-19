@@ -680,7 +680,7 @@ cs:
           fields:
             category: Kategorie
             comments: Komentáře
-            endorsements: Schválení
+            endorsements: Schvalování
             id: ID
             notes: Poznámky
             official_proposal: Oficiální návrh
@@ -710,9 +710,9 @@ cs:
       proposal_endorsements_helper:
         endorsement_button:
           already_endorsed: Schváleno
-          endorse: Potvrďte
+          endorse: Schválit
         render_endorsements_button_card_part:
-          endorse: Schváleno
+          endorse: Schválit
       proposal_votes:
         create:
           error: Při hlasování o návrhu došlo k chybám.
@@ -742,7 +742,7 @@ cs:
           send: Náhled
           title: Upravit koncept návrhu
         endorsement_identities_cabin:
-          endorse: Schváleno
+          endorse: Schválit
         endorsements_card_row:
           comments: Komentáře
         filters:
