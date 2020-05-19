@@ -388,6 +388,9 @@ fi-pl:
         static_pages: Sivut
         user_groups: Käyttäjäryhmät
         users: Käyttäjät
+      metrics:
+        metrics:
+          see_more_metrics: Näytä lisää tilastomittareita
       models:
         area:
           fields:
@@ -474,6 +477,11 @@ fi-pl:
       newsletter_templates:
         index:
           preview_template: Esikatsele
+          title: Uutiskirjeiden pohjat
+          use_template: Käytä tätä pohjaa
+        show:
+          preview: 'Esikatsele pohjaa: %{template_name}'
+          use_template: Käytä tätä pohjaa
       newsletters:
         create:
           error: Tämän uutiskirjeen luonnissa tapahtui virhe.
@@ -671,6 +679,11 @@ fi-pl:
         update:
           error: Tämän teeman päivityksessä tapahtui virhe.
           success: Teema päivitetty onnistuneesti
+      shared:
+        gallery:
+          add_images: Lisää kuvia
+          delete_image: Poista kuva
+          gallery_legend: Lisää kuvagalleria (valinnainen)
       static_page_topics:
         create:
           error: Uuden aiheen luomisessa tapahtui virhe.
@@ -722,10 +735,12 @@ fi-pl:
         dashboard: Hallintapaneeli
         impersonatable_users: Hallittavat käyttäjät
         impersonations: Käyttäjien hallinta
+        metrics: Tilastomittarit
         participants: Käyttäjät
         scope_types: Teematyypit
         scopes: Teemat
         static_pages: Sivut
+        statistics: Toiminta
         user_groups: Käyttäjäryhmät
         users: Käyttäjät
       user_group:
@@ -774,6 +789,10 @@ fi-pl:
       users_statistics:
         users_count:
           admins: Ylläpitäjät
+          last_day: Viimeinen päivä
+          last_month: Viimeinen kuukausi
+          last_week: Viimeinen viikko
+          no_users_count_statistics_yet: Käyttäjämäärän tilastoja ei vielä ole olemassa
           participants: Osallistujat
       view_public_page: Näytä julkinen sivu
     forms:
