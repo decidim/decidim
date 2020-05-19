@@ -6,7 +6,7 @@
       this.fieldSelector = options.fieldSelector;
       this.addFieldButtonSelector = options.addFieldButtonSelector;
       this.addSeparatorButtonSelector = options.addSeparatorButtonSelector;
-      this.questionTemplateSelector = options.questionTemplateSelector;
+      this.fieldTemplateSelector = options.fieldTemplateSelector;
       this.separatorTemplateSelector = options.separatorTemplateSelector;
       this.removeFieldButtonSelector = options.removeFieldButtonSelector;
       this.moveUpFieldButtonSelector = options.moveUpFieldButtonSelector;
@@ -75,12 +75,14 @@
 
     _bindEvents() {
       $(this.wrapperSelector).on("click", this.addFieldButtonSelector, (event) =>
-        this._bindSafeEvent(event, () => this._addField(this.questionTemplateSelector))
+        this._bindSafeEvent(event, () => this._addField(this.fieldTemplateSelector))
       );
 
-      $(this.wrapperSelector).on("click", this.addSeparatorButtonSelector, (event) =>
-        this._bindSafeEvent(event, () => this._addField(this.separatorTemplateSelector))
-      );
+      if (this.addSeparatorButtonSelector) {
+        $(this.wrapperSelector).on("click", this.addSeparatorButtonSelector, (event) =>
+          this._bindSafeEvent(event, () => this._addField(this.separatorTemplateSelector))
+        );
+      }
 
       $(this.wrapperSelector).on("click", this.removeFieldButtonSelector, (event) =>
         this._bindSafeEvent(event, (target) => this._removeField(target))

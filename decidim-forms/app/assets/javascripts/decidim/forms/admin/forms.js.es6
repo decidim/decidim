@@ -90,6 +90,7 @@
       containerSelector: ".questionnaire-question-answer-options-list",
       fieldSelector: answerOptionFieldSelector,
       addFieldButtonSelector: ".add-answer-option",
+      fieldTemplateSelector: ".decidim-answer-option-template",
       removeFieldButtonSelector: answerOptionRemoveFieldButtonSelector,
       onAddField: () => {
         autoButtons.run();
@@ -111,6 +112,7 @@
       containerSelector: ".questionnaire-question-matrix-rows-list",
       fieldSelector: matrixRowFieldSelector,
       addFieldButtonSelector: addMatrixRowButtonSelector,
+      fieldTemplateSelector: ".decidim-matrix-row-template",
       removeFieldButtonSelector: matrixRowRemoveFieldButtonSelector,
       onAddField: () => {
       },
@@ -216,7 +218,7 @@
     fieldSelector: fieldSelector,
     addFieldButtonSelector: ".add-question",
     addSeparatorButtonSelector: ".add-separator",
-    questionTemplateSelector: ".decidim-question-template",
+    fieldTemplateSelector: ".decidim-question-template",
     separatorTemplateSelector: ".decidim-separator-template",
     removeFieldButtonSelector: ".remove-question",
     moveUpFieldButtonSelector: ".move-up-question",
