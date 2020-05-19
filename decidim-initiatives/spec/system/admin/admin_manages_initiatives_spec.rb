@@ -63,9 +63,8 @@ describe "Admin manages initiatives", type: :system do
 
       context "filtering collection by type: #{i18n_type}" do
         before do
-          Decidim::InitiativesTypeScope.all.each do |type_scope|
-            create(:initiative, organization: organization, scoped_type: type_scope)
-          end
+          create(:initiative, organization: organization, scoped_type: scoped_type1)
+          create(:initiative, organization: organization, scoped_type: scoped_type2)
         end
 
         it_behaves_like "a filtered collection", options: "Type", filter: i18n_type do
