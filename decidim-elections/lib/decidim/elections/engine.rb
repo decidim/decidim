@@ -10,13 +10,13 @@ module Decidim
       isolate_namespace Decidim::Elections
 
       routes do
-        # Add engine routes here
-        # resources :elections
-        # root to: "elections#index"
+        resources :elections, only: [:index, :show]
+
+        root to: "elections#index"
       end
 
       initializer "decidim_elections.assets" do |app|
-        app.config.assets.precompile += %w[decidim_elections_manifest.js decidim_elections_manifest.css]
+        app.config.assets.precompile += %w(decidim_elections_manifest.js decidim_elections_manifest.css)
       end
     end
   end
