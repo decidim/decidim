@@ -57,9 +57,9 @@ en:
       models:
         election:
           fields:
-            title: Title
-            start_time: Starts at
             end_time: End at
+            start_time: Starts at
+            title: Title
     events:
       elections:
         election_created:
