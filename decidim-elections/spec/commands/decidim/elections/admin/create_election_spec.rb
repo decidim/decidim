@@ -63,24 +63,6 @@ describe Decidim::Elections::Admin::CreateElection do
     expect(action_log.version.event).to eq "create"
   end
 
-  describe "events" do
-    let(:space_follower) { create(:user, organization: organization) }
-    let!(:space_follow) { create :follow, followable: participatory_process, user: space_follower }
-
-    it "notifies the change to the participatory space followers" do
-      expect(Decidim::EventsManager)
-        .to receive(:publish)
-        .with(
-          event: "decidim.events.elections.election_created",
-          event_class: Decidim::Elections::CreateElectionEvent,
-          resource: kind_of(Decidim::Elections::Election),
-          followers: [space_follower]
-        )
-
-      subject.call
-    end
-  end
-
   context "when the form is not valid" do
     let(:invalid) { true }
 

@@ -16,10 +16,7 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          transaction do
-            create_election!
-            send_notification
-          end
+          create_election!
 
           broadcast(:ok, election)
         end
@@ -43,15 +40,6 @@ module Decidim
             form.current_user,
             attributes,
             visibility: "all"
-          )
-        end
-
-        def send_notification
-          Decidim::EventsManager.publish(
-            event: "decidim.events.elections.election_created",
-            event_class: Decidim::Elections::CreateElectionEvent,
-            resource: election,
-            followers: election.participatory_space.followers
           )
         end
       end
