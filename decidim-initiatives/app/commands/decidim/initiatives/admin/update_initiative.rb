@@ -82,7 +82,7 @@ module Decidim
 
           if initiative.published?
             @notify_extended = true if form.signature_end_date != initiative.signature_end_date &&
-              form.signature_end_date > initiative.signature_end_date
+                                       form.signature_end_date > initiative.signature_end_date
           end
         end
 

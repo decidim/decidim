@@ -91,7 +91,7 @@ module Decidim
         def area_is_not_removed
           return if context.initiative.decidim_area_id.blank? || context.initiative.created?
 
-          errors.add(:area_id, :blank) unless area_id.present?
+          errors.add(:area_id, :blank) if area_id.blank?
         end
       end
     end
