@@ -24,5 +24,18 @@
       </button>
     <% end %>
     </h2>
+
+    <%=
+      form.hidden_field(
+        :question_type,
+        value: :separator
+      )
+    %>
+    <% if question.persisted? %>
+      <%= form.hidden_field :id, disabled: !editable %>
+    <% end %>
+
+    <%= form.hidden_field :position, value: question.position || 0, disabled: !editable %>
+    <%= form.hidden_field :deleted, disabled: !editable %>
   </div>
 </div>
