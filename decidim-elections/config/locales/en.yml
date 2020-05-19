@@ -4,3 +4,10 @@ en:
     components:
       elections:
         name: Elections
+    events:
+      elections:
+        election_created:
+          email_intro: The election "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
+          email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
+          email_subject: New election added to %{participatory_space_title}
+          notification_title: The election <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
