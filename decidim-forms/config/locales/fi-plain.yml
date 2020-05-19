@@ -36,14 +36,20 @@ fi-pl:
           form:
             add_question: Lisää kysymys
             already_answered_warning: Jotkut käyttäjät ovat jo vastanneet kyselyyn, joten et voi muokata kysymyksiä.
+            collapse: Sulje kaikki kysymykset
+            expand: Avaa kaikki kysymykset
           matrix_row:
+            matrix_row: Rivi
             remove: Poista
             statement: Selite
           question:
             add_answer_option: Lisää vastausvaihtoehto
+            add_matrix_row: Lisää rivi
             any: Minkä tahansa
+            collapse: Sulje
             description: Kuvaus
             down: Alas
+            expand: Avaa
             question: Kysymys
             remove: Poista
             statement: Selite
@@ -56,6 +62,8 @@ fi-pl:
           body: Runkoteksti ei voi olla tyhjä
       question_types:
         long_answer: Pitkä vastaus
+        matrix_multiple: Matriisi (useat valinnat)
+        matrix_single: Matriisi (yksi valinta)
         multiple_option: Useita vaihtoehtoja
         short_answer: Lyhyt vastaus
         single_option: Yksi vaihtoehto
@@ -63,6 +71,7 @@ fi-pl:
       questionnaires:
         answer:
           invalid: Kyselylomakkeeseen vastatessa tapahtui virheitä.
+          max_choices_alert: Liian monta vaihtoehtoa on valittu
           success: Kyselyyn vastattu onnistuneesti.
         question:
           max_choices: 'Valintojen maksimimäärä: %{n}'
