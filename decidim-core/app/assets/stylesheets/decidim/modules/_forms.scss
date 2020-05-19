@@ -1,6 +1,7 @@
 /* Froms foundation overwrites */
 
 $checkboxes-minimum-width: 200px;
+$help-text-margin-top: ($form-spacing * 0.5) * -1;
 
 .input-group-button button{
   height: 2.5rem;
@@ -10,6 +11,7 @@ $checkboxes-minimum-width: 200px;
 .help-text{
   display: block;
   line-height: 1.2;
+  margin: $help-text-margin-top 0 $form-spacing;
 }
 
 .form-input-extra-before,
