@@ -36,7 +36,7 @@ module Decidim
         end
 
         def separator?
-          question_type == "separator"
+          question_type == Decidim::Forms::Question::SEPARATOR_TYPE
         end
 
         private
