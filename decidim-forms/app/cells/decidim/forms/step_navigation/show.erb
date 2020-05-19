@@ -5,7 +5,10 @@
     <%= link_to(
       icon("caret-left", class: "icon--small", role: "img") + " " + t("decidim.forms.step_navigation.show.back"),
       "#",
-      class: "hollow secondary"
+      class: "hollow secondary",
+      data: {
+        toggle: [previous_step_dom_id, current_step_dom_id].join(" ")
+      }
     ) %>
   <% end %>
 
@@ -23,7 +26,10 @@
     <%= link_to(
       t("decidim.forms.step_navigation.show.continue"),
       "#",
-      class: "button button--sc"
+      class: "button button--sc",
+      data: {
+        toggle: [next_step_dom_id, current_step_dom_id].join(" ")
+      }
     ) %>
   <% end %>
 </div>

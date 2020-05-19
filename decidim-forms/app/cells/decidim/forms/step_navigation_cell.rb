@@ -29,6 +29,18 @@ module Decidim
       def button_disabled?
         options[:button_disabled]
       end
+
+      def previous_step_dom_id
+        "step-#{current_step_index - 1}"
+      end
+
+      def next_step_dom_id
+        "step-#{current_step_index + 1}"
+      end
+
+      def current_step_dom_id
+        "step-#{current_step_index}"
+      end
     end
   end
 end
