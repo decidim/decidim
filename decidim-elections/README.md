@@ -1,5 +1,7 @@
 # Decidim::Elections
 
+:warning: This module is under development and is not ready to be used in production.
+
 The Elections module adds elections to any participatory space.
 
 ## Usage
