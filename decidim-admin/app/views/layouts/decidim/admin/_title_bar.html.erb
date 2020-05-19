@@ -10,7 +10,11 @@
   <div class='tool-bar'>
     <% if available_locales.length > 1 %>
     <div class="topbar__dropmenu language-choose">
-        <ul class="dropdown menu" data-dropdown-menu>
+        <ul class="dropdown menu" data-dropdown-menu
+          data-autoclose="false"
+          data-disable-hover="true"
+          data-click-open="true"
+          data-close-on-click="true">
           <li class="is-dropdown-submenu-parent">
             <%= link_to t("name", scope: "locale"), "#" %>
             <ul class="menu is-dropdown-submenu">
@@ -24,7 +28,11 @@
     <% end %>
 
     <div class="user-login">
-      <ul class="dropdown menu" data-dropdown-menu>
+      <ul class="dropdown menu" data-dropdown-menu
+        data-autoclose="false"
+        data-disable-hover="true"
+        data-click-open="true"
+        data-close-on-click="true">
         <li class="is-dropdown-submenu-parent">
           <a href="#"><%= current_user.email %></a>
           <ul class="menu is-dropdown-submenu">
