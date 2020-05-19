@@ -9,15 +9,17 @@ module Decidim
     describe ElectionType, type: :graphql do
       include_context "with a graphql type"
 
-      let(:election) { create(:election) }
+      let(:model) { create(:election) }
 
-      include_examples "traceable interface"
+      it_behaves_like "traceable interface" do
+        let(:author) { create(:user, :admin, organization: model.component.organization) }
+      end
 
       describe "id" do
         let(:query) { "{ id }" }
 
         it "returns all the required fields" do
-          expect(response).to include("id" => election.id.to_s)
+          expect(response).to include("id" => model.id.to_s)
         end
       end
 
@@ -25,7 +27,7 @@ module Decidim
         let(:query) { '{ title { translation(locale: "en")}}' }
 
         it "returns all the required fields" do
-          expect(response["title"]["translation"]).to eq(election.title["en"])
+          expect(response["title"]["translation"]).to eq(model.title["en"])
         end
       end
 
@@ -33,7 +35,7 @@ module Decidim
         let(:query) { '{ subtitle { translation(locale: "en")}}' }
 
         it "returns all the required fields" do
-          expect(response["subtitle"]["translation"]).to eq(election.subtitle["en"])
+          expect(response["subtitle"]["translation"]).to eq(model.subtitle["en"])
         end
       end
 
@@ -41,7 +43,7 @@ module Decidim
         let(:query) { '{ description { translation(locale: "en")}}' }
 
         it "returns all the required fields" do
-          expect(response["description"]["translation"]).to eq(election.description["en"])
+          expect(response["description"]["translation"]).to eq(model.description["en"])
         end
       end
 
@@ -49,7 +51,7 @@ module Decidim
         let(:query) { "{ startTime }" }
 
         it "returns the election's start time" do
-          expect(Time.zone.parse(response["startTime"])).to be_within(1.second).of(election.start_time)
+          expect(Time.zone.parse(response["startTime"])).to be_within(1.second).of(model.start_time)
         end
       end
 
@@ -57,7 +59,7 @@ module Decidim
         let(:query) { "{ endTime }" }
 
         it "returns the election's end time" do
-          expect(Time.zone.parse(response["endTime"])).to be_within(1.second).of(election.end_time)
+          expect(Time.zone.parse(response["endTime"])).to be_within(1.second).of(model.end_time)
         end
       end
     end
