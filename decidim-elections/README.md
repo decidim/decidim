@@ -11,7 +11,7 @@ Elections will be available as a Component for a Participatory Space.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'decidim-elections
+gem "decidim-elections"
 ```
 
 And then execute:
