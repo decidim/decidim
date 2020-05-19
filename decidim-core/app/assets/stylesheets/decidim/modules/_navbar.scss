@@ -386,6 +386,10 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
     color: $medium-gray;
     font-weight: 600;
 
+    @include breakpoint(medium){
+      margin-left: 1rem;
+    }
+
     &:hover{
       text-decoration: underline;
     }
@@ -400,10 +404,20 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
     height: 2px;
     border-left: $border;
     vertical-align: middle;
+
+    @include breakpoint(medium){
+      display: none;
+    }
   }
 
-  a:first-of-type::before{
-    display: none;
+  a:first-of-type{
+    @include breakpoint(medium){
+      margin-left: 0;
+    }
+
+    &::before{
+      display: none;
+    }
   }
 }
 
