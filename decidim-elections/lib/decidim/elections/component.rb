@@ -25,11 +25,13 @@ Decidim.register_component(:elections) do |component|
   #   # Add your settings per step
   # end
 
-  # component.register_resource(:some_resource) do |resource|
-  #   # Register a optional resource that can be references from other resources.
-  #   resource.model_class_name = "Decidim::Elections::SomeResource"
-  #   resource.template = "decidim/elections/some_resources/linked_some_resources"
-  # end
+  component.register_resource(:election) do |resource|
+    resource.model_class_name = "Decidim::Elections::Election"
+  end
+
+  component.register_stat :elections_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, _start_at, _end_at|
+    Decidim::Elections::Election.where(component: components).count
+  end
 
   # component.register_stat :some_stat do |context, start_at, end_at|
   #   # Register some stat number to the application

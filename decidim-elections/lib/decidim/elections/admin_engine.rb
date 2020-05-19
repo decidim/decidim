@@ -10,13 +10,9 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        # Add admin engine routes here
-        # resources :elections do
-        #   collection do
-        #     resources :exports, only: [:create]
-        #   end
-        # end
-        # root to: "elections#index"
+        resources :elections
+
+        root to: "elections#index"
       end
 
       def load_seed
