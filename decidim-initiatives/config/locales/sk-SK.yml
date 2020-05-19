@@ -70,6 +70,10 @@ sk:
       filters:
         search_placeholder:
           title_or_description_cont: Hľadať %{collection} podľa názvu alebo popisu.
+        state_eq:
+          values:
+            accepted: Prijal
+            rejected: Odmietnuté
       menu:
         initiatives: Iniciatívy
         initiatives_types: Typy iniciatív
