@@ -141,7 +141,7 @@
 
       $newField.find("ul.tabs").attr("data-tabs", true);
 
-      $newField.appendTo($container);
+      $container.find(this.fieldSelector).last().after($newField);
       $newField.foundation();
 
       if (this.onAddField) {
