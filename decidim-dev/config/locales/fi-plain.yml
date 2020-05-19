@@ -12,9 +12,17 @@ fi-pl:
     components:
       dummy:
         settings:
+          global:
+            readonly_attribute: Vain luku -attribuutti
+            test: Testi
+            test_choices:
+              a: A-valinta
+              b: B-valinta
+              c: C-valinta
           step:
             endorsements_blocked: Suositukset estetty
             endorsements_enabled: Suositukset käytössä
+            readonly_step_attribute: Vain luku -attribuutti vaiheelle
     dummy:
       admin:
         exports:
