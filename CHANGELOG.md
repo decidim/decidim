@@ -14,6 +14,7 @@ The use case that originated this change is the persistence of the user's gender
 
 ### Added
 
+- **decidim-api**: Use organization time zone [\#6112](https://github.com/decidim/decidim/pull/6112)
 - **decidim-initiatives**: Ignore new "extras" key when checking authorization/variation metadata [\#6097](https://github.com/decidim/decidim/pull/6097)
 
 ### Changed
