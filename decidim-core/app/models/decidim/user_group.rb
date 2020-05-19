@@ -112,6 +112,11 @@ module Decidim
       true
     end
 
+    def unread_conversations_count_for(user)
+      @unread_conversations_count_for ||= {}
+      @unread_conversations_count_for[user.id] ||= Decidim::Messaging::Conversation.user_collection(self).unread_by(user).count
+    end
+
     private
 
     # Private: Checks if the state user group is correct.

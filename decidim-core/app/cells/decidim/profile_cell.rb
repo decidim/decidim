@@ -43,12 +43,14 @@ module Decidim
     end
 
     def unread_count
-      @unread_count ||= Decidim::Messaging::Receipt.unread_count(current_user)
+      return profile_holder.unread_conversations_count_for(current_user) if profile_holder.is_a?(Decidim::UserGroup)
+
+      current_user.unread_conversations_count
     end
 
     def label_conversations
       label = I18n.t("decidim.profiles.show.conversations")
-      label = "#{label} <span class=\"badge\">#{unread_count}</span>" if unread_count
+      label = "#{label} <span class=\"badge\">#{unread_count}</span>" if unread_count.positive?
       label
     end
   end

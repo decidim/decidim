@@ -11,7 +11,7 @@ module Decidim
 
       before_action :authenticate_user!
 
-      helper_method :conversation, :user_grouped_messages, :sender_is_user?
+      helper_method :conversation, :user_grouped_messages, :sender_is_user?, :user_groups
 
       # Shows the form to initiate a conversation with an user (the recipient)
       # recipient is passed via GET parameter:
@@ -90,6 +90,12 @@ module Decidim
       end
 
       private
+
+      def user_groups
+        return [] unless current_organization.user_groups_enabled?
+
+        current_user.manageable_user_groups
+      end
 
       def conversation
         @conversation ||= Conversation.find(params[:id])
