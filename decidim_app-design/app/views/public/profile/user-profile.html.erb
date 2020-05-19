@@ -24,6 +24,7 @@
         <li class="tabs-title"><a href="#conversations" title="Conversations">Conversations</a></li>
         <!-- To make it work an invisible tab, do not display here, but in content section -->
         <li class="tabs-title" style="display:none"><a href="#conversation"></a></li>
+        <li class="tabs-title" style="display:none"><a href="#conversation-multiuser"></a></li>
         <li class="tabs-title"><a href="#following" title="Following">Following</a></li>
         <li class="tabs-title"><a href="#follower" title="Followers">Followers</a></li>
         <li class="tabs-title"><a href="#badges" title="Badges">Badges</a></li>
@@ -47,6 +48,9 @@
         </div>
         <div class="tabs-panel" id="conversation">
           <%= render partial: page_path("profile") + "/conversation" %>
+        </div>
+        <div class="tabs-panel" id="conversation-multiuser">
+          <%= render partial: page_path("profile") + "/conversation-multiuser" %>
         </div>
         <div class="tabs-panel" id="following">
           <%= render partial: page_path("profile") + "/following" %>
