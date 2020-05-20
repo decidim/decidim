@@ -24,8 +24,12 @@ module Decidim
 
       has_many :receipts, through: :messages
 
+      scope :unread_messages_by, lambda { |user|
+        joins(:receipts).merge(Receipt.unread_by(user))
+      }
+
       scope :unread_by, lambda { |user|
-        joins(:receipts).merge(Receipt.unread_by(user)).distinct
+        unread_messages_by(user).distinct
       }
 
       default_scope { order(updated_at: :desc) }

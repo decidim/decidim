@@ -143,8 +143,8 @@ module Decidim
       Decidim::Messaging::Conversation.unread_by(self)
     end
 
-    def unread_conversations_count
-      @unread_conversations_count ||= Decidim::Messaging::Receipt.unread_count(self)
+    def unread_messages_count
+      @unread_messages_count ||= Decidim::Messaging::Receipt.unread_count(self)
     end
 
     # Check if the user exists with the given email and the current organization

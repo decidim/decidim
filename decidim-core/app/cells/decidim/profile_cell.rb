@@ -43,9 +43,9 @@ module Decidim
     end
 
     def unread_count
-      return profile_holder.unread_conversations_count_for(current_user) if profile_holder.is_a?(Decidim::UserGroup)
+      return profile_holder.unread_messages_count_for(current_user) if profile_holder.is_a?(Decidim::UserGroup)
 
-      current_user.unread_conversations_count
+      current_user.unread_messages_count
     end
 
     def label_conversations

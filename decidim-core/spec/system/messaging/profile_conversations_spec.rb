@@ -28,7 +28,7 @@ describe "ProfileConversations", type: :system do
   end
 
   context "when profile has no conversations" do
-    before { visit_inbox }
+    before { visit_profile_inbox }
 
     it "shows a notice informing about that" do
       expect(page).to have_content("There are no conversations yet")
@@ -114,7 +114,7 @@ describe "ProfileConversations", type: :system do
     end
 
     it "shows profile's conversation list" do
-      visit_inbox
+      visit_profile_inbox
 
       within "#conversations" do
         expect(page).to have_selector(".card.card--widget", text: /#{interlocutor.name}/i)
@@ -124,7 +124,7 @@ describe "ProfileConversations", type: :system do
     end
 
     it "allows entering a conversation" do
-      visit_inbox
+      visit_profile_inbox
       click_link "conversation-#{conversation.id}"
 
       expect(page).to have_content("Conversation with #{interlocutor.name}")
@@ -135,7 +135,7 @@ describe "ProfileConversations", type: :system do
       before do
         conversation.add_message!(sender: interlocutor, body: "I want one")
 
-        visit_inbox
+        visit_profile_inbox
       end
 
       it "shows the topbar button as active" do
@@ -155,10 +155,43 @@ describe "ProfileConversations", type: :system do
       end
     end
 
+    context "and there are several conversations" do
+      let!(:conversation2) do
+        Decidim::Messaging::Conversation.start!(
+          originator: profile,
+          interlocutors: [extra_user],
+          body: "who wants apples?"
+        )
+      end
+
+      before do
+        conversation.add_message!(sender: interlocutor, body: "I want one")
+
+        visit_profile_inbox
+      end
+
+      it "shows the topbar button the number of unread messages" do
+        within "#profile-tabs li.is-active a" do
+          expect(page).to have_selector(".badge", text: "3")
+        end
+      end
+
+      it "shows the number of unread messages per conversation" do
+        expect(page).to have_selector(".card.card--widget .unread_message__counter", text: "2")
+        expect(page).to have_selector(".card.card--widget .unread_message__counter", text: "1")
+      end
+    end
+
     context "and they are read" do
       before do
         visit decidim.profile_conversation_path(nickname: profile.nickname, id: conversation.id)
-        visit_inbox
+        visit_profile_inbox
+      end
+
+      it "does not show the topbar button the number of unread messages" do
+        within "#profile-tabs li.is-active a" do
+          expect(page).to have_no_selector(".badge")
+        end
       end
 
       it "does not show an unread count" do
@@ -168,7 +201,7 @@ describe "ProfileConversations", type: :system do
 
     context "when a message is sent" do
       before do
-        visit_inbox
+        visit_profile_inbox
         click_link "conversation-#{conversation.id}"
         expect(page).to have_content("Send")
         fill_in "message_body", with: "Please reply!"
@@ -207,7 +240,7 @@ describe "ProfileConversations", type: :system do
 
       context "and interlocutor does not follow profile" do
         before do
-          visit_inbox
+          visit_profile_inbox
           click_link "conversation-#{conversation.id}"
         end
 
@@ -225,7 +258,7 @@ describe "ProfileConversations", type: :system do
         let!(:follow) { create :follow, user: interlocutor, followable: profile }
 
         before do
-          visit_inbox
+          visit_profile_inbox
           click_link "conversation-#{conversation.id}"
         end
 
@@ -248,7 +281,7 @@ describe "ProfileConversations", type: :system do
         let!(:interlocutor2) { create(:user, :confirmed, organization: organization, direct_message_types: "followed-only") }
 
         it "can't be selected on the mentioned list", :slow do
-          visit_inbox
+          visit_profile_inbox
           expect(page).to have_content("New conversation")
           click_button "New conversation"
           expect(page).to have_selector(".js-multiple-mentions")
@@ -267,11 +300,19 @@ describe "ProfileConversations", type: :system do
     click_button "Send"
   end
 
-  def visit_inbox
+  def visit_profile_inbox
     visit decidim.profile_path(nickname: profile.nickname)
 
     within "#profile-tabs" do
       click_link "Conversations"
+    end
+  end
+
+  def visit_inbox
+    visit decidim.root_path
+
+    within ".topbar__user__logged" do
+      find(".icon--envelope-closed").click
     end
   end
 end

@@ -38,9 +38,9 @@
               <div class="card--list__item">
                 <%= link_to decidim.profile_conversations_path(nickname: group.nickname), class: "card--list__author" do %>
                   <%= cell("decidim/user_profile", group).unlinked_user_data.html_safe %>
-                  <% if group.unread_conversations_count_for(current_user).positive? %>
+                  <% if group.unread_messages_count_for(current_user).positive? %>
                     <span class="card--list__counter">
-                      <span><%= group.unread_conversations_count_for(current_user) %></span>
+                      <span><%= group.unread_messages_count_for(current_user) %></span>
                     </span>
                   <% end %>
                 <% end %>
