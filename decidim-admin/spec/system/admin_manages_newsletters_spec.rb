@@ -155,6 +155,7 @@ describe "Admin manages newsletters", type: :system do
     let!(:assembly) { create(:assembly, organization: organization) }
     let!(:conference) { create(:conference, organization: organization) }
     let!(:consultation) { create(:consultation, organization: organization) }
+    let(:question) { create(:question, :published, consultation: consultation) }
     let!(:initiative) { create(:initiative, organization: organization) }
     let!(:newsletter) { create(:newsletter, organization: organization) }
     let(:spaces) { [participatory_process, assembly, conference, consultation, initiative] }
