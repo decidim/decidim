@@ -18,11 +18,11 @@ module Decidim
         list_public_initiatives?
         read_public_initiative?
         search_initiative_types_and_scopes?
+        request_membership?
 
         return permission_action unless user
 
         create_initiative?
-        request_membership?
 
         vote_initiative?
         sign_initiative?
@@ -78,16 +78,28 @@ module Decidim
         return unless permission_action.subject == :initiative &&
                       permission_action.action == :request_membership
 
-        can_request = !initiative.published? &&
-                      initiative.promoting_committee_enabled? &&
-                      !initiative.has_authorship?(user) &&
-                      (
-                        Decidim::Initiatives.do_not_require_authorization ||
-                        UserAuthorizations.for(user).any? ||
-                        Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?
-                      )
+        toggle_allow(can_request_membership?)
+      end
 
-        toggle_allow(can_request)
+      def can_request_membership?
+        return access_request_without_user? if user.blank?
+
+        access_request_membership?
+      end
+
+      def access_request_without_user?
+        !initiative.published? && initiative.promoting_committee_enabled? || Decidim::Initiatives.do_not_require_authorization
+      end
+
+      def access_request_membership?
+        !initiative.published? &&
+          initiative.promoting_committee_enabled? &&
+          !initiative.has_authorship?(user) &&
+          (
+            Decidim::Initiatives.do_not_require_authorization ||
+            UserAuthorizations.for(user).any? ||
+            Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?
+          )
       end
 
       def has_initiatives?
