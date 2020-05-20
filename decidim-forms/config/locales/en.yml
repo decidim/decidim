@@ -33,7 +33,7 @@ en:
             statement: Statement
           edit:
             save: Save
-            title: Title
+            title: Edit questionnaire
           form:
             add_question: Add question
             add_separator: Add separator
