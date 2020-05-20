@@ -5,11 +5,20 @@
     <h2 class="card-title">
     <span>
       <% if editable %>
-        <%== "#{icon("move")} #{t(".question")}" %>
-      <% else %>
-        <%= t(".question") %>
+        <%== icon("move") %>
       <% end %>
+      <%= dynamic_title(translated_attribute(question.body), class: "question-title-statement", max_length: 50, omission: "...", placeholder: t(".question")) %>
     </span>
+
+    <button type="button" class="button small secondary button--title question--collapse" data-toggle="<%= id %>-question-card button--collapse-question-<%= id %> button--expand-question-<%= id %>">
+      <span id="button--collapse-question-<%= id %>" data-toggler=".hide" class="icon-collapse hide">
+        <%== icon("caret-top", aria_label: t(".collapse"), role: "img") %>
+      </span>
+
+      <span id="button--expand-question-<%= id %>" data-toggler=".hide" class="icon-expand">
+        <%== icon("caret-bottom", aria_label: t(".expand"), role: "img") %>
+      </span>
+    </button>
 
     <% if editable %>
       <button class="button small alert hollow move-up-question button--title">
@@ -27,7 +36,7 @@
     </h2>
   </div>
 
-  <div class="card-section">
+  <div class="card-section collapsible hide" data-toggler=".hide" id="<%= id %>-question-card">
     <div class="row column">
       <%=
         form.translated(
