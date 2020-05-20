@@ -201,7 +201,6 @@ is-IS:
           fields:
             category: Flokkur
             comments: Athugasemdir
-            endorsements: Áritanir
             id: Auðkenni
             notes: Skýringar
             official_proposal: Opinber tillaga
@@ -217,6 +216,8 @@ is-IS:
       proposal_endorsements_helper:
         endorsement_button:
           already_endorsed: Samþykkt
+          endorse: Styðja
+        render_endorsements_button_card_part:
           endorse: Styðja
       proposals:
         compare:
@@ -237,6 +238,8 @@ is-IS:
           title: Breyta tillögu drög
         endorsement_identities_cabin:
           endorse: Styðja
+        endorsements_card_row:
+          comments: Athugasemdir
         filters:
           category: Flokkur
           origin: Uppruni

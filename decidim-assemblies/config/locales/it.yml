@@ -79,6 +79,7 @@ it:
     admin:
       actions:
         new_assembly: Nuova assemblea
+        new_assembly_type: Nuovo tipo di assemblea
       assemblies:
         create:
           error: Si è verificato un errore durante la creazione di una nuova assemblea.
@@ -101,8 +102,17 @@ it:
           error: Si è verificato un errore durante la duplicazione di questa assemblea.
           success: L'assemblea è stata duplicata con successo.
       assemblies_types:
+        create:
+          error: Si è verificato un errore durante la creazione di un nuovo tipo di assemblea.
+          success: Tipo di Assemblea creato con successo.
+        destroy:
+          success: Tipo di Assemblea eliminato correttamente.
         new:
           create: Crea
+          title: Nuovo tipo di assemblea
+        update:
+          error: Si è verificato un errore durante l'aggiornamento di questo tipo di assemblea.
+          success: Tipo di Assemblea aggiornato correttamente.
       assembly_copies:
         new:
           copy: Copia
@@ -162,6 +172,7 @@ it:
           info: Informazioni
           moderations: Moderazione
           private_users: Utenti privati
+        assemblies_types: Tipi di assemblea
       models:
         assemblies_types:
           fields:
@@ -197,6 +208,7 @@ it:
             admin: Amministratore
             collaborator: Collaboratore
             moderator: Moderatore
+            valuator: Valutatore
       titles:
         assemblies: assemblee
         assemblies_types: Tipo di assemblea

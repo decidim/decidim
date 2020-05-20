@@ -2,7 +2,7 @@ it:
   activemodel:
     attributes:
       dummy_resource:
-        created_at: Creato a
+        created_at: Creato il
         field: Il mio campo
         start_date: Data d'inizio
         title: Titolo

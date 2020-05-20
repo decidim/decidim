@@ -344,7 +344,7 @@ fi:
         title: Viimeisin tapahtuma
         view_all: Näytä kaikki
       metrics:
-        name: Organisaation mittarit
+        name: Organisaation tilastomittarit
       stats:
         name: Organisaation tilastot
       sub_hero:
@@ -404,7 +404,7 @@ fi:
             <p>Hei, oletko varma, että et halua saada uutiskirjeitä?<br>
             Ole hyvä ja harkitse uudelleen uutiskirjeiden tilausta.<br>
             Meille on erittäin tärkeää, että voit vastaanottaa silloin tällöin ​​sähköposteja tärkeistä tiedoteluontoisista asioista. Voit aina muuttaa mieltäsi ja estää uutiskirjeet käyttäjäprofiilisi ilmoitusasetusten kautta.</p>
-            <p>Jos et hyväksy uutiskirjeiden vastaanottoa, voit jäädä paitsi olennaisesta tiedosta palvelun uusista osallisuusmahdollisuuksista.<br>
+            <p>Jos et hyväksy uutiskirjeiden vastaanottoa, voit jäädä paitsi olennaisesta tiedosta palvelun uusista osallistumismahdollisuuksista.<br>
             Mikäli silti haluat estää uutiskirjeiden vastaanottamisen, ymmärrämme täysin päätöksesi.</p>
             <p>Kiitos, että jaksoit lukea tämän ilmoituksen!</p>
           title: Uutiskirjeitä koskeva ilmoitus
@@ -717,7 +717,7 @@ fi:
     help:
       main_topic:
         default_page:
-          content: "<p>Palvelussa %{organization} voit osallistua ja päättää eri aiheista ylävalikossa näkyvien osallisuustilojen kautta: prosessit, ryhmät, aloitteet ja kuulemiset.</p> <p>Jokaisessa tilassa voit osallistua: tehdä ehdotuksia - itsenäisesti tai muiden ihmisten kanssa, osallistua keskusteluihin, priorisoida toteutettavia hankkeita sekä osallistua tapaamisiin ja muihin toimiin.</p>\n"
+          content: "<p>Palvelussa %{organization} voit osallistua ja päättää eri aiheista ylävalikossa näkyvien osallistumistilojen kautta: prosessit, ryhmät, aloitteet ja kuulemiset.</p> <p>Jokaisessa tilassa voit osallistua: tehdä ehdotuksia - itsenäisesti tai muiden ihmisten kanssa, osallistua keskusteluihin, priorisoida toteutettavia hankkeita sekä osallistua tapaamisiin ja muihin toimiin.</p>\n"
           title: Mitä voin tehdä palvelussa %{organization}?
         description: Lue lisää palvelusta %{organization}
         title: Yleisiä ohjeita
@@ -786,7 +786,7 @@ fi:
       download:
         csv: Lataa tiedot (csv)
       followers:
-        description: Tätä osallisuustilaa seuraavien käyttäjien määrä
+        description: Tätä osallistumistilaa seuraavien käyttäjien määrä
         object: seuraajat
         title: Seuraajat
       participants:
@@ -862,7 +862,7 @@ fi:
           proposals_explanation: Tee ehdotuksia, tue muiden tekemiä ehdotuksia ja edistä muutoksia, joita haluat nähdä.
         footer_sub_hero:
           footer_sub_hero_body: Rakennetaan avoimempi, läpinäkyvämpi ja yhteisöllisempi yhteiskunta.<br /> Liity, osallistu ja päätä.
-          footer_sub_hero_headline: Tervetuloa yhteisölliseen osallisuuspalveluun %{organization}.
+          footer_sub_hero_headline: Tervetuloa yhteisölliseen osallistumispalveluun %{organization}.
           register: Rekisteröidy
         hero:
           participate: Osallistu
@@ -899,7 +899,7 @@ fi:
       participatory_space:
         metrics:
           headline: Osallistuminen lukuina
-          link: Näytä kaikki tilastot
+          link: Näytä kaikki tilastomittarit
       terms_and_conditions:
         accept:
           error: Ehtojen hyväksyminen epäonnistui.
@@ -1119,7 +1119,7 @@ fi:
       invite_collaborator:
         subject: Sinut on kutsuttu osallistumaan organisaatioon %{organization}
       invite_private_user:
-        subject: Sinut on kutsuttu yksityiseen osallisuusprosessiin organisaatiossa %{organization}
+        subject: Sinut on kutsuttu yksityiseen osallistumisprosessiin organisaatiossa %{organization}
       organization_admin_invitation_instructions:
         subject: Sinut on kutsuttu hallitsemaan organisaatiota %{organization}
       password_change:

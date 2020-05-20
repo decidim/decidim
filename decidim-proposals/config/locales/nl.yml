@@ -635,7 +635,7 @@ nl:
           already_endorsed: Aanbevolen
           endorse: Aanbevelen
         render_endorsements_button_card_part:
-          endorse: Onderschrijven
+          endorse: Aanbevelen
       proposal_votes:
         create:
           error: Er zijn fouten geweest bij het stemmen van het voorstel.
@@ -665,7 +665,7 @@ nl:
         endorsement_identities_cabin:
           endorse: Aanbevelen
         endorsements_card_row:
-          comments: Commentaren
+          comments: Reacties
         filters:
           activity: Mijn activiteit
           all: Alle

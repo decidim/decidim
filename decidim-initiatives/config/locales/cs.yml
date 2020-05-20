@@ -171,7 +171,7 @@ cs:
         committee_requests:
           index:
             approve: Schvalovat
-            confirm_revoke: Jsi si jist?
+            confirm_revoke: Jste si jisti?
             invite_to_committee_help: Sdílejte tento odkaz, abyste mohli pozvat ostatní uživatele do propagačního výboru
             no_members_yet: V komisi promotérů nejsou žádní členové
             revoke: Zrušit
@@ -182,7 +182,7 @@ cs:
         initiatives:
           edit:
             accept: Přijmout iniciativu
-            confirm: Jsi si jistá?
+            confirm: Jste si jisti?
             discard: Zrušit iniciativu
             export_pdf_signatures: Export PDF podpisů
             export_votes: Podpora exportu
@@ -209,7 +209,7 @@ cs:
             success: Rozsah byl úspěšně odstraněn
           edit:
             back: Zpět
-            confirm_destroy: Jsi si jist?
+            confirm_destroy: Jste si jisti?
             destroy: Odstranit
             title: Upravit rozsah typu iniciativy
             update: Aktualizovat
@@ -227,7 +227,7 @@ cs:
           destroy:
             success: Typ iniciativy byl úspěšně odstraněn
           edit:
-            confirm_destroy: Jste si jist?
+            confirm_destroy: Jste si jisti?
             destroy: Odstranit
             update: Aktualizovat
           form:

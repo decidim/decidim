@@ -669,7 +669,7 @@ hu:
           fields:
             category: Kategória
             comments: Hozzászólások
-            endorsements: Jóváhagyások
+            endorsements: Elismerések
             id: ID
             notes: Jegyzetek
             official_proposal: Hivatalos javaslat
@@ -699,9 +699,9 @@ hu:
       proposal_endorsements_helper:
         endorsement_button:
           already_endorsed: Jóváhagyva
-          endorse: Jóváhagy
+          endorse: Támogatás
         render_endorsements_button_card_part:
-          endorse: Jóváhagy
+          endorse: Támogatás
       proposal_votes:
         create:
           error: Hiba történt a javaslatra való szavazás során.
@@ -729,7 +729,7 @@ hu:
           send: Előnézet
           title: Javaslat vázlatok szerkesztése
         endorsement_identities_cabin:
-          endorse: Jóváhagy
+          endorse: Támogatás
         endorsements_card_row:
           comments: Hozzászólások
         filters:

@@ -40,7 +40,7 @@ pl:
       actions:
         confirm_destroy: Jesteś pewny?
         destroy: Kasować
-        edit: Edytować
+        edit: Edytuj
         new: Nowy %{name}
         title: działania
       admin:

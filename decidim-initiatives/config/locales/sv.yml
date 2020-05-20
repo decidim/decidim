@@ -255,7 +255,7 @@ sv:
           success: Din förfrågan har skickats till författaren av initiativet.
       content_blocks:
         highlighted_initiatives:
-          name: Annonserade initiativ
+          name: Viktiga initiativ
       create_initiative:
         fill_data:
           back: Tillbaka
@@ -429,7 +429,7 @@ sv:
       pages:
         home:
           highlighted_initiatives:
-            active_initiatives: Aktiva initiativ
+            active_initiatives: Pågående initiativ
             see_all_initiatives: Visa alla initiativ
       states:
         accepted: Godkända

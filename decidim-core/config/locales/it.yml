@@ -5,7 +5,7 @@ it:
         delete_reason: Motivo per il quale vuoi eliminare il tuo account
       group:
         about: Dettagli
-        avatar: Immagine di profilo
+        avatar: Immagine del profilo
         document_number: Numero del documento
         email: Email
         name: Nome
@@ -583,6 +583,7 @@ it:
       create:
         button: Segui
         error: C'è stato un errore seguendo questa risorsa.
+        participatory_space: Stai già seguendo lo spazio partecipativo
       destroy:
         button: Smetti di seguire
         error: Si è verificato un errore ad smettere questa risorsa.

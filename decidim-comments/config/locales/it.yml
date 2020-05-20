@@ -69,7 +69,10 @@ it:
       comments:
         blocked_comments_for_user_warning: Non sei in grado di commentare in questo momento, ma puoi leggere quelli precedenti.
         blocked_comments_warning: I commenti sono disabilitati in questo momento, ma puoi leggere quelli precedenti.
+        comment_details_title: Dettagli commento
         loading: Sto caricando i commenti ...
+        single_comment_warning: Puoi controllare il resto dei commenti <a href="%{url}">qui</a>.
+        single_comment_warning_title: Stai vedendo un singolo commento
         title: "%{count} commenti"
     events:
       comments:

@@ -21,7 +21,7 @@ it:
         confirm_destroy: Sei certo di voler cancellare questo progetto?
         destroy: Cancella
         edit: Modifica
-        import: Importa proposte per progetti
+        import: Importa proposte nei progetti
         new: Nuovo progetto
         preview: Anteprima
         title: Azioni
