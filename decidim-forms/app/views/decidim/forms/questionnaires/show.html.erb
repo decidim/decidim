@@ -46,9 +46,11 @@
                   <% cleaned_answer_idx = 0 %>
                   <% @form.responses_by_step.each_with_index do |step_answers, step_index| %>
                     <div id="step-<%= step_index %>" class="<%= step_index.zero? ? "questionnaire-step" : "questionnaire-step hide" %>" data-toggler=".hide">
-                      <h4 class="section-heading">
-                        <%= t(".current_step", step: step_index + 1) %> <span class="answer-questionnaire__steps"><%= t(".of_total_steps", total_steps: @form.total_steps) %></span>
-                      </h4>
+                      <% if @form.total_steps > 1 %>
+                        <h4 class="section-heading">
+                          <%= t(".current_step", step: step_index + 1) %> <span class="answer-questionnaire__steps"><%= t(".of_total_steps", total_steps: @form.total_steps) %></span>
+                        </h4>
+                      <% end %>
 
                       <% step_answers.each do |answer| %>
                         <div class="row column answer" data-max-choices="<%= answer.question.max_choices %>">

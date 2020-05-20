@@ -48,6 +48,9 @@ shared_examples_for "has questionnaire" do
     end
 
     context "with multiple steps" do
+      let!(:separator) { create(:questionnaire_question, questionnaire: questionnaire, position: 1, question_type: :separator) }
+      let!(:question2) { create(:questionnaire_question, questionnaire: questionnaire, position: 2) }
+
       before do
         visit questionnaire_public_path
       end
@@ -67,10 +70,10 @@ shared_examples_for "has questionnaire" do
       it "allows revisiting previously-answered questionnaires with my answers" do
         answer_first_questionnaire
 
-        click_button "Back"
+        click_link "Back"
 
         expect(page).to have_content("STEP 1 OF 2")
-        expect(page).to have_content("My first answer")
+        expect(page).to have_field("questionnaire_answers_0", with: "My first answer")
       end
 
       it "finishes the submission when answering the last questionnaire" do
@@ -93,7 +96,7 @@ shared_examples_for "has questionnaire" do
 
         fill_in question.body["en"], with: "My first answer"
         within ".answer-questionnaire__submit" do
-          click_button "Continue"
+          click_link "Continue"
         end
         expect(page).to have_content("STEP 2 OF 2")
       end
