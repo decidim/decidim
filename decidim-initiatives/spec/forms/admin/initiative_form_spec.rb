@@ -63,7 +63,7 @@ module Decidim
               it { is_expected.to eq(true) }
             end
 
-            context "and current_user is not addmin" do
+            context "and current_user is not admin" do
               it { is_expected.to eq(false) }
             end
           end
