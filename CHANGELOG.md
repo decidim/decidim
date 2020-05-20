@@ -18,6 +18,7 @@
 
 **Fixed**:
 
+- **decidim-consultations**: Backport fix permissions in order to make components inside of questions accessible. [\#6079](https://github.com/decidim/decidim/pull/6079)
 - **decidim-core**: Backport change to geocoder dependency in order to solve conflicts with the newest versions. [#5691](https://github.com/decidim/decidim/pull/5691)
 - **decidim-core**: Fix dynamic controller extensions (undefined method `current_user`) [#5475](https://github.com/decidim/decidim/pull/5475)
 - **decidim-consultations**: Fix: current_participatory_space raises error in ConsultationsController.[\#5517](https://github.com/decidim/decidim/pull/5517)
