@@ -8,7 +8,8 @@
   </div>
 </div>
 
-<% if defined? display_next_previous_button && defined? authorized_vote_modal_button %>
+<%# Check if controller is question_controller %>
+<% if defined? display_next_previous_button %>
   <div class="row column question-vote-cabin">
     <div class="columns mediumlarge-4 show-for-mediumlarge previous-question">
       <%= display_next_previous_button(:previous, "float-left") %>
