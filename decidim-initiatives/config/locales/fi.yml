@@ -488,7 +488,7 @@ fi:
         fill_personal_data: Täydennä tietosi
         finish: Viimeistele
         finished: Allekirjoitus luotu aloitteelle
-        see_steps: katso vaiheet
+        see_steps: näytä vaiheet
         select_identity: Valitse identiteetti
         sms_code: Tekstiviestikoodin vahvistaminen
         sms_phone_number: Matkapuhelimen numero
