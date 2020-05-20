@@ -99,6 +99,12 @@ module Decidim
 
         send("#{tag}_to", "", html_options, &block)
       end
+
+      def can_edit_custom_signature_end_date?(initiative)
+        return false unless initiative.custom_signature_end_date_enabled?
+
+        initiative.created? || initiative.validating?
+      end
     end
   end
 end
