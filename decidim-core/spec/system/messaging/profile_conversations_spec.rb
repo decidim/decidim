@@ -180,6 +180,12 @@ describe "ProfileConversations", type: :system do
         expect(page).to have_selector(".card.card--widget .unread_message__counter", text: "2")
         expect(page).to have_selector(".card.card--widget .unread_message__counter", text: "1")
       end
+
+      it "shows the number of unread messages in the conversation page" do
+        visit_inbox
+
+        expect(page).to have_selector(".user-groups .card--list__author .card--list__counter", text: "3")
+      end
     end
 
     context "and they are read" do
@@ -196,6 +202,12 @@ describe "ProfileConversations", type: :system do
 
       it "does not show an unread count" do
         expect(page).to have_no_selector(".card.card--widget .unread_message__counter")
+      end
+
+      it "conversation page does not show the number of unread messages" do
+        visit_inbox
+
+        expect(page).to have_no_selector(".user-groups .card--list__author .card--list__counter")
       end
     end
 
