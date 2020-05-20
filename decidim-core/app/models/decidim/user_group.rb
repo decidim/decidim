@@ -107,7 +107,10 @@ module Decidim
       accepted_memberships.map(&:user)
     end
 
-    # Accepts conversation if all their users accepts a conversation?
+    # Currently, groups always accept conversations from anyone.
+    # This may change in the future in case the desired behaviour
+    # is to check if all (or any) of the administrators accepts conversations
+    # or there's simply and option for this in the group preferences.
     def accepts_conversation?(_user)
       true
     end

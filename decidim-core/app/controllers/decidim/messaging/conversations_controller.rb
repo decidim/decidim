@@ -111,6 +111,9 @@ module Decidim
         end
       end
 
+      # allows to group all consecutive messages from the same sender
+      # so certain parameters can be displayed only once (such as the
+      # name of the sender)
       def user_grouped_messages
         conversation.messages.includes(:sender).chunk(&:sender)
       end
