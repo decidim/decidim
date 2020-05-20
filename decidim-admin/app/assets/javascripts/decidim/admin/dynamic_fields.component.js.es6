@@ -117,7 +117,7 @@
     //
     // template - A String matching the type of the template. Expected to be
     //  either ".decidim-question-template" or ".decidim-separator-template".
-    _addField(template) {
+    _addField(templateClass = ".decidim-template") {
       const $wrapper = $(this.wrapperSelector);
       const $container = $wrapper.find(this.containerSelector);
 
@@ -136,7 +136,7 @@
         // `<template>`. The `<template> tags are parsed in IE11 along with the
         // DOM which may cause the form elements inside them to break the forms
         // as they are submitted with them.
-        $template = $wrapper.children(`template, ${template}`);
+        $template = $wrapper.children(`template, ${templateClass}`);
       }
 
       const $newField = $($template.html()).template(this.placeholderId, this._getUID());
