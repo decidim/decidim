@@ -1,5 +1,5 @@
 <div class="card--list__text">
-  <%= icon "lock-locked", class: "card--list__icon", role: "img" %>
+  <%= icon "lock-locked", class: "card--list__icon", role: "none presentation" %>
   <div>
     <h5 class="card--list__heading">
       <%= t("#{authorization.name}.name", scope: "decidim.authorization_handlers") %>
@@ -20,13 +20,13 @@
 <% if authorization.expired? %>
   <div class="card--list__data">
     <span class="card--list__data__icon">
-      <%= icon "reload", role: "img" %>
+      <%= icon "reload", aria_label: t("renew", scope: "decidim.authorization_handlers"), role: "img" %>
     </span>
   </div>
 <% elsif authorization.renewable? %>
   <div class="card--list__data">
     <span class="card--list__data__icon">
-      <%= icon "reload", role: "img" %>
+      <%= icon "reload", aria_label: t("renew", scope: "decidim.authorization_handlers"), role: "img" %>
     </span>
   </div>
 <% end %>
