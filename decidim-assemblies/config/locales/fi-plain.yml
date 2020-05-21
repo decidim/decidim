@@ -310,7 +310,7 @@ fi-pl:
         home:
           highlighted_assemblies:
             active_assemblies: Aktiiviset ryhmät
-            assemblies_button_title: Linkki Ryhmät-sivulle, mistä näet kaikki ryhmät
+            assemblies_button_title: Linkki kaikkien ryhmien sivulle
             see_all_assemblies: Näytä kaikki ryhmät
         user_profile:
           member_of:
@@ -369,7 +369,7 @@ fi-pl:
       pages:
         home:
           highlighted_conferences:
-            conferences_button_title: Linkki Konferenssit-sivulle, mistä näet kaikki konferenssit
+            conferences_button_title: Linkki kaikkien konferenssien sivulle
     events:
       assemblies:
         create_assembly_member:
@@ -407,12 +407,12 @@ fi-pl:
         hero:
           participate_title: Osallistu palvelun prosesseihin
         sub_hero:
-          register_title: Rekisteröidy luodaksesi oman käyttäjätilin palveluun
+          register_title: Kirjaudu sisään tai luo tili alustalle
     participatory_processes:
       pages:
         home:
           highlighted_processes:
-            processes_button_title: Linkki Prosessit-sivulle, mistä näet kaikki prosessit
+            processes_button_title: Linkki kaikkien prosessien sivulle
   errors:
     messages:
       cannot_be_blank: ei voi olla tyhjä
