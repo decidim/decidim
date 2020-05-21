@@ -38,7 +38,7 @@
     }
 
     toggleTextInput(target) {
-      let input = $(target).closest("label").next();
+      let input = $(target).closest("div").next();
       if ($(target).prop("checked")) {
         input.slideDown();
       } else {

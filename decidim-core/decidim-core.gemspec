@@ -62,7 +62,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rectify", "~> 0.13.0"
   s.add_dependency "redis", "~> 4.1"
   s.add_dependency "rubyzip", "~> 2.0"
-  s.add_dependency "sassc", "~> 2.2.1"
+  s.add_dependency "sassc", "~> 2.3.0"
   s.add_dependency "sassc-rails", "~> 2.1.2"
   s.add_dependency "seven_zip_ruby", "~> 1.2", ">= 1.2.2"
   s.add_dependency "social-share-button", "~> 1.2", ">= 1.2.1"

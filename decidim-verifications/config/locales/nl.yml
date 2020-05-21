@@ -82,6 +82,8 @@ nl:
         new:
           authorize: Verzenden
           authorize_with: Verifieer met %{authorizer}
+        renew_modal:
+          cancel: annuleren
         skip_verification: U kunt dit overslaan voor nu en %{link}
         start_exploring: begin met verkennen
       csv_census:
