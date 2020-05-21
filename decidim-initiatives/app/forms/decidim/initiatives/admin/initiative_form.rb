@@ -28,6 +28,9 @@ module Decidim
         validates :signature_end_date, date: { after: :signature_start_date }, if: lambda { |form|
           form.signature_start_date.present? && form.signature_end_date.present?
         }
+        validates :signature_end_date, date: { after: Date.current }, if: lambda { |form|
+          form.signature_start_date.blank? && form.signature_end_date.present?
+        }
 
         validates :offline_votes,
                   numericality: {
