@@ -12,9 +12,9 @@
       </div>
     </div>
   </div>
-  <div class="card--list__data">
+  <div class="card--list__data" aria-hidden="true">
     <%= link_to resource_version_path(index), class: "card--list__data__icon" do %>
-      <%= icon "chevron-right", role: "img" %>
+      <%= icon "chevron-right", role: "none presentation" %>
     <% end %>
   </div>
 </div>

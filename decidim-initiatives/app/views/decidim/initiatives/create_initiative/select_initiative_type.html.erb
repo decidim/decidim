@@ -1,7 +1,7 @@
 <% default_type = available_initiative_types.first %>
 <% content_for :back_link do %>
   <%= link_to initiatives_path do %>
-    <%= icon "chevron-left", class: "icon--small", aria_label: t(".back"),  role: "img" %>
+    <%= icon "chevron-left", class: "icon--small", role: "none presentation" %>
     <%= t(".back") %>
   <% end %>
 <% end %>

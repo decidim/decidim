@@ -5,9 +5,9 @@
     <div class="conversation">
 
       <div class="conversation-header flex--cc absolutes">
-        <div class="left center mr-s">
+        <div class="left center mr-s" aria-hidden="true">
           <%= link_to decidim.conversations_path, class: "card--list__data__icon card--list__data__icon--back" do %>
-            <%= icon "chevron-left", role: "img" %>
+            <%= icon "chevron-left", role: "none presentation" %>
           <% end %>
         </div>
         <%= link_to decidim.conversations_path do %>
