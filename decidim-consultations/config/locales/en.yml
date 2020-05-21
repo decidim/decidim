@@ -238,6 +238,8 @@ en:
           label: 'Sort consultations by:'
           random: Random
           recent: Most recent
+        show:
+          dates: Dates
       content_blocks:
         highlighted_consultations:
           name: Highlighted consultations
