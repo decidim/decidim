@@ -28,6 +28,7 @@ sv:
       initiatives_type:
         banner_image: Bannerbild
         collect_user_extra_fields: Samla in deltagarens personuppgifter vid underskrift
+        custom_signature_end_date_enabled: Möjliggör för författare att välja slutet på signatursinsamlingsperioden
         description: Beskrivning
         document_number_authorization_handler: Bemyndigande att verifiera dokumentnummer på underskrifter
         extra_fields_legal_information: Juridisk information om insamling av personuppgifter
