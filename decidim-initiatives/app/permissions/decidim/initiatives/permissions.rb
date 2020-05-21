@@ -40,7 +40,7 @@ module Decidim
       end
 
       def initiative_type
-        @initiative_type ||= context.fetch(:initiative_type, nil)
+        @initiative_type ||= context[:initiative_type]
       end
 
       def list_public_initiatives?
