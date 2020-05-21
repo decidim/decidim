@@ -30,7 +30,7 @@ module Decidim
                inverse_of: :initiatives
 
     delegate :type, :scope, :scope_name, to: :scoped_type, allow_nil: true
-    delegate :promoting_committee_enabled?, to: :type
+    delegate :promoting_committee_enabled?, :custom_signature_end_date_enabled?, to: :type
 
     has_many :votes,
              foreign_key: "decidim_initiative_id",
@@ -234,7 +234,7 @@ module Decidim
         published_at: Time.current,
         state: "published",
         signature_start_date: Date.current,
-        signature_end_date: Date.current + Decidim::Initiatives.default_signature_time_period_length
+        signature_end_date: signature_end_date || Date.current + Decidim::Initiatives.default_signature_time_period_length
       )
     end
 
