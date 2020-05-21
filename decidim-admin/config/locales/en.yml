@@ -584,6 +584,7 @@ en:
           officialize: Officialize
           title: Officialize participant "%{name}"
         show_email_modal:
+          close_modal: Close modal
           description: If you need to contact a participant directly you can click on the Show button to see the email address. This action will be logged.
           email_address: Email address
           full_name: Full name

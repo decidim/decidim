@@ -312,6 +312,8 @@ en:
           explanation_html: In order to perform this action you need to be authorized, before doing that you need to confirm your email <strong>%{email}</strong>.
           request_confirmation_instructions: Request confirmation instructions
           title: Confirm your email
+      show:
+        close_modal: Close modal
     collapsible_list:
       hidden_elements_count:
         one: and %{count} more
@@ -1155,6 +1157,7 @@ en:
       follow_button:
         sign_in_before_follow: Please sign in before performing this action
       login_modal:
+        close_modal: Close modal
         please_sign_in: Please sign in
         sign_up: Sign up
       participatory_space_filters:
