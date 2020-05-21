@@ -1390,6 +1390,7 @@ en:
         expire_time_html: Your session will expire in <b><span class="minutes">%{minutes}</span> minutes</b>.
       notifications_dashboard:
         mark_all_as_read: Mark all as read
+        mark_as_read: Mark as read
       user_menu:
         admin_dashboard: Admin dashboard
         conversations: Conversations
