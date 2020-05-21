@@ -68,9 +68,11 @@ en:
           title_or_description_cont: Search %{collection} by title or description.
         state_eq:
           values:
+            accepted: Enough signatures
             created: Created
             discarded: Discarded
             published: Published
+            rejected: Not enough signatures
             validating: Technical validation
       menu:
         initiatives: Initiatives
@@ -246,22 +248,22 @@ en:
           unpublish: "%{user_name} discarded the %{resource_name} initiative"
           update: "%{user_name} updated the %{resource_name} initiative"
       admin_states:
-        accepted: Accepted
+        accepted: Enough signatures
         created: Created
         discarded: Discarded
         published: Published
-        rejected: Rejected
+        rejected: Not enough signatures
         validating: Technical validation
       application_helper:
         filter_scope_values:
           all: All
         filter_state_values:
-          accepted: Accepted
+          accepted: Enough signatures
           all: All
           answered: Answered
           closed: Closed
           open: Open
-          rejected: Rejected
+          rejected: Not enough signatures
         filter_type_values:
           all: All
       committee_requests:
@@ -450,6 +452,14 @@ en:
           highlighted_initiatives:
             active_initiatives: Active initiatives
             see_all_initiatives: See all initiatives
+      show:
+        badge_name:
+          accepted: Enough signatures
+          created: Created
+          discarded: Discarded
+          published: Published
+          rejected: Not enough signatures
+          validating: Technical validation
       states:
         accepted: Accepted
         expired: Expired

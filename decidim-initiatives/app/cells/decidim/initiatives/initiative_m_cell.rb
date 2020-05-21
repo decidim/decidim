@@ -23,6 +23,10 @@ module Decidim
         true
       end
 
+      def badge_name
+        I18n.t(model.state, scope: "decidim.initiatives.show.badge_name")
+      end
+
       def state_classes
         case state
         when "accepted", "published"
