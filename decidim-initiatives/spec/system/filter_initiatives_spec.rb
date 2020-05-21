@@ -126,7 +126,7 @@ describe "Filter Initiatives", :slow, type: :system do
           within ".filters__has-subfilters" do
             click_button
           end
-          check "Accepted"
+          check "Enough signatures"
         end
 
         expect(page).to have_css(".card--initiative", count: 3)
@@ -141,7 +141,7 @@ describe "Filter Initiatives", :slow, type: :system do
           within ".filters__has-subfilters" do
             click_button
           end
-          check "Rejected"
+          check "Not enough signatures"
         end
 
         expect(page).to have_css(".card--initiative", count: 2)
