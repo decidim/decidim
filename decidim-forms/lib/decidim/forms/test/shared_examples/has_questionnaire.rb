@@ -102,6 +102,18 @@ shared_examples_for "has questionnaire" do
       end
     end
 
+    it "requires confirmation when exiting mid-answering" do
+      visit questionnaire_public_path
+
+      fill_in question.body["en"], with: "My first answer"
+
+      dismiss_confirm do
+        page.find(".logo-wrapper a").click
+      end
+
+      expect(page).to have_current_path main_component_path(component)
+    end
+
     context "when the questionnaire has already been answered by someone else" do
       let!(:question) do
         create(
