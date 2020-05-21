@@ -1383,6 +1383,8 @@ en:
       edit_link:
         edit: Edit
       footer:
+        cc_by_license: Creative Commons License
+        decidim_logo: Decidim Logo
         download_open_data: Download Open Data files
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
       header:
@@ -1397,6 +1399,12 @@ en:
       notifications_dashboard:
         mark_all_as_read: Mark all as read
         mark_as_read: Mark as read
+      social_media_links:
+        facebook: "%{organization} at Facebook"
+        github: "%{organization} at GitHub"
+        instagram: "%{organization} at Instagram"
+        twitter: "%{organization} at Twitter"
+        youtube: "%{organization} at YouTube"
       user_menu:
         admin_dashboard: Admin dashboard
         conversations: Conversations
