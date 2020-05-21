@@ -20,7 +20,7 @@
   <% if profile_user.badge.present? %>
     <div class="badge-card__content">
       <span>
-        <%= icon profile_user.badge, class: "author__verified", role: "img" %>
+        <%= icon profile_user.badge, class: "author__verified", aria_label: t("decidim.profiles.show.officialized"), role: "img" %>
       </span>
       <span>
         <%= officialization_text %>
