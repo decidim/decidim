@@ -8,7 +8,7 @@
    * @private
    * @returns {Void} - Returns nothing.
    */
-  exports.Decidim.icon = (iconKey, attributes = {}) => {
+  exports.Decidim.icon = (iconKey, attributes = {role: "none presentation"}) => {
     const htmlAttributes = {
       "class": `icon icon--${iconKey}`
     };

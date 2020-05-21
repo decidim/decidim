@@ -12,9 +12,13 @@ character_messages = {
     other: t("decidim.components.add_comment_form.remaining_characters", count: "%count%")
   }
 }
+external_link_messages = {
+  "externalLink": t("decidim.accessibility.external_link")
+}
 %>
 
 <script>
   Decidim.config.set(<%== js_configs.to_json %>);
   Decidim.InputCharacterCounter.configureMessages(<%== character_messages.to_json %>);
+  Decidim.ExternalLink.configureMessages(<%== external_link_messages.to_json %>);
 </script>

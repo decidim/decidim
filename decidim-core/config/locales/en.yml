@@ -75,6 +75,7 @@ en:
       decidim_with_month_name_short: "%d %b"
   decidim:
     accessibility:
+      external_link: External link
       logo: "%{organization}'s official logo"
       skip_button: Skip to main content
     account:
