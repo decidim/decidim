@@ -23,28 +23,14 @@ module Decidim
         end
       end
 
-      # Public: Splits reponses by step, keeping the separator. Ruby doesn't
-      # seem to give a way to do this in the standard library, so we had to
-      # write our own version.
+      # Public: Splits reponses by step, keeping the separator.
       #
       # Returns an array of steps. Each step is a list of the questions in that
       # step, including the separator.
       def responses_by_step
-        @responses_by_step ||=
-          begin
-            steps_acc = [[]]
-            step_index = 0
-
-            responses.each do |response|
-              steps_acc[step_index] << response
-
-              if response.question.separator?
-                step_index += 1
-                steps_acc[step_index] = []
-              end
-            end
-            steps_acc
-          end
+        responses.chunk_while do |a, b|
+          !a.question.separator? || b.question.separator?
+        end.to_a
       end
 
       def total_steps
