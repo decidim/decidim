@@ -37,7 +37,13 @@
         return;
       }
 
-      this.$link.append(`&nbsp;${this.generateIcon()}${this.generateScreenReaderLabel()}`);
+      this.$link.append(`&nbsp;${this.generateElement()}`);
+    }
+
+    generateElement() {
+      let content = `${this.generateIcon()}${this.generateScreenReaderLabel()}`;
+
+      return `<span class="external-link-indicator">${content}</span>`;
     }
 
     generateIcon() {

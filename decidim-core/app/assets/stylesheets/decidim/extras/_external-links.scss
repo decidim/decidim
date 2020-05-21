@@ -1,0 +1,15 @@
+.external-link-indicator{
+  display: inline-block;
+  position: relative;
+  top: -.15em;
+  vertical-align: top;
+  width: .75em;
+  margin: 0 .2rem 0 .1rem;
+  height: 1em;
+
+  .icon{
+    display: block;
+    max-height: 100%;
+    max-width: 100%;
+  }
+}
