@@ -379,7 +379,7 @@ en:
           comments_count:
             count:
               one: Comment
-              other: Comment
+              other: Comments
         orders:
           label: 'Sort initiatives by:'
           most_commented: Most commented
