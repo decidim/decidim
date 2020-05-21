@@ -6,7 +6,7 @@
           <%= t ".help" %>
         </div>
         <div class="floating-helper__icon">
-          <%= icon "question-mark", class: "icon--small", role: "img" %>
+          <%= icon "question-mark", class: "icon--small", role: "img", aria_label: t(".help") %>
         </div>
       </a>
     </div>
@@ -16,7 +16,7 @@
     <div class="floating-helper__content">
       <div class="floating-helper__content-inner">
         <div class="floating-helper__icon-big show-for-medium">
-          <%= icon "question-mark", class: "icon--large", role: "img" %>
+          <%= icon "question-mark", class: "icon--large", role: "img", aria_label: t(".help") %>
         </div>
         <div class="mb-s">
           <%= content %>
@@ -24,7 +24,7 @@
       </div>
     </div>
     <a href="#floating-helper-tip" class="floating-helper__content-close" data-toggle="floating-helper-block floating-helper-tip">
-      <%= icon "x", class: "icon--small", role: "img" %>
+      <%= icon "x", class: "icon--small", role: "img", aria_label: t(".close") %>
     </a>
   </div>
 </div>
