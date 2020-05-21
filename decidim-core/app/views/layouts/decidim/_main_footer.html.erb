@@ -5,7 +5,8 @@
     <% end %>
   <% end %>
   <div class="row">
-    <div class="medium-8 large-6 large-offset-3 column main__footer__nav">
+    <div class="medium-8 large-6 large-offset-3 column">
+      <nav class="main__footer__nav">
         <ul class="footer-nav">
           <% if current_organization.static_pages.any? %>
             <% current_organization.static_page_topics.where(show_in_footer: true).each do |page_topic| %>
@@ -20,6 +21,7 @@
           <% end %>
           <li><%= link_to t("layouts.decidim.footer.download_open_data"), decidim.open_data_download_path %></li>
         </ul>
+      </nav>
     </div>
     <%= render partial: "layouts/decidim/social_media_links" %>
   </div>
