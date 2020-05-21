@@ -143,6 +143,10 @@ module Decidim
       Decidim::Messaging::Conversation.unread_by(self)
     end
 
+    def unread_messages_count
+      @unread_messages_count ||= Decidim::Messaging::Receipt.unread_count(self)
+    end
+
     # Check if the user exists with the given email and the current organization
     #
     # warden_conditions - A hash with the authentication conditions
@@ -211,6 +215,11 @@ module Decidim
     # return the groups where this user has been accepted
     def accepted_user_groups
       UserGroups::AcceptedUserGroups.for(self)
+    end
+
+    # return the groups where this user has admin permissions
+    def manageable_user_groups
+      UserGroups::ManageableUserGroups.for(self)
     end
 
     def authenticatable_salt

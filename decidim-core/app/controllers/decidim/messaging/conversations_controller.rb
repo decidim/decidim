@@ -11,14 +11,14 @@ module Decidim
 
       before_action :authenticate_user!
 
-      helper_method :username_list, :conversation
+      helper_method :conversation, :user_grouped_messages, :sender_is_user?, :user_groups
 
       # Shows the form to initiate a conversation with an user (the recipient)
       # recipient is passed via GET parameter:
       #   - if the recipient does not exists, goes back to the users profile page
       #   - if the user already has a conversation with the user, redirects to the initiated conversation
       def new
-        @form = form(ConversationForm).from_params(params)
+        @form = form(ConversationForm).from_params(params, sender: current_user)
 
         if @form.recipient.is_a? Enumerable
           participants = @form.recipient.to_a.prepend(current_user)
@@ -35,7 +35,7 @@ module Decidim
       end
 
       def create
-        @form = form(ConversationForm).from_params(params)
+        @form = form(ConversationForm).from_params(params, sender: current_user)
         enforce_permission_to :create, :conversation, conversation: new_conversation(@form.recipient)
 
         StartConversation.call(@form) do
@@ -70,7 +70,7 @@ module Decidim
       def update
         enforce_permission_to :update, :conversation, conversation: conversation
 
-        @form = form(MessageForm).from_params(params)
+        @form = form(MessageForm).from_params(params, sender: current_user)
 
         ReplyToConversation.call(conversation, @form) do
           on(:ok) do |message|
@@ -84,12 +84,18 @@ module Decidim
       end
 
       def check_multiple
-        @form = form(ConversationForm).from_params(params)
-        redirect_link = link_to_current_or_new_conversation_with_multiple(@form.recipient)
+        @form = form(ConversationForm).from_params(params, sender: current_user)
+        redirect_link = current_or_new_conversation_path_with_multiple(@form.recipient)
         redirect_to redirect_link
       end
 
       private
+
+      def user_groups
+        return [] unless current_organization.user_groups_enabled?
+
+        current_user.manageable_user_groups
+      end
 
       def conversation
         @conversation ||= Conversation.find(params[:id])
@@ -105,11 +111,15 @@ module Decidim
         end
       end
 
-      def username_list(users, shorten = false)
-        return users.pluck(:name).join(", ") unless shorten
-        return users.pluck(:name).join(", ") unless users.count > 3
+      # allows to group all consecutive messages from the same sender
+      # so certain parameters can be displayed only once (such as the
+      # name of the sender)
+      def user_grouped_messages
+        conversation.messages.includes(:sender).chunk(&:sender)
+      end
 
-        "#{users.first(3).pluck(:name).join(", ")} + #{users.count - 3}"
+      def sender_is_user?(sender)
+        current_user.id == sender.id
       end
     end
   end
