@@ -1148,6 +1148,7 @@ en:
         spam: Contains clickbait, advertising, scams or script bots.
         title: Report inappropriate content
       floating_help:
+        close: Close help
         help: Help
       follow_button:
         sign_in_before_follow: Please sign in before performing this action
