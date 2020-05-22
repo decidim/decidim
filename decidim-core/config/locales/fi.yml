@@ -243,13 +243,13 @@ fi:
         explanation: Vahvista tilisi syöttämällä passin numero, joka alkaa kirjaimella "A"
         fields:
           passport_number: Passin numero
-        name: Toinen esimerkkivarmennustapa
+        name: Toinen esimerkkivahvistustapa
       dummy_authorization_handler:
         explanation: Vahvista tilisi syöttämällä asiakirjan numero, joka pääättyy kirjaimeen "X"
         fields:
           document_number: Organisaatiotunnus (esim. Y-tunnus)
           postal_code: Postinumero
-        name: Esimerkkivarmennus
+        name: Esimerkkivahvistus
       dummy_authorization_workflow:
         name: Dummy-varmennuksen työnkulku
       errors:
@@ -260,7 +260,7 @@ fi:
         fields:
           bar: Bar
           foo: Foo
-        name: Foo-varmennus
+        name: Foo-vahvistus
       granted_at: Myönnetty %{timestamp}
       sms:
         explanation: Lähetä matkapuhelinnumerosi, jotta voimme tarkistaa henkilöllisyytesi.
@@ -269,25 +269,25 @@ fi:
     authorization_modals:
       content:
         expired:
-          authorize: Varmenna varmennustavalla "%{authorization}"
-          explanation: Varmennuksesi on vanhentunut. Jotta voit suorittaa tämän toiminnon, sinun on oltava varmennettava itsesi uudestaan varmennustavalla "%{authorization}".
-          title: Varmennus on vanhentunut
+          authorize: Vahvista uudestaan palvelulla "%{authorization}"
+          explanation: Vahvistuksesi on vanhentunut. Jotta voit suorittaa tämän toiminnon, sinun on vahvistettava itsesi uudestaan palvelulla "%{authorization}".
+          title: Vahvistus on vanhentunut
         incomplete:
           cancel: Peruuta
-          explanation: 'Vaikka kirjautumisesi on tällä hetkellä varmennettu varmennustavalla "%{authorization}", tarvitsemme uuden varmennuksen, koska seuraavat tiedot puuttuvat:'
+          explanation: 'Vaikka kirjautumisesi on tällä hetkellä vahvistettu palvelulla "%{authorization}", tarvitsemme uuden vahvistuksen, koska seuraavat tiedot puuttuvat:'
           invalid_field: "%{field}"
           reauthorize: Varmenna uudestaan
           title: Varmenna uudestaan
         missing:
-          authorize: Varmenna varmennustavalla "%{authorization}"
-          explanation: Suorittaaksesi tämän toiminnon, sinun tulee varmentaa tilisi varmennustavalla "%{authorization}".
-          title: Varmennus vaaditaan
+          authorize: Vahvista palvelulla "%{authorization}"
+          explanation: Suorittaaksesi tämän toiminnon, sinun tulee vahvistaa tilisi palvelulla "%{authorization}".
+          title: Vahvistus vaaditaan
         pending:
           explanation: Tämän toiminnon suorittamiseksi sinun varmennettava itsesi palvelulla "%{authorization}", mutta varmennuksesi on edelleen kesken
           resume: Tarkista "%{authorization}" varmennuksen eteneminen
-          title: Varmennus on edelleen kesken
+          title: Vahvistus on edelleen kesken
         unauthorized:
-          explanation: Pahoittelut, et voi suorittaa tätä toimintoa, koska varmennustietosi eivät täsmää.
+          explanation: Pahoittelut, et voi suorittaa tätä toimintoa, koska vahvistustietosi eivät täsmää.
           invalid_field: "Kentän %{field} arvo %{value} ei kelpaa."
           ok: Ok
           title: Ei varmennettu
