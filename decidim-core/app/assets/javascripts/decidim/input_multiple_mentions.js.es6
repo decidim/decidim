@@ -43,11 +43,11 @@ $(() => {
   /* eslint no-use-before-define: ["error", { "variables": false }]*/
   /* eslint no-unused-expressions: 0 */
   let remoteSearch = function(text, cb) {
-    let exclusionIds = "";
+    let exclusionIds = [];
     $multipleMentionRecipientsContainer.find("input[name^='recipient_id']").each(function(index) {
-      (exclusionIds.length >= 1) ? (exclusionIds += `,${$(this).val()}`) : (exclusionIds += $(this).val());
+      exclusionIds.push($(this).val());
     });
-    let query = `{users(filter:{wildcard:"${text}",exclusion:"${exclusionIds}"}){id,nickname,name,avatarUrl,__typename,...on UserGroup{membersCount},...on User{directMessagesEnabled}}}`;
+    let query = `{users(filter:{wildcard:"${text}",excludeIds:[${exclusionIds}]}){id,nickname,name,avatarUrl,__typename,...on UserGroup{membersCount},...on User{directMessagesEnabled}}}`;
     $.post("/api", {query: query}).
       then((response) => {
         let data = response.data.users || {};

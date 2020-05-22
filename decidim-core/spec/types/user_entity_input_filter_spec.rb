@@ -117,7 +117,7 @@ module Decidim
         end
 
         context "when search a user by wildcard but with empty exclusion list" do
-          let(:query) { %({ users(filter: { wildcard: \"#{term}\", exclusion: "#{exclusionIds}" }) { name }}) }
+          let(:query) { %({ users(filter: { wildcard: \"#{term}\", excludeIds: [#{exclusionIds}] }) { name }}) }
           let(:term) { "foo" }
           let!(:exclusionIds) { "" }
 
@@ -132,7 +132,7 @@ module Decidim
         end
 
         context "when search a user by wildcard but with exclusion list" do
-          let(:query) { %({ users(filter: { wildcard: \"#{term}\", exclusion: "#{exclusionIds}" }) { name }}) }
+          let(:query) { %({ users(filter: { wildcard: \"#{term}\", excludeIds: [#{exclusionIds}] }) { name }}) }
           let(:term) { "foo" }
           let!(:exclusionIds) { user5.id.to_s }
 
@@ -147,7 +147,7 @@ module Decidim
         end
 
         context "when search a user by wildcard but with multiple exclusion list" do
-          let(:query) { %({ users(filter: { wildcard: \"#{term}\", exclusion: "#{exclusionIds}" }) { name }}) }
+          let(:query) { %({ users(filter: { wildcard: \"#{term}\", excludeIds: [#{exclusionIds}] }) { name }}) }
           let(:term) { "foo" }
           let!(:exclusionIds) { "#{user5.id},#{user6.id}" }
 

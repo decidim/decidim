@@ -108,7 +108,7 @@ module Decidim
         let!(:user6) { create(:user, :confirmed, organization: current_organization) }
         let!(:exclusionIds) { "" }
 
-        let(:query) { %({ users(filter: { exclusion: "#{exclusionIds}" }) { id }}) }
+        let(:query) { %({ users(filter: { excludeIds: [#{exclusionIds}] }) { id }}) }
 
         it "returns all the users without any exclusion" do
           expect(response["users"]).to include("id" => user1.id.to_s)
@@ -129,7 +129,7 @@ module Decidim
         let!(:user6) { create(:user, :confirmed, organization: current_organization) }
         let!(:exclusionIds) { user5.id.to_s }
 
-        let(:query) { %({ users(filter: { exclusion: "#{exclusionIds}" }) { id }}) }
+        let(:query) { %({ users(filter: { excludeIds: [#{exclusionIds}] }) { id }}) }
 
         it "returns all the users except excluded one" do
           expect(response["users"]).to include("id" => user1.id.to_s)
@@ -150,7 +150,7 @@ module Decidim
         let!(:user6) { create(:user, :confirmed, organization: current_organization) }
         let!(:exclusionIds) { "#{user5.id},#{user6.id}" }
 
-        let(:query) { %({ users(filter: { exclusion: "#{exclusionIds}" }) { id }}) }
+        let(:query) { %({ users(filter: { excludeIds: [#{exclusionIds}] }) { id }}) }
 
         it "returns all the users except excluded ones" do
           expect(response["users"]).to include("id" => user1.id.to_s)
