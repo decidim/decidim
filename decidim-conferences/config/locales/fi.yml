@@ -530,7 +530,7 @@ fi:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> -konferenssin ilmoittautumiset on avattu.
         role_assigned:
           email_intro: Sinulle on myönnetty rooli %{role} konferenssissa "%{resource_title}".
-          email_outro: Saat tämän viestin, koska roolisi on %{role} konferenssissa "%{resource_title}".
+          email_outro: Tämä viesti on lähetetty sinulle, koska roolisi on %{role} konferenssissa "%{resource_title}".
           email_subject: Sinulle on myönnetty rooli %{role} kohteessa "%{resource_title}".
           notification_title: Sinulle on myönnetty rooli %{role} konferenssissa <a href="%{resource_url}">%{resource_title}</a>.
         upcoming_conference:
