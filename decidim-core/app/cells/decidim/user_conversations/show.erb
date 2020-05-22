@@ -1,0 +1,58 @@
+<div class="user-activity">
+  <div class="callout secondary">
+    <%= t "decidim.user_conversations.index.conversations_info" %>
+  </div>
+
+  <div>
+    <div class="float-right">
+      <button id="start-conversation-dialog-button" type="button" name="button" class="button small">
+        <%= t "decidim.user_conversations.index.new_conversation" %>
+      </button>
+    </div>
+    <div class="reveal collapse"
+         id="user-conversations-add-modal"
+         data-reveal>
+          <div class="wrapper--inner">
+            <button class="close-button" aria-label="<%= t("decidim.user_conversations.index.close") %>" type="button" data-close>
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <%= decidim_form_for(form_ob, url: decidim.new_profile_conversation_path(nickname: user.nickname), method: :get, html: { class: "form new_attachment" }) do |f| %>
+            <div class="container wrapper--inner">
+              <div class="row">
+                <div class="columns large-12">
+                  <%= render :add_conversation_users %>
+                </div>
+              </div>
+              <div class="wrapper wrapper--inner">
+                <div class="row">
+                  <div class="large-12">
+                    <div class="button--double form-general-submit float-right">
+                      <%= f.submit t("decidim.user_conversations.index.next") %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+    </div>
+    <%= javascript_include_tag "decidim/start_conversation_dialog" %>
+  </div>
+  <div class="columns">
+      <% if conversations.empty? %>
+        <div class="callout">
+          <%= t "decidim.user_conversations.index.no_conversations_warning" %>
+        </div>
+      <% else %>
+      <div class="row">
+        <div class="tabs-panel is-active conversations" id="conversations" role="tabpanel" aria-labelledby="conversations-label">
+        <% conversations.each do |conversation| %>
+          <%= render view: :conversation_item, locals: { conversation: conversation } %>
+        <% end %>
+        </div>
+      </div>
+
+      <%= decidim_paginate conversations %>
+      <% end %>
+  </div>
+</div>

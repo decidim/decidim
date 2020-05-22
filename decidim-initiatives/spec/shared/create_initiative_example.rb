@@ -1,9 +1,17 @@
 # frozen_string_literal: true
 
 shared_examples "create an initiative" do
-  let(:scoped_type) { create(:initiatives_type_scope) }
-  let(:author) { create(:user, organization: scoped_type.type.organization) }
-  let(:form) { form_klass.from_params(form_params).with_context(current_organization: scoped_type.type.organization) }
+  let(:initiative_type) { create(:initiatives_type) }
+  let(:scoped_type) { create(:initiatives_type_scope, type: initiative_type) }
+  let(:author) { create(:user, organization: initiative_type.organization) }
+  let(:form) do
+    form_klass
+      .from_params(form_params)
+      .with_context(
+        current_organization: initiative_type.organization,
+        initiative_type: initiative_type
+      )
+  end
 
   describe "call" do
     let(:form_params) do
@@ -88,6 +96,38 @@ shared_examples "create an initiative" do
         initiative = Decidim::Initiative.last
 
         expect(initiative.committee_members.accepted.where(user: author)).to exist
+      end
+
+      context "when the initiative type does not enable custom signature end date" do
+        it "does not set the signature end date" do
+          command.call
+          initiative = Decidim::Initiative.last
+
+          expect(initiative.signature_end_date).to be_nil
+        end
+      end
+
+      context "when the initiative type enables custom signature end date" do
+        let(:initiative_type) { create(:initiatives_type, :custom_signature_end_date_enabled) }
+
+        let(:form_params) do
+          {
+            title: "A reasonable initiative title",
+            description: "A reasonable initiative description",
+            type_id: scoped_type.type.id,
+            signature_type: "online",
+            scope_id: scoped_type.scope.id,
+            decidim_user_group_id: nil,
+            signature_end_date: Date.tomorrow
+          }
+        end
+
+        it "sets the signature end date" do
+          command.call
+          initiative = Decidim::Initiative.last
+
+          expect(initiative.signature_end_date).to eq(Date.tomorrow)
+        end
       end
     end
   end

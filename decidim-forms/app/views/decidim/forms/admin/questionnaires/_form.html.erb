@@ -21,6 +21,11 @@
 </div>
 
 <div class="questionnaire-questions">
+  <div class="row column text-center">
+    <button type="button" class="button collapse-all"><%= t(".collapse") %></button>
+    <button type="button" class="button expand-all"><%= t(".expand") %></button>
+  </div>
+
   <% if questionnaire.questions_editable? %>
     <%= fields_for "questionnaire[questions][#{blank_question.to_param}]", blank_question do |question_form| %>
       <script type="text/template" class="decidim-template">
@@ -63,3 +68,5 @@
 <% if questionnaire.questions_editable? %>
   <%= javascript_include_tag "decidim/forms/admin/forms" %>
 <% end %>
+
+<%= javascript_include_tag "decidim/forms/admin/collapsible_questions" %>

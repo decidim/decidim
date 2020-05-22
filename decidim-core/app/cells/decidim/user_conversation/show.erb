@@ -1,0 +1,20 @@
+<div class="user-activity">
+  <div class="columns tabs-panel is-active" id="conversation" role="tabpanel" aria-labelledby="conversation-label">
+    <div class="conversation">
+
+      <%= render :conversation_header %>
+
+      <div id="messages" class="scroll-to-last-message">
+        <% user_grouped_messages.each do |sender, messages| %>
+            <%= render view: :messages, locals: { sender: sender, messages: messages } %>
+        <% end %>
+      </div>
+
+      <% if conversation.accept_user?(user) %>
+        <%= render view: :reply, locals: { title: t("decidim.user_conversations.reply.title_reply") } %>
+      <% else %>
+        <em><%= t "decidim.user_conversations.show.not_allowed" %></em>
+      <% end %>
+    </div>
+  </div>
+</div>

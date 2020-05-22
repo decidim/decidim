@@ -62,6 +62,7 @@ module Decidim
           decidim_user_group_id: form.decidim_user_group_id,
           scoped_type: scoped_type,
           signature_type: form.signature_type,
+          signature_end_date: signature_end_date,
           state: "created"
         )
       end
@@ -71,6 +72,12 @@ module Decidim
           decidim_initiatives_types_id: form.type_id,
           decidim_scopes_id: form.scope_id
         )
+      end
+
+      def signature_end_date
+        return nil unless form.context.initiative_type.custom_signature_end_date_enabled?
+
+        form.signature_end_date
       end
 
       def create_components_for(initiative)
