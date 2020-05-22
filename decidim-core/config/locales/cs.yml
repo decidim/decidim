@@ -818,11 +818,35 @@ cs:
       home: Domov
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          admin_in_group: Obdrželi jste to, protože jste administrátor v %{group}.
+          greeting: Dobrý den, %{recipient}!
+          intro: "%{manager} zahájil novou konverzaci s názvem %{group}. Klikněte zde pro její zobrazení:"
+          outro: Užijte si Rozhodování!
+          subject: "%{manager} zahájil novou konverzaci jako %{group}"
+        comanagers_new_message:
+          admin_in_group: Obdrželi jste to, protože jste administrátor v %{group}.
+          greeting: Dobrý den, %{recipient}!
+          intro: "%{manager} zveřejnil nové zprávy v konverzaci s názvem %{group}. Klikněte zde pro jejich zobrazení:"
+          outro: Užijte si Rozhodování!
+          subject: "%{manager} odeslal nové zprávy jako %{group}"
         new_conversation:
           greeting: Ahoj, %{recipient}!
           intro: "%{sender} zahájil novou konverzaci s vámi. Klikněte sem pro zobrazení:"
           outro: Užijte si rozhodování!
           subject: "%{sender} začal s vámi konverzovat"
+        new_group_conversation:
+          admin_in_group: Obdrželi jste to, protože jste administrátor v %{group}.
+          greeting: Dobrý den, %{recipient}!
+          intro: "%{sender} zahájil novou konverzaci se skupinou %{group}. Klikněte zde pro její zobrazení:"
+          outro: Užijte si Rozhodování!
+          subject: "%{sender} zahájil konverzaci s %{group}"
+        new_group_message:
+          admin_in_group: Obdrželi jste to, protože jste administrátor v %{group}.
+          greeting: Dobrý den, %{recipient}!
+          intro: "%{sender} přidal nové zprávy do konverzace se skupinou %{group}. Klikněte zde pro jejich zobrazení:"
+          outro: Užijte si Rozhodování!
+          subject: "%{group} má nové zprávy od %{sender}"
         new_message:
           greeting: Ahoj, %{recipient}!
           intro: "%{sender} poslala nové zprávy ve vaší konverzaci. Klikněte sem pro jejich zobrazení:"
@@ -841,6 +865,7 @@ cs:
           ago: před
           close: Zavřít okno
           from: Od
+          groups: Moje skupiny
           last_message: Poslední zpráva
           new_conversation: Nová konverzace
           next: Další
@@ -1027,6 +1052,7 @@ cs:
       show:
         activity: Aktivita
         badges: Odznaky
+        conversations: Konverzace
         followers: Sledující
         following: Následuje
         groups: Skupiny
@@ -1145,6 +1171,36 @@ cs:
       index:
         no_activities_warning: Tento účastník zatím nemá žádnou aktivitu.
     user_contact_disabled: Tento uživatel nepřijímá přímé zprávy.
+    user_conversations:
+      create:
+        error: Zprávu nelze vytvořit. Zkuste to znovu později
+        existing_error: Zprávu nelze vytvořit. Konverzace již existuje, zkuste to prosím znovu.
+        success: Konverzace byla úspěšně spuštěna!
+      index:
+        add_max_users: 'Přidat uživatele do konverzace: nejvýše 9 uživatelů'
+        add_users_placeholder: Hledat...
+        close: Zavřít
+        conversations_info: Konverzace jsou soukromé. Nikdo je nemůže vidět. Konverzaci lze zahájit s kterýmkoli účastníkem nebo skupinou registrovanou na platformě.
+        from: Od
+        last_message: Poslední zpráva
+        modal_title: Nová konverzace
+        new_conversation: Nová konverzace
+        next: Další
+        no_conversations_warning: Zatím nejsou žádné konverzace.
+        no_results: Žádné výsledky
+        participant_with_disabled_message_reception: Tento uživatel zakázal příjem zpráv
+        time_ago: "před %{time}"
+      new:
+        title: Zahájit konverzaci
+      reply:
+        placeholder: Vaše odpověď...
+        send: Odeslat
+        title_reply: Odpovědět
+      show:
+        not_allowed: Tento uživatel již nepřijímá žádné přímé zprávy.
+        title: Konverzace s %{usernames}
+      update:
+        error: Zpráva nebyla odeslána. Zkuste to později
     user_interests:
       show:
         my_interests: Mé zájmy
