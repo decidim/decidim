@@ -10,8 +10,17 @@ module GeocoderHelpers
     )
   end
 
+  def stub_geocoding_search(address, length = nil)
+    result = [{ address: address }]
+
+    Geocoder::Lookup::Test.add_stub(
+      address,
+      result
+    )
+  end
+
   def stub_geocoding_autocomplete(address)
-    result = [{ address: address, country: "Country", country_code: "CC" }]
+    result = [{ address: address }]
 
     downcased_address = address.downcase
 
