@@ -53,6 +53,7 @@ describe "Decidim::Initiatives::CommitteeRequestController", type: :system do
       end
 
       it "are allowed to request membership" do
+        expect(page).to have_current_path decidim_initiatives.new_initiative_committee_request_path(initiative.to_param)
         expect(page).to have_content("You are about to request becoming a member of the promoter committee of this initiative")
       end
 
