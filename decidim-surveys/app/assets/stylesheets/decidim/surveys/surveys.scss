@@ -1,6 +1,10 @@
 @import "decidim/forms/forms";
 
 .answer-questionnaire{
+  label{
+    font-size: inherit;
+  }
+
   .radio-button-collection,
   .check-box-collection,
   .sortable-check-box-collection{
@@ -15,8 +19,10 @@
     }
   }
 
-  label.questionnaire-question{
-    font-weight: bold;
+  .questionnaire-question{
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: .3em;
   }
 
   .help-text{
