@@ -21,7 +21,7 @@ describe "Index proposals", type: :system do
       it "shows generic empty message" do
         visit_component
 
-        expect(page).to have_content("There isn't any proposal")
+        expect(page).to have_content("There is no proposal yet")
       end
     end
 
