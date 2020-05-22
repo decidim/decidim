@@ -335,7 +335,7 @@ fi:
           invalid: Aloitteen allekirjoittamiseen annetut tiedot ovat virheelliset
           success_html: Onnittelut! Aloitteen <strong>%{title}</strong> allekirjoitus onnistui
         personal_data:
-          invalid: Henkilötiedot eivät täsmää varmennusta varten annettujen tietojen kanssa.
+          invalid: Henkilötiedot eivät täsmää vahvistusta varten annettujen tietojen kanssa.
         sms_code:
           invalid: Vahvistuskoodi ei vastaa meidän koodiamme. Tarkista uudestaan lähettämämme tekstiviesti.
         sms_phone:
