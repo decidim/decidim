@@ -59,6 +59,18 @@ module Decidim
             ]
           )
         end
+
+        context "with no questions" do
+          before do
+            questionnaire.questions.delete_all
+          end
+
+          it "returns an empty spec" do
+            result = subject.responses_by_step
+
+            expect(result).to eq([[]])
+          end
+        end
       end
 
       describe "total_steps" do
