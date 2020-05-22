@@ -21,12 +21,14 @@ module Decidim
           scope_id: scope&.scope&.id,
           signature_type: "offline",
           attachment: attachment_params
-        }
+        }.merge(custom_signature_end_date)
       end
+      let(:custom_signature_end_date) { {} }
       let(:context) do
         {
           current_organization: organization,
-          current_component: nil
+          current_component: nil,
+          initiative_type: initiatives_type
         }
       end
 
@@ -41,6 +43,26 @@ module Decidim
         let(:title) { nil }
 
         it { is_expected.to be_invalid }
+      end
+
+      context "when initiative type enables custom signature end date" do
+        let(:initiatives_type) { create(:initiatives_type, :custom_signature_end_date_enabled, organization: organization) }
+
+        context "when custom date is missing" do
+          it { is_expected.to be_valid }
+        end
+
+        context "when custom date is in the future" do
+          let(:custom_signature_end_date) { { signature_end_date: Date.tomorrow } }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when custom date is not in the future" do
+          let(:custom_signature_end_date) { { signature_end_date: Date.current } }
+
+          it { is_expected.to be_invalid }
+        end
       end
 
       describe "#signature_type_updatable?" do

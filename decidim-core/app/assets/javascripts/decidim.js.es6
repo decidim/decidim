@@ -31,6 +31,7 @@
 // = require decidim/responsive_horizontal_tabs.js
 
 // = require_self
+// = require decidim/assets
 // = require decidim/floating_help
 
 /* globals svg4everybody */
