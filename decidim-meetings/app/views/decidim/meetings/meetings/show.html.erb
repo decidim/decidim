@@ -35,10 +35,7 @@ edit_link(
         <div class="extra__date">
           <%= l meeting.start_time, format: "%d" %>
           <span class="extra__month"><%= l meeting.start_time, format: "%B" %>
-            <% year = l meeting.start_time, format: "%Y" %>
-            <% if year.to_i < Date.today.year %>
-              <%= l meeting.start_time, format: "%Y" %>
-            <% end %>
+            <%= l(meeting.start_time, format: "%Y") if meeting.start_time.year != Date.current.year %>
           </span>
         </div>
         <div class="extra__time">
