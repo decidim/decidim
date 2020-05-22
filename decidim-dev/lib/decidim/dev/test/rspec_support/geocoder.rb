@@ -10,7 +10,7 @@ module GeocoderHelpers
     )
   end
 
-  def stub_geocoding_search(address, length = nil)
+  def stub_geocoding_search(address)
     result = [{ address: address }]
 
     Geocoder::Lookup::Test.add_stub(
