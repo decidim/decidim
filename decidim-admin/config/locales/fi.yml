@@ -348,7 +348,7 @@ fi:
           error: Käyttäjänä esiintyminen epäonnistui.
           success: Hallitun käyttäjän luonti onnistui.
         form:
-          authorization_method: Varmennustapa
+          authorization_method: Vahvistustapa
           name: Nimi
           reason: Syy
         new:
