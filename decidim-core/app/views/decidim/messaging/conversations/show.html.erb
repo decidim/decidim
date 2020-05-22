@@ -1,7 +1,7 @@
 <%= render layout: "show", locals: { participants: conversation.interlocutors(current_user) } do %>
   <div id="messages" class="scroll-to-last-message">
-    <% conversation.messages.each do |message| %>
-      <%= render "message", message: message %>
+    <% user_grouped_messages.each do |sender, messages| %>
+        <%= render "messages", sender: sender, messages: messages %>
     <% end %>
   </div>
 
