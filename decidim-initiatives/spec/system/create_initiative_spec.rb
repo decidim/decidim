@@ -223,6 +223,20 @@ describe "Initiative", type: :system do
             expect(page).not_to have_css("#type_description")
           end
         end
+
+        context "when the initiative type does not enable custom signature end date" do
+          it "does not show the signature end date" do
+            expect(page).not_to have_content("End of signature collection period")
+          end
+        end
+
+        context "when the initiative type enables custom signature end date" do
+          let(:initiative_type) { create(:initiatives_type, :custom_signature_end_date_enabled, organization: organization, minimum_committee_members: initiative_type_minimum_committee_members, signature_type: "offline") }
+
+          it "shows the signature end date" do
+            expect(page).to have_content("End of signature collection period")
+          end
+        end
       end
 
       context "when Promotal committee" do
