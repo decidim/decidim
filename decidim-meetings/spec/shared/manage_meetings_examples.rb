@@ -101,7 +101,7 @@ shared_examples "manage meetings" do
         es: "Mi nuevo título",
         ca: "El meu nou títol"
       )
-      fill_in :meeting_address, with: address
+      autocomplete_select address, from: :address
 
       find("*[type=submit]").click
     end
@@ -119,7 +119,7 @@ shared_examples "manage meetings" do
     end
 
     within ".edit_meeting" do
-      fill_in :meeting_address, with: address
+      autocomplete_select address, from: :address
       fill_in_services
 
       expect(page).to have_selector(".meeting-service", count: 2)
@@ -182,7 +182,7 @@ shared_examples "manage meetings" do
       ca: "Descripció més llarga"
     )
 
-    fill_in :meeting_address, with: address
+    autocomplete_select address, from: :address
     fill_in_services
 
     page.execute_script("$('#meeting_start_time').focus()")
@@ -246,7 +246,7 @@ shared_examples "manage meetings" do
         ca: "Descripció més llarga"
       )
 
-      fill_in :meeting_address, with: address
+      autocomplete_select address, from: :address
 
       page.execute_script("$('#meeting_start_time').focus()")
       page.find(".datepicker-dropdown .day", text: "12").click
@@ -310,7 +310,7 @@ shared_examples "manage meetings" do
           es: "Mi nuevo título",
           ca: "El meu nou títol"
         )
-        fill_in :meeting_address, with: address
+        autocomplete_select address, from: :address
 
         find("*[type=submit]").click
       end
@@ -354,7 +354,7 @@ shared_examples "manage meetings" do
         ca: "Descripció més llarga"
       )
 
-      fill_in :meeting_address, with: address
+      autocomplete_select address, from: :address
       page.execute_script("$('#meeting_start_time').focus()")
       page.find(".datepicker-dropdown .day", text: "12").click
       page.find(".datepicker-dropdown .hour", text: "10:00").click
