@@ -772,7 +772,7 @@ en:
           creation_date: 'Creation: %{date}'
           view_proposal: View proposal
         proposals:
-          empty: There isn't any proposal
+          empty: There is no proposal yet
           empty_filters: There isn't any proposal with this criteria
         show:
           answer: Answer
