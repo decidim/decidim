@@ -18,6 +18,10 @@
     position: initial;
   }
 
+  .dropdown.menu > li > a{
+    background: transparent;
+  }
+
   .is-dropdown-submenu{
     z-index: 2;
   }

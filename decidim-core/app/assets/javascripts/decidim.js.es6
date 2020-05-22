@@ -15,6 +15,7 @@
 // = require decidim/user_registrations
 // = require decidim/account_form
 // = require decidim/data_picker
+// = require decidim/dropdowns_menus
 // = require decidim/append_redirect_url_to_modals
 // = require decidim/editor
 // = require decidim/input_tags
