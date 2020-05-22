@@ -226,7 +226,10 @@ en:
             title: Close meeting
         meeting_copies:
           form:
+            address: Address
+            address_help: 'Address: used by Geocoder to find the location'
             select_organizer: Select the organizer
+            select_address: Select the address
         meetings:
           close:
             invalid: There was a problem closing this meeting
