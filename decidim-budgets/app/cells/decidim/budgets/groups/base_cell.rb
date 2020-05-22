@@ -20,7 +20,7 @@ module Decidim
         end
 
         def limit_reached?
-          current_user && (workflow_instance.allowed - workflow_instance.progress).none?
+          current_user && workflow_instance.limit_reached?
         end
       end
     end

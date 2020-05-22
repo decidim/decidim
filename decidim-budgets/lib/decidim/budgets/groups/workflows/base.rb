@@ -92,6 +92,13 @@ module Decidim
             orders.dig(component.id, :status) == :progress
           end
 
+          # Public: Return if the user has reached the voting limit on budgets
+          #
+          # Returns Boolean.
+          def limit_reached?
+            (allowed - progress).none?
+          end
+
           # Public: Return all the budgets components that should be taken into account for the budgets group
           #
           # Returns an ActiveRecord::Relation.
