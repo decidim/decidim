@@ -1407,6 +1407,7 @@ en:
         twitter: "%{organization} at Twitter"
         youtube: "%{organization} at YouTube"
       user_menu:
+        account: "User account: %{name}"
         admin_dashboard: Admin dashboard
         conversations: Conversations
         notifications: Notifications

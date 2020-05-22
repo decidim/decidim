@@ -36,7 +36,7 @@
         data-close-on-click="true"
         tabindex="-1">
         <li class="is-dropdown-submenu-parent">
-          <%= link_to current_user.email, "#", id: "admin-language-menu-control", "aria-controls": "admin-language-menu", "aria-haspopup": "true" %>
+          <%= link_to current_user.email, "#", id: "admin-language-menu-control", "aria-controls": "admin-language-menu", "aria-haspopup": "true", "aria-label": t("layouts.decidim.user_menu.account", name: current_user.email) %>
           <ul class="menu is-dropdown-submenu" id="admin-language-menu" role="menu" aria-labelledby="admin-language-menu-control" tabindex="-1">
             <li><%= link_to(t("layouts.decidim.user_menu.sign_out"), decidim.destroy_user_session_path, method: :delete, tabindex: "-1") %></li>
           </ul>
