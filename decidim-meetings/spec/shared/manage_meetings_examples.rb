@@ -12,6 +12,7 @@ shared_examples "manage meetings" do
 
   before do
     stub_geocoding(address, [latitude, longitude])
+    stub_geocoding_autocomplete(address)
   end
 
   describe "admin form" do
@@ -378,6 +379,26 @@ shared_examples "manage meetings" do
       within "table" do
         expect(page).to have_content("My meeting")
       end
+    end
+  end
+
+  context "when geocoding is enabled" do
+    it "autocompletes the address field" do
+      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+        click_link "Edit"
+      end
+
+      expect(meeting.address).not_to eq(address)
+
+      within ".edit_meeting" do
+        autocomplete_select address, from: :address
+        expect(page.find(".autocomplete-field input[name=\"meeting[address]\"]", visible: false).value).to eq(address)
+
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_admin_callout("successfully")
+      expect(meeting.reload.address).to eq(address)
     end
   end
 
