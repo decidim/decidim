@@ -255,13 +255,13 @@ fi:
         fields:
           passport_number: Passin numero
           postal_code: Postinumero
-        name: Toinen esimerkkivarmennustapa
+        name: Toinen esimerkkivahvistustapa
       dummy_authorization_handler:
         explanation: Vahvista tilisi syöttämällä asiakirjan numero, joka pääättyy kirjaimeen "X"
         fields:
           document_number: Organisaatiotunnus (esim. Y-tunnus)
           postal_code: Postinumero
-        name: Esimerkkivarmennus
+        name: Esimerkkivahvistus
       dummy_authorization_workflow:
         name: Dummy-varmennuksen työnkulku
       errors:
@@ -272,7 +272,7 @@ fi:
         fields:
           bar: Bar
           foo: Foo
-        name: Foo-varmennus
+        name: Foo-vahvistus
       granted_at: Myönnetty %{timestamp}
       sms:
         explanation: Lähetä matkapuhelinnumerosi, jotta voimme tarkistaa henkilöllisyytesi.
@@ -281,25 +281,25 @@ fi:
     authorization_modals:
       content:
         expired:
-          authorize: Varmenna varmennustavalla "%{authorization}"
-          explanation: Varmennuksesi on vanhentunut. Jotta voit suorittaa tämän toiminnon, sinun on oltava varmennettava itsesi uudestaan varmennustavalla "%{authorization}".
-          title: Varmennus on vanhentunut
+          authorize: Vahvista uudestaan palvelulla "%{authorization}"
+          explanation: Vahvistuksesi on vanhentunut. Jotta voit suorittaa tämän toiminnon, sinun on vahvistettava itsesi uudestaan palvelulla "%{authorization}".
+          title: Vahvistus on vanhentunut
         incomplete:
           cancel: Peruuta
-          explanation: 'Vaikka kirjautumisesi on tällä hetkellä varmennettu varmennustavalla "%{authorization}", tarvitsemme uuden varmennuksen, koska seuraavat tiedot puuttuvat:'
+          explanation: 'Vaikka kirjautumisesi on tällä hetkellä vahvistettu palvelulla "%{authorization}", tarvitsemme uuden vahvistuksen, koska seuraavat tiedot puuttuvat:'
           invalid_field: "%{field}"
           reauthorize: Varmenna uudestaan
           title: Varmenna uudestaan
         missing:
-          authorize: Varmenna varmennustavalla "%{authorization}"
-          explanation: Suorittaaksesi tämän toiminnon, sinun tulee varmentaa tilisi varmennustavalla "%{authorization}".
-          title: Varmennus vaaditaan
+          authorize: Vahvista palvelulla "%{authorization}"
+          explanation: Suorittaaksesi tämän toiminnon, sinun tulee vahvistaa tilisi palvelulla "%{authorization}".
+          title: Vahvistus vaaditaan
         pending:
           explanation: Tämän toiminnon suorittamiseksi sinun varmennettava itsesi palvelulla "%{authorization}", mutta varmennuksesi on edelleen kesken
           resume: Tarkista "%{authorization}" varmennuksen eteneminen
-          title: Varmennus on edelleen kesken
+          title: Vahvistus on edelleen kesken
         unauthorized:
-          explanation: Pahoittelut, et voi suorittaa tätä toimintoa, koska varmennustietosi eivät täsmää.
+          explanation: Pahoittelut, et voi suorittaa tätä toimintoa, koska vahvistustietosi eivät täsmää.
           invalid_field: "Kentän %{field} arvo %{value} ei kelpaa."
           ok: Ok
           title: Ei varmennettu
@@ -808,11 +808,35 @@ fi:
       home: Etusivu
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          admin_in_group: Tämä viesti on lähetetty sinulle, koska olet hallintakäyttäjä ryhmässä %{group}.
+          greeting: Hei %{recipient}!
+          intro: "%{manager} on aloittanut uuden keskustelun ryhmän %{group} nimellä. Napsauta tätä linkkiä nähdäksesi keskustelun:"
+          outro: Nauti decidimistä!
+          subject: "%{manager} on aloittanut uuden keskutelun ryhmänä %{group}"
+        comanagers_new_message:
+          admin_in_group: Tämä viesti on lähetetty sinulle, koska olet hallintakäyttäjä ryhmässä %{group}.
+          greeting: Hei %{recipient}!
+          intro: "%{manager} on lähettänyt uusia viestejä keskustelussa ryhmän %{group} nimellä. Napsauta tätä linkkiä nähdäksesi ne:"
+          outro: Nauti decidimistä!
+          subject: "%{manager} on lähettänyt uusia viestejä ryhmänä %{group}"
         new_conversation:
           greeting: Hei, %{recipient}!
           intro: "%{sender} on aloittanut uuden keskustelun kanssasi. Napsauta tätä linkkiä nähdäksesi keskustelun:"
           outro: Nauti decidimistä!
           subject: "%{sender} on aloittanut keskustelun kanssasi"
+        new_group_conversation:
+          admin_in_group: Tämä viesti on lähetetty sinulle, koska olet hallintakäyttäjä ryhmässä %{group}.
+          greeting: Hei %{recipient}!
+          intro: "%{sender} on aloittanut uuden keskustelun ryhmänä %{group}. Napsauta tätä linkkiä nähdäksesi keskustelun:"
+          outro: Nauti decidimistä!
+          subject: "%{sender} on aloittanut keskustelun ryhmän %{group} kanssa"
+        new_group_message:
+          admin_in_group: Tämä viesti on lähetetty sinulle, koska olet hallintakäyttäjä ryhmässä %{group}.
+          greeting: Hei %{recipient}!
+          intro: "%{sender} on lähettänyt uusia viestejä keskustelussa ryhmän %{group} kesken. Napsauta tätä linkkiä nähdäksesi ne:"
+          outro: Nauti decidimistä!
+          subject: "Ryhmällä %{group} on uusia viestejä lähettäjältä %{sender}"
         new_message:
           greeting: Hei, %{recipient}!
           intro: "%{sender} on lähettänyt uusia viestejä keskusteluusi. Klikkaa tästä linkistä nähdäksesi ne:"
@@ -831,6 +855,7 @@ fi:
           ago: sitten
           close: Sulje ikkuna
           from: Lähettäjältä
+          groups: Omat ryhmäni
           last_message: Viimeisin viesti
           new_conversation: Uusi keskustelu
           next: Seuraava
@@ -1017,6 +1042,7 @@ fi:
       show:
         activity: Aktiviteetti
         badges: Kunniamerkit
+        conversations: Keskustelut
         followers: Seuraajat
         following: Seurattavat
         groups: Ryhmät
@@ -1133,6 +1159,36 @@ fi:
       index:
         no_activities_warning: Tämä käyttäjä ei ole vielä ollut aktiivinen.
     user_contact_disabled: Tämä osallistuja ei ole sallinut yksityisviestejä muilta käyttäjiltä.
+    user_conversations:
+      create:
+        error: Viestiä ei voitu luoda. Yritä myöhemmin uudestaan
+        existing_error: Viestiä ei voitu luoda, koska keskustelu on jo olemassa. Yritä uudestaan nyt.
+        success: Keskustelun aloittaminen onnistui!
+      index:
+        add_max_users: 'Lisää käyttäjiä keskusteluun: enintään 9 käyttäjää'
+        add_users_placeholder: Hae...
+        close: Sulje
+        conversations_info: Keskustelut ovat yksityisiä. Kukaan muu ei voi nähdä niitä. Voit aloittaa keskustelun osallistujien tai ryhmien kanssa tässä palvelussa.
+        from: Lähettäjältä
+        last_message: Viimeisin viesti
+        modal_title: Uusi keskustelu
+        new_conversation: Uusi keskustelu
+        next: Seuraava
+        no_conversations_warning: Ei vielä yhtään keskustelua.
+        no_results: Ei tuloksia
+        participant_with_disabled_message_reception: Tämä osallistuja on estänyt itseltään viestien vastaanottamisen
+        time_ago: "%{time} sitten"
+      new:
+        title: Aloita keskustelu
+      reply:
+        placeholder: Vastauksesi...
+        send: Lähetä
+        title_reply: Vastaa
+      show:
+        not_allowed: Tämä käyttäjä ei ole sallinut yksityisviestejä muilta käyttäjiltä.
+        title: 'Keskustelu: %{usernames}'
+      update:
+        error: Viestiä ei lähetetty. Yritä myöhemmin uudelleen
     user_interests:
       show:
         my_interests: Omat kiinnostuksen kohteet
