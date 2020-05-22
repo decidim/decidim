@@ -16,7 +16,7 @@ module Decidim
                     :metrics,
                     :default_date_filter,
                     :related_processes,
-                    :participatory_process_assemblies
+                    :linked_assemblies
 
       def index
         raise ActionController::RoutingError, "Not Found" if published_processes.none?
@@ -112,8 +112,8 @@ module Decidim
           .all
       end
 
-      def participatory_process_assemblies
-        @participatory_process_assemblies ||=
+      def linked_assemblies
+        @linked_assemblies ||=
           current_participatory_space
           .linked_participatory_space_resources(:assembly, "included_participatory_processes")
           .published
