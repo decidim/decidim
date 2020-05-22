@@ -22,7 +22,6 @@ Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on 
 ### Added
 
 - **decidim-initiatives**: Add attachments to initiatives [\#5844](https://github.com/decidim/decidim/pull/5844)
-- **decidim-core**: Support node.js semver rules for release candidates. [#5828](https://github.com/decidim/decidim/pull/5828)
 - **decidim-core**: Allow groups to have private conversations with other users or groups. [\#6009](https://github.com/decidim/decidim/pull/6009)
 - **decidim-api**: Use organization time zone [\#6088](https://github.com/decidim/decidim/pull/6088)
 - **decidim-docs**: Add helpful info to install docs for seed errors during installation process. [\#6085](https://github.com/decidim/decidim/pull/6085)
