@@ -21,7 +21,7 @@ Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on 
 
 ### Added
 
-- **decidim-initiatives**: Notify authors, promoting committee members, followers of the initiative and admins to receive a notification when an initiative reaches the 100% of the support threshold. [\#6098](https://github.com/decidim/decidim/pull/6098)
+- **decidim-initiatives**: Notify admins when an initiative reaches the 100% of the support threshold. [\#6098](https://github.com/decidim/decidim/pull/6098)
 - **decidim-api**: Use organization time zone [\#6088](https://github.com/decidim/decidim/pull/6088)
 - **decidim-docs**: Add helpful info to install docs for seed errors during installation process. [\#6085](https://github.com/decidim/decidim/pull/6085)
 - **decidim-forms**: New question type "Matrix" [\#5948](https://github.com/decidim/decidim/pull/5948)
