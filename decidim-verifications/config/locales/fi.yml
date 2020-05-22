@@ -31,9 +31,9 @@ fi:
           button: Kumoa kaikki
           button_before: Kumoa ennen tiettyä päivämäärää luodut
           destroy:
-            confirm: Et voi peruuttaa ennen tiettyä päivämäärää luotujen varmennusten kumoamista. Haluatko varmasti jatkaa?
-            confirm_all: Et voi peruuttaa kaikkien varmennusten kumoamista. Haluatko varmasti jatkaa?
-          destroy_nok: Varmennusten kumoamisessa tapahtui virhe.
+            confirm: Et voi peruuttaa ennen tiettyä päivämäärää luotujen vahvistusten kumoamista. Haluatko varmasti jatkaa?
+            confirm_all: Et voi peruuttaa kaikkien vahvistusten kumoamista. Haluatko varmasti jatkaa?
+          destroy_nok: Vahvistusten kumoamisessa tapahtui virhe.
           destroy_ok: Kaikki pyyntöäsi vastaavat varmennukset kumottu onnistuneesti!
           info: Yhteensä %{count} varmennettua osallistujaa.
           no_data: Ei varmennettuja osallistujia
