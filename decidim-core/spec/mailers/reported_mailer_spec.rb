@@ -7,9 +7,9 @@ module Decidim
     let(:organization) { create(:organization) }
     let(:user) { create(:user, :admin, organization: organization) }
     let(:component) { create(:component, organization: organization) }
-    let(:reportable) { create(:proposal, title: Decidim::Faker::Localized.sentence, body: Decidim::Faker::Localized.paragraph(3)) }
+    let(:reportable) { create(:dummy_resource, title: Decidim::Faker::Localized.sentence, body: Decidim::Faker::Localized.paragraph(3)) }
     let(:moderation) { create(:moderation, reportable: reportable, participatory_space: component.participatory_space, report_count: 1) }
-    let(:author) { reportable.creator_identity }
+    let(:author) { reportable.author }
     let!(:report) { create(:report, moderation: moderation, details: "bacon eggs spam") }
     let(:decidim) { Decidim::Core::Engine.routes.url_helpers }
 
@@ -32,7 +32,7 @@ module Decidim
         end
 
         it "includes the report's reason" do
-          expect(email_body(mail)).to match(report.reason)
+          expect(email_body(mail)).to match(I18n.t(report.reason, scope: "decidim.shared.flag_modal"))
         end
 
         it "includes the report's details" do

@@ -14,7 +14,7 @@ module Decidim
         @participatory_space = @report.moderation.participatory_space
         @organization = user.organization
         @user = user
-        @author = @report.moderation.reportable.creator_identity
+        @author = @report.moderation.reportable.try(:creator_identity) || @report.moderation.reportable.try(:author)
         @content = { title: @report.moderation.reportable.try(:title), body: @report.moderation.reportable.try(:body) }.compact
         subject = I18n.t("report.subject", scope: "decidim.reported_mailer")
         mail(to: user.email, subject: subject)
