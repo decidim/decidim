@@ -9,6 +9,19 @@ module GeocoderHelpers
       result
     )
   end
+
+  def stub_geocoding_autocomplete(address)
+    result = [{ address: address, country: "Country", country_code: "CC" }]
+
+    downcased_address = address.downcase
+
+    0.upto(address.length) do |x|
+      Geocoder::Lookup::Test.add_stub(
+        downcased_address[0..x],
+        result
+      )
+    end
+  end
 end
 
 RSpec.configure do |config|
