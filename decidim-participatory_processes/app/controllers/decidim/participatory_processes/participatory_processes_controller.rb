@@ -113,10 +113,7 @@ module Decidim
       end
 
       def linked_assemblies
-        @linked_assemblies ||=
-          current_participatory_space
-          .linked_participatory_space_resources(:assembly, "included_participatory_processes")
-          .published
+        @linked_assemblies ||= current_participatory_space.linked_participatory_space_resources(:assembly, "included_participatory_processes").public_spaces
       end
     end
   end
