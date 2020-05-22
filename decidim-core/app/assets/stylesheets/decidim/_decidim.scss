@@ -1,6 +1,7 @@
 @import "decidim/variables";
 @import "decidim/properties";
 @import "foundation";
+@import "foundation-overrides/components/button-group";
 @import "decidim/utils/settings";
 
 @include foundation-everything($flex: false);
