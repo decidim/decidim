@@ -42,6 +42,8 @@ module Decidim
           toggle_allow(consultation.published? || user&.admin?)
         when :question
           toggle_allow(question.published? || user&.admin?)
+        when :participatory_space
+          allow!
         end
       end
 

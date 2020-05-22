@@ -1,0 +1,15 @@
+<div class="conversation-chat<%= " conversation-chat--offset" if sender_is_user?(sender) %>">
+  <%= link_to sender.personal_url do %>
+    <%= image_tag sender.avatar_url, alt: t("decidim.author.avatar") %>
+  <% end %>
+  <div>
+    <% messages.each do |message| %>
+      <article class="card">
+        <div class="p-s">
+          <%= simple_format(message.body_with_links) %>
+        </div>
+      </article>
+    <% end %>
+    <span class="text-small<%= " pull-right" if sender_is_user?(sender) %>" title="<%= messages.last.created_at.strftime("%d-%m-%Y %H:%M:%S%z") %>"><%= messages.last.friendly_created_at %></span>
+  </div>
+</div>
