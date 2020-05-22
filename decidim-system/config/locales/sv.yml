@@ -47,6 +47,7 @@ sv:
           fields:
             created_at: Skapad
             name: Namn
+            omniauth_settings: Omniauth-inställningar
             smtp_settings: SMTP-inställningar
           name: Organisation
       organizations:
@@ -61,6 +62,19 @@ sv:
           reference_prefix_hint: Referensprefixet används för att unikt identifiera resurser i alla organisationer
           secondary_hosts_hint: Ange var och en av dem på en ny rad
           title: Ny organisation
+        omniauth_settings:
+          enabled: Aktiverad
+          facebook:
+            app_id: App-ID
+            app_secret: App-hemlighet
+          google_oauth2:
+            client_id: Klient-ID
+            client_secret: Klient-hemlighet
+          icon: Symbol
+          icon_path: Sökväg till symbol
+          twitter:
+            api_key: API-nyckel
+            api_secret: API-hemlighet
         update:
           error: Det gick inte att uppdatera organisationen.
           success: Organisationen har uppdaterats.

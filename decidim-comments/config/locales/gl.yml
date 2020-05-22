@@ -76,6 +76,9 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo %{author_name}. Podes deixar de seguir este usuario desde a súa páxina de perfil.
           email_subject: Hai un novo comentario por %{author_name} en %{resource_title}
           notification_title: Hai un novo comentario <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>.
+        comment_by_followed_user_group:
+          email_subject: Hai un novo comentario por %{author_name} en %{resource_title}
+          notification_title: Hai un novo comentario <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "Comentouse %{resource_title} . Podes ler o comentario nesta páxina:"
           email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}" ou o seu autor. Podes deixar de seguir desde a ligazón anterior.

@@ -1,4 +1,4 @@
-<%= render layout: "show", locals: { participants: [@form.recipient] } do %>
+<%= render layout: "show", locals: { participants: @form.recipient.to_a } do %>
   <div id="messages"></div>
 
   <%= render "start", form: @form %>
