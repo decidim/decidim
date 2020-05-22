@@ -9,7 +9,7 @@ it:
         document_number: Numero del documento
         email: Email
         name: Nome
-        nickname: Nome utente
+        nickname: Pseudonimo
         phone: Telefono
       report:
         details: Ulteriori commenti
@@ -808,11 +808,35 @@ it:
       home: Home
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          admin_in_group: Hai ricevuto questo perché sei un amministratore di %{group}.
+          greeting: Ciao, %{recipient}!
+          intro: "%{manager} ha iniziato una nuova conversazione a nome di %{group}. Clicca qui per vederla:"
+          outro: Goditi decidim!
+          subject: "%{manager} ha iniziato una nuova conversazione come %{group}"
+        comanagers_new_message:
+          admin_in_group: Hai ricevuto questo perché sei un amministratore di %{group}.
+          greeting: Ciao, %{recipient}!
+          intro: "%{manager} ha postato nuovi messaggi in una conversazione a nome di %{group}. Clicca qui per vederli:"
+          outro: Goditi decidim!
+          subject: "%{manager} ha inviato nuovi messaggi come %{group}"
         new_conversation:
           greeting: Ciao, %{recipient}!
           intro: "%{sender} ha avviato una nuova conversazione con te. Clicca qui per vederlo:"
           outro: Questa applicazione è stata realizzata con decidim!
           subject: "%{sender} ha iniziato una conversazione con te"
+        new_group_conversation:
+          admin_in_group: Hai ricevuto questo perché sei un amministratore di %{group}.
+          greeting: Ciao, %{recipient}!
+          intro: "%{sender} ha iniziato una nuova conversazione con il gruppo %{group}. Clicca qui per vederla:"
+          outro: Goditi decidim!
+          subject: "%{sender} ha iniziato una conversazione con %{group}"
+        new_group_message:
+          admin_in_group: Hai ricevuto questo perché sei un amministratore di %{group}.
+          greeting: Ciao, %{recipient}!
+          intro: "%{sender} ha postato nuovi messaggi in una conversazione con il gruppo %{group}. Clicca qui per vederlo:"
+          outro: Goditi decidim!
+          subject: "%{group} ha nuovi messaggi da %{sender}"
         new_message:
           greeting: Ciao, %{recipient}!
           intro: "%{sender} ha pubblicato nuovi messaggi nella tua conversazione. Clicca qui per vederli:"
@@ -831,6 +855,7 @@ it:
           ago: fa
           close: Chiudi modale
           from: Da
+          groups: I miei gruppi
           last_message: Ultimo messaggio
           new_conversation: Nuova conversazione
           next: Successivo
@@ -1017,6 +1042,7 @@ it:
       show:
         activity: Attività
         badges: badge
+        conversations: Conversazioni
         followers: Followers
         following: Seguiti
         groups: gruppi
@@ -1133,6 +1159,36 @@ it:
       index:
         no_activities_warning: Questo utente non ha ancora avuto alcuna attività.
     user_contact_disabled: Questo partecipante non accetta messaggi diretti.
+    user_conversations:
+      create:
+        error: Il messaggio non può essere creato. Riprova più tardi
+        existing_error: Il messaggio non può essere creato. La conversazione esiste già, riprova ora.
+        success: Conversazione iniziata con successo!
+      index:
+        add_max_users: 'Aggiungi utenti alla conversazione: massimo 9 utenti'
+        add_users_placeholder: Cerca...
+        close: Chiudi
+        conversations_info: Le conversazioni sono private. Nessun altro può vederle. Una conversazione può essere avviata con qualsiasi partecipante o gruppo registrato sulla piattaforma.
+        from: Da
+        last_message: Ultimo messaggio
+        modal_title: Nuova conversazione
+        new_conversation: Nuova conversazione
+        next: Successivo
+        no_conversations_warning: Non ci sono ancora conversazioni.
+        no_results: Nessun risultato
+        participant_with_disabled_message_reception: Questo utente ha disabilitato la ricezione dei messaggi
+        time_ago: "%{time} fa"
+      new:
+        title: Inizia una conversazione
+      reply:
+        placeholder: La tua risposta...
+        send: Invia
+        title_reply: Rispondi
+      show:
+        not_allowed: Questo utente non accetta più messaggi diretti.
+        title: Conversazione con %{usernames}
+      update:
+        error: Messaggio non inviato. Riprova più tardi
     user_interests:
       show:
         my_interests: I miei interessi
