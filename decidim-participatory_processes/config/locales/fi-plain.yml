@@ -271,7 +271,7 @@ fi-pl:
       participatory_process:
         role_assigned:
           email_intro: Sinulle on myönnetty rooli %{role} osallistumistilassa "%{resource_title}".
-          email_outro: Saat tämän viestin, koska roolisi on %{role} osallistumistilassa "%{resource_title}".
+          email_outro: Tämä viesti on lähetetty sinulle, koska roolisi on %{role} osallistumistilassa "%{resource_title}".
           email_subject: Sinulle on myönnetty rooli %{role} kohteessa "%{resource_title}".
           notification_title: Sinulle on myönnetty rooli %{role} osallistumistilassa <a href="%{resource_url}">%{resource_title}</a>.
         step_activated:
