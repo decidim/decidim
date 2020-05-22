@@ -114,7 +114,7 @@ describe "Conversations", type: :system do
 
     it "allows entering a conversation" do
       visit_inbox
-      click_link "chevron"
+      click_link "conversation-#{conversation.id}"
 
       expect(page).to have_content("Conversation with #{interlocutor.name}")
       expect(page).to have_content("who wants apples?")
@@ -156,7 +156,7 @@ describe "Conversations", type: :system do
     context "when a message is sent" do
       before do
         visit_inbox
-        click_link "chevron"
+        click_link "conversation-#{conversation.id}"
         expect(page).to have_content("Send")
         fill_in "message_body", with: "Please reply!"
         click_button "Send"
@@ -180,7 +180,7 @@ describe "Conversations", type: :system do
         end
 
         it "appears as read after it's seen", :slow do
-          click_link "chevron"
+          click_link "conversation-#{conversation.id}"
           expect(page).to have_content("Please reply!")
 
           find("a.card--list__data__icon--back").click
@@ -195,7 +195,7 @@ describe "Conversations", type: :system do
       context "and interlocutor does not follow user" do
         before do
           visit_inbox
-          click_link "chevron"
+          click_link "conversation-#{conversation.id}"
         end
 
         it "allows user to see old messages" do
@@ -213,7 +213,7 @@ describe "Conversations", type: :system do
 
         before do
           visit_inbox
-          click_link "chevron"
+          click_link "conversation-#{conversation.id}"
         end
 
         it "show the sending form" do
@@ -272,7 +272,7 @@ describe "Conversations", type: :system do
 
   context "when multiple participants conversation" do
     let(:user1) { create(:user, organization: organization) }
-    let(:user2) { create(:user, organization: organization) }
+    let(:user2) { create(:user_group, organization: organization) }
     let(:user3) { create(:user, organization: organization) }
     let(:user4) { create(:user, organization: organization) }
     let(:user5) { create(:user, organization: organization) }
