@@ -21,6 +21,7 @@ module Decidim
     # options - The Hash options used to customize the icon (default {}):
     #             :width  - The Number of width in pixels (optional).
     #             :height - The Number of height in pixels (optional).
+    #             :title - The title for the SVG element (optional, similar to alt for img)
     #             :aria_label - The String to set as aria label (optional).
     #             :aria_hidden - The Truthy value to enable aria_hidden (optional).
     #             :role - The String to set as the role (optional).
@@ -32,14 +33,17 @@ module Decidim
 
       html_properties["width"] = options[:width]
       html_properties["height"] = options[:height]
-      html_properties["aria-label"] = options[:aria_label]
+      html_properties["aria-label"] = options[:aria_label] || options[:"aria-label"] || options["aria-label"]
       html_properties["role"] = options[:role]
-      html_properties["aria-hidden"] = options[:aria_hidden]
+      html_properties["aria-hidden"] = options[:aria_hidden] || options[:"aria-hidden"] || options["aria-hidden"]
 
       html_properties["class"] = (["icon--#{name}"] + _icon_classes(options)).join(" ")
 
       content_tag :svg, html_properties do
-        content_tag :use, nil, "href" => "#{asset_path("decidim/icons.svg")}#icon-#{name}"
+        inner = content_tag :title, options["title"] || html_properties["aria-label"]
+        inner += content_tag :use, nil, "href" => "#{asset_path("decidim/icons.svg")}#icon-#{name}"
+
+        inner
       end
     end
 
