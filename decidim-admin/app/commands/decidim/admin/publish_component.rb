@@ -40,6 +40,8 @@ module Decidim
       end
 
       def publish_event
+        return if component.parent
+
         Decidim::EventsManager.publish(
           event: "decidim.events.components.component_published",
           event_class: Decidim::ComponentPublishedEvent,
