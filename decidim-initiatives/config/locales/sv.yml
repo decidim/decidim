@@ -63,8 +63,6 @@ sv:
       actions:
         new_initiative_type: Ny initiativtyp
       filters:
-        search_placeholder:
-          title_or_description_cont: Sök %{collection} efter titel eller beskrivning.
         state_eq:
           values:
             created: Skapad
