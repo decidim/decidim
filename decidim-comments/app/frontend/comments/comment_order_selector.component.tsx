@@ -47,28 +47,41 @@ class CommentOrderSelector extends React.Component<CommentOrderSelectorProps, Co
           data-disable-hover="true"
           data-click-open="true"
           data-close-on-click="true"
+          tabIndex={-1}
           ref={this.setDropdown}
         >
-          <li>
-            <a href="#">{I18n.t(`components.comment_order_selector.order.${orderBy}`)}</a>
-            <ul className="menu">
+          <li className="is-dropdown-submenu-parent" tabIndex={-1}>
+            <a
+              href="#"
+              id="comments-order-menu-control"
+              aria-label={I18n.t("components.comment_order_selector.title")}
+              aria-controls="comments-order-menu"
+              aria-haspopup="true"
+            >{I18n.t(`components.comment_order_selector.order.${orderBy}`)}</a>
+            <ul
+              className="menu is-dropdown-submenu"
+              id="language-chooser-menu"
+              role="menu"
+              aria-labelledby="comments-order-menu-control"
+              tabIndex={-1}
+            >
               <li>
-                <a href="#" className="test" onClick={this.updateOrder("best_rated")} >
+                <a href="#" className="test" onClick={this.updateOrder("best_rated")} tabIndex={-1}>
                   {I18n.t("components.comment_order_selector.order.best_rated")}
                 </a>
               </li>
               <li>
-                <a href="#" onClick={this.updateOrder("recent")} >
+                <a href="#" onClick={this.updateOrder("recent")} tabIndex={-1}>
                   {I18n.t("components.comment_order_selector.order.recent")}
                 </a>
               </li>
               <li>
-                <a href="#" onClick={this.updateOrder("older")} >
+                <a href="#" onClick={this.updateOrder("older")} tabIndex={-1}>
                   {I18n.t("components.comment_order_selector.order.older")}
                 </a>
               </li>
               <li>
-                <a href="" onClick={this.updateOrder("most_discussed")} >
+                <a href="" onClick={this.updateOrder("most_discussed")} tabIndex={-1}>
                   {I18n.t("components.comment_order_selector.order.most_discussed")}
                 </a>
               </li>
