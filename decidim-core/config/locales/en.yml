@@ -869,6 +869,7 @@ en:
           new_conversation: New conversation
           next: Next
           no_conversations: You have no conversations yet
+          show: Show conversation with %{sender}
           title: Conversations
         reply:
           placeholder: Your reply...
