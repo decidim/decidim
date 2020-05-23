@@ -16,7 +16,7 @@
           data-click-open="true"
           data-close-on-click="true"
           tabindex="-1">
-          <li class="is-dropdown-submenu-parent">
+          <li class="is-dropdown-submenu-parent" tabindex="-1">
             <%= link_to t("name", scope: "locale"), "#", id: "admin-user-menu-control", "aria-controls": "admin-user-menu", "aria-haspopup": "true" %>
             <ul class="menu is-dropdown-submenu" id="admin-user-menu" role="menu" aria-labelledby="admin-user-menu-control" tabindex="-1">
               <% (available_locales - [I18n.locale.to_s]).each do |locale| %>
@@ -35,7 +35,7 @@
         data-click-open="true"
         data-close-on-click="true"
         tabindex="-1">
-        <li class="is-dropdown-submenu-parent">
+        <li class="is-dropdown-submenu-parent" tabindex="-1">
           <%= link_to current_user.email, "#", id: "admin-language-menu-control", "aria-controls": "admin-language-menu", "aria-haspopup": "true", "aria-label": t("layouts.decidim.user_menu.account", name: current_user.email) %>
           <ul class="menu is-dropdown-submenu" id="admin-language-menu" role="menu" aria-labelledby="admin-language-menu-control" tabindex="-1">
             <li><%= link_to(t("layouts.decidim.user_menu.sign_out"), decidim.destroy_user_session_path, method: :delete, tabindex: "-1") %></li>

@@ -6,7 +6,7 @@
       data-click-open="true"
       data-close-on-click="true"
       tabindex="-1">
-      <li class="is-dropdown-submenu-parent">
+      <li class="is-dropdown-submenu-parent" tabindex="-1">
         <%= link_to t("name", scope: "locale"), "#language-chooser-menu", id: "language-chooser-control", "aria-controls": "language-chooser-menu", "aria-haspopup": "true" %>
         <ul class="menu is-dropdown-submenu" id="language-chooser-menu" role="menu" aria-labelledby="language-chooser-control" tabindex="-1">
           <% (available_locales - [I18n.locale.to_s]).each do |locale| %>

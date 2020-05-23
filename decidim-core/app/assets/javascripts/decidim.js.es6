@@ -53,6 +53,10 @@ $(() => {
 
   $(document).foundation();
 
+  if (window.Decidim.fixDropdownMenus) {
+    window.Decidim.fixDropdownMenus();
+  }
+
   svg4everybody();
 
   // Prevent data-open buttons e.g. from submitting the underlying form in
