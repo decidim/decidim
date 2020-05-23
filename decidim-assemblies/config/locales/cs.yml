@@ -107,6 +107,10 @@ cs:
         create:
           error: Při kopírování tohoto shromáždění došlo k chybě.
           success: Shromáždění úspěšně duplikováno.
+      assemblies_settings:
+        update:
+          error: Při aktualizaci nastavení došlo k chybě.
+          success: Nastavení bylo úspěšně aktualizováno.
       assemblies_types:
         create:
           error: Při vytváření nového typu shromáždění došlo k chybě.
@@ -167,6 +171,7 @@ cs:
           success: Administrátor úspěšně aktualizován pro toto shromáždění.
       menu:
         assemblies: Sestavy
+        assemblies_settings: Nastavení
         assemblies_submenu:
           assembly_admins: Administrátoři shromáždění
           assembly_members: Členové
@@ -228,6 +233,8 @@ cs:
         create: "%{user_name} vytvořil %{resource_name} člena ve shromáždění %{space_name}"
         delete: "%{user_name} odstranil %{resource_name} člena ze shromáždění %{space_name}"
         update: "%{user_name} aktualizoval %{resource_name} člena v shromáždění %{space_name}"
+      assembly_setting:
+        update: "%{user_name} aktualizoval nastavení Shromáždění"
       assembly_type:
         create: "%{user_name} vytvořil typ shromáždění %{resource_name}"
         delete: "%{user_name} odstranil člena %{resource_name} z typu shromáždění %{space_name}"
@@ -257,6 +264,11 @@ cs:
             social_handlers: Sociální
             title: Obecná informace
             visbility: Viditelnost
+        assemblies_settings:
+          edit:
+            update: Aktualizovat
+          form:
+            title: Nastavení pro Shromáždění
         assemblies_types:
           form:
             title: Titul
