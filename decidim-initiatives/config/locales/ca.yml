@@ -63,8 +63,6 @@ ca:
       actions:
         new_initiative_type: Nou tipus d'iniciativa
       filters:
-        search_placeholder:
-          title_or_description_cont: Cerca %{collection} per títol o descripció.
         state_eq:
           values:
             created: Creada
