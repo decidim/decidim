@@ -27,6 +27,21 @@ module Decidim
           concat close_link if closable
         end
       end
+
+      # Private: Foudation alert box close link.
+      #
+      # Overrides the foundation alert box close link helper for the aria-label
+      # translations.
+      def close_link
+        button_tag(
+          class: "close-button",
+          type: "button",
+          data: { close: "" },
+          aria: { label: I18n.t("decidim.alert.dismiss") }
+        ) do
+          content_tag(:span, "&times;".html_safe, aria: { hidden: true })
+        end
+      end
     end
   end
 end
