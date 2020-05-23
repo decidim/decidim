@@ -382,6 +382,9 @@ en:
           see: See
         index:
           loading: Loading results...
+      participatory_process_steps:
+        index:
+          back_to_process: Back to the process page
       show:
         area: Area
         dates: Dates
