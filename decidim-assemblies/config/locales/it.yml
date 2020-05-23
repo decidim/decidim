@@ -2,7 +2,7 @@ it:
   activemodel:
     attributes:
       assembly:
-        area_id: La zona
+        area_id: Area
         assembly_type: Tipo di assemblea
         assembly_type_other: Tipo di assemblea altro
         banner_image: Immagine del banner
@@ -101,6 +101,10 @@ it:
         create:
           error: Si è verificato un errore durante la duplicazione di questa assemblea.
           success: L'assemblea è stata duplicata con successo.
+      assemblies_settings:
+        update:
+          error: Si è verificato un errore durante l'aggiornamento delle impostazioni.
+          success: Impostazioni aggiornate con successo.
       assemblies_types:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo tipo di assemblea.
@@ -161,6 +165,7 @@ it:
           success: Utente aggiornato correttamente per questo assembly.
       menu:
         assemblies: Assemblee
+        assemblies_settings: Impostazioni
         assemblies_submenu:
           assembly_admins: Amministratori dell'assemblea
           assembly_members: Utenti
@@ -222,6 +227,8 @@ it:
         create: "%{user_name} creato il membro %{resource_name} nel %{space_name} assembly"
         delete: "%{user_name} rimosso il membro %{resource_name} dal gruppo %{space_name}"
         update: "%{user_name} aggiornato il %{resource_name} membro nel %{space_name} assembly"
+      assembly_setting:
+        update: "%{user_name} ha aggiornato le impostazioni delle assemblee"
       assembly_type:
         create: "%{user_name} ha creato il tipo di assemblea %{resource_name}"
         delete: "%{user_name} ha rimosso il %{resource_name} membro dal tipo di assemblea %{space_name}"
@@ -251,6 +258,11 @@ it:
             social_handlers: Sociale
             title: Informazioni generali
             visbility: Visibilità
+        assemblies_settings:
+          edit:
+            update: Aggiorna
+          form:
+            title: Impostazioni per le assemblee
         assemblies_types:
           form:
             title: Titolo
