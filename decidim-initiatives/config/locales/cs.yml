@@ -70,7 +70,7 @@ cs:
         new_initiative_type: Nový typ iniciativy
       filters:
         search_placeholder:
-          title_or_description_cont: Hledat %{collection} podle názvu nebo popisu.
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Hledat %{collection} podle názvu, popisu, ID nebo jména autora.
         state_eq:
           values:
             created: Vytvořeno
