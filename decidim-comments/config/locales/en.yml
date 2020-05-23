@@ -77,6 +77,10 @@ en:
         single_comment_warning: You can check the rest of the comments <a href="%{url}">here</a>.
         single_comment_warning_title: You are seeing a single comment
         title: "%{count} comments"
+      down_vote_button:
+        text: I disagree with this comment
+      up_vote_button:
+        text: I agree with this comment
     events:
       comments:
         comment_by_followed_user:
