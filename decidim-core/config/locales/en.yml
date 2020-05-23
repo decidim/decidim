@@ -1180,6 +1180,9 @@ en:
         share_link: Share link
       version_author:
         deleted: Deleted participant
+    tags:
+      filter_results_for_category: "Filter results for category: %{resource}"
+      filter_results_for_scope: "Filter results for scope: %{resource}"
     user_activity:
       index:
         no_activities_warning: This participant hasn't had any activity yet.

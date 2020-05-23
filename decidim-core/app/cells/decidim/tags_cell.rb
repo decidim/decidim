@@ -32,10 +32,21 @@ module Decidim
     end
 
     def link_to_category
-      link_to category_path do
-        sr_title = content_tag(:span, Decidim::Category.model_name.human, class: "show-for-sr")
+      accessible_title = t("decidim.tags.filter_results_for_category", resource: category_name)
 
-        sr_title + category_name
+      link_to category_path, title: accessible_title do
+        sr_title = content_tag(
+          :span,
+          accessible_title,
+          class: "show-for-sr"
+        )
+        display_title = content_tag(
+          :span,
+          category_name,
+          "aria-hidden": true
+        )
+
+        sr_title + display_title
       end
     end
 
@@ -52,10 +63,21 @@ module Decidim
     end
 
     def link_to_scope
-      link_to scope_path do
-        sr_title = content_tag(:span, Decidim::Scope.model_name.human, class: "show-for-sr")
+      accessible_title = t("decidim.tags.filter_results_for_scope", resource: scope_name)
 
-        sr_title + scope_name
+      link_to scope_path, title: accessible_title do
+        sr_title = content_tag(
+          :span,
+          accessible_title,
+          class: "show-for-sr"
+        )
+        display_title = content_tag(
+          :span,
+          scope_name,
+          "aria-hidden": true
+        )
+
+        sr_title + display_title
       end
     end
 
