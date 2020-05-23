@@ -68,7 +68,7 @@ cs:
             announcement: Oznámení
             comments_blocked: Komentáře byly blokovány
             endorsements_blocked: Schvalování blokováno
-            endorsements_enabled: Zápisy povoleny
+            endorsements_enabled: Schvalování povoleno
     events:
       blogs:
         post_created:
