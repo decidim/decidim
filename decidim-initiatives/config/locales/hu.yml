@@ -62,8 +62,6 @@ hu:
       actions:
         new_initiative_type: Új kezdeményezés típusa
       filters:
-        search_placeholder:
-          title_or_description_cont: Keresés cím vagy leírás alapján a %{collection} -ban.
         state_eq:
           values:
             created: Létrehozva
