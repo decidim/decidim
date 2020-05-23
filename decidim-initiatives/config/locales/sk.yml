@@ -67,9 +67,6 @@ sk:
     admin:
       actions:
         new_initiative_type: Nový typ iniciatívy
-      filters:
-        search_placeholder:
-          title_or_description_cont: Hľadať %{collection} podľa názvu alebo popisu.
       menu:
         initiatives: Iniciatívy
         initiatives_types: Typy iniciatív
