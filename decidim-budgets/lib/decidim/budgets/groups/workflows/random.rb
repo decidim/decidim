@@ -11,11 +11,13 @@ module Decidim
         class Random < Base
           # Highlight the component if the user didn't vote and is allowed to vote on it.
           def highlighted?(component)
-            voted.none? && vote_allowed?(component)
+            vote_allowed?(component)
           end
 
           # User can vote in the component where they has an order in progress or in the randomly selected component.
           def vote_allowed?(component, consider_progress = true)
+            return false if voted.any?
+
             if consider_progress
               progress?(component) || (progress.none? && component == random_component)
             else

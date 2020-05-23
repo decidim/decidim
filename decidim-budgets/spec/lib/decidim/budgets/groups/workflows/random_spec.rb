@@ -96,7 +96,7 @@ module Decidim::Budgets::Groups
 
         it_behaves_like "doesn't highlight any component"
         it_behaves_like "has a voted order"
-        it_behaves_like "allows to vote only in the order component"
+        it_behaves_like "doesn't allow to vote in any component"
 
         it "doesn't have any discardable order" do
           expect(workflow.discardable).to be_empty

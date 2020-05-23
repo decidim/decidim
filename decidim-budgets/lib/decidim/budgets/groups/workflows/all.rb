@@ -12,8 +12,8 @@ module Decidim
           end
 
           # Users can vote in all budgets components with this workflow.
-          def vote_allowed?(_component, _consider_progress = true)
-            true
+          def vote_allowed?(component, _consider_progress = true)
+            !voted?(component)
           end
         end
       end

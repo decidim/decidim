@@ -51,7 +51,16 @@ module Decidim::Budgets::Groups
 
         it_behaves_like "doesn't highlight any component"
         it_behaves_like "has a voted order"
-        it_behaves_like "allows voting in every components"
+
+        it "allows to vote in every component except the voted one" do
+          expect(subject).not_to be_vote_allowed(order_component)
+
+          other_components.each do |component|
+            expect(subject).to be_vote_allowed(component)
+          end
+
+          expect(workflow.allowed).to match_array(other_components)
+        end
 
         it "doesn't have any discardable order" do
           expect(workflow.discardable).to be_empty

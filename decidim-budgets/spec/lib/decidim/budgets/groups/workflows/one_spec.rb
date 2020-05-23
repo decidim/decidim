@@ -22,34 +22,31 @@ module Decidim::Budgets::Groups
 
       before { order }
 
-      shared_examples "allows to vote only in the order component" do
-        it "allows to vote in the order component" do
-          expect(subject).to be_vote_allowed(order_component)
-          expect(workflow.allowed).to match_array([order_component])
-        end
+      it "allows to vote in the order component" do
+        expect(subject).to be_vote_allowed(order_component)
+        expect(workflow.allowed).to match_array([order_component])
+      end
 
-        it "doesn't allow to vote in the other components" do
-          other_components.each do |component|
-            expect(subject).not_to be_vote_allowed(component)
-          end
+      it "doesn't allow to vote in the other components" do
+        other_components.each do |component|
+          expect(subject).not_to be_vote_allowed(component)
         end
+      end
 
-        it "has a not_allowed status for other components" do
-          other_components.each do |component|
-            expect(workflow.status(component)).to eq(:not_allowed)
-          end
+      it "has a not_allowed status for other components" do
+        other_components.each do |component|
+          expect(workflow.status(component)).to eq(:not_allowed)
         end
+      end
 
-        it "would allow to vote in other components" do
-          workflow.budgets.each do |component|
-            expect(subject).to be_vote_allowed(component, false)
-          end
+      it "would allow to vote in other components" do
+        workflow.budgets.each do |component|
+          expect(subject).to be_vote_allowed(component, false)
         end
       end
 
       it_behaves_like "doesn't highlight any component"
       it_behaves_like "has an in-progress order"
-      it_behaves_like "allows to vote only in the order component"
       it_behaves_like "allow to discard all the progress orders"
 
       context "when order has been checked out" do
@@ -57,7 +54,13 @@ module Decidim::Budgets::Groups
 
         it_behaves_like "doesn't highlight any component"
         it_behaves_like "has a voted order"
-        it_behaves_like "allows to vote only in the order component"
+        it_behaves_like "doesn't allow to vote in any component"
+
+        it "has a not_allowed status for other components" do
+          other_components.each do |component|
+            expect(workflow.status(component)).to eq(:not_allowed)
+          end
+        end
 
         it "doesn't have any discardable order" do
           expect(workflow.discardable).to be_empty

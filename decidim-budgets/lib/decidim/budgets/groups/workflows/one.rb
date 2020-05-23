@@ -13,9 +13,13 @@ module Decidim
 
           # Users can vote in any budgets components with this workflow, but only in one.
           def vote_allowed?(component, consider_progress = true)
-            return true unless consider_progress
+            return false if voted.any?
 
-            orders.empty? || (orders[component.id] && orders.count == 1)
+            if consider_progress
+              progress?(component) || progress.none?
+            else
+              true
+            end
           end
         end
       end

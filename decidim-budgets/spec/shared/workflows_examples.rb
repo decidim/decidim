@@ -55,6 +55,14 @@ shared_examples "allows to vote in all components" do
   end
 end
 
+shared_examples "doesn't allow to vote in any component" do
+  it "doesn't allow to vote in any component" do
+    workflow.budgets.each do |component|
+      expect(subject).not_to be_vote_allowed(component)
+    end
+  end
+end
+
 shared_examples "doesn't have orders" do
   it "doesn't have any order in progress" do
     expect(workflow.progress).to be_empty
