@@ -9,6 +9,8 @@
     <div class="card">
       <div class="card__content">
         <%= decidim_form_for(@form, url: compare_collaborative_drafts_path, method: :get) do |form| %>
+          <%= form_required_explanation %>
+
           <div class="field">
             <%= form.text_field :title %>
           </div>

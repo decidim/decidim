@@ -15,6 +15,8 @@
           <div class="card__content">
             <legend><%= t("sign_up_as.legend", scope: "decidim.devise.registrations.new") %></legend>
 
+            <%= form_required_explanation %>
+
             <%= f.hidden_field :invitation_token %>
 
             <div class="user-nickname">

@@ -12,6 +12,8 @@
           <div class="card">
             <div class="card__content">
               <%= decidim_form_for(@form, url: authorization_path, method: :put) do |form| %>
+                <%= form_required_explanation %>
+
                 <div class="field">
                   <%= form.text_field :verification_code %>
                 </div>

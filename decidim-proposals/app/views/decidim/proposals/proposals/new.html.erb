@@ -9,6 +9,8 @@
     <div class="card">
       <div class="card__content">
         <%= decidim_form_for(@form) do |form| %>
+          <%= form_required_explanation %>
+
           <div class="field hashtags__container">
             <%= form.text_field :title, class: "js-hashtags" %>
           </div>

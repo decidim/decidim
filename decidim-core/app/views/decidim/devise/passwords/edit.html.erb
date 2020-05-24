@@ -11,6 +11,8 @@
       <div class="card">
         <div class="card__content">
           <%= decidim_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: "register-form new_user" }) do |f| %>
+            <%= form_required_explanation %>
+
             <%= f.hidden_field :reset_password_token %>
 
             <div class="field">

@@ -201,6 +201,17 @@ module Decidim
       end
     end
 
+    # Helper method to show an explanation for the form's required fields that
+    # are marked with an asterisk character. This improves the accessibility of
+    # the forms.
+    #
+    # Returns an HTML-safe String.
+    def form_required_explanation
+      content_tag(:div, class: "help-text help-text-form-required-fields") do
+        I18n.t("forms.required_explanation")
+      end
+    end
+
     def base_error_messages(record)
       return unless record.respond_to?(:errors)
       return unless record.errors[:base].any?

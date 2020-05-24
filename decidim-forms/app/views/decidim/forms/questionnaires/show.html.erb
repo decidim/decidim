@@ -41,6 +41,7 @@
                 <% end %>
 
                 <%= decidim_form_for(@form, url: update_url, method: :post, html: { class: "form answer-questionnaire" }) do |form| %>
+                  <%= form_required_explanation %>
                   <%= invisible_captcha %>
                   <% @form.responses.each_with_index do |answer, answer_idx| %>
                     <div class="row column answer" data-max-choices="<%= answer.question.max_choices %>">

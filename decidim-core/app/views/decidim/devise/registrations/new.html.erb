@@ -28,6 +28,8 @@
         <%= invisible_captcha %>
         <div class="card">
           <div class="card__content">
+            <%= form_required_explanation %>
+
             <div class="user-person">
               <div class="field">
                 <%= f.text_field :name, help_text: t(".username_help") %>
