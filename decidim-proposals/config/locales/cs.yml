@@ -54,7 +54,7 @@ cs:
       decidim/proposals/admin/update_proposal_category_event: Kategorie nabídky se změnila
       decidim/proposals/admin/update_proposal_scope_event: Rozsah návrhu se změnil
       decidim/proposals/creation_enabled_event: Vytváření návrhu je povoleno
-      decidim/proposals/endorsing_enabled_event: Povolení návrhu je povoleno
+      decidim/proposals/endorsing_enabled_event: Schválení návrhu je povoleno
       decidim/proposals/evaluating_proposal_event: Návrh je hodnocen
       decidim/proposals/proposal_endorsed_event: Návrh byl schválen
       decidim/proposals/proposal_mentioned_event: Návrh byl zmíněn
