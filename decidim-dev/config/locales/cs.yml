@@ -2,7 +2,7 @@ cs:
   activemodel:
     attributes:
       dummy_resource:
-        created_at: Vytvořeno u
+        created_at: Vytvořeno v
         field: Moje pole
         start_date: Počáteční datum
         title: Titul
