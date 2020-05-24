@@ -1,4 +1,4 @@
-<% menu_id = "results_per_page_menu" %>
+<% menu_id = "#{SecureRandom.uuid}_results_per_page_menu" %>
 <div class="results-per-page">
   <div class="results-per-page__dropdown">
     <span class="results-per-page__text"><%= t("decidim.shared.results_per_page.label") %></span>
@@ -16,6 +16,7 @@
               <%= link_to per_page_option,
                           url_for(params.to_unsafe_h.merge(page: nil, per_page: per_page_option)),
                           data: { per_page_option: per_page_option },
+                          remote: true,
                           title: t("decidim.shared.results_per_page.title"),
                           tabindex: "-1" %>
             </li>
