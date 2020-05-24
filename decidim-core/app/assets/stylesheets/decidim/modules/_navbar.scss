@@ -15,7 +15,8 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
 .navbar{
   background: $navbar-bg;
 
-  a{
+  a,
+  .button{
     &:focus{
       outline-color: var(--highlight-alternative);
     }
@@ -33,9 +34,14 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
 
   .skip{
     @include skip-button;
+
+    &:focus{
+      outline-color: var(--highlight-alternative);
+    }
   }
 
-  a{
+  a,
+  .button{
     &:focus{
       outline-color: var(--highlight-alternative);
     }
@@ -68,7 +74,6 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
 .topbar__search{
   position: relative;
   max-width: 220px; // Safari fix
-  overflow: hidden; // IE11 fix
 
   input{
     color: $navbar-color-hover;
@@ -122,6 +127,15 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
   }
 }
 
+// Hack to fix the top bar display for IE11
+// This cannot be applied to other browsers as the focus borders would be
+// invisible if overflow is hidden on the search element.
+@media all and (-ms-high-contrast:none){
+  *::-ms-backdrop, .topbar__search{
+    overflow: hidden;
+  }
+}
+
 /* Top bar */
 .topbar{
   display: flex;
@@ -164,6 +178,7 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
   margin-left: 2rem;
 
   .dropdown > li > a{
+    background: transparent;
     padding-left: 0;
   }
 

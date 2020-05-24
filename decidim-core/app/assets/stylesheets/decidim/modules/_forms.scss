@@ -3,6 +3,16 @@
 $checkboxes-minimum-width: 200px;
 $help-text-margin-top: ($form-spacing * 0.5) * -1;
 
+.input-group{
+  .input-group-field{
+    &:focus{
+      // To raise the focus border on top of any other nearby elements
+      position: relative;
+      z-index: 10;
+    }
+  }
+}
+
 .input-group-button button{
   height: 2.5rem;
   padding: .5rem 1rem;
