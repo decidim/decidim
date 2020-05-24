@@ -45,7 +45,7 @@ cs:
           actions:
             save_and_invite: Vytvořit organizaci a pozvat administrátora
           fields:
-            created_at: Vytvořeno u
+            created_at: Vytvořeno v
             name: název
             omniauth_settings: Nastavení Omniauth
             smtp_settings: SMTP nastavení
