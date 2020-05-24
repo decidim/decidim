@@ -2,7 +2,7 @@ it:
   activemodel:
     attributes:
       assembly:
-        area_id: La zona
+        area_id: Area
         assembly_type: Tipo di assemblea
         assembly_type_other: Tipo di assemblea altro
         banner_image: Immagine del banner
