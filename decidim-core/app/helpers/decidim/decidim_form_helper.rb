@@ -29,12 +29,6 @@ module Decidim
         options[:format] = format if format
       end
 
-      # For accessibility reasons, jump to content straight after submitting
-      # the form.
-      if options.has_key?(:url) && options[:url] !~ /#.*$/
-        options[:url] += "#content" if options.has_key?(:url)
-      end
-
       output = ""
       output += base_error_messages(record).to_s
       output += form_for(record, options, &block).to_s
