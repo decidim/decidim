@@ -14,6 +14,12 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
 
 .navbar{
   background: $navbar-bg;
+
+  a{
+    &:focus{
+      outline-color: var(--highlight-alternative);
+    }
+  }
 }
 
 /* Title bar */
@@ -27,6 +33,12 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
 
   .skip{
     @include skip-button;
+  }
+
+  a{
+    &:focus{
+      outline-color: var(--highlight-alternative);
+    }
   }
 }
 
@@ -71,6 +83,7 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
       color: $navbar-color-hover;
       box-shadow: none;
       background: $navbar-active-bg;
+      outline-color: var(--highlight-alternative);
     }
 
     @include breakpoint(medium){

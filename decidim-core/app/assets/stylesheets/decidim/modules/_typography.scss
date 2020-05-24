@@ -10,6 +10,7 @@ a{
   &:focus{
     outline: $anchor-outline-focus;
     outline-color: var(--highlight);
+    outline-offset: $anchor-outline-offset;
   }
 }
 

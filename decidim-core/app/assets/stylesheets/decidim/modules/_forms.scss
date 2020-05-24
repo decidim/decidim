@@ -56,8 +56,9 @@ label > [type='radio']{
     &:active,
     &:focus{
       & + .switch-paddle{
-        outline: $anchor-outline-focus;
+        outline: $input-outline-focus;
         outline-color: var(--highlight);
+        outline-offset: $input-outline-offset;
       }
     }
   }
@@ -95,5 +96,6 @@ input[type=radio]{
   &:focus{
     outline: $input-outline-focus;
     outline-color: var(--highlight);
+    outline-offset: $input-outline-offset;
   }
 }

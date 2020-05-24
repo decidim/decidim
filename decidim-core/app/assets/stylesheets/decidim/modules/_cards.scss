@@ -326,6 +326,7 @@ a .card__title{
   span:focus{
     outline: $anchor-outline-focus;
     outline-color: var(--highlight);
+    outline-offset: $anchor-outline-offset;
   }
 }
 
@@ -478,6 +479,7 @@ a .card__title{
     z-index: 2; // Raise the focus border on top of overflowing elements
     outline: $anchor-outline-focus;
     outline-color: var(--highlight);
+    outline-offset: $anchor-outline-offset;
   }
 }
 
@@ -711,6 +713,7 @@ a .card__title{
     &:focus{
       outline: $anchor-outline-focus;
       outline-color: var(--highlight);
+      outline-offset: $anchor-outline-offset;
     }
   }
 

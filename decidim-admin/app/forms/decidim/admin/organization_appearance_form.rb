@@ -34,7 +34,8 @@ module Decidim
       attribute :success_color, String, default: "#57d685"
       attribute :warning_color, String, default: "#ffae00"
       attribute :alert_color, String, default: "#ec5840"
-      attribute :highlight_color, String, default: "#d67200"
+      attribute :highlight_color, String, default: "#be6400"
+      attribute :highlight_alternative_color, String, default: "#ff5731"
 
       translatable_attribute :cta_button_text, String
       translatable_attribute :description, String
