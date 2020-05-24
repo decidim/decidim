@@ -30,7 +30,7 @@ cs:
         body: Tělo
         subject: Předmět
       oauth_application:
-        name: název
+        name: Název
         organization_logo: Logo organizace (čtverec)
         organization_name: Název organizace
         organization_url: URL organizace
@@ -143,7 +143,7 @@ cs:
         browse: Procházet
         export: Exportovat
         manage: Spravovat
-        new: Nový %{name}
+        new: Nová %{name}
         per_page: Na stránku
         permissions: Oprávnění
         reject: Odmítnout
@@ -380,7 +380,7 @@ cs:
         homepage: Domovská stránka
         impersonations: Vydávání se za uživatele
         newsletters: Zpravodaje
-        oauth_applications: Aplikace OAuth
+        oauth_applications: Žádosti OAuth
         participants: Účastníci
         scope_types: Typy rozsahu
         scopes: Rozsahy
@@ -431,7 +431,7 @@ cs:
           fields:
             created_at: Vytvořeno v
             name: Jméno
-          name: Aplikace OAuth
+          name: Žádost OAuth
         participatory_space_private_user:
           name: Účastnický prostor soukromého účastníka
         scope:
@@ -484,13 +484,13 @@ cs:
           use_template: Použít tuto šablonu
       newsletters:
         create:
-          error: Při vytváření tohoto zpraodaje došlo k chybě.
+          error: Při vytváření tohoto zpravodaje došlo k chybě.
           success: Zpravodaj byl úspěšně vytvořen. Před odesláním si jej zkontrolujte.
         deliver:
           error: Došlo k chybě při zasílání tohoto zpravodaje.
           success: Zpravodaj byl úspěšně doručen.
         destroy:
-          error_already_sent: 'Nelze zničit informační zpravodaj: Už byl odeslán.'
+          error_already_sent: 'Nelze zničit zpravodaj: Už byl odeslán.'
           success: Zpravodaj byl úspěšně zlikvidován.
         edit:
           save_and_preview: Uložit a zobrazit náhled
@@ -510,17 +510,17 @@ cs:
           title: Zpravodaje
         new:
           save: Uložit
-          title: Nový informační bulletin
+          title: Nový zpravodaj
         select_recipients_to_deliver:
           all_spaces: Vše
-          all_users_help: Poslat newsletter všem potvrzeným uživatelům.
-          confirm_deliver: Opravdu chcete tento newsletter doručit? Tuto akci nelze vrátit zpět.
-          deliver: Doručte informační bulletin
-          followers_help: Poslat zpravodaj všem potvrzeným uživatelům, kteří sledují všechny vybrané participační prostory v seznamu.
+          all_users_help: Poslat Zpravodaj všem potvrzeným uživatelům.
+          confirm_deliver: Opravdu chcete tento zpravodaj doručit? Tuto akci nelze vrátit zpět.
+          deliver: Doručit zpravodaj
+          followers_help: Odešle zpravodaj všem potvrzeným uživatelům, kteří sledují všechny vybrané participační prostory v seznamu.
           none: Žádný
-          participants_help: Odešle newsletter všem potvrzeným uživatelům, kteří se zúčastnili některého z vybraných participačních prostorů v seznamu.
-          recipients_count: Tento newsletter bude odeslán <strong id='recipients_count'>%{count}</strong> uživatelům.
-          scopes_help: Odešle newsletter uživatelům, kteří mají některý z vybraných rozsahů aktivovaný v nastavení svého účtu "Moje zájmy".
+          participants_help: Odešle zpravodaj všem potvrzeným uživatelům, kteří se zúčastnili některého z vybraných participačních prostorů v seznamu.
+          recipients_count: Tento zpravodaj bude odeslán <strong id='recipients_count'>%{count}</strong> uživatelům.
+          scopes_help: Odešle zpravodaj uživatelům, kteří mají některý z vybraných rozsahů aktivovaný v nastavení svého účtu "Moje zájmy".
           select_scopes: Filtrovat uživatele, kteří aktivovali jakýkoli vybraný rozsah v nastavení jejich účtu Moje Zájmy.
           select_spaces: Vybrat mezery pro rozdělení zpravodaje
           select_users: Vybrat, kterým uživatelům chcete poslat zpravodaj
@@ -536,32 +536,32 @@ cs:
           select_recipients_to_deliver: Vybrat příjemce k doručení
           subject: Předmět
         update:
-          error: Při aktualizaci tohoto bulletinu došlo k chybě.
-          success: Newsletter byl úspěšně aktualizován. Před odesláním si je přečtěte.
+          error: Při aktualizaci tohoto zpravodaje došlo k chybě.
+          success: Zpravodaj byl úspěšně aktualizován. Před odesláním jej prosím zkontrolujte.
       oauth_applications:
         create:
-          error: Při vytváření této aplikace došlo k chybě.
-          success: Aplikace byla úspěšně vytvořena.
+          error: Při vytváření této žádosti došlo k chybě.
+          success: Žádost byla úspěšně vytvořena.
         destroy:
-          error: Došlo k chybě při zničení této aplikace.
-          success: Aplikace byla úspěšně zlikvidována.
+          error: Došlo k chybě při zničení této žádosti.
+          success: Žádost byla úspěšně zlikvidována.
         edit:
           save: Uložit
-          title: Upravit aplikaci
+          title: Upravit žádost
         index:
-          confirm_delete: Opravdu chcete tuto aplikaci smazat?
-          title: Aplikace OAuth
+          confirm_delete: Opravdu chcete tuto žádost smazat?
+          title: Žádosti OAuth
         new:
           save: Uložit
           title: Nová aplikace
         update:
           error: Při aktualizaci této aplikace došlo k chybě.
-          success: Aplikace byla úspěšně aktualizována.
+          success: Žádost byla úspěšně aktualizována.
       officializations:
         create:
           success: Uživatel úspěšně oficializován
         destroy:
-          success: Uživatel neoficiálně úspěšně
+          success: Uživatel úspěšně zbaven oficializace
         index:
           actions: Akce
           badge: Odznak
@@ -574,9 +574,9 @@ cs:
           reofficialize: Reofficialize
           show_email: Zobrazit e-mailovou adresu
           status: Postavení
-          unofficialize: Neoficiálně
+          unofficialize: Odebrat oficializaci
         new:
-          badge: Oficiální odznak
+          badge: Oficializační odznak
           officialize: Úředně
           title: Oficializovat uživatele "%{name}"
         show_email_modal:
@@ -834,7 +834,7 @@ cs:
     decidim:
       admin:
         newsletters:
-          title: Zprávy
+          title: Zpravodaje
         settings:
           title: Nastavení
         users:
