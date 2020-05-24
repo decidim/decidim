@@ -194,6 +194,7 @@ $palette: (
 
 @mixin button-hollow-variant($color, $hover-text-color: $white){
   background-color: $color;
+  color: $hover-text-color;
 
   &.hover,
   &:hover,
