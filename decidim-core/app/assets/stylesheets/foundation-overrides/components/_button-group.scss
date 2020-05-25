@@ -255,7 +255,7 @@ $buttongroup-radius-on-each: true !default;
               @include button-fill-style($filling, $color, auto, auto);
             }
           } @else {
-            &.#{$name} #{$buttongroup-child-selector}, #{$buttongroup-child-selector}.#{$name} {
+            &.#{$name} #{$buttongroup-child-selector}, & #{$buttongroup-child-selector}.#{$name} {
               @include button-fill-style($filling, $color, auto, auto);
             }
           }
