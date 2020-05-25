@@ -248,6 +248,7 @@ ar:
         explanation: الحصول على التحقق عن طريق إدخال رقم جواز سفر يبدأ بـ "A"
         fields:
           passport_number: رقم جواز السفر
+          postal_code: الكود البريدى
         name: مثال آخر إذن
       dummy_authorization_handler:
         explanation: الحصول على التحقق من خلال إدخال رقم مستند ينتهي بـ "X"
@@ -762,6 +763,7 @@ ar:
         create:
           error: لم تبدأ المحادثة. حاول مرة أخرى في وقت لاحق
         index:
+          close: إغلاق مشروط
           no_conversations: ليس لديك محادثات حتى الآن
           title: المحادثات
         reply:

@@ -8,7 +8,6 @@ def setup_provider_proc(provider, config_mapping = {})
 
     config_mapping.each do |option_key, config_key|
       env["omniauth.strategy"].options[option_key] = provider_config[config_key]
-      env["omniauth.strategy"].options[option_key] = provider_config[config_key]
     end
   end
 end
@@ -21,6 +20,13 @@ Rails.application.config.middleware.use OmniAuth::Builder do
       provider(
         :developer,
         fields: [:name, :nickname, :email]
+      )
+    end
+
+    if omniauth_config[:decidim].present?
+      provider(
+        :decidim,
+        setup: setup_provider_proc(:decidim, client_id: :client_id, client_secret: :client_secret, site: :site_url)
       )
     end
 

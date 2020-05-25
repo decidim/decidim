@@ -77,6 +77,9 @@ id:
         error: Terjadi kesalahan saat memperbarui akun Anda.
         success: Akun Anda telah berhasil diperbarui.
         success_with_email_confirmation: Akun Anda telah berhasil diperbarui. Anda akan menerima email untuk mengonfirmasi alamat email baru Anda.
+    admin:
+      actions:
+        cancel: Membatalkan
     admin_log:
       area:
         create: "%{user_name} menciptakan %{resource_name} area"
@@ -189,6 +192,7 @@ id:
         explanation: Dapatkan verifikasi dengan memperkenalkan nomor paspor dimulai dengan "A"
         fields:
           passport_number: Nomor paspor
+          postal_code: Kode Pos
         name: Contoh otorisasi lain
       dummy_authorization_handler:
         explanation: Dapatkan verifikasi dengan memperkenalkan nomor dokumen yang diakhiri dengan "X"
@@ -707,6 +711,7 @@ id:
         create:
           error: Percakapan tidak dimulai. Coba lagi nanti
         index:
+          close: Tutup modal
           no_conversations: Anda belum memiliki percakapan
           title: Percakapan
         reply:

@@ -59,17 +59,11 @@ en:
           edit:
             title: Edit result
             update: Update result
-          form:
-            add_proposal: Add proposal
           index:
             title: Results
           new:
             create: Create result
             title: New result
-          proposals:
-            close: Close
-            current_selection: Current selection
-            select: Select
           update:
             invalid: There was a problem updating this result
             success: Result successfully updated

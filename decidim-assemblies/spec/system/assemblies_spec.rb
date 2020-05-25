@@ -105,7 +105,7 @@ describe "Assemblies", type: :system do
 
     it "lists the parent assemblies" do
       within "#parent-assemblies" do
-        within "#parent-assemblies h2" do
+        within "#parent-assemblies h3" do
           expect(page).to have_content("2")
         end
 

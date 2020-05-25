@@ -1,0 +1,49 @@
+<%= partial "filters_small_view" %>
+<div class="card card--secondary show-for-mediumlarge">
+  <div class="filters">
+    <% if locals[:show_status_filter] == true %>
+      <div class="filters__section">
+        <form>
+          <fieldset>
+            <legend>
+              <h6 class="heading6">
+                Status
+              </h6>
+            </legend>
+            <label data-global-checkbox><input data-checkboxes-tree="filters-budget-status" type="checkbox" checked>All</label>
+            <div id="filters-budget-status" class="filters__subfilters">
+              <label data-children-checkbox><input id="" type="checkbox" checked>Accepted</label>
+              <label data-children-checkbox><input id="" type="checkbox" <%= "checked" unless locals[:showSelected] == true %>>Not Accepted</label>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    <% end %>
+
+    <div class="filters__section">
+      <form>
+        <fieldset>
+          <legend>
+            <h6 class="heading6">
+              Eix
+              <span class="help">
+                <%= icon "info", class: "icon--after" %>
+              </span>
+            </h6>
+          </legend>
+          <label data-global-checkbox><input data-checkboxes-tree="filters-axis" type="checkbox" checked>Tots</label>
+          <div id="filters-axis" class="filters__subfilters">
+            <label data-children-checkbox><input id="" type="checkbox" checked>Bon viure</label>
+            <label data-children-checkbox><input id="" type="checkbox" checked>Economia plural</label>
+            <label data-children-checkbox><input id="" type="checkbox" checked>Transició ecològica</label>
+            <label data-children-checkbox><input id="" type="checkbox" checked>Bon govern</label>
+            <label data-children-checkbox><input id="" type="checkbox" checked>Justícia global</label>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+    <div class="filters__section">
+      <%= partial "scope_district" %>
+    </div>
+  </div>
+</div>

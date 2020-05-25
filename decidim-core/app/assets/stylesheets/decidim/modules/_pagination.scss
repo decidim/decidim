@@ -1,4 +1,8 @@
 .pagination{
+  a:focus{
+    outline: 2px solid $secondary;
+  }
+
   .pagination-previous,
   .pagination-next{
     display: inline-block;

@@ -15,6 +15,7 @@ module Decidim
         let(:password_confirmation) { password }
         let(:tos_agreement) { "1" }
         let(:newsletter) { "1" }
+        let(:current_locale) { "es" }
 
         let(:form_params) do
           {
@@ -31,7 +32,8 @@ module Decidim
         end
         let(:form) do
           RegistrationForm.from_params(
-            form_params
+            form_params,
+            current_locale: current_locale
           ).with_context(
             current_organization: organization
           )
@@ -89,7 +91,8 @@ module Decidim
               newsletter_notifications_at: form.newsletter_at,
               email_on_notification: true,
               organization: organization,
-              accepted_tos_version: organization.tos_version
+              accepted_tos_version: organization.tos_version,
+              locale: form.current_locale
             ).and_call_original
 
             expect { command.call }.to change(User, :count).by(1)

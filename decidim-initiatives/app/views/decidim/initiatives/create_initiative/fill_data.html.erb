@@ -1,6 +1,6 @@
 <% content_for :back_link do %>
   <%= link_to :back do %>
-    <%= icon "chevron-left", class: "icon--small" %>
+    <%= icon "chevron-left", class: "icon--small", role: "img" %>
     <%= t(".back") %>
   <% end %>
 <% end %>
@@ -52,6 +52,12 @@
                 <%= f.select :scope_id,
                             scopes.map { |scope| [translated_attribute(scope.scope_name), scope&.scope&.id]},
                             prompt: t(".select_scope") %>
+              </div>
+            <% end %>
+
+            <% if initiative_type.custom_signature_end_date_enabled? %>
+              <div class="field">
+                <%= f.date_field :signature_end_date %>
               </div>
             <% end %>
 
