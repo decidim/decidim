@@ -63,6 +63,8 @@ fi:
       actions:
         new_initiative_type: Uusi aloitetyyppi
       filters:
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Etsi kohteita %{collection} otsikon, kuvauksen, ID-numeron tai laatijan nimellä.
         state_eq:
           values:
             created: Luotu
