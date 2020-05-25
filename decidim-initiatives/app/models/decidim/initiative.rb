@@ -391,7 +391,7 @@ module Decidim
       SQL
       Arel.sql(query)
     end
-    
+
     ransacker :id_string do
       Arel.sql(%{cast("decidim_initiatives"."id" as text)})
     end
