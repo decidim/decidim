@@ -90,6 +90,7 @@
       containerSelector: ".questionnaire-question-answer-options-list",
       fieldSelector: answerOptionFieldSelector,
       addFieldButtonSelector: ".add-answer-option",
+      fieldTemplateSelector: ".decidim-answer-option-template",
       removeFieldButtonSelector: answerOptionRemoveFieldButtonSelector,
       onAddField: () => {
         autoButtons.run();
@@ -111,6 +112,7 @@
       containerSelector: ".questionnaire-question-matrix-rows-list",
       fieldSelector: matrixRowFieldSelector,
       addFieldButtonSelector: addMatrixRowButtonSelector,
+      fieldTemplateSelector: ".decidim-matrix-row-template",
       removeFieldButtonSelector: matrixRowRemoveFieldButtonSelector,
       onAddField: () => {
       },
@@ -215,13 +217,19 @@
     containerSelector: ".questionnaire-questions-list",
     fieldSelector: fieldSelector,
     addFieldButtonSelector: ".add-question",
+    addSeparatorButtonSelector: ".add-separator",
+    fieldTemplateSelector: ".decidim-question-template",
+    separatorTemplateSelector: ".decidim-separator-template",
     removeFieldButtonSelector: ".remove-question",
     moveUpFieldButtonSelector: ".move-up-question",
     moveDownFieldButtonSelector: ".move-down-question",
     onAddField: ($field) => {
-      const collapsibleId = $field.find(".collapsible").attr("id").replace("-question-card", "");
-      const toggleAttr = `${collapsibleId}-question-card button--collapse-question-${collapsibleId} button--expand-question-${collapsibleId}`;
-      $field.find(".question--collapse").data("toggle", toggleAttr);
+      const $collapsible = $field.find(".collapsible");
+      if ($collapsible.length > 0) {
+        const collapsibleId = $collapsible.attr("id").replace("-question-card", "");
+        const toggleAttr = `${collapsibleId}-question-card button--collapse-question-${collapsibleId} button--expand-question-${collapsibleId}`;
+        $field.find(".question--collapse").data("toggle", toggleAttr);
+      }
 
       setupInitialQuestionAttributes($field);
       createSortableList();
