@@ -38,7 +38,7 @@
       $form.data("changed", true);
     });
 
-    const safeUrl = $form.data("safe-url");
+    const safePath = $form.data("safe-path");
     $(document).on("click", "a", (event) => {
       window.exitUrl = event.currentTarget.href;
     });
@@ -51,7 +51,7 @@
       const hasChanged = $form.data("changed");
       window.exitUrl = null;
 
-      if (!hasChanged || (exitUrl && exitUrl.startsWith(safeUrl))) {
+      if (!hasChanged || (exitUrl && exitUrl.includes(safePath))) {
         return null;
       }
 

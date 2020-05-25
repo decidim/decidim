@@ -35,7 +35,9 @@ shared_examples_for "has questionnaire" do
 
       check "questionnaire_tos_agreement"
 
-      accept_confirm { click_button "Submit" }
+      accept_confirm do
+        click_button "Submit"
+      end
 
       within ".success.flash" do
         expect(page).to have_content("successfully")

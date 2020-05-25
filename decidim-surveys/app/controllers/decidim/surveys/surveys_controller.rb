@@ -20,8 +20,8 @@ module Decidim
         survey
       end
 
-      def form_url
-        main_component_url(current_component)
+      def form_path
+        main_component_path(current_component)
       end
 
       private
