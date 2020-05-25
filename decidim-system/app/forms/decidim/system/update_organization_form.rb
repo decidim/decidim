@@ -20,6 +20,8 @@ module Decidim
       attribute :users_registration_mode, String
       jsonb_attribute :smtp_settings, [
         [:from, String],
+        [:from_email, String],
+        [:from_label, String],
         [:user_name, String],
         [:encrypted_password, String],
         [:address, String],
@@ -70,7 +72,15 @@ module Decidim
       end
 
       def encrypted_smtp_settings
+        set_from
+
         smtp_settings.merge(encrypted_password: Decidim::AttributeEncryptor.encrypt(@password))
+      end
+
+      def set_from
+        email = smtp_settings["from_email"]
+        label = smtp_settings["from_label"].presence || email
+        smtp_settings["from"] = "#{label} <#{email}>"
       end
 
       def encrypted_omniauth_settings
