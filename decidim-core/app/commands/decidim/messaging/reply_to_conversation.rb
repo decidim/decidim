@@ -24,6 +24,7 @@ module Decidim
 
         if message.save
           notify_interlocutors
+          notify_comanagers if sender.is_a?(UserGroup)
 
           broadcast(:ok, message)
         else
@@ -34,17 +35,47 @@ module Decidim
       private
 
       def sender
-        form.current_user
+        form.context.sender
       end
 
       def message
-        @message ||= conversation.add_message(sender: sender, body: form.body)
+        @message ||= conversation.add_message(sender: sender, body: form.body, user: form.context.current_user)
       end
 
       def notify_interlocutors
+        @already_notified = [form.context.current_user]
+
         conversation.interlocutors(sender).each do |recipient|
-          ConversationMailer.new_message(sender, recipient, conversation, message).deliver_later if conversation.unread_count(recipient) == 1
+          if recipient.is_a?(UserGroup)
+            recipient.managers.each do |manager|
+              notify(manager) do
+                ConversationMailer.new_group_message(sender, manager, conversation, message, recipient).deliver_later
+              end
+            end
+          else
+            notify(recipient) do
+              ConversationMailer.new_message(sender, recipient, conversation, message).deliver_later
+            end
+          end
         end
+      end
+
+      def notify_comanagers
+        sender.managers.each do |recipient|
+          notify(recipient) do
+            ConversationMailer.comanagers_new_message(sender, recipient, conversation, message, form.context.current_user).deliver_later
+          end
+        end
+      end
+
+      # in order for a recipient to receive an email it should not have direct-messages disabled
+      # if direct-messages are disabled, only send if he follows the sending user
+      def notify(recipient)
+        return unless conversation.unread_count(recipient) == 1
+        return unless recipient.accepts_conversation?(form.context.current_user)
+
+        yield unless @already_notified.include?(recipient)
+        @already_notified.push(recipient)
       end
 
       attr_reader :conversation, :form

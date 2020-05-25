@@ -23,7 +23,7 @@ module Decidim
       end
 
       def body
-        decidim_html_escape(present(model).body)
+        decidim_sanitize(present(model).body)
       end
 
       def has_state?
