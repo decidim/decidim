@@ -22,6 +22,7 @@ pt:
         participatory_structure: Como é decidido
         promoted: Destacado
         published_at: Publicado em
+        related_process_ids: Processos relacionados
         scope_id: Âmbito
         scopes_enabled: Âmbitos ativados
         short_description: Pequena descrição
@@ -297,6 +298,7 @@ pt:
             images: Imagens
             metadata: Metadados
             other: De outros
+            related_processes: Processos relacionados
             select_an_area: Selecione uma área
             select_process_group: Selecione um grupo de processos
             slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para esse processo. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
@@ -352,6 +354,7 @@ pt:
         participatory_scope: O que é decidido
         participatory_structure: Como é decidido
         private_space: Este é um processo privado
+        related_processes: Processos relacionados
         scope: Âmbito
         start_date: Data de início
         target: Quem participa

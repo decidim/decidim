@@ -23,6 +23,7 @@ module Decidim
         create_user_group
         create_membership
       end
+      notify_admins
 
       broadcast(:ok, @user_group)
     end
@@ -52,6 +53,17 @@ module Decidim
         role: "creator",
         user_group: @user_group
       )
+    end
+
+    def notify_admins
+      data = {
+        event: "decidim.events.groups.user_group_created",
+        event_class: Decidim::UserGroupCreatedEvent,
+        resource: @user_group,
+        affected_users: Decidim::User.org_admins_except_me(form.current_user)
+      }
+
+      Decidim::EventsManager.publish(data)
     end
   end
 end

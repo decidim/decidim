@@ -80,6 +80,9 @@ ru:
           email_outro: Вы получили это уведомление, потому что вы следите за %{author_name}. Вы можете отписаться от таких уведомлений, перейдя на страницу профиля этого участника.
           email_subject: В %{resource_title} появился новый комментарий от %{author_name}
           notification_title: В <a href="%{resource_path}">%{resource_title}</a> появился новый комментарий от <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        comment_by_followed_user_group:
+          email_subject: В %{resource_title} появился новый комментарий от %{author_name}
+          notification_title: В <a href="%{resource_path}">%{resource_title}</a> появился новый комментарий от <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         comment_created:
           email_intro: "%{resource_title} прокомментировали. Вы можете прочитать комментарий на странице:"
           email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.

@@ -73,6 +73,21 @@ module Decidim::Assemblies
           subject.call
           expect(assembly_member.user).to eq user
         end
+
+        it "notifies the user" do
+          expect(Decidim::EventsManager)
+            .to receive(:publish)
+            .once
+            .with(
+              event: "decidim.events.assemblies.create_assembly_member",
+              event_class: Decidim::Assemblies::CreateAssemblyMemberEvent,
+              resource: assembly,
+              followers: a_collection_containing_exactly(user)
+            )
+
+          subject.call
+          expect(ActionMailer::DeliveryJob).to have_been_enqueued.on_queue("mailers")
+        end
       end
     end
   end

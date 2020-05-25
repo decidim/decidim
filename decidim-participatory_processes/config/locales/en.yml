@@ -270,6 +270,11 @@ en:
         update: "%{user_name} changed the role of the participant %{resource_name} in the %{space_name} participatory process"
     events:
       participatory_process:
+        role_assigned:
+          email_intro: You have been assigned as %{role} for participatory process "%{resource_title}".
+          email_outro: You have received this notification because you are %{role} of the "%{resource_title}" participatory process.
+          email_subject: You have been assigned as %{role} for "%{resource_title}".
+          notification_title: You have been assigned as %{role} for participatory process <a href="%{resource_url}">%{resource_title}</a>.
         step_activated:
           email_intro: 'The %{resource_title} phase is now active for %{participatory_space_title}. You can see it from this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.

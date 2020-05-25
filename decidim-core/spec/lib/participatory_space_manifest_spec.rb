@@ -48,5 +48,23 @@ module Decidim
         end
       end
     end
+
+    describe "on_destroy_account" do
+      let(:user) { Decidim::User.new }
+
+      it "can be invoked even when is nil" do
+        subject.invoke_on_destroy_account(user)
+      end
+
+      it "can be setted and invoked" do
+        expected_name = "on account destroyed was invoked"
+        subject.register_on_destroy_account do |user|
+          user.name = expected_name
+        end
+
+        subject.invoke_on_destroy_account(user)
+        expect(user.name).to eq(expected_name)
+      end
+    end
   end
 end

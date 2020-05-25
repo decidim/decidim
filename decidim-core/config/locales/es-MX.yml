@@ -33,6 +33,7 @@ es-MX:
       decidim/profile_updated_event: Perfil actualizado
       decidim/promote_to_admin: Promovido a administrador de grupo
       decidim/removed_from_group: Eliminado del grupo
+      decidim/resource_endorsed_event: Adhesión a recurso realizada
   activerecord:
     attributes:
       decidim/user:
@@ -46,6 +47,9 @@ es-MX:
       decidim/amendment:
         one: Enmienda
         other: Enmiendas
+      decidim/endorsement:
+        one: Adhesión
+        other: Adhesiones
       decidim/user:
         one: No hay usuarios
         other: Usuarios
@@ -57,6 +61,7 @@ es-MX:
     'true': 'Sí'
   carrierwave:
     errors:
+      general: Error procesando imagen
       image_too_big: La imagen es demasiado grande
   date:
     formats:
@@ -66,6 +71,9 @@ es-MX:
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
+    accessibility:
+      logo: "Logo oficial de %{organization}"
+      skip_button: Saltar al contenido principal
     account:
       data_portability_export:
         file_no_exists: El archivo no existe
@@ -134,6 +142,7 @@ es-MX:
         invite: "%{user_name} invitó al usuario %{resource_name} con el rol: %{role}"
         officialize: "%{user_name} oficializó al usuario %{resource_name}"
         remove_from_admin: "%{user_name} eliminó al usuario %{resource_name} con el rol: %{role}"
+        show_email: "%{user_name} ha recuperado el correo electrónico de la participante %{resource_name}"
         unofficialize: "%{user_name} desoficializó al usuario %{resource_name}"
       user_group:
         reject: "%{user_name} rechazó la verificación del grupo de usuarios %{resource_name}"
@@ -229,6 +238,8 @@ es-MX:
         documents:
           one: Documento
           other: Documentos
+      document:
+        download: Descargar archivo
       documents:
         related_documents: Documentos relacionados
       photos:
@@ -238,11 +249,15 @@ es-MX:
       comments:
         one: comentario
         other: comentarios
+      endorsements:
+        one: adhesión
+        other: adhesiones
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Verifíquese introduciendo un número de pasaporte que comience por "A"
         fields:
           passport_number: Número de pasaporte
+          postal_code: Código postal
         name: Otro ejemplo de autorización
       dummy_authorization_handler:
         explanation: Verifícate introduciendo un número de documento que termine con "X"
@@ -427,6 +442,13 @@ es-MX:
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> quiere usar tu cuenta"
     endorsable:
       endorsements: Adhesiones
+    endorsement_buttons_cell:
+      already_endorsed: Adherido
+      endorse: Adherirse
+    endorsements:
+      identities:
+        done: Hecho
+        select_identity: Seleccionar identidad
     errors:
       internal_server_error:
         title: Ha habido un problema con nuestro servidor
@@ -547,6 +569,11 @@ es-MX:
           notification_title: Has sido eliminado del grupo <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: Un evento ha ocurrido en <a href="%{resource_path}">%{resource_title}</a>.
+      resource_endorsed:
+        email_intro: '%{endorser_name} %{endorser_nickname}, a quien sigues, acaba de adherirse a una propuesta que puede ser interesante para ti, compruébalo y contribuye:'
+        email_outro: Has recibido esta notificación porque estás siguiendo a %{endorser_nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+        email_subject: "%{endorser_nickname} se ha adherido a una propuesta"
+        notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> se ha adherido a la propuesta <a href="%{resource_path}">%{resource_title}</a>.
       users:
         profile_updated:
           email_intro: La página <a href="%{resource_url}">de perfil</a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
@@ -772,12 +799,14 @@ es-MX:
         create:
           error: Conversación no iniciada. Inténtalo más tarde
         index:
+          close: Cerrar modal
           no_conversations: Aún no tienes conversaciones
           title: Conversaciones
         reply:
           send: Enviar
           title: Respuesta
         show:
+          not_allowed: Esta participante no acepta mensajes directos.
           title: Conversación con %{usernames}
         start:
           send: Enviar
@@ -829,6 +858,8 @@ es-MX:
       no_notifications: No hay notificaciones aún.
     notifications_settings:
       show:
+        allow_public_contact: Permitir que cualquiera me envíe un mensaje directo, incluso si no le sigo.
+        direct_messages: Recibir mensajes directos de cualquiera
         email_on_notification: Quiero recibir un correo electrónico cada vez que recibo una notificación.
         everything_followed: Todo lo que sigo
         newsletter_notifications: Quiero recibir boletines informativos
@@ -968,6 +999,9 @@ es-MX:
       create:
         error: Se ha producido un error al denunciar el contenido. Por favor, inténtalo otra vez.
         success: La denuncia se ha creado correctament y será revisada por un administrador.
+    resource_endorsements:
+      create:
+        error: Se ha producido un error durante la acción de adhesión.
     scopes:
       global: Alcance global
       picker:
@@ -1033,6 +1067,7 @@ es-MX:
         select_user_group: Selecciona un grupo
       results_per_page:
         label: 'Resultados por página:'
+        title: Seleccionar el número de resultados por página
       share_modal:
         close_window: Cerrar ventana
         share: Compartir
@@ -1042,6 +1077,7 @@ es-MX:
     user_activity:
       index:
         no_activities_warning: Este usuario no ha tenido ninguna actividad todavía.
+    user_contact_disabled: Esta participante no acepta mensajes directos.
     user_interests:
       show:
         my_interests: Mis intereses
@@ -1319,6 +1355,7 @@ es-MX:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%B %d, %Y %H:%M"
+      long_dashed: "%d-%m-%Y %H:%M:%S"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
@@ -1335,7 +1372,12 @@ es-MX:
   views:
     pagination:
       first: "&laquo; Primera"
+      first_title: Enlace a la primera página
       last: Última &raquo;
+      last_title: Enlace a la última página
       next: Siguiente &rsaquo;
+      next_title: Enlace a la página siguiente
       previous: "&lsaquo; Anterior"
+      previous_title: Enlace a la página anterior
+      title: 'Número de página: '
       truncate: "&hellip;"

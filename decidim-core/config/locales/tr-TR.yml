@@ -80,6 +80,9 @@ tr:
         error: Hesabınız güncellenirken bir hata oluştu.
         success: Hesabınız başarıyla güncellendi.
         success_with_email_confirmation: Hesabınız başarıyla güncellendi. Yeni e-posta adresinizi onaylamak için bir e-posta alacaksınız.
+    admin:
+      actions:
+        cancel: İptal etmek
     admin_log:
       area:
         create: "%{user_name} %{resource_name} alanı oluşturdu"
@@ -203,6 +206,7 @@ tr:
         explanation: '"A" ile başlayan bir pasaport numarası girerek doğrulanın.'
         fields:
           passport_number: Pasaport numarası
+          postal_code: Posta kodu
         name: Başka bir örnek yetkilendirme
       dummy_authorization_handler:
         explanation: '"X" ile biten bir belge numarası girerek doğrulanmış olsun'
@@ -724,6 +728,7 @@ tr:
         create:
           error: Konuşma başlamadı. Daha sonra tekrar deneyin
         index:
+          close: Yakın kalıcı
           no_conversations: Henüz konuşma yok
           title: Konuşmalar
         reply:
