@@ -39,6 +39,7 @@
 
 // = require_self
 // = require decidim/configuration
+// = require decidim/assets
 // = require decidim/floating_help
 
 /* globals svg4everybody */

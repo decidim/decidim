@@ -1,6 +1,7 @@
 # Embeddable
 
 `Decidim` allows you to share a information box related to some spaces as:
+
 - **Assemblies**
 - **Conferences**
 - **Initiatives**
@@ -8,7 +9,7 @@
 
 or even `Meetings` component in an easy way with the `embeddable` option that offers the platform.
 
-## How to ##
+## How to
 
 All that you have to do, is to enter into whathever space/component you want to share info to, and look for down right part of the page to find embeddable share option.
 
