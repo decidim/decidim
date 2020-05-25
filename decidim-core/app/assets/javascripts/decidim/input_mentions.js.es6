@@ -108,8 +108,8 @@ $(() => {
     },
     menuItemTemplate: function(item) {
       let svg = "";
-      if (window.DecidimComments && item.original.__typename === "UserGroup") {
-        let icons = window.DecidimComments.assets["icons.svg"];
+      if (window.Decidim && item.original.__typename === "UserGroup") {
+        let icons = window.Decidim.assets["icons.svg"];
         svg = `<span class="is-group">${item.original.membersCount}x <svg class="icon--members icon"><use xlink:href="${icons}#icon-members"/></svg></span>`;
       }
       return `<div class="tribute-item ${item.original.__typename}">

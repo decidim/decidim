@@ -42,7 +42,7 @@ $(() => {
 
   /* eslint no-use-before-define: ["error", { "variables": false }]*/
   let remoteSearch = function(text, cb) {
-    let query = `{users(filter:{wildcard:"${text}",type:"user"}){id,nickname,name,avatarUrl,...on User{directMessagesEnabled}}}`;
+    let query = `{users(filter:{wildcard:"${text}"}){id,nickname,name,avatarUrl,__typename,...on UserGroup{membersCount},...on User{directMessagesEnabled}}}`;
     $.post("/api", {query: query}).
       then((response) => {
         let data = response.data.users || {};
@@ -97,7 +97,7 @@ $(() => {
       `;
 
       // Append new recipient to DOM
-      if (item.original.directMessagesEnabled === "true") {
+      if (item.original.__typename === "UserGroup" || item.original.directMessagesEnabled === "true") {
         $multipleMentionRecipientsContainer.append($(recipientLabel));
         $multipleMentionContainer.val("");
       }
@@ -112,12 +112,14 @@ $(() => {
     },
     menuItemTemplate: function(item) {
       let svg = "";
-      if (window.DecidimComments && item.original.__typename === "UserGroup") {
-        let icons = window.DecidimComments.assets["icons.svg"];
+      let enabled = item.original.directMessagesEnabled === "true";
+      if (window.Decidim && item.original.__typename === "UserGroup") {
+        enabled = true;
+        let icons = window.Decidim.assets["icons.svg"];
         svg = `<span class="is-group">${item.original.membersCount}x <svg class="icon--members icon"><use xlink:href="${icons}#icon-members"/></svg></span>`;
       }
-      let disabledElementClass = ((item.original.directMessagesEnabled === "true") ? "" : "disabled-tribute-element")
-      let disabledElementMessage = ((item.original.directMessagesEnabled === "true") ? "" : `&nbsp;<span class="disabled-tribute-element-info">${directMessageDisabled}</span>`)
+      let disabledElementClass = enabled ? "" : "disabled-tribute-element";
+      let disabledElementMessage = enabled ? "" : `&nbsp;<span class="disabled-tribute-element-info">${directMessageDisabled}</span>`;
       return `<div class="tribute-item ${item.original.__typename} ${disabledElementClass}">
       <span class="author__avatar"><img src="${item.original.avatarUrl}" alt="author-avatar"></span>
         <strong>${item.original.nickname}</strong>
