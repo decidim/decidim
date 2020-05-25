@@ -31,6 +31,8 @@ en:
           global:
             announcement: Announcement
             comments_enabled: Comments enabled
+            scope_id: Scope
+            scopes_enabled: Scopes enabled
           step:
             announcement: Announcement
             comments_blocked: Comments blocked

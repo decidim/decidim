@@ -9,6 +9,7 @@ module Decidim
     include Publicable
     include Traceable
     include Loggable
+    include ScopableComponent
 
     has_many :children, foreign_key: "parent_id", class_name: "Decidim::Component", inverse_of: :parent, dependent: :destroy
     belongs_to :parent, foreign_key: "parent_id", class_name: "Decidim::Component", inverse_of: :children, optional: true

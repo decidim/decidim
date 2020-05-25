@@ -7,10 +7,16 @@ describe Decidim::TagsCell, type: :cell do
 
   let(:organization) { create(:organization) }
   let(:participatory_space) { create(:participatory_process, organization: organization) }
-  let(:component_proposals) { create(:proposal_component, participatory_space: participatory_space) }
-  let(:component_meetings) { create(:meeting_component, participatory_space: participatory_space) }
-
-  let(:scope) { create(:scope, organization: organization) }
+  let(:component_proposals) { create(:proposal_component, participatory_space: participatory_space, settings: component_settings) }
+  let(:component_meetings) { create(:meeting_component, participatory_space: participatory_space, settings: component_settings) }
+  let(:component_settings) do
+    {
+      scopes_enabled: true,
+      scope_id: parent_scope.id
+    }
+  end
+  let(:parent_scope) { create(:scope, organization: organization) }
+  let(:scope) { create(:scope, organization: organization, parent: parent_scope) }
   let(:subscope) { create(:scope, organization: organization, parent: scope) }
   let(:category) { create(:category, participatory_space: participatory_space) }
   let(:subcategory) { create(:category, participatory_space: participatory_space, parent: category) }

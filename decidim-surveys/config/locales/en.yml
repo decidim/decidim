@@ -21,6 +21,8 @@ en:
         settings:
           global:
             announcement: Announcement
+            scope_id: Scope
+            scopes_enabled: Scopes enabled
           step:
             allow_answers: Allow answers
             allow_unregistered: Allow unregistered users to answer the survey

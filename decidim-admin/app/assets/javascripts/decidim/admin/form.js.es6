@@ -1,3 +1,4 @@
+// = require ./scope_picker_enabler.component
 // = require ./budget_rule_toggler.component
 
 ((exports) => {
