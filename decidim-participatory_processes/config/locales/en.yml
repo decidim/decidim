@@ -355,6 +355,9 @@ en:
             participate: Participate
             participate_in: Participate in process %{resource_name}
             see_all_processes: See all processes
+      participatory_process_steps:
+        index:
+          back_to_process: Back to the process page
       participatory_processes:
         filters:
           counters:
@@ -382,9 +385,6 @@ en:
           see: See
         index:
           loading: Loading results...
-      participatory_process_steps:
-        index:
-          back_to_process: Back to the process page
       show:
         area: Area
         dates: Dates
