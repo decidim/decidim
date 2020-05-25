@@ -8,7 +8,7 @@ module Decidim
       def perform(user, format)
         export_data = Decidim::Exporters.find_exporter(format).new(collection, serializer).export
 
-        ExportMailer.export(user, "initiatives", export_data).deliver_later
+        ExportMailer.export(user, "initiatives", export_data).deliver_now
       end
 
       private
