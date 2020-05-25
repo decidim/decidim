@@ -102,6 +102,10 @@ en:
         create:
           error: There was a problem duplicating this assembly.
           success: Assembly successfully duplicated.
+      assemblies_settings:
+        update:
+          error: There was a problem updating settings.
+          success: Settings updated successfully.
       assemblies_types:
         create:
           error: There was a problem creating a new assembly type.
@@ -162,6 +166,7 @@ en:
           success: Admin updated successfully for this assembly.
       menu:
         assemblies: Assemblies
+        assemblies_settings: Settings
         assemblies_submenu:
           assembly_admins: Assembly admins
           assembly_members: Members
@@ -223,6 +228,8 @@ en:
         create: "%{user_name} created the %{resource_name} member in the %{space_name} assembly"
         delete: "%{user_name} removed the %{resource_name} member from the %{space_name} assembly"
         update: "%{user_name} updated the %{resource_name} member in the %{space_name} assembly"
+      assembly_setting:
+        update: "%{user_name} updated the assemblies settings"
       assembly_type:
         create: "%{user_name} created the %{resource_name} assembly type"
         delete: "%{user_name} removed the %{resource_name} member from the %{space_name} assembly type"
@@ -252,6 +259,11 @@ en:
             social_handlers: Social
             title: General Information
             visbility: Visibility
+        assemblies_settings:
+          edit:
+            update: Update
+          form:
+            title: Settings for assemblies
         assemblies_types:
           form:
             title: Title
