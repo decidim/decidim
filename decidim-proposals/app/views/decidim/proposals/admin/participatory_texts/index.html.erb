@@ -35,6 +35,14 @@
 <% end -%>
 <script>
 $(window).on("load", function() {
+  // Not all browsers submit the buttons as form data.
+  $('button[name="save_draft"]').on("click", function(ev) {
+    ev.preventDefault();
+
+    var $form = $(this).parents("form");
+    $form.append('<input type="hidden" name="save_draft" value="true" />');
+    $form.submit();
+  });
   $( "#participatory-text" ).on( "sortupdate",
     function( event, ui ) {
       $('#participatory-text li').each(function(idx, li) {
