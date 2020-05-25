@@ -1,0 +1,35 @@
+<div class="button--double form-general-submit answer-questionnaire__submit">
+  <% if first_step? %>
+    <a></a>
+  <% else %>
+    <%= link_to(
+      icon("caret-left", class: "icon--small", role: "img") + " " + t("decidim.forms.step_navigation.show.back"),
+      "#",
+      class: "hollow secondary",
+      data: {
+        toggle: [previous_step_dom_id, current_step_dom_id].join(" ")
+      }
+    ) %>
+  <% end %>
+
+  <% if last_step? %>
+    <%= form.submit(
+      t("decidim.forms.step_navigation.show.submit"),
+      class: "button button--sc",
+      disabled: button_disabled?,
+      data: {
+        confirm: t("decidim.forms.step_navigation.show.are_you_sure"),
+        disable: true
+      }
+    ) %>
+  <% else %>
+    <%= link_to(
+      t("decidim.forms.step_navigation.show.continue"),
+      "#",
+      class: "button button--sc",
+      data: {
+        toggle: [next_step_dom_id, current_step_dom_id].join(" ")
+      }
+    ) %>
+  <% end %>
+</div>

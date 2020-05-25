@@ -48,9 +48,9 @@ module Decidim
     end
 
     def template
-      Decidim::ContentBlock
-        .for_scope(:newsletter_template, organization: organization)
-        .find_by(scoped_resource_id: id)
+      @template ||= Decidim::ContentBlock
+                    .for_scope(:newsletter_template, organization: organization)
+                    .find_by(scoped_resource_id: id)
     end
 
     private
