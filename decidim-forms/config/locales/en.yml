@@ -33,9 +33,10 @@ en:
             statement: Statement
           edit:
             save: Save
-            title: Title
+            title: Edit questionnaire
           form:
             add_question: Add question
+            add_separator: Add separator
             already_answered_warning: The form is already answered by some users so you cannot modify its questions.
             collapse: Collapse all questions
             expand: Expand all questions
@@ -54,6 +55,11 @@ en:
             question: Question
             remove: Remove
             statement: Statement
+            up: Up
+          separator:
+            down: Down
+            remove: Remove
+            separator: Separator
             up: Up
           update:
             invalid: There was a problem saving the form.
@@ -80,7 +86,8 @@ en:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Sign in with your account</a> or <a href="%{sign_up_link}">sign up</a> to answer the form.
             title: Answer the form
-          are_you_sure: This action cannot be undone and you will not be able to edit your answers. Are you sure?
+          current_step: Step %{step}
+          of_total_steps: of %{total_steps}
           questionnaire_answered:
             body: You have already answered this form.
             title: Already answered
@@ -90,8 +97,13 @@ en:
           questionnaire_for_private_users:
             body: The form is available only for private users
             title: Form closed
-          submit: Submit
           tos_agreement: By participating you accept its Terms of Service
+      step_navigation:
+        show:
+          are_you_sure: This action cannot be undone and you will not be able to edit your answers. Are you sure?
+          back: Back
+          continue: Continue
+          submit: Submit
       user_answers_serializer:
         created_at: Answered on
         id: Answer ID
