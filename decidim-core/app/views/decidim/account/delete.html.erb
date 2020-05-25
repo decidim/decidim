@@ -14,7 +14,7 @@
           <%= f.text_area :delete_reason, rows: 2, label: false %>
         </label>
       </div>
-      <input type="submit" class="button open-modal-button" value="<%= t(".confirm.title") %>">
+      <button class="button open-modal-button"><%= t(".confirm.title") %></button>
     <% end %>
     <div class="tiny reveal" id="deleteConfirm" data-reveal>
       <%= decidim_form_for(@form, url: account_path, method: :delete, namespace: "delete_user_confirm", html: { class: "user-form delete-account-modal" }) do |f| %>
