@@ -92,6 +92,7 @@ module Decidim
     scope :signature_type_updatable, -> { created }
 
     scope :order_by_most_recent, -> { order(created_at: :desc) }
+    scope :order_by_most_recently_published, -> { order(published_at: :desc) }
     scope :order_by_supports, -> { order(Arel.sql("initiative_votes_count + coalesce(offline_votes, 0) desc")) }
     scope :order_by_most_commented, lambda {
       select("decidim_initiatives.*")
@@ -375,5 +376,39 @@ module Decidim
 
     # Allow ransacker to search on an Enum Field
     ransacker :state, formatter: proc { |int| states[int] }
+
+    # method for sort_link by number of supports
+    ransacker :supports_count do
+      query = <<~SQL
+        (
+          SELECT
+            CASE
+              WHEN signature_type = 0 THEN 0
+              ELSE COALESCE(offline_votes, 0)
+            END
+            +
+            CASE
+              WHEN signature_type = 1 THEN 0
+              ELSE initiative_votes_count + initiative_supports_count
+            END
+           FROM decidim_initiatives as initiatives
+          WHERE initiatives.id = decidim_initiatives.id
+          GROUP BY initiatives.id
+        )
+      SQL
+      Arel.sql(query)
+    end
+
+    ransacker :id_string do
+      Arel.sql(%{cast("decidim_initiatives"."id" as text)})
+    end
+
+    ransacker :author_name do
+      Arel.sql("decidim_users.name")
+    end
+
+    ransacker :author_nickname do
+      Arel.sql("decidim_users.nickname")
+    end
   end
 end

@@ -4,6 +4,16 @@ module Decidim
   module Messaging
     module ConversationHelper
       #
+      # Generates a visualization of users for listing conversations threads
+      #
+      def username_list(users, shorten = false)
+        return users.pluck(:name).join(", ") unless shorten
+        return users.pluck(:name).join(", ") unless users.count > 3
+
+        "#{users.first(3).pluck(:name).join(", ")} + #{users.count - 3}"
+      end
+
+      #
       # Links to the conversation between the current user and another user
       #
       def link_to_current_or_new_conversation_with(user, title = t("decidim.contact"))
@@ -70,7 +80,7 @@ module Decidim
       #
       # Links to the conversation between the current user and another users group
       #
-      def link_to_current_or_new_conversation_with_multiple(users)
+      def current_or_new_conversation_path_with_multiple(users)
         decidim_routes = Decidim::Core::Engine.routes.url_helpers
         return decidim_routes.new_user_session_path unless user_signed_in?
 

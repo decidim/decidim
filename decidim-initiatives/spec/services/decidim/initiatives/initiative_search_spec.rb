@@ -10,7 +10,10 @@ module Decidim
       let(:type2) { create :initiatives_type, organization: organization }
       let(:scoped_type1) { create :initiatives_type_scope, type: type1 }
       let(:scoped_type2) { create :initiatives_type_scope, type: type2 }
-      let(:user) { create(:user, organization: organization) }
+      let(:user1) { create(:user, organization: organization, name: "John McDog") }
+      let(:user2) { create(:user, organization: organization, nickname: "dogtrainer") }
+      let(:group1) { create(:user_group, organization: organization, name: "The Dog House") }
+      let(:group2) { create(:user_group, organization: organization, nickname: "thedogkeeper") }
 
       describe "results" do
         subject do
@@ -20,7 +23,7 @@ module Decidim
             type_id: type_id,
             author: author,
             scope_id: scope_id,
-            current_user: user,
+            current_user: user1,
             organization: organization
           ).results
         end
@@ -34,12 +37,27 @@ module Decidim
         context "when the filter includes search_text" do
           let(:search_text) { "dog" }
 
-          it "returns the initiatives containing the search in the title or the body" do
+          before do
             create_list(:initiative, 3, organization: organization)
-            create(:initiative, title: { "en": "A dog" }, organization: organization)
-            create(:initiative, description: { "en": "There is a dog in the office" }, organization: organization)
+            create(:initiative, title: { en: "A dog" }, organization: organization)
+            create(:initiative, description: { en: "There is a dog in the office" }, organization: organization)
+            create(:initiative, organization: organization, author: user1)
+            create(:initiative, organization: organization, author: user2)
+            create(:initiative, organization: organization, author: group1)
+            create(:initiative, organization: organization, author: group2)
+          end
 
-            expect(subject.size).to eq(2)
+          it "returns the initiatives containing the search in the title or the body or the author name or nickname" do
+            expect(subject.size).to eq(6)
+          end
+
+          context "when the search_text is an initiative id" do
+            let(:initiative) { create(:initiative, organization: organization) }
+            let(:search_text) { initiative.id.to_s }
+
+            it "returns the initiative with the searched id" do
+              expect(subject).to contain_exactly(initiative)
+            end
           end
         end
 
@@ -128,7 +146,7 @@ module Decidim
 
         context "when the filter includes author" do
           let!(:initiative) { create(:initiative, organization: organization) }
-          let!(:initiative2) { create(:initiative, organization: organization, author: user) }
+          let!(:initiative2) { create(:initiative, organization: organization, author: user1) }
 
           context "and any author" do
             it "contains all initiatives" do

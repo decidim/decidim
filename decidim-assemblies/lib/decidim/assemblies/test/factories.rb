@@ -8,6 +8,11 @@ FactoryBot.define do
     "#{Faker::Internet.slug(nil, "-")}-#{n}"
   end
 
+  factory :assemblies_setting, class: "Decidim::AssembliesSetting" do
+    enable_organization_chart { true }
+    organization
+  end
+
   factory :assemblies_type, class: "Decidim::AssembliesType" do
     title { generate_localized_title }
     organization

@@ -1,6 +1,10 @@
 @import "decidim/forms/forms";
 
-form.answer-questionnaire{
+.answer-questionnaire{
+  label{
+    font-size: inherit;
+  }
+
   .radio-button-collection,
   .check-box-collection,
   .sortable-check-box-collection{
@@ -15,8 +19,10 @@ form.answer-questionnaire{
     }
   }
 
-  label.questionnaire-question{
-    font-weight: bold;
+  .questionnaire-question{
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: .3em;
   }
 
   .help-text{
@@ -29,5 +35,16 @@ form.answer-questionnaire{
 
   .last-sorted{
     margin-bottom: 1rem;
+  }
+
+  &__steps{
+    font-size: .8rem;
+  }
+
+  &__submit{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-top: 2rem;
   }
 }
