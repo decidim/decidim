@@ -50,6 +50,10 @@ $(() => {
 
   svg4everybody();
 
+  if ($("[data-reveal-open]").length > 0) {
+    $("[data-reveal-open]").foundation("open");
+  }
+
   if (window.Decidim.formDatePicker) {
     window.Decidim.formDatePicker();
   }

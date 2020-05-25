@@ -34,16 +34,17 @@ module Decidim::Budgets
       end
     end
 
-    context "when the order is not present" do
-      let(:order) { nil }
+    context "when the order is not checked out" do
+      let(:order) { create(:order, user: user, component: component) }
 
-      it "broadcasts invalid" do
-        expect { subject.call }.to broadcast(:invalid)
+      it "destroys the order" do
+        subject.call
+        expect(Order.count).to eq(0)
       end
     end
 
-    context "when the order is not checked out" do
-      let(:order) { create(:order, user: user, component: component) }
+    context "when the order is not present" do
+      let(:order) { nil }
 
       it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:invalid)

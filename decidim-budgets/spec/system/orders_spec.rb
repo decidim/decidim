@@ -52,7 +52,8 @@ describe "Orders", type: :system do
         expect(page).to have_content "1 project selected"
 
         within ".budget-summary__selected" do
-          expect(page).to have_content project.title[I18n.locale]
+          page.find("button").click
+          expect(page).to have_i18n_content(project.title)
         end
 
         within "#order-progress .budget-summary__progressbox" do
@@ -303,7 +304,7 @@ describe "Orders", type: :system do
         visit_component
 
         expect(page).to have_selector("button.budget-list__action[disabled]", count: 3)
-        expect(page).to have_no_css(".budget-summary")
+        expect(page).to have_no_css("#order-progress")
       end
     end
 

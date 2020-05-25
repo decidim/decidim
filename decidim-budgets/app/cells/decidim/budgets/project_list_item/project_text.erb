@@ -10,8 +10,10 @@
       <%= cell "decidim/tags", model, context: { extra_classes: ["tags--project"] } %>
     </div>
 
-    <span class="budget-list__data__number budget-list__number hide-for-medium">
-      <%= budget_to_currency(model.budget) %>
-    </span>
+    <% if voting_finished? %>
+      <%= project_text_votes %>
+    <% else %>
+      <%= project_text_number %>
+    <% end %>
   </div>
 </div>

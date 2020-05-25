@@ -9,7 +9,7 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
-        helper_method :current_order
+        helper_method :current_order, :can_have_order?
 
         # The current order created by the user.
         #
@@ -24,6 +24,13 @@ module Decidim
 
         def persisted_current_order
           current_order if current_order&.persisted?
+        end
+
+        def can_have_order?
+          current_user.present? &&
+            current_settings.votes_enabled? &&
+            current_participatory_space.can_participate?(current_user) &&
+            allowed_to?(:create, :order, parent_component_context: parent_component_context)
         end
       end
     end

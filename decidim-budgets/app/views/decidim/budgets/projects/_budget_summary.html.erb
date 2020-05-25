@@ -1,13 +1,19 @@
 <div class="card budget-summary" data-progress-reference data-safe-url="<%= projects_base_url %>">
   <div class="card__content">
-    <% if include_heading %>
+    <% if full_view %>
       <% if current_order_checked_out? %>
         <h3 class="heading3"><%= t(".checked_out.title") %></h3>
         <p>
           <%= raw t(".checked_out.description", cancel_link: link_to(t(".cancel_order"), order_path, method: :delete, class: "cancel-order", data: { confirm: t(".are_you_sure") })) %>
         </p>
       <% else %>
-        <h3 class="heading3"><%= t(".title") %></h3>
+        <h3 class="heading3">
+          <% if current_component.parent %>
+            <%= translated_attribute(current_component.name) %>
+          <% else %>
+            <%= t(".title") %>
+          <% end %>
+        </h3>
         <p>
           <% if current_order.minimum_projects_rule? %>
             <%= t(".description_minimum_projects_rule", minimum_number: current_order.minimum_projects) %>
@@ -26,17 +32,21 @@
       </span>
     </div>
 
-    <%= render partial: "order_progress" %>
+    <% if can_have_order? %>
+      <%= render partial: "order_progress" %>
 
-    <div>
-      <span class="mini-title">
-        <%= t(".assigned") %>
-        <%= render partial: "order_total_budget" %>
-      </span>
-    </div>
+      <div>
+        <span class="mini-title">
+          <%= t(".assigned") %>
+          <%= render partial: "order_total_budget" %>
+        </span>
+      </div>
+    <% end %>
+
+    <%= render_hook(:budgets_parent_information) if full_view && current_component.parent %>
   </div>
 
-  <%= render partial: "order_selected_projects" %>
+  <%= render partial: "order_selected_projects" if full_view %>
 </div>
 
 <%= render partial: "budget_excess" %>

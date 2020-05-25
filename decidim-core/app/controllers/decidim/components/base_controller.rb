@@ -63,6 +63,26 @@ module Decidim
       def redirect_unless_feature_private
         raise ActionController::RoutingError, "Not Found" unless current_user_can_visit_space?
       end
+
+      def parent_component_context
+        @parent_component_context ||= if parent_component
+                                        parent_component.manifest.run_hooks(:parent_context,
+                                                                            parent_component: parent_component,
+                                                                            current_user: current_user).reduce({}, :merge)
+                                      else
+                                        {}
+                                      end
+      end
+
+      def parent_component
+        return @parent_component if defined?(@parent_component)
+
+        @parent_component = if current_component.allow_children?
+                              current_component
+                            elsif current_component.allow_parent? && current_component.parent
+                              current_component.parent
+                            end
+      end
     end
   end
 end

@@ -10,6 +10,12 @@ module Decidim
         return Decidim::Budgets::Admin::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :admin
         return permission_action if permission_action.scope != :public
 
+        if permission_action.subject == :order
+          return parent_permissions if component&.parent
+
+          permission_action.allow!
+        end
+
         return permission_action if permission_action.subject != :project
 
         case permission_action.action
@@ -18,6 +24,8 @@ module Decidim
         when :report
           permission_action.allow!
         end
+
+        return parent_permissions if component&.parent
 
         permission_action
       end
@@ -30,6 +38,10 @@ module Decidim
 
       def order
         @order ||= context.fetch(:order, nil)
+      end
+
+      def parent_permissions
+        component.parent.manifest.permissions_class.new(user, permission_action, context).permissions
       end
 
       def can_vote_project?(a_project)
