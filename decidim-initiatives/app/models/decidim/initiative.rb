@@ -372,7 +372,7 @@ module Decidim
     ransacker :type_id do
       Arel.sql("decidim_initiatives_type_scopes.decidim_initiatives_types_id")
     end
-    
+
     ransacker :id_string do
       Arel.sql(%{cast("decidim_initiatives"."id" as text)})
     end

@@ -73,7 +73,7 @@ describe "Admin manages initiatives", type: :system do
         end
       end
     end
-    
+
     it "can be searched by title" do
       search_by_text(translated(published_initiative.title))
 
