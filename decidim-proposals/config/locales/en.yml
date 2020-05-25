@@ -699,7 +699,6 @@ en:
           amend: Amend
           comment: Comment
           comments: Comments
-          endorse: Endorse
       proposal_votes:
         create:
           error: There was a problem supporting the proposal.
