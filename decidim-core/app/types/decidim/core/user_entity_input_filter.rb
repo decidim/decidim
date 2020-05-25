@@ -10,7 +10,7 @@ module Decidim
 
       ```
       {
-        users(filter:{wildcard:\"sandy\", exclude_ids:[2,10,11]}) {
+        users(filter:{wildcard:\"sandy\", excludeIds:[2,10,11]}) {
           id
           ...on User {
             groups {
