@@ -65,7 +65,7 @@ en:
         new_initiative_type: New initiative type
       filters:
         search_placeholder:
-          title_or_description_cont: Search %{collection} by title or description.
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Search %{collection} by title, description, ID or author name.
         state_eq:
           values:
             created: Created
