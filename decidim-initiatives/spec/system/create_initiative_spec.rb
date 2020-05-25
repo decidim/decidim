@@ -170,6 +170,21 @@ describe "Initiative", type: :system do
       context "when Create initiative" do
         let(:initiative) { build(:initiative) }
 
+        context "when there is only one initiative type" do
+          let!(:other_initiative_type) { nil }
+
+          before do
+            fill_in "Title", with: translated(initiative.title, locale: :en)
+            fill_in_editor "initiative_description", with: translated(initiative.description, locale: :en)
+            find_button("Continue").click
+          end
+
+          it "have no 'Initiative type' grey field" do
+            expect(page).not_to have_content("Initiative type")
+            expect(page).not_to have_css("#type_description")
+          end
+        end
+
         context "when there is several initiatives type" do
           before do
             find_button("I want to promote this initiative").click
@@ -207,34 +222,19 @@ describe "Initiative", type: :system do
               expect(find(:xpath, "//input[@id='initiative_signature_type']", visible: false).value).to eq("offline")
             end
           end
-        end
 
-        context "when there is only one initiative type" do
-          let!(:other_initiative_type) { nil }
-
-          before do
-            fill_in "Title", with: translated(initiative.title, locale: :en)
-            fill_in_editor "initiative_description", with: translated(initiative.description, locale: :en)
-            find_button("Continue").click
+          context "when the initiative type does not enable custom signature end date" do
+            it "does not show the signature end date" do
+              expect(page).not_to have_content("End of signature collection period")
+            end
           end
 
-          it "have no 'Initiative type' grey field" do
-            expect(page).not_to have_content("Initiative type")
-            expect(page).not_to have_css("#type_description")
-          end
-        end
+          context "when the initiative type enables custom signature end date" do
+            let(:initiative_type) { create(:initiatives_type, :custom_signature_end_date_enabled, organization: organization, minimum_committee_members: initiative_type_minimum_committee_members, signature_type: "offline") }
 
-        context "when the initiative type does not enable custom signature end date" do
-          it "does not show the signature end date" do
-            expect(page).not_to have_content("End of signature collection period")
-          end
-        end
-
-        context "when the initiative type enables custom signature end date" do
-          let(:initiative_type) { create(:initiatives_type, :custom_signature_end_date_enabled, organization: organization, minimum_committee_members: initiative_type_minimum_committee_members, signature_type: "offline") }
-
-          it "shows the signature end date" do
-            expect(page).to have_content("End of signature collection period")
+            it "shows the signature end date" do
+              expect(page).to have_content("End of signature collection period")
+            end
           end
         end
       end
