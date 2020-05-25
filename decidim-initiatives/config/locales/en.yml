@@ -80,6 +80,7 @@ en:
           fields:
             created_at: Created at
             id: ID
+            published_at: Published at
             state: Status
             supports_count: Signatures
             title: Initiatives
@@ -387,6 +388,7 @@ en:
           most_voted: Most signed
           random: Random
           recent: Most recent
+          recently_published: Most recently published
         result:
           answer_title:
             accepted: This proposal has been accepted because
