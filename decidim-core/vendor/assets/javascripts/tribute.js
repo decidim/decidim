@@ -225,6 +225,8 @@ function () {
       var wrapper = this.range.getDocument().createElement('div'),
           ul = this.range.getDocument().createElement('ul');
       wrapper.className = 'tribute-container';
+      wrapper.setAttribute('aria-expanded','true');
+      ul.setAttribute('id','results');
       wrapper.appendChild(ul);
 
       if (this.menuContainer) {
@@ -311,7 +313,7 @@ function () {
 
         items.forEach(function (item, index) {
           var li = _this2.range.getDocument().createElement('li');
-
+          li.setAttribute('role', 'option');
           li.setAttribute('data-index', index);
           li.addEventListener('mousemove', function (e) {
             var _this2$_findLiTarget = _this2._findLiTarget(e.target),

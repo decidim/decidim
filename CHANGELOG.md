@@ -22,6 +22,7 @@ Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on 
 ### Added
 
 - **decidim-initiatives**: Send notification when signature threshold reached. [\#6098](https://github.com/decidim/decidim/pull/6098)
+- **decidim-proposals**: Improve proposal preview: Use proposal card when previewing a proposal draft. [\#6064](https://github.com/decidim/decidim/pull/6064)
 - **decidim-core**: Allow groups to have private conversations with other users or groups. [\#6009](https://github.com/decidim/decidim/pull/6009)
 - **decidim-api**: Use organization time zone [\#6088](https://github.com/decidim/decidim/pull/6088)
 - **decidim-docs**: Add helpful info to install docs for seed errors during installation process. [\#6085](https://github.com/decidim/decidim/pull/6085)
@@ -74,7 +75,13 @@ Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on 
 - **decidim-core**: Explain how to initialize a custom oauth2 client provider [\#6055](https://github.com/decidim/decidim/pull/6055)
 - **decidim-core**: Added support for enum settings for components [\#6001](https://github.com/decidim/decidim/pull/6001)
 - **decidim-core**: Added support for readonly settings for components [\#6001](https://github.com/decidim/decidim/pull/6001)
+- **decidim-core**: Improvements to conversations with more than one participant. [\#6094](https://github.com/decidim/decidim/pull/6094)
+- **decidim-elections**: Elections module and election administration. [\#6065](https://github.com/decidim/decidim/pull/6065)
+- **decidim-forms**: Split forms in steps using separators [\#6108](https://github.com/decidim/decidim/pull/6108)
+- **decidim-initiatives**: Enhanced initiatives search [\#6086](https://github.com/decidim/decidim/pull/6086)
 - **decidim-initiatives**: Add setting in `Decidim::InitiativesType` to enable users to set a custom signature end date in their initiatives. [\#5998](https://github.com/decidim/decidim/pull/5998)
+- **decidim-initiatives**: Sorting by publish date and supports count on admin, by publish date on front [/#6016](https://github.com/decidim/decidim/pull/6016)
+- **decidim-assemblies**: Added a setting for assemblies to enable or disable the visibility of the organization chart. [\#6040](https://github.com/decidim/decidim/pull/6040)
 
 ### Changed
 
@@ -125,6 +132,7 @@ Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on 
 - **decidim-core**, **decidim-proposals**, **decidim-participatory_processes**, **decidim-meetings**, **decidim-sortitions**: XSS sanitization [\#5553](https://github.com/decidim/decidim/pull/5553)
 - **decidim-core**: Fix the scopes picker rendereding escaped characters [#5939](https://github.com/decidim/decidim/pull/5939)
 - **decidim-core**: Fix the destroy account command removing relations with spaces [\#6041](https://github.com/decidim/decidim/pull/6041)
+- **decidim-core**: Avoid server hanging up when rendering newsletter templates previews on develoment or test env [\#6096](https://github.com/decidim/decidim/pull/6096)
 
 ### Removed
 
