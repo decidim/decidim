@@ -87,7 +87,7 @@ describe "Explore versions", versioning: true, type: :system do
       click_link "see other versions"
 
       within ".card--list__item:last-child" do
-        click_link("Version 2")
+        first(:link, "Version 2").click
       end
     end
 
