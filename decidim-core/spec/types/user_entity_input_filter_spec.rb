@@ -68,10 +68,12 @@ module Decidim
         let!(:user2) { create(:user, nickname: "_foo_user_2", name: "FooBar User 2", organization: current_organization) }
         let!(:user3) { create(:user_group, :confirmed, nickname: "_bar_user_3", name: "FooBar User 3", organization: current_organization) }
         let!(:user4) { create(:user, :confirmed, nickname: "_foo_user_4", name: "FooBar User 4") }
+        let!(:user5) { create(:user, :confirmed, nickname: "_foo_user_5", name: "FooBar User 5", organization: current_organization) }
+        let!(:user6) { create(:user, :confirmed, nickname: "_foo_user_6", name: "FooBar User 6", organization: current_organization) }
 
         let(:term) { "foo_user" }
 
-        let(:model) { [user1, user2, user3, user4] }
+        let(:model) { [user1, user2, user3, user4, user5, user6] }
 
         context "when search a user by nickname" do
           let(:query) { %({ users(filter: { nickname: \"#{term}\" }) { name }}) }
@@ -81,6 +83,8 @@ module Decidim
             expect(response["users"]).not_to include("name" => user2.name)
             expect(response["users"]).not_to include("name" => user3.name)
             expect(response["users"]).not_to include("name" => user4.name)
+            expect(response["users"]).to include("name" => user5.name)
+            expect(response["users"]).to include("name" => user6.name)
           end
         end
 
@@ -93,6 +97,8 @@ module Decidim
             expect(response["users"]).not_to include("name" => user2.name)
             expect(response["users"]).to include("name" => user3.name)
             expect(response["users"]).not_to include("name" => user4.name)
+            expect(response["users"]).to include("name" => user5.name)
+            expect(response["users"]).to include("name" => user6.name)
           end
         end
 
@@ -105,6 +111,53 @@ module Decidim
             expect(response["users"]).not_to include("name" => user2.name)
             expect(response["users"]).to include("name" => user3.name)
             expect(response["users"]).not_to include("name" => user4.name)
+            expect(response["users"]).to include("name" => user5.name)
+            expect(response["users"]).to include("name" => user6.name)
+          end
+        end
+
+        context "when search a user by wildcard but with empty exclusion list" do
+          let(:query) { %({ users(filter: { wildcard: \"#{term}\", excludeIds: [#{exclusionIds}] }) { name }}) }
+          let(:term) { "foo" }
+          let!(:exclusionIds) { "" }
+
+          it "returns matching users without exclusions" do
+            expect(response["users"]).to include("name" => user1.name)
+            expect(response["users"]).not_to include("name" => user2.name)
+            expect(response["users"]).to include("name" => user3.name)
+            expect(response["users"]).not_to include("name" => user4.name)
+            expect(response["users"]).to include("name" => user5.name)
+            expect(response["users"]).to include("name" => user6.name)
+          end
+        end
+
+        context "when search a user by wildcard but with exclusion list" do
+          let(:query) { %({ users(filter: { wildcard: \"#{term}\", excludeIds: [#{exclusionIds}] }) { name }}) }
+          let(:term) { "foo" }
+          let!(:exclusionIds) { user5.id.to_s }
+
+          it "returns matching users without the excluded one" do
+            expect(response["users"]).to include("name" => user1.name)
+            expect(response["users"]).not_to include("name" => user2.name)
+            expect(response["users"]).to include("name" => user3.name)
+            expect(response["users"]).not_to include("name" => user4.name)
+            expect(response["users"]).not_to include("name" => user5.name)
+            expect(response["users"]).to include("name" => user6.name)
+          end
+        end
+
+        context "when search a user by wildcard but with multiple exclusion list" do
+          let(:query) { %({ users(filter: { wildcard: \"#{term}\", excludeIds: [#{exclusionIds}] }) { name }}) }
+          let(:term) { "foo" }
+          let!(:exclusionIds) { "#{user5.id},#{user6.id}" }
+
+          it "returns matching users without the excluded ones" do
+            expect(response["users"]).to include("name" => user1.name)
+            expect(response["users"]).not_to include("name" => user2.name)
+            expect(response["users"]).to include("name" => user3.name)
+            expect(response["users"]).not_to include("name" => user4.name)
+            expect(response["users"]).not_to include("name" => user5.name)
+            expect(response["users"]).not_to include("name" => user6.name)
           end
         end
       end

@@ -3,14 +3,11 @@
 
   <div class="columns large-6">
     <%= render partial: "wizard_header", locals: { callout_help_text_class: "warning" } %>
-    <div class="card">
-      <div class="p-l">
-        <%= render partial: "proposal_preview", locals: { proposal: @proposal } %>
-        <div class="row column flex-center">
-          <%= link_to t(".modify"), edit_draft_proposal_path(@proposal) %>
-
-          <%= button_to t(".publish"), publish_proposal_path(@proposal), method: :post, class: "button button--nomargin small" %>
-        </div>
+    <%= render partial: "proposal_preview", locals: { proposal: @proposal } %>
+    <div class="p-l">
+      <div class="row column flex-center">
+        <%= link_to t(".modify"), edit_draft_proposal_path(@proposal) %>
+        <%= button_to t(".publish"), publish_proposal_path(@proposal), method: :post, class: "button button--nomargin small" %>
       </div>
     </div>
   </div>

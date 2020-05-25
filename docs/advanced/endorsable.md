@@ -13,7 +13,7 @@ Participants can endorse with their own identity or with the identify of the `us
 A `decidim_endorsements` table registers each endorsement that each identity gives to each element. This is, one endorsable has many endorsements, and each endorsement belongs to one endorsable.
 For performance, an endorsable has a counter cache of endorsements.
 
-```
+```ascii
 +----------------------+
 |  Decidim::Endorsable |
 |   ((Proposal,...))   |                                   +-------------+
@@ -45,7 +45,7 @@ It is a good practice to give the opportunity to the admin to switch Endorsement
 
 There are two switches that are normally defined in the manifest of the element in the following way:
 
-```
+```ruby
     settings.attribute :endorsements_enabled, type: :boolean, default: true
     settings.attribute :endorsements_blocked, type: :boolean
 ```
@@ -56,7 +56,8 @@ There are two switches that are normally defined in the manifest of the element 
 ## Permissions
 
 In some cases, it may be interesting to require the user to be verified in order to be able to endorse. To do so, add the endorse action to the component manifest:
-```
+
+```ruby
   component.actions = %w(endorse vote create withdraw amend)
 ```
 
@@ -65,6 +66,7 @@ Given that some settings have been defined in the Administration Panel, for the 
 ## Public view
 
 ### The "Endorse" buttons cell
+
 It normally appears in the resource detail view (show). At the action card, in right-side of the view.
 It allows users to endorse with any of their identities, the personal one, and/or their user_groups', if any.
 It also shows the current number of endorsements for this resource.

@@ -87,7 +87,7 @@ module Decidim
             end
 
             def question_types
-              @question_types ||= Question::TYPES.map do |question_type|
+              @question_types ||= Question::QUESTION_TYPES.map do |question_type|
                 [question_type, I18n.t("decidim.forms.question_types.#{question_type}")]
               end
             end
