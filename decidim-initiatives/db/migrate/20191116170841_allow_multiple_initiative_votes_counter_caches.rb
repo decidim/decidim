@@ -7,6 +7,7 @@ class AllowMultipleInitiativeVotesCounterCaches < ActiveRecord::Migration[5.2]
 
   class Initiative < ApplicationRecord
     self.table_name = :decidim_initiatives
+    has_many :votes, foreign_key: "decidim_initiative_id", class_name: "InitiativeVote"
   end
 
   def change
@@ -14,7 +15,17 @@ class AllowMultipleInitiativeVotesCounterCaches < ActiveRecord::Migration[5.2]
 
     Initiative.reset_column_information
 
-    Initiative.find_each(&:update_online_votes_counters)
+    Initiative.find_each do |initiative|
+      online_votes = initiative.votes.group(:decidim_scope_id).count.each_with_object({}) do |(scope_id, count), counters|
+        counters[scope_id || "global"] = count
+        counters["total"] ||= 0
+        counters["total"] += count
+      end
+
+      # rubocop:disable Rails/SkipsModelValidations
+      initiative.update_column("online_votes", online_votes)
+      # rubocop:enable Rails/SkipsModelValidations
+    end
 
     remove_column :decidim_initiatives, :initiative_supports_count
     remove_column :decidim_initiatives, :initiative_votes_count

@@ -7,10 +7,7 @@ class AllowMultipleOfflineVotes < ActiveRecord::Migration[5.2]
 
   class Initiative < ApplicationRecord
     self.table_name = :decidim_initiatives
-
-    belongs_to :scoped_type,
-               foreign_key: "scoped_type_id",
-               class_name: "InitiativesTypeScope"
+    belongs_to :scoped_type, foreign_key: "scoped_type_id", class_name: "InitiativesTypeScope"
   end
 
   def change
@@ -20,7 +17,7 @@ class AllowMultipleOfflineVotes < ActiveRecord::Migration[5.2]
     Initiative.reset_column_information
 
     Initiative.includes(:scoped_type).find_each do |initiative|
-      scope_key = (initiative&.scoped_type&.decidim_scopes_id || "global").to_s
+      scope_key = initiative.scoped_type.decidim_scopes_id || "global"
 
       offline_votes = {
         scope_key => initiative.old_offline_votes.to_i,
