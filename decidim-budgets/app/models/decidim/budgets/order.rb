@@ -44,9 +44,11 @@ module Decidim
 
       # Public: Check if the order total budget is enough to checkout
       def can_checkout?
-        return minimum_projects <= projects.count if minimum_projects_rule?
-
-        total_budget.to_f >= minimum_budget
+        if minimum_projects_rule?
+          projects.count >= minimum_projects
+        else
+          total_budget.to_f >= minimum_budget
+        end
       end
 
       # Public: Returns the order budget percent from the settings total budget
@@ -56,7 +58,8 @@ module Decidim
 
       # Public: Returns the required minimum budget to checkout
       def minimum_budget
-        return 0 unless component || minimum_projects_rule?
+        return 0 unless component
+        return 0 if minimum_projects_rule?
 
         component.settings.total_budget.to_f * (component.settings.vote_threshold_percent.to_f / 100)
       end

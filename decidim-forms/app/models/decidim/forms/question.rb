@@ -4,7 +4,9 @@ module Decidim
   module Forms
     # The data store for a Question in the Decidim::Forms component.
     class Question < Forms::ApplicationRecord
-      TYPES = %w(short_answer long_answer single_option multiple_option sorting matrix_single matrix_multiple).freeze
+      QUESTION_TYPES = %w(short_answer long_answer single_option multiple_option sorting matrix_single matrix_multiple).freeze
+      SEPARATOR_TYPE = "separator"
+      TYPES = (QUESTION_TYPES + [SEPARATOR_TYPE]).freeze
 
       belongs_to :questionnaire, class_name: "Questionnaire", foreign_key: "decidim_questionnaire_id"
 
@@ -40,6 +42,10 @@ module Decidim
 
       def number_of_options
         answer_options.size
+      end
+
+      def separator?
+        question_type.to_s == SEPARATOR_TYPE
       end
     end
   end
