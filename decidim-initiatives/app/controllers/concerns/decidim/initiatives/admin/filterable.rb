@@ -14,11 +14,11 @@ module Decidim
           private
 
           def base_query
-            collection
+            collection.joins("JOIN decidim_users ON decidim_users.id = decidim_initiatives.decidim_author_id")
           end
 
           def search_field_predicate
-            :title_or_description_cont
+            :title_or_description_or_id_string_or_author_name_or_author_nickname_cont
           end
 
           def filters

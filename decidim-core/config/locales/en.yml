@@ -813,11 +813,35 @@ en:
       home: Home
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          admin_in_group: You are receiving this because you are an admin in %{group}.
+          greeting: Hi, %{recipient}!
+          intro: "%{manager} has started a new conversation in the name of %{group}. Click here to see it:"
+          outro: Enjoy decidim!
+          subject: "%{manager} has started a new conversation as a %{group}"
+        comanagers_new_message:
+          admin_in_group: You are receiving this because you are an admin in %{group}.
+          greeting: Hi, %{recipient}!
+          intro: "%{manager} has posted new messages in a conversation in the name of %{group}. Click here to see them:"
+          outro: Enjoy decidim!
+          subject: "%{manager} has send new messages as a %{group}"
         new_conversation:
           greeting: Hi, %{recipient}!
           intro: "%{sender} has started a new conversation with you. Click here to see it:"
           outro: Enjoy decidim!
           subject: "%{sender} has started a conversation with you"
+        new_group_conversation:
+          admin_in_group: You are receiving this because you are an admin in %{group}.
+          greeting: Hi, %{recipient}!
+          intro: "%{sender} has started a new conversation with the group %{group}. Click here to see it:"
+          outro: Enjoy decidim!
+          subject: "%{sender} has started a conversation with %{group}"
+        new_group_message:
+          admin_in_group: You are receiving this because you are an admin in %{group}.
+          greeting: Hi, %{recipient}!
+          intro: "%{sender} has posted new messages in a conversation with the group %{group}. Click here to see it:"
+          outro: Enjoy decidim!
+          subject: "%{group} have new messages from %{sender}"
         new_message:
           greeting: Hi, %{recipient}!
           intro: "%{sender} has posted new messages in your conversation. Click here to see them:"
@@ -836,7 +860,8 @@ en:
           ago: ago
           close: Close modal
           from: From
-          last_message: Last messsage
+          groups: My groups
+          last_message: Last message
           new_conversation: New conversation
           next: Next
           no_conversations: You have no conversations yet
@@ -1022,6 +1047,7 @@ en:
       show:
         activity: Activity
         badges: Badges
+        conversations: Conversations
         followers: Followers
         following: Follows
         groups: Groups
@@ -1138,6 +1164,36 @@ en:
       index:
         no_activities_warning: This participant hasn't had any activity yet.
     user_contact_disabled: This participant does not accept direct messages.
+    user_conversations:
+      create:
+        error: The message could not be created. Try again later
+        existing_error: The message could not be created. The conversation already exists, please try again now.
+        success: Conversation started successfully!
+      index:
+        add_max_users: 'Add users to conversation: 9 users max'
+        add_users_placeholder: Search...
+        close: Close
+        conversations_info: Conversations are private. no one else can see them. A conversation can be started with any participant or group registered on the platform.
+        from: From
+        last_message: Last message
+        modal_title: New conversation
+        new_conversation: New conversation
+        next: Next
+        no_conversations_warning: There are no conversations yet.
+        no_results: No results
+        participant_with_disabled_message_reception: This participant has disabled message reception
+        time_ago: "%{time} ago"
+      new:
+        title: Start a conversation
+      reply:
+        placeholder: Your reply...
+        send: Send
+        title_reply: Reply
+      show:
+        not_allowed: This user does not accept any more direct messages.
+        title: Conversation with %{usernames}
+      update:
+        error: Message not sent. Try again later
     user_interests:
       show:
         my_interests: My interests

@@ -19,6 +19,7 @@ shared_examples "create an initiative type" do
         description: Decidim::Faker::Localized.sentence(25),
         signature_type: "online",
         undo_online_signatures_enabled: true,
+        custom_signature_end_date_enabled: true,
         promoting_committee_enabled: true,
         minimum_committee_members: 7,
         banner_image: Decidim::Dev.test_file("city2.jpeg", "image/jpeg"),
