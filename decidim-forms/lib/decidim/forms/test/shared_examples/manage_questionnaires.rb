@@ -64,7 +64,7 @@ shared_examples_for "manage questionnaires" do
 
       expect(page).to have_selector("input[value='This is the first question']")
       expect(page).to have_selector("input[value='This is the second question']")
-      expect(page).to have_content("SEPARATOR #2")
+      expect(page).to have_content("Separator #2")
     end
 
     it "adds a question with a rich text description" do

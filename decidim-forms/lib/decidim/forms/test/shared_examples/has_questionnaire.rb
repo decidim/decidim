@@ -56,7 +56,7 @@ shared_examples_for "has questionnaire" do
       end
 
       it "allows answering the first questionnaire" do
-        expect(page).to have_content("STEP 1 OF 2")
+        expect(page).to have_content("Step 1 of 2")
 
         within ".answer-questionnaire__submit" do
           expect(page).to have_no_content("Back")
@@ -72,7 +72,7 @@ shared_examples_for "has questionnaire" do
 
         click_link "Back"
 
-        expect(page).to have_content("STEP 1 OF 2")
+        expect(page).to have_content("Step 1 of 2")
         expect(page).to have_field("questionnaire_answers_0", with: "My first answer")
       end
 
@@ -98,7 +98,7 @@ shared_examples_for "has questionnaire" do
         within ".answer-questionnaire__submit" do
           click_link "Continue"
         end
-        expect(page).to have_content("STEP 2 OF 2")
+        expect(page).to have_content("Step 2 of 2")
       end
     end
 
