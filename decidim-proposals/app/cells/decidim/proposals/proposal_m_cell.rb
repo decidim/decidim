@@ -14,6 +14,10 @@ module Decidim
 
       private
 
+      def preview?
+        options[:preview]
+      end
+
       def title
         decidim_html_escape(present(model).title)
       end
@@ -51,6 +55,7 @@ module Decidim
       end
 
       def statuses
+        return [] if preview?
         return [:endorsements_count, :comments_count] if model.draft?
         return [:creation_date, :endorsements_count, :comments_count] if !has_link_to_resource? || !can_be_followed?
 
