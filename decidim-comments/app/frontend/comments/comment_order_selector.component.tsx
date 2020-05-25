@@ -57,7 +57,9 @@ class CommentOrderSelector extends React.Component<CommentOrderSelectorProps, Co
               aria-label={I18n.t("components.comment_order_selector.title")}
               aria-controls="comments-order-menu"
               aria-haspopup="true"
-            >{I18n.t(`components.comment_order_selector.order.${orderBy}`)}</a>
+            >
+              {I18n.t(`components.comment_order_selector.order.${orderBy}`)}
+            </a>
             <ul
               className="menu is-dropdown-submenu"
               id="language-chooser-menu"

@@ -121,11 +121,11 @@ class Comment extends React.Component<CommentProps, CommentState> {
             </div>
             <div className="author-data__extra">
               <button type="button" title={I18n.t("components.comment.report.title")} data-open={modalName}>
-                <Icon name="icon-flag" iconExtraClassName="icon--small" />
+                <Icon name="icon-flag" iconExtraClassName="icon--small" title={I18n.t("components.comment.report.title")} role="img" />
               </button>
               {this._renderFlagModal()}
               <a href={singleCommentUrl} title={I18n.t("components.comment.single_comment_link_title")}>
-                <Icon name="icon-link-intact" iconExtraClassName="icon--small" />
+                <Icon name="icon-link-intact" iconExtraClassName="icon--small" title={I18n.t("components.comment.single_comment_link_title")} role="img" />
               </a>
             </div>
           </div>
