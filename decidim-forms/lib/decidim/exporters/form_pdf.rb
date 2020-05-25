@@ -11,11 +11,12 @@ module Decidim
       # i18n-tasks-use t('decidim.admin.exports.formats.FormPDF')
 
       def controller
-        super.class_eval do
+        helper_controller = ActionController::Base.new
+        helper_controller.class_eval do
           helper Decidim::TranslationsHelper
           helper Decidim::Forms::Admin::QuestionnaireAnswersHelper
         end
-        super
+        helper_controller
       end
 
       def template
