@@ -40,18 +40,46 @@ module Decidim
     # can easily manage data without having to look for it at the admin
     # panel when they're at a public page.
     #
-    # link          - The String with the URL.
+    # link_url      - The String with the URL.
     # action        - The Symbol action to check the permissions for.
     # subject       - The Symbol subject to perform the action to.
     # extra_context - An optional Hash to check the permissions.
+    # link_options   - An optional Hash to change the default name and icon link.
+    # link_options[:name]   - An optional String to be used as the label of the link.
+    # link_options[:icon]   - An optional String with the identifier name of the icon.
+    # link_options[:class]  - An optional String to add as a css class to the link wrapper.
     #
     # Returns nothing.
-    def edit_link(link, action, subject, extra_context = {})
+    def edit_link(link_url, action, subject, extra_context = {}, link_options = { class: "topbar__edit__link" })
       return unless current_user
       return unless admin_allowed_to?(action, subject, extra_context)
       return if content_for?(:edit_link)
 
-      content_for(:edit_link, link)
+      cell_html = raw(cell("decidim/navbar_admin_link", link_url: link_url, link_options: link_options))
+      content_for(:edit_link, cell_html)
+    end
+
+    # Generates a second link to be added to the global admin action link so admins
+    # can easily manage data without having to look for it at the admin
+    # panel when they're at a public page.
+    #
+    # link_url       - The String with the URL.
+    # action         - The Symbol action to check the permissions for.
+    # subject        - The Symbol subject to perform the action to.
+    # extra_context  - An optional Hash to check the permissions.
+    # link_options   - An optional Hash to change the default name and icon link.
+    # link_options[:name]   - An optional String to be used as the label of the link.
+    # link_options[:icon]   - An optional String with the identifier name of the icon.
+    # link_options[:class]  - An optional String to add as a css class to the link wrapper.
+    #
+    # Returns nothing.
+    def extra_admin_link(link_url, action, subject, extra_context = {}, link_options = {})
+      return unless current_user
+      return unless admin_allowed_to?(action, subject, extra_context)
+      return if content_for?(:extra_admin_link)
+
+      cell_html = raw(cell("decidim/navbar_admin_link", link_url: link_url, link_options: link_options))
+      content_for(:extra_admin_link, cell_html)
     end
 
     # Public: Overwrites the `cell` helper method to automatically set some

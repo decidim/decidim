@@ -125,6 +125,7 @@ en:
         show:
           algorithm: Sortition's algorithm code
           any_category: from all categories
+          back: Back to list
           cancelled: Cancelled sortition
           candidate_proposal_ids: Sortition proposals order and IDs
           candidate_proposals_info: 'The sortition was carried out among the following proposals (%{category_label}), with the following IDs (in bold the selected proposals)  '

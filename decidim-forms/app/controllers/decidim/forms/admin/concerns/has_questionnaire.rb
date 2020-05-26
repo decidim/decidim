@@ -15,7 +15,7 @@ module Decidim
 
           included do
             helper Decidim::Forms::Admin::ApplicationHelper
-            helper_method :questionnaire_for, :questionnaire, :blank_question, :blank_answer_option, :question_types, :update_url
+            helper_method :questionnaire_for, :questionnaire, :blank_question, :blank_answer_option, :blank_matrix_row, :question_types, :update_url
 
             def edit
               enforce_permission_to :update, :questionnaire, questionnaire: questionnaire
@@ -82,8 +82,12 @@ module Decidim
               @blank_answer_option ||= Admin::AnswerOptionForm.new
             end
 
+            def blank_matrix_row
+              @blank_matrix_row ||= Admin::QuestionMatrixRowForm.new
+            end
+
             def question_types
-              @question_types ||= Question::TYPES.map do |question_type|
+              @question_types ||= Question::QUESTION_TYPES.map do |question_type|
                 [question_type, I18n.t("decidim.forms.question_types.#{question_type}")]
               end
             end

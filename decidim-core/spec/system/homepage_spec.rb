@@ -19,13 +19,13 @@ describe "Homepage", type: :system do
     let(:organization) { create(:organization, official_url: official_url) }
 
     before do
-      create :content_block, organization: organization, scope: :homepage, manifest_name: :hero
-      create :content_block, organization: organization, scope: :homepage, manifest_name: :sub_hero
-      create :content_block, organization: organization, scope: :homepage, manifest_name: :highlighted_content_banner
-      create :content_block, organization: organization, scope: :homepage, manifest_name: :how_to_participate
-      create :content_block, organization: organization, scope: :homepage, manifest_name: :stats
-      create :content_block, organization: organization, scope: :homepage, manifest_name: :metrics
-      create :content_block, organization: organization, scope: :homepage, manifest_name: :footer_sub_hero
+      create :content_block, organization: organization, scope_name: :homepage, manifest_name: :hero
+      create :content_block, organization: organization, scope_name: :homepage, manifest_name: :sub_hero
+      create :content_block, organization: organization, scope_name: :homepage, manifest_name: :highlighted_content_banner
+      create :content_block, organization: organization, scope_name: :homepage, manifest_name: :how_to_participate
+      create :content_block, organization: organization, scope_name: :homepage, manifest_name: :stats
+      create :content_block, organization: organization, scope_name: :homepage, manifest_name: :metrics
+      create :content_block, organization: organization, scope_name: :homepage, manifest_name: :footer_sub_hero
 
       switch_to_host(organization.host)
       visit decidim.root_path
@@ -244,7 +244,7 @@ describe "Homepage", type: :system do
 
           it "shows the metrics block" do
             within "#metrics" do
-              expect(page).to have_content("Participation in figures")
+              expect(page).to have_content("Metrics")
               Decidim.metrics_registry.filtered(highlight: true, scope: "home").each do |metric_registry|
                 expect(page).to have_css(%(##{metric_registry.metric_name}_chart), visible: false)
               end
@@ -255,14 +255,14 @@ describe "Homepage", type: :system do
           end
         end
 
-        context "and not have metric records" do
+        context "and does not have metric records" do
           before do
             visit current_path
           end
 
           it "shows the metrics block empty" do
             within "#metrics" do
-              expect(page).to have_content("Participation in figures")
+              expect(page).to have_content("Metrics")
               Decidim.metrics_registry.highlighted.each do |metric_registry|
                 expect(page).to have_no_css("##{metric_registry.metric_name}_chart")
               end

@@ -10,7 +10,8 @@ module Decidim
     let(:data) do
       {
         email_on_notification: true,
-        newsletter_notifications_at: Time.current
+        newsletter_notifications_at: Time.current,
+        direct_message_types: "followed-only"
       }
     end
 
@@ -19,6 +20,7 @@ module Decidim
         notification_types: "none",
         email_on_notification: data[:email_on_notification],
         newsletter_notifications_at: data[:newsletter_notifications_at],
+        direct_message_types: data[:direct_message_types],
         valid?: valid
       )
     end
@@ -40,6 +42,7 @@ module Decidim
         expect(user.email_on_notification).to be_truthy
         expect(user.newsletter_notifications_at).not_to be_nil
         expect(user.notification_types).to eq "none"
+        expect(user.direct_message_types).to eq "followed-only"
       end
     end
   end

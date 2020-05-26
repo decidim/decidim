@@ -59,11 +59,12 @@ module Decidim
         end
 
         def retrieve_endorsements(from_start = false)
-          @endorsements ||= Decidim::Proposals::ProposalEndorsement.joins(:proposal).where(proposal: retrieve_proposals)
-                                                                   .where("decidim_proposals_proposal_endorsements.created_at <= ?", end_time)
-                                                                   .where(decidim_author_type: "Decidim::UserBaseEntity")
+          @endorsements ||= Decidim::Endorsement.joins("INNER JOIN decidim_proposals_proposals proposals ON resource_id = proposals.id")
+                                                .where(resource: retrieve_proposals)
+                                                .where("decidim_endorsements.created_at <= ?", end_time)
+                                                .where(decidim_author_type: "Decidim::UserBaseEntity")
 
-          return @endorsements.where("decidim_proposals_proposal_endorsements.created_at >= ?", start_time) if from_start
+          return @endorsements.where("decidim_endorsements.created_at >= ?", start_time) if from_start
 
           @endorsements
         end

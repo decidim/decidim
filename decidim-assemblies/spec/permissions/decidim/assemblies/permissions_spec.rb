@@ -8,12 +8,14 @@ describe Decidim::Assemblies::Permissions do
   let(:user) { create :user, :admin, organization: organization }
   let(:organization) { create :organization }
   let(:assembly_type) { create :assemblies_type, organization: organization }
+  let(:assemblies_setting) { create :assemblies_setting, organization: organization }
   let(:assembly) { create :assembly, organization: organization, assembly_type: assembly_type }
   let(:context) { {} }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
   let(:assembly_admin) { create :assembly_admin, assembly: assembly }
   let(:assembly_collaborator) { create :assembly_collaborator, assembly: assembly }
   let(:assembly_moderator) { create :assembly_moderator, assembly: assembly }
+  let(:assembly_valuator) { create :assembly_valuator, assembly: assembly }
 
   shared_examples "access for role" do |access|
     if access == true
@@ -47,6 +49,12 @@ describe Decidim::Assemblies::Permissions do
 
       it_behaves_like "access for role", access[:moderator]
     end
+
+    context "when user is a space valuator" do
+      let(:user) { assembly_valuator }
+
+      it_behaves_like "access for role", access[:valuator]
+    end
   end
 
   context "when the action is for the public part" do
@@ -55,7 +63,14 @@ describe Decidim::Assemblies::Permissions do
         { scope: :admin, action: :read, subject: :admin_dashboard }
       end
 
-      it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: true, moderator: true
+      it_behaves_like(
+        "access for roles",
+        org_admin: true,
+        admin: true,
+        collaborator: true,
+        moderator: true,
+        valuator: true
+      )
     end
 
     context "when reading a assembly" do
@@ -150,7 +165,14 @@ describe Decidim::Assemblies::Permissions do
     end
     let(:context) { { space_name: :assemblies } }
 
-    it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: true, moderator: true
+    it_behaves_like(
+      "access for roles",
+      org_admin: true,
+      admin: true,
+      collaborator: true,
+      moderator: true,
+      valuator: true
+    )
   end
 
   context "when reading the admin dashboard from the admin part" do
@@ -158,16 +180,48 @@ describe Decidim::Assemblies::Permissions do
       { scope: :admin, action: :read, subject: :admin_dashboard }
     end
 
-    it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: true, moderator: true
+    it_behaves_like(
+      "access for roles",
+      org_admin: true,
+      admin: true,
+      collaborator: true,
+      moderator: true,
+      valuator: true
+    )
   end
 
   context "when acting on component data" do
-    let(:action) do
-      { scope: :admin, action: :any_action_is_accepted, subject: :component_data }
-    end
-    let(:context) { { current_participatory_space: assembly } }
+    context "when exporting component data" do
+      let(:action) do
+        { scope: :admin, action: :export, subject: :component_data }
+      end
+      let(:context) { { current_participatory_space: assembly } }
 
-    it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: :not_set, moderator: :not_set
+      it_behaves_like(
+        "access for roles",
+        org_admin: true,
+        admin: true,
+        collaborator: :not_set,
+        moderator: :not_set,
+        valuator: true
+      )
+    end
+
+    context "when performing any other action" do
+      let(:action) do
+        { scope: :admin, action: :any_action_is_accepted, subject: :component_data }
+      end
+      let(:context) { { current_participatory_space: assembly } }
+
+      it_behaves_like(
+        "access for roles",
+        org_admin: true,
+        admin: true,
+        collaborator: :not_set,
+        moderator: :not_set,
+        valuator: :not_set
+      )
+    end
   end
 
   context "when reading the assemblies list" do
@@ -175,16 +229,30 @@ describe Decidim::Assemblies::Permissions do
       { scope: :admin, action: :read, subject: :assembly_list }
     end
 
-    it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: true, moderator: true
+    it_behaves_like(
+      "access for roles",
+      org_admin: true,
+      admin: true,
+      collaborator: true,
+      moderator: true,
+      valuator: true
+    )
   end
 
-  context "when reading a assembly" do
+  context "when reading an assembly" do
     let(:action) do
       { scope: :admin, action: :read, subject: :assembly }
     end
     let(:context) { { assembly: assembly } }
 
-    it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: true, moderator: true
+    it_behaves_like(
+      "access for roles",
+      org_admin: true,
+      admin: true,
+      collaborator: true,
+      moderator: true,
+      valuator: true
+    )
   end
 
   context "when reading a participatory_space" do
@@ -193,7 +261,14 @@ describe Decidim::Assemblies::Permissions do
     end
     let(:context) { { current_participatory_space: assembly } }
 
-    it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: true, moderator: true
+    it_behaves_like(
+      "access for roles",
+      org_admin: true,
+      admin: true,
+      collaborator: true,
+      moderator: true,
+      valuator: true
+    )
   end
 
   context "when creating a assembly" do
@@ -201,7 +276,29 @@ describe Decidim::Assemblies::Permissions do
       { scope: :admin, action: :create, subject: :assembly }
     end
 
-    it_behaves_like "access for roles", org_admin: true, admin: false, collaborator: false, moderator: false
+    it_behaves_like(
+      "access for roles",
+      org_admin: true,
+      admin: false,
+      collaborator: false,
+      moderator: false,
+      valuator: false
+    )
+  end
+
+  context "when reading a assemblies settings" do
+    let(:action) do
+      { scope: :admin, action: :read, subject: :assemblies_setting }
+    end
+
+    it_behaves_like(
+      "access for roles",
+      org_admin: true,
+      admin: false,
+      collaborator: false,
+      moderator: false,
+      valuator: false
+    )
   end
 
   context "with a assembly" do
@@ -212,7 +309,14 @@ describe Decidim::Assemblies::Permissions do
         { scope: :admin, action: :foo, subject: :moderation }
       end
 
-      it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: :not_set, moderator: true
+      it_behaves_like(
+        "access for roles",
+        org_admin: true,
+        admin: true,
+        collaborator: :not_set,
+        valuator: :not_set,
+        moderator: true
+      )
     end
 
     context "when publishing a assembly" do
@@ -220,7 +324,14 @@ describe Decidim::Assemblies::Permissions do
         { scope: :admin, action: :publish, subject: :assembly }
       end
 
-      it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: :not_set, moderator: :not_set
+      it_behaves_like(
+        "access for roles",
+        org_admin: true,
+        admin: true,
+        collaborator: :not_set,
+        valuator: :not_set,
+        moderator: :not_set
+      )
     end
 
     context "when user is a collaborator" do
@@ -283,7 +394,7 @@ describe Decidim::Assemblies::Permissions do
       it_behaves_like "allows any action on subject", :space_private_user
     end
 
-    context "when user is n org admin" do
+    context "when user is an org admin" do
       context "when creating a assembly" do
         let(:action) do
           { scope: :admin, action: :create, subject: :assembly }
@@ -311,6 +422,7 @@ describe Decidim::Assemblies::Permissions do
       it_behaves_like "allows any action on subject", :assembly_member
       it_behaves_like "allows any action on subject", :assembly_user_role
       it_behaves_like "allows any action on subject", :space_private_user
+      it_behaves_like "allows any action on subject", :assemblies_setting
     end
   end
 
@@ -366,6 +478,63 @@ describe Decidim::Assemblies::Permissions do
       end
 
       it { is_expected.to eq false }
+    end
+
+    context "when listing assemblies list" do
+      let!(:user) { create :user, organization: organization }
+      let(:context) { { assembly: assembly } }
+
+      context "when assembly is a root assembly" do
+        before do
+          create :assembly_user_role, user: user, assembly: assembly
+        end
+
+        let(:action) do
+          { scope: :admin, action: :list, subject: :assembly }
+        end
+
+        it { is_expected.to eq(true) }
+      end
+
+      context "when the assembly has one ancestor" do
+        before do
+          create :assembly_user_role, user: user, assembly: child_assembly
+        end
+
+        let(:child_assembly) { create :assembly, parent: assembly, organization: organization }
+        let(:action) do
+          { scope: :admin, action: :list, subject: :assembly }
+        end
+
+        it { is_expected.to eq(true) }
+      end
+
+      context "when the assembly has more than one ancestor" do
+        before do
+          create :assembly_user_role, user: user, assembly: grand_child_assembly
+        end
+
+        let(:child_assembly) { create :assembly, parent: assembly, organization: organization }
+        let(:grand_child_assembly) { create :assembly, parent: child_assembly, organization: organization }
+        let(:action) do
+          { scope: :admin, action: :list, subject: :assembly }
+        end
+
+        it { is_expected.to eq(true) }
+      end
+
+      context "when the assembly has one ancestor" do
+        before do
+          create :assembly_user_role, user: user, assembly: assembly.parent
+        end
+
+        let!(:assembly) { create :assembly, :with_parent, organization: organization }
+        let(:action) do
+          { scope: :admin, action: :list, subject: :assembly }
+        end
+
+        it { is_expected.to eq(false) }
+      end
     end
   end
 end

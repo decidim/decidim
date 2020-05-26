@@ -97,6 +97,29 @@ module Decidim
       save!
     end
 
+    # sugar for the memberships query
+    def accepted_memberships
+      UserGroups::AcceptedMemberships.for(self)
+    end
+
+    # easy way to return all the users accepted in this group
+    def accepted_users
+      accepted_memberships.map(&:user)
+    end
+
+    # Currently, groups always accept conversations from anyone.
+    # This may change in the future in case the desired behaviour
+    # is to check if all (or any) of the administrators accepts conversations
+    # or there's simply and option for this in the group preferences.
+    def accepts_conversation?(_user)
+      true
+    end
+
+    def unread_messages_count_for(user)
+      @unread_messages_count_for ||= {}
+      @unread_messages_count_for[user.id] ||= Decidim::Messaging::Conversation.user_collection(self).unread_messages_by(user).count
+    end
+
     private
 
     # Private: Checks if the state user group is correct.

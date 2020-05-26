@@ -9,9 +9,8 @@ After generating your app, you'll see that your `config/initializers/decidim.rb`
 ```ruby
 # Geocoder configuration
 # config.geocoder = {
-#   static_map_url: "https://image.maps.cit.api.here.com/mia/1.6/mapview",
-#   here_app_id: Rails.application.secrets.geocoder[:here_app_id],
-#   here_app_code: Rails.application.secrets.geocoder[:here_app_code]
+#   static_map_url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview",
+#   here_api_key: Rails.application.secrets.geocoder[:here_api_key]
 # }
 ```
 

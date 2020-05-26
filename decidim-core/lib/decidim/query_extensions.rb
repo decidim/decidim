@@ -88,21 +88,15 @@ module Decidim
                 }
       end
 
-      type.field :users do
-        type types[Decidim::Core::UserType]
-        description "The participants for the current organization"
-        argument :name, types.String, "The name of the participant"
-        argument :nickname, types.String, "The @nickname of the participant"
-        argument :wildcard, types.String, "Either the name or the @nickname of the participant"
+      type.field :user,
+                 type: Core::AuthorInterface,
+                 description: "A participant (user or group) in the current organization",
+                 function: Core::UserEntityFinder.new
 
-        resolve lambda { |_obj, args, ctx|
-          filters = {}
-          args.each do |argument, value|
-            filters[argument.to_sym] = value.to_s if value.present?
-          end
-          Decidim::Core::UserResolver.new(ctx[:current_organization], filters).users
-        }
-      end
+      type.field :users,
+                 type: type.types[Core::AuthorInterface],
+                 description: "The participants (users or groups) for the current organization",
+                 function: Core::UserEntityList.new
     end
   end
 end

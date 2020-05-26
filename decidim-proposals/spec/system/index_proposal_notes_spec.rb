@@ -25,7 +25,7 @@ describe "Index Proposal Notes", type: :system do
 
   before do
     within find("tr", text: proposal.title) do
-      click_link "Show proposal"
+      click_link "Answer proposal"
     end
   end
 

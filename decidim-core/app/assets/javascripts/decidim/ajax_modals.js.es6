@@ -11,6 +11,9 @@ $(() => {
         const $html = $(html);
         $modal.html($html);
         $html.foundation();
+      },
+      error: function (request, status, error) {
+        $modal.html(`<h3>${status}</h3><p>${error}</p>`);
       }
     });
   });

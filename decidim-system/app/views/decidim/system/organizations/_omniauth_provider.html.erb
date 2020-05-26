@@ -3,6 +3,10 @@
 <div class="card">
   <h5><%= provider_name(provider) %></h5>
 
+  <% if provider_enabled?(provider) %>
+    <p class="help-text"><%= t("enabled_by_default", scope: i18n_scope) %></p>
+  <% end %>
+
   <div class="card-section">
     <%= f.check_box(
           "omniauth_settings_#{provider}_enabled",

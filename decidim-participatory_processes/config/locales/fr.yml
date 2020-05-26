@@ -22,6 +22,7 @@ fr:
         participatory_structure: Modalités de décision
         promoted: Mise en avant
         published_at: Publiée à
+        related_process_ids: Concertations liées
         scope_id: Périmètre d'application
         scopes_enabled: Périmètres d'application activés
         short_description: Résumé
@@ -203,13 +204,11 @@ fr:
         destroy:
           success: Utilisateur supprimé avec succès de cette concertation.
         edit:
-          title: Mettre à jour l'utilisateur de la concertation.
           update: Mettre à jour
         index:
           process_admins_title: Administrateurs de la concertation
         new:
           create: Créer
-          title: Nouvel administrateur de la concertation.
         update:
           error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cette concertation.
           success: L'utilisateur a été mis à jour avec succès pour cette concertation.
@@ -322,6 +321,7 @@ fr:
             images: Images
             metadata: Métadonnées
             other: Autre
+            related_processes: Concertations liées
             select_an_area: Sélectionnez un secteur
             select_process_group: Sélectionnez un groupe de concertations
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette concertation. Ils n''acceptent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
@@ -377,6 +377,7 @@ fr:
         participatory_scope: Objectifs
         participatory_structure: Modalités de décision
         private_space: Ceci est une concertation privée
+        related_processes: Concertations liées
         scope: Périmètre d'application
         start_date: Date de début
         target: Participants
@@ -390,13 +391,14 @@ fr:
         meetings_count: Rencontres
         orders_count: Votes
         pages_count: Pages
+        participants_count: Participants
         processes_count: Concertations
         projects_count: Projets
         proposals_count: Propositions
         results_count: Réalisations
+        supports_count: Votes
         surveys_count: Enquêtes
         users_count: Participants
-        votes_count: Votes
   layouts:
     decidim:
       participatory_process_groups:

@@ -4,6 +4,9 @@ require "spec_helper"
 require "decidim/api/test/type_context"
 require "decidim/core/test/shared_examples/attachable_interface_examples"
 require "decidim/core/test/shared_examples/authorable_interface_examples"
+require "decidim/core/test/shared_examples/traceable_interface_examples"
+require "decidim/core/test/shared_examples/timestamps_interface_examples"
+require "decidim/core/test/shared_examples/endorsable_interface_examples"
 
 module Decidim
   module Blogs
@@ -14,6 +17,9 @@ module Decidim
 
       include_examples "attachable interface"
       include_examples "authorable interface"
+      include_examples "traceable interface"
+      include_examples "timestamps interface"
+      include_examples "endorsable interface"
 
       describe "id" do
         let(:query) { "{ id }" }
@@ -36,30 +42,6 @@ module Decidim
 
         it "returns all the required fields" do
           expect(response["body"]["translation"]).to eq(model.body["en"])
-        end
-      end
-
-      describe "createdAt" do
-        let(:query) { "{ createdAt }" }
-
-        it "returns when the page was created" do
-          expect(response["createdAt"]).to eq(model.created_at.to_time.iso8601)
-        end
-      end
-
-      describe "updatedAt" do
-        let(:query) { "{ updatedAt }" }
-
-        it "returns when the page was updated" do
-          expect(response["updatedAt"]).to eq(model.updated_at.to_time.iso8601)
-        end
-      end
-
-      describe "author" do
-        let(:query) { "{ author { name }}" }
-
-        it "returns the author of the post" do
-          expect(response["author"]["name"]).to eq(model.author.name)
         end
       end
     end

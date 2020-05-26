@@ -7,11 +7,12 @@ ruby RUBY_VERSION
 gem "decidim", path: "."
 gem "decidim-conferences", path: "."
 gem "decidim-consultations", path: "."
+gem "decidim-elections", path: "."
 gem "decidim-initiatives", path: "."
 
 gem "bootsnap", "~> 1.4"
 
-gem "puma", "~> 3.12.2"
+gem "puma", "~> 4.3.3"
 gem "uglifier", "~> 4.1"
 
 gem "faker", "~> 1.9"

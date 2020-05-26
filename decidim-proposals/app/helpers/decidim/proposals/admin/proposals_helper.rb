@@ -29,6 +29,12 @@ module Decidim
           proposal.endorsements.for_listing.map { |identity| present(identity.normalized_author) }
         end
 
+        def proposal_complete_state(proposal)
+          state = humanize_proposal_state(proposal.state)
+          state += " (#{humanize_proposal_state(proposal.internal_state)})" if proposal.answered? && !proposal.published_state?
+          state.html_safe
+        end
+
         def proposals_admin_filter_tree
           {
             t("proposals.filters.type", scope: "decidim.proposals") => {
@@ -114,6 +120,21 @@ module Decidim
             end
           end
           html.join(" ").html_safe
+        end
+
+        def icon_with_link_to_proposal(proposal)
+          icon, tooltip = if allowed_to?(:create, :proposal_answer, proposal: proposal) && !proposal.emendation?
+                            [
+                              "comment-square",
+                              t(:answer_proposal, scope: "decidim.proposals.actions")
+                            ]
+                          else
+                            [
+                              "info",
+                              t(:show, scope: "decidim.proposals.actions")
+                            ]
+                          end
+          icon_link_to(icon, proposal_path(proposal), tooltip, class: "icon--small action-icon--show-proposal")
         end
       end
     end

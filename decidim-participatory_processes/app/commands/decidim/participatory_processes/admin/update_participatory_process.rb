@@ -78,6 +78,7 @@ module Decidim
             start_date: form.start_date,
             end_date: form.end_date,
             participatory_process_group: form.participatory_process_group,
+            show_metrics: form.show_metrics,
             show_statistics: form.show_statistics,
             announcement: form.announcement
           }
