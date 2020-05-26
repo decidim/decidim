@@ -2,14 +2,17 @@
 
 require "spec_helper"
 require "decidim/api/test/type_context"
+require "decidim/core/test/shared_examples/attachable_interface_examples"
 require "decidim/core/test/shared_examples/traceable_interface_examples"
 
 module Decidim
   module Elections
-    describe ElectionQuestionType, type: :graphql do
+    describe ElectionAnswerType, type: :graphql do
       include_context "with a graphql type"
 
-      let(:model) { create(:question) }
+      let(:model) { create(:election_answer) }
+
+      it_behaves_like "attachable interface"
 
       it_behaves_like "traceable interface" do
         let(:author) { create(:user, :admin, organization: model.component.organization) }
@@ -39,14 +42,6 @@ module Decidim
         end
       end
 
-      describe "maxSelections" do
-        let(:query) { "{ maxSelections }" }
-
-        it "returns the election max_selections" do
-          expect(response["maxSelections"]).to eq(model.max_selections)
-        end
-      end
-
       describe "weight" do
         let(:query) { "{ weight }" }
 
@@ -55,22 +50,15 @@ module Decidim
         end
       end
 
-      describe "randomAnswersOrder" do
-        let(:query) { "{ randomAnswersOrder }" }
+      describe "proposals" do
+        let(:component) { create(:proposal_component, organization: model.question.election.component.organization)}
+        let!(:proposals) { create_list(:proposal, 2, component: component) }
+        let(:query) { "{ proposals { id } }" }
 
-        it "returns the election random_answers_order" do
-          expect(response["randomAnswersOrder"]).to eq(model.random_answers_order)
-        end
-      end
-
-      describe "answers" do
-        let!(:question2) { create(:question, :complete) }
-        let(:query) { "{ answers { id } }" }
-
-        it "returns the question answers" do
-          ids = response["answers"].map { |question| question["id"] }
-          expect(ids).to include(*model.answers.map(&:id).map(&:to_s))
-          expect(ids).not_to include(*question2.answers.map(&:id).map(&:to_s))
+        it "returns the answer related proposals" do
+          ids = response["proposals"].map { |proposal| proposal["id"] }
+          expect(ids).to include(*model.proposals.map(&:id).map(&:to_s))
+          expect(ids).not_to include(*proposals.map(&:id).map(&:to_s))
         end
       end
     end

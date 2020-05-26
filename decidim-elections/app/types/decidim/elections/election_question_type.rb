@@ -18,6 +18,8 @@ module Decidim
       field :maxSelections, !types.Int, "The maximum number of posible selections for this question", property: :max_selections
       field :weight, types.Int, "The ordering weight for this question"
       field :randomAnswersOrder, types.Boolean, "Should this question order answers in random order?", property: :random_answers_order
+
+      field :answers, !types[Decidim::Elections::ElectionAnswerType], "The answers for this question"
     end
   end
 end

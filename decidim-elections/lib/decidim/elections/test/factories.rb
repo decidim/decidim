@@ -37,6 +37,16 @@ FactoryBot.define do
     random_answers_order { true }
 
     trait :complete do
+      after(:build) do |question, evaluator|
+        build_list(:election_answer, 2, question: question)
+      end
     end
+  end
+
+  factory :election_answer, class: "Decidim::Elections::Answer" do
+    question
+    title { generate_localized_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    weight { Faker::Number.number(1) }
   end
 end
