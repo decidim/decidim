@@ -2,6 +2,9 @@
   <div class="card-divider">
     <h2 class="card-title">
       <%= t "decidim.admin.titles.initiatives" %>
+      <div class="button--title">
+        <%= render partial: "decidim/initiatives/admin/exports/dropdown" if allowed_to? :export, :initiatives %>
+      </div>
     </h2>
   </div>
   <%= admin_filter_selector %>
