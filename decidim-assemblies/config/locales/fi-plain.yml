@@ -101,6 +101,10 @@ fi-pl:
         create:
           error: Virhe kopioitaessa ryhmää.
           success: Ryhmä kopioitu onnistuneesti.
+      assemblies_settings:
+        update:
+          error: Asetusten päivittäminen epäonnistui.
+          success: Asetusten päivittäminen onnistui.
       assemblies_types:
         create:
           error: Uuden ryhmätyypin luonti epäonnistui.
@@ -161,6 +165,7 @@ fi-pl:
           success: Ryhmän käyttäjä päivitetty onnistuneesti.
       menu:
         assemblies: Ryhmät
+        assemblies_settings: Asetukset
         assemblies_submenu:
           assembly_admins: Ryhmän käyttäjät
           assembly_members: Jäsenet
@@ -222,6 +227,8 @@ fi-pl:
         create: "%{user_name} loi %{resource_name} jäsenen %{space_name} ryhmässä"
         delete: "%{user_name} poisti %{resource_name} jäsenen %{space_name} ryhmästä"
         update: "%{user_name} päivitti %{resource_name} jäsenen %{space_name} ryhmään"
+      assembly_setting:
+        update: "%{user_name} päivitti ryhmän asetuksia"
       assembly_type:
         create: "%{user_name} loi ryhmätyypin %{resource_name}"
         delete: "%{user_name} poisti käyttäjän %{resource_name} ryhmätyypistä %{space_name}"
@@ -251,6 +258,11 @@ fi-pl:
             social_handlers: Sosiaalinen media
             title: Yleiset tiedot
             visbility: näkyvyys
+        assemblies_settings:
+          edit:
+            update: Päivitä
+          form:
+            title: Ryhmien asetukset
         assemblies_types:
           form:
             title: Otsikko
