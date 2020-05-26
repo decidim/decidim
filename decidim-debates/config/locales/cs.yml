@@ -85,7 +85,7 @@ cs:
           category: Kategorie
           category_prompt: Vyberte kategorii
           citizens: Občané
-          official: Úředník
+          official: Oficiální
           origin: Původ
           search: Hledat
         filters_small_view:
@@ -106,7 +106,7 @@ cs:
         debate:
           fields:
             end_time: Datum ukončení
-            official_debate: Úvodní debata
+            official_debate: Oficiální debata
             start_time: Datum zahájení
             title: Titul
     events:
