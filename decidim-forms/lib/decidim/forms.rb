@@ -10,5 +10,6 @@ module Decidim
   module Forms
     autoload :UserAnswersSerializer, "decidim/forms/user_answers_serializer"
     autoload :DataPortabilityUserAnswersSerializer, "decidim/forms/data_portability_user_answers_serializer"
+    autoload :PDF, "decidim/exporters/pdf"
   end
 end
