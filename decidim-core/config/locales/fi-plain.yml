@@ -61,7 +61,7 @@ fi-pl:
     'true': 'Kyllä'
   carrierwave:
     errors:
-      general: Virhe käsiteltäessä kuvaa
+      general: Kuvan käsittely epäonnistui
       image_too_big: Kuva on liian suuri
   date:
     formats:
