@@ -14,7 +14,7 @@ module Decidim
       # set_asset_host allows to redefine the host asset if not specified in application configuration
       # We use a lambda because this code is executed when the application is started
       # and does not allow us to modify it afterwards.
-      # Leave action_mailer asset_host emtpy to use it.
+      # Leave action_mailer asset_host empty to use it.
       def set_asset_host
         return if Rails.application.config.action_mailer.asset_host.present?
 
