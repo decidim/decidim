@@ -6,8 +6,6 @@ require "decidim/exporters/form_pdf"
 
 module Decidim
   describe Exporters::FormPDF do
-    # include Decidim::TranslationsHelper
-
     subject do
       described_class.new(participants, Decidim::Forms::UserAnswersSerializer)
     end
