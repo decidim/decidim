@@ -3,6 +3,15 @@
 require "spec_helper"
 require "decidim/accountability/test/factories"
 
+class Decidim::DummyResources::DiffRenderer < Decidim::BaseDiffRenderer
+  def attribute_types
+    {
+      decidim_scope_id: :scope,
+      body: :string
+    }
+  end
+end
+
 describe Decidim::DiffCell, versioning: true, type: :cell do
   subject { my_cell.call }
 
@@ -27,11 +36,11 @@ describe Decidim::DiffCell, versioning: true, type: :cell do
     end
   end
 
-  context "when diffing an attribute with integer values" do
-    let(:item) { create(:proposal, decidim_scope_id: 1) }
+  context "when diffing an attribute with scopes values" do
+    let(:item) { create(:dummy_resource) }
 
     it "renders a diff with a string" do
-      expect(subject).to have_css(".diff-for-scope .diff-data .ins")
+      expect(subject).to have_css(".diff-for-scope .diff-data .ins", text: item.scope.name[:en])
     end
   end
 

@@ -9,6 +9,7 @@ en:
         title: Title
         translatable_text: Translatable text
         updated_at: Updated at
+        decidim_scope_id: Scope
   decidim:
     components:
       dummy:
