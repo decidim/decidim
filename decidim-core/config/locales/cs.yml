@@ -38,7 +38,7 @@ cs:
     attributes:
       decidim/user:
         current_password: Aktuální heslo
-        email: E-mai
+        email: E-mail
         name: Uživatelské jméno
         password: Heslo
         password_confirmation: Potvrzení hesla
