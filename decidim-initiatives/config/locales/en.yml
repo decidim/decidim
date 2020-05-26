@@ -27,6 +27,7 @@ en:
       initiatives_committee_member:
         user: Committee member
       initiatives_type:
+        attachments_enabled: Enable attachments
         banner_image: Banner image
         collect_user_extra_fields: Collect participant personal data on signature
         custom_signature_end_date_enabled: Enable authors to choose the end of signature collection period
