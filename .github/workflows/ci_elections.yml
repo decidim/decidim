@@ -1,0 +1,75 @@
+name: "[CI] Elections"
+on:
+  push:
+    branches:
+      - develop
+      - master
+      - release/*
+      - "*-stable"
+  pull_request:
+    branches-ignore:
+      - "l10n_*"
+
+env:
+  CI: "true"
+  SIMPLECOV: "true"
+  RUBY_VERSION: 2.5.3
+  DECIDIM_MODULE: decidim-elections
+
+jobs:
+  main:
+    name: Tests
+    runs-on: ubuntu-latest
+    if: "!startsWith(github.head_ref, 'l10n_')"
+    services:
+      postgres:
+        image: postgres:11
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        env:
+          POSTGRES_PASSWORD: postgres
+    env:
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_HOST: localhost
+    steps:
+      - uses: rokroskar/workflow-run-cleanup-action@v0.2.2
+        if: "github.ref != 'refs/heads/master' || github.ref != 'refs/heads/develop'"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      - uses: actions/checkout@v2.0.0
+        with:
+          fetch-depth: 1
+      - uses: ruby/setup-ruby@master
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+      - name: Recover Ruby dependency cache
+        uses: actions/cache@v1
+        with:
+          path: ./vendor/bundle
+          key: ${{ runner.OS }}-rubydeps-${{ hashFiles('Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.OS }}-rubydeps-${{ env.cache-name }}-
+            ${{ runner.OS }}-rubydeps-
+            ${{ runner.OS }}-
+      - run: bundle install --path vendor/bundle --jobs 4 --retry 3
+        name: Install Ruby deps
+      - run: bundle exec rake test_app
+        name: Create test app
+      - run: mkdir -p ./spec/decidim_dummy_app/tmp/screenshots
+        name: Create the screenshots folder
+      - uses: nanasess/setup-chromedriver@v1.0.1
+      - run: bundle exec rake
+        name: RSpec
+        working-directory: ${{ env.DECIDIM_MODULE }}
+      - run: ./.github/upload_coverage.sh $DECIDIM_MODULE $GITHUB_EVENT_PATH
+        name: Upload coverage
+      - uses: actions/upload-artifact@v2-preview
+        if: always()
+        with:
+          name: screenshots
+          path: ./spec/decidim_dummy_app/tmp/screenshots
