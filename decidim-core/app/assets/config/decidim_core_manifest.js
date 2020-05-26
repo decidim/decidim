@@ -4,6 +4,7 @@
 // = link_tree ../images/decidim/
 // = link decidim/filters
 // = link decidim/orders
+// = link decidim/results_listing
 // = link decidim/map.js
 // = link decidim/map.css
 // = link decidim/notifications.js
