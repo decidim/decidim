@@ -33,12 +33,17 @@ module Decidim
 
     private
 
-    # Internal: Helper method to include cells in the mailer layouts.
-    def cell(name, model = nil, options = {}, constant = ::Decidim::ViewModel, &block)
-      options[:context] ||= {}
-      options[:context][:controller] = self
-
-      constant.cell(name, model, options, &block)
+    def cell
+      @cell ||= ::Decidim::ViewModel.cell(
+        @newsletter.template.cell,
+        @newsletter.template,
+        organization: @organization,
+        newsletter: @newsletter,
+        recipient_user: @user,
+        context: {
+          controller: self
+        }
+      )
     end
   end
 end

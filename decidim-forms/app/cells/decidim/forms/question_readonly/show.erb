@@ -12,7 +12,7 @@
       <% if model.matrix? %>
         <%= cell("decidim/forms/matrix_readonly", collection: model.matrix_rows) %>
       <% else %>
-        <%= cell("decidim/forms/answer_readonly", collection: model.matrix_rows) %>
+        <%= cell("decidim/forms/answer_readonly", collection: model.answer_options) %>
       <% end %>
     </ul>
   <% end %>

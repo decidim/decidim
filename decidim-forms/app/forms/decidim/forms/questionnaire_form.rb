@@ -23,6 +23,26 @@ module Decidim
         end
       end
 
+      # Public: Splits reponses by step, keeping the separator.
+      #
+      # Returns an array of steps. Each step is a list of the questions in that
+      # step, including the separator.
+      def responses_by_step
+        @responses_by_step ||=
+          begin
+            steps = responses.chunk_while do |a, b|
+              !a.question.separator? || b.question.separator?
+            end.to_a
+
+            steps = [[]] if steps == []
+            steps
+          end
+      end
+
+      def total_steps
+        responses_by_step.count
+      end
+
       def session_token_in_context
         return if context&.session_token
 
