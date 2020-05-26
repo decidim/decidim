@@ -128,3 +128,6 @@ en:
             answers: Answers
             max_selections: Max. selections
             title: Title
+    participatory_processes:
+      statistics:
+        elections_count: Elections
