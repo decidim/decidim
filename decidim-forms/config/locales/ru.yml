@@ -13,7 +13,6 @@ ru:
             remove: Удалить
           edit:
             save: Сохранить
-            title: Заголовок
           form:
             add_question: Добавить вопрос
           matrix_row:
@@ -44,4 +43,6 @@ ru:
           questionnaire_for_private_users:
             body: Форма доступна только для частных пользователей
             title: Форма закрыта
+      step_navigation:
+        show:
           submit: Отправить
