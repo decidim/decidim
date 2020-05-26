@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-load "decidim/exporters/form_pdf"
+require "decidim/exporters/form_pdf"
 
 module Decidim
   describe Exporters::FormPDF do
