@@ -30,7 +30,7 @@ module Decidim
                inverse_of: :initiatives
 
     delegate :type, :scope, :scope_name, to: :scoped_type, allow_nil: true
-    delegate :promoting_committee_enabled?, :custom_signature_end_date_enabled?, to: :type
+    delegate :attachments_enabled?, :promoting_committee_enabled?, :custom_signature_end_date_enabled?, to: :type
 
     has_many :votes,
              foreign_key: "decidim_initiative_id",
@@ -300,6 +300,10 @@ module Decidim
       return true if author.id == user.id
 
       committee_members.approved.where(decidim_users_id: user.id).any?
+    end
+
+    def author_users
+      [author].concat(committee_members.excluding_author.map(&:user))
     end
 
     def accepts_offline_votes?

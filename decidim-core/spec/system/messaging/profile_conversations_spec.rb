@@ -272,18 +272,14 @@ describe "ProfileConversations", type: :system do
         before do
           visit_profile_inbox
           click_link "conversation-#{conversation.id}"
-        end
-
-        it "show the sending form" do
-          expect(page).to have_selector("textarea#message_body")
-        end
-
-        it "sends a message", :slow do
-          fill_in "message_body", with: "Please reply!"
           expect(page).to have_content("Send")
+          fill_in "message_body", with: "Please reply!"
           click_button "Send"
+        end
 
-          expect(page).to have_selector("#messages .conversation-chat:last-child", text: "Please reply!")
+        it "appears as the last message", :slow do
+          click_button "Send"
+          expect(page).to have_selector(".conversation-chat:last-child", text: "Please reply!")
         end
       end
     end
