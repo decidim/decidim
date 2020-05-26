@@ -10,12 +10,12 @@ module Decidim
         helper_method :election, :question, :answers, :answers
 
         def new
-          enforce_permission_to :update, :election, election: election
+          enforce_permission_to :update, :answer, election: election, question: question
           @form = form(AnswerForm).instance
         end
 
         def create
-          enforce_permission_to :update, :election, election: election
+          enforce_permission_to :update, :answer, election: election, question: question
           @form = form(AnswerForm).from_params(params, election: election, question: question)
 
           CreateAnswer.call(@form) do
@@ -32,12 +32,12 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to :update, :election, election: election
+          enforce_permission_to :update, :answer, election: election, question: question
           @form = form(AnswerForm).from_model(answer)
         end
 
         def update
-          enforce_permission_to :update, :election, election: election
+          enforce_permission_to :update, :answer, election: election, question: question
           @form = form(AnswerForm).from_params(params, election: election, question: question)
 
           UpdateAnswer.call(@form, answer) do
@@ -54,7 +54,7 @@ module Decidim
         end
 
         def destroy
-          enforce_permission_to :update, :election, election: election
+          enforce_permission_to :update, :answer, election: election, question: question
 
           DestroyAnswer.call(answer, current_user) do
             on(:ok) do

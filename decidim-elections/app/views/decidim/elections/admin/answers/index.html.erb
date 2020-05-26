@@ -5,7 +5,7 @@
       <%= link_to translated_attribute(question.title), election_questions_path(election) %> &gt;
       <%= t(".title") %>
 
-      <%= link_to t("actions.new", scope: "decidim.elections", name: t("models.answer.name", scope: "decidim.elections.admin")), new_election_question_answer_path(election, question), class: "button tiny button--title" if allowed_to? :update, :election, election: election %>
+      <%= link_to t("actions.new", scope: "decidim.elections", name: t("models.answer.name", scope: "decidim.elections.admin")), new_election_question_answer_path(election, question), class: "button tiny button--title" if allowed_to? :create, :answer, election: election, question: question %>
     </h2>
   </div>
 
@@ -29,11 +29,11 @@
                 <%= answer.linked_resources(:proposals, "related_proposals").count %>
               </td>
               <td class="table-list__actions">
-                <% if allowed_to? :update, :election, election: election %>
+                <% if allowed_to? :update, :answer, election: election, question: question, answer: answer %>
                   <%= icon_link_to "pencil", edit_election_question_answer_path(election, question, answer), t("actions.edit", scope: "decidim.elections"), class: "action-icon--edit" %>
                 <% end %>
 
-                <% if allowed_to? :delete, :election, election: election %>
+                <% if allowed_to? :delete, :answer, election: election, question: question, answer: answer %>
                   <%= icon_link_to "circle-x", election_question_answer_path(election, question, answer), t("actions.destroy", scope: "decidim.elections"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.elections") } %>
                 <% end %>
               </td>

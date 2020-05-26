@@ -8,7 +8,7 @@ module Decidim
           return permission_action if permission_action.scope != :admin
 
           case permission_action.subject
-          when :question
+          when :question, :answer
             case permission_action.action
             when :create, :update, :delete
               allow_if_not_started
