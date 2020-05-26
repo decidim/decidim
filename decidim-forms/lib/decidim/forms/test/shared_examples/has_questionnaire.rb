@@ -113,7 +113,7 @@ shared_examples_for "has questionnaire" do
         page.find(".logo-wrapper a").click
       end
 
-      expect(page).to have_current_path questionnaire_public_path(component)
+      expect(page).to have_current_path questionnaire_public_path
     end
 
     context "when the questionnaire has already been answered by someone else" do
