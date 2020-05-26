@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "decidim/exporters/form_pdf"
-
 module Decidim
   module Forms
     module Admin

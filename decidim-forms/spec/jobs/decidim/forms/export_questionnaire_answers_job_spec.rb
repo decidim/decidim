@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/exporters/form_pdf"
 
 describe Decidim::Forms::ExportQuestionnaireAnswersJob do
   subject { described_class }
