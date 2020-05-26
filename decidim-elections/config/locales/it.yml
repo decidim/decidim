@@ -1,0 +1,61 @@
+it:
+  activemodel:
+    attributes:
+      election:
+        description: Descrizione
+        end_time: La votazione termina il
+        start_time: La votazione inizia il
+        subtitle: Sottotitolo
+        title: Titolo
+    models:
+      decidim/elections/create_election_event: Elezione
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Elezione
+        other: Elezioni
+  decidim:
+    components:
+      elections:
+        name: Elezioni
+        settings:
+          global:
+            announcement: Annuncio
+          step:
+            announcement: Annuncio
+    elections:
+      actions:
+        confirm_destroy: Sei sicuro?
+        destroy: Elimina
+        edit: Modifica
+        new: Nuovo %{name}
+        preview: Anteprima
+        title: Azioni
+      admin:
+        elections:
+          create:
+            invalid: Si è verificato un errore durante la creazione di questa elezione
+            success: Elezione creata con successo
+          destroy:
+            invalid: Si è verificato un problema durante l'eliminazione di questa elezione
+            success: Elezione eliminata con successo
+          edit:
+            title: Modifica elezione
+            update: Aggiorna elezione
+          index:
+            title: Elezioni
+          new:
+            create: Crea elezione
+            title: Nuova elezione
+          update:
+            invalid: Si è verificato un problema durante l'aggiornamento di questa elezione
+            success: Elezione aggiornata con successo
+        models:
+          election:
+            name: Elezione
+      models:
+        election:
+          fields:
+            end_time: Finisce il
+            start_time: Inizia il
+            title: Titolo
