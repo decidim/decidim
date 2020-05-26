@@ -393,6 +393,7 @@ module Decidim
       template += label(attribute, label_for(attribute) + required_for_attribute(attribute))
       template += @template.file_field @object_name, attribute
 
+      template += extension_whitelist_help(options[:extension_whitelist]) if options[:extension_whitelist].present?
       template += image_dimensions_help(options[:dimensions_info]) if options[:dimensions_info].present?
 
       if file_is_image?(file)
@@ -704,6 +705,16 @@ module Decidim
 
     def sanitize_tabs_selector(id)
       id.tr("[", "-").tr("]", "-")
+    end
+
+    def extension_whitelist_help(extension_whitelist)
+      content_tag :p, class: "extensions-help help-text" do
+        safe_join([
+                    content_tag(:span, I18n.t("extension_whitelist", scope: "decidim.forms.files")),
+                    " ",
+                    safe_join(extension_whitelist.map { |ext| content_tag(:b, ext) }, ", ")
+                  ])
+      end
     end
 
     def image_dimensions_help(dimensions_info)
