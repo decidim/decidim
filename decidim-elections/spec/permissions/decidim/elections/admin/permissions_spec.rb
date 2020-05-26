@@ -16,6 +16,22 @@ describe Decidim::Elections::Admin::Permissions do
   let(:election) { create :election, component: elections_component }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
 
+  shared_examples "not allowed when election has started" do
+    context "when election has started" do
+      let(:election) { create :election, :started, component: elections_component }
+
+      it { is_expected.to eq false }
+    end
+  end
+
+  shared_examples "allowed when election has started" do
+    context "when election has started" do
+      let(:election) { create :election, :started, component: elections_component }
+
+      it { is_expected.to eq true }
+    end
+  end
+
   context "when scope is not admin" do
     let(:action) do
       { scope: :foo, action: :bar, subject: :election }
@@ -54,6 +70,8 @@ describe Decidim::Elections::Admin::Permissions do
     end
 
     it { is_expected.to eq true }
+
+    it_behaves_like "allowed when election has started"
   end
 
   describe "election delete" do
@@ -63,10 +81,40 @@ describe Decidim::Elections::Admin::Permissions do
 
     it { is_expected.to eq true }
 
-    context "when election has started" do
-      let(:election) { create :election, :started, component: elections_component }
+    it_behaves_like "not allowed when election has started"
+  end
 
-      it { is_expected.to eq false }
+  describe "questions" do
+    let(:election) { create :election, component: elections_component }
+
+    describe "question creation" do
+      let(:action) do
+        { scope: :admin, action: :create, subject: :question }
+      end
+
+      it { is_expected.to eq true }
+
+      it_behaves_like "not allowed when election has started"
+    end
+
+    describe "question update" do
+      let(:action) do
+        { scope: :admin, action: :update, subject: :question }
+      end
+
+      it { is_expected.to eq true }
+
+      it_behaves_like "not allowed when election has started"
+    end
+
+    describe "question delete" do
+      let(:action) do
+        { scope: :admin, action: :delete, subject: :question }
+      end
+
+      it { is_expected.to eq true }
+
+      it_behaves_like "not allowed when election has started"
     end
   end
 end
