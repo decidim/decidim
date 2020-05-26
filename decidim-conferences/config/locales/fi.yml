@@ -243,7 +243,7 @@ fi:
           create: Luo
           title: Uusi ilmoittautumistyyppi
         update:
-          error: Tämän konferenssin ilmoittautumistyyppin päivityksessä tapahtui virhe.
+          error: Tämän konferenssin ilmoittautumistyyppin päivitys epäonnistui.
           success: Konferenssin ilmoittautumistyypin päivitys onnistui.
       titles:
         conferences: Konferenssit
