@@ -581,7 +581,6 @@ hu:
       create:
         button: Követés
         error: Hiba történt az erőforrás követése során.
-        participatory_space: Már követed a részvételi teret
       destroy:
         button: Követés törlése
         error: Hiba történt az erőforrás követésének visszavonásakor.
