@@ -169,6 +169,8 @@ sv:
         content_blocks:
           highlighted_initiatives:
             max_results: Högsta antal element att visa
+        exports:
+          initiatives: Initiativ
         initiatives:
           edit:
             accept: Godkänn initiativ
@@ -378,6 +380,7 @@ sv:
           most_voted: Mest underskrifter
           random: Slumpmässig
           recent: Senaste
+          recently_published: Senast publicerade
         result:
           answer_title:
             accepted: Detta förslag har antagits eftersom
