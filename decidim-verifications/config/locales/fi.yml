@@ -67,7 +67,7 @@ fi:
       authorizations:
         create:
           error: Vahvistuksen luonti epäonnistui.
-          success: Tilisi on onnistuneesti vahvistettu.
+          success: Tilisi vahvistaminen onnistui.
           unconfirmed: Sinun on vahvistettava sähköpostisi valtuuttaksesi käyttäjätilisi.
         first_login:
           actions:
@@ -110,7 +110,7 @@ fi:
         authorizations:
           new:
             error: Emme voineet vahvistaa tiliäsi, koska tietojasi ei löytynyt organisaation rekisteristä.
-            success: Tilisi on vahvistettu onnistuneesti.
+            success: Tilisi vahvistaminen onnistui.
       dummy_authorization:
         extra_explanation:
           one: Osallistuminen on rajoitettu niille käyttäjille, joilla on postinumero %{postal_codes}.
@@ -123,7 +123,7 @@ fi:
               update: Päivitä
             update:
               error: Asetusten päivitys epäonnistui.
-              success: Asetukset päivitettiin onnistuneesti
+              success: Asetusten päivittäminen onnistui
           confirmations:
             create:
               error: Vahvistus ei täsmää. Yritä uudelleen tai hylkää vahvistus, jotta käyttäjä voi muuttaa sitä
@@ -189,7 +189,7 @@ fi:
           postages:
             create:
               error: Kirjeen lähetetyksi merkkaaminen epäonnistui
-              success: Kirje onnistuneesti merkitty lähetetyksi
+              success: Kirjeen merkitseminen lähetetyksi onnistui
         authorizations:
           create:
             error: Pyynnössäsi oli ongelma
@@ -222,7 +222,7 @@ fi:
             title: Pyydä vahvistuskoodia
           update:
             error: Vahvistuskoodi on virheellinen. Tarkista uudestaan tekstiviesti, jonka lähetimme sinulle.
-            success: Onnittelut. Käyttäjätilisi on onnistuneesti vahvistettu.
+            success: Onnittelut. Käyttäjätilisi vahvistaminen onnistui.
   errors:
     messages:
       uppercase_only_letters_numbers: sisällössä on sallttu ainoastaan isot kirjaimet ja numerot
