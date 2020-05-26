@@ -5,216 +5,258 @@
 
 <%= partial "template_top" %>
 
+<style>
+  @media (min-width: 800px) {
+  .design-index{columns: 2}
+  .design-index__block {break-inside: avoid;}
+  }
+  @media (min-width: 1000px) {
+  .design-index{columns: 3}
+  }
+</style>
+
 <main class="wrapper">
   <div class="row collapse">
     <div class="columns large-12">
       <h1>Decidim Barcelona</h1>
       <h2 class="text-center heading2 mb-m">Redesigning decidim</h2>
-      <div class="section" style="columns:3">
-        <h2 class="section-heading">Home</h2>
-        <ul>
-          <li><%= link_to "Home", page_path("home") %></li>
-          <li><%= link_to "Home - proceso único", page_path("home-single-process") %></li>
-          <li><%= link_to "Home con tooltips de ayuda", page_path("home-with-helpers") %></li>
-          <li><%= link_to "Estadísticas", page_path("stats") %></li>
-        </ul>
-
-        <h2 class="section-heading">Search</h2>
-        <ul>
-          <li><%= link_to "Página de resultados", page_path("search") %></li>
-        </ul>
-        <h2 class="section-heading">Process</h2>
-        <ul>
-          <li><%= link_to "Procesos - Lista", page_path("processes/processes") %></li>
-          <li><%= link_to "Estadísticas del proceso", page_path("processes/process-stats") %></li>
-          <li><%= link_to "Proceso - Landing e información general", page_path("info") %></li>
-          <li><%= link_to "Proceso - Fases", page_path("phases") %></li>
-          <li><%= link_to "Gestor de documentos", page_path("documents") %></li>
-        </ul>
-        <h2 class="section-heading">Proposals</h2>
-        <ul>
-          <li>
-            <%= link_to "Propuestas - Lista", page_path("proposals/proposals") %>
-            <ul>
-              <li><%= link_to "Propuestas con filtros activos", page_path("proposals/proposals-with-filters") %></li>
-              <li><%= link_to "Propuestas con contador de votos", page_path("proposals/proposals_2") %></li>
-            </ul>
-          </li>
-          <li><%= link_to "Estadísticas de la propuesta", page_path("proposals/proposal-stats") %></li>
-          <li>
-            <%= link_to "Propuesta: aprobada", page_path("proposals/proposal-view") %>
-            <ul>
-              <li><%= link_to "Propuesta: rechazada", page_path("proposals/proposal-view-rejected") %></li>
-              <li><%= link_to "Propuesta: votada/apoyada", page_path("proposals/proposal-view-voted") %></li>
-              <li><%= link_to "Propuesta: siguiendo", page_path("proposals/proposal-view-following") %></li>
-              <li><%= link_to "Propuesta: sin avales", page_path("proposals/proposal-view-no-endorsements") %></li>
-              <li><%= link_to "Propuesta: log in para apoyar", page_path("proposals/proposal-view-login") %></li>
-              <li><%= link_to "Propuesta: selector", page_path("proposals/proposal-view-identity-selector") %></li>
-            </ul>
-          </li>
-          <li>
-            <%= link_to "Propuesta: wizard paso 1", page_path("proposals/proposals-wizard-step-1") %>
-            <ul>
-              <li><%= link_to "Propuesta: wizard paso 2", page_path("proposals/proposals-wizard-step-2") %></li>
-              <li><%= link_to "Propuesta: wizard paso 3", page_path("proposals/proposals-wizard-step-3") %></li>
-            </ul>
-          </li>
-          <li>
-            <%= link_to "Propuestas colaborativas - Lista", page_path("proposals/proposals-collaboratives") %>
-            <ul>
-              <li><%= link_to "Propuesta colaborativa", page_path("proposals/proposal-view-collaborative") %></li>
-              <li><%= link_to "Propuesta con enlace a colaborativa", page_path("collaborative-drafts/collaborative-draft-link-from-proposal") %></li>
-            </ul>
-          </li>
-        </ul>
-        <h2 class="section-heading">Comments</h2>
-        <ul>
-          <li>
-            <%= link_to "Detalle de comentario", page_path("proposals/comment-view") + "#single-comment" %>
-          </li>
-        </ul>
-        <h2 class="section-heading">Amendments</h2>
-        <ul>
-          <li><%= link_to "Propuesta con botón de enmienda", page_path("amendments/proposal-view-with-amendment-button") %></li>
-          <li><%= link_to "Formulario de creación de enmiendas", page_path("amendments/amendment-creation-wizard") %></li>
-          <li><%= link_to "Propuesta con enmiendas asociadas", page_path("amendments/proposal-view-with-amendments") %></li>
-          <li><%= link_to "Aceptar / Rechazar enmienda", page_path("amendments/amendment-view-accept-reject") %></li>
-          <li><%= link_to "Validar coautoría", page_path("amendments/amendment-view-validate-coauthorship") %></li>
-          <li><%= link_to "Propuesta con enmienda aceptada", page_path("amendments/proposal-view-with-amendment-approved") %></li>
-          <li><%= link_to "Propuesta con enmienda rechazada", page_path("amendments/proposal-view-with-amendment-rejected") %></li>
-        </ul>
-        <h2 class="section-heading">Presupuestos participativos</h2>
-        <ul>
-          <li><%= link_to "Presupuestos - Inicio", page_path("projects-budget-welcome") %></li>
-          <li><%= link_to "Presupuestos - Votación en distrito", page_path("projects-budget") %></li>
-          <li><%= link_to "Presupuestos - Vista de proyecto", page_path("project-budget-view") %></li>
-          <li><%= link_to "Presupuestos - Votos excedidos", page_path("projects-budget-excess") %></li>
-          <li><%= link_to "Presupuestos - Confirmar voto", page_path("projects-budget-confirm") %></li>
-          <li><%= link_to "Presupuestos - Voto confirmado (elegir otro distrito)", page_path("projects-budget-next") %></li>
-          <li><%= link_to "Presupuestos - Voto confirmado (sin más distritos)", page_path("projects-budget-two-districts") %></li>
-          <li><%= link_to "Presupuestos - Landing con un distrito votado", page_path("projects-budget-one-voted") %></li>
-          <li><%= link_to "Presupuestos - Landing con dos distritos votados", page_path("projects-budget-already-voted") %></li>
-          <li><%= link_to "Presupuestos - Consulta de votación", page_path("projects-budget-finish") %></li>
-        </ul>
-        <h2 class="section-heading">Initiatives</h2>
-        <ul>
-          <li><%= link_to "Iniciativa", page_path("initiatives/initiative-view") %></li>
-          <li>
-            <%= link_to "Iniciativas - Lista", page_path("initiatives/initiatives") %>
-            <ul>
-              <li><%= link_to "Apoyo a iniciativas - paso 1", page_path("initiatives/initiatives-support-step-1") %></li>
-              <li><%= link_to "Apoyo a iniciativas - paso 2", page_path("initiatives/initiatives-support-step-2") %></li>
-              <li><%= link_to "Apoyo a iniciativas - paso 3", page_path("initiatives/initiatives-support-step-3") %></li>
-              <li><%= link_to "Apoyo a iniciativas - paso 4", page_path("initiatives/initiatives-support-step-4") %></li>
-              <li><%= link_to "Apoyo a iniciativas - paso 5", page_path("initiatives/initiatives-support-step-5") %></li>
-            </ul>
-          </li>
-        </ul>
-        <h2 class="section-heading">Drafts</h2>
-        <ul>
-          <li><%= link_to "Espacio colaborativo - borrador actual", page_path("collaborative-drafts/collaborative-draft-view") %></li>
+      <div class="section design-index">
+        <div class="design-index__block">
+          <h2 class="section-heading">Home</h2>
           <ul>
-            <li><%= link_to "Espacio colaborativo - borradores anteriores", page_path("collaborative-drafts/collaborative-draft-view-previous") %></li>
-            <li><%= link_to "Espacio colaborativo - colaborador", page_path("collaborative-drafts/collaborative-draft-view-collaborator") %></li>
-            <li><%= link_to "Espacio colaborativo - no colaborador", page_path("collaborative-drafts/collaborative-draft-view-non-collaborator") %></li>
-            <li><%= link_to "Espacio colaborativo - acceso solicitado", page_path("collaborative-drafts/collaborative-draft-view-access-requested") %></li>
-            <li><%= link_to "Espacio colaborativo - propuesta final", page_path("collaborative-drafts/collaborative-draft-view-final-proposal") %></li>
+            <li><%= link_to "Home", page_path("home") %></li>
+            <li><%= link_to "Home - proceso único", page_path("home-single-process") %></li>
+            <li><%= link_to "Home con tooltips de ayuda", page_path("home-with-helpers") %></li>
+            <li><%= link_to "Estadísticas", page_path("stats") %></li>
           </ul>
-        </ul>
-        <h2 class="section-heading">Conferences</h2>
-        <ul>
-          <li><%= link_to "Conferencias - Home", page_path("conferences/conference-view") %></li>
-          <li><%= link_to "Conferencias - Programa", page_path("conferences/conference-view-programme") %></li>
-          <li><%= link_to "Conferencias - Ponentes", page_path("conferences/conference-view-speakers") %></li>
-          <li><%= link_to "Conferencias - Registro", page_path("conferences/conference-view-registration") %></li>
-          <li><%= link_to "Conferencias - Diploma", page_path("conferences/conference-view-diploma") %></li>
-          <li><%= link_to "Conferencias - Media", page_path("conferences/conference-view-media") %></li>
-        </ul>
-        <h2 class="section-heading">Assemblies</h2>
-        <ul>
-          <li><%= link_to "Asambleas - Lista", page_path("assemblies/assemblies") %></li>
-          <li><%= link_to "Asamblea", page_path("assemblies/assembly-view") %></li>
-        </ul>
-        <h2 class="section-heading">Debates</h2>
-        <ul>
-          <li><%= link_to "Debates - Lista", page_path("debates") %></li>
-        </ul>
-        <h2 class="section-heading">Meetings</h2>
-        <ul>
-          <li>
-            <%= link_to "Encuentro (abierto)", page_path("meetings/meeting-view") %>
+        </div>
+        <div class="design-index__block">
+          <h2 class="section-heading">Search</h2>
+          <ul>
+            <li><%= link_to "Página de resultados", page_path("search") %></li>
+          </ul>
+          <h2 class="section-heading">Process</h2>
+          <ul>
+            <li><%= link_to "Procesos - Lista", page_path("processes/processes") %></li>
+            <li><%= link_to "Estadísticas del proceso", page_path("processes/process-stats") %></li>
+            <li><%= link_to "Proceso - Landing e información general", page_path("info") %></li>
+            <li><%= link_to "Proceso - Fases", page_path("phases") %></li>
+            <li><%= link_to "Gestor de documentos", page_path("documents") %></li>
+          </ul>
+        </div>
+        <div class="design-index__block">
+          <h2 class="section-heading">Proposals</h2>
+          <ul>
+            <li>
+              <%= link_to "Propuestas - Lista", page_path("proposals/proposals") %>
+              <ul>
+                <li><%= link_to "Propuestas con filtros activos", page_path("proposals/proposals-with-filters") %></li>
+                <li><%= link_to "Propuestas con contador de votos", page_path("proposals/proposals_2") %></li>
+              </ul>
+            </li>
+            <li><%= link_to "Estadísticas de la propuesta", page_path("proposals/proposal-stats") %></li>
+            <li>
+              <%= link_to "Propuesta: aprobada", page_path("proposals/proposal-view") %>
+              <ul>
+                <li><%= link_to "Propuesta: rechazada", page_path("proposals/proposal-view-rejected") %></li>
+                <li><%= link_to "Propuesta: votada/apoyada", page_path("proposals/proposal-view-voted") %></li>
+                <li><%= link_to "Propuesta: siguiendo", page_path("proposals/proposal-view-following") %></li>
+                <li><%= link_to "Propuesta: sin avales", page_path("proposals/proposal-view-no-endorsements") %></li>
+                <li><%= link_to "Propuesta: log in para apoyar", page_path("proposals/proposal-view-login") %></li>
+                <li><%= link_to "Propuesta: selector", page_path("proposals/proposal-view-identity-selector") %></li>
+              </ul>
+            </li>
+            <li>
+              <%= link_to "Propuesta: wizard paso 1", page_path("proposals/proposals-wizard-step-1") %>
+              <ul>
+                <li><%= link_to "Propuesta: wizard paso 2", page_path("proposals/proposals-wizard-step-2") %></li>
+                <li><%= link_to "Propuesta: wizard paso 3", page_path("proposals/proposals-wizard-step-3") %></li>
+              </ul>
+            </li>
+            <li>
+              <%= link_to "Propuestas colaborativas - Lista", page_path("proposals/proposals-collaboratives") %>
+              <ul>
+                <li><%= link_to "Propuesta colaborativa", page_path("proposals/proposal-view-collaborative") %></li>
+                <li><%= link_to "Propuesta con enlace a colaborativa", page_path("collaborative-drafts/collaborative-draft-link-from-proposal") %></li>
+              </ul>
+            </li>
+          </ul>
+          <h2 class="section-heading">Comments</h2>
+          <ul>
+            <li>
+              <%= link_to "Detalle de comentario", page_path("proposals/comment-view") + "#single-comment" %>
+            </li>
+          </ul>
+        </div>
+        <div class="design-index__block">
+          <h2 class="section-heading">Amendments</h2>
+          <ul>
+            <li><%= link_to "Propuesta con botón de enmienda", page_path("amendments/proposal-view-with-amendment-button") %></li>
+            <li><%= link_to "Formulario de creación de enmiendas", page_path("amendments/amendment-creation-wizard") %></li>
+            <li><%= link_to "Propuesta con enmiendas asociadas", page_path("amendments/proposal-view-with-amendments") %></li>
+            <li><%= link_to "Aceptar / Rechazar enmienda", page_path("amendments/amendment-view-accept-reject") %></li>
+            <li><%= link_to "Validar coautoría", page_path("amendments/amendment-view-validate-coauthorship") %></li>
+            <li><%= link_to "Propuesta con enmienda aceptada", page_path("amendments/proposal-view-with-amendment-approved") %></li>
+            <li><%= link_to "Propuesta con enmienda rechazada", page_path("amendments/proposal-view-with-amendment-rejected") %></li>
+          </ul>
+        </div>
+        <div class="design-index__block">
+          <h2 class="section-heading">Presupuestos participativos</h2>
+          <ul>
+            <li><%= link_to "Presupuestos - Inicio", page_path("projects-budget-welcome") %></li>
+            <li><%= link_to "Presupuestos - Votación en distrito", page_path("projects-budget") %></li>
+            <li><%= link_to "Presupuestos - Vista de proyecto", page_path("project-budget-view") %></li>
+            <li><%= link_to "Presupuestos - Votos excedidos", page_path("projects-budget-excess") %></li>
+            <li><%= link_to "Presupuestos - Confirmar voto", page_path("projects-budget-confirm") %></li>
+            <li><%= link_to "Presupuestos - Voto confirmado (elegir otro distrito)", page_path("projects-budget-next") %></li>
+            <li><%= link_to "Presupuestos - Voto confirmado (sin más distritos)", page_path("projects-budget-two-districts") %></li>
+            <li><%= link_to "Presupuestos - Landing con un distrito votado", page_path("projects-budget-one-voted") %></li>
+            <li><%= link_to "Presupuestos - Landing con dos distritos votados", page_path("projects-budget-already-voted") %></li>
+            <li><%= link_to "Presupuestos - Consulta de votación", page_path("projects-budget-finish") %></li>
+            <li><%= link_to "Presupuestos - Consulta de de la lista de proyectos cuando el usuario ya ha votado", page_path("projects-budget-finish") %></li>
+            <li><%= link_to "Presupuestos - Consulta proyectos seleccionados (votación finalizada)", page_path("projects-budget-selected") %></li>
+          </ul>
+        </div>
+        <div class="design-index__block">
+          <h2 class="section-heading">Initiatives</h2>
+          <ul>
+            <li><%= link_to "Iniciativa", page_path("initiatives/initiative-view") %></li>
+            <li>
+              <%= link_to "Iniciativas - Lista", page_path("initiatives/initiatives") %>
+              <ul>
+                <li><%= link_to "Apoyo a iniciativas - paso 1", page_path("initiatives/initiatives-support-step-1") %></li>
+                <li><%= link_to "Apoyo a iniciativas - paso 2", page_path("initiatives/initiatives-support-step-2") %></li>
+                <li><%= link_to "Apoyo a iniciativas - paso 3", page_path("initiatives/initiatives-support-step-3") %></li>
+                <li><%= link_to "Apoyo a iniciativas - paso 4", page_path("initiatives/initiatives-support-step-4") %></li>
+                <li><%= link_to "Apoyo a iniciativas - paso 5", page_path("initiatives/initiatives-support-step-5") %></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="design-index__block">
+          <h2 class="section-heading">Drafts</h2>
+          <ul>
+            <li><%= link_to "Espacio colaborativo - borrador actual", page_path("collaborative-drafts/collaborative-draft-view") %></li>
             <ul>
-              <li><%= link_to "Encuentro (cerrado)", page_path("meetings/meeting-view-closed") %></li>
-              <li><%= link_to "Encuentro (personalizado)", page_path("meetings/meeting-view-custom-status") %></li>
-              <li><%= link_to "Encuentro (varios días)", page_path("meetings/meeting-view-longer") %></li>
+              <li><%= link_to "Espacio colaborativo - borradores anteriores", page_path("collaborative-drafts/collaborative-draft-view-previous") %></li>
+              <li><%= link_to "Espacio colaborativo - colaborador", page_path("collaborative-drafts/collaborative-draft-view-collaborator") %></li>
+              <li><%= link_to "Espacio colaborativo - no colaborador", page_path("collaborative-drafts/collaborative-draft-view-non-collaborator") %></li>
+              <li><%= link_to "Espacio colaborativo - acceso solicitado", page_path("collaborative-drafts/collaborative-draft-view-access-requested") %></li>
+              <li><%= link_to "Espacio colaborativo - propuesta final", page_path("collaborative-drafts/collaborative-draft-view-final-proposal") %></li>
             </ul>
-          </li>
-          <li>
-            <%= link_to "Encuentros - Lista", page_path("meetings/meetings") %>
-            <ul>
-              <li><%= link_to "Encuentros pasados", page_path("meetings/meetings-callout") %></li>
-            </ul>
-          </li>
-        </ul>
-        <h2 class="section-heading">Participatory texts</h2>
-        <ul>
-          <li><%= link_to "Textos participativos - Índice", page_path("participatory/participatory-texts-index") %></li>
-          <li><%= link_to "Textos participativos - Sección", page_path("participatory/participatory-texts-view") %></li>
-          <li><%= link_to "Textos participativos - Edición", page_path("participatory/participatory-texts-draft") %></li>
-        </ul>
-        <h2 class="section-heading">Blog</h2>
-        <ul>
-          <li><%= link_to "Blog home", page_path("blog/blog") %></li>
-          <li><%= link_to "Blog post", page_path("blog/blog-view") %></li>
-          <li><%= link_to "Blog archives", page_path("blog/blog-archives") %></li>
-        </ul>
-        <h2 class="section-heading">Profile</h2>
-        <ul>
-          <li>
-            <%= link_to "Perfil de usuario - vista privada - timeline (default)", page_path("profile/user-profile")+ "#timeline" %>
-            <ul>
-              <li><%= link_to "Perfil de usuario - vista privada - notificaciones", page_path("profile/user-profile") + "#notifications" %></li>
-              <li><%= link_to "Perfil de usuario - vista privada - conversaciones", page_path("profile/user-profile") + "#conversations" %></li>
-              <li><%= link_to "Perfil de usuario - vista privada - conversacion", page_path("profile/user-profile") + "#conversation" %></li>
-              <li><%= link_to "Perfil de usuario - vista privada - followers", page_path("profile/user-profile") + "#followers" %></li>
-              <li><%= link_to "Perfil de usuario - vista privada - following", page_path("profile/user-profile") + "#following" %></li>
-              <li><%= link_to "Perfil de usuario - vista privada - badges", page_path("profile/user-profile") + "#badges" %></li>
-            </ul>
-          </li>
-          <li>
-            <%= link_to "Perfil de usuario - vista pública - followers (default)", page_path("profile/user-profile-public") + "#followers" %>
-            <ul>
-              <li><%= link_to "Perfil de usuario - vista pública - following", page_path("profile/user-profile-public") + "#following" %></li>
-              <li><%= link_to "Perfil de usuario - vista pública - badges", page_path("profile/user-profile-public") + "#badges" %></li>
-            </ul>
-          </li>
-          <li><%= link_to "Información sobre badges", page_path("profile/user-badges-info") %></li>
-          <li><%= link_to "Perfil de usuario admin - gestión de grupos", page_path("profile/user-profile-manage") %></li>
-        </ul>
-        <h2 class="section-heading">User</h2>
-        <ul>
-          <li>
-            <%= link_to "Usuario - entrar", page_path("user/user-login") %>
-            <ul>
-              <li><%= link_to "Usuario - registro", page_path("user/user-register") %></li>
-              <li><%= link_to "Usuario - registro ok", page_path("user/user-register-success") %></li>
-              <li><%= link_to "Usuario - registro email ok", page_path("user/user-welcome") %></li>
-              <li><%= link_to "Usuario - mi cuenta (con cabecera logged)", page_path("user/user-settings") %></li>
-              <li><%= link_to "Usuario - verifica residencia", page_path("user/user-verification") %></li>
-              <li><%= link_to "Usuario - Recordar contraseña", page_path("user/user-new-password") %></li>
-              <li><%= link_to "Usuario - Reeenviar confirmación", page_path("user/user-confirm") %></li>
-              <li><%= link_to "Usuario - Invitar", page_path("user/user-invitation") %></li>
-            </ul>
-          </li>
-          <li>
-            <%= link_to "Usuario: login rápido", page_path("user/user-profile-fast-login") %>
-            <ul>
-              <li><%= link_to "Login rápido: Usuario no registrado", page_path("user/user-profile-fast-login-user-new") %></li>
-              <li><%= link_to "Login rápido: Usuario registrado", page_path("user/user-profile-fast-login-user-existent") %></li>
-            </ul>
-          </li>
-          <li><%= link_to "OAuth: Autorización", page_path("oauth") %></li>
-        </ul>
+          </ul>
+        </div>
+        <div class="design-index__block">
+          <h2 class="section-heading">Conferences</h2>
+          <ul>
+            <li><%= link_to "Conferencias - Home", page_path("conferences/conference-view") %></li>
+            <li><%= link_to "Conferencias - Programa", page_path("conferences/conference-view-programme") %></li>
+            <li><%= link_to "Conferencias - Ponentes", page_path("conferences/conference-view-speakers") %></li>
+            <li><%= link_to "Conferencias - Registro", page_path("conferences/conference-view-registration") %></li>
+            <li><%= link_to "Conferencias - Diploma", page_path("conferences/conference-view-diploma") %></li>
+            <li><%= link_to "Conferencias - Media", page_path("conferences/conference-view-media") %></li>
+          </ul>
+        </div>
+        <div class="design-index__block">
+          <h2 class="section-heading">Assemblies</h2>
+          <ul>
+            <li><%= link_to "Asambleas - Lista", page_path("assemblies/assemblies") %></li>
+            <li><%= link_to "Asamblea", page_path("assemblies/assembly-view") %></li>
+          </ul>
+        </div>
+        <div class="design-index__block">
+          <h2 class="section-heading">Debates</h2>
+          <ul>
+            <li><%= link_to "Debates - Lista", page_path("debates") %></li>
+          </ul>
+        </div>
+        <div class="design-index__block">
+          <h2 class="section-heading">Meetings</h2>
+          <ul>
+            <li>
+              <%= link_to "Encuentro (abierto)", page_path("meetings/meeting-view") %>
+              <ul>
+                <li><%= link_to "Encuentro (cerrado)", page_path("meetings/meeting-view-closed") %></li>
+                <li><%= link_to "Encuentro (personalizado)", page_path("meetings/meeting-view-custom-status") %></li>
+                <li><%= link_to "Encuentro (varios días)", page_path("meetings/meeting-view-longer") %></li>
+              </ul>
+            </li>
+            <li>
+              <%= link_to "Encuentros - Lista", page_path("meetings/meetings") %>
+              <ul>
+                <li><%= link_to "Encuentros pasados", page_path("meetings/meetings-callout") %></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="design-index__block">
+          <h2 class="section-heading">Participatory texts</h2>
+          <ul>
+            <li><%= link_to "Textos participativos - Índice", page_path("participatory/participatory-texts-index") %></li>
+            <li><%= link_to "Textos participativos - Sección", page_path("participatory/participatory-texts-view") %></li>
+            <li><%= link_to "Textos participativos - Edición", page_path("participatory/participatory-texts-draft") %></li>
+          </ul>
+        </div>
+        <div class="design-index__block">
+          <h2 class="section-heading">Blog</h2>
+          <ul>
+            <li><%= link_to "Blog home", page_path("blog/blog") %></li>
+            <li><%= link_to "Blog post", page_path("blog/blog-view") %></li>
+            <li><%= link_to "Blog archives", page_path("blog/blog-archives") %></li>
+          </ul>
+        </div>
+        <div class="design-index__block">
+          <h2 class="section-heading">Profile</h2>
+          <ul>
+            <li>
+              <%= link_to "Perfil de usuario - vista privada - timeline (default)", page_path("profile/user-profile")+ "#timeline" %>
+              <ul>
+                <li><%= link_to "Perfil de usuario - vista privada - notificaciones", page_path("profile/user-profile") + "#notifications" %></li>
+                <li><%= link_to "Perfil de usuario - vista privada - conversaciones", page_path("profile/user-profile") + "#conversations" %></li>
+                <li><%= link_to "Perfil de usuario - vista privada - conversacion", page_path("profile/user-profile") + "#conversation" %></li>
+                <li><%= link_to "Perfil de usuario - vista privada - conversacion multiusuario", page_path("profile/user-profile") + "#conversation-multiuser" %></li>
+                <li><%= link_to "Perfil de usuario - vista privada - followers", page_path("profile/user-profile") + "#followers" %></li>
+                <li><%= link_to "Perfil de usuario - vista privada - following", page_path("profile/user-profile") + "#following" %></li>
+                <li><%= link_to "Perfil de usuario - vista privada - badges", page_path("profile/user-profile") + "#badges" %></li>
+              </ul>
+            </li>
+            <li>
+              <%= link_to "Perfil de usuario - vista pública - followers (default)", page_path("profile/user-profile-public") + "#followers" %>
+              <ul>
+                <li><%= link_to "Perfil de usuario - vista pública - following", page_path("profile/user-profile-public") + "#following" %></li>
+                <li><%= link_to "Perfil de usuario - vista pública - badges", page_path("profile/user-profile-public") + "#badges" %></li>
+              </ul>
+            </li>
+            <li><%= link_to "Información sobre badges", page_path("profile/user-badges-info") %></li>
+            <li><%= link_to "Perfil de usuario admin - gestión de grupos", page_path("profile/user-profile-manage") %></li>
+          </ul>
+        </div>
+        <div class="design-index__block">
+          <h2 class="section-heading">User</h2>
+          <ul>
+            <li>
+              <%= link_to "Usuario - entrar", page_path("user/user-login") %>
+              <ul>
+                <li><%= link_to "Usuario - registro", page_path("user/user-register") %></li>
+                <li><%= link_to "Usuario - registro ok", page_path("user/user-register-success") %></li>
+                <li><%= link_to "Usuario - registro email ok", page_path("user/user-welcome") %></li>
+                <li><%= link_to "Usuario - mi cuenta (con cabecera logged)", page_path("user/user-settings") %></li>
+                <li><%= link_to "Usuario - verifica residencia", page_path("user/user-verification") %></li>
+                <li><%= link_to "Usuario - Recordar contraseña", page_path("user/user-new-password") %></li>
+                <li><%= link_to "Usuario - Reeenviar confirmación", page_path("user/user-confirm") %></li>
+                <li><%= link_to "Usuario - Invitar", page_path("user/user-invitation") %></li>
+              </ul>
+            </li>
+            <li>
+              <%= link_to "Usuario: login rápido", page_path("user/user-profile-fast-login") %>
+              <ul>
+                <li><%= link_to "Login rápido: Usuario no registrado", page_path("user/user-profile-fast-login-user-new") %></li>
+                <li><%= link_to "Login rápido: Usuario registrado", page_path("user/user-profile-fast-login-user-existent") %></li>
+              </ul>
+            </li>
+            <li><%= link_to "OAuth: Autorización", page_path("oauth") %></li>
+          </ul>
+        </div>
       </div>
       <hr>
       <h2 class="text-center heading2 mb-m">Technical</h2>
@@ -260,6 +302,14 @@
             </ul>
           </li>
           <li><%= link_to "Resultado", page_path("action-view") %></li>
+        </ul>
+        <h2 class="section-heading">Presupuestos participativos</h2>
+        <ul>
+          <li><%= link_to "Presupuestos - Lista de proyectos", page_path("projects-budget") %></li>
+          <li><%= link_to "Presupuestos - Ver proyecto", page_path("project-budget-view") %></li>
+          <li><%= link_to "Presupuestos - Confirmar voto", page_path("projects-budget-confirm") %></li>
+          <li><%= link_to "Presupuestos - Votos excedidos", page_path("projects-budget-excess") %></li>
+          <li><%= link_to "Presupuestos - Votación finalizada", page_path("projects-budget-finish") %></li>
         </ul>
         <h2 class="section-heading">User</h2>
         <ul>
