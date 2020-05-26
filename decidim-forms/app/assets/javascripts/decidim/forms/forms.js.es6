@@ -34,7 +34,7 @@
 
   const $form = $("form.answer-questionnaire");
   if ($form.length > 0) {
-    $form.find("input").on("change", () => {
+    $form.find("input, textarea, select").on("change", () => {
       $form.data("changed", true);
     });
 
