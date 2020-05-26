@@ -1,11 +1,4 @@
-<% @cell = cell(
-  @newsletter.template.cell,
-  @newsletter.template,
-  organization: @organization,
-  newsletter: @newsletter,
-  recipient_user: @user
-) %>
-<%= decidim_sanitize @cell.to_s %>
+<%= decidim_sanitize cell.to_s %>
 
 <% content_for :note do %>
   <%== t ".note", organization_name: h(@organization.name), link: decidim.notifications_settings_url(host: @organization.host) %>
@@ -17,7 +10,7 @@
 
 <% content_for :see_on_website do %>
   <center style="display: none">
-    <%== CGI.unescapeHTML truncate(@cell.body, max_length: 50) %>
+    <%== CGI.unescapeHTML truncate(cell.body, max_length: 50) %>
   </center>
   <%== t ".see_on_website", link: decidim.newsletter_url(host: @organization.host, id: @newsletter) %>
 <% end %>

@@ -66,6 +66,10 @@ FactoryBot.define do
         Array.new(3).collect { build(:answer_option) }
       end
     end
+
+    trait :separator do
+      question_type { :separator }
+    end
   end
 
   factory :answer, class: "Decidim::Forms::Answer" do
