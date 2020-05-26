@@ -31,6 +31,10 @@ module Decidim
             delete :reject
           end
 
+          collection do
+            get :export
+          end
+
           resources :attachments, controller: "initiative_attachments"
 
           resources :committee_requests, only: [:index] do
