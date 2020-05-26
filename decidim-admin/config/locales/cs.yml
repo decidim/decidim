@@ -552,7 +552,7 @@ cs:
         create:
           success: Uživatel úspěšně oficializován
         destroy:
-          success: Uživatel neoficiálně úspěšně
+          success: Uživatel úspěšně zbaven oficializace
         index:
           actions: Akce
           badge: Odznak
@@ -564,9 +564,9 @@ cs:
           officialized: Úředně
           reofficialize: Reofficialize
           status: Postavení
-          unofficialize: Neoficiálně
+          unofficialize: Odebrat oficializaci
         new:
-          badge: Oficiální odznak
+          badge: Oficializační odznak
           officialize: Úředně
           title: Oficializovat uživatele "%{name}"
       organization:
