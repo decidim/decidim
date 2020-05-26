@@ -1,0 +1,62 @@
+---
+en:
+  activemodel:
+    attributes:
+      election:
+        description: Description
+        end_time: Voting ends at
+        start_time: Voting start at
+        subtitle: Subtitle
+        title: Title
+    models:
+      decidim/elections/create_election_event: Election
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Election
+        other: Elections
+  decidim:
+    components:
+      elections:
+        name: Elections
+        settings:
+          global:
+            announcement: Announcement
+          step:
+            announcement: Announcement
+    elections:
+      actions:
+        confirm_destroy: Are you sure?
+        destroy: Destroy
+        edit: Edit
+        new: New %{name}
+        preview: Preview
+        title: Actions
+      admin:
+        elections:
+          create:
+            invalid: There was a problem creating this election
+            success: Election successfully created
+          destroy:
+            invalid: There was a problem deleting this election
+            success: Election successfully deleted
+          edit:
+            title: Edit election
+            update: Update election
+          index:
+            title: Elections
+          new:
+            create: Create election
+            title: New election
+          update:
+            invalid: There was a problem updating this election
+            success: Election successfully updated
+        models:
+          election:
+            name: Election
+      models:
+        election:
+          fields:
+            end_time: End at
+            start_time: Starts at
+            title: Title

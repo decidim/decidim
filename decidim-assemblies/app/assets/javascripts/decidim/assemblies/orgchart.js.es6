@@ -4,7 +4,6 @@
 /* eslint no-unused-vars: ["error", { "args": "none" }] */
 /* global d3 */
 
-// = require ./renders
 // = require_self
 // = require d3
 ((exports) => {

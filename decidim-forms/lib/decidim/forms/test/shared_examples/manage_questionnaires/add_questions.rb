@@ -3,17 +3,19 @@
 require "spec_helper"
 
 shared_examples_for "add questions" do
-  it "adds a few questions to the questionnaire" do
+  it "adds a few questions and separators to the questionnaire" do
     questions_body = ["This is the first question", "This is the second question"]
 
     within "form.edit_questionnaire" do
-      2.times { click_button "Add question" }
+      click_button "Add question"
+      click_button "Add separator"
+      click_button "Add question"
 
-      expect(page).to have_selector(".questionnaire-question", count: 2)
+      expect(page).to have_selector(".questionnaire-question", count: 3)
 
       expand_all_questions
 
-      page.all(".questionnaire-question").each_with_index do |question, idx|
+      page.all(".questionnaire-question .collapsible").each_with_index do |question, idx|
         within question do
           fill_in find_nested_form_field_locator("body_en"), with: questions_body[idx]
         end
@@ -28,6 +30,7 @@ shared_examples_for "add questions" do
 
     expect(page).to have_selector("input[value='This is the first question']")
     expect(page).to have_selector("input[value='This is the second question']")
+    expect(page).to have_content("SEPARATOR #2")
   end
 
   it "adds a question with a rich text description" do

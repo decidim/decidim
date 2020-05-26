@@ -4,7 +4,7 @@ The newsletter templates allow the user to select a template amongst a set of of
 
 Code-wise, they use the content blocks system internally, so [check the docs](https://github.com/decidim/decidim/blob/master/docs/advanced/content_blocks.md) for that section first.
 
-# Adding a new template
+## Adding a new template
 
 You'll first need to register the template as a content block, but specifying `:newsletter_template` as its scope:
 

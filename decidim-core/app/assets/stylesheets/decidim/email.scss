@@ -1709,3 +1709,8 @@ table.container.main {
 table.content.image img {
   width: 100%;
 }
+
+th,
+td {
+  box-sizing: border-box;
+}
