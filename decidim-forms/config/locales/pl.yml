@@ -30,7 +30,6 @@ pl:
             statement: Komunikat
           edit:
             save: Zapisać
-            title: Tytuł
           form:
             add_question: Dodaj pytanie
             already_answered_warning: Kwestionariusz jest już obsługiwany przez niektórych użytkowników, więc nie można modyfikować jego pytań.
@@ -68,7 +67,6 @@ pl:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Zaloguj się na swoje konto</a> lub <a href="%{sign_up_link}">zarejestruj się</a> aby odpowiedzieć na kwestionariusz.
             title: Odpowiedz na kwestionariusz
-          are_you_sure: Tego działania nie można cofnąć i nie będzie można edytować odpowiedzi. Jesteś pewny?
           questionnaire_answered:
             body: Już odpowiedziałeś na tę ankietę.
             title: Już odpowiedziałem
@@ -78,8 +76,11 @@ pl:
           questionnaire_for_private_users:
             body: Kwestionariusz jest dostępny tylko dla użytkowników prywatnych
             title: Ankieta została zamknięta
-          submit: Zatwierdź
           tos_agreement: Biorąc udział akceptujesz Warunki korzystania z usługi
+      step_navigation:
+        show:
+          are_you_sure: Tego działania nie można cofnąć i nie będzie można edytować odpowiedzi. Jesteś pewny?
+          submit: Zatwierdź
       user_answers_serializer:
         created_at: Odpowiedziałem na
         id: ID odpowiedzi
