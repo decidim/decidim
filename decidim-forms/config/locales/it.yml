@@ -5,7 +5,7 @@ it:
         body: Risposta
       question:
         max_choices: Numero massimo di scelte
-        question_type: genere
+        question_type: Tipo
       questionnaire_question:
         mandatory: Obbligatorio
     errors:
@@ -32,9 +32,10 @@ it:
             statement: dichiarazione
           edit:
             save: Salvare
-            title: Titolo
+            title: Modifica questionario
           form:
             add_question: Aggiungi domanda
+            add_separator: Aggiungi separatore
             already_answered_warning: Alcuni utenti hanno già risposto al questionario, quindi non è possibile modificare le sue domande.
             collapse: Comprimi tutte le domande
             expand: Espandi tutte le domande
@@ -53,6 +54,11 @@ it:
             question: Domanda
             remove: Rimuovere
             statement: dichiarazione
+            up: Su
+          separator:
+            down: Giù
+            remove: Elimina
+            separator: Separatore
             up: Su
           update:
             invalid: Si sono verificati errori durante il salvataggio del questionario.
@@ -79,7 +85,8 @@ it:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Accedi con il tuo account</a> o <a href="%{sign_up_link}">iscriviti</a> per rispondere al questionario.
             title: Rispondi al questionario
-          are_you_sure: Questa azione non può essere annullata e non sarai in grado di modificare le tue risposte. Sei sicuro?
+          current_step: Passo %{step}
+          of_total_steps: di %{total_steps}
           questionnaire_answered:
             body: Hai già risposto a questo questionario.
             title: Ho già risposto
@@ -89,8 +96,13 @@ it:
           questionnaire_for_private_users:
             body: Il questionario è disponibile solo per gli utenti privati
             title: Questionario chiuso
-          submit: Invia
           tos_agreement: Partecipando accetti i suoi Termini di servizio
+      step_navigation:
+        show:
+          are_you_sure: Questa azione non può essere annullata e non sarai in grado di modificare le tue risposte. Sei sicuro?
+          back: Indietro
+          continue: Continua
+          submit: Invia
       user_answers_serializer:
         created_at: Risposto
         id: ID risposta
