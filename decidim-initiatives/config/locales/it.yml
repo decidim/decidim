@@ -47,6 +47,14 @@ it:
         address: Indirizzo
         id_document: Documento di identità
         name: Nome completo
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: File non valido
+              needs_to_be_reattached: Necessita di essere riallegato
+              title: Il nome non dovrebbe essere vuoto
   activerecord:
     models:
       decidim/initiative:
@@ -79,6 +87,7 @@ it:
           fields:
             created_at: Creato a
             id: ID
+            published_at: Pubblicato il
             state: Stato
             supports_count: firme
             title: iniziative
@@ -177,6 +186,8 @@ it:
         content_blocks:
           highlighted_initiatives:
             max_results: Quantità massima di elementi da mostrare
+        exports:
+          initiatives: Iniziative
         initiatives:
           edit:
             accept: Accetta l'iniziativa
@@ -194,6 +205,11 @@ it:
             actions_title: Azione
             preview: Anteprima
             print: Stampare
+          initiative_attachments:
+            documents: Documenti
+            edit: Modifica
+            new: Nuovo
+            photos: Foto
           show:
             print: Stampare
           update:
@@ -386,6 +402,7 @@ it:
           most_voted: Più firmato
           random: Casuale
           recent: Piu recente
+          recently_published: Pubblicati più di recente
         result:
           answer_title:
             accepted: Questa proposta è stata accettata perché
