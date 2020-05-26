@@ -22,7 +22,7 @@ FactoryBot.define do
     end
 
     trait :complete do
-      after(:build) do |election, evaluator|
+      after(:build) do |election, _evaluator|
         build_list(:question, 2, :complete, election: election)
       end
     end
@@ -37,7 +37,7 @@ FactoryBot.define do
     random_answers_order { true }
 
     trait :complete do
-      after(:build) do |question, evaluator|
+      after(:build) do |question, _evaluator|
         build_list(:election_answer, 2, question: question)
       end
     end

@@ -51,7 +51,7 @@ module Decidim
       end
 
       describe "proposals" do
-        let(:component) { create(:proposal_component, organization: model.question.election.component.organization)}
+        let(:component) { create(:proposal_component, organization: model.question.election.component.organization) }
         let!(:proposals) { create_list(:proposal, 2, component: component) }
         let(:query) { "{ proposals { id } }" }
 

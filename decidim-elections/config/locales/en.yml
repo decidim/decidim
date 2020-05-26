@@ -88,6 +88,13 @@ en:
           update:
             invalid: There was a problem updating this election
             success: Election successfully updated
+        models:
+          answer:
+            name: Answer
+          election:
+            name: Election
+          question:
+            name: Question
         questions:
           create:
             invalid: There was a problem creating this question
@@ -106,13 +113,6 @@ en:
           update:
             invalid: There was a problem updating this question
             success: Question successfully updated
-        models:
-          answer:
-            name: Answer
-          election:
-            name: Election
-          question:
-            name: Question
       models:
         answer:
           fields:

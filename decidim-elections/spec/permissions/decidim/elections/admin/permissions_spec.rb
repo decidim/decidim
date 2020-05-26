@@ -126,7 +126,7 @@ describe Decidim::Elections::Admin::Permissions do
 
   describe "answers" do
     let(:question) { create :question, election: election }
-    let(:answer) { create :answer, question: question }
+    let(:answer) { create :election_answer, question: question }
 
     describe "answer creation" do
       let(:action) do

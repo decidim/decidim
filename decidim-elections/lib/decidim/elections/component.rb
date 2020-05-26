@@ -95,7 +95,7 @@ Decidim.register_component(:elections) do |component|
           visibility: "all"
         )
 
-        Faker::Number.between(2,5).times do
+        Faker::Number.between(2, 5).times do
           answer = Decidim.traceability.create!(
             Decidim::Elections::Answer,
             admin_user,
@@ -105,7 +105,7 @@ Decidim.register_component(:elections) do |component|
               description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
                 Decidim::Faker::Localized.paragraph(3)
               end,
-              weight: Faker::Number.number(1),
+              weight: Faker::Number.number(1)
             },
             visibility: "all"
           )
