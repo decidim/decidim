@@ -47,7 +47,7 @@ fi:
             up: Ylös
           update:
             invalid: Kyselylomakkeen tallentaminen epäonnistui.
-            success: Kyselylomakkeet tallennettiin onnistuneesti.
+            success: Kyselylomakkeiden tallennus onnistui.
       errors:
         answer:
           body: Runkoteksti ei voi olla tyhjä
