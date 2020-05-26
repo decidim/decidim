@@ -35,6 +35,7 @@ module Decidim
           initiative_type_scope_action?
           initiative_committee_action?
           initiative_admin_user_action?
+          initiative_export_action?
           moderator_action?
           allow! if permission_action.subject == :attachment
 
@@ -156,6 +157,10 @@ module Decidim
           else
             allow!
           end
+        end
+
+        def initiative_export_action?
+          allow! if permission_action.subject == :initiatives && permission_action.action == :export
         end
 
         def moderator_action?

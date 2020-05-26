@@ -77,6 +77,10 @@
         </div>
       </div>
     <% end %>
+
+    <% if allowed_to?(:read, :attachment, initiative: current_participatory_space) %>
+      <%= render partial: "initiative_attachments", locals: { current_initiative: current_initiative, current_participatory_space: current_participatory_space } %>
+    <% end %>
   </div>
 </div>
 

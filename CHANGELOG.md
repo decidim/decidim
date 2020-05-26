@@ -21,6 +21,7 @@ Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on 
 
 ### Added
 
+- **decidim-initiatives**: Add attachments to initiatives [\#5844](https://github.com/decidim/decidim/pull/5844)
 - **decidim-proposals**: Improve proposal preview: Use proposal card when previewing a proposal draft. [\#6064](https://github.com/decidim/decidim/pull/6064)
 - **decidim-core**: Allow groups to have private conversations with other users or groups. [\#6009](https://github.com/decidim/decidim/pull/6009)
 - **decidim-api**: Use organization time zone [\#6088](https://github.com/decidim/decidim/pull/6088)
@@ -75,11 +76,14 @@ Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on 
 - **decidim-core**: Added support for enum settings for components [\#6001](https://github.com/decidim/decidim/pull/6001)
 - **decidim-core**: Added support for readonly settings for components [\#6001](https://github.com/decidim/decidim/pull/6001)
 - **decidim-initiatives**: New search/filters design [\#6090](https://github.com/decidim/decidim/pull/6090)
+- **decidim-core**: Improvements to conversations with more than one participant. [\#6094](https://github.com/decidim/decidim/pull/6094)
+- **decidim-elections**: Elections module and election administration. [\#6065](https://github.com/decidim/decidim/pull/6065)
 - **decidim-forms**: Split forms in steps using separators [\#6108](https://github.com/decidim/decidim/pull/6108)
 - **decidim-initiatives**: Enhanced initiatives search [\#6086](https://github.com/decidim/decidim/pull/6086)
 - **decidim-initiatives**: Add setting in `Decidim::InitiativesType` to enable users to set a custom signature end date in their initiatives. [\#5998](https://github.com/decidim/decidim/pull/5998)
 - **decidim-initiatives**: Sorting by publish date and supports count on admin, by publish date on front [/#6016](https://github.com/decidim/decidim/pull/6016)
 - **decidim-assemblies**: Added a setting for assemblies to enable or disable the visibility of the organization chart. [\#6040](https://github.com/decidim/decidim/pull/6040)
+- **decidim-initiatives**: Allow admins to export initiatives [/#6070](https://github.com/decidim/decidim/pull/6070)
 
 ### Changed
 
