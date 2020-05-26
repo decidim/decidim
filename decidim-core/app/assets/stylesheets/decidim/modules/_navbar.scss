@@ -130,8 +130,9 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
 // Hack to fix the top bar display for IE11
 // This cannot be applied to other browsers as the focus borders would be
 // invisible if overflow is hidden on the search element.
-@media all and (-ms-high-contrast:none){
-  *::-ms-backdrop, .topbar__search{
+@media all and (-ms-high-contrast: none){
+  *::-ms-backdrop,
+  .topbar__search{
     overflow: hidden;
   }
 }

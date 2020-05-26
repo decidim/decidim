@@ -35,48 +35,49 @@ $buttongroup-radius-on-each: true !default;
 @mixin button-group(
   $child-selector: $buttongroup-child-selector,
   $spacing: $buttongroup-spacing
-) {
+){
   @include clearfix;
+
   margin-bottom: $buttongroup-margin;
 
-  @if $global-flexbox {
+  @if $global-flexbox{
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
     flex-grow: 1;
 
     &::before,
-    &::after {
+    &::after{
       display: none; // Disable clearfix
     }
   }
-  @else {
+  @else{
     font-size: 0;
   }
 
-  #{$child-selector} {
+  #{$child-selector}{
     margin: 0;
     margin-#{$global-right}: $spacing;
     margin-bottom: $spacing;
     font-size: map-get($button-sizes, default);
 
-    @if $global-flexbox {
+    @if $global-flexbox{
       flex: 0 0 auto;
     }
 
-    &:last-child {
+    &:last-child{
       margin-#{$global-right}: 0;
     }
 
-    @if not $buttongroup-radius-on-each {
+    @if not $buttongroup-radius-on-each{
       border-radius: 0;
 
-      &:first-child {
+      &:first-child{
         border-top-#{$global-left}-radius: $button-radius;
         border-bottom-#{$global-left}-radius: $button-radius;
       }
 
-      &:last-child {
+      &:last-child{
         border-top-#{$global-right}-radius: $button-radius;
         border-bottom-#{$global-right}-radius: $button-radius;
       }
@@ -89,11 +90,11 @@ $buttongroup-radius-on-each: true !default;
 @mixin button-group-no-gaps(
   $selector: $buttongroup-child-selector,
   $border-width: $button-hollow-border-width
-) {
-  #{$selector} {
+){
+  #{$selector}{
     margin-#{$global-right}: rem-calc(-$border-width);
 
-    + #{$selector} {
+    + #{$selector}{
       border-#{$global-left}-color: transparent;
     }
   }
@@ -106,38 +107,38 @@ $buttongroup-radius-on-each: true !default;
   $selector: $buttongroup-child-selector,
   $spacing: $buttongroup-spacing,
   $count: null
-) {
-  @if not $global-flexbox {
+){
+  @if not $global-flexbox{
     margin-#{$global-right}: -$spacing;
 
     &::before,
-    &::after {
+    &::after{
       display: none; // Disable clearfix
     }
   }
 
-  #{$selector} {
-    @if $global-flexbox {
-      flex: 1 1 0px; // sass-lint:disable-line zero-unit
+  #{$selector}{
+    @if $global-flexbox{
+      flex: 1 1 0; // sass-lint:disable-line zero-unit
       margin-right: 0;
     }
-    @else {
+    @else{
       // One child
-      &:first-child {
-        &:last-child {
+      &:first-child{
+        &:last-child{
           width: calc(100% - #{$spacing});
         }
       }
 
       // Two or more childreen
-      @for $i from 2 through $buttongroup-expand-max {
-        &:first-child:nth-last-child(#{$i}) {
-          &, &:first-child:nth-last-child(#{$i}) ~ #{$selector} {
+      @for $i from 2 through $buttongroup-expand-max{
+        &:first-child:nth-last-child(#{$i}){
+          &, &:first-child:nth-last-child(#{$i}) ~ #{$selector}{
             display: inline-block;
             width: calc(#{percentage(1 / $i)} - #{$spacing});
             margin-#{$global-right}: $spacing;
 
-            &:last-child {
+            &:last-child{
               margin-#{$global-right}: $spacing * -$buttongroup-expand-max;
             }
           }
@@ -151,32 +152,32 @@ $buttongroup-radius-on-each: true !default;
 /// @param {String} $selector [$buttongroup-child-selector] - Selector for the buttons inside the button group.
 @mixin button-group-stack(
   $selector: $buttongroup-child-selector
-) {
-  @if $global-flexbox {
+){
+  @if $global-flexbox{
     flex-wrap: wrap;
   }
 
-  #{$selector} {
-    @if $global-flexbox {
+  #{$selector}{
+    @if $global-flexbox{
       flex: 0 0 100%;
     }
-    @else {
+    @else{
       width: 100%;
     }
 
-    &:last-child {
+    &:last-child{
       margin-bottom: 0;
     }
 
-    @if not $buttongroup-radius-on-each {
+    @if not $buttongroup-radius-on-each{
       border-radius: 0;
 
-      &:first-child {
+      &:first-child{
         border-top-#{$global-left}-radius: $global-radius;
         border-top-#{$global-right}-radius: $global-radius;
       }
 
-      &:last-child {
+      &:last-child{
         margin-bottom: 0;
         border-bottom-#{$global-left}-radius: $global-radius;
         border-bottom-#{$global-right}-radius: $global-radius;
@@ -189,124 +190,124 @@ $buttongroup-radius-on-each: true !default;
 /// @param {String} $selector [$buttongroup-child-selector] - Selector for the buttons inside the button group.
 @mixin button-group-unstack(
   $selector: $buttongroup-child-selector
-) {
-  #{$selector} {
-    @if $global-flexbox {
+){
+  #{$selector}{
+    @if $global-flexbox{
       flex: 0 0 auto;
     }
-    @else {
+    @else{
       width: auto;
     }
+
     margin-bottom: 0;
 
-    @if not $buttongroup-radius-on-each {
-      &:first-child {
+    @if not $buttongroup-radius-on-each{
+      &:first-child{
         border-top-#{$global-left}-radius: $global-radius;
         border-top-#{$global-right}-radius: 0;
         border-bottom-#{$global-left}-radius: $global-radius;
       }
 
-      &:last-child {
+      &:last-child{
         border-top-#{$global-right}-radius: $global-radius;
         border-bottom-#{$global-right}-radius: $global-radius;
         border-bottom-#{$global-left}-radius: 0;
       }
     }
-
   }
 }
 
-@mixin foundation-button-group {
-  .button-group {
+@mixin foundation-button-group{
+  .button-group{
     @include button-group;
 
     // Sizes
-    @each $size, $value in map-remove($button-sizes, default) {
-      &.#{$size} #{$buttongroup-child-selector} {
+    @each $size, $value in map-remove($button-sizes, default){
+      &.#{$size} #{$buttongroup-child-selector}{
         font-size: $value;
       }
     }
 
     // Even-width Group
-    &.expanded {
+    &.expanded{
       @include button-group-expand;
     }
 
     // Solid, hollow & clear styles
-    @each $filling in (solid hollow clear) {
+    @each $filling in (solid hollow clear){
       $base-selector: if($button-fill == $filling, null, '.#{$filling}');
 
-      &#{$base-selector} {
+      &#{$base-selector}{
         // Do not generate button base styles for the default filling
-        @if($button-fill != $filling) {
-          #{$buttongroup-child-selector} {
+        @if($button-fill != $filling){
+          #{$buttongroup-child-selector}{
             @include button-fill($filling);
             @include button-fill-style($filling);
           }
         }
 
-        @each $name, $color in $button-palette {
+        @each $name, $color in $button-palette{
           // FOUNDATION PATCH START
           // The original version would break sassc compilation for an unknown
           // reason. It breaks the whole system as the server process or asset
           // compilation process crashes due to this bug.
-          @if $button-fill == $filling {
-            &.#{$name} #{$buttongroup-child-selector} {
+          @if $button-fill == $filling{
+            &.#{$name} #{$buttongroup-child-selector}{
               @include button-fill-style($filling, $color, auto, auto);
             }
-          } @else {
-            &.#{$name} #{$buttongroup-child-selector}, & #{$buttongroup-child-selector}.#{$name} {
+          }
+          @else{
+            &.#{$name} #{$buttongroup-child-selector}, & #{$buttongroup-child-selector}.#{$name}{
               @include button-fill-style($filling, $color, auto, auto);
             }
           }
           // FOUNDATION PATCH END
         }
       }
-
     }
 
-    &.no-gaps {
+    &.no-gaps{
       @include button-group-no-gaps;
     }
 
     &.stacked,
     &.stacked-for-small,
-    &.stacked-for-medium {
+    &.stacked-for-medium{
       @include button-group-stack;
 
-      &.expanded {
+      &.expanded{
         @include button-group-expand;
       }
     }
 
-    &.stacked-for-small {
-      @include breakpoint(medium) {
+    &.stacked-for-small{
+      @include breakpoint(medium){
         @include button-group-unstack;
       }
     }
 
-    &.stacked-for-medium {
-      @include breakpoint(large) {
+    &.stacked-for-medium{
+      @include breakpoint(large){
         @include button-group-unstack;
       }
     }
 
-    &.stacked-for-small.expanded {
-      @include breakpoint(small only) {
+    &.stacked-for-small.expanded{
+      @include breakpoint(small only){
         display: block;
 
-        #{$buttongroup-child-selector} {
+        #{$buttongroup-child-selector}{
           display: block;
           margin-#{$global-right}: 0;
         }
       }
     }
 
-    &.stacked-for-medium.expanded {
-      @include breakpoint(medium down) {
+    &.stacked-for-medium.expanded{
+      @include breakpoint(medium down){
         display: block;
 
-        #{$buttongroup-child-selector} {
+        #{$buttongroup-child-selector}{
           display: block;
           margin-#{$global-right}: 0;
         }
