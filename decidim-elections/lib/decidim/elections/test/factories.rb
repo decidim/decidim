@@ -20,5 +20,23 @@ FactoryBot.define do
     trait :started do
       start_time { 1.day.ago }
     end
+
+    trait :complete do
+      after(:build) do |election, evaluator|
+        build_list(:question, 2, :complete, election: election)
+      end
+    end
+  end
+
+  factory :question, class: "Decidim::Elections::Question" do
+    election
+    title { generate_localized_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    max_selections { 1 }
+    weight { Faker::Number.number(1) }
+    random_answers_order { true }
+
+    trait :complete do
+    end
   end
 end

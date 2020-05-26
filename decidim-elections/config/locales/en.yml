@@ -8,13 +8,18 @@ en:
         start_time: Voting start at
         subtitle: Subtitle
         title: Title
-    models:
-      decidim/elections/create_election_event: Election
+      question:
+        description: Description
+        max_selections: Maximum number of selections
+        title: Title
   activerecord:
     models:
       decidim/elections/election:
         one: Election
         other: Elections
+      decidim/elections/question:
+        one: Question
+        other: Questions
   decidim:
     components:
       elections:
@@ -51,12 +56,37 @@ en:
           update:
             invalid: There was a problem updating this election
             success: Election successfully updated
+        questions:
+          create:
+            invalid: There was a problem creating this question
+            success: Question successfully created
+          destroy:
+            invalid: There was a problem deleting this question
+            success: Question successfully deleted
+          edit:
+            title: Edit question
+            update: Update question
+          index:
+            title: Questions
+          new:
+            create: Create question
+            title: New question
+          update:
+            invalid: There was a problem updating this question
+            success: Question successfully updated
         models:
           election:
             name: Election
+          question:
+            name: Question
       models:
         election:
           fields:
             end_time: End at
             start_time: Starts at
+            title: Title
+        question:
+          fields:
+            answers: Answers
+            max_selections: Max. selections
             title: Title
