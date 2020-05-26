@@ -38,9 +38,9 @@ module Decidim
 
             params = set_params_for_import_result_form(row, @component)
             existing_result = Decidim::Accountability::Result.find_by(id: row["id"], component: @component) if row["id"].present?
-            @form = form(Decidim::Accountability::Admin::ResultForm).from_params(params, @extra_context)
             params["result"].merge!(parse_date_params(row, "start_date"))
             params["result"].merge!(parse_date_params(row, "end_date"))
+            @form = form(Decidim::Accountability::Admin::ResultForm).from_params(params, @extra_context)
             errors << [i, @form.errors.full_messages] if @form.errors.any?
 
             if existing_result.present?
@@ -79,6 +79,8 @@ module Decidim
         available_locales = component.participatory_space.organization.available_locales
         params["result"].merge!(get_locale_attributes(default_locale, available_locales, :title, row))
         params["result"].merge!(get_locale_attributes(default_locale, available_locales, :description, row))
+        params["result"]["decidim_category_id"] = row["category/id"] if row["category/id"].present?
+        params["result"]["decidim_accountability_status_id"] = row["status/id"] if row["status/id"].present?
         params["result"].merge!(get_proposal_ids(row["proposal_urls"]))
         params
       end
