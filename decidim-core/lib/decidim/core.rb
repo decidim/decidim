@@ -247,6 +247,11 @@ module Decidim
     2.days
   end
 
+  # Allow machine translations
+  config_accessor :enable_machine_translations do
+    false
+  end
+
   # Exposes a configuration option: an object to configure Etherpad
   config_accessor :etherpad
 
