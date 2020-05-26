@@ -32,9 +32,9 @@ fi:
         projects:
           create:
             invalid: Suunnitelman luonti epäonnistui
-            success: Suunnitelma lisätty onnistuneesti
+            success: Suunnitelman lisäys onnistui
           destroy:
-            success: Suunnitelma poistettu onnistuneesti
+            success: Suunnitelman poisto onnistui
           edit:
             title: Muokkaa suunnitelmaa
             update: Päivitä
@@ -47,11 +47,11 @@ fi:
             title: Uusi suunnitelma
           update:
             invalid: Suunnitelman päivitys epäonnistui
-            success: Suunnitelma päivitetty onnistuneesti
+            success: Suunnitelman päivitys onnistui
         proposals_imports:
           create:
             invalid: Ehdotusten tuonti suunnitelmiksi epäonnistui
-            success: "%{number} ehdotusta tuotu onnistuneesti suunnitelmiin"
+            success: "%{number} ehdotusta tuotu onnistuneesti suunnitelmiksi"
           new:
             create: Tuo ehdotuksia suunnitelmiin
             no_components: Tässä osallistumistilassa ei ole ole muita ehdotuskomponentteja, joista voitaisiin tuoda ehdotuksia suunnitelmiin.
