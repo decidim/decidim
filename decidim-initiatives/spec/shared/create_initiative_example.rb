@@ -12,6 +12,7 @@ shared_examples "create an initiative" do
         initiative_type: initiative_type
       )
   end
+  let(:attachment_params) { nil }
 
   describe "call" do
     let(:form_params) do
@@ -21,7 +22,8 @@ shared_examples "create an initiative" do
         type_id: scoped_type.type.id,
         signature_type: "online",
         scope_id: scoped_type.scope.id,
-        decidim_user_group_id: nil
+        decidim_user_group_id: nil,
+        attachment: attachment_params
       }
     end
 
@@ -52,6 +54,34 @@ shared_examples "create an initiative" do
         expect do
           command.call
         end.to change { Decidim::Initiative.count }.by(1)
+      end
+
+      context "when attachment is present", processing_uploads_for: Decidim::AttachmentUploader do
+        let(:attachment_params) do
+          {
+            title: "My attachment",
+            file: Decidim::Dev.test_file("city.jpeg", "image/jpeg")
+          }
+        end
+
+        it "creates an attachment for the proposal" do
+          expect { command.call }.to change(Decidim::Attachment, :count).by(1)
+          last_initiative = Decidim::Initiative.last
+          last_attachment = Decidim::Attachment.last
+          expect(last_attachment.attached_to).to eq(last_initiative)
+        end
+
+        context "when attachment is left blank" do
+          let(:attachment_params) do
+            {
+              title: ""
+            }
+          end
+
+          it "broadcasts ok" do
+            expect { command.call }.to broadcast(:ok)
+          end
+        end
       end
 
       it "sets the author" do

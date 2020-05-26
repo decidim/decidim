@@ -6,6 +6,8 @@ module Decidim
       # A command with all the business logic that updates an
       # existing initiative.
       class UpdateInitiative < Rectify::Command
+        include AttachmentMethods
+
         # Public: Initializes the command.
         #
         # initiative - Decidim::Initiative
@@ -14,6 +16,7 @@ module Decidim
           @form = form
           @initiative = initiative
           @current_user = current_user
+          @attached_to = initiative
         end
 
         # Executes the command. Broadcasts these events:
@@ -25,11 +28,19 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
+          if process_attachments?
+            @initiative.attachments.destroy_all
+
+            build_attachment
+            return broadcast(:invalid) if attachment_invalid?
+          end
+
           @initiative = Decidim.traceability.update!(
             initiative,
             current_user,
             attributes
           )
+          create_attachment if process_attachments?
           notify_initiative_is_extended if @notify_extended
           broadcast(:ok, initiative)
         rescue ActiveRecord::RecordInvalid
@@ -38,7 +49,7 @@ module Decidim
 
         private
 
-        attr_reader :form, :initiative, :current_user
+        attr_reader :form, :initiative, :current_user, :attachment
 
         def attributes
           attrs = {
