@@ -61,7 +61,7 @@ fi:
     'true': 'Kyllä'
   carrierwave:
     errors:
-      general: Virhe käsiteltäessä kuvaa
+      general: Kuvan käsittely epäonnistui
       image_too_big: Kuva on liian suuri
   date:
     formats:
@@ -157,7 +157,7 @@ fi:
       amendable:
         amended_by: 'Muuttanut:'
         button: Muuta %{model_name}
-        error: Tämän resurssin muuttamisessa tapahtui virhe.
+        error: Tämän resurssin muutoksen tallennus epäonnistui.
         help_text: Paranna tätä %{model_name} kohdetta muuttamalla sen kenttiä %{amendable_fields}
         promote_button: Korosta kohteeksi %{model_name}
         promote_confirm_text: Haluatko varmasti korostaa tätä muutosta?
