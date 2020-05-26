@@ -8,7 +8,7 @@ Decidim.configure do |config|
   config.default_locale = :en
   config.available_locales = [:en, :ca, :es]
 
-  # config.enable_machine_translations = true
+  # config.enable_machine_translations = false
 
   # Geocoder configuration
   # config.geocoder = {
