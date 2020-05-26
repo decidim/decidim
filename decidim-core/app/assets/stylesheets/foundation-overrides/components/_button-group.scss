@@ -133,7 +133,8 @@ $buttongroup-radius-on-each: true !default;
       // Two or more childreen
       @for $i from 2 through $buttongroup-expand-max{
         &:first-child:nth-last-child(#{$i}){
-          &, &:first-child:nth-last-child(#{$i}) ~ #{$selector}{
+          &,
+          &:first-child:nth-last-child(#{$i}) ~ #{$selector}{
             display: inline-block;
             width: calc(#{percentage(1 / $i)} - #{$spacing});
             margin-#{$global-right}: $spacing;
@@ -257,7 +258,8 @@ $buttongroup-radius-on-each: true !default;
             }
           }
           @else{
-            &.#{$name} #{$buttongroup-child-selector}, & #{$buttongroup-child-selector}.#{$name}{
+            &.#{$name} #{$buttongroup-child-selector},
+            & #{$buttongroup-child-selector}.#{$name}{
               @include button-fill-style($filling, $color, auto, auto);
             }
           }
