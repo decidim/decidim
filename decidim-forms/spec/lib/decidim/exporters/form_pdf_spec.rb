@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/exporters/form_pdf"
 
 module Decidim
   describe Exporters::FormPDF do

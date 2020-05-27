@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "decidim/exporters/form_pdf"
+
 shared_examples "export survey user answers" do
   let!(:questionnaire) { create(:questionnaire) }
   let!(:questions) { create_list :questionnaire_question, 3, questionnaire: questionnaire }
