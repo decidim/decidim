@@ -1,7 +1,7 @@
 <div class="card--list__item">
   <div class="card--list__text">
     <div>
-      <%= link_to result_version_path(result, index + 1) do %>
+      <%= link_to result_version_path(versioned_resource, index + 1) do %>
         <h6 class="card--list__heading heading6">
           <%= t(".version_index", index: index + 1) %>
         </h6>
@@ -13,7 +13,7 @@
     </div>
   </div>
   <div class="card--list__data">
-    <%= link_to result_version_path(result, index + 1), class: "card--list__data__icon" do %>
+    <%= link_to result_version_path(versioned_resource, index + 1), class: "card--list__data__icon" do %>
       <%= icon "chevron-right", role: "img" %>
     <% end %>
   </div>
