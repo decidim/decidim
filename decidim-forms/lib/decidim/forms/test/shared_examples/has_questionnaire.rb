@@ -73,7 +73,7 @@ shared_examples_for "has questionnaire" do
         click_link "Back"
 
         expect(page).to have_content("STEP 1 OF 2")
-        expect(page).to have_field("questionnaire_answers_0", with: "My first answer")
+        expect(page).to have_field("questionnaire_responses_0", with: "My first answer")
       end
 
       it "finishes the submission when answering the last questionnaire" do
