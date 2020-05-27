@@ -15,7 +15,7 @@ module Decidim
 
       field :id, !types.ID, "The internal ID of this answer"
       field :title, !Decidim::Core::TranslatedFieldType, "The title for this answer"
-      field :description, !Decidim::Core::TranslatedFieldType, "The description for this answer"
+      field :description, Decidim::Core::TranslatedFieldType, "The description for this answer"
       field :weight, types.Int, "The ordering weight for this answer"
 
       field :proposals, types[Decidim::Proposals::ProposalType], "The proposals related to this answer"
