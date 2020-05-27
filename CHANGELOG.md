@@ -22,6 +22,7 @@ Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on 
 ### Added
 
 - **decidim-comments**: Fix comment link on Last Activity. [\#5999](https://github.com/decidim/decidim/pull/5999)
+- **decidim-meetings**: Include year in meetings' card [\#6102](https://github.com/decidim/decidim/pull/6102)
 - **decidim-initiatives**: Add attachments to initiatives [\#5844](https://github.com/decidim/decidim/pull/5844)
 - **decidim-proposals**: Improve proposal preview: Use proposal card when previewing a proposal draft. [\#6064](https://github.com/decidim/decidim/pull/6064)
 - **decidim-core**: Allow groups to have private conversations with other users or groups. [\#6009](https://github.com/decidim/decidim/pull/6009)
