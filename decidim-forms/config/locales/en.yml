@@ -120,7 +120,6 @@ en:
           questionnaire_js_disabled:
             body: Some of this form's features will be disabled. To improve your experience, please enable JavaScript in your browser.
             title: JavaScript is disabled
-          submit: Submit
           tos_agreement: By participating you accept its Terms of Service
       step_navigation:
         show:
