@@ -88,9 +88,7 @@ en:
         state_eq:
           label: State
           values:
-            accepted: Accepted
             evaluating: Evaluating
-            rejected: Rejected
             withdrawn: Withdrawn
         state_null:
           label: Status

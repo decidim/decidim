@@ -67,19 +67,26 @@ module Decidim
               case_sensitive: false
 
     scope :open, lambda {
-      published
-        .where.not(state: [:discarded, :rejected, :accepted, :created])
-        .where("signature_start_date <= ?", Date.current)
-        .where("signature_end_date >= ?", Date.current)
+      where.not(state: [:discarded, :rejected, :accepted, :created])
+           .currently_signable
     }
     scope :closed, lambda {
-      published
-        .where(state: [:discarded, :rejected, :accepted])
-        .or(where("signature_start_date > ?", Date.current))
-        .or(where("signature_end_date < ?", Date.current))
+      where(state: [:discarded, :rejected, :accepted])
+        .or(currently_unsignable)
     }
     scope :published, -> { where.not(published_at: nil) }
     scope :with_state, ->(state) { where(state: state) if state.present? }
+
+    scope :currently_signable, lambda {
+      where("signature_start_date <= ?", Date.current)
+        .where("signature_end_date >= ?", Date.current)
+    }
+    scope :currently_unsignable, lambda {
+      where("signature_start_date > ?", Date.current)
+        .or(where("signature_end_date < ?", Date.current))
+    }
+
+    scope :answered, -> { where.not(answered_at: nil) }
 
     scope :public_spaces, -> { published }
     scope :signature_type_updatable, -> { created }
