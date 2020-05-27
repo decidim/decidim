@@ -6,7 +6,7 @@
   <% end %>
   <%= link_to url do %>
     <% if organization.logo.present? %>
-      <%= image_tag organization.logo.medium.url, style: "max-height: 50px", alt: "" %>
+      <%= image_tag organization.logo.medium.url, style: "max-height: 50px", alt: "#{@organization.name}" %>
     <% else %>
       <span><%= organization.name %></span>
     <% end %>

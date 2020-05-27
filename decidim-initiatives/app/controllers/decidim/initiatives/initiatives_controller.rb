@@ -70,11 +70,19 @@ module Decidim
       def default_filter_params
         {
           search_text: "",
-          state: "open",
-          type: "all",
+          state: ["open"],
+          type_id: default_filter_type_params,
           author: "any",
-          scope_id: nil
+          scope_id: default_filter_scope_params
         }
+      end
+
+      def default_filter_type_params
+        %w(all) + Decidim::InitiativesType.where(organization: current_organization).pluck(:id).map(&:to_s)
+      end
+
+      def default_filter_scope_params
+        %w(all global) + current_organization.scopes.pluck(:id).map(&:to_s)
       end
 
       def context_params
