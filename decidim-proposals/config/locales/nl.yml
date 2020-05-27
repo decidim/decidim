@@ -81,9 +81,7 @@ nl:
         state_eq:
           label: Staat
           values:
-            accepted: Aanvaard
             evaluating: Aan het beoordelen
-            rejected: Geweigerd
             withdrawn: Ingetrokken
         state_null:
           label: Status
