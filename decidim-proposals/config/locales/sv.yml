@@ -87,9 +87,7 @@ sv:
         state_eq:
           label: Status
           values:
-            accepted: Antagna
             evaluating: Utvärderas
-            rejected: Avvisade
             withdrawn: Tillbakadragna
         state_null:
           label: Status
