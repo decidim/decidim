@@ -44,6 +44,7 @@ It is a good way to implement the widget to think that it is a component that ta
 ### Selector popup content
 
 **Anchors** in the selector can have the following attributes:
+
 - data-close: this anchor will be ignored and will close the picker
 - href: the url to be used for choosing
 - picker-choose: when not present the picker will navigate as a regular anchor. Otherwise a choose action in the component is invoked with params: `url: href, value: picker-value, text: picker-text`.

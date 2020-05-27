@@ -28,6 +28,8 @@ module Decidim
         sign_initiative?
         unvote_initiative?
 
+        initiative_attachment?
+
         permission_action
       end
 
@@ -35,6 +37,10 @@ module Decidim
 
       def initiative
         @initiative ||= context.fetch(:initiative, nil) || context.fetch(:current_participatory_space, nil)
+      end
+
+      def initiative_type
+        @initiative_type ||= context[:initiative_type]
       end
 
       def list_public_initiatives?
@@ -129,6 +135,13 @@ module Decidim
                      authorized?(:vote, resource: initiative, permissions_holder: initiative.type)
 
         toggle_allow(can_unvote)
+      end
+
+      def initiative_attachment?
+        return unless permission_action.action == :add_attachment &&
+                      permission_action.subject == :initiative
+
+        toggle_allow(initiative_type.attachments_enabled?)
       end
 
       def public_report_content_action?
