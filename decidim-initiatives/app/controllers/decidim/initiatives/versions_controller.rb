@@ -7,19 +7,12 @@ module Decidim
     class VersionsController < Decidim::Initiatives::ApplicationController
       include ParticipatorySpaceContext
       participatory_space_layout
-
-      helper Decidim::TraceabilityHelper
       helper InitiativeHelper
-      include NeedsInitiative
 
-      helper_method :current_version
+      include Decidim::Concerns::ResourceVersions
 
-      private
-
-      def current_version
-        return nil unless params[:id].to_i.positive?
-
-        @current_version ||= current_initiative.versions[params[:id].to_i - 1]
+      def versioned_resource
+        current_initiative
       end
     end
   end

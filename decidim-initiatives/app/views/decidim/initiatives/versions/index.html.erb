@@ -1,7 +1,7 @@
 <div class="row">
   <div class="small-12 columns">
     <h2 class="heading2">
-      <%= t("changes_at_title", scope: "decidim.initiatives.versions.shared", title: translated_attribute(current_initiative.title)) %>
+      <%= t("changes_at_title", scope: "decidim.initiatives.versions.shared", title: translated_attribute(versioned_resource.title)) %>
     </h2>
 
     <h3 class="section-heading">
@@ -12,8 +12,8 @@
       <div class="mediumlarge-8 columns">
         <div class="section">
           <div class="card card--list">
-            <% current_initiative.versions.each_with_index do |version, index| %>
-              <%= render partial: "version", locals: { version: version, index: index, initiative: current_initiative } %>
+            <% versioned_resource.versions.each_with_index do |version, index| %>
+              <%= render partial: "version", locals: { version: version, index: index, initiative: versioned_resource } %>
             <% end %>
           </div>
         </div>
@@ -23,9 +23,9 @@
         <div class="card extra definition-data">
           <div class="definition-data__item versions_count">
             <span class="definition-data__title"><%= t(".number_of_versions") %></span>
-            <%= current_initiative.versions.count %>
+            <%= versioned_resource.versions.count %>
 
-            <%= link_to t("back_to_initiative", scope: "decidim.initiatives.versions.shared"), initiative_path(current_initiative), class: "button button--sc hollow secondary small expanded" %>
+            <%= link_to t("back_to_initiative", scope: "decidim.initiatives.versions.shared"), initiative_path(versioned_resource), class: "button button--sc hollow secondary small expanded" %>
           </div>
         </div>
       </div>

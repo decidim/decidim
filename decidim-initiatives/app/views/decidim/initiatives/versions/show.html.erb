@@ -1,7 +1,7 @@
 <div class="row">
   <div class="small-12 columns">
     <h2 class="heading2">
-      <%= t("changes_at_title", scope: "decidim.initiatives.versions.shared", title: translated_attribute(current_initiative.title)) %>
+      <%= t("changes_at_title", scope: "decidim.initiatives.versions.shared", title: translated_attribute(versioned_resource.title)) %>
     </h2>
 
     <div class="row">
@@ -15,9 +15,9 @@
         <div class="card extra definition-data">
           <div class="definition-data__item versions_count">
             <span class="definition-data__title"><%= t("versions.stats.version_number", scope: "decidim.proposals") %></span>
-            <%= t(".version_number_out_of_total", current_version: params[:id], total_count: current_initiative.versions_count) %>
-            <%= link_to t(".show_all_versions"), initiative_versions_path(current_initiative), class: "button button--sc hollow secondary small expanded" %>
-            <%= link_to link_to t("back_to_initiative", scope: "decidim.initiatives.versions.shared"), initiative_path(current_initiative), class: "button button--sc hollow secondary small expanded" %>
+            <%= t(".version_number_out_of_total", current_version: params[:id], total_count: versioned_resource.versions_count) %>
+            <%= link_to t(".show_all_versions"), initiative_versions_path(versioned_resource), class: "button button--sc hollow secondary small expanded" %>
+            <%= link_to link_to t("back_to_initiative", scope: "decidim.initiatives.versions.shared"), initiative_path(versioned_resource), class: "button button--sc hollow secondary small expanded" %>
           </div>
           <% if current_version.whodunnit.present? %>
             <div class="definition-data__item last_revision_by">
