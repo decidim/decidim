@@ -9,7 +9,11 @@ describe Decidim::Accountability::ResultsCSVImporter do
   let(:organization) { create :organization, available_locales: [:en] }
   let(:current_user) { create :user, organization: organization }
   let(:participatory_process) { create :participatory_process, organization: organization }
-  let(:current_component) { create :accountability_component, participatory_space: participatory_process }
+  let(:current_component) { create :accountability_component, participatory_space: participatory_process, id: 16 }
+  let!(:category) { create :category, id: 16, participatory_space: current_component.participatory_space }
+  let!(:status_6) { create :status, id: 6, component: current_component }
+  let!(:status_7) { create :status, id: 7, component: current_component }
+  let!(:status_8) { create :status, id: 8, component: current_component }
   let(:valid_csv) { File.read("spec/fixtures/valid_result.csv") }
   let(:invalid_csv) { File.read("spec/fixtures/invalid_result.csv") }
 
@@ -20,16 +24,16 @@ describe Decidim::Accountability::ResultsCSVImporter do
       it "Import all rows from csv file" do
         expect do
           subject.import!
-        end.to change(Decidim::Accountability::Result, :count).by(39)
+        end.to change(Decidim::Accountability::Result, :count).by(4)
       end
 
       context "when results exist" do
-        let!(:result1) { create :result, component: current_component, progress: 0, id: 73 }
+        let!(:result1) { create :result, component: current_component, progress: 0, id: 69, status: status_6 }
 
         it "Update the result1 progress attribute" do
           subject.import!
 
-          expect(result1.reload.progress.to_f).to eq 25
+          expect(result1.reload.progress.to_f).to eq 96.0
         end
       end
     end
