@@ -388,6 +388,9 @@
         static_pages: Sider
         user_groups: Grupper
         users: Deltakere
+      metrics:
+        metrics:
+          see_more_metrics: Se flere måltall
       models:
         area:
           fields:
@@ -474,6 +477,11 @@
       newsletter_templates:
         index:
           preview_template: Forhåndsvis
+          title: Mal for nyhetsbrev
+          use_template: Bruk denne malen
+        show:
+          preview: 'Forhåndsvis mal: %{template_name}'
+          use_template: Bruk denne malen
       newsletters:
         create:
           error: Det oppstod et problem med å opprette dette nyhetsbrevet.
@@ -564,12 +572,15 @@
           officialize: Offisialiser
           officialized: Offisialisert
           reofficialize: Offisialiser igjen
+          show_email: Vis e-postadresse
           status: Status
           unofficialize: Uoffisialisert
         new:
           badge: Offisialiserings merke
           officialize: Offisialiser
           title: Offisialiser deltaker "%{name}"
+        show_email_modal:
+          description: Hvis du trenger å kontakte en deltaker direkte, kan du klikke på Vis for å se e-postadressen. Denne handlingen vil bli logget.
       organization:
         edit:
           title: Rediger organisasjon
