@@ -75,9 +75,11 @@ it:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Cerca %{collection} per titolo, descrizione, ID o nome dell'autore.
         state_eq:
           values:
+            accepted: Firme sufficienti
             created: Creato
             discarded: Discarded
             published: Pubblicato
+            rejected: Firme non sufficienti
             validating: Convalida tecnica
       menu:
         initiatives: iniziative
@@ -261,12 +263,18 @@ it:
           unpublish: "%{user_name} ha scartato l'iniziativa %{resource_name}"
           update: "%{user_name} ha aggiornato l'iniziativa %{resource_name}"
       admin_states:
-        accepted: Accettato
+        accepted: Firme sufficienti
         created: Creato
         discarded: Discarded
         published: Pubblicato
-        rejected: Respinto
+        rejected: Firme non sufficienti
         validating: Convalida tecnica
+      application_helper:
+        filter_state_values:
+          accepted: Firme sufficienti
+          closed: Chiuso
+          open: Aperto
+          rejected: Firme non sufficienti
       committee_requests:
         new:
           continue: Continua
@@ -377,13 +385,10 @@ it:
         filters:
           any: Qualunque
           author: Autore
-          closed: Chiuso
           myself: Le mie iniziative
-          open: Aperto
           search: Ricerca
           state: Stato
           type: genere
-          type_prompt: Seleziona un tipo
         filters_small_view:
           close_modal: Chiudi la finestra
           filter: Filtro
@@ -456,6 +461,14 @@ it:
           highlighted_initiatives:
             active_initiatives: Iniziative attive
             see_all_initiatives: Vedi tutte le iniziative
+      show:
+        badge_name:
+          accepted: Firme sufficienti
+          created: Creata
+          discarded: Scartato
+          published: Pubblicato
+          rejected: Firme non sufficienti
+          validating: Convalida tecnica
       states:
         accepted: Accettato
         expired: Scaduto
