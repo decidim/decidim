@@ -179,7 +179,7 @@ module Decidim
         end
 
         def initiative_user_action?
-          return unless permission_action.subject == :initiative
+          return unless permission_action.subject == :initiative || permission_action.subject == :component
 
           case permission_action.action
           when :read
