@@ -72,7 +72,7 @@ FactoryBot.define do
         Array.new(3).collect { build(:display_condition) }
       end
     end
-    
+
     trait :separator do
       question_type { :separator }
     end
