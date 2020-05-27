@@ -268,12 +268,14 @@ cs:
           unpublish: "%{user_name} zrušil iniciativu %{resource_name}"
           update: "%{user_name} aktualizoval iniciativu %{resource_name}"
       admin_states:
-        accepted: Přijato
         created: Vytvořeno
         discarded: Vyřazeno
         published: Publikováno
-        rejected: Odmítnuto
         validating: Technická validace
+      application_helper:
+        filter_state_values:
+          closed: Uzavřeno
+          open: otevřeno
       committee_requests:
         new:
           continue: Pokračovat
@@ -388,13 +390,10 @@ cs:
         filters:
           any: Jakýkoli
           author: Autor
-          closed: Uzavřeno
           myself: Moje iniciativy
-          open: otevřeno
           search: Vyhledávání
           state: Stát
           type: Typ
-          type_prompt: Vyberte typ
         filters_small_view:
           close_modal: Zavřít okno
           filter: Filtr
