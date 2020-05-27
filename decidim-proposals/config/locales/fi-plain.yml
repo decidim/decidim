@@ -87,9 +87,7 @@ fi-pl:
         state_eq:
           label: Tila
           values:
-            accepted: Hyväksytty
             evaluating: Arvioitavana
-            rejected: Hylätty
             withdrawn: Peruutettu
         state_null:
           label: Tila
