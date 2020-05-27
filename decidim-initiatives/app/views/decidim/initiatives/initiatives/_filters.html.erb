@@ -12,11 +12,11 @@
     </div>
   </div>
 
-  <%= form.collection_radio_buttons :state,
-                                    [["open", t(".open")], ["closed", t(".closed")]],
-                                    :first,
-                                    :last,
-                                    legend_title: t(".state") %>
+  <%= form.check_boxes_tree :state, filter_states_values, legend_title: t(".state") %>
+
+  <%= form.check_boxes_tree :scope_id, filter_scopes_values, legend_title: t(".scope") %>
+
+  <%= form.check_boxes_tree :type_id, filter_types_values, legend_title: t(".type") %>
 
   <% if current_user %>
     <%= form.collection_radio_buttons :author,
@@ -26,21 +26,5 @@
                                     legend_title: t(".author") %>
   <% end %>
 
-  <div class="filters__section">
-    <fieldset>
-      <legend class="mini-title"><%= t ".type" %></legend>
-      <%= form.initiative_types_select :type,
-                                       Decidim::InitiativesType.where(organization: current_organization),
-                                       legend_title: t(".type"),
-                                       label: "",
-                                       prompt: t(".type_prompt"),
-                                       remote_path: initiative_types_search_path,
-                                       multiple: true,
-                                       aria_label: t(".type") %>
-    </fieldset>
-  </div>
-
-  <%= scopes_picker_field form, :scope_id, root: nil %>
-
-  <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
+    <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
 <% end %>
