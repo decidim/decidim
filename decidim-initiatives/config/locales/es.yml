@@ -236,12 +236,14 @@ es:
           unpublish: "%{user_name} descartó la iniciativa %{resource_name}"
           update: "%{user_name} actualizó la iniciativa %{resource_name}"
       admin_states:
-        accepted: Aceptada
         created: Creada
         discarded: Descartada
         published: Publicada
-        rejected: Rechazada
         validating: Validación técnica
+      application_helper:
+        filter_state_values:
+          closed: Cerrado
+          open: Abiertas
       committee_requests:
         new:
           continue: Continuar
@@ -349,13 +351,10 @@ es:
         filters:
           any: Cualquiera
           author: Autora
-          closed: Cerrado
           myself: Mis iniciativas
-          open: Abiertas
           search: Buscar
           state: Estado
           type: Tipo
-          type_prompt: Selecciona un tipo
         filters_small_view:
           close_modal: Cerrar ventana
           filter: Filtrar
