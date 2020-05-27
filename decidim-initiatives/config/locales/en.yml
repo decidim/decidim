@@ -77,9 +77,11 @@ en:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Search %{collection} by title, description, ID or author name.
         state_eq:
           values:
+            accepted: Enough signatures
             created: Created
             discarded: Discarded
             published: Published
+            rejected: Not enough signatures
             validating: Technical validation
       menu:
         initiatives: Initiatives
@@ -263,12 +265,24 @@ en:
           unpublish: "%{user_name} discarded the %{resource_name} initiative"
           update: "%{user_name} updated the %{resource_name} initiative"
       admin_states:
-        accepted: Accepted
+        accepted: Enough signatures
         created: Created
         discarded: Discarded
         published: Published
-        rejected: Rejected
+        rejected: Not enough signatures
         validating: Technical validation
+      application_helper:
+        filter_scope_values:
+          all: All
+        filter_state_values:
+          accepted: Enough signatures
+          all: All
+          answered: Answered
+          closed: Closed
+          open: Open
+          rejected: Not enough signatures
+        filter_type_values:
+          all: All
       committee_requests:
         new:
           continue: Continue
@@ -379,13 +393,11 @@ en:
         filters:
           any: Any
           author: Author
-          closed: Closed
           myself: My initiatives
-          open: Open
+          scope: Scope
           search: Search
           state: Status
           type: Type
-          type_prompt: Select a type
         filters_small_view:
           close_modal: Close window
           filter: Filter
@@ -458,6 +470,14 @@ en:
           highlighted_initiatives:
             active_initiatives: Active initiatives
             see_all_initiatives: See all initiatives
+      show:
+        badge_name:
+          accepted: Enough signatures
+          created: Created
+          discarded: Discarded
+          published: Published
+          rejected: Not enough signatures
+          validating: Technical validation
       states:
         accepted: Accepted
         expired: Expired
