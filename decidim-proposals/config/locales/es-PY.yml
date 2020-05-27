@@ -87,9 +87,7 @@ es-PY:
         state_eq:
           label: Estado
           values:
-            accepted: Aceptadas
             evaluating: En evaluación
-            rejected: Rechazada
             withdrawn: Retirado
         state_null:
           label: Estado
