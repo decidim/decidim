@@ -446,7 +446,7 @@ cs:
       models:
         conference_invite:
           fields:
-            email: E-mailem
+            email: E-mail
             name: název
             registration_type: Typ registrace
             sent_at: Odeslané
@@ -457,7 +457,7 @@ cs:
             sent: Odeslaná
         conference_registration:
           fields:
-            email: E-mailem
+            email: E-mail
             name: název
             registration_type: Typ registrace
             state: Stát
