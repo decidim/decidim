@@ -200,7 +200,7 @@ fi:
             error: Tapahtui virhe
             success: Uusi teema aloitetyypille luotu
           destroy:
-            success: Teema poistettu onnistuneesti
+            success: Teeman poisto onnistui
           edit:
             back: Takaisin
             confirm_destroy: Oletko varma?
@@ -213,13 +213,13 @@ fi:
             title: Luo aloitetyypin teema
           update:
             error: Tapahtui virhe
-            success: Teemaa päivitetty onnistuneesti
+            success: Teeman päivitys onnistui
         initiatives_types:
           create:
             error: Tapahtui virhe
-            success: Uusi aloitetyyppi luotu onnistuneesti
+            success: Uuden aloitetyypin luonti onnistui
           destroy:
-            success: Aloitetyyppi poistettu onnistuneesti
+            success: Aloitetyypin poisto onnistui
           edit:
             confirm_destroy: Oletko varma?
             destroy: Poista
@@ -233,7 +233,7 @@ fi:
             title: Uusi aloitetyyppi
           update:
             error: Tapahtui virhe
-            success: Aloitetyyppiä päivitetty onnistuneesti
+            success: Aloitetyypin päivitys onnistui
       admin_log:
         initiative:
           publish: "%{user_name} julkaisi aloitteen %{resource_name}"
@@ -335,7 +335,7 @@ fi:
           invalid: Aloitteen allekirjoittamiseen annetut tiedot ovat virheelliset
           success_html: Onnittelut! Aloitteen <strong>%{title}</strong> allekirjoitus onnistui
         personal_data:
-          invalid: Henkilötiedot eivät täsmää varmennusta varten annettujen tietojen kanssa.
+          invalid: Henkilötiedot eivät täsmää vahvistusta varten annettujen tietojen kanssa.
         sms_code:
           invalid: Vahvistuskoodi ei vastaa meidän koodiamme. Tarkista uudestaan lähettämämme tekstiviesti.
         sms_phone:
@@ -467,7 +467,7 @@ fi:
         fill_personal_data: Täydennä tietosi
         finish: Viimeistele
         finished: Allekirjoitus luotu aloitteelle
-        see_steps: katso vaiheet
+        see_steps: näytä vaiheet
         select_identity: Valitse identiteetti
         sms_code: Tekstiviestikoodin vahvistaminen
         sms_phone_number: Matkapuhelimen numero

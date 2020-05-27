@@ -646,7 +646,7 @@ sv:
           back: Tillbaka
           info: Du skapar ett <strong>gemensamt utkast</strong>.
         wizard_steps:
-          see_steps: se steg
+          see_steps: visa steg
           step_1: Skapa ditt gemensamma utkast
           step_2: Jämför med gemensamma utkast
           step_3: Färdigställ ditt gemensamma utkast

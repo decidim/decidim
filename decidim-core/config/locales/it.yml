@@ -9,7 +9,7 @@ it:
         document_number: Numero del documento
         email: Email
         name: Nome
-        nickname: Nome utente
+        nickname: Pseudonimo
         phone: Telefono
       report:
         details: Ulteriori commenti

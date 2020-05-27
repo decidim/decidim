@@ -389,7 +389,7 @@ fi:
         proposal_notes:
           create:
             error: Ehdotuksen muistiinpanojen luonti epäonnistui
-            success: Ehdotusviesti luotu onnistuneesti
+            success: Ehdotusmerkinnän luonti onnistui
           form:
             note: Huomautus
             submit: Lähetä
@@ -398,10 +398,10 @@ fi:
         proposals:
           answer:
             invalid: Ehdotukseen vastaaminen epäonnistui
-            success: Ehdotukseen vastattu onnistuneesti
+            success: Ehdotukseen vastaaminen onnistui
           create:
             invalid: Ehdotuksen luonti epäonnistui
-            success: Ehdotus luotu onnistuneesti
+            success: Ehdotuksen luonti onnistui
           edit:
             title: Päivitä ehdotusta
             update: Päivitä
@@ -469,16 +469,16 @@ fi:
             invalid: 'Näillä ehdotuksilla oli jo aihepiiri %{subject_name}: %{proposals}.'
             select_a_category: Valitse aihepiiri
             select_a_proposal: Valitse ehdotus
-            success: 'Seuraaville ehdotuksille päivitettiin onnistuneesti aihepiiri %{subject_name}: %{proposals}.'
+            success: 'Seuraavien ehdotusten aihepiirin päivitys onnistui %{subject_name}: %{proposals}.'
           update_scope:
             invalid: 'Näillä ehdotuksilla oli jo teema %{subject_name}: %{proposals}.'
             select_a_proposal: Valitse ehdotus
             select_a_scope: Valitse teema
-            success: 'Seuraaville ehdotuksille päivitettiin onnistuneesti teema %{subject_name}: %{proposals}.'
+            success: 'Seuraavien ehdotusten teeman päivitys onnistui %{subject_name}: %{proposals}.'
         proposals_imports:
           create:
             invalid: Ehdotuksien tuominen epäonnistui
-            success: "%{number} ehdotusta tuotu onnistuneesti"
+            success: "%{number} ehdotuksen tuonti onnistui"
           new:
             create: Tuo ehdotuksia
             no_components: Tässä osallistumistilassa ei ole muita ehdotuskomponentteja ehdotusten tuomiseksi.
@@ -555,7 +555,7 @@ fi:
               cancel: Peruuta
               ok: Peru yhteistyöluonnos
               title: Seuraavat toimenpiteet ovat peruuttamattomia
-            success: Yhteistyöluonnos peruutettiin onnistuneesti.
+            success: Yhteistyöluonnoksen peruuttaminen onnistui.
         compare:
           mine_is_different: Yhteistyöehdotukseni on erilainen
           no_similars_found: Hyvin tehty! Vastaavanlaisia ​​yhteistyöluonnoksia ei löytynyt
@@ -569,7 +569,7 @@ fi:
             other: "%{count} yhteistyöluonnosta"
         create:
           error: Yhteistyöluonnoksen luonti epäonnistui
-          success: Yhteistyöluonnos luotu onnistuneesti.
+          success: Yhteistyöluonnoksen luonti onnistui.
         edit:
           attachment_legend: "(Valinnainen) Lisää liite"
           back: Takaisin
@@ -605,17 +605,17 @@ fi:
         requests:
           accepted_request:
             error: Osallistujaa ei voitu hyväksyä, yritä myöhemmin uudelleen.
-            success: "@%{user} on hyväksytty yhteistyökumppaniksi onnistuneesti"
+            success: "Käyttäjän @%{user} hyväksyminen muokkaajaksi onnistui"
           access_requested:
             error: Pyyntöäsi ei voitu suorittaa, yritä myöhemmin uudelleen.
-            success: Pyyntösi päästä osallistumaan on lähetetty onnistuneesti
+            success: Osallistumispyyntösi lähetys onnistui
           collaboration_requests:
             accept_request: Hyväksy
             reject_request: Hylkää
             title: Yhteistyöpyynnöt
           rejected_request:
             error: Osallistujaa ei voitu hylätä, yritä myöhemmin uudelleen.
-            success: "@%{user} osallistumispyynnön hylkäys onnistui"
+            success: "Käyttäjän @%{user} osallistumispyynnön hylkäys onnistui"
         show:
           back: Takaisin
           edit: Muokkaa yhteistyöluonnosta
@@ -646,7 +646,7 @@ fi:
           back: Takaisin
           info: Olet luomassa <strong>yhteistyöluonnosta</strong>.
         wizard_steps:
-          see_steps: katso vaiheet
+          see_steps: näytä vaiheet
           step_1: Luo yhteistyöluonnoksesi
           step_2: Vertaa yhteistyöluonnoksiin
           step_3: Tee yhteistyöluonnoksesi valmiiksi
@@ -656,7 +656,7 @@ fi:
         success: Ehdotuksen luonti onnistui. Ehdotus on tallennettu luonnoksena.
       destroy_draft:
         error: Ehdotusluonnoksen poistaminen epäonnistui.
-        success: Ehdotusluonnos poistettiin onnistuneesti.
+        success: Ehdotusluonnoksen poistaminen onnistui.
       last_activity:
         new_proposal_at_html: "<span>Uusi ehdotus osoitteessa %{link}</span>"
       models:
@@ -846,7 +846,7 @@ fi:
           back: Takaisin
           info: Olet luomassa <strong>ehdotusta</strong>.
         wizard_steps:
-          see_steps: katso vaiheet
+          see_steps: näytä vaiheet
           step_1: Luo ehdotuksesi
           step_2: Vertaile
           step_3: Viimeistele
@@ -856,7 +856,7 @@ fi:
         error: Ehdotuksen julkaisu epäonnistui.
         success: Ehdotuksen julkaisu onnistui.
       publish_answers:
-        success: Ehdotusten vastaukset onnistuneesti julkaistu.
+        success: Ehdotusten vastausten julkaisu onnistui.
       update:
         error: Ehdotuksen tallentaminen epäonnistui.
         success: Ehdotuksen päivitys onnistui.

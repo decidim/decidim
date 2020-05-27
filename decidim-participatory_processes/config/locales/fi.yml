@@ -161,7 +161,7 @@ fi:
       participatory_process_imports:
         create:
           error: Virhe tuotaessa tätä osallistumisprosessia.
-          success: Osallistumisprosessi tuotu onnistuneesti.
+          success: Osallistumisprosessin tuonti onnistui.
         new:
           import: Tuo
           select: Valitse, mitkä tiedot haluat tuoda
@@ -203,9 +203,9 @@ fi:
       participatory_process_user_roles:
         create:
           error: Osallistumisprosessin käyttäjän lisääminen epäonnistui.
-          success: Käyttäjä lisättiin onnistuneesti tähän osallistumisprosessiin.
+          success: Käyttäjän lisäys tähän osallistumisprosessiin onnistui.
         destroy:
-          success: Käyttäjä poistettiin onnistuneesti tästä osallistumisprosessista.
+          success: Käyttäjä poistaminen tästä osallistumisprosessista onnistui.
         edit:
           title: Päivitä osallistumisprosessin hallintakäyttäjä
           update: Päivitä

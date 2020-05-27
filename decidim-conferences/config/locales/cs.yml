@@ -169,7 +169,7 @@ cs:
       models:
         conference:
           fields:
-            created_at: Vytvořeno u
+            created_at: Vytvořeno v
             promoted: Propagováno
             published: Publikováno
             title: Název
@@ -273,7 +273,7 @@ cs:
         conference_registration:
           confirm: "%{user_name} potvrdil registraci konference na konferenci %{resource_name}"
         partner:
-          create: "%{user_name} vytvořeno %{resource_name} na %{space_name} konferenci"
+          create: "%{user_name} vytvořil %{resource_name} na konferenci %{space_name}"
           delete: "%{user_name} odstranil uživatele %{resource_name} z konference %{space_name}"
           update: "%{user_name} aktualizoval %{resource_name} v konferenci %{space_name}"
         registration_type:
@@ -446,7 +446,7 @@ cs:
       models:
         conference_invite:
           fields:
-            email: E-mailem
+            email: E-mail
             name: název
             registration_type: Typ registrace
             sent_at: Odeslané
@@ -457,7 +457,7 @@ cs:
             sent: Odeslaná
         conference_registration:
           fields:
-            email: E-mailem
+            email: E-mail
             name: název
             registration_type: Typ registrace
             state: Stát

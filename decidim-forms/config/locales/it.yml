@@ -5,7 +5,7 @@ it:
         body: Risposta
       question:
         max_choices: Numero massimo di scelte
-        question_type: genere
+        question_type: Tipo
       questionnaire_question:
         mandatory: Obbligatorio
     errors:

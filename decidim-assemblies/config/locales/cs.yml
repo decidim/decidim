@@ -61,7 +61,7 @@ cs:
         gender: Rod
         position: Pozice
       assembly_user_role:
-        email: E-mailem
+        email: E-mail
         name: název
         role: Role
   activerecord:
@@ -182,11 +182,11 @@ cs:
       models:
         assemblies_types:
           fields:
-            created_at: Vytvořeno u
+            created_at: Vytvořeno v
             title: Titul
         assembly:
           fields:
-            created_at: Vytvořeno u
+            created_at: Vytvořeno v
             private: Soukromé
             promoted: Zvýrazněno
             published: Publikováno
@@ -206,7 +206,7 @@ cs:
             vice_president: Víceprezident
         assembly_user_role:
           fields:
-            email: E-mailem
+            email: E-mail
             name: název
             role: Role
           name: Administrátor shromáždění
@@ -249,7 +249,7 @@ cs:
             included_at_help: Vyberte datum, kdy bylo toto shromáždění přidáno do aplikace Decidim. Nemusí to být nutně stejné jako datum vytvoření.
             metadata: Metadata
             other: jiný
-            select_a_created_by: Vyberte vytvořenou službu
+            select_a_created_by: Vybrat vytvořeno od
             select_an_area: Vyberte oblast
             select_an_assembly_type: Vyberte typ shromáždění
             select_parent_assembly: Vybrat nadřazené shromáždění

@@ -150,7 +150,7 @@ fi:
         verify: Vahvista
       admin_terms_of_use:
         accept:
-          error: Hallintakäyttäjän ehtojen hyväksymisessä tapahtui virhe.
+          error: Hallintakäyttäjän ehtojen hyväksyminen epäonnistui.
           success: Hienoa! Olet hyväksynyt hallintakäyttäjän ehdot.
         actions:
           accept: Hyväksyn nämä hallintakäyttäjän ehdot
@@ -348,7 +348,7 @@ fi:
           error: Käyttäjänä esiintyminen epäonnistui.
           success: Hallitun käyttäjän luonti onnistui.
         form:
-          authorization_method: Varmennustapa
+          authorization_method: Vahvistustapa
           name: Nimi
           reason: Syy
         new:

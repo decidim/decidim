@@ -37,7 +37,7 @@ cs:
     attributes:
       decidim/user:
         current_password: Aktuální heslo
-        email: E-mai
+        email: E-mail
         name: Uživatelské jméno
         password: Heslo
         password_confirmation: Potvrzení hesla
@@ -413,17 +413,17 @@ cs:
             close_modal: Zavřít okno
             uncheck: Zrušit zaškrtnutí
           notice: |-
-            <p>Hej, jste si jisti, že nechcete dostávat newsletter?<br>
+            <p>Hej, jste si jisti, že nechcete dostávat zpravodaj?<br>
             Zaškrtněte prosím zaškrtávací políčko níže.<br>
             Pro nás je velmi důležité, abyste obdrželi příležitostné e-maily
             abyste dostali důležitá oznámení, můžete to vždy změnit v
             nastavení oznámení.</p>
             <p>Pokud nezaškrtnete zaškrtávací políčko, může vám chybět relevantní informace
             o nových příležitostech pro účast v rámci platformy.<br>
-            Pokud se chcete i nadále vyhýbat přijímání informačních zpravodajů, dokonale
+            Pokud se chcete i nadále vyhýbat přijímání informačních zpravodajů, naprosto 
             rozumíme vašemu rozhodnutí.</p>
             <p>Děkujeme, že jste si to přečetli!</p>
-          title: Upozornění na bulletin
+          title: Oznámení zpravodaje
         omniauth_buttons:
           or: Nebo
     doorkeeper:
@@ -710,7 +710,7 @@ cs:
         phone_help: Nepoužívejte pomlčky ani mezery
       join:
         error: Do skupiny došlo k problému
-        success: Požadavek na spojení byl úspěšně vytvořen. Před tím, než vás přijme do skupiny, admin přezkoumá vaši žádost.
+        success: Žádost o připojení byla úspěšně vytvořena. Před přijetím do skupiny administrátor váš požadavek zkontroluje.
       leave:
         error: Při opouštění skupiny došlo k problému
         success: Skupina úspěšně opustila.
@@ -746,8 +746,8 @@ cs:
         resource_type: Typ
     log:
       base_presenter:
-        create: "%{user_name} vytvořeno %{resource_name}"
-        create_with_space: "%{user_name} vytvořeno %{resource_name} v %{space_name}"
+        create: "%{user_name} vytvořil(a) %{resource_name}"
+        create_with_space: "%{user_name} vytvořil(a) %{resource_name} v %{space_name}"
         delete: "%{user_name} odstraněno %{resource_name}"
         delete_with_space: "%{user_name} smazán %{resource_name} v %{space_name}"
         unknown_action: "%{user_name} provedla nějakou akci na %{resource_name}"
@@ -815,9 +815,9 @@ cs:
         title: Uživatelé
     newsletter_mailer:
       newsletter:
-        note: Tento e-mail jste obdrželi, protože jste odběrateli bulletinů na %{organization_name}. Můžete změnit nastavení na <a href="%{link}">oznámení straně</a>.
+        note: Tento e-mail jste obdrželi, protože jste odběrateli zpravodajů na %{organization_name}. Můžete změnit nastavení na <a href="%{link}">oznámení straně</a>.
         see_on_website: Nelze vidět tento e-mail správně? Zobrazte jej na webu <a href="%{link}" target="_blank"></a>.
-        unsubscribe: Chcete-li odhlásit přijímání tento typ e-mailů, <a href="%{link}" target="_blank" class="unsubscribe">Odhlásit</a>.
+        unsubscribe: Chcete-li se odhlásit z příjmu tohoto typu e-mailu, <a href="%{link}" target="_blank" class="unsubscribe">Odhlásit se</a>.
     newsletters:
       unsubscribe:
         check_subscription: Chcete-li změnit nastavení, můžete tak učinit v <a href="%{link}" target="_blank">konfigurační stránce</a>
@@ -828,7 +828,7 @@ cs:
     newsletters_opt_in:
       unathorized: Je nám líto, tento odkaz již není k dispozici
       update:
-        error: Něco se stalo
+        error: Došlo k chybě
         success: Nastavení Newsletteru bylo úspěšně aktualizováno
     newsletters_opt_in_mailer:
       notify:
@@ -838,15 +838,15 @@ cs:
         button: Ano, chci i nadále přijímat relevantní informace
         greetings: Zdravím,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Ahoj,
-        subject: Chcete stále dostávat relevantní informace o %{organization_name}?
+        subject: Chcete nadále dostávat příslušné informace o %{organization_name}?
     notifications:
       no_notifications: Zatím žádné oznámení.
     notifications_settings:
       show:
         email_on_notification: Chci dostávat e-mail pokaždé, když obdržím oznámení.
         everything_followed: Všechno, co sleduji
-        newsletter_notifications: Chci dostávat informační bulletiny
-        newsletters: Zprávy
+        newsletter_notifications: Chci dostávat zpravodaje
+        newsletters: Zpravodaje
         own_activity: Moje vlastní činnost, jako kdyby někdo komentoval ve svém návrhu nebo mě zmínil
         receive_notifications_about: Chci dostávat oznámení
         send_notifications_by_email: Poslat oznámení emailem
@@ -884,14 +884,14 @@ cs:
           participate: Účastnit se
           welcome: Vítejte na %{organization}!
         metrics:
-          headline: Metrika
+          headline: Metriky
         statistics:
           answers_count: Dokončené průzkumy
           assemblies_count: Sestavy
           comments_count: Komentáře
           conferences_count: Konference
           debates_count: Debaty
-          endorsements_count: Potvrzení
+          endorsements_count: Schválení
           headline: Aktuální stav %{organization}
           meetings_count: Setkání
           orders_count: Hlasy
@@ -914,7 +914,7 @@ cs:
         topics: Témata
       participatory_space:
         metrics:
-          headline: Metrika
+          headline: Metriky
           link: Zobrazit všechny metriky
       terms_and_conditions:
         accept:
@@ -946,7 +946,7 @@ cs:
         activity: Aktivita
         badges: Odznaky
         followers: Sledující
-        following: Následuje
+        following: Sleduje
         groups: Skupiny
         members: Členové
         timeline: Časová osa
@@ -1068,7 +1068,7 @@ cs:
         error: Během aktualizace vašich zájmů došlo k chybě.
         success: Vaše zájmy byly úspěšně aktualizovány.
     welcome_notification:
-      default_body: <p>Dobrý den, {{name}}, díky za připojení {{organization}} a vítejte!</p><ul><li>Chcete-li získat rychlou představu o tom, co zde můžete udělat, podívejte se na sekci <a href="{{help_url}}">Nápověda</a>.</li><li>Až si ji přečtete, dostanete svůj první odznak. Zde je <a href="{{badges_url}}">seznam všech odznaků</a> které můžete získat, když se účastníte {{organization}}</li><li>v neposlední řadě se připojte k ostatním lidem, sdílejte s nimi zkušenost z toho, že jste se zapojili a zúčastnili se {{organization}}. Vypracujte návrhy, připomínky, diskusi, přemýšlejte o tom, jak přispívat ke společnému cíli, poskytněte argumenty, abyste přesvědčili, poslouchali a četli, abyste byli přesvědčeni, vyjadřovali své myšlenky konkrétním a přímým způsobem, reagovali trpělivě a rozhodovali, měli otevřenou mysl ke spolupráci a připojili se k jiným lidem.</li></ul>
+      default_body: <p>Dobrý den, {{name}}, díky za připojení k {{organization}} a vítejte!</p><ul><li>Chcete-li získat rychlou představu o tom, co zde můžete udělat, podívejte se na sekci <a href="{{help_url}}">Nápověda</a>.</li><li>Až si ji přečtete, dostanete svůj první odznak. Zde je <a href="{{badges_url}}">seznam všech odznaků</a> které můžete získat, když se účastníte {{organization}}</li><li>v neposlední řadě se připojte k ostatním lidem, sdílejte s nimi zkušenost z toho, že jste se zapojili a zúčastnili se {{organization}}. Vypracujte návrhy, připomínky, diskusi, přemýšlejte o tom, jak přispívat ke společnému cíli, poskytněte argumenty, abyste přesvědčili, poslouchali a četli, abyste byli přesvědčeni, vyjadřovali své myšlenky konkrétním a přímým způsobem, reagovali trpělivě a rozhodovali, měli otevřenou mysl ke spolupráci a připojili se k jiným lidem.</li></ul>
       default_subject: Děkujeme, že jste se připojili k {{organization}}!
     wizard_step_form:
       wizard_aside:
