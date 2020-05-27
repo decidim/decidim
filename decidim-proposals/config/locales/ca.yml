@@ -87,9 +87,7 @@ ca:
         state_eq:
           label: Estat
           values:
-            accepted: Acceptades
             evaluating: En avaluació
-            rejected: Rebutjada
             withdrawn: Retirada
         state_null:
           label: Estat
