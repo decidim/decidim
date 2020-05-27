@@ -33,6 +33,7 @@ ca:
       decidim/profile_updated_event: Perfil actualitzat
       decidim/promote_to_admin: Promocionada a administradora del grup
       decidim/removed_from_group: Eliminada del grup
+      decidim/resource_endorsed_event: Adhesió a recurs feta
   activerecord:
     attributes:
       decidim/user:
@@ -46,6 +47,9 @@ ca:
       decidim/amendment:
         one: Esmena
         other: Esmenes
+      decidim/endorsement:
+        one: Adhesió
+        other: Adhesions
       decidim/user:
         one: Participant
         other: Participants
@@ -57,6 +61,7 @@ ca:
     'true': 'Sí'
   carrierwave:
     errors:
+      general: Error en processar la imatge
       image_too_big: La imatge és massa gran
   date:
     formats:
@@ -66,6 +71,9 @@ ca:
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
+    accessibility:
+      logo: "Logo oficial de %{organization}"
+      skip_button: Vés al contingut principal
     account:
       data_portability_export:
         file_no_exists: L'arxiu no existeix
@@ -90,7 +98,7 @@ ca:
         success_with_email_confirmation: El teu compte s'ha actualitzat correctament. Rebràs un correu electrònic per confirmar la teva nova adreça de correu electrònic.
     admin:
       actions:
-        cancel: Cancel·la
+        cancel: Cancel·lar
     admin_log:
       area:
         create: "%{user_name} ha creat l'àrea %{resource_name}"
@@ -134,6 +142,7 @@ ca:
         invite: "%{user_name} ha convidat la participant %{resource_name} amb el rol: %{role}"
         officialize: "%{user_name} ha oficialitzat la participant %{resource_name}"
         remove_from_admin: "%{user_name} ha eliminat a la participant %{resource_name} amb el rol: %{role}"
+        show_email: "%{user_name} ha recuperat el correu de la participant %{resource_name}"
         unofficialize: "%{user_name} ha desoficialitzat la participant %{resource_name}"
       user_group:
         reject: "%{user_name} ha rebutjat la verificació del grup %{resource_name}"
@@ -226,6 +235,8 @@ ca:
         documents:
           one: Document
           other: Documents
+      document:
+        download: Descarregar fitxer
       documents:
         related_documents: Documents relacionats
       photos:
@@ -235,11 +246,15 @@ ca:
       comments:
         one: comentari
         other: comentaris
+      endorsements:
+        one: adhesió
+        other: adhesions
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Verifica't introduint un número de passaport que comenci per "A"
         fields:
           passport_number: Número de passaport
+          postal_code: Codi postal
         name: Una altra autorització d'exemple
       dummy_authorization_handler:
         explanation: Verifica't introduint un número de document que finalitzi amb "X"
@@ -422,6 +437,15 @@ ca:
           this_application_will_not_be_able_to: 'Aquesta aplicació no podrà:'
           update_profile: Actualitza el teu perfil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> vol utilitzar el teu compte"
+    endorsable:
+      endorsements: Adhesions
+    endorsement_buttons_cell:
+      already_endorsed: Adherit
+      endorse: Adherir-se
+    endorsements:
+      identities:
+        done: Fet
+        select_identity: Selecciona identitat
     errors:
       internal_server_error:
         title: Hi ha hagut un problema amb el nostre servidor
@@ -542,6 +566,11 @@ ca:
           notification_title: Has estat eliminada del grup <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
+      resource_endorsed:
+        email_intro: '%{endorser_name} %{endorser_nickname}, a qui segueixes, acaba d''adherir-se a una proposta que et pot resultar interessant, revisa-la i contribueix:'
+        email_outro: Has rebut aquesta notificació perquè estàs seguint a %{endorser_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+        email_subject: "%{endorser_nickname} s'ha adherit a una proposta"
+        notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> s'ha adherit a la proposta <a href="%{resource_path}">%{resource_title}</a>.
       users:
         profile_updated:
           email_intro: La pàgina <a href="%{resource_url}"> de perfil </a> de %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
@@ -550,7 +579,7 @@ ca:
           notification_title: El <a href="%{resource_path}"> perfi l</a> de %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
     export_mailer:
       data_portability_export:
-        click_button: 'Fes clic al botó següent per descarregar les teves dades. <br/> tindràs disponible el fitxer fins a %{date}.'
+        click_button: 'Fes clic al botó següent per descarregar les teves dades. <br/> tindràs disponible el fitxer fins a %{date}. <br/> Et caldrà <a href=''https://www.7-zip.org/''>7-Zip</a> per obrir-lo. Contrasenya: %{password}'
         download: Descarregar
       export:
         ready: S'adjunta una versió comprimida de l'exportació.
@@ -580,6 +609,7 @@ ca:
       create:
         button: Seguir
         error: S'ha produït un error en seguir aquest recurs.
+        participatory_space: Seguint
       destroy:
         button: Deixar de seguir
         error: S'ha produït un error en deixar de seguir aquest recurs.
@@ -766,12 +796,14 @@ ca:
         create:
           error: No s'ha iniciat la conversa. Torna-ho a provar més tard
         index:
+          close: Tanca modal
           no_conversations: Encara no tens converses
           title: Converses
         reply:
           send: Enviar
           title: Respon
         show:
+          not_allowed: Aquesta participant no accepta missatges directes.
           title: Conversa amb %{usernames}
         start:
           send: Enviar
@@ -798,6 +830,9 @@ ca:
         note: Has rebut aquest correu electrònic perquè estàs subscrita a butlletins de notícies a %{organization_name}. Pots canviar la configuració a la teva <a href="%{link}">pàgina de notificacions</a>.
         see_on_website: No pots veure correctament aquest correu electrònic? Veu la seva <a href="%{link}" target="_blank"> versió web</a>.
         unsubscribe: Per desactivar la recepció d'aquest tipus de correu electrònic, <a href="%{link}" target="_blank" class="unsubscribe">dona't de baixa</a>.
+    newsletter_templates:
+      image_text_cta_settings_form:
+        body: Cos
     newsletters:
       unsubscribe:
         check_subscription: Si vols canviar les teves preferències, pots fer-ho a la <a href="%{link}" target="_blank">pàgina de configuració</a>
@@ -823,6 +858,8 @@ ca:
       no_notifications: Encara no hi ha notificacions.
     notifications_settings:
       show:
+        allow_public_contact: Permetre que qualsevol participant m'envïi missatges directes, encara que no la segueixi.
+        direct_messages: Rebre missatges directes de qualsevol
         email_on_notification: Vull rebre un correu electrònic cada vegada que rebi una notificació.
         everything_followed: Tot el que segueixo
         newsletter_notifications: Vull rebre butlletins informatius
@@ -864,7 +901,7 @@ ca:
           participate: Participa
           welcome: Benvinguda a %{organization}!
         metrics:
-          headline: Participació en xifres
+          headline: Mètriques
         statistics:
           answers_count: Enquestes realitzades
           assemblies_count: Assemblees
@@ -894,8 +931,8 @@ ca:
         topics: Temes
       participatory_space:
         metrics:
-          headline: Participació en xifres
-          link: Mostra totes les estadístiques
+          headline: Mètriques
+          link: Mostra totes les mètriques
       terms_and_conditions:
         accept:
           error: S'ha produït un error en acceptar els Termes i Condicions.
@@ -962,6 +999,9 @@ ca:
       create:
         error: S'ha produït un error en denunciar el contingut. Si us plau, torna-ho a intentar.
         success: El contingut s'ha denunciat amb èxit i serà revisat per una administradora.
+    resource_endorsements:
+      create:
+        error: S'ha produït un error durant l'acció d'adhesió.
     scopes:
       global: Àmbit global
       picker:
@@ -1027,6 +1067,7 @@ ca:
         select_user_group: Selecciona un grup
       results_per_page:
         label: 'Resultats per pàgina:'
+        title: Seleccionar el nombre de resultats per pàgina
       share_modal:
         close_window: Tanca la finestra
         share: Compartir
@@ -1036,6 +1077,7 @@ ca:
     user_activity:
       index:
         no_activities_warning: Aquesta participant encara no ha tingut cap activitat.
+    user_contact_disabled: Aquesta participant no accepta missatges directes.
     user_interests:
       show:
         my_interests: Els meus interessos
@@ -1312,6 +1354,7 @@ ca:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%B %d, %Y %H:%M"
+      long_dashed: "%A-%m-%d %H:%M:%S"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
@@ -1328,7 +1371,12 @@ ca:
   views:
     pagination:
       first: "&laquo; Primera"
+      first_title: Enllaç a la primera pàgina
       last: Última &raquo;
+      last_title: Enllaç a la darrera pàgina
       next: Següent &rsaquo;
+      next_title: Enllaç a la pàgina següent
       previous: "&lsaquo; Anterior"
+      previous_title: Enllaç a la pàgina anterior
+      title: 'Número de pàgina: '
       truncate: "&hellip;"

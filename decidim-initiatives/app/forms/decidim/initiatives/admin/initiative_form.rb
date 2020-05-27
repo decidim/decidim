@@ -20,6 +20,7 @@ module Decidim
         attribute :hashtag, String
         attribute :offline_votes, Integer
         attribute :state, String
+        attribute :attachment, AttachmentForm
 
         validates :title, :description, presence: true
         validates :signature_type, presence: true, if: :signature_type_updatable?
@@ -28,12 +29,17 @@ module Decidim
         validates :signature_end_date, date: { after: :signature_start_date }, if: lambda { |form|
           form.signature_start_date.present? && form.signature_end_date.present?
         }
+        validates :signature_end_date, date: { after: Date.current }, if: lambda { |form|
+          form.signature_start_date.blank? && form.signature_end_date.present?
+        }
 
         validates :offline_votes,
                   numericality: {
                     only_integer: true,
                     greater_than: 0
                   }, allow_blank: true
+
+        validate :notify_missing_attachment_if_errored
 
         def map_model(model)
           self.type_id = model.type.id
@@ -61,6 +67,14 @@ module Decidim
 
         def type
           @type ||= type_id ? Decidim::InitiativesType.find(type_id) : context.initiative.type
+        end
+
+        # This method will add an error to the `attachment` field only if there's
+        # any error in any other field. This is needed because when the form has
+        # an error, the attachment is lost, so we need a way to inform the user of
+        # this problem.
+        def notify_missing_attachment_if_errored
+          errors.add(:attachment, :needs_to_be_reattached) if errors.any? && attachment.present?
         end
       end
     end

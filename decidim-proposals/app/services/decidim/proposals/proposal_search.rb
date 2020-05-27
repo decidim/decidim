@@ -63,7 +63,7 @@ module Decidim
         accepted = state.member?("accepted") ? query.accepted : nil
         rejected = state.member?("rejected") ? query.rejected : nil
         evaluating = state.member?("evaluating") ? query.evaluating : nil
-        not_answered = state.member?("not_answered") ? query.not_answered : nil
+        not_answered = state.member?("not_answered") ? query.state_not_published : nil
 
         query
           .where(id: accepted)

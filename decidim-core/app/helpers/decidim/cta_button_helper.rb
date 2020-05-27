@@ -8,7 +8,7 @@ module Decidim
     def cta_button
       button_text = translated_attribute(current_organization.cta_button_text).presence || t("decidim.pages.home.hero.participate")
 
-      link_to button_text, cta_button_path, class: "hero-cta button expanded large button--sc"
+      link_to button_text, cta_button_path, class: "hero-cta button expanded large button--sc", title: t("decidim.pages.home.hero.participate_title")
     end
 
     # Finds the CTA button path to reuse it in other places.

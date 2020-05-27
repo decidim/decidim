@@ -6,6 +6,16 @@ describe "Initiative", type: :system do
   let(:organization) { create(:organization) }
   let(:authorized_user) { create(:user, :confirmed, organization: organization) }
 
+  shared_examples "initiatives path redirection" do
+    it "redirects to initiatives path" do
+      accept_confirm do
+        click_link("Send my initiative")
+      end
+
+      expect(page).to have_current_path("/initiatives")
+    end
+  end
+
   context "when access to functionality" do
     before do
       switch_to_host(organization.host)
@@ -34,7 +44,14 @@ describe "Initiative", type: :system do
     context "without validation" do
       let(:initiative_type_minimum_committee_members) { 2 }
       let(:signature_type) { "any" }
-      let(:initiative_type) { create(:initiatives_type, organization: organization, minimum_committee_members: initiative_type_minimum_committee_members, signature_type: signature_type) }
+      let(:initiative_type_promoting_committee_enabled) { true }
+      let(:initiative_type) do
+        create(:initiatives_type,
+               organization: organization,
+               minimum_committee_members: initiative_type_minimum_committee_members,
+               promoting_committee_enabled: initiative_type_promoting_committee_enabled,
+               signature_type: signature_type)
+      end
       let!(:other_initiative_type) { create(:initiatives_type, organization: organization) }
       let!(:initiative_type_scope) { create(:initiatives_type_scope, type: initiative_type) }
       let!(:other_initiative_type_scope) { create(:initiatives_type_scope, type: initiative_type) }
@@ -159,6 +176,20 @@ describe "Initiative", type: :system do
             expect(find(:xpath, "//input[@id='initiative_signature_type']", visible: false).value).to eq("offline")
           end
         end
+
+        context "when the initiative type does not enable custom signature end date" do
+          it "does not show the signature end date" do
+            expect(page).not_to have_content("End of signature collection period")
+          end
+        end
+
+        context "when the initiative type enables custom signature end date" do
+          let(:initiative_type) { create(:initiatives_type, :custom_signature_end_date_enabled, organization: organization, minimum_committee_members: initiative_type_minimum_committee_members, signature_type: "offline") }
+
+          it "shows the signature end date" do
+            expect(page).to have_content("End of signature collection period")
+          end
+        end
       end
 
       context "when Promotal committee" do
@@ -215,7 +246,7 @@ describe "Initiative", type: :system do
         end
       end
 
-      context "when Finish" do
+      context "when Finish", processing_uploads_for: Decidim::AttachmentUploader do
         let(:initiative) { build(:initiative) }
 
         before do
@@ -227,19 +258,60 @@ describe "Initiative", type: :system do
 
           select(translated(initiative_type_scope.scope.name, locale: :en), from: "Scope")
           select("Online", from: "Signature collection type")
+          fill_in :initiative_attachment_title, with: "Document name"
+          attach_file :initiative_attachment_file, Decidim::Dev.asset("Exampledocument.pdf")
           find_button("Continue").click
-
-          find_link("Continue").click
         end
 
-        it "finish view is shown" do
-          expect(page).to have_content("Finish")
-        end
-
-        it "Offers contextual help" do
-          within ".callout.secondary" do
-            expect(page).to have_content("Congratulations! Your citizen initiative has been successfully created.")
+        context "when minimum committee size is above zero" do
+          before do
+            find_link("Continue").click
           end
+
+          it "finish view is shown" do
+            expect(page).to have_content("Finish")
+          end
+
+          it "Offers contextual help" do
+            within ".callout.secondary" do
+              expect(page).to have_content("Congratulations! Your citizen initiative has been successfully created.")
+            end
+          end
+
+          it "displays an edit link" do
+            within ".column.actions" do
+              expect(page).to have_link("Edit my initiative")
+            end
+          end
+        end
+
+        context "when minimum committee size is zero" do
+          let(:initiative) { build(:initiative, organization: organization, scoped_type: initiative_type_scope) }
+          let(:initiative_type_minimum_committee_members) { 0 }
+
+          it "displays a send to technical validation link" do
+            within ".column.actions" do
+              expect(page).to have_link("Send my initiative")
+              expect(page).to have_selector "a[data-confirm='Confirm']"
+            end
+          end
+
+          it_behaves_like "initiatives path redirection"
+        end
+
+        context "when promoting committee is not enabled" do
+          let(:initiative) { build(:initiative, organization: organization, scoped_type: initiative_type_scope) }
+          let(:initiative_type_promoting_committee_enabled) { false }
+          let(:initiative_type_minimum_committee_members) { 0 }
+
+          it "displays a send to technical validation link" do
+            within ".column.actions" do
+              expect(page).to have_link("Send my initiative")
+              expect(page).to have_selector "a[data-confirm='Confirm']"
+            end
+          end
+
+          it_behaves_like "initiatives path redirection"
         end
       end
     end

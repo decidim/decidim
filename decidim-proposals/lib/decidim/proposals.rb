@@ -17,6 +17,7 @@ module Decidim
     autoload :ParticipatoryTextSection, "decidim/proposals/participatory_text_section"
     autoload :DocToMarkdown, "decidim/proposals/doc_to_markdown"
     autoload :OdtToMarkdown, "decidim/proposals/odt_to_markdown"
+    autoload :Valuatable, "decidim/proposals/valuatable"
 
     include ActiveSupport::Configurable
 

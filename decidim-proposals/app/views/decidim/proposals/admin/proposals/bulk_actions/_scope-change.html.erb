@@ -1,0 +1,25 @@
+<div id="js-scope-change-proposals-actions" class="hide js-bulk-action-form">
+  <%= form_tag(update_scope_proposals_path, method: :post, remote: true, id: "js-form-scope-change-proposals", class: "flex--cc flex-gap--1") do %>
+    <div class="checkboxes hide">
+      <% proposals.each do |proposal| %>
+        <%= check_box_tag "proposal_ids[]", proposal.id, false, class: "js-check-all-proposal js-proposal-id-#{proposal.id}" %>
+      <% end %>
+    </div>
+
+    <%= scopes_picker_tag(
+          :scope_id,
+          try(:current_participatory_space)&.scope,
+          field: t("models.proposal.fields.scope", scope: "decidim.proposals")
+        ) %>
+
+    <%= submit_tag(
+          t("decidim.proposals.admin.proposals.index.update_scope_button"),
+          id: "js-submit-scope-change-proposals",
+          class: "button small button--simple float-left"
+        ) %>
+
+    <button id="js-cancel-scope-change-proposals" class="button tiny clear compact js-cancel-bulk-action" type="button">
+      <%= t("decidim.proposals.admin.proposals.index.cancel") %>
+    </button>
+  <% end %>
+</div>

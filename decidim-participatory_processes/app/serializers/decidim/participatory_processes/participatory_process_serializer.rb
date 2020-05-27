@@ -52,6 +52,7 @@ module Decidim
           private_space: participatory_process.private_space,
           promoted: participatory_process.promoted,
           scopes_enabled: participatory_process.scopes_enabled,
+          show_metrics: participatory_process.show_metrics,
           show_statistics: participatory_process.show_statistics,
           participatory_process_steps: serialize_participatory_process_steps,
           participatory_process_categories: serialize_categories,

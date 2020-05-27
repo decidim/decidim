@@ -23,14 +23,14 @@ module Decidim
           process ? "/processes/#{process.slug}/f/#{params[:component_id]}" : "/404"
         }, constraints: { process_id: /[0-9]+/ }
 
-        get "processes/:process_id/statistics", to: redirect { |params, _request|
+        get "processes/:process_id/all-metrics", to: redirect { |params, _request|
           process = Decidim::ParticipatoryProcess.find(params[:process_id])
-          process ? "/processes/#{process.slug}/statistics" : "/404"
-        }, constraints: { process_id: /[0-9]+/ }, as: :statistics
+          process ? "/processes/#{process.slug}/all-metrics" : "/404"
+        }, constraints: { process_id: /[0-9]+/ }, as: :all_metrics
 
         resources :participatory_process_groups, only: :show, path: "processes_groups"
         resources :participatory_processes, only: [:index, :show], param: :slug, path: "processes" do
-          get :statistics, on: :member
+          get "all-metrics", on: :member
           resources :participatory_process_steps, only: [:index], path: "steps"
           resource :participatory_process_widget, only: :show, path: "embed"
         end
@@ -80,6 +80,16 @@ module Decidim
           content_block.settings do |settings|
             settings.attribute :max_results, type: :integer, default: 4
           end
+        end
+      end
+
+      initializer "decidim_participatory_processes.stats" do
+        Decidim.stats.register :followers_count, priority: StatsRegistry::HIGH_PRIORITY do |participatory_process|
+          Decidim::ParticipatoryProcesses::StatsFollowersCount.for(participatory_process)
+        end
+
+        Decidim.stats.register :participants_count, priority: StatsRegistry::HIGH_PRIORITY do |participatory_process|
+          Decidim::ParticipatoryProcesses::StatsParticipantsCount.for(participatory_process)
         end
       end
 

@@ -25,6 +25,10 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
     resource.card = "decidim/participatory_processes/process_group"
   end
 
+  participatory_space.register_stat :followers_count, tag: :followers, priority: Decidim::StatsRegistry::LOW_PRIORITY do |spaces, _start_at, _end_at|
+    Decidim::Follow.where(followable: spaces).count
+  end
+
   participatory_space.context(:public) do |context|
     context.engine = Decidim::ParticipatoryProcesses::Engine
     context.layout = "layouts/decidim/participatory_process"
@@ -44,6 +48,10 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
     export.serializer Decidim::ParticipatoryProcesses::ParticipatoryProcessSerializer
   end
 
+  participatory_space.register_on_destroy_account do |user|
+    Decidim::ParticipatoryProcessUserRole.where(user: user).destroy_all
+  end
+
   participatory_space.seeds do
     organization = Decidim::Organization.first
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
@@ -51,7 +59,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
     Decidim::ContentBlock.create(
       organization: organization,
       weight: 31,
-      scope: :homepage,
+      scope_name: :homepage,
       manifest_name: :highlighted_processes,
       published_at: Time.current
     )

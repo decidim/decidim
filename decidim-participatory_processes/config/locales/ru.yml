@@ -20,6 +20,7 @@ ru:
         participatory_structure: Как это решается
         promoted: Рекомендуется
         published_at: 'Обнародовано:'
+        related_process_ids: Подобные движения
         scope_id: Охват
         scopes_enabled: Охваты включены
         short_description: Краткое описание
@@ -186,13 +187,11 @@ ru:
         destroy:
           success: Успешно удален участник этого движения соучастия.
         edit:
-          title: Обновить участника движения соучастия.
           update: Обновить
         index:
           process_admins_title: Участники движения соучастия
         new:
           create: Создать
-          title: Добавить участника движения соучастия.
         update:
           error: При попытке обновить участника этого движения соучастия произошла ошибка.
           success: Успешно обновлен участник этого движения соучастия.
@@ -277,6 +276,7 @@ ru:
         participatory_processes:
           form:
             announcement_help: Текст, который вы введете здесь, будет показан участнику прямо под описанием движения.
+            related_processes: Подобные движения
             slug_help: 'Сокращенные веб-адреса используются для создания ссылок на это движение. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
             title: Общие сведения
       content_blocks:
@@ -334,6 +334,7 @@ ru:
         participatory_scope: Что решается
         participatory_structure: Как это решается
         private_space: Это частное движение
+        related_processes: Подобные движения
         scope: Охват
         start_date: Дата начала
         target: Кто участвует
@@ -347,13 +348,14 @@ ru:
         meetings_count: Встреч
         orders_count: Голосов
         pages_count: Страниц
+        participants_count: Участников
         processes_count: Движений
         projects_count: Проектов
         proposals_count: Предложений
         results_count: Итогов
+        supports_count: Голосов
         surveys_count: Опросов
         users_count: Участников
-        votes_count: Голосов
   layouts:
     decidim:
       participatory_process_groups:

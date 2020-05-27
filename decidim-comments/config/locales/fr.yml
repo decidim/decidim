@@ -4,6 +4,7 @@ fr:
       decidim/comments/comment_by_followed_user_event: Commentaire
       decidim/comments/comment_created_event: Commentaire
       decidim/comments/reply_created_event: Réponse à un commentaire
+      decidim/comments/user_group_mentioned_event: Mention
       decidim/comments/user_mentioned_event: Mention
   activerecord:
     models:
@@ -73,6 +74,9 @@ fr:
         comment_by_followed_user:
           email_intro: "%{author_name} a laissé un commentaire dans %{resource_title}. Vous pouvez le lire sur la page suivante :"
           email_outro: Vous avez reçu cette notification, car vous suivez %{author_name}. Vous pouvez vous désabonner de cet utilisateur depuis sa page de profil.
+          email_subject: Un nouveau commentaire vient d'être déposé par %{author_name} dans %{resource_title}
+          notification_title: Un nouveau commentaire a été publié par <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>.
+        comment_by_followed_user_group:
           email_subject: Un nouveau commentaire vient d'être déposé par %{author_name} dans %{resource_title}
           notification_title: Un nouveau commentaire a été publié par <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:

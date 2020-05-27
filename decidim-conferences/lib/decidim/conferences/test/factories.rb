@@ -96,6 +96,21 @@ FactoryBot.define do
     end
   end
 
+  factory :conference_valuator, parent: :user, class: "Decidim::User" do
+    transient do
+      conference { create(:conference) }
+    end
+
+    organization { conference.organization }
+
+    after(:create) do |user, evaluator|
+      create :conference_user_role,
+             user: user,
+             conference: evaluator.conference,
+             role: :valuator
+    end
+  end
+
   factory :conference_speaker, class: "Decidim::ConferenceSpeaker" do
     conference { create(:conference) }
 

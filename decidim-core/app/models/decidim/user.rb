@@ -57,6 +57,8 @@ module Decidim
       where("extended_data->>'interested_scopes' ~~ ANY('{#{ids}}')")
     }
 
+    scope :org_admins_except_me, ->(user) { where(organization: user.organization, admin: true).where.not(id: user.id) }
+
     attr_accessor :newsletter_notifications
 
     searchable_fields({
@@ -79,6 +81,12 @@ module Decidim
     #
     # Returns a String.
     attr_accessor :invitation_instructions
+
+    # Returns the user corresponding to the given +email+ if it exists and has pending invitations,
+    #   otherwise returns nil.
+    def self.has_pending_invitations?(organization_id, email)
+      invitation_not_accepted.find_by(decidim_organization_id: organization_id, email: email)
+    end
 
     # Returns the presenter for this author, to be used in the views.
     # Required by ActsAsAuthor.
@@ -124,8 +132,19 @@ module Decidim
       Decidim::Follow.where(user: self, followable: followable).any?
     end
 
+    # Public: whether the user accepts direct messages from another
+    def accepts_conversation?(user)
+      return follows?(user) if direct_message_types == "followed-only"
+
+      true
+    end
+
     def unread_conversations
       Decidim::Messaging::Conversation.unread_by(self)
+    end
+
+    def unread_messages_count
+      @unread_messages_count ||= Decidim::Messaging::Receipt.unread_count(self)
     end
 
     # Check if the user exists with the given email and the current organization
@@ -191,6 +210,25 @@ module Decidim
         uploader.retrieve_from_store!(filename)
         uploader.cache!(filename)
       end
+    end
+
+    # return the groups where this user has been accepted
+    def accepted_user_groups
+      UserGroups::AcceptedUserGroups.for(self)
+    end
+
+    # return the groups where this user has admin permissions
+    def manageable_user_groups
+      UserGroups::ManageableUserGroups.for(self)
+    end
+
+    def authenticatable_salt
+      "#{super}#{session_token}"
+    end
+
+    def invalidate_all_sessions!
+      self.session_token = SecureRandom.hex
+      save!
     end
 
     protected

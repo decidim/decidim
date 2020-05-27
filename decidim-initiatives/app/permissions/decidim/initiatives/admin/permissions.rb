@@ -35,6 +35,7 @@ module Decidim
           initiative_type_scope_action?
           initiative_committee_action?
           initiative_admin_user_action?
+          initiative_export_action?
           moderator_action?
           allow! if permission_action.subject == :attachment
 
@@ -68,6 +69,8 @@ module Decidim
 
         def attachment_action?
           return unless permission_action.subject == :attachment
+
+          disallow! && return unless initiative.attachments_enabled?
 
           attachment = context.fetch(:attachment, nil)
           attached = attachment&.attached_to
@@ -151,9 +154,15 @@ module Decidim
                       initiative.signature_end_date < Date.current &&
                       initiative.percentage < 100
             toggle_allow(allowed)
+          when :send_to_technical_validation
+            toggle_allow(allowed_to_send_to_technical_validation?)
           else
             allow!
           end
+        end
+
+        def initiative_export_action?
+          allow! if permission_action.subject == :initiatives && permission_action.action == :export
         end
 
         def moderator_action?
@@ -180,17 +189,19 @@ module Decidim
           when :update
             toggle_allow(initiative.created?)
           when :send_to_technical_validation
-            allowed = initiative.created? && (
-                        !initiative.created_by_individual? ||
-                        initiative.enough_committee_members?
-                      )
-
-            toggle_allow(allowed)
+            toggle_allow(allowed_to_send_to_technical_validation?)
           when :manage_membership
             toggle_allow(initiative.promoting_committee_enabled?)
           else
             disallow!
           end
+        end
+
+        def allowed_to_send_to_technical_validation?
+          initiative.created? && (
+            !initiative.created_by_individual? ||
+            initiative.enough_committee_members?
+          )
         end
       end
     end

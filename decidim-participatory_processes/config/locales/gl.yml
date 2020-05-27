@@ -22,6 +22,7 @@ gl:
         participatory_structure: Como se decide
         promoted: Promocionado
         published_at: Publicado en
+        related_process_ids: Procesos relacionados
         scope_id: Alcance
         scopes_enabled: Ámbitos habilitados
         short_description: Descrición curta
@@ -187,13 +188,11 @@ gl:
         destroy:
           success: Usuario eliminado con éxito deste proceso participativo.
         edit:
-          title: Actualiza o usuario de proceso participativo.
           update: Actualización
         index:
           process_admins_title: Usuarios de procesos participativos
         new:
           create: Crear
-          title: Novo usuario de proceso participativo.
         update:
           error: Houbo un erro actualizado por un usuario para este proceso participativo.
           success: Usuario actualizado correctamente para este proceso participativo.
@@ -299,6 +298,7 @@ gl:
             images: Imaxes
             metadata: Metadatos
             other: Outra
+            related_processes: Procesos relacionados
             select_an_area: Seleccione unha área
             select_process_group: Seleccione un grupo de procesos
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este proceso. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
@@ -354,6 +354,7 @@ gl:
         participatory_scope: O que se decide
         participatory_structure: Como se decide
         private_space: Este é un proceso privado
+        related_processes: Procesos relacionados
         scope: Alcance
         start_date: Data de inicio
         target: Quen participa
@@ -367,13 +368,14 @@ gl:
         meetings_count: Reunións
         orders_count: Votos
         pages_count: Páxinas
+        participants_count: Participantes
         processes_count: Procesos
         projects_count: Proxectos
         proposals_count: Propostas
         results_count: Resultados
+        supports_count: Votos
         surveys_count: Enquisas
         users_count: Participantes
-        votes_count: Votos
   layouts:
     decidim:
       participatory_process_groups:

@@ -30,7 +30,7 @@ module Decidim
                inverse_of: :initiatives
 
     delegate :type, :scope, :scope_name, to: :scoped_type, allow_nil: true
-    delegate :promoting_committee_enabled?, to: :type
+    delegate :attachments_enabled?, :promoting_committee_enabled?, :custom_signature_end_date_enabled?, to: :type
 
     has_many :votes,
              foreign_key: "decidim_initiative_id",
@@ -68,7 +68,7 @@ module Decidim
 
     scope :open, lambda {
       published
-        .where.not(state: [:discarded, :rejected, :accepted])
+        .where.not(state: [:discarded, :rejected, :accepted, :created])
         .where("signature_start_date <= ?", Date.current)
         .where("signature_end_date >= ?", Date.current)
     }
@@ -85,6 +85,7 @@ module Decidim
     scope :signature_type_updatable, -> { created }
 
     scope :order_by_most_recent, -> { order(created_at: :desc) }
+    scope :order_by_most_recently_published, -> { order(published_at: :desc) }
     scope :order_by_supports, -> { order(Arel.sql("initiative_votes_count + coalesce(offline_votes, 0) desc")) }
     scope :order_by_most_commented, lambda {
       select("decidim_initiatives.*")
@@ -227,7 +228,7 @@ module Decidim
         published_at: Time.current,
         state: "published",
         signature_start_date: Date.current,
-        signature_end_date: Date.current + Decidim::Initiatives.default_signature_time_period_length
+        signature_end_date: signature_end_date || Date.current + Decidim::Initiatives.default_signature_time_period_length
       )
     end
 
@@ -301,6 +302,10 @@ module Decidim
       committee_members.approved.where(decidim_users_id: user.id).any?
     end
 
+    def author_users
+      [author].concat(committee_members.excluding_author.map(&:user))
+    end
+
     def accepts_offline_votes?
       published? && (offline_signature_type? || any_signature_type?)
     end
@@ -332,6 +337,13 @@ module Decidim
       organization.available_authorizations.include?("sms") && type.validate_sms_code_on_votes?
     end
 
+    # Public: Returns an empty object. This method should be implemented by
+    # `ParticipatorySpaceResourceable`, but for some reason this model does not
+    # implement this interface.
+    def user_role_config_for(_user, _role_name)
+      Decidim::ParticipatorySpaceRoleConfig::Base.new(:empty_role_name)
+    end
+
     private
 
     def signature_type_allowed
@@ -361,5 +373,39 @@ module Decidim
 
     # Allow ransacker to search on an Enum Field
     ransacker :state, formatter: proc { |int| states[int] }
+
+    # method for sort_link by number of supports
+    ransacker :supports_count do
+      query = <<~SQL
+        (
+          SELECT
+            CASE
+              WHEN signature_type = 0 THEN 0
+              ELSE COALESCE(offline_votes, 0)
+            END
+            +
+            CASE
+              WHEN signature_type = 1 THEN 0
+              ELSE initiative_votes_count + initiative_supports_count
+            END
+           FROM decidim_initiatives as initiatives
+          WHERE initiatives.id = decidim_initiatives.id
+          GROUP BY initiatives.id
+        )
+      SQL
+      Arel.sql(query)
+    end
+
+    ransacker :id_string do
+      Arel.sql(%{cast("decidim_initiatives"."id" as text)})
+    end
+
+    ransacker :author_name do
+      Arel.sql("decidim_users.name")
+    end
+
+    ransacker :author_nickname do
+      Arel.sql("decidim_users.nickname")
+    end
   end
 end
