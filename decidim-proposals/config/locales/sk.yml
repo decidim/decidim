@@ -95,9 +95,7 @@ sk:
         state_eq:
           label: Štát
           values:
-            accepted: Prijal
             evaluating: Hodnotenie
-            rejected: Odmietnuté
             withdrawn: Stiahnuté
         state_null:
           label: Štát
