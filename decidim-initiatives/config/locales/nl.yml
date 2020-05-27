@@ -236,12 +236,14 @@ nl:
           unpublish: "%{user_name} heeft het initiatief %{resource_name} verwijderd"
           update: "%{user_name} heeft het initiatief %{resource_name} bijgewerkt"
       admin_states:
-        accepted: Aanvaard
         created: gemaakt
         discarded: Afgedankte
         published: Gepubliceerd
-        rejected: Afgewezen
         validating: Technische validatie
+      application_helper:
+        filter_state_values:
+          closed: Gesloten
+          open: Open
       committee_requests:
         new:
           continue: Doorgaan met
@@ -349,13 +351,10 @@ nl:
         filters:
           any: Alle
           author: Auteur
-          closed: Gesloten
           myself: Mijn initiatieven
-          open: Open
           search: Zoeken
           state: Staat
           type: Type
-          type_prompt: Selecteer een type
         filters_small_view:
           close_modal: Sluit venster
           filter: Sorteer
