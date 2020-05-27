@@ -5,7 +5,7 @@ module Decidim
     # Custom helpers, scoped to the proposals engine.
     module ControlVersionHelper
       def item_name
-        item.model_name.singular_route_key.to_sym
+        versioned_resource.model_name.singular_route_key.to_sym
       end
 
       def back_to_resource_path_text
@@ -20,27 +20,27 @@ module Decidim
       def back_to_resource_path
         case item_name
         when :proposal
-          proposal_path(item)
+          proposal_path(versioned_resource)
         when :collaborative_draft
-          collaborative_draft_path(item)
+          collaborative_draft_path(versioned_resource)
         end
       end
 
       def resource_version_path(index)
         case item_name
         when :proposal
-          proposal_version_path(item, index + 1)
+          proposal_version_path(versioned_resource, index + 1)
         when :collaborative_draft
-          collaborative_draft_version_path(item, index + 1)
+          collaborative_draft_version_path(versioned_resource, index + 1)
         end
       end
 
       def resource_all_versions_path
         case item_name
         when :proposal
-          proposal_versions_path(item)
+          proposal_versions_path(versioned_resource)
         when :collaborative_draft
-          collaborative_draft_versions_path(item)
+          collaborative_draft_versions_path(versioned_resource)
         end
       end
     end

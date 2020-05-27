@@ -6,7 +6,7 @@ module Decidim
     # has been updated through time.
     class VersionsController < Decidim::Proposals::ApplicationController
       include Decidim::ApplicationHelper
-      include Decidim::Concerns::ResourceVersions
+      include Decidim::ResourceVersionsConcern
 
       def versioned_resource
         @versioned_resource ||=

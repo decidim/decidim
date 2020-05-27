@@ -9,7 +9,7 @@ module Decidim
       participatory_space_layout
       helper InitiativeHelper
 
-      include Decidim::Concerns::ResourceVersions
+      include Decidim::ResourceVersionsConcern
 
       def versioned_resource
         current_initiative
