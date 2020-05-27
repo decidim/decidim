@@ -282,6 +282,8 @@ en:
         rejected: Not enough signatures
         validating: Technical validation
       application_helper:
+        filter_area_values:
+          all: All
         filter_scope_values:
           all: All
         filter_state_values:
@@ -403,6 +405,7 @@ en:
             other: "%{count} initiatives"
         filters:
           any: Any
+          area: Area
           author: Author
           myself: My initiatives
           scope: Scope

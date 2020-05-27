@@ -18,6 +18,8 @@
 
   <%= form.check_boxes_tree :type_id, filter_types_values, legend_title: t(".type") %>
 
+  <%= form.check_boxes_tree :area_id, filter_areas_values, legend_title: t(".area") %>
+
   <% if current_user %>
     <%= form.collection_radio_buttons :author,
                                     [["any", t(".any")], ["myself", t(".myself")]],
