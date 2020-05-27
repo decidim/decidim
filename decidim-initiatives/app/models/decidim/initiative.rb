@@ -30,7 +30,7 @@ module Decidim
                inverse_of: :initiatives
 
     delegate :type, :scope, :scope_name, to: :scoped_type, allow_nil: true
-    delegate :promoting_committee_enabled?, :custom_signature_end_date_enabled?, to: :type
+    delegate :attachments_enabled?, :promoting_committee_enabled?, :custom_signature_end_date_enabled?, to: :type
 
     has_many :votes,
              foreign_key: "decidim_initiative_id",
@@ -67,19 +67,26 @@ module Decidim
               case_sensitive: false
 
     scope :open, lambda {
-      published
-        .where.not(state: [:discarded, :rejected, :accepted, :created])
-        .where("signature_start_date <= ?", Date.current)
-        .where("signature_end_date >= ?", Date.current)
+      where.not(state: [:discarded, :rejected, :accepted, :created])
+           .currently_signable
     }
     scope :closed, lambda {
-      published
-        .where(state: [:discarded, :rejected, :accepted])
-        .or(where("signature_start_date > ?", Date.current))
-        .or(where("signature_end_date < ?", Date.current))
+      where(state: [:discarded, :rejected, :accepted])
+        .or(currently_unsignable)
     }
     scope :published, -> { where.not(published_at: nil) }
     scope :with_state, ->(state) { where(state: state) if state.present? }
+
+    scope :currently_signable, lambda {
+      where("signature_start_date <= ?", Date.current)
+        .where("signature_end_date >= ?", Date.current)
+    }
+    scope :currently_unsignable, lambda {
+      where("signature_start_date > ?", Date.current)
+        .or(where("signature_end_date < ?", Date.current))
+    }
+
+    scope :answered, -> { where.not(answered_at: nil) }
 
     scope :public_spaces, -> { published }
     scope :signature_type_updatable, -> { created }
@@ -300,6 +307,10 @@ module Decidim
       return true if author.id == user.id
 
       committee_members.approved.where(decidim_users_id: user.id).any?
+    end
+
+    def author_users
+      [author].concat(committee_members.excluding_author.map(&:user))
     end
 
     def accepts_offline_votes?

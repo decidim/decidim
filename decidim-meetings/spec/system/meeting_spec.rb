@@ -39,4 +39,28 @@ describe "Meeting", type: :system do
 
     it_behaves_like "an uncommentable component"
   end
+
+  context "when the meeting is the same as the current year" do
+    let(:meeting) { create(:meeting, component: component, start_time: Time.current) }
+
+    it "doesn't show the year" do
+      visit_meeting
+
+      within ".extra__date" do
+        expect(page).to have_no_content(meeting.start_time.year)
+      end
+    end
+  end
+
+  context "when the meeting is different from the current year" do
+    let(:meeting) { create(:meeting, component: component, start_time: 1.year.ago) }
+
+    it "shows the year" do
+      visit_meeting
+
+      within ".extra__date" do
+        expect(page).to have_content(meeting.start_time.year)
+      end
+    end
+  end
 end
