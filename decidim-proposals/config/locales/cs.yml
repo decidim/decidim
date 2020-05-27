@@ -95,9 +95,7 @@ cs:
         state_eq:
           label: Stát
           values:
-            accepted: Přijato
             evaluating: Hodnocení
-            rejected: Odmítnuto
             withdrawn: Staženo
         state_null:
           label: Stát
