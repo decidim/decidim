@@ -3,15 +3,6 @@
 require "spec_helper"
 require "decidim/accountability/test/factories"
 
-class Decidim::DummyResources::DiffRenderer < Decidim::BaseDiffRenderer
-  def attribute_types
-    {
-      decidim_scope_id: :scope,
-      body: :string
-    }
-  end
-end
-
 describe Decidim::DiffCell, versioning: true, type: :cell do
   subject { my_cell.call }
 
@@ -22,6 +13,8 @@ describe Decidim::DiffCell, versioning: true, type: :cell do
   before do
     # rubocop:disable RSpec/AnyInstance
     allow_any_instance_of(described_class).to receive(:current_organization).and_return(organization)
+    allow_any_instance_of(Decidim::BaseDiffRenderer)
+      .to receive(:attribute_types).and_return(decidim_scope_id: :scope)
     # rubocop:enable RSpec/AnyInstance
   end
 
