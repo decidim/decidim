@@ -250,12 +250,14 @@ ca:
           unpublish: "%{user_name} ha descartat la iniciativa %{resource_name}"
           update: "%{user_name} ha actualitzat la iniciativa %{resource_name}"
       admin_states:
-        accepted: Acceptada
         created: Creada
         discarded: Rebutjada
         published: Publicada
-        rejected: Rebutjada
         validating: Validació tècnica
+      application_helper:
+        filter_state_values:
+          closed: Tancat
+          open: Obertes
       committee_requests:
         new:
           continue: Continua
@@ -363,13 +365,10 @@ ca:
         filters:
           any: Qualsevol
           author: Autora
-          closed: Tancat
           myself: Les meves iniciatives
-          open: Obertes
           search: Cerca
           state: Estat
           type: Tipus
-          type_prompt: Selecciona un tipus
         filters_small_view:
           close_modal: Tanca la finestra
           filter: Filtra
