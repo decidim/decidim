@@ -239,12 +239,14 @@ sv:
           unpublish: "%{user_name} förkastade initiativet %{resource_name}"
           update: "%{user_name} uppdaterade initiativet %{resource_name}"
       admin_states:
-        accepted: Godkända
         created: Skapad
         discarded: Förkastade
         published: Publicerade
-        rejected: Avvisade
         validating: Teknisk validering
+      application_helper:
+        filter_state_values:
+          closed: Stängda
+          open: Öppna
       committee_requests:
         new:
           continue: Fortsätta
@@ -355,13 +357,10 @@ sv:
         filters:
           any: Något
           author: Författare
-          closed: Stängda
           myself: Mina initiativ
-          open: Öppna
           search: Sök
           state: Status
           type: Typ
-          type_prompt: Välj en typ
         filters_small_view:
           close_modal: Stäng fönster
           filter: Filter
