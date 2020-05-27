@@ -237,12 +237,14 @@ fr-CA:
           unpublish: "%{user_name} a dépublié l'initiative %{resource_name}"
           update: "%{user_name} a mis à jour l'initiative %{resource_name}"
       admin_states:
-        accepted: Acceptée
         created: Créée
         discarded: Retirée
         published: Publiée
-        rejected: Rejetée
         validating: Validation technique
+      application_helper:
+        filter_state_values:
+          closed: Fermées
+          open: Ouvrir
       committee_requests:
         new:
           continue: Continuer
@@ -350,13 +352,10 @@ fr-CA:
         filters:
           any: Tout
           author: Auteur
-          closed: Fermées
           myself: Mes initiatives
-          open: Ouvrir
           search: Rechercher
           state: État
           type: Type
-          type_prompt: Sélectionnez un type d'initiative
         filters_small_view:
           close_modal: Fermer la fenêtre
           filter: Filtre
