@@ -87,9 +87,7 @@ hu:
         state_eq:
           label: Állapot
           values:
-            accepted: Elfogadva
             evaluating: Értékelés
-            rejected: Elutasítva
             withdrawn: Visszavonva
         state_null:
           label: Állapot
