@@ -61,7 +61,7 @@ cs:
         gender: Rod
         position: Pozice
       assembly_user_role:
-        email: E-mailem
+        email: E-mail
         name: název
         role: Role
   activerecord:
@@ -206,7 +206,7 @@ cs:
             vice_president: Víceprezident
         assembly_user_role:
           fields:
-            email: E-mailem
+            email: E-mail
             name: název
             role: Role
           name: Administrátor shromáždění
