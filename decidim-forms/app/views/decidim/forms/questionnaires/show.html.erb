@@ -61,11 +61,11 @@
                       <% end %>
 
                       <% step_answers.each do |answer| %>
-                        <% answer.question.display_conditions.each do |display_condition| %>
-                          <%= content_tag :div, nil,  class: "display-condition", data: display_condition.to_html_data %>
-                        <% end %>
-                        
                         <div class="row column answer question" data-max-choices="<%= answer.question.max_choices %>" data-conditioned="<%= answer.question.display_conditions.any? %>" data-question-id="<%= answer.question.id %>">
+                          <% answer.question.display_conditions.each do |display_condition| %>
+                            <%= content_tag :div, nil,  class: "display-condition", data: display_condition.to_html_data %>
+                          <% end %>
+
                           <%= fields_for "questionnaire[responses][#{answer_idx}]", answer do |answer_form| %>
                             <%= render(
                               "decidim/forms/questionnaires/answer",
