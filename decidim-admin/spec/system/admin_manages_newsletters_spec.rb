@@ -153,7 +153,7 @@ describe "Admin manages newsletters", type: :system do
     context "when all users are selected" do
       let(:recipients_count) { deliverable_users.size }
 
-      it "sends to all users" do
+      it "sends to all users", :slow do
         visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
         perform_enqueued_jobs do
           within(".newsletter_deliver") do
@@ -168,14 +168,10 @@ describe "Admin manages newsletters", type: :system do
             accept_confirm { find("*", text: "Deliver").click }
           end
 
-          # using find here should wait until the element appears
-          within find(".secondary-nav__title") do
-            expect(page).to have_content("NEWSLETTERS")
-          end
+          # page.execute_script "window.scrollBy(0,10000)"
+          expect(page).to have_content("NEWSLETTERS")
+          expect(page).to have_admin_callout("successfully")
         end
-        # page.execute_script "window.scrollBy(0,10000)"
-        # expect(page).to have_content("NEWSLETTERS")
-        expect(page).to have_admin_callout("successfully")
 
         within "tbody" do
           expect(page).to have_content("Has been sent to: All users")
@@ -193,7 +189,7 @@ describe "Admin manages newsletters", type: :system do
       end
       let(:recipients_count) { followers.size }
 
-      it "sends to followers" do
+      it "sends to followers", :slow do
         visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
         perform_enqueued_jobs do
           within(".newsletter_deliver") do
@@ -213,9 +209,6 @@ describe "Admin manages newsletters", type: :system do
             accept_confirm { find("*", text: "Deliver").click }
           end
 
-          within ".secondary-nav__title" do
-            expect(page).to have_content("NEWSLETTERS")
-          end
           # page.execute_script "window.scrollBy(0,10000)"
           # expect(page).to have_content("NEWSLETTERS")
           expect(page).to have_admin_callout("successfully")
