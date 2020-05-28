@@ -35,7 +35,9 @@ shared_examples_for "has questionnaire" do
 
       check "questionnaire_tos_agreement"
 
-      accept_confirm { click_button "Submit" }
+      accept_confirm do
+        click_button "Submit"
+      end
 
       within ".success.flash" do
         expect(page).to have_content("successfully")
@@ -100,6 +102,18 @@ shared_examples_for "has questionnaire" do
         end
         expect(page).to have_content("Step 2 of 2")
       end
+    end
+
+    it "requires confirmation when exiting mid-answering" do
+      visit questionnaire_public_path
+
+      fill_in question.body["en"], with: "My first answer"
+
+      dismiss_confirm do
+        page.find(".logo-wrapper a").click
+      end
+
+      expect(page).to have_current_path questionnaire_public_path
     end
 
     context "when the questionnaire has already been answered by someone else" do
