@@ -16,7 +16,7 @@ module Decidim
           helper Decidim::Forms::ApplicationHelper
           include FormFactory
 
-          helper_method :questionnaire_for, :questionnaire, :allow_answers?, :visitor_can_answer?, :visitor_already_answered?, :update_url
+          helper_method :questionnaire_for, :questionnaire, :allow_answers?, :visitor_can_answer?, :visitor_already_answered?, :update_url, :form_path
 
           invisible_captcha on_spam: :spam_detected
 
@@ -79,6 +79,15 @@ module Decidim
           # where the questionnaire will be submitted.
           def update_url
             url_for([questionnaire_for, action: :answer])
+          end
+
+          # Points to the shortest path accessing the current form. This will be
+          # used to detect whether a user is leaving the form with some partial
+          # answers, so that we can warn them.
+          #
+          # Overwrite this method at the controller.
+          def form_path
+            url_for([questionnaire_for, only_path: true])
           end
 
           # Public: Method to be implemented at the controller. You need to
