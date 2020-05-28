@@ -69,6 +69,8 @@ sv:
             discarded: Förkastade
             published: Publicerade
             validating: Teknisk validering
+        type_id_eq:
+          label: Typ
       menu:
         initiatives: Initiativ
         initiatives_types: Initiativtyper
