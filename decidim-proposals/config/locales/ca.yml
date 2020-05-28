@@ -759,6 +759,9 @@ ca:
         proposal:
           creation_date: 'Data de creació: %{date}'
           view_proposal: Veure proposta
+        proposals:
+          empty: Encara no hi ha cap proposta
+          empty_filters: No hi ha cap proposta amb aquests criteris
         show:
           answer: Resposta
           back_to: Torna
