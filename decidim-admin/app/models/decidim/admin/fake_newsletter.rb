@@ -15,7 +15,7 @@ module Decidim
       end
 
       def template
-        Decidim::ContentBlock.new(
+        @template ||= Decidim::ContentBlock.new(
           in_preview: true,
           manifest_name: manifest.name,
           scope_name: :newsletter_template,

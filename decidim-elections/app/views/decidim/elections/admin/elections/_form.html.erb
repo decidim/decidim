@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= title %></h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row column">
+      <%= form.translated :text_field, :title, autofocus: true %>
+    </div>
+
+    <div class="row column">
+      <%= form.translated :text_field, :subtitle %>
+    </div>
+
+    <div class="row column">
+      <%= form.translated :editor, :description %>
+    </div>
+
+    <div class="row">
+      <div class="column xlarge-6">
+        <%= form.datetime_field :start_time %>
+      </div>
+      <div class="column xlarge-6">
+        <%= form.datetime_field :end_time %>
+      </div>
+    </div>
+  </div>
+</div>

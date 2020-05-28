@@ -10,6 +10,7 @@ module Decidim
       let(:organization) { create(:organization) }
       let(:initiatives_type) { create(:initiatives_type, organization: organization) }
       let(:scope) { create(:initiatives_type_scope, type: initiatives_type) }
+      let(:attachment_params) { nil }
 
       let(:title) { Decidim::Faker::Localized.sentence(5) }
       let(:attributes) do
@@ -18,7 +19,8 @@ module Decidim
           description: Decidim::Faker::Localized.sentence(25),
           type_id: initiatives_type.id,
           scope_id: scope&.scope&.id,
-          signature_type: "offline"
+          signature_type: "offline",
+          attachment: attachment_params
         }.merge(custom_signature_end_date)
       end
       let(:custom_signature_end_date) { {} }
@@ -91,6 +93,27 @@ module Decidim
         let(:scope) { nil }
 
         it { is_expected.to be_valid }
+      end
+
+      context "when the attachment is present" do
+        let(:attachment_params) do
+          {
+            title: "My attachment",
+            file: Decidim::Dev.test_file("city.jpeg", "image/jpeg")
+          }
+        end
+
+        it { is_expected.to be_valid }
+
+        context "when the form has some errors" do
+          let(:title) { nil }
+
+          it "adds an error to the `:attachment` field" do
+            expect(subject).not_to be_valid
+            expect(subject.errors.full_messages).to match_array(["Title can't be blank", "Attachment Needs to be reattached"])
+            expect(subject.errors.keys).to match_array([:title, :attachment])
+          end
+        end
       end
     end
   end
