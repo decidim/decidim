@@ -67,7 +67,7 @@ ca:
         state_eq:
           label: Estat
           values:
-            accepted: Acceptada
+            accepted: Acceptat
             created: Creada
             discarded: Rebutjada
             published: Publicada
@@ -241,7 +241,7 @@ ca:
           unpublish: "%{user_name} ha descartat la iniciativa %{resource_name}"
           update: "%{user_name} ha actualitzat la iniciativa %{resource_name}"
       admin_states:
-        accepted: Acceptada
+        accepted: Acceptat
         created: Creada
         discarded: Rebutjada
         published: Publicada
