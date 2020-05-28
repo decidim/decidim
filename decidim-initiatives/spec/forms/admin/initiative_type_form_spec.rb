@@ -18,6 +18,7 @@ module Decidim
             title: title,
             description: Decidim::Faker::Localized.sentence(25),
             online_signature_enabled: false,
+            attachments_enabled: true,
             custom_signature_end_date_enabled: true,
             undo_online_signatures_enabled: false,
             promoting_committee_enabled: promoting_committee_enabled,

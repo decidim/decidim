@@ -30,7 +30,7 @@ module Decidim
                inverse_of: :initiatives
 
     delegate :type, :scope, :scope_name, to: :scoped_type, allow_nil: true
-    delegate :promoting_committee_enabled?, :custom_signature_end_date_enabled?, to: :type
+    delegate :attachments_enabled?, :promoting_committee_enabled?, :custom_signature_end_date_enabled?, to: :type
 
     has_many :votes,
              foreign_key: "decidim_initiative_id",
@@ -67,24 +67,32 @@ module Decidim
               case_sensitive: false
 
     scope :open, lambda {
-      published
-        .where.not(state: [:discarded, :rejected, :accepted, :created])
-        .where("signature_start_date <= ?", Date.current)
-        .where("signature_end_date >= ?", Date.current)
+      where.not(state: [:discarded, :rejected, :accepted, :created])
+           .currently_signable
     }
     scope :closed, lambda {
-      published
-        .where(state: [:discarded, :rejected, :accepted])
-        .or(where("signature_start_date > ?", Date.current))
-        .or(where("signature_end_date < ?", Date.current))
+      where(state: [:discarded, :rejected, :accepted])
+        .or(currently_unsignable)
     }
     scope :published, -> { where.not(published_at: nil) }
     scope :with_state, ->(state) { where(state: state) if state.present? }
+
+    scope :currently_signable, lambda {
+      where("signature_start_date <= ?", Date.current)
+        .where("signature_end_date >= ?", Date.current)
+    }
+    scope :currently_unsignable, lambda {
+      where("signature_start_date > ?", Date.current)
+        .or(where("signature_end_date < ?", Date.current))
+    }
+
+    scope :answered, -> { where.not(answered_at: nil) }
 
     scope :public_spaces, -> { published }
     scope :signature_type_updatable, -> { created }
 
     scope :order_by_most_recent, -> { order(created_at: :desc) }
+    scope :order_by_most_recently_published, -> { order(published_at: :desc) }
     scope :order_by_supports, -> { order(Arel.sql("initiative_votes_count + coalesce(offline_votes, 0) desc")) }
     scope :order_by_most_commented, lambda {
       select("decidim_initiatives.*")
@@ -301,6 +309,10 @@ module Decidim
       committee_members.approved.where(decidim_users_id: user.id).any?
     end
 
+    def author_users
+      [author].concat(committee_members.excluding_author.map(&:user))
+    end
+
     def accepts_offline_votes?
       published? && (offline_signature_type? || any_signature_type?)
     end
@@ -368,6 +380,32 @@ module Decidim
 
     # Allow ransacker to search on an Enum Field
     ransacker :state, formatter: proc { |int| states[int] }
+
+    ransacker :type_id do
+      Arel.sql("decidim_initiatives_type_scopes.decidim_initiatives_types_id")
+    end
+
+    # method for sort_link by number of supports
+    ransacker :supports_count do
+      query = <<~SQL
+        (
+          SELECT
+            CASE
+              WHEN signature_type = 0 THEN 0
+              ELSE COALESCE(offline_votes, 0)
+            END
+            +
+            CASE
+              WHEN signature_type = 1 THEN 0
+              ELSE initiative_votes_count + initiative_supports_count
+            END
+           FROM decidim_initiatives as initiatives
+          WHERE initiatives.id = decidim_initiatives.id
+          GROUP BY initiatives.id
+        )
+      SQL
+      Arel.sql(query)
+    end
 
     ransacker :id_string do
       Arel.sql(%{cast("decidim_initiatives"."id" as text)})

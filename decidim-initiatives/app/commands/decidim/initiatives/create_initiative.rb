@@ -5,6 +5,7 @@ module Decidim
     # A command with all the business logic that creates a new initiative.
     class CreateInitiative < Rectify::Command
       include CurrentLocale
+      include AttachmentMethods
 
       # Public: Initializes the command.
       #
@@ -24,6 +25,11 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
+        if process_attachments?
+          build_attachment
+          return broadcast(:invalid) if attachment_invalid?
+        end
+
         initiative = create_initiative
 
         if initiative.persisted?
@@ -35,7 +41,7 @@ module Decidim
 
       private
 
-      attr_reader :form, :current_user
+      attr_reader :form, :current_user, :attachment
 
       # Creates the initiative and all default components
       def create_initiative
@@ -44,6 +50,8 @@ module Decidim
 
         initiative.transaction do
           initiative.save!
+          @attached_to = initiative
+          create_attachment if process_attachments?
           create_components_for(initiative)
           send_notification(initiative)
           add_author_as_follower(initiative)

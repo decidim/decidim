@@ -31,4 +31,31 @@
       wrapperField: $(el)
     })
   });
+
+  const $form = $("form.answer-questionnaire");
+  if ($form.length > 0) {
+    $form.find("input, textarea, select").on("change", () => {
+      $form.data("changed", true);
+    });
+
+    const safePath = $form.data("safe-path");
+    $(document).on("click", "a", (event) => {
+      window.exitUrl = event.currentTarget.href;
+    });
+    $(document).on("submit", "form", (event) => {
+      window.exitUrl = event.currentTarget.action;
+    });
+
+    window.onbeforeunload = () => {
+      const exitUrl = window.exitUrl;
+      const hasChanged = $form.data("changed");
+      window.exitUrl = null;
+
+      if (!hasChanged || (exitUrl && exitUrl.includes(safePath))) {
+        return null;
+      }
+
+      return "";
+    }
+  }
 })(window);

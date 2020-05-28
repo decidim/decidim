@@ -27,6 +27,7 @@ en:
       initiatives_committee_member:
         user: Committee member
       initiatives_type:
+        attachments_enabled: Enable attachments
         banner_image: Banner image
         collect_user_extra_fields: Collect participant personal data on signature
         custom_signature_end_date_enabled: Enable authors to choose the end of signature collection period
@@ -48,6 +49,14 @@ en:
         address: Address
         id_document: ID document
         name: Complete name
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: File is invalid
+              needs_to_be_reattached: Needs to be reattached
+              title: Title shouldn't be empty
   activerecord:
     models:
       decidim/initiative:
@@ -68,10 +77,14 @@ en:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Search %{collection} by title, description, ID or author name.
         state_eq:
           values:
+            accepted: Enough signatures
             created: Created
             discarded: Discarded
             published: Published
+            rejected: Not enough signatures
             validating: Technical validation
+        type_id_eq:
+          label: Type
       menu:
         initiatives: Initiatives
         initiatives_types: Initiative types
@@ -80,6 +93,7 @@ en:
           fields:
             created_at: Created at
             id: ID
+            published_at: Published at
             state: Status
             supports_count: Signatures
             title: Initiatives
@@ -178,6 +192,8 @@ en:
         content_blocks:
           highlighted_initiatives:
             max_results: Maximum amount of elements to show
+        exports:
+          initiatives: Initiatives
         initiatives:
           edit:
             accept: Accept initiative
@@ -195,6 +211,11 @@ en:
             actions_title: Action
             preview: Preview
             print: Print
+          initiative_attachments:
+            documents: Documents
+            edit: Edit
+            new: New
+            photos: Photos
           show:
             print: Print
           update:
@@ -246,12 +267,24 @@ en:
           unpublish: "%{user_name} discarded the %{resource_name} initiative"
           update: "%{user_name} updated the %{resource_name} initiative"
       admin_states:
-        accepted: Accepted
+        accepted: Enough signatures
         created: Created
         discarded: Discarded
         published: Published
-        rejected: Rejected
+        rejected: Not enough signatures
         validating: Technical validation
+      application_helper:
+        filter_scope_values:
+          all: All
+        filter_state_values:
+          accepted: Enough signatures
+          all: All
+          answered: Answered
+          closed: Closed
+          open: Open
+          rejected: Not enough signatures
+        filter_type_values:
+          all: All
       committee_requests:
         new:
           continue: Continue
@@ -362,13 +395,11 @@ en:
         filters:
           any: Any
           author: Author
-          closed: Closed
           myself: My initiatives
-          open: Open
+          scope: Scope
           search: Search
           state: Status
           type: Type
-          type_prompt: Select a type
         filters_small_view:
           close_modal: Close window
           filter: Filter
@@ -387,6 +418,7 @@ en:
           most_voted: Most signed
           random: Random
           recent: Most recent
+          recently_published: Most recently published
         result:
           answer_title:
             accepted: This proposal has been accepted because
@@ -440,6 +472,14 @@ en:
           highlighted_initiatives:
             active_initiatives: Active initiatives
             see_all_initiatives: See all initiatives
+      show:
+        badge_name:
+          accepted: Enough signatures
+          created: Created
+          discarded: Discarded
+          published: Published
+          rejected: Not enough signatures
+          validating: Technical validation
       states:
         accepted: Accepted
         expired: Expired
