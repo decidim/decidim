@@ -783,6 +783,9 @@ cs:
         proposal:
           creation_date: 'Tvorba: %{date}'
           view_proposal: Zobrazit návrh
+        proposals:
+          empty: Zatím neexistuje žádný návrh
+          empty_filters: Neexistuje žádný návrh s tímto kritériem
         show:
           answer: Odpovědět
           back_to: Zpět k
