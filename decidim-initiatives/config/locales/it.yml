@@ -26,6 +26,7 @@ it:
       initiatives_committee_member:
         user: membro del Comitato
       initiatives_type:
+        attachments_enabled: Abilita allegati
         banner_image: Immagine banner
         collect_user_extra_fields: Raccogliere dati personali dell'utente alla firma
         custom_signature_end_date_enabled: Consenti agli autori di scegliere la fine del periodo di raccolta della firma
@@ -81,6 +82,8 @@ it:
             published: Pubblicato
             rejected: Firme non sufficienti
             validating: Convalida tecnica
+        type_id_eq:
+          label: Tipo
       menu:
         initiatives: iniziative
         initiatives_types: Tipi di iniziativa
@@ -144,6 +147,11 @@ it:
             email_outro: Hai ricevuto questa notifica perché stai seguendo %{resource_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
             email_subject: Nuova pietra miliare completata!
             notification_title: L'iniziativa <a href="%{resource_path}">%{resource_title}</a> ha raggiunto il %{percentage}% delle firme.
+        support_threshold_reached:
+          email_intro: L'iniziativa %{resource_title} ha raggiunto la soglia di supporto
+          email_outro: Hai ricevuto questa notifica perché sei un amministratore della piattaforma.
+          email_subject: Soglia di supporto raggiunta
+          notification_title: L'iniziativa <a href="%{resource_path}">%{resource_title}</a> ha raggiunto la soglia di supporto
     gamification:
       badges:
         initiatives:
@@ -270,11 +278,17 @@ it:
         rejected: Firme non sufficienti
         validating: Convalida tecnica
       application_helper:
+        filter_scope_values:
+          all: Tutti
         filter_state_values:
           accepted: Firme sufficienti
+          all: Tutti
+          answered: Risposto
           closed: Chiuso
           open: Aperto
           rejected: Firme non sufficienti
+        filter_type_values:
+          all: Tutti
       committee_requests:
         new:
           continue: Continua
@@ -386,6 +400,7 @@ it:
           any: Qualunque
           author: Autore
           myself: Le mie iniziative
+          scope: Scopo
           search: Ricerca
           state: Stato
           type: genere
