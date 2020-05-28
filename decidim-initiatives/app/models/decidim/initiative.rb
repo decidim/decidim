@@ -30,7 +30,7 @@ module Decidim
                class_name: "Decidim::InitiativesTypeScope",
                inverse_of: :initiatives
 
-    delegate :type, :scope, :scope_name, to: :scoped_type, allow_nil: true
+    delegate :type, :scope, :scope_name, :supports_required, to: :scoped_type, allow_nil: true
     delegate :attachments_enabled?, :promoting_committee_enabled?, :custom_signature_end_date_enabled?, :area_enabled?, to: :type
     delegate :name, to: :area, prefix: true, allow_nil: true
 
@@ -105,7 +105,7 @@ module Decidim
     scope :future_spaces, -> { none }
     scope :past_spaces, -> { closed }
 
-    before_update :update_offline_votes_total
+    before_update :set_offline_votes_total
     after_save :notify_state_change
     after_create :notify_creation
 
@@ -254,19 +254,25 @@ module Decidim
       attributes["hashtag"].to_s.delete("#")
     end
 
-    # Public: Calculates the number of current supports.
+    # Public: Calculates the number of total current supports.
     #
     # Returns an Integer.
     def supports_count
       online_votes_count + offline_votes_count
     end
 
-    # Public: Calculates the number of supports required to accept the initiative
-    # across all votable scopes.
+    # Public: Calculates the number of current supports for a scope.
     #
     # Returns an Integer.
-    def supports_required
-      @supports_required ||= scoped_type.supports_required
+    def supports_count_for(scope)
+      online_votes_count_for(scope) + offline_votes_count_for(scope)
+    end
+
+    # Public: Calculates the number of supports required to accept the initiative for a scope.
+    #
+    # Returns an Integer.
+    def supports_required_for(scope)
+      initiative_type_scopes.find_by(decidim_scopes_id: scope&.id).supports_required
     end
 
     # Public: Returns the percentage of required supports reached
@@ -278,7 +284,12 @@ module Decidim
 
     # Public: Whether the supports required objective has been reached
     def supports_goal_reached?
-      supports_count >= supports_required
+      initiative_type_scopes.map(&:scope).all? { |scope| supports_goal_reached_for?(scope) }
+    end
+
+    # Public: Whether the supports required objective has been reached for a scope
+    def supports_goal_reached_for?(scope)
+      supports_count_for(scope) >= supports_required_for(scope)
     end
 
     # Public: Calculates all the votes across all the scopes.
@@ -302,6 +313,12 @@ module Decidim
       (online_votes || {}).fetch(scope_key, 0).to_i
     end
 
+    def offline_votes_count_for(scope)
+      scope_key = (scope&.id || "global").to_s
+
+      (offline_votes || {}).fetch(scope_key, 0).to_i
+    end
+
     def update_online_votes_counters
       online_votes = votes.group(:scope).count.each_with_object({}) do |(scope, count), counters|
         counters[scope&.id || "global"] = count
@@ -314,7 +331,7 @@ module Decidim
       # rubocop:enable Rails/SkipsModelValidations
     end
 
-    def update_offline_votes_total
+    def set_offline_votes_total
       return if offline_votes.blank? || scope.nil?
 
       offline_votes["total"] = offline_votes[scope.id.to_s]
@@ -404,14 +421,6 @@ module Decidim
     # implement this interface.
     def user_role_config_for(_user, _role_name)
       Decidim::ParticipatorySpaceRoleConfig::Base.new(:empty_role_name)
-    end
-
-    def votable_initiative_type_scopes
-      return Array(scoped_type) unless type.child_scope_threshold_enabled?
-
-      initiative_type_scopes.select do |initiative_type_scope|
-        initiative_type_scope.scope.present? && (scoped_type.global_scope? || scoped_type.scope.ancestor_of?(initiative_type_scope.scope))
-      end.prepend(scoped_type).uniq
     end
 
     private
