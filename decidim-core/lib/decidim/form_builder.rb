@@ -384,6 +384,8 @@ module Decidim
     # attribute    - The String name of the attribute to buidl the field.
     # options      - A Hash with options to build the field.
     #              * optional: Whether the file can be optional or not.
+    # rubocop:disable Metrics/CyclomaticComplexity
+    # rubocop:disable Metrics/PerceivedComplexity
     def upload(attribute, options = {})
       self.multipart = true
       options[:optional] = options[:optional].nil? ? true : options[:optional]
@@ -427,6 +429,8 @@ module Decidim
 
       template.html_safe
     end
+    # rubocop:enable Metrics/CyclomaticComplexity
+    # rubocop:enable Metrics/PerceivedComplexity
 
     # Public: Returns the translated name for the given attribute.
     #
