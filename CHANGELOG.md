@@ -98,9 +98,7 @@ Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on 
 
 ### Changed
 
-- **decidim-system**: Move OAUTH Application management to system panel. [\#5955](https://github.com/decidim/decidim/pull/5955)
-### Changed
-
+- **decidim-admin**, **decidim-system**: Move OAUTH Application management to system panel. [\#5955](https://github.com/decidim/decidim/pull/5955)
 - **decidim-accountability**, **decidim-core**, **decidim-meetings**, **decidim-proposals**: Optimize queries for performance in Homepage, process page, proposals page and coauthorable cell. [\#5903](https://github.com/decidim/decidim/pull/5903)
 - **decidim-assemblies**: Replace current meetings hook with highlighted elements hook [\#5897](https://github.com/decidim/decidim/pull/5897)
 - **decidim-core**: Change the map marker color to the Decidim primary color [\#5870](https://github.com/decidim/decidim/pull/5870)
