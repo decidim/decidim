@@ -1,6 +1,6 @@
 <% question = form.object %>
 
-<script type="text/template" class="decidim-template" id="<%= template_id %>">
+<script type="text/template" class="decidim-matrix-row-template decidim-template" id="<%= template_id %>">
   <%= fields_for "questionnaire[questions][#{question.to_param}][matrix_rows][]", blank_matrix_row do |matrix_row_form| %>
     <%= render "decidim/forms/admin/questionnaires/matrix_row", form: matrix_row_form, question: question, editable: editable %>
   <% end %>

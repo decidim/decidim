@@ -37,15 +37,19 @@ shared_examples_for "manage questionnaires" do
       visit questionnaire_edit_path
     end
 
-    it "adds a few questions to the questionnaire" do
+    it "adds a few questions and separators to the questionnaire" do
       questions_body = ["This is the first question", "This is the second question"]
 
       within "form.edit_questionnaire" do
-        2.times { click_button "Add question" }
+        click_button "Add question"
+        click_button "Add separator"
+        click_button "Add question"
 
-        expect(page).to have_selector(".questionnaire-question", count: 2)
+        expect(page).to have_selector(".questionnaire-question", count: 3)
 
-        page.all(".questionnaire-question").each_with_index do |question, idx|
+        expand_all_questions
+
+        page.all(".questionnaire-question .collapsible").each_with_index do |question, idx|
           within question do
             fill_in find_nested_form_field_locator("body_en"), with: questions_body[idx]
           end
@@ -56,15 +60,17 @@ shared_examples_for "manage questionnaires" do
 
       expect(page).to have_admin_callout("successfully")
 
-      visit questionnaire_edit_path
+      visit_questionnaire_edit_path_and_expand_all
 
       expect(page).to have_selector("input[value='This is the first question']")
       expect(page).to have_selector("input[value='This is the second question']")
+      expect(page).to have_content("SEPARATOR #2")
     end
 
     it "adds a question with a rich text description" do
       within "form.edit_questionnaire" do
         click_button "Add question"
+        expand_all_questions
 
         within ".questionnaire-question" do
           fill_in find_nested_form_field_locator("body_en"), with: "Body"
@@ -108,6 +114,7 @@ shared_examples_for "manage questionnaires" do
       within "form.edit_questionnaire" do
         click_button "Add question"
         click_button "Add question"
+        expand_all_questions
 
         page.all(".questionnaire-question").each_with_index do |question, idx|
           within question do
@@ -137,7 +144,7 @@ shared_examples_for "manage questionnaires" do
 
       expect(page).to have_admin_callout("successfully")
 
-      visit questionnaire_edit_path
+      visit_questionnaire_edit_path_and_expand_all
 
       expect(page).to have_selector("input[value='This is the first question']")
       expect(page).to have_selector("input[value='This is the Q1 first option']")
@@ -151,6 +158,7 @@ shared_examples_for "manage questionnaires" do
 
     it "adds a sane number of options for each attribute type" do
       click_button "Add question"
+      expand_all_questions
 
       select "Long answer", from: "Type"
       expect(page).to have_no_selector(".questionnaire-question-answer-option")
@@ -179,6 +187,8 @@ shared_examples_for "manage questionnaires" do
 
     it "does not incorrectly reorder when clicking answer options" do
       click_button "Add question"
+      expand_all_questions
+
       select "Single option", from: "Type"
       2.times { click_button "Add answer option" }
 
@@ -206,7 +216,11 @@ shared_examples_for "manage questionnaires" do
     end
 
     it "does not incorrectly reorder when clicking matrix rows" do
+      # Unable to find visible select box "Type" that is not disabled and Unable to find input box with datalist completion "Type" that is not disabled
+
       click_button "Add question"
+      expand_all_questions
+
       select "Matrix (Multiple option)", from: "Type"
       2.times { click_button "Add row" }
 
@@ -235,14 +249,19 @@ shared_examples_for "manage questionnaires" do
 
     it "preserves question form across submission failures" do
       click_button "Add question"
+      expand_all_questions
+
       select "Long answer", from: "Type"
       click_button "Save"
 
+      expand_all_questions
       expect(page).to have_select("Type", selected: "Long answer")
     end
 
     it "does not preserve spurious answer options from previous type selections" do
       click_button "Add question"
+      expand_all_questions
+
       select "Single option", from: "Type"
 
       within ".questionnaire-question-answer-option:first-of-type" do
@@ -252,6 +271,7 @@ shared_examples_for "manage questionnaires" do
       select "Long answer", from: "Type"
 
       click_button "Save"
+      expand_all_questions
 
       select "Single option", from: "Type"
 
@@ -262,6 +282,8 @@ shared_examples_for "manage questionnaires" do
 
     it "does not preserve spurious matrix rows from previous type selections" do
       click_button "Add question"
+      expand_all_questions
+
       select "Matrix (Single option)", from: "Type"
 
       within ".questionnaire-question-matrix-row:first-of-type" do
@@ -271,6 +293,7 @@ shared_examples_for "manage questionnaires" do
       select "Long answer", from: "Type"
 
       click_button "Save"
+      expand_all_questions
 
       select "Matrix (Single option)", from: "Type"
 
@@ -281,6 +304,8 @@ shared_examples_for "manage questionnaires" do
 
     it "preserves answer options form across submission failures" do
       click_button "Add question"
+      expand_all_questions
+
       select "Multiple option", from: "Type"
 
       within ".questionnaire-question-answer-option:first-of-type" do
@@ -296,6 +321,7 @@ shared_examples_for "manage questionnaires" do
       select "3", from: "Maximum number of choices"
 
       click_button "Save"
+      expand_all_questions
 
       within ".questionnaire-question-answer-option:first-of-type" do
         expect(page).to have_nested_field("body_en", with: "Something")
@@ -310,6 +336,8 @@ shared_examples_for "manage questionnaires" do
 
     it "preserves matrix rows form across submission failures" do
       click_button "Add question"
+      expand_all_questions
+
       select "Matrix (Multiple option)", from: "Type"
 
       within ".questionnaire-question-matrix-row:first-of-type" do
@@ -319,6 +347,7 @@ shared_examples_for "manage questionnaires" do
       click_button "Add row"
 
       click_button "Save"
+      expand_all_questions
 
       within ".questionnaire-question-matrix-row:first-of-type" do
         expect(page).to have_nested_field("body_en", with: "Something")
@@ -328,6 +357,8 @@ shared_examples_for "manage questionnaires" do
     it "allows switching translated field tabs after form failures" do
       click_button "Add question"
       click_button "Save"
+
+      expand_all_questions
 
       within ".questionnaire-question:first-of-type" do
         fill_in find_nested_form_field_locator("body_en"), with: "Bye"
@@ -348,6 +379,8 @@ shared_examples_for "manage questionnaires" do
 
         within "form.edit_questionnaire" do
           click_button "Add question"
+
+          expand_all_questions
 
           within ".questionnaire-question" do
             fill_in find_nested_form_field_locator("body_en"), with: "This is the first question"
@@ -390,6 +423,7 @@ shared_examples_for "manage questionnaires" do
         expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
 
         click_button "Add question"
+        expand_all_questions
 
         within(".questionnaire-question:last-of-type") do
           select "Multiple option", from: "Type"
@@ -407,6 +441,7 @@ shared_examples_for "manage questionnaires" do
 
         within "form.edit_questionnaire" do
           click_button "Add question"
+          expand_all_questions
 
           within ".questionnaire-question" do
             fill_in find_nested_form_field_locator("body_en"), with: "This is the first question"
@@ -450,6 +485,7 @@ shared_examples_for "manage questionnaires" do
         expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
 
         click_button "Add question"
+        expand_all_questions
 
         within(".questionnaire-question:last-of-type") do
           select "Matrix (Multiple option)", from: "Type"
@@ -466,6 +502,7 @@ shared_examples_for "manage questionnaires" do
 
       before do
         visit questionnaire_edit_path
+        expand_all_questions
       end
 
       it "modifies the question when the information is valid" do
@@ -481,7 +518,7 @@ shared_examples_for "manage questionnaires" do
 
         expect(page).to have_admin_callout("successfully")
 
-        visit questionnaire_edit_path
+        visit_questionnaire_edit_path_and_expand_all
 
         expect(page).to have_selector("input[value='Modified question']")
         expect(page).to have_no_selector("input[value='This is the first question']")
@@ -490,6 +527,8 @@ shared_examples_for "manage questionnaires" do
       end
 
       it "re-renders the form when the information is invalid and displays errors" do
+        expand_all_questions
+
         within "form.edit_questionnaire" do
           within ".questionnaire-question" do
             expect(page).to have_content("Statement*")
@@ -501,6 +540,8 @@ shared_examples_for "manage questionnaires" do
 
           click_button "Save"
         end
+
+        expand_all_questions
 
         expect(page).to have_admin_callout("There was a problem saving")
         expect(page).to have_content("can't be blank", count: 5) # emtpy question, 2 empty default answer options, 2 empty default matrix rows
@@ -587,13 +628,15 @@ shared_examples_for "manage questionnaires" do
       end
 
       it "allows deleting answer options" do
+        expand_all_questions
+
         within ".questionnaire-question-answer-option:last-of-type" do
           click_button "Remove"
         end
 
         click_button "Save"
 
-        visit questionnaire_edit_path
+        visit_questionnaire_edit_path_and_expand_all
 
         expect(page).to have_selector(".questionnaire-question-answer-option", count: 2)
       end
@@ -601,6 +644,8 @@ shared_examples_for "manage questionnaires" do
       it "still removes the question even if previous editions rendered the options invalid" do
         within "form.edit_questionnaire" do
           expect(page).to have_selector(".questionnaire-question", count: 1)
+
+          expand_all_questions
 
           within ".questionnaire-question-answer-option:first-of-type" do
             fill_in find_nested_form_field_locator("body_en"), with: ""
@@ -615,7 +660,7 @@ shared_examples_for "manage questionnaires" do
 
         expect(page).to have_admin_callout("successfully")
 
-        visit questionnaire_edit_path
+        visit_questionnaire_edit_path_and_expand_all
 
         within "form.edit_questionnaire" do
           expect(page).to have_selector(".questionnaire-question", count: 0)
@@ -646,7 +691,7 @@ shared_examples_for "manage questionnaires" do
       end
 
       before do
-        visit questionnaire_edit_path
+        visit_questionnaire_edit_path_and_expand_all
       end
 
       it "allows deleting matrix rows" do
@@ -656,7 +701,7 @@ shared_examples_for "manage questionnaires" do
 
         click_button "Save"
 
-        visit questionnaire_edit_path
+        visit_questionnaire_edit_path_and_expand_all
 
         within ".questionnaire-question:last-of-type" do
           expect(page).to have_selector(".questionnaire-question-matrix-row", count: 2)
@@ -681,7 +726,7 @@ shared_examples_for "manage questionnaires" do
 
         expect(page).to have_admin_callout("successfully")
 
-        visit questionnaire_edit_path
+        visit_questionnaire_edit_path_and_expand_all
 
         within "form.edit_questionnaire" do
           expect(page).to have_selector(".questionnaire-question", count: 1)
@@ -708,6 +753,7 @@ shared_examples_for "manage questionnaires" do
 
       before do
         visit questionnaire_edit_path
+        expand_all_questions
       end
 
       shared_examples_for "switching questions order" do
@@ -744,8 +790,77 @@ shared_examples_for "manage questionnaires" do
         it_behaves_like "switching questions order"
       end
 
+      describe "collapsible questions" do
+        context "when clicking on Expand all button" do
+          it "expands all questions" do
+            click_button "Expand all questions"
+            expect(page).to have_selector(".collapsible", visible: true)
+            expect(page).to have_selector(".question--collapse .icon-collapse", count: questionnaire.questions.count)
+          end
+        end
+
+        context "when clicking on Collapse all button" do
+          it "collapses all questions" do
+            click_button "Collapse all questions"
+            expect(page).not_to have_selector(".collapsible", visible: true)
+            expect(page).to have_selector(".question--collapse .icon-expand", count: questionnaire.questions.count)
+          end
+        end
+
+        shared_examples_for "collapsing a question" do
+          it "changes the toggle button" do
+            within ".questionnaire-question:last-of-type" do
+              expect(page).to have_selector(".icon-expand")
+            end
+          end
+
+          it "hides the question card section" do
+            within ".questionnaire-question:last-of-type" do
+              expect(page).not_to have_selector(".collapsible", visible: true)
+            end
+          end
+        end
+
+        shared_examples_for "uncollapsing a question" do
+          it "changes the toggle button" do
+            within ".questionnaire-question:last-of-type" do
+              expect(page).to have_selector(".icon-collapse")
+            end
+          end
+
+          it "shows the question card section" do
+            expect(page).to have_selector(".collapsible", visible: true)
+          end
+        end
+
+        context "when collapsing an existing question" do
+          before do
+            expand_all_questions
+            within ".questionnaire-question:last-of-type" do
+              page.find(".question--collapse").click
+            end
+          end
+
+          it_behaves_like "collapsing a question"
+        end
+
+        context "when adding a new question" do
+          before do
+            click_button "Add question"
+            expand_all_questions
+
+            within ".questionnaire-question:last-of-type" do
+              page.find(".question--collapse").click
+            end
+          end
+
+          it_behaves_like "collapsing a question"
+        end
+      end
+
       it "properly decides which button to show after adding/removing questions" do
         click_button "Add question"
+        expand_all_questions
 
         expect(page.find(".questionnaire-question:nth-of-type(1)")).to look_like_first_question
         expect(page.find(".questionnaire-question:nth-of-type(2)")).to look_like_intermediate_question
@@ -760,11 +875,15 @@ shared_examples_for "manage questionnaires" do
       end
 
       it "does not duplicate editors when adding new questions" do
-        expect { click_button "Add question" }.to change { page.all(".ql-toolbar").size }.by(1)
+        expect do
+          click_button "Add question"
+          expand_all_questions
+        end.to change { page.all(".ql-toolbar").size }.by(1)
       end
 
       it "properly decides which button to show after adding/removing answer options" do
         click_button "Add question"
+        expand_all_questions
 
         within ".questionnaire-question:last-of-type" do
           select "Single option", from: "Type"
@@ -787,6 +906,7 @@ shared_examples_for "manage questionnaires" do
         end
 
         click_button "Save"
+        expand_all_questions
 
         within ".questionnaire-question:last-of-type" do
           within ".questionnaire-question-answer-options-list" do
@@ -820,6 +940,9 @@ shared_examples_for "manage questionnaires" do
 
       expect(page).to have_no_content("Add question")
       expect(page).to have_no_content("Remove")
+
+      expand_all_questions
+
       expect(page).to have_selector("input[value='This is the first question'][disabled]")
       expect(page).to have_selector("select[id$=question_type][disabled]")
       expect(page).to have_selector("select[id$=max_choices][disabled]")
@@ -847,5 +970,14 @@ shared_examples_for "manage questionnaires" do
 
   def nested_form_field_selector(attribute)
     "[id$=#{attribute}]"
+  end
+
+  def expand_all_questions
+    find(".button.expand-all").click
+  end
+
+  def visit_questionnaire_edit_path_and_expand_all
+    visit questionnaire_edit_path
+    expand_all_questions
   end
 end
