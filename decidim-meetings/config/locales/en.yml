@@ -228,8 +228,8 @@ en:
           form:
             address: Address
             address_help: 'Address: used by Geocoder to find the location'
-            select_organizer: Select the organizer
             select_address: Select the address
+            select_organizer: Select the organizer
         meetings:
           close:
             invalid: There was a problem closing this meeting
