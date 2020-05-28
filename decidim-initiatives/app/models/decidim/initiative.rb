@@ -105,6 +105,7 @@ module Decidim
     scope :future_spaces, -> { none }
     scope :past_spaces, -> { closed }
 
+    before_update :update_offline_votes_total
     after_save :notify_state_change
     after_create :notify_creation
 
@@ -265,7 +266,7 @@ module Decidim
     #
     # Returns an Integer.
     def supports_required
-      @supports_required ||= votable_initiative_type_scopes.sum(&:supports_required)
+      @supports_required ||= scoped_type.supports_required
     end
 
     # Public: Returns the percentage of required supports reached
@@ -311,6 +312,12 @@ module Decidim
       # rubocop:disable Rails/SkipsModelValidations
       update_column("online_votes", online_votes)
       # rubocop:enable Rails/SkipsModelValidations
+    end
+
+    def update_offline_votes_total
+      return if offline_votes.blank? || scope.nil?
+
+      offline_votes["total"] = offline_votes[scope.id.to_s]
     end
 
     # Public: Finds all the InitiativeTypeScopes that are eligible to be voted by a user.

@@ -18,8 +18,7 @@ class AllowMultipleInitiativeVotesCounterCaches < ActiveRecord::Migration[5.2]
     Initiative.find_each do |initiative|
       online_votes = initiative.votes.group(:decidim_scope_id).count.each_with_object({}) do |(scope_id, count), counters|
         counters[scope_id || "global"] = count
-        counters["total"] ||= 0
-        counters["total"] += count
+        counters["total"] = count
       end
 
       # rubocop:disable Rails/SkipsModelValidations
