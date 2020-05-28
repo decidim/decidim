@@ -65,7 +65,7 @@ fr:
         state_eq:
           label: Etat
           values:
-            accepted: Acceptée
+            accepted: Acceptées
             created: Créée
             discarded: Retirée
             published: Publiée
@@ -239,7 +239,7 @@ fr:
           unpublish: "%{user_name} a dépublié l'initiative %{resource_name}"
           update: "%{user_name} a mis à jour l'initiative %{resource_name}"
       admin_states:
-        accepted: Acceptée
+        accepted: Acceptées
         created: Créée
         discarded: Retirée
         published: Publiée
