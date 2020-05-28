@@ -18,6 +18,10 @@ module Decidim
       context[:controller].class.to_s == "Decidim::Blogs::PostsController"
     end
 
+    def meetings_controller?
+      context[:controller].class.to_s == "Decidim::Meetings::MeetingsController"
+    end
+
     def index_action?
       context[:controller].action_name == "index"
     end
@@ -40,7 +44,7 @@ module Decidim
 
     def flagable?
       return unless from_context
-      return unless proposals_controller? || collaborative_drafts_controller?
+      return unless proposals_controller? || collaborative_drafts_controller? || meetings_controller?
       return if index_action?
 
       true

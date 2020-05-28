@@ -26,7 +26,7 @@ edit_link(
 
   <% # todo %>
   <% # if the component has the setting enabled %>
-    <%= cell "decidim/author", organizer_presenter_for(meeting.organizer), context: { extra_classes: ["author-data--small"] } %>
+    <%= cell "decidim/author", organizer_presenter_for(meeting.organizer), has_actions: true, from: meeting, context: { extra_classes: ["author-data--small"] } %>
   <% # end %>
 
 </div>
@@ -164,3 +164,11 @@ edit_link(
 <%= attachments_for meeting %>
 <%= comments_for meeting %>
 <%= pad_iframe_for meeting %>
+
+<%=
+  render partial: "decidim/shared/flag_modal", locals: {
+    reportable: meeting,
+    form: @report_form,
+    url: decidim.report_path(sgid: meeting.to_sgid.to_s)
+  }
+%>

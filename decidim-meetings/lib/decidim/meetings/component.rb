@@ -36,6 +36,7 @@ Decidim.register_component(:meetings) do |component|
   component.exports :meetings do |exports|
     exports.collection do |component_instance|
       Decidim::Meetings::Meeting
+        .not_hidden
         .visible
         .where(component: component_instance)
         .includes(component: { participatory_space: :organization })

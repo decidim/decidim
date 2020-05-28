@@ -21,6 +21,22 @@ describe "Explore meetings", type: :system do
       end
     end
 
+    context "with hidden meetings" do
+      let(:meeting) { meetings.last }
+
+      before do
+        create :moderation, :hidden, reportable: meeting
+      end
+
+      it "does not list the hidden meetings" do
+        visit_component
+
+        expect(page).to have_selector("article.card", count: meetings_count - 1)
+
+        expect(page).to have_no_content(translated(meeting.title))
+      end
+    end
+
     context "when comments have been moderated" do
       let(:meeting) { create(:meeting, component: component) }
       let!(:comments) { create_list(:comment, 3, commentable: meeting) }

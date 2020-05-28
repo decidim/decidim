@@ -21,6 +21,7 @@ module Decidim
       include Decidim::Forms::HasQuestionnaire
       include Decidim::Paddable
       include Decidim::ActsAsAuthor
+      include Decidim::Reportable
 
       belongs_to :organizer, polymorphic: true, foreign_key: "organizer_id", foreign_type: "organizer_type", optional: true
 
@@ -173,6 +174,11 @@ module Decidim
         return false unless pad_is_visible?
 
         (Time.current - end_time) < 72.hours
+      end
+
+      # Public: Overrides the `reported_content_url` Reportable concern method.
+      def reported_content_url
+        ResourceLocatorPresenter.new(self).url
       end
 
       private
