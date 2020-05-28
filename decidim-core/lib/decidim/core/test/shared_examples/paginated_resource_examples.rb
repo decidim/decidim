@@ -2,6 +2,7 @@
 
 shared_examples "a paginated resource" do
   let(:collection_size) { 30 }
+  let(:model_name) { collection.first.model_name.human.downcase }
 
   before do
     visit_component
@@ -20,6 +21,7 @@ shared_examples "a paginated resource" do
       click_link "50"
     end
 
+    expect(page).to have_content("#{collection_size} #{model_name}s")
     expect(page).to have_css(resource_selector, count: collection_size)
     expect(page).to have_no_css(".pagination")
   end
