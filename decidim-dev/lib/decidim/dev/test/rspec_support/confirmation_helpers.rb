@@ -39,6 +39,20 @@ module ConfirmationHelpers
 
     message
   end
+
+  # Used to accept the "onbeforeunload" event's normal browser confirm modal
+  # as this cannot be overridden. Original confirm dismiss implementation in
+  # Capybara.
+  def accept_page_unload(text = nil, **options, &blk)
+    page.send(:accept_modal, :confirm, text, options, &blk)
+  end
+
+  # Used to dismiss the "onbeforeunload" event's normal browser confirm modal
+  # as this cannot be overridden. Original confirm dismiss implementation in
+  # Capybara.
+  def dismiss_page_unload(text = nil, **options, &blk)
+    page.send(:dismiss_modal, :confirm, text, options, &blk)
+  end
 end
 
 RSpec.configure do |config|

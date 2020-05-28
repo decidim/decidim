@@ -109,7 +109,7 @@ shared_examples_for "has questionnaire" do
 
       fill_in question.body["en"], with: "My first answer"
 
-      dismiss_confirm do
+      dismiss_page_unload do
         page.find(".logo-wrapper a").click
       end
 
