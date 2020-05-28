@@ -6,21 +6,36 @@ module Decidim::Messaging
   describe ReplyToConversation do
     let(:organization) { create(:organization) }
     let(:user) { create(:user, :confirmed, organization: organization) }
-    let(:interlocutor) { create(:user) }
+    let(:another_user) { create(:user, :confirmed, organization: organization) }
+    let(:extra_user) { create(:user, :confirmed, organization: organization) }
+    let(:user_group) { create(:user_group, :confirmed, organization: organization, users: [user, another_user, extra_user]) }
+    let(:sender) { user }
+    let(:originator) { another_user }
+    let(:current_user) { user }
+    let(:context) do
+      {
+        current_user: current_user,
+        sender: sender
+      }
+    end
 
     let(:conversation) do
       Conversation.start!(
-        originator: interlocutor,
-        interlocutors: [user],
+        originator: originator,
+        interlocutors: [sender],
         body: "Initial message"
       )
+    end
+
+    let(:form) do
+      MessageForm.from_params(params).with_context(context)
     end
 
     let!(:command) { described_class.new(conversation, form) }
 
     context "when the form is invalid" do
-      let(:form) do
-        MessageForm.from_params(body: "")
+      let(:params) do
+        { body: "" }
       end
 
       it "does not create a message" do
@@ -38,42 +53,89 @@ module Decidim::Messaging
       end
     end
 
-    context "when the form is valid" do
-      let(:form) do
-        MessageForm.from_params(
-          body: "<3 from Patagonia"
-        ).with_context(current_user: user)
-      end
-
-      it "creates a message with two receipts" do
+    shared_examples "valid message with receipts" do |num_receipts|
+      it "creates a message with #{num_receipts} receipts" do
         expect { command.call }
           .to change(Message, :count)
           .by(1)
           .and change(Receipt, :count)
-          .by(2)
+          .by(num_receipts)
       end
 
       it "broadcasts ok" do
         expect { command.call }.to broadcast(:ok, an_instance_of(Message))
       end
+    end
 
-      context "and the user didn't have unread messages in the conversation" do
+    shared_examples "send emails" do |num_emails|
+      context "and the receiver didn't have unread messages in the conversation" do
         it "sends a notification to the recipient" do
           expect do
             perform_enqueued_jobs { command.call }
-          end.to change(emails, :count).by(1)
+          end.to change(emails, :count).by(num_emails)
         end
       end
 
-      context "and the user already has unread messages in the conversation" do
+      context "and the receiver already has unread messages in the conversation" do
         before do
-          conversation.add_message!(sender: user, body: "Still thinking of you from Patagonia")
+          conversation.add_message!(sender: sender, body: "Still thinking of you from Patagonia")
         end
 
         it "does not send notifications" do
           expect do
             perform_enqueued_jobs { command.call }
           end.not_to change(emails, :count)
+        end
+      end
+    end
+
+    context "when the form is valid" do
+      let(:params) do
+        { body: "<3 from Patagonia" }
+      end
+
+      it_behaves_like "valid message with receipts", 2
+      it_behaves_like "send emails", 1
+
+      context "and the originator is a group" do
+        let(:originator) { user_group }
+
+        before do
+          # mark as read receipts for other managers created in conversation.start!
+          originator.managers.each do |user|
+            Receipt.mark_as_read(user)
+          end
+        end
+
+        it_behaves_like "valid message with receipts", 3
+        it_behaves_like "send emails", 2
+
+        context "and the group has users with direct messages disabled" do
+          let(:extra_user) { create(:user, :confirmed, organization: organization, direct_message_types: "followed-only") }
+
+          it_behaves_like "valid message with receipts", 3
+          it_behaves_like "send emails", 1
+        end
+      end
+
+      context "and the sender is a group" do
+        let(:sender) { user_group }
+
+        before do
+          # mark as read receipts for other managers created in conversation.start!
+          sender.managers.each do |user|
+            Receipt.mark_as_read(user)
+          end
+        end
+
+        it_behaves_like "valid message with receipts", 3
+        it_behaves_like "send emails", 2
+
+        context "and the group has users with direct messages disabled" do
+          let(:extra_user) { create(:user, :confirmed, organization: organization, direct_message_types: "followed-only") }
+
+          it_behaves_like "valid message with receipts", 3
+          it_behaves_like "send emails", 1
         end
       end
     end

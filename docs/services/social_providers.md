@@ -54,13 +54,13 @@ twitter:
 
 ## Custom providers
 
-* You can define your own provider, to allow users from other external applications to login into Decidim.
-* The provider should implement an [OmniAuth](https://github.com/omniauth/omniauth) strategy.
-* You can use any of the [existing OnmiAuth strategies](https://github.com/omniauth/omniauth/wiki/List-of-Strategies).
-* Or you can create a new strategy, as the [Decidim OmniAuth Strategy](https://github.com/decidim/omniauth-decidim). This strategy allow users from a Decidim instance to login in other Decidim instance. For example, this strategy is used to allow [decidim.barcelona](https://decidim.barcelona) users to log into [meta.decidim.barcelona](https://meta.decidim.barcelona).
-* Once you have defined your strategy, you can configure it in the `config/secrets.yml` or in the organization configuration, as it is done for the built-in providers.
-* By default, Decidim will search in its icons library for an icon named as the provider. You can change this adding an `icon` or `icon_path` attribute to the provider configuration. The `icon` attribute sets the icon name to look for in the Decidim's icons library. The `icon_path` attribute sets the route to the image that should be used.
-* Here is an example of the configuration section for the Decidim strategy, using an icon located on the application's `app/assets/images` folder:
+- You can define your own provider, to allow users from other external applications to login into Decidim.
+- The provider should implement an [OmniAuth](https://github.com/omniauth/omniauth) strategy.
+- You can use any of the [existing OnmiAuth strategies](https://github.com/omniauth/omniauth/wiki/List-of-Strategies).
+- Or you can create a new strategy, as the [Decidim OmniAuth Strategy](https://github.com/decidim/omniauth-decidim). This strategy allow users from a Decidim instance to login in other Decidim instance. For example, this strategy is used to allow [decidim.barcelona](https://decidim.barcelona) users to log into [meta.decidim.barcelona](https://meta.decidim.barcelona).
+- Once you have defined your strategy, you can configure it in the `config/secrets.yml` or in the organization configuration, as it is done for the built-in providers.
+- By default, Decidim will search in its icons library for an icon named as the provider. You can change this adding an `icon` or `icon_path` attribute to the provider configuration. The `icon` attribute sets the icon name to look for in the Decidim's icons library. The `icon_path` attribute sets the route to the image that should be used.
+- Here is an example of the configuration section for the Decidim strategy, using an icon located on the application's `app/assets/images` folder:
 
 ```yaml
     decidim:
@@ -70,3 +70,29 @@ twitter:
       site_url: <%= ENV["DECIDIM_SITE_URL"] %>
       icon_path: decidim-logo.svg
 ```
+
+- You will need a custom initializer for your provider in order to pass the proper params to the OmniaAuth Builder.
+
+An example of custom initializer could be written as:
+
+```ruby
+#config/initializers/omniauth_myprovider.rb
+if Rails.application.secrets.dig(:omniauth, :myprovider).present?
+  Rails.application.config.middleware.use OmniAuth::Builder do
+    provider(
+      :myprovider,
+      setup: ->(env) {
+          request = Rack::Request.new(env)
+          organization = Decidim::Organization.find_by(host: request.host)
+          provider_config = organization.enabled_omniauth_providers[:myprovider]
+          env["omniauth.strategy"].options[:client_id] = provider_config[:client_id]
+          env["omniauth.strategy"].options[:client_secret] = provider_config[:client_secret]
+          env["omniauth.strategy"].options[:site] = provider_config[:site_url]
+        },
+      scope: :public
+    )
+  end
+end
+```
+
+The custom provider may have different configuration options, instead of `client_id`, `client_secret` and `site`.

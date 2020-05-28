@@ -4,7 +4,28 @@ module Decidim
   module Core
     class UserEntityInputFilter < BaseInputFilter
       graphql_name "UserEntityFilter"
-      description "A type used for filtering any user or group"
+      description "A type used for filtering any user or group
+
+      A typical query would look like:
+
+      ```
+      {
+        users(filter:{wildcard:\"sandy\", excludeIds:[2,10,11]}) {
+          id
+          ...on User {
+            groups {
+              name
+            }
+          }
+          ...on UserGroup {
+            members {
+              name
+            }
+          }
+        }
+      }
+      ```
+      "
 
       argument :type,
                type: String,
@@ -44,6 +65,15 @@ module Decidim
                    op_name = model_class.arel_table[:name].matches("%#{value}%")
                    op_nick = model_class.arel_table[:nickname].matches("%#{value}%")
                    op_name.or(op_nick)
+                 end
+               end
+      argument :exclude_ids,
+               type: [ID],
+               description: "Excludes users contained in given ids. Valid values are one or more IDs (passed as an array)",
+               required: false,
+               prepare: ->(value, _ctx) do
+                 proc do |model_class|
+                   model_class.arel_table[:id].not_in(value)
                  end
                end
     end

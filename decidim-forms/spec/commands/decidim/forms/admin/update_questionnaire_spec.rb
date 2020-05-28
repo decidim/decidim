@@ -79,7 +79,7 @@ module Decidim
               "3" => {
                 "body" => {
                   "en" => "Fourth question",
-                  "ca" => "Cuarta pregunta",
+                  "ca" => "Quarta pregunta",
                   "es" => "Cuarta pregunta"
                 },
                 "position" => "3",
@@ -99,6 +99,91 @@ module Decidim
                       "en" => "Second answer",
                       "ca" => "Segona resposta",
                       "es" => "Segunda respuesta"
+                    }
+                  }
+                }
+              },
+              "4" => {
+                "body" => {
+                  "en" => "Fifth question",
+                  "ca" => "Cinquena pregunta",
+                  "es" => "Quinta pregunta"
+                },
+                "position" => "4",
+                "question_type" => "matrix_single",
+                "answer_options" => {
+                  "0" => {
+                    "body" => {
+                      "en" => "First answer",
+                      "ca" => "Primera resposta",
+                      "es" => "Primera respuesta"
+                    },
+                    "free_text" => "1"
+                  },
+                  "1" => {
+                    "body" => {
+                      "en" => "Second answer",
+                      "ca" => "Segona resposta",
+                      "es" => "Segunda respuesta"
+                    }
+                  }
+                },
+                "matrix_rows" => {
+                  "0" => {
+                    "body" => {
+                      "en" => "First row",
+                      "ca" => "Primera fila",
+                      "es" => "Primera fila"
+                    }
+                  },
+                  "1" => {
+                    "body" => {
+                      "en" => "Second row",
+                      "ca" => "Segona fila",
+                      "es" => "Segunda fila"
+                    }
+                  }
+                }
+              },
+              "5" => {
+                "body" => {
+                  "en" => "Sixth question",
+                  "ca" => "Sisena pregunta",
+                  "es" => "Sexta pregunta"
+                },
+                "position" => "5",
+                "question_type" => "matrix_multiple",
+                "max_choices" => "2",
+                "answer_options" => {
+                  "0" => {
+                    "body" => {
+                      "en" => "First answer",
+                      "ca" => "Primera resposta",
+                      "es" => "Primera respuesta"
+                    },
+                    "free_text" => "1"
+                  },
+                  "1" => {
+                    "body" => {
+                      "en" => "Second answer",
+                      "ca" => "Segona resposta",
+                      "es" => "Segunda respuesta"
+                    }
+                  }
+                },
+                "matrix_rows" => {
+                  "0" => {
+                    "body" => {
+                      "en" => "First row",
+                      "ca" => "Primera fila",
+                      "es" => "Primera fila"
+                    }
+                  },
+                  "1" => {
+                    "body" => {
+                      "en" => "Second row",
+                      "ca" => "Segona fila",
+                      "es" => "Segunda fila"
                     }
                   }
                 }
@@ -141,7 +226,7 @@ module Decidim
             questionnaire.reload
 
             expect(questionnaire.description["en"]).to eq("<p>Content</p>")
-            expect(questionnaire.questions.length).to eq(4)
+            expect(questionnaire.questions.length).to eq(6)
 
             questionnaire.questions.each_with_index do |question, idx|
               expect(question.body["en"]).to eq(form_params["questions"][idx.to_s]["body"]["en"])
@@ -162,6 +247,14 @@ module Decidim
             expect(questionnaire.questions[3].question_type).to eq("multiple_option")
             expect(questionnaire.questions[3].answer_options[0].free_text).to eq(true)
             expect(questionnaire.questions[3].max_choices).to eq(2)
+
+            expect(questionnaire.questions[4].question_type).to eq("matrix_single")
+            expect(questionnaire.questions[4].answer_options[0].free_text).to eq(true)
+            expect(questionnaire.questions[4].matrix_rows[0].body["en"]).to eq(form_params["questions"]["4"]["matrix_rows"]["0"]["body"]["en"])
+
+            expect(questionnaire.questions[5].question_type).to eq("matrix_multiple")
+            expect(questionnaire.questions[5].answer_options[0].free_text).to eq(true)
+            expect(questionnaire.questions[5].matrix_rows[0].body["en"]).to eq(form_params["questions"]["5"]["matrix_rows"]["0"]["body"]["en"])
           end
         end
 

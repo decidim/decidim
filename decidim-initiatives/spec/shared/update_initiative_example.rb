@@ -15,6 +15,7 @@ shared_examples "update an initiative" do
   end
 
   let(:signature_end_date) { Date.current + 130.days }
+  let(:attachment_params) { nil }
   let(:form_params) do
     {
       title: { en: "A reasonable initiative title" },
@@ -25,7 +26,8 @@ shared_examples "update an initiative" do
       type_id: initiative.type.id,
       decidim_scope_id: initiative.scope.id,
       hashtag: "update_initiative_example",
-      offline_votes: 1
+      offline_votes: 1,
+      attachment: attachment_params
     }
   end
   let(:current_user) { initiative.author }
@@ -43,11 +45,9 @@ shared_examples "update an initiative" do
       end
 
       it "doesn't updates the initiative" do
-        command.call
-
-        form_params.each do |key, value|
-          expect(initiative[key]).not_to eq(value)
-        end
+        expect do
+          command.call
+        end.not_to change(initiative, :title)
       end
     end
 
@@ -64,6 +64,34 @@ shared_examples "update an initiative" do
         expect(initiative.description["en"]).to eq(form_params[:description][:en])
         expect(initiative.type.id).to eq(form_params[:type_id])
         expect(initiative.hashtag).to eq(form_params[:hashtag])
+      end
+
+      context "when attachment is present", processing_uploads_for: Decidim::AttachmentUploader do
+        let(:attachment_params) do
+          {
+            title: "My attachment",
+            file: Decidim::Dev.test_file("city.jpeg", "image/jpeg")
+          }
+        end
+
+        it "creates an atachment for the proposal" do
+          expect { command.call }.to change(Decidim::Attachment, :count).by(1)
+          last_initiative = Decidim::Initiative.last
+          last_attachment = Decidim::Attachment.last
+          expect(last_attachment.attached_to).to eq(last_initiative)
+        end
+
+        context "when attachment is left blank" do
+          let(:attachment_params) do
+            {
+              title: ""
+            }
+          end
+
+          it "broadcasts ok" do
+            expect { command.call }.to broadcast(:ok)
+          end
+        end
       end
 
       it "traces the action", versioning: true do

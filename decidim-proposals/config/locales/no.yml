@@ -81,9 +81,12 @@
         search_placeholder:
           id_string_or_title_cont: Søk %{collection} etter ID eller tittel.
         state_eq:
+          label: Delstat
           values:
+            accepted: Aksepterte
             evaluating: Vurderer
-            withdrawn: Tilbaketrukket
+            rejected: Avvist
+            withdrawn: Trukket tilbake
         state_null:
           label: Status
           values:
@@ -385,10 +388,8 @@
             title: Oppdater forslag
             update: Oppdater
           form:
-            add_images: Legg til bilder
             attachment_legend: "(Valgfritt) Legg til et vedlegg"
             created_in_meeting: Dette forslaget kommer fra et møte
-            gallery_legend: "(Valgfritt) Legg til et bildegalleri"
             select_a_category: Velg en kategori
             select_a_meeting: Velg et møte
           index:
@@ -412,7 +413,7 @@
           show:
             amendments_count: Endringer teller
             authors: Forfattere
-            body: Tekst
+            body: Body
             comments_count: Kommentarer teller
             comments_negative_count: Imot
             comments_neutral_count: Nøytral

@@ -138,6 +138,7 @@ uk:
         explanation: Підтвердьте свою особу, ввівши номер паспорта, що починається з "А"
         fields:
           passport_number: Номер паспорта
+          postal_code: Поштовий індекс
         name: Ще один приклад підтвердження особи
       dummy_authorization_handler:
         explanation: Підтвердьте особу, ввівши номер документа, що закінчується на "X"
@@ -394,6 +395,7 @@ uk:
         create:
           error: Бесіда не розпочата. Спробуйте ще раз пізніше
         index:
+          close: Закрити віконце
           no_conversations: У вас ще немає бесід
         reply:
           title: Відповісти

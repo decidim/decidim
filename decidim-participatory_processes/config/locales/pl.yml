@@ -22,6 +22,7 @@ pl:
         participatory_structure: Jak to się decyduje
         promoted: Lansowany
         published_at: Opublikowano na
+        related_process_ids: Powiązane procesy
         scope_id: Zakres
         scopes_enabled: Zakresy włączone
         short_description: Krótki opis
@@ -305,6 +306,7 @@ pl:
             images: Obrazy
             metadata: Metadane
             other: Inny
+            related_processes: Powiązane procesy
             select_an_area: Wybierz obszar
             select_process_group: Wybierz grupę procesów
             slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten proces. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
@@ -368,6 +370,7 @@ pl:
         participatory_scope: Co jest zdecydowane
         participatory_structure: Jak to się stało
         private_space: To jest prywatny proces
+        related_processes: Powiązane procesy
         scope: Zakres
         start_date: Data rozpoczęcia
         target: Kto uczestniczy

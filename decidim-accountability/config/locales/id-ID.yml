@@ -57,17 +57,11 @@ id:
           edit:
             title: Edit hasil
             update: Perbarui hasil
-          form:
-            add_proposal: Tambahkan proposal
           index:
             title: Hasil
           new:
             create: Buat hasil
             title: Hasil baru
-          proposals:
-            close: Dekat
-            current_selection: Pilihan saat ini
-            select: Memilih
           update:
             invalid: Terjadi masalah saat memperbarui hasil ini
             success: Hasilnya berhasil diperbarui

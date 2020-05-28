@@ -72,10 +72,10 @@ module Decidim
       case permission_action.action
       when :create
         toggle_allow(authorization.user == user && not_already_active?(authorization))
-      when :update
+      when :update, :destroy
         toggle_allow(authorization.user == user && !authorization.granted?)
-      when :destroy
-        toggle_allow(authorization.user == user && !authorization.granted?)
+      when :renew
+        toggle_allow(authorization.user == user && authorization.granted? && authorization.renewable?)
       end
     end
 
@@ -124,12 +124,13 @@ module Decidim
       return allow! if permission_action.action == :list
 
       conversation = context.fetch(:conversation)
+      interlocutor = context.fetch(:interlocutor, user)
 
       if [:create, :update].include?(permission_action.action)
-        return disallow! unless conversation&.accept_user? user
+        return disallow! unless conversation&.accept_user? interlocutor
       end
 
-      toggle_allow(conversation&.participants&.include?(user))
+      toggle_allow(conversation&.participating?(interlocutor))
     end
 
     def user_group_action?

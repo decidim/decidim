@@ -124,6 +124,7 @@ ca:
         show:
           algorithm: Codi d'algoritme del sorteig
           any_category: de totes les categories
+          back: Torna al llistat
           cancelled: Sorteig cancel·lat
           candidate_proposal_ids: Ordre i IDs de les propostes del sorteig
           candidate_proposals_info: 'La resolució es va dur a terme entre les següents propostes (%{category_label}), amb les següents IDs (en negreta, les propostes seleccionades)  '

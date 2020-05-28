@@ -6,7 +6,7 @@ module Decidim::Admin
   describe UpdateContentBlock do
     subject { described_class.new(form, content_block, scope) }
 
-    let(:content_block) { create :content_block, manifest_name: :hero, scope: scope }
+    let(:content_block) { create :content_block, manifest_name: :hero, scope_name: scope }
     let(:scope) { :homepage }
     let(:settings) do
       {
