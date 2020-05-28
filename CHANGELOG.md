@@ -22,6 +22,7 @@ Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on 
 ### Added
 
 - **decidim-api**, **decidim-meetings**: Autocomplete address in meetings [\#6107](https://github.com/decidim/decidim/pull/6107)
+- **decidim-initiatives**: Send notification when signature threshold reached. [\#6098](https://github.com/decidim/decidim/pull/6098)
 - **decidim-proposals**: Add an information message when there aren't proposals. [\#6063](https://github.com/decidim/decidim/pull/6063)
 - **decidim-core**: Set email asset host dynamically. [\#5888](https://github.com/decidim/decidim/pull/5888)
 - **decidim-meetings**: Include year in meetings' card [\#6102](https://github.com/decidim/decidim/pull/6102)
