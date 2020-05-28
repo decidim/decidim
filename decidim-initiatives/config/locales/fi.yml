@@ -67,12 +67,12 @@ fi:
         state_eq:
           label: Tila
           values:
-            accepted: Hyväksytty
+            accepted: Hyväksytyt
             created: Luotu
             discarded: Hylätty
             published: Julkaistu
             rejected: Torjuttu
-            validating: Teknisessä validoinnissa
+            validating: Teknisessä tarkastuksessa
       menu:
         initiatives: Aloitteet
         initiatives_types: Aloitetyypit
@@ -181,8 +181,8 @@ fi:
             export_pdf_signatures: Vie allekirjoitukset PDF-asiakirjaan
             export_votes: Lataa allekirjoitukset
             reject: Torju aloite
-            send_to_technical_validation: Lähetä tekniseen validointiin
-            success: Aloite on lähetetty tekniseen validointiin
+            send_to_technical_validation: Lähetä tekniseen tarkastukseen
+            success: Aloite on lähetetty tekniseen tarkastukseen
             update: Päivitä
           form:
             title: Yleistä tietoa
@@ -237,16 +237,16 @@ fi:
       admin_log:
         initiative:
           publish: "%{user_name} julkaisi aloitteen %{resource_name}"
-          send_to_technical_validation: "%{user_name} lähetti aloitteen %{resource_name} tekniseen validointiin"
+          send_to_technical_validation: "%{user_name} lähetti aloitteen %{resource_name} tekniseen tarkastukseen"
           unpublish: "%{user_name} hylkäsi aloitteen %{resource_name}"
           update: "%{user_name} päivitti aloitetta %{resource_name}"
       admin_states:
-        accepted: Hyväksytty
+        accepted: Hyväksytyt
         created: Luotu
         discarded: Hylätty
         published: Julkaistu
         rejected: Torjuttu
-        validating: Teknisessä validoinnissa
+        validating: Teknisessä tarkastuksessa
       committee_requests:
         new:
           continue: Jatka
