@@ -43,7 +43,13 @@ module Decidim
     end
 
     def author_profile_url
-      @author_profile_url ||= decidim.profile_url(@author.nickname, host: @organization.host)
+      @author_profile_url ||= begin
+                                if @author.is_a?(Decidim::Organization)
+                                  decidim.root_url(host: @author.host)
+                                else
+                                  decidim.profile_url(@author.nickname, host: @organization.host)
+                                end
+                              end
     end
   end
 end
