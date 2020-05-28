@@ -2,21 +2,22 @@
 
 require "spec_helper"
 
-describe Decidim::Elections::Admin::DestroyElection do
-  subject { described_class.new(election, user) }
+describe Decidim::Elections::Admin::DestroyQuestion do
+  subject { described_class.new(question, user) }
 
-  let!(:election) { create :election }
+  let(:election) { create :election }
+  let!(:question) { create :question, election: election }
   let(:organization) { election.component.organization }
   let(:user) { create :user, :admin, :confirmed, organization: organization }
 
-  it "destroys the election" do
-    expect { subject.call }.to change { Decidim::Elections::Election.count }.by(-1)
+  it "destroys the question" do
+    expect { subject.call }.to change { Decidim::Elections::Question.count }.by(-1)
   end
 
   it "traces the action", versioning: true do
     expect(Decidim.traceability)
       .to receive(:perform_action!)
-      .with(:delete, election, user, visibility: "all")
+      .with(:delete, question, user, visibility: "all")
       .and_call_original
 
     expect { subject.call }.to change(Decidim::ActionLog, :count)
