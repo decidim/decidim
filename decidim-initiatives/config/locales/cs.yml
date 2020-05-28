@@ -82,9 +82,11 @@ cs:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Hledat %{collection} podle názvu, popisu, ID nebo jména autora.
         state_eq:
           values:
+            accepted: Dostatek podpisů
             created: Vytvořeno
             discarded: Vyřazeno
             published: Publikováno
+            rejected: Nedostatek podpisů
             validating: Technická validace
       menu:
         initiatives: Iniciativy
@@ -268,14 +270,24 @@ cs:
           unpublish: "%{user_name} zrušil iniciativu %{resource_name}"
           update: "%{user_name} aktualizoval iniciativu %{resource_name}"
       admin_states:
+        accepted: Dostatek podpisů
         created: Vytvořeno
         discarded: Vyřazeno
         published: Publikováno
+        rejected: Nedostatek podpisů
         validating: Technická validace
       application_helper:
+        filter_scope_values:
+          all: Vše
         filter_state_values:
+          accepted: Dostatek podpisů
+          all: Vše
+          answered: Odpovězeno
           closed: Uzavřeno
           open: otevřeno
+          rejected: Nedostatek podpisů
+        filter_type_values:
+          all: Vše
       committee_requests:
         new:
           continue: Pokračovat
@@ -391,6 +403,7 @@ cs:
           any: Jakýkoli
           author: Autor
           myself: Moje iniciativy
+          scope: Oblast působnosti
           search: Vyhledávání
           state: Stát
           type: Typ
@@ -472,6 +485,14 @@ cs:
           highlighted_initiatives:
             active_initiatives: Aktivní iniciativy
             see_all_initiatives: Zobrazit všechny iniciativy
+      show:
+        badge_name:
+          accepted: Dostatek podpisů
+          created: Vytvořeno
+          discarded: Zahozeno
+          published: Publikováno
+          rejected: Nedostatek podpisů
+          validating: Technické ověření
       states:
         accepted: Přijato
         expired: Platnost vypršela
