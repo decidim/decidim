@@ -77,6 +77,8 @@ ca:
             discarded: Rebutjada
             published: Publicada
             validating: Validació tècnica
+        type_id_eq:
+          label: Tipus
       menu:
         initiatives: Iniciatives
         initiatives_types: Tipus d'iniciatives
