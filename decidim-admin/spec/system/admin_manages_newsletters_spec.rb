@@ -168,7 +168,11 @@ describe "Admin manages newsletters", type: :system do
             accept_confirm { find("*", text: "Deliver").click }
           end
 
-          expect(page).to have_content("NEWSLETTERS")
+          within ".secondary-nav__title" do
+            expect(page).to have_content("NEWSLETTERS")
+          end
+          # page.execute_script "window.scrollBy(0,10000)"
+          # expect(page).to have_content("NEWSLETTERS")
           expect(page).to have_admin_callout("successfully")
         end
 
@@ -208,7 +212,11 @@ describe "Admin manages newsletters", type: :system do
             accept_confirm { find("*", text: "Deliver").click }
           end
 
-          expect(page).to have_content("NEWSLETTERS")
+          within ".secondary-nav__title" do
+            expect(page).to have_content("NEWSLETTERS")
+          end
+          # page.execute_script "window.scrollBy(0,10000)"
+          # expect(page).to have_content("NEWSLETTERS")
           expect(page).to have_admin_callout("successfully")
         end
 
@@ -248,7 +256,11 @@ describe "Admin manages newsletters", type: :system do
             accept_confirm { find("*", text: "Deliver").click }
           end
 
-          expect(page).to have_content("NEWSLETTERS")
+          within ".secondary-nav__title" do
+            expect(page).to have_content("NEWSLETTERS")
+          end
+          # page.execute_script "window.scrollBy(0,10000)"
+          # expect(page).to have_content("NEWSLETTERS")
           expect(page).to have_admin_callout("successfully")
         end
 
@@ -295,6 +307,7 @@ describe "Admin manages newsletters", type: :system do
             accept_confirm { find("*", text: "Deliver").click }
           end
 
+          page.execute_script "window.scrollBy(0,10000)"
           expect(page).to have_content("NEWSLETTERS")
           expect(page).to have_admin_callout("successfully")
         end
