@@ -36,7 +36,7 @@ module Decidim
         let(:type_id) { ["all"] }
         let(:author) { nil }
         let(:scope_id) { nil }
-        let(:area_id) { "all" }
+        let(:area_id) { ["all"] }
 
         context "when the filter includes search_text" do
           let(:search_text) { "dog" }
