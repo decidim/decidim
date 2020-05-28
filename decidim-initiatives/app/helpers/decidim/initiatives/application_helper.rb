@@ -76,7 +76,7 @@ module Decidim
                        end
 
         TreeNode.new(
-          TreePoint.new("", t("decidim.initiatives.application_helper.filter_type_values.all")),
+          TreePoint.new("", t("decidim.initiatives.application_helper.filter_area_values.all")),
           areas_values
         )
       end
