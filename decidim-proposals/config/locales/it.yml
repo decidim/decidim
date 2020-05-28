@@ -768,6 +768,9 @@ it:
         proposal:
           creation_date: 'Creazione: %{date}'
           view_proposal: Visualizza la proposta
+        proposals:
+          empty: Non c'è ancora nessuna proposta
+          empty_filters: Non c'è alcuna proposta con questo criterio
         show:
           answer: Risposta
           back_to: Torna a
