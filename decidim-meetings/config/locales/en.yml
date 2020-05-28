@@ -347,6 +347,10 @@ en:
       meeting:
         not_allowed: You are not allowed to view this meeting
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} meeting"
+            other: "%{count} meetings"
         filters:
           category: Category
           category_prompt: Select a category

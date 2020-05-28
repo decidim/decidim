@@ -2,6 +2,14 @@
 
 <%= cell "decidim/meetings/meetings_map", search.results %>
 
+<div class="row columns">
+  <div class="title-action">
+    <h3 id="meetings-count" class="title-action__title section-heading">
+      <%= render partial: "count" %>
+    </h3>
+  </div>
+</div>
+
 <div class="row">
   <div class="columns mediumlarge-4 large-3">
     <%= render partial: "filters_small_view" %>
