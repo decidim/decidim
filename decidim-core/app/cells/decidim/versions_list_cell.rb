@@ -2,12 +2,14 @@
 
 module Decidim
   class VersionsListCell < Decidim::ViewModel
+    include Decidim::SanitizeHelper
+
     def versioned_resource
       model
     end
 
     def resource_title
-      translated_attribute(versioned_resource.title)
+      decidim_html_escape(translated_attribute(versioned_resource.title))
     end
 
     def resource_path

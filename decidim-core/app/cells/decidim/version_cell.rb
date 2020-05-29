@@ -3,6 +3,11 @@
 module Decidim
   class VersionCell < Decidim::ViewModel
     include Decidim::TraceabilityHelper
+    include Decidim::SanitizeHelper
+
+    def resource_title
+      decidim_html_escape(translated_attribute(versioned_resource.title))
+    end
 
     def current_version
       model
@@ -18,10 +23,6 @@ module Decidim
 
     def i18n_changes_title
       i18n("changes_at_title", title: resource_title)
-    end
-
-    def resource_title
-      translated_attribute(versioned_resource.title)
     end
 
     def i18n_version_number
