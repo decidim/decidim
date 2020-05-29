@@ -67,6 +67,14 @@ en:
       errors:
         answer:
           body: Body can't be blank
+      files:
+        extension_whitelist: 'Accepted formats:'
+      images:
+        dimensions: "%{width} x %{height} px"
+        dimensions_info: 'This image will be:'
+        processors:
+          resize_and_pad: Resized and padded to
+          resize_to_fit: Resized to fit
       question_types:
         long_answer: Long answer
         matrix_multiple: Matrix (Multiple option)
