@@ -32,7 +32,6 @@ ca:
         scope: Àrea municipal
         slug: Nom curt d'URL
         subtitle: Subtítol
-        title: Títol
         vote: Sistema de votació extern
         what_is_decided: Què es decideix
       response:
