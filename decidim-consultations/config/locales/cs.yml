@@ -32,7 +32,6 @@ cs:
         scope: Městská oblast
         slug: URL slug
         subtitle: Titulky
-        title: Titul
         vote: Externí hlasovací systém
         what_is_decided: Co se rozhodlo
       response:
