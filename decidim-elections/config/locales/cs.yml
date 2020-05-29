@@ -7,8 +7,6 @@ cs:
         start_time: Hlasování začíná v
         subtitle: Podtitulek
         title: Název
-    models:
-      decidim/elections/create_election_event: Volby
   decidim:
     components:
       elections:
