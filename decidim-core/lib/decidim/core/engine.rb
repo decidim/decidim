@@ -122,6 +122,11 @@ module Decidim
                                [Decidim.geocoder.fetch(:here_app_id), Decidim.geocoder.fetch(:here_app_code)]
                              end
           Geocoder.configure(config)
+        else
+          # Disable Geocoder lookup to prevent misuse of default provider (Nominatim)
+          # For further info see Nominatim usage policy:
+          # https://operations.osmfoundation.org/policies/nominatim/
+          Geocoder.configure(lookup: :none)
         end
       end
 
