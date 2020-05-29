@@ -168,6 +168,7 @@ FactoryBot.define do
       signature_type { "online" }
 
       after(:build) do |initiative|
+        initiative.online_votes[initiative.scope.id.to_s] = initiative.supports_required + 1
         initiative.online_votes["total"] = initiative.supports_required + 1
       end
     end
@@ -178,6 +179,7 @@ FactoryBot.define do
       signature_type { "online" }
 
       after(:build) do |initiative|
+        initiative.online_votes[initiative.scope.id.to_s] = 0
         initiative.online_votes["total"] = 0
       end
     end

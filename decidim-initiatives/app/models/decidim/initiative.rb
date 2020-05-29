@@ -308,12 +308,16 @@ module Decidim
     end
 
     def online_votes_count_for(scope)
+      return 0 if offline_signature_type?
+
       scope_key = (scope&.id || "global").to_s
 
       (online_votes || {}).fetch(scope_key, 0).to_i
     end
 
     def offline_votes_count_for(scope)
+      return 0 if online_signature_type?
+
       scope_key = (scope&.id || "global").to_s
 
       (offline_votes || {}).fetch(scope_key, 0).to_i
