@@ -853,24 +853,12 @@ en:
         error: There was a problem saving the collaborative draft.
         success: Proposal draft successfully updated.
       versions:
-        changes_at_title: Changes at "%{title}"
         collaborative_drafts:
           back_to_resource: Go back to collaborative draft
         index:
           title: Versions
         proposals:
           back_to_resource: Go back to proposal
-        stats:
-          back_to_collaborative_draft: Go back to collaborative draft
-          back_to_proposal: Go back to proposal
-          number_of_versions: Versions
-          show_all_versions: Show all versions
-          version_author: Version author
-          version_created_at: Version created at
-          version_number: Version number
-          version_number_out_of_total: "%{current_version} out of %{total_count}"
-        version:
-          version_index: Version %{index}
       withdraw:
         errors:
           has_supports: This proposal can not be withdrawn because it already has supports.

@@ -153,24 +153,15 @@ en:
           stats:
             attendees: Attendees
             back_to_resource: Go back to result
-            back_to_result: Go back to result
             comments: Comments
             contributions: Contributions
             last_edited_by: Last edited by
             last_updated_at: Last updated at
             meetings: Meetings
             proposals: Proposals
-            show_all_versions: Show all versions
-            version_author: Version author
-            version_created_at: Version created at
-            version_number: Version number
-            version_number_out_of_total: "%{current_version} out of %{total_count}"
             votes: Supports
         timeline:
           title: Project evolution
-      versions:
-        show:
-          changes_at_title: Changes at "%{title}"
     components:
       accountability:
         name: Accountability
