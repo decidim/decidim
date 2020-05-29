@@ -7,8 +7,6 @@ it:
         start_time: La votazione inizia il
         subtitle: Sottotitolo
         title: Titolo
-    models:
-      decidim/elections/create_election_event: Elezione
   activerecord:
     models:
       decidim/elections/election:
