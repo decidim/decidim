@@ -72,15 +72,15 @@ module Decidim
       end
 
       def encrypted_smtp_settings
-        set_from
+        smtp_settings["from"] = set_from
 
         smtp_settings.merge(encrypted_password: Decidim::AttributeEncryptor.encrypt(@password))
       end
 
       def set_from
-        email = smtp_settings["from_email"]
-        label = smtp_settings["from_label"].presence || email
-        smtp_settings["from"] = "#{label} <#{email}>"
+        return smtp_settings["from_email"] if smtp_settings["from_label"].blank?
+
+        "#{smtp_settings["from_label"]} <#{smtp_settings["from_email"]}>"
       end
 
       def encrypted_omniauth_settings
