@@ -25,7 +25,7 @@ shared_examples "create an initiative type" do
         promoting_committee_enabled: true,
         minimum_committee_members: 7,
         banner_image: Decidim::Dev.test_file("city2.jpeg", "image/jpeg"),
-        collect_user_extra_fields: true,
+        collect_user_extra_fields: false,
         extra_fields_legal_information: Decidim::Faker::Localized.sentence(25),
         child_scope_threshold_enabled: false,
         only_global_scope_enabled: false

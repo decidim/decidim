@@ -195,6 +195,9 @@ FactoryBot.define do
     author { create(:user, :confirmed, organization: initiative.organization) }
     hash_id { SecureRandom.uuid }
     scope { initiative.scope }
+    after(:create) do |vote|
+      vote.initiative.update_online_votes_counters
+    end
   end
 
   factory :organization_user_vote, class: "Decidim::InitiativesVote" do

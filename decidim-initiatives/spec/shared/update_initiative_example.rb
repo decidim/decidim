@@ -26,7 +26,7 @@ shared_examples "update an initiative" do
       type_id: initiative.type.id,
       decidim_scope_id: initiative.scope.id,
       hashtag: "update_initiative_example",
-      offline_votes: 1,
+      offline_votes: { initiative.scope.id.to_s => 1 },
       attachment: attachment_params
     }
   end
@@ -117,7 +117,7 @@ shared_examples "update an initiative" do
       it "offline votes remain unchanged" do
         command.call
         initiative.reload
-        expect(initiative.offline_votes).not_to eq(form_params[:offline_votes])
+        expect(initiative.offline_votes[initiative.scope.id.to_s]).not_to eq(form_params[:offline_votes][initiative.scope.id.to_s])
       end
 
       describe "when in created state" do
@@ -159,7 +159,13 @@ shared_examples "update an initiative" do
         it "offline votes gets updated" do
           command.call
           initiative.reload
-          expect(initiative.offline_votes).to eq(form_params[:offline_votes])
+          expect(initiative.offline_votes[initiative.scope.id.to_s]).to eq(form_params[:offline_votes][initiative.scope.id.to_s])
+        end
+
+        it "offline votes maintains a total" do
+          command.call
+          initiative.reload
+          expect(initiative.offline_votes["total"]).to eq(form_params[:offline_votes][initiative.scope.id.to_s])
         end
       end
     end

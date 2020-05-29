@@ -162,17 +162,6 @@ module Decidim
             expect { invalid_command.call }.to broadcast :invalid
           end
 
-          it "broadcasts ok when form contains personal data" do
-            expect { command_with_personal_data.call }.to broadcast :ok
-          end
-
-          it "stores encrypted user personal data in vote" do
-            command_with_personal_data.call
-            vote = InitiativesVote.last
-            expect(vote.encrypted_metadata).to be_present
-            expect(vote.decrypted_metadata).to eq personal_data_params
-          end
-
           context "when another signature exists with the same hash_id" do
             before do
               create(:initiative_user_vote, initiative: initiative, hash_id: form_with_personal_data.hash_id)
@@ -211,6 +200,13 @@ module Decidim
               context "when authorization unique_id and metadata are coincident with handler" do
                 it "broadcasts ok" do
                   expect { command_with_personal_data.call }.to broadcast :ok
+                end
+
+                it "stores encrypted user personal data in vote" do
+                  command_with_personal_data.call
+                  vote = InitiativesVote.last
+                  expect(vote.encrypted_metadata).to be_present
+                  expect(vote.decrypted_metadata).to eq personal_data_params
                 end
               end
 
