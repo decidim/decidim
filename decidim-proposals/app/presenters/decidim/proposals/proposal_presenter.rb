@@ -85,6 +85,10 @@ module Decidim
       end
 
       delegate :count, to: :versions, prefix: true
+
+      def resource_manifest
+        proposal.class.resource_manifest
+      end
     end
   end
 end

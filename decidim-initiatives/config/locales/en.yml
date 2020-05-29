@@ -442,19 +442,14 @@ en:
         expired: Expired
       unavailable_scope: Unavailable scope
       versions:
-        index:
-          number_of_versions: Versions
-          title: Versions
         shared:
           back_to_initiative: Go back to initiative
-          changes_at_title: Changes at "%{title}"
+          back_to_resource: Go back to initiative
         show:
           show_all_versions: Show all versions
           version_author: Version author
           version_created_at: Version created at
           version_number_out_of_total: "%{current_version} out of %{total_count}"
-        version:
-          version_index: Version %{index}
     menu:
       initiatives: Initiatives
     resources:

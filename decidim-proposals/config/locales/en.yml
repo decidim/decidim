@@ -854,8 +854,12 @@ en:
         success: Proposal draft successfully updated.
       versions:
         changes_at_title: Changes at "%{title}"
+        collaborative_drafts:
+          back_to_resource: Go back to collaborative draft
         index:
           title: Versions
+        proposals:
+          back_to_resource: Go back to proposal
         stats:
           back_to_collaborative_draft: Go back to collaborative draft
           back_to_proposal: Go back to proposal
