@@ -62,7 +62,7 @@ describe "Initiatives", type: :system do
 
     it "displays the filter initiative type filter" do
       within ".new_filter[action='/initiatives']" do
-        expect(page).to have_css("#filter_type")
+        expect(page).to have_content(/Type/i)
       end
     end
 
@@ -71,7 +71,7 @@ describe "Initiatives", type: :system do
 
       it "doesn't display the initiative type filter" do
         within ".new_filter[action='/initiatives']" do
-          expect(page).not_to have_css("#filter_type")
+          expect(page).not_to have_content(/Type/i)
         end
       end
     end
