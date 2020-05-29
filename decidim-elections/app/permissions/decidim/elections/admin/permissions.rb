@@ -6,15 +6,22 @@ module Decidim
       class Permissions < Decidim::DefaultPermissions
         def permissions
           return permission_action if permission_action.scope != :admin
-          return permission_action if permission_action.subject != :election
 
-          case permission_action.action
-          when :create, :read
-            allow!
-          when :update
-            toggle_allow(election)
-          when :delete
-            toggle_allow(election && !election.started?)
+          case permission_action.subject
+          when :question, :answer
+            case permission_action.action
+            when :create, :update, :delete
+              allow_if_not_started
+            end
+          when :election
+            case permission_action.action
+            when :create, :read
+              allow!
+            when :update
+              toggle_allow(election)
+            when :delete
+              allow_if_not_started
+            end
           end
 
           permission_action
@@ -24,6 +31,10 @@ module Decidim
 
         def election
           @election ||= context.fetch(:election, nil)
+        end
+
+        def allow_if_not_started
+          toggle_allow(election && !election.started?)
         end
       end
     end
