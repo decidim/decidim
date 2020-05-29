@@ -32,7 +32,6 @@ sv:
         scope: Kommundelsområde
         slug: URL-slug
         subtitle: Underrubrik
-        title: Titel
         vote: Externt omröstningssystem
         what_is_decided: Vad som bestäms
       response:
