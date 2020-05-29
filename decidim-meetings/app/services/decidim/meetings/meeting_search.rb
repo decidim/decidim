@@ -24,17 +24,29 @@ module Decidim
 
       # Handle the date filter
       def search_date
-        if options[:date] == "upcoming"
-          query.where("end_time >= ? ", Time.current).order(start_time: :asc)
-        elsif options[:date] == "past"
-          query.where("end_time <= ? ", Time.current).order(start_time: :desc)
-        end
+        upcoming = date.member?("upcoming") ? query.upcoming : nil
+        past = date.member?("past") ? query.past : nil
+
+        query
+          .where(id: upcoming)
+          .or(query.where(id: past))
       end
 
       def search_space
         return query if options[:space].blank? || options[:space] == "all"
 
         query.joins(:component).where(decidim_components: { participatory_space_type: options[:space].classify })
+      end
+
+      # Handle the origin filter
+      def search_origin
+        organizer_types = []
+
+        organizer_types << "Decidim::Organization" if origin.member?("official")
+        organizer_types << "Decidim::UserBaseEntity" if origin.member?("citizens")
+        organizer_types << "Decidim::UserGroup" if origin.member?("user_group")
+
+        query.where(organizer_type: organizer_types)
       end
 
       private

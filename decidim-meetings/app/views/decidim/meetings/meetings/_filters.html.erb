@@ -13,20 +13,19 @@
   </div>
 
   <% unless @forced_past_meetings %>
-    <%= form.collection_radio_buttons :date, [["upcoming", t(".upcoming")], ["past", t(".past")]], :first, :last, legend_title: t(".date") %>
+    <%= form.check_boxes_tree :date, filter_date_values, legend_title: t(".date") %>
   <% end %>
 
   <% if current_participatory_space.has_subscopes? %>
-    <%= scopes_picker_filter form, :scope_id %>
+    <%= form.check_boxes_tree :scope_id, filter_scopes_values, legend_title: t(".scope") %>
   <% end %>
 
   <% if current_component.categories.any? %>
-    <%= form.categories_select :category_id,
-                               current_component.categories,
-                               legend_title: t(".category"),
-                               disable_parents: false,
-                               label: "",
-                               prompt: t(".category_prompt"),
-                               aria_label: t(".category") %>
+    <%= form.check_boxes_tree :category_id, filter_categories_values, legend_title: t(".category") %>
   <% end %>
+
+  <% # todo %>
+  <% # if component_settings are enabled %>
+    <%= form.check_boxes_tree :origin, filter_origin_values, legend_title: t(".origin") %>
+  <% # end %>
 <% end %>

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Explore meetings", type: :system do
+describe "Explore meetings", :slow, type: :system do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
@@ -56,6 +56,61 @@ describe "Explore meetings", type: :system do
     end
 
     context "when filtering" do
+      context "when filtering by origin" do
+        let(:user_group) { create :user_group, :verified, organization: organization }
+
+        let!(:official_meeting) { create(:meeting, component: component, organizer: organization) }
+        let!(:user_group_meeting) { create(:meeting, component: component, organizer_id: user_group.id, organizer_type: user_group.type) }
+
+        context "with 'official' origin" do
+          it "lists the filtered meetings" do
+            visit_component
+
+            within ".origin_check_boxes_tree_filter" do
+              uncheck "All"
+              check "Official"
+            end
+
+            expect(page).to have_css(".card--meeting", count: 1)
+            expect(page).to have_content("1 MEETING")
+            within ".card--meeting" do
+              expect(page).to have_content("Official meeting")
+            end
+          end
+        end
+
+        context "with 'groups' origin" do
+          it "lists the filtered meetings" do
+            visit_component
+
+            within ".origin_check_boxes_tree_filter" do
+              uncheck "All"
+              check "Groups"
+            end
+
+            expect(page).to have_css(".card--meeting", count: 1)
+            expect(page).to have_content("1 MEETING")
+            within ".card--meeting" do
+              expect(page).to have_content(user_group.name)
+            end
+          end
+        end
+
+        context "with 'citizens' origin" do
+          it "lists the filtered meetings" do
+            visit_component
+
+            within ".origin_check_boxes_tree_filter" do
+              uncheck "All"
+              check "Citizens"
+            end
+
+            expect(page).to have_css(".card--meeting", count: meetings_count)
+            expect(page).to have_content("#{meetings_count} MEETINGS")
+          end
+        end
+      end
+
       it "allows searching by text" do
         visit_component
         within ".filters" do
@@ -76,15 +131,17 @@ describe "Explore meetings", type: :system do
         past_meeting = create(:meeting, component: component, start_time: 1.day.ago)
         visit_component
 
-        within ".filters" do
-          choose "Past"
+        within ".date_check_boxes_tree_filter" do
+          uncheck "All"
+          check "Past"
         end
 
         expect(page).to have_css(".card--meeting", count: 1)
         expect(page).to have_content(translated(past_meeting.title))
 
-        within ".filters" do
-          choose "Upcoming"
+        within ".date_check_boxes_tree_filter" do
+          uncheck "All"
+          check "Upcoming"
         end
 
         expect(page).to have_css(".card--meeting", count: 5)
@@ -98,8 +155,10 @@ describe "Explore meetings", type: :system do
 
         visit_component
 
-        within ".filters" do
-          scope_pick select_data_picker(:filter_scope_id, multiple: true, global_value: "global"), scope
+        within ".scope_id_check_boxes_tree_filter" do
+          check "All"
+          uncheck "All"
+          check translated(scope.name)
         end
 
         expect(page).to have_css(".card--meeting", count: 1)
@@ -200,7 +259,8 @@ describe "Explore meetings", type: :system do
         within "ul.tags.tags--meeting" do
           click_link translated(meeting.category.name)
         end
-        expect(page).to have_select("filter[category_id]", selected: translated(meeting.category.name))
+
+        expect(page).to have_checked_field(translated(meeting.category.name))
       end
     end
 
@@ -225,7 +285,7 @@ describe "Explore meetings", type: :system do
         end
 
         within ".filters" do
-          expect(select_data_picker(:filter_scope_id, multiple: true, global_value: "global")).to have_scope_picked(meeting.scope)
+          expect(page).to have_checked_field(translated(meeting.scope.name))
         end
       end
     end

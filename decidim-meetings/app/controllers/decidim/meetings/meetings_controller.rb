@@ -38,13 +38,13 @@ module Decidim
       end
 
       def index
-        return unless search.results.blank? && params.dig("filter", "date") != "past"
+        return unless search.results.blank? && params.dig("filter", "date") != %w(past)
 
-        @past_meetings = search_klass.new(search_params.merge(date: "past"))
+        @past_meetings = search_klass.new(search_params.merge(date: %w(past)))
 
         if @past_meetings.results.present?
           params[:filter] ||= {}
-          params[:filter][:date] = "past"
+          params[:filter][:date] = %w(past)
           @forced_past_meetings = true
           @search = @past_meetings
         end
@@ -111,11 +111,35 @@ module Decidim
 
       def default_filter_params
         {
-          date: "upcoming",
           search_text: "",
-          scope_id: "",
-          category_id: ""
+          date: %w(upcoming),
+          scope_id: default_filter_scope_params,
+          category_id: default_filter_category_params,
+          origin: default_filter_origin_params
         }
+      end
+
+      def default_filter_origin_params
+        filter_origin_params = %w(citizens)
+        filter_origin_params << "official" # if component_settings.official_proposals_enabled # todo
+        filter_origin_params << "user_group" if current_organization.user_groups_enabled?
+        filter_origin_params
+      end
+
+      def default_filter_category_params
+        return "all" unless current_component.participatory_space.categories.any?
+
+        ["all"] + current_component.participatory_space.categories.pluck(:id).map(&:to_s)
+      end
+
+      def default_filter_scope_params
+        return "all" unless current_component.participatory_space.scopes.any?
+
+        if current_component.participatory_space.scope
+          ["all", current_component.participatory_space.scope.id] + current_component.participatory_space.scope.children.map { |scope| scope.id.to_s }
+        else
+          %w(all global) + current_component.participatory_space.scopes.pluck(:id).map(&:to_s)
+        end
       end
 
       def default_search_params

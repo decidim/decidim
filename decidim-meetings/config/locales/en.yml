@@ -363,11 +363,19 @@ en:
           update: Update
         filters:
           category: Category
-          category_prompt: Select a category
           date: Date
-          past: Past
+          date_values:
+            all: All
+            past: Past
+            upcoming: Upcoming
+          origin: Origin
+          origin_values:
+            all: All
+            citizens: Citizens
+            official: Official
+            user_groups: Groups
+          scope: Scope
           search: Search
-          upcoming: Upcoming
         filters_small_view:
           close_modal: Close modal
           filter: Filter
