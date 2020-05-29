@@ -29,7 +29,6 @@ pl:
         scope: Obszar gminy
         slug: Strumień URL
         subtitle: Podtytuł
-        title: Tytuł
         vote: Zewnętrzny system głosowania
         what_is_decided: Co postanowiono
     errors:
