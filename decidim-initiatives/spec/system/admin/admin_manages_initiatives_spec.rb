@@ -17,11 +17,23 @@ describe "Admin manages initiatives", type: :system do
     Decidim::Initiative.where.not(state: state).sample
   end
 
+  def initiative_with_type(type)
+    Decidim::Initiative.join(:scoped_type).find_by(decidim_initiatives_types_id: type)
+  end
+
+  def initiative_without_type(type)
+    Decidim::Initiative.join(:scoped_type).where.not(decidim_initiatives_types_id: type).sample
+  end
+
   include_context "with filterable context"
 
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, organization: organization) }
   let(:model_name) { Decidim::Initiative.model_name }
+  let(:type1) { create :initiatives_type, organization: organization }
+  let(:type2) { create :initiatives_type, organization: organization }
+  let(:scoped_type1) { create :initiatives_type_scope, type: type1 }
+  let(:scoped_type2) { create :initiatives_type_scope, type: type2 }
 
   STATES.each do |state|
     let!("#{state}_initiative") { create_initiative_with_trait(state) }
@@ -41,6 +53,23 @@ describe "Admin manages initiatives", type: :system do
         it_behaves_like "a filtered collection", options: "State", filter: i18n_state do
           let(:in_filter) { translated(initiative_with_state(state).title) }
           let(:not_in_filter) { translated(initiative_without_state(state).title) }
+        end
+      end
+    end
+
+    Decidim::InitiativesTypeScope.all.each do |scoped_type|
+      type = scoped_type.type
+      i18n_type = type.title[I18n.locale.to_s]
+
+      context "filtering collection by type: #{i18n_type}" do
+        before do
+          create(:initiative, organization: organization, scoped_type: scoped_type1)
+          create(:initiative, organization: organization, scoped_type: scoped_type2)
+        end
+
+        it_behaves_like "a filtered collection", options: "Type", filter: i18n_type do
+          let(:in_filter) { translated(initiative_with_type(type).title) }
+          let(:not_in_filter) { translated(initiative_without_type(type).title) }
         end
       end
     end
