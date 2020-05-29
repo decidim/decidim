@@ -516,13 +516,15 @@ pt:
         edit:
           update: Actualizar
         form:
-          colors_title: Cores da organização
+          colors:
+            colors_title: Cores da organização
+            header_snippets_help: Use este campo para adicionar coisas ao cabeçalho HTML. O uso mais comum é integrar serviços de terceiros que exigem algum JavaScript ou CSS extra. Além disso, você pode usá-lo para adicionar meta tags adicionais ao HTML. Observe que isso só será exibido em páginas públicas, não na seção de administração.
           cta_button_path_help: 'Você pode substituir onde o botão Chamar para Ação na página inicial liga. Use caminhos parciais, não URLs completos aqui. Aceita letras, números, traços e barras, e deve começar com uma letra. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição. Exemplo: %{url}'
           cta_button_text_help: Você pode substituir o texto do botão Chamar para Ação na página inicial para cada idioma disponível em sua organização. Se não for definido, o valor padrão será usado. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição.
-          header_snippets_help: Use este campo para adicionar coisas ao cabeçalho HTML. O uso mais comum é integrar serviços de terceiros que exigem algum JavaScript ou CSS extra. Além disso, você pode usá-lo para adicionar meta tags adicionais ao HTML. Observe que isso só será exibido em páginas públicas, não na seção de administração.
           homepage_appearance_title: Editar a aparência da página inicial
           homepage_highlighted_content_banner_title: Banner de conteúdo elevado
-          layout_appearance_title: Editar aparência do layout
+          images:
+            layout_appearance_title: Editar aparência do layout
           omnipresent_banner_appearance_title: Editar banner onipresente
       organization_homepage:
         edit:
