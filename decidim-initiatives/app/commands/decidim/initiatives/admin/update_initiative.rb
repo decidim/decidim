@@ -6,7 +6,7 @@ module Decidim
       # A command with all the business logic that updates an
       # existing initiative.
       class UpdateInitiative < Rectify::Command
-        include AttachmentMethods
+        include Decidim::Initiatives::AttachmentMethods
 
         # Public: Initializes the command.
         #
