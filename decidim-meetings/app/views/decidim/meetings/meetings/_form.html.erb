@@ -1,0 +1,54 @@
+<div class="field hashtags__container">
+  <%= form.text_field :title, autofocus: true, class: "js-hashtags", hashtaggable: true %>
+</div>
+
+<div class="field hashtags__container">
+  <%= text_editor_for(form, :description, hashtaggable: true) %>
+</div>
+
+<div class="field">
+  <%= form.text_field :address %>
+  <p class="help-text"><%= t(".address_help") %></p>
+</div>
+
+<div class="field">
+  <%= form.text_area :location %>
+  <p class="help-text"><%= t(".location_help") %></p>
+</div>
+
+<div class="field">
+  <%= form.text_area :location_hints %>
+  <p class="help-text"><%= t(".location_hints_help") %></p>
+</div>
+
+<div class="field">
+  <%= form.datetime_field :start_time %>
+</div>
+
+<div class="field">
+  <%= form.datetime_field :end_time %>
+</div>
+
+<% if current_participatory_space.has_subscopes? %>
+  <div class="field">
+    <%= scopes_picker_field form, :decidim_scope_id %>
+  </div>
+<% end %>
+
+<div class="field">
+  <%= form.categories_select :decidim_category_id, current_participatory_space.categories, prompt: t(".select_a_category"), disable_parents: false %>
+</div>
+
+<% if current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
+  <div class="field">
+    <%= form.select :organizer_id, Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.map{|g| [g.name, g.id]}, prompt: current_user.name %>
+  </div>
+<% end %>
+
+<div class="field">
+  <%= form.check_box :private_meeting %>
+</div>
+
+<div class="field">
+  <%= form.check_box :transparent %>
+</div>

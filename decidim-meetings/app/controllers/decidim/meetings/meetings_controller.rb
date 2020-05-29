@@ -5,10 +5,37 @@ module Decidim
     # Exposes the meeting resource so users can view them
     class MeetingsController < Decidim::Meetings::ApplicationController
       include FilterResource
+      include FormFactory
       include Paginable
       helper Decidim::WidgetUrlsHelper
 
       helper_method :meetings, :meeting, :registration, :search
+
+      def new
+        # todo
+        # enforce_permission_to :create, :meeting
+
+        @form = meeting_form.instance
+      end
+
+      def create
+        # todo
+        # enforce_permission_to :create, :meeting
+
+        @form = meeting_form.from_params(params, current_component: current_component)
+
+        CreateMeeting.call(@form) do
+          on(:ok) do
+            flash[:notice] = I18n.t("meetings.create.success", scope: "decidim.meetings")
+            redirect_to meetings_path
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("meetings.create.invalid", scope: "decidim.meetings")
+            render action: "new"
+          end
+        end
+      end
 
       def index
         return unless search.results.blank? && params.dig("filter", "date") != "past"
@@ -46,6 +73,10 @@ module Decidim
 
       def search_klass
         MeetingSearch
+      end
+
+      def meeting_form
+        form(Decidim::Meetings::MeetingForm)
       end
 
       def default_filter_params

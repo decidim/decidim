@@ -17,7 +17,7 @@ module Decidim
       isolate_namespace Decidim::Meetings
 
       routes do
-        resources :meetings, only: [:index, :show] do
+        resources :meetings, only: [:index, :show, :new, :create] do
           resource :registration, only: [:create, :destroy] do
             collection do
               get :create

@@ -51,6 +51,7 @@ describe "Explore meetings", type: :system do
           find(".icon--magnifying-glass").click
         end
 
+        expect(page).to have_css("#meetings-count", text: "1 MEETING")
         expect(page).to have_css(".card--meeting", count: 1)
         expect(page).to have_content(translated(meetings.first.title))
       end

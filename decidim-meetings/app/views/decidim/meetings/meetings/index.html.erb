@@ -2,6 +2,23 @@
 
 <%= cell "decidim/meetings/meetings_map", search.results %>
 
+<div class="row columns">
+  <div class="title-action">
+    <h3 id="meetings-count" class="title-action__title section-heading">
+      <%= render partial: "count" %>
+    </h3>
+
+    <% # todo %>
+    <% # current_settings.creation_enabled_for_user_groups? %>
+    <% # if current_settings.creation_enabled_for_participants? && current_component.participatory_space.can_participate?(current_user) %>
+      <%= action_authorized_link_to :create, new_meeting_path, class: "title-action__action button small", data: { "redirect_url" => new_meeting_path } do %>
+        <%= t("new_meeting", scope: "decidim.meetings.meetings.index") %>
+        <%= icon "plus", role: "img" %>
+      <% end %>
+    <% # end %>
+  </div>
+</div>
+
 <div class="row">
   <div class="columns mediumlarge-4 large-3">
     <%= render partial: "filters_small_view" %>

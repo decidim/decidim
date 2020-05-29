@@ -347,6 +347,13 @@ en:
       meeting:
         not_allowed: You are not allowed to view this meeting
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} meeting"
+            other: "%{count} meetings"
+        create:
+          invalid: There was a problem creating this meeting.
+          success: You have created the meeting successfully.
         filters:
           category: Category
           category_prompt: Select a category
@@ -359,12 +366,23 @@ en:
           filter: Filter
           filter_by: Filter by
           unfold: Unfold
+        form:
+          address_help: 'Address: used by Geocoder to find the location'
+          location_help: 'Location: message directed to the users implying the spot to meet at'
+          location_hints_help: 'Location hints: additional info. Example: the floor of the building'
+          select_a_category: Please select a category
+        index:
+          new_meeting: New Meeting
         meeting_minutes:
           meeting_minutes: Meeting Minutes
           related_information: Related Information
         meetings:
           no_meetings_warning: No meetings match your search criteria or there isn't any meeting scheduled.
           upcoming_meetings_warning: Currently, there are no scheduled meetings, but here you can find all the past meetings listed.
+        new:
+          back: Back
+          create: Create
+          title: Create Your Meeting
         registration_confirm:
           cancel: Cancel
           confirm: Confirm
