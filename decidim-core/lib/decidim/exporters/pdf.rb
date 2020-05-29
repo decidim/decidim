@@ -49,7 +49,7 @@ module Decidim
       protected
 
       def controller
-        @controller ||= ActionController::Base.new
+        raise NotImplementedError
       end
     end
   end

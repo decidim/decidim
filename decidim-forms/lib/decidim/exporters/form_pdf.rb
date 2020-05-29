@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 require "wicked_pdf"
-require "decidim/translations_helper"
-require "decidim/forms/admin/questionnaire_answers_helper"
 
 module Decidim
   module Exporters
@@ -13,11 +11,7 @@ module Decidim
       # i18n-tasks-use t('decidim.admin.exports.formats.FormPDF')
 
       def controller
-        super.class_eval do
-          helper Decidim::TranslationsHelper
-          helper Decidim::Forms::Admin::QuestionnaireAnswersHelper
-        end
-        super
+        @controller ||= FormPDFControllerHelper.new
       end
 
       def template

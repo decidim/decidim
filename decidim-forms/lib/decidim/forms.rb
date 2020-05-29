@@ -14,5 +14,6 @@ module Decidim
 
   module Exporters
     autoload :FormPDF, "decidim/exporters/form_pdf"
+    autoload :FormPDFControllerHelper, "decidim/exporters/form_pdf_controller_helper"
   end
 end
