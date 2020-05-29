@@ -109,6 +109,7 @@ Decidim.register_component(:meetings) do |component|
         longitude: Faker::Address.longitude,
         registrations_enabled: [true, false].sample,
         available_slots: (10..50).step(10).to_a.sample,
+        organizer: participatory_space.organization,
         registration_terms: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(3)
         end,
@@ -183,6 +184,40 @@ Decidim.register_component(:meetings) do |component|
         description: Decidim::Faker::Localized.sentence(5),
         file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf")),
         attached_to: meeting
+      )
+    end
+
+    organizers = [
+      Decidim::UserGroup.where(decidim_organization_id: participatory_space.decidim_organization_id).verified.sample,
+      Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample
+    ]
+    2.times do |i|
+      params = {
+        component: component,
+        scope: Faker::Boolean.boolean(0.5) ? global : scopes.sample,
+        category: participatory_space.categories.sample,
+        title: Decidim::Faker::Localized.sentence(2),
+        description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.paragraph(3)
+        end,
+        location: Decidim::Faker::Localized.sentence,
+        location_hints: Decidim::Faker::Localized.sentence,
+        start_time: 3.weeks.from_now,
+        end_time: 3.weeks.from_now + 4.hours,
+        address: "#{Faker::Address.street_address} #{Faker::Address.zip} #{Faker::Address.city}",
+        latitude: Faker::Address.latitude,
+        longitude: Faker::Address.longitude,
+        registrations_enabled: [true, false].sample,
+        available_slots: (10..50).step(10).to_a.sample,
+        organizer_id: organizers[i].id,
+        organizer_type: organizers[i].type
+      }
+
+      Decidim.traceability.create!(
+        Decidim::Meetings::Meeting,
+        organizers[0],
+        params,
+        visibility: "all"
       )
     end
   end

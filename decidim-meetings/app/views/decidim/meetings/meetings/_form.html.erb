@@ -39,11 +39,9 @@
   <%= form.categories_select :decidim_category_id, current_participatory_space.categories, prompt: t(".select_a_category"), disable_parents: false %>
 </div>
 
-<% if current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
-  <div class="field">
-    <%= form.select :organizer_id, Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.map{|g| [g.name, g.id]}, prompt: current_user.name %>
-  </div>
-<% end %>
+<div class="field">
+  <%= form.select :organizer_gid, select_meeting_organizer %>
+</div>
 
 <div class="field">
   <%= form.check_box :private_meeting %>

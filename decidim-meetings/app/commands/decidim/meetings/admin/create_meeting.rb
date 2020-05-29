@@ -27,33 +27,35 @@ module Decidim
 
         private
 
+        attr_reader :form
+
         def create_meeting!
-          parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, @form.title, current_organization: @form.current_organization).rewrite
-          parsed_description = Decidim::ContentProcessor.parse_with_processor(:hashtag, @form.description, current_organization: @form.current_organization).rewrite
+          parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
+          parsed_description = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.description, current_organization: form.current_organization).rewrite
           params = {
-            scope: @form.scope,
-            category: @form.category,
+            scope: form.scope,
+            category: form.category,
             title: parsed_title,
             description: parsed_description,
-            services: @form.services_to_persist.map { |service| { "title" => service.title, "description" => service.description } },
-            end_time: @form.end_time,
-            start_time: @form.start_time,
-            address: @form.address,
-            latitude: @form.latitude,
-            longitude: @form.longitude,
-            location: @form.location,
-            location_hints: @form.location_hints,
-            private_meeting: @form.private_meeting,
-            transparent: @form.transparent,
-            organizer: @form.organizer,
-            registration_terms: @form.current_component.settings.default_registration_terms,
-            component: @form.current_component,
+            services: form.services_to_persist.map { |service| { "title" => service.title, "description" => service.description } },
+            end_time: form.end_time,
+            start_time: form.start_time,
+            address: form.address,
+            latitude: form.latitude,
+            longitude: form.longitude,
+            location: form.location,
+            location_hints: form.location_hints,
+            private_meeting: form.private_meeting,
+            transparent: form.transparent,
+            organizer: form.organizer,
+            registration_terms: form.current_component.settings.default_registration_terms,
+            component: form.current_component,
             questionnaire: Decidim::Forms::Questionnaire.new
           }
 
           @meeting = Decidim.traceability.create!(
             Meeting,
-            @form.current_user,
+            form.current_user,
             params,
             visibility: "all"
           )

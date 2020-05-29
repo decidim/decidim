@@ -4,8 +4,6 @@ module Decidim
   module Meetings
     # This class holds a Form to create/update meetings for Participants and UserGroups.
     class MeetingForm < Decidim::Form
-      include TranslatableAttributes
-
       attribute :title, String
       attribute :description, String
       attribute :location, String
@@ -20,7 +18,7 @@ module Decidim
       attribute :decidim_category_id, Integer
       attribute :private_meeting, Boolean
       attribute :transparent, Boolean
-      attribute :organizer_id, Integer
+      attribute :organizer_gid, String
 
       validates :title, presence: true
       validates :description, presence: true
@@ -33,7 +31,7 @@ module Decidim
       validates :current_component, presence: true
       validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
       validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
-      validates :organizer, presence: true, if: ->(form) { form.organizer_id.present? }
+      validates :organizer, presence: true
 
       validate :scope_belongs_to_participatory_space_scope
 
@@ -47,9 +45,9 @@ module Decidim
       end
 
       def organizer
-        # todo
-        @organizer ||= Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.find_by(id: organizer_id)
-        # current_organization.users.find_by(id: organizer_id)
+        return unless organizer_gid
+
+        @organizer ||= GlobalID::Locator.locate(GlobalID.parse(organizer_gid))
       end
 
       alias component current_component

@@ -22,7 +22,8 @@ module Decidim
       include Decidim::Paddable
       include Decidim::ActsAsAuthor
 
-      belongs_to :organizer, foreign_key: "organizer_id", class_name: "Decidim::User", optional: true
+      belongs_to :organizer, polymorphic: true, foreign_key: "organizer_id", foreign_type: "organizer_type", optional: true
+
       has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id", dependent: :destroy
       has_many :invites, class_name: "Decidim::Meetings::Invite", foreign_key: "decidim_meeting_id", dependent: :destroy
       has_one :minutes, class_name: "Decidim::Meetings::Minutes", foreign_key: "decidim_meeting_id", dependent: :destroy
@@ -135,12 +136,13 @@ module Decidim
 
       def organizer_belongs_to_organization
         return if !organizer || !organization
+        return if official?
 
         errors.add(:organizer, :invalid) unless organizer.organization == organization
       end
 
       def official?
-        organizer.nil?
+        organizer == organization
       end
 
       def current_user_can_visit_meeting?(current_user)

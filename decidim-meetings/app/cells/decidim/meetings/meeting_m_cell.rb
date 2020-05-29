@@ -7,6 +7,16 @@ module Decidim
     class MeetingMCell < Decidim::CardMCell
       include MeetingCellsHelper
 
+      def has_authors?
+        # todo
+        # return unless (if the component has the setting enabled)
+        true
+      end
+
+      def render_authorship
+        cell "decidim/author", organizer_presenter_for(model.organizer)
+      end
+
       def date
         render
       end

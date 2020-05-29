@@ -88,19 +88,18 @@ describe "User creates meeting", type: :system do
           expect(page).to have_content(translated(category.name))
           expect(page).to have_content(translated(meeting_scope.name))
           expect(page).to have_content(meeting_address)
-          # expect(page).to have_content(meeting_start_time.strftime("%d %^B %Y"))
           expect(page).to have_content(meeting_start_time.strftime("%H:%M"))
           expect(page).to have_content(meeting_end_time.strftime("%H:%M"))
-          # expect(page).to have_selector(".author-data", text: user.name)
+          expect(page).to have_selector(".author-data", text: user.name)
         end
 
         context "when creating as a user group" do
           let!(:user_group) { create :user_group, :verified, organization: organization, users: [user] }
 
-          xit "creates a new meeting", :slow do
+          it "creates a new meeting", :slow do
             visit_component
 
-            click_link "New meeting"
+            click_link "New Meeting"
 
             within ".new_meeting" do
               fill_in :meeting_title, with: meeting_title
@@ -112,7 +111,7 @@ describe "User creates meeting", type: :system do
               fill_in :meeting_end_time, with: meeting_end_time.strftime("%Y/%m/%d %H:%M")
               select translated(category.name), from: :meeting_decidim_category_id
               scope_pick select_data_picker(:meeting_decidim_scope_id), meeting_scope
-              select user_group.name, from: :meeting_user_group_id
+              select user_group.name, from: :meeting_organizer_gid
 
               find("*[type=submit]").click
             end
@@ -123,10 +122,9 @@ describe "User creates meeting", type: :system do
             expect(page).to have_content(translated(category.name))
             expect(page).to have_content(translated(meeting_scope.name))
             expect(page).to have_content(meeting_address)
-            # expect(page).to have_content(meeting_start_time.strftime("%d %^B %Y"))
             expect(page).to have_content(meeting_start_time.strftime("%H:%M"))
             expect(page).to have_content(meeting_end_time.strftime("%H:%M"))
-            # expect(page).to have_selector(".author-data", text: user_group.name)
+            expect(page).to have_selector(".author-data", text: user_group.name)
           end
         end
 

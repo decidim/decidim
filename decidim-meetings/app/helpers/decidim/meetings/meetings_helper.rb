@@ -107,6 +107,32 @@ module Decidim
           t("validation_pending", scope: "decidim.meetings.meetings.show.registration_state")
         end
       end
+
+      def organizer_presenter_for(organizer)
+        if organizer.is_a?(Decidim::Organization)
+          Decidim::Meetings::OfficialAuthorPresenter.new
+        else
+          present(organizer)
+        end
+      end
+
+      def select_meeting_organizer
+        return unless current_user
+
+        @select_meeting_organizer ||= begin
+          select_meeting_organizer = [[current_user.name, current_user.to_gid.to_s]]
+          if current_user_groups?
+            select_meeting_organizer += Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.map do |user_group|
+              [user_group.name, user_group.to_gid.to_s]
+            end
+          end
+          select_meeting_organizer
+        end
+      end
+
+      def current_user_groups?
+        current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any?
+      end
     end
   end
 end

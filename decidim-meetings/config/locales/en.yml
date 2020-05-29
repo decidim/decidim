@@ -21,6 +21,7 @@ en:
         end_time: End Time
         location: Location
         location_hints: Location hints
+        organizer_gid: Create as
         organizer_id: Organizer
         private_meeting: Private meeting
         registration_form_enabled: Registration form enabled
@@ -88,6 +89,8 @@ en:
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
+            creation_enabled_for_participants: Meeting creation by participants enabled
+            creation_enabled_for_user_groups: Meeting creation by user groups enabled
     events:
       meetings:
         meeting_closed:
@@ -354,6 +357,10 @@ en:
         create:
           invalid: There was a problem creating this meeting.
           success: You have created the meeting successfully.
+        edit:
+          back: Back
+          title: Edit Your Meeting
+          update: Update
         filters:
           category: Category
           category_prompt: Select a category
@@ -390,6 +397,7 @@ en:
           attendees: Attendees count
           back: Back to list
           contributions: Contributions count
+          edit_meeting: Edit Meeting
           going: Going
           join: Join meeting
           meeting_report: Meeting report
@@ -403,6 +411,9 @@ en:
             one: "%{count} slot remaining"
             other: "%{count} slots remaining"
           view: View
+        update:
+          invalid: There was a problem updating the meeting.
+          success: You have updated the meeting successfully.
       meetings_map:
         view_meeting: View meeting
       models:
@@ -421,6 +432,7 @@ en:
             closed: Closed
             end_time: End date
             map: Map
+            official_meeting: Official meeting
             start_time: Start date
             title: Title
       read_more: "(read more)"

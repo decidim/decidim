@@ -16,7 +16,7 @@ module Decidim
       validate :verified_user_group, :user_group_membership
       validate :author_belongs_to_organization
 
-      # Checks whether the user is author of the given proposal, either directly
+      # Checks whether the user is author of the given resource, either directly
       # authoring it or via a user group.
       #
       # user - the user to check for authorship

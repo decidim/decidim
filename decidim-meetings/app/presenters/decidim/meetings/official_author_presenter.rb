@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Debates
+  module Meetings
     #
-    # A dummy presenter to abstract out the author of an official debate.
+    # A dummy presenter to abstract out the author of an official meeting.
     #
     class OfficialAuthorPresenter < Decidim::OfficialAuthorPresenter
       def name
-        I18n.t("decidim.debates.models.debate.fields.official_debate")
+        I18n.t("decidim.meetings.models.meeting.fields.official_meeting")
       end
     end
   end

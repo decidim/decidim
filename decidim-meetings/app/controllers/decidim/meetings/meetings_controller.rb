@@ -57,6 +57,32 @@ module Decidim
         redirect_to action: "index"
       end
 
+      def edit
+        # todo
+        # enforce_permission_to :edit, :meeting, meeting: meeting
+
+        @form = meeting_form.from_model(meeting)
+      end
+
+      def update
+        # todo
+        # enforce_permission_to :edit, :meeting, meeting: meeting
+
+        @form = meeting_form.from_params(params)
+
+        UpdateMeeting.call(@form, current_user, meeting) do
+          on(:ok) do |meeting|
+            flash[:notice] = I18n.t("meetings.update.success", scope: "decidim.meetings")
+            redirect_to Decidim::ResourceLocatorPresenter.new(meeting).path
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("meetings.update.invalid", scope: "decidim.meetings")
+            render :edit
+          end
+        end
+      end
+
       private
 
       def meeting
