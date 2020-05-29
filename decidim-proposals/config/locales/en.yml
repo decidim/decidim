@@ -88,9 +88,7 @@ en:
         state_eq:
           label: State
           values:
-            accepted: Accepted
             evaluating: Evaluating
-            rejected: Rejected
             withdrawn: Withdrawn
         state_null:
           label: Status
@@ -771,6 +769,9 @@ en:
         proposal:
           creation_date: 'Creation: %{date}'
           view_proposal: View proposal
+        proposals:
+          empty: There is no proposal yet
+          empty_filters: There isn't any proposal with this criteria
         show:
           answer: Answer
           back_to: Back to
