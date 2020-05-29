@@ -215,6 +215,9 @@ ignore_unused:
   - decidim.newsletter_templates.image_text_cta.name
   - decidim.content_blocks.*_settings_form.*
   - decidim.newsletter_templates.*_settings_form.*
+  - decidim.versions_list.show.*
+  - decidim.versions_list_item.show.*
+  - decidim.accountability.results.show.stats.back_to_resource
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:
