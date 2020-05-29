@@ -4,6 +4,10 @@ module Decidim
   module Proposals
     # Custom helpers, scoped to the proposals engine.
     module ControlVersionHelper
+      def item_name
+        versioned_resource.model_name.singular_route_key.to_sym
+      end
+
       def back_to_resource_path_text_scope
         case item_name
         when :proposal
