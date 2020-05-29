@@ -7,8 +7,6 @@ fi:
         start_time: Äänestys alkaa
         subtitle: Alaotsikko
         title: Otsikko
-    models:
-      decidim/elections/create_election_event: Vaalit
   activerecord:
     models:
       decidim/elections/election:
