@@ -2,10 +2,11 @@
 
 require "spec_helper"
 
-describe Decidim::Elections::Admin::UpdateElection do
-  subject { described_class.new(form, election) }
+describe Decidim::Elections::Admin::UpdateQuestion do
+  subject { described_class.new(form, question) }
 
   let(:election) { create :election }
+  let(:question) { create :question, election: election, random_answers_order: false }
   let(:organization) { election.component.organization }
   let(:user) { create :user, :admin, :confirmed, organization: organization }
   let(:form) do
@@ -13,29 +14,28 @@ describe Decidim::Elections::Admin::UpdateElection do
       invalid?: invalid,
       current_user: user,
       title: { en: "title" },
-      subtitle: { en: "subtitle" },
       description: { en: "description" },
-      start_time: start_time,
-      end_time: end_time
+      max_selections: 3,
+      weight: 10,
+      random_answers_order: true,
+      election: election
     )
   end
-  let(:start_time) { 1.day.from_now }
-  let(:end_time) { 2.days.from_now }
   let(:invalid) { false }
 
-  it "updates the election" do
+  it "updates the question" do
     subject.call
-    expect(translated(election.title)).to eq "title"
-    expect(translated(election.subtitle)).to eq "subtitle"
-    expect(translated(election.description)).to eq "description"
-    expect(election.start_time).to eq start_time
-    expect(election.end_time).to eq end_time
+    expect(translated(question.title)).to eq "title"
+    expect(translated(question.description)).to eq "description"
+    expect(question.max_selections).to eq(3)
+    expect(question.weight).to eq(10)
+    expect(question.random_answers_order).to be_truthy
   end
 
   it "traces the action", versioning: true do
     expect(Decidim.traceability)
       .to receive(:update!)
-      .with(election, user, hash_including(:title, :subtitle, :description, :start_time, :end_time), visibility: "all")
+      .with(question, user, hash_including(:title, :description, :max_selections, :weight, :random_answers_order), visibility: "all")
       .and_call_original
 
     expect { subject.call }.to change(Decidim::ActionLog, :count)
@@ -46,6 +46,14 @@ describe Decidim::Elections::Admin::UpdateElection do
 
   context "when the form is not valid" do
     let(:invalid) { true }
+
+    it "is not valid" do
+      expect { subject.call }.to broadcast(:invalid)
+    end
+  end
+
+  context "when the election has started" do
+    let(:election) { create :election, :started }
 
     it "is not valid" do
       expect { subject.call }.to broadcast(:invalid)

@@ -158,6 +158,7 @@ PATH
       wisper-rspec (~> 1.0)
     decidim-elections (0.22.0.dev)
       decidim-core (= 0.22.0.dev)
+      decidim-proposals (= 0.22.0.dev)
     decidim-forms (0.22.0.dev)
       decidim-core (= 0.22.0.dev)
     decidim-generators (0.22.0.dev)

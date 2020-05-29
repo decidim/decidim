@@ -33,7 +33,6 @@ en:
         scope: Municipal area
         slug: URL slug
         subtitle: Subtitle
-        title: Title
         vote: External voting system
         what_is_decided: What is decided
       response:

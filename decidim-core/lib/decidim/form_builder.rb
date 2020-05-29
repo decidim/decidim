@@ -190,7 +190,7 @@ module Decidim
 
       content_tag(:div, class: "editor #{"hashtags__container" if hashtaggable}") do
         template = ""
-        template += "<label>#{label_text + required_for_attribute(name)}</label>" if options[:label] != false
+        template += label(name, label_text + required_for_attribute(name)) if options.fetch(:label, true)
         template += hidden_field(name, options)
         template += content_tag(:div, nil, class: "editor-container #{"js-hashtags" if hashtaggable}", data: {
                                   toolbar: toolbar,
