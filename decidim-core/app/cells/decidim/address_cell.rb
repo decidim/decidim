@@ -13,7 +13,7 @@ module Decidim
     private
 
     def resource_icon
-      icon "meetings", class: "icon--big", role: "img"
+      icon "meetings", class: "icon--big"
     end
   end
 end

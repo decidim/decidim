@@ -20,7 +20,7 @@ edit_link(
 
   <% if @topics.any? %>
     <div class="row">
-      <h2 class="section-heading"><%= t ".topics" %></h2>
+      <h3 class="section-heading"><%= t ".topics" %></h3>
       <div class="row collapse">
         <div class="row small-up-1 smallmedium-up-2 mediumlarge-up-2 large-up-3 card-grid">
           <% @topics.each do |topic| %>
@@ -28,9 +28,9 @@ edit_link(
               <div class="column">
                 <article class="card card--process card--mini">
                   <div class="card__content">
-                    <h3 class="card__title">
+                    <h4 class="card__title">
                       <%= link_to translated_attribute(topic.title), page_path(topic.pages.first), class: "card__link" %>
-                    </h3>
+                    </h4>
                     <p><%= translated_attribute topic.description %></p>
                     <ul>
                       <% topic.pages.each do |page| %>
@@ -40,10 +40,7 @@ edit_link(
                   </div>
                   <div class="card__footer">
                     <div class="card__support">
-                      <%= link_to t(".read_more"),
-                                  page_path(topic.pages.first),
-                                  class: "card__button button secondary button--sc small light",
-                                  aria_label: t(".read_more") %>
+                      <%= link_to t(".read_more"), page_path(topic.pages.first), class: "card__button button secondary button--sc small light" %>
                     </div>
                   </div>
                 </article>
@@ -64,21 +61,18 @@ edit_link(
             <div class="column">
               <article class="card card--process card--mini">
                 <div class="card__content">
-                  <span class="card__title">
+                  <h4 class="card__title">
                     <%= link_to translated_attribute(page.title), page_path(page), class: "card__link" %>
-                  </span>
+                  </h4>
                   <%== strip_tags html_truncate(translated_attribute(page.content), length: 140, separator: "...") %>
                 </div>
                 <div class="card__footer">
                   <div class="card__support">
-                    <%= link_to t(".read_more"),
-                                page_path(page),
-                                class: "card__button button secondary button--sc small light",
-                                aria_label: t(".read_more") %>
+                    <%= link_to t(".read_more"), page_path(page), class: "card__button button secondary button--sc small light" %>
                   </div>
                 </div>
-              </article>
-            </div>
+              </div>
+            </article>
           <% end %>
         </div>
       </div>

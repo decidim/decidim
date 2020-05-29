@@ -1,5 +1,6 @@
 //Vars
-$footer-bg: $black;
+$main-footer-bg: $black;
+$mini-footer-bg: $dark-gray;
 
 //Common
 
@@ -10,20 +11,15 @@ $footer-bg: $black;
   a{
     color: darken($medium-gray, 40%);
 
-    &:hover,{
+    &:hover{
       color: darken($medium-gray, 20%);
-      text-decoration: underline;
-    }
-
-    &:focus{
-      outline: 2px solid $primary;
     }
   }
 }
 
 //Main footer
 .main-footer{
-  background-color: $footer-bg;
+  background-color: $main-footer-bg;
   position: relative;
   padding: 1rem 0;
   min-height: 76px;
@@ -96,7 +92,7 @@ $footer-bg: $black;
 //Mini footer
 .mini-footer{
   padding: 1rem 0;
-  background-color: $footer-bg;
+  background-color: $mini-footer-bg;
 }
 
 .cc-badge{

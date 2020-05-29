@@ -31,12 +31,7 @@
     height: 3rem;
   }
 
-  input:focus{
-    outline: 2px solid $secondary;
-  }
-
-  h3{
-    display: table;
+  legend{
     font-size: 1.25em;
     line-height: 1.2;
     margin-bottom: 1.5rem;
@@ -61,12 +56,6 @@
   #card__tos,
   #card__newsletter{
     text-align: center;
-  }
-
-  #card__tos{
-    a:focus{
-      outline: 2px solid $secondary;
-    }
   }
 }
 

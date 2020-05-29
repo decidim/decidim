@@ -19,7 +19,7 @@ module Decidim
       def logo
         return unless model.logo.presence
 
-        "<div class='card p-m flex--cc'> #{image_tag model.logo.medium.url, alt: "logo"} </div>"
+        "<div class='card p-m flex--cc'> #{image_tag model.logo.medium.url} </div>"
       end
     end
   end

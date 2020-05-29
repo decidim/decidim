@@ -1,6 +1,6 @@
 <% add_decidim_page_title(t("devise.sessions.new.sign_in")) %>
 
-<div class="wrapper">
+<main class="wrapper">
   <div class="row collapse">
     <div class="row collapse">
       <div class="columns large-8 large-centered text-center page-title">
@@ -37,11 +37,13 @@
                     <%= f.password_field :password, autocomplete: "off" %>
                   </div>
                 </div>
+                <fieldset>
                   <% if devise_mapping.rememberable? %>
                     <div class="field">
                       <%= f.check_box :remember_me %>
                     </div>
                   <% end %>
+                </fieldset>
                 <div class="actions">
                   <%= f.submit t("devise.sessions.new.sign_in"), class: "button expanded" %>
                 </div>
@@ -53,4 +55,4 @@
       </div>
     <% end %>
   </div>
-</div>
+</main>

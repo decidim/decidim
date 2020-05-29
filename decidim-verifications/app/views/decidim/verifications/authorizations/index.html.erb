@@ -28,7 +28,7 @@
           <%= link_to authorization_method(authorization).resume_authorization_path do %>
             <div class="card--list__item">
               <div class="card--list__text">
-                <%= icon "reload", class: "card--list__icon", role: "img" %>
+                <%= icon "reload", class: "card--list__icon" %>
                 <div>
                   <h5 class="card--list__heading">
                     <%= t("#{authorization.name}.name", scope: "decidim.authorization_handlers") %>
@@ -40,7 +40,7 @@
               </div>
               <div class="card--list__data">
                 <span class="card--list__data__icon">
-                  <%= icon "chevron-right", role: "img" %>
+                  <%= icon "chevron-right" %>
                 </span>
               </div>
             </div>
@@ -55,7 +55,7 @@
           <%= link_to unauthorized_method.root_path do %>
             <div class="card--list__item">
               <div class="card--list__text">
-                <%= icon "lock-unlocked", class: "card--list__icon", role: "img" %>
+                <%= icon "lock-unlocked", class: "card--list__icon" %>
                 <div>
                   <h5 class="card--list__heading">
                     <%= t("#{unauthorized_method.key}.name", scope: "decidim.authorization_handlers") %>
@@ -67,7 +67,7 @@
               </div>
               <div class="card--list__data">
                 <span class="card--list__data__icon">
-                  <%= icon "chevron-right", role: "img" %>
+                  <%= icon "chevron-right" %>
                 </span>
               </div>
             </div>

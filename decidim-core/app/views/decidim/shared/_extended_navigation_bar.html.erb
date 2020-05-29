@@ -4,9 +4,9 @@
       <button class="process-nav__trigger hide-for-medium" data-toggle="process-nav-content">
         <%= icon "caret-bottom", class: "icon--small process-nav__trigger__icon", aria_label: t(".unfold"), role: "img" %>
         <% default_item = active_item || items.first %>
-        <span class="process-nav__link">
+        <div class="process-nav__link">
           <%= default_item[:name] %>
-        </span>
+        </div>
       </button>
       <div class="row column process-nav__content <%= browser.mobile? ? "is-active" : "" %>" id="process-nav-content" data-toggler=".is-active">
         <ul>

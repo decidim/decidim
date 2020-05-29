@@ -8,8 +8,8 @@ module Decidim
 
       def params
         capture do
-          concat(hidden_field_tag(:metrics_space_type, value: participatory_process.class, id: :"metrics-space_type"))
-          concat(hidden_field_tag(:metrics_space_id, value: participatory_process.id, id: :"metrics-space_id"))
+          concat(content_tag(:input, nil, type: :hidden, id: :"metrics-space_type", value: participatory_process.class))
+          concat(content_tag(:input, nil, type: :hidden, id: :"metrics-space_id", value: participatory_process.id))
         end
       end
 

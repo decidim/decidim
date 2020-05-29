@@ -13,7 +13,7 @@
               <% end %>
               <div class="card__content">
                 <%= link_to decidim_consultations.consultation_path(consultation), class: "card__link" do %>
-                  <span class="card__title"><%= translated_attribute consultation.title %></span>
+                  <h4 class="card__title"><%= translated_attribute consultation.title %></h4>
                 <% end %>
                 <span class="card--process__small"><%= voting_ends_text_for(consultation) %></span>
               </div>
