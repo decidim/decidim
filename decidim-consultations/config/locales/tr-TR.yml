@@ -29,7 +29,6 @@ tr:
         scope: Belediye alanı
         slug: URL sümüklü böcek
         subtitle: Alt yazı
-        title: Başlık
         vote: Dış oylama sistemi
         what_is_decided: Karar nedir
     errors:
