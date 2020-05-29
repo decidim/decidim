@@ -48,6 +48,8 @@ en:
         confirm_destroy: Are you sure?
         destroy: Destroy
         edit: Edit
+        edit_answers: Edit answers
+        edit_questions: Edit questions
         new: New %{name}
         preview: Preview
         title: Actions
