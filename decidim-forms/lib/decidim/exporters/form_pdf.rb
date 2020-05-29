@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require "wicked_pdf"
+require "decidim/translations_helper"
+require "decidim/forms/admin/questionnaire_answers_helper"
 
 module Decidim
   module Exporters
