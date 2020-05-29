@@ -50,7 +50,7 @@ describe "InitiativeTypesController", type: :system do
   end
 
   context "when updating an initiative type" do
-    let(:initiatives_type) { create(:initiatives_type, :online_signature_enabled, :undo_online_signatures_enabled, :custom_signature_end_date_disabled, organization: organization) }
+    let(:initiatives_type) { create(:initiatives_type, :online_signature_enabled, :attachments_disabled, :undo_online_signatures_enabled, :custom_signature_end_date_disabled, organization: organization) }
 
     it "Updates the initiative type" do
       visit decidim_admin_initiatives.edit_initiatives_type_path(initiatives_type)
@@ -62,6 +62,7 @@ describe "InitiativeTypesController", type: :system do
       )
 
       select("In-person", from: "Signature type")
+      check "Enable attachments"
       uncheck "Enable participants to undo their online signatures"
       check "Enable authors to choose the end of signature collection period"
 
