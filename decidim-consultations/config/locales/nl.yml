@@ -32,7 +32,6 @@ nl:
         scope: Gemeentelijk thema
         slug: URL pad
         subtitle: Ondertitel
-        title: Titel
         vote: Extern stemsysteem
         what_is_decided: Wat besloten werd
       response:
