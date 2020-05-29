@@ -5,6 +5,7 @@
 ### Added
 
 - **decidim-elections**: Add import proposals to answers [\6163](https://github.com/decidim/decidim/pull/6163)
+- **decidim-initiatives**: Adds initiatives signature gauge [\#6143](https://github.com/decidim/decidim/pull/6143)
 
 ### Changed
 
