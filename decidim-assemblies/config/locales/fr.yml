@@ -79,6 +79,7 @@ fr:
     admin:
       actions:
         new_assembly: Nouvelle assemblée
+        new_assembly_type: Nouveau type d'assemblée
       assemblies:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle assemblée.
