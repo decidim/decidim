@@ -615,6 +615,7 @@ it:
           homepage_highlighted_content_banner_title: Banner con contenuti Highligted
           images:
             layout_appearance_title: Modifica aspetto del layout
+            preview: Anteprima
           omnipresent_banner_appearance_title: Modifica banner onnipresente
       organization_homepage:
         edit:
