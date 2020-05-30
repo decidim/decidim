@@ -66,6 +66,14 @@ it:
       errors:
         answer:
           body: Il corpo non può essere vuoto
+      files:
+        extension_whitelist: 'Formati accettati:'
+      images:
+        dimensions: "%{width} x %{height} px"
+        dimensions_info: 'Questa immagine sarà:'
+        processors:
+          resize_and_pad: Ridimensionato e spaziato a
+          resize_to_fit: Ridimensionato per adattarsi
       question_types:
         long_answer: Risposta lunga
         matrix_multiple: Matrice (opzione multipla)
