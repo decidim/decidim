@@ -6,7 +6,7 @@ describe "Manage OAuth applications", type: :system do
   include ActionView::Helpers::SanitizeHelper
 
   let(:admin) { create :admin }
-  let(:organization) { create :organization }
+  let!(:organization) { create :organization }
 
   before do
     login_as admin, scope: :admin
@@ -19,7 +19,7 @@ describe "Manage OAuth applications", type: :system do
     within ".new_oauth_application" do
       fill_in :oauth_application_name, with: "Meta Decidim"
       fill_in :oauth_application_redirect_uri, with: "https://example.org/oauth/decidim"
-      fill_in :oauth_application_organization_name, with: organization.name
+      select organization.name, from: :oauth_application_decidim_organization_id
       fill_in :oauth_application_organization_url, with: organization.host
       attach_file "Organization logo", Decidim::Dev.asset("city.jpeg")
 

@@ -18,12 +18,11 @@ module Decidim
           OAuthApplication,
           @form.current_user,
           name: @form.name,
-          organization_name: @form.organization_name,
+          decidim_organization_id: @form.decidim_organization_id,
           organization_url: @form.organization_url,
           organization_logo: @form.organization_logo,
           redirect_uri: @form.redirect_uri,
-          scopes: "public",
-          organization: Decidim::Organization.find_by(name: @form.organization_name)
+          scopes: "public"
         )
 
         broadcast(:ok, @application)

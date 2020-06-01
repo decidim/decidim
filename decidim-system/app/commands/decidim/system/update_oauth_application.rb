@@ -22,7 +22,7 @@ module Decidim
           @application,
           @user,
           name: @form.name,
-          organization_name: @form.organization_name,
+          decidim_organization_id: @form.decidim_organization_id,
           organization_url: @form.organization_url,
           organization_logo: @form.organization_logo,
           redirect_uri: @form.redirect_uri

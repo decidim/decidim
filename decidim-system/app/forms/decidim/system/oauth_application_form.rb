@@ -7,12 +7,12 @@ module Decidim
       mimic :oauth_application
 
       attribute :name, String
-      attribute :organization_name, String
+      attribute :decidim_organization_id, Integer
       attribute :organization_url, String
       attribute :organization_logo
       attribute :redirect_uri, String
 
-      validates :name, :redirect_uri, :organization_name, :organization_url, :organization_logo, presence: true
+      validates :name, :redirect_uri, :decidim_organization_id, :organization_url, :organization_logo, presence: true
       validates :organization_logo,
                 file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } },
                 file_content_type: { allow: ["image/jpeg", "image/png"] }
