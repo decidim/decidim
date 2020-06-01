@@ -10,7 +10,7 @@ module Decidim::System
     let(:params) do
       {
         name: "Meta Decidim",
-        organization_name: organization.name,
+        decidim_organization_id: organization.id,
         organization_url: organization.host,
         organization_logo: file,
         redirect_uri: "https://meta.decidim.barcelona/users/auth/decidim"

@@ -9,7 +9,7 @@ module Decidim::System
     let(:params) do
       {
         name: "Meta Decidim",
-        organization_name: "Ajuntament de Barcelona",
+        decidim_organization_id: organization.id,
         organization_url: "http://www.barcelona.cat",
         organization_logo: file,
         redirect_uri: "https://meta.decidim.barcelona/users/auth/decidim"
@@ -47,7 +47,7 @@ module Decidim::System
         application.reload
 
         expect(application.name).to eq("Meta Decidim")
-        expect(application.organization_name).to eq("Ajuntament de Barcelona")
+        expect(application.organization_name).to eq(organization.name)
         expect(application.organization_url).to eq("http://www.barcelona.cat")
         expect(application.redirect_uri).to eq("https://meta.decidim.barcelona/users/auth/decidim")
       end
