@@ -88,6 +88,8 @@ cs:
             published: Publikováno
             rejected: Nedostatek podpisů
             validating: Technická validace
+        type_id_eq:
+          label: Typ
       menu:
         initiatives: Iniciativy
         initiatives_types: Typy iniciativ
@@ -151,6 +153,11 @@ cs:
             email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{resource_title}. Po předchozím propojení můžete přestat přijímat oznámení.
             email_subject: Nový milník dokončen!
             notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> dosáhla %{percentage}% podpisů.
+        support_threshold_reached:
+          email_intro: Iniciativa %{resource_title} dosáhla prahu podpory
+          email_outro: Toto oznámení jste obdrželi, protože jste administrátor platformy.
+          email_subject: Dosažen práh podpory
+          notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> dosáhla prahu podpory
     gamification:
       badges:
         initiatives:
