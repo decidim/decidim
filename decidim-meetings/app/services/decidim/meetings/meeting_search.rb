@@ -24,8 +24,8 @@ module Decidim
 
       # Handle the date filter
       def search_date
-        upcoming = date.member?("upcoming") ? query.upcoming : nil
-        past = date.member?("past") ? query.past : nil
+        upcoming = [date].flatten.member?("upcoming") ? query.upcoming : nil
+        past = [date].flatten.member?("past") ? query.past : nil
 
         query
           .where(id: upcoming)
