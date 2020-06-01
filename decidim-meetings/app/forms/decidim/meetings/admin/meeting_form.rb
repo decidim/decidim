@@ -90,6 +90,7 @@ module Decidim
         def scope_belongs_to_participatory_space_scope
           errors.add(:decidim_scope_id, :invalid) if current_participatory_space.out_of_scope?(scope)
         end
+
         def organizer
           @organizer ||= current_organization
         end
