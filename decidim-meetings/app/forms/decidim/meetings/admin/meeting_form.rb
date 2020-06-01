@@ -50,7 +50,6 @@ module Decidim
 
           self.title = presenter.title(all_locales: title.is_a?(Hash))
           self.description = presenter.description(all_locales: description.is_a?(Hash))
-          self.organizer_type = model.organizer_type
         end
 
         def services_to_persist

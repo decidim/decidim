@@ -138,8 +138,15 @@ module Decidim
       def organizer_belongs_to_organization
         return if !organizer || !organization
         return if official?
+        return if organizer == organization
 
-        errors.add(:organizer, :invalid) unless organizer.organization == organization
+        organizer_org = if organizer.is_a?(Decidim::Organization)
+                          organizer
+                        else
+                          organizer.organization
+                        end
+
+        errors.add(:organizer, :invalid) unless organizer_org == organization
       end
 
       def official?
