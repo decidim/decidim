@@ -27,9 +27,11 @@
 // = require decidim/check_boxes_tree
 // = require decidim/conversations
 // = require decidim/delayed
-// = require_tree ./decidim/vizzs
+// = require decidim/vizzs
+// = require decidim/responsive_horizontal_tabs.js
 
 // = require_self
+// = require decidim/assets
 // = require decidim/floating_help
 
 /* globals svg4everybody */

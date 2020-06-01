@@ -16,6 +16,7 @@ is-IS:
         participatory_process_group_id: Vinnuhópur
         promoted: Kynnt
         published_at: Birt á
+        related_process_ids: Tengd ferli
         scope_id: Umfang
         scopes_enabled: Scopes virkt
         short_description: Stutt lýsing
@@ -155,6 +156,7 @@ is-IS:
         participatory_processes:
           form:
             announcement_help: Textinn sem þú slærð inn hér verður sýndur fyrir notandann rétt fyrir neðan ferlið.
+            related_processes: Tengd ferli
             slug_help: 'Vefslóðir eru notaðir til að búa til slóðir sem benda til þessarar ferlis. Aðeins viðurkennir stafir, tölur og bindur og verður að byrja með stafi. Dæmi: %{url}'
             title: Almennar upplýsingar
       index:
@@ -173,6 +175,7 @@ is-IS:
         participatory_scope: Hvað er ákveðið
         participatory_structure: Hvernig er það ákveðið
         private_space: Þetta er einkarekið ferli
+        related_processes: Tengd ferli
         scope: Umfang
         start_date: Upphafsdagur
         target: Hver tekur þátt

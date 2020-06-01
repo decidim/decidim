@@ -38,12 +38,11 @@ module Decidim
           .deliver_later
       end
 
+      # Does nothing
       def notify_validating_initiative
-        initiative.organization.admins.each do |user|
-          Decidim::Initiatives::InitiativesMailer
-            .notify_validating_request(initiative, user)
-            .deliver_later
-        end
+        # It has been moved into SendInitiativeToTechnicalValidation command as a standard notification
+        # It would be great to move the functionality of this class, which is invoked on Initiative#after_save,
+        # to the corresponding commands to follow the architecture of Decidim.
       end
 
       def notify_validating_result

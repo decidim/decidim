@@ -64,9 +64,7 @@ module Decidim
           expect(subject).to redirect_to profile_path(user.nickname)
         end
       end
-    end
 
-    describe "GET new" do
       context "when previous yet created conversation with 2 participant" do
         subject { get :new, params: { recipient_id: user1.id } }
 
@@ -74,9 +72,7 @@ module Decidim
           expect(subject).to redirect_to conversation_path(conversation2)
         end
       end
-    end
 
-    describe "GET new" do
       context "when previous yet created conversation 4 participants" do
         subject { get :new, params: { recipient_id: [user1.id, user2.id, user3.id] } }
 
@@ -84,9 +80,7 @@ module Decidim
           expect(subject).to redirect_to conversation_path(conversation4)
         end
       end
-    end
 
-    describe "GET new" do
       context "when previous yet created conversation 10 participants" do
         subject { get :new, params: { recipient_id: [user1.id, user2.id, user3.id, user4.id, user5.id, user6.id, user7.id, user8.id, user9.id] } }
 

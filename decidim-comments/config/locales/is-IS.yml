@@ -54,6 +54,9 @@ is-IS:
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{author_name}. Þú getur sleppt þessari notanda frá prófílssíðunni sinni.
           email_subject: Það er nýtt ummæli um %{author_name} í %{resource_title}
           notification_title: Það er nýtt ummæli við <a href="%{author_path}">%{author_name} %{author_nickname}</a> í <a href="%{resource_path}">%{resource_title}</a>.
+        comment_by_followed_user_group:
+          email_subject: Það er nýtt ummæli um %{author_name} í %{resource_title}
+          notification_title: Það er nýtt ummæli við <a href="%{author_path}">%{author_name} %{author_nickname}</a> í <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} hefur verið skrifað ummæli. Þú getur lesið athugasemdina á þessari síðu:"
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{resource_title}" eða höfundinum. Þú getur sleppt því frá fyrri tengilinn.

@@ -76,6 +76,9 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque está seguindo %{author_name}. Você pode deixar de seguir esse usuário em sua página de perfil.
           email_subject: Há um novo comentário por %{author_name} em %{resource_title}
           notification_title: Há um novo comentário por <a href="%{author_path}">%{author_name} %{author_nickname}</a> em <a href="%{resource_path}">%{resource_title}</a>.
+        comment_by_followed_user_group:
+          email_subject: Há um novo comentário por %{author_name} em %{resource_title}
+          notification_title: Há um novo comentário por <a href="%{author_path}">%{author_name} %{author_nickname}</a> em <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} foi comentado. Você pode ler o comentário nesta página:"
           email_outro: Você recebeu esta notificação porque você está seguindo "%{resource_title}" ou seu autor. Você pode ignorá-lo do link anterior.

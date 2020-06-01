@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when updated a participatory
       # process admin in the system.
-      class UpdateConferenceAdmin < Rectify::Command
+      class UpdateConferenceAdmin < NotifyRoleAssignedToConference
         # Public: Initializes the command.
         #
         # form - A form object with the params.
@@ -45,6 +45,7 @@ module Decidim
             { role: form.role },
             log_info
           )
+          send_notification user_role.user
         end
       end
     end

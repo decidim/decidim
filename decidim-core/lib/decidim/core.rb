@@ -82,6 +82,7 @@ module Decidim
   autoload :PermissionsRegistry, "decidim/permissions_registry"
   autoload :Randomable, "decidim/randomable"
   autoload :Endorsable, "decidim/endorsable"
+  autoload :ActionAuthorization, "decidim/action_authorization"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -139,7 +140,7 @@ module Decidim
 
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
-    %w(en ar ca de el es es-MX es-PY eu fi-pl fi fr gl hu id it nl no pl pt pt-BR ru sv tr uk)
+    %w(en ar ca de el es es-MX es-PY eu fi-pl fi fr gl hu id it nl no pl pt pt-BR ru sk sv tr uk)
   end
 
   # Exposes a configuration option: The application default locale.

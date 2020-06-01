@@ -22,6 +22,7 @@ tr:
         participatory_structure: Nasıl karar verilir
         promoted: Tanıtılan
         published_at: Yayınlandı
+        related_process_ids: İlgili süreçler
         scope_id: kapsam
         scopes_enabled: Kapsamlar etkin
         short_description: Kısa Açıklama
@@ -297,6 +298,7 @@ tr:
             images: Görüntüler
             metadata: Meta veri
             other: Diğer
+            related_processes: İlgili süreçler
             select_an_area: Bir alan seçin
             select_process_group: Bir işlem grubu seçin
             slug_help: 'URL sümükleri, bu işleme işaret eden URL''leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
@@ -352,6 +354,7 @@ tr:
         participatory_scope: Karar nedir
         participatory_structure: Nasıl karar verilir
         private_space: Bu özel bir süreç
+        related_processes: İlgili süreçler
         scope: kapsam
         start_date: Başlangıç tarihi
         target: Kimler katılır
