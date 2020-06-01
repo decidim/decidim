@@ -11,6 +11,10 @@ module Decidim
           survey
         end
 
+        def public_url
+          Decidim::EngineRouter.main_proxy(current_component).survey_path(survey)
+        end
+
         private
 
         def i18n_flashes_scope

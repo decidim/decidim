@@ -24,6 +24,7 @@ module Decidim
           Decidim::Forms::Questionnaire.transaction do
             update_questionnaire_questions if @questionnaire.questions_editable?
             update_questionnaire
+            delete_answers unless @questionnaire.published?
           end
 
           broadcast(:ok)
@@ -79,6 +80,10 @@ module Decidim
           @questionnaire.update!(title: @form.title,
                                  description: @form.description,
                                  tos: @form.tos)
+        end
+
+        def delete_answers
+          questionnaire.answers.destroy_all
         end
       end
     end

@@ -7,7 +7,7 @@ module Decidim
       include Decidim::Forms::Concerns::HasQuestionnaire
       helper Decidim::Surveys::SurveyHelper
 
-      delegate :allow_answers?, :allow_unregistered?, to: :current_settings
+      delegate :allow_unregistered?, to: :current_settings
 
       before_action :check_permissions
 
@@ -17,6 +17,12 @@ module Decidim
 
       def questionnaire_for
         survey
+      end
+
+      protected
+
+      def allow_answers?
+        !questionnaire.published? || current_settings.allow_answers?
       end
 
       private

@@ -15,7 +15,7 @@ module Decidim
 
           included do
             helper Decidim::Forms::Admin::ApplicationHelper
-            helper_method :questionnaire_for, :questionnaire, :blank_question, :blank_answer_option, :question_types, :update_url
+            helper_method :questionnaire_for, :questionnaire, :blank_question, :blank_answer_option, :question_types, :update_url, :public_url
 
             def edit
               enforce_permission_to :update, :questionnaire, questionnaire: questionnaire
@@ -62,6 +62,12 @@ module Decidim
             # where the user will be redirected after updating the questionnaire
             def after_update_url
               url_for(questionnaire.questionnaire_for)
+            end
+
+            # Implement this method in your controller to set the URL
+            # where the questionnaire can be answered.
+            def public_url
+              raise "#{self.class.name} is expected to implement #public_url"
             end
 
             private
