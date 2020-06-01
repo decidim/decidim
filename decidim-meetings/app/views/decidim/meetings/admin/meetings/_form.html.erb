@@ -4,19 +4,11 @@
   </div>
   <div class="card-section">
     <div class="row column  hashtags__container">
-      <% if translatable_form? %>
-        <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true %>
-      <% else %>
-        <%= form.text_field :title, autofocus: true, class: "js-hashtags", hashtaggable: true %>
-      <% end %>
+      <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true %>
     </div>
 
     <div class="row column hashtags__container">
-      <% if translatable_form? %>
-        <%= form.translated :editor, :description, hashtaggable: true %>
-      <% else %>
-        <%= text_editor_for(form, :description, hashtaggable: true) %>
-      <% end %>
+      <%= form.translated :editor, :description, hashtaggable: true %>
     </div>
 
     <div class="row column">
@@ -25,20 +17,12 @@
     </div>
 
     <div class="row column">
-      <% if translatable_form? %>
-        <%= form.translated :text_area, :location %>
-      <% else %>
-        <%= form.text_area :location %>
-      <% end %>
+      <%= form.translated :text_area, :location %>
       <p class="help-text"><%= t(".location_help") %></p>
     </div>
 
     <div class="row column">
-      <% if translatable_form? %>
-        <%= form.translated :text_area, :location_hints %>
-      <% else %>
-        <%= form.text_area :location_hints %>
-      <% end %>
+      <%= form.translated :text_area, :location_hints %>
       <p class="help-text"><%= t(".location_hints_help") %></p>
     </div>
 
@@ -61,22 +45,6 @@
       <div class="columns xlarge-6">
         <%= form.categories_select :decidim_category_id, current_participatory_space.categories, prompt: "", disable_parents: false %>
       </div>
-    </div>
-
-    <div class="row column">
-      <% if translatable_form? %>
-        <% prompt_options = { url: decidim_admin.users_organization_url, text: t(".select_organizer") } %>
-        <%= form.autocomplete_select(:organizer_id, form.object.user_organizers.presence, { multiple: false }, prompt_options) do |user|
-          { value: user.id, label: "#{user.name} (@#{user.nickname})" }
-        end %>
-      <% else %>
-        <%= form.hidden_field(:organizer_id) %>
-        <%= form.hidden_field(:organizer_type) %>
-        <p>
-          <strong><%= t("activemodel.attributes.meeting.organizer_id") %></strong><br>
-          <%= meeting.try(:organizer).try(:name) %>
-        </p>
-      <% end %>
     </div>
 
     <div class="row column" id="private_meeting">

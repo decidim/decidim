@@ -35,7 +35,15 @@ FactoryBot.define do
     component { build(:component, manifest_name: "meetings") }
 
     organizer do
-      create(:user, organization: component.organization) if component
+      component.organization if component
+    end
+
+    trait :official do
+      organizer { component.organization if component }
+    end
+
+    trait :not_official do
+      organizer { create(:user, organization: component.organization) if component }
     end
 
     trait :closed do
