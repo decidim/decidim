@@ -24,8 +24,7 @@
     <%= form.check_boxes_tree :category_id, filter_categories_values, legend_title: t(".category") %>
   <% end %>
 
-  <% # todo %>
-  <% # if component_settings are enabled %>
+  <% if component_settings.creation_enabled_for_participants? %>
     <%= form.check_boxes_tree :origin, filter_origin_values, legend_title: t(".origin") %>
-  <% # end %>
+  <% end %>
 <% end %>
