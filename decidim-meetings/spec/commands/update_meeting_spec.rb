@@ -77,16 +77,16 @@ module Decidim::Meetings
       end
 
       context "when the organizer is a user_group" do
-        let(:organizer) { create :user_group, users: [user], organization: organization }
+        let(:organizer) { create :user_group, users: [current_user], organization: organization }
 
-        xit "sets the user_group as the organizer" do
+        it "sets the user_group as the organizer" do
           subject.call
           expect(meeting.organizer).to eq organizer
         end
       end
 
       context "when the organizer is a user" do
-        xit "sets the user as the organizer" do
+        it "sets the user as the organizer" do
           subject.call
           expect(meeting.organizer).to eq organizer
         end
@@ -105,7 +105,126 @@ module Decidim::Meetings
       end
 
       describe "events" do
-        xit "notifies when time changes"
+        let!(:follow) { create :follow, followable: meeting, user: current_user }
+        let(:title) { meeting.title }
+        let(:start_time) { meeting.start_time }
+        let(:end_time) { meeting.end_time }
+        let(:address) { meeting.address }
+        let(:form) do
+          double(
+            invalid?: false,
+            title: title,
+            description: meeting.description,
+            location: meeting.location,
+            location_hints: meeting.location_hints,
+            start_time: start_time,
+            end_time: end_time,
+            scope: meeting.scope,
+            category: meeting.category,
+            address: address,
+            latitude: meeting.latitude,
+            longitude: meeting.longitude,
+            organizer: organizer,
+            private_meeting: private_meeting,
+            transparent: transparent,
+            services_to_persist: [],
+            current_user: current_user,
+            current_organization: organization
+          )
+        end
+
+        context "when nothing changes" do
+          it "doesn't notify the change" do
+            expect(Decidim::EventsManager)
+              .not_to receive(:publish)
+
+            subject.call
+          end
+        end
+
+        context "when a non-important attribute changes" do
+          let(:title) do
+            {
+              "en" => "Title updated"
+            }
+          end
+
+          it "doesn't notify the change" do
+            expect(Decidim::EventsManager)
+              .not_to receive(:publish)
+
+            subject.call
+          end
+
+          it "doesn't schedule the upcoming meeting notification job" do
+            expect(UpcomingMeetingNotificationJob)
+              .not_to receive(:perform_later)
+
+            subject.call
+          end
+        end
+
+        context "when the start time changes" do
+          let(:start_time) { meeting.start_time - 1.day }
+
+          it "notifies the change" do
+            expect(Decidim::EventsManager)
+              .to receive(:publish)
+              .with(
+                event: "decidim.events.meetings.meeting_updated",
+                event_class: UpdateMeetingEvent,
+                resource: meeting,
+                followers: [current_user]
+              )
+
+            subject.call
+          end
+
+          it "schedules a upcoming meeting notification job 48h before start time" do
+            expect(UpcomingMeetingNotificationJob)
+              .to receive(:generate_checksum).and_return "1234"
+
+            expect(UpcomingMeetingNotificationJob)
+              .to receive_message_chain(:set, :perform_later) # rubocop:disable RSpec/MessageChain
+              .with(set: start_time - 2.days).with(meeting.id, "1234")
+
+            subject.call
+          end
+        end
+
+        context "when the end time changes" do
+          let(:end_time) { meeting.start_time + 1.day }
+
+          it "notifies the change" do
+            expect(Decidim::EventsManager)
+              .to receive(:publish)
+              .with(
+                event: "decidim.events.meetings.meeting_updated",
+                event_class: UpdateMeetingEvent,
+                resource: meeting,
+                followers: [current_user]
+              )
+
+            subject.call
+          end
+        end
+
+        context "when the address changes" do
+          let(:address) { "some address" }
+
+          it "notifies the change" do
+            expect(Decidim::EventsManager)
+              .to receive(:publish)
+              .with(
+                event: "decidim.events.meetings.meeting_updated",
+                event_class: UpdateMeetingEvent,
+                resource: meeting,
+                followers: [current_user]
+              )
+
+            subject.call
+          end
+        end
       end
     end
   end

@@ -8,9 +8,14 @@ describe "User edit meeting", type: :system do
 
   let!(:user) { create :user, :confirmed, organization: participatory_process.organization }
   let!(:another_user) { create :user, :confirmed, organization: participatory_process.organization }
-  let!(:meeting) { create :meeting, title: "Meeting title with #hashtag", description: "Meeting description", component: component }
+  let!(:meeting) { create :meeting, title: "Meeting title with #hashtag", description: "Meeting description", organizer: user, component: component }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
+  let(:component) do
+    create(:meeting_component,
+           :with_creation_enabled,
+           participatory_space: participatory_process)
+  end
 
   before do
     switch_to_host user.organization.host
@@ -29,7 +34,7 @@ describe "User edit meeting", type: :system do
       visit_component
 
       click_link meeting.title
-      click_link "Edit Meeting"
+      click_link "Edit meeting"
 
       expect(page).to have_content "EDIT YOUR MEETING"
 
@@ -44,17 +49,11 @@ describe "User edit meeting", type: :system do
     end
 
     context "when updating with wrong data" do
-      let(:component) do
-        create(:meeting_component,
-               # :with_creation_enabled,
-               participatory_space: participatory_process)
-      end
-
       it "returns an error message" do
         visit_component
 
         click_link meeting.title
-        click_link "Edit Meeting"
+        click_link "Edit meeting"
 
         expect(page).to have_content "EDIT YOUR MEETING"
 
@@ -73,25 +72,7 @@ describe "User edit meeting", type: :system do
       login_as another_user, scope: :user
     end
 
-    xit "renders an error" do
-      visit_component
-
-      click_link meeting.title
-      expect(page).to have_no_content("Edit meeting")
-      visit current_path + "/edit"
-
-      expect(page).to have_content("not authorized")
-    end
-  end
-
-  describe "editing my meeting outside the time limit" do
-    let!(:meeting) { create :meeting, users: [user], component: component, created_at: 1.hour.ago }
-
-    before do
-      login_as another_user, scope: :user
-    end
-
-    xit "renders an error" do
+    it "renders an error" do
       visit_component
 
       click_link meeting.title

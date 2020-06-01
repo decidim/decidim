@@ -387,7 +387,7 @@ en:
           location_hints_help: 'Location hints: additional info. Example: the floor of the building'
           select_a_category: Please select a category
         index:
-          new_meeting: New Meeting
+          new_meeting: New meeting
         meeting_minutes:
           meeting_minutes: Meeting Minutes
           related_information: Related Information
@@ -405,7 +405,7 @@ en:
           attendees: Attendees count
           back: Back to list
           contributions: Contributions count
-          edit_meeting: Edit Meeting
+          edit_meeting: Edit meeting
           going: Going
           join: Join meeting
           meeting_report: Meeting report

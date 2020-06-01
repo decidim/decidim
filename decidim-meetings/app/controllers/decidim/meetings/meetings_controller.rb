@@ -23,9 +23,9 @@ module Decidim
         @form = meeting_form.from_params(params, current_component: current_component)
 
         CreateMeeting.call(@form) do
-          on(:ok) do
+          on(:ok) do |meeting|
             flash[:notice] = I18n.t("meetings.create.success", scope: "decidim.meetings")
-            redirect_to meetings_path
+            redirect_to meeting_path(meeting)
           end
 
           on(:invalid) do

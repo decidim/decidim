@@ -37,7 +37,7 @@ describe "User creates meeting", type: :system do
       context "with creation enabled" do
         let!(:component) do
           create(:meeting_component,
-                 # :with_creation_enabled,
+                 :with_creation_enabled,
                  participatory_space: participatory_process)
         end
         let(:meeting_title) { Faker::Lorem.sentence(1) }

@@ -82,16 +82,16 @@ module Decidim::Meetings
       end
 
       context "when the organizer is a user_group" do
-        let(:organizer) { create :user_group, users: [user], organization: organization }
+        let(:organizer) { create :user_group, users: [current_user], organization: organization }
 
-        xit "sets the user_group as the organizer" do
+        it "sets the user_group as the organizer" do
           subject.call
           expect(meeting.organizer).to eq organizer
         end
       end
 
       context "when the organizer is a user" do
-        xit "sets the user as the organizer" do
+        it "sets the user as the organizer" do
           subject.call
           expect(meeting.organizer).to eq organizer
         end
