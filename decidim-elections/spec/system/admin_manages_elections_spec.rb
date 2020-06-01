@@ -110,15 +110,8 @@ describe "Admin manages elections", type: :system do
   end
 
   describe "deleting an election" do
-    let(:election2) { create(:election, component: current_component) }
-
-    before do
-      election2
-      visit current_path
-    end
-
     it "deletes an election" do
-      within find("tr", text: translated(election2.title)) do
+      within find("tr", text: translated(election.title)) do
         accept_confirm do
           page.find(".action-icon--remove").click
         end
@@ -129,15 +122,15 @@ describe "Admin manages elections", type: :system do
       end
 
       within "table" do
-        expect(page).not_to have_content(translated(election2.title))
+        expect(page).not_to have_content(translated(election.title))
       end
     end
 
     context "when the election has started" do
-      let!(:election2) { create(:election, :started, component: current_component) }
+      let!(:election) { create(:election, :started, component: current_component) }
 
       it "cannot delete the election" do
-        within find("tr", text: translated(election2.title)) do
+        within find("tr", text: translated(election.title)) do
           expect(page).to have_no_selector(".action-icon--remove")
         end
       end
