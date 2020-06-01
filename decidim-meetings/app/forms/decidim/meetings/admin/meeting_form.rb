@@ -26,12 +26,6 @@ module Decidim
           @user_organizers ||= current_organization.users.find_by(id: organizer_id)
         end
 
-        def user_organizers
-          return unless organizer_type == "Decidim::UserBaseEntity"
-
-          @user_organizers ||= current_organization.users.find_by(id: organizer_id)
-        end
-
         def organizer
           @organizer ||= if organizer_id
                            current_organization.users.find_by(id: organizer_id)
