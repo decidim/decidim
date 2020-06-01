@@ -30,6 +30,7 @@ The use case that originated this change is the persistence of the user's gender
 ### Added
 
 - **decidim-forms**: Allow to view and export in PDF responses to surveys directly in the admin [\#5770](https://github.com/decidim/decidim/pull/5770)
+- **decidim-system**: Add from_label to Organization SMTP settings. [#\6125](https://github.com/decidim/decidim/pull/6125)
 - **decidim-initiatives**: Send notification when signature threshold reached. [\#6098](https://github.com/decidim/decidim/pull/6098)
 - **decidim-proposals**: Add an information message when there aren't proposals. [\#6063](https://github.com/decidim/decidim/pull/6063)
 - **decidim-core**: Set email asset host dynamically. [\#5888](https://github.com/decidim/decidim/pull/5888)
