@@ -9,8 +9,12 @@ describe Decidim::Meetings::Permissions do
   let(:context) do
     {
       current_component: meeting_component,
+      component_settings: component_settings,
       meeting: meeting
     }
+  end
+  let(:component_settings) do
+    double(creation_enabled_for_participants?: true)
   end
   let(:meeting_component) { create :meeting_component }
   let(:meeting) { create :meeting, component: meeting_component }
@@ -115,6 +119,50 @@ describe Decidim::Meetings::Permissions do
       end
 
       it { is_expected.to eq true }
+    end
+  end
+
+  context "when creating meetings" do
+    let(:action) do
+      { scope: :public, action: :create, subject: :meeting }
+    end
+
+    context "when setting is enabled" do
+      it { is_expected.to eq true }
+    end
+
+    context "when setting is disabled" do
+      let(:component_settings) do
+        double(creation_enabled_for_participants?: false)
+      end
+
+      it { is_expected.to eq false }
+    end
+  end
+
+  context "when updating a meeting" do
+    let(:action) do
+      { scope: :public, action: :update, subject: :meeting }
+    end
+
+    context "when setting is enabled" do
+      context "when user is not the organizer" do
+        it { is_expected.to eq false }
+      end
+
+      context "when user is the organizer" do
+        let(:meeting) { create :meeting, organizer: user, component: meeting_component }
+
+        it { is_expected.to eq true }
+      end
+    end
+
+    context "when setting is disabled" do
+      let(:component_settings) do
+        double(creation_enabled_for_participants?: false)
+      end
+
+      it { is_expected.to eq false }
     end
   end
 end

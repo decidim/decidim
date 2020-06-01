@@ -31,10 +31,9 @@ edit_link(
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8
               large-3 large-push-9">
 
-    <% # todo %>
-    <% # if allowed_to?(:edit, :meeting, meeting: meeting) %>
+    <% if allowed_to?(:update, :meeting, meeting: meeting) %>
       <%= link_to t(".edit_meeting"), edit_meeting_path(meeting), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
-    <% # end %>
+    <%  end %>
 
     <div class="card extra">
       <div class="card__content">

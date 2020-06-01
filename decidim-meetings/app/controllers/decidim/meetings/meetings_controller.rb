@@ -12,15 +12,13 @@ module Decidim
       helper_method :meetings, :meeting, :registration, :search
 
       def new
-        # todo
-        # enforce_permission_to :create, :meeting
+        enforce_permission_to :create, :meeting
 
         @form = meeting_form.instance
       end
 
       def create
-        # todo
-        # enforce_permission_to :create, :meeting
+        enforce_permission_to :create, :meeting
 
         @form = meeting_form.from_params(params, current_component: current_component)
 
@@ -62,15 +60,13 @@ module Decidim
       end
 
       def edit
-        # todo
-        # enforce_permission_to :edit, :meeting, meeting: meeting
+        enforce_permission_to :update, :meeting, meeting: meeting
 
         @form = meeting_form.from_model(meeting)
       end
 
       def update
-        # todo
-        # enforce_permission_to :edit, :meeting, meeting: meeting
+        enforce_permission_to :update, :meeting, meeting: meeting
 
         @form = meeting_form.from_params(params)
 
