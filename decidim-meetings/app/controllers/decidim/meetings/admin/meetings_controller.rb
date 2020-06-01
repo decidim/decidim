@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This controller allows an admin to manage meetings from a Participatory Process
       class MeetingsController < Admin::ApplicationController
-        helper_method :blank_service, :translatabe_form?
+        helper_method :blank_service, :translatable_form?
 
         def new
           enforce_permission_to :create, :meeting
@@ -70,7 +70,7 @@ module Decidim
         private
 
         def meeting_form
-          if translatabe_form?
+          if translatable_form?
             form(Decidim::Meetings::Admin::MeetingForm)
           else
             form(Decidim::Meetings::Admin::MeetingNoTranslatableForm)
@@ -81,7 +81,7 @@ module Decidim
           @blank_service ||= Admin::MeetingServiceForm.new
         end
 
-        def translatabe_form?
+        def translatable_form?
           return true unless meeting
 
           meeting.title.is_a? Hash

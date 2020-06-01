@@ -4,7 +4,7 @@
   </div>
   <div class="card-section">
     <div class="row column  hashtags__container">
-      <% if translatabe_form? %>
+      <% if translatable_form? %>
         <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true %>
       <% else %>
         <%= form.text_field :title, autofocus: true, class: "js-hashtags", hashtaggable: true %>
@@ -12,7 +12,7 @@
     </div>
 
     <div class="row column hashtags__container">
-      <% if translatabe_form? %>
+      <% if translatable_form? %>
         <%= form.translated :editor, :description, hashtaggable: true %>
       <% else %>
         <%= text_editor_for(form, :description, hashtaggable: true) %>
@@ -25,7 +25,7 @@
     </div>
 
     <div class="row column">
-      <% if translatabe_form? %>
+      <% if translatable_form? %>
         <%= form.translated :text_area, :location %>
       <% else %>
         <%= form.text_area :location %>
@@ -34,7 +34,7 @@
     </div>
 
     <div class="row column">
-      <% if translatabe_form? %>
+      <% if translatable_form? %>
         <%= form.translated :text_area, :location_hints %>
       <% else %>
         <%= form.text_area :location_hints %>
@@ -64,7 +64,7 @@
     </div>
 
     <div class="row column">
-      <% if translatabe_form? %>
+      <% if translatable_form? %>
         <% prompt_options = { url: decidim_admin.users_organization_url, text: t(".select_organizer") } %>
         <%= form.autocomplete_select(:organizer_id, form.object.user_organizers.presence, { multiple: false }, prompt_options) do |user|
           { value: user.id, label: "#{user.name} (@#{user.nickname})" }
