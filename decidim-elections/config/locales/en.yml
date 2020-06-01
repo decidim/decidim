@@ -2,19 +2,38 @@
 en:
   activemodel:
     attributes:
+      answer:
+        description: Description
+        image: Image
+        proposals: Related proposals
+        title: Title
       election:
         description: Description
         end_time: Voting ends at
         start_time: Voting start at
         subtitle: Subtitle
         title: Title
-    models:
-      decidim/elections/create_election_event: Election
+      question:
+        description: Description
+        max_selections: Maximum number of selections
+        title: Title
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Needs to be reattached
   activerecord:
     models:
+      decidim/elections/answer:
+        one: Answer
+        other: Answers
       decidim/elections/election:
         one: Election
         other: Elections
+      decidim/elections/question:
+        one: Question
+        other: Questions
   decidim:
     components:
       elections:
@@ -33,6 +52,24 @@ en:
         preview: Preview
         title: Actions
       admin:
+        answers:
+          create:
+            invalid: There was a problem creating this answer
+            success: Answer successfully created
+          destroy:
+            invalid: There was a problem deleting this answer
+            success: Answer successfully deleted
+          edit:
+            title: Edit answer
+            update: Update answer
+          index:
+            title: Answers
+          new:
+            create: Create answer
+            title: New answer
+          update:
+            invalid: There was a problem updating this answer
+            success: Answer successfully updated
         elections:
           create:
             invalid: There was a problem creating this election
@@ -52,11 +89,45 @@ en:
             invalid: There was a problem updating this election
             success: Election successfully updated
         models:
+          answer:
+            name: Answer
           election:
             name: Election
+          question:
+            name: Question
+        questions:
+          create:
+            invalid: There was a problem creating this question
+            success: Question successfully created
+          destroy:
+            invalid: There was a problem deleting this question
+            success: Question successfully deleted
+          edit:
+            title: Edit question
+            update: Update question
+          index:
+            title: Questions
+          new:
+            create: Create question
+            title: New question
+          update:
+            invalid: There was a problem updating this question
+            success: Question successfully updated
       models:
+        answer:
+          fields:
+            proposals: Proposals
+            title: Title
         election:
           fields:
             end_time: End at
             start_time: Starts at
             title: Title
+        question:
+          fields:
+            answers: Answers
+            max_selections: Max. selections
+            title: Title
+    participatory_processes:
+      statistics:
+        elections_count: Elections
