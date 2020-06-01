@@ -55,8 +55,7 @@ module Decidim
             location_hints: form.location_hints,
             private_meeting: form.private_meeting,
             transparent: form.transparent,
-            organizer_id: form.organizer_id,
-            organizer_type: form.organizer_type
+            organizer: form.organizer
           )
         end
 

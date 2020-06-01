@@ -141,7 +141,7 @@ describe "User creates meeting", type: :system do
             component.update!(permissions: permissions)
           end
 
-          xit "shows a modal dialog" do
+          it "shows a modal dialog" do
             visit_component
             click_link "New meeting"
             expect(page).to have_content("Authorization required")
@@ -150,7 +150,7 @@ describe "User creates meeting", type: :system do
       end
 
       context "when creation is not enabled" do
-        xit "does not show the creation button" do
+        it "does not show the creation button" do
           visit_component
           expect(page).to have_no_link("New meeting")
         end

@@ -17,7 +17,7 @@ module Decidim::Meetings
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }
     let(:start_time) { 1.day.from_now }
-    let(:organizer) { create :user, organization: organization }
+    let(:organizer) { organization }
     let(:private_meeting) { false }
     let(:transparent) { true }
     let(:transparent_type) { "transparent" }

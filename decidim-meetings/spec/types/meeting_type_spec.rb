@@ -253,31 +253,15 @@ module Decidim
       end
 
       describe "organizer" do
-        let(:organizer) { nil }
+        let(:organizer) { create(:user, organization: model.participatory_space.organization) }
+        let(:query) { "{ organizer { name } }" }
 
-        describe "when organizer is not present" do
-          let(:query) { "{ organizer { name } }" }
-
-          before do
-            model.update(organizer: organizer)
-          end
-
-          it "does not include the organizer" do
-            expect(response["organizer"]).to be_nil
-          end
+        before do
+          model.update(organizer: organizer)
         end
 
-        describe "with a regular user" do
-          let(:organizer) { create(:user, organization: model.participatory_space.organization) }
-          let(:query) { "{ organizer { name } }" }
-
-          before do
-            model.update(organizer: organizer)
-          end
-
-          it "includes the user's name" do
-            expect(response["organizer"]["name"]).to eq(organizer.name)
-          end
+        it "includes the user's name" do
+          expect(response["organizer"]["name"]).to eq(organizer.name)
         end
       end
     end

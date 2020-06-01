@@ -30,7 +30,7 @@ module Decidim::Meetings
       services.map { |service| Admin::MeetingServiceForm.from_params(service) }
     end
     let(:user) { create :user, :admin, organization: organization }
-    let(:organizer) { create :user, organization: organization }
+    let(:organizer) { organization }
     let(:private_meeting) { false }
     let(:transparent) { true }
     let(:form) do
@@ -48,6 +48,8 @@ module Decidim::Meetings
         latitude: latitude,
         longitude: longitude,
         organizer: organizer,
+        organizer_id: organizer.id,
+        organizer_type: organizer.class.name,
         private_meeting: private_meeting,
         transparent: transparent,
         services_to_persist: services_to_persist,

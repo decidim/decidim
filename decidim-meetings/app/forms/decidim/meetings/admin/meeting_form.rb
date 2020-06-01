@@ -15,8 +15,6 @@ module Decidim
         attribute :services, Array[MeetingServiceForm]
         attribute :decidim_scope_id, Integer
         attribute :decidim_category_id, Integer
-        attribute :organizer_id, Integer
-        attribute :organizer_type, String
         attribute :private_meeting, Boolean
         attribute :transparent, Boolean
 

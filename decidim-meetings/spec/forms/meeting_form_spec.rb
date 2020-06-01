@@ -30,8 +30,8 @@ module Decidim::Meetings
     let(:scope_id) { scope.id }
     let(:category) { create :category, participatory_space: participatory_process }
     let(:category_id) { category.id }
-    # let(:organizer) { create :user, organization: organization }
-    # let(:organizer_id) { organizer.id }
+    let(:organizer) { create :user, organization: organization }
+    let(:organizer_gid) { organizer.to_global_id }
     let(:private_meeting) { false }
     let(:transparent) { true }
     let(:attributes) do
@@ -47,8 +47,8 @@ module Decidim::Meetings
         start_time: start_time,
         end_time: end_time,
         private_meeting: private_meeting,
-        transparent: transparent
-        # organizer_id: organizer_id,
+        transparent: transparent,
+        organizer_gid: organizer_gid
       }
     end
 
@@ -174,10 +174,10 @@ module Decidim::Meetings
           end
         end
 
-        context "when the organizer is not the participant" do
-          let(:organizer) { create :user, organization: organization }
+        context "when the organizer is not present" do
+          let(:organizer_gid) { nil }
 
-          xit "makes the form invalid" do
+          it "makes the form invalid" do
             expect(form).to be_invalid
           end
         end
@@ -185,7 +185,7 @@ module Decidim::Meetings
         context "when the organizer is the participant" do
           let(:organizer) { create :user, organization: organization }
 
-          xit "makes the form valid" do
+          it "makes the form valid" do
             expect(form).to be_valid
           end
         end
