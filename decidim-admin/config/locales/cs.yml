@@ -615,6 +615,7 @@ cs:
           homepage_highlighted_content_banner_title: Vysoce kvalitní banner obsahu
           images:
             layout_appearance_title: Upravit vzhled vzhledu
+            preview: Náhled
           omnipresent_banner_appearance_title: Upravte všudypřítomný banner
       organization_homepage:
         edit:
