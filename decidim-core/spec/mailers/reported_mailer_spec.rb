@@ -4,10 +4,10 @@ require "spec_helper"
 
 module Decidim
   describe ReportedMailer, type: :mailer do
-    let(:organization) { create(:organization) }
+    let(:organization) { create(:organization, name: "Test Organization") }
     let(:user) { create(:user, :admin, organization: organization) }
     let(:component) { create(:component, organization: organization) }
-    let(:reportable) { create(:dummy_resource, :authored_by_user, title: Decidim::Faker::Localized.sentence, body: Decidim::Faker::Localized.paragraph(3)) }
+    let(:reportable) { create(:dummy_resource, title: Decidim::Faker::Localized.sentence, body: Decidim::Faker::Localized.paragraph(3)) }
     let(:moderation) { create(:moderation, reportable: reportable, participatory_space: component.participatory_space, report_count: 1) }
     let(:author) { reportable.author }
     let!(:report) { create(:report, moderation: moderation, details: "bacon eggs spam") }
@@ -78,8 +78,8 @@ module Decidim
         context "when the author is an organization" do
           let(:reportable) { create(:dummy_resource, :authored_by_organization) }
 
-          it "includes the name of the organization and a link to the homepage" do
-            expect(mail).to have_link(author.name, href: decidim.root_url(host: author.host))
+          it "includes the name of the organization" do
+            expect(email_body(mail)).to match(author.name)
           end
         end
       end

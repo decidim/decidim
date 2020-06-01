@@ -43,13 +43,7 @@ module Decidim
     end
 
     def author_profile_url
-      @author_profile_url ||= begin
-                                if @author.is_a?(Decidim::Organization)
-                                  decidim.root_url(host: @author.host)
-                                else
-                                  decidim.profile_url(@author.nickname, host: @organization.host)
-                                end
-                              end
+      @author_profile_url ||= @author.is_a?(Decidim::UserBaseEntity) ? decidim.profile_url(@author.nickname, host: @organization.host) : nil
     end
   end
 end

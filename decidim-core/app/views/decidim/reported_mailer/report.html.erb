@@ -32,7 +32,11 @@
 
 <% if @author.present? %>
   <p><b><%= t(".authors") %></b></p>
-  <p><%= link_to @author.name, author_profile_url, target: :blank %></p>
+  <% if author_profile_url.present? %>
+    <p><%= link_to @author.name, author_profile_url, target: :blank %></p>
+  <% else %>
+    <p><%= @author.name %></p>
+  <% end %>
 <% end %>
 <br>
 

@@ -449,14 +449,11 @@ FactoryBot.define do
     end
     title { generate(:name) }
     component { create(:component, manifest_name: "dummy") }
+    author { create(:user, :confirmed, organization: component.organization) }
     scope { create(:scope, organization: component.organization) }
 
     trait :published do
       published_at { Time.current }
-    end
-
-    trait :authored_by_user do
-      author { create(:user, :confirmed, organization: component.organization) }
     end
 
     trait :authored_by_group do
