@@ -29,5 +29,15 @@ describe Decidim::Verifications::AuthorizationMetadataCell, type: :cell do
       expect(subject).to have_content("Postal code")
       expect(subject).to have_content("123456")
     end
+
+    context "when metadata has an 'extras' key" do
+      before do
+        metadata[:extras] = { gender: :gender_value }
+      end
+
+      it "ignores the content of the 'extras' key" do
+        expect(subject).not_to have_content("gender")
+      end
+    end
   end
 end

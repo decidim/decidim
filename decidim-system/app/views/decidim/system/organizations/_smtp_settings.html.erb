@@ -2,7 +2,11 @@
   <h4><%= t("decidim.system.models.organization.fields.smtp_settings") %></h4>
   <%= f.fields_for :smtp_settings do %>
     <div class="field">
-      <%= f.email_field :from %>
+      <%= f.email_field :from_email, placeholder: t(".placeholder.from_email") %>
+    </div>
+    <div class="field">
+      <%= f.email_field :from_label, placeholder: t(".placeholder.from_label") %>
+      <p><%= t(".instructions.from_label") %></p>
     </div>
     <div class="field">
       <%= f.text_field :user_name %>
