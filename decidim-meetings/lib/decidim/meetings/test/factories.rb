@@ -45,6 +45,9 @@ FactoryBot.define do
     organizer do
       component.organization if component
     end
+    organizer_type do
+      organizer.class.name
+    end
 
     trait :official do
       organizer { component.organization if component }
@@ -52,6 +55,13 @@ FactoryBot.define do
 
     trait :not_official do
       organizer { create(:user, organization: component.organization) if component }
+      organizer_type do
+        "Decidim::UserBaseEntity"
+      end
+    end
+
+    trait :by_user_group do
+      organizer { create(:user_group, :verified, organization: component.organization) if component }
     end
 
     trait :closed do

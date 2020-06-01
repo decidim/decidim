@@ -8,7 +8,7 @@ describe "Explore meetings", :slow, type: :system do
 
   let(:meetings_count) { 5 }
   let!(:meetings) do
-    create_list(:meeting, meetings_count, component: component)
+    create_list(:meeting, meetings_count, :not_official, component: component)
   end
 
   describe "index" do
@@ -57,10 +57,15 @@ describe "Explore meetings", :slow, type: :system do
 
     context "when filtering" do
       context "when filtering by origin" do
-        let(:user_group) { create :user_group, :verified, organization: organization }
+        let!(:component) do
+          create(:meeting_component,
+                 :with_creation_enabled,
+                 participatory_space: participatory_process)
+        end
 
-        let!(:official_meeting) { create(:meeting, component: component, organizer: organization) }
-        let!(:user_group_meeting) { create(:meeting, component: component, organizer_id: user_group.id, organizer_type: user_group.type) }
+
+        let!(:official_meeting) { create(:meeting, :official, component: component, organizer: organization) }
+        let!(:user_group_meeting) { create(:meeting, :by_user_group, component: component) }
 
         context "with 'official' origin" do
           it "lists the filtered meetings" do
@@ -71,8 +76,10 @@ describe "Explore meetings", :slow, type: :system do
               check "Official"
             end
 
-            expect(page).to have_css(".card--meeting", count: 1)
+            expect(page).to have_no_content("6 MEETINGS")
             expect(page).to have_content("1 MEETING")
+            expect(page).to have_css(".card--meeting", count: 1)
+
             within ".card--meeting" do
               expect(page).to have_content("Official meeting")
             end
@@ -88,10 +95,11 @@ describe "Explore meetings", :slow, type: :system do
               check "Groups"
             end
 
-            expect(page).to have_css(".card--meeting", count: 1)
+            expect(page).to have_no_content("6 MEETINGS")
             expect(page).to have_content("1 MEETING")
+            expect(page).to have_css(".card--meeting", count: 1)
             within ".card--meeting" do
-              expect(page).to have_content(user_group.name)
+              expect(page).to have_content(user_group_meeting.organizer.name)
             end
           end
         end
@@ -105,6 +113,7 @@ describe "Explore meetings", :slow, type: :system do
               check "Citizens"
             end
 
+            expect(page).to have_no_content("6 MEETINGS")
             expect(page).to have_css(".card--meeting", count: meetings_count)
             expect(page).to have_content("#{meetings_count} MEETINGS")
           end

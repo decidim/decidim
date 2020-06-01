@@ -55,7 +55,7 @@ describe "User creates meeting", type: :system do
           before do
             organization.update(rich_text_editor_in_public_views: true)
             visit_component
-            click_link "New Meeting"
+            click_link "New meeting"
           end
 
           it_behaves_like "having a rich text editor", "new_meeting", "basic"
@@ -66,7 +66,7 @@ describe "User creates meeting", type: :system do
 
           visit_component
 
-          click_link "New Meeting"
+          click_link "New meeting"
 
           within ".new_meeting" do
             fill_in :meeting_title, with: meeting_title
@@ -99,7 +99,7 @@ describe "User creates meeting", type: :system do
           it "creates a new meeting", :slow do
             visit_component
 
-            click_link "New Meeting"
+            click_link "New meeting"
 
             within ".new_meeting" do
               fill_in :meeting_title, with: meeting_title
@@ -144,6 +144,7 @@ describe "User creates meeting", type: :system do
           it "shows a modal dialog" do
             visit_component
             click_link "New meeting"
+            expect(page).to have_selector("#authorizationModal")
             expect(page).to have_content("Authorization required")
           end
         end
