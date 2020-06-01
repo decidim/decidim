@@ -8,8 +8,6 @@ module Decidim
       include MeetingCellsHelper
 
       def has_authors?
-        # todo
-        # return unless (if the component has the setting enabled)
         true
       end
 

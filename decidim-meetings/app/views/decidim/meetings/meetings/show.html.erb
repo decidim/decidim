@@ -24,10 +24,7 @@ edit_link(
 
   <h2 class="heading2"><%= present(meeting).title(links: true) %></h2>
 
-  <% # todo %>
-  <% # if the component has the setting enabled %>
-    <%= cell "decidim/author", organizer_presenter_for(meeting.organizer), has_actions: true, from: meeting, context: { extra_classes: ["author-data--small"] } %>
-  <% # end %>
+  <%= cell "decidim/author", organizer_presenter_for(meeting.organizer), has_actions: true, from: meeting, context: { extra_classes: ["author-data--small"] } %>
 
 </div>
 <div class="row">
