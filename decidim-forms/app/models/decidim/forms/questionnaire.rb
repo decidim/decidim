@@ -4,7 +4,9 @@ module Decidim
   module Forms
     # The data store for a Questionnaire in the Decidim::Forms component.
     class Questionnaire < Forms::ApplicationRecord
-      belongs_to :questionnaire_for, polymorphic: true
+      include Decidim::Publicable
+
+      belongs_to :questionnaire_for, polymorphic: true, touch: true
 
       has_many :questions, -> { order(:position) }, class_name: "Question", foreign_key: "decidim_questionnaire_id", dependent: :destroy
       has_many :answers, class_name: "Answer", foreign_key: "decidim_questionnaire_id", dependent: :destroy
