@@ -83,6 +83,7 @@ en:
           global:
             announcement: Announcement
             comments_enabled: Comments enabled
+            creation_enabled_for_participants: Participants can create meetings
             default_registration_terms: Default registration terms
             enable_pads_creation: Enable pads creation
             resources_permissions_enabled: Actions permissions can be set for each meeting
