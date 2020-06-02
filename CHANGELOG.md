@@ -5,7 +5,6 @@
 ### Upgrade notes
 
 - **New "extras" key in authorization metadata**
-### Added
 
 [\#6097](https://github.com/decidim/decidim/pull/6097) adds the possibility to have an "extras" key in the Authentication metadata that will be ignored. For example when
 signing an initiative (decidim-initiatives/app/forms/decidim/initiatives/vote_form.rb) or on Authorization renewal (decidim-verifications/app/cells/decidim/verifications/authorization_metadata/show.erb).
@@ -200,6 +199,7 @@ Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now sup
 
 **Fixed**:
 
+- **decidim-admin**: Fix: let components without step settings be added [\#5568](https://github.com/decidim/decidim/pull/5568)
 - **decidim-debates**: Fix a notification failure when the creating a new debate event is fired. [\#6017](https://github.com/decidim/decidim/pull/6017)
 - **decidim-proposals**: Fix proposals that have their state not published. [\#5833](https://github.com/decidim/decidim/pull/5833)
 - **decidim-core** adapt API classes to the release of the graphql gem v1.10.4 [\#5829](https://github.com/decidim/decidim/pull/5829)
@@ -232,14 +232,6 @@ Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now sup
 - **decidim-proposals**: Fix relative path in mentioned proposal email [\#5852](https://github.com/decidim/decidim/pull/5852)
 
 **Removed**:
-### Changed
-
-### Fixed
-
-- **decidim-admin**: Fix: let components without step settings be added [\#5568](https://github.com/decidim/decidim/pull/5568)
-- **decidim-proposals**: Fix for the proposals that have theirs state not published [#5832](https://github.com/decidim/decidim/pull/5832)
-
-### Removed
 
 ### Previous versions
 
