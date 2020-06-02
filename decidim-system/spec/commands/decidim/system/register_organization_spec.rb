@@ -13,6 +13,7 @@ module Decidim
         let(:command) { described_class.new(form) }
 
         context "when the form is valid" do
+          let(:from_label) { "Decide Gotham" }
           let(:params) do
             {
               name: "Gotham City",
@@ -30,7 +31,8 @@ module Decidim
                 "port" => "25",
                 "user_name" => "f.laguardia",
                 "password" => Decidim::AttributeEncryptor.encrypt("password"),
-                "from" => "decide@gotham.gov"
+                "from_email" => "decide@gotham.gov",
+                "from_label" => from_label
               },
               omniauth_settings_facebook_enabled: true,
               omniauth_settings_facebook_app_id: "facebook-app-id",
@@ -49,7 +51,7 @@ module Decidim
             expect(organization.name).to eq("Gotham City")
             expect(organization.host).to eq("decide.gotham.gov")
             expect(organization.secondary_hosts).to match_array(["foo.gotham.gov", "bar.gotham.gov"])
-
+            expect(organization.smtp_settings["from"]).to eq("Decide Gotham <decide@gotham.gov>")
             expect(organization.omniauth_settings["omniauth_settings_facebook_enabled"]).to eq(true)
             expect(
               Decidim::AttributeEncryptor.decrypt(organization.omniauth_settings["omniauth_settings_facebook_app_id"])
@@ -96,6 +98,19 @@ module Decidim
 
             expect(organization.tos_version).not_to be_nil
             expect(organization.tos_version).to eq(tos_page.updated_at)
+          end
+
+          describe "encrypted smtp settings" do
+            context "when from_label is empty" do
+              let(:from_label) { "" }
+
+              it "sets the label from email" do
+                command.call
+                organization = Organization.last
+
+                expect(organization.smtp_settings["from"]).to eq("decide@gotham.gov")
+              end
+            end
           end
         end
 
