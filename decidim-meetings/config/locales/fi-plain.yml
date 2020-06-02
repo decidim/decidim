@@ -283,6 +283,7 @@ fi-pl:
           form:
             available_slots_help: Jätä arvoksi 0, mikäli tapahtumaan on rajoittamaton määrä paikkoja.
             invites: Kutsut
+            recommendation_message: Yksityisyytesi takia suosittelemme, että poistat tämän kirjoituksen, kun et enää tarvitse sitä. Oletuksena se säilytetään 3 kuukautta tapahtuman päättymisen jälkeen.
             registration_form: Ilmoittautumislomake
             registrations_count:
               one: Tapahtumaan on %{count} ilmoittautuminen.

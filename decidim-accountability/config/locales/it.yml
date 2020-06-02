@@ -6,13 +6,13 @@ it:
         decidim_category_id: Categoria
         decidim_scope_id: Obiettivi
         description: Descrizione
-        end_date: Data finale
+        end_date: Data di fine
         progress: Progresso
         project_ids: Progetti inclusi
         proposals: Proposte incluse
         start_date: Data di inizio
         title: Nome
-        updated_at: Aggiornato a
+        updated_at: Aggiornato al
       status:
         description: Descrizione
         key: Chiave
@@ -48,7 +48,7 @@ it:
           status:
             name: Stato
           timeline_entry:
-            name: Inserimento della linea temporale
+            name: Voce della cronologia
         results:
           create:
             invalid: C'è stato un problema durante la creazione di questo risultato
@@ -68,7 +68,7 @@ it:
             success: Risultato modificato con successo
         shared:
           subnav:
-            statuses: Status
+            statuses: Stati
         statuses:
           create:
             invalid: C'è stato un problema nella creazione di questo stato
@@ -81,7 +81,7 @@ it:
           index:
             title: Status
           new:
-            create: Crea uno stato
+            create: Crea stato
             title: Nuovo stato
           update:
             invalid: C'è stato un problema nel aggiornamento di questo stato
@@ -105,9 +105,9 @@ it:
             success: Voce aggiornata con successo
       admin_log:
         result:
-          create: "%{user_name} risultato creato %{resource_name} in %{space_name}"
-          delete: "%{user_name} eliminato il risultato %{resource_name} in %{space_name}"
-          update: "%{user_name} risultato aggiornato %{resource_name} in %{space_name}"
+          create: "%{user_name} ha creato il risultato %{resource_name} in %{space_name}"
+          delete: "%{user_name} ha eliminato il risultato %{resource_name} in %{space_name}"
+          update: "%{user_name} ha aggiornato il risultato %{resource_name} in %{space_name}"
         value_types:
           parent_presenter:
             not_found: 'Il genitore non è stato trovato sul database (ID: %{id})'
@@ -116,7 +116,7 @@ it:
       models:
         result:
           fields:
-            end_date: Data finale
+            end_date: Data di fine
             progress: Avanzamento
             start_date: Data di inizio
             status: Stato
@@ -137,15 +137,15 @@ it:
             one: 1 risultato
             other: "%{count} risultati"
         filters:
-          all: Tutto
+          all: Tutti
           scopes: Ambiti
         home:
           categories_label: Categorie
-          subcategories_label: Sotto-categorie
+          subcategories_label: Sottocategorie
         home_header:
           global_status: Stato di esecuzione globale
         nav_breadcrumb:
-          global: L'esecuzione globale
+          global: Esecuzione globale
         search:
           search: Cerca azioni
         show:
@@ -154,10 +154,10 @@ it:
             back_to_result: Torna al risultato
             comments: Commenti
             contributions: Contributi
-            last_edited_by: Ultima modifica di
+            last_edited_by: Ultima modifica del
             last_updated_at: Ultimo aggiornamento alle
             meetings: Riunioni
-            number_of_versions: versioni
+            number_of_versions: Versioni
             proposals: Proposte
             show_all_versions: Mostra tutte le versioni
             version_author: Autore della versione
@@ -170,7 +170,7 @@ it:
       versions:
         index:
           changes_at_title: Modifiche a "%{title}"
-          title: versioni
+          title: Versioni
         show:
           changes_at_title: Modifiche a "%{title}"
         version:
@@ -182,10 +182,10 @@ it:
           global:
             categories_label: Nome per "Categorie"
             comments_enabled: Commenti abilitati
-            display_progress_enabled: Mostra progressi
+            display_progress_enabled: Mostra avanzamento
             heading_leaf_level_results: Nome per "Progetti"
             heading_parent_level_results: Nome per "Risultati"
-            intro: Intro
+            intro: Introduzione
             subcategories_label: Nome per "Sottocategorie"
           step:
             comments_blocked: Commenti bloccati
@@ -199,17 +199,17 @@ it:
         result_progress_updated:
           email_intro: 'Il risultato "%{resource_title}", che include la proposta "%{proposal_title}", è ora completo al %{progress}%. Puoi vederlo da questa pagina:'
           email_outro: Hai ricevuto questa notifica perché stai seguendo "%{proposal_title}" e questa proposta è inclusa nel risultato "%{resource_title}". È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
-          email_subject: Un aggiornamento a %{resource_title} progressi
+          email_subject: Un aggiornamento dell'avanzamento di %{resource_title}
           notification_title: Il risultato <a href="%{resource_path}">%{resource_title}</a>, che include la proposta <a href="%{proposal_path}">%{proposal_title}</a>, è ora completo al %{progress}%.
     metrics:
       results:
         description: Numero di risultati generati
         object: risultati
-        title: risultati
+        title: Risultati
     participatory_processes:
       participatory_process_groups:
         highlighted_results:
-          results: risultati
+          results: Risultati
     participatory_spaces:
       highlighted_results:
         see_all: Vedi tutto (%{count})

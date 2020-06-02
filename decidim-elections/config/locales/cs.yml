@@ -1,0 +1,54 @@
+cs:
+  activemodel:
+    attributes:
+      election:
+        description: Popis
+        end_time: Hlasování končí v
+        start_time: Hlasování začíná v
+        subtitle: Podtitulek
+        title: Název
+  decidim:
+    components:
+      elections:
+        name: Volby
+        settings:
+          global:
+            announcement: Oznámení
+          step:
+            announcement: Oznámení
+    elections:
+      actions:
+        confirm_destroy: Jste si jisti?
+        destroy: Zničit
+        edit: Upravit
+        new: Nový %{name}
+        preview: Náhled
+        title: Akce
+      admin:
+        elections:
+          create:
+            invalid: Při vytváření těchto voleb došlo k chybě
+            success: Volba byla úspěšně vytvořena
+          destroy:
+            invalid: Při mazání této volby došlo k chybě
+            success: Volba byla úspěšně odstraněna
+          edit:
+            title: Upravit volbu
+            update: Aktualizovat volby
+          index:
+            title: Volby
+          new:
+            create: Vytvořit volbu
+            title: Nové volby
+          update:
+            invalid: Při aktualizaci těchto voleb došlo k chybě
+            success: Volba byla úspěšně aktualizována
+        models:
+          election:
+            name: Volby
+      models:
+        election:
+          fields:
+            end_time: Končí v
+            start_time: Začíná v
+            title: Název

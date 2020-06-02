@@ -28,6 +28,7 @@ fr:
       initiatives_type:
         banner_image: Image d'en-tête
         collect_user_extra_fields: Collecter les données personnelles de l'utilisateur lors de la signature
+        custom_signature_end_date_enabled: Permettre aux auteurs de choisir la fin de la période de collecte des signatures
         description: Description
         document_number_authorization_handler: Niveau d'autorisation nécessaire pour signer les initiatives de ce type d'initiative
         extra_fields_legal_information: Informations juridiques sur la collecte de données personnelles
@@ -236,12 +237,14 @@ fr:
           unpublish: "%{user_name} a dépublié l'initiative %{resource_name}"
           update: "%{user_name} a mis à jour l'initiative %{resource_name}"
       admin_states:
-        accepted: Acceptée
         created: Créée
         discarded: Retirée
         published: Publiée
-        rejected: Rejetée
         validating: Validation technique
+      application_helper:
+        filter_state_values:
+          closed: Fermées
+          open: Ouvrir
       committee_requests:
         new:
           continue: Continuer
@@ -349,13 +352,10 @@ fr:
         filters:
           any: Tout
           author: Auteur
-          closed: Fermées
           myself: Mes initiatives
-          open: Ouvrir
           search: Rechercher
           state: État
           type: Type
-          type_prompt: Sélectionnez un type d'initiative
         filters_small_view:
           close_modal: Fermer la fenêtre
           filter: Filtre

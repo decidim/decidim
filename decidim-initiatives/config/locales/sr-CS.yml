@@ -1,9 +1,5 @@
 sr:
   decidim:
-    admin:
-      filters:
-        search_placeholder:
-          title_or_description_cont: Pretraži %{collection} po naslovu ili opisu.
     initiatives:
       create_initiative:
         finish:

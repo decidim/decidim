@@ -32,7 +32,6 @@ fr:
         scope: Périmètre d'application
         slug: Identifiant
         subtitle: Sous-titre
-        title: Titre
         vote: Système de vote externe
         what_is_decided: Objectifs
       response:

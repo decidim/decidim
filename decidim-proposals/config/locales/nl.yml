@@ -81,9 +81,7 @@ nl:
         state_eq:
           label: Staat
           values:
-            accepted: Aanvaard
             evaluating: Aan het beoordelen
-            rejected: Geweigerd
             withdrawn: Ingetrokken
         state_null:
           label: Status
@@ -112,8 +110,8 @@ nl:
             minimum_votes_per_user: Minimale stemmen per gebruiker
             new_proposal_help_text: Hulptekst bij de creatie van een nieuw voorstel
             official_proposals_enabled: Officiële voorstellen zijn ingeschakeld
-            participatory_texts_disabled_help: Instelling niet aanpasbaar als er bestaande voorstellen zijn. Maak een nieuwe `Voorstellen component` aan als u deze functie wilt inschakelen of wijs alle geïmporteerde voorstellen in het `Participatieve Teksten` menu af, als u de instelling wilt uitschakelen.
             participatory_texts_enabled: Participatieve teksten ingeschakeld
+            participatory_texts_enabled_readonly: Instelling niet aanpasbaar als er bestaande voorstellen zijn. Maak een nieuwe `Voorstellen component` aan als u deze functie wilt inschakelen of wijs alle geïmporteerde voorstellen in het `Participatieve Teksten` menu af, als u de instelling wilt uitschakelen.
             proposal_answering_enabled: Reacties op voorstellen ingeschakeld
             proposal_edit_before_minutes: Voorstellen kunnen door auteurs worden bewerkt voordat de tijd (uitgedrukt in minuten) verstreken is
             proposal_length: Maximum aantal tekens voor een voorstel
