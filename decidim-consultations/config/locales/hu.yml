@@ -32,6 +32,7 @@ hu:
         scope: Helyhatósági terület
         slug: URL slug
         subtitle: Felirat
+        title: Cím
         vote: Külső szavazási rendszer
         what_is_decided: Mi a döntés
       response:

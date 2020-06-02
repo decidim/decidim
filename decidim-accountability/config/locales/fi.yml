@@ -52,9 +52,9 @@ fi:
         results:
           create:
             invalid: Tuloksen luonti epäonnistui
-            success: Tuloksen luonti onnistui
+            success: Tulos luotu onnistuneesti
           destroy:
-            success: Tuloksen poistaminen onnistui
+            success: Tulos poistettu onnistuneesti
           edit:
             title: Muokkaa tulosta
             update: Päivitä tulos
@@ -65,16 +65,16 @@ fi:
             title: Uusi tulos
           update:
             invalid: Tuloksen päivitys epäonnistui
-            success: Tuloksen päivittäminen onnistui
+            success: Tulos päivitetty onnistuneesti
         shared:
           subnav:
             statuses: Tilat
         statuses:
           create:
             invalid: Tilan luonti epäonnistui
-            success: Tilan luonti onnistui
+            success: Tila luotu onnistuneesti
           destroy:
-            success: Tilan poistaminen onnistui
+            success: Tilan poistettu onnistuneesti
           edit:
             title: Muokkaa tilaa
             update: Päivitä tila
@@ -89,9 +89,9 @@ fi:
         timeline_entries:
           create:
             invalid: Kohteen luonti epäonnistui
-            success: Merkinnän luonti onnistui
+            success: Merkintä luotu onnistuneesti
           destroy:
-            success: Merkinnän poistaminen onnistui
+            success: Merkintä poistettu onnistuneesti
           edit:
             title: Muokkaa merkintää
             update: Päivitä merkintä

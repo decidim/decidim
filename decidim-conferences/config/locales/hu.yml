@@ -462,9 +462,6 @@ hu:
             active_conferences: Aktív konferenciák
             see_all_conferences: Lásd az összes konferenciát
       photo:
-        image:
-          attributes:
-            alt: Média ké
         show:
           close_modal: Modal bezárása
           photo: Fénykép

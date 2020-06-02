@@ -32,6 +32,7 @@ fi:
         scope: Kunnan alue
         slug: URL-tunniste
         subtitle: Alaotsikko
+        title: Otsikko
         vote: Ulkoinen äänestysjärjestelmä
         what_is_decided: Mitä päätetään
       response:
@@ -93,7 +94,7 @@ fi:
       consultations:
         create:
           error: Kuulemisen luonti epäonnistui.
-          success: Kuulemisen luonti onnistui.
+          success: Kuuleminen luotu onnistuneesti.
         edit:
           update: Päivitä
         form:
@@ -111,7 +112,7 @@ fi:
           total_votes: 'Yhteensä: %{count} ääntä'
         update:
           error: Kuulemisen päivitys epäonnistui.
-          success: Kuulemisen päivitys onnistui.
+          success: Kuuleminen päivitetty onnistuneesti.
       menu:
         consultations: Kuulemiset
         consultations_submenu:
@@ -164,9 +165,9 @@ fi:
       questions:
         create:
           error: Uuden kysymyksen luonti epäonnistui.
-          success: Kysymyksen luonti onnistui.
+          success: Kysymys luotu onnistuneesti.
         destroy:
-          success: Kysymyksen poisto onnistui.
+          success: Kysely poistettu onnistuneesti.
         edit:
           update: Päivitä
         form:
@@ -182,7 +183,7 @@ fi:
           success: Kysymyksen päivitys onnistui.
       response_groups:
         create:
-          error: Vastausryhmän luonti epäonnistui.
+          error: Virhe luotaessa uutta vastausryhmää.
           success: Vastausryhmän luonti onnistui.
         destroy:
           error: Vastausryhmän luonti ei onnistunut. Tarkista, että yksikään vastaus ei riipu tästä ryhmästä.
@@ -196,15 +197,15 @@ fi:
           create: Luo
           title: Uusi vastausryhmä
         update:
-          error: Tämän vastauksen päivitys epäonnistui.
+          error: Tämän vastauksen päivittämisessä tapahtui virhe.
           success: Vastauksen päivitys onnistui.
       responses:
         create:
           error: Uuden vastauksen luonti epäonnistui.
-          success: Vastauksen luonti onnistui.
+          success: Vastaus luotu onnistuneesti.
         destroy:
           error: Vastauksen poistaminen epäonnistui.
-          success: Vastauksen poisto onnistui.
+          success: Vastaus poistettu onnistuneesti.
         edit:
           update: Päivitä
         form:

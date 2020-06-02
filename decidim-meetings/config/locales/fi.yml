@@ -174,7 +174,7 @@ fi:
             up: Ylös
           create:
             invalid: Esityslistan luonti epäonnistui
-            success: Esityslistan luonti onnistui
+            success: Esityslista luotiin onnistuneesti
           edit:
             title: Muokkaa esityslistaa
             update: Päivitä
@@ -188,7 +188,7 @@ fi:
             title: Uusi esityslista
           update:
             invalid: Esityslistan päivitys epäonnistui
-            success: Esityslistan päivitys onnistui
+            success: Esityslista päivitettiin onnistuneesti
         exports:
           meetings: Tapahtumat
           registrations: Ilmoittautumiset
@@ -200,7 +200,7 @@ fi:
         invites:
           create:
             error: Käyttäjän kutsuminen tapahtumaan epäonnistui.
-            success: Käyttäjän kutsuminen tapahtumaan onnistui.
+            success: Käyttäjä kutsuttiin onnistuneesti tapahtumaan.
           form:
             attendee_type: Osallistujatyyppi
             existing_user: Olemassa oleva käyttäjä
@@ -229,12 +229,12 @@ fi:
         meetings:
           close:
             invalid: Tapahtuman sulkeminen epäonnistui
-            success: Tapahtuman sulkeminen onnistui
+            success: Tapahtuma onnistuneesti suljettu
           create:
             invalid: Tapahtuman luonti epäonnistui
-            success: Tapahtuman luonti onnistui
+            success: Tapahtuma onnistuneesti luotu
           destroy:
-            success: Tapahtuman poisto onnistui
+            success: Tapahtuma onnistuneesti luotu
           edit:
             update: Päivitä
           form:
@@ -259,11 +259,11 @@ fi:
             services: Palvelut
           update:
             invalid: Tapahtuman päivitys epäonnistui
-            success: Tapahtuman päivitys onnistui
+            success: Tapahtuma luotiin onnistuneesti
         minutes:
           create:
             invalid: Pöytäkirjan luonti epäonnistui
-            success: Pöytäkirjan luonti onnistui
+            success: Pöytäkirja luotiin onnistuneesti
           edit:
             update: Päivitä
           new:
@@ -271,7 +271,7 @@ fi:
             title: Luo pöytäkirja
           update:
             invalid: Pöytäkirjan päivitys epäonnistui
-            success: Pöytäkirjan päivitys onnistui
+            success: Pöytäkirja päivitettiin onnistuneesti
         models:
           meeting:
             name: Tapahtuma
@@ -283,7 +283,6 @@ fi:
           form:
             available_slots_help: Jätä arvoksi 0, mikäli tapahtumaan on rajoittamaton määrä paikkoja.
             invites: Kutsut
-            recommendation_message: Yksityisyytesi takia suosittelemme, että poistat tämän kirjoituksen, kun et enää tarvitse sitä. Oletuksena se säilytetään 3 kuukautta tapahtuman päättymisen jälkeen.
             registration_form: Ilmoittautumislomake
             registrations_count:
               one: Tapahtumaan on %{count} ilmoittautuminen.
@@ -293,10 +292,10 @@ fi:
             title: Rekisteröitymiset
           update:
             invalid: Rekisteröitymisasetusten päivitys epäonnistui.
-            success: Tapahtumailmoittautumisasetusten tallennus onnistui.
+            success: Tapahtumailmoittautumisasetukset tallennettiin onnistuneesti.
           validate_registration_code:
             invalid: Tämä ilmoittautumiskoodi on virheellinen.
-            success: Ilmoittautumiskoodin vahvistaminen onnistui.
+            success: Ilmoittautumiskoodi on vahvistettu onnistuneesti.
       admin_log:
         invite:
           create: "%{user_name} kutsui %{attendee_name} osallistumaan tapahtumaan %{resource_name} tilassa %{space_name}"
@@ -413,10 +412,10 @@ fi:
       registrations:
         create:
           invalid: Tapahtumaan liittyminen epäonnistui.
-          success: Liittymisesi tapahtumaan onnistui. Koska olet ilmoittautunut tähän tapahtumaan, sinulle ilmoitetaan, kun tapahtumaa päivitetään.
+          success: Olet liittynyt tapahtumaan onnistuneesti.
         decline_invitation:
           invalid: Kutsun hylkääminen epäonnistui.
-          success: Kutsun hylkäys onnistui.
+          success: Olet hylännyt kutsun onnistuneesti.
         destroy:
           invalid: Tapahtumasta poistuminen epäonnistui.
           success: Olet poistunut tapahtumasta onnistuneesti.

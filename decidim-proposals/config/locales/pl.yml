@@ -87,7 +87,9 @@ pl:
         state_eq:
           label: Stan
           values:
+            accepted: Przyjęty
             evaluating: Ocena
+            rejected: Odrzucone
             withdrawn: Wycofane
         state_null:
           label: Stan

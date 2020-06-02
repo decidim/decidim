@@ -29,6 +29,7 @@ eu:
         scope: Udal aretoa
         slug: URL slug
         subtitle: azpititulua
+        title: Izenburua
         vote: Kanpoko boto sistema
         what_is_decided: Zer erabaki
     errors:

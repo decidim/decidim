@@ -62,6 +62,8 @@ es-PY:
       actions:
         new_initiative_type: Nuevo tipo de iniciativa
       filters:
+        search_placeholder:
+          title_or_description_cont: Buscar %{collection} por título o descripción.
         state_eq:
           values:
             created: Creado
@@ -76,7 +78,6 @@ es-PY:
           fields:
             created_at: Creado en
             id: CARNÉ DE IDENTIDAD
-            published_at: Publicada en
             state: Estado
             supports_count: Firmas
             title: Iniciativas
@@ -237,14 +238,12 @@ es-PY:
           unpublish: "%{user_name} descartó la iniciativa %{resource_name}"
           update: "%{user_name} actualizó la iniciativa %{resource_name}"
       admin_states:
+        accepted: Aceptado
         created: Creado
         discarded: Descartado
         published: Publicado
+        rejected: Rechazado
         validating: Validación técnica
-      application_helper:
-        filter_state_values:
-          closed: Cerrado
-          open: Abierto
       committee_requests:
         new:
           continue: Continuar
@@ -266,7 +265,6 @@ es-PY:
           back: Volver
           back_to_initiatives: Volver a iniciativas
           callout_text: '¡Felicidades! Tu iniciativa ciudadana ha sido creada con éxito.'
-          edit_my_initiative: Editar mis iniciativas
           go_to_my_initiatives: Ir a mis iniciativas
           more_information: "(Más información)"
         finish_help:
@@ -353,10 +351,13 @@ es-PY:
         filters:
           any: Alguna
           author: Autor
+          closed: Cerrado
           myself: Mis iniciativas
+          open: Abierto
           search: Buscar
           state: Estado
           type: Tipo
+          type_prompt: Selecciona un tipo
         filters_small_view:
           close_modal: Cerrar ventana
           filter: Filtrar

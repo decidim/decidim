@@ -29,6 +29,7 @@ pl:
         scope: Obszar gminy
         slug: Strumień URL
         subtitle: Podtytuł
+        title: Tytuł
         vote: Zewnętrzny system głosowania
         what_is_decided: Co postanowiono
     errors:
@@ -239,7 +240,7 @@ pl:
               other: Głosowanie kończy się w ciągu <strong>%{count} dni</strong>
             voting_ends_today: Głosowanie kończy się dzisiaj <strong></strong>
       question:
-        take_part: Weź udział
+        take_part: Wziąć udział
         view_results: Pokaż wyniki
         votes_out_of:
           one: zagłosuj na

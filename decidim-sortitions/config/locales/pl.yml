@@ -43,7 +43,7 @@ pl:
       admin:
         actions:
           destroy: Anuluj sortowanie
-          edit: Edytuj
+          edit: Edytować
           new: Nowe sortowanie
           show: Szczegóły dotyczące podziału
         models:

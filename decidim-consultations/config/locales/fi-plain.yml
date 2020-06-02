@@ -32,6 +32,7 @@ fi-pl:
         scope: Kunnan alue
         slug: URL-tunniste
         subtitle: Alaotsikko
+        title: Otsikko
         vote: Ulkoinen äänestysjärjestelmä
         what_is_decided: Mitä päätetään
       response:
