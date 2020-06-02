@@ -1444,8 +1444,8 @@ en:
   layouts:
     decidim:
       cookie_warning:
-        description_html: This site uses cookies. By continuing to browse the site, you agree to our use of cookies. Find out more about it %{link}.
-        link_label: here
+        description_html: This site uses cookies. By continuing to browse the site, you agree to our use of cookies. %{link}.
+        link_label: Find out more about cookies
         ok: I agree
       edit_link:
         edit: Edit
