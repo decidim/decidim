@@ -8,6 +8,9 @@ module Decidim
       #
       class ConferenceForm < Form
         include TranslatableAttributes
+        include TranslatableResource
+
+        translated_attributes :title
 
         translatable_attribute :title, String
         translatable_attribute :slogan, String
