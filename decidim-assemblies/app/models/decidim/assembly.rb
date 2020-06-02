@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+ # frozen_string_literal: true
 
 module Decidim
   # Interaction between a user and an organization can be done via an Assembly.
