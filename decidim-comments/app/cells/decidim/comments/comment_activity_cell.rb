@@ -41,7 +41,7 @@ module Decidim
       end
 
       def url_params
-        { anchor: "comment_#{comment.id}" }
+        { commentId: comment.id }
       end
     end
   end
