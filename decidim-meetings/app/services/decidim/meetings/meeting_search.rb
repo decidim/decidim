@@ -43,7 +43,7 @@ module Decidim
         organizer_types = []
 
         organizer_types << "Decidim::Organization" if origin.member?("official")
-        organizer_types << "Decidim::UserBaseEntity" if origin.member?("citizens")
+        organizer_types << "Decidim::User" if origin.member?("citizens")
         organizer_types << "Decidim::UserGroup" if origin.member?("user_group")
 
         query.where(organizer_type: organizer_types)
