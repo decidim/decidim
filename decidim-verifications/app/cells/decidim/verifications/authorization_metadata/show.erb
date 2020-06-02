@@ -4,7 +4,7 @@
 
 <ul>
   <% if model.metadata.present? %>
-    <% model.metadata.each do |data| %>
+    <% model.metadata.symbolize_keys.except(:extras).each do |data| %>
         <%= metadata(data) %>
     <% end %>
   <% else %>
