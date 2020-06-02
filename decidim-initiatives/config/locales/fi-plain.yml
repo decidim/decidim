@@ -67,7 +67,7 @@ fi-pl:
         state_eq:
           label: Maakunta/osavaltio
           values:
-            accepted: Hyväksytty
+            accepted: Hyväksytyt
             created: Luotu
             discarded: Hylätty
             published: Julkaistu
@@ -241,7 +241,7 @@ fi-pl:
           unpublish: "%{user_name} hylkäsi aloitteen %{resource_name}"
           update: "%{user_name} päivitti aloitetta %{resource_name}"
       admin_states:
-        accepted: Hyväksytty
+        accepted: Hyväksytyt
         created: Luotu
         discarded: Hylätty
         published: Julkaistu

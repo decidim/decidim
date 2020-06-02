@@ -67,7 +67,7 @@ es:
         state_eq:
           label: Estado
           values:
-            accepted: Aceptada
+            accepted: Aceptado
             created: Creada
             discarded: Descartada
             published: Publicada
@@ -241,7 +241,7 @@ es:
           unpublish: "%{user_name} descartó la iniciativa %{resource_name}"
           update: "%{user_name} actualizó la iniciativa %{resource_name}"
       admin_states:
-        accepted: Aceptada
+        accepted: Aceptado
         created: Creada
         discarded: Descartada
         published: Publicada
@@ -447,7 +447,7 @@ es:
       admin:
         initiative:
           attachments: Adjuntos
-          committee_members: Miembros del comisión
+          committee_members: Miembros de la comisión
           components: Componentes
           information: Información
       initiative_creation_header:
