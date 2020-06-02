@@ -17,6 +17,10 @@ module Decidim
     include Decidim::Loggable
     include Decidim::ParticipatorySpaceResourceable
     include Decidim::Searchable
+    include Decidim::TranslatableResource
+
+    translatable_attributes :title
+
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
