@@ -6,6 +6,9 @@ module Decidim
     class MediaLink < ApplicationRecord
       include Decidim::Traceable
       include Decidim::Loggable
+      include Decidim::TranslatableResource
+
+      translatable_fields :title
 
       belongs_to :conference, foreign_key: "decidim_conference_id", class_name: "Decidim::Conference"
 

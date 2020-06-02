@@ -8,6 +8,9 @@ module Decidim
       include Decidim::HasComponent
       include Decidim::Traceable
       include Decidim::Loggable
+      include Decidim::TranslatableResource
+
+      translatable_fields :title, :description
     end
   end
 end
