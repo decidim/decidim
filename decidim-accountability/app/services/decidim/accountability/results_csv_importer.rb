@@ -62,10 +62,11 @@ module Decidim
 
           raise ActiveRecord::Rollback if errors.any?
 
+          update_parents
+          remove_invalid_results
+
           Rails.logger.info "Processed: #{i}"
         end
-        update_parents
-        remove_invalid_results
 
         errors
       end
