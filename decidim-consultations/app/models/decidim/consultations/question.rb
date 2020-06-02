@@ -16,6 +16,9 @@ module Decidim
       include Decidim::Loggable
       include Decidim::ParticipatorySpaceResourceable
       include Decidim::Randomable
+      include Decidim::TranslatableResource
+
+      translatable_fields :title, :subtitle, :what_is_decided, :promoter_group, :participatory_scope, :question_context, :origin_scope, :origin_title, :instructions
 
       belongs_to :consultation,
                  foreign_key: "decidim_consultation_id",

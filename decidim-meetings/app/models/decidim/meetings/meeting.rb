@@ -21,6 +21,9 @@ module Decidim
       include Decidim::Forms::HasQuestionnaire
       include Decidim::Paddable
       include Decidim::ActsAsAuthor
+      include Decidim::TranslatableResource
+
+      translatable_fields :title, :description, :location, :location_hints, :closing_report, :registration_terms, :services
 
       belongs_to :organizer, foreign_key: "organizer_id", class_name: "Decidim::User", optional: true
       has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id", dependent: :destroy

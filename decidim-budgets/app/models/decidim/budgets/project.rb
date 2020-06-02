@@ -18,6 +18,9 @@ module Decidim
       include Decidim::Loggable
       include Decidim::Randomable
       include Decidim::Searchable
+      include Decidim::TranslatableResource
+
+      translatable_fields :title, :description
 
       component_manifest_name "budgets"
       has_many :line_items, class_name: "Decidim::Budgets::LineItem", foreign_key: "decidim_project_id", dependent: :destroy
