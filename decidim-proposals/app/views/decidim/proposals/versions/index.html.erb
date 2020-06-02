@@ -3,6 +3,6 @@
     "decidim/versions_list",
     versioned_resource,
     version_path: proc { |version_index| url_for(action: :show, id: version_index) },
-    i18n_scope: back_to_resource_path_text_scope
+    i18n_scope: "decidim.proposals.versions.#{item_name.to_s.pluralize}"
   ) %>
 </div>
