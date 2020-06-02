@@ -9,12 +9,9 @@ module Decidim
         helper_method :current_conference, :current_participatory_space
         layout "decidim/admin/conferences"
         include Decidim::Conferences::Admin::Filterable
-        include Decidim::TranslatableResource
-
 
         def index
           enforce_permission_to :read, :conference_list
-          @list =Decidim::Conferences.translatable_attributes
           @conferences = filtered_collection
         end
 

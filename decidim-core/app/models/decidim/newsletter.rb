@@ -8,6 +8,7 @@ module Decidim
     include Decidim::TranslatableResource
 
     translatable_fields :subject
+    translatable_fields :subject, :extended_data
 
     belongs_to :author, class_name: "User"
     belongs_to :organization
