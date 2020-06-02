@@ -63,7 +63,12 @@ sk:
           secondary_hosts_hint: Zadajte každý host na nový riadok
           title: Nová organizácia
         omniauth_settings:
+          decidim:
+            client_id: ID klienta
+            client_secret: Tajný kľúč klienta
+            site_url: URL stránky
           enabled: Povolené
+          enabled_by_default: Tento provider je od základu povolený. Môžete ho editovať, ale nie zrušiť.
           facebook:
             app_id: ID aplikácie
             app_secret: Tajný kľúč aplikácie

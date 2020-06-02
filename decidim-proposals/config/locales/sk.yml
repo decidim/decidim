@@ -95,9 +95,7 @@ sk:
         state_eq:
           label: Štát
           values:
-            accepted: Prijal
             evaluating: Hodnotenie
-            rejected: Odmietnuté
             withdrawn: Stiahnuté
         state_null:
           label: Štát
@@ -131,8 +129,8 @@ sk:
             new_proposal_body_template_help: Môžete definovať predvyplnený text, ktorý budú mať všetky nové návrhy
             new_proposal_help_text: Pomocný text ku novému návrhu
             official_proposals_enabled: Boli povolené oficiálne návrhy
-            participatory_texts_disabled_help: Ak existujú návrhy, nemožno toto nastavenie meniť. Prosíme vytvorte novú "Súčasť návrhov", ak ho chcete povoliť, alebo zahoďte všetky importované návrhy v "Participatívnych textoch" v menu, ak ho chcete zakázať.
             participatory_texts_enabled: Povolené participatívne texty
+            participatory_texts_enabled_readonly: Ak existujú návrhy, nemožno toto nastavenie meniť. Prosíme vytvorte novú "Súčasť návrhov", ak ho chcete povoliť, alebo zahoďte všetky importované návrhy v "Participatívnych textoch" v menu, ak ho chcete zakázať.
             proposal_answering_enabled: Odpovedanie na návrh je povolené
             proposal_edit_before_minutes: Návrhy môžu byť editované autormi až po uplynutí toľkoto minút
             proposal_length: Maximálna dĺžka návrhu

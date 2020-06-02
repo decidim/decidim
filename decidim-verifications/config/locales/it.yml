@@ -26,6 +26,18 @@ it:
   decidim:
     admin:
       menu:
+        authorization_revocation:
+          before_date_info: Utile se il processo è già iniziato e si desidera revocare i permessi del processo precedente.
+          button: Revoca tutto
+          button_before: Revoca prima della data
+          destroy:
+            confirm: Le autorizzazioni di revoca prima della data non possono essere annullate. Sei sicuro di voler continuare?
+            confirm_all: Revocare tutte le autorizzazioni non può essere annullato. Sei sicuro di voler continuare?
+          destroy_nok: C'è stato un problema durante la revoca delle autorizzazioni.
+          destroy_ok: Tutte le autorizzazioni abbinate sono state revocate con successo!
+          info: Ci sono un totale di %{count} partecipanti verificati.
+          no_data: Nessun partecipante verificato
+          title: Revoca delle verifiche
         authorization_workflows: Verifiche
     admin_log:
       organization:
@@ -65,10 +77,16 @@ it:
         name: Codice via lettera postale
     verifications:
       authorizations:
+        authorization_metadata:
+          info: 'Questi sono i dati della verifica in corso:'
+          no_data_stored: Nessun dato memorizzato.
         create:
           error: Si è verificato un errore durante la creazione dell'autorizzazione.
           success: Sei stato autorizzato con successo.
           unconfirmed: Devi confermare la tua e-mail per autorizzarti.
+        destroy:
+          error: Si è verificato un errore durante l'eliminazione dell'autorizzazione.
+          success: Autorizzazione eliminata con successo.
         first_login:
           actions:
             another_dummy_authorization_handler: Verificare contro un altro esempio di gestore di autorizzazioni
@@ -77,13 +95,21 @@ it:
             dummy_authorization_workflow: Verificare il flusso di lavoro di autorizzazione di esempio
             id_documents: Ottieni la verifica caricando il tuo documento di identità
             postal_letter: Ottieni la verifica ricevendo un codice di verifica tramite posta ordinaria
+            sms: Ricevi la verifica ricevendo un codice di verifica via SMS
           title: Verifica la tua identità
           verify_with_these_options: 'Queste sono le opzioni disponibili per verificare la tua identità:'
+        index:
+          expired_verification: Verifica scaduta
+          show_renew_info: Fare clic per rinnovare la verifica
         new:
           authorize: Invia
           authorize_with: Verifica con %{authorizer}
         renew_modal:
           cancel: Annulla
+          close: chiudi
+          continue: Continua
+          info_renew: Se desideri aggiornare i dati, continua con il rinnovo
+          title: Rinnova Verifica
         skip_verification: Puoi saltare questo per ora e %{link}
         start_exploring: comincia ad esplorare
       csv_census:

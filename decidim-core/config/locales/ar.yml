@@ -211,9 +211,6 @@ ar:
       update_draft:
         error: حدثت هناك مشكلة أثناء تحديث مسودة التعديل.
         success: تم تحديث مسودة التعديل بنجاح.
-      visibility_options:
-        all: التعديلات مرئية وظاهرة للجميع
-        participants: التعديلات مرئية وظاهرة لمؤلّفيها فقط
       wizard_step_form:
         steps:
           '1': إنشاء التعديل الخاص بك

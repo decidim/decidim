@@ -269,6 +269,11 @@ fi-pl:
         update: "%{user_name} muutti käyttäjän %{resource_name} roolia osallisuusprosessissa %{space_name}"
     events:
       participatory_process:
+        role_assigned:
+          email_intro: Sinulle on myönnetty rooli %{role} osallistumistilassa "%{resource_title}".
+          email_outro: Tämä viesti on lähetetty sinulle, koska roolisi on %{role} osallistumistilassa "%{resource_title}".
+          email_subject: Sinulle on myönnetty rooli %{role} kohteessa "%{resource_title}".
+          notification_title: Sinulle on myönnetty rooli %{role} osallistumistilassa <a href="%{resource_url}">%{resource_title}</a>.
         step_activated:
           email_intro: 'Vaihe %{resource_title} on nyt käytössä kohteessa %{participatory_space_title}. Voit nähdä sen tällä sivulla:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
