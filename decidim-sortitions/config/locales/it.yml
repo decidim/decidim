@@ -124,6 +124,7 @@ it:
         show:
           algorithm: Il codice dell'algoritmo di Sortition
           any_category: da tutte le categorie
+          back: Torna alla lista
           cancelled: Ordinamento annullato
           candidate_proposal_ids: Ordine e ID di proposte di ordinamento
           candidate_proposals_info: 'La raccolta è stata effettuata tra le seguenti proposte (%{category_label}), con i seguenti ID (in grassetto le proposte selezionate)  '

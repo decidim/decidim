@@ -13,7 +13,7 @@ cs:
     blogs:
       actions:
         confirm_destroy: Opravdu chcete tento příspěvek smazat?
-        destroy: Odstranit
+        destroy: Smazat
         edit: Upravit
         new: Nový příspěvek
         title: Akce
@@ -22,23 +22,23 @@ cs:
           components:
             body: Tělo
           post:
-            name: Pošta
+            name: Příspěvek
         posts:
           create:
             invalid: Při vytváření tohoto příspěvku došlo k potížím
-            success: Pošta byla úspěšně vytvořena
+            success: Příspěvek byl úspěšně vytvořen
           destroy:
-            success: Pošta byla úspěšně smazána
+            success: Příspěvek byl úspěšně odstraněn
           edit:
-            save: Aktualizace
+            save: Aktualizovat
           index:
             title: Příspěvky
           new:
             create: Vytvořit
-            title: Vytvořte příspěvek
+            title: Vytvořit příspěvek
           update:
             invalid: Při ukládání příspěvku došlo k chybám.
-            success: Úspěšně uložen příspěvek
+            success: Příspěvek byl úspěšně uložen
       last_activity:
         new_post_at_html: "<span>Nový příspěvek v %{link}</span>"
       models:
@@ -46,13 +46,13 @@ cs:
           fields:
             author: Autor
             body: Tělo
-            created_at: Vytvořeno u
-            title: titul
+            created_at: Vytvořeno v
+            title: titulek
       posts:
         show:
           back: Zpět na seznam
           comments: Komentáře
-          view: Pohled
+          view: Zobrazit
         sidebar_blog:
           comments: komentáře
           most_commented_posts: Nejvíce komentované příspěvky
@@ -68,12 +68,12 @@ cs:
             announcement: Oznámení
             comments_blocked: Komentáře byly blokovány
             endorsements_blocked: Schvalování blokováno
-            endorsements_enabled: Zápisy povoleny
+            endorsements_enabled: Schvalování povoleno
     events:
       blogs:
         post_created:
-          email_intro: Písmeno "%{resource_title}" bylo zveřejněno v "%{participatory_space_title}", které sledujete.
-          email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{participatory_space_title}". Můžete jej odhlásit od předchozího odkazu.
+          email_intro: Příspěvek "%{resource_title}" byl zveřejněn v "%{participatory_space_title}", který sledujete.
+          email_outro: Obdrželi jste toto oznámení, protože sledujete "%{participatory_space_title}". Můžete ho zrušit z předchozího odkazu.
           email_subject: Nový příspěvek publikován v %{participatory_space_title}
           notification_title: Příspěvek <a href="%{resource_path}">%{resource_title}</a> byl zveřejněn ve %{participatory_space_title}
     pages:

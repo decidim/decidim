@@ -168,7 +168,7 @@ pl:
             version_created_at: Wersja utworzona w
             version_number: Numer wersji
             version_number_out_of_total: "%{current_version} z %{total_count}"
-            votes: Wsparcie
+            votes: Pomoc
         timeline:
           title: Ewolucja projektu
       versions:

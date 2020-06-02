@@ -32,10 +32,12 @@ sk:
             statement: Prehlásenie
           edit:
             save: Uložiť
-            title: Názov
           form:
             add_question: Pridať otázku
             already_answered_warning: Na formulár už niekto odpovedal, takže nemôžete meniť jeho otázky.
+          matrix_row:
+            remove: Odstrániť
+            statement: Prehlásenie
           question:
             add_answer_option: Pridať možnosť odpovede
             any: Akékoľvek
@@ -67,7 +69,6 @@ sk:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Prihláste sa so svojím účtom</a> alebo <a href="%{sign_up_link}"> sa zaregistrujte</a>, aby ste mohli odpovedať.
             title: Odpovedať na formulár
-          are_you_sure: Táto akcia sa nedá vrátiť späť, a nebudete môcť upraviť svoje odpovede. Ste si istí?
           questionnaire_answered:
             body: Na tento formulár už ste dopovedali.
             title: Už ste odpovedali
@@ -77,8 +78,11 @@ sk:
           questionnaire_for_private_users:
             body: Formulár je otvorený len pre súkromných používateľov
             title: Formulár je uzavretý
-          submit: Poslať
           tos_agreement: Účasťou súhlasíte s našimi Podmienkami použitia
+      step_navigation:
+        show:
+          are_you_sure: Táto akcia sa nedá vrátiť späť, a nebudete môcť upraviť svoje odpovede. Ste si istí?
+          submit: Poslať
       user_answers_serializer:
         created_at: Odpovedané na 
         id: ID odpovede

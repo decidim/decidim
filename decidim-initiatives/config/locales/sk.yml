@@ -67,9 +67,6 @@ sk:
     admin:
       actions:
         new_initiative_type: Nový typ iniciatívy
-      filters:
-        search_placeholder:
-          title_or_description_cont: Hľadať %{collection} podľa názvu alebo popisu.
       menu:
         initiatives: Iniciatívy
         initiatives_types: Typy iniciatív
@@ -219,11 +216,13 @@ sk:
           send_to_technical_validation: "% {USER_NAME} zaslala% {resource_name} iniciatívu k technickému overenie"
           update: "% {USER_NAME} aktualizoval iniciatívu% {resource_name}"
       admin_states:
-        accepted: Prijal
         created: Vytvorené
         discarded: Odstránená
         published: Publikované
-        rejected: Odmietnuté
+      application_helper:
+        filter_state_values:
+          closed: Uzavreté
+          open: otvorené
       committee_requests:
         new:
           continue: Pokračovať
@@ -338,13 +337,10 @@ sk:
         filters:
           any: Akýkoľvek
           author: Autor
-          closed: Uzavreté
           myself: Moje iniciatívy
-          open: otvorené
           search: Vyhľadávanie
           state: Štát
           type: Typ
-          type_prompt: Vyberte typ
         filters_small_view:
           close_modal: Zatvoriť okno
           filter_by: Filtrovať podľa

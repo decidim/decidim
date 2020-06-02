@@ -56,9 +56,7 @@ ru:
             'false': Предложения
         state_eq:
           values:
-            accepted: Принято
             evaluating: Рассматривается
-            rejected: Отклонено
             withdrawn: Отозван
         state_null:
           values:
