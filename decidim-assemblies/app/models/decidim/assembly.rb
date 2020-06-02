@@ -38,8 +38,8 @@ module Decidim
     CREATED_BY = %w(city_council public others).freeze
 
     translatable_fields :title, :subtitle, :short_description, :description, :developer_group, :meta_scope, :local_area,
-                        :target, :participatory_scope, :participatory_structure, :purpose_of_action, :composition, :created_by_other, :closing_date_reason,
-                        :internal_organisation, :special_features
+                        :target, :participatory_scope, :participatory_structure, :purpose_of_action, :composition, :created_by_other,
+                        :closing_date_reason, :internal_organisation, :special_features
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
