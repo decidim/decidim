@@ -24,9 +24,9 @@ fi:
         posts:
           create:
             invalid: Tämän artikkelin luonti epäonnistui
-            success: Artikkeli luotu onnistuneesti
+            success: Artikkelin luonti onnistui
           destroy:
-            success: Artikkeli poistettu onnistuneesti
+            success: Artikkelin poisto onnistui
           edit:
             save: Päivitä
           index:

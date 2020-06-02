@@ -87,9 +87,7 @@ es-MX:
         state_eq:
           label: Estado
           values:
-            accepted: Aceptadas
             evaluating: En evaluación
-            rejected: Rechazada
             withdrawn: Retirada
         state_null:
           label: Estado
@@ -123,8 +121,8 @@ es-MX:
             new_proposal_body_template_help: Puede definir el texto predefinido que tendrán las nuevas propuestas
             new_proposal_help_text: Texto de ayuda al crear una propuesta
             official_proposals_enabled: Propuestas oficiales habilitadas
-            participatory_texts_disabled_help: No se puede interactuar con esta configuración si hay propuestas existentes. Por favor, crea un nuevo componente de propuesta si quieres activar esta característica o descartar todas las propuestas importadas en el menú "Textos Participativos" si quieres desactivarla.
             participatory_texts_enabled: Textos participativos habilitados
+            participatory_texts_enabled_readonly: No se puede interactuar con esta configuración si hay propuestas existentes. Por favor, crea un nuevo componente de propuesta si quieres activar esta característica o descartar todas las propuestas importadas en el menú "Textos Participativos" si quieres desactivarla.
             proposal_answering_enabled: Respuesta a propuestas habilitadas
             proposal_edit_before_minutes: Las propuestas pueden ser editadas por los autores antes de que pasen estos minutos
             proposal_length: Longitud máxima del cuerpo de la propuesta

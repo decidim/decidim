@@ -1,0 +1,59 @@
+fi-pl:
+  activemodel:
+    attributes:
+      election:
+        description: Kuvaus
+        end_time: Äänestys päättyy
+        start_time: Äänestys alkaa
+        subtitle: Alaotsikko
+        title: Otsikko
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Vaali
+        other: Vaalit
+  decidim:
+    components:
+      elections:
+        name: Vaalit
+        settings:
+          global:
+            announcement: Ilmoitus
+          step:
+            announcement: Ilmoitus
+    elections:
+      actions:
+        confirm_destroy: Oletko varma?
+        destroy: Tuhoa
+        edit: Muokkaa
+        new: Uusi %{name}
+        preview: Esikatsele
+        title: Toiminnot
+      admin:
+        elections:
+          create:
+            invalid: Vaalin luonti epäonnistui
+            success: Vaalin luonti onnistui
+          destroy:
+            invalid: Vaalin poisto epäonnistui
+            success: Vaalin poisto onnistui
+          edit:
+            title: Muokkaa vaalia
+            update: Päivitä vaali
+          index:
+            title: Vaalit
+          new:
+            create: Luo vaali
+            title: Uusi vaali
+          update:
+            invalid: Vaalin päivitys epäonnistui
+            success: Vaalin päivitys onnistui
+        models:
+          election:
+            name: Vaali
+      models:
+        election:
+          fields:
+            end_time: Päättymisaika
+            start_time: Alkamisaika
+            title: Otsikko

@@ -77,10 +77,16 @@ fi-pl:
         name: Koodi postissa lähetettävällä kirjeellä
     verifications:
       authorizations:
+        authorization_metadata:
+          info: 'Tämänhetkisen vahvistustavan tiedot:'
+          no_data_stored: Tietoja ei ole tallennettu.
         create:
           error: Vahvistuksen luonnissa tapahtui virhe.
           success: Tilisi on onnistuneesti vahvistettu.
           unconfirmed: Sinun on vahvistettava sähköpostisi valtuuttaksesi käyttäjätilisi.
+        destroy:
+          error: Vahvistuksen poisto epäonnistui.
+          success: Vahvistuksen poisto onnistui.
         first_login:
           actions:
             another_dummy_authorization_handler: Varmista toisen esimerkkivahvistustavan käsittelijällä
@@ -89,13 +95,21 @@ fi-pl:
             dummy_authorization_workflow: Vahvista esimerkkivaltuutuksen työnkulkuprosessin kautta
             id_documents: Vahvista tilisi lataamalla henkilöllisyystodistuksesi
             postal_letter: Vahvista tilisi paperipostissa lähetettävän vahvistuskoodin avulla
+            sms: Vahvista tilisi tekstiviestillä lähetettävällä vahvistuskoodilla
           title: Vahvista henkilöllisyytesi
           verify_with_these_options: 'Käytettävissä olevat tavat vahvistaa identiteettisi:'
+        index:
+          expired_verification: Vahvistus on erääntynyt
+          show_renew_info: Paina vahvistaaksesi uudestaan
         new:
           authorize: Lähetä
           authorize_with: Vahvista palvelulla %{authorizer}
         renew_modal:
           cancel: Peruuta
+          close: sulje
+          continue: Jatka
+          info_renew: Jos haluat päivittää tiedot, jatka vahvistamalla uudestaan
+          title: Vahvista uudestaan
         skip_verification: Voit ohittaa tämän nyt ja %{link}
         start_exploring: aloittaa palveluun tutustumisen
       csv_census:

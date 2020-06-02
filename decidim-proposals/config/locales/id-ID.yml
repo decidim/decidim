@@ -75,9 +75,7 @@ id:
         state_eq:
           label: Negara
           values:
-            accepted: Diterima
             evaluating: Mengevaluasi
-            rejected: Ditolak
             withdrawn: Ditarik
         state_null:
           label: Negara

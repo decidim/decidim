@@ -27,7 +27,7 @@ sv:
     admin:
       menu:
         authorization_revocation:
-          before_date_info: Användbart om processen har påbörjats och du vill återkalla behörigheterna för den tidigare processen.
+          before_date_info: Användbart om dialogen har påbörjats och du vill återkalla behörigheterna för den tidigare dialogen.
           button: Återkalla alla
           button_before: Återkalla före datum
           destroy:

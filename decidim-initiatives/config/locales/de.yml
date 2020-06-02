@@ -235,12 +235,14 @@ de:
           unpublish: "%{user_name} verworfen die %{resource_name} Initiative"
           update: "%{user_name} aktualisierte die %{resource_name} Initiative"
       admin_states:
-        accepted: Akzeptiert
         created: Erstellt
         discarded: Verworfen
         published: Veröffentlicht
-        rejected: Abgelehnt
         validating: Technische Validierung
+      application_helper:
+        filter_state_values:
+          closed: Geschlossen
+          open: Öffnen
       committee_requests:
         new:
           continue: Fortsetzen
@@ -348,13 +350,10 @@ de:
         filters:
           any: Irgendein
           author: Autor
-          closed: Geschlossen
           myself: Meine Initiativen
-          open: Öffnen
           search: Suche
           state: Zustand
           type: Art
-          type_prompt: Wählen Sie einen Typ aus
         filters_small_view:
           close_modal: Fenster schließen
           filter: Filter

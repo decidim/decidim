@@ -217,9 +217,6 @@ ca:
       update_draft:
         error: S'ha produït un error en actualitzar l'esborrany de l'esmena.
         success: Esborrany d'esmena actualitzat correctament.
-      visibility_options:
-        all: Les esmenes són visibles per a tothom
-        participants: Les esmenes són visibles únicament per als seus autors
       withdraw:
         error: S'ha produït un error en retirar l'esmena
         success: L'esmena s'ha retirat correctament
