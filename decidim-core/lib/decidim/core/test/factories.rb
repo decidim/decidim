@@ -582,9 +582,6 @@ FactoryBot.define do
   factory :oauth_application, class: "Decidim::OAuthApplication" do
     organization
     sequence(:name) { |n| "OAuth application #{n}" }
-    sequence(:organization_name) { |n| "OAuth application owner #{n}" }
-    organization_url { "http://example.org" }
-    organization_logo { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     redirect_uri { "https://app.example.org/oauth" }
     scopes { "public" }
   end

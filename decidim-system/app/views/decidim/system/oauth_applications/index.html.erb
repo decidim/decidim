@@ -20,13 +20,15 @@
     <% @oauth_applications.each do |oauth_application| %>
       <tr>
         <td>
-          <%= image_tag oauth_application.organization_logo.url %>
+          <% if oauth_application.organization.logo.present? %>
+            <%= image_tag oauth_application.organization.logo.url %>
+          <% end %>
         </td>
         <td>
           <%= link_to oauth_application.name, oauth_application %><br>
         </td>
         <td>
-          <%= link_to oauth_application.organization_name, oauth_application.organization %><br>
+          <%= link_to oauth_application.organization.name, oauth_application.organization %><br>
         </td>
         <td>
           <%= l oauth_application.created_at, format: :short %>
