@@ -7,7 +7,7 @@ module Decidim
     include Decidim::Loggable
     include Decidim::TranslatableResource
 
-    translatable_fields :subject, :extended_data
+    translatable_fields :subject
 
     belongs_to :author, class_name: "User"
     belongs_to :organization
