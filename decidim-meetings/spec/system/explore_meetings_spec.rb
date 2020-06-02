@@ -63,7 +63,6 @@ describe "Explore meetings", :slow, type: :system do
                  participatory_space: participatory_process)
         end
 
-
         let!(:official_meeting) { create(:meeting, :official, component: component, organizer: organization) }
         let!(:user_group_meeting) { create(:meeting, :by_user_group, component: component) }
 
