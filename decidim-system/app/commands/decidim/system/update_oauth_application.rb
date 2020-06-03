@@ -23,10 +23,15 @@ module Decidim
           @user,
           name: @form.name,
           decidim_organization_id: @form.decidim_organization_id,
+          organization_url: @form.organization_url,
+          organization_logo: @form.organization_logo,
           redirect_uri: @form.redirect_uri
         )
 
         broadcast(:ok, @application)
+      rescue ActiveRecord::RecordInvalid
+        @form.errors.add(:organization_logo, @application.errors[:organization_logo]) if @application.errors.include? :organization_logo
+        broadcast(:invalid)
       end
     end
   end

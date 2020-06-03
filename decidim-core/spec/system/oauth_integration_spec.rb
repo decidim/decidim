@@ -17,7 +17,7 @@ describe "Authorzing with OAUth applications", type: :system do
     it "displays information about the app" do
       within "main.wrapper" do
         expect(page).to have_content(application.name)
-        expect(page).to have_link(application.organization.name, href: application.organization.host)
+        expect(page).to have_link(application.organization_name, href: application.organization_url)
       end
     end
   end

@@ -17,9 +17,9 @@ module Decidim
       def diff_fields_mapping
         {
           name: :string,
-          # organization_name: :string,
-          # organization_url: :string,
-          # organization_logo: :string,
+          organization_name: :string,
+          organization_url: :string,
+          organization_logo: :string,
           redirect_uri: :string
         }
       end

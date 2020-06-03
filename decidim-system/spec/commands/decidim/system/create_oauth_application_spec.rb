@@ -11,8 +11,16 @@ module Decidim::System
       {
         name: "Meta Decidim",
         decidim_organization_id: organization.id,
+        organization_url: organization.host,
+        organization_logo: file,
         redirect_uri: "https://meta.decidim.barcelona/users/auth/decidim"
       }
+    end
+    let(:file) do
+      Rack::Test::UploadedFile.new(
+        Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
+        "image/jpg"
+      )
     end
     let(:context) do
       {

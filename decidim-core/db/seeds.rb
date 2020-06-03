@@ -189,6 +189,9 @@ if !Rails.env.production? || ENV["SEED"]
 
   Decidim::OAuthApplication.create!(
     name: "Test OAuth application",
+    organization_name: "Example organization",
+    organization_url: "http://www.example.org",
+    organization_logo: File.new(File.join(seeds_root, "homepage_image.jpg")),
     redirect_uri: "https://www.example.org/oauth/decidim",
     scopes: "public",
     organization: organization
