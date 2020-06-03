@@ -22,7 +22,7 @@
           <% elections.each do |election| %>
             <tr data-id="<%= election.id %>">
               <td>
-                <%= link_to translated_attribute(election.title), edit_election_path(election), target: :blank %><br>
+                <%= link_to translated_attribute(election.title), election_questions_path(election) %>
               </td>
               <td>
                 <% if election.start_time %>

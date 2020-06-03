@@ -40,6 +40,7 @@ pl:
         badges_enabled: Włącz odznaki
         cta_button_path: Ścieżka przycisku wezwania do działania
         cta_button_text: Tekst przycisku wezwania do działania
+        customize_welcome_notification: Dostosuj treść komunikatu powitalnego
         default_locale: Domena domyślna
         description: Opis
         enable_omnipresent_banner: Pokaż wszechobecny baner
@@ -66,12 +67,15 @@ pl:
         primary_color: Podstawowa
         reference_prefix: Prefiks referencyjny
         secondary_color: Wtórny
+        send_welcome_notification: Wyślij komunikat powitalny
         show_statistics: Pokaż statystyki
         success_color: Powodzenie
         tos_version: Warunki korzystania z usługi
         twitter_handler: Obsługa Twittera
         user_groups_enabled: Włącz grupy użytkowników
         warning_color: Ostrzeżenie
+        welcome_notification_body: Treść komunikatu powitalnego
+        welcome_notification_subject: Tytuł komunikatu powitalnego
         youtube_handler: Poradnik YouTube
       scope:
         code: Kod
@@ -129,7 +133,7 @@ pl:
     admin:
       actions:
         add: Dodaj
-        browse: Paść się
+        browse: Sprawdź
         export: Eksport
         manage: Zarządzanie
         new: Nowe %{name}
@@ -486,7 +490,7 @@ pl:
           badge: Odznaka
           created_at: Utworzono w
           name: Nazwa
-          nickname: Przezwisko
+          nickname: Alias
           not_officialized: Nie oficjalny
           officialize: Oficjalizuj
           officialized: Oficjalny
@@ -506,7 +510,7 @@ pl:
           github: GitHub
           instagram: Instagram
           social_handlers: Społeczny
-          twitter: Świergot
+          twitter: Twitter
           url: Url
           youtube: Youtube
         update:
@@ -516,13 +520,15 @@ pl:
         edit:
           update: Aktualizuj
         form:
-          colors_title: Kolory organizacji
+          colors:
+            colors_title: Kolory organizacji
+            header_snippets_help: Użyj tego pola, aby dodać elementy do głowicy HTML. Najczęstszym sposobem jest zintegrowanie usług innych firm, które wymagają dodatkowego kodu JavaScript lub CSS. Można również użyć go do dodawania dodatkowych znaczników meta do HTML. Należy zauważyć, że będzie to widoczne tylko na stronach publicznych, a nie w sekcji administracyjnej.
           cta_button_path_help: 'Możesz zastąpić lokalizację, w której przycisk Do połączenia z działaniem na łącza do strony głównej. Użyj częściowych ścieżek, a nie pełnych adresów URL. Akceptuje litery, liczby, myślniki i ukośniki, i muszą zaczynać się od litery. Przycisk Zadzwoń do Działania zostanie wyświetlony na stronie głównej między tekstem powitalnym a opisem. Przykład: %{url}'
           cta_button_text_help: Można zastąpić tekst przycisku Żądanie do działania na stronie głównej dla każdego dostępnego języka w organizacji. Jeśli nie zostanie ustawiona, zostanie użyta wartość domyślna. Przycisk Zadzwoń do Działania zostanie wyświetlony na stronie głównej między tekstem powitalnym a opisem.
-          header_snippets_help: Użyj tego pola, aby dodać elementy do głowicy HTML. Najczęstszym sposobem jest zintegrowanie usług innych firm, które wymagają dodatkowego kodu JavaScript lub CSS. Można również użyć go do dodawania dodatkowych znaczników meta do HTML. Należy zauważyć, że będzie to widoczne tylko na stronach publicznych, a nie w sekcji administracyjnej.
           homepage_appearance_title: Edytuj wygląd strony głównej
           homepage_highlighted_content_banner_title: Baner treści o wysokim priorytecie
-          layout_appearance_title: Edytuj wygląd układu
+          images:
+            layout_appearance_title: Edytuj wygląd układu
           omnipresent_banner_appearance_title: Edytuj wszechobecny baner
       organization_homepage:
         edit:

@@ -298,6 +298,9 @@ en:
         description: Number of participatory processes in this organization
         object: participatory processes
         title: Participatory processes
+    participatory_process:
+      show:
+        related_assemblies: Related assemblies
     participatory_process_groups:
       show:
         group_participatory_processes:

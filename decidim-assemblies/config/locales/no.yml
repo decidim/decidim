@@ -29,7 +29,7 @@
         included_at: Inkludert på
         instagram: Instagram
         internal_organisation: Intern organisasjon
-        is_transparent: Er privat
+        is_transparent: Er transparent
         local_area: Organisasjonsområdet
         meta_scope: Omfang metadata
         parent_id: Foreldre forsamling
@@ -309,6 +309,7 @@
         home:
           highlighted_assemblies:
             active_assemblies: Aktive forsamlinger
+            assemblies_button_title: Lenke til forsamlingssiden som viser alle forsamlinger
             see_all_assemblies: Se alle forsamlingene
         user_profile:
           member_of:

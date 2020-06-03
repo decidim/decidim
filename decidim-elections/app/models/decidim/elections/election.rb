@@ -13,6 +13,8 @@ module Decidim
 
       component_manifest_name "elections"
 
+      has_many :questions, foreign_key: "decidim_elections_election_id", class_name: "Decidim::Elections::Question", inverse_of: :election, dependent: :destroy
+
       def self.log_presenter_class_for(_log)
         Decidim::AdminLog::ElectionPresenter
       end

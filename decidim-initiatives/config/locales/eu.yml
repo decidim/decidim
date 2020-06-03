@@ -235,12 +235,14 @@ eu:
           unpublish: "%{user_name} %{resource_name} ekimena baztertu du"
           update: "%{user_name} %{resource_name} ekimena eguneratu du"
       admin_states:
-        accepted: Onartu
         created: Sortu
         discarded: baztertutako
         published: Argitaratutako
-        rejected: Baztertuta
         validating: Balidazio teknikoa
+      application_helper:
+        filter_state_values:
+          closed: itxita
+          open: Open
       committee_requests:
         new:
           continue: Jarraitu
@@ -348,13 +350,10 @@ eu:
         filters:
           any: Edozein
           author: Egilea
-          closed: itxita
           myself: Nire ekimenak
-          open: Open
           search: Search
           state: Estatu
           type: Mota
-          type_prompt: Aukeratu mota bat
         filters_small_view:
           close_modal: Itxi leihoa
           filter: Filter

@@ -3,13 +3,15 @@ pl:
     attributes:
       account:
         delete_reason: Powód usunięcia konta
+      group:
+        nickname: Alias
       report:
         details: Dodatkowe uwagi
       user:
         about: O
         email: Twój email
         name: Twoje imię
-        nickname: Przezwisko
+        nickname: Alias
         password: Hasło
         password_confirmation: Potwierdź swoje hasło
         personal_url: Osobisty URL
@@ -328,22 +330,24 @@ pl:
           email_already_exists: Inne konto korzysta z tego samego adresu e-mail
         new:
           complete_profile: Pełny profil
+          nickname_help: Twój alias (@alias) w %{organization}
           sign_up: Proszę wypełnić swój profil
-          subtitle: Proszę wypełnić poniższy formularz, aby dokończyć rejestrację
+          subtitle: Zarejstruj się, aby wziąć udział w dyskusjach i móc wspierać propozycje
           username_help: Publiczne nazwisko wyświetlane na Twoich postów. W celu zagwarantowania anonimowości może być dowolna nazwa.
       registrations:
         new:
           already_have_an_account?: Posiadasz już konto?
-          newsletter: Odbieraj okazjonalne biuletyny z odpowiednimi informacjami
-          newsletter_title: Skontaktuj się z uprawnieniami
+          newsletter: Chcę otrzymywać okazjonalne newslettery
+          newsletter_title: Zgoda na subskrybcję
+          nickname_help: Twój alias (@alias) w %{organization}
           sign_in: Zaloguj Się
-          sign_up: Zapisz się
+          sign_up: Zarejestruj się
           sign_up_as:
             legend: Zarejestruj się jako
           subtitle: Zarejestruj się, aby wziąć udział w dyskusjach i propozycjach wsparcia.
           terms: Warunki korzystania
-          tos_agreement: Zarejestrowając się, zgadzasz się na %{link}.
-          tos_title: Warunki usługi
+          tos_agreement: Rejestrując się, zgadzasz się na %{link}.
+          tos_title: Warunki korzystania
           username_help: Publiczne nazwisko wyświetlane na Twoich postów. W celu zagwarantowania anonimowości może być dowolna nazwa.
       sessions:
         new:
@@ -540,7 +544,7 @@ pl:
       no_followings: Nie śledzi nikogo ani niczego jeszcze.
     follows:
       create:
-        button: Postępuj zgodnie z
+        button: Obserwuj
         error: Nastąpił błąd w następstwie tego zasobu.
       destroy:
         button: Przestań obserwować
@@ -568,7 +572,7 @@ pl:
         index:
           badge_title: "%{name} znaczek"
           how: Jak możesz to zarobić?
-          page_description: Odznaki są uznaniem dla działań uczestników i postępu na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki. Oto lista odznak i kilka sposobów na ich zdobycie.
+          page_description: Odznaki są wyrazem uznania dla działań uczestników i rozwoju platformy. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki. Oto lista odznak i kilka sposobów na ich zdobycie.
           title: Odznaki
         invitations:
           conditions:
@@ -707,8 +711,8 @@ pl:
     members:
       no_members: Te grupy użytkowników nie mają jeszcze żadnego członka.
     menu:
-      help: Wsparcie
-      home: Ekran startowy
+      help: Pomoc
+      home: Strona główna
     messaging:
       conversation_mailer:
         new_conversation:
@@ -809,22 +813,22 @@ pl:
       home:
         extended:
           debates: Debaty
-          debates_explanation: Debata i dyskutuj, podziel się swoimi poglądami i wzbogacaj odpowiednie tematy.
-          how_to_participate: Jak wziąć udział w procesie?
+          debates_explanation: Debatuj i dyskutuj, podziel swoim spojrzeniem, rozwiń tematykę debat.
+          how_to_participate: Jak weź udział w procesie?
           meetings: Spotkania
           meetings_explanation: Dowiedz się, gdzie i kiedy możesz uczestniczyć w publicznych spotkaniach.
           more_info: Więcej informacji
           proposals: Propozycje
-          proposals_explanation: Zrób propozycje, wspieraj istniejące i promuj zmiany, które chcesz zobaczyć.
+          proposals_explanation: Zgłoś nowe propozycje, wspieraj te zgłoszone oraz wskaż zmiany, które chcesz zobaczyć.
         footer_sub_hero:
           footer_sub_hero_body: Zbudujmy społeczeństwo bardziej otwarte, przejrzyste i współpracujące.<br /> Dołącz, uczestnicz się i decyduj.
           footer_sub_hero_headline: Witamy na %{organization} platformie partycypacyjnej.
-          register: Zarejestrować
+          register: Zarejestruj się
         hero:
           participate: Uczestniczyć
           welcome: Witamy w %{organization}!
         metrics:
-          headline: Udział w liczbach
+          headline: Partycypacja w liczbach
         statistics:
           answers_count: Ankiety zakończone
           assemblies_count: Złożenia
@@ -845,7 +849,7 @@ pl:
           users_count: Uczestnicy
           votes_count: Głosowania
         sub_hero:
-          register: Zarejestrować
+          register: Zarejestruj się
       index:
         read_more: Czytaj więcej
         standalone_pages: Strony
@@ -854,7 +858,7 @@ pl:
         topics: Tematy
       participatory_space:
         metrics:
-          headline: Udział w liczbach
+          headline: Partycypacja w liczbach
           link: Pokaż wszystkie statystyki
       terms_and_conditions:
         accept:
@@ -906,7 +910,7 @@ pl:
         leave_user_group: Opuścić grupę
         manage_user_group_admins: Zarządzaj adminami
         manage_user_group_users: Zarządzaj członkami
-        resend_email_confirmation_instructions: Wyślij ponownie instrukcje dotyczące potwierdzenia adresu e-mail
+        resend_email_confirmation_instructions: Wyślij ponownie potwierdzenie
     reported_mailer:
       hide:
         hello: Witaj %{name},
@@ -958,7 +962,7 @@ pl:
       embed_modal:
         close_window: Zamknij okno
         embed: Proszę wkleić ten kod na swojej stronie
-        embed_link: Osadzać
+        embed_link: Embed
       extended_navigation_bar:
         more: Więcej
         unfold: Rozwijać się
@@ -977,7 +981,7 @@ pl:
         sign_in_before_follow: Zaloguj się przed wykonaniem tej czynności
       login_modal:
         please_sign_in: proszę zaloguj się
-        sign_up: Zapisz się
+        sign_up: Zarejestruj się
       participatory_space_filters:
         filters:
           areas: Obszary
@@ -991,7 +995,7 @@ pl:
         label: 'Wyniki na stronę:'
       share_modal:
         close_window: Zamknij okno
-        share: Dzielić
+        share: Share
         share_link: Udostępnij link
       version_author:
         deleted: Usunięty użytkownik
@@ -1014,7 +1018,7 @@ pl:
     confirmations:
       confirmed: Twój adres e-mail został pomyślnie potwierdzony.
       new:
-        resend_confirmation_instructions: Wyślij ponownie instrukcje dotyczące potwierdzenia
+        resend_confirmation_instructions: Wyślij ponownie potwierdzenie
       send_instructions: Otrzymasz wiadomość e-mail z instrukcjami, jak potwierdzić swój adres e-mail w ciągu kilku minut.
       send_paranoid_instructions: Jeśli Twój adres e-mail istnieje w naszej bazie danych, otrzymasz wiadomość e-mail z instrukcjami, jak potwierdzić swój adres e-mail w ciągu kilku minut.
     failure:
@@ -1120,7 +1124,7 @@ pl:
         update: Aktualizacja
         we_need_your_current_password_to_confirm_your_changes: potrzebujemy Twojego obecnego hasła, aby potwierdzić twoje zmiany
       new:
-        sign_up: Zapisz się
+        sign_up: Zarejestruj się
       signed_up: Witamy! Zapisałeś się pomyślnie.
       signed_up_but_inactive: Zapisałeś się pomyślnie. Nie możemy Cię jednak zalogować, ponieważ Twoje konto nie zostało jeszcze aktywowane.
       signed_up_but_locked: Zapisałeś się pomyślnie. Nie możemy Cię jednak zalogować, ponieważ Twoje konto jest zablokowane.
@@ -1136,12 +1140,12 @@ pl:
     shared:
       links:
         back: Plecy
-        didn_t_receive_confirmation_instructions: Nie otrzymałeś instrukcji potwierdzających?
+        didn_t_receive_confirmation_instructions: Nie otrzymałeś(aś) potwierdzenia?
         didn_t_receive_unlock_instructions: Nie otrzymałeś instrukcji odblokowania?
         forgot_your_password: Zapomniałeś hasła?
         sign_in: Zaloguj Się
         sign_in_with_provider: Zaloguj się, używając %{provider}
-        sign_up: Zapisz się
+        sign_up: Zarejestruj się
       minimum_password_length:
         one: "(Minimum%{count} znaków)"
         few: "(Minimum%{count} znaków)"
@@ -1183,15 +1187,15 @@ pl:
         link_label: tutaj
         ok: zgadzam się
       edit_link:
-        edit: Edytować
+        edit: Edytuj
       footer:
         download_open_data: Pobierz pliki otwartych danych
-        made_with_open_source: Strona internetowa za pomocą <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
+        made_with_open_source: Strona internetowa powstała z użyciem <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
       header:
         close_menu: Zamknij menu
         navigation: Nawigacja
-        sign_in: Zaloguj
-        sign_up: Zapisz się
+        sign_in: Zaloguj się
+        sign_up: Zarejestruj się
       impersonation_warning:
         close_session: Zamknij sesję
         description_html: Podszyszcza się do użytkownika <b>%{user_name}</b>.
@@ -1217,7 +1221,7 @@ pl:
       widget:
         see_more: Zobacz więcej
   locale:
-    name: język angielski
+    name: Polski
   password_validator:
     domain_included_in_password: jest zbyt podobny do tej nazwy domeny
     email_included_in_password: jest zbyt podobny do twojego adresu e-mail
@@ -1229,7 +1233,7 @@ pl:
     password_too_long: jest zbyt długi
     password_too_short: jest za krótki
   social_share_button:
-    delicious: Pyszne
+    delicious: Delicious
     douban: Douban
     email: E-mail
     facebook: Facebook
@@ -1241,12 +1245,15 @@ pl:
     qq: Qzone
     reddit: Reddit
     share_to: Udostępnij do %{name}
+    telegram: Telegram
     tumblr: Tumblr
-    twitter: Świergot
+    twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Otwórz program WeChat, kliknij przycisk "Odkryj", a następnie kliknij menu "Zeskanuj kod QR Code".
     weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
     xing: Xing
   time:
     formats:

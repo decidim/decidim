@@ -65,10 +65,16 @@ fr:
         name: Code par lettre postale
     verifications:
       authorizations:
+        authorization_metadata:
+          info: 'Ceci est la donne de la vérification actuelle : '
+          no_data_stored: Aucune donnée enregistrée.
         create:
           error: Une erreur s'est produite lors de la création de l'autorisation.
           success: Vous avez été autorisé avec succès.
           unconfirmed: Vous devez confirmer votre email pour vous autoriser.
+        destroy:
+          error: Un problème est survenu lors de la destruction de l'autorisation.
+          success: Vous avez réussi à détruire l'autorisation.
         first_login:
           actions:
             another_dummy_authorization_handler: Vérifier avec un autre exemple de gestionnaire d'autorisation
@@ -77,13 +83,21 @@ fr:
             dummy_authorization_workflow: Vérifiez par rapport à l'exemple de procédure d'autorisation
             id_documents: Vérifiez votre identité en téléchargeant votre document d'identité
             postal_letter: Vérifiez votre identité en recevant un code de vérification par courrier postal
+            sms: Soyez vérifié en recevant un code de vérification par SMS
           title: Vérifier votre Identité
           verify_with_these_options: 'Voici les options disponibles pour vérifier votre identité :'
+        index:
+          expired_verification: Vérification expiré
+          show_renew_info: Cliquez pour renouveler la vérification
         new:
           authorize: Envoyer
           authorize_with: Vérifier votre identité avec %{authorizer}
         renew_modal:
           cancel: Annuler
+          close: fermer
+          continue: Continuer
+          info_renew: Si vous voulez mettre à jour les données, continuez avec le renouvellement
+          title: Renouveler la vérification
         skip_verification: Vous pouvez omettre cette étape pour le moment et %{link}
         start_exploring: commencer à explorer
       csv_census:

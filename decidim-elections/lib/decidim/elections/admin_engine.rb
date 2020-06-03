@@ -15,7 +15,13 @@ module Decidim
             put :publish
             put :unpublish
           end
+          resources :questions do
+            resources :answers do
+              get :proposals_picker, on: :collection
+            end
+          end
         end
+
         root to: "elections#index"
       end
 

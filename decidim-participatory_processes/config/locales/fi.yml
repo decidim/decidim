@@ -27,7 +27,7 @@ fi:
         scope_type_max_depth_id: Teema-suodattimen syvyys
         scopes_enabled: Teemat käytössä
         short_description: Lyhyt kuvaus
-        show_metrics: Näytä tilastot
+        show_metrics: Näytä tilastomittarit
         show_statistics: Näytä tilastot
         slug: URL-tunniste
         start_date: Alkamispäivä
@@ -161,7 +161,7 @@ fi:
       participatory_process_imports:
         create:
           error: Virhe tuotaessa tätä osallistumisprosessia.
-          success: Osallistumisprosessi tuotu onnistuneesti.
+          success: Osallistumisprosessin tuonti onnistui.
         new:
           import: Tuo
           select: Valitse, mitkä tiedot haluat tuoda
@@ -203,9 +203,9 @@ fi:
       participatory_process_user_roles:
         create:
           error: Osallistumisprosessin käyttäjän lisääminen epäonnistui.
-          success: Käyttäjä lisättiin onnistuneesti tähän osallistumisprosessiin.
+          success: Käyttäjän lisäys tähän osallistumisprosessiin onnistui.
         destroy:
-          success: Käyttäjä poistettiin onnistuneesti tästä osallistumisprosessista.
+          success: Käyttäjä poistaminen tästä osallistumisprosessista onnistui.
         edit:
           title: Päivitä osallistumisprosessin hallintakäyttäjä
           update: Päivitä
@@ -269,6 +269,11 @@ fi:
         update: "%{user_name} muutti käyttäjän %{resource_name} roolia osallistumisprosessissa %{space_name}"
     events:
       participatory_process:
+        role_assigned:
+          email_intro: Sinulle on myönnetty rooli %{role} osallistumistilassa "%{resource_title}".
+          email_outro: Tämä viesti on lähetetty sinulle, koska roolisi on %{role} osallistumistilassa "%{resource_title}".
+          email_subject: Sinulle on myönnetty rooli %{role} kohteessa "%{resource_title}".
+          notification_title: Sinulle on myönnetty rooli %{role} osallistumistilassa <a href="%{resource_url}">%{resource_title}</a>.
         step_activated:
           email_intro: 'Vaihe %{resource_title} on nyt käytössä kohteessa %{participatory_space_title}. Näet sen tältä sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.

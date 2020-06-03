@@ -32,7 +32,6 @@ it:
         scope: Area comunale
         slug: Slug URL
         subtitle: Sottotitolo
-        title: Titolo
         vote: Sistema di voto esterno
         what_is_decided: Cosa è deciso
       response:

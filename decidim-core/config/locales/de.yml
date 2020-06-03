@@ -207,9 +207,6 @@ de:
       update_draft:
         error: Es gab ein Problem bei der Aktualisierung des Änderungsvorschlags.
         success: Änderungsvorschlag erfolgreich aktualisiert.
-      visibility_options:
-        all: Änderungsvorschlag ist für alle sichtbar
-        participants: Änderungen sind nur für ihre Autoren sichtbar
       withdraw:
         error: Ein Fehler ist beim Zurückziehen des Änderungsvorschlags aufgetreten
         success: Der Änderungsvorschlag wurde erfolgreich zurückgezogen

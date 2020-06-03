@@ -26,8 +26,10 @@ it:
       initiatives_committee_member:
         user: membro del Comitato
       initiatives_type:
+        attachments_enabled: Abilita allegati
         banner_image: Immagine banner
         collect_user_extra_fields: Raccogliere dati personali dell'utente alla firma
+        custom_signature_end_date_enabled: Consenti agli autori di scegliere la fine del periodo di raccolta della firma
         description: Descrizione
         document_number_authorization_handler: Autorizzazione a verificare il numero del documento sui voti
         extra_fields_legal_information: Informazioni legali sulla raccolta di dati personali
@@ -46,6 +48,14 @@ it:
         address: Indirizzo
         id_document: Documento di identità
         name: Nome completo
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: File non valido
+              needs_to_be_reattached: Necessita di essere riallegato
+              title: Il nome non dovrebbe essere vuoto
   activerecord:
     models:
       decidim/initiative:
@@ -63,13 +73,17 @@ it:
         new_initiative_type: Nuovo tipo di iniziativa
       filters:
         search_placeholder:
-          title_or_description_cont: Cerca %{collection} per titolo o descrizione.
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Cerca %{collection} per titolo, descrizione, ID o nome dell'autore.
         state_eq:
           values:
+            accepted: Firme sufficienti
             created: Creato
             discarded: Discarded
             published: Pubblicato
+            rejected: Firme non sufficienti
             validating: Convalida tecnica
+        type_id_eq:
+          label: Tipo
       menu:
         initiatives: iniziative
         initiatives_types: Tipi di iniziativa
@@ -78,6 +92,7 @@ it:
           fields:
             created_at: Creato a
             id: ID
+            published_at: Pubblicato il
             state: Stato
             supports_count: firme
             title: iniziative
@@ -110,6 +125,12 @@ it:
         initiatives_types: Tipi di iniziativa
     events:
       initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: L'iniziativa "%{resource_title}" è stata inviata alla convalida tecnica. Controlla il <a href="%{admin_initiative_url}">pannello di amministrazione</a>
+            email_outro: Hai ricevuto questa notifica perché sei un amministratore della piattaforma.
+            email_subject: L'iniziativa%{resource_title}" è stata inviata alla convalida tecnica.
+            notification_title: L'iniziativa "%{resource_title}" è stata inviata alla convalida tecnica. Controlla il <a href="%{admin_initiative_path}">pannello di amministrazione</a>
         initiative_extended:
           email_intro: La data di fine delle firme per l'iniziativa %{resource_title} è stata estesa!
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{resource_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
@@ -126,6 +147,11 @@ it:
             email_outro: Hai ricevuto questa notifica perché stai seguendo %{resource_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
             email_subject: Nuova pietra miliare completata!
             notification_title: L'iniziativa <a href="%{resource_path}">%{resource_title}</a> ha raggiunto il %{percentage}% delle firme.
+        support_threshold_reached:
+          email_intro: L'iniziativa %{resource_title} ha raggiunto la soglia di supporto
+          email_outro: Hai ricevuto questa notifica perché sei un amministratore della piattaforma.
+          email_subject: Soglia di supporto raggiunta
+          notification_title: L'iniziativa <a href="%{resource_path}">%{resource_title}</a> ha raggiunto la soglia di supporto
     gamification:
       badges:
         initiatives:
@@ -170,6 +196,8 @@ it:
         content_blocks:
           highlighted_initiatives:
             max_results: Quantità massima di elementi da mostrare
+        exports:
+          initiatives: Iniziative
         initiatives:
           edit:
             accept: Accetta l'iniziativa
@@ -187,6 +215,11 @@ it:
             actions_title: Azione
             preview: Anteprima
             print: Stampare
+          initiative_attachments:
+            documents: Documenti
+            edit: Modifica
+            new: Nuovo
+            photos: Foto
           show:
             print: Stampare
           update:
@@ -238,12 +271,24 @@ it:
           unpublish: "%{user_name} ha scartato l'iniziativa %{resource_name}"
           update: "%{user_name} ha aggiornato l'iniziativa %{resource_name}"
       admin_states:
-        accepted: Accettato
+        accepted: Firme sufficienti
         created: Creato
         discarded: Discarded
         published: Pubblicato
-        rejected: Respinto
+        rejected: Firme non sufficienti
         validating: Convalida tecnica
+      application_helper:
+        filter_scope_values:
+          all: Tutti
+        filter_state_values:
+          accepted: Firme sufficienti
+          all: Tutti
+          answered: Risposto
+          closed: Chiuso
+          open: Aperto
+          rejected: Firme non sufficienti
+        filter_type_values:
+          all: Tutti
       committee_requests:
         new:
           continue: Continua
@@ -265,8 +310,11 @@ it:
           back: Indietro
           back_to_initiatives: Torna alle iniziative
           callout_text: Complimenti! La tua iniziativa cittadina è stata creata con successo.
+          confirm: Conferma
+          edit_my_initiative: Modifica le mie iniziative
           go_to_my_initiatives: Vai alle mie iniziative
           more_information: "(Maggiori informazioni)"
+          send_my_initiative: Invia la mia iniziativa
         finish_help:
           access_reminder: Ricorda che sarai sempre in grado di accedere alle tue iniziative attraverso il menu utente.
           help_for_organizations: Se sei un'associazione dovrai caricare i verbali del consiglio di amministrazione di tutte le organizzazioni che formano la Commissione Promotrice
@@ -351,13 +399,11 @@ it:
         filters:
           any: Qualunque
           author: Autore
-          closed: Chiuso
           myself: Le mie iniziative
-          open: Aperto
+          scope: Scopo
           search: Ricerca
           state: Stato
           type: genere
-          type_prompt: Seleziona un tipo
         filters_small_view:
           close_modal: Chiudi la finestra
           filter: Filtro
@@ -376,6 +422,7 @@ it:
           most_voted: Più firmato
           random: Casuale
           recent: Piu recente
+          recently_published: Pubblicati più di recente
         result:
           answer_title:
             accepted: Questa proposta è stata accettata perché
@@ -388,7 +435,10 @@ it:
         show:
           any_vote_method: Questa iniziativa cittadina raccoglie supporto online e faccia a faccia.
           follow_description: Ricevi una notifica quando ci sono novità in questa iniziativa
+          of_versions: "(di %{number})"
           offline_method: Questa iniziativa cittadina raccoglie solo supporti faccia a faccia.
+          see_other_versions: vedi altre versioni
+          version: Versione %{number}
         signature_identities:
           select_identity: Seleziona l'identificativo dell'utente
         signatures_count:
@@ -426,10 +476,32 @@ it:
           highlighted_initiatives:
             active_initiatives: Iniziative attive
             see_all_initiatives: Vedi tutte le iniziative
+      show:
+        badge_name:
+          accepted: Firme sufficienti
+          created: Creata
+          discarded: Scartato
+          published: Pubblicato
+          rejected: Firme non sufficienti
+          validating: Convalida tecnica
       states:
         accepted: Accettato
         expired: Scaduto
       unavailable_scope: Ambito non disponibile
+      versions:
+        index:
+          number_of_versions: Versioni
+          title: Versioni
+        shared:
+          back_to_initiative: Torna all'iniziativa
+          changes_at_title: Modifiche a "%{title}"
+        show:
+          show_all_versions: Mostra tutte le versioni
+          version_author: Autore della versione
+          version_created_at: Versione creata il
+          version_number_out_of_total: "%{current_version} su %{total_count}"
+        version:
+          version_index: Versione %{index}
     menu:
       initiatives: iniziative
     resources:

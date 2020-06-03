@@ -71,6 +71,9 @@ hu:
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
+    accessibility:
+      logo: "%{organization} hivatalos logója"
+      skip_button: Ugrás a fő tartalomra
     account:
       data_portability_export:
         file_no_exists: Fájl nem létezik
@@ -216,9 +219,6 @@ hu:
       update_draft:
         error: Probléma merült fel a módosító javaslat frissítésével.
         success: A módosító javaslat sikeresen frissítve.
-      visibility_options:
-        all: A módosítások mindenki számára láthatóak
-        participants: A módosítások csak a szerzőik számára láthatóak
       withdraw:
         error: A módosítás létrehozásának visszavonása során hiba történt
         success: A módosítást sikeresen visszavonták
@@ -234,6 +234,8 @@ hu:
         documents:
           one: Dokumentum
           other: Dokumentumok
+      document:
+        download: Fájl letöltése
       documents:
         related_documents: Kapcsolódó dokumentumok
       photos:
@@ -312,6 +314,18 @@ hu:
       see_less: "(kevesebb)"
       see_more: "(tovább)"
     components:
+      component_order_selector:
+        order:
+          all_types: Minden típus
+          collaborative_draft: Közös vázlat
+          comment: Megjegyzés
+          debate: Vita
+          initiative: Kezdeményezés
+          meeting: Találkozó
+          post: Bejegyzés
+          proposal: Indítvány
+          question: Kérdés
+        title: 'Mutat:'
       dummy:
         actions:
           bar: Oszlop
@@ -341,6 +355,9 @@ hu:
         name: Lábléc sub hero banner
       hero:
         name: Hero kép
+      hero_settings_form:
+        background_image: Háttérkép
+        welcome_text: Üdvözlő szöveg
       highlighted_content_banner:
         name: Kiemelt banner
       how_to_participate:
@@ -560,6 +577,12 @@ hu:
           email_outro: Ezt az értesítést azért kapta meg, mert tagja ennek a csoportnak.
           email_subject: Eltávolításra kerültél a %{user_group_name} csoportból!
           notification_title: Eltávolításra kerültál a <a href="%{resource_path}">%{user_group_name}</a> csoportból.
+        user_group_created:
+          email_outro: Ezt az értesítést kaptad, mert te vagy a platform adminja.
+          email_subject: Új felhasználói csoport létrehozva
+        user_group_updated:
+          email_outro: Ezt az értesítést kaptad, mert te vagy a platform adminja.
+          email_subject: Egy felhasználói csoport frissítette a profilját
       notification_event:
         notification_title: 'Új esemény itt: <a href="%{resource_path}">%{resource_title}</a>.'
       resource_endorsed:
@@ -798,15 +821,19 @@ hu:
         create:
           error: A beszélgetés megakadt. Próbáld újra később
         index:
+          ago: óta
           close: Modal bezárása
+          from: Feladó
           new_conversation: Új beszélgetés
           next: Következő
           no_conversations: Még nincsenek beszélgetések
           title: Beszélgetések
         reply:
+          placeholder: A válaszod...
           send: Elküld
           title: Válasz
         show:
+          chat_with: Beszélgetés vele
           not_allowed: Ez a felhasználó nem fogad el több közvetlen üzenetet.
           title: 'Beszélgetés vele: %{usernames}'
         start:
@@ -834,6 +861,17 @@ hu:
         note: Ezt az emailt azért kapta meg, mert feliratkozott a(z) %{organization_name}hírlevelekre. Megváltoztathatja a beállításokat az <a href="%{link}">értesítések oldalon</a>.
         see_on_website: Nem jelenik meg rendesen? Nézd meg a <a href="%{link}" target="_blank">honlapunkon</a>.
         unsubscribe: Az ilyen emailek fogadásának kikapcsolása, <a href="%{link}" target="_blank" class="unsubscribe">Leiratkozás</a>.
+    newsletter_templates:
+      basic_only_text_settings_form:
+        body: Törzs
+      image_text_cta:
+        cta_text_preview: Felhívás szövege
+      image_text_cta_settings_form:
+        body: Törzs
+        cta_text: Felhívás gomb szövege
+        cta_url: Felhívás gomb elérési útvonala
+        introduction: Bevezetés
+        main_image: Fő kép
     newsletters:
       unsubscribe:
         check_subscription: Ha szeretnéd módosítani a beállításokat, akkor a <a href="%{link}" target="_blank">konfigurációs oldalon</a> teheted meg

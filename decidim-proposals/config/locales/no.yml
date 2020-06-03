@@ -83,9 +83,7 @@
         state_eq:
           label: Delstat
           values:
-            accepted: Aksepterte
             evaluating: Vurderer
-            rejected: Avvist
             withdrawn: Trukket tilbake
         state_null:
           label: Status
@@ -117,8 +115,8 @@
             new_proposal_body_template_help: Du kan definere forhåndsutfylt tekst som de nye forslagene vil ha
             new_proposal_help_text: Ny forslag hjelpetekst
             official_proposals_enabled: Offisielle forslag aktivert
-            participatory_texts_disabled_help: Kan ikke samhandle med denne innstillingen hvis det finnes eksisterende forslag. Vennligst, opprett et nytt "Forslags komponent" hvis du vil aktivere denne funksjonen eller forkaste alle importerte forslag i `Deltakende tekster` -menyen hvis du vil deaktivere den.
             participatory_texts_enabled: Deltakende tekster aktivert
+            participatory_texts_enabled_readonly: Kan ikke samhandle med denne innstillingen hvis det finnes eksisterende forslag. Vennligst, opprett et nytt "Forslags komponent" hvis du vil aktivere denne funksjonen eller forkaste alle importerte forslag i `Deltakende tekster` -menyen hvis du vil deaktivere den.
             proposal_answering_enabled: Forslags besvaring aktivert
             proposal_edit_before_minutes: Forslag kan redigeres av forfattere før så mange minutter går
             proposal_length: Maksimal forslagstekst lengde

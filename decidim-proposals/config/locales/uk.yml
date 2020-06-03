@@ -56,9 +56,7 @@ uk:
             'false': Пропозиції
         state_eq:
           values:
-            accepted: Прийнято
             evaluating: Розглядається
-            rejected: Відхилено
             withdrawn: Відкликана
         state_null:
           values:

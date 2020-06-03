@@ -79,9 +79,7 @@ eu:
         state_eq:
           label: Estatu
           values:
-            accepted: Onartuta
             evaluating: Ebaluatzen
-            rejected: Ukatua
             withdrawn: kendu
         state_null:
           label: Estatu
