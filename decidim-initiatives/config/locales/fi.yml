@@ -26,8 +26,10 @@ fi:
       initiatives_committee_member:
         user: Komitean jäsen
       initiatives_type:
+        attachments_enabled: Salli liitteet
         banner_image: Bannerikuva
         collect_user_extra_fields: Kerää käyttäjän henkilötietoja allekirjoituksen yhteydessä
+        custom_signature_end_date_enabled: Salli laatijoiden valita allekirjoitusten keräyksen loppumisaika
         description: Kuvaus
         document_number_authorization_handler: Valtuutus asiakirjanumeron tarkistamiseen allekirjoitettaessa
         extra_fields_legal_information: Oikeudelliset tiedot koskien henkilötietojen keräämistä
@@ -46,6 +48,14 @@ fi:
         address: Osoite
         id_document: Henkilöllisyyden todistamisen asiakirja
         name: Koko nimi
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: Tiedosto ei kelpaa
+              needs_to_be_reattached: Liitettävä uudelleen
+              title: Otsikko ei voi olla tyhjä
   activerecord:
     models:
       decidim/initiative:
@@ -63,13 +73,15 @@ fi:
         new_initiative_type: Uusi aloitetyyppi
       filters:
         search_placeholder:
-          title_or_description_cont: '%{collection}: Hae otsikon tai kuvauksen perusteella'
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Etsi kohteita %{collection} otsikon, kuvauksen, ID-numeron tai laatijan nimellä.
         state_eq:
           values:
+            accepted: Tarpeeksi allekirjoituksia
             created: Luotu
             discarded: Hylätty
             published: Julkaistu
-            validating: Teknisessä validoinnissa
+            rejected: Liian vähän allekirjoituksia
+            validating: Teknisessä tarkastuksessa
       menu:
         initiatives: Aloitteet
         initiatives_types: Aloitetyypit
@@ -78,6 +90,7 @@ fi:
           fields:
             created_at: Luontiaika
             id: ID
+            published_at: Julkaisuaika
             state: Tila
             supports_count: Allekirjoitusta
             title: Aloitteet
@@ -110,6 +123,12 @@ fi:
         initiatives_types: Aloitetyypit
     events:
       initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: Aloite "%{resource_title}" on lähetetty tekniseen tarkastukseen. Tustustu siihen <a href="%{admin_initiative_url}">hallintapaneelin kautta</a>
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet palvelun hallintakäyttäjä.
+            email_subject: Aloitteelle "%{resource_title}" on pyydetty teknistä tarkastusta.
+            notification_title: Aloite "%{resource_title}" on lähetetty tekniseen tarkastukseen. Tustustu siihen <a href="%{admin_initiative_path}">hallintapaneelin kautta</a>
         initiative_extended:
           email_intro: Aloitteen %{resource_title} allekirjoitusten keräysaikaa on jatkettu!
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
@@ -170,6 +189,8 @@ fi:
         content_blocks:
           highlighted_initiatives:
             max_results: Näytettävien elementtien enimmäismäärä
+        exports:
+          initiatives: Aloitteet
         initiatives:
           edit:
             accept: Hyväksy aloite
@@ -178,8 +199,8 @@ fi:
             export_pdf_signatures: Vie allekirjoitukset PDF-asiakirjaan
             export_votes: Lataa allekirjoitukset
             reject: Torju aloite
-            send_to_technical_validation: Lähetä tekniseen validointiin
-            success: Aloite on lähetetty tekniseen validointiin
+            send_to_technical_validation: Lähetä tekniseen tarkastukseen
+            success: Aloite on lähetetty tekniseen tarkastukseen
             update: Päivitä
           form:
             title: Yleistä tietoa
@@ -187,6 +208,11 @@ fi:
             actions_title: Toiminnot
             preview: Esikatsele
             print: Tulosta
+          initiative_attachments:
+            documents: Asiakirjat
+            edit: Muokkaa
+            new: Uusi
+            photos: Kuvat
           show:
             print: Tulosta
           update:
@@ -197,7 +223,7 @@ fi:
             error: Tapahtui virhe
             success: Uusi teema aloitetyypille luotu
           destroy:
-            success: Teema poistettu onnistuneesti
+            success: Teeman poisto onnistui
           edit:
             back: Takaisin
             confirm_destroy: Oletko varma?
@@ -210,13 +236,13 @@ fi:
             title: Luo aloitetyypin teema
           update:
             error: Tapahtui virhe
-            success: Teemaa päivitetty onnistuneesti
+            success: Teeman päivitys onnistui
         initiatives_types:
           create:
             error: Tapahtui virhe
-            success: Uusi aloitetyyppi luotu onnistuneesti
+            success: Uuden aloitetyypin luonti onnistui
           destroy:
-            success: Aloitetyyppi poistettu onnistuneesti
+            success: Aloitetyypin poisto onnistui
           edit:
             confirm_destroy: Oletko varma?
             destroy: Poista
@@ -230,20 +256,32 @@ fi:
             title: Uusi aloitetyyppi
           update:
             error: Tapahtui virhe
-            success: Aloitetyyppiä päivitetty onnistuneesti
+            success: Aloitetyypin päivitys onnistui
       admin_log:
         initiative:
           publish: "%{user_name} julkaisi aloitteen %{resource_name}"
-          send_to_technical_validation: "%{user_name} lähetti aloitteen %{resource_name} tekniseen validointiin"
+          send_to_technical_validation: "%{user_name} lähetti aloitteen %{resource_name} tekniseen tarkastukseen"
           unpublish: "%{user_name} hylkäsi aloitteen %{resource_name}"
           update: "%{user_name} päivitti aloitetta %{resource_name}"
       admin_states:
-        accepted: Hyväksytty
+        accepted: Tarpeeksi allekirjoituksia
         created: Luotu
         discarded: Hylätty
         published: Julkaistu
-        rejected: Torjuttu
-        validating: Teknisessä validoinnissa
+        rejected: Liian vähän allekirjoituksia
+        validating: Teknisessä tarkastuksessa
+      application_helper:
+        filter_scope_values:
+          all: Kaikki
+        filter_state_values:
+          accepted: Tarpeeksi allekirjoituksia
+          all: Kaikki
+          answered: Vastattu
+          closed: Suljettu
+          open: Avaa
+          rejected: Liian vähän allekirjoituksia
+        filter_type_values:
+          all: Kaikki
       committee_requests:
         new:
           continue: Jatka
@@ -265,8 +303,11 @@ fi:
           back: Takaisin
           back_to_initiatives: Takaisin aloitteisiin
           callout_text: Onnittelut! Kansalaisaloitteesi luonti onnistui.
+          confirm: Vahvista
+          edit_my_initiative: Muokkaa omia aloitteita
           go_to_my_initiatives: Siirry omiin aloitteisiini
           more_information: "(Lisää tietoa)"
+          send_my_initiative: Lähetä aloitteeni
         finish_help:
           access_reminder: Muista, että pääset tarkastelemaan omia aloitteitasi käyttäjävalikon kautta.
           help_for_organizations: Jos olet yhdistyksen jäsen, sinun on lähetettävä johtokunnan pöytäkirjat kaikista organisaatioista, jotka liittyvät muodostettavaan kannatuskomiteaan
@@ -332,7 +373,7 @@ fi:
           invalid: Aloitteen allekirjoittamiseen annetut tiedot ovat virheelliset
           success_html: Onnittelut! Aloitteen <strong>%{title}</strong> allekirjoitus onnistui
         personal_data:
-          invalid: Henkilötiedot eivät täsmää varmennusta varten annettujen tietojen kanssa.
+          invalid: Henkilötiedot eivät täsmää vahvistusta varten annettujen tietojen kanssa.
         sms_code:
           invalid: Vahvistuskoodi ei vastaa meidän koodiamme. Tarkista uudestaan lähettämämme tekstiviesti.
         sms_phone:
@@ -351,13 +392,11 @@ fi:
         filters:
           any: Minkä tahansa
           author: Laatija
-          closed: Suljettu
           myself: Omat aloitteeni
-          open: Avaa
+          scope: Teema
           search: Hae
           state: Tila
           type: Tyyppi
-          type_prompt: Valitse tyyppi
         filters_small_view:
           close_modal: Sulje ikkuna
           filter: Suodata
@@ -376,6 +415,7 @@ fi:
           most_voted: Eniten allekirjoituksia sisältävät
           random: Satunnainen järjestys
           recent: Viimeisimmät
+          recently_published: Viimeisimmäksi julkaistut
         result:
           answer_title:
             accepted: Tämä ehdotus on hyväksytty, koska
@@ -388,7 +428,10 @@ fi:
         show:
           any_vote_method: Tämä kansalaisaloite kerää allekirjoituksia verkossa ja palvelun ulkopuolella.
           follow_description: Vastaanota ilmoitus, kun tätä aloitetta koskevia uutisia julkaistaan
+          of_versions: "(yhteensä %{number} kpl)"
           offline_method: Tämä kansalaisaloite kerää allekirjoituksia ainoastaan palvelun ulkopuolella.
+          see_other_versions: näytä muut versiot
+          version: Versio %{number}
         signature_identities:
           select_identity: Valitse käyttäjätunniste
         signatures_count:
@@ -426,10 +469,32 @@ fi:
           highlighted_initiatives:
             active_initiatives: Aktiiviset aloitteet
             see_all_initiatives: Katso kaikki aloitteet
+      show:
+        badge_name:
+          accepted: Tarpeeksi allekirjoituksia
+          created: Luotu
+          discarded: Hylätty
+          published: Julkaistu
+          rejected: Liian vähän allekirjoituksia
+          validating: Teknisessä tarkastuksessa
       states:
         accepted: Hyväksytyt
         expired: Vanhentuneet
       unavailable_scope: Teema ei ole saatavilla
+      versions:
+        index:
+          number_of_versions: Versiot
+          title: Versiot
+        shared:
+          back_to_initiative: Takaisin aloitteeseen
+          changes_at_title: Muutokset kohteessa "%{title}"
+        show:
+          show_all_versions: Näytä kaikki versiot
+          version_author: Versio luoja
+          version_created_at: Version luontihetki
+          version_number_out_of_total: "%{current_version} / %{total_count}"
+        version:
+          version_index: Versio %{index}
     menu:
       initiatives: Aloitteet
     resources:
@@ -462,7 +527,7 @@ fi:
         fill_personal_data: Täydennä tietosi
         finish: Viimeistele
         finished: Allekirjoitus luotu aloitteelle
-        see_steps: katso vaiheet
+        see_steps: näytä vaiheet
         select_identity: Valitse identiteetti
         sms_code: Tekstiviestikoodin vahvistaminen
         sms_phone_number: Matkapuhelimen numero

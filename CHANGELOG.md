@@ -19,8 +19,19 @@ Thanks to [\#5342](https://github.com/decidim/decidim/pull/5342), Decidim now su
 
 Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on by default.
 
+- **New "extras" key in authorization metadata**
+
+[\#6044](https://github.com/decidim/decidim/pull/6044) adds the possibility to have an "extras" key in the Authentication metadata that will be ignored. For example when
+signing an initiative (decidim-initiatives/app/forms/decidim/initiatives/vote_form.rb) or on Authorization renewal (decidim-verifications/app/cells/decidim/verifications/authorization_metadata/show.erb).
+
+This key may be used to persist whatever information related to the user's authentication that should not be used for authenticating her.
+The use case that originated this change is the persistence of the user's gender for statistical uses.
+
 ### Added
 
+- **decidim-participatory_processes**: Add related assemblies to participatory processes [\#5868](https://github.com/decidim/decidim/pull/5868)
+- **decidim-comments**: Fix comment link on Last Activity. [\#5999](https://github.com/decidim/decidim/pull/5999)
+- **decidim-system**: Add from_label to Organization SMTP settings. [#\6125](https://github.com/decidim/decidim/pull/6125)
 - **decidim-initiatives**: Send notification when signature threshold reached. [\#6098](https://github.com/decidim/decidim/pull/6098)
 - **decidim-proposals**: Add an information message when there aren't proposals. [\#6063](https://github.com/decidim/decidim/pull/6063)
 - **decidim-core**: Set email asset host dynamically. [\#5888](https://github.com/decidim/decidim/pull/5888)
@@ -92,6 +103,7 @@ Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on 
 - **decidim-initiatives**: Allow admins to export initiatives [\#6070](https://github.com/decidim/decidim/pull/6070)
 - **decidim-elections**: Add questions and answers to elections [\#6129](https://github.com/decidim/decidim/pull/6129)
 - **decidim-forms**: Request confirmation when leaving the form half-answered [\#6118](https://github.com/decidim/decidim/pull/6118)
+- **decidim-initiatives**: Add areas to initiatives. [\#6111](https://github.com/decidim/decidim/pull/6111)
 
 ### Changed
 
@@ -101,6 +113,8 @@ Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on 
 - **decidim-assemblies**: Replace current meetings hook with highlighted elements hook [\#5897](https://github.com/decidim/decidim/pull/5897)
 - **decidim-core**: Change the map marker color to the Decidim primary color [\#5870](https://github.com/decidim/decidim/pull/5870)
 - **decidim-core**: Add whitespace: nowrap style to compact buttons. [\#5891](https://github.com/decidim/decidim/pull/5891)
+- **decidim-core**: Hide password fields on Accounts page when organization sign in is disabled. [\#6130](https://github.com/decidim/decidim/pull/6130)
+- **decidim-initiatives**: Ignore new "extras" key when checking authorization/variation metadata [\#6044](https://github.com/decidim/decidim/pull/6044)
 - **decidim-assemblies**: Change user permission to list assemblies. Users can only list the assemblies that they have been assigned permission [\#5944](https://github.com/decidim/decidim/pull/5944)
 - **decidim-accountability**: Using the new proposals selector for choosing result proposals [\#5863](https://github.com/decidim/decidim/pull/5863)
 - **decidim-meetings**: Using the new proposals selector for choosing meeting close proposals [\#5863](https://github.com/decidim/decidim/pull/5863)
@@ -109,6 +123,7 @@ Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on 
 
 - **decidim-admin**: Fix: consultation queries don't result in exception [\#5561](https://github.com/decidim/decidim/pull/5561)
 - **decidim-consultations**: Fix permissions in order to make components inside of questions accessible. [\#6079](https://github.com/decidim/decidim/pull/6079)
+- **decidim-core**: Patch various security alerts reported by GitHub. [\#6148](https://github.com/decidim/decidim/pull/6148)
 - **decidim-core**: Fix user's avatar icon in CSS. [\#5990](https://github.com/decidim/decidim/pull/5990)
 - **decidim-core**: Use internal Organization class in migration. [\#6052](https://github.com/decidim/decidim/pull/6052)
 - **decidim-core**: Fix email not being sent to some users when uploading a CSV file. [\#6011](https://github.com/decidim/decidim/pull/6011)
@@ -146,11 +161,12 @@ Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on 
 - **decidim-core**: Fix the scopes picker rendereding escaped characters [#5939](https://github.com/decidim/decidim/pull/5939)
 - **decidim-core**: Fix the destroy account command removing relations with spaces [\#6041](https://github.com/decidim/decidim/pull/6041)
 - **decidim-core**: Avoid server hanging up when rendering newsletter templates previews on develoment or test env [\#6096](https://github.com/decidim/decidim/pull/6096)
+- **decidim-core**: Fix scopes filter when a participatory space scope has subscopes [\#6110](https://github.com/decidim/decidim/pull/6110)
 
 ### Removed
 
 - **decidim-assemblies**: Removed legacy `assembly_type` fields. [\#5617](https://github.com/decidim/decidim/pull/5617)
 
-### Previous versions
+## Previous versions
 
 Please check [0.21-stable](https://github.com/decidim/decidim/blob/0.21-stable/CHANGELOG.md) for previous changes.

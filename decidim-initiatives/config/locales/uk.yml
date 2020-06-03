@@ -177,12 +177,14 @@ uk:
           unpublish: "%{user_name} відкинув почин %{resource_name}"
           update: "%{user_name} оновив почин %{resource_name}"
       admin_states:
-        accepted: Прийняті
         created: Створені
         discarded: Відкинуті
         published: Оприлюднено
-        rejected: Відхилені
         validating: Технічна перевірка
+      application_helper:
+        filter_state_values:
+          closed: Закриті
+          open: Відкриті
       committee_requests:
         new:
           continue: Продовжити
@@ -267,13 +269,10 @@ uk:
         filters:
           any: Будь-які
           author: Автор
-          closed: Закриті
           myself: Мої почини
-          open: Відкриті
           search: Шукати
           state: Стан
           type: Різновид
-          type_prompt: Оберіть різновид
         filters_small_view:
           close_modal: Закрити вікно
           filter: Відібрати

@@ -241,12 +241,14 @@ pl:
           unpublish: "%{user_name} odrzucił inicjatywę %{resource_name}"
           update: "%{user_name} zaktualizował inicjatywę %{resource_name}"
       admin_states:
-        accepted: Przyjęty
         created: Stworzony
         discarded: Odrzucona
         published: Opublikowany
-        rejected: Odrzucono
         validating: Walidacja techniczna
+      application_helper:
+        filter_state_values:
+          closed: Zamknięte
+          open: otwarty
       committee_requests:
         new:
           continue: dalej
@@ -358,13 +360,10 @@ pl:
         filters:
           any: Każdy
           author: Autor
-          closed: Zamknięte
           myself: Moje inicjatywy
-          open: otwarty
           search: Szukaj
           state: Stan
           type: Rodzaj
-          type_prompt: Wybierz typ
         filters_small_view:
           close_modal: Zamknij okno
           filter: Filtr

@@ -128,12 +128,14 @@ is-IS:
           unpublish: "%{user_name} henti %{resource_name} frumkvæði"
           update: "%{user_name} uppfært %{resource_name} frumkvæði"
       admin_states:
-        accepted: Samþykkt
         created: Búið til
         discarded: Fargað
         published: Published
-        rejected: Hafnað
         validating: Tæknilegar staðfestingar
+      application_helper:
+        filter_state_values:
+          closed: Lokað
+          open: Opna
       committee_requests:
         new:
           continue: Haltu áfram
@@ -196,12 +198,9 @@ is-IS:
         filters:
           any: Einhver
           author: Höfundur
-          closed: Lokað
           myself: Verkefni mín
-          open: Opna
           search: Leita
           type: Gerð
-          type_prompt: Veldu tegund
         filters_small_view:
           close_modal: Lokaðu glugga
           filter: Sía

@@ -181,7 +181,7 @@ module Decidim
 
       content_tag(:div, class: "editor #{"hashtags__container" if options[:hashtaggable]}") do
         template = ""
-        template += label(name, options[:label].to_s || name) + required_for_attribute(name) if options[:label] != false
+        template += label(name, label_for(name) + required_for_attribute(name)) if options.fetch(:label, true)
         template += hidden_field(name, options)
         template += content_tag(:div, nil, class: "editor-container #{"js-hashtags" if options[:hashtaggable]}", data: {
                                   toolbar: options[:toolbar],
@@ -226,7 +226,7 @@ module Decidim
     #              If it's areas, we sort the selectable options alphabetically.
     #
     # Returns a String.
-    def areas_select(name, collection, options = {})
+    def areas_select(name, collection, options = {}, html_options = {})
       selectables = if collection.first.is_a?(Decidim::Area)
                       assemblies = collection
                                    .map { |a| [a.name[I18n.locale.to_s], a.id] }
@@ -247,7 +247,7 @@ module Decidim
                       )
                     end
 
-      select(name, selectables, options)
+      select(name, selectables, options, html_options)
     end
 
     # Public: Generates a select field for resource types.

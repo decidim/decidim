@@ -30,10 +30,12 @@ de:
             statement: Aussage
           edit:
             save: Speichern
-            title: Titel
           form:
             add_question: Frage hinzufügen
             already_answered_warning: Der Fragebogen wird bereits von einigen Benutzern beantwortet, sodass Sie die Fragen nicht ändern können.
+          matrix_row:
+            remove: Löschen
+            statement: Aussage
           question:
             add_answer_option: Antwortoption hinzufügen
             any: Irgendein
@@ -65,7 +67,6 @@ de:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Melden Sie sich mit Ihrem Konto an</a> oder <a href="%{sign_up_link}">Melden Sie sich an</a> , um den Fragebogen zu beantworten.
             title: Beantworten Sie den Fragebogen
-          are_you_sure: Diese Aktion kann nicht rückgängig gemacht werden und Sie können Ihre Antworten nicht bearbeiten. Bist du sicher?
           questionnaire_answered:
             body: Sie haben diesen Fragebogen bereits beantwortet.
             title: Schon beantwortet
@@ -75,8 +76,11 @@ de:
           questionnaire_for_private_users:
             body: Der Fragebogen ist nur für Privatanwender verfügbar
             title: Fragebogen geschlossen
-          submit: einreichen
           tos_agreement: Mit der Teilnahme stimmen Sie den Nutzungsbedingungen zu
+      step_navigation:
+        show:
+          are_you_sure: Diese Aktion kann nicht rückgängig gemacht werden und Sie können Ihre Antworten nicht bearbeiten. Bist du sicher?
+          submit: einreichen
       user_answers_serializer:
         created_at: Beantwortet am
         id: ID beantworten

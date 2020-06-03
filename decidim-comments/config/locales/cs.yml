@@ -4,8 +4,8 @@ cs:
       decidim/comments/comment_by_followed_user_event: Komentář
       decidim/comments/comment_created_event: Komentář
       decidim/comments/reply_created_event: Odpověď na komentář
-      decidim/comments/user_group_mentioned_event: Zmínit se
-      decidim/comments/user_mentioned_event: Zmínit se
+      decidim/comments/user_group_mentioned_event: Zmínka
+      decidim/comments/user_mentioned_event: Zmínka
   activerecord:
     models:
       decidim/comments/comment:
@@ -14,7 +14,7 @@ cs:
         many: Komentáře
         other: Komentáře
       decidim/comments/comment_vote:
-        one: Hlasování
+        one: Hlasovat
         few: Hlasy
         many: Hlasy
         other: Hlasy
@@ -25,40 +25,40 @@ cs:
         new_comment_at_html: "<span>Nový komentář v %{link}</span>"
       votes:
         create:
-          error: Při hlasování se vyskytly chyby.
+          error: Při hlasování o komentáři došlo k chybě.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Přihlaste se svým účtem</a> nebo <a href="%{sign_up_url}">přihlaste se</a> a přidejte svůj komentář.
+        account_message: <a href="%{sign_in_url}">Přihlaste se pomocí svého účtu</a> nebo se <a href="%{sign_up_url}">zaregistrujte</a> a přidejte svůj komentář.
         form:
           body:
             label: Komentář
             placeholder: Co si o tom myslíš?
           form_error: Text je povinný a nesmí být delší než %{length} znaků.
-          submit: Poslat
+          submit: Odeslat
           user_group_id:
             label: Komentovat jako
         opinion:
           neutral: Neutrální
         remaining_characters: "Zbývá %{count} znaků"
-        remaining_characters_1: "Zbývá %{count} znaků"
+        remaining_characters_1: "Zbývá %{count} znak"
         title: Přidejte svůj komentář
       comment:
         alignment:
           against: Proti
           in_favor: Ve prospěch
-        deleted_user: Vymazaný uživatel
+        deleted_user: Vymazaný účastník
         hide_replies: Skrýt odpovědi
         reply: Odpověď
         report:
           action: Zpráva
-          already_reported: Tento obsah je již nahlášen a bude kontrolován administrátorem.
+          already_reported: Tento obsah je již nahlášen a bude přezkoumán administrátorem.
           close: Zavřít
           description: Je tento obsah nevhodný?
           details: Další komentáře
           reasons:
             does_not_belong: Obsahuje nezákonnou činnost, sebevražedné hrozby, osobní informace nebo něco jiného, o kterém si myslíte, že nepatří na %{organization_name}.
             offensive: Obsahuje rasismus, sexismus, podvody, osobní útoky, hrozby smrti, žádosti o sebevraždu nebo jakoukoli formu projevy nenávisti.
-            spam: Obsahuje clickbait, reklama, podvody nebo skripty.
+            spam: Obsahuje clickbait, reklamu, podvody nebo škodlivé skripty.
           title: Nahlásit problém
         show_replies: Zobrazit %{replies_count} odpovědí
         single_comment_link_title: Získat odkaz na jeden komentář
@@ -67,13 +67,13 @@ cs:
           best_rated: Nejlépe hodnocené
           most_discussed: Nejdiskutovanější
           older: Starší
-          recent: Nedávno
+          recent: Nedávné
         title: 'Seřadit podle:'
       comment_thread:
         title: Konverzace s číslem %{authorName}
       comments:
-        blocked_comments_for_user_warning: V tuto chvíli nemůžete komentovat, ale můžete si přečíst předchozí.
-        blocked_comments_warning: Komentáře jsou v tuto chvíli zakázány, ale můžete si přečíst předchozí.
+        blocked_comments_for_user_warning: Momentálně nemůžete komentovat, ale můžete si přečíst ty předchozí.
+        blocked_comments_warning: Komentáře jsou momentálně zakázány, ale můžete si přečíst ty předchozí.
         comment_details_title: Podrobnosti komentáře
         loading: Načítání komentářů ...
         single_comment_warning: Můžete zkontrolovat zbytek komentářů <a href="%{url}">zde</a>.
@@ -87,6 +87,8 @@ cs:
           email_subject: K dispozici je nový komentář %{author_name} v %{resource_title}
           notification_title: K dispozici je nový komentář <a href="%{author_path}">%{author_name} %{author_nickname}</a> v <a href="%{resource_path}">%{resource_title}</a>.
         comment_by_followed_user_group:
+          email_intro: 'Skupina %{author_name} zanechala komentář v %{resource_title}. Můžete si jej přečíst na této stránce:'
+          email_outro: Obdrželi jste toto oznámení, protože sledujete %{author_name}. Můžete zrušit sledování této skupiny na její profilové stránce.
           email_subject: K dispozici je nový komentář %{author_name} v %{resource_title}
           notification_title: K dispozici je nový komentář <a href="%{author_path}">%{author_name} %{author_nickname}</a> v <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:

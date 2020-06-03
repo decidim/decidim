@@ -26,6 +26,8 @@ hu:
   decidim:
     admin:
       menu:
+        authorization_revocation:
+          button: Összes visszavonása
         authorization_workflows: Ellenőrzések
     admin_log:
       organization:

@@ -61,7 +61,7 @@ cs:
         gender: Rod
         position: Pozice
       assembly_user_role:
-        email: E-mailem
+        email: E-mail
         name: název
         role: Role
   activerecord:
@@ -107,6 +107,10 @@ cs:
         create:
           error: Při kopírování tohoto shromáždění došlo k chybě.
           success: Shromáždění úspěšně duplikováno.
+      assemblies_settings:
+        update:
+          error: Při aktualizaci nastavení došlo k chybě.
+          success: Nastavení bylo úspěšně aktualizováno.
       assemblies_types:
         create:
           error: Při vytváření nového typu shromáždění došlo k chybě.
@@ -167,6 +171,7 @@ cs:
           success: Administrátor úspěšně aktualizován pro toto shromáždění.
       menu:
         assemblies: Sestavy
+        assemblies_settings: Nastavení
         assemblies_submenu:
           assembly_admins: Administrátoři shromáždění
           assembly_members: Členové
@@ -182,11 +187,11 @@ cs:
       models:
         assemblies_types:
           fields:
-            created_at: Vytvořeno u
+            created_at: Vytvořeno v
             title: Titul
         assembly:
           fields:
-            created_at: Vytvořeno u
+            created_at: Vytvořeno v
             private: Soukromé
             promoted: Zvýrazněno
             published: Publikováno
@@ -206,7 +211,7 @@ cs:
             vice_president: Víceprezident
         assembly_user_role:
           fields:
-            email: E-mailem
+            email: E-mail
             name: název
             role: Role
           name: Administrátor shromáždění
@@ -228,6 +233,8 @@ cs:
         create: "%{user_name} vytvořil %{resource_name} člena ve shromáždění %{space_name}"
         delete: "%{user_name} odstranil %{resource_name} člena ze shromáždění %{space_name}"
         update: "%{user_name} aktualizoval %{resource_name} člena v shromáždění %{space_name}"
+      assembly_setting:
+        update: "%{user_name} aktualizoval nastavení Shromáždění"
       assembly_type:
         create: "%{user_name} vytvořil typ shromáždění %{resource_name}"
         delete: "%{user_name} odstranil člena %{resource_name} z typu shromáždění %{space_name}"
@@ -249,7 +256,7 @@ cs:
             included_at_help: Vyberte datum, kdy bylo toto shromáždění přidáno do aplikace Decidim. Nemusí to být nutně stejné jako datum vytvoření.
             metadata: Metadata
             other: jiný
-            select_a_created_by: Vyberte vytvořenou službu
+            select_a_created_by: Vybrat vytvořeno od
             select_an_area: Vyberte oblast
             select_an_assembly_type: Vyberte typ shromáždění
             select_parent_assembly: Vybrat nadřazené shromáždění
@@ -257,6 +264,11 @@ cs:
             social_handlers: Sociální
             title: Obecná informace
             visbility: Viditelnost
+        assemblies_settings:
+          edit:
+            update: Aktualizovat
+          form:
+            title: Nastavení pro Shromáždění
         assemblies_types:
           form:
             title: Titul
@@ -287,7 +299,7 @@ cs:
         commission: Komise
         consultative_advisory: Konzultační / poradní
         executive: Výkonný
-        government: Vláda
+        government: Vládní
         others: Ostatní
         participatory: Účast
         working_group: Pracovní skupina
@@ -303,47 +315,47 @@ cs:
         commission: Komise
         consultative_advisory: Poradní / poradní
         executive: Výkonný
-        government: Vláda
-        help: 'Show:'
+        government: Vládní
+        help: 'Zobrazit:'
         others: Ostatní
-        participatory: Účastní se
+        participatory: Účastník
         working_group: Pracovní skupina
       index:
-        title: Sestavy
+        title: Shromáždění
       last_activity:
         new_assembly: Nové shromáždění
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktivní sestavy
+            active_assemblies: Aktivní shromáždění
             assemblies_button_title: Odkaz na stránku Shromáždění zobrazující všechna shromáždění
-            see_all_assemblies: Podívejte se na všechny sestavy
+            see_all_assemblies: Zobrazit všechny shromáždění
         user_profile:
           member_of:
             member_of: Člen
       show:
-        area: Plocha
+        area: Oblast
         assembly_type: Typ shromáždění
-        children: Sestavy
+        children: Shromáždění
         closing_date: Uzávěrka
         composition: Složení
         created_by: Vytvořil
         creation_date: Datum vytvoření
-        developer_group: Skupina promotérů
+        developer_group: Skupina propagátorů
         duration: Doba trvání
-        included_at: Zahrnuty v
-        indefinite_duration: Neurčitý
+        included_at: Zahrnuto v
+        indefinite_duration: Neurčité
         internal_organisation: Interní organizace
         is_transparent:
           'false': neprůhledný
-          'true': průhledný
+          'true': transparentní
         local_area: Oblast organizace
         participatory_scope: Co se rozhodlo
-        participatory_structure: Jak se to rozhoduje
+        participatory_structure: Jak se o tom rozhoduje
         private_space: Toto je soukromé shromáždění
         purpose_of_action: Účel akce
         read_less: Číst méně
-        read_more: Přečtěte si více
+        read_more: Číst více
         related_participatory_processes: Související procesy participace
         scope: Rozsah
         social_networks: Sociální sítě
@@ -351,7 +363,7 @@ cs:
         target: Kdo se účastní
       statistics:
         answers_count: Odpovědi
-        assemblies_count: Sestavy
+        assemblies_count: Shromáždění
         comments_count: Komentáře
         debates_count: Debaty
         endorsements_count: Schválení
@@ -362,7 +374,7 @@ cs:
         posts_count: Příspěvky
         projects_count: Projekty
         proposals_count: Návrhy
-        results_count: Výsledek
+        results_count: Výsledky
         surveys_count: Průzkumy
         users_count: Účastníci
         votes_count: Hlasy
@@ -377,6 +389,12 @@ cs:
           highlighted_conferences:
             conferences_button_title: Odkaz na stránku Konference zobrazující všechny konference
     events:
+      assemblies:
+        create_assembly_member:
+          email_intro: Administrátor shromáždění <a href="%{resource_url}">%{resource_name}</a> vás přidal jako jednoho z jeho členů.
+          email_outro: Obdrželi jste toto oznámení, protože jste byli pozváni do shromáždění. Podívejte se na <a href="%{resource_path}">stránku shromáždění</a> a přispějte!
+          email_subject: Byli jste pozváni k členství ve shromáždění %{resource_name}!
+          notification_title: Byli jste zaregistrováni jako člen shromáždění <a href="%{resource_path}">%{resource_name}</a>. Podívejte se na <a href="%{resource_path}">stránku shromáždění</a> a přispějte!
       assembly:
         role_assigned:
           email_intro: Byl jste označen jako %{role} pro shromáždění "%{resource_title}".
@@ -386,8 +404,8 @@ cs:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>Shromáždění je skupina členů organizace, která se pravidelně setkává s rozhodováním o konkrétní oblasti nebo rozsahu organizace.</p> <p>Skupiny se scházejí, některé jsou soukromé a některé jsou otevřené. Pokud jsou otevřené, je možné se na nich podílet (například: účast, pokud to dovolí, přidání bodů do pořadu jednání nebo připomínky k návrhům a rozhodnutím tohoto orgánu).</p> <p>Příklady: Valné shromáždění (které se schází jednou ročně k definování hlavních směrů organizace a jejích výkonných orgánů hlasováním), poradní rada pro rovné postavení (která se každých dva měsíce schází, aby předložila návrhy na zlepšení genderových vztahů v organizaci) se jedná o příklady shromáždění hodnotící komise (která se schází každý měsíc ke sledování procesu) nebo záruční orgán (který shromažďuje případy, zneužívání nebo návrhy na zlepšení rozhodovacích postupů).</p>\n"
-          page: "<p>Shromáždění je skupina členů organizace, která se pravidelně setkává s rozhodováním o konkrétní oblasti nebo rozsahu organizace.</p> <p>Sbory se scházejí, některé jsou soukromé a některé jsou otevřené. Pokud jsou otevřené, je možné se na nich podílet (například: účast, pokud to dovolí, přidání bodů do pořadu jednání nebo připomínky k návrhům a rozhodnutím tohoto orgánu).</p> <p>Příklady: Valné shromáždění (které se schází jednou ročně k definování hlavních směrů organizace a jejích výkonných orgánů hlasováním), poradní rada pro rovné postavení (která se každých dva měsíce schází, aby předložila návrhy na zlepšení genderových vztahů v organizaci) se jedná o příklady shromáždění hodnotící komise (která se schází každý měsíc ke sledování procesu) nebo záruční orgán (který shromažďuje případy, zneužívání nebo návrhy na zlepšení rozhodovacích postupů).</p>\n"
+          contextual: "<p>Shromáždění je skupina členů organizace, která se pravidelně setkává nad rozhodováním o konkrétní oblasti nebo rozsahu organizace.</p> <p>Skupiny se scházejí, některé jsou soukromé a některé jsou otevřené. Pokud jsou otevřené, je možné se na nich podílet (například: účast, pokud to dovolí, přidání bodů do pořadu jednání nebo připomínky k návrhům a rozhodnutím tohoto orgánu).</p> <p>Příklady:Valné shromáždění(které se schází jednou ročně k  definování hlavních směrů organizace a jejích výkonných orgánů hlasováním), poradní rada pro rovné postavení (která se každých dva měsíce schází, aby předložila návrhy na zlepšení genderových vztahů v organizaci) se jedná o příklady shromáždění hodnotící komise (která se schází každý měsíc ke sledování procesu) nebo záruční orgán (který shromažďuje případy, zneužívání nebo návrhy na zlepšení rozhodovacích postupů).</p>\n"
+          page: "<p>Shromáždění je skupina členů organizace, která se pravidelně setkává nad rozhodováním o konkrétní oblasti nebo rozsahu organizace.</p> <p>Sbory se scházejí, některé jsou soukromé a některé jsou otevřené. Pokud jsou otevřené, je možné se na nich podílet (například: účast, pokud to dovolí, přidání bodů do pořadu jednání nebo připomínky k návrhům a rozhodnutím tohoto orgánu).</p> <p>Příklady: Valné shromáždění (které se schází jednou ročně k definování hlavních směrů organizace a jejích výkonných orgánů hlasováním), poradní rada pro rovné postavení (která se každých dva měsíce schází, aby předložila návrhy na zlepšení genderových vztahů v organizaci) se jedná o příklady shromáždění hodnotící komise (která se schází každý měsíc ke sledování procesu) nebo záruční orgán (který shromažďuje případy, zneužívání nebo návrhy na zlepšení rozhodovacích postupů).</p>\n"
           title: Co jsou shromáždění?
     log:
       value_types:
@@ -396,12 +414,12 @@ cs:
         assembly_type_presenter:
           not_found: 'Typ shromáždění nebyl v databázi nalezen (ID: %{id})'
     menu:
-      assemblies: Sestavy
+      assemblies: Shromáždění
     metrics:
       assemblies:
-        description: Počet sestav vytvořených
-        object: sestav
-        title: Sestavy
+        description: Počet vytvořených shromáždění
+        object: shromáždění
+        title: Shromáždění
     pages:
       home:
         hero:
@@ -425,14 +443,14 @@ cs:
         index:
           children: 'Shromáždění: '
           organizational_chart: Organizační schéma
-          promoted_assemblies: Zvýrazněné sestavy
+          promoted_assemblies: Zvýrazněná shromáždění
           reset_chart: Resetovat
         order_by_assemblies:
           assemblies:
             one: "%{count} sestav"
             few: "%{count} sestav"
             many: "%{count} sestav"
-            other: "%{count} sestav"
+            other: "%{count} shromáždění"
         promoted_assembly:
           more_info: Více informací
           take_part: Zúčastnit se

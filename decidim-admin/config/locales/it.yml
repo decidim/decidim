@@ -155,7 +155,7 @@ it:
         actions:
           accept: Accetto i termini di amministrazione
           are_you_sure: Sei sicuro di voler rifiutare i termini di amministrazione?
-          refuse: Rifiutare i termini di amministrazione
+          refuse: Rifiuta i termini di amministrazione
           title: Accetta i termini e le condizioni di utilizzo
         required_review:
           alert: 'Richiesto: Rivedi i nostri termini di utilizzo da amministratore'
@@ -300,7 +300,7 @@ it:
         officialized_at_null:
           label: Stato
           values:
-            'false': ufficializzato
+            'false': Ufficializzato
             'true': Non ufficializzato
         private_space_eq:
           label: Privato
@@ -350,23 +350,23 @@ it:
         form:
           authorization_method: Metodo di autorizzazione
           name: Nome
-          reason: Ragionare
+          reason: Ragione
         new:
           impersonate: Impersonare
-          impersonate_existing_managed_user: Impersonare l'utente gestito "%{name}"
-          impersonate_existing_user: Impersonare l'utente "%{name}"
-          impersonate_new_managed_user: Impersonare il nuovo utente gestito
+          impersonate_existing_managed_user: Gestisci partecipante %{name}"
+          impersonate_existing_user: Gestisci partecipante %{name}"
+          impersonate_new_managed_user: Gestisci nuovo partecipante
       logs:
         logs_list:
           no_logs_yet: Non ci sono ancora i log
       managed_users:
         promotion:
-          error: Si è verificato un errore che ha promosso l'utente gestito.
-          success: L'utente gestito è stato promosso con successo.
+          error: Si è verificato un problema nella promozione del partecipante gestito.
+          success: Il partecipante gestito è stato promosso con successo.
         promotions:
           new:
-            explanation: Gli utenti gestiti possono essere promossi agli utenti standard. Significa che saranno invitati all'applicazione e non sarete in grado di repersonarli nuovamente. L'utente invitato riceverà un'email per accettare l'invito.
-            new_managed_user_promotion: Nuova promozione degli utenti gestiti
+            explanation: I partecipanti gestiti possono essere promossi a partecipanti standard. Significa che saranno invitati ad effettuare la richiesta e non sarai in grado di gestirli di nuovo. Il partecipante invitato riceverà un'email per accettare il tuo invito.
+            new_managed_user_promotion: Nuova promozione di partecipanti gestiti
             promote: Promuovere
       menu:
         admin_log: Registro delle attività di amministrazione
@@ -376,18 +376,21 @@ it:
         areas: Ambiti territoriali
         configuration: Configurazione
         dashboard: Cruscotto (Dashboard)
-        help_sections: Aiuto sezioni
+        help_sections: Sezioni di Aiuto
         homepage: Homepage
-        impersonations: impersonations
+        impersonations: Impersonificazioni
         newsletters: Newsletters
         oauth_applications: Applicazioni OAuth
-        participants: I partecipanti
+        participants: Partecipanti
         scope_types: Tipi di ambito
         scopes: Ambito tematico
         settings: Impostazioni
         static_pages: Pagine
-        user_groups: Gruppi di utenti
+        user_groups: Gruppi
         users: Utenti
+      metrics:
+        metrics:
+          see_more_metrics: Visualizza Ulteriori Dettagli
       models:
         area:
           fields:
@@ -411,30 +414,30 @@ it:
         impersonation_log:
           fields:
             admin: Amministratore
-            ended_at: Terminato a
-            expired_at: Scaduto a
+            ended_at: Terminato il
+            expired_at: Scaduto il
             reason: Ragionare
-            started_at: Ha iniziato a
+            started_at: Iniziato il
             user: Utente
         newsletter:
           fields:
             created_at: Creato il
             progress: Avanzamento
             sent_at: Inviato alle
-            sent_to: Inviato
+            sent_to: Inviato a
             subject: Oggetto
-          name: notiziario
+          name: Newsletter
         oauth_application:
           fields:
-            created_at: Creato a
+            created_at: Creato il
             name: Nome
           name: Applicazione OAuth
         participatory_space_private_user:
-          name: Utente privato dello spazio partecipativo
+          name: Partecipante privato allo spazio partecipativo
         scope:
           fields:
             name: Nome
-            scope_type: Tipo di campo
+            scope_type: Tipo di ambito tematico
         scope_type:
           fields:
             name: Nome
@@ -452,7 +455,7 @@ it:
             role: Ruolo
             roles:
               admin: Amministratore
-              user_manager: Gestore utente
+              user_manager: Responsabile del partecipante
           name: Utente
         user_group:
           fields:
@@ -462,7 +465,7 @@ it:
             name: Nome
             phone: Telefono
             state: Stato
-            users_count: Conteggio degli utenti
+            users_count: Conteggio dei partecipanti
       moderations:
         index:
           title: Moderazione
@@ -474,6 +477,11 @@ it:
       newsletter_templates:
         index:
           preview_template: Anteprima
+          title: Modelli Newsletter
+          use_template: Utilizza questo Modello
+        show:
+          preview: 'Anteprima Modello: %{template_name}'
+          use_template: Utilizza questo Modello
       newsletters:
         create:
           error: Si è verificato un errore durante la creazione di questa newsletter.
@@ -498,7 +506,7 @@ it:
           not_sent: Non inviato
           participants: 'partecipanti '
           segmented_to: 'Segmentato a %{subject}: '
-          subscribed_count: 'Sottoscritti:'
+          subscribed_count: 'Sottoscrittori:'
           title: Newsletters
         new:
           save: Salva
@@ -564,12 +572,20 @@ it:
           officialize: ufficializzare
           officialized: ufficializzato
           reofficialize: Reofficialize
+          show_email: Mostra indirizzo email
           status: Stato
           unofficialize: Unofficialize
         new:
           badge: Distintivo di ufficializzazione
           officialize: ufficializzare
           title: Utente ufficiale "%{name}"
+        show_email_modal:
+          description: Se hai bisogno di contattare un utente direttamente puoi fare clic sul pulsante Mostra per vedere l'indirizzo email. Questa azione verrà registrata.
+          email_address: Indirizzo email
+          full_name: Nome Completo
+          hidden: nascosto
+          show: Mostra
+          title: Mostra l'indirizzo email dell'utente
       organization:
         edit:
           title: Modifica l'organizzazione
@@ -590,13 +606,16 @@ it:
         edit:
           update: Modifica
         form:
-          colors_title: Colori dell'organizzazione
+          colors:
+            colors_title: Colori dell'organizzazione
+            header_snippets_help: Utilizza questo campo per aggiungere le cose alla testa HTML. L'uso più comune è quello di integrare i servizi di terze parti che richiedono JavaScript o CSS extra. Inoltre, è possibile utilizzarlo per aggiungere meta tag extra all'HTML. Tieni presente che questo sarà reso solo nelle pagine pubbliche, non nella sezione admin.
           cta_button_path_help: 'Puoi sovrascrivere dove il pulsante Call To Action nella home page è collegato. Utilizza i percorsi parziali e non gli URL completi qui. Accetta lettere, numeri, trattini e barre, e deve iniziare con una lettera. Il pulsante Chiamata all''azione è mostrato nella homepage tra il testo di benvenuto e la descrizione. Esempio: %{url}'
           cta_button_text_help: Puoi sovrascrivere il testo del pulsante Chiamata all'azione nella home page per ogni lingua disponibile nell'organizzazione. Se non è impostato, verrà utilizzato il valore predefinito. Il pulsante Chiamata all'azione è mostrato nella homepage tra il testo di benvenuto e la descrizione.
-          header_snippets_help: Utilizza questo campo per aggiungere le cose alla testa HTML. L'uso più comune è quello di integrare i servizi di terze parti che richiedono JavaScript o CSS extra. Inoltre, è possibile utilizzarlo per aggiungere meta tag extra all'HTML. Tieni presente che questo sarà reso solo nelle pagine pubbliche, non nella sezione admin.
           homepage_appearance_title: Modifica l'aspetto della home page
           homepage_highlighted_content_banner_title: Banner con contenuti Highligted
-          layout_appearance_title: Modifica aspetto del layout
+          images:
+            layout_appearance_title: Modifica aspetto del layout
+            preview: Anteprima
           omnipresent_banner_appearance_title: Modifica banner onnipresente
       organization_homepage:
         edit:
@@ -663,6 +682,11 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento di questo àmbito.
           success: OK, l'àmbito è stato aggiornato.
+      shared:
+        gallery:
+          add_images: Aggiungi immagini
+          delete_image: Cancella immagine
+          gallery_legend: Aggiungi una galleria di immagini (opzionale)
       static_page_topics:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo argomento.
@@ -714,10 +738,12 @@ it:
         dashboard: Cruscotto (Dashboard)
         impersonatable_users: Utenti gestibili
         impersonations: Gestione degli utenti
+        metrics: Metriche
         participants: utenti
         scope_types: Tipi di ambito
         scopes: Ambiti
         static_pages: Pagine
+        statistics: Attività
         user_groups: Gruppi di utenti
         users: Utenti
       user_group:
@@ -766,6 +792,10 @@ it:
       users_statistics:
         users_count:
           admins: Amministratori
+          last_day: Ultimo giorno
+          last_month: Mese precedente
+          last_week: Settimana precedente
+          no_users_count_statistics_yet: Non ci sono ancora statistiche per utenti
           participants: I partecipanti
       view_public_page: Visualizza la pagina pubblica
     forms:

@@ -28,6 +28,7 @@ ca:
       initiatives_type:
         banner_image: Imatge del bàner
         collect_user_extra_fields: Recopilar les dades personals de la participant amb la signatura
+        custom_signature_end_date_enabled: Permet als autors triar la fi del període de recollida de signatures
         description: Descripció
         document_number_authorization_handler: Autorització per verificar el número de document en les signatures
         extra_fields_legal_information: Informació legal sobre la recollida de dades personals
@@ -46,6 +47,14 @@ ca:
         address: Adreça
         id_document: Document d'identitat
         name: Nom complet
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: Aquest arxiu és invàlid
+              needs_to_be_reattached: És necessari tornar a adjuntar l'arxiu
+              title: El títol no pot quedar buit
   activerecord:
     models:
       decidim/initiative:
@@ -62,14 +71,14 @@ ca:
       actions:
         new_initiative_type: Nou tipus d'iniciativa
       filters:
-        search_placeholder:
-          title_or_description_cont: Cerca %{collection} per títol o descripció.
         state_eq:
           values:
             created: Creada
             discarded: Rebutjada
             published: Publicada
             validating: Validació tècnica
+        type_id_eq:
+          label: Tipus
       menu:
         initiatives: Iniciatives
         initiatives_types: Tipus d'iniciatives
@@ -187,6 +196,11 @@ ca:
             actions_title: Acció
             preview: Vista prèvia
             print: Imprimir
+          initiative_attachments:
+            documents: Documents
+            edit: Edita
+            new: Nou
+            photos: Fotografies
           show:
             print: Imprimir
           update:
@@ -238,12 +252,14 @@ ca:
           unpublish: "%{user_name} ha descartat la iniciativa %{resource_name}"
           update: "%{user_name} ha actualitzat la iniciativa %{resource_name}"
       admin_states:
-        accepted: Acceptada
         created: Creada
         discarded: Rebutjada
         published: Publicada
-        rejected: Rebutjada
         validating: Validació tècnica
+      application_helper:
+        filter_state_values:
+          closed: Tancat
+          open: Obertes
       committee_requests:
         new:
           continue: Continua
@@ -351,13 +367,10 @@ ca:
         filters:
           any: Qualsevol
           author: Autora
-          closed: Tancat
           myself: Les meves iniciatives
-          open: Obertes
           search: Cerca
           state: Estat
           type: Tipus
-          type_prompt: Selecciona un tipus
         filters_small_view:
           close_modal: Tanca la finestra
           filter: Filtra

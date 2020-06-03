@@ -37,7 +37,7 @@ cs:
         confirm_destroy: Opravdu chcete smazat tento %{name}?
         destroy: Odstranit
         edit: Upravit
-        new: Nové %{name}
+        new: Nová %{name}
         preview: Náhled
         timeline_entries: Vývoj projektu
         title: Akce
