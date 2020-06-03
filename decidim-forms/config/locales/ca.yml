@@ -32,15 +32,21 @@ ca:
             statement: Declaració
           edit:
             save: Desa
-            title: Títol
           form:
             add_question: Afegeix una pregunta
             already_answered_warning: No pots modificar les preguntes d'aquest formulari perquè ja ha estat contestat per algunes participants.
+            collapse: Redueix totes les preguntes
+            expand: Expandeix totes les preguntes
+          matrix_row:
+            remove: Elimina
+            statement: Declaració
           question:
             add_answer_option: Afegeix una opció de resposta
             any: Cap
+            collapse: Redueix
             description: Descripció
             down: Avall
+            expand: Expandeix
             question: Pregunta
             remove: Eliminar
             statement: Declaració
@@ -67,7 +73,6 @@ ca:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Inicia sessió amb el teu compte</a> o <a href="%{sign_up_link}">registra't</a> per respondre el formulari.
             title: Respon el formulari
-          are_you_sure: Aquesta acció no es pot desfer i no podràs editar les teves respostes. Estàs segura?
           questionnaire_answered:
             body: Ja has respost a aquest formulari.
             title: Ja has respost
@@ -77,8 +82,11 @@ ca:
           questionnaire_for_private_users:
             body: El formulari només està disponible per a participants privades
             title: S'ha tancat el formulari
-          submit: Enviar respostes
           tos_agreement: En participar acceptes els Termes i condicions d'ús
+      step_navigation:
+        show:
+          are_you_sure: Aquesta acció no es pot desfer i no podràs editar les teves respostes. Estàs segura?
+          submit: Enviar respostes
       user_answers_serializer:
         created_at: Respost el
         id: Identificador de resposta

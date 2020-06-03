@@ -237,7 +237,7 @@ module Decidim
     #              If it's areas, we sort the selectable options alphabetically.
     #
     # Returns a String.
-    def areas_select(name, collection, options = {})
+    def areas_select(name, collection, options = {}, html_options = {})
       selectables = if collection.first.is_a?(Decidim::Area)
                       assemblies = collection
                                    .map { |a| [a.name[I18n.locale.to_s], a.id] }
@@ -258,7 +258,7 @@ module Decidim
                       )
                     end
 
-      select(name, selectables, options)
+      select(name, selectables, options, html_options)
     end
 
     # Public: Generates a select field for resource types.

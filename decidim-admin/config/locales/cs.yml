@@ -30,7 +30,7 @@ cs:
         body: Tělo
         subject: Předmět
       oauth_application:
-        name: název
+        name: Název
         organization_logo: Logo organizace (čtverec)
         organization_name: Název organizace
         organization_url: URL organizace
@@ -143,7 +143,7 @@ cs:
         browse: Procházet
         export: Exportovat
         manage: Spravovat
-        new: Nový %{name}
+        new: Nová %{name}
         per_page: Na stránku
         permissions: Oprávnění
         reject: Odmítnout
@@ -380,7 +380,7 @@ cs:
         homepage: Domovská stránka
         impersonations: Vydávání se za uživatele
         newsletters: Zpravodaje
-        oauth_applications: Aplikace OAuth
+        oauth_applications: Žádosti OAuth
         participants: Účastníci
         scope_types: Typy rozsahu
         scopes: Rozsahy
@@ -431,7 +431,7 @@ cs:
           fields:
             created_at: Vytvořeno v
             name: Jméno
-          name: Aplikace OAuth
+          name: Žádost OAuth
         participatory_space_private_user:
           name: Účastnický prostor soukromého účastníka
         scope:
@@ -484,13 +484,13 @@ cs:
           use_template: Použít tuto šablonu
       newsletters:
         create:
-          error: Při vytváření tohoto zpraodaje došlo k chybě.
+          error: Při vytváření tohoto zpravodaje došlo k chybě.
           success: Zpravodaj byl úspěšně vytvořen. Před odesláním si jej zkontrolujte.
         deliver:
           error: Došlo k chybě při zasílání tohoto zpravodaje.
           success: Zpravodaj byl úspěšně doručen.
         destroy:
-          error_already_sent: 'Nelze zničit informační zpravodaj: Už byl odeslán.'
+          error_already_sent: 'Nelze zničit zpravodaj: Už byl odeslán.'
           success: Zpravodaj byl úspěšně zlikvidován.
         edit:
           save_and_preview: Uložit a zobrazit náhled
@@ -510,17 +510,17 @@ cs:
           title: Zpravodaje
         new:
           save: Uložit
-          title: Nový informační bulletin
+          title: Nový zpravodaj
         select_recipients_to_deliver:
           all_spaces: Vše
-          all_users_help: Poslat newsletter všem potvrzeným uživatelům.
-          confirm_deliver: Opravdu chcete tento newsletter doručit? Tuto akci nelze vrátit zpět.
-          deliver: Doručte informační bulletin
-          followers_help: Poslat zpravodaj všem potvrzeným uživatelům, kteří sledují všechny vybrané participační prostory v seznamu.
+          all_users_help: Poslat Zpravodaj všem potvrzeným uživatelům.
+          confirm_deliver: Opravdu chcete tento zpravodaj doručit? Tuto akci nelze vrátit zpět.
+          deliver: Doručit zpravodaj
+          followers_help: Odešle zpravodaj všem potvrzeným uživatelům, kteří sledují všechny vybrané participační prostory v seznamu.
           none: Žádný
-          participants_help: Odešle newsletter všem potvrzeným uživatelům, kteří se zúčastnili některého z vybraných participačních prostorů v seznamu.
-          recipients_count: Tento newsletter bude odeslán <strong id='recipients_count'>%{count}</strong> uživatelům.
-          scopes_help: Odešle newsletter uživatelům, kteří mají některý z vybraných rozsahů aktivovaný v nastavení svého účtu "Moje zájmy".
+          participants_help: Odešle zpravodaj všem potvrzeným uživatelům, kteří se zúčastnili některého z vybraných participačních prostorů v seznamu.
+          recipients_count: Tento zpravodaj bude odeslán <strong id='recipients_count'>%{count}</strong> uživatelům.
+          scopes_help: Odešle zpravodaj uživatelům, kteří mají některý z vybraných rozsahů aktivovaný v nastavení svého účtu "Moje zájmy".
           select_scopes: Filtrovat uživatele, kteří aktivovali jakýkoli vybraný rozsah v nastavení jejich účtu Moje Zájmy.
           select_spaces: Vybrat mezery pro rozdělení zpravodaje
           select_users: Vybrat, kterým uživatelům chcete poslat zpravodaj
@@ -536,32 +536,32 @@ cs:
           select_recipients_to_deliver: Vybrat příjemce k doručení
           subject: Předmět
         update:
-          error: Při aktualizaci tohoto bulletinu došlo k chybě.
-          success: Newsletter byl úspěšně aktualizován. Před odesláním si je přečtěte.
+          error: Při aktualizaci tohoto zpravodaje došlo k chybě.
+          success: Zpravodaj byl úspěšně aktualizován. Před odesláním jej prosím zkontrolujte.
       oauth_applications:
         create:
-          error: Při vytváření této aplikace došlo k chybě.
-          success: Aplikace byla úspěšně vytvořena.
+          error: Při vytváření této žádosti došlo k chybě.
+          success: Žádost byla úspěšně vytvořena.
         destroy:
-          error: Došlo k chybě při zničení této aplikace.
-          success: Aplikace byla úspěšně zlikvidována.
+          error: Došlo k chybě při zničení této žádosti.
+          success: Žádost byla úspěšně zlikvidována.
         edit:
           save: Uložit
-          title: Upravit aplikaci
+          title: Upravit žádost
         index:
-          confirm_delete: Opravdu chcete tuto aplikaci smazat?
-          title: Aplikace OAuth
+          confirm_delete: Opravdu chcete tuto žádost smazat?
+          title: Žádosti OAuth
         new:
           save: Uložit
           title: Nová aplikace
         update:
           error: Při aktualizaci této aplikace došlo k chybě.
-          success: Aplikace byla úspěšně aktualizována.
+          success: Žádost byla úspěšně aktualizována.
       officializations:
         create:
           success: Uživatel úspěšně oficializován
         destroy:
-          success: Uživatel neoficiálně úspěšně
+          success: Uživatel úspěšně zbaven oficializace
         index:
           actions: Akce
           badge: Odznak
@@ -574,9 +574,9 @@ cs:
           reofficialize: Reofficialize
           show_email: Zobrazit e-mailovou adresu
           status: Postavení
-          unofficialize: Neoficiálně
+          unofficialize: Odebrat oficializaci
         new:
-          badge: Oficiální odznak
+          badge: Oficializační odznak
           officialize: Úředně
           title: Oficializovat uživatele "%{name}"
         show_email_modal:
@@ -606,13 +606,16 @@ cs:
         edit:
           update: Aktualizace
         form:
-          colors_title: Organizační barvy
+          colors:
+            colors_title: Organizační barvy
+            header_snippets_help: Toto pole použijte k přidání věcí do hlavičky HTML. Nejběžnějším používáním je integrace služeb třetích stran, které vyžadují nějaký extra JavaScript nebo CSS. Můžete také použít k přidání dalších metaznaček do HTML. Všimněte si, že to bude vykresleno pouze na veřejných stránkách, nikoliv v sekci admin.
           cta_button_path_help: 'Můžete přepisovat, kde se na domovské stránce odkazuje tlačítko Volat na akci. Použijte zde částečné cesty, ne úplné adresy URL. Přijme písmena, čísla, pomlčky a lomítka a musí začínat písmenem. Tlačítko Volat na akci se na domovské stránce zobrazí mezi vítaným textem a popisem. Příklad: %{url}'
           cta_button_text_help: Přepínání textu tlačítka volání na akci můžete na domovské stránce přepisovat pro každý dostupný jazyk ve vaší organizaci. Pokud není nastavena, bude použita výchozí hodnota. Tlačítko Volat na akci se na domovské stránce zobrazí mezi vítaným textem a popisem.
-          header_snippets_help: Toto pole použijte k přidání věcí do hlavičky HTML. Nejběžnějším používáním je integrace služeb třetích stran, které vyžadují nějaký extra JavaScript nebo CSS. Můžete také použít k přidání dalších metaznaček do HTML. Všimněte si, že to bude vykresleno pouze na veřejných stránkách, nikoliv v sekci admin.
           homepage_appearance_title: Upravit vzhled stránky
           homepage_highlighted_content_banner_title: Vysoce kvalitní banner obsahu
-          layout_appearance_title: Upravit vzhled vzhledu
+          images:
+            layout_appearance_title: Upravit vzhled vzhledu
+            preview: Náhled
           omnipresent_banner_appearance_title: Upravte všudypřítomný banner
       organization_homepage:
         edit:
@@ -623,7 +626,7 @@ cs:
           update: Aktualizace
       participatory_space_private_users:
         create:
-          error: Došlo k chybě přidání soukromého uživatele pro tento prostor pro účast.
+          error: Při přidávání soukromého uživatele pro tento participační prostor došlo k chybě.
           success: Úspěšně byl úspěšně vytvořen soukromý uživatelský přístup.
         destroy:
           error: Při odstraňování soukromého uživatele tohoto participačního prostoru došlo k chybě.
@@ -633,7 +636,7 @@ cs:
           title: Účastní prostor soukromý uživatel
         new:
           create: Vytvořit
-          title: Nový účastník soukromého prostoru.
+          title: Nový účastnický prostor soukromého účastníka.
       participatory_space_private_users_csv_imports:
         create:
           invalid: Při čtení souboru CSV došlo k chybě.
@@ -658,7 +661,7 @@ cs:
           title: Upravit typ pole
           update: Aktualizace
         new:
-          create: Vytvořte typ pole
+          create: Vytvořit typ rozsahu
           title: Nový rozsah
         update:
           error: Při aktualizaci tohoto typu pole došlo k chybě.
@@ -740,6 +743,7 @@ cs:
         scope_types: Typy rozsahu
         scopes: Rozsahy
         static_pages: Stránky
+        statistics: Aktivita
         user_groups: Skupiny
         users: Účastníci
       user_group:
@@ -788,6 +792,10 @@ cs:
       users_statistics:
         users_count:
           admins: Administrátoři
+          last_day: Poslední den
+          last_month: Minulý měsíc
+          last_week: Minulý týden
+          no_users_count_statistics_yet: Zatím nejsou žádné statistiky počtu uživatelů
           participants: Účastníci
       view_public_page: Zobrazit veřejnou stránku
     forms:
@@ -829,7 +837,7 @@ cs:
     decidim:
       admin:
         newsletters:
-          title: Zprávy
+          title: Zpravodaje
         settings:
           title: Nastavení
         users:

@@ -83,6 +83,8 @@ hu:
           email_subject: '%{author_name} új megjegyzése itt: %{resource_title}'
           notification_title: 'Új megjegyzés: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a>.'
         comment_by_followed_user_group:
+          email_intro: 'A csoport %{author_name} megjegyzést hagyott itt: %{resource_title}. Ezen az oldalon megtalálod:'
+          email_outro: 'Ezt az értesítést azért kaptad, mert követed: "%{author_name}". Leiratkozáshoz látogasd meg ezt a csoportod a profiloldaláról.'
           email_subject: '%{author_name} új megjegyzése itt: %{resource_title}'
           notification_title: 'Új megjegyzés: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a>.'
         comment_created:

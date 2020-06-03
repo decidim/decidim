@@ -388,6 +388,9 @@ sk:
         static_pages: Stránky
         user_groups: Skupiny
         users: Účastníci
+      metrics:
+        metrics:
+          see_more_metrics: Zobraziť viac metrík
       models:
         area:
           fields:
@@ -603,13 +606,15 @@ sk:
         edit:
           update: Aktualizovať
         form:
-          colors_title: Farby organizácie
+          colors:
+            colors_title: Farby organizácie
+            header_snippets_help: Použite pole pre pridanie vecí do HTML hlavičky. Najbežnejšie využitie je integrácia služieb tretích strán, JavaScriptu a CSS. Tiež môžete pridať ďalšie meta tagy. Tieto veci sa zobrazia iba na verejných stránkach, nie administrátorskej.
           cta_button_path_help: 'Môžete prepísať, kam tlačidlo Výzva do Akcie na úvodnej stránke odkazuje. Používajte relatívne adresy, nie celé URL. Akceptuje písmená, čísla, pomlčky a lomky, ale musí začínať písmenom. Tlačidlo Výzva do Akcie sa zobrazuje na úvodnej strane medzi úvodným textom a popisom. Príklad: %{url}'
           cta_button_text_help: Môžete prepísať tlačidlo Výzva do Akcie pre každý dostupný jazyk Vašej organizácie. Ak to nespravíte, bude použitý primárny jazyk. Tlačidlo Výzva do Akcie sa zobrazuje na úvodnej strane medzi úvodným textom a popisom.
-          header_snippets_help: Použite pole pre pridanie vecí do HTML hlavičky. Najbežnejšie využitie je integrácia služieb tretích strán, JavaScriptu a CSS. Tiež môžete pridať ďalšie meta tagy. Tieto veci sa zobrazia iba na verejných stránkach, nie administrátorskej.
           homepage_appearance_title: Upraviť vzhľad úvodnej obrazovky
           homepage_highlighted_content_banner_title: Banner so zdôrazneným obsahom
-          layout_appearance_title: Upraviť vzhľad 
+          images:
+            layout_appearance_title: Upraviť vzhľad 
           omnipresent_banner_appearance_title: Upraviť všadeprítomný banner
       organization_homepage:
         edit:
@@ -676,6 +681,11 @@ sk:
         update:
           error: Pri aktualizácii rozsahu nastala chyba.
           success: Nový rozsah úspešne aktualizovaný
+      shared:
+        gallery:
+          add_images: Pridať obrázky
+          delete_image: Zmazať obrázok
+          gallery_legend: Pridať galériu (voliteľné)
       static_page_topics:
         create:
           error: Pri tvorbe novej témy nastala chyba.
@@ -727,10 +737,12 @@ sk:
         dashboard: Hlavný panel
         impersonatable_users: Spravovateľní účastníci
         impersonations: Správa účastníkov
+        metrics: Metriky
         participants: Účastníci
         scope_types: Typy rozsahov
         scopes: Rozsahy
         static_pages: Stránky
+        statistics: Aktivita
         user_groups: Skupiny
         users: Účastníci
       user_group:
@@ -779,6 +791,10 @@ sk:
       users_statistics:
         users_count:
           admins: Administrátori
+          last_day: Posledný deň
+          last_month: Posledný mesiac
+          last_week: Posledný týždeň
+          no_users_count_statistics_yet: Zatiaľ nie sú žiadne štatistiky o počte užívateľov
           participants: Účastníci
       view_public_page: Zobraziť verejnú stránku
     forms:
