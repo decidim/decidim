@@ -65,6 +65,12 @@ fi-pl:
         project:
           fields:
             title: Otsikko
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'Hankkeet, jotka olet valinnut:'
+          subject: Olet äänestänyt osallistumistilassa %{space_name}
+          voted_on_space: Olet äänestänyt budjetista osallistumistilassa %{space_name}.
+          voted_on_space_with_scope: Olet äänestänyt budjeteista osallistumistilassa %{space_name} koskien teemaa %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Oletko samaa mieltä? Kun olet vahvistanut äänesi, et voi enää muuttaa sitä.
@@ -85,6 +91,7 @@ fi-pl:
             description: Olet jo äänestänyt tätä budjettia. Jos muutit mieltäsi, voit %{cancel_link}.
             title: Budjetin äänestys suoritettu
           description: Mitä suunnitelmia varten sinun mielestäsi budjettia tulisi varata? Varaa vähintään %{minimum_budget} suunnitelmille, jotka haluat toteutettavan ja äänestä mieltymystesi mukaisesti määrittääksesi budjetin.
+          description_minimum_projects_rule: Mille hankkeille budjetin rahaa tulisi jakaa? Valitse vähintään %{minimum_number} toivomaasi hanketta ja äänestä haluamallasi tavalla vaikuttaaksesi budjetin jakautumiseen.
           title: Voit päättää budjetin
         count:
           projects_count:
@@ -135,9 +142,16 @@ fi-pl:
           global:
             announcement: Ilmoitus
             comments_enabled: Kommentit ovat käytössä
+            form:
+              errors:
+                budget_voting_rule_only_one: Voit valita ainoastaan yhden äänestyssäännön
+                budget_voting_rule_required: Yksi äänestyssääntö vaaditaan
             projects_per_page: Suunnitelmat sivua kohden
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle suunnitelmalle
             total_budget: Kokonaisbudjetti
+            vote_minimum_budget_projects_number: Valittavien projektien vähimmäismäärä
+            vote_rule_minimum_budget_projects_enabled: 'Ota sääntö käyttöön: Valittavien projektien vähimmäismäärä'
+            vote_rule_threshold_percent_enabled: 'Ota sääntö käyttöön: Kokonaisbudjetin prosentuaalinen vähimmäismäärä'
             vote_threshold_percent: Äänestyksen kynnysprosentti
           step:
             announcement: Ilmoitus

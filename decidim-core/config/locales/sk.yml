@@ -225,9 +225,6 @@ sk:
       update_draft:
         error: Pri aktualizácii pozmeňovacieho návrhu sa vyskytol problém.
         success: Pozmeňovací návrh bol úspešne aktualizovaný.
-      visibility_options:
-        all: Pozmeňovacie návrhy sú pre všetky viditeľné
-        participants: Pozmeňovacie návrhy sú viditeľné iba pre ich autorov
       withdraw:
         error: Pri stiahnutí pozmeňovacieho návrhu došlo k chybe
         success: Pozmeňovací návrh bol úspešne stiahnutý
@@ -331,6 +328,19 @@ sk:
       see_less: "(pozri nižšie)"
       see_more: "(pozri ďalšie)"
     components:
+      component_order_selector:
+        no_content: Nemôžeme nájsť žiadny obsah, ktorý by vyhovovali kritériám.
+        order:
+          all_types: Všetky typy
+          collaborative_draft: Spoločný návrh
+          comment: Komentár
+          debate: Debata
+          initiative: Iniciatíva
+          meeting: Stretnutie
+          post: Príspevok
+          proposal: Návrh
+          question: Otázka
+        title: 'Zobraziť:'
       dummy:
         actions:
           bar: Lišta
@@ -578,6 +588,8 @@ sk:
           email_outro: Toto oznámenie ste dostali, pretože ste boli členom tejto skupiny.
           email_subject: Boli ste odstránení zo skupiny%{user_group_name}!
           notification_title: Boli ste odstránení zo skupiny <a href="%{resource_path}">%{user_group_name} </a>.
+        user_group_created:
+          email_outro: Toto oznámenie ste dostali, pretože ste administrátorom platformy.
       notification_event:
         notification_title: Došlo k udalosti <a href="%{resource_path}">%{resource_title} </a>.
       resource_endorsed:
@@ -822,9 +834,11 @@ sk:
           no_conversations: Nemáte zatím žádné konverzace
           title: Konverzace
         reply:
+          placeholder: Vaša odpoveď...
           send: Poslat
           title: Odpověď
         show:
+          chat_with: Konverzácia s
           not_allowed: Tento používateľ neprijíma žiadne priame správy.
           title: Konverzace s číslem %{usernames}
         start:
@@ -1140,7 +1154,7 @@ sk:
     confirmations:
       confirmed: Vaša e-mailová adresa bola úspešne potvrdená.
       new:
-        resend_confirmation_instructions: Znovu odošlite potvrdzovací inštrukcia
+        resend_confirmation_instructions: Znovu odošlite potvrdzovacie inštrukcie
       send_instructions: Počas niekoľkých minút dostanete e-mail s pokynmi, ako potvrdiť e-mailovú adresu.
       send_paranoid_instructions: Ak vaša e-mailová adresa existuje v našej databáze, počas niekoľkých dostanete e-mail s inštrukciami, ako potvrdiť vašu e-mailovú adresu.
     failure:

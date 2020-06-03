@@ -28,6 +28,7 @@ sv:
       initiatives_type:
         banner_image: Bannerbild
         collect_user_extra_fields: Samla in deltagarens personuppgifter vid underskrift
+        custom_signature_end_date_enabled: Möjliggör för författare att välja slutet på signatursinsamlingsperioden
         description: Beskrivning
         document_number_authorization_handler: Bemyndigande att verifiera dokumentnummer på underskrifter
         extra_fields_legal_information: Juridisk information om insamling av personuppgifter
@@ -62,14 +63,14 @@ sv:
       actions:
         new_initiative_type: Ny initiativtyp
       filters:
-        search_placeholder:
-          title_or_description_cont: Sök %{collection} efter titel eller beskrivning.
         state_eq:
           values:
             created: Skapad
             discarded: Förkastade
             published: Publicerade
             validating: Teknisk validering
+        type_id_eq:
+          label: Typ
       menu:
         initiatives: Initiativ
         initiatives_types: Initiativtyper
@@ -170,6 +171,8 @@ sv:
         content_blocks:
           highlighted_initiatives:
             max_results: Högsta antal element att visa
+        exports:
+          initiatives: Initiativ
         initiatives:
           edit:
             accept: Godkänn initiativ
@@ -238,12 +241,14 @@ sv:
           unpublish: "%{user_name} förkastade initiativet %{resource_name}"
           update: "%{user_name} uppdaterade initiativet %{resource_name}"
       admin_states:
-        accepted: Godkända
         created: Skapad
         discarded: Förkastade
         published: Publicerade
-        rejected: Avvisade
         validating: Teknisk validering
+      application_helper:
+        filter_state_values:
+          closed: Stängda
+          open: Öppna
       committee_requests:
         new:
           continue: Fortsätta
@@ -252,7 +257,7 @@ sv:
           success: Din förfrågan har skickats till författaren av initiativet.
       content_blocks:
         highlighted_initiatives:
-          name: Annonserade initiativ
+          name: Viktiga initiativ
       create_initiative:
         fill_data:
           back: Tillbaka
@@ -354,13 +359,10 @@ sv:
         filters:
           any: Något
           author: Författare
-          closed: Stängda
           myself: Mina initiativ
-          open: Öppna
           search: Sök
           state: Status
           type: Typ
-          type_prompt: Välj en typ
         filters_small_view:
           close_modal: Stäng fönster
           filter: Filter
@@ -379,6 +381,7 @@ sv:
           most_voted: Mest underskrifter
           random: Slumpmässig
           recent: Senaste
+          recently_published: Senast publicerade
         result:
           answer_title:
             accepted: Detta förslag har antagits eftersom
@@ -427,7 +430,7 @@ sv:
       pages:
         home:
           highlighted_initiatives:
-            active_initiatives: Aktiva initiativ
+            active_initiatives: Pågående initiativ
             see_all_initiatives: Visa alla initiativ
       states:
         accepted: Godkända

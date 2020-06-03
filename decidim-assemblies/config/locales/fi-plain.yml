@@ -101,6 +101,10 @@ fi-pl:
         create:
           error: Virhe kopioitaessa ryhmää.
           success: Ryhmä kopioitu onnistuneesti.
+      assemblies_settings:
+        update:
+          error: Asetusten päivittäminen epäonnistui.
+          success: Asetusten päivittäminen onnistui.
       assemblies_types:
         create:
           error: Uuden ryhmätyypin luonti epäonnistui.
@@ -161,6 +165,7 @@ fi-pl:
           success: Ryhmän käyttäjä päivitetty onnistuneesti.
       menu:
         assemblies: Ryhmät
+        assemblies_settings: Asetukset
         assemblies_submenu:
           assembly_admins: Ryhmän käyttäjät
           assembly_members: Jäsenet
@@ -222,6 +227,8 @@ fi-pl:
         create: "%{user_name} loi %{resource_name} jäsenen %{space_name} ryhmässä"
         delete: "%{user_name} poisti %{resource_name} jäsenen %{space_name} ryhmästä"
         update: "%{user_name} päivitti %{resource_name} jäsenen %{space_name} ryhmään"
+      assembly_setting:
+        update: "%{user_name} päivitti ryhmän asetuksia"
       assembly_type:
         create: "%{user_name} loi ryhmätyypin %{resource_name}"
         delete: "%{user_name} poisti käyttäjän %{resource_name} ryhmätyypistä %{space_name}"
@@ -251,6 +258,11 @@ fi-pl:
             social_handlers: Sosiaalinen media
             title: Yleiset tiedot
             visbility: näkyvyys
+        assemblies_settings:
+          edit:
+            update: Päivitä
+          form:
+            title: Ryhmien asetukset
         assemblies_types:
           form:
             title: Otsikko
@@ -310,6 +322,7 @@ fi-pl:
         home:
           highlighted_assemblies:
             active_assemblies: Aktiiviset ryhmät
+            assemblies_button_title: Linkki kaikkien ryhmien sivulle
             see_all_assemblies: Näytä kaikki ryhmät
         user_profile:
           member_of:
@@ -340,6 +353,7 @@ fi-pl:
         related_participatory_processes: Liittyvät osallisuusprosessit
         scope: Teema
         social_networks: Sosiaalinen media
+        social_networks_title: Jaa tämä ryhmä
         target: Kuka osallistuu
       statistics:
         answers_count: Vastaukset
@@ -351,6 +365,7 @@ fi-pl:
         meetings_count: Tapaamisia
         orders_count: Ääniä
         pages_count: Sivuja
+        posts_count: Artikkeleja
         projects_count: Suunnitelmia
         proposals_count: Ehdotuksia
         results_count: Tuloksia
@@ -362,6 +377,24 @@ fi-pl:
         designated_on: Nimetty
       index:
         title: Jäsenet
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Linkki kaikkien konferenssien sivulle
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: Ryhmän <a href="%{resource_url}">%{resource_name}</a> hallintakäyttäjä on lisännyt sinut ryhmän jäseneksi.
+          email_outro: Tämä viesti on lähetetty sinulle, koska sinut on kutsuttu ryhmään. Tutustu <a href="%{resource_path}">ryhmän sivuun</a> osallistuaksesi!
+          email_subject: Sinut on kutsuttu jäseneksi ryhmään %{resource_name}!
+          notification_title: Sinut on lisätty ryhmän <a href="%{resource_path}">%{resource_name}</a> jäseneksi. Tutustu <a href="%{resource_path}">ryhmän sivuun</a> osallistuaksesi!
+      assembly:
+        role_assigned:
+          email_intro: Sinulle on myönnetty rooli %{role} ryhmässä "%{resource_title}".
+          email_outro: Tämä viesti on lähetetty sinulle, koska roolisi on %{role} ryhmässä "%{resource_title}".
+          email_subject: Sinulle on myönnetty rooli %{role} kohteessa "%{resource_title}".
+          notification_title: Sinulle on myönnetty rooli %{role} ryhmässä <a href="%{resource_url}">%{resource_title}</a>.
     help:
       participatory_spaces:
         assemblies:
@@ -381,6 +414,17 @@ fi-pl:
         description: Ryhmien määrä
         object: ryhmät
         title: Ryhmät
+    pages:
+      home:
+        hero:
+          participate_title: Osallistu palvelun prosesseihin
+        sub_hero:
+          register_title: Kirjaudu sisään tai luo tili alustalle
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Linkki kaikkien prosessien sivulle
   errors:
     messages:
       cannot_be_blank: ei voi olla tyhjä

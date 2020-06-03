@@ -70,10 +70,12 @@ de:
         port: Port
         primary_color: Primär
         reference_prefix: Referenzpräfix
+        rich_text_editor_in_public_views: Rich-Text-Editor für Teilnehmer aktivieren
         secondary_color: Sekundär
         send_welcome_notification: Willkommens-Benachrichtigung senden
         show_statistics: Zeige Statistiken
         success_color: Erfolg
+        time_zone: Zeitzone
         tos_version: Nutzungsbedingungen Version
         twitter_handler: Twitter-Handler
         user_groups_enabled: Benutzergruppen aktivieren
@@ -142,9 +144,24 @@ de:
         export: Export
         manage: Verwalten
         new: Neu %{name}
+        per_page: Pro Seite
         permissions: Berechtigungen
         reject: Ablehnen
         verify: Überprüfen
+      admin_terms_of_use:
+        accept:
+          error: Es gab einen Fehler beim Akzeptieren der Admin-Nutzungsbedingungen.
+          success: Super! Du hast die Admin-Nutzungsbedingungen akzeptiert.
+        actions:
+          accept: Ich stimme diesen Admin-Bedingungen zu
+          are_you_sure: Sind Sie sicher, die Admin-Bedingungen abzulehnen?
+          refuse: Die Admin-Bedingungen ablehnen
+          title: Den Nutzungsbedingungen zustimmen
+        required_review:
+          alert: 'Erforderlich: Überprüfen Sie unsere Admin-Nutzungsbedingungen'
+          callout: Bitte nehmen Sie sich einen Moment Zeit, um die Admin-Nutzungsbedingungen zu lesen. Andernfalls können Sie die Plattform nicht administrieren.
+          cta: Lesen Sie sie jetzt.
+        title: Admin Nutzungsbedingungen
       area_types:
         create:
           error: Beim Erstellen eines neuen Bereichstyps ist ein Fehler aufgetreten.
@@ -165,6 +182,7 @@ de:
           error: Beim Erstellen eines neuen Bereichs ist ein Fehler aufgetreten.
           success: Bereich wurde erfolgreich erstellt.
         destroy:
+          has_spaces: Dieser Bereich hat abhängige Abschnitte. Es darf keine Abhängigkeiten geben, um gelöscht zu werden.
           success: Bereich wurde erfolgreich zerstört
         edit:
           title: Bereich bearbeiten
@@ -235,6 +253,7 @@ de:
           success: Die Kategorie wurde erfolgreich aktualisiert.
       component_permissions:
         update:
+          error: Es gab ein Problem beim Aktualisieren der Berechtigungen dieser Komponente.
           success: Berechtigungen wurden erfolgreich aktualisiert.
       components:
         create:
@@ -277,12 +296,28 @@ de:
       filters:
         category_id_eq:
           label: Kategorie
+        filter_label: Filtern
         officialized_at_null:
           label: Zustand
           values:
             'false': Offizialisiert
             'true': Nicht offiziell
+        private_space_eq:
+          label: Privat
+          values:
+            'false': Öffentlich
+            'true': Privat
+        published_at_null:
+          label: Veröffentlicht
+          values:
+            'false': Veröffentlicht
+            'true': Unveröffentlicht
+        scope_id_eq:
+          label: Themenbereich
         search_label: Suche
+        search_placeholder:
+          name_or_nickname_or_email_cont: Suche in %{collection} nach E-Mail, Name oder Benutzername.
+          title_cont: Suche in %{collection} nach Titel.
       help_sections:
         error: Beim Aktualisieren der Hilfeabschnitte ist ein Fehler aufgetreten
         form:
@@ -353,6 +388,9 @@ de:
         static_pages: Seiten
         user_groups: Benutzergruppen
         users: Benutzer
+      metrics:
+        metrics:
+          see_more_metrics: Mehr Kriterien anzeigen
       models:
         area:
           fields:
@@ -439,6 +477,11 @@ de:
       newsletter_templates:
         index:
           preview_template: Vorschau
+          title: Newsletter Vorlagen
+          use_template: Diese Vorlage verwenden
+        show:
+          preview: 'Vorschau der Vorlage: %{template_name}'
+          use_template: Diese Vorlage verwenden
       newsletters:
         create:
           error: Beim Erstellen dieses Newsletters ist ein Fehler aufgetreten.
@@ -459,7 +502,11 @@ de:
           confirm_delete: Möchten Sie diesen Newsletter wirklich löschen?
           followers: 'Follower '
           has_been_sent_to: 'Wurde gesendet an: '
+          no_scopes: Keine Themenbereiche
+          not_sent: Nicht gesendet
           participants: 'Teilnehmer: '
+          segmented_to: 'Unterteilt in %{subject}: '
+          subscribed_count: 'Abonniert:'
           title: Newsletter
         new:
           save: Speichern
@@ -469,13 +516,24 @@ de:
           all_users_help: Sendet Newsletter an alle bestätigten Benutzer.
           confirm_deliver: Möchten Sie diesen Newsletter wirklich liefern? Diese Aktion kann nicht rückgängig gemacht werden.
           deliver: Liefern Newsletter
+          followers_help: Sendet den Newsletter an alle bestätigten Benutzer, die den ausgewählten Teilnehmerräumen in der Liste folgen.
           none: Niemand
+          participants_help: Sendet den Newsletter an alle bestätigten Benutzer, die an den ausgewählten Teilnehmerräumen der Liste teilgenommen haben.
+          recipients_count: Dieser Newsletter wird an <strong id='recipients_count'>%{count}</strong> Teilnehmer gesendet.
+          scopes_help: Sendet den Newsletter an Teilnehmer, die einen der gewählten Themenbereiche in den "Meine Interessen" Einstellungen ihres Kontos aktiviert haben.
+          select_scopes: Nur Teilnehmer anzeigen, die einen der gewählten Themenbereiche in Ihren "Meine Interessen" Einstellungen ihres Kontos aktiviert haben.
+          select_spaces: Wählen Sie Abschnitte, um den Newsletter zu unterteilen
+          select_users: Wählen Sie aus, welchen Benutzern Sie den Newsletter senden möchten
           send_to_all_users: An alle Benutzer senden
           send_to_followers: An Follower senden
           send_to_participants: An Teilnehmer senden
           title: Empfänger auswählen
+          warning: "<strong>Achtung:</strong> Dieser Newsletter wird nur an Benutzer gesendet, die <em>Ich möchte Newsletter empfangen</em> in ihren Benachrichtigungseinstellungen aktiviert haben."
+        send:
+          no_recipients: Keine Empfänger für diese Auswahl
         show:
           preview: Vorschau
+          select_recipients_to_deliver: Empfänger auswählen
           subject: Gegenstand
         update:
           error: Beim Aktualisieren dieses Newsletters ist ein Fehler aufgetreten.
@@ -514,12 +572,20 @@ de:
           officialize: Offizialisieren
           officialized: Offizialisiert
           reofficialize: Reoffizialisieren
+          show_email: E-Mail-Adresse anzeigen
           status: Status
           unofficialize: Nicht offiziell
         new:
           badge: Offizielles Abzeichen
           officialize: Offizialisieren
           title: Benutzer "%{name}" offiziellisieren
+        show_email_modal:
+          description: Wenn Sie einen Teilnehmer direkt kontaktieren möchten, können Sie auf die Schaltfläche "Anzeigen" klicken, um die E-Mail-Adresse zu sehen. Diese Aktion wird protokolliert.
+          email_address: E-Mail-Adresse
+          full_name: Voller Name
+          hidden: versteckt
+          show: Anzeigen
+          title: Teilnehmer E-Mail-Adresse anzeigen
       organization:
         edit:
           title: Organisation bearbeiten
@@ -528,6 +594,7 @@ de:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          rich_text_editor_in_public_views_help: In einigen Textbereichen können Teilnehmer mit Hilfe des Rich-Text-Editors HTML-Tags einfügen.
           social_handlers: Sozial
           twitter: Twitter
           url: Url
@@ -539,13 +606,15 @@ de:
         edit:
           update: Aktualisieren
         form:
-          colors_title: Organisationsfarben
+          colors:
+            colors_title: Organisationsfarben
+            header_snippets_help: Verwenden Sie dieses Feld, um Dinge zum HTML-Kopf hinzuzufügen. Die häufigste Verwendung ist die Integration von Drittanbieterdiensten, für die zusätzliches JavaScript oder CSS erforderlich ist. Außerdem können Sie damit dem HTML zusätzliche Meta-Tags hinzufügen. Beachten Sie, dass dies nur auf öffentlichen Seiten und nicht im Admin-Bereich erfolgt.
           cta_button_path_help: 'Sie können überschreiben, wo die Call To Action-Schaltfläche in der Homepage verlinkt ist. Verwenden Sie hier Teilpfade, nicht vollständige URLs. Akzeptiert Buchstaben, Zahlen, Bindestriche und Schrägstriche und muss mit einem Buchstaben beginnen. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt. Beispiel: %{url}'
           cta_button_text_help: Sie können den Text der Call To Action-Schaltfläche auf der Startseite für jede verfügbare Sprache in Ihrer Organisation überschreiben. Wenn nicht festgelegt, wird der Standardwert verwendet. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt.
-          header_snippets_help: Verwenden Sie dieses Feld, um Dinge zum HTML-Kopf hinzuzufügen. Die häufigste Verwendung ist die Integration von Drittanbieterdiensten, für die zusätzliches JavaScript oder CSS erforderlich ist. Außerdem können Sie damit dem HTML zusätzliche Meta-Tags hinzufügen. Beachten Sie, dass dies nur auf öffentlichen Seiten und nicht im Admin-Bereich erfolgt.
           homepage_appearance_title: Homepage-Erscheinungsbild bearbeiten
           homepage_highlighted_content_banner_title: Highlighted Inhaltsbanner
-          layout_appearance_title: Layout-Layout bearbeiten
+          images:
+            layout_appearance_title: Layout-Layout bearbeiten
           omnipresent_banner_appearance_title: Bearbeiten Sie das allgegenwärtige Banner
       organization_homepage:
         edit:
@@ -568,7 +637,11 @@ de:
           create: Erstellen
           title: Neuer privater Benutzer des Participatory Space.
       participatory_space_private_users_csv_imports:
+        create:
+          invalid: Beim Lesen der CSV-Datei ist ein Fehler aufgetreten.
+          success: CSV-Datei wurde erfolgreich hochgeladen, wir senden eine Einladungs-E-Mail an die Teilnehmer. Dies kann eine Weile dauern.
         new:
+          explanation: Laden Sie Ihre CSV-Datei hoch. Diese Datei darf nur zwei Spalten und keine Kopfzeile haben. Die erste Spalte enthält die E-Mail-Adressen und und die zweite Spalte die Namen der Benutzer, die Sie zum Teilnehmerraum hinzufügen möchten.
           title: CSV-Datei hochladen
           upload: Hochladen
       resource_permissions:
@@ -608,6 +681,11 @@ de:
         update:
           error: Beim Aktualisieren dieses Bereichs ist ein Fehler aufgetreten.
           success: Bereich wurde erfolgreich aktualisiert
+      shared:
+        gallery:
+          add_images: Bilder hinzufügen
+          delete_image: Bild löschen
+          gallery_legend: Bildergalerie hinzufügen (Optional)
       static_page_topics:
         create:
           error: Beim Erstellen eines neuen Themas ist ein Fehler aufgetreten.
@@ -637,6 +715,7 @@ de:
           update: Aktualisieren
         form:
           none: Keiner
+          slug_help: 'Benutze partielle Pfade, nicht vollständige URLs. Akzeptiert Buchstaben, Zahlen, Bindestriche und Schrägstriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         index:
           last_notable_change: Letzte bemerkenswerte Änderung
         new:
@@ -658,10 +737,12 @@ de:
         dashboard: Instrumententafel
         impersonatable_users: Überschaubare Benutzer
         impersonations: Benutzerverwaltung
+        metrics: Kriterien
         participants: Benutzer
         scope_types: Bereichstypen
         scopes: Bereiche
         static_pages: Seiten
+        statistics: Aktivität
         user_groups: Benutzergruppen
         users: Benutzer
       user_group:
@@ -710,6 +791,10 @@ de:
       users_statistics:
         users_count:
           admins: Admins
+          last_day: Letzter Tag
+          last_month: Letzter Monat
+          last_week: Letzte Woche
+          no_users_count_statistics_yet: Es gibt noch keine Nutzerstatistiken
           participants: Teilnehmer
       view_public_page: Öffentliche Seite anzeigen
     forms:

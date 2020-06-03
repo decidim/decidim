@@ -32,10 +32,12 @@ fr:
             statement: Déclaration
           edit:
             save: sauvegarder
-            title: Titre
           form:
             add_question: Ajouter une question
             already_answered_warning: Certains utilisateurs ont déjà répondu au questionnaire, vous ne pouvez donc pas modifier ses questions.
+          matrix_row:
+            remove: Retirer
+            statement: Déclaration
           question:
             add_answer_option: Ajouter une option de réponse
             any: Tout
@@ -67,7 +69,6 @@ fr:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Connectez-vous avec votre compte</a> ou <a href="%{sign_up_link}">inscrivez-vous</a> pour répondre au questionnaire.
             title: Répondez au questionnaire
-          are_you_sure: Cette action ne peut pas être annulée et vous ne pourrez pas modifier vos réponses. Êtes-vous sûr?
           questionnaire_answered:
             body: Vous avez déjà répondu à ce questionnaire.
             title: Déjà répondu
@@ -77,8 +78,11 @@ fr:
           questionnaire_for_private_users:
             body: Le questionnaire est disponible uniquement pour les utilisateurs privés
             title: Questionnaire fermé
-          submit: Soumettre
           tos_agreement: En participant, vous acceptez ses conditions d'utilisation
+      step_navigation:
+        show:
+          are_you_sure: Cette action ne peut pas être annulée et vous ne pourrez pas modifier vos réponses. Êtes-vous sûr?
+          submit: Soumettre
       user_answers_serializer:
         created_at: Répondu le
         id: ID de réponse

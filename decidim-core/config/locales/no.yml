@@ -208,9 +208,6 @@
       update_draft:
         error: Det oppsto et problem med å oppdatere endrings utkastet.
         success: Endrings utkastet ble oppdatert.
-      visibility_options:
-        all: Endringer synlig for alle
-        participants: Endringen er bare synlig for forfatteren
       withdraw:
         error: Et problem oppsto under tilbaketrekningen av endringen
         success: Endringen ble tilbaketrukket

@@ -232,12 +232,14 @@ id:
           unpublish: "%{user_name} membuang %{resource_name} inisiatif"
           update: "%{user_name} memperbarui %{resource_name} inisiatif"
       admin_states:
-        accepted: Diterima
         created: Dibuat
         discarded: Dibuang
         published: Diterbitkan
-        rejected: Ditolak
         validating: Validasi teknis
+      application_helper:
+        filter_state_values:
+          closed: Tutup
+          open: Buka
       committee_requests:
         new:
           continue: Terus
@@ -343,13 +345,10 @@ id:
         filters:
           any: Apa saja
           author: Penulis
-          closed: Tutup
           myself: Inisiatif saya
-          open: Buka
           search: Pencarian
           state: Negara
           type: Mengetik
-          type_prompt: Pilih jenis
         filters_small_view:
           close_modal: Tutup jendela
           filter: Filter

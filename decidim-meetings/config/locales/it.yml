@@ -283,6 +283,7 @@ it:
           form:
             available_slots_help: Lasciare a 0 se disponi di slot illimitati.
             invites: Inviti
+            recommendation_message: Per motivi di privacy, ti consigliamo di eliminare questo modulo di iscrizione quando non ne hai più bisogno. Per impostazione predefinita, questo avverrà 3 mesi dopo la fine della riunione.
             registration_form: Formulario di registrazione
             registrations_count:
               one: C'è stata %{count} registrazione.
@@ -368,6 +369,7 @@ it:
           confirm: Conferma
         show:
           attendees: Conteggio dei partecipanti
+          back: Torna alla lista
           contributions: Conteggio dei contributi
           going: Parteciperò
           join: Partecipa alla riunione

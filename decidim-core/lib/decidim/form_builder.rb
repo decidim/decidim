@@ -181,7 +181,7 @@ module Decidim
 
       content_tag(:div, class: "editor #{"hashtags__container" if options[:hashtaggable]}") do
         template = ""
-        template += label(name, options[:label].to_s || name) + required_for_attribute(name) if options[:label] != false
+        template += label(name, label_for(name) + required_for_attribute(name)) if options.fetch(:label, true)
         template += hidden_field(name, options)
         template += content_tag(:div, nil, class: "editor-container #{"js-hashtags" if options[:hashtaggable]}", data: {
                                   toolbar: options[:toolbar],
@@ -384,6 +384,8 @@ module Decidim
     # attribute    - The String name of the attribute to buidl the field.
     # options      - A Hash with options to build the field.
     #              * optional: Whether the file can be optional or not.
+    # rubocop:disable Metrics/CyclomaticComplexity
+    # rubocop:disable Metrics/PerceivedComplexity
     def upload(attribute, options = {})
       self.multipart = true
       options[:optional] = options[:optional].nil? ? true : options[:optional]
@@ -392,6 +394,9 @@ module Decidim
       template = ""
       template += label(attribute, label_for(attribute) + required_for_attribute(attribute))
       template += @template.file_field @object_name, attribute
+
+      template += extension_whitelist_help(options[:extension_whitelist]) if options[:extension_whitelist].present?
+      template += image_dimensions_help(options[:dimensions_info]) if options[:dimensions_info].present?
 
       if file_is_image?(file)
         template += if file.present?
@@ -424,6 +429,8 @@ module Decidim
 
       template.html_safe
     end
+    # rubocop:enable Metrics/CyclomaticComplexity
+    # rubocop:enable Metrics/PerceivedComplexity
 
     # Public: Returns the translated name for the given attribute.
     #
@@ -702,6 +709,32 @@ module Decidim
 
     def sanitize_tabs_selector(id)
       id.tr("[", "-").tr("]", "-")
+    end
+
+    def extension_whitelist_help(extension_whitelist)
+      content_tag :p, class: "extensions-help help-text" do
+        safe_join([
+                    content_tag(:span, I18n.t("extension_whitelist", scope: "decidim.forms.files")),
+                    " ",
+                    safe_join(extension_whitelist.map { |ext| content_tag(:b, ext) }, ", ")
+                  ])
+      end
+    end
+
+    def image_dimensions_help(dimensions_info)
+      content_tag :p, class: "image-dimensions-help help-text" do
+        safe_join([
+                    content_tag(:span, I18n.t("dimensions_info", scope: "decidim.forms.images")),
+                    " ",
+                    content_tag(:span) do
+                      safe_join(dimensions_info.map do |_version, info|
+                        processor = @template.content_tag(:span, I18n.t("processors.#{info[:processor]}", scope: "decidim.forms.images"))
+                        dimensions = @template.content_tag(:b, I18n.t("dimensions", scope: "decidim.forms.images", width: info[:dimensions].first, height: info[:dimensions].last))
+                        safe_join([processor, "  ", dimensions, ". ".html_safe])
+                      end)
+                    end
+                  ])
+      end
     end
   end
 end
