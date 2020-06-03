@@ -35,7 +35,9 @@ module Decidim
     #
     # Returns true if the record was properly saved, false otherwise.
     def publish!
-      update!(published_at: Time.current)
+      run_callbacks :publish do
+        update!(published_at: Time.current)
+      end
     end
 
     #
@@ -43,7 +45,9 @@ module Decidim
     #
     # Returns true if the record was properly saved, false otherwise.
     def unpublish!
-      update!(published_at: nil)
+      run_callbacks :unpublish do
+        update!(published_at: nil)
+      end
     end
   end
 end
