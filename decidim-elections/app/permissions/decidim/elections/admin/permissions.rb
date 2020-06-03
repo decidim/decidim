@@ -14,7 +14,7 @@ module Decidim
           when :update, :publish
             toggle_allow(election)
           when :delete, :unpublish
-            toggle_allow(election && !election.started?)
+            toggle_allow(election && (!election.started? || election.finished?))
           end
 
           permission_action

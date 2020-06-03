@@ -18,7 +18,11 @@ module Decidim
       end
 
       def started?
-        start_time <= Time.current
+        start_time <= Time.current && published_at.present?
+      end
+
+      def finished?
+        end_time < Time.current
       end
     end
   end
