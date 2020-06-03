@@ -155,30 +155,16 @@ cs:
         show:
           stats:
             attendees: Účastníci
-            back_to_result: Přejít zpět na výsledek
+            back_to_resource: Přejít zpět na výsledek
             comments: Komentáře
             contributions: Příspěvky
             last_edited_by: Naposledy upravil
             last_updated_at: Poslední aktualizace na
             meetings: Setkání
-            number_of_versions: Verze
             proposals: Návrhy
-            show_all_versions: Zobrazit všechny verze
-            version_author: Autor verze
-            version_created_at: Verze vytvořena v
-            version_number: Číslo verze
-            version_number_out_of_total: "%{current_version} z %{total_count}"
             votes: Podporuje
         timeline:
           title: Vývoj projektu
-      versions:
-        index:
-          changes_at_title: Změny na "%{title}"
-          title: Verze
-        show:
-          changes_at_title: Změny na "%{title}"
-        version:
-          version_index: Verze %{index}
     components:
       accountability:
         name: Odpovědnost
