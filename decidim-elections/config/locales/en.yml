@@ -55,6 +55,8 @@ en:
         new: New %{name}
         preview: Preview
         title: Actions
+        publish: Publish
+        unpublish: Unpublish
       admin:
         answers:
           create:
