@@ -870,7 +870,7 @@ fi-pl:
         stats:
           back_to_collaborative_draft: Palaa yhteistyöluonnokseen
           back_to_proposal: Palaa ehdotukseen
-          number_of_versions: versiot
+          number_of_versions: Versiot
           show_all_versions: Näytä kaikki versiot
           version_author: Version tekijä
           version_created_at: Versio luotu
