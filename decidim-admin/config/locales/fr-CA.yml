@@ -70,10 +70,12 @@ fr-CA:
         port: Port
         primary_color: Primaire
         reference_prefix: Préfixe de référence
+        rich_text_editor_in_public_views: Activer l'éditeur de texte avancé pour les participants
         secondary_color: Secondaire
         send_welcome_notification: Envoyer un mail de bienvenue
         show_statistics: Montrer les statistiques
         success_color: Succès
+        time_zone: Fuseau horaire
         tos_version: Version des conditions d'utilisation
         twitter_handler: Gestionnaire Twitter
         user_groups_enabled: Activer les groupes d'utilisateurs
@@ -142,9 +144,23 @@ fr-CA:
         export: Exporter
         manage: Gérer
         new: Nouvelle %{name}
+        per_page: Par page
         permissions: Autorisations
         reject: Rejeter
         verify: Vérifier
+      admin_terms_of_use:
+        accept:
+          error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation administrateur.
+          success: Super! Vous avez accepté les conditions d'utilisation administrateur.
+        actions:
+          are_you_sure: Êtes-vous certain de vouloir refuser les conditions d'utilisation administrateur?
+          refuse: Refuser les conditions d'utilisation administrateur
+          title: Accepter les conditions d'utilisation
+        required_review:
+          alert: 'Obligatoire: Consultez nos conditions d''utilisation administrateur'
+          callout: Veuillez prendre un moment pour consulter les conditions d'utilisation administrateur. Sinon, vous ne pourrez pas utiliser la plateforme en tant qu'administrateur.
+          cta: Consulter les maintenant.
+        title: Conditions d'utilisation administrateur
       area_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau périmètre d'assemblée.
@@ -236,6 +252,7 @@ fr-CA:
           success: Catégorie mise à jour avec succès.
       component_permissions:
         update:
+          error: Un problème est survenu lors de la mise à jour des permissions de ce composant.
           success: Autorisations mises à jour avec succès.
       components:
         create:
@@ -278,11 +295,21 @@ fr-CA:
       filters:
         category_id_eq:
           label: Catégorie
+        filter_label: Filtre
         officialized_at_null:
           label: État
           values:
             'false': Validé
             'true': Non validé
+        private_space_eq:
+          label: Privé
+          values:
+            'false': Public
+            'true': Privé
+        published_at_null:
+          label: Publié
+          values:
+            'false': Publié
         search_label: Rechercher
       help_sections:
         error: Une erreur s'est produite lors de la mise à jour des sections d'aide.
