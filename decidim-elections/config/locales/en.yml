@@ -16,6 +16,10 @@ en:
         one: Election
         other: Elections
   decidim:
+    admin_log:
+      election:
+        publish: "%{user_name} published the %{resource_name} election"
+        unpublish: "%{user_name} unpublished the %{resource_name} election"
     components:
       elections:
         name: Elections
@@ -51,6 +55,10 @@ en:
           update:
             invalid: There was a problem updating this election
             success: Election successfully updated
+          publish:
+            success: The election has been successfully published.
+          unpublish:
+            success: The election has been successfully unpublished.
         models:
           election:
             name: Election
@@ -60,3 +68,6 @@ en:
             end_time: End at
             start_time: Starts at
             title: Title
+    participatory_processes:
+      statistics:
+        elections_count: Elections
