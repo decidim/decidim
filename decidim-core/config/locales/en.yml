@@ -1158,8 +1158,6 @@ en:
         close_window: Close window
         share: Share
         share_link: Share link
-      version_author:
-        deleted: Deleted participant
     user_activity:
       index:
         no_activities_warning: This participant hasn't had any activity yet.
@@ -1203,6 +1201,33 @@ en:
       update:
         error: There was a problem updating your interests.
         success: Your interests have been successfully updated.
+    version:
+      show:
+        back_to_resource: Go back
+        changes_at_title: Changes at "%{title}"
+        number_of_versions: Versions
+        show_all_versions: Show all versions
+        version_author: Version author
+        version_created_at: Version created at
+        version_number: Version number
+        version_number_out_of_total: "%{current_version} out of %{total_count}"
+    version_author:
+      show:
+        deleted: Deleted participant
+    versions:
+      resource_version:
+        of_versions: "(of %{number})"
+        see_other_versions: see other versions
+        version: Version %{number}
+    versions_list:
+      show:
+        back_to_resource: Go back
+        changes_at_title: Changes at "%{title}"
+        number_of_versions: Versions
+        title: Versions
+    versions_list_item:
+      show:
+        version_index: Version %{index}
     welcome_notification:
       default_body: <p>Hi {{name}}, thanks for joining {{organization}} and welcome!</p><ul><li>If you want to get a quick idea of what you can do here, have a look at the <a href="{{help_url}}">Help</a> section.</li><li>Once you have read it you will get your first badge. Here's a <a href="{{badges_url}}">list of all the badges</a> you can get as you participate in {{organization}}</li><li>Last but not least, join other people, share with them the experience of being engaged and participating in {{organization}}. Make proposals, comments, debate, think about how to contribute to the common good, provide arguments to convince, listen and read to be convinced, express your ideas in a concrete and direct way, respond with patience and decision, defend your ideas and keep an open mind to collaborate and join other people's ideas.</li></ul>
       default_subject: Thanks for joining {{organization}}!
