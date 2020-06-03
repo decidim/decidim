@@ -228,9 +228,6 @@ en:
           edit:
             close: Close
             title: Close meeting
-        meeting_copies:
-          form:
-            select_organizer: Select the organizer
         meetings:
           close:
             invalid: There was a problem closing this meeting
