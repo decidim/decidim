@@ -1208,7 +1208,7 @@ cs:
         forgot_your_password: Zapomněli jste heslo?
         sign_in: Přihlásit se
         sign_in_with_provider: Přihlásit se přes %{provider}
-        sign_up: Přihlásit se
+        sign_up: Zaregistrovat se
       minimum_password_length:
         one: "(Minimálně%{count} znaků)"
         few: "(Minimálně%{count} znaků)"
