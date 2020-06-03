@@ -55,9 +55,6 @@ FactoryBot.define do
 
     trait :not_official do
       organizer { create(:user, organization: component.organization) if component }
-      organizer_type do
-        "Decidim::UserBaseEntity"
-      end
     end
 
     trait :by_user_group do
