@@ -236,19 +236,19 @@ describe "Initiative", type: :system do
               expect(page).to have_content("End of signature collection period")
             end
           end
-        end
 
-        context "when the initiative type does not enable area" do
-          it "does not show the area" do
-            expect(page).not_to have_content("Area")
+          context "when the initiative type does not enable area" do
+            it "does not show the area" do
+              expect(page).not_to have_content("Area")
+            end
           end
-        end
 
-        context "when the initiative type enables area" do
-          let(:initiative_type) { create(:initiatives_type, :area_enabled, organization: organization, minimum_committee_members: initiative_type_minimum_committee_members, signature_type: "offline") }
+          context "when the initiative type enables area" do
+            let(:initiative_type) { create(:initiatives_type, :area_enabled, organization: organization, minimum_committee_members: initiative_type_minimum_committee_members, signature_type: "offline") }
 
-          it "shows the area" do
-            expect(page).to have_content("Area")
+            it "shows the area" do
+              expect(page).to have_content("Area")
+            end
           end
         end
       end
