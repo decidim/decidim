@@ -99,7 +99,7 @@ sv:
             one: 1 förslag
             other: "%{count} förslag"
         filters:
-          active: Aktiva
+          active: Pågående
           all: Alla
           cancelled: Avbrutna
           category: Kategori

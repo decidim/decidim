@@ -74,8 +74,6 @@ ar:
       actions:
         new_initiative_type: نوع المبادرة الجديدة
       filters:
-        search_placeholder:
-          title_or_description_cont: البحث عن %{collection} بحسب العنوان أو الوصف.
         state_eq:
           values:
             created: تمّ إنشاؤه
@@ -250,12 +248,14 @@ ar:
           unpublish: "تجاهل %{user_name} المبادرة %{resource_name}"
           update: "%{user_name} تحديث المبادرة %{resource_name}"
       admin_states:
-        accepted: وافقت
         created: تمّ إنشاؤه
         discarded: التخلص منها
         published: نشرت
-        rejected: مرفوض
         validating: المصادقة الفنية
+      application_helper:
+        filter_state_values:
+          closed: مغلق
+          open: افتح
       committee_requests:
         new:
           continue: استمر
@@ -371,13 +371,10 @@ ar:
         filters:
           any: أي
           author: مؤلف
-          closed: مغلق
           myself: مبادراتي
-          open: افتح
           search: بحث
           state: الحالة
           type: نوع
-          type_prompt: اختر نوع
         filters_small_view:
           close_modal: أغلق النافذة
           filter: منقي

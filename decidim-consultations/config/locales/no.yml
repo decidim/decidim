@@ -32,7 +32,6 @@
         scope: Kommunalt område
         slug: URL slug
         subtitle: Undertittel
-        title: Tittel
         vote: Eksternt stemmesystem
         what_is_decided: Hva er bestemt
       response:
