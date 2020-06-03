@@ -105,6 +105,12 @@ module Decidim
 
         initiative.created? || initiative.validating?
       end
+
+      def can_edit_area?(initiative)
+        return false unless initiative.area_enabled?
+
+        initiative.created? || initiative.validating?
+      end
     end
   end
 end

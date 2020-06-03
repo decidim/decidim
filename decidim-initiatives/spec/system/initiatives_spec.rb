@@ -59,5 +59,21 @@ describe "Initiatives", type: :system do
       click_link(translated(initiative.title, locale: :en))
       expect(page).to have_current_path(decidim_initiatives.initiative_path(initiative))
     end
+
+    it "displays the filter initiative type filter" do
+      within ".new_filter[action='/initiatives']" do
+        expect(page).to have_content(/Type/i)
+      end
+    end
+
+    context "when there is a unique initiative type" do
+      let!(:unpublished_initiative) { nil }
+
+      it "doesn't display the initiative type filter" do
+        within ".new_filter[action='/initiatives']" do
+          expect(page).not_to have_content(/Type/i)
+        end
+      end
+    end
   end
 end
