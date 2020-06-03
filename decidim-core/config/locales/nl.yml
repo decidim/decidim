@@ -209,9 +209,6 @@ nl:
       update_draft:
         error: Er is een fout opgetreden bij het bijwerken van dit amendement.
         success: Amendement ontwerp is succesvol bijgewerkt.
-      visibility_options:
-        all: Amendementen zijn zichtbaar voor iedereen
-        participants: Amendementen zijn alleen zichtbaar voor hun auteurs
       withdraw:
         error: Er is een fout opgetreden tijdens het intrekken van het amendement
         success: Het amendement is met succes ingetrokken

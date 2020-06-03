@@ -220,9 +220,6 @@ es-PY:
       update_draft:
         error: Se ha producido un error al actualizar el borrador de enmienda.
         success: Borrador de enmienda actualizado correctamente.
-      visibility_options:
-        all: Las enmiendas son visibles para todos
-        participants: Las enmiendas son visibles sólo para sus autores
       withdraw:
         error: Se ha producido un error al retirar la enmienda
         success: La enmienda ha sido retirada correctamente

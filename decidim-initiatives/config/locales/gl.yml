@@ -235,12 +235,14 @@ gl:
           unpublish: "%{user_name} eliminou a iniciativa %{resource_name}"
           update: "%{user_name} actualizou a iniciativa %{resource_name}"
       admin_states:
-        accepted: Aceptada
         created: Creada
         discarded: Descartou
         published: Publicado
-        rejected: Rexeitado
         validating: Validación técnica
+      application_helper:
+        filter_state_values:
+          closed: Pechado
+          open: Aberto
       committee_requests:
         new:
           continue: Continuar
@@ -348,13 +350,10 @@ gl:
         filters:
           any: Calquera
           author: Autor
-          closed: Pechado
           myself: As miñas iniciativas
-          open: Aberto
           search: Busca
           state: Estado
           type: Tipo
-          type_prompt: Selecciona un tipo
         filters_small_view:
           close_modal: Pechar ventá
           filter: Filtro

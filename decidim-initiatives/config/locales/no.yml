@@ -62,8 +62,6 @@
       actions:
         new_initiative_type: Ny intiativtype
       filters:
-        search_placeholder:
-          title_or_description_cont: Søk %{collection} etter tittel eller beskrivelse.
         state_eq:
           values:
             created: Opprettet
@@ -238,12 +236,14 @@
           unpublish: "%{user_name} forkastet %{resource_name} initiativet"
           update: "%{user_name} oppdaterte %{resource_name} initiativet"
       admin_states:
-        accepted: Aksepterte
         created: Opprettet
         discarded: Forkastet
         published: Publisert
-        rejected: Avvist
         validating: Teknisk validering
+      application_helper:
+        filter_state_values:
+          closed: Lukket
+          open: Åpen
       committee_requests:
         new:
           continue: Fortsett
@@ -351,13 +351,10 @@
         filters:
           any: Alle
           author: Forfatter
-          closed: Lukket
           myself: Initiativene mine
-          open: Åpen
           search: Søk
           state: Status
           type: Type
-          type_prompt: Velg en type
         filters_small_view:
           close_modal: Lukk vindu
           filter: Filter

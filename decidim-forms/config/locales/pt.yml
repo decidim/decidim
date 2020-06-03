@@ -30,10 +30,12 @@ pt:
             statement: Declaração
           edit:
             save: Salve 
-            title: Título
           form:
             add_question: Adicionar pergunta
             already_answered_warning: O questionário já foi respondido por alguns usuários para que você não possa modificar suas perguntas.
+          matrix_row:
+            remove: Remover
+            statement: Declaração
           question:
             add_answer_option: Adicionar opção de resposta
             any: Qualquer
@@ -65,7 +67,6 @@ pt:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Entre com sua conta</a> ou <a href="%{sign_up_link}">inscreva-se</a> para responder ao questionário.
             title: Responda o questionário
-          are_you_sure: Esta ação não pode ser desfeita e você não poderá editar suas respostas. Você tem certeza?
           questionnaire_answered:
             body: Você já respondeu este questionário.
             title: Já respondido
@@ -75,8 +76,11 @@ pt:
           questionnaire_for_private_users:
             body: O questionário está disponível apenas para usuários particulares
             title: Questionário fechado
-          submit: Enviar
           tos_agreement: Ao participar você aceita seus Termos de Serviço
+      step_navigation:
+        show:
+          are_you_sure: Esta ação não pode ser desfeita e você não poderá editar suas respostas. Você tem certeza?
+          submit: Enviar
       user_answers_serializer:
         created_at: Respondido em
         id: ID da resposta

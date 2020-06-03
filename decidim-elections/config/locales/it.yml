@@ -1,0 +1,132 @@
+it:
+  activemodel:
+    attributes:
+      answer:
+        description: Descrizione
+        image: Immagine
+        proposals: Proposte correlate
+        title: Titolo
+      election:
+        description: Descrizione
+        end_time: La votazione termina il
+        start_time: La votazione inizia il
+        subtitle: Sottotitolo
+        title: Titolo
+      question:
+        description: Descrizione
+        max_selections: Numero massimo di selezioni
+        title: Titolo
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Necessita di essere riallegato
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Risposta
+        other: Risposte
+      decidim/elections/election:
+        one: Elezione
+        other: Elezioni
+      decidim/elections/question:
+        one: Domanda
+        other: Domande
+  decidim:
+    components:
+      elections:
+        name: Elezioni
+        settings:
+          global:
+            announcement: Annuncio
+          step:
+            announcement: Annuncio
+    elections:
+      actions:
+        confirm_destroy: Sei sicuro?
+        destroy: Elimina
+        edit: Modifica
+        new: Nuovo %{name}
+        preview: Anteprima
+        title: Azioni
+      admin:
+        answers:
+          create:
+            invalid: Si è verificato un errore durante la creazione di questa risposta
+            success: Risposta creata con successo
+          destroy:
+            invalid: Si è verificato un problema durante l'eliminazione di questa risposta
+            success: Risposta eliminata con successo
+          edit:
+            title: Modifica risposta
+            update: Aggiorna risposta
+          index:
+            title: Risposte
+          new:
+            create: Crea risposta
+            title: Nuova risposta
+          update:
+            invalid: Si è verificato un errore durante l'aggiornamento di questa risposta
+            success: Risposta aggiornata con successo
+        elections:
+          create:
+            invalid: Si è verificato un errore durante la creazione di questa elezione
+            success: Elezione creata con successo
+          destroy:
+            invalid: Si è verificato un problema durante l'eliminazione di questa elezione
+            success: Elezione eliminata con successo
+          edit:
+            title: Modifica elezione
+            update: Aggiorna elezione
+          index:
+            title: Elezioni
+          new:
+            create: Crea elezione
+            title: Nuova elezione
+          update:
+            invalid: Si è verificato un problema durante l'aggiornamento di questa elezione
+            success: Elezione aggiornata con successo
+        models:
+          answer:
+            name: Risposta
+          election:
+            name: Elezione
+          question:
+            name: Domanda
+        questions:
+          create:
+            invalid: Si è verificato un errore durante la creazione di questa domanda
+            success: Domanda creata con successo
+          destroy:
+            invalid: Si è verificato un errore durante l'eliminazione di questa domanda
+            success: Domanda eliminata con successo
+          edit:
+            title: Modifica domanda
+            update: Aggiorna domanda
+          index:
+            title: Domande
+          new:
+            create: Crea domanda
+            title: Nuova domanda
+          update:
+            invalid: Si è verificato un errore durante l'aggiornamento di questa domanda
+            success: Domanda aggiornata con successo
+      models:
+        answer:
+          fields:
+            proposals: Proposte
+            title: Titolo
+        election:
+          fields:
+            end_time: Finisce il
+            start_time: Inizia il
+            title: Titolo
+        question:
+          fields:
+            answers: Risposte
+            max_selections: Max. selezioni
+            title: Titolo
+    participatory_processes:
+      statistics:
+        elections_count: Elezioni

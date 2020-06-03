@@ -26,8 +26,10 @@ cs:
       initiatives_committee_member:
         user: člen komise
       initiatives_type:
+        attachments_enabled: Povolit přílohy
         banner_image: Obrázek banneru
         collect_user_extra_fields: Sbírejte osobní údaje uživatelů podpisem
+        custom_signature_end_date_enabled: Povolit autorům zvolit konec doby sběru podpisů
         description: Popis
         document_number_authorization_handler: Povolení ověřit číslo dokumentu na hlasování
         extra_fields_legal_information: Právní informace o shromažďování osobních údajů
@@ -46,6 +48,14 @@ cs:
         address: Adresa
         id_document: Doklad totožnosti
         name: Kompletní jméno
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: Soubor je neplatný
+              needs_to_be_reattached: Potřebuje být znovu připojen
+              title: Název nesmí být prázdný
   activerecord:
     models:
       decidim/initiative:
@@ -69,21 +79,26 @@ cs:
         new_initiative_type: Nový typ iniciativy
       filters:
         search_placeholder:
-          title_or_description_cont: Hledat %{collection} podle názvu nebo popisu.
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Hledat %{collection} podle názvu, popisu, ID nebo jména autora.
         state_eq:
           values:
+            accepted: Dostatek podpisů
             created: Vytvořeno
             discarded: Vyřazeno
             published: Publikováno
+            rejected: Nedostatek podpisů
             validating: Technická validace
+        type_id_eq:
+          label: Typ
       menu:
         initiatives: Iniciativy
         initiatives_types: Typy iniciativ
       models:
         initiatives:
           fields:
-            created_at: Vytvořeno u
+            created_at: Vytvořeno v
             id: ID
+            published_at: Publikováno v
             state: Stát
             supports_count: Podpisy
             title: Iniciativy
@@ -94,7 +109,7 @@ cs:
           name: Rozsah typu iniciativy
         initiatives_types:
           fields:
-            created_at: Vytvořeno u
+            created_at: Vytvořeno v
             title: Typy iniciativ
           name: Typ iniciativy
         initiatives_votes:
@@ -116,6 +131,12 @@ cs:
         initiatives_types: Typy iniciativ
     events:
       initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: Iniciativa "%{resource_title}" byla odeslána na technické potvrzení. Podívejte se na <a href="%{admin_initiative_url}">admin panel</a>
+            email_outro: Toto oznámení jste obdrželi, protože jste administrátor platformy.
+            email_subject: Iniciativa "%{resource_title}" byla odeslána na technické potvrzení.
+            notification_title: Iniciativa "%{resource_title}" byla odeslána na technické potvrzení. Podívejte se na <a href="%{admin_initiative_path}">admin panel</a>
         initiative_extended:
           email_intro: Podpisový termín pro iniciativu %{resource_title} byl rozšířen!
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{resource_title}. Na následujícím odkazu můžete přestat odebírat oznámení.
@@ -132,6 +153,11 @@ cs:
             email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{resource_title}. Po předchozím propojení můžete přestat přijímat oznámení.
             email_subject: Nový milník dokončen!
             notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> dosáhla %{percentage}% podpisů.
+        support_threshold_reached:
+          email_intro: Iniciativa %{resource_title} dosáhla prahu podpory
+          email_outro: Toto oznámení jste obdrželi, protože jste administrátor platformy.
+          email_subject: Dosažen práh podpory
+          notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> dosáhla prahu podpory
     gamification:
       badges:
         initiatives:
@@ -148,8 +174,8 @@ cs:
     help:
       participatory_spaces:
         initiatives:
-          contextual: "<p>Iniciativa je návrh, který může být podporován kdokoli z vlastního podnětu (nezávisle na jiných kanálech nebo prostorách účasti) prostřednictvím shromáždění (digitálních) podpisů pro organizaci k provedení specifické akce (změna nařízení, zahájení projektu , změňte název oddělení nebo ulice apod.).</p> <p>Poskytovatelé iniciativy mohou definovat své cíle, shromáždit podporu, diskutovat, šířit je a definovat místa setkání, kde mohou být shromažďovány podpisy od účastníků nebo diskuse přístupné ostatním účastníkům.</p> <p>Příklady: Iniciativa může shromažďovat podpisy pro svolání konzultace mezi všemi lidmi organizace nebo pro vytvoření nebo svolání shromáždění nebo pro zahájení procesu zvýšení rozpočtu pro území nebo oblast organizace. Během procesu shromažďování podpisů může více lidí přidat k této poptávce a přenést ji dopředu v organizaci.</p>\n"
-          page: "<p>Iniciativa je návrh, který může být podporován kdokoli z vlastního podnětu (nezávisle na jiných kanálech nebo prostorách účasti) prostřednictvím shromáždění (digitálních) podpisů pro organizaci k provedení specifické akce (změna nařízení, zahájení projektu , změňte název oddělení nebo ulice apod.).</p> <p>Poskytovatelé iniciativy mohou definovat své cíle, shromáždit podporu, diskutovat, šířit je a definovat místa setkání, kde mohou být shromažďovány podpisy od účastníků nebo diskuse přístupné ostatním účastníkům.</p> <p>Příklady: Iniciativa může shromažďovat podpisy pro svolání konzultace mezi všemi lidmi organizace nebo pro vytvoření nebo svolání shromáždění nebo pro zahájení procesu zvýšení rozpočtu pro území nebo oblast organizace. Během procesu shromažďování podpisů může více lidí přidat k této poptávce a přenést ji dopředu v organizaci.</p>\n"
+          contextual: "<p>Iniciativa je návrh, který může být podporován kýmkoliv z vlastního podnětu (nezávisle na jiných kanálech nebo účastnických skupinách) prostřednictvím shromáždění (digitálních) podpisů pro organizaci k provedení specifické akce (změna nařízení, zahájení projektu, změna názvu oddělení nebo ulice apod.).</p> <p>Propagátoři iniciativy mohou definovat své cíle, shromáždit podporu, diskutovat, šířit je a definovat místa setkání, kde mohou být shromažďovány podpisy od účastníků nebo diskuse přístupné ostatním účastníkům.</p> <p>Příklady: Iniciativa může shromažďovat podpisy pro svolání konzultace mezi všemi lidmi organizace, nebo pro vytvoření, nebo svolání shromáždění, nebo pro zahájení procesu zvýšení rozpočtu pro území nebo oblast organizace. Během procesu shromažďování podpisů může více lidí přispět k této poptávce a přenést ji dopředu v organizaci.</p>\n"
+          page: "<p> <strong>Iniciativa</strong> je návrh, který může být podporován kdokoli z vlastního podnětu (nezávisle na jiných kanálech nebo prostorách účasti) prostřednictvím shromáždění (digitálních) podpisů pro organizaci k provedení specifické akce (změna nařízení, zahájení projektu, změňte název oddělení nebo jméno ulice apod.).</p> <p>Poskytovatelé iniciativy mohou definovat své cíle, shromáždit podporu, diskutovat, šířit je a definovat místa setkání, kde mohou být shromažďovány podpisy od účastníků nebo diskuse přístupné ostatním účastníkům.</p> <p>Příklady: Iniciativa může shromažďovat podpisy pro svolání konzultace mezi všemi lidmi organizace nebo pro vytvoření nebo svolání shromáždění nebo pro zahájení procesu zvýšení rozpočtu pro území nebo oblast organizace. Během procesu shromažďování podpisů může více lidí přidat k této poptávce a přenést ji dopředu v organizaci.</p>\n"
           title: Co jsou iniciativy?
     initiatives:
       actions:
@@ -160,7 +186,7 @@ cs:
             answer: Odpovědět
             title: Odpověď na %{title}
           info_initiative:
-            created_at: Vytvořeno u
+            created_at: Vytvořeno v
             description: Popis
             initiative_votes_count: Počet hlasů
             initiatives: Iniciativy
@@ -168,7 +194,7 @@ cs:
         committee_requests:
           index:
             approve: Schvalovat
-            confirm_revoke: Jsi si jist?
+            confirm_revoke: Jste si jisti?
             invite_to_committee_help: Sdílejte tento odkaz, abyste mohli pozvat ostatní uživatele do propagačního výboru
             no_members_yet: V komisi promotérů nejsou žádní členové
             revoke: Zrušit
@@ -176,10 +202,12 @@ cs:
         content_blocks:
           highlighted_initiatives:
             max_results: Maximální množství prvků, které chcete zobrazit
+        exports:
+          initiatives: Iniciativy
         initiatives:
           edit:
             accept: Přijmout iniciativu
-            confirm: Jsi si jistá?
+            confirm: Jste si jisti?
             discard: Zrušit iniciativu
             export_pdf_signatures: Export PDF podpisů
             export_votes: Podpora exportu
@@ -193,6 +221,11 @@ cs:
             actions_title: Akce
             preview: Náhled
             print: Tisk
+          initiative_attachments:
+            documents: Dokumenty
+            edit: Upravit
+            new: Nový
+            photos: Fotky
           show:
             print: Vytisknout
           update:
@@ -206,7 +239,7 @@ cs:
             success: Rozsah byl úspěšně odstraněn
           edit:
             back: Zpět
-            confirm_destroy: Jsi si jist?
+            confirm_destroy: Jste si jisti?
             destroy: Odstranit
             title: Upravit rozsah typu iniciativy
             update: Aktualizovat
@@ -224,7 +257,7 @@ cs:
           destroy:
             success: Typ iniciativy byl úspěšně odstraněn
           edit:
-            confirm_destroy: Jste si jist?
+            confirm_destroy: Jste si jisti?
             destroy: Odstranit
             update: Aktualizovat
           form:
@@ -244,12 +277,24 @@ cs:
           unpublish: "%{user_name} zrušil iniciativu %{resource_name}"
           update: "%{user_name} aktualizoval iniciativu %{resource_name}"
       admin_states:
-        accepted: Přijato
+        accepted: Dostatek podpisů
         created: Vytvořeno
         discarded: Vyřazeno
         published: Publikováno
-        rejected: Odmítnuto
+        rejected: Nedostatek podpisů
         validating: Technická validace
+      application_helper:
+        filter_scope_values:
+          all: Vše
+        filter_state_values:
+          accepted: Dostatek podpisů
+          all: Vše
+          answered: Odpovězeno
+          closed: Uzavřeno
+          open: otevřeno
+          rejected: Nedostatek podpisů
+        filter_type_values:
+          all: Vše
       committee_requests:
         new:
           continue: Pokračovat
@@ -364,13 +409,11 @@ cs:
         filters:
           any: Jakýkoli
           author: Autor
-          closed: Uzavřeno
           myself: Moje iniciativy
-          open: otevřeno
+          scope: Oblast působnosti
           search: Vyhledávání
           state: Stát
           type: Typ
-          type_prompt: Vyberte typ
         filters_small_view:
           close_modal: Zavřít okno
           filter: Filtr
@@ -391,6 +434,7 @@ cs:
           most_voted: Nejvíce podepsané
           random: Náhodné
           recent: Nejnovější
+          recently_published: Nedávno publikované
         result:
           answer_title:
             accepted: Tento návrh byl přijat, protože
@@ -448,6 +492,14 @@ cs:
           highlighted_initiatives:
             active_initiatives: Aktivní iniciativy
             see_all_initiatives: Zobrazit všechny iniciativy
+      show:
+        badge_name:
+          accepted: Dostatek podpisů
+          created: Vytvořeno
+          discarded: Zahozeno
+          published: Publikováno
+          rejected: Nedostatek podpisů
+          validating: Technické ověření
       states:
         accepted: Přijato
         expired: Platnost vypršela

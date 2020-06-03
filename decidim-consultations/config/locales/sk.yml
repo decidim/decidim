@@ -32,7 +32,6 @@ sk:
         scope: Oblasť mestskej správy
         slug: URL krátky odkaz
         subtitle: Podnadpis
-        title: Názov
         vote: Externý hlasovací systém (URL)
         what_is_decided: O čom sa rozhoduje
       response:
