@@ -31,7 +31,7 @@ module Decidim
         end
       end
 
-      context "with a invalid CSV" do
+      context "with an invalid CSV" do
         describe "import" do
           let(:importer) { Decidim::Accountability::ResultsCSVImporter.new(current_component, invalid_csv, current_user) }
           let(:import_data) { importer.import! }
