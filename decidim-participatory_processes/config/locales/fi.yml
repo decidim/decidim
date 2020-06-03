@@ -297,6 +297,9 @@ fi:
         description: Osallistumisprosessien määrä tässä organisaatiossa
         object: osallistumisprosessit
         title: Osallistumisprosessit
+    participatory_process:
+      show:
+        related_assemblies: Liittyvät ryhmät
     participatory_process_groups:
       show:
         group_participatory_processes:
