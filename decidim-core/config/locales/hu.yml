@@ -1110,8 +1110,6 @@ hu:
         close_window: Ablak bezárása
         share: Megosztás
         share_link: Hivatkozás megosztása
-      version_author:
-        deleted: Törölt résztvevő
     user_activity:
       index:
         no_activities_warning: Ez a résztvevő még nem végzett tevékenységet.
@@ -1125,6 +1123,9 @@ hu:
       update:
         error: Hiba történt az érdeklődési körök frissítése közben.
         success: Az érdeklődési köreid sikeresen frissültek.
+    version_author:
+      show:
+        deleted: Törölt résztvevő
     welcome_notification:
       default_body: <p>Szia{{name}}, üdvözöllek és köszönöm, hogy csatlakoztál a {{organization}} szervezethez</p><ul><li>Ha gyorsan meg szeretnéd tudni, hogy mit tehetsz itt, nézd meg a <a href="{{help_url}}">Súgó</a> részt.</li><li>Miután elolvastad, megkapod az első jelvényed. Itt van egy <a href="{{badges_url}}">lista a</a> jelvényekről, melyeket akkor érdemelsz ki, ha részt veszel a {{organization}} által biztosított lehetőségekben. </li></ul> Végül, de nem utolsósorban, a platform lehetőséget biztosít, hogy kapcsolódj más emberekhez is! Oszd meg velük a tapasztalatodat a {{organization}} részvételében. Tegyél javaslatokat, megjegyzéseket, generálj konstruktív vitákat és gondold végig, hogyan járulj hozzá a közjó előmozdításához. Gyűjts érveket, hogy meggyőzz másokat, hallgass meg és olvasd el mások meggyőződést, fejezd ki ötleteidet konkrét és közvetlen módon, válaszolj türelemmel és határozottan, védd meg ötleteidet és hagyd nyitva elmédet, hogy elősegítsd az együttműködést és lehetőséget teremts más emberek ötleteinek befogadásához.</p>
       default_subject: Köszönjük, hogy csatlakoztál a {{organization}} szervezethez!
