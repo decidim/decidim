@@ -246,6 +246,8 @@ sv:
         published: Publicerade
         validating: Teknisk validering
       application_helper:
+        filter_area_values:
+          all: Alla
         filter_state_values:
           closed: Stängda
           open: Öppna
