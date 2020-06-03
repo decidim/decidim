@@ -81,6 +81,12 @@ en:
           twitter:
             api_key: API key
             api_secret: API secret
+        smtp_settings:
+          instructions:
+            from_label: 'Email sender will be: "your-organization-name <your-organization@your-provider.org>". Leave blank to use the ''from_email'' as label'
+          placeholder:
+            from_email: your-organization@your-provider.org
+            from_label: your-organization-name
         update:
           error: There was a problem updating this organization.
           success: Organization successfully updated.

@@ -57,4 +57,4 @@ pl:
       surveys:
         answer:
           invalid: Podczas odpowiadania na ankiet pojawiły się błędy.
-          success: Ankieta odpowiedziała skutecznie.
+          success: Twoja ankieta została przesłana.

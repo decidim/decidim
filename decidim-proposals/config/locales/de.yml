@@ -79,9 +79,7 @@ de:
         state_eq:
           label: Zustand
           values:
-            accepted: Angenommen
             evaluating: In Bewertung
-            rejected: Abgelehnt
             withdrawn: Zurückgezogen
         state_null:
           label: Status

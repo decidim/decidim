@@ -32,15 +32,19 @@ sv:
             statement: Påstående
           edit:
             save: Spara
-            title: Titel
           form:
             add_question: Lägg till fråga
             already_answered_warning: Frågeformuläret har redan besvarats av vissa användare så du inte kan ändra dess frågor.
+            expand: Expandera alla frågor
+          matrix_row:
+            remove: Ta bort
+            statement: Påstående
           question:
             add_answer_option: Lägg till svarsalternativ
             any: Någon
             description: Beskrivning
             down: Ned
+            expand: Expandera
             question: Fråga
             remove: Ta bort
             statement: Påstående
@@ -67,7 +71,6 @@ sv:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Logga in med ditt konto</a> eller <a href="%{sign_up_link}">registrera dig</a> om du vill svara på formuläret.
             title: Besvara formuläret
-          are_you_sure: Den här åtgärden kan inte ångras och du kommer inte att kunna redigera dina svar. Är du säker?
           questionnaire_answered:
             body: Du har redan besvarat det här formuläret.
             title: Redan svarat
@@ -77,8 +80,11 @@ sv:
           questionnaire_for_private_users:
             body: Formuläret är endast tillgängligt för privata användare
             title: Formuläret är stängt
-          submit: Skicka in
           tos_agreement: Genom att delta godkänner du användarvillkoren
+      step_navigation:
+        show:
+          are_you_sure: Den här åtgärden kan inte ångras och du kommer inte att kunna redigera dina svar. Är du säker?
+          submit: Skicka in
       user_answers_serializer:
         created_at: Besvarad
         id: Svars-ID
