@@ -89,13 +89,13 @@ en:
           new:
             create: Create election
             title: New election
-          update:
-            invalid: There was a problem updating this election
-            success: Election successfully updated
           publish:
             success: The election has been successfully published.
           unpublish:
             success: The election has been successfully unpublished.
+          update:
+            invalid: There was a problem updating this election
+            success: Election successfully updated
         models:
           answer:
             name: Answer
