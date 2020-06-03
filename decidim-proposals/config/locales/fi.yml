@@ -87,9 +87,7 @@ fi:
         state_eq:
           label: Tila
           values:
-            accepted: Hyväksytty
             evaluating: Arvioitavana
-            rejected: Hylätty
             withdrawn: Peruutettu
         state_null:
           label: Tila
@@ -123,8 +121,8 @@ fi:
             new_proposal_body_template_help: Voit määritellä esitäytetyn oletustekstin, joka uusille ehdotuksille näytetään automaattisesti
             new_proposal_help_text: Uuden ehdotuksen ohjeteksti
             official_proposals_enabled: Viralliset ehdotukset käytössä
-            participatory_texts_disabled_help: Tätä asetusta ei voi muuttaa, mikäli ehdotuksia on jo olemassa. Luo uusi "Ehdotukset-komponentti", mikäli haluat ottaa tämän ominaisuuden käyttöön tai hylkää kaikki tuodut ehdotukset "Ehdotusaineistot" -toiminnosta, mikäli haluat ottaa sen pois käytöstä.
             participatory_texts_enabled: Ehdotusaineistot ovat käytössä
+            participatory_texts_enabled_readonly: Tätä asetusta ei voi muuttaa, mikäli ehdotuksia on jo olemassa. Luo uusi "Ehdotukset-komponentti", mikäli haluat ottaa tämän ominaisuuden käyttöön tai hylkää kaikki tuodut ehdotukset "Ehdotusaineistot" -toiminnosta, mikäli haluat ottaa sen pois käytöstä.
             proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
             proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia tämän ajan sisällä (minuuttia)
             proposal_length: Ehdotuksen runkotekstin merkkien enimmäismäärä
@@ -144,6 +142,9 @@ fi:
             amendment_reaction_enabled: Reaktiot käytössä muutoksille
             amendment_reaction_enabled_help: Ehdotuksen laatijat voivat hyväksyä tai hylätä osallistujan muutoksia.
             amendments_visibility: Muutosten näkyvyys
+            amendments_visibility_choices:
+              all: Muutokset ovat näkyvillä kaikille
+              participants: Muutokset ovat näkyvillä ainoastaan niiden laatijoille
             amendments_visibility_help: Jos asetus "Muutokset ovat näkyvillä ainoastaan niiden laatijoille" on määritetty, osallistujien tulee kirjautua sisään nähdäkseen tehdyt muutokset.
             announcement: Ilmoitus
             answers_with_costs: Ota käyttöön kustannusarviointi ehdotusten vastauksissa
@@ -160,6 +161,12 @@ fi:
             votes_hidden: Piilota kannatusmäärät (jos kannatukset ovat käytössä, tämä valitseminen piilottaa kannatusmäärän)
     events:
       proposals:
+        admin:
+          proposal_note_created:
+            email_intro: Joku on jättänyt huomion ehdotukseen "%{resource_title}". Tutustu siihen <a href="%{admin_proposal_info_url}">hallintapaneelin kautta</a>
+            email_outro: Saat tämän ilmoituksen, koska voit arvioida ehdotuksen.
+            email_subject: Joku on jättänyt huomion ehdotukseen %{resource_title}.
+            notification_title: Joku on jättänyt huomion ehdotukseen <a href="%{resource_path}">%{resource_title}</a>. Tutustu siihen <a href="%{admin_proposal_info_path}">hallintapaneelin kautta</a>
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} on annettu käyttöoikeus yhteistyöluonnokseen <a href="%{resource_path}">%{resource_title}</a> osallistujana.'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet osallistuja yhteistyöluonnoksessa <a href="%{resource_path}">%{resource_title}</a>.
@@ -383,7 +390,7 @@ fi:
         proposal_notes:
           create:
             error: Ehdotuksen muistiinpanojen luonti epäonnistui
-            success: Ehdotusviesti luotu onnistuneesti
+            success: Ehdotusmerkinnän luonti onnistui
           form:
             note: Huomautus
             submit: Lähetä
@@ -392,10 +399,10 @@ fi:
         proposals:
           answer:
             invalid: Ehdotukseen vastaaminen epäonnistui
-            success: Ehdotukseen vastattu onnistuneesti
+            success: Ehdotukseen vastaaminen onnistui
           create:
             invalid: Ehdotuksen luonti epäonnistui
-            success: Ehdotus luotu onnistuneesti
+            success: Ehdotuksen luonti onnistui
           edit:
             title: Päivitä ehdotusta
             update: Päivitä
@@ -461,16 +468,16 @@ fi:
             invalid: 'Näillä ehdotuksilla oli jo aihepiiri %{subject_name}: %{proposals}.'
             select_a_category: Valitse aihepiiri
             select_a_proposal: Valitse ehdotus
-            success: 'Seuraaville ehdotuksille päivitettiin onnistuneesti aihepiiri %{subject_name}: %{proposals}.'
+            success: 'Seuraavien ehdotusten aihepiirin päivitys onnistui %{subject_name}: %{proposals}.'
           update_scope:
             invalid: 'Näillä ehdotuksilla oli jo teema %{subject_name}: %{proposals}.'
             select_a_proposal: Valitse ehdotus
             select_a_scope: Valitse teema
-            success: 'Seuraaville ehdotuksille päivitettiin onnistuneesti teema %{subject_name}: %{proposals}.'
+            success: 'Seuraavien ehdotusten teeman päivitys onnistui %{subject_name}: %{proposals}.'
         proposals_imports:
           create:
             invalid: Ehdotuksien tuominen epäonnistui
-            success: "%{number} ehdotusta tuotu onnistuneesti"
+            success: "%{number} ehdotuksen tuonti onnistui"
           new:
             create: Tuo ehdotuksia
             no_components: Tässä osallistumistilassa ei ole muita ehdotuskomponentteja ehdotusten tuomiseksi.
@@ -547,7 +554,7 @@ fi:
               cancel: Peruuta
               ok: Peru yhteistyöluonnos
               title: Seuraavat toimenpiteet ovat peruuttamattomia
-            success: Yhteistyöluonnos peruutettiin onnistuneesti.
+            success: Yhteistyöluonnoksen peruuttaminen onnistui.
         compare:
           mine_is_different: Yhteistyöehdotukseni on erilainen
           no_similars_found: Hyvin tehty! Vastaavanlaisia ​​yhteistyöluonnoksia ei löytynyt
@@ -561,7 +568,7 @@ fi:
             other: "%{count} yhteistyöluonnosta"
         create:
           error: Yhteistyöluonnoksen luonti epäonnistui
-          success: Yhteistyöluonnos luotu onnistuneesti.
+          success: Yhteistyöluonnoksen luonti onnistui.
         edit:
           attachment_legend: "(Valinnainen) Lisää liite"
           back: Takaisin
@@ -597,17 +604,17 @@ fi:
         requests:
           accepted_request:
             error: Osallistujaa ei voitu hyväksyä, yritä myöhemmin uudelleen.
-            success: "@%{user} on hyväksytty yhteistyökumppaniksi onnistuneesti"
+            success: "Käyttäjän @%{user} hyväksyminen muokkaajaksi onnistui"
           access_requested:
             error: Pyyntöäsi ei voitu suorittaa, yritä myöhemmin uudelleen.
-            success: Pyyntösi päästä osallistumaan on lähetetty onnistuneesti
+            success: Osallistumispyyntösi lähetys onnistui
           collaboration_requests:
             accept_request: Hyväksy
             reject_request: Hylkää
             title: Yhteistyöpyynnöt
           rejected_request:
             error: Osallistujaa ei voitu hylätä, yritä myöhemmin uudelleen.
-            success: "@%{user} osallistumispyynnön hylkäys onnistui"
+            success: "Käyttäjän @%{user} osallistumispyynnön hylkäys onnistui"
         show:
           back: Takaisin
           edit: Muokkaa yhteistyöluonnosta
@@ -617,13 +624,13 @@ fi:
             one: ja %{count} muu henkilö
             other: ja %{count} muuta henkilöä
           info-message: Tämä on <strong>yhteistyöluonnos</strong> ehdotukselle. Tämä tarkoittaa, että voit auttaa laatijoita muodostamaan ehdotuksen alhaalta löytyvän kommentointitoiminnon avulla tai parantaa sitä suoraan pyytämällä muokkausoikeutta ehdotukseen. Kun laatijat antavat sinulle muokkausoikeuden, voit tehdä muutoksia tähän luonnokseen.
-          of_versions: "( %{number}:sta)"
+          of_versions: "(yhteensä %{number} kpl)"
           publish: Julkaise
           publish_info: Julkaise tämän luonnosversio tai
           published_proposal: julkaistu ehdotus
           request_access: Pyydä käyttöoikeutta
           requested_access: Käyttöoikeutta pyydetty
-          see_other_versions: katso muita versioita
+          see_other_versions: näytä muut versiot
           version: Versio %{number}
           version_history: katso tämän ehdotuksen versiohistoria
           withdraw: peruuttaa luonnos
@@ -638,7 +645,7 @@ fi:
           back: Takaisin
           info: Olet luomassa <strong>yhteistyöluonnosta</strong>.
         wizard_steps:
-          see_steps: katso vaiheet
+          see_steps: näytä vaiheet
           step_1: Luo yhteistyöluonnoksesi
           step_2: Vertaa yhteistyöluonnoksiin
           step_3: Tee yhteistyöluonnoksesi valmiiksi
@@ -648,7 +655,7 @@ fi:
         success: Ehdotuksen luonti onnistui. Ehdotus on tallennettu luonnoksena.
       destroy_draft:
         error: Ehdotusluonnoksen poistaminen epäonnistui.
-        success: Ehdotusluonnos poistettiin onnistuneesti.
+        success: Ehdotusluonnoksen poistaminen onnistui.
       last_activity:
         new_proposal_at_html: "<span>Uusi ehdotus osoitteessa %{link}</span>"
       models:
@@ -823,17 +830,22 @@ fi:
           back: Takaisin
           info: Olet luomassa <strong>ehdotusta</strong>.
         wizard_steps:
-          see_steps: katso vaiheet
+          see_steps: näytä vaiheet
           step_1: Luo ehdotuksesi
           step_2: Vertaile
           step_3: Viimeistele
           step_4: Julkaise ehdotuksesi
           step_of: Vaihe %{current_step_num} / %{total_steps}
+      proposals_picker:
+        choose_proposals: Valitse ehdotukset
+        close: Sulje
+        more_proposals: Ehdotuksia on vielä %{number} kpl lisää. Muuta hakuehtoja löytääksesi ne.
+        no_proposals: Hakuehtosi eivät vastaa yhtään ehdotusta tai yhtään ehdotusta ei vielä ole olemassa.
       publish:
         error: Ehdotuksen julkaisu epäonnistui.
         success: Ehdotuksen julkaisu onnistui.
       publish_answers:
-        success: Ehdotusten vastaukset onnistuneesti julkaistu.
+        success: Ehdotusten vastausten julkaisu onnistui.
       update:
         error: Ehdotuksen tallentaminen epäonnistui.
         success: Ehdotuksen päivitys onnistui.

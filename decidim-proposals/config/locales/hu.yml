@@ -87,9 +87,7 @@ hu:
         state_eq:
           label: Állapot
           values:
-            accepted: Elfogadva
             evaluating: Értékelés
-            rejected: Elutasítva
             withdrawn: Visszavonva
         state_null:
           label: Állapot
@@ -123,8 +121,8 @@ hu:
             new_proposal_body_template_help: Előre meghatározott szöveg beállítása, amelyet az új Javaslatok használnak
             new_proposal_help_text: Új javaslat súgószöveg
             official_proposals_enabled: Hivatalos javaslatok engedélyezve
-            participatory_texts_disabled_help: Meglévő javaslatok esetén nem lehet alkalmazni ezt a beállítást. Legyen szíves, egy új 'Javaslatok komponens' -t hozzon létre, hogy ezt a funkciót használja, vagy vesse el az importált javaslatokat a "Részvételi Szövegek" menüben, ha ki akarja kapcsolni.
             participatory_texts_enabled: Engedélyezett részvételi szövegek
+            participatory_texts_enabled_readonly: Meglévő javaslatok esetén nem lehet alkalmazni ezt a beállítást. Legyen szíves, egy új 'Javaslatok komponens' -t hozzon létre, hogy ezt a funkciót használja, vagy vesse el az importált javaslatokat a "Részvételi Szövegek" menüben, ha ki akarja kapcsolni.
             proposal_answering_enabled: Javaslat válasz engedélyezve
             proposal_edit_before_minutes: A javaslatokat a szerzők az ülés lezárásáig szerkeszthetik
             proposal_length: Javaslat szöveg maximális hossza
@@ -144,6 +142,9 @@ hu:
             amendment_reaction_enabled: A módosító reakció engedélyezett
             amendment_reaction_enabled_help: A javaslatok szerzői elfogadhatják vagy elutasíthatják a résztvevő helyreigazításait.
             amendments_visibility: A módosítás láthatósága
+            amendments_visibility_choices:
+              all: A módosítások mindenki számára láthatóak
+              participants: A módosítások csak a szerzőik számára láthatóak
             amendments_visibility_help: Ha a „Módosítások csak a szerzőik számára láthatóak” opciót választják, akkor a résztvevőnek be kell jelentkeznie a módosítások megtekintéséhez.
             announcement: Közlemény
             answers_with_costs: Költségek engedélyezése javaslati válaszoknál
@@ -829,6 +830,9 @@ hu:
           step_3: Befejez
           step_4: Javaslatod közzététele
           step_of: '%{current_step_num}. lépés ennyiből: %{total_steps}'
+      proposals_picker:
+        choose_proposals: Javaslatok kiválasztása
+        close: Bezár
       publish:
         error: Hiba történt a javaslat közzététele során.
         success: Javaslat közzététele sikeres.

@@ -30,10 +30,10 @@ sv:
         instagram: Instagram
         internal_organisation: Intern organisation
         is_transparent: Är transparent
-        local_area: Organisationsområde
+        local_area: Område
         meta_scope: Metadata för omfång
         parent_id: Överordnad grupp
-        participatory_processes_ids: Relaterade deltagarprocesser
+        participatory_processes_ids: Relaterade dialoger
         participatory_scope: Vad bestäms
         participatory_structure: Hur bestäms det
         private_space: Privat utrymme
@@ -287,7 +287,7 @@ sv:
         working_group: Arbetsgrupp
       content_blocks:
         highlighted_assemblies:
-          name: Annonserade grupper
+          name: Viktiga grupper
       created_by:
         city_council: Stadsfullmäktige
         others: Övriga
@@ -331,14 +331,14 @@ sv:
         is_transparent:
           'false': ogenomskinlig
           'true': transparent
-        local_area: Organisationsområde
+        local_area: Område
         participatory_scope: Vad bestäms
         participatory_structure: Hur det bestäms
         private_space: Detta är en privat grupp
         purpose_of_action: Syftet med åtgärden
         read_less: Läs mindre
         read_more: Läs mer
-        related_participatory_processes: Relaterade deltagarprocesser
+        related_participatory_processes: Relaterade dialoger
         scope: Omfång
         social_networks: Sociala nätverk
         social_networks_title: Dela denna grupp på
@@ -373,8 +373,8 @@ sv:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>En <strong>grupp</strong> är en grupp medlemmar i en organisation som regelbundet träffas för att fatta beslut om ett specifikt område eller omfång inom organisationen.</p> <p>Grupper håller möten där vissa är slutna och andra är öppna. Om de är öppna är det möjligt att delta i dem (till exempel: att närvara om det finns plats, lägga till punkter på dagordningen eller att yttra sig om de förslag och beslut som fattas av detta organ).</p> <p>Exempel: En generalförsamling (som möts en gång per år för att bestämma om organisationens verksamhetsplan samt utse dess styrelse genom omröstning), ett jämställdhetsråd (som möts varannan månad för att lägga fram förslag om hur man kan förbättra jämställdheten i organisationen) eller en utvärderingskommitté (som möts varje månad för att bevaka en process) eller en granskningsgrupp (som samlar in rapporter om incidenter eller missbruk samt förslag som kan förbättra beslutsprocedurerna) är alla exempel på grupper.</p>\n"
-          page: "<p>En <strong>grupp</strong> är en grupp medlemmar i en organisation som regelbundet träffas för att fatta beslut om ett specifikt område eller omfång inom organisationen.</p> <p>Grupper håller möten där vissa är slutna och andra är öppna. Om de är öppna är det möjligt att delta i dem (till exempel: att närvara om det finns plats, lägga till punkter på dagordningen eller att yttra sig om de förslag och beslut som fattas av detta organ).</p> <p>Exempel: En generalförsamling (som möts en gång per år för att bestämma om organisationens verksamhetsplan samt utse dess styrelse genom omröstning), ett jämställdhetsråd (som möts varannan månad för att lägga fram förslag om hur man kan förbättra jämställdheten i organisationen) eller en utvärderingskommitté (som möts varje månad för att bevaka en process) eller en granskningsgrupp (som samlar in rapporter om incidenter eller missbruk samt förslag som kan förbättra beslutsprocedurerna) är alla exempel på grupper.</p>\n"
+          contextual: "<p>En <strong>grupp</strong> är en grupp medlemmar i en organisation som regelbundet träffas för att fatta beslut om ett specifikt område eller omfång inom organisationen.</p> <p>Grupper håller möten där vissa är slutna och andra är öppna. Om de är öppna är det möjligt att delta i dem (till exempel: att närvara om det finns plats, lägga till punkter på dagordningen eller att yttra sig om de förslag och beslut som fattas av detta organ).</p> <p>Exempel: En generalförsamling (som möts en gång per år för att bestämma om organisationens verksamhetsplan samt utse dess styrelse genom omröstning), ett jämställdhetsråd (som möts varannan månad för att lägga fram förslag om hur man kan förbättra jämställdheten i organisationen) eller en utvärderingskommitté (som möts varje månad för att bevaka en dialog) eller en granskningsgrupp (som samlar in rapporter om incidenter eller missbruk samt förslag som kan förbättra beslutsprocedurerna) är alla exempel på grupper.</p>\n"
+          page: "<p>En <strong>grupp</strong> är en grupp medlemmar i en organisation som regelbundet träffas för att fatta beslut om ett specifikt område eller omfång inom organisationen.</p> <p>Grupper håller möten där vissa är slutna och andra är öppna. Om de är öppna är det möjligt att delta i dem (till exempel: att närvara om det finns plats, lägga till punkter på dagordningen eller att yttra sig om de förslag och beslut som fattas av detta organ).</p> <p>Exempel: En generalförsamling (som möts en gång per år för att bestämma om organisationens verksamhetsplan samt utse dess styrelse genom omröstning), ett jämställdhetsråd (som möts varannan månad för att lägga fram förslag om hur man kan förbättra jämställdheten i organisationen) eller en utvärderingskommitté (som möts varje månad för att bevaka en dialog) eller en granskningsgrupp (som samlar in rapporter om incidenter eller missbruk samt förslag som kan förbättra beslutsprocedurerna) är alla exempel på grupper.</p>\n"
           title: Vad är grupper?
     log:
       value_types:
@@ -392,14 +392,14 @@ sv:
     pages:
       home:
         hero:
-          participate_title: Delta i plattformens processer
+          participate_title: Delta i plattformens dialoger
         sub_hero:
           register_title: Skapa ett konto på plattformen genom att logga in
     participatory_processes:
       pages:
         home:
           highlighted_processes:
-            processes_button_title: Länk till sidan över processer som visar alla processer
+            processes_button_title: Länk till sidan som visar alla dialoger
   errors:
     messages:
       cannot_be_blank: kan inte vara tomt
@@ -412,7 +412,7 @@ sv:
         index:
           children: 'Grupper: '
           organizational_chart: Organisationsschema
-          promoted_assemblies: Annonserade grupper
+          promoted_assemblies: Viktiga grupper
           reset_chart: Återställ
         order_by_assemblies:
           assemblies:

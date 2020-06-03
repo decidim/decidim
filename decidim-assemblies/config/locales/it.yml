@@ -2,7 +2,7 @@ it:
   activemodel:
     attributes:
       assembly:
-        area_id: La zona
+        area_id: Area
         assembly_type: Tipo di assemblea
         assembly_type_other: Tipo di assemblea altro
         banner_image: Immagine del banner
@@ -79,6 +79,7 @@ it:
     admin:
       actions:
         new_assembly: Nuova assemblea
+        new_assembly_type: Nuovo tipo di assemblea
       assemblies:
         create:
           error: Si è verificato un errore durante la creazione di una nuova assemblea.
@@ -100,9 +101,22 @@ it:
         create:
           error: Si è verificato un errore durante la duplicazione di questa assemblea.
           success: L'assemblea è stata duplicata con successo.
+      assemblies_settings:
+        update:
+          error: Si è verificato un errore durante l'aggiornamento delle impostazioni.
+          success: Impostazioni aggiornate con successo.
       assemblies_types:
+        create:
+          error: Si è verificato un errore durante la creazione di un nuovo tipo di assemblea.
+          success: Tipo di Assemblea creato con successo.
+        destroy:
+          success: Tipo di Assemblea eliminato correttamente.
         new:
           create: Crea
+          title: Nuovo tipo di assemblea
+        update:
+          error: Si è verificato un errore durante l'aggiornamento di questo tipo di assemblea.
+          success: Tipo di Assemblea aggiornato correttamente.
       assembly_copies:
         new:
           copy: Copia
@@ -151,6 +165,7 @@ it:
           success: Utente aggiornato correttamente per questo assembly.
       menu:
         assemblies: Assemblee
+        assemblies_settings: Impostazioni
         assemblies_submenu:
           assembly_admins: Amministratori dell'assemblea
           assembly_members: Utenti
@@ -162,6 +177,7 @@ it:
           info: Informazioni
           moderations: Moderazione
           private_users: Utenti privati
+        assemblies_types: Tipi di assemblea
       models:
         assemblies_types:
           fields:
@@ -197,6 +213,7 @@ it:
             admin: Amministratore
             collaborator: Collaboratore
             moderator: Moderatore
+            valuator: Valutatore
       titles:
         assemblies: assemblee
         assemblies_types: Tipo di assemblea
@@ -210,6 +227,8 @@ it:
         create: "%{user_name} creato il membro %{resource_name} nel %{space_name} assembly"
         delete: "%{user_name} rimosso il membro %{resource_name} dal gruppo %{space_name}"
         update: "%{user_name} aggiornato il %{resource_name} membro nel %{space_name} assembly"
+      assembly_setting:
+        update: "%{user_name} ha aggiornato le impostazioni delle assemblee"
       assembly_type:
         create: "%{user_name} ha creato il tipo di assemblea %{resource_name}"
         delete: "%{user_name} ha rimosso il %{resource_name} membro dal tipo di assemblea %{space_name}"
@@ -239,6 +258,11 @@ it:
             social_handlers: Sociale
             title: Informazioni generali
             visbility: Visibilità
+        assemblies_settings:
+          edit:
+            update: Aggiorna
+          form:
+            title: Impostazioni per le assemblee
         assemblies_types:
           form:
             title: Titolo
@@ -298,6 +322,7 @@ it:
         home:
           highlighted_assemblies:
             active_assemblies: Assemblee attive
+            assemblies_button_title: Link alla pagina delle Assemblee mostrata in tutte le assemblee
             see_all_assemblies: Vedere tutti gli assiemi
         user_profile:
           member_of:
@@ -328,6 +353,7 @@ it:
         related_participatory_processes: Processi partecipativi correlati
         scope: Obiettivi
         social_networks: Social networks
+        social_networks_title: Condividi questa assemblea su
         target: Chi partecipa
       statistics:
         answers_count: risposte
@@ -339,6 +365,7 @@ it:
         meetings_count: Riunioni
         orders_count: Voti
         pages_count: Pagine
+        posts_count: Messaggi
         projects_count: Progetti
         proposals_count: Proposte
         results_count: Risultati
@@ -350,6 +377,24 @@ it:
         designated_on: Designato su
       index:
         title: Utenti
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Link alla pagina delle Conferenze mostrata in tutte le conferenze
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: Un amministratore dell'assemblea <a href="%{resource_url}">%{resource_name}</a> ti ha aggiunto come membro.
+          email_outro: Hai ricevuto questa notifica perché sei stato invitato ad una Assemblea. Controlla la pagina <a href="%{resource_path}"></a> per contribuire!
+          email_subject: Ti invitano a far parte dell'Assemblea %{resource_name}!
+          notification_title: Sei stato registrato come membro dell'Assemblea <a href="%{resource_path}">%{resource_name}</a>. Controlla la <a href="%{resource_path}">pagina dell'assemblea</a> per contribuire!
+      assembly:
+        role_assigned:
+          email_intro: Ora sei %{role} per l'assemblea "%{resource_title}".
+          email_outro: Hai ricevuto questa notifica perché sei %{role} dell'assemblea "%{resource_title}.
+          email_subject: Ora sei %{role} per l'assemblea "%{resource_title}".
+          notification_title: Ora sei %{role} per l'assemblea <a href="%{resource_url}">%{resource_title}</a>.
     help:
       participatory_spaces:
         assemblies:
@@ -369,6 +414,17 @@ it:
         description: Numero di assiemi creati
         object: assiemi
         title: assemblee
+    pages:
+      home:
+        hero:
+          participate_title: Partecipa ai processi della piattaforma
+        sub_hero:
+          register_title: Iscriviti per creare un account sulla piattaforma
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Link alla pagina dei Processi mostrata in tutti i processi
   errors:
     messages:
       cannot_be_blank: non può essere vuoto

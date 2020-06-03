@@ -65,6 +65,9 @@ de:
         project:
           fields:
             title: Titel
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'Die ausgewählten Projekte sind:'
       projects:
         budget_confirm:
           are_you_sure: Sind Sie einverstanden? Sobald Sie Ihre Stimme bestätigt haben, können Sie sie nicht ändern.

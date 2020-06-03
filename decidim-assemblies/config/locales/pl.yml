@@ -49,7 +49,7 @@ pl:
         subtitle: Podtytuł
         target: Kto uczestniczy
         title: Tytuł
-        twitter: Świergot
+        twitter: Twitter
         youtube: Youtube
       assembly_member:
         birthday: Urodziny
@@ -373,7 +373,7 @@ pl:
       assemblies:
         assembly:
           more_info: Więcej informacji
-          take_part: Wziąć udział
+          take_part: Weź udział
         index:
           organizational_chart: Schemat organizacyjny
           promoted_assemblies: Podświetlone zespoły
@@ -386,10 +386,10 @@ pl:
             other: "%{count} złożeń"
         promoted_assembly:
           more_info: Więcej informacji
-          take_part: Wziąć udział
+          take_part: Weź udział
       assembly_navigation:
         assembly_member_menu_item: Członkowie
         assembly_menu_item: Zgromadzenie
       assembly_widgets:
         show:
-          take_part: Wziąć udział
+          take_part: Weź udział
