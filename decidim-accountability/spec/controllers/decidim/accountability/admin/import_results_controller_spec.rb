@@ -25,12 +25,12 @@ module Decidim
           sign_in current_user
         end
 
-        describe "GET the proposals picker" do
+        describe "GET the import result process new" do
           before do
             get :new, params: params
           end
 
-          it "renders the proposals picker" do
+          it "renders the import result form" do
             expect(response).to render_template("decidim/accountability/admin/import_results/new")
           end
         end
