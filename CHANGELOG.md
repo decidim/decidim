@@ -29,6 +29,7 @@ The use case that originated this change is the persistence of the user's gender
 
 ### Added
 
+- **decidim-participatory_processes**: Add related assemblies to participatory processes [\#5868](https://github.com/decidim/decidim/pull/5868)
 - **decidim-comments**: Fix comment link on Last Activity. [\#5999](https://github.com/decidim/decidim/pull/5999)
 - **decidim-system**: Add from_label to Organization SMTP settings. [#\6125](https://github.com/decidim/decidim/pull/6125)
 - **decidim-initiatives**: Send notification when signature threshold reached. [\#6098](https://github.com/decidim/decidim/pull/6098)

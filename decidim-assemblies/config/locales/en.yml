@@ -426,6 +426,8 @@ en:
         home:
           highlighted_processes:
             processes_button_title: Link to the Processes page displaying all the processes
+      show:
+        related_assemblies: Related assemblies
   errors:
     messages:
       cannot_be_blank: can not be blank
