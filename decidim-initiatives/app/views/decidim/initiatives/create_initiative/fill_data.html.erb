@@ -21,12 +21,12 @@
         <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { class: "form new_initiative_form" }) do |f| %>
           <%= f.hidden_field :type_id %>
           <div class=section>
-            <div class="field">
-              <label for="type_description">
-                <%= t ".initiative_type" %>
+            <% unless single_initiative_type? %>
+              <div class="field">
+                <label for="type_description"><%= t ".initiative_type" %></label>
                 <%= text_field_tag :type_description, strip_tags(translated_attribute(initiative_type.title)), readonly: true %>
-              </label>
-            </div>
+              </div>
+            <% end %>
 
             <div class="field">
               <%= f.text_field :title, autofocus: true, required: true %>
@@ -58,6 +58,12 @@
             <% if initiative_type.custom_signature_end_date_enabled? %>
               <div class="field">
                 <%= f.date_field :signature_end_date %>
+              </div>
+            <% end %>
+
+            <% if initiative_type.area_enabled? %>
+              <div class="field">
+                <%= f.areas_select :area_id, areas_for_select(current_organization), prompt: t(".select_area") %>
               </div>
             <% end %>
 
