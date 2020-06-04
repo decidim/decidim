@@ -18,6 +18,8 @@ module Decidim
 
           resources :timeline_entries, except: [:show]
         end
+        get :import_results, to: "import_results#new"
+        post :import_results, to: "import_results#create"
         root to: "results#index"
       end
 

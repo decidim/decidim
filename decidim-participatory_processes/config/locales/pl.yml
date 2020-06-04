@@ -401,20 +401,20 @@ pl:
       participatory_process_widgets:
         show:
           active_step: Aktywny krok
-          take_part: Wziąć udział
+          take_part: Weź udział
       participatory_processes:
         index:
           promoted_processes: Podświetlone procesy
         participatory_process:
           active_step: 'Aktualny krok:'
           more_info: Więcej informacji
-          take_part: Wziąć udział
+          take_part: Weź udział
         promoted_process:
           active_step: 'Aktualny krok:'
           more_info: Więcej informacji
-          take_part: Wziąć udział
+          take_part: Weź udział
       process_header_steps:
-        step: Krok %{current} z %{total}
-        view_steps: Wyświetl kroki
+        step: Etap %{current} z %{total}
+        view_steps: Pokaż etapy
       process_navigation:
         process_menu_item: Proces

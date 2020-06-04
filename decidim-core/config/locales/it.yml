@@ -5,11 +5,11 @@ it:
         delete_reason: Motivo per il quale vuoi eliminare il tuo account
       group:
         about: Dettagli
-        avatar: Immagine di profilo
+        avatar: Immagine del profilo
         document_number: Numero del documento
         email: Email
         name: Nome
-        nickname: Nome utente
+        nickname: Pseudonimo
         phone: Telefono
       report:
         details: Ulteriori commenti
@@ -33,6 +33,7 @@ it:
       decidim/profile_updated_event: profilo aggiornato
       decidim/promote_to_admin: Promosso ad amministratore del gruppo
       decidim/removed_from_group: Rimosso dal gruppo
+      decidim/resource_endorsed_event: Risorsa approvata
   activerecord:
     attributes:
       decidim/user:
@@ -46,6 +47,9 @@ it:
       decidim/amendment:
         one: Emendamento
         other: Modifiche
+      decidim/endorsement:
+        one: Appoggio
+        other: Appoggi
       decidim/user:
         one: Partecipante
         other: Partecipanti
@@ -57,6 +61,7 @@ it:
     'true': 'Si'
   carrierwave:
     errors:
+      general: Errore nell'elaborazione dell'immagine
       image_too_big: L'immagine è troppo grande
   date:
     formats:
@@ -66,6 +71,9 @@ it:
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
+    accessibility:
+      logo: "Logo ufficiale di %{organization}"
+      skip_button: Vai al contenuto principale
     account:
       data_portability_export:
         file_no_exists: Il file non esiste
@@ -134,6 +142,7 @@ it:
         invite: "%{user_name} ha invitato l'utente %{resource_name} con ruolo: %{role}"
         officialize: "%{user_name} ha ufficializzato l'utente %{resource_name}"
         remove_from_admin: "%{user_name} rimosso l'utente %{resource_name} con ruolo: %{role}"
+        show_email: "%{user_name} ha ricevuto l'email del partecipante %{resource_name}"
         unofficialize: "%{user_name} utente non ufficiale %{resource_name}"
       user_group:
         reject: "%{user_name} respinto il %{resource_name} verifica del gruppo di utenti"
@@ -211,9 +220,6 @@ it:
       update_draft:
         error: C'è stato un problema nell'eliminazione della bozza di emendamento.
         success: Bozza emendamento aggiornata correttamente.
-      visibility_options:
-        all: Gli emendamenti sono visibili a tutti
-        participants: Gli emendamenti sono visibili solo ai loro autori
       withdraw:
         error: Si è verificato un errore durante la creazione della proposta di emendamento
         success: L'emendamento è stato creato con successo
@@ -229,6 +235,8 @@ it:
         documents:
           one: Documento
           other: Documenti
+      document:
+        download: Scarica file
       documents:
         related_documents: Documenti Relativi
       photos:
@@ -238,6 +246,9 @@ it:
       comments:
         one: commento
         other: Commenti
+      endorsements:
+        one: appoggio
+        other: appoggi
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Ottenere verificato introducendo un numero di passaporto che inizia con "A"
@@ -304,6 +315,19 @@ it:
       see_less: "(vedi meno)"
       see_more: "(Vedi altro)"
     components:
+      component_order_selector:
+        no_content: Non è stato possibile trovare alcun contenuto con questo criterio
+        order:
+          all_types: Tutti i tipi
+          collaborative_draft: Bozza Collaborativa
+          comment: Commento
+          debate: Dibattito
+          initiative: Iniziativa
+          meeting: Incontro
+          post: Messaggio
+          proposal: Proposta
+          question: Domanda
+        title: 'Mostra:'
       dummy:
         actions:
           bar: Bar
@@ -333,6 +357,9 @@ it:
         name: Banner di sub eroe di piè di pagina
       hero:
         name: Immagine in evidenza
+      hero_settings_form:
+        background_image: Immagine di sfondo
+        welcome_text: Testo di benvenuto
       highlighted_content_banner:
         name: Banner dei contenuti evidenziati
       how_to_participate:
@@ -428,6 +455,13 @@ it:
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> vuole utilizzare il tuo account"
     endorsable:
       endorsements: Mi piace
+    endorsement_buttons_cell:
+      already_endorsed: Appoggiato
+      endorse: Appoggia
+    endorsements:
+      identities:
+        done: Fatto
+        select_identity: Seleziona identità
     errors:
       internal_server_error:
         title: C'era un problema con il nostro server
@@ -546,8 +580,23 @@ it:
           email_outro: Hai ricevuto questa notifica perché eri un membro di quel gruppo.
           email_subject: Sei stato rimosso dal gruppo %{user_group_name}!
           notification_title: Sei stato rimosso dal gruppo <a href="%{resource_path}">%{user_group_name}</a>.
+        user_group_created:
+          email_intro: Un nuovo gruppo di utenti è stato creato con il nome %{user_group_name}. Ora puoi verificarlo nel <a href="%{groups_admin_url}">pannello di amministrazione</a>.
+          email_outro: Hai ricevuto questa notifica perché sei un amministratore della piattaforma.
+          email_subject: È stato creato un nuovo gruppo di utenti
+          notification_title: Il gruppo utente %{user_group_name} è stato creato. Ora puoi verificarlo nel <a href="%{groups_admin_path}">pannello di amministratore</a>.
+        user_group_updated:
+          email_intro: Un gruppo di utenti con il nome %{user_group_name} ha aggiornato il suo profilo, lasciandolo non verificato. Ora puoi verificarlo nel <a href="%{groups_admin_url}">pannello di amministrazione</a>.
+          email_outro: Hai ricevuto questa notifica perché sei un amministratore della piattaforma.
+          email_subject: Un gruppo di utenti ha aggiornato il suo profilo
+          notification_title: Il gruppo utenti %{user_group_name} ha aggiornato il suo profilo, lasciandolo non verificato. Ora puoi verificarlo nel <a href="%{groups_admin_path}">pannello di amministratore</a>.
       notification_event:
         notification_title: Si è verificato un evento di <a href="%{resource_path}">%{resource_title}</a>.
+      resource_endorsed:
+        email_intro: '%{endorser_name} %{endorser_nickname}, chi stai seguendo, ha appena appoggiato la proposta "%{resource_title}" e pensiamo che potrebbe essere interessante per te. Dai un''occhiata e partecipa:'
+        email_outro: Hai ricevuto questa notifica perché stai seguendo %{endorser_nickname}. Puoi smettere di ricevere notifiche seguendo il link precedente.
+        email_subject: "%{endorser_nickname} ha eseguito un nuovo appoggio"
+        notification_title: Il <a href="%{resource_path}">%{resource_title}</a> %{resource_type} è stato approvato da <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: La pagina <a href="%{resource_url}">profilo</a> di %{name} (%{nickname}), che stai seguendo, è stata aggiornata.
@@ -586,6 +635,7 @@ it:
       create:
         button: Segui
         error: C'è stato un errore seguendo questa risorsa.
+        participatory_space: Stai già seguendo lo spazio partecipativo
       destroy:
         button: Smetti di seguire
         error: Si è verificato un errore ad smettere questa risorsa.
@@ -758,27 +808,66 @@ it:
       home: Home
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          admin_in_group: Hai ricevuto questo perché sei un amministratore di %{group}.
+          greeting: Ciao, %{recipient}!
+          intro: "%{manager} ha iniziato una nuova conversazione a nome di %{group}. Clicca qui per vederla:"
+          outro: Goditi decidim!
+          subject: "%{manager} ha iniziato una nuova conversazione come %{group}"
+        comanagers_new_message:
+          admin_in_group: Hai ricevuto questo perché sei un amministratore di %{group}.
+          greeting: Ciao, %{recipient}!
+          intro: "%{manager} ha postato nuovi messaggi in una conversazione a nome di %{group}. Clicca qui per vederli:"
+          outro: Goditi decidim!
+          subject: "%{manager} ha inviato nuovi messaggi come %{group}"
         new_conversation:
           greeting: Ciao, %{recipient}!
           intro: "%{sender} ha avviato una nuova conversazione con te. Clicca qui per vederlo:"
           outro: Questa applicazione è stata realizzata con decidim!
           subject: "%{sender} ha iniziato una conversazione con te"
+        new_group_conversation:
+          admin_in_group: Hai ricevuto questo perché sei un amministratore di %{group}.
+          greeting: Ciao, %{recipient}!
+          intro: "%{sender} ha iniziato una nuova conversazione con il gruppo %{group}. Clicca qui per vederla:"
+          outro: Goditi decidim!
+          subject: "%{sender} ha iniziato una conversazione con %{group}"
+        new_group_message:
+          admin_in_group: Hai ricevuto questo perché sei un amministratore di %{group}.
+          greeting: Ciao, %{recipient}!
+          intro: "%{sender} ha postato nuovi messaggi in una conversazione con il gruppo %{group}. Clicca qui per vederlo:"
+          outro: Goditi decidim!
+          subject: "%{group} ha nuovi messaggi da %{sender}"
         new_message:
           greeting: Ciao, %{recipient}!
           intro: "%{sender} ha pubblicato nuovi messaggi nella tua conversazione. Clicca qui per vederli:"
           outro: Questa applicazione è stata realizzata con decidim!
           subject: Hai nuovi messaggi da %{sender}
       conversations:
+        add_conversation_users:
+          add_max_users: 'Aggiungi utenti alla conversazione: massimo 9 utenti'
+          add_users_placeholder: Cerca...
+          modal_title: Nuova conversazione
+          no_results: Nessun risultato
+          participant_with_disabled_message_reception: Questo utente ha disabilitato la ricezione dei messaggi
         create:
           error: La conversazione non è iniziata. Riprovare più tardi
         index:
+          ago: fa
           close: Chiudi modale
+          from: Da
+          groups: I miei gruppi
+          last_message: Ultimo messaggio
+          new_conversation: Nuova conversazione
+          next: Successivo
           no_conversations: Non hai ancora conversazioni
           title: conversazioni
         reply:
+          placeholder: La tua risposta...
           send: Inviare
           title: Rispondi
         show:
+          chat_with: Conversazione con
+          not_allowed: Questo utente non accetta più messaggi diretti.
           title: Conversazione con %{usernames}
         start:
           send: Invia
@@ -805,6 +894,25 @@ it:
         note: Hai ricevuto questa email perché ti sei iscritto alla newsletter su %{organization_name}. Puoi modificare le impostazioni sulla tua <a href="%{link}">pagina di notifiche</a>.
         see_on_website: Non riesci a vedere questa email correttamente? Visualizzalo su <a href="%{link}" target="_blank">website</a>.
         unsubscribe: Per disattivare la ricezione di questo tipo di email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
+    newsletter_templates:
+      basic_only_text:
+        body_preview: 'Testo casuale da inserire: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Base (solo testo)
+      basic_only_text_settings_form:
+        body: Testo
+        interpolations_hint: 'Suggerimento: È possibile utilizzare "%{name}" ovunque nel corpo o nell''oggetto e sarà sostituito dal nome del destinatario.'
+      image_text_cta:
+        body_preview: 'Testo casuale da inserire: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
+        cta_text_preview: Testo della chiamata all'azione
+        introduction_preview: 'Testo casuale da inserire: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Immagine, testo e pulsante della chiamata all'azione
+      image_text_cta_settings_form:
+        body: Testo
+        cta_text: Testo del pulsante Chiamata all'Azione
+        cta_url: URL del pulsante "Chiamata all'azione"
+        interpolations_hint: 'Suggerimento: È possibile utilizzare "%{name}" ovunque nell''introduzione, nel corpo, nel testo del CTA o nell''oggetto e sarà sostituito dal nome del destinatario.'
+        introduction: Introduzione
+        main_image: Immagine principale
     newsletters:
       unsubscribe:
         check_subscription: Se desideri modificare le tue preferenze, puoi farlo nella pagina di configurazione <a href="%{link}" target="_blank"></a>
@@ -830,6 +938,8 @@ it:
       no_notifications: Nessuna notifica.
     notifications_settings:
       show:
+        allow_public_contact: Permetti a chiunque di inviarmi un messaggio diretto, anche se non lo seguo.
+        direct_messages: Ricevi messaggi diretti da chiunque
         email_on_notification: Voglio ricevere un'e-mail ogni volta che ricevo una notifica.
         everything_followed: Tutto ciò che seguo
         newsletter_notifications: Voglio ricevere le newsletter
@@ -932,6 +1042,7 @@ it:
       show:
         activity: Attività
         badges: badge
+        conversations: Conversazioni
         followers: Followers
         following: Seguiti
         groups: gruppi
@@ -969,6 +1080,9 @@ it:
       create:
         error: Si è verificato un un errore. Ti preghiamo di riprovare.
         success: Il report è stato creato e sarà rivisto da un amministratore.
+    resource_endorsements:
+      create:
+        error: C'è stato un problema durante l'azione di appoggio.
     scopes:
       global: Ambito globale
       picker:
@@ -1034,6 +1148,7 @@ it:
         select_user_group: Seleziona un gruppo
       results_per_page:
         label: 'Risultati per pagina:'
+        title: Seleziona il numero di risultati per pagina
       share_modal:
         close_window: Chiudi questa finestra
         share: Condividi
@@ -1043,6 +1158,37 @@ it:
     user_activity:
       index:
         no_activities_warning: Questo utente non ha ancora avuto alcuna attività.
+    user_contact_disabled: Questo partecipante non accetta messaggi diretti.
+    user_conversations:
+      create:
+        error: Il messaggio non può essere creato. Riprova più tardi
+        existing_error: Il messaggio non può essere creato. La conversazione esiste già, riprova ora.
+        success: Conversazione iniziata con successo!
+      index:
+        add_max_users: 'Aggiungi utenti alla conversazione: massimo 9 utenti'
+        add_users_placeholder: Cerca...
+        close: Chiudi
+        conversations_info: Le conversazioni sono private. Nessun altro può vederle. Una conversazione può essere avviata con qualsiasi partecipante o gruppo registrato sulla piattaforma.
+        from: Da
+        last_message: Ultimo messaggio
+        modal_title: Nuova conversazione
+        new_conversation: Nuova conversazione
+        next: Successivo
+        no_conversations_warning: Non ci sono ancora conversazioni.
+        no_results: Nessun risultato
+        participant_with_disabled_message_reception: Questo utente ha disabilitato la ricezione dei messaggi
+        time_ago: "%{time} fa"
+      new:
+        title: Inizia una conversazione
+      reply:
+        placeholder: La tua risposta...
+        send: Invia
+        title_reply: Rispondi
+      show:
+        not_allowed: Questo utente non accetta più messaggi diretti.
+        title: Conversazione con %{usernames}
+      update:
+        error: Messaggio non inviato. Riprova più tardi
     user_interests:
       show:
         my_interests: I miei interessi
@@ -1320,6 +1466,7 @@ it:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%B %d, % %Y %H:%M"
+      long_dashed: "%d/%m/%Y %H:%M:%S"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
@@ -1336,7 +1483,12 @@ it:
   views:
     pagination:
       first: "&laquo; Primo"
+      first_title: Vai alla prima pagina
       last: Ultimo &raquo;
+      last_title: Vai alla prima pagina
       next: Successivo &rsaquo;
+      next_title: Va alla pagina successiva
       previous: "&lsaquo; Precedente"
+      previous_title: Vai alla pagina precedente
+      title: 'Numero di pagina: '
       truncate: "&hellip;"

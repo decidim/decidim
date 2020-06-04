@@ -12,6 +12,9 @@ hu:
     components:
       dummy:
         settings:
+          global:
+            test_choices:
+              a: Egy választás
           step:
             endorsements_blocked: Jóváhagyások letiltva
             endorsements_enabled: Jóváhagyások engedélyezve

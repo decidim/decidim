@@ -165,6 +165,7 @@ ignore_unused:
   - password_validator.*
   - decidim.participatory_processes.participatory_processes.filters.*
   - decidim.participatory_processes.pages.home.highlighted_processes.*
+  - decidim.participatory_processes.show.related_assemblies
   - decidim.consultations.pages.home.highlighted_consultations.*
   - decidim.assemblies.pages.home.highlighted_assemblies.*
   - decidim.initiatives.pages.home.highlighted_initiatives.*
@@ -215,6 +216,13 @@ ignore_unused:
   - decidim.newsletter_templates.image_text_cta.name
   - decidim.content_blocks.*_settings_form.*
   - decidim.newsletter_templates.*_settings_form.*
+  - decidim.version.show.*
+  - decidim.versions_list.show.*
+  - decidim.versions_list_item.show.*
+  - decidim.accountability.results.show.stats.back_to_resource
+  - decidim.proposals.versions.collaborative_drafts.back_to_resource
+  - decidim.proposals.versions.proposals.back_to_resource
+  - decidim.initiatives.versions.shared.back_to_resource
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

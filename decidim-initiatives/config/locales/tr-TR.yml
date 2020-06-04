@@ -235,12 +235,14 @@ tr:
           unpublish: "%{user_name} %{resource_name} girişim reddetti"
           update: "%{user_name} , %{resource_name} girişimi güncelledi"
       admin_states:
-        accepted: Kabul edilmiş
         created: düzenlendi
         discarded: Atılan
         published: Yayınlanan
-        rejected: Reddedilen
         validating: Teknik doğrulama
+      application_helper:
+        filter_state_values:
+          closed: Kapalı
+          open: Açık
       committee_requests:
         new:
           continue: Devam et
@@ -348,13 +350,10 @@ tr:
         filters:
           any: herhangi
           author: Yazar
-          closed: Kapalı
           myself: Benim girişimlerim
-          open: Açık
           search: Arama
           state: Belirtmek, bildirmek
           type: tip
-          type_prompt: Bir tip seçin
         filters_small_view:
           close_modal: Pencereyi kapat
           filter: filtre

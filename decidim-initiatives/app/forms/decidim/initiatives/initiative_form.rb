@@ -12,6 +12,7 @@ module Decidim
       attribute :description, String
       attribute :type_id, Integer
       attribute :scope_id, Integer
+      attribute :area_id, Integer
       attribute :decidim_user_group_id, Integer
       attribute :signature_type, String
       attribute :signature_end_date, Date
@@ -22,6 +23,7 @@ module Decidim
       validates :title, length: { maximum: 150 }
       validates :signature_type, presence: true
       validates :type_id, presence: true
+      validates :area, presence: true, if: ->(form) { form.area_id.present? }
       validate :scope_exists
       validate :notify_missing_attachment_if_errored
       validate :trigger_attachment_errors
@@ -40,6 +42,10 @@ module Decidim
 
       def scope_id
         super.presence
+      end
+
+      def area
+        @area ||= current_organization.areas.find_by(id: area_id)
       end
 
       private

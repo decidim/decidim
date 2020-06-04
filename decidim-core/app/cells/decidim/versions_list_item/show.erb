@@ -1,9 +1,9 @@
 <div class="card--list__item">
   <div class="card--list__text">
     <div>
-      <%= link_to resource_version_path(index) do %>
+      <%= link_to version_path do %>
         <h6 class="card--list__heading heading6">
-          <%= t(".version_index", index: index + 1) %>
+          <%= i18n_version_index %>
         </h6>
       <% end %>
       <div class="author-data">
@@ -13,7 +13,7 @@
     </div>
   </div>
   <div class="card--list__data">
-    <%= link_to resource_version_path(index), class: "card--list__data__icon" do %>
+    <%= link_to version_path, class: "card--list__data__icon" do %>
       <%= icon "chevron-right", role: "img" %>
     <% end %>
   </div>
