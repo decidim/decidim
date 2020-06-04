@@ -58,13 +58,15 @@ module Decidim
       def proposal_wizard_stepper_step(step, current_step)
         return if step == :step_4 && type_of == :collaborative_drafts
 
+        attributes = { class: proposal_wizard_step_classes(step, current_step).to_s }
         step_title = proposal_wizard_step_name(step)
         if step.to_s.split("_").last.to_i == proposal_wizard_step_number(current_step)
           current_step_title = proposal_wizard_step_name("current_step")
           step_title = content_tag(:span, "#{current_step_title}: ", class: "show-for-sr") + step_title
+          attributes["aria-current"] = "step"
         end
 
-        content_tag(:li, step_title, class: proposal_wizard_step_classes(step, current_step).to_s)
+        content_tag(:li, step_title, attributes)
       end
 
       # Returns the list with all the steps, in html
