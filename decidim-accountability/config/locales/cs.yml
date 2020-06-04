@@ -37,6 +37,7 @@ cs:
         confirm_destroy: Opravdu chcete smazat tento %{name}?
         destroy: Odstranit
         edit: Upravit
+        import_csv: Importovat CSV
         new: Nová %{name}
         preview: Náhled
         timeline_entries: Vývoj projektu
@@ -44,6 +45,14 @@ cs:
       admin:
         exports:
           results: Výsledky
+        import_results:
+          new:
+            import: Importovat
+            link: odkaz
+            title: Importovat výsledky z CSV
+        imports:
+          create:
+            success: Soubor se začal importovat. Během několika následujících minut obdržíte e-mail s výsledkem importu
         models:
           result:
             name: Výsledek
@@ -113,6 +122,13 @@ cs:
         value_types:
           parent_presenter:
             not_found: 'Rodič nebyl nalezen v databázi (ID: %{id})'
+      import_mailer:
+        import:
+          errors: Chyby
+          errors_present: Došlo k chybě při importu výsledků
+          row_number: Řádek
+          subject: Úspěšný import výsledků
+          success: Úspěšný import výsledků. Výsledky můžete zkontrolovat v rozhraní administrace.
       last_activity:
         new_result_at_html: "<span>Nový výsledek v %{link}</span>"
       models:
