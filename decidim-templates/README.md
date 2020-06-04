@@ -4,21 +4,22 @@ This module provides a solution to create templates for different Decidim models
 
 ## Usage
 
-Templates will be available as a Component for a Participatory
-Space.
+Templates will be available in their own section in the admin
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'decidim-templates
+gem 'decidim-templates'
 ```
 
 And then execute:
 
 ```bash
 bundle
+bundle exec rails decidim_templates:install:migrations
+bundle exec rails db:migrate
 ```
 
 ## Contributing
