@@ -313,7 +313,7 @@ describe "Participatory Processes", type: :system do
       end
 
       it "display related assemblies" do
-        expect(page).to have_content("RELATED ASSEMBLIES")
+        expect(page).to have_content("Related assemblies")
         expect(page).to have_content(translated(published_assembly.title))
         expect(page).to have_content(translated(transparent_assembly.title))
         expect(page).to have_no_content(translated(unpublished_assembly.title))

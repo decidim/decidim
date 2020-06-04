@@ -27,7 +27,7 @@ describe "Explore versions", versioning: true, type: :system do
     end
 
     it "has only one version" do
-      expect(page).to have_content("Version 1 (of 1)")
+      expect(page).to have_content("Version number 1 (of 1)")
     end
 
     it "shows the versions index" do
@@ -41,7 +41,7 @@ describe "Explore versions", versioning: true, type: :system do
       end
 
       it "creates a new version" do
-        expect(page).to have_content("Version 2 (of 2)")
+        expect(page).to have_content("Version number 2 (of 2)")
       end
     end
   end
