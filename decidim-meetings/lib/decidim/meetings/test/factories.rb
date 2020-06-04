@@ -43,7 +43,7 @@ FactoryBot.define do
     component { build(:component, manifest_name: "meetings") }
 
     author do
-      component.organization if component
+      component.try(:organization)
     end
 
     trait :official do
@@ -54,12 +54,12 @@ FactoryBot.define do
       author { create(:user, organization: component.organization) if component }
     end
 
-    trait :by_user_group do
+    trait :with_user_group_author do
       author do
-        build(:user, organization: component.organization) if component
+        create(:user, organization: component.organization) if component
       end
       user_group do
-        build(:user_group, :verified, organization: component.organization, users: [author]) if component
+        create(:user_group, :verified, organization: component.organization, users: [author]) if component
       end
     end
 
