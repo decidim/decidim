@@ -5,8 +5,6 @@ module Decidim
   # defined via a ComponentManifest. It's meant to be able to provide a single
   # component that spans over several steps.
   class Component < ApplicationRecord
-    extend ActiveModel::Callbacks
-
     include HasSettings
     include Publicable
     include Traceable
@@ -18,13 +16,6 @@ module Decidim
 
     delegate :organization, :categories, to: :participatory_space
 
-    define_model_callbacks :publish, :unpublish
-
-    before_publish :run_before_publish_hooks_for_children
-    after_publish :run_after_publish_hooks_for_children
-    before_unpublish :run_before_unpublish_hooks_for_children
-    after_unpublish :run_after_unpublish_hooks_for_children
-
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::ComponentPresenter
     end
@@ -32,11 +23,6 @@ module Decidim
     # Other components with the same manifest and same participatory space as this one.
     def siblings
       @siblings ||= participatory_space.components.where.not(id: id).where(manifest_name: manifest_name)
-    end
-
-    # Other models that belong_to this component by including Decidim::HasComponent concern.
-    def children
-      @children ||= ComponentChildren.find_children(decidim_component_id: id)
     end
 
     # Public: Finds the manifest this component is associated to.
@@ -95,22 +81,6 @@ module Decidim
     end
 
     delegate :serializes_specific_data?, to: :manifest
-
-    def run_before_publish_hooks_for_children
-      children.each { |child| child.try(:before_component_publish) }
-    end
-
-    def run_after_publish_hooks_for_children
-      children.each { |child| child.try(:after_component_publish) }
-    end
-
-    def run_before_unpublish_hooks_for_children
-      children.each { |child| child.try(:before_component_unpublish) }
-    end
-
-    def run_after_unpublish_hooks_for_children
-      children.each { |child| child.try(:after_component_unpublish) }
-    end
 
     private
 

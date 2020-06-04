@@ -82,7 +82,6 @@ module Decidim
   autoload :PermissionsRegistry, "decidim/permissions_registry"
   autoload :Randomable, "decidim/randomable"
   autoload :Endorsable, "decidim/endorsable"
-  autoload :ComponentChildren, "decidim/component_children"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
