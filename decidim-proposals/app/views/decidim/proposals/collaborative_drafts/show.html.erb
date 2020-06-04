@@ -46,10 +46,10 @@
       <div class="card text-center" id="collaborative_draft_publish">
         <div class="card__content">
           <%= cell "decidim/proposals/irreversible_action_modal", @collaborative_draft, action: :publish %>
-          <small>
+          <div class="text-small">
             <%= t("publish_info", scope:"decidim.proposals.collaborative_drafts.show") %>
             <%= cell "decidim/proposals/irreversible_action_modal", @collaborative_draft, action: :withdraw %>
-          </small>
+          </div>
         </div>
       </div>
     <% end %>
@@ -61,9 +61,9 @@
         <% else %>
           <div>
             <%= resource_version_number(@collaborative_draft.versions_count, "text-large") %>
-            <small class="text-medium">
+            <div class="text-medium">
               <%= resource_version_of(@collaborative_draft.versions_count) %>
-            </small>
+            </div>
           </div>
 
           <div>
