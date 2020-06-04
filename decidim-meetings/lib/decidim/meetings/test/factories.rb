@@ -42,23 +42,25 @@ FactoryBot.define do
     registration_form_enabled { true }
     component { build(:component, manifest_name: "meetings") }
 
-    organizer do
+    author do
       component.organization if component
-    end
-    organizer_type do
-      organizer.class.name
     end
 
     trait :official do
-      organizer { component.organization if component }
+      author { component.organization if component }
     end
 
     trait :not_official do
-      organizer { create(:user, organization: component.organization) if component }
+      author { create(:user, organization: component.organization) if component }
     end
 
     trait :by_user_group do
-      organizer { create(:user_group, :verified, organization: component.organization) if component }
+      author do
+        build(:user, organization: component.organization) if component
+      end
+      user_group do
+        build(:user_group, :verified, organization: component.organization, users: [author]) if component
+      end
     end
 
     trait :closed do

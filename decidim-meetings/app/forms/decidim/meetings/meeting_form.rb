@@ -18,7 +18,7 @@ module Decidim
       attribute :decidim_category_id, Integer
       attribute :private_meeting, Boolean
       attribute :transparent, Boolean
-      attribute :organizer_gid, String
+      attribute :user_group_id, Integer
 
       validates :title, presence: true
       validates :description, presence: true
@@ -31,8 +31,6 @@ module Decidim
       validates :current_component, presence: true
       validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
       validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
-      validates :organizer, presence: true
-
       validate :scope_belongs_to_participatory_space_scope
 
       delegate :categories, to: :current_component
@@ -42,12 +40,6 @@ module Decidim
         presenter = MeetingPresenter.new(model)
         self.title = presenter.title(all_locales: false)
         self.description = presenter.description(all_locales: false)
-      end
-
-      def organizer
-        return unless organizer_gid
-
-        @organizer ||= GlobalID::Locator.locate(GlobalID.parse(organizer_gid))
       end
 
       alias component current_component

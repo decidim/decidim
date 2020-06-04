@@ -146,12 +146,12 @@ describe Decidim::Meetings::Permissions do
     end
 
     context "when setting is enabled" do
-      context "when user is not the organizer" do
+      context "when user is not the author" do
         it { is_expected.to eq false }
       end
 
-      context "when user is the organizer" do
-        let(:meeting) { create :meeting, organizer: user, component: meeting_component }
+      context "when user is the author" do
+        let(:meeting) { create :meeting, author: user, component: meeting_component }
 
         it { is_expected.to eq true }
       end

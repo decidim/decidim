@@ -111,7 +111,7 @@ describe "User creates meeting", type: :system do
               fill_in :meeting_end_time, with: meeting_end_time.strftime("%Y/%m/%d %H:%M")
               select translated(category.name), from: :meeting_decidim_category_id
               scope_pick select_data_picker(:meeting_decidim_scope_id), meeting_scope
-              select user_group.name, from: :meeting_organizer_gid
+              select user_group.name, from: :meeting_user_group_id
 
               find("*[type=submit]").click
             end

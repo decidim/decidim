@@ -12,7 +12,7 @@ module Decidim
       end
 
       def render_authorship
-        cell "decidim/author", organizer_presenter_for(model.organizer)
+        cell "decidim/author", author_presenter_for(model.author)
       end
 
       def date

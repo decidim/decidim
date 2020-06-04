@@ -82,10 +82,6 @@ module Decidim
           @category ||= categories.find_by(id: decidim_category_id)
         end
 
-        def organizer
-          @organizer ||= current_organization
-        end
-
         private
 
         def scope_belongs_to_participatory_space_scope

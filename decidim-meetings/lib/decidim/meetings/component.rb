@@ -111,7 +111,7 @@ Decidim.register_component(:meetings) do |component|
         longitude: Faker::Address.longitude,
         registrations_enabled: [true, false].sample,
         available_slots: (10..50).step(10).to_a.sample,
-        organizer: participatory_space.organization,
+        author: participatory_space.organization,
         registration_terms: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(3)
         end,
@@ -189,11 +189,19 @@ Decidim.register_component(:meetings) do |component|
       )
     end
 
-    organizers = [
+    authors = [
       Decidim::UserGroup.where(decidim_organization_id: participatory_space.decidim_organization_id).verified.sample,
       Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample
     ]
-    2.times do |i|
+
+    authors.each do |author|
+      user_group = nil
+
+      if author.is_a?(Decidim::UserGroup)
+        user_group = author
+        author = user_group.users.sample
+      end
+
       params = {
         component: component,
         scope: Faker::Boolean.boolean(0.5) ? global : scopes.sample,
@@ -211,13 +219,13 @@ Decidim.register_component(:meetings) do |component|
         longitude: Faker::Address.longitude,
         registrations_enabled: [true, false].sample,
         available_slots: (10..50).step(10).to_a.sample,
-        organizer_id: organizers[i].id,
-        organizer_type: organizers[i].type
+        author: author,
+        user_group: user_group
       }
 
       Decidim.traceability.create!(
         Decidim::Meetings::Meeting,
-        organizers[0],
+        authors[0],
         params,
         visibility: "all"
       )

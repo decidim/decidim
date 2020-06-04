@@ -7,7 +7,6 @@ shared_examples "manage meetings" do
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
 
-  let(:organizer) { create(:user, :confirmed, organization: organization) }
   let(:service_titles) { ["This is the first service", "This is the second service"] }
 
   before do

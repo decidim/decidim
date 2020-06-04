@@ -54,7 +54,7 @@ module Decidim
 
       def can_update_meeting?
         component_settings&.creation_enabled_for_participants? &&
-          meeting.organizer == user
+          meeting.authored_by?(user)
       end
     end
   end

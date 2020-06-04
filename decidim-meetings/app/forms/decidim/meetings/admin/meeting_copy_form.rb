@@ -34,7 +34,6 @@ module Decidim
         validates :address, geocoding: true, if: -> { Decidim.geocoder.present? }
         validates :start_time, presence: true, date: { before: :end_time }
         validates :end_time, presence: true, date: { after: :start_time }
-        validates :organizer, presence: true
 
         def map_model(model)
           self.services = model.services.map do |service|
@@ -51,10 +50,6 @@ module Decidim
         end
 
         alias component current_component
-
-        def organizer
-          @organizer ||= current_organization
-        end
 
         def questionnaire
           Decidim::Forms::Questionnaire.new

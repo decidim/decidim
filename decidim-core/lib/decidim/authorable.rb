@@ -32,6 +32,13 @@ module Decidim
         user_group || author
       end
 
+      # Public: Checks whether the resource is official or not.
+      #
+      # Returns a boolean.
+      def official?
+        decidim_author_type == Decidim::Organization.name
+      end
+
       private
 
       def verified_user_group

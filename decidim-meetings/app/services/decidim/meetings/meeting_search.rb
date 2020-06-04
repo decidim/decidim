@@ -40,13 +40,14 @@ module Decidim
 
       # Handle the origin filter
       def search_origin
-        organizer_types = []
+        official = origin.member?("official") ? query.official_origin : nil
+        citizens = origin.member?("citizens") ? query.citizens_origin : nil
+        user_group = origin.member?("user_group") ? query.user_group_origin : nil
 
-        organizer_types << "Decidim::Organization" if origin.member?("official")
-        organizer_types << "Decidim::User" if origin.member?("citizens")
-        organizer_types << "Decidim::UserGroup" if origin.member?("user_group")
-
-        query.where(organizer_type: organizer_types)
+        query
+          .where(id: official)
+          .or(query.where(id: citizens))
+          .or(query.where(id: user_group))
       end
 
       private

@@ -17,7 +17,8 @@ module Decidim::Meetings
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }
     let(:start_time) { 1.day.from_now }
-    let(:organizer) { create :user, organization: organization }
+    let(:author) { create :user, organization: organization }
+    let(:user_group_id) { nil }
     let(:private_meeting) { false }
     let(:transparent) { true }
     let(:transparent_type) { "transparent" }
@@ -35,7 +36,8 @@ module Decidim::Meetings
         longitude: longitude,
         scope: scope,
         category: category,
-        organizer: organizer,
+        current_user: author,
+        user_group_id: user_group_id,
         private_meeting: private_meeting,
         transparent: transparent,
         current_user: current_user,
@@ -81,19 +83,20 @@ module Decidim::Meetings
         expect(last_meeting.longitude).to eq(longitude)
       end
 
-      context "when the organizer is a user_group" do
-        let(:organizer) { create :user_group, users: [current_user], organization: organization }
+      context "when the author is a user_group" do
+        let(:user_group) { create :user_group, users: [current_user], organization: organization }
+        let(:user_group_id) { user_group.id }
 
-        it "sets the user_group as the organizer" do
+        it "sets the user_group as the author" do
           subject.call
-          expect(meeting.organizer).to eq organizer
+          expect(meeting.author).to eq user_group
         end
       end
 
-      context "when the organizer is a user" do
-        it "sets the user as the organizer" do
+      context "when the author is a user" do
+        it "sets the user as the author" do
           subject.call
-          expect(meeting.organizer).to eq organizer
+          expect(meeting.author).to eq author
         end
       end
 

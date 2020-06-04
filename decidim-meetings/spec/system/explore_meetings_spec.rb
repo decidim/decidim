@@ -63,7 +63,7 @@ describe "Explore meetings", :slow, type: :system do
                  participatory_space: participatory_process)
         end
 
-        let!(:official_meeting) { create(:meeting, :official, component: component, organizer: organization) }
+        let!(:official_meeting) { create(:meeting, :official, component: component, author: organization) }
         let!(:user_group_meeting) { create(:meeting, :by_user_group, component: component) }
 
         context "with 'official' origin" do
@@ -98,7 +98,7 @@ describe "Explore meetings", :slow, type: :system do
             expect(page).to have_content("1 MEETING")
             expect(page).to have_css(".card--meeting", count: 1)
             within ".card--meeting" do
-              expect(page).to have_content(user_group_meeting.organizer.name)
+              expect(page).to have_content(user_group_meeting.author.name)
             end
           end
         end

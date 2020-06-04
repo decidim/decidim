@@ -22,8 +22,7 @@ module Decidim
       include Decidim::Paddable
       include Decidim::ActsAsAuthor
       include Decidim::Reportable
-
-      belongs_to :organizer, polymorphic: true, foreign_key: "organizer_id", foreign_type: "organizer_type", optional: true
+      include Decidim::Authorable
 
       has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id", dependent: :destroy
       has_many :invites, class_name: "Decidim::Meetings::Invite", foreign_key: "decidim_meeting_id", dependent: :destroy
@@ -33,7 +32,6 @@ module Decidim
       component_manifest_name "meetings"
 
       validates :title, presence: true
-      validate :organizer_belongs_to_organization
 
       geocoded_by :address, http_headers: ->(proposal) { { "Referer" => proposal.component.organization.host } }
 
@@ -48,6 +46,20 @@ module Decidim
                                   }
 
       scope :visible, -> { where("decidim_meetings_meetings.private_meeting != ? OR decidim_meetings_meetings.transparent = ?", true, true) }
+
+      scope :official_origin, lambda {
+        where(decidim_author_type: "Decidim::Organization")
+      }
+
+      scope :user_group_origin, lambda {
+        where(decidim_author_type: "Decidim::UserBaseEntity")
+          .where.not(decidim_user_group_id: nil)
+      }
+
+      scope :citizens_origin, lambda {
+        where(decidim_author_type: "Decidim::UserBaseEntity")
+          .where(decidim_user_group_id: nil)
+      }
 
       searchable_fields({
                           scope_id: :decidim_scope_id,
@@ -133,24 +145,6 @@ module Decidim
 
       def can_participate?(user)
         can_participate_in_space?(user) && can_participate_in_meeting?(user)
-      end
-
-      def organizer_belongs_to_organization
-        return if !organizer || !organization
-        return if official?
-        return if organizer == organization
-
-        organizer_org = if organizer.is_a?(Decidim::Organization)
-                          organizer
-                        else
-                          organizer.organization
-                        end
-
-        errors.add(:organizer, :invalid) unless organizer_org == organization
-      end
-
-      def official?
-        organizer == organization
       end
 
       def current_user_can_visit_meeting?(current_user)

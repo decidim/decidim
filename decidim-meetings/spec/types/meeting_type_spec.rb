@@ -252,16 +252,13 @@ module Decidim
         end
       end
 
-      describe "organizer" do
-        let(:organizer) { create(:user, organization: model.participatory_space.organization) }
-        let(:query) { "{ organizer { name } }" }
-
-        before do
-          model.update(organizer: organizer)
-        end
+      describe "author" do
+        let(:model) { create(:meeting, :not_official, author: author, component: component) }
+        let(:author) { create(:user, organization: model.participatory_space.organization) }
+        let(:query) { "{ author { name } }" }
 
         it "includes the user's name" do
-          expect(response["organizer"]["name"]).to eq(organizer.name)
+          expect(response["author"]["name"]).to eq(author.name)
         end
       end
     end

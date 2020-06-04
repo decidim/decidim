@@ -32,7 +32,7 @@ module Decidim
 
         private
 
-        attr_reader :form, :meeting, :meeting_organizer
+        attr_reader :form, :meeting
 
         def update_meeting!
           parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
@@ -54,8 +54,7 @@ module Decidim
             location: form.location,
             location_hints: form.location_hints,
             private_meeting: form.private_meeting,
-            transparent: form.transparent,
-            organizer: form.organizer
+            transparent: form.transparent
           )
         end
 

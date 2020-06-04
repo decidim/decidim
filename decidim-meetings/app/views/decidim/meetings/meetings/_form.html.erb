@@ -40,7 +40,7 @@
 </div>
 
 <div class="field">
-  <%= form.select :organizer_gid, select_meeting_organizer %>
+  <%= form.select :user_group_id, Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.map{|g| [g.name, g.id]}, prompt: current_user.name %>
 </div>
 
 <div class="field">
