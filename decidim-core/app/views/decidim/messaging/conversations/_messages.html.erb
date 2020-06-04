@@ -4,11 +4,11 @@
   <% end %>
   <div>
     <% messages.each do |message| %>
-      <article class="card">
+      <div class="card">
         <div class="p-s">
           <%= simple_format(message.body_with_links) %>
         </div>
-      </article>
+      </div>
     <% end %>
     <span class="text-small<%= " pull-right" if sender_is_user?(sender) %>" title="<%= messages.last.created_at.strftime("%d-%m-%Y %H:%M:%S%z") %>"><%= messages.last.friendly_created_at %></span>
   </div>

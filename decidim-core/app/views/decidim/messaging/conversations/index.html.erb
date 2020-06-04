@@ -21,7 +21,7 @@
           <p><%= t(".no_conversations") %></p>
         </div>
       <% else %>
-        <div class="tabs-panel is-active conversations" id="conversations" role="tabpanel" aria-labelledby="conversations-label">
+        <div class="tabs-panel is-active conversations" id="conversations" role="tabpanel" aria-label="<%= t(".title") %>">
           <%= render partial: "conversation", collection: @conversations %>
         </div>
       <% end %>
