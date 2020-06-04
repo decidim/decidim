@@ -159,6 +159,30 @@ shared_examples "create an initiative" do
           expect(initiative.signature_end_date).to eq(Date.tomorrow)
         end
       end
+
+      context "when the initiative type enables area" do
+        let(:initiative_type) { create(:initiatives_type, :area_enabled) }
+        let(:area) { create(:area, organization: initiative_type.organization) }
+
+        let(:form_params) do
+          {
+            title: "A reasonable initiative title",
+            description: "A reasonable initiative description",
+            type_id: scoped_type.type.id,
+            signature_type: "online",
+            scope_id: scoped_type.scope.id,
+            decidim_user_group_id: nil,
+            area_id: area.id
+          }
+        end
+
+        it "sets the area" do
+          command.call
+          initiative = Decidim::Initiative.last
+
+          expect(initiative.decidim_area_id).to eq(area.id)
+        end
+      end
     end
   end
 end

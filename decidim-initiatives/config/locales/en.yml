@@ -27,6 +27,7 @@ en:
       initiatives_committee_member:
         user: Committee member
       initiatives_type:
+        area_enabled: Enable authors to choose the area for their initiative
         attachments_enabled: Enable attachments
         banner_image: Banner image
         collect_user_extra_fields: Collect participant personal data on signature
@@ -73,6 +74,8 @@ en:
       actions:
         new_initiative_type: New initiative type
       filters:
+        decidim_area_id_eq:
+          label: Area
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Search %{collection} by title, description, ID or author name.
         state_eq:
@@ -279,6 +282,8 @@ en:
         rejected: Not enough signatures
         validating: Technical validation
       application_helper:
+        filter_area_values:
+          all: All
         filter_scope_values:
           all: All
         filter_state_values:
@@ -306,6 +311,7 @@ en:
           fill_data_help: "<ul> <li>Review the content of your initiative. Is your title easy to understand? Is the objective of your initiative clear?</li> <li>You have to choose the type of signature. In-person, online or a combination of both</li> <li>Which is the geographic scope of the initiative? City, district?</li> </ul>"
           initiative_type: Initiative type
           more_information: "(More information)"
+          select_area: Select an area
           select_scope: Select a scope
         finish:
           back: Back
@@ -399,6 +405,7 @@ en:
             other: "%{count} initiatives"
         filters:
           any: Any
+          area: Area
           author: Author
           myself: My initiatives
           scope: Scope
@@ -436,10 +443,7 @@ en:
         show:
           any_vote_method: This citizen initiative collects both online and in-person signatures.
           follow_description: Receive a notification when there are news in this initiative
-          of_versions: "(of %{number})"
           offline_method: This citizen initiative only collects in-person signatures.
-          see_other_versions: see other versions
-          version: Version %{number}
         signature_identities:
           select_identity: Select participant identifier
         signatures_count:
@@ -490,19 +494,8 @@ en:
         expired: Expired
       unavailable_scope: Unavailable scope
       versions:
-        index:
-          number_of_versions: Versions
-          title: Versions
         shared:
-          back_to_initiative: Go back to initiative
-          changes_at_title: Changes at "%{title}"
-        show:
-          show_all_versions: Show all versions
-          version_author: Version author
-          version_created_at: Version created at
-          version_number_out_of_total: "%{current_version} out of %{total_count}"
-        version:
-          version_index: Version %{index}
+          back_to_resource: Go back to initiative
     menu:
       initiatives: Initiatives
     resources:

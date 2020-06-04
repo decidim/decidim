@@ -87,6 +87,12 @@ module Decidim
         query.joins(:scoped_type).references(:decidim_scopes).where(conditions.join(" OR "), *clean_scope_ids.map(&:to_i))
       end
 
+      def search_area_id
+        return query if area_ids.include?("all")
+
+        query.where(decidim_area_id: area_ids)
+      end
+
       private
 
       # Private: Returns an array with checked type ids.
@@ -97,6 +103,12 @@ module Decidim
       # Private: Returns an array with checked scope ids.
       def scope_ids
         [scope_id].flatten
+      end
+
+      # Private: Returns an array with checked area ids, handling area_types which are coded as its
+      # areas ids joined by _.
+      def area_ids
+        area_id.map { |id| id.split("_") }.flatten.uniq
       end
     end
   end

@@ -11,10 +11,7 @@ module Decidim
     #
     # Returns an HTML-safe String representing the HTML to render the author.
     def render_resource_last_editor(resource)
-      render partial: "decidim/shared/version_author",
-             locals: {
-               author: Decidim.traceability.last_editor(resource)
-             }
+      cell "decidim/version_author", Decidim.traceability.last_editor(resource)
     end
 
     # Renders the avatar and author name of the author of the given version.
@@ -23,10 +20,7 @@ module Decidim
     #
     # Returns an HTML-safe String representing the HTML to render the author.
     def render_resource_editor(version)
-      render partial: "decidim/shared/version_author",
-             locals: {
-               author: Decidim.traceability.version_editor(version)
-             }
+      cell "decidim/version_author", Decidim.traceability.version_editor(version)
     end
   end
 end

@@ -11,19 +11,28 @@ module Decidim
     #
     # Returns a String.
     def resource_version(resource, options = {})
-      return unless resource.respond_to?(:amendable?) && resource.amendable?
+      return unless resource.respond_to?(:versions) && resource.versions.present?
 
-      html = %(<strong class="text-uppercase">#{localized_version("version", resource.versions_count)}</strong> #{localized_version("of_versions", resource.versions_count)})
+      html = []
+      html << resource_version_number(resource.versions_count)
+      html << " "
+      html << resource_version_of(resource.versions_count)
+      html << " "
+      html << link_to_other_resource_versions(options[:versions_path]) if options[:versions_path]
 
-      html += %( #{link_to(localized_version("see_other_versions"), options[:versions_path])}) if options[:versions_path]
-
-      "<div class='tech-info #{options[:class]}'>#{html}</div>".html_safe
+      content_tag(:div, safe_join(html), class: "tech-info #{options[:class]}")
     end
 
-    private
+    def resource_version_number(count, css_class = "text-uppercase")
+      content_tag(:strong, t("version", scope: "decidim.versions.resource_version", number: count), class: css_class)
+    end
 
-    def localized_version(string, count = nil)
-      I18n.t(string, scope: "decidim.proposals.collaborative_drafts.show", number: count)
+    def resource_version_of(count)
+      t("of_versions", scope: "decidim.versions.resource_version", number: count)
+    end
+
+    def link_to_other_resource_versions(versions_path)
+      link_to(t("see_other_versions", scope: "decidim.versions.resource_version"), versions_path)
     end
   end
 end

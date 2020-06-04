@@ -16,15 +16,18 @@
 
   <%= form.check_boxes_tree :scope_id, filter_scopes_values, legend_title: t(".scope") %>
 
-  <%= form.check_boxes_tree :type_id, filter_types_values, legend_title: t(".type") %>
+  <% unless single_initiative_type? %>
+    <%= form.check_boxes_tree :type_id, filter_types_values, legend_title: t(".type") %>
+  <% end %>
+
+  <%= form.check_boxes_tree :area_id, filter_areas_values, legend_title: t(".area") %>
 
   <% if current_user %>
     <%= form.collection_radio_buttons :author,
-                                    [["any", t(".any")], ["myself", t(".myself")]],
-                                    :first,
-                                    :last,
-                                    legend_title: t(".author") %>
+                                      [["any", t(".any")], ["myself", t(".myself")]],
+                                      :first,
+                                      :last,
+                                      legend_title: t(".author") %>
   <% end %>
-
-    <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
+  <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
 <% end %>

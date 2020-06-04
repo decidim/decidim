@@ -14,6 +14,8 @@ module Decidim
       let(:user2) { create(:user, organization: organization, nickname: "dogtrainer") }
       let(:group1) { create(:user_group, organization: organization, name: "The Dog House") }
       let(:group2) { create(:user_group, organization: organization, nickname: "thedogkeeper") }
+      let(:area1) { create(:area, organization: organization) }
+      let(:area2) { create(:area, organization: organization) }
 
       describe "results" do
         subject do
@@ -23,6 +25,7 @@ module Decidim
             type_id: type_id,
             author: author,
             scope_id: scope_id,
+            area_id: area_id,
             current_user: user1,
             organization: organization
           ).results
@@ -33,6 +36,7 @@ module Decidim
         let(:type_id) { ["all"] }
         let(:author) { nil }
         let(:scope_id) { nil }
+        let(:area_id) { ["all"] }
 
         context "when the filter includes search_text" do
           let(:search_text) { "dog" }
@@ -176,6 +180,27 @@ module Decidim
             let(:type_id) { [initiative.type.id, initiative2.type.id] }
 
             it "filters by initiative type" do
+              expect(subject).to match_array [initiative, initiative2]
+            end
+          end
+        end
+
+        context "when the filter includes area_id" do
+          let!(:initiative) { create(:initiative, area: area1, organization: organization) }
+          let!(:initiative2) { create(:initiative, area: area2, organization: organization) }
+
+          context "when an area id is being sent" do
+            let(:area_id) { [area1.id.to_s] }
+
+            it "filters initiatives by area" do
+              expect(subject).to match_array [initiative]
+            end
+          end
+
+          context "when multiple ids are sent" do
+            let(:area_id) { [area1.id.to_s, area2.id.to_s] }
+
+            it "filters initiatives by scope" do
               expect(subject).to match_array [initiative, initiative2]
             end
           end
