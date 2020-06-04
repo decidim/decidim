@@ -11,7 +11,10 @@ module Decidim
 
       routes do
         # Add admin engine routes here
-        resources :templates do
+        scope "templates" do
+          %w(questionnaire).each do |model_name|
+            resources :"#{model_name}_templates"
+          end
         end
 
         root to: "templates#index"
@@ -26,7 +29,7 @@ module Decidim
       initializer "decidim_templates.admin_menu" do
         Decidim.menu :admin_menu do |menu|
           menu.item I18n.t("menu.templates", scope: "decidim.admin", default: "Templates"),
-                    decidim_admin_templates.templates_path,
+                    decidim_admin_templates.root_url,
                     icon_name: "document",
                     position: 12,
                     # if: allowed_to?(:read, :template), # TODO: investigate
