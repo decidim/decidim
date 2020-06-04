@@ -1,8 +1,8 @@
 <%= button_reveal_modal %>
 
-<div id="<%= modal_id %>" class="reveal" data-reveal aria-labelledby="<%= modal_title %>" aria-hidden="true" role="dialog">
+<div id="<%= modal_id %>" class="reveal" data-reveal aria-labelledby="<%= modal_id %>-title" aria-hidden="true" role="dialog">
   <div class="reveal__header">
-    <h3 class="reveal__title">
+    <h3 id="<%= modal_id %>-title" class="reveal__title">
       <%= modal_title %>
     </h3>
 
