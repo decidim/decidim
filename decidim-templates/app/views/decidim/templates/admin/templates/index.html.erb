@@ -1,0 +1,38 @@
+<%= render partial: "decidim/templates/admin/shared/secondary_nav" %>
+
+<% scope = "questionnaire" %>
+<div class="card with-overflow" id="templates">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t("templates", scope: "decidim.admin.titles") %>
+
+      <%# if allowed_to? :create, :template %>
+        <%= link_to t("actions.new_template", scope: "decidim.admin"),
+                    ["new", scope, "template"],
+                    class: "button tiny button--title" %>
+      <%# end %>
+  </div>
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th>
+              <%= t("models.template.fields.type") %>
+            </th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @template_types.each_pair do |name, url| %>
+            <tr>
+              <td>
+                <%= link_to name, url %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

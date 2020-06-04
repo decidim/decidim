@@ -1,0 +1,13 @@
+<% content_for :secondary_nav do %>
+  <div class="secondary-nav secondary-nav--subnav">
+    <ul>
+      <% @template_types.each_pair do |name, url| %>
+        <%# if allowed_to?(:enter, :space_area, space_name: :processes) %>
+          <li <% if is_active_link?(url) %> class="is-active" <% end %>>
+            <%= aria_selected_link_to name, url %>
+          </li>
+        <%# end %>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

@@ -6,9 +6,11 @@ module Decidim
       # Controller that allows managing templates.
       #
       class TemplatesController < Decidim::Templates::Admin::ApplicationController
+        layout "decidim/admin/templates"
+
         def index
           @template_types = {
-            questionnaires: decidim_admin_templates.questionnaire_templates_path
+            I18n.t("template_types.questionnaires", scope: "decidim.templates") => decidim_admin_templates.questionnaire_templates_path
           }
         end
       end
