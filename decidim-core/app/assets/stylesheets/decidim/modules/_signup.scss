@@ -62,7 +62,7 @@
 
 .user-nickname{
   label .row{
-    div:first-of-type{
+    > span:first-of-type{
       // this is the prefix div
       @extend .input-group-label;
 
@@ -79,7 +79,7 @@
       }
     }
 
-    div:last-of-type{
+    > span:last-of-type{
       // this is the input div
       @extend .input-group-field;
 
@@ -96,13 +96,13 @@
   label.is-invalid-label .row{
     margin-bottom: $form-spacing;
 
-    div:first-of-type{
+    > span:first-of-type{
       // this is the prefix div
       background-color: mix($input-background-invalid, $light-gray, 8%);
       border-color: $input-error-color;
     }
 
-    div:last-of-type{
+    > span:last-of-type{
       // this is the input div
       height: 4.2rem;
 

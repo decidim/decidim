@@ -842,5 +842,34 @@ module Decidim
                   ])
       end
     end
+
+    # Private: Creates a tag from the given options for the field prefix and
+    # suffix. Overridden from Foundation Rails helper to make the generated HTML
+    # valid since these elements are printed within <label> elements and <div>'s
+    # are not allowed there.
+    def tag_from_options(name, options)
+      return "".html_safe unless options && options[:value].present?
+
+      content_tag(:span,
+                  content_tag(:span, options[:value], class: name),
+                  class: column_classes(options).to_s)
+    end
+
+    # Private: Wraps the prefix and postfix for the field. Overridden from
+    # Foundation Rails helper to make the generated HTML valid since these
+    # elements are printed within <label> elements and <div>'s are not allowed
+    # there.
+    def wrap_prefix_and_postfix(block, prefix_options, postfix_options)
+      prefix = tag_from_options("prefix", prefix_options)
+      postfix = tag_from_options("postfix", postfix_options)
+
+      input_size = calculate_input_size(prefix_options, postfix_options)
+      klass = column_classes(input_size.marshal_dump).to_s
+      input = content_tag(:span, block, class: klass)
+
+      return block unless input_size.changed?
+
+      content_tag(:span, prefix + input + postfix, class: "row collapse")
+    end
   end
 end
