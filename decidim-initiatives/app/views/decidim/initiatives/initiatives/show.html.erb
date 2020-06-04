@@ -54,13 +54,7 @@ edit_link(
     <%= render partial: "decidim/shared/share_modal" %>
     <%= embed_modal_for initiative_initiative_widget_url(current_initiative, format: :js) %>
     <%= resource_reference(current_initiative) %>
-    <div class="tech-info">
-      <strong class="text-uppercase">
-        <%= t(".version", number: "#{current_initiative.versions_count}") %>
-      </strong>
-      <%= t(".of_versions", number: "#{current_initiative.versions_count}") %>
-      <%= link_to t(".see_other_versions"), initiative_versions_path(current_initiative) %>
-    </div>
+    <%= resource_version(current_initiative, versions_path: initiative_versions_path(current_initiative)) %>
   </div>
 
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
