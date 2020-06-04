@@ -10,7 +10,7 @@
 
   <div class="row">
     <div class="columns large-6 medium-10 medium-centered">
-      <%= decidim_form_for resource, as: resource_name, url: invitation_path(resource_name, invite_redirect: params[:invite_redirect]), html: { method: :put, class: "register-form new_user" } do |f| %>
+      <%= decidim_form_for resource, namespace: "invitation", as: resource_name, url: invitation_path(resource_name, invite_redirect: params[:invite_redirect]), html: { method: :put, class: "register-form new_user" } do |f| %>
         <div class="card">
           <div class="card__content">
             <legend><%= t("sign_up_as.legend", scope: "decidim.devise.registrations.new") %></legend>
