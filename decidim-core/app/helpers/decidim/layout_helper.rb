@@ -34,14 +34,14 @@ module Decidim
       html_properties["width"] = options[:width]
       html_properties["height"] = options[:height]
       html_properties["aria-label"] = options[:aria_label] || options[:"aria-label"] || options["aria-label"]
-      html_properties["role"] = options[:role]
+      html_properties["role"] = options[:role] || "img"
       html_properties["aria-hidden"] = options[:aria_hidden] || options[:"aria-hidden"] || options["aria-hidden"]
 
       html_properties["class"] = (["icon--#{name}"] + _icon_classes(options)).join(" ")
 
       content_tag :svg, html_properties do
         inner = content_tag :title, options["title"] || html_properties["aria-label"]
-        inner += content_tag :use, nil, "href" => "#{asset_path("decidim/icons.svg")}#icon-#{name}"
+        inner += content_tag :use, nil, role: options[:role], "href" => "#{asset_path("decidim/icons.svg")}#icon-#{name}"
 
         inner
       end
@@ -58,8 +58,9 @@ module Decidim
       classes = _icon_classes(options) + ["external-icon"]
 
       if path.split(".").last == "svg"
+        attributes = { class: classes.join(" ") }.merge(options)
         asset = Rails.application.assets_manifest.find_sources(path).first
-        asset.gsub("<svg ", "<svg class=\"#{classes.join(" ")}\" #{role(options)}").html_safe
+        asset.gsub("<svg ", "<svg#{tag_builder.tag_options(attributes)} ").html_safe
       else
         image_tag(path, class: classes.join(" "), style: "display: none")
       end
@@ -112,6 +113,12 @@ module Decidim
     def organization_colors
       css = current_organization.colors.each.map { |k, v| "--#{k}: #{v};--#{k}-rgb: #{v[1..2].hex},#{v[3..4].hex},#{v[5..6].hex};" }.join
       render partial: "layouts/decidim/organization_colors", locals: { css: css }
+    end
+
+    private
+
+    def tag_builder
+      @tag_builder ||= ActionView::Helpers::TagHelper::TagBuilder.new(self)
     end
   end
 end
