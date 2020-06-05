@@ -245,9 +245,9 @@ shared_examples "manage impersonations examples" do
       visit last_email_link
 
       within "form.new_user" do
-        fill_in :user_password, with: "123456"
-        fill_in :user_password_confirmation, with: "123456"
-        check :user_tos_agreement
+        fill_in :invitation_user_password, with: "123456"
+        fill_in :invitation_user_password_confirmation, with: "123456"
+        check :invitation_user_tos_agreement
         find("*[type=submit]").click
       end
 

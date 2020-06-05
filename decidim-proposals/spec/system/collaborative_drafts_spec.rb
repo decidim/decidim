@@ -198,7 +198,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
           end
 
           it "shows the a modal" do
-            within "#publish-irreversible-action-modal" do
+            within "[id$='publish-irreversible-action-modal'" do
               expect(page).to have_css("h3", text: "The following action is irreversible")
               expect(page).to have_css("button", text: "Publish as a Proposal")
             end

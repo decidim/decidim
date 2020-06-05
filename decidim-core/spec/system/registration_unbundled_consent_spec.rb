@@ -15,14 +15,14 @@ describe "TOS", type: :system do
     it "show tos checkbox" do
       within("div#card__tos") do
         expect(page).to have_content("Terms of Service")
-        expect(page).to have_css("label[for=\"user_tos_agreement\"]")
-        expect(page).to have_css("input#user_tos_agreement")
+        expect(page).to have_css("label[for=\"registration_user_tos_agreement\"]")
+        expect(page).to have_css("input#registration_user_tos_agreement")
       end
     end
 
     it "show tos checkbox separaterly from other input elements" do
       within("div#card__tos") do
-        expect(page).not_to have_css("input:not(#user_tos_agreement)")
+        expect(page).not_to have_css("input:not(#registration_user_tos_agreement)")
       end
     end
   end
