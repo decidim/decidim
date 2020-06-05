@@ -28,7 +28,7 @@ $(() => {
   });
 
   if ($("#order-progress [data-toggle=budget-confirm]").length > 0) {
-    const safeUrl = $(".budget-summary").attr("data-safe-url");
+    const safeUrl = $(".budget-summary").attr("data-safe-url").split("?")[0];
     $(document).on("click", "a", (event) => {
       window.exitUrl = event.currentTarget.href;
     });
