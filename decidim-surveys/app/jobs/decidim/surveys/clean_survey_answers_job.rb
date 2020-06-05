@@ -23,7 +23,7 @@ module Decidim
         return unless survey.clean_after_publish?
 
         survey.questionnaire.answers.destroy_all
-        survey.update(delete_answers_on_publish: false)
+        survey.update(clean_after_publish: false)
       end
     end
   end

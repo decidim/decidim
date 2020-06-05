@@ -18,7 +18,7 @@ module Decidim
 
         if clean_after_publish_changed?(previous_settings, current_settings)
           survey = Decidim::Surveys::Survey.find_by(component: component)
-          survey.update(delete_answers_on_publish: current_settings[:clean_after_publish])
+          survey.update(clean_after_publish: current_settings[:clean_after_publish])
         end
 
         return unless event && event_class
