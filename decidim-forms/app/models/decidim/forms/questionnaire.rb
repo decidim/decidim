@@ -11,11 +11,10 @@ module Decidim
       has_many :questions, -> { order(:position) }, class_name: "Question", foreign_key: "decidim_questionnaire_id", dependent: :destroy
       has_many :answers, class_name: "Answer", foreign_key: "decidim_questionnaire_id", dependent: :destroy
 
-      delegate :component, to: :questionnaire_for
-
       # Public: returns whether the questionnaire questions can be modified or not.
       def questions_editable?
-        !component.published? || answers.empty?
+        has_component = questionnaire_for.respond_to? :component
+        (has_component && !component.published?) || answers.empty?
       end
 
       # Public: returns whether the questionnaire is answered by the user or not.

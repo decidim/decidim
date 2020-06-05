@@ -86,7 +86,7 @@ module Decidim
         end
 
         def delete_answers
-          questionnaire.answers.destroy_all
+          @questionnaire.answers.destroy_all
         end
       end
     end
