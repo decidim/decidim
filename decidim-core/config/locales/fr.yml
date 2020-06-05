@@ -139,6 +139,8 @@ fr:
         reject: "%{user_name} a rejeté la vérification du groupe d'utilisateurs %{resource_name}"
         verify: "%{user_name} a vérifié le groupe d'utilisateurs %{resource_name}"
         verify_via_csv: "%{user_name} vérifié le groupe %{resource_name} utilisateur via un fichier CSV"
+    admin_terms_of_use:
+      default_body: "<h2>CONDITIONS D'UTILISATION ADMINISTRATEUR</h2><p>Nous espérons que vous avez reçu les instructions de l'administrateur système de la plateforme. Ils se résument généralement à ces trois choses :</p><ol><li>Respecter la vie privée des autres.</li><li>Réfléchissez avant de cliquer.</li><li>Un grand pouvoir implique de grandes responsabilités.</li></ol>"
     amendments:
       accepted:
         error: Une erreur s'est produite lors de l'acceptation de l'amendement.
