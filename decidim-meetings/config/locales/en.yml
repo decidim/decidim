@@ -17,6 +17,7 @@ en:
         available_slots: Available slots for this meeting
         decidim_category_id: Category
         decidim_scope_id: Scope
+        decidim_user_group_id: User group
         description: Description
         end_time: End Time
         location: Location
@@ -459,6 +460,8 @@ en:
       types:
         private_meeting: Private meeting
         transparent: Transparent
+      versions:
+        back_to_resource: Go back to meeting
     metrics:
       meetings:
         description: Number of meetings created

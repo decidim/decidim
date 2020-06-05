@@ -26,6 +26,7 @@ module Decidim
               post :answer
             end
           end
+          resources :versions, only: [:show, :index]
           resource :meeting_widget, only: :show, path: "embed"
         end
         root to: "meetings#index"

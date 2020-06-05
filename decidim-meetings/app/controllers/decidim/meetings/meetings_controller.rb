@@ -8,6 +8,7 @@ module Decidim
       include FormFactory
       include Paginable
       helper Decidim::WidgetUrlsHelper
+      helper Decidim::ResourceVersionsHelper
 
       helper_method :meetings, :meeting, :registration, :search
 
