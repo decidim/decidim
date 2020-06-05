@@ -183,6 +183,7 @@ fr:
             admin: Administrateur
             collaborator: Collaborateur
             moderator: Modérateur
+            valuator: Évaluateur
         media_link:
           fields:
             date: Date

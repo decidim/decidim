@@ -70,10 +70,12 @@ fr:
         port: Port
         primary_color: Primaire
         reference_prefix: Préfixe de référence
+        rich_text_editor_in_public_views: Activer l'éditeur de texte avancé pour les participants
         secondary_color: Secondaire
         send_welcome_notification: Envoyer un mail de bienvenue
         show_statistics: Montrer les statistiques
         success_color: Succès
+        time_zone: Fuseau horaire
         tos_version: Version des conditions d'utilisation
         twitter_handler: Gestionnaire Twitter
         user_groups_enabled: Activer les groupes d'utilisateurs
@@ -142,9 +144,23 @@ fr:
         export: Exporter
         manage: Gérer
         new: Nouvelle %{name}
+        per_page: Par page
         permissions: Autorisations
         reject: Rejeter
         verify: Vérifier
+      admin_terms_of_use:
+        accept:
+          error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation administrateur.
+          success: Super! Vous avez accepté les conditions d'utilisation administrateur.
+        actions:
+          are_you_sure: Êtes-vous certain de vouloir refuser les conditions d'utilisation administrateur?
+          refuse: Refuser les conditions d'utilisation administrateur
+          title: Accepter les conditions d'utilisation
+        required_review:
+          alert: 'Obligatoire: Consultez nos conditions d''utilisation administrateur'
+          callout: Veuillez prendre un moment pour consulter les conditions d'utilisation administrateur. Sinon, vous ne pourrez pas utiliser la plateforme en tant qu'administrateur.
+          cta: Consulter les maintenant.
+        title: Conditions d'utilisation administrateur
       area_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau périmètre d'assemblée.
@@ -236,6 +252,7 @@ fr:
           success: Catégorie mise à jour avec succès.
       component_permissions:
         update:
+          error: Un problème est survenu lors de la mise à jour des permissions de ce composant.
           success: Autorisations mises à jour avec succès.
       components:
         create:
@@ -278,12 +295,28 @@ fr:
       filters:
         category_id_eq:
           label: Catégorie
+        filter_label: Filtre
         officialized_at_null:
           label: État
           values:
             'false': Validé
             'true': Non validé
+        private_space_eq:
+          label: Privé
+          values:
+            'false': Public
+            'true': Privé
+        published_at_null:
+          label: Publié
+          values:
+            'false': Publié
+            'true': Dépublié
+        scope_id_eq:
+          label: Périmètre d'application
         search_label: Rechercher
+        search_placeholder:
+          name_or_nickname_or_email_cont: Rechercher %{collection} par e-mail, nom ou pseudo.
+          title_cont: Search %{collection} par titre.
       help_sections:
         error: Une erreur s'est produite lors de la mise à jour des sections d'aide.
         form:
@@ -463,6 +496,7 @@ fr:
           not_sent: Envoi non effectué
           participants: 'participants '
           segmented_to: 'Segmenté à %{subject}: '
+          subscribed_count: 'Abonné:'
           title: Newsletters
         new:
           save: Enregistrer
@@ -475,6 +509,7 @@ fr:
           followers_help: Envoie la newsletter à tous les utilisateurs confirmés qui suivent les espaces participatifs sélectionnés dans la liste.
           none: Aucun
           participants_help: Envoie la newsletter à tous les utilisateurs confirmés qui ont participé à l'un des espaces participatifs sélectionnés dans la liste.
+          recipients_count: Cette newsletter sera envoyé à <strong id='recipients_count'>%{count}</strong> users.
           scopes_help: Envoie la newsletter aux utilisateurs qui ont un secteur sélectionné dans les paramètres "Mes intérêts".
           select_scopes: Filtrer pour les utilisateurs ayant activé un secteur dans les paramètres "Mes intérêts".
           select_spaces: Sélectionnez les espaces pour segmenter la newsletter
@@ -541,6 +576,7 @@ fr:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          rich_text_editor_in_public_views_help: Dans certains champs textuel, les participants pourront insérer des balises HTML en utilisant l'éditeur de texte avancé.
           social_handlers: Liens des réseaux sociaux
           twitter: Twitter
           url: Url
