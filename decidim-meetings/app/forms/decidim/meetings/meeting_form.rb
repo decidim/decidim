@@ -16,8 +16,6 @@ module Decidim
       attribute :end_time, Decidim::Attributes::TimeWithZone
       attribute :decidim_scope_id, Integer
       attribute :decidim_category_id, Integer
-      attribute :private_meeting, Boolean
-      attribute :transparent, Boolean
       attribute :user_group_id, Integer
 
       validates :title, presence: true

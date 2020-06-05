@@ -53,8 +53,6 @@ module Decidim
           longitude: form.longitude,
           location: form.location,
           location_hints: form.location_hints,
-          private_meeting: form.private_meeting,
-          transparent: form.transparent,
           author: form.current_user,
           decidim_user_group_id: form.user_group_id
         )

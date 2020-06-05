@@ -18,9 +18,6 @@ module Decidim::Meetings
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }
     let(:start_time) { 1.day.from_now }
-    let(:private_meeting) { false }
-    let(:transparent) { true }
-    let(:transparent_type) { "transparent" }
     let(:user_group_id) { nil }
     let(:form) do
       double(
@@ -37,8 +34,6 @@ module Decidim::Meetings
         latitude: latitude,
         longitude: longitude,
         user_group_id: user_group_id,
-        private_meeting: private_meeting,
-        transparent: transparent,
         current_user: current_user,
         current_organization: organization
       )
@@ -128,8 +123,6 @@ module Decidim::Meetings
             latitude: meeting.latitude,
             longitude: meeting.longitude,
             user_group_id: user_group_id,
-            private_meeting: private_meeting,
-            transparent: transparent,
             services_to_persist: [],
             current_user: current_user,
             current_organization: organization
