@@ -508,6 +508,9 @@ cs:
         accepted: Přijato
         expired: Platnost vypršela
       unavailable_scope: Nedostupný rozsah
+      versions:
+        shared:
+          back_to_resource: Přejít zpět na iniciativu
     menu:
       initiatives: Iniciativy
     resources:
