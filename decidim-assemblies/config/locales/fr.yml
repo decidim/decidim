@@ -102,8 +102,17 @@ fr:
           error: Une erreur s'est produite lors de la duplication de cette assemblée.
           success: L'assemblée a été dupliquée avec succès.
       assemblies_types:
+        create:
+          error: Une erreur s'est produite lors de la création d'un nouveau type d'assemblée.
+          success: Type d'assemblée créé avec succès.
+        destroy:
+          success: Type d'assemblée supprimé avec succès.
         new:
           create: Créer
+          title: Nouveau type d'assemblée
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de ce type d'assemblée.
+          success: Type d'assemblée mis à jour avec succès.
       assembly_copies:
         new:
           copy: Copier
@@ -163,6 +172,7 @@ fr:
           info: Information
           moderations: Modérations
           private_users: Utilisateurs privés
+        assemblies_types: Types d'assemblée
       models:
         assemblies_types:
           fields:
@@ -198,8 +208,10 @@ fr:
             admin: Administrateur
             collaborator: Collaborateur
             moderator: Modérateur
+            valuator: Évaluateur
       titles:
         assemblies: Assemblées
+        assemblies_types: Types d'assemblée
     admin_log:
       assembly:
         create: "%{user_name} a créé l'assemblée %{resource_name}"
@@ -210,6 +222,12 @@ fr:
         create: "%{user_name} a créé le membre %{resource_name} membre dans l'assemblée %{space_name}"
         delete: "%{user_name} enlevé le membre %{resource_name} de l'assemblée %{space_name}"
         update: "%{user_name} a mis à jour le membre %{resource_name} de l'assemblée %{space_name}"
+      assembly_type:
+        create: "%{user_name} a créé le type d'assemblée %{resource_name}"
+        delete: "%{user_name} a retiré le membre %{resource_name} du type d'assemblé %{space_name}"
+        publish: "%{user_name} a publié le type d'assemblée %{resource_name}"
+        unpublish: "%{user_name} a dépublié le type d'assemblée %{resource_name}"
+        update: "%{user_name} a mis à jour le type d'assemblée %{resource_name}"
       assembly_user_role:
         create: "%{user_name} a invité %{resource_name} à l'assemblée %{space_name}"
         delete: "%{user_name} a supprimé l'utilisateur %{resource_name} de l'assemblée%{space_name}"
@@ -354,6 +372,8 @@ fr:
       value_types:
         assembly_presenter:
           not_found: 'L''assemblée n''a pas été trouvée sur la base de données (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'Le type d''assemblée n''a pas été trouvé sur la base de données (ID: %{id})'
     menu:
       assemblies: Assemblées
     metrics:
