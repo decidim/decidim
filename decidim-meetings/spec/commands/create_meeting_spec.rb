@@ -18,9 +18,6 @@ module Decidim::Meetings
     let(:longitude) { 2.1234 }
     let(:start_time) { 1.day.from_now }
     let(:user_group_id) { nil }
-    let(:private_meeting) { false }
-    let(:transparent) { true }
-    let(:transparent_type) { "transparent" }
     let(:form) do
       double(
         invalid?: invalid,
@@ -36,8 +33,6 @@ module Decidim::Meetings
         scope: scope,
         category: category,
         user_group_id: user_group_id,
-        private_meeting: private_meeting,
-        transparent: transparent,
         current_user: current_user,
         current_component: current_component,
         current_organization: organization
