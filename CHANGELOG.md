@@ -21,6 +21,11 @@ The use case that originated this change is the persistence of the user's gender
 
 ### Fixed
 
+- **decidim-proposals**: Fix participatory text newline absence. [\#6158](https://github.com/decidim/decidim/pull/6158)
+- **decidim-consultations**: Fix permissions in order to make components inside of questions accessible. [\#6079](https://github.com/decidim/decidim/pull/6079)
+- **decidim-core**: Fix user's avatar icon in CSS. [\#5990](https://github.com/decidim/decidim/pull/5990)
+- **decidim-core**: Use internal Organization class in migration. [\#6052](https://github.com/decidim/decidim/pull/6052)
+- **decidim-core**: Fix email not being sent to some users when uploading a CSV file. [\#6011](https://github.com/decidim/decidim/pull/6011)
 - **decidim-core**: Fix broken puma version in generator's Gemfile. [\#6060](https://github.com/decidim/decidim/pull/6060)
 - **decidim-core,decidim-system**: Fix using Decidim as a provider for omniauth authentication. [\#6081](https://github.com/decidim/decidim/pull/6081)
 
