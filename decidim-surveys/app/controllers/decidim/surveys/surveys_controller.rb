@@ -22,7 +22,7 @@ module Decidim
       protected
 
       def allow_answers?
-        !questionnaire.published? || current_settings.allow_answers?
+        !current_component.published? || current_settings.allow_answers?
       end
 
       private

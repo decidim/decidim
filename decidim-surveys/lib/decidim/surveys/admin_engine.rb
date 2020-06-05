@@ -14,6 +14,12 @@ module Decidim
         root to: "surveys#edit"
       end
 
+      initializer "decidim.notifications.components" do
+        Decidim::EventsManager.subscribe(/^decidim\.events\.components/) do |event_name, data|
+          CleanSurveyAnswersJob.perform_later(event_name, data)
+        end
+      end
+
       def load_seed
         nil
       end
