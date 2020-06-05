@@ -26,6 +26,16 @@ describe "Admin manages surveys", type: :system do
 
     let!(:question) { create(:questionnaire_question, questionnaire: questionnaire) }
 
+    it "allows to preview survey" do
+      visit questionnaire_edit_path
+      expect(page).to have_link("Preview", href: [questionnaire_public_path, "surveys/#{survey.id}"].join)
+    end
+
+    it "allows to answer survey" do
+      visit questionnaire_public_path
+      expect(page).to have_selector("input#questionnaire_answers_0")
+    end
+
     context "when the survey has answers" do
       let!(:answer) { create(:answer, question: question, questionnaire: questionnaire) }
 
@@ -33,46 +43,54 @@ describe "Admin manages surveys", type: :system do
         visit questionnaire_edit_path
         expect(page).to have_content("The form is not published")
       end
-    end
 
-    it "allows editing questions" do
-      visit questionnaire_edit_path
-    end
-
-    it "allows to preview survey" do
-      visit questionnaire_edit_path
-    end
-
-    it "allows to answer survey" do
-      visit questionnaire_public_path
-    end
-
-    it "deletes answers after editing" do
-      visit questionnaire_edit_path
-    end
-
-    context "when publishing the survey" do
-      let(:clean_after_publish) { true }
-
-      before do
-        component.update!(
-          step_settings: {
-            component.participatory_space.active_step.id => {
-              clean_after_publish: clean_after_publish
-            }
-          }
-        )
+      it "allows editing questions" do
+        visit questionnaire_edit_path
+        expect(page).to have_selector("#questionnaire_questions_#{question.id}_body_en")
+        expect(page).to have_no_selector("#questionnaire_questions_#{question.id}_body_en[disabled]")
       end
 
-      context "when clean_after_publish is set to true" do
-        it "deletes previous answers afer publishing" do
+      it "deletes answers after editing" do
+        visit questionnaire_edit_path
+
+        within "form.edit_questionnaire" do
+          within "#questionnaire_question_#{question.id}-field" do
+            fill_in find_nested_form_field_locator("body_en"), with: "Have you been writing specs today?"
+          end
+
+          click_button "Save"
         end
+
+        expect(page).to have_admin_callout("successfully")
+        expect(questionnaire.answers).to be_empty
       end
 
-      context "when clean_after_publish is set to false" do
-        let(:clean_after_publish) { false }
+      context "when publishing the survey" do
+        let(:clean_after_publish) { true }
 
-        it "does not delete previous answers afer publishing" do
+        before do
+          component.update!(
+            step_settings: {
+              component.participatory_space.active_step.id => {
+                clean_after_publish: clean_after_publish
+              }
+            }
+          )
+          component.publish!
+        end
+
+        context "when clean_after_publish is set to true" do
+          it "deletes previous answers afer publishing" do
+            expect(questionnaire.answers).to be_empty
+          end
+        end
+
+        context "when clean_after_publish is set to false" do
+          let(:clean_after_publish) { false }
+
+          it "does not delete previous answers afer publishing" do
+            expect(questionnaire.answers).not_to be_empty
+          end
         end
       end
     end
@@ -84,5 +102,19 @@ describe "Admin manages surveys", type: :system do
 
   def questionnaire_public_path
     main_component_path(component)
+  end
+
+  private
+
+  def find_nested_form_field_locator(attribute, visible: true)
+    find_nested_form_field(attribute, visible: visible)["id"]
+  end
+
+  def find_nested_form_field(attribute, visible: true)
+    current_scope.find(nested_form_field_selector(attribute), visible: visible)
+  end
+
+  def nested_form_field_selector(attribute)
+    "[id$=#{attribute}]"
   end
 end
