@@ -15,10 +15,19 @@ FactoryBot.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     start_time { 1.day.from_now }
     end_time { 3.days.from_now }
+    published_at { Time.current }
     component { create(:elections_component) }
 
     trait :started do
       start_time { 1.day.ago }
+    end
+
+    trait :unpublished do
+      published_at { nil }
+    end
+
+    trait :published do
+      published_at { Time.current }
     end
 
     trait :complete do
