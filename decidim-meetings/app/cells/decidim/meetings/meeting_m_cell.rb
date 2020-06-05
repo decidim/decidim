@@ -12,7 +12,7 @@ module Decidim
       end
 
       def render_authorship
-        cell "decidim/author", author_presenter_for(model.author)
+        cell "decidim/author", author_presenter_for(model.normalized_author)
       end
 
       def date
