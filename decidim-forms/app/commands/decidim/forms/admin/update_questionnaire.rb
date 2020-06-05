@@ -22,9 +22,12 @@ module Decidim
           return broadcast(:invalid) if @form.invalid?
 
           Decidim::Forms::Questionnaire.transaction do
-            update_questionnaire_questions if @questionnaire.questions_editable?
+            if @questionnaire.questions_editable?
+              update_questionnaire_questions
+              delete_answers unless @questionnaire.published?
+            end
+
             update_questionnaire
-            delete_answers unless @questionnaire.published?
           end
 
           broadcast(:ok)
