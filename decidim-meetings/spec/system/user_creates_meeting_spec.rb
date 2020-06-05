@@ -97,6 +97,8 @@ describe "User creates meeting", type: :system do
           let!(:user_group) { create :user_group, :verified, organization: organization, users: [user] }
 
           it "creates a new meeting", :slow do
+            stub_geocoding(meeting_address, [latitude, longitude])
+
             visit_component
 
             click_link "New meeting"
