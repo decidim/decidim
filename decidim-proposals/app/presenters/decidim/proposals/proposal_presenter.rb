@@ -49,7 +49,7 @@ module Decidim
         text = proposal.body
 
         if strip_tags
-          text = text.gsub(%r(<\/p>), "\n\n")
+          text = text.gsub(%r{<\/p>}, "\n\n")
           text = strip_tags(text)
         end
 
