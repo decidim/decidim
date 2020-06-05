@@ -310,7 +310,13 @@ fr:
           label: Publié
           values:
             'false': Publié
+            'true': Dépublié
+        scope_id_eq:
+          label: Périmètre d'application
         search_label: Rechercher
+        search_placeholder:
+          name_or_nickname_or_email_cont: Rechercher %{collection} par e-mail, nom ou pseudo.
+          title_cont: Search %{collection} par titre.
       help_sections:
         error: Une erreur s'est produite lors de la mise à jour des sections d'aide.
         form:
@@ -490,6 +496,7 @@ fr:
           not_sent: Envoi non effectué
           participants: 'participants '
           segmented_to: 'Segmenté à %{subject}: '
+          subscribed_count: 'Abonné:'
           title: Newsletters
         new:
           save: Enregistrer
@@ -502,6 +509,7 @@ fr:
           followers_help: Envoie la newsletter à tous les utilisateurs confirmés qui suivent les espaces participatifs sélectionnés dans la liste.
           none: Aucun
           participants_help: Envoie la newsletter à tous les utilisateurs confirmés qui ont participé à l'un des espaces participatifs sélectionnés dans la liste.
+          recipients_count: Cette newsletter sera envoyé à <strong id='recipients_count'>%{count}</strong> users.
           scopes_help: Envoie la newsletter aux utilisateurs qui ont un secteur sélectionné dans les paramètres "Mes intérêts".
           select_scopes: Filtrer pour les utilisateurs ayant activé un secteur dans les paramètres "Mes intérêts".
           select_spaces: Sélectionnez les espaces pour segmenter la newsletter
@@ -568,6 +576,7 @@ fr:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          rich_text_editor_in_public_views_help: Dans certains champs textuel, les participants pourront insérer des balises HTML en utilisant l'éditeur de texte avancé.
           social_handlers: Liens des réseaux sociaux
           twitter: Twitter
           url: Url
