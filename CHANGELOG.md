@@ -123,6 +123,7 @@ The use case that originated this change is the persistence of the user's gender
 
 ### Fixed
 
+- **decidim-proposals**: Fix participatory text newline absence. [\#6158](https://github.com/decidim/decidim/pull/6158)
 - **decidim-consultations**: Fix permissions in order to make components inside of questions accessible. [\#6079](https://github.com/decidim/decidim/pull/6079)
 - **decidim-core**: Patch various security alerts reported by GitHub. [\#6148](https://github.com/decidim/decidim/pull/6148)
 - **decidim-core**: Fix user's avatar icon in CSS. [\#5990](https://github.com/decidim/decidim/pull/5990)
