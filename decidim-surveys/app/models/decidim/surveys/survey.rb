@@ -11,6 +11,10 @@ module Decidim
       component_manifest_name "surveys"
 
       validates :questionnaire, presence: true
+
+      def clean_after_publish?
+        delete_answers_on_publish
+      end
     end
   end
 end

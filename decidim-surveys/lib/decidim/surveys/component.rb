@@ -61,6 +61,7 @@ Decidim.register_component(:surveys) do |component|
   component.settings(:step) do |settings|
     settings.attribute :allow_answers, type: :boolean, default: false
     settings.attribute :allow_unregistered, type: :boolean, default: false
+    settings.attribute :clean_after_publish, type: :boolean, default: true
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
