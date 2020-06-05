@@ -18,7 +18,6 @@ module Decidim::Meetings
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }
     let(:start_time) { 1.day.from_now }
-    let(:author) { create :user, organization: organization }
     let(:private_meeting) { false }
     let(:transparent) { true }
     let(:transparent_type) { "transparent" }
@@ -37,7 +36,6 @@ module Decidim::Meetings
         address: address,
         latitude: latitude,
         longitude: longitude,
-        author: author,
         user_group_id: user_group_id,
         private_meeting: private_meeting,
         transparent: transparent,
@@ -79,19 +77,21 @@ module Decidim::Meetings
       end
 
       context "when the author is a user_group" do
-        let(:user_group) { create :user_group, users: [current_user], organization: organization }
+        let(:user_group) { create :user_group, :verified, users: [current_user], organization: organization }
         let(:user_group_id) { user_group.id }
 
         it "sets the user_group as the author" do
           subject.call
-          expect(meeting.author).to eq user_group
+          expect(meeting.author).to eq current_user
+          expect(meeting.normalized_author).to eq user_group
         end
       end
 
       context "when the author is a user" do
         it "sets the user as the author" do
           subject.call
-          expect(meeting.author).to eq author
+          expect(meeting.author).to eq current_user
+          expect(meeting.normalized_author).to eq current_user
         end
       end
 
@@ -127,7 +127,7 @@ module Decidim::Meetings
             address: address,
             latitude: meeting.latitude,
             longitude: meeting.longitude,
-            author: author,
+            user_group_id: user_group_id,
             private_meeting: private_meeting,
             transparent: transparent,
             services_to_persist: [],

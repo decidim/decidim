@@ -82,12 +82,13 @@ module Decidim::Meetings
       end
 
       context "when the author is a user_group" do
-        let(:user_group) { create :user_group, users: [current_user], organization: organization }
+        let(:user_group) { create :user_group, :verified, users: [current_user], organization: organization }
         let(:user_group_id) { user_group.id }
 
         it "sets the user_group as the author" do
           subject.call
-          expect(meeting.author).to eq user_group
+          expect(meeting.author).to eq current_user
+          expect(meeting.normalized_author).to eq user_group
         end
       end
 
@@ -95,6 +96,7 @@ module Decidim::Meetings
         it "sets the user as the author" do
           subject.call
           expect(meeting.author).to eq current_user
+          expect(meeting.normalized_author).to eq current_user
         end
       end
 

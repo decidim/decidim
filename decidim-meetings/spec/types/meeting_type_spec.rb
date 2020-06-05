@@ -254,7 +254,7 @@ module Decidim
 
       describe "author" do
         let(:model) { create(:meeting, :not_official, author: author, component: component) }
-        let(:author) { create(:user, organization: model.participatory_space.organization) }
+        let(:author) { create(:user, organization: component.participatory_space.organization) }
         let(:query) { "{ author { name } }" }
 
         it "includes the user's name" do
