@@ -98,7 +98,7 @@ describe "Explore meetings", :slow, type: :system do
             expect(page).to have_content("1 MEETING")
             expect(page).to have_css(".card--meeting", count: 1)
             within ".card--meeting" do
-              expect(page).to have_content(user_group_meeting.author.name)
+              expect(page).to have_content(user_group_meeting.normalized_author.name)
             end
           end
         end
