@@ -11,10 +11,8 @@ module Decidim
 
       routes do
         # Add admin engine routes here
-        scope "templates" do
-          %w(questionnaire).each do |model_name|
-            resources :"#{model_name}_templates"
-          end
+        %w(questionnaire).each do |model_name|
+          resources :"#{model_name}_templates"
         end
 
         root to: "templates#index"
