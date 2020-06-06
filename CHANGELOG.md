@@ -30,6 +30,7 @@ The use case that originated this change is the persistence of the user's gender
 ### Added
 
 - **decidim-initiative**: Skip initiative type selection if there is only one initiative type. [\#5835](https://github.com/decidim/decidim/pull/5835)
+- **decidim-docs**: Add documentation related with the permissions system. [\#6160](https://github.com/decidim/decidim/pull/6160)
 - **decidim-participatory_processes**: Add related assemblies to participatory processes [\#5868](https://github.com/decidim/decidim/pull/5868)
 - **decidim-comments**: Fix comment link on Last Activity. [\#5999](https://github.com/decidim/decidim/pull/5999)
 - **decidim-system**: Add from_label to Organization SMTP settings. [#\6125](https://github.com/decidim/decidim/pull/6125)
@@ -123,6 +124,8 @@ The use case that originated this change is the persistence of the user's gender
 
 ### Fixed
 
+- **decidim-surveys**: Fix ip_hash not being saved in anonymous surveys. [\#6156](https://github.com/decidim/decidim/pull/6156)
+- **decidim-proposals**: Fix participatory text newline absence. [\#6158](https://github.com/decidim/decidim/pull/6158)
 - **decidim-consultations**: Fix permissions in order to make components inside of questions accessible. [\#6079](https://github.com/decidim/decidim/pull/6079)
 - **decidim-core**: Patch various security alerts reported by GitHub. [\#6148](https://github.com/decidim/decidim/pull/6148)
 - **decidim-core**: Fix user's avatar icon in CSS. [\#5990](https://github.com/decidim/decidim/pull/5990)
