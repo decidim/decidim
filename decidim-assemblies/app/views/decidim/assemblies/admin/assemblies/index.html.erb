@@ -38,15 +38,18 @@
         </thead>
         <tbody>
           <% @assemblies.each do |assembly| %>
+            <% next unless allowed_to? :list, :assembly, assembly: assembly %>
             <tr>
               <td>
                 <% if assembly.promoted? %>
                   <span data-tooltip class="icon-state icon-highlight" aria-haspopup="true" data-disable-hover="false" title="<%= t("models.assembly.fields.promoted", scope: "decidim.admin") %>">
-                    <%= icon "star" %>
+                    <%= icon "star", role: "img" %>
                   </span>
                 <% end %>
                 <% if allowed_to? :update, :assembly, assembly: assembly %>
                   <%= link_to translated_attribute(assembly.title), edit_assembly_path(assembly) %><br>
+                <% elsif allowed_to? :read, :component, assembly: assembly %>
+                  <%= link_to translated_attribute(assembly.title), components_path(assembly) %><br>
                 <% elsif allowed_to? :preview, :assembly, assembly: assembly %>
                   <%= link_to translated_attribute(assembly.title), decidim_assemblies.assembly_path(assembly) %><br>
                 <% elsif allowed_to? :read, :moderation, assembly: assembly %>
@@ -56,7 +59,7 @@
                 <% end %>
               </td>
               <td>
-                <%= l(assembly.created_at, format: :short) %>
+                <%= l(assembly.creation_date, format: :decidim_short) if assembly.creation_date %>
               </td>
               <td class="table-list__state">
                 <% if assembly.private_space? %>

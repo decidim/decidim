@@ -100,6 +100,37 @@ module Decidim
       def visible?
         published? && !try(:private_space?)
       end
+
+      # Defines a way to get the user roles for the current participatory space.
+      # You should overwrite this method in the implementer class to define how
+      # to get the correct values.
+      #
+      # role_name - A symbol or string identifying the role name
+      #
+      # Returns an ActiveRecord::Relation with one role for each combination of
+      # `ParticipatorySpace` and `*UserRole`. `*` meaning that the concrete
+      # implementation of the `UserRole` may change depending on the
+      # `ParticipatorySpace` where it belongs to.
+      def user_roles(_role_name = nil)
+        self.class.none
+      end
+
+      def user_role_config_for(user, role_name)
+        case role_name.to_sym
+        when :organization_admin
+          Decidim::ParticipatorySpaceRoleConfig::Admin.new(user)
+        when :admin # ParticipatorySpace admin
+          Decidim::ParticipatorySpaceRoleConfig::ParticipatorySpaceAdmin.new(user)
+        when :valuator
+          Decidim::ParticipatorySpaceRoleConfig::Valuator.new(user)
+        when :moderator
+          Decidim::ParticipatorySpaceRoleConfig::Moderator.new(user)
+        when :collaborator
+          Decidim::ParticipatorySpaceRoleConfig::Collaborator.new(user)
+        else
+          Decidim::ParticipatorySpaceRoleConfig::NullObject.new(user)
+        end
+      end
     end
 
     class_methods do

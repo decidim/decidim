@@ -92,6 +92,7 @@ es-MX:
             other: "%{count} proyectos"
         filters:
           category: Categoría
+          scope: Ámbito
           search: Buscar
         filters_small_view:
           close_modal: Cerrar ventana
@@ -106,6 +107,12 @@ es-MX:
             one: proyecto seleccionado
             other: proyectos seleccionados
           view: Ver
+        orders:
+          highest_cost: Mayor coste
+          label: Ordenar proyectos por
+          lowest_cost: Menor coste
+          most_voted: Más votados
+          random: Orden aleatorio
         project:
           add: Añadir
           count:

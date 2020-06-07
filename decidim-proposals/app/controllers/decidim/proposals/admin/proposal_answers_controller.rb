@@ -13,12 +13,12 @@ module Decidim
         helper Decidim::Messaging::ConversationHelper
 
         def edit
-          enforce_permission_to :create, :proposal_answer
+          enforce_permission_to :create, :proposal_answer, proposal: proposal
           @form = form(Admin::ProposalAnswerForm).from_model(proposal)
         end
 
         def update
-          enforce_permission_to :create, :proposal_answer
+          enforce_permission_to :create, :proposal_answer, proposal: proposal
           @notes_form = form(ProposalNoteForm).instance
           @answer_form = form(Admin::ProposalAnswerForm).from_params(params)
 
@@ -36,6 +36,10 @@ module Decidim
         end
 
         private
+
+        def skip_manage_component_permission
+          true
+        end
 
         def proposal
           @proposal ||= Proposal.where(component: current_component).find(params[:id])

@@ -48,6 +48,8 @@ it:
             title: titolo
       posts:
         show:
+          back: Torna alla lista
+          comments: Commenti
           view: vista
         sidebar_blog:
           comments: Commenti
@@ -63,6 +65,8 @@ it:
           step:
             announcement: Annuncio
             comments_blocked: Commenti bloccati
+            endorsements_blocked: Appoggi bloccati
+            endorsements_enabled: Appoggi abilitati
     events:
       blogs:
         post_created:

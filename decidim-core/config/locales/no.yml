@@ -208,9 +208,6 @@
       update_draft:
         error: Det oppsto et problem med å oppdatere endrings utkastet.
         success: Endrings utkastet ble oppdatert.
-      visibility_options:
-        all: Endringer synlig for alle
-        participants: Endringen er bare synlig for forfatteren
       withdraw:
         error: Et problem oppsto under tilbaketrekningen av endringen
         success: Endringen ble tilbaketrukket
@@ -240,6 +237,7 @@
         explanation: Bli verifisert med å introdusere et passnummer som starter med "A"
         fields:
           passport_number: Pass nummer
+          postal_code: Postnummer
         name: Et annet eksempel autorisering
       dummy_authorization_handler:
         explanation: Bli verifisert med å introdusere et dokumentnummer som starter med "X"
@@ -426,6 +424,8 @@
           this_application_will_not_be_able_to: 'Dette programmet vil ikke kunne:'
           update_profile: Oppdater profilen din
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> ønsker å bruke profilen din"
+    endorsable:
+      endorsements: Påtegnelser
     errors:
       internal_server_error:
         title: Det oppsto et problem med våre servere
@@ -771,6 +771,7 @@
         create:
           error: Samtalen har ikke startet. Prøv igjen senere
         index:
+          close: Lukk modal
           no_conversations: Du har ingen samtaler ennå
           title: Samtaler
         reply:

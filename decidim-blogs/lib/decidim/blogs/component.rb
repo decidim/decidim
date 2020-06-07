@@ -18,6 +18,8 @@ Decidim.register_component(:blogs) do |component|
     Decidim::Blogs::Post.where(component: components).count
   end
 
+  component.actions = %w(endorse vote create withdraw amend)
+
   component.settings(:global) do |settings|
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :comments_enabled, type: :boolean, default: true
@@ -26,11 +28,14 @@ Decidim.register_component(:blogs) do |component|
   component.settings(:step) do |settings|
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :comments_blocked, type: :boolean, default: false
+    settings.attribute :endorsements_enabled, type: :boolean, default: true
+    settings.attribute :endorsements_blocked, type: :boolean
   end
 
   component.register_resource(:blogpost) do |resource|
     resource.model_class_name = "Decidim::Blogs::Post"
     resource.card = "decidim/blogs/post"
+    resource.actions = %w(endorse vote amend)
     resource.searchable = true
   end
 

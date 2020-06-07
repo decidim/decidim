@@ -1,0 +1,14 @@
+<%
+@title = "Propuesta -- Decidim Barcelona"
+@activesection = "processes"
+@activepage = "proposals"
+%>
+
+<%= partial "budget_list", locals: {} %>
+<%= partial "budget_two_districts" %>
+<script>
+/* Inline script for demo purposes */
+window.addEventListener("load", function(event) {
+  $('#budget-modal').foundation().foundation('open');
+});
+</script>

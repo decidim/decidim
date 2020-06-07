@@ -13,6 +13,7 @@ describe Decidim::Conferences::Permissions do
   let(:conference_admin) { create :conference_admin, conference: conference }
   let(:conference_collaborator) { create :conference_collaborator, conference: conference }
   let(:conference_moderator) { create :conference_moderator, conference: conference }
+  let(:conference_valuator) { create :conference_valuator, conference: conference }
 
   shared_examples "access for role" do |access|
     if access == true
@@ -46,6 +47,12 @@ describe Decidim::Conferences::Permissions do
 
       it_behaves_like "access for role", access[:moderator]
     end
+
+    context "when user is a space valuator" do
+      let(:user) { conference_valuator }
+
+      it_behaves_like "access for role", access[:valuator]
+    end
   end
 
   context "when the action is for the public part" do
@@ -54,7 +61,14 @@ describe Decidim::Conferences::Permissions do
         { scope: :admin, action: :read, subject: :admin_dashboard }
       end
 
-      it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: true, moderator: true
+      it_behaves_like(
+        "access for roles",
+        org_admin: true,
+        admin: true,
+        collaborator: true,
+        valuator: true,
+        moderator: true
+      )
     end
 
     context "when reading a conference" do
@@ -165,7 +179,14 @@ describe Decidim::Conferences::Permissions do
     end
     let(:context) { { space_name: :conferences } }
 
-    it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: true, moderator: true
+    it_behaves_like(
+      "access for roles",
+      org_admin: true,
+      admin: true,
+      collaborator: true,
+      valuator: true,
+      moderator: true
+    )
   end
 
   context "when reading the admin dashboard from the admin part" do
@@ -173,16 +194,48 @@ describe Decidim::Conferences::Permissions do
       { scope: :admin, action: :read, subject: :admin_dashboard }
     end
 
-    it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: true, moderator: true
+    it_behaves_like(
+      "access for roles",
+      org_admin: true,
+      admin: true,
+      collaborator: true,
+      valuator: true,
+      moderator: true
+    )
   end
 
   context "when acting on component data" do
-    let(:action) do
-      { scope: :admin, action: :any_action_is_accepted, subject: :component_data }
-    end
-    let(:context) { { current_participatory_space: conference } }
+    context "when exporting component data" do
+      let(:action) do
+        { scope: :admin, action: :export, subject: :component_data }
+      end
+      let(:context) { { current_participatory_space: conference } }
 
-    it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: :not_set, moderator: :not_set
+      it_behaves_like(
+        "access for roles",
+        org_admin: true,
+        admin: true,
+        collaborator: :not_set,
+        moderator: :not_set,
+        valuator: true
+      )
+    end
+
+    context "when performing any other action" do
+      let(:action) do
+        { scope: :admin, action: :any_action_is_accepted, subject: :component_data }
+      end
+      let(:context) { { current_participatory_space: conference } }
+
+      it_behaves_like(
+        "access for roles",
+        org_admin: true,
+        admin: true,
+        collaborator: :not_set,
+        moderator: :not_set,
+        valuator: :not_set
+      )
+    end
   end
 
   context "when reading the conferences list" do
@@ -190,7 +243,14 @@ describe Decidim::Conferences::Permissions do
       { scope: :admin, action: :read, subject: :conference_list }
     end
 
-    it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: true, moderator: true
+    it_behaves_like(
+      "access for roles",
+      org_admin: true,
+      admin: true,
+      collaborator: true,
+      valuator: true,
+      moderator: true
+    )
   end
 
   context "when reading a conference" do
@@ -199,7 +259,14 @@ describe Decidim::Conferences::Permissions do
     end
     let(:context) { { conference: conference } }
 
-    it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: true, moderator: true
+    it_behaves_like(
+      "access for roles",
+      org_admin: true,
+      admin: true,
+      collaborator: true,
+      valuator: true,
+      moderator: true
+    )
   end
 
   context "when reading a participatory_space" do
@@ -208,7 +275,14 @@ describe Decidim::Conferences::Permissions do
     end
     let(:context) { { current_participatory_space: conference } }
 
-    it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: true, moderator: true
+    it_behaves_like(
+      "access for roles",
+      org_admin: true,
+      admin: true,
+      collaborator: true,
+      valuator: true,
+      moderator: true
+    )
   end
 
   context "when creating a conference" do
@@ -216,7 +290,14 @@ describe Decidim::Conferences::Permissions do
       { scope: :admin, action: :create, subject: :conference }
     end
 
-    it_behaves_like "access for roles", org_admin: true, admin: false, collaborator: false, moderator: false
+    it_behaves_like(
+      "access for roles",
+      org_admin: true,
+      admin: false,
+      collaborator: false,
+      valuator: false,
+      moderator: false
+    )
   end
 
   context "with a conference" do
@@ -227,7 +308,14 @@ describe Decidim::Conferences::Permissions do
         { scope: :admin, action: :foo, subject: :moderation }
       end
 
-      it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: :not_set, moderator: true
+      it_behaves_like(
+        "access for roles",
+        org_admin: true,
+        admin: true,
+        collaborator: :not_set,
+        valuator: :not_set,
+        moderator: true
+      )
     end
 
     context "when publishing a conference" do
@@ -235,7 +323,14 @@ describe Decidim::Conferences::Permissions do
         { scope: :admin, action: :publish, subject: :conference }
       end
 
-      it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: :not_set, moderator: :not_set
+      it_behaves_like(
+        "access for roles",
+        org_admin: true,
+        admin: true,
+        collaborator: :not_set,
+        valuator: :not_set,
+        moderator: :not_set
+      )
     end
 
     context "when user is a collaborator" do

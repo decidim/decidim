@@ -17,10 +17,14 @@
 // = require ./bundle
 // = require ./draggable-list
 // = require ./sortable
+// = require ./gallery
 // = require decidim/input_tags
 // = require decidim/input_hashtags
 // = require decidim/input_mentions
+// = require decidim/vizzs
 // = require jquery.serializejson
+// = require decidim/ajax_modals
+// = require ./officializations
 // = require_self
 
 window.Decidim = window.Decidim || {};

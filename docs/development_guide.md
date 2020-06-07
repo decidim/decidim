@@ -30,6 +30,38 @@ Once created you are ready to:
 
 - `bin/rails s`
 
+## Gitflow Branching model
+
+The Decidim respository follows the Gitflow branching model. There are good documentations on it at:
+
+- the original post: https://nvie.com/posts/a-successful-git-branching-model/
+- provided by Atlassian: https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow.
+
+This model introduces the `develop` branch as a kind of queue for new features to enter into the next release.
+
+In summary, Decidim developers that work on `feature/...` or `fix/...` branches will branch off from `develop` and must be merged back into `develop`.
+
+Then, to start a new feature branch off from `develop` in the following way:
+
+```
+git checkout develop
+git checkout -b feature/xxx
+```
+
+Implement the feature, and open a Pull Request as normal, but against `develop` branch. As this is the most common operation, `develop` is the default branch instead of `master`.
+
+## Git commit messages and Pull Request titles
+
+We recommend following [this guide](https://chris.beams.io/posts/git-commit/) for making good git commit messages. It also applies to Pull Request titles. The summary is:
+
+1.  Separate subject from body with a blank line
+1.  Limit the subject line to 50 characters
+1.  Capitalize the subject line
+1.  Do not end the subject line with a period
+1.  Use the imperative mood in the subject line
+1.  Wrap the body at 72 characters
+1.  Use the body to explain what and why vs. how
+
 ## During development
 
 When creating new migrations in Decidim's modules, you will need to "apply" this migrations to your development_app. The way to do this is by copying the migration from your module into the db/migrate dir of your development_app. Luckily we already have a script that automates this: it copies all missing migrations in development_app/db/migrate. The command is:
@@ -37,6 +69,8 @@ When creating new migrations in Decidim's modules, you will need to "apply" this
 ```console
 bin/rails decidim:upgrade
 ```
+
+Anyway we recommend re-creating your development_app every once in a while.
 
 ## Useful commands
 
@@ -63,11 +97,12 @@ bundle exec i18n-tasks normalize --locales en
 
 ### JavaScript linter
 
-We use JavaScript's lint library to ensure homogeneous formatting of JavaScrip code.
+[eslint](https://eslint.org/docs/user-guide/command-line-interface) and [tslint](https://palantir.github.io/tslint/) are used to ensure homogeneous formatting of JavaScript code.
+
+To lint and try to fix linting errors, run:
 
 ```console
-yarn install
-yarn run lint --fix
+npm run lint --fix
 ```
 
 ### Stylelinter

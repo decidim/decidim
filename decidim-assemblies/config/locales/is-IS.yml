@@ -16,6 +16,7 @@ is-IS:
         created_by_other: Búið til af öðrum
         creation_date: Dagsetning búin til
         decidim_area_id: Svæði
+        decidim_assemblies_type_id: Samsetning gerð
         decidim_scope_id: Umfang
         description: Lýsing
         domain: Lén
@@ -68,6 +69,9 @@ is-IS:
         new:
           create: Búa til
           title: Ný samkoma
+      assemblies_types:
+        new:
+          create: Búa til
       assembly_copies:
         new:
           copy: Afrita
@@ -98,6 +102,10 @@ is-IS:
           info: Upplýsingar
           moderations: Moderations
       models:
+        assemblies_types:
+          fields:
+            created_at: Búið til á
+            title: Titill
         assembly:
           fields:
             created_at: Búið til á
@@ -152,6 +160,9 @@ is-IS:
             slug_help: 'Vefslóðir eru notaðir til að búa til slóðir sem benda til þessa samkomu. Aðeins viðurkennir stafir, tölur og bindur og verður að byrja með stafi. Dæmi: %{url}'
             social_handlers: Félagsleg
             title: Almennar upplýsingar
+        assemblies_types:
+          form:
+            title: Titill
         assembly_copies:
           form:
             slug_help: 'Vefslóðir eru notaðir til að búa til slóðir sem benda til þessa samkomu. Aðeins viðurkennir stafir, tölur og bindur og verður að byrja með stafi. Dæmi: %{url}'

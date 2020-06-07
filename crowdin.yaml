@@ -7,6 +7,7 @@ files:
         ca: ca
         cs: cs
         de: de
+        el: el
         es-ES: es
         es-MX: es-MX
         es-PY: es-PY
@@ -24,6 +25,7 @@ files:
         pt-BR: pt-BR
         pt-PT: pt
         rumany: ru
+        sk: sk
         sv-SE: sv
         tr-TR: tr
         ukmany: uk

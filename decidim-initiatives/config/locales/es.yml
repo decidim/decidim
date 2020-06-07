@@ -62,16 +62,11 @@ es:
       actions:
         new_initiative_type: Nuevo tipo de iniciativa
       filters:
-        search_placeholder:
-          title_or_description_cont: Buscar %{collection} por título o descripción.
         state_eq:
-          label: Estado
           values:
-            accepted: Aceptado
-            created: Creado
-            discarded: Descartado
-            published: Publicado
-            rejected: Rechazado
+            created: Creada
+            discarded: Descartada
+            published: Publicada
             validating: Validación técnica
       menu:
         initiatives: Iniciativas
@@ -81,6 +76,7 @@ es:
           fields:
             created_at: Creado en
             id: ID
+            published_at: Publicada en
             state: Estado
             supports_count: Firmas
             title: Iniciativas
@@ -241,12 +237,14 @@ es:
           unpublish: "%{user_name} descartó la iniciativa %{resource_name}"
           update: "%{user_name} actualizó la iniciativa %{resource_name}"
       admin_states:
-        accepted: Aceptada
         created: Creada
         discarded: Descartada
         published: Publicada
-        rejected: Rechazada
         validating: Validación técnica
+      application_helper:
+        filter_state_values:
+          closed: Cerrado
+          open: Abiertas
       committee_requests:
         new:
           continue: Continuar
@@ -268,6 +266,7 @@ es:
           back: Volver
           back_to_initiatives: Volver a iniciativas
           callout_text: '¡Enhorabuena! Tu iniciativa ciudadana se ha creado correctamente.'
+          edit_my_initiative: Editar mis iniciativas
           go_to_my_initiatives: Ir a mis iniciativas
           more_information: "(Más información)"
         finish_help:
@@ -354,13 +353,10 @@ es:
         filters:
           any: Cualquiera
           author: Autora
-          closed: Cerrado
           myself: Mis iniciativas
-          open: Abiertas
           search: Buscar
           state: Estado
           type: Tipo
-          type_prompt: Selecciona un tipo
         filters_small_view:
           close_modal: Cerrar ventana
           filter: Filtrar
@@ -422,8 +418,6 @@ es:
         promotal_committee_help: Recuerda que debes invitar al menos a %{member_count} personas a la Comisión Promotora. Reenvia el siguiente enlace para invitarlas.
         status_change_body_for: 'La iniciativa %{title} ha cambiado su estado a: %{state}'
         status_change_for: La iniciativa %{title} ha cambiado su estado
-        technical_validation_body_for: La iniciativa %{title} ha solicitado validación técnica.
-        technical_validation_for: La iniciativa %{title} ha solicitado validación técnica.
       last_activity:
         new_initiative: Nueva iniciativa
       pages:
@@ -447,7 +441,7 @@ es:
       admin:
         initiative:
           attachments: Adjuntos
-          committee_members: Miembros del comisión
+          committee_members: Miembros de la comisión
           components: Componentes
           information: Información
       initiative_creation_header:

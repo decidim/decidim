@@ -21,9 +21,9 @@ cs:
         attachment_collections: Složky
         attachments: Přílohy
         confirm_destroy: Opravdu chcete tento projekt smazat?
-        destroy: Odstranit
+        destroy: Smazat
         edit: Upravit
-        import: Návrhy na projekty
+        import: Importovat návrhy do projektů
         new: Nový projekt
         preview: Náhled
         title: Akce
@@ -67,10 +67,16 @@ cs:
         project:
           fields:
             title: Titul
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'Vybrané projekty jsou:'
+          subject: Hlasovali jste o účastnickém prostoru %{space_name}
+          voted_on_space: Hlasovali jste o rozpočtech pro participační prostor %{space_name}.
+          voted_on_space_with_scope: Hlasovali jste o rozpočtech pro participační prostor %{space_name} na %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
-          are_you_sure: Souhlasíš? Jakmile potvrdíte své hlasování, nemůžete to změnit.
-          cancel: zrušení
+          are_you_sure: Souhlasíte? Jakmile potvrdíte své hlasování, nemůžete to změnit.
+          cancel: Zrušit
           confirm: Potvrdit
           description: Jedná se o projekty, které jste zvolili jako součást rozpočtu.
           title: Potvrďte hlasování
@@ -82,12 +88,13 @@ cs:
         budget_summary:
           are_you_sure: Opravdu chcete zrušit hlasování?
           assigned: 'Přiřazeno:'
-          cancel_order: smazat hlas a začít znovu
+          cancel_order: smazat váš hlas a začít znovu
           checked_out:
             description: Už jste hlasovali pro rozpočet. Pokud jste změnili názor, můžete %{cancel_link}.
-            title: Rozpočet byl dokončen
-          description: Jaké projekty by podle vás měly přidělit rozpočet? Přidejte nejméně %{minimum_budget} projektům, které chcete, a hlasujte podle svých preferencí a definujte rozpočet.
-          title: Rozhodnete se pro rozpočet
+            title: Hlasování o rozpočtu bylo dokončeno
+          description: Na jaké projekty bychom podle vás měli vyčlenit rozpočet? Přiřaďte k projektům, které chcete přiřadit alespoň %{minimum_budget} a hlasujte s vašimi preferencemi pro definování rozpočtu.
+          description_minimum_projects_rule: Na jaké projekty bychom podle vás měli vyčlenit rozpočet? Vyberte alespoň %{minimum_number} projektů, které chcete a hlasujte s vašimi preferencemi pro definování rozpočtu.
+          title: Rozhodujete o rozpočtu
         count:
           projects_count:
             one: 1 projekt
@@ -96,14 +103,15 @@ cs:
             other: "%{count} projektů"
         filters:
           category: Kategorie
+          scope: Rozsah
           search: Vyhledávání
         filters_small_view:
           close_modal: Zavřít modální
           filter: Filtr
           filter_by: Filtrovat podle
-          unfold: Rozvinout
+          unfold: Rozbalit
         order_progress:
-          vote: Hlasování
+          vote: Hlasovat
         order_selected_projects:
           remove: Odstranit
           selected_projects:
@@ -111,7 +119,13 @@ cs:
             few: vybraných projektů
             many: vybraných projektů
             other: vybraných projektů
-          view: Pohled
+          view: Zobrazit
+        orders:
+          highest_cost: Nejvyšší náklady
+          label: Seřadit projekty podle
+          lowest_cost: Nejnižší náklady
+          most_voted: Nejvíce hlasovalo
+          random: Náhodné pořadí
         project:
           add: Přidat
           count:
@@ -120,7 +134,7 @@ cs:
             many: "%{count} podporuje"
             other: "%{count} podporuje"
           remove: Odstranit
-          view: Pohled
+          view: Zobrazit
         project_budget_button:
           add: Přidat
           added: Přidán
@@ -130,16 +144,23 @@ cs:
     components:
       budgets:
         actions:
-          vote: Hlasování
+          vote: Hlasovat
         name: Rozpočty
         settings:
           global:
             announcement: Oznámení
             comments_enabled: Komentáře povoleny
+            form:
+              errors:
+                budget_voting_rule_only_one: Pouze jedno hlasovací pravidlo musí být povoleno
+                budget_voting_rule_required: Je vyžadováno jedno pravidlo hlasování
             projects_per_page: Projekty na stránku
             resources_permissions_enabled: Nastavení oprávnění lze nastavit pro každou schůzku
             total_budget: Celkový rozpočet
-            vote_threshold_percent: Hlasovací procentní podíl
+            vote_minimum_budget_projects_number: Minimální počet projektů k hlasování
+            vote_rule_minimum_budget_projects_enabled: 'Povolit pravidlo: Minimální počet projektů, o kterých se má hlasovat'
+            vote_rule_threshold_percent_enabled: 'Povolit pravidlo: minimální procento rozpočtu'
+            vote_threshold_percent: Prahová hodnota pro hlasování v procentech
           step:
             announcement: Oznámení
             comments_blocked: Komentáře byly blokovány
@@ -148,13 +169,13 @@ cs:
     orders:
       checkout:
         error: Při zpracování hlasu došlo k chybě
-        success: Vaše hlasování bylo úspěšně přijato
+        success: Váš hlas byl úspěšně přijat
       destroy:
-        error: Při zrušení hlasování došlo k chybě
+        error: Při rušení vašeho hlasování došlo k chybě
         success: Váš hlas byl úspěšně zrušen
     resource_links:
       included_proposals:
-        project_proposal: 'Návrhy zahrnuté v tomto projektu:'
+        project_proposal: 'Návrhy zahrnuté do tohoto projektu:'
   index:
     confirmed_orders_count: Počet hlasů
   total_budget: Celkový rozpočet

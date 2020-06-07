@@ -7,12 +7,16 @@ module Decidim
       name "Author"
       description "An author"
 
+      field :id, !types.ID, "The author ID"
       field :name, !types.String, "The author's name"
       field :nickname, !types.String, "The author's nickname"
 
       field :avatarUrl, !types.String, "The author's avatar url"
       field :profilePath, !types.String, "The author's profile path"
       field :badge, !types.String, "The author's badge icon"
+      field :organizationName, !types.String, "The authors's organization name" do
+        resolve ->(obj, _args, _ctx) { obj.organization.name }
+      end
 
       field :deleted, !types.Boolean, "Whether the author's account has been deleted or not"
 

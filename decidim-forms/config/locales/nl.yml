@@ -32,10 +32,12 @@ nl:
             statement: Uitspraak
           edit:
             save: Opslaan
-            title: Titel
           form:
             add_question: Vraag toevoegen
             already_answered_warning: De vragenlijst is al door enkele gebruikers beantwoord, dus u kunt de vragen niet wijzigen.
+          matrix_row:
+            remove: Verwijderen
+            statement: Uitspraak
           question:
             add_answer_option: Antwoordoptie toevoegen
             any: Ieder
@@ -67,7 +69,6 @@ nl:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Meld u aan met uw account</a> of <a href="%{sign_up_link}">meld u aan</a> om de vragenlijst te beantwoorden.
             title: Beantwoord de vragenlijst
-          are_you_sure: Deze actie kan niet ongedaan worden gemaakt en u kunt uw antwoorden niet bewerken. Weet je het zeker?
           questionnaire_answered:
             body: U hebt deze vragenlijst al beantwoord.
             title: Al beantwoord
@@ -77,8 +78,11 @@ nl:
           questionnaire_for_private_users:
             body: De vragenlijst is alleen beschikbaar voor privé-gebruikers
             title: Vragenlijst gesloten
-          submit: voorleggen
           tos_agreement: Door deel te nemen, gaat u akkoord met de Servicevoorwaarden
+      step_navigation:
+        show:
+          are_you_sure: Deze actie kan niet ongedaan worden gemaakt en u kunt uw antwoorden niet bewerken. Weet je het zeker?
+          submit: voorleggen
       user_answers_serializer:
         created_at: Beantwoord
         id: Antwoord ID

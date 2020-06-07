@@ -66,10 +66,10 @@ fi:
             title: Satunnaistamisen peruuttaminen
           create:
             error: Uuden satunnaisvalinnan luonti epäonnistui.
-            success: Satunnaisvalinta onnistuneesti luotu
+            success: Satunnaisvalinnan luonti onnistui
           destroy:
             error: Satunnaisvalintaa ei voi peruuttaa.
-            success: Satunnaisvalinta onnistuneesti peruutettu
+            success: Satunnaisvalinnan peruuttaminen onnistui
           edit:
             title: Päivitä satunnaisvalinnan tiedot
             update: Päivitä
@@ -87,7 +87,7 @@ fi:
             selected_proposals: Valintaan valitut ehdotukset
           update:
             error: Satunnaisvalinnan päivitys epäonnistui.
-            success: Satunnaisvalinta onnistuneesti päivitetty
+            success: Satunnaisvalinnan päivitys onnistui
       admin_log:
         sortition:
           create: "%{user_name} loi satunnaisvalinnan %{resource_name} kohtaan %{space_name}"
@@ -124,6 +124,7 @@ fi:
         show:
           algorithm: Satunnaisvalinnan algoritmikoodi
           any_category: kaikista aihepiireistä
+          back: Takaisin listaan
           cancelled: Peruttu satunnaisvalinta
           candidate_proposal_ids: Satunnaisvalintaehdotusten järjestys ja tunnukset
           candidate_proposals_info: 'Satunnaisvalinta tehtiin seuraavien ehdotusten (%{category_label}) välillä, seuraavilla tunnuksilla (lihavoituna valitut ehdotukset)  '

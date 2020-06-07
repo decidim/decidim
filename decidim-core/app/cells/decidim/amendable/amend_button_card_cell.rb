@@ -31,10 +31,6 @@ module Decidim
         end
       end
 
-      def decidim
-        Decidim::Core::Engine.routes.url_helpers
-      end
-
       def button_classes
         "amend_button_card_cell button secondary hollow expanded button--icon button--sc"
       end

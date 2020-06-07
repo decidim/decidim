@@ -60,6 +60,13 @@ de:
     admin:
       actions:
         new_initiative_type: Neuer Initiativentyp
+      filters:
+        state_eq:
+          values:
+            created: Erstellt
+            discarded: Verworfen
+            published: Veröffentlicht
+            validating: Technische Validierung
       menu:
         initiatives: Initiativen
         initiatives_types: Arten von Initiativen
@@ -228,12 +235,14 @@ de:
           unpublish: "%{user_name} verworfen die %{resource_name} Initiative"
           update: "%{user_name} aktualisierte die %{resource_name} Initiative"
       admin_states:
-        accepted: Akzeptiert
         created: Erstellt
         discarded: Verworfen
         published: Veröffentlicht
-        rejected: Abgelehnt
         validating: Technische Validierung
+      application_helper:
+        filter_state_values:
+          closed: Geschlossen
+          open: Öffnen
       committee_requests:
         new:
           continue: Fortsetzen
@@ -341,13 +350,10 @@ de:
         filters:
           any: Irgendein
           author: Autor
-          closed: Geschlossen
           myself: Meine Initiativen
-          open: Öffnen
           search: Suche
           state: Zustand
           type: Art
-          type_prompt: Wählen Sie einen Typ aus
         filters_small_view:
           close_modal: Fenster schließen
           filter: Filter
@@ -409,8 +415,6 @@ de:
         promotal_committee_help: Denken Sie daran, dass Sie mindestens %{member_count} Personen zum Promoter-Komitee einladen müssen. Leiten Sie den folgenden Link weiter, um Personen zum Promoter-Komitee einzuladen
         status_change_body_for: 'Die Initiative %{title} hat ihren Status geändert in: %{state}'
         status_change_for: Die Initiative %{title} hat ihren Status geändert
-        technical_validation_body_for: Die Initiative %{title} hat ihre technische Validierung beantragt.
-        technical_validation_for: Die Initiative %{title} hat ihre technische Validierung beantragt.
       last_activity:
         new_initiative: Neue Initiative
       pages:

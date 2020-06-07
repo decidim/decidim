@@ -4,6 +4,7 @@ tr:
       decidim/comments/comment_by_followed_user_event: Yorum Yap
       decidim/comments/comment_created_event: Yorum Yap
       decidim/comments/reply_created_event: Yorum cevabı
+      decidim/comments/user_group_mentioned_event: Anma
       decidim/comments/user_mentioned_event: Anma
   activerecord:
     models:
@@ -73,6 +74,9 @@ tr:
         comment_by_followed_user:
           email_intro: "%{author_name} , %{resource_title}yorum yaptı. Bu sayfada okuyabilirsiniz:"
           email_outro: '%{author_name}takip ettiğiniz için bu bildirimi aldınız. Bu kullanıcıyı profil sayfasından takip edebilirsiniz.'
+          email_subject: '%{author_name} %{resource_title}tarafından yeni bir yorum var'
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> tarafından <a href="%{resource_path}">%{resource_title}</a>yeni bir yorum var.
+        comment_by_followed_user_group:
           email_subject: '%{author_name} %{resource_title}tarafından yeni bir yorum var'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> tarafından <a href="%{resource_path}">%{resource_title}</a>yeni bir yorum var.
         comment_created:

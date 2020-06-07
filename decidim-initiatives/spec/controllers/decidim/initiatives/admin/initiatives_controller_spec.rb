@@ -330,6 +330,29 @@ module Decidim
             end
           end
 
+          context "and Initiative has not enough committee members" do
+            before do
+              created_initiative.author.confirm
+              sign_in created_initiative.author, scope: :user
+            end
+
+            it "does not pass to technical validation phase" do
+              created_initiative.type.update(minimum_committee_members: 4)
+              get :send_to_technical_validation, params: { slug: created_initiative.to_param }
+
+              created_initiative.reload
+              expect(created_initiative).not_to be_validating
+            end
+
+            it "does pass to technical validation phase" do
+              created_initiative.type.update(minimum_committee_members: 3)
+              get :send_to_technical_validation, params: { slug: created_initiative.to_param }
+
+              created_initiative.reload
+              expect(created_initiative).to be_validating
+            end
+          end
+
           context "and User is not the owner of the initiative" do
             let(:other_user) { create(:user, organization: organization) }
 
@@ -590,6 +613,32 @@ module Decidim
               get :export_pdf_signatures, params: { slug: initiative.to_param, format: :pdf }
               expect(flash[:alert]).to be_nil
               expect(response).to have_http_status(:ok)
+            end
+          end
+        end
+
+        context "when GET export" do
+          context "and user" do
+            before do
+              sign_in user, scope: :user
+            end
+
+            it "is not allowed" do
+              get :export, params: { format: :csv }
+              expect(flash[:alert]).not_to be_empty
+              expect(response).to have_http_status(:found)
+            end
+          end
+
+          context "and admin" do
+            before do
+              sign_in admin_user, scope: :user
+            end
+
+            it "is allowed" do
+              get :export, params: { format: :csv }
+              expect(flash[:alert]).to be_nil
+              expect(response).to have_http_status(:found)
             end
           end
         end
