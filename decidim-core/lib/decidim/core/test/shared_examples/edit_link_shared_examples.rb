@@ -4,7 +4,7 @@ shared_examples "editable content for admins" do
   describe "edit link" do
     before do
       relogin_as user
-      visit current_path
+      visit target_path
     end
 
     context "when I'm an admin user" do
