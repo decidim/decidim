@@ -12,7 +12,7 @@ sv:
         description: Beskrivning
         hashtag: Hashtag
         hero_image: Bild till startsida
-        participatory_processes_ids: Relaterade deltagarprocesser
+        participatory_processes_ids: Relaterade dialoger
         promoted: Uppmärksammad
         published_at: Publicerad
         scope_id: Omfång
@@ -420,7 +420,7 @@ sv:
           register: Registrering
       content_blocks:
         highlighted_conferences:
-          name: Annonserade konferenser
+          name: Viktiga konferenser just nu
       index:
         title: Konferenser
       mailer:
@@ -459,7 +459,7 @@ sv:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Aktiva konferenser
+            active_conferences: Pågående konferenser
             see_all_conferences: Visa alla konferenser
       photo:
         image:
@@ -489,7 +489,7 @@ sv:
         objectives: Mål
         related_assemblies: Relaterade grupper
         related_consultations: Relaterade samråd
-        related_participatory_processes: Relaterade deltagandeprocesser
+        related_participatory_processes: Relaterade dialoger
       statistics:
         answers_count: Svar
         comments_count: Kommentarer
@@ -559,7 +559,7 @@ sv:
           more_info: Mer information
           take_part: Medverka
         index:
-          promoted_conferences: Annonserade konferenser
+          promoted_conferences: Viktiga konferenser just nu
         order_by_conferences:
           conferences:
             one: "%{count} konferens"

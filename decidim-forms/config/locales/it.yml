@@ -5,7 +5,7 @@ it:
         body: Risposta
       question:
         max_choices: Numero massimo di scelte
-        question_type: genere
+        question_type: Tipo
       questionnaire_question:
         mandatory: Obbligatorio
     errors:
@@ -32,18 +32,33 @@ it:
             statement: dichiarazione
           edit:
             save: Salvare
-            title: Titolo
+            title: Modifica questionario
           form:
             add_question: Aggiungi domanda
+            add_separator: Aggiungi separatore
             already_answered_warning: Alcuni utenti hanno già risposto al questionario, quindi non è possibile modificare le sue domande.
+            collapse: Comprimi tutte le domande
+            expand: Espandi tutte le domande
+          matrix_row:
+            matrix_row: Riga
+            remove: Rimuovere
+            statement: dichiarazione
           question:
             add_answer_option: Aggiungi l'opzione di risposta
+            add_matrix_row: Aggiungi riga
             any: Qualunque
+            collapse: Comprimi
             description: Descrizione
             down: Giù
+            expand: Espandi
             question: Domanda
             remove: Rimuovere
             statement: dichiarazione
+            up: Su
+          separator:
+            down: Giù
+            remove: Elimina
+            separator: Separatore
             up: Su
           update:
             invalid: Si sono verificati errori durante il salvataggio del questionario.
@@ -51,8 +66,18 @@ it:
       errors:
         answer:
           body: Il corpo non può essere vuoto
+      files:
+        extension_whitelist: 'Formati accettati:'
+      images:
+        dimensions: "%{width} x %{height} px"
+        dimensions_info: 'Questa immagine sarà:'
+        processors:
+          resize_and_pad: Ridimensionato e spaziato a
+          resize_to_fit: Ridimensionato per adattarsi
       question_types:
         long_answer: Risposta lunga
+        matrix_multiple: Matrice (opzione multipla)
+        matrix_single: Matrice (opzione singola)
         multiple_option: Opzione multipla
         short_answer: Risposta breve
         single_option: Opzione singola
@@ -60,6 +85,7 @@ it:
       questionnaires:
         answer:
           invalid: Ci sono stati errori nel rispondere al questionario.
+          max_choices_alert: Sono state selezionate troppe opzioni
           success: Il questionario ha risposto con successo.
         question:
           max_choices: 'Scelte massime: %{n}'
@@ -67,7 +93,8 @@ it:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Accedi con il tuo account</a> o <a href="%{sign_up_link}">iscriviti</a> per rispondere al questionario.
             title: Rispondi al questionario
-          are_you_sure: Questa azione non può essere annullata e non sarai in grado di modificare le tue risposte. Sei sicuro?
+          current_step: Passo %{step}
+          of_total_steps: di %{total_steps}
           questionnaire_answered:
             body: Hai già risposto a questo questionario.
             title: Ho già risposto
@@ -77,8 +104,13 @@ it:
           questionnaire_for_private_users:
             body: Il questionario è disponibile solo per gli utenti privati
             title: Questionario chiuso
-          submit: Invia
           tos_agreement: Partecipando accetti i suoi Termini di servizio
+      step_navigation:
+        show:
+          are_you_sure: Questa azione non può essere annullata e non sarai in grado di modificare le tue risposte. Sei sicuro?
+          back: Indietro
+          continue: Continua
+          submit: Invia
       user_answers_serializer:
         created_at: Risposto
         id: ID risposta

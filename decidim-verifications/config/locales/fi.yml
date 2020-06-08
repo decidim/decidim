@@ -31,10 +31,10 @@ fi:
           button: Kumoa kaikki
           button_before: Kumoa ennen tiettyä päivämäärää luodut
           destroy:
-            confirm: Et voi peruuttaa ennen tiettyä päivämäärää luotujen varmennusten kumoamista. Haluatko varmasti jatkaa?
-            confirm_all: Et voi peruuttaa kaikkien varmennusten kumoamista. Haluatko varmasti jatkaa?
-          destroy_nok: Varmennusten kumoamisessa tapahtui virhe.
-          destroy_ok: Kaikki pyyntöäsi vastaavat varmennukset kumottu onnistuneesti!
+            confirm: Et voi peruuttaa ennen tiettyä päivämäärää luotujen vahvistusten kumoamista. Haluatko varmasti jatkaa?
+            confirm_all: Et voi peruuttaa kaikkien vahvistusten kumoamista. Haluatko varmasti jatkaa?
+          destroy_nok: Vahvistusten kumoaminen epäonnistui.
+          destroy_ok: Kaikkien pyyntöäsi vastaavien vahvistuksien kumoaminen onnistui!
           info: Yhteensä %{count} varmennettua osallistujaa.
           no_data: Ei varmennettuja osallistujia
           title: Vahvistusten kumoaminen
@@ -77,10 +77,16 @@ fi:
         name: Koodi postissa lähetettävällä kirjeellä
     verifications:
       authorizations:
+        authorization_metadata:
+          info: 'Tämänhetkisen vahvistustavan tiedot:'
+          no_data_stored: Tietoja ei ole tallennettu.
         create:
           error: Vahvistuksen luonti epäonnistui.
-          success: Tilisi on onnistuneesti vahvistettu.
+          success: Tilisi vahvistaminen onnistui.
           unconfirmed: Sinun on vahvistettava sähköpostisi valtuuttaksesi käyttäjätilisi.
+        destroy:
+          error: Vahvistuksen poisto epäonnistui.
+          success: Vahvistuksen poisto onnistui.
         first_login:
           actions:
             another_dummy_authorization_handler: Varmista toisen esimerkkivahvistustavan käsittelijällä
@@ -89,13 +95,21 @@ fi:
             dummy_authorization_workflow: Vahvista esimerkkivaltuutuksen työnkulkuprosessin kautta
             id_documents: Vahvista tilisi lataamalla henkilöllisyystodistuksesi
             postal_letter: Vahvista tilisi paperipostissa lähetettävän vahvistuskoodin avulla
+            sms: Vahvista tilisi tekstiviestillä lähetettävällä vahvistuskoodilla
           title: Vahvista henkilöllisyytesi
           verify_with_these_options: 'Käytettävissä olevat tavat vahvistaa identiteettisi:'
+        index:
+          expired_verification: Vahvistus on erääntynyt
+          show_renew_info: Paina vahvistaaksesi uudestaan
         new:
           authorize: Lähetä
           authorize_with: Vahvista palvelulla %{authorizer}
         renew_modal:
           cancel: Peruuta
+          close: sulje
+          continue: Jatka
+          info_renew: Jos haluat päivittää tiedot, jatka vahvistamalla uudestaan
+          title: Vahvista uudestaan
         skip_verification: Voit ohittaa tämän nyt ja %{link}
         start_exploring: aloittaa palveluun tutustumisen
       csv_census:
@@ -124,7 +138,7 @@ fi:
         authorizations:
           new:
             error: Emme voineet vahvistaa tiliäsi, koska tietojasi ei löytynyt organisaation rekisteristä.
-            success: Tilisi on vahvistettu onnistuneesti.
+            success: Tilisi vahvistaminen onnistui.
       dummy_authorization:
         extra_explanation:
           one: Osallistuminen on rajoitettu niille käyttäjille, joilla on postinumero %{postal_codes}.
@@ -137,7 +151,7 @@ fi:
               update: Päivitä
             update:
               error: Asetusten päivitys epäonnistui.
-              success: Asetukset päivitettiin onnistuneesti
+              success: Asetusten päivittäminen onnistui
           confirmations:
             create:
               error: Vahvistus ei täsmää. Yritä uudelleen tai hylkää vahvistus, jotta käyttäjä voi muuttaa sitä
@@ -203,7 +217,7 @@ fi:
           postages:
             create:
               error: Kirjeen lähetetyksi merkkaaminen epäonnistui
-              success: Kirje onnistuneesti merkitty lähetetyksi
+              success: Kirjeen merkitseminen lähetetyksi onnistui
         authorizations:
           create:
             error: Pyynnössäsi oli ongelma
@@ -236,7 +250,7 @@ fi:
             title: Pyydä vahvistuskoodia
           update:
             error: Vahvistuskoodi on virheellinen. Tarkista uudestaan tekstiviesti, jonka lähetimme sinulle.
-            success: Onnittelut. Käyttäjätilisi on onnistuneesti vahvistettu.
+            success: Onnittelut. Käyttäjätilisi vahvistaminen onnistui.
   errors:
     messages:
       uppercase_only_letters_numbers: sisällössä on sallttu ainoastaan isot kirjaimet ja numerot

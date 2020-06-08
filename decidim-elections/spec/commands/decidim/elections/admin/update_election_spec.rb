@@ -7,7 +7,6 @@ describe Decidim::Elections::Admin::UpdateElection do
 
   let(:election) { create :election }
   let(:organization) { election.component.organization }
-  let(:category) { create :category, participatory_space: election.component.participatory_space }
   let(:user) { create :user, :admin, :confirmed, organization: organization }
   let(:form) do
     double(

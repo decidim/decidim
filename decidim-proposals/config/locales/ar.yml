@@ -99,9 +99,7 @@ ar:
         state_eq:
           label: حالة
           values:
-            accepted: وافقت
             evaluating: تقييم
-            rejected: مرفوض
             withdrawn: سحب
         state_null:
           label: الحالة

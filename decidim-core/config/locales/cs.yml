@@ -38,7 +38,7 @@ cs:
     attributes:
       decidim/user:
         current_password: Aktuální heslo
-        email: E-mai
+        email: E-mail
         name: Uživatelské jméno
         password: Heslo
         password_confirmation: Potvrzení hesla
@@ -223,9 +223,6 @@ cs:
       update_draft:
         error: Při aktualizaci pozměňovacího návrhu došlo k potížím.
         success: Pozměňovací návrh byl úspěšně aktualizován.
-      visibility_options:
-        all: Pozměňovací návrhy jsou pro všechny viditelné
-        participants: Pozměňovací návrhy jsou viditelné pouze pro jejich autory
       withdraw:
         error: Při stažení pozměňovacího návrhu došlo k chybě
         success: Pozměňovací návrh byl úspěšně stažen
@@ -324,6 +321,19 @@ cs:
       see_less: "(viz níže)"
       see_more: "(viz další)"
     components:
+      component_order_selector:
+        no_content: Nepodařilo se nám najít žádný obsah s tímto kritériem
+        order:
+          all_types: Všechny typy
+          collaborative_draft: Koordinační návrh
+          comment: Komentář
+          debate: Debata
+          initiative: Iniciativa
+          meeting: Schůzka
+          post: Příspěvek
+          proposal: Návrh
+          question: Otázka
+        title: 'Zobrazit:'
       dummy:
         actions:
           bar: Lišta
@@ -425,17 +435,17 @@ cs:
             close_modal: Zavřít okno
             uncheck: Zrušit zaškrtnutí
           notice: |-
-            <p>Hej, jste si jisti, že nechcete dostávat newsletter?<br>
+            <p>Hej, jste si jisti, že nechcete dostávat zpravodaj?<br>
             Zaškrtněte prosím zaškrtávací políčko níže.<br>
             Pro nás je velmi důležité, abyste obdrželi příležitostné e-maily
             abyste dostali důležitá oznámení, můžete to vždy změnit v
             nastavení oznámení.</p>
             <p>Pokud nezaškrtnete zaškrtávací políčko, může vám chybět relevantní informace
             o nových příležitostech pro účast v rámci platformy.<br>
-            Pokud se chcete i nadále vyhýbat přijímání informačních zpravodajů, dokonale
+            Pokud se chcete i nadále vyhýbat přijímání informačních zpravodajů, naprosto 
             rozumíme vašemu rozhodnutí.</p>
             <p>Děkujeme, že jste si to přečetli!</p>
-          title: Upozornění na bulletin
+          title: Oznámení zpravodaje
         omniauth_buttons:
           or: Nebo
     doorkeeper:
@@ -454,10 +464,10 @@ cs:
           update_profile: Aktualizujte svůj profil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> chce používat váš účet"
     endorsable:
-      endorsements: Potvrzení
+      endorsements: Schválení
     endorsement_buttons_cell:
       already_endorsed: Schváleno
-      endorse: Zapsat
+      endorse: Schválit
     endorsements:
       identities:
         done: Hotovo
@@ -580,6 +590,16 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste byli členem této skupiny.
           email_subject: Byli jste odstraněni ze skupiny %{user_group_name}!
           notification_title: Byli jste odstraněni ze skupiny <a href="%{resource_path}">%{user_group_name}</a>.
+        user_group_created:
+          email_intro: Nová uživatelská skupina byla vytvořena s názvem %{user_group_name}. Nyní ji můžete ověřit v <a href="%{groups_admin_url}">admin panelu</a>.
+          email_outro: Toto oznámení jste obdrželi, protože jste administrátor platformy.
+          email_subject: Byla vytvořena nová skupina uživatelů
+          notification_title: Byla vytvořena uživatelská skupina %{user_group_name}. Nyní ji můžete ověřit v <a href="%{groups_admin_path}">admin panelu</a>.
+        user_group_updated:
+          email_intro: Uživatelská skupina s názvem %{user_group_name} aktualizovala svůj profil a ponechala jej neověřený. Nyní ho můžete ověřit v <a href="%{groups_admin_url}">admin panelu</a>.
+          email_outro: Toto oznámení jste obdrželi, protože jste administrátor platformy.
+          email_subject: Skupina uživatelů aktualizovala svůj profil
+          notification_title: Uživatelská skupina %{user_group_name} aktualizovala svůj profil, ponechala jej neověřený. Nyní jej můžete ověřit v <a href="%{groups_admin_path}">admin panelu</a>.
       notification_event:
         notification_title: Došlo k události <a href="%{resource_path}">%{resource_title}</a>.
       resource_endorsed:
@@ -674,7 +694,7 @@ cs:
       reached_top: Dosáhli jste nejvyšší úrovně tohoto odznaku.
     group_admins:
       actions:
-        are_you_sure: Jsi si jistá? Neodstraní uživatele ze skupiny.
+        are_you_sure: Jste si jisti? Toto uživatele ze skupiny neodstraní.
         demote_admin: Odstranit admin
       demote:
         error: Při odebrání tohoto uživatele ze seznamu administrátorů došlo k chybě
@@ -703,7 +723,7 @@ cs:
         error: Při přijímání této žádosti o spojení došlo k chybě
         success: Připojit žádost úspěšně přijat
       actions:
-        are_you_sure: Jsi si jistá?
+        are_you_sure: Jste si jisti?
         promote_to_admin: Udělat adminem
         remove_from_group: Odstranit uživatele
       index:
@@ -720,7 +740,7 @@ cs:
         success: Uživatel byl ze skupiny úspěšně odstraněn
     groups:
       actions:
-        are_you_sure: Jsi si jistá?
+        are_you_sure: Jste si jisti?
       create:
         error: Při vytváření skupiny došlo k potížím
         success: Skupina byla úspěšně vytvořena
@@ -736,7 +756,7 @@ cs:
         phone_help: Nepoužívejte pomlčky ani mezery
       join:
         error: Do skupiny došlo k problému
-        success: Požadavek na spojení byl úspěšně vytvořen. Před tím, než vás přijme do skupiny, admin přezkoumá vaši žádost.
+        success: Žádost o připojení byla úspěšně vytvořena. Před přijetím do skupiny administrátor váš požadavek zkontroluje.
       leave:
         error: Při opouštění skupiny došlo k problému
         success: Skupina úspěšně opustila.
@@ -772,8 +792,8 @@ cs:
         resource_type: Typ
     log:
       base_presenter:
-        create: "%{user_name} vytvořeno %{resource_name}"
-        create_with_space: "%{user_name} vytvořeno %{resource_name} v %{space_name}"
+        create: "%{user_name} vytvořil(a) %{resource_name}"
+        create_with_space: "%{user_name} vytvořil(a) %{resource_name} v %{space_name}"
         delete: "%{user_name} odstraněno %{resource_name}"
         delete_with_space: "%{user_name} smazán %{resource_name} v %{space_name}"
         unknown_action: "%{user_name} provedla nějakou akci na %{resource_name}"
@@ -798,11 +818,35 @@ cs:
       home: Domov
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          admin_in_group: Obdrželi jste to, protože jste administrátor v %{group}.
+          greeting: Dobrý den, %{recipient}!
+          intro: "%{manager} zahájil novou konverzaci s názvem %{group}. Klikněte zde pro její zobrazení:"
+          outro: Užijte si Rozhodování!
+          subject: "%{manager} zahájil novou konverzaci jako %{group}"
+        comanagers_new_message:
+          admin_in_group: Obdrželi jste to, protože jste administrátor v %{group}.
+          greeting: Dobrý den, %{recipient}!
+          intro: "%{manager} zveřejnil nové zprávy v konverzaci s názvem %{group}. Klikněte zde pro jejich zobrazení:"
+          outro: Užijte si Rozhodování!
+          subject: "%{manager} odeslal nové zprávy jako %{group}"
         new_conversation:
           greeting: Ahoj, %{recipient}!
           intro: "%{sender} zahájil novou konverzaci s vámi. Klikněte sem pro zobrazení:"
           outro: Užijte si rozhodování!
           subject: "%{sender} začal s vámi konverzovat"
+        new_group_conversation:
+          admin_in_group: Obdrželi jste to, protože jste administrátor v %{group}.
+          greeting: Dobrý den, %{recipient}!
+          intro: "%{sender} zahájil novou konverzaci se skupinou %{group}. Klikněte zde pro její zobrazení:"
+          outro: Užijte si Rozhodování!
+          subject: "%{sender} zahájil konverzaci s %{group}"
+        new_group_message:
+          admin_in_group: Obdrželi jste to, protože jste administrátor v %{group}.
+          greeting: Dobrý den, %{recipient}!
+          intro: "%{sender} přidal nové zprávy do konverzace se skupinou %{group}. Klikněte zde pro jejich zobrazení:"
+          outro: Užijte si Rozhodování!
+          subject: "%{group} má nové zprávy od %{sender}"
         new_message:
           greeting: Ahoj, %{recipient}!
           intro: "%{sender} poslala nové zprávy ve vaší konverzaci. Klikněte sem pro jejich zobrazení:"
@@ -818,15 +862,21 @@ cs:
         create:
           error: Konverzace se nespustí. Zkuste to později znovu
         index:
+          ago: před
           close: Zavřít okno
+          from: Od
+          groups: Moje skupiny
+          last_message: Poslední zpráva
           new_conversation: Nová konverzace
           next: Další
           no_conversations: Nemáte zatím žádné konverzace
           title: Konverzace
         reply:
+          placeholder: Vaše odpověď...
           send: Poslat
           title: Odpověď
         show:
+          chat_with: Konverzace s
           not_allowed: Tento uživatel již nepřijímá žádné přímé zprávy.
           title: Konverzace s číslem %{usernames}
         start:
@@ -851,9 +901,9 @@ cs:
         title: Uživatelé
     newsletter_mailer:
       newsletter:
-        note: Tento e-mail jste obdrželi, protože jste odběrateli bulletinů na %{organization_name}. Můžete změnit nastavení na <a href="%{link}">oznámení straně</a>.
+        note: Tento e-mail jste obdrželi, protože jste odběrateli zpravodajů na %{organization_name}. Můžete změnit nastavení na <a href="%{link}">oznámení straně</a>.
         see_on_website: Nelze vidět tento e-mail správně? Zobrazte jej na webu <a href="%{link}" target="_blank"></a>.
-        unsubscribe: Chcete-li odhlásit přijímání tento typ e-mailů, <a href="%{link}" target="_blank" class="unsubscribe">Odhlásit</a>.
+        unsubscribe: Chcete-li se odhlásit z příjmu tohoto typu e-mailu, <a href="%{link}" target="_blank" class="unsubscribe">Odhlásit se</a>.
     newsletter_templates:
       basic_only_text:
         body_preview: 'Zástupný text pro tělo zprávy: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
@@ -862,7 +912,7 @@ cs:
         body: Tělo
         interpolations_hint: 'Tip: Můžete použít "%{name}" kdekoli v těle nebo předmětu a bude nahrazeno jménem příjemce.'
       image_text_cta:
-        body_preview: 'Dummy text for body: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
+        body_preview: 'Zástupný text pro tělo zprávy: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
         cta_text_preview: Text tlačítka Výzvy k akci
         introduction_preview: 'Zástupný text pro úvod: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
         name: Tlačítko obrázek, text a Výzva k akci
@@ -883,7 +933,7 @@ cs:
     newsletters_opt_in:
       unathorized: Je nám líto, tento odkaz již není k dispozici
       update:
-        error: Něco se stalo
+        error: Došlo k chybě
         success: Nastavení Newsletteru bylo úspěšně aktualizováno
     newsletters_opt_in_mailer:
       notify:
@@ -893,7 +943,7 @@ cs:
         button: Ano, chci i nadále přijímat relevantní informace
         greetings: Zdravím,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Ahoj,
-        subject: Chcete stále dostávat relevantní informace o %{organization_name}?
+        subject: Chcete nadále dostávat příslušné informace o %{organization_name}?
     notifications:
       no_notifications: Zatím žádné oznámení.
     notifications_settings:
@@ -902,8 +952,8 @@ cs:
         direct_messages: Přijímat přímé zprávy od kohokoli
         email_on_notification: Chci dostávat e-mail pokaždé, když obdržím oznámení.
         everything_followed: Všechno, co sleduji
-        newsletter_notifications: Chci dostávat informační bulletiny
-        newsletters: Zprávy
+        newsletter_notifications: Chci dostávat zpravodaje
+        newsletters: Zpravodaje
         own_activity: Moje vlastní činnost, jako kdyby někdo komentoval ve svém návrhu nebo mě zmínil
         receive_notifications_about: Chci dostávat oznámení
         send_notifications_by_email: Poslat oznámení emailem
@@ -941,14 +991,14 @@ cs:
           participate: Účastnit se
           welcome: Vítejte na %{organization}!
         metrics:
-          headline: Metrika
+          headline: Metriky
         statistics:
           answers_count: Dokončené průzkumy
           assemblies_count: Sestavy
           comments_count: Komentáře
           conferences_count: Konference
           debates_count: Debaty
-          endorsements_count: Potvrzení
+          endorsements_count: Schválení
           headline: Aktuální stav %{organization}
           meetings_count: Setkání
           orders_count: Hlasy
@@ -971,7 +1021,7 @@ cs:
         topics: Témata
       participatory_space:
         metrics:
-          headline: Metrika
+          headline: Metriky
           link: Zobrazit všechny metriky
       terms_and_conditions:
         accept:
@@ -1002,8 +1052,9 @@ cs:
       show:
         activity: Aktivita
         badges: Odznaky
+        conversations: Konverzace
         followers: Sledující
-        following: Následuje
+        following: Sleduje
         groups: Skupiny
         members: Členové
         timeline: Časová osa
@@ -1120,6 +1171,36 @@ cs:
       index:
         no_activities_warning: Tento účastník zatím nemá žádnou aktivitu.
     user_contact_disabled: Tento uživatel nepřijímá přímé zprávy.
+    user_conversations:
+      create:
+        error: Zprávu nelze vytvořit. Zkuste to znovu později
+        existing_error: Zprávu nelze vytvořit. Konverzace již existuje, zkuste to prosím znovu.
+        success: Konverzace byla úspěšně spuštěna!
+      index:
+        add_max_users: 'Přidat uživatele do konverzace: nejvýše 9 uživatelů'
+        add_users_placeholder: Hledat...
+        close: Zavřít
+        conversations_info: Konverzace jsou soukromé. Nikdo je nemůže vidět. Konverzaci lze zahájit s kterýmkoli účastníkem nebo skupinou registrovanou na platformě.
+        from: Od
+        last_message: Poslední zpráva
+        modal_title: Nová konverzace
+        new_conversation: Nová konverzace
+        next: Další
+        no_conversations_warning: Zatím nejsou žádné konverzace.
+        no_results: Žádné výsledky
+        participant_with_disabled_message_reception: Tento uživatel zakázal příjem zpráv
+        time_ago: "před %{time}"
+      new:
+        title: Zahájit konverzaci
+      reply:
+        placeholder: Vaše odpověď...
+        send: Odeslat
+        title_reply: Odpovědět
+      show:
+        not_allowed: Tento uživatel již nepřijímá žádné přímé zprávy.
+        title: Konverzace s %{usernames}
+      update:
+        error: Zpráva nebyla odeslána. Zkuste to později
     user_interests:
       show:
         my_interests: Mé zájmy
@@ -1130,7 +1211,7 @@ cs:
         error: Během aktualizace vašich zájmů došlo k chybě.
         success: Vaše zájmy byly úspěšně aktualizovány.
     welcome_notification:
-      default_body: <p>Dobrý den, {{name}}, díky za připojení {{organization}} a vítejte!</p><ul><li>Chcete-li získat rychlou představu o tom, co zde můžete udělat, podívejte se na sekci <a href="{{help_url}}">Nápověda</a>.</li><li>Až si ji přečtete, dostanete svůj první odznak. Zde je <a href="{{badges_url}}">seznam všech odznaků</a> které můžete získat, když se účastníte {{organization}}</li><li>v neposlední řadě se připojte k ostatním lidem, sdílejte s nimi zkušenost z toho, že jste se zapojili a zúčastnili se {{organization}}. Vypracujte návrhy, připomínky, diskusi, přemýšlejte o tom, jak přispívat ke společnému cíli, poskytněte argumenty, abyste přesvědčili, poslouchali a četli, abyste byli přesvědčeni, vyjadřovali své myšlenky konkrétním a přímým způsobem, reagovali trpělivě a rozhodovali, měli otevřenou mysl ke spolupráci a připojili se k jiným lidem.</li></ul>
+      default_body: <p>Dobrý den, {{name}}, díky za připojení k {{organization}} a vítejte!</p><ul><li>Chcete-li získat rychlou představu o tom, co zde můžete udělat, podívejte se na sekci <a href="{{help_url}}">Nápověda</a>.</li><li>Až si ji přečtete, dostanete svůj první odznak. Zde je <a href="{{badges_url}}">seznam všech odznaků</a> které můžete získat, když se účastníte {{organization}}</li><li>v neposlední řadě se připojte k ostatním lidem, sdílejte s nimi zkušenost z toho, že jste se zapojili a zúčastnili se {{organization}}. Vypracujte návrhy, připomínky, diskusi, přemýšlejte o tom, jak přispívat ke společnému cíli, poskytněte argumenty, abyste přesvědčili, poslouchali a četli, abyste byli přesvědčeni, vyjadřovali své myšlenky konkrétním a přímým způsobem, reagovali trpělivě a rozhodovali, měli otevřenou mysl ke spolupráci a připojili se k jiným lidem.</li></ul>
       default_subject: Děkujeme, že jste se připojili k {{organization}}!
     wizard_step_form:
       wizard_aside:
@@ -1240,7 +1321,7 @@ cs:
     registrations:
       destroyed: Sbohem! Váš účet byl úspěšně zrušen. Doufáme, že vás brzy uvidíme.
       edit:
-        are_you_sure: Jsi si jistá?
+        are_you_sure: Jste si jisti?
         cancel_my_account: Zrušit můj účet
         currently_waiting_confirmation_for_email: 'Aktuálně čeká potvrzení o: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: ponechte prázdné, pokud nechcete změnit
