@@ -2,7 +2,7 @@
 
 module Decidim
   module Meetings
-    # This command is executed when a participant or user grouo creates a Meeting from the public
+    # This command is executed when a participant or user group creates a Meeting from the public
     # views.
     class CreateMeeting < Rectify::Command
       def initialize(form)
