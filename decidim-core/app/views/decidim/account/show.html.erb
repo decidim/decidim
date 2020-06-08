@@ -15,12 +15,14 @@
       <% if @account.errors[:password].any? || @account.errors[:password_confirmation].any? %>
         <%= render partial: "password_fields", locals: { form: f } %>
       <% else %>
-        <p>
-          <a data-toggle="passwordChange" class="change-password"><%= t ".change_password" %></a>
-        </p>
-        <div id="passwordChange" class="toggle-show" data-toggler=".is-expanded">
-          <%= render partial: "password_fields", locals: { form: f } %>
-        </div>
+        <% if current_organization.sign_in_enabled? %>
+          <p>
+            <a data-toggle="passwordChange" class="change-password"><%= t ".change_password" %></a>
+          </p>
+          <div id="passwordChange" class="toggle-show" data-toggler=".is-expanded">
+            <%= render partial: "password_fields", locals: { form: f } %>
+          </div>
+        <% end %>
       <% end %>
 
       <%= f.submit t(".update_account"), disable_with: true %>

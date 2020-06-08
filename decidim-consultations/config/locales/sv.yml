@@ -32,7 +32,6 @@ sv:
         scope: Kommundelsområde
         slug: URL-slug
         subtitle: Underrubrik
-        title: Titel
         vote: Externt omröstningssystem
         what_is_decided: Vad som bestäms
       response:
@@ -239,7 +238,7 @@ sv:
           recent: Senaste
       content_blocks:
         highlighted_consultations:
-          name: Annonserade samråd
+          name: Viktiga samråd just nu
       count:
         title:
           one: "%{count} samråd"
@@ -266,7 +265,7 @@ sv:
       pages:
         home:
           highlighted_consultations:
-            active_consultations: Aktiva samråd
+            active_consultations: Pågående samråd
             see_all_consultations: Se alla samråd
             voting_ends_in:
               one: Omröstningen avslutas <strong>imorgon</strong>

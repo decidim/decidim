@@ -54,7 +54,7 @@ cs:
       decidim/proposals/admin/update_proposal_category_event: Kategorie nabídky se změnila
       decidim/proposals/admin/update_proposal_scope_event: Rozsah návrhu se změnil
       decidim/proposals/creation_enabled_event: Vytváření návrhu je povoleno
-      decidim/proposals/endorsing_enabled_event: Povolení návrhu je povoleno
+      decidim/proposals/endorsing_enabled_event: Schválení návrhu je povoleno
       decidim/proposals/evaluating_proposal_event: Návrh je hodnocen
       decidim/proposals/proposal_mentioned_event: Návrh byl zmíněn
       decidim/proposals/publish_proposal_event: Návrh byl zveřejněn
@@ -95,9 +95,7 @@ cs:
         state_eq:
           label: Stát
           values:
-            accepted: Přijato
             evaluating: Hodnocení
-            rejected: Odmítnuto
             withdrawn: Staženo
         state_null:
           label: Stát
@@ -130,9 +128,9 @@ cs:
             new_proposal_body_template: Šablona těla nového návrhu
             new_proposal_body_template_help: Můžete definovat předem vyplněný text, který budou mít nové návrhy
             new_proposal_help_text: Nový text nápovědy návrhu
-            official_proposals_enabled: Byly povoleny oficiální návrhy
-            participatory_texts_disabled_help: Pokud existují stávající návrhy, nelze toto nastavení měnit. Pokud chcete tuto vlastnost povolit nebo vyhodit všechny importované návrhy v menu "participativní texty" prosím vytvořte novou složku "Návrhy", pokud ji chcete zakázat.
+            official_proposals_enabled: Oficiální návrhy povoleny
             participatory_texts_enabled: Povolené účastnické texty
+            participatory_texts_enabled_readonly: Pokud existují stávající návrhy, nelze toto nastavení měnit. Pokud chcete tuto vlastnost povolit nebo vyhodit všechny importované návrhy v menu "participativní texty" prosím vytvořte novou složku "Návrhy", pokud ji chcete zakázat.
             proposal_answering_enabled: Odpovídání návrhu je povoleno
             proposal_edit_before_minutes: Návrhy mohou být editovány autory před tím, než projde hodně minut
             proposal_length: Maximální délka návrhu
@@ -152,6 +150,9 @@ cs:
             amendment_reaction_enabled: Reakce na pozměnění byla povolena
             amendment_reaction_enabled_help: Autoři návrhů budou moci přijmout nebo zamítnout vylepšení účastníků.
             amendments_visibility: Viditelnost pozměňovacího návrhu
+            amendments_visibility_choices:
+              all: Pozměňovací návrhy jsou viditelné pro všechny
+              participants: Pozměňovací návrhy jsou viditelné pouze pro jejich autory
             amendments_visibility_help: Pokud je zvolena možnost "pozměňovací návrhy jsou viditelné pouze jejich autorům", musí být účastník přihlášen, aby se seznámil s provedenými pozměňovacími návrhy.
             announcement: Oznámení
             answers_with_costs: Povolit náklady na odpovědi návrhu
@@ -168,6 +169,12 @@ cs:
             votes_hidden: Hlasy skryté (pokud jsou povoleny hlasy, při kontrole se skryje počet hlasů)
     events:
       proposals:
+        admin:
+          proposal_note_created:
+            email_intro: Někdo zanechal poznámku k návrhu "%{resource_title}". Podívejte se na <a href="%{admin_proposal_info_url}">admin panel</a>
+            email_outro: Obdrželi jste toto oznámení, protože můžete návrh ohodnotit.
+            email_subject: Někdo zanechal poznámku na návrh %{resource_title}.
+            notification_title: Někdo zanechal poznámku k návrhu <a href="%{resource_path}">%{resource_title}</a>. Podívejte se na <a href="%{admin_proposal_info_path}">admin panel</a>
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} byl přijat k přístupu jako přispěvatel k <a href="%{resource_path}">%{resource_title}</a> návrh spolupráce.'
           email_outro: Toto oznámení jste dostali, protože jste spolupracovníkem uživatele <a href="%{resource_path}">%{resource_title}</a>.
@@ -366,7 +373,7 @@ cs:
             title: PŘEHLED ÚČASTNÍHO TEXTU
           new_import:
             accepted_mime_types:
-              md: Snížení
+              md: Markdown
               odt: Odt
             bottom_hint: "(Budete mít možnost zobrazit a třídit sekce dokumentů)"
             document_legend: 'Přidejte dokument nižší než 2 MB, každá sekce až do hloubky 3 úrovní bude analyzována do návrhů. Podporované formáty jsou: %{valid_mime_types}'
@@ -776,6 +783,9 @@ cs:
         proposal:
           creation_date: 'Tvorba: %{date}'
           view_proposal: Zobrazit návrh
+        proposals:
+          empty: Zatím neexistuje žádný návrh
+          empty_filters: Neexistuje žádný návrh s tímto kritériem
         show:
           answer: Odpovědět
           back_to: Zpět k

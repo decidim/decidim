@@ -625,14 +625,11 @@ en:
             one: and %{count} more person
             other: and %{count} more people
           info-message: This is a <strong>collaborative draft</strong> for a proposal. This means that you can help their authors to shape the proposal using the comment section below or improve it directly by requesting access to edit it. Once the authors grant you access, you'll be able to make changes to this draft.
-          of_versions: "(of %{number})"
           publish: Publish
           publish_info: Publish this version of the draft or
           published_proposal: published proposal
           request_access: Request access
           requested_access: Access requested
-          see_other_versions: see other versions
-          version: Version %{number}
           version_history: see version history for this proposal
           withdraw: withdraw the draft
         states:
@@ -857,20 +854,12 @@ en:
         error: There was a problem saving the collaborative draft.
         success: Proposal draft successfully updated.
       versions:
-        changes_at_title: Changes at "%{title}"
+        collaborative_drafts:
+          back_to_resource: Go back to collaborative draft
         index:
           title: Versions
-        stats:
-          back_to_collaborative_draft: Go back to collaborative draft
-          back_to_proposal: Go back to proposal
-          number_of_versions: Versions
-          show_all_versions: Show all versions
-          version_author: Version author
-          version_created_at: Version created at
-          version_number: Version number
-          version_number_out_of_total: "%{current_version} out of %{total_count}"
-        version:
-          version_index: Version %{index}
+        proposals:
+          back_to_resource: Go back to proposal
       withdraw:
         errors:
           has_supports: This proposal can not be withdrawn because it already has supports.
