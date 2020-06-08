@@ -40,5 +40,10 @@
 </div>
 
 <div class="field">
-  <%= form.select :user_group_id, Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.map{|g| [g.name, g.id]}, prompt: current_user.name %>
+  <%= form.select(
+    :user_group_id,
+    Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.map{|g| [g.name, g.id]},
+    prompt: current_user.name,
+    label: t(".create_as")
+  ) %>
 </div>

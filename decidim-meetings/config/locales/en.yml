@@ -381,6 +381,7 @@ en:
           unfold: Unfold
         form:
           address_help: 'Address: used by Geocoder to find the location'
+          create_as: Create meeting as
           location_help: 'Location: message directed to the users implying the spot to meet at'
           location_hints_help: 'Location hints: additional info. Example: the floor of the building'
           select_a_category: Please select a category
