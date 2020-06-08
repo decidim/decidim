@@ -48,6 +48,7 @@ en:
         confirm_destroy: Are you sure?
         destroy: Destroy
         edit: Edit
+        import: Import proposals to answers
         new: New %{name}
         preview: Preview
         title: Actions
@@ -95,6 +96,14 @@ en:
             name: Election
           question:
             name: Question
+        proposals_imports:
+          create:
+            invalid: There was a problem importing the proposals into answers
+            success: "%{number} proposals successfully imported into answers"
+          new:
+            create: Import proposals to answers
+            no_components: There are no other proposal components in this participatory space to import the proposals into answers.
+            select_component: Please select a component
         questions:
           create:
             invalid: There was a problem creating this question
