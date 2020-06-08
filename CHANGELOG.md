@@ -107,6 +107,7 @@ The use case that originated this change is the persistence of the user's gender
 - **decidim-elections**: Add questions and answers to elections [\#6129](https://github.com/decidim/decidim/pull/6129)
 - **decidim-forms**: Request confirmation when leaving the form half-answered [\#6118](https://github.com/decidim/decidim/pull/6118)
 - **decidim-initiatives**: Add areas to initiatives. [\#6111](https://github.com/decidim/decidim/pull/6111)
+- **decidim-elections**: Add import proposals to answers [\6163](https://github.com/decidim/decidim/pull/6163)
 
 ### Changed
 
@@ -122,6 +123,7 @@ The use case that originated this change is the persistence of the user's gender
 - **decidim-assemblies**: Change user permission to list assemblies. Users can only list the assemblies that they have been assigned permission [\#5944](https://github.com/decidim/decidim/pull/5944)
 - **decidim-accountability**: Using the new proposals selector for choosing result proposals [\#5863](https://github.com/decidim/decidim/pull/5863)
 - **decidim-meetings**: Using the new proposals selector for choosing meeting close proposals [\#5863](https://github.com/decidim/decidim/pull/5863)
+- **decidim-code**: Change resource_scope so it can get used when resource table doesn't have component_id column [\6163](https://github.com/decidim/decidim/pull/6163)
 
 ### Fixed
 
