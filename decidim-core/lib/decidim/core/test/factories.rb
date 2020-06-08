@@ -456,14 +456,6 @@ FactoryBot.define do
       published_at { Time.current }
     end
 
-    trait :authored_by_group do
-      author { create(:user_group, verified_at: Time.current, users: [create(:user, :confirmed)]) }
-    end
-
-    trait :authored_by_organization do
-      author { component.organization }
-    end
-
     trait :with_endorsements do
       after :create do |resource|
         5.times.collect do

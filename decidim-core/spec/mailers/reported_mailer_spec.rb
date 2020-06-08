@@ -7,9 +7,9 @@ module Decidim
     let(:organization) { create(:organization, name: "Test Organization") }
     let(:user) { create(:user, :admin, organization: organization) }
     let(:component) { create(:component, organization: organization) }
-    let(:reportable) { create(:dummy_resource, title: Decidim::Faker::Localized.sentence, body: Decidim::Faker::Localized.paragraph(3)) }
+    let(:reportable) { create(:proposal, title: Decidim::Faker::Localized.sentence, body: Decidim::Faker::Localized.paragraph(3)) }
     let(:moderation) { create(:moderation, reportable: reportable, participatory_space: component.participatory_space, report_count: 1) }
-    let(:author) { reportable.author }
+    let(:author) { reportable.creator_identity }
     let!(:report) { create(:report, moderation: moderation, details: "bacon eggs spam") }
     let(:decidim) { Decidim::Core::Engine.routes.url_helpers }
 
@@ -68,7 +68,7 @@ module Decidim
         end
 
         context "when the author is a user group" do
-          let(:reportable) { create(:dummy_resource, :authored_by_group) }
+          let(:reportable) { create(:proposal, user_groups: create(:user_group)) }
 
           it "includes the name of the group and a link to their profile" do
             expect(mail).to have_link(author.name, href: decidim.profile_url(author.nickname, host: organization.host))
@@ -76,7 +76,7 @@ module Decidim
         end
 
         context "when the author is an organization" do
-          let(:reportable) { create(:dummy_resource, :authored_by_organization) }
+          let(:reportable) { create(:proposal, :official) }
 
           it "includes the name of the organization" do
             expect(email_body(mail)).to match(author.name)
