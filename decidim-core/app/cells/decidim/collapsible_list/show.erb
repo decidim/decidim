@@ -7,12 +7,12 @@
         <%= card_for element, cell_options %>
       <% end %>
     <% end %>
-    <span class="collapsible-list__see-more">
+    <span class="card__text--paragraph">
       <%= t(hidden_elements_count_i18n_key, count: hidden_elements_count) %>
     </span>
     <span class="text-small">
-      <a class="collapsible-list__see-more" data-toggle="collapsible-list-<%= seed %>"><%= t("decidim.collapsible_list.see_more") %></a>
-      <a class="collapsible-list__see-less" data-toggle="collapsible-list-<%= seed %>"><%= t("decidim.collapsible_list.see_less") %></a>
+      <span class="collapsible-list__see-more" data-toggle="collapsible-list-<%= seed %>"><%= t("decidim.collapsible_list.see_more") %></span>
+      <span class="collapsible-list__see-less" data-toggle="collapsible-list-<%= seed %>"><%= t("decidim.collapsible_list.see_less") %></span>
     </span>
   </div>
 <% else %>

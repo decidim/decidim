@@ -82,6 +82,7 @@ module Decidim
   autoload :PermissionsRegistry, "decidim/permissions_registry"
   autoload :Randomable, "decidim/randomable"
   autoload :Endorsable, "decidim/endorsable"
+  autoload :ActionAuthorization, "decidim/action_authorization"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -132,9 +133,14 @@ module Decidim
   # the mails.
   config_accessor :mailer_sender
 
+  # Whether SSL should be enabled or not.
+  config_accessor :force_ssl do
+    true
+  end
+
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
-    %w(en ar ca de el es es-MX es-PY eu fi-pl fi fr gl hu id it nl no pl pt pt-BR ru sv tr uk)
+    %w(en ar ca de el es es-MX es-PY eu fi-pl fi fr gl hu id it nl no pl pt pt-BR ru sk sv tr uk)
   end
 
   # Exposes a configuration option: The application default locale.
@@ -193,6 +199,11 @@ module Decidim
     end
   end
 
+  # Exposes a configuration option: the whitelist ips
+  config_accessor :system_accesslist_ips do
+    []
+  end
+
   # Exposes a configuration option: the currency unit
   config_accessor :currency_unit do
     "€"
@@ -248,6 +259,11 @@ module Decidim
     2.days
   end
 
+  # How long can a user remained logged in before the session expires
+  config_accessor :expire_session_after do
+    1.day
+  end
+
   # Exposes a configuration option: an object to configure Etherpad
   config_accessor :etherpad do
     # {
@@ -290,6 +306,13 @@ module Decidim
   # The Decidim::Exporters::CSV's default column separator
   config_accessor :default_csv_col_sep do
     ";"
+  end
+
+  # Exposes a configuration option: HTTP_X_FORWADED_HOST header follow-up.
+  # If a caching system is in place, it can also allow cache and log poisoning attacks,
+  # allowing attackers to control the contents of caches and logs that could be used for other attacks.
+  config_accessor :follow_http_x_forwarded_host do
+    false
   end
 
   # The list of roles a user can have, not considering the space-specific roles.

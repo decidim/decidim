@@ -6,7 +6,7 @@ module Decidim
   describe ContentBlock do
     subject { content_block }
 
-    let(:content_block) { create(:content_block, manifest_name: :hero, scope: :homepage) }
+    let(:content_block) { create(:content_block, manifest_name: :hero, scope_name: :homepage) }
 
     describe ".manifest" do
       it "finds the correct manifest" do

@@ -32,10 +32,12 @@ es:
             statement: Declaración
           edit:
             save: Guardar
-            title: Título
           form:
             add_question: Añadir pregunta
             already_answered_warning: Algunas participantes ya han respondido el formulario, por lo que no puedes modificar las preguntas.
+          matrix_row:
+            remove: Eliminar
+            statement: Declaración
           question:
             add_answer_option: Añadir una opción de respuesta
             any: Alguna
@@ -67,7 +69,6 @@ es:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Inicia sesión con tu cuenta</a> o <a href="%{sign_up_link}">regístrate</a> para responder al formulario.
             title: Responde el formulario
-          are_you_sure: Esta acción no se puede deshacer y no podrás editar tus respuestas. ¿Estás segura?
           questionnaire_answered:
             body: Ya has respondido a este formulario.
             title: Ya has respondido
@@ -77,8 +78,11 @@ es:
           questionnaire_for_private_users:
             body: El formulario está disponible solo para participantes privadas
             title: Formulario cerrado
-          submit: Enviar respuestas
           tos_agreement: Al participar aceptas los Términos y condiciones de uso
+      step_navigation:
+        show:
+          are_you_sure: Esta acción no se puede deshacer y no podrás editar tus respuestas. ¿Estás segura?
+          submit: Enviar respuestas
       user_answers_serializer:
         created_at: Respondido el
         id: Identificador de respuesta

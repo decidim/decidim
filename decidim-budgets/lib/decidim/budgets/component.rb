@@ -8,6 +8,7 @@ Decidim.register_component(:budgets) do |component|
   component.icon = "decidim/budgets/icon.svg"
   component.stylesheet = "decidim/budgets/budgets"
   component.permissions_class_name = "Decidim::Budgets::Permissions"
+  component.component_form_class_name = "Decidim::Budgets::Admin::ComponentForm"
 
   component.data_portable_entities = ["Decidim::Budgets::Order"]
 
@@ -53,7 +54,10 @@ Decidim.register_component(:budgets) do |component|
   component.settings(:global) do |settings|
     settings.attribute :projects_per_page, type: :integer, default: 12
     settings.attribute :total_budget, type: :integer, default: 100_000_000
+    settings.attribute :vote_rule_threshold_percent_enabled, type: :boolean, default: true
     settings.attribute :vote_threshold_percent, type: :integer, default: 70
+    settings.attribute :vote_rule_minimum_budget_projects_enabled, type: :boolean, default: false
+    settings.attribute :vote_minimum_budget_projects_number, type: :integer, default: 1
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :announcement, type: :text, translated: true, editor: true

@@ -110,9 +110,9 @@ export class AddCommentForm extends React.Component<
 
     if (showTitle) {
       return (
-        <h5 className="section-heading">
+        <h4 className="section-heading">
           {I18n.t("components.add_comment_form.title")}
-        </h5>
+        </h4>
       );
     }
 

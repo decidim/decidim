@@ -107,7 +107,7 @@
   }
 }
 
-.scope-picker{
+.picker-list{
   ul{
     margin-left: 0;
 
@@ -115,7 +115,9 @@
       list-style: none;
     }
   }
+}
 
+.scope-picker{
   &.picker-header{
     padding: 5px;
 

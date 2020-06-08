@@ -71,6 +71,7 @@ is-IS:
             other: "%{count} verkefni"
         filters:
           category: Flokkur
+          scope: Umfang
           search: Leita
         filters_small_view:
           close_modal: Loka mát

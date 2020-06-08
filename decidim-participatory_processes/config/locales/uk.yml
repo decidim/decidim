@@ -20,6 +20,7 @@ uk:
         participatory_structure: Як це вирішується
         promoted: Висвітлено
         published_at: 'Оприлюднено:'
+        related_process_ids: Супутні рухи
         scope_id: Обсяг
         scopes_enabled: Обсяги увімкнено
         short_description: Стислий опис
@@ -275,6 +276,7 @@ uk:
         participatory_processes:
           form:
             announcement_help: Текст, який ви введете тут, буде показано учаснику трохи нижче опису руху.
+            related_processes: Супутні рухи
             slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на цей рух. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
             title: Загальні відомості
       content_blocks:
@@ -332,6 +334,7 @@ uk:
         participatory_scope: Що вирішується
         participatory_structure: Як це вирішується
         private_space: Це приватний рух
+        related_processes: Супутні рухи
         scope: Обсяг
         start_date: Дата початку
         target: Хто бере участь

@@ -111,7 +111,7 @@ describe "Participatory Processes", type: :system do
 
     it "lists the active processes" do
       within "#processes-grid" do
-        within "#processes-grid h2" do
+        within "#processes-grid h3" do
           expect(page).to have_content("3 ACTIVE PROCESSES")
         end
 
@@ -232,7 +232,7 @@ describe "Participatory Processes", type: :system do
         end
 
         it "shows the metrics charts" do
-          expect(page).to have_css("h4.section-heading", text: "METRICS")
+          expect(page).to have_css("h3.section-heading", text: "METRICS")
 
           within "#metrics" do
             Decidim.metrics_registry.filtered(highlight: true, scope: "participatory_process").each do |metric_registry|
@@ -295,6 +295,29 @@ describe "Participatory Processes", type: :system do
         it "the hashtags for those components are not visible" do
           expect(page).to have_no_content("#")
         end
+      end
+    end
+
+    context "when assemblies are linked to participatory process" do
+      let!(:published_assembly) { create(:assembly, :published, organization: organization) }
+      let!(:unpublished_assembly) { create(:assembly, :unpublished, organization: organization) }
+      let!(:private_assembly) { create(:assembly, :published, :private, :opaque, organization: organization) }
+      let!(:transparent_assembly) { create(:assembly, :published, :private, :transparent, organization: organization) }
+
+      before do
+        published_assembly.link_participatory_space_resources(participatory_process, "included_participatory_processes")
+        unpublished_assembly.link_participatory_space_resources(participatory_process, "included_participatory_processes")
+        private_assembly.link_participatory_space_resources(participatory_process, "included_participatory_processes")
+        transparent_assembly.link_participatory_space_resources(participatory_process, "included_participatory_processes")
+        visit decidim_participatory_processes.participatory_process_path(participatory_process)
+      end
+
+      it "display related assemblies" do
+        expect(page).to have_content("RELATED ASSEMBLIES")
+        expect(page).to have_content(translated(published_assembly.title))
+        expect(page).to have_content(translated(transparent_assembly.title))
+        expect(page).to have_no_content(translated(unpublished_assembly.title))
+        expect(page).to have_no_content(translated(private_assembly.title))
       end
     end
   end

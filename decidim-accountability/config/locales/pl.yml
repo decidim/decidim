@@ -60,17 +60,11 @@ pl:
           edit:
             title: Edytuj wynik
             update: Zaktualizuj wynik
-          form:
-            add_proposal: Dodaj propozycję
           index:
             title: wyniki
           new:
             create: Utwórz wynik
             title: Nowy wynik
-          proposals:
-            close: Blisko
-            current_selection: Obecny wybór
-            select: Wybierz
           update:
             invalid: Podczas aktualizowania tego wyniku wystąpił problem
             success: Wynik został zaktualizowany
@@ -174,7 +168,7 @@ pl:
             version_created_at: Wersja utworzona w
             version_number: Numer wersji
             version_number_out_of_total: "%{current_version} z %{total_count}"
-            votes: Wsparcie
+            votes: Pomoc
         timeline:
           title: Ewolucja projektu
       versions:

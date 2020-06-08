@@ -32,18 +32,33 @@ cs:
             statement: Prohlášení
           edit:
             save: Uložit
-            title: Titul
+            title: Upravit dotazník
           form:
             add_question: Přidat otázku
+            add_separator: Přidat oddělovač
             already_answered_warning: Dotazník již odpověděli někteří uživatelé, takže nemusíte upravovat své dotazy.
+            collapse: Sbalit všechny úlohy
+            expand: Rozbalit všechny otázky
+          matrix_row:
+            matrix_row: Řádek
+            remove: Odstranit
+            statement: Prohlášení
           question:
             add_answer_option: Přidat možnost odpovědi
+            add_matrix_row: Přidat řádek
             any: Žádný
+            collapse: Sbalit
             description: Popis
             down: Dolů
+            expand: Rozbalit
             question: Otázka
             remove: Odstranit
             statement: Prohlášení
+            up: Nahoru
+          separator:
+            down: Dolů
+            remove: Odebrat
+            separator: Oddělovač
             up: Nahoru
           update:
             invalid: Při ukládání dotazníku došlo k chybám.
@@ -51,8 +66,18 @@ cs:
       errors:
         answer:
           body: Tělo nemůže být prázdné
+      files:
+        extension_whitelist: 'Akceptované formáty:'
+      images:
+        dimensions: "%{width} x %{height} px"
+        dimensions_info: 'Tento obrázek bude:'
+        processors:
+          resize_and_pad: Zmenšeno a odsazeno k
+          resize_to_fit: Upravena velikost na vyplnění
       question_types:
         long_answer: Dlouhá odpověď
+        matrix_multiple: Matice (Více možností)
+        matrix_single: Matice (Jedna možnost)
         multiple_option: Více možností
         short_answer: Stručná odpověď
         single_option: Jedna možnost
@@ -60,6 +85,7 @@ cs:
       questionnaires:
         answer:
           invalid: Při odpovědi na dotazník došlo k chybám.
+          max_choices_alert: Je vybráno příliš mnoho možností
           success: Dotazník úspěšně odpověděl.
         question:
           max_choices: 'Max možnosti: %{n}'
@@ -67,7 +93,8 @@ cs:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Přihlaste se svým účtem</a> nebo <a href="%{sign_up_link}">zaregistrujte</a> abyste odpověděli na dotazník.
             title: Odpovězte na dotazník
-          are_you_sure: Tato akce nemůže být odvolána a vaše odpovědi nebudete moci upravovat. Jsi si jistá?
+          current_step: Krok %{step}
+          of_total_steps: z %{total_steps}
           questionnaire_answered:
             body: Již jste odpověděli na tento dotazník.
             title: Již jste odpověděli
@@ -77,8 +104,13 @@ cs:
           questionnaire_for_private_users:
             body: Dotazník je k dispozici pouze pro soukromé uživatele
             title: Dotazník byl uzavřen
-          submit: Odeslat
           tos_agreement: Účastí přijímáte jeho smluvní podmínky
+      step_navigation:
+        show:
+          are_you_sure: Tuto akci nelze vrátit zpět a nebudete moci upravit své odpovědi. Jste si jisti?
+          back: Zpět
+          continue: Pokračovat
+          submit: Odeslat
       user_answers_serializer:
         created_at: Zodpovězeno
         id: ID odpovědi

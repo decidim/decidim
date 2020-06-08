@@ -15,7 +15,7 @@ class MoveProposalEndorsementsToCoreEndorsements < ActiveRecord::Migration[5.2]
     ).group(:decidim_user_group_id).where.not(decidim_user_group_id: nil).map(&:id)
 
     ProposalEndorsement.where("id IN (?) OR decidim_user_group_id IS NULL", non_duplicated_group_endorsements).find_each do |prop_endorsement|
-      ::Decidim::Endorsement.create!(
+      Endorsement.create!(
         resource_type: Decidim::Proposals::Proposal.name,
         resource_id: prop_endorsement.decidim_proposal_id,
         decidim_author_type: prop_endorsement.decidim_author_type,

@@ -5,14 +5,15 @@ At the request of some instances, we have analyzed the issues related to metrics
 ## Problems
 
 We have identified two main problems:
+
 - Metrics generation crashing, which cause `MetricJob`s to run again and again.
 - Peaks in generated metrics, sudden changes from day to day when displaying metrics.
 
-**Metrics generation crashing**
+### Metrics generation crashing
 
 We have identified only one culprit here: "orphans" records, meaning records whose related component or participatory space cannot be found in the database. This is because in a previous decidim release `PartipatorySpaces` could be deleted but they were not deleted properly. So any application that has deleted a participatory space in the past, will probably have unrelated records that will make some metrics calculation crash.
 
-**Peaks in generated metrics**
+### Peaks in generated metrics
 
 If somehow the metrics jobs fail to execute for a period of time, big differences can appear in metrics. So first make sure that you have metrics for every day, if not [generate them](https://github.com/decidim/decidim/blob/master/docs/advanced/metrics.md).
 
@@ -24,10 +25,12 @@ Finally, if you see that the differences in some days are multiples of a previou
 
 We cannot offer a definitive solution for duplicate metrics, other than to delete old duplicate metrics and generate them again. If this problem persists, however, consider using Delayed Job.
 For a given metric type (`rake decidim:metrics:list`) that has duplicates:
+
 - Option 1: Remove individually each metric record per day.
 - Option 2: Delete all metric records and recalculate them. [CHANGELOG](https://github.com/decidim/decidim/blob/0.18-stable/CHANGELOG.md#participants-metrics) of decidim version 0.18 has an example for "participants".
 
 For orphan records, you can do the following:
+
 - Back up the database.
 - Delete orphan records fromt the console (code is below).
 - Delete "comments" metrics and recalculate them following the [aforementioned example](https://github.com/decidim/decidim/blob/0.18-stable/CHANGELOG.md#participants-metrics).
@@ -62,12 +65,14 @@ For orphan records, you can do the following:
 ```
 
 ### Delete orphan records
+
 "proposals", "meetings", "accountability", "debates", "pages", "budgets", "surveys"
 
 #### Proposals
+
 Delete proposals whose component does not have a participatory space and delete components of a proposal type that do not have a participatory space
 
-```
+```ruby
 Decidim::Component.where(manifest_name: "proposals").find_each(batch_size: 100) { |c|
   if c.participatory_space.blank?
     Decidim::Proposals::Proposal.where(component: c).destroy_all
@@ -77,7 +82,8 @@ Decidim::Component.where(manifest_name: "proposals").find_each(batch_size: 100) 
 ```
 
 Delete proposals that do not have a component
-```
+
+```ruby
 Decidim::Proposals::Proposal.find_each(batch_size: 100) { |proposal|
   proposal.delete if proposal.component.blank?
 }
@@ -87,7 +93,7 @@ Decidim::Proposals::Proposal.find_each(batch_size: 100) { |proposal|
 
 Delete meetings whose component has no participatory space and delete components of meeting type that do not have a participatory space
 
-```
+```ruby
 Decidim::Component.where(manifest_name: "meetings").find_each(batch_size: 100) { |c|
   if c.participatory_space.blank?
     Decidim::Meetings::Meeting.where(component: c).destroy_all
@@ -97,16 +103,18 @@ Decidim::Component.where(manifest_name: "meetings").find_each(batch_size: 100) {
 ```
 
 Delete meetings that do not have a component
-```
+
+```ruby
 Decidim::Meetings::Meeting.find_each(batch_size: 100) { |meeting|
   meeting.delete if meeting.component.blank?
 }
 ````
 
 #### Debates
+
 Delete debates that its component has no participatory space and the debate components that do not have a participatory space
 
-```
+```ruby
 Decidim::Component.where(manifest_name: "debates").find_each(batch_size: 100) { |c|
   if c.participatory_space.blank?
     Decidim::Debates::Debate.where(component: c).destroy_all
@@ -116,7 +124,8 @@ Decidim::Component.where(manifest_name: "debates").find_each(batch_size: 100) { 
 ```
 
 Destroy debates that do not have a component
-```
+
+```ruby
 Decidim::Debates::Debate.find_each(batch_size: 100) { |debate|
   debate.delete if debate.component.blank?
 }
@@ -125,7 +134,8 @@ Decidim::Debates::Debate.find_each(batch_size: 100) { |debate|
 #### Posts
 
 Destroy posts whose component has no participatory space and blog components that do not have a participatory space
-```
+
+```ruby
 Decidim::Component.where(manifest_name: "blogs").find_each(batch_size: 100) { |c|
   if c.participatory_space.blank?
     Decidim::Blogs::Post.where(component: c).destroy_all
@@ -135,7 +145,8 @@ Decidim::Component.where(manifest_name: "blogs").find_each(batch_size: 100) { |c
 ```
 
 Destroy posts that do not have a component
-```
+
+```ruby
 Decidim::Blogs::Post.find_each(batch_size: 100) { |post|
   post.delete if post.component.blank?
 }
@@ -145,7 +156,7 @@ Decidim::Blogs::Post.find_each(batch_size: 100) { |post|
 
 Destroy results whose component has no participatory space and components of accountability type that do not have a participatory space
 
-```
+```ruby
 Decidim::Component.where(manifest_name: "accountability").find_each(batch_size: 100) { |c|
   if c.participatory_space.blank?
     Decidim::Accountability::Result.where(component: c).destroy_all
@@ -156,7 +167,7 @@ Decidim::Component.where(manifest_name: "accountability").find_each(batch_size: 
 
 Destroy results that do not have a component
 
-```
+```ruby
 Decidim::Accountability::Result.find_each(batch_size: 100) { |result|
   result.delete if result.component.blank?
 }
@@ -165,7 +176,8 @@ Decidim::Accountability::Result.find_each(batch_size: 100) { |result|
 #### Pages
 
 Destroy page components that do not have a participatory space
-```
+
+```ruby
 Decidim::Component.where(manifest_name: "pages").find_each(batch_size: 100) { |c|
   if c.participatory_space.blank?
     c.destroy
@@ -177,7 +189,7 @@ Decidim::Component.where(manifest_name: "pages").find_each(batch_size: 100) { |c
 
 Destroy projects whose component has no participatory space and budget components that do not have a participatory space
 
-```
+```ruby
 Decidim::Component.where(manifest_name: "budgets").find_each(batch_size: 100) { |c|
   if c.participatory_space.blank?
     Decidim::Budgets::Project.where(component: c).destroy_all
@@ -187,7 +199,8 @@ Decidim::Component.where(manifest_name: "budgets").find_each(batch_size: 100) { 
 ```
 
 Destroy results that do not have a component
-```
+
+```ruby
 Decidim::Budgets::Project.find_each(batch_size: 100) { |project|
   project.delete if project.component.blank?
 }
@@ -195,7 +208,7 @@ Decidim::Budgets::Project.find_each(batch_size: 100) { |project|
 
 #### Surveys
 
-```
+```ruby
 Decidim::Component.where(manifest_name: "surveys").find_each(batch_size: 100) { |c|
   if c.participatory_space.blank?
     Decidim::Surveys::Survey.where(component: c).destroy_all
@@ -205,18 +218,18 @@ Decidim::Component.where(manifest_name: "surveys").find_each(batch_size: 100) { 
 ```
 
 Destroy surveys that do not have a component
-```
+
+```ruby
 Decidim::Surveys::Survey.find_each(batch_size: 100) { |survey|
   survey.delete if survey.component.blank?
 }
 ```
 
-
 #### Comments
 
 Destroy comments whose commentable root is a proposal that does not have a participatory space.
 
-```
+```ruby
 proposal_ids = Decidim::Comments::Comment.where(decidim_root_commentable_type: "Decidim::Proposals::Proposal").pluck(:decidim_root_commentable_id)
 
 proposal_ids_without_space = Decidim::Proposals::Proposal.where(id: proposal_ids).find_all{|p| p.participatory_space.blank? }.pluck(:id)

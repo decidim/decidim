@@ -20,10 +20,17 @@
       <div class="definition-data">
         <% if result.versions.any? %>
           <div class="definition-data__item versions_count">
-            <span class="definition-data__title"><%= t("results.show.stats.version_number", scope: "decidim.accountability") %></span>
-            <%= result.versions.count %>
-            <div class="pr-s pl-s">
-              <%= link_to t("results.show.stats.show_all_versions", scope: "decidim.accountability"), result_versions_path(result), class: "button button--sc hollow secondary small expanded" %>
+            <div>
+              <%= resource_version_number(result.versions_count, "text-large text-uppercase") %>
+              <small class="text-medium">
+                <%= resource_version_of(result.versions_count) %>
+              </small>
+            </div>
+
+            <div>
+              <span class="text-medium">
+                <%= link_to_other_resource_versions(result_versions_path(result)) %>
+              </span>
             </div>
           </div>
           <% if result.last_editor.present? %>
