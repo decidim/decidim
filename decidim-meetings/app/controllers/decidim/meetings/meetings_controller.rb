@@ -5,6 +5,7 @@ module Decidim
     # Exposes the meeting resource so users can view them
     class MeetingsController < Decidim::Meetings::ApplicationController
       include FilterResource
+      include Flaggable
       include FormFactory
       include Paginable
       helper Decidim::WidgetUrlsHelper

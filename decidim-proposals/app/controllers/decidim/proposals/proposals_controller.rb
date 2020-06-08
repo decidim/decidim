@@ -8,6 +8,7 @@ module Decidim
       helper ProposalWizardHelper
       helper ParticipatoryTextsHelper
       include Decidim::ApplicationHelper
+      include Flaggable
       include FormFactory
       include FilterResource
       include Decidim::Proposals::Orderable
