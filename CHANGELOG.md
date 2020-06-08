@@ -30,6 +30,7 @@ The use case that originated this change is the persistence of the user's gender
 ### Added
 
 - **decidim-initiative**: Skip initiative type selection if there is only one initiative type. [\#5835](https://github.com/decidim/decidim/pull/5835)
+- **decidim-docs**: Add doc in how to release following Gitflow. [\#5766](https://github.com/decidim/decidim/pull/5766)
 - **decidim-docs**: Add documentation related with the permissions system. [\#6160](https://github.com/decidim/decidim/pull/6160)
 - **decidim-participatory_processes**: Add related assemblies to participatory processes [\#5868](https://github.com/decidim/decidim/pull/5868)
 - **decidim-comments**: Fix comment link on Last Activity. [\#5999](https://github.com/decidim/decidim/pull/5999)
