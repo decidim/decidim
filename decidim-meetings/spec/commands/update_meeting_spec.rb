@@ -93,7 +93,7 @@ module Decidim::Meetings
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:update!)
-          .with(meeting, current_user, kind_of(Hash))
+          .with(meeting, current_user, kind_of(Hash), visibility: "public-only")
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)

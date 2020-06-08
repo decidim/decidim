@@ -53,7 +53,7 @@ module Decidim
           Meeting,
           form.current_user,
           params,
-          visibility: "all"
+          visibility: "public-only"
         )
       end
 

@@ -42,19 +42,22 @@ module Decidim
         Decidim.traceability.update!(
           meeting,
           form.current_user,
-          scope: form.scope,
-          category: form.category,
-          title: parsed_title,
-          description: parsed_description,
-          end_time: form.end_time,
-          start_time: form.start_time,
-          address: form.address,
-          latitude: form.latitude,
-          longitude: form.longitude,
-          location: form.location,
-          location_hints: form.location_hints,
-          author: form.current_user,
-          decidim_user_group_id: form.user_group_id
+          {
+            scope: form.scope,
+            category: form.category,
+            title: parsed_title,
+            description: parsed_description,
+            end_time: form.end_time,
+            start_time: form.start_time,
+            address: form.address,
+            latitude: form.latitude,
+            longitude: form.longitude,
+            location: form.location,
+            location_hints: form.location_hints,
+            author: form.current_user,
+            decidim_user_group_id: form.user_group_id
+          },
+          visibility: "public-only"
         )
       end
 
