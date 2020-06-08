@@ -1,40 +1,32 @@
-<%= render partial: "decidim/templates/admin/shared/secondary_nav" %>
+<% content_for :title do %>
+  <%= t("questionnaires", scope: "decidim.admin.titles.template_types") %>
 
-<% scope = "questionnaire" %>
-<div class="card with-overflow" id="templates">
-  <div class="card-divider">
-    <h2 class="card-title">
-      <%= t("templates", scope: "decidim.admin.titles") %>
+  <%# if allowed_to? :create, :template %>
+    <%= link_to t("actions.new_template", scope: "decidim.admin"),
+                ["new", "questionnaire", "template"],
+                class: "button tiny button--title" %>
+  <%# end %>
+<% end %>
 
-      <%# if allowed_to? :create, :template %>
-        <%= link_to t("actions.new_template", scope: "decidim.admin"),
-                    ["new", scope, "template"],
-                    class: "button tiny button--title" %>
-      <%# end %>
-  </div>
-  <div class="card-section">
-    <div class="table-scroll">
-      <table class="table-list">
-        <thead>
-          <tr>
-            <th>
-              <%= t("models.template.fields.type") %>
-            </th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @templates.each do |template| %>
-            <tr>
-              <td>
-                <%= template.model_type %>
-                <%= template.model_id %>
-                <%= translated_attribute template.name %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
+<% content_for :table_head do %>
+  <tr>
+    <th>
+      <%= t("models.template.fields.name") %>
+    </th>
+    <th>
+      <%= t("models.questionnaires.fields.title") %>
+    </th>
+    <th></th>
+  </tr>
+<% end %>
+
+<% @templates.each do |template| %>
+  <tr>
+    <td>
+      <%= translated_attribute template.name %>
+    </td>
+    <td>
+      <%= translated_attribute template.model.title %>
+    </td>
+  </tr>
+<% end %>

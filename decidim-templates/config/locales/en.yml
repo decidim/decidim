@@ -8,6 +8,8 @@ en:
         templates: Templates
       titles:
         templates: Templates
+        template_types:
+          questionnaires: Questionnaire templates
     templates:
       template_types:
         questionnaires: Questionnaires
@@ -16,3 +18,7 @@ en:
       fields:
         type: Template type
         created_at: Created at
+        name: Name
+    questionnaires:
+      fields:
+        title: Title

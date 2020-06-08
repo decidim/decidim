@@ -2,15 +2,6 @@
   <%= t("templates", scope: "decidim.admin.titles") %>
 <% end %>
 
-<% content_for :table_head do %>
-  <tr>
-    <th>
-      <%= t("models.template.fields.type") %>
-    </th>
-    <th></th>
-  </tr>
-<% end %>
-
 <% @templates.each do |template| %>
   <tr>
     <td>
