@@ -13,7 +13,7 @@ module Decidim
       validates :questionnaire, presence: true
 
       def clean_after_publish?
-        clean_after_publish
+        component.current_settings.clean_after_publish?
       end
     end
   end

@@ -68,18 +68,18 @@ describe "Admin manages surveys", type: :system do
       context "when publishing the survey" do
         let(:clean_after_publish) { true }
 
-        before do
-          component.update!(
-            step_settings: {
-              component.participatory_space.active_step.id => {
-                clean_after_publish: clean_after_publish
-              }
-            }
-          )
-          component.publish!
-        end
-
         context "when clean_after_publish is set to true" do
+          before do
+            component.update!(
+              step_settings: {
+                component.participatory_space.active_step.id => {
+                  clean_after_publish: clean_after_publish
+                }
+              }
+            )
+            component.publish!
+          end
+
           it "deletes previous answers afer publishing" do
             expect(questionnaire.answers).to be_empty
           end

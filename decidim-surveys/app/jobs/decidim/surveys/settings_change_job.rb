@@ -16,11 +16,6 @@ module Decidim
           event_class = Decidim::Surveys::ClosedSurveyEvent
         end
 
-        if clean_after_publish_changed?(previous_settings, current_settings)
-          survey = Decidim::Surveys::Survey.find_by(component: component)
-          survey.update(clean_after_publish: current_settings[:clean_after_publish])
-        end
-
         return unless event && event_class
 
         Decidim::EventsManager.publish(
