@@ -12,6 +12,7 @@ module Decidim
             delegate :templatable, to: :template
 
             def index
+              enforce_permission_to :index, :templates
               @templates = collection
             end
 

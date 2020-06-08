@@ -14,7 +14,7 @@ module Decidim
         helper_method :template_types
 
         register_permissions(::Decidim::Templates::Admin::ApplicationController,
-                             ::Decidim::Templates::Permissions,
+                             ::Decidim::Templates::Admin::Permissions,
                              ::Decidim::Admin::Permissions)
 
         def permission_class_chain
