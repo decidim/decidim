@@ -7,7 +7,7 @@ module Decidim
       #
       class TemplatesController < Decidim::Templates::Admin::ApplicationController
         def index
-          @templates = Decidim::Templates::Template.all.order(:model_type)
+          @templates = Decidim::Templates::Template.all.order(:templatable_type)
         end
       end
     end

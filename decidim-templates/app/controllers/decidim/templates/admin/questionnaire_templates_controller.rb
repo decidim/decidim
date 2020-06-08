@@ -6,8 +6,10 @@ module Decidim
       # Controller that allows managing templates.
       #
       class QuestionnaireTemplatesController < Decidim::Templates::Admin::ApplicationController
-        def index
-          @templates = current_organization.templates.where(model_type: "Decidim::Forms::Questionnaire")
+        include Decidim::Templates::Admin::Concerns::HasTemplates
+
+        def templatable_type
+          "Decidim::Forms::Questionnaire"
         end
       end
     end
