@@ -14,6 +14,7 @@ module Decidim
         translatable_attribute :description, String
         attribute :type_id, Integer
         attribute :decidim_scope_id, Integer
+        attribute :area_id, Integer
         attribute :signature_type, String
         attribute :signature_start_date, Decidim::Attributes::LocalizedDate
         attribute :signature_end_date, Decidim::Attributes::LocalizedDate
@@ -23,6 +24,7 @@ module Decidim
         attribute :attachment, AttachmentForm
 
         validates :title, :description, presence: true
+        validates :area, presence: true, if: ->(form) { form.area_id.present? }
         validates :signature_type, presence: true, if: :signature_type_updatable?
         validates :signature_start_date, presence: true, if: ->(form) { form.context.initiative.published? }
         validates :signature_end_date, presence: true, if: ->(form) { form.context.initiative.published? }
@@ -40,6 +42,7 @@ module Decidim
                   }, allow_blank: true
 
         validate :notify_missing_attachment_if_errored
+        validate :area_is_not_removed
 
         def map_model(model)
           self.type_id = model.type.id
@@ -57,10 +60,18 @@ module Decidim
           false
         end
 
+        def area_updatable?
+          @area_updatable ||= current_user.admin? || context.initiative.created?
+        end
+
         def scoped_type_id
           return unless type && decidim_scope_id
 
           type.scopes.find_by!(decidim_scopes_id: decidim_scope_id).id
+        end
+
+        def area
+          @area ||= current_organization.areas.find_by(id: area_id)
         end
 
         private
@@ -75,6 +86,12 @@ module Decidim
         # this problem.
         def notify_missing_attachment_if_errored
           errors.add(:attachment, :needs_to_be_reattached) if errors.any? && attachment.present?
+        end
+
+        def area_is_not_removed
+          return if context.initiative.decidim_area_id.blank? || context.initiative.created?
+
+          errors.add(:area_id, :blank) if area_id.blank?
         end
       end
     end

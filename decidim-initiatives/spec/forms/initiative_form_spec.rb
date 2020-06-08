@@ -21,9 +21,10 @@ module Decidim
           scope_id: scope&.scope&.id,
           signature_type: "offline",
           attachment: attachment_params
-        }.merge(custom_signature_end_date)
+        }.merge(custom_signature_end_date).merge(area)
       end
       let(:custom_signature_end_date) { {} }
+      let(:area) { {} }
       let(:context) do
         {
           current_organization: organization,
@@ -60,6 +61,28 @@ module Decidim
 
         context "when custom date is not in the future" do
           let(:custom_signature_end_date) { { signature_end_date: Date.current } }
+
+          it { is_expected.to be_invalid }
+        end
+      end
+
+      context "when initiative type enables area" do
+        let(:initiatives_type) { create(:initiatives_type, :area_enabled, organization: organization) }
+
+        context "when area is missing" do
+          it { is_expected.to be_valid }
+        end
+
+        context "when area is present and belongs to organization" do
+          let(:area) { { area_id: decidim_area.id } }
+          let(:decidim_area) { create(:area, organization: organization) }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when area is present but doesn't belong to organization" do
+          let(:area) { { area_id: decidim_area.id } }
+          let(:decidim_area) { create(:area) }
 
           it { is_expected.to be_invalid }
         end

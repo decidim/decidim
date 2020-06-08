@@ -70,7 +70,7 @@ describe "Explore versions", versioning: true, type: :system do
 
     it "allows going back to the initiative" do
       click_link "Go back to initiative"
-      expect(page).to have_current_path initiative_path
+      expect(page).to have_current_path initiative_path, ignore_query: true
     end
 
     it "shows the creation date" do
@@ -97,7 +97,7 @@ describe "Explore versions", versioning: true, type: :system do
 
     it "allows going back to the initiative" do
       click_link "Go back to initiative"
-      expect(page).to have_current_path initiative_path
+      expect(page).to have_current_path initiative_path, ignore_query: true
     end
 
     it "allows going back to the versions list" do
