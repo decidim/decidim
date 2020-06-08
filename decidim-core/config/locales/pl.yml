@@ -997,8 +997,6 @@ pl:
         close_window: Zamknij okno
         share: Share
         share_link: Udostępnij link
-      version_author:
-        deleted: Usunięty użytkownik
     user_activity:
       index:
         no_activities_warning: Ten użytkownik nie ma jeszcze żadnej aktywności.
@@ -1011,6 +1009,9 @@ pl:
       update:
         error: Wystąpił błąd podczas aktualizowania Twoich zainteresowań.
         success: Twoje zainteresowania zostały pomyślnie zaktualizowane.
+    version_author:
+      show:
+        deleted: Usunięty użytkownik
     welcome_notification:
       default_body: <p>Witaj {{name}}, dziękuję za dołączenie {{organization}} i witamy!</p><ul><li>Jeśli chcesz szybko zorientować się, co możesz tutaj zrobić, zapoznaj się z sekcją <a href="{{help_url}}">pomocy</a> .</li><li>Po przeczytaniu otrzymasz swoją pierwszą odznakę. Oto <a href="{{badges_url}}">list wszystkich odznak</a> które możesz zdobyć uczestnicząc w {{organization}}</li><li>Wreszcie dołącz do innych ludzi, podziel się z nimi doświadczeniem zaangażowania i uczestnictwa w {{organization}}. Przedstawcie propozycje, komentarze, debatę, pomyślcie, jak przyczynić się do wspólnego dobra, dostarczcie argumentów, aby przekonać, wysłuchać i przeczytać, aby byli przekonani, wyrażać swoje pomysły w konkretny i bezpośredni sposób, reagować z cierpliwością i decyzją, bronić swoich pomysłów i zachować otwarty umysł do współpracy i dołączania do pomysłów innych ludzi.</li></ul>
       default_subject: Dzięki za przyłączenie się do {{organization}}!

@@ -550,14 +550,11 @@ fr:
             one: et %{count} personne de plus
             other: et %{count} autres personnes
           info-message: Ceci est un <strong>projet collaboratif</strong> pour une proposition. Cela signifie que vous pouvez aider leurs auteurs à façonner la proposition en utilisant la section commentaire ci-dessous ou l'améliorer directement en demandant l'accès pour la modifier. Une fois que les auteurs vous accordent l'accès, vous pourrez apporter des modifications à ce brouillon.
-          of_versions: "(de %{number})"
           publish: Publier
           publish_info: Publiez cette version du brouillon ou
           published_proposal: proposition publiée
           request_access: Demande d'accès
           requested_access: Accès demandé
-          see_other_versions: voir d'autres versions
-          version: Version %{number}
           version_history: voir l'historique des versions de cette proposition
           withdraw: retirer le projet
         states:
@@ -763,20 +760,12 @@ fr:
         error: Des erreurs sont survenues lors de l'enregistrement du brouillon de la proposition.
         success: Le brouillon de proposition a été mis à jour.
       versions:
-        changes_at_title: Changements à "%{title}"
+        collaborative_drafts:
+          back_to_resource: Revenir au brouillon collaboratif
         index:
           title: Versions
-        stats:
-          back_to_collaborative_draft: Revenir au brouillon collaboratif
-          back_to_proposal: Retourner à la proposition
-          number_of_versions: Versions
-          show_all_versions: Afficher toutes les versions
-          version_author: Auteur de la version
-          version_created_at: Version créée à
-          version_number: Numéro de version
-          version_number_out_of_total: "%{current_version} sur %{total_count}"
-        version:
-          version_index: Version %{index}
+        proposals:
+          back_to_resource: Retourner à la proposition
       withdraw:
         errors:
           has_supports: Cette proposition ne peut pas être retirée car elle dispose déjà de supports.

@@ -431,6 +431,8 @@ cs:
         home:
           highlighted_processes:
             processes_button_title: Odkaz na stránku Procesů zobrazující všechny procesy
+      show:
+        related_assemblies: Související shromáždění
   errors:
     messages:
       cannot_be_blank: nemůže být prázdný

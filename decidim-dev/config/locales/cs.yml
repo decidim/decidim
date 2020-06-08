@@ -3,6 +3,7 @@ cs:
     attributes:
       dummy_resource:
         created_at: Vytvořeno v
+        decidim_scope_id: Oblast působnosti
         field: Moje pole
         start_date: Počáteční datum
         title: Titul
