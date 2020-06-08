@@ -13,6 +13,14 @@ module Decidim
 
         helper_method :template_types
 
+        register_permissions(::Decidim::Templates::Admin::ApplicationController,
+                             ::Decidim::Templates::Permissions,
+                             ::Decidim::Admin::Permissions)
+
+        def permission_class_chain
+          ::Decidim.permissions_registry.chain_for(::Decidim::Templates::Admin::ApplicationController)
+        end
+
         def template_types
           @template_types ||= {
             I18n.t("template_types.questionnaires", scope: "decidim.templates") => decidim_admin_templates.questionnaire_templates_path
