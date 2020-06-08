@@ -70,10 +70,8 @@ describe "Admin manages surveys", type: :system do
 
         before do
           component.update!(
-            step_settings: {
-              component.participatory_space.active_step.id => {
-                clean_after_publish: clean_after_publish
-              }
+            settings: {
+              clean_after_publish: clean_after_publish
             }
           )
         end
@@ -81,9 +79,11 @@ describe "Admin manages surveys", type: :system do
         context "when clean_after_publish is set to true" do
           it "deletes previous answers afer publishing" do
             expect(survey.clean_after_publish?).to be true
+
             perform_enqueued_jobs do
-              component.publish!
+              Decidim::Admin::PublishComponent.call(component, user)
             end
+
             expect(questionnaire.answers).to be_empty
           end
         end
@@ -93,9 +93,11 @@ describe "Admin manages surveys", type: :system do
 
           it "does not delete previous answers afer publishing" do
             expect(survey.clean_after_publish?).to be false
+
             perform_enqueued_jobs do
-              component.publish!
+              Decidim::Admin::PublishComponent.call(component, user)
             end
+
             expect(questionnaire.answers).not_to be_empty
           end
         end
