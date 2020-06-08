@@ -8,6 +8,7 @@ gem "decidim", path: "."
 gem "decidim-conferences", path: "."
 gem "decidim-consultations", path: "."
 gem "decidim-initiatives", path: "."
+gem "decidim-templates", path: "."
 
 gem "bootsnap", "~> 1.4"
 
