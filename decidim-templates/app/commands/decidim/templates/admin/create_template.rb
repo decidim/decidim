@@ -35,7 +35,8 @@ module Decidim
           @template ||= Decidim.traceability.create(
             Template,
             form.current_user,
-            organization: form.current_organization
+            organization: form.current_organization,
+            name: form.name
           )
         end
       end

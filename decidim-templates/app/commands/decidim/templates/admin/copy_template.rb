@@ -35,7 +35,8 @@ module Decidim
 
         def copy_template
           @copied_template = Template.create!(
-            attr: @template.attr
+            organization: @template.organization,
+            name: @template.name
           )
         end
       end

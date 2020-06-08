@@ -11,7 +11,7 @@ module Decidim
         def initialize(template, form)
           @template = template
           @form = form
-          @parent = dTemplate.find_by(id: @template.parent)
+          @parent = Template.find_by(id: @template.parent)
         end
 
         # Executes the command. Broadcasts these events:
@@ -52,7 +52,7 @@ module Decidim
 
         def attributes
           {
-            attr: form.attr
+            name: form.name
           }
         end
       end
