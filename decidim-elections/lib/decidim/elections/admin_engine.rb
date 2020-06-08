@@ -14,6 +14,9 @@ module Decidim
           resources :questions do
             resources :answers do
               get :proposals_picker, on: :collection
+              collection do
+                resource :proposals_import, only: [:new, :create]
+              end
             end
           end
         end
