@@ -110,7 +110,6 @@ en:
             title: Form closed
           questionnaire_not_published:
             body: This form is not published yet.
-          submit: Submit
           tos_agreement: By participating you accept its Terms of Service
       step_navigation:
         show:
