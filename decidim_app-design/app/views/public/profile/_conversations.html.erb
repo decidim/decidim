@@ -1,17 +1,33 @@
-<% 12.times do %>
+<div class="text-right">
+<a href="#" class="button small">
+  New conversation
+</a>
+</div>
+<% 12.times do |i| %>
   <div class="card card--widget">
     <ul class="card-data">
       <li class="card-data__item">
         <div class="card__link text-center">
           <%= link_to page_path("user-profile"), class: "user-header__avatar" do %>
-            <%= image_tag "demo-avatar.jpg" %>
+            <% if i == 0 %>
+              <%= image_tag "avatar-multiuser.png" %>
+            <% elsif i == 1 %>
+              <%= image_tag "demo-avatar-group.jpg" %>
+            <% else %>
+              <%= image_tag "demo-avatar.jpg" %>
+            <% end %>
           <% end %>
-          <span class="text-medium mt-xs"><%= Faker::Date.forward(365).strftime("%a %e") %></span>
         </div>
       </li>
       <li class="card-data__item card-data__item--expand absolutes">
         <div class="mr-s">
-          De: <strong><%= Faker::Name.name %><span class="muted">&nbsp;@<%= Faker::Twitter.screen_name %></span></strong>
+          <% if i == 0 %>
+            Con: <strong>Jana S.</strong>, <strong>Joan M.</strong> and 3 others
+          <% elsif i == 1 %>
+            Con: <strong>Participació Horta Guinardó<span class="muted">&nbsp;@Participacio_HortaG</span></strong>
+          <% else %>
+            Con: <strong><%= Faker::Name.name %><span class="muted">&nbsp;@<%= Faker::Twitter.screen_name %></span></strong>
+          <% end %>
           <br>
           <span class="muted"><%= Faker::FamilyGuy.quote %></span>
           <br>

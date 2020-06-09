@@ -2,13 +2,27 @@ it:
   activemodel:
     attributes:
       dummy_resource:
-        created_at: Creato a
+        created_at: Creato il
         field: Il mio campo
         start_date: Data d'inizio
         title: Titolo
         translatable_text: Testo traducibile
         updated_at: Aggiornato a
   decidim:
+    components:
+      dummy:
+        settings:
+          global:
+            readonly_attribute: Attributi di sola lettura
+            test: Un test
+            test_choices:
+              a: Scelta A
+              b: Scelta B
+              c: Scelta C
+          step:
+            endorsements_blocked: Appoggi bloccati
+            endorsements_enabled: Appoggi abilitati
+            readonly_step_attribute: Attributo di sola lettura
     dummy:
       admin:
         exports:

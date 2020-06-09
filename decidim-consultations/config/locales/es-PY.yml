@@ -32,7 +32,6 @@ es-PY:
         scope: Área municipal
         slug: Texto corto de URL
         subtitle: Subtitular
-        title: Título
         vote: Sistema de votación externa
         what_is_decided: Qué se decide
       response:

@@ -14,8 +14,6 @@ module Decidim
 
       i18n_attributes :space_title, :space_path
 
-      delegate :author, to: :resource
-
       def resource_text
         translated_attribute(resource.description)
       end

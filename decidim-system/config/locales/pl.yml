@@ -4,7 +4,7 @@ pl:
       actions:
         confirm_destroy: Czy na pewno chcesz to usunąć?
         destroy: Kasować
-        edit: Edytować
+        edit: Edytuj
         new: Nowy
         save: Zapisać
         title: działania

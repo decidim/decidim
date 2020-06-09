@@ -82,6 +82,8 @@ gl:
         new:
           authorize: Enviar
           authorize_with: Verifica con %{authorizer}
+        renew_modal:
+          cancel: Cancelar
         skip_verification: Podes ignorar isto por agora e %{link}
         start_exploring: comezar a explorar
       csv_census:

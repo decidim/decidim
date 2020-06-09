@@ -28,6 +28,7 @@ fr:
       initiatives_type:
         banner_image: Image d'en-tête
         collect_user_extra_fields: Collecter les données personnelles de l'utilisateur lors de la signature
+        custom_signature_end_date_enabled: Permettre aux auteurs de choisir la fin de la période de collecte des signatures
         description: Description
         document_number_authorization_handler: Niveau d'autorisation nécessaire pour signer les initiatives de ce type d'initiative
         extra_fields_legal_information: Informations juridiques sur la collecte de données personnelles
@@ -61,6 +62,13 @@ fr:
     admin:
       actions:
         new_initiative_type: Nouveau type d'initiative
+      filters:
+        state_eq:
+          values:
+            created: Créée
+            discarded: Retirée
+            published: Publiée
+            validating: Validation technique
       menu:
         initiatives: Initiatives
         initiatives_types: Types d'initiatives
@@ -121,8 +129,8 @@ fr:
       badges:
         initiatives:
           conditions:
-           - Accéder à l'espace Initiatives
-           - Suivez les étapes pour créer une nouvelle initiative
+            - Accéder à l'espace Initiatives
+            - Suivez les étapes pour créer une nouvelle initiative
           description: Ce badge vous est attribué lorsque vous lancez de nouvelles initiatives, en partenariat avec d’autres pour les mener à bien.
           description_another: Ce participant a publié %{score} initiatives.
           description_own: Vous avez publié %{score} initiatives.
@@ -229,12 +237,14 @@ fr:
           unpublish: "%{user_name} a dépublié l'initiative %{resource_name}"
           update: "%{user_name} a mis à jour l'initiative %{resource_name}"
       admin_states:
-        accepted: Acceptée
         created: Créée
         discarded: Retirée
         published: Publiée
-        rejected: Rejetée
         validating: Validation technique
+      application_helper:
+        filter_state_values:
+          closed: Fermées
+          open: Ouvrir
       committee_requests:
         new:
           continue: Continuer
@@ -342,13 +352,10 @@ fr:
         filters:
           any: Tout
           author: Auteur
-          closed: Fermées
           myself: Mes initiatives
-          open: Ouvrir
           search: Rechercher
           state: État
           type: Type
-          type_prompt: Sélectionnez un type d'initiative
         filters_small_view:
           close_modal: Fermer la fenêtre
           filter: Filtre
@@ -410,8 +417,6 @@ fr:
         promotal_committee_help: Rappelez-vous que vous devez inviter au moins %{member_count} personnes au Comité de promotion. Envoyez le lien suivant pour les inviter
         status_change_body_for: 'Le statut de l''initiative %{title} a été changé pour : %{state}'
         status_change_for: L'initiative %{title} a changé de statut
-        technical_validation_body_for: Une validation technique a été demandée pour l'initiative %{title}.
-        technical_validation_for: Une validation technique a été demandée pour l'initiative %{title}.
       last_activity:
         new_initiative: Nouvelle initiative
       pages:

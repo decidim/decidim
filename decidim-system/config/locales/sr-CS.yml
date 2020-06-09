@@ -1,0 +1,26 @@
+sr:
+  decidim:
+    system:
+      models:
+        organization:
+          fields:
+            omniauth_settings: Omniauth podešavanja
+      organizations:
+        omniauth_settings:
+          decidim:
+            client_id: Identitet klijenta
+            client_secret: Tajni ključ klijenta
+            site_url: URL stranice
+          enabled: Omogućeno
+          enabled_by_default: Ovaj davalac usluga je automatski omogućen. Možete ga izmeniti, ali ne i isključiti.
+          facebook:
+            app_id: Identitet aplikacije
+            app_secret: Tajni ključ aplikacije
+          google_oauth2:
+            client_id: Identitet klijenta
+            client_secret: Tajni ključ klijenta
+          icon: Ikona
+          icon_path: Put ikone
+          twitter:
+            api_key: API ključ
+            api_secret: API tajni ključ

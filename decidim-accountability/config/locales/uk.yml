@@ -59,17 +59,11 @@ uk:
           edit:
             title: Редагувати підсумки
             update: Оновити підсумки
-          form:
-            add_proposal: Додати пропозицію
           index:
             title: Підсумки
           new:
             create: Створити підсумки
             title: Додати підсумки
-          proposals:
-            close: Закрити
-            current_selection: Поточний вибір
-            select: Оберіть
           update:
             invalid: При спробі оновити ці підсумки сталася помилка
             success: Підсумки успішно оновлено

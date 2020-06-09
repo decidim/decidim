@@ -505,8 +505,8 @@ $datetime-bg: var(--primary);
 
 /* Card list */
 .card--list {
-  .card--list__item:not(:last-of-type),
-  *:not(:last-of-type) .card--list__item {
+  .card--list__item:not(:last-child),
+  *:not(:last-child) .card--list__item {
     border-bottom: $border;
   }
 }
@@ -708,6 +708,21 @@ $datetime-bg: var(--primary);
       line-height: $counter-size;
       text-align: center;
     }
+  }
+}
+
+.card--list__author{
+  @extend .card--list__titled-text;
+
+  padding: .5rem 1rem .5rem 0;
+  margin-left: -.5rem;
+
+  .author{
+    margin: 0;
+  }
+
+  .author__avatar img{
+    border-radius: 2px;
   }
 }
 

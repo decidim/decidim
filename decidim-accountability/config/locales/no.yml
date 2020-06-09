@@ -58,17 +58,11 @@
           edit:
             title: Endre resultatet
             update: Oppdater resultatet
-          form:
-            add_proposal: Legg til et forslag
           index:
             title: Resultater
           new:
             create: Opprett resultat
             title: Nytt resultat
-          proposals:
-            close: Lukk
-            current_selection: Gjeldende utvalg
-            select: Velg
           update:
             invalid: Det oppsto et problem med å oppdatere dette resultatet
             success: Resultat ble oppdatert

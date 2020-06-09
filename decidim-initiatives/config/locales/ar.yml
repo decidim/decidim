@@ -74,17 +74,12 @@ ar:
       actions:
         new_initiative_type: نوع المبادرة الجديدة
       filters:
-        search_placeholder:
-          title_or_description_cont: البحث عن %{collection} بحسب العنوان أو الوصف.
         state_eq:
-          label: الحالة
           values:
-            accepted: تم قبوله
             created: تمّ إنشاؤه
-            discarded: تم تجاهله
-            published: تم نشره
-            rejected: تم رفضه
-            validating: تأكيد تقني
+            discarded: التخلص منها
+            published: نشرت
+            validating: المصادقة الفنية
       menu:
         initiatives: المبادرات
         initiatives_types: أنواع المبادرة
@@ -253,12 +248,14 @@ ar:
           unpublish: "تجاهل %{user_name} المبادرة %{resource_name}"
           update: "%{user_name} تحديث المبادرة %{resource_name}"
       admin_states:
-        accepted: وافقت
         created: تمّ إنشاؤه
         discarded: التخلص منها
         published: نشرت
-        rejected: مرفوض
         validating: المصادقة الفنية
+      application_helper:
+        filter_state_values:
+          closed: مغلق
+          open: افتح
       committee_requests:
         new:
           continue: استمر
@@ -374,13 +371,10 @@ ar:
         filters:
           any: أي
           author: مؤلف
-          closed: مغلق
           myself: مبادراتي
-          open: افتح
           search: بحث
           state: الحالة
           type: نوع
-          type_prompt: اختر نوع
         filters_small_view:
           close_modal: أغلق النافذة
           filter: منقي
@@ -454,8 +448,6 @@ ar:
         promotal_committee_help: تذكر أنه يجب دعوة %{member_count} شخصًا على الأقل إلى لجنة المروجين. أرسل الرابط التالي لدعوة الناس إلى لجنة المروجين
         status_change_body_for: 'لقد غيرت المبادرة %{title} حالتها إلى: %{state}'
         status_change_for: لقد غيرت المبادرة %{title} حالتها
-        technical_validation_body_for: طلبت المبادرة %{title} التحقق من الصحة
-        technical_validation_for: طلبت المبادرة %{title} التحقق من الصحة
       last_activity:
         new_initiative: مبادرة جديدة
       pages:

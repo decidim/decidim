@@ -85,13 +85,14 @@ es:
         search_placeholder:
           id_string_or_title_cont: Buscar %{collection} por ID o título.
         state_eq:
+          label: Estado
           values:
             evaluating: En evaluación
-            withdrawn: Retirado
+            withdrawn: Retirada
         state_null:
           label: Estado
           values:
-            'true': No contestado
+            'true': No contestada
         valuator_role_ids_has:
           label: Asignada a evaluadora
     components:
@@ -120,8 +121,8 @@ es:
             new_proposal_body_template_help: Puede definir el texto predefinido que tendrán las nuevas propuestas
             new_proposal_help_text: Texto de ayuda al crear una propuesta
             official_proposals_enabled: Propuestas oficiales habilitadas
-            participatory_texts_disabled_help: No se puede interactuar con esta configuración si hay propuestas existentes. Por favor, crea un nuevo componente de propuesta si quieres activar esta característica o descartar todas las propuestas importadas en el menú "Textos Participativos" si quieres desactivarla.
             participatory_texts_enabled: Textos participativos habilitados
+            participatory_texts_enabled_readonly: No se puede interactuar con esta configuración si hay propuestas existentes. Por favor, crea un nuevo componente de propuesta si quieres activar esta característica o descartar todas las propuestas importadas en el menú "Textos Participativos" si quieres desactivarla.
             proposal_answering_enabled: Respuesta a propuestas habilitada
             proposal_edit_before_minutes: Las propuestas pueden ser editadas por las autoras antes de que pasen estos minutos
             proposal_length: Longitud máxima del cuerpo de la propuesta
@@ -220,7 +221,7 @@ es:
             email_subject: Una propuesta que estás siguiendo está siendo evaluada
             notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> está siendo evaluada.
         proposal_mentioned:
-          email_intro: Tu propuesta "%{mentioned_proposal_title}" se ha mencionado <a href="%{resource_url}">en este espacio</a> en los comentarios.
+          email_intro: Tu propuesta "%{mentioned_proposal_title}" se ha mencionado <a href="%{resource_url}"> en este espacio</a> en los comentarios.
           email_outro: Has recibido esta notificación porque eres autora de "%{resource_title}".
           email_subject: Tu propuesta "%{mentioned_proposal_title}" ha sido mencionada
           notification_title: Tu propuesta "%{mentioned_proposal_title}" se ha mencionado <a href="%{resource_path}">en este espacio</a> en los comentarios.
@@ -397,10 +398,8 @@ es:
             title: Actualizar propuesta
             update: Actualizar
           form:
-            add_images: Añadir imágenes
             attachment_legend: "(Opcional) Añadir un archivo adjunto"
             created_in_meeting: Esta propuesta procede de un encuentro
-            gallery_legend: "(Opcional) Añadir una galería de imágenes"
             select_a_category: Selecciona una categoría
             select_a_meeting: Selecciona un encuentro
           index:
@@ -517,12 +516,12 @@ es:
           official: Oficial
           user_groups: Grupos
         filter_scope_values:
-          all: Todos
+          all: Todas
         filter_state_values:
           accepted: Aceptada
           all: Todas
           evaluating: En evaluación
-          not_answered: Sin respuesta
+          not_answered: No contestada
           rejected: Rechazada
         filter_type_values:
           all: Todas
@@ -761,8 +760,9 @@ es:
           creation_date: 'Fecha de creación: %{date}'
           view_proposal: Ver propuesta
         show:
-          answer: Responder
+          answer: Respuesta
           back_to: Volver a
+          back_to_list: Volver al listado
           changes_at_title: Enmienda a "%{title}"
           comments: Comentarios
           edit_proposal: Editar propuesta

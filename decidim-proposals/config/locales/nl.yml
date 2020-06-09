@@ -71,6 +71,22 @@ nl:
         one: Stem
         other: stemmen
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Type
+          values:
+            'false': Voorstellen
+            'true': wijzigingen
+        state_eq:
+          label: Staat
+          values:
+            evaluating: Aan het beoordelen
+            withdrawn: Ingetrokken
+        state_null:
+          label: Status
+          values:
+            'true': Nog niet beantwoord
     components:
       proposals:
         actions:
@@ -94,8 +110,8 @@ nl:
             minimum_votes_per_user: Minimale stemmen per gebruiker
             new_proposal_help_text: Hulptekst bij de creatie van een nieuw voorstel
             official_proposals_enabled: Officiële voorstellen zijn ingeschakeld
-            participatory_texts_disabled_help: Instelling niet aanpasbaar als er bestaande voorstellen zijn. Maak een nieuwe `Voorstellen component` aan als u deze functie wilt inschakelen of wijs alle geïmporteerde voorstellen in het `Participatieve Teksten` menu af, als u de instelling wilt uitschakelen.
             participatory_texts_enabled: Participatieve teksten ingeschakeld
+            participatory_texts_enabled_readonly: Instelling niet aanpasbaar als er bestaande voorstellen zijn. Maak een nieuwe `Voorstellen component` aan als u deze functie wilt inschakelen of wijs alle geïmporteerde voorstellen in het `Participatieve Teksten` menu af, als u de instelling wilt uitschakelen.
             proposal_answering_enabled: Reacties op voorstellen ingeschakeld
             proposal_edit_before_minutes: Voorstellen kunnen door auteurs worden bewerkt voordat de tijd (uitgedrukt in minuten) verstreken is
             proposal_length: Maximum aantal tekens voor een voorstel
@@ -339,6 +355,10 @@ nl:
             success: Participatieve tekst succesvol bijgewerkt.
         proposal_answers:
           form:
+            accepted: Aanvaard
+            answer_proposal: Antwoord
+            evaluating: Aan het beoordelen
+            rejected: Geweigerd
             title: Antwoord voor voorstel %{title}
         proposal_notes:
           create:
@@ -360,10 +380,8 @@ nl:
             title: Voorstel bijwerken
             update: Bijwerken
           form:
-            add_images: Afbeeldingen toevoegen
             attachment_legend: "(Optioneel) Een bijlage toevoegen"
             created_in_meeting: Dit voorstel komt uit een vergadering
-            gallery_legend: "(Optioneel) Voeg een beeldgalerij toe"
             select_a_category: Kies een categorie
             select_a_meeting: Selecteer een vergadering
           index:
@@ -372,7 +390,7 @@ nl:
             change_category: Categorie wijzigen
             merge: Samenvoegen met een nieuwe
             merge_button: Samensmelten
-            publish: Publiceer
+            publish: Publiceren
             select_component: Selecteer een component
             selected: Geselecteerd
             split: Voorstellen splitsen
@@ -385,7 +403,10 @@ nl:
           publish_answers:
             select_a_proposal: Selecteer een voorstel
           show:
+            authors: auteurs
+            body: Tekstgedeelte
             created_at: Aangemaakt op
+            proposals: Voorstellen
             votes_count: Aantal stemmen
           update_category:
             select_a_category: Gelieve een categorie te selecteren
@@ -423,16 +444,21 @@ nl:
         rejected: Geweigerd
         withdrawn: Ingetrokken
       application_helper:
+        filter_category_values:
+          all: Alle
         filter_origin_values:
           all: Alle
           citizens: Burgers
           meetings: vergaderingen
           official: Officieel
           user_groups: Groepen
+        filter_scope_values:
+          all: Alle
         filter_state_values:
           accepted: Aanvaard
           all: Alle
           evaluating: Evalueren
+          not_answered: Nog niet beantwoord
           rejected: Afgewezen
         filter_type_values:
           all: Alle
@@ -484,6 +510,7 @@ nl:
           open: Open
           published: Gepubliceerd
           related_to: Gerelateerd aan
+          scope: Scope
           search: Zoeken
           state: Status
           withdrawn: teruggetrokken
@@ -620,8 +647,10 @@ nl:
           my_proposals: Mijn voorstellen
           origin: Oorsprong
           related_to: Gerelateerd aan
+          scope: Scope
           search: Zoeken
           state: Status
+          type: Type
           voted: Gestemd
         filters_small_view:
           close_modal: Dialoogvenster sluiten

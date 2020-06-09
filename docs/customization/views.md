@@ -5,18 +5,19 @@ As usual you should make some tests with the changes that you made and configure
 ## Overrides
 
 To find what you need to change you'll need to make some detective work to find out which partial or view do you need to change. You can do so by:
-* looking at your application log and finding the lines that start with "Rendered"
-* inspecting with the web development tools of your browser, copying a special class and using `grep`, github search or your IDE search by multiple files to find out on which file this exists.
 
-### Filename method  
+- looking at your application log and finding the lines that start with "Rendered"
+- inspecting with the web development tools of your browser, copying a special class and using `grep`, github search or your IDE search by multiple files to find out on which file this exists.
 
-If you want to override a view or partial given by Decidim you can do this just by naming it with the same filename that you already have. On more details, if you want to change the social media icons on the footer, you can do so by looking at which file you need to change, copying that file to your application with the same filename and directory structure, and making your local changes. 
+### Filename method
 
-As an example, if I want to change the footer, you'd need to search for the file (on this case, it's on [`decidim-core/app/views/layouts/decidim/_mini_footer.html.erb`](https://github.com/decidim/decidim/blob/e181d7e67bdf915a3a8e58416c683f52346de047/decidim-core/app/views/layouts/decidim/_mini_footer.html.erb)), and copy that file to your own application on `app/views/layouts/decidim/_mini_footer.html.erb`). 
+If you want to override a view or partial given by Decidim you can do this just by naming it with the same filename that you already have. On more details, if you want to change the social media icons on the footer, you can do so by looking at which file you need to change, copying that file to your application with the same filename and directory structure, and making your local changes.
 
-## Deface method 
+As an example, if I want to change the footer, you'd need to search for the file (on this case, it's on [`decidim-core/app/views/layouts/decidim/_mini_footer.html.erb`](https://github.com/decidim/decidim/blob/e181d7e67bdf915a3a8e58416c683f52346de047/decidim-core/app/views/layouts/decidim/_mini_footer.html.erb)), and copy that file to your own application on `app/views/layouts/decidim/_mini_footer.html.erb`).
 
-You'll need the [`deface` gem](https://github.com/spree/deface) installed on your application, and follow their instructions on how to use the different overridign methods that they support. 
+## Deface method
+
+You'll need the [`deface` gem](https://github.com/spree/deface) installed on your application, and follow their instructions on how to use the different overridign methods that they support.
 
 As an example, if you want to change the footer, you can do so by creating the file `app/overrides/layouts/decidim/_main_footer/pre_footer.html.erb.deface` with these contents:
 
@@ -27,7 +28,7 @@ hello world
 
 ## New pages
 
-If you want to add a new HTML page, you can do this by working as a regular Rails application (ie, you can scaffold a new view and work with the HTML as usual). 
+If you want to add a new HTML page, you can do this by working as a regular Rails application (ie, you can scaffold a new view and work with the HTML as usual).
 
 As an example of how to do this on Decidim Barcelona application, there's the [StaticController](
 https://github.com/AjuntamentdeBarcelona/decidim-barcelona/blob/d47d4a9ae6be26a0c5c4000907dda3c195579636/app/controllers/static_controller.rb) (main accountability section pages). You should inherit your controller from Decidim::ApplicationController.

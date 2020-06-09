@@ -54,7 +54,7 @@ cs:
       decidim/proposals/admin/update_proposal_category_event: Kategorie nabídky se změnila
       decidim/proposals/admin/update_proposal_scope_event: Rozsah návrhu se změnil
       decidim/proposals/creation_enabled_event: Vytváření návrhu je povoleno
-      decidim/proposals/endorsing_enabled_event: Povolení návrhu je povoleno
+      decidim/proposals/endorsing_enabled_event: Schválení návrhu je povoleno
       decidim/proposals/evaluating_proposal_event: Návrh je hodnocen
       decidim/proposals/proposal_mentioned_event: Návrh byl zmíněn
       decidim/proposals/publish_proposal_event: Návrh byl zveřejněn
@@ -89,15 +89,16 @@ cs:
           label: Typ
           values:
             'false': Návrhy
-            'true': Pozměňovací návrhy
+            'true': Změny
         search_placeholder:
           id_string_or_title_cont: Hledat %{collection} podle ID nebo názvu.
         state_eq:
+          label: Stát
           values:
             evaluating: Hodnocení
-            withdrawn: Odebráno
+            withdrawn: Staženo
         state_null:
-          label: Stav
+          label: Stát
           values:
             'true': Nezodpovězeno
         valuator_role_ids_has:
@@ -107,7 +108,7 @@ cs:
         actions:
           amend: Pozměnit
           create: Vytvořit
-          endorse: Potvrďte
+          endorse: Schválit
           vote: Hlasování
           withdraw: Ustoupit
         name: Návrhy
@@ -127,9 +128,9 @@ cs:
             new_proposal_body_template: Šablona těla nového návrhu
             new_proposal_body_template_help: Můžete definovat předem vyplněný text, který budou mít nové návrhy
             new_proposal_help_text: Nový text nápovědy návrhu
-            official_proposals_enabled: Byly povoleny oficiální návrhy
-            participatory_texts_disabled_help: Pokud existují stávající návrhy, nelze toto nastavení měnit. Pokud chcete tuto vlastnost povolit nebo vyhodit všechny importované návrhy v menu "participativní texty" prosím vytvořte novou složku "Návrhy", pokud ji chcete zakázat.
+            official_proposals_enabled: Oficiální návrhy povoleny
             participatory_texts_enabled: Povolené účastnické texty
+            participatory_texts_enabled_readonly: Pokud existují stávající návrhy, nelze toto nastavení měnit. Pokud chcete tuto vlastnost povolit nebo vyhodit všechny importované návrhy v menu "participativní texty" prosím vytvořte novou složku "Návrhy", pokud ji chcete zakázat.
             proposal_answering_enabled: Odpovídání návrhu je povoleno
             proposal_edit_before_minutes: Návrhy mohou být editovány autory před tím, než projde hodně minut
             proposal_length: Maximální délka návrhu
@@ -149,14 +150,17 @@ cs:
             amendment_reaction_enabled: Reakce na pozměnění byla povolena
             amendment_reaction_enabled_help: Autoři návrhů budou moci přijmout nebo zamítnout vylepšení účastníků.
             amendments_visibility: Viditelnost pozměňovacího návrhu
+            amendments_visibility_choices:
+              all: Pozměňovací návrhy jsou viditelné pro všechny
+              participants: Pozměňovací návrhy jsou viditelné pouze pro jejich autory
             amendments_visibility_help: Pokud je zvolena možnost "pozměňovací návrhy jsou viditelné pouze jejich autorům", musí být účastník přihlášen, aby se seznámil s provedenými pozměňovacími návrhy.
             announcement: Oznámení
             answers_with_costs: Povolit náklady na odpovědi návrhu
             automatic_hashtags: Do všech návrhů byly přidány značky Hashtags
             comments_blocked: Komentáře byly blokovány
             creation_enabled: Vytváření návrhu je povoleno
-            endorsements_blocked: Uzávěry blokovány
-            endorsements_enabled: Povolení byla povolena
+            endorsements_blocked: Schvalování blokováno
+            endorsements_enabled: Schvalování povoleno
             proposal_answering_enabled: Odpovídání návrhu je povoleno
             publish_answers_immediately: Okamžitě publikovat odpovědi návrhu
             suggested_hashtags: Hashtags navrhl uživatelům nové návrhy
@@ -165,6 +169,12 @@ cs:
             votes_hidden: Hlasy skryté (pokud jsou povoleny hlasy, při kontrole se skryje počet hlasů)
     events:
       proposals:
+        admin:
+          proposal_note_created:
+            email_intro: Někdo zanechal poznámku k návrhu "%{resource_title}". Podívejte se na <a href="%{admin_proposal_info_url}">admin panel</a>
+            email_outro: Obdrželi jste toto oznámení, protože můžete návrh ohodnotit.
+            email_subject: Někdo zanechal poznámku na návrh %{resource_title}.
+            notification_title: Někdo zanechal poznámku k návrhu <a href="%{resource_path}">%{resource_title}</a>. Podívejte se na <a href="%{admin_proposal_info_path}">admin panel</a>
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} byl přijat k přístupu jako přispěvatel k <a href="%{resource_path}">%{resource_title}</a> návrh spolupráce.'
           email_outro: Toto oznámení jste dostali, protože jste spolupracovníkem uživatele <a href="%{resource_path}">%{resource_title}</a>.
@@ -201,7 +211,7 @@ cs:
           email_subject: Návrhy jsou nyní k dispozici v %{participatory_space_title}
           notification_title: Nyní můžete předložit <a href="%{resource_path}">nových návrhů</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
-          email_intro: 'Můžete podpořit návrhy v %{participatory_space_title}! Začněte se účastnit této stránky:'
+          email_intro: 'Můžete schválit návrhy v %{participatory_space_title}! Začněte se účastnit této stránky:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Schválení návrhů bylo zahájeno po dobu %{participatory_space_title}
           notification_title: Nyní můžete začít <a href="%{resource_path}">schválení návrhů</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -228,6 +238,7 @@ cs:
             email_subject: Návrh, který sledujete, se hodnotí
             notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> se hodnotí.
         proposal_mentioned:
+          email_intro: Váš návrh "%{mentioned_proposal_title}" byl zmíněn <a href="%{resource_url}">v této skupině</a> v komentářích.
           email_outro: Toto oznámení jste obdrželi, protože jste autorem položky "%{resource_title}".
           email_subject: Váš návrh "%{mentioned_proposal_title}" byl zmíněn
           notification_title: Váš návrh "%{mentioned_proposal_title}" byl zmíněn <a href="%{resource_path}">v tomto prostoru</a> v komentářích.
@@ -308,9 +319,9 @@ cs:
         object: návrhy
         title: Přijaté návrhy
       endorsements:
-        description: Počet potvrzení generovaných v návrzích
-        object: potvrzení
-        title: Potvrzení
+        description: Počet schvalování k návrhům
+        object: schvalování
+        title: Schvalování
       proposals:
         description: Počet vytvořených návrhů
         object: návrhy
@@ -362,7 +373,7 @@ cs:
             title: PŘEHLED ÚČASTNÍHO TEXTU
           new_import:
             accepted_mime_types:
-              md: Snížení
+              md: Markdown
               odt: Odt
             bottom_hint: "(Budete mít možnost zobrazit a třídit sekce dokumentů)"
             document_legend: 'Přidejte dokument nižší než 2 MB, každá sekce až do hloubky 3 úrovní bude analyzována do návrhů. Podporované formáty jsou: %{valid_mime_types}'
@@ -380,9 +391,9 @@ cs:
         proposal_answers:
           form:
             accepted: Přijato
-            answer_proposal: Odpověď
+            answer_proposal: Odpovědět
             evaluating: Hodnocení
-            rejected: Zamítnuto
+            rejected: Odmítnuto
             title: Odpověď na návrh %{title}
         proposal_notes:
           create:
@@ -404,10 +415,8 @@ cs:
             title: Návrh aktualizace
             update: Aktualizace
           form:
-            add_images: Přidat obrázky
             attachment_legend: "(Volitelné) Přidání přílohy"
             created_in_meeting: Tento návrh pochází z jednání
-            gallery_legend: "(Volitelně) Přidat galerii obrázků"
             select_a_category: Vyberte kategorii
             select_a_meeting: Vyberte schůzku
           index:
@@ -447,9 +456,9 @@ cs:
             comments_positive_count: Oblíbené
             created_at: Datum vzniku
             documents: Dokumenty
-            endorsements_count: Počet položek
-            endorsements_ranking: Pořadí podle položek
-            endorsers: Podporovatelé
+            endorsements_count: Počet schvalování
+            endorsements_ranking: Pořadí podle schvalování
+            endorsers: Schvalující
             link: Odkaz
             photos: Fotky
             proposals: Návrhy
@@ -513,7 +522,7 @@ cs:
         withdrawn: Staženo
       application_helper:
         filter_category_values:
-          all: Vše
+          all: Všechno
         filter_origin_values:
           all: Všechno
           citizens: Občané
@@ -521,7 +530,7 @@ cs:
           official: Oficiální
           user_groups: Skupiny uživatelů
         filter_scope_values:
-          all: Vše
+          all: Všechno
         filter_state_values:
           accepted: Přijato
           all: Všechno
@@ -687,7 +696,7 @@ cs:
           amend: Pozměňovací návrh
           comment: Komentář
           comments: Komentáře
-          endorse: Potvrďte
+          endorse: Schválit
       proposal_votes:
         create:
           error: Při hlasování o návrhu došlo k chybám.
@@ -774,6 +783,9 @@ cs:
         proposal:
           creation_date: 'Tvorba: %{date}'
           view_proposal: Zobrazit návrh
+        proposals:
+          empty: Zatím neexistuje žádný návrh
+          empty_filters: Neexistuje žádný návrh s tímto kritériem
         show:
           answer: Odpovědět
           back_to: Zpět k
@@ -781,7 +793,7 @@ cs:
           changes_at_title: Pozměňovací návrh k "%{title}"
           comments: Komentáře
           edit_proposal: Upravit návrh
-          endorsements_list: Seznam doporučení
+          endorsements_list: Seznam Schválení
           estimated_cost: Odhadované náklady
           hidden_endorsers_count:
             one: a %{count} další osoba
@@ -846,6 +858,11 @@ cs:
           step_3: Kompletní
           step_4: Publikujte svůj návrh
           step_of: Krok %{current_step_num} z %{total_steps}
+      proposals_picker:
+        choose_proposals: Vybrat návrhy
+        close: Zavřít
+        more_proposals: Existuje ještě %{number} návrhů. Upřesněte vaše hledání a najděte je.
+        no_proposals: Žádné návrhy neodpovídají zadaným kritériím nebo nejsou k dispozici žádné návrhy.
       publish:
         error: Při publikování návrhu došlo k chybám.
         success: Návrh byl úspěšně publikován.
