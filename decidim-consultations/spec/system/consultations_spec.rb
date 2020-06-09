@@ -26,20 +26,27 @@ describe "Consultations", type: :system do
 
     before do
       switch_to_host(organization.host)
-      visit decidim_consultations.consultations_path
     end
 
-    it_behaves_like "editable content for admins"
+    it_behaves_like "editable content for admins" do
+      let(:target_path) { visit decidim_consultations.consultations_path }
+    end
 
-    it "lists the consultations ordered by created at" do
-      within ".order-by" do
-        expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
-        page.find("a", text: "Random").click
-        click_link "Most recent"
+    context "when requesting the consultations path" do
+      before do
+        visit decidim_consultations.consultations_path
       end
 
-      expect(page).to have_selector("#consultations .card-grid .column:first-child", text: recent_consultation.title[:en])
-      expect(page).to have_selector("#consultations .card-grid .column:last-child", text: older_consultation.title[:en])
+      it "lists the consultations ordered by created at" do
+        within ".order-by" do
+          expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+          page.find("a", text: "Random").click
+          click_link "Most recent"
+        end
+
+        expect(page).to have_selector("#consultations .card-grid .column:first-child", text: recent_consultation.title[:en])
+        expect(page).to have_selector("#consultations .card-grid .column:last-child", text: older_consultation.title[:en])
+      end
     end
   end
 

@@ -168,6 +168,7 @@ The use case that originated this change is the persistence of the user's gender
 - **decidim-core**: Avoid server hanging up when rendering newsletter templates previews on develoment or test env [\#6096](https://github.com/decidim/decidim/pull/6096)
 - **decidim-initiatives**: Fix attachments related module inclusion [\#6140](https://github.com/decidim/decidim/pull/6140)
 - **decidim-core**: Fix scopes filter when a participatory space scope has subscopes [\#6110](https://github.com/decidim/decidim/pull/6110)
+- **decidim-core**, **decidim-assemblies**: Fix the edit link test failing seemingly randomly [\#6161](https://github.com/decidim/decidim/pull/6161)
 
 ### Removed
 
