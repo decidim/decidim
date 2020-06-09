@@ -4,6 +4,7 @@ en:
     attributes:
       dummy_resource:
         created_at: Created at
+        decidim_scope_id: Scope
         field: My field
         start_date: Start date
         title: Title

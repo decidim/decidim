@@ -1,12 +1,27 @@
 cs:
   activemodel:
     attributes:
+      answer:
+        description: Popis
+        image: Obrázek
+        proposals: Související návrhy
+        title: Název
       election:
         description: Popis
         end_time: Hlasování končí v
         start_time: Hlasování začíná v
         subtitle: Podtitulek
         title: Název
+      question:
+        description: Popis
+        max_selections: Maximální počet výběrů
+        title: Název
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Potřebuje být znovu připojen
   decidim:
     components:
       elections:
@@ -25,6 +40,24 @@ cs:
         preview: Náhled
         title: Akce
       admin:
+        answers:
+          create:
+            invalid: Při vytváření této odpovědi došlo k chybě
+            success: Odpověď byla úspěšně vytvořena
+          destroy:
+            invalid: Při odstraňování této odpovědi došlo k potížím
+            success: Odpověď byla úspěšně odstraněna
+          edit:
+            title: Upravit odpověď
+            update: Aktualizovat odpověď
+          index:
+            title: Odpovědi
+          new:
+            create: Vytvořit odpověď
+            title: Nová odpověď
+          update:
+            invalid: Při aktualizaci této odpovědi došlo k chybě
+            success: Odpověď byla úspěšně aktualizována
         elections:
           create:
             invalid: Při vytváření těchto voleb došlo k chybě
@@ -44,11 +77,45 @@ cs:
             invalid: Při aktualizaci těchto voleb došlo k chybě
             success: Volba byla úspěšně aktualizována
         models:
+          answer:
+            name: Odpověď
           election:
             name: Volby
+          question:
+            name: Otázka
+        questions:
+          create:
+            invalid: Při vytváření této otázky došlo k chybě
+            success: Otázka byla úspěšně vytvořena
+          destroy:
+            invalid: Při odstraňování této otázky došlo k chybě
+            success: Otázka byla úspěšně odstraněna
+          edit:
+            title: Upravit otázku
+            update: Aktualizovat otázku
+          index:
+            title: Otázky
+          new:
+            create: Vytvořit otázku
+            title: Nová otázka
+          update:
+            invalid: Při aktualizaci této otázky došlo k chybě
+            success: Otázka byla úspěšně aktualizována
       models:
+        answer:
+          fields:
+            proposals: Návrhy
+            title: Název
         election:
           fields:
             end_time: Končí v
             start_time: Začíná v
             title: Název
+        question:
+          fields:
+            answers: Odpovědi
+            max_selections: Max. výběr
+            title: Název
+    participatory_processes:
+      statistics:
+        elections_count: Volby

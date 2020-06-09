@@ -155,30 +155,16 @@ ru:
         show:
           stats:
             attendees: Участники
-            back_to_result: Вернуться к итогу
+            back_to_resource: Вернуться к итогу
             comments: Комментарии
             contributions: Внесенные предложения
             last_edited_by: Последний раз редактировалось
             last_updated_at: Последнее обновление
             meetings: Встречи
-            number_of_versions: Версии
             proposals: Предложения
-            show_all_versions: Показать все версии
-            version_author: Автор версии
-            version_created_at: 'Версия создана:'
-            version_number: Номер версии
-            version_number_out_of_total: "%{current_version} из %{total_count}"
             votes: Выражений поддержки
         timeline:
           title: Развитие проекта
-      versions:
-        index:
-          changes_at_title: Изменения в "%{title}"
-          title: Версии
-        show:
-          changes_at_title: Изменения в «%{title}»
-        version:
-          version_index: Версия %{index}
     components:
       accountability:
         name: Отчетность

@@ -16,6 +16,7 @@ module Decidim
         attribute :undo_online_signatures_enabled, Boolean
         attribute :attachments_enabled, Boolean
         attribute :custom_signature_end_date_enabled, Boolean
+        attribute :area_enabled, Boolean
         attribute :promoting_committee_enabled, Boolean
         attribute :minimum_committee_members, Integer
         attribute :collect_user_extra_fields, Boolean
@@ -25,7 +26,7 @@ module Decidim
 
         validates :title, :description, translatable_presence: true
         validates :attachments_enabled, :undo_online_signatures_enabled, :custom_signature_end_date_enabled,
-                  :promoting_committee_enabled, inclusion: { in: [true, false] }
+                  :area_enabled, :promoting_committee_enabled, inclusion: { in: [true, false] }
         validates :minimum_committee_members, numericality: { only_integer: true }, allow_nil: true
         validates :banner_image, presence: true, if: ->(form) { form.context.initiative_type.nil? }
 

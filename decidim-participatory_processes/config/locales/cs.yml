@@ -303,6 +303,9 @@ cs:
         description: Počet participativních procesů v této organizaci
         object: participativní procesy
         title: Participativní procesy
+    participatory_process:
+      show:
+        related_assemblies: Související shromáždění
     participatory_process_groups:
       show:
         group_participatory_processes:

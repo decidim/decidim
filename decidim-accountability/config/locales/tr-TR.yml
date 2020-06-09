@@ -151,30 +151,16 @@ tr:
         show:
           stats:
             attendees: Katılımcılar
-            back_to_result: Sonuca geri dön
+            back_to_resource: Sonuca geri dön
             comments: Yorumlar
             contributions: Katılımlar
             last_edited_by: Tarafından düzenlenmiş Son
             last_updated_at: 'Son güncelleme tarihi:'
             meetings: Toplantılar
-            number_of_versions: Sürümler
             proposals: Teklif
-            show_all_versions: Tüm sürümleri göster
-            version_author: Sürüm yazarı
-            version_created_at: '''De oluşturulan sürüm'
-            version_number: Versiyon numarası
-            version_number_out_of_total: "%{current_version} üzerinden %{total_count}"
             votes: Destekler
         timeline:
           title: Proje evrimi
-      versions:
-        index:
-          changes_at_title: '"%{title}" daki değişiklikler'
-          title: Sürümler
-        show:
-          changes_at_title: '"%{title}" daki değişiklikler'
-        version:
-          version_index: Sürüm %{index}
     components:
       accountability:
         name: Hesap verebilirlik
