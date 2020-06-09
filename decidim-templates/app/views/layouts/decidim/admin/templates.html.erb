@@ -1,9 +1,5 @@
 <% content_for :secondary_nav do %>
-  <div class="secondary-nav">
-    <div class="secondary-nav__title">
-      <%= t("decidim.admin.titles.templates") %>
-    </div>
-
+  <div class="secondary-nav secondary-nav--subnav">
     <ul>
       <% template_types.each_pair do |name, url| %>
         <%# if allowed_to?(:enter, :space_area, space_name: :processes) %> <%# TODO %>
@@ -17,5 +13,11 @@
 <% end %>
 
 <%= render "layouts/decidim/admin/application" do %>
+  <div class="process-title">
+    <div class="process-title-content">
+      <%= link_to t("decidim.admin.titles.templates"), decidim_admin_templates.root_url %>
+    </div>
+  </div>
+
   <%= yield %>
 <% end %>
