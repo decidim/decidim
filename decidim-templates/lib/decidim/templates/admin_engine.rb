@@ -15,6 +15,10 @@ module Decidim
           resources :"#{model_name}_templates"
         end
 
+        namespace :questionnaire_templates do
+          resources :questionnaires
+        end
+
         root to: "templates#index"
       end
 

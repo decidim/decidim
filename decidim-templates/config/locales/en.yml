@@ -22,6 +22,7 @@ en:
             save: Save
             questionnaire: Questionnaire
             edit: Edit questionnaire
+            empty: There are no questions yet
           index:
             title: Questionnaire templates
             confirm_delete: Are you sure you want to delete this template?

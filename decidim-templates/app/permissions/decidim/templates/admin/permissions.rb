@@ -9,13 +9,13 @@ module Decidim
 
           return permission_action if permission_action.scope != :admin
 
-          if permission_action.subject == :template
-            case permission_action.action
-            when :read, :create, :update, :destroy
-              allow!
-            end
-          elsif permission_action.subject == :templates
+          case permission_action.subject
+          when :template
+            allow! if [:read, :create, :update, :destroy].include? permission_action.action
+          when :templates
             allow! if permission_action.action == :index
+          when :questionnaire
+            allow!
           end
 
           permission_action

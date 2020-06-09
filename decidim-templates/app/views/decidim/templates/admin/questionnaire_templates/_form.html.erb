@@ -28,7 +28,7 @@
         <% if template.templatable&.questions&.any? %>
           <%= cell("decidim/forms/question_readonly", collection: template.templatable&.questions) %>
         <% else %>
-          <%= t("templates.empty", scope: "decidim.admin") %>
+          <%= t(".empty") %>
         <% end %>
       </div>
     </div>
