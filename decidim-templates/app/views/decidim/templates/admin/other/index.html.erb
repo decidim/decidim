@@ -1,0 +1,32 @@
+<% content_for :title do %>
+  <%= t("questionnaires", scope: "decidim.admin.titles.template_types") %>
+
+  <%# if allowed_to? :create, :template %>
+    <%= link_to t("actions.new_template", scope: "decidim.admin"),
+                ["new", "questionnaire", "template"],
+                class: "button tiny button--title" %>
+  <%# end %>
+<% end %>
+
+<% content_for :table_head do %>
+  <tr>
+    <th>
+      <%= t("models.template.fields.name") %>
+    </th>
+    <th>
+      <%= t("models.questionnaires.fields.title") %>
+    </th>
+    <th></th>
+  </tr>
+<% end %>
+
+<% @templates.each do |template| %>
+  <tr>
+    <td>
+      <%= translated_attribute template.name %>
+    </td>
+    <td>
+      <%= translated_attribute template.model.title %>
+    </td>
+  </tr>
+<% end %>

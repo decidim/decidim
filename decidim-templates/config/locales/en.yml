@@ -10,15 +10,33 @@ en:
         templates: Templates
         template_types:
           questionnaires: Questionnaire templates
+      templates:
+        empty: There are no templates yet.
+        create:
+          error: There was a problem creating this template.
     templates:
+      admin:
+        questionnaire_templates:
+          form:
+            title: Questionnaire template
+            save: Save
+            questionnaire: Questionnaire
+            edit: Edit questionnaire
+          index:
+            title: Questionnaire templates
+            confirm_delete: Are you sure you want to delete this template?
       template_types:
         questionnaires: Questionnaires
-  models:
-    template:
-      fields:
-        type: Template type
-        created_at: Created at
-        name: Name
-    questionnaires:
-      fields:
-        title: Title
+    models:
+      template:
+        name: Template
+        types:
+          "Decidim::Forms::Questionnaire": Questionnaire
+        fields:
+          templatable_type: Type
+          created_at: Created at
+          name: Name
+      questionnaire_template:
+        fields:
+          title: Title
+          questions: Questions

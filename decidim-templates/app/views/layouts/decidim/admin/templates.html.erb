@@ -5,27 +5,5 @@
     </div>
   </div>
 
-  <div class="process-content">
-    <%= render partial: "decidim/templates/admin/shared/secondary_nav" %>
-
-    <div class="card with-overflow" id="templates">
-      <div class="card-divider">
-        <h2 class="card-title">
-          <%= yield :title %>
-        </h2>
-      </div>
-      <div class="card-section">
-        <div class="table-scroll">
-          <table class="table-list">
-            <thead>
-              <%= yield :table_head %>
-            </thead>
-            <tbody>
-              <%= yield %>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
+  <%= yield %>
 <% end %>

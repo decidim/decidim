@@ -2,12 +2,6 @@
   <%= t("templates", scope: "decidim.admin.titles") %>
 <% end %>
 
-<% @templates.each do |template| %>
-  <tr>
-    <td>
-      <%= template.model_type %>
-      <%= template.model_id %>
-      <%= translated_attribute template.name %>
-    </td>
-  </tr>
+<%= decidim_form_for(@form, url: questionnaire_templates_path, html: { class: "form new_questionnaire_template" }) do |f| %>
+  <%= render partial: "form", object: f %>
 <% end %>
