@@ -11,6 +11,13 @@ describe Decidim::Elections::Election do
   include_examples "resourceable"
   include_examples "publicable"
 
+  describe "check the log result" do
+    it "overwrites the log presenter" do
+      expect(described_class.log_presenter_class_for(:foo))
+        .to eq Decidim::AdminLog::ElectionPresenter
+    end
+  end
+
   describe "started?" do
     it { is_expected.not_to be_started }
 
