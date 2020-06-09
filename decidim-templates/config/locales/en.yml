@@ -14,6 +14,9 @@ en:
         empty: There are no templates yet.
         create:
           error: There was a problem creating this template.
+        destroy:
+          error: There was a problem deleting this template.
+          success: Template deleted successfully
     templates:
       admin:
         questionnaire_templates:
@@ -21,7 +24,7 @@ en:
             title: Questionnaire template
             save: Save
             questionnaire: Questionnaire
-            edit: Edit questionnaire
+            edit: Edit
             empty: There are no questions yet
           index:
             title: Questionnaire templates

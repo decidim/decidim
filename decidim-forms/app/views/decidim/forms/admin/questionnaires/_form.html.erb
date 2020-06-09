@@ -3,7 +3,7 @@
     <h2 class="card-title">
       <%= title %>
       <div class="button--title">
-        <%= export_dropdown if allowed_to? :export_answers, :questionnaire %>
+        <%= export_dropdown if (current_component && allowed_to?(:export_answers, :questionnaire)) %>
       </div>
     </h2>
   </div>

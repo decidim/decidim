@@ -15,11 +15,11 @@ module Decidim
           end
 
           def update_url
-            questionnaire_template_questionnaire_path(template_id: template.id)
+            questionnaire_templates_questionnaire_path(template_id: template.id)
           end
 
           def after_update_url
-            edit_template_path(id: template.id)
+            edit_questionnaire_template_path(id: template.id)
           end
 
           private

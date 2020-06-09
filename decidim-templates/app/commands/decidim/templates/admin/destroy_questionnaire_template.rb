@@ -6,10 +6,12 @@ module Decidim
       class DestroyQuestionnaireTemplate < Rectify::Command
         # Public: Initializes the command.
         #
-        # template - the Template to update
+        # template - the Template to destroy
+        # current_user - the user performing the action
         # form - A form object with the params.
-        def initialize(template)
+        def initialize(template, current_user)
           @template = template
+          @current_user = current_user
         end
 
         # Destroys the template.

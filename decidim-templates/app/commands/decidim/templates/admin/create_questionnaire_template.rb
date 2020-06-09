@@ -15,16 +15,18 @@ module Decidim
         def call
           return broadcast(:invalid) unless @form.valid?
 
-          @application = Decidim.traceability.create!(
+          @template = Decidim.traceability.create!(
             Template,
             @form.current_user,
             name: @form.name,
             # description: @form.description,
-            organization: @form.current_organization,
-            templatable: Decidim::Forms::Questionnaire.new
+            organization: @form.current_organization
           )
 
-          broadcast(:ok, @application)
+          @resource = Decidim::Forms::Questionnaire.create!(questionnaire_for: @template)
+          @template.update!(templatable: @resource)
+
+          broadcast(:ok, @template)
         end
       end
     end
