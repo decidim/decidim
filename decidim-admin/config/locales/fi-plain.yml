@@ -615,6 +615,7 @@ fi-pl:
           homepage_highlighted_content_banner_title: Tärkeä sisältöbanneri
           images:
             layout_appearance_title: Muokkaa sivupohjan ulkoasua
+            preview: Esikatsele
           omnipresent_banner_appearance_title: Muokkaa kaikkialla näkyvää banneria
       organization_homepage:
         edit:

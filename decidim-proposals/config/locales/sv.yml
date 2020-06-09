@@ -615,14 +615,11 @@ sv:
             one: och %{count} mer person
             other: och %{count} fler personer
           info-message: Detta är ett <strong>gemensamt utkast</strong> till ett förslag. Det innebär att du kan hjälpa deras författare att forma förslaget med hjälp av kommentarsektionen nedan eller själv förbättra det genom att be om att få redigera det. När författarna ger dig tillgång, kan du göra ändringar i detta utkast.
-          of_versions: "(av %{number})"
           publish: Publicera
           publish_info: Publicera den här versionen av utkastet eller
           published_proposal: publicerat förslag
           request_access: Begär tillgång
           requested_access: Tillgång har begärts
-          see_other_versions: visa andra versioner
-          version: Version %{number}
           version_history: visa versionshistoriken för förslaget
           withdraw: dra tillbaka utkastet
         states:
@@ -844,20 +841,12 @@ sv:
         error: Det gick inte att spara det gemensamma utkastet.
         success: Utkastet till förslag har uppdaterats.
       versions:
-        changes_at_title: Ändringar i "%{title}"
+        collaborative_drafts:
+          back_to_resource: Gå tillbaka till gemensamt utkast
         index:
           title: Versioner
-        stats:
-          back_to_collaborative_draft: Gå tillbaka till gemensamt utkast
-          back_to_proposal: Gå tillbaka till förslaget
-          number_of_versions: Versioner
-          show_all_versions: Visa alla versioner
-          version_author: Versionsförfattare
-          version_created_at: Version skapad
-          version_number: Version nummer
-          version_number_out_of_total: "%{current_version} av %{total_count}"
-        version:
-          version_index: Version %{index}
+        proposals:
+          back_to_resource: Gå tillbaka till förslaget
       withdraw:
         errors:
           has_supports: Detta förslag kan inte dras tillbaka eftersom det redan har stöd.

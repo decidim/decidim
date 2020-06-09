@@ -629,14 +629,11 @@ sk:
             many: a%{count} ďalších ľudí
             other: a%{count} ďalších ľudí
           info-message: Jedná sa o <strong> kolaboratívne návrh </strong> k návrhu. To znamená, že môžete pomôcť ich autorom formovať návrh pomocou nižšie uvedené poznámky alebo je vylepšiť priamo tým, že požiadate o prístup k jeho úpravám. Akonáhle vám autori udelí prístup, budete môcť tento návrh uskutočniť.
-          of_versions: "(z%{number})"
           publish: Publikovať
           publish_info: Publikujte túto verziu konceptu alebo
           published_proposal: zverejnený návrh
           request_access: Požiadať o prístup
           requested_access: Požadovaný prístup
-          see_other_versions: pozri ďalšie verzie
-          version: Verzia%{number}
           version_history: pozri históriu verzií tohto návrhu
           withdraw: stiahnuť návrh
         states:
@@ -867,20 +864,12 @@ sk:
         error: Pri ukladaní konceptu návrhu došlo k chybám.
         success: Návrh návrhu bol úspešne aktualizovaný.
       versions:
-        changes_at_title: Zmeny na "%{title}"
+        collaborative_drafts:
+          back_to_resource: Vraťte se zpět do kolektivní schůzky
         index:
           title: Verze
-        stats:
-          back_to_collaborative_draft: Vraťte se zpět do kolektivní schůzky
-          back_to_proposal: Vraťte se k návrhu
-          number_of_versions: Verze
-          show_all_versions: Zobrazit všechny verze
-          version_author: Autor verze
-          version_created_at: Verze vytvořena v
-          version_number: Číslo verze
-          version_number_out_of_total: "%{current_version} z %{total_count}"
-        version:
-          version_index: Verze %{index}
+        proposals:
+          back_to_resource: Vraťte se k návrhu
       withdraw:
         errors:
           has_supports: Tento návrh nelze stáhnout, protože již má podporu.

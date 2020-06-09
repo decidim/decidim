@@ -151,30 +151,16 @@ fr-CA:
         show:
           stats:
             attendees: Participants
-            back_to_result: Revenir à la réalisation
+            back_to_resource: Revenir à la réalisation
             comments: Commentaires
             contributions: Contributions
             last_edited_by: Dernière édition par
             last_updated_at: Dernière mise à jour à
             meetings: Réunions
-            number_of_versions: Versions
             proposals: Propositions
-            show_all_versions: Afficher toutes les versions
-            version_author: Auteur de la version
-            version_created_at: Version créée le
-            version_number: Numéro de version
-            version_number_out_of_total: "%{current_version} sur %{total_count}"
             votes: Votes
         timeline:
           title: Évolution du projet
-      versions:
-        index:
-          changes_at_title: Changements à "%{title}"
-          title: Versions
-        show:
-          changes_at_title: Changements à "%{title}"
-        version:
-          version_index: Version %{index}
     components:
       accountability:
         name: Suivi
