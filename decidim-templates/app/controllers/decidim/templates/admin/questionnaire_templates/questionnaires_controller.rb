@@ -25,7 +25,7 @@ module Decidim
           private
 
           def template
-            @template ||= Template.find(params[:template_id])
+            @template ||= Template.find(params[:id])
           end
         end
       end
