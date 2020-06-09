@@ -18,6 +18,14 @@
   <div class="columns large-6 medium-centered">
     <div class="card">
       <div class="card__content">
+       <% unless questionnaire_for.try(:component)&.try(:published?) %>
+           <div class="section">
+            <div class="callout warning">
+              <p><%= t(".questionnaire_not_published.body") %></p>
+            </div>
+          </div>
+        <% end %>
+        
         <% if allow_answers? %>
           <% if visitor_can_answer? %>
             <% if visitor_already_answered? %>

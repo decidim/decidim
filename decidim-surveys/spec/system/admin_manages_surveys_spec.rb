@@ -31,6 +31,11 @@ describe "Admin manages surveys", type: :system do
       expect(page).to have_link("Preview", href: [questionnaire_public_path, "surveys/#{survey.id}"].join)
     end
 
+    it "shows a warning message" do
+      visit questionnaire_public_path
+      expect(page).to have_content("This form is not published yet")
+    end
+
     it "allows to answer survey" do
       visit questionnaire_public_path
       expect(page).to have_selector("input#questionnaire_answers_0")

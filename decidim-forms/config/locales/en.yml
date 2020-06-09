@@ -81,6 +81,8 @@ en:
           questionnaire_for_private_users:
             body: The form is available only for private users
             title: Form closed
+          questionnaire_not_published:
+            body: This form is not published yet.
           submit: Submit
           tos_agreement: By participating you accept its Terms of Service
       user_answers_serializer:
