@@ -15,18 +15,22 @@ describe "Content pages", type: :system do
   describe "Showing pages" do
     let!(:decidim_pages) { create_list(:static_page, 5, :with_topic, organization: organization) }
 
-    before do
-      visit decidim.pages_path
+    it_behaves_like "editable content for admins" do
+      let(:target_path) { decidim.pages_path }
     end
 
-    it_behaves_like "editable content for admins"
+    context "when requesting the pages path" do
+      before do
+        visit decidim.pages_path
+      end
 
-    it "shows the list of all the pages" do
-      decidim_pages.each do |decidim_page|
-        expect(page).to have_css(
-          "a[href=\"#{decidim.page_path(decidim_page)}\"]",
-          text: decidim_page.title[I18n.locale.to_s]
-        )
+      it "shows the list of all the pages" do
+        decidim_pages.each do |decidim_page|
+          expect(page).to have_css(
+            "a[href=\"#{decidim.page_path(decidim_page)}\"]",
+            text: decidim_page.title[I18n.locale.to_s]
+          )
+        end
       end
     end
   end
