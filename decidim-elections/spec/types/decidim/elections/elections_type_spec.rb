@@ -14,6 +14,7 @@ module Decidim
 
       describe "elections" do
         let!(:component_elections) { create_list(:election, 2, component: model) }
+        let!(:component_elections_hidden) { create_list(:election, 2, component: model, published_at: nil) }
         let!(:other_elections) { create_list(:election, 2) }
 
         let(:query) { "{ elections { edges { node { id } } } }" }
@@ -21,6 +22,7 @@ module Decidim
         it "returns the elections" do
           ids = response["elections"]["edges"].map { |edge| edge["node"]["id"] }
           expect(ids).to include(*component_elections.map(&:id).map(&:to_s))
+          expect(ids).not_to include(*component_elections_hidden.map(&:id).map(&:to_s))
           expect(ids).not_to include(*other_elections.map(&:id).map(&:to_s))
         end
       end
@@ -39,6 +41,14 @@ module Decidim
 
         context "when the election doesn't belong to the component" do
           let!(:election) { create(:election) }
+
+          it "returns null" do
+            expect(response["election"]).to be_nil
+          end
+        end
+
+        context "when the election belongs to the component and its publication time is nil" do
+          let!(:election) { create(:election, component: model, published_at: nil) }
 
           it "returns null" do
             expect(response["election"]).to be_nil

@@ -9,6 +9,7 @@ describe Decidim::Elections::Election do
 
   include_examples "has component"
   include_examples "resourceable"
+  include_examples "publicable"
 
   describe "started?" do
     it { is_expected.not_to be_started }
@@ -17,6 +18,16 @@ describe Decidim::Elections::Election do
       subject(:election) { build :election, :started }
 
       it { is_expected.to be_started }
+    end
+  end
+
+  describe "finished?" do
+    it { is_expected.not_to be_finished }
+
+    context "when it is finished" do
+      subject(:election) { build :election, :finished }
+
+      it { is_expected.to be_finished }
     end
   end
 end

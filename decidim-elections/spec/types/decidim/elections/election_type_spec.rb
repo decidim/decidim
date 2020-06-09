@@ -63,6 +63,14 @@ module Decidim
         end
       end
 
+      describe "publishedAt" do
+        let(:query) { "{ publishedAt }" }
+
+        it "returns the election's published time" do
+          expect(Time.zone.parse(response["publishedAt"])).to be_within(1.second).of(model.published_at)
+        end
+      end
+
       describe "questions" do
         let!(:election2) { create(:election, :complete) }
         let(:query) { "{ questions { id } }" }

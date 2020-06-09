@@ -20,6 +20,11 @@ FactoryBot.define do
 
     trait :started do
       start_time { 1.day.ago }
+      published_at { Time.current }
+    end
+
+    trait :finished do
+      end_time { 1.day.ago }
     end
 
     trait :unpublished do
