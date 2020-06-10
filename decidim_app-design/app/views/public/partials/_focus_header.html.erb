@@ -1,0 +1,16 @@
+<div class="focus__header">
+  <div class="row">
+  <% if locals[:step] == 1 %>
+    <div class="focus__steps"><strong>Pregunta 1</strong> de 4</div>
+  <% elsif locals[:step] == 2 %>
+    <div class="focus__steps"><strong>Pregunta 2</strong> de 4</div>
+  <% elsif locals[:step] == 3 %>
+    <div class="focus__steps"><strong>Pregunta 3</strong> de 4</div>
+  <% elsif locals[:step] == 4 %>
+    <div class="focus__steps"><strong>Pregunta 4</strong> de 4</div>
+  <% end %>
+  <div class="h5 focus__header-title">
+      Consulta sobre el sistema de organización del Comité de Fiestas del Barrio del Fort Pienc
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+.evote {
+  padding: 2rem;
+  margin-top: 2rem;
+
+  .row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__options-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 4rem auto;
+  }
+
+  &__options {
+    text-align: left;
+    margin: 4rem auto;
+  }
+
+  &__check {
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    input[type="checkbox"] {
+      width: 1em;
+      height: 1em;
+    }
+  }
+
+  &__button-big {
+    min-width: 20rem;
+  }
+}

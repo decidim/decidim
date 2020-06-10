@@ -1,0 +1,88 @@
+.focus {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: $light-gray;
+
+  &__top {
+    display: flex;
+    padding: 1rem;
+    background-color: $white;
+    position: sticky;
+    top: 0;
+  }
+
+  &__brand {
+    display: block;
+    img {
+      max-height: 20px;
+    }
+  }
+
+  &__exit {
+    margin-left: auto;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+
+    svg {
+      margin-top: 0.15em;
+      margin-right: 0.3em;
+    }
+  }
+
+  &__header {
+    background-color: $dark-gray;
+    color: $white;
+    padding: 1rem;
+    &-title {
+      margin-bottom: 0;
+    }
+  }
+
+  &__steps {
+    text-transform: uppercase;
+    font-size: 80%;
+    letter-spacing: 0.05em;
+    color: $light-gray;
+  }
+
+  &__content {
+    flex-grow: 1;
+  }
+
+  &__footer {
+    margin-top: auto;
+    padding: 1rem;
+    background-color: $white;
+
+    .row {
+      display: flex;
+      align-items: baseline;
+      width: 100%;
+    }
+
+    .button {
+      margin-bottom: 0;
+    }
+  }
+
+  &__back {
+    font-weight: 600;
+    svg {
+      font-size: 0.7em;
+      margin-right: 0.3em;
+      vertical-align: 0;
+    }
+  }
+
+  &__next {
+    margin-left: auto;
+    svg {
+      font-size: 0.7em;
+      margin-left: 0.3em;
+      vertical-align: 0;
+    }
+  }
+}
