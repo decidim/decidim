@@ -169,6 +169,7 @@ The use case that originated this change is the persistence of the user's gender
 - **decidim-initiatives**: Fix attachments related module inclusion [\#6140](https://github.com/decidim/decidim/pull/6140)
 - **decidim-core**: Fix scopes filter when a participatory space scope has subscopes [\#6110](https://github.com/decidim/decidim/pull/6110)
 - **decidim-core**, **decidim-assemblies**: Fix the edit link test failing seemingly randomly [\#6161](https://github.com/decidim/decidim/pull/6161)
+- **decidim-participatory_processes**: Fix the edit link test failing randomly for participatory processes spec [\#6180](https://github.com/decidim/decidim/pull/6180)
 
 ### Removed
 
