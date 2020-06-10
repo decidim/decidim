@@ -26,6 +26,7 @@ cs:
       initiatives_committee_member:
         user: člen komise
       initiatives_type:
+        area_enabled: Povolit autorům vybrat oblast pro jejich iniciativu
         attachments_enabled: Povolit přílohy
         banner_image: Obrázek banneru
         collect_user_extra_fields: Sbírejte osobní údaje uživatelů podpisem
@@ -78,6 +79,8 @@ cs:
       actions:
         new_initiative_type: Nový typ iniciativy
       filters:
+        decidim_area_id_eq:
+          label: Oblast
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Hledat %{collection} podle názvu, popisu, ID nebo jména autora.
         state_eq:
@@ -284,6 +287,8 @@ cs:
         rejected: Nedostatek podpisů
         validating: Technická validace
       application_helper:
+        filter_area_values:
+          all: Vše
         filter_scope_values:
           all: Vše
         filter_state_values:
@@ -311,6 +316,7 @@ cs:
           fill_data_help: "<ul> <li>Přezkoumejte obsah své iniciativy. Je váš titul snadný pochopit? Je jasný cíl vaší iniciativy?</li> <li>Musíte zvolit typ podpisu. Osobně, online nebo kombinace obou</li> <li>Který je geografický rozsah iniciativy? Město, okres?</li> </ul>"
           initiative_type: Typ iniciativy
           more_information: "(Více informací)"
+          select_area: Vybrat oblast
           select_scope: Zvolte rozsah
         finish:
           back: Zpět
@@ -408,6 +414,7 @@ cs:
             other: "%{count} iniciativ"
         filters:
           any: Jakýkoli
+          area: Oblast
           author: Autor
           myself: Moje iniciativy
           scope: Oblast působnosti
@@ -447,10 +454,7 @@ cs:
         show:
           any_vote_method: Tato občanská iniciativa shromažďuje podporu online i tváří v tvář.
           follow_description: Obdržíte oznámení, pokud jsou v této iniciativě zprávy
-          of_versions: "(z %{number})"
           offline_method: Tato občanská iniciativa pouze shromažďuje podporu tváří v tvář.
-          see_other_versions: viz ostatní verze
-          version: Verze %{number}
         signature_identities:
           select_identity: Vyberte identifikátor uživatele
         signatures_count:
@@ -505,19 +509,8 @@ cs:
         expired: Platnost vypršela
       unavailable_scope: Nedostupný rozsah
       versions:
-        index:
-          number_of_versions: Verze
-          title: Verze
         shared:
-          back_to_initiative: Přejít zpět na iniciativu
-          changes_at_title: Změny v "%{title}"
-        show:
-          show_all_versions: Zobrazit všechny verze
-          version_author: Autor verze
-          version_created_at: Verze vytvořena v
-          version_number_out_of_total: "%{current_version} z %{total_count}"
-        version:
-          version_index: Verze %{index}
+          back_to_resource: Přejít zpět na iniciativu
     menu:
       initiatives: Iniciativy
     resources:

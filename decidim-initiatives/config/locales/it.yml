@@ -435,10 +435,7 @@ it:
         show:
           any_vote_method: Questa iniziativa cittadina raccoglie supporto online e faccia a faccia.
           follow_description: Ricevi una notifica quando ci sono novità in questa iniziativa
-          of_versions: "(di %{number})"
           offline_method: Questa iniziativa cittadina raccoglie solo supporti faccia a faccia.
-          see_other_versions: vedi altre versioni
-          version: Versione %{number}
         signature_identities:
           select_identity: Seleziona l'identificativo dell'utente
         signatures_count:
@@ -488,20 +485,6 @@ it:
         accepted: Accettato
         expired: Scaduto
       unavailable_scope: Ambito non disponibile
-      versions:
-        index:
-          number_of_versions: Versioni
-          title: Versioni
-        shared:
-          back_to_initiative: Torna all'iniziativa
-          changes_at_title: Modifiche a "%{title}"
-        show:
-          show_all_versions: Mostra tutte le versioni
-          version_author: Autore della versione
-          version_created_at: Versione creata il
-          version_number_out_of_total: "%{current_version} su %{total_count}"
-        version:
-          version_index: Versione %{index}
     menu:
       initiatives: iniziative
     resources:

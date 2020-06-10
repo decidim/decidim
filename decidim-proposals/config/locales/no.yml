@@ -575,14 +575,11 @@
             one: og %{count} til person
             other: og %{count} flere personer
           info-message: Dette er et <strong>samarbeids utkast</strong> for et forslag. Dette betyr at du kan hjelpe forfatterne å forme forslaget med bruk av kommentarfeltet nedenfor eller forbedre det direkte med å be om tilgang til å redigere det. Når forfatterne gir deg tilgang, vil du kunne redigere utkastet.
-          of_versions: "(av %{number})"
           publish: Publiser
           publish_info: Publiser denne versjonen av utkastet eller
           published_proposal: publisert forslag
           request_access: Be om tilgang
           requested_access: Tilgang forespurt
-          see_other_versions: se andre versjoner
-          version: Versjon %{number}
           version_history: se versjonshistorikk for dette forslaget
           withdraw: trekk tilbake utkastet
         states:
@@ -791,20 +788,12 @@
         error: Det oppstod et problem med å lagre samarbeids utkastet.
         success: Forslags utkastet ble oppdatert.
       versions:
-        changes_at_title: Endringer på "%{title}"
+        collaborative_drafts:
+          back_to_resource: Gå tilbake til samarbeids utkast
         index:
           title: Versjoner
-        stats:
-          back_to_collaborative_draft: Gå tilbake til samarbeids utkast
-          back_to_proposal: Gå tilbake til forslag
-          number_of_versions: Versjoner
-          show_all_versions: Vis alle versjoner
-          version_author: Versjon forfatter
-          version_created_at: Versjon opprettet
-          version_number: Versjonsnummer
-          version_number_out_of_total: "%{current_version} ut av %{total_count}"
-        version:
-          version_index: Versjon %{index}
+        proposals:
+          back_to_resource: Gå tilbake til forslag
       withdraw:
         errors:
           has_supports: Dette forslaget kan ikke trekkes tilbake fordi det allerede har støtte.

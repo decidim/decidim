@@ -151,30 +151,16 @@
         show:
           stats:
             attendees: Deltakere
-            back_to_result: Gå tilbake til resultatet
+            back_to_resource: Gå tilbake til resultatet
             comments: Kommentarer
             contributions: Bidragene
             last_edited_by: Sist endret av
             last_updated_at: Sist oppdatert
             meetings: Møter
-            number_of_versions: Versjoner
             proposals: Forslag
-            show_all_versions: Vis alle versjoner
-            version_author: Versjon forfatter
-            version_created_at: Versjon opprettet
-            version_number: Versjonsnummer
-            version_number_out_of_total: "%{current_version} ut av %{total_count}"
             votes: Støtter
         timeline:
           title: Prosjektutvikling
-      versions:
-        index:
-          changes_at_title: Endringer "%{title}"
-          title: Versjoner
-        show:
-          changes_at_title: Endringer "%{title}"
-        version:
-          version_index: Versjon %{index}
     components:
       accountability:
         name: Ansvarlighet

@@ -1,17 +1,38 @@
 fi:
   activemodel:
     attributes:
+      answer:
+        description: Kuvaus
+        image: Kuva
+        proposals: Liittyvät ehdotukset
+        title: Otsikko
       election:
         description: Kuvaus
         end_time: Äänestys päättyy
         start_time: Äänestys alkaa
         subtitle: Alaotsikko
         title: Otsikko
+      question:
+        description: Kuvaus
+        max_selections: Valintojen enimmäismäärä
+        title: Otsikko
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Liitettävä uudelleen
   activerecord:
     models:
+      decidim/elections/answer:
+        one: Vastaus
+        other: Vastaukset
       decidim/elections/election:
         one: Vaali
         other: Vaalit
+      decidim/elections/question:
+        one: Kysymys
+        other: Kysymykset
   decidim:
     components:
       elections:
@@ -30,6 +51,24 @@ fi:
         preview: Esikatsele
         title: Toiminnot
       admin:
+        answers:
+          create:
+            invalid: Vastauksen luonti epäonnistui
+            success: Vastauksen luonti onnistui
+          destroy:
+            invalid: Vastauksen poisto epäonnistui
+            success: Vastauksen poisto onnistui
+          edit:
+            title: Muokkaa vastausta
+            update: Päivitä vastausta
+          index:
+            title: Vastaukset
+          new:
+            create: Luo vastaus
+            title: Uusi vastaus
+          update:
+            invalid: Vastauksen päivitys epäonnistui
+            success: Vastauksen päivitys onnistui
         elections:
           create:
             invalid: Vaalin luonti epäonnistui
@@ -49,11 +88,45 @@ fi:
             invalid: Vaalin päivitys epäonnistui
             success: Vaalin päivitys onnistui
         models:
+          answer:
+            name: Vastaus
           election:
             name: Vaali
+          question:
+            name: Kysymys
+        questions:
+          create:
+            invalid: Kysymyksen luonti epäonnistui
+            success: Kysymyksen luonti onnistui
+          destroy:
+            invalid: Kysymyksen poisto epäonnistui
+            success: Kysymyksen poisto onnistui
+          edit:
+            title: Muokkaa kysymystä
+            update: Päivitä kysymys
+          index:
+            title: Kysymykset
+          new:
+            create: Luo kysymys
+            title: Uusi kysymys
+          update:
+            invalid: Kysymyksen päivitys epäonnistui
+            success: Kysymyksen päivitys onnistui
       models:
+        answer:
+          fields:
+            proposals: Ehdotukset
+            title: Otsikko
         election:
           fields:
             end_time: Päättymisaika
             start_time: Alkamisaika
             title: Otsikko
+        question:
+          fields:
+            answers: Vastaukset
+            max_selections: Valintojen enimmäismäärä
+            title: Otsikko
+    participatory_processes:
+      statistics:
+        elections_count: Vaalia

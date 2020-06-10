@@ -1107,8 +1107,6 @@ sv:
         close_window: Stäng fönster
         share: Dela
         share_link: Dela länk
-      version_author:
-        deleted: Raderad deltagare
     user_activity:
       index:
         no_activities_warning: Den här användaren har inte haft någon aktivitet än.
@@ -1122,6 +1120,9 @@ sv:
       update:
         error: Det gick inte att uppdatera dina intressen.
         success: Dina intressen har uppdaterats.
+    version_author:
+      show:
+        deleted: Raderad deltagare
     welcome_notification:
       default_body: <p>Hej {{name}}, välkommen och tack för att du gick med i {{organization}}!</p><ul><li>Om du vill få en snabb uppfattning om vad du kan göra här, ta en titt på <a href="{{help_url}}">hjälpavsnittet</a>.</li><li>När du har läst det får du ditt första märke. Här är en <a href="{{badges_url}}">lista över alla märken</a> som du kan få när du deltar i {{organization}}</li><li>Sist men inte minst, prata med andra och dela med dig av hur det är att vara engagerad i och delta i {{organization}}. Lämna förslag, ge kommentarer, debattera, fundera över hur man kan bidra till det gemensamma bästa, framför övertygande argument, lyssna och läs för att själv bli övertygad, uttryck dina idéer på ett konkret och direkt sätt, svara med tålamod eller kraft, försvara dina idéer och ha ett öppet sinne för samarbete och andra människors idéer.</li></ul>
       default_subject: Tack för att du gick med i {{organization}}!

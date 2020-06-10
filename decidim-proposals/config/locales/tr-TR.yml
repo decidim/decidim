@@ -542,14 +542,11 @@ tr:
             one: ve %{count} kişi daha
             other: ve %{count} kişi daha
           info-message: Bu, bir teklif için <strong>ortak çalışma taslağı</strong> . Bu, yazarlarının aşağıdaki yorum bölümünü kullanarak teklifi şekillendirmesine yardımcı olabilir veya düzenleme için erişim isteğinde bulunarak doğrudan iyileştirebilirsiniz. Yazarlar size erişim izni verdiğinde, bu taslakta değişiklikler yapabileceksiniz.
-          of_versions: "( %{number})"
           publish: Yayınla
           publish_info: Taslak bu sürümünü yayınlayın veya
           published_proposal: yayınlanan teklif
           request_access: Erişim talep etmek
           requested_access: Erişim istendi
-          see_other_versions: diğer versiyonları gör
-          version: Sürüm %{number}
           version_history: bu teklifin sürüm geçmişini gör
           withdraw: taslağı geri çekmek
         states:
@@ -744,20 +741,12 @@ tr:
         error: Teklif taslağını kaydederken hatalar oluştu.
         success: Teklif taslağı başarıyla güncellendi.
       versions:
-        changes_at_title: '"%{title}" daki değişiklikler'
+        collaborative_drafts:
+          back_to_resource: İşbirliği taslağına geri dönün
         index:
           title: Sürümler
-        stats:
-          back_to_collaborative_draft: İşbirliği taslağına geri dönün
-          back_to_proposal: Teklife geri dön
-          number_of_versions: Sürümler
-          show_all_versions: Tüm versiyonları göster
-          version_author: Sürüm yazarı
-          version_created_at: Sürümde oluşturuldu
-          version_number: Versiyon numarası
-          version_number_out_of_total: "%{current_version} üzerinden %{total_count}"
-        version:
-          version_index: Sürüm %{index}
+        proposals:
+          back_to_resource: Teklife geri dön
       withdraw:
         errors:
           has_supports: Zaten destekleri olduğu için bu teklif geri çekilemez.
