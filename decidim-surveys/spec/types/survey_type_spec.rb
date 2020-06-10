@@ -17,14 +17,6 @@ module Decidim
         end
       end
 
-      describe "publishedAt" do
-        let(:query) { "{ publishedAt }" }
-
-        it "returns when the survey was updated" do
-          expect(response["publishedAt"]).to be nil
-        end
-      end
-
       describe "createdAt" do
         let(:query) { "{ createdAt }" }
 
