@@ -12,12 +12,17 @@ en:
           questionnaires: Questionnaire templates
       templates:
         empty: There are no templates yet.
+        copy:
+          error: There was a problem copying this template.
+          success: Template copied successfully
         create:
           error: There was a problem creating this template.
+          success: Template created successfully
         destroy:
           error: There was a problem deleting this template.
           success: Template deleted successfully
         update:
+          error: There was a problem upadting this template.
           success: Template updated successfully
     templates:
       admin:
