@@ -95,8 +95,6 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
 
       status_code, data = *super
 
-      return [status_code, data] unless status_code == :ok
-
       data[:extra_explanation] = []
       if allowed_postal_codes.present?
         # Does not authorize users with different postal codes
@@ -136,11 +134,11 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
     private
 
     def allowed_scope
-      @allowed_scope ||= Decidim::Scope.find(allowed_scope_id)
+      @allowed_scope ||= Decidim::Scope.find(allowed_scope_id) if allowed_scope_id
     end
 
     def user_scope
-      @user_scope ||= Decidim::Scope.find(user_scope_id)
+      @user_scope ||= Decidim::Scope.find(user_scope_id) if user_scope_id
     end
 
     def user_scope_id

@@ -62,12 +62,16 @@ describe "Action Authorization", type: :system do
     end
 
     context "and action authorized with custom action authorizer options" do
+      let(:scope) { create :scope, organization: organization }
       let(:permissions) do
         {
           create: {
             authorization_handlers: {
               "dummy_authorization_handler": {
-                options: { allowed_postal_codes: %w(1234 4567) }
+                options: {
+                  allowed_postal_codes: "1234, 4567",
+                  allowed_scope_id: scope.id
+                }
               }
             }
           }
@@ -76,20 +80,42 @@ describe "Action Authorization", type: :system do
 
       before do
         visit main_component_path(component)
-        click_link "New proposal"
       end
 
       it "prompts user to authorize" do
+        click_link "New proposal"
+
         expect(page).to have_content("Authorization required")
         expect(page).to have_content("In order to perform this action, you need to be authorized with \"Example authorization\"")
         expect(page).to have_content("Participation is restricted to participants with any of the following postal codes: 1234, 4567.")
+        expect(page).to have_content("Participation is restricted to participants with the scope #{scope.name["en"]}.")
       end
 
       it "redirects to authorization when modal clicked" do
+        click_link "New proposal"
         click_link "Authorize with \"Example authorization\""
 
         expect(page).to have_selector("h1", text: "Verify with Example authorization")
         expect(page).to have_content("Participation is restricted to participants with any of the following postal codes: 1234, 4567.")
+        expect(page).to have_content("Participation is restricted to participants with the scope #{scope.name["en"]}.")
+      end
+
+      context "when the user doesn't match the authorization criteria" do
+        let(:other_scope) { create :scope, organization: organization }
+        let!(:user_authorization) do
+          create(:authorization, name: "dummy_authorization_handler", user: user, granted_at: 1.second.ago,
+                 metadata: { postal_code: "1234", scope_id: other_scope.id } )
+        end
+
+        it "prompts user to check her authorization status" do
+          click_link "New proposal"
+
+          expect(page).to have_content("Not authorized")
+          expect(page).to have_content("Sorry, you can't perform this action as some of your authorization data doesn't match.")
+          expect(page).to have_content("Participation is restricted to participants with any of the following postal codes: 1234, 4567.")
+          expect(page).to have_content("Participation is restricted to participants with the scope #{scope.name["en"]}.")
+          expect(page).to have_content("Scope value (#{other_scope.name["en"]}) isn't valid.")
+        end
       end
     end
 

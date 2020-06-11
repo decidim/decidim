@@ -115,6 +115,15 @@ module Decidim
           end
         end
       end
+
+      describe "scopes" do
+        let(:type) { :scope }
+
+        it "is supported" do
+          expect(form).to receive(:scopes_picker_field).with(:test)
+          render_input
+        end
+      end
     end
   end
 end

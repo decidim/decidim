@@ -182,7 +182,7 @@ module Decidim
           end
 
           context "when custom action authorizer options are present and match the authorization" do
-            let(:options) { { allowed_postal_codes: %w(1234 4567) } }
+            let(:options) { { allowed_postal_codes: "1234 4567" } }
 
             it "returns ok" do
               expect(response).to be_ok
@@ -196,7 +196,7 @@ module Decidim
           end
 
           context "when custom action authorizer options are present and don't match the authorization" do
-            let(:options) { { allowed_postal_codes: %w(2345 4567) } }
+            let(:options) { { allowed_postal_codes: "2345,4567" } }
 
             it "returns an authorization status collection including unauthorized" do
               expect(response.statuses.count).to eq(1)
