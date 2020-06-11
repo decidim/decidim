@@ -35,6 +35,7 @@ it:
         confirm_destroy: Sei sicuro di voler eliminare questo %{name}?
         destroy: Cancella
         edit: Modifica
+        import_csv: Importa da file CSV
         new: Nuovo %{name}
         preview: Anteprima
         timeline_entries: Evoluzione del progetto
@@ -42,6 +43,14 @@ it:
       admin:
         exports:
           results: Risultati
+        import_results:
+          new:
+            import: Importa
+            link: collegamento
+            title: Importa risultati da CSV
+        imports:
+          create:
+            success: L'importazione del file è iniziata. Riceverai un'email nei prossimi minuti con l'esito
         models:
           result:
             name: Risultato
@@ -111,6 +120,10 @@ it:
         value_types:
           parent_presenter:
             not_found: 'Il genitore non è stato trovato sul database (ID: %{id})'
+      import_mailer:
+        import:
+          errors: Errori
+          row_number: Riga
       last_activity:
         new_result_at_html: "<span>Nuovo risultato a %{link}</span>"
       models:
