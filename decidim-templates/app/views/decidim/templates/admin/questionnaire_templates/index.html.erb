@@ -24,8 +24,8 @@
           <% @templates.each do |template| %>
             <tr data-questionnaire_template-id="<%= template.id %>">
               <td><%= link_to translated_attribute(template.name), edit_questionnaire_template_path(template) %></td>
-              <td><%= link_to translated_attribute(template.templatable&.title), edit_questionnaire_templates_questionnaire_path(template) %></td>
-              <td><%= template.templatable&.questions&.count.to_i %></td>
+              <td><%= link_to translated_attribute(template.templatable.title), edit_questionnaire_path(template) %></td>
+              <td><%= template.templatable.questions.count.to_i %></td>
               <td><%= l template.created_at, format: :long %></td>
               <td class="table-list__actions">
                 <% if allowed_to?(:update, :template, questionnaire_template: template) %>
@@ -37,7 +37,7 @@
                 <% end %>
 
                 <% if allowed_to?(:preview, :template, questionnaire_template: template) %>
-                  <%= icon_link_to "eye", decidim.questionnaire_template_preview_path(template), t("actions.preview", scope: "decidim.admin"), target: :blank %>
+                  <%= icon_link_to "eye", preview_questionnaire_template_path(template), t("actions.preview", scope: "decidim.admin"), target: :blank %>
                 <% end %>
 
                 <% if allowed_to?(:destroy, :template, questionnaire_template: template) %>

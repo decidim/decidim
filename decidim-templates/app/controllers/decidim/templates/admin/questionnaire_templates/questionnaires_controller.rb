@@ -15,7 +15,7 @@ module Decidim
           end
 
           def update_url
-            questionnaire_templates_questionnaire_path(template_id: template.id)
+            questionnaire_path(template)
           end
 
           def after_update_url

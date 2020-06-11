@@ -11,12 +11,13 @@ module Decidim
 
       routes do
         # Add admin engine routes here
-        %w(questionnaire).each do |model_name|
-          resources :"#{model_name}_templates"
-        end
+        resources :questionnaire_templates do
+          member do
+            post :copy
+            get :preview
 
-        namespace :questionnaire_templates do
-          resources :questionnaires
+            resource :questionnaire, module: "questionnaire_templates"
+          end
         end
 
         root to: "templates#index"

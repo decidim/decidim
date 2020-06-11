@@ -17,6 +17,8 @@ en:
         destroy:
           error: There was a problem deleting this template.
           success: Template deleted successfully
+        update:
+          success: Template updated successfully
     templates:
       admin:
         questionnaire_templates:
