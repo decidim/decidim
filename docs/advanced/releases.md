@@ -43,7 +43,6 @@ Mark `develop` as the reference to the next release:
   ```
 
 1. Push the changes `git add . && git commit -m "Bump develop to next release version" && git push origin develop`
-1. Create a tag pointing to the beginning of the next release `git tag develop-x.y.z.dev && git push origin develop-x.y.z.dev`.
 
 ## Release Candidates
 
