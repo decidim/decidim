@@ -33,7 +33,10 @@ edit_link(
     <div class="card extra">
       <div class="card__content">
         <div class="extra__date">
-          <%= l meeting.start_time, format: "%d" %> <span class="extra__month"><%= l meeting.start_time, format: "%B" %></span>
+          <%= l meeting.start_time, format: "%d" %>
+          <span class="extra__month"><%= l meeting.start_time, format: "%B" %>
+            <%= l(meeting.start_time, format: "%Y") if meeting.start_time.year != Date.current.year %>
+          </span>
         </div>
         <div class="extra__time">
           <%= meeting.start_time.strftime("%H:%M") %> - <%= meeting.end_time.strftime("%H:%M") %>

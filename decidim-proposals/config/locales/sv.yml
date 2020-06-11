@@ -87,9 +87,7 @@ sv:
         state_eq:
           label: Status
           values:
-            accepted: Antagna
             evaluating: Utvärderas
-            rejected: Avvisade
             withdrawn: Tillbakadragna
         state_null:
           label: Status
@@ -123,8 +121,8 @@ sv:
             new_proposal_body_template_help: Du kan ange den förifyllda texten för nya förslag
             new_proposal_help_text: Hjälptext om nya förslag
             official_proposals_enabled: Officiella förslag aktiverade
-            participatory_texts_disabled_help: Det går inte att ändra denna inställning om det finns befintliga förslag. Skapa en ny `Förslagskomponent` om du vill aktivera funktionen, eller kasta alla importerade förslag under menyn `Deltagartexter` om du vill avaktivera den.
             participatory_texts_enabled: Deltagartexter är aktiverade
+            participatory_texts_enabled_readonly: Det går inte att ändra denna inställning om det finns befintliga förslag. Skapa en ny `Förslagskomponent` om du vill aktivera funktionen, eller kasta alla importerade förslag under menyn `Deltagartexter` om du vill avaktivera den.
             proposal_answering_enabled: Aktiverat svar på förslag
             proposal_edit_before_minutes: Förslag kan redigeras av författare inom så här många minuter
             proposal_length: Maximal längd på förslagets innehåll
@@ -617,14 +615,11 @@ sv:
             one: och %{count} mer person
             other: och %{count} fler personer
           info-message: Detta är ett <strong>gemensamt utkast</strong> till ett förslag. Det innebär att du kan hjälpa deras författare att forma förslaget med hjälp av kommentarsektionen nedan eller själv förbättra det genom att be om att få redigera det. När författarna ger dig tillgång, kan du göra ändringar i detta utkast.
-          of_versions: "(av %{number})"
           publish: Publicera
           publish_info: Publicera den här versionen av utkastet eller
           published_proposal: publicerat förslag
           request_access: Begär tillgång
           requested_access: Tillgång har begärts
-          see_other_versions: visa andra versioner
-          version: Version %{number}
           version_history: visa versionshistoriken för förslaget
           withdraw: dra tillbaka utkastet
         states:
@@ -638,7 +633,7 @@ sv:
           back: Tillbaka
           info: Du skapar ett <strong>gemensamt utkast</strong>.
         wizard_steps:
-          see_steps: se steg
+          see_steps: visa steg
           step_1: Skapa ditt gemensamma utkast
           step_2: Jämför med gemensamma utkast
           step_3: Färdigställ ditt gemensamma utkast
@@ -846,20 +841,12 @@ sv:
         error: Det gick inte att spara det gemensamma utkastet.
         success: Utkastet till förslag har uppdaterats.
       versions:
-        changes_at_title: Ändringar i "%{title}"
+        collaborative_drafts:
+          back_to_resource: Gå tillbaka till gemensamt utkast
         index:
           title: Versioner
-        stats:
-          back_to_collaborative_draft: Gå tillbaka till gemensamt utkast
-          back_to_proposal: Gå tillbaka till förslaget
-          number_of_versions: Versioner
-          show_all_versions: Visa alla versioner
-          version_author: Versionsförfattare
-          version_created_at: Version skapad
-          version_number: Version nummer
-          version_number_out_of_total: "%{current_version} av %{total_count}"
-        version:
-          version_index: Version %{index}
+        proposals:
+          back_to_resource: Gå tillbaka till förslaget
       withdraw:
         errors:
           has_supports: Detta förslag kan inte dras tillbaka eftersom det redan har stöd.

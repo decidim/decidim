@@ -30,10 +30,12 @@ eu:
             statement: adierazpena
           edit:
             save: Save
-            title: Izenburua
           form:
             add_question: Galdera gehitu
             already_answered_warning: Galdetegia dagoeneko erantzun dio erabiltzaile batzuek, beraz, ezin dituzu bere galderak aldatu.
+          matrix_row:
+            remove: Kendu
+            statement: adierazpena
           question:
             add_answer_option: Gehitu erantzun aukera
             any: Edozein
@@ -65,7 +67,6 @@ eu:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Hasi saioa zure kontuarekin</a> edo <a href="%{sign_up_link}">saioa hasi</a> galdetegiari erantzuteko.
             title: Erantzun galdetegia
-          are_you_sure: Ekintza hau ezin da desegin eta ezin izango dituzu zure erantzunak editatu. Ziur zaude?
           questionnaire_answered:
             body: Galdeketa honi erantzun dio.
             title: Dagoeneko erantzun
@@ -75,8 +76,11 @@ eu:
           questionnaire_for_private_users:
             body: Galdetegia erabiltzaile pribatuentzat soilik dago erabilgarri
             title: Galdeketa itxia
-          submit: Bidali
           tos_agreement: Zerbitzu-baldintzak onartzen dituzunean parte hartuz
+      step_navigation:
+        show:
+          are_you_sure: Ekintza hau ezin da desegin eta ezin izango dituzu zure erantzunak editatu. Ziur zaude?
+          submit: Bidali
       user_answers_serializer:
         created_at: Erantzuna
         id: Erantzun IDa

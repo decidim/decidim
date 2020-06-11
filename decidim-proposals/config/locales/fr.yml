@@ -80,9 +80,7 @@ fr:
         state_eq:
           label: État
           values:
-            accepted: Retenue
             evaluating: En cours d'évaluation
-            rejected: Non retenue
             withdrawn: Retirée
         state_null:
           label: État
@@ -111,8 +109,8 @@ fr:
             minimum_votes_per_user: Nombre minimum de votes par utilisateur
             new_proposal_help_text: Texte d'aide à la création d'une nouvelle proposition
             official_proposals_enabled: Autoriser la création de propositions officielles
-            participatory_texts_disabled_help: Impossible d'interagir avec ce paramètre s'il y a des propositions existantes. Veuillez créer une nouvelle fonctionnalité `Propositions` si vous voulez activer cette fonctionnalité ou supprimer toutes les propositions importées dans 'Textes participatifs` si vous voulez la désactiver.
             participatory_texts_enabled: Textes participatifs activés
+            participatory_texts_enabled_readonly: Impossible d'interagir avec ce paramètre s'il y a des propositions existantes. Veuillez créer une nouvelle fonctionnalité `Propositions` si vous voulez activer cette fonctionnalité ou supprimer toutes les propositions importées dans 'Textes participatifs` si vous voulez la désactiver.
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             proposal_edit_before_minutes: Délai (en minutes) après lequel les auteurs ne peuvent plus modifier leurs propositions
             proposal_length: Nombre maximum de caractères du corps de la proposition
@@ -552,14 +550,11 @@ fr:
             one: et %{count} personne de plus
             other: et %{count} autres personnes
           info-message: Ceci est un <strong>projet collaboratif</strong> pour une proposition. Cela signifie que vous pouvez aider leurs auteurs à façonner la proposition en utilisant la section commentaire ci-dessous ou l'améliorer directement en demandant l'accès pour la modifier. Une fois que les auteurs vous accordent l'accès, vous pourrez apporter des modifications à ce brouillon.
-          of_versions: "(de %{number})"
           publish: Publier
           publish_info: Publiez cette version du brouillon ou
           published_proposal: proposition publiée
           request_access: Demande d'accès
           requested_access: Accès demandé
-          see_other_versions: voir d'autres versions
-          version: Version %{number}
           version_history: voir l'historique des versions de cette proposition
           withdraw: retirer le projet
         states:
@@ -765,20 +760,12 @@ fr:
         error: Des erreurs sont survenues lors de l'enregistrement du brouillon de la proposition.
         success: Le brouillon de proposition a été mis à jour.
       versions:
-        changes_at_title: Changements à "%{title}"
+        collaborative_drafts:
+          back_to_resource: Revenir au brouillon collaboratif
         index:
           title: Versions
-        stats:
-          back_to_collaborative_draft: Revenir au brouillon collaboratif
-          back_to_proposal: Retourner à la proposition
-          number_of_versions: Versions
-          show_all_versions: Afficher toutes les versions
-          version_author: Auteur de la version
-          version_created_at: Version créée à
-          version_number: Numéro de version
-          version_number_out_of_total: "%{current_version} sur %{total_count}"
-        version:
-          version_index: Version %{index}
+        proposals:
+          back_to_resource: Retourner à la proposition
       withdraw:
         errors:
           has_supports: Cette proposition ne peut pas être retirée car elle dispose déjà de supports.

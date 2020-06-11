@@ -23,9 +23,7 @@ is-IS:
             'false': Tillögur
         state_eq:
           values:
-            accepted: Samþykkt
             evaluating: Mat
-            rejected: Hafnað
             withdrawn: Aftakað
         state_null:
           values:

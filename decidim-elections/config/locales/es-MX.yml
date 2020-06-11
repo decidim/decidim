@@ -1,0 +1,35 @@
+es-MX:
+  activemodel:
+    attributes:
+      election:
+        description: Descripción
+        end_time: La votación termina en
+        start_time: La votación comienza a las
+        subtitle: Subtítulo
+        title: Título
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Elección
+        other: Elecciones
+  decidim:
+    components:
+      elections:
+        name: Elecciones
+        settings:
+          global:
+            announcement: Aviso
+          step:
+            announcement: Aviso
+    elections:
+      actions:
+        confirm_destroy: '¿Seguro que quieres eliminar?'
+        destroy: Eliminar
+        edit: Modificar
+        new: Nuevo %{name}
+        preview: Vista previa
+        title: Acciones
+      admin:
+        elections:
+          create:
+            invalid: Se ha producido un error al guardar

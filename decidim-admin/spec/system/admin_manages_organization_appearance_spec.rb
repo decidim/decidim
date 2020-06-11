@@ -31,6 +31,10 @@ describe "Admin manages organization", type: :system do
       click_button "Update"
 
       expect(page).to have_content("updated successfully")
+
+      within "#minimap" do
+        expect(page.all("img").count).to eq(4)
+      end
     end
   end
 end

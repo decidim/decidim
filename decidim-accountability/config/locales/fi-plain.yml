@@ -151,30 +151,16 @@ fi-pl:
         show:
           stats:
             attendees: Osallistujat
-            back_to_result: Palaa tulokseen
+            back_to_resource: Palaa tulokseen
             comments: Kommentit
             contributions: Osallistumiset
             last_edited_by: Viimeksi muokannut
             last_updated_at: Päivitetty viimeksi
             meetings: Tapaamiset
-            number_of_versions: Versiot
             proposals: Ehdotukset
-            show_all_versions: Näytä kaikki versiot
-            version_author: Versio luoja
-            version_created_at: Version luontihetki
-            version_number: Version numero
-            version_number_out_of_total: "%{current_version} / %{total_count}"
             votes: Kannatukset
         timeline:
           title: Projektin kehitys
-      versions:
-        index:
-          changes_at_title: Muutokset kohteessa "%{title}"
-          title: Versiot
-        show:
-          changes_at_title: Muutokset kohteessa "%{title}"
-        version:
-          version_index: Versio %{index}
     components:
       accountability:
         name: Vastuullisuus

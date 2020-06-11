@@ -32,10 +32,12 @@ ar:
             statement: بيان
           edit:
             save: حفظ
-            title: عنوان
           form:
             add_question: أضف سؤال
             already_answered_warning: تمت الإجابة على النموذج من قبل بعض المستخدمين حتى لا تتمكن من تعديل أسئلته.
+          matrix_row:
+            remove: إزالة
+            statement: بيان
           question:
             add_answer_option: إضافة خيار الإجابة
             any: أي
@@ -67,7 +69,6 @@ ar:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">قم بتسجيل الدخول بحسابك</a> أو <a href="%{sign_up_link}">اشترك</a> للإجابة على النموذج
             title: أجب عن النموذج
-          are_you_sure: لا يمكن التراجع عن هذا الإجراء ولن تتمكن من تعديل إجاباتك. هل أنت واثق؟
           questionnaire_answered:
             body: لقد أجبت بالفعل على هذا النموذج.
             title: تمت الاجابة مسبقا
@@ -77,8 +78,11 @@ ar:
           questionnaire_for_private_users:
             body: النموذج متاح فقط للمستخدمين من القطاع الخاص
             title: شكل مغلق
-          submit: خضع
           tos_agreement: من خلال المشاركة ، فإنك تقبل شروط الخدمة
+      step_navigation:
+        show:
+          are_you_sure: لا يمكن التراجع عن هذا الإجراء ولن تتمكن من تعديل إجاباتك. هل أنت واثق؟
+          submit: خضع
       user_answers_serializer:
         created_at: أجاب على
         id: معرف الإجابة

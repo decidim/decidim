@@ -36,6 +36,7 @@ en:
         confirm_destroy: Are you sure you want to delete this %{name}?
         destroy: Delete
         edit: Edit
+        import_csv: Import CSV
         new: New %{name}
         preview: Preview
         timeline_entries: Project evolution
@@ -43,6 +44,15 @@ en:
       admin:
         exports:
           results: Results
+        import_results:
+          new:
+            import: Import
+            info: "<p>We recommend that you follow these steps:</p><ol><li>Create the Statuses for the Results that you want to add (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Create at least one Result manually through this Admin panel (<a href='%{link_new_result}' target='_blank'>link</a>) before using Import, for having a better understanding of the format and what you'll need to fill out.</li><li>Download the Export with CSV format (%{link_export_csv})</li><li>Make the changes locally. You can only change the following columns of the CSV:</li></ol><ul><li><b>category/id:</b> ID for the Category</li><li><b>scope/id:</b> ID for the Scope</li><li><b>parent/id:</b> ID of the parent (for related Results). Optional</li><li><b>title/I18N:</b> Title on X language</li><li><b>description/I18N:</b> Description on X language</li><li><b>start_date:</b> date when the result starts execution (format YYYY-MM-DD)</li><li><b>end_date:</b> date when the result ends execution (format YYYY-MM-DD)</li><li><b>status/id:</b> ID of the Status for this result</li><li><b>progress:</b> Percentage (from 0 to 100) of the execution</li><li><b>proposals_ids:</b> internal ID of the related proposals (separated with a comma). It gets automatically converted to <span class='attribute-name'>proposal_url</span></li></ul>"
+            link: link
+            title: Import results from CSV
+        imports:
+          create:
+            success: The file has begun importing. You will receive an email in the next few minutes with the result of the import
         models:
           result:
             name: Result
@@ -112,6 +122,13 @@ en:
         value_types:
           parent_presenter:
             not_found: 'The parent was not found on the database (ID: %{id})'
+      import_mailer:
+        import:
+          errors: Errors
+          errors_present: There was a problem importing results
+          row_number: Row
+          subject: Successful import of results
+          success: Successful import of results. You can review the results in the administration interface.
       last_activity:
         new_result_at_html: "<span>New result at %{link}</span>"
       models:
@@ -152,30 +169,16 @@ en:
         show:
           stats:
             attendees: Attendees
-            back_to_result: Go back to result
+            back_to_resource: Go back to result
             comments: Comments
             contributions: Contributions
             last_edited_by: Last edited by
             last_updated_at: Last updated at
             meetings: Meetings
-            number_of_versions: Versions
             proposals: Proposals
-            show_all_versions: Show all versions
-            version_author: Version author
-            version_created_at: Version created at
-            version_number: Version number
-            version_number_out_of_total: "%{current_version} out of %{total_count}"
             votes: Supports
         timeline:
           title: Project evolution
-      versions:
-        index:
-          changes_at_title: Changes at "%{title}"
-          title: Versions
-        show:
-          changes_at_title: Changes at "%{title}"
-        version:
-          version_index: Version %{index}
     components:
       accountability:
         name: Accountability

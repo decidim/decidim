@@ -21,12 +21,12 @@
         <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { class: "form new_initiative_form" }) do |f| %>
           <%= f.hidden_field :type_id %>
           <div class=section>
-            <div class="field">
-              <label for="type_description">
-                <%= t ".initiative_type" %>
+            <% unless single_initiative_type? %>
+              <div class="field">
+                <label for="type_description"><%= t ".initiative_type" %></label>
                 <%= text_field_tag :type_description, strip_tags(translated_attribute(initiative_type.title)), readonly: true %>
-              </label>
-            </div>
+              </div>
+            <% end %>
 
             <div class="field">
               <%= f.text_field :title, autofocus: true, required: true %>
@@ -50,8 +50,8 @@
             <% else %>
               <div class="field">
                 <%= f.select :scope_id,
-                            scopes.map { |scope| [translated_attribute(scope.scope_name), scope&.scope&.id]},
-                            prompt: t(".select_scope") %>
+                             scopes.map { |scope| [translated_attribute(scope.scope_name), scope&.scope&.id] },
+                             prompt: t(".select_scope") %>
               </div>
             <% end %>
 
@@ -61,13 +61,40 @@
               </div>
             <% end %>
 
+            <% if initiative_type.area_enabled? %>
+              <div class="field">
+                <%= f.areas_select :area_id, areas_for_select(current_organization), prompt: t(".select_area") %>
+              </div>
+            <% end %>
+
             <% if Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
               <div class="field">
                 <%= f.select :decidim_user_group_id,
-                             Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.map{ |g| [g.name, g.id] },
+                             Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.map { |g| [g.name, g.id] },
                              prompt: current_user.name %>
               </div>
             <% end %>
+
+            <fieldset>
+              <legend><%= t("attachment_legend", scope: "decidim.proposals.proposals.edit") %></legend>
+              <%= f.fields_for :attachment, @form.attachment do |nested_form| %>
+                <div class="field">
+                  <%= nested_form.text_field :title %>
+                </div>
+
+                <div class="field">
+                  <%= nested_form.upload :file, optional: false %>
+                </div>
+
+                <% if @form.errors[:attachment].present? %>
+                  <% @form.errors[:attachment].each do |message| %>
+                    <small class="form-error is-visible">
+                      <%= message %>
+                    </small>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </fieldset>
           </div>
           <div class="actions">
             <%= f.submit t(".continue"), class: "button expanded", data: { disable_with: true } %>

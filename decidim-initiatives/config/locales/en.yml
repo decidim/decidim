@@ -27,6 +27,8 @@ en:
       initiatives_committee_member:
         user: Committee member
       initiatives_type:
+        area_enabled: Enable authors to choose the area for their initiative
+        attachments_enabled: Enable attachments
         banner_image: Banner image
         collect_user_extra_fields: Collect participant personal data on signature
         custom_signature_end_date_enabled: Enable authors to choose the end of signature collection period
@@ -48,6 +50,14 @@ en:
         address: Address
         id_document: ID document
         name: Complete name
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: File is invalid
+              needs_to_be_reattached: Needs to be reattached
+              title: Title shouldn't be empty
   activerecord:
     models:
       decidim/initiative:
@@ -64,14 +74,20 @@ en:
       actions:
         new_initiative_type: New initiative type
       filters:
+        decidim_area_id_eq:
+          label: Area
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Search %{collection} by title, description, ID or author name.
         state_eq:
           values:
+            accepted: Enough signatures
             created: Created
             discarded: Discarded
             published: Published
+            rejected: Not enough signatures
             validating: Technical validation
+        type_id_eq:
+          label: Type
       menu:
         initiatives: Initiatives
         initiatives_types: Initiative types
@@ -80,6 +96,7 @@ en:
           fields:
             created_at: Created at
             id: ID
+            published_at: Published at
             state: Status
             supports_count: Signatures
             title: Initiatives
@@ -134,6 +151,11 @@ en:
             email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
             email_subject: New milestone completed!
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
+        support_threshold_reached:
+          email_intro: The initiative %{resource_title} has reached the support threshold
+          email_outro: You have received this notification because you are an admin of the platform.
+          email_subject: Support threshold reached
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has reached the support threshold
     gamification:
       badges:
         initiatives:
@@ -178,6 +200,8 @@ en:
         content_blocks:
           highlighted_initiatives:
             max_results: Maximum amount of elements to show
+        exports:
+          initiatives: Initiatives
         initiatives:
           edit:
             accept: Accept initiative
@@ -195,6 +219,11 @@ en:
             actions_title: Action
             preview: Preview
             print: Print
+          initiative_attachments:
+            documents: Documents
+            edit: Edit
+            new: New
+            photos: Photos
           show:
             print: Print
           update:
@@ -246,12 +275,26 @@ en:
           unpublish: "%{user_name} discarded the %{resource_name} initiative"
           update: "%{user_name} updated the %{resource_name} initiative"
       admin_states:
-        accepted: Accepted
+        accepted: Enough signatures
         created: Created
         discarded: Discarded
         published: Published
-        rejected: Rejected
+        rejected: Not enough signatures
         validating: Technical validation
+      application_helper:
+        filter_area_values:
+          all: All
+        filter_scope_values:
+          all: All
+        filter_state_values:
+          accepted: Enough signatures
+          all: All
+          answered: Answered
+          closed: Closed
+          open: Open
+          rejected: Not enough signatures
+        filter_type_values:
+          all: All
       committee_requests:
         new:
           continue: Continue
@@ -268,6 +311,7 @@ en:
           fill_data_help: "<ul> <li>Review the content of your initiative. Is your title easy to understand? Is the objective of your initiative clear?</li> <li>You have to choose the type of signature. In-person, online or a combination of both</li> <li>Which is the geographic scope of the initiative? City, district?</li> </ul>"
           initiative_type: Initiative type
           more_information: "(More information)"
+          select_area: Select an area
           select_scope: Select a scope
         finish:
           back: Back
@@ -361,14 +405,13 @@ en:
             other: "%{count} initiatives"
         filters:
           any: Any
+          area: Area
           author: Author
-          closed: Closed
           myself: My initiatives
-          open: Open
+          scope: Scope
           search: Search
           state: Status
           type: Type
-          type_prompt: Select a type
         filters_small_view:
           close_modal: Close window
           filter: Filter
@@ -387,6 +430,7 @@ en:
           most_voted: Most signed
           random: Random
           recent: Most recent
+          recently_published: Most recently published
         result:
           answer_title:
             accepted: This proposal has been accepted because
@@ -399,10 +443,7 @@ en:
         show:
           any_vote_method: This citizen initiative collects both online and in-person signatures.
           follow_description: Receive a notification when there are news in this initiative
-          of_versions: "(of %{number})"
           offline_method: This citizen initiative only collects in-person signatures.
-          see_other_versions: see other versions
-          version: Version %{number}
         signature_identities:
           select_identity: Select participant identifier
         signatures_count:
@@ -440,24 +481,21 @@ en:
           highlighted_initiatives:
             active_initiatives: Active initiatives
             see_all_initiatives: See all initiatives
+      show:
+        badge_name:
+          accepted: Enough signatures
+          created: Created
+          discarded: Discarded
+          published: Published
+          rejected: Not enough signatures
+          validating: Technical validation
       states:
         accepted: Accepted
         expired: Expired
       unavailable_scope: Unavailable scope
       versions:
-        index:
-          number_of_versions: Versions
-          title: Versions
         shared:
-          back_to_initiative: Go back to initiative
-          changes_at_title: Changes at "%{title}"
-        show:
-          show_all_versions: Show all versions
-          version_author: Version author
-          version_created_at: Version created at
-          version_number_out_of_total: "%{current_version} out of %{total_count}"
-        version:
-          version_index: Version %{index}
+          back_to_resource: Go back to initiative
     menu:
       initiatives: Initiatives
     resources:

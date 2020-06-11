@@ -243,7 +243,7 @@ fi:
           create: Luo
           title: Uusi ilmoittautumistyyppi
         update:
-          error: Tämän konferenssin ilmoittautumistyyppin päivityksessä tapahtui virhe.
+          error: Tämän konferenssin ilmoittautumistyyppin päivitys epäonnistui.
           success: Konferenssin ilmoittautumistyypin päivitys onnistui.
       titles:
         conferences: Konferenssit
@@ -462,6 +462,9 @@ fi:
             active_conferences: Aktiiviset konferenssit
             see_all_conferences: Katso kaikki konferenssit
       photo:
+        image:
+          attributes:
+            alt: Kuvan vaihtoehtoisteksti
         show:
           close_modal: Sulje ikkuna
           photo: Kuva
@@ -525,6 +528,11 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat "%{resource_title}" -konferenssia. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: '"%{resource_title}" -konferenssin ilmoittautumiset on avattu.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> -konferenssin ilmoittautumiset on avattu.
+        role_assigned:
+          email_intro: Sinulle on myönnetty rooli %{role} konferenssissa "%{resource_title}".
+          email_outro: Tämä viesti on lähetetty sinulle, koska roolisi on %{role} konferenssissa "%{resource_title}".
+          email_subject: Sinulle on myönnetty rooli %{role} kohteessa "%{resource_title}".
+          notification_title: Sinulle on myönnetty rooli %{role} konferenssissa <a href="%{resource_url}">%{resource_title}</a>.
         upcoming_conference:
           email_intro: 'Konferenssi "%{resource_title}" järjestetään kahden päivän päästä. Voit lukea kuvauksen sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat konferenssia "%{resource_title}". Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.

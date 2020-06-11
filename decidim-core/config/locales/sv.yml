@@ -219,9 +219,6 @@ sv:
       update_draft:
         error: Det gick inte att uppdatera utkastet till ändringsförslag.
         success: Utkastet till ändringsförslag har uppdaterats.
-      visibility_options:
-        all: Ändringsförslag är synliga för alla
-        participants: Ändringsförslag är endast synliga för författarna
       withdraw:
         error: Det gick inte att dra tillbaka ändringsförslaget
         success: Ändringsförslaget har dragits tillbaka
@@ -317,6 +314,15 @@ sv:
       see_less: "(se mindre)"
       see_more: "(se mer)"
     components:
+      component_order_selector:
+        no_content: Vi kunde inte hitta något innehåll med dessa kriterier
+        order:
+          all_types: Alla typer
+          collaborative_draft: Gemensamt utkast
+          meeting: Möte
+          proposal: Förslag
+          question: Fråga
+        title: 'Visa:'
       dummy:
         actions:
           bar: Bar
@@ -748,7 +754,7 @@ sv:
     help:
       main_topic:
         default_page:
-          content: "<p>I %{organization} kan du delta och besluta om olika ämnen genom de områden som visas i toppmenyn: processer, sammankomster, initiativ och konsultationer.</p> <p>Inom varje område kan du delta på olika sätt: lämna förslag – enskilt eller med andra människor – delta i debatter, prioritera projekt att genomföra, delta i möten och andra åtgärder.</p>\n"
+          content: "<p>I %{organization} kan du delta och besluta om olika ämnen genom de områden som visas i toppmenyn: dialoger, grupper, initiativ och konsultationer.</p> <p>Inom varje område kan du delta på olika sätt: lämna förslag – enskilt eller med andra människor – delta i debatter, prioritera projekt att genomföra, delta i möten och andra åtgärder.</p>\n"
           title: Vad kan jag göra i %{organization}?
         description: Läs mer om %{organization}
         title: Allmän hjälp
@@ -916,7 +922,7 @@ sv:
         extended:
           debates: Debatter
           debates_explanation: Debattera och diskutera, dela dina åsikter och berika de relevanta ämnena.
-          how_to_participate: Hur deltar jag i en process?
+          how_to_participate: Hur deltar jag i en dialog?
           meetings: Möten
           meetings_explanation: Ta reda på var och när du kan delta i offentliga möten.
           more_info: Mer information
@@ -942,7 +948,7 @@ sv:
           meetings_count: Möten
           orders_count: Omröstningar
           pages_count: Sidor
-          processes_count: Processer
+          processes_count: Dialoger
           projects_count: Projekt
           proposals_accepted: Godkända förslag
           proposals_count: Förslag
@@ -960,8 +966,8 @@ sv:
         topics: Ämnen
       participatory_space:
         metrics:
-          headline: Mätvärden
-          link: Visa alla mätvärden
+          headline: Metrik
+          link: Visa alla metrik
       terms_and_conditions:
         accept:
           error: Det uppstod ett problem med att godkänna villkoren.
@@ -1101,8 +1107,6 @@ sv:
         close_window: Stäng fönster
         share: Dela
         share_link: Dela länk
-      version_author:
-        deleted: Raderad deltagare
     user_activity:
       index:
         no_activities_warning: Den här användaren har inte haft någon aktivitet än.
@@ -1116,6 +1120,9 @@ sv:
       update:
         error: Det gick inte att uppdatera dina intressen.
         success: Dina intressen har uppdaterats.
+    version_author:
+      show:
+        deleted: Raderad deltagare
     welcome_notification:
       default_body: <p>Hej {{name}}, välkommen och tack för att du gick med i {{organization}}!</p><ul><li>Om du vill få en snabb uppfattning om vad du kan göra här, ta en titt på <a href="{{help_url}}">hjälpavsnittet</a>.</li><li>När du har läst det får du ditt första märke. Här är en <a href="{{badges_url}}">lista över alla märken</a> som du kan få när du deltar i {{organization}}</li><li>Sist men inte minst, prata med andra och dela med dig av hur det är att vara engagerad i och delta i {{organization}}. Lämna förslag, ge kommentarer, debattera, fundera över hur man kan bidra till det gemensamma bästa, framför övertygande argument, lyssna och läs för att själv bli övertygad, uttryck dina idéer på ett konkret och direkt sätt, svara med tålamod eller kraft, försvara dina idéer och ha ett öppet sinne för samarbete och andra människors idéer.</li></ul>
       default_subject: Tack för att du gick med i {{organization}}!
@@ -1186,7 +1193,7 @@ sv:
       invite_collaborator:
         subject: Du har blivit inbjuden att samarbeta med %{organization}
       invite_private_user:
-        subject: Du har blivit inbjuden till en privat deltagandeprocess med %{organization}
+        subject: Du har blivit inbjuden till en privat dialog med %{organization}
       organization_admin_invitation_instructions:
         subject: Du har blivit inbjuden att hantera %{organization}
       password_change:
@@ -1378,11 +1385,14 @@ sv:
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      default: "%d %B %Y kl.%H:%M:%S"
       devise:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      long: "%B %d, %Y kl.%H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
+      short: "%d/%m/%Y kl.%H:%M"
       time_of_day: "%H:%M"
   versions:
     directions:
