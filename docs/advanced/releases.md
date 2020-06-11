@@ -1,6 +1,6 @@
 # Releasing new versions
 
-In order to release new version you need to be owner of all the gems at RubyGems, ask one of the owners to add you before releasing. (Try `gem owners decidim`).
+In order to release new version you need to be owner of all the gems at RubyGems, ask one of the owners to add you before releasing. (Try `gem owner decidim`).
 
 Remember to follow the Gitflow branching workflow.
 
