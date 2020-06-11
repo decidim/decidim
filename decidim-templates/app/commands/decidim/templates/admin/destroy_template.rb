@@ -28,7 +28,7 @@ module Decidim
 
         def destroy_template
           Decidim.traceability.perform_action!(
-            "delete",
+            :delete,
             template,
             current_user
           ) do
