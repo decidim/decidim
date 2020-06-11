@@ -104,7 +104,7 @@ describe "Action Authorization", type: :system do
         let(:other_scope) { create :scope, organization: organization }
         let!(:user_authorization) do
           create(:authorization, name: "dummy_authorization_handler", user: user, granted_at: 1.second.ago,
-                 metadata: { postal_code: "1234", scope_id: other_scope.id } )
+                                 metadata: { postal_code: "1234", scope_id: other_scope.id })
         end
 
         it "prompts user to check her authorization status" do
