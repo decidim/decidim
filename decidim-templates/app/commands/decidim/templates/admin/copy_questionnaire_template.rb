@@ -2,15 +2,15 @@
 
 module Decidim
   module Templates
-    # A command with all the business logic when duplicating a new questionnaire template
+    # A command with all the business logic when duplicating a questionnaire template
     module Admin
       class CopyQuestionnaireTemplate < Rectify::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.
-        # questionnaire_template - An questionnaire_template we want to duplicate
-        def initialize(questionnaire_template)
-          @questionnaire_template = questionnaire_template
+        # template - A template we want to duplicate
+        def initialize(template)
+          @template = template
         end
 
         # Executes the command. Broadcasts these events:
@@ -20,25 +20,30 @@ module Decidim
         #
         # Returns nothing.
         def call
-          QuestionnaireTemplate.transaction do
-            copy_questionnaire_template
-            copy_questionnaire_questions(@questionnaire_template.questionnaire, @copied_questionnaire_template.questionnaire)
+          Template.transaction do
+            copy_template
+            copy_questionnaire_questions(@template.templatable, @copied_template.templatable)
           end
 
-          broadcast(:ok, @copied_questionnaire_template)
+          broadcast(:ok, @copied_template)
         end
 
         private
 
         attr_reader :form
 
-        def copy_questionnaire_template
-          @copied_questionnaire_template = QuestionnaireTemplate.create!(
-            organization: @questionnaire_template.organization,
-            title: @questionnaire_template.title,
-            description: @questionnaire_template.description,
-            questionnaire: @questionnaire_template.questionnaire.dup
+        def copy_template
+          @copied_template = Template.create!(
+            organization: @template.organization,
+            name: @template.name
           )
+          @resource = Decidim::Forms::Questionnaire.create!(
+            @template.templatable.dup.attributes.merge(
+              questionnaire_for: @copied_template
+            )
+          )
+
+          @copied_template.update!(templatable: @resource)
         end
 
         def copy_questionnaire_questions(original_questionnaire, new_questionnaire)
