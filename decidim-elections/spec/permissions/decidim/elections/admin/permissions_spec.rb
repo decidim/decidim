@@ -28,22 +28,6 @@ describe Decidim::Elections::Admin::Permissions do
     end
   end
 
-  shared_examples "allowed when election has started" do
-    context "when election has started" do
-      let(:election) { create :election, :started, component: elections_component }
-
-      it { is_expected.to eq true }
-    end
-  end
-
-  shared_examples "allowed when election has finished" do
-    context "when election has started" do
-      let(:election) { create :election, :finished, component: elections_component }
-
-      it { is_expected.to eq true }
-    end
-  end
-
   context "when scope is not admin" do
     let(:action) do
       { scope: :foo, action: :bar, subject: :election }
@@ -84,7 +68,7 @@ describe Decidim::Elections::Admin::Permissions do
 
     it { is_expected.to eq true }
 
-    it_behaves_like "allowed when election has started"
+    it_behaves_like "not allowed when election has started"
   end
 
   describe "election publish" do
@@ -94,7 +78,7 @@ describe Decidim::Elections::Admin::Permissions do
 
     it { is_expected.to eq true }
 
-    it_behaves_like "allowed when election has started"
+    it_behaves_like "not allowed when election has started"
   end
 
   describe "election delete" do
@@ -115,7 +99,6 @@ describe Decidim::Elections::Admin::Permissions do
     it { is_expected.to eq true }
 
     it_behaves_like "not allowed when election has started"
-    it_behaves_like "allowed when election has finished"
   end
 
   describe "questions" do

@@ -20,7 +20,7 @@ module Decidim
       end
 
       def started?
-        start_time <= Time.current && published_at.present?
+        start_time <= Time.current
       end
 
       def finished?
