@@ -3,7 +3,7 @@
 module Decidim
   module Templates
     module Admin
-      # Creates an QuestionnaireTemplate.
+      # Creates a QuestionnaireTemplate.
       class CreateQuestionnaireTemplate < Rectify::Command
         # Initializes the command.
         #
@@ -19,7 +19,6 @@ module Decidim
             Template,
             @form.current_user,
             name: @form.name,
-            # description: @form.description,
             organization: @form.current_organization
           )
 
