@@ -5,6 +5,8 @@ module Decidim
     # This class contains helpers needed in order for component settings to
     # properly render.
     module SettingsHelper
+      include Decidim::ScopesHelper
+
       TYPES = {
         boolean: :check_box,
         integer: :number_field,

@@ -58,7 +58,7 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
   # The user scope
   #
   def scope
-    Decidim::Scope.find(scope_id) if scope_id
+    user.organization.scopes.find_by(id: scope_id) if scope_id
   end
 
   # If you need to store any of the defined attributes in the authorization you
@@ -95,7 +95,7 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
 
       status_code, data = *super
 
-      data[:extra_explanation] = []
+      extra_explanations = []
       if allowed_postal_codes.present?
         # Does not authorize users with different postal codes
         if status_code == :ok && !allowed_postal_codes.member?(authorization.metadata["postal_code"])
@@ -104,10 +104,10 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
         end
 
         # Adds an extra message for inform the user the additional restriction for this authorization
-        data[:extra_explanation] << { key: "extra_explanation.postal_codes",
-                                      params: { scope: "decidim.verifications.dummy_authorization",
-                                                count: allowed_postal_codes.count,
-                                                postal_codes: allowed_postal_codes.join(", ") } }
+        extra_explanations << { key: "extra_explanation.postal_codes",
+                                params: { scope: "decidim.verifications.dummy_authorization",
+                                          count: allowed_postal_codes.count,
+                                          postal_codes: allowed_postal_codes.join(", ") } }
       end
 
       if allowed_scope.present?
@@ -118,10 +118,12 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
         end
 
         # Adds an extra message for inform the user the additional restriction for this authorization
-        data[:extra_explanation] << { key: "extra_explanation.scope",
-                                      params: { scope: "decidim.verifications.dummy_authorization",
-                                                scope_name: allowed_scope.name[I18n.locale.to_s] } }
+        extra_explanations << { key: "extra_explanation.scope",
+                                params: { scope: "decidim.verifications.dummy_authorization",
+                                          scope_name: allowed_scope.name[I18n.locale.to_s] } }
       end
+
+      data[:extra_explanation] = extra_explanations if extra_explanations.any?
 
       [status_code, data]
     end

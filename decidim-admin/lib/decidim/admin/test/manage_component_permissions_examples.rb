@@ -31,7 +31,7 @@ shared_examples "Managing component permissions" do
       within "form.new_component_permissions" do
         within ".foo-permission" do
           check "Example authorization (Direct)"
-          fill_in "Postal code", with: "08002"
+          fill_in "Allowed postal codes", with: "08002"
         end
         find("*[type=submit]").click
       end
@@ -42,7 +42,7 @@ shared_examples "Managing component permissions" do
         include(
           "authorization_handlers" => {
             "dummy_authorization_handler" => {
-              "options" => { "postal_code" => "08002" }
+              "options" => { "allowed_postal_codes" => "08002" }
             }
           }
         )
@@ -61,7 +61,7 @@ shared_examples "Managing component permissions" do
       within "form.new_component_permissions" do
         within ".foo-permission" do
           check "Example authorization (Direct)"
-          fill_in "Postal code", with: "08002"
+          fill_in "Allowed postal codes", with: "08002"
         end
         find("*[type=submit]").click
       end
@@ -79,7 +79,7 @@ shared_examples "Managing component permissions" do
           "foo" => {
             "authorization_handlers" => {
               "dummy_authorization_handler" => {
-                "options" => { "postal_code" => "08002" }
+                "options" => { "allowed_postal_codes" => "08002" }
               }
             }
           }
@@ -114,7 +114,7 @@ shared_examples "Managing component permissions" do
           "foo" => {
             "authorization_handlers" => {
               "dummy_authorization_handler" => {
-                "options" => { "postal_code" => "08002" }
+                "options" => { "allowed_postal_codes" => "08002" }
               }
             }
           }
@@ -166,7 +166,7 @@ shared_examples "Managing component permissions" do
         include(
           "authorization_handlers" => {
             "dummy_authorization_handler" => {
-              "options" => { "postal_code" => "08002" }
+              "options" => { "allowed_postal_codes" => "08002" }
             },
             "another_dummy_authorization_handler" => {
               "options" => { "passport_number" => "AXXXXXXXX" }
@@ -217,7 +217,7 @@ shared_examples "Managing component permissions" do
         within "form.new_component_permissions" do
           within ".foo-permission" do
             check "Example authorization (Direct)"
-            fill_in "Postal code", with: "08002"
+            fill_in "Allowed postal codes", with: "08002"
           end
           find("*[type=submit]").click
         end
@@ -228,7 +228,7 @@ shared_examples "Managing component permissions" do
           include(
             "authorization_handlers" => {
               "dummy_authorization_handler" => {
-                "options" => { "postal_code" => "08002" }
+                "options" => { "allowed_postal_codes" => "08002" }
               }
             }
           )
@@ -244,7 +244,7 @@ shared_examples "Managing component permissions" do
             "foo" => {
               "authorization_handlers" => {
                 "dummy_authorization_handler" => {
-                  "options" => { "postal_code" => "08002" }
+                  "options" => { "allowed_postal_codes" => "08002" }
                 }
               }
             }
@@ -277,7 +277,7 @@ shared_examples "Managing component permissions" do
             "foo" => {
               "authorization_handlers" => {
                 "dummy_authorization_handler" => {
-                  "options" => { "postal_code" => "08002" }
+                  "options" => { "allowed_postal_codes" => "08002" }
                 }
               }
             }
@@ -327,7 +327,7 @@ shared_examples "Managing component permissions" do
           include(
             "authorization_handlers" => {
               "dummy_authorization_handler" => {
-                "options" => { "postal_code" => "08002" }
+                "options" => { "allowed_postal_codes" => "08002" }
               },
               "another_dummy_authorization_handler" => {
                 "options" => { "passport_number" => "AXXXXXXXX" }
@@ -345,7 +345,7 @@ shared_examples "Managing component permissions" do
             "foo" => {
               "authorization_handlers" => {
                 "dummy_authorization_handler" => {
-                  "options" => { "postal_code" => "08002" }
+                  "options" => { "allowed_postal_codes" => "08002" }
                 }
               }
             }
@@ -395,7 +395,7 @@ shared_examples "Managing component permissions" do
           include(
             "authorization_handlers" => {
               "dummy_authorization_handler" => {
-                "options" => { "postal_code" => "08002" }
+                "options" => { "allowed_postal_codes" => "08002" }
               },
               "another_dummy_authorization_handler" => {
                 "options" => { "passport_number" => "AXXXXXXXX" }
@@ -413,7 +413,7 @@ shared_examples "Managing component permissions" do
             "foo" => {
               "authorization_handlers" => {
                 "dummy_authorization_handler" => {
-                  "options" => { "postal_code" => "08002" }
+                  "options" => { "allowed_postal_codes" => "08002" }
                 }
               }
             }
