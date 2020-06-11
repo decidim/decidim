@@ -29,7 +29,9 @@ describe Decidim::BaseDiffRenderer, versioning: true do
   describe "#diff" do
     subject { diff_renderer.diff }
 
-    it { is_expected.to be_empty }
+    it "raises an error" do
+      expect { subject }.to raise_error(StandardError, "Not implemented")
+    end
 
     context "when an attribute_type is matched" do
       before { allow(diff_renderer).to receive(:attribute_types).and_return(title: :string) }

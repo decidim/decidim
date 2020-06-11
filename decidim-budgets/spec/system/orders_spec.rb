@@ -24,7 +24,7 @@ describe "Orders", type: :system do
       visit_component
 
       within "#project-#{project.id}-item" do
-        page.find(".budget--list__action").click
+        page.find(".budget-list__action").click
       end
 
       expect(page).to have_css("#loginModal", visible: true)
@@ -43,7 +43,7 @@ describe "Orders", type: :system do
         visit_component
 
         within "#project-#{project.id}-item" do
-          page.find(".budget--list__action").click
+          page.find(".budget-list__action").click
         end
 
         expect(page).to have_selector ".budget-list__data--added", count: 1
@@ -79,7 +79,7 @@ describe "Orders", type: :system do
         visit_component
 
         within "#project-#{project.id}-item" do
-          page.find(".budget--list__action").click
+          page.find(".budget-list__action").click
         end
 
         expect(page).to have_content("Authorization required")
@@ -96,7 +96,7 @@ describe "Orders", type: :system do
         expect(page).to have_content "ASSIGNED: €25,000,000"
 
         within "#project-#{project.id}-item" do
-          page.find(".budget--list__action").click
+          page.find(".budget-list__action").click
         end
 
         expect(page).to have_content "ASSIGNED: €0"
@@ -129,7 +129,7 @@ describe "Orders", type: :system do
           visit_component
 
           within "#project-#{expensive_project.id}-item" do
-            page.find(".budget--list__action").click
+            page.find(".budget-list__action").click
           end
 
           expect(page).to have_css("#budget-excess", visible: true)
@@ -143,7 +143,7 @@ describe "Orders", type: :system do
           visit_component
 
           within "#project-#{other_project.id}-item" do
-            page.find(".budget--list__action").click
+            page.find(".budget-list__action").click
           end
 
           expect(page).to have_selector ".budget-list__data--added", count: 2
@@ -162,6 +162,92 @@ describe "Orders", type: :system do
 
           within "#order-progress .budget-summary__progressbox" do
             expect(page).to have_no_selector("button.small")
+          end
+        end
+      end
+
+      context "when the voting rule is set to threshold percent" do
+        before do
+          visit_component
+        end
+
+        it "shows the rule description" do
+          within ".card.budget-summary" do
+            expect(page).to have_content("Assign at least €70,000,000 to the projects you want and vote")
+          end
+        end
+
+        context "when the order total budget doesn't exceed the threshold" do
+          it "cannot vote" do
+            within "#order-progress" do
+              expect(page).to have_button("Vote", disabled: true)
+            end
+          end
+        end
+
+        context "when the order total budget exceeds the threshold" do
+          let(:projects) { create_list(:project, 2, component: component, budget: 36_000_000) }
+          let(:order_percent) { create(:order, user: user, component: component) }
+
+          before do
+            order.destroy!
+            order_percent.projects << projects
+            order_percent.save!
+          end
+
+          it "can vote" do
+            visit_component
+            within "#order-progress" do
+              expect(page).to have_button("Vote", disabled: false)
+            end
+          end
+        end
+      end
+
+      context "when the voting rule is set to minimum projects" do
+        before do
+          order.destroy!
+        end
+
+        let(:component) do
+          create(:budget_component,
+                 :with_total_budget_and_minimum_budget_projects,
+                 manifest: manifest,
+                 participatory_space: participatory_process)
+        end
+
+        let!(:order_min) { create(:order, user: user, component: component) }
+
+        it "shows the rule description" do
+          visit_component
+
+          within ".card.budget-summary" do
+            expect(page).to have_content("Select at least 3 projects you want and vote")
+          end
+        end
+
+        context "when the order total budget doesn't reach the minimum" do
+          it "cannot vote" do
+            visit_component
+
+            within "#order-progress" do
+              expect(page).to have_button("Vote", disabled: true)
+            end
+          end
+        end
+
+        context "when the order total budget exceeds the minimum" do
+          before do
+            order_min.projects = projects
+            order_min.save!
+          end
+
+          it "can vote" do
+            visit_component
+
+            within "#order-progress" do
+              expect(page).to have_button("Vote", disabled: false)
+            end
           end
         end
       end
@@ -216,8 +302,8 @@ describe "Orders", type: :system do
       it "cannot create new orders" do
         visit_component
 
-        expect(page).to have_selector("button.budget--list__action[disabled]", count: 3)
-        expect(page).to have_no_selector(".budget-summary")
+        expect(page).to have_selector("button.budget-list__action[disabled]", count: 3)
+        expect(page).to have_no_css(".budget-summary")
       end
     end
 

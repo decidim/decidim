@@ -48,6 +48,8 @@ de:
             title: Titel
       posts:
         show:
+          back: Zurück zur Liste
+          comments: Kommentare
           view: Aussicht
         sidebar_blog:
           comments: Bemerkungen
@@ -63,6 +65,8 @@ de:
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
+            endorsements_blocked: Unterstützung deaktiviert
+            endorsements_enabled: Unterstützung aktiviert
     events:
       blogs:
         post_created:

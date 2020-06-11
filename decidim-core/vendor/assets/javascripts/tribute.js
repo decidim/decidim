@@ -1,3 +1,7 @@
+/*
+  Modified file from the original tribute.js
+  Adding inside click event the conditional if the li element has no disabled-tribute-element class name. if true, then it must continue with normal behaviour.
+*/
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.Tribute = f()}})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 "use strict";
 
@@ -221,6 +225,8 @@ function () {
       var wrapper = this.range.getDocument().createElement('div'),
           ul = this.range.getDocument().createElement('ul');
       wrapper.className = 'tribute-container';
+      wrapper.setAttribute('aria-expanded','true');
+      ul.setAttribute('id','results');
       wrapper.appendChild(ul);
 
       if (this.menuContainer) {
@@ -307,7 +313,7 @@ function () {
 
         items.forEach(function (item, index) {
           var li = _this2.range.getDocument().createElement('li');
-
+          li.setAttribute('role', 'option');
           li.setAttribute('data-index', index);
           li.addEventListener('mousemove', function (e) {
             var _this2$_findLiTarget = _this2._findLiTarget(e.target),
@@ -617,8 +623,10 @@ function () {
           }
         }
 
-        tribute.selectItemAtIndex(li.getAttribute('data-index'), event);
-        tribute.hideMenu(); // TODO: should fire with externalTrigger and target is outside of menu
+        if (li.getElementsByClassName("disabled-tribute-element")[0]==undefined){
+          tribute.selectItemAtIndex(li.getAttribute('data-index'), event);
+          tribute.hideMenu(); // TODO: should fire with externalTrigger and target is outside of menu
+        }
       } else if (tribute.current.element && !tribute.current.externalTrigger) {
         tribute.current.externalTrigger = false;
         setTimeout(function () {

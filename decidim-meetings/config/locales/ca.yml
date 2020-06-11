@@ -368,6 +368,7 @@ ca:
           confirm: Confirmar
         show:
           attendees: Nombre d'assistents
+          back: Torna al llistat
           contributions: Nombre d'aportacions
           going: Inscrit
           join: Inscriu-te a la trobada

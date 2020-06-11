@@ -107,6 +107,12 @@ es:
             one: proyecto seleccionado
             other: proyectos seleccionados
           view: Ver
+        orders:
+          highest_cost: Mayor coste
+          label: Ordenar proyectos por
+          lowest_cost: Menor coste
+          most_voted: Más votados
+          random: Orden aleatorio
         project:
           add: Añadir
           count:

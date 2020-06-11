@@ -148,7 +148,19 @@ describe "Filter Proposals", :slow, type: :system do
         visit_component
 
         within "form.new_filter" do
-          expect(page).to have_no_content(/Scopes/i)
+          expect(page).to have_no_content(/Scope/i)
+        end
+      end
+
+      context "with subscopes" do
+        let!(:subscopes) { create_list :subscope, 5, parent: scope }
+
+        it "can be filtered by scope" do
+          visit_component
+
+          within "form.new_filter" do
+            expect(page).to have_content(/Scope/i)
+          end
         end
       end
     end

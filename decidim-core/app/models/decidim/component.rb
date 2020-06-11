@@ -60,6 +60,13 @@ module Decidim
       }
     end
 
+    # Public: The Form Class for this component.
+    #
+    # Returns a ComponentForm.
+    def form_class
+      manifest.component_form_class
+    end
+
     # Public: Returns the value of the registered primary stat.
     def primary_stat
       @primary_stat ||= manifest.stats.filter(primary: true).with_context([self]).map { |name, value| [name, value] }.first&.last

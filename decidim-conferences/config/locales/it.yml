@@ -72,10 +72,10 @@ it:
           error: Si è verificato un errore durante l'aggiunta di un altoparlante per questa conferenza.
           success: Speaker creato con successo per questa conferenza.
         destroy:
-          success: Altoparlante cancellato con successo per questa conferenza.
+          success: Speaker della Conferenza cancellato con successo.
         edit:
-          title: Aggiorna altoparlante per conferenze.
-          update: Aggiornare
+          title: Aggiorna lo speaker della conferenza.
+          update: Aggiorna
         index:
           conference_speakers_title: Oratori della conferenza
         new:
@@ -87,20 +87,20 @@ it:
       conference_user_roles:
         create:
           error: Si è verificato un errore durante l'aggiunta di un utente per questa conferenza.
-          success: Utente aggiunto correttamente a questa conferenza.
+          success: Amministratore della conferenza aggiunto con successo.
         destroy:
-          success: Utente rimosso con successo da questa conferenza.
+          success: Amministratore della conferenza rimosso con successo.
         edit:
-          title: Aggiorna utente della conferenza.
+          title: Aggiorna l'amministratore della conferenza.
           update: Aggiornare
         index:
-          conference_admins_title: utenti della conferenza
+          conference_admins_title: amministratori della conferenza
         new:
           create: Creare
-          title: Nuovo utente della conferenza.
+          title: Nuovo amministratore della conferenza.
         update:
-          error: Si è verificato un errore durante l'aggiornamento di un utente per questa conferenza.
-          success: Utente aggiornato correttamente per questa conferenza.
+          error: Si è verificato un problema durante l'aggiornamento di questo amministratore della conferenza.
+          success: Amministratore della conferenza aggiornato con successo.
       conferences:
         create:
           error: Si è verificato un errore durante la creazione di una nuova conferenza.
@@ -108,9 +108,9 @@ it:
         edit:
           update: Aggiornare
         exports:
-          registrations: iscrizioni
+          registrations: Iscrizioni
         form:
-          title: Informazione generale
+          title: Informazioni Generali
         index:
           not_published: Non pubblicato
           published: Pubblicato
@@ -142,29 +142,29 @@ it:
           error: Si è verificato un errore durante l'aggiornamento di questo link multimediale.
           success: Link multimediale aggiornato correttamente.
       menu:
-        conferences: conferenze
+        conferences: Conferenze
         conferences_submenu:
           attachment_collections: Cartelle
-          attachment_files: File
-          attachments: allegati
-          categories: categorie
-          components: componenti
+          attachment_files: Files
+          attachments: Allegati
+          categories: Categorie
+          components: Componenti
           conference_admins: Amministratori della conferenza
           conference_invites: Inviti
-          conference_speakers: Altoparlanti
+          conference_speakers: Speakers
           diploma: Certificato di partecipazione
           info: Informazioni
           media_links: Link multimediali
-          moderations: Moderations
-          partners: Partner
-          registration_types: Tipi di registrazione
-          registrations: iscrizioni
-          user_registrations: Registrazioni utente
+          moderations: Moderazioni
+          partners: Partners
+          registration_types: Tipi di iscrizione
+          registrations: Iscrizioni
+          user_registrations: Iscrizioni utenti
       models:
         conference:
           fields:
-            created_at: Creato a
-            promoted: Promossa
+            created_at: Creato il
+            promoted: Evidenziato
             published: Pubblicato
             title: Titolo
         conference_speaker:
@@ -172,30 +172,31 @@ it:
             affiliation: Affiliazione
             full_name: Nome e cognome
             position: Posizione
-          name: Presidente della Conferenza
+          name: Speaker della Conferenza
         conference_user_role:
           fields:
             email: E-mail
             name: Nome
             role: Ruolo
-          name: Utente della conferenza
+          name: Amministratore della conferenza
           roles:
             admin: Amministratore
             collaborator: Collaboratore
             moderator: Moderatore
+            valuator: Valutatore
         media_link:
           fields:
             date: Data
-            link: collegamento
+            link: Collegamento
             title: Titolo
           name: Link multimediale
         partner:
           fields:
-            link: collegamento
+            link: Collegamento
             logo: Logo
             name: Nome
-            partner_type: genere
-          name: Compagno
+            partner_type: Tipo
+          name: Partner
           types:
             collaborator: Collaboratore
             main_promotor: Promotore principale
@@ -203,16 +204,16 @@ it:
           fields:
             conference_meetings: Riunioni della conferenza
             price: Prezzo
-            registrations_count: Conta le registrazioni
+            registrations_count: Conteggio delle iscrizioni
             title: Titolo
             weight: Peso
-          name: Tipo di registrazione
+          name: Tipo di iscrizione
       partners:
         create:
           error: Si è verificato un errore durante l'aggiunta di un partner per questa conferenza.
           success: Partner aggiunto con successo a questa conferenza.
         destroy:
-          success: Il partner è stato rimosso correttamente da questa conferenza.
+          success: Partner rimosso correttamente da questa conferenza.
         edit:
           title: Aggiorna partner.
           update: Aggiornare
@@ -224,34 +225,34 @@ it:
           success: Partner aggiornato correttamente per questa conferenza.
       registration_type_publications:
         create:
-          error: Si è verificato un errore durante la pubblicazione di questo tipo di registrazione.
-          success: Tipo di registrazione pubblicato con successo.
+          error: Si è verificato un errore durante la pubblicazione di questo tipo di iscrizione.
+          success: Tipo di iscrizione pubblicato con successo.
         destroy:
-          error: Si è verificato un errore durante la pubblicazione di questo tipo di registrazione.
-          success: Tipo di registrazione non pubblicato correttamente.
+          error: Si è verificato un errore durante la cancellazione di questo tipo di iscrizione.
+          success: Tipo di iscrizione cancellato correttamente.
       registration_types:
         create:
-          error: Si è verificato un errore durante l'aggiunta di un tipo di registrazione per questa conferenza.
-          success: Tipo di registrazione aggiunto correttamente a questa conferenza.
+          error: Si è verificato un errore durante l'aggiunta di un tipo di iscrizione per questa conferenza.
+          success: Tipo di iscrizione aggiunto correttamente a questa conferenza.
         destroy:
-          success: Tipo di registrazione rimosso con successo da questa conferenza.
+          success: Tipo di iscrizione rimosso con successo da questa conferenza.
         edit:
-          title: Aggiorna il tipo di registrazione.
+          title: Aggiorna il tipo di iscrizione.
           update: Aggiornare
         new:
           create: Creare
-          title: Nuovo tipo di registrazione
+          title: Nuovo tipo di iscrizione
         update:
-          error: Si è verificato un errore durante l'aggiornamento di un tipo di registrazione per questa conferenza.
-          success: Tipo di registrazione aggiornato correttamente per questa conferenza.
+          error: Si è verificato un errore durante l'aggiornamento di un tipo di iscrizione per questa conferenza.
+          success: Tipo di iscrizione aggiornato correttamente in questa conferenza.
       titles:
-        conferences: conferenze
+        conferences: Conferenze
     admin_log:
       conference:
-        create: "%{user_name} creato la %{resource_name} conferenza"
-        publish: "%{user_name} pubblicato la %{resource_name} conferenza"
-        send_conference_diplomas: "%{user_name} inviato attestati di presenza ai %{resource_name} partecipanti alla conferenza"
-        unpublish: "%{user_name} inedito la %{resource_name} conferenza"
+        create: "%{user_name} creato nella conferenza %{resource_name}"
+        publish: "%{user_name} pubblicato nella conferenza %{resource_name}"
+        send_conference_diplomas: "%{user_name} ha inviato attestati di partecipazione ai partecipanti alla conferenza %{resource_name}"
+        unpublish: "%{user_name} ha reso non pubblicata la conferenza %{resource_name}"
         update: "%{user_name} aggiornato la %{resource_name} conferenza"
         update_diploma: "%{user_name} aggiornato la configurazione dei certificati di presenza per %{resource_name} conferenza"
       conference_speaker:
@@ -461,6 +462,9 @@ it:
             active_conferences: Conferenze attive
             see_all_conferences: Vedi tutte le conferenze
       photo:
+        image:
+          attributes:
+            alt: Immagine media
         show:
           close_modal: Chiudi modale
           photo: Foto
@@ -524,6 +528,11 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo la conferenza "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
           email_subject: La conferenza "%{resource_title}" ha abilitato le registrazioni.
           notification_title: La conferenza <a href="%{resource_path}">%{resource_title}</a> ha abilitato le registrazioni.
+        role_assigned:
+          email_intro: Sei stato assegnato come %{role} per la conferenza "%{resource_title}".
+          email_outro: Hai ricevuto questa notifica perché sei %{role} della conferenza "%{resource_title}.
+          email_subject: Sei stato assegnato come %{role} per "%{resource_title}".
+          notification_title: Sei stato assegnato come %{role} per la conferenza <a href="%{resource_url}">%{resource_title}</a>.
         upcoming_conference:
           email_intro: 'La conferenza "%{resource_title}" ha luogo tra 2 giorni. Puoi leggere la descrizione dalla sua pagina:'
           email_outro: Hai ricevuto questa notifica perché stai seguendo la conferenza "%{resource_title}". Puoi smettere di seguirlo dal link precedente.

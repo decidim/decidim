@@ -62,16 +62,11 @@
       actions:
         new_initiative_type: Ny intiativtype
       filters:
-        search_placeholder:
-          title_or_description_cont: Søk %{collection} etter tittel eller beskrivelse.
         state_eq:
-          label: Stat
           values:
-            accepted: Aksepterte
             created: Opprettet
             discarded: Forkastet
             published: Publisert
-            rejected: Avvist
             validating: Teknisk validering
       menu:
         initiatives: Initiativer
@@ -241,12 +236,14 @@
           unpublish: "%{user_name} forkastet %{resource_name} initiativet"
           update: "%{user_name} oppdaterte %{resource_name} initiativet"
       admin_states:
-        accepted: Aksepterte
         created: Opprettet
         discarded: Forkastet
         published: Publisert
-        rejected: Avvist
         validating: Teknisk validering
+      application_helper:
+        filter_state_values:
+          closed: Lukket
+          open: Åpen
       committee_requests:
         new:
           continue: Fortsett
@@ -354,13 +351,10 @@
         filters:
           any: Alle
           author: Forfatter
-          closed: Lukket
           myself: Initiativene mine
-          open: Åpen
           search: Søk
           state: Status
           type: Type
-          type_prompt: Velg en type
         filters_small_view:
           close_modal: Lukk vindu
           filter: Filter
@@ -422,8 +416,6 @@
         promotal_committee_help: Husk at du må invitere minst %{member_count} folk til promotør komiteen. Videresend den følgene lenken for å invitere folk til promotør komiteen
         status_change_body_for: 'Initiativet %{title} har endret sin status til: %{state}'
         status_change_for: Initiativet %{title} har endret sin status
-        technical_validation_body_for: Initiativet %{title} har bedt om sin tekniske validering.
-        technical_validation_for: Initiativet %{title} har bedt om sin tekniske validering.
       last_activity:
         new_initiative: Nytt initiativ
       pages:

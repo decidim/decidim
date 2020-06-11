@@ -85,6 +85,7 @@ hu:
         search_placeholder:
           id_string_or_title_cont: Keresés %{collection} ID vagy cím alapján.
         state_eq:
+          label: Állapot
           values:
             evaluating: Értékelés
             withdrawn: Visszavonva
@@ -120,8 +121,8 @@ hu:
             new_proposal_body_template_help: Előre meghatározott szöveg beállítása, amelyet az új Javaslatok használnak
             new_proposal_help_text: Új javaslat súgószöveg
             official_proposals_enabled: Hivatalos javaslatok engedélyezve
-            participatory_texts_disabled_help: Meglévő javaslatok esetén nem lehet alkalmazni ezt a beállítást. Legyen szíves, egy új 'Javaslatok komponens' -t hozzon létre, hogy ezt a funkciót használja, vagy vesse el az importált javaslatokat a "Részvételi Szövegek" menüben, ha ki akarja kapcsolni.
             participatory_texts_enabled: Engedélyezett részvételi szövegek
+            participatory_texts_enabled_readonly: Meglévő javaslatok esetén nem lehet alkalmazni ezt a beállítást. Legyen szíves, egy új 'Javaslatok komponens' -t hozzon létre, hogy ezt a funkciót használja, vagy vesse el az importált javaslatokat a "Részvételi Szövegek" menüben, ha ki akarja kapcsolni.
             proposal_answering_enabled: Javaslat válasz engedélyezve
             proposal_edit_before_minutes: A javaslatokat a szerzők az ülés lezárásáig szerkeszthetik
             proposal_length: Javaslat szöveg maximális hossza
@@ -141,6 +142,9 @@ hu:
             amendment_reaction_enabled: A módosító reakció engedélyezett
             amendment_reaction_enabled_help: A javaslatok szerzői elfogadhatják vagy elutasíthatják a résztvevő helyreigazításait.
             amendments_visibility: A módosítás láthatósága
+            amendments_visibility_choices:
+              all: A módosítások mindenki számára láthatóak
+              participants: A módosítások csak a szerzőik számára láthatóak
             amendments_visibility_help: Ha a „Módosítások csak a szerzőik számára láthatóak” opciót választják, akkor a résztvevőnek be kell jelentkeznie a módosítások megtekintéséhez.
             announcement: Közlemény
             answers_with_costs: Költségek engedélyezése javaslati válaszoknál
@@ -374,7 +378,7 @@ hu:
           form:
             accepted: Elfogadva
             answer_proposal: Válasz
-            evaluating: Értékelés alatt
+            evaluating: Értékelés
             rejected: Elutasítva
             title: Válasz a(z) %{title} javaslatra
         proposal_notes:
@@ -397,10 +401,8 @@ hu:
             title: Frissítse a javaslatot
             update: frissítés
           form:
-            add_images: Képek hozzáadása
             attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
             created_in_meeting: Ez a javaslat egy találkozóból származik
-            gallery_legend: "(opcionális) Kép hozzáadása a galériához"
             select_a_category: Válassz kategóriát
             select_a_meeting: Válasszon egy találkozót
           index:
@@ -509,7 +511,7 @@ hu:
         withdrawn: Visszavonva
       application_helper:
         filter_category_values:
-          all: Mind
+          all: Minden
         filter_origin_values:
           all: Minden
           citizens: Állampolgárok
@@ -517,7 +519,7 @@ hu:
           official: Hivatalos
           user_groups: Felhasználói csoportok
         filter_scope_values:
-          all: Mind
+          all: Minden
         filter_state_values:
           accepted: Elfogadva
           all: Minden
@@ -763,6 +765,7 @@ hu:
         show:
           answer: Válasz
           back_to: Vissza a
+          back_to_list: Vissza a listához
           changes_at_title: A (z) "%{title}" módosítása
           comments: Hozzászólások
           edit_proposal: Javaslat szerkesztése
@@ -827,6 +830,9 @@ hu:
           step_3: Befejez
           step_4: Javaslatod közzététele
           step_of: '%{current_step_num}. lépés ennyiből: %{total_steps}'
+      proposals_picker:
+        choose_proposals: Javaslatok kiválasztása
+        close: Bezár
       publish:
         error: Hiba történt a javaslat közzététele során.
         success: Javaslat közzététele sikeres.

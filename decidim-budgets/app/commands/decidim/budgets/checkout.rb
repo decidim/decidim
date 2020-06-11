@@ -28,9 +28,10 @@ module Decidim
       private
 
       def checkout!
-        return unless @order
+        return unless @order && @order.valid?
 
         @order.with_lock do
+          SendOrderSummaryJob.perform_later(@order)
           @order.checked_out_at = Time.current
           @order.save
         end

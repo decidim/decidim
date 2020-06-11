@@ -265,6 +265,15 @@ gl:
       exports:
         export_as: "%{name} como %{export_format}"
         notice: A súa exportación está en progreso. Recibirás un correo electrónico cando finalice.
+      filters:
+        category_id_eq:
+          label: Categoría
+        officialized_at_null:
+          label: Estado
+          values:
+            'false': Oficializado
+            'true': Non oficializado
+        search_label: Busca
       help_sections:
         error: Produciuse un erro ao actualizar as seccións de axuda
         form:
@@ -417,6 +426,9 @@ gl:
             does_not_belong: Non pertence
             offensive: Ofensivo
             spam: Correo non desexado
+      newsletter_templates:
+        index:
+          preview_template: Vista previa
       newsletters:
         create:
           error: Produciuse un erro ao crear este boletín informativo.
@@ -430,8 +442,6 @@ gl:
         edit:
           save_and_preview: Gardar e previsualizar
           title: Editar boletín informativo
-        form:
-          interpolations_hint: 'Consello: podes usar "%{name}" en calquera parte do corpo ou asunto e será substituído polo nome do destinatario.'
         index:
           confirm_delete: '¿Estás seguro de que queres eliminar este boletín informativo?'
           title: Boletíns informativos
@@ -506,13 +516,15 @@ gl:
         edit:
           update: Actualización
         form:
-          colors_title: Cores da organización
+          colors:
+            colors_title: Cores da organización
+            header_snippets_help: Use este campo para engadir cousas ao título HTML. O uso máis común é integrar servizos de terceiros que requiren algún JavaScript ou CSS adicional. Ademais, podes usalo para engadir etiquetas metais extra ao HTML. Ten en conta que isto só se renderá en páxinas públicas, non na sección de administración.
           cta_button_path_help: 'Pode sobrescribir onde se enlaza o botón de chamada a acción na páxina de inicio. Use aquí rutas parciais, non URL completo. Acepta letras, números, guións e barras, e debe comezar cunha letra. O botón de chamada a acción amósase na páxina de inicio entre o texto de benvida ea descrición. Exemplo: %{url}'
           cta_button_text_help: Pode sobrescribir o texto do botón de chamada a acción na páxina de inicio para cada idioma dispoñible na súa organización. Se non se establece, empregarase o valor predeterminado. O botón de chamada a acción amósase na páxina de inicio entre o texto de benvida ea descrición.
-          header_snippets_help: Use este campo para engadir cousas ao título HTML. O uso máis común é integrar servizos de terceiros que requiren algún JavaScript ou CSS adicional. Ademais, podes usalo para engadir etiquetas metais extra ao HTML. Ten en conta que isto só se renderá en páxinas públicas, non na sección de administración.
           homepage_appearance_title: Editar o aspecto da páxina de inicio
           homepage_highlighted_content_banner_title: Banner de contido de alto nivel
-          layout_appearance_title: Editar aspecto de deseño
+          images:
+            layout_appearance_title: Editar aspecto de deseño
           omnipresent_banner_appearance_title: Editar o banner omnipresente
       organization_homepage:
         edit:
@@ -669,6 +681,10 @@ gl:
         new:
           create: Invitar
           title: Convidar ao usuario como administrador
+      users_statistics:
+        users_count:
+          admins: Administradores
+          participants: Participantes
       view_public_page: Ver páxina pública
     forms:
       errors:
