@@ -3,7 +3,7 @@ fr:
     attributes:
       dummy_resource:
         created_at: Créé le
-        decidim_scope_id: Portée
+        decidim_scope_id: Périmètre d'application
         field: Champ
         start_date: Date de début
         title: Titre
@@ -15,6 +15,7 @@ fr:
         settings:
           global:
             readonly_attribute: Attribut en lecture seule
+            test: Un test
             test_choices:
               a: Choix A
               b: Choix B
