@@ -34,10 +34,6 @@ module Decidim
           super
         end
       end
-
-      def has_diff?
-        action == "unpublish" || super
-      end
     end
   end
 end

@@ -25,6 +25,21 @@ module Decidim
           expect(subject.present).to include(" published the ")
         end
       end
+
+      context "when the election is unpublished" do
+        let(:action_log) do
+          create(
+            :action_log,
+            action: unpublish
+          )
+        end
+
+        let(:unpublish) { :unpublish }
+
+        it "shows the election has been unpublished" do
+          expect(subject.present).to include(" unpublished the ")
+        end
+      end
     end
   end
 end
