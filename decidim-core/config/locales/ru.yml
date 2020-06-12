@@ -714,7 +714,8 @@ ru:
         close_window: Закрыть окно
         share: Поделиться
         share_link: Поделиться ссылкой
-      version_author:
+    version_author:
+      show:
         deleted: Удаленный участник
     wizard_step_form:
       wizard_aside:

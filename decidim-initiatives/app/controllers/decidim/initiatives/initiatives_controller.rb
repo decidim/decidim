@@ -25,6 +25,7 @@ module Decidim
       include Decidim::Initiatives::Orderable
       include TypeSelectorOptions
       include NeedsInitiative
+      include SingleInitiativeType
 
       helper_method :collection, :initiatives, :filter, :stats
 
@@ -73,7 +74,8 @@ module Decidim
           state: ["open"],
           type_id: default_filter_type_params,
           author: "any",
-          scope_id: default_filter_scope_params
+          scope_id: default_filter_scope_params,
+          area_id: default_filter_area_params
         }
       end
 
@@ -83,6 +85,10 @@ module Decidim
 
       def default_filter_scope_params
         %w(all global) + current_organization.scopes.pluck(:id).map(&:to_s)
+      end
+
+      def default_filter_area_params
+        %w(all) + current_organization.areas.pluck(:id).map(&:to_s)
       end
 
       def context_params

@@ -13,6 +13,7 @@
     <ol class="wizard__steps">
       <% wizard_steps.each do |wizard_step| %>
         <% next if wizard_step.to_s == "promotal_committee" && !promotal_committee_required? %>
+        <% next if wizard_step.to_s == "select_initiative_type" && single_initiative_type? %>
         <% if step == wizard_step %>
           <li class="step--active">
             <%= t(".#{wizard_step}") %>

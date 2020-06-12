@@ -10,6 +10,11 @@ describe "Filter Initiatives", :slow, type: :system do
   let(:scoped_type1) { create :initiatives_type_scope, type: type1 }
   let(:scoped_type2) { create :initiatives_type_scope, type: type2 }
   let(:scoped_type3) { create :initiatives_type_scope, type: type3, scope: nil }
+  let(:area_type1) { create(:area_type, organization: organization) }
+  let(:area_type2) { create(:area_type, organization: organization) }
+  let(:area1) { create(:area, area_type: area_type1, organization: organization) }
+  let(:area2) { create(:area, area_type: area_type1, organization: organization) }
+  let(:area3) { create(:area, area_type: area_type2, organization: organization) }
 
   before do
     switch_to_host(organization.host)
@@ -163,39 +168,122 @@ describe "Filter Initiatives", :slow, type: :system do
   end
 
   context "when filtering initiatives by TYPE" do
-    before do
-      create_list(:initiative, 2, organization: organization, scoped_type: scoped_type1)
-      create(:initiative, organization: organization, scoped_type: scoped_type2)
+    context "when there is a single initiative_type" do
+      let(:type2) { nil }
+      let(:type3) { nil }
+      let(:scoped_type2) { nil }
+      let(:scoped_type3) { nil }
 
-      visit decidim_initiatives.initiatives_path
-    end
+      before do
+        create_list(:initiative, 3, organization: organization, scoped_type: scoped_type1)
 
-    it "can be filtered by type" do
-      within "form.new_filter" do
-        expect(page).to have_content(/Type/i)
+        visit decidim_initiatives.initiatives_path
       end
-    end
 
-    context "when selecting all types" do
+      it "doesn't display TYPE filter" do
+        expect(page).not_to have_content(/Type/i)
+        expect(page).not_to have_css(".filters__section.type_id_check_boxes_tree_filter")
+      end
+
       it "lists all initiatives", :slow do
-        within ".filters .type_id_check_boxes_tree_filter" do
-          check "All"
-        end
-
         expect(page).to have_css(".card--initiative", count: 3)
         expect(page).to have_content("3 INITIATIVES")
       end
     end
 
-    context "when selecting one type" do
-      it "lists the filtered initiatives", :slow do
-        within ".filters .type_id_check_boxes_tree_filter" do
+    context "when there is more than on initiative_type" do
+      before do
+        create_list(:initiative, 2, organization: organization, scoped_type: scoped_type1)
+        create(:initiative, organization: organization, scoped_type: scoped_type2)
+
+        visit decidim_initiatives.initiatives_path
+      end
+
+      it "can be filtered by type" do
+        within "form.new_filter" do
+          expect(page).to have_content(/Type/i)
+        end
+      end
+
+      context "when selecting all types" do
+        it "lists all initiatives", :slow do
+          within ".filters .type_id_check_boxes_tree_filter" do
+            check "All"
+          end
+
+          expect(page).to have_css(".card--initiative", count: 3)
+          expect(page).to have_content("3 INITIATIVES")
+        end
+      end
+
+      context "when selecting one type" do
+        it "lists the filtered initiatives", :slow do
+          within ".filters .type_id_check_boxes_tree_filter" do
+            uncheck "All"
+            check type1.title[I18n.locale.to_s]
+          end
+
+          expect(page).to have_css(".card--initiative", count: 2)
+          expect(page).to have_content("2 INITIATIVES")
+        end
+      end
+    end
+  end
+
+  context "when filtering initiatives by AREA" do
+    before do
+      create_list(:initiative, 2, organization: organization, area: area1)
+      create(:initiative, organization: organization, area: area2)
+      create(:initiative, organization: organization, area: area3)
+
+      visit decidim_initiatives.initiatives_path
+    end
+
+    it "can be filtered by area" do
+      within "form.new_filter" do
+        expect(page).to have_content(/Area/i)
+      end
+    end
+
+    context "when selecting all areas" do
+      it "lists all initiatives", :slow do
+        within ".filters .area_id_check_boxes_tree_filter" do
           uncheck "All"
-          check type1.title[I18n.locale.to_s]
+          check "All"
+        end
+
+        expect(page).to have_css(".card--initiative", count: 4)
+        expect(page).to have_content("4 INITIATIVES")
+      end
+    end
+
+    context "when selecting one area" do
+      it "lists the filtered initiatives", :slow do
+        within ".filters .area_id_check_boxes_tree_filter" do
+          uncheck "All"
+          within all(".filters__has-subfilters").first do
+            click_button
+          end
+          within all(".filters__has-subfilters").last do
+            click_button
+          end
+          check area1.name[I18n.locale.to_s]
         end
 
         expect(page).to have_css(".card--initiative", count: 2)
         expect(page).to have_content("2 INITIATIVES")
+      end
+    end
+
+    context "when selecting one area type" do
+      it "lists the filtered initiatives", :slow do
+        within ".filters .area_id_check_boxes_tree_filter" do
+          uncheck "All"
+          check area_type1.name[I18n.locale.to_s]
+        end
+
+        expect(page).to have_css(".card--initiative", count: 3)
+        expect(page).to have_content("3 INITIATIVES")
       end
     end
   end

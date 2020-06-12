@@ -63,7 +63,12 @@ fi:
           secondary_hosts_hint: Syötä jokainen niistä omalle rivilleen
           title: Uusi organisaatio
         omniauth_settings:
+          decidim:
+            client_id: Asiakkaan tunniste (Client ID)
+            client_secret: Asiakkaan salausavain (Client secret)
+            site_url: Sivuston URL-osoite
           enabled: Käytössä
+          enabled_by_default: Tämä palveluntarjoaja on oletuksena asetettu päälle. Sitä voi muokata, mutta sitä ei voi asettaa pois päältä.
           facebook:
             app_id: Sovelluksen ID (App ID)
             app_secret: Sovelluksen salausavain (App secret)
@@ -75,6 +80,12 @@ fi:
           twitter:
             api_key: API-avain
             api_secret: API-salausavain
+        smtp_settings:
+          instructions:
+            from_label: 'Sähköpostin lähettäjä on: "organisaatiosi-nimi <your-organization@your-provider.org>". Jätä tyhjäksi käyttääksesi lähetysosoitetta nimenä'
+          placeholder:
+            from_email: organisaatiosi@osoitteesi.org
+            from_label: organisaatiosi-nimi
         update:
           error: Organisaation päivitys epäonnistui.
           success: Organisaation päivitys onnistui.

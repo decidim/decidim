@@ -22,7 +22,6 @@
             <% initiative_types_each do |type| %>
               <li class="tabs-title <%= "is-active" if type == default_type %>">
                 <%= link_to "#initiativeType#{type.id}" do %>
-                  <%# Quiero crear un <strong><%= translated_attribute type.title %1></strong> %>
                   <%= t(".choose_html", title: translated_attribute(type.title)) %>
                 <% end %>
               </li>

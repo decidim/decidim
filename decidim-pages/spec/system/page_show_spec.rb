@@ -17,14 +17,18 @@ describe "Show a page", type: :system do
   let!(:page_component) { create(:page, component: component, body: body) }
 
   describe "page show" do
-    before do
-      visit_component
+    it_behaves_like "editable content for admins" do
+      let(:target_path) { main_component_path(component) }
     end
 
-    it_behaves_like "editable content for admins"
+    context "when requesting the page path" do
+      before do
+        visit_component
+      end
 
-    it "renders the content of the page" do
-      expect(page).to have_content("Content")
+      it "renders the content of the page" do
+        expect(page).to have_content("Content")
+      end
     end
   end
 end

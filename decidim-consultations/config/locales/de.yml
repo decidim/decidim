@@ -29,7 +29,6 @@ de:
         scope: Kommunales Gebiet
         slug: URL-Block
         subtitle: Untertitel
-        title: Titel
         vote: Externes Wahlsystem
         what_is_decided: Was ist entschieden?
     errors:

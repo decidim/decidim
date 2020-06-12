@@ -62,8 +62,6 @@ hu:
       actions:
         new_initiative_type: Új kezdeményezés típusa
       filters:
-        search_placeholder:
-          title_or_description_cont: Keresés cím vagy leírás alapján a %{collection} -ban.
         state_eq:
           values:
             created: Létrehozva
@@ -238,12 +236,14 @@ hu:
           unpublish: "%{user_name} elvetette a(z) %{resource_name} kezdeményezést"
           update: "%{user_name} frissítette a(z) %{resource_name} kezdeményezést"
       admin_states:
-        accepted: Elfogadva
         created: Létrehozva
         discarded: Elvetve
         published: Közzétéve
-        rejected: Elutasítva
         validating: Technikai érvényesítés
+      application_helper:
+        filter_state_values:
+          closed: Lezárt
+          open: Megnyitás
       committee_requests:
         new:
           continue: Tovább
@@ -354,13 +354,10 @@ hu:
         filters:
           any: Bármely
           author: Szerző
-          closed: Lezárt
           myself: Kezdeményezéseim
-          open: Megnyitás
           search: Keresés
           state: Állapot
           type: Típus
-          type_prompt: Válassz típust
         filters_small_view:
           close_modal: Ablak bezárása
           filter: Szűrés

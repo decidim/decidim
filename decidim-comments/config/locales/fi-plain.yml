@@ -83,6 +83,8 @@ fi-pl:
           email_subject: '%{author_name} on jättänyt uuden kommentin kohtaan %{resource_title}'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on jättänyt uuden kommentin kohtaan <a href="%{resource_path}">%{resource_title}</a>.
         comment_by_followed_user_group:
+          email_intro: '%{author_name} on jättänyt kommentin kohteessa %{resource_title}. Voit lukea sen täältä:'
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat %{author_name}. Voit perua seuraamisen kyseisen käyttäjän profiilisivulta.
           email_subject: '%{author_name} on jättänyt uuden kommentin kohtaan %{resource_title}'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on jättänyt uuden kommentin kohtaan <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:

@@ -87,9 +87,7 @@ es:
         state_eq:
           label: Estado
           values:
-            accepted: Aceptadas
             evaluating: En evaluación
-            rejected: Rechazada
             withdrawn: Retirada
         state_null:
           label: Estado
@@ -123,8 +121,8 @@ es:
             new_proposal_body_template_help: Puede definir el texto predefinido que tendrán las nuevas propuestas
             new_proposal_help_text: Texto de ayuda al crear una propuesta
             official_proposals_enabled: Propuestas oficiales habilitadas
-            participatory_texts_disabled_help: No se puede interactuar con esta configuración si hay propuestas existentes. Por favor, crea un nuevo componente de propuesta si quieres activar esta característica o descartar todas las propuestas importadas en el menú "Textos Participativos" si quieres desactivarla.
             participatory_texts_enabled: Textos participativos habilitados
+            participatory_texts_enabled_readonly: No se puede interactuar con esta configuración si hay propuestas existentes. Por favor, crea un nuevo componente de propuesta si quieres activar esta característica o descartar todas las propuestas importadas en el menú "Textos Participativos" si quieres desactivarla.
             proposal_answering_enabled: Respuesta a propuestas habilitada
             proposal_edit_before_minutes: Las propuestas pueden ser editadas por las autoras antes de que pasen estos minutos
             proposal_length: Longitud máxima del cuerpo de la propuesta
@@ -617,14 +615,11 @@ es:
             one: y %{count} persona más
             other: y %{count} personas más
           info-message: Este es un <strong>borrador colaborativo</strong> para una propuesta. Esto significa que puedes ayudar a sus autoras a dar forma a la propuesta usando la sección de comentarios que se encuentra debajo o mejorarla directamente solicitando acceso para editarla. Una vez que las autoras te den acceso, podrás realizar cambios en este borrador.
-          of_versions: "(de %{number})"
           publish: Publicar
           publish_info: Publicar esta versión del borrador o
           published_proposal: propuesta publicada
           request_access: Solicitar acceso
           requested_access: Acceso solicitado
-          see_other_versions: ver otras versiones
-          version: Versión %{number}
           version_history: ver el historial de versiones de esta propuesta
           withdraw: retirar el borrador
         states:
@@ -841,20 +836,12 @@ es:
         error: Se ha producido un error al guardar el borrador colaborativo.
         success: Borrador colaborativo actualizado correctamente.
       versions:
-        changes_at_title: Cambios en "%{title}"
+        collaborative_drafts:
+          back_to_resource: Volver al borrador colaborativo
         index:
           title: Versiones
-        stats:
-          back_to_collaborative_draft: Volver al borrador colaborativo
-          back_to_proposal: Volver a la propuesta
-          number_of_versions: Versiones
-          show_all_versions: Mostrar todas las versiones
-          version_author: Autora de la versión
-          version_created_at: Versión creada en
-          version_number: Número de versión
-          version_number_out_of_total: "%{current_version} de %{total_count}"
-        version:
-          version_index: Versión %{index}
+        proposals:
+          back_to_resource: Volver a la propuesta
       withdraw:
         errors:
           has_supports: Esta propuesta no puede ser retirada porque ya tiene apoyos.
