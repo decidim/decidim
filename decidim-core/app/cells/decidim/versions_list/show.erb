@@ -1,0 +1,32 @@
+<div class="small-12 columns">
+  <h2 class="heading2"><%= i18n_changes_title %></h2>
+  <h3 class="section-heading"><%= i18n_versions_title %></h3>
+  <div class="row">
+    <div class="mediumlarge-8 columns">
+      <div class="section">
+        <div class="card card--list">
+          <% versions.each_with_index do |version, index| %>
+            <%= cell(
+              "decidim/versions_list_item",
+              version,
+              index: index,
+              versioned_resource: versioned_resource,
+              version_path: version_path,
+              i18n_scope: i18n_scope
+            ) %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns section mediumlarge-4 large-3">
+      <div class="card extra definition-data">
+        <div class="definition-data__item versions_count">
+          <span class="definition-data__title"><%= i18n_versions_count %></span>
+          <%= versions.count %>
+          <%= link_to i18n_back_to_resource, resource_path, class: "button button--sc hollow secondary small expanded" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

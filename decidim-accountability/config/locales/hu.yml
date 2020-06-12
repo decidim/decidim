@@ -151,30 +151,16 @@ hu:
         show:
           stats:
             attendees: Résztvevők
-            back_to_result: Vissza az eredményekhez
+            back_to_resource: Vissza az eredményekhez
             comments: Hozzászólások
             contributions: Közreműködők
             last_edited_by: 'Utoljára szerkesztette:'
             last_updated_at: Utoljára frissítve
             meetings: Találkozók
-            number_of_versions: Verziók
             proposals: Javaslatok
-            show_all_versions: Összes verzió megjelenítése
-            version_author: Verzió szerzője
-            version_created_at: 'Verzió létrehozva itt: '
-            version_number: Verziószám
-            version_number_out_of_total: "%{current_version} az %{total_count}"
             votes: Támogatás
         timeline:
           title: Projekt alakulása
-      versions:
-        index:
-          changes_at_title: 'Változások itt: "%{title}"'
-          title: Verziók
-        show:
-          changes_at_title: 'Változások itt: "%{title}"'
-        version:
-          version_index: '%{index} verzió'
     components:
       accountability:
         name: Elszámoltathatóság

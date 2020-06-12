@@ -46,6 +46,9 @@ fr:
       decidim/amendment:
         one: Amendement
         other: Amendements
+      decidim/endorsement:
+        one: Soutien
+        other: Soutiens
       decidim/user:
         one: Participant
         other: Participants
@@ -57,6 +60,7 @@ fr:
     'true': 'Oui'
   carrierwave:
     errors:
+      general: Erreur de traitement de l'image
       image_too_big: L'image est trop grande
   date:
     formats:
@@ -66,6 +70,9 @@ fr:
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
+    accessibility:
+      logo: "Logo officiel de %{organization}"
+      skip_button: Passer au contenu principal
     account:
       data_portability_export:
         file_no_exists: Le fichier n'existe pas
@@ -134,11 +141,14 @@ fr:
         invite: "%{user_name} a invité l'utilisateur %{resource_name} avec le rôle : %{role}"
         officialize: "%{user_name} a officialisé l'utilisateur %{resource_name}"
         remove_from_admin: "%{user_name} a retiré le rôle : %{role} de l'utilisateur %{resource_name}"
+        show_email: "%{user_name} est allé chercher l'email de l'utilisateur %{resource_name}"
         unofficialize: "%{user_name} a retiré l'officialisation de l'utilisateur %{resource_name}"
       user_group:
         reject: "%{user_name} a rejeté la vérification du groupe d'utilisateurs %{resource_name}"
         verify: "%{user_name} a vérifié le groupe d'utilisateurs %{resource_name}"
         verify_via_csv: "%{user_name} vérifié le groupe %{resource_name} utilisateur via un fichier CSV"
+    admin_terms_of_use:
+      default_body: "<h2>CONDITIONS D'UTILISATION ADMINISTRATEUR</h2><p>Nous espérons que vous avez reçu les instructions de l'administrateur système de la plateforme. Ils se résument généralement à ces trois choses :</p><ol><li>Respecter la vie privée des autres.</li><li>Réfléchissez avant de cliquer.</li><li>Un grand pouvoir implique de grandes responsabilités.</li></ol>"
     amendments:
       accepted:
         error: Une erreur s'est produite lors de l'acceptation de l'amendement.
@@ -224,6 +234,8 @@ fr:
         documents:
           one: Document
           other: Documents
+      document:
+        download: Télécharger le fichier
       documents:
         related_documents: Documents à consulter
       photos:
@@ -233,6 +245,9 @@ fr:
       comments:
         one: commentaire
         other: commentaires
+      endorsements:
+        one: soutien
+        other: soutiens
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Obtenir une vérification en saisissant un numéro de passeport commençant par "A"
@@ -299,6 +314,19 @@ fr:
       see_less: "(voir moins)"
       see_more: "(voir plus)"
     components:
+      component_order_selector:
+        no_content: Nous n'avons pas trouvé de contenu avec ce critère
+        order:
+          all_types: Tous types
+          collaborative_draft: Brouillon collaboratif
+          comment: Commentaire
+          debate: Débat
+          initiative: Initiative
+          meeting: Rencontre
+          post: Publication
+          proposal: Proposition
+          question: Question
+        title: 'Afficher:'
       dummy:
         actions:
           bar: Bar
@@ -328,6 +356,9 @@ fr:
         name: Section "Bienvenue sur la plateforme" (. footer_sub_hero)
       hero:
         name: Image principale (hero)
+      hero_settings_form:
+        background_image: Image d'arrière-plan
+        welcome_text: Texte de bienvenue
       highlighted_content_banner:
         name: Bannière de contenu mis en valeur
       how_to_participate:
@@ -418,6 +449,12 @@ fr:
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> veut utiliser votre compte"
     endorsable:
       endorsements: Soutiens
+    endorsement_buttons_cell:
+      already_endorsed: Soutenue
+      endorse: Soutenir
+    endorsements:
+      identities:
+        done: Terminé
     errors:
       internal_server_error:
         title: Il y a eu un problème avec notre serveur
@@ -536,8 +573,20 @@ fr:
           email_outro: Vous avez reçu cette notification parce que vous étiez membre de ce groupe.
           email_subject: Vous avez été retiré du groupe %{user_group_name}!
           notification_title: Vous avez été supprimé du groupe <a href="%{resource_path}">%{user_group_name}</a>.
+        user_group_created:
+          email_intro: Un nouveau groupe d'utilisateurs a été créé avec le nom %{user_group_name}. Vous pouvez maintenant le vérifier dans le <a href="%{groups_admin_url}">panneau d'administration</a>.
+          email_outro: Vous avez reçu cette notification parce que vous êtes un administrateur de la plateforme.
+          email_subject: Un nouveau groupe d'utilisateurs a été créé
+          notification_title: Le groupe d'utilisateurs %{user_group_name} a été créé. Vous pouvez maintenant le vérifier dans le <a href="%{groups_admin_path}">panneau d'administration</a>.
+        user_group_updated:
+          email_intro: Un groupe d'utilisateurs avec le nom %{user_group_name} a mis à jour son profil, le laissant non vérifié. Vous pouvez maintenant le vérifier dans le <a href="%{groups_admin_url}">panneau d'administration</a>.
+          email_outro: Vous avez reçu cette notification parce que vous êtes un administrateur de la plateforme.
+          email_subject: Un group d'utilisateurs viens de mettre à jour son profil
+          notification_title: Le groupe d'utilisateurs %{user_group_name} a mis à jour son profil, le laissant non vérifié. Vous pouvez maintenant le vérifier dans le <a href="%{groups_admin_path}">panneau d'administration</a>.
       notification_event:
         notification_title: Un événement a eu lieu à <a href="%{resource_path}">%{resource_title}</a>.
+      resource_endorsed:
+        email_intro: '%{endorser_name} %{endorser_nickname}, que vous suivez, vient d’approuver l''évènement "%{resource_title}" et nous pensons que cela pourrait vous intéresser. Consultez le et contribuez:'
       users:
         profile_updated:
           email_intro: Le <a href="%{resource_url}">profil public</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
@@ -1028,8 +1077,6 @@ fr:
         close_window: Fermer la fenêtre
         share: Partager
         share_link: Lien de partage
-      version_author:
-        deleted: Utilisateur ayant supprimé son compte
     user_activity:
       index:
         no_activities_warning: Cet utilisateur n'a pas encore eu d'activité.
@@ -1042,6 +1089,9 @@ fr:
       update:
         error: Une erreur s'est produite lors de la mise à jour de vos centres d'intérêt.
         success: Vos intérêts ont été mis à jour avec succès.
+    version_author:
+      show:
+        deleted: Utilisateur ayant supprimé son compte
     welcome_notification:
       default_body: <p>Bonjour {{name}}, merci d'avoir rejoins {{organization}} et bienvenue!</p><ul><li>Si vous souhaitez avoir une idée rapide de ce que vous pouvez faire ici, consultez la section <a href="{{help_url}}">Aide</a> .</li><li>Une fois que vous l'avez lu, vous recevrez votre premier badge. Voici une <a href="{{badges_url}}">liste de tous les badges</a> vous pouvez obtenir vous participez à {{organization}}</li><li>En somme, rejoignez d'autres personnes, partagez avec eux l'expérience d'être engagés et participer à {{organization}}. Faites des propositions, des commentaires, lancez des débats, réfléchissez à la manière de contribuer au bien commun, fournissez des arguments pour convaincre, écoutez et lisez pour être convaincu, exprimez vos idées de manière concrète et directe, répondez avec patience et décision, défendez vos idées un esprit ouvert pour collaborer et rejoindre les idées des autres.</li></ul>
       default_subject: Merci d'avoir rejoint {{organization}}!

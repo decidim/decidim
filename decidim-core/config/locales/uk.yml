@@ -572,7 +572,8 @@ uk:
         close_window: Закрити вікно
         share: Поділитися
         share_link: Поділитись посиланням
-      version_author:
+    version_author:
+      show:
         deleted: Видалений учасник
   devise:
     invitations:

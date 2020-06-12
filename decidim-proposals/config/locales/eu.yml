@@ -536,14 +536,11 @@ eu:
             one: eta %{count} pertsona gehiago
             other: eta beste %{count} pertsona
           info-message: Hau da <strong>elkarlanerako zirriborroa</strong> proposamen bat da. Horrek esan nahi du bere egileek lagundu dezakezula proposamena, beheko iruzkinen atala erabiliz edo zuzenean hobetzeko editatzeko sarbidea eskatuz. Egileek sarbidea ematen dizutenean, zirriborro honen aldaketak egin ahal izango dituzu.
-          of_versions: "( %{number})"
           publish: Argitaratu
           publish_info: Argitaratu zirriborroaren bertsio hau edo
           published_proposal: argitaratutako proposamena
           request_access: Eskatu sarbidea
           requested_access: Eskatutako sarbidea
-          see_other_versions: ikusi beste bertsio batzuk
-          version: '%{number}bertsioa'
           version_history: ikusi bertsioaren historia proposamen honetarako
           withdraw: kendu zirriborroa
         states:
@@ -737,20 +734,12 @@ eu:
         error: Arazoak izan dira proposamenaren aurrebista gordetzean.
         success: Proposamenaren zirriborroa eguneratu da.
       versions:
-        changes_at_title: Aldaketak "%{title}" -n
+        collaborative_drafts:
+          back_to_resource: Itzuli lankidetza zirriborrora
         index:
           title: bertsioak
-        stats:
-          back_to_collaborative_draft: Itzuli lankidetza zirriborrora
-          back_to_proposal: Joan proposamenari
-          number_of_versions: bertsioak
-          show_all_versions: Erakutsi bertsio guztiak
-          version_author: Egile-bertsioa
-          version_created_at: Bertsioa sortua
-          version_number: Bertsio zenbakia
-          version_number_out_of_total: "%{current_version} out of %{total_count}"
-        version:
-          version_index: '%{index}bertsioa'
+        proposals:
+          back_to_resource: Joan proposamenari
       withdraw:
         errors:
           has_supports: Proposamen hau ezin da kendu, dagoeneko onartzen duelako.

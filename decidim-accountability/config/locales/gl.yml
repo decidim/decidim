@@ -151,30 +151,16 @@ gl:
         show:
           stats:
             attendees: Asistentes
-            back_to_result: Volver ao resultado
+            back_to_resource: Volver ao resultado
             comments: Comentarios
             contributions: Contribucións
             last_edited_by: Última edición por
             last_updated_at: Última actualización en
             meetings: Reunións
-            number_of_versions: Versións
             proposals: Propostas
-            show_all_versions: Mostrar todas as versións
-            version_author: Autor da versión
-            version_created_at: Versión creada en
-            version_number: Número de versión
-            version_number_out_of_total: "%{current_version} de %{total_count}"
             votes: Soporta
         timeline:
           title: Evolución do proxecto
-      versions:
-        index:
-          changes_at_title: Cambios en "%{title}"
-          title: Versións
-        show:
-          changes_at_title: Cambios en "%{title}"
-        version:
-          version_index: Versión %{index}
     components:
       accountability:
         name: Responsabilidade

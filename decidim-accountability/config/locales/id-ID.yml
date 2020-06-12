@@ -149,30 +149,16 @@ id:
         show:
           stats:
             attendees: Hadirin
-            back_to_result: Kembali ke hasil
+            back_to_resource: Kembali ke hasil
             comments: Komentar
             contributions: Kontribusi
             last_edited_by: Terakhir diedit oleh
             last_updated_at: Terakhir diperbarui pada
             meetings: Rapat
-            number_of_versions: Versi
             proposals: Proposal
-            show_all_versions: Tampilkan semua versi
-            version_author: Penulis versi
-            version_created_at: Versi dibuat di
-            version_number: Nomor versi
-            version_number_out_of_total: "%{current_version} dari %{total_count}"
             votes: Mendukung
         timeline:
           title: Evolusi proyek
-      versions:
-        index:
-          changes_at_title: Perubahan pada "%{title}"
-          title: Versi
-        show:
-          changes_at_title: Perubahan pada "%{title}"
-        version:
-          version_index: Versi %{index}
     components:
       accountability:
         name: Akuntabilitas
