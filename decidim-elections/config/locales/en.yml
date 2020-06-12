@@ -35,6 +35,10 @@ en:
         one: Question
         other: Questions
   decidim:
+    admin_log:
+      election:
+        publish: "%{user_name} published the %{resource_name} election"
+        unpublish: "%{user_name} unpublished the %{resource_name} election"
     components:
       elections:
         name: Elections
@@ -119,10 +123,6 @@ en:
           update:
             invalid: There was a problem updating this question
             success: Question successfully updated
-      admin_log:
-        election:
-          publish: "%{user_name} published the %{resource_name} election"
-          unpublish: "%{user_name} unpublished the %{resource_name} election"
       models:
         answer:
           fields:
