@@ -9,7 +9,7 @@ module Decidim
     describe ElectionType, type: :graphql do
       include_context "with a graphql type"
 
-      let(:model) { create(:election, :complete) }
+      let(:model) { create(:election, :published, :complete) }
 
       it_behaves_like "traceable interface" do
         let(:author) { create(:user, :admin, organization: model.component.organization) }

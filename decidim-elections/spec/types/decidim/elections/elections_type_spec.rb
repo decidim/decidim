@@ -13,8 +13,8 @@ module Decidim
       it_behaves_like "a component query type"
 
       describe "elections" do
-        let!(:component_elections) { create_list(:election, 2, component: model) }
-        let!(:component_elections_hidden) { create_list(:election, 2, component: model, published_at: nil) }
+        let!(:component_elections) { create_list(:election, 2, :published, component: model) }
+        let!(:component_elections_hidden) { create_list(:election, 2, component: model) }
         let!(:other_elections) { create_list(:election, 2) }
 
         let(:query) { "{ elections { edges { node { id } } } }" }
@@ -32,7 +32,7 @@ module Decidim
         let(:variables) { { id: election.id.to_s } }
 
         context "when the election belongs to the component" do
-          let!(:election) { create(:election, component: model) }
+          let!(:election) { create(:election, :published, component: model) }
 
           it "finds the election" do
             expect(response["election"]["id"]).to eq(election.id.to_s)
@@ -48,7 +48,7 @@ module Decidim
         end
 
         context "when the election belongs to the component and its publication time is nil" do
-          let!(:election) { create(:election, component: model, published_at: nil) }
+          let!(:election) { create(:election, component: model) }
 
           it "returns null" do
             expect(response["election"]).to be_nil
