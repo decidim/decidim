@@ -35,6 +35,7 @@ fr:
         confirm_destroy: Êtes-vous sûr de vouloir supprimer ce %{name}?
         destroy: Supprimer
         edit: Modifier
+        import_csv: Importer un fichier CSV
         new: Nouveau %{name}
         preview: Aperçu
         timeline_entries: Évolution de la réalisation
@@ -42,6 +43,14 @@ fr:
       admin:
         exports:
           results: Réalisations
+        import_results:
+          new:
+            import: Importer
+            link: lien
+            title: Importer les résultats depuis un fichier CSV
+        imports:
+          create:
+            success: Le fichier a commencé à être importé. Vous recevrez un email dans les prochaines minutes avec le résultat de l'import
         models:
           result:
             name: Réalisation
@@ -111,6 +120,13 @@ fr:
         value_types:
           parent_presenter:
             not_found: 'Le parent n''a pas été trouvé dans la base de données (ID: %{id})'
+      import_mailer:
+        import:
+          errors: Erreurs
+          errors_present: Un problème est survenu lors de l'import des résultats
+          row_number: Ligne
+          subject: Import des résultats réussi
+          success: Import des résultats réussi. Vous pouvez consulter les résultats dans l'interface d'administration.
       last_activity:
         new_result_at_html: "<span>Nouvelle réalisation %{link}</span>"
       models:

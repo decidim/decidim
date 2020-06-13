@@ -455,6 +455,7 @@ fr:
     endorsements:
       identities:
         done: Terminé
+        select_identity: Sélectionner une identité
     errors:
       internal_server_error:
         title: Il y a eu un problème avec notre serveur
@@ -587,6 +588,9 @@ fr:
         notification_title: Un événement a eu lieu à <a href="%{resource_path}">%{resource_title}</a>.
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, que vous suivez, vient d’approuver l''évènement "%{resource_title}" et nous pensons que cela pourrait vous intéresser. Consultez le et contribuez:'
+        email_outro: Vous avez reçu cette notification parce que vous suivez %{endorser_nickname}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+        email_subject: "%{endorser_nickname} a effectué une nouvelle approbation"
+        notification_title: Le <a href="%{resource_path}">%{resource_title}</a> %{resource_type} a été approuvé par <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: Le <a href="%{resource_url}">profil public</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
@@ -797,27 +801,66 @@ fr:
       home: Accueil
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          admin_in_group: Vous recevez ceci parce que vous êtes un administrateur de %{group}.
+          greeting: Bonjour, %{recipient} !
+          intro: "%{manager} a commencé une nouvelle conversation au nom de %{group}. Cliquez ici pour la voir :"
+          outro: Profitez de decidim !
+          subject: "%{manager} a commencé une nouvelle conversation en tant que %{group}"
+        comanagers_new_message:
+          admin_in_group: Vous recevez ceci parce que vous êtes un administrateur de %{group}.
+          greeting: Bonjour %{recipient} !
+          intro: "%{manager} a posté de nouveaux messages dans une conversation au nom de %{group}. Cliquez ici pour les voir:"
+          outro: Profitez de decidim !
+          subject: "%{manager} a envoyé de nouveaux messages en tant que %{group}"
         new_conversation:
           greeting: Bonjour, %{recipient} !
           intro: "%{sender} a commencé une nouvelle conversation avec vous. Cliquez ici pour la voir :"
           outro: Profitez de cette plateforme !
           subject: "%{sender} a commencé une conversation avec vous"
+        new_group_conversation:
+          admin_in_group: Vous recevez ceci parce que vous êtes un administrateur de %{group}.
+          greeting: Bonjour, %{recipient} !
+          intro: "%{sender} a commencé une nouvelle conversation avec le groupe %{group}. Cliquez ici pour la voir :"
+          outro: Profitez de decidim !
+          subject: "%{sender} a commencé une conversation avec %{group}"
+        new_group_message:
+          admin_in_group: Vous recevez ceci parce que vous êtes un administrateur de %{group}.
+          greeting: Bonjour, %{recipient} !
+          intro: "%{sender} a posté de nouveaux messages dans une conversation avec le groupe %{group}. Cliquez ici pour le voir:"
+          outro: Profitez de decidim !
+          subject: "%{group} a de nouveaux messages de %{sender}"
         new_message:
           greeting: Bonjour, %{recipient} !
           intro: "%{sender} a posté de nouveaux messages dans votre conversation. Cliquez ici pour les voir :"
           outro: Profitez de cette plateforme !
           subject: Vous avez de nouveaux messages de %{sender}
       conversations:
+        add_conversation_users:
+          add_max_users: 'Ajouter des utilisateurs à la conversation: 9 utilisateurs max'
+          add_users_placeholder: Chercher...
+          modal_title: Nouvelle conversation
+          no_results: Aucun résultat
+          participant_with_disabled_message_reception: Ce participant a désactivé la réception de message
         create:
           error: La conversation n'a pas commencé. Réessayez plus tard
         index:
+          ago: il y a
           close: Fermer la fenêtre
+          from: De
+          groups: Mes groupes
+          last_message: Dernier message
+          new_conversation: Nouvelle conversation
+          next: Suivant
           no_conversations: Vous n'avez encore aucune conversation
           title: Conversations
         reply:
+          placeholder: Votre réponse...
           send: Envoyer
           title: Répondre
         show:
+          chat_with: Conversation avec
+          not_allowed: Cet utilisateur n'accepte plus de messages directs.
           title: Conversation avec %{usernames}
         start:
           send: Envoyer
@@ -844,6 +887,24 @@ fr:
         note: Vous avez reçu cet email parce que vous êtes abonné aux newsletters de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
         see_on_website: Vous ne pouvez pas voir cet email correctement ? Consultez la <a href="%{link}" target="_blank">version web</a>.
         unsubscribe: Pour ne plus recevoir ce type d'email, <a href="%{link}" target="_blank" class="unsubscribe">Désabonnez-vous</a>.
+    newsletter_templates:
+      basic_only_text:
+        body_preview: 'Faux text pour le corps: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Basique (seulement texte)
+      basic_only_text_settings_form:
+        body: Corps du texte
+        interpolations_hint: 'Astuce : Vous pouvez utiliser "%{name}" n''importe où dans le corps ou le sujet et il sera remplacé par le nom du destinataire.'
+      image_text_cta:
+        body_preview: 'Faux texte pour le corps: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
+        cta_text_preview: Texte d'appel à l'action
+        introduction_preview: 'Faux texte pour l''introduction: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Bouton Image, texte et appel à l'action
+      image_text_cta_settings_form:
+        body: Corps du texte
+        cta_text: Texte du bouton d'Appel à action
+        cta_url: URL du bouton d'appel à l'action
+        introduction: Introduction
+        main_image: Image principale
     newsletters:
       unsubscribe:
         check_subscription: Si vous souhaitez modifier vos préférences, vous pouvez le faire dans la page des <a href="%{link}" target="_blank">paramètres des notifications</a>
@@ -869,6 +930,8 @@ fr:
       no_notifications: Il n'y a pas encore de notifications.
     notifications_settings:
       show:
+        allow_public_contact: Permettre à quelqu'un de m'envoyer un message direct, même si je ne les suis pas.
+        direct_messages: Recevoir des messages directs de n'importe qui
         email_on_notification: Je souhaite recevoir un email à chaque fois que je reçois une notification.
         everything_followed: Tout ce que je suis
         newsletter_notifications: Je souhaite recevoir une newsletter sur l'actualité de la plateforme
@@ -971,6 +1034,7 @@ fr:
       show:
         activity: Activité
         badges: Badges
+        conversations: Conversations
         followers: Abonnés
         following: Est abonné à
         groups: Groupes
@@ -1008,6 +1072,9 @@ fr:
       create:
         error: Une erreur s'est produite lors de la création du rapport. Veuillez essayer à nouveau.
         success: Le contenu a été signalé, il sera examiné par un administrateur.
+    resource_endorsements:
+      create:
+        error: Il y a eu un problème lors de l'action d'approbation.
     scopes:
       global: Portée générale
       picker:
@@ -1073,6 +1140,7 @@ fr:
         select_user_group: Sélectionner un groupe
       results_per_page:
         label: 'Résultats par page :'
+        title: Sélectionner le nombre de résultats par page
       share_modal:
         close_window: Fermer la fenêtre
         share: Partager
@@ -1080,6 +1148,37 @@ fr:
     user_activity:
       index:
         no_activities_warning: Cet utilisateur n'a pas encore eu d'activité.
+    user_contact_disabled: Cet utilisateur n'accepte pas les messages directs.
+    user_conversations:
+      create:
+        error: Le message n'a pas pu être créé. Réessayez plus tard
+        existing_error: Le message n'a pas pu être créé. La conversation existe déjà, veuillez réessayer maintenant.
+        success: La conversation a commencé avec succès !
+      index:
+        add_max_users: 'Ajouter des utilisateurs à la conversation: 9 utilisateurs max'
+        add_users_placeholder: Chercher...
+        close: Fermer
+        conversations_info: Les conversations sont privées. Personne d'autre ne peut les voir. Une conversation peut être lancée avec n'importe quel participant ou groupe enregistré sur la plateforme.
+        from: De
+        last_message: Dernier message
+        modal_title: Nouvelle conversation
+        new_conversation: Nouvelle conversation
+        next: Suivant
+        no_conversations_warning: Il n'y a pas encore de conversations.
+        no_results: Aucun résultat
+        participant_with_disabled_message_reception: Ce participant a désactivé la réception de message
+        time_ago: "il y a %{time}"
+      new:
+        title: Démarrer une conversation
+      reply:
+        placeholder: Votre réponse...
+        send: Envoyer
+        title_reply: Répondre
+      show:
+        not_allowed: Cet utilisateur n'accepte plus de messages directs.
+        title: Conversation avec %{usernames}
+      update:
+        error: Message non envoyé. Réessayez plus tard
     user_interests:
       show:
         my_interests: Mes intérêts
@@ -1089,9 +1188,31 @@ fr:
       update:
         error: Une erreur s'est produite lors de la mise à jour de vos centres d'intérêt.
         success: Vos intérêts ont été mis à jour avec succès.
+    version:
+      show:
+        back_to_resource: Revenir en arrière
+        number_of_versions: Versions
+        show_all_versions: Afficher toutes les versions
+        version_author: Auteur de la version
+        version_created_at: Version créée le
+        version_number: Numéro de version
+        version_number_out_of_total: "%{current_version} sur %{total_count}"
     version_author:
       show:
         deleted: Utilisateur ayant supprimé son compte
+    versions:
+      resource_version:
+        of_versions: "(sur %{number})"
+        see_other_versions: voir les autres versions
+        version: Version %{number}
+    versions_list:
+      show:
+        back_to_resource: Revenir en arrière
+        number_of_versions: Versions
+        title: Versions
+    versions_list_item:
+      show:
+        version_index: Version %{index}
     welcome_notification:
       default_body: <p>Bonjour {{name}}, merci d'avoir rejoins {{organization}} et bienvenue!</p><ul><li>Si vous souhaitez avoir une idée rapide de ce que vous pouvez faire ici, consultez la section <a href="{{help_url}}">Aide</a> .</li><li>Une fois que vous l'avez lu, vous recevrez votre premier badge. Voici une <a href="{{badges_url}}">liste de tous les badges</a> vous pouvez obtenir vous participez à {{organization}}</li><li>En somme, rejoignez d'autres personnes, partagez avec eux l'expérience d'être engagés et participer à {{organization}}. Faites des propositions, des commentaires, lancez des débats, réfléchissez à la manière de contribuer au bien commun, fournissez des arguments pour convaincre, écoutez et lisez pour être convaincu, exprimez vos idées de manière concrète et directe, répondez avec patience et décision, défendez vos idées un esprit ouvert pour collaborer et rejoindre les idées des autres.</li></ul>
       default_subject: Merci d'avoir rejoint {{organization}}!
@@ -1254,6 +1375,7 @@ fr:
       cycle_detected: un périmètre d'application ne peut pas être du même niveau que ses descendants
       expired: a expiré, s'il vous plaît demander un nouveau
       file_size_is_less_than_or_equal_to: la taille du fichier doit être inférieure ou égale à %{count}
+      invalid_time_zone: n'est pas un fuseau horaire valide
       long_words: contient des mots trop longs (plus de 35 caractères)
       must_start_with_caps: doit commencer par une majuscule
       nesting_too_deep: ne peut pas être à l'intérieur d'une sous-catégorie
@@ -1359,6 +1481,7 @@ fr:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%A %d %B %Y %H h %M"
+      long_dashed: "%Y-%m-%d %H:%M:%S"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
@@ -1366,13 +1489,21 @@ fr:
       left: Suppressions
       right: Ajouts
     dropdown:
+      choose_diff_view_html: 'Mode d''affichage HTML :'
       choose_diff_view_mode: 'Sélectionner le mode de vue :'
+      option_escaped: Echappé
       option_split: Côte à côte
+      option_unescaped: Non échappé
       option_unified: Unifié
   views:
     pagination:
       first: "&laquo; Première"
+      first_title: Lien vers la première page
       last: Dernière &raquo;
+      last_title: Lien vers la dernière page
       next: Suivant &rsaquo;
+      next_title: Lien vers la page suivante
       previous: "&lsaquo; Précédent"
+      previous_title: Lien vers la page précédente
+      title: 'Numéro de page : '
       truncate: "&hellip;"
