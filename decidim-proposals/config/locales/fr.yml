@@ -31,6 +31,9 @@ fr:
       proposals_import:
         import_proposals: Importer des propositions
         keep_authors: Gardez les auteurs originaux
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: Nom de l'évaluateur
     errors:
       models:
         participatory_text:
@@ -42,12 +45,14 @@ fr:
             attachment:
               needs_to_be_reattached: Doit être téléchargé de nouveau
             body:
+              cant_be_equal_to_template: ne peut pas être égal au modèle
               identical: ET le titre ne peut pas être identique
             title:
               identical: ET le corps ne peut pas être identique
     models:
       decidim/proposals/accepted_proposal_event: Proposition acceptée
       decidim/proposals/admin/update_proposal_category_event: Catégorie de proposition modifiée
+      decidim/proposals/admin/update_proposal_scope_event: La portée de la proposition a été modifiée
       decidim/proposals/creation_enabled_event: Autoriser la création de nouvelles propositions
       decidim/proposals/endorsing_enabled_event: Activer le module de soutiens
       decidim/proposals/evaluating_proposal_event: Proposition en cours d'évaluation
@@ -77,6 +82,8 @@ fr:
           values:
             'false': Propositions
             'true': Amendements
+        search_placeholder:
+          id_string_or_title_cont: Rechercher %{collection} par ID ou titre.
         state_eq:
           label: État
           values:
@@ -86,6 +93,8 @@ fr:
           label: État
           values:
             'true': En attente de réponse
+        valuator_role_ids_has:
+          label: Assigné à l'évaluateur
     components:
       proposals:
         actions:
@@ -107,6 +116,8 @@ fr:
             comments_enabled: Activer le module de commentaire
             geocoding_enabled: Géocodage activé
             minimum_votes_per_user: Nombre minimum de votes par utilisateur
+            new_proposal_body_template: Modèle de corps d'une nouvelle proposition
+            new_proposal_body_template_help: Vous pouvez définir le texte prérempli que les nouvelles propositions auront
             new_proposal_help_text: Texte d'aide à la création d'une nouvelle proposition
             official_proposals_enabled: Autoriser la création de propositions officielles
             participatory_texts_enabled: Textes participatifs activés
@@ -130,20 +141,31 @@ fr:
             amendment_reaction_enabled: Réaction aux amendements activée
             amendment_reaction_enabled_help: Les auteurs de la proposition pourront accepter ou rejeter les modifications des participants.
             amendments_visibility: Visibilité des amendements
+            amendments_visibility_choices:
+              all: Les amendements sont visibles par tous
+              participants: Les amendements ne sont visibles que par leurs auteurs
             amendments_visibility_help: Si l'option "Les amendements ne sont visibles que pour leurs auteurs" est sélectionnée, le participant doit être connecté pour voir les amendements apportés.
             announcement: Annonce
+            answers_with_costs: Activer les coûts sur les réponses aux propositions
             automatic_hashtags: Hashtags ajoutés à toutes les propositions
             comments_blocked: Bloquer la création de nouveaux commentaires
             creation_enabled: Autoriser la création de nouvelles propositions
             endorsements_blocked: Bloquer les soutiens
             endorsements_enabled: Activer le module de soutiens
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
+            publish_answers_immediately: Publier immédiatement les réponses à la proposition
             suggested_hashtags: Hashtags suggérés aux utilisateurs pour de nouvelles propositions
             votes_blocked: Bloquer les votes
             votes_enabled: Activer le module de vote simple
             votes_hidden: Cacher les votes (si le module de votes est activé, le décompte des votes sera caché)
     events:
       proposals:
+        admin:
+          proposal_note_created:
+            email_intro: Quelqu'un a laissé une note sur la proposition "%{resource_title}". Consultez-la sur <a href="%{admin_proposal_info_url}">le panneau d'administration</a>
+            email_outro: Vous avez reçu cette notification car vous pouvez évaluer la proposition.
+            email_subject: Quelqu'un a laissé une note sur la proposition %{resource_title}.
+            notification_title: Quelqu'un a laissé une note sur la proposition <a href="%{resource_path}">%{resource_title}</a>. Consultez-la à <a href="%{admin_proposal_info_path}">le panneau d'administration</a>
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} a été accepté en tant que contributeur du projet collaboratif <a href="%{resource_path}">%{resource_title}</a>.'
           email_outro: Vous avez reçu cette notification car vous êtes collaborateur de <a href="%{resource_path}">%{resource_title}</a>.
@@ -207,6 +229,7 @@ fr:
             email_subject: Une proposition que vous suivez est en cours d'évaluation
             notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> est en cours d'évaluation.
         proposal_mentioned:
+          email_intro: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_url}">dans cet espace</a> dans les commentaires.
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
           email_subject: Votre proposition "%{mentioned_proposal_title}" a été mentionnée
           notification_title: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_path}">dans cet espace</a>, dans les commentaires.
@@ -237,7 +260,10 @@ fr:
           email_subject: La catégorie de la proposition %{resource_title} a été mise à jour
           notification_title: La catégorie de la proposition <a href="%{resource_path}">%{resource_title}</a> a été mise à jour par un administrateur.
         proposal_update_scope:
+          email_intro: 'Un administrateur a mis à jour la portée de votre proposition "%{resource_title}", regardez-la dans cette page :'
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de la proposition.
+          email_subject: La portée de la proposition %{resource_title} a été mise à jour
+          notification_title: La portée de la proposition <a href="%{resource_path}">%{resource_title}</a> a été mise à jour par un administrateur.
         voting_enabled:
           email_intro: 'Vous pouvez soutenir les propositions de %{participatory_space_title} ! Participez ici :'
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
@@ -304,10 +330,12 @@ fr:
         see_all: Tout voir (%{count})
     proposals:
       actions:
+        answer_proposal: Répondre à la proposition
         edit_proposal: Modifier la proposition
         import: Importer depuis une autre fonctionnalité
         new: Nouvelle proposition
         participatory_texts: Textes participatifs
+        show: Afficher la proposition
         title: Actions
       admin:
         actions:
@@ -384,33 +412,66 @@ fr:
             select_a_meeting: Sélectionnez une réunion
           index:
             actions: Actions
+            assign_to_valuator: Assigner à un évaluateur
+            assign_to_valuator_button: Assigner
             cancel: Annuler
             change_category: Changer de catégorie
+            change_scope: Changer le périmètre
             merge: Fusionner dans un nouveau
             merge_button: Fusionner
             publish: Publier
+            publish_answers: Publier les réponses
             select_component: Sélectionnez un composant
             selected: choisi
             split: Fractionner la proposition
             split_button: Scinder
             title: Propositions
+            unassign_from_valuator: Retirer de l'évaluateur
+            unassign_from_valuator_button: Ne plus assigner
             update: Mettre à jour
+            update_scope_button: Mise à jour du périmètre
           new:
             create: Créer
             title: Créer une proposition
           publish_answers:
+            number_of_proposals: Les réponses pour %{number} propositions seront publiées.
             select_a_proposal: Veuillez sélectionner une proposition
           show:
+            amendments_count: Nombre d'amendements
+            assigned_valuators: Évaluateurs assignés
             authors: Auteurs
             body: Corps
+            comments_count: Nombre de commentaires
+            comments_negative_count: Contre
+            comments_neutral_count: Neutre
+            comments_positive_count: En faveur
             created_at: Date de création
+            documents: Documents
+            endorsements_count: Nombre de soutiens
+            endorsements_ranking: Classement par soutiens
+            endorsers: Soutiens
+            link: Lien
+            n_more_endorsers:
+              one: et 1 de plus
+              other: et %{count} autres
+            photos: Photos
             proposals: Propositions
+            ranking: "%{ranking} sur %{total}"
+            related_meetings: Réunions associées
+            remove_assignment: Supprimer l'affectation
+            remove_assignment_confirmation: Êtes-vous sûr de vouloir supprimer l'évaluateur de cette proposition ?
+            valuators: Évaluateurs
             votes_count: Nombre de votes
+            votes_ranking: Classement par supports
           update_category:
+            invalid: 'Ces propositions avaient déjà la catégorie %{subject_name} : %{proposals}.'
             select_a_category: Veuillez sélectionner une catégorie
             select_a_proposal: Veuillez sélectionner une proposition
+            success: 'Les propositions ont été mises à jour avec succès vers la catégorie %{subject_name} : %{proposals}.'
           update_scope:
+            invalid: 'Ces propositions avaient déjà la portée de %{subject_name} : %{proposals}.'
             select_a_proposal: Veuillez sélectionner une proposition
+            success: 'Les propositions ont été mises à jour avec succès vers le périmètre %{subject_name} : %{proposals}.'
         proposals_imports:
           create:
             invalid: Un problème est survenu lors de l'importation des propositions
@@ -428,13 +489,23 @@ fr:
           create:
             invalid: Une erreur s'est produite lors de la division des propositions sélectionnées.
             success: Divisé avec succès les propositions en nouvelles.
+        valuation_assignments:
+          create:
+            invalid: Il y a eu une erreur en attribuant des propositions à un évaluateur
+            success: Propositions assignées à un évaluateur avec succès
+          delete:
+            invalid: Il y a eu une erreur lors de la désassignation des propositions d'un évaluateur
       admin_log:
         proposal:
           answer: "%{user_name} a répondu à la proposition %{resource_name} sur l'espace %{space_name}"
           create: "%{user_name} a créé la proposition %{resource_name} sur l'espace %{space_name} en tant que proposition officielle"
+          publish_answer: "%{user_name} a publié la réponse à la proposition %{resource_name} sur l'espace %{space_name}"
           update: "%{user_name} mis à jour le %{resource_name} proposition officielle sur le %{space_name} espace"
         proposal_note:
           create: "%{user_name} a publié une note privée sur la proposition %{resource_name} sur l'espace %{space_name}"
+        valuation_assignment:
+          create: "%{user_name} a assigné la proposition %{resource_name} à un évaluateur"
+          delete: "%{user_name} a désassigné un évaluateur de la proposition %{proposal_title}"
       answers:
         accepted: Retenue
         evaluating: En cours d'évaluation
@@ -594,10 +665,13 @@ fr:
             id: ID
             notes: Remarques
             official_proposal: Proposition officielle
+            published_answer: Réponse publiée
             published_at: Publiée à
             scope: Périmètre d'application
             state: État
             title: Titre
+            valuator: Évaluateur
+            valuators: Évaluateurs
             votes: Votes
       new:
         limit_reached: Vous ne pouvez pas créer de nouvelles propositions car vous avez dépassé le nombre autorisé.
@@ -688,13 +762,18 @@ fr:
         proposal:
           creation_date: 'Création : %{date}'
           view_proposal: Voir la proposition
+        proposals:
+          empty: Il n'y a pas encore de proposition
+          empty_filters: Il n'y a aucune proposition avec ce critère
         show:
           answer: Répondre
           back_to: Retour à
+          back_to_list: Retour à la liste
           changes_at_title: Amendement de (%{title}"
           comments: Commentaires
           edit_proposal: Modifier la proposition
           endorsements_list: Liste des soutiens
+          estimated_cost: Coût estimé
           hidden_endorsers_count:
             one: et %{count} personne de plus
             other: et %{count} autres personnes
@@ -707,10 +786,14 @@ fr:
           proposal_accepted_reason: 'Cette proposition a été retenue parce que :'
           proposal_in_evaluation_reason: Cette proposition est en cours d'évaluation
           proposal_rejected_reason: 'Cette proposition n''a pas été retenue parce que :'
+          read_less: Lire moins
+          read_more: En savoir plus
           report: Signaler
           withdraw_btn_hint: Si vous changez d'avis et tant que votre proposition n'a pas reçu de vote, commentaire et/ou soutien, vous pouvez toujours la retirer. Cette dernière ne sera pas supprimée mais elle apparaîtra dans la liste des propositions retirées.
           withdraw_confirmation: Êtes-vous sûr de vouloir retirer cette proposition ?
           withdraw_proposal: Retirer la proposition
+        tags:
+          changed_from: "(changé de <u>%{previous_name}</u> par un administrateur)"
         vote_button:
           already_voted: Déjà votée
           already_voted_hover: Retirer le vote
@@ -750,9 +833,16 @@ fr:
           step_3: Compléter votre proposition
           step_4: Publier votre proposition
           step_of: Étape %{current_step_num} sur %{total_steps}
+      proposals_picker:
+        choose_proposals: Choisir les propositions
+        close: Fermer
+        more_proposals: Il y a %{number} propositions supplémentaires. Affinez votre recherche pour les localiser.
+        no_proposals: Aucune proposition ne correspond à vos critères de recherche ou il n'y a aucune proposition.
       publish:
         error: Il y a eu des erreurs lors de la publication de la proposition.
         success: Proposition publiée avec succès.
+      publish_answers:
+        success: Réponses aux propositions publiées avec succès.
       update:
         error: Des erreurs se sont produites lors de l'enregistrement de la proposition.
         success: Proposition mise à jour avec succès.
