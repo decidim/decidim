@@ -135,30 +135,16 @@ is-IS:
         show:
           stats:
             attendees: Dómarar
-            back_to_result: Fara aftur til niðurstöðu
+            back_to_resource: Fara aftur til niðurstöðu
             comments: Athugasemdir
             contributions: Framlög
             last_edited_by: Síðast breytt af
             last_updated_at: Síðast uppfært á
             meetings: Fundir
-            number_of_versions: Útgáfur
             proposals: Tillögur
-            show_all_versions: Sýna allar útgáfur
-            version_author: Útgáfa höfundur
-            version_created_at: Útgáfa búin til á
-            version_number: Útgáfa númer
-            version_number_out_of_total: "%{current_version} af %{total_count}"
             votes: Styður
         timeline:
           title: Verkefnisþróun
-      versions:
-        index:
-          changes_at_title: Breytingar á "%{title}"
-          title: Útgáfur
-        show:
-          changes_at_title: Breytingar á "%{title}"
-        version:
-          version_index: Útgáfa %{index}
     components:
       accountability:
         name: Ábyrgð

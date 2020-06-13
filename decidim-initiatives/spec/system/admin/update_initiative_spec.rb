@@ -167,6 +167,24 @@ describe "User prints the initiative", type: :system do
           expect(page).to have_link("New")
         end
       end
+
+      context "when there is a single initiative type" do
+        let!(:other_initiatives_type) { nil }
+        let!(:other_initiatives_type_scope) { nil }
+
+        before do
+          initiative.created!
+        end
+
+        it "update of type, scope and signature type are disabled" do
+          page.find(".action-icon--edit").click
+
+          within ".edit_initiative" do
+            expect(page).not_to have_css("label[for='initiative_type_id']")
+            expect(page).not_to have_css("#initiative_type_id")
+          end
+        end
+      end
     end
   end
 end

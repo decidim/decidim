@@ -1037,8 +1037,6 @@
         close_window: Lukk vindu
         share: Del
         share_link: Del lenke
-      version_author:
-        deleted: Slettet deltaker
     user_activity:
       index:
         no_activities_warning: Denne deltakeren har ikke hatt noe aktivitet ennå.
@@ -1051,6 +1049,9 @@
       update:
         error: Det oppstod et problem med å oppdatere interessene dine.
         success: Interessene dine er oppdatert.
+    version_author:
+      show:
+        deleted: Slettet deltaker
     welcome_notification:
       default_body: <p>Hei {{name}}, takk for at du ble med i {{organization}} og velkommen!</p><ul><li>Hvis du vil få et raskt inntrykk av hva du kan gjøre her, ta en titt på <a href="{{help_url}}">Hjelp</a> seksjonen.</li><li>Når du har lest det, får du det første merket ditt. Her er en <a href="{{badges_url}}">liste over alle merkene</a> du kan oppnå når du deltar i {{organization}}</li><li>Sist, men ikke minst, bli med andre mennesker, dele med dem opplevelsen av å være engasjert og delta i {{organization}}. Lag forslag, kommentarer, debattere, tenk på hvordan du kan bidra til felleskapets beste, gi argumenter for å overbevise, lytte og lese for å bli overbevist, uttrykke ideene dine på en konkret og direkte måte, svare med tålmodighet og beslutning, forsvare ideene dine og beholde et åpent sinn for å samarbeide og bli med på andres ideer.</li></ul>
       default_subject: Takk for at du ble med {{organization}}!

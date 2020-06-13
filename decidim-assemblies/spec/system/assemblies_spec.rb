@@ -72,66 +72,70 @@ describe "Assemblies", type: :system do
     let!(:promoted_assembly) { create(:assembly, :promoted, organization: organization) }
     let!(:unpublished_assembly) { create(:assembly, :unpublished, organization: organization) }
 
-    before do
-      visit decidim_assemblies.assemblies_path
+    it_behaves_like "editable content for admins" do
+      let(:target_path) { decidim_assemblies.assemblies_path }
     end
-
-    it_behaves_like "editable content for admins"
 
     it_behaves_like "shows contextual help" do
       let(:index_path) { decidim_assemblies.assemblies_path }
       let(:manifest_name) { :assemblies }
     end
 
-    context "and accessing from the homepage" do
-      it "the menu link is shown" do
-        visit decidim.root_path
+    context "and requesting the asseblies path" do
+      before do
+        visit decidim_assemblies.assemblies_path
+      end
 
-        within ".main-nav" do
-          expect(page).to have_content("Assemblies")
-          click_link "Assemblies"
+      context "and accessing from the homepage" do
+        it "the menu link is shown" do
+          visit decidim.root_path
+
+          within ".main-nav" do
+            expect(page).to have_content("Assemblies")
+            click_link "Assemblies"
+          end
+
+          expect(page).to have_current_path decidim_assemblies.assemblies_path
         end
-
-        expect(page).to have_current_path decidim_assemblies.assemblies_path
       end
-    end
 
-    it "lists all the highlighted assemblies" do
-      within "#highlighted-assemblies" do
-        expect(page).to have_content(translated(promoted_assembly.title, locale: :en))
-        expect(page).to have_selector("article.card--full", count: 1)
-      end
-    end
-
-    it "lists the parent assemblies" do
-      within "#parent-assemblies" do
-        within "#parent-assemblies h3" do
-          expect(page).to have_content("2")
+      it "lists all the highlighted assemblies" do
+        within "#highlighted-assemblies" do
+          expect(page).to have_content(translated(promoted_assembly.title, locale: :en))
+          expect(page).to have_selector("article.card--full", count: 1)
         end
-
-        expect(page).to have_content(translated(assembly.title, locale: :en))
-        expect(page).to have_content(translated(promoted_assembly.title, locale: :en))
-        expect(page).to have_selector("article.card", count: 2)
-        expect(page).to have_selector("article.card.card--stack", count: 1)
-
-        expect(page).not_to have_content(translated(child_assembly.title, locale: :en))
-        expect(page).not_to have_content(translated(unpublished_assembly.title, locale: :en))
       end
-    end
 
-    it "links to the individual assembly page" do
-      click_link(translated(assembly.title, locale: :en))
+      it "lists the parent assemblies" do
+        within "#parent-assemblies" do
+          within "#parent-assemblies h3" do
+            expect(page).to have_content("2")
+          end
 
-      expect(page).to have_current_path decidim_assemblies.assembly_path(assembly)
-    end
+          expect(page).to have_content(translated(assembly.title, locale: :en))
+          expect(page).to have_content(translated(promoted_assembly.title, locale: :en))
+          expect(page).to have_selector("article.card", count: 2)
+          expect(page).to have_selector("article.card.card--stack", count: 1)
 
-    it "shows the organizational chart" do
-      within "#assemblies-chart" do
-        within ".js-orgchart" do
-          expect(page).to have_selector(".svg-chart-container")
+          expect(page).not_to have_content(translated(child_assembly.title, locale: :en))
+          expect(page).not_to have_content(translated(unpublished_assembly.title, locale: :en))
+        end
+      end
 
-          within ".svg-chart-container" do
-            expect(page).to have_selector("g.node", count: 2)
+      it "links to the individual assembly page" do
+        click_link(translated(assembly.title, locale: :en))
+
+        expect(page).to have_current_path decidim_assemblies.assembly_path(assembly)
+      end
+
+      it "shows the organizational chart" do
+        within "#assemblies-chart" do
+          within ".js-orgchart" do
+            expect(page).to have_selector(".svg-chart-container")
+
+            within ".svg-chart-container" do
+              expect(page).to have_selector("g.node", count: 2)
+            end
           end
         end
       end
@@ -146,98 +150,104 @@ describe "Assemblies", type: :system do
     before do
       create_list(:proposal, 3, component: proposals_component)
       allow(Decidim).to receive(:component_manifests).and_return([proposals_component.manifest, meetings_component.manifest])
-
-      visit decidim_assemblies.assembly_path(assembly)
     end
 
-    it_behaves_like "editable content for admins"
-
-    it "shows the details of the given assembly" do
-      within "main" do
-        expect(page).to have_content(translated(assembly.title, locale: :en))
-        expect(page).to have_content(translated(assembly.subtitle, locale: :en))
-        expect(page).to have_content(translated(assembly.description, locale: :en))
-        expect(page).to have_content(translated(assembly.short_description, locale: :en))
-        expect(page).to have_content(translated(assembly.meta_scope, locale: :en))
-        expect(page).to have_content(translated(assembly.developer_group, locale: :en))
-        expect(page).to have_content(translated(assembly.local_area, locale: :en))
-        expect(page).to have_content(translated(assembly.target, locale: :en))
-        expect(page).to have_content(translated(assembly.participatory_scope, locale: :en))
-        expect(page).to have_content(translated(assembly.participatory_structure, locale: :en))
-        expect(page).to have_content(assembly.hashtag)
-      end
+    it_behaves_like "editable content for admins" do
+      let(:target_path) { decidim_assemblies.assembly_path(assembly) }
     end
 
-    it_behaves_like "has attachments" do
-      let(:attached_to) { assembly }
-    end
-
-    context "when the assembly has some components" do
-      it "shows the components" do
-        within ".process-nav" do
-          expect(page).to have_content(translated(proposals_component.name, locale: :en).upcase)
-          expect(page).to have_no_content(translated(meetings_component.name, locale: :en).upcase)
-        end
-      end
-
-      it "shows the stats for those components" do
-        within ".process_stats" do
-          expect(page).to have_content("3 PROPOSALS")
-          expect(page).not_to have_content("0 MEETINGS")
-        end
-      end
-
-      context "when the assembly stats are not enabled" do
-        let(:show_statistics) { false }
-
-        it "the stats for those components are not visible" do
-          expect(page).not_to have_content("3 PROPOSALS")
-        end
-      end
-    end
-
-    context "when the assembly has children assemblies" do
-      let!(:child_assembly) { create :assembly, organization: organization, parent: assembly }
-      let!(:unpublished_child_assembly) { create :assembly, :unpublished, organization: organization, parent: assembly }
-
+    context "and requesting the assebly path" do
       before do
         visit decidim_assemblies.assembly_path(assembly)
       end
 
-      it "shows only the published children assemblies" do
-        within("#assemblies-grid") do
-          expect(page).to have_link translated(child_assembly.title)
-          expect(page).not_to have_link translated(unpublished_child_assembly.title)
+      it "shows the details of the given assembly" do
+        within "main" do
+          expect(page).to have_content(translated(assembly.title, locale: :en))
+          expect(page).to have_content(translated(assembly.subtitle, locale: :en))
+          expect(page).to have_content(translated(assembly.description, locale: :en))
+          expect(page).to have_content(translated(assembly.short_description, locale: :en))
+          expect(page).to have_content(translated(assembly.meta_scope, locale: :en))
+          expect(page).to have_content(translated(assembly.developer_group, locale: :en))
+          expect(page).to have_content(translated(assembly.local_area, locale: :en))
+          expect(page).to have_content(translated(assembly.target, locale: :en))
+          expect(page).to have_content(translated(assembly.participatory_scope, locale: :en))
+          expect(page).to have_content(translated(assembly.participatory_structure, locale: :en))
+          expect(page).to have_content(assembly.hashtag)
         end
       end
-    end
 
-    context "when the assembly has children private and transparent assemblies" do
-      let!(:private_transparent_child_assembly) { create :assembly, organization: organization, parent: assembly, private_space: true, is_transparent: true }
-      let!(:private_transparent_unpublished_child_assembly) { create :assembly, :unpublished, organization: organization, parent: assembly, private_space: true, is_transparent: true }
-
-      before do
-        visit decidim_assemblies.assembly_path(assembly)
+      it_behaves_like "has attachments" do
+        let(:attached_to) { assembly }
       end
 
-      it "shows only the published, private and transparent children assemblies" do
-        within("#assemblies-grid") do
-          expect(page).to have_link translated(private_transparent_child_assembly.title)
-          expect(page).not_to have_link translated(private_transparent_unpublished_child_assembly.title)
+      context "when the assembly has some components" do
+        it "shows the components" do
+          within ".process-nav" do
+            expect(page).to have_content(translated(proposals_component.name, locale: :en).upcase)
+            expect(page).to have_no_content(translated(meetings_component.name, locale: :en).upcase)
+          end
+        end
+
+        it "shows the stats for those components" do
+          within ".process_stats" do
+            expect(page).to have_content("3 PROPOSALS")
+            expect(page).not_to have_content("0 MEETINGS")
+          end
+        end
+
+        context "when the assembly stats are not enabled" do
+          let(:show_statistics) { false }
+
+          it "the stats for those components are not visible" do
+            expect(page).not_to have_content("3 PROPOSALS")
+          end
         end
       end
-    end
 
-    context "when the assembly has children private and not transparent assemblies" do
-      let!(:private_child_assembly) { create :assembly, organization: organization, parent: assembly, private_space: true, is_transparent: false }
-      let!(:private_unpublished_child_assembly) { create :assembly, :unpublished, organization: organization, parent: assembly, private_space: true, is_transparent: false }
+      context "when the assembly has children assemblies" do
+        let!(:child_assembly) { create :assembly, organization: organization, parent: assembly }
+        let!(:unpublished_child_assembly) { create :assembly, :unpublished, organization: organization, parent: assembly }
 
-      before do
-        visit decidim_assemblies.assembly_path(assembly)
+        before do
+          visit decidim_assemblies.assembly_path(assembly)
+        end
+
+        it "shows only the published children assemblies" do
+          within("#assemblies-grid") do
+            expect(page).to have_link translated(child_assembly.title)
+            expect(page).not_to have_link translated(unpublished_child_assembly.title)
+          end
+        end
       end
 
-      it "not shows any children assemblies" do
-        expect(page).not_to have_css("div#assemblies-grid")
+      context "when the assembly has children private and transparent assemblies" do
+        let!(:private_transparent_child_assembly) { create :assembly, organization: organization, parent: assembly, private_space: true, is_transparent: true }
+        let!(:private_transparent_unpublished_child_assembly) { create :assembly, :unpublished, organization: organization, parent: assembly, private_space: true, is_transparent: true }
+
+        before do
+          visit decidim_assemblies.assembly_path(assembly)
+        end
+
+        it "shows only the published, private and transparent children assemblies" do
+          within("#assemblies-grid") do
+            expect(page).to have_link translated(private_transparent_child_assembly.title)
+            expect(page).not_to have_link translated(private_transparent_unpublished_child_assembly.title)
+          end
+        end
+      end
+
+      context "when the assembly has children private and not transparent assemblies" do
+        let!(:private_child_assembly) { create :assembly, organization: organization, parent: assembly, private_space: true, is_transparent: false }
+        let!(:private_unpublished_child_assembly) { create :assembly, :unpublished, organization: organization, parent: assembly, private_space: true, is_transparent: false }
+
+        before do
+          visit decidim_assemblies.assembly_path(assembly)
+        end
+
+        it "not shows any children assemblies" do
+          expect(page).not_to have_css("div#assemblies-grid")
+        end
       end
     end
   end

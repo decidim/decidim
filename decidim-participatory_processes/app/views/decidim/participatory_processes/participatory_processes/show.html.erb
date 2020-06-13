@@ -1,17 +1,17 @@
 <% add_decidim_meta_tags({
-  image_url: current_participatory_space.hero_image.url,
-  description: translated_attribute(current_participatory_space.short_description),
-  url: participatory_process_url(current_participatory_space),
-  twitter_handler: current_organization.twitter_handler
-}) %>
+                           image_url: current_participatory_space.hero_image.url,
+                           description: translated_attribute(current_participatory_space.short_description),
+                           url: participatory_process_url(current_participatory_space),
+                           twitter_handler: current_organization.twitter_handler
+                         }) %>
 
 <%
-edit_link(
-  resource_locator(current_participatory_space).edit,
-  :update,
-  :process,
-  process: current_participatory_space
-)
+  edit_link(
+    resource_locator(current_participatory_space).edit,
+    :update,
+    :process,
+    process: current_participatory_space
+  )
 %>
 
 <%= participatory_space_floating_help %>
@@ -48,6 +48,18 @@ edit_link(
           </div>
         </div>
       <% end %>
+
+      <% if linked_assemblies.any? %>
+        <div class="section"> )
+          <h4 class="section-heading"><%= t("participatory_process.show.related_assemblies", scope: "decidim") %></h4> )
+          <div class="row small-up-1 medium-up-2 card-grid"> )
+            <% linked_assemblies.each do |linked_assembly| %>
+              <%= card_for(linked_assembly) %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+
     </div>
     <div class="section columns medium-5 mediumlarge-4 large-3">
       <div class="card extra">

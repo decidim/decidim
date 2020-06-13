@@ -283,6 +283,7 @@ fr:
           form:
             available_slots_help: Laisser à 0 si le nombre de places disponibles est illimité.
             invites: Invitations
+            recommendation_message: Pour des raisons de confidentialité, nous vous recommandons de supprimer ce formulaire d'inscription lorsque vous n'en avez plus besoin. Par défaut, il le sera 3 mois après la fin de la réunion.
             registration_form: Formulaire d'inscription
             registrations_count:
               one: Il y a eu %{count} inscription.
@@ -368,6 +369,7 @@ fr:
           confirm: Confirmer
         show:
           attendees: Nombre de participants
+          back: Retour à la liste
           contributions: Décompte des contributions
           going: J'y vais
           join: Participer à la rencontre
