@@ -125,7 +125,7 @@ describe "Homepage", type: :system do
         let(:organization) { create(:organization, official_url: official_url, header_snippets: snippet) }
 
         it "does not include the header snippets" do
-          expect(page).not_to have_selector("meta[data-hello]", visible: false)
+          expect(page).not_to have_selector("meta[data-hello]", visible: :visible)
         end
 
         context "when header snippets are enabled" do
@@ -135,7 +135,7 @@ describe "Homepage", type: :system do
           end
 
           it "includes the header snippets" do
-            expect(page).to have_selector("meta[data-hello]", visible: false)
+            expect(page).to have_selector("meta[data-hello]", visible: :visible)
           end
         end
       end
