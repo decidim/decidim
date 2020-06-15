@@ -14,7 +14,6 @@ module Decidim
         resources :questionnaire_templates do
           member do
             post :copy
-            get :preview
 
             resource :questionnaire, module: "questionnaire_templates"
           end
@@ -35,8 +34,8 @@ module Decidim
                     decidim_admin_templates.root_url,
                     icon_name: "document",
                     position: 12,
-                    # if: allowed_to?(:read, :template), # TODO: investigate
-                    active: :inclusive # TODO! # active: is_active_link?(decidim_admin_templates.config_path(:editors), :inclusive)
+                    if: allowed_to?(:index, :templates),
+                    active: :inclusive
         end
       end
 

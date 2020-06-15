@@ -11,7 +11,7 @@ module Decidim
 
           case permission_action.subject
           when :template
-            allow! if [:read, :create, :update, :destroy, :preview, :copy].include? permission_action.action
+            allow! if [:read, :create, :update, :destroy, :copy].include? permission_action.action
           when :templates
             allow! if permission_action.action == :index
           when :questionnaire
