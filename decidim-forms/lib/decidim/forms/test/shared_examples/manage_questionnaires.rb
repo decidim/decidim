@@ -802,7 +802,7 @@ shared_examples_for "manage questionnaires" do
         context "when clicking on Collapse all button" do
           it "collapses all questions" do
             click_button "Collapse all questions"
-            expect(page).not_to have_selector(".collapsible", visible: :all)
+            expect(page).not_to have_selector(".collapsible", visible: :visible)
             expect(page).to have_selector(".question--collapse .icon-expand", count: questionnaire.questions.count)
           end
         end
@@ -816,7 +816,7 @@ shared_examples_for "manage questionnaires" do
 
           it "hides the question card section" do
             within ".questionnaire-question:last-of-type" do
-              expect(page).not_to have_selector(".collapsible", visible: :all)
+              expect(page).not_to have_selector(".collapsible", visible: :visible)
             end
           end
         end
@@ -829,7 +829,7 @@ shared_examples_for "manage questionnaires" do
           end
 
           it "shows the question card section" do
-            expect(page).to have_selector(".collapsible", visible: :all)
+            expect(page).to have_selector(".collapsible", visible: :visible)
           end
         end
 
