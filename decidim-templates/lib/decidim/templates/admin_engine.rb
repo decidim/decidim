@@ -20,7 +20,7 @@ module Decidim
           end
         end
 
-        root to: "templates#index"
+        root to: "questionnaire_templates#index"
       end
 
       initializer "decidim_templates.admin_mount_routes" do
