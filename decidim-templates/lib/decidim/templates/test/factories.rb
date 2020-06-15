@@ -7,9 +7,13 @@ FactoryBot.define do
   factory :template, class: "Decidim::Templates::Template" do
     organization
     templatable { build(:dummy_resource) }
+    name { Decidim::Faker::Localized.word }
 
     factory :questionnaire_template do
-      templatable { build(:questionnaire) }
+      after(:create) do |template|
+        template.templatable =  create(:questionnaire, questionnaire_for: template)
+        template.save!
+      end
     end
   end
 end
