@@ -9,8 +9,14 @@ module Decidim
 
       belongs_to :templatable, foreign_key: "templatable_id", foreign_type: "templatable_type", polymorphic: true, optional: true
 
+      before_destroy :destroy_templatable
+      
       def resource_name
         [templatable_type.split("::").last.downcase, "templates"].join("_")
+      end
+
+      def destroy_templatable
+        templatable.destroy!
       end
     end
   end
