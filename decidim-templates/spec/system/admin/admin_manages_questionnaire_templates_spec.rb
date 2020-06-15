@@ -9,11 +9,12 @@ describe "Admin manages templates", type: :system do
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
-    visit decidim_admin_templates.questionnaire_templates_path
   end
-
+  
   describe "creating a template" do
     before do
+      visit decidim_admin_templates.questionnaire_templates_path
+
       within ".layout-content" do
         click_link("New")
       end
@@ -46,6 +47,49 @@ describe "Admin manages templates", type: :system do
       within ".container" do
         expect(page).to have_current_path decidim_admin_templates.questionnaire_templates_path
         expect(page).to have_content("My template")
+      end
+    end
+  end
+
+  describe "editing the template's questionnaire" do
+    let!(:template) { create(:questionnaire_template, organization: organization) }
+    
+    it "shows a functional questionnaire form" do
+      visit decidim_admin_templates.questionnaire_templates_path
+      
+      within ".layout-content" do
+        click_link("Edit")
+      end
+  
+      within ".container" do
+        click_link("Edit")
+      end
+
+      within ".edit_questionnaire" do
+        fill_in_i18n(
+          :questionnaire_title,
+          "#questionnaire-title-tabs",
+          en: "My questionnaire",
+          es: "Mi formulario",
+          ca: "El meu formulari"
+        )
+
+        fill_in_i18n(
+          :questionnaire_tos,
+          "#questionnaire-tos-tabs",
+          en: "My terms",
+          es: "Mis términos",
+          ca: "Els meus termes"
+        )
+
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_admin_callout("successfully")
+
+      within ".container" do
+        expect(page).to have_current_path decidim_admin_templates.edit_questionnaire_templates_path(template)
+        expect(page).to have_content("My questionnaire")
       end
     end
   end
