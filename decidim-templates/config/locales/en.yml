@@ -28,9 +28,9 @@ en:
       admin:
         questionnaire_templates:
           form:
-            title: Questionnaire template
+            title: Template information
             save: Save
-            questionnaire: Questionnaire
+            questionnaire: Questionnaire template
             edit: Edit
             empty: There are no questions yet
           index:
