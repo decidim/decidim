@@ -30,6 +30,10 @@ module Decidim
       it "has an associated questionnaire as templatable" do
         expect(subject.templatable).to be_a(Decidim::Forms::Questionnaire)
       end
+
+      it "has the right resource_name" do
+        expect(subject.resource_name).to eq("questionnaire_templates")
+      end
     end
   end
 end
