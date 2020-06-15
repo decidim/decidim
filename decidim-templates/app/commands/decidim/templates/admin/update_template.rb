@@ -23,7 +23,8 @@ module Decidim
           @template = Decidim.traceability.update!(
             @template,
             @user,
-            name: @form.name
+            name: @form.name,
+            description: @form.description
           )
 
           broadcast(:ok, @template)

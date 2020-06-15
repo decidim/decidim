@@ -19,6 +19,7 @@ module Decidim
             Template,
             @form.current_user,
             name: @form.name,
+            description: @form.description,
             organization: @form.current_organization
           )
 
