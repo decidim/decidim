@@ -12,6 +12,21 @@ describe "Admin manages templates", type: :system do
     visit decidim_admin_templates.questionnaire_templates_path
   end
   
+  describe "listing templates" do
+    let!(:template) { create(:questionnaire_template, organization: organization) }
+
+    before do
+      visit decidim_admin_templates.questionnaire_templates_path
+    end
+
+    it "shows a table with the templates info" do
+      within ".questionnaire-templates" do
+        expect(page).to have_content(template.name["en"])
+        expect(page).to have_content(template.templatable.title["en"])
+      end
+    end
+  end
+  
   describe "creating a questionnaire_template" do
     before do
       within ".layout-content" do
