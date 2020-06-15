@@ -51,6 +51,7 @@ describe "Admin manages surveys", type: :system do
 
       it "allows editing questions" do
         visit questionnaire_edit_path
+        click_button "Expand all"
         expect(page).to have_selector("#questionnaire_questions_#{question.id}_body_en")
         expect(page).to have_no_selector("#questionnaire_questions_#{question.id}_body_en[disabled]")
       end
