@@ -55,6 +55,7 @@ module Decidim
         def edit
           enforce_permission_to :update, :template, template: template
           @form = form(TemplateForm).from_model(template)
+          @preview_form = form(Decidim::Forms::QuestionnaireForm).from_model(template.templatable)
         end
 
         def update
@@ -104,3 +105,4 @@ module Decidim
     end
   end
 end
+

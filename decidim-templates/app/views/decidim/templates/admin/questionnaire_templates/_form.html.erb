@@ -22,10 +22,10 @@
         <%= link_to t(".edit"), edit_questionnaire_path(template), class: "button tiny button--title" %>
     </div>
 
-    <div class="card-section">
-      <div class="row column questionnaire-template-questions">
+    <div class="card-section questionnaire-template-preview">
+      <div class="row column">
         <% if template.templatable.questions.any? %>
-          <%= cell("decidim/forms/question_readonly", collection: template.templatable.questions) %>
+          <%= render partial: "preview", locals: { questionnaire: template.templatable } %>
         <% else %>
           <%= t(".empty") %>
         <% end %>

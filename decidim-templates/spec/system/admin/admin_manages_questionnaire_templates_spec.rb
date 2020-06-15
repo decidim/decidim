@@ -21,8 +21,8 @@ describe "Admin manages templates", type: :system do
 
     it "shows a table with the templates info" do
       within ".questionnaire-templates" do
-        expect(page).to have_content(template.name["en"])
-        expect(page).to have_content(template.templatable.title["en"])
+        expect(page).to have_i18n_content(template.name)
+        expect(page).to have_i18n_content(template.templatable.title)
       end
     end
   end
@@ -196,6 +196,25 @@ describe "Admin manages templates", type: :system do
       within ".container" do
         expect(page).to have_current_path decidim_admin_templates.edit_questionnaire_template_path(template)
         expect(page).to have_content("My question")
+      end
+    end
+  end
+  
+  describe "previewing a questionnaire_template" do
+    let!(:template) { create(:questionnaire_template, organization: organization, description: "A description") }
+
+    it "allows the user to preview the template" do
+      within find("tr", text: translated(template.name)) do
+        preview_window = window_opened_by do
+          click_link "Preview"
+        end
+
+        within_window(preview_window) do
+          expect(page).to have_i18n_content(template.name)
+          expect(page).to have_i18n_content(template.description)
+          expect(page).to have_i18n_content(template.templatable.questions.body)
+          expect(page).to have_i18n_content(template.templatable.questions.body)
+        end
       end
     end
   end
