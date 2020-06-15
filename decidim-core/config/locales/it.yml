@@ -1196,9 +1196,33 @@ it:
       update:
         error: Si è verificato un errore durante l'aggiornamento dei tuoi interessi.
         success: I tuoi interessi sono stati aggiornati con successo.
+    version:
+      show:
+        back_to_resource: Torna indietro
+        changes_at_title: Modifiche a "%{title}"
+        number_of_versions: Versioni
+        show_all_versions: Mostra tutte le versioni
+        version_author: Autore della versione
+        version_created_at: Versione creata il
+        version_number: Numero della versione
+        version_number_out_of_total: "%{current_version} di %{total_count}"
     version_author:
       show:
         deleted: Utente eliminato
+    versions:
+      resource_version:
+        of_versions: "(di %{number})"
+        see_other_versions: vedi altre versioni
+        version: Versione %{number}
+    versions_list:
+      show:
+        back_to_resource: Torna indietro
+        changes_at_title: Modifiche a "%{title}"
+        number_of_versions: Versioni
+        title: Versioni
+    versions_list_item:
+      show:
+        version_index: Versione %{index}
     welcome_notification:
       default_body: <p>Ciao {{name}}, grazie per esserti iscritto a {{organization}} e benvenuto!</p><ul><li>Se vuoi avere una rapida idea di cosa puoi fare qui, dai un'occhiata alla sezione <a href="{{help_url}}">Aiuto</a> .</li><li>Una volta letto, riceverai il tuo primo badge. Ecco un <a href="{{badges_url}}">elenco di tutti i badge</a> è possibile ottenere, come si partecipa a {{organization}}</li><li>Da ultimo, ma non meno importante, uniscono altre persone, condividere con loro l'esperienza di essere impegnati e partecipano a {{organization}}. Fare proposte, commentare, discutere, pensare a come contribuire al bene comune, fornire argomenti per convincere, ascoltare e leggere per essere convinti, esprimere le proprie idee in modo concreto e diretto, rispondere con pazienza e decisione, difendere le proprie idee e mantenere una mente aperta per collaborare e unire le idee degli altri.</li></ul>
       default_subject: Grazie per esserti iscritto a {{organization}}!
