@@ -110,8 +110,7 @@ module Decidim::Budgets
         it "does not return the draft proposals" do
           create_list(:proposal, 10, :draft, component: proposals_component)
 
-          expect(subject.proposals)
-            .to eq([proposal])
+          expect(subject.proposals).to eq([proposal])
         end
       end
 
