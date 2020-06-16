@@ -106,12 +106,6 @@ module Decidim::Budgets
         it "returns the available proposals in a way suitable for the form" do
           expect(subject.proposals).to eq([proposal])
         end
-
-        it "does not return the draft proposals" do
-          create_list(:proposal, 10, :draft, component: proposals_component)
-
-          expect(subject.proposals).to eq([proposal])
-        end
       end
 
       describe "#map_model" do

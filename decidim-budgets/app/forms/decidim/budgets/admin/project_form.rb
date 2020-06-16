@@ -43,7 +43,6 @@ module Decidim
 
         def proposals
           @proposals ||= Decidim.find_resource_manifest(:proposals).try(:resource_scope, current_component)
-                         &.published
                          &.where(id: proposal_ids)
                          &.order(title: :asc)
         end
