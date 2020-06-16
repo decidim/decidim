@@ -122,7 +122,7 @@ describe "Admin manages templates", type: :system do
       end
     end
   end
-  
+
   describe "updating a template with invalid values" do
     let!(:template) { create(:questionnaire_template, organization: organization) }
 
@@ -145,6 +145,23 @@ describe "Admin manages templates", type: :system do
       end
 
       expect(page).to have_admin_callout("problem")
+    end
+  end
+
+  describe "copying a template" do
+    let!(:template) { create(:questionnaire_template, organization: organization) }
+
+    before do
+      visit decidim_admin_templates.questionnaire_templates_path
+    end
+
+    it "copies the template" do
+      within find("tr", text: translated(template.name)) do
+        click_link "Duplicate"
+      end
+
+      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_content(template.name["en"], count: 2)
     end
   end
 
@@ -199,23 +216,26 @@ describe "Admin manages templates", type: :system do
       end
     end
   end
-  
+
+  describe "destroying a template" do
+    let!(:template) { create(:questionnaire_template, organization: organization) }
+
+    before do
+      visit decidim_admin_templates.questionnaire_templates_path
+    end
+
+    it "destroys the template" do
+      within find("tr", text: translated(template.name)) do
+        click_link "Delete"
+        page.accept_alert
+      end
+
+      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_no_i18n_content(template.name)
+    end
+  end
+
   describe "previewing a questionnaire_template" do
     let!(:template) { create(:questionnaire_template, organization: organization, description: "A description") }
-
-    it "allows the user to preview the template" do
-      within find("tr", text: translated(template.name)) do
-        preview_window = window_opened_by do
-          click_link "Preview"
-        end
-
-        within_window(preview_window) do
-          expect(page).to have_i18n_content(template.name)
-          expect(page).to have_i18n_content(template.description)
-          expect(page).to have_i18n_content(template.templatable.questions.body)
-          expect(page).to have_i18n_content(template.templatable.questions.body)
-        end
-      end
-    end
   end
 end
