@@ -16,7 +16,7 @@ module Decidim
 
         it { is_expected.not_to be_valid }
       end
-      
+
       context "without a name" do
         let(:template) { build :template, name: nil }
 
@@ -26,14 +26,14 @@ module Decidim
       it "has an associated templatable" do
         expect(subject.templatable).to be_a(Decidim::DummyResources::DummyResource)
       end
-      
+
       context "on destroy" do
         let(:templatable) { template.templatable }
-        
+
         it "destroys the templatable" do
           template.destroy!
           expect { templatable.reload }.to raise_error(ActiveRecord::RecordNotFound)
-        end        
+        end
       end
 
       describe "#resource_name" do

@@ -12,7 +12,7 @@ module Decidim
       before_destroy :destroy_templatable
 
       validates :name, presence: true
-      
+
       def resource_name
         [templatable_type.demodulize.tableize.singularize, "templates"].join("_")
       end

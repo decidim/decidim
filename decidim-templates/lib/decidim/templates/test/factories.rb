@@ -11,7 +11,7 @@ FactoryBot.define do
 
     factory :questionnaire_template do
       after(:create) do |template|
-        template.templatable =  create(:questionnaire, questionnaire_for: template)
+        template.templatable = create(:questionnaire, questionnaire_for: template)
         template.save!
       end
     end

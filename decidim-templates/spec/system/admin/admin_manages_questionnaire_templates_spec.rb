@@ -11,7 +11,7 @@ describe "Admin manages templates", type: :system do
     login_as user, scope: :user
     visit decidim_admin_templates.questionnaire_templates_path
   end
-  
+
   describe "listing templates" do
     let!(:template) { create(:questionnaire_template, organization: organization) }
 
@@ -26,7 +26,7 @@ describe "Admin manages templates", type: :system do
       end
     end
   end
-  
+
   describe "creating a questionnaire_template" do
     before do
       within ".layout-content" do
@@ -86,14 +86,14 @@ describe "Admin manages templates", type: :system do
           es: "Descripción",
           ca: "Descripció"
         )
-        
+
         find("*[type=submit]").click
       end
 
       expect(page).to have_admin_callout("problem")
     end
   end
-  
+
   describe "updating a template" do
     let!(:template) { create(:questionnaire_template, organization: organization) }
 
@@ -167,11 +167,11 @@ describe "Admin manages templates", type: :system do
     context "that produces some error" do
       it "displays an error" do
         visit decidim_admin_templates.questionnaire_templates_path
-        
+
         within find("tr", text: translated(template.name)) do
           template.name = nil
           template.save!(validate: false)
-          
+
           click_link "Duplicate"
         end
 
@@ -187,12 +187,12 @@ describe "Admin manages templates", type: :system do
     before do
       visit decidim_admin_templates.questionnaire_templates_path
     end
-    
+
     it "shows a functional questionnaire form" do
       within ".layout-content" do
         click_link("Edit")
       end
-  
+
       within ".container" do
         click_link("Edit")
       end
