@@ -30,9 +30,9 @@ Once created you are ready to:
 
 - `bin/rails s`
 
-## Gitflow Branching model
+## GitFlow Branching model
 
-The Decidim respository follows the Gitflow branching model. There are good documentations on it at:
+The Decidim respository follows the GitFlow branching model. There are good documentations on it at:
 
 - the original post: https://nvie.com/posts/a-successful-git-branching-model/
 - provided by Atlassian: https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow.
@@ -43,12 +43,25 @@ In summary, Decidim developers that work on `feature/...` or `fix/...` branches 
 
 Then, to start a new feature branch off from `develop` in the following way:
 
-```
+```bash
 git checkout develop
 git checkout -b feature/xxx
 ```
 
 Implement the feature, and open a Pull Request as normal, but against `develop` branch. As this is the most common operation, `develop` is the default branch instead of `master`.
+
+### Naming Decidim branches
+
+We would like to have all branches following this namings:
+
+| Branch prefix | Comment |
+| -------- | -------- |
+| chore/     | Internal work. For instance, CI, automatisms, etc     |
+| doc/ | For documentation |
+| feature/ | For new features |
+| fix/ | For bug fixing |
+| release/ | With MAYOR.MINOR-stable. For instance, release/0.22-stable | 
+| backport/ | We only offer support for the last mayor version.  |
 
 ## Git commit messages and Pull Request titles
 
