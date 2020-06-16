@@ -1,1 +1,7 @@
 el:
+  decidim:
+    blogs:
+      admin:
+        posts:
+          new:
+            create: Δημιουργία
