@@ -131,7 +131,7 @@ module Decidim
           expect(html_data[:condition]).to eq(subject.condition_question.id)
         end
 
-        it "has an 'mandatory' attribute with the display_condition's 'mandatory' value" do
+        it "has a 'mandatory' attribute with the display_condition's 'mandatory' value" do
           expect(html_data[:mandatory]).to eq(subject.mandatory)
         end
 
