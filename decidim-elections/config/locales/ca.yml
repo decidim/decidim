@@ -1,1 +1,6 @@
 ca:
+  decidim:
+    elections:
+      actions:
+        edit_answers: Edita les respostes
+        edit_questions: Edita les preguntes
