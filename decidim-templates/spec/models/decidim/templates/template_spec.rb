@@ -16,6 +16,12 @@ module Decidim
 
         it { is_expected.not_to be_valid }
       end
+      
+      context "without a name" do
+        let(:template) { build :template, name: nil }
+
+        it { is_expected.not_to be_valid }
+      end
 
       it "has an associated templatable" do
         expect(subject.templatable).to be_a(Decidim::DummyResources::DummyResource)
