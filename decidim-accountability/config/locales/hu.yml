@@ -42,6 +42,9 @@ hu:
       admin:
         exports:
           results: Eredmények
+        imports:
+          create:
+            success: A fájl importálása folyamatban van. Néhány perc múlva e-mailben értesítjük az importálás eredményéről
         models:
           result:
             name: Eredmény
@@ -111,6 +114,9 @@ hu:
         value_types:
           parent_presenter:
             not_found: 'Nem található az adatbázisban (ID: %{id})'
+      import_mailer:
+        import:
+          errors: Hibák
       last_activity:
         new_result_at_html: "<span>Új eredmény %{link}</span>kor"
       models:
