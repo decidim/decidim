@@ -1,1 +1,95 @@
 el:
+  activemodel:
+    attributes:
+      area:
+        name: Όνομα
+      area_type:
+        name: Όνομα
+      attachment_collection:
+        name: Όνομα
+      category:
+        name: Όνομα
+      component:
+        name: Όνομα
+      oauth_application:
+        name: Όνομα
+      organization:
+        name: Όνομα
+        password: Κωδικός πρόσβασης
+      scope:
+        name: Όνομα
+      scope_type:
+        name: Όνομα
+  decidim:
+    admin:
+      actions:
+        reject: Απόρριψη
+      attachment_collections:
+        new:
+          create: Δημιουργία
+      impersonatable_users:
+        index:
+          name: Όνομα
+      impersonations:
+        form:
+          name: Όνομα
+      menu:
+        participants: Συμμετέχοντες
+        user_groups: Ομάδες
+        users: Συμμετέχοντες
+      models:
+        area:
+          fields:
+            name: Όνομα
+        area_type:
+          fields:
+            name: Όνομα
+        attachment:
+          name: Συνημμένο
+        impersonation_log:
+          fields:
+            user: Συμμετέχων
+        oauth_application:
+          fields:
+            name: Όνομα
+        scope:
+          fields:
+            name: Όνομα
+        scope_type:
+          fields:
+            name: Όνομα
+        user:
+          fields:
+            email: Email
+            name: Όνομα
+          name: Συμμετέχων
+        user_group:
+          fields:
+            document_number: Αριθμός εγγράφου
+            name: Όνομα
+            phone: Τηλέφωνο
+      newsletters:
+        index:
+          participants: 'συμμετέχοντες '
+        show:
+          preview: Προεπισκόπηση
+      officializations:
+        index:
+          name: Όνομα
+          nickname: Ψευδώνυμο
+      participatory_space_private_users:
+        new:
+          create: Δημιουργία
+      titles:
+        participants: Συμμετέχοντες
+        user_groups: Ομάδες
+        users: Συμμετέχοντες
+      users:
+        form:
+          email: Email
+          name: Όνομα
+  layouts:
+    decidim:
+      admin:
+        users:
+          title: Συμμετέχοντες
