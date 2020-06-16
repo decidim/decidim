@@ -84,11 +84,6 @@ module Decidim
               flash[:notice] = I18n.t("templates.destroy.success", scope: "decidim.admin")
               redirect_to action: :index
             end
-
-            on(:invalid) do
-              flash.now[:error] = I18n.t("templates.destroy.error", scope: "decidim.admin")
-              redirect_to :back
-            end
           end
         end
 
