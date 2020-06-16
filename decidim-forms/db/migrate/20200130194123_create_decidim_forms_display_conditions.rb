@@ -3,9 +3,9 @@
 class CreateDecidimFormsDisplayConditions < ActiveRecord::Migration[5.1]
   def up
     create_table :decidim_forms_display_conditions do |t|
-      t.integer :decidim_question_id, index: { name: "decidim_forms_display_condition_question" }, null: false
-      t.integer :decidim_condition_question_id, index: { name: "decidim_forms_display_condition_condition_question" }, null: false
-      t.integer :decidim_answer_option_id, index: { name: "decidim_forms_display_condition_answer_option" }
+      t.bigint :decidim_question_id, index: { name: "decidim_forms_display_condition_question" }, null: false
+      t.bigint :decidim_condition_question_id, index: { name: "decidim_forms_display_condition_condition_question" }, null: false
+      t.bigint :decidim_answer_option_id, index: { name: "decidim_forms_display_condition_answer_option" }
       t.integer :condition_type, default: 0, null: false
       t.jsonb :condition_value
       t.boolean :mandatory, default: false
