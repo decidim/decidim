@@ -97,10 +97,10 @@ shared_examples_for "add questions" do
         end
       end
 
-      page.all(".questionnaire-question").each_with_index do |question, idx|
-        question.all(".questionnaire-question-answer-option").each_with_index do |question_answer_option, aidx|
+      page.all(".questionnaire-question").each_with_index do |question, question_idx|
+        question.all(".questionnaire-question-answer-option").each_with_index do |question_answer_option, answer_option_idx|
           within question_answer_option do
-            fill_in find_nested_form_field_locator("body_en"), with: answer_options_body[idx][aidx]
+            fill_in find_nested_form_field_locator("body_en"), with: answer_options_body[question_idx][answer_option_idx]
           end
         end
       end
