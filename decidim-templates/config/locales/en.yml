@@ -29,11 +29,12 @@ en:
         questionnaire_templates:
           form:
             template_title: Template information
-            title: Questionnaire template
+            title: Questionnaire
             save: Save
-            questionnaire: Questionnaire template
-            edit: Edit
             empty: There are no questions yet
+          edit:
+            edit: Edit
+            questionnaire: Questionnaire
           index:
             title: Questionnaire templates
             confirm_delete: Are you sure you want to delete this template?
