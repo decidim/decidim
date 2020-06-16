@@ -115,7 +115,7 @@ shared_examples_for "add display conditions" do
               options = ["Select a condition type", "Answered", "Not answered", "Includes text"]
 
               option_elements = page.all("select[id$=condition_type] option")
-              option_elements = option_elements.to_a.reject { |o| o[:style].match? "display: none" }
+              option_elements = option_elements.to_a.reject { |option| option[:style].match? "display: none" }
 
               expect(option_elements.map(&:text)).to eq(options)
             end
