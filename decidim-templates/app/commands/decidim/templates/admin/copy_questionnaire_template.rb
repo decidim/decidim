@@ -20,6 +20,8 @@ module Decidim
         #
         # Returns nothing.
         def call
+          return broadcast(:invalid) unless @template.valid?
+
           Template.transaction do
             copy_template
             copy_questionnaire_questions(@template.templatable, @copied_template.templatable)

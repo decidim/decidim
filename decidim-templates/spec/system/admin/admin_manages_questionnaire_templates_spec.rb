@@ -163,6 +163,22 @@ describe "Admin manages templates", type: :system do
       expect(page).to have_admin_callout("successfully")
       expect(page).to have_content(template.name["en"], count: 2)
     end
+
+    context "that produces some error" do
+      it "displays an error" do
+        visit decidim_admin_templates.questionnaire_templates_path
+        
+        within find("tr", text: translated(template.name)) do
+          template.name = nil
+          template.save!(validate: false)
+          
+          click_link "Duplicate"
+        end
+
+        expect(page).to have_admin_callout("problem")
+        expect(page).to have_selector("table tbody tr", count: 1)
+      end
+    end
   end
 
   describe "editing the questionnaire_template's questionnaire" do

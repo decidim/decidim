@@ -37,7 +37,7 @@ module Decidim
         end
 
         def copy
-          enforce_permission_to :create, :template
+          enforce_permission_to :copy, :template
 
           CopyQuestionnaireTemplate.call(template) do
             on(:ok) do
@@ -46,8 +46,8 @@ module Decidim
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("templates.copy.error", scope: "decidim.admin")
-              render :index
+              flash[:alert] = I18n.t("templates.copy.error", scope: "decidim.admin")
+              redirect_to action: :index
             end
           end
         end
