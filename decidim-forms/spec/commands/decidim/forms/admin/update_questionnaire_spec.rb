@@ -308,8 +308,8 @@ module Decidim
               {
                 "title" => {
                   "en" => "Title",
-                  "ca" => "Title",
-                  "es" => "Title"
+                  "ca" => "Títol",
+                  "es" => "Título"
                 },
                 "description" => {
                   "en" => "<p>Content</p>",
