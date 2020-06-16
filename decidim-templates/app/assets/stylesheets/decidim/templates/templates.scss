@@ -1,3 +1,10 @@
-.questionnaire-template-questions{
-  margin: 1rem;
+.questionnaire-template-preview{
+  margin: 2rem;
+  padding: 1rem;
+  
+  .card {
+    width: 75%;
+    margin: auto;
+    border: none;
+  }
 }
