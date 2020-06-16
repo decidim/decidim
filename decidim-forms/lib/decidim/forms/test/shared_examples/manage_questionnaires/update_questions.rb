@@ -254,7 +254,7 @@ shared_examples_for "update questions" do
     end
 
     let(:second_body) do
-      { en: "Second", ca: "Segunda", es: "Segunda" }
+      { en: "Second", ca: "Segona", es: "Segunda" }
     end
 
     before do
