@@ -37,6 +37,7 @@ cs:
         confirm_destroy: Opravdu chcete smazat tento %{name}?
         destroy: Odstranit
         edit: Upravit
+        import_csv: Importovat CSV
         new: Nová %{name}
         preview: Náhled
         timeline_entries: Vývoj projektu
@@ -44,6 +45,15 @@ cs:
       admin:
         exports:
           results: Výsledky
+        import_results:
+          new:
+            import: Importovat
+            info: "<p>Doporučujeme postupovat podle těchto kroků:</p><ol><li>Vytvořte stavy pro výsledky, které chcete přidat (<a href='%{link_new_status}' target='_blank'>odkaz</a>)</li><li>Vytvořte alespoň jeden výsledek ručně přes tento Admin panel (<a href='%{link_new_result}' target='_blank'>odkaz</a>) před použitím Importu, pro lepší pochopení formátu a toho, co budete muset vyplnit.</li><li>Stáhněte si export s CSV formátem (%{link_export_csv})</li><li>Proveďte změny lokálně. Následující sloupce CSV:</li></ol><ul><li><b>kategorie / id:</b> ID pro kategorii</li><li><b>rozsah / id:</b> ID pro rozsah</li><li><b>nadřazené / id:</b> ID nadřazených (pro související výsledky). Nepovinný</li><li><b>název / I18N:</b> Název jazyka X</li><li><b>popis / I18N:</b> Popis jazyka X</li><li><b>start_date:</b> datum, kdy výsledek začne provádět (formát YYYY-MM-DD)</li><li><b>end_date:</b> den, kdy výsledek končí provedení (formát YY-MM-DD)</li><li><b>status / id:</b> ID stavu pro tento výsledek</li><li><b>pokrok:</b> procenta (od 0 do 100) provedení</li><li><b>proposals_ids:</b> interní ID souvisejících návrhů (oddělené čárkou). Automaticky se převede na <span class='attribute-name'>proposal_url</span></li></ul>"
+            link: odkaz
+            title: Importovat výsledky z CSV
+        imports:
+          create:
+            success: Soubor se začal importovat. Během několika následujících minut obdržíte e-mail s výsledkem importu
         models:
           result:
             name: Výsledek
@@ -113,6 +123,13 @@ cs:
         value_types:
           parent_presenter:
             not_found: 'Rodič nebyl nalezen v databázi (ID: %{id})'
+      import_mailer:
+        import:
+          errors: Chyby
+          errors_present: Došlo k chybě při importu výsledků
+          row_number: Řádek
+          subject: Úspěšný import výsledků
+          success: Úspěšný import výsledků. Výsledky můžete zkontrolovat v rozhraní administrace.
       last_activity:
         new_result_at_html: "<span>Nový výsledek v %{link}</span>"
       models:
@@ -155,30 +172,16 @@ cs:
         show:
           stats:
             attendees: Účastníci
-            back_to_result: Přejít zpět na výsledek
+            back_to_resource: Přejít zpět na výsledek
             comments: Komentáře
             contributions: Příspěvky
             last_edited_by: Naposledy upravil
             last_updated_at: Poslední aktualizace na
             meetings: Setkání
-            number_of_versions: Verze
             proposals: Návrhy
-            show_all_versions: Zobrazit všechny verze
-            version_author: Autor verze
-            version_created_at: Verze vytvořena v
-            version_number: Číslo verze
-            version_number_out_of_total: "%{current_version} z %{total_count}"
             votes: Podporuje
         timeline:
           title: Vývoj projektu
-      versions:
-        index:
-          changes_at_title: Změny na "%{title}"
-          title: Verze
-        show:
-          changes_at_title: Změny na "%{title}"
-        version:
-          version_index: Verze %{index}
     components:
       accountability:
         name: Odpovědnost

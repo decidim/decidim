@@ -1153,8 +1153,6 @@ fi:
         close_window: Sulje ikkuna
         share: Jaa
         share_link: Jaa linkki
-      version_author:
-        deleted: Käyttäjä poistettu
     user_activity:
       index:
         no_activities_warning: Tämä käyttäjä ei ole vielä ollut aktiivinen.
@@ -1198,6 +1196,33 @@ fi:
       update:
         error: Kiinnostuksen kohteiden päivitys epäonnistui.
         success: Kiinnostuksen kohteiden päivitys onnistui.
+    version:
+      show:
+        back_to_resource: Siirry takaisin
+        changes_at_title: Muutokset kohteessa "%{title}"
+        number_of_versions: Versiot
+        show_all_versions: Näytä kaikki versiot
+        version_author: Version laatija
+        version_created_at: Version luontiaika
+        version_number: Versionumero
+        version_number_out_of_total: "%{current_version} / %{total_count}"
+    version_author:
+      show:
+        deleted: Käyttäjä poistettu
+    versions:
+      resource_version:
+        of_versions: "(yhteensä %{number} kpl)"
+        see_other_versions: näytä muut versiot
+        version: Versio %{number}
+    versions_list:
+      show:
+        back_to_resource: Siirry takaisin
+        changes_at_title: Muutokset kohteessa "%{title}"
+        number_of_versions: Versiot
+        title: Versiot
+    versions_list_item:
+      show:
+        version_index: Versio %{index}
     welcome_notification:
       default_body: <p>Hei {{name}}, kiitos liittymisestä palveluun {{organization}} ja tervetuloa!</p><ul><li>Jos haluat saada nopean käsityksen siitä, mitä voit tehdä palvelussa, tutustu <a href="{{help_url}}">ohjeisiin</a>.</li><li>Kun olet lukenut ohjeet, saat ensimmäisen kunniamerkkisi. Tässä on <a href="{{badges_url}}">lista kaikista kunniamerkeistä</a>, joita saat osallistuessasi palvelussa {{organization}}</li><li>Viimeisenä, mutta ei vähäisimpänä, yhdistä voimasi muiden ihmisten kanssa, jaa heidän kanssaan kokemuksiasi osallistumisestasi palvelussa {{organization}}. Tee ehdotuksia, kommentoi, keskustele, mieti tapoja edistää yhteistä hyvää, vakuuta argumenteillasi, vakuutu kuuntelemalla ja lukemalla, ilmaise ideasi konkreettisella ja suoraviivaisella tavalla, vastaa kärsivällisesti ja päättäväisesti, puolusta ajatuksiasi, tee yhteistyötä avoimin mielin ja osallistu muiden ihmisten ideoiden kehittämiseen.</li></ul>
       default_subject: Kiitos liittymisestäsi palveluun {{organization}}!

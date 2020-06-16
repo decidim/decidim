@@ -151,30 +151,16 @@ de:
         show:
           stats:
             attendees: Teilnehmer
-            back_to_result: Gehe zurück zum Ergebnis
+            back_to_resource: Gehe zurück zum Ergebnis
             comments: Bemerkungen
             contributions: Beiträge
             last_edited_by: Zuletzt bearbeitet von
             last_updated_at: Zuletzt aktualisiert um
             meetings: Meetings
-            number_of_versions: Versionen
             proposals: Vorschläge
-            show_all_versions: Zeige alle Versionen
-            version_author: Versionsautor
-            version_created_at: Version erstellt um
-            version_number: Versionsnummer
-            version_number_out_of_total: "%{current_version} von %{total_count}"
             votes: Unterstützt
         timeline:
           title: Projektentwicklung
-      versions:
-        index:
-          changes_at_title: Änderungen bei "%{title}"
-          title: Versionen
-        show:
-          changes_at_title: Änderungen bei "%{title}"
-        version:
-          version_index: Version %{index}
     components:
       accountability:
         name: Rechenschaftspflicht

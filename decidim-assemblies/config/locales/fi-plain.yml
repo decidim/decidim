@@ -425,6 +425,8 @@ fi-pl:
         home:
           highlighted_processes:
             processes_button_title: Linkki kaikkien prosessien sivulle
+      show:
+        related_assemblies: Liittyvät ryhmät
   errors:
     messages:
       cannot_be_blank: ei voi olla tyhjä

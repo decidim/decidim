@@ -537,14 +537,11 @@ de:
             one: und %{count} weitere Person
             other: und %{count} weitere Personen
           info-message: Dies ist ein <strong>kollaborativen Entwurf</strong> für einen Vorschlag. Dies bedeutet, dass Sie ihren Autoren helfen können, den Vorschlag zu gestalten, indem Sie den unten stehenden Kommentarabschnitt verwenden, oder ihn direkt verbessern, indem Sie den Zugriff anfordern, um ihn zu bearbeiten. Sobald die Autoren Ihnen Zugriff gewähren, können Sie Änderungen an diesem Entwurf vornehmen.
-          of_versions: "(von %{number})"
           publish: Veröffentlichen
           publish_info: Veröffentlichen Sie diese Version des Entwurfs oder
           published_proposal: Veröffentlichter Vorschlag
           request_access: Zugangsanfragen
           requested_access: Zugriff angefordert
-          see_other_versions: Andere Versionen anzeigen
-          version: Version %{number}
           version_history: Änderungsverlauf für diesen Vorschlag
           withdraw: den Entwurf zurückziehen
         states:
@@ -739,20 +736,12 @@ de:
         error: Beim Speichern des Vorschlagsentwurfs ist ein Fehler aufgetreten.
         success: Der Vorschlagsentwurf wurde erfolgreich aktualisiert.
       versions:
-        changes_at_title: Änderungen an "%{title}"
+        collaborative_drafts:
+          back_to_resource: Kehren Sie zum gemeinsamen Entwurf zurück
         index:
           title: Versionen
-        stats:
-          back_to_collaborative_draft: Kehren Sie zum gemeinsamen Entwurf zurück
-          back_to_proposal: Gehen Sie zurück zum Vorschlag
-          number_of_versions: Versionen
-          show_all_versions: Alle Versionen anzeigen
-          version_author: Autor dieser Version
-          version_created_at: Version erstellt am
-          version_number: Versionsnummer
-          version_number_out_of_total: "%{current_version} von %{total_count}"
-        version:
-          version_index: Version %{index}
+        proposals:
+          back_to_resource: Gehen Sie zurück zum Vorschlag
       withdraw:
         errors:
           has_supports: Dieser Vorschlag kann nicht zurückgezogen werden, da er bereits Unterstützung hat.

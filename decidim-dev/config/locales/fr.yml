@@ -3,12 +3,27 @@ fr:
     attributes:
       dummy_resource:
         created_at: Créé le
+        decidim_scope_id: Périmètre d'application
         field: Champ
         start_date: Date de début
         title: Titre
         translatable_text: Texte traduisible
         updated_at: Mis à jour à
   decidim:
+    components:
+      dummy:
+        settings:
+          global:
+            readonly_attribute: Attribut en lecture seule
+            test: Un test
+            test_choices:
+              a: Choix A
+              b: Choix B
+              c: Choix C
+          step:
+            endorsements_blocked: Bloquer les soutiens
+            endorsements_enabled: Soutiens activés
+            readonly_step_attribute: Attribut étape en lecture seule
     dummy:
       admin:
         exports:

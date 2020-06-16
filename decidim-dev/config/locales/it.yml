@@ -3,6 +3,7 @@ it:
     attributes:
       dummy_resource:
         created_at: Creato il
+        decidim_scope_id: Obiettivi
         field: Il mio campo
         start_date: Data d'inizio
         title: Titolo

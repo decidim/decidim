@@ -548,14 +548,11 @@ pl:
             many: i %{count} więcej osób
             other: i %{count} więcej osób
           info-message: Jest to <strong>wspólny projekt</strong> dla wniosku. Oznacza to, że możesz pomóc swoim autorom w kształtowaniu propozycji za pomocą poniższej sekcji komentarza lub poprawić ją bezpośrednio, żądając dostępu, aby ją edytować. Gdy autorzy przyznają Ci dostęp, będziesz mógł wprowadzać zmiany w tej wersji roboczej.
-          of_versions: "(z %{number})"
           publish: Publikować
           publish_info: Opublikuj tę wersję wersji roboczej lub
           published_proposal: opublikowana propozycja
           request_access: Poproś o dostęp
           requested_access: Wymagany dostęp
-          see_other_versions: zobacz inne wersje
-          version: Wersja %{number}
           version_history: zobacz historię wersji tej propozycji
           withdraw: wycofaj projekt
         states:
@@ -759,20 +756,12 @@ pl:
         error: Wystąpiły błędy podczas zapisywania wersji roboczej propozycji.
         success: Projekt propozycji został pomyślnie zaktualizowany.
       versions:
-        changes_at_title: Zmiany w "%{title}"
+        collaborative_drafts:
+          back_to_resource: Wróć do wersji roboczej
         index:
           title: Wersje
-        stats:
-          back_to_collaborative_draft: Wróć do wersji roboczej
-          back_to_proposal: Wróć do wniosku
-          number_of_versions: Wersje
-          show_all_versions: Pokaż wszystkie wersje
-          version_author: Autor wersji
-          version_created_at: Wersja utworzona w
-          version_number: Numer wersji
-          version_number_out_of_total: "%{current_version} z %{total_count}"
-        version:
-          version_index: Wersja %{index}
+        proposals:
+          back_to_resource: Wróć do wniosku
       withdraw:
         errors:
           has_supports: Ta propozycja nie może zostać wycofana, ponieważ ma już wsparcie.

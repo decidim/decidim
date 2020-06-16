@@ -96,6 +96,8 @@ fr:
           create: Créer
           select_a_category: Veuillez sélectionner une catégorie
           title: Nouveau débat
+        show:
+          back: Retour à la liste
       last_activity:
         new_debate_at_html: "<span>Nouveau débat à %{link}</span>"
       models:
