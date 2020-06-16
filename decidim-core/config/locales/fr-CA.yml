@@ -139,6 +139,8 @@ fr-CA:
         reject: "%{user_name} a rejeté la vérification du groupe d'utilisateurs %{resource_name}"
         verify: "%{user_name} a vérifié le groupe d'utilisateurs %{resource_name}"
         verify_via_csv: "%{user_name} vérifié le groupe %{resource_name} utilisateur via un fichier CSV"
+    admin_terms_of_use:
+      default_body: "<h2>CONDITIONS D'UTILISATION ADMINISTRATEUR</h2><p>Nous espérons que vous avez reçu les instructions de l'administrateur système de la plateforme. Ils se résument généralement à ces trois choses :</p><ol><li>Respecter la vie privée des autres.</li><li>Réfléchissez avant de cliquer.</li><li>Un grand pouvoir implique de grandes responsabilités.</li></ol>"
     amendments:
       accepted:
         error: Une erreur s'est produite lors de l'acceptation de l'amendement.
@@ -1203,6 +1205,7 @@ fr-CA:
       cycle_detected: un périmètre d'application ne peut pas être du même niveau que ses descendants
       expired: a expiré, s'il vous plaît demander un nouveau
       file_size_is_less_than_or_equal_to: la taille du fichier doit être inférieure ou égale à %{count}
+      invalid_time_zone: n'est pas un fuseau horaire valide
       long_words: contient des mots trop longs (plus de 35 caractères)
       must_start_with_caps: doit commencer par une majuscule
       nesting_too_deep: ne peut pas être à l'intérieur d'une sous-catégorie
@@ -1315,8 +1318,11 @@ fr-CA:
       left: Suppressions
       right: Ajouts
     dropdown:
+      choose_diff_view_html: 'Mode d''affichage HTML :'
       choose_diff_view_mode: 'Sélectionner le mode de vue :'
+      option_escaped: Echappé
       option_split: Côte à côte
+      option_unescaped: Non échappé
       option_unified: Unifié
   views:
     pagination:
