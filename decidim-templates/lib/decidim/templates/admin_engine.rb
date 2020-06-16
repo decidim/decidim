@@ -34,7 +34,6 @@ module Decidim
                     decidim_admin_templates.root_url,
                     icon_name: "document",
                     position: 12,
-                    if: allowed_to?(:index, :templates),
                     active: :inclusive
         end
       end
