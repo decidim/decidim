@@ -121,7 +121,7 @@ shared_examples_for "update questions" do
         body: body,
         question_type: "single_option",
         options: [
-          { "body" => { "en" => "cacarua" } },
+          { "body" => { "en" => "cacatua" } },
           { "body" => { "en" => "cat" } },
           { "body" => { "en" => "dog" } }
 
