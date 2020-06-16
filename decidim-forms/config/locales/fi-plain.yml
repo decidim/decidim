@@ -66,6 +66,14 @@ fi-pl:
       errors:
         answer:
           body: Runkoteksti ei voi olla tyhjä
+      files:
+        extension_whitelist: 'Sallitut tiedostopäätteet:'
+      images:
+        dimensions: "%{width} x %{height} pikseliä"
+        dimensions_info: 'Tämän kuvan koko tulee olemaan:'
+        processors:
+          resize_and_pad: Muutetaan kokoon ja täytetään
+          resize_to_fit: Muutetaan mahtumaan kokoon
       question_types:
         long_answer: Pitkä vastaus
         matrix_multiple: Matriisi (useat valinnat)

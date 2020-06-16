@@ -151,30 +151,16 @@ sv:
         show:
           stats:
             attendees: Deltagare
-            back_to_result: Gå tillbaka till resultatet
+            back_to_resource: Gå tillbaka till resultatet
             comments: Kommentarer
             contributions: Bidrag
             last_edited_by: Senast ändrad av
             last_updated_at: Senast uppdaterad den
             meetings: Möten
-            number_of_versions: Versioner
             proposals: Förslag
-            show_all_versions: Visa alla versioner
-            version_author: Versionsförfattare
-            version_created_at: Version skapad
-            version_number: Versionsnummer
-            version_number_out_of_total: "%{current_version} av %{total_count}"
             votes: Stöd
         timeline:
           title: Projektutveckling
-      versions:
-        index:
-          changes_at_title: Ändringar vid "%{title}"
-          title: Versioner
-        show:
-          changes_at_title: Ändringar vid "%{title}"
-        version:
-          version_index: Version %{index}
     components:
       accountability:
         name: Ansvarsskyldighet

@@ -618,14 +618,11 @@ hu:
             one: és még %{count} személy
             other: és még %{count} személy
           info-message: Ez egy javaslathoz készülő, úgynevezett <strong>közösen szerkesztett vázlat</strong>, ami azt jelenti, hogy a megjegyzések szekción keresztül, vagy közvetlen hozzáférés segítségével közösen alakíthatjátok a szöveget. Ha a szerző(k) hozzáférést biztosítanak neked, akkor módosíthatod is a vázlatot.
-          of_versions: "(ennyiből: %{number})"
           publish: Közzétesz
           publish_info: Vázlat jelen verziójának közzététele vagy
           published_proposal: közzétett javaslat
           request_access: Hozzáférés kérése
           requested_access: Hozzáférés megkérve
-          see_other_versions: más verziók
-          version: '%{number} verzió'
           version_history: nézd meg a javaslat verziótörténetét
           withdraw: tervezet visszavonása
         states:
@@ -845,20 +842,12 @@ hu:
         error: Hiba történt a javaslat vázlatának mentése során.
         success: Javaslat vázlat frissítése sikeres.
       versions:
-        changes_at_title: 'Változások itt: "%{title}"'
+        collaborative_drafts:
+          back_to_resource: Vissza a közös vázlathoz
         index:
           title: Verziók
-        stats:
-          back_to_collaborative_draft: Vissza a közös vázlathoz
-          back_to_proposal: Menj vissza a javaslatra
-          number_of_versions: Verziók
-          show_all_versions: Összes verzió megjelenítése
-          version_author: Verzió szerzője
-          version_created_at: 'Verzió létrehozva itt:'
-          version_number: Verziószám
-          version_number_out_of_total: "%{current_version} ennyiből: %{total_count}"
-        version:
-          version_index: '%{index} verzió'
+        proposals:
+          back_to_resource: Menj vissza a javaslatra
       withdraw:
         errors:
           has_supports: Ez a javaslat nem vonható vissza, mert már rendelkezik támogatással.

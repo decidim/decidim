@@ -23,7 +23,7 @@
           <% answers.each do |answer| %>
             <tr data-id="<%= question.id %>">
               <td>
-                <%= link_to translated_attribute(answer.title), edit_election_question_answer_path(election, question, answer) %>
+                <%= translated_attribute(answer.title) %>
               </td>
               <td>
                 <%= answer.linked_resources(:proposals, "related_proposals").count %>

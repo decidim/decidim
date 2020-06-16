@@ -1,1 +1,9 @@
 "no":
+  activemodel:
+    attributes:
+      answer:
+        description: Beskrivelse
+      election:
+        description: Beskrivelse
+      question:
+        description: Beskrivelse

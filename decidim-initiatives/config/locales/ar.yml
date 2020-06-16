@@ -253,9 +253,14 @@ ar:
         published: نشرت
         validating: المصادقة الفنية
       application_helper:
+        filter_scope_values:
+          all: الكل
         filter_state_values:
+          all: الكل
           closed: مغلق
           open: افتح
+        filter_type_values:
+          all: الكل
       committee_requests:
         new:
           continue: استمر
@@ -455,6 +460,9 @@ ar:
           highlighted_initiatives:
             active_initiatives: المبادرات النشطة
             see_all_initiatives: رؤية جميع المبادرات
+      show:
+        badge_name:
+          validating: تحقق تقني
       states:
         accepted: وافقت
         expired: منتهية الصلاحية

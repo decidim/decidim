@@ -159,30 +159,16 @@ ar:
         show:
           stats:
             attendees: الحاضرين
-            back_to_result: العودة إلى النتيجة
+            back_to_resource: العودة إلى النتيجة
             comments: تعليقات
             contributions: مساهمات
             last_edited_by: التعديل الأخير تم بواسطة
             last_updated_at: آخر تحديث في
             meetings: اجتماعات
-            number_of_versions: إصدارات
             proposals: اقتراحات
-            show_all_versions: عرض جميع الإصدارات
-            version_author: مؤلف الإصدار
-            version_created_at: تم إنشاء الإصدار في
-            version_number: رقم الإصدار
-            version_number_out_of_total: "%{current_version} من %{total_count}"
             votes: الدعم
         timeline:
           title: تطور المشروع
-      versions:
-        index:
-          changes_at_title: التغييرات في "%{title}"
-          title: إصدارات
-        show:
-          changes_at_title: التغييرات في "%{title}"
-        version:
-          version_index: الإصدار %{index}
     components:
       accountability:
         name: المسائلة
