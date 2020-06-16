@@ -29,6 +29,12 @@ module Decidim
           expect { templatable.reload }.to raise_error(ActiveRecord::RecordNotFound)
         end        
       end
+
+      describe "#resource_name" do
+        it "returns the templatable model name without namespace, downcased and postfixed with _templates" do
+          expect(template.resource_name).to eq("dummy_resource_templates")
+        end
+      end
     end
 
     describe "Questionnaire Template" do

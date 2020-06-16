@@ -12,7 +12,7 @@ module Decidim
       before_destroy :destroy_templatable
       
       def resource_name
-        [templatable_type.split("::").last.downcase, "templates"].join("_")
+        [templatable_type.split("::").last.tableize.singularize, "templates"].join("_")
       end
 
       def destroy_templatable
