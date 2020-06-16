@@ -184,7 +184,7 @@ shared_examples_for "update questions" do
         question_type: "matrix_single",
         position: 2,
         options: [
-          { "body" => { "en" => "cacarua" } },
+          { "body" => { "en" => "cacatua" } },
           { "body" => { "en" => "cat" } },
           { "body" => { "en" => "dog" } }
         ],
