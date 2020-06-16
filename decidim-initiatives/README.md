@@ -10,13 +10,59 @@ Prior to be published an initiative must be technically validated. All the valid
 process and communication between the platform administrators and the sponsorship
 committee is managed via an administration UI.
 
+## Workflow
+
+A user views the Initiatives page at `/initiatives`. If they are authorized (or if
+`Decidim::Initiatives.do_not_require_authorization = true` is set - see below) they see
+a call-to-action button: `New initiative`.
+
+They then choose from the list of initiative types, and go through a number of screens
+to help them refine their initiative. Once created, the initiative is not yet published.
+
+The user must then edit their initiative and click the "Send for technical validation"
+button, which looks greyed out but can be clicked. Then it's sent to the site admins to
+review, and if they're happy they can publish the initiative.
+
+At that point the initiative will display on the site.
+
+### Initiative types
+
+For a user to create an initiative, at least one initiative type needs to be created. An
+initiative type should have one or more scopes, each one is configured with the amount of
+signatures required.
+
+There are a number of ways in which signatures can be collected:
+* online
+* in person
+* mixed
+
+A PDF export of signatures is available.
+
+#### Promotion committee
+
+An initiative type can optionally be supported by a promotion committee, with a minimum
+number of committee members. Once the user has created the initiative and before it can be
+sent for technical validation they need to invite committee members to promote it.
+
+When the user has created the initiative they will be given a link to share with possible
+committee members, which will look something like `/initiatives/i-2/committee_requests/new`
+
+When a prospective committee member opens the link, they can click a button which allows
+them to request to be part of the committee. The initiative author then needs to approve
+each request, by opening the Admin Dashboard link in the user menu, editing their
+initiative, clicking "Committee members" and then approving each member.
+
+Once enough people have joined the promoter committee the initiative author can send it for
+technical validation.
+
 ## Usage
 
 This plugin provides:
 
 * A CRUD engine to manage initiatives.
-
 * Public views for initiatives via a high level section in the main menu.
+* An admin dashboard for the initiative author
+* An admin dashboard for an initiative's promotion committee
 
 ## Installation
 
