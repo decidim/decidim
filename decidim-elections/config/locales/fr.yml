@@ -47,6 +47,8 @@ fr:
         confirm_destroy: Êtes-vous certain ?
         destroy: Détruire
         edit: Modifier
+        edit_answers: Modifier les réponses
+        edit_questions: Modifier les questions
         new: Nouveau %{name}
         preview: Aperçu
         title: Actions
