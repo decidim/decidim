@@ -11,8 +11,6 @@ module Decidim
 
         return permission_action if permission_action.subject != :template
 
-        permission_action.allow! if permission_action.action == :preview
-
         permission_action
       end
     end
