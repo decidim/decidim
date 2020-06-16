@@ -10,7 +10,7 @@ Prior to be published an initiative must be technically validated. All the valid
 process and communication between the platform administrators and the sponsorship
 committee is managed via an administration UI.
 
-## Workflow
+## Creating an initiative
 
 A user views the Initiatives page at `/initiatives`. If they are authorized (or if
 `Decidim::Initiatives.do_not_require_authorization = true` is set - see below) they see
@@ -24,6 +24,12 @@ button, which looks greyed out but can be clicked. Then it's sent to the site ad
 review, and if they're happy they can publish the initiative.
 
 At that point the initiative will display on the site.
+
+### Components
+
+Once an initiative has been created it gets the Meetings and Page component enabled by
+default. The initiative author has no control over these - an admin will need to manage
+them. All of the other usual components may be added by an admin too.
 
 ### Initiative types
 
