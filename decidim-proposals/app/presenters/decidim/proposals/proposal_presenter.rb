@@ -94,7 +94,7 @@ module Decidim
       private
 
       def sanitize_unordered_lists(text)
-        text.gsub(%r{(?=.*<\/ul>)(?!.*?<li>.*?<\/ol>.*?<\/ul>)<li>}) { |li| li + '• ' }
+        text.gsub(%r{(?=.*<\/ul>)(?!.*?<li>.*?<\/ol>.*?<\/ul>)<li>}) { |li| li + "• " }
       end
 
       def sanitize_ordered_lists(text)
