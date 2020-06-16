@@ -28,7 +28,8 @@ en:
       admin:
         questionnaire_templates:
           form:
-            title: Template information
+            template_title: Template information
+            title: Questionnaire template
             save: Save
             questionnaire: Questionnaire template
             edit: Edit
