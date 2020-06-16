@@ -1,1 +1,13 @@
 el:
+  decidim:
+    system:
+      admins:
+        new:
+          create: Δημιουργία
+      models:
+        admin:
+          fields:
+            email: Email
+        organization:
+          fields:
+            name: Όνομα
