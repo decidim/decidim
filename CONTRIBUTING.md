@@ -20,7 +20,7 @@ If you haven't already, come find us in [Gitter](https://gitter.im/decidim/decid
 
 * Check our [development_guide](https://github.com/decidim/decidim/blob/develop/docs/development_guide.md)
 
-* When the PR includes a breaking change or includes something that requires manual intervention when deploying, it's necesary to add it on the changelog upgrade notes. See [the discussion](https://github.com/decidim/decidim/issues/5908) regarding changelog simplification for further context.
+* When the PR includes a breaking change or includes something that requires manual intervention when deploying, it's necessary to add it on the changelog upgrade notes. See [the discussion](https://github.com/decidim/decidim/issues/5908) regarding changelog simplification for further context.
 
 ## Do you intend to add a new feature or change an existing one?
 
