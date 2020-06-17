@@ -6,7 +6,7 @@
 - Fixes #?
 
 #### :clipboard: Subtasks
-- [x] Add `CHANGELOG` upgrade notes, if required
+- [ ] Add `CHANGELOG` upgrade notes, if required
 - [ ] If there's a new public field, add it to GraphQL API
 - [ ] Add documentation regarding the feature 
 - [ ] Add/modify seeds
