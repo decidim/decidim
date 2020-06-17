@@ -4,6 +4,8 @@
 
 ### Added
 
+- **decidim-elections**: Add import proposals to answers [\6163](https://github.com/decidim/decidim/pull/6163)
+
 ### Changed
 
 ### Fixed
