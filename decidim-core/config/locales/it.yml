@@ -426,14 +426,14 @@ it:
         newsletter_modal:
           buttons:
             check: Controlla e continua
-            close_modal: Chiudi modale
-            uncheck: Continua a deselezionare
+            close_modal: Chiudi modalità
+            uncheck: Mantieni deseleziona
           notice: |-
             <p>Ehi, sei sicuro di non voler ricevere una newsletter?<br>
-            Si prega di considerare di nuovo spuntando la casella di controllo newsletter sotto.<br>
+            Si prega di riconsiderare spuntando la casella di controllo "newsletter", in fondo.<br>
             È molto importante per noi che tu possa ricevere e-mail occasionali per fare annunci importanti, puoi sempre modificarlo nella pagina delle impostazioni delle notifiche.</p>
             <p>Se non si spunta la casella, potrebbero mancare informazioni pertinenti sulle nuove opportunità di partecipazione all'interno della piattaforma.<br>
-            Se vuoi ancora evitare di ricevere le newsletter, capiamo perfettamente la tua decisione.</p>
+            Se vuoi ancora evitare di ricevere le newsletter, rispettiamo la tua decisione.</p>
             <p>Grazie per aver letto questo!</p>
           title: Notifiche alla newsletter
         omniauth_buttons:
@@ -665,8 +665,8 @@ it:
         index:
           badge_title: "%{name} distintivo"
           how: Come puoi guadagnarlo
-          page_description: I badge sono riconoscimenti alle azioni dei partecipanti e ai progressi nella piattaforma. Quando inizi a scoprire, partecipare e interagire nella piattaforma, guadagnerai badge diversi. Ecco la lista dei badge e alcuni modi per guadagnarli.
-          title: badge
+          page_description: I badge sono riconoscimenti delle azioni dei partecipanti e dei progressi nella piattaforma. Quando inizi a scoprire, partecipare e interagire nella piattaforma, guadagnerai badge diversi. Ecco la lista dei badge e alcuni modi per guadagnarli.
+          title: Badge
         invitations:
           conditions:
             - Usa il link "invita amici" nella tua pagina utente per invitare i tuoi amici
@@ -679,7 +679,7 @@ it:
           next_level_in: Invita altri %{score} utenti a raggiungere il livello successivo!
           unearned_another: Questo utente non ha ancora invitato alcun utente.
           unearned_own: Non hai ancora invitato nessun utente.
-      description: I badge sono riconoscimenti alle azioni dei partecipanti e ai progressi nella piattaforma. Quando inizi a scoprire, partecipare e interagire nella piattaforma, guadagnerai badge diversi.
+      description: I badge sono riconoscimenti delle azioni dei partecipanti e dei progressi nella piattaforma. Quando inizi a scoprire, partecipare e interagire nella piattaforma, guadagnerai badge diversi.
       level: Livello %{level}
       reached_top: Hai raggiunto il livello più alto per questo badge.
     group_admins:
