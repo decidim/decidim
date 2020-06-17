@@ -181,7 +181,7 @@ shared_examples "manage processes examples" do
       uncheck :participatory_process_scopes_enabled
 
       expect(page).to have_selector("#participatory_process_scope_id.disabled")
-      expect(page).to have_selector("#participatory_process_scope_id .picker-values div input[disabled]", visible: false)
+      expect(page).to have_selector("#participatory_process_scope_id .picker-values div input[disabled]", visible: :all)
 
       within ".edit_participatory_process" do
         find("*[type=submit]").click
