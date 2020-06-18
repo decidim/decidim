@@ -59,7 +59,7 @@ number of committee members. Once the user has created the initiative and before
 sent for technical validation they need to invite committee members to promote it.
 
 When the user has created the initiative they will be given a link to share with possible
-committee members, which will look something like `/initiatives/i-2/committee_requests/new`
+committee members, which will look something like `/initiatives/.../committee_requests/new`
 
 When a prospective committee member opens the link, they can click a button which allows
 them to request to be part of the committee. The initiative author then needs to approve
