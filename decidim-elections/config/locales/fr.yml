@@ -49,6 +49,7 @@ fr:
         edit: Modifier
         edit_answers: Modifier les réponses
         edit_questions: Modifier les questions
+        import: Importer des propositions dans les réponses
         new: Nouveau %{name}
         preview: Aperçu
         title: Actions
@@ -96,6 +97,12 @@ fr:
             name: Élection
           question:
             name: Question
+        proposals_imports:
+          create:
+            invalid: Un problème est survenu lors de l'importation des propositions en réponses
+            success: "%{number} propositions importées avec succès dans les réponses"
+          new:
+            create: Importer des propositions dans les réponses
         questions:
           create:
             invalid: Il y a eu un problème lors de la création de cette question
