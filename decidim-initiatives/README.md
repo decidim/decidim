@@ -21,7 +21,7 @@ Once created, the initiative is not yet published.
 
 The user must then edit their initiative and click the "Send for technical validation"
 button, which looks greyed out but can be clicked. Then it's sent to the site admins to
-review, and if they're happy they can publish the initiative.
+review; once reviewed they can publish the initiative.
 
 At that point the initiative will display on the site.
 
