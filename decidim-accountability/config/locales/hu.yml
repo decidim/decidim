@@ -35,6 +35,7 @@ hu:
         confirm_destroy: 'Biztosan törölni szeretnéd ezt: %{name}?'
         destroy: Törlés
         edit: Szerkesztés
+        import_csv: CSV importálása
         new: Új %{name}
         preview: Előnézet
         timeline_entries: Projekt alakulása
@@ -42,6 +43,11 @@ hu:
       admin:
         exports:
           results: Eredmények
+        import_results:
+          new:
+            import: Importál
+            link: link
+            title: Eredmények betöltése CSV-ből
         imports:
           create:
             success: A fájl importálása folyamatban van. Néhány perc múlva e-mailben értesítjük az importálás eredményéről
@@ -117,6 +123,8 @@ hu:
       import_mailer:
         import:
           errors: Hibák
+          errors_present: Probléma merült fel az eredmények importálásakor
+          row_number: Sor
       last_activity:
         new_result_at_html: "<span>Új eredmény %{link}</span>kor"
       models:
