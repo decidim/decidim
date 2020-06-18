@@ -15,7 +15,7 @@ module Decidim
 
           included do
             helper Decidim::Forms::Admin::ApplicationHelper
-            helper_method :questionnaire_for, :questionnaire, :blank_question, :blank_answer_option, :blank_matrix_row, :question_types, :update_url, :current_component
+            helper_method :questionnaire_for, :questionnaire, :blank_question, :blank_answer_option, :blank_matrix_row, :question_types, :update_url
 
             def edit
               enforce_permission_to :update, :questionnaire, questionnaire: questionnaire
@@ -90,10 +90,6 @@ module Decidim
               @question_types ||= Question::QUESTION_TYPES.map do |question_type|
                 [question_type, I18n.t("decidim.forms.question_types.#{question_type}")]
               end
-            end
-
-            def current_component
-              questionnaire_for.try(:component)
             end
           end
         end
