@@ -15,8 +15,9 @@ committee is managed via an administration UI.
 A user views the Initiatives page at `/initiatives`. If they are allowed to create an
 initiative they see a call-to-action button: `New initiative`.
 
-They then choose from the list of initiative types, and go through a number of screens
-to help them refine their initiative. Once created, the initiative is not yet published.
+If there is more than one type of initiative, they will have to choose one and go through
+several screens, and go through a number of screens to help them refine their initiative.
+Once created, the initiative is not yet published.
 
 The user must then edit their initiative and click the "Send for technical validation"
 button, which looks greyed out but can be clicked. Then it's sent to the site admins to
