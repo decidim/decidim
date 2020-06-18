@@ -60,7 +60,7 @@ We would like to have all branches following this namings:
 | doc/ | For documentation |
 | feature/ | For new features |
 | fix/ | For bug fixing |
-| release/ | With MAYOR.MINOR-stable. For instance, release/0.22-stable | 
+| release/ | With MAYOR.MINOR-stable. For instance, release/0.22-stable |
 | backport/ | We only offer support for the last mayor version.  |
 
 ## Git commit messages and Pull Request titles
