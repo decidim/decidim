@@ -12,9 +12,8 @@ committee is managed via an administration UI.
 
 ## Creating an initiative
 
-A user views the Initiatives page at `/initiatives`. If they are authorized (or if
-`Decidim::Initiatives.do_not_require_authorization = true` is set - see below) they see
-a call-to-action button: `New initiative`.
+A user views the Initiatives page at `/initiatives`. If they are allowed to create an
+initiative they see a call-to-action button: `New initiative`.
 
 They then choose from the list of initiative types, and go through a number of screens
 to help them refine their initiative. Once created, the initiative is not yet published.
@@ -24,6 +23,14 @@ button, which looks greyed out but can be clicked. Then it's sent to the site ad
 review, and if they're happy they can publish the initiative.
 
 At that point the initiative will display on the site.
+
+### Determining if a user can create an initiative
+
+A participant can [create an initiative if](https://github.com/decidim/decidim/blob/develop/decidim-initiatives/app/permissions/decidim/initiatives/permissions.rb#L76-L79)
+Initiatives creation is enabled, and one of:
+* `Decidim::Initiatives.do_not_require_authorization = true` is set (see below), or
+* they have admin permissions on a group, or
+* they have been individually authorized to do so
 
 ### Components
 
