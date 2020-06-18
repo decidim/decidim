@@ -252,6 +252,21 @@ describe "Admin manages templates", type: :system do
   end
 
   describe "previewing a questionnaire_template" do
-    let!(:template) { create(:questionnaire_template, organization: organization, description: "A description") }
+    let!(:template) { create(:questionnaire_template, organization: organization) }
+    let!(:questions) { create_list(:questionnaire_question, 3, questionnaire: template.templatable) }
+    let(:questionnaire) { template.templatable }
+
+    before do
+      visit decidim_admin_templates.edit_questionnaire_template_path(template)
+    end
+
+    it "shows the template preview" do
+      within ".questionnaire-template-preview" do
+        expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+        expect(page).to have_i18n_content(questionnaire.questions.first.body)
+        expect(page).to have_selector("input#questionnaire_answers_0")
+        expect(page).to have_selector("button[type=submit][disabled]")
+      end
+    end
   end
 end

@@ -42,9 +42,9 @@ en:
         questionnaire_templates:
           edit:
             edit: Edit
+            empty: There are no questions yet
             questionnaire: Questionnaire
           form:
-            empty: There are no questions yet
             save: Save
             template_title: Template information
             title: Questionnaire
