@@ -47,6 +47,9 @@ it:
         confirm_destroy: Sei sicuro?
         destroy: Elimina
         edit: Modifica
+        edit_answers: Modifica risposta
+        edit_questions: Modifica domanda
+        import: Importa proposte in risposte
         new: Nuovo %{name}
         preview: Anteprima
         title: Azioni
@@ -94,6 +97,9 @@ it:
             name: Elezione
           question:
             name: Domanda
+        proposals_imports:
+          new:
+            select_component: Si prega di selezionare un componente
         questions:
           create:
             invalid: Si è verificato un errore durante la creazione di questa domanda
