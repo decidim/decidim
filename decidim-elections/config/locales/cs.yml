@@ -38,6 +38,7 @@ cs:
         edit: Upravit
         edit_answers: Upravit odpovědi
         edit_questions: Upravit otázky
+        import: Importovat návrhy na odpovědi
         new: Nový %{name}
         preview: Náhled
         title: Akce
@@ -85,6 +86,14 @@ cs:
             name: Volby
           question:
             name: Otázka
+        proposals_imports:
+          create:
+            invalid: Při importu návrhů do odpovědí došlo k potížím
+            success: "%{number} návrhů bylo úspěšně importováno do odpovědí"
+          new:
+            create: Importovat návrhy na odpovědi
+            no_components: V tomto participačním prostoru nejsou žádné další prvky návrhu, které by mohly do odpovědí importovat návrhy.
+            select_component: Vyberte komponentu
         questions:
           create:
             invalid: Při vytváření této otázky došlo k chybě
