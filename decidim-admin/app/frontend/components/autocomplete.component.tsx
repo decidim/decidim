@@ -43,6 +43,10 @@ export interface AutocompleteProps {
    * The URL where fetch content
    */
   searchURL: string;
+  /**
+   * The URL to call when selected option changes
+   */
+  changeURL: string;
 }
 
 interface AutocompleteState {
@@ -112,6 +116,19 @@ export class Autocomplete extends React.Component<AutocompleteProps, Autocomplet
 
   private handleChange = (selectedOption: any) => {
     this.setState({ selectedOption });
+
+    if (this.props.changeURL) {
+      axios.get(this.props.changeURL, {
+        cancelToken: this.cancelTokenSource.token,
+        headers: {
+          Accept: "application/json"
+        },
+        withCredentials: true,
+        params: {
+          id: selectedOption
+        }
+      })
+    }
   }
 
   private filterOptions = (options: any, filter: any, excludeOptions: any) => {

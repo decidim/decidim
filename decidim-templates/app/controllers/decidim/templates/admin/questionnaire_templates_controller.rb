@@ -21,7 +21,7 @@ module Decidim
               
               @templates = search(term)
               
-              render json: @templates.map { |t| { id: t.id, label: translated_attribute(t.name) } }
+              render json: @templates.map { |t| { value: t.id, label: translated_attribute(t.name) } }
             end
           end
         end
@@ -102,6 +102,15 @@ module Decidim
 
         def choose
           byebug
+        end
+        
+        def preview
+          respond_to do |format|
+            format.js do
+              questionnaire = Decidim::Forms::Questionnaire.find_by(id: params[:id])
+              @preview_form = form(Decidim::Forms::QuestionnaireForm).from_model(questionnaire)
+            end
+          end
         end
 
         def skip

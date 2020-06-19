@@ -49,6 +49,7 @@ module Decidim
                                     options: (options[:default_options].to_a + [selected]).compact,
                                     placeholder: prompt_options[:placeholder],
                                     searchURL: prompt_options[:url],
+                                    changeURL: prompt_options[:change_url],
                                     selected: selected ? selected[:value] : "",
                                     searchPromptText: options[:search_prompt] || I18n.t("autocomplete.search_prompt", scope: "decidim.admin"),
                                     noResultsText: options[:no_results] || I18n.t("autocomplete.no_results", scope: "decidim.admin")

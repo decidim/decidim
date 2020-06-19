@@ -13,8 +13,12 @@
 
     <%= decidim_form_for([questionnaire], url: decidim_admin_templates.choose_questionnaire_templates_url, method: :post, html: { class: "form choose_questionnaire_templates" }) do |form| %>
       <div class="row column">
-        <% prompt_options = { url: decidim_admin_templates.questionnaire_templates_url(format: :json), placeholder: t(".choose_template") } %>
-        <% default_options = templates.last(5).map { |questionnaire_template| { id: questionnaire_template.id, label: translated_attribute(questionnaire_template.name) } } %>
+        <% prompt_options = {
+          url: decidim_admin_templates.questionnaire_templates_url(format: :json),
+          change_url: decidim_admin_templates.preview_questionnaire_templates_url(format: :js),
+          placeholder: t(".choose_template")
+        } %>
+        <% default_options = templates.last(5).map { |questionnaire_template| { value: questionnaire_template.id, label: translated_attribute(questionnaire_template.name) } } %>
         
         <%= form.autocomplete_select(:questionnaire_template_id, false, { multiple: false, label: t(".choose_template"), default_options: default_options }, prompt_options) %>
       </div>
