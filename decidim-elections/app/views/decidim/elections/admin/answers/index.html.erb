@@ -6,6 +6,7 @@
       <%= t(".title") %>
 
       <%= link_to t("actions.new", scope: "decidim.elections", name: t("models.answer.name", scope: "decidim.elections.admin")), new_election_question_answer_path(election, question), class: "button tiny button--title" if allowed_to? :create, :answer, election: election, question: question %>
+      <%= link_to t("actions.import", scope: "decidim.elections", name: t("models.answer.name", scope: "decidim.elections.admin")), new_election_question_proposals_import_path(election, question), class: "button tiny button--title" if allowed_to? :import_proposals, :answer, election: election, question: question %>
     </h2>
   </div>
 
