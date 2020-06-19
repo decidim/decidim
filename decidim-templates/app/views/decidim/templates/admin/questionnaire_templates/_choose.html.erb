@@ -1,42 +1,32 @@
-<%= decidim_form_for([questionnaire], url: decidim_admin_templates.choose_questionnaire_templates_url, method: :post, html: { class: "form choose_questionnaire_templates" }) do |form| %>
-  <div class="card">
-    <div class="card-divider">
-      <h2 class="card-title"><%= form_title %></h2>
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= form_title %></h2>
+    <div class="button--title">
+      <%= link_to t(".skip_template"), '', class: "button tiny button--simple" %>
+    </div>
+  </div>
+
+  <div class="card-section">
+    <div class="row column">
+      <%= t(".description") %>
     </div>
 
-    <div class="card-section">
-      <div class="row column">
-        <%= t(".description") %>
-      </div>
+    <%= decidim_form_for([questionnaire], url: decidim_admin_templates.choose_questionnaire_templates_url, method: :post, html: { class: "form choose_questionnaire_templates" }) do |form| %>
       <div class="row column">
         <% prompt_options = { url: decidim_admin_templates.questionnaire_templates_url(format: :json), placeholder: t(".choose_template") } %>
-        <%= form.autocomplete_select(:questionnaire_template_id, false, {
-                                       multiple: false,
-                                       label: t(".choose_template"),
-                                      #  options: (Decidim::Templates::Template.where(templatable_type: "Decidim::Forms::Questionnaire").map do |questionnaire_template|
-                                      #   { id: questionnaire_template.id, label: translated_attribute(questionnaire_template.name) }
-                                      #  end)
-                                      },
-                                      prompt_options) do |questionnaire_template|
-          { value: questionnaire_template.id, label: translated_attribute(questionnaire_template.name) }
-        end %>
+        <% default_options = templates.last(5).map { |questionnaire_template| { id: questionnaire_template.id, label: translated_attribute(questionnaire_template.name) } } %>
+        
+        <%= form.autocomplete_select(:questionnaire_template_id, false, { multiple: false, label: t(".choose_template"), default_options: default_options }, prompt_options) %>
       </div>
-      <div class="row column template-preview">
+
+      <div class="row column choose-template-preview">
       </div>
-    </div>
-  </div>
 
-  <div class="button--double form-general-submit">
-    <%= form.submit t(".create_from_template"), class: "button" %>
-    <%= form.submit t(".create_from_scratch"), class: "button" %>
+      <div class="button--double form-general-submit">
+        <%= form.submit t(".create_from_template"), class: "button" %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
 
-<script>
-  // $(document).ready(function () {
-  //   $(".autocomplete-field ").on("change", function(e) {
-  //     console.log("change")
-  //     console.log(e)
-  //   })
-  // })
-</script>
+<%= stylesheet_link_tag "decidim/templates/templates", media: "all" %>

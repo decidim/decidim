@@ -48,7 +48,7 @@ en:
             description: You are about to create a new questionnaire. You may choose a predefined template and modify it afterwards.
             choose_template: Choose template
             create_from_template: Create from template
-            create_from_scratch: Create from scratch
+            skip_template: Skip
           form:
             save: Save
             template_title: Template information
