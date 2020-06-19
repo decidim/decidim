@@ -4,6 +4,11 @@ module Decidim
   module Forms
     # The data store for a Questionnaire in the Decidim::Forms component.
     class Questionnaire < Forms::ApplicationRecord
+
+      if defined? Decidim::Templates
+        include Decidim::Templates::Templatable
+      end
+
       belongs_to :questionnaire_for, polymorphic: true
 
       has_many :questions, -> { order(:position) }, class_name: "Question", foreign_key: "decidim_questionnaire_id", dependent: :destroy

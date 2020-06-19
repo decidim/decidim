@@ -14,8 +14,13 @@ module Decidim
         resources :questionnaire_templates do
           member do
             post :copy
-
+            
             resource :questionnaire, module: "questionnaire_templates"
+          end
+          
+          collection do
+            post :choose
+            get :preview
           end
         end
 

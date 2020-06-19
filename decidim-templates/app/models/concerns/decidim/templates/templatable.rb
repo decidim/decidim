@@ -14,6 +14,10 @@ module Decidim
                 dependent: :destroy,
                 inverse_of: :templatable,
                 as: :templatable
+
+        def pristine?
+          created_at == updated_at
+        end
       end
     end
   end

@@ -6,11 +6,24 @@ module Decidim
       # Controller that allows managing templates.
       #
       class QuestionnaireTemplatesController < Decidim::Templates::Admin::ApplicationController
+        include Decidim::TranslatableAttributes
+        
         helper_method :template
 
         def index
           enforce_permission_to :index, :templates
           @templates = collection
+
+          respond_to do |format|
+            format.html { render :index  }
+            format.json do
+              term = params[:term]
+              
+              @templates = search(term)
+              
+              render json: @templates.map { |t| { id: t.id, label: translated_attribute(t.name) } }
+            end
+          end
         end
 
         def new
@@ -95,6 +108,13 @@ module Decidim
 
         def template
           @template ||= Template.find_by(id: params[:id])
+        end
+
+        def search(term)
+          locales = current_organization.available_locales
+          @templates
+            .where(locales.map { |l| "name ->> '#{l}' ILIKE :text" }.join(" OR "), text: "%#{term}%")
+            .or(@templates.where(locales.map { |l| "description ->> '#{l}' ILIKE :text" }.join(" OR "), text: "%#{term}%"))
         end
       end
     end
