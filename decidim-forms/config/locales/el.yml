@@ -1,1 +1,7 @@
 el:
+  decidim:
+    forms:
+      step_navigation:
+        show:
+          back: Πίσω
+          continue: Συνέχεια
