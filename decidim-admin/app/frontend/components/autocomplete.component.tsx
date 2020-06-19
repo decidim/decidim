@@ -117,12 +117,15 @@ export class Autocomplete extends React.Component<AutocompleteProps, Autocomplet
   private handleChange = (selectedOption: any) => {
     this.setState({ selectedOption });
 
-    if (this.cancelTokenSource) {
-      this.cancelTokenSource.cancel();
-    }
-
     if (this.props.changeURL) {
+      if (this.cancelTokenSource) {
+        this.cancelTokenSource.cancel();
+      }
+
+      this.cancelTokenSource = axios.CancelToken.source();
+
 alert(`requesting get for changeURL ${this.props.changeURL}`)
+
       axios.get(this.props.changeURL, {
         cancelToken: this.cancelTokenSource.token,
         headers: {
