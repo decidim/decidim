@@ -127,7 +127,7 @@ alert(`requesting get for changeURL ${this.props.changeURL}`)
         },
         withCredentials: true,
         params: {
-          id: selectedOption
+          id: selectedOption.value
         }
       })
     }
