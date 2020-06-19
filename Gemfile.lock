@@ -415,7 +415,7 @@ GEM
     graphiql-rails (1.4.11)
       railties
       sprockets-rails
-    graphql (1.10.11)
+    graphql (1.11.1)
     hashdiff (1.0.1)
     hashie (4.1.0)
     highline (2.0.3)
@@ -562,7 +562,7 @@ GEM
     public_suffix (4.0.5)
     puma (4.3.5)
       nio4r (~> 2.0)
-    rack (2.2.2)
+    rack (2.2.3)
     rack-attack (6.3.1)
       rack (>= 1.0, < 3)
     rack-cors (1.1.1)
