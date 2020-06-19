@@ -1,1 +1,7 @@
 el:
+  decidim:
+    sortitions:
+      admin:
+        sortitions:
+          new:
+            create: Δημιουργία
