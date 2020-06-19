@@ -151,3 +151,55 @@ el:
           '4': Publish your amendment
     author:
       avatar: Άβαταρ
+    authorization_handlers:
+      dummy_authorization_handler:
+        fields:
+          document_number: Αριθμός εγγράφου
+    group_invites:
+      accept_invitation: Αποδοχή
+      reject_invitation: Απόρριψη
+    groups:
+      members:
+        accept_request: Αποδοχή
+        reject_request: Απόρριψη
+    metrics:
+      participants:
+        object: συμμετέχοντες
+        title: Συμμετέχοντες
+      users:
+        object: συμμετέχοντες
+        title: Συμμετέχοντες
+    pages:
+      home:
+        statistics:
+          users_count: Συμμετέχοντες
+    profiles:
+      show:
+        groups: Ομάδες
+    shared:
+      embed_modal:
+        close_window: Κλείσιμο παραθύρου
+      share_modal:
+        close_window: Κλείσιμο παραθύρου
+    wizard_step_form:
+      wizard_aside:
+        back: Πίσω
+  devise:
+    shared:
+      links:
+        back: Πίσω
+  layouts:
+    decidim:
+      user_profile:
+        user_groups: Ομάδες
+  social_share_button:
+    email: Email
+  time:
+    formats:
+      day_of_month: "%b %d"
+      day_of_week_long: "%a %e"
+      day_of_year: "%d.%m.%y"
+      decidim_day_of_year: "%d %B %Y"
+      decidim_short: "%d/%m/%Y %H:%M"
+      short: "%d/%m/%Y %H:%M"
+      time_of_day: "%H:%M"

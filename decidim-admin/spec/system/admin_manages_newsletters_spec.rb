@@ -124,7 +124,7 @@ describe "Admin manages newsletters", type: :system do
     context "when all users are selected" do
       let(:recipients_count) { deliverable_users.size }
 
-      it "sends to all users" do
+      it "sends to all users", :slow do
         visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
         perform_enqueued_jobs do
           within(".newsletter_deliver") do
@@ -159,7 +159,7 @@ describe "Admin manages newsletters", type: :system do
       end
       let(:recipients_count) { followers.size }
 
-      it "sends to followers" do
+      it "sends to followers", :slow do
         visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
         perform_enqueued_jobs do
           within(".newsletter_deliver") do
@@ -246,7 +246,7 @@ describe "Admin manages newsletters", type: :system do
         end
       end
 
-      it "sends to followers and participants" do
+      it "sends to followers and participants", :slow do
         visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
         perform_enqueued_jobs do
           within(".newsletter_deliver") do

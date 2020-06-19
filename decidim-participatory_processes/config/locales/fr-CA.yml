@@ -24,8 +24,10 @@ fr-CA:
         published_at: Publiée à
         related_process_ids: Concertations liées
         scope_id: Périmètre d'application
+        scope_type_max_depth_id: Profondeur du filtre de portée
         scopes_enabled: Périmètres d'application activés
         short_description: Résumé
+        show_metrics: Afficher les métriques
         show_statistics: Montrer les statistiques
         slug: Identifiant
         start_date: Date de début
@@ -133,6 +135,7 @@ fr-CA:
             admin: Administrateur
             collaborator: Relecteur
             moderator: Modérateur
+            valuator: Évaluateur
         user:
           fields:
             invitation_accepted_at: Invitation acceptée à
@@ -204,11 +207,13 @@ fr-CA:
         destroy:
           success: Utilisateur supprimé avec succès de cette concertation.
         edit:
+          title: Mettre à jour l'administrateur du processus participatif
           update: Mettre à jour
         index:
           process_admins_title: Administrateurs de la concertation
         new:
           create: Créer
+          title: Nouvel administrateur du processus participatif
         update:
           error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cette concertation.
           success: L'utilisateur a été mis à jour avec succès pour cette concertation.
@@ -387,8 +392,10 @@ fr-CA:
         comments_count: Commentaires
         debates_count: Débats
         endorsements_count: Soutiens
+        followers_count: Abonnés
         headline: Activité
         meetings_count: Rencontres
+        no_stats: Il n'y a pas encore de statistiques.
         orders_count: Votes
         pages_count: Pages
         participants_count: Participants

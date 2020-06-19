@@ -1,1 +1,31 @@
 el:
+  activemodel:
+    attributes:
+      assembly_user_role:
+        email: Email
+        name: Όνομα
+  decidim:
+    admin:
+      assemblies:
+        new:
+          create: Δημιουργία
+      assemblies_types:
+        new:
+          create: Δημιουργία
+      assembly_members:
+        new:
+          create: Δημιουργία
+      assembly_user_roles:
+        new:
+          create: Δημιουργία
+      models:
+        assembly_member:
+          fields:
+            full_name: Όνομα
+        assembly_user_role:
+          fields:
+            email: Email
+            name: Όνομα
+    assemblies:
+      statistics:
+        users_count: Συμμετέχοντες

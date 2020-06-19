@@ -1,0 +1,85 @@
+ro:
+  activemodel:
+    attributes:
+      answer:
+        body: Răspuns
+      question:
+        max_choices: Numărul maxim de opțiuni
+        question_type: Tip
+      questionnaire_question:
+        mandatory: Mandatory
+    errors:
+      models:
+        answer:
+          attributes:
+            choices:
+              missing: nu sunt complete
+              too_many: sunt prea multe
+        questionnaire:
+          request_invalid: A apărut o eroare la procesarea cererii. Vă rugăm să încercați din nou
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: Descriere
+            tos: Termenii serviciului
+        questionnaires:
+          answer_option:
+            answer_option: Opțiune răspuns
+            free_text: Text liber
+            remove: Elimină
+            statement: Declarație
+          edit:
+            save: Salvează
+          form:
+            add_question: Adaugă întrebare
+            already_answered_warning: Formularul a primit deja un răspuns de la unii utilizatori astfel încât nu îi puteți modifica întrebările.
+          question:
+            add_answer_option: Adaugă opțiune răspuns
+            any: Oricare
+            description: Descriere
+            down: Jos
+            question: Întrebare
+            remove: Elimină
+            statement: Declarație
+            up: Sus
+          update:
+            invalid: A apărut o eroare la salvarea formularului.
+            success: Formulare salvate cu succes.
+      errors:
+        answer:
+          body: Corpul nu poate fi gol
+      question_types:
+        long_answer: Răspuns lung
+        multiple_option: Opțiune multiplă
+        short_answer: Răspuns scurt
+        single_option: Opțiune unică
+        sorting: Sortare
+      questionnaires:
+        answer:
+          invalid: A apărut o problemă cu răspunsul la formular.
+          success: Formularul a răspuns cu succes.
+        question:
+          max_choices: 'Max alegeri: %{n}'
+        show:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Autentifică-te cu contul tău</a> sau <a href="%{sign_up_link}">înregistrează-te</a> pentru a răspunde la formular.
+            title: Răspundeți la formular
+          questionnaire_answered:
+            body: Ați răspuns deja la acest formular.
+            title: Răspuns deja
+          questionnaire_closed:
+            body: Formularul este închis și nu se poate răspunde.
+            title: Formular închis
+          questionnaire_for_private_users:
+            body: Formularul este disponibil doar pentru utilizatorii privați
+            title: Formular închis
+          tos_agreement: Prin participare acceptați termenii și condițiile sale de utilizare
+      user_answers_serializer:
+        created_at: Răspuns pornit
+        id: ID răspuns
+        ip_hash: Hash Ip
+        registered: Înregistrat
+        unregistered: Neînregistrat
+        user_status: Statusul utilizatorului

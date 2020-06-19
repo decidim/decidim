@@ -1,1 +1,19 @@
 el:
+  activemodel:
+    attributes:
+      id_document_upload:
+        user: Συμμετέχων
+  decidim:
+    authorization_handlers:
+      name: Όνομα
+    verifications:
+      id_documents:
+        admin:
+          confirmations:
+            new:
+              reject: Απόρριψη
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              username: Ψευδώνυμο

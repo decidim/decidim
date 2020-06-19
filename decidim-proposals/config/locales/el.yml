@@ -1,1 +1,55 @@
 el:
+  decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          values:
+            'true': Τροποποιήσεις
+    components:
+      proposals:
+        actions:
+          create: Δημιουργία
+    proposals:
+      admin:
+        actions:
+          preview: Προεπισκόπηση
+        proposals:
+          index:
+            publish: Δημοσίευση
+          new:
+            create: Δημιουργία
+      application_helper:
+        filter_origin_values:
+          user_groups: Ομάδες
+        filter_type_values:
+          amendments: Τροποποιήσεις
+      collaborative_drafts:
+        edit:
+          back: Πίσω
+        filters:
+          amendment: Τροποποιήσεις
+        new:
+          send: Συνέχεια
+        requests:
+          collaboration_requests:
+            accept_request: Αποδοχή
+            reject_request: Απόρριψη
+        show:
+          back: Πίσω
+          publish: Δημοσίευση
+        wizard_aside:
+          back: Πίσω
+      proposals:
+        compare:
+          continue: Συνέχεια
+        edit:
+          back: Πίσω
+        edit_draft:
+          discard: Διαγραφή πρόχειρου
+          send: Προεπισκόπηση
+        new:
+          send: Συνέχεια
+        preview:
+          publish: Δημοσίευση
+        wizard_aside:
+          back: Πίσω

@@ -1,0 +1,443 @@
+ro:
+  activemodel:
+    attributes:
+      participatory_process:
+        announcement: Anunţ
+        area_id: Suprafață
+        banner_image: Imagine banner
+        copy_categories: Copiază categoriile
+        copy_components: Copiază componentele
+        copy_steps: Copiază pașii
+        decidim_area_id: Suprafață
+        description: Descriere
+        developer_group: Grup promotor
+        domain: Domeniu
+        end_date: Data de încheiere
+        hashtag: Hashtag
+        hero_image: Imagine acasă
+        local_area: Zonă organizație
+        meta_scope: Sferă metadate
+        participatory_process_group_id: Grup procese
+        participatory_scope: Ce se decide
+        participatory_structure: Cum se decide
+        promoted: Promovat
+        published_at: Publicat la
+        related_process_ids: Procese conexe
+        scope_id: Domeniu
+        scope_type_max_depth_id: Adâncimea filtrului de aplicare
+        scopes_enabled: Domeniu de aplicare activat
+        short_description: Descriere scurtă
+        show_metrics: Arată măsurători
+        show_statistics: Arată statistici
+        slug: URL slug
+        start_date: Data de început
+        subtitle: Subtitrare
+        target: Cine participă
+        title: Titlu
+      participatory_process_group:
+        description: Descriere
+        hero_image: Imagine
+        name: Nume
+        participatory_process_ids: Procese conexe
+      participatory_process_step:
+        cta_path: Apel la calea de acțiune
+        cta_text: Apel la textul Acțiune
+        description: Descriere
+        end_date: Data de încheiere
+        short_description: Descriere scurtă
+        start_date: Data de început
+        title: Titlu
+      participatory_process_user_role:
+        email: E-mail
+        name: Nume
+        role: Rol
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Tip de document invalid. Formatele acceptate sunt: %{valid_mime_types}'
+    models:
+      decidim/participatory_process_step_activated_event: Faza activată
+      decidim/participatory_process_step_changed_event: Faza schimbată
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Procesul participativ
+        few: Procese participative
+        other: Procese participative
+      decidim/participatory_process_group:
+        one: Grup proces participativ
+        few: Grupuri participante
+        other: Grupuri participante
+      decidim/participatory_process_step:
+        one: Faza
+        few: Faze
+        other: Faze
+  decidim:
+    admin:
+      actions:
+        activate: Activare
+        configure: Configurare
+        confirm_destroy: Confirmă ștergerea
+        destroy: Ștergere
+        duplicate: Duplicate
+        edit: Editare
+        filter:
+          all_processes: Arată toate procesele
+          process_groups: Procesează grupuri
+        import_process: Importă
+        new_process: Proces nou
+        new_process_group: Proces nou de grup
+        new_process_step: Faza nouă
+        new_process_user_role: Proces nou admin
+        preview: Previzualizare
+        publish: Publică
+        resend_invitation: Retrimite invitația
+        unpublish: De-publicare
+      menu:
+        participatory_process_groups: Grupuri de proces
+        participatory_processes: Procese
+        participatory_processes_submenu:
+          attachment_collections: Dosare
+          attachment_files: Fișiere
+          attachments: Atașamente
+          categories: Categorii
+          components: Componente
+          info: Info
+          moderations: Moderatii
+          private_users: Participanți privați
+          process_admins: Procesează administratori
+          steps: Faze
+      models:
+        participatory_process:
+          fields:
+            created_at: Creat la
+            private: Privat
+            promoted: Evident
+            published: Publicat
+            title: Titlu
+          name: Procesul participativ
+        participatory_process_group:
+          fields:
+            name: Nume
+          name: Procesează grup
+        participatory_process_step:
+          fields:
+            end_date: Data de încheiere
+            start_date: Data de început
+            title: Titlu
+          name: Faza procesului participativ
+        participatory_process_user_role:
+          fields:
+            email: E-mail
+            name: Nume
+            role: Rol
+          name: Administrator proces participativ
+          roles:
+            admin: Administrator
+            collaborator: Colaborator
+            moderator: Moderator
+            valuator: Evaluator
+        user:
+          fields:
+            invitation_accepted_at: Invitație acceptată la
+            invitation_sent_at: Invitație trimisă la
+      participatory_process_copies:
+        new:
+          copy: Copiază
+          select: Selectați datele pe care doriți să le duplicați
+          title: Duplicarea procesului participativ
+      participatory_process_groups:
+        destroy:
+          error: A apărut o eroare la distrugerea grupului de proces participativ.
+          success: Grupul procesului participativ a fost şters.
+        edit:
+          title: Editare grup proces
+          update: Actualizare
+        new:
+          create: Crează
+          title: Proces nou de grup
+        update:
+          error: A apărut o problemă la actualizarea acestui grup participativ.
+          success: Grupul procesului participativ a fost actualizat.
+      participatory_process_imports:
+        create:
+          error: A apărut o problemă la importul acestui proces participativ.
+          success: Procesul participativ a fost importat.
+        new:
+          import: Importă
+          select: Selectați ce date doriți să importați
+          title: Importați procesul participativ
+      participatory_process_publications:
+        create:
+          error: A apărut o problemă la publicarea acestui proces participativ.
+          success: Procesul participativ a fost publicat.
+        destroy:
+          error: A apărut o problemă la publicarea acestui proces participativ.
+          success: Procesul participativ a fost de-publicat.
+      participatory_process_step_activations:
+        create:
+          error: A apărut o problemă la activarea acestei faze a procesului participativ.
+          success: Procesul participativ a fost activat cu succes.
+      participatory_process_steps:
+        create:
+          error: A apărut o problemă la crearea unei noi faze a procesului participativ.
+          success: Procesul participativ a fost creat.
+        default_title: Introducere
+        destroy:
+          error:
+            active_step: Nu se poate șterge faza activă.
+            last_step: Nu se poate șterge ultima fază a unui proces.
+          success: Procesul participativ a fost şters cu succes.
+        edit:
+          title: Editare proces participativ
+          update: Actualizare
+        index:
+          steps_title: Faze
+        new:
+          create: Crează
+          title: Noua fază a procesului participativ
+        ordering:
+          error: A existat o problemă în reordonarea acestor faze ale procesului participativ.
+        update:
+          error: A apărut o problemă la actualizarea acestei faze a procesului participativ.
+          success: Faza de participare a fost actualizată.
+      participatory_process_user_roles:
+        create:
+          error: A apărut o problemă la adăugarea unui participant la acest proces participativ.
+          success: Administratorul a fost adăugat cu succes la acest proces participativ.
+        destroy:
+          success: Administratorul a fost eliminat din acest proces participativ.
+        edit:
+          title: Actualizează administratorul procesului participativ
+          update: Actualizare
+        index:
+          process_admins_title: Administratori ai proceselor participative
+        new:
+          create: Crează
+          title: Noul administrator al procesului participativ
+        update:
+          error: A apărut o eroare la actualizarea unui administrator pentru acest proces participativ.
+          success: Administratorul a fost actualizat pentru acest proces participativ.
+      participatory_processes:
+        create:
+          error: A apărut o problemă la crearea unui nou proces participativ.
+          success: Procesul participativ a fost creat. Configurați acum fazele sale.
+        edit:
+          update: Actualizare
+        index:
+          not_published: Nu este publicat
+          private: Privat
+          public: Publice
+          published: Publicat
+        new:
+          create: Crează
+          title: Un nou proces participativ
+        update:
+          error: A apărut o eroare la actualizarea acestui proces participativ.
+          success: Procesul participativ a fost actualizat.
+      participatory_processes_copies:
+        create:
+          error: A existat o problemă la duplicarea acestui proces participativ.
+          success: Procesul participativ a fost duplicat.
+      participatory_processes_group:
+        create:
+          error: A apărut o problemă la crearea unui nou grup implicat în procesul participativ.
+          success: Grupul participativ a fost creat.
+      titles:
+        participatory_process_groups: Grupuri participante
+        participatory_processes: Procese participative
+      users:
+        resend_invitation:
+          error: A apărut o eroare la retrimiterea invitației.
+          success: Invitație retrimisă cu succes.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} a creat procesul participativ %{resource_name}"
+        publish: "%{user_name} a publicat procesul participativ %{resource_name}"
+        unpublish: "%{user_name} nepublicat procesul participativ %{resource_name}"
+        update: "%{user_name} a actualizat procesul participativ %{resource_name}"
+      participatory_process_group:
+        create: "%{user_name} a creat grupul de proces participativ %{resource_name}"
+        update: "%{user_name} a actualizat procesul participativ %{resource_name}"
+      participatory_process_step:
+        activate: "%{user_name} a activat faza %{resource_name} în procesul participativ %{space_name}"
+        create: "%{user_name} a creat faza %{resource_name} în procesul participativ %{space_name}"
+        delete: "%{user_name} a șters faza %{resource_name} din procesul participativ %{space_name}"
+        update: "%{user_name} a actualizat faza %{resource_name} în procesul participativ %{space_name}"
+      participatory_process_user_role:
+        create: "%{user_name} a invitat participantul %{resource_name} la procesul participativ %{space_name}"
+        delete: "%{user_name} a eliminat participantul %{resource_name} din procesul participativ %{space_name}"
+        update: "%{user_name} a schimbat rolul participantului %{resource_name} în procesul participativ %{space_name}"
+    events:
+      participatory_process:
+        step_activated:
+          email_intro: 'Faza %{resource_title} este acum activă pentru %{participatory_space_title}. O poți vedea de pe această pagină:'
+          email_outro: Ați primit această notificare deoarece urmăriți %{participatory_space_title}. Puteți înceta să primiți notificări urmând linkul anterior.
+          email_subject: O actualizare la %{participatory_space_title}
+          notification_title: Faza %{resource_title} este acum activă pentru <a href="%{resource_path}">%{participatory_space_title}</a>
+        step_changed:
+          email_intro: 'Datele pentru faza %{resource_title} de la %{participatory_space_title} au fost actualizate. O puteți vedea de pe această pagină:'
+          email_outro: Ați primit această notificare deoarece urmăriți %{participatory_space_title}. Puteți înceta să primiți notificări urmând linkul anterior.
+          email_subject: O actualizare la %{participatory_space_title}
+          notification_title: Datele pentru faza <a href="%{resource_path}">%{resource_title}</a> la <a href="%{participatory_space_url}">%{participatory_space_title}</a> au fost actualizate.
+    help:
+      participatory_spaces:
+        participatory_processes:
+          contextual: "<p>Un <strong>proces participativ</strong> este o secvență de activități participative (de ex. mai întâi să completaţi un sondaj, apoi să faceţi propuneri, discutându-le în cadrul reuniunilor directe sau virtuale; și, în cele din urmă, prioritizarea acestora) în scopul definirii și luării unei decizii cu privire la un subiect specific.</p> <p>Exemple de procese participative sunt: un proces de alegere a membrilor comitetului (în care sunt prezentate pentru prima dată candidații), apoi să se dezbată și, în cele din urmă, să se aleagă candidatura), bugetele participative (unde se fac propuneri, a apreciat din punct de vedere economic şi a votat cu banii disponibili), un proces de planificare strategică; elaborarea în colaborare a unui regulament sau normă, conceperea unui spațiu urban sau elaborarea unui plan de politică publică.</p>\n"
+          page: "<p>Un <strong>proces participativ</strong> este o secvență de activități participative (de ex. mai întâi să completaţi un sondaj, apoi să faceţi propuneri, discutându-le în cadrul reuniunilor directe sau virtuale; și, în cele din urmă, prioritizarea acestora) în scopul definirii și luării unei decizii cu privire la un subiect specific.</p> <p>Exemple de procese participative sunt: un proces de alegere a membrilor comitetului (în care sunt prezentate pentru prima dată candidații), apoi să se dezbată și, în cele din urmă, să se aleagă candidatura), bugetele participative (unde se fac propuneri, a apreciat din punct de vedere economic şi a votat cu banii disponibili), un proces de planificare strategică; elaborarea în colaborare a unui regulament sau normă, conceperea unui spațiu urban sau elaborarea unui plan de politică publică.</p>\n"
+          title: Ce este un proces participativ?
+    menu:
+      processes: Procese
+    metrics:
+      participatory_processes:
+        description: Numărul de procese participative în această organizație
+        object: procese participative
+        title: Procese participative
+    participatory_process_groups:
+      show:
+        group_participatory_processes:
+          one: 1 proces pentru %{group}
+          few: "%{count} procese pentru %{group}"
+          other: "%{count} procese pentru %{group}"
+        title: Grupuri participante
+    participatory_process_steps:
+      index:
+        process_steps: Faze de proces
+        title: Fazele procesului participativ
+    participatory_processes:
+      admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Cantitatea maximă de elemente de afișat
+        participatory_process_copies:
+          form:
+            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică acest proces. Acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Adaugă un document
+            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică acest proces. Acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Utilizaţi căi parţiale, nu adrese URL complete aici. Acceptă litere, numere, cratime şi tăieturi, şi trebuie să înceapă cu o literă. Dacă nu este setat, butonul nu va fi afișat. Exemplu: %{url}'
+            cta_text_help: Dacă nu este setat, butonul nu va fi afișat.
+        participatory_processes:
+          form:
+            announcement_help: Textul pe care îl introduceți aici va fi afișat utilizatorului chiar sub informațiile procesului.
+            duration: Durată
+            filters: Filtre
+            images: Imagini
+            metadata: Metadate
+            other: Altele
+            related_processes: Procese conexe
+            scope_type_max_depth_help: Limitați adâncimea filtrului de domeniu; Filtrul se va afișa de la general la tipul selectat.
+            select_an_area: Selectați o zonă
+            select_process_group: Selectați un grup de procese
+            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică acest proces. Acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+            title: Informaţii generale
+            visbility: Vizibilitate
+      content_blocks:
+        highlighted_processes:
+          name: Procese evidențiate
+      index:
+        title: Procese participative
+      last_activity:
+        new_participatory_process: Un nou proces participativ
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Procese active
+            active_step: Faza activă
+            more_information: Mai multe informații
+            participate: Participă
+            see_all_processes: Vezi toate procesele
+      participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 proces activ
+              few: "%{count} procese active"
+              other: "%{count} procese active"
+            all:
+              one: 1 proces
+              few: "%{count} procese"
+              other: "%{count} procese"
+            past:
+              one: 1 proces trecut
+              few: "%{count} procese anterioare"
+              other: "%{count} procese anterioare"
+            upcoming:
+              one: 1 proces viitor
+              few: "%{count} procese viitoare"
+              other: "%{count} procese viitoare"
+          explanations:
+            no_active: Nici un proces activ
+            no_active_nor_upcoming: Nici un proces activ sau viitor
+            no_active_nor_upcoming_callout: Nu există procese active sau viitoare. Aici este o listă a celor din trecut.
+          names:
+            active: Activ
+            all: Toate
+            past: Trecute
+            upcoming: Urmează
+          see: Vedeți
+        index:
+          loading: Se încarcă rezultatele...
+      show:
+        area: Suprafață
+        developer_group: Grup promotor
+        end_date: Data de încheiere
+        local_area: Zona Organizatie
+        participatory_scope: Ce se decide
+        participatory_structure: Cum se decide
+        private_space: Acesta este un proces privat
+        related_processes: Procese conexe
+        scope: Domeniu
+        start_date: Data de început
+        target: Cine participă
+        unspecified: Nu este specificat
+      statistics:
+        answers_count: Răspunsuri
+        comments_count: Comentarii
+        debates_count: Dezbateri
+        endorsements_count: Susținători
+        followers_count: Urmăritori
+        headline: Statistici
+        meetings_count: Întâlniri
+        no_stats: Încă nu există statistici.
+        orders_count: Suportă
+        pages_count: Pagini
+        participants_count: Participanți
+        processes_count: Procese
+        projects_count: Proiecte
+        proposals_count: Propuneri
+        results_count: Rezultate
+        supports_count: Suportă
+        surveys_count: Chestionare
+        users_count: Participanți
+  layouts:
+    decidim:
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Răsfoiţi
+          processes_count: 'Procese:'
+      participatory_process_widgets:
+        show:
+          active_step: Faza activă
+          take_part: Participă
+      participatory_processes:
+        index:
+          promoted_processes: Procese evidențiate
+        participatory_process:
+          active_step: 'Faza curentă:'
+          more_info: Mai multe informații
+          take_part: Participă
+        promoted_process:
+          active_step: 'Faza curentă:'
+          more_info: Mai multe informații
+          take_part: Participă
+      process_header_steps:
+        step: Faza %{current} din %{total}
+        view_steps: Vezi fazele
+      process_navigation:
+        process_menu_item: Procesul
