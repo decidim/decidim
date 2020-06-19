@@ -22,7 +22,7 @@
           <% elections.each do |election| %>
             <tr data-id="<%= election.id %>">
               <td>
-                <%= link_to translated_attribute(election.title), election_questions_path(election) %>
+                <%= link_to translated_attribute(election.title), resource_locator(election).path %>
               </td>
               <td>
                 <% if election.start_time %>
@@ -36,6 +36,8 @@
               </td>
               <td class="table-list__actions">
                 <%= icon_link_to "eye", resource_locator(election).path, t("actions.preview", scope: "decidim.elections"), class: "action-icon--preview", target: :blank %>
+
+                <%= icon_link_to "list", election_questions_path(election), t("actions.edit_questions", scope: "decidim.elections"), class: "action-icon--edit-questions" %>
 
                 <% if allowed_to? :update, :election, election: election %>
                   <%= icon_link_to "pencil", edit_election_path(election), t("actions.edit", scope: "decidim.elections"), class: "action-icon--edit" %>

@@ -170,5 +170,15 @@ describe Decidim::Elections::Admin::Permissions do
 
       it_behaves_like "not allowed when election has started"
     end
+
+    describe "import proposals" do
+      let(:action) do
+        { scope: :admin, action: :import_proposals, subject: :answer }
+      end
+
+      it { is_expected.to eq true }
+
+      it_behaves_like "not allowed when election has started"
+    end
   end
 end

@@ -12,6 +12,8 @@ module Decidim
             case permission_action.action
             when :create, :update, :delete
               allow_if_not_started
+            when :import_proposals
+              allow_if_not_started
             end
           when :election
             case permission_action.action
