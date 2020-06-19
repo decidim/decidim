@@ -38,10 +38,10 @@ module Decidim
 
           @form = form(TemplateForm).from_params(params)
 
-          CreateQuestionnaireTemplate.call(@form) do
+          CreateQuestionnaireTemplate.call(@form) do |template|
             on(:ok) do
               flash[:notice] = I18n.t("templates.create.success", scope: "decidim.admin")
-              redirect_to action: :index
+              redirect_to edit_questionnaire_path(template)
             end
 
             on(:invalid) do
@@ -80,7 +80,7 @@ module Decidim
           UpdateTemplate.call(template, @form, current_user) do
             on(:ok) do |_template|
               flash[:notice] = I18n.t("templates.update.success", scope: "decidim.admin")
-              redirect_to action: :index
+              redirect_to edit_questionnaire_path(template)
             end
 
             on(:invalid) do |template|
@@ -109,7 +109,8 @@ module Decidim
         def preview
           respond_to do |format|
             format.js do
-              @questionnaire = Decidim::Forms::Questionnaire.find_by(id: params[:id])
+              @template = template
+              @questionnaire = @template.templatable
               @preview_form = form(Decidim::Forms::QuestionnaireForm).from_model(@questionnaire)
             end
           end

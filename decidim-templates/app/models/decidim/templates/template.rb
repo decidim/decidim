@@ -18,7 +18,7 @@ module Decidim
       end
 
       def destroy_templatable
-        templatable.destroy!
+        templatable&.destroy
       end
     end
   end

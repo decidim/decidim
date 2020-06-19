@@ -11,7 +11,6 @@ module Decidim
       included do
         has_one :template,
                 class_name: "Decidim::Templates::Template",
-                dependent: :destroy,
                 inverse_of: :templatable,
                 as: :templatable
 

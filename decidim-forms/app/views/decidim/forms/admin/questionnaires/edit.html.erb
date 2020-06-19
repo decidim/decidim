@@ -1,4 +1,4 @@
-<% if (defined? Decidim::Templates) && questionnaire.pristine? %>
+<% if (defined? Decidim::Templates) && choose_template? %>
   <%= render partial: "decidim/templates/admin/questionnaire_templates/choose", locals: { target: questionnaire, form_title: t("decidim.forms.admin.questionnaires.edit.title") } %>
 <% else %>
   <%= decidim_form_for(@form, url: update_url, method: :put, html: { class: "form edit_questionnaire" }) do |form| %>
