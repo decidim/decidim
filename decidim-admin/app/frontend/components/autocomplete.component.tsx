@@ -118,18 +118,28 @@ export class Autocomplete extends React.Component<AutocompleteProps, Autocomplet
     this.setState({ selectedOption });
 
     if (this.props.changeURL) {
-
-alert(`requesting get for changeURL ${this.props.changeURL}`)
-
       axios.get(this.props.changeURL, {
         headers: {
-          Accept: "application/json"
+          Accept: "text/javascript"
         },
         withCredentials: true,
         params: {
           id: selectedOption.value
         }
       })
+      .then((response) => {
+        let script = document.createElement("script");
+        script.type = "text/javascript";
+        script.innerHTML = response.data;
+        document.getElementsByTagName("head")[0].appendChild(script);
+      })
+      .catch((error: any) => {
+        if (axios.isCancel(error)) {
+          console.log("Request canceled", error.message);
+        } else {
+          console.log(error)
+        }
+      });
     }
   }
 
