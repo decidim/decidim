@@ -2,6 +2,16 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+## Upgrade Notes
+
+- **Stable branches nomenclature changes**
+
+Since this release we're changing the branch nomenclature for stable branches. Until now we were using `x.y-stable`, now we will use `release/x.y-stable`.
+Legacy names for stable branches will be kept for a while but won't be created anymore, so new releases won't have the old `x.y-stable` nomenclature.
+
+The plan is to keep new and old nomenclatures until the release of v0.25, so they will coexist until that release.
+When releasing v0.25 all stable branches with the nomenclature `x.y-stable` will be removed.
+
 ### Added
 
 - **decidim-elections**: Add import proposals to answers [\6163](https://github.com/decidim/decidim/pull/6163)
