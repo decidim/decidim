@@ -19,6 +19,7 @@ module Decidim
           end
           
           collection do
+            post :skip
             post :choose
             get :preview
           end

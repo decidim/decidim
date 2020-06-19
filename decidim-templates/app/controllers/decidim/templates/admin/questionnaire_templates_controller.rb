@@ -100,6 +100,16 @@ module Decidim
           end
         end
 
+        def choose
+          byebug
+        end
+
+        def skip
+          questionnaire = Decidim::Forms::Questionnaire.find_by(id: params[:questionnaire_id])
+          questionnaire.touch
+          redirect_to params[:url]
+        end
+
         private
 
         def collection
