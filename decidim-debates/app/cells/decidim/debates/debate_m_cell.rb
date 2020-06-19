@@ -14,11 +14,12 @@ module Decidim
       private
 
       def title
-        present(model).title
+        decidim_html_escape(present(model).title)
       end
 
       def description
-        present(model).description(strip_tags: true)
+        body = decidim_sanitize(present(model).description)
+        body.truncate(200, separator: /\s/)
       end
 
       def resource_icon
