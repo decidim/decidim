@@ -4,8 +4,8 @@ it:
       initiative:
         decidim_user_group_id: Autore
         description: Descrizione
-        offline_votes: Supporti faccia a faccia
-        scope_id: Scopo
+        offline_votes: Firme di persona
+        scope_id: Ambito
         signature_end_date: Fine del periodo di raccolta della firma
         signature_start_date: Inizio del periodo di raccolta della firma
         signature_type: Tipo di raccolta della firma
@@ -80,7 +80,7 @@ it:
         state_eq:
           values:
             accepted: Firme sufficienti
-            created: Creato
+            created: Creata
             discarded: Discarded
             published: Pubblicato
             rejected: Firme non sufficienti
@@ -93,7 +93,7 @@ it:
       models:
         initiatives:
           fields:
-            created_at: Creato a
+            created_at: Creato il
             id: ID
             published_at: Pubblicato il
             state: Stato
@@ -106,7 +106,7 @@ it:
           name: Ambito del tipo di iniziativa
         initiatives_types:
           fields:
-            created_at: Creato a
+            created_at: Creato il
             title: Tipi di iniziativa
           name: Tipo di iniziativa
         initiatives_votes:
@@ -183,7 +183,7 @@ it:
             answer: Risposta
             title: Rispondi per %{title}
           info_initiative:
-            created_at: Creato a
+            created_at: Creato il
             description: Descrizione
             initiative_votes_count: Contare i voti
             initiatives: Iniziative
@@ -353,7 +353,7 @@ it:
           more_information: "(Maggiori informazioni)"
       events:
         create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, che stai seguendo, ha creato una nuova iniziativa, dai un'occhiata e dai:"
+          email_intro: "%{author_name} %{author_nickname}, che stai seguendo, ha creato una nuova iniziativa, dai un'occhiata e dai il tuo contributo:"
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{author_nickname}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
           email_subject: Nuova iniziativa di %{author_nickname}
           notification_title: L'iniziativa <a href="%{resource_path}">%{resource_title}</a> è stata creata da <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
