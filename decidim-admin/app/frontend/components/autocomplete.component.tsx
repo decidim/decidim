@@ -128,16 +128,16 @@ export class Autocomplete extends React.Component<AutocompleteProps, Autocomplet
         }
       })
       .then((response) => {
-        let script = document.createElement("script");
+        const script = document.createElement("script");
         script.type = "text/javascript";
         script.innerHTML = response.data;
         document.getElementsByTagName("head")[0].appendChild(script);
       })
       .catch((error: any) => {
         if (axios.isCancel(error)) {
-          console.log("Request canceled", error.message);
+          // console.log("Request canceled", error.message);
         } else {
-          console.log(error)
+          //
         }
       });
     }
