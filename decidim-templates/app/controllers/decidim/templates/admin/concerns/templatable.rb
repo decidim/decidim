@@ -14,11 +14,16 @@ module Decidim
             helper_method :templates, :choose_template?
 
             def templates
-              current_organization.templates.where(templatable_type: templatable_type)
+              @templates = current_organization.templates.where(templatable_type: templatable_type)
+              @templates = @templates.where.not(id: params[:id]) if templates_path?
             end
             
+            def templates_path?
+              controller_path.match?("^decidim/templates/.*")
+            end
+
             def choose_template?
-              !controller_path.match?("^decidim/templates/.*") && templates.any? && templatable.pristine?
+              templates.any? && templatable.pristine?
             end
 
             protected
