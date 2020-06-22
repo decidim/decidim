@@ -8,6 +8,8 @@ module Decidim
       #
       # Note that it inherits from `Decidim::Admin::ApplicationController`, which
       # override its layout and provide all kinds of useful methods.
+      #
+      # i18n-tasks-use t('decidim.admin.titles.template_types.questionnaires')
       class ApplicationController < Decidim::Admin::ApplicationController
         layout "decidim/admin/templates"
 

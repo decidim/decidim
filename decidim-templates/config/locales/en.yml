@@ -2,8 +2,6 @@
 en:
   decidim:
     admin:
-      actions:
-        new_template: New template
       menu:
         templates: Templates
       templates:
@@ -17,7 +15,6 @@ en:
           error: There was a problem creating this template.
           success: Template created successfully
         destroy:
-          error: There was a problem deleting this template.
           success: Template deleted successfully
         empty: There are no templates yet.
         update:
@@ -36,10 +33,7 @@ en:
         fields:
           created_at: Created at
           name: Name
-          templatable_type: Type
         name: Template
-        types:
-          Decidim::Forms::Questionnaire: Questionnaire
     templates:
       admin:
         questionnaire_templates:
