@@ -165,8 +165,8 @@ describe "Admin manages questionnaire templates", type: :system do
       expect(page).to have_content(template.name["en"], count: 2)
     end
 
-    context "that produces some error" do
-      it "displays an error" do
+    context "when it produces some error" do
+      it "displays the error" do
         visit decidim_admin_templates.questionnaire_templates_path
 
         within find("tr", text: translated(template.name)) do

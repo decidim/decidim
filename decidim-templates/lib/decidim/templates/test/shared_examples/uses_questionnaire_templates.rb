@@ -2,13 +2,15 @@
 
 require "spec_helper"
 
-shared_examples_for "uses questionnaire templates" do |questionnaire_for|
+# rubocop:disable Rails/SkipsModelValidations
+
+shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
   describe "choose a template" do
     context "when there are no templates" do
       before do
         questionnaire.update_columns(
-          created_at: Time.now - 1.day,
-          updated_at: Time.now
+          created_at: Time.zone.now - 1.day,
+          updated_at: Time.zone.now
         )
       end
 
@@ -21,44 +23,44 @@ shared_examples_for "uses questionnaire templates" do |questionnaire_for|
       let!(:templates) { create_list(:questionnaire_template, 6, organization: questionnaire.questionnaire_for.organization) }
       let(:template) { templates.first }
       let(:question) { template.templatable.questions.first }
-      
+
       context "when it is an existing questionnaire" do
         before do
           questionnaire.update_columns(
-            created_at: Time.now - 1.day,
-            updated_at: Time.now
+            created_at: Time.zone.now - 1.day,
+            updated_at: Time.zone.now
           )
         end
-  
+
         it "doesn't show the template selection screen" do
           expect(page).to have_no_content("Choose template")
         end
       end
-  
+
       context "when it is a newly created questionnaire" do
         before do
           questionnaire.update_columns(
-            created_at: Time.now,
-            updated_at: Time.now,
+            created_at: Time.zone.now,
+            updated_at: Time.zone.now,
             title: {},
             description: {},
             tos: {}
           )
           visit questionnaire_edit_path
         end
-    
+
         it "shows the template choosing screen" do
           expect(page).to have_content("Choose template")
         end
-        
+
         it "loads the last 5 templates in the select" do
           page.find(".Select-control").click
-          
+
           within ".Select-menu" do
             expect(page).to have_selector(".Select-option:not(.is-focused)", count: 5)
           end
         end
-    
+
         it "displays the preview when a template is selected" do
           autocomplete_select template.name["en"], from: :questionnaire_template_id
           within ".questionnaire-template-preview" do
@@ -70,3 +72,5 @@ shared_examples_for "uses questionnaire templates" do |questionnaire_for|
     end
   end
 end
+
+# rubocop:enable Rails/SkipsModelValidations

@@ -12,6 +12,7 @@ module Decidim
         has_one :template,
                 class_name: "Decidim::Templates::Template",
                 inverse_of: :templatable,
+                dependent: :restrict_with_exception,
                 as: :templatable
 
         def pristine?

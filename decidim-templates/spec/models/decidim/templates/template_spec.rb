@@ -27,7 +27,7 @@ module Decidim
         expect(subject.templatable).to be_a(Decidim::DummyResources::DummyResource)
       end
 
-      context "on destroy" do
+      describe "on destroy" do
         let(:templatable) { template.templatable }
 
         it "destroys the templatable" do
