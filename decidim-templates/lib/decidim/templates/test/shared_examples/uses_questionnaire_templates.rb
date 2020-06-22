@@ -87,14 +87,13 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
         tos: {}
       )
       visit questionnaire_edit_path
-      
+
       autocomplete_select template.name["en"], from: :questionnaire_template_id
-      
+
       find("*[type=submit]:not(.answer-questionnaire__submit)").click
     end
-    
-    it "copies the template data to the questionnaire on submit" do
 
+    it "copies the template data to the questionnaire on submit" do
       within "form.edit_questionnaire" do
         click_button "Expand all"
         expect(page.find("#questionnaire_title_en").value).to eq(template.templatable.title["en"])

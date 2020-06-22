@@ -11,13 +11,13 @@ FactoryBot.define do
 
     factory :questionnaire_template do
       trait :with_questions do
-        after(:create) do |template, evaluator|
+        after(:create) do |template|
           template.templatable = create(:questionnaire, :with_questions, questionnaire_for: template)
           template.save!
         end
       end
 
-      after(:create) do |template, evaluator|
+      after(:create) do |template|
         template.templatable = create(:questionnaire, questionnaire_for: template)
         template.save!
       end
