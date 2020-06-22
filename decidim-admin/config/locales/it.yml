@@ -738,8 +738,8 @@ it:
         dashboard: Cruscotto (Dashboard)
         impersonatable_users: Utenti gestibili
         impersonations: Gestione degli utenti
-        metrics: Metriche
-        participants: utenti
+        metrics: Partecipazione in cifre
+        participants: Utenti
         scope_types: Tipi di ambito
         scopes: Ambiti
         static_pages: Pagine
@@ -751,7 +751,7 @@ it:
           invalid: Si è verificato un errore durante la lettura del file CSV.
           success: File CSV caricato con successo, stiamo verificando i gruppi di utenti che soddisfano i criteri. Questo potrebbe richiedere del tempo.
         reject:
-          invalid: Si è verificato un errore quando rifiuta questo gruppo di utenti.
+          invalid: Si è verificato un errore rifiutando questo gruppo di utenti.
           success: Gruppo utenti rifiutato correttamente
         verify:
           invalid: Si è verificato un errore durante la verifica di questo gruppo di utenti.
@@ -777,10 +777,10 @@ it:
           upload: Caricare
       users:
         create:
-          error: Si è verificato un errore cercando di mandare l'invito a questo utente.
+          error: Si è verificato un problema durante l'invito a questo amministratore.
           success: OK, utente invitato.
         destroy:
-          error: Si è verificato un errore cercando di eliminare questo utente.
+          error: Si è verificato un problema durante il tentativo di eliminare questo amministratore.
           success: Questo utente non è più un amministratore.
         form:
           email: E-mail

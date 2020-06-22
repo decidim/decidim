@@ -34,7 +34,7 @@ hu:
         meta_scope: Hatókör-metaadatok
         parent_id: Parent gyűlés
         participatory_processes_ids: Kapcsolódó részvételi folyamatok
-        participatory_scope: Mi a döntés
+        participatory_scope: Miről születik döntés
         participatory_structure: Hogyan döntenek
         private_space: Privát tér
         promoted: Kiemelt
@@ -47,7 +47,7 @@ hu:
         slug: URL slug
         special_features: Speciális funkciók
         subtitle: Felirat
-        target: Ki részt vesz benne
+        target: Ki vesz részt
         title: Cím
         twitter: Twitter
         youtube: Youtube
