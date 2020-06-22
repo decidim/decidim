@@ -71,6 +71,37 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
       end
     end
   end
+
+  describe "apply a template" do
+    let!(:templates) { create_list(:questionnaire_template, 6, organization: questionnaire.questionnaire_for.organization) }
+    let(:template) { templates.first }
+    let(:question) { template.templatable.questions.first }
+    let(:questionnaire_question) { questionnaire.questions.first }
+
+    before do
+      questionnaire.update_columns(
+        created_at: Time.zone.now,
+        updated_at: Time.zone.now,
+        title: {},
+        description: {},
+        tos: {}
+      )
+      visit questionnaire_edit_path
+      
+      autocomplete_select template.name["en"], from: :questionnaire_template_id
+      
+      find("*[type=submit]:not(.answer-questionnaire__submit)").click
+    end
+    
+    it "copies the template data to the questionnaire on submit" do
+
+      within "form.edit_questionnaire" do
+        click_button "Expand all"
+        expect(page.find("#questionnaire_title_en").value).to eq(template.templatable.title["en"])
+        expect(page.find("#questionnaire_questions_#{questionnaire_question.id}_body_en").value).to eq(question.body["en"])
+      end
+    end
+  end
 end
 
 # rubocop:enable Rails/SkipsModelValidations
