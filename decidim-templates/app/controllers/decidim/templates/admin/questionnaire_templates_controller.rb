@@ -7,9 +7,9 @@ module Decidim
       #
       class QuestionnaireTemplatesController < Decidim::Templates::Admin::ApplicationController
         include Decidim::TranslatableAttributes
-        
+
         skip_before_action :verify_authenticity_token, only: :preview
-        
+
         helper_method :template
 
         def index
@@ -17,12 +17,12 @@ module Decidim
           @templates = collection
 
           respond_to do |format|
-            format.html { render :index  }
+            format.html { render :index }
             format.json do
               term = params[:term]
-              
+
               @templates = search(term)
-              
+
               render json: @templates.map { |t| { value: t.id, label: translated_attribute(t.name) } }
             end
           end
@@ -115,7 +115,7 @@ module Decidim
             end
           end
         end
-        
+
         def preview
           respond_to do |format|
             format.js do

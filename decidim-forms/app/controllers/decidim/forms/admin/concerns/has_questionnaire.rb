@@ -23,7 +23,7 @@ module Decidim
               def templatable_type
                 "Decidim::Forms::Questionnaire"
               end
-              
+
               def templatable
                 questionnaire
               end

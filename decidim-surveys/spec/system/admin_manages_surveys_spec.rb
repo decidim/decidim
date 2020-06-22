@@ -12,11 +12,11 @@ describe "Admin manages surveys", type: :system do
   it_behaves_like "manage questionnaires"
   it_behaves_like "export survey user answers"
   it_behaves_like "manage announcements"
-  
+
   def questionnaire_edit_path
     manage_component_path(component)
   end
-  
+
   def questionnaire_public_path
     main_component_path(component)
   end
