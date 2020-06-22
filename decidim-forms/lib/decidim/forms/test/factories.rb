@@ -23,6 +23,12 @@ FactoryBot.define do
         qs
       end
     end
+
+    trait :empty do
+      title { {} }
+      description { {} }
+      tos { {} }
+    end
   end
 
   factory :questionnaire_question, class: "Decidim::Forms::Question" do

@@ -16,6 +16,7 @@ module Decidim
             def templates
               @templates = current_organization.templates.where(templatable_type: templatable_type)
               @templates = @templates.where.not(id: params[:id]) if templates_path?
+              @templates
             end
             
             def templates_path?
