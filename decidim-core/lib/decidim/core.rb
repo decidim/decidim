@@ -5,6 +5,7 @@ require "decidim/core/api"
 require "decidim/core/version"
 # Decidim configuration.
 module Decidim
+  autoload :DummyTranslator, "decidim/dummy_translator"
   autoload :Deprecations, "decidim/deprecations"
   autoload :ActsAsAuthor, "decidim/acts_as_author"
   autoload :TranslatableAttributes, "decidim/translatable_attributes"

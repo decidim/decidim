@@ -11,10 +11,8 @@ module Decidim
         field_name: field_name,
         translation_locale: locale
       ).update(field_value: field_value,
-        translation_value: nil
-      )
+               translation_value: nil)
       Decidim::DummyTranslator.translate(id, locale, field_name, field_value)
     end
   end
 end
-  
