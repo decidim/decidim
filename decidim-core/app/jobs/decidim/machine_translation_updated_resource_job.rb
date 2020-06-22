@@ -9,8 +9,10 @@ module Decidim
       id = resource.id
       translatable_fields = resource.class.translatable_fields_list.map(&:to_s)
       translatable_fields.each do |field|
-        if resource.previous_changes[field].present?
-          MachineTranslationUpdateFieldsJob.perform_later(id, class_name, field)
+        next if resource.previous_changes[field].blank?
+        locales = Decidim.available_locales.map(&:to_s)
+        locales.each do |locale|
+          MachineTranslationUpdateFieldsJob.perform_now(id, class_name, field, resource[field], locale)
         end
       end
     end
