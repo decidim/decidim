@@ -8,8 +8,8 @@ en:
         templates: Templates
       templates:
         apply:
-          success: Template applied successfully
           error: There was a problem applying this template.
+          success: Template applied successfully
         copy:
           error: There was a problem copying this template.
           success: Template copied successfully
@@ -43,15 +43,15 @@ en:
     templates:
       admin:
         questionnaire_templates:
+          choose:
+            choose_template: Choose template
+            create_from_template: Create from template
+            description: You are about to create a new questionnaire. You may choose a predefined template and modify it afterwards.
+            skip_template: Skip
           edit:
             edit: Edit
             empty: There are no questions yet
             questionnaire: Questionnaire
-          choose:
-            description: You are about to create a new questionnaire. You may choose a predefined template and modify it afterwards.
-            choose_template: Choose template
-            create_from_template: Create from template
-            skip_template: Skip
           form:
             save: Save
             template_title: Template information
