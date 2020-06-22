@@ -20,6 +20,9 @@ module Decidim
     include Decidim::Randomable
     include Decidim::Searchable
     include Decidim::Initiatives::HasArea
+    include Decidim::TranslatableResource
+
+    translatable_fields :title, :description, :answer
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",

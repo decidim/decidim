@@ -8,8 +8,11 @@ module Decidim
       include Decidim::Publicable
       include Decidim::Resourceable
       include Decidim::HasComponent
+      include Decidim::TranslatableResource
       include Traceable
       include Loggable
+
+      translatable_fields :title, :description, :subtitle
 
       component_manifest_name "elections"
 
