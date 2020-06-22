@@ -105,8 +105,6 @@ module Decidim
           questionnaire = Decidim::Forms::Questionnaire.find_by(id: params[:questionnaire_id])
           template = Decidim::Templates::Template.find_by(id: params[:questionnaire][:questionnaire_template_id])
 
-          byebug
-
           ApplyQuestionnaireTemplate.call(questionnaire, template) do
             on(:ok) do
               flash[:notice] = I18n.t("templates.apply.success", scope: "decidim.admin")
