@@ -4,7 +4,8 @@ require "spec_helper"
 
 shared_examples_for "uses questionnaire templates" do |questionnaire_for|
   describe "choose a template" do
-    let!(:template) { create(:questionnaire_template, organization: questionnaire.questionnaire_for.organization) }
+    let!(:templates) { create_list(:questionnaire_template, 6, organization: questionnaire.questionnaire_for.organization) }
+    let(:template) { templates.first }
     let(:question) { template.templatable.questions.first }
 
     before do
@@ -22,7 +23,13 @@ shared_examples_for "uses questionnaire templates" do |questionnaire_for|
       expect(page).to have_content("Choose template")
     end
     
-    it "loads the last 5 templates in the select"
+    it "loads the last 5 templates in the select" do
+      page.find(".Select-control").click
+      
+      within ".Select-menu" do
+        expect(page).to have_selector(".Select-option:not(.is-focused)", count: 5)
+      end
+    end
 
     it "displays the preview when a template is selected" do
       autocomplete_select template.name["en"], from: :questionnaire_template_id
