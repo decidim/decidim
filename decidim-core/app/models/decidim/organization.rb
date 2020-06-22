@@ -8,8 +8,14 @@ module Decidim
     include TranslationsHelper
     include Decidim::Traceable
     include Decidim::Loggable
+    include Decidim::TranslatableResource
 
     SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github].freeze
+
+    translatable_fields :description, :cta_button_text, :omnipresent_banner_title, :omnipresent_banner_short_description,
+                        :highlighted_content_banner_title, :highlighted_content_banner_short_description, :highlighted_content_banner_action_title,
+                        :highlighted_content_banner_action_subtitle, :welcome_notification_subject, :welcome_notification_body, :id_documents_explanation_text,
+                        :colors, :admin_terms_of_use_body
 
     has_many :static_pages, foreign_key: "decidim_organization_id", class_name: "Decidim::StaticPage", inverse_of: :organization, dependent: :destroy
     has_many :static_page_topics, foreign_key: "organization_id", class_name: "Decidim::StaticPageTopic", inverse_of: :organization, dependent: :destroy
