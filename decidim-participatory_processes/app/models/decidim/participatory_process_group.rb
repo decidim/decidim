@@ -4,6 +4,9 @@ module Decidim
   class ParticipatoryProcessGroup < ApplicationRecord
     include Decidim::Resourceable
     include Decidim::Traceable
+    include Decidim::TranslatableResource
+
+    translatable_fields :name, :description
 
     has_many :participatory_processes,
              foreign_key: "decidim_participatory_process_group_id",

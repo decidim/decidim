@@ -6,6 +6,9 @@ module Decidim
     class ProposalNote < ApplicationRecord
       include Decidim::Traceable
       include Decidim::Loggable
+      include Decidim::TranslatableResource
+
+      translatable_fields :body
 
       belongs_to :proposal, foreign_key: "decidim_proposal_id", class_name: "Decidim::Proposals::Proposal", counter_cache: true
       belongs_to :author, foreign_key: "decidim_author_id", class_name: "Decidim::User"

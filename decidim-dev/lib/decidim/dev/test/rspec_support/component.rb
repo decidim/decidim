@@ -66,7 +66,9 @@ module Decidim
       include Hashtaggable
       include ::Decidim::Endorsable
       include Decidim::HasAttachments
+      include Decidim::TranslatableResource
 
+      translatable_fields :title
       searchable_fields(
         scope_id: { scope: :id },
         participatory_space: { component: :participatory_space },
