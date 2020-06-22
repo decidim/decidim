@@ -4,17 +4,16 @@ module Decidim
   class MachineTranslationCreateFieldsJob < ApplicationJob
     queue_as :default
 
-    def perform(id, resource_type, field_name)
-      locales = Decidim.available_locales.map(&:to_s)
-      locales.each do |locale|
-        Decidim::TranslatedField.create!(
-          translted_resource_id: id,
-          translted_resource_type: resource_type,
-          field_name: field_name,
-          translation_locale: locale,
-          translation_value: 'untranslated'
-        )
-      end
+    def perform(id, resource_type, field_name, field_value, locale)
+      record = Decidim::TranslatedField.create!(
+        translated_resource_id: id,
+        translated_resource_type: resource_type,
+        field_name: field_name,
+        field_value: field_value,
+        translation_value: nil,
+        translation_locale: locale
+      )
+      Decidim::DummyTranslator.translate(id, locale, field_name, field_value)
     end
   end
 end
