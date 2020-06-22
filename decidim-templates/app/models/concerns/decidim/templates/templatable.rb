@@ -15,7 +15,7 @@ module Decidim
                 as: :templatable
 
         def pristine?
-          created_at == updated_at
+          created_at.to_i == updated_at.to_i
         end
       end
     end
