@@ -10,8 +10,15 @@ FactoryBot.define do
     name { Decidim::Faker::Localized.sentence }
 
     factory :questionnaire_template do
-      after(:create) do |template|
-        template.templatable = create(:questionnaire, :with_questions, questionnaire_for: template)
+      trait :with_questions do
+        after(:create) do |template, evaluator|
+          template.templatable = create(:questionnaire, :with_questions, questionnaire_for: template)
+          template.save!
+        end
+      end
+
+      after(:create) do |template, evaluator|
+        template.templatable = create(:questionnaire, questionnaire_for: template)
         template.save!
       end
     end
