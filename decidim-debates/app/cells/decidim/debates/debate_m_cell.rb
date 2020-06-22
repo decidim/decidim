@@ -17,9 +17,12 @@ module Decidim
         decidim_html_escape(present(model).title)
       end
 
+      def body
+        decidim_sanitize(present(model).description)
+      end
+
       def description
-        body = decidim_sanitize(present(model).description)
-        body.truncate(200, separator: /\s/)
+        strip_tags(body).truncate(200, separator: /\s/)
       end
 
       def resource_icon
