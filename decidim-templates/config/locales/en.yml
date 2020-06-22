@@ -7,6 +7,9 @@ en:
       menu:
         templates: Templates
       templates:
+        apply:
+          success: Template applied successfully
+          error: There was a problem applying this template.
         copy:
           error: There was a problem copying this template.
           success: Template copied successfully

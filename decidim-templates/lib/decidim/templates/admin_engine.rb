@@ -20,7 +20,7 @@ module Decidim
           
           collection do
             post :skip
-            post :choose
+            post :apply
             get :preview
           end
         end

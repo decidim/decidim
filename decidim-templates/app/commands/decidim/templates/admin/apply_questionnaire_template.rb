@@ -4,11 +4,13 @@ module Decidim
   module Templates
     # A command with all the business logic when duplicating a questionnaire template
     module Admin
-      class CopyQuestionnaireTemplate < Rectify::Command
+      class ApplyQuestionnaireTemplate < Rectify::Command
         # Public: Initializes the command.
         #
-        # template - A template we want to duplicate
-        def initialize(template)
+        # template - The template we want to apply
+        # questionnaire - The questionnaire we want to use the template
+        def initialize(questionnaire, template)
+          @questionnaire = questionnaire
           @template = template
         end
 
@@ -22,30 +24,23 @@ module Decidim
           return broadcast(:invalid) unless @template.valid?
 
           Template.transaction do
-            copy_template
-            copy_questionnaire_questions(@template.templatable, @copied_template.templatable)
+            apply_template
+            copy_questionnaire_questions(@template.templatable, @questionnaire)
           end
 
-          broadcast(:ok, @copied_template)
+          broadcast(:ok, @questionnaire)
         end
 
         private
 
         attr_reader :form
 
-        def copy_template
-          @copied_template = Template.create!(
-            organization: @template.organization,
-            name: @template.name,
-            description: @template.description
+        def apply_template
+          @questionnaire.update!(
+            title: @template.templatable.title,
+            description: @template.templatable.description,
+            tos: @template.templatable.tos
           )
-          @resource = Decidim::Forms::Questionnaire.create!(
-            @template.templatable.dup.attributes.merge(
-              questionnaire_for: @copied_template
-            )
-          )
-
-          @copied_template.update!(templatable: @resource)
         end
 
         def copy_questionnaire_questions(original_questionnaire, new_questionnaire)
