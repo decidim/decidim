@@ -19,7 +19,7 @@
           placeholder: t(".choose_template")
         } %>
         <% default_options = templates.last(5).map { |questionnaire_template| { value: questionnaire_template.id, label: translated_attribute(questionnaire_template.name) } } %>
-        
+
         <%= form.autocomplete_select(:questionnaire_template_id, false, { multiple: false, label: t(".choose_template"), default_options: default_options }, prompt_options) %>
       </div>
 
