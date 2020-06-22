@@ -22,11 +22,18 @@ module Decidim
       end
 
       def call(component, args, _ctx)
-        query = { component: component }
+        @query = { component: component }
         args.keys.each do |key|
-          query[key] = args[key]
+          @query[key] = args[key]
         end
-        model_class.published.find_by(query)
+        query_scope.find_by(@query)
+      end
+
+      # By default, any model in its defaul scope
+      # Particular implementations may restrict this by adding
+      # additional constrains
+      def query_scope
+        model_class
       end
     end
   end

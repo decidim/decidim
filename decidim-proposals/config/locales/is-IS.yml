@@ -16,6 +16,18 @@ is-IS:
         copy_proposals: Ég skil að þetta mun flytja allar tillögur úr völdu hlutanum í núverandi og að þessi aðgerð geti ekki snúið við.
         origin_component_id: Hluti til að afrita tillögurnar frá
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          values:
+            'false': Tillögur
+        state_eq:
+          values:
+            evaluating: Mat
+            withdrawn: Aftakað
+        state_null:
+          values:
+            'true': Ekki svarað
     components:
       proposals:
         actions:
@@ -64,10 +76,6 @@ is-IS:
             email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{resource_title}". Þú getur sleppt því frá fyrri tengilinn.
             email_subject: Tillaga sem þú ert að fylgja hefur verið samþykkt
             notification_title: <a href="%{resource_path}">%{resource_title}</a> tillöguna hefur verið samþykkt.
-        proposal_endorsed:
-          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{endorser_nickname}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
-          email_subject: "%{endorser_nickname} hefur samþykkt nýja tillögu"
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> tillöguna hefur verið samþykkt með <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           follower:
             email_intro: 'Tillagan "%{resource_title}" er nú metin. Þú getur leitað að svari á þessari síðu:'
@@ -75,7 +83,6 @@ is-IS:
             email_subject: Tillaga sem þú fylgir er metin
             notification_title: <a href="%{resource_path}">%{resource_title}</a> tillögunni er metið.
         proposal_mentioned:
-          email_intro: Tillaga þín "%{mentioned_proposal_title}" hefur verið nefnd <a href="%{resource_path}">í þessu rými</a> í athugasemdunum.
           email_subject: Tillagan þín "%{mentioned_proposal_title}" hefur verið minnst
           notification_title: Tillaga þín "%{mentioned_proposal_title}" hefur verið nefnd <a href="%{resource_path}">í þessu rými</a> í athugasemdunum.
         proposal_published:
@@ -94,6 +101,8 @@ is-IS:
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú ert höfundur tillögunnar.
           email_subject: '%{resource_title} tillöguflokkinn hefur verið uppfærður'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> tillögu flokkurinn hefur verið uppfærður af admin.
+        proposal_update_scope:
+          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú ert höfundur tillögunnar.
         voting_enabled:
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{participatory_space_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
     participatory_processes:
@@ -102,9 +111,7 @@ is-IS:
           proposals: Tillögur
     proposals:
       actions:
-        answer: Svara
         import: Flytja frá öðrum hlutum
-        private_notes: Einkaskilaboð
         title: Aðgerðir
       admin:
         actions:
@@ -116,7 +123,7 @@ is-IS:
           proposal:
             name: Tillaga
         proposal_answers:
-          edit:
+          form:
             accepted: Samþykkt
             answer_proposal: Svara
             evaluating: Mat
@@ -150,11 +157,16 @@ is-IS:
           new:
             create: Búa til
             title: Búðu tillögu
+          publish_answers:
+            select_a_proposal: Vinsamlegast veldu tillögu
+          show:
+            created_at: Sköpunardegi
+            proposals: Tillögur
           update_category:
-            invalid: 'Þessar tillögur áttu nú þegar %{category} flokkinn: %{proposals}.'
             select_a_category: Vinsamlegast veldu flokk
             select_a_proposal: Vinsamlegast veldu tillögu
-            success: 'Tillögur uppfærðar í %{category} flokkanum: %{proposals}.'
+          update_scope:
+            select_a_proposal: Vinsamlegast veldu tillögu
         proposals_imports:
           create:
             success: "%{number} tillögur tókst að flytja inn"
@@ -162,11 +174,6 @@ is-IS:
             create: Innflutningur tillögur
             no_components: Það eru engar aðrar tillögur í þessum þátttökustíl til að flytja tillögur frá.
             select_component: Vinsamlegast veldu hluta
-        shared:
-          info_proposal:
-            body: Líkami
-            created_at: Sköpunardegi
-            proposals: Tillögur
       admin_log:
         proposal:
           answer: "%{user_name} svaraði %{resource_name} tillögunni á %{space_name} plássinu"
@@ -183,12 +190,13 @@ is-IS:
         filter_origin_values:
           citizens: Borgarar
           official: Opinber
+        filter_state_values:
+          not_answered: Ekki svarað
       models:
         proposal:
           fields:
             category: Flokkur
             comments: Athugasemdir
-            endorsements: Áritanir
             id: Auðkenni
             notes: Skýringar
             official_proposal: Opinber tillaga
@@ -197,14 +205,6 @@ is-IS:
             votes: Atkvæði
       new:
         limit_reached: Þú getur ekki búið til nýjar tillögur þar sem þú hefur farið yfir mörkin.
-      proposal_endorsements:
-        identities:
-          done: Gert
-          select_identity: Veldu auðkenni
-      proposal_endorsements_helper:
-        endorsement_button:
-          already_endorsed: Samþykkt
-          endorse: Styðja
       proposals:
         compare:
           no_similars_found: Vel gert! Engar svipaðar tillögur fundust
@@ -222,11 +222,8 @@ is-IS:
           discard_confirmation: Ertu viss um að þú viljir fleygja þessari tillögu drög?
           send: Preview
           title: Breyta tillögu drög
-        endorsement_identities_cabin:
-          endorse: Styðja
         filters:
           category: Flokkur
-          category_prompt: Veldu flokk
           origin: Uppruni
           related_to: Tengjast
           search: Leita
@@ -257,6 +254,8 @@ is-IS:
           creation_date: 'Sköpun: %{date}'
           view_proposal: Skoða tillögu
         show:
+          answer: Svara
+          comments: Athugasemdir
           edit_proposal: Breyta tillögu
           proposal_accepted_reason: 'Þessi tillaga hefur verið samþykkt vegna þess að:'
           proposal_in_evaluation_reason: Þessi tillaga er metin
@@ -264,9 +263,6 @@ is-IS:
           report: Skýrsla
           withdraw_btn_hint: Þú getur afturkallað tillöguna þína ef þú skiptir um skoðun, svo lengi sem þú hefur ekki fengið stuðning. Tillagan er ekki eytt, hún mun birtast á lista yfir afturkallað tillögur.
           withdraw_proposal: Afturkalla tillögu
-        tags:
-          changed_from: "(breytt frá <u>%{previous_category}</u> af stjórnanda)"
-          filed_as: Skráður sem
         votes_count:
           most_popular_proposal: Vinsælasta tillöguna
         voting_rules:

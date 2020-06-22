@@ -138,6 +138,7 @@ uk:
         explanation: Підтвердьте свою особу, ввівши номер паспорта, що починається з "А"
         fields:
           passport_number: Номер паспорта
+          postal_code: Поштовий індекс
         name: Ще один приклад підтвердження особи
       dummy_authorization_handler:
         explanation: Підтвердьте особу, ввівши номер документа, що закінчується на "X"
@@ -278,6 +279,8 @@ uk:
           this_application_will_not_be_able_to: 'Цей додаток не зможе:'
           update_profile: Оновлювати ваш профіль
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> бажає використовувати ваш обліковий запис"
+    endorsable:
+      endorsements: Проявів підтримки
     errors:
       internal_server_error:
         title: При з'єднанні з нашим сервером сталася помилка
@@ -392,6 +395,7 @@ uk:
         create:
           error: Бесіда не розпочата. Спробуйте ще раз пізніше
         index:
+          close: Закрити віконце
           no_conversations: У вас ще немає бесід
         reply:
           title: Відповісти
@@ -568,7 +572,8 @@ uk:
         close_window: Закрити вікно
         share: Поділитися
         share_link: Поділитись посиланням
-      version_author:
+    version_author:
+      show:
         deleted: Видалений учасник
   devise:
     invitations:

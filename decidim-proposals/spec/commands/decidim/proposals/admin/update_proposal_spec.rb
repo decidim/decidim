@@ -139,62 +139,12 @@ describe Decidim::Proposals::Admin::UpdateProposal do
         end
       end
 
-      context "when galleries are allowed", processing_uploads_for: Decidim::AttachmentUploader do
+      it_behaves_like "admin manages resource gallery" do
         let(:component) { create(:proposal_component, :with_attachments_allowed) }
-        let(:attachment_params) do
-          {
-            title: ""
-          }
-        end
-        let(:uploaded_photos) do
-          [
-            Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-            Decidim::Dev.test_file("city.jpeg", "image/jpeg")
-          ]
-        end
-
-        it "creates a gallery for the proposal" do
-          expect { command.call }.to change(Decidim::Attachment, :count).by(2)
-          proposal = Decidim::Proposals::Proposal.last
-          expect(proposal.photos.count).to eq(2)
-          last_attachment = Decidim::Attachment.last
-          expect(last_attachment.attached_to).to eq(proposal)
-        end
-
-        context "when gallery is left blank" do
-          let(:uploaded_photos) { [] }
-
-          it "broadcasts ok" do
-            expect { command.call }.to broadcast(:ok)
-          end
-        end
-
-        context "when photos are removed" do
-          let!(:proposal) { create :proposal, :official, component: component }
-          let!(:photo1) do
-            create(:attachment, :with_image, attached_to: proposal)
-          end
-          let!(:photo2) do
-            create(:attachment, :with_image, attached_to: proposal)
-          end
-          let(:attachment_params) do
-            {
-              title: ""
-            }
-          end
-          let(:uploaded_photos) { [] }
-          let(:current_photos) do
-            [photo1.id.to_s]
-          end
-
-          it "to decrease the number of photos in the gallery" do
-            expect(proposal.attachments.count).to eq(2)
-            expect(proposal.photos.count).to eq(2)
-            expect { command.call }.to change(Decidim::Attachment, :count).by(-1)
-            expect(proposal.attachments.count).to eq(1)
-            expect(proposal.photos.count).to eq(1)
-          end
-        end
+        let!(:resource) { proposal }
+        let(:command) { described_class.new(form, resource) }
+        let(:resource_class) { Decidim::Proposals::Proposal }
+        let(:attachment_params) { { title: "" } }
       end
     end
   end

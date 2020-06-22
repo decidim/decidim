@@ -18,13 +18,45 @@ All members of the Decidim community agree with [Decidim Social Contract or Code
 
 Code quality
 
-[![Build Status](https://img.shields.io/circleci/project/github/decidim/decidim/master.svg)](https://circleci.com/gh/decidim/decidim)
+[![codecov](https://codecov.io/gh/decidim/decidim/branch/develop/graph/badge.svg)](https://codecov.io/gh/decidim/decidim)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ad8fa445086e491486b6/maintainability)](https://codeclimate.com/github/decidim/decidim/maintainability)
 [![Crowdin](https://d322cqt584bo4o.cloudfront.net/decidim/localized.svg)](https://crowdin.com/project/decidim)
 [![Inline docs](http://inch-ci.org/github/decidim/decidim.svg?branch=master)](http://inch-ci.org/github/decidim/decidim)
 [![Accessibility issues](https://rocketvalidator.com/badges/a11y_issues.svg?url=http://staging.decidim.codegram.com/)](https://rocketvalidator.com/badges/link?url=http://staging.decidim.codegram.com/&report=a11y)
 [![HTML issues](https://rocketvalidator.com/badges/html_issues.svg?url=http://staging.decidim.codegram.com/)](https://rocketvalidator.com/badges/link?url=http://staging.decidim.codegram.com/&report=html)
 
+Test suite
+
+<details>
+  <summary>See all</summary>
+
+[![Accountability](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Accountability/develop.svg?label=%5BCI%5D%20Accountability)](https://github.com/decidim/decidim/actions)
+[![Admin](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Admin/develop.svg?label=%5BCI%5D%20Admin)](https://github.com/decidim/decidim/actions)
+[![Api](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Api/develop.svg?label=%5BCI%5D%20Api)](https://github.com/decidim/decidim/actions)
+[![Assemblies](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Assemblies/develop.svg?label=%5BCI%5D%20Assemblies)](https://github.com/decidim/decidim/actions)
+[![Blogs](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Blogs/develop.svg?label=%5BCI%5D%20Blogs)](https://github.com/decidim/decidim/actions)
+[![Budgets](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Budgets/develop.svg?label=%5BCI%5D%20Budgets)](https://github.com/decidim/decidim/actions)
+[![Comments](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Comments/develop.svg?label=%5BCI%5D%20Comments)](https://github.com/decidim/decidim/actions)
+[![Conferences](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Conferences/develop.svg?label=%5BCI%5D%20Conferences)](https://github.com/decidim/decidim/actions)
+[![Consultations](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Consultations/develop.svg?label=%5BCI%5D%20Consultations)](https://github.com/decidim/decidim/actions)
+[![Core](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Core/develop.svg?label=%5BCI%5D%20Core)](https://github.com/decidim/decidim/actions)
+[![Debates](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Debates/develop.svg?label=%5BCI%5D%20Debates)](https://github.com/decidim/decidim/actions)
+[![Forms](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Forms/develop.svg?label=%5BCI%5D%20Forms)](https://github.com/decidim/decidim/actions)
+[![Generators](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Generators/develop.svg?label=%5BCI%5D%20Generators)](https://github.com/decidim/decidim/actions)
+[![Initiatives](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Initiatives/develop.svg?label=%5BCI%5D%20Initiatives)](https://github.com/decidim/decidim/actions)
+[![Main](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Main%20folder/develop.svg?label=%5BCI%5D%20Main)](https://github.com/decidim/decidim/actions)
+[![Meetings](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Meetings/develop.svg?label=%5BCI%5D%20Meetings)](https://github.com/decidim/decidim/actions)
+[![Pages](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Pages/develop.svg?label=%5BCI%5D%20Pages)](https://github.com/decidim/decidim/actions)
+[![Participatory processes](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Participatory%20processes/develop.svg?label=%5BCI%5D%20Participatory%20processes)](https://github.com/decidim/decidim/actions)
+[![Proposals (system admin)](<https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Proposals%20(system%20admin)/develop.svg?label=%5BCI%5D%20Proposals%20(system%20admin)>)](https://github.com/decidim/decidim/actions)
+[![Proposals (system public)](<https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Proposals%20(system%20public)/develop.svg?label=%5BCI%5D%20Proposals%20(system%20public)>)](https://github.com/decidim/decidim/actions)
+[![Proposals (unit tests)](<https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Proposals%20(unit%20tests)/develop.svg?label=%5BCI%5D%20Proposals%20(unit%20tests)>)](https://github.com/decidim/decidim/actions)
+[![Sortitions](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Sortitions/develop.svg?label=%5BCI%5D%20Sortitions)](https://github.com/decidim/decidim/actions)
+[![Surveys](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Surveys/develop.svg?label=%5BCI%5D%20Surveys)](https://github.com/decidim/decidim/actions)
+[![System](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20System/develop.svg?label=%5BCI%5D%20System)](https://github.com/decidim/decidim/actions)
+[![Verifications](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Verifications/develop.svg?label=%5BCI%5D%20Verifications)](https://github.com/decidim/decidim/actions)
+
+</details>
 
 ---
 
@@ -68,60 +100,11 @@ Also, if you want to verify yourself against the default authorization handler u
 
 ## Modules
 
-### Official (stable)
-
-| Module                                                                                                    | Description                                                                                                                                                                                                                                         |
-| --------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [API](https://github.com/decidim/decidim/tree/master/decidim-api)                                         | Exposes a GraphQL API to programatically interact with the Decidim platform via HTTP.                                                                                                                                                               |
-| [Accountability](https://github.com/decidim/decidim/tree/master/decidim-accountability)                   | Adds an accountability section to any participatory space so users can follow along the state of the accepted proposals.                                                                                                                            |
-| [Admin](https://github.com/decidim/decidim/tree/master/decidim-admin)                                     | Adds an administration dashboard so users can manage their organization and all other entities.                                                                                                                                                     |
-| [Assemblies](https://github.com/decidim/decidim/tree/master/decidim-assemblies)                           | Permanent participatory spaces.                                                                                                                                                                                                                     |
-| [Blogs](https://github.com/decidim/decidim/tree/master/decidim-blogs)                                     |  This component makes possible to add posts ordered by publication time to spaces.                                                                                                                                                                  |
-| [Budgets](https://github.com/decidim/decidim/tree/master/decidim-budgets)                                 | Adds a participatory budgets system to any participatory space.                                                                                                                                                                                     |
-| [Comments](https://github.com/decidim/decidim/tree/master/decidim-comments)                               | The Comments module adds the ability to include comments to any resource which can be commentable by users.                                                                                                                                         |
-| [Conferences](https://github.com/decidim/decidim/tree/master/decidim-conferences)                         | This module will be a configurator and generator of Conference pages, understood as a collection of Meetings, with program, inscriptions and categories                                                                                             |
-| [Consultations](https://github.com/decidim/decidim/tree/master/decidim-consultations)                     |  This module creates a new space for decidim to host consultations: debates around critical questions and a proxy for eVoting                                                                                                                       |
-| [Core](https://github.com/decidim/decidim/tree/master/decidim-core)                                       | The basics of Decidim: users, organizations, etc. This is the only required engine to run Decidim, all the others are optional.                                                                                                                     |
-| [Debates](https://github.com/decidim/decidim/tree/master/decidim-debates)                                 | The Debates module adds debate to any participatory process. It adds a CRUD engine to the admin and public view scoped inside the participatory process.                                                                                            |
-| [Dev](https://github.com/decidim/decidim/tree/master/decidim-dev)                                         | Aids the local development of Decidim's components.                                                                                                                                                                                                 |
-| [Generators](https://github.com/decidim/decidim/tree/master/decidim-generators)                           | It helps you with generating decidim applications & new components. It provides the `decidim` executable.                                                                                                                                           |
-| [Initiatives](https://github.com/decidim/decidim/tree/master/decidim-initiatives)                         | Initiatives is the place on Decidim's where citizens can promote a civic initiative. Unlike participatory processes that must be created by an administrator, Civic initiatives can be created by any user of the platform.                         |
-| [Meetings](https://github.com/decidim/decidim/tree/master/decidim-meetings)                               | The Meeting module adds meeting to any participatory space. It adds a CRUD engine to the admin and public view scoped inside the participatory space.                                                                                               |
-| [Pages](https://github.com/decidim/decidim/tree/master/decidim-pages)                                     | The Pages module adds static page capabilities to any participatory space. It basically provides an interface to include arbitrary HTML content to any step.                                                                                        |
-| [Participatory Processes](https://github.com/decidim/decidim/tree/master/decidim-participatory_processes) | The main concept of a Decidim installation: participatory processes.                                                                                                                                                                                |
-| [Proposals](https://github.com/decidim/decidim/tree/master/decidim-proposals)                             | The Proposals module adds one of the main components of Decidim: allows users to contribute to a participatory space by creating proposals.                                                                                                         |
-| [Sortitions](https://github.com/decidim/decidim/tree/master/decidim-sortitions)                           |  This component makes possible to select randomly a number of proposals among a set of proposals (or a category of proposals within a set) maximizing guarantees of randomness and avoiding manipulation of results by the administrator.           |
-| [Surveys](https://github.com/decidim/decidim/tree/master/decidim-surveys)                                 | Adds the ability for admins to create arbitrary surveys.                                                                                                                                                                                            |
-| [System](https://github.com/decidim/decidim/tree/master/decidim-system)                                   | Multitenant Admin to manage multiple organizations in a single installation.                                                                                                                                                                        |
-| [Verifications](https://github.com/decidim/decidim/tree/master/decidim-verifications)                     | Offers several methods for allowing participants to get authorization to perform certain privileged actions. This module implements several of those methods and also offers a way for installation to implement their custom verification methods. |
-
-### Community
-
 If you need to have some features that we don't have yet, we recommend that you make a module. This is a Ruby on Rails engine with some APIs specific to Decidim (for registering with the menus, integration with spaces like Participatory Processes or Assemblies, with /admin or /api, etc).
 
 As a base you can use these modules, although check first that the version is compatible with your current Decidim version. Also you should know that until v1.0.0 We're under development and these internal APIs can change. We recommend that you extensively test your module.
 
-| Module                                                                                                                 | Version |  Description                                                                                                                                                  |
-| -----------------------------------------------------------------------------------------------------------------------| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [Age Action Authorization](https://github.com/diputacioBCN/decidim-diba/tree/master/decidim-age_action_authorization)  |  0.9.3   | A Decidim based action authorization to check user's age inside actions.                                                                                     |
-| [Antivirus](https://github.com/mainio/decidim-module-antivirus) | 0.15.x-0.17.x | Virus scanning validation for uploaded attachments based on ClamAV. |
-| [Calendar](https://github.com/alabs/decidim-module-calendar)               |  0.13.1, 0.16.1-0.18.x  | Adds a calendar, gantt graph and ICAL download for all the Meetings, Participatory Processes, Debates, Consultations and external events in the scope of a multitenant organization.                                         |
-| [Crowdfunding](https://github.com/podemos-infoparticipa2/tree/master/decidim-module-crowdfundings)                     |  0.14.1  | This rails engine implements a Decidim component that allows to the administrators to configure crowfunding campaigns for a participatory space.             |
-| [DataViz](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/tree/master/decidim-dataviz)                      |  0.13.1  | The Dataviz module adds the PAM data visualizations to any participatory process but it is intended to be used just for the PAM participatory process.       |
-| [Gravity Forms](https://github.com/podemos-info/participa2/tree/master/decidim-module-gravity_forms)                   |  0.14.1  | A gravity forms component for Decidim.                                                                                                                       |
-| [LDAP](https://github.com/diputacioBCN/decidim-diba/tree/master/decidim-ldap)                                          |  0.9.3   | User authentication via LDAP                                                                                                                                 |
-| [News](https://github.com/castilla-lamancha/participa-castillalamancha/tree/master/decidim-news)                       |  0.14.1  | This will add an admin dashboard to manage news posts and front-end views for posts.                                                                         |
-| [Members](https://github.com/ElectricThings/decidim-members)                                                           |  0.13.1  | Members list and search plugin for Decidim                                                                                                                   |
-| [MPASSid](https://github.com/mainio/decidim-module-mpassid) | 0.18.x | User authentication and automatic authorization through the [MPASSid national identification](https://mpass.fi/english/) service for comprehensive school and secondary education students in Finland. |
-| [Personal Number](https://github.com/PierreMesure/decidim-module-personal_number)                                      |  0.11.0.pre | This module allows users to register with a personal number and to log in with it.                                                                        |
-| [Plans](https://github.com/mainio/decidim-module-plans) | 0.15.x-0.17.x | Collaborative planning phase for the participatory budgeting projects based on the proposals submitted by people. People can participate on creating the actual plans and collaborate on them before the budgeting voting starts. |
-| [Pol.is](https://github.com/OpenSourcePolitics/decidim-polis)                                                          |  0.7.1   | Pol.is integration on Decidim                                                                                                                                |
-| [Questions](https://github.com/OpenSourcePolitics/decidim-questions)                                                   |  0.12.2  | Questions / Views / Inputs based on decidim-proposals.                                                                                                       |
-| [Riksdagen](https://github.com/DinRiksdag/decidim-module-riksdagen)                                                    |  0.11.0.pre | A Decidim module to integrate some of the open data produced by the Swedish parliament                                                                    |
-| [Suomi.fi](https://github.com/mainio/decidim-module-suomifi) | 0.18.x | User authentication and automatic strong authorization through the [Suomi.fi e-Identification](https://www.suomi.fi/instructions-and-support/information-on-eidentification) service in Finland. |
-| [Term Customizer](https://github.com/mainio/decidim-module-term_customizer) | 0.16.x-0.17.x | Module that allows customizing the translatable terms in the system. The admins can also limit where these customizations apply, e.g. in the whole organization, a specific participatory space or a specific component. |
-| [User Export](https://github.com/OpenSourcePolitics/decidim-user-export)                                               |  0.8.3   | Allow user export                                                                                                                                            |
-| [Votings](https://github.com/podemos-info/participa2/tree/master/decidim-module-votings)                               |  0.14.1  | An administrator can add one or more votings to a participatory process or assambly                                                                          |
+See [Modules page on Decidim.org](https://decidim.org/modules).
 
 ### Authorizations Strategies
 

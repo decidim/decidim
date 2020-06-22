@@ -28,7 +28,11 @@ module Decidim
         }
       end
 
-      include_examples "reject amendment"
+      include_examples "reject amendment" do
+        it "changes the emendation state" do
+          expect { command.call } .to change { emendation.reload[:state] } .from(nil).to("rejected")
+        end
+      end
     end
   end
 end

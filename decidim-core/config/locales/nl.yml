@@ -88,6 +88,9 @@ nl:
         error: Er is een fout opgetreden bij het bijwerken van uw account.
         success: Uw account is bijgewerkt.
         success_with_email_confirmation: Uw account is bijgewerkt. U ontvangt een e-mail ter bevestiging van uw nieuwe e-mailadres.
+    admin:
+      actions:
+        cancel: annuleren
     admin_log:
       area:
         create: "%{user_name} heeft %{resource_name} aangemaakt"
@@ -206,9 +209,6 @@ nl:
       update_draft:
         error: Er is een fout opgetreden bij het bijwerken van dit amendement.
         success: Amendement ontwerp is succesvol bijgewerkt.
-      visibility_options:
-        all: Amendementen zijn zichtbaar voor iedereen
-        participants: Amendementen zijn alleen zichtbaar voor hun auteurs
       withdraw:
         error: Er is een fout opgetreden tijdens het intrekken van het amendement
         success: Het amendement is met succes ingetrokken
@@ -229,6 +229,7 @@ nl:
       photos:
         related_photos: Gerelateerde foto 's
     author:
+      avatar: Profielafbeelding
       comments:
         one: commentaar
         other: commentaren
@@ -237,6 +238,7 @@ nl:
         explanation: Wordt geverifieerd door een paspoortnummer in te voeren dat begint met 'A'
         fields:
           passport_number: Paspoortnummer
+          postal_code: Postcode
         name: Een ander voorbeeld toestemming
       dummy_authorization_handler:
         explanation: Wordt geverifieerd door een documentnummer in te voeren dat eindigt op 'X'
@@ -419,6 +421,8 @@ nl:
           this_application_will_not_be_able_to: 'Deze applicatie krijgt geen toegang tot:'
           update_profile: update je profiel
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> wil toegang tot je account"
+    endorsable:
+      endorsements: Aanbevelingen
     errors:
       internal_server_error:
         title: Er was een probleem met de server
@@ -577,6 +581,7 @@ nl:
       create:
         button: Volgen
         error: Er is een fout opgetreden na deze bron.
+        participatory_space: U volgt de participatieve ruimte al
       destroy:
         button: Stop met volgen
         error: Er is een fout opgetreden bij het stoppen met volgen van deze bron.
@@ -763,6 +768,7 @@ nl:
         create:
           error: Gesprek niet gestart. Probeer het later nogmaals
         index:
+          close: Sluit venster
           no_conversations: Je hebt nog geen gesprekken
           title: conversaties
         reply:
@@ -1028,8 +1034,6 @@ nl:
         close_window: Sluit venster
         share: Deel
         share_link: Link delen
-      version_author:
-        deleted: Verwijderde deelnemer
     user_activity:
       index:
         no_activities_warning: Deze deelnemer heeft nog geen activiteit gehad.
@@ -1042,6 +1046,9 @@ nl:
       update:
         error: Er is een fout opgetreden bij het bijwerken van uw interesses.
         success: Uw interesses zijn succesvol bijgewerkt.
+    version_author:
+      show:
+        deleted: Verwijderde deelnemer
     welcome_notification:
       default_body: <p>Hi {{name}}, bedankt om lid te worden van {{organization}} en welkom!</p><ul><li>Als u snel een idee wilt krijgen van wat u hier kunt doen, bekijk dan het gedeelte <a href="{{help_url}}">Help</a>.</li><li>Zodra u het heeft gelezen, krijgt u uw eerste badge. Hier is een <a href="{{badges_url}}">lijst van alle badges</a> die je kunt krijgen als je deelneemt {{organization}}</li><li>Last but not least, voeg je bij andere mensen, deel met hen de ervaring van betrokkenheid en deelname aan {{organization}}. Doe voorstellen, reageer, debatteer, denk na over hoe je een bijdrage kunt leveren aan het algemeen belang, lever argumenten aan om te overtuigen, luister en lees om overtuigd te worden, vertel je ideeën op een concrete en directe manier, reageer met geduld en vastbeslotenheid, verdedig je ideeën en houd een open geest om samen te werken en zich aan te sluiten bij de ideeën van andere mensen.</li></ul>
       default_subject: Bedankt dat je lid bent geworden van {{organization}}!

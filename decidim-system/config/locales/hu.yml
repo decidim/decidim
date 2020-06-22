@@ -63,6 +63,10 @@ hu:
           secondary_hosts_hint: Mindegyiket új sorba írd be
           title: Új szervezet
         omniauth_settings:
+          decidim:
+            client_id: Ügyfél ID
+            client_secret: Ügyfél titkos kódja
+            site_url: Weboldal URL
           enabled: Engedélyezve
           facebook:
             app_id: Alkalmazás ID
@@ -71,7 +75,7 @@ hu:
             client_id: Ügyfél ID
             client_secret: Client Secret
           icon: Ikon
-          icon_path: Ikon útja
+          icon_path: Ikon elérési útja
           twitter:
             api_key: API-kulcs
             api_secret: API Titkos

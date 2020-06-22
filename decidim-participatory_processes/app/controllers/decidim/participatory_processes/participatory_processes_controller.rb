@@ -6,10 +6,17 @@ module Decidim
     # public layout.
     class ParticipatoryProcessesController < Decidim::ParticipatoryProcesses::ApplicationController
       include ParticipatorySpaceContext
-      participatory_space_layout only: [:show, :statistics]
+      participatory_space_layout only: [:show, :all_metrics]
       include FilterResource
 
-      helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :metrics, :default_date_filter
+      helper_method :collection,
+                    :promoted_participatory_processes,
+                    :participatory_processes,
+                    :stats,
+                    :metrics,
+                    :default_date_filter,
+                    :related_processes,
+                    :linked_assemblies
 
       def index
         raise ActionController::RoutingError, "Not Found" if published_processes.none?
@@ -22,8 +29,12 @@ module Decidim
         enforce_permission_to :read, :process, process: current_participatory_space
       end
 
-      def statistics
-        enforce_permission_to :read, :process, process: current_participatory_space
+      def all_metrics
+        if current_participatory_space.show_statistics
+          enforce_permission_to :read, :process, process: current_participatory_space
+        else
+          render status: :not_found
+        end
       end
 
       private
@@ -91,6 +102,18 @@ module Decidim
         return "past" if published_processes.any?(&:past?)
 
         "all"
+      end
+
+      def related_processes
+        @related_processes ||=
+          current_participatory_space
+          .linked_participatory_space_resources(:participatory_processes, "related_processes")
+          .published
+          .all
+      end
+
+      def linked_assemblies
+        @linked_assemblies ||= current_participatory_space.linked_participatory_space_resources(:assembly, "included_participatory_processes").public_spaces
       end
     end
   end

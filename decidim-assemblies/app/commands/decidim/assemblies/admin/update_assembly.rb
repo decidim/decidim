@@ -107,7 +107,7 @@ module Decidim
         end
 
         def link_participatory_processes(assembly)
-          assembly.link_participatory_spaces_resources(participatory_processes(assembly), "included_participatory_processes")
+          assembly.link_participatory_space_resources(participatory_processes(assembly), "included_participatory_processes")
         end
 
         # Resets the children counter cache to its correct value using an SQL count query.

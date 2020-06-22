@@ -171,11 +171,27 @@ module Decidim
       def default_filter_params
         {
           search_text: "",
-          category_id: "",
-          state: "open",
-          scope_id: nil,
+          category_id: default_filter_category_params,
+          state: %w(open),
+          scope_id: default_filter_scope_params,
           related_to: ""
         }
+      end
+
+      def default_filter_category_params
+        return unless current_component.participatory_space.categories.any?
+
+        ["without"] + current_component.participatory_space.categories.map { |category| category.id.to_s }
+      end
+
+      def default_filter_scope_params
+        return unless current_component.participatory_space.scopes.any?
+
+        if current_component.participatory_space.scope
+          [current_component.participatory_space.scope.id] + current_component.participatory_space.scope.children.map { |scope| scope.id.to_s }
+        else
+          ["global"] + current_component.participatory_space.scopes.map { |scope| scope.id.to_s }
+        end
       end
     end
   end

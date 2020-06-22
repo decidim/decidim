@@ -36,6 +36,11 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
     export.serializer Decidim::Assemblies::AssemblySerializer
   end
 
+  participatory_space.register_on_destroy_account do |user|
+    Decidim::AssemblyUserRole.where(user: user).destroy_all
+    Decidim::AssemblyMember.where(user: user).destroy_all
+  end
+
   participatory_space.seeds do
     organization = Decidim::Organization.first
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
@@ -43,7 +48,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
     Decidim::ContentBlock.create(
       organization: organization,
       weight: 32,
-      scope: :homepage,
+      scope_name: :homepage,
       manifest_name: :highlighted_assemblies,
       published_at: Time.current
     )

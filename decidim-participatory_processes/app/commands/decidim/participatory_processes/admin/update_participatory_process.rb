@@ -41,13 +41,14 @@ module Decidim
 
         def update_participatory_process
           @participatory_process.assign_attributes(attributes)
-          if @participatory_process.valid?
-            @participatory_process.save!
+          return unless @participatory_process.valid?
 
-            Decidim.traceability.perform_action!(:update, @participatory_process, form.current_user) do
-              @participatory_process
-            end
+          @participatory_process.save!
+
+          Decidim.traceability.perform_action!(:update, @participatory_process, form.current_user) do
+            @participatory_process
           end
+          link_related_processes
         end
 
         def attributes
@@ -65,6 +66,7 @@ module Decidim
             short_description: form.short_description,
             scopes_enabled: form.scopes_enabled,
             scope: form.scope,
+            scope_type_max_depth: form.scope_type_max_depth,
             private_space: form.private_space,
             developer_group: form.developer_group,
             local_area: form.local_area,
@@ -76,9 +78,18 @@ module Decidim
             start_date: form.start_date,
             end_date: form.end_date,
             participatory_process_group: form.participatory_process_group,
+            show_metrics: form.show_metrics,
             show_statistics: form.show_statistics,
             announcement: form.announcement
           }
+        end
+
+        def related_processes
+          @related_processes ||= Decidim::ParticipatoryProcess.where(id: form.related_process_ids)
+        end
+
+        def link_related_processes
+          @participatory_process.link_participatory_space_resources(related_processes, "related_processes")
         end
       end
     end

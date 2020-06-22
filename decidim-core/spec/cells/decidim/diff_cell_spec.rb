@@ -13,6 +13,8 @@ describe Decidim::DiffCell, versioning: true, type: :cell do
   before do
     # rubocop:disable RSpec/AnyInstance
     allow_any_instance_of(described_class).to receive(:current_organization).and_return(organization)
+    allow_any_instance_of(Decidim::BaseDiffRenderer)
+      .to receive(:attribute_types).and_return(decidim_scope_id: :scope)
     # rubocop:enable RSpec/AnyInstance
   end
 
@@ -27,11 +29,11 @@ describe Decidim::DiffCell, versioning: true, type: :cell do
     end
   end
 
-  context "when diffing an attribute with integer values" do
-    let(:item) { create(:proposal, decidim_scope_id: 1) }
+  context "when diffing an attribute with scopes values" do
+    let(:item) { create(:dummy_resource) }
 
     it "renders a diff with a string" do
-      expect(subject).to have_css(".diff-for-scope .diff-data .ins")
+      expect(subject).to have_css(".diff-for-scope .diff-data .ins", text: item.scope.name[:en])
     end
   end
 
@@ -64,7 +66,7 @@ describe Decidim::DiffCell, versioning: true, type: :cell do
       end
 
       it "sanitizes potentially malicious HTML tags" do
-        expect(html).not_to have_selector("script", visible: false)
+        expect(html).not_to have_selector("script", visible: :all)
         expect(html).to have_content("alert('SCRIPT')")
       end
     end
@@ -82,7 +84,7 @@ describe Decidim::DiffCell, versioning: true, type: :cell do
       end
 
       it "sanitizes potentially malicious HTML tags" do
-        expect(html).not_to have_selector("script", visible: false)
+        expect(html).not_to have_selector("script", visible: :all)
         expect(html).to have_content("alert('SCRIPT')")
       end
     end

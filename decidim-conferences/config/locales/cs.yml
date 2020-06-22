@@ -161,7 +161,7 @@ cs:
           diploma: Potvrzení o účasti
           info: Info
           media_links: Odkazy na média
-          moderations: Moderátoři
+          moderations: Moderování
           partners: Partneři
           registration_types: Typy registrace
           registrations: Registrace
@@ -169,7 +169,7 @@ cs:
       models:
         conference:
           fields:
-            created_at: Vytvořeno u
+            created_at: Vytvořeno v
             promoted: Propagováno
             published: Publikováno
             title: Název
@@ -189,6 +189,7 @@ cs:
             admin: Správce
             collaborator: Spolupracovník
             moderator: Moderátor
+            valuator: Hodnotitel
         media_link:
           fields:
             date: datum
@@ -272,7 +273,7 @@ cs:
         conference_registration:
           confirm: "%{user_name} potvrdil registraci konference na konferenci %{resource_name}"
         partner:
-          create: "%{user_name} vytvořeno %{resource_name} na %{space_name} konferenci"
+          create: "%{user_name} vytvořil %{resource_name} na konferenci %{space_name}"
           delete: "%{user_name} odstranil uživatele %{resource_name} z konference %{space_name}"
           update: "%{user_name} aktualizoval %{resource_name} v konferenci %{space_name}"
         registration_type:
@@ -445,7 +446,7 @@ cs:
       models:
         conference_invite:
           fields:
-            email: E-mailem
+            email: E-mail
             name: název
             registration_type: Typ registrace
             sent_at: Odeslané
@@ -456,7 +457,7 @@ cs:
             sent: Odeslaná
         conference_registration:
           fields:
-            email: E-mailem
+            email: E-mail
             name: název
             registration_type: Typ registrace
             state: Stát
@@ -469,6 +470,9 @@ cs:
             active_conferences: Aktivní konference
             see_all_conferences: Podívejte se na všechny konference
       photo:
+        image:
+          attributes:
+            alt: Obrázek médií
         show:
           close_modal: Zavřít modální
           photo: Fotografie
@@ -499,7 +503,7 @@ cs:
         comments_count: Komentáře
         conference_count: Konference
         debates_count: Debaty
-        endorsements_count: Potvrzení
+        endorsements_count: Schválení
         headline: Aktivita
         meetings_count: Setkání
         orders_count: Hlasy
@@ -532,6 +536,11 @@ cs:
           email_outro: Toto upozornění jste obdrželi, protože jste sledovali konferenci "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
           email_subject: Konference "%{resource_title}" povolila registrace.
           notification_title: Konference <a href="%{resource_path}">%{resource_title}</a> povolila registrace.
+        role_assigned:
+          email_intro: Byli jste přiřazeni jako %{role} pro konferenci "%{resource_title}".
+          email_outro: Obdrželi jste toto oznámení, protože jste %{role} z konference "%{resource_title}".
+          email_subject: Byl jste přiřazen jako %{role} pro "%{resource_title}".
+          notification_title: Byl jste přiřazen jako %{role} pro konferenci <a href="%{resource_url}">%{resource_title}</a>.
         upcoming_conference:
           email_intro: 'Konference "%{resource_title}" se koná za 2 dny. Můžete si přečíst popis z jeho stránky:'
           email_outro: Toto upozornění jste obdrželi, protože jste sledovali konferenci "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.

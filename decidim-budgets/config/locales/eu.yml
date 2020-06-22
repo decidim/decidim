@@ -92,7 +92,7 @@ eu:
             other: "%{count} proiektu"
         filters:
           category: Kategoria
-          category_prompt: Aukeratu kategoria bat
+          scope: Esparrua
           search: Bilatu
         filters_small_view:
           close_modal: Itxi leihoa

@@ -14,7 +14,7 @@ module Decidim
         @author ||= if official?
                       Decidim::Proposals::OfficialAuthorPresenter.new
                     else
-                      coauthorship = coauthorships.first
+                      coauthorship = coauthorships.includes(:author, :user_group).first
                       coauthorship.user_group&.presenter || coauthorship.author.presenter
                     end
       end
@@ -45,15 +45,53 @@ module Decidim
         renderer.render(links: links, extras: extras).html_safe
       end
 
+      def id_and_title(links: false, extras: true, html_escape: false)
+        "##{proposal.id} - #{title(links: links, extras: extras, html_escape: html_escape)}"
+      end
+
       def body(links: false, extras: true, strip_tags: false)
         text = proposal.body
-        text = strip_tags(text) if strip_tags
+
+        if strip_tags
+          text = text.gsub(%r{<\/p>}, "\n\n")
+          text = strip_tags(text)
+        end
 
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
         text = renderer.render(links: links, extras: extras).html_safe
 
         text = Decidim::ContentRenderers::LinkRenderer.new(text).render if links
         text
+      end
+
+      # Returns the proposal versions, hiding not published answers
+      #
+      # Returns an Array.
+      def versions
+        version_state_published = false
+        pending_state_change = nil
+
+        proposal.versions.map do |version|
+          state_published_change = version.changeset["state_published_at"]
+          version_state_published = state_published_change.last.present? if state_published_change
+
+          if version_state_published
+            version.changeset["state"] = pending_state_change if pending_state_change
+            pending_state_change = nil
+          elsif version.changeset["state"]
+            pending_state_change = version.changeset.delete("state")
+          end
+
+          next if version.event == "update" && Decidim::Proposals::DiffRenderer.new(version).diff.empty?
+
+          version
+        end.compact
+      end
+
+      delegate :count, to: :versions, prefix: true
+
+      def resource_manifest
+        proposal.class.resource_manifest
       end
     end
   end

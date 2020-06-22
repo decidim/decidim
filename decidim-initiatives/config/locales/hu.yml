@@ -62,16 +62,11 @@ hu:
       actions:
         new_initiative_type: Új kezdeményezés típusa
       filters:
-        search_placeholder:
-          title_or_description_cont: Keresés cím vagy leírás alapján a %{collection} -ban.
         state_eq:
-          label: Állapot
           values:
-            accepted: Elfogadva
             created: Létrehozva
             discarded: Elvetve
             published: Közzétéve
-            rejected: Elutasítva
             validating: Technikai érvényesítés
       menu:
         initiatives: Kezdeményezések
@@ -241,12 +236,14 @@ hu:
           unpublish: "%{user_name} elvetette a(z) %{resource_name} kezdeményezést"
           update: "%{user_name} frissítette a(z) %{resource_name} kezdeményezést"
       admin_states:
-        accepted: Elfogadva
         created: Létrehozva
         discarded: Elvetve
         published: Közzétéve
-        rejected: Elutasítva
         validating: Technikai érvényesítés
+      application_helper:
+        filter_state_values:
+          closed: Lezárt
+          open: Megnyitás
       committee_requests:
         new:
           continue: Tovább
@@ -268,8 +265,11 @@ hu:
           back: Vissza
           back_to_initiatives: Vissza a kezdeményezésekhez
           callout_text: Gratulálunkk! Sikeresen létrehoztad az állampolgári kezdeményezést.
+          confirm: Megerősít
+          edit_my_initiative: Kezdeményezéseim szerkesztése
           go_to_my_initiatives: Ugrás a saját kezdeményezéseimhez
           more_information: "(További információk)"
+          send_my_initiative: Kezdeményezésem elküldése
         finish_help:
           access_reminder: Ne felejtsd el, hogy a menüben mindig hozzáférhetsz a kezdeményezéseihez.
           help_for_organizations: Ha egyesületként regisztrálsz, fel kell töltened az összes szerv vezetői testületének jegyzőkönyveit, amelyek megfelelnek a Támogató Bizottság feltételeinek
@@ -354,13 +354,10 @@ hu:
         filters:
           any: Bármely
           author: Szerző
-          closed: Lezárt
           myself: Kezdeményezéseim
-          open: Megnyitás
           search: Keresés
           state: Állapot
           type: Típus
-          type_prompt: Válassz típust
         filters_small_view:
           close_modal: Ablak bezárása
           filter: Szűrés
@@ -422,8 +419,6 @@ hu:
         promotal_committee_help: Ne feledd, hogy legalább %{member_count} embert kell meghívnod a támogató bizottságba. Ezt a linket küldd el azoknak, akiket szeretnél meghívni
         status_change_body_for: 'A(z) %{title} kezdeményezés megváltozott állapota: %{state}'
         status_change_for: A(z) %{title} kezdeményezés állapota változott
-        technical_validation_body_for: A(z) %{title} kezdeményezés technikai érvényesítését kérted.
-        technical_validation_for: A(z) %{title} kezdeményezés technikai érvényesítését kérted.
       last_activity:
         new_initiative: Új kezdeményezés
       pages:

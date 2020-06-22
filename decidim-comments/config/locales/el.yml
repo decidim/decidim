@@ -1,0 +1,6 @@
+el:
+  decidim:
+    components:
+      comment:
+        report:
+          details: Πρόσθετα σχόλια

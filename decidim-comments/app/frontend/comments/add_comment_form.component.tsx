@@ -100,9 +100,9 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
 
     if (showTitle) {
       return (
-        <h5 className="section-heading">
+        <h4 className="section-heading">
           {I18n.t("components.add_comment_form.title")}
-        </h5>
+        </h4>
       );
     }
 
@@ -404,12 +404,13 @@ const AddCommentFormWithMutation = graphql<addCommentMutation, AddCommentFormPro
             const variables = {
               commentableId: ownProps.rootCommentable.id,
               commentableType: ownProps.rootCommentable.type,
-              orderBy: ownProps.orderBy
+              orderBy: ownProps.orderBy,
+              singleCommentId: null
             };
             const prev = store.readQuery<GetCommentsQuery>({
               query: getCommentsQuery,
               variables
-             });
+            });
             const { id, type } = ownProps.commentable;
             const newComment = data.commentable && data.commentable.addComment;
             let comments = [];

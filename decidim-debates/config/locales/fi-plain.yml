@@ -96,6 +96,8 @@ fi-pl:
           create: Luo
           select_a_category: Valitse aihepiiri
           title: Uusi keskustelu
+        show:
+          back: Takaisin listaan
       last_activity:
         new_debate_at_html: "<span>Uusi keskustelu osoitteessa %{link}</span>"
       models:

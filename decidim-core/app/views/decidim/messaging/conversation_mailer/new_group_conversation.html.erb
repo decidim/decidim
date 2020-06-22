@@ -1,0 +1,17 @@
+<p><%= t(".greeting", recipient: @recipient.name) %></p>
+
+<p><%= t(".admin_in_group", group: @third_party.name) %></p>
+
+<p><%= t(".intro", sender: @sender.name, group: @third_party.name) %></p>
+
+<blockquote>
+  <p>
+    <em><%= @message %></em>
+  </p>
+</blockquote>
+
+<p>
+  <%= link_to decidim.profile_conversation_url(nickname: @third_party.nickname, id: @conversation.id, host: @host), decidim.profile_conversation_url(nickname: @third_party.nickname, id: @conversation.id, host: @host) %>
+</p>
+
+<p><%= t(".outro") %></p>

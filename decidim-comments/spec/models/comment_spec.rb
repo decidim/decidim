@@ -115,7 +115,7 @@ module Decidim
 
       describe "#formatted_body" do
         let(:comment) { create(:comment, commentable: commentable, author: author, body: body) }
-        let(:body) { "<b>bold text</b> *lorem* <a href='https://example.com'>link</a>" }
+        let(:body) { "<b>bold text</b> %lorem% <a href='https://example.com'>link</a>" }
 
         before do
           allow(Decidim).to receive(:content_processors).and_return([:dummy_foo])
@@ -127,12 +127,30 @@ module Decidim
         end
 
         it "process the body after it is sanitized" do
-          expect(Decidim::ContentProcessor).to receive(:render).with("bold text *lorem* link")
+          expect(Decidim::ContentProcessor).to receive(:render).with("<p>bold text %lorem% link</p>", "div")
           comment.formatted_body
         end
 
         it "returns the body sanitized and processed" do
-          expect(comment.formatted_body).to eq("<p>bold text <em>neque dicta enim quasi</em> link</p>")
+          expect(comment.formatted_body).to eq("<div><p>bold text <em>neque dicta enim quasi</em> link</p></div>")
+        end
+
+        describe "when the body contains multiline quotes" do
+          let(:body) { "> quote first line\n> quote second line\n\nanswer" }
+          let(:result) { "<div><blockquote class=\"comment__quote\"><p>quote first line\n<br />quote second line</p></blockquote><p>answer</p></div>" }
+
+          it "parses quotes and renders them as blockquotes" do
+            expect(comment.formatted_body).to eq(result)
+          end
+        end
+
+        describe "when the body contains quotes with paragraphs" do
+          let(:body) { "> quote first paragraph\n>\n> quote second paragraph\n\nanswer" }
+          let(:result) { "<div><blockquote class=\"comment__quote\">\n<br /><p>quote first paragraph</p>\n<br /><p>quote second paragraph</p>\n<br /></blockquote><p>answer</p></div>" }
+
+          it "parses quotes and renders them as blockquotes" do
+            expect(comment.formatted_body).to eq(result)
+          end
         end
 
         describe "when the body contains urls" do
@@ -142,7 +160,7 @@ module Decidim
             %(Content with <a href="http://urls.net" onmouseover="alert('hello')">URLs</a> of anchor type and text urls like https://decidim.org. And a malicous <a href="javascript:document.cookies">click me</a>)
           end
           let(:result) do
-            %(<p>Content with URLs of anchor type and text urls like <a href="https://decidim.org" target="_blank" rel="noopener">https://decidim.org</a>. And a malicous click me</p>)
+            %(<div><p>Content with URLs of anchor type and text urls like <a href="https://decidim.org" target="_blank" rel="nofollow noopener">https://decidim.org</a>. And a malicous click me</p></div>)
           end
 
           it "converts all URLs to links and strips attributes in anchors" do

@@ -33,6 +33,7 @@ es-PY:
       decidim/profile_updated_event: Perfil actualizado
       decidim/promote_to_admin: Promovido a administrador de grupo
       decidim/removed_from_group: Eliminado del grupo
+      decidim/resource_endorsed_event: Adhesión a recurso realizada
   activerecord:
     attributes:
       decidim/user:
@@ -46,6 +47,9 @@ es-PY:
       decidim/amendment:
         one: Enmienda
         other: Enmiendas
+      decidim/endorsement:
+        one: Adhesión
+        other: Adhesiones
       decidim/user:
         one: No hay usuarios
         other: Usuarios
@@ -57,6 +61,7 @@ es-PY:
     'true': 'Sí'
   carrierwave:
     errors:
+      general: Error procesando imagen
       image_too_big: La imagen es demasiado grande
   date:
     formats:
@@ -66,6 +71,9 @@ es-PY:
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
+    accessibility:
+      logo: "Logo oficial de %{organization}"
+      skip_button: Saltar al contenido principal
     account:
       data_portability_export:
         file_no_exists: El archivo no existe
@@ -88,6 +96,9 @@ es-PY:
         error: Se ha producido un error al actualizar tu cuenta.
         success: Tu cuenta se ha actualizado correctamente.
         success_with_email_confirmation: Tu cuenta se ha actualizado correctamente. Recibirás un correo electrónico para confirmar tu nueva dirección de correo electrónico.
+    admin:
+      actions:
+        cancel: Cancelar
     admin_log:
       area:
         create: "%{user_name} creó el área %{resource_name}"
@@ -131,11 +142,14 @@ es-PY:
         invite: "%{user_name} invitó al usuario %{resource_name} con el rol: %{role}"
         officialize: "%{user_name} oficializó al usuario %{resource_name}"
         remove_from_admin: "%{user_name} eliminó al usuario %{resource_name} con el rol: %{role}"
+        show_email: "%{user_name} ha recuperado el correo electrónico de la participante %{resource_name}"
         unofficialize: "%{user_name} desoficializó al usuario %{resource_name}"
       user_group:
         reject: "%{user_name} rechazó la verificación del grupo de usuarios %{resource_name}"
         verify: "%{user_name} verificó al grupo de usuarios %{resource_name}"
         verify_via_csv: "%{user_name} verificó el grupo de %{resource_name} usuario a través de un archivo CSV"
+    admin_terms_of_use:
+      default_body: "<h2>TÉRMINOS ADMIN DE USO</h2><p>Confiamos en que has recibido la explicación habitual del administrador local del sistema. Generalmente se reduce a estas tres cosas:</p><ol><li>Respetar la privacidad de los demás.</li><li>Piensa antes de hacer clic.</li><li>Un gran poder conlleva una gran responsabilidad.</li></ol>"
     amendments:
       accepted:
         error: Ocurrió un error al aceptar la enmienda.
@@ -206,9 +220,6 @@ es-PY:
       update_draft:
         error: Se ha producido un error al actualizar el borrador de enmienda.
         success: Borrador de enmienda actualizado correctamente.
-      visibility_options:
-        all: Las enmiendas son visibles para todos
-        participants: Las enmiendas son visibles sólo para sus autores
       withdraw:
         error: Se ha producido un error al retirar la enmienda
         success: La enmienda ha sido retirada correctamente
@@ -224,19 +235,26 @@ es-PY:
         documents:
           one: Documento
           other: Documentos
+      document:
+        download: Descargar archivo
       documents:
         related_documents: Documentos relacionados
       photos:
         related_photos: Fotos relacionadas
     author:
+      avatar: Avatar
       comments:
         one: comentario
         other: comentarios
+      endorsements:
+        one: adhesión
+        other: adhesiones
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Verifíquese introduciendo un número de pasaporte que comience por "A"
         fields:
           passport_number: Número de pasaporte
+          postal_code: Código postal
         name: Otro ejemplo de autorización
       dummy_authorization_handler:
         explanation: Verifícate introduciendo un número de documento que termine con "X"
@@ -419,6 +437,15 @@ es-PY:
           this_application_will_not_be_able_to: 'Esta aplicación no podrá:'
           update_profile: Actualiza tu perfil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> quiere usar tu cuenta"
+    endorsable:
+      endorsements: Adhesiones
+    endorsement_buttons_cell:
+      already_endorsed: Adherido
+      endorse: Adherirse
+    endorsements:
+      identities:
+        done: Hecho
+        select_identity: Seleccionar identidad
     errors:
       internal_server_error:
         title: Ha habido un problema con nuestro servidor
@@ -539,6 +566,11 @@ es-PY:
           notification_title: Has sido eliminado del grupo <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: Un evento ha ocurrido en <a href="%{resource_path}">%{resource_title}</a>.
+      resource_endorsed:
+        email_intro: '%{endorser_name} %{endorser_nickname}, a quien sigues, acaba de adherirse a una propuesta que puede ser interesante para ti, compruébalo y contribuye:'
+        email_outro: Has recibido esta notificación porque estás siguiendo a %{endorser_nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+        email_subject: "%{endorser_nickname} se ha adherido a una propuesta"
+        notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> se ha adherido a la propuesta <a href="%{resource_path}">%{resource_title}</a>.
       users:
         profile_updated:
           email_intro: La página <a href="%{resource_url}">de perfil</a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
@@ -577,6 +609,7 @@ es-PY:
       create:
         button: Seguir
         error: Ha habido un error siguiendo este recurso.
+        participatory_space: Siguiendo
       destroy:
         button: Dejar de seguir
         error: Ha habido un error dejando de seguir este recurso.
@@ -763,12 +796,14 @@ es-PY:
         create:
           error: Conversación no iniciada. Inténtalo más tarde
         index:
+          close: Cerrar modal
           no_conversations: Aún no tienes conversaciones
           title: Conversaciones
         reply:
           send: Enviar
           title: Respuesta
         show:
+          not_allowed: Esta participante no acepta mensajes directos.
           title: Conversacion con %{usernames}
         start:
           send: Enviar
@@ -820,6 +855,8 @@ es-PY:
       no_notifications: No hay notificaciones aún.
     notifications_settings:
       show:
+        allow_public_contact: Permitir que cualquiera me envíe un mensaje directo, incluso si no le sigo.
+        direct_messages: Recibir mensajes directos de cualquiera
         email_on_notification: Quiero recibir un correo electrónico cada vez que recibo una notificación.
         everything_followed: Todo lo que sigo
         newsletter_notifications: Quiero recibir boletines informativos
@@ -959,6 +996,9 @@ es-PY:
       create:
         error: Se ha producido un error al denunciar el contenido. Por favor, inténtalo otra vez.
         success: La denuncia se ha creado correctament y será revisada por un administrador.
+    resource_endorsements:
+      create:
+        error: Se ha producido un error durante la acción de adhesión.
     scopes:
       global: Alcance global
       picker:
@@ -1024,15 +1064,15 @@ es-PY:
         select_user_group: Selecciona un grupo
       results_per_page:
         label: 'Resultados por página:'
+        title: Seleccionar el número de resultados por página
       share_modal:
         close_window: Cerrar ventana
         share: Compartir
         share_link: Compartir enlace
-      version_author:
-        deleted: Usuario eliminado
     user_activity:
       index:
         no_activities_warning: Este usuario no ha tenido ninguna actividad todavía.
+    user_contact_disabled: Esta participante no acepta mensajes directos.
     user_interests:
       show:
         my_interests: Mis intereses
@@ -1042,6 +1082,9 @@ es-PY:
       update:
         error: Hubo un error al actualizar tus intereses.
         success: Sus intereses se han actualizado con éxito.
+    version_author:
+      show:
+        deleted: Usuario eliminado
     welcome_notification:
       default_body: <p>Hola {{name}}, gracias por unirte {{organization}} y bienvenido!</p><ul><li>Si desea obtener una idea rápida de lo que puede hacer aquí, consulte la sección <a href="{{help_url}}">Ayuda</a> .</li><li>Una vez que lo hayas leído, obtendrás tu primera placa. Aquí está un <a href="{{badges_url}}">lista de todas las insignias</a> se puede obtener a medida que participen en el {{organization}}</li><li>Por último, pero no menos importante, se une a otras personas, compartir con ellos la experiencia de ser ocupados y participando en {{organization}}. Haga propuestas, comentarios, debate, piense en cómo contribuir al bien común, proporcione argumentos para convencer, escuche y lea para convencerse, exprese sus ideas de manera concreta y directa, responda con paciencia y decisión, defienda sus ideas y mantenga Una mente abierta para colaborar y unirse a las ideas de otras personas.</li></ul>
       default_subject: Gracias por unirte a {{organization}}!
@@ -1204,6 +1247,7 @@ es-PY:
       cycle_detected: el padre de un ámbito no puede ser uno de sus descendientes
       expired: ha expirado, solicite uno nuevo
       file_size_is_less_than_or_equal_to: el tamaño del archivo debe ser menor que o igual a %{count}
+      invalid_time_zone: no es una zona horaria válida
       long_words: contiene palabras que son demasiado largas (más de 35 caracteres)
       must_start_with_caps: debe comenzar con una letra mayúscula
       nesting_too_deep: no puede estar dentro de una subcategoría
@@ -1309,6 +1353,7 @@ es-PY:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%B %d, %Y %H:%M"
+      long_dashed: "%d-%m-%Y %H:%M:%S"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
@@ -1316,13 +1361,21 @@ es-PY:
       left: Supresiones
       right: Adiciones
     dropdown:
+      choose_diff_view_html: 'Modo de vista HTML:'
       choose_diff_view_mode: 'Comparar el modo de visualización:'
+      option_escaped: Escapado
       option_split: En paralelo
+      option_unescaped: Desescapado
       option_unified: Unificado
   views:
     pagination:
       first: "&laquo; Primera"
+      first_title: Enlace a la primera página
       last: Última &raquo;
+      last_title: Enlace a la última página
       next: Siguiente &rsaquo;
+      next_title: Enlace a la página siguiente
       previous: "&lsaquo; Anterior"
+      previous_title: Enlace a la página anterior
+      title: 'Número de página: '
       truncate: "&hellip;"

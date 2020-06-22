@@ -8,6 +8,11 @@ FactoryBot.define do
     "#{Faker::Internet.slug(nil, "-")}-#{n}"
   end
 
+  factory :assemblies_setting, class: "Decidim::AssembliesSetting" do
+    enable_organization_chart { true }
+    organization
+  end
+
   factory :assemblies_type, class: "Decidim::AssembliesType" do
     title { generate_localized_title }
     organization
@@ -134,6 +139,21 @@ FactoryBot.define do
              user: user,
              assembly: evaluator.assembly,
              role: :collaborator
+    end
+  end
+
+  factory :assembly_valuator, parent: :user, class: "Decidim::User" do
+    transient do
+      assembly { create(:assembly) }
+    end
+
+    organization { assembly.organization }
+
+    after(:create) do |user, evaluator|
+      create :assembly_user_role,
+             user: user,
+             assembly: evaluator.assembly,
+             role: :valuator
     end
   end
 

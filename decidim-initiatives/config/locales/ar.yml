@@ -33,6 +33,7 @@ ar:
         extra_fields_legal_information: معلومات قانونية حول جمع البيانات الشخصية
         minimum_committee_members: الحد الأدنى من أعضاء اللجنة
         online_signature_enabled: تم تمكين التوقيع عبر الإنترنت
+        promoting_committee_enabled: تفعيل لجنة الترويج
         title: عنوان
         undo_online_signatures_enabled: تمكين المشاركين من التراجع عن توقيعاتهم على الإنترنت
         validate_sms_code_on_votes: إضافة خطوة التحقق من صحة رمز SMS لعملية التوقيع
@@ -72,6 +73,13 @@ ar:
     admin:
       actions:
         new_initiative_type: نوع المبادرة الجديدة
+      filters:
+        state_eq:
+          values:
+            created: تمّ إنشاؤه
+            discarded: التخلص منها
+            published: نشرت
+            validating: المصادقة الفنية
       menu:
         initiatives: المبادرات
         initiatives_types: أنواع المبادرة
@@ -121,9 +129,13 @@ ar:
           affected_user:
             email_intro: حققت مبادرتك %{resource_title} ٪ %{percentage}من التوقيعات!
             email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف المبادرة %{resource_title}.
+            email_subject: مرحلة جديدة تم تجاوزها!
             notification_title: لقد حققت مبادرة <a href="%{resource_path}">%{resource_title}</a> الخاصة بك %{percentage}٪ من التوقيعات.
           follower:
+            email_intro: لقد حازت المبادرة %{resource_title} على %{percentage}% مِن التوقيعات!
             email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{resource_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
+            email_subject: مرحلة جديدة تم تجاوزها!
+            notification_title: لقد حازت المبادرة <a href="%{resource_path}">%{resource_title}</a> على %{percentage} مِن التوقيعات.
     gamification:
       badges:
         initiatives:
@@ -236,12 +248,19 @@ ar:
           unpublish: "تجاهل %{user_name} المبادرة %{resource_name}"
           update: "%{user_name} تحديث المبادرة %{resource_name}"
       admin_states:
-        accepted: وافقت
         created: تمّ إنشاؤه
         discarded: التخلص منها
         published: نشرت
-        rejected: مرفوض
         validating: المصادقة الفنية
+      application_helper:
+        filter_scope_values:
+          all: الكل
+        filter_state_values:
+          all: الكل
+          closed: مغلق
+          open: افتح
+        filter_type_values:
+          all: الكل
       committee_requests:
         new:
           continue: استمر
@@ -357,13 +376,10 @@ ar:
         filters:
           any: أي
           author: مؤلف
-          closed: مغلق
           myself: مبادراتي
-          open: افتح
           search: بحث
           state: الحالة
           type: نوع
-          type_prompt: اختر نوع
         filters_small_view:
           close_modal: أغلق النافذة
           filter: منقي
@@ -437,8 +453,6 @@ ar:
         promotal_committee_help: تذكر أنه يجب دعوة %{member_count} شخصًا على الأقل إلى لجنة المروجين. أرسل الرابط التالي لدعوة الناس إلى لجنة المروجين
         status_change_body_for: 'لقد غيرت المبادرة %{title} حالتها إلى: %{state}'
         status_change_for: لقد غيرت المبادرة %{title} حالتها
-        technical_validation_body_for: طلبت المبادرة %{title} التحقق من الصحة
-        technical_validation_for: طلبت المبادرة %{title} التحقق من الصحة
       last_activity:
         new_initiative: مبادرة جديدة
       pages:
@@ -446,6 +460,9 @@ ar:
           highlighted_initiatives:
             active_initiatives: المبادرات النشطة
             see_all_initiatives: رؤية جميع المبادرات
+      show:
+        badge_name:
+          validating: تحقق تقني
       states:
         accepted: وافقت
         expired: منتهية الصلاحية

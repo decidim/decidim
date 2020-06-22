@@ -335,8 +335,9 @@ FactoryBot.define do
 
     trait :with_one_step do
       step_settings do
+        participatory_space_with_steps if participatory_space.active_step.nil?
         {
-          1 => { dummy_step_setting: true }
+          participatory_space.active_step.id => { dummy_step_setting: true }
         }
       end
     end
@@ -359,6 +360,44 @@ FactoryBot.define do
 
     trait :with_permissions do
       settings { { Random.rand => Random.new.bytes(5) } }
+    end
+
+    transient do
+      participatory_space_with_steps do
+        create(:participatory_process_step,
+               active: true,
+               end_date: 1.month.from_now,
+               participatory_process: participatory_space)
+        participatory_space.reload
+        participatory_space.steps.reload
+      end
+    end
+
+    trait :with_endorsements_enabled do
+      step_settings do
+        participatory_space_with_steps if participatory_space.active_step.nil?
+        {
+          participatory_space.active_step.id => { endorsements_enabled: true }
+        }
+      end
+    end
+
+    trait :with_endorsements_disabled do
+      step_settings do
+        participatory_space_with_steps if participatory_space.active_step.nil?
+        {
+          participatory_space.active_step.id => { endorsements_enabled: false }
+        }
+      end
+    end
+
+    trait :with_endorsements_blocked do
+      step_settings do
+        participatory_space_with_steps if participatory_space.active_step.nil?
+        {
+          participatory_space.active_step.id => { endorsements_blocked: true }
+        }
+      end
     end
   end
 
@@ -403,6 +442,11 @@ FactoryBot.define do
   end
 
   factory :dummy_resource, class: "Decidim::DummyResources::DummyResource" do
+    transient do
+      users { nil }
+      # user_groups correspondence to users is by sorting order
+      user_groups { [] }
+    end
     title { generate(:name) }
     component { create(:component, manifest_name: "dummy") }
     author { create(:user, :confirmed, organization: component.organization) }
@@ -410,6 +454,14 @@ FactoryBot.define do
 
     trait :published do
       published_at { Time.current }
+    end
+
+    trait :with_endorsements do
+      after :create do |resource|
+        5.times.collect do
+          create(:endorsement, resource: resource, author: build(:user, organization: resource.component.organization))
+        end
+      end
     end
   end
 
@@ -420,12 +472,25 @@ FactoryBot.define do
   end
 
   factory :newsletter, class: "Decidim::Newsletter" do
+    transient do
+      body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    end
+
     author { build(:user, :confirmed, organization: organization) }
     organization
 
     subject { generate_localized_title }
 
-    body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    after(:create) do |newsletter, evaluator|
+      create(
+        :content_block,
+        :newsletter_template,
+        organization: evaluator.organization,
+        scoped_resource_id: newsletter.id,
+        manifest_name: "basic_only_text",
+        settings: evaluator.body.transform_keys { |key| "body_#{key}" }
+      )
+    end
 
     trait :sent do
       sent_at { Time.current }
@@ -547,10 +612,15 @@ FactoryBot.define do
 
   factory :content_block, class: "Decidim::ContentBlock" do
     organization
-    scope { :homepage }
+    scope_name { :homepage }
     manifest_name { :hero }
     weight { 1 }
     published_at { Time.current }
+
+    trait :newsletter_template do
+      scope_name { :newsletter_template }
+      manifest_name { :basic_only_text }
+    end
   end
 
   factory :hashtag, class: "Decidim::Hashtag" do
@@ -582,5 +652,16 @@ FactoryBot.define do
     trait :rejected do
       state { "rejected" }
     end
+  end
+
+  factory :endorsement, class: "Decidim::Endorsement" do
+    resource { build(:dummy_resource) }
+    author { resource.try(:creator_author) || resource.try(:author) || build(:user, organization: resource.organization) }
+  end
+
+  factory :user_group_endorsement, class: "Decidim::Endorsement" do
+    resource { build(:dummy_resource) }
+    author { build(:user, organization: resource.organization) }
+    user_group { create(:user_group, verified_at: Time.current, organization: resource.organization, users: [author]) }
   end
 end

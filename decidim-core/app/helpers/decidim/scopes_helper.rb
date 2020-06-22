@@ -78,10 +78,11 @@ module Decidim
       form.scopes_picker name, options do |scope|
         {
           url: decidim.scopes_picker_path(
-            root: try(:current_participatory_space)&.scope,
+            root: try(:current_participatory_space).try(:scope),
             current: scope&.id,
             title: I18n.t("decidim.scopes.prompt"),
-            global_value: "global"
+            global_value: "global",
+            max_depth: try(:current_participatory_space).try(:scope_type_max_depth)
           ),
           text: scope_name_for_picker(scope, I18n.t("decidim.scopes.prompt"))
         }

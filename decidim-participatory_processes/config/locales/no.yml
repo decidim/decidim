@@ -10,7 +10,7 @@
         copy_steps: Kopier trinn
         decidim_area_id: Område
         description: Beskrivelse
-        developer_group: Arrangør gruppe
+        developer_group: Promotør gruppe
         domain: Domene
         end_date: Sluttdato
         hashtag: Hastag
@@ -22,9 +22,12 @@
         participatory_structure: Hvordan blir det bestemt
         promoted: Forfremmet
         published_at: Publisert på
+        related_process_ids: Relaterte prosesser
         scope_id: Omfang
+        scope_type_max_depth_id: Omfang filterdybde
         scopes_enabled: Omfang aktivert
         short_description: Kort beskrivelse
+        show_metrics: Vis statistikk
         show_statistics: Vis statistikk
         slug: URL slug
         start_date: Startdato
@@ -203,13 +206,11 @@
         destroy:
           success: Administrator slettet fra denne deltaker prosessen.
         edit:
-          title: Oppdater deltaker prosess administrator.
           update: Oppdater
         index:
           process_admins_title: Deltaker prosess administratorer
         new:
           create: Opprett
-          title: Ny deltaker prosess administrator.
         update:
           error: Det oppstod et problem med å oppdatere en administrator for denne deltaker prosessen.
           success: Admin ble oppdatert for denne deltaker prosessen.
@@ -244,7 +245,7 @@
       users:
         resend_invitation:
           error: Det oppstod et problem med å sende invitasjonen på nytt.
-          success: Invitasjon sendt på nytt.
+          success: Invitasjonen sendt på nytt.
     admin_log:
       participatory_process:
         create: "%{user_name} opprettet %{resource_name} deltaker prosessen"
@@ -255,14 +256,14 @@
         create: "%{user_name} opprettet %{resource_name} deltakernes prosessgruppe"
         update: "%{user_name} oppdaterte %{resource_name} deltakernes prosessgruppe"
       participatory_process_step:
-        activate: "%{user_name} aktiverte %{resource_name} fasen i %{space_name} \ndeltaker prosessen"
-        create: "%{user_name} opprettet %{resource_name} fasen i %{space_name} deltakernes prosessen"
-        delete: "%{user_name} slettet %{resource_name} fasen i %{space_name} deltakernes prosessen"
-        update: "%{user_name} oppdaterte %{resource_name} fasen i %{space_name} deltakernes prosessen"
+        activate: "%{user_name} aktiverte %{resource_name} fasen i %{space_name} deltakerprosessen"
+        create: "%{user_name} opprettet %{resource_name} fasen i %{space_name} deltakerprosessen"
+        delete: "%{user_name} slettet %{resource_name} fasen i %{space_name} deltakerprosessen"
+        update: "%{user_name} oppdaterte %{resource_name} fasen i %{space_name} deltakerprosessen"
       participatory_process_user_role:
-        create: "%{user_name} inviterte deltakeren %{resource_name} til %{space_name} deltaker prosesessen"
-        delete: "%{user_name} fjernet deltakeren %{resource_name} fra %{space_name} deltaker prosessen"
-        update: "%{user_name} endret deltakerrollen %{resource_name} i %{space_name} deltaker prosessen"
+        create: "%{user_name} inviterte deltakeren %{resource_name} til %{space_name} deltakerprosessen"
+        delete: "%{user_name} fjernet deltakeren %{resource_name} fra %{space_name} deltakerprosessen"
+        update: "%{user_name} endret deltakerrollen %{resource_name} i %{space_name} deltakerprosessen"
     events:
       participatory_process:
         step_activated:
@@ -278,8 +279,8 @@
     help:
       participatory_spaces:
         participatory_processes:
-          contextual: "<p>En <strong> deltaker prosess</strong> er en setning av deltakende aktiviteter (f.eks. først å fylle ut en undersøkelse, deretter komme med forslag, diskutere dem ansikt til ansikt eller i virtuelle møter, og til slutt prioritere dem) med målet om å definere og ta en beslutning om et spesifikt tema.</p> <p>Eksempler på deltakende prosesser er: en prosess med valg av komitémedlemmer (der kandidater først blir presentert, deretter diskutert og til slutt valgt et kandidatur), deltaker budsjetter (der forslag blir opprettet, verdsatt økonomisk og stemt på med tilgjengelige penger), en strategisk planprosess, samarbeid om utarbeidelse av en forskrift eller norm, utforming av et byrom eller utarbeidelse av en offentlig politisk plan.</p>\n"
-          page: "<p>En <strong>deltaker prosess</strong> er en setning av deltakende aktiviteter (f.eks. først å fylle ut en undersøkelse, deretter komme med forslag, diskutere dem ansikt til ansikt eller i virtuelle møter, og til slutt prioritere dem) med målet om å definere og ta en beslutning om et spesifikt tema.</p> <p>Eksempler på deltakende prosesser er: en prosess med valg av komitémedlemmer (der kandidater først blir presentert, deretter diskutert og til slutt valgt et kandidatur), deltaker budsjetter (der forslag blir opprettet, verdsatt økonomisk og stemt på med tilgjengelige penger), en strategisk planprosess, samarbeid om utarbeidelse av en forskrift eller norm, utforming av et byrom eller utarbeidelse av en offentlig politisk plan.</p>\n"
+          contextual: "<p>En <strong>deltakerprosess</strong> er en sekvens av deltakende aktiviteter (f.eks. først å fylle ut en undersøkelse, deretter komme med forslag, diskutere dem ansikt til ansikt eller i virtuelle møter, og til slutt prioritere dem) med målet om å definere og ta en beslutning om et spesifikt tema.</p> <p>Eksempler på deltakende prosesser er: en prosess med valg av komitémedlemmer (der kandidater først blir presentert, deretter diskutert og til slutt valgt et kandidatur), deltaker budsjetter (der forslag blir opprettet, verdsatt økonomisk og stemt på med tilgjengelige penger), en strategisk planprosess, samarbeid om utarbeidelse av en forskrift eller norm, utforming av et byrom eller utarbeidelse av en offentlig politisk plan.</p>\n"
+          page: "<p>En <strong>deltakerprosess</strong> er en sekvens av deltakende aktiviteter (f.eks. først å fylle ut en undersøkelse, deretter komme med forslag, diskutere dem ansikt til ansikt eller i virtuelle møter, og til slutt prioritere dem) med målet om å definere og ta en beslutning om et spesifikt tema.</p> <p>Eksempler på deltakende prosesser er: en prosess med valg av komitémedlemmer (der kandidater først blir presentert, deretter diskutert og til slutt valgt et kandidatur), deltaker budsjetter (der forslag blir opprettet, verdsatt økonomisk og stemt på med tilgjengelige penger), en strategisk planprosess, samarbeid om utarbeidelse av en forskrift eller norm, utforming av et byrom eller utarbeidelse av en offentlig politisk plan.</p>\n"
           title: Hva er en deltaker prosess?
     menu:
       processes: Prosesser
@@ -322,6 +323,8 @@
             images: Bilder
             metadata: Metadata
             other: Annet
+            related_processes: Relaterte prosesser
+            scope_type_max_depth_help: Begrens omfangets filterdybde; Filteret viser fra generelt til valgt omfangstype.
             select_an_area: Velg et Område
             select_process_group: Velg en prosess gruppe
             slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne prosessen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
@@ -371,12 +374,13 @@
           loading: Laster inn resultater...
       show:
         area: Område
-        developer_group: Arrangør gruppe
+        developer_group: Promotør gruppe
         end_date: Sluttdato
         local_area: Organisasjonsområdet
         participatory_scope: Hva er bestemt
         participatory_structure: Hvordan blir det bestemt
         private_space: Dette er en privat prosess
+        related_processes: Relaterte prosesser
         scope: Omfang
         start_date: Startdato
         target: Hvem deltar
@@ -386,17 +390,20 @@
         comments_count: Kommentarer
         debates_count: Debatter
         endorsements_count: Påtegnelser
+        followers_count: Følgere
         headline: Aktivitet
         meetings_count: Møter
+        no_stats: Det finnes ingen statistikk enda.
         orders_count: Støtter
         pages_count: Sider
+        participants_count: Deltakere
         processes_count: Prosesser
         projects_count: Prosjekter
         proposals_count: Forslag
         results_count: Resultater
+        supports_count: Støtter
         surveys_count: Undersøkelse
         users_count: Deltakere
-        votes_count: Støtter
   layouts:
     decidim:
       participatory_process_groups:

@@ -58,17 +58,11 @@ sv:
           edit:
             title: Redigera resultat
             update: Uppdatera resultat
-          form:
-            add_proposal: Lägg till förslag
           index:
             title: Resultat
           new:
             create: Skapa resultat
             title: Nytt resultat
-          proposals:
-            close: Stäng
-            current_selection: Aktuellt urval
-            select: Välj
           update:
             invalid: Det gick inte att uppdatera det här resultatet
             success: Resultatet har uppdaterats
@@ -157,30 +151,16 @@ sv:
         show:
           stats:
             attendees: Deltagare
-            back_to_result: Gå tillbaka till resultatet
+            back_to_resource: Gå tillbaka till resultatet
             comments: Kommentarer
             contributions: Bidrag
             last_edited_by: Senast ändrad av
             last_updated_at: Senast uppdaterad den
             meetings: Möten
-            number_of_versions: Versioner
             proposals: Förslag
-            show_all_versions: Visa alla versioner
-            version_author: Versionsförfattare
-            version_created_at: Version skapad
-            version_number: Versionsnummer
-            version_number_out_of_total: "%{current_version} av %{total_count}"
-            votes: Stöder
+            votes: Stöd
         timeline:
           title: Projektutveckling
-      versions:
-        index:
-          changes_at_title: Ändringar vid "%{title}"
-          title: Versioner
-        show:
-          changes_at_title: Ändringar vid "%{title}"
-        version:
-          version_index: Version %{index}
     components:
       accountability:
         name: Ansvarsskyldighet
@@ -199,7 +179,7 @@ sv:
       accountability:
         proposal_linked:
           email_intro: 'Förslaget "%{proposal_title}" har tagits med i ett resultat. Visa det från den här sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer "%{proposal_title}". Du kan sluta att ta emot meddelanden genom att följa föregående länk.
+          email_outro: Du har fått det här meddelandet eftersom du följer "%{proposal_title}". Du kan sluta att ta emot meddelanden genom att följa föregående länk.
           email_subject: En uppdatering till %{proposal_title}
           notification_title: Förslaget <a href="%{proposal_path}">%{proposal_title}</a> har tagits med i resultatet <a href="%{resource_path}">%{resource_title}</a>.
         result_progress_updated:

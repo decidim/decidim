@@ -26,8 +26,11 @@ it:
       initiatives_committee_member:
         user: membro del Comitato
       initiatives_type:
+        area_enabled: Abilita gli autori a scegliere l'area per la loro iniziativa
+        attachments_enabled: Abilita allegati
         banner_image: Immagine banner
         collect_user_extra_fields: Raccogliere dati personali dell'utente alla firma
+        custom_signature_end_date_enabled: Consenti agli autori di scegliere la fine del periodo di raccolta della firma
         description: Descrizione
         document_number_authorization_handler: Autorizzazione a verificare il numero del documento sui voti
         extra_fields_legal_information: Informazioni legali sulla raccolta di dati personali
@@ -46,6 +49,14 @@ it:
         address: Indirizzo
         id_document: Documento di identità
         name: Nome completo
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: File non valido
+              needs_to_be_reattached: Necessita di essere riallegato
+              title: Il nome non dovrebbe essere vuoto
   activerecord:
     models:
       decidim/initiative:
@@ -61,17 +72,33 @@ it:
     admin:
       actions:
         new_initiative_type: Nuovo tipo di iniziativa
+      filters:
+        decidim_area_id_eq:
+          label: Area
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Cerca %{collection} per titolo, descrizione, ID o nome dell'autore.
+        state_eq:
+          values:
+            accepted: Firme sufficienti
+            created: Creato
+            discarded: Discarded
+            published: Pubblicato
+            rejected: Firme non sufficienti
+            validating: Convalida tecnica
+        type_id_eq:
+          label: Tipo
       menu:
-        initiatives: iniziative
+        initiatives: Iniziative
         initiatives_types: Tipi di iniziativa
       models:
         initiatives:
           fields:
             created_at: Creato a
             id: ID
+            published_at: Pubblicato il
             state: Stato
             supports_count: firme
-            title: iniziative
+            title: Iniziative
         initiatives_type_scope:
           fields:
             scope: Scopo
@@ -97,10 +124,16 @@ it:
             time_and_date: Ora e data
             timestamp: timestamp
       titles:
-        initiatives: iniziative
+        initiatives: Iniziative
         initiatives_types: Tipi di iniziativa
     events:
       initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: L'iniziativa "%{resource_title}" è stata inviata alla convalida tecnica. Controlla il <a href="%{admin_initiative_url}">pannello di amministrazione</a>
+            email_outro: Hai ricevuto questa notifica perché sei un amministratore della piattaforma.
+            email_subject: L'iniziativa%{resource_title}" è stata inviata alla convalida tecnica.
+            notification_title: L'iniziativa "%{resource_title}" è stata inviata alla convalida tecnica. Controlla il <a href="%{admin_initiative_path}">pannello di amministrazione</a>
         initiative_extended:
           email_intro: La data di fine delle firme per l'iniziativa %{resource_title} è stata estesa!
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{resource_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
@@ -117,24 +150,29 @@ it:
             email_outro: Hai ricevuto questa notifica perché stai seguendo %{resource_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
             email_subject: Nuova pietra miliare completata!
             notification_title: L'iniziativa <a href="%{resource_path}">%{resource_title}</a> ha raggiunto il %{percentage}% delle firme.
+        support_threshold_reached:
+          email_intro: L'iniziativa %{resource_title} ha raggiunto la soglia di supporto
+          email_outro: Hai ricevuto questa notifica perché sei un amministratore della piattaforma.
+          email_subject: Soglia di supporto raggiunta
+          notification_title: L'iniziativa <a href="%{resource_path}">%{resource_title}</a> ha raggiunto la soglia di supporto
     gamification:
       badges:
         initiatives:
           conditions:
             - Vai allo spazio di partecipazione delle iniziative
             - Segui i passaggi per creare una nuova iniziativa
-          description: Questo badge è garantito quando lanci nuove iniziative, collaborando con altri per realizzarle.
+          description: Questo badge viene concesso quando si lanciano nuove iniziative, collaborando con gli altri per realizzarle.
           description_another: Questo utente ha ottenuto %{score} iniziative pubblicate.
           description_own: Hai pubblicato %{score} iniziative.
           name: Iniziative pubblicate
-          next_level_in: Ricevi altre %{score} iniziative pubblicate per raggiungere il livello successivo!
+          next_level_in: Ottieni %{score} altre iniziative pubblicate per raggiungere il livello successivo!
           unearned_another: Questo utente non ha ancora ottenuto alcuna iniziativa pubblicata.
           unearned_own: Non hai ancora pubblicato nessuna iniziativa.
     help:
       participatory_spaces:
         initiatives:
-          contextual: "<p>Un'iniziativa è una proposta che può essere promossa da chiunque di propria iniziativa (indipendentemente da altri canali o spazi di partecipazione) attraverso la raccolta di firme (digitali) per l'organizzazione per svolgere un'azione specifica (modificare un regolamento, avviare un progetto , cambia il nome di un reparto o di una strada, ecc.).</p> <p>I promotori di un'iniziativa possono definire i propri obiettivi, raccogliere supporto, discutere, diffonderlo e definire i punti di incontro in cui raccogliere le firme dai partecipanti o dai dibattiti aperti agli altri partecipanti.</p> <p>Esempi: un'iniziativa può raccogliere firme per convocare una consultazione tra tutte le persone di un'organizzazione, o per creare o convocare un'assemblea, o per avviare un processo di aumento del budget per un territorio o un'area dell'organizzazione. Durante il processo di raccolta delle firme, più persone possono aggiungere a questa domanda e portarla avanti nell'organizzazione.</p>\n"
-          page: "<p>Un'iniziativa è una proposta che può essere promossa da chiunque di propria iniziativa (indipendentemente da altri canali o spazi di partecipazione) attraverso la raccolta di firme (digitali) per l'organizzazione per svolgere un'azione specifica (modificare un regolamento, avviare un progetto , cambia il nome di un reparto o di una strada, ecc.).</p> <p>I promotori di un'iniziativa possono definire i propri obiettivi, raccogliere supporto, discutere, diffonderlo e definire i punti di incontro in cui raccogliere le firme dai partecipanti o dai dibattiti aperti agli altri partecipanti.</p> <p>Esempi: un'iniziativa può raccogliere firme per convocare una consultazione tra tutte le persone di un'organizzazione, o per creare o convocare un'assemblea, o per avviare un processo di aumento del budget per un territorio o un'area dell'organizzazione. Durante il processo di raccolta delle firme, più persone possono aggiungere a questa domanda e portarla avanti nell'organizzazione.</p>\n"
+          contextual: "<p>Un'iniziativa è una proposta, che può essere promossa da chiunque (indipendentemente da altri canali o spazi di partecipazione), attraverso la raccolta di firme (digitali) per svolgere un'azione specifica (modificare un regolamento, avviare un progetto, cambia il nome di un reparto o di una strada, ecc.).</p> <p>I promotori di un'iniziativa possono definire i propri obiettivi, raccogliere supporto, discutere, diffonderla e definire i punti di incontro in cui raccogliere le firme dai partecipanti o dai dibattiti aperti agli altri partecipanti.</p> <p>Esempi: un'iniziativa può raccogliere firme per convocare una consultazione tra tutte le persone di un'organizzazione, o per formare o convocare un'assemblea, o per avviare un processo di raccolta fondi per un territorio o un settore dell'organizzazione. Durante il processo di raccolta delle firme, più persone possono associarsi a questa iniziativa e portarla avanti.</p>\n"
+          page: "<p>Un'iniziativa <strong></strong> è una proposta che può essere promossa da chiunque (indipendentemente dagli altri canali o spazi di partecipazione) attraverso la raccolta di firme (digitali) affinché l'organizzazione possa svolgere un'azione specifica (modificare un regolamento, avviare un progetto, cambia il nome di un reparto o di una strada, ecc.).</p> <p>I promotori di un'iniziativa possono definire i propri obiettivi, raccogliere supporto, discutere, condividerla e definire i punti di incontro in cui raccogliere le firme dai sostenitori o nei dibattiti aperti ad altri partecipanti.</p> <p>Esempi: un'iniziativa può raccogliere le firme per convocare una consultazione tra tutte le persone di un'organizzazione, o per formare o convocare un'assemblea, o per avviare un processo di aumento del budget per un territorio o un'area dell'organizzazione. Durante il processo di raccolta delle firme, più persone possono supportare questa iniziativa e portarla avanti nell'organizzazione.</p>\n"
           title: Quali sono le iniziative?
     initiatives:
       actions:
@@ -148,7 +186,7 @@ it:
             created_at: Creato a
             description: Descrizione
             initiative_votes_count: Contare i voti
-            initiatives: iniziative
+            initiatives: Iniziative
             state: Stato
         committee_requests:
           index:
@@ -161,6 +199,8 @@ it:
         content_blocks:
           highlighted_initiatives:
             max_results: Quantità massima di elementi da mostrare
+        exports:
+          initiatives: Iniziative
         initiatives:
           edit:
             accept: Accetta l'iniziativa
@@ -178,6 +218,11 @@ it:
             actions_title: Azione
             preview: Anteprima
             print: Stampare
+          initiative_attachments:
+            documents: Documenti
+            edit: Modifica
+            new: Nuovo
+            photos: Foto
           show:
             print: Stampare
           update:
@@ -229,12 +274,26 @@ it:
           unpublish: "%{user_name} ha scartato l'iniziativa %{resource_name}"
           update: "%{user_name} ha aggiornato l'iniziativa %{resource_name}"
       admin_states:
-        accepted: Accettato
+        accepted: Firme sufficienti
         created: Creato
         discarded: Discarded
         published: Pubblicato
-        rejected: Respinto
+        rejected: Firme non sufficienti
         validating: Convalida tecnica
+      application_helper:
+        filter_area_values:
+          all: Tutti
+        filter_scope_values:
+          all: Tutti
+        filter_state_values:
+          accepted: Firme sufficienti
+          all: Tutti
+          answered: Risposto
+          closed: Chiuso
+          open: Aperto
+          rejected: Firme non sufficienti
+        filter_type_values:
+          all: Tutti
       committee_requests:
         new:
           continue: Continua
@@ -251,15 +310,19 @@ it:
           fill_data_help: "<ul> <li>Rivedi il contenuto della tua iniziativa. Il tuo titolo è facile da capire? L'obiettivo della tua iniziativa è chiaro?</li> <li>Devi scegliere il tipo di firma. Di persona, online o una combinazione di entrambi</li> <li>Qual è lo scopo geografico dell'iniziativa? Città, distretto?</li> </ul>"
           initiative_type: Tipo di iniziativa
           more_information: "(Maggiori informazioni)"
+          select_area: Seleziona un'area
           select_scope: Seleziona un ambito
         finish:
           back: Indietro
           back_to_initiatives: Torna alle iniziative
           callout_text: Complimenti! La tua iniziativa cittadina è stata creata con successo.
+          confirm: Conferma
+          edit_my_initiative: Modifica le mie iniziative
           go_to_my_initiatives: Vai alle mie iniziative
           more_information: "(Maggiori informazioni)"
+          send_my_initiative: Invia la mia iniziativa
         finish_help:
-          access_reminder: Ricorda che sarai sempre in grado di accedere alle tue iniziative attraverso il menu utente.
+          access_reminder: Ricorda che potrai sempre accedere alle tue iniziative attraverso il menu utente.
           help_for_organizations: Se sei un'associazione dovrai caricare i verbali del consiglio di amministrazione di tutte le organizzazioni che formano la Commissione Promotrice
           help_in_person_signatures: Se hai scelto di raccogliere le firme di persona o combinato con online, dovrai caricare le informazioni richieste.
           help_text: Ricorda che per elaborare correttamente l'iniziativa devi accedere al pannello di amministrazione dove troverai il menu utente, caricare le informazioni richieste e inviarlo per l'elaborazione.
@@ -279,13 +342,13 @@ it:
           choose_html: Voglio creare uno <strong>%{title}</strong>
           more_information: "(Maggiori informazioni)"
           select: Voglio promuovere questa iniziativa
-          select_initiative_type_help: Le iniziative dei cittadini sono un mezzo attraverso il quale la cittadinanza può intervenire in modo che il Consiglio comunale possa intraprendere azioni in difesa dell'interesse generale che rientrano nei campi di giurisdizione municipale. Quale iniziativa vuoi lanciare?
+          select_initiative_type_help: Le iniziative dei cittadini sono strumenti attraverso cui intervenire in modo che il Consiglio comunale possa intraprendere azioni in difesa dell'interesse generale, nei settori di competenza comunale. Quale iniziativa vuoi lanciare?
         share_committee_link:
           continue: Continua
           invite_to_committee_help: Link per invitare persone che faranno parte del comitato promotore
         show_similar_initiatives:
           back: Indietro
-          compare_help: Se una qualsiasi delle seguenti iniziative è simile alla tua, ti incoraggiamo a supportarla. La tua proposta avrà più possibilità di essere completata.
+          compare_help: Se una qualsiasi delle seguenti iniziative è simile alla tua, ti incoraggiamo a supportarla. La tua proposta avrà più possibilità di essere scelta.
           continue: La mia iniziativa è diversa
           more_information: "(Maggiori informazioni)"
       events:
@@ -300,7 +363,7 @@ it:
           email_subject: Iniziativa approvata da %{author_nickname}
           notification_title: L'iniziativa <a href="%{resource_path}">%{resource_title}</a> è stata approvata da <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
-        title: iniziative
+        title: Iniziative
       initiative_signatures:
         fill_personal_data:
           continue: Continua
@@ -341,14 +404,13 @@ it:
             other: "%{count} iniziative"
         filters:
           any: Qualunque
+          area: Area
           author: Autore
-          closed: Chiuso
           myself: Le mie iniziative
-          open: Aperto
+          scope: Scopo
           search: Ricerca
           state: Stato
           type: genere
-          type_prompt: Seleziona un tipo
         filters_small_view:
           close_modal: Chiudi la finestra
           filter: Filtro
@@ -367,6 +429,7 @@ it:
           most_voted: Più firmato
           random: Casuale
           recent: Piu recente
+          recently_published: Pubblicati più di recente
         result:
           answer_title:
             accepted: Questa proposta è stata accettata perché
@@ -410,8 +473,6 @@ it:
         promotal_committee_help: Ricorda che devi invitare almeno %{member_count} persone al comitato promotore. Inoltra il seguente link per invitare le persone al comitato promotore
         status_change_body_for: 'L''iniziativa %{title} ha cambiato il suo stato in: %{state}'
         status_change_for: L'iniziativa %{title} ha cambiato il suo stato
-        technical_validation_body_for: L'iniziativa %{title} ha richiesto la sua convalida tecnica.
-        technical_validation_for: L'iniziativa %{title} ha richiesto la sua convalida tecnica.
       last_activity:
         new_initiative: Nuova iniziativa
       pages:
@@ -419,12 +480,23 @@ it:
           highlighted_initiatives:
             active_initiatives: Iniziative attive
             see_all_initiatives: Vedi tutte le iniziative
+      show:
+        badge_name:
+          accepted: Firme sufficienti
+          created: Creata
+          discarded: Scartato
+          published: Pubblicato
+          rejected: Firme non sufficienti
+          validating: Convalida tecnica
       states:
         accepted: Accettato
         expired: Scaduto
       unavailable_scope: Ambito non disponibile
+      versions:
+        shared:
+          back_to_resource: Torna all'iniziativa
     menu:
-      initiatives: iniziative
+      initiatives: Iniziative
     resources:
       initiatives_type:
         actions:

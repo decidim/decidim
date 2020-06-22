@@ -19,6 +19,14 @@ module Decidim
           .or(query.where(localized_search_text_in(:description), text: "%#{search_text}%"))
       end
 
+      def search_category_id
+        super
+      end
+
+      def search_scope_id
+        super
+      end
+
       # Returns the random projects for the current page.
       def results
         Project.where(id: super.pluck(:id))

@@ -28,6 +28,7 @@ module Decidim
         attribute :image
         attribute :born_at, Date
         attribute :start_time, DateTime
+        attribute :scopes, [::Decidim::Scope]
 
         translatable_attribute :name, String
         translatable_attribute :short_description, String
@@ -102,6 +103,29 @@ module Decidim
           it "renders a single input" do
             expect(parsed.css("label[for='resource_name_en']")).not_to be_empty
             expect(parsed.css("textarea[name='resource[name_en]']")).not_to be_empty
+          end
+        end
+      end
+
+      context "when a text field with hashtaggable option" do
+        let(:output) do
+          available_locales.each do |loc|
+            resource.name[loc] = "dummy name value #{loc}"
+          end
+          builder.translated :text_field, :name, hashtaggable: true
+        end
+
+        it "renders a multilingual input with correct value" do
+          available_locales.each do |loc|
+            expect(parsed.css("input[type='text'][value='dummy name value #{loc}']")).not_to be_empty
+          end
+        end
+
+        context "with a single locale" do
+          let(:available_locales) { %w(en) }
+
+          it "renders a single input" do
+            expect(parsed.css("input[type='text'][value]").first.attributes["value"].value).not_to be_empty
           end
         end
       end
@@ -581,6 +605,37 @@ module Decidim
           it "doesn't render the delete checkbox" do
             expect(parsed.css('input[type="checkbox"]')).to be_empty
           end
+        end
+      end
+
+      context "when :dimensions_info is passed as option" do
+        let(:attributes) { { dimensions_info: { medium: { processor: :resize_to_fit, dimensions: [100, 100] } } } }
+        let(:output) { builder.upload :image, attributes }
+
+        it "renders help message" do
+          html = output
+          expect(html).to include("<span>This image will be:</span>")
+          expect(html).to include("<span>Resized to fit</span>")
+          expect(html).to include("<b>100 x 100 px</b>")
+          expect(parsed.css("p.help-text")).not_to be_empty
+        end
+      end
+    end
+
+    describe "#data_picker" do
+      context "when used without options" do
+        let(:options) { {} }
+        let(:prompt_params) { {} }
+        let(:output) do
+          builder.data_picker(:scopes, options, prompt_params)
+        end
+
+        before do
+          expect(helper).to receive(:render).and_return("[rendering]")
+        end
+
+        it "renders a hidden field and a container for the editor" do
+          expect(parsed.css("label[for='resource_scopes']").text).to eq("Scopes")
         end
       end
     end

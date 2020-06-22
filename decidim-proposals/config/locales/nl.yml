@@ -52,7 +52,6 @@ nl:
       decidim/proposals/creation_enabled_event: Voorstelcreatie ingeschakeld
       decidim/proposals/endorsing_enabled_event: Voorstel endorsing ingeschakeld
       decidim/proposals/evaluating_proposal_event: Dit voorstel wordt geëvalueerd
-      decidim/proposals/proposal_endorsed_event: Voorstel goedgekeurd
       decidim/proposals/proposal_mentioned_event: Voorstel vermeld
       decidim/proposals/publish_proposal_event: Voorstel gepubliceerd
       decidim/proposals/rejected_proposal_event: Voorstel afgewezen
@@ -65,9 +64,6 @@ nl:
       decidim/proposals/proposal:
         one: Voorstel
         other: voorstellen
-      decidim/proposals/proposal_endorsement:
-        one: bekrachtiging
-        other: Ondersteuningen
       decidim/proposals/proposal_note:
         one: Notitie
         other: Notes
@@ -75,6 +71,22 @@ nl:
         one: Stem
         other: stemmen
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Type
+          values:
+            'false': Voorstellen
+            'true': wijzigingen
+        state_eq:
+          label: Staat
+          values:
+            evaluating: Aan het beoordelen
+            withdrawn: Ingetrokken
+        state_null:
+          label: Status
+          values:
+            'true': Nog niet beantwoord
     components:
       proposals:
         actions:
@@ -98,8 +110,8 @@ nl:
             minimum_votes_per_user: Minimale stemmen per gebruiker
             new_proposal_help_text: Hulptekst bij de creatie van een nieuw voorstel
             official_proposals_enabled: Officiële voorstellen zijn ingeschakeld
-            participatory_texts_disabled_help: Instelling niet aanpasbaar als er bestaande voorstellen zijn. Maak een nieuwe `Voorstellen component` aan als u deze functie wilt inschakelen of wijs alle geïmporteerde voorstellen in het `Participatieve Teksten` menu af, als u de instelling wilt uitschakelen.
             participatory_texts_enabled: Participatieve teksten ingeschakeld
+            participatory_texts_enabled_readonly: Instelling niet aanpasbaar als er bestaande voorstellen zijn. Maak een nieuwe `Voorstellen component` aan als u deze functie wilt inschakelen of wijs alle geïmporteerde voorstellen in het `Participatieve Teksten` menu af, als u de instelling wilt uitschakelen.
             proposal_answering_enabled: Reacties op voorstellen ingeschakeld
             proposal_edit_before_minutes: Voorstellen kunnen door auteurs worden bewerkt voordat de tijd (uitgedrukt in minuten) verstreken is
             proposal_length: Maximum aantal tekens voor een voorstel
@@ -121,6 +133,7 @@ nl:
             amendments_visibility: Zichtbaarheid van amendement
             amendments_visibility_help: Als de optie "alleen zichtbaar voor de auteurs" wordt geselecteerd, moet een deelnemer aangemeld zijn om de amendementen te zien.
             announcement: Aankondiging
+            answers_with_costs: Kosten inschakelen bij antwoorden op voorstel
             automatic_hashtags: Hashtags toegevoegd aan alle voorstellen
             comments_blocked: Reacties geblokkeerd
             creation_enabled: Creatie nieuw voorstel toegestaan
@@ -184,11 +197,6 @@ nl:
             email_outro: Je hebt deze melding ontvangen omdat je "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
             email_subject: Een voorstel dat je volgt, is geaccepteerd
             notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is geaccepteerd.
-        proposal_endorsed:
-          email_intro: '%{endorser_name} %{endorser_nickname}, wie je volgt, heeft zojuist het ''%{resource_title}voorstel goedgekeurd en we denken dat het misschien interessant voor je is. Bekijk het en draag bij:'
-          email_outro: Je hebt deze melding ontvangen omdat je volgt %{endorser_nickname}. Meldingen uitschakelen kan door te klikken op de voorgaande link.
-          email_subject: "%{endorser_nickname} heeft een nieuw voorstel goedgekeurd"
-          notification_title: Het <a href="%{resource_path}">%{resource_title}</a> voorstel is goedgekeurd door <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           affected_user:
             email_intro: 'Uw voorstel "%{resource_title}" wordt momenteel geëvalueerd. U kunt op deze pagina zoeken naar een antwoord:'
@@ -201,7 +209,6 @@ nl:
             email_subject: Een voorstel dat je volgt, wordt geëvalueerd
             notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> wordt beoordeeld.
         proposal_mentioned:
-          email_intro: Je voorstel '%{mentioned_proposal_title}' werd in de reacties van <a href="%{resource_path}"> de ruimte </a> vernoemd.
           email_outro: U hebt deze melding ontvangen omdat u een auteur bent van "%{resource_title}".
           email_subject: Jouw voorstel "%{mentioned_proposal_title}" is vernoemd
           notification_title: Je voorstel '%{mentioned_proposal_title}' werd in de reacties van <a href="%{resource_path}"> deze </a> vernoemd.
@@ -231,6 +238,8 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je de auteur bent van het voorstel.
           email_subject: De categorie van het %{resource_title} voorstel is bijgewerkt
           notification_title: De categorie van het <a href="%{resource_path}">%{resource_title}</a> voorstel is bijgewerkt door een beheerder.
+        proposal_update_scope:
+          email_outro: Je hebt deze melding ontvangen omdat je de auteur bent van het voorstel.
         voting_enabled:
           email_intro: 'U kunt op voorstellen in %{participatory_space_title} stemmen! Neem deel via deze pagina:'
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Schakel de meldingen uit door te klikken op de voorgaande link.
@@ -297,12 +306,10 @@ nl:
         see_all: Alles zien (%{count})
     proposals:
       actions:
-        answer: Antwoord
         edit_proposal: Bewerk voorstel
         import: Importeren vanuit een ander onderdeel
         new: Nieuw voorstel
         participatory_texts: Participatieve teksten
-        private_notes: Privé-opmerkingen
         title: Acties
       admin:
         actions:
@@ -347,11 +354,11 @@ nl:
           update:
             success: Participatieve tekst succesvol bijgewerkt.
         proposal_answers:
-          edit:
+          form:
             accepted: Aanvaard
             answer_proposal: Antwoord
             evaluating: Aan het beoordelen
-            rejected: Verworpen
+            rejected: Geweigerd
             title: Antwoord voor voorstel %{title}
         proposal_notes:
           create:
@@ -373,10 +380,8 @@ nl:
             title: Voorstel bijwerken
             update: Bijwerken
           form:
-            add_images: Afbeeldingen toevoegen
             attachment_legend: "(Optioneel) Een bijlage toevoegen"
             created_in_meeting: Dit voorstel komt uit een vergadering
-            gallery_legend: "(Optioneel) Voeg een beeldgalerij toe"
             select_a_category: Kies een categorie
             select_a_meeting: Selecteer een vergadering
           index:
@@ -385,6 +390,7 @@ nl:
             change_category: Categorie wijzigen
             merge: Samenvoegen met een nieuwe
             merge_button: Samensmelten
+            publish: Publiceren
             select_component: Selecteer een component
             selected: Geselecteerd
             split: Voorstellen splitsen
@@ -394,11 +400,19 @@ nl:
           new:
             create: Creëren
             title: Maak een voorstel
+          publish_answers:
+            select_a_proposal: Selecteer een voorstel
+          show:
+            authors: auteurs
+            body: Tekstgedeelte
+            created_at: Aangemaakt op
+            proposals: Voorstellen
+            votes_count: Aantal stemmen
           update_category:
-            invalid: 'Deze voorstellen hadden al de %{category} categorie: %{proposals}.'
             select_a_category: Gelieve een categorie te selecteren
             select_a_proposal: Selecteer een voorstel
-            success: 'Voorstellen succesvol bijgewerkt naar de %{category} categorie: %{proposals}.'
+          update_scope:
+            select_a_proposal: Selecteer een voorstel
         proposals_imports:
           create:
             invalid: Er is een probleem opgetreden bij het importeren van de voorstellen
@@ -416,12 +430,6 @@ nl:
           create:
             invalid: Er is een fout opgetreden bij het splitsen van de geselecteerde voorstellen.
             success: De voorstellen succesvol gesplitst in nieuwe.
-        shared:
-          info_proposal:
-            body: Tekstgedeelte
-            created_at: Aangemaakt op
-            proposal_votes_count: Aantal stemmen
-            proposals: Voorstellen
       admin_log:
         proposal:
           answer: "%{user_name} beantwoordde het voorstel %{resource_name} op de %{space_name} ruimte"
@@ -436,17 +444,21 @@ nl:
         rejected: Geweigerd
         withdrawn: Ingetrokken
       application_helper:
+        filter_category_values:
+          all: Alle
         filter_origin_values:
           all: Alle
           citizens: Burgers
           meetings: vergaderingen
           official: Officieel
           user_groups: Groepen
+        filter_scope_values:
+          all: Alle
         filter_state_values:
           accepted: Aanvaard
           all: Alle
           evaluating: Evalueren
-          except_rejected: Alles behalve afgewezen
+          not_answered: Nog niet beantwoord
           rejected: Afgewezen
         filter_type_values:
           all: Alle
@@ -495,10 +507,10 @@ nl:
           all: Alle
           amendment: wijzigingen
           category: Categorie
-          category_prompt: Categorie Prompt
           open: Open
           published: Gepubliceerd
           related_to: Gerelateerd aan
+          scope: Scope
           search: Zoeken
           state: Status
           withdrawn: teruggetrokken
@@ -540,14 +552,11 @@ nl:
             one: en nog %{count} persoon
             other: en nog %{count} personen
           info-message: Dit is een <strong>concept</strong> voor een voorstel. Dit betekent dat u hun auteurs kunt helpen om het voorstel vorm te geven door gebruik te maken van de commentaarsectie hieronder of het direct te verbeteren door toegang aan te vragen om het te bewerken. Zodra de auteurs u toegang verlenen, kunt u wijzigingen aanbrengen in dit concept.
-          of_versions: "(van %{number})"
           publish: Publiceren
           publish_info: Publiceer deze versie van het concept of
           published_proposal: gepubliceerd voorstel
           request_access: Toegang vragen
           requested_access: Toegang aangevraagd
-          see_other_versions: zie andere versies
-          version: Versie %{number}
           version_history: bekijk versiegeschiedenis voor dit voorstel
           withdraw: het ontwerp terugtrekken
         states:
@@ -584,7 +593,6 @@ nl:
           fields:
             category: Categorie
             comments: Reacties
-            endorsements: Goedkeuringen
             id: ID
             notes: Opmerkingen
             official_proposal: Officieel voorstel
@@ -601,18 +609,6 @@ nl:
           amend: Wijzigen
           comment: Commentaar
           comments: Commentaren
-          endorse: Onderschrijven
-      proposal_endorsements:
-        create:
-          error: Er zijn fouten opgetreden tijdens het aanbevelen van het voorstel.
-        identities:
-          done: Klaar
-          select_identity: Selecteer gebruiker
-      proposal_endorsements_helper:
-        endorsement_button:
-          already_endorsed: Aanbevolen
-          endorse: Aanbevelen
-        render_endorsements_button_card_part:
           endorse: Onderschrijven
       proposal_votes:
         create:
@@ -640,21 +636,18 @@ nl:
           discard_confirmation: Weet je zeker dat je dit voorstel wilt verwijderen?
           send: Voorbeeldweergave
           title: Bewerk voorstel
-        endorsement_identities_cabin:
-          endorse: Aanbevelen
-        endorsements_card_row:
-          comments: Commentaren
         filters:
           activity: Mijn activiteit
           all: Alle
           amendment_type: Type
           category: Categorie
-          category_prompt: Kies een categorie
           my_proposals: Mijn voorstellen
           origin: Oorsprong
           related_to: Gerelateerd aan
+          scope: Scope
           search: Zoeken
           state: Status
+          type: Type
           voted: Gestemd
         filters_small_view:
           close_modal: Dialoogvenster sluiten
@@ -698,10 +691,13 @@ nl:
           creation_date: 'Aangemaakt op: %{date}'
           view_proposal: Bekijk voorstel
         show:
+          answer: Antwoord
           back_to: Terug naar
           changes_at_title: Amendement op "%{title}"
+          comments: Reacties
           edit_proposal: Bewerk voorstel
           endorsements_list: Lijst met aanbevelingen
+          estimated_cost: Geschatte kosten
           hidden_endorsers_count:
             one: en nog %{count} persoon
             other: en nog %{count} mensen
@@ -714,13 +710,12 @@ nl:
           proposal_accepted_reason: 'Dit voorstel is geaccepteerd omdat:'
           proposal_in_evaluation_reason: Dit voorstel wordt geëvalueerd
           proposal_rejected_reason: 'Dit voorstel is afgewezen omdat:'
+          read_less: Minder lezen
+          read_more: Lees meer
           report: Rapporteren
           withdraw_btn_hint: Je kan je voorstel intrekken als je van gedacht verandert, zolang je geen hulp hebt ontvangen. Het voorstel wordt niet verwijderd; het wordt weergegeven in de lijst met ingetrokken voorstellen.
           withdraw_confirmation: Ben je zeker dat je dit voorstel wilt intrekken?
           withdraw_proposal: Voorstel intrekken
-        tags:
-          changed_from: "(gewijzigd van <u>%{previous_category}</u> door een beheerder)"
-          filed_as: Gemarkeerd als
         vote_button:
           already_voted: Al gestemd
           already_voted_hover: Stem Intrekken
@@ -770,20 +765,12 @@ nl:
         error: Er is een fout opgetreden bij het opslaan van het gezamenlijk concept.
         success: Concept succesvol bijgewerkt.
       versions:
-        changes_at_title: Veranderingen bij "%{title}"
+        collaborative_drafts:
+          back_to_resource: Ga terug naar de gezamenlijk ontwerp
         index:
           title: versies
-        stats:
-          back_to_collaborative_draft: Ga terug naar de gezamenlijk ontwerp
-          back_to_proposal: Ga terug naar het voorstel
-          number_of_versions: versies
-          show_all_versions: Toon alle versies
-          version_author: Versie auteur
-          version_created_at: Versie gemaakt om
-          version_number: Versienummer
-          version_number_out_of_total: "%{current_version} van de %{total_count}"
-        version:
-          version_index: Versie %{index}
+        proposals:
+          back_to_resource: Ga terug naar het voorstel
       withdraw:
         errors:
           has_supports: Dit voorstel kan niet worden ingetrokken omdat het al wordt ondersteund.

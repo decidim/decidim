@@ -50,3 +50,11 @@
     vertical-align: middle;
   }
 }
+
+.profile--sidebar--title{
+  font-size: 1.25rem;
+
+  a:focus{
+    outline: 2px solid $secondary;
+  }
+}

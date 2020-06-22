@@ -12,6 +12,7 @@ module Decidim
       include Decidim::MetaTagsHelper
       include Decidim::MapHelper
       include Decidim::Admin::LogRenderHelper
+      include Decidim::Admin::UserRolesHelper
 
       def title
         current_organization.name

@@ -273,7 +273,7 @@ describe "Support Proposal", type: :system, slow: true do
       end
     end
 
-    context "when the proposal is rejected" do
+    context "when the proposal is rejected", :slow do
       let!(:rejected_proposal) { create(:proposal, :rejected, component: component) }
 
       before do
@@ -283,8 +283,13 @@ describe "Support Proposal", type: :system, slow: true do
       it "cannot be voted" do
         visit_component
 
-        choose "Rejected", name: "filter[state]"
-        page.find_link(rejected_proposal.title, wait: 30)
+        within ".filters .state_check_boxes_tree_filter" do
+          check "All"
+          uncheck "All"
+          check "Rejected"
+        end
+
+        page.find_link rejected_proposal.title
         expect(page).to have_no_selector("#proposal-#{rejected_proposal.id}-vote-button")
 
         click_link rejected_proposal.title

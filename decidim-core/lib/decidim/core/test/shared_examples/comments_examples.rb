@@ -9,7 +9,11 @@ shared_examples "comments" do
     switch_to_host(organization.host)
   end
 
-  it "shows the list of comments for the resorce" do
+  after do
+    expect_no_js_errors
+  end
+
+  it "shows the list of comments for the resource" do
     visit resource_path
 
     expect(page).to have_selector("#comments")
@@ -227,6 +231,15 @@ shared_examples "comments" do
 
         it "do not show the tribute container" do
           expect(page).not_to have_selector(".tribute-container")
+        end
+      end
+
+      context "when mentioning a group" do
+        let!(:mentioned_group) { create(:user_group, :confirmed, organization: organization) }
+        let(:content) { "A confirmed user group mention: @#{mentioned_group.nickname}" }
+
+        it "shows the tribute container" do
+          expect(page).to have_selector(".tribute-container")
         end
       end
     end

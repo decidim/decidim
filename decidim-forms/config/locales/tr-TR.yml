@@ -30,10 +30,12 @@ tr:
             statement: Beyan
           edit:
             save: Kayıt etmek
-            title: Başlık
           form:
             add_question: Soru ekle
             already_answered_warning: Form, bazı kullanıcılar tarafından zaten yanıtlandı, bu nedenle sorularını değiştiremezsiniz.
+          matrix_row:
+            remove: Kaldır
+            statement: Beyan
           question:
             add_answer_option: Cevap seçeneği ekle
             any: herhangi
@@ -65,7 +67,6 @@ tr:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Formu yanıtlamak için</a> veya <a href="%{sign_up_link}">hesabınızla giriş yapın</a>.
             title: Formu cevapla
-          are_you_sure: Bu işlem geri alınamaz ve cevaplarınızı düzenleyemezsiniz. Emin misiniz?
           questionnaire_answered:
             body: Bu formu zaten cevapladınız.
             title: Zaten cevaplandı
@@ -75,8 +76,11 @@ tr:
           questionnaire_for_private_users:
             body: Form yalnızca özel kullanıcılar tarafından kullanılabilir
             title: Form kapatıldı
-          submit: Gönder
           tos_agreement: Katılarak Hizmet Şartlarını kabul etmiş olursunuz.
+      step_navigation:
+        show:
+          are_you_sure: Bu işlem geri alınamaz ve cevaplarınızı düzenleyemezsiniz. Emin misiniz?
+          submit: Gönder
       user_answers_serializer:
         created_at: Yanıtlandı
         id: Cevap kimliği

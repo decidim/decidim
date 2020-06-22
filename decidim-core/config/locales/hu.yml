@@ -33,6 +33,7 @@ hu:
       decidim/profile_updated_event: Profil frissítve
       decidim/promote_to_admin: A csoport adminisztrátora
       decidim/removed_from_group: Eltávolítva a csoportból
+      decidim/resource_endorsed_event: Erőforrás jóváhagyva
   activerecord:
     attributes:
       decidim/user:
@@ -46,6 +47,9 @@ hu:
       decidim/amendment:
         one: Módosítás
         other: Módosítások
+      decidim/endorsement:
+        one: Jóváhagyás
+        other: Jóváhagyások
       decidim/user:
         one: Résztvevő
         other: Résztvevők
@@ -57,6 +61,7 @@ hu:
     'true': 'Igen'
   carrierwave:
     errors:
+      general: Hiba történt a kép feldolgozásakor
       image_too_big: A kép mérete túl nagy
   date:
     formats:
@@ -66,6 +71,9 @@ hu:
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
+    accessibility:
+      logo: "%{organization} hivatalos logója"
+      skip_button: Ugrás a fő tartalomra
     account:
       data_portability_export:
         file_no_exists: Fájl nem létezik
@@ -134,13 +142,14 @@ hu:
         invite: "%{user_name} meghívta %{resource_name} felhasználót (szerep: %{role})"
         officialize: "%{user_name} hivatalossá tette %{resource_name} felhasználót"
         remove_from_admin: "%{user_name} eltávolította %{resource_name} felhasználót, %{role} szereppel"
+        show_email: "%{user_name} lekérdezte a(z) %{resource_name} résztvevő e-mailjét"
         unofficialize: "%{user_name} visszavonta %{resource_name} hivatalosságát"
       user_group:
         reject: "%{user_name} elutasította a(z) %{resource_name} felhasználói csoport ellenőrzését"
         verify: "%{user_name} ellenőrizte a(z) %{resource_name} felhasználói csoportot"
         verify_via_csv: "%{user_name} az %{resource_name} felhasználói csoportot CSV-fájlon keresztül ellenőrizte"
     admin_terms_of_use:
-      default_body: "<h2>ADMIN FELHASZNÁLÓI FELTÉTELEK</h2><p>Bízunk benne, hogy a szokásos előadást megkaptad a helyi rendszergazdától. Ez rendszerint e három dologra bontható le:</p><ol><li>Tiszteld mások magánéletét.</li><li>Gondolkodj, mielőtt kattintasz.</li><li>A nagy hatalom, nagy felelősségvállalás jár.</li></ol>"
+      default_body: "<h2>ADMIN FELHASZNÁLÓI FELTÉTELEK</h2><p>Bízunk benne, hogy a szokásos előadást megkaptad a helyi rendszergazdától. Ez rendszerint e három dologra bontható le:</p><ol><li>Tiszteld mások magánéletét.</li><li>Gondolkodj, mielőtt kattintasz.</li><li>A nagy hatalommal, nagy felelősségvállalás is jár!</li></ol>"
     amendments:
       accepted:
         error: A módosítás elfogadása közben hiba történt.
@@ -210,9 +219,6 @@ hu:
       update_draft:
         error: Probléma merült fel a módosító javaslat frissítésével.
         success: A módosító javaslat sikeresen frissítve.
-      visibility_options:
-        all: A módosítások mindenki számára láthatóak
-        participants: A módosítások csak a szerzőik számára láthatóak
       withdraw:
         error: A módosítás létrehozásának visszavonása során hiba történt
         success: A módosítást sikeresen visszavonták
@@ -228,19 +234,26 @@ hu:
         documents:
           one: Dokumentum
           other: Dokumentumok
+      document:
+        download: Fájl letöltése
       documents:
         related_documents: Kapcsolódó dokumentumok
       photos:
         related_photos: Kapcsolódó képek
     author:
+      avatar: Profilkép
       comments:
         one: megjegyzés
         other: megjegyzések
+      endorsements:
+        one: jóváhagyás
+        other: jóváhagyások
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Ellenőriztesd magad egy "A" betűvel kezdődő útlevél számmal
         fields:
           passport_number: Útlevélszám
+          postal_code: Irányítószám
         name: Egy másik példa feljogosításra
       dummy_authorization_handler:
         explanation: Ellenőriztesd magad egy "A" betűvel kezdődő dokumentum azonosítóval
@@ -301,6 +314,18 @@ hu:
       see_less: "(kevesebb)"
       see_more: "(tovább)"
     components:
+      component_order_selector:
+        order:
+          all_types: Minden típus
+          collaborative_draft: Közös vázlat
+          comment: Megjegyzés
+          debate: Vita
+          initiative: Kezdeményezés
+          meeting: Találkozó
+          post: Bejegyzés
+          proposal: Indítvány
+          question: Kérdés
+        title: 'Mutat:'
       dummy:
         actions:
           bar: Oszlop
@@ -330,6 +355,9 @@ hu:
         name: Lábléc sub hero banner
       hero:
         name: Hero kép
+      hero_settings_form:
+        background_image: Háttérkép
+        welcome_text: Üdvözlő szöveg
       highlighted_content_banner:
         name: Kiemelt banner
       how_to_participate:
@@ -422,6 +450,15 @@ hu:
           this_application_will_not_be_able_to: 'Ez az alkalmazás nem képes erre:'
           update_profile: Frissítsd a profilod
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> szeretné használni a fiókod"
+    endorsable:
+      endorsements: Jóváhagyások
+    endorsement_buttons_cell:
+      already_endorsed: Jóváhagyva
+      endorse: Jóváhagy
+    endorsements:
+      identities:
+        done: Kész
+        select_identity: Válassz azonosítót
     errors:
       internal_server_error:
         title: Valami probléma volt a szerverrel
@@ -540,8 +577,19 @@ hu:
           email_outro: Ezt az értesítést azért kapta meg, mert tagja ennek a csoportnak.
           email_subject: Eltávolításra kerültél a %{user_group_name} csoportból!
           notification_title: Eltávolításra kerültál a <a href="%{resource_path}">%{user_group_name}</a> csoportból.
+        user_group_created:
+          email_outro: Ezt az értesítést kaptad, mert te vagy a platform adminja.
+          email_subject: Új felhasználói csoport létrehozva
+        user_group_updated:
+          email_outro: Ezt az értesítést kaptad, mert te vagy a platform adminja.
+          email_subject: Egy felhasználói csoport frissítette a profilját
       notification_event:
         notification_title: 'Új esemény itt: <a href="%{resource_path}">%{resource_title}</a>.'
+      resource_endorsed:
+        email_intro: '%{endorser_name}% {endorser_nickname}, akit követsz, éppen jóváhagyta a "%{resource_title}" -t, és úgy gondoljuk, hogy ez érdekes lehet számodra. Nézd meg, és járulj hozzá:'
+        email_outro: Azért kaptad ezt az értesítést, mert %{endorser_nickname} követed. Az előző hivatkozást követve abbahagyhatod az értesítések fogadását.
+        email_subject: "%{endorser_nickname} új jóváhagyást hajtott végre"
+        notification_title: A <a href="%{resource_path}">%{resource_title}</a> %{resource_type} a(z) <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> hagyta jóvá.
       users:
         profile_updated:
           email_intro: '%{name} (%{nickname}) (akit követsz) <a href="%{resource_url}">profil oldala</a> frissült.'
@@ -550,7 +598,7 @@ hu:
           notification_title: '%{name} (%{nickname}) (akit egyébként követsz) <a href="%{resource_path}">profil oldala</a> frissült.'
     export_mailer:
       data_portability_export:
-        click_button: 'Kattints a következő gombra az adatok letöltéséhez. <br/> A fájl eddig lesz elérhető: %{date}.'
+        click_button: 'Kattints a következő gombra az adataid letöltéséhez. <br/> A fájl eddig lesz elérhető: %{date}.<br/> Szükséged lesz egy Zip fájlt kezelő szoftverre a megnyitásához <a href=''https://www.7-zip.org/''>7-Zip</a> . Jelszó: %{password}'
         download: Letöltés
       export:
         ready: Mellékelve találod az exportálás tömörített változatát.
@@ -580,6 +628,7 @@ hu:
       create:
         button: Követés
         error: Hiba történt az erőforrás követése során.
+        participatory_space: Már követed a részvételi teret
       destroy:
         button: Követés törlése
         error: Hiba történt az erőforrás követésének visszavonásakor.
@@ -763,15 +812,29 @@ hu:
           outro: Üdvözlünk a Decidimen!
           subject: 'Új üzenetek érkeztek tőle: %{sender}'
       conversations:
+        add_conversation_users:
+          add_max_users: 'Felhasználók hozzáadása a beszélgetéshez: legfeljebb 9 felhasználó'
+          add_users_placeholder: Keres...
+          modal_title: Új beszélgetés
+          no_results: Nincs eredmény
+          participant_with_disabled_message_reception: Ez a résztvevő letiltotta az üzenetek fogadását
         create:
           error: A beszélgetés megakadt. Próbáld újra később
         index:
+          ago: óta
+          close: Modal bezárása
+          from: Feladó
+          new_conversation: Új beszélgetés
+          next: Következő
           no_conversations: Még nincsenek beszélgetések
           title: Beszélgetések
         reply:
+          placeholder: A válaszod...
           send: Elküld
           title: Válasz
         show:
+          chat_with: Beszélgetés vele
+          not_allowed: Ez a felhasználó nem fogad el több közvetlen üzenetet.
           title: 'Beszélgetés vele: %{usernames}'
         start:
           send: Küldés
@@ -798,6 +861,17 @@ hu:
         note: Ezt az emailt azért kapta meg, mert feliratkozott a(z) %{organization_name}hírlevelekre. Megváltoztathatja a beállításokat az <a href="%{link}">értesítések oldalon</a>.
         see_on_website: Nem jelenik meg rendesen? Nézd meg a <a href="%{link}" target="_blank">honlapunkon</a>.
         unsubscribe: Az ilyen emailek fogadásának kikapcsolása, <a href="%{link}" target="_blank" class="unsubscribe">Leiratkozás</a>.
+    newsletter_templates:
+      basic_only_text_settings_form:
+        body: Törzs
+      image_text_cta:
+        cta_text_preview: Felhívás szövege
+      image_text_cta_settings_form:
+        body: Törzs
+        cta_text: Felhívás gomb szövege
+        cta_url: Felhívás gomb elérési útvonala
+        introduction: Bevezetés
+        main_image: Fő kép
     newsletters:
       unsubscribe:
         check_subscription: Ha szeretnéd módosítani a beállításokat, akkor a <a href="%{link}" target="_blank">konfigurációs oldalon</a> teheted meg
@@ -823,6 +897,8 @@ hu:
       no_notifications: Még nincs értesítés.
     notifications_settings:
       show:
+        allow_public_contact: Megengedem, hogy bárki közvetlen üzenetet küldjön nekem, akkor is, ha nem követem őket.
+        direct_messages: Közvetlen üzenetek fogadása bárkitől
         email_on_notification: Mindig, amikor értesítést kapok, egy emailt is küldünk róla.
         everything_followed: Minden, amit követek
         newsletter_notifications: Szeretnék hírleveleket kapni
@@ -962,6 +1038,9 @@ hu:
       create:
         error: Hiba történt a jelentés létrehozásakor. Kérlek, próbáld újra.
         success: A jelentést létrehozása sikeres, de még egy adminisztrátora felülvizsgálja.
+    resource_endorsements:
+      create:
+        error: Hiba történt a jóváhagyási művelet során.
     scopes:
       global: Globális hatáskör
       picker:
@@ -989,8 +1068,8 @@ hu:
         unfold: Kibont
       results:
         results:
-          one: "%{count} eredmény"
-          other: "%{count} eredmény"
+          one: "%{count} találat"
+          other: "%{count} eredmények"
         view_all: Összes megtekintése (%{count})
     shared:
       embed_modal:
@@ -1031,11 +1110,10 @@ hu:
         close_window: Ablak bezárása
         share: Megosztás
         share_link: Hivatkozás megosztása
-      version_author:
-        deleted: Törölt résztvevő
     user_activity:
       index:
         no_activities_warning: Ez a résztvevő még nem végzett tevékenységet.
+    user_contact_disabled: Ez a résztvevő nem fogad el közvetlen üzeneteket.
     user_interests:
       show:
         my_interests: Érdeklődési köreim
@@ -1045,6 +1123,9 @@ hu:
       update:
         error: Hiba történt az érdeklődési körök frissítése közben.
         success: Az érdeklődési köreid sikeresen frissültek.
+    version_author:
+      show:
+        deleted: Törölt résztvevő
     welcome_notification:
       default_body: <p>Szia{{name}}, üdvözöllek és köszönöm, hogy csatlakoztál a {{organization}} szervezethez</p><ul><li>Ha gyorsan meg szeretnéd tudni, hogy mit tehetsz itt, nézd meg a <a href="{{help_url}}">Súgó</a> részt.</li><li>Miután elolvastad, megkapod az első jelvényed. Itt van egy <a href="{{badges_url}}">lista a</a> jelvényekről, melyeket akkor érdemelsz ki, ha részt veszel a {{organization}} által biztosított lehetőségekben. </li></ul> Végül, de nem utolsósorban, a platform lehetőséget biztosít, hogy kapcsolódj más emberekhez is! Oszd meg velük a tapasztalatodat a {{organization}} részvételében. Tegyél javaslatokat, megjegyzéseket, generálj konstruktív vitákat és gondold végig, hogyan járulj hozzá a közjó előmozdításához. Gyűjts érveket, hogy meggyőzz másokat, hallgass meg és olvasd el mások meggyőződést, fejezd ki ötleteidet konkrét és közvetlen módon, válaszolj türelemmel és határozottan, védd meg ötleteidet és hagyd nyitva elmédet, hogy elősegítsd az együttműködést és lehetőséget teremts más emberek ötleteinek befogadásához.</p>
       default_subject: Köszönjük, hogy csatlakoztál a {{organization}} szervezethez!

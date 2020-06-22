@@ -49,7 +49,7 @@ module Decidim
           end
 
           it "returns true if the proposal is not endorsed by the given user" do
-            create(:proposal_endorsement, proposal: subject, author: user)
+            create(:endorsement, resource: subject, author: user)
             expect(subject).to be_endorsed_by(user)
           end
         end
@@ -65,7 +65,7 @@ module Decidim
           end
 
           it "returns true if the proposal is not endorsed by the given organization" do
-            create(:proposal_endorsement, proposal: subject, author: user, user_group: user_group)
+            create(:endorsement, resource: subject, author: user, user_group: user_group)
             expect(subject).to be_endorsed_by(user, user_group)
           end
         end
@@ -75,6 +75,7 @@ module Decidim
         let(:proposal) { build(:proposal, :accepted) }
 
         it { is_expected.to be_answered }
+        it { is_expected.to be_published_state }
         it { is_expected.to be_accepted }
       end
 
@@ -82,6 +83,7 @@ module Decidim
         let(:proposal) { build(:proposal, :rejected) }
 
         it { is_expected.to be_answered }
+        it { is_expected.to be_published_state }
         it { is_expected.to be_rejected }
       end
 
@@ -239,6 +241,36 @@ module Decidim
           end
 
           it { is_expected.not_to be_withdrawable_by(author) }
+        end
+      end
+
+      context "when answer is not published" do
+        let(:proposal) { create(:proposal, :accepted_not_published, component: component) }
+
+        it "has accepted as the internal state" do
+          expect(proposal.internal_state).to eq("accepted")
+        end
+
+        it "has not_answered as public state" do
+          expect(proposal.state).to be_nil
+        end
+
+        it { is_expected.not_to be_accepted }
+        it { is_expected.to be_answered }
+        it { is_expected.not_to be_published_state }
+      end
+
+      describe "#with_valuation_assigned_to" do
+        let(:user) { create :user, organization: organization }
+        let(:space) { component.participatory_space }
+        let!(:valuator_role) { create :participatory_process_user_role, role: :valuator, user: user, participatory_process: space }
+        let(:assigned_proposal) { create :proposal, component: component }
+        let!(:assignment) { create :valuation_assignment, proposal: assigned_proposal, valuator_role: valuator_role }
+
+        it "only returns the assigned proposals for the given space" do
+          results = described_class.with_valuation_assigned_to(user, space)
+
+          expect(results).to eq([assigned_proposal])
         end
       end
     end

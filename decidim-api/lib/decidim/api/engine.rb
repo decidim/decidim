@@ -12,7 +12,7 @@ module Decidim
       isolate_namespace Decidim::Api
 
       initializer "decidim_api.assets" do |app|
-        app.config.assets.precompile += %w(decidim_api_manifest.js)
+        app.config.assets.precompile += %w(decidim_api_manifest.js decidim_api_manifest.css)
       end
 
       initializer "decidim-api.middleware" do |app|
