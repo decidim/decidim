@@ -10,6 +10,7 @@ module Decidim
       translatable_fields = resource.class.translatable_fields_list.map(&:to_s)
       translatable_fields.each do |field|
         next if resource.previous_changes[field].blank?
+
         locales = Decidim.available_locales.map(&:to_s)
         locales.each do |locale|
           MachineTranslationUpdateFieldsJob.perform_now(id, class_name, field, resource[field], locale)

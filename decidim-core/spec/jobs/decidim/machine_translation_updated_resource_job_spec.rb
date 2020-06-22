@@ -5,10 +5,11 @@ require "spec_helper"
 module Decidim
   describe MachineTranslationUpdatedResourceJob do
     subject { dummy_resource.class }
-    let(:organization) { create(:organization) } 
+
+    let(:organization) { create(:organization) }
     let(:available_locales) { organization.available_locales }
     let(:dummy_resource) { build :dummy_resource }
- 
+
     context "when the address changes" do
       let(:title) { { en: "title" } }
 
