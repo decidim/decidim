@@ -51,14 +51,14 @@ describe "Admin manages templates", type: :system do
           ca: "Descripció"
         )
 
-        find("*[type=submit]").click
+        page.find("*[type=submit]").click
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within ".container" do
-        expect(page).to have_current_path decidim_admin_templates.questionnaire_templates_path
-        expect(page).to have_content("My template")
+        expect(page).to have_current_path decidim_admin_templates.edit_questionnaire_template_path(Decidim::Templates::Template.last.id)
+        expect(page.find("#template_name_en").value).to eq("My template")
       end
     end
   end
@@ -112,13 +112,14 @@ describe "Admin manages templates", type: :system do
       )
 
       within ".edit_questionnaire_template" do
-        find("*[type=submit]").click
+        page.find("*[type=submit]").click
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within ".container" do
-        expect(page).to have_content("My new name")
+        expect(page).to have_current_path decidim_admin_templates.edit_questionnaire_template_path(template)
+        expect(page.find("#template_name_en").value).to eq("My new name")
       end
     end
   end

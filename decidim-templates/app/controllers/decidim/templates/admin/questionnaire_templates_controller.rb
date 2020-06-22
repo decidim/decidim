@@ -38,10 +38,10 @@ module Decidim
 
           @form = form(TemplateForm).from_params(params)
 
-          CreateQuestionnaireTemplate.call(@form) do |template|
-            on(:ok) do
+          CreateQuestionnaireTemplate.call(@form) do
+            on(:ok) do |questionnaire_template|
               flash[:notice] = I18n.t("templates.create.success", scope: "decidim.admin")
-              redirect_to edit_questionnaire_path(template)
+              redirect_to edit_questionnaire_template_path(questionnaire_template)
             end
 
             on(:invalid) do
@@ -76,11 +76,10 @@ module Decidim
         def update
           enforce_permission_to :update, :template, template: template
           @form = form(TemplateForm).from_params(params)
-
           UpdateTemplate.call(template, @form, current_user) do
-            on(:ok) do |_template|
+            on(:ok) do |questionnaire_template|
               flash[:notice] = I18n.t("templates.update.success", scope: "decidim.admin")
-              redirect_to edit_questionnaire_path(template)
+              redirect_to edit_questionnaire_template_path(questionnaire_template)
             end
 
             on(:invalid) do |template|
