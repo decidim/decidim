@@ -13,7 +13,7 @@ committee is managed via an administration UI.
 ## Creating an initiative
 
 A user views the Initiatives page at `/initiatives`. If they are allowed to create an
-initiative they see a call-to-action button: `New initiative`.
+initiative and they belongs on a group, they see a call-to-action button: `New initiative`.
 
 If there is more than one type of initiative, they will have to choose one and go through
 several screens, and go through a number of screens to help them refine their initiative.
