@@ -289,11 +289,11 @@ it:
             - Dare supporto alle proposte che ti piacciono o che ti interessano
           description: Questo badge è concesso quando supporti le proposte di altre persone.
           description_another: Questo utente ha fornito supporto a %{score} proposte.
-          description_own: Hai fornito supporto a %{score} proposte.
+          description_own: Hai dato supporto a %{score} proposte.
           name: Supporti della proposta
           next_level_in: Dare supporto a %{score} ulteriori proposte per raggiungere il livello successivo!
           unearned_another: Questo utente non ha ancora fornito supporto a nessuna proposta.
-          unearned_own: Non hai ancora fornito supporto a nessuna proposta.
+          unearned_own: Hai dato supporto a proposte.
         proposals:
           conditions:
             - Scegli lo spazio di partecipazione di tuo interesse con l'invio per le proposte abilitate
@@ -301,7 +301,7 @@ it:
           description: Questo badge è concesso quando partecipi attivamente a nuove proposte.
           description_another: Questo utente ha creato %{score} proposte.
           description_own: Hai creato %{score} proposte.
-          name: proposte
+          name: Proposte
           next_level_in: Crea altre %{score} proposte per raggiungere il livello successivo!
           unearned_another: Questo utente non ha ancora creato alcuna proposta.
           unearned_own: Non hai ancora creato alcuna proposta.

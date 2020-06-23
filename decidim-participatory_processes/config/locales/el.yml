@@ -1,1 +1,37 @@
 el:
+  activemodel:
+    attributes:
+      participatory_process_group:
+        name: Όνομα
+      participatory_process_user_role:
+        email: Email
+        name: Όνομα
+  decidim:
+    admin:
+      actions:
+        preview: Προεπισκόπηση
+        publish: Δημοσίευση
+      models:
+        participatory_process_group:
+          fields:
+            name: Όνομα
+        participatory_process_user_role:
+          fields:
+            email: Email
+            name: Όνομα
+      participatory_process_groups:
+        new:
+          create: Δημιουργία
+      participatory_process_steps:
+        new:
+          create: Δημιουργία
+      participatory_process_user_roles:
+        new:
+          create: Δημιουργία
+      participatory_processes:
+        new:
+          create: Δημιουργία
+    participatory_processes:
+      statistics:
+        participants_count: Συμμετέχοντες
+        users_count: Συμμετέχοντες
