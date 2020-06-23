@@ -12,14 +12,14 @@ committee is managed via an administration UI.
 
 ## Creating an initiative
 
-A user views the Initiatives page at `/initiatives`. If they are allowed to create an
-initiative and they belongs on a group, they see a call-to-action button: `New initiative`.
+A user views the Initiatives page at `/initiatives`. If she is allowed to create an
+initiative and she belongs to a group, she will see a call-to-action button: `New initiative`.
 
-If there is more than one type of initiative, they will have to choose one and go through
-several screens, and go through a number of screens to help them refine their initiative.
+If there is more than one type of initiative, she will have to choose one and go through
+several screens to help her refine the initiative.
 Once created, the initiative is not yet published.
 
-The user must then edit their initiative and click the "Send for technical validation"
+The user must then edit her initiative and click the "Send for technical validation"
 button, which looks greyed out but can be clicked. Then it's sent to the site admins to
 review; once reviewed they can publish the initiative.
 
