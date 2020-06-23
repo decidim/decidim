@@ -64,7 +64,7 @@
           <span class="evote__check-label">
             El plan de Expansión Trasversal
             <span class="evote__check-extra">
-              <a href="#">más información</a>
+              <button class="link" data-toggle="show-focus-modal">más información</button>
             </span>
           </span>
         </label>
@@ -73,7 +73,7 @@
           <span class="evote__check-label">
             El plan de Participación Vecinal Inclusiva
             <span class="evote__check-extra">
-              <a href="#">más información</a>
+              <button class="link" data-toggle="show-focus-modal">más información</button>
             </span>
           </span>
         </label>
@@ -82,7 +82,7 @@
           <span class="evote__check-label">
             El plan de Intervención Social Aplicada
             <span class="evote__check-extra">
-              <a href="#">más información</a>
+              <button class="link" data-toggle="show-focus-modal">más información</button>
             </span>
           </span>
         </label>
@@ -91,10 +91,11 @@
           <span class="evote__check-label">
             Indiferente / en blanco
             <span class="evote__check-extra">
-              <a href="#">más información</a>
+              <button class="link" data-toggle="show-focus-modal">más información</button>
             </span>
           </span>
         </label>
+        <%= partial "focus_modal" %>
       </div>
     <% elsif locals[:step] == 4 %>
       <h1 class="h2">
@@ -113,6 +114,25 @@
         </label>
       <% end %>
       </div>
+
+      <div class="evote__counter">
+        <div>
+        <strong class="evote__counter-num">3</strong> de
+        <span class="evote__counter-num">4</span>
+        </div>
+        seleccionados
+      </div>
+    <% elsif locals[:step] == 'confirm' %>
+      [confirm]
+    <% elsif locals[:step] == 'encrypting' %>
+      [encrypting]
+    <% elsif locals[:step] == 'confirmed' %>
+      [confirmed]
+      <a href="#" class="button">
+        Terminar
+      </a>
+    <% elsif locals[:step] == 'verify' %>
+      [verify]
     <% end %>
   </div>
 </div>
