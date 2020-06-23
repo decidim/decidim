@@ -133,7 +133,13 @@ module Decidim
 
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
-    %w(en ar ca de el es es-MX es-PY eu fi-pl fi fr gl hu id it nl no pl pt pt-BR ru sv tr uk)
+    %w(en ar ca de el es es-MX es-PY eu fi-pl fi fr gl hu id it nl no pl pt pt-BR ro ru sv tr uk)
+  end
+
+  # Exposes a configuration option: The application default locale.
+  config_accessor :default_locale do
+    :en
+>>>>>>> 0c6f15aa9... Add Romanian as a new language
   end
 
   # Exposes a configuration option: an array of symbols representing processors
