@@ -200,7 +200,7 @@ Decidim.register_component(:dummy) do |component|
     resource.model_class_name = "Decidim::DummyResources::CoauthorableDummyResource"
     resource.template = "decidim/coauthorabledummy_resource/linked_dummys"
     resource.actions = %w(foo-coauthorable)
-    resource.searchable = true
+    resource.searchable = false
   end
 
   component.register_stat :dummies_count_high, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, _start_at, _end_at|
