@@ -10,7 +10,7 @@ describe Decidim::CoauthorshipsCell, type: :cell do
   let(:my_cell) { cell("decidim/coauthorships", coauthorable) }
   let!(:organization) { create(:organization) }
   let!(:component) { create(:component, manifest_name: "dummy", organization: organization) }
-  let(:coauthorable) { create(:coauthorable_dummy_resource, :with_coautors, component: component, coauthors: coauthors) }
+  let(:coauthorable) { create(:coauthorable_dummy_resource, component: component, authors_list: coauthors) }
   let(:user) { create(:user, :confirmed, organization: organization) }
 
   context "with User coauthorships" do

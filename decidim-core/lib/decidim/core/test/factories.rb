@@ -469,19 +469,17 @@ FactoryBot.define do
     title { generate(:name) }
     component { create(:component, manifest_name: "dummy") }
 
-    trait :with_coautors do
-      transient do
-        coauthors { [create { :user }] }
-      end
+    transient do
+      authors_list { [create(:user, organization: component.organization)] }
+    end
 
-      after :build do |resource, evaluator|
-        evaluator.coauthors.each do |coauthor|
-          resource.coauthorships << if coauthor.is_a?(::Decidim::UserGroup)
-                                      build(:coauthorship, author: coauthor.users.first, user_group: coauthor, coauthorable: resource)
-                                    else
-                                      build(:coauthorship, author: coauthor, coauthorable: resource)
-                                    end
-        end
+    after :build do |resource, evaluator|
+      evaluator.authors_list.each do |coauthor|
+        resource.coauthorships << if coauthor.is_a?(::Decidim::UserGroup)
+                                    build(:coauthorship, author: coauthor.users.first, user_group: coauthor, coauthorable: resource, organization: evaluator.component.organization)
+                                  else
+                                    build(:coauthorship, author: coauthor, coauthorable: resource, organization: evaluator.component.organization)
+                                  end
       end
     end
   end
