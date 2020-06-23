@@ -465,6 +465,27 @@ FactoryBot.define do
     end
   end
 
+  factory :coauthorable_dummy_resource, class: "Decidim::DummyResources::CoauthorableDummyResource" do
+    title { generate(:name) }
+    component { create(:component, manifest_name: "dummy") }
+
+    trait :with_coautors do
+      transient do
+        coauthors { [create { :user }] }
+      end
+
+      after :build do |resource, evaluator|
+        evaluator.coauthors.each do |coauthor|
+          resource.coauthorships << if coauthor.is_a?(::Decidim::UserGroup)
+                                      build(:coauthorship, author: coauthor.users.first, user_group: coauthor, coauthorable: resource)
+                                    else
+                                      build(:coauthorship, author: coauthor, coauthorable: resource)
+                                    end
+        end
+      end
+    end
+  end
+
   factory :resource_link, class: "Decidim::ResourceLink" do
     name { generate(:slug) }
     to { build(:dummy_resource) }
