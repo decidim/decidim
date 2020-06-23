@@ -75,8 +75,7 @@ This plugin provides:
 
 * A CRUD engine to manage initiatives.
 * Public views for initiatives via a high level section in the main menu.
-* An admin dashboard for the initiative author
-* An admin dashboard for an initiative's promotion committee
+* An admin dashboard for the initiative's author and promotion committee
 
 ## Installation
 
