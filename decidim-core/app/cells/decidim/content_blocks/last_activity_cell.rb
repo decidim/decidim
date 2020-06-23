@@ -44,10 +44,6 @@ module Decidim
 
       private
 
-      def perform_caching?
-        true
-      end
-
       def cache_hash
         "decidim/content_blocks/last_activity/#{Digest::MD5.hexdigest(valid_activities.map(&:updated_at).to_s)}"
       end

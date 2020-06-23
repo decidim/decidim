@@ -21,10 +21,6 @@ module Decidim
 
       private
 
-      def perform_caching?
-        true
-      end
-
       def cache_hash
         "decidim/content_blocks/hero/#{Digest::MD5.hexdigest(model.attributes.to_s)}/#{current_organization.cache_version}"
       end

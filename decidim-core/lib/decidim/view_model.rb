@@ -30,7 +30,11 @@ module Decidim
     private
 
     def perform_caching?
-      false
+      cache_hash.present?
+    end
+
+    def cache_hash
+      nil
     end
 
     def decidim
