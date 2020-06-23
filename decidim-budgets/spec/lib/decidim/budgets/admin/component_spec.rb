@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
-  let!(:component) { create(:budget_component) }
+  let!(:component) { create(:budgets_component) }
   let(:organization) { component.organization }
   let!(:current_user) { create(:user, :admin, organization: organization) }
 

@@ -1,0 +1,49 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t(".title") %>
+
+      <%= link_to t("actions.new", scope: "decidim.budgets", name: t("models.budget.name", scope: "decidim.budgets.admin")), new_budget_path, class: "button tiny button--title" if allowed_to? :create, :budget %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("models.budget.fields.name", scope: "decidim.budgets") %></th>
+            <th><%= t("models.budget.fields.total_budget", scope: "decidim.budgets") %></th>
+            <th class="actions"><%= t("actions.title", scope: "decidim.budgets") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% budgets.each do |budget| %>
+            <tr data-id="<%= budget.id %>">
+              <td>
+                <%= link_to translated_attribute(budget.title), resource_locator(budget).path %>
+              </td>
+              <td>
+                <%= number_to_currency budget.total_budget, unit: Decidim.currency_unit, precision: 0 %>
+              </td>
+              <td class="table-list__actions">
+                <%= icon_link_to "eye", resource_locator(budget).path, t("actions.preview", scope: "decidim.budgets"), class: "action-icon--preview", target: :blank %>
+
+                <% # !todo: add link to projects %>
+                <% # = icon_link_to "list", budget_projects_path(budget), t("actions.edit_projects", scope: "decidim.budgets"), class: "action-icon--edit-projects" %>
+
+                <% if allowed_to? :update, :budget, budget: budget %>
+                  <%= icon_link_to "pencil", edit_budget_path(budget), t("actions.edit", scope: "decidim.budgets"), class: "action-icon--edit" %>
+                <% end %>
+
+                <% if allowed_to? :delete, :budget, budget: budget %>
+                  <%= icon_link_to "circle-x", budget_path(budget), t("actions.destroy", scope: "decidim.budgets"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.budgets") } %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

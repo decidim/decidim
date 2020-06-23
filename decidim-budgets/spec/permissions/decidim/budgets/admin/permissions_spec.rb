@@ -8,13 +8,64 @@ describe Decidim::Budgets::Admin::Permissions do
   let(:user) { build :user }
   let(:context) do
     {
-      current_component: budget_component,
+      current_component: budgets_component,
+      budget: budget,
       project: project
     }
   end
-  let(:project) { create :project, component: budget_component }
-  let(:budget_component) { create :budget_component }
+  let(:budgets_component) { create :budgets_component }
+  let(:budget) { create :budget, component: budgets_component }
+  let(:project) { create :project, component: budgets_component }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
+
+  context "when scope is not admin" do
+    let(:action) do
+      { scope: :foo, action: :bar, subject: :budget }
+    end
+
+    it_behaves_like "permission is not set"
+  end
+
+  context "when subject is not a budget" do
+    let(:action) do
+      { scope: :admin, action: :bar, subject: :foo }
+    end
+
+    it_behaves_like "permission is not set"
+  end
+
+  context "when action is a random one" do
+    let(:action) do
+      { scope: :admin, action: :bar, subject: :budget }
+    end
+
+    it_behaves_like "permission is not set"
+  end
+
+  describe "budget creation" do
+    let(:action) do
+      { scope: :admin, action: :create, subject: :budget }
+    end
+    let(:budget) { nil }
+
+    it { is_expected.to eq true }
+  end
+
+  describe "budget update" do
+    let(:action) do
+      { scope: :admin, action: :update, subject: :budget }
+    end
+
+    it { is_expected.to eq true }
+  end
+
+  describe "budget delete" do
+    let(:action) do
+      { scope: :admin, action: :delete, subject: :budget }
+    end
+
+    it { is_expected.to eq true }
+  end
 
   context "when scope is not admin" do
     let(:action) do

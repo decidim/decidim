@@ -12,6 +12,9 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
+        resources :budgets do
+        end
+
         resources :projects do
           get :proposals_picker, on: :collection
 
@@ -22,7 +25,7 @@ module Decidim
           end
         end
 
-        root to: "projects#index"
+        root to: "budgets#index"
       end
 
       def load_seed

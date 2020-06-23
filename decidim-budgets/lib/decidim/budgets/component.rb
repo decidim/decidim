@@ -19,7 +19,11 @@ Decidim.register_component(:budgets) do |component|
   component.actions = %(vote)
 
   component.on(:before_destroy) do |instance|
-    raise StandardError, "Can't remove this component" if Decidim::Budgets::Project.where(component: instance).any?
+    raise StandardError, "Can't remove this component" if Decidim::Budgets::Budget.where(component: instance).any?
+  end
+
+  component.register_resource(:budget) do |resource|
+    resource.model_class_name = "Decidim::Budgets::Budget"
   end
 
   component.register_resource(:project) do |resource|
@@ -30,7 +34,11 @@ Decidim.register_component(:budgets) do |component|
     resource.searchable = true
   end
 
-  component.register_stat :projects_count, primary: true, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
+  component.register_stat :budgets_count, primary: true, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components|
+    Decidim::Budgets::Budget.where(component: components).count
+  end
+
+  component.register_stat :projects_count, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
     Decidim::Budgets::FilteredProjects.for(components, start_at, end_at).count
   end
 
@@ -52,8 +60,9 @@ Decidim.register_component(:budgets) do |component|
   end
 
   component.settings(:global) do |settings|
+    # !todo: enable budgetGroup workflow
+    # settings.attribute :workflow, type: :enum, default: "one", choices: -> { Decidim::Budgets::Groups.workflows.keys.map(&:to_s) }
     settings.attribute :projects_per_page, type: :integer, default: 12
-    settings.attribute :total_budget, type: :integer, default: 100_000_000
     settings.attribute :vote_rule_threshold_percent_enabled, type: :boolean, default: true
     settings.attribute :vote_threshold_percent, type: :integer, default: 70
     settings.attribute :vote_rule_minimum_budget_projects_enabled, type: :boolean, default: false
@@ -62,6 +71,12 @@ Decidim.register_component(:budgets) do |component|
     settings.attribute :comments_max_length, type: :integer, required: false
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :announcement, type: :text, translated: true, editor: true
+
+    settings.attribute :title, type: :string, translated: true
+    settings.attribute :description, type: :text, translated: true
+    settings.attribute :highlighted_heading, type: :text, translated: true
+    settings.attribute :list_heading, type: :text, translated: true
+    settings.attribute :more_information, type: :text, translated: true
   end
 
   component.settings(:step) do |settings|
@@ -69,8 +84,16 @@ Decidim.register_component(:budgets) do |component|
     settings.attribute :votes_enabled, type: :boolean, default: true
     settings.attribute :show_votes, type: :boolean, default: false
     settings.attribute :announcement, type: :text, translated: true, editor: true
+
+    settings.attribute :title, type: :string, translated: true
+    settings.attribute :description, type: :text, translated: true
+    settings.attribute :highlighted_heading, type: :text, translated: true
+    settings.attribute :list_heading, type: :text, translated: true
+    settings.attribute :more_information, type: :text, translated: true
+    settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
+  # !todo: modify seeds to budget model
   component.seeds do |participatory_space|
     component = Decidim::Component.create!(
       name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :budgets).i18n_name,
