@@ -85,13 +85,14 @@ es-MX:
         search_placeholder:
           id_string_or_title_cont: Buscar %{collection} por ID o título.
         state_eq:
+          label: Estado
           values:
             evaluating: En evaluación
-            withdrawn: Retirado
+            withdrawn: Retirada
         state_null:
           label: Estado
           values:
-            'true': No contestado
+            'true': No contestada
         valuator_role_ids_has:
           label: Asignada a evaluadora
     components:
@@ -120,8 +121,8 @@ es-MX:
             new_proposal_body_template_help: Puede definir el texto predefinido que tendrán las nuevas propuestas
             new_proposal_help_text: Texto de ayuda al crear una propuesta
             official_proposals_enabled: Propuestas oficiales habilitadas
-            participatory_texts_disabled_help: No se puede interactuar con esta configuración si hay propuestas existentes. Por favor, crea un nuevo componente de propuesta si quieres activar esta característica o descartar todas las propuestas importadas en el menú "Textos Participativos" si quieres desactivarla.
             participatory_texts_enabled: Textos participativos habilitados
+            participatory_texts_enabled_readonly: No se puede interactuar con esta configuración si hay propuestas existentes. Por favor, crea un nuevo componente de propuesta si quieres activar esta característica o descartar todas las propuestas importadas en el menú "Textos Participativos" si quieres desactivarla.
             proposal_answering_enabled: Respuesta a propuestas habilitadas
             proposal_edit_before_minutes: Las propuestas pueden ser editadas por los autores antes de que pasen estos minutos
             proposal_length: Longitud máxima del cuerpo de la propuesta
@@ -397,10 +398,8 @@ es-MX:
             title: Actualizar propuesta
             update: Actualizar
           form:
-            add_images: Añadir imágenes
             attachment_legend: "(Opcional) Añadir un archivo adjunto"
             created_in_meeting: Esta propuesta procede de un encuentro
-            gallery_legend: "(Opcional) Añadir una galería de imágenes"
             select_a_category: Selecciona una categoría
             select_a_meeting: Selecciona un encuentro
           index:
@@ -432,7 +431,7 @@ es-MX:
           show:
             amendments_count: Número de enmiendas
             assigned_valuators: Evaluadoras asignadas
-            authors: Autoras
+            authors: Autores
             body: Cuerpo
             comments_count: Número de comentarios
             comments_negative_count: En contra
@@ -509,7 +508,7 @@ es-MX:
         withdrawn: Retirada
       application_helper:
         filter_category_values:
-          all: Todas
+          all: Todos
         filter_origin_values:
           all: Todos
           citizens: Ciudadanía
@@ -522,7 +521,7 @@ es-MX:
           accepted: Aceptado
           all: Todos
           evaluating: En evaluación
-          not_answered: Sin respuesta
+          not_answered: No contestada
           rejected: Rechazado
         filter_type_values:
           all: Todos
@@ -616,14 +615,11 @@ es-MX:
             one: y %{count} persona más
             other: y %{count} personas más
           info-message: Este es un <strong>borrador colaborativo</strong> para una propuesta. Esto significa que puede ayudar a sus autores a dar forma a la propuesta usando la sección de comentarios que se encuentra debajo o mejorarla directamente solicitando acceso para editarla. Una vez que los autores le otorguen acceso, podrá realizar cambios en este borrador.
-          of_versions: "(de %{number})"
           publish: Publicar
           publish_info: Publicar esta versión del borrador o
           published_proposal: propuesta publicada
           request_access: Solicitar acceso
           requested_access: Acceso solicitado
-          see_other_versions: ver otras versiones
-          version: Versión %{number}
           version_history: ver el historial de versiones de esta propuesta
           withdraw: retirar el borrador
         states:
@@ -763,6 +759,7 @@ es-MX:
         show:
           answer: Respuesta
           back_to: Volver a
+          back_to_list: Volver al listado
           changes_at_title: Enmienda a "%{title}"
           comments: Comentarios
           edit_proposal: Editar propuesta
@@ -839,20 +836,12 @@ es-MX:
         error: Ha habido errores al guardar el borrador de la propuesta.
         success: Borrador de propuesta actualizado con éxito.
       versions:
-        changes_at_title: Cambios en "%{title}"
+        collaborative_drafts:
+          back_to_resource: Volver al borrador colaborativo
         index:
           title: Versiones
-        stats:
-          back_to_collaborative_draft: Volver al borrador colaborativo
-          back_to_proposal: Volver a propuesta
-          number_of_versions: Versiones
-          show_all_versions: Mostrar todas las versiones
-          version_author: Autor de la versión
-          version_created_at: Versión creada en
-          version_number: Número de versión
-          version_number_out_of_total: "%{current_version} de %{total_count}"
-        version:
-          version_index: Versión %{index}
+        proposals:
+          back_to_resource: Volver a propuesta
       withdraw:
         errors:
           has_supports: Esta propuesta no puede ser retirada porque ya tiene apoyos.

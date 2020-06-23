@@ -16,7 +16,7 @@ shared_examples "a paginated resource" do
     expect(page).to have_css(".results-per-page")
 
     within ".results-per-page" do
-      page.find("a", text: "20").click
+      page.find("a", text: "20").hover
       click_link "50"
     end
 

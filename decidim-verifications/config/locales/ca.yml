@@ -26,6 +26,18 @@ ca:
   decidim:
     admin:
       menu:
+        authorization_revocation:
+          before_date_info: Útil si el procés ja ha començat i vols revocar els permisos del procés anterior.
+          button: Revocar tot
+          button_before: Revocar abans de la data
+          destroy:
+            confirm: La revocació d'autoritzacions anteriors a aquesta data no es pot desfer. Segur que vols continuar?
+            confirm_all: La revocació de totes les autoritzacions no es pot desfer. Segur que vols continuar?
+          destroy_nok: S'ha produït un error al revocar les autoritzacions.
+          destroy_ok: Totes les autoritzacions coincidents s'han revocat correctament!
+          info: Hi ha un total de %{count} participants verificades.
+          no_data: No hi ha participants verificades
+          title: Revocació de les autoritzacions
         authorization_workflows: Verificacions
     admin_log:
       organization:
@@ -65,10 +77,16 @@ ca:
         name: Codi per carta postal
     verifications:
       authorizations:
+        authorization_metadata:
+          info: 'Aquestes són les dades de la verificació actual:'
+          no_data_stored: No hi ha dades emmagatzemades.
         create:
           error: S'ha produït un error en crear l'autorització.
           success: Has estat autoritzada amb correctament.
           unconfirmed: Cal que confirmis el teu correu electrònic per a poder autoritzar-te.
+        destroy:
+          error: S'ha produït un error en esborrar la verificació.
+          success: Has esborrat correctament la verificació.
         first_login:
           actions:
             another_dummy_authorization_handler: Verifica't un altre exemple de controlador d'autorització
@@ -77,11 +95,21 @@ ca:
             dummy_authorization_workflow: Verifica't contra l'exemple de flux d'autorització
             id_documents: Verifica't pujant el teu document d'identitat
             postal_letter: Verifica't rebent un codi de verificació per correu postal
+            sms: Verifica't a través d'un codi enviat per SMS
           title: Verifica la teva identitat
           verify_with_these_options: 'Aquestes són les opcions disponibles per verificar la teva identitat:'
+        index:
+          expired_verification: La verificació ha caducat
+          show_renew_info: Clica aquí per a renovar la verificació
         new:
           authorize: Enviar
           authorize_with: Verifica amb %{authorizer}
+        renew_modal:
+          cancel: Cancel·lar
+          close: Tanca
+          continue: Continua
+          info_renew: Si vols actualitzar les dades, continueu amb la renovació
+          title: Renova la verificació
         skip_verification: Pots ometre-ho per ara i %{link}
         start_exploring: comença a explorar
       csv_census:

@@ -88,6 +88,9 @@ de:
         error: Beim Aktualisieren Ihres Kontos ist ein Fehler aufgetreten.
         success: Ihr Konto wurde erfolgreich aktualisiert.
         success_with_email_confirmation: Ihr Konto wurde erfolgreich aktualisiert. Sie erhalten eine E-Mail zur Bestätigung Ihrer neuen E-Mail-Adresse.
+    admin:
+      actions:
+        cancel: Stornieren
     admin_log:
       area:
         create: "%{user_name} hat den %{resource_name} Bereich erstellt"
@@ -204,9 +207,6 @@ de:
       update_draft:
         error: Es gab ein Problem bei der Aktualisierung des Änderungsvorschlags.
         success: Änderungsvorschlag erfolgreich aktualisiert.
-      visibility_options:
-        all: Änderungsvorschlag ist für alle sichtbar
-        participants: Änderungen sind nur für ihre Autoren sichtbar
       withdraw:
         error: Ein Fehler ist beim Zurückziehen des Änderungsvorschlags aufgetreten
         success: Der Änderungsvorschlag wurde erfolgreich zurückgezogen
@@ -227,6 +227,7 @@ de:
       photos:
         related_photos: Ähnliche Bilder
     author:
+      avatar: Profilbild
       comments:
         one: Kommentar
         other: Kommentare
@@ -235,6 +236,7 @@ de:
         explanation: Lassen Sie sich verifizieren, indem Sie eine Reisepassnummer eingeben, die mit "A" beginnt
         fields:
           passport_number: Reisepassnummer
+          postal_code: Postleitzahl
         name: Ein weiteres Beispiel für eine Berechtigung
       dummy_authorization_handler:
         explanation: Lassen Sie sich verifizieren, indem Sie eine Dokumentennummer eingeben, die mit "X" endet
@@ -757,6 +759,7 @@ de:
         create:
           error: Die Unterhaltung wurde nicht gestartet. Versuchen Sie es später noch einmal
         index:
+          close: Modal schließen
           no_conversations: Du hast noch keine Unterhaltungen
           title: Gespräche
         reply:
@@ -1022,8 +1025,6 @@ de:
         close_window: Fenster schließen
         share: Teilen
         share_link: Link teilen
-      version_author:
-        deleted: Gelöschter Benutzer
     user_activity:
       index:
         no_activities_warning: Dieser Benutzer hat noch keine Aktivität gehabt.
@@ -1036,6 +1037,9 @@ de:
       update:
         error: Beim Aktualisieren Ihrer Interessen ist ein Fehler aufgetreten.
         success: Ihre Interessen wurden erfolgreich aktualisiert.
+    version_author:
+      show:
+        deleted: Gelöschter Benutzer
     welcome_notification:
       default_body: <p>Hallo {{name}}, Dank für die Verbindung {{organization}} und willkommen!</p><ul><li>Wenn Sie sich schnell ein Bild machen möchten, was Sie hier tun können, sehen Sie sich den Abschnitt <a href="{{help_url}}">Hilfe</a> .</li><li>Sobald Sie es gelesen haben, erhalten Sie Ihr erstes Abzeichen. Hier ist eine <a href="{{badges_url}}">Liste aller Abzeichen</a> Sie erhalten können, wenn Sie an {{organization}}</li><li>teilnehmen. Schließen Sie sich anderen Personen an, und teilen Sie mit ihnen die Erfahrung, an {{organization}}teilzunehmen. Machen Sie Vorschläge, kommentieren Sie, diskutieren Sie, wie Sie einen Beitrag zum Gemeinwohl leisten können, geben Sie Argumente an, die überzeugen, zuhören und lesen, um überzeugt zu sein, drücken Sie Ihre Ideen konkret und direkt aus, reagieren Sie mit Geduld und Entscheidung, verteidigen Sie Ihre Ideen und halten Sie sie Offenheit, um zusammenzuarbeiten und sich den Ideen anderer anzuschließen.</li></ul>
       default_subject: Danke, dass du {{organization}}beigetreten {{organization}} !

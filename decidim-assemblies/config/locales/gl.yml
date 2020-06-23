@@ -16,6 +16,7 @@ gl:
         created_by_other: Creado por outro
         creation_date: Data creada
         decidim_area_id: Área
+        decidim_assemblies_type_id: Tipo de montaxe
         decidim_scope_id: Alcance
         description: Descrición
         developer_group: Grupo promotor
@@ -99,6 +100,9 @@ gl:
         create:
           error: Produciuse un erro ao duplicar este conxunto.
           success: Asemblea duplicouse con éxito.
+      assemblies_types:
+        new:
+          create: Crear
       assembly_copies:
         new:
           copy: Copiar
@@ -159,6 +163,10 @@ gl:
           moderations: Moderacións
           private_users: Usuarios privados
       models:
+        assemblies_types:
+          fields:
+            created_at: Creado en
+            title: Título
         assembly:
           fields:
             created_at: Creado en
@@ -224,6 +232,9 @@ gl:
             social_handlers: Social
             title: Información xeral
             visbility: Visibilidade
+        assemblies_types:
+          form:
+            title: Título
         assembly_copies:
           form:
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este conxunto. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'

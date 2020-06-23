@@ -99,6 +99,12 @@ $comment-form-bg: $light-gray;
 .comment__votes{
   float: right;
   margin-top: .5rem;
+
+  button:focus{
+    background-color: $secondary;
+    color: $white;
+    outline: none;
+  }
 }
 
 .comment__votes--up{
@@ -187,6 +193,16 @@ $comment-form-bg: $light-gray;
 .add-comment{
   background: $comment-form-bg;
   padding: $comment-padding;
+
+  a:hover{
+    text-decoration: underline;
+  }
+
+  a:focus{
+    background-color: $secondary;
+    color: $white;
+    outline: none;
+  }
 
   .button{
     margin-bottom: 0;

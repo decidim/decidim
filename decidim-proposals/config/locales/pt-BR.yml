@@ -69,6 +69,22 @@ pt-BR:
         one: Voto
         other: Votos
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Tipo
+          values:
+            'false': Propostas
+            'true': Emendas
+        state_eq:
+          label: Estado
+          values:
+            evaluating: Avaliando
+            withdrawn: Retirado
+        state_null:
+          label: Estado
+          values:
+            'true': Não respondido
     components:
       proposals:
         actions:
@@ -323,6 +339,10 @@ pt-BR:
             success: Texto participativo atualizado com sucesso.
         proposal_answers:
           form:
+            accepted: Aceitaram
+            answer_proposal: Responda
+            evaluating: Avaliando
+            rejected: Rejeitado
             title: Resposta para a proposta %{title}
         proposal_notes:
           create:
@@ -367,7 +387,10 @@ pt-BR:
           publish_answers:
             select_a_proposal: Selecione uma proposta
           show:
+            authors: Autores
+            body: Corpo
             created_at: Data de criação
+            proposals: Propostas
             votes_count: Contagem de votos
           update_category:
             select_a_category: Selecione uma categoria
@@ -405,16 +428,21 @@ pt-BR:
         rejected: Rejeitado
         withdrawn: Retirado
       application_helper:
+        filter_category_values:
+          all: Todos
         filter_origin_values:
           all: Todos
           citizens: Cidadãos
           meetings: Reuniões
           official: Oficial
           user_groups: Grupos de usuários
+        filter_scope_values:
+          all: Todos
         filter_state_values:
           accepted: Aceitaram
           all: Todos
           evaluating: Avaliando
+          not_answered: Não respondido
           rejected: Rejeitado
         filter_type_values:
           all: Todos
@@ -466,6 +494,7 @@ pt-BR:
           open: Aberto
           published: Publicados
           related_to: Relacionado a
+          scope: Escopo
           search: Pesquisa
           state: Estado
           withdrawn: Retirado
@@ -507,14 +536,11 @@ pt-BR:
             one: e mais %{count} pessoa
             other: e mais %{count} pessoas
           info-message: Este é um <strong>projecto colaborativo</strong> para uma proposta. Isso significa que você pode ajudar seus autores a moldar a proposta usando a seção de comentários abaixo ou melhorá-la diretamente solicitando acesso para editá-la. Depois que os autores lhe concederem acesso, você poderá fazer alterações neste rascunho.
-          of_versions: "(de %{number})"
           publish: Publicar
           publish_info: Publicar esta versão do rascunho ou
           published_proposal: proposta publicada
           request_access: Solicitar acesso
           requested_access: Acesso solicitado
-          see_other_versions: veja outras versões
-          version: Versão %{number}
           version_history: ver o histórico de versões desta proposta
           withdraw: retirar o rascunho
         states:
@@ -599,8 +625,10 @@ pt-BR:
           category: Categoria
           origin: Origem
           related_to: Relacionado a
+          scope: Escopo
           search: Pesquisa
           state: Estado
+          type: Tipo
           voted: Votado
         filters_small_view:
           close_modal: Fechar modal
@@ -640,7 +668,7 @@ pt-BR:
           creation_date: 'Criação: %{date}'
           view_proposal: Ver proposta
         show:
-          answer: Responder
+          answer: Responda
           back_to: De volta a
           comments: Comentários
           edit_proposal: Editar proposta
@@ -706,20 +734,12 @@ pt-BR:
         error: Houve erros ao salvar o rascunho da proposta.
         success: Rascunho da proposta atualizado com sucesso.
       versions:
-        changes_at_title: Mudanças em "%{title}"
+        collaborative_drafts:
+          back_to_resource: Volte para o rascunho colaborativo
         index:
           title: Versões
-        stats:
-          back_to_collaborative_draft: Volte para o rascunho colaborativo
-          back_to_proposal: Volte para a proposta
-          number_of_versions: Versões
-          show_all_versions: Mostrar todas as versões
-          version_author: Autor da versão
-          version_created_at: Versão criada em
-          version_number: Número da versão
-          version_number_out_of_total: "%{current_version} de %{total_count}"
-        version:
-          version_index: Versão %{index}
+        proposals:
+          back_to_resource: Volte para a proposta
       withdraw:
         errors:
           has_supports: Esta proposta não pode ser retirada porque já tem suporte.

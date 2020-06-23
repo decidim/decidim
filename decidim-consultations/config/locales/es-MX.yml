@@ -32,7 +32,6 @@ es-MX:
         scope: Área municipal
         slug: Nom curt d'URL
         subtitle: Subtitular
-        title: Título
         vote: Sistema de votación externa
         what_is_decided: Qué se decide
       response:

@@ -241,6 +241,15 @@ is-IS:
       exports:
         export_as: "%{name} sem %{export_format}"
         notice: Útflutningur þinn er í gangi. Þú færð tölvupóst þegar það er lokið.
+      filters:
+        category_id_eq:
+          label: Flokkur
+        officialized_at_null:
+          label: Ríki
+          values:
+            'false': Opinberað
+            'true': Ekki opinberað
+        search_label: Leita
       impersonatable_users:
         index:
           filter:
@@ -361,6 +370,9 @@ is-IS:
             does_not_belong: Tilheyrir ekki
             offensive: Sókn
             spam: Ruslpóstur
+      newsletter_templates:
+        index:
+          preview_template: Preview
       newsletters:
         create:
           success: Fréttabréf búin til með góðum árangri. Vinsamlegast skoðaðu það áður en þú sendir það.
@@ -372,8 +384,6 @@ is-IS:
         edit:
           save_and_preview: Vista og forskoða
           title: Breyta fréttabréfinu
-        form:
-          interpolations_hint: 'Ábending: Þú getur notað "%{name}" hvar sem er í líkamanum eða efninu og það verður skipt út fyrir nafn viðtakanda.'
         index:
           confirm_delete: Ertu viss um að þú viljir eyða þessu fréttabréfi?
           title: Fréttabréf
@@ -438,12 +448,14 @@ is-IS:
         edit:
           update: Uppfæra
         form:
+          colors:
+            header_snippets_help: Notaðu þetta reit til að bæta hlutum við HTML höfuðið. Algengasta notkunin er að samþætta þjónustu þriðja aðila sem krefst viðbótar JavaScript eða CSS. Einnig er hægt að nota það til að bæta við auka meta tags í HTML. Athugaðu að þetta verður aðeins birt á opinberum síðum, ekki í stjórnunarhlutanum.
           cta_button_path_help: 'Þú getur skrifað yfir hvar Hnappurinn Hringja til aðgerða á heimasíðunni tengist. Notaðu hluta slóða, ekki fulla vefslóðir hér. Tekur bréf, tölur, bindur og rista, og verður að byrja með stafi. Hnappurinn Hringja til aðgerða er sýndur á heimasíðunni á milli velkomna textans og lýsingarinnar. Dæmi: %{url}'
           cta_button_text_help: Þú getur skrifað yfirskriftina Hringja til aðgerða hnappatexta á heimasíðunni fyrir hvert tiltækt tungumál í fyrirtækinu þínu. Ef ekki er valið verður sjálfgefið gildi. Hnappurinn Hringja til aðgerða er sýndur á heimasíðunni á milli velkomna textans og lýsingarinnar.
-          header_snippets_help: Notaðu þetta reit til að bæta hlutum við HTML höfuðið. Algengasta notkunin er að samþætta þjónustu þriðja aðila sem krefst viðbótar JavaScript eða CSS. Einnig er hægt að nota það til að bæta við auka meta tags í HTML. Athugaðu að þetta verður aðeins birt á opinberum síðum, ekki í stjórnunarhlutanum.
           homepage_appearance_title: Breyta heimasíðu útliti
           homepage_highlighted_content_banner_title: Hápunktur efni borði
-          layout_appearance_title: Breyta útliti útlits
+          images:
+            layout_appearance_title: Breyta útliti útlits
       participatory_space_private_users:
         new:
           create: Búa til
@@ -520,6 +532,9 @@ is-IS:
           role: Hlutverk
         new:
           create: Bjóddu
+      users_statistics:
+        users_count:
+          admins: Admins
     moderations:
       actions:
         hidden: Falið

@@ -32,7 +32,6 @@ fr:
         scope: Périmètre d'application
         slug: Identifiant
         subtitle: Sous-titre
-        title: Titre
         vote: Système de vote externe
         what_is_decided: Objectifs
       response:
@@ -293,7 +292,7 @@ fr:
           vote_limit:
             description: Vous pouvez voter jusqu'à %{limit} options.
             left: Restant
-            votes: Voix
+            votes: Votes
       question_votes:
         create:
           error: Il y a eu des erreurs lors du vote sur la question

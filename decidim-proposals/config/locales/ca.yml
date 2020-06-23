@@ -85,6 +85,7 @@ ca:
         search_placeholder:
           id_string_or_title_cont: Cerca %{collection} per ID o títol.
         state_eq:
+          label: Estat
           values:
             evaluating: En avaluació
             withdrawn: Retirada
@@ -120,8 +121,8 @@ ca:
             new_proposal_body_template_help: Pots definir el text predefinit que hauria de tenir una nova proposta
             new_proposal_help_text: Text d'ajuda al crear una nova proposta
             official_proposals_enabled: Propostes oficials habilitades
-            participatory_texts_disabled_help: No es pot interactuar amb aquesta configuració si hi ha propostes existents. Si us plau, crea un nou 'component de propostes' si vols habilitar aquesta característica o descarta totes les propostes importades al menú "textos participatius" si vols deshabilitar-lo.
             participatory_texts_enabled: Texts participatius habilitats
+            participatory_texts_enabled_readonly: No es pot interactuar amb aquesta configuració si hi ha propostes existents. Si us plau, crea un nou 'component de propostes' si vols habilitar aquesta característica o descarta totes les propostes importades al menú "textos participatius" si vols deshabilitar-lo.
             proposal_answering_enabled: Resposta a propostes habilitada
             proposal_edit_before_minutes: Les propostes poden ser editades per les autorrs abans que passin aquests minuts
             proposal_length: Longitud màxima del cos de la proposta
@@ -372,10 +373,10 @@ ca:
             success: El text participatiu s'ha actualitzat correctament.
         proposal_answers:
           form:
-            accepted: Acceptada
+            accepted: Acceptades
             answer_proposal: Resposta
             evaluating: En avaluació
-            rejected: Rebutjat
+            rejected: Rebutjada
             title: Respondre a la proposta %{title}
         proposal_notes:
           create:
@@ -397,10 +398,8 @@ ca:
             title: Actualitza la proposta
             update: Actualizar
           form:
-            add_images: Afegeix imatges
             attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
             created_in_meeting: Aquesta proposta prové d'una trobada
-            gallery_legend: "(Opcional) Afegeix una galeria d'imatges"
             select_a_category: Selecciona una categoria
             select_a_meeting: Selecciona una trobada
           index:
@@ -433,7 +432,7 @@ ca:
             amendments_count: Número d'esmenes
             assigned_valuators: Avaluadores assignades
             authors: Autores
-            body: Descripció
+            body: Cos
             comments_count: Comptador de comentaris
             comments_negative_count: En contra
             comments_neutral_count: Neutral
@@ -517,12 +516,12 @@ ca:
           official: Oficial
           user_groups: Grups
         filter_scope_values:
-          all: Tots
+          all: Totes
         filter_state_values:
           accepted: Acceptada
           all: Totes
           evaluating: En avaluació
-          not_answered: Sense resposta
+          not_answered: No resposta
           rejected: Rebutjada
         filter_type_values:
           all: Totes
@@ -616,14 +615,11 @@ ca:
             one: i %{count} persona més
             other: i %{count} persones més
           info-message: Aquest és un <strong>esborrany col·laboratiu</strong> per a una proposta. Això significa que pots ajudar les seves autores a modelar la proposta, utilitzant la secció de comentaris a continuació, o a millorar-la demanant accés per editar-la directament. Un vegada les autores et donin accés, podràs fer canvis en aquest esborrany.
-          of_versions: "(de %{number})"
           publish: Publica
           publish_info: Publica aquesta versió de l'esborrany o
           published_proposal: proposta publicada
           request_access: Sol·licitud d'accés
           requested_access: S'ha sol·licitat l'accés
-          see_other_versions: veure altres versions
-          version: Versió %{number}
           version_history: veure l'historial de versions d'aquesta proposta
           withdraw: retira l'esborrany
         states:
@@ -760,9 +756,13 @@ ca:
         proposal:
           creation_date: 'Data de creació: %{date}'
           view_proposal: Veure proposta
+        proposals:
+          empty: Encara no hi ha cap proposta
+          empty_filters: No hi ha cap proposta amb aquests criteris
         show:
-          answer: Respondre
+          answer: Resposta
           back_to: Torna
+          back_to_list: Torna al llistat
           changes_at_title: Esmena a "%{title}"
           comments: Comentaris
           edit_proposal: Edita proposta
@@ -839,20 +839,12 @@ ca:
         error: Hi ha hagut un error en desar l'esborrany col·laboratiu.
         success: L'esborrany col·laboratiu s'ha actualitzat correctament.
       versions:
-        changes_at_title: Canvis a "%{title}"
+        collaborative_drafts:
+          back_to_resource: Torna a l'esborrany col·laboratiu
         index:
           title: Versions
-        stats:
-          back_to_collaborative_draft: Torna a l'esborrany col·laboratiu
-          back_to_proposal: Torna a la proposta
-          number_of_versions: Versions
-          show_all_versions: Mostra totes les versions
-          version_author: Autora de la versió
-          version_created_at: Versió creada a
-          version_number: Número de versió
-          version_number_out_of_total: "%{current_version} de %{total_count}"
-        version:
-          version_index: Versió %{index}
+        proposals:
+          back_to_resource: Torna a la proposta
       withdraw:
         errors:
           has_supports: Aquesta proposta no es pot retirar perquè ja compta amb suports.

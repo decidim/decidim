@@ -60,6 +60,13 @@ tr:
     admin:
       actions:
         new_initiative_type: Yeni girişim türü
+      filters:
+        state_eq:
+          values:
+            created: düzenlendi
+            discarded: Atılan
+            published: Yayınlanan
+            validating: Teknik doğrulama
       menu:
         initiatives: Girişimler
         initiatives_types: Girişim türleri
@@ -228,12 +235,14 @@ tr:
           unpublish: "%{user_name} %{resource_name} girişim reddetti"
           update: "%{user_name} , %{resource_name} girişimi güncelledi"
       admin_states:
-        accepted: Kabul edilmiş
         created: düzenlendi
         discarded: Atılan
         published: Yayınlanan
-        rejected: Reddedilen
         validating: Teknik doğrulama
+      application_helper:
+        filter_state_values:
+          closed: Kapalı
+          open: Açık
       committee_requests:
         new:
           continue: Devam et
@@ -341,13 +350,10 @@ tr:
         filters:
           any: herhangi
           author: Yazar
-          closed: Kapalı
           myself: Benim girişimlerim
-          open: Açık
           search: Arama
           state: Belirtmek, bildirmek
           type: tip
-          type_prompt: Bir tip seçin
         filters_small_view:
           close_modal: Pencereyi kapat
           filter: filtre
@@ -409,8 +415,6 @@ tr:
         promotal_committee_help: Promoter komitesine en az %{member_count} kişiyi davet etmeniz gerektiğini unutmayın. İnsanları destekleyici kuruluna davet etmek için aşağıdaki bağlantıyı yönlendirin
         status_change_body_for: 'Girişim %{title} şu şekilde değiştirdi: %{state}'
         status_change_for: Girişim %{title} durumu değişti
-        technical_validation_body_for: Girişimi %{title} teknik doğrulamayı talep etti.
-        technical_validation_for: Girişimi %{title} teknik doğrulamayı talep etti.
       last_activity:
         new_initiative: Yeni girişim
       pages:

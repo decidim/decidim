@@ -58,17 +58,11 @@ nl:
           edit:
             title: Bewerk resultaat
             update: Update resultaat
-          form:
-            add_proposal: Voeg voorstel toe
           index:
             title: Resultaten
           new:
             create: Maak resultaat
             title: Nieuw resultaat
-          proposals:
-            close: Sluit
-            current_selection: Huidige selectie
-            select: Selecteer
           update:
             invalid: Er is een probleem opgetreden bij het bijwerken van dit resultaat
             success: Resultaat met succes bijgewerkt
@@ -157,30 +151,16 @@ nl:
         show:
           stats:
             attendees: Deelnemers
-            back_to_result: Ga terug naar resultaat
+            back_to_resource: Ga terug naar resultaat
             comments: Reacties
             contributions: Bijdrage
             last_edited_by: Laatst bewerkt door
             last_updated_at: Laatst bijgewerkt om
             meetings: Events
-            number_of_versions: versies
             proposals: Voorstellen
-            show_all_versions: Toon alle versies
-            version_author: Versie auteur
-            version_created_at: Versie gemaakt om
-            version_number: Versienummer
-            version_number_out_of_total: "%{current_version} van %{total_count}"
             votes: Ondersteunt
         timeline:
           title: Project evolutie
-      versions:
-        index:
-          changes_at_title: Veranderingen bij "%{title}"
-          title: versies
-        show:
-          changes_at_title: Veranderingen bij "%{title}"
-        version:
-          version_index: Versie %{index}
     components:
       accountability:
         name: Opvolging

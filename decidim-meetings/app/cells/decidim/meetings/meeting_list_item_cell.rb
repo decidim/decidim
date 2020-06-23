@@ -18,7 +18,7 @@ module Decidim
       end
 
       def title
-        present(model).title
+        decidim_html_escape(present(model).title)
       end
 
       def resource_date_time

@@ -23,10 +23,15 @@ $author-data-color: $muted;
     &:hover{
       color: $anchor-color;
     }
+
+    &:focus{
+      outline: 2px solid $secondary;
+    }
   }
 
   .author__name{
     color: $anchor-color;
+    margin-bottom: 0;
   }
 
   .author__avatar{
@@ -57,9 +62,10 @@ $author-data-color: $muted;
     margin-left: 0;
 
     img{
-      max-width: none;
       margin-top: auto;
       width: rem-calc(54);
+      height: rem-calc(54);
+      object-fit: cover;
     }
   }
 
@@ -129,6 +135,7 @@ $author-data-color: $muted;
 
 a:hover .author__name{
   color: inherit;
+  text-decoration: underline;
 }
 
 .author__avatar{
@@ -144,8 +151,9 @@ a:hover .author__name{
 
   img{
     border-radius: 50%;
-    width: 100%;
-    max-width: 25px;
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
     margin-top: -5px;
   }
 }
@@ -156,7 +164,8 @@ a:hover .author__name{
   }
 
   img{
-    max-width: 20px;
+    width: 20px;
+    height: 20px;
     margin-top: -3px;
   }
 }

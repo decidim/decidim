@@ -69,6 +69,22 @@ de:
         one: Unterstützung
         other: Unterstützer
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Art
+          values:
+            'false': Vorschläge
+            'true': Änderungsanträge
+        state_eq:
+          label: Zustand
+          values:
+            evaluating: In Bewertung
+            withdrawn: Zurückgezogen
+        state_null:
+          label: Status
+          values:
+            'true': Unbeantwortet
     components:
       proposals:
         actions:
@@ -324,6 +340,10 @@ de:
             success: Partizipativer Text erfolgreich aktualisiert.
         proposal_answers:
           form:
+            accepted: Angenommen
+            answer_proposal: Antworten
+            evaluating: In Bewertung
+            rejected: Abgelehnt
             title: Antwort auf Vorschlag %{title}
         proposal_notes:
           create:
@@ -345,10 +365,8 @@ de:
             title: Vorschlag aktualisieren
             update: Aktualisieren
           form:
-            add_images: Bilder hinzufügen
             attachment_legend: "(Optional) Anhang hinzufügen"
             created_in_meeting: Dieser Vorschlag stammt von einer Besprechung
-            gallery_legend: "(Optional) Bildergalerie hinzufügen"
             select_a_category: Kategorie auswählen
             select_a_meeting: Besprechung auswählen
           index:
@@ -370,7 +388,10 @@ de:
           publish_answers:
             select_a_proposal: Bitte wählen Sie einen Vorschlag
           show:
+            authors: Autoren
+            body: Haupttext
             created_at: Erstellungsdatum
+            proposals: Vorschläge
             votes_count: Anzahl der Unterstützungen
           update_category:
             select_a_category: Bitte wählen Sie eine Kategorie
@@ -408,16 +429,21 @@ de:
         rejected: Abgelehnt
         withdrawn: Zurückgezogen
       application_helper:
+        filter_category_values:
+          all: Alle
         filter_origin_values:
           all: Alle
           citizens: Bürger
           meetings: Meetings
           official: Offiziell
           user_groups: Benutzergruppen
+        filter_scope_values:
+          all: Alle
         filter_state_values:
           accepted: Angenommen
           all: Alle
           evaluating: In Bearbeitung
+          not_answered: Unbeantwortet
           rejected: Abgelehnt
         filter_type_values:
           all: Alle
@@ -469,6 +495,7 @@ de:
           open: Offen
           published: Veröffentlicht
           related_to: In Zusammenhang mit
+          scope: Umfang
           search: Suchen
           state: Status
           withdrawn: Zurückgezogen
@@ -510,14 +537,11 @@ de:
             one: und %{count} weitere Person
             other: und %{count} weitere Personen
           info-message: Dies ist ein <strong>kollaborativen Entwurf</strong> für einen Vorschlag. Dies bedeutet, dass Sie ihren Autoren helfen können, den Vorschlag zu gestalten, indem Sie den unten stehenden Kommentarabschnitt verwenden, oder ihn direkt verbessern, indem Sie den Zugriff anfordern, um ihn zu bearbeiten. Sobald die Autoren Ihnen Zugriff gewähren, können Sie Änderungen an diesem Entwurf vornehmen.
-          of_versions: "(von %{number})"
           publish: Veröffentlichen
           publish_info: Veröffentlichen Sie diese Version des Entwurfs oder
           published_proposal: Veröffentlichter Vorschlag
           request_access: Zugangsanfragen
           requested_access: Zugriff angefordert
-          see_other_versions: Andere Versionen anzeigen
-          version: Version %{number}
           version_history: Änderungsverlauf für diesen Vorschlag
           withdraw: den Entwurf zurückziehen
         states:
@@ -602,8 +626,10 @@ de:
           category: Kategorie
           origin: Ursprung
           related_to: Bezüglich
+          scope: Umfang
           search: Suche
           state: Zustand
+          type: Art
           voted: Gewählt
         filters_small_view:
           close_modal: Modal schließen
@@ -710,20 +736,12 @@ de:
         error: Beim Speichern des Vorschlagsentwurfs ist ein Fehler aufgetreten.
         success: Der Vorschlagsentwurf wurde erfolgreich aktualisiert.
       versions:
-        changes_at_title: Änderungen an "%{title}"
+        collaborative_drafts:
+          back_to_resource: Kehren Sie zum gemeinsamen Entwurf zurück
         index:
           title: Versionen
-        stats:
-          back_to_collaborative_draft: Kehren Sie zum gemeinsamen Entwurf zurück
-          back_to_proposal: Gehen Sie zurück zum Vorschlag
-          number_of_versions: Versionen
-          show_all_versions: Alle Versionen anzeigen
-          version_author: Autor dieser Version
-          version_created_at: Version erstellt am
-          version_number: Versionsnummer
-          version_number_out_of_total: "%{current_version} von %{total_count}"
-        version:
-          version_index: Version %{index}
+        proposals:
+          back_to_resource: Gehen Sie zurück zum Vorschlag
       withdraw:
         errors:
           has_supports: Dieser Vorschlag kann nicht zurückgezogen werden, da er bereits Unterstützung hat.

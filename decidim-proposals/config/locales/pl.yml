@@ -77,6 +77,22 @@ pl:
         many: Głosy
         other: Głosy
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Rodzaj
+          values:
+            'false': Propozycje
+            'true': Poprawki
+        state_eq:
+          label: Stan
+          values:
+            evaluating: Ocena
+            withdrawn: Wycofane
+        state_null:
+          label: Stan
+          values:
+            'true': Bez odpowiedzi
     components:
       proposals:
         actions:
@@ -331,6 +347,10 @@ pl:
             success: Tekst uczestnictwa został zaktualizowany pomyślnie.
         proposal_answers:
           form:
+            accepted: Przyjęty
+            answer_proposal: Odpowiedź
+            evaluating: Ocena
+            rejected: Odrzucone
             title: Odpowiedź na wniosek %{title}
         proposal_notes:
           create:
@@ -375,7 +395,10 @@ pl:
           publish_answers:
             select_a_proposal: Wybierz propozycję
           show:
+            authors: Autorski
+            body: Ciało
             created_at: Data utworzenia
+            proposals: Propozycje
             votes_count: Liczenie głosów
           update_category:
             select_a_category: Proszę wybierz kategorie
@@ -413,16 +436,21 @@ pl:
         rejected: Odrzucone
         withdrawn: Wycofane
       application_helper:
+        filter_category_values:
+          all: Wszystko
         filter_origin_values:
           all: Wszystko
           citizens: Obywatele
           meetings: Spotkania
           official: Urzędnik
           user_groups: Grupy użytkowników
+        filter_scope_values:
+          all: Wszystko
         filter_state_values:
           accepted: Przyjęty
           all: Wszystko
           evaluating: Ewaluacja
+          not_answered: Bez odpowiedzi
           rejected: Odrzucono
         filter_type_values:
           all: Wszystko
@@ -476,6 +504,7 @@ pl:
           open: otwarty
           published: Opublikowany
           related_to: Związany z
+          scope: Zakres
           search: Szukaj
           state: Stan
           withdrawn: Wycofane
@@ -519,14 +548,11 @@ pl:
             many: i %{count} więcej osób
             other: i %{count} więcej osób
           info-message: Jest to <strong>wspólny projekt</strong> dla wniosku. Oznacza to, że możesz pomóc swoim autorom w kształtowaniu propozycji za pomocą poniższej sekcji komentarza lub poprawić ją bezpośrednio, żądając dostępu, aby ją edytować. Gdy autorzy przyznają Ci dostęp, będziesz mógł wprowadzać zmiany w tej wersji roboczej.
-          of_versions: "(z %{number})"
           publish: Publikować
           publish_info: Opublikuj tę wersję wersji roboczej lub
           published_proposal: opublikowana propozycja
           request_access: Poproś o dostęp
           requested_access: Wymagany dostęp
-          see_other_versions: zobacz inne wersje
-          version: Wersja %{number}
           version_history: zobacz historię wersji tej propozycji
           withdraw: wycofaj projekt
         states:
@@ -613,8 +639,10 @@ pl:
           category: Kategoria
           origin: Pochodzenie
           related_to: Związany z
+          scope: Zakres
           search: Szukanie
           state: Stan
+          type: Rodzaj
           voted: Głosował
         filters_small_view:
           close_modal: Zamknij modal
@@ -728,20 +756,12 @@ pl:
         error: Wystąpiły błędy podczas zapisywania wersji roboczej propozycji.
         success: Projekt propozycji został pomyślnie zaktualizowany.
       versions:
-        changes_at_title: Zmiany w "%{title}"
+        collaborative_drafts:
+          back_to_resource: Wróć do wersji roboczej
         index:
           title: Wersje
-        stats:
-          back_to_collaborative_draft: Wróć do wersji roboczej
-          back_to_proposal: Wróć do wniosku
-          number_of_versions: Wersje
-          show_all_versions: Pokaż wszystkie wersje
-          version_author: Autor wersji
-          version_created_at: Wersja utworzona w
-          version_number: Numer wersji
-          version_number_out_of_total: "%{current_version} z %{total_count}"
-        version:
-          version_index: Wersja %{index}
+        proposals:
+          back_to_resource: Wróć do wniosku
       withdraw:
         errors:
           has_supports: Ta propozycja nie może zostać wycofana, ponieważ ma już wsparcie.
