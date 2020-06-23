@@ -23,7 +23,7 @@ describe "Admin imports assembly", type: :system do
           es: "Importación de la asamblea",
           ca: "Importació de l'asamblea"
         )
-        fill_in :assembly_slug, with: "pp-import"
+        fill_in :assembly_slug, with: "as-import"
         attach_file :assembly_document, Decidim::Dev.asset("assemblies.json")
       end
 
