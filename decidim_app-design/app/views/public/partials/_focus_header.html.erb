@@ -8,6 +8,12 @@
     <div class="focus__steps"><strong>Pregunta 3</strong> de 4</div>
   <% elsif locals[:step] == 4 %>
     <div class="focus__steps"><strong>Pregunta 4</strong> de 4</div>
+  <% elsif locals[:step] == 'confirm' || locals[:step] == 'encrypting' %>
+    <div class="focus__steps"><strong>Confirmar votación</strong></div>
+  <% elsif locals[:step] == 'confirmed' %>
+    <div class="focus__steps"><strong>Votación confirmada</strong></div>
+  <% elsif locals[:step] == 'verify' %>
+    <div class="focus__steps"><strong>Verifica tu voto</strong></div>
   <% end %>
   <div class="h5 focus__header-title">
       Consulta sobre el sistema de organización del Comité de Fiestas del Barrio del Fort Pienc

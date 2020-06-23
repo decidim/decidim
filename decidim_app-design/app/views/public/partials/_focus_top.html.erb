@@ -2,8 +2,15 @@
   <a href="/" class="focus__brand">
     <%= image_tag "decidim-logo-red.png", alt: "Decidim Barcelona" %>
   </a>
+  <nav class="focus__user topbar__user__logged">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="is-dropdown-submenu-parent show-for-medium">
+        <a href="#">Laura Ipsum</a>
+      </li>
+    </ul>
+  </nav>
   <a href="/" class="focus__exit">
-    <%= icon("account-logout", class: "icon", role: "img") %>
+    <span class="focus__x-icon" aria-hidden="true">×</span>
     Salir
   </a>
 </div>

@@ -1,34 +1,63 @@
 .focus {
+  $top-padding: 0.5rem;
+
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   background-color: $light-gray;
 
   &__top {
-    display: flex;
-    padding: 1rem;
+    padding: $top-padding 1rem;
     background-color: $white;
     position: sticky;
     top: 0;
+    z-index: 1;
+
+    @include breakpoint(medium) {
+      display: flex;
+    }
   }
 
   &__brand {
-    display: block;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    @include breakpoint(medium) {
+      margin-bottom: 0;
+    }
+
     img {
       max-height: 20px;
     }
   }
 
-  &__exit {
+  &__user {
     margin-left: auto;
-    font-weight: 600;
+    padding-right: 0;
+    display: flex;
+    align-items: center;
+
+    .is-dropdown-submenu-parent > a {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+  }
+
+  &__exit {
     display: flex;
     align-items: center;
     line-height: 1;
+    margin: -$top-padding 0;
+    padding: 0.5rem 0.25rem 0.5rem 1rem;
+    border-left: 1px solid rgba(black, 0.2);
+  }
 
-    svg {
-      margin-top: 0.15em;
-      margin-right: 0.3em;
+  &__x-icon {
+    font-size: 2rem;
+    margin-right: 0.5rem;
+    color: $muted;
+    a:hover & {
+      color: inherit;
     }
   }
 

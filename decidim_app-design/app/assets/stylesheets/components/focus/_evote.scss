@@ -1,6 +1,13 @@
 .evote {
-  padding: 2rem;
-  margin-top: 2rem;
+  $checkfocus: 1px dotted rgba(black, 0.5);
+  $checkfocus-offset: 0.1em;
+
+  padding: 1rem;
+  margin-top: 1rem;
+  @include breakpoint(medium) {
+    padding: 2rem;
+    margin-top: 2rem;
+  }
 
   .row {
     display: flex;
@@ -11,7 +18,11 @@
 
   &__options {
     text-align: left;
-    margin: 2rem auto;
+    margin: 1rem auto;
+
+    @include breakpoint(medium) {
+      margin: 2rem auto;
+    }
 
     &--boolean {
       display: flex;
@@ -35,10 +46,12 @@
   }
 
   &__check {
-    font-size: 1.2rem;
     cursor: pointer;
     display: flex;
     align-items: center;
+    @include breakpoint(medium) {
+      font-size: 1.2rem;
+    }
 
     input[type="checkbox"],
     input[type="radio"] {
@@ -69,6 +82,11 @@
       top: 0.2em;
       color: $secondary;
     }
+    input[type="radio"]:focus + &::before {
+      outline: $checkfocus;
+      outline-offset: $checkfocus-offset;
+    }
+
     input[type="radio"]:checked + &::after {
       content: "";
       width: 0.7em;
@@ -91,6 +109,11 @@
       color: $secondary;
       border-radius: 3px;
     }
+    input[type="checkbox"]:focus + &::before {
+      outline: $checkfocus;
+      outline-offset: $checkfocus-offset;
+    }
+
     input[type="checkbox"]:checked + &::before {
       background-color: $secondary;
     }
@@ -115,6 +138,11 @@
     text-transform: uppercase;
     letter-spacing: 0.01em;
     font-weight: 600;
+    button {
+      font-size: inherit;
+      text-transform: inherit;
+      font-family: inherit;
+    }
   }
 
   &__boolean {
@@ -151,9 +179,29 @@
       opacity: 0.25;
     }
 
+    input[type="radio"]:focus + & svg {
+      outline: $checkfocus;
+      outline-offset: $checkfocus-offset;
+    }
+
     input[type="radio"]:checked + & svg {
       opacity: 1;
       color: $secondary;
     }
+  }
+
+  &__counter {
+    position: sticky;
+    bottom: 2rem;
+    right: 0;
+    margin-left: auto;
+    text-align: right;
+    line-height: 1.2;
+    background-color: $medium-gray;
+    padding: 0.3rem 1rem;
+    border-radius: $global-radius;
+  }
+  &__counter-num {
+    font-size: 1.2em;
   }
 }
