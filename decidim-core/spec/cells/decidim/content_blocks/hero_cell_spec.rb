@@ -20,7 +20,7 @@ describe Decidim::ContentBlocks::HeroCell, type: :cell do
   context "when the content block has customized the welcome text setting value" do
     let(:settings) do
       {
-        "welcome_text_en" => "This is my welcome text"
+          "welcome_text_en" => "This is my welcome text"
       }
     end
 
@@ -32,8 +32,8 @@ describe Decidim::ContentBlocks::HeroCell, type: :cell do
   context "when the content block has a background image" do
     let(:background_image) do
       Rack::Test::UploadedFile.new(
-        Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-        "image/jpg"
+          Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
+          "image/jpg"
       )
     end
 
@@ -44,6 +44,28 @@ describe Decidim::ContentBlocks::HeroCell, type: :cell do
 
     it "uses that image's big version as background" do
       expect(subject.to_s).to include(content_block.images_container.background_image.big.url)
+    end
+  end
+
+  describe "#cache_hash" do
+    context "when model is updated" do
+      it "generates a different hash" do
+        old_hash = cell(content_block.cell, content_block).send(:cache_hash)
+        content_block.update!(weight: 2)
+        content_block.reload
+
+        expect(cell(content_block.cell, content_block).send(:cache_hash)).not_to eq(old_hash)
+      end
+    end
+
+    context "when organization is updated" do
+      it "generates a different hash" do
+        old_hash = cell(content_block.cell, content_block).send(:cache_hash)
+        controller.current_organization.update!(name: "New name")
+        controller.current_organization.reload
+
+        expect(cell(content_block.cell, content_block).send(:cache_hash)).not_to eq(old_hash)
+      end
     end
   end
 end

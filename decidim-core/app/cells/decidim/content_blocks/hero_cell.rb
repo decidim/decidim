@@ -18,6 +18,16 @@ module Decidim
       def background_image
         model.images_container.background_image.big.url
       end
+
+      private
+
+      def perform_caching?
+        true
+      end
+
+      def cache_hash
+        "decidim/content_blocks/hero/#{Digest::MD5.hexdigest(model.attributes.to_s)}/#{current_organization.cache_version}"
+      end
     end
   end
 end
