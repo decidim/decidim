@@ -1,4 +1,4 @@
-pt-BR:
+pt:
   activemodel:
     attributes:
       collaborative_draft:
@@ -329,9 +329,6 @@ pt-BR:
             save_draft: Salvar rascunho
             title: Visualizar texto participativo
           new_import:
-            accepted_mime_types:
-              md: Markdown
-              odt: Odt
             bottom_hint: "(Você será capaz de visualizar e classificar as seções do documento)"
             document_legend: 'Adicione um documento menor que 2MB, cada seção até que 3 níveis de profundidade sejam analisados em Propostas. Formatos suportados são: %{valid_mime_types}'
             title: ADICIONAR DOCUMENTO
