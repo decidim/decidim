@@ -321,7 +321,7 @@ it:
       votes:
         description: Numero di voti generati nelle proposte degli utenti
         object: voti
-        title: voti
+        title: Voti
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -463,7 +463,7 @@ it:
             remove_assignment_confirmation: Sei sicuro di voler rimuovere il valutatore da questa proposta?
             valuators: Valutatori
             votes_count: Contare i voti
-            votes_ranking: Classifica per appoggi
+            votes_ranking: Ordina per numero di supporti
           update_category:
             invalid: 'Queste proposte avevano già la categoria %{subject_name} %{proposals}.'
             select_a_category: Si prega di selezionare una categoria
@@ -799,7 +799,7 @@ it:
           changed_from: "(modificato da <u>%{previous_name}</u> da un amministratore)"
         vote_button:
           already_voted: Già votata
-          already_voted_hover: Annullare il voto
+          already_voted_hover: Ritira il supporto
           maximum_votes_reached: Hai raggiunto il limite di voti
           no_votes_remaining: Sono finite le votazioni possibili
           vote: Vota
