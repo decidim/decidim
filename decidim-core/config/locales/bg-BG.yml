@@ -1,9 +1,161 @@
 bg:
+  activemodel:
+    attributes:
+      account:
+        delete_reason: Причина за изтриване на Вашия профил
+      group:
+        about: Относно
+        avatar: Аватар
+        document_number: Номер на документ
+        email: Ел. поща
+        name: Име
+        nickname: Псевдоним
+        phone: Телефон
+      report:
+        details: Забележки
+      user:
+        about: Относно
+        email: Вашата ел. поща
+        name: Вашето име
+        nickname: Псевдоним
+        password: Парола
+        password_confirmation: Потвърдете паролата си
+        personal_url: Персонален URL
+        remove_avatar: Премахни аватара
+    models:
+      decidim/attachment_created_event: Прикачени файлове
+      decidim/component_published_event: Активен компонент
+      decidim/demoted_membership: Вече не сте администратор в групата
+      decidim/gamification/badge_earned_event: Получихте значка
+      decidim/gamification/level_up_event: Повишихте нивото си
+      decidim/join_request_accepted_event: Заявката за присъединяване е приета
+      decidim/join_request_rejected_event: Заявката за присъединяване е отхвърлена
+      decidim/profile_updated_event: Профилът е обновен
+      decidim/promote_to_admin: Назначен за администратор на групата
+      decidim/removed_from_group: Премахнат от групата
+      decidim/resource_endorsed_event: Ресурсът е одобрен
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Текуща парола
+        email: Ел. поща
+        name: Псевдоним
+        password: Парола
+        password_confirmation: Потвърждаване на паролата
+        remember_me: Запомни ме
+    models:
+      decidim/amendment:
+        one: Поправка
+        other: Поправки
+      decidim/endorsement:
+        one: Одобряване
+        other: Одобрявания
+      decidim/user:
+        one: Участник
+        other: Участници
+      decidim/user_group:
+        one: Група
+        other: Групи
+  booleans:
+    'false': 'Не'
+    'true': 'Да'
+  carrierwave:
+    errors:
+      general: Грешка при обработването на изображението
+      image_too_big: Изображението е твърде голямо
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_short_with_month_name_short: "%d %b %Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
+      decidim_with_month_name: "%d %B %Y"
+      decidim_with_month_name_short: "%d %b"
   decidim:
+    accessibility:
+      logo: "Официално лого на %{organization}"
+      skip_button: Към съдържанието
+    account:
+      data_portability_export:
+        file_no_exists: Файлът не съществува
+        notice: Свалянето на Вашите данни е в процес. Ще получите ел. писмо когато приключи.
+      delete:
+        alert: Това действие не можа да бъде отменено. Ако изтриете Вашия профил, вече няма да можете да влизате.
+        confirm:
+          close: Затвори прозореца
+          ok: Да, желая да изтрия профила си
+          question: Сигурни ли сте, че желаете да изтриете своя профил?
+          title: Изтрий моя профил
+        explanation: Моля, напишете причината за изтриване на Вашия профил (по желание).
+      destroy:
+        error: Възникна проблем с изтриването на профила Ви.
+        success: Вашият профил е успешно изтрит.
+      show:
+        change_password: Смяна на паролата
+        update_account: Обнови профил
+      update:
+        error: Възникна проблем с обновяването на профила Ви.
+        success: Профилът Ви е обновен успешно.
+        success_with_email_confirmation: Профилът Ви е обновен успешно. Ще получите ел. писмо за да потвърдите новия адрес за ел. поща.
+    admin:
+      actions:
+        cancel: Отказ
+    admin_log:
+      area:
+        create: "%{user_name} създаде район %{resource_name}"
+        delete: "%{user_name} изтри район %{resource_name}"
+        update: "%{user_name} обнови район %{resource_name}"
+      component:
+        create: "%{user_name} добави компонента %{resource_name} към пространството %{space_name}"
+        delete: "%{user_name} премахна компонента %{resource_name} от пространството %{space_name}"
+        publish: "%{user_name} публикува компонента %{resource_name} в пространството %{space_name}"
+        unpublish: "%{user_name} отпубликува компонента %{resource_name} от пространството %{space_name}"
+      moderation:
+        hide: "%{user_name} скри ресурс от типа %{resource_type} в пространството %{space_name}"
+        unreport: "%{user_name} отдокладва ресурс от типа %{resource_type} в пространството %{space_name}"
+      newsletter:
+        create: "%{user_name} създаде новината %{resource_name}"
+        delete: "%{user_name} изтри новината %{resource_name}"
+        deliver: "%{user_name} разпрати новината %{resource_name}"
+        update: "%{user_name} обнови новината %{resource_name}"
+      oauth_application:
+        create: "%{user_name} създаде OAuth приложението %{resource_name}"
+        delete: "%{user_name} изтри OAuth приложението %{resource_name}"
+        update: "%{user_name} обнови OAuth приложението %{resource_name}"
+      organization:
+        update: "%{user_name} обнови настройките на организацията"
+      participatory_space_private_user:
+        create: "%{user_name} покани %{resource_name} да бъде частен участник"
+        create_via_csv: "%{user_name} покани %{resource_name} чрез csv да бъде частен участник"
+        delete: "%{user_name} премахна участника %{resource_name} като частен"
+      scope:
+        create: "%{user_name} създаде сферата %{resource_name}"
+        create_with_parent: "%{user_name} създаде сферата %{resource_name} в родителската сфера %{parent_scope}"
+        delete: "%{user_name} изтри сферата %{resource_name}"
+        delete_with_parent: "%{user_name} изтри сферата %{resource_name} в родителската сфера %{parent_scope}"
+        update: "%{user_name} обнови сферата %{resource_name}"
+        update_with_parent: "%{user_name} обнови сферата %{resource_name} в родителската сфера %{parent_scope}"
+      static_page:
+        create: "%{user_name} създаде статичната страница %{resource_name}"
+        delete: "%{user_name} изтри статичната страница %{resource_name}"
+        update: "%{user_name} обнови статичната страница %{resource_name}"
+      user:
+        invite: "%{user_name} покани участника %{resource_name} за роля: %{role}"
+        officialize: "%{user_name} присвои официален статус на участника %{resource_name}"
+        remove_from_admin: "%{user_name} премахна участника %{resource_name} за роля: %{role}"
+        show_email: "%{user_name} получи ел. поща от участника %{resource_name}"
+        unofficialize: "%{user_name} премахна официалния статус на участника %{resource_name}"
+      user_group:
+        reject: "%{user_name} отхвърли потвърждението на група участници %{resource_name}"
     amendments:
+      update_draft:
+        error: Възникна проблем при обновяването чернова на проекта.
+        success: Черновата на проекта е успешно обновена.
+      withdraw:
+        error: Възникна грешка при оттеглянето на проекта
+        success: Проекта беше оттеглен успешно
       wizard_step_form:
         steps:
-          '1': Create your amendment
-          '2': Compare your amendment
+          '1': Създайте ваш проект
+          '2': Сравнете Вашите изменения
           '3': Complete your amendment
           '4': Publish your amendment
