@@ -13,7 +13,7 @@ module Decidim
 
         locales = Decidim.available_locales.map(&:to_s)
         locales.each do |locale|
-          MachineTranslationUpdateFieldsJob.perform_now(id, class_name, field, resource[field], locale)
+          MachineTranslationUpdateFieldsJob.perform_later(id, class_name, field, resource[field], locale)
         end
       end
     end
