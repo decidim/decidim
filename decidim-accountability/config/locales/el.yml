@@ -1,1 +1,13 @@
 el:
+  activemodel:
+    attributes:
+      status:
+        name: Όνομα
+  decidim:
+    accountability:
+      actions:
+        preview: Προεπισκόπηση
+      models:
+        status:
+          fields:
+            name: Όνομα

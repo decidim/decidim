@@ -1,1 +1,58 @@
 el:
+  activemodel:
+    attributes:
+      initiatives_vote:
+        document_number: Αριθμός εγγράφου
+  decidim:
+    admin:
+      models:
+        initiatives_votes:
+          fields:
+            document_number: Αριθμός εγγράφου
+    initiatives:
+      admin:
+        initiatives:
+          index:
+            preview: Προεπισκόπηση
+        initiatives_type_scopes:
+          edit:
+            back: Πίσω
+          new:
+            back: Πίσω
+            create: Δημιουργία
+        initiatives_types:
+          new:
+            create: Δημιουργία
+      committee_requests:
+        new:
+          continue: Συνέχεια
+      create_initiative:
+        fill_data:
+          back: Πίσω
+          continue: Συνέχεια
+        finish:
+          back: Πίσω
+        previous_form:
+          back: Πίσω
+          continue: Συνέχεια
+        promotal_committee:
+          back: Πίσω
+        select_initiative_type:
+          back: Πίσω
+        share_committee_link:
+          continue: Συνέχεια
+        show_similar_initiatives:
+          back: Πίσω
+      initiative_signatures:
+        fill_personal_data:
+          continue: Συνέχεια
+      initiatives:
+        filters_small_view:
+          close_modal: Κλείσιμο παραθύρου
+  layouts:
+    decidim:
+      initiative_creation_header:
+        back: Πίσω
+        fill_data: Δημιουργία
+      initiative_signature_creation_header:
+        back: Πίσω
