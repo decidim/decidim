@@ -28,7 +28,6 @@ module Decidim
         validates :name_and_surname, :document_number, :date_of_birth, :postal_code, :encrypted_metadata, :hash_id, presence: true
         validate :document_number_authorized?
         validate :already_voted?
-        validate :personal_data_consistent_with_metadata
       end
 
       delegate :scope, to: :initiative
@@ -150,18 +149,6 @@ module Decidim
       # Private: Checks if there's any existing vote that matches the user's data.
       def already_voted?
         errors.add(:document_number, :taken) if initiative.votes.where(hash_id: hash_id, scope: scope).exists?
-      end
-
-      # Private: Checks if the data given at the vote form matches the same data
-      # we have at the authorization.
-      def personal_data_consistent_with_metadata
-        return if initiative.document_number_authorization_handler.blank?
-
-        errors.add(:base, :invalid) unless authorized? &&
-                                           authorization_handler &&
-                                           authorization_handler_metadata_variations.any? do |variation|
-                                             authorization.metadata.symbolize_keys.except(:extras) == variation.symbolize_keys.except(:extras)
-                                           end
       end
 
       def author
