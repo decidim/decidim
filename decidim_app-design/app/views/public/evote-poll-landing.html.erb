@@ -2,6 +2,41 @@
 @title = "Evote -- Decidim Barcelona"
 %>
 
+<%= partial "template_top" %>
 
-[poll landing]
+<main>
+  <%= partial "process_header" %>
+  <div class="wrapper">
+    <div class="row">
+      <div class="columns">
+        <a href="#">
+          <%= icon "caret-left", class: "icon--small" %>&nbsp;Todas las votaciones
+        </a>
+        <h1 class="heading3">Participa en la consulta sobre la organización del Comité de Fiestas del Barrio del Fort Pienc</h1>
+        <p>
+          Votación activa hasta: <strong>15 julio 2020</strong>
+        </p>
+      </div>
+    </div>
+    <div class="row section">
+      <div class="columns medium-4 mediumlarge-5">
+        <img src="<%= image_path "superilles.jpg" %>" alt="">
+      </div>
+      <div class="columns medium-8 mediumlarge-7">
+        <div class="section">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <p>
+            <a class="button" href="#">
+              Inicia la votación
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>
 
