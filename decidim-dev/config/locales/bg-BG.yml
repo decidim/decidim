@@ -1,1 +1,6 @@
 bg:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: Създаден на
+        field: Моето поле
