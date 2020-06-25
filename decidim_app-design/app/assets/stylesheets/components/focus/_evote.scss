@@ -16,6 +16,14 @@
     text-align: center;
   }
 
+  &__content {
+    margin: 1rem auto;
+
+    @include breakpoint(medium) {
+      margin: 2rem auto;
+    }
+  }
+
   &__options {
     text-align: left;
     margin: 1rem auto;
@@ -224,5 +232,53 @@
     text-transform: uppercase;
     letter-spacing: 0.01em;
     color: $primary;
+  }
+
+  &__encrypting {
+    width: 200px;
+    height: 40px;
+    display: flex;
+    margin: 2rem auto;
+  }
+
+  &__dot {
+    width: 10px;
+    height: 10px;
+    margin: 10px auto;
+    border-radius: 50px;
+    background: $primary;
+    &:nth-child(odd) {
+      animation: dotTop 1s infinite ease-in-out;
+    }
+    &:nth-child(even) {
+      animation: dotBottom 1s infinite ease-in-out;
+    }
+
+    @media (prefers-reduced-motion) {
+      animation: none !important;
+    }
+
+    @keyframes dotTop {
+      0% {
+        transform: translateY(-15px);
+      }
+      50% {
+        transform: translateY(15px);
+      }
+      100% {
+        transform: translateY(-15px);
+      }
+    }
+    @keyframes dotBottom {
+      0% {
+        transform: translateY(15px);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+      100% {
+        transform: translateY(15px);
+      }
+    }
   }
 }
