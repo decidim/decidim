@@ -1,9 +1,522 @@
 bg:
+  activemodel:
+    attributes:
+      account:
+        delete_reason: Причина за изтриване на Вашия профил
+      group:
+        about: Относно
+        avatar: Аватар
+        document_number: Номер на документ
+        email: Ел. поща
+        name: Име
+        nickname: Псевдоним
+        phone: Телефон
+      report:
+        details: Забележки
+      user:
+        about: Относно
+        email: Вашата ел. поща
+        name: Вашето име
+        nickname: Псевдоним
+        password: Парола
+        password_confirmation: Потвърдете паролата си
+        personal_url: Персонален URL
+        remove_avatar: Премахни аватара
+    models:
+      decidim/attachment_created_event: Прикачени файлове
+      decidim/component_published_event: Активен компонент
+      decidim/demoted_membership: Вече не сте администратор в групата
+      decidim/gamification/badge_earned_event: Получихте значка
+      decidim/gamification/level_up_event: Повишихте нивото си
+      decidim/join_request_accepted_event: Заявката за присъединяване е приета
+      decidim/join_request_rejected_event: Заявката за присъединяване е отхвърлена
+      decidim/profile_updated_event: Профилът е обновен
+      decidim/promote_to_admin: Назначен за администратор на групата
+      decidim/removed_from_group: Премахнат от групата
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Текуща парола
+        email: Ел. поща
+        name: Псевдоним
+        password: Парола
+        password_confirmation: Потвърждаване на паролата
+        remember_me: Запомни ме
+    models:
+      decidim/amendment:
+        one: Поправка
+        other: Поправки
+      decidim/user:
+        one: Участник
+        other: Участници
+      decidim/user_group:
+        one: Група
+        other: Групи
+  booleans:
+    'false': 'Не'
+    'true': 'Да'
+  carrierwave:
+    errors:
+      image_too_big: Изображението е твърде голямо
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_short_with_month_name_short: "%d %b %Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
+      decidim_with_month_name: "%d %B %Y"
+      decidim_with_month_name_short: "%d %b"
   decidim:
+    account:
+      data_portability_export:
+        file_no_exists: Файлът не съществува
+        notice: Свалянето на Вашите данни е в процес. Ще получите ел. писмо когато приключи.
+      delete:
+        alert: Това действие не можа да бъде отменено. Ако изтриете Вашия профил, вече няма да можете да влизате.
+        confirm:
+          close: Затвори прозореца
+          ok: Да, желая да изтрия профила си
+          question: Сигурни ли сте, че желаете да изтриете своя профил?
+          title: Изтрий моя профил
+        explanation: Моля, напишете причината за изтриване на Вашия профил (по желание).
+      destroy:
+        error: Възникна проблем с изтриването на профила Ви.
+        success: Вашият профил е успешно изтрит.
+      show:
+        change_password: Смяна на паролата
+        update_account: Обнови профил
+      update:
+        error: Възникна проблем с обновяването на профила Ви.
+        success: Профилът Ви е обновен успешно.
+        success_with_email_confirmation: Профилът Ви е обновен успешно. Ще получите ел. писмо за да потвърдите новия адрес за ел. поща.
+    admin:
+      actions:
+        cancel: Отказ
+    admin_log:
+      area:
+        create: "%{user_name} създаде район %{resource_name}"
+        delete: "%{user_name} изтри район %{resource_name}"
+        update: "%{user_name} обнови район %{resource_name}"
+      component:
+        create: "%{user_name} добави компонента %{resource_name} към пространството %{space_name}"
+        delete: "%{user_name} премахна компонента %{resource_name} от пространството %{space_name}"
+        publish: "%{user_name} публикува компонента %{resource_name} в пространството %{space_name}"
+        unpublish: "%{user_name} отпубликува компонента %{resource_name} от пространството %{space_name}"
+      moderation:
+        hide: "%{user_name} скри ресурс от типа %{resource_type} в пространството %{space_name}"
+        unreport: "%{user_name} отдокладва ресурс от типа %{resource_type} в пространството %{space_name}"
+      newsletter:
+        create: "%{user_name} създаде новината %{resource_name}"
+        delete: "%{user_name} изтри новината %{resource_name}"
+        deliver: "%{user_name} разпрати новината %{resource_name}"
+        update: "%{user_name} обнови новината %{resource_name}"
+      oauth_application:
+        create: "%{user_name} създаде OAuth приложението %{resource_name}"
+        delete: "%{user_name} изтри OAuth приложението %{resource_name}"
+        update: "%{user_name} обнови OAuth приложението %{resource_name}"
+      organization:
+        update: "%{user_name} обнови настройките на организацията"
+      participatory_space_private_user:
+        create: "%{user_name} покани %{resource_name} да бъде частен участник"
+        create_via_csv: "%{user_name} покани %{resource_name} чрез csv да бъде частен участник"
+        delete: "%{user_name} премахна участника %{resource_name} като частен"
+      scope:
+        create: "%{user_name} създаде сферата %{resource_name}"
+        create_with_parent: "%{user_name} създаде сферата %{resource_name} в родителската сфера %{parent_scope}"
+        delete: "%{user_name} изтри сферата %{resource_name}"
+        delete_with_parent: "%{user_name} изтри сферата %{resource_name} в родителската сфера %{parent_scope}"
+        update: "%{user_name} обнови сферата %{resource_name}"
+        update_with_parent: "%{user_name} обнови сферата %{resource_name} в родителската сфера %{parent_scope}"
+      static_page:
+        create: "%{user_name} създаде статичната страница %{resource_name}"
+        delete: "%{user_name} изтри статичната страница %{resource_name}"
+        update: "%{user_name} обнови статичната страница %{resource_name}"
+      user:
+        invite: "%{user_name} покани участника %{resource_name} за роля: %{role}"
+        officialize: "%{user_name} присвои официален статус на участника %{resource_name}"
+        remove_from_admin: "%{user_name} премахна участника %{resource_name} за роля: %{role}"
+        unofficialize: "%{user_name} премахна официалния статус на участника %{resource_name}"
+      user_group:
+        reject: "%{user_name} отхвърли потвърждението на група участници %{resource_name}"
+        verify: "%{user_name} провери групата %{resource_name}"
+        verify_via_csv: "%{user_name} провери групата %{resource_name} чрез CSV файл"
+    admin_terms_of_use:
+      default_body: "<h2>ПРАВИЛА НА АДМИНИСТРАТОРА</h2><p>Надяваме се, че сте получили указания от местния системен администратор. Обикновено се свеждат до тези три неща:</p><ol><li>Уважавайте личното пространство на другите.</li><li>Мисли, преди да натиснеш.</li><li>С големите права идва голямата отговорност.</li></ol>"
     amendments:
+      accepted:
+        error: Възникна грешка при одобряване на поправката.
+        success: Поправката е одобрена успешно.
+      amendable:
+        amended_by: Поправка от
+        button: Променя %{model_name}
+        error: Възникна грешка при промяната на ресурса.
+        help_text: Подобрете %{model_name} като измените неговите %{amendable_fields}
+        promote_button: Обяви като %{model_name}
+        promote_confirm_text: Сигурни ли сте, че искате да обявите тази поправка?
+        promote_help_text: Можете да обявите тази поправка като я публикувате като независим %{model_name}
+        section_heading: Поправки (%{count})
+      compare_draft:
+        continue: Продължи
+        no_similars_found: Не са намерени подобни поправки.
+        title: Подобни поправки
+      created:
+        error: Възникна грешка при създаване на поправката.
+        success: Поправката е създадена успешно.
+      destroy_draft:
+        error: Възникна проблем при изтриване черновата на поправката.
+        success: Черновата на поправката е успешно изтрита.
+      edit_draft:
+        discard: Отхвърляне на черновата
+        discard_confirmation: Сигурни ли сте, че искате да отхвърлите тази чернова на поправка?
+        send: Преглед
+        title: Редактирай чернова на поправка
+      emendation:
+        actions:
+          button_accept: Приеми
+          button_reject: Отхвърли
+          help_text: Прегледай промените и приеми или отхвърли тази поправка. Нейните автор(и) ще бъдат известени.
+        announcement:
+          accepted: |-
+            Тази поправка на %{amendable_type} %{proposal_link} беше приета на <strong>%{date}</strong>.
+          evaluating: |-
+            Тази поправка на %{amendable_type} %{proposal_link}
+            се разглежда.
+          promoted: Обявено като %{amendable_type}.
+          rejected: Тази поправка на %{amendable_type} %{proposal_link} беше отхвърлена на <strong>%{date}</strong>.
+          withdrawn: |-
+            Тази поправка на %{amendable_type} %{proposal_link}
+            беше оттеглена от автора.
+      new:
+        amendment_author: Автор на поправката
+        send: Създай
+        title: Създай чернова на поправка
+      preview_draft:
+        modify: Промени
+        publish: Публикувай
+        title: Публикувай чернова на поправка
+      promoted:
+        error: Възникна проблем при публикуването на поправката като ново предложение
+        success: Поправката е успешно публикувана като ново предложение
+      publish_draft:
+        error: Възникна проблем при публикуване на поправката.
+        success: Поправката е публикувана успешно.
+      rejected:
+        error: Възникна проблем при отхвърляне на поправката, опитайте по-късно
+        success: Поправката е успешно отхвърлена
+      review:
+        back: Назад
+        heading: Преглед на поравка
+        help_text: Преглеждате поправка в %{model_name}
+        send: Приеми поправка
+      update_draft:
+        error: Възникна проблем при обновяване черновата на поправка.
+        success: Черновата на поправка е успешно обновена.
+      visibility_options:
+        all: Поправките са видими за всички
+        participants: Поправките са видими за авторите им
+      withdraw:
+        error: Възникна грешка при оттеглянето на поправка
+        success: Поправката беше оттеглена успешно
       wizard_step_form:
         steps:
-          '1': Create your amendment
-          '2': Compare your amendment
-          '3': Complete your amendment
-          '4': Publish your amendment
+          '1': Създайте Ваша поправка
+          '2': Сравнете Вашите поправки
+          '3': Завършете Вашите поправки
+          '4': Публикувайте Вашите поправки
+    anonymous_user: Анонимен
+    application:
+      collection:
+        documents:
+          one: Документ
+          other: Документи
+      documents:
+        related_documents: Свързани документи
+      photos:
+        related_photos: Свързани изображения
+    author:
+      avatar: Аватар
+      comments:
+        one: коментар
+        other: коментари
+    authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Преминете проверка, като въведете номер на паспорт започващ с "A"
+        fields:
+          passport_number: Номер на паспорт
+        name: Друго примерна идентификация
+      dummy_authorization_handler:
+        explanation: Преминете проверка, като въведете номер на документ завършващ с "X"
+        fields:
+          document_number: Номер на документ
+          postal_code: Пощенски код
+        name: Примерна идентификация
+      dummy_authorization_workflow:
+        name: Макет на процедура за идентификация
+      errors:
+        duplicate_authorization: Участника вече е идентифициран с тези данни.
+      expired_at: Изтече на %{timestamp}
+      expires_at: Изтича на %{timestamp}
+      foo_authorization:
+        fields:
+          bar: Нещо1
+          foo: Нещо2
+        name: Нещо1 идентификация
+      granted_at: Предоставено на %{timestamp}
+      sms:
+        explanation: Предоставете мобилният си номер, за да проверим идентичността Ви.
+        name: Код чрез SMS
+      started_at: Започнато на %{timestamp}
+    authorization_modals:
+      content:
+        expired:
+          authorize: Идентифициране отново чрез "%{authorization}"
+          explanation: Вашата идентификация изтече. За да изпълните това действие, идентифицирайте се отново чрез "%{authorization}".
+          title: Идентификацията изтече
+        incomplete:
+          cancel: Отказ
+          explanation: 'Въпреки че се идентифицирахте чрез "%{authorization}" е необходимо да се идентифицирате отново, защото липсват следните данни:'
+          invalid_field: "%{field}"
+          reauthorize: Нова идентификация
+          title: Моля, направете нова идентификация
+        missing:
+          authorize: Идентифицирайте се чрез "%{authorization}"
+          explanation: За да изпълните това действие е необходима идентификация чрез "%{authorization}".
+          title: Необходима е идентификация
+        pending:
+          explanation: За да изпълните това действие е необходима идентификация чрез "%{authorization}", но Вашата идентификация все още не е завършена
+          resume: Проверете напредъка на Вашата "%{authorization}" идентификация
+          title: Идентификацията не е завършила
+        unauthorized:
+          explanation: Съжаляваме, не можете да извършите това действие, защото някои от идентификационните данни не съвпадат.
+          invalid_field: "За %{field} стойността %{value} не е валидна."
+          ok: Добре
+          title: Не сте идентифициран
+        unconfirmed:
+          confirmation_instructions: 'Ако не сте получили инструкции за потвърждение, заявете ново изпращане:'
+          explanation_html: За да изпълните това действие, първо се идентифицирайте, но преди това потвърдете вашата ел. поща <strong>%{email}</strong>.
+          request_confirmation_instructions: Заявка на инструкции за потвърждение
+          title: Потвърдете Вашата ел. поща
+    collapsible_list:
+      hidden_elements_count:
+        one: и още %{count}
+        other: и още %{count}
+      see_less: "(скрий)"
+      see_more: "(покажи)"
+    components:
+      dummy:
+        actions:
+          bar: Нещо1
+          foo: Нещо2
+        name: Макетен компонент
+        settings:
+          global:
+            amendments_enabled: Поправки разрешени
+            comments_enabled: Коментари разрешени
+            dummy_global_attribute_1: Макетен атрибут 1
+            dummy_global_attribute_2: Макетен атрибут 2
+            dummy_global_translatable_text: Макетен преводим текст
+            enable_pads_creation: Активирай създаване на бележки
+            resources_permissions_enabled: Разрешения за ресурс включени
+          step:
+            amendment_creation_enabled: Създаване на поправки разрешено
+            amendment_promotion_enabled: Популяризиране на поправки разрешено
+            amendment_reaction_enabled: Реагиране на поправки разрешено
+            amendments_visibility: Видимост на поправки
+            comments_blocked: Коментари блокирани
+            dummy_step_attribute_1: Атрибут 1 на макетната стъпка
+            dummy_step_attribute_2: Атрибут 2 на макетната стъпка
+            dummy_step_translatable_text: Преводим текст на макетната стъпка
+    contact: Контакт
+    content_blocks:
+      footer_sub_hero:
+        name: Долен колонтитул на под-геройския банер
+      hero:
+        name: Изображение на героя
+      highlighted_content_banner:
+        name: Банер на откроеното съдържание
+      how_to_participate:
+        name: Как да участвам
+      html:
+        html_content: HTML съдържание
+        name: HTML блок
+      last_activity:
+        name: Последна активност
+        title: Последна активност
+        view_all: Виж всички
+      metrics:
+        name: Показатели за организацията
+      stats:
+        name: Статистики за организацията
+      sub_hero:
+        name: Банер на под-героя
+    core:
+      actions:
+        login_before_access: Влезте в профила си за достъп
+        unauthorized: Нямате права за това действие
+    data_portability:
+      export:
+        ready: Готов
+      show:
+        download_data: Изтегляне на данни
+        download_data_description: Файл с цялата информация, свързана с профила Ви ще бъде изпратена на <strong>%{user_email}</strong>
+        request_data: Заяви данни
+    datepicker:
+      help_text: 'Очакван формат: %{datepicker_format}'
+    devise:
+      omniauth_registrations:
+        create:
+          email_already_exists: Друг профил използва същия адрес за ел. поща
+        new:
+          complete_profile: Завърши профила
+          nickname_help: Вашият псевдоним в %{organization}
+          sign_up: Моля, завършете профила си
+          subtitle: Попълнете формуляра за да завършите регистрацията
+          username_help: Публичното име ще се показва във Вашите публикации. Ако желаете анонимност, изберете го произволно.
+      registrations:
+        new:
+          already_have_an_account?: Вече имате профил?
+          newsletter: Получавайте извънреден бюлетин с подходяща информация
+          newsletter_title: Разрешение за контакт с Вас
+          nickname_help: Вашя псевдоним в %{organization}
+          password_help: "Минимум %{minimun_characters} символа, не трябва да са разпространени (например, 123456) и трябва да са различни от вашите име и ел. поща."
+          sign_in: Вход
+          sign_up: Регистрация
+          sign_up_as:
+            legend: Регистрация като
+          subtitle: Регистрирайте се за да участвате в обсъждания и поддържате предложения.
+          terms: обши условия
+          tos_agreement: Регистрирайки се, приемате %{link}.
+          tos_title: Общи условия
+          username_help: Публичното име ще се показва във Вашите публикации. Ако желаете анонимност, изберете го произволно.
+      sessions:
+        new:
+          are_you_new?: Нов сте в тази платформа?
+          register: Създай профил
+          sign_in_disabled: Може да влезете с външен профил
+          sign_up_disabled: Регистрацията е забранена, може да ползвате съществуващ профил за достъп
+      shared:
+        newsletter_modal:
+          buttons:
+            check: Маркирай и продължи
+            close_modal: Затвори прозорчето
+            uncheck: Остави немаркирано
+          notice: |-
+            <p>Наистина ли не желаете да получавате писма с новини за дейностите в платформата?<br> Още веднъж преценете, дали да не поставите отметка по-долу.<br> Важно е понякога да получавате актуална информация. Винаги можете да се откажете от страницата с настройки.</p> <p>Когато това поле не е маркирано, може да пропуснете възможности за съвместна работа.<br> Ако все пак не желаете да Ви информираме за общите ни дела, уважаваме Вашето решение.</p> <p>Благодарим Ви, че прочетохте това!</p>
+          title: Известия за новости
+        omniauth_buttons:
+          or: Или
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Потвърди приложение
+          by_organization_link_html: <small class="heading-small"> чрез %{link}</small>
+          cancel: Откажи
+          connect_your_account_html: Свържете вашия профил като се регистрирате в <strong>%{organization}</strong>
+          publish_content: Публикувайте съдържание за вас
+          see_email: Вижте Вашата ел. поща
+          see_name: Вижте Вашето име
+          see_username: Вижте Вашия псевдоним
+          this_application_will_be_able_to: 'Това приложение ще може:'
+          this_application_will_not_be_able_to: 'Това приложение не може:'
+          update_profile: Обновете профила си
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> желае да ползва профила Ви"
+    errors:
+      internal_server_error:
+        title: Възникна проблем с нашия сървър
+        try_later: Опитайте отново по-късно.
+      not_found:
+        back_home: Към Начало
+        content_doesnt_exist: Този адрес е неправилен или е премахнат.
+        title: Търсената от вас страница не е намерена
+    events:
+      amendments:
+        amendment_accepted:
+          affected_user:
+            email_intro: 'Приета е поправка в %{amendable_title}. Можете да я видите на тази страница:'
+            email_outro: Получавате това известие, защото сте автор на %{amendable_title}.
+            email_subject: Приета е поправка в %{amendable_title} от %{emendation_author_nickname}
+            notification_title: Поправката <a href="%{emendation_path}"></a> направена от <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> е приета за <a href="%{amendable_path}">%{amendable_title}</a>.
+          follower:
+            email_intro: 'Приета е поправка в %{amendable_title}. Можете да я видите на тази страница:'
+            email_outro: Получавате това известие, защото следвате %{amendable_title}. Може да прекратите известията чрез предната връзка.
+            email_subject: Приета е поправка в %{amendable_title} от %{emendation_author_nickname}
+            notification_title: Поправката <a href="%{emendation_path}"></a> направена от <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> е приета за <a href="%{amendable_path}">%{amendable_title}</a>.
+        amendment_created:
+          affected_user:
+            email_intro: 'Нова поправка е създадена в %{amendable_title}. Можете да я видите на тази страница:'
+            email_outro: Получавате това известие, защото сте автор на %{amendable_title}.
+            email_subject: Нова поправка в %{amendable_title}
+            notification_title: Нова поправка е създадена в <a href="%{amendable_path}">%{amendable_title}</a>.
+          follower:
+            email_intro: 'Нова поправка е създадена в %{amendable_title}. Можете да я видите на тази страница:'
+            email_outro: Получавате това известие, защото следвате %{amendable_title}. Може да прекратите известията чрез предната връзка.
+            email_subject: Нова поправка в %{amendable_title}
+            notification_title: Нова поправка е създадена в <a href="%{amendable_path}">%{amendable_title}</a>.
+        amendment_promoted:
+          affected_user:
+            email_intro: 'Отхвърлена поправка в %{amendable_title} е публикувана като нов %{amendable_type}. Можете да видите на тази страница:'
+            email_outro: Получавате това известие, защото сте автор на %{amendable_title}.
+            email_subject: Поправка на %{emendation_author_nickname} е публикувана като нов %{amendable_type}
+            notification_title: Отхвърлената поправка <a href="%{emendation_path}"></a> в <a href="%{amendable_path}">%{amendable_title}</a> беше публикувана като нов %{amendable_type} от <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+          follower:
+            email_intro: 'Отхвърлена поправка в %{amendable_title} е публикувана като нов %{amendable_type}. Можете да видите на тази страница:'
+            email_outro: Получавате това известие, защото следвате %{amendable_title}. Може да прекратите известията чрез предната връзка.
+            email_subject: Поправка на %{emendation_author_nickname} е публикувана като нов %{amendable_type}
+            notification_title: Отхвърлената поправка <a href="%{emendation_path}"></a> в <a href="%{amendable_path}">%{amendable_title}</a> беше публикувана като нов %{amendable_type} от <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+        amendment_rejected:
+          affected_user:
+            email_intro: 'Поправка е отхвърлена в %{amendable_title}. Можете да я видите на тази страница:'
+            email_outro: Получавате това известие, защото сте автор на %{amendable_title}.
+            email_subject: Отхвърлена е поправка в %{amendable_title} от %{emendation_author_nickname}
+            notification_title: Поправката <a href="%{emendation_path}"></a> направена от <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> е отхвърлена за <a href="%{amendable_path}">%{amendable_title}</a>.
+          follower:
+            email_intro: 'Поправка е отхвърлена в %{amendable_title}. Можете да я видите на тази страница:'
+            email_outro: Получавате това известие, защото следвате %{amendable_title}. Може да прекратите известията чрез предната връзка.
+            email_subject: Отхвърлена е поправка в %{amendable_title} от %{emendation_author_nickname}
+            notification_title: Поправката <a href="%{emendation_path}"></a> направена от <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> е отхвърлена за <a href="%{amendable_path}">%{amendable_title}</a>.
+      attachments:
+        attachment_created:
+          email_intro: 'Нов документ е създаден в %{resource_title}. Можете да го видите на тази страница:'
+          email_outro: Получавате това известие, защото следвате %{resource_title}. Може да прекратите известията чрез предната връзка.
+          email_subject: Обновление в %{resource_title}
+          notification_title: В <a href="%{attached_to_url}">%{resource_title}</a> е добавен <a href="%{resource_path}">нов документ</a>
+      components:
+        component_published:
+          email_intro: 'Компонента %{resource_title} е вече активен в %{participatory_space_title}. Можете да видите на страницата:'
+          email_outro: Получавате това известие, защото следвате %{participatory_space_title}. Може да прекратите известията чрез предната връзка.
+          email_subject: Обновление в %{participatory_space_title}
+          notification_title: Компонента %{resource_title} е вече активен в <a href="%{resource_path}">%{participatory_space_title}</a>
+      email_event:
+        email_greeting: Здравейте %{user_name},
+        email_intro: 'Има обновление в %{resource_title}. Можете да го видите на тази страница:'
+        email_outro: Получавате това известие, защото следвате "%{resource_title}". Може да премахнете следването чрез предната връзка.
+        email_subject: Обновление в %{resource_title}
+      gamification:
+        badge_earned:
+          email_intro: Поздравления! Вие заслужихте значка <a href="%{resource_url}">%{badge_name} </a> (ниво %{current_level}).
+          email_outro: Получавате това известие, защото сте проявили активност на нашия сайт.
+          email_subject: 'Заслужихте нова значка: %{badge_name}!'
+          notification_title: Поздравления! Вие заслужихте значка <a href="%{resource_path}">%{badge_name} </a> (ниво %{current_level}).
+        level_up:
+          email_intro: Поздравления! Достигнахте ниво %{current_level} на значката <a href="%{resource_url}">%{badge_name}</a>!
+          email_outro: Получавате това известие, защото сте проявили активност на нашия сайт.
+          email_subject: Достигнахте ниво %{current_level} на значката %{badge_name}!
+          notification_title: Поздравления! Достигнахте ниво %{current_level} на значката <a href="%{resource_path}">%{badge_name}</a>!
+      groups:
+        demoted_membership:
+          email_intro: Администратора на групата <a href="%{resource_url}">%{user_group_name}</a> отне администраторските Ви права за тази група.
+          email_outro: Получавате това известие, защото сте член на тази група.
+          email_subject: Вече не се администратор на групата %{user_group_name}!
+          notification_title: Вече не се администратор на групата <a href="%{resource_path}">%{user_group_name}</a>.
+        invited_to_group:
+          email_intro: Администратора на групата <a href="%{resource_url}">%{user_group_name}</a> ви покани да се присъедините към нея.
+          email_outro: Получавате това известие, защото имате покана за група. Проверете раздела "Групи" в профила си, за да приемете.
+          email_subject: Имате покана да се присъедините към групата %{user_group_name}!
+          notification_title: Получихте покана да се присъедините към групата <a href="%{resource_path}">%{user_group_name}</a>. Проверете <a href="%{groups_profile_tab_path}">Групи</a> в профила си, за да я приемете!
+        join_request_accepted:
+          email_intro: Поздравления! Администратор на групата <a href="%{resource_url}">%{user_group_name}</a> одобри заявката Ви за присъединяване.
+          email_outro: Получавате това известие, защото заявката Ви за присъединяване беше обновена.
+          email_subject: Бяхте одобрен(а) в групата %{user_group_name}!
+          notification_title: Бяхте одобрен(а) в групата <a href="%{resource_path}">%{user_group_name}</a>.
+    shared:
+      version_author:
+        deleted: Изтрит участник
