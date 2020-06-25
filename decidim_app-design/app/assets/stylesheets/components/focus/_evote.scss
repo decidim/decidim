@@ -33,9 +33,11 @@
     }
 
     &--boolean {
-      display: flex;
-      width: 100%;
-      justify-content: center;
+      @include breakpoint(medium) {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+      }
 
       > * {
         flex-basis: 200px;
@@ -280,5 +282,9 @@
         transform: translateY(15px);
       }
     }
+  }
+
+  &__poll-id {
+    overflow-wrap: anywhere;
   }
 }

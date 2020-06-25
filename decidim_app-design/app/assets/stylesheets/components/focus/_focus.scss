@@ -12,19 +12,14 @@
     position: sticky;
     top: 0;
     z-index: 1;
-
+    display: flex;
     @include breakpoint(medium) {
-      display: flex;
     }
   }
 
   &__brand {
     display: flex;
     align-items: center;
-    margin-bottom: 0.5rem;
-    @include breakpoint(medium) {
-      margin-bottom: 0;
-    }
 
     img {
       max-height: 20px;
