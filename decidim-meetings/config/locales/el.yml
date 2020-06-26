@@ -1,1 +1,22 @@
 el:
+  decidim:
+    meetings:
+      actions:
+        preview: Προεπισκόπηση
+      admin:
+        agenda:
+          new:
+            create: Δημιουργία
+        meetings:
+          new:
+            create: Δημιουργία
+        minutes:
+          new:
+            create: Δημιουργία
+      calendar_modal:
+        close_window: Κλείσιμο παραθύρου
+      models:
+        invite:
+          fields:
+            email: Email
+            name: Όνομα
