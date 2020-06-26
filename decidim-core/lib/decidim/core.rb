@@ -139,7 +139,6 @@ module Decidim
   # Exposes a configuration option: The application default locale.
   config_accessor :default_locale do
     :en
->>>>>>> 0c6f15aa9... Add Romanian as a new language
   end
 
   # Exposes a configuration option: an array of symbols representing processors
