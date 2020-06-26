@@ -1,1 +1,7 @@
 bg:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: Създаден на
+        decidim_scope_id: Сфера
+        field: Моето поле
