@@ -1,1 +1,7 @@
 bg:
+  activemodel:
+    attributes:
+      participatory_process:
+        announcement: Обявление
+        area_id: Район
+        banner_image: Банер изображение
