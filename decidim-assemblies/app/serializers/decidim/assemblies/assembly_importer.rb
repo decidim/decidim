@@ -1,86 +1,76 @@
 # frozen_string_literal: true
 
 module Decidim
-  module ParticipatoryProcesses
-    # A factory class to ensure we always create ParticipatoryProcesses the same way since it involves some logic.
-    class ParticipatoryProcessImporter < Decidim::Importers::Importer
+  module Assemblies
+    # A factory class to ensure we always create Assemblies the same way since it involves some logic.
+    class AssemblyImporter < Decidim::Importers::Importer
       def initialize(organization, user)
         @organization = organization
         @user = user
       end
 
-      # Public: Creates a new ParticipatoryProcess.
+      # Public: Creates a new Assembly.
       #
-      # attributes  - The Hash of attributes to create the ParticipatoryProcess with.
+      # attributes  - The Hash of attributes to create the Assembly with.
       # user        - The user that performs the action.
       # opts        - The options MUST contain:
-      #   - title: The +title+ for the new PartidicpatoryProcess
-      #   - slug: The +slug+ for the new PartidicpatoryProcess
+      #   - title: The +title+ for the new Assembly
+      #   - slug: The +slug+ for the new Assembly
       #
-      # Returns a ParticipatoryProcess.
+      # Returns a Assembly.
       def import(attributes, _user, opts)
         title = opts[:title]
         slug = opts[:slug]
-        Decidim.traceability.perform_action!(:create, ParticipatoryProcess, @user, visibility: "all") do
-          @imported_process = ParticipatoryProcess.new(
+        Decidim.traceability.perform_action!(:create, Assembly, @user, visibility: "all") do
+          @imported_assembly = Assembly.new(
             organization: @organization,
             title: title,
             slug: slug,
-            subtitle: attributes["subtitle"],
             hashtag: attributes["hashtag"],
-            description: attributes["description"],
+            subtitle: attributes["subtitle"],
             short_description: attributes["short_description"],
+            description: attributes["description"],
             promoted: attributes["promoted"],
             developer_group: attributes["developer_group"],
             local_area: attributes["local_area"],
             target: attributes["target"],
             participatory_scope: attributes["participatory_scope"],
             participatory_structure: attributes["participatory_structure"],
-            meta_scope: attributes["meta_scope"],
-            start_date: attributes["start_date"],
-            end_date: attributes["end_date"],
-            announcement: attributes["announcement"],
-            private_space: attributes["private_space"],
+            show_statistics: attributes["show_statistics"],
             scopes_enabled: attributes["scopes_enabled"],
-            participatory_process_group: import_process_group(attributes["participatory_process_group"])
+            private_space: attributes["private_space"],
+            reference: attributes["reference"],
+            purpose_of_action: attributes["purpose_of_action"],
+            composition: attributes["composition"],
+            duration: attributes["duration"],
+            creation_date: attributes["creation_date"],
+            decidim_scope_id: attributes["decidim_scope_id"],
+            closing_date_reason: attributes["closing_date_reason"],
+            included_at: attributes["included_at"],
+            closing_date: attributes["closing_date"],
+            created_by_other: attributes["created_by_other"],
+            internal_organisation: attributes["internal_organisation"],
+            is_transparent: attributes["is_transparent"],
+            special_features: attributes["special_features"],
+            twitter_handler: attributes["twitter_handler"],
+            instagram_handler: attributes["instagram_handler"],
+            facebook_handler: attributes["facebook_handler"],
+            youtube_handler: attributes["youtube_handler"],
+            github_handler: attributes["github_handler"],
+            created_by: attributes["created_by"],
+            meta_scope: attributes["meta_scope"]
           )
-          @imported_process.remote_hero_image_url = attributes["remote_hero_image_url"] if remote_file_exists?(attributes["remote_hero_image_url"])
-          @imported_process.remote_banner_image_url = attributes["remote_banner_image_url"] if remote_file_exists?(attributes["remote_banner_image_url"])
-          @imported_process.save!
-          @imported_process
+          @imported_assembly.remote_hero_image_url = attributes["remote_hero_image_url"] if remote_file_exists?(attributes["remote_hero_image_url"])
+          @imported_assembly.remote_banner_image_url = attributes["remote_banner_image_url"] if remote_file_exists?(attributes["remote_banner_image_url"])
+          @imported_assembly.save!
+          @imported_assembly
         end
       end
 
-      def import_process_group(attributes)
-        Decidim.traceability.perform_action!("create", ParticipatoryProcessGroup, @user) do
-          group = ParticipatoryProcessGroup.find_or_initialize_by(
-            name: attributes["name"],
-            description: attributes["description"],
-            organization: @organization
-          )
+      def import_assemblies_type(type_id)
+        return if Decidim::AssembliesType.find_by(id: type_id).nil?
 
-          group.remote_hero_image_url = attributes["remote_hero_image_url"] if remote_file_exists?(attributes["remote_hero_image_url"])
-          group.save!
-          group
-        end
-      end
-
-      def import_participatory_process_steps(steps)
-        return if steps.nil?
-
-        steps.map do |step_attributes|
-          Decidim.traceability.create!(
-            ParticipatoryProcessStep,
-            @user,
-            title: step_attributes["title"],
-            description: step_attributes["description"],
-            start_date: step_attributes["start_date"],
-            end_date: step_attributes["end_date"],
-            participatory_process: @imported_process,
-            active: step_attributes["active"],
-            position: step_attributes["position"]
-          )
-        end
+        @imported_assembly.decidim_assemblies_type_id = type_id
       end
 
       def import_categories(categories)
@@ -93,7 +83,7 @@ module Decidim
             name: category_attributes["name"],
             description: category_attributes["description"],
             parent_id: category_attributes["parent_id"],
-            participatory_space: @imported_process
+            participatory_space: @imported_assembly
           )
           next if category_attributes["subcategories"].nil?
 
@@ -104,7 +94,7 @@ module Decidim
               name: subcategory_attributes["name"],
               description: subcategory_attributes["description"],
               parent_id: category.id,
-              participatory_space: @imported_process
+              participatory_space: @imported_assembly
             )
           end
         end
@@ -125,7 +115,7 @@ module Decidim
               file: file_tmp,
               file_size: file_tmp.size,
               content_type: file_tmp.content_type,
-              attached_to: @imported_process,
+              attached_to: @imported_assembly,
               weight: file["weight"]
             )
             attachment.create_attachment_collection(file["attachment_collection"])
@@ -145,7 +135,7 @@ module Decidim
       def import_components(components)
         return if components.nil?
 
-        importer = Decidim::Importers::ParticipatorySpaceComponentsImporter.new(@imported_process)
+        importer = Decidim::Importers::ParticipatorySpaceComponentsImporter.new(@imported_assembly)
         importer.import(components, @user)
       end
 
@@ -158,7 +148,7 @@ module Decidim
           name: attributes["name"],
           weight: attributes["weight"],
           description: attributes["description"],
-          collection_for: @imported_process
+          collection_for: @imported_assembly
         )
         attachment_collection.save!
         attachment_collection
