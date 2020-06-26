@@ -86,6 +86,21 @@ en:
           create: "%{user_name} created the %{resource_name} project in the %{space_name} space"
           delete: "%{user_name} deleted the %{resource_name} project in the %{space_name} space"
           update: "%{user_name} updated the %{resource_name} project in the %{space_name} space"
+      budget_information_modal:
+        back_to: Back to %{component_name}
+        close_modal: Close modal
+        continue: Continue
+        limit_reached: 'You may discard your pending votes on other budgets to vote on this budget:'
+        limit_reached_cancel: Discard your pending vote on %{name}
+        more_information: More information
+      budgets_header:
+        cancel_order:
+          more_than_one: delete your vote on %{name} and start over
+          only_one: delete your vote and start over
+        finished_message: You've finished the voting process. ¡Thanks for participating!
+        highlighted_cta: Vote on %{name}
+        if_change_opinion: If you've changed your mind, you can
+        voted_on: You've voted on %{links}
       models:
         budget:
           fields:
@@ -191,6 +206,11 @@ en:
             vote_rule_minimum_budget_projects_enabled: 'Enable rule: Minimum number of projects to be voted on'
             vote_rule_threshold_percent_enabled: 'Enable rule: Minimum budget percentage'
             vote_threshold_percent: Vote threshold percent
+            workflow: Workflow
+            workflow_choices:
+              all: Vote in all
+              one: Vote in one
+              random: Vote in a random component
           step:
             announcement: Announcement
             comments_blocked: Comments blocked

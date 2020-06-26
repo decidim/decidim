@@ -1,0 +1,49 @@
+<button class="link" data-open="budget-modal-info" aria-controls="budget-modal-info" aria-haspopup="true" tabindex="0">
+  <%= t(:more_information, scope: i18n_scope) %>
+</button>
+
+<div class="reveal" data-reveal <%= "data-reveal-open" if discardable.any? %> id="budget-modal-info">
+  <div class="reveal__header">
+    <h3 class="reveal__title"><%= decidim_sanitize(title) %></h3>
+    <button class="close-button" data-close aria-label="<%= t(:close_modal, scope: i18n_scope) %>" type="button">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+
+  <p><%= decidim_sanitize(description) %></p>
+
+  <% if discardable.any? %>
+    <div class="callout alert">
+      <%= t(:limit_reached, scope: i18n_scope) %>
+      <ul>
+      <% discardable.each do |budget| %>
+        <li>
+          <%= link_to(
+                t(:limit_reached_cancel, name: translated_attribute(budget.name), scope: i18n_scope),
+                order_path_for(budget),
+                method: :delete,
+                class: "cancel-order",
+                data: {
+                  confirm: t("projects.budget_summary.are_you_sure",
+                  scope: "decidim.budgets")
+                }) %>
+        </li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= content_tag(:p, more_information) if more_information %>
+
+  <p>
+    <%= link_to t(:back_to, component_name: component_name, scope: i18n_scope), budgets_path %>
+  </p>
+
+  <div class="row">
+    <div class="columns medium-8 medium-offset-2">
+      <button class="button expanded" data-close>
+        <%= t(:continue, scope: i18n_scope) %>
+      </button>
+    </div>
+  </div>
+</div>

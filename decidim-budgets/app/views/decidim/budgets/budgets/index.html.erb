@@ -1,0 +1,12 @@
+<%= render partial: "decidim/shared/component_announcement" %>
+
+<div class="row">
+  <div class="columns medium-7 mediumlarge-8">
+    <%= cell("decidim/budgets/budgets_header", component_settings) %>
+
+    <div class="card card--list card--list--mini">
+      <% current_workflow.budgets.each do |budget| %>
+        <%= cell("decidim/budgets/budget_list_item", budget) %>
+      <% end %>
+  </div>
+</div>

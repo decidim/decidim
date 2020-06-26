@@ -60,8 +60,7 @@ Decidim.register_component(:budgets) do |component|
   end
 
   component.settings(:global) do |settings|
-    # !todo: enable budgetGroup workflow
-    # settings.attribute :workflow, type: :enum, default: "one", choices: -> { Decidim::Budgets::Groups.workflows.keys.map(&:to_s) }
+    settings.attribute :workflow, type: :enum, default: "one", choices: -> { Decidim::Budgets.workflows.keys.map(&:to_s) }
     settings.attribute :projects_per_page, type: :integer, default: 12
     settings.attribute :vote_rule_threshold_percent_enabled, type: :boolean, default: true
     settings.attribute :vote_threshold_percent, type: :integer, default: 70
@@ -99,8 +98,27 @@ Decidim.register_component(:budgets) do |component|
       name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :budgets).i18n_name,
       manifest_name: :budgets,
       published_at: Time.current,
-      participatory_space: participatory_space
+      participatory_space: participatory_space,
+      settings: {
+        # title: Decidim::Faker::Localized.sentence(4),
+        # description: Decidim::Faker::Localized.paragraph(3),
+        # highlighted_heading: Decidim::Faker::Localized.sentence(4),
+        # list_heading: Decidim::Faker::Localized.sentence(4),
+        # more_information: Decidim::Faker::Localized.sentence(4),
+        workflow: %w(one random all).sample
+      }
     )
+
+    # 3.times do
+    #   budget = Decidim::Budgets::Budget.create!(
+    #     component: component,
+    #     title: Decidim::Faker::Localized.sentence(2),
+    #     description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+    #       Decidim::Faker::Localized.paragraph(3)
+    #     end,
+    #     total_budget: Faker::Number.number(8)
+    #   )
+    # end
 
     2.times do
       project = Decidim::Budgets::Project.create!(

@@ -11,16 +11,9 @@ FactoryBot.define do
     name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :budgets).i18n_name }
     manifest_name { :budgets }
     participatory_space { create(:participatory_process, :with_steps, organization: organization) }
-  end
-
-  factory :budget, class: "Decidim::Budgets::Budget" do
-    title { generate_localized_title }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    component { create(:budgets_component) }
 
     trait :with_total_budget_and_vote_threshold_percent do
       transient do
-        total_budget { 100_000_000 }
         vote_rule_threshold_percent_enabled { true }
         vote_rule_minimum_budget_projects_enabled { false }
         vote_threshold_percent { 70 }
@@ -28,7 +21,6 @@ FactoryBot.define do
 
       settings do
         {
-          total_budget: total_budget,
           vote_rule_threshold_percent_enabled: vote_rule_threshold_percent_enabled,
           vote_rule_minimum_budget_projects_enabled: vote_rule_minimum_budget_projects_enabled,
           vote_threshold_percent: vote_threshold_percent
@@ -38,7 +30,6 @@ FactoryBot.define do
 
     trait :with_total_budget_and_minimum_budget_projects do
       transient do
-        total_budget { 100_000_000 }
         vote_rule_threshold_percent_enabled { false }
         vote_rule_minimum_budget_projects_enabled { true }
         vote_minimum_budget_projects_number { 3 }
@@ -46,7 +37,6 @@ FactoryBot.define do
 
       settings do
         {
-          total_budget: total_budget,
           vote_rule_threshold_percent_enabled: vote_rule_threshold_percent_enabled,
           vote_rule_minimum_budget_projects_enabled: vote_rule_minimum_budget_projects_enabled,
           vote_minimum_budget_projects_number: vote_minimum_budget_projects_number
@@ -84,6 +74,13 @@ FactoryBot.define do
         }
       end
     end
+  end
+
+  factory :budget, class: "Decidim::Budgets::Budget" do
+    title { generate_localized_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    total_budget { 100_000_000 }
+    component { create(:budgets_component) }
   end
 
   factory :project, class: "Decidim::Budgets::Project" do
