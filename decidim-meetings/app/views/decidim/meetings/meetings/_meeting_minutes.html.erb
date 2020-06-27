@@ -4,7 +4,7 @@
     <div class="card">
       <div class="card-section">
         <div class="row column">
-          <%= decidim_sanitize translated_attribute meeting.minutes.description %>
+          <%= decidim_sanitize translated(meeting.minutes, :description) %>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-divider">
     <h2 class="card-title">
-      <%= link_to "#{translated_attribute(parent_result.title)} > ", edit_result_path(parent_result) if parent_result %>
+      <%= link_to "#{translated(parent_result, :title)} > ", edit_result_path(parent_result) if parent_result %>
       <%= t(".title") %>
       <div class="button--title">
         <%= link_to t("actions.new", scope: "decidim.accountability", name: t("models.result.name", scope: "decidim.accountability.admin")), new_result_path(parent_id: parent_result), class: "button tiny button--simple" if allowed_to? :create, :result %>
@@ -24,7 +24,7 @@
           <% results.each do |result| %>
             <tr data-id="<%= result.id %>">
               <td>
-                <%= link_to translated_attribute(result.title), results_path(parent_id: result.id) %><br>
+                <%= link_to translated(result, :title), results_path(parent_id: result.id) %><br>
               </td>
               <td class="table-list__actions">
                 <%= icon_link_to "eye", resource_locator(result).path, t("actions.preview", scope: "decidim.accountability"), class: "action-icon--preview", target: :blank %>

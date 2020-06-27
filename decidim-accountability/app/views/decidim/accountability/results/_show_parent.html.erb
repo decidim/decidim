@@ -4,13 +4,13 @@
   </div>
 
   <div class="small-12 columns">
-    <h2 class="heading2"><%= translated_attribute result.title %></h2>
+    <h2 class="heading2"><%= translated(result, :title) %></h2>
 
     <div class="row">
       <div class="mediumlarge-8 columns">
         <div class="section">
           <div class="description">
-            <%== translated_attribute result.description %>
+            <%== translated(result, :description) %>
           </div>
           <%= cell "decidim/tags", result, context: { extra_classes: ["tags--result"] } %>
 

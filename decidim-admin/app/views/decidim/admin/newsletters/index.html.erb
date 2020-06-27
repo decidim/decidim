@@ -31,9 +31,9 @@
             <tr data-newsletter-id="<%= newsletter.id %>">
               <td>
                 <% if allowed_to?(:read, :newsletter, newsletter: newsletter) %>
-                  <%= link_to translated_attribute(newsletter.subject), decidim_admin.newsletter_path(newsletter) %>
+                  <%= link_to translated(newsletter, :subject), decidim_admin.newsletter_path(newsletter) %>
                 <% else %>
-                  <%= translated_attribute newsletter.subject %>
+                  <%= translated(newsletter, :subject) %>
                 <% end %>
               </td>
               <td><%= l newsletter.created_at, format: :long if newsletter.created_at %></td>

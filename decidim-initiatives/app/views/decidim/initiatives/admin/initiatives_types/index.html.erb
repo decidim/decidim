@@ -22,9 +22,9 @@
           <tr>
             <td>
               <% if allowed_to? :update, :initiative_type, initiative_type: initiative_type %>
-                <%= link_to translated_attribute(initiative_type.title), edit_initiatives_type_path(initiative_type) %>
+                <%= link_to translated(initiative_type, :title), edit_initiatives_type_path(initiative_type) %>
               <% else %>
-                <%= translated_attribute initiative_type.title %></td>
+                <%= translated(initiative_type, :title) %></td>
               <% end %>
             <td><%= l initiative_type.created_at, format: :short %></td>
             <td class="table-list__actions"><%= free_resource_permissions_link(initiative_type) %></td>

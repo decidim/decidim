@@ -9,7 +9,7 @@
         <ul class="budget-summary__selected-list">
           <% current_order.projects.each do |project| %>
             <li class="budget-summary__selected-item">
-              <%= link_to translated_attribute(project.title), project %>
+              <%= link_to translated(project, :title), project %>
               <strong class="budget-summary__selected-number">
                 <%= budget_to_currency project.budget %>
               </strong>

@@ -28,10 +28,10 @@
             <td><%= initiative.id %></td>
             <td>
               <% if allowed_to? :edit, :initiative, initiative: initiative %>
-                <%= link_to translated_attribute(initiative.title),
+                <%= link_to translated(initiative, :title),
                             decidim_admin_initiatives.edit_initiative_path(initiative.to_param) %>
               <% else %>
-                <%= translated_attribute(initiative.title) %>
+                <%= translated(initiative, :title) %>
               <% end %>
             </td>
             <td><%= humanize_admin_state initiative.state %></td>

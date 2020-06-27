@@ -10,7 +10,7 @@
               <li class="tabs-title<%= " is-active" if i == 0 %>">
                 <!-- Wrap button in an anchor to make foundation tabs work -->
                 <a href="#conference-row-<%= seed %>-tab<%= i %>">
-                  <button class="button button--shadow secondary tiny light"><%= category.present? ? translated_attribute(category.name) : "other" %></button>
+                  <button class="button button--shadow secondary tiny light"><%= category.present? ? translated(category, :name) : "other" %></button>
                 </a>
               </li>
             <% end %>

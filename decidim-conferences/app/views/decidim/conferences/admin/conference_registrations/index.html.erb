@@ -37,7 +37,7 @@
                 <%= registration.user.email %>
               </td>
               <td>
-                <%= translated_attribute(registration.registration_type.title) %>
+                <%= translated(registration.registration_type, :title) %>
               </td>
               <td>
                 <%= t("models.conference_registration.fields.states.#{registration.confirmed? ? "confirmed" : "pending"}", scope: "decidim.conferences") %>

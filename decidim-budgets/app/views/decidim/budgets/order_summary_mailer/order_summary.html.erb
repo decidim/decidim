@@ -1,14 +1,14 @@
 <% if @component.try(:scopes_enabled) %>
 <%= t(
   ".voted_on_space_with_scope",
-  space_name: translated_attribute(@space.title),
-  scope_name: translated_attribute(@component.scope.name),
-  scope_type: translated_attribute(@component.scope.scope_type.name)
+  space_name: translated(@space, :title),
+  scope_name: translated(@component.scope, :name),
+  scope_type: translated(@component.scope.scope_type, :name)
 ) %>
 <% else %>
 <%= t(
   ".voted_on_space",
-  space_name: translated_attribute(@space.title)
+  space_name: translated(@space, :title)
 ) %>
 <% end %>
 
@@ -16,6 +16,6 @@
 
 <ul>
 <% @order.projects.each do |project| %>
-  <li><%= translated_attribute(project.title) %></li>
+  <li><%= translated(project, :title) %></li>
 <% end %>
 </ul>

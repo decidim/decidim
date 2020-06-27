@@ -44,7 +44,7 @@ module Decidim
 
             if children_duration > agenda_item.duration
               difference = children_duration - agenda_item.duration
-              errors.add(:base, :too_many_minutes_child, parent_title: translated_attribute(agenda_item.title), count: difference)
+              errors.add(:base, :too_many_minutes_child, parent_title: translated(agenda_item, :title), count: difference)
             end
           end
         end

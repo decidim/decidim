@@ -38,7 +38,7 @@
             <div class="card-section">
               <% current_participatory_space.steps.each do |step| %>
                 <fieldset class="step-settings-<%= step.id %>">
-                  <legend><%= step.position + 1 %>. <%= translated_attribute step.title %></legend>
+                  <legend><%= step.position + 1 %>. <%= translated(step, :title) %></legend>
                   <% step_settings = form.object.step_settings[step.id.to_s] %>
 
                   <%= form.fields_for :step_settings, nil do |settings_fields| %>

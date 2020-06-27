@@ -24,7 +24,7 @@
           <% @media_links.each do |media_link| %>
             <tr>
               <td>
-                <%= translated_attribute(media_link.title) %>
+                <%= translated(media_link, :title) %>
               </td>
               <td>
                 <%= media_link.link %>

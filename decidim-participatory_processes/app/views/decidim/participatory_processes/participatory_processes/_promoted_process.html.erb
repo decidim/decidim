@@ -3,9 +3,9 @@
     <div class="columns mediumlarge-8 large-6 card--process__column">
       <div class="card__content">
         <%= link_to participatory_process_path(promoted_process), class: "card__link" do %>
-          <h2 class="card__title"><%= translated_attribute promoted_process.title %></h2>
+          <h2 class="card__title"><%= translated(promoted_process, :title) %></h2>
         <% end %>
-        <%= decidim_sanitize html_truncate(translated_attribute(promoted_process.short_description), length: 630, separator: "...") %>
+        <%= decidim_sanitize html_truncate(translated(promoted_process, :short_description), length: 630, separator: "...") %>
         <%= link_to participatory_process_path(promoted_process), class: "button secondary small hollow card__button" do %>
           <%= t("participatory_processes.promoted_process.more_info", scope: "layouts.decidim") %>
         <% end %>
@@ -20,7 +20,7 @@
               <%= t(promoted_process.cta_button_text_key, scope: "layouts.decidim.participatory_processes.promoted_process") %>
               <% if promoted_process.active_step %>
                 <span class="button__info">
-                  <%= t("participatory_processes.promoted_process.active_step", scope: "layouts.decidim") %> <%= translated_attribute promoted_process.active_step.title %>
+                  <%= t("participatory_processes.promoted_process.active_step", scope: "layouts.decidim") %> <%= translated(promoted_process.active_step, :title) %>
                 </span>
               <% end %>
             <% end %>

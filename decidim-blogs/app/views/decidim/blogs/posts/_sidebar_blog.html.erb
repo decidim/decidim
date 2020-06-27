@@ -5,7 +5,7 @@
     </div>
     <% posts.each do |post| %>
       <div class="m-bottom">
-        <strong><%= link_to translated_attribute(post.title), post %></strong>
+        <strong><%= link_to translated(post, :title), post %></strong>
         <div class="author-data author-data--nopadding">
           <%= render partial: "datetime", locals: { post: post } %>&nbsp;&nbsp;·&nbsp;&nbsp;
           <%= link_to "#{post_path(post)}#comments", title: t(".comments") do %>

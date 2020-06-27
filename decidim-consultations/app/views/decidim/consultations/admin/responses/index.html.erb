@@ -28,15 +28,15 @@
             <tr>
               <td>
                 <% if allowed_to? :update, :response, response: response %>
-                  <%= link_to translated_attribute(response.title),
+                  <%= link_to translated(response, :title),
                               edit_response_path(current_question, response) %>
                 <% else %>
-                  <%= translated_attribute(response.title) %>
+                  <%= translated(response, :title) %>
                 <% end %>
               </td>
               <% if allowed_to? :create, :response_group, question: current_question %>
               <td>
-                  <%= translated_attribute(response&.response_group&.title) %>
+                  <%= translated(response&.response_group, :title) %>
               </td>
               <% end %>
               <td>

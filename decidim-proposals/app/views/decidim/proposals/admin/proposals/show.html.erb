@@ -114,7 +114,7 @@
           <ul id="documents">
             <% proposal.documents.each do |document| %>
               <li>
-                <%= link_to translated_attribute(document.title), document.url %>
+                <%= link_to translated(document, :title), document.url %>
                 <small><%= document.file_type %> <%= number_to_human_size(document.file_size) %></small>
               </li>
             <% end %>
@@ -128,7 +128,7 @@
         <div id="photos" class="gallery row">
           <% proposal.photos.each do |photo| %>
             <%= link_to photo.big_url, target: "_blank", rel: "noopener" do %>
-              <%= image_tag photo.thumbnail_url, class:"thumbnail", alt: strip_tags(translated_attribute(photo.title)) %>
+              <%= image_tag photo.thumbnail_url, class:"thumbnail", alt: strip_tags(translated(photo, :title)) %>
             <% end %>
           <% end %>
         </div>

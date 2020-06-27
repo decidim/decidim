@@ -1,7 +1,7 @@
 <div class="card" id="sortition">
   <div class="card-divider">
     <h2 class="card-title">
-      <%= decidim_html_escape(translated_attribute(sortition.title)) %>
+      <%= decidim_html_escape(translated(sortition, :title)) %>
     </h2>
   </div>
   <div class="card-section">
@@ -24,7 +24,7 @@
             <td><%= sortition.dice %></td>
             <td><%= sortition.target_items %></td>
             <td><%= sortition_category sortition %></td>
-            <td><%= translated_attribute sortition.decidim_proposals_component.name %></td>
+            <td><%= translated(sortition.decidim_proposals_component, :name) %></td>
             <td><%= sortition.seed %></td>
             <td></td>
           </tr>

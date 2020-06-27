@@ -7,7 +7,7 @@
       <div class="columns mediumlarge-8 process-header__info">
         <div>
           <h1 class="text-highlight heading2">
-            <%= participatory_space_helpers.translated_attribute(current_participatory_space.title) %>
+            <%= participatory_space_helpers.translated(current_participatory_space, :title) %>
           </h1>
         </div>
         <div>
@@ -17,7 +17,7 @@
                 <%= link_to "##{current_participatory_space.hashtag}", "https://twitter.com/hashtag/#{current_participatory_space.hashtag}" %>
               </span>
             <% end %>
-            <%= strip_tags participatory_space_helpers.translated_attribute(current_participatory_space.type.title) %>
+            <%= strip_tags participatory_space_helpers.translated(current_participatory_space.type, :title) %>
           </h2>
         </div>
       </div>
@@ -38,7 +38,7 @@
       }
     ] + components.map do |component|
       {
-        name: translated_attribute(component.name),
+        name: translated(component, :name),
         url: main_component_path(component),
         active: is_active_link?(main_component_path(component), :inclusive)
       }

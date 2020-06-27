@@ -2,7 +2,7 @@
   <tr class="component-<%= component.id %>">
     <td>
       <%= link_to main_component_path(component), target: "_blank" do %>
-        <%= translated_attribute component.name %>
+        <%= translated(component, :name) %>
       <% end %>
     </td>
     <td>

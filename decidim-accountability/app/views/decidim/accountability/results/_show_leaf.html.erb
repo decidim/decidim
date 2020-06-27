@@ -5,7 +5,7 @@
   <div class="small-12 columns">
     <div class="title">
       <%= icon("proposals", class: "icon", aria_label: t("models.result.fields.title", scope: "decidim.accountability"), role: "img") %>
-      <h2 class="heading2"><%= translated_attribute result.title %></h2>
+      <h2 class="heading2"><%= translated(result, :title) %></h2>
     </div>
 
     <div class="row">
@@ -45,14 +45,14 @@
           <div class="result-meta row">
             <% if result.status %>
               <div class="result-meta--label medium-2 columns"><%= t("models.result.fields.status", scope: "decidim.accountability") %></div>
-              <div class="result-meta--data medium-10 columns"><%= translated_attribute(result.status.name) %></div>
+              <div class="result-meta--data medium-10 columns"><%= translated(result.status, :name) %></div>
             <% end %>
           </div>
 
           <div class="result-meta row">
             <% if result.status && translated_attribute(result.status.description).present? %>
               <div class="result-meta--label medium-2 columns"><%= t("models.status.fields.description", scope: "decidim.accountability") %></div>
-              <div class="result-meta--data medium-10 columns"><%= translated_attribute(result.status.description) %></div>
+              <div class="result-meta--data medium-10 columns"><%= translated(result.status, :description) %></div>
             <% end %>
           </div>
         </div>
@@ -62,7 +62,7 @@
 
       <div class="small-12 mediumlarge-8 large-9 columns">
         <div class="section result-description">
-          <%== translated_attribute result.description %>
+          <%== translated(result, :description) %>
           <%= cell "decidim/tags", result, context: { extra_classes: ["tags--result"] } %>
         </div>
       </div>

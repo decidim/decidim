@@ -18,7 +18,7 @@
             <ul class="tabs vertical side-panel__tabs">
               <% pages.each do |sibling| %>
                 <li class="tabs-title <%= page == sibling ? "is-active" : nil %>">
-                  <%= link_to translated_attribute(sibling.title), page_path(sibling.slug), 'aria-selected': page == sibling %>
+                  <%= link_to translated(sibling, :title), page_path(sibling.slug), 'aria-selected': page == sibling %>
                 </li>
               <% end %>
             </ul>
@@ -30,9 +30,9 @@
             <div class="tabs-content vertical">
               <div class="static__content">
                 <h2 class="section-heading">
-                  <%= translated_attribute page.title %>
+                  <%= translated(page, :title) %>
                 </h2>
-                <%= decidim_sanitize translated_attribute page.content %>
+                <%= decidim_sanitize translated(page, :content) %>
               </div>
             </div>
           </div>

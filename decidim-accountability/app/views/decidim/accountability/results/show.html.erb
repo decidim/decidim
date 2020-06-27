@@ -1,6 +1,6 @@
 <% add_decidim_meta_tags({
-  description: translated_attribute(result.description),
-  title: translated_attribute(result.title),
+  description: translated(result, :description),
+  title: translated(result, :title),
   url: result_url(result.id)
 }) %>
 

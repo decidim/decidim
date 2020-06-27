@@ -22,7 +22,7 @@
               <% if component.manifest.admin_engine %>
                 <li <% if is_active_link?(manage_component_path(component)) %> class="is-active" <% end %>>
                   <%= link_to manage_component_path(component) do %>
-                    <%= translated_attribute component.name %>
+                    <%= translated(component, :name) %>
                     <% if component.primary_stat.present? %>
                       <span class="component-counter <%= "component-counter--off" if component.primary_stat.zero? %>">
                         <%= component.primary_stat %>
@@ -55,7 +55,7 @@
 <%= render "layouts/decidim/admin/application" do %>
   <div class="process-title">
     <div class="process-title-content">
-      <%= link_to translated_attribute(current_participatory_space.title), decidim_initiatives.initiative_path(current_participatory_space), target: "_blank" %>
+      <%= link_to translated(current_participatory_space, :title), decidim_initiatives.initiative_path(current_participatory_space), target: "_blank" %>
     </div>
   </div>
 

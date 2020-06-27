@@ -1,6 +1,6 @@
 <% add_decidim_meta_tags({
   image_url: current_participatory_space.hero_image.url,
-  description: translated_attribute(current_participatory_space.short_description),
+  description: translated(current_participatory_space, :short_description),
   url: participatory_process_url(current_participatory_space),
   twitter_handler: current_organization.twitter_handler
 }) %>
@@ -31,9 +31,9 @@ edit_link(
     <div class="columns medium-7 mediumlarge-8">
       <div class="section">
         <div class="lead">
-          <%= decidim_sanitize translated_attribute(current_participatory_space.short_description) %>
+          <%= decidim_sanitize translated(current_participatory_space, :short_description) %>
         </div>
-        <%= decidim_sanitize translated_attribute(current_participatory_space.description) %>
+        <%= decidim_sanitize translated(current_participatory_space, :description) %>
       </div>
       <%= attachments_for current_participatory_space %>
       <%= render_hook(:participatory_space_highlighted_elements) %>
@@ -60,21 +60,21 @@ edit_link(
         <% if translated_attribute(current_participatory_space.participatory_scope).present? %>
           <div class="definition-data__item participatory_scope">
             <span class="definition-data__title"><%= t("participatory_scope", scope: "decidim.participatory_processes.show") %></span>
-            <%= translated_attribute(current_participatory_space.participatory_scope) %>
+            <%= translated(current_participatory_space, :participatory_scope) %>
           </div>
         <% end %>
 
         <% if translated_attribute(current_participatory_space.target).present? %>
           <div class="definition-data__item target">
             <span class="definition-data__title"><%= t("target", scope: "decidim.participatory_processes.show") %></span>
-            <%= translated_attribute(current_participatory_space.target) %>
+            <%= translated(current_participatory_space, :target) %>
           </div>
         <% end %>
 
         <% if translated_attribute(current_participatory_space.participatory_structure).present? %>
           <div class="definition-data__item participatory_structure">
             <span class="definition-data__title"><%= t("participatory_structure", scope: "decidim.participatory_processes.show") %></span>
-            <%= translated_attribute(current_participatory_space.participatory_structure) %>
+            <%= translated(current_participatory_space, :participatory_structure) %>
           </div>
         <% end %>
 
@@ -83,30 +83,30 @@ edit_link(
           <div class="definition-data__item area">
             <span class="definition-data__title"><%= t("area", scope: "decidim.participatory_processes.show") %></span>
             <% if translated_attribute(area.area_type&.name).present? %>
-              <%= translated_attribute(area.area_type.name) %><span>&#45;</span>
+              <%= translated(area.area_type, :name) %><span>&#45;</span>
             <% end %>
-            <%= translated_attribute(area.name) %>
+            <%= translated(area, :name) %>
           </div>
         <% end %>
 
         <% if translated_attribute(current_participatory_space.meta_scope).present? %>
           <div class="definition-data__item scope">
             <span class="definition-data__title"><%= t("scope", scope: "decidim.participatory_processes.show") %></span>
-            <%= translated_attribute(current_participatory_space.meta_scope) %>
+            <%= translated(current_participatory_space, :meta_scope) %>
           </div>
         <% end %>
 
         <% if translated_attribute(current_participatory_space.local_area).present? %>
           <div class="definition-data__item local_area">
             <span class="definition-data__title"><%= t("local_area", scope: "decidim.participatory_processes.show") %></span>
-            <%= translated_attribute(current_participatory_space.local_area) %>
+            <%= translated(current_participatory_space, :local_area) %>
           </div>
         <% end %>
 
         <% if translated_attribute(current_participatory_space.developer_group).present? %>
           <div class="definition-data__item developer-group">
             <span class="definition-data__title"><%= t("developer_group", scope: "decidim.participatory_processes.show") %></span>
-            <%= translated_attribute(current_participatory_space.developer_group) %>
+            <%= translated(current_participatory_space, :developer_group) %>
           </div>
         <% end %>
 

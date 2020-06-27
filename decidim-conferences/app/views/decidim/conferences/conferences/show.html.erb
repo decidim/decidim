@@ -1,6 +1,6 @@
 <% add_decidim_meta_tags({
   image_url: current_participatory_space.hero_image.url,
-  description: translated_attribute(current_participatory_space.short_description),
+  description: translated(current_participatory_space, :short_description),
   url: conference_url(current_participatory_space),
   twitter_handler: current_organization.twitter_handler
 }) %>
@@ -20,12 +20,12 @@ edit_link(
   <div class="columns mediumlarge-12">
     <section class="section">
       <h3 class="section-heading"><%= t("conferences.show.introduction", scope: "decidim") %></h3>
-      <%= decidim_sanitize translated_attribute(current_participatory_space.short_description) %>
+      <%= decidim_sanitize translated(current_participatory_space, :short_description) %>
     </section>
     <hr class="reset mt-none mb-m">
     <section class="section">
       <h3 class="section-heading"><%= t("conferences.show.details", scope: "decidim") %></h3>
-      <%= decidim_sanitize translated_attribute(current_participatory_space.description) %>
+      <%= decidim_sanitize translated(current_participatory_space, :description) %>
       <div class="row mt-l mb-l">
         <div class="column medium-9 medium-centered">
           <% if current_participatory_space.registrations_enabled? %>
@@ -36,7 +36,7 @@ edit_link(
           <% current_participatory_space.components.where(manifest_name: "meetings").each do |component_meeting| %>
             <% if component_meeting.published? || component_meeting == self.try(:current_component) %>
               <div class="column medium-6 end">
-                <%= link_to translated_attribute(component_meeting.name), decidim_conferences.conference_conference_program_path(current_participatory_space, id: component_meeting.id), class:"button button--sc secondary light expanded" %>
+                <%= link_to translated(component_meeting, :name), decidim_conferences.conference_conference_program_path(current_participatory_space, id: component_meeting.id), class:"button button--sc secondary light expanded" %>
               </div>
             <% end %>
           <% end %>
@@ -71,7 +71,7 @@ edit_link(
     <% unless translated_attribute(current_participatory_space.objectives).blank? %>
       <section class="section">
         <h3 class="section-heading"><%= t("conferences.show.objectives", scope: "decidim") %></h3>
-        <%= decidim_sanitize translated_attribute(current_participatory_space.objectives) %>
+        <%= decidim_sanitize translated(current_participatory_space, :objectives) %>
       </section>
     <% end %>
 

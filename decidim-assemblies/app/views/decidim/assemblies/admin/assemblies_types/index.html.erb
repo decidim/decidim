@@ -22,9 +22,9 @@
           <tr>
             <td>
               <% if allowed_to? :update, :assembly_type, assembly_type: assembly_type %>
-                <%= link_to translated_attribute(assembly_type.title), edit_assemblies_type_path(assembly_type) %>
+                <%= link_to translated(assembly_type, :title), edit_assemblies_type_path(assembly_type) %>
               <% else %>
-                <%= translated_attribute assembly_type.title %></td>
+                <%= translated(assembly_type, :title) %></td>
               <% end %>
             <td><%= l assembly_type.created_at, format: :short %></td>
             <td class="table-list__actions">

@@ -49,6 +49,7 @@ module Decidim
     end
 
     included do
+      ActiveSupport::Deprecation.warn('translated_attribute helper is deprecated, please use translate')
       # Public: Returns the translation of an attribute using the current locale,
       # if available. Checks for the organization default locale as fallback.
       #
@@ -58,10 +59,11 @@ module Decidim
       # organization - An optional Organization to get the default locale from.
       #
       # Returns a String with the translation.
+
       def translated_attribute(attribute, organization = nil)
+        #rubocop:enable Decidim/TranslatedAttribute
         return "" if attribute.nil?
         return attribute unless attribute.is_a?(Hash)
-
         attribute = attribute.dup.stringify_keys
         organization ||= try(:current_organization)
         organization_locale = organization.try(:default_locale)
@@ -70,6 +72,28 @@ module Decidim
           attribute[organization_locale].presence ||
           attribute[attribute.keys.first].presence ||
           ""
+      end
+
+      def translated(resource, field)
+        return "" if resource[field].nil?
+
+        resource[field] = resource[field].dup.stringify_keys
+        organization ||= try(:current_organization)
+        organization_locale = organization.try(:default_locale)
+
+        @translated_value = Decidim::TranslatedField.find_by(
+          translated_resource_id: resource.id,
+          translated_resource_type: resource.class.name,
+          field_name: field.to_s,
+          translation_locale: I18n.locale.to_s
+        ).translation_value
+
+        resource[field][I18n.locale.to_s].presence ||
+        resource[field][organization_locale].presence ||
+        resource[field][resource[field].keys.first].presence ||
+        @translated_value.presence ||
+          ""
+
       end
     end
   end

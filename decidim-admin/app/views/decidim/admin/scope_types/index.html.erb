@@ -18,10 +18,10 @@
           <% scope_types.each do |scope_type| %>
             <tr>
               <td>
-                <%= translated_attribute(scope_type.name) %>
+                <%= translated(scope_type, :name) %>
               </td>
               <td>
-                <%= translated_attribute(scope_type.plural) %>
+                <%= translated(scope_type, :plural) %>
               </td>
               <td class="table-list__actions">
 

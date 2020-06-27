@@ -97,13 +97,13 @@
 </div>
 
 <h2 class="print-section-title">Sol·liciten que sigui admesa a tràmit la Iniciativa Ciutadana que porta el títol de:</h2>
-<%= translated_attribute(current_initiative.title) %>
+<%= translated(current_initiative, :title) %>
 
 <h2 class="print-section-title">Tipus de la Iniciativa:</h2>
-<%= translated_attribute(current_initiative.type.title) %>
+<%= translated(current_initiative.type, :title) %>
 
 <h2 class="print-section-title">Definició de la Iniciativa:</h2>
-<%= decidim_sanitize translated_attribute(current_initiative.description) %>
+<%= decidim_sanitize translated(current_initiative, :description) %>
 
 <h2 class="print-section-title">Exposició de motius:</h2>
 <br><br><br><br><br>

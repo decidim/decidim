@@ -7,7 +7,7 @@
       <% if editable %>
         <%== icon("move") %>
       <% end %>
-      <%= dynamic_title(translated_attribute(question.body), class: "question-title-statement", max_length: 50, omission: "...", placeholder: t(".question")) %>
+      <%= dynamic_title(translated(question, :body), class: "question-title-statement", max_length: 50, omission: "...", placeholder: t(".question")) %>
     </span>
 
     <button type="button" class="button small secondary button--title question--collapse" data-toggle="<%= id %>-question-card button--collapse-question-<%= id %> button--expand-question-<%= id %>">

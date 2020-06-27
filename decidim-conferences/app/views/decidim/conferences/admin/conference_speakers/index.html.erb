@@ -45,10 +45,10 @@
                 <%= speaker_presenter.name %>
               </td>
               <td>
-                <%= translated_attribute(speaker.position) %>
+                <%= translated(speaker, :position) %>
               </td>
               <td>
-                <%= translated_attribute(speaker.affiliation) %>
+                <%= translated(speaker, :affiliation) %>
               </td>
               <td class="table-list__actions">
                 <% if allowed_to? :update, :conference_speaker, speaker: speaker %>

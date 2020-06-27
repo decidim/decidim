@@ -26,7 +26,7 @@
             <div class="category--section small-12 medium-4 columns">
               <div class="category--title">
                 <p class="heading3">
-                <%= link_to translated_attribute(category.name),results_path(filter: { category_id: category, scope_id: current_scope }) %></p>
+                <%= link_to translated(category, :name),results_path(filter: { category_id: category, scope_id: current_scope }) %></p>
 
                 <% if component_settings.display_progress_enabled? && progress_calculator(current_scope, category.id).present? %>
                   <div class="progress">
@@ -53,7 +53,7 @@
                   <% if (subcategory_results_count = count_calculator(current_scope, subcategory.id)) > 0 %>
                     <%= link_to results_path(filter: { category_id: subcategory, scope_id: current_scope }), class: "medium-4 columns end card__link card__link--block" do %>
                       <div class="category--line">
-                        <strong><%= translated_attribute(subcategory.name) %></strong>
+                        <strong><%= translated(subcategory, :name) %></strong>
 
                         <% if component_settings.display_progress_enabled? && progress_calculator(current_scope, subcategory.id).present? %>
                           <div class="progress-figure heading3">

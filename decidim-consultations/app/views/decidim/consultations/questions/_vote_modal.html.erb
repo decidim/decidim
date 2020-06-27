@@ -10,7 +10,7 @@
   <p><%= t "questions.vote_modal.contextual_help", scope: "decidim" %></p>
   <div class="card card--secondary">
     <div class="card__content">
-      <h4 class="heading5 text-center"><%= translated_attribute(question.title).html_safe %></h4>
+      <h4 class="heading5 text-center"><%= translated(question, :title).html_safe %></h4>
     </div>
   </div>
 
@@ -19,7 +19,7 @@
       <div class="columns medium-8 medium-offset-2">
         <button class="button hollow expanded response-title"
                 data-response-id="<%= response.id %>">
-          <%= translated_attribute response.title %>
+          <%= translated(response, :title) %>
         </button>
       </div>
     </div>

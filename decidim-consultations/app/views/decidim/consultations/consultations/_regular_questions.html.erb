@@ -5,7 +5,7 @@
     </h2>
 
     <% consultation.questions_by_scope.each do |scope_id, questions| %>
-      <h3 class="heading6"><%= translated_attribute questions.first.scope.name %></h3>
+      <h3 class="heading6"><%= translated(questions.first.scope, :name) %></h3>
       <% questions.each do |question| %>
         <%= render partial: "decidim/consultations/consultations/question", locals: { question: question } %>
       <% end %>

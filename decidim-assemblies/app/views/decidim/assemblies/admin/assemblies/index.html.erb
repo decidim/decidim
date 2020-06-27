@@ -2,7 +2,7 @@
   <div class="card-divider">
     <h2 class="card-title">
       <% parent_assembly.self_and_ancestors.each do |assembly| %>
-        <%= link_to translated_attribute(assembly.title), edit_assembly_path(assembly) %>
+        <%= link_to translated(assembly, :title), edit_assembly_path(assembly) %>
         <span>&gt;</span>
       <% end if parent_assembly %>
 
@@ -47,15 +47,15 @@
                   </span>
                 <% end %>
                 <% if allowed_to? :update, :assembly, assembly: assembly %>
-                  <%= link_to translated_attribute(assembly.title), edit_assembly_path(assembly) %><br>
+                  <%= link_to translated(assembly, :title), edit_assembly_path(assembly) %><br>
                 <% elsif allowed_to? :read, :component, assembly: assembly %>
-                  <%= link_to translated_attribute(assembly.title), components_path(assembly) %><br>
+                  <%= link_to translated(assembly, :title), components_path(assembly) %><br>
                 <% elsif allowed_to? :preview, :assembly, assembly: assembly %>
-                  <%= link_to translated_attribute(assembly.title), decidim_assemblies.assembly_path(assembly) %><br>
+                  <%= link_to translated(assembly, :title), decidim_assemblies.assembly_path(assembly) %><br>
                 <% elsif allowed_to? :read, :moderation, assembly: assembly %>
-                  <%= link_to translated_attribute(assembly.title), moderations_path(assembly) %><br>
+                  <%= link_to translated(assembly, :title), moderations_path(assembly) %><br>
                 <% else %>
-                  <%= translated_attribute(assembly.title) %>
+                  <%= translated(assembly, :title) %>
                 <% end %>
               </td>
               <td>

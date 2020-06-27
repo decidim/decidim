@@ -12,7 +12,7 @@ module Decidim
         field_name: field_name,
         translation_locale: translation_locale
       ).update(
-        translation_value: "#{translation_locale} - #{field_value}"
+        translation_value: "yoloooo"
       )
     end
   end

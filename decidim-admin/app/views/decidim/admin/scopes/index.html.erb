@@ -23,10 +23,10 @@
           <% @scopes.each do |scope| %>
             <tr>
               <td>
-                <%= link_to translated_attribute(scope.name), scope_scopes_path(scope) %>
+                <%= link_to translated(scope, :name), scope_scopes_path(scope) %>
               </td>
               <td>
-                <%= scope.scope_type ? translated_attribute(scope.scope_type.name) : "-" %>
+                <%= scope.scope_type ? translated(scope.scope_type, :name) : "-" %>
               </td>
               <td class="table-list__actions">
                 <%= icon_link_to "zoom-in", scope_scopes_path(scope), t("actions.browse", scope: "decidim.admin"), class: "action-icon--browse", method: :get, data: {} %>

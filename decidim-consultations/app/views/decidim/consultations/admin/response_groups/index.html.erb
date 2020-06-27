@@ -30,10 +30,10 @@
             <tr>
               <td>
                 <% if allowed_to? :update, :response_group, response_group: group %>
-                  <%= link_to translated_attribute(group.title),
+                  <%= link_to translated(group, :title),
                               edit_response_group_path(current_question, group) %>
                 <% else %>
-                  <%= translated_attribute(group.title) %>
+                  <%= translated(group, :title) %>
                 <% end %>
               </td>
               <td>

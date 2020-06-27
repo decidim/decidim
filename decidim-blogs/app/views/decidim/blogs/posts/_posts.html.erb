@@ -5,7 +5,7 @@
         <div class="card__header">
           <%= link_to post, class: "card__link" do %>
           <h3 class="card__title">
-            <%= translated_attribute post.title %>
+            <%= translated(post, :title) %>
           </h3>
           <% end %>
           <div class="card__author">

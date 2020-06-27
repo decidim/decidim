@@ -5,7 +5,7 @@
         <li><a href="<%= scopes_picker_path(**context) %>"><%= t("decidim.scopes.global") %></a></li>
       <% end %>
       <% parent_scopes.each do |scope| %>
-        <li><a href="<%= scopes_picker_path(current: scope.id, max_depth: max_depth&.id, **context) %>"><%= translated_attribute(scope.name) %></a></li>
+        <li><a href="<%= scopes_picker_path(current: scope.id, max_depth: max_depth&.id, **context) %>"><%= translated(scope, :name) %></a></li>
       <% end %>
     </ul>
   </div>
@@ -17,7 +17,7 @@
           <% scopes.each do |scope| %>
             <li>
               <a href="<%= scopes_picker_path(current: scope.id, max_depth: max_depth&.id, **context) %>">
-                <%= translated_attribute(scope.name) %>
+                <%= translated(scope, :name) %>
               </a>
             </li>
           <% end %>

@@ -1,4 +1,4 @@
-<h3><%= translated_attribute(@attachment.title) %></h3>
+<h3><%= translated(@attachment, :title) %></h3>
 
 <div class="actions">
   <hr>
@@ -16,9 +16,9 @@
   <dt><%= display_label(@attachment, :file) %></dt>
   <% if @attachment.photo? %>
     <%= link_to @attachment.big_url do %>
-      <%= image_tag @attachment.thumbnail_url, class: "thumbnail", alt: strip_tags(translated_attribute(@attachment.description)) %>
+      <%= image_tag @attachment.thumbnail_url, class: "thumbnail", alt: strip_tags(translated(@attachment, :description)) %>
     <% end %>
   <% else %>
-    <%= link_to translated_attribute(@attachment.title), @attachment.url %>
+    <%= link_to translated(@attachment, :title), @attachment.url %>
   <% end %>
 </dl>

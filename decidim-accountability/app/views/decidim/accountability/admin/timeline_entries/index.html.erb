@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-divider">
     <h2 class="card-title">
-      <%= link_to "#{translated_attribute(result.title)} > ", edit_result_path(result) %>
+      <%= link_to "#{translated(result, :title)} > ", edit_result_path(result) %>
       <%= t(".title") %>
       <%= link_to t("actions.new", scope: "decidim.accountability", name: t("models.timeline_entry.name", scope: "decidim.accountability.admin")), new_result_timeline_entry_path(result), class: "button tiny button--title" if allowed_to? :create, :timeline_entry %>
     </h2>
@@ -21,7 +21,7 @@
           <% timeline_entries.each do |timeline_entry| %>
             <tr data-id="<%= timeline_entry.id %>">
               <td><%= timeline_entry.entry_date %><br></td>
-              <td><%= translated_attribute(timeline_entry.description) %></td>
+              <td><%= translated(timeline_entry, :description) %></td>
               <td class="table-list__actions">
                 <% if allowed_to? :update, :timeline_entry, timeline_entry: timeline_entry %>
                   <%= icon_link_to "pencil", edit_result_timeline_entry_path(timeline_entry.result, timeline_entry), t("actions.edit", scope: "decidim.accountability"), class: "action-icon--edit" %>

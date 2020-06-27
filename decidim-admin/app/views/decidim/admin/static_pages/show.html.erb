@@ -1,5 +1,5 @@
 <% provide :title do %>
-  <h2><%= link_to translated_attribute(@page.title), @page %></h2>
+  <h2><%= link_to translated(@page, :title), @page %></h2>
 <% end %>
 
 <div class="actions">

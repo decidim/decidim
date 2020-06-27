@@ -23,7 +23,7 @@
               <li class="tabs-title <%= "is-active" if type == default_type %>">
                 <%= link_to "#initiativeType#{type.id}" do %>
                   <%# Quiero crear un <strong><%= translated_attribute type.title %1></strong> %>
-                  <%= t(".choose_html", title: translated_attribute(type.title)) %>
+                  <%= t(".choose_html", title: translated(type, :title)) %>
                 <% end %>
               </li>
             <% end %>
@@ -35,9 +35,9 @@
           <div class="tabs-content vertical" data-tabs-content="initiatives-tabs">
             <% initiative_types_each do |type| %>
               <div class="tabs-panel <%= "is-active" if type == default_type %>" id="<%= "initiativeType#{type.id}" %>">
-                <h2 class="section-heading"><%= translated_attribute(type.title) %></h2>
+                <h2 class="section-heading"><%= translated(type, :title) %></h2>
                 <div>
-                  <%= raw translated_attribute type.description %>
+                  <%= raw translated(type, :description) %>
                 </div>
                 <br>
                 <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { id: "new_initiative_#{type.id}", class: "form select-initiative_type-form" }) do |f| %>

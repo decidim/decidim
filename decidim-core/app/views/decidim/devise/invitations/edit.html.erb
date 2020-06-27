@@ -39,7 +39,7 @@
           <div class="card__content">
             <fieldset>
               <legend><%= t("tos_title", scope: "decidim.devise.registrations.new") %></legend>
-              <p class="tos-text"><%= strip_tags(translated_attribute(terms_and_conditions_page.content)) %></p>
+              <p class="tos-text"><%= strip_tags(translated(terms_and_conditions_page, :content)) %></p>
             </fieldset>
 
             <div class="field">

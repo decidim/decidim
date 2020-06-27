@@ -25,7 +25,7 @@
           <% @registration_types.each do |registration_type| %>
             <tr>
               <td>
-                <%= translated_attribute(registration_type.title) %>
+                <%= translated(registration_type, :title) %>
               </td>
               <td>
                 <%= registration_type.price %>

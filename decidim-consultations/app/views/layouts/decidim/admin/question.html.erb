@@ -44,7 +44,7 @@
                 <% if component.manifest.admin_engine %>
                   <li <% if is_active_link?(manage_component_path(component)) || is_active_link?(decidim_admin_consultations.edit_component_path(current_participatory_space, component)) || is_active_link?(decidim_admin_consultations.edit_component_permissions_path(current_participatory_space, component)) %> class="is-active" <% end %>>
                     <%= link_to manage_component_path(component) do %>
-                      <%= translated_attribute component.name %>
+                      <%= translated(component, :name) %>
                       <% if component.primary_stat.present? %>
                         <span class="component-counter <%= "component-counter--off" if component.primary_stat.zero? %>">
                           <%= component.primary_stat %>
@@ -86,9 +86,9 @@
 <%= render "layouts/decidim/admin/application" do %>
   <div class="process-title">
     <div class="process-title-content">
-      <%= link_to translated_attribute(current_participatory_space.consultation.title), decidim_consultations.consultation_path(current_participatory_space.consultation), target: "_blank" %>
+      <%= link_to translated(current_participatory_space.consultation, :title), decidim_consultations.consultation_path(current_participatory_space.consultation), target: "_blank" %>
       &gt;
-      <%= strip_tags translated_attribute(current_participatory_space.title) %>
+      <%= strip_tags translated(current_participatory_space, :title) %>
     </div>
   </div>
 

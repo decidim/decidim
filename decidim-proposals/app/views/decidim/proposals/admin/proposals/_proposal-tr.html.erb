@@ -13,13 +13,13 @@
   </td>
   <td>
     <% if proposal.category %>
-      <%= translated_attribute proposal.category.name %>
+      <%= translated(proposal.category, :name) %>
     <% end %>
   </td>
   <% if current_participatory_space.scopes_enabled? %>
     <td>
       <% if proposal.scope %>
-        <%= translated_attribute proposal.scope.name %>
+        <%= translated(proposal.scope, :name) %>
       <% else %>
         <%= t("decidim.scopes.global") %>
       <% end %>

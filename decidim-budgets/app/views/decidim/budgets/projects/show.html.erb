@@ -1,6 +1,6 @@
 <% add_decidim_meta_tags(
-  title: translated_attribute(project.title),
-  description: translated_attribute(project.description)
+  title: translated(project, :title),
+  description: translated(project, :description)
 ) %>
 
 <%
@@ -20,7 +20,7 @@ edit_link(
     <%= icon "chevron-left", class: "icon--small", role: "img" %>
     <%= t(".view_all_projects") %>
   <% end %>
-  <h2 class="heading2"><%= translated_attribute project.title %></h2>
+  <h2 class="heading2"><%= translated(project, :title) %></h2>
 </div>
 <div class="row">
   <div id="project" class="columns section view-side mediumlarge-4 mediumlarge-push-8
@@ -44,7 +44,7 @@ edit_link(
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
-      <%= decidim_sanitize translated_attribute project.description %>
+      <%= decidim_sanitize translated(project, :description) %>
       <%= cell "decidim/tags", project, context: { extra_classes: ["tags--project"] } %>
     </div>
     <%= linked_resources_for project, :proposals, "included_proposals" %>

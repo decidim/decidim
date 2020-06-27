@@ -1,5 +1,5 @@
 <p>
-<%= t "decidim.initiatives.initiatives_mailer.creation_subject", title: translated_attribute(@initiative.title) %>.
+<%= t "decidim.initiatives.initiatives_mailer.creation_subject", title: translated(@initiative, :title) %>.
 <%= link_to t("decidim.initiatives.initiatives_mailer.more_information"), decidim.page_url("initiatives", host: @organization.host) %>
 </p>
 

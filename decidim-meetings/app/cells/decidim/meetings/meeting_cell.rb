@@ -48,7 +48,7 @@ module Decidim
       end
 
       def component_name
-        translated_attribute current_component.name
+        translated(current_component, :name)
       end
 
       def component_type_name
@@ -56,11 +56,11 @@ module Decidim
       end
 
       def participatory_space_name
-        translated_attribute current_participatory_space.title
+        translated(current_participatory_space, :title)
       end
 
       def participatory_space_type_name
-        translated_attribute current_participatory_space.model_name.human
+        translated(current_participatory_space.model_name, :human)
       end
     end
   end

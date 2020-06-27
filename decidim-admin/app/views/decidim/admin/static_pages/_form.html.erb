@@ -15,7 +15,7 @@
 </div>
 
 <div class="row column">
-  <%= form.select :topic_id, form.object.topics.map { |topic| [translated_attribute(topic.title), topic.id] }, include_blank: t(".none") %>
+  <%= form.select :topic_id, form.object.topics.map { |topic| [translated(topic, :title), topic.id] }, include_blank: t(".none") %>
 </div>
 
 <%= render partial: "form_notable_changes", locals: { form: form } %>

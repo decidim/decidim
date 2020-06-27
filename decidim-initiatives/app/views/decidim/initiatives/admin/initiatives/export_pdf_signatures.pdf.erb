@@ -1,5 +1,5 @@
 <div class="initiative-title" style="border: 1pt solid black; margin: 15pt 0; font-size: 12pt; font-weight: bold; text-transform: uppercase; text-align: center;">
-  <%= translated_attribute(current_initiative.title) %>
+  <%= translated(current_initiative, :title) %>
 </div>
 <div class="initiatives-votes-table" style="width: 100%; display: block; border: 1pt solid black;">
   <div class="initiatives-votes-table-header" style="background-color: lightgray; display: inline-block; width: 100%; font-size: 12pt; font-weight: bold; border-bottom: 1pt solid black;">
@@ -24,7 +24,7 @@
       <%= current_initiative.reference %>
     </div>
     <div class="initiatives-votes-table-cell w20" style="width: 19%; padding-left: 5pt; word-wrap: break-word; display: inline-block; float: left; min-height: 36pt;">
-      <%= translated_attribute(current_initiative.title) %>
+      <%= translated(current_initiative, :title) %>
     </div>
     <div class="initiatives-votes-table-cell w20" style="width: 19%; padding-left: 5pt; word-wrap: break-word; display: inline-block; float: left; min-height: 36pt;">
       <%= current_initiative.signature_start_date %>

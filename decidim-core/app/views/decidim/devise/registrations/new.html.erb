@@ -59,7 +59,7 @@
             <h3><%= t(".tos_title") %></h3>
 
             <p class="tos-text">
-              <%= strip_tags(translated_attribute(terms_and_conditions_page.content)) %>
+              <%= strip_tags(translated(terms_and_conditions_page, :content)) %>
             </p>
 
             <div class="field">

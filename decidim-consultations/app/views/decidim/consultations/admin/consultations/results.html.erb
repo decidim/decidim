@@ -15,7 +15,7 @@
         <% unless question.external_voting %>
           <thead>
             <tr>
-              <th><%= strip_tags translated_attribute question.title %></th>
+              <th><%= strip_tags translated(question, :title) %></th>
               <th class="table-list__actions">
                 <%= t "decidim.admin.consultations.results.total_votes", count: question.total_votes %>
                 /
@@ -27,7 +27,7 @@
             <% if question.publishable_results? %>
               <% question.sorted_results.each do |response| %>
               <tr>
-                <td><%= strip_tags translated_attribute response.title %></td>
+                <td><%= strip_tags translated(response, :title) %></td>
                 <td><%= response.votes_count %></td>
               </tr>
               <% end %>

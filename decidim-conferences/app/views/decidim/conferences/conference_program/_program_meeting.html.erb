@@ -29,11 +29,11 @@
         </div>
         <div class="column medium-10">
           <% if meeting.respond_to? :location %>
-            <u><%= translated_attribute meeting.location %></u>&nbsp;
+            <u><%= translated(meeting, :location) %></u>&nbsp;
           <% end %>
           <span><%= meeting.address %></span>
           <% if meeting.respond_to? :location_hints %>
-            <span>&nbsp;<%= translated_attribute meeting.location_hints %></span>
+            <span>&nbsp;<%= translated(meeting, :location_hints) %></span>
           <% end %>
         </div>
       </div>

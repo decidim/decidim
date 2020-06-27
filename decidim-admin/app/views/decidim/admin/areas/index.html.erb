@@ -22,10 +22,10 @@
           <% @areas.each do |area| %>
             <tr>
               <td>
-                <%= translated_attribute(area.name) %>
+                <%= translated(area, :name) %>
               </td>
               <td>
-                <%= area.area_type ? translated_attribute(area.area_type.name) : "-" %>
+                <%= area.area_type ? translated(area.area_type, :name) : "-" %>
               </td>
               <td class="table-list__actions">
                 <% if allowed_to? :update, :area, area: area %>

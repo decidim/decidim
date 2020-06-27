@@ -1,6 +1,6 @@
 <% add_decidim_meta_tags(
-  title: translated_attribute(@page.title),
-  description: translated_attribute(@page.content)
+  title: translated(@page, :title),
+  description: translated(@page, :content)
 ) %>
 
 <%
@@ -14,14 +14,14 @@ edit_link(
 
 <% if @topic %>
   <%= render partial: "tabbed", locals: {
-    title: translated_attribute(@topic.title),
-    description: translated_attribute(@topic.description),
+    title: translated(@topic, :title),
+    description: translated(@topic, :description),
     page: @page,
     pages: @pages
   } %>
 <% else %>
   <%= render partial: "standalone", locals: {
-    title: translated_attribute(@page.title),
+    title: translated(@page, :title),
     description: nil,
     page: @page
   } %>

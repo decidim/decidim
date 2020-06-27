@@ -5,7 +5,7 @@
       <div class="columns mediumlarge-9 consultations-header__info">
         <div>
           <h1 class="text-highlight heading2">
-            <%= link_to translated_attribute(question.consultation.title),
+            <%= link_to translated(question.consultation, :title),
                         decidim_consultations.consultation_path(question.consultation) %>
           </h1>
           <%= link_to decidim_consultations.consultations_path, class: "consultations-header__link" do %>
@@ -23,7 +23,7 @@
 <%= yield :question_header_instructions if content_for? :question_header_instructions %>
 
 <div class="row column consultations-title">
-  <h1 class="heading2"><%= decidim_sanitize translated_attribute question.title %></h1>
+  <h1 class="heading2"><%= decidim_sanitize translated(question, :title) %></h1>
   <% unless question.hashtag.blank? %>
     <div class="text-center">
       <%= link_to "##{question.hashtag}", "https://twitter.com/hashtag/#{question.hashtag}", target: "_blank" %>

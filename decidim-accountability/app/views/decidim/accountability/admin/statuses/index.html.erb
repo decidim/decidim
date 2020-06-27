@@ -22,8 +22,8 @@
           <% statuses.each do |status| %>
             <tr data-id="<%= status.id %>">
               <td><%= status.key %><br></td>
-              <td><%= translated_attribute(status.name) %></td>
-              <td><%= truncate translated_attribute(status.description), lenght: 50 %></td>
+              <td><%= translated(status, :name) %></td>
+              <td><%= truncate translated(status, :description), lenght: 50 %></td>
               <td><%= status.progress %></td>
               <td class="table-list__actions">
                 <% if allowed_to? :update, :status, status: status %>

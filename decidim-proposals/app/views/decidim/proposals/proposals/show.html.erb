@@ -27,7 +27,7 @@ extra_admin_link(
 <% if component_settings.participatory_texts_enabled? %>
   <div class="row column">
     <div class="section text-medium">
-      <%= t(".back_to") %> <u><%= link_to translated_attribute(@participatory_text.title), main_component_path(current_component) %></u>
+      <%= t(".back_to") %> <u><%= link_to translated(@participatory_text, :title), main_component_path(current_component) %></u>
     </div>
   </div>
 <% end %>

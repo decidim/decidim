@@ -17,7 +17,7 @@
     } : nil
   ] + meeting_components.map do |component|
     {
-      name: translated_attribute(component.name),
+      name: translated(component, :name),
       url: decidim_conferences.conference_conference_program_path(current_participatory_space, id: component.id),
       active: is_active_link?(decidim_conferences.conference_conference_program_path(current_participatory_space, id: component.id), :inclusive)
     }
@@ -32,7 +32,7 @@
     } : nil,
   ] + components.map do |component|
     {
-      name: translated_attribute(component.name),
+      name: translated(component, :name),
       url: main_component_path(component),
       active: is_active_link?(main_component_path(component), :inclusive)
     }

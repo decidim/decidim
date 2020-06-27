@@ -88,8 +88,8 @@ edit_link(
             <div class="card--list__text card--list__text--top">
               <%= icon "actions", class: "card--list__icon alert", role: "img" %>
               <div>
-                <h3 class="card--list__heading heading-small"><%= translated_attribute(service["title"]) %></h3>
-                <span class="text-medium"><%= translated_attribute(service["description"]) %></span>
+                <h3 class="card--list__heading heading-small"><%= translated(service, :[]) %></h3>
+                <span class="text-medium"><%= translated(service, :[]) %></span>
               </div>
             </div>
           </div>
@@ -145,7 +145,7 @@ edit_link(
     <% if meeting.closed? %>
       <div class="section">
         <h3 class="section-heading"><%= t(".meeting_report") %></h3>
-        <%= decidim_sanitize translated_attribute meeting.closing_report %>
+        <%= decidim_sanitize translated(meeting, :closing_report) %>
       </div>
     <% end %>
     <%= linked_resources_for meeting, :proposals, "proposals_from_meeting" %>

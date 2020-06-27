@@ -22,7 +22,7 @@
       <div class="row column">
         <div class="card">
           <div class="card__content">
-            <%= translated_attribute(current_organization.id_documents_explanation_text).html_safe unless using_online? %>
+            <%= translated(current_organization, :id_documents_explanation_text).html_safe unless using_online? %>
             <%= decidim_form_for(@form, url: authorization_path, method: :put) do |form| %>
               <%= render partial: "form", locals: { form: form } %>
 

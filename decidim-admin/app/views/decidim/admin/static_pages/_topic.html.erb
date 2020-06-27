@@ -3,7 +3,7 @@
     <% if allowed_to? :create, :static_page %>
       <h2 class="card-title">
         <% if topic %>
-          <%= translated_attribute(topic.title) %>
+          <%= translated(topic, :title) %>
           <%= link_to t(".destroy"), [topic], class: "button tiny button--title destroy", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
           <%= link_to t(".edit"), ["edit", topic], class: "button tiny button--title new" %>
         <% else %>
@@ -28,7 +28,7 @@
             <% pages.each do |page| %>
               <tr>
                 <td>
-                  <%= link_to translated_attribute(page.title), ["edit", page] %><br>
+                  <%= link_to translated(page, :title), ["edit", page] %><br>
                 </td>
                 <td>
                   <%= l page.created_at, format: :short %>

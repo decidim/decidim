@@ -29,12 +29,12 @@ edit_link(
                 <article class="card card--process card--mini">
                   <div class="card__content">
                     <h3 class="card__title">
-                      <%= link_to translated_attribute(topic.title), page_path(topic.pages.first), class: "card__link" %>
+                      <%= link_to translated(topic, :title), page_path(topic.pages.first), class: "card__link" %>
                     </h3>
-                    <p><%= translated_attribute topic.description %></p>
+                    <p><%= translated(topic, :description) %></p>
                     <ul>
                       <% topic.pages.each do |page| %>
-                        <li><%= link_to translated_attribute(page.title), page_path(page) %></li>
+                        <li><%= link_to translated(page, :title), page_path(page) %></li>
                       <% end %>
                     </ul>
                   </div>
@@ -65,9 +65,9 @@ edit_link(
               <article class="card card--process card--mini">
                 <div class="card__content">
                   <span class="card__title">
-                    <%= link_to translated_attribute(page.title), page_path(page), class: "card__link" %>
+                    <%= link_to translated(page, :title), page_path(page), class: "card__link" %>
                   </span>
-                  <%== strip_tags html_truncate(translated_attribute(page.content), length: 140, separator: "...") %>
+                  <%== strip_tags html_truncate(translated(page, :content), length: 140, separator: "...") %>
                 </div>
                 <div class="card__footer">
                   <div class="card__support">

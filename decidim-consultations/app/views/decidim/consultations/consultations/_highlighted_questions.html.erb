@@ -4,7 +4,7 @@
       <h2 class=section-heading>
         <%= t "consultations.highlighted_questions.title",
               scope: "decidim",
-              scope_name: translated_attribute(consultation.highlighted_scope.name) %>
+              scope_name: translated(consultation.highlighted_scope, :name) %>
       </h2>
     <% end %>
 

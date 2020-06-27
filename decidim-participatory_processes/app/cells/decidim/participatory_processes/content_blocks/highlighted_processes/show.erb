@@ -8,18 +8,18 @@
           <div class="column">
             <article class="card card--process card--mini">
               <%= link_to decidim_participatory_processes.participatory_process_path(process), class: "card__link" do %>
-                <span class="show-for-sr"><%= translated_attribute process.title %></span>
+                <span class="show-for-sr"><%= translated(process, :title) %></span>
                 <div class="card__image-top"
                   style="background-image:url(<%= process.hero_image.url %>)"></div>
               <% end %>
               <div class="card__content">
                 <%= link_to decidim_participatory_processes.participatory_process_path(process), class: "card__link" do %>
-                  <span class="card__title"><%= decidim_html_escape(translated_attribute(process.title)) %></span>
+                  <span class="card__title"><%= decidim_html_escape(translated(process, :title)) %></span>
                 <% end %>
                 <% if process.active_step %>
                   <span class="card--process__small">
                     <%= t("active_step", scope: i18n_scope) %>
-                    <strong><%= translated_attribute process.active_step.title %></strong>
+                    <strong><%= translated(process.active_step, :title) %></strong>
                   </span>
                 <% end %>
               </div>

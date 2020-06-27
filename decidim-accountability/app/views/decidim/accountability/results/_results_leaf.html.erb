@@ -13,7 +13,7 @@
 
           <%= link_to result_path(result), class: "card--list__text card__link card__link--block" do %>
             <h4 class="card--list__heading">
-              <%= translated_attribute(result.title) %>
+              <%= translated(result, :title) %>
             </h4>
 
             <div class="text-small card--meta">
@@ -29,7 +29,7 @@
 
               <% if result.status %>
                 <strong><%= t("models.result.fields.status", scope: "decidim.accountability") %></strong>
-                <span><%= translated_attribute(result.status.name) %></span>
+                <span><%= translated(result.status, :name) %></span>
               <% end %>
             </div>
           <% end %>

@@ -9,7 +9,7 @@
 
   <% if translated_attribute(answer.question.description).present? %>
     <div class="help-text">
-      <%= decidim_sanitize translated_attribute(answer.question.description) %>
+      <%= decidim_sanitize translated(answer.question, :description) %>
     </div>
   <% end %>
 

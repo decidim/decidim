@@ -10,12 +10,12 @@
           <% if current_organization.static_pages.any? %>
             <% current_organization.static_page_topics.where(show_in_footer: true).each do |page_topic| %>
               <% if page_topic.pages.any? %>
-                <li><%= link_to translated_attribute(page_topic.title), decidim.page_path(page_topic.pages.first) %></li>
+                <li><%= link_to translated(page_topic, :title), decidim.page_path(page_topic.pages.first) %></li>
               <% end %>
             <% end %>
 
             <% current_organization.static_pages.where(show_in_footer: true).each do |page| %>
-              <li><%= link_to translated_attribute(page.title), decidim.page_path(page) %></li>
+              <li><%= link_to translated(page, :title), decidim.page_path(page) %></li>
             <% end %>
           <% end %>
           <li><%= link_to t("layouts.decidim.footer.download_open_data"), decidim.open_data_download_path %></li>
