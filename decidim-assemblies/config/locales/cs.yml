@@ -64,6 +64,12 @@ cs:
         email: E-mail
         name: název
         role: Role
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Neplatný typ dokumentu. Přijatelné formáty jsou: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
