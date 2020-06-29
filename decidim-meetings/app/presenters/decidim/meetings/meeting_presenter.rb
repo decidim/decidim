@@ -71,7 +71,7 @@ module Decidim
         @proposals ||= meeting.proposals
       end
 
-      def proposals_titles_sanitized
+      def formatted_proposals_titles
         return unless meeting
 
         proposals.map.with_index { |proposal, index| "#{index + 1}) #{proposal.title}\n" }
