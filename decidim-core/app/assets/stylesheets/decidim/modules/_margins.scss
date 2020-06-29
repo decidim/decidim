@@ -1,4 +1,4 @@
-$margin-xs: $global-margin * .5;
+$margin-xs: $global-margin * 0.5;
 $margin-s: $global-margin * 1;
 $margin-sm: $global-margin * 2;
 $margin-m: $global-margin * 3;
@@ -6,54 +6,50 @@ $margin-l: $global-margin * 5;
 
 //Sections
 
-.section{
+.section {
   margin-bottom: $margin-sm;
   word-wrap: break-word;
 
-  @include breakpoint(large){
+  @include breakpoint(large) {
     margin-bottom: $margin-m;
-  }
-
-  a:hover{
-    text-decoration: underline;
   }
 }
 
-.m-bottom{
+.m-bottom {
   margin-bottom: $margin-s;
 }
 
 // helpers
-$size:(
+$size: (
   none: 0,
   xs: $margin-xs,
   s: $margin-s,
   sm: $margin-sm,
   m: $margin-m,
-  l: $margin-l
+  l: $margin-l,
 ) !default;
 
-$property:(
+$property: (
   p: padding,
-  m: margin
+  m: margin,
 ) !default;
 
-$side:(
+$side: (
   t: top,
   r: right,
   b: bottom,
-  l: left
+  l: left,
 ) !default;
 
-@mixin make-spaces(){
-  @each $p-key, $prop in $property{
-    @each $v-key, $value in $size{
-      .#{$p-key}-#{$v-key}{
+@mixin make-spaces() {
+  @each $p-key, $prop in $property {
+    @each $v-key, $value in $size {
+      .#{$p-key}-#{$v-key} {
         #{$prop}: #{$value} !important;
       }
 
-      @each $s-key, $side in $side{
-        .#{$p-key}#{$s-key}-#{$v-key}{
+      @each $s-key, $side in $side {
+        .#{$p-key}#{$s-key}-#{$v-key} {
           #{$prop}-#{$side}: #{$value} !important;
         }
       }
@@ -61,4 +57,4 @@ $side:(
   }
 }
 
-@include make-spaces()
+@include make-spaces();
