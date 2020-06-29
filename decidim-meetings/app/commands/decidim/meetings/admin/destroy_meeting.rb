@@ -19,9 +19,12 @@ module Decidim
         #
         # Broadcasts :ok if successful, :invalid otherwise.
         def call
-          destroy_meeting
-
-          broadcast(:ok)
+          if proposals.any?
+            broadcast(:invalid, proposals.count)
+          else
+            destroy_meeting
+            broadcast(:ok)
+          end
         end
 
         private
@@ -36,6 +39,15 @@ module Decidim
           ) do
             meeting.destroy!
           end
+        end
+
+        def proposals
+          @proposals ||= Decidim::Proposals::Proposal
+                         .joins(:coauthorships)
+                         .where(decidim_coauthorships: {
+                           decidim_author_type: "Decidim::Meetings::Meeting",
+                           decidim_author_id: meeting.id
+                         })
         end
       end
     end
