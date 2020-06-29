@@ -10,7 +10,7 @@ module Capybara
       match do |scope_picker|
         data_picker = scope_picker.data_picker
         scope_name = expected ? translated(expected.name) : t("decidim.scopes.global")
-        expect(data_picker).to have_selector(".picker-values div input[value='#{expected&.id || scope_picker.global_value}']", visible: false)
+        expect(data_picker).to have_selector(".picker-values div input[value='#{expected&.id || scope_picker.global_value}']", visible: :all)
         expect(data_picker).to have_selector(:xpath, "//div[contains(@class,'picker-values')]/div/a[text()[contains(.,'#{scope_name}')]]")
       end
     end
@@ -19,7 +19,7 @@ module Capybara
       match do |scope_picker|
         data_picker = scope_picker.data_picker
         scope_name = expected ? translated(expected.name) : t("decidim.scopes.global")
-        expect(data_picker).not_to have_selector(".picker-values div input[value='#{expected&.id || scope_picker.global_value}']", visible: false)
+        expect(data_picker).not_to have_selector(".picker-values div input[value='#{expected&.id || scope_picker.global_value}']", visible: :all)
         expect(data_picker).not_to have_selector(:xpath, "//div[contains(@class,'picker-values')]/div/a[text()[contains(.,'#{scope_name}')]]")
       end
     end
@@ -27,7 +27,7 @@ module Capybara
     def scope_pick(scope_picker, scope)
       data_picker = scope_picker.data_picker
       # use scope_repick to change single scope picker selected scope
-      expect(data_picker).to have_selector(".picker-values:empty", visible: false) if data_picker.has_css?(".picker-single")
+      expect(data_picker).to have_selector(".picker-values:empty", visible: :all) if data_picker.has_css?(".picker-single")
 
       expect(data_picker).to have_selector(".picker-prompt")
       data_picker.find(".picker-prompt").click
@@ -41,7 +41,7 @@ module Capybara
     def scope_repick(scope_picker, old_scope, new_scope)
       data_picker = scope_picker.data_picker
 
-      expect(data_picker).to have_selector(".picker-values div input[value='#{old_scope&.id || scope_picker.global_value}']", visible: false)
+      expect(data_picker).to have_selector(".picker-values div input[value='#{old_scope&.id || scope_picker.global_value}']", visible: :all)
       data_picker.find(:xpath, "//div[contains(@class,'picker-values')]/div/input[@value='#{old_scope&.id || scope_picker.global_value}']/../a").click
 
       # browse to lowest common parent between old and new scope
@@ -57,7 +57,7 @@ module Capybara
     def scope_unpick(scope_picker, scope)
       data_picker = scope_picker.data_picker
 
-      expect(data_picker).to have_selector(".picker-values div input[value='#{scope&.id || scope_picker.global_value}']", visible: false)
+      expect(data_picker).to have_selector(".picker-values div input[value='#{scope&.id || scope_picker.global_value}']", visible: :all)
       data_picker.find(".picker-values div input[value='#{scope&.id || scope_picker.global_value}']").click
 
       expect(scope_picker).to have_scope_not_picked(scope)

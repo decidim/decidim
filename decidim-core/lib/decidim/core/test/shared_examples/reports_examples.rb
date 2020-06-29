@@ -28,7 +28,7 @@ shared_examples "reports" do
           page.find("button").click
         end
 
-        expect(page).to have_css(".flag-modal", visible: true)
+        expect(page).to have_css(".flag-modal", visible: :visible)
 
         within ".flag-modal" do
           click_button "Report"
@@ -53,7 +53,7 @@ shared_examples "reports" do
           page.find("button").click
         end
 
-        expect(page).to have_css(".flag-modal", visible: true)
+        expect(page).to have_css(".flag-modal", visible: :visible)
 
         expect(page).to have_content "already reported"
       end
