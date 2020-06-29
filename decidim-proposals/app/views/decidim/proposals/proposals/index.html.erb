@@ -36,13 +36,8 @@
     <% if current_settings.creation_enabled && current_component.participatory_space.can_participate?(current_user) %>
       <%= action_authorized_link_to :create, new_proposal_path, class: "title-action__action button small", data: { "redirect_url" => new_proposal_path } do %>
         <%= t(".new_proposal") %>
-        <%= icon "plus", aria_label: t(".new_proposal"), role: "img" %>
+        <%= icon "plus", role: "img", "aria-hidden": true %>
       <% end %>
-    <% else %>
-      <span class="title-action__action button small hollow disabled">
-        <%= t(".new_proposal") %>
-        <%= icon "plus", aria_label: t(".new_proposal"), role: "img" %>
-      </span>
     <% end %>
 
     <% if component_settings.collaborative_drafts_enabled? %>
@@ -57,7 +52,7 @@
       <%= render partial: "filters" %>
     </div>
   </div>
-  <div id="proposals" class="columns mediumlarge-8 large-9">
+  <div id="proposals" class="columns mediumlarge-8 large-9" aria-live="polite">
     <%= render partial: "proposals" %>
   </div>
 </div>
@@ -67,4 +62,4 @@
 </div>
 </div>
 <%= javascript_include_tag("decidim/filters") %>
-<%= javascript_include_tag "decidim/orders" %>
+<%= javascript_include_tag "decidim/results_listing" %>

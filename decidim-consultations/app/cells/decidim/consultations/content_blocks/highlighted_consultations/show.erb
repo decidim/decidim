@@ -6,7 +6,7 @@
         large-up-4 card-grid">
         <% highlighted_consultations.each do |consultation| %>
           <div class="column">
-            <article class="card card--consultation card--mini">
+            <div class="card card--consultation card--mini">
               <%= link_to decidim_consultations.consultation_path(consultation), class: "card__link" do %>
                 <div class="card__image-top"
                   style="background-image:url(<%= consultation.banner_image.url %>)"></div>
@@ -17,7 +17,7 @@
                 <% end %>
                 <span class="card--process__small"><%= voting_ends_text_for(consultation) %></span>
               </div>
-            </article>
+            </div>
           </div>
         <% end %>
       </div>

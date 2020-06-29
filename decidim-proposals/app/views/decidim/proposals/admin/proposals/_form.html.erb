@@ -5,7 +5,7 @@
 
   <div class="card-section">
     <div class="row column hashtags__container">
-      <%= form.text_field :title, class: "js-hashtags", hashtaggable: true, value: form_presenter.title(extras: false).strip %>
+      <%= form.text_field :title, class: "js-hashtags", value: form_presenter.title(extras: false).strip %>
     </div>
 
     <div class="row column hashtags__container">
@@ -59,7 +59,7 @@
 
     <% if @form.categories&.any? %>
       <div class="row column">
-        <%= form.categories_select :category_id, @form.categories, prompt: t(".select_a_category") %>
+        <%= form.categories_select :category_id, @form.categories, include_blank: t(".select_a_category") %>
       </div>
     <% end %>
 

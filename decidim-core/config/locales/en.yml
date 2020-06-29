@@ -4,6 +4,8 @@ en:
     attributes:
       account:
         delete_reason: Reason to delete your account
+      common:
+        created_at: Created at
       group:
         about: About
         avatar: Avatar
@@ -73,6 +75,7 @@ en:
       decidim_with_month_name_short: "%d %b"
   decidim:
     accessibility:
+      external_link: External link
       logo: "%{organization}'s official logo"
       skip_button: Skip to main content
     account:
@@ -151,6 +154,8 @@ en:
         verify_via_csv: "%{user_name} verified the group %{resource_name} via a CSV file"
     admin_terms_of_use:
       default_body: "<h2>ADMIN TERMS OF USE</h2><p>We trust you have received the usual lecture from the local System Administrator. It usually boils down to these three things:</p><ol><li>Respect the privacy of others.</li><li>Think before you click.</li><li>With great power comes great responsibility.</li></ol>"
+    alert:
+      dismiss: Dismiss notification
     amendments:
       accepted:
         error: An error ocurred while accepting the amendment.
@@ -275,6 +280,7 @@ en:
           foo: Foo
         name: Foo authorization
       granted_at: Granted at %{timestamp}
+      renew: Renew verification
       sms:
         explanation: Submit your mobile phone number so we can check your identity.
         name: Code by SMS
@@ -309,6 +315,8 @@ en:
           explanation_html: In order to perform this action you need to be authorized, before doing that you need to confirm your email <strong>%{email}</strong>.
           request_confirmation_instructions: Request confirmation instructions
           title: Confirm your email
+      show:
+        close_modal: Close modal
     collapsible_list:
       hidden_elements_count:
         one: and %{count} more
@@ -460,6 +468,7 @@ en:
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> wants to use your account"
     endorsable:
       endorsements: Endorsements
+      endorsements_count: Endorsements count
     endorsement_buttons_cell:
       already_endorsed: Endorsed
       endorse: Endorse
@@ -625,7 +634,7 @@ en:
         proposal: Proposals
         result: Results
     fingerprint:
-      check: Check fingerprint
+      check: Check fingerprint for %{resource_name}
       explanation: The piece of text below is a shortened, hashed representation of this content. It's useful to ensure the content hasn't been tampered with, as a single modification would result in a totally different value.
       online_calculator_name: MD5 calculator online
       replicate_help: This fingerprint is calculated using a SHA256 hashing algorithm. In order to replicate it yourself, you can use an %{online_calculator_link} and copy-paste the source data.
@@ -633,6 +642,9 @@ en:
       title: Fingerprint
       value: Value
     followers:
+      followers_count:
+        one: "%{count} follower"
+        other: "%{count} followers"
       no_followers: No followers yet.
     following:
       no_followings: Doesn't follow anyone or anything yet.
@@ -640,7 +652,7 @@ en:
       create:
         button: Follow
         error: There was a problem following this resource.
-        participatory_space: Already following the participatory space
+        participatory_space: Already following %{resource_name}
       destroy:
         button: Stop following
         error: There was a problem unfollowing this resource.
@@ -653,6 +665,18 @@ en:
           password: The password is too short.
           password_confirmation: Password confirmation must match the password.
         error: There's an error in this field.
+      file_help:
+        file:
+          explanation: 'Guidance for file:'
+          message_1: Has to be an image or a document.
+          message_2: For images, use preferrably landscape images, the service crops the image.
+        image:
+          explanation: 'Guidance for image:'
+          message_1: Preferrably a landscape image that does not have any text.
+          message_2: The service crops the image.
+      file_validation:
+        allowed_file_extensions: 'Allowed file extensions: %{extensions}'
+        max_file_size: 'Maximum file size: %{megabytes}MB'
       remove_this_file: Remove this file
     gamification:
       all_badges_link: See all available badges.
@@ -806,6 +830,13 @@ en:
           not_found: 'The scope type was not found on the database (ID: %{id})'
     managed_users:
       expired_session: The current administration session of a participant has expired.
+    map:
+      dynamic:
+        screen_reader_explanation: The following element is a map which presents the items on this page as map points. The element can be used with a screen reader but it may be hard to understand.
+        skip_button: Skip map
+      static:
+        latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
+        map_service_brand: OpenStreetMap
     members:
       no_members: This group doesn't have any members yet.
     menu:
@@ -854,6 +885,8 @@ en:
           modal_title: New conversation
           no_results: No results
           participant_with_disabled_message_reception: This participant has disabled message reception
+        conversation:
+          show: Show conversation with %{sender}
         create:
           error: Conversation not started. Try again later
         index:
@@ -871,6 +904,7 @@ en:
           send: Send
           title: Reply
         show:
+          back: Back to all conversations
           chat_with: Conversation with
           not_allowed: This user does not accept any more direct messages.
           title: Conversation with %{usernames}
@@ -975,7 +1009,7 @@ en:
           how_to_participate: How do I take part in a process?
           meetings: Meetings
           meetings_explanation: Find out where and when you can participate in public meetings.
-          more_info: More info
+          more_info: More info about %{resource_name}
           proposals: Proposals
           proposals_explanation: Make proposals, support existing ones and promote the changes you want to see.
         footer_sub_hero:
@@ -1052,6 +1086,7 @@ en:
         following: Follows
         groups: Groups
         members: Members
+        officialized: Official participant
         timeline: Timeline
         view_full_profile: View full profile
       sidebar:
@@ -1092,11 +1127,16 @@ en:
       global: Global scope
       picker:
         cancel: Cancel
+        change: Change selected scope
         choose: Select
+        currently_selected: Currently selected scope
         title: Select %{field}
       prompt: Select a scope
       scopes: Scopes
+      scopes_picker_input:
+        select_scope: 'Select a scope (currently: %{current})'
     search:
+      results: Search results
       results_found_for_term: '%{count} Results for the search: "%{term}"'
       term_input_placeholder: Search
     searches:
@@ -1119,6 +1159,11 @@ en:
           other: "%{count} results"
         view_all: View all (%{count})
     shared:
+      confirm_modal:
+        cancel: Cancel
+        close_modal: Close modal
+        ok: OK
+        title: Confirm
       embed_modal:
         close_window: Close window
         embed: Please paste this code in your page
@@ -1126,6 +1171,9 @@ en:
       extended_navigation_bar:
         more: More
         unfold: Unfold
+      filter_form_help:
+        help: The form below filters the search results dynamically when the search conditions are changed.
+        skip: Skip to results
       flag_modal:
         already_reported: This content is already reported and it will be reviewed by an admin.
         close: Close
@@ -1134,12 +1182,14 @@ en:
         offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
         report: Report
         spam: Contains clickbait, advertising, scams or script bots.
-        title: Report a problem
+        title: Report inappropriate content
       floating_help:
+        close: Close help
         help: Help
       follow_button:
         sign_in_before_follow: Please sign in before performing this action
       login_modal:
+        close_modal: Close modal
         please_sign_in: Please sign in
         sign_up: Sign up
       participatory_space_filters:
@@ -1158,6 +1208,9 @@ en:
         close_window: Close window
         share: Share
         share_link: Share link
+    tags:
+      filter_results_for_category: 'Filter results for category: %{resource}'
+      filter_results_for_scope: 'Filter results for scope: %{resource}'
     user_activity:
       index:
         no_activities_warning: This participant hasn't had any activity yet.
@@ -1217,8 +1270,8 @@ en:
     versions:
       resource_version:
         of_versions: "(of %{number})"
-        see_other_versions: see other versions
-        version: Version %{number}
+        see_other_versions: see other versions for %{resource_name}
+        version: Version number %{number}
     versions_list:
       show:
         back_to_resource: Go back
@@ -1403,19 +1456,27 @@ en:
       too_much_caps: is using too many capital letters (over 25% of the text)
       too_short: is too short (under 15 characters)
   forms:
-    required: Required
+    correct_errors: There are errors on the form, please correct them to continue.
+    length_validator:
+      minimum:
+        one: at least %{count} character
+        other: at least %{count} characters
+    required: Required field
+    required_explanation: "* Required fields are marked with an asterisk"
   invisible_captcha:
     sentence_for_humans: If you are human, ignore this field
     timestamp_error_message: Sorry, that was too quick! Please resubmit.
   layouts:
     decidim:
       cookie_warning:
-        description_html: This site uses cookies. By continuing to browse the site, you agree to our use of cookies. Find out more about it %{link}.
-        link_label: here
+        description_html: This site uses cookies. By continuing to browse the site, you agree to our use of cookies. %{link}.
+        link_label: Find out more about cookies
         ok: I agree
       edit_link:
         edit: Edit
       footer:
+        cc_by_license: Creative Commons License
+        decidim_logo: Decidim Logo
         download_open_data: Download Open Data files
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
       header:
@@ -1427,9 +1488,19 @@ en:
         close_session: Close session
         description_html: You are managing the participant <b>%{user_name}</b>.
         expire_time_html: Your session will expire in <b><span class="minutes">%{minutes}</span> minutes</b>.
+      language_chooser:
+        choose_language: Choose language
       notifications_dashboard:
         mark_all_as_read: Mark all as read
+        mark_as_read: Mark as read
+      social_media_links:
+        facebook: "%{organization} at Facebook"
+        github: "%{organization} at GitHub"
+        instagram: "%{organization} at Instagram"
+        twitter: "%{organization} at Twitter"
+        youtube: "%{organization} at YouTube"
       user_menu:
+        account: 'User account: %{name}'
         admin_dashboard: Admin dashboard
         conversations: Conversations
         notifications: Notifications
@@ -1518,6 +1589,7 @@ en:
       last_title: Link to the last page
       next: Next &rsaquo;
       next_title: Link to the next page
+      pagination: Pagination
       previous: "&lsaquo; Prev"
       previous_title: Link to the previous page
       title: 'Page number: '

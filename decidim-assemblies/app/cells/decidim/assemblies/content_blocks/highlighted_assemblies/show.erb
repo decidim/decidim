@@ -6,18 +6,13 @@
         large-up-4 card-grid">
         <% highlighted_assemblies.each do |assembly| %>
           <div class="column">
-            <article class="card card--assembly card--mini">
-              <%= link_to decidim_assemblies.assembly_path(assembly), class: "card__link" do %>
-                <span class="show-for-sr"><%= translated_attribute assembly.title %></span>
-                <div class="card__image-top"
-                  style="background-image:url(<%= assembly.hero_image.url %>)"></div>
-              <% end %>
+            <%= link_to decidim_assemblies.assembly_path(assembly), class: "card card--assembly card--mini" do %>
+              <div aria-hidden="true" class="card__image-top"
+                style="background-image:url(<%= assembly.hero_image.url %>)"></div>
               <div class="card__content">
-                <%= link_to decidim_assemblies.assembly_path(assembly), class: "card__link" do %>
-                  <span class="card__title"><%= translated_attribute assembly.title %></span>
-                <% end %>
+                <span class="card__title card__link"><%= translated_attribute assembly.title %></span>
               </div>
-            </article>
+            <% end %>
           </div>
         <% end %>
       </div>

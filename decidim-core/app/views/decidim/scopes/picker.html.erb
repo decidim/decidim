@@ -1,22 +1,32 @@
   <div class="scope-picker picker-header picker-list">
-    <h2 id="data_picker-title"><%= title %></h2>
-    <ul>
-      <% unless root %>
-        <li><a href="<%= scopes_picker_path(**context) %>"><%= t("decidim.scopes.global") %></a></li>
-      <% end %>
-      <% parent_scopes.each do |scope| %>
-        <li><a href="<%= scopes_picker_path(current: scope.id, max_depth: max_depth&.id, **context) %>"><%= translated_attribute(scope.name) %></a></li>
-      <% end %>
-    </ul>
+    <h6 id="data_picker-title" class="h2"><%= title %></h6>
+    <div>
+      <ul role="group" aria-label="<%= t("decidim.scopes.picker.currently_selected") %>">
+        <% unless root %>
+          <% if parent_scopes.length < 1 %>
+            <li><a href="<%= scopes_picker_path(**context) %>" role="option" aria-controls="data_picker-modal" aria-selected="true"><%= t("decidim.scopes.global") %></a></li>
+          <% else %>
+            <li><a href="<%= scopes_picker_path(**context) %>" role="option" aria-controls="data_picker-modal"><%= t("decidim.scopes.global") %></a></li>
+          <% end %>
+        <% end %>
+        <% parent_scopes.each_with_index do |scope, ind| %>
+          <% if ind == parent_scopes.length - 1 %>
+            <li><a href="<%= scopes_picker_path(current: scope.id, max_depth: max_depth&.id, **context) %>" role="option" aria-controls="data_picker-modal" aria-selected="true"><%= translated_attribute(scope.name) %></a></li>
+          <% else %>
+            <li><a href="<%= scopes_picker_path(current: scope.id, max_depth: max_depth&.id, **context) %>" role="option" aria-controls="data_picker-modal"><%= translated_attribute(scope.name) %></a></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
   </div>
 
   <div class="scope-picker picker-content picker-list">
     <div class="picker-scrollable-content">
       <% if scopes&.any? %>
-        <ul>
+        <ul role="group" aria-label="<%= t("decidim.scopes.picker.change") %>">
           <% scopes.each do |scope| %>
             <li>
-              <a href="<%= scopes_picker_path(current: scope.id, max_depth: max_depth&.id, **context) %>">
+              <a href="<%= scopes_picker_path(current: scope.id, max_depth: max_depth&.id, **context) %>" role="option" aria-controls="data_picker-modal">
                 <%= translated_attribute(scope.name) %>
               </a>
             </li>
@@ -26,15 +36,15 @@
     </div>
   </div>
 
-  <div class="scope-picker picker-footer">
+  <div class="scope-picker picker-footer reveal__footer">
     <div class="buttons button--double">
       <% if current || !required %>
-        <a class="button" href="<%= scopes_picker_path(current: current&.id, **context) %>" data-picker-value="<%= current&.id || global_value %>" data-picker-text="<%= scope_name_for_picker(current, t("decidim.scopes.global")) %>" data-picker-choose>
+        <a class="button" role="button" href="<%= scopes_picker_path(current: current&.id, **context) %>" aria-controls="<%= picker_target_id %>" data-picker-value="<%= current&.id || global_value %>" data-picker-text="<%= scope_name_for_picker(current, t("decidim.scopes.global")) %>" data-picker-choose>
       <% else %>
         <a class="button muted">
       <% end %>
           <%= t("decidim.scopes.picker.choose") %>
         </a>
-      <a class="button clear" href="#" data-close aria-label="<%= t("decidim.scopes.picker.cancel") %>"><%= t("decidim.scopes.picker.cancel") %></a>
+      <a class="button clear" role="button" href="#" data-close aria-label="<%= t("decidim.scopes.picker.cancel") %>"><%= t("decidim.scopes.picker.cancel") %></a>
     </div>
   </div>

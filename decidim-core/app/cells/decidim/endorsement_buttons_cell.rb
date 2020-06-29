@@ -7,6 +7,8 @@ module Decidim
     include LayoutHelper
     include CellsHelper
     include EndorsableHelper
+    include ResourceHelper
+    include Decidim::SanitizeHelper
 
     delegate :current_user, to: :controller, prefix: false
     delegate :current_settings, to: :controller, prefix: false
@@ -45,10 +47,10 @@ module Decidim
 
     # Renders the counter of endorsements that appears in m-cards.
     def render_endorsements_count
-      content = icon("bullhorn", class: "icon--small", aria_label: "Endorsements", role: "img")
+      content = icon("bullhorn", class: "icon--small", aria_label: t("decidim.endorsable.endorsements_count"), role: "img")
       content += resource.endorsements_count.to_s
-      html_class = "button small compact light button--sc button--shadow "
-      html_class += fully_endorsed?(resource, current_user) ? "success" : "secondary"
+      html_class = "button small compact button--shadow"
+      html_class += " active" if fully_endorsed?(resource, current_user)
       tag_params = { id: "resource-#{resource.id}-endorsements-count", class: html_class }
       if resource.endorsements_count.positive?
         link_to "#list-of-endorsements", tag_params do
@@ -64,7 +66,15 @@ module Decidim
     # Renders the endorsements button but disabled.
     # To be used to let the user know that endorsements are enabled but are blocked or cant participate.
     def render_disabled_endorsements_button
-      content_tag :span, endorse_translated, class: "#{card_button_html_class} #{endorsement_button_classes(false)} disabled", disabled: true, title: endorse_translated
+      content_tag :span, class: "#{card_button_html_class} #{endorsement_button_classes(false)} disabled", disabled: true, title: endorse_translated do
+        endorse_translated + render_screen_reader_context_title
+      end
+    end
+
+    def render_screen_reader_context_title
+      content_tag :span, class: "show-for-sr" do
+        decidim_html_escape(resource_title(resource))
+      end
     end
 
     # Returns the css classes used for proposal endorsement button in both proposals list and show pages
@@ -75,7 +85,7 @@ module Decidim
     def endorsement_button_classes(from_resourcess_list = false)
       return "small" if from_resourcess_list
 
-      "small compact light button--sc expanded"
+      "small compact light expanded"
     end
 
     def card_button_html_class
@@ -99,11 +109,28 @@ module Decidim
         elsif resource.endorsed_by?(current_user)
           unendorse_label = t("decidim.endorsement_buttons_cell.already_endorsed")
           destroy_endorsement_url = path_to_destroy_endorsement(resource)
-          action_authorized_button_to(:endorse, unendorse_label, destroy_endorsement_url, resource: resource, method: :delete, remote: true,
-                                                                                          class: "button #{endorsement_button_classes} success", id: "endorsement_button")
+          action_authorized_button_to(
+            :endorse,
+            destroy_endorsement_url,
+            resource: resource,
+            method: :delete,
+            remote: true,
+            class: "button #{endorsement_button_classes} active",
+            id: "endorsement_button"
+          ) do
+            unendorse_label + render_screen_reader_context_title
+          end
         else
-          action_authorized_button_to(:endorse, endorse_translated, path_to_create_endorsement(resource), resource: resource, remote: true,
-                                                                                                          class: "button #{endorsement_button_classes} secondary")
+          action_authorized_button_to(
+            :endorse,
+            path_to_create_endorsement(resource),
+            resource: resource,
+            remote: true,
+            class: "button #{endorsement_button_classes}",
+            id: "endorsement_button"
+          ) do
+            endorse_translated + render_screen_reader_context_title
+          end
         end
       end
     end
@@ -143,16 +170,19 @@ module Decidim
 
     def render_user_login_button
       action_authorized_button_to(:endorse,
-                                  endorse_translated,
                                   path_to_create_endorsement(resource),
                                   resource: resource,
-                                  class: "button #{endorsement_button_classes} secondary")
+                                  class: "button #{endorsement_button_classes}") do
+        endorse_translated + render_screen_reader_context_title
+      end
     end
 
     def render_verification_modal
-      button_to(endorse_translated, endorsement_path(resource),
+      button_to(endorsement_path(resource),
                 data: { open: "authorizationModal", "open-url": modal_path(:endorse, resource) },
-                class: "#{card_button_html_class} #{endorsement_button_classes(false)} secondary")
+                class: "#{card_button_html_class} #{endorsement_button_classes(false)}") do
+        endorse_translated + render_screen_reader_context_title
+      end
     end
 
     def endorsements_blocked_or_user_can_not_participate?

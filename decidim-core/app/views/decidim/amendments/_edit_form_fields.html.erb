@@ -1,4 +1,6 @@
 <%= form.fields_for :emendation_params, form.object.emendation_params do |emendation_form| %>
+  <%= form_required_explanation %>
+
   <% amendable.attributes.each do |key, value| %>
     <% key = key.to_sym %>
     <% if amendable.amendable_fields.include?(key) %>

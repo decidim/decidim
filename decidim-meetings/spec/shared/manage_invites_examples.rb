@@ -75,15 +75,15 @@ shared_examples "manage invites" do
           visit last_email_link
 
           within "form.new_user" do
-            fill_in :user_nickname, with: "caballo_loco"
-            fill_in :user_password, with: "123456"
-            fill_in :user_password_confirmation, with: "123456"
-            check :user_tos_agreement
+            fill_in :invitation_user_nickname, with: "caballo_loco"
+            fill_in :invitation_user_password, with: "123456"
+            fill_in :invitation_user_password_confirmation, with: "123456"
+            check :invitation_user_tos_agreement
             find("*[type=submit]").click
           end
 
           expect(page).to have_content "successfully"
-          expect(page).to have_css(".button", text: "GOING")
+          expect(page).to have_css(".button", text: "Going")
         end
 
         it "the invited user sign up into the application and declines the invitation" do
@@ -94,15 +94,15 @@ shared_examples "manage invites" do
           visit last_email_first_link
 
           within "form.new_user" do
-            fill_in :user_nickname, with: "caballo_loco"
-            fill_in :user_password, with: "123456"
-            fill_in :user_password_confirmation, with: "123456"
-            check :user_tos_agreement
+            fill_in :invitation_user_nickname, with: "caballo_loco"
+            fill_in :invitation_user_password, with: "123456"
+            fill_in :invitation_user_password_confirmation, with: "123456"
+            check :invitation_user_tos_agreement
             find("*[type=submit]").click
           end
 
           expect(page).to have_content "declined the invitation successfully"
-          expect(page).to have_css(".button", text: "JOIN MEETING")
+          expect(page).to have_css(".button", text: "Join meeting")
         end
       end
 
@@ -116,7 +116,7 @@ shared_examples "manage invites" do
 
           visit last_email_link
 
-          expect(page).to have_css(".button", text: "GOING")
+          expect(page).to have_css(".button", text: "Going")
         end
 
         it "the invited user declines the invitation" do
@@ -126,7 +126,7 @@ shared_examples "manage invites" do
 
           visit last_email_first_link
 
-          expect(page).to have_css(".button", text: "JOIN MEETING")
+          expect(page).to have_css(".button", text: "Join meeting")
         end
       end
 
@@ -140,7 +140,7 @@ shared_examples "manage invites" do
 
           visit last_email_link
 
-          expect(page).to have_css(".button", text: "GOING")
+          expect(page).to have_css(".button", text: "Going")
         end
 
         it "the invited user declines the invitation" do
@@ -150,7 +150,7 @@ shared_examples "manage invites" do
 
           visit last_email_first_link
 
-          expect(page).to have_css(".button", text: "JOIN MEETING")
+          expect(page).to have_css(".button", text: "Join meeting")
         end
       end
     end

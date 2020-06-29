@@ -237,6 +237,8 @@ en:
           label: 'Sort consultations by:'
           random: Random
           recent: Most recent
+        show:
+          dates: Dates
       content_blocks:
         highlighted_consultations:
           name: Highlighted consultations
@@ -347,10 +349,12 @@ en:
         verification_required: Verify your account to vote
         vote: Vote
       vote_modal:
+        close_modal: Close modal
         contextual_help: Please, select an option.
         title: 'Consultation: question vote'
       vote_modal_confirm:
         change: Change
+        close_modal: Close modal
         confirm: Confirm
         contextual_help: Please confirm the selected option.
         title: 'Consultation: confirm vote'

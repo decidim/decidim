@@ -39,5 +39,11 @@ module Decidim
 
       model[:link_options][:class]
     end
+
+    def icon_options
+      options = model[:icon_options].presence || {}
+
+      options.merge(role: "img", "aria-hidden": true)
+    end
   end
 end

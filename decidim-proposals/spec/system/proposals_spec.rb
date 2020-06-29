@@ -87,7 +87,7 @@ describe "Proposals", type: :system do
         expect(page).to have_content("Official proposal")
       end
 
-      it_behaves_like "rendering safe content", ".columns.mediumlarge-8.mediumlarge-pull-4"
+      it_behaves_like "rendering safe content", ".columns.mediumlarge-8.large-9"
     end
 
     context "when rich text editor is enabled for participants" do
@@ -99,7 +99,7 @@ describe "Proposals", type: :system do
         click_link proposal.title
       end
 
-      it_behaves_like "rendering safe content", ".columns.mediumlarge-8.mediumlarge-pull-4"
+      it_behaves_like "rendering safe content", ".columns.mediumlarge-8.large-9"
     end
 
     context "when rich text editor is NOT enabled for participants" do
@@ -110,7 +110,7 @@ describe "Proposals", type: :system do
         click_link proposal.title
       end
 
-      it_behaves_like "rendering unsafe content", ".columns.mediumlarge-8.mediumlarge-pull-4"
+      it_behaves_like "rendering unsafe content", ".columns.mediumlarge-8.large-9"
     end
 
     context "when it is a proposal with card image enabled" do
@@ -145,7 +145,7 @@ describe "Proposals", type: :system do
         expect(page).to have_content(translated(proposal.authors.first.title))
       end
 
-      it_behaves_like "rendering safe content", ".columns.mediumlarge-8.mediumlarge-pull-4"
+      it_behaves_like "rendering safe content", ".columns.mediumlarge-8.large-9"
     end
 
     context "when a proposal has comments" do
@@ -190,7 +190,7 @@ describe "Proposals", type: :system do
         click_link proposal.title
 
         expect(page).to have_content("20,000.00")
-        expect(page).to have_content("MY EXECUTION PERIOD")
+        expect(page).to have_content("My execution period")
         expect(page).to have_content("My cost report")
       end
     end
@@ -254,7 +254,9 @@ describe "Proposals", type: :system do
 
       it "shows the rejection reason" do
         visit_component
-        check "Rejected"
+        uncheck "Accepted"
+        uncheck "Evaluating"
+        uncheck "Not answered"
         page.find_link(proposal.title, wait: 30)
         click_link proposal.title
 

@@ -65,9 +65,10 @@ module Decidim
     # form - FilterFormBuilder object
     # name - attribute name
     # checkboxes_on_top - Show picker values on top (default) or below the picker prompt
+    # filtering_context_id - The filtering context element ID
     #
     # Returns nothing.
-    def scopes_picker_filter(form, name, checkboxes_on_top = true)
+    def scopes_picker_filter(form, name, checkboxes_on_top = true, filtering_context_id = "content")
       options = {
         multiple: true,
         legend_title: I18n.t("decidim.scopes.scopes"),
@@ -82,7 +83,8 @@ module Decidim
             current: scope&.id,
             title: I18n.t("decidim.scopes.prompt"),
             global_value: "global",
-            max_depth: try(:current_participatory_space).try(:scope_type_max_depth)
+            max_depth: try(:current_participatory_space).try(:scope_type_max_depth),
+            target_element_id: filtering_context_id
           ),
           text: scope_name_for_picker(scope, I18n.t("decidim.scopes.prompt"))
         }

@@ -12,6 +12,8 @@ import {
   GetCommentsQuery
 } from "../support/schema";
 
+const { I18n } = require("react-i18nify");
+
 interface DownVoteButtonProps {
   session: AddCommentFormSessionFragment & {
     user: any;
@@ -42,6 +44,7 @@ export const DownVoteButton: React.SFC<DownVoteButtonProps> = ({
     <VoteButton
       buttonClassName="comment__votes--down"
       iconName="icon-chevron-bottom"
+      text={I18n.t("components.down_vote_button.text")}
       votes={downVotes}
       voteAction={downVote}
       disabled={disabled}

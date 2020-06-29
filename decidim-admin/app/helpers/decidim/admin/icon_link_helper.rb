@@ -23,7 +23,7 @@ module Decidim
                 target: options[:target]) do
           content_tag(:span, data: { tooltip: true, disable_hover: false, click_open: false },
                              title: title) do
-            icon(icon_name)
+            icon(icon_name, aria_label: title, role: "img")
           end
         end
       end

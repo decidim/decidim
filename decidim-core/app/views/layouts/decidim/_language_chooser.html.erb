@@ -1,11 +1,16 @@
 <% if available_locales.length > 1 %>
   <div class="topbar__dropmenu language-choose">
-    <ul class="dropdown menu" data-dropdown-menu>
-      <li class="is-dropdown-submenu-parent">
-        <%= link_to t("name", scope: "locale") %>
-        <ul class="menu is-dropdown-submenu">
+    <ul class="dropdown menu" data-dropdown-menu
+      data-autoclose="false"
+      data-disable-hover="true"
+      data-click-open="true"
+      data-close-on-click="true"
+      tabindex="-1">
+      <li class="is-dropdown-submenu-parent" tabindex="-1">
+        <%= link_to t("name", scope: "locale"), "#language-chooser-menu", id: "language-chooser-control", "aria-label": t("layouts.decidim.language_chooser.choose_language"), "aria-controls": "language-chooser-menu", "aria-haspopup": "true" %>
+        <ul class="menu is-dropdown-submenu" id="language-chooser-menu" role="menu" aria-labelledby="language-chooser-control" tabindex="-1">
           <% (available_locales - [I18n.locale.to_s]).each do |locale| %>
-            <li><%= link_to locale_name(locale), decidim.locale_path(locale: locale), method: :post %></li>
+            <li lang="<%= locale %>"><%= link_to locale_name(locale), decidim.locale_path(locale: locale), method: :post, tabindex: "-1" %></li>
           <% end %>
         </ul>
       </li>

@@ -52,16 +52,20 @@ end
             </div>
             <% if current_user %>
               <nav class="topbar__dropmenu topbar__user__logged">
-                <%= link_to decidim.notifications_path, title: "notifications-link", class: "topbar__notifications #{current_user.notifications.any? ? "is-active" : ""}" do %>
-                  <%= icon "bell", role:"img" %>
+                <%= link_to decidim.notifications_path, class: "topbar__notifications #{current_user.notifications.any? ? "is-active" : ""}" do %>
+                  <%= icon "bell", role: "img", aria_label: t("layouts.decidim.user_menu.notifications") %>
                 <% end %>
-                <%= link_to decidim.conversations_path, title: "conversations-link", class: "topbar__conversations #{current_user.unread_conversations.any? ? "is-active" : ""}" do %>
-                  <%= icon "envelope-closed", role: "img" %>
+                <%= link_to decidim.conversations_path, class: "topbar__conversations #{current_user.unread_conversations.any? ? "is-active" : ""}" do %>
+                  <%= icon "envelope-closed", role: "img", aria_label: t("layouts.decidim.user_menu.conversations") %>
                 <% end %>
-                <ul class="dropdown menu" data-dropdown-menu>
-                  <li class="is-dropdown-submenu-parent show-for-medium">
-                    <%= link_to current_user.name, decidim.account_path %>
-                    <ul class="menu is-dropdown-submenu js-append usermenu-off-canvas">
+                <ul class="dropdown menu" data-dropdown-menu
+                  data-autoclose="false"
+                  data-disable-hover="true"
+                  data-click-open="true"
+                  data-close-on-click="true">
+                  <li class="is-dropdown-submenu-parent show-for-medium" tabindex="-1">
+                    <%= link_to current_user.name, decidim.account_path, id: "user-menu-control", "aria-controls": "user-menu", "aria-haspopup": "true", "aria-label": t("layouts.decidim.user_menu.account", name: current_user.name) %>
+                    <ul class="menu is-dropdown-submenu" id="user-menu" role="menu" aria-labelledby="user-menu-control" tabindex="-1">
                       <%= render partial: "layouts/decidim/user_menu" %>
                     </ul>
                     <div data-set="nav-login-holder" class="show-for-medium">
@@ -88,11 +92,11 @@ end
           </div>
         </div>
         <div class="show-for-medium" data-set="nav-holder">
-          <nav class="navbar js-append">
+          <div class="navbar js-append">
             <div class="row column">
               <%= main_menu.render %>
             </div>
-          </nav>
+          </div>
         </div>
 
         <main id="content">

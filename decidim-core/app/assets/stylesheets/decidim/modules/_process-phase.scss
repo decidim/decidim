@@ -7,7 +7,6 @@
   .button{
     margin-top: $global-margin * .75;
     margin-bottom: 0;
-    font-weight: $global-weight-normal;
   }
 }
 
@@ -120,7 +119,6 @@
 .phase-current{
   font-weight: $global-weight-normal;
   font-size: rem-calc(12);
-  text-transform: uppercase;
   color: $muted;
 }
 
@@ -157,7 +155,6 @@
 .process-header__button{
   .button{
     border-color: var(--primary);
-    text-transform: uppercase;
   }
 }
 

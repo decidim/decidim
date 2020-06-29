@@ -10,6 +10,15 @@
     margin-bottom: $global-margin;
 
     .tabs-title{
+      &.is-active{
+        a{
+          background: transparent;
+          color: var(--primary);
+          font-weight: 600;
+          border-bottom: 3px solid var(--primary);
+        }
+      }
+
       a{
         color: $anchor-color;
         padding: $global-padding * 3/4;
@@ -21,10 +30,6 @@
           color: var(--primary);
           font-weight: 600;
           border-bottom: 3px solid var(--primary);
-        }
-
-        &:focus{
-          outline: 2px solid $secondary;
         }
 
         &:hover{
@@ -57,10 +62,6 @@
 .tabs-panel{
   a:hover{
     text-decoration: underline;
-  }
-
-  a:focus{
-    outline: 2px solid $secondary;
   }
 }
 

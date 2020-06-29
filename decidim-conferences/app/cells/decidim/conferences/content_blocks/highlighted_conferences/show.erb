@@ -6,18 +6,13 @@
         large-up-4 card-grid">
         <% highlighted_conferences.each do |conference| %>
           <div class="column">
-            <article class="card card--conference card--mini">
-              <%= link_to decidim_conferences.conference_path(conference), class: "card__link" do %>
-                <span class="show-for-sr"><%= translated_attribute conference.title %></span>
-                <div class="card__image-top"
-                  style="background-image:url(<%= conference.hero_image.url %>)"></div>
-              <% end %>
+            <%= link_to decidim_conferences.conference_path(conference), class: "card card--conference card--mini" do %>
+              <div aria-hidden="true" class="card__image-top"
+                style="background-image:url(<%= conference.hero_image.url %>)"></div>
               <div class="card__content">
-                <%= link_to decidim_conferences.conference_path(conference), class: "card__link" do %>
-                  <span class="card__title"><%= translated_attribute conference.title %></span>
-                <% end %>
+                <span class="card__title card__link"><%= translated_attribute conference.title %></span>
               </div>
-            </article>
+            <% end %>
           </div>
         <% end %>
       </div>

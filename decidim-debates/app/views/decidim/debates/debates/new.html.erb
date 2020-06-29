@@ -1,6 +1,6 @@
 <div class="row columns">
   <%= link_to :back, class: "muted-link" do %>
-    <%= icon "chevron-left", class: "icon--small", role: "img" %>
+    <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
     <%= t(".back") %>
   <% end %>
   <h2 class="section-heading"><%= t(".title") %></h2>
@@ -11,6 +11,8 @@
     <div class="card">
       <div class="card__content">
         <%= decidim_form_for(@form) do |form| %>
+          <%= form_required_explanation %>
+
           <div class="field">
             <%= form.text_field :title %>
           </div>
@@ -21,13 +23,13 @@
 
           <% if current_participatory_space.categories&.any? %>
             <div class="field">
-              <%= form.categories_select :category_id, current_participatory_space.categories, prompt: t(".select_a_category"), disable_parents: false %>
+              <%= form.categories_select :category_id, current_participatory_space.categories, include_blank: t(".select_a_category"), disable_parents: false %>
             </div>
           <% end %>
 
           <% if Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
             <div class="field">
-              <%= form.select :user_group_id, Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.map{|g| [g.name, g.id]}, prompt: current_user.name %>
+              <%= form.select :user_group_id, Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.map{|g| [g.name, g.id]}, include_blank: current_user.name %>
             </div>
           <% end %>
 

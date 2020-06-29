@@ -1,4 +1,4 @@
-<main class="wrapper">
+<div class="wrapper">
   <div class="row column mb-m">
     <h1><%= t ".title" %></h1>
     <p>
@@ -8,7 +8,7 @@
   <% @badges.each do |badge| %>
     <div class="row column mb-m">
       <div class="column medium-2">
-        <article class="card card--badge absolutes">
+        <div class="card card--badge absolutes">
           <div class="card__content">
             <div class="card__header">
               <div class="badge-container">
@@ -19,7 +19,7 @@
               <strong><%= badge.translated_name %></strong>
             </div>
           </div>
-        </article>
+        </div>
       </div>
       <div class="column medium-10">
         <h6>
@@ -39,4 +39,4 @@
       </div>
     </div>
   <% end %>
-</main>
+</div>

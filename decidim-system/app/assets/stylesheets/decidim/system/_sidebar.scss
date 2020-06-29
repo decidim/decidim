@@ -1,5 +1,4 @@
 @mixin menu-title{
-  text-transform: uppercase;
   letter-spacing: 5px;
 }
 
@@ -48,7 +47,6 @@
     }
 
     li{
-      text-transform: uppercase;
       font-weight: bold;
       font-size: .9em;
       border-left: 2px solid transparent;

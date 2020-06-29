@@ -26,7 +26,7 @@ describe "Initiative signing", type: :system do
         it "voting disabled message is shown" do
           visit decidim_initiatives.initiative_path(initiative)
 
-          expect(page).to have_content("SIGNING DISABLED")
+          expect(page).to have_content("Signing disabled")
         end
       end
     end
@@ -114,7 +114,7 @@ describe "Initiative signing", type: :system do
             visit decidim_initiatives.initiative_path(initiative)
 
             within ".view-side" do
-              expect(page).to have_content("VERIFY YOUR ACCOUNT")
+              expect(page).to have_content("Verify your account")
             end
             click_button "Verify your account"
             expect(page).to have_content("Authorization required")
@@ -176,7 +176,7 @@ describe "Initiative signing", type: :system do
 
             within ".view-side" do
               expect(page).to have_content(signature_text(0))
-              expect(page).to have_content("VERIFY YOUR ACCOUNT")
+              expect(page).to have_content("Verify your account")
             end
             click_button "Verify your account"
             expect(page).to have_content("Authorization required")
@@ -296,8 +296,8 @@ describe "Initiative signing", type: :system do
   end
 
   def signature_text(number)
-    return "1/#{initiative.supports_required}\nSIGNATURE" if number == 1
+    return "1/#{initiative.supports_required}\nSignature" if number == 1
 
-    "#{number}/#{initiative.supports_required}\nSIGNATURES"
+    "#{number}/#{initiative.supports_required}\nSignatures"
   end
 end

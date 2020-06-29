@@ -58,7 +58,7 @@ textarea{
 }
 
 .legend{
-  @include smallcaps;
+  @include smallemphasis;
 
   margin-bottom: 1rem;
 }

@@ -2,7 +2,7 @@
   <%= image_tag profile_user.avatar_url(:profile), class: "card__image card__image--larger", alt: "avatar #{profile_user.name}" %>
   <div class="card__content">
     <h1 class="profile--sidebar--title">
-      <div><strong><%= profile_user.name %></strong></div>
+      <strong><%= profile_user.name %></strong>
       <span class="text-small"><%= profile_user.nickname %></span>
       <% if can_contact_user? %>
         <span class="user-contact_link">
@@ -20,7 +20,7 @@
   <% if profile_user.badge.present? %>
     <div class="badge-card__content">
       <span>
-        <%= icon profile_user.badge, class: "author__verified", role: "img" %>
+        <%= icon profile_user.badge, class: "author__verified", aria_label: t("decidim.profiles.show.officialized"), role: "img" %>
       </span>
       <span>
         <%= officialization_text %>
@@ -66,8 +66,8 @@
         <div class="row column mb-s">
           <strong class="muted"><%= t("decidim.profiles.sidebar.badges.title") %></strong>
           <div class="badge-tip badge-tip--inline">
-            <div data-tooltip data-position="top" title="<%= t("decidim.profiles.sidebar.badges.info") %>" aria-describedby="badges-tooltip" data-yeti-box="badges-tooltip" data-toggle="badges-tooltip" data-resize="badges-tooltip" class="has-tip" data-events="resize">
-              <%= icon "info", class: "icon--small", role: "img" %>
+            <div data-tooltip data-position="top" title="<%= t("decidim.profiles.sidebar.badges.info") %>" data-yeti-box="badges-tooltip" data-toggle="badges-tooltip" data-resize="badges-tooltip" class="has-tip" data-events="resize">
+              <%= icon "info", class: "icon--small", role: "img", "aria-hidden": true %>
             </div>
           </div>
         </div>
@@ -97,7 +97,7 @@
       </div>
       <% if user_groups_enabled? %>
         <div class="text-center">
-          <%= link_to decidim.new_group_path, class: "button secondary light" do %>
+          <%= link_to decidim.new_group_path, class: "button hollow" do %>
             <span>
               <%= t("decidim.profiles.user.create_user_group") %>
             </span>
@@ -112,7 +112,7 @@
       <% if can_edit_user_group_profile? %>
         <% if user_group_email_to_be_confirmed? %>
           <div class="text-center">
-            <%= link_to decidim.group_email_confirmation_path(model.nickname), method: :post, class: "button secondary light expanded" do %>
+            <%= link_to decidim.group_email_confirmation_path(model.nickname), method: :post, class: "button hollow expanded" do %>
               <span>
                 <%= t("decidim.profiles.user.resend_email_confirmation_instructions") %>
               </span>
@@ -136,7 +136,7 @@
 
       <% if can_join_user_group? %>
         <div class="text-center">
-          <%= link_to decidim.group_join_requests_path(model.nickname), method: :post, class: "button light expanded" do %>
+          <%= link_to decidim.group_join_requests_path(model.nickname), method: :post, class: "button hollow expanded" do %>
             <span>
               <%= t("decidim.profiles.user.join_user_group") %>
             </span>
@@ -146,7 +146,7 @@
 
       <% if can_leave_group? %>
         <div class="text-center">
-          <%= link_to decidim.leave_group_path(model.nickname), method: :delete, data: { confirm: t("decidim.groups.actions.are_you_sure") }, class: "button light expanded" do %>
+          <%= link_to decidim.leave_group_path(model.nickname), method: :delete, data: { confirm: t("decidim.groups.actions.are_you_sure") }, class: "button hollow expanded" do %>
             <span>
               <%= t("decidim.profiles.user.leave_user_group") %>
             </span>

@@ -19,7 +19,7 @@ describe Decidim::Assemblies::ContentBlocks::HighlightedAssembliesCell, type: :c
   context "when the content block has no settings" do
     it "shows 4 processes" do
       within "#highlighted-assembly" do
-        expect(subject).to have_selector("article.card--process", count: 4)
+        expect(subject).to have_selector(".card--process", count: 4)
       end
     end
   end

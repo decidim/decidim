@@ -48,7 +48,7 @@
       if (this.$form.length > 0 && !this.mounted) {
         this.mounted = true;
 
-        this.$form.on("change", "input, select", this._onFormChange);
+        this.$form.on("change", "input:not([data-disable-dynamic-change]), select:not([data-disable-dynamic-change])", this._onFormChange);
 
         this.currentFormRequest = null;
         this.$form.on("ajax:beforeSend", (e) => {

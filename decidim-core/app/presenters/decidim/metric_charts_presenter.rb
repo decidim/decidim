@@ -68,7 +68,7 @@ module Decidim
 
     def render_metrics_descriptive(metric_name, opts = {})
       content_tag :div, class: opts[:klass].presence || not_highlighted_classes do
-        concat content_tag(:h3, opts[:title], class: "metric-title heading3 text-uppercase text-muted")
+        concat content_tag(:h3, opts[:title], class: "metric-title heading3 text-muted")
         concat content_tag(:p, opts[:description], class: "metric-description text-medium")
         concat render_metric_chart(metric_name, opts)
         concat render_downloader(metric_name) if opts[:download]

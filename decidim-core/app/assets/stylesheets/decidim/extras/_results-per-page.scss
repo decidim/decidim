@@ -13,7 +13,9 @@ $order-border: $border;
   }
 
   a:focus{
-    outline: 2px solid $secondary;
+    outline: $anchor-outline-focus;
+    outline-color: var(--highlight);
+    outline-offset: $anchor-outline-offset;
   }
 }
 

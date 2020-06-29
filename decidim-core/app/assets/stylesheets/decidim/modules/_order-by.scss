@@ -13,10 +13,6 @@ $order-border: $border;
     text-decoration: underline;
   }
 
-  a:focus{
-    outline: 2px solid $secondary;
-  }
-
   & + &{
     @include breakpoint(medium){
       margin-left: $global-margin;
@@ -35,6 +31,7 @@ $order-border: $border;
 
   .menu{
     .is-dropdown-submenu-parent > a{
+      background: transparent;
       padding: 0;
       margin-left: .5rem;
       margin-top: .25rem;

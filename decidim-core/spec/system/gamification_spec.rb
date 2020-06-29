@@ -21,7 +21,7 @@ describe "Gamification", type: :system do
         visit decidim.profile_path(user.nickname)
         click_link "Badges"
         within ".badge-test" do
-          expect(page).to have_content "LEVEL 2"
+          expect(page).to have_content "Level 2"
         end
       end
     end
@@ -39,7 +39,7 @@ describe "Gamification", type: :system do
         visit decidim.profile_path(user_group.nickname)
         click_link "Badges"
         within ".badge-test" do
-          expect(page).to have_content "LEVEL 2"
+          expect(page).to have_content "Level 2"
         end
       end
     end

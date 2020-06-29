@@ -1,0 +1,9 @@
+<%
+js_configs = {
+  icons_path: image_path("decidim/icons.svg")
+}
+%>
+
+<script>
+  Decidim.config.set(<%== js_configs.to_json %>);
+</script>

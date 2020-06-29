@@ -10,13 +10,13 @@ $footer-bg: $black;
   a{
     color: darken($medium-gray, 40%);
 
-    &:hover,{
+    &:hover{
       color: darken($medium-gray, 20%);
       text-decoration: underline;
     }
 
     &:focus{
-      outline: 2px solid $primary;
+      outline-color: var(--highlight-alternative);
     }
   }
 }

@@ -1,3 +1,5 @@
+<% add_decidim_page_title(t(".meetings")) %>
+
 <div class="wrapper">
   <div class="row">
     <h1 class="section-heading"><%= t(".meetings") %></h1>
@@ -12,7 +14,7 @@
               <div class="input-group">
                 <%= form.search_field :search_text, label: false, class: "input-group-field", placeholder: t(".search"), title: t(".search") %>
                 <div class="input-group-button">
-                  <button type="submit" class="button button--muted">
+                  <button type="submit" class="button">
                     <%= icon "magnifying-glass", aria_label: t(".search"), role: "img" %>
                   </button>
                 </div>

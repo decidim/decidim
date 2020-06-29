@@ -15,7 +15,7 @@ module Decidim::ParticipatoryProcesses
       let(:show_space) { false }
 
       it "renders the card" do
-        expect(subject).to have_css("article.card--process")
+        expect(subject).to have_css(".card--process")
       end
 
       it_behaves_like "space cell changes button text CTA"

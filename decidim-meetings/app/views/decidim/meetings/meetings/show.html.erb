@@ -18,7 +18,7 @@ edit_link(
 <div class="row column view-header">
 
   <%= link_to :meetings, class: "small hollow" do %>
-    <%= icon "chevron-left", class: "icon--small" %>
+    <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
     <%= t(".back") %>
   <% end %>
 
@@ -86,7 +86,7 @@ edit_link(
         <% meeting.services.each do |service| %>
           <div class="card--list__item">
             <div class="card--list__text card--list__text--top">
-              <%= icon "actions", class: "card--list__icon alert", role: "img" %>
+              <%= icon "actions", class: "card--list__icon alert", role: "img", "aria-hidden": true %>
               <div>
                 <h3 class="card--list__heading heading-small"><%= translated_attribute(service["title"]) %></h3>
                 <span class="text-medium"><%= translated_attribute(service["description"]) %></span>
@@ -113,7 +113,7 @@ edit_link(
           <%= t("transparent", scope: "decidim.meetings.types") %>
         </span>
       <% end %>
-      <p><%= decidim_sanitize(present(meeting).description(links: true)) %></p>
+      <%= decidim_sanitize(present(meeting).description(links: true)) %>
       <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
       <%= render partial: "decidim/shared/tags", locals: { resource: meeting, tags_class_extra: "tags--meeting" } %>
     </div>

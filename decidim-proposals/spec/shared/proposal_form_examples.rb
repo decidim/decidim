@@ -219,7 +219,7 @@ shared_examples "a proposal form" do |options|
 
       it "adds an error to the `:attachment` field" do
         expect(subject).not_to be_valid
-        expect(subject.errors.full_messages).to match_array(["Title can't be blank", "Attachment Needs to be reattached"])
+        expect(subject.errors.full_messages).to match_array(["Title can't be blank", "Title is too short (under 15 characters)", "Attachment Needs to be reattached"])
         expect(subject.errors.keys).to match_array([:title, :attachment])
       end
     end

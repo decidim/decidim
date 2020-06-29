@@ -36,7 +36,7 @@ module Decidim
     # Wrap the dependant check_boxes in a custom fieldset.
     # checked parent checks its children
     def check_boxes_tree(method, collection, options = {})
-      fieldset_wrapper(options[:legend_title], "#{method}_check_boxes_tree_filter") do
+      fieldset_wrapper(options.delete(:legend_title), "#{method}_check_boxes_tree_filter") do
         @template.render("decidim/shared/check_boxes_tree",
                          form: self,
                          attribute: method,
@@ -48,9 +48,9 @@ module Decidim
     end
 
     # Wrap the category select in a custom fieldset.
-    def categories_select(method, collection, options = {})
-      fieldset_wrapper(options[:legend_title], "#{method}_categories_select_filter") do
-        super(method, collection, options)
+    def categories_select(method, collection, options = {}, html_options = {})
+      fieldset_wrapper(options.delete(:legend_title), "#{method}_categories_select_filter") do
+        super(method, collection, options, html_options)
       end
     end
 

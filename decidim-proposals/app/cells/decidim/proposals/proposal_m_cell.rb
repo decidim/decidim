@@ -54,22 +54,33 @@ module Decidim
         state_classes.concat(["label", "proposal-status"]).join(" ")
       end
 
+      def base_statuses
+        @base_statuses ||= begin
+          if endorsements_visible?
+            [:endorsements_count, :comments_count]
+          else
+            [:comments_count]
+          end
+        end
+      end
+
       def statuses
         return [] if preview?
-        return [:endorsements_count, :comments_count] if model.draft?
-        return [:creation_date, :endorsements_count, :comments_count] if !has_link_to_resource? || !can_be_followed?
+        return base_statuses if model.draft?
+        return [:creation_date] + base_statuses if !has_link_to_resource? || !can_be_followed?
 
-        [:creation_date, :follow, :endorsements_count, :comments_count]
+        [:creation_date, :follow] + base_statuses
       end
 
       def creation_date_status
-        l(model.published_at.to_date, format: :decidim_short)
+        explanation = content_tag(:strong, t("activemodel.attributes.common.created_at"))
+        "#{explanation}<br>#{l(model.published_at.to_date, format: :decidim_short)}"
       end
 
       def endorsements_count_status
         return endorsements_count unless has_link_to_resource?
 
-        link_to resource_path do
+        link_to resource_path, "aria-label" => "#{t("decidim.endorsable.endorsements_count")}: #{model.endorsements_count}", title: t("decidim.endorsable.endorsements_count") do
           endorsements_count
         end
       end
@@ -98,6 +109,10 @@ module Decidim
 
       def can_be_followed?
         !model.withdrawn?
+      end
+
+      def endorsements_visible?
+        model.component.current_settings.endorsements_enabled?
       end
 
       def has_image?

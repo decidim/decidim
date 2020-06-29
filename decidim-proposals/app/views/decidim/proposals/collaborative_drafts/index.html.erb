@@ -1,3 +1,5 @@
+<% add_decidim_page_title(Decidim::Proposals::CollaborativeDraft.model_name.human(count: 2)) %>
+
 <%= render partial: "decidim/shared/component_announcement" %>
 
 <div class="row columns">
@@ -15,9 +17,9 @@
       <%= render partial: "filters" %>
     </div>
   </div>
-  <div id="collaborative_drafts" class="columns mediumlarge-8 large-9">
+  <div id="collaborative_drafts" class="columns mediumlarge-8 large-9" aria-live="polite">
     <%= render partial: "collaborative_drafts" %>
   </div>
 </div>
 <%= javascript_include_tag "decidim/filters" %>
-<%= javascript_include_tag "decidim/orders" %>
+<%= javascript_include_tag "decidim/results_listing" %>

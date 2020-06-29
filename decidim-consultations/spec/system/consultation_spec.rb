@@ -50,7 +50,7 @@ describe "Consultation", type: :system do
       end
 
       it "Shows the highlighted questions section" do
-        expect(page).to have_content("Questions from #{translated consultation.highlighted_scope.name}".upcase)
+        expect(page).to have_content("Questions from #{translated consultation.highlighted_scope.name}")
       end
 
       it "shows highlighted question details" do
@@ -69,11 +69,11 @@ describe "Consultation", type: :system do
       end
 
       it "Shows the regular questions section" do
-        expect(page).to have_content("QUESTIONS FOR THIS CONSULTATION")
+        expect(page).to have_content("Questions for this consultation")
       end
 
       it "shows the scope name" do
-        expect(page).to have_content(scope.name["en"].upcase)
+        expect(page).to have_content(scope.name["en"])
       end
 
       it "shows the question details" do
@@ -92,7 +92,7 @@ describe "Consultation", type: :system do
         end
 
         it "shows the `take part` button" do
-          expect(page).to have_content("TAKE PART")
+          expect(page).to have_content("Take part")
         end
       end
 
@@ -105,14 +105,14 @@ describe "Consultation", type: :system do
         it "shows the `take part` button if the user has not voted yet" do
           visit decidim_consultations.consultation_path(consultation)
 
-          expect(page).to have_content("TAKE PART")
+          expect(page).to have_content("Take part")
         end
 
         it "shows the `already voted` button if the user has already voted" do
           question.votes.create(author: user, response: Decidim::Consultations::Response.new)
           visit decidim_consultations.consultation_path(consultation)
 
-          expect(page).to have_content("ALREADY VOTED")
+          expect(page).to have_content("Already voted")
         end
       end
     end

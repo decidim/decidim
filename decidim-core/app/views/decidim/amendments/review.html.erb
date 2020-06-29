@@ -1,9 +1,9 @@
-<main class="wrapper">
+<div class="wrapper">
   <div class="row">
     <div class="columns">
       <div class="m-bottom">
         <%= link_to :back do %>
-          <%= icon "chevron-left", class: "icon--small", role: "img" %>
+          <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
           <%= t(".back") %>
         <% end %>
       </div>
@@ -38,4 +38,4 @@
       </div>
     </div>
   </div>
-</main>
+</div>

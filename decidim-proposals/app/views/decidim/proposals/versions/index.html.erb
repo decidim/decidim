@@ -1,3 +1,11 @@
+<% add_decidim_page_title(t(".title")) %>
+<% add_decidim_page_title(versioned_resource.title) %>
+<%
+if versioned_resource.is_a?(Decidim::Proposals::CollaborativeDraft)
+  add_decidim_page_title(Decidim::Proposals::CollaborativeDraft.model_name.human(count: 2))
+end
+%>
+
 <div class="row">
   <%= cell(
     "decidim/versions_list",

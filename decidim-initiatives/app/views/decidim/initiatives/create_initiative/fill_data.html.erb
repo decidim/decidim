@@ -1,6 +1,6 @@
 <% content_for :back_link do %>
   <%= link_to :back do %>
-    <%= icon "chevron-left", class: "icon--small", role: "img" %>
+    <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
     <%= t(".back") %>
   <% end %>
 <% end %>
@@ -19,6 +19,7 @@
     <div class="card">
       <div class="card__content">
         <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { class: "form new_initiative_form" }) do |f| %>
+          <%= form_required_explanation %>
           <%= f.hidden_field :type_id %>
           <div class=section>
             <% unless single_initiative_type? %>
@@ -51,7 +52,7 @@
               <div class="field">
                 <%= f.select :scope_id,
                              scopes.map { |scope| [translated_attribute(scope.scope_name), scope&.scope&.id] },
-                             prompt: t(".select_scope") %>
+                             include_blank: t(".select_scope") %>
               </div>
             <% end %>
 
@@ -71,7 +72,7 @@
               <div class="field">
                 <%= f.select :decidim_user_group_id,
                              Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.map { |g| [g.name, g.id] },
-                             prompt: current_user.name %>
+                             include_blank: current_user.name %>
               </div>
             <% end %>
 

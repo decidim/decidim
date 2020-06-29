@@ -28,7 +28,7 @@ describe "Edit proposals", type: :system do
       click_link proposal.title
       click_link "Edit proposal"
 
-      expect(page).to have_content "EDIT PROPOSAL"
+      expect(page).to have_content "Edit proposal"
 
       within "form.edit_proposal" do
         fill_in :proposal_title, with: new_title
@@ -49,14 +49,21 @@ describe "Edit proposals", type: :system do
         click_link proposal.title
         click_link "Edit proposal"
 
-        expect(page).to have_content "EDIT PROPOSAL"
+        expect(page).to have_content "Edit proposal"
 
         within "form.edit_proposal" do
           fill_in :proposal_body, with: "A"
           click_button "Send"
         end
 
-        expect(page).to have_content("is using too many capital letters (over 25% of the text), is too short (under 15 characters)")
+        expect(page).to have_content("at least 15 characters", count: 2)
+
+        within "form.edit_proposal" do
+          fill_in :proposal_body, with: "WE DO NOT WANT TO SHOUT IN THE PROPOSAL BODY TEXT!"
+          click_button "Send"
+        end
+
+        expect(page).to have_content("is using too many capital letters (over 25% of the text)")
       end
 
       it "keeps the submitted values" do
@@ -65,16 +72,16 @@ describe "Edit proposals", type: :system do
         click_link proposal.title
         click_link "Edit proposal"
 
-        expect(page).to have_content "EDIT PROPOSAL"
+        expect(page).to have_content "Edit proposal"
 
         within "form.edit_proposal" do
           fill_in :proposal_title, with: "A title with a #hashtag"
-          fill_in :proposal_body, with: "Ỳü"
+          fill_in :proposal_body, with: "ỲÓÜ WÄNTt TÙ ÚPDÀTÉ À PRÖPÔSÁL"
         end
         click_button "Send"
 
         expect(page).to have_selector("input[value='A title with a #hashtag']")
-        expect(page).to have_content("Ỳü")
+        expect(page).to have_content("ỲÓÜ WÄNTt TÙ ÚPDÀTÉ À PRÖPÔSÁL")
       end
     end
   end

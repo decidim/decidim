@@ -1,5 +1,5 @@
 $(() => {
-  const $allDiffViews = $(".row[id^=diff_view_]");
+  const $allDiffViews = $(".row.diff_view");
 
   $(document).on("click", ".diff-view-by a.diff-view-mode", (event) => {
     event.preventDefault();
@@ -8,11 +8,11 @@ $(() => {
 
     if ($target.attr("id") === "diff-view-unified") {
       $allDiffViews.addClass("hide");
-      $(".row#diff_view_unified_escaped").removeClass("hide");
+      $(".row.diff_view_unified_escaped").removeClass("hide");
     }
     if ($target.attr("id") === "diff-view-split") {
       $allDiffViews.addClass("hide");
-      $(".row#diff_view_split_escaped").removeClass("hide");
+      $(".row.diff_view_split_escaped").removeClass("hide");
     }
   })
 

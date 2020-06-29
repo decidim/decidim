@@ -23,7 +23,6 @@
           values = this.current.values;
 
       if (this.current.multiple) {
-        input = "checkbox";
         name += "[]";
       }
 
@@ -37,7 +36,13 @@
         if ($picker.hasClass("disabled")) {
           return;
         }
-        this._openPicker($picker, this._targetFromEvent(event));
+        const isMultiPicker = $picker.hasClass("picker-multiple");
+
+        if ($(this._targetFromEvent(event)).hasClass("picker-prompt") || !isMultiPicker) {
+          this._openPicker($picker, this._targetFromEvent(event));
+        } else {
+          this._removeValue($picker, this._targetFromEvent(event));
+        }
       });
 
       $picker.on("click", "input", (event) => {
@@ -80,8 +85,13 @@
     }
 
     _createModalContainer() {
-      return $(`<div class="small reveal" id="data_picker-modal" aria-hidden="true" role="dialog" aria-labelledby="data_picker-title" data-reveal data-multiple-opened="true">
-                <div class="data_picker-modal-content"></div>
+      // Add a header because we are referencing the title element with
+      // `aria-labelledby`. If the title doesn't exist, the "labelled by"
+      // reference is incorrect.
+      const headerHtml = '<div class="scope-picker picker-header"><h6 id="data_picker-title" class="h2"></h6></div>';
+
+      return $(`<div class="small reveal" id="data_picker-modal" aria-hidden="true" aria-live="assertive" role="dialog" aria-labelledby="data_picker-title" data-reveal data-multiple-opened="true">
+                <div class="data_picker-modal-content">${headerHtml}</div>
                 <button class="close-button" data-close type="button" data-reveal-id="data_picker-modal"><span aria-hidden="true">&times;</span></button>
               </div>`);
     }
@@ -174,17 +184,21 @@
         link.data("picker-value", data.value);
         link.attr("href", data.url);
         choosenOption = this.current.target;
-        link.html(dataText);
+        if (this.current.multiple) {
+          link.html(`&times;&nbsp;${dataText}`);
+        } else {
+          link.text(dataText);
+        }
       } else {
         let input = "hidden",
             name = this.current.name;
 
         if (this.current.multiple) {
-          input = "checkbox";
           name += "[]";
+          choosenOption = $(`<div><input type="${input}" checked name="${name}"/><a href="${data.url}" data-picker-value="${data.value}" class="label primary">&times;&nbsp;${dataText}</a></div>`);
+        } else {
+          choosenOption = $(`<div><input type="${input}" checked name="${name}"/><a href="${data.url}" data-picker-value="${data.value}">${dataText}</a></div>`);
         }
-
-        choosenOption = $(`<div><input type="${input}" checked name="${name}"/><a href="${data.url}" data-picker-value="${data.value}">${dataText}</a></div>`);
         choosenOption.appendTo(this.current.values);
 
         if (!this.current.target) {

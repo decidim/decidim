@@ -5,7 +5,7 @@ module Decidim
   # on the layout.
   module TooltipHelper
     def with_tooltip(title, &block)
-      content_tag(:span, data: { tooltip: true, disable_hover: false, click_open: false },
+      content_tag(:span, data: { tooltip: true, disable_hover: false, keep_on_hover: true, click_open: false },
                          title: title, &block)
     end
   end

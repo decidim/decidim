@@ -49,6 +49,7 @@
                 <% end %>
 
                 <%= decidim_form_for(@form, url: update_url, method: :post, html: { class: "form answer-questionnaire" }, data: { "safe-path" => form_path }) do |form| %>
+                  <%= form_required_explanation %>
                   <%= invisible_captcha %>
                   <% answer_idx = 0 %>
                   <% cleaned_answer_idx = 0 %>

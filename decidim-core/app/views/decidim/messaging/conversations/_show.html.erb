@@ -1,12 +1,18 @@
-<main class="wrapper">
+<% if participants.count == 1 %>
+  <% conversation_label = t(".chat_with") + " #{participants.first.name} (@#{participants.first.nickname})" %>
+<% else %>
+  <% conversation_label = t(".title", usernames: username_list(participants)) %>
+<% end %>
+
+<div class="wrapper">
   <div class="row">
-    <div class="columns medium-9 medium-centered tabs-panel is-active" id="conversations" role="tabpanel" aria-labelledby="conversations-label">
+    <div class="columns medium-9 medium-centered tabs-panel is-active" id="conversations" role="tabpanel" aria-label="<%= conversation_label %>">
       <div class="conversation">
 
         <div class="conversation-header flex--cc absolutes">
           <div class="left center mr-s">
             <%= link_to decidim.conversations_path, class: "card--list__data__icon card--list__data__icon--back" do %>
-              <%= icon "chevron-left", role: "img" %>
+              <%= icon "chevron-left", role: "img", aria_label: t(".back") %>
             <% end %>
           </div>
           <%= link_to decidim.conversations_path do %>
@@ -31,4 +37,4 @@
       </div>
     </div>
   </div>
-</main>
+</div>

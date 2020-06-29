@@ -347,6 +347,10 @@ en:
       meeting:
         not_allowed: You are not allowed to view this meeting
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} meeting"
+            other: "%{count} meetings"
         filters:
           category: Category
           category_prompt: Select a category
@@ -372,6 +376,7 @@ en:
           attendees: Attendees count
           back: Back to list
           contributions: Contributions count
+          date: Date
           going: Going
           join: Join meeting
           meeting_report: Meeting report
@@ -437,7 +442,7 @@ en:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Past meetings
-        see_all: See all (%{count})
+        see_all: See all meetings (%{count})
         upcoming_meetings: Upcoming meetings
       upcoming_meeting_for_card:
         upcoming_meeting: Upcoming meeting

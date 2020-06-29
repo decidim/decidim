@@ -102,7 +102,7 @@ describe "Assemblies", type: :system do
       it "lists all the highlighted assemblies" do
         within "#highlighted-assemblies" do
           expect(page).to have_content(translated(promoted_assembly.title, locale: :en))
-          expect(page).to have_selector("article.card--full", count: 1)
+          expect(page).to have_selector(".card--full", count: 1)
         end
       end
 
@@ -114,8 +114,8 @@ describe "Assemblies", type: :system do
 
           expect(page).to have_content(translated(assembly.title, locale: :en))
           expect(page).to have_content(translated(promoted_assembly.title, locale: :en))
-          expect(page).to have_selector("article.card", count: 2)
-          expect(page).to have_selector("article.card.card--stack", count: 1)
+          expect(page).to have_selector(".card", count: 2)
+          expect(page).to have_selector(".card.card--stack", count: 1)
 
           expect(page).not_to have_content(translated(child_assembly.title, locale: :en))
           expect(page).not_to have_content(translated(unpublished_assembly.title, locale: :en))
@@ -123,7 +123,7 @@ describe "Assemblies", type: :system do
       end
 
       it "links to the individual assembly page" do
-        click_link(translated(assembly.title, locale: :en))
+        first(".card__link", text: translated(assembly.title, locale: :en)).click
 
         expect(page).to have_current_path decidim_assemblies.assembly_path(assembly)
       end
@@ -184,15 +184,15 @@ describe "Assemblies", type: :system do
       context "when the assembly has some components" do
         it "shows the components" do
           within ".process-nav" do
-            expect(page).to have_content(translated(proposals_component.name, locale: :en).upcase)
-            expect(page).to have_no_content(translated(meetings_component.name, locale: :en).upcase)
+            expect(page).to have_content(translated(proposals_component.name, locale: :en))
+            expect(page).to have_no_content(translated(meetings_component.name, locale: :en))
           end
         end
 
         it "shows the stats for those components" do
           within ".process_stats" do
-            expect(page).to have_content("3 PROPOSALS")
-            expect(page).not_to have_content("0 MEETINGS")
+            expect(page).to have_content("3 Proposals")
+            expect(page).not_to have_content("0 meetings")
           end
         end
 
@@ -200,7 +200,7 @@ describe "Assemblies", type: :system do
           let(:show_statistics) { false }
 
           it "the stats for those components are not visible" do
-            expect(page).not_to have_content("3 PROPOSALS")
+            expect(page).not_to have_content("3 proposals")
           end
         end
       end

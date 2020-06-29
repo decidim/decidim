@@ -1,5 +1,5 @@
-<main class="column">
-  <article class="card card--proposal">
+<div class="column">
+  <div class="card card--proposal">
     <div class="card__content">
       <div class="card__header">
         <%= link_to Decidim::ResourceLocatorPresenter.new(emendation).path, target: "_blank" do %>
@@ -20,5 +20,5 @@
 
       <%= cell "decidim/tags", emendation, context: { extra_classes: ["tags--proposal"] } %>
     </div>
-  </article>
-</main>
+  </div>
+</div>

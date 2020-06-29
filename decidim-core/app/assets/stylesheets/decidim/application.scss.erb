@@ -1,5 +1,5 @@
-@import "decidim";
-@import "editor";
+@import "decidim/decidim";
+@import "decidim/editor";
 
 <% Decidim.component_manifests.map(&:stylesheet).compact.each do |stylesheet| %>
 @import "<%= stylesheet %>";

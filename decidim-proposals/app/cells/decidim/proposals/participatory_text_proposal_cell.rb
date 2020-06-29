@@ -21,7 +21,7 @@ module Decidim
       def title
         case model.participatory_text_level
         when "section"
-          "<h5><strong class='text-uppercase'>#{section_title}</strong></h5>"
+          "<h5><strong>#{section_title}</strong></h5>"
         else
           "<h6><strong>#{section_title}</strong></h6>"
         end

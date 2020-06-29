@@ -43,7 +43,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
     describe "Renders collaborative drafts index" do
       it "shows Open Drafts by default" do
         first ".card__text--paragraph" do
-          expect(page).to have_css(".success.card__text--status", text: "OPEN")
+          expect(page).to have_css(".success.card__text--status", text: "Open")
         end
         within ".filters" do
           expect(find(:css, "input[name='filter[state][]'][value='open']")).to be_checked
@@ -183,7 +183,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
         it "shows the publish button" do
           within ".view-side" do
-            expect(page).to have_css("button", text: "PUBLISH")
+            expect(page).to have_css("button", text: "Publish")
           end
         end
 
@@ -198,7 +198,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
           end
 
           it "shows the a modal" do
-            within "#publish-irreversible-action-modal" do
+            within "[id$='publish-irreversible-action-modal'" do
               expect(page).to have_css("h3", text: "The following action is irreversible")
               expect(page).to have_css("button", text: "Publish as a Proposal")
             end
@@ -230,7 +230,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
         it "renders a button to request access" do
           within ".view-side" do
-            expect(page).to have_css(".button.expanded.button--sc.mt-s", text: "REQUEST ACCESS")
+            expect(page).to have_css(".button.expanded.button--sc.mt-s", text: "Request access")
           end
         end
 
@@ -252,7 +252,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
           it "shows that acces has been requested" do
             within ".view-side" do
-              expect(page).to have_css(".button.secondary.light.expanded.button--sc.mt-s", text: "ACCESS REQUESTED")
+              expect(page).to have_css(".button.expanded.button--sc.mt-s", text: "Access requested")
             end
           end
 
@@ -264,7 +264,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
             it "lists the user in Collaboration Requests" do
               within ".card.extra" do
-                expect(page).to have_content("COLLABORATION REQUESTS")
+                expect(page).to have_content("Collaboration requests")
                 expect(page).to have_css("#request_#{user.id}")
               end
             end
@@ -302,14 +302,14 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
               end
 
               it "shows a button to edit" do
-                expect(page).to have_css("#collaborative_draft_edit", text: "EDIT COLLABORATIVE DRAFT")
+                expect(page).to have_css("#collaborative_draft_edit", text: "Edit collaborative draft")
               end
 
               it "does not show the Collaboration Requests from other users" do
                 request_access_from_other_user.call
                 visit current_path
 
-                expect(page).not_to have_content("COLLABORATION REQUESTS")
+                expect(page).not_to have_content("Collaboration requests")
               end
             end
           end
@@ -332,7 +332,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
         end
 
         it "shows a button to edit" do
-          expect(page).to have_css("#collaborative_draft_edit", text: "EDIT COLLABORATIVE DRAFT")
+          expect(page).to have_css("#collaborative_draft_edit", text: "Edit collaborative draft")
         end
       end
     end

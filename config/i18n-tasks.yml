@@ -90,14 +90,18 @@ search:
 # Do not consider these keys missing:
 ignore_missing:
   - components.*
+  - browse_resource
   - email_subject
   - email_intro
   - email_outro
+  - follows.create.participatory_space
   - notification_title
   - decidim.wizard_step_form_cell.*
   - decidim.proposals.application_helper.activity_filter_values.*
   - decidim.content_blocks.*_settings_form.show.*
   - decidim.newsletter_templates.*_settings_form.show.*
+  - participate_in
+  - see_other_versions
 
 # Consider these keys used:
 ignore_unused:
@@ -115,11 +119,27 @@ ignore_unused:
   - decidim.assemblies.statistics.*
   - decidim.components.*
   - decidim.filters.linked_classes.*
+  - decidim.follows.create.participatory_space
   - decidim.forms.errors.*
+  - decidim.forms.file_help.*
   - decidim.forms.user_answers_serializer.*
   - decidim.participatory_processes.statistics.*
   - decidim.proposals.answers.*
+  - decidim.proposals.collaborative_drafts.show.see_other_versions
+  - decidim.proposals.collaborative_drafts.wizard_aside.back
+  - decidim.proposals.collaborative_drafts.wizard_aside.back_from_collaborative_draft
+  - decidim.proposals.collaborative_drafts.wizard_aside.back_from_step_1
+  - decidim.proposals.collaborative_drafts.wizard_aside.back_from_step_2
+  - decidim.proposals.collaborative_drafts.wizard_aside.back_from_step_3
+  - decidim.proposals.collaborative_drafts.wizard_aside.back_from_step_4
+  - decidim.proposals.proposal_endorsements_helper.endorsements_count_title
   - decidim.proposals.proposals.orders.*
+  - decidim.proposals.proposals.endorsements_card_row.comments_title
+  - decidim.proposals.proposals.wizard_aside.back
+  - decidim.proposals.proposals.wizard_aside.back_from_step_1
+  - decidim.proposals.proposals.wizard_aside.back_from_step_2
+  - decidim.proposals.proposals.wizard_aside.back_from_step_3
+  - decidim.proposals.proposals.wizard_aside.back_from_step_4
   - decidim.proposals.proposals.show.proposal_accepted_reason
   - decidim.proposals.proposals.show.proposal_in_evaluation_reason
   - decidim.proposals.proposals.show.proposal_rejected_reason
@@ -196,6 +216,7 @@ ignore_unused:
   - decidim.amendments.amendable.error
   - decidim.amendments.emendation.announcement.*
   - decidim.amendments.accept.error
+  - decidim.search.results
   - decidim.searches.filters.state.*
   - decidim.assemblies.filter.*
   - decidim.initiatives.initiatives.votes_count.count.*
@@ -208,10 +229,12 @@ ignore_unused:
   - decidim.admin_terms_of_use.default_body
   - decidim.admin.admin_terms_of_use.required_review.alert
   - decidim.budgets.projects.orders.*
+  - forms.length_validator.*
   - layouts.decidim.widget.*
   - layouts.decidim.assembly_widgets.*
   - layouts.decidim.conference_widgets.*
   - layouts.decidim.participatory_process_widgets.*
+  - layouts.decidim.participatory_process_groups.*
   - decidim.newsletter_templates.basic_only_text.name
   - decidim.newsletter_templates.image_text_cta.name
   - decidim.content_blocks.*_settings_form.*

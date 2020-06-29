@@ -4,6 +4,8 @@ module Decidim
   # This cell renders the button to follow the given resource.
   class FollowButtonCell < Decidim::ViewModel
     include LayoutHelper
+    include Decidim::SanitizeHelper
+    include Decidim::ResourceHelper
 
     def show
       return if model == current_user
@@ -14,16 +16,32 @@ module Decidim
     private
 
     def button_classes
-      return "card__button secondary text-uppercase follow-button mb-none" if inline?
-      return "button secondary hollow expanded button--icon button--sc" if large?
+      return "card__button follow-button mb-none" if inline?
 
-      "button secondary hollow expanded small button--icon follow-button"
+      extra_classes = ""
+      extra_classes += " active" if current_user_follows?
+      extra_classes += begin
+        if large?
+          " button--sc"
+        else
+          " small"
+        end
+      end
+
+      "button expanded button--icon follow-button #{extra_classes}"
     end
 
     def icon_options
-      return { class: "icon--small", role: "img" } if inline?
+      icon_base_options = { aria_hidden: true }
+      return icon_base_options.merge(class: "icon--small", role: "img", "aria-hidden": true) if inline?
 
-      {}
+      icon_base_options
+    end
+
+    def render_screen_reader_title_for(resource)
+      content_tag :span, class: "show-for-sr" do
+        decidim_html_escape(resource_title(resource))
+      end
     end
 
     # Checks whether the button will be shown inline or not. Inline buttons will
@@ -36,6 +54,12 @@ module Decidim
     # Checks whether the button will be shown large or not.
     def large?
       options[:large]
+    end
+
+    def current_user_follows?
+      return false unless current_user
+
+      current_user.follows?(model)
     end
 
     def decidim

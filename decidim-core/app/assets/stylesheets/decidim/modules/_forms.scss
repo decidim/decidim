@@ -1,6 +1,17 @@
 /* Froms foundation overwrites */
 
 $checkboxes-minimum-width: 200px;
+$help-text-margin-top: ($form-spacing * .5) * -1;
+
+.input-group{
+  .input-group-field{
+    &:focus{
+      // To raise the focus border on top of any other nearby elements
+      position: relative;
+      z-index: 10;
+    }
+  }
+}
 
 .input-group-button button{
   height: 2.5rem;
@@ -8,7 +19,25 @@ $checkboxes-minimum-width: 200px;
 }
 
 .help-text{
+  display: block;
   line-height: 1.2;
+  margin: $help-text-margin-top 0 $form-spacing;
+}
+
+.form-input-extra-before,
+.form-input-extra-after{
+  display: block;
+  font-size: $input-error-font-size;
+  font-weight: $input-error-font-weight;
+  margin-top: $form-spacing * -.5;
+}
+
+.form-input-extra-before{
+  margin-bottom: $form-spacing / 2;
+}
+
+.form-input-extra-after{
+  margin-bottom: $form-spacing;
 }
 
 label > [type='checkbox'],
@@ -32,6 +61,19 @@ label > [type='radio']{
   }
 }
 
+.switch{
+  input.switch-input{
+    &:active,
+    &:focus{
+      & + .switch-paddle{
+        outline: $input-outline-focus;
+        outline-color: var(--highlight);
+        outline-offset: $input-outline-offset;
+      }
+    }
+  }
+}
+
 .checkboxes{
   margin-bottom: 1rem;
   display: flex;
@@ -49,5 +91,21 @@ label > [type='radio']{
     input[type=checkbox]{
       vertical-align: middle;
     }
+  }
+}
+
+#{text-inputs()},
+textarea,
+select,
+input[type=file],
+input[type=checkbox],
+input[type=radio]{
+  outline: $input-outline;
+
+  &:active,
+  &:focus{
+    outline: $input-outline-focus;
+    outline-color: var(--highlight);
+    outline-offset: $input-outline-offset;
   }
 }

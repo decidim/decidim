@@ -106,6 +106,7 @@ $border-width: 1px !default;
 $border: $border-width solid $medium-gray !default;
 
 @include add-foundation-colors;
+$highlight-color: $highlight;
 
 // 2. Breakpoints
 // --------------
@@ -177,6 +178,8 @@ $code-border: 1px solid $medium-gray;
 $code-padding: rem-calc(2 5 1);
 $anchor-color: $secondary-color;
 $anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
+$anchor-outline-focus: 2px solid $highlight-color;
+$anchor-outline-offset: 2px;
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
 $hr-width: $global-width;
@@ -277,7 +280,7 @@ $breadcrumbs-item-color: $primary-color;
 $breadcrumbs-item-color-current: $black;
 $breadcrumbs-item-color-disabled: $medium-gray;
 $breadcrumbs-item-margin: .75rem;
-$breadcrumbs-item-uppercase: true;
+$breadcrumbs-item-uppercase: false;
 $breadcrumbs-item-separator: true;
 $breadcrumbs-item-separator-color: $medium-gray;
 
@@ -292,6 +295,7 @@ $button-background: $primary-color;
 $button-background-hover: scale-color($button-background, $lightness: -15%);
 $button-color: $white;
 $button-color-alt: $black;
+$button-shadow: 0 2px 0 rgba(0, 0, 0, .2);
 $button-radius: $global-radius;
 $button-hollow-border-width: 1px;
 $button-sizes: (
@@ -305,6 +309,15 @@ $button-opacity-disabled: .25;
 $button-background-hover-lightness: -20%;
 $button-hollow-hover-lightness: -50%;
 $button-transition: background-color .25s ease-out, color .25s ease-out;
+$button-outline-focus: 2px solid $highlight-color;
+$button-outline-offset: 2px;
+$button-shadow-active: inset 0 0 14px -2px $black;
+$button-shadow-focus: none;
+$button-brightness-hover: 95%;
+$button-brightness-active: 95%;
+$button-brightness-focus: 95%;
+$button-vertical-push-active: 2px;
+$button-hollow-underline: none;
 
 // 12. Button Group
 // ----------------
@@ -445,6 +458,9 @@ $input-background-focus: $white;
 $input-background-disabled: $light-gray;
 $input-border: 1px solid $medium-gray;
 $input-border-focus: 1px solid $dark-gray;
+$input-outline: 0;
+$input-outline-focus: 2px solid $highlight-color;
+$input-outline-offset: 2px;
 $input-padding: $form-spacing / 2;
 $input-shadow: inset 0 1px 2px rgba($black, .1);
 $input-shadow-focus: 0 0 5px $medium-gray;
@@ -871,3 +887,5 @@ $grid-padding-gutters: $grid-margin-gutters;
 $grid-container-padding: $grid-padding-gutters;
 $grid-container-max: $global-width;
 $xy-block-grid-max: 8;
+
+@import "decidim/decidim-settings";

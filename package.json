@@ -43,6 +43,9 @@
           ],
           "ignore": [
             "after-comment"
+          ],
+          "ignoreAtRules": [
+            "else"
           ]
         }
       ],

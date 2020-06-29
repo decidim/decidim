@@ -85,7 +85,7 @@ shared_examples "manage sortitions" do
             ca: "Títol"
           )
 
-          accept_alert { find("*[type=submit]").click }
+          accept_confirm { find("*[type=submit]").click }
         end
 
         expect(page).to have_admin_callout("successfully")

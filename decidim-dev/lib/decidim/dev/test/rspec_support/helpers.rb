@@ -10,14 +10,14 @@ module Decidim::ComponentTestHelpers
 
   def within_user_menu
     within ".topbar__user__logged" do
-      find("a", text: user.name).hover
+      find("a", text: user.name).click
       yield
     end
   end
 
   def within_language_menu
     within ".topbar__dropmenu.language-choose" do
-      find("ul.dropdown.menu").hover
+      find("ul.dropdown.menu").click
       yield
     end
   end

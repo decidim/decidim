@@ -7,7 +7,7 @@
       <div class="column">
         <div class="home-bullet">
           <div class="home-bullet__icon">
-            <%= icon "meetings", role: "img" %>
+            <%= icon "meetings", role: "img", "aria-hidden": true %>
           </div>
           <div class="home-bullet__desc">
             <h4 class="heading4"><%= t("decidim.pages.home.extended.meetings") %></h4>
@@ -18,7 +18,7 @@
       <div class="column">
         <div class="home-bullet">
           <div class="home-bullet__icon">
-            <%= icon "debates", role: "img" %>
+            <%= icon "debates", role: "img", "aria-hidden": true %>
           </div>
           <div class="home-bullet__desc">
             <h4 class="heading4"><%= t("decidim.pages.home.extended.debates") %></h4>
@@ -29,7 +29,7 @@
       <div class="column">
         <div class="home-bullet">
           <div class="home-bullet__icon">
-            <%= icon "proposals", role: "img" %>
+            <%= icon "proposals", role: "img", "aria-hidden": true %>
           </div>
           <div class="home-bullet__desc">
             <h4 class="heading4"><%= t("decidim.pages.home.extended.proposals") %></h4>
@@ -41,7 +41,7 @@
     <div class="row">
       <div class="columns small-centered small-10
                 smallmedium-8 medium-6 large-4">
-        <%= link_to t("decidim.pages.home.extended.more_info"), decidim.page_path("faq"), class: "button expanded hollow button--sc" %>
+        <%= link_to t("decidim.pages.home.extended.more_info", resource_name: translated_attribute(current_organization.name, current_organization)), decidim.page_path("faq"), class: "button expanded hollow button--sc" %>
       </div>
     </div>
   </div>

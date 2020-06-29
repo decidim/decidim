@@ -7,7 +7,7 @@
       <% agenda_items_times = calculate_start_and_end_time_of_agenda_items(meeting.agenda.agenda_items.first_class, meeting) %>
       <% meeting.agenda.agenda_items.first_class.each_with_index do |agenda_item, index| %>
         <h5 class="agenda-item--title heading5">
-          <strong class="text-uppercase"><%= translated_attribute(agenda_item.title) %></strong>&nbsp;
+          <strong><%= translated_attribute(agenda_item.title) %></strong>&nbsp;
           <span class="text-small"><%= display_duration_agenda_items(agenda_item.id, index, agenda_items_times) %></span>
         </h5>
         <hr class="reset m-none mb-s">
@@ -19,7 +19,7 @@
 
           <% agenda_item.agenda_item_children.each_with_index do |agenda_item_child, index_child| %>
             <h6 class="heading6">
-              <strong class="text-uppercase"><%= translated_attribute(agenda_item_child.title) %></strong>&nbsp;
+              <strong><%= translated_attribute(agenda_item_child.title) %></strong>&nbsp;
               <span class="text-small"><%= display_duration_agenda_items(agenda_item_child.id, index_child, agenda_item_children_times) %></span>
             </h6>
             <p><%= translated_attribute(agenda_item_child.description).html_safe %></p>

@@ -284,7 +284,7 @@ module Decidim
       end
 
       def form_attachment_new
-        form(AttachmentForm).from_params({})
+        form(AttachmentForm).from_model(Attachment.new)
       end
 
       def edit_form

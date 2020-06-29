@@ -42,7 +42,7 @@ describe "Explore versions", versioning: true, type: :system do
     end
 
     it "shows the versions count" do
-      expect(page).to have_content("VERSIONS\n2")
+      expect(page).to have_content("Versions\n2")
     end
 
     it "allows going back to the result" do
@@ -63,12 +63,12 @@ describe "Explore versions", versioning: true, type: :system do
       click_link "see other versions"
 
       within ".card--list__item:last-child" do
-        click_link("Version 2")
+        first(:link, "Version 2").click
       end
     end
 
     it "shows the version number" do
-      expect(page).to have_content("VERSION NUMBER\n2 out of 2")
+      expect(page).to have_content("Version number\n2 out of 2")
     end
 
     it "allows going back to the result" do
@@ -92,7 +92,7 @@ describe "Explore versions", versioning: true, type: :system do
       expect(page).to have_content("Changes at")
 
       within ".diff-for-progress" do
-        expect(page).to have_content("PROGRESS")
+        expect(page).to have_content("Progress")
 
         within ".diff > ul > .del" do
           expect(page).to have_content("25.0")

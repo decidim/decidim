@@ -11,7 +11,7 @@
     <%= link_to(
       t("decidim.participatory_spaces.highlighted_meetings.see_all", count: meetings_count),
       main_component_path(model),
-      class: "button button--sc light secondary button--right"
+      class: "button button--sc hollow button--right"
     ) %>
   </div>
 <% elsif past_meetings.any? %>
@@ -27,7 +27,7 @@
     <%= link_to(
       t("decidim.participatory_spaces.highlighted_meetings.see_all", count: meetings_count),
       main_component_path(model),
-      class: "button button--sc light secondary button--right"
+      class: "button button--sc hollow button--right"
     ) %>
   </div>
 <% end %>
