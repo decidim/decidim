@@ -179,7 +179,7 @@ module Decidim
           .where(
             decidim_coauthorships: {
               decidim_author_type: "Decidim::Meetings::Meeting",
-              decidim_author_id: self.id
+              decidim_author_id: id
             }
           )
       end
