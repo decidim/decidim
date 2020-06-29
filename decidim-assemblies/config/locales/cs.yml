@@ -90,6 +90,7 @@ cs:
   decidim:
     admin:
       actions:
+        import_assembly: Importovat
         new_assembly: Nové shromáždění
         new_assembly_type: Nový typ shromáždění
       assemblies:
@@ -134,6 +135,14 @@ cs:
           copy: kopírovat
           select: Vyberte, která data chcete duplikovat
           title: Zduplikovat shromáždění
+      assembly_imports:
+        create:
+          error: Při importu tohoto shromáždění došlo k chybě.
+          success: Shromáždění bylo úspěšně importováno.
+        new:
+          import: Importovat
+          select: Vyberte data, která chcete importovat
+          title: Importovat shromáždění
       assembly_members:
         create:
           error: Při přidávání člena tohoto shromáždění došlo k chybě.
@@ -281,6 +290,10 @@ cs:
         assembly_copies:
           form:
             slug_help: 'URL slug se používají k vygenerování adres URL, které odkazují na toto shromáždění. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Přidat dokument
+            slug_help: 'URL slug se používá k generování URL, které odkazují na toto shromáždění. přijímá pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
         assembly_members:
           form:
             existing_user: Existující účastník
