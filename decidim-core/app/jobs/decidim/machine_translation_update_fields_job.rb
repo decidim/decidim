@@ -4,7 +4,7 @@ module Decidim
   class MachineTranslationUpdateFieldsJob < ApplicationJob
     queue_as :default
 
-    def perform(id, resource_type, field_name, field_value, locale)
+    def perform(id, resource_type, field_name, field_value, locale, source_locale)
       Decidim::TranslatedField.find_or_initialize_by(
         translated_resource_id: id,
         translated_resource_type: resource_type,
