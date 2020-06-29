@@ -83,8 +83,8 @@
                     <%=
                       content_tag(:button,
                                   class: ["action-icon", "action-icon--remove", "destroy-meeting-alert"],
-                                  "data-invalid-destroy-message" => t("actions.invalid_destroy.proposals_count.#{present(meeting).proposals.count == 1 ? 'one' : 'other'}", scope: "decidim.meetings", proposals_count: present(meeting).proposals.count),
-                                  "data-proposal-titles" => present(meeting).proposals_titles_sanitized) do
+                                  "data-invalid-destroy-message" => t("actions.invalid_destroy.proposals_count.#{present(meeting).proposals.count == 1 ? "one" : "other"}", scope: "decidim.meetings", proposals_count: present(meeting).proposals.count),
+                                  "data-proposal-titles" => present(meeting).formatted_proposals_titles) do
                         content_tag(:span,
                                     data: { tooltip: true, disable_hover: false, click_open: false },
                                     title: t("actions.destroy", scope: "decidim.meetings")) do
