@@ -23,9 +23,14 @@ Decidim.register_component(:elections) do |component|
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
+  component.register_stat :elections_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, _start_at, _end_at|
+    Decidim::Elections::Election.where(component: components).count
+  end
+
   component.register_resource(:election) do |resource|
     resource.model_class_name = "Decidim::Elections::Election"
     resource.actions = %w(vote)
+    resource.card = "decidim/elections/election"
   end
 
   component.register_resource(:question) do |resource|
@@ -34,10 +39,6 @@ Decidim.register_component(:elections) do |component|
 
   component.register_resource(:answer) do |resource|
     resource.model_class_name = "Decidim::Elections::Answer"
-  end
-
-  component.register_stat :elections_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, _start_at, _end_at|
-    Decidim::Elections::Election.where(component: components).count
   end
 
   component.seeds do |participatory_space|

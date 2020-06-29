@@ -132,6 +132,13 @@ en:
           update:
             invalid: There was a problem updating this question
             success: Question successfully updated
+      election_m:
+        take_part: Take part
+      elections:
+        count:
+          elections_count:
+            one: "%{count} election"
+            other: "%{count} elections"
       admin_log:
         election:
           publish: "%{user_name} published the %{resource_name} election"
