@@ -42,12 +42,7 @@ module Decidim
         end
 
         def proposals
-          @proposals ||= Decidim::Proposals::Proposal
-                         .joins(:coauthorships)
-                         .where(decidim_coauthorships: {
-                           decidim_author_type: "Decidim::Meetings::Meeting",
-                           decidim_author_id: meeting.id
-                         })
+          @proposals ||= meeting.proposals
         end
       end
     end
