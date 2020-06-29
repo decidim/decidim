@@ -19,11 +19,11 @@ module Decidim
     end
 
     def machine_translation_new_resource
-      Decidim::MachineTranslationNewResourceJob.perform_later(self)
+      Decidim::MachineTranslationNewResourceJob.perform_later(self, I18n.locale.to_s)
     end
 
     def machine_translation_updated_resource
-      Decidim::MachineTranslationUpdatedResourceJob.perform_later(self)
+      Decidim::MachineTranslationUpdatedResourceJob.perform_later(self, I18n.locale.to_s)
     end
   end
 end
