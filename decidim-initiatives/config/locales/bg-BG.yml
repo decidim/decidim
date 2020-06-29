@@ -1,0 +1,26 @@
+bg:
+  activemodel:
+    attributes:
+      initiative:
+        decidim_user_group_id: Автор
+        description: Описание
+        offline_votes: Лични подписи
+  decidim:
+    admin:
+      filters:
+        search_placeholder:
+          title_or_description_cont: Търси %{collection} по име или описание.
+        state_eq:
+          values:
+            rejected: Отхвърлен
+    initiatives:
+      admin_states:
+        rejected: Отхвърлен
+      initiatives:
+        filters:
+          closed: Затворен
+          open: Отворен
+          type_prompt: Избери тип
+      initiatives_mailer:
+        technical_validation_body_for: Инициативата %{title} изисква техническа проверка.
+        technical_validation_for: Инициативата %{title} изисква техническа проверка.

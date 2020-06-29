@@ -248,7 +248,7 @@ it:
             select_an_assembly_type: Seleziona un tipo di assemblea
             select_parent_assembly: Seleziona l'assemblea madre
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questa assemblea. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
-            social_handlers: Sociale
+            social_handlers: Social networks
             title: Informazioni generali
             visbility: Visibilità
         assemblies_types:
@@ -339,7 +339,7 @@ it:
         read_more: Leggi di più
         related_participatory_processes: Processi partecipativi correlati
         scope: Obiettivi
-        social_networks: Social networks
+        social_networks: Social Networks
         target: Chi partecipa
       statistics:
         answers_count: risposte

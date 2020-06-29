@@ -1,4 +1,4 @@
-pt-BR:
+pt:
   activemodel:
     attributes:
       account:
@@ -962,7 +962,6 @@ pt-BR:
         sign_up: Inscrever-se
       participatory_space_filters:
         filters:
-          areas: Areas
           select_an_area: Selecione uma área
       reference:
         reference: 'Referência: %{reference}'

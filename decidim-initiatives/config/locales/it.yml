@@ -4,11 +4,11 @@ it:
       initiative:
         decidim_user_group_id: Autore
         description: Descrizione
-        offline_votes: Supporti faccia a faccia
-        scope_id: Scopo
-        signature_end_date: Fine del periodo di raccolta della firma
-        signature_start_date: Inizio del periodo di raccolta della firma
-        signature_type: Tipo di raccolta della firma
+        offline_votes: Firme in presenza
+        scope_id: Ambito
+        signature_end_date: Fine del periodo di raccolta delle firme
+        signature_start_date: Fine del periodo di raccolta delle firme
+        signature_type: Tipo di raccolta firme
         signature_type_values:
           any: Misto
           offline: Faccia a faccia
@@ -68,7 +68,7 @@ it:
           label: Stato
           values:
             accepted: Accettato
-            created: Creato
+            created: Creata
             discarded: Discarded
             published: Pubblicato
             rejected: Respinto
@@ -79,19 +79,19 @@ it:
       models:
         initiatives:
           fields:
-            created_at: Creato a
+            created_at: Creato il
             id: ID
             state: Stato
-            supports_count: firme
+            supports_count: Firme
             title: Iniziative
         initiatives_type_scope:
           fields:
             scope: Scopo
-            supports_required: Supporti richiesti
+            supports_required: Firme richieste
           name: Ambito del tipo di iniziativa
         initiatives_types:
           fields:
-            created_at: Creato a
+            created_at: Creato il
             title: Tipi di iniziativa
           name: Tipo di iniziativa
         initiatives_votes:
@@ -114,10 +114,10 @@ it:
     events:
       initiatives:
         initiative_extended:
-          email_intro: La data di fine delle firme per l'iniziativa %{resource_title} è stata estesa!
+          email_intro: La data di fine della raccolta firme per l'iniziativa %{resource_title} è stata estesa!
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{resource_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
           email_subject: Data di fine delle firme dell'iniziativa estesa!
-          notification_title: La data di fine delle firme per l'iniziativa <a href="%{resource_path}">%{resource_title}</a> è stata estesa.
+          notification_title: La data di fine della raccolta firme per l'iniziativa <a href="%{resource_path}">%{resource_title}</a> è stata estesa.
         milestone_completed:
           affected_user:
             email_intro: La tua iniziativa %{resource_title} ha raggiunto l' %{percentage}% delle firme!
@@ -157,7 +157,7 @@ it:
             answer: Risposta
             title: Rispondi per %{title}
           info_initiative:
-            created_at: Creato a
+            created_at: Creato il
             description: Descrizione
             initiative_votes_count: Contare i voti
             initiatives: Iniziative
@@ -178,8 +178,8 @@ it:
             accept: Accetta l'iniziativa
             confirm: Sei sicuro?
             discard: Scartare l'iniziativa
-            export_pdf_signatures: Esporta PDF di firme
-            export_votes: Supporti di esportazione
+            export_pdf_signatures: Esporta PDF delle firme
+            export_votes: Esporta le firme
             reject: Rifiuta l'iniziativa
             send_to_technical_validation: Invia a convalida tecnica
             success: L'iniziativa è stata inviata alla convalida tecnica
@@ -260,7 +260,7 @@ it:
         fill_data:
           back: Indietro
           continue: Continua
-          fill_data_help: "<ul> <li>Rivedi il contenuto della tua iniziativa. Il tuo titolo è facile da capire? L'obiettivo della tua iniziativa è chiaro?</li> <li>Devi scegliere il tipo di firma. Di persona, online o una combinazione di entrambi</li> <li>Qual è lo scopo geografico dell'iniziativa? Città, distretto?</li> </ul>"
+          fill_data_help: "<ul> <li>Rivedi il contenuto della tua iniziativa. Il tuo titolo è facile da capire? L'obiettivo della tua iniziativa è chiaro?</li> <li>Devi scegliere il tipo di firma. Di persona, online o una combinazione di entrambe</li> <li>Qual è l'ambito territoriale dell'iniziativa? Città, municipio, quartiere?</li> </ul>"
           initiative_type: Tipo di iniziativa
           more_information: "(Maggiori informazioni)"
           select_scope: Seleziona un ambito
@@ -273,7 +273,7 @@ it:
         finish_help:
           access_reminder: Ricorda che potrai sempre accedere alle tue iniziative attraverso il menu utente.
           help_for_organizations: Se sei un'associazione dovrai caricare i verbali del consiglio di amministrazione di tutte le organizzazioni che formano la Commissione Promotrice
-          help_in_person_signatures: Se hai scelto di raccogliere le firme di persona o combinato con online, dovrai caricare le informazioni richieste.
+          help_in_person_signatures: Se hai scelto di raccogliere le firme di persona o anche online, dovrai caricare le informazioni richieste.
           help_text: Ricorda che per elaborare correttamente l'iniziativa devi accedere al pannello di amministrazione dove troverai il menu utente, caricare le informazioni richieste e inviarlo per l'elaborazione.
           initiatives_page_link: Puoi consultare tutte queste informazioni sul %{link} dedicato a informare sulle iniziative.
           page: pagina
@@ -302,7 +302,7 @@ it:
           more_information: "(Maggiori informazioni)"
       events:
         create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, che stai seguendo, ha creato una nuova iniziativa, dai un'occhiata e dai:"
+          email_intro: "%{author_name} %{author_nickname}, che stai seguendo, ha creato una nuova iniziativa, dai un'occhiata e dai il tuo contributo:"
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{author_nickname}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
           email_subject: Nuova iniziativa di %{author_nickname}
           notification_title: L'iniziativa <a href="%{resource_path}">%{resource_title}</a> è stata creata da <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
@@ -376,7 +376,7 @@ it:
         orders:
           label: 'Ordina le iniziative per:'
           most_commented: Più commentato
-          most_voted: Più firmato
+          most_voted: Più firmata
           random: Casuale
           recent: Piu recente
         result:
@@ -387,11 +387,11 @@ it:
             published: Questa proposta è pubblicata perché
             rejected: Questa proposta è stata respinta perché
             validating: Questa proposta è in corso di valutazione
-          initiative_rejected_reason: Questa iniziativa è stata respinta a causa della sua mancanza di supporti.
+          initiative_rejected_reason: Questa iniziativa è stata respinta a causa della mancanza di firme.
         show:
-          any_vote_method: Questa iniziativa cittadina raccoglie supporto online e faccia a faccia.
+          any_vote_method: Questa iniziativa cittadina raccoglie firme online e in presenza.
           follow_description: Ricevi una notifica quando ci sono novità in questa iniziativa
-          offline_method: Questa iniziativa cittadina raccoglie solo supporti faccia a faccia.
+          offline_method: Questa iniziativa cittadina raccoglie solo supporti in presenza.
         signature_identities:
           select_identity: Seleziona l'identificativo dell'utente
         signatures_count:
@@ -400,10 +400,10 @@ it:
         supports:
           title: Elenco delle firme
         vote_cabin:
-          already_voted: Già firmato
+          already_voted: Già firmata
           supports_required: "%{total_supports} firme richieste"
           verification_required: Verifica il tuo account per firmare l'iniziativa
-          vote: Cartello
+          vote: Firma
           votes_blocked: Firma disabilitata
         votes_count:
           count:
@@ -441,7 +441,7 @@ it:
       initiatives_type:
         actions:
           title: Azioni
-          vote: Votazione
+          vote: Firma
   layouts:
     decidim:
       admin:
@@ -472,7 +472,7 @@ it:
         sms_code: Verifica del codice SMS
         sms_phone_number: Numero di cellulare
         step: Passaggio %{current} di %{total}
-        title: Iscriviti %{initiative_title}
+        title: Firma %{initiative_title}
       initiatives:
         initiative:
           check: Controlla

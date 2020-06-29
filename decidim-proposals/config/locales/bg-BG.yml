@@ -1,0 +1,61 @@
+bg:
+  activemodel:
+    attributes:
+      collaborative_draft:
+        address: Адрес
+        body: Тяло
+        category_id: Категория
+    models:
+      decidim/proposals/proposal_endorsed_event: Предложението е одобрено
+  activerecord:
+    models:
+      decidim/proposals/proposal_endorsement:
+        one: Одобряване
+        other: Одобрявания
+  decidim:
+    components:
+      proposals:
+        settings:
+          global:
+            participatory_texts_disabled_help: Тази настройка не е активна, ако има съществуващи предложения. Моля, създайте нов компонент „Предложения“, ако желаете да активирате тази функция или изчистете всички внесени предложения в менюто „Текст на участници“, ако искате да я деактивирате.
+          step:
+            amendments_visibility: Видимост на поправки
+    events:
+      proposals:
+        proposal_endorsed:
+          email_intro: '%{endorser_name} %{endorser_nickname}, който следвате, току-що одобри предложението "%{resource_title}" и смятаме, че може да ви е интересно. Разгледайте го и се включете:'
+          email_outro: Получавате това известие, защото следвате %{endorser_nickname}. Може да прекратите известията чрез предходната връзка.
+          email_subject: "%{endorser_nickname} одобри ново предложение"
+          notification_title: Предложението <a href="%{resource_path}">%{resource_title}</a> беше подкрепено от <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
+    proposals:
+      admin:
+        proposals:
+          form:
+            add_images: Добави изображение
+            gallery_legend: "(По избор) Добави галерия"
+      collaborative_drafts:
+        show:
+          of_versions: "(от %{number})"
+          see_other_versions: виж други версии
+          version: Версия %{number}
+      proposal_endorsements:
+        create:
+          error: Възникна проблем при одобрение на предложението.
+        identities:
+          done: Готово
+          select_identity: Изберете самоличност
+      proposal_endorsements_helper:
+        endorsement_button:
+          already_endorsed: Одобрявам
+      versions:
+        changes_at_title: Промени в "%{title}"
+        stats:
+          back_to_collaborative_draft: Обратно към съвместната чернова
+          back_to_proposal: Обратно към предложението
+          show_all_versions: Покажи всички версии
+          version_author: Автор на версията
+          version_created_at: Версията създадена на
+          version_number: Версия номер
+          version_number_out_of_total: "%{current_version} от общо %{total_count}"
+        version:
+          version_index: Версия %{index}

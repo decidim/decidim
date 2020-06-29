@@ -67,7 +67,7 @@ it:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Accedi con il tuo account</a> o <a href="%{sign_up_link}">iscriviti</a> per rispondere al questionario.
             title: Rispondi al questionario
-          are_you_sure: Questa azione non può essere annullata e non sarai in grado di modificare le tue risposte. Sei sicuro?
+          are_you_sure: Questa azione non può essere annullata e non potrai modificare le tue risposte. Sei sicuro?
           questionnaire_answered:
             body: Hai già risposto a questo questionario.
             title: Ho già risposto

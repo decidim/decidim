@@ -1,0 +1,35 @@
+bg:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Статус
+        decidim_category_id: Категория
+        decidim_scope_id: Сфера
+  decidim:
+    accountability:
+      admin:
+        results:
+          form:
+            add_proposal: Добави предложение
+          proposals:
+            close: Затвори
+            current_selection: Текущо избрано
+            select: Избери
+      results:
+        show:
+          stats:
+            back_to_result: Върни се към резултата
+            number_of_versions: Версии
+            show_all_versions: Покажи всички версии
+            version_author: Автор на версията
+            version_created_at: Версията създадена на
+            version_number: Версия номер
+            version_number_out_of_total: "%{current_version} от общо %{total_count}"
+      versions:
+        index:
+          changes_at_title: Промени в "%{title}"
+          title: Версии
+        show:
+          changes_at_title: Промени в "%{title}"
+        version:
+          version_index: Версия %{index}
