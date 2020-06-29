@@ -6,6 +6,10 @@ module Decidim
     class BudgetsController < Decidim::Budgets::ApplicationController
       helper_method :current_workflow
 
+      def index
+        redirect_to budget_path(current_workflow.single) if current_workflow.single?
+      end
+
       def current_workflow
         @current_workflow ||= Decidim::Budgets.workflows[workflow_name].new(current_component, current_user)
       end

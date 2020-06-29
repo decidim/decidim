@@ -16,7 +16,7 @@
   <%= content_tag(:p, t(:finished_message, scope: i18n_scope), class: :lead) if finished? %>
 
   <% if voted? %>
-    <%= t(".if_change_opinion") %>
+    <%= t(:if_change_opinion, scope: i18n_scope) %>
 
     <% if voted.count == 1 %>
       <%= link_to(t("cancel_order.only_one", scope: i18n_scope), order_path_for(voted.first), method: :delete) %>

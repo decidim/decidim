@@ -35,9 +35,11 @@
 
   <%= content_tag(:p, more_information) if more_information %>
 
-  <p>
-    <%= link_to t(:back_to, component_name: component_name, scope: i18n_scope), budgets_path %>
-  </p>
+  <% unless current_workflow.single? %>
+    <p>
+      <%= link_to t(:back_to, component_name: component_name, scope: i18n_scope), budgets_path %>
+    </p>
+  <% end %>
 
   <div class="row">
     <div class="columns medium-8 medium-offset-2">
