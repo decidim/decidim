@@ -64,6 +64,20 @@ module Decidim
 
               redirect_to meetings_path
             end
+
+            on(:invalid) do |proposals_count|
+              if proposals_count == 1
+                flash.now[:alert] = I18n.t("meetings.destroy.invalid.proposals_count.one",
+                                           scope: "decidim.meetings.admin",
+                                           proposals_count: proposals_count)
+              else
+                flash.now[:alert] = I18n.t("meetings.destroy.invalid.proposals_count.other",
+                                           scope: "decidim.meetings.admin",
+                                           proposals_count: proposals_count)
+              end
+
+              render action: "index"
+            end
           end
         end
 
