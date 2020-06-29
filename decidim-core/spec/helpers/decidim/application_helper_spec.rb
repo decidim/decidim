@@ -5,14 +5,14 @@ require_relative "../../../app/helpers/decidim/application_helper"
 
 module Decidim
   describe ApplicationHelper do
+    let(:helper) do
+      Class.new.tap do |v|
+        v.extend(Decidim::ApplicationHelper)
+      end
+    end
+
     describe "#html_truncate" do
       subject { helper.html_truncate(text, length: length) }
-
-      let(:helper) do
-        Class.new.tap do |v|
-          v.extend(Decidim::ApplicationHelper)
-        end
-      end
 
       describe "truncating HTML text" do
         let(:text) { "<p>Hello, this is dog</p>" }
@@ -35,6 +35,22 @@ module Decidim
         let(:length) { 5 }
 
         it { is_expected.to eq("Hello ...read more") }
+      end
+    end
+
+    describe "#present" do
+      subject { helper.present(presentable).class }
+
+      context "when presentable's presenter follows naming convention" do
+        let(:presentable) { create(:user) }
+
+        it { is_expected.to eq(Decidim::UserPresenter) }
+      end
+
+      context "when presentable is nil" do
+        let(:presentable) { nil }
+
+        it { is_expected.to eq(Decidim::NilPresenter) }
       end
     end
   end
