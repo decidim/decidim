@@ -297,6 +297,9 @@ it:
         description: Numero di processi partecipativi in ​​questa organizzazione
         object: processi partecipativi
         title: Processi partecipativi
+    participatory_process:
+      show:
+        related_assemblies: Assemblee collegate
     participatory_process_groups:
       show:
         group_participatory_processes:

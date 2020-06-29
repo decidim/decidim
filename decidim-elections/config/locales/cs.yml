@@ -23,6 +23,10 @@ cs:
             attachment:
               needs_to_be_reattached: Potřebuje být znovu připojen
   decidim:
+    admin_log:
+      election:
+        publish: "%{user_name} zveřejnil volby %{resource_name}"
+        unpublish: "%{user_name} zrušil zveřejnění volby %{resource_name}"
     components:
       elections:
         name: Volby
@@ -41,7 +45,9 @@ cs:
         import: Importovat návrhy na odpovědi
         new: Nový %{name}
         preview: Náhled
+        publish: Publikovat
         title: Akce
+        unpublish: Zrušit publikování
       admin:
         answers:
           create:
@@ -76,6 +82,10 @@ cs:
           new:
             create: Vytvořit volbu
             title: Nové volby
+          publish:
+            success: Volba byla úspěšně publikována.
+          unpublish:
+            success: Volba byla úspěšně odebrána ze zveřejnění.
           update:
             invalid: Při aktualizaci těchto voleb došlo k chybě
             success: Volba byla úspěšně aktualizována
@@ -127,6 +137,13 @@ cs:
             answers: Odpovědi
             max_selections: Max. výběr
             title: Název
+    events:
+      elections:
+        election_published:
+          email_intro: 'Volba %{resource_title} je nyní aktivní pro %{participatory_space_title}. Můžete ji vidět z této stránky:'
+          email_outro: Obdrželi jste toto oznámení, protože sledujete %{participatory_space_title}. Můžete přestat přijímat oznámení kliknutím na následující odkaz.
+          email_subject: Volba %{resource_title} je nyní aktivní pro %{participatory_space_title}.
+          notification_title: Volba <a href="%{resource_path}">%{resource_title}</a> je nyní aktivní pro %{participatory_space_title}.
     participatory_processes:
       statistics:
         elections_count: Volby
