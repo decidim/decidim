@@ -154,6 +154,10 @@ en:
         confirm_destroy: Are you sure you want to delete this meeting?
         destroy: Delete
         edit: Edit
+        invalid_destroy:
+          proposals_count:
+            one: "The meeting cannot be destroyed because it has %{proposals_count} proposal associated to it:"
+            other: "The meeting cannot be destroyed because it has %{proposals_count} proposals associated to it:"
         minutes: Minutes
         new: New meeting
         preview: Preview

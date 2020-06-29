@@ -66,15 +66,11 @@ module Decidim
             end
 
             on(:invalid) do |proposals_count|
-              if proposals_count == 1
-                flash.now[:alert] = I18n.t("meetings.destroy.invalid.proposals_count.one",
-                                           scope: "decidim.meetings.admin",
-                                           proposals_count: proposals_count)
-              else
-                flash.now[:alert] = I18n.t("meetings.destroy.invalid.proposals_count.other",
-                                           scope: "decidim.meetings.admin",
-                                           proposals_count: proposals_count)
-              end
+              flash.now[:alert] = I18n.t(
+                "meetings.destroy.invalid.proposals_count.#{proposals_count == 1 ? 'one' : 'other'}",
+                scope: "decidim.meetings.admin",
+                proposals_count: proposals_count
+              )
 
               render action: "index"
             end

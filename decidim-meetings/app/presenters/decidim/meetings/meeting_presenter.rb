@@ -66,6 +66,18 @@ module Decidim
         false
       end
 
+      def proposals
+        return unless meeting
+
+        @proposals ||= meeting.proposals
+      end
+
+      def proposals_titles_sanitized
+        return unless meeting
+
+        proposals.map.with_index { |proposal, index| "#{index + 1}) #{proposal.title}\n" }
+      end
+
       private
 
       def handle_locales(content, all_locales)
