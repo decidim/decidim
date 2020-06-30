@@ -51,7 +51,11 @@ module Decidim
 
       def body(links: false, extras: true, strip_tags: false)
         text = proposal.body
-        text = strip_tags(text) if strip_tags
+
+        if strip_tags
+          text = text.gsub(%r{<\/p>}, "\n\n")
+          text = strip_tags(text)
+        end
 
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
         text = renderer.render(links: links, extras: extras).html_safe

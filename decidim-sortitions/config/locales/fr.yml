@@ -124,6 +124,7 @@ fr:
         show:
           algorithm: Code de l'algorithme de tirage au sort
           any_category: toutes les catégories
+          back: Retour à la liste
           cancelled: Tirage au sort annulé
           candidate_proposal_ids: Ordre des propositions du tirage au sort et identifiants
           candidate_proposals_info: 'Le tirage au sort a été effectué parmi les propositions suivantes (%{category_label}), avec les identifiants suivants (en gras les propositions sélectionnées)  '

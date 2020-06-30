@@ -1028,8 +1028,6 @@ fr-CA:
         close_window: Fermer la fenêtre
         share: Partager
         share_link: Lien de partage
-      version_author:
-        deleted: Utilisateur ayant supprimé son compte
     user_activity:
       index:
         no_activities_warning: Cet utilisateur n'a pas encore eu d'activité.
@@ -1042,6 +1040,9 @@ fr-CA:
       update:
         error: Une erreur s'est produite lors de la mise à jour de vos centres d'intérêt.
         success: Vos intérêts ont été mis à jour avec succès.
+    version_author:
+      show:
+        deleted: Utilisateur ayant supprimé son compte
     welcome_notification:
       default_body: <p>Bonjour {{name}}, merci d'avoir rejoins {{organization}} et bienvenue!</p><ul><li>Si vous souhaitez avoir une idée rapide de ce que vous pouvez faire ici, consultez la section <a href="{{help_url}}">Aide</a> .</li><li>Une fois que vous l'avez lu, vous recevrez votre premier badge. Voici une <a href="{{badges_url}}">liste de tous les badges</a> vous pouvez obtenir vous participez à {{organization}}</li><li>En somme, rejoignez d'autres personnes, partagez avec eux l'expérience d'être engagés et participer à {{organization}}. Faites des propositions, des commentaires, lancez des débats, réfléchissez à la manière de contribuer au bien commun, fournissez des arguments pour convaincre, écoutez et lisez pour être convaincu, exprimez vos idées de manière concrète et directe, répondez avec patience et décision, défendez vos idées un esprit ouvert pour collaborer et rejoindre les idées des autres.</li></ul>
       default_subject: Merci d'avoir rejoint {{organization}}!

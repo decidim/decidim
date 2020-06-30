@@ -1165,8 +1165,6 @@ cs:
         close_window: Zavřete okno
         share: Sdílet
         share_link: Sdílet odkaz
-      version_author:
-        deleted: Vymazaný účastník
     user_activity:
       index:
         no_activities_warning: Tento účastník zatím nemá žádnou aktivitu.
@@ -1210,6 +1208,33 @@ cs:
       update:
         error: Během aktualizace vašich zájmů došlo k chybě.
         success: Vaše zájmy byly úspěšně aktualizovány.
+    version:
+      show:
+        back_to_resource: Jít zpět
+        changes_at_title: Změny v "%{title}"
+        number_of_versions: Verze
+        show_all_versions: Zobrazit všechny verze
+        version_author: Autor verze
+        version_created_at: Verze vytvořena v
+        version_number: Číslo verze
+        version_number_out_of_total: "%{current_version} z %{total_count}"
+    version_author:
+      show:
+        deleted: Vymazaný účastník
+    versions:
+      resource_version:
+        of_versions: "(z %{number})"
+        see_other_versions: viz ostatní verze
+        version: Verze %{number}
+    versions_list:
+      show:
+        back_to_resource: Vrátit se zpět
+        changes_at_title: Změny v "%{title}"
+        number_of_versions: Verze
+        title: Verze
+    versions_list_item:
+      show:
+        version_index: Verze %{index}
     welcome_notification:
       default_body: <p>Dobrý den, {{name}}, díky za připojení k {{organization}} a vítejte!</p><ul><li>Chcete-li získat rychlou představu o tom, co zde můžete udělat, podívejte se na sekci <a href="{{help_url}}">Nápověda</a>.</li><li>Až si ji přečtete, dostanete svůj první odznak. Zde je <a href="{{badges_url}}">seznam všech odznaků</a> které můžete získat, když se účastníte {{organization}}</li><li>v neposlední řadě se připojte k ostatním lidem, sdílejte s nimi zkušenost z toho, že jste se zapojili a zúčastnili se {{organization}}. Vypracujte návrhy, připomínky, diskusi, přemýšlejte o tom, jak přispívat ke společnému cíli, poskytněte argumenty, abyste přesvědčili, poslouchali a četli, abyste byli přesvědčeni, vyjadřovali své myšlenky konkrétním a přímým způsobem, reagovali trpělivě a rozhodovali, měli otevřenou mysl ke spolupráci a připojili se k jiným lidem.</li></ul>
       default_subject: Děkujeme, že jste se připojili k {{organization}}!
@@ -1351,7 +1376,7 @@ cs:
         forgot_your_password: Zapomněli jste heslo?
         sign_in: Přihlásit se
         sign_in_with_provider: Přihlásit se přes %{provider}
-        sign_up: Přihlásit se
+        sign_up: Zaregistrovat se
       minimum_password_length:
         one: "(Minimálně%{count} znaků)"
         few: "(Minimálně%{count} znaků)"
