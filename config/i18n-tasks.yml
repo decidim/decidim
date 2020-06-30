@@ -96,6 +96,7 @@ ignore_missing:
   - notification_title
   - decidim.wizard_step_form_cell.*
   - decidim.proposals.application_helper.activity_filter_values.*
+  - actions.invalid_destroy.proposals_count
 
 # Consider these keys used:
 ignore_unused:
@@ -208,6 +209,7 @@ ignore_unused:
   - layouts.decidim.assembly_widgets.*
   - layouts.decidim.conference_widgets.*
   - layouts.decidim.participatory_process_widgets.*
+  - decidim.meetings.actions.invalid_destroy.proposals_count.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

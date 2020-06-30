@@ -21,6 +21,7 @@ The use case that originated this change is the persistence of the user's gender
 
 ### Fixed
 
+- **decidim-meeting**: Backport "Avoid deleting a meeting when it has at least one proposal originated in it". [\#6250](https://github.com/decidim/decidim/pull/6250)
 - **decidim-core**: Backport "Fix crash when proposals meeting author is deleted". [\#6243](https://github.com/decidim/decidim/pull/6243)
 - **decidim-proposals**: Fix participatory text newline absence. [\#6159](https://github.com/decidim/decidim/pull/6159)
 - **decidim-core**: Fix broken puma version in generator's Gemfile. [\#6060](https://github.com/decidim/decidim/pull/6060)
