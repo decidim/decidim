@@ -226,9 +226,6 @@ ro:
           edit:
             close: Inchide
             title: Închide ședința
-        meeting_copies:
-          form:
-            select_organizer: Selectați organizatorul
         meetings:
           close:
             invalid: A apărut o problemă la închiderea acestei întâlniri
@@ -244,7 +241,6 @@ ro:
             address_help: 'Adresă: utilizată de Geocoder pentru a găsi locaţia'
             location_help: 'Locație: mesaj direcționat către utilizatori care implică locul la care să se întâlnească'
             location_hints_help: 'Indice privind locația: informații suplimentare. Exemplu: podeaua clădirii'
-            select_organizer: Selectați organizatorul
           index:
             title: Întâlniri
           new:
@@ -352,11 +348,8 @@ ro:
       meetings:
         filters:
           category: Categorie
-          category_prompt: Selectați o categorie
           date: Data
-          past: Trecute
           search: Caută
-          upcoming: Urmează
         filters_small_view:
           close_modal: Închide fereastra
           filter: Filtrare
