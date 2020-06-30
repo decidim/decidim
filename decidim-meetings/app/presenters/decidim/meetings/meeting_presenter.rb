@@ -68,7 +68,7 @@ module Decidim
       def proposals
         return unless meeting
 
-        @proposals ||= meeting.proposals
+        @proposals ||= meeting.proposals.load
       end
 
       def formatted_proposals_titles
