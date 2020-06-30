@@ -218,14 +218,6 @@ module Decidim
                 end
               end
 
-              context "when authorization metadata is different of handler metadata" do
-                let(:authorization_metadata) { { test: "other" } }
-
-                it "broadcasts invalid" do
-                  expect { command_with_personal_data.call }.to broadcast :invalid
-                end
-              end
-
               context "when authorization is not fully granted" do
                 let(:granted_at) { nil }
 
