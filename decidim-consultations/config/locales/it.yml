@@ -5,35 +5,35 @@ it:
         banner_image: Immagine banner
         decidim_highlighted_scope_id: Ambito evidenziato
         description: Descrizione
-        end_voting_date: La votazione finisce
+        end_voting_date: La votazione termina il
         introductory_image: Immagine introduttiva
         introductory_video_url: URL video introduttivo
         questions: Domande
         slug: Slug URL
-        start_voting_date: Inizia la votazione
+        start_voting_date: La votazione inizia il
         subtitle: Sottotitolo
         title: Titolo
       question:
-        banner_image: Immagine banner
-        decidim_scope_id: Area comunale
+        banner_image: Immagine del banner
+        decidim_scope_id: Area territoriale
         hashtag: hashtag
         hero_image: Immagine della home page
         i_frame_url: URL del sistema di votazione esterno
         instructions: Istruzioni aggiuntive per la votazione
         max_votes: Massimo numero di voti
         min_votes: Minimo numero di voti
-        origin_scope: Scopo
+        origin_scope: Obiettivo
         origin_title: Origine
         origin_url: URL di origine
-        participatory_scope: Scopo partecipativo
+        participatory_scope: Obiettivo partecipativo
         promoter_group: Promotore
         question_context: Contesto
         reference: Riferimento
-        scope: Area comunale
+        scope: Area territoriale
         slug: Slug URL
         subtitle: Sottotitolo
         vote: Sistema di voto esterno
-        what_is_decided: Cosa è deciso
+        what_is_decided: Che cosa si decide
       response:
         decidim_consultations_response_group_id: Gruppo
     errors:
@@ -208,7 +208,7 @@ it:
         edit:
           update: Aggiornare
         form:
-          title: Informazione generale
+          title: Informazioni Generali
         new:
           create: Creare
           title: Nuova risposta
