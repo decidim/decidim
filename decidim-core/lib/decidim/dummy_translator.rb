@@ -7,6 +7,7 @@ module Decidim
   # This is for testing only.
   class DummyTranslator
     def self.translate(id, translation_locale, field_name, field_value)
+
       Decidim::TranslatedField.where(
         translated_resource_id: id,
         field_name: field_name,
