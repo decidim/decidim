@@ -14,7 +14,7 @@ module Decidim::Meetings
     let(:meeting_component) { create(:meeting_component, participatory_space: participatory_process) }
     let(:proposal_component) { create(:proposal_component, participatory_space: participatory_process) }
     let(:proposal) { create(:proposal, component: proposal_component) }
-    let(:meeting_proposals) { meeting.proposals }
+    let(:meeting_proposals) { meeting.authored_proposals }
 
     context "when everything is ok" do
       it "destroys the meeting" do
