@@ -46,7 +46,7 @@ describe "Admin manages initiatives", type: :system do
   let(:area2) { create :area, organization: organization }
 
   STATES.each do |state|
-    let!("#{state}_initiative") { create_initiative_with_trait(state) }
+    let!("#{state}_initiative".to_sym) { create_initiative_with_trait(state) }
   end
 
   before do
