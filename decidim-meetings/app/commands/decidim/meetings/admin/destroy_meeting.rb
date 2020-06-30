@@ -19,7 +19,7 @@ module Decidim
         #
         # Broadcasts :ok if successful, :invalid otherwise.
         def call
-          return broadcast(:invalid, proposals.count) if proposals.any?
+          return broadcast(:invalid, proposals.size) if proposals.any?
 
           destroy_meeting
           broadcast(:ok)
