@@ -2,30 +2,22 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
-### Upgrade notes
+## Upgrade Notes
+
+- **Stable branches nomenclature changes**
+
+Since this release we're changing the branch nomenclature for stable branches. Until now we were using `x.y-stable`, now we will use `release/x.y-stable`.
+Legacy names for stable branches will be kept for a while but won't be created anymore, so new releases won't have the old `x.y-stable` nomenclature.
+
+The plan is to keep new and old nomenclatures until the release of v0.25, so they will coexist until that release.
+When releasing v0.25 all stable branches with the nomenclature `x.y-stable` will be removed.
 
 - **Endorsements**
 
-This new version of Decidim has extracted the Endorsement feature into a generic concern that can now be applied to many resources.
-To keep current Decidim::Proposals::Proposal's endorsement information, endorsements are copied into the new `Decidim::Endorsable` tables and counter cache columns. This is done via migrations.
+The latest version of Decidim extracted the Endorsement feature into a generic concern that can now be applied to many resources.
+To keep current Decidim::Proposals::Proposal's endorsement information, endorsements were copied into the new `Decidim::Endorsable` tables and counter cache columns via migrations.
 
-After this, `Decidim::Proposals::ProposalEndorsement` and the corresponding counter cache column in `decidim_proposals_proposal.proposal_endorsements_count` should be removed. To do so, Decidim will provide the corresponding migration in the next release.
-
-- **Data portability**
-
-Thanks to [\#5342](https://github.com/decidim/decidim/pull/5342), Decidim now supports removal of user's data portability expired files from Amazon S3. Check out the [scheduled tasks in the getting started guide](https://github.com/decidim/decidim/blob/master/docs/getting_started.md#scheduled-tasks) for information in how to configure it.
-
-- **SSL is forced on by default**
-
-Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on by default.
-
-- **New "extras" key in authorization metadata**
-
-[\#6044](https://github.com/decidim/decidim/pull/6044) adds the possibility to have an "extras" key in the Authentication metadata that will be ignored. For example when
-signing an initiative (decidim-initiatives/app/forms/decidim/initiatives/vote_form.rb) or on Authorization renewal (decidim-verifications/app/cells/decidim/verifications/authorization_metadata/show.erb).
-
-This key may be used to persist whatever information related to the user's authentication that should not be used for authenticating her.
-The use case that originated this change is the persistence of the user's gender for statistical uses.
+After this, `Decidim::Proposals::ProposalEndorsement` and the corresponding counter cache column in `decidim_proposals_proposal.proposal_endorsements_count` should be removed. To do so, Decidim provides now the corresponding migration.
 
 ### Added
 
@@ -110,66 +102,21 @@ The use case that originated this change is the persistence of the user's gender
 
 ### Changed
 
-- **decidim-admin**, **decidim-core**: Improve explanation on image management on Layout Appearance. [\#6089](https://github.com/decidim/decidim/pull/6089)
-- **decidim-initiatives**: Change initiatives committee request permission to prevent homepage redirection. [\#6115](https://github.com/decidim/decidim/pull/6115)
-- **decidim-accountability**, **decidim-core**, **decidim-meetings**, **decidim-proposals**: Optimize queries for performance in Homepage, process page, proposals page and coauthorable cell. [\#5903](https://github.com/decidim/decidim/pull/5903)
-- **decidim-assemblies**: Replace current meetings hook with highlighted elements hook [\#5897](https://github.com/decidim/decidim/pull/5897)
-- **decidim-core**: Change the map marker color to the Decidim primary color [\#5870](https://github.com/decidim/decidim/pull/5870)
-- **decidim-core**: Add whitespace: nowrap style to compact buttons. [\#5891](https://github.com/decidim/decidim/pull/5891)
-- **decidim-core**: Hide password fields on Accounts page when organization sign in is disabled. [\#6130](https://github.com/decidim/decidim/pull/6130)
-- **decidim-initiatives**: Ignore new "extras" key when checking authorization/variation metadata [\#6044](https://github.com/decidim/decidim/pull/6044)
-- **decidim-assemblies**: Change user permission to list assemblies. Users can only list the assemblies that they have been assigned permission [\#5944](https://github.com/decidim/decidim/pull/5944)
-- **decidim-accountability**: Using the new proposals selector for choosing result proposals [\#5863](https://github.com/decidim/decidim/pull/5863)
-- **decidim-meetings**: Using the new proposals selector for choosing meeting close proposals [\#5863](https://github.com/decidim/decidim/pull/5863)
-
 ### Fixed
 
-- **decidim-consultations**: Fix permissions in order to make components inside of questions accessible. [\#6079](https://github.com/decidim/decidim/pull/6079)
-- **decidim-core**: Patch various security alerts reported by GitHub. [\#6148](https://github.com/decidim/decidim/pull/6148)
-- **decidim-core**: Fix user's avatar icon in CSS. [\#5990](https://github.com/decidim/decidim/pull/5990)
-- **decidim-core**: Use internal Organization class in migration. [\#6052](https://github.com/decidim/decidim/pull/6052)
-- **decidim-core**: Fix email not being sent to some users when uploading a CSV file. [\#6011](https://github.com/decidim/decidim/pull/6011)
-- **decidim-core**: Fix broken puma version in generator's Gemfile. [\#6060](https://github.com/decidim/decidim/pull/6060)
-- **decidim-core,decidim-system**: Fix using Decidim as a provider for omniauth authentication. [\#6042](https://github.com/decidim/decidim/pull/6042)
-- **decidim-proposals**: Fix missing values for filter values in proposals admin. [\#6013](https://github.com/decidim/decidim/pull/6013)
-- **decidim-api**: Fix broken documentation if using Decidim from a Gem. [\#5996](https://github.com/decidim/decidim/pull/5996)
-- **decidim-core**: Fix supported versions in SECURITY.md file. [\#5957](https://github.com/decidim/decidim/pull/5957)
-- **decidim-debates**: Fix a notification failure when the creating a new debate event is fired. [\#5964](https://github.com/decidim/decidim/pull/5964)
-- **decidim-proposals**: Fix a migration failure when generalizing proposal endorsements. [\#5953](https://github.com/decidim/decidim/pull/5953)
-- **decidim-assemblies**: Fix parent-child loophole when setting a child as and parent and making assemblies disappear. [\#5807](https://github.com/decidim/decidim/pull/5807)
-- **decidim-forms**: Fixes a performance degradation when displaying forms in surveys. [\#5819](https://github.com/decidim/decidim/pull/5819)
-- **decidim-proposals**: Fix relative path in mentioned proposal email [\#5852](https://github.com/decidim/decidim/pull/5852)
-- **decidim-proposals**: Use simple_format to add a wrapper to proposals body [\#5753](https://github.com/decidim/decidim/pull/5753)
-- **decidim-sortitions**: Fix incorrect proposals sortition. [\#5620](https://github.com/decidim/decidim/pull/5620)
-- **decidim-admin**: Fix: let components without step settings be added [\#5568](https://github.com/decidim/decidim/pull/5568)
-- **decidim-proposals**: Fix proposals that have their state not published [\#5832](https://github.com/decidim/decidim/pull/5832)
-- **decidim-core**: Fix map hovering over the secondary navigation element [\#5871](https://github.com/decidim/decidim/pull/5871)
-- **decidim-core**: Fix follow button not doing anything when not logged in [\#5872](https://github.com/decidim/decidim/pull/5872)
-- **decidim-core**: Fix missing tribute source map [\#5869](https://github.com/decidim/decidim/pull/5869)
-- **decidim-api**: Force signin on API if the organization requires it [\#5859](https://github.com/decidim/decidim/pull/5859)
-- **decidim-core**: Apply security patch for GHSA-65cv-r6x7-79hv [\#5896](https://github.com/decidim/decidim/pull/5896)
-- **decidim-core**: Fix proposals filtering by scope in Chrome [\#5901](https://github.com/decidim/decidim/pull/5901)
-- **decidim-comments**: Don't allow comments deeper than a certain depth, at the API level [\#5553](https://github.com/decidim/decidim/pull/5553)
-- **decidim-core**: Force SSL and HSTS [\#5553](https://github.com/decidim/decidim/pull/5553)
-- **decidim-core**: Do not expose Ruby version in production [\#5553](https://github.com/decidim/decidim/pull/5553)
-- **decidim-verifications**: Throttle failed authorization attempts [\#5553](https://github.com/decidim/decidim/pull/5553)
-- **decidim-core**: Prevent timing attacks on login and avoid leaking timing info [\#5553](https://github.com/decidim/decidim/pull/5553)
-- **decidim-core**: Expire sessions after 24h of creation [\#5553](https://github.com/decidim/decidim/pull/5553)
-- **decidim-participatory_processes**: Do not expose process statistics in the API if hidden [\#5553](https://github.com/decidim/decidim/pull/5553)
-- **decidim-core**: Invalidate sessions on logout [\#5553](https://github.com/decidim/decidim/pull/5553)
-- **decidim-core**: Do now allow uploading SVGs [\#5553](https://github.com/decidim/decidim/pull/5553)
-- **decidim-core**: Do not leak image processing errors [\#5553](https://github.com/decidim/decidim/pull/5553)
-- **decidim-core**, **decidim-proposals**, **decidim-participatory_processes**, **decidim-meetings**, **decidim-sortitions**: XSS sanitization [\#5553](https://github.com/decidim/decidim/pull/5553)
-- **decidim-core**: Fix the scopes picker rendereding escaped characters [#5939](https://github.com/decidim/decidim/pull/5939)
-- **decidim-core**: Fix the destroy account command removing relations with spaces [\#6041](https://github.com/decidim/decidim/pull/6041)
-- **decidim-core**: Avoid server hanging up when rendering newsletter templates previews on develoment or test env [\#6096](https://github.com/decidim/decidim/pull/6096)
-- **decidim-initiatives**: Fix attachments related module inclusion [\#6140](https://github.com/decidim/decidim/pull/6140)
-- **decidim-core**: Fix scopes filter when a participatory space scope has subscopes [\#6110](https://github.com/decidim/decidim/pull/6110)
+- **decidim-comments**: Fix comments JS errors and delays [\#6193](https://github.com/decidim/decidim/pull/6193)
+- **decidim-elections**: Improve navigation consistency in the admin zone for elections questions and answers [\#6139](https://github.com/decidim/decidim/pull/6139)
+- **decidim-participatory_processes**: Fix rubocop errors arising from capybara upgrade [\#6197](https://github.com/decidim/decidim/pull/6197)
+- **decidim-assemblies**: Fix rubocop errors arising from capybara upgrade [\#6197](https://github.com/decidim/decidim/pull/6197)
+- **decidim-proposals**: Fix rubocop errors arising from capybara upgrade [\#6197](https://github.com/decidim/decidim/pull/6197)
+- **decidim-dev**: Fix rubocop errors arising from capybara upgrade [\#6197](https://github.com/decidim/decidim/pull/6197)
+- **decidim-core**: Fix rubocop errors arising from capybara upgrade [\#6197](https://github.com/decidim/decidim/pull/6197)
+- **decidim-forms**: Fix rubocop errors arising from capybara upgrade [\#6197](https://github.com/decidim/decidim/pull/6197)
 
 ### Removed
 
-- **decidim-assemblies**: Removed legacy `assembly_type` fields. [\#5617](https://github.com/decidim/decidim/pull/5617)
+- **decidim-proposals**: Remove legacy proposal endorsements. [\#5643](https://github.com/decidim/decidim/pull/5643)
 
 ## Previous versions
 
-Please check [0.21-stable](https://github.com/decidim/decidim/blob/0.21-stable/CHANGELOG.md) for previous changes.
+Please check [release/0.22-stable](https://github.com/decidim/decidim/blob/release/0.22-stable/CHANGELOG.md) for previous changes.

@@ -35,6 +35,7 @@ fi:
         confirm_destroy: Oletko varma, että haluat poistaa tämän tuloksen?
         destroy: Poista
         edit: Muokkaa
+        import_csv: Tuo CSV
         new: Uusi %{name}
         preview: Esikatsele
         timeline_entries: Projektin edistyminen
@@ -42,6 +43,15 @@ fi:
       admin:
         exports:
           results: Tulokset
+        import_results:
+          new:
+            import: Tuo
+            info: "<p>Suosittelemme, että teet seuraavat toimenpiteet tässä järjestyksessä:</p><ol><li>Luo tulosten tilat (<a href='%{link_new_status}' target='_blank'>linkki</a>)</li><li>Luo vähintään yksi tulos manuaalisesti hallintapaneelin kautta (<a href='%{link_new_result}' target='_blank'>linkki</a>) ennen tuontia, ymmärtääksesi millaisessa muodossa tulosten tiedot tulee määrittää.</li><li>Vie tulokset CSV-tiedostoon (%{link_export_csv})</li><li>Tee muutokset tietokoneellasi. Voit ainoastaan muuttaa seuraavia asioita CSV-tiedoston kautta:</li></ol><ul><li><b>category/id:</b> Aihepiirin ID-numero</li><li><b>scope/id:</b> Teeman ID-numero</li><li><b>parent/id:</b> Isäntätuloksen ID-numero (toisiinsa liitetyille tuloksille, muille tyhjä). Valinnainen</li><li><b>title/I18N</b> Otsikko kielelle X</li><li><b>description/I18N:</b> Kuvaus kielelle X</li><li><b>start_date:</b> Päivämäärä, jolloin tuloksen toteuttaminen aloitetaan (muodossa YYYY-MM-DD)</li><li><b>end_date:</b> Päivämäärä, jolloin tuloksen toteuttaminen lopetetaan (muodossa YYYY-MM-DD)</li><li><b>status/id:</b> Tuloksen tilan ID-numero</li><li><b>progress:</b> Tuloksen toteutuksen tilan prosentuaalinen kuvaus (0-100)</li><li><b>proposal_ids:</b> Tulokseen liitettyjen ehdotusten ID-numerot (eroteltuna pilkulla). Muutetaan automaattisesti <span class='attribute-name'>proposal_url</span></li></ul>"
+            link: linkki
+            title: Tuo tulokset CSV-tiedostosta
+        imports:
+          create:
+            success: Tiedoston käsittely on aloitettu. Saat muutaman minuutin kuluttua sähköpostin tuonnin suorituksesta
         models:
           result:
             name: Tulos
@@ -111,6 +121,13 @@ fi:
         value_types:
           parent_presenter:
             not_found: 'Pääelementtiä ei löytynyt tietokannasta (ID: %{id})'
+      import_mailer:
+        import:
+          errors: Virheet
+          errors_present: Tulosten tuonti epäonnistui
+          row_number: Rivi
+          subject: Tulosten tuonti onnistui
+          success: Tulosten tuonti onnistui. Voit katsoa tulokset hallintapaneelista.
       last_activity:
         new_result_at_html: "<span>Uusi tulos osoitteessa %{link}</span>"
       models:
@@ -151,30 +168,16 @@ fi:
         show:
           stats:
             attendees: Osallistujat
-            back_to_result: Palaa tulokseen
+            back_to_resource: Palaa tulokseen
             comments: Kommentit
             contributions: Osallistumiset
             last_edited_by: Viimeksi muokannut
             last_updated_at: Päivitetty viimeksi
             meetings: Tapaamiset
-            number_of_versions: Versiot
             proposals: Ehdotukset
-            show_all_versions: Näytä kaikki versiot
-            version_author: Versio luoja
-            version_created_at: Version luontihetki
-            version_number: Version numero
-            version_number_out_of_total: "%{current_version} / %{total_count}"
             votes: Kannatukset
         timeline:
           title: Projektin kehitys
-      versions:
-        index:
-          changes_at_title: Muutokset kohteessa "%{title}"
-          title: Versiot
-        show:
-          changes_at_title: Muutokset kohteessa "%{title}"
-        version:
-          version_index: Versio %{index}
     components:
       accountability:
         name: Vastuullisuus

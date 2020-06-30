@@ -5,6 +5,7 @@ module Decidim
     # The data store for an Election in the Decidim::Elections component. It stores a
     # title, description and any other useful information to perform an election.
     class Election < ApplicationRecord
+      include Decidim::Publicable
       include Decidim::Resourceable
       include Decidim::HasComponent
       include Traceable
@@ -14,8 +15,16 @@ module Decidim
 
       has_many :questions, foreign_key: "decidim_elections_election_id", class_name: "Decidim::Elections::Question", inverse_of: :election, dependent: :destroy
 
+      def self.log_presenter_class_for(_log)
+        Decidim::AdminLog::ElectionPresenter
+      end
+
       def started?
         start_time <= Time.current
+      end
+
+      def finished?
+        end_time < Time.current
       end
     end
   end

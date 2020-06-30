@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Admin manages elections", type: :system do
-  let(:election) { create :election, component: current_component }
+  let(:election) { create :election, :published, component: current_component }
   let(:manifest_name) { "elections" }
 
   include_context "when managing a component as an admin"
@@ -106,6 +106,62 @@ describe "Admin manages elections", type: :system do
     it "links the election correctly" do
       link = find("a[title=Preview]")
       expect(link[:href]).to include(resource_locator(election).path)
+    end
+  end
+
+  describe "publishing an election" do
+    context "when the election is unpublished" do
+      let!(:election) { create(:election, component: current_component) }
+
+      it "publishes the election" do
+        within find("tr", text: translated(election.title)) do
+          page.find(".action-icon--publish").click
+        end
+
+        within ".callout-wrapper" do
+          expect(page).to have_content("successfully")
+        end
+
+        within find("tr", text: translated(election.title)) do
+          expect(page).to have_no_selector(".action-icon--publish")
+        end
+      end
+    end
+  end
+
+  describe "unpublishing an election" do
+    it "unpublishes an election" do
+      within find("tr", text: translated(election.title)) do
+        page.find(".action-icon--unpublish").click
+      end
+
+      within ".callout-wrapper" do
+        expect(page).to have_content("successfully")
+      end
+
+      within find("tr", text: translated(election.title)) do
+        expect(page).to have_no_selector(".action-icon--unpublish")
+      end
+    end
+
+    context "when the election has started and has not finished" do
+      let!(:election) { create(:election, :started, component: current_component) }
+
+      it "cannot unpublish the election" do
+        within find("tr", text: translated(election.title)) do
+          expect(page).to have_no_selector(".action-icon--unpublish")
+        end
+      end
+    end
+
+    context "when the election is published and has finished" do
+      let!(:election) { create(:election, :published, :finished, component: current_component) }
+
+      it "can unpublish the election" do
+        within find("tr", text: translated(election.title)) do
+          expect(page).to have_selector(".action-icon--unpublish")
+        end
+      end
     end
   end
 

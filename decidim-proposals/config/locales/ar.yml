@@ -577,14 +577,11 @@ ar:
             many: و %{count} المزيد من الناس
             other: و %{count} المزيد من الناس
           info-message: هذا هو <strong>مشروع تعاوني</strong> لاقتراح. هذا يعني أنه يمكنك مساعدة مؤلفيها في صياغة الاقتراح باستخدام قسم التعليقات أدناه أو تحسينه مباشرةً من خلال طلب الوصول لتحريره. بمجرد أن يمنحك المؤلفون حق الوصول ، ستتمكن من إجراء تغييرات على هذه المسودة.
-          of_versions: "(من %{number})"
           publish: نشر
           publish_info: نشر هذا الإصدار من المسودة أو
           published_proposal: الاقتراح المنشور
           request_access: طلب الدخول
           requested_access: طلب الوصول
-          see_other_versions: رؤية الإصدارات الأخرى
-          version: الإصدار %{number}
           version_history: انظر تاريخ الإصدار لهذا الاقتراح
           withdraw: سحب المشروع
         states:
@@ -811,20 +808,12 @@ ar:
         error: حدثت مشكلة في حفظ المسودة التعاونية.
         success: تم تحديث مسودة الاقتراح بنجاح.
       versions:
-        changes_at_title: التغييرات في "%{title}"
+        collaborative_drafts:
+          back_to_resource: العودة إلى المسودة التعاونية
         index:
           title: إصدارات
-        stats:
-          back_to_collaborative_draft: العودة إلى المسودة التعاونية
-          back_to_proposal: العودة إلى الاقتراح
-          number_of_versions: إصدارات
-          show_all_versions: عرض جميع الإصدارات
-          version_author: مؤلف الإصدار
-          version_created_at: تم إنشاء الإصدار في
-          version_number: رقم الإصدار
-          version_number_out_of_total: "%{current_version} من %{total_count}"
-        version:
-          version_index: الإصدار %{index}
+        proposals:
+          back_to_resource: العودة إلى الاقتراح
       withdraw:
         errors:
           has_supports: لا يمكن سحب هذا الاقتراح لأنه تلقى دعما مِن قَبل.

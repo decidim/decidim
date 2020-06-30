@@ -1069,8 +1069,6 @@ ca:
         close_window: Tanca la finestra
         share: Compartir
         share_link: Compartir l'enllaç
-      version_author:
-        deleted: Participant eliminada
     user_activity:
       index:
         no_activities_warning: Aquesta participant encara no ha tingut cap activitat.
@@ -1084,6 +1082,9 @@ ca:
       update:
         error: S'ha produït un error en actualitzar els teus interessos.
         success: Els teus interessos s'han actualitzat correctament.
+    version_author:
+      show:
+        deleted: Participant eliminada
     welcome_notification:
       default_body: <p>Hola {{name}}, gràcies per unir-te a {{organization}} i benvinguda!</p><ul><li>Si vols fer-te una idea ràpida del que pots fer aquí, fes un cop d'ull a la secció d'<a href="{{help_url}}">Ajuda</a>.</li><li>Un cop l'hagis llegit obtindràs la teva primera insígnia. Aquí tens la <a href="{{badges_url}}">llista</a> de totes les que pots anar aconseguint a mesura que participis a {{organization}}</li><li>Finalment, però no per això menys important, uneix-te a altres persones, comparteix amb elles l'experiència d'implicar-se i participar a {{organization}}. Fes propostes, comenta, debat, pensa en com contribuir al bé comú, aporta arguments per convèncer, escolta i llegeix per convèncer-te, expressa les teves idees de manera concreta i directa, respon amb paciència i decisió, defensa les teves idees i manté la ment oberta a col·laborar i sumar-te a les idees d'altres persones.</li></ul>
       default_subject: Gràcies per unir-te a {{organization}}!

@@ -19,6 +19,7 @@ module Decidim
       field :endTime, !Decidim::Core::DateTimeType, "The end time for this election", property: :end_time
       field :createdAt, Decidim::Core::DateTimeType, "When this election was created", property: :created_at
       field :updatedAt, Decidim::Core::DateTimeType, "When this election was updated", property: :updated_at
+      field :publishedAt, Decidim::Core::DateTimeType, "When this election was published", property: :published_at
 
       field :questions, !types[Decidim::Elections::ElectionQuestionType], "The questions for this election"
     end

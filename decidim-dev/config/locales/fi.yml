@@ -3,6 +3,7 @@ fi:
     attributes:
       dummy_resource:
         created_at: Luontiaika
+        decidim_scope_id: Teema
         field: Oma kenttä
         start_date: Alkamispäivä
         title: Otsikko

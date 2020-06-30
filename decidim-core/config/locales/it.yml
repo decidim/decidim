@@ -161,7 +161,7 @@ it:
         help_text: Migliora questo %{model_name} modificando il suo %{amendable_fields}
         promote_button: Promuovi a %{model_name}
         promote_confirm_text: Sei sicuro di voler promuovere questa emendazione?
-        promote_help_text: Puoi promuovere questa emendazione e pubblicarla come %{model_name}indipendente
+        promote_help_text: Puoi promuovere questa modifica e pubblicarla come %{model_name} indipendente
         section_heading: Modifiche (%{count})
       compare_draft:
         continue: Prosegui
@@ -215,7 +215,7 @@ it:
       review:
         back: Indietro
         heading: Rivedi l'emendamento
-        help_text: Stai rivedendo un emendamento allo %{model_name}
+        help_text: Stai esaminando un emendamento al %{model_name}
         send: Accettare l'emendamento
       update_draft:
         error: C'è stato un problema nell'eliminazione della bozza di emendamento.
@@ -426,14 +426,14 @@ it:
         newsletter_modal:
           buttons:
             check: Controlla e continua
-            close_modal: Chiudi modale
-            uncheck: Continua a deselezionare
+            close_modal: Chiudi modalità
+            uncheck: Mantieni deseleziona
           notice: |-
             <p>Ehi, sei sicuro di non voler ricevere una newsletter?<br>
-            Si prega di considerare di nuovo spuntando la casella di controllo newsletter sotto.<br>
+            Si prega di riconsiderare spuntando la casella di controllo "newsletter", in fondo.<br>
             È molto importante per noi che tu possa ricevere e-mail occasionali per fare annunci importanti, puoi sempre modificarlo nella pagina delle impostazioni delle notifiche.</p>
             <p>Se non si spunta la casella, potrebbero mancare informazioni pertinenti sulle nuove opportunità di partecipazione all'interno della piattaforma.<br>
-            Se vuoi ancora evitare di ricevere le newsletter, capiamo perfettamente la tua decisione.</p>
+            Se vuoi ancora evitare di ricevere le newsletter, rispettiamo la tua decisione.</p>
             <p>Grazie per aver letto questo!</p>
           title: Notifiche alla newsletter
         omniauth_buttons:
@@ -665,8 +665,8 @@ it:
         index:
           badge_title: "%{name} distintivo"
           how: Come puoi guadagnarlo
-          page_description: I badge sono riconoscimenti alle azioni dei partecipanti e ai progressi nella piattaforma. Quando inizi a scoprire, partecipare e interagire nella piattaforma, guadagnerai badge diversi. Ecco la lista dei badge e alcuni modi per guadagnarli.
-          title: badge
+          page_description: I badge sono riconoscimenti delle azioni dei partecipanti e dei progressi nella piattaforma. Quando inizi a scoprire, partecipare e interagire nella piattaforma, guadagnerai badge diversi. Ecco la lista dei badge e alcuni modi per guadagnarli.
+          title: Badge
         invitations:
           conditions:
             - Usa il link "invita amici" nella tua pagina utente per invitare i tuoi amici
@@ -679,7 +679,7 @@ it:
           next_level_in: Invita altri %{score} utenti a raggiungere il livello successivo!
           unearned_another: Questo utente non ha ancora invitato alcun utente.
           unearned_own: Non hai ancora invitato nessun utente.
-      description: I badge sono riconoscimenti alle azioni dei partecipanti e ai progressi nella piattaforma. Quando inizi a scoprire, partecipare e interagire nella piattaforma, guadagnerai badge diversi.
+      description: I badge sono riconoscimenti delle azioni dei partecipanti e dei progressi nella piattaforma. Quando inizi a scoprire, partecipare e interagire nella piattaforma, guadagnerai badge diversi.
       level: Livello %{level}
       reached_top: Hai raggiunto il livello più alto per questo badge.
     group_admins:
@@ -984,7 +984,7 @@ it:
           headline: Partecipazione in cifre
         statistics:
           answers_count: Questionari completati
-          assemblies_count: assemblee
+          assemblies_count: Assemblee
           comments_count: Commenti
           conferences_count: conferenze
           debates_count: Dibattiti
@@ -1006,7 +1006,7 @@ it:
       index:
         read_more: Leggi di più
         standalone_pages: pagine
-        subheading: Navigare attraverso le pagine di aiuto di %{name}
+        subheading: Naviga attraverso le pagine di aiuto di %{name}
         title: Aiuto
         topics: Temi
       participatory_space:
@@ -1153,8 +1153,6 @@ it:
         close_window: Chiudi questa finestra
         share: Condividi
         share_link: Condividi link
-      version_author:
-        deleted: Utente eliminato
     user_activity:
       index:
         no_activities_warning: Questo utente non ha ancora avuto alcuna attività.
@@ -1198,8 +1196,35 @@ it:
       update:
         error: Si è verificato un errore durante l'aggiornamento dei tuoi interessi.
         success: I tuoi interessi sono stati aggiornati con successo.
+    version:
+      show:
+        back_to_resource: Torna indietro
+        changes_at_title: Modifiche a "%{title}"
+        number_of_versions: Versioni
+        show_all_versions: Mostra tutte le versioni
+        version_author: Autore della versione
+        version_created_at: Versione creata il
+        version_number: Numero della versione
+        version_number_out_of_total: "%{current_version} di %{total_count}"
+    version_author:
+      show:
+        deleted: Utente eliminato
+    versions:
+      resource_version:
+        of_versions: "(di %{number})"
+        see_other_versions: vedi altre versioni
+        version: Versione %{number}
+    versions_list:
+      show:
+        back_to_resource: Torna indietro
+        changes_at_title: Modifiche a "%{title}"
+        number_of_versions: Versioni
+        title: Versioni
+    versions_list_item:
+      show:
+        version_index: Versione %{index}
     welcome_notification:
-      default_body: <p>Ciao {{name}}, grazie per esserti iscritto a {{organization}} e benvenuto!</p><ul><li>Se vuoi avere una rapida idea di cosa puoi fare qui, dai un'occhiata alla sezione <a href="{{help_url}}">Aiuto</a> .</li><li>Una volta letto, riceverai il tuo primo badge. Ecco un <a href="{{badges_url}}">elenco di tutti i badge</a> è possibile ottenere, come si partecipa a {{organization}}</li><li>Da ultimo, ma non meno importante, uniscono altre persone, condividere con loro l'esperienza di essere impegnati e partecipano a {{organization}}. Fare proposte, commentare, discutere, pensare a come contribuire al bene comune, fornire argomenti per convincere, ascoltare e leggere per essere convinti, esprimere le proprie idee in modo concreto e diretto, rispondere con pazienza e decisione, difendere le proprie idee e mantenere una mente aperta per collaborare e unire le idee degli altri.</li></ul>
+      default_body: <p>Ciao {{name}}, grazie per esserti iscritto a {{organization}} e benvenut*!</p><ul><li>Se vuoi avere una rapida idea di cosa puoi fare qui, dai un'occhiata alla sezione <a href="{{help_url}}">Aiuto</a>.</li><li>Una volta letto, riceverai il tuo primo badge. Ecco un <a href="{{badges_url}}">elenco di tutti i badge</a> che è possibile ottenere, partecipando a {{organization}}</li><li>Da ultimo, ma non meno importante, incontra altre persone, condividi con loro l'esperienza di essere impegnati e partecipare in {{organization}}. Fare proposte, commentare, discutere, pensare a come contribuire al bene comune, fornire argomenti per convincere, ascoltare e leggere per essere coinvolti, esprimere le proprie idee in modo concreto e diretto, rispondere con pazienza e decisione, difendere le proprie idee e mantenere una mente aperta, per supportare e condividere le idee degli altri.</li></ul>
       default_subject: Grazie per esserti iscritto a {{organization}}!
     wizard_step_form:
       wizard_aside:

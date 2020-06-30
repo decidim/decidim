@@ -8,6 +8,12 @@
 
       <%= t("assemblies", scope: "decidim.admin.titles") %>
 
+      <% if allowed_to? :import, :assembly %>
+        <%= link_to t("actions.import_assembly", scope: "decidim.admin"),
+                    new_import_path,
+                    class: "button tiny button--title" %>
+      <% end %>
+
       <% if allowed_to? :create, :assembly %>
         <%= link_to t("actions.new_assembly", scope: "decidim.admin"),
                     new_assembly_path(parent_id: parent_assembly&.id),
@@ -76,6 +82,10 @@
                 <% end %>
               </td>
               <td class="table-list__actions">
+                <% if allowed_to? :create, :assembly, assembly: assembly %>
+                  <%= icon_link_to "data-transfer-download", assembly_export_path(assembly), t("actions.export", scope: "decidim.admin"), method: :post, class: "action-icon--export" %>
+                <% end %>
+
                 <% if allowed_to? :create, :assembly, assembly: assembly %>
                   <%= icon_link_to "clipboard", new_assembly_copy_path(assembly), t("actions.duplicate", scope: "decidim.admin"), class: "action-icon--copy" %>
                 <% end %>
