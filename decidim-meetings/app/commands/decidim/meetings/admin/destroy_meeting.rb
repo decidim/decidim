@@ -40,7 +40,7 @@ module Decidim
         end
 
         def proposals
-          @proposals ||= meeting.proposals
+          @proposals ||= meeting.proposals.load
         end
       end
     end
