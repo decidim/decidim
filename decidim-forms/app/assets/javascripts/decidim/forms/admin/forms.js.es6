@@ -1,9 +1,12 @@
+/* eslint-disable max-lines */
+
 // = require ./auto_buttons_by_min_items.component
 // = require ./auto_select_options_by_total_items.component
+// = require ./auto_select_options_from_url.component
 // = require ./live_text_update.component
 
 ((exports) => {
-  const { AutoLabelByPositionComponent, AutoButtonsByPositionComponent, AutoButtonsByMinItemsComponent, AutoSelectOptionsByTotalItemsComponent, createLiveTextUpdateComponent, createFieldDependentInputs, createDynamicFields, createSortList } = exports.DecidimAdmin;
+  const { AutoLabelByPositionComponent, AutoButtonsByPositionComponent, AutoButtonsByMinItemsComponent, AutoSelectOptionsByTotalItemsComponent, AutoSelectOptionsFromUrl, createLiveTextUpdateComponent, createFieldDependentInputs, createDynamicFields, createSortList } = exports.DecidimAdmin;
   const { createQuillEditor } = exports.Decidim;
 
   const wrapperSelector = ".questionnaire-questions";
@@ -18,22 +21,54 @@
   const addMatrixRowButtonSelector = ".add-matrix-row";
   const maxChoicesWrapperSelector = ".questionnaire-question-max-choices";
 
-  const MULTIPLE_CHOICE_VALUES = ["single_option", "multiple_option", "sorting", "matrix_single", "matrix_multiple"];
-  const MATRIX_VALUES = ["matrix_single", "matrix_multiple"];
+  const displayConditionFieldSelector = ".questionnaire-question-display-condition";
+  const displayConditionsWrapperSelector = ".questionnaire-question-display-conditions";
+  const displayConditionRemoveFieldButtonSelector = ".remove-display-condition";
 
-  const autoLabelByPosition = new AutoLabelByPositionComponent({
-    listSelector: ".questionnaire-question:not(.hidden)",
-    labelSelector: ".card-title span:first",
-    onPositionComputed: (el, idx) => {
-      $(el).find("input[name$=\\[position\\]]").val(idx);
-    }
-  });
+  const displayConditionQuestionSelector = "select[name$=\\[decidim_condition_question_id\\]]";
+  const displayConditionAnswerOptionSelector = "select[name$=\\[decidim_answer_option_id\\]]";
+  const displayConditionTypeSelector = "select[name$=\\[condition_type\\]]";
+  const deletedInputSelector = "input[name$=\\[deleted\\]]";
+
+  const displayConditionValueWrapperSelector = ".questionnaire-question-display-condition-value";
+  const displayconditionAnswerOptionWrapperSelector = ".questionnaire-question-display-condition-answer-option";
+
+  const addDisplayConditionButtonSelector = ".add-display-condition";
+
+  const removeDisplayConditionsForFirstQuestion = () => {
+    $(fieldSelector).each((idx, el) => {
+      const $question = $(el);
+      if (idx) {
+        $question.find(displayConditionsWrapperSelector).find(deletedInputSelector).val("false");
+        $question.find(displayConditionsWrapperSelector).show();
+      }
+      else {
+        $question.find(displayConditionsWrapperSelector).find(deletedInputSelector).val("true");
+        $question.find(displayConditionsWrapperSelector).hide();
+      }
+    });
+  };
 
   const autoButtonsByPosition = new AutoButtonsByPositionComponent({
     listSelector: ".questionnaire-question:not(.hidden)",
     hideOnFirstSelector: ".move-up-question",
     hideOnLastSelector: ".move-down-question"
   });
+
+  const autoLabelByPosition = new AutoLabelByPositionComponent({
+    listSelector: ".questionnaire-question:not(.hidden)",
+    labelSelector: ".card-title span:first",
+    onPositionComputed: (el, idx) => {
+      $(el).find("input[name$=\\[position\\]]").val(idx);
+
+      autoButtonsByPosition.run();
+
+      removeDisplayConditionsForFirstQuestion();
+    }
+  });
+
+  const MULTIPLE_CHOICE_VALUES = ["single_option", "multiple_option", "sorting", "matrix_single", "matrix_multiple"];
+  const MATRIX_VALUES = ["matrix_single", "matrix_multiple"];
 
   const createAutoMaxChoicesByNumberOfAnswerOptions = (fieldId) => {
     return new AutoSelectOptionsByTotalItemsComponent({
@@ -49,6 +84,14 @@
       listSelector: `#${fieldId} ${answerOptionsWrapperSelector} .questionnaire-question-answer-option:not(.hidden)`,
       minItems: 2,
       hideOnMinItemsOrLessSelector: answerOptionRemoveFieldButtonSelector
+    })
+  };
+
+  const createAutoSelectOptionsFromUrl = ($field) => {
+    return new AutoSelectOptionsFromUrl({
+      source: $field.find(displayConditionQuestionSelector),
+      select: $field.find(displayConditionAnswerOptionSelector),
+      sourceToParams: ($element) => { return { id: $element.val() } }
     })
   };
 
@@ -123,17 +166,116 @@
 
   const dynamicFieldsForMatrixRows = {};
 
-  const isMultipleChoiceOption = ($selectField) => {
-    const value = $selectField.val();
-
+  const isMultipleChoiceOption = (value) => {
     return MULTIPLE_CHOICE_VALUES.indexOf(value) >= 0;
   }
 
-  const isMatrix = ($selectField) => {
-    const value = $selectField.val();
-
+  const isMatrix = (value) => {
     return MATRIX_VALUES.indexOf(value) >= 0;
   }
+
+  const getSelectedQuestionType = (select) => {
+    const selectedOption = select.options[select.selectedIndex];
+    return $(selectedOption).data("type");
+  };
+
+  const onDisplayConditionQuestionChange = ($field) => {
+    const $questionSelector = $field.find(displayConditionQuestionSelector);
+    const selectedQuestionType = getSelectedQuestionType($questionSelector[0]);
+
+    const isMultiple = isMultipleChoiceOption(selectedQuestionType);
+
+    let conditionTypes = ["answered", "not_answered"];
+
+    if (isMultiple) {
+      conditionTypes.push("equal");
+      conditionTypes.push("not_equal");
+    }
+
+    conditionTypes.push("match");
+
+    const $conditionTypeSelect = $field.find(displayConditionTypeSelector);
+
+    $conditionTypeSelect.find("option").each((idx, option) => {
+      const $option = $(option);
+      const value = $option.val();
+
+      if (!value) {
+        return;
+      }
+
+      $option.show();
+
+      if (conditionTypes.indexOf(value) < 0) {
+        $option.hide();
+      }
+    });
+
+    if (conditionTypes.indexOf($conditionTypeSelect.val()) < 0) {
+      $conditionTypeSelect.val(conditionTypes[0]);
+    }
+
+    $conditionTypeSelect.trigger("change");
+  };
+
+  const onDisplayConditionTypeChange = ($field) => {
+    const value = $field.find(displayConditionTypeSelector).val();
+    const $valueWrapper = $field.find(displayConditionValueWrapperSelector);
+    const $answerOptionWrapper = $field.find(displayconditionAnswerOptionWrapperSelector);
+
+    const $questionSelector = $field.find(displayConditionQuestionSelector);
+    const selectedQuestionType = getSelectedQuestionType($questionSelector[0]);
+
+    const isMultiple = isMultipleChoiceOption(selectedQuestionType);
+
+    if (value === "match") {
+      $valueWrapper.show();
+    }
+    else {
+      $valueWrapper.hide();
+    }
+
+    if (isMultiple && (value === "not_equal" || value === "equal")) {
+      $answerOptionWrapper.show();
+    }
+    else {
+      $answerOptionWrapper.hide();
+    }
+  };
+
+  const initializeDisplayConditionField = ($field) => {
+    const autoSelectByUrl = createAutoSelectOptionsFromUrl($field);
+    autoSelectByUrl.run();
+
+    $field.find(displayConditionQuestionSelector).on("change", () => {
+      onDisplayConditionQuestionChange($field);
+    });
+
+    $field.find(displayConditionTypeSelector).on("change", () => {
+      onDisplayConditionTypeChange($field);
+    });
+
+    onDisplayConditionTypeChange($field);
+    onDisplayConditionQuestionChange($field);
+  }
+
+  const createDynamicFieldsForDisplayConditions = (fieldId) => {
+    return createDynamicFields({
+      placeholderId: "questionnaire-question-display-condition-id",
+      wrapperSelector: `#${fieldId} ${displayConditionsWrapperSelector}`,
+      containerSelector: ".questionnaire-question-display-conditions-list",
+      fieldSelector: displayConditionFieldSelector,
+      addFieldButtonSelector: addDisplayConditionButtonSelector,
+      removeFieldButtonSelector: displayConditionRemoveFieldButtonSelector,
+      onAddField: ($field) => {
+        initializeDisplayConditionField($field);
+      },
+      onRemoveField: () => {
+      }
+    });
+  };
+
+  const dynamicFieldsForDisplayConditions = {};
 
   const setupInitialQuestionAttributes = ($target) => {
     const fieldId = $target.attr("id");
@@ -147,7 +289,7 @@
       dependentFieldsSelector: answerOptionsWrapperSelector,
       dependentInputSelector: `${answerOptionFieldSelector} input`,
       enablingCondition: ($field) => {
-        return isMultipleChoiceOption($field);
+        return isMultipleChoiceOption($field.val());
       }
     });
 
@@ -167,18 +309,19 @@
       dependentFieldsSelector: matrixRowsWrapperSelector,
       dependentInputSelector: `${matrixRowFieldSelector} input`,
       enablingCondition: ($field) => {
-        return isMatrix($field);
+        return isMatrix($field.val());
       }
     });
 
     dynamicFieldsForAnswerOptions[fieldId] = createDynamicFieldsForAnswerOptions(fieldId);
     dynamicFieldsForMatrixRows[fieldId] = createDynamicFieldsForMatrixRows(fieldId);
+    dynamicFieldsForDisplayConditions[fieldId] = createDynamicFieldsForDisplayConditions(fieldId);
 
     const dynamicFieldsAnswerOptions = dynamicFieldsForAnswerOptions[fieldId];
     const dynamicFieldsMatrixRows = dynamicFieldsForMatrixRows[fieldId];
 
     const onQuestionTypeChange = () => {
-      if (isMultipleChoiceOption($fieldQuestionTypeSelect)) {
+      if (isMultipleChoiceOption($fieldQuestionTypeSelect.val())) {
         const nOptions = $fieldQuestionTypeSelect.parents(fieldSelector).find(answerOptionFieldSelector).length;
 
         if (nOptions === 0) {
@@ -187,7 +330,7 @@
         }
       }
 
-      if (isMatrix($fieldQuestionTypeSelect)) {
+      if (isMatrix($fieldQuestionTypeSelect.val())) {
         const nRows = $fieldQuestionTypeSelect.parents(fieldSelector).find(matrixRowFieldSelector).length;
 
         if (nRows === 0) {
@@ -248,8 +391,13 @@
       $field.find(answerOptionRemoveFieldButtonSelector).each((idx, el) => {
         dynamicFieldsForAnswerOptions[$field.attr("id")]._removeField(el);
       });
+
       $field.find(matrixRowRemoveFieldButtonSelector).each((idx, el) => {
         dynamicFieldsForMatrixRows[$field.attr("id")]._removeField(el);
+      });
+
+      $field.find(displayConditionRemoveFieldButtonSelector).each((idx, el) => {
+        dynamicFieldsForDisplayConditions[$field.attr("id")]._removeField(el);
       });
     },
     onMoveUpField: () => {
@@ -269,6 +417,11 @@
 
     hideDeletedQuestion($target);
     setupInitialQuestionAttributes($target);
+  });
+
+  $(displayConditionFieldSelector).each((idx, el) => {
+    const $field = $(el);
+    initializeDisplayConditionField($field)
   });
 
   autoLabelByPosition.run();

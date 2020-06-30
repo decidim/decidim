@@ -1,0 +1,13 @@
+bg:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Статус
+        decidim_category_id: Категория
+        decidim_scope_id: Сфера
+  decidim:
+    accountability:
+      results:
+        show:
+          stats:
+            back_to_resource: Върни се към резултата

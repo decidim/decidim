@@ -43,6 +43,16 @@
                   <%= icon_link_to "pencil", edit_election_path(election), t("actions.edit", scope: "decidim.elections"), class: "action-icon--edit" %>
                 <% end %>
 
+                <% if election.published? %>
+                  <% if allowed_to?(:unpublish, :election, election: election) %>
+                    <%= icon_link_to "x", url_for(action: :unpublish, id: election, controller: "elections"), t("actions.unpublish", scope: "decidim.elections"), class: "action-icon--unpublish", method: :put %>
+                  <% end %>
+                <% else %>
+                  <% if allowed_to?(:publish, :election, election: election) %>
+                    <%= icon_link_to "check", url_for(action: :publish, id: election, controller: "elections"), t("actions.publish", scope: "decidim.elections"), class: "action-icon--publish", method: :put %>
+                  <% end %>
+                <% end %>
+
                 <% if allowed_to? :delete, :election, election: election %>
                   <%= icon_link_to "circle-x", election_path(election), t("actions.destroy", scope: "decidim.elections"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.elections") } %>
                 <% end %>
