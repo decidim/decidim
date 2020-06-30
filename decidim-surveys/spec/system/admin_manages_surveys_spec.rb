@@ -61,7 +61,7 @@ describe "Admin manages surveys", type: :system do
 
         within "form.edit_questionnaire" do
           within "#questionnaire_question_#{question.id}-field" do
-            fill_in find_nested_form_field_locator("body_en"), with: "Have you been writing specs today?"
+            fill_in nested_form_field_selector("body_en"), with: "Have you been writing specs today?"
           end
 
           click_button "Save"
