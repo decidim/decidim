@@ -139,6 +139,10 @@ en:
           elections_count:
             one: "%{count} election"
             other: "%{count} elections"
+        show:
+          back: All elections
+          until: Election is active until
+          vote: Vote
       admin_log:
         election:
           publish: "%{user_name} published the %{resource_name} election"

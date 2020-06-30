@@ -1,3 +1,42 @@
-<div class="row column">
-  <p>Voting in <%= translated_attribute(election.title) %></p>
+<% add_decidim_meta_tags(
+  title: translated_attribute(election.title),
+  description: translated_attribute(election.description)
+) %>
+
+<%
+edit_link(
+  resource_locator(election).edit,
+  :update,
+  :election,
+  election: election
+)
+%>
+
+<div class="row">
+  <div class="columns">
+
+    <%= link_to :elections, class: "small hollow" do %>
+      <%= icon "caret-left", class: "icon--small" %>
+      <%= t(".back") %>
+    <% end %>
+
+    <h1 class="heading2">
+      <%== present(election).title %>
+    </h1>
+    <p>
+      <%= t(".until") %>: <strong><%= election.end_time.strftime("%d %B %Y") %></strong>
+    </p>
+
+  </div>
+</div>
+<div class="row section">
+  <div class="columns medium-4 mediumlarge-5">
+    <img src="<%= image_path "decidim/elections/superilles.jpg" %>" alt="">
+  </div>
+  <div class="columns medium-8 mediumlarge-7">
+    <div class="section">
+      <%= decidim_sanitize(simple_format(translated_attribute(election.description))) %>
+      <%= link_to t(".vote"), "/", class: "button" %>
+    </div>
+  </div>
 </div>
