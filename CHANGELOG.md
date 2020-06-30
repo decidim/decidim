@@ -2,9 +2,20 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+### Upgrade notes
+
+- **Endorsements**
+
+The latest version of Decidim extracted the Endorsement feature into a generic concern that can now be applied to many resources.
+To keep current Decidim::Proposals::Proposal's endorsement information, endorsements were copied into the new `Decidim::Endorsable` tables and counter cache columns via migrations.
+
+After this, `Decidim::Proposals::ProposalEndorsement` and the corresponding counter cache column in `decidim_proposals_proposal.proposal_endorsements_count` should be removed. To do so, Decidim provides now the corresponding migration.
+
 ### Added
 
 ### Changed
+
+- **decidim-proposals**: Remove legacy proposal endorsements. [\#5643](https://github.com/decidim/decidim/pull/5643)
 
 ### Fixed
 
