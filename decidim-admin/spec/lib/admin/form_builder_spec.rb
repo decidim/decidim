@@ -53,6 +53,7 @@ module Decidim
       context "without selected value" do
         it "renders autocomplete data attribute correctly" do
           expect(autocomplete_data).to eq(
+            "changeUrl" => "/some/other/url",
             "name" => "resource[category_id]",
             "noResultsText" => t("autocomplete.no_results", scope: "decidim.admin"),
             "options" => [],
