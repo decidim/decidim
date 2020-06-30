@@ -12,6 +12,7 @@ module Decidim
         locales = Decidim.available_locales.map(&:to_s)
         locales.each do |locale|
           next if locale == source_locale
+          next if resource_field(resource, field, source_locale).blank?
           MachineTranslationCreateFieldsJob.perform_later(
             id,
             class_name,
