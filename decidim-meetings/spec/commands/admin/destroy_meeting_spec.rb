@@ -50,7 +50,7 @@ module Decidim::Meetings
       it "cannot destroy the meeting" do
         subject.call
 
-        expect { meeting.reload }.not_to raise_error(ActiveRecord::RecordNotFound)
+        expect { meeting.reload }.not_to raise_error
       end
     end
   end
