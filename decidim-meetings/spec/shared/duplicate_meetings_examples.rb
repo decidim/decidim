@@ -34,6 +34,6 @@ shared_examples "duplicate meetings" do
     fill_in_i18n_editor(:questionnaire_tos, "#questionnaire-tos-tabs", en: "ToS", ca: "ToS", es: "ToS")
     click_button "Save"
 
-    expect(page).to have_content("Forms successfully saved.")
+    expect(page).to have_content("Form successfully saved.")
   end
 end
