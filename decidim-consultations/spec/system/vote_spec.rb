@@ -172,7 +172,7 @@ describe "Question vote", type: :system do
         within ".question-vote-cabin", match: :first do
           click_button I18n.t("decidim.questions.vote_button.verification_required")
         end
-        expect(page).to have_css("#authorizationModal", visible: true)
+        expect(page).to have_css("#authorizationModal", visible: :visible)
       end
     end
 

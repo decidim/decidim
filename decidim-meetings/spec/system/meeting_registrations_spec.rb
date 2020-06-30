@@ -113,7 +113,7 @@ describe "Meeting registrations", type: :system do
             click_button "Join meeting"
           end
 
-          expect(page).to have_css("#loginModal", visible: true)
+          expect(page).to have_css("#loginModal", visible: :visible)
         end
 
         context "and registration form is enabled" do
