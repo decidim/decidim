@@ -117,7 +117,7 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
           data[:fields] = { "scope_id" => user_scope.name[I18n.locale.to_s] }
         end
 
-        # Adds an extra message for inform the user the additional restriction for this authorization
+        # Adds an extra message to inform the user about additional restrictions for this authorization
         extra_explanations << { key: "extra_explanation.scope",
                                 params: { scope: "decidim.verifications.dummy_authorization",
                                           scope_name: allowed_scope.name[I18n.locale.to_s] } }
