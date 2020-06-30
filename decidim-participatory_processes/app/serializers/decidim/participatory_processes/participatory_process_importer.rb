@@ -169,7 +169,9 @@ module Decidim
 
         accepted = ["image", "application/pdf"]
         url = URI.parse(url)
-        Net::HTTP.start(url.host, url.port) do |http|
+        http_connection = Net::HTTP.new(url.host, url.port)
+        http_connection.use_ssl = true if url.scheme == "https"
+        http_connection.start do |http|
           return http.head(url.request_uri)["Content-Type"].start_with?(*accepted)
         end
       rescue StandardError

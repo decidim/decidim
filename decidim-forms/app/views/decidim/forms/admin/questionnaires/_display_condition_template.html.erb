@@ -1,0 +1,7 @@
+<% question = form.object %>
+
+<script type="text/template" class="decidim-template" id="<%= template_id %>">
+  <%= fields_for "questionnaire[questions][#{question.to_param}][display_conditions][]", blank_display_condition do |display_condition_form| %>
+    <%= render "decidim/forms/admin/questionnaires/display_condition", form: display_condition_form, question: question, editable: editable %>
+  <% end %>
+</script>

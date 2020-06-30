@@ -67,6 +67,12 @@ FactoryBot.define do
       end
     end
 
+    trait :conditioned do
+      display_conditions do
+        Array.new(3).collect { build(:display_condition) }
+      end
+    end
+
     trait :separator do
       question_type { :separator }
     end
@@ -95,5 +101,22 @@ FactoryBot.define do
     question { create(:questionnaire_question) }
     body { generate_localized_title }
     position { 0 }
+  end
+
+  factory :display_condition, class: "Decidim::Forms::DisplayCondition" do
+    condition_question { create(:questionnaire_question) }
+    question { create(:questionnaire_question, position: 1) }
+    condition_type { :answered }
+    mandatory { true }
+
+    trait :equal do
+      condition_type { :equal }
+      answer_option { create(:answer_option, question: condition_question) }
+    end
+
+    trait :match do
+      condition_type { :match }
+      condition_value { generate_localized_title }
+    end
   end
 end
