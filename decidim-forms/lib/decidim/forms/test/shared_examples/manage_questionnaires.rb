@@ -75,7 +75,7 @@ shared_examples_for "manage questionnaires" do
         within ".questionnaire-question" do
           fill_in find_nested_form_field_locator("body_en"), with: "Body"
 
-          fill_in_editor find_nested_form_field_locator("description_en", visible: false), with: "<b>Superkalifragilistic description</b>"
+          fill_in_editor find_nested_form_field_locator("description_en", visible: :all), with: "<b>Superkalifragilistic description</b>"
         end
 
         click_button "Save"
@@ -794,7 +794,7 @@ shared_examples_for "manage questionnaires" do
         context "when clicking on Expand all button" do
           it "expands all questions" do
             click_button "Expand all questions"
-            expect(page).to have_selector(".collapsible", visible: true)
+            expect(page).to have_selector(".collapsible", visible: :visible)
             expect(page).to have_selector(".question--collapse .icon-collapse", count: questionnaire.questions.count)
           end
         end
@@ -802,7 +802,7 @@ shared_examples_for "manage questionnaires" do
         context "when clicking on Collapse all button" do
           it "collapses all questions" do
             click_button "Collapse all questions"
-            expect(page).not_to have_selector(".collapsible", visible: true)
+            expect(page).not_to have_selector(".collapsible", visible: :visible)
             expect(page).to have_selector(".question--collapse .icon-expand", count: questionnaire.questions.count)
           end
         end
@@ -816,7 +816,7 @@ shared_examples_for "manage questionnaires" do
 
           it "hides the question card section" do
             within ".questionnaire-question:last-of-type" do
-              expect(page).not_to have_selector(".collapsible", visible: true)
+              expect(page).not_to have_selector(".collapsible", visible: :visible)
             end
           end
         end
@@ -829,7 +829,7 @@ shared_examples_for "manage questionnaires" do
           end
 
           it "shows the question card section" do
-            expect(page).to have_selector(".collapsible", visible: true)
+            expect(page).to have_selector(".collapsible", visible: :visible)
           end
         end
 

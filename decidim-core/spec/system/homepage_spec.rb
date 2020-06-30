@@ -125,7 +125,7 @@ describe "Homepage", type: :system do
         let(:organization) { create(:organization, official_url: official_url, header_snippets: snippet) }
 
         it "does not include the header snippets" do
-          expect(page).not_to have_selector("meta[data-hello]", visible: false)
+          expect(page).not_to have_selector("meta[data-hello]", visible: :all)
         end
 
         context "when header snippets are enabled" do
@@ -135,7 +135,7 @@ describe "Homepage", type: :system do
           end
 
           it "includes the header snippets" do
-            expect(page).to have_selector("meta[data-hello]", visible: false)
+            expect(page).to have_selector("meta[data-hello]", visible: :all)
           end
         end
       end
@@ -252,10 +252,10 @@ describe "Homepage", type: :system do
               within "#metrics" do
                 expect(page).to have_content("Metrics")
                 Decidim.metrics_registry.filtered(highlight: true, scope: "home").each do |metric_registry|
-                  expect(page).to have_css(%(##{metric_registry.metric_name}_chart), visible: false)
+                  expect(page).to have_css(%(##{metric_registry.metric_name}_chart), visible: :all)
                 end
                 Decidim.metrics_registry.filtered(highlight: false, scope: "home").each do |metric_registry|
-                  expect(page).to have_css(%(##{metric_registry.metric_name}_chart), visible: false)
+                  expect(page).to have_css(%(##{metric_registry.metric_name}_chart), visible: :all)
                 end
               end
             end
