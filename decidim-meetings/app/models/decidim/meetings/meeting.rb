@@ -173,7 +173,7 @@ module Decidim
         (Time.current - end_time) < 72.hours
       end
 
-      def proposals
+      def authored_proposals
         Decidim::Proposals::Proposal
           .joins(:coauthorships)
           .where(
