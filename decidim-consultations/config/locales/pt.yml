@@ -53,9 +53,11 @@ pt:
   decidim:
     admin:
       actions:
+        back_to_responses: Voltar para respostas
         new_consultation: Nova consulta
         new_question: Nova pergunta
         new_response: Nova resposta
+        new_response_group: Novo grupo
         publish_results: Publicar resultados
         unpublish_results: Cancelar publicação dos resultados
       consultation_publications:
@@ -87,6 +89,10 @@ pt:
         new:
           create: Crio
           title: Nova consulta
+        results:
+          not_visible: Os resultados estarão disponíveis quando a consulta for fechada
+          participants: "%{count} participantes"
+          total_votes: 'Total: %{count} votos'
         update:
           error: Ocorreu um erro ao atualizar esta consulta.
           success: Consulta atualizada com sucesso.
@@ -95,8 +101,10 @@ pt:
         consultations_submenu:
           info: Em formação
           questions: Questões
+          results: Resultados
         questions_submenu:
           components: Componentes
+          configuration: Configuração
           consultation: Consulta
           info: Em formação
           responses: Respostas
@@ -120,10 +128,16 @@ pt:
         response:
           fields:
             created_at: Criado em
+            response_group: Grupo de usuários
             title: Título
           name:
             one: Resposta
             other: Respostas
+      question_configuration:
+        disable_external_voting: Por favor, desative a votação externa para configurações avançadas
+        form:
+          help: Configure várias escolhas e aumente o número máximo de respostas que um participante pode escolher. O valor máximo padrão é 1, o que significa que apenas uma resposta pode ser votada.
+          title: Configuração avançada
       question_publications:
         create:
           error: Ocorreu um erro ao publicar esta questão.
@@ -150,6 +164,24 @@ pt:
         update:
           error: Ocorreu um erro ao atualizar esta questão.
           success: Pergunta atualizada com sucesso.
+      response_groups:
+        create:
+          error: Ocorreu um erro ao criar uma nova resposta.
+          success: Grupo variante criado com sucesso.
+        destroy:
+          error: Houve um problema ao remover o grupo de resposta. Verifique se nenhuma resposta depende dele.
+          success: Grupo personalizado excluído com êxito.
+        edit:
+          update: Atualizar
+        form:
+          title: Informações gerais
+        help: Use grupos para organizar várias escolhas de questões em pacotes.
+        new:
+          create: Criar
+          title: Novo grupo de resposta
+        update:
+          error: Houve um erro ao atualizar essa resposta.
+          success: Proposta atualizada com sucesso.
       responses:
         create:
           error: Ocorreu um erro ao criar uma nova resposta.
@@ -170,7 +202,9 @@ pt:
       titles:
         consultations: Consultas
         questions: Questões
+        response_groups: Grupos de Respostas
         responses: Respostas
+        results: Resultados
     consultations:
       admin:
         content_blocks:
@@ -227,9 +261,28 @@ pt:
         votes_out_of:
           one: votar fora
           other: votos de
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: Os participantes poderiam distribuir um mínimo de %{votes} votos entre diferentes opções.
+          title: Nesta questão múltipla escolha quando permitido
+          total_participants: Um total de %{count} pessoas participaram da votação.
+          vote_limit:
+            description: Os participantes podem votar até %{limit} opções.
+        voting_rules:
+          minimum_votes_per_user:
+            description: Você deve distribuir um mínimo de %{votes} votos entre diferentes propostas.
+          title: 'A votação está sujeita às seguintes regras:'
+          vote_limit:
+            description: Você pode votar até %{limit} propostas.
+            left: Restantes
+            votes: Votos
       question_votes:
         create:
           error: Houve erros ao votar a questão
+          success: Pode alterá-lo até ao final da consulta. Apenas a última votação será aceita.
+          title_error: Erro de voto!
+          title_success: Está registado com sucesso
       regular_questions:
         title: Perguntas para esta consulta
       show:
@@ -257,6 +310,8 @@ pt:
         statistics:
           consultations_count: Consultas
     questions:
+      next_button: Próxima questão
+      previous_button: Pergunta anterior
       results:
         title: Resultados
       show:
@@ -272,6 +327,7 @@ pt:
         already_voted: Já votei
         already_voted_hover: Revogar suporte
         starting_from: A partir de %{date}
+        verification_required: Verifique a sua conta com
         vote: Voto
       vote_modal:
         contextual_help: Por favor selecione uma opção.
@@ -281,6 +337,10 @@ pt:
         confirm: confirme
         contextual_help: Por favor, confirme a opção selecionada.
         title: 'Consulta: confirme o suporte'
+    resources:
+      consultations:
+        actions:
+          vote: Votar
   layouts:
     decidim:
       admin:
@@ -294,3 +354,4 @@ pt:
         unfold: Desdobrar
       question_header:
         back_to_consultation: Veja todas as consultas
+        back_to_question: Voltar à pergunta

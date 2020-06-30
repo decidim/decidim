@@ -3,6 +3,14 @@ pt:
     attributes:
       account:
         delete_reason: Razão para cancelar a sua conta
+      group:
+        about: Sobre
+        avatar: Avatar
+        document_number: Número de documento
+        email: Email
+        name: Nome
+        nickname: Nome de usuário
+        phone: Telefone
       report:
         details: Comentários adicionais
       user:
@@ -172,6 +180,9 @@ pt:
         heading: Revise a emenda
         help_text: Você está revisando uma emenda ao %{model_name}
         send: Aceitar alteração
+      visibility_options:
+        all: As alterações são visíveis para todos
+        participants: As alterações são visíveis apenas para seus autores
       wizard_step_form:
         steps:
           '1': Crie sua emenda
@@ -299,6 +310,7 @@ pt:
         name: Banner de sub-herói
     core:
       actions:
+        login_before_access: Faça o login com sua conta antes de acessar
         unauthorized: Não está autorizado a realizar esta ação
     data_portability:
       export:
@@ -315,6 +327,7 @@ pt:
           email_already_exists: Outra conta está usando o mesmo endereço de e-mail
         new:
           complete_profile: Complete o seu perfil
+          nickname_help: Seu identificador exclusivo em %{organization}
           sign_up: Por favor, complete o seu perfil
           subtitle: Por favor, preencha o seguinte formulário para completar a inscrição
           username_help: Nome público que aparece em suas postagens. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
@@ -323,6 +336,8 @@ pt:
           already_have_an_account?: Já tem uma conta?
           newsletter: Receba um boletim informativo ocasional com informações relevantes
           newsletter_title: Permissão de contato
+          nickname_help: Seu identificador exclusivo em %{organization}
+          password_help: "O mínimo de %{minimun_characters} caracteres, não deve ser muito comum (por exemplo, 123456) e deve ser diferente do seu apelido e do seu email."
           sign_in: Entrar
           sign_up: Inscreva-se
           sign_up_as:
@@ -527,6 +542,7 @@ pt:
       create:
         button: Seguir
         error: Ocorreu um erro ao seguir este recurso.
+        participatory_space: Já segue o espaço participativo
       destroy:
         button: Parar de seguir
         error: Ocorreu um erro ao seguir esse recurso.
@@ -535,6 +551,9 @@ pt:
       current_image: Imagem actual
       default_image: Imagem por defeito
       errors:
+        decidim/user:
+          password: A senha é demasiado curta.
+          password_confirmation: A confirmação da palavra-passe não corresponde à palavra-passe inserida.
         error: Há um erro neste campo.
       remove_this_file: Remover este ficheiro
     gamification:
@@ -992,6 +1011,11 @@ pt:
     welcome_notification:
       default_body: <p>Olá {{name}}, obrigado por se juntar a {{organization}} e seja bem-vindo!</p><ul><li>Se você quiser ter uma idéia rápida do que pode fazer aqui, dê uma olhada na seção <a href="{{help_url}}">Ajuda</a> .</li><li>Depois de ler, você receberá seu primeiro crachá. Aqui está uma <a href="{{badges_url}}">lista de todos os crachás</a> você pode começar como você participar de {{organization}}</li><li>Por último, mas não menos importante, se juntar a outras pessoas, compartilhar com eles a experiência de ser envolvido e participando de {{organization}}. Faça propostas, comentários, debata, pense em como contribuir para o bem comum, forneça argumentos para convencer, escute e leia para ser convencido, expresse suas idéias de maneira concreta e direta, responda com paciência e decisão, defenda suas ideias e mantenha uma mente aberta para colaborar e juntar-se às ideias de outras pessoas.</li></ul>
       default_subject: Obrigado por se juntar a {{organization}}!
+    wizard_step_form:
+      wizard_aside:
+        back: Voltar
+      wizard_header:
+        see_steps: ver as etapas
   devise:
     confirmations:
       confirmed: Seu endereço de e-mail foi confirmado com sucesso.
@@ -1082,6 +1106,7 @@ pt:
         change_your_password: Mude sua senha
         confirm_new_password: Confirme a nova senha
         new_password: Nova senha
+        password_help: "O mínimo de %{minimun_characters} caracteres, não deve ser muito comum (por exemplo, 123456) e deve ser diferente do seu apelido e do seu email."
       new:
         forgot_your_password: Esqueceu sua senha?
         send_me_reset_password_instructions: Envie-me as instruções de redefinição de senha
@@ -1144,6 +1169,7 @@ pt:
       cycle_detected: o pai de um âmbito não pode ser um dos seus descendentes
       expired: expirou, solicite um novo
       file_size_is_less_than_or_equal_to: o tamanho do arquivo deve ser menor ou igual a %{count}
+      invalid_time_zone: não é uma data/hora válida
       long_words: contém palavras muito longas (mais de 35 caracteres)
       must_start_with_caps: deve começar com letra maiúscula
       nesting_too_deep: não pode estar dentro de uma subcategoria

@@ -79,6 +79,7 @@ pt:
     admin:
       actions:
         new_assembly: Nova montagem
+        new_assembly_type: Novo usuário de montagem
       assemblies:
         create:
           error: Ocorreu um erro ao criar uma nova assembléia.
@@ -101,8 +102,17 @@ pt:
           error: Ocorreu um erro ao duplicar este assembly.
           success: Assembléia duplicada com sucesso.
       assemblies_types:
+        create:
+          error: Ocorreu um erro ao criar uma nova assembléia.
+          success: Assembléia criada com sucesso.
+        destroy:
+          success: O tipo de associado foi excluído com êxito.
         new:
           create: Criar
+          title: Novo usuário de montagem
+        update:
+          error: Ocorreu um erro ao atualizar este assembly.
+          success: O tipo de associado foi excluído com êxito.
       assembly_copies:
         new:
           copy: cópia de
@@ -162,6 +172,7 @@ pt:
           info: Info
           moderations: Moderação
           private_users: Usuários particulares
+        assemblies_types: Tipo de montagem
       models:
         assemblies_types:
           fields:
@@ -197,8 +208,10 @@ pt:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
+            valuator: Valor estimado
       titles:
         assemblies: Assembléias
+        assemblies_types: Tipo de montagem
     admin_log:
       assembly:
         create: "%{user_name} criou o conjunto %{resource_name}"
@@ -209,6 +222,12 @@ pt:
         create: "%{user_name} criou o membro %{resource_name} na montagem %{space_name}"
         delete: "%{user_name} removeu o membro %{resource_name} do conjunto %{space_name}"
         update: "%{user_name} atualizou o %{resource_name} membro na montagem %{space_name}"
+      assembly_type:
+        create: "%{user_name} criou o tipo de montagem %{resource_name}"
+        delete: "%{user_name} removeu o %{resource_name} recurso do %{space_name} espaço"
+        publish: "%{user_name} criou o tipo de montagem %{resource_name}"
+        unpublish: "%{user_name} criou o tipo de montagem %{resource_name}"
+        update: "%{user_name} criou o tipo de montagem %{resource_name}"
       assembly_user_role:
         create: "%{user_name} convidou %{resource_name} para o assembly %{space_name}"
         delete: "%{user_name} removeu o usuário %{resource_name} do conjunto %{space_name}"
@@ -274,6 +293,7 @@ pt:
         others: Outras
         public: Público
       filter:
+        all: Tous les types
         commission: Comissão
         consultative_advisory: Consultivo / Consultivo
         executive: Executivo
@@ -352,6 +372,8 @@ pt:
       value_types:
         assembly_presenter:
           not_found: 'O assembly não foi encontrado no banco de dados (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'O tipo de montagem não foi encontrado no banco de dados (ID: %{id})'
     menu:
       assemblies: Assembléias
     metrics:
