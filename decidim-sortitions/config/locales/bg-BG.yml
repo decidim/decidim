@@ -1,0 +1,7 @@
+bg:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Сортиране на информация
+        decidim_category_id: Категории от набора от предложения, в които искате да приложите жребий
+        decidim_proposals_component_id: Предложенията са зададени

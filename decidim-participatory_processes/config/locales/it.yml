@@ -24,10 +24,10 @@ it:
         published_at: Pubblicato a
         related_process_ids: Processi correlati
         scope_id: Obiettivi
-        scope_type_max_depth_id: Profondità filtro dello scopo
+        scope_type_max_depth_id: Profondità del filtro dell'ambito
         scopes_enabled: Gli ambiti abilitati
         short_description: Descrizione breve
-        show_metrics: Mostra metriche
+        show_metrics: Mostra tutte le statistiche
         show_statistics: Mostra statistiche
         slug: Stringa URL
         start_date: Data di inizio
@@ -40,8 +40,8 @@ it:
         name: Titolo
         participatory_process_ids: Processi correlati
       participatory_process_step:
-        cta_path: Percorso Call to Action
-        cta_text: Call to Action text
+        cta_path: Percorso della chiamata all'azione
+        cta_text: Testo della chiamata all'azione
         description: Descrizione
         end_date: Data di fine
         short_description: Descrizione breve
@@ -297,6 +297,9 @@ it:
         description: Numero di processi partecipativi in ​​questa organizzazione
         object: processi partecipativi
         title: Processi partecipativi
+    participatory_process:
+      show:
+        related_assemblies: Assemblee collegate
     participatory_process_groups:
       show:
         group_participatory_processes:
