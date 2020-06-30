@@ -492,6 +492,9 @@ fi-pl:
         accepted: Hyväksytyt
         expired: Vanhentuneet
       unavailable_scope: Teema ei ole saatavilla
+      versions:
+        shared:
+          back_to_resource: Takaisin aloitteeseen
     menu:
       initiatives: Aloitteet
     resources:

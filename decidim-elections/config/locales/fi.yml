@@ -47,6 +47,8 @@ fi:
         confirm_destroy: Oletko varma?
         destroy: Tuhoa
         edit: Muokkaa
+        edit_answers: Muokkaa vastauksia
+        edit_questions: Muokkaa kysymyksiä
         new: Uusi %{name}
         preview: Esikatsele
         title: Toiminnot

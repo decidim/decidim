@@ -1,1 +1,26 @@
 el:
+  activemodel:
+    attributes:
+      response:
+        decidim_consultations_response_group_id: Ομάδα
+  decidim:
+    admin:
+      consultations:
+        new:
+          create: Δημιουργία
+      models:
+        response:
+          fields:
+            response_group: Ομάδα
+      questions:
+        new:
+          create: Δημιουργία
+      response_groups:
+        new:
+          create: Δημιουργία
+      responses:
+        new:
+          create: Δημιουργία
+    consultations:
+      filters_small_view:
+        close_modal: Κλείσιμο παραθύρου

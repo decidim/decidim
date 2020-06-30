@@ -2,6 +2,12 @@
 daysUntilStale: 60
 # Number of days of inactivity before a stale issue is closed
 daysUntilClose: 7
+# Ignore issues in a project
+exemptProjects: true
+# Ignore issues in a milestone
+exemptMilestones: true
+# Issues with an assignee
+exemptAssignees: true
 # Issues with these labels will never be considered stale
 exemptLabels:
   - Epic
@@ -10,6 +16,6 @@ exemptLabels:
 markComment: >
   This issue has been automatically marked as stale because it has not had
   recent activity. It will be closed if no further activity occurs. Thank you
-  for your contributions. @carolromero & @xabier feel free to chime in.
+  for your contributions. @carolromero & @andreslucena feel free to chime in.
 # Comment to post when closing a stale issue. Set to `false` to disable
 closeComment: false

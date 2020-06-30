@@ -614,6 +614,7 @@ hu:
           homepage_highlighted_content_banner_title: Kiemelt banner
           images:
             layout_appearance_title: Elrendezés szerkesztése
+            preview: Előnézet
           omnipresent_banner_appearance_title: Mindenhol megjelenő banner szerkesztése
       organization_homepage:
         edit:

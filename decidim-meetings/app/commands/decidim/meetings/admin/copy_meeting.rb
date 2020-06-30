@@ -59,7 +59,7 @@ module Decidim
             component: @meeting.component,
             private_meeting: @form.private_meeting,
             transparent: @form.transparent,
-            organizer: @form.organizer,
+            author: @form.current_organization,
             questionnaire: @form.questionnaire,
             registrations_enabled: @meeting.registrations_enabled,
             available_slots: @meeting.available_slots,

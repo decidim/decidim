@@ -1,1 +1,46 @@
 el:
+  activemodel:
+    attributes:
+      conference_user_role:
+        email: Email
+        name: Όνομα
+  decidim:
+    admin:
+      conference_speakers:
+        new:
+          create: Δημιουργία
+      conference_user_roles:
+        new:
+          create: Δημιουργία
+      conferences:
+        new:
+          create: Δημιουργία
+      media_links:
+        new:
+          create: Δημιουργία
+      models:
+        conference_user_role:
+          fields:
+            email: Email
+            name: Όνομα
+        partner:
+          fields:
+            name: Όνομα
+      partners:
+        new:
+          create: Δημιουργία
+      registration_types:
+        new:
+          create: Δημιουργία
+    conferences:
+      models:
+        conference_invite:
+          fields:
+            email: Email
+            name: Όνομα
+        conference_registration:
+          fields:
+            email: Email
+            name: Όνομα
+      statistics:
+        users_count: Συμμετέχοντες

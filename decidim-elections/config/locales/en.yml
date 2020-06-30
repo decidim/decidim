@@ -35,6 +35,10 @@ en:
         one: Question
         other: Questions
   decidim:
+    admin_log:
+      election:
+        publish: "%{user_name} published the %{resource_name} election"
+        unpublish: "%{user_name} unpublished the %{resource_name} election"
     components:
       elections:
         name: Elections
@@ -48,9 +52,14 @@ en:
         confirm_destroy: Are you sure?
         destroy: Destroy
         edit: Edit
+        edit_answers: Edit answers
+        edit_questions: Edit questions
+        import: Import proposals to answers
         new: New %{name}
         preview: Preview
+        publish: Publish
         title: Actions
+        unpublish: Unpublish
       admin:
         answers:
           create:
@@ -85,6 +94,10 @@ en:
           new:
             create: Create election
             title: New election
+          publish:
+            success: The election has been successfully published.
+          unpublish:
+            success: The election has been successfully unpublished.
           update:
             invalid: There was a problem updating this election
             success: Election successfully updated
@@ -95,6 +108,14 @@ en:
             name: Election
           question:
             name: Question
+        proposals_imports:
+          create:
+            invalid: There was a problem importing the proposals into answers
+            success: "%{number} proposals successfully imported into answers"
+          new:
+            create: Import proposals to answers
+            no_components: There are no other proposal components in this participatory space to import the proposals into answers.
+            select_component: Please select a component
         questions:
           create:
             invalid: There was a problem creating this question
@@ -128,6 +149,13 @@ en:
             answers: Answers
             max_selections: Max. selections
             title: Title
+    events:
+      elections:
+        election_published:
+          email_intro: 'The %{resource_title} election is now active for %{participatory_space_title}. You can see it from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: The %{resource_title} election is now active for %{participatory_space_title}.
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> election is now active for %{participatory_space_title}.
     participatory_processes:
       statistics:
         elections_count: Elections

@@ -14,7 +14,10 @@ describe "Admin manages questions", type: :system do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit_component_admin
-    find("tr[data-id] a", text: translated(election.title)).click
+
+    within find("tr", text: translated(election.title)) do
+      page.find(".action-icon--edit-questions").click
+    end
   end
 
   describe "admin form" do

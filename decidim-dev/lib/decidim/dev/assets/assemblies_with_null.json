@@ -1,0 +1,135 @@
+[
+  {
+    "id": 1,
+    "slug": "quae-a",
+    "hashtag": "id",
+    "decidim_organization_id": 1,
+    "title": {
+      "ca": "Eius iure laborum hic et.",
+      "en": "Deserunt sed est quas rerum.",
+      "es": "Est architecto voluptas est nobis."
+    },
+    "subtitle": {
+      "ca": "Necessitatibus repellat.",
+      "en": "Porro ipsam.",
+      "es": "Qui quia."
+    },
+    "short_description": {
+      "ca": "<p>Sed et voluptatem.</p>",
+      "en": "<p>Provident ab et.</p>",
+      "es": "<p>Molestias aliquam rerum.</p>"
+    },
+    "description": {
+      "ca": "<p>In incidunt harum. Sit laboriosam molestiae. Officia qui quo.</p>",
+      "en": "<p>Occaecati nulla deserunt. Sequi voluptatem quam. Qui eligendi quod.</p>",
+      "es": "<p>Accusamus dolorem vitae. Et reprehenderit accusantium. Expedita consequatur nesciunt.</p>"
+    },
+    "remote_hero_image_url": "http://localhost/uploads/decidim/assembly/hero_image/1/city.jpeg",
+    "remote_banner_image_url": "http://localhost/uploads/decidim/assembly/banner_image/1/city2.jpeg",
+    "promoted": true,
+    "developer_group": {
+      "ca": "Nesciunt.",
+      "en": "Ad.",
+      "es": "Sint."
+    },
+    "meta_scope": {
+      "ca": "eum",
+      "en": "explicabo",
+      "es": "quas"
+    },
+    "local_area": {
+      "ca": "Ad ut.",
+      "en": "Illum nihil.",
+      "es": "Adipisci ut."
+    },
+    "target": {
+      "ca": "Sit et ea.",
+      "en": "Ut libero qui.",
+      "es": "Incidunt provident doloremque."
+    },
+    "decidim_scope_id": null,
+    "paticipatory_scope": {
+      "ca": "Assumenda.",
+      "en": "Quidem.",
+      "es": "Aspernatur."
+    },
+    "participatory_structure": {
+      "ca": "Voluptatem in.",
+      "en": "Vel qui.",
+      "es": "Et molestiae."
+    },
+    "show_statistics": false,
+    "scopes_enabled": true,
+    "private_space": false,
+    "reference": "PhD-ASSE-2020-01-1",
+    "purpose_of_action": {
+      "ca": "<p>Velit a qui. Debitis rem occaecati. Id minus est.</p>",
+      "en": "<p>Perspiciatis voluptas et. Officiis ratione corporis. Voluptas iusto qui.</p>",
+      "es": "<p>Sit pariatur et. Modi ea earum. Suscipit labore ipsum.</p>"
+    },
+    "composition": {
+      "ca": "<p>Quos libero nobis. Fugiat quia et. Nam non quae.</p>",
+      "en": "<p>Ex optio illo. Dolor sunt quam. Et fugit molestiae.</p>",
+      "es": "<p>Incidunt sint veniam. Illum repellendus quos. Et tenetur voluptatum.</p>"
+    },
+    "duration": "2020-01-24",
+    "participatory_scope": {
+      "ca": "Assumenda.",
+      "en": "Quidem.",
+      "es": "Aspernatur."
+    },
+    "included_at": "2020-01-27",
+    "closing_date": "2020-01-27",
+    "created_by": "others",
+    "creation_date": "2020-01-23",
+    "closing_date_reason": {
+      "ca": "Dolorum id voluptate.",
+      "en": "Voluptatibus quasi omnis.",
+      "es": "Similique et expedita."
+    },
+    "internal_organisation": {
+      "ca": "<p>Reprehenderit nisi non. Unde quia cum. Ea saepe deleniti.</p>",
+      "en": "<p>Optio ducimus velit. Facilis omnis asperiores. Corporis ipsa non.</p>",
+      "es": "<p>Est dolorum et. Quo sed ut. Corporis quos sit.</p>"
+    },
+    "is_transparent": true,
+    "special_features": {
+      "ca": "<p>Dolor et reprehenderit. Unde soluta eum. Omnis occaecati omnis.</p>",
+      "en": "<p>Et atque perspiciatis. Quas impedit corporis. Nesciunt blanditiis ipsa.</p>",
+      "es": "<p>Rerum eligendi hic. Iure aut expedita. Sapiente ut corrupti.</p>"
+    },
+    "twitter_handler": "aliquam",
+    "instagram_handler": "corrupti",
+    "facebook_handler": "velit",
+    "youtube_handler": "ducimus",
+    "github_handler": "in",
+    "created_by_other": {
+      "ca": "vitae",
+      "en": "ut",
+      "es": "rerum"
+    },
+    "decidim_assemblies_type_id": 1,
+    "area": {
+      "id": null,
+      "name": {
+        "en": "",
+        "ca": "",
+        "es": ""
+      }
+    },
+    "scope": {
+      "id": null,
+      "name": {
+        "en": "",
+        "ca": "",
+        "es": ""
+      }
+    },
+    "assembly_categories": null,
+    "attachments": {
+      "attachment_collections": null,
+      "files": null
+    },
+    "components": null
+  }
+]

@@ -1,0 +1,13 @@
+bg:
+  activemodel:
+    attributes:
+      initiative:
+        decidim_user_group_id: Автор
+        description: Описание
+        offline_votes: Лични подписи
+  decidim:
+    initiatives:
+      application_helper:
+        filter_state_values:
+          closed: Затворен
+          open: Отворен

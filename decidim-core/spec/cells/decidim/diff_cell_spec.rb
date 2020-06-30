@@ -66,7 +66,7 @@ describe Decidim::DiffCell, versioning: true, type: :cell do
       end
 
       it "sanitizes potentially malicious HTML tags" do
-        expect(html).not_to have_selector("script", visible: false)
+        expect(html).not_to have_selector("script", visible: :all)
         expect(html).to have_content("alert('SCRIPT')")
       end
     end
@@ -84,7 +84,7 @@ describe Decidim::DiffCell, versioning: true, type: :cell do
       end
 
       it "sanitizes potentially malicious HTML tags" do
-        expect(html).not_to have_selector("script", visible: false)
+        expect(html).not_to have_selector("script", visible: :all)
         expect(html).to have_content("alert('SCRIPT')")
       end
     end

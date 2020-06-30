@@ -1,0 +1,19 @@
+bg:
+  activemodel:
+    attributes:
+      collaborative_draft:
+        address: Адрес
+        body: Тяло
+        category_id: Категория
+  decidim:
+    components:
+      proposals:
+        settings:
+          global:
+            participatory_texts_enabled_readonly: Тази настройка не е активна, ако има съществуващи предложения. Моля, създайте нов компонент „Предложения“, ако желаете да активирате тази функция или изчистете всички внесени предложения в менюто „Текст на участници“, ако искате да я деактивирате.
+    proposals:
+      versions:
+        collaborative_drafts:
+          back_to_resource: Обратно към съвместната чернова
+        proposals:
+          back_to_resource: Обратно към предложението

@@ -39,7 +39,7 @@ Mark `develop` as the reference to the next release:
 
   ## Previous versions
 
-  Please check [0.XX-stable](https://github.com/decidim/decidim/blob/0.XX-stable/CHANGELOG.md) for previous changes.
+  Please check [0.XX-stable](https://github.com/decidim/decidim/blob/release/0.XX-stable/CHANGELOG.md) for previous changes.
   ```
 
 1. Push the changes `git add . && git commit -m "Bump develop to next release version" && git push origin develop`
@@ -75,21 +75,21 @@ Release Candidates will be tested in a production server (usually meta-decidim) 
 1. Run `bin/rake webpack`, this will update the JavaScript bundle.
 1. Commit all the changes: `git add . && git commit -m "Bump to v0.XX.0 final version" && git push origin release/x.y.z`.
 1. Follow the link resulting from the previous command to create the PR for the new version in case it has not been created already, but still don't merge it. The base for the PR should be `master`.
-1. Before merging the PR to upgrade `master`, check that the stable branch for the previous version exists. For instance, if we are going to release v0.22.0, there should be a `0.21-stable` branch in the repository. If such branch does not exists, it has to be created now, before merging the new release. So, if this is the release of v0.22.0, branch `0.21-stable` from `master`. These stable branches will be able to receive bugfixes, backports and will be the origin of patch releases for older releases.
+1. Before merging the PR to upgrade `master`, check that the stable branch for the previous version exists. For instance, if we are going to release v0.22.0, there should be a `release/0.21-stable` branch in the repository. If such branch does not exists, it has to be created now, before merging the new release. So, if this is the release of v0.22.0, branch off `release/0.21-stable` from `master`. These stable branches will be able to receive bugfixes, backports and will be the origin of patch releases for older releases.
 1. Merge (after proper peer review) the PR to `master` and remove `release/x.y.z` branch.
 1. Run `git checkout master && bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems.
 1. Once all the gems are published you should create a new release at this repository, just go to the [releases page](https://github.com/decidim/decidim/releases) and create a new one.
-1. Create the stable branch for the current version. From `master`: `git checkout -b x.y-stable && git push origin x.y-stable`.
+1. Create the stable branch for the current version. From `master`: `git checkout -b release/x.y-stable && git push origin release/x.y-stable`.
 1. Update Decidim's Docker repository as explained in the Docker images section below.
 1. Update Crowdin synchronization configuration with Github:
-    1. Add the new `x.y-stable` branch.
+    1. Add the new `release/x.y-stable` branch.
     1. Remove from Crowdin branches that are not officially supported anymore. That way they don't synchronize with Github.
 
 ### Releasing patch versions
 
-Releasing new versions from an ***x.y-stable*** branch is quite easy. The process is very similar from releasing a new Decidim version:
+Releasing new versions from a ***release/x.y-stable*** branch is quite easy. The process is very similar from releasing a new Decidim version:
 
-1. Checkout the branch you want to release: `git checkout -b VERSION-stable`
+1. Checkout the branch you want to release: `git checkout -b release/x.y-stable`
 1. Update `.decidim-version` to the new version number.
 1. Run `bin/rake update_versions`, this will update all references to the new version.
 1. Run `bin/rake bundle`, this will update all the `Gemfile.lock` files
