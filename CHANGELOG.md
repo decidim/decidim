@@ -200,6 +200,7 @@ Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now sup
 
 **Fixed**:
 
+- **decidim-forms**: Fixes a performance degradation when displaying forms in surveys. [\#6255](https://github.com/decidim/decidim/pull/6255)
 - **decidim-admin**: Fix: let components without step settings be added [\#6144](https://github.com/decidim/decidim/pull/6144)
 - **decidim-core** Patch various security alerts reported by GitHub. [\#6149](https://github.com/decidim/decidim/pull/6149)
 - **decidim-debates**: Fix a notification failure when the creating a new debate event is fired. [\#6017](https://github.com/decidim/decidim/pull/6017)
@@ -231,7 +232,6 @@ Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now sup
 - **decidim-core**: Fix: use of browse history with filters [#5749](https://github.com/decidim/decidim/pull/5749)
 - **decidim-budgets**: Add a missing fix applied to proposals in [\#5654](https://github.com/decidim/decidim/pull/5654) but not to projects [\#5743](https://github.com/decidim/decidim/pull/5743)
 - **decidim-proposals**: Admin: fix "Answer Proposal" action tooltip [/#5750](https://github.com/decidim/decidim/pull/5750)
-- **decidim-forms**: Fixes a performance degradation when displaying forms in surveys. [\#5819](https://github.com/decidim/decidim/pull/5819)
 - **decidim-proposals**: Fix relative path in mentioned proposal email [\#5852](https://github.com/decidim/decidim/pull/5852)
 
 **Removed**:
