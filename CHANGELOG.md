@@ -2,7 +2,15 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
-### Upgrade notes
+## Upgrade Notes
+
+- **Stable branches nomenclature changes**
+
+Since this release we're changing the branch nomenclature for stable branches. Until now we were using `x.y-stable`, now we will use `release/x.y-stable`.
+Legacy names for stable branches will be kept for a while but won't be created anymore, so new releases won't have the old `x.y-stable` nomenclature.
+
+The plan is to keep new and old nomenclatures until the release of v0.25, so they will coexist until that release.
+When releasing v0.25 all stable branches with the nomenclature `x.y-stable` will be removed.
 
 - **Endorsements**
 
@@ -14,8 +22,6 @@ After this, `Decidim::Proposals::ProposalEndorsement` and the corresponding coun
 ### Added
 
 ### Changed
-
-- **decidim-proposals**: Remove legacy proposal endorsements. [\#5643](https://github.com/decidim/decidim/pull/5643)
 
 ### Fixed
 
@@ -29,6 +35,8 @@ After this, `Decidim::Proposals::ProposalEndorsement` and the corresponding coun
 - **decidim-forms**: Fix rubocop errors arising from capybara upgrade [\#6197](https://github.com/decidim/decidim/pull/6197)
 
 ### Removed
+
+- **decidim-proposals**: Remove legacy proposal endorsements. [\#5643](https://github.com/decidim/decidim/pull/5643)
 
 ## Previous versions
 
