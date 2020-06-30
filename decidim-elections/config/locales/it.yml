@@ -102,7 +102,7 @@ it:
             invalid: Si è verificato un problema durante l'importazione delle proposte nelle risposte
             success: "%{number} proposte importate con successo in risposte"
           new:
-            create: Importa proposte in risposte
+            create: Importa proposte a cui rispondere
             no_components: Non vi sono altre componenti di proposte in questo spazio partecipativo per importare le proposte in risposte.
             select_component: Si prega di selezionare un componente
         questions:
