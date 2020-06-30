@@ -108,6 +108,7 @@ pt:
             minimum_votes_per_user: Mínimo de votos por usuário
             new_proposal_help_text: Novo texto de ajuda da proposta
             official_proposals_enabled: Proposta oficial habilitada
+            participatory_texts_disabled_help: Não é possível interagir com esta configuração se houver propostas existentes. Por Favor, crie um novo componente `Propostas` se você quiser habilitar esta funcionalidade ou descartar todas as propostas importadas no menu `Participatory Texts` se você quiser desativá-la.
             participatory_texts_enabled: Textos participativos habilitados
             proposal_answering_enabled: Resposta de proposta ativada
             proposal_edit_before_minutes: As propostas podem ser editadas pelos autores antes que muitos minutos passem.
@@ -121,6 +122,7 @@ pt:
             threshold_per_proposal: Limiar por proposta
             vote_limit: Limite de voto por usuário
           step:
+            amendments_visibility: Visibilidade do conteúdo
             announcement: Anúncio
             automatic_hashtags: Hashtags adicionados a todas as propostas
             comments_blocked: Comentários bloqueados
@@ -372,8 +374,10 @@ pt:
             title: Atualizar proposta
             update: Atualizar
           form:
+            add_images: Adicionar imagens
             attachment_legend: "(Opcional) Adicionar um anexo"
             created_in_meeting: Esta proposta vem de uma reunião
+            gallery_legend: "(Opcional) Adicionar uma galeria de imagens"
             select_a_category: Selecione uma categoria
             select_a_meeting: Selecione uma reunião
           index:
