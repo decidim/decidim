@@ -33,7 +33,7 @@
 // = require decidim/conversations
 // = require decidim/delayed
 // = require decidim/icon
-// = require decidim/external_link
+/* = require decidim/external_link */
 // = require decidim/vizzs
 // = require decidim/responsive_horizontal_tabs.js
 
@@ -64,7 +64,7 @@ $(() => {
 
   // Prevent data-open buttons e.g. from submitting the underlying form in
   // authorized action buttons.
-  $("[data-open]").on("click", (event) => {
+  $("[data-open]").on("click", event => {
     event.preventDefault();
   });
 
