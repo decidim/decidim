@@ -9,6 +9,7 @@ module Decidim
       include FormFactory
       include FilterResource
       include Paginable
+      include Flaggable
 
       helper_method :debates, :debate, :paginated_debates, :report_form
 
@@ -36,6 +37,10 @@ module Decidim
         end
       end
 
+      def show
+        raise ActionController::RoutingError, "Not Found" if debate.blank?
+      end
+
       private
 
       def paginated_debates
@@ -48,7 +53,7 @@ module Decidim
       end
 
       def debate
-        @debate ||= debates.find(params[:id])
+        @debate ||= debates.find_by(id: params[:id])
       end
 
       def report_form
