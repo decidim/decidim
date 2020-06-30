@@ -349,7 +349,7 @@ es:
           category: Categoría
           category_prompt: Selecciona una categoría
           date: Fecha
-          past: Pasadas
+          past: Pasados
           search: Buscar
           upcoming: Próximas
         filters_small_view:
