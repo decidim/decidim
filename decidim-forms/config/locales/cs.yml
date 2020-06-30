@@ -30,6 +30,24 @@ cs:
             free_text: Volný text
             remove: Odstranit
             statement: Prohlášení
+          display_condition:
+            answer_option: Možnost odpovědi
+            condition_question: Otázka
+            condition_type: Podmínka
+            condition_types:
+              answered: Odpovězeno
+              equal: Rovná se
+              match: Zahrnuje text
+              not_answered: Nezodpovězeno
+              not_equal: Není rovno
+            condition_value: Zahrnuje text
+            display_condition: Stav zobrazení
+            mandatory: Tato podmínka musí být splněna vždy bez ohledu na stav ostatních podmínek
+            remove: Odebrat
+            save_warning: Nezapomeňte uložit formulář před nastavením podmínek zobrazení
+            select_answer_option: Vyberte možnost odpovědi
+            select_condition_question: Vyberte otázku
+            select_condition_type: Vyberte typ podmínky
           edit:
             save: Uložit
             title: Upravit dotazník
@@ -45,6 +63,8 @@ cs:
             statement: Prohlášení
           question:
             add_answer_option: Přidat možnost odpovědi
+            add_display_condition: Přidat podmínku zobrazení
+            add_display_condition_info: Uložit formulář pro nastavení podmínek zobrazení
             add_matrix_row: Přidat řádek
             any: Žádný
             collapse: Sbalit
@@ -104,6 +124,9 @@ cs:
           questionnaire_for_private_users:
             body: Dotazník je k dispozici pouze pro soukromé uživatele
             title: Dotazník byl uzavřen
+          questionnaire_js_disabled:
+            body: Některé funkce tohoto formuláře budou zakázány. Pro zlepšení použití formuláře povolte JavaScript ve vašem prohlížeči.
+            title: JavaScript je zakázán
           tos_agreement: Účastí přijímáte jeho smluvní podmínky
       step_navigation:
         show:

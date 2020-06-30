@@ -9,7 +9,7 @@ module Decidim
     describe ElectionType, type: :graphql do
       include_context "with a graphql type"
 
-      let(:model) { create(:election, :complete) }
+      let(:model) { create(:election, :published, :complete) }
 
       it_behaves_like "traceable interface" do
         let(:author) { create(:user, :admin, organization: model.component.organization) }
@@ -60,6 +60,14 @@ module Decidim
 
         it "returns the election's end time" do
           expect(Time.zone.parse(response["endTime"])).to be_within(1.second).of(model.end_time)
+        end
+      end
+
+      describe "publishedAt" do
+        let(:query) { "{ publishedAt }" }
+
+        it "returns the election's published time" do
+          expect(Time.zone.parse(response["publishedAt"])).to be_within(1.second).of(model.published_at)
         end
       end
 

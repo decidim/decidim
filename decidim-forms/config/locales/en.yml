@@ -31,6 +31,24 @@ en:
             free_text: Free text
             remove: Remove
             statement: Statement
+          display_condition:
+            answer_option: Answer option
+            condition_question: Question
+            condition_type: Condition
+            condition_types:
+              answered: Answered
+              equal: Equal
+              match: Includes text
+              not_answered: Not answered
+              not_equal: Not equal
+            condition_value: Included text
+            display_condition: Display condition
+            mandatory: This condition needs to be satisfied always regardless the status of other conditions
+            remove: Remove
+            save_warning: Remember to save the form before configuring display conditions
+            select_answer_option: Select answer option
+            select_condition_question: Select a question
+            select_condition_type: Select a condition type
           edit:
             save: Save
             title: Edit questionnaire
@@ -46,6 +64,8 @@ en:
             statement: Statement
           question:
             add_answer_option: Add answer option
+            add_display_condition: Add display condition
+            add_display_condition_info: Save the form to configure display conditions
             add_matrix_row: Add row
             any: Any
             collapse: Collapse
@@ -105,6 +125,9 @@ en:
           questionnaire_for_private_users:
             body: The form is available only for private users
             title: Form closed
+          questionnaire_js_disabled:
+            body: Some of this form's features will be disabled. To improve your experience, please enable JavaScript in your browser.
+            title: JavaScript is disabled
           tos_agreement: By participating you accept its Terms of Service
       step_navigation:
         show:
