@@ -77,13 +77,13 @@
                 <%= resource_permissions_link(meeting) %>
 
                 <% if allowed_to? :destroy, :meeting, meeting: meeting %>
-                  <% if present(meeting).proposals.empty? %>
+                  <% if present(meeting).authored_proposals.empty? %>
                     <%= icon_link_to "circle-x", meeting_path(meeting), t("actions.destroy", scope: "decidim.meetings"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.meetings") } %>
                   <% else %>
                     <%=
                       content_tag(:button,
                                   class: ["action-icon", "action-icon--remove", "destroy-meeting-alert"],
-                                  "data-invalid-destroy-message" => t("actions.invalid_destroy.proposals_count", count: present(meeting).proposals.size, scope: "decidim.meetings"),
+                                  "data-invalid-destroy-message" => t("actions.invalid_destroy.proposals_count", count: present(meeting).authored_proposals.size, scope: "decidim.meetings"),
                                   "data-proposal-titles" => present(meeting).formatted_proposals_titles) do
                         content_tag(:span,
                                     data: { tooltip: true, disable_hover: false, click_open: false },
