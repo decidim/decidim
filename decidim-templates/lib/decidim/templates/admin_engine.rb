@@ -15,16 +15,20 @@ module Decidim
           member do
             post :copy
 
-            resource :questionnaire, module: "questionnaire_templates"
+            resource :questionnaire, module: "questionnaire_templates" do
+            end
           end
-
+          
+          
           collection do
             post :skip
             post :apply
             get :preview
           end
         end
-
+        
+        get "/questionnaire_template/questionnaire/answer_options", to: "questionnaires#answer_options", as: "answer_options_template"
+        
         root to: "questionnaire_templates#index"
       end
 
