@@ -21,8 +21,9 @@ module Decidim
       include Decidim::Forms::HasQuestionnaire
       include Decidim::Paddable
       include Decidim::ActsAsAuthor
+      include Decidim::Reportable
+      include Decidim::Authorable
 
-      belongs_to :organizer, foreign_key: "organizer_id", class_name: "Decidim::User", optional: true
       has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id", dependent: :destroy
       has_many :invites, class_name: "Decidim::Meetings::Invite", foreign_key: "decidim_meeting_id", dependent: :destroy
       has_one :minutes, class_name: "Decidim::Meetings::Minutes", foreign_key: "decidim_meeting_id", dependent: :destroy
@@ -31,7 +32,6 @@ module Decidim
       component_manifest_name "meetings"
 
       validates :title, presence: true
-      validate :organizer_belongs_to_organization
 
       geocoded_by :address, http_headers: ->(proposal) { { "Referer" => proposal.component.organization.host } }
 
@@ -46,6 +46,20 @@ module Decidim
                                   }
 
       scope :visible, -> { where("decidim_meetings_meetings.private_meeting != ? OR decidim_meetings_meetings.transparent = ?", true, true) }
+
+      scope :official_origin, lambda {
+        where(decidim_author_type: "Decidim::Organization")
+      }
+
+      scope :user_group_origin, lambda {
+        where(decidim_author_type: "Decidim::UserBaseEntity")
+          .where.not(decidim_user_group_id: nil)
+      }
+
+      scope :citizens_origin, lambda {
+        where(decidim_author_type: "Decidim::UserBaseEntity")
+          .where(decidim_user_group_id: nil)
+      }
 
       searchable_fields({
                           scope_id: :decidim_scope_id,
@@ -133,16 +147,6 @@ module Decidim
         can_participate_in_space?(user) && can_participate_in_meeting?(user)
       end
 
-      def organizer_belongs_to_organization
-        return if !organizer || !organization
-
-        errors.add(:organizer, :invalid) unless organizer.organization == organization
-      end
-
-      def official?
-        organizer.nil?
-      end
-
       def current_user_can_visit_meeting?(current_user)
         (private_meeting? && registrations.exists?(decidim_user_id: current_user.try(:id))) ||
           !private_meeting? || (private_meeting? && transparent?)
@@ -171,6 +175,11 @@ module Decidim
         return false unless pad_is_visible?
 
         (Time.current - end_time) < 72.hours
+      end
+
+      # Public: Overrides the `reported_content_url` Reportable concern method.
+      def reported_content_url
+        ResourceLocatorPresenter.new(self).url
       end
 
       private

@@ -42,10 +42,10 @@ module Decidim::Meetings
         category: meeting.category,
         services_to_persist: services_to_persist,
         current_user: current_user,
-        organizer: meeting.organizer,
         questionnaire: Decidim::Forms::Questionnaire.new,
         private_meeting: meeting.private_meeting,
         transparent: meeting.transparent,
+        current_organization: current_user.organization,
         current_component: meeting.component
       )
     end
