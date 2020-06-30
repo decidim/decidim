@@ -6,7 +6,7 @@ module Decidim::Meetings
   describe Admin::DestroyMeeting do
     subject { described_class.new(meeting, user) }
 
-    let(:meeting) { create :meeting, component: meeting_component, organizer: user }
+    let(:meeting) { create :meeting, component: meeting_component }
     let(:user) { create :user, :admin, organization: organization }
 
     let(:organization) { create(:organization) }
