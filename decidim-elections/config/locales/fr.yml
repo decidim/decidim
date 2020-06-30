@@ -34,6 +34,10 @@ fr:
         one: Question
         other: Questions
   decidim:
+    admin_log:
+      election:
+        publish: "%{user_name} a publié l'élection %{resource_name}"
+        unpublish: "%{user_name} a dépublié l'élection %{resource_name}"
     components:
       elections:
         name: Élections
@@ -52,7 +56,9 @@ fr:
         import: Importer des propositions dans les réponses
         new: Nouveau %{name}
         preview: Aperçu
+        publish: Publier
         title: Actions
+        unpublish: Dépublier
       admin:
         answers:
           create:
@@ -87,6 +93,10 @@ fr:
           new:
             create: Créer une élection
             title: Nouvelle élection
+          publish:
+            success: L'élection a été publiée avec succès.
+          unpublish:
+            success: L'élection a été dépubliée avec succès.
           update:
             invalid: Il y a eu un problème lors de la mise à jour de cette élection
             success: Élection mise à jour avec succès
@@ -136,6 +146,13 @@ fr:
             answers: Réponses
             max_selections: Nombre maximum de sélections
             title: Titre
+    events:
+      elections:
+        election_published:
+          email_intro: 'L''élection %{resource_title} est maintenant active pour %{participatory_space_title}. Vous pouvez la voir sur cette page :'
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_subject: L'élection %{resource_title} est maintenant active pour %{participatory_space_title}.
+          notification_title: L'élection de <a href="%{resource_path}">%{resource_title}</a> est maintenant active pour %{participatory_space_title}.
     participatory_processes:
       statistics:
         elections_count: Élections

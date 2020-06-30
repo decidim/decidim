@@ -31,6 +31,14 @@
               </div>
             <% else %>
               <div class="answer-questionnaire">
+                <noscript>
+                  <div class="section">
+                    <div class="callout warning">
+                      <h5><%= t(".questionnaire_js_disabled.title") %></h5>
+                      <p><%= t(".questionnaire_js_disabled.body") %></p>
+                    </div>
+                  </div>
+                </noscript>
                 <% unless current_participatory_space.can_participate?(current_user) %>
                   <div class="section">
                     <div class="callout alert">
@@ -53,7 +61,11 @@
                       <% end %>
 
                       <% step_answers.each do |answer| %>
-                        <div class="row column answer" data-max-choices="<%= answer.question.max_choices %>">
+                        <div class="row column answer question" data-max-choices="<%= answer.question.max_choices %>" data-conditioned="<%= answer.question.display_conditions.any? %>" data-question-id="<%= answer.question.id %>">
+                          <% answer.question.display_conditions.each do |display_condition| %>
+                            <%= content_tag :div, nil,  class: "display-condition", data: display_condition.to_html_data %>
+                          <% end %>
+
                           <%= fields_for "questionnaire[responses][#{answer_idx}]", answer do |answer_form| %>
                             <%= render(
                               "decidim/forms/questionnaires/answer",
@@ -106,7 +118,7 @@
               </p>
 
               <ol>
-                <%= cell("decidim/forms/question_readonly", collection: @questionnaire.questions) %>
+                <%= cell("decidim/forms/question_readonly", collection: @questionnaire.questions.not_conditioned) %>
               </ol>
             </div>
           <% end %>

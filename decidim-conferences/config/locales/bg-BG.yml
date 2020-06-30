@@ -1,0 +1,7 @@
+bg:
+  activemodel:
+    attributes:
+      conference:
+        assemblies_ids: Свързани събрания
+        banner_image: Банер изображение
+        consultations_ids: Свързани консултации
