@@ -272,7 +272,7 @@ it:
               other: La votazione termina tra <strong>%{count} giorni</strong>
             voting_ends_today: La votazione termina <strong>oggi</strong>
       question:
-        take_part: Prendere parte
+        take_part: Vota
         view_results: Vedi i risultati
         votes_out_of:
           one: votare fuori
