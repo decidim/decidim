@@ -352,7 +352,7 @@ it:
           date: Data
           past: Conclusi
           search: Cerca
-          upcoming: Prossimi
+          upcoming: Prossime
         filters_small_view:
           close_modal: Chiudi modalità
           filter: Filtra
