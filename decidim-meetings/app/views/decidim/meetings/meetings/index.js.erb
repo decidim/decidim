@@ -1,6 +1,8 @@
 var $meetings = $('#meetings');
+var $meetingsCount = $('#meetings-count');
 
 $meetings.html('<%= j(render partial: "meetings").strip.html_safe %>');
+$meetingsCount.html('<%= j(render partial: "count").strip.html_safe %>');
 
 var $dropdownMenu = $('.dropdown.menu', $meetings);
 $dropdownMenu.foundation();

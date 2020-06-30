@@ -17,7 +17,7 @@ describe Decidim::Meetings::Admin::Permissions do
     }
   end
   let(:meeting_component) { create :meeting_component }
-  let(:meeting) { create :meeting, component: meeting_component }
+  let(:meeting) { create :meeting, :official, component: meeting_component }
   let(:agenda) { create :agenda }
   let(:minutes) { create :minutes }
   let(:questionnaire) { create :questionnaire }
@@ -103,6 +103,13 @@ describe Decidim::Meetings::Admin::Permissions do
 
   context "when subject is a meeting" do
     let(:action_subject) { :meeting }
+
+    context "when meeting is not official" do
+      let(:meeting) { create :meeting, :not_official, component: meeting_component }
+      let(:action_name) { :update }
+
+      it { is_expected.to eq false }
+    end
 
     context "when creating a meeting" do
       let(:action_name) { :create }

@@ -225,6 +225,7 @@ ignore_unused:
   - decidim.proposals.versions.proposals.back_to_resource
   - decidim.initiatives.versions.shared.back_to_resource
   - decidim.meetings.actions.invalid_destroy.proposals_count.*
+  - decidim.meetings.versions.back_to_resource
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:
