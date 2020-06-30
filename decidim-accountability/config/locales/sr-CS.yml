@@ -153,30 +153,16 @@ sr:
         show:
           stats:
             attendees: Učesnici
-            back_to_result: Vrati se na rezultat
+            back_to_resource: Vrati se na rezultat
             comments: Komentari
             contributions: Doprinosi
             last_edited_by: Poslednji put izmenjeno od strane
             last_updated_at: Poslеdnji put ažurirano
             meetings: Sastanci
-            number_of_versions: Verzije
             proposals: Predlozi
-            show_all_versions: Prikaži sve verzije
-            version_author: Autor verzije
-            version_created_at: Verzija napravljena na
-            version_number: Broj verzije
-            version_number_out_of_total: "%{current_version} od %{total_count}"
             votes: Podržavanja
         timeline:
           title: Evolucija projekta
-      versions:
-        index:
-          changes_at_title: Promene na %{title}
-          title: Verzije
-        show:
-          changes_at_title: Promene na %{title}
-        version:
-          version_index: Verzija %{index}
     components:
       accountability:
         name: Odgovornost

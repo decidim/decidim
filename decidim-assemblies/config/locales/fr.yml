@@ -106,8 +106,17 @@ fr:
           error: Il y a eu un problème lors de la mise à jour des paramètres.
           success: Paramètres mis à jour avec succès.
       assemblies_types:
+        create:
+          error: Une erreur s'est produite lors de la création d'un nouveau type d'assemblée.
+          success: Type d'assemblée créé avec succès.
+        destroy:
+          success: Type d'assemblée supprimé avec succès.
         new:
           create: Créer
+          title: Nouveau type d'assemblée
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de ce type d'assemblée.
+          success: Type d'assemblée mis à jour avec succès.
       assembly_copies:
         new:
           copy: Copier
@@ -156,6 +165,7 @@ fr:
           success: Utilisateur mis à jour avec succès pour cette assemblée.
       menu:
         assemblies: Assemblées
+        assemblies_settings: Paramètres
         assemblies_submenu:
           assembly_admins: Administrateurs de l'assemblée
           assembly_members: Membres
@@ -167,6 +177,7 @@ fr:
           info: Information
           moderations: Modérations
           private_users: Utilisateurs privés
+        assemblies_types: Types d'assemblée
       models:
         assemblies_types:
           fields:
@@ -202,8 +213,10 @@ fr:
             admin: Administrateur
             collaborator: Collaborateur
             moderator: Modérateur
+            valuator: Évaluateur
       titles:
         assemblies: Assemblées
+        assemblies_types: Types d'assemblée
     admin_log:
       assembly:
         create: "%{user_name} a créé l'assemblée %{resource_name}"
@@ -214,6 +227,14 @@ fr:
         create: "%{user_name} a créé le membre %{resource_name} membre dans l'assemblée %{space_name}"
         delete: "%{user_name} enlevé le membre %{resource_name} de l'assemblée %{space_name}"
         update: "%{user_name} a mis à jour le membre %{resource_name} de l'assemblée %{space_name}"
+      assembly_setting:
+        update: "%{user_name} a mis à jour les paramètres des assemblées"
+      assembly_type:
+        create: "%{user_name} a créé le type d'assemblée %{resource_name}"
+        delete: "%{user_name} a retiré le membre %{resource_name} du type d'assemblé %{space_name}"
+        publish: "%{user_name} a publié le type d'assemblée %{resource_name}"
+        unpublish: "%{user_name} a dépublié le type d'assemblée %{resource_name}"
+        update: "%{user_name} a mis à jour le type d'assemblée %{resource_name}"
       assembly_user_role:
         create: "%{user_name} a invité %{resource_name} à l'assemblée %{space_name}"
         delete: "%{user_name} a supprimé l'utilisateur %{resource_name} de l'assemblée%{space_name}"
@@ -237,6 +258,11 @@ fr:
             social_handlers: Réseaux sociaux
             title: Informations générales
             visbility: Visibilité
+        assemblies_settings:
+          edit:
+            update: Mettre à jour
+          form:
+            title: Paramètres pour les assemblées
         assemblies_types:
           form:
             title: Titre
@@ -296,6 +322,7 @@ fr:
         home:
           highlighted_assemblies:
             active_assemblies: Assemblées actives
+            assemblies_button_title: Lien vers la page Assemblées où toutes les assemblées sont affichées
             see_all_assemblies: Voir toutes les assemblées
         user_profile:
           member_of:
@@ -326,6 +353,7 @@ fr:
         related_participatory_processes: Concertations associées
         scope: Périmètre d'application
         social_networks: Réseaux sociaux
+        social_networks_title: Partager cette assemblée sur
         target: Participants
       statistics:
         answers_count: Réponses
@@ -337,6 +365,7 @@ fr:
         meetings_count: Rencontres
         orders_count: Votes
         pages_count: Pages
+        posts_count: Publications
         projects_count: Projets
         proposals_count: Propositions
         results_count: Réalisations
@@ -348,6 +377,24 @@ fr:
         designated_on: Désigné le
       index:
         title: Membres
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Lien vers la page Conférences où toutes les conférences sont affichées
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: Un administrateur de l'assemblée <a href="%{resource_url}">%{resource_name}</a> vous y a ajouté en tant que membre.
+          email_outro: Vous avez reçu cette notification parce que vous avez été invité à rejoindre une assemblée. Consultez <a href="%{resource_path}">la page de l'assemblée</a> pour y contribuer !
+          email_subject: Vous avez été invité à être membre de l'assemblée %{resource_name}!
+          notification_title: Vous avez été inscrit en tant que membre de l'assemblée <a href="%{resource_path}">%{resource_name}</a>. Consultez la <a href="%{resource_path}">page de l'assemblée</a> pour contribuer !
+      assembly:
+        role_assigned:
+          email_intro: Vous avez été assigné le rôle de %{role} de l'assemblée "%{resource_title}".
+          email_outro: Vous avez reçu cette notification parce que vous êtes %{role} de l'assemblée "%{resource_title}".
+          email_subject: Vous avez été assigné le rôle de %{role} pour l'assemblée "%{resource_title}".
+          notification_title: Vous avez été assigné le rôle de %{role} pour l'assemblée <a href="%{resource_url}">%{resource_title}</a>.
     help:
       participatory_spaces:
         assemblies:
@@ -358,6 +405,8 @@ fr:
       value_types:
         assembly_presenter:
           not_found: 'L''assemblée n''a pas été trouvée sur la base de données (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'Le type d''assemblée n''a pas été trouvé sur la base de données (ID: %{id})'
     menu:
       assemblies: Assemblées
     metrics:
@@ -365,6 +414,19 @@ fr:
         description: Nombre d'assemblées créées
         object: assemblées
         title: Assemblées
+    pages:
+      home:
+        hero:
+          participate_title: Participer aux processus de la plateforme
+        sub_hero:
+          register_title: Inscrivez-vous pour accéder à la plateforme
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Lien vers la page Concertation où toutes les concertations sont affichées
+      show:
+        related_assemblies: Assemblées associées
   errors:
     messages:
       cannot_be_blank: ne peut être vide

@@ -38,7 +38,7 @@
       $form.data("changed", true);
     });
 
-    const safePath = $form.data("safe-path");
+    const safePath = $form.data("safe-path").split("?")[0];
     $(document).on("click", "a", (event) => {
       window.exitUrl = event.currentTarget.href;
     });

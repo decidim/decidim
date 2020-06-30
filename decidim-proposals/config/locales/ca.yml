@@ -615,14 +615,11 @@ ca:
             one: i %{count} persona més
             other: i %{count} persones més
           info-message: Aquest és un <strong>esborrany col·laboratiu</strong> per a una proposta. Això significa que pots ajudar les seves autores a modelar la proposta, utilitzant la secció de comentaris a continuació, o a millorar-la demanant accés per editar-la directament. Un vegada les autores et donin accés, podràs fer canvis en aquest esborrany.
-          of_versions: "(de %{number})"
           publish: Publica
           publish_info: Publica aquesta versió de l'esborrany o
           published_proposal: proposta publicada
           request_access: Sol·licitud d'accés
           requested_access: S'ha sol·licitat l'accés
-          see_other_versions: veure altres versions
-          version: Versió %{number}
           version_history: veure l'historial de versions d'aquesta proposta
           withdraw: retira l'esborrany
         states:
@@ -842,20 +839,12 @@ ca:
         error: Hi ha hagut un error en desar l'esborrany col·laboratiu.
         success: L'esborrany col·laboratiu s'ha actualitzat correctament.
       versions:
-        changes_at_title: Canvis a "%{title}"
+        collaborative_drafts:
+          back_to_resource: Torna a l'esborrany col·laboratiu
         index:
           title: Versions
-        stats:
-          back_to_collaborative_draft: Torna a l'esborrany col·laboratiu
-          back_to_proposal: Torna a la proposta
-          number_of_versions: Versions
-          show_all_versions: Mostra totes les versions
-          version_author: Autora de la versió
-          version_created_at: Versió creada a
-          version_number: Número de versió
-          version_number_out_of_total: "%{current_version} de %{total_count}"
-        version:
-          version_index: Versió %{index}
+        proposals:
+          back_to_resource: Torna a la proposta
       withdraw:
         errors:
           has_supports: Aquesta proposta no es pot retirar perquè ja compta amb suports.

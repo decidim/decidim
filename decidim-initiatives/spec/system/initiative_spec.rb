@@ -22,30 +22,34 @@ describe "Initiative", type: :system do
     let!(:initiative) { base_initiative }
     let(:attached_to) { initiative }
 
-    before do
-      visit decidim_initiatives.initiative_path(initiative)
+    it_behaves_like "editable content for admins" do
+      let(:target_path) { decidim_initiatives.initiative_path(initiative) }
     end
 
-    it_behaves_like "editable content for admins"
-
-    it "shows the details of the given initiative" do
-      within "main" do
-        expect(page).to have_content(translated(initiative.title, locale: :en))
-        expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(translated(initiative.description, locale: :en), tags: []))
-        expect(page).to have_content(translated(initiative.type.title, locale: :en))
-        expect(page).to have_content(translated(initiative.scope.name, locale: :en))
-        expect(page).to have_content(initiative.author_name)
-        expect(page).to have_content(initiative.hashtag)
-        expect(page).to have_content(initiative.reference)
+    context "when requesting the initiative path" do
+      before do
+        visit decidim_initiatives.initiative_path(initiative)
       end
-    end
 
-    it "shows the author name once in the authors list" do
-      within ".initiative-authors" do
-        expect(page).to have_content(initiative.author_name, count: 1)
+      it "shows the details of the given initiative" do
+        within "main" do
+          expect(page).to have_content(translated(initiative.title, locale: :en))
+          expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(translated(initiative.description, locale: :en), tags: []))
+          expect(page).to have_content(translated(initiative.type.title, locale: :en))
+          expect(page).to have_content(translated(initiative.scope.name, locale: :en))
+          expect(page).to have_content(initiative.author_name)
+          expect(page).to have_content(initiative.hashtag)
+          expect(page).to have_content(initiative.reference)
+        end
       end
-    end
 
-    it_behaves_like "has attachments"
+      it "shows the author name once in the authors list" do
+        within ".initiative-authors" do
+          expect(page).to have_content(initiative.author_name, count: 1)
+        end
+      end
+
+      it_behaves_like "has attachments"
+    end
   end
 end

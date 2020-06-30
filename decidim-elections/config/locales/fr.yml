@@ -1,1 +1,132 @@
 fr:
+  activemodel:
+    attributes:
+      answer:
+        description: Description
+        image: Image
+        proposals: Propositions associées
+        title: Titre
+      election:
+        description: Description
+        end_time: Le vote se termine à
+        start_time: Le vote commence à
+        subtitle: Sous-titre
+        title: Titre
+      question:
+        description: Description
+        max_selections: Nombre maximum de sélections
+        title: Titre
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Doit être téléchargé de nouveau
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Réponse
+        other: Réponses
+      decidim/elections/election:
+        one: Élection
+        other: Élections
+      decidim/elections/question:
+        one: Question
+        other: Questions
+  decidim:
+    components:
+      elections:
+        name: Élections
+        settings:
+          global:
+            announcement: Annonce
+          step:
+            announcement: Annonce
+    elections:
+      actions:
+        confirm_destroy: Êtes-vous certain ?
+        destroy: Détruire
+        edit: Modifier
+        new: Nouveau %{name}
+        preview: Aperçu
+        title: Actions
+      admin:
+        answers:
+          create:
+            invalid: Il y a eu un problème lors de la création de cette réponse
+            success: Réponse créée avec succès
+          destroy:
+            invalid: Un problème est survenu lors de la suppression de cette réponse
+            success: Réponse supprimée avec succès
+          edit:
+            title: Modifier la réponse
+            update: Mettre à jour la réponse
+          index:
+            title: Réponses
+          new:
+            create: Créer une réponse
+            title: Nouvelle réponse
+          update:
+            invalid: Un problème est survenu lors de la mise à jour de cette réponse
+            success: Réponse mise à jour avec succès
+        elections:
+          create:
+            invalid: Il y a eu un problème lors de la création de cette élection
+            success: Élection créée avec succès
+          destroy:
+            invalid: Il y a eu un problème lors de la suppression de cette élection
+            success: Élection supprimée avec succès
+          edit:
+            title: Modifier l'élection
+            update: Mettre à jour l'élection
+          index:
+            title: Élections
+          new:
+            create: Créer une élection
+            title: Nouvelle élection
+          update:
+            invalid: Il y a eu un problème lors de la mise à jour de cette élection
+            success: Élection mise à jour avec succès
+        models:
+          answer:
+            name: Réponse
+          election:
+            name: Élection
+          question:
+            name: Question
+        questions:
+          create:
+            invalid: Il y a eu un problème lors de la création de cette question
+            success: Question créée avec succès
+          destroy:
+            invalid: Un problème est survenu lors de la suppression de cette question
+            success: Question supprimée avec succès
+          edit:
+            title: Modifier la question
+            update: Mettre à jour la question
+          index:
+            title: Questions
+          new:
+            create: Créer une question
+            title: Nouvelle question
+          update:
+            invalid: Une erreur s'est produite lors de la mise à jour de cette question
+            success: Question mise à jour avec succès
+      models:
+        answer:
+          fields:
+            proposals: Propositions
+            title: Titre
+        election:
+          fields:
+            end_time: Prend fin à
+            start_time: Commence à
+            title: Titre
+        question:
+          fields:
+            answers: Réponses
+            max_selections: Nombre maximum de sélections
+            title: Titre
+    participatory_processes:
+      statistics:
+        elections_count: Élections

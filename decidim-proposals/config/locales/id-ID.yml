@@ -530,14 +530,11 @@ id:
           hidden_authors_count:
             other: dan %{count} lebih banyak orang
           info-message: Ini adalah <strong>draf kolaboratif</strong> untuk proposal. Ini berarti Anda dapat membantu penulisnya untuk membentuk proposal menggunakan bagian komentar di bawah ini atau meningkatkannya secara langsung dengan meminta akses untuk mengeditnya. Setelah penulis memberi Anda akses, Anda akan dapat membuat perubahan pada draf ini.
-          of_versions: "(dari %{number})"
           publish: Menerbitkan
           publish_info: Publikasikan versi draf ini atau
           published_proposal: proposal yang dipublikasikan
           request_access: Minta akses
           requested_access: Akses diminta
-          see_other_versions: lihat versi lain
-          version: Versi %{number}
           version_history: lihat riwayat versi untuk proposal ini
           withdraw: tarik draft
         states:
@@ -726,20 +723,12 @@ id:
         error: Ada kesalahan saat menyimpan draf proposal.
         success: Proposal proposal berhasil diperbarui.
       versions:
-        changes_at_title: Perubahan pada "%{title}"
+        collaborative_drafts:
+          back_to_resource: Kembali ke draf kolaboratif
         index:
           title: Versi
-        stats:
-          back_to_collaborative_draft: Kembali ke draf kolaboratif
-          back_to_proposal: Kembali ke proposal
-          number_of_versions: Versi
-          show_all_versions: Tampilkan semua versi
-          version_author: Penulis versi
-          version_created_at: Versi dibuat pada
-          version_number: Nomor versi
-          version_number_out_of_total: "%{current_version} dari %{total_count}"
-        version:
-          version_index: Versi %{index}
+        proposals:
+          back_to_resource: Kembali ke proposal
       withdraw:
         errors:
           has_supports: Proposal ini tidak dapat ditarik karena sudah memiliki dukungan.

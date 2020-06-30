@@ -48,6 +48,8 @@ fr:
             title: titre
       posts:
         show:
+          back: Retour à la liste
+          comments: Commentaires
           view: Voir
         sidebar_blog:
           comments: commentaires
@@ -63,6 +65,8 @@ fr:
           step:
             announcement: Annonce
             comments_blocked: Commentaires désactivés
+            endorsements_blocked: Soutiens bloqués
+            endorsements_enabled: Soutiens activés
     events:
       blogs:
         post_created:

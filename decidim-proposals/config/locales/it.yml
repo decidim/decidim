@@ -624,14 +624,11 @@ it:
             one: e %{count} altra persona
             other: e altre %{count} persone
           info-message: Si tratta di un <strong>progetto collaborativo</strong> per una proposta. Ciò significa che puoi aiutare i loro autori a modellare la proposta utilizzando la sezione dei commenti qui sotto o migliorarla direttamente richiedendo l'accesso per modificarla. Una volta che gli autori ti concederanno l'accesso, sarai in grado di apportare modifiche a questa bozza.
-          of_versions: "(di %{number})"
           publish: Pubblica
           publish_info: Pubblica questa versione della bozza o
           published_proposal: proposta pubblicata
           request_access: Richiesta di accesso
           requested_access: Accesso richiesto
-          see_other_versions: vedi altre versioni
-          version: Versione %{number}
           version_history: vedere la cronologia delle versioni per questa proposta
           withdraw: ritirare la bozza
         states:
@@ -856,20 +853,12 @@ it:
         error: Si sono verificati errori durante il salvataggio della bozza della proposta.
         success: Bozza proposta aggiornata correttamente.
       versions:
-        changes_at_title: Cambiamenti a "%{title}"
+        collaborative_drafts:
+          back_to_resource: Torna alla bozza collaborativa
         index:
           title: versioni
-        stats:
-          back_to_collaborative_draft: Torna alla bozza collaborativa
-          back_to_proposal: Torna alla proposta
-          number_of_versions: versioni
-          show_all_versions: Mostra tutte le versioni
-          version_author: Autore della versione
-          version_created_at: Versione creata il
-          version_number: Numero della versione
-          version_number_out_of_total: "%{current_version} su %{total_count}"
-        version:
-          version_index: Versione %{index}
+        proposals:
+          back_to_resource: Torna alla proposta
       withdraw:
         errors:
           has_supports: Questa proposta non può essere ritirata perché ha già dei supporti.

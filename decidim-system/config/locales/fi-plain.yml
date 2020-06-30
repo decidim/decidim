@@ -80,6 +80,12 @@ fi-pl:
           twitter:
             api_key: API-avain
             api_secret: API-salausavain
+        smtp_settings:
+          instructions:
+            from_label: 'Sähköpostin lähettäjä on: "organisaatiosi-nimi <your-organization@your-provider.org>". Jätä tyhjäksi käyttääksesi lähetysosoitetta nimenä'
+          placeholder:
+            from_email: organisaatiosi@osoitteesi.org
+            from_label: organisaatiosi-nimi
         update:
           error: Organisaation päivityksessä tapahtui virhe.
           success: Organisaatio päivitetty onnistuneesti.
