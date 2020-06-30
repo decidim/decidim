@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Meetings
   describe MeetingPresenter, type: :helper do
-    let(:meeting) { create :meeting, component: meeting_component, organizer: user }
+    let(:meeting) { create :meeting, component: meeting_component }
     let(:user) { create :user, :admin, organization: organization }
 
     let(:organization) { create(:organization) }
@@ -12,6 +12,7 @@ module Decidim::Meetings
     let(:meeting_component) { create(:meeting_component, participatory_space: participatory_process) }
     let(:proposal_component) { create(:proposal_component, participatory_space: participatory_process) }
     let(:proposal) { create(:proposal, component: proposal_component) }
+    let(:meeting_proposals) { meeting.authored_proposals }
 
     let(:presented_meeting) { described_class.new(meeting) }
 
