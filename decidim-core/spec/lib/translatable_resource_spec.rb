@@ -4,32 +4,32 @@ require "spec_helper"
 
 module Decidim
   describe TranslatableResource do
-    let(:dummy_resource) { build :dummy_resource }
+    let(:dummy_resource) { create :dummy_resource }
+    let(:current_locale) { "en" }
 
-    describe "translatable_fields_list" do
+    describe "translatable fields list" do
       it "gets the list of defined translatable fields" do
         expect(dummy_resource.class.translatable_fields_list).to eq([:title])
       end
     end
 
-    describe "when new resource is created" do
-      let(:dummy_resource) { create :dummy_resource }
-      let(:new_resource) { create :dummy_resource}
-      it " enqueues machine translation new resource job" do
-        expect(Decidim::MachineTranslationNewResourceJob).to have_been_enqueued.on_queue("default")
+    describe "when resource is created" do
+      it "enqueues the new resource job" do
+        dummy_resource.save
+        expect(Decidim::MachineTranslationCreateResourceJob).to have_been_enqueued.on_queue("default").with(dummy_resource, current_locale)
       end
     end
 
-    context "when new resource is updated" do
-      before do
+    describe "when resource is updated" do
+      it "enqueues the update resource job" do
         updated_title = Decidim::Faker::Localized.name
-        dummy_resource.update(title: updated_title)      
-      end
-      it "enqueues machine translation update resource job" do
-        expect(Decidim::MachineTranslationUpdatedResourceJob).to have_been_enqueued.on_queue("default")
+        dummy_resource.update(title: updated_title)
+        expect(Decidim::MachineTranslationUpdatedResourceJob).to have_been_enqueued.on_queue("default").with(
+          dummy_resource,
+          dummy_resource.translatable_previous_changes,
+          current_locale
+        )
       end
     end
-
-
   end
 end
