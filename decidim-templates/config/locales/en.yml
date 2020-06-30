@@ -27,12 +27,11 @@ en:
     models:
       questionnaire_template:
         fields:
-          questions: Questions
-          title: Title
+          questions: "Number of questions"
+          title: Questionnaire Title
       template:
         fields:
           created_at: Created at
-          name: Name
         name: Template
     templates:
       admin:
