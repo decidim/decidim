@@ -34,7 +34,7 @@ module Decidim
       let(:category) { nil }
       let(:selected) { category }
       let(:options) { {} }
-      let(:prompt_options) { { url: "/some/url", text: "Pick a category" } }
+      let(:prompt_options) { { url: "/some/url", text: "Pick a category", change_url: "/some/other/url"} }
       let(:output) { builder.autocomplete_select(:category_id, selected, options, prompt_options) }
       let(:autocomplete_data) { JSON.parse(subject.xpath("//div[@data-autocomplete]/@data-autocomplete").first.value) }
 
