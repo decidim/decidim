@@ -1,85 +1,85 @@
 // Home
 
-.hero {
+.hero{
   background-size: cover;
   position: relative;
   z-index: 0;
 
-  &::after {
+  &::after{
     content: "";
     display: block;
     position: absolute;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba($black, 0.6);
+    background-color: rgba($black, .6);
   }
 
-  a {
-    &:focus {
+  a{
+    &:focus{
       outline-color: var(--highlight-alternative);
     }
   }
 }
 
-.hero__container {
+.hero__container{
   position: relative;
   z-index: 1;
   text-align: center;
   padding: 3rem 0;
 
-  @include breakpoint(medium) {
+  @include breakpoint(medium){
     padding: 4rem 0;
   }
 
-  @include breakpoint(mediumlarge) {
+  @include breakpoint(mediumlarge){
     padding: 5rem 0;
   }
 
-  @include breakpoint(large) {
+  @include breakpoint(large){
     padding: 6rem 0;
   }
 }
 
-.hero__boxes {
+.hero__boxes{
   text-align: center;
   border-radius: 4px;
-  background-color: rgba($black, 0.5);
+  background-color: rgba($black, .5);
   color: $white;
   margin-top: 1rem;
   padding: $global-padding;
 
-  @include breakpoint(medium) {
+  @include breakpoint(medium){
     text-align: left;
     padding: 2rem 1.5rem;
     margin-top: 2rem;
   }
 
-  @include breakpoint(mediumlarge) {
+  @include breakpoint(mediumlarge){
     margin-top: 3rem;
   }
 
-  @include breakpoint(large) {
+  @include breakpoint(large){
     margin-top: 4rem;
   }
 
-  p {
+  p{
     font-size: rem-calc(17);
   }
 
-  .button {
+  .button{
     display: block;
     margin: 0 auto;
   }
 
-  .box__search {
+  .box__search{
     position: relative;
     margin: 0 auto;
 
-    $color: rgba($body-font-color, 0.3);
+    $color: rgba($body-font-color, .3);
 
     input,
-    input:focus {
+    input:focus{
       color: $body-font-color;
       margin: 0;
       box-shadow: none;
@@ -92,262 +92,263 @@
       height: auto;
       border: 1px solid transparent;
 
-      &::-webkit-input-placeholder {
+      &::-webkit-input-placeholder{
         /* Chrome/Opera/Safari */
         color: $color;
       }
 
-      &::-moz-placeholder {
+      &::-moz-placeholder{
         /* Firefox 19+ */
         color: $color;
       }
 
-      &:-ms-input-placeholder {
+      &:-ms-input-placeholder{
         /* IE 10+ */
         color: $color;
       }
 
-      &:-moz-placeholder {
+      &:-moz-placeholder{
         /* Firefox 18- */
         color: $color;
       }
     }
 
-    svg {
+    svg{
       color: $color;
       position: absolute;
       top: 50%;
       left: $input-padding;
       transform: translateY(-50%);
-      opacity: 0.5;
+      opacity: .5;
     }
   }
 }
 
-.hero-heading {
+.hero-heading{
   margin-bottom: 1.5rem;
   font-size: 2rem;
   line-height: 1;
-  text-shadow: 0 0 5px rgba(black, 0.8);
+  text-shadow: 0 0 5px rgba(black, .8);
 
-  br {
+  br{
     display: none;
   }
 
-  @include breakpoint(medium) {
+  @include breakpoint(medium){
     font-size: 2.5rem;
 
-    br {
+    br{
       display: block;
     }
   }
 
-  @include breakpoint(mediumlarge) {
+  @include breakpoint(mediumlarge){
     font-size: 3.5rem;
   }
 
-  @include breakpoint(large) {
+  @include breakpoint(large){
     font-size: 4.5rem;
   }
 }
 
-.hero-cta {
+.hero-cta{
   margin-top: 1rem;
   padding: 1.2rem 1rem;
 
-  @include breakpoint(medium) {
+  @include breakpoint(medium){
     margin-top: 2rem;
   }
 
-  @include breakpoint(mediumlarge) {
+  @include breakpoint(mediumlarge){
     margin-top: 3rem;
   }
 
-  @include breakpoint(large) {
+  @include breakpoint(large){
     margin-top: 4rem;
   }
 }
 
-.wrapper-home {
+.wrapper-home{
   padding: 4rem 1rem;
 
-  @include breakpoint(medium) {
+  @include breakpoint(medium){
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
 
-  @include breakpoint(large) {
+  @include breakpoint(large){
     padding-left: 4rem;
     padding-right: 4rem;
   }
 }
 
-.wrapper-home--mini {
+.wrapper-home--mini{
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
 
-.home-section:nth-of-type(2n + 1) {
+.home-section:nth-of-type(2n + 1){
   background-color: $light-gray-dark;
 }
 
-.subhero {
+.subhero{
   padding: 4rem 0;
   text-align: center;
 
-  .heading3 {
-    @include breakpoint(medium down) {
+  .heading3{
+    @include breakpoint(medium down){
       font-size: 1.3em;
     }
   }
 
-  .heading2 {
-    @include breakpoint(medium down) {
+  .heading2{
+    @include breakpoint(medium down){
       font-size: 1.5em;
     }
   }
 
-  .heading4 {
-    @include breakpoint(medium down) {
+  .heading4{
+    @include breakpoint(medium down){
       font-size: 1.2em;
     }
   }
 }
 
-.subhero-cta {
+.subhero-cta{
   margin-top: 2rem;
   color: var(--primary);
   display: inline-block;
   position: relative;
 
   &:hover,
-  &:focus {
+  &:focus{
     text-decoration: underline;
     color: var(--primary);
   }
 
-  .icon {
+  .icon{
     position: absolute;
-    top: 0.33em;
+    top: .33em;
     right: -1em;
-    transition: 0.3s right;
+    transition: .3s right;
   }
-  &:hover .icon {
+
+  &:hover .icon{
     right: -1.2em;
   }
 }
 
-.subhero-cta--secondary {
+.subhero-cta--secondary{
   margin-top: 0;
 }
 
-.home-section__cta {
+.home-section__cta{
   margin-top: 2rem;
 }
 
-.home-bullets {
+.home-bullets{
   margin-top: 2rem;
   margin-bottom: 2rem;
 
-  @include breakpoint(mediumlarge) {
+  @include breakpoint(mediumlarge){
     margin-top: 5rem;
     margin-bottom: 5rem;
   }
 }
 
-.home-bullet {
+.home-bullet{
   overflow: hidden;
 }
 
-.home-bullet__icon {
+.home-bullet__icon{
   float: left;
   //width: 15%;
   text-align: right;
 
-  svg {
+  svg{
     width: 30px;
     height: 30px;
     fill: var(--primary);
   }
 }
 
-.home-bullet__desc {
+.home-bullet__desc{
   float: right;
   width: 85%;
   width: calc(100% - 30px);
   padding-left: 1rem;
 }
 
-.home-map {
-  .wrapper-home {
+.home-map{
+  .wrapper-home{
     padding-bottom: 0;
   }
 
-  #google-map {
+  #google-map{
     margin-bottom: 0;
   }
 }
 
 /* Home PAM */
 
-.home-pam {
+.home-pam{
   overflow: hidden;
   margin: 2rem 0;
 
-  @include breakpoint(mediumlarge) {
+  @include breakpoint(mediumlarge){
     margin: 5rem 0;
   }
 }
 
-.home-pam__title {
+.home-pam__title{
   color: $muted;
-  font-size: 0.9rem;
-  letter-spacing: 0.01em;
+  font-size: .9rem;
+  letter-spacing: .01em;
   text-transform: uppercase;
   font-weight: 600;
   margin-bottom: 0;
 
-  .home-pam__lowlight & {
+  .home-pam__lowlight &{
     display: inline;
   }
 }
 
-.home-pam__data {
+.home-pam__data{
   text-align: center;
 
-  @include breakpoint(medium) {
+  @include breakpoint(medium){
     float: left;
   }
 
-  padding: 0.25rem;
+  padding: .25rem;
 
-  .home-pam__highlight & {
+  .home-pam__highlight &{
     padding: 1rem 2rem;
 
-    @include breakpoint(medium) {
+    @include breakpoint(medium){
       width: 50%;
       border-bottom: $border;
       border-right: $border;
     }
 
-    &:last-child {
+    &:last-child{
       border-right: none;
     }
   }
 
-  .home-pam__lowlight & {
+  .home-pam__lowlight &{
     float: none;
 
-    @include breakpoint(mediumlarge) {
+    @include breakpoint(mediumlarge){
       float: left;
       width: 33.33%;
 
-      &:first-child {
+      &:first-child{
         text-align: left;
         padding-left: 0;
       }
 
-      &:last-child {
+      &:last-child{
         text-align: right;
         padding-right: 0;
       }
@@ -355,21 +356,21 @@
   }
 }
 
-.home-pam__highlight {
-  @include breakpoint(medium) {
+.home-pam__highlight{
+  @include breakpoint(medium){
     display: flex;
   }
 }
 
-.home-pam__lowlight {
+.home-pam__lowlight{
   text-align: center;
 }
 
-.home-pam__number {
+.home-pam__number{
   font-size: 1.2rem;
   font-weight: 800;
 
-  .home-pam__highlight & {
+  .home-pam__highlight &{
     font-size: 4rem;
     line-height: 1;
   }

@@ -1,22 +1,22 @@
-#participatory_process-statistics {
+#participatory_process-statistics{
   margin-bottom: 1.5rem;
 }
 
-.process_stats {
+.process_stats{
   padding: 0;
 
-  .process_stats-item {
+  .process_stats-item{
     width: 33.3%;
 
-    @include breakpoint(large down) {
+    @include breakpoint(large down){
       width: 33.3%;
     }
 
-    @include breakpoint(medium down) {
+    @include breakpoint(medium down){
       width: 49.9%;
     }
 
-    @include breakpoint(smallmedium down) {
+    @include breakpoint(smallmedium down){
       width: 100%;
     }
 
@@ -25,16 +25,16 @@
     border: $border;
     background: $white;
 
-    .icon {
+    .icon{
       width: 1.5em;
       height: 1.5em;
       color: #599aa6;
       vertical-align: middle;
-      margin-right: 0.5rem;
+      margin-right: .5rem;
     }
 
-    .process_stats-text {
-      letter-spacing: 0.03em;
+    .process_stats-text{
+      letter-spacing: .03em;
       font-size: 90%;
       text-transform: uppercase;
       color: #3d393c;
