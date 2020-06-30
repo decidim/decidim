@@ -11,8 +11,7 @@ module Decidim
       translatable_fields.each do |field|
         locales = Decidim.available_locales.map(&:to_s)
         locales.each do |locale|
-          next unless locale != source_locale
-          byebug
+          next if locale == source_locale
           MachineTranslationCreateFieldsJob.perform_later(id, class_name, field, resource[field], locale)
         end
       end

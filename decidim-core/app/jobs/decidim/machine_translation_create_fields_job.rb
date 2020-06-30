@@ -5,7 +5,7 @@ module Decidim
     queue_as :default
 
     def perform(id, resource_type, field_name, field_value, locale)
-      record = Decidim::TranslatedField.create!(
+      Decidim::TranslatedField.create!(
         translated_resource_id: id,
         translated_resource_type: resource_type,
         field_name: field_name,

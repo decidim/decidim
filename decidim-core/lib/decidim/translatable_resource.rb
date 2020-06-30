@@ -23,7 +23,7 @@ module Decidim
     end
 
     def machine_translation_updated_resource
-      Decidim::MachineTranslationUpdatedResourceJob.perform_later(self, I18n.locale.to_s)
+      Decidim::MachineTranslationUpdatedResourceJob.perform_later(self, self.previous_changes.keys, I18n.locale.to_s)
     end
   end
 end
