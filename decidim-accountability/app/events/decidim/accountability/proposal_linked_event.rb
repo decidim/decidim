@@ -18,7 +18,7 @@ module Decidim
       end
 
       def resource_text
-        translated_attribute(resource.description)
+        translated(resource, :description)
       end
     end
   end

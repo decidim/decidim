@@ -13,7 +13,7 @@ module Decidim
           # Returns an HTML-safe String.
           def present
             return unless value
-            return h.translated_attribute(result.title) if result
+            return h.translated(result, :title) if result
 
             I18n.t("not_found", id: value, scope: "decidim.accountability.admin_log.value_types.parent_presenter")
           end
