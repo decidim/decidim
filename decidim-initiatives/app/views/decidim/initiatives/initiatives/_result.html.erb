@@ -1,4 +1,4 @@
-<% if initiative.answered? && translated_attribute(initiative.answer).present? %>
+<% if initiative.answered? && translated(initiative, :answer).present? %>
   <br>
   <div class="row column">
     <div class="callout success">

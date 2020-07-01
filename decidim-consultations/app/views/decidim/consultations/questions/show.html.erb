@@ -40,7 +40,7 @@
     </div>
 
     <div class="columns medium-5">
-      <% unless translated_attribute(current_question.origin_scope).blank? %>
+      <% unless translated(current_question, :origin_scope).blank? %>
         <h4 class="heading6"><%= t "question.origin_scope", scope: "activemodel.attributes" %></h4>
         <p><%= translated(current_question, :origin_scope) %></p>
       <% end %>

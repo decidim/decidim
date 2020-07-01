@@ -7,7 +7,7 @@
   <% field_id = "questionnaire_answers_#{answer_idx}" %>
   <%= label_tag field_id, answer.label(cleaned_answer_idx), class: "questionnaire-question" %>
 
-  <% if translated_attribute(answer.question.description).present? %>
+  <% if translated(answer.question, :description).present? %>
     <div class="help-text">
       <%= decidim_sanitize translated(answer.question, :description) %>
     </div>

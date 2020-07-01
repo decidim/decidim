@@ -1,6 +1,6 @@
 <div class="section minutes-section">
   <h3 class="section-heading"><%= t(".meeting_minutes") %></h3>
-  <% if translated_attribute(meeting.minutes.description).present? %>
+  <% if translated(meeting.minutes, :description).present? %>
     <div class="card">
       <div class="card-section">
         <div class="row column">

@@ -68,7 +68,7 @@ edit_link(
 
     <hr class="reset mt-none mb-m">
 
-    <% unless translated_attribute(current_participatory_space.objectives).blank? %>
+    <% unless translated(current_participatory_space, :objectives).blank? %>
       <section class="section">
         <h3 class="section-heading"><%= t("conferences.show.objectives", scope: "decidim") %></h3>
         <%= decidim_sanitize translated(current_participatory_space, :objectives) %>

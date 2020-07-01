@@ -3,7 +3,7 @@
     <%= t "questions.technical_info.technical_data", scope: "decidim" %>
   </h2>
 
-  <% unless translated_attribute(current_question.origin_scope).blank? %>
+  <% unless translated(current_question, :origin_scope).blank? %>
     <h3 class="heading6"><%= t "question.origin_scope", scope: "activemodel.attributes" %></h3>
     <p><%= translated(current_question, :origin_scope) %></p>
   <% end %>
@@ -11,7 +11,7 @@
   <h3 class="heading6"><%= t "question.promoter_group", scope: "activemodel.attributes" %></h3>
   <p><%= translated(current_question, :promoter_group) %></p>
 
-  <% unless translated_attribute(current_question.origin_title).blank? %>
+  <% unless translated(current_question, :origin_title).blank? %>
     <h3 class="heading6"><%= t "question.origin_title", scope: "activemodel.attributes" %></h3>
     <p>
       <% if current_question.origin_url.blank? %>
