@@ -27,7 +27,7 @@ en:
     models:
       questionnaire_template:
         fields:
-          questions: "Number of questions"
+          questions: Number of questions
           title: Questionnaire Title
       template:
         fields:
