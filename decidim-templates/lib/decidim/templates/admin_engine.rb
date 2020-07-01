@@ -40,7 +40,7 @@ module Decidim
       initializer "decidim_templates.admin_menu" do
         Decidim.menu :admin_menu do |menu|
           menu.item I18n.t("menu.templates", scope: "decidim.admin", default: "Templates"),
-                    decidim_admin_templates.questionnaire_templates_url,
+                    decidim_admin_templates.questionnaire_templates_path,
                     icon_name: "document",
                     position: 12,
                     active: :inclusive
