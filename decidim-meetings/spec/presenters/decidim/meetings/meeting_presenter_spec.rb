@@ -17,12 +17,12 @@ module Decidim::Meetings
     let(:presented_meeting) { described_class.new(meeting) }
 
     describe "#proposals" do
+      subject { presented_meeting.proposals }
+
       before do
         proposal.coauthorships.clear
         proposal.add_coauthor(meeting)
       end
-
-      subject { presented_meeting.proposals }
 
       it "has objects of type Proposal" do
         expect(subject.take).to be_an_instance_of Decidim::Proposals::Proposal
@@ -34,12 +34,12 @@ module Decidim::Meetings
     end
 
     describe "#formatted_proposals_titles" do
+      subject { presented_meeting.formatted_proposals_titles }
+      
       before do
         proposal.coauthorships.clear
         proposal.add_coauthor(meeting)
       end
-
-      subject { presented_meeting.formatted_proposals_titles }
 
       let(:meeting_proposals) { presented_meeting.proposals }
 
