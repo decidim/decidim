@@ -89,11 +89,10 @@ module Decidim
         ).translation_value
 
         resource[field][I18n.locale.to_s].presence ||
+        @translated_value.presence ||
         resource[field][organization_locale].presence ||
         resource[field][resource[field].keys.first].presence ||
-        @translated_value.presence ||
-          ""
-
+        ""
       end
     end
   end
