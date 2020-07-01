@@ -664,4 +664,12 @@ FactoryBot.define do
     author { build(:user, organization: resource.organization) }
     user_group { create(:user_group, verified_at: Time.current, organization: resource.organization, users: [author]) }
   end
+
+  factory :translated_field, class: "Decidim::TranslatedField" do
+    translated_resource { build(:dummy_resource) }
+    field_name { "title" }
+    field_value { "My title" }
+    translation_value { "Foo" }
+    translation_locale { "es" }
+  end
 end

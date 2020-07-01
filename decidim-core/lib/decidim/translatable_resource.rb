@@ -19,11 +19,19 @@ module Decidim
     end
 
     def machine_translation_new_resource
-      Decidim::MachineTranslationNewResourceJob.perform_later(self)
+      Decidim::MachineTranslationCreateResourceJob.perform_later(self, I18n.locale.to_s)
     end
 
     def machine_translation_updated_resource
-      Decidim::MachineTranslationUpdatedResourceJob.perform_now(self)
+      Decidim::MachineTranslationUpdatedResourceJob.perform_later(
+        self,
+        translatable_previous_changes,
+        I18n.locale.to_s
+      )
+    end
+
+    def translatable_previous_changes
+      previous_changes.slice(*self.class.translatable_fields_list)
     end
   end
 end
