@@ -103,7 +103,7 @@ module Decidim
 
         def assembly_types_for_select
           @assembly_types_for_select ||= organization_assembly_types
-                                             &.map { |type| [translated_attribute(type.title), type.id] }
+                                             &.map { |type| [translated(type, :title), type.id] }
         end
 
         def created_by_for_select
@@ -121,7 +121,7 @@ module Decidim
 
         def processes_for_select
           @processes_for_select ||= organization_participatory_processes
-                                        &.map { |pp| [translated_attribute(pp.title), pp.id] }
+                                        &.map { |pp| [translated(pp, :title), pp.id] }
                                         &.sort_by { |arr| arr[0] }
         end
 

@@ -29,13 +29,13 @@ module Decidim
 
       def current_filter_name
         type = AssembliesType.find_by(id: filter.type_id)
-        return translated_attribute type.title if type
+        return translated(type, :title) if type
 
         t("all", scope: "decidim.assemblies.filter")
       end
 
       def organization_assembly_types
-        AssembliesType.where(organization: current_organization)&.map { |type| [translated_attribute(type.title), type.id] }
+        AssembliesType.where(organization: current_organization)&.map { |type| [translated(type, :title), type.id] }
       end
     end
   end

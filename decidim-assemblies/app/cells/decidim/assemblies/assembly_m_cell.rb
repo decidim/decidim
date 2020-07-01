@@ -68,7 +68,7 @@ module Decidim
       end
 
       def assembly_type
-        translated_attribute model.assembly_type.title
+        translated(model.assembly_type, :title)
       end
     end
   end

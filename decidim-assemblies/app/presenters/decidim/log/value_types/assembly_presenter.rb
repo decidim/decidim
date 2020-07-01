@@ -13,7 +13,7 @@ module Decidim
         # Returns an HTML-safe String.
         def present
           return unless value
-          return h.translated_attribute(assembly.title) if assembly
+          return h.translated(assembly, :title) if assembly
 
           I18n.t("not_found", id: value, scope: "decidim.log.value_types.assembly_presenter")
         end
