@@ -45,7 +45,7 @@ it:
             mandatory: Questa condizione deve essere soddisfatta sempre indipendentemente dallo stato di altre condizioni
             remove: Rimuovi
             save_warning: Ricorda di salvare il modulo prima di configurare le condizioni di visualizzazione
-            select_answer_option: Rimuovere l'opzione di risposta
+            select_answer_option: Selezionare l'opzione di risposta
             select_condition_question: Seleziona una domanda
             select_condition_type: Seleziona regola
           edit:
@@ -63,6 +63,8 @@ it:
             statement: dichiarazione
           question:
             add_answer_option: Aggiungi l'opzione di risposta
+            add_display_condition: Aggiungere condizione di visualizzazione
+            add_display_condition_info: Salva il modulo per configurare le condizioni di visualizzazione
             add_matrix_row: Aggiungi riga
             any: Qualunque
             collapse: Comprimi
