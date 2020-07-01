@@ -8,7 +8,7 @@ module Decidim
         {
           announcement: {
             title: proposal_reason_callout_title,
-            body: decidim_sanitize(translated_attribute(@proposal.answer))
+            body: decidim_sanitize(translated(@proposal, :answer))
           },
           callout_class: proposal_reason_callout_class
         }
@@ -52,8 +52,8 @@ module Decidim
 
       def proposal_has_costs?
         @proposal.cost.present? &&
-          translated_attribute(@proposal.cost_report).present? &&
-          translated_attribute(@proposal.execution_period).present?
+          translated(@proposal, :cost_report).present? &&
+          translated(@proposal, :execution_period).present?
       end
     end
   end

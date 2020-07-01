@@ -16,7 +16,7 @@ module Decidim
       end
 
       def title
-        translated_attribute model.name
+        translated(model, :name)
       end
 
       def resource_path
@@ -24,7 +24,7 @@ module Decidim
       end
 
       def step_title
-        translated_attribute model.active_step.title
+        translated(model.active_step, :title)
       end
 
       def card_classes

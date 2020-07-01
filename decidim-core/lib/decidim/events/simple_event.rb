@@ -127,7 +127,7 @@ module Decidim
       end
 
       def participatory_space_title
-        translated(participatory_space, :try)
+        translated(participatory_space, :title)
       end
     end
   end

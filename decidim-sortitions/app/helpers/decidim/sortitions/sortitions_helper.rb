@@ -15,7 +15,7 @@ module Decidim
         if sortition.category.present?
           return I18n.t("show.category",
                         scope: "decidim.sortitions.sortitions",
-                        category: translated_attribute(sortition.category.name))
+                        category: translated(sortition.category, :name))
         end
 
         I18n.t("show.any_category", scope: "decidim.sortitions.sortitions")

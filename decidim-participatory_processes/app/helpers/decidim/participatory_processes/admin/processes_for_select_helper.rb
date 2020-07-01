@@ -14,7 +14,7 @@ module Decidim
         def processes_for_select
           @processes_for_select ||= OrganizationParticipatoryProcesses.new(current_organization).map do |process|
             [
-              translated_attribute(process.title),
+              translated(process, :title),
               process.id
             ]
           end

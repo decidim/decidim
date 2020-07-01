@@ -43,7 +43,7 @@ module Decidim
         end
 
         def i18n_params
-          super.merge(proposal_title: h.translated_attribute(action_log.extra["proposal_title"]))
+          super.merge(proposal_title: h.translated(action_log.extra, :[]))
         end
       end
     end

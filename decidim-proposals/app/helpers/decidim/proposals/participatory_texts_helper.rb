@@ -19,7 +19,7 @@ module Decidim
         if participatory_text.nil?
           t("alternative_title", scope: "decidim.proposals.participatory_text_proposal")
         else
-          translated_attribute(participatory_text.title)
+          translated(participatory_text, :title)
         end
       end
 

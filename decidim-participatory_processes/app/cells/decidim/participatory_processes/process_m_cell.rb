@@ -40,7 +40,7 @@ module Decidim
       end
 
       def step_title
-        translated_attribute model.active_step.title
+        translated(model.active_step, :title)
       end
 
       def base_card_class

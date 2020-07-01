@@ -41,7 +41,7 @@ module Decidim
         attr_reader :scope, :proposal_ids
 
         def update_proposals_scope
-          @response[:scope_name] = translated_attribute(scope.name, scope.organization)
+          @response[:scope_name] = translated(scope, :name)
           Proposal.where(id: proposal_ids).find_each do |proposal|
             if scope == proposal.scope
               @response[:errored] << proposal.title

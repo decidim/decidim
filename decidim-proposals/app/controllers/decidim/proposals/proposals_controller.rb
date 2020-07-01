@@ -299,7 +299,7 @@ module Decidim
       end
 
       def translated_proposal_body_template
-        translated_attribute component_settings.new_proposal_body_template
+        translated(component_settings, :new_proposal_body_template)
       end
 
       def proposal_creation_params

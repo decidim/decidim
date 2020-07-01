@@ -104,7 +104,7 @@ module Decidim
           if params[:q][:category_id_eq]
             html << content_tag(:span, class: "label secondary") do
               tag = "#{t("models.proposal.fields.category", scope: "decidim.proposals")}: "
-              tag += translated_attribute categories.find(params[:q][:category_id_eq]).name
+              tag += translated(categories.find(params[:q][:category_id_eq]), :name)
               tag += icon_link_to("circle-x", url_for(q: ransak_params_for_query_without(:category_id_eq), per_page: per_page), t("decidim.admin.actions.cancel"),
                                   class: "action-icon--remove")
               tag.html_safe
@@ -113,7 +113,7 @@ module Decidim
           if params[:q][:scope_id_eq]
             html << content_tag(:span, class: "label secondary") do
               tag = "#{t("models.proposal.fields.scope", scope: "decidim.proposals")}: "
-              tag += translated_attribute Decidim::Scope.where(decidim_organization_id: current_component.organization.id).find(params[:q][:scope_id_eq]).name
+              tag += translated(Decidim::Scope.where(decidim_organization_id: current_component.organization.id).find(params[:q][:scope_id_eq]), :name)
               tag += icon_link_to("circle-x", url_for(q: ransak_params_for_query_without(:scope_id_eq), per_page: per_page), t("decidim.admin.actions.cancel"),
                                   class: "action-icon--remove")
               tag.html_safe

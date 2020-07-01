@@ -6,7 +6,7 @@ module Decidim
       include Decidim::Events::AuthorEvent
 
       def resource_text
-        translated_attribute(resource.answer)
+        translated(resource, :answer)
       end
 
       def event_has_roles?
