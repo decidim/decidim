@@ -5,6 +5,7 @@ require "spec_helper"
 module Decidim
   describe MachineTranslationCreateFieldsJob do
     let(:dummy_resource) { build :dummy_resource }
+
     it "creates record in translation field" do
       dummy_resource.save
       expect do

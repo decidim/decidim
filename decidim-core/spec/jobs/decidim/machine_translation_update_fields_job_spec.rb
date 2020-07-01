@@ -5,6 +5,7 @@ require "spec_helper"
 module Decidim
   describe MachineTranslationUpdateFieldsJob do
     let(:dummy_resource) { build :dummy_resource }
+
     it "creates record in translation field" do
       dummy_resource.save
       create :translated_field, translated_resource: dummy_resource, translation_locale: "ca"
@@ -14,10 +15,9 @@ module Decidim
           Decidim::DummyResources::DummyResource.name,
           "title",
           dummy_resource["title"],
-          "ca",
-          "en"
+          "ca"
         )
-      end.not_to change{ Decidim::TranslatedField.count }
+      end.not_to change(Decidim::TranslatedField, :count)
     end
   end
 end

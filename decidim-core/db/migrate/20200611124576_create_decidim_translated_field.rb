@@ -11,6 +11,8 @@ class CreateDecidimTranslatedField < ActiveRecord::Migration[5.2]
       t.timestamp :translated_at
     end
 
-    add_index :decidim_translated_fields, [:translated_resource_id, :translated_resource_type, :field_name, :translation_locale], name: "index_unique_field_translated_resource_locale", unique: true
+    add_index :decidim_translated_fields, [:translated_resource_id, :translated_resource_type,
+                                           :field_name, :translation_locale], name: "index_unique_field_translated_resource_locale",
+                                                                              unique: true
   end
 end
