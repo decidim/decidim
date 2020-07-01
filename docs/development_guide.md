@@ -55,14 +55,16 @@ Implement the feature, and open a Pull Request as normal, but against `develop` 
 We would like to have all branches following this namings:
 
 | Branch prefix | Comment |
-| -------- | -------- |
-| chore/     | Internal work. For instance, CI, automatisms, etc. No production code change.     |
-| doc/ | For changes to the documentation. |
-| feature/ | For new features for the users or gem Decidim itself.  |
-| fix/ | For bug fixing features. |
-| release/ | With MAYOR.MINOR-stable. For instance, release/0.22-stable |
+| --------  | -------- |
+| chore/    | Internal work. For instance, automatisms, etc. No production code change.     |
+| ci/       | For continous integration related tasks. No production code change.     |
+| deps/     | For dependency management tasks. |
+| doc/      | For changes to the documentation. |
+| feature/  | For new features for the users or for the Decidim command.  |
+| fix/      | For feature bugfixing. |
+| release/  | With MAYOR.MINOR-stable. For instance, release/0.22-stable |
 | refactor/ | For refactorings related with production code. |
-| test/ | When adding missing tests, refactoring tests, improving coverage, etc. |
+| test/     | When adding missing tests, refactoring tests, improving coverage, etc. |
 | backport/ | We only offer support for the last mayor version.  |
 
 ## Git commit messages and Pull Request titles
