@@ -8,7 +8,7 @@ module Decidim
       describe MeetingsController, type: :controller do
         routes { Decidim::Meetings::AdminEngine.routes }
 
-        let!(:meeting) { create :meeting, component: meeting_component }
+        let(:meeting) { create :meeting, component: meeting_component }
         let(:user) { create :user, :admin, :confirmed, organization: organization }
 
         let(:time_zone) { "UTC" }
@@ -30,13 +30,13 @@ module Decidim
 
           context "when having at least one proposal (invalid)" do
             it "flashes an alert message" do
-              post :destroy, params: { id: meeting.id }
+              delete :destroy, params: { id: meeting.id }
 
               expect(flash[:alert]).not_to be_empty
             end
 
             it "renders the index view" do
-              post :destroy, params: { id: meeting.id }
+              delete :destroy, params: { id: meeting.id }
 
               expect(subject).to render_template(:index)
             end
