@@ -353,7 +353,7 @@ pl:
           category: Kategoria
           category_prompt: Wybierz kategorię
           date: Data
-          past: Przeszłe
+          past: Przeszłość
           search: Szukaj
           upcoming: Nadchodzące
         filters_small_view:
