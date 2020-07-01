@@ -31,7 +31,7 @@ module Decidim
     end
 
     def translatable_previous_changes
-      self.previous_changes.slice(*self.class.translatable_fields_list)
+      previous_changes.slice(*self.class.translatable_fields_list)
     end
   end
 end

@@ -12,21 +12,23 @@ module Decidim
         locales = Decidim.available_locales.map(&:to_s)
         locales.each do |locale|
           next if locale == source_locale
-          next if resource_field(resource, field, source_locale).blank?
+          next if resource_field_value(resource, field, source_locale).blank?
+
           MachineTranslationCreateFieldsJob.perform_later(
             id,
             class_name,
             field,
-            resource_field(resource, field, source_locale),
+            resource_field_value(resource, field, source_locale),
             locale
           )
         end
       end
     end
 
-    def resource_field(resource, field, source_locale)
+    def resource_field_value(resource, field, source_locale)
       value = resource[field]
       return value[source_locale] if value.is_a?(Hash)
+
       value
     end
   end

@@ -18,24 +18,24 @@ module Decidim
           current_locale
         )
         expect(Decidim::MachineTranslationUpdateFieldsJob)
-        .to have_been_enqueued
-        .on_queue("default")
-        .exactly(2)
-        .times
-        .with(
-          dummy_resource.id,
-          dummy_resource.class.name,
-          "title",
-          dummy_resource.title,
-          any_args
-        )
+          .to have_been_enqueued
+          .on_queue("default")
+          .exactly(2)
+          .times
+          .with(
+            dummy_resource.id,
+            dummy_resource.class.name,
+            "title",
+            dummy_resource.title,
+            any_args
+          )
       end
     end
 
     it "only enqueues the job on changing current locale" do
       old_title = process.title
       process.title = Decidim::Faker::Localized.name
-      process.title[current_locale]=old_title[current_locale]
+      process.title[current_locale] = old_title[current_locale]
       process.save
       Decidim::MachineTranslationUpdatedResourceJob.perform_now(
         process,
