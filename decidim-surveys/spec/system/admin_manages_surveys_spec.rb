@@ -59,11 +59,12 @@ describe "Admin manages surveys", type: :system do
       it "deletes answers after editing" do
         visit questionnaire_edit_path
 
+        click_button "Expand all"
+
         within "form.edit_questionnaire" do
           within "#questionnaire_question_#{question.id}-field" do
-            fill_in nested_form_field_selector("body_en"), with: "Have you been writing specs today?"
+            find_nested_form_field("body_en").fill_in with: "Have you been writing specs today?"
           end
-
           click_button "Save"
         end
 
