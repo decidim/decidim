@@ -4,7 +4,7 @@ module Decidim
   module Blogs
     class CreatePostEvent < Decidim::Events::SimpleEvent
       def resource_text
-        translated_attribute(resource.body)
+        translated(resource, :body)
       end
     end
   end

@@ -15,7 +15,7 @@ module Decidim
         #
         # Returns the post's body truncated.
         def post_description_admin(post, max_length = 100)
-          body = translated_attribute(post.body)
+          body = translated(post, :body)
           CGI.unescapeHTML html_truncate(body, max_length: max_length)
         end
       end
