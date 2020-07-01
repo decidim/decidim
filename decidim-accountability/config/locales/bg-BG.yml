@@ -192,3 +192,32 @@ bg:
             subcategories_label: Име за "подкатегории"
           step:
             comments_blocked: Коментарите са блокирани
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Предложението "%{proposal_title}" е включено в резултата. Можете да го видите на страницата:'
+          email_outro: Получавате това известие, защото следвате "%{proposal_title}". Може да прекратите известията чрез предната връзка.
+          email_subject: Обновление в %{proposal_title}
+          notification_title: Предложението <a href="%{proposal_path}">%{proposal_title}</a> е включено в резултата <a href="%{resource_path}">%{resource_title}</a>.
+        result_progress_updated:
+          email_intro: 'Резултата "%{resource_title}", който включва предложението "%{proposal_title}", е завършен на %{progress}%. Можете да го видите на тази страница:'
+          email_outro: Получавате това известие, защото следвате "%{proposal_title}" и това предложение е включено в резултата %{resource_title}. Може да прекратите известията чрез предната връзка.
+          email_subject: Напредък в обновлението на %{resource_title}
+          notification_title: Резултатът <a href="%{resource_path}">%{resource_title}</a>, който включва предложението <a href="%{proposal_path}">%{proposal_title}</a>, е завършен %{progress}%.
+    metrics:
+      results:
+        description: Брой генерирани резултати
+        object: резултати
+        title: Резултати
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Резултати
+    participatory_spaces:
+      highlighted_results:
+        see_all: Виж всички (%{count})
+    resource_links:
+      included_projects:
+        result_project: Проекти, включени в резултата
+      included_proposals:
+        result_proposal: Предложения, включени в резултата
