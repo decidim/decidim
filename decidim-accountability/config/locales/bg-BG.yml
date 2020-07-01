@@ -192,3 +192,9 @@ bg:
             subcategories_label: Име за "подкатегории"
           step:
             comments_blocked: Коментарите са блокирани
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Предложението "%{proposal_title}" е включено в резултата. Можете да го видите на страницата:'
+          email_outro: Получавате това известие, защото следвате "%{proposal_title}". Може да прекратите известията чрез предната връзка.
+          email_subject: Обновление в %{proposal_title}
