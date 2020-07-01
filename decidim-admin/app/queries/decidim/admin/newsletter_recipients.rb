@@ -46,7 +46,7 @@ module Decidim
       def spaces
         return if @form.participatory_space_types.blank?
 
-        @spaces||= @form.participatory_space_types.map do |type|
+        @spaces ||= @form.participatory_space_types.map do |type|
           next if type.ids.blank?
 
           object_class = "Decidim::#{type.manifest_name.classify}"
