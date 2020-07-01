@@ -29,13 +29,13 @@ module Decidim::Meetings
       end
 
       it "has at least one proposal" do
-        expect(subject.size).to be > 0
+        expect(subject.size.positive?).to be true
       end
     end
 
     describe "#formatted_proposals_titles" do
       subject { presented_meeting.formatted_proposals_titles }
-      
+
       before do
         proposal.coauthorships.clear
         proposal.add_coauthor(meeting)
