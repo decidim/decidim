@@ -57,6 +57,7 @@ Decidim.register_component(:surveys) do |component|
   component.settings(:global) do |settings|
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :clean_after_publish, type: :boolean, default: true
+    settings.attribute :preview_token, type: :string, default: Digest::MD5.hexdigest(Time.now.to_s)
   end
 
   component.settings(:step) do |settings|

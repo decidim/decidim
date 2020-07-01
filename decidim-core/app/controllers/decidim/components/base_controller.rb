@@ -30,7 +30,7 @@ module Decidim
                     :current_manifest
 
       before_action do
-        enforce_permission_to :read, :component, component: current_component
+        enforce_permission_to :read, :component, component: current_component, preview_token: params[:token]
       end
 
       before_action :redirect_unless_feature_private

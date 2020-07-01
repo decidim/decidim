@@ -22,6 +22,7 @@ en:
           global:
             announcement: Announcement
             clean_after_publish: Delete answers when publishing the survey
+            preview_token: Preview token
           step:
             allow_answers: Allow answers
             allow_unregistered: Allow unregistered users to answer the survey

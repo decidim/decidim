@@ -8,8 +8,6 @@ module Decidim
       include Decidim::ComponentPathHelper
       helper Decidim::Surveys::SurveyHelper
 
-      delegate :allow_unregistered?, to: :current_settings
-
       before_action :check_permissions
 
       def check_permissions
@@ -24,6 +22,10 @@ module Decidim
 
       def allow_answers?
         !current_component.published? || current_settings.allow_answers?
+      end
+      
+      def allow_unregistered?
+        !current_component.published? || current_settings.allow_unregistered?
       end
 
       def form_path

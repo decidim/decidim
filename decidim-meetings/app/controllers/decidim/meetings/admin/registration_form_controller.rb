@@ -20,7 +20,7 @@ module Decidim
         end
 
         def public_url
-          Decidim::EngineRouter.main_proxy(current_component).join_meeting_registration_path(meeting)
+          Decidim::EngineRouter.main_proxy(current_component).join_meeting_registration_path(meeting, **params)
         end
 
         private
