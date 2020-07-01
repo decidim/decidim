@@ -16,7 +16,7 @@ module Decidim
         def question_response_groups(question = current_question)
           [Option.new("", "-")] +
             question.response_groups.map do |group|
-              Option.new(group.id, translated_attribute(group.title))
+              Option.new(group.id, translated(group, :title))
             end
         end
       end

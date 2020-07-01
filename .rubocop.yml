@@ -1,4 +1,6 @@
-require: rubocop-rspec
+require: 
+  - rubocop-rspec
+  - rubocop-decidim
 
 # Common configuration.
 AllCops:

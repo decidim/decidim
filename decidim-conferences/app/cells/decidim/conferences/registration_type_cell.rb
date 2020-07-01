@@ -18,11 +18,11 @@ module Decidim
       delegate :current_user, to: :controller, prefix: false
 
       def title
-        translated_attribute model.title
+        translated(model, :title)
       end
 
       def description
-        translated_attribute model.description
+        translated(model, :description)
       end
 
       def price

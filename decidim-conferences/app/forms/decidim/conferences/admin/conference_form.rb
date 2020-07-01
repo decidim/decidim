@@ -66,7 +66,7 @@ module Decidim
           @processes_for_select ||= Decidim.find_participatory_space_manifest(:participatory_processes)
                                            .participatory_spaces.call(current_organization)&.order(title: :asc)&.map do |process|
             [
-              translated_attribute(process.title),
+              translated(process, :title),
               process.id
             ]
           end
@@ -78,7 +78,7 @@ module Decidim
           @assemblies_for_select ||= Decidim.find_participatory_space_manifest(:assemblies)
                                             .participatory_spaces.call(current_organization)&.order(title: :asc)&.map do |assembly|
             [
-              translated_attribute(assembly.title),
+              translated(assembly, :title),
               assembly.id
             ]
           end
@@ -90,7 +90,7 @@ module Decidim
           @consultations_for_select ||= Decidim.find_participatory_space_manifest(:consultations)
                                                .participatory_spaces.call(current_organization)&.order(title: :asc)&.map do |consultation|
             [
-              translated_attribute(consultation.title),
+              translated(consultation, :title),
               consultation.id
             ]
           end

@@ -47,8 +47,8 @@ module Decidim
         calendar.event do |event|
           event.dtstart = Icalendar::Values::DateTime.new(@conference.start_date)
           event.dtend = Icalendar::Values::DateTime.new(@conference.end_date)
-          event.summary = translated_attribute @conference.title
-          event.description = strip_tags(translated_attribute(@conference.description))
+          event.summary = translated(@conference, :title)
+          event.description = strip_tags(translated(@conference, :description))
           event.url = @locator.url
         end
 

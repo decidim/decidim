@@ -30,3 +30,5 @@ group :development do
   gem "spring-watcher-listen", "~> 2.0"
   gem "web-console", "~> 3.5"
 end
+
+gem "rubocop-decidim", git: "https://github.com/codegram/rubocop-decidim.git"

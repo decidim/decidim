@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/codegram/rubocop-decidim.git
+  revision: a0c6fd7cf26c99064103b86e2bd034de2517e0e6
+  specs:
+    rubocop-decidim (0.1.0)
+      rubocop (~> 0.71.0)
+
 PATH
   remote: .
   specs:
@@ -271,7 +278,7 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     anchored (1.1.0)
     arel (9.0.0)
-    ast (2.4.0)
+    ast (2.4.1)
     autoprefixer-rails (8.6.5)
       execjs
     axiom-types (0.1.1)
@@ -545,9 +552,9 @@ GEM
     paper_trail (10.3.1)
       activerecord (>= 4.2)
       request_store (~> 1.1)
-    parallel (1.19.1)
-    parser (2.7.1.1)
-      ast (~> 2.4.0)
+    parallel (1.19.2)
+    parser (2.7.1.4)
+      ast (~> 2.4.1)
     pg (1.1.4)
     pg_search (2.3.2)
       activerecord (>= 5.2)
@@ -788,6 +795,7 @@ DEPENDENCIES
   letter_opener_web (~> 1.3)
   listen (~> 3.1)
   puma (>= 4.3.5)
+  rubocop-decidim!
   spring (~> 2.0)
   spring-watcher-listen (~> 2.0)
   uglifier (~> 4.1)

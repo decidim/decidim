@@ -24,7 +24,7 @@ module Decidim
           subject = I18n.t(
             "order_summary.subject",
             scope: "decidim.budgets.order_summary_mailer",
-            space_name: translated_attribute(@space.title)
+            space_name: translated(@space, :title)
           )
           mail(to: user.email, subject: subject)
         end

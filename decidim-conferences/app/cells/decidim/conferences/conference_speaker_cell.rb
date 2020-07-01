@@ -50,17 +50,17 @@ module Decidim
       end
 
       def position
-        translated_attribute model.position
+        translated(model, :position)
       end
 
       def affiliation
-        translated_attribute model.affiliation
+        translated(model, :affiliation)
       end
 
       def short_bio
         return unless model.short_bio.presence
 
-        translated_attribute model.short_bio
+        translated(model, :short_bio)
       end
 
       def twitter_handle

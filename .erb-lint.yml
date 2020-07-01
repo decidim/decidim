@@ -20,11 +20,16 @@ linters:
     enabled: true
 
     rubocop_config:
+      require: rubocop-decidim
+
       AllCops:
         DisabledByDefault: true
 
       Style/StringLiterals:
         EnforcedStyle: double_quotes
+
+      Decidim/TranslatedAttribute:
+        Enabled: true
 
       Layout/SpaceInsideHashLiteralBraces:
         Enabled: true

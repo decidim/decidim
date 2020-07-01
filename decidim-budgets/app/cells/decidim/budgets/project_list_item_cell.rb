@@ -44,7 +44,7 @@ module Decidim
       end
 
       def resource_title
-        translated_attribute model.title
+        translated(model, :title)
       end
 
       def resource_added?

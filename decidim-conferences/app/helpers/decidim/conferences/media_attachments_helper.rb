@@ -22,7 +22,7 @@ module Decidim
       #
       # Returns String.
       def attachment_title(attachment)
-        attachment.title.is_a?(Hash) ? translated_attribute(attachment.title) : attachment.title
+        attachment.title.is_a?(Hash) ? translated(attachment, :title) : attachment.title
       end
     end
   end

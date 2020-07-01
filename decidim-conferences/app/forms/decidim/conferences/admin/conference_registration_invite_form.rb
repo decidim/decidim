@@ -28,7 +28,7 @@ module Decidim
         def registration_types_for_select
           @registration_types_for_select ||= current_participatory_space.registration_types&.map do |registration_type|
             [
-              translated_attribute(registration_type.title),
+              translated(registration_type, :title),
               registration_type.id
             ]
           end

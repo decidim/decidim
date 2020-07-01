@@ -37,7 +37,7 @@ module Decidim
       end
 
       def root_commentable_title
-        decidim_html_escape(translated_attribute(root_commentable.title))
+        decidim_html_escape(translated(root_commentable, :title))
       end
 
       def url_params

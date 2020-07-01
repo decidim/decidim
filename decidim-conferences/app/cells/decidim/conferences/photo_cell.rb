@@ -26,7 +26,7 @@ module Decidim
       end
 
       def title
-        translated_attribute model.title
+        translated(model, :title)
       end
 
       def short_description
@@ -34,7 +34,7 @@ module Decidim
       end
 
       def description
-        translated_attribute(model.description)
+        translated(model, :description)
       end
     end
   end
