@@ -37,7 +37,7 @@ module Decidim
           end
 
           def translated_type_id_eq(id)
-            translated_attribute(Decidim::InitiativesType.find_by(id: id).title[I18n.locale.to_s])
+            translated(Decidim::InitiativesType.find_by(id: id).title, :[])
           end
         end
       end

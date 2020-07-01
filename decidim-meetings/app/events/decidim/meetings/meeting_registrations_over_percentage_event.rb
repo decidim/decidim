@@ -6,7 +6,7 @@ module Decidim
       i18n_attributes :percentage
 
       def resource_text
-        translated_attribute(resource.description)
+        translated(resource, :description)
       end
 
       def percentage

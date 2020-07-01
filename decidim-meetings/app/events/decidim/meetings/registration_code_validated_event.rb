@@ -6,7 +6,7 @@ module Decidim
       i18n_attributes :registration_code
 
       def resource_text
-        translated_attribute(resource.description)
+        translated(resource, :description)
       end
 
       private

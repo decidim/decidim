@@ -14,14 +14,14 @@ module Decidim
           },
           questionnaire: {
             id: resource.question.questionnaire.id,
-            title: translated_attribute(resource.question.questionnaire.title),
-            description: translated_attribute(resource.question.questionnaire.description),
-            tos: translated_attribute(resource.question.questionnaire.tos)
+            title: translated(resource.question.questionnaire, :title),
+            description: translated(resource.question.questionnaire, :description),
+            tos: translated(resource.question.questionnaire, :tos)
           },
           question: {
             id: resource.question.id,
-            body: translated_attribute(resource.question.body),
-            description: translated_attribute(resource.question.description)
+            body: translated(resource.question, :body),
+            description: translated(resource.question, :description)
           },
           answer: normalize_body(resource)
         }

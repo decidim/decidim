@@ -39,13 +39,13 @@ module Decidim
               include(id: questionnaire.id)
             )
             expect(serialized[:questionnaire]).to(
-              include(title: translated_attribute(questionnaire.title))
+              include(title: translated(questionnaire, :title))
             )
             expect(serialized[:questionnaire]).to(
-              include(description: translated_attribute(questionnaire.description))
+              include(description: translated(questionnaire, :description))
             )
             expect(serialized[:questionnaire]).to(
-              include(tos: translated_attribute(questionnaire.tos))
+              include(tos: translated(questionnaire, :tos))
             )
           end
 
@@ -54,10 +54,10 @@ module Decidim
               include(id: question.id)
             )
             expect(serialized[:question]).to(
-              include(body: translated_attribute(question.body))
+              include(body: translated(question, :body))
             )
             expect(serialized[:question]).to(
-              include(description: translated_attribute(question.description))
+              include(description: translated(question, :description))
             )
           end
 
@@ -96,10 +96,10 @@ module Decidim
               include(id: multichoice_question.id)
             )
             expect(serialized[:question]).to(
-              include(body: translated_attribute(multichoice_question.body))
+              include(body: translated(multichoice_question, :body))
             )
             expect(serialized[:question]).to(
-              include(description: translated_attribute(multichoice_question.description))
+              include(description: translated(multichoice_question, :description))
             )
           end
 
@@ -137,10 +137,10 @@ module Decidim
               include(id: singlechoice_question.id)
             )
             expect(serialized[:question]).to(
-              include(body: translated_attribute(singlechoice_question.body))
+              include(body: translated(singlechoice_question, :body))
             )
             expect(serialized[:question]).to(
-              include(description: translated_attribute(singlechoice_question.description))
+              include(description: translated(singlechoice_question, :description))
             )
           end
 

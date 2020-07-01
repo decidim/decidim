@@ -15,7 +15,7 @@ module Decidim
       i18n_attributes :space_title, :space_path
 
       def resource_text
-        translated_attribute(resource.description)
+        translated(resource, :description)
       end
 
       private

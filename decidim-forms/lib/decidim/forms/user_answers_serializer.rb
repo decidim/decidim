@@ -20,7 +20,7 @@ module Decidim
             answer_translated_attribute_name(:created_at) => answer.created_at.to_s(:db),
             answer_translated_attribute_name(:ip_hash) => answer.ip_hash,
             answer_translated_attribute_name(:user_status) => answer_translated_attribute_name(answer.decidim_user_id.present? ? "registered" : "unregistered"),
-            "#{idx + 1}. #{translated_attribute(answer.question.body)}" => normalize_body(answer)
+            "#{idx + 1}. #{translated(answer.question, :body)}" => normalize_body(answer)
           )
         end
       end
@@ -43,7 +43,7 @@ module Decidim
 
       def normalize_matrix_choices(answer, choices)
         answer.question.matrix_rows.map do |matrix_row|
-          row_body = translated_attribute(matrix_row.body)
+          row_body = translated(matrix_row, :body)
 
           row_choices = answer.question.answer_options.map do |answer_option|
             choice = choices.find_by(matrix_row: matrix_row, answer_option: answer_option)

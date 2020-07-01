@@ -24,12 +24,12 @@ module Decidim
       end
 
       def title
-        content = translated_attribute(debate.title)
+        content = translated(debate, :title)
         decidim_html_escape(content)
       end
 
       def description(strip_tags: false)
-        content = translated_attribute(debate.description)
+        content = translated(debate, :description)
         content = strip_tags(content) if strip_tags
         content
       end

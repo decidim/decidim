@@ -33,8 +33,6 @@ module Decidim
           value
         end
 
-        private
-
         attr_reader :value, :view_helpers
         alias h view_helpers
       end

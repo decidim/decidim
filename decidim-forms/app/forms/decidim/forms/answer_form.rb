@@ -27,7 +27,7 @@ module Decidim
       end
 
       def label(idx)
-        base = "#{idx + 1}. #{translated_attribute(question.body)}"
+        base = "#{idx + 1}. #{translated(question, :body)}"
         base += " #{mandatory_label}" if question.mandatory?
         base += " (#{max_choices_label})" if question.max_choices
         base

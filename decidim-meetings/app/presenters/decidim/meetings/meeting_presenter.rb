@@ -73,7 +73,7 @@ module Decidim
             parsed_content[locale] = yield(string)
           end
         else
-          yield(translated_attribute(content))
+          yield(translated(self, :content))
         end
       end
     end

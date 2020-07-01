@@ -29,7 +29,7 @@ module Decidim
 
         scopes_values = main_scopes.includes(:scope_type, :children).flat_map do |scope|
           TreeNode.new(
-            TreePoint.new(scope.id.to_s, translated_attribute(scope.name, current_organization)),
+            TreePoint.new(scope.id.to_s, translated(scope, :name)),
             scope_children_to_tree(scope)
           )
         end
@@ -47,7 +47,7 @@ module Decidim
 
         scope.children.includes(:scope_type, :children).flat_map do |child|
           TreeNode.new(
-            TreePoint.new(child.id.to_s, translated_attribute(child.name, current_organization)),
+            TreePoint.new(child.id.to_s, translated(child, :name)),
             scope_children_to_tree(child)
           )
         end

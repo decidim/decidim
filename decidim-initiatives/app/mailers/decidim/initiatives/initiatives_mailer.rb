@@ -20,7 +20,7 @@ module Decidim
         with_user(initiative.author) do
           @subject = I18n.t(
             "decidim.initiatives.initiatives_mailer.creation_subject",
-            title: translated_attribute(initiative.title)
+            title: translated(initiative, :title)
           )
 
           mail(to: "#{initiative.author.name} <#{initiative.author.email}>", subject: @subject)
@@ -36,12 +36,12 @@ module Decidim
         with_user(user) do
           @subject = I18n.t(
             "decidim.initiatives.initiatives_mailer.status_change_for",
-            title: translated_attribute(initiative.title)
+            title: translated(initiative, :title)
           )
 
           @body = I18n.t(
             "decidim.initiatives.initiatives_mailer.status_change_body_for",
-            title: translated_attribute(initiative.title),
+            title: translated(initiative, :title),
             state: I18n.t(initiative.state, scope: "decidim.initiatives.admin_states")
           )
 
@@ -61,13 +61,13 @@ module Decidim
         with_user(user) do
           @body = I18n.t(
             "decidim.initiatives.initiatives_mailer.progress_report_body_for",
-            title: translated_attribute(initiative.title),
+            title: translated(initiative, :title),
             percentage: initiative.percentage
           )
 
           @subject = I18n.t(
             "decidim.initiatives.initiatives_mailer.progress_report_for",
-            title: translated_attribute(initiative.title)
+            title: translated(initiative, :title)
           )
 
           mail(to: "#{user.name} <#{user.email}>", subject: @subject)

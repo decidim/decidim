@@ -34,8 +34,8 @@ module Decidim
     def sha1
       return unless decidim_user_group_id.nil?
 
-      title = translated_attribute(initiative.title)
-      description = translated_attribute(initiative.description)
+      title = translated(initiative, :title)
+      description = translated(initiative, :description)
 
       Digest::SHA1.hexdigest "#{authorization_unique_id}#{title}#{description}"
     end

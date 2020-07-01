@@ -14,7 +14,7 @@ module Decidim
       end
 
       def initiative_title
-        translated_attribute(model.initiative.title)
+        translated(model.initiative, :title)
       end
 
       def name_and_surname
