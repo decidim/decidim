@@ -2,20 +2,20 @@ it:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Assiemi correlati
+        assemblies_ids: Assemblee collegate
         banner_image: Immagine banner
         consultations_ids: Consultazioni correlate
         copy_categories: Copia le categorie
         copy_components: Copia componenti
         copy_features: Copia le caratteristiche
-        decidim_scope_id: Scopo
+        decidim_scope_id: Obiettivo
         description: Descrizione
-        hashtag: hashtag
+        hashtag: Hashtag
         hero_image: Immagine della home page
         participatory_processes_ids: Processi partecipativi correlati
-        promoted: Promossa
-        published_at: Pubblicato a
-        scope_id: Scopo
+        promoted: In evidenza
+        published_at: Pubblicato il
+        scope_id: Obiettivo
         scopes_enabled: Ambiti abilitati
         short_description: Breve descrizione
         show_statistics: Mostra statistiche
@@ -49,20 +49,20 @@ it:
     admin:
       actions:
         confirm: Confermare
-        new_conference: Nuova conferenza
+        new_conference: Nuova Conferenza
         send_diplomas: Invia certificati di frequenza
       conference_copies:
         new:
-          copy: copia
+          copy: Copia
           select: Seleziona i dati che desideri duplicare
-          title: Conferenza duplicata
+          title: Duplica Conferenza
       conference_publications:
         create:
           error: Si è verificato un errore durante la pubblicazione di questa conferenza.
           success: Conferenza pubblicata con successo.
         destroy:
-          error: Si è verificato un errore durante la pubblicazione di questa conferenza.
-          success: Conferenza non pubblicata con successo.
+          error: Si è verificato un errore durante la cancellazione di questa conferenza.
+          success: Conferenza ritirata con successo.
       conference_registration:
         confirm:
           error: Si è verificato un errore durante la conferma di questa registrazione alla conferenza.
@@ -74,19 +74,19 @@ it:
         destroy:
           success: Speaker della Conferenza cancellato con successo.
         edit:
-          title: Aggiorna lo speaker della conferenza.
+          title: Aggiorna relatore della conferenza.
           update: Aggiorna
         index:
-          conference_speakers_title: Oratori della conferenza
+          conference_speakers_title: Interventi del convegno
         new:
-          create: Creare
-          title: Nuovo relatore per conferenze.
+          create: Crea
+          title: Nuovo relatore per la conferenza.
         update:
-          error: Si è verificato un errore durante l'aggiornamento dell'altoparlante per questa conferenza.
-          success: Altoparlante aggiornato con successo per questa conferenza.
+          error: Si è verificato un errore durante l'aggiornamento del relatore per questa conferenza.
+          success: Relatore aggiornato con successo per questa conferenza.
       conference_user_roles:
         create:
-          error: Si è verificato un errore durante l'aggiunta di un utente per questa conferenza.
+          error: Si è verificato un errore durante l'aggiunta di un Admin per questa conferenza.
           success: Amministratore della conferenza aggiunto con successo.
         destroy:
           success: Amministratore della conferenza rimosso con successo.
@@ -106,16 +106,16 @@ it:
           error: Si è verificato un errore durante la creazione di una nuova conferenza.
           success: Conferenza creata con successo.
         edit:
-          update: Aggiornare
+          update: Aggiorna
         exports:
           registrations: Iscrizioni
         form:
           title: Informazioni Generali
         index:
-          not_published: Non pubblicato
-          published: Pubblicato
+          not_published: Non pubblicata
+          published: Pubblicata
         new:
-          create: Creare
+          create: Crea
           title: Conferenza
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa conferenza.
@@ -132,14 +132,14 @@ it:
           success: Link multimediale cancellato con successo.
         edit:
           title: Aggiorna collegamento multimediale.
-          update: Aggiornare
+          update: Aggiorna
         index:
           media_links_title: Link multimediali
         new:
-          create: Creare
+          create: Crea
           title: Link multimediale
         update:
-          error: Si è verificato un errore durante l'aggiornamento di questo link multimediale.
+          error: Si è verificato un errore aggiornando questo link multimediale.
           success: Link multimediale aggiornato correttamente.
       menu:
         conferences: Conferenze
@@ -151,7 +151,7 @@ it:
           components: Componenti
           conference_admins: Amministratori della conferenza
           conference_invites: Inviti
-          conference_speakers: Speakers
+          conference_speakers: Relatori
           diploma: Certificato di partecipazione
           info: Informazioni
           media_links: Link multimediali
@@ -172,7 +172,7 @@ it:
             affiliation: Affiliazione
             full_name: Nome e cognome
             position: Posizione
-          name: Speaker della Conferenza
+          name: Relatore della Conferenza
         conference_user_role:
           fields:
             email: E-mail
@@ -218,7 +218,7 @@ it:
           title: Aggiorna partner.
           update: Aggiornare
         new:
-          create: Creare
+          create: Crea
           title: Nuovo partner
         update:
           error: Si è verificato un errore durante l'aggiornamento di un partner per questa conferenza.
@@ -238,9 +238,9 @@ it:
           success: Tipo di iscrizione rimosso con successo da questa conferenza.
         edit:
           title: Aggiorna il tipo di iscrizione.
-          update: Aggiornare
+          update: Aggiorna
         new:
-          create: Creare
+          create: Crea
           title: Nuovo tipo di iscrizione
         update:
           error: Si è verificato un errore durante l'aggiornamento di un tipo di iscrizione per questa conferenza.
@@ -249,10 +249,10 @@ it:
         conferences: Conferenze
     admin_log:
       conference:
-        create: "%{user_name} creato nella conferenza %{resource_name}"
-        publish: "%{user_name} pubblicato nella conferenza %{resource_name}"
-        send_conference_diplomas: "%{user_name} ha inviato attestati di partecipazione ai partecipanti alla conferenza %{resource_name}"
-        unpublish: "%{user_name} ha reso non pubblicata la conferenza %{resource_name}"
+        create: "%{user_name} ha creato la conferenza %{resource_name}"
+        publish: "%{user_name} ha pubblicato la conferenza %{resource_name}"
+        send_conference_diplomas: "%{user_name} ha inviato gli attestati di partecipazione ai partecipanti alla conferenza %{resource_name}"
+        unpublish: "%{user_name} ha ritirato la conferenza %{resource_name}"
         update: "%{user_name} aggiornato la %{resource_name} conferenza"
         update_diploma: "%{user_name} aggiornato la configurazione dei certificati di presenza per %{resource_name} conferenza"
       conference_speaker:
