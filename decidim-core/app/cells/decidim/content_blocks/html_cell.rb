@@ -4,7 +4,7 @@ module Decidim
   module ContentBlocks
     class HtmlCell < Decidim::ViewModel
       def html_content
-        translated_attribute(model.settings.html_content).html_safe
+        translated(model.settings, :html_content).html_safe
       end
     end
   end

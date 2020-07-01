@@ -12,7 +12,7 @@ module Decidim
       end
 
       def translated_welcome_text
-        translated_attribute(model.settings.welcome_text)
+        translated(model.settings, :welcome_text)
       end
 
       def background_image

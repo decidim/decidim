@@ -49,7 +49,7 @@ module Decidim
     end
 
     included do
-      ActiveSupport::Deprecation.warn('translated_attribute helper is deprecated, please use translate')
+      ActiveSupport::Deprecation.warn("translated_attribute helper is deprecated, please use translate")
       # Public: Returns the translation of an attribute using the current locale,
       # if available. Checks for the organization default locale as fallback.
       #
@@ -61,9 +61,9 @@ module Decidim
       # Returns a String with the translation.
 
       def translated_attribute(attribute, organization = nil)
-        #rubocop:enable Decidim/TranslatedAttribute
         return "" if attribute.nil?
         return attribute unless attribute.is_a?(Hash)
+
         attribute = attribute.dup.stringify_keys
         organization ||= try(:current_organization)
         organization_locale = organization.try(:default_locale)
@@ -74,10 +74,10 @@ module Decidim
           ""
       end
 
-      def translated(resource, field)
-        return "" if resource[field].nil?
+      def translated(resource, field, organization = nil)
+        return "" if resource.try(field).nil?
 
-        resource[field] = resource[field].dup.stringify_keys
+        attribute = resource.try(field).dup.stringify_keys
         organization ||= try(:current_organization)
         organization_locale = organization.try(:default_locale)
 
@@ -86,13 +86,13 @@ module Decidim
           translated_resource_type: resource.class.name,
           field_name: field.to_s,
           translation_locale: I18n.locale.to_s
-        ).translation_value
+        ).try(:translation_value)
 
-        resource[field][I18n.locale.to_s].presence ||
-        @translated_value.presence ||
-        resource[field][organization_locale].presence ||
-        resource[field][resource[field].keys.first].presence ||
-        ""
+        attribute[I18n.locale.to_s].presence ||
+          @translated_value.presence ||
+          attribute[organization_locale].presence ||
+          attribute[attribute.keys.first].presence ||
+          ""
       end
     end
   end

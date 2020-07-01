@@ -39,7 +39,11 @@ module Decidim
       if resource_title.is_a?(String)
         resource_title
       elsif resource_title.is_a?(Hash)
-        translated_attribute(resource_title)
+        if resource.try(:resource_title)
+          translated(resource, :resource_title)
+        else
+          translated(resource, :title)
+        end
       end
     end
 
@@ -53,7 +57,11 @@ module Decidim
       resource_description = if resource_description.is_a?(String)
                                resource_description
                              elsif resource_description.is_a?(Hash)
-                               translated_attribute(resource_description)
+                               if resource.try(:resource_description)
+                                 translated(resource, :resource_description)
+                               else
+                                 translated(resource, :description)
+                               end
                              end
 
       truncate(strip_tags(resource_description), length: 300)
@@ -66,7 +74,7 @@ module Decidim
 
     # The text to show as the link to the resource.
     def resource_link_text
-      translated_attribute(resource.title)
+      translated(resource, :title)
     end
 
     def created_at
@@ -118,7 +126,7 @@ module Decidim
 
     def participatory_space_link
       link_to(
-        translated_attribute(participatory_space.title),
+        translated(participatory_space, :title),
         resource_locator(participatory_space).path
       )
     end

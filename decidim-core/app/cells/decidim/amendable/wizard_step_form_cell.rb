@@ -111,9 +111,9 @@ module Decidim
 
       # Returns a Hash that will be passed to a Decidim::AnnouncementCell.
       def wizard_header_help_text
-        attribute = amendable.component.settings.amendments_wizard_help_text
+        settings = amendable.component.settings
         {
-          announcement: translated_attribute(attribute).presence
+          announcement: translated(settings, :amendments_wizard_help_text).presence
         }
       end
     end

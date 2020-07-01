@@ -52,7 +52,7 @@ module Decidim
     end
 
     def scope_name
-      translated_attribute model.scope.name
+      translated(model.scope, :name)
     end
 
     def scope_path

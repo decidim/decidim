@@ -7,7 +7,7 @@ module Decidim
       include Decidim::SanitizeHelper
 
       def show
-        return if translated_attribute(current_organization.description).blank?
+        return if translated(current_organization, :description).blank?
 
         render
       end

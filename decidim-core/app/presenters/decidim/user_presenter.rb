@@ -51,7 +51,7 @@ module Decidim
     end
 
     def officialization_text
-      translated_attribute(officialized_as).presence ||
+      translated(self, :officialized_as).presence ||
         I18n.t("decidim.profiles.default_officialization_text_for_users")
     end
 

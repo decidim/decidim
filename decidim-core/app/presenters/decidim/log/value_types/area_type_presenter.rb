@@ -13,7 +13,7 @@ module Decidim
         # Returns an HTML-safe String.
         def present
           return unless value
-          return h.translated_attribute(area_type.name) if area_type
+          return h.translated(area_type, :name) if area_type
 
           I18n.t("not_found", id: value, scope: "decidim.log.value_types.area_type_presenter")
         end

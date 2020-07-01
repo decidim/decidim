@@ -5,6 +5,7 @@ require "spec_helper"
 module Decidim
   describe TranslationsHelper do
     describe "#translated_attribute" do
+      # rubocop:disable Decidim/TranslatedAttribute
       let(:organization) { double(default_locale: "en") }
 
       before do
@@ -50,6 +51,56 @@ module Decidim
 
           I18n.with_locale(:'zh-CN') do
             expect(helper.translated_attribute(attribute, other_organization)).to eq("Hola")
+          end
+        end
+      end
+      # rubocop:enable Decidim/TranslatedAttribute
+    end
+
+    describe "#translated" do
+      let(:organization) { double(default_locale: "en", name: name, id: 1, class: Decidim::Organization) }
+      let(:name) { { "ca" => "Hola", "zh-CN" => "你好" } }
+
+      before do
+        allow(I18n.config).to receive(:enforce_available_locales).and_return(false)
+        allow(helper).to receive(:current_organization).and_return(organization)
+      end
+
+      it "translates the attribute against the current locale" do
+        I18n.with_locale(:'zh-CN') do
+          expect(helper.translated(organization, :name)).to eq("你好")
+        end
+      end
+
+      context "when there is no translation for the given locale" do
+        context "when the default_locale is present" do
+          let(:name) { { "ca" => "Hola", "en" => "Hello" } }
+
+          it "uses the default locale" do
+            I18n.with_locale(:'zh-CN') do
+              expect(helper.translated(organization, :name)).to eq("Hello")
+            end
+          end
+        end
+
+        context "when the default locale is not present" do
+          let(:name) { { "ca" => "Hola" } }
+
+          it "returns the first available string" do
+            I18n.with_locale(:'zh-CN') do
+              expect(helper.translated(organization, :name)).to eq("Hola")
+            end
+          end
+        end
+      end
+
+      context "when given an organization" do
+        let(:other_organization) { double(default_locale: "ca") }
+        let(:name) { { "ca" => "Hola", "en" => "Hello" } }
+
+        it "uses the given organization default locale" do
+          I18n.with_locale(:'zh-CN') do
+            expect(helper.translated(organization, :name, other_organization)).to eq("Hola")
           end
         end
       end

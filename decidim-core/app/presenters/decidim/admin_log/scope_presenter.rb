@@ -42,7 +42,7 @@ module Decidim
 
       def i18n_params
         super.merge(
-          parent_scope: h.translated_attribute(parent_name)
+          parent_scope: h.translated(self, :parent_name)
         )
       end
 

@@ -14,7 +14,7 @@ module Decidim
       end
 
       def uninterpolated_body
-        translated_attribute(model.settings.body)
+        translated(model.settings, :body)
       end
     end
   end

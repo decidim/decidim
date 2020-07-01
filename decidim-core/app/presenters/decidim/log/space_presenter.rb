@@ -30,9 +30,11 @@ module Decidim
         present_space
       end
 
+      attr_reader :extra
+
       private
 
-      attr_reader :space, :view_helpers, :extra
+      attr_reader :space, :view_helpers
       alias h view_helpers
 
       # Private: Presents a space. If the space is found in the database, it
@@ -56,7 +58,7 @@ module Decidim
       #
       # Returns an HTML-safe String.
       def present_space_name
-        h.translated_attribute extra["title"]
+        h.translated(extra, :[])
       end
     end
   end

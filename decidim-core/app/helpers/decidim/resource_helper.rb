@@ -72,9 +72,15 @@ module Decidim
 
     # Returns a descriptive title for the resource
     def resource_title(resource)
-      title = resource.try(:title) || resource.try(:name) || resource.try(:subject) || "#{resource.model_name.human} ##{resource.id}"
-      title = translated_attribute(title) if title.is_a?(Hash)
-      title
+      if resource.try(:title)
+        translated(resource, :title)
+      elsif resource.try(:name)
+        translated(resource, :name)
+      elsif resource.try(:subject)
+        translated(resource, :subject)
+      else
+        "#{resource.model_name.human} ##{resource.id}"
+      end
     end
   end
 end

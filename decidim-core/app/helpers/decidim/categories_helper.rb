@@ -5,18 +5,18 @@ module Decidim
   module CategoriesHelper
     def categories_for_select(scope)
       sorted_main_categories = scope.first_class.includes(:subcategories).sort_by do |category|
-        translated_attribute(category.name, category.participatory_space.organization)
+        translated(category, :name)
       end
 
       sorted_main_categories.flat_map do |category|
-        parent = [[translated_attribute(category.name, category.participatory_space.organization), category.id]]
+        parent = [[translated(category, :name), category.id]]
 
         sorted_subcategories = category.subcategories.sort_by do |subcategory|
-          translated_attribute(subcategory.name, subcategory.participatory_space.organization)
+          translated(subcategory, :name)
         end
 
         sorted_subcategories.each do |subcategory|
-          parent << ["- #{translated_attribute(subcategory.name, subcategory.participatory_space.organization)}", subcategory.id]
+          parent << ["- #{translated(subcategory, :name)}", subcategory.id]
         end
 
         parent

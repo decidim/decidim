@@ -6,7 +6,7 @@ module Decidim
   # translated. It returns the appended value for both.
   # This is for testing only.
   class DummyTranslator
-    def self.translate(id, translation_locale, field_name, field_value)
+    def self.translate(id, translation_locale, field_name, _field_value)
       Decidim::TranslatedField.where(
         translated_resource_id: id,
         field_name: field_name,

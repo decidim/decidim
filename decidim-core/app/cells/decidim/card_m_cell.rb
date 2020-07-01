@@ -53,12 +53,17 @@ module Decidim
     end
 
     def title
-      translated_attribute model.title
+      translated(model, :title)
     end
 
     def description
-      attribute = model.try(:short_description) || model.try(:body) || model.description
-      text = translated_attribute(attribute)
+      text = if model.try(:short_description)
+               translated(model, :short_description)
+             elsif model.try(:body)
+               translated(model, :body)
+             else
+               translated(model, :description)
+             end
 
       decidim_sanitize(html_truncate(text, length: 100))
     end

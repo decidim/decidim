@@ -14,7 +14,7 @@ module Decidim
       end
 
       def uninterpolated_introduction
-        translated_attribute(model.settings.introduction)
+        translated(model.settings, :introduction)
       end
 
       def body
@@ -22,7 +22,7 @@ module Decidim
       end
 
       def uninterpolated_body
-        translated_attribute(model.settings.body)
+        translated(model.settings, :body)
       end
 
       def has_cta?
@@ -31,14 +31,14 @@ module Decidim
 
       def cta_text
         parse_interpolations(
-          translated_attribute(model.settings.cta_text),
+          translated(model.settings, :cta_text),
           recipient_user,
           newsletter.id
         )
       end
 
       def cta_url
-        translated_attribute(model.settings.cta_url)
+        translated(model.settings, :cta_url)
       end
 
       def has_main_image?

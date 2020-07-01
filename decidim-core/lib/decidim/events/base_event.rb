@@ -73,13 +73,13 @@ module Decidim
         return unless resource
 
         if resource.is_a?(Decidim::Hashtaggable)
-          translated_title = translated_attribute(resource.title)
+          translated_title = translated(resource, :title)
           renderer = Decidim::ContentRenderers::HashtagRenderer.new(translated_title)
           renderer.render(links: false).html_safe
         elsif resource.respond_to?(:title)
-          translated_attribute(resource.title)
+          translated(resource, :title)
         elsif resource.respond_to?(:name)
-          translated_attribute(resource.name)
+          translated(resource, :name)
         end
       end
 
