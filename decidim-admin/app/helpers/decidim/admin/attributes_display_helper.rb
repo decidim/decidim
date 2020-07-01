@@ -62,7 +62,7 @@ module Decidim
       def display_value(record, attr, locale = nil)
         if locale
           return I18n.with_locale(locale) do
-            content_tag(:dd, translated_attribute(record.send(attr)).try(:html_safe))
+            content_tag(:dd, translated(record, :send).try(:html_safe))
           end
         end
 

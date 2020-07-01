@@ -15,7 +15,7 @@ module Decidim
       def organization_area_types(organization = current_organization)
         [Option.new("", "-")] +
           organization.area_types.map do |area_type|
-            Option.new(area_type.id, translated_attribute(area_type.name))
+            Option.new(area_type.id, translated(area_type, :name))
           end
       end
     end

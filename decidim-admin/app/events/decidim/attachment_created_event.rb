@@ -13,10 +13,11 @@ module Decidim
     end
 
     def resource_text
-      translated_attribute(
-        resource.try(:description) ||
-          resource.try(:body)
-      )
+      if resource.respond_to?(:description)
+        translated(resource, :description)
+      elsif resource.respond_to?(:body)
+        translated(resource, :body)
+      end
     end
 
     private

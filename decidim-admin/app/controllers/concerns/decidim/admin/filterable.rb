@@ -140,11 +140,11 @@ module Decidim
         end
 
         def translated_scope_id_eq(id)
-          translated_attribute(scopes.find_by(id: id).name)
+          translated(scopes.find_by(id: id), :name)
         end
 
         def translated_category_id_eq(id)
-          translated_attribute(categories.find_by(id: id).name)
+          translated(categories.find_by(id: id), :name)
         end
       end
     end

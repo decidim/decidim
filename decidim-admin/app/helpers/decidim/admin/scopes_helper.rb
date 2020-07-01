@@ -13,9 +13,9 @@ module Decidim
       def scope_breadcrumbs(current_scope)
         current_scope.part_of_scopes.map do |scope|
           if scope == current_scope
-            translated_attribute(scope.name)
+            translated(scope, :name)
           else
-            link_to translated_attribute(scope.name), scope_scopes_path(scope)
+            link_to translated(scope, :name), scope_scopes_path(scope)
           end
         end
       end
@@ -29,13 +29,13 @@ module Decidim
       def organization_scope_types(organization = current_organization)
         [Option.new("", "-")] +
           organization.scope_types.map do |scope_type|
-            Option.new(scope_type.id, translated_attribute(scope_type.name))
+            Option.new(scope_type.id, translated(scope_type, :name))
           end
       end
 
       def organization_scope_depths(organization = current_organization)
         organization.scope_types.map do |scope_type|
-          Option.new(scope_type.id, translated_attribute(scope_type.name))
+          Option.new(scope_type.id, translated(scope_type, :name))
         end.reverse
       end
     end
