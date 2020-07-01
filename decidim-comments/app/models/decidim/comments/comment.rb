@@ -112,10 +112,14 @@ module Decidim
       end
 
       def self.newsletter_participant_ids(space)
-        Decidim::Comments::Comment.includes(:root_commentable).not_hidden
-                                  .where("decidim_comments_comments.decidim_author_id IN (?)", Decidim::User.where(organization: space.organization).pluck(:id))
-                                  .where("decidim_comments_comments.decidim_author_type IN (?)", "Decidim::UserBaseEntity")
-                                  .map(&:author).pluck(:id).flatten.compact.uniq
+        # Decidim::Comments::Comment.includes(:root_commentable).not_hidden
+        #                           .where("decidim_comments_comments.decidim_author_id" => Decidim::User.where(organization: space.organization))
+        #                           .where("decidim_comments_comments.decidim_author_type" => "Decidim::UserBaseEntity")
+        #                           .map(&:author).pluck(:id).flatten.compact.uniq
+        authors_sql= Decidim::Comments::Comment.select("DISTINCT decidim_comments_comments.decidim_author_id").not_hidden
+                                  .where("decidim_comments_comments.decidim_author_type" => "Decidim::UserBaseEntity").to_sql
+
+        Decidim::User.where(organization: space.organization).where("id IN (#{authors_sql})").pluck(:id)
       end
 
       def can_participate?(user)
