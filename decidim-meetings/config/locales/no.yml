@@ -223,9 +223,6 @@
           edit:
             close: Lukk
             title: Lukk møte
-        meeting_copies:
-          form:
-            select_organizer: Velg arrangøren
         meetings:
           close:
             invalid: Det oppstod et problem med å avslutte dette møtet
@@ -241,7 +238,6 @@
             address_help: 'Adresse: brukes av Geocoder for å finne lokasjonen'
             location_help: 'Plassering: melding rettet til brukerne som antyder stedet å møte på'
             location_hints_help: 'Plasseringstips: tilleggsinfo. Eksempel: gulvet i bygningen'
-            select_organizer: Velg arrangøren
           index:
             title: Møter
           new:
@@ -347,11 +343,8 @@
       meetings:
         filters:
           category: Kategori
-          category_prompt: Velg en kategori
           date: Dato
-          past: Fortid
           search: Søk
-          upcoming: Kommende
         filters_small_view:
           close_modal: Lukk modal
           filter: Filter

@@ -36,15 +36,18 @@ pt:
         organization_url: URL da organização
         redirect_uri: URI de redirecionamento
       organization:
+        address: Nome do host SMTP
         alert_color: Alerta
         badges_enabled: Ativar emblemas
         cta_button_path: Caminho do botão Chamar para Ação
         cta_button_text: Texto do botão Chamar para Ação
+        customize_welcome_notification: Personaliza as tuas notificações
         default_locale: Idioma por defeito
         description: Descrição
         enable_omnipresent_banner: Mostrar bandeira omnipresente
         facebook_handler: Manipulador do Facebook
         favicon: Ícone
+        from: Do Email Address
         github_handler: GitHub handler
         header_snippets: Snippets de cabeçalho
         highlighted_content_banner_action_subtitle: Legenda do botão de ação
@@ -63,15 +66,23 @@ pt:
         omnipresent_banner_short_description: Pequena descrição
         omnipresent_banner_title: Título
         omnipresent_banner_url: URL
+        password: Senha
+        port: Porta
         primary_color: Primário
         reference_prefix: Prefixo de referência
+        rich_text_editor_in_public_views: Habilitar o editor de texto rico para participantes
         secondary_color: Secundário
+        send_welcome_notification: Enviar uma notificação de teste
         show_statistics: Mostre estatisticas
         success_color: Sucesso
+        time_zone: Fuso horário
         tos_version: Termos de versão do serviço
         twitter_handler: Manipulador do Twitter
         user_groups_enabled: Ativar grupos de usuários
+        user_name: Nome de usuário
         warning_color: Aviso
+        welcome_notification_body: Corpo de notificação bem-vindo
+        welcome_notification_subject: Corpo de notificação bem-vindo
         youtube_handler: Manipulador do YouTube
       scope:
         code: Código
@@ -133,9 +144,24 @@ pt:
         export: Exportar
         manage: Gerir
         new: Novo %{name}
+        per_page: Por página
         permissions: Permissões
         reject: Rejeitar
         verify: Verificar
+      admin_terms_of_use:
+        accept:
+          error: Ocorreu um erro ao aceitar os termos de uso do administrador.
+          success: Ótimo! Você aceitou os termos de uso do administrador.
+        actions:
+          accept: Eu concordo com os termos do administrador
+          are_you_sure: Tem certeza de que deseja recusar os termos do administrador?
+          refuse: Recuse os termos do admin
+          title: Concordo com os termos e condições de
+        required_review:
+          alert: 'Obrigatório: Revise os termos de uso de nosso administrador'
+          callout: Por favor, reserve um momento para revisar os Termos de Uso do Administrador. Caso contrário, você não poderá administrar a plataforma.
+          cta: Reveja eles agora.
+        title: Ver os termos de utilização
       area_types:
         create:
           error: Ocorreu um erro ao criar um novo tipo de área.
@@ -156,6 +182,7 @@ pt:
           error: Ocorreu um erro ao criar uma nova área.
           success: Área criada com sucesso.
         destroy:
+          has_spaces: A área tem espaços dependentes, não deve ter dependências para ser excluída.
           success: Área destruída com sucesso
         edit:
           title: Editar área
@@ -226,6 +253,7 @@ pt:
           success: Categoria atualizada com sucesso.
       component_permissions:
         update:
+          error: Ocorreu um erro ao atualizar as permissões deste componente.
           success: Permissões atualizadas com sucesso.
       components:
         create:
@@ -268,12 +296,28 @@ pt:
       filters:
         category_id_eq:
           label: Categoria
+        filter_label: Filtro
         officialized_at_null:
           label: Estado
           values:
             'false': Oficializado
             'true': Não oficializado
+        private_space_eq:
+          label: Privado
+          values:
+            'false': Público
+            'true': Privado
+        published_at_null:
+          label: Publicada
+          values:
+            'false': Publicada
+            'true': Não Publicado
+        scope_id_eq:
+          label: Âmbito
         search_label: Pesquisa
+        search_placeholder:
+          name_or_nickname_or_email_cont: Pesquise %{collection} por e-mail, nome ou apelido.
+          title_cont: Pesquisar %{collection} por título.
       help_sections:
         error: Houve um erro ao atualizar as seções de ajuda
         form:
@@ -344,6 +388,9 @@ pt:
         static_pages: Páginas
         user_groups: Grupos de usuários
         users: Utilizadores
+      metrics:
+        metrics:
+          see_more_metrics: Ver Mais Detalhe
       models:
         area:
           fields:
@@ -377,6 +424,7 @@ pt:
             created_at: Criado em
             progress: Progresso
             sent_at: Enviado em
+            sent_to: Enviar para
             subject: Sujeito
           name: Boletim de Notícias
         oauth_application:
@@ -429,6 +477,10 @@ pt:
       newsletter_templates:
         index:
           preview_template: Visualização
+          title: Templates da Newsletter
+          use_template: Utilizar este template
+        show:
+          preview: 'Pré-visualização de modelo: %{template_name}'
       newsletters:
         create:
           error: Ocorreu um erro ao criar este boletim informativo.
@@ -684,6 +736,10 @@ pt:
       users_statistics:
         users_count:
           admins: Administradores
+          last_day: Último dia
+          last_month: Mês Passado
+          last_week: A semana passada
+          no_users_count_statistics_yet: Ainda não existem estatísticas ao vivo
           participants: Participantes
       view_public_page: Ver página pública
     forms:
