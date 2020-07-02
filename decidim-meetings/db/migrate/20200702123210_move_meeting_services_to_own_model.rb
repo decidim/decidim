@@ -10,13 +10,8 @@ class MoveMeetingServicesToOwnModel < ActiveRecord::Migration[5.2]
   end
 
   def change
-    create_table :decidim_meetings_services do |t|
-      t.jsonb :title
-      t.jsonb :description
-      t.bigint :decidim_meeting_id, null: false, index: true
-
-      t.timestamps
-    end
+    Meeting.reset_column_information
+    Service.reset_column_information
 
     Meeting.find_each do |meeting|
       meeting["services"].each do |service|
@@ -29,5 +24,8 @@ class MoveMeetingServicesToOwnModel < ActiveRecord::Migration[5.2]
     end
 
     remove_column :decidim_meetings_meetings, :services
+
+    Meeting.reset_column_information
+    Service.reset_column_information
   end
 end
