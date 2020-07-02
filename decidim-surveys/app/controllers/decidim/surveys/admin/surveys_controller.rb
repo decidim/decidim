@@ -11,8 +11,8 @@ module Decidim
           survey
         end
 
-        def public_url(params)
-          Decidim::EngineRouter.main_proxy(current_component).survey_path(survey, **params)
+        def public_url
+          Decidim::EngineRouter.main_proxy(current_component).survey_path(survey)
         end
 
         private

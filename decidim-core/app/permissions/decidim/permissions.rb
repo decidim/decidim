@@ -45,7 +45,6 @@ module Decidim
       return unless permission_action.subject == :component &&
                     permission_action.action == :read
 
-      return allow! if can_preview_component?
       return allow! if component.published?
       return allow! if user_can_admin_component?
       return allow! if user_can_admin_component_via_space?
@@ -162,10 +161,6 @@ module Decidim
       Decidim::Admin::Permissions.new(user, new_permission_action, context).permissions.allowed?
     rescue Decidim::PermissionAction::PermissionNotSetError
       nil
-    end
-
-    def can_preview_component?
-      allow! if component.settings.preview_token == context[:preview_token]
     end
 
     def user_can_admin_component_via_space?

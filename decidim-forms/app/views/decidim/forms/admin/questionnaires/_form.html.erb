@@ -4,7 +4,7 @@
       <%= t(".title") %>
       <% if allowed_to? :preview, :questionnaire %>
         <div class="button--title">
-          <%= link_to t(".preview"), public_url(token: questionnaire_for.try(:component).try(:settings).try(:preview_token)), class: "button tiny button--simple", target: :_blank %>
+          <%= link_to t(".preview"), public_url, class: "button tiny button--simple", target: :_blank %>
         </div>
       <% end %>
       <div class="button--title">

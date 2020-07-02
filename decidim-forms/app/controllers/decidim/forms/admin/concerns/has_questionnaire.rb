@@ -77,7 +77,7 @@ module Decidim
 
             # Implement this method in your controller to set the URL
             # where the questionnaire can be answered.
-            def public_url(params)
+            def public_url
               raise "#{self.class.name} is expected to implement #public_url"
             end
 
