@@ -103,6 +103,11 @@ ignore_missing:
   - participate_in
   - see_other_versions
   - actions.invalid_destroy.proposals_count
+  - decidim.budgets.budget_information_modal.limit_reached_cancel
+  - decidim.budgets.budget_information_modal.back_to
+  - decidim.budgets.budgets_header.voted_on
+  - decidim.budgets.budgets_header.cancel_order.more_than_one
+  - decidim.budgets.budgets_header.highlighted_cta
 
 # Consider these keys used:
 ignore_unused:

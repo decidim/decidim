@@ -43,7 +43,7 @@
       <p><%= highlighted_heading %></p>
       <p>
         <%= link_to(
-              t("highlighted_cta", name: translated_attribute(highlighted.name), scope: i18n_scope),
+              t("highlighted_cta", name: translated_attribute(highlighted.title), scope: i18n_scope),
               budgets_path(highlighted),
               class: :button ) %>
       </p>

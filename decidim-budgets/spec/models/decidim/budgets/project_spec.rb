@@ -14,8 +14,8 @@ module Decidim::Budgets
     it { is_expected.to be_valid }
     it { is_expected.to be_versioned }
 
-    context "without a component" do
-      let(:project) { build :project, component: nil }
+    context "without a budget" do
+      let(:project) { build :project, budget: nil }
 
       it { is_expected.not_to be_valid }
     end
@@ -35,7 +35,7 @@ module Decidim::Budgets
     end
 
     describe "#orders_count" do
-      let(:project) { create :project, budget: 75_000_000 }
+      let(:project) { create :project, budget_amount: 75_000_000 }
       let(:order) { create :order, component: project.component }
       let(:unfinished_order) { create :order, component: project.component }
       let!(:line_item) { create :line_item, project: project, order: order }

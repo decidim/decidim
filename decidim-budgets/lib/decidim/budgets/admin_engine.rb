@@ -13,16 +13,18 @@ module Decidim
 
       routes do
         resources :budgets do
+          resources :projects do
+            collection do
+              resource :proposals_import, only: [:new, :create]
+            end
+          end
         end
 
-        resources :projects do
+        resources :projects, exclude: [:index, :new, :create, :edit, :update, :destroy] do
           get :proposals_picker, on: :collection
 
           resources :attachment_collections
           resources :attachments
-          collection do
-            resource :proposals_import, only: [:new, :create]
-          end
         end
 
         root to: "budgets#index"

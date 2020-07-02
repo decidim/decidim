@@ -1,3 +1,7 @@
+<% if current_workflow.single? %>
+  <%= render partial: "decidim/shared/component_announcement" %>
+<% end %>
+
 this shold be the project index?
 <br>
 <%= cell("decidim/budgets/budget_information_modal", current_component) %>

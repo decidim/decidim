@@ -15,9 +15,7 @@ module Decidim
             when :update
               toggle_allow(budget)
             when :delete, :publish, :unpublish
-              toggle_allow(budget)
-              # !todo: check if has projects
-              # toggle_allow(budget && budget.projects.empty?)
+              toggle_allow(budget && budget.projects.empty?)
             end
           when :project, :projects
             case permission_action.action

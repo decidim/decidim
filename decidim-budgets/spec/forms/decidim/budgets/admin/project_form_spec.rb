@@ -17,14 +17,15 @@ module Decidim::Budgets
       }
     end
     let(:participatory_process) { create :participatory_process, organization: organization }
-    let(:current_component) { create :budget_component, participatory_space: participatory_process }
+    let(:current_component) { create :budgets_component, participatory_space: participatory_process }
+    let(:budget) { create :budget, component: current_component }
     let(:title) do
       Decidim::Faker::Localized.sentence(3)
     end
     let(:description) do
       Decidim::Faker::Localized.sentence(3)
     end
-    let(:budget) { Faker::Number.number(8) }
+    let(:budget_amount) { Faker::Number.number(8) }
     let(:scope) { create :scope, organization: organization }
     let(:scope_id) { scope.id }
     let(:category) { create :category, participatory_space: participatory_process }
@@ -35,7 +36,7 @@ module Decidim::Budgets
         decidim_category_id: category_id,
         title_en: title[:en],
         description_en: description[:en],
-        budget: budget
+        budget_amount: budget_amount
       }
     end
 
@@ -53,14 +54,14 @@ module Decidim::Budgets
       it { is_expected.not_to be_valid }
     end
 
-    describe "when budget is missing" do
-      let(:budget) { nil }
+    describe "when budget_amount is missing" do
+      let(:budget_amount) { nil }
 
       it { is_expected.not_to be_valid }
     end
 
-    describe "when budget is less or equal 0" do
-      let(:budget) { 0 }
+    describe "when budget_amount is less or equal 0" do
+      let(:budget_amount) { 0 }
 
       it { is_expected.not_to be_valid }
     end
@@ -92,7 +93,7 @@ module Decidim::Budgets
       let(:project) do
         create(
           :project,
-          component: current_component,
+          budget: budget,
           scope: scope,
           category: category
         )

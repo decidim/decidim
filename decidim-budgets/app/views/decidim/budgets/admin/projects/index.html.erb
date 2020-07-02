@@ -1,9 +1,10 @@
 <div class="card">
   <div class="card-divider">
     <h2 class="card-title">
+      <%= link_to translated_attribute(budget.title), budgets_path %> &gt;
       <%= t(".title") %>
-      <%= link_to t("actions.new", scope: "decidim.budgets"), new_project_path, class: "button tiny button--title new" if allowed_to? :create, :project %>
-      <%= link_to t("actions.import", scope: "decidim.budgets", name: t("models.project.name", scope: "decidim.budgets.admin")), new_proposals_import_path, class: "button tiny button--title" if allowed_to? :import_proposals, :project %>
+      <%= link_to t("actions.new", scope: "decidim.budgets", name: t("models.project.name", scope: "decidim.budgets.admin")), new_budget_project_path, class: "button tiny button--title new" if allowed_to? :create, :project %>
+      <%= link_to t("actions.import", scope: "decidim.budgets", name: t("models.project.name", scope: "decidim.budgets.admin")), new_budget_proposals_import_path(budget), class: "button tiny button--title" if allowed_to? :import_proposals, :project %>
     </h2>
   </div>
 
@@ -30,7 +31,7 @@
                 <%= icon_link_to "eye", resource_locator(project).path, t("actions.preview", scope: "decidim.budgets"), target: :blank, class: "action-icon--preview" %>
 
                 <% if allowed_to? :update, :project, project: project %>
-                  <%= icon_link_to "pencil", edit_project_path(project), t("actions.edit", scope: "decidim.budgets"), class: "action-icon--edit" %>
+                  <%= icon_link_to "pencil", edit_budget_project_path(budget, project), t("actions.edit", scope: "decidim.budgets"), class: "action-icon--edit" %>
                 <% end %>
 
                 <% if allowed_to? :update, :project, project: project %>
@@ -44,7 +45,9 @@
                 <%= resource_permissions_link(project) %>
 
                 <% if allowed_to? :destroy, :project, project: project %>
-                  <%= icon_link_to "circle-x", project_path(project), t("actions.destroy", scope: "decidim.budgets"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.budgets") } %>
+                  <%= icon_link_to "circle-x", budget_project_path(budget, project), t("actions.destroy", scope: "decidim.budgets"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.budgets") } %>
+                <% else %>
+                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img" %>
                 <% end %>
               </td>
             </tr>

@@ -100,64 +100,66 @@ Decidim.register_component(:budgets) do |component|
       published_at: Time.current,
       participatory_space: participatory_space,
       settings: {
-        # title: Decidim::Faker::Localized.sentence(4),
-        # description: Decidim::Faker::Localized.paragraph(3),
-        # highlighted_heading: Decidim::Faker::Localized.sentence(4),
-        # list_heading: Decidim::Faker::Localized.sentence(4),
-        # more_information: Decidim::Faker::Localized.sentence(4),
+        title: Decidim::Faker::Localized.sentence(4),
+        description: Decidim::Faker::Localized.paragraph(3),
+        highlighted_heading: Decidim::Faker::Localized.sentence(4),
+        list_heading: Decidim::Faker::Localized.sentence(4),
+        more_information: Decidim::Faker::Localized.sentence(4),
         workflow: %w(one random all).sample
       }
     )
 
-    # 3.times do
-    #   budget = Decidim::Budgets::Budget.create!(
-    #     component: component,
-    #     title: Decidim::Faker::Localized.sentence(2),
-    #     description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-    #       Decidim::Faker::Localized.paragraph(3)
-    #     end,
-    #     total_budget: Faker::Number.number(8)
-    #   )
-    # end
-
-    2.times do
-      project = Decidim::Budgets::Project.create!(
+    rand(1...3).times do
+      Decidim::Budgets::Budget.create!(
         component: component,
-        scope: participatory_space.organization.scopes.sample,
-        category: participatory_space.categories.sample,
         title: Decidim::Faker::Localized.sentence(2),
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(3)
         end,
-        budget: Faker::Number.number(8)
+        total_budget: Faker::Number.number(8)
       )
+    end
 
-      attachment_collection = Decidim::AttachmentCollection.create!(
-        name: Decidim::Faker::Localized.word,
-        description: Decidim::Faker::Localized.sentence(5),
-        collection_for: project
-      )
+    Decidim::Budgets::Budget.where(component: component).each do |budget|
+      rand(2...4).times do
+        project = Decidim::Budgets::Project.create!(
+          budget: budget,
+          scope: participatory_space.organization.scopes.sample,
+          category: participatory_space.categories.sample,
+          title: Decidim::Faker::Localized.sentence(2),
+          description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.paragraph(3)
+          end,
+          budget_amount: Faker::Number.number(8)
+        )
 
-      Decidim::Attachment.create!(
-        title: Decidim::Faker::Localized.sentence(2),
-        description: Decidim::Faker::Localized.sentence(5),
-        file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf")),
-        attachment_collection: attachment_collection,
-        attached_to: project
-      )
-      Decidim::Attachment.create!(
-        title: Decidim::Faker::Localized.sentence(2),
-        description: Decidim::Faker::Localized.sentence(5),
-        file: File.new(File.join(__dir__, "seeds", "city.jpeg")),
-        attached_to: project
-      )
-      Decidim::Attachment.create!(
-        title: Decidim::Faker::Localized.sentence(2),
-        description: Decidim::Faker::Localized.sentence(5),
-        file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf")),
-        attached_to: project
-      )
-      Decidim::Comments::Seed.comments_for(project)
+        attachment_collection = Decidim::AttachmentCollection.create!(
+          name: Decidim::Faker::Localized.word,
+          description: Decidim::Faker::Localized.sentence(5),
+          collection_for: project
+        )
+
+        Decidim::Attachment.create!(
+          title: Decidim::Faker::Localized.sentence(2),
+          description: Decidim::Faker::Localized.sentence(5),
+          file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf")),
+          attachment_collection: attachment_collection,
+          attached_to: project
+        )
+        Decidim::Attachment.create!(
+          title: Decidim::Faker::Localized.sentence(2),
+          description: Decidim::Faker::Localized.sentence(5),
+          file: File.new(File.join(__dir__, "seeds", "city.jpeg")),
+          attached_to: project
+        )
+        Decidim::Attachment.create!(
+          title: Decidim::Faker::Localized.sentence(2),
+          description: Decidim::Faker::Localized.sentence(5),
+          file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf")),
+          attached_to: project
+        )
+        Decidim::Comments::Seed.comments_for(project)
+      end
     end
   end
 end

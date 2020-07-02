@@ -112,7 +112,7 @@ describe "Admin manages budgets", type: :system do
     context "when the budget has projects" do
       let!(:budget) { create(:budget, :with_projects, component: current_component) }
 
-      xit "cannot delete the budget" do
+      it "cannot delete the budget" do
         within find("tr", text: translated(budget.title)) do
           expect(page).to have_no_selector(".action-icon--remove")
         end

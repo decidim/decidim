@@ -22,6 +22,7 @@ en:
         confirm_destroy: Are you sure you want to delete this project?
         destroy: Delete
         edit: Edit
+        edit_projects: Manage projects
         import: Import proposals to projects
         new: New %{name}
         preview: Preview
@@ -105,6 +106,7 @@ en:
         budget:
           fields:
             name: Name
+            projects_count: Projects count
             total_budget: Total budget
         project:
           fields:

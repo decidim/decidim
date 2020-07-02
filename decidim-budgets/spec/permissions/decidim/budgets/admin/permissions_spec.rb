@@ -59,12 +59,23 @@ describe Decidim::Budgets::Admin::Permissions do
     it { is_expected.to eq true }
   end
 
-  describe "budget delete" do
-    let(:action) do
-      { scope: :admin, action: :delete, subject: :budget }
+  context "when deleting a budget" do
+    describe "with no projects" do
+      let(:action) do
+        { scope: :admin, action: :delete, subject: :budget }
+      end
+
+      it { is_expected.to eq true }
     end
 
-    it { is_expected.to eq true }
+    describe "with projects" do
+      let(:budget) { create :budget, :with_projects, component: budgets_component }
+      let(:action) do
+        { scope: :admin, action: :delete, subject: :budget }
+      end
+
+      it { is_expected.to eq false }
+    end
   end
 
   context "when scope is not admin" do

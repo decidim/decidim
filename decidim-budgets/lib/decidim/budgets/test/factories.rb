@@ -81,13 +81,23 @@ FactoryBot.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     total_budget { 100_000_000 }
     component { create(:budgets_component) }
+
+    trait :with_projects do
+      transient do
+        projects_number { 2 }
+      end
+
+      after(:create) do |budget, evaluator|
+        create_list(:project, evaluator.projects_number, budget: budget)
+      end
+    end
   end
 
   factory :project, class: "Decidim::Budgets::Project" do
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    budget { Faker::Number.number(8) }
-    component { create(:budgets_component) }
+    budget_amount { Faker::Number.number(8) }
+    budget { create(:budget) }
   end
 
   factory :order, class: "Decidim::Budgets::Order" do

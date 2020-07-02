@@ -14,6 +14,7 @@
           <tr>
             <th><%= t("models.budget.fields.name", scope: "decidim.budgets") %></th>
             <th><%= t("models.budget.fields.total_budget", scope: "decidim.budgets") %></th>
+            <th><%= t("models.budget.fields.projects_count", scope: "decidim.budgets") %></th>
             <th class="actions"><%= t("actions.title", scope: "decidim.budgets") %></th>
           </tr>
         </thead>
@@ -26,18 +27,24 @@
               <td>
                 <%= number_to_currency budget.total_budget, unit: Decidim.currency_unit, precision: 0 %>
               </td>
+              <td>
+                <%= link_to budget.projects.count, budget_projects_path(budget) %>
+              </td>
               <td class="table-list__actions">
                 <%= icon_link_to "eye", resource_locator(budget).path, t("actions.preview", scope: "decidim.budgets"), class: "action-icon--preview", target: :blank %>
 
-                <% # !todo: add link to projects %>
-                <% # = icon_link_to "list", budget_projects_path(budget), t("actions.edit_projects", scope: "decidim.budgets"), class: "action-icon--edit-projects" %>
+                <%= icon_link_to "list", budget_projects_path(budget), t("actions.edit_projects", scope: "decidim.budgets"), class: "action-icon--edit-projects" %>
 
                 <% if allowed_to? :update, :budget, budget: budget %>
                   <%= icon_link_to "pencil", edit_budget_path(budget), t("actions.edit", scope: "decidim.budgets"), class: "action-icon--edit" %>
+                <% else %>
+                  <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img" %>
                 <% end %>
 
                 <% if allowed_to? :delete, :budget, budget: budget %>
                   <%= icon_link_to "circle-x", budget_path(budget), t("actions.destroy", scope: "decidim.budgets"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.budgets") } %>
+                <% else %>
+                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img" %>
                 <% end %>
               </td>
             </tr>

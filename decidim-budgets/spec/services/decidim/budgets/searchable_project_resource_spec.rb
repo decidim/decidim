@@ -8,12 +8,13 @@ module Decidim
 
     include_context "when a resource is ready for global search"
 
-    let(:current_component) { create :budget_component, organization: organization }
+    let(:current_component) { create :budgets_component, organization: organization }
+    let(:budget) { create :budget, component: current_component }
 
     let!(:resource) do
       create(
         :project,
-        component: current_component,
+        budget: budget,
         scope: scope1,
         title: Decidim::Faker::Localized.name,
         description: description_1
@@ -34,7 +35,7 @@ module Decidim
         context "when on update" do
           context "when it is updated" do
             before do
-              resource.increment(:budget)
+              resource.increment(:budget_amount)
             end
 
             it "updates the associated SearchableResource after update" do
@@ -70,7 +71,7 @@ module Decidim
         let!(:resource_2) do
           create(
             :project,
-            component: current_component,
+            budget: budget,
             scope: scope1,
             title: Decidim::Faker::Localized.name,
             description: Decidim::Faker::Localized.prefixed("Chewie, I'll be waiting for your signal. Take care, you two. May the Force be with you. Ow!", test_locales)

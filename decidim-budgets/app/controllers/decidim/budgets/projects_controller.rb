@@ -21,7 +21,7 @@ module Decidim
       end
 
       def project
-        @project ||= search.results.find(params[:id])
+        @project ||= Project.find_by(id: params[:id])
       end
 
       def search_klass
