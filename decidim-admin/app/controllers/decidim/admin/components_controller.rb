@@ -115,7 +115,7 @@ module Decidim
         @component = query_scope.find(params[:id])
         share_token = @component.share_tokens.create!(user: current_user, organization: current_organization)
         
-        redirect_to EngineRouter.main_proxy(@component).root_path(@component, share_token: share_token.token)
+        redirect_to share_token.url
       end
 
       private

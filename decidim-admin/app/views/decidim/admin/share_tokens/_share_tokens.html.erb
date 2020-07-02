@@ -27,6 +27,11 @@
               <td><%= l share_token.created_at, format: :short %></td>
               <td><%= l share_token.expires_at, format: :short if share_token.expires_at.present? %></td>
               <td class="table-list__actions">
+                <%= icon_link_to "share",
+                                share_token.url,
+                                t("actions.share", scope: "decidim.admin.share_tokens"),
+                                class: "action-icon--share",
+                                target: "_blank" %>
                 <%= icon_link_to "circle-x",
                                 "confirm_destroy_share_token_path(share_token)",
                                 t("actions.destroy", scope: "decidim.admin.share_tokens"),

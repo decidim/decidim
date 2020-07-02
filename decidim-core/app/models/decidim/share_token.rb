@@ -21,13 +21,17 @@ module Decidim
         record.use!
       end
     end
+    
+    def use!
+      update!(times_used: times_used + 1, last_used_at: Time.zone.now)
+    end
 
     def expired?
       expires_at.past?
     end
 
-    def use!
-      update!(times_used: times_used + 1, last_used_at: Time.zone.now)
+    def url
+      token_for.shareable_url(self)
     end
 
     private
