@@ -1,0 +1,42 @@
+<fieldset class="share-tokens" title="share-tokens">
+  <div class="card">
+    <div class="card-divider">
+      <legend><%= t ".title" %></legend>
+    </div>
+    <div class="card-section">
+      <div class="table-scroll">
+        <table class="table-list">
+          <thead>
+            <tr>
+              <th><%= t("models.share_token.fields.token", scope: "decidim.admin") %></th>
+              <th><%= t("models.share_token.fields.user", scope: "decidim.admin") %></th>
+              <th><%= t("models.share_token.fields.times_used", scope: "decidim.admin") %></th>
+              <th><%= t("models.share_token.fields.last_used_at", scope: "decidim.admin") %></th>
+              <th><%= t("models.share_token.fields.created_at", scope: "decidim.admin") %></th>
+              <th><%= t("models.share_token.fields.expires_at", scope: "decidim.admin") %></th>
+              <th class="actions"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% share_tokens.each do |share_token| %>
+            <tr>
+              <td><%= share_token.token %></td>
+              <td><%= share_token.user.name %></td>
+              <td><%= share_token.times_used %></td>
+              <td><%= share_token.last_used_at %></td>
+              <td><%= share_token.created_at %></td>
+              <td><%= share_token.expires_at %></td>
+              <td class="table-list__actions">
+                <%= icon_link_to "circle-x",
+                                "confirm_destroy_share_token_path(share_token)",
+                                t("actions.destroy", scope: "decidim.admin.share_tokens"),
+                                class: "action-icon--remove" %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</fieldset>

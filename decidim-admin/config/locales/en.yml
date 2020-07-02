@@ -443,6 +443,14 @@ en:
           fields:
             name: Name
             plural: Plural
+        share_token:
+          fields:
+            created_at: Created at
+            expires_at: Expires at
+            last_used_at: Last time used
+            times_used: Times used
+            token: Token
+            user: Created by
         static_page:
           fields:
             created_at: Created at
@@ -688,6 +696,12 @@ en:
           add_images: Add images
           delete_image: Delete Image
           gallery_legend: Add an image gallery (Optional)
+      share_tokens:
+        actions:
+          destroy: Destroy
+          edit: Edit
+        form:
+          title: Share tokens
       static_page_topics:
         create:
           error: There was a problem creating a new topic.

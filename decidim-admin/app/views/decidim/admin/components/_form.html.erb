@@ -77,6 +77,8 @@
           </div>
         </fieldset>
       <% end %>
+
+      <%= render partial: "decidim/admin/share_tokens/form", locals: { form: form, share_tokens: form.object.share_tokens } %>
     </div>
   </div>
 </div>
