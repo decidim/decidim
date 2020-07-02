@@ -13,7 +13,6 @@ module Decidim
     after_initialize :generate
 
     def self.use!(token_for:, token:)
-      byebug
       record = find_by!(token_for: token_for, token: token)
 
       if record.expired?
