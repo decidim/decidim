@@ -111,6 +111,13 @@ module Decidim
         end
       end
 
+      def share
+        @component = query_scope.find(params[:id])
+        share_token = @component.share_tokens.create!(user: current_user, organization: current_organization)
+        
+        redirect_to EngineRouter.main_proxy(@component).root_path(@component, share_token: share_token.token)
+      end
+
       private
 
       # Processes the component params so the form object defined in the manifest (component_form_class_name)

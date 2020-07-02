@@ -148,6 +148,7 @@ en:
         per_page: Per page
         permissions: Permissions
         reject: Reject
+        share: Share
         verify: Verify
       admin_terms_of_use:
         accept:
