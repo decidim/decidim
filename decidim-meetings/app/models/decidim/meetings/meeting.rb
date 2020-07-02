@@ -177,6 +177,17 @@ module Decidim
         (Time.current - end_time) < 72.hours
       end
 
+      def authored_proposals
+        Decidim::Proposals::Proposal
+          .joins(:coauthorships)
+          .where(
+            decidim_coauthorships: {
+              decidim_author_type: "Decidim::Meetings::Meeting",
+              decidim_author_id: id
+            }
+          )
+      end
+
       # Public: Overrides the `reported_content_url` Reportable concern method.
       def reported_content_url
         ResourceLocatorPresenter.new(self).url
