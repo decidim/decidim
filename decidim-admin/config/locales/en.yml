@@ -701,7 +701,7 @@ en:
         actions:
           destroy: Destroy
           edit: Edit
-        form:
+        share_tokens:
           title: Share tokens
       static_page_topics:
         create:

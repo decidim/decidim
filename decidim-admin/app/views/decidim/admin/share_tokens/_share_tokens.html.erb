@@ -23,9 +23,9 @@
               <td><%= share_token.token %></td>
               <td><%= share_token.user.name %></td>
               <td><%= share_token.times_used %></td>
-              <td><%= share_token.last_used_at %></td>
-              <td><%= share_token.created_at %></td>
-              <td><%= share_token.expires_at %></td>
+              <td><%= l share_token.last_used_at, format: :short if share_token.last_used_at.present? %></td>
+              <td><%= l share_token.created_at, format: :short %></td>
+              <td><%= l share_token.expires_at, format: :short if share_token.expires_at.present? %></td>
               <td class="table-list__actions">
                 <%= icon_link_to "circle-x",
                                 "confirm_destroy_share_token_path(share_token)",
