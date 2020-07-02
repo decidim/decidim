@@ -23,7 +23,7 @@ module Decidim
 
         # Debates can be translated in different languages from the admin but
         # the public form doesn't allow it. When a user creates a debate the
-        # text is the same for all languages.
+        # user locale is taken as the text locale.
         self.title = debate.title.values.first
         self.description = debate.description.values.first
         self.user_group_id = debate.decidim_user_group_id

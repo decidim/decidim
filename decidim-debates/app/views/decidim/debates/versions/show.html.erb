@@ -1,0 +1,10 @@
+<div class="row">
+  <%= cell(
+    "decidim/version",
+    current_version,
+    index: params[:id],
+    versioned_resource: versioned_resource,
+    versions_path: proc { url_for(action: :index) },
+    i18n_scope: "decidim.debates.debates.versions.#{item_name.to_s.pluralize}"
+  ) %>
+</div>

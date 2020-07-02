@@ -24,7 +24,9 @@ edit_link(
     <%== present(debate).title %>
   </h2>
 
-  <%= cell "decidim/author", Decidim::Debates::DebatePresenter.new(debate).author, from: debate, context: { extra_classes: ["author-data--small"] } %>
+  <% debate_presenter = Decidim::Debates::DebatePresenter.new(debate) %>
+  <%= cell "decidim/author", debate_presenter.author, from: debate, context: { extra_classes: ["author-data--small"] } %>
+
 </div>
 <div class="row">
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
@@ -47,6 +49,7 @@ edit_link(
       </div>
     </div>
     <%= resource_reference(debate) %>
+    <%= resource_version(debate_presenter, versions_path: debate_versions_path(debate)) %>
     <%= render partial: "decidim/shared/share_modal" %>
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
