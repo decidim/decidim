@@ -83,6 +83,7 @@ module Decidim
   autoload :Randomable, "decidim/randomable"
   autoload :Endorsable, "decidim/endorsable"
   autoload :ActionAuthorization, "decidim/action_authorization"
+  autoload :ShareableWithToken, "decidim/shareable_with_token"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
