@@ -79,6 +79,11 @@ describe Decidim::Debates::CreateDebate do
       expect(action_log.version).to be_present
       expect(action_log.version.event).to eq "create"
     end
+
+    it "makes the author follow the debate" do
+      subject.call
+      expect(Decidim::Follow.where(user: user, followable: debate).count).to eq(1)
+    end
   end
 
   describe "events" do
