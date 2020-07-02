@@ -75,11 +75,13 @@ module Decidim
 
         participant_ids = []
         spaces.each do |space|
-          available_components = Decidim.component_manifests.map { |m| m.name.to_s if m.newsletter_participant_entities.present? }.compact
-          Decidim::Component.where(id: space.component_ids, manifest_name: available_components).published.each do |component|
-            Decidim.find_component_manifest(component.manifest_name).try(&:newsletter_participant_entities).flatten.each do |object|
-              klass = Object.const_get(object)
-              participant_ids |= klass.newsletter_participant_ids(component)
+          if defined? space.component_ids
+            available_components = Decidim.component_manifests.map { |m| m.name.to_s if m.newsletter_participant_entities.present? }.compact
+            Decidim::Component.where(id: space.component_ids, manifest_name: available_components).published.each do |component|
+              Decidim.find_component_manifest(component.manifest_name).try(&:newsletter_participant_entities).flatten.each do |object|
+                klass = Object.const_get(object)
+                participant_ids |= klass.newsletter_participant_ids(component)
+              end
             end
           end
         end
