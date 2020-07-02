@@ -27,7 +27,11 @@ module Decidim
     end
 
     def announcement
-      model[:announcement]
+      @announcement ||= if model[:announcement].is_a?(Hash)
+                          OpenStruct.new(model[:announcement])
+                        else
+                          model[:announcement]
+                        end
     end
   end
 end

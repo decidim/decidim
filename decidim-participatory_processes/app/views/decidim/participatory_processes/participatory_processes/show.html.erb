@@ -79,7 +79,7 @@ edit_link(
         <% end %>
 
         <% area = current_participatory_space.area %>
-        <% if translated_attribute(area&.name).present? %>
+        <% if translated(area, :name).present? %>
           <div class="definition-data__item area">
             <span class="definition-data__title"><%= t("area", scope: "decidim.participatory_processes.show") %></span>
             <% if translated(area.area_type, :name).present? %>
