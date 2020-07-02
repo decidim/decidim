@@ -98,6 +98,7 @@ ignore_missing:
   - decidim.proposals.application_helper.activity_filter_values.*
   - decidim.content_blocks.*_settings_form.show.*
   - decidim.newsletter_templates.*_settings_form.show.*
+  - actions.invalid_destroy.proposals_count
 
 # Consider these keys used:
 ignore_unused:
@@ -223,6 +224,7 @@ ignore_unused:
   - decidim.proposals.versions.collaborative_drafts.back_to_resource
   - decidim.proposals.versions.proposals.back_to_resource
   - decidim.initiatives.versions.shared.back_to_resource
+  - decidim.meetings.actions.invalid_destroy.proposals_count.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

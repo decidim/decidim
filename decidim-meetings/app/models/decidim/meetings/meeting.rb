@@ -173,6 +173,17 @@ module Decidim
         (Time.current - end_time) < 72.hours
       end
 
+      def authored_proposals
+        Decidim::Proposals::Proposal
+          .joins(:coauthorships)
+          .where(
+            decidim_coauthorships: {
+              decidim_author_type: "Decidim::Meetings::Meeting",
+              decidim_author_id: id
+            }
+          )
+      end
+
       private
 
       def can_participate_in_meeting?(user)
