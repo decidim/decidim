@@ -56,13 +56,11 @@ describe Decidim::Debates::CreateDebate do
     it "sets the title with i18n" do
       subject.call
       expect(debate.title.values.uniq).to eq ["title"]
-      expect(debate.title.keys).to match_array organization.available_locales
     end
 
     it "sets the description with i18n" do
       subject.call
       expect(debate.description.values.uniq).to eq ["description"]
-      expect(debate.description.keys).to match_array organization.available_locales
     end
 
     it "traces the action", versioning: true do

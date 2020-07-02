@@ -117,6 +117,13 @@ module Decidim
                                 .pluck(:decidim_author_id).flatten.compact.uniq
       end
 
+      # Checks whether the user can edit the debate.
+      #
+      # user - the user to check for authorship
+      def editable_by?(user)
+        authored_by?(user)
+      end
+
       private
 
       def comments_blocked?

@@ -12,7 +12,7 @@ module Decidim
       isolate_namespace Decidim::Debates
 
       routes do
-        resources :debates, only: [:index, :show, :new, :create]
+        resources :debates, only: [:index, :show, :new, :create, :edit, :update]
         root to: "debates#index"
       end
 

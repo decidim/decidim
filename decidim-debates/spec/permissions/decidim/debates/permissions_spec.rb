@@ -69,6 +69,22 @@ describe Decidim::Debates::Permissions do
     end
   end
 
+  context "when editing a debate" do
+    let(:action) do
+      { scope: :public, action: :edit, subject: :debate }
+    end
+
+    context "when the user is the author" do
+      let(:debate) { create :debate, author: user, component: debates_component }
+
+      it { is_expected.to eq true }
+    end
+
+    context "when the user is not the author" do
+      it { is_expected.to eq false }
+    end
+  end
+
   context "when reporting a debate" do
     let(:action) do
       { scope: :public, action: :report, subject: :debate }

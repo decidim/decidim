@@ -6,20 +6,6 @@ describe "User creates debate", type: :system do
   include_context "with a component"
   let(:manifest_name) { "debates" }
 
-  let(:organization) { create(:organization) }
-  let(:participatory_process) { create(:participatory_process, :with_steps, organization: organization) }
-  let(:current_component) { create :debates_component, participatory_space: participatory_process }
-  let(:debates_count) { 5 }
-  let!(:debates) do
-    create_list(
-      :debate,
-      debates_count,
-      component: current_component,
-      start_time: Time.zone.local(2016, 12, 13, 14, 15),
-      end_time: Time.zone.local(2016, 12, 13, 16, 17)
-    )
-  end
-
   before do
     switch_to_host(organization.host)
   end

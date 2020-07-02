@@ -27,8 +27,12 @@ edit_link(
   <%= cell "decidim/author", Decidim::Debates::DebatePresenter.new(debate).author, from: debate, context: { extra_classes: ["author-data--small"] } %>
 </div>
 <div class="row">
-  <div class="columns section view-side mediumlarge-4 mediumlarge-push-8
-    large-3 large-push-9">
+  <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
+    <% if allowed_to?(:edit, :debate, debate: debate) %>
+      <%= link_to t(".edit_debate"), edit_debate_path(debate), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
+    <% elsif debate.official? && admin_allowed_to?(:update, :debate, debate: debate) %>
+      <%= link_to t(".edit_debate"), resource_locator(debate).edit, class: "button secondary hollow expanded button-sc button--icon follow-button" %>
+    <% end %>
     <div class="card extra">
       <div class="card__content">
         <% if debate.start_time.present? && debate.end_time.present? %>
