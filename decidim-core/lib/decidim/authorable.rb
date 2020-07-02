@@ -16,7 +16,7 @@ module Decidim
       validate :verified_user_group, :user_group_membership
       validate :author_belongs_to_organization
 
-      # Checks whether the user is author of the given proposal, either directly
+      # Checks whether the user is author of the given resource, either directly
       # authoring it or via a user group.
       #
       # user - the user to check for authorship
@@ -30,6 +30,13 @@ module Decidim
       # Returns an Author, a UserGroup or nil.
       def normalized_author
         user_group || author
+      end
+
+      # Public: Checks whether the resource is official or not.
+      #
+      # Returns a boolean.
+      def official?
+        decidim_author_type == Decidim::Organization.name
       end
 
       private

@@ -223,9 +223,6 @@ de:
           edit:
             close: Schließen
             title: Enges Treffen
-        meeting_copies:
-          form:
-            select_organizer: Wählen Sie den Organisator aus
         meetings:
           close:
             invalid: Beim Schließen dieses Meetings ist ein Problem aufgetreten
@@ -237,8 +234,6 @@ de:
             success: Das Meeting wurde erfolgreich gelöscht
           edit:
             update: Aktualisieren
-          form:
-            select_organizer: Wählen Sie den Organisator aus
           index:
             title: Meetings
           new:
@@ -343,11 +338,8 @@ de:
       meetings:
         filters:
           category: Kategorie
-          category_prompt: Wählen Sie eine Kategorie
           date: Datum
-          past: Vergangenheit
           search: Suche
-          upcoming: Bevorstehende
         filters_small_view:
           close_modal: Modal schließen
           filter: Filter

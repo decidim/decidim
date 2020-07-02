@@ -501,7 +501,7 @@ it:
           and: 'e '
           confirm_delete: Sei sicuro di voler cancellare questa newsletter?
           followers: 'followers '
-          has_been_sent_to: 'E'' stato inviato a: '
+          has_been_sent_to: 'E'' stata inviata a: '
           no_scopes: Nessun ambito
           not_sent: Non inviato
           participants: 'partecipanti '
