@@ -12,7 +12,8 @@ module Decidim
 
     after_initialize :generate
 
-    def self.use!(token_for, token)
+    def self.use!(token_for:, token:)
+      byebug
       record = find_by!(token_for: token_for, token: token)
 
       if record.expired?
@@ -23,7 +24,7 @@ module Decidim
     end
 
     def expired?
-      expired_at.past?
+      expires_at.past?
     end
 
     def use!
