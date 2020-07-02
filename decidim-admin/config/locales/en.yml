@@ -699,7 +699,8 @@ en:
           gallery_legend: Add an image gallery (Optional)
       share_tokens:
         actions:
-          destroy: Destroy
+          confirm_destroy: Are you sure you want to delete this token?
+          destroy: Delete
           edit: Edit
           share: Share
         share_tokens:
