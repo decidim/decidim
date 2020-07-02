@@ -5,6 +5,29 @@ bg:
         address: Адрес
         body: Тяло
         category_id: Категория
+        decidim_scope_id: Сфера
+        has_address: Има адрес
+        state: Състояние
+        title: Заглавие
+        user_group_id: Създай съвместна чернова като
+      proposal:
+        address: Адрес
+        answer: Отговор
+        answered_at: Отговорено като
+        automatic_hashtags: Хаштаговете се добавят автоматично
+        body: Основен текст
+        category_id: Категория
+        decidim_scope_id: Сфера
+        has_address: Има адрес
+        state: Състояние
+        suggested_hashtags: Предложени хаштагове
+        title: Заглавие
+        user_group_id: Създай предложение като
+      proposal_answer:
+        answer: Отговор
+      proposals_copy:
+        copy_proposals: Разбирам, че това ще вмъкне всички предложения от избрания компонент към текущия и това действие не е обратимо.
+        origin_component_id: Компонент, от който да се копират предложенията
   decidim:
     components:
       proposals:
