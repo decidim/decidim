@@ -21,7 +21,7 @@ module Decidim
         record.use!
       end
     end
-    
+
     def use!
       update!(times_used: times_used + 1, last_used_at: Time.zone.now)
     end

@@ -24,7 +24,7 @@ module Decidim
       attribute :step_settings, Hash[String => Object]
 
       attribute :share_tokens, Array[ShareToken]
-      
+
       def settings?
         settings.manifest.attributes.any?
       end
