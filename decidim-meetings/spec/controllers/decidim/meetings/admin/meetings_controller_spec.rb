@@ -19,11 +19,15 @@ module Decidim
         let(:proposal) { create(:proposal, component: proposal_component) }
         let(:meeting_proposals) { meeting.authored_proposals }
 
-        describe "POST #destroy" do
+        before do
+          request.env["decidim.current_organization"] = organization
+          request.env["decidim.current_participatory_process"] = participatory_process
+          request.env["decidim.current_component"] = meeting_component
+          sign_in user
+        end
+
+        describe "#destroy" do
           before do
-            request.env["decidim.current_organization"] = organization
-            request.env["decidim.current_component"] = meeting_component
-            sign_in user, scope: :user
             proposal.coauthorships.clear
             proposal.add_coauthor(meeting)
           end
