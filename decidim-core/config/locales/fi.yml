@@ -437,57 +437,57 @@ fi:
       amendments:
         amendment_accepted:
           affected_user:
-            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on hyväksytty. Näet sen tältä sivulta:'
+            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on hyväksytty. Voit tutustua siihen tältä sivulta:'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut kohteen %{amendable_title}.
             email_subject: Kohdetta %{amendable_title} koskeva muutos on hyväksytty käyttäjältä %{emendation_author_nickname}
             notification_title: Käyttäjän <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> luoma <a href="%{emendation_path}">muutos</a> hyväksyttiin kohteelle <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
-            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on hyväksytty. Näet sen tältä sivulta:'
+            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on hyväksytty. Voit tutustua siihen tältä sivulta:'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
             email_subject: Kohdetta %{amendable_title} koskeva muutos on hyväksytty käyttäjältä %{emendation_author_nickname}
             notification_title: Käyttäjän <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> luoma <a href="%{emendation_path}">muutos</a> hyväksyttiin kohteelle <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
-            email_intro: 'Uusi muutos on luotu kohteelle %{amendable_title}. Näet sen tältä sivulta:'
+            email_intro: 'Uusi muutos on luotu kohteelle %{amendable_title}. Voit tutustua siihen tältä sivulta:'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut kohteen %{amendable_title}.
             email_subject: Uusi muutos kohteelle %{amendable_title}
             notification_title: Kohteelle <a href="%{amendable_path}">%{amendable_title}</a> luotiin uusi muutos.
           follower:
-            email_intro: 'Uusi muutos on luotu kohteelle %{amendable_title}. Näet sen tältä sivulta:'
+            email_intro: 'Uusi muutos on luotu kohteelle %{amendable_title}. Voit tutustua siihen tältä sivulta:'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
             email_subject: Uusi muutos %{amendable_title}
             notification_title: Kohteelle <a href="%{amendable_path}">%{amendable_title}</a> luotiin uusi muutos.
         amendment_promoted:
           affected_user:
-            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on julkaistu uutena kohteena %{amendable_type}. Näet sen tältä sivulta:'
+            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on julkaistu uutena kohteena %{amendable_type}. Voit tutustua siihen tältä sivulta:'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut kohteen %{amendable_title}.
             email_subject: Käyttäjän %{emendation_author_nickname} laatima muutos on julkaistu uutena %{amendable_type} -kohteena
             notification_title: <a href="%{emendation_path}">Hylätty muutos</a> kohteelle <a href="%{amendable_path}">%{amendable_title}</a> on julkaistu uutena %{amendable_type} -kohteena käyttäjän <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> toimesta.
           follower:
-            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on julkaistu uutena kohteena %{amendable_type}. Näet sen tältä sivulta:'
+            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on julkaistu uutena kohteena %{amendable_type}. Voit tutustua siihen tältä sivulta:'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
             email_subject: Muutos %{emendation_author_nickname} on julkaistu uutena %{amendable_type} -kohteena
             notification_title: <a href="%{emendation_path}">Hylätty muutos</a> kohteelle <a href="%{amendable_path}">%{amendable_title}</a> on julkaistu uutena %{amendable_type} -kohteena käyttäjän <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> toimesta.
         amendment_rejected:
           affected_user:
-            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on hylätty. Näet sen tältä sivulta:'
-            email_outro: Olet saanut tämän ilmoituksen, koska olet kirjailija %{amendable_title}.
+            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on hylätty. Voit tutustua siihen tältä sivulta:'
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut kohteen %{amendable_title}.
             email_subject: Kohdetta %{amendable_title} koskeva muutos on hylätty käyttäjältä %{emendation_author_nickname}
             notification_title: Käyttäjän <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> luoma <a href="%{emendation_path}">muutos</a> hylättiin kohteelle <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
-            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on hylätty. Näet sen tältä sivulta:'
+            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on hylätty. Voit tutustua siihen tältä sivulta:'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
             email_subject: Kohdetta %{amendable_title} koskeva muutos on hylätty käyttäjältä %{emendation_author_nickname}
             notification_title: Käyttäjän <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> luoma <a href="%{emendation_path}">muutos</a> hylättiin kohteelle <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
-          email_intro: 'Uusi asiakirja on lisätty kohteeseen %{resource_title}. Näet sen tältä sivulta:'
+          email_intro: 'Uusi asiakirja on lisätty kohteeseen %{resource_title}. Voit tutustua siihen tältä sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Päivitys kohteessa %{resource_title}
           notification_title: <a href="%{resource_path}">Uusi dokumentti</a> on lisätty kohteeseen <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: 'Osio %{resource_title} on nyt käytössä kohteessa %{participatory_space_title}. Näet sen tältä sivulta:'
+          email_intro: 'Osio %{resource_title} on nyt käytössä kohteessa %{participatory_space_title}. Voit tutustua siihen tältä sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Päivitys kohteessa %{participatory_space_title}
           notification_title: Osio %{resource_title} on nyt aktiivinen kohteessa <a href="%{resource_path}">%{participatory_space_title}</a>
@@ -510,37 +510,37 @@ fi:
       groups:
         demoted_membership:
           email_intro: Ryhmän <a href="%{resource_url}">%{user_group_name}</a> ylläpitäjä on poistanut ylläpitäjän oikeutesi kyseiselle ryhmälle.
-          email_outro: Saat tämän ilmoituksen, koska olet kyseisen ryhmän jäsen.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet kyseisen ryhmän jäsen.
           email_subject: Et ole enää ryhmän %{user_group_name} ylläpitäjä!
           notification_title: Et ole enää ryhmän <a href="%{resource_path}">%{user_group_name}</a> ylläpitäjä.
         invited_to_group:
           email_intro: Ryhmän <a href="%{resource_url}">%{user_group_name}</a> ylläpitäjä on kutsunut sinut liittymään kyseiseen ryhmään.
-          email_outro: Saat tämän ilmoituksen, koska sinut on kutsuttu ryhmään. Tarkista profiilisi Ryhmät-välilehti ja hyväksy kutsu.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska sinut on kutsuttu ryhmään. Tarkista profiilisi Ryhmät-välilehti ja hyväksy kutsu.
           email_subject: Sinut on kutsuttu liittymään ryhmään %{user_group_name}!
           notification_title: Sinut on kutsuttu liittymään ryhmään <a href="%{resource_path}">%{user_group_name}</a>. Tarkista profiilisi <a href="%{groups_profile_tab_path}">Ryhmät-sivu</a> hyväksyäksesi kutsun!
         join_request_accepted:
           email_intro: Onnittelut! Ryhmän <a href="%{resource_url}">%{user_group_name}</a> ylläpitäjä on hyväksynyt pyyntösi liittyä kyseiseen ryhmään.
-          email_outro: Saat tämän ilmoituksen, koska liittymispyyntöäsi on päivitetty.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska liittymispyyntöäsi on päivitetty.
           email_subject: Sinut on hyväksytty ryhmään %{user_group_name}!
           notification_title: Sinut on hyväksytty ryhmään <a href="%{resource_path}">%{user_group_name}</a>.
         join_request_created:
           email_intro: Joku pyysi sinua liittymään ryhmään %{user_group_name}. Voit hyväksyä tai hylätä kutsun <a href="%{resource_url}">ryhmän jäsenten sivulta</a>.
-          email_outro: Saat tämän ilmoituksen, koska voit hallita ryhmää %{user_group_name}.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska voit hallita ryhmää %{user_group_name}.
           email_subject: Joku pyysi sinua liittymään ryhmään %{user_group_name}!
           notification_title: Joku pyysi sinua liittymään ryhmään %{user_group_name}. Voit hyväksyä tai hylätä kutsun <a href="%{resource_path}">ryhmän jäsenten sivulta</a>.
         join_request_rejected:
           email_intro: Ryhmän <a href="%{resource_url}">%{user_group_name}</a> ylläpitäjä hylkäsi pyyntösi liittyä kyseiseen ryhmään.
-          email_outro: Saat tämän ilmoituksen, koska liittymispyyntöäsi on päivitetty.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska liittymispyyntöäsi on päivitetty.
           email_subject: Pyyntösi liittyä ryhmään %{user_group_name} on hylätty!
           notification_title: Pyyntösi liittyä ryhmään <a href="%{resource_path}">%{user_group_name}</a> on hylätty.
         promoted_to_admin:
           email_intro: Ryhmän <a href="%{resource_url}">%{user_group_name}</a> ylläpitäjä on antanut sinulle ylläpitäjän oikeudet kyseiseen ryhmään.
-          email_outro: Saat tämän ilmoituksen, koska olet kyseisen ryhmän jäsen.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet kyseisen ryhmän jäsen.
           email_subject: Olet nyt ryhmän %{user_group_name} ylläpitäjä!
           notification_title: Olet nyt ryhmän <a href="%{resource_path}">%{user_group_name}</a> ylläpitäjä.
         removed_from_group:
           email_intro: Ryhmän <a href="%{resource_url}">%{user_group_name}</a> ylläpitäjä on poistanut sinut kyseisestä ryhmästä.
-          email_outro: Saat tämän ilmoituksen, koska olit kyseisen ryhmän jäsen.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olit kyseisen ryhmän jäsen.
           email_subject: Sinut on poistettu ryhmästä %{user_group_name}!
           notification_title: Sinut on poistettu ryhmästä <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
