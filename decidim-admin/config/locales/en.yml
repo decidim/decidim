@@ -696,7 +696,6 @@ en:
         actions:
           confirm_destroy: Are you sure you want to delete this token?
           destroy: Delete
-          edit: Edit
           share: Share
         destroy:
           error: There was a problem destroying the token.
