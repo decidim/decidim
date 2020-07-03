@@ -26,11 +26,29 @@ en:
             description: Description
             tos: Terms of service
         questionnaires:
+          actions:
+            back: Back to questions
+            show: Show responses
           answer_option:
             answer_option: Answer option
             free_text: Free text
             remove: Remove
             statement: Statement
+          answers:
+            actions:
+              back: Back to responses
+              export: Export
+              show: Show answers
+            empty: No answers yet
+            export:
+              answer:
+                title: 'Response #%{number}'
+            export_response:
+              title: survey_user_answers_%{token}
+            index:
+              title: "%{total} total responses"
+            show:
+              title: 'Answer #%{number}'
           display_condition:
             answer_option: Answer option
             condition_question: Question
@@ -136,9 +154,13 @@ en:
           continue: Continue
           submit: Submit
       user_answers_serializer:
+        body: Answer
+        completion: Completion
         created_at: Answered on
         id: Answer ID
-        ip_hash: Ip Hash
+        ip_hash: IP Hash
+        question: Question
         registered: Registered
+        session_token: User identifier
         unregistered: Unregistered
         user_status: User status
