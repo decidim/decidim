@@ -9,6 +9,10 @@ shared_examples "comments" do
     switch_to_host(organization.host)
   end
 
+  after do
+    expect_no_js_errors
+  end
+
   it "shows the list of comments for the resource" do
     visit resource_path
 

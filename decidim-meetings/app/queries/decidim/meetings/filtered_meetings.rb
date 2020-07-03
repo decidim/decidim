@@ -27,7 +27,7 @@ module Decidim
       # Finds the Projects scoped to an array of components and filtered
       # by a range of dates.
       def query
-        meetings = Decidim::Meetings::Meeting.where(component: @components)
+        meetings = Decidim::Meetings::Meeting.not_hidden.where(component: @components)
         meetings = meetings.where("created_at >= ?", @start_at) if @start_at.present?
         meetings = meetings.where("created_at <= ?", @end_at) if @end_at.present?
         meetings

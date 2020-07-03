@@ -113,9 +113,9 @@ it:
         hide: "%{user_name} nascosto una risorsa di tipo %{resource_type} nel %{space_name} spazio"
         unreport: "%{user_name} non segnalata una risorsa di tipo %{resource_type} nel %{space_name} spazio"
       newsletter:
-        create: "%{user_name} creato il %{resource_name} notiziario"
-        delete: "%{user_name} cancellato il %{resource_name} notiziario"
-        deliver: "%{user_name} consegnato il %{resource_name} notiziario"
+        create: "%{user_name} creato la %{resource_name} newsletter"
+        delete: "%{user_name} ha cancellato la %{resource_name} newsletter"
+        deliver: "%{user_name} ha inviato la %{resource_name} newsletter"
         update: "%{user_name} aggiornato il %{resource_name} notiziario"
       oauth_application:
         create: "%{user_name} ha creato l'applicazione OAuth %{resource_name}"
@@ -161,7 +161,7 @@ it:
         help_text: Migliora questo %{model_name} modificando il suo %{amendable_fields}
         promote_button: Promuovi a %{model_name}
         promote_confirm_text: Sei sicuro di voler promuovere questa emendazione?
-        promote_help_text: Puoi promuovere questa emendazione e pubblicarla come %{model_name}indipendente
+        promote_help_text: Puoi promuovere questa modifica e pubblicarla come %{model_name} indipendente
         section_heading: Modifiche (%{count})
       compare_draft:
         continue: Prosegui
@@ -215,7 +215,7 @@ it:
       review:
         back: Indietro
         heading: Rivedi l'emendamento
-        help_text: Stai rivedendo un emendamento allo %{model_name}
+        help_text: Stai esaminando un emendamento al %{model_name}
         send: Accettare l'emendamento
       update_draft:
         error: C'è stato un problema nell'eliminazione della bozza di emendamento.
@@ -426,16 +426,16 @@ it:
         newsletter_modal:
           buttons:
             check: Controlla e continua
-            close_modal: Chiudi modale
-            uncheck: Continua a deselezionare
+            close_modal: Chiudi modalità
+            uncheck: Mantieni deseleziona
           notice: |-
             <p>Ehi, sei sicuro di non voler ricevere una newsletter?<br>
-            Si prega di considerare di nuovo spuntando la casella di controllo newsletter sotto.<br>
+            Si prega di riconsiderare spuntando la casella di controllo "newsletter", in fondo.<br>
             È molto importante per noi che tu possa ricevere e-mail occasionali per fare annunci importanti, puoi sempre modificarlo nella pagina delle impostazioni delle notifiche.</p>
             <p>Se non si spunta la casella, potrebbero mancare informazioni pertinenti sulle nuove opportunità di partecipazione all'interno della piattaforma.<br>
-            Se vuoi ancora evitare di ricevere le newsletter, capiamo perfettamente la tua decisione.</p>
+            Se vuoi ancora evitare di ricevere le newsletter, rispettiamo la tua decisione.</p>
             <p>Grazie per aver letto questo!</p>
-          title: Notifiche alla newsletter
+          title: Iscrizioni alla newsletter
         omniauth_buttons:
           or: O
     doorkeeper:
@@ -665,8 +665,8 @@ it:
         index:
           badge_title: "%{name} distintivo"
           how: Come puoi guadagnarlo
-          page_description: I badge sono riconoscimenti alle azioni dei partecipanti e ai progressi nella piattaforma. Quando inizi a scoprire, partecipare e interagire nella piattaforma, guadagnerai badge diversi. Ecco la lista dei badge e alcuni modi per guadagnarli.
-          title: badge
+          page_description: I badge sono riconoscimenti delle azioni dei partecipanti e dei progressi nella piattaforma. Quando inizi a scoprire, partecipare e interagire nella piattaforma, guadagnerai badge diversi. Ecco la lista dei badge e alcuni modi per guadagnarli.
+          title: Badge
         invitations:
           conditions:
             - Usa il link "invita amici" nella tua pagina utente per invitare i tuoi amici
@@ -679,7 +679,7 @@ it:
           next_level_in: Invita altri %{score} utenti a raggiungere il livello successivo!
           unearned_another: Questo utente non ha ancora invitato alcun utente.
           unearned_own: Non hai ancora invitato nessun utente.
-      description: I badge sono riconoscimenti alle azioni dei partecipanti e ai progressi nella piattaforma. Quando inizi a scoprire, partecipare e interagire nella piattaforma, guadagnerai badge diversi.
+      description: I badge sono riconoscimenti delle azioni dei partecipanti e dei progressi nella piattaforma. Quando inizi a scoprire, partecipare e interagire nella piattaforma, guadagnerai badge diversi.
       level: Livello %{level}
       reached_top: Hai raggiunto il livello più alto per questo badge.
     group_admins:
@@ -892,14 +892,14 @@ it:
     newsletter_mailer:
       newsletter:
         note: Hai ricevuto questa email perché ti sei iscritto alla newsletter su %{organization_name}. Puoi modificare le impostazioni sulla tua <a href="%{link}">pagina di notifiche</a>.
-        see_on_website: Non riesci a vedere questa email correttamente? Visualizzalo su <a href="%{link}" target="_blank">website</a>.
+        see_on_website: Non riesci a vedere questa email correttamente? Visualizzala su <a href="%{link}" target="_blank">website</a>.
         unsubscribe: Per disattivare la ricezione di questo tipo di email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
     newsletter_templates:
       basic_only_text:
         body_preview: 'Testo casuale da inserire: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
         name: Base (solo testo)
       basic_only_text_settings_form:
-        body: Testo
+        body: Corpo del testo
         interpolations_hint: 'Suggerimento: È possibile utilizzare "%{name}" ovunque nel corpo o nell''oggetto e sarà sostituito dal nome del destinatario.'
       image_text_cta:
         body_preview: 'Testo casuale da inserire: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
@@ -907,7 +907,7 @@ it:
         introduction_preview: 'Testo casuale da inserire: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
         name: Immagine, testo e pulsante della chiamata all'azione
       image_text_cta_settings_form:
-        body: Testo
+        body: Corpo del testo
         cta_text: Testo del pulsante Chiamata all'Azione
         cta_url: URL del pulsante "Chiamata all'azione"
         interpolations_hint: 'Suggerimento: È possibile utilizzare "%{name}" ovunque nell''introduzione, nel corpo, nel testo del CTA o nell''oggetto e sarà sostituito dal nome del destinatario.'
@@ -923,11 +923,11 @@ it:
     newsletters_opt_in:
       unathorized: Spiacenti, questo link non è più disponibile
       update:
-        error: È successo qualcosa
+        error: C'è stato un problema
         success: Impostazioni della newsletter aggiornate correttamente
     newsletters_opt_in_mailer:
       notify:
-        body_1: Il trattamento dei dati personali e la sua protezione stanno diventando sempre più importanti per tutti noi. Con il nuovo regolamento generale sulla protezione dei dati (GDPR) del 25 maggio 2018, gli individui hanno un migliore controllo sui propri dati personali. Per questo motivo abbiamo bisogno del tuo "OK" per continuare a inviare informazioni rilevanti sulle attività dello %{organization_name}.
+        body_1: Il trattamento dei dati personali e la sua protezione stanno diventando sempre più importanti per tutti noi. Con il nuovo regolamento generale sulla protezione dei dati (GDPR) del 25 maggio 2018, gli individui hanno un migliore controllo sui propri dati personali. Per questo motivo abbiamo bisogno del tuo "OK" per continuare a inviare informazioni rilevanti sulle attività di %{organization_name}.
         body_2: 'Come puoi darci il tuo consenso? Basta fare clic sul seguente pulsante:'
         body_3: Con questo consenso sarai in grado di continuare a ricevere informazioni sui servizi della piattaforma. Se, al contrario, non riceviamo una conferma positiva da parte vostra, smetteremo di inviarti i nostri messaggi. Se confermi di voler essere informato, avrai sempre la possibilità di annullare in qualsiasi momento.
         button: Sì, voglio continuare a ricevere informazioni pertinenti
@@ -943,7 +943,7 @@ it:
         email_on_notification: Voglio ricevere un'e-mail ogni volta che ricevo una notifica.
         everything_followed: Tutto ciò che seguo
         newsletter_notifications: Voglio ricevere le newsletter
-        newsletters: Newsletters
+        newsletters: Le Newsletter
         own_activity: La mia attività personale, come quando qualcuno commenta la mia proposta o mi menziona
         receive_notifications_about: Voglio ricevere le notifiche
         send_notifications_by_email: Invia notifiche via email
@@ -984,7 +984,7 @@ it:
           headline: Partecipazione in cifre
         statistics:
           answers_count: Questionari completati
-          assemblies_count: assemblee
+          assemblies_count: Assemblee
           comments_count: Commenti
           conferences_count: conferenze
           debates_count: Dibattiti
@@ -1006,7 +1006,7 @@ it:
       index:
         read_more: Leggi di più
         standalone_pages: pagine
-        subheading: Navigare attraverso le pagine di aiuto di %{name}
+        subheading: Naviga attraverso le pagine di aiuto di %{name}
         title: Aiuto
         topics: Temi
       participatory_space:
@@ -1224,7 +1224,7 @@ it:
       show:
         version_index: Versione %{index}
     welcome_notification:
-      default_body: <p>Ciao {{name}}, grazie per esserti iscritto a {{organization}} e benvenuto!</p><ul><li>Se vuoi avere una rapida idea di cosa puoi fare qui, dai un'occhiata alla sezione <a href="{{help_url}}">Aiuto</a> .</li><li>Una volta letto, riceverai il tuo primo badge. Ecco un <a href="{{badges_url}}">elenco di tutti i badge</a> è possibile ottenere, come si partecipa a {{organization}}</li><li>Da ultimo, ma non meno importante, uniscono altre persone, condividere con loro l'esperienza di essere impegnati e partecipano a {{organization}}. Fare proposte, commentare, discutere, pensare a come contribuire al bene comune, fornire argomenti per convincere, ascoltare e leggere per essere convinti, esprimere le proprie idee in modo concreto e diretto, rispondere con pazienza e decisione, difendere le proprie idee e mantenere una mente aperta per collaborare e unire le idee degli altri.</li></ul>
+      default_body: <p>Ciao {{name}}, grazie per esserti iscritto a {{organization}} e benvenut*!</p><ul><li>Se vuoi avere una rapida idea di cosa puoi fare qui, dai un'occhiata alla sezione <a href="{{help_url}}">Aiuto</a>.</li><li>Una volta letto, riceverai il tuo primo badge. Ecco un <a href="{{badges_url}}">elenco di tutti i badge</a> che è possibile ottenere, partecipando a {{organization}}</li><li>Da ultimo, ma non meno importante, incontra altre persone, condividi con loro l'esperienza di essere impegnati e partecipare in {{organization}}. Fare proposte, commentare, discutere, pensare a come contribuire al bene comune, fornire argomenti per convincere, ascoltare e leggere per essere coinvolti, esprimere le proprie idee in modo concreto e diretto, rispondere con pazienza e decisione, difendere le proprie idee e mantenere una mente aperta, per supportare e condividere le idee degli altri.</li></ul>
       default_subject: Grazie per esserti iscritto a {{organization}}!
     wizard_step_form:
       wizard_aside:

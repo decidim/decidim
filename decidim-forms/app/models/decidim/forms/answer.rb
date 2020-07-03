@@ -17,9 +17,6 @@ module Decidim
                dependent: :destroy,
                inverse_of: :answer
 
-      validates :body, presence: true, if: -> { question.mandatory_body? }
-      validates :choices, presence: true, if: -> { question.mandatory_choices? }
-
       validate :user_questionnaire_same_organization
       validate :question_belongs_to_questionnaire
 

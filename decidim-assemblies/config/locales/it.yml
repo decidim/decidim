@@ -4,7 +4,7 @@ it:
       assembly:
         area_id: Area
         assembly_type: Tipo di assemblea
-        assembly_type_other: Tipo di assemblea altro
+        assembly_type_other: Altro tipo di assemblea
         banner_image: Immagine del banner
         closing_date: Data di chiusura
         closing_date_reason: Motivo della data di chiusura
@@ -17,7 +17,7 @@ it:
         creation_date: Data di creazione
         decidim_area_id: La zona
         decidim_assemblies_type_id: Tipo di assemblea
-        decidim_scope_id: Scopo
+        decidim_scope_id: Ambito
         description: Descrizione
         developer_group: Promotore
         domain: Dominio
@@ -34,8 +34,8 @@ it:
         meta_scope: Metadati di ambito
         parent_id: Assemblea genitore
         participatory_processes_ids: Processi partecipativi correlati
-        participatory_scope: Cosa è deciso
-        participatory_structure: Come è deciso?
+        participatory_scope: Che cosa si decide
+        participatory_structure: Come si decide
         private_space: Spazio privato
         promoted: In evidenza
         published_at: Pubblicato a
@@ -47,12 +47,12 @@ it:
         slug: URL slug
         special_features: Caratteristiche speciali
         subtitle: Sottotitolo
-        target: Chi partecipa
+        target: A chi è destinato il processo
         title: Titolo
         twitter: Twitter
         youtube: Youtube
       assembly_member:
-        birthday: Compleanno
+        birthday: Data di nascita
         birthplace: Luogo di nascita
         ceased_date: Data di termine
         designation_date: Data di designazione
@@ -64,6 +64,12 @@ it:
         email: E-mail
         name: Nome
         role: Ruolo
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Tipo di documento non valido. I formati accettati sono: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -78,6 +84,7 @@ it:
   decidim:
     admin:
       actions:
+        import_assembly: Importa
         new_assembly: Nuova assemblea
         new_assembly_type: Nuovo tipo di assemblea
       assemblies:
@@ -122,6 +129,14 @@ it:
           copy: Copia
           select: Scegli quale dato vuoi duplicare
           title: Duplica l'assemblea
+      assembly_imports:
+        create:
+          error: Si è verificato un errore durante l'aggiornamento di questa assemblea.
+          success: Dati importati con successo.
+        new:
+          import: Importa
+          select: Seleziona quali dati vuoi importare
+          title: Importa assemblea
       assembly_members:
         create:
           error: Si è verificato un errore durante l'aggiunta di un membro per questa assemblea.
@@ -141,8 +156,8 @@ it:
           success: Membro aggiornato correttamente per questa assemblea.
       assembly_publications:
         create:
-          error: Si è verificato un errore durante la pubblicazione di questo assembly.
-          success: L'Assemblea è pubblicata con successo.
+          error: Si è verificato un errore durante la pubblicazione di questa assemblea.
+          success: L'Assemblea è stata pubblicata con successo.
         destroy:
           error: Si è verificato un errore durante la pubblicazione di questo assembly.
           success: Assemblea cancellata con successo.
@@ -238,7 +253,7 @@ it:
       assembly_user_role:
         create: "%{user_name} invitato %{resource_name} all'assemblea %{space_name}"
         delete: "%{user_name} rimosso l'utente %{resource_name} dall'assemblea %{space_name}"
-        update: "%{user_name} ha cambiato il ruolo di %{resource_name} nell'assembly %{space_name}"
+        update: "%{user_name} ha cambiato il ruolo di %{resource_name} nell'assemblea %{space_name}"
     assemblies:
       admin:
         assemblies:
@@ -250,12 +265,12 @@ it:
             included_at_help: Seleziona la data in cui questa assemblea è stata aggiunto a Decidim. Non deve necessariamente essere uguale alla data di creazione.
             metadata: Metadati
             other: Altro
-            select_a_created_by: Seleziona un creato da
+            select_a_created_by: Seleziona un creatore
             select_an_area: Seleziona un'Area
             select_an_assembly_type: Seleziona un tipo di assemblea
             select_parent_assembly: Seleziona l'assemblea madre
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questa assemblea. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
-            social_handlers: Sociale
+            social_handlers: Social networks
             title: Informazioni generali
             visbility: Visibilità
         assemblies_settings:
@@ -268,6 +283,10 @@ it:
             title: Titolo
         assembly_copies:
           form:
+            slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questa assemblea. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Aggiungere un documento
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questa assemblea. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
         assembly_members:
           form:
@@ -344,32 +363,32 @@ it:
           'false': opaco
           'true': trasparente
         local_area: Area organizzativa
-        participatory_scope: Cosa è deciso
-        participatory_structure: Come è deciso?
-        private_space: Questo è un assemblaggio privato
+        participatory_scope: Che cosa si decide
+        participatory_structure: Come si decide
+        private_space: Questa è un'assemblea privata
         purpose_of_action: Scopo dell'azione
         read_less: Leggi di meno
         read_more: Leggi di più
         related_participatory_processes: Processi partecipativi correlati
         scope: Obiettivi
-        social_networks: Social networks
+        social_networks: Social Networks
         social_networks_title: Condividi questa assemblea su
         target: Chi partecipa
       statistics:
         answers_count: risposte
         assemblies_count: Assemblee
         comments_count: Commenti
-        debates_count: dibattiti
+        debates_count: Discussioni
         endorsements_count: Mi piace
         headline: Attività
         meetings_count: Riunioni
-        orders_count: Voti
+        orders_count: Supporti
         pages_count: Pagine
         posts_count: Messaggi
         projects_count: Progetti
         proposals_count: Proposte
         results_count: Risultati
-        surveys_count: indagini
+        surveys_count: Sondaggi
         users_count: Partecipanti
         votes_count: Voti
     assembly_members:
@@ -400,20 +419,20 @@ it:
         assemblies:
           contextual: "<p>Un assemblaggio è un gruppo di membri di un'organizzazione che si incontrano periodicamente per prendere decisioni su un'area o un ambito specifico dell'organizzazione.</p> <p>assemblee tengono riunioni, alcune sono private e altre sono aperte. Se sono aperti, è possibile parteciparvi (ad esempio: partecipare se la capacità lo consente, aggiungendo punti all'ordine del giorno, o commentando le proposte e le decisioni prese da questo organo).</p> <p>Esempi: un'assemblea generale (che si riunisce una volta all'anno per definire le principali linee di azione dell'organizzazione e gli organi esecutivi per voto), un consiglio consultivo per la parità (che si riunisce ogni due mesi per presentare proposte su come migliorare le relazioni di genere nell'organizzazione), una commissione di valutazione (che si riunisce ogni mese per monitorare un processo) o un organismo di garanzia (che raccoglie incidenti, abusi o proposte per migliorare le procedure decisionali) sono tutti esempi di assemblee.</p>\n"
           page: "<p>Un assemblaggio è un gruppo di membri di un'organizzazione che si incontrano periodicamente per prendere decisioni su un'area o un ambito specifico dell'organizzazione.</p> <p>assemblee tengono riunioni, alcune sono private e altre sono aperte. Se sono aperti, è possibile parteciparvi (ad esempio: partecipare se la capacità lo consente, aggiungendo punti all'ordine del giorno, o commentando le proposte e le decisioni prese da questo organo).</p> <p>Esempi: un'assemblea generale (che si riunisce una volta all'anno per definire le principali linee di azione dell'organizzazione e gli organi esecutivi per voto), un consiglio consultivo per la parità (che si riunisce ogni due mesi per presentare proposte su come migliorare le relazioni di genere nell'organizzazione), una commissione di valutazione (che si riunisce ogni mese per monitorare un processo) o un organismo di garanzia (che raccoglie incidenti, abusi o proposte per migliorare le procedure decisionali) sono tutti esempi di assemblee.</p>\n"
-          title: Cosa sono gli assiemi?
+          title: Cosa sono le assemblee?
     log:
       value_types:
         assembly_presenter:
-          not_found: 'L''assembly non è stato trovato nel database (ID: %{id})'
+          not_found: 'L''assemblea non è stata trovata nel database (ID: %{id})'
         assembly_type_presenter:
           not_found: 'Il tipo di assemblea non è stato trovato nel database (ID: %{id})'
     menu:
-      assemblies: assemblee
+      assemblies: Assemblee
     metrics:
       assemblies:
-        description: Numero di assiemi creati
-        object: assiemi
-        title: assemblee
+        description: Numero di assemblee create
+        object: assemblee
+        title: Assemblee
     pages:
       home:
         hero:
@@ -439,7 +458,7 @@ it:
         index:
           children: 'Assemblee: '
           organizational_chart: Grafico organizzativo
-          promoted_assemblies: Assiemi evidenziati
+          promoted_assemblies: Assemblee in evidenza
           reset_chart: Reset
         order_by_assemblies:
           assemblies:

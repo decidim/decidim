@@ -19,8 +19,9 @@ module Decidim
         #
         # Broadcasts :ok if successful, :invalid otherwise.
         def call
-          destroy_meeting
+          return broadcast(:invalid, proposals.size) if proposals.any?
 
+          destroy_meeting
           broadcast(:ok)
         end
 
@@ -36,6 +37,10 @@ module Decidim
           ) do
             meeting.destroy!
           end
+        end
+
+        def proposals
+          @proposals ||= meeting.authored_proposals.load
         end
       end
     end
