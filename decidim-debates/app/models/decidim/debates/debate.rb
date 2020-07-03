@@ -75,6 +75,7 @@ module Decidim
       # Public: Overrides the `accepts_new_comments?` Commentable concern method.
       def accepts_new_comments?
         return false unless open?
+        return false if closed?
 
         commentable? && !comments_blocked?
       end
@@ -121,7 +122,20 @@ module Decidim
       #
       # user - the user to check for authorship
       def editable_by?(user)
-        authored_by?(user)
+        !closed? && authored_by?(user)
+      end
+
+      # Checks whether the debate is closed or not.
+      #
+      def closed?
+        closed_at.present? && conclusions.present?
+      end
+
+      # Checks whether the user can edit the debate.
+      #
+      # user - the user to check for authorship
+      def closeable_by?(user)
+        !closed? && authored_by?(user)
       end
 
       private

@@ -13,7 +13,9 @@ module Decidim
           information_updates: :i18n,
           instructions: :i18n,
           start_time: :string,
-          end_time: :string
+          end_time: :string,
+          conclusions: :string,
+          closed_at: :string,
         }
       end
 

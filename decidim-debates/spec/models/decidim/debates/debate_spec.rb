@@ -40,13 +40,13 @@ describe Decidim::Debates::Debate do
 
   describe "ama?" do
     context "when it has both start_time and end_time set" do
-      let(:debate) { build :debate, title: nil }
+      let(:debate) { build :debate, :open_ama }
 
       it { is_expected.to be_ama }
     end
 
     context "when it doesn't have both start_time and end_time set" do
-      let(:debate) { build :debate, end_time: nil }
+      let(:debate) { build :debate, :open_ama, end_time: nil }
 
       it { is_expected.not_to be_ama }
     end
@@ -79,46 +79,50 @@ describe Decidim::Debates::Debate do
   describe "accepts_new_comments?" do
     subject { debate.accepts_new_comments? }
 
-    context "when it is not an open debate" do
+    context "when the debate time has ended" do
       let(:debate) { build :debate, start_time: 2.days.ago, end_time: 1.day.ago }
 
       it { is_expected.to be_falsey }
     end
 
-    context "when it is an open debate" do
-      let(:debate) { build :debate, :open_ama }
+    context "when comments are disabled" do
+      before do
+        allow(debate).to receive(:commentable?).and_return(false)
+      end
 
-      context "when it is not commentable" do
+      it { is_expected.to be_falsey }
+    end
+
+    context "when comments are enabled" do
+      let(:debate) { build :debate, :with_author }
+
+      before do
+        allow(debate).to receive(:commentable?).and_return(true)
+      end
+
+      context "and comments are blocked" do
         before do
-          allow(debate).to receive(:commentable?).and_return(false)
+          allow(debate)
+            .to receive(:comments_blocked?).and_return(true)
         end
 
         it { is_expected.to be_falsey }
       end
 
-      context "when it is commentable" do
+      context "and comments are not blocked" do
         before do
-          allow(debate).to receive(:commentable?).and_return(true)
+          allow(debate)
+            .to receive(:comments_blocked?).and_return(false)
         end
 
-        context "when comments are blocked" do
-          before do
-            allow(debate)
-              .to receive(:comments_blocked?).and_return(true)
-          end
-
-          it { is_expected.to be_falsey }
-        end
-
-        context "when comments are not blocked" do
-          before do
-            allow(debate)
-              .to receive(:comments_blocked?).and_return(false)
-          end
-
-          it { is_expected.to be_truthy }
-        end
+        it { is_expected.to be_truthy }
       end
+    end
+
+    context "when the debate has been closed" do
+      let(:debate) { build :debate, :with_author, :closed }
+
+      it { is_expected.to be_falsey }
     end
   end
 end

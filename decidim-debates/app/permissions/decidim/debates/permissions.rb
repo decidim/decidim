@@ -16,7 +16,9 @@ module Decidim
         when :report
           allow!
         when :edit
-          toggle_allow(can_edit_debate?)
+          can_edit_debate?
+        when :close
+          can_close_debate?
         end
 
         permission_action
@@ -30,7 +32,15 @@ module Decidim
       end
 
       def can_edit_debate?
-        allow! if debate&.editable_by?(user)
+        return allow! if debate&.editable_by?(user)
+
+        disallow!
+      end
+
+      def can_close_debate?
+        return allow! if debate&.closeable_by?(user)
+
+        disallow!
       end
 
       def debate

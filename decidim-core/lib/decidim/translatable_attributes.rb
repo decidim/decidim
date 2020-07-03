@@ -40,6 +40,8 @@ module Decidim
             field = public_send(name) || {}
             public_send("#{name}=", field.merge(locale => super(value)))
           end
+
+          yield(attribute_name, locale) if block_given?
         end
       end
 
@@ -71,6 +73,11 @@ module Decidim
           attribute[attribute.keys.first].presence ||
           ""
       end
+    end
+
+    def default_locale?(locale)
+      locale.to_s == try(:default_locale).to_s ||
+        locale.to_s == try(:current_organization).try(:default_locale).to_s
     end
   end
 end
