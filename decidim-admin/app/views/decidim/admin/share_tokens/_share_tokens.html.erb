@@ -33,7 +33,7 @@
                                 class: "action-icon--share",
                                 target: "_blank" %>
                 <%= icon_link_to "circle-x",
-                                "confirm_destroy_share_token_path(share_token)",
+                                destroy_share_token_path(share_token),
                                 t("actions.destroy", scope: "decidim.admin.share_tokens"),
                                 class: "action-icon--remove",
                                 method: :delete,

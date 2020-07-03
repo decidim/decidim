@@ -692,19 +692,22 @@ en:
         update:
           error: There was a problem updating this scope.
           success: Scope updated successfully
-      shared:
-        gallery:
-          add_images: Add images
-          delete_image: Delete Image
-          gallery_legend: Add an image gallery (Optional)
       share_tokens:
         actions:
           confirm_destroy: Are you sure you want to delete this token?
           destroy: Delete
           edit: Edit
           share: Share
+        destroy:
+          error: There was a problem destroying the token.
+          success: Token destroyed successfully.
         share_tokens:
           title: Share tokens
+      shared:
+        gallery:
+          add_images: Add images
+          delete_image: Delete Image
+          gallery_legend: Add an image gallery (Optional)
       static_page_topics:
         create:
           error: There was a problem creating a new topic.
