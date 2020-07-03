@@ -1001,7 +1001,7 @@
       embed_modal:
         close_window: Lukk vindu
         embed: Lim inn denne koden på siden din
-        embed_link: Bedde inn
+        embed_link: Bygge inn
       extended_navigation_bar:
         more: Mer
         unfold: Åpne
