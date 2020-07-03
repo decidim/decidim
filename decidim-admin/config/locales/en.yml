@@ -701,8 +701,8 @@ en:
           error: There was a problem destroying the token.
           success: Token destroyed successfully.
         share_tokens:
-          title: Share tokens
           empty: There are no active tokens
+          title: Share tokens
       shared:
         gallery:
           add_images: Add images
