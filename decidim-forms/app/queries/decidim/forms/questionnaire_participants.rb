@@ -18,7 +18,10 @@ module Decidim
         @questionnaire = questionnaire
       end
 
-      # Finds all participants (unique session_tokens).
+      # Finds all Answers for the questionnaire (unique session_tokens).
+      # Because exporters only have access to the Answers this
+      # is used as an indirect way to access the participants
+      # (see #participants and #participant)
       def query
         Answer.where(questionnaire: @questionnaire)
       end
