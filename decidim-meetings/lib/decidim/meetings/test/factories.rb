@@ -56,11 +56,7 @@ FactoryBot.define do
       end
 
       after(:build) do |meeting, evaluator|
-        meeting.services = evaluator.services ||
-          [
-            build(:service, meeting: meeting),
-            build(:service, meeting: meeting)
-          ]
+        meeting.services = evaluator.services || build_list(:service, 2, meeting: meeting)
       end
     end
 
