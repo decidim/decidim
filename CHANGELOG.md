@@ -200,6 +200,7 @@ Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now sup
 
 **Fixed**:
 
+- **decidim-forms**: Fixes a performance degradation when displaying forms in surveys. [\#6255](https://github.com/decidim/decidim/pull/6255)
 - **decidim-admin**: Fix: let components without step settings be added [\#6144](https://github.com/decidim/decidim/pull/6144)
 - **decidim-core** Patch various security alerts reported by GitHub. [\#6149](https://github.com/decidim/decidim/pull/6149)
 - **decidim-debates**: Fix a notification failure when the creating a new debate event is fired. [\#6017](https://github.com/decidim/decidim/pull/6017)

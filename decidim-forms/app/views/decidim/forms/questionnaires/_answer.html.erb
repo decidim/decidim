@@ -21,21 +21,21 @@
 
       <div class="collection-input">
         <%= label_tag "#{choice_id}_body" do %>
-          <%= radio_button_tag "questionnaire[answers][#{answer_idx}][choices][][body]",
+          <%= radio_button_tag "questionnaire[responses][#{answer_idx}][choices][][body]",
                               translated_attribute(answer_option.body),
                               answer_option.id == choice.try(:answer_option_id),
                               id: "#{choice_id}_body", disabled: disabled %>
 
           <%= translated_attribute(answer_option.body) %>
 
-          <%= hidden_field_tag "questionnaire[answers][#{answer_idx}][choices][][answer_option_id]",
+          <%= hidden_field_tag "questionnaire[responses][#{answer_idx}][choices][][answer_option_id]",
                               answer_option.id,
                               id: "#{choice_id}_answer_option",
                               disabled: true %>
         <% end %>
 
         <% if answer_option.free_text %>
-          <%= text_field_tag "questionnaire[answers][#{answer_idx}][choices][][custom_body]",
+          <%= text_field_tag "questionnaire[responses][#{answer_idx}][choices][][custom_body]",
           choice.try(:custom_body),
           id: "#{choice_id}_custom_body",
           disabled: true %>
@@ -50,17 +50,17 @@
 
       <div class="collection-input">
         <%= label_tag do %>
-          <%= check_box_tag "questionnaire[answers][#{answer_idx}][choices][#{idx}][body]",
+          <%= check_box_tag "questionnaire[responses][#{answer_idx}][choices][#{idx}][body]",
                             translated_attribute(answer_option.body),
                             choice.present?, disabled: disabled %>
 
           <%= translated_attribute(answer_option.body) %>
 
-          <%= hidden_field_tag "questionnaire[answers][#{answer_idx}][choices][#{idx}][answer_option_id]", answer_option.id %>
+          <%= hidden_field_tag "questionnaire[responses][#{answer_idx}][choices][#{idx}][answer_option_id]", answer_option.id %>
         <% end %>
 
         <% if answer_option.free_text %>
-          <%= text_field_tag "questionnaire[answers][#{answer_idx}][choices][#{idx}][custom_body]",
+          <%= text_field_tag "questionnaire[responses][#{answer_idx}][choices][#{idx}][custom_body]",
           choice.try(:custom_body),
           disabled: true %>
         <% end %>
@@ -74,7 +74,7 @@
 
       <div class="collection-input">
         <%= label_tag do %>
-          <%= check_box_tag "questionnaire[answers][#{answer_idx}][choices][#{idx}][body]",
+          <%= check_box_tag "questionnaire[responses][#{answer_idx}][choices][#{idx}][body]",
                             translated_attribute(answer_option.body),
                             choice.present?, disabled: disabled %>
 
@@ -82,11 +82,11 @@
 
           <%= translated_attribute(answer_option.body) %>
 
-          <%= hidden_field_tag "questionnaire[answers][#{answer_idx}][choices][#{idx}][position]",
+          <%= hidden_field_tag "questionnaire[responses][#{answer_idx}][choices][#{idx}][position]",
                               choice.try(:position),
                               disabled: true %>
 
-          <%= hidden_field_tag "questionnaire[answers][#{answer_idx}][choices][#{idx}][answer_option_id]", answer_option.id %>
+          <%= hidden_field_tag "questionnaire[responses][#{answer_idx}][choices][#{idx}][answer_option_id]", answer_option.id %>
         <% end %>
       </div>
     <% end %>
