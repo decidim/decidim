@@ -66,6 +66,7 @@ module Decidim
       include Hashtaggable
       include ::Decidim::Endorsable
       include Decidim::HasAttachments
+      include Decidim::ShareableWithToken
 
       searchable_fields(
         scope_id: { scope: :id },
