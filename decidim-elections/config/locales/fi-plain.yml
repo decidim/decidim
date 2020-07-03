@@ -34,6 +34,10 @@ fi-pl:
         one: Kysymys
         other: Kysymykset
   decidim:
+    admin_log:
+      election:
+        publish: "%{user_name} julkaisi vaalin %{resource_name}"
+        unpublish: "%{user_name} lopetti vaalin %{resource_name} julkaisemisen"
     components:
       elections:
         name: Vaalit
@@ -49,9 +53,12 @@ fi-pl:
         edit: Muokkaa
         edit_answers: Muokkaa vastauksia
         edit_questions: Muokkaa kysymyksiä
+        import: Tuo ehdotuksia vastauksiin
         new: Uusi %{name}
         preview: Esikatsele
+        publish: Julkaise
         title: Toiminnot
+        unpublish: Lopeta julkaisu
       admin:
         answers:
           create:
@@ -86,6 +93,10 @@ fi-pl:
           new:
             create: Luo vaali
             title: Uusi vaali
+          publish:
+            success: Vaalin julkaisu onnistui.
+          unpublish:
+            success: Vaalin julkaisu epäonnistui.
           update:
             invalid: Vaalin päivitys epäonnistui
             success: Vaalin päivitys onnistui
@@ -96,6 +107,14 @@ fi-pl:
             name: Vaali
           question:
             name: Kysymys
+        proposals_imports:
+          create:
+            invalid: Ehdotusten tuonti vastauksiksi epäonnistui
+            success: "%{number} ehdotusta tuotu onnistuneesti vastauksiksi"
+          new:
+            create: Tuo ehdotuksia vastauksiksi
+            no_components: Tässä osallistumistilassa ei ole muita ehdotuskomponentteja, joista voisit tuoda ehdotuksia vastauksiksi.
+            select_component: Valitse komponentti
         questions:
           create:
             invalid: Kysymyksen luonti epäonnistui
@@ -129,6 +148,13 @@ fi-pl:
             answers: Vastaukset
             max_selections: Valintojen enimmäismäärä
             title: Otsikko
+    events:
+      elections:
+        election_published:
+          email_intro: 'Vaali %{resource_title} on nyt aktiivisena osallistumistilassa %{participatory_space_title}. Voit tutustua siihen tältä sivulta:'
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_subject: Vaali %{resource_title} on nyt aktiivisena osallistumistilassa %{participatory_space_title}.
+          notification_title: Vaali <a href="%{resource_path}">%{resource_title}</a> on nyt aktiivisena osallistumistilassa %{participatory_space_title}.
     participatory_processes:
       statistics:
         elections_count: Vaalia
