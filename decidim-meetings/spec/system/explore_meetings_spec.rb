@@ -31,7 +31,7 @@ describe "Explore meetings", :slow, type: :system do
       it "does not list the hidden meetings" do
         visit_component
 
-        expect(page).to have_selector("article.card", count: meetings_count - 1)
+        expect(page).to have_selector(".card.card--meeting", count: meetings_count - 1)
 
         expect(page).to have_no_content(translated(meeting.title))
       end
@@ -75,8 +75,8 @@ describe "Explore meetings", :slow, type: :system do
               check "Official"
             end
 
-            expect(page).to have_no_content("6 MEETINGS")
-            expect(page).to have_content("1 MEETING")
+            expect(page).to have_no_content("6 meetings")
+            expect(page).to have_content("1 meeting")
             expect(page).to have_css(".card--meeting", count: 1)
 
             within ".card--meeting" do
@@ -94,8 +94,8 @@ describe "Explore meetings", :slow, type: :system do
               check "Groups"
             end
 
-            expect(page).to have_no_content("6 MEETINGS")
-            expect(page).to have_content("1 MEETING")
+            expect(page).to have_no_content("6 meetings")
+            expect(page).to have_content("1 meeting")
             expect(page).to have_css(".card--meeting", count: 1)
             within ".card--meeting" do
               expect(page).to have_content(user_group_meeting.normalized_author.name)
@@ -112,9 +112,9 @@ describe "Explore meetings", :slow, type: :system do
               check "Citizens"
             end
 
-            expect(page).to have_no_content("6 MEETINGS")
+            expect(page).to have_no_content("6 meetings")
             expect(page).to have_css(".card--meeting", count: meetings_count)
-            expect(page).to have_content("#{meetings_count} MEETINGS")
+            expect(page).to have_content("#{meetings_count} meetings")
           end
         end
       end
@@ -130,7 +130,7 @@ describe "Explore meetings", :slow, type: :system do
           find(".icon--magnifying-glass").click
         end
 
-        expect(page).to have_css("#meetings-count", text: "1 MEETING")
+        expect(page).to have_css("#meetings-count", text: "1 meeting")
         expect(page).to have_css(".card--meeting", count: 1)
         expect(page).to have_content(translated(meetings.first.title))
       end
