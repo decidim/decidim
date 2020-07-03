@@ -33,7 +33,7 @@
 // = require decidim/conversations
 // = require decidim/delayed
 // = require decidim/icon
-/* = require decidim/external_link */
+// = require decidim/external_link
 // = require decidim/vizzs
 // = require decidim/responsive_horizontal_tabs.js
 

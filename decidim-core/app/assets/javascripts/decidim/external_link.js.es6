@@ -1,17 +1,11 @@
-((exports) => {
+(exports => {
   const { icon } = exports.Decidim;
 
-  const EXCLUDE_CLASSES = [
-    "card--list__data__icon",
-    "footer-social__icon"
-  ];
-  const EXCLUDE_REL = [
-    "license",
-    "decidim"
-  ];
+  const EXCLUDE_CLASSES = ["card--list__data__icon", "footer-social__icon"];
+  const EXCLUDE_REL = ["license", "decidim"];
 
   const DEFAULT_MESSAGES = {
-    externalLink: "External link"
+    externalLink: "External link",
   };
   let MESSAGES = DEFAULT_MESSAGES;
 
@@ -27,16 +21,19 @@
     }
 
     setup() {
-      if (EXCLUDE_CLASSES.some((cls) => this.$link.hasClass(cls))) {
+      if (EXCLUDE_CLASSES.some(cls => this.$link.hasClass(cls))) {
         return;
       }
-      if (EXCLUDE_REL.some((rel) => {
-        const linkRels = `${this.$link.attr("rel")}`.split(" ");
-        return linkRels.indexOf(rel) > -1;
-      })) {
+      if (
+        EXCLUDE_REL.some(rel => {
+          const linkRels = `${this.$link.attr("rel")}`.split(" ");
+          return linkRels.indexOf(rel) > -1;
+        })
+      ) {
         return;
       }
 
+      this.$link.addClass("external-link-container");
       this.$link.append(`&nbsp;${this.generateElement()}`);
     }
 
@@ -58,7 +55,7 @@
   exports.Decidim = exports.Decidim || {};
   exports.Decidim.ExternalLink = ExternalLink;
 
-  $(document).ready(function () {
+  $(document).ready(function() {
     $('a[target="_blank"]').each((_i, elem) => {
       const $link = $(elem);
 
