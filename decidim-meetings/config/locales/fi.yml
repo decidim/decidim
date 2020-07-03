@@ -153,6 +153,10 @@ fi:
         confirm_destroy: Haluatko varmasti poistaa tämän tapahtuman?
         destroy: Poista
         edit: Muokkaa
+        invalid_destroy:
+          proposals_count:
+            one: 'Tapahtumaa ei voi poistaa, koska siihen on liitetty %{count} ehdotus:'
+            other: 'Tapahtumaa ei voi poistaa, koska siihen on liitetty %{count} ehdotusta:'
         minutes: Pöytäkirja
         new: Uusi kokous
         preview: Esikatsele
@@ -234,12 +238,16 @@ fi:
             invalid: Tapahtuman luonti epäonnistui
             success: Tapahtuman luonti onnistui
           destroy:
+            invalid:
+              proposals_count:
+                one: Tapahtumaa ei voi poistaa, koska siihen on liitetty %{count} ehdotus
+                other: Tapahtumaa ei voi poistaa, koska siihen on liitetty %{count} ehdotusta
             success: Tapahtuman poisto onnistui
           edit:
             update: Päivitä
           form:
-            address_help: 'Osoite: käytetään sijainnin löytämiseksi geokoodaukseen'
-            location_help: 'Sijainti: viesti osallistujille tapaamispaikan sijainnin löytämiseksi'
+            address_help: 'Osoite: käytetään karttapisteen etsimiseen geokoodauksen avulla'
+            location_help: 'Paikka: kuvaus tapahtumapaikan tarkemmasta sijainnista osallistujille'
             location_hints_help: 'Sijainnin vihjeteksti: lisätietoja sijainnista. Esimerkiksi rakennuksen kerros sijaintipaikalla'
             select_organizer: Valitse järjestäjä
           index:
