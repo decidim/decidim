@@ -360,8 +360,6 @@ en:
           meetings_count:
             one: "%{count} meeting"
             other: "%{count} meetings"
-<<<<<<< HEAD
-=======
         create:
           invalid: There was a problem creating this meeting.
           success: You have created the meeting successfully.
@@ -369,7 +367,6 @@ en:
           back: Back
           title: Edit Your Meeting
           update: Update
->>>>>>> develop
         filters:
           category: Category
           date: Date
@@ -415,11 +412,8 @@ en:
           attendees: Attendees count
           back: Back to list
           contributions: Contributions count
-<<<<<<< HEAD
           date: Date
-=======
           edit_meeting: Edit meeting
->>>>>>> develop
           going: Going
           join: Join meeting
           meeting_report: Meeting report
