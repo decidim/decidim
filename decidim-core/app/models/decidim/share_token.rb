@@ -41,7 +41,7 @@ module Decidim
 
       loop do
         self.token = Digest::MD5.hexdigest("#{token_for_type}-#{token_for_id}-#{Time.zone.now}-#{Rails.application.secrets.secret_key_base}")
-        break unless ShareToken.find_by(token: self.token).present?
+        break if ShareToken.find_by(token: token).blank?
       end
     end
   end

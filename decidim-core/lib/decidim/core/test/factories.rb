@@ -688,11 +688,11 @@ FactoryBot.define do
     token_for { build(:dummy_resource) }
     user { build(:user, organization: token_for.organization) }
     organization { token_for.organization }
-    
+
     trait :expired do
       expires_at { 1.day.ago }
     end
-    
+
     trait :used do
       times_used { 3 }
       last_used_at { 1.hour.ago }

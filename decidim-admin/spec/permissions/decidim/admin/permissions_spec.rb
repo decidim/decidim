@@ -141,7 +141,7 @@ describe Decidim::Admin::Permissions do
       it { is_expected.to eq true }
     end
   end
-  
+
   describe "share tokens" do
     let(:action_subject) { :share_token }
 
