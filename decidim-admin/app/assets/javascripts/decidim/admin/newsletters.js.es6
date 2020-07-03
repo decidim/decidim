@@ -74,7 +74,7 @@ $(() => {
       $modal.removeClass("hide");
       $.get($url, {data: $data}, function(recipientsCount) {
         $("#recipients_count").text(recipientsCount);
-      }).always(function(){
+      }).always(function() {
         $modal.addClass("hide");
       });
     })
