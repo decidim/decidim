@@ -49,11 +49,18 @@ FactoryBot.define do
     end
 
     trait :with_services do
-      after(:build) do |meeting|
-        meeting.services = [
-          build(:service, meeting: meeting),
-          build(:service, meeting: meeting)
-        ]
+      transient do
+        services do
+          nil
+        end
+      end
+
+      after(:build) do |meeting, evaluator|
+        meeting.services = evaluator.services ||
+          [
+            build(:service, meeting: meeting),
+            build(:service, meeting: meeting)
+          ]
       end
     end
 
