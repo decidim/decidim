@@ -198,15 +198,15 @@ fi:
           email_subject: "%{author_name} %{author_nickname} perunut yhteistyöluonnoksen %{resource_title}."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>perunut</strong>yhteistyöluonnoksen <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
-          email_intro: 'Voit nyt luoda uusia ehdotuksia kohteessa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
+          email_intro: 'Voit nyt luoda uusia ehdotuksia osallistumistilassa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
-          email_subject: Ehdotuksia on nyt mahdollista laatia kohteessa %{participatory_space_title}
-          notification_title: Voit nyt esittää <a href="%{resource_path}">uusia ehdotuksia</a> kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_subject: Ehdotuksia on nyt mahdollista laatia osallistumistilassa %{participatory_space_title}
+          notification_title: Voit nyt esittää <a href="%{resource_path}">uusia ehdotuksia</a> osallistumistilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
-          email_intro: 'Voit suositella ehdotuksia kohteessa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
+          email_intro: 'Voit suositella ehdotuksia osallistumistilassa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esiteyn linkin kautta.
           email_subject: Ehdotusten suosittelu on alkanut kohteelle %{participatory_space_title}
-          notification_title: Voit nyt aloittaa <a href="%{resource_path}">ehdotusten suosittelun</a> kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Voit nyt aloittaa <a href="%{resource_path}">ehdotusten suosittelun</a> osallistumistilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
             email_intro: 'Ehdotuksesi "%{resource_title}" on hyväksytty. Voit lukea vastauksen täältä:'
@@ -221,7 +221,7 @@ fi:
         proposal_evaluating:
           affected_user:
             email_intro: 'Ehdotustasi "%{resource_title}" arvioidaan parhaillaan. Voit tarkistaa vastauksen täältä:'
-            email_outro: Saat tämän ilmoituksen, koska olet luonut kohteen "%{resource_title}".
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut kohteen "%{resource_title}".
             email_subject: Ehdotuksesi arvioidaan
             notification_title: Ehdotuksesi <a href="%{resource_path}">%{resource_title}</a> arvioidaan.
           follower:
@@ -410,7 +410,7 @@ fi:
             attachment_legend: "(Valinnainen) Lisää liite"
             created_in_meeting: Tämä ehdotus on luotu tapaamisessa
             select_a_category: Valitse aihepiiri
-            select_a_meeting: Valitse tapaaminen
+            select_a_meeting: Valitse tapahtuma
           index:
             actions: Toiminnot
             assign_to_valuator: Anna tehtäväksi arvioijalle
