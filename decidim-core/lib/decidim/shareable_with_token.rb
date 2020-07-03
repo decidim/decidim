@@ -10,7 +10,13 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      has_many :share_tokens, class_name: "Decidim::ShareToken", foreign_key: "token_for_id", foreign_type: "token_for_type", inverse_of: :token_for, as: :token_for, dependent: :destroy
+      has_many :share_tokens,
+               class_name: "Decidim::ShareToken",
+               foreign_key: "token_for_id",
+               foreign_type: "token_for_type",
+               inverse_of: :token_for,
+               as: :token_for,
+               dependent: :destroy
 
       # Override this method in the included class with the public url for the shareable resource
       def shareable_url(_share_token)

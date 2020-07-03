@@ -15,11 +15,9 @@ module Decidim
     def self.use!(token_for:, token:)
       record = find_by!(token_for: token_for, token: token)
 
-      if record.expired?
-        raise StandardError, "Share token '#{token}' for '#{token_for_type}' with id = #{token_for_id} has expired."
-      else
-        record.use!
-      end
+      return raise StandardError, "Share token '#{token}' for '#{token_for_type}' with id = #{token_for_id} has expired." if record.expired?
+
+      record.use!
     end
 
     def use!
