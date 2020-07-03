@@ -35,8 +35,14 @@ module Decidim
     private
 
     def generate
-      self.token ||= Digest::MD5.hexdigest("#{token_for_id}-#{Time.zone.now}-#{Rails.application.secrets.secret_key_base}")
       self.expires_at ||= 1.day.from_now
+
+      return if token.present?
+
+      loop do
+        self.token = Digest::MD5.hexdigest("#{token_for_type}-#{token_for_id}-#{Time.zone.now}-#{Rails.application.secrets.secret_key_base}")
+        break unless ShareToken.find_by(token: self.token).present?
+      end
     end
   end
 end
