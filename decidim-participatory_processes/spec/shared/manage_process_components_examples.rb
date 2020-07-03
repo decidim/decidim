@@ -327,4 +327,87 @@ shared_examples "manage process components" do
       end
     end
   end
+
+  describe "share tokens" do
+    let!(:component) do
+      create(:component, participatory_space: participatory_process)
+    end
+    
+    context "when visiting the components page for the participatory space" do
+      before do
+        visit decidim_admin_participatory_processes.components_path(participatory_process)
+      end
+
+      it "has a share button that opens the share url for the component" do
+        share_window = window_opened_by { click_link "Share", wait: 2 }
+
+        within_window share_window do
+          share_token = component.share_tokens.reload.last
+          expect(page).to have_current_path share_token.url
+        end
+      end
+    end
+
+    context "when visiting the component configuration page" do
+      context "when there are tokens" do
+        let!(:share_tokens) { create_list(:share_token, 3, token_for: component, organization: component.organization) }
+        let!(:share_token) { share_tokens.last }
+
+        before do
+          visit decidim_admin_participatory_processes.components_path(participatory_process)
+          
+          within find("tr", text: component.name["en"]) do
+            click_link "Configure"
+          end
+        end
+        
+        it "displays all tokens" do
+          within ".share_tokens" do
+            expect(page).to have_selector("tbody tr", count: 3)
+          end
+        end
+  
+        it "displays relevant attributes for each token" do
+          within ".share_tokens tbody tr:first-child" do
+            expect(page).to have_content share_token.token
+            expect(page).to have_content share_token.user.name
+            expect(page).to have_content share_token.user.name
+          end
+        end
+        
+        it "has a share link for each token" do
+          within ".share_tokens tbody tr:first-child" do
+            share_window = window_opened_by { click_link "Share" }
+
+            within_window share_window do
+              expect(page).to have_current_path share_token.url
+            end
+          end
+        end
+        
+        it "has a link to delete tokens" do
+          within ".share_tokens tbody tr:first-child" do
+            accept_confirm { click_link "Delete" }
+          end
+          
+          expect(page).to have_admin_callout("successfully")
+          expect(page).to have_selector("tbody tr", count: 2)
+        end
+      end
+
+      context "when there are no tokens" do
+        before do
+          visit decidim_admin_participatory_processes.components_path(participatory_process)
+          
+          within find("tr", text: component.name["en"]) do
+            click_link "Configure"
+          end
+        end
+
+        it "displays empty message" do
+          expect(page).to have_content "There are no active tokens"
+        end
+      end
+    end
+  end
 end
