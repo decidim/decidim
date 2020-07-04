@@ -88,7 +88,6 @@ sv:
       user_answers_serializer:
         created_at: Besvarad
         id: Svars-ID
-        ip_hash: Ip-hash
         registered: Registrerad
         unregistered: Ej registrerad
         user_status: Användarstatus
