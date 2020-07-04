@@ -137,7 +137,6 @@ fi:
       user_answers_serializer:
         created_at: Vastauksen ajankohta
         id: Vastauksen ID
-        ip_hash: IP-tarkistesumma
         registered: Rekisteröitynyt
         unregistered: Ei rekisteröitynyt
         user_status: Käyttäjän tila
