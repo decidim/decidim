@@ -159,6 +159,12 @@ cs:
         confirm_destroy: Opravdu chcete tuto schůzku smazat?
         destroy: Odstranit
         edit: Upravit
+        invalid_destroy:
+          proposals_count:
+            one: 'Schůzku nelze zničit, protože má k ní přidružený %{count} návrh:'
+            few: 'Schůzku nelze zničit, protože má k ní přidruženo %{count} návrhů:'
+            many: 'Schůzku nelze zničit, protože má k ní přidruženo %{count} návrhů:'
+            other: 'Schůzka nemůže být zničena, protože s ní je spojeno %{count} návrhů:'
         minutes: Minut
         new: Nové setkání
         preview: Náhled
@@ -240,6 +246,12 @@ cs:
             invalid: Při vytváření této schůzky došlo k problému
             success: Setkání bylo úspěšně vytvořeno
           destroy:
+            invalid:
+              proposals_count:
+                one: Schůzku nelze zničit, protože má k ní přidružený %{count} návrh
+                few: Schůzku nelze zničit, protože má k ní přidruženo %{count} návrhů
+                many: Schůzka nemůže být zničena, protože s ní je spojeno %{count} návrhů
+                other: Schůzka nemůže být zničena, protože s ní je spojeno %{count} návrhů
             success: Setkání bylo úspěšně smazáno
           edit:
             update: Aktualizace
