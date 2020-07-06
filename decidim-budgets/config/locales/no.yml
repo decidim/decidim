@@ -65,6 +65,9 @@
         project:
           fields:
             title: Tittel
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'Prosjektene du har valgt er:'
       projects:
         budget_confirm:
           are_you_sure: Er du enig? Når du har bekrefter din stemme, kan du ikke endre den.
