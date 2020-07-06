@@ -15,7 +15,7 @@ module Decidim
           member do
             post :copy
 
-            resource :questionnaire, module: "questionnaire_templates"
+            resource :questionnaire, module: :questionnaire_templates # To manage the templatable resource
           end
 
           collection do
