@@ -16,7 +16,7 @@ module Decidim
       record = find_by!(token_for: token_for, token: token)
       record.use!
     end
-    
+
     def use!
       return raise StandardError, "Share token '#{token}' for '#{token_for_type}' with id = #{token_for_id} has expired." if expired?
 
@@ -35,13 +35,13 @@ module Decidim
 
     def generate
       return if token.present?
-      
+
       loop do
         self.token = SecureRandom.hex(32)
         break if ShareToken.find_by(token: token).blank?
       end
     end
-    
+
     def set_default_expiration
       self.expires_at ||= 1.day.from_now
     end
