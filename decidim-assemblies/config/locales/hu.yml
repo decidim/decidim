@@ -34,7 +34,7 @@ hu:
         meta_scope: Hatókör-metaadatok
         parent_id: Parent gyűlés
         participatory_processes_ids: Kapcsolódó részvételi folyamatok
-        participatory_scope: Mi a döntés
+        participatory_scope: Miről születik döntés
         participatory_structure: Hogyan döntenek
         private_space: Privát tér
         promoted: Kiemelt
@@ -47,7 +47,7 @@ hu:
         slug: URL slug
         special_features: Speciális funkciók
         subtitle: Felirat
-        target: Ki részt vesz benne
+        target: Ki vesz részt
         title: Cím
         twitter: Twitter
         youtube: Youtube
@@ -64,6 +64,12 @@ hu:
         email: Email
         name: Név
         role: Szerep
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Nem megfelelő dokument típus. Az elfogadott formátumok: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -78,6 +84,7 @@ hu:
   decidim:
     admin:
       actions:
+        import_assembly: Importálás
         new_assembly: Új gyűlés
         new_assembly_type: Új Gyűlés típus
       assemblies:
@@ -118,6 +125,14 @@ hu:
           copy: Másolás
           select: Válaszd ki, mely adatokat szeretnéd duplikálni
           title: Gyűlés duplikálása
+      assembly_imports:
+        create:
+          error: Hiba történt a gyűlés importálása során.
+          success: Gyűlés importálása sikerült.
+        new:
+          import: Importál
+          select: Válaszd ki, mely adatokat szeretnéd importálni
+          title: Gyűlés importálása
       assembly_members:
         create:
           error: Hiba történt a tag gyűléshez való hozzáadása során.
@@ -257,6 +272,9 @@ hu:
         assembly_copies:
           form:
             slug_help: 'Az URL slugok a gyűlések linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdened. Példa: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Dokumentum hozzáadása
         assembly_members:
           form:
             existing_user: Meglévő résztvevő

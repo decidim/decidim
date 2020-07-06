@@ -57,6 +57,22 @@ module Decidim
               update_nested_model(form_answer_option, answer_option_attributes, question.answer_options)
             end
 
+            form_question.display_conditions.each do |form_display_condition|
+              type = form_display_condition.condition_type
+
+              display_condition_attributes = {
+                condition_question: form_display_condition.condition_question,
+                condition_type: form_display_condition.condition_type,
+                condition_value: type == "match" ? form_display_condition.condition_value : nil,
+                answer_option: %w(equal not_equal).include?(type) ? form_display_condition.answer_option : nil,
+                mandatory: form_display_condition.mandatory
+              }
+
+              next if form_display_condition.deleted? && form_display_condition.id.blank?
+
+              update_nested_model(form_display_condition, display_condition_attributes, question.display_conditions)
+            end
+
             form_question.matrix_rows.each do |form_matrix_row|
               matrix_row_attributes = {
                 body: form_matrix_row.body

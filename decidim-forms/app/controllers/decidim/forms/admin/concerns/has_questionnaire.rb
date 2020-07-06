@@ -15,7 +15,8 @@ module Decidim
 
           included do
             helper Decidim::Forms::Admin::ApplicationHelper
-            helper_method :questionnaire_for, :questionnaire, :blank_question, :blank_answer_option, :blank_matrix_row, :question_types, :update_url
+            helper_method :questionnaire_for, :questionnaire, :blank_question, :blank_answer_option, :blank_matrix_row,
+                          :blank_display_condition, :question_types, :display_condition_types, :update_url, :answer_options_url
 
             def edit
               enforce_permission_to :update, :questionnaire, questionnaire: questionnaire
@@ -46,6 +47,16 @@ module Decidim
               end
             end
 
+            def answer_options
+              respond_to do |format|
+                format.json do
+                  question_id = params["id"]
+                  question = Question.find_by(id: question_id)
+                  render json: question.answer_options.map { |answer_option| AnswerOptionPresenter.new(answer_option).as_json } if question.present?
+                end
+              end
+            end
+
             # Public: The only method to be implemented at the controller. You need to
             # return the object that will hold the questionnaire.
             def questionnaire_for
@@ -62,6 +73,12 @@ module Decidim
             # where the user will be redirected after updating the questionnaire
             def after_update_url
               url_for(questionnaire.questionnaire_for)
+            end
+
+            # Returns the url to get the answer options json (for the display conditions form)
+            # for the question with id = params[:id]
+            def answer_options_url(params)
+              url_for([questionnaire.questionnaire_for, action: :answer_options, format: :json, **params])
             end
 
             private
@@ -82,6 +99,10 @@ module Decidim
               @blank_answer_option ||= Admin::AnswerOptionForm.new
             end
 
+            def blank_display_condition
+              @blank_display_condition ||= Admin::DisplayConditionForm.new
+            end
+
             def blank_matrix_row
               @blank_matrix_row ||= Admin::QuestionMatrixRowForm.new
             end
@@ -89,6 +110,12 @@ module Decidim
             def question_types
               @question_types ||= Question::QUESTION_TYPES.map do |question_type|
                 [question_type, I18n.t("decidim.forms.question_types.#{question_type}")]
+              end
+            end
+
+            def display_condition_types
+              @display_condition_types ||= DisplayCondition.condition_types.keys.map do |condition_type|
+                [condition_type, I18n.t("decidim.forms.admin.questionnaires.display_condition.condition_types.#{condition_type}")]
               end
             end
           end

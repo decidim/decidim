@@ -30,9 +30,9 @@ Once created you are ready to:
 
 - `bin/rails s`
 
-## Gitflow Branching model
+## GitFlow Branching model
 
-The Decidim respository follows the Gitflow branching model. There are good documentations on it at:
+The Decidim respository follows the GitFlow branching model. There are good documentations on it at:
 
 - the original post: https://nvie.com/posts/a-successful-git-branching-model/
 - provided by Atlassian: https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow.
@@ -43,24 +43,41 @@ In summary, Decidim developers that work on `feature/...` or `fix/...` branches 
 
 Then, to start a new feature branch off from `develop` in the following way:
 
-```
+```bash
 git checkout develop
 git checkout -b feature/xxx
 ```
 
 Implement the feature, and open a Pull Request as normal, but against `develop` branch. As this is the most common operation, `develop` is the default branch instead of `master`.
 
+### Naming Decidim branches
+
+We would like to have all branches following this namings:
+
+| Branch prefix | Comment |
+| --------  | -------- |
+| chore/    | Internal work. For instance, automatisms, etc. No production code change.     |
+| ci/       | For continous integration related tasks. No production code change.     |
+| deps/     | For dependency management tasks. |
+| doc/      | For changes to the documentation. |
+| feature/  | For new features for the users or for the Decidim command.  |
+| fix/      | For feature bugfixing. |
+| release/  | With MAYOR.MINOR-stable. For instance, release/0.22-stable |
+| refactor/ | For refactorings related with production code. |
+| test/     | When adding missing tests, refactoring tests, improving coverage, etc. |
+| backport/ | We only offer support for the last mayor version.  |
+
 ## Git commit messages and Pull Request titles
 
 We recommend following [this guide](https://chris.beams.io/posts/git-commit/) for making good git commit messages. It also applies to Pull Request titles. The summary is:
 
-1.  Separate subject from body with a blank line
-1.  Limit the subject line to 50 characters
-1.  Capitalize the subject line
-1.  Do not end the subject line with a period
-1.  Use the imperative mood in the subject line
-1.  Wrap the body at 72 characters
-1.  Use the body to explain what and why vs. how
+1. Separate subject from body with a blank line
+1. Limit the subject line to 50 characters
+1. Capitalize the subject line
+1. Do not end the subject line with a period
+1. Use the imperative mood in the subject line
+1. Wrap the body at 72 characters
+1. Use the body to explain what and why vs. how
 
 ## During development
 
@@ -147,43 +164,3 @@ This project uses [markdownlint](https://github.com/markdownlint/markdownlint) t
 ## Testing
 
 Refer to the [testing](advanced/testing.md) guide.
-
-## Releasing new versions
-
-In order to release new version you need to be owner of all the gems at RubyGems, ask one of the owners to add you before releasing. (Try `gem owners decidim`).
-
-Releasing new ***patch versions*** is quite easy, it's the same process whether it's a new version or a patch:
-
-1. Checkout the branch you want to release: `git checkout -b VERSION-stable`
-1. Update `.decidim-version` to the new version number.
-1. Run `bin/rake update_versions`, this will update all references to the new version.
-1. Run `bin/rake bundle`, this will update all the `Gemfile.lock` files
-1. Run `bin/rake webpack`, this will update the JavaScript bundle.
-1. Update `CHANGELOG.MD`. At the top you should have an `Unreleased` header with the `Added`, `Changed`, `Fixed` and `Removed` empty section. After that, the header with the current version and link.
-1. Commit all the changes: `git add . && git commit -m "Prepare VERSION release"`
-1. Run `bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems.
-1. Once all the gems are published you should create a new release at this repository, just go to the [releases page](https://github.com/decidim/decidim/releases) and create a new one.
-1. Finally, you should update our [Docker repository](https://github.com/decidim/docker) so new images are build for the new release. To do it, just update `DECIDIM_VERSION` at [circle.yml](https://github.com/decidim/docker/blob/master/circle.yml).
-
-If this was a **major version** release:
-
-1. Go back to master with `git checkout master`
-1. Update `.decidim-version` to the new major development version
-1. Run `bin/rake update_versions`, this will update all references to the new version.
-1. Run `bin/rake bundle`, this will update all the `Gemfile.lock` files
-1. Run `bin/rake webpack`, this will update the JavaScript bundle.
-1. Update `SECURITY.md` and change the supported version to the new version.
-1. Commit all the changes: `git add . && git commit -m "Bump version" && git push origin master`
-1. Run `bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems.
-1. Once all the gems are published you should create a new release at this repository, just go to the [releases page](https://github.com/decidim/decidim/releases) and create a new one.
-1. Finally, you should update our [Docker repository](https://github.com/decidim/docker) so new images are build for the new release. To do it, just update `DECIDIM_VERSION` at [circle.yml](https://github.com/decidim/docker/blob/master/circle.yml) and create the sibling branch at the Docker repository. NOTE: You should also take into account if the Ruby version has changed, in which case the Dockerfile should also be updated.
-
-To branch the stable version and let master be the new devel branch again:
-
-1. Create and push the stable branch from master: `git checkout master && git checkout -b VERSION-stable && git push origin VERSION-stable`
-1. Update the `CHANGELOG.MD`. At the top you should have an `Unreleased` header with the `Added`, `Changed`, `Fixed` and `Removed` empty section. After that, the header with the current version and link.
-1. Turn master into the dev branch for the next release:
-  1. Update `.decidim-version` to the new `dev` development version: x.y.z-dev
-  1. Run `bin/rake update_versions`, this will update all references to the new version.
-  1. Run `bin/rake bundle`, this will update all the `Gemfile.lock` files
-  1. Run `bin/rake webpack`, this will update the JavaScript bundle.

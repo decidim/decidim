@@ -1,0 +1,8 @@
+bg:
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Сигурни ли сте, че желаете да изтриете това?
+        destroy: Изтрий
+        edit: Редактирай
+        new: Нов

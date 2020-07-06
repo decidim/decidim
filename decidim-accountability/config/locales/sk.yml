@@ -155,30 +155,16 @@ sk:
         show:
           stats:
             attendees: Účastníci
-            back_to_result: Naspať na výsledky
+            back_to_resource: Naspať na výsledky
             comments: Komentáre
             contributions: Príspevky
             last_edited_by: Naposledy editoval
             last_updated_at: Naposledy aktualizované
             meetings: Stretnutia
-            number_of_versions: Verzie
             proposals: Návrhy
-            show_all_versions: Zobraziť všetky verzie
-            version_author: Autor verzie
-            version_created_at: Verzia vytvorená
-            version_number: Číslo verzie
-            version_number_out_of_total: "%{current_version} verzia z celkovo %{total_count}"
             votes: Podporenia
         timeline:
           title: Vývoj projektu
-      versions:
-        index:
-          changes_at_title: Zmeny v "%{title}"
-          title: Verzie
-        show:
-          changes_at_title: Zmeny v "%{title}"
-        version:
-          version_index: Verzia %{index}
     components:
       accountability:
         name: Zodpovednosť

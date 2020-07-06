@@ -38,13 +38,6 @@ module Decidim
         Decidim::Debates::AdminLog::DebatePresenter
       end
 
-      # Public: Checks whether the debate is official or not.
-      #
-      # Returns a boolean.
-      def official?
-        author.is_a?(Decidim::Organization)
-      end
-
       # Public: Overrides the `reported_content_url` Reportable concern method.
       def reported_content_url
         ResourceLocatorPresenter.new(self).url

@@ -32,7 +32,7 @@ module Decidim
         percentage_after = @initiative.reload.percentage
 
         notify_percentage_change(percentage_before, percentage_after)
-        notify_support_threshold_reached(percentage_after)
+        notify_support_threshold_reached(percentage_before, percentage_after)
 
         broadcast(:ok, vote)
       end
@@ -94,8 +94,9 @@ module Decidim
         )
       end
 
-      def notify_support_threshold_reached(percentage)
-        return unless percentage >= 100
+      def notify_support_threshold_reached(before, after)
+        # Don't need to notify if threshold has already been reached
+        return if before == after || after != 100
 
         Decidim::EventsManager.publish(
           event: "decidim.events.initiatives.support_threshold_reached",

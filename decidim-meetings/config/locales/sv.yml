@@ -223,9 +223,6 @@ sv:
           edit:
             close: Stäng
             title: Stäng mötet
-        meeting_copies:
-          form:
-            select_organizer: Välj arrangören
         meetings:
           close:
             invalid: Det gick inte att stänga mötet
@@ -241,7 +238,6 @@ sv:
             address_help: 'Adress: anger en plats för Geocoder'
             location_help: 'Plats: meddelande till användarna som anger mötesplats'
             location_hints_help: 'Detaljer om platsen: ytterligare information, som våning i byggnaden'
-            select_organizer: Välj arrangören
           index:
             title: Möten
           new:
@@ -347,11 +343,8 @@ sv:
       meetings:
         filters:
           category: Kategori
-          category_prompt: Välj en kategori
           date: Datum
-          past: Tidigare
           search: Sök
-          upcoming: Kommande
         filters_small_view:
           close_modal: Stäng fönstret
           filter: Filtrera

@@ -64,6 +64,12 @@ fi:
         email: Sähköposti
         name: Nimi
         role: Rooli
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Virheellinen asiakirjan muoto. Hyväksytyt tiedostomuodot ovat: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -78,6 +84,7 @@ fi:
   decidim:
     admin:
       actions:
+        import_assembly: Tuo
         new_assembly: Uusi ryhmä
         new_assembly_type: Uusi ryhmätyyppi
       assemblies:
@@ -122,6 +129,10 @@ fi:
           copy: Kopioi
           select: Valitse, mitkä tiedot haluat kopioida
           title: Kopioi ryhmä
+      assembly_imports:
+        new:
+          import: Tuo
+          select: Valitse, mitkä tiedot haluat tuoda
       assembly_members:
         create:
           error: Jäsenen lisääminen ryhmään epäonnistui.
@@ -269,6 +280,9 @@ fi:
         assembly_copies:
           form:
             slug_help: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Lisää dokumentti
         assembly_members:
           form:
             existing_user: Olemassa oleva käyttäjä
@@ -425,6 +439,8 @@ fi:
         home:
           highlighted_processes:
             processes_button_title: Linkki kaikkien prosessien sivulle
+      show:
+        related_assemblies: Liittyvät ryhmät
   errors:
     messages:
       cannot_be_blank: ei voi olla tyhjä

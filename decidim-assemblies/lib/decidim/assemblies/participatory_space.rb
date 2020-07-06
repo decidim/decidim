@@ -28,6 +28,14 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
     context.layout = "layouts/decidim/admin/assembly"
   end
 
+  participatory_space.exports :assemblies do |export|
+    export.collection do |assembly|
+      Decidim::Assembly.where(id: assembly.id)
+    end
+
+    export.serializer Decidim::Assemblies::AssemblySerializer
+  end
+
   participatory_space.register_on_destroy_account do |user|
     Decidim::AssemblyUserRole.where(user: user).destroy_all
     Decidim::AssemblyMember.where(user: user).destroy_all
