@@ -3,12 +3,15 @@
 Templates can be defined from their own section in the admin panel to store and use objects with given values and use them to create new ones using these values as default.
 
 ## Model
+
 The only requisite to create a template for a model is that the model class includes the `Decidim::Templates::Templatable` concern.
 
 ## Controller
+
 A controller must be created in `decidim-templates/app/controllers/decidim/templates/admin` for the template management actions: `index`, `new`, `create`, `edit`, `update`, `delete` and the additional `copy`, `apply`, `skip` and `preview` actions.
 
 ## Commands
+
 You should create at least the custom `create`, `copy` and `apply` commands for the model templates in `decidim-templates/app/commands/decidim/templates/admin`, and can use the general `destroy` and `update` commands in the controller, which need to be called only with the `Template` itself.
 
 ## Routes
