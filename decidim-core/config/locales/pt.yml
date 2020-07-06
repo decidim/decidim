@@ -6,10 +6,10 @@ pt:
       group:
         about: Sobre
         avatar: Avatar
-        document_number: Número de documento
-        email: Email
+        document_number: Número do documento
+        email: E-mail
         name: Nome
-        nickname: Nome de usuário
+        nickname: Alcunha
         phone: Telefone
       report:
         details: Comentários adicionais
@@ -117,6 +117,7 @@ pt:
         update: "%{user_name} atualizou as configurações da organização"
       participatory_space_private_user:
         create: "%{user_name} convidados %{resource_name} para ser um usuário privado"
+        create_via_csv: "%{user_name} convidado %{resource_name} através de CSV para ser um participante privado"
         delete: "%{user_name} removeu o usuário %{resource_name} como usuário particular"
       scope:
         create: "%{user_name} criou o escopo %{resource_name}"
@@ -138,6 +139,8 @@ pt:
         reject: "%{user_name} rejeitou o %{resource_name} verificação do grupo de usuários"
         verify: "%{user_name} verificado o %{resource_name} grupo de usuários"
         verify_via_csv: "%{user_name} verificou o %{resource_name} grupo de usuários por meio de um arquivo CSV"
+    admin_terms_of_use:
+      default_body: "<h2>TERMOS DE UTILIZAÇÃO DE ADMINISTRADOR</h2><p>Esperamos que tenha recebido as instruções normais da parte do Administrador de Sistema local. Resume-se normalmente a três fatores:</p><ol><li>Respeite a privacidade dos outros.</li><li>Pense antes de clicar.</li><li>Um grande poder acarreta uma grande responsabilidade.</li></ol>"
     amendments:
       accepted:
         error: Ocorreu um erro ao aceitar a alteração.
@@ -151,6 +154,21 @@ pt:
         promote_confirm_text: Tem certeza de que deseja promover essa emenda?
         promote_help_text: Você pode promover esta emendação e publicá-la como um %{model_name}independente
         section_heading: Alterações (%{count})
+      compare_draft:
+        continue: Continuar
+        no_similars_found: Não foram encontradas emendas semelhantes.
+        title: Emendas Semelhantes
+      created:
+        error: Ocorreu um erro ao criar o rascunho de alteração.
+        success: O rascunho de alteração foi criado com sucesso.
+      destroy_draft:
+        error: Ocorreu um problema ao eliminar o rascunho de alteração.
+        success: O rascunho de alteração foi eliminado com sucesso.
+      edit_draft:
+        discard: Eliminar este rascunho
+        discard_confirmation: Tem a certeza de que pretende eliminar este rascunho de alteração?
+        send: Pré-visualização
+        title: Editar Rascunho de Alteração
       emendation:
         actions:
           button_accept: Aceitar
@@ -163,15 +181,25 @@ pt:
           evaluating: |-
             Esta emenda para o %{amendable_type} %{amendable_link}
             está sendo avaliada.
+          promoted: Promovido a %{amendable_type}.
           rejected: "Esta emenda para o %{amendable_type} %{amendable_link}\nfoi rejeitada em <strong>%{announcement_date}</strong>."
           withdrawn: |-
             Esta emenda para o %{amendable_type} %{amendable_link}
             foi retirada pelo autor.
       new:
         amendment_author: Autor de alteração
+        send: Criar
+        title: Criar Rascunho de Alteração
+      preview_draft:
+        modify: Modificar
+        publish: Publicar
+        title: Publicar Rascunho de Alteração
       promoted:
         error: Houve erros ao promover a emenda
         success: Emendação promovida com sucesso
+      publish_draft:
+        error: Ocorreu um problema a publicar a alteração.
+        success: Alteração publicada com sucesso.
       rejected:
         error: Ocorreu um erro ao rejeitar esta emenda, por favor, tente novamente mais tarde
         success: A emendação foi rejeitada com sucesso
@@ -180,15 +208,21 @@ pt:
         heading: Revise a emenda
         help_text: Você está revisando uma emenda ao %{model_name}
         send: Aceitar alteração
+      update_draft:
+        error: Ocorreu um problema ao atualizar o rascunho de alteração.
+        success: Rascunho de alteração atualizado com sucesso.
       visibility_options:
-        all: As alterações são visíveis para todos
-        participants: As alterações são visíveis apenas para seus autores
+        all: As alterações estão visíveis para todos
+        participants: As alterações estão apenas visíveis para os respetivos autores
+      withdraw:
+        error: Ocorreu um erro ao retirar a alteração
+        success: A alteração foi retirada com sucesso
       wizard_step_form:
         steps:
           '1': Crie sua emenda
-          '2': Compare your amendment
-          '3': Complete your amendment
-          '4': Publish your amendment
+          '2': Comparar a sua alteração
+          '3': Concluir a sua alteração
+          '4': Publicar a sua alteração
     anonymous_user: Anônimo
     application:
       collection:
@@ -279,12 +313,18 @@ pt:
             comments_enabled: Comentários ativados
             dummy_global_attribute_1: Dummy Atributo 1
             dummy_global_attribute_2: Dummy Attribute 2
+            dummy_global_translatable_text: Texto Traduzível Fictício
             enable_pads_creation: Ativar criação de blocos
             resources_permissions_enabled: Permissões de recursos ativadas
           step:
+            amendment_creation_enabled: Ativada a criação de alteração
+            amendment_promotion_enabled: Ativada a promoção de alteração
+            amendment_reaction_enabled: Ativada a reação à alteração
+            amendments_visibility: Visibilidade da alteração
             comments_blocked: Comentários bloqueados
             dummy_step_attribute_1: Dummy Step Attribute 1
             dummy_step_attribute_2: Dummy Step Attribute 2
+            dummy_step_translatable_text: Texto Traduzível de Etapa Fictícia
     contact: Contato
     content_blocks:
       footer_sub_hero:
@@ -310,7 +350,7 @@ pt:
         name: Banner de sub-herói
     core:
       actions:
-        login_before_access: Faça o login com sua conta antes de acessar
+        login_before_access: Inicie sessão na sua conta antes de aceder
         unauthorized: Não está autorizado a realizar esta ação
     data_portability:
       export:
@@ -327,7 +367,7 @@ pt:
           email_already_exists: Outra conta está usando o mesmo endereço de e-mail
         new:
           complete_profile: Complete o seu perfil
-          nickname_help: Seu identificador exclusivo em %{organization}
+          nickname_help: O seu pseudónimo em %{organization}
           sign_up: Por favor, complete o seu perfil
           subtitle: Por favor, preencha o seguinte formulário para completar a inscrição
           username_help: Nome público que aparece em suas postagens. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
@@ -336,8 +376,8 @@ pt:
           already_have_an_account?: Já tem uma conta?
           newsletter: Receba um boletim informativo ocasional com informações relevantes
           newsletter_title: Permissão de contato
-          nickname_help: Seu identificador exclusivo em %{organization}
-          password_help: "O mínimo de %{minimun_characters} caracteres, não deve ser muito comum (por exemplo, 123456) e deve ser diferente do seu apelido e do seu email."
+          nickname_help: O seu pseudónimo em %{organization}
+          password_help: "%{minimun_characters} de caracteres no mínimo, não deverá ser muito comum (por ex. 123456) e deverá ser diferente da sua alcunha e do seu e-mail."
           sign_in: Entrar
           sign_up: Inscreva-se
           sign_up_as:
@@ -552,8 +592,8 @@ pt:
       default_image: Imagem por defeito
       errors:
         decidim/user:
-          password: A senha é demasiado curta.
-          password_confirmation: A confirmação da palavra-passe não corresponde à palavra-passe inserida.
+          password: A palavra-passe é demasiado curta.
+          password_confirmation: A confirmação da palavra-passe deverá corresponder à palavra-passe.
         error: Há um erro neste campo.
       remove_this_file: Remover este ficheiro
     gamification:
@@ -1013,9 +1053,10 @@ pt:
       default_subject: Obrigado por se juntar a {{organization}}!
     wizard_step_form:
       wizard_aside:
-        back: Voltar
+        back: Retroceder
       wizard_header:
-        see_steps: ver as etapas
+        see_steps: ver etapas
+        step_of: Etapa %{current_step} de %{total_steps}
   devise:
     confirmations:
       confirmed: Seu endereço de e-mail foi confirmado com sucesso.
@@ -1106,7 +1147,7 @@ pt:
         change_your_password: Mude sua senha
         confirm_new_password: Confirme a nova senha
         new_password: Nova senha
-        password_help: "O mínimo de %{minimun_characters} caracteres, não deve ser muito comum (por exemplo, 123456) e deve ser diferente do seu apelido e do seu email."
+        password_help: "%{minimun_characters} de caracteres no mínimo, não deverá ser muito comum (por ex. 123456) e deverá ser diferente da sua alcunha e do seu e-mail."
       new:
         forgot_your_password: Esqueceu sua senha?
         send_me_reset_password_instructions: Envie-me as instruções de redefinição de senha
@@ -1169,11 +1210,15 @@ pt:
       cycle_detected: o pai de um âmbito não pode ser um dos seus descendentes
       expired: expirou, solicite um novo
       file_size_is_less_than_or_equal_to: o tamanho do arquivo deve ser menor ou igual a %{count}
-      invalid_time_zone: não é uma data/hora válida
+      invalid_time_zone: não é um fuso horário válido
       long_words: contém palavras muito longas (mais de 35 caracteres)
       must_start_with_caps: deve começar com letra maiúscula
       nesting_too_deep: não pode estar dentro de uma subcategoria
+      not_found: não foi encontrado(a). Já se inscreveu anteriormente?
       not_locked: não estava trancado
+      not_saved:
+        one: 'Ocorreu um erro no processamento do seu pedido:'
+        other: 'Ocorreram diversos erros no processamento do seu pedido:'
       too_many_marks: está usando muitos sinais de pontuação consecutivos (por exemplo,! e?)
       too_much_caps: está usando muitas letras maiúsculas (mais de 25% do texto)
       too_short: é muito curto (menos de 15 caracteres)
@@ -1247,6 +1292,7 @@ pt:
     qq: Qzone
     reddit: Reddit
     share_to: Compartilhe %{name}
+    telegram: Telegrama
     tumblr: Tumblr
     twitter: Twitter
     vkontakte: Vkontakte
@@ -1262,11 +1308,25 @@ pt:
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      default: "%a, %d %b %A %H:%M:%S %z"
       devise:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      long: "%B %d, %A %H:%M"
+      short: "%d/%m/%A %H:%M"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Eliminações
+      right: Adições
+    dropdown:
+      choose_diff_view_html: 'Modo de vista de HTML:'
+      choose_diff_view_mode: 'Modo de vista de comparação:'
+      option_escaped: Com saída
+      option_split: Lado a lado
+      option_unescaped: Sem saída
+      option_unified: Unificado
   views:
     pagination:
       first: "&laquo; Primeiro"
