@@ -47,6 +47,8 @@ pt:
           fields:
             created_at: Criado em
             name: Nome
+            omniauth_settings: Definições Omniauth
+            smtp_settings: Definições SMTP
           name: Organização
       organizations:
         create:
@@ -60,6 +62,24 @@ pt:
           reference_prefix_hint: O prefixo de referência é usado para identificar exclusivamente recursos em todas as organizações
           secondary_hosts_hint: Insira cada um deles em uma nova linha
           title: Nova organização
+        omniauth_settings:
+          decidim:
+            client_id: ID do cliente
+            client_secret: Segredo do cliente
+            site_url: URL do site
+          enabled: Ativado
+          enabled_by_default: Este fornecedor está ativado por predefinição. Pode ser editado mas não desativado.
+          facebook:
+            app_id: ID da aplicação
+            app_secret: Segredo da aplicação
+          google_oauth2:
+            client_id: ID do cliente
+            client_secret: Segredo do cliente
+          icon: Ícone
+          icon_path: Caminho de ícone
+          twitter:
+            api_key: Chave de API
+            api_secret: Segredo de API
         update:
           error: Ocorreu um erro ao atualizar essa organização.
           success: Organização atualizada com sucesso.
