@@ -223,9 +223,6 @@ es-PY:
           edit:
             close: Cerrar
             title: Cerrar encuentro
-        meeting_copies:
-          form:
-            select_organizer: Selecciona el organizador
         meetings:
           close:
             invalid: Ha habido un problema al cerrar este encuentro
@@ -241,7 +238,6 @@ es-PY:
             address_help: 'Dirección: usada por Geocoder para encontrar la ubicación'
             location_help: 'Ubicación: mensaje dirigido a las participantes indicando el lugar donde reunirse'
             location_hints_help: 'Sugerencias de ubicación: información adicional. Ejemplo: la planta del edificio'
-            select_organizer: Selecciona el organizador
           index:
             title: Encuentros
           new:
@@ -347,11 +343,8 @@ es-PY:
       meetings:
         filters:
           category: Categoría
-          category_prompt: Selecciona una categoría
           date: Fecha
-          past: Pasadas
           search: Buscar
-          upcoming: Próximas
         filters_small_view:
           close_modal: Cerrar ventana
           filter: Filtrar

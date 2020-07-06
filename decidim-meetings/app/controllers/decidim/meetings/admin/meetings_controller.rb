@@ -64,6 +64,16 @@ module Decidim
 
               redirect_to meetings_path
             end
+
+            on(:invalid) do |proposals_count|
+              flash.now[:alert] = I18n.t(
+                "meetings.destroy.invalid.proposals_count",
+                count: proposals_count,
+                scope: "decidim.meetings.admin"
+              )
+
+              render action: "index"
+            end
           end
         end
 

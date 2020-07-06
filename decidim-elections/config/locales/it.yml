@@ -34,6 +34,10 @@ it:
         one: Domanda
         other: Domande
   decidim:
+    admin_log:
+      election:
+        publish: "%{user_name} ha pubblicato l'elezione %{resource_name}"
+        unpublish: "%{user_name} ha rimosso l'elezione %{resource_name}"
     components:
       elections:
         name: Elezioni
@@ -52,7 +56,9 @@ it:
         import: Importa proposte in risposte
         new: Nuovo %{name}
         preview: Anteprima
+        publish: Pubblica
         title: Azioni
+        unpublish: Ritira
       admin:
         answers:
           create:
@@ -87,6 +93,10 @@ it:
           new:
             create: Crea elezione
             title: Nuova elezione
+          publish:
+            success: L'elezione è stata pubblicata con successo.
+          unpublish:
+            success: L'elezione è stata ritirata con successo.
           update:
             invalid: Si è verificato un problema durante l'aggiornamento di questa elezione
             success: Elezione aggiornata con successo
@@ -96,13 +106,13 @@ it:
           election:
             name: Elezione
           question:
-            name: Domanda
+            name: Quesito
         proposals_imports:
           create:
             invalid: Si è verificato un problema durante l'importazione delle proposte nelle risposte
             success: "%{number} proposte importate con successo in risposte"
           new:
-            create: Importa proposte in risposte
+            create: Importa proposte a cui rispondere
             no_components: Non vi sono altre componenti di proposte in questo spazio partecipativo per importare le proposte in risposte.
             select_component: Si prega di selezionare un componente
         questions:
@@ -113,16 +123,16 @@ it:
             invalid: Si è verificato un errore durante l'eliminazione di questa domanda
             success: Domanda eliminata con successo
           edit:
-            title: Modifica domanda
-            update: Aggiorna domanda
+            title: Modifica quesito
+            update: Aggiorna quesito
           index:
-            title: Domande
+            title: Quesiti
           new:
-            create: Crea domanda
-            title: Nuova domanda
+            create: Crea quesito
+            title: Nuovo quesito
           update:
-            invalid: Si è verificato un errore durante l'aggiornamento di questa domanda
-            success: Domanda aggiornata con successo
+            invalid: Si è verificato un errore durante l'aggiornamento del quesito
+            success: Quesito aggiornato correttamente
       models:
         answer:
           fields:
@@ -138,6 +148,13 @@ it:
             answers: Risposte
             max_selections: Max. selezioni
             title: Titolo
+    events:
+      elections:
+        election_published:
+          email_intro: 'L''elezione %{resource_title} è ora attiva per %{participatory_space_title}. Puoi vederla da questa pagina:'
+          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+          email_subject: L'elezione di %{resource_title} è ora attiva per %{participatory_space_title}.
+          notification_title: L'elezione <a href="%{resource_path}">%{resource_title}</a> è ora attiva per %{participatory_space_title}.
     participatory_processes:
       statistics:
         elections_count: Elezioni

@@ -223,9 +223,6 @@ fi:
           edit:
             close: Sulje
             title: Sulje tapahtuma
-        meeting_copies:
-          form:
-            select_organizer: Valitse järjestäjä
         meetings:
           close:
             invalid: Tapahtuman sulkeminen epäonnistui
@@ -241,7 +238,6 @@ fi:
             address_help: 'Osoite: käytetään sijainnin löytämiseksi geokoodaukseen'
             location_help: 'Sijainti: viesti osallistujille tapaamispaikan sijainnin löytämiseksi'
             location_hints_help: 'Sijainnin vihjeteksti: lisätietoja sijainnista. Esimerkiksi rakennuksen kerros sijaintipaikalla'
-            select_organizer: Valitse järjestäjä
           index:
             title: Tapahtumat
           new:
@@ -348,11 +344,8 @@ fi:
       meetings:
         filters:
           category: Aihepiiri
-          category_prompt: Valitse aihepiiri
           date: Päivämäärä
-          past: Menneet
           search: Hae
-          upcoming: Tulevat
         filters_small_view:
           close_modal: Sulje ikkuna
           filter: Rajaa

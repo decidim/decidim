@@ -223,9 +223,6 @@ pt:
           edit:
             close: Fechar
             title: Reunião próxima
-        meeting_copies:
-          form:
-            select_organizer: Selecione o organizador
         meetings:
           close:
             invalid: Tem havido um problema ao encerrar esta reunião
@@ -237,8 +234,6 @@ pt:
             success: Reunião excluída com sucesso
           edit:
             update: Atualizar
-          form:
-            select_organizer: Selecione o organizador
           index:
             title: Reuniões
           new:
@@ -343,11 +338,8 @@ pt:
       meetings:
         filters:
           category: Categoria
-          category_prompt: Selecione uma categoria
           date: Data
-          past: Passado
           search: Pesquisa
-          upcoming: próximos
         filters_small_view:
           close_modal: Fechar modal
           filter: Filtro
