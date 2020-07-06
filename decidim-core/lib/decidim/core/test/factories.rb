@@ -463,6 +463,10 @@ FactoryBot.define do
         end
       end
     end
+
+    trait :shareable_with_token do
+      url { "/share/url" }
+    end
   end
 
   factory :coauthorable_dummy_resource, class: "Decidim::DummyResources::CoauthorableDummyResource" do
@@ -687,7 +691,10 @@ FactoryBot.define do
   factory :share_token, class: "Decidim::ShareToken" do
     token_for { build(:dummy_resource) }
     user { build(:user, organization: token_for.organization) }
-    organization { token_for.organization }
+
+    before(:create) do |object|
+      object.organization ||= token_for.organization
+    end
 
     trait :expired do
       expires_at { 1.day.ago }
