@@ -114,8 +114,6 @@ module Decidim
     class NestedDummyResource < ApplicationRecord
       include Decidim::Resourceable
       belongs_to :dummy_resource
-      has_one :component, through: :dummy_resource, foreign_key: "decidim_component_id", class_name: "Decidim::Component"
-      delegate :organization, :participatory_space, to: :component
     end
 
     class CoauthorableDummyResource < ApplicationRecord

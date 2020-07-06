@@ -27,7 +27,7 @@ module Decidim
     #
     # Returns a String.
     def url(options = {})
-      member_route("url", options.merge(host: target.organization.host))
+      member_route("url", options.merge(host: root_resource.organization.host))
     end
 
     # Builds the index path to the associated collection of resources.
@@ -84,6 +84,14 @@ module Decidim
       end
     end
 
+    def root_resource
+      if polymorphic?
+        resource.first
+      else
+        resource
+      end
+    end
+
     # Private: Build the route to the resource.
     #
     # Returns a String.
@@ -108,28 +116,28 @@ module Decidim
       admin_route_proxy.send("#{collection_route_name}_#{route_type}", options)
     end
 
-    def manifest
-      target.try(:resource_manifest) ||
-        target.class.try(:resource_manifest) ||
-        target.class.try(:participatory_space_manifest)
+    def manifest_for(record)
+      record.try(:resource_manifest) ||
+        record.class.try(:resource_manifest) ||
+        record.class.try(:participatory_space_manifest)
     end
 
     def component
-      target.component if target.respond_to?(:component)
+      root_resource.try(:component)
     end
 
     def member_route_name
       if polymorphic?
         polymorphic_member_route_name
       else
-        manifest.route_name
+        manifest_for(target).route_name
       end
     end
 
     def polymorphic_member_route_name
       return unless polymorphic?
 
-      resource.map { |record| record.model_name.param_key }.join("_")
+      resource.map { |record| manifest_for(record).route_name }.join("_")
     end
 
     def collection_route_name
@@ -141,7 +149,7 @@ module Decidim
 
       parent_resources = {}
       (resource - [target]).each do |parent|
-        parent_resources["#{parent.model_name.param_key}_id"] = parent.id
+        parent_resources["#{manifest_for(parent).route_name}_id"] = parent.id
       end
       parent_resources
     end
