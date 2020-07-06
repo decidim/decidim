@@ -9,6 +9,7 @@ FactoryBot.define do
     templatable { build(:dummy_resource) }
     name { Decidim::Faker::Localized.sentence }
 
+    ## Questionnaire templates
     factory :questionnaire_template do
       trait :with_questions do
         after(:create) do |template|
