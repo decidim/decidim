@@ -11,7 +11,8 @@ module Decidim
         {
           id: resource.id,
           created_at: resource.created_at,
-          body: resource.body,
+          body: resource.body.values.first,
+          locale: resource.body.keys.first,
           author: {
             id: resource.author.id,
             name: resource.author.name

@@ -24,6 +24,18 @@ module Decidim
         expect(comment).to be_valid
       end
 
+      it "is valid with a string as the body" do
+        new_comment = build(:comment, body: "Hey this is a comment")
+        expect(new_comment).to be_valid
+        expect(new_comment.body).to eq("en" => "Hey this is a comment")
+      end
+
+      it "is valid with a string as the body" do
+        new_comment = build(:comment, body: { en:  "Hey this is a comment" })
+        expect(new_comment).to be_valid
+        expect(new_comment.body).to eq("en" => "Hey this is a comment")
+      end
+
       it "has an associated commentable" do
         expect(comment.commentable).to eq(commentable)
       end

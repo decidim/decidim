@@ -158,7 +158,7 @@ module Decidim
       # Private: Returns the comment body sanitized, sanitizing HTML tags
       def sanitized_body
         Rails::Html::WhiteListSanitizer.new.sanitize(
-          render_markdown(body),
+          render_markdown(body.values.first),
           scrubber: Decidim::Comments::UserInputScrubber.new
         ).try(:html_safe)
       end
