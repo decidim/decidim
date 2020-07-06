@@ -41,7 +41,7 @@ edit_link(
         <%= t(close_debate_action_text) %>
       </button>
     <% elsif admin_allowed_to?(:close, :debate, debate: debate) %>
-      <%= link_to t(close_debate_action_text), resource_locator(debate).admin_action("close"), class: "button hollow expanded button-sc button--icon follow-button" %>
+      <%= link_to t(close_debate_action_text), Decidim::EngineRouter.admin_proxy(debate.component).edit_debate_debate_close_path(debate_id: debate.id, id: debate.id), class: "button hollow expanded button-sc button--icon follow-button" %>
     <% end %>
     <div class="card extra">
       <div class="card__content">
@@ -72,7 +72,7 @@ edit_link(
       <%= render_debate_description(debate) %>
 
       <% if debate.closed? %>
-        <%= cell("decidim/announcement", {announcement: {title: t(".debate_conclusions_are", date: l(debate.closed_at, format: :decidim_short)), body: simple_format(translated_attribute(debate.conclusions)) }, callout_class: "success" }) %>
+        <%= cell("decidim/announcement", { announcement: { title: t(".debate_conclusions_are", date: l(debate.closed_at, format: :decidim_short)), body: simple_format(translated_attribute(debate.conclusions)) }, callout_class: "success" }) %>
       <% end %>
 
       <% if translated_attribute(debate.instructions).present? %>

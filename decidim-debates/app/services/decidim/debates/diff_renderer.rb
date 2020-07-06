@@ -14,8 +14,8 @@ module Decidim
           instructions: :i18n,
           start_time: :string,
           end_time: :string,
-          conclusions: :string,
-          closed_at: :string,
+          conclusions: :i18n,
+          closed_at: :string
         }
       end
 

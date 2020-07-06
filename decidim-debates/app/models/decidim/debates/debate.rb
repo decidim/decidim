@@ -135,7 +135,7 @@ module Decidim
       #
       # user - the user to check for authorship
       def closeable_by?(user)
-        !closed? && authored_by?(user)
+        authored_by?(user)
       end
 
       private

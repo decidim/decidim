@@ -14,7 +14,7 @@ module Decidim
       validate :user_can_close_debate
 
       def closed_at
-        Time.current
+        debate&.closed_at || Time.current
       end
 
       def map_model(debate)
@@ -30,6 +30,8 @@ module Decidim
       private
 
       def user_can_close_debate
+        return if !debate || !debate.respond_to?(:closeable_by?)
+
         errors.add(:debate, :invalid) unless debate.closeable_by?(current_user)
       end
     end

@@ -15,6 +15,11 @@ module Decidim
       #
       # name - The attribute's name
       # type - The attribute's type
+      # options - Options to send to the form class when defining the attribute.
+      # block - An optional block to be called for each attribute name and
+      # locale. The block will receive two arguments, one with the attriubte
+      # name and another with the locale.
+      #
       #
       # Example:
       #
@@ -22,6 +27,11 @@ module Decidim
       #   # This will generate: `name_ca`, `name_en`, `name_ca=`, `name_en=`
       #   # and will keep them synchronized with a hash in `name`:
       #   # name = { "ca" => "Hola", "en" => "Hello" }
+      #
+      #   translatable_attribute(:name, String) do |name, locale|
+      #     # Do something, like adding validations.
+      #     # name would be `name_ca`, `name_en` and locale `ca` and `en`.
+      #   end
       #
       # Returns nothing.
       def translatable_attribute(name, type, *options)
