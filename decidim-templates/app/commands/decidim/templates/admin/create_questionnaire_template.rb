@@ -23,8 +23,8 @@ module Decidim
             organization: @form.current_organization
           )
 
-          @resource = Decidim::Forms::Questionnaire.create!(questionnaire_for: @template)
-          @template.update!(templatable: @resource)
+          @questionnaire = Decidim::Forms::Questionnaire.create!(questionnaire_for: @template)
+          @template.update!(templatable: @questionnaire)
 
           broadcast(:ok, @template)
         end
