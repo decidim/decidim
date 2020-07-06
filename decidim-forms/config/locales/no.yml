@@ -25,11 +25,29 @@
             description: Beskrivelse
             tos: Tjenestevilkår
         questionnaires:
+          actions:
+            back: Tilbake til spørsmål
+            show: Vis svar
           answer_option:
             answer_option: Svaralternativ
             free_text: Fri tekst
             remove: Fjern
             statement: Uttalelse
+          answers:
+            actions:
+              back: Tilbake til svar
+              export: Eksporter
+              show: Vis svar
+            empty: Ingen svar enda
+            export:
+              answer:
+                title: 'Svar #%{number}'
+            export_response:
+              title: undersøkelse_bruker_svar_%{token}
+            index:
+              title: "%{total} svar totalt"
+            show:
+              title: 'Svar #%{number}'
           edit:
             save: Lagre
           form:
@@ -84,8 +102,13 @@
           are_you_sure: Denne handlingen kan ikke angres, og du kan ikke redigere svarene dine. Er du sikker?
           submit: Send inn
       user_answers_serializer:
+        body: Svar
+        completion: Fullføring
         created_at: Besvart på
         id: Svar ID
+        ip_hash: IP Hash
+        question: Spørsmål
         registered: Registrert
+        session_token: Brukeridentifikator
         unregistered: Uregistrert
         user_status: Brukerstatus
