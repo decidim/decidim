@@ -16,7 +16,7 @@ module Decidim
     private
 
     def button_classes
-      return "card__button follow-button mb-none" if inline?
+      return "card__button secondary text-uppercase follow-button mb-none has-tip" if inline?
 
       extra_classes = ""
       extra_classes += " active" if current_user_follows?
