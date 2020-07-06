@@ -64,7 +64,7 @@ module Decidim::Meetings
         end
 
         context "when upcoming" do
-          let(:date) { "upcoming" }
+          let(:date) { ["upcoming"] }
 
           it "only returns that are scheduled in the future" do
             expect(subject.results).to match_array [meeting1, meeting2]
@@ -72,7 +72,7 @@ module Decidim::Meetings
         end
 
         context "when past" do
-          let(:date) { "past" }
+          let(:date) { ["past"] }
 
           it "only returns meetings that were scheduled in the past" do
             expect(subject.results).to match_array [past_meeting]

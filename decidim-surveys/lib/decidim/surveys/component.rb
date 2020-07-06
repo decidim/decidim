@@ -43,7 +43,7 @@ Decidim.register_component(:surveys) do |component|
     surveys.count
   end
 
-  component.register_stat :answers_count, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
+  component.register_stat :answers_count, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
     surveys = Decidim::Surveys::Survey.includes(:questionnaire).where(component: components)
     answers = Decidim::Forms::Answer.where(questionnaire: surveys.map(&:questionnaire))
     answers = answers.where("created_at >= ?", start_at) if start_at.present?
@@ -69,6 +69,8 @@ Decidim.register_component(:surveys) do |component|
       survey = Decidim::Surveys::Survey.find_by(component: f)
       Decidim::Forms::QuestionnaireUserAnswers.for(survey.questionnaire)
     end
+
+    exports.formats %w(CSV JSON Excel FormPDF)
 
     exports.serializer Decidim::Forms::UserAnswersSerializer
   end

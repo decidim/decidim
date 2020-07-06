@@ -220,9 +220,6 @@ id:
           edit:
             close: Dekat
             title: Tutup rapat
-        meeting_copies:
-          form:
-            select_organizer: Pilih penyelenggara
         meetings:
           close:
             invalid: Terjadi masalah saat menutup rapat ini
@@ -234,8 +231,6 @@ id:
             success: Rapat berhasil dihapus
           edit:
             update: Memperbarui
-          form:
-            select_organizer: Pilih penyelenggara
           index:
             title: Rapat
           new:
@@ -339,11 +334,8 @@ id:
       meetings:
         filters:
           category: Kategori
-          category_prompt: Pilih Kategori
           date: Tanggal
-          past: Lalu
           search: Pencarian
-          upcoming: Mendatang
         filters_small_view:
           close_modal: Tutup modal
           filter: Filter

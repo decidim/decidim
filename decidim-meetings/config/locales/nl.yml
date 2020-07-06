@@ -223,9 +223,6 @@ nl:
           edit:
             close: Sluiten
             title: Vergadering sluiten
-        meeting_copies:
-          form:
-            select_organizer: Selecteer de organisator
         meetings:
           close:
             invalid: Er is een probleem opgetreden bij het sluiten van deze vergadering
@@ -241,7 +238,6 @@ nl:
             address_help: 'Adres: gebruikt door Geocoder om de locatie te vinden'
             location_help: 'Locatie: bericht gericht aan de gebruikers die de locatie op een vergadering plaatsen'
             location_hints_help: 'Locatie hint: extra info. Voorbeeld: de vloer van het gebouw'
-            select_organizer: Selecteer de organisator
           index:
             title: Events
           new:
@@ -347,11 +343,8 @@ nl:
       meetings:
         filters:
           category: Categorie
-          category_prompt: Kies een categorie
           date: Datum
-          past: Archief
           search: Zoeken
-          upcoming: Aankomend
         filters_small_view:
           close_modal: Sluit modaal
           filter: Filter

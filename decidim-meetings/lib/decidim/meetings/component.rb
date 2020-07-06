@@ -36,6 +36,7 @@ Decidim.register_component(:meetings) do |component|
   component.exports :meetings do |exports|
     exports.collection do |component_instance|
       Decidim::Meetings::Meeting
+        .not_hidden
         .visible
         .where(component: component_instance)
         .includes(component: { participatory_space: :organization })
@@ -54,6 +55,7 @@ Decidim.register_component(:meetings) do |component|
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :enable_pads_creation, type: :boolean, default: false
+    settings.attribute :creation_enabled_for_participants, type: :boolean, default: false
   end
 
   component.settings(:step) do |settings|
@@ -109,6 +111,7 @@ Decidim.register_component(:meetings) do |component|
         longitude: Faker::Address.longitude,
         registrations_enabled: [true, false].sample,
         available_slots: (10..50).step(10).to_a.sample,
+        author: participatory_space.organization,
         registration_terms: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(3)
         end,
@@ -183,6 +186,48 @@ Decidim.register_component(:meetings) do |component|
         description: Decidim::Faker::Localized.sentence(5),
         file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf")),
         attached_to: meeting
+      )
+    end
+
+    authors = [
+      Decidim::UserGroup.where(decidim_organization_id: participatory_space.decidim_organization_id).verified.sample,
+      Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample
+    ]
+
+    authors.each do |author|
+      user_group = nil
+
+      if author.is_a?(Decidim::UserGroup)
+        user_group = author
+        author = user_group.users.sample
+      end
+
+      params = {
+        component: component,
+        scope: Faker::Boolean.boolean(0.5) ? global : scopes.sample,
+        category: participatory_space.categories.sample,
+        title: Decidim::Faker::Localized.sentence(2),
+        description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.paragraph(3)
+        end,
+        location: Decidim::Faker::Localized.sentence,
+        location_hints: Decidim::Faker::Localized.sentence,
+        start_time: 3.weeks.from_now,
+        end_time: 3.weeks.from_now + 4.hours,
+        address: "#{Faker::Address.street_address} #{Faker::Address.zip} #{Faker::Address.city}",
+        latitude: Faker::Address.latitude,
+        longitude: Faker::Address.longitude,
+        registrations_enabled: [true, false].sample,
+        available_slots: (10..50).step(10).to_a.sample,
+        author: author,
+        user_group: user_group
+      }
+
+      Decidim.traceability.create!(
+        Decidim::Meetings::Meeting,
+        authors[0],
+        params,
+        visibility: "all"
       )
     end
   end

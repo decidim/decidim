@@ -135,18 +135,19 @@ module Decidim
     end
 
     def omniauth_provider_settings(provider)
-      provider_settings = {}
+      @omniauth_provider_settings ||= Hash.new do |hash, provider_key|
+        hash[provider_key] = begin
+          omniauth_settings.each_with_object({}) do |(key, value), provider_settings|
+            next unless key.to_s.include?(provider_key.to_s)
 
-      omniauth_settings.each do |key, value|
-        next unless key.to_s.include?(provider.to_s)
+            value = Decidim::AttributeEncryptor.decrypt(value) if Decidim::OmniauthProvider.value_defined?(value)
+            setting_key = Decidim::OmniauthProvider.extract_setting_key(key, provider_key)
 
-        value = Decidim::AttributeEncryptor.decrypt(value) if Decidim::OmniauthProvider.value_defined?(value)
-        setting_key = Decidim::OmniauthProvider.extract_setting_key(key, provider)
-
-        provider_settings[setting_key] = value
+            provider_settings[setting_key] = value
+          end
+        end
       end
-
-      provider_settings
+      @omniauth_provider_settings[provider]
     end
   end
 end

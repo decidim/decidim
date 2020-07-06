@@ -1,0 +1,69 @@
+.questionnaire-answers{
+  .header{
+    h1{
+      margin: 0;
+      padding: 25px;
+      background: rgb(59, 69, 87);
+      color: white;
+      border-radius: 4px 4px 0 0;
+    }
+
+    .description{
+      margin: 0;
+      padding: 25px;
+      background: #f6f6f6;
+      color: #202751;
+      border-radius: 0 0 4px 4px;
+    }
+  }
+
+  .answer{
+    margin-top: 25px;
+    background: #f6f6f6;
+    border-radius: 0 0 4px 4px;
+
+    .title{
+      page-break-inside: avoid;
+      border-radius: 4px 4px 0 0;
+      padding: 10px 25px;
+      background: rgb(59, 69, 87);
+      color: white;
+    }
+
+    .participant-info{
+      margin-top: 0;
+      padding: 10px 25px;
+      width: 100%;
+      text-align: center;
+      background: #eee;
+      color: #202751;
+      page-break-inside: avoid;
+
+      th:first-child{
+        text-align: left;
+      }
+
+      td:first-child{
+        text-align: left;
+      }
+
+      th:last-child{
+        text-align: right;
+      }
+
+      td:last-child{
+        text-align: right;
+      }
+    }
+
+    .answers{
+      padding: 25px;
+
+      .question{
+        page-break-inside: avoid;
+        font-size: inherit;
+        color: #202751;
+      }
+    }
+  }
+}
