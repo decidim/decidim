@@ -171,7 +171,7 @@ describe "Explore results", versioning: true, type: :system do
 
       it "shows the comments" do
         comments.each do |comment|
-          expect(page).to have_content(comment.body)
+          expect(page).to have_content(comment.body.values.first)
         end
       end
     end
