@@ -39,15 +39,6 @@ $datetime-bg: var(--primary);
   ) {
     border-top-width: $card-border-top-width;
   }
-
-  &:hover {
-    @include modifiers(
-      border-color,
-      (
-        muted: rgba($muted, 0.3),
-      )
-    );
-  }
 }
 
 .card--nomargin {
