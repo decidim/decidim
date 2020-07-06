@@ -22,8 +22,7 @@ class MakeCommentsHandleI18n < ActiveRecord::Migration[5.2]
 
     Comment.find_each do |comment|
       locale, org_id = User.where(id: comment.decidim_author_id).pluck(:locale, :decidim_organization_id).first
-      locale = locale.presence ||
-        Organization.find(org_id).default_locale
+      locale = locale.presence || Organization.find(org_id).default_locale
 
       comment.new_body = {
         locale => comment.body

@@ -30,8 +30,8 @@ module Decidim
         expect(new_comment.body).to eq("en" => "Hey this is a comment")
       end
 
-      it "is valid with a string as the body" do
-        new_comment = build(:comment, body: { en:  "Hey this is a comment" })
+      it "is valid with a hash as the body" do
+        new_comment = build(:comment, body: { en: "Hey this is a comment" })
         expect(new_comment).to be_valid
         expect(new_comment.body).to eq("en" => "Hey this is a comment")
       end
