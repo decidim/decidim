@@ -10,7 +10,7 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        # Add admin engine routes here
+        ## Routes for Questionnaire Templates
         resources :questionnaire_templates do
           member do
             post :copy
@@ -20,9 +20,9 @@ module Decidim
           end
 
           collection do
-            post :skip
-            post :apply
-            get :preview
+            post :apply # To use when creating an object from a template
+            post :skip # To use when creating an object without a template
+            get :preview # To provide a preview for the template in the object creation view
           end
         end
 
