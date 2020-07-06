@@ -12,21 +12,23 @@
           <% if current_order.minimum_projects_rule? %>
             <%= t(".description_minimum_projects_rule", minimum_number: current_order.minimum_projects) %>
           <% else %>
-            <%= t(".description", minimum_budget: budget_to_currency(current_order.minimum_budget)) %>
+            <% # !todo: order.budget %>
+            <%# = t(".description", minimum_budget: budget_to_currency(current_order.minimum_budget)) %>
           <% end %>
         </p>
       <% end %>
     <% end %>
 
-    <div class="budget-summary__total" data-total-budget="<%= component_settings.total_budget %>">
+    <div class="budget-summary__total" data-total-budget="<%= budget.total_budget %>">
       <span class="mini-title"><%= t("total_budget") %>
         <strong class="mini-title__strong mini-title__strong--highlight">
-          <%= budget_to_currency(component_settings.total_budget) %>
+          <%= budget_to_currency(budget.total_budget) %>
         </strong>
       </span>
     </div>
 
-    <%= render partial: "order_progress" %>
+    <% # !todo: order - budget %>
+    <%#= render partial: "order_progress" %>
 
     <div>
       <span class="mini-title">

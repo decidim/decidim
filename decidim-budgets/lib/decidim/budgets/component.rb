@@ -32,6 +32,7 @@ Decidim.register_component(:budgets) do |component|
     resource.card = "decidim/budgets/project"
     resource.actions = %(vote)
     resource.searchable = true
+    # resource.route_name = "budget_project"
   end
 
   component.register_stat :budgets_count, primary: true, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components|

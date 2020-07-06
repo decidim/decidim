@@ -12,6 +12,13 @@ module Decidim
         super(Project.all, options)
       end
 
+      # Creates the SearchLight base query.
+      def base_query
+        raise "Missing budget" unless budget
+
+        @scope.where(budget: budget)
+      end
+
       # Handle the search_text filter
       def search_search_text
         query
@@ -45,6 +52,12 @@ module Decidim
         options[:organization].available_locales.map do |l|
           "#{field} ->> '#{l}' ILIKE :text"
         end.join(" OR ")
+      end
+
+      # Private: Since budget is not used by a search method we need
+      # to define the method manually.
+      def budget
+        options[:budget]
       end
     end
   end

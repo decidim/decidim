@@ -28,10 +28,10 @@
                <%= project.confirmed_orders_count %>
               </td>
               <td class="table-list__actions">
-                <%= icon_link_to "eye", resource_locator(project).path, t("actions.preview", scope: "decidim.budgets"), target: :blank, class: "action-icon--preview" %>
+                <%= icon_link_to "eye", resource_locator([budget, project]).path, t("actions.preview", scope: "decidim.budgets"), target: :blank, class: "action-icon--preview" %>
 
                 <% if allowed_to? :update, :project, project: project %>
-                  <%= icon_link_to "pencil", edit_budget_project_path(budget, project), t("actions.edit", scope: "decidim.budgets"), class: "action-icon--edit" %>
+                  <%= icon_link_to "pencil", resource_locator([budget, project]).edit, t("actions.edit", scope: "decidim.budgets"), class: "action-icon--edit" %>
                 <% end %>
 
                 <% if allowed_to? :update, :project, project: project %>
@@ -45,7 +45,7 @@
                 <%= resource_permissions_link(project) %>
 
                 <% if allowed_to? :destroy, :project, project: project %>
-                  <%= icon_link_to "circle-x", budget_project_path(budget, project), t("actions.destroy", scope: "decidim.budgets"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.budgets") } %>
+                  <%= icon_link_to "circle-x", resource_locator([budget, project]).show, t("actions.destroy", scope: "decidim.budgets"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.budgets") } %>
                 <% else %>
                   <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img" %>
                 <% end %>

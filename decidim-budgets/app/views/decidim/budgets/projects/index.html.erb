@@ -5,6 +5,9 @@
     <%= render partial: "budget_summary", locals: { include_heading: true } %>
   </div>
 <% end %>
+
+<%= cell("decidim/budgets/budget_information_modal", current_component) %>
+
 <div class="row columns">
   <h3 class="section-heading">
     <%= render partial: "count" %>

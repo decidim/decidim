@@ -1,5 +1,6 @@
+<% # !todo: check url and data is correct %>
 <%= action_authorized_button_to "vote",
-      order_line_item_path(project_id: model),
+      budget_order_line_item_path(model.budget, project_id: model),
       method: vote_button_method,
       remote: true,
       class: "button tiny budget-list__action #{vote_button_class}",

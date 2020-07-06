@@ -7,11 +7,12 @@
     <% end %>
 
     <div class="show-for-medium">
-      <%= cell "decidim/tags", model, context: { extra_classes: ["tags--project"] } %>
+      <% # !todo: %>
+      <%= cell "decidim/budgets/project_tags", model, context: { extra_classes: ["tags--project"] } %>
     </div>
 
     <span class="budget-list__data__number budget-list__number hide-for-medium">
-      <%= budget_to_currency(model.budget) %>
+      <%= budget_to_currency(model.budget_amount) %>
     </span>
   </div>
 </div>

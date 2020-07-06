@@ -9,9 +9,13 @@ module Decidim
       include Orderable
       include Decidim::Budgets::Orderable
 
-      helper_method :projects, :project
+      helper_method :projects, :project, :budget
 
       private
+
+      def budget
+        @budget ||= Budget.where(component: current_component).includes(:projects).find_by(id: params[:budget_id])
+      end
 
       def projects
         return @projects if @projects
@@ -53,7 +57,7 @@ module Decidim
       end
 
       def context_params
-        { component: current_component, organization: current_organization }
+        { budget: budget, component: current_component, organization: current_organization }
       end
     end
   end
