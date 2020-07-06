@@ -15,8 +15,7 @@ module Decidim
           member do
             post :copy
 
-            resource :questionnaire, module: "questionnaire_templates" do
-            end
+            resource :questionnaire, module: "questionnaire_templates"
           end
 
           collection do
