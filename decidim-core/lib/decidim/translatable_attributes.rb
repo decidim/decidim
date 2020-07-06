@@ -61,6 +61,7 @@ module Decidim
       # Returns a String with the translation.
 
       def translated_attribute(attribute, organization = nil)
+        byebug
         return "" if attribute.nil?
         return attribute unless attribute.is_a?(Hash)
 
@@ -75,7 +76,8 @@ module Decidim
       end
 
       def translated(resource, field, organization = nil)
-        return "" if resource.try(field).nil?
+        return "" if resource.try(field).blank?
+        return resource.try(field) unless resource.try(field).is_a?(Hash)
 
         attribute = resource.try(field).dup.stringify_keys
         organization ||= try(:current_organization)
