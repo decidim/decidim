@@ -61,7 +61,6 @@ module Decidim
       # Returns a String with the translation.
 
       def translated_attribute(attribute, organization = nil)
-        byebug
         return "" if attribute.nil?
         return attribute unless attribute.is_a?(Hash)
 
