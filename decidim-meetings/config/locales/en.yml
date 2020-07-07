@@ -237,7 +237,7 @@ en:
           form:
             address: Address
             address_help: 'Address: used by Geocoder to find the location'
-            select_address: Select the address
+            select_address: Enter the address
         meetings:
           close:
             invalid: There was a problem closing this meeting
@@ -258,7 +258,7 @@ en:
             address_help: 'Address: used by Geocoder to find the location'
             location_help: 'Location: message directed to the users implying the spot to meet at'
             location_hints_help: 'Location hints: additional info. Example: the floor of the building'
-            select_address: Select the address
+            select_address: Enter the address
           index:
             title: Meetings
           new:

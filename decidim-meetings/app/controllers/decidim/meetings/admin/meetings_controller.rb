@@ -5,6 +5,7 @@ module Decidim
     module Admin
       # This controller allows an admin to manage meetings from a Participatory Process
       class MeetingsController < Admin::ApplicationController
+        helper AutocompleteAddressHelper
         helper_method :blank_service
 
         def new

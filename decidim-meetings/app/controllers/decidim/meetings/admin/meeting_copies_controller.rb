@@ -6,6 +6,7 @@ module Decidim
       # Controller that allows managing meetings.
       #
       class MeetingCopiesController < Admin::ApplicationController
+        helper AutocompleteAddressHelper
         helper_method :meeting, :blank_service
 
         def new
