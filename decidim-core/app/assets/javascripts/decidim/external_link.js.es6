@@ -1,7 +1,11 @@
 (exports => {
   const { icon } = exports.Decidim;
 
-  const EXCLUDE_CLASSES = ["card--list__data__icon", "footer-social__icon"];
+  const EXCLUDE_CLASSES = [
+    "card--list__data__icon",
+    "footer-social__icon",
+    "logo-cityhall",
+  ];
   const EXCLUDE_REL = ["license", "decidim"];
 
   const DEFAULT_MESSAGES = {
