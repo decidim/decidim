@@ -688,11 +688,11 @@ en:
       level: Level %{level}
       reached_top: You've reached the top level for this badge.
     geocoder:
-      not_configured: Geocoder is not configured.
       autocomplete_address:
-        placeholder: Enter the address
         help_text: 'Address: used by Geocoder to find the location'
         label: Address
+        placeholder: Enter the address
+      not_configured: Geocoder is not configured.
     group_admins:
       actions:
         are_you_sure: Are you sure? This won't remove the participant from the group.
