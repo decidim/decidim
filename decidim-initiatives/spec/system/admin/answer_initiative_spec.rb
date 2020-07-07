@@ -5,7 +5,7 @@ require "spec_helper"
 describe "User answers the initiative", type: :system do
   include_context "when admins initiative"
 
-  def submit_and_validate(message="successfully")
+  def submit_and_validate(message = "successfully")
     find("*[type=submit]").click
 
     within ".callout-wrapper" do
