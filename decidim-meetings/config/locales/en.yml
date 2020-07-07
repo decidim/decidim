@@ -238,7 +238,6 @@ en:
             address: Address
             address_help: 'Address: used by Geocoder to find the location'
             select_address: Select the address
-            select_organizer: Select the organizer
         meetings:
           close:
             invalid: There was a problem closing this meeting
@@ -260,7 +259,6 @@ en:
             location_help: 'Location: message directed to the users implying the spot to meet at'
             location_hints_help: 'Location hints: additional info. Example: the floor of the building'
             select_address: Select the address
-            select_organizer: Select the organizer
           index:
             title: Meetings
           new:
