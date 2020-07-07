@@ -465,6 +465,11 @@ FactoryBot.define do
     end
   end
 
+  factory :nested_dummy_resource, class: "Decidim::DummyResources::NestedDummyResource" do
+    title { generate(:name) }
+    dummy_resource { create(:dummy_resource) }
+  end
+
   factory :coauthorable_dummy_resource, class: "Decidim::DummyResources::CoauthorableDummyResource" do
     title { generate(:name) }
     component { create(:component, manifest_name: "dummy") }

@@ -29,6 +29,7 @@ module Decidim
         root to: proc { [200, {}, ["DUMMY ENGINE"]] }
 
         resources :dummy_resources do
+          resources :nested_dummy_resources
           get :foo, on: :member
         end
       end
@@ -38,6 +39,10 @@ module Decidim
       engine_name "dummy_admin"
 
       routes do
+        resources :dummy_resources do
+          resources :nested_dummy_resources
+        end
+
         root to: proc { [200, {}, ["DUMMY ADMIN ENGINE"]] }
       end
     end
@@ -104,6 +109,11 @@ module Decidim
                                               .where.not(author: nil)
                                               .pluck(:decidim_author_id).flatten.compact.uniq
       end
+    end
+
+    class NestedDummyResource < ApplicationRecord
+      include Decidim::Resourceable
+      belongs_to :dummy_resource
     end
 
     class CoauthorableDummyResource < ApplicationRecord
@@ -195,6 +205,11 @@ Decidim.register_component(:dummy) do |component|
     resource.searchable = true
   end
 
+  component.register_resource(:nested_dummy_resource) do |resource|
+    resource.name = :nested_dummy
+    resource.model_class_name = "Decidim::DummyResources::NestedDummyResource"
+  end
+
   component.register_resource(:coauthorable_dummy_resource) do |resource|
     resource.name = :coauthorable_dummy
     resource.model_class_name = "Decidim::DummyResources::CoauthorableDummyResource"
@@ -243,6 +258,15 @@ RSpec.configure do |config|
           t.references :decidim_scope, index: false
           t.string :reference
 
+          t.timestamps
+        end
+      end
+      unless ActiveRecord::Base.connection.data_source_exists?("decidim_dummy_resources_nested_dummy_resources")
+        ActiveRecord::Migration.create_table :decidim_dummy_resources_nested_dummy_resources do |t|
+          t.jsonb :translatable_text
+          t.string :title
+
+          t.references :dummy_resource, index: false
           t.timestamps
         end
       end
