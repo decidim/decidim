@@ -52,13 +52,13 @@ describe EtiquetteValidator do
     context "and contains ascii chars" do
       let(:body) { "This word is veeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeery long." }
 
-      it { is_expected.to be_invalid }
+      it { is_expected.to be_valid }
     end
 
     context "and contains extended chars" do
       let(:body) { "This word is veeeeeeeeeeeeeeéeeeeeeeeeeeeeeeeeeeeery long." }
 
-      it { is_expected.to be_invalid }
+      it { is_expected.to be_valid }
     end
 
     context "and long words are links" do

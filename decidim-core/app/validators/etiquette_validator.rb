@@ -8,7 +8,6 @@ class EtiquetteValidator < ActiveModel::EachValidator
 
     validate_caps(record, attribute, value)
     validate_marks(record, attribute, value)
-    validate_long_words(record, attribute, value)
     validate_caps_first(record, attribute, value)
     validate_length(record, attribute, value)
   end
@@ -25,13 +24,6 @@ class EtiquetteValidator < ActiveModel::EachValidator
     return if value.scan(/[!?¡¿]{2,}/).empty?
 
     record.errors.add(attribute, options[:message] || :too_many_marks)
-  end
-
-  # ensure no long words but prevent links to be checked
-  def validate_long_words(record, attribute, value)
-    return if value.gsub(%r{https?://\S+}, "").scan(/\S{35,}/).empty?
-
-    record.errors.add(attribute, options[:message] || :long_words)
   end
 
   def validate_caps_first(record, attribute, value)
