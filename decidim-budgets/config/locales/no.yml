@@ -65,6 +65,11 @@
         project:
           fields:
             title: Tittel
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'Prosjektene du har valgt er:'
+          subject: Du har stemt på %{space_name} i deltakelsesrommet
+          voted_on_space: Du har stemt på budsjettene for deltakerrommet %{space_name}.
       projects:
         budget_confirm:
           are_you_sure: Er du enig? Når du har bekrefter din stemme, kan du ikke endre den.
