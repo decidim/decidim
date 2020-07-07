@@ -39,9 +39,9 @@
           this.$input.parent().is(".columns") &&
           this.$input.parent().parent().is(".row")
         ) {
-          this.$input.parent().parent().before(this.$target);
+          this.$input.parent().parent().after(this.$target);
         } else {
-          this.$input.before(this.$target);
+          this.$input.after(this.$target);
         }
       }
 
