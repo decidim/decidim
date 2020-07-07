@@ -46,7 +46,7 @@ module Decidim
 
     describe "defaults" do
       it "generates an alphanumeric 64-character token string" do
-        expect(subject.token).to match /^[a-zA-Z0-9]{64}$/
+        expect(subject.token).to match(/^[a-zA-Z0-9]{64}$/)
       end
 
       it "sets expires_at attribute to one day from current time" do
@@ -109,7 +109,7 @@ module Decidim
 
     describe "#url" do
       it "returns the shareable url for the token_for object" do
-        expect(subject.url).to match /share_token=#{share_token.token}/
+        expect(subject.url).to match(/share_token=#{share_token.token}/)
       end
     end
   end
