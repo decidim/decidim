@@ -40,6 +40,7 @@ en:
         address: SMTP hostname
         alert_color: Alert
         badges_enabled: Enable badges
+        comments_max_length: Comments max length (Leave 0 for default value)
         cta_button_path: Call To Action button path
         cta_button_text: Call To Action button text
         customize_welcome_notification: Customize welcome notification
@@ -73,7 +74,6 @@ en:
         reference_prefix: Reference prefix
         rich_text_editor_in_public_views: Enable rich text editor for participants
         secondary_color: Secondary
-        comments_max_length: Comments max length (Leave 0 for default value)
         send_welcome_notification: Send welcome notification
         show_statistics: Show statistics
         success_color: Success

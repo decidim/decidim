@@ -1,5 +1,4 @@
 ---
-
 en:
   activemodel:
     attributes:
@@ -185,9 +184,9 @@ en:
         name: Accountability
         settings:
           global:
-            comments_max_length: Comments max length (Leave 0 for default value)
             categories_label: Name for "Categories"
             comments_enabled: Comments enabled
+            comments_max_length: Comments max length (Leave 0 for default value)
             display_progress_enabled: Display progress
             heading_leaf_level_results: Name for "Projects"
             heading_parent_level_results: Name for "Results"

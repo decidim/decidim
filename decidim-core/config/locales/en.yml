@@ -336,9 +336,9 @@ en:
         name: Dummy Component
         settings:
           global:
-            comments_max_length: Comments max length
             amendments_enabled: Amendments enabled
             comments_enabled: Comments enabled
+            comments_max_length: Comments max length
             dummy_global_attribute_1: Dummy Attribute 1
             dummy_global_attribute_2: Dummy Attribute 2
             dummy_global_translatable_text: Dummy Translatable Text
