@@ -14,13 +14,13 @@ module Decidim
 
           prompt_options = { url: decidim_api.geocoder_path, placeholder: placeholder }
           html_options = { label: label }
-          
+
           safe_join([
-            (form.autocomplete_select(:address, form.object.address, html_options, prompt_options) do |address|
-              { value: translated_attribute(address), label: translated_attribute(address) }
-            end),
-            (content_tag :p, help_text, class: "help-text")
-          ])
+                      (form.autocomplete_select(:address, form.object.address, html_options, prompt_options) do |address|
+                        { value: translated_attribute(address), label: translated_attribute(address) }
+                      end),
+                      (content_tag :p, help_text, class: "help-text")
+                    ])
         end
       end
     end

@@ -7,13 +7,13 @@ module Decidim
     module Admin
       describe AutocompleteAddressHelper, type: :helper do
         describe "#autcomplete_address" do
-          let(:options) {
+          let(:options) do
             {
               placeholder: "Placeholder",
               help_text: "Help",
               label: "Label"
             }
-          }
+          end
 
           let(:meeting) { create(:meeting) }
           let(:form) do
@@ -32,7 +32,7 @@ module Decidim
           it "has the geocoder search url" do
             expect(data[:searchURL]).to eq("/api/geocoder")
           end
-          
+
           it "has placeholder with value provided in options" do
             expect(data[:placeholder]).to eq "Placeholder"
           end
@@ -40,7 +40,7 @@ module Decidim
           it "has help text with value provided in options" do
             expect(html.xpath("//p[@class = 'help-text']").text).to eq("Help")
           end
-          
+
           it "has label with value provided in options" do
             expect(html.xpath("//label").text).to match("Label")
           end
