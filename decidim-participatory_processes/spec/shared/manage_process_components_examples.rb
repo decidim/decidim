@@ -342,8 +342,7 @@ shared_examples "manage process components" do
         share_window = window_opened_by { click_link "Share", wait: 2 }
 
         within_window share_window do
-          share_token = component.share_tokens.reload.last
-          expect(page).to have_current_path share_token.url
+          expect(page).to have_current_path(component.share_tokens.reload.last.url)
         end
       end
     end
