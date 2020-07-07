@@ -66,7 +66,7 @@ module Decidim
       component_ids = Decidim::Component.where(participatory_space: component.participatory_space, manifest_name: component_manifest.name).pluck(:id)
       return model_class.none if component_ids.empty?
 
-      model_class.where(component: component_ids)
+      model_class.joins(:component).where(decidim_components: { id: component_ids })
     end
 
     # Finds the current class with the given `model_class_name`

@@ -30,6 +30,24 @@ it:
             free_text: Testo libero
             remove: Rimuovere
             statement: dichiarazione
+          display_condition:
+            answer_option: Opzione di risposta
+            condition_question: Domanda
+            condition_type: Condizione
+            condition_types:
+              answered: Chiusa
+              equal: Equilibrato
+              match: Include testo
+              not_answered: Senza risposta
+              not_equal: Non uguale a
+            condition_value: Testo incluso
+            display_condition: Stato di visualizzazione
+            mandatory: Questa condizione deve essere soddisfatta sempre indipendentemente dallo stato di altre condizioni
+            remove: Rimuovi
+            save_warning: Ricorda di salvare il modulo prima di configurare le condizioni di visualizzazione
+            select_answer_option: Selezionare l'opzione di risposta
+            select_condition_question: Seleziona una domanda
+            select_condition_type: Seleziona regola
           edit:
             save: Salvare
             title: Modifica questionario
@@ -45,6 +63,8 @@ it:
             statement: dichiarazione
           question:
             add_answer_option: Aggiungi l'opzione di risposta
+            add_display_condition: Aggiungere condizione di visualizzazione
+            add_display_condition_info: Salva il modulo per configurare le condizioni di visualizzazione
             add_matrix_row: Aggiungi riga
             any: Qualunque
             collapse: Comprimi
@@ -104,10 +124,13 @@ it:
           questionnaire_for_private_users:
             body: Il questionario è disponibile solo per gli utenti privati
             title: Questionario chiuso
+          questionnaire_js_disabled:
+            body: Alcune caratteristiche di questo modulo saranno disabilitate. Per migliorare la tua esperienza, abilita JavaScript nel tuo browser.
+            title: JavaScript è disabilitato
           tos_agreement: Partecipando accetti i suoi Termini di servizio
       step_navigation:
         show:
-          are_you_sure: Questa azione non può essere annullata e non sarai in grado di modificare le tue risposte. Sei sicuro?
+          are_you_sure: Questa azione non può essere annullata e non potrai modificare le tue risposte. Sei sicuro?
           back: Indietro
           continue: Continua
           submit: Invia

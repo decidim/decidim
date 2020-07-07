@@ -21,7 +21,6 @@ module Decidim
         attribute :end_time, Decidim::Attributes::TimeWithZone
         attribute :private_meeting, Boolean
         attribute :transparent, Boolean
-        attribute :organizer_id, Integer
         attribute :services, Array[MeetingServiceForm]
 
         mimic :meeting
@@ -35,7 +34,6 @@ module Decidim
         validates :address, geocoding: true, if: -> { Decidim.geocoder.present? }
         validates :start_time, presence: true, date: { before: :end_time }
         validates :end_time, presence: true, date: { after: :start_time }
-        validates :organizer, presence: true, if: ->(form) { form.organizer_id.present? }
 
         def map_model(model)
           self.services = model.services.map do |service|
@@ -52,10 +50,6 @@ module Decidim
         end
 
         alias component current_component
-
-        def organizer
-          @organizer ||= current_organization.users.find_by(id: organizer_id)
-        end
 
         def questionnaire
           Decidim::Forms::Questionnaire.new

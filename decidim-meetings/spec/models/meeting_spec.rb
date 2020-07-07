@@ -17,6 +17,7 @@ module Decidim::Meetings
     include_examples "has category"
     include_examples "has reference"
     include_examples "resourceable"
+    include_examples "reportable"
 
     it "has an association with one agenda" do
       subject.agenda = build_stubbed(:agenda)

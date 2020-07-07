@@ -77,7 +77,22 @@
                 <%= resource_permissions_link(meeting) %>
 
                 <% if allowed_to? :destroy, :meeting, meeting: meeting %>
-                  <%= icon_link_to "circle-x", meeting_path(meeting), t("actions.destroy", scope: "decidim.meetings"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.meetings") } %>
+                  <% if present(meeting).authored_proposals.empty? %>
+                    <%= icon_link_to "circle-x", meeting_path(meeting), t("actions.destroy", scope: "decidim.meetings"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.meetings") } %>
+                  <% else %>
+                    <%=
+                      content_tag(:button,
+                                  class: ["action-icon", "action-icon--remove", "destroy-meeting-alert"],
+                                  "data-invalid-destroy-message" => t("actions.invalid_destroy.proposals_count", count: present(meeting).authored_proposals.size, scope: "decidim.meetings"),
+                                  "data-proposal-titles" => present(meeting).formatted_proposals_titles) do
+                        content_tag(:span,
+                                    data: { tooltip: true, disable_hover: false, click_open: false },
+                                    title: t("actions.destroy", scope: "decidim.meetings")) do
+                          icon("circle-x")
+                        end
+                      end
+                    %>
+                  <% end %>
                 <% end %>
               </td>
             </tr>
@@ -88,3 +103,5 @@
     </div>
   </div>
 </div>
+
+<%= javascript_include_tag "decidim/meetings/admin/destroy_meeting_alert" %>

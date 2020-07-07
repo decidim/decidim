@@ -3,6 +3,14 @@ pt:
     attributes:
       account:
         delete_reason: Razão para cancelar a sua conta
+      group:
+        about: Sobre
+        avatar: Avatar
+        document_number: Número de documento
+        email: Email
+        name: Nome
+        nickname: Nome de usuário
+        phone: Telefone
       report:
         details: Comentários adicionais
       user:
@@ -25,6 +33,7 @@ pt:
       decidim/profile_updated_event: perfil atualizado
       decidim/promote_to_admin: Promovido para o administrador do grupo
       decidim/removed_from_group: Removido do grupo
+      decidim/resource_endorsed_event: Resurce endossado
   activerecord:
     attributes:
       decidim/user:
@@ -38,6 +47,9 @@ pt:
       decidim/amendment:
         one: Emenda
         other: Emendas
+      decidim/endorsement:
+        one: Aval
+        other: Aval
       decidim/user:
         one: Nenhum usuário
         other: Comercial
@@ -49,6 +61,7 @@ pt:
     'true': 'Sim'
   carrierwave:
     errors:
+      general: Erro no processamento da encomenda
       image_too_big: A imagem é demasiado grande
   date:
     formats:
@@ -58,6 +71,8 @@ pt:
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
+    accessibility:
+      logo: "Logotipo oficial de %{organization}"
     account:
       data_portability_export:
         file_no_exists: Arquivo não existe
@@ -281,6 +296,9 @@ pt:
         name: Rodapé do sub-herói banner
       hero:
         name: Imagem do herói
+      hero_settings_form:
+        background_image: Imagem de fundo
+        welcome_text: Texto de boas-vindas
       highlighted_content_banner:
         name: Banner de conteúdo destacado
       how_to_participate:
@@ -300,6 +318,7 @@ pt:
         name: Banner de sub-herói
     core:
       actions:
+        login_before_access: Faça o login com sua conta antes de acessar
         unauthorized: Não está autorizado a realizar esta ação
     data_portability:
       export:
@@ -316,6 +335,7 @@ pt:
           email_already_exists: Outra conta está usando o mesmo endereço de e-mail
         new:
           complete_profile: Complete o seu perfil
+          nickname_help: Seu identificador exclusivo em %{organization}
           sign_up: Por favor, complete o seu perfil
           subtitle: Por favor, preencha o seguinte formulário para completar a inscrição
           username_help: Nome público que aparece em suas postagens. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
@@ -324,6 +344,8 @@ pt:
           already_have_an_account?: Já tem uma conta?
           newsletter: Receba um boletim informativo ocasional com informações relevantes
           newsletter_title: Permissão de contato
+          nickname_help: Seu identificador exclusivo em %{organization}
+          password_help: "O mínimo de %{minimun_characters} caracteres, não deve ser muito comum (por exemplo, 123456) e deve ser diferente do seu apelido e do seu email."
           sign_in: Entrar
           sign_up: Inscreva-se
           sign_up_as:
@@ -372,6 +394,13 @@ pt:
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> quer usar sua conta"
     endorsable:
       endorsements: Endossos
+    endorsement_buttons_cell:
+      already_endorsed: Endossar
+      endorse: Endossar
+    endorsements:
+      identities:
+        done: Realizado
+        select_identity: Selecione a identidade do usuário
     errors:
       internal_server_error:
         title: Houve um problema com o nosso servidor
@@ -490,8 +519,23 @@ pt:
           email_outro: Você recebeu esta notificação porque era um membro desse grupo.
           email_subject: Você foi removido do grupo %{user_group_name}!
           notification_title: Você foi removido do grupo <a href="%{resource_path}">%{user_group_name}</a>.
+        user_group_created:
+          email_intro: Um novo grupo de usuários foi criado com o nome %{user_group_name}. Agora você pode verificá-lo no <a href="%{groups_admin_url}">painel de administração</a>.
+          email_outro: Você recebeu esta notificação porque é um administrador da plataforma.
+          email_subject: Um novo grupo de usuários foi criado
+          notification_title: O grupo de usuários %{user_group_name} foi criado. Agora você pode verificá-lo no <a href="%{groups_admin_path}">painel de administração</a>.
+        user_group_updated:
+          email_intro: Um grupo de usuários com o nome %{user_group_name} atualizou seu perfil, deixando-o não verificado. Agora você pode verificá-lo no <a href="%{groups_admin_url}">painel de administração</a>.
+          email_outro: Você recebeu esta notificação porque é um administrador da plataforma.
+          email_subject: Um grupo de usuários atualizou seu perfil
+          notification_title: Um grupo de usuários com o nome %{user_group_name} atualizou seu perfil, deixando-o não verificado. Agora você pode verificá-lo no <a href="%{groups_admin_path}">painel de administração</a>.
       notification_event:
         notification_title: Ocorreu um evento em <a href="%{resource_path}">%{resource_title}</a>.
+      resource_endorsed:
+        email_intro: '%{endorser_name} %{endorser_nickname}, que você está seguindo, acabou de aprovar "%{resource_title}" e achamos que pode ser interessante para você. Confira e contribua:'
+        email_outro: Você recebeu esta notificação porque está seguindo "%{endorser_nickname}". Você pode deixar de segui-lo no link anterior.
+        email_subject: "%{endorser_nickname} realizou um novo endosso"
+        notification_title: O <a href="%{resource_path}">%{resource_title}</a> %{resource_type} foi endossado por <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: O <a href="%{resource_url}">profile page</a> de %{name} (%{nickname}), quem você está seguindo, foi atualizado.
@@ -530,6 +574,7 @@ pt:
       create:
         button: Seguir
         error: Ocorreu um erro ao seguir este recurso.
+        participatory_space: Já segue o espaço participativo
       destroy:
         button: Parar de seguir
         error: Ocorreu um erro ao seguir esse recurso.
@@ -538,6 +583,9 @@ pt:
       current_image: Imagem actual
       default_image: Imagem por defeito
       errors:
+        decidim/user:
+          password: A senha é demasiado curta.
+          password_confirmation: A confirmação da palavra-passe não corresponde à palavra-passe inserida.
         error: Há um erro neste campo.
       remove_this_file: Remover este ficheiro
     gamification:
@@ -699,17 +747,47 @@ pt:
       home: Inicio
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          admin_in_group: Você está recebendo isso porque você é um administrador do %{group}.
+          greeting: Olá, %{recipient}!
+          intro: "%{manager} iniciou uma nova conversa em nome de %{group}. Clique aqui para vê-la:"
+          outro: Desfrute do decidim!
+          subject: "%{manager} iniciou uma nova conversa como %{group}"
+        comanagers_new_message:
+          admin_in_group: Você está recebendo isso porque você é um administrador do %{group}.
+          greeting: Olá, %{recipient}!
+          intro: "%{manager} iniciou uma nova conversa em nome de %{group}. Clique aqui para vê-la:"
+          outro: Desfrute do decidim!
+          subject: "%{manager} iniciou uma nova conversa como %{group}"
         new_conversation:
           greeting: Olá, %{recipient}!
           intro: "%{sender} iniciou uma nova conversa com você. Clique aqui para vê-lo:"
           outro: Aproveite decidim!
           subject: "%{sender} iniciou uma conversa com você"
+        new_group_conversation:
+          admin_in_group: Você está recebendo isso porque você é um administrador do %{group}.
+          greeting: Olá, %{recipient}!
+          intro: "%{sender} iniciou uma nova conversa em nome de %{group}. Clique aqui para vê-la:"
+          outro: Desfrute do decidim!
+          subject: "%{sender} iniciou uma nova conversa como %{group}"
+        new_group_message:
+          admin_in_group: Você está recebendo isso porque você é um administrador do %{group}.
+          greeting: Olá, %{recipient}!
+          intro: "%{sender} iniciou uma nova conversa em nome de %{group}. Clique aqui para vê-la:"
+          outro: Desfrute do decidim!
+          subject: "%{group} tem novas mensagens de %{sender}"
         new_message:
           greeting: Olá, %{recipient}!
           intro: "%{sender} publicou novas mensagens na sua conversa. Clique aqui para vê-los:"
           outro: Aproveite decidim!
           subject: Você tem novas mensagens de %{sender}
       conversations:
+        add_conversation_users:
+          add_max_users: 'Adicionar usuários à conversa: máximo de 9 usuários'
+          add_users_placeholder: Pesquisar...
+          modal_title: Nova conversa
+          no_results: Sem resultados
+          participant_with_disabled_message_reception: Este usuário desativou o recebimento de mensagens
         create:
           error: Conversa não iniciada. Tente mais tarde
         index:
@@ -979,11 +1057,14 @@ pt:
         close_window: Fechar janela
         share: Partilhar
         share_link: Partilhar link
-      version_author:
-        deleted: Usuário deletado
     user_activity:
       index:
         no_activities_warning: Este usuário ainda não possui nenhuma atividade.
+    user_conversations:
+      show:
+        title: Conversa com %{usernames}
+      update:
+        error: A mensagem falhou. Tente mais tarde
     user_interests:
       show:
         my_interests: Meus interesses
@@ -993,9 +1074,40 @@ pt:
       update:
         error: Ocorreu um erro ao atualizar seus interesses.
         success: Seus interesses foram atualizados com sucesso.
+    version:
+      show:
+        back_to_resource: Voltar
+        changes_at_title: Alterações em"%{title}"
+        number_of_versions: Versões
+        show_all_versions: Mostrar todas as versões
+        version_author: Autor da versão
+        version_created_at: Versão criada em
+        version_number: Número da versão
+        version_number_out_of_total: "%{current_version} de %{total_count}"
+    version_author:
+      show:
+        deleted: Usuário deletado
+    versions:
+      resource_version:
+        of_versions: "(de %{number})"
+        see_other_versions: ver outras versões
+    versions_list:
+      show:
+        back_to_resource: Voltar
+        changes_at_title: Alterações em"%{title}"
+        number_of_versions: Versões
+        title: Versões
+    versions_list_item:
+      show:
+        version_index: Versão %{index}
     welcome_notification:
       default_body: <p>Olá {{name}}, obrigado por se juntar a {{organization}} e seja bem-vindo!</p><ul><li>Se você quiser ter uma idéia rápida do que pode fazer aqui, dê uma olhada na seção <a href="{{help_url}}">Ajuda</a> .</li><li>Depois de ler, você receberá seu primeiro crachá. Aqui está uma <a href="{{badges_url}}">lista de todos os crachás</a> você pode começar como você participar de {{organization}}</li><li>Por último, mas não menos importante, se juntar a outras pessoas, compartilhar com eles a experiência de ser envolvido e participando de {{organization}}. Faça propostas, comentários, debata, pense em como contribuir para o bem comum, forneça argumentos para convencer, escute e leia para ser convencido, expresse suas idéias de maneira concreta e direta, responda com paciência e decisão, defenda suas ideias e mantenha uma mente aberta para colaborar e juntar-se às ideias de outras pessoas.</li></ul>
       default_subject: Obrigado por se juntar a {{organization}}!
+    wizard_step_form:
+      wizard_aside:
+        back: Voltar
+      wizard_header:
+        see_steps: ver as etapas
   devise:
     confirmations:
       confirmed: Seu endereço de e-mail foi confirmado com sucesso.
@@ -1086,6 +1198,7 @@ pt:
         change_your_password: Mude sua senha
         confirm_new_password: Confirme a nova senha
         new_password: Nova senha
+        password_help: "O mínimo de %{minimun_characters} caracteres, não deve ser muito comum (por exemplo, 123456) e deve ser diferente do seu apelido e do seu email."
       new:
         forgot_your_password: Esqueceu sua senha?
         send_me_reset_password_instructions: Envie-me as instruções de redefinição de senha
@@ -1148,6 +1261,7 @@ pt:
       cycle_detected: o pai de um âmbito não pode ser um dos seus descendentes
       expired: expirou, solicite um novo
       file_size_is_less_than_or_equal_to: o tamanho do arquivo deve ser menor ou igual a %{count}
+      invalid_time_zone: não é uma data/hora válida
       long_words: contém palavras muito longas (mais de 35 caracteres)
       must_start_with_caps: deve começar com letra maiúscula
       nesting_too_deep: não pode estar dentro de uma subcategoria

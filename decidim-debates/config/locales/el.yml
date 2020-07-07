@@ -1,1 +1,11 @@
 el:
+  decidim:
+    components:
+      debates:
+        actions:
+          create: Δημιουργία
+    debates:
+      debates:
+        new:
+          back: Πίσω
+          create: Δημιουργία

@@ -229,9 +229,6 @@ pl:
           edit:
             close: Zamknij
             title: Zamknij spotkanie
-        meeting_copies:
-          form:
-            select_organizer: Wybierz organizatora
         meetings:
           close:
             invalid: Wystąpił problem podczas zamykania tego spotkania
@@ -243,8 +240,6 @@ pl:
             success: Spotkanie zostało pomyślnie usunięte
           edit:
             update: Aktualizuj
-          form:
-            select_organizer: Wybierz organizatora
           index:
             title: Spotkania
           new:
@@ -351,11 +346,8 @@ pl:
       meetings:
         filters:
           category: Kategoria
-          category_prompt: Wybierz kategorię
           date: Data
-          past: Przeszłe
           search: Szukaj
-          upcoming: Nadchodzące
         filters_small_view:
           close_modal: Zamknij modal
           filter: Filtruj

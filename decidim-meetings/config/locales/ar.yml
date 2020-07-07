@@ -234,9 +234,6 @@ ar:
           edit:
             close: قريب
             title: اجتماع قريب
-        meeting_copies:
-          form:
-            select_organizer: اختر المنظم
         meetings:
           close:
             invalid: حدثت مشكلة أثناء اختتام هذا الاجتماع
@@ -248,8 +245,6 @@ ar:
             success: تم حذف الاجتماع بنجاح
           edit:
             update: تحديث
-          form:
-            select_organizer: اختر المنظم
           index:
             title: اجتماعات
           new:
@@ -359,11 +354,8 @@ ar:
       meetings:
         filters:
           category: الفئة
-          category_prompt: اختر تصنيف
           date: تاريخ
-          past: الماضي
           search: بحث
-          upcoming: القادمة
         filters_small_view:
           close_modal: إغلاق مشروط
           filter: منقي

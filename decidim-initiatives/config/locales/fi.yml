@@ -26,6 +26,7 @@ fi:
       initiatives_committee_member:
         user: Komitean jäsen
       initiatives_type:
+        area_enabled: Salli alueen valinta aloitteille
         attachments_enabled: Salli liitteet
         banner_image: Bannerikuva
         collect_user_extra_fields: Kerää käyttäjän henkilötietoja allekirjoituksen yhteydessä
@@ -72,6 +73,8 @@ fi:
       actions:
         new_initiative_type: Uusi aloitetyyppi
       filters:
+        decidim_area_id_eq:
+          label: Alue
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Etsi kohteita %{collection} otsikon, kuvauksen, ID-numeron tai laatijan nimellä.
         state_eq:
@@ -82,6 +85,8 @@ fi:
             published: Julkaistu
             rejected: Liian vähän allekirjoituksia
             validating: Teknisessä tarkastuksessa
+        type_id_eq:
+          label: Tyyppi
       menu:
         initiatives: Aloitteet
         initiatives_types: Aloitetyypit
@@ -145,6 +150,11 @@ fi:
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
             email_subject: Uusi virstanpylväs saavutettu!
             notification_title: Aloite <a href="%{resource_path}">%{resource_title}</a> on saavuttanut %{percentage}% tarvituista allekirjoituksista.
+        support_threshold_reached:
+          email_intro: Aloite %{resource_title} on saavuttanut kannatuskynnyksen
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet palvelun hallintakäyttäjä.
+          email_subject: Kannatuskynnys saavutettu
+          notification_title: Aloite <a href="%{resource_path}">%{resource_title}</a> on saavuttanut kannatuskynnyksensä
     gamification:
       badges:
         initiatives:
@@ -271,6 +281,8 @@ fi:
         rejected: Liian vähän allekirjoituksia
         validating: Teknisessä tarkastuksessa
       application_helper:
+        filter_area_values:
+          all: Kaikki
         filter_scope_values:
           all: Kaikki
         filter_state_values:
@@ -298,6 +310,7 @@ fi:
           fill_data_help: "<ul> <li>Tarkasta aloitteesi sisältö. Onko aloitteen otsikko helppo ymmärtää? Onko aloitteen tavoite selkeä?</li> <li>Sinun on valittava allekirjoitustapa. Palvelun ulkopuolella, verkossa tai molemmat</li> <li>Mikä on aloitteen maantieteellinen laajuus? Kaupunki, kunta, maakunta vai mikä?</li> </ul>"
           initiative_type: Aloitteen tyyppi
           more_information: "(Lisää tietoa)"
+          select_area: Valitse alue
           select_scope: Valitse teema
         finish:
           back: Takaisin
@@ -391,6 +404,7 @@ fi:
             other: "%{count} aloitetta"
         filters:
           any: Minkä tahansa
+          area: Alue
           author: Laatija
           myself: Omat aloitteeni
           scope: Teema
@@ -428,10 +442,7 @@ fi:
         show:
           any_vote_method: Tämä kansalaisaloite kerää allekirjoituksia verkossa ja palvelun ulkopuolella.
           follow_description: Vastaanota ilmoitus, kun tätä aloitetta koskevia uutisia julkaistaan
-          of_versions: "(yhteensä %{number} kpl)"
           offline_method: Tämä kansalaisaloite kerää allekirjoituksia ainoastaan palvelun ulkopuolella.
-          see_other_versions: näytä muut versiot
-          version: Versio %{number}
         signature_identities:
           select_identity: Valitse käyttäjätunniste
         signatures_count:
@@ -482,19 +493,8 @@ fi:
         expired: Vanhentuneet
       unavailable_scope: Teema ei ole saatavilla
       versions:
-        index:
-          number_of_versions: Versiot
-          title: Versiot
         shared:
-          back_to_initiative: Takaisin aloitteeseen
-          changes_at_title: Muutokset kohteessa "%{title}"
-        show:
-          show_all_versions: Näytä kaikki versiot
-          version_author: Versio luoja
-          version_created_at: Version luontihetki
-          version_number_out_of_total: "%{current_version} / %{total_count}"
-        version:
-          version_index: Versio %{index}
+          back_to_resource: Takaisin aloitteeseen
     menu:
       initiatives: Aloitteet
     resources:

@@ -35,6 +35,7 @@ it:
         confirm_destroy: Sei sicuro di voler eliminare questo %{name}?
         destroy: Cancella
         edit: Modifica
+        import_csv: Importa da file CSV
         new: Nuovo %{name}
         preview: Anteprima
         timeline_entries: Evoluzione del progetto
@@ -42,6 +43,15 @@ it:
       admin:
         exports:
           results: Risultati
+        import_results:
+          new:
+            import: Importa
+            info: "<p>Si consiglia di seguire questi passaggi:</p><ol><li>Creare gli Stati per i risultati che si desidera aggiungere (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Creare manualmente almeno un risultato attraverso questo pannello di amministrazione (<a href='%{link_new_result}' target='_blank'>link</a>) prima di utilizzare Import, per avere una migliore comprensione del formato e di ciò che è necessario compilare.</li><li>Scarica l'esportazione nel formato CSV (%{link_export_csv})</li><li>Effettua le modifiche localmente. È possibile modificare solo le seguenti colonne del CSV:</li></ol><ul><li><b>categoria/id:</b> ID per la categoria</li><li><b>scope/id:</b> ID per l'ambito</li><li><b>parent/id:</b> ID dell'origine (per i risultati correlati). Opzionale</li><li><b>titolo/I18N:</b> Titolo sulla lingua X</li><li><b>descrizione/I18N:</b> Descrizione sulla lingua X</li><li><b>start_date:</b> data in cui il risultato inizia l'esecuzione (formato YYYY-MM-DD)</li><li><b>end_date:</b> data in cui il risultato termina l'esecuzione (formato AAAA-MM-DD)</li><li><b>status/id:</b> ID dello stato per questo risultato</li><li><b>progresso:</b> Percentuale (da 0 a 100) dell'esecuzione</li><li><b>proposte_ids:</b> ID interno delle relative proposte (separate da una virgola). Viene convertito automaticamente in <span class='attribute-name'>proposal_url</span></li></ul>"
+            link: collegamento
+            title: Importa risultati da CSV
+        imports:
+          create:
+            success: L'importazione del file è iniziata. Riceverai un'email nei prossimi minuti con l'esito
         models:
           result:
             name: Risultato
@@ -111,6 +121,13 @@ it:
         value_types:
           parent_presenter:
             not_found: 'Il genitore non è stato trovato sul database (ID: %{id})'
+      import_mailer:
+        import:
+          errors: Errori
+          errors_present: Si è verificato un problema durante l'importazione dei risultati
+          row_number: Riga
+          subject: Importazione dei risultati riuscita
+          success: Importazione riuscita dei risultati. È possibile rivedere i risultati nell'interfaccia di amministrazione.
       last_activity:
         new_result_at_html: "<span>Nuovo risultato a %{link}</span>"
       models:
@@ -151,30 +168,16 @@ it:
         show:
           stats:
             attendees: Partecipanti
-            back_to_result: Torna al risultato
+            back_to_resource: Torna al risultato
             comments: Commenti
             contributions: Contributi
             last_edited_by: Ultima modifica del
             last_updated_at: Ultimo aggiornamento alle
             meetings: Riunioni
-            number_of_versions: Versioni
             proposals: Proposte
-            show_all_versions: Mostra tutte le versioni
-            version_author: Autore della versione
-            version_created_at: Versione creata il
-            version_number: Numero della versione
-            version_number_out_of_total: "%{current_version} su %{total_count}"
             votes: Voti
         timeline:
           title: Evoluzione del progetto
-      versions:
-        index:
-          changes_at_title: Modifiche a "%{title}"
-          title: Versioni
-        show:
-          changes_at_title: Modifiche a "%{title}"
-        version:
-          version_index: Versione %{index}
     components:
       accountability:
         name: Accountability

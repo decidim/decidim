@@ -365,11 +365,9 @@ describe "Proposals", type: :system do
     end
 
     describe "editable content" do
-      before do
-        visit_component
+      it_behaves_like "editable content for admins" do
+        let(:target_path) { main_component_path(component) }
       end
-
-      it_behaves_like "editable content for admins"
     end
 
     context "when comments have been moderated" do

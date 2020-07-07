@@ -289,11 +289,11 @@ it:
             - Dare supporto alle proposte che ti piacciono o che ti interessano
           description: Questo badge è concesso quando supporti le proposte di altre persone.
           description_another: Questo utente ha fornito supporto a %{score} proposte.
-          description_own: Hai fornito supporto a %{score} proposte.
+          description_own: Hai dato supporto a %{score} proposte.
           name: Supporti della proposta
           next_level_in: Dare supporto a %{score} ulteriori proposte per raggiungere il livello successivo!
           unearned_another: Questo utente non ha ancora fornito supporto a nessuna proposta.
-          unearned_own: Non hai ancora fornito supporto a nessuna proposta.
+          unearned_own: Hai dato supporto a proposte.
         proposals:
           conditions:
             - Scegli lo spazio di partecipazione di tuo interesse con l'invio per le proposte abilitate
@@ -301,7 +301,7 @@ it:
           description: Questo badge è concesso quando partecipi attivamente a nuove proposte.
           description_another: Questo utente ha creato %{score} proposte.
           description_own: Hai creato %{score} proposte.
-          name: proposte
+          name: Proposte
           next_level_in: Crea altre %{score} proposte per raggiungere il livello successivo!
           unearned_another: Questo utente non ha ancora creato alcuna proposta.
           unearned_own: Non hai ancora creato alcuna proposta.
@@ -321,7 +321,7 @@ it:
       votes:
         description: Numero di voti generati nelle proposte degli utenti
         object: voti
-        title: voti
+        title: Voti
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -463,7 +463,7 @@ it:
             remove_assignment_confirmation: Sei sicuro di voler rimuovere il valutatore da questa proposta?
             valuators: Valutatori
             votes_count: Contare i voti
-            votes_ranking: Classifica per appoggi
+            votes_ranking: Ordina per numero di supporti
           update_category:
             invalid: 'Queste proposte avevano già la categoria %{subject_name} %{proposals}.'
             select_a_category: Si prega di selezionare una categoria
@@ -624,14 +624,11 @@ it:
             one: e %{count} altra persona
             other: e altre %{count} persone
           info-message: Si tratta di un <strong>progetto collaborativo</strong> per una proposta. Ciò significa che puoi aiutare i loro autori a modellare la proposta utilizzando la sezione dei commenti qui sotto o migliorarla direttamente richiedendo l'accesso per modificarla. Una volta che gli autori ti concederanno l'accesso, sarai in grado di apportare modifiche a questa bozza.
-          of_versions: "(di %{number})"
           publish: Pubblica
           publish_info: Pubblica questa versione della bozza o
           published_proposal: proposta pubblicata
           request_access: Richiesta di accesso
           requested_access: Accesso richiesto
-          see_other_versions: vedi altre versioni
-          version: Versione %{number}
           version_history: vedere la cronologia delle versioni per questa proposta
           withdraw: ritirare la bozza
         states:
@@ -802,7 +799,7 @@ it:
           changed_from: "(modificato da <u>%{previous_name}</u> da un amministratore)"
         vote_button:
           already_voted: Già votata
-          already_voted_hover: Annullare il voto
+          already_voted_hover: Ritira il supporto
           maximum_votes_reached: Hai raggiunto il limite di voti
           no_votes_remaining: Sono finite le votazioni possibili
           vote: Vota
@@ -856,20 +853,12 @@ it:
         error: Si sono verificati errori durante il salvataggio della bozza della proposta.
         success: Bozza proposta aggiornata correttamente.
       versions:
-        changes_at_title: Cambiamenti a "%{title}"
+        collaborative_drafts:
+          back_to_resource: Torna alla bozza collaborativa
         index:
           title: versioni
-        stats:
-          back_to_collaborative_draft: Torna alla bozza collaborativa
-          back_to_proposal: Torna alla proposta
-          number_of_versions: versioni
-          show_all_versions: Mostra tutte le versioni
-          version_author: Autore della versione
-          version_created_at: Versione creata il
-          version_number: Numero della versione
-          version_number_out_of_total: "%{current_version} su %{total_count}"
-        version:
-          version_index: Versione %{index}
+        proposals:
+          back_to_resource: Torna alla proposta
       withdraw:
         errors:
           has_supports: Questa proposta non può essere ritirata perché ha già dei supporti.

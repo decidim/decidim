@@ -2,7 +2,7 @@ fi:
   activemodel:
     attributes:
       project:
-        budget: Määräraha
+        budget: Budjetti
         decidim_category_id: Aihepiiri
         decidim_scope_id: Teema
         description: Kuvaus

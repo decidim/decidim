@@ -67,6 +67,28 @@ module Decidim
           redirect_to elections_path
         end
 
+        def publish
+          enforce_permission_to :publish, :election, election: election
+
+          PublishElection.call(election, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("admin.elections.publish.success", scope: "decidim.elections")
+              redirect_to elections_path
+            end
+          end
+        end
+
+        def unpublish
+          enforce_permission_to :unpublish, :election, election: election
+
+          UnpublishElection.call(election, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("admin.elections.unpublish.success", scope: "decidim.elections")
+              redirect_to elections_path
+            end
+          end
+        end
+
         private
 
         def elections
