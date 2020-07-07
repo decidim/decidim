@@ -61,6 +61,10 @@ module Decidim
                           default: false,
                           desc: "Generate demo authorization handlers"
 
+      class_option :profiling, type: :boolean,
+                               default: false,
+                               desc: "Add the necessary gems to profile the app"
+
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
       end
@@ -192,7 +196,8 @@ module Decidim
             "--recreate_db=#{options[:recreate_db]}",
             "--seed_db=#{options[:seed_db]}",
             "--skip_gemfile=#{options[:skip_gemfile]}",
-            "--app_name=#{app_name}"
+            "--app_name=#{app_name}",
+            "--profiling=#{options[:profiling]}"
           ]
         )
       end
