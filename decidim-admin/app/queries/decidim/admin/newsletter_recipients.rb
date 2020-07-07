@@ -93,7 +93,7 @@ module Decidim
           end
         end
 
-        participant_ids.compact.uniq
+        participant_ids.flatten.compact.uniq
       end
     end
   end
