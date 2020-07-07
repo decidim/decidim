@@ -28,7 +28,7 @@ module Decidim
         end
       end
 
-      "button expanded button--icon follow-button #{extra_classes}"
+      "button expanded button--icon follow-button secondary hollow #{extra_classes}"
     end
 
     def icon_options

@@ -49,7 +49,7 @@ module Decidim
     def render_endorsements_count
       content = icon("bullhorn", class: "icon--small", aria_label: t("decidim.endorsable.endorsements_count"), role: "img")
       content += resource.endorsements_count.to_s
-      html_class = "button small compact button--shadow"
+      html_class = "button small compact button--shadow secondary"
       html_class += " active" if fully_endorsed?(resource, current_user)
       tag_params = { id: "resource-#{resource.id}-endorsements-count", class: html_class }
       if resource.endorsements_count.positive?
@@ -85,7 +85,7 @@ module Decidim
     def endorsement_button_classes(from_resourcess_list = false)
       return "small" if from_resourcess_list
 
-      "small compact light expanded"
+      "button small compact light button--sc expanded secondary"
     end
 
     def card_button_html_class
