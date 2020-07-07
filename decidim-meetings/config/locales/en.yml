@@ -82,6 +82,7 @@ en:
         name: Meetings
         settings:
           global:
+            comments_max_length: Comments max length (Leave 0 for default value)
             announcement: Announcement
             comments_enabled: Comments enabled
             creation_enabled_for_participants: Participants can create meetings

@@ -73,6 +73,7 @@ en:
         reference_prefix: Reference prefix
         rich_text_editor_in_public_views: Enable rich text editor for participants
         secondary_color: Secondary
+        comments_max_length: Comments max length (Leave 0 for default value)
         send_welcome_notification: Send welcome notification
         show_statistics: Show statistics
         success_color: Success

@@ -1,4 +1,5 @@
 ---
+
 en:
   activemodel:
     attributes:
@@ -141,6 +142,7 @@ en:
         name: Budgets
         settings:
           global:
+            comments_max_length: Comments max length (Leave 0 for default value)
             announcement: Announcement
             comments_enabled: Comments enabled
             form:

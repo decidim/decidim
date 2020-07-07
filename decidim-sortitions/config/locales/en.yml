@@ -23,6 +23,7 @@ en:
         name: Sortitions
         settings:
           global:
+            comments_max_length: Comments max length (Leave 0 for default value)
             comments_enabled: Comments enabled
     events:
       sortitions:
