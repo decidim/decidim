@@ -292,6 +292,11 @@ it:
           welcome: Benvenuti nel pannello di amministrazione di Decidim.
       exports:
         export_as: "%{name} esporta come %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
         notice: Export in fase di elaborazione.  Riceverai un'email quando l'export sarà terminato.
       filters:
         category_id_eq:

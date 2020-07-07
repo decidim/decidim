@@ -43,6 +43,7 @@ pt:
           against: Contra
           in_favor: A favor
         deleted_user: Usuário deletado
+        hide_replies: Ocultar respostas
         reply: Resposta
         report:
           action: Relatório
@@ -55,6 +56,8 @@ pt:
             offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer tipo de discurso de ódio.
             spam: Contém clickbait, publicidade, fraudes ou script bots.
           title: Reportar um problema
+        show_replies: Mostrar %{replies_count} respostas
+        single_comment_link_title: Obter ligação para um único comentário
       comment_order_selector:
         order:
           best_rated: Melhores avaliações
@@ -67,7 +70,10 @@ pt:
       comments:
         blocked_comments_for_user_warning: Você não pode comentar neste momento, mas pode ler os anteriores.
         blocked_comments_warning: Os comentários estão desativados neste momento, mas você pode ler os anteriores.
+        comment_details_title: Detalhes do comentário
         loading: Carregando comentários ...
+        single_comment_warning: Pode consultar os restantes comentários <a href="%{url}">aqui</a>.
+        single_comment_warning_title: Está a ver um único comentário
         title: "%{count} comentários"
     events:
       comments:
@@ -77,6 +83,8 @@ pt:
           email_subject: Há um novo comentário por %{author_name} em %{resource_title}
           notification_title: Há um novo comentário por <a href="%{author_path}">%{author_name} %{author_nickname}</a> em <a href="%{resource_path}">%{resource_title}</a>.
         comment_by_followed_user_group:
+          email_intro: 'O grupo %{author_name} deixou um comentário em %{resource_title}. Poderá ler o comentário nesta página:'
+          email_outro: Recebeu esta notificação porque segue %{author_name}. Pode deixar de seguir este grupo a partir da respetiva página de perfil.
           email_subject: Há um novo comentário por %{author_name} em %{resource_title}
           notification_title: Há um novo comentário por <a href="%{author_path}">%{author_name} %{author_nickname}</a> em <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
@@ -89,6 +97,11 @@ pt:
           email_outro: Você recebeu esta notificação porque o seu comentário foi respondido.
           email_subject: "%{author_name} respondeu seu comentário em %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> respondeu seu comentário em <a href="%{resource_path}">%{resource_title}</a>
+        user_group_mentioned:
+          email_intro: Foi mencionado um grupo ao qual pertence
+          email_outro: Recebeu esta notificação porque é membro do grupo %{group_name} que foi mencionado em %{resource_title}.
+          email_subject: Foi mencionado em %{resource_title} como membro de %{group_name}
+          notification_title: Foi mencionado em <a href="%{resource_path}">%{resource_title}</a> por <a href="%{author_path}">%{author_name} %{author_nickname}</a> como membro de <a href="%{group_path}">%{group_name} %{group_nickname}</a>
         user_mentioned:
           email_intro: Você foi mencionado
           email_outro: Você recebeu esta notificação porque você foi mencionado em %{resource_title}.

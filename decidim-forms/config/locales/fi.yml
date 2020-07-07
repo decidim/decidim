@@ -42,9 +42,12 @@ fi:
               not_equal: Erisuuri
             condition_value: Sisällytetty teksti
             display_condition: Näytä ehto
+            mandatory: Tämän ehdon on täytyttävä aina riippumatta muiden ehtojen tilasta
             remove: Poista
+            save_warning: Muista tallentaa lomake ennen kuin muutat sen näyttämisen ehtoja
             select_answer_option: Valitse vastausvaihtoehto
             select_condition_question: Valitse kysymys
+            select_condition_type: Valitse ehdon tyyppi
           edit:
             save: Tallenna
             title: Muokkaa kyselyä
@@ -60,7 +63,8 @@ fi:
             statement: Selite
           question:
             add_answer_option: Lisää vastausvaihtoehto
-            add_display_condition: Lisää näytön ehto
+            add_display_condition: Lisää ehto
+            add_display_condition_info: Tallenna lomake muokataksesi sen näyttämisen ehtoja
             add_matrix_row: Lisää rivi
             any: Minkä tahansa
             collapse: Sulje
@@ -121,7 +125,8 @@ fi:
             body: Kyselylomake on nähtävillä vain yksityisille käyttäjille
             title: Kyselylomake on suljettu
           questionnaire_js_disabled:
-            title: JavaScript ei toiminnassa
+            body: Jotkin tämän lomakkeen ominaisuudet eivät ole käytössä. Parantaaksesi käyttökokemustasi, ota JavaScript käyttöön selaimestasi.
+            title: JavaScript ei ole käytössä
           tos_agreement: Osallistumalla hyväksyt käyttöehdot
       step_navigation:
         show:
@@ -132,7 +137,6 @@ fi:
       user_answers_serializer:
         created_at: Vastauksen ajankohta
         id: Vastauksen ID
-        ip_hash: IP-tarkistesumma
         registered: Rekisteröitynyt
         unregistered: Ei rekisteröitynyt
         user_status: Käyttäjän tila

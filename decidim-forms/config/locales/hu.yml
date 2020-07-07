@@ -90,7 +90,6 @@ hu:
       user_answers_serializer:
         created_at: Válaszolt
         id: Válasz azonosító
-        ip_hash: Ip Hash
         registered: Regisztrált
         unregistered: Nem regisztrált
         user_status: Felhasználó státusza
