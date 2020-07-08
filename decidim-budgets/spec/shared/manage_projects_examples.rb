@@ -121,4 +121,69 @@ shared_examples "manage projects" do
       end
     end
   end
+
+  context "when having existing proposals" do
+    let!(:proposal_component) { create(:proposal_component, participatory_space: participatory_space) }
+    let!(:proposals) { create_list :proposal, 5, component: proposal_component, skip_injection: true }
+
+    it "updates a project" do
+      within find("tr", text: translated(project.title)) do
+        click_link "Edit"
+      end
+
+      within ".edit_project" do
+        fill_in_i18n(
+          :project_title,
+          "#project-title-tabs",
+          en: "My new title",
+          es: "Mi nuevo título",
+          ca: "El meu nou títol"
+        )
+
+        proposals_pick(select_data_picker(:project_proposals, multiple: true), proposals.last(2))
+
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_admin_callout("successfully")
+
+      within "table" do
+        expect(page).to have_content("My new title")
+      end
+    end
+
+    it "creates a new project", :slow do
+      click_link "New project", match: :first
+
+      within ".new_project" do
+        fill_in_i18n(
+          :project_title,
+          "#project-title-tabs",
+          en: "My project",
+          es: "Mi project",
+          ca: "El meu project"
+        )
+        fill_in_i18n_editor(
+          :project_description,
+          "#project-description-tabs",
+          en: "A longer description",
+          es: "Descripción más larga",
+          ca: "Descripció més llarga"
+        )
+        fill_in :project_budget, with: 22_000_000
+
+        proposals_pick(select_data_picker(:project_proposals, multiple: true), proposals.first(2))
+        scope_pick(select_data_picker(:project_decidim_scope_id), scope)
+        select translated(category.name), from: :project_decidim_category_id
+
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_admin_callout("successfully")
+
+      within "table" do
+        expect(page).to have_content("My project")
+      end
+    end
+  end
 end
