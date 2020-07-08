@@ -155,51 +155,6 @@
     }
   }
 
-  &__boolean {
-    font-size: 1.2rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    input[type="radio"] {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      border: 0;
-    }
-  }
-
-  &__boolean-label {
-    position: relative;
-    line-height: 1.4;
-    white-space: nowrap;
-    text-align: center;
-
-    svg {
-      display: block;
-      width: 2.5rem;
-      height: 2.5rem;
-      margin: 0 auto 0.5rem;
-      stroke-width: 1.5;
-      opacity: 0.25;
-    }
-
-    input[type="radio"]:focus + & svg {
-      outline: $checkfocus;
-      outline-offset: $checkfocus-offset;
-    }
-
-    input[type="radio"]:checked + & svg {
-      opacity: 1;
-      color: $secondary;
-    }
-  }
-
   &__counter {
     position: sticky;
     bottom: 2rem;
@@ -234,6 +189,11 @@
     text-transform: uppercase;
     letter-spacing: 0.01em;
     color: $primary;
+  }
+
+  &__edit-answer {
+    text-transform: none;
+    letter-spacing: normal;
   }
 
   &__encrypting {

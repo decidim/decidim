@@ -1,42 +1,24 @@
 <h1 class="heading2">
-  ¿Qué programa organizativo crees que debería aplicar el Comité de Fiestas durante el próximo año?
+  ¿Qué socias y socios crees que deberían presidir la mesa del Comité de Fiestas del Barrio del Fort Pienc?
 </h1>
+<p>
+  You can select up to 4.
+</p>
 <div class="evote__options">
+<% (1..30).each do  %>
   <label class="evote__check evote__card">
-    <input type="radio" name="programa" />
+    <input type="checkbox" />
     <span class="evote__check-label">
-      El plan de Expansión Trasversal
-      <span class="evote__check-extra">
-        <button class="link" data-toggle="show-focus-modal">más información</button>
-      </span>
+      <%= Faker::Name.name %>
     </span>
   </label>
-  <label class="evote__check evote__card">
-    <input type="radio" name="programa" />
-    <span class="evote__check-label">
-      El plan de Participación Vecinal Inclusiva
-      <span class="evote__check-extra">
-        <button class="link" data-toggle="show-focus-modal">más información</button>
-      </span>
-    </span>
-  </label>
-  <label class="evote__check evote__card">
-    <input type="radio" name="programa" />
-    <span class="evote__check-label">
-      El plan de Intervención Social Aplicada
-      <span class="evote__check-extra">
-        <button class="link" data-toggle="show-focus-modal">más información</button>
-      </span>
-    </span>
-  </label>
-  <label class="evote__check evote__card">
-    <input type="radio" name="programa" />
-    <span class="evote__check-label">
-      Indiferente / en blanco
-      <span class="evote__check-extra">
-        <button class="link" data-toggle="show-focus-modal">más información</button>
-      </span>
-    </span>
-  </label>
-  <%= partial "focus_modal" %>
+<% end %>
+</div>
+
+<div class="evote__counter">
+  <div>
+  <strong class="evote__counter-num">3</strong> of
+  <span class="evote__counter-num">4</span>
+  </div>
+  selected
 </div>

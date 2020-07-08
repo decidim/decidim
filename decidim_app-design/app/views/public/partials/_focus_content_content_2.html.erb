@@ -1,26 +1,42 @@
 <h1 class="heading2">
-  ¿Con cuáles de estas afirmaciones sobre la organización del Comité de Fiestas estás&nbsp;de&nbsp;acuerdo?
+  ¿Qué programa organizativo crees que debería aplicar el Comité de Fiestas durante el próximo año?
 </h1>
-<p>
-  Puedes seleccionar varias o ninguna.
-</p>
 <div class="evote__options">
   <label class="evote__check evote__card">
-    <input type="checkbox" />
+    <input type="radio" name="programa" />
     <span class="evote__check-label">
-      El Comité debería abordar otros problemas del barrio más allá de las fiestas
+      El plan de Expansión Trasversal
+      <span class="evote__check-extra">
+        <button class="link" data-toggle="show-focus-modal">more information</button>
+      </span>
     </span>
   </label>
   <label class="evote__check evote__card">
-    <input type="checkbox" />
+    <input type="radio" name="programa" />
     <span class="evote__check-label">
-      Las asambleas deberían hacerse cada mes en vez de cada tres, como hasta ahora
+      El plan de Participación Vecinal Inclusiva
+      <span class="evote__check-extra">
+        <button class="link" data-toggle="show-focus-modal">more information</button>
+      </span>
     </span>
   </label>
   <label class="evote__check evote__card">
-    <input type="checkbox" />
+    <input type="radio" name="programa" />
     <span class="evote__check-label">
-      El foro debería abrirse a la participación de todas y todos
+      El plan de Intervención Social Aplicada
+      <span class="evote__check-extra">
+        <button class="link" data-toggle="show-focus-modal">more information</button>
+      </span>
     </span>
   </label>
+  <label class="evote__check evote__card">
+    <input type="radio" name="programa" />
+    <span class="evote__check-label">
+      Indiferente / en blanco
+      <span class="evote__check-extra">
+        <button class="link" data-toggle="show-focus-modal">more information</button>
+      </span>
+    </span>
+  </label>
+  <%= partial "focus_modal" %>
 </div>
