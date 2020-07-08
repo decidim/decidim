@@ -14,6 +14,8 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
 
+      include Decidim::TranslatableAttributes
+
       # Limit the max depth of a comment tree. If C is a comment and R is a reply:
       # C          (depth 0)
       # |--R       (depth 1)
@@ -124,6 +126,10 @@ module Decidim
         root_commentable.can_participate?(user)
       end
 
+      def translated_body
+        translated_attribute(body)
+      end
+
       private
 
       def body_length
@@ -158,7 +164,7 @@ module Decidim
       # Private: Returns the comment body sanitized, sanitizing HTML tags
       def sanitized_body
         Rails::Html::WhiteListSanitizer.new.sanitize(
-          render_markdown(body.values.first),
+          render_markdown(translated_body),
           scrubber: Decidim::Comments::UserInputScrubber.new
         ).try(:html_safe)
       end

@@ -27,7 +27,7 @@ module Decidim
 
       field :body, !types.String, "The comment message" do
         resolve lambda { |obj, _args, _ctx|
-          obj.body.values.first
+          obj.translated_body
         }
       end
 
