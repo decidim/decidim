@@ -408,6 +408,14 @@ module Decidim
         end
       end
 
+      def i18n_title
+        title.values.first
+      end
+
+      def i18n_body
+        body.values.first
+      end
+
       private
 
       def copied_from_other_component?
