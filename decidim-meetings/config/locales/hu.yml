@@ -349,9 +349,9 @@ hu:
           category: Kategória
           category_prompt: Válassz kategóriát
           date: Dátum
-          past: Előzmények
+          past: Múlt
           search: Keresés
-          upcoming: Közelgő
+          upcoming: közelgő
         filters_small_view:
           close_modal: Modal bezárása
           filter: Szűrő

@@ -93,7 +93,7 @@ it:
           election:
             name: Elezione
           question:
-            name: Domanda
+            name: Quesito
         questions:
           create:
             invalid: Si è verificato un errore durante la creazione di questa domanda
@@ -102,16 +102,16 @@ it:
             invalid: Si è verificato un errore durante l'eliminazione di questa domanda
             success: Domanda eliminata con successo
           edit:
-            title: Modifica domanda
-            update: Aggiorna domanda
+            title: Modifica quesito
+            update: Aggiorna quesito
           index:
-            title: Domande
+            title: Quesiti
           new:
-            create: Crea domanda
-            title: Nuova domanda
+            create: Crea quesito
+            title: Nuovo quesito
           update:
-            invalid: Si è verificato un errore durante l'aggiornamento di questa domanda
-            success: Domanda aggiornata con successo
+            invalid: Si è verificato un errore durante l'aggiornamento del quesito
+            success: Quesito aggiornato correttamente
       models:
         answer:
           fields:

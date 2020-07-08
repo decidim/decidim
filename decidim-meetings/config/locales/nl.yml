@@ -349,9 +349,9 @@ nl:
           category: Categorie
           category_prompt: Kies een categorie
           date: Datum
-          past: Archief
+          past: Verleden
           search: Zoeken
-          upcoming: Aankomend
+          upcoming: Aankomende
         filters_small_view:
           close_modal: Sluit modaal
           filter: Filter
