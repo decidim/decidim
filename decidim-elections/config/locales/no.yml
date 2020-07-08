@@ -10,6 +10,8 @@
   decidim:
     elections:
       actions:
+        edit_answers: Rediger svar
+        edit_questions: Rediger spørsmål
         import: Importer forslag til svar
       admin:
         proposals_imports:
