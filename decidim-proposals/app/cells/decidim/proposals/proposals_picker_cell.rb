@@ -59,7 +59,9 @@ module Decidim
       end
 
       def proposals
-        @proposals ||= Decidim.find_resource_manifest(:proposals).try(:resource_scope, component)&.order(id: :asc)
+        @proposals ||= Decidim.find_resource_manifest(:proposals).try(:resource_scope, component)
+                       &.published
+                       &.order(id: :asc)
       end
 
       def proposals_collection_name
