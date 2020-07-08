@@ -1,0 +1,7 @@
+<%= decidim_form_for(@form, url: imports_path, method: :post, html: { class: "form import_assembly" }) do |f| %>
+  <%= render partial: "form", object: f, locals: { title: t("assembly_imports.new.title", scope: "decidim.admin"), select: t("assembly_imports.new.select", scope: "decidim.admin") } %>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t("assembly_imports.new.import", scope: "decidim.admin") %>
+  </div>
+<% end %>

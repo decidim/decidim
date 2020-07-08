@@ -1069,8 +1069,6 @@ es-PY:
         close_window: Cerrar ventana
         share: Compartir
         share_link: Compartir enlace
-      version_author:
-        deleted: Usuario eliminado
     user_activity:
       index:
         no_activities_warning: Este usuario no ha tenido ninguna actividad todavía.
@@ -1084,6 +1082,9 @@ es-PY:
       update:
         error: Hubo un error al actualizar tus intereses.
         success: Sus intereses se han actualizado con éxito.
+    version_author:
+      show:
+        deleted: Usuario eliminado
     welcome_notification:
       default_body: <p>Hola {{name}}, gracias por unirte {{organization}} y bienvenido!</p><ul><li>Si desea obtener una idea rápida de lo que puede hacer aquí, consulte la sección <a href="{{help_url}}">Ayuda</a> .</li><li>Una vez que lo hayas leído, obtendrás tu primera placa. Aquí está un <a href="{{badges_url}}">lista de todas las insignias</a> se puede obtener a medida que participen en el {{organization}}</li><li>Por último, pero no menos importante, se une a otras personas, compartir con ellos la experiencia de ser ocupados y participando en {{organization}}. Haga propuestas, comentarios, debate, piense en cómo contribuir al bien común, proporcione argumentos para convencer, escuche y lea para convencerse, exprese sus ideas de manera concreta y directa, responda con paciencia y decisión, defienda sus ideas y mantenga Una mente abierta para colaborar y unirse a las ideas de otras personas.</li></ul>
       default_subject: Gracias por unirte a {{organization}}!

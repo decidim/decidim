@@ -1,1 +1,19 @@
 "no":
+  activemodel:
+    attributes:
+      answer:
+        description: Beskrivelse
+      election:
+        description: Beskrivelse
+      question:
+        description: Beskrivelse
+  decidim:
+    elections:
+      actions:
+        edit_answers: Rediger svar
+        edit_questions: Rediger spørsmål
+        import: Importer forslag til svar
+      admin:
+        proposals_imports:
+          create:
+            invalid: Det oppstod et problem under importen av forslag til svar

@@ -624,14 +624,11 @@ fi-pl:
             one: ja %{count} muu henkilö
             other: ja %{count} muuta henkilöä
           info-message: Tämä on <strong>yhteistyöluonnos</strong> ehdotukselle. Tämä tarkoittaa, että voit auttaa tekijöitä muodostamaan ehdotuksen alla olevan kommenttikohdan avulla tai parantaa sitä suoraan pyytämällä käyttöoikeutta sen muokkaamiseksi. Kun tekijät antavat sinulle käyttöoikeuden, voit tehdä muutoksia tähän luonnokseen.
-          of_versions: "( %{number}:sta)"
           publish: Julkaise
           publish_info: Julkaise tämän luonnosversio tai
           published_proposal: julkaistu ehdotus
           request_access: Pyydä käyttöoikeutta
           requested_access: Käyttöoikeutta pyydetty
-          see_other_versions: katso muita versioita
-          version: Versio %{number}
           version_history: katso tämän ehdotuksen versiohistoria
           withdraw: peruuttaa luonnos
         states:
@@ -768,6 +765,9 @@ fi-pl:
         proposal:
           creation_date: 'Luontiaika: %{date}'
           view_proposal: Näytä ehdotus
+        proposals:
+          empty: Ei vielä yhtään ehdotusta
+          empty_filters: Ei yhtään ehdotusta annetuilla hakuehdoilla
         show:
           answer: Vastaus
           back_to: Takaisin
@@ -853,20 +853,12 @@ fi-pl:
         error: Ehdotusluonnoksen tallentamisessa tapahtui virheitä.
         success: Ehdotusluonnos päivitetty onnistuneesti.
       versions:
-        changes_at_title: Muutokset kohdassa "%{title}"
+        collaborative_drafts:
+          back_to_resource: Palaa yhteistyöluonnokseen
         index:
           title: Versiot
-        stats:
-          back_to_collaborative_draft: Palaa yhteistyöluonnokseen
-          back_to_proposal: Palaa ehdotukseen
-          number_of_versions: versiot
-          show_all_versions: Näytä kaikki versiot
-          version_author: Version tekijä
-          version_created_at: Versio luotu
-          version_number: Versionumero
-          version_number_out_of_total: "%{current_version} osuus %{total_count}:sta"
-        version:
-          version_index: Versio %{index}
+        proposals:
+          back_to_resource: Palaa ehdotukseen
       withdraw:
         errors:
           has_supports: Tätä ehdotusta ei voi peruuttaa, koska sitä on jo tuettu.

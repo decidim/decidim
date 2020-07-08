@@ -26,6 +26,8 @@ fr:
       initiatives_committee_member:
         user: Membre du Comité de promotion
       initiatives_type:
+        area_enabled: Permettre aux auteurs de choisir la zone pour leur initiative
+        attachments_enabled: Autoriser les pièces jointes
         banner_image: Image d'en-tête
         collect_user_extra_fields: Collecter les données personnelles de l'utilisateur lors de la signature
         custom_signature_end_date_enabled: Permettre aux auteurs de choisir la fin de la période de collecte des signatures
@@ -47,6 +49,14 @@ fr:
         address: Adresse
         id_document: Document d'identité
         name: Nom complet
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: Le fichier n'est pas valide
+              needs_to_be_reattached: Doit être téléchargé de nouveau
+              title: Le titre ne doit pas être vide
   activerecord:
     models:
       decidim/initiative:
@@ -63,12 +73,20 @@ fr:
       actions:
         new_initiative_type: Nouveau type d'initiative
       filters:
+        decidim_area_id_eq:
+          label: Zone
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Rechercher %{collection} par titre, description, ID ou nom de l'auteur.
         state_eq:
           values:
+            accepted: Assez de signatures
             created: Créée
             discarded: Retirée
             published: Publiée
+            rejected: Pas assez de signatures
             validating: Validation technique
+        type_id_eq:
+          label: Type
       menu:
         initiatives: Initiatives
         initiatives_types: Types d'initiatives
@@ -77,6 +95,7 @@ fr:
           fields:
             created_at: Créé à
             id: ID
+            published_at: Publiée à
             state: État
             supports_count: Signatures
             title: Initiatives
@@ -109,6 +128,12 @@ fr:
         initiatives_types: Types d'initiative
     events:
       initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: L'initiative "%{resource_title}" a été envoyée pour validation technique. Consultez-la sur <a href="%{admin_initiative_url}">le panneau d'administration,</a>
+            email_outro: Vous avez reçu cette notification parce que vous êtes un administrateur de la plateforme.
+            email_subject: L'initiative "%{resource_title}" a été envoyée pour validation technique.
+            notification_title: L'initiative "%{resource_title}" a été envoyée pour validation technique. Consultez-la sur <a href="%{admin_initiative_path}">le panneau d'administration,</a>
         initiative_extended:
           email_intro: La date de fin du recueil des signatures pour l'initiative %{resource_title} a été prolongée !
           email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
@@ -125,6 +150,11 @@ fr:
             email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
             email_subject: Nouvelle étape franchie !
             notification_title: L'initiative <a href="%{resource_path}">%{resource_title}</a> a atteint les %{percentage}% de signatures.
+        support_threshold_reached:
+          email_intro: L'initiative %{resource_title} a atteint le seuil de soutiens
+          email_outro: Vous avez reçu cette notification parce que vous êtes un administrateur de la plateforme.
+          email_subject: Seuil de soutiens atteint
+          notification_title: L'initiative <a href="%{resource_path}">%{resource_title}</a> a atteint le seuil de soutiens
     gamification:
       badges:
         initiatives:
@@ -169,6 +199,8 @@ fr:
         content_blocks:
           highlighted_initiatives:
             max_results: Quantité maximale d'éléments à afficher
+        exports:
+          initiatives: Initiatives
         initiatives:
           edit:
             accept: Accepter l'initiative
@@ -186,6 +218,11 @@ fr:
             actions_title: Action
             preview: Aperçu
             print: Impression
+          initiative_attachments:
+            documents: Documents
+            edit: Modifier
+            new: Nouvelle
+            photos: Photos
           show:
             print: Impression
           update:
@@ -237,14 +274,26 @@ fr:
           unpublish: "%{user_name} a dépublié l'initiative %{resource_name}"
           update: "%{user_name} a mis à jour l'initiative %{resource_name}"
       admin_states:
+        accepted: Assez de signatures
         created: Créée
         discarded: Retirée
         published: Publiée
+        rejected: Pas assez de signatures
         validating: Validation technique
       application_helper:
+        filter_area_values:
+          all: Tout
+        filter_scope_values:
+          all: Tout
         filter_state_values:
+          accepted: Assez de signatures
+          all: Tout
+          answered: Répondu
           closed: Fermées
           open: Ouvrir
+          rejected: Pas assez de signatures
+        filter_type_values:
+          all: Tout
       committee_requests:
         new:
           continue: Continuer
@@ -261,13 +310,17 @@ fr:
           fill_data_help: "<ul> <li>Vérifier le contenu de votre initiative. Votre titre est-il facile à comprendre ? L'objectif de votre pétition est-il clair ?</li> <li>Vous devez choisir le type de recueil des signatures : en présentiel, en ligne ou une combinaison des deux</li> <li>Quelle est le secteur géographique de l'initiative ? Ville, arrondissement, quartier ?</li> </ul>"
           initiative_type: Type d'initiative
           more_information: "(Plus d'informations)"
+          select_area: Sélectionnez une zone
           select_scope: Sélectionnez une portée
         finish:
           back: Retour
           back_to_initiatives: Retour à l'index des initiatives
           callout_text: Bravo ! Votre initiative a été créée avec succès.
+          confirm: Confirmer
+          edit_my_initiative: Modifier mes initiatives
           go_to_my_initiatives: Consulter mes initiatives
           more_information: "(Plus d'informations)"
+          send_my_initiative: Envoyer mon initiative
         finish_help:
           access_reminder: Rappelez-vous que vous serez toujours en mesure d'accéder à vos initiatives via le menu utilisateur.
           help_for_organizations: Si vous êtes une association, vous devrez télécharger les procès-verbaux du conseil d'administration de toutes les organisations qui constituent le Comité de promotion
@@ -351,8 +404,10 @@ fr:
             other: "%{count} initiatives"
         filters:
           any: Tout
+          area: Zone
           author: Auteur
           myself: Mes initiatives
+          scope: Périmètre
           search: Rechercher
           state: État
           type: Type
@@ -374,6 +429,7 @@ fr:
           most_voted: Les plus soutenues
           random: Aléatoire
           recent: Les plus récentes
+          recently_published: Plus récemment publié
         result:
           answer_title:
             accepted: Cette proposition a été acceptée car
@@ -424,10 +480,20 @@ fr:
           highlighted_initiatives:
             active_initiatives: Initiatives actives
             see_all_initiatives: Voir toutes les initiatives
+      show:
+        badge_name:
+          accepted: Assez de signatures
+          created: Créé le
+          published: Publié
+          rejected: Pas assez de signatures
+          validating: Validation technique
       states:
         accepted: Acceptées
         expired: Expirées
       unavailable_scope: Portée indisponible
+      versions:
+        shared:
+          back_to_resource: Retour à l'initiative
     menu:
       initiatives: Initiatives
     resources:

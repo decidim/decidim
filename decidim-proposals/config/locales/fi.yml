@@ -198,15 +198,15 @@ fi:
           email_subject: "%{author_name} %{author_nickname} perunut yhteistyöluonnoksen %{resource_title}."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>perunut</strong>yhteistyöluonnoksen <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
-          email_intro: 'Voit nyt luoda uusia ehdotuksia kohteessa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
+          email_intro: 'Voit nyt luoda uusia ehdotuksia osallistumistilassa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
-          email_subject: Ehdotuksia on nyt mahdollista laatia kohteessa %{participatory_space_title}
-          notification_title: Voit nyt esittää <a href="%{resource_path}">uusia ehdotuksia</a> kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_subject: Ehdotuksia on nyt mahdollista laatia osallistumistilassa %{participatory_space_title}
+          notification_title: Voit nyt esittää <a href="%{resource_path}">uusia ehdotuksia</a> osallistumistilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
-          email_intro: 'Voit suositella ehdotuksia kohteessa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
+          email_intro: 'Voit suositella ehdotuksia osallistumistilassa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esiteyn linkin kautta.
           email_subject: Ehdotusten suosittelu on alkanut kohteelle %{participatory_space_title}
-          notification_title: Voit nyt aloittaa <a href="%{resource_path}">ehdotusten suosittelun</a> kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Voit nyt aloittaa <a href="%{resource_path}">ehdotusten suosittelun</a> osallistumistilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
             email_intro: 'Ehdotuksesi "%{resource_title}" on hyväksytty. Voit lukea vastauksen täältä:'
@@ -221,7 +221,7 @@ fi:
         proposal_evaluating:
           affected_user:
             email_intro: 'Ehdotustasi "%{resource_title}" arvioidaan parhaillaan. Voit tarkistaa vastauksen täältä:'
-            email_outro: Saat tämän ilmoituksen, koska olet luonut kohteen "%{resource_title}".
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut kohteen "%{resource_title}".
             email_subject: Ehdotuksesi arvioidaan
             notification_title: Ehdotuksesi <a href="%{resource_path}">%{resource_title}</a> arvioidaan.
           follower:
@@ -410,7 +410,7 @@ fi:
             attachment_legend: "(Valinnainen) Lisää liite"
             created_in_meeting: Tämä ehdotus on luotu tapaamisessa
             select_a_category: Valitse aihepiiri
-            select_a_meeting: Valitse tapaaminen
+            select_a_meeting: Valitse tapahtuma
           index:
             actions: Toiminnot
             assign_to_valuator: Anna tehtäväksi arvioijalle
@@ -624,14 +624,11 @@ fi:
             one: ja %{count} muu henkilö
             other: ja %{count} muuta henkilöä
           info-message: Tämä on <strong>yhteistyöluonnos</strong> ehdotukselle. Tämä tarkoittaa, että voit auttaa laatijoita muodostamaan ehdotuksen alhaalta löytyvän kommentointitoiminnon avulla tai parantaa sitä suoraan pyytämällä muokkausoikeutta ehdotukseen. Kun laatijat antavat sinulle muokkausoikeuden, voit tehdä muutoksia tähän luonnokseen.
-          of_versions: "(yhteensä %{number} kpl)"
           publish: Julkaise
           publish_info: Julkaise tämän luonnosversio tai
           published_proposal: julkaistu ehdotus
           request_access: Pyydä käyttöoikeutta
           requested_access: Käyttöoikeutta pyydetty
-          see_other_versions: näytä muut versiot
-          version: Versio %{number}
           version_history: katso tämän ehdotuksen versiohistoria
           withdraw: peruuttaa luonnos
         states:
@@ -768,6 +765,9 @@ fi:
         proposal:
           creation_date: 'Luontiaika: %{date}'
           view_proposal: Näytä ehdotus
+        proposals:
+          empty: Ei vielä yhtään ehdotusta
+          empty_filters: Ei yhtään ehdotusta annetuilla hakuehdoilla
         show:
           answer: Vastaus
           back_to: Takaisin
@@ -853,20 +853,12 @@ fi:
         error: Yhteistyöluonnoksen tallennus epäonnistui.
         success: Ehdotusluonnoksen päivitys onnistui.
       versions:
-        changes_at_title: Muutokset kohdassa "%{title}"
+        collaborative_drafts:
+          back_to_resource: Palaa yhteistyöluonnokseen
         index:
           title: Versiot
-        stats:
-          back_to_collaborative_draft: Palaa yhteistyöluonnokseen
-          back_to_proposal: Palaa ehdotukseen
-          number_of_versions: versiot
-          show_all_versions: Näytä kaikki versiot
-          version_author: Version tekijä
-          version_created_at: Versio luotu
-          version_number: Versionumero
-          version_number_out_of_total: "%{current_version} osuus %{total_count}:sta"
-        version:
-          version_index: Versio %{index}
+        proposals:
+          back_to_resource: Palaa ehdotukseen
       withdraw:
         errors:
           has_supports: Tätä ehdotusta ei voi peruuttaa, koska sitä on jo tuettu.

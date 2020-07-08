@@ -552,14 +552,11 @@ nl:
             one: en nog %{count} persoon
             other: en nog %{count} personen
           info-message: Dit is een <strong>concept</strong> voor een voorstel. Dit betekent dat u hun auteurs kunt helpen om het voorstel vorm te geven door gebruik te maken van de commentaarsectie hieronder of het direct te verbeteren door toegang aan te vragen om het te bewerken. Zodra de auteurs u toegang verlenen, kunt u wijzigingen aanbrengen in dit concept.
-          of_versions: "(van %{number})"
           publish: Publiceren
           publish_info: Publiceer deze versie van het concept of
           published_proposal: gepubliceerd voorstel
           request_access: Toegang vragen
           requested_access: Toegang aangevraagd
-          see_other_versions: zie andere versies
-          version: Versie %{number}
           version_history: bekijk versiegeschiedenis voor dit voorstel
           withdraw: het ontwerp terugtrekken
         states:
@@ -768,20 +765,12 @@ nl:
         error: Er is een fout opgetreden bij het opslaan van het gezamenlijk concept.
         success: Concept succesvol bijgewerkt.
       versions:
-        changes_at_title: Veranderingen bij "%{title}"
+        collaborative_drafts:
+          back_to_resource: Ga terug naar de gezamenlijk ontwerp
         index:
           title: versies
-        stats:
-          back_to_collaborative_draft: Ga terug naar de gezamenlijk ontwerp
-          back_to_proposal: Ga terug naar het voorstel
-          number_of_versions: versies
-          show_all_versions: Toon alle versies
-          version_author: Versie auteur
-          version_created_at: Versie gemaakt om
-          version_number: Versienummer
-          version_number_out_of_total: "%{current_version} van de %{total_count}"
-        version:
-          version_index: Versie %{index}
+        proposals:
+          back_to_resource: Ga terug naar het voorstel
       withdraw:
         errors:
           has_supports: Dit voorstel kan niet worden ingetrokken omdat het al wordt ondersteund.

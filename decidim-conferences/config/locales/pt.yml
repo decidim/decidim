@@ -183,6 +183,7 @@ pt:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
+            valuator: Avaliador
         media_link:
           fields:
             date: Encontro
@@ -461,6 +462,9 @@ pt:
             active_conferences: Conferências ativas
             see_all_conferences: Veja todas as conferências
       photo:
+        image:
+          attributes:
+            alt: Imagem multimédia
         show:
           close_modal: Fechar modal
           photo: foto
@@ -524,6 +528,11 @@ pt:
           email_outro: Você recebeu esta notificação porque está seguindo a conferência "%{resource_title}". Você pode deixar de segui-lo no link anterior.
           email_subject: A conferência "%{resource_title}" habilitou os registros.
           notification_title: A conferência <a href="%{resource_path}">%{resource_title}</a> permitiu registros.
+        role_assigned:
+          email_intro: Foi designado como %{role} para a conferência "%{resource_title}".
+          email_outro: Recebeu esta notificação porque é %{role} da conferência "%{resource_title}".
+          email_subject: Foi designado como %{role} para "%{resource_title}".
+          notification_title: Foi designado como %{role} para a conferência <a href="%{resource_url}">%{resource_title}</a>.
         upcoming_conference:
           email_intro: 'A conferência "%{resource_title}" está ocorrendo em dois dias. Você pode ler a descrição de sua página:'
           email_outro: Você recebeu esta notificação porque está seguindo a conferência "%{resource_title}". Você pode deixar de segui-lo no link anterior.

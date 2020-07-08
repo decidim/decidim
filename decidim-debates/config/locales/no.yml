@@ -110,7 +110,7 @@
         create_debate_event:
           space_followers:
             email_intro: |-
-              Hei, 
+              Hei,
               En ny debatt "%{resource_title}" har blitt opprettet på deltakerområdet %{space_title}, sjekk det ut og bidra:
             email_outro: Du har mottatt denne varslingen fordi du følger deltakerområdet %{space_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
             email_subject: Ny debatt "%{resource_title}" på %{space_title}

@@ -536,14 +536,11 @@ gl:
             one: e %{count} persoas máis
             other: e %{count} persoas máis
           info-message: Este é un <strong>proxecto colaborativo</strong> a proposta. Isto significa que pode axudar aos seus autores a configurar a proposta usando a sección de comentarios a continuación ou mellorala directamente solicitando o acceso para editala. Unha vez que os autores te outorgan acceso, podes realizar cambios neste borrador.
-          of_versions: "(de %{number})"
           publish: Publicar
           publish_info: Publica esta versión do borrador ou
           published_proposal: proposta publicada
           request_access: Solicitar acceso
           requested_access: Acceso solicitado
-          see_other_versions: ver outras versións
-          version: Versión %{number}
           version_history: Consulte o historial de versións para esta proposta
           withdraw: retirar o borrador
         states:
@@ -737,20 +734,12 @@ gl:
         error: Produciuse un erro ao gardar o borrador da proposta.
         success: O proxecto de proposta actualizouse con éxito.
       versions:
-        changes_at_title: Cambios en "%{title}"
+        collaborative_drafts:
+          back_to_resource: Volve ao borrador colaborativo
         index:
           title: Versións
-        stats:
-          back_to_collaborative_draft: Volve ao borrador colaborativo
-          back_to_proposal: Volver á proposta
-          number_of_versions: Versións
-          show_all_versions: Mostrar todas as versións
-          version_author: Autor da versión
-          version_created_at: Versión creada en
-          version_number: Número de versión
-          version_number_out_of_total: "%{current_version} de %{total_count}"
-        version:
-          version_index: Versión %{index}
+        proposals:
+          back_to_resource: Volver á proposta
       withdraw:
         errors:
           has_supports: Esta proposta non pode ser retirada porque xa ten apoio.

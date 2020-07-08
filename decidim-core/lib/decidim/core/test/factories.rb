@@ -465,6 +465,30 @@ FactoryBot.define do
     end
   end
 
+  factory :nested_dummy_resource, class: "Decidim::DummyResources::NestedDummyResource" do
+    title { generate(:name) }
+    dummy_resource { create(:dummy_resource) }
+  end
+
+  factory :coauthorable_dummy_resource, class: "Decidim::DummyResources::CoauthorableDummyResource" do
+    title { generate(:name) }
+    component { create(:component, manifest_name: "dummy") }
+
+    transient do
+      authors_list { [create(:user, organization: component.organization)] }
+    end
+
+    after :build do |resource, evaluator|
+      evaluator.authors_list.each do |coauthor|
+        resource.coauthorships << if coauthor.is_a?(::Decidim::UserGroup)
+                                    build(:coauthorship, author: coauthor.users.first, user_group: coauthor, coauthorable: resource, organization: evaluator.component.organization)
+                                  else
+                                    build(:coauthorship, author: coauthor, coauthorable: resource, organization: evaluator.component.organization)
+                                  end
+      end
+    end
+  end
+
   factory :resource_link, class: "Decidim::ResourceLink" do
     name { generate(:slug) }
     to { build(:dummy_resource) }

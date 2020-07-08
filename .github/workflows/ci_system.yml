@@ -8,7 +8,7 @@ on:
       - "*-stable"
   pull_request:
     branches-ignore:
-      - "l10n_*"
+      - "chore/l10n*"
 
 env:
   CI: "true"
@@ -20,7 +20,7 @@ jobs:
   main:
     name: Tests
     runs-on: ubuntu-latest
-    if: "!startsWith(github.head_ref, 'l10n_')"
+    if: "!startsWith(github.head_ref, 'chore/l10n')"
     services:
       postgres:
         image: postgres:11
@@ -56,8 +56,12 @@ jobs:
             ${{ runner.OS }}-rubydeps-${{ env.cache-name }}-
             ${{ runner.OS }}-rubydeps-
             ${{ runner.OS }}-
-      - run: bundle install --path vendor/bundle --jobs 4 --retry 3
-        name: Install Ruby deps
+      - name: Install Ruby deps
+        uses: nick-invision/retry@v1
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: bundle install --path vendor/bundle --jobs 4 --retry 3
       - run: bundle exec rake test_app
         name: Create test app
       - run: mkdir -p ./spec/decidim_dummy_app/tmp/screenshots

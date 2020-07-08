@@ -404,12 +404,13 @@ const AddCommentFormWithMutation = graphql<addCommentMutation, AddCommentFormPro
             const variables = {
               commentableId: ownProps.rootCommentable.id,
               commentableType: ownProps.rootCommentable.type,
-              orderBy: ownProps.orderBy
+              orderBy: ownProps.orderBy,
+              singleCommentId: null
             };
             const prev = store.readQuery<GetCommentsQuery>({
               query: getCommentsQuery,
               variables
-             });
+            });
             const { id, type } = ownProps.commentable;
             const newComment = data.commentable && data.commentable.addComment;
             let comments = [];

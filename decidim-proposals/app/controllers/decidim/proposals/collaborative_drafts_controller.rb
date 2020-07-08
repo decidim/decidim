@@ -10,6 +10,7 @@ module Decidim
 
       include Decidim::ApplicationHelper
       include FormFactory
+      include Flaggable
       include FilterResource
       include CollaborativeOrderable
       include Paginable

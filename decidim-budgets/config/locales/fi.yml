@@ -2,7 +2,7 @@ fi:
   activemodel:
     attributes:
       project:
-        budget: Määräraha
+        budget: Budjetti
         decidim_category_id: Aihepiiri
         decidim_scope_id: Teema
         description: Kuvaus
@@ -21,7 +21,7 @@ fi:
         confirm_destroy: Haluatko varmasti poistaa tämän suunnitelman?
         destroy: Poista
         edit: Muokkaa
-        import: Tuo ehdotuksia suunnitelmiin
+        import: Tuo ehdotuksia suunnitelmiksi
         new: Uusi suunnitelma
         preview: Esikatsele
         title: Toiminnot
@@ -53,8 +53,8 @@ fi:
             invalid: Ehdotusten tuonti suunnitelmiksi epäonnistui
             success: "%{number} ehdotusta tuotu onnistuneesti suunnitelmiksi"
           new:
-            create: Tuo ehdotuksia suunnitelmiin
-            no_components: Tässä osallistumistilassa ei ole ole muita ehdotuskomponentteja, joista voitaisiin tuoda ehdotuksia suunnitelmiin.
+            create: Tuo ehdotuksia suunnitelmiksi
+            no_components: Tässä osallistumistilassa ei ole ole muita ehdotuskomponentteja, joista voitaisiin tuoda ehdotuksia suunnitelmiksi.
             select_component: Valitse komponentti
       admin_log:
         project:

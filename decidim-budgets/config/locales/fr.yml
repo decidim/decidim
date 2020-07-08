@@ -65,6 +65,12 @@ fr:
         project:
           fields:
             title: Titre
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'Les projets que vous avez sélectionnés sont :'
+          subject: Vous avez voté sur l'espace participatif %{space_name}
+          voted_on_space: Vous avez voté sur les budgets pour l'espace participatif %{space_name}.
+          voted_on_space_with_scope: Vous avez voté sur les budgets pour l'espace participatif %{space_name} dans %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Êtes-vous d'accord ? Une fois que vous aurez confirmé votre vote, si vous changez d'avis, vous devrez tout annuler et recommencer de zéro.
@@ -108,6 +114,12 @@ fr:
             one: projet sélectionné
             other: projets sélectionnés
           view: Voir
+        orders:
+          highest_cost: Prix décroissant
+          label: Trier les projets par
+          lowest_cost: Prix croissant
+          most_voted: Le plus populaire
+          random: Ordre aléatoire
         project:
           add: Ajouter
           count:

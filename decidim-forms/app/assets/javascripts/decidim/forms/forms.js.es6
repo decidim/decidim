@@ -1,9 +1,10 @@
 // = require ./option_attached_inputs.component
 // = require ./autosortable_checkboxes.component
+// = require ./display_conditions.component
 // = require ./max_choices_alert.component
 
 ((exports) => {
-  const { createOptionAttachedInputs, createAutosortableCheckboxes, createMaxChoicesAlertComponent } = exports.Decidim;
+  const { createOptionAttachedInputs, createAutosortableCheckboxes, createMaxChoicesAlertComponent, createDisplayConditions } = exports.Decidim;
 
   $(".radio-button-collection, .check-box-collection").each((idx, el) => {
     createOptionAttachedInputs({
@@ -32,13 +33,19 @@
     })
   });
 
+  $(".answer-questionnaire .question[data-conditioned='true']").each((idx, el) => {
+    createDisplayConditions({
+      wrapperField: $(el)
+    });
+  });
+
   const $form = $("form.answer-questionnaire");
   if ($form.length > 0) {
     $form.find("input, textarea, select").on("change", () => {
       $form.data("changed", true);
     });
 
-    const safePath = $form.data("safe-path");
+    const safePath = $form.data("safe-path").split("?")[0];
     $(document).on("click", "a", (event) => {
       window.exitUrl = event.currentTarget.href;
     });

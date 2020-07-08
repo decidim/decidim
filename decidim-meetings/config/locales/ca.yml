@@ -153,6 +153,10 @@ ca:
         confirm_destroy: Segur que vols suprimir aquesta trobada?
         destroy: Esborra
         edit: Edita
+        invalid_destroy:
+          proposals_count:
+            one: 'No es pot destruir la trobada perquè té %{count} proposta associades:'
+            other: 'No es pot destruir la trobada perquè té %{count} propostes associades:'
         minutes: Acta
         new: Nova trobada
         preview: Previsualitzar
@@ -223,9 +227,6 @@ ca:
           edit:
             close: Tancar
             title: Tancar trobada
-        meeting_copies:
-          form:
-            select_organizer: Selecciona l'organitzador
         meetings:
           close:
             invalid: S'ha produït un error en tancar aquesta trobada
@@ -234,6 +235,10 @@ ca:
             invalid: S'ha produït un error en crear aquesta trobada
             success: Trobada creada amb èxit
           destroy:
+            invalid:
+              proposals_count:
+                one: No es pot destruir la trobada perquè té %{count} proposta associades
+                other: No es pot destruir la trobada perquè té %{count} propostes associades
             success: La trobada s'ha eliminat correctament
           edit:
             update: Actualitzar
@@ -241,7 +246,6 @@ ca:
             address_help: 'Adreça: que farà servir per Geocoder per a trobar la localització'
             location_help: 'Localització: missatge dirigit a les participants indicant el lloc on trobar-se'
             location_hints_help: 'Ajuda de localització: informació addicional. Per exemple: la planta de l''edifici'
-            select_organizer: Selecciona l'organitzadora
           index:
             title: Trobades
           new:
@@ -347,11 +351,8 @@ ca:
       meetings:
         filters:
           category: Categoria
-          category_prompt: Selecciona una categoria
           date: Data
-          past: Passades
           search: Cerca
-          upcoming: Properes
         filters_small_view:
           close_modal: Tancar finestra
           filter: Filtra
