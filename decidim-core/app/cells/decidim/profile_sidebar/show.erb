@@ -34,26 +34,26 @@
         <div class="mr-s">
           <%= link_to profile_followers_path(nickname: profile_holder.nickname) do %>
             <%= t("decidim.profiles.show.followers") %>
-            <span class="heading2"><strong><%= profile_user.followers_count %></strong></span>
+            <div class="heading2"><strong><%= profile_user.followers_count %></strong></div>
           <% end %>
         </div>
         <div class="ml-s">
           <%= link_to profile_following_path(nickname: profile_holder.nickname) do %>
             <%= t("decidim.profiles.show.following") %>
-            <span class="heading2"><strong><%= profile_user.following_count %></strong></span>
+            <div class="heading2"><strong><%= profile_user.following_count %></strong></div>
           <% end %>
         </div>
       <% else %>
         <div class="mr-s">
           <%= link_to profile_followers_path(nickname: profile_holder.nickname) do %>
             <%= t("decidim.profiles.show.followers") %>
-            <span class="heading1"><%= profile_user.followers_count %></span>
+            <div class="heading2"><%= profile_user.followers_count %></div>
           <% end %>
         </div>
         <div class="ml-s">
           <%= link_to profile_members_path(nickname: profile_holder.nickname) do %>
             <%= t("decidim.profiles.show.members") %>
-            <span class="heading1"><%= profile_user.members_count %></span>
+            <div class="heading2"><%= profile_user.members_count %></div>
           <% end %>
         </div>
       <% end %>
