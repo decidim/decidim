@@ -153,6 +153,10 @@ fi-pl:
         confirm_destroy: Haluatko varmasti poistaa tämän tapahtuman?
         destroy: Poista
         edit: Muokkaa
+        invalid_destroy:
+          proposals_count:
+            one: 'Tapahtumaa ei voi poistaa, koska siihen on liitetty %{count} ehdotus:'
+            other: 'Tapahtumaa ei voi poistaa, koska siihen on liitetty %{count} ehdotusta:'
         minutes: Pöytäkirja
         new: Uusi kokous
         preview: Esikatsele
@@ -234,6 +238,10 @@ fi-pl:
             invalid: Tapahtuman luonnissa esiintyi ongelma
             success: Tapahtuma onnistuneesti luotu
           destroy:
+            invalid:
+              proposals_count:
+                one: Tapahtumaa ei voi poistaa, koska siihen on liitetty %{count} ehdotus
+                other: Tapahtumaa ei voi poistaa, koska siihen on liitetty %{count} ehdotusta
             success: Tapahtuma onnistuneesti luotu
           edit:
             update: Päivitä

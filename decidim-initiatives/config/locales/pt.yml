@@ -33,6 +33,7 @@ pt:
         extra_fields_legal_information: Informações legais sobre a coleta de dados pessoais
         minimum_committee_members: Mínimo dos membros do comitê
         online_signature_enabled: Assinatura on-line ativada
+        promoting_committee_enabled: Permitir comité de promoção
         title: Título
         undo_online_signatures_enabled: Permitir que os usuários desfizessem suas assinaturas on-line
         validate_sms_code_on_votes: Adicionar etapa de validação do código SMS ao processo de assinatura

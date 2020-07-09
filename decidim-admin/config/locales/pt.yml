@@ -36,18 +36,18 @@ pt:
         organization_url: URL da organização
         redirect_uri: URI de redirecionamento
       organization:
-        address: Nome do host SMTP
+        address: Nome do anfitrião SMTP
         alert_color: Alerta
         badges_enabled: Ativar emblemas
         cta_button_path: Caminho do botão Chamar para Ação
         cta_button_text: Texto do botão Chamar para Ação
-        customize_welcome_notification: Personaliza as tuas notificações
+        customize_welcome_notification: Personalizar a notificação de boas-vindas
         default_locale: Idioma por defeito
         description: Descrição
         enable_omnipresent_banner: Mostrar bandeira omnipresente
         facebook_handler: Manipulador do Facebook
         favicon: Ícone
-        from: Do Email Address
+        from: Endereço de e-mail do remetente
         github_handler: GitHub handler
         header_snippets: Snippets de cabeçalho
         highlighted_content_banner_action_subtitle: Legenda do botão de ação
@@ -66,23 +66,23 @@ pt:
         omnipresent_banner_short_description: Pequena descrição
         omnipresent_banner_title: Título
         omnipresent_banner_url: URL
-        password: Senha
+        password: Palavra-passe
         port: Porta
         primary_color: Primário
         reference_prefix: Prefixo de referência
-        rich_text_editor_in_public_views: Habilitar o editor de texto rico para participantes
+        rich_text_editor_in_public_views: Ativar o editor de RTF para os participantes
         secondary_color: Secundário
-        send_welcome_notification: Enviar uma notificação de teste
+        send_welcome_notification: Enviar notificação de boas-vindas
         show_statistics: Mostre estatisticas
         success_color: Sucesso
-        time_zone: Fuso horário
+        time_zone: Fuso Horário
         tos_version: Termos de versão do serviço
         twitter_handler: Manipulador do Twitter
         user_groups_enabled: Ativar grupos de usuários
-        user_name: Nome de usuário
+        user_name: Nome do utilizador
         warning_color: Aviso
-        welcome_notification_body: Corpo de notificação bem-vindo
-        welcome_notification_subject: Corpo de notificação bem-vindo
+        welcome_notification_body: Corpo da notificação de boas-vindas
+        welcome_notification_subject: Assunto da notificação de boas-vindas
         youtube_handler: Manipulador do YouTube
       scope:
         code: Código
@@ -150,18 +150,18 @@ pt:
         verify: Verificar
       admin_terms_of_use:
         accept:
-          error: Ocorreu um erro ao aceitar os termos de uso do administrador.
-          success: Ótimo! Você aceitou os termos de uso do administrador.
+          error: Ocorreu um erro ao aceitar os termos de utilização de administrador.
+          success: Excelente! Aceitou os termos de utilização de administrador.
         actions:
-          accept: Eu concordo com os termos do administrador
-          are_you_sure: Tem certeza de que deseja recusar os termos do administrador?
-          refuse: Recuse os termos do admin
-          title: Concordo com os termos e condições de
+          accept: Concordo com estes termos de administrador
+          are_you_sure: Tem a certeza de que pretende recusar os termos de administrador?
+          refuse: Recusar os termos de administrador
+          title: Concordar com os termos e condições de utilização
         required_review:
-          alert: 'Obrigatório: Revise os termos de uso de nosso administrador'
-          callout: Por favor, reserve um momento para revisar os Termos de Uso do Administrador. Caso contrário, você não poderá administrar a plataforma.
-          cta: Reveja eles agora.
-        title: Ver os termos de utilização
+          alert: 'Necessário: Rever os nossos termos de utilização de administrador'
+          callout: Despenda algum tempo para rever os Termos de Utilização de Administrador. Caso contrário, não poderá administrar a plataforma.
+          cta: Reveja-os agora.
+        title: Termos de Utilização de Administrador
       area_types:
         create:
           error: Ocorreu um erro ao criar um novo tipo de área.
@@ -182,7 +182,7 @@ pt:
           error: Ocorreu um erro ao criar uma nova área.
           success: Área criada com sucesso.
         destroy:
-          has_spaces: A área tem espaços dependentes, não deve ter dependências para ser excluída.
+          has_spaces: A área possui espaços dependentes, não poderá ter dependências para poder ser eliminada.
           success: Área destruída com sucesso
         edit:
           title: Editar área
@@ -253,7 +253,7 @@ pt:
           success: Categoria atualizada com sucesso.
       component_permissions:
         update:
-          error: Ocorreu um erro ao atualizar as permissões deste componente.
+          error: Ocorreu um problema ao atualizar as permissões deste componente.
           success: Permissões atualizadas com sucesso.
       components:
         create:
@@ -308,15 +308,15 @@ pt:
             'false': Público
             'true': Privado
         published_at_null:
-          label: Publicada
+          label: Publicado
           values:
-            'false': Publicada
-            'true': Não Publicado
+            'false': Publicado
+            'true': Publicação removida
         scope_id_eq:
           label: Âmbito
         search_label: Pesquisa
         search_placeholder:
-          name_or_nickname_or_email_cont: Pesquise %{collection} por e-mail, nome ou apelido.
+          name_or_nickname_or_email_cont: Pesquisar %{collection} por e-mail, nome ou alcunha.
           title_cont: Pesquisar %{collection} por título.
       help_sections:
         error: Houve um erro ao atualizar as seções de ajuda
@@ -421,7 +421,7 @@ pt:
             created_at: Criado em
             progress: Progresso
             sent_at: Enviado em
-            sent_to: Enviar para
+            sent_to: Enviado para
             subject: Sujeito
           name: Boletim de Notícias
         oauth_application:
@@ -487,16 +487,44 @@ pt:
         form:
           interpolations_hint: 'Dica: você pode usar "%{name}" em qualquer parte do corpo ou assunto e será substituído pelo nome do destinatário.'
         index:
+          all: todos
+          all_users: 'Todos os utilizadores'
+          and: 'e'
           confirm_delete: Tem certeza de que deseja excluir esta newsletter?
+          followers: 'seguidores'
+          has_been_sent_to: 'Foi enviado para: '
+          no_scopes: Sem âmbitos
+          not_sent: Não enviado
+          participants: 'participantes'
+          segmented_to: 'Segmentado para %{subject}: '
+          subscribed_count: 'Subscrito:'
           title: boletins informativos
         new:
           save: Salve 
           title: Novo boletim informativo
         select_recipients_to_deliver:
+          all_spaces: Todos
+          all_users_help: Envia uma newsletter para todos os utilizadores confirmados.
           confirm_deliver: Tem certeza de que deseja enviar este boletim informativo? Essa ação não pode ser desfeita.
           deliver: Entregar boletim informativo
+          followers_help: Envia uma newsletter para todos os utilizadores confirmados que seguem quaisquer espaços participativos na lista.
+          none: Nenhum
+          participants_help: Envia uma newsletter para todos os utilizadores confirmados que tenham participado em qualquer um dos espaços participativos selecionados na lista.
+          recipients_count: Esta newsletter será enviada para <strong id='recipients_count'>%{count}</strong> utilizadores.
+          scopes_help: Envia uma newsletter aos utilizadores que tenham qualquer um dos âmbitos selecionados ativados nas definições "Os meus interesses" das suas contas.
+          select_scopes: Filtro para os utilizadores que ativaram qualquer âmbito selecionado nas definições "Os meus interesses" das suas contas.
+          select_spaces: Selecione os espaços para segmentar a newsletter
+          select_users: Selecione os utilizadores aos quais pretende enviar a newsletter
+          send_to_all_users: Enviar para todos os utilizadores
+          send_to_followers: Enviar para os seguidores
+          send_to_participants: Enviar para os participantes
+          title: Selecione os destinatários
+          warning: "<strong>Atenção:</strong> Esta newsletter apenas será enviada para utilizadores que tenham ativado a opção <em>Pretendo receber newsletters</em> nas suas definições de notificações."
+        send:
+          no_recipients: Nenhum destinatário para esta seleção
         show:
           preview: Visualização
+          select_recipients_to_deliver: Selecione os destinatários
           subject: Sujeito
         update:
           error: Ocorreu um erro ao atualizar este boletim informativo.
@@ -549,6 +577,7 @@ pt:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          rich_text_editor_in_public_views_help: Em algumas áreas de texto, os participantes serão capazes de inserir algumas etiquetas HTML utilizando o editor de RTF.
           social_handlers: Social
           twitter: Twitter
           url: Url
@@ -583,10 +612,19 @@ pt:
           error: Houve um erro ao excluir um usuário particular desse espaço participativo.
           success: Espaço participativo acesso de usuário privado destruído com sucesso.
         index:
+          import_via_csv: Importar através de CSV
           title: Espaço participativo usuário particular
         new:
           create: Crio
           title: Novo usuário particular do Espaço Participativo.
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: Ocorreu um problema ao ler o ficheiro CSV.
+          success: Ficheiro CSV carregado com sucesso, será enviado um e-mail de convite aos participantes. Isto poderá demorar algum tempo.
+        new:
+          explanation: Carregue o seu ficheiro CSV. Deverá possuir duas colunas com o e-mail na primeira coluna do ficheiro e o nome na última coluna do ficheiro (e-mail, nome) dos utilizadores que pretende adicionar ao espaço participativo, sem cabeçalhos.
+          title: Carregar o seu ficheiro CSV
+          upload: Carregar
       resource_permissions:
         edit:
           submit: Enviar
@@ -653,6 +691,7 @@ pt:
           update: Actualizar
         form:
           none: Nenhum
+          slug_help: 'Utilize caminhos parciais e não URL completos aqui. Aceita letras, números, traços e barras, devendo começar com uma letra. Exemplo: %{url}'
         index:
           last_notable_change: Última alteração notável
         new:

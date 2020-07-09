@@ -463,6 +463,11 @@ cs:
             endorsements_ranking: Pořadí podle schvalování
             endorsers: Schvalující
             link: Odkaz
+            n_more_endorsers:
+              one: a další 1
+              few: a %{count} dalších
+              many: a %{count} dalších
+              other: a dalších %{count}
             photos: Fotky
             proposals: Návrhy
             ranking: "%{ranking} z %{total}"

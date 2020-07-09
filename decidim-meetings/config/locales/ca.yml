@@ -153,6 +153,10 @@ ca:
         confirm_destroy: Segur que vols suprimir aquesta trobada?
         destroy: Esborra
         edit: Edita
+        invalid_destroy:
+          proposals_count:
+            one: 'No es pot destruir la trobada perquè té %{count} proposta associades:'
+            other: 'No es pot destruir la trobada perquè té %{count} propostes associades:'
         minutes: Acta
         new: Nova trobada
         preview: Previsualitzar
@@ -234,6 +238,10 @@ ca:
             invalid: S'ha produït un error en crear aquesta trobada
             success: Trobada creada amb èxit
           destroy:
+            invalid:
+              proposals_count:
+                one: No es pot destruir la trobada perquè té %{count} proposta associades
+                other: No es pot destruir la trobada perquè té %{count} propostes associades
             success: La trobada s'ha eliminat correctament
           edit:
             update: Actualitzar

@@ -79,7 +79,7 @@ pt:
     admin:
       actions:
         new_assembly: Nova montagem
-        new_assembly_type: Novo usuário de montagem
+        new_assembly_type: Novo tipo de assembleia
       assemblies:
         create:
           error: Ocorreu um erro ao criar uma nova assembléia.
@@ -103,16 +103,16 @@ pt:
           success: Assembléia duplicada com sucesso.
       assemblies_types:
         create:
-          error: Ocorreu um erro ao criar uma nova assembléia.
-          success: Assembléia criada com sucesso.
+          error: Ocorreu um problema ao criar um novo tipo de assembleia.
+          success: Tipo de assembleia criado com sucesso.
         destroy:
-          success: O tipo de associado foi excluído com êxito.
+          success: Tipo de assembleia eliminado com sucesso.
         new:
           create: Criar
-          title: Novo usuário de montagem
+          title: Novo tipo de assembleia
         update:
-          error: Ocorreu um erro ao atualizar este assembly.
-          success: O tipo de associado foi excluído com êxito.
+          error: Ocorreu um problema ao atualizar este tipo de assembleia.
+          success: Tipo de assembleia atualizado com sucesso.
       assembly_copies:
         new:
           copy: cópia de
@@ -172,7 +172,7 @@ pt:
           info: Info
           moderations: Moderação
           private_users: Usuários particulares
-        assemblies_types: Tipo de montagem
+        assemblies_types: Tipos de assembleias
       models:
         assemblies_types:
           fields:
@@ -208,10 +208,10 @@ pt:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
-            valuator: Valor estimado
+            valuator: Avaliador
       titles:
         assemblies: Assembléias
-        assemblies_types: Tipo de montagem
+        assemblies_types: Tipos de assembleias
     admin_log:
       assembly:
         create: "%{user_name} criou o conjunto %{resource_name}"
@@ -223,11 +223,11 @@ pt:
         delete: "%{user_name} removeu o membro %{resource_name} do conjunto %{space_name}"
         update: "%{user_name} atualizou o %{resource_name} membro na montagem %{space_name}"
       assembly_type:
-        create: "%{user_name} criou o tipo de montagem %{resource_name}"
-        delete: "%{user_name} removeu o %{resource_name} recurso do %{space_name} espaço"
-        publish: "%{user_name} criou o tipo de montagem %{resource_name}"
-        unpublish: "%{user_name} criou o tipo de montagem %{resource_name}"
-        update: "%{user_name} criou o tipo de montagem %{resource_name}"
+        create: "%{user_name} criou o tipo de assembleia %{resource_name}"
+        delete: "%{user_name} removeu o membro %{resource_name} do tipo de assembleia %{space_name}"
+        publish: "%{user_name} publicou o tipo de assembleia %{resource_name}"
+        unpublish: "%{user_name} removeu a publicação do tipo de assembleia %{resource_name}"
+        update: "%{user_name} atualizou o tipo de assembleia %{resource_name}"
       assembly_user_role:
         create: "%{user_name} convidou %{resource_name} para o assembly %{space_name}"
         delete: "%{user_name} removeu o usuário %{resource_name} do conjunto %{space_name}"
@@ -293,7 +293,7 @@ pt:
         others: Outras
         public: Público
       filter:
-        all: Tous les types
+        all: Todos os tipos
         commission: Comissão
         consultative_advisory: Consultivo / Consultivo
         executive: Executivo
@@ -373,7 +373,7 @@ pt:
         assembly_presenter:
           not_found: 'O assembly não foi encontrado no banco de dados (ID: %{id})'
         assembly_type_presenter:
-          not_found: 'O tipo de montagem não foi encontrado no banco de dados (ID: %{id})'
+          not_found: 'O tipo de assembleia não foi encontrado na base de dados (ID: %{id})'
     menu:
       assemblies: Assembléias
     metrics:
@@ -391,6 +391,7 @@ pt:
           more_info: Mais informações
           take_part: Participar
         index:
+          children: 'Assembleias: '
           organizational_chart: Organograma
           promoted_assemblies: Montagens destacadas
           reset_chart: Restabelecer

@@ -349,9 +349,9 @@ es-PY:
           category: Categoría
           category_prompt: Selecciona una categoría
           date: Fecha
-          past: Pasadas
+          past: Pasado
           search: Buscar
-          upcoming: Próximas
+          upcoming: Próximo
         filters_small_view:
           close_modal: Cerrar ventana
           filter: Filtrar

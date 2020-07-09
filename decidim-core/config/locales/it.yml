@@ -105,9 +105,9 @@ it:
         hide: "%{user_name} nascosto una risorsa di tipo %{resource_type} nel %{space_name} spazio"
         unreport: "%{user_name} non segnalata una risorsa di tipo %{resource_type} nel %{space_name} spazio"
       newsletter:
-        create: "%{user_name} creato il %{resource_name} notiziario"
-        delete: "%{user_name} cancellato il %{resource_name} notiziario"
-        deliver: "%{user_name} consegnato il %{resource_name} notiziario"
+        create: "%{user_name} creato la %{resource_name} newsletter"
+        delete: "%{user_name} ha cancellato la %{resource_name} newsletter"
+        deliver: "%{user_name} ha inviato la %{resource_name} newsletter"
         update: "%{user_name} aggiornato il %{resource_name} notiziario"
       oauth_application:
         create: "%{user_name} ha creato l'applicazione OAuth %{resource_name}"
@@ -407,7 +407,7 @@ it:
             <p>Se non si spunta la casella, potrebbero mancare informazioni pertinenti sulle nuove opportunità di partecipazione all'interno della piattaforma.<br>
             Se vuoi ancora evitare di ricevere le newsletter, rispettiamo la tua decisione.</p>
             <p>Grazie per aver letto questo!</p>
-          title: Notifiche alla newsletter
+          title: Iscrizioni alla newsletter
         omniauth_buttons:
           or: O
     doorkeeper:
@@ -800,7 +800,7 @@ it:
     newsletter_mailer:
       newsletter:
         note: Hai ricevuto questa email perché ti sei iscritto alla newsletter su %{organization_name}. Puoi modificare le impostazioni sulla tua <a href="%{link}">pagina di notifiche</a>.
-        see_on_website: Non riesci a vedere questa email correttamente? Visualizzalo su <a href="%{link}" target="_blank">website</a>.
+        see_on_website: Non riesci a vedere questa email correttamente? Visualizzala su <a href="%{link}" target="_blank">website</a>.
         unsubscribe: Per disattivare la ricezione di questo tipo di email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
     newsletters:
       unsubscribe:
@@ -812,11 +812,11 @@ it:
     newsletters_opt_in:
       unathorized: Spiacenti, questo link non è più disponibile
       update:
-        error: È successo qualcosa
+        error: C'è stato un problema
         success: Impostazioni della newsletter aggiornate correttamente
     newsletters_opt_in_mailer:
       notify:
-        body_1: Il trattamento dei dati personali e la sua protezione stanno diventando sempre più importanti per tutti noi. Con il nuovo regolamento generale sulla protezione dei dati (GDPR) del 25 maggio 2018, gli individui hanno un migliore controllo sui propri dati personali. Per questo motivo abbiamo bisogno del tuo "OK" per continuare a inviare informazioni rilevanti sulle attività dello %{organization_name}.
+        body_1: Il trattamento dei dati personali e la sua protezione stanno diventando sempre più importanti per tutti noi. Con il nuovo regolamento generale sulla protezione dei dati (GDPR) del 25 maggio 2018, gli individui hanno un migliore controllo sui propri dati personali. Per questo motivo abbiamo bisogno del tuo "OK" per continuare a inviare informazioni rilevanti sulle attività di %{organization_name}.
         body_2: 'Come puoi darci il tuo consenso? Basta fare clic sul seguente pulsante:'
         body_3: Con questo consenso sarai in grado di continuare a ricevere informazioni sui servizi della piattaforma. Se, al contrario, non riceviamo una conferma positiva da parte vostra, smetteremo di inviarti i nostri messaggi. Se confermi di voler essere informato, avrai sempre la possibilità di annullare in qualsiasi momento.
         button: Sì, voglio continuare a ricevere informazioni pertinenti
@@ -830,7 +830,7 @@ it:
         email_on_notification: Voglio ricevere un'e-mail ogni volta che ricevo una notifica.
         everything_followed: Tutto ciò che seguo
         newsletter_notifications: Voglio ricevere le newsletter
-        newsletters: Newsletters
+        newsletters: Le Newsletter
         own_activity: La mia attività personale, come quando qualcuno commenta la mia proposta o mi menziona
         receive_notifications_about: Voglio ricevere le notifiche
         send_notifications_by_email: Invia notifiche via email

@@ -42,7 +42,7 @@ fi:
       models:
         post:
           fields:
-            author: Kirjoittaja
+            author: Laatija
             body: Leipäteksti
             created_at: Luotu
             title: otsikko
@@ -68,7 +68,7 @@ fi:
         post_created:
           email_intro: Seuraamassasi kohteessa "%{participatory_space_title}" on julkaistu artikkeli "%{resource_title}".
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
-          email_subject: Uusi artikkeli julkaistiin tilassa %{participatory_space_title}
+          email_subject: Uusi artikkeli julkaistiin osallistumistilassa %{participatory_space_title}
           notification_title: Kohteessa %{participatory_space_title} on julkaistu artikkeli <a href="%{resource_path}">%{resource_title}</a>
     pages:
       home:

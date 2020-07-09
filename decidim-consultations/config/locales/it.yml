@@ -5,36 +5,36 @@ it:
         banner_image: Immagine banner
         decidim_highlighted_scope_id: Ambito evidenziato
         description: Descrizione
-        end_voting_date: La votazione finisce
+        end_voting_date: La votazione termina il
         introductory_image: Immagine introduttiva
         introductory_video_url: URL video introduttivo
-        questions: Domande
+        questions: Quesiti
         slug: Slug URL
-        start_voting_date: Inizia la votazione
+        start_voting_date: La votazione inizia il
         subtitle: Sottotitolo
         title: Titolo
       question:
-        banner_image: Immagine banner
-        decidim_scope_id: Area comunale
+        banner_image: Immagine del banner
+        decidim_scope_id: Area territoriale
         hashtag: hashtag
         hero_image: Immagine della home page
         i_frame_url: URL del sistema di votazione esterno
         instructions: Istruzioni aggiuntive per la votazione
         max_votes: Massimo numero di voti
         min_votes: Minimo numero di voti
-        origin_scope: Scopo
+        origin_scope: Obiettivo
         origin_title: Origine
         origin_url: URL di origine
-        participatory_scope: Scopo partecipativo
+        participatory_scope: Obiettivo partecipativo
         promoter_group: Promotore
         question_context: Contesto
         reference: Riferimento
-        scope: Area comunale
+        scope: Area territoriale
         slug: Slug URL
         subtitle: Sottotitolo
         title: Titolo
         vote: Sistema di voto esterno
-        what_is_decided: Cosa è deciso
+        what_is_decided: Che cosa si decide
       response:
         decidim_consultations_response_group_id: Gruppo
     errors:
@@ -58,8 +58,8 @@ it:
         one: Consultazione
         other: consultazioni
       decidim/consultations/question:
-        one: Domanda
-        other: Domande
+        one: Quesito
+        other: Quesiti
       decidim/consultations/response:
         one: Risposta
         other: risposte
@@ -71,7 +71,7 @@ it:
       actions:
         back_to_responses: Torna alle risposte
         new_consultation: Nuova consultazione
-        new_question: Nuova domanda
+        new_question: Nuovo quesito
         new_response: Nuova risposta
         new_response_group: Nuovo gruppo
         publish_results: Pubblica risultati
@@ -117,14 +117,14 @@ it:
         consultations: consultazioni
         consultations_submenu:
           info: Informazione
-          questions: Domande
+          questions: Quesiti
           results: Risultati
         questions_submenu:
-          components: componenti
+          components: Elementi
           configuration: Configurazione
           consultation: Consultazione
-          info: Informazione
-          responses: risposte
+          info: Informazioni
+          responses: Risposte
       models:
         consultation:
           fields:
@@ -136,12 +136,12 @@ it:
             other: consultazioni
         question:
           fields:
-            created_at: Creato a
+            created_at: Creato il
             published: Pubblicato
             title: Titolo
           name:
-            one: Domanda
-            other: Domande
+            one: Quesito
+            other: Quesiti
         response:
           fields:
             created_at: Creato a
@@ -153,34 +153,34 @@ it:
       question_configuration:
         disable_external_voting: Si prega di disabilitare il voto esterno per configurazioni avanzate
         form:
-          help: Imposta domande di scelta multipla aumentando il numero massimo di risposte che un partecipante può scegliere. Valore massimo predefinito è 1, il che significa che può essere votata solo una risposta.
+          help: Imposta i quesiti a risposta multipla aumentando il numero massimo di risposte che un partecipante può scegliere. Valore massimo predefinito è 1, il che significa che può essere votata solo una risposta.
           title: Configurazione avanzata
       question_publications:
         create:
-          error: Si è verificato un errore durante la pubblicazione di questa domanda.
-          success: Domanda pubblicata con successo.
+          error: Si è verificato un errore durante la pubblicazione del quesito.
+          success: Quesito pubblicato con successo.
         destroy:
-          error: Si è verificato un errore durante la pubblicazione di questa domanda.
-          success: Domanda non pubblicata con successo.
+          error: Si è verificato un errore durante la pubblicazione del quesito.
+          success: Quesito ritirato con successo.
       questions:
         create:
-          error: Si è verificato un errore durante la creazione di una nuova domanda.
-          success: Domanda creata con successo.
+          error: Si è verificato un errore durante la creazione di un nuovo quesito.
+          success: Quesito creato con successo.
         destroy:
-          success: Domanda eliminata con successo.
+          success: Quesito eliminato con successo.
         edit:
           update: Aggiornare
         form:
-          title: Informazione generale
+          title: Informazioni Generali
         index:
           not_published: Non pubblicato
           published: Pubblicato
         new:
-          create: Creare
-          title: Nuova domanda
+          create: Crea
+          title: Nuovo quesito
         update:
-          error: Si è verificato un errore durante l'aggiornamento di questa domanda.
-          success: Domanda aggiornata correttamente.
+          error: Si è verificato un errore durante l'aggiornamento del quesito.
+          success: Quesito aggiornato correttamente.
       response_groups:
         create:
           error: Si è verificato un problema durante la creazione di un nuovo gruppo di risposta.
@@ -192,7 +192,7 @@ it:
           update: Aggiorna
         form:
           title: Informazioni Generali
-        help: Utilizza i gruppi per organizzare domande di scelta multipla in pacchetti.
+        help: Utilizza i gruppi per organizzare quesiti a scelta multipla in pacchetti.
         new:
           create: Crea
           title: Nuovo gruppo di risposta
@@ -209,7 +209,7 @@ it:
         edit:
           update: Aggiornare
         form:
-          title: Informazione generale
+          title: Informazioni Generali
         new:
           create: Creare
           title: Nuova risposta
@@ -218,7 +218,7 @@ it:
           success: Risposta aggiornata correttamente.
       titles:
         consultations: consultazioni
-        questions: Domande
+        questions: Quesiti
         response_groups: Gruppi di risposta
         responses: risposte
         results: Risultati
@@ -257,12 +257,12 @@ it:
         filter_by: Filtra per
         unfold: spiegare
       highlighted_questions:
-        title: Domande da %{scope_name}
+        title: Quesiti da %{scope_name}
       index:
         title: consultazioni
       last_activity:
         new_consultation: Nuova consultazione
-        new_question_at_html: "<span>Nuova domanda al %{link}</span>"
+        new_question_at_html: "<span>Nuovo quesito al %{link}</span>"
       pages:
         home:
           highlighted_consultations:
@@ -273,16 +273,16 @@ it:
               other: La votazione termina tra <strong>%{count} giorni</strong>
             voting_ends_today: La votazione termina <strong>oggi</strong>
       question:
-        take_part: Prendere parte
-        view_results: Vedi i risultati
+        take_part: Vota
+        view_results: Visualizza i risultati
         votes_out_of:
-          one: votare fuori
-          other: voti fuori
+          one: voto su
+          other: voti su
       question_multiple_votes:
         results_rules:
           minimum_votes_per_user:
             description: I partecipanti potrebbero distribuire un minimo di %{votes} voti tra diverse opzioni.
-          title: In questa domanda sono consentite scelte multiple
+          title: Al quesito sono consentite risposte multiple
           total_participants: Un totale di %{count} persone hanno partecipato alla votazione.
           vote_limit:
             description: I partecipanti possono votare fino a %{limit} opzioni.
@@ -296,12 +296,12 @@ it:
             votes: Voti
       question_votes:
         create:
-          error: Ci sono stati errori nel votare la domanda
+          error: Ci sono stati errori nel votare il quesito
           success: La modifica può essere effettuata fino al termine della consultazione. Solo l'ultimo voto sarà accettato.
           title_error: Errore di voto!
           title_success: Voto registrato con successo
       regular_questions:
-        title: Domande per questa consultazione
+        title: Quesiti per questa consultazione
       show:
         badge_name:
           finished: Finito
@@ -317,8 +317,8 @@ it:
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p>consultazioni sono uno spazio che ti consente di porre una domanda chiara a tutte le persone che formano un'organizzazione, fare una chiamata per partecipare alla consultazione, accendere e ordinare il dibattito a favore o contro una risposta. Quando arriva la data della consultazione, puoi votare e pubblicare i risultati dei voti.</p> <p>Esempi: le consultazioni possono riguardare quasi tutti gli aspetti che riguardano un'organizzazione: alcuni esempi stanno cambiando il nome o il logo dell'organizzazione che offre diverse alternative, decidendo Sì o No per diventare parte di un'organizzazione più grande, convalidare o rifiutare una nuova strategia piano o il risultato di un gruppo di lavoro, o definire se le posizioni devono rimanere al massimo di 1, 2 o 3 mandati.</p>\n"
-          page: "<p>consultazioni sono uno spazio che ti permette di porre una domanda chiara a tutte le persone che formano un'organizzazione, fare una chiamata a partecipare alla consultazione, accendere e ordinare il dibattito a favore o contro una risposta. Quando arriva la data della consultazione, puoi votare e pubblicare i risultati dei voti.</p> <p>Esempi: le consultazioni possono riguardare quasi tutti gli aspetti che riguardano un'organizzazione: alcuni esempi stanno cambiando il nome o il logo dell'organizzazione che offre diverse alternative, decidendo Sì o No per diventare parte di un'organizzazione più grande, convalidare o rifiutare una nuova strategia piano o il risultato di un gruppo di lavoro, o definire se le posizioni dovrebbero rimanere al massimo di 1, 2 o 3 mandati nell'organizzazione.</p>\n"
+          contextual: "<p>Le <strong>Consultazioni</strong> sono uno spazio che ti consente di porre una domanda chiara, a tutte le persone che partecipano ad una organizzazione, ordinando il dibattito a favore o contro i vari quesiti. Alla data della consultazione, puoi votare e pubblicare i risultati dei voti.</p> <p>Esempi: le consultazioni possono affrontare quasi tutte le decisioni che riguardano un'organizzazione: per esempio per cambiare il nome o il logo dell'organizzazione che offre diverse alternative, per decidere Sì o No a fondersi in un'organizzazione più grande, per convalidare o rifiutare un nuovo piano strategico o per definire se le cariche elettive si possono rinnovare al massimo per 1, 2 o 3 mandati.</p>\n"
+          page: "<p>Le <strong>Consultazioni</strong> sono uno spazio che ti consente di porre una domanda chiara, a tutte le persone che partecipano ad una organizzazione, ordinando il dibattito a favore o contro i vari quesiti. Alla data della consultazione, puoi votare e pubblicare i risultati dei voti.</p> <p>Esempi: le consultazioni possono affrontare quasi tutte le decisioni che riguardano un'organizzazione: per esempio per cambiare il nome o il logo dell'organizzazione che offre diverse alternative, per decidere Sì o No a fondersi in un'organizzazione più grande, per convalidare o rifiutare un nuovo piano strategico o per definire se le cariche elettive si possono rinnovare al massimo per 1, 2 o 3 mandati.</p>\n"
           title: Quali sono le consultazioni?
     menu:
       consultations: consultazioni
@@ -327,17 +327,17 @@ it:
         statistics:
           consultations_count: consultazioni
     questions:
-      next_button: Domanda successiva
-      previous_button: Domanda precedente
+      next_button: Quesito successivo
+      previous_button: Quesito precedente
       results:
         title: risultati
       show:
         read_more: Leggi di più
       statistics:
-        assistants_count_title: assistenti
+        assistants_count_title: Assistenti
         comments_count_title: Commenti
         meetings_count_title: Incontri
-        supports_count_title: supporti
+        supports_count_title: Voti
       technical_info:
         technical_data: Dati tecnici
       vote_button:
@@ -348,7 +348,7 @@ it:
         vote: Votazione
       vote_modal:
         contextual_help: Per favore selezionate un'opzione.
-        title: 'Consultazione: domanda di supporto'
+        title: 'Consultazione: voto del quesito'
       vote_modal_confirm:
         change: Modificare
         confirm: Confermare
@@ -363,12 +363,12 @@ it:
       admin:
         question:
           attachments: allegati
-          categories: categorie
+          categories: Categorie
       consultation_voting_data:
         start_voting_date: Inizia la votazione
       question_components:
-        question_menu_item: La domanda
+        question_menu_item: Il quesito
         unfold: spiegare
       question_header:
         back_to_consultation: Vedi tutte le consultazioni
-        back_to_question: Torna alla domanda
+        back_to_question: Torna al quesito

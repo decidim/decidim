@@ -238,6 +238,9 @@ pt:
           edit:
             update: Actualizar
           form:
+            address_help: 'Endereço: utilizado pela geocodificação para encontrar a localização'
+            location_help: 'Localização: mensagem direcionada para os utilizadores indicando o local de encontro'
+            location_hints_help: 'Dicas de localização: informação adicional. Exemplo: o piso do edifício'
             select_organizer: Selecione o organizador
           index:
             title: Reuniões
@@ -286,6 +289,7 @@ pt:
               other: Houve %{count} inscrições.
             reserved_slots_help: Deixe para 0 se você não tiver slots reservados
             reserved_slots_less_than: Deve ser menor ou igual a %{count}
+            title: Registos
           update:
             invalid: Ocorreu um problema ao salvar as configurações de registro.
             success: Configurações de registro de reunião salvas com sucesso.
