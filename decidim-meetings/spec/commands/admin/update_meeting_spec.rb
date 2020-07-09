@@ -30,7 +30,6 @@ module Decidim::Meetings
       services.map { |service| Admin::MeetingServiceForm.from_params(service) }
     end
     let(:user) { create :user, :admin, organization: organization }
-    let(:organizer) { create :user, organization: organization }
     let(:private_meeting) { false }
     let(:transparent) { true }
     let(:form) do
@@ -47,7 +46,6 @@ module Decidim::Meetings
         address: address,
         latitude: latitude,
         longitude: longitude,
-        organizer: organizer,
         private_meeting: private_meeting,
         transparent: transparent,
         services_to_persist: services_to_persist,
@@ -86,9 +84,9 @@ module Decidim::Meetings
         expect(meeting.longitude).to eq(longitude)
       end
 
-      it "sets the organizer" do
+      it "sets the author" do
         subject.call
-        expect(meeting.organizer).to eq organizer
+        expect(meeting.author).to eq organization
       end
 
       it "sets the services" do
@@ -127,7 +125,6 @@ module Decidim::Meetings
             address: address,
             latitude: meeting.latitude,
             longitude: meeting.longitude,
-            organizer: organizer,
             private_meeting: private_meeting,
             transparent: transparent,
             services_to_persist: services_to_persist,

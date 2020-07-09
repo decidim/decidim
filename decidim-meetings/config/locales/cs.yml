@@ -229,9 +229,6 @@ cs:
           edit:
             close: Zavřít
             title: Zavřete schůzku
-        meeting_copies:
-          form:
-            select_organizer: Vyberte organizátor
         meetings:
           close:
             invalid: Při setkání došlo k problému
@@ -247,7 +244,6 @@ cs:
             address_help: 'Adresa: použitý Geocoder pro nalezení polohy'
             location_help: 'Poloha: zpráva určená uživatelům, kteří předávají místo, aby se setkali'
             location_hints_help: 'Určení polohy: dodatečné informace. Příklad: patro budovy'
-            select_organizer: Vyberte organizátor
           index:
             title: Setkání
           new:
@@ -356,11 +352,8 @@ cs:
       meetings:
         filters:
           category: Kategorie
-          category_prompt: Vyberte kategorii
           date: datum
-          past: Minulost
           search: Vyhledávání
-          upcoming: Nadcházející
         filters_small_view:
           close_modal: Zavřít modální
           filter: Filtr

@@ -52,8 +52,7 @@ module Decidim
             event: "decidim.events.meetings.meeting_closed",
             event_class: Decidim::Meetings::CloseMeetingEvent,
             resource: meeting,
-            affected_users: [meeting.organizer],
-            followers: meeting.followers - [meeting.organizer]
+            followers: meeting.followers
           )
         end
 

@@ -107,6 +107,18 @@ module Decidim
           t("validation_pending", scope: "decidim.meetings.meetings.show.registration_state")
         end
       end
+
+      def author_presenter_for(author)
+        if author.is_a?(Decidim::Organization)
+          Decidim::Meetings::OfficialAuthorPresenter.new
+        else
+          present(author)
+        end
+      end
+
+      def current_user_groups?
+        current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any?
+      end
     end
   end
 end
