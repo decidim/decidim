@@ -143,7 +143,7 @@ module Decidim
 
           context "when the authorization metadata doesn't match" do
             before do
-              authorization.metadata["postal_code"] = "08080"
+              authorization.metadata["scope_id"] = nil
               authorization.save!
             end
 
