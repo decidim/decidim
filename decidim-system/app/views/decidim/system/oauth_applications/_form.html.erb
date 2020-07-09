@@ -8,7 +8,7 @@
 
 <div class="row column">
   <%= form.select :decidim_organization_id,
-                Decidim::Organization.all.map { |organization| [organization.name, organization.id] },
+                Decidim::Organization.pluck(:name, :id) },
                 { include_blank: t(".select_organization") },
                 { multiple: false } %>
 </div>
