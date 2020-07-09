@@ -82,12 +82,15 @@ module Decidim
         organization ||= try(:current_organization)
         organization_locale = organization.try(:default_locale)
 
-        @translated_value = Decidim::TranslatedField.find_by(
-          translated_resource_id: resource.id,
-          translated_resource_type: resource.class.name,
-          field_name: field.to_s,
-          translation_locale: I18n.locale.to_s
-        ).try(:translation_value)
+      
+        unless resource.id.nil?
+          @translated_value ||= Decidim::TranslatedField.find_by(
+            translated_resource_id: resource.id,
+            translated_resource_type: resource.class.name,
+            field_name: field.to_s,
+            translation_locale: I18n.locale.to_s
+          ).try(:translation_value)
+        end
 
         attribute[I18n.locale.to_s].presence ||
           @translated_value.presence ||

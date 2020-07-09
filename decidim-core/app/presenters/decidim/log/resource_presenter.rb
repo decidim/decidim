@@ -31,11 +31,13 @@ module Decidim
         present_resource
       end
 
-      attr_reader :extra
+      def extra_title
+        extra["title"]
+      end
 
       private
 
-      attr_reader :resource, :view_helpers
+      attr_reader :resource, :view_helpers, :extra
       alias h view_helpers
 
       # Private: Presents the resource of the action. If the resource and the
@@ -67,7 +69,7 @@ module Decidim
       #
       # Returns an HTML-safe String.
       def present_resource_name
-        h.translated(extra, :[])
+        h.translated(self, :extra_title)
       end
     end
   end
