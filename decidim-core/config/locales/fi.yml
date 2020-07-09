@@ -105,13 +105,13 @@ fi:
         delete: "%{user_name} poisti %{resource_name} -alueen"
         update: "%{user_name} päivitti %{resource_name} -alueen"
       component:
-        create: "%{user_name} lisäsi %{resource_name} -komponentin %{space_name} -tilaan"
+        create: "%{user_name} lisäsi komponentin %{resource_name} osallistumistilaan %{space_name}"
         delete: "%{user_name} poisti %{resource_name} -komponentin %{space_name} -tilasta"
-        publish: "%{user_name} julkaisi %{resource_name} -komponentin %{space_name} -tilassa"
-        unpublish: "%{user_name} lopetti %{resource_name} -komponentin julkaisemisen %{space_name} -tilassa"
+        publish: "%{user_name} julkaisi komponentin %{resource_name} osallistumistilassa %{space_name}"
+        unpublish: "%{user_name} lopetti komponentin %{resource_name} julkaisemisen osallistumistilassa %{space_name}"
       moderation:
-        hide: "%{user_name} piilotti %{resource_type} tyyppisen resurssin %{space_name} -tilaan"
-        unreport: "%{user_name} poisti %{resource_type} -tyyppisen resurssin ilmoituksen %{space_name} tilassa"
+        hide: "%{user_name} piilotti %{resource_type} tyyppisen resurssin osallistumistilaan %{space_name}"
+        unreport: "%{user_name} poisti %{resource_type} -tyyppisen resurssin ilmoituksen osallistumistilassa %{space_name}"
       newsletter:
         create: "%{user_name} loi %{resource_name} uutiskirjeen"
         delete: "%{user_name} poisti %{resource_name} uutiskirjeen"
@@ -783,13 +783,13 @@ fi:
     log:
       base_presenter:
         create: "%{user_name} loi %{resource_name}"
-        create_with_space: "%{user_name} loi %{resource_name} tilassa %{space_name}"
+        create_with_space: "%{user_name} loi %{resource_name} osallistumistilassa %{space_name}"
         delete: "%{user_name} poisti %{resource_name}"
-        delete_with_space: "%{user_name} poisti %{resource_name} tilassa %{space_name}"
+        delete_with_space: "%{user_name} poisti %{resource_name} osallistumistilassa %{space_name}"
         unknown_action: "%{user_name} suoritti toimenpiteen koskien kohdetta %{resource_name}"
-        unknown_action_with_space: "%{user_name} suoritti toimenpiteen koskien kohdetta %{resource_name} tilassa %{space_name}"
+        unknown_action_with_space: "%{user_name} suoritti toimenpiteen koskien kohdetta %{resource_name} osallistumistilassa %{space_name}"
         update: "%{user_name} päivitti %{resource_name}"
-        update_with_space: "%{user_name} päivitti %{resource_name} tilassa %{space_name}"
+        update_with_space: "%{user_name} päivitti %{resource_name} osallistumistilassa %{space_name}"
       value_types:
         area_presenter:
           not_found: 'Aluetta ei löytynyt tietokannasta (ID: %{id})'
