@@ -6,7 +6,7 @@ module Decidim
     class Questionnaire < Forms::ApplicationRecord
       include Decidim::Publicable
 
-      belongs_to :questionnaire_for, polymorphic: true, touch: true
+      belongs_to :questionnaire_for, polymorphic: true
 
       has_many :questions, -> { order(:position) }, class_name: "Question", foreign_key: "decidim_questionnaire_id", dependent: :destroy
       has_many :answers, class_name: "Answer", foreign_key: "decidim_questionnaire_id", dependent: :destroy
