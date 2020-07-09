@@ -24,7 +24,6 @@ module Decidim
         def update
           enforce_permission_to :answer, :initiative, initiative: current_initiative
 
-          params[:id] = params[:slug]
           @form = form(Decidim::Initiatives::Admin::InitiativeAnswerForm)
                   .from_params(params, initiative: current_initiative)
 
@@ -35,8 +34,8 @@ module Decidim
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("initiatives.update.error", scope: "decidim.initiatives.admin")
-              render :edit
+              flash[:alert] = I18n.t("initiatives.update.error", scope: "decidim.initiatives.admin")
+              redirect_to edit_initiative_answer_path
             end
           end
         end
