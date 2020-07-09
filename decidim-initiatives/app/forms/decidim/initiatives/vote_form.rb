@@ -86,16 +86,7 @@ module Decidim
         return unless authorized?
 
         @user_authorized_scope ||= authorized_scope_candidates.find do |scope|
-          handler = Decidim::AuthorizationHandler.handler_for(
-            handler_name,
-            document_number: document_number,
-            name_and_surname: name_and_surname,
-            date_of_birth: date_of_birth,
-            postal_code: postal_code,
-            scope_id: scope&.id
-          )
-
-          authorization.metadata.symbolize_keys == handler.metadata.symbolize_keys
+          scope&.id == authorization.metadata.symbolize_keys[:scope_id]
         end
       end
 
