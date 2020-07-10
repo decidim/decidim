@@ -25,7 +25,7 @@ it:
       debates:
         actions:
           create: Creare
-        name: dibattiti
+        name: Dibattiti
         settings:
           global:
             announcement: Annuncio
@@ -52,7 +52,7 @@ it:
             title: Modifica dibattito
             update: Aggiornamento del dibattito
           index:
-            title: dibattiti
+            title: Discussioni
           new:
             create: Crea dibattito
             title: Nuovo dibattito
@@ -61,7 +61,7 @@ it:
             success: Dibattito aggiornato con successo.
         models:
           debate:
-            name: Discussione
+            name: Dibattito
       admin_log:
         debate:
           create: "%{user_name} ha creato il dibattito %{resource_name} sullo spazio %{space_name}"
@@ -75,25 +75,25 @@ it:
           invalid: C'è stato un problema durante la creazione del dibattito.
           success: Dibattito creato con successo.
         debate:
-          participate: Partecipare
+          participate: Partecipa
         filters:
           all: Tutti
           category: Categoria
           category_prompt: Seleziona una categoria
-          citizens: cittadini
+          citizens: Cittadini
           official: Ufficiale
           origin: Origine
           search: Ricerca
         filters_small_view:
-          close_modal: Chiudi modale
+          close_modal: Chiudi modalità
           filter: Filtro
           filter_by: Filtra per
-          unfold: spiegare
+          unfold: Espandi
         index:
           new_debate: Nuovo dibattito
         new:
           back: Indietro
-          create: Creare
+          create: Crea
           select_a_category: Si prega di selezionare una categoria
           title: Nuovo dibattito
       last_activity:
