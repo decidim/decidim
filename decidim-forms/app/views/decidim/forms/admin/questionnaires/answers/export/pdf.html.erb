@@ -1,13 +1,32 @@
 <div class="questionnaire-answers">
   <div class="header">
-    <h1><%= translated_attribute(questionnaire.title) %></h1>
+    <% organization = questionnaire.questionnaire_for.organization %>
+
+    <h1 class="title">
+      <% if organization.logo.present? %>
+        <div class="logo">
+          <%= wicked_pdf_image_tag organization.logo.url %>
+        </div>
+      <% end %>
+      <%= organization.name %>
+    </h1>
+    <h2 class="subtitle">
+      <%= translated_attribute(questionnaire.title) %>
+    </h2>
     <div class="description">
       <%== translated_attribute(questionnaire.description).html_safe %>
     </div>
+  </div>
+  
+  <div class="content">
     <% if collection.count > 1 %>
-      <h2><%= t("title", scope: "decidim.forms.admin.questionnaires.answers.index", total: collection.count) %></h2>
+      <h3><%= t("title", scope: "decidim.forms.admin.questionnaires.answers.index", total: collection.count) %></h3>
     <% end %>
   </div>
 
   <%= render partial: "decidim/forms/admin/questionnaires/answers/export/answer", collection: collection, locals: { questionnaire: questionnaire }, as: :participant %>
+
+  <footer class="page-footer">
+    <%= t("footer", scope: "decidim.forms.admin.questionnaires.answers.index") %>
+  </footer>
 </div>

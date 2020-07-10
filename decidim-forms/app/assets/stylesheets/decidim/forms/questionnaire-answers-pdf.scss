@@ -1,42 +1,67 @@
+$foreground: #202751;
+$background: #fafafa;
+$background-alt: darken($background, 5%);
+$white: white;
+
+$border-radius-top: 4px 4px 0 0;
+$border-radius-bottom: 0 0 4px 4px;
+
+$small-padding: 10px;
+$padding: 25px;
+
 .questionnaire-answers{
+  font-family: 'Source Sans Pro', Helvetica, Roboto, Arial, sans-serif;
+  
   .header{
-    h1{
+    .title, .subtitle, .description{
       margin: 0;
-      padding: 25px;
-      background: rgb(59, 69, 87);
-      color: white;
-      border-radius: 4px 4px 0 0;
+      padding: $small-padding $padding;
+      background: $foreground;
+      color: $white;
+      border-radius: $border-radius-top;
+    }
+    
+    .title {
+      padding: $padding;
+    }
+    
+    .subtitle {
+      border-radius: 0;
+      padding-top: $padding;
+    }
+    
+    .subtitle, .description{
+      background: $background-alt;
+      color: $foreground;
     }
 
     .description{
-      margin: 0;
-      padding: 25px;
-      background: #f6f6f6;
-      color: #202751;
-      border-radius: 0 0 4px 4px;
+      border-radius: $border-radius-bottom;
     }
   }
 
   .answer{
-    margin-top: 25px;
-    background: #f6f6f6;
-    border-radius: 0 0 4px 4px;
+    margin-top: $padding;
+    background: $background;
+    border-radius: $border-radius-bottom;
 
     .title{
       page-break-inside: avoid;
-      border-radius: 4px 4px 0 0;
-      padding: 10px 25px;
-      background: rgb(59, 69, 87);
-      color: white;
+      border-radius: $border-radius-top;
+      padding: $small-padding $padding;
+      margin: 0;
+      background: $foreground;
+      color: $white;
     }
 
     .participant-info{
       margin-top: 0;
-      padding: 10px 25px;
+      padding: $small-padding $padding;
       width: 100%;
       text-align: center;
-      background: #eee;
-      color: #202751;
+      background: $background-alt;
+      color: $foreground;
+      border-bottom: 1px solid $foreground;
       page-break-inside: avoid;
 
       th:first-child{
@@ -62,7 +87,7 @@
       .question{
         page-break-inside: avoid;
         font-size: inherit;
-        color: #202751;
+        color: $foreground;
       }
     }
   }

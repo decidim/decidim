@@ -47,6 +47,7 @@ en:
               title: survey_user_answers_%{token}
             index:
               title: "%{total} total responses"
+              footer: Made with Decidim
             show:
               title: 'Answer #%{number}'
           display_condition:
