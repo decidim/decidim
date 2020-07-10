@@ -8,10 +8,10 @@ $(() => {
   const $continueSpan = $vote.find("span.disabled-continue");
   let $answerCounter = 0;
   let $currentStep,
-      $currentStepMaxSelection, 
+      $currentStepMaxSelection,
       $currentStepMinSelection = "";
   let $formData = $vote.find(".answer_input");
-  
+
   function initStep() {
     setCurrentStep();
     continueBtnTgl();
@@ -20,7 +20,7 @@ $(() => {
   }
 
   initStep()
-  
+
   function setCurrentStep() {
     $currentStep = $vote.find(".focus__step:visible")
     setSelections();
@@ -59,7 +59,7 @@ $(() => {
     if ((currentAnswersChecked >= $currentStepMinSelection) && (currentAnswersChecked <= $currentStepMaxSelection)) {
       return true;
     }
-    
+
     return false;
   }
 
