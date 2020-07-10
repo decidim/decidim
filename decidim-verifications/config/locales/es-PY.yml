@@ -127,8 +127,9 @@ es-PY:
             success: Su cuenta ha sido verificada con éxito.
       dummy_authorization:
         extra_explanation:
-          one: La participación está restringida a usuarios con el código postal %{postal_codes}.
-          other: 'La participación está restringida a usuarios con cualquiera de los siguientes códigos postales: %{postal_codes}.'
+          postal_codes:
+            one: La participación está restringida a usuarios con el código postal %{postal_codes}.
+            other: 'La participación está restringida a usuarios con cualquiera de los siguientes códigos postales: %{postal_codes}.'
       id_documents:
         admin:
           config:
