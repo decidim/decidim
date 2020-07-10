@@ -21,6 +21,7 @@ module Decidim
       attribute :default_locale, String
       attribute :badges_enabled, Boolean
       attribute :user_groups_enabled, Boolean
+      attribute :comments_max_length, Integer
       attribute :rich_text_editor_in_public_views, Boolean
 
       attribute :send_welcome_notification, Boolean
@@ -39,6 +40,7 @@ module Decidim
       validates :default_locale, :reference_prefix, presence: true
       validates :default_locale, inclusion: { in: :available_locales }
       validates :admin_terms_of_use_body, translatable_presence: true
+      validates :comments_max_length, numericality: { greater_than: 0 }, if: ->(form) { form.comments_max_length.present? }
 
       private
 
