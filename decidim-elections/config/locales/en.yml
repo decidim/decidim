@@ -133,7 +133,8 @@ en:
             invalid: There was a problem updating this question
             success: Question successfully updated
       election_m:
-        take_part: Take part
+        footer:
+          take_part: Take part
       elections:
         count:
           elections_count:
