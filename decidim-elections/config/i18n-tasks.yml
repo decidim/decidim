@@ -5,6 +5,8 @@ locales: [en]
 
 ignore_unused:
   - "decidim.components.elections.name"
+  - decidim.elections.election_m.*
 
 ignore_missing:
   - decidim.participatory_processes.scopes.global
+  - decidim.elections.election_m.footer.*
