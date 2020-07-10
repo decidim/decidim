@@ -132,7 +132,7 @@ fi:
             role: Rooli
           name: Osallistumisprosessin käyttäjä
           roles:
-            admin: Järjestelmänvalvoja
+            admin: Hallinnointikäyttäjä
             collaborator: Osallistuva käyttäjä
             moderator: Moderoija
             valuator: Arvon arvioija

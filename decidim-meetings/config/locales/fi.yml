@@ -308,21 +308,21 @@ fi:
             success: Ilmoittautumiskoodin vahvistaminen onnistui.
       admin_log:
         invite:
-          create: "%{user_name} kutsui %{attendee_name} osallistumaan tapahtumaan %{resource_name} tilassa %{space_name}"
-          deleted: "%{user_name} perui kutsun osallistujalle %{attendee_name} tapahtumaan %{resource_name} tilassa %{space_name}"
-          update: "%{user_name} kutsui %{attendee_name} osallistumaan tapahtumaan %{resource_name} tilaan %{space_name}"
+          create: "%{user_name} kutsui %{attendee_name} osallistumaan tapahtumaan %{resource_name} osallistumistilassa %{space_name}"
+          deleted: "%{user_name} perui kutsun osallistujalle %{attendee_name} tapahtumaan %{resource_name} osallistumistilassa %{space_name}"
+          update: "%{user_name} kutsui %{attendee_name} osallistumaan tapahtumaan %{resource_name} osallistumistilaan %{space_name}"
         meeting:
-          close: "%{user_name} sulki tapahtuman %{resource_name} tilassa %{space_name}"
-          create: "%{user_name} loi tapahtuman %{resource_name} tilassa %{space_name}"
-          delete: "%{user_name} poisti tapahtuman %{resource_name} tilassa %{space_name}"
-          export_registrations: "%{user_name} vei tapahtuman %{resource_name} ilmoittautumiset tilaan %{space_name}"
-          update: "%{user_name} päivitti tapahtuman %{resource_name} tilassa %{space_name}"
+          close: "%{user_name} sulki tapahtuman %{resource_name} osallistumistilassa %{space_name}"
+          create: "%{user_name} loi tapahtuman %{resource_name} osallistumistilassa %{space_name}"
+          delete: "%{user_name} poisti tapahtuman %{resource_name} osallistumistilassa %{space_name}"
+          export_registrations: "%{user_name} vei tapahtuman %{resource_name} ilmoittautumiset osallistumistilaan %{space_name}"
+          update: "%{user_name} päivitti tapahtuman %{resource_name} osallistumistilassa %{space_name}"
           value_types:
             organizer_presenter:
               not_found: 'Järjestäjää ei löytynyt tietokannasta (ID: %{id})'
         minutes:
-          create: "%{user_name} loi tapahtumapöytäkirjan %{resource_name} tilassa %{space_name}"
-          update: "%{user_name} päivitti tapahtumapöytäkirjan %{resource_name} tilassa %{space_name}"
+          create: "%{user_name} loi tapahtumapöytäkirjan %{resource_name} osallistumistilassa %{space_name}"
+          update: "%{user_name} päivitti tapahtumapöytäkirjan %{resource_name} osallistumistilassa %{space_name}"
       calendar_modal:
         calendar_url: Kalenterin URL
         close_window: Sulje ikkuna
