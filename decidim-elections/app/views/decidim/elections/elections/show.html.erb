@@ -36,7 +36,7 @@ edit_link(
   <div class="columns medium-8 mediumlarge-7">
     <div class="section">
       <%= decidim_sanitize(simple_format(translated_attribute(election.description))) %>
-      <%= link_to t(".vote"), "/", class: "button" %>
+      <%= link_to t(".vote"), new_election_vote_path(election.id), class: "button" %>
     </div>
   </div>
 </div>
