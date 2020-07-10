@@ -24,8 +24,12 @@
 
   <div class="answers">
     <% participant.answers.each do |answer| %>
-      <h3 class="question"><%= answer.question %></h3>
-      <p><%= simple_format answer.body %></p>
+      <% if answer.separator? %>
+        <hr class="separator">
+      <% else %>
+        <h3 class="question"><%= answer.question %></h3>
+        <p><%= simple_format answer.body %></p>
+      <% end %>
     <% end %>
   </div>
 </div>
