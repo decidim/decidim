@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe AdminLog::ElectionPresenter, type: :helper do
+  describe Elections::AdminLog::ElectionPresenter, type: :helper do
     subject { described_class.new(action_log, helper) }
 
     let(:action_log) do
