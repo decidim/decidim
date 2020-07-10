@@ -40,6 +40,8 @@ fr:
         unpublish: "%{user_name} a dépublié l'élection %{resource_name}"
     components:
       elections:
+        actions:
+          vote: Voter
         name: Élections
         settings:
           global:
