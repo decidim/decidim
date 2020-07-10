@@ -2,30 +2,30 @@ pt:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Assembléias Relacionadas
-        banner_image: Imagem de banner
+        assemblies_ids: Assembleias Relacionadas
+        banner_image: Imagem da faixa
         consultations_ids: Consultas Relacionadas
         copy_categories: Copiar categorias
         copy_components: Copiar componentes
-        copy_features: Copiar recursos
-        decidim_scope_id: Escopo
+        copy_features: Copiar características
+        decidim_scope_id: Âmbito
         description: Descrição
         hashtag: Hashtag
         hero_image: Imagem inicial
         participatory_processes_ids: Processos participativos relacionados
-        promoted: Promovido
+        promoted: Realçado
         published_at: Publicado em
-        scope_id: Escopo
-        scopes_enabled: Escopos habilitados
-        short_description: Pequena descrição
-        show_statistics: Mostre estatisticas
+        scope_id: Âmbito
+        scopes_enabled: Âmbitos ativados
+        short_description: Breve descrição
+        show_statistics: Mostrar estatísticas
         slogan: Slogan
-        slug: Lesma de URL
+        slug: Slug de URL
         title: Título
       conference_speaker:
         full_name: Nome completo
       conference_user_role:
-        email: O email
+        email: E-mail
         name: Nome
         role: Função
     errors:
@@ -33,100 +33,100 @@ pt:
         conference_registration_invite:
           attributes:
             email:
-              already_invited: Este email já foi convidado
+              already_invited: Este e-mail já foi convidado
   activerecord:
     models:
       decidim/conference:
         one: Conferência
         other: Conferências
       decidim/conference_speaker:
-        one: Orador de conferência
-        other: Alto-falantes da conferência
+        one: Oradores da conferência
+        other: Oradores da conferência
       decidim/conference_user_role:
-        one: Função de usuário da conferência
-        other: Função de usuário da conferência
+        one: Função de utilizador da conferência
+        other: Funções de utilizador da conferência
   decidim:
     admin:
       actions:
-        confirm: confirme
+        confirm: Confirmar
         new_conference: Nova conferência
-        send_diplomas: Envie certificados de participação
+        send_diplomas: Enviar certificados de participação
       conference_copies:
         new:
-          copy: cópia de
-          select: Selecione quais dados você gostaria de duplicar
+          copy: Copiar
+          select: Selecione os dados que deseja duplicar
           title: Conferência duplicada
       conference_publications:
         create:
-          error: Ocorreu um erro ao publicar esta conferência.
-          success: Conferência publicada com sucesso.
+          error: Ocorreu um problema ao publicar esta conferência.
+          success: Conferência publicada corretamente.
         destroy:
-          error: Ocorreu um erro ao cancelar a publicação desta conferência.
-          success: Conferência não publicada com sucesso.
+          error: Ocorreu um problema ao despublicar esta conferência.
+          success: Conferência despublicada corretamente.
       conference_registration:
         confirm:
-          error: Houve um erro ao confirmar este registro da conferência.
-          success: Registro de conferência confirmado com sucesso.
+          error: Ocorreu um problema ao confirmar o registo desta conferência.
+          success: Registo da conferência confirmado corretamente.
       conference_speakers:
         create:
-          error: Houve um erro ao adicionar um palestrante para essa conferência.
-          success: Palestrante criado com sucesso para esta conferência.
+          error: Ocorreu um problema ao adicionar um orador a esta conferência.
+          success: Orador da conferência criado corretamente.
         destroy:
-          success: Alto-falante excluído com sucesso para esta conferência.
+          success: Orador da conferência eliminado corretamente.
         edit:
-          title: Atualize o orador da conferência.
+          title: Atualizar orador da conferência.
           update: Atualizar
         index:
-          conference_speakers_title: Alto-falantes da conferência
+          conference_speakers_title: Oradores da conferência
         new:
-          create: Crio
+          create: Criar
           title: Novo orador da conferência.
         update:
-          error: Houve um erro ao atualizar o palestrante para esta conferência.
-          success: Speaker atualizado com sucesso para esta conferência.
+          error: Ocorreu um problema ao atualizar o orador desta conferência.
+          success: Orador da conferência atualizado corretamente.
       conference_user_roles:
         create:
-          error: Houve um erro ao adicionar um usuário para esta conferência.
-          success: Usuário adicionado com sucesso a esta conferência.
+          error: Ocorreu um problema ao adicionar um administrador a esta conferência.
+          success: Administrador da conferência adicionado corretamente.
         destroy:
-          success: Usuário removido com sucesso desta conferência.
+          success: Administrador da conferência eliminado corretamente.
         edit:
-          title: Atualize o usuário da conferência.
+          title: Atualizar administrador da conferência.
           update: Atualizar
         index:
-          conference_admins_title: usuários da conferência
+          conference_admins_title: administradores da conferência
         new:
-          create: Crio
-          title: Novo usuário da conferência.
+          create: Criar
+          title: Novo administrador da conferência.
         update:
-          error: Houve um erro ao atualizar um usuário para esta conferência.
-          success: Usuário atualizado com sucesso para esta conferência.
+          error: Ocorreu um problema ao atualizar o administrador desta conferência.
+          success: Administrador da conferência atualizado corretamente.
       conferences:
         create:
-          error: Ocorreu um erro ao criar uma nova conferência.
-          success: Conferência criada com sucesso.
+          error: Ocorreu um problema ao criar esta conferência.
+          success: Conferência criada corretamente.
         edit:
           update: Atualizar
         exports:
-          registrations: Inscrições
+          registrations: Registos
         form:
           title: Informação geral
         index:
           not_published: Não publicado
-          published: Publicados
+          published: Publicado
         new:
-          create: Crio
+          create: Criar
           title: Conferência
         update:
-          error: Houve um erro ao atualizar esta conferência.
-          success: Conferência atualizada com sucesso.
+          error: Ocorreu um problema ao atualizar esta conferência.
+          success: Conferência atualizada corretamente.
       conferences_copies:
         create:
-          error: Houve um erro ao duplicar esta conferência.
+          error: Ocorreu um problema ao duplicar esta conferência.
           success: Conferência duplicada com sucesso.
       media_links:
         create:
-          error: Ocorreu um erro ao criar um novo link de mídia.
+          error: Ocorreu um problema ao criar um novo link de mídia.
           success: Media Link criado com sucesso.
         destroy:
           success: O Media Link foi excluído com sucesso.
@@ -139,7 +139,7 @@ pt:
           create: Crio
           title: Link de Mídia
         update:
-          error: Houve um erro ao atualizar este link de mídia.
+          error: Ocorreu um problema ao atualizar este link de mídia.
           success: Media Link atualizado com sucesso.
       menu:
         conferences: Conferências
@@ -334,7 +334,7 @@ pt:
             slug_help: 'Os slugs de URL são usados ​​para gerar as URLs que apontam para esta conferência. Aceita apenas letras, números e traços e deve começar com uma letra. Exemplo: %{url}'
         diplomas:
           edit:
-            save: Salve 
+            save: Guardar
             title: Certificado de participação
         invite_join_conference_mailer:
           invite:
