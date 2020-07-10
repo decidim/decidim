@@ -1,0 +1,16 @@
+<div class="focus__top">
+  <a href="/" class="focus__brand">
+    <%= image_tag "decidim/elections/decidim-logo-red.png", alt: "Decidim Barcelona" %>
+  </a>
+  <nav class="focus__user topbar__user__logged">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="is-dropdown-submenu-parent show-for-medium">
+        <%= link_to current_user.name, decidim.account_path %>
+      </li>
+    </ul>
+  </nav>
+  <%= link_to :elections, class: "focus__exit" do %>
+    <span class="focus__x-icon" aria-hidden="true">×</span>
+    <%= t(".close") %>
+  <% end %>
+</div>
