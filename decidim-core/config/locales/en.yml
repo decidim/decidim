@@ -260,8 +260,11 @@ en:
       dummy_authorization_handler:
         explanation: Get verified by introducing a document number ending with "X"
         fields:
+          allowed_postal_codes: Allowed postal codes (separated by commas)
+          allowed_scope_id: Allowed scope
           document_number: Document number
           postal_code: Postal code
+          scope_id: Scope
         name: Example authorization
       dummy_authorization_workflow:
         name: Dummy authorization workflow

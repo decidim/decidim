@@ -26,6 +26,10 @@ module Decidim
       def finished?
         end_time < Time.current
       end
+
+      def allow_resource_permissions?
+        true
+      end
     end
   end
 end

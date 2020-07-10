@@ -41,6 +41,8 @@ en:
         unpublish: "%{user_name} unpublished the %{resource_name} election"
     components:
       elections:
+        actions:
+          vote: Vote
         name: Elections
         settings:
           global:

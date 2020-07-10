@@ -35,7 +35,7 @@ module Decidim
     # form - FormBuilder object
     # name - attribute name
     # options       - An optional Hash with options:
-    # - checkboxes_on_top - Show checked picker values on top (default) or below the picker prompt
+    # - checkboxes_on_top - Show checked picker values on top (default) or below the picker prompt (only for multiple pickers)
     #
     # Returns nothing.
     def scopes_picker_field(form, name, root: false, options: { checkboxes_on_top: true })
@@ -64,7 +64,7 @@ module Decidim
     # Renders a scopes picker field in a filter form.
     # form - FilterFormBuilder object
     # name - attribute name
-    # checkboxes_on_top - Show picker values on top (default) or below the picker prompt
+    # checkboxes_on_top - Show picker values on top (default) or below the picker prompt (only for multiple pickers)
     #
     # Returns nothing.
     def scopes_picker_filter(form, name, checkboxes_on_top = true)
