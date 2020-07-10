@@ -1,0 +1,12 @@
+<div class="focus__header">
+  <div class="row">
+    <div class="focus__steps">
+      <strong>
+        <%= t("decidim.elections.votes.new.current_question", current_step: step + 1) %> <%= t("decidim.elections.votes.new.of_total_questions", total_steps: total) %>
+      </strong>
+    </div>
+    <div class="heading5 focus__header-title">
+      <%= translated_attribute(election.title) %>
+    </div>
+  </div>
+</div>

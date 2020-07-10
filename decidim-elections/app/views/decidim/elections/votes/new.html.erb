@@ -1,0 +1,51 @@
+<% @form.questions.each_with_index do |step_question, step_index| %>
+  <div id="step-<%= step_index %>" class="focus__step <%= "hide" if step_index.positive? %>"
+  data-toggler=".hide">
+  <!-- step_question.answers.min-selection -->
+    <%= render(
+      "election_votes_steps_header",
+      step: step_index,
+      total: @form.total_steps
+      ) %>
+
+    <div class="focus__content evote">
+      <div class="row">
+        <% if step_question.max_selections == 1 %>
+          <%= render(
+            "election_votes_radio_button",
+            question: step_question
+          ) %>
+        <% else %>
+          <%= render(
+            "election_votes_checkbox",
+            question: step_question
+          ) %>
+        <% end %>
+      </div>
+    </div>
+
+    <%= cell(
+      "decidim/elections/voting_step_navigation",
+      step_index,
+      total_steps: @form.total_steps
+    ) %>
+
+  </div>
+<% end %>
+
+<div id="step-<%= @form.total_steps %>" class="hide focus__step" data-toggler=".hide">
+  <%= render(
+    "election_votes_confirm",
+    questions: @form.questions
+  ) %>
+</div>
+
+<div id="step-<%= @form.total_steps + 1 %>" class="hide focus__step" data-toggler=".hide">
+  <%= render("election_votes_encrypting") %>
+</div>
+
+<div id="confirmed_page" class="hide focus__step" data-redirect_url=".hide">
+  <%= render("election_votes_confirmed") %>
+</div>
+
+<%= javascript_include_tag("decidim/elections/vote") %>

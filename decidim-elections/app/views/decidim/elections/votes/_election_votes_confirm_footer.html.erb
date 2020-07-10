@@ -1,0 +1,23 @@
+<div class="focus__footer">
+  <div class="row">
+    <%= link_to(
+      icon("chevron-left", class: "icon", role: "img") + " " + t("decidim.elections.votes.voting_step.back"),
+      "#",
+      class: "focus__back",
+      data: {
+        toggle: ["step-#{@form.total_steps - 1}", "step-#{@form.total_steps}"].join(" ")
+      }
+    ) %>
+
+    <%= link_to(
+      "#",
+      class: "button focus__next confirm",
+      data: {
+        toggle: ["step-#{@form.total_steps + 1}", "step-#{@form.total_steps}"].join(" ")
+      }
+    ) do %>
+      <%= t("decidim.elections.votes.confirm.confirm") %>
+      <%= icon("chevron-right", class: "icon", role: "img") %>
+    <% end %>
+  </div>
+</div>
