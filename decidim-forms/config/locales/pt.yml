@@ -31,7 +31,7 @@ pt:
             remove: Remover
             statement: Declaração
           edit:
-            save: Salve 
+            save: Guardar
             title: Título
           form:
             add_question: Adicionar pergunta
