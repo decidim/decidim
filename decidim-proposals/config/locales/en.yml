@@ -275,8 +275,8 @@ en:
       badges:
         accepted_proposals:
           conditions:
-          - Choose the participation space of your interest with submission for proposals enabled
-          - Try to make proposals that can be carried out. This way they are more likely to be accepted.
+            - Choose the participation space of your interest with submission for proposals enabled
+            - Try to make proposals that can be carried out. This way they are more likely to be accepted.
           description: This badge is granted when you actively participate with new proposals and these are accepted.
           description_another: This participant had %{score} accepted proposals.
           description_own: You got %{score} proposals accepted.
@@ -286,8 +286,8 @@ en:
           unearned_own: You got no proposals accepted yet.
         proposal_votes:
           conditions:
-          - Browse and spend some time reading other people's proposals
-          - Give support to the proposals you like or find interesting
+            - Browse and spend some time reading other people's proposals
+            - Give support to the proposals you like or find interesting
           description: This badge is granted when you support other people's proposals.
           description_another: This participant has given support to %{score} proposals.
           description_own: You have given support to %{score} proposals.
@@ -297,8 +297,8 @@ en:
           unearned_own: You have given support to no proposals yet.
         proposals:
           conditions:
-          - Choose the participation space of your interest with submission for proposals enabled
-          - Create a new proposal
+            - Choose the participation space of your interest with submission for proposals enabled
+            - Create a new proposal
           description: This badge is granted when you actively participate with new proposals.
           description_another: This participant has created %{score} proposals.
           description_own: You have created %{score} proposals.
@@ -690,6 +690,13 @@ en:
         create:
           error: There was a problem supporting the proposal.
       proposals:
+        edit_form_fields:
+          not_geocoded: Not geocoded
+          address: Address
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
+        dynamic_map_instructions:
+          instructions: "<h3>You can move the point on the map. </h3><p>Don't forget to click on the \"Update Position\" button before publishing your proposal.</p>"
         compare:
           continue: Continue
           no_similars_found: Well done! No similar proposals found
@@ -757,6 +764,9 @@ en:
           view_index:
             see_index: See index
         preview:
+          update_position: Update position
+          not_geocoded: Your address has not been geocoded, preview is unavailable.
+          address: 'Address : %{address}'
           modify: Modify the proposal
           proposal_edit_before_minutes:
             one: You will be able to edit this proposal during the first minute after the proposal is published. Once this time window passes, you will not be able to edit the proposal.

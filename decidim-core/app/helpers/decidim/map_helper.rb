@@ -23,7 +23,7 @@ module Decidim
       end
     end
 
-    def dynamic_map_for(markers_data)
+    def dynamic_map_for(markers_data, css_class = "row column")
       return if Decidim.geocoder.blank?
 
       map_html_options = {
@@ -41,7 +41,7 @@ module Decidim
       end
 
       content = capture { yield }.html_safe
-      content_tag :div, class: "row column" do
+      content_tag :div, class: css_class do
         content_tag(:div, "", map_html_options) + content
       end
     end
