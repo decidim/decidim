@@ -12,7 +12,7 @@ module Decidim
         attribute :answer, Decidim::Forms::Answer
 
         def question
-          translated_attribute(answer.question.body)
+          translated_attribute(answer.question.body, organization)
         end
 
         def body
@@ -31,6 +31,10 @@ module Decidim
         end
 
         private
+
+        def organization
+          answer.questionnaire.questionnaire_for&.component&.organization
+        end
 
         def choice(choice_body)
           content_tag :li do

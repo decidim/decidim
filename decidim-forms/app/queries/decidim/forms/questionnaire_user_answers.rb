@@ -21,7 +21,7 @@ module Decidim
       # Finds and group answers by user for each questionnaire's question.
       def query
         answers = Answer.where(questionnaire: @questionnaire)
-        answers.sort_by { |answer| answer.question.position }.group_by { |a| a.user || a.session_token }.values
+        answers.sort_by { |answer| answer.question.position.to_i }.group_by { |a| a.user || a.session_token }.values
       end
     end
   end
