@@ -1,18 +1,15 @@
 <%= render partial: "decidim/shared/component_announcement" %>
 
-<% if current_user.present? && current_settings.votes_enabled? && current_participatory_space.can_participate?(current_user) %>
-  <div class="row column">
-    <%= render partial: "budget_summary", locals: { include_heading: true } %>
-  </div>
-<% end %>
-
-<%= cell("decidim/budgets/budget_information_modal", current_component) %>
+<div class="row column">
+  <%= render partial: "budget_summary", locals: { include_heading: true } %>
+</div>
 
 <div class="row columns">
   <h3 class="section-heading">
     <%= render partial: "count" %>
   </h3>
 </div>
+
 <div class="row">
   <div class="columns mediumlarge-4 large-3">
     <%= render partial: "filters_small_view" %>

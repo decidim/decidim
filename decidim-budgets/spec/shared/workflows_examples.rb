@@ -8,7 +8,7 @@ shared_examples "includes base workflow features" do
     let(:unpublished_component) { create(:budgets_component, published_at: nil, organization: organization) }
 
     it "counts only the component resources" do
-      expect(subject).to match_array(Budget.where(component: budgets_component))
+      expect(subject).to match_array(Decidim::Budgets::Budget.where(component: budgets_component))
     end
   end
 end

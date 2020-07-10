@@ -39,7 +39,7 @@ shared_examples "manage projects" do
     it "allows the user to preview the project" do
       within find("tr", text: translated(project.title)) do
         klass = "action-icon--preview"
-        href = resource_locator(project).path
+        href = resource_locator([project.budget, project]).path
         target = "blank"
 
         expect(page).to have_selector(
@@ -54,7 +54,7 @@ shared_examples "manage projects" do
     let!(:project) { create(:project, budget_amount: 70_000_000, budget: budget) }
 
     let!(:finished_orders) do
-      orders = create_list(:order, 10, component: current_component)
+      orders = create_list(:order, 10, budget: budget)
       orders.each do |order|
         order.update!(line_items: [create(:line_item, project: project, order: order)])
         order.reload
@@ -63,10 +63,10 @@ shared_examples "manage projects" do
     end
 
     let!(:pending_orders) do
-      create_list(:order, 5, component: current_component, checked_out_at: nil)
+      create_list(:order, 5, budget: budget, checked_out_at: nil)
     end
 
-    xit "shows the order count" do
+    it "shows the order count" do
       visit current_path
       expect(page).to have_content("Finished votes: \n10")
       expect(page).to have_content("Pending votes: \n5")
@@ -157,7 +157,7 @@ shared_examples "manage projects" do
     end
 
     it "creates a new project", :slow do
-      click_link "New project", match: :first
+      find(".card-title a.button.new").click
 
       within ".new_project" do
         fill_in_i18n(
@@ -174,7 +174,7 @@ shared_examples "manage projects" do
           es: "Descripción más larga",
           ca: "Descripció més llarga"
         )
-        fill_in :project_budget, with: 22_000_000
+        fill_in :project_budget_amount, with: 22_000_000
 
         proposals_pick(select_data_picker(:project_proposals, multiple: true), proposals.first(2))
         scope_pick(select_data_picker(:project_decidim_scope_id), scope)

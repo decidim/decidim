@@ -36,8 +36,8 @@ module Decidim::Budgets
 
     describe "#orders_count" do
       let(:project) { create :project, budget_amount: 75_000_000 }
-      let(:order) { create :order, component: project.component }
-      let(:unfinished_order) { create :order, component: project.component }
+      let(:order) { create :order, budget: project.budget }
+      let(:unfinished_order) { create :order, budget: project.budget }
       let!(:line_item) { create :line_item, project: project, order: order }
       let!(:line_item_1) { create :line_item, project: project, order: unfinished_order }
 

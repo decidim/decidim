@@ -28,9 +28,10 @@ module Decidim
 
       private
 
+      attr_reader :project
+
       def remove_line_item
-        @order.projects.destroy(@project)
-        @order.save!
+        @order.projects.destroy(project)
       end
     end
   end

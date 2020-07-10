@@ -15,6 +15,8 @@ module Decidim
         #
         # Broadcasts :ok if successful, :invalid otherwise.
         def call
+          return broadcast(:invalid) if budget.projects.present?
+
           destroy_budget!
 
           broadcast(:ok, budget)

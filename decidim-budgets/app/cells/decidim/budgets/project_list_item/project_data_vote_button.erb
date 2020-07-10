@@ -1,4 +1,3 @@
-<% # !todo: check url and data is correct %>
 <%= action_authorized_button_to "vote",
       budget_order_line_item_path(model.budget, project_id: model),
       method: vote_button_method,
@@ -7,7 +6,7 @@
       data: {
         add: !resource_added?,
         disable: true,
-        budget: model.budget,
+        budget: model.budget_amount,
         "redirect-url": resource_path
       },
       disabled: vote_button_disabled?,

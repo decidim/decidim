@@ -115,8 +115,8 @@ en:
         order_summary:
           selected_projects: 'The projects that you have selected are:'
           subject: You have voted on the %{space_name} participatory space
-          voted_on_space: You have voted on the budgets for the %{space_name} participatory space.
-          voted_on_space_with_scope: You have voted on the budgets for the %{space_name} participatory space on %{scope_name} (%{scope_type}).
+          voted_on_space: You have voted on the %{budget_name} budget for the %{space_name} participatory space.
+          voted_on_space_with_scope: You have voted on the %{budget_name} budget for the %{space_name} participatory space on %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Do you agree? Once you have confirmed your vote, you can not change it.
@@ -169,10 +169,11 @@ en:
         project:
           add: Add project %{resource_name} to your vote
           count:
-            one: 1 support
-            other: "%{count} supports"
+            one: support
+            other: supports
           remove: Remove project %{resource_name} from your vote
           view: View
+          you_voted: You voted
         project_budget_button:
           add: Add to your vote
           add_descriptive: Add project %{resource_name} to your vote

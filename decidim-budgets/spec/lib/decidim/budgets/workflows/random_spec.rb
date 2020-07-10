@@ -4,7 +4,6 @@ require "spec_helper"
 
 module Decidim::Budgets
   describe Workflows::Random do
-    # !todo: fix pending xit
     subject(:workflow) { described_class.new(budgets_component, current_user) }
 
     let!(:budgets) { create_list(:budget, 6, component: budgets_component) }
@@ -15,13 +14,13 @@ module Decidim::Budgets
     let(:chosen_resource) { workflow.send(:random_resource) }
     let(:not_chosen_resources) { workflow.budgets - [chosen_resource] }
 
-    # xit_behaves_like "includes base workflow features"
+    it_behaves_like "includes base workflow features"
     it_behaves_like "doesn't have orders"
-    # xit_behaves_like "highlights a resource" do
-    #   let(:highlighted_resource) { chosen_resource }
-    # end
+    it_behaves_like "highlights a resource" do
+      let(:highlighted_resource) { chosen_resource }
+    end
 
-    xit "allows to vote only in the chosen resource" do
+    it "allows to vote only in the chosen resource" do
       expect(subject).to be_vote_allowed(chosen_resource)
 
       not_chosen_resources.each do |resource|
@@ -31,7 +30,7 @@ module Decidim::Budgets
       expect(workflow.allowed).to match_array([chosen_resource])
     end
 
-    xit "has an allowed status only for the chosen resource" do
+    it "has an allowed status only for the chosen resource" do
       expect(workflow.status(chosen_resource)).to eq(:allowed)
 
       not_chosen_resources.each do |resource|
@@ -47,32 +46,32 @@ module Decidim::Budgets
       before { order }
 
       shared_examples "allows to vote only in the order resource" do
-        xit "allows to vote in the order resource" do
+        it "allows to vote in the order resource" do
           expect(subject).to be_vote_allowed(order_resource)
           expect(workflow.allowed).to match_array([order_resource])
         end
 
-        xit "doesn't allow to vote in the other resources" do
+        it "doesn't allow to vote in the other resources" do
           other_resources.each do |resource|
             expect(subject).not_to be_vote_allowed(resource)
           end
         end
 
-        xit "has a not_allowed status for other resources" do
+        it "has a not_allowed status for other resources" do
           other_resources.each do |resource|
             expect(workflow.status(resource)).to eq(:not_allowed)
           end
         end
       end
 
-      # xit_behaves_like "highlights a resource" do
-      #   let(:highlighted_resource) { chosen_resource }
-      # end
-      # xit_behaves_like "has an in-progress order"
-      # xit_behaves_like "allows to vote only in the order resource"
-      # xit_behaves_like "allow to discard all the progress orders"
+      it_behaves_like "highlights a resource" do
+        let(:highlighted_resource) { chosen_resource }
+      end
+      it_behaves_like "has an in-progress order"
+      it_behaves_like "allows to vote only in the order resource"
+      it_behaves_like "allow to discard all the progress orders"
 
-      xit "would not allow to vote in other resources" do
+      it "would not allow to vote in other resources" do
         other_resources.each do |resource|
           expect(subject).not_to be_vote_allowed(resource, false)
         end
@@ -81,14 +80,14 @@ module Decidim::Budgets
       context "when the order is not from the chosen resource" do
         let(:order_resource) { not_chosen_resources.first }
 
-        # xit_behaves_like "highlights a resource" do
-        #   let(:highlighted_resource) { order_resource }
-        # end
-        # xit_behaves_like "has an in-progress order"
-        # xit_behaves_like "allows to vote only in the order resource"
-        # xit_behaves_like "allow to discard all the progress orders"
+        it_behaves_like "highlights a resource" do
+          let(:highlighted_resource) { order_resource }
+        end
+        it_behaves_like "has an in-progress order"
+        it_behaves_like "allows to vote only in the order resource"
+        it_behaves_like "allow to discard all the progress orders"
 
-        xit "would allow to vote in the chosen resource" do
+        it "would allow to vote in the chosen resource" do
           expect(subject).to be_vote_allowed(chosen_resource, false)
         end
       end
@@ -96,11 +95,11 @@ module Decidim::Budgets
       context "when order has been checked out" do
         before { order.update! checked_out_at: Time.current }
 
-        # xit_behaves_like "doesn't highlight any resource"
-        # xit_behaves_like "has a voted order"
-        # xit_behaves_like "doesn't allow to vote in any resource"
+        it_behaves_like "doesn't highlight any resource"
+        it_behaves_like "has a voted order"
+        it_behaves_like "doesn't allow to vote in any resource"
 
-        xit "doesn't have any discardable order" do
+        it "doesn't have any discardable order" do
           expect(workflow.discardable).to be_empty
         end
       end

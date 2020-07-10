@@ -4,16 +4,21 @@
       <% if current_order_checked_out? %>
         <h3 class="heading3"><%= t(".checked_out.title") %></h3>
         <p>
-          <%= raw t(".checked_out.description", cancel_link: link_to(t(".cancel_order"), order_path, method: :delete, class: "cancel-order", data: { confirm: t(".are_you_sure") })) %>
+          <%= raw t(".checked_out.description", cancel_link: link_to(t(".cancel_order"), budget_order_path, method: :delete, class: "cancel-order", data: { confirm: t(".are_you_sure") })) %>
         </p>
       <% else %>
-        <h3 class="heading3"><%= t(".title") %></h3>
+        <h3 class="heading3">
+          <% if current_workflow.single? %>
+            <%= t(".title") %>
+          <% else %>
+            <%= translated_attribute(budget.title) %>
+          <% end %>
+        </h3>
         <p>
           <% if current_order.minimum_projects_rule? %>
             <%= t(".description_minimum_projects_rule", minimum_number: current_order.minimum_projects) %>
           <% else %>
-            <% # !todo: order.budget %>
-            <%# = t(".description", minimum_budget: budget_to_currency(current_order.minimum_budget)) %>
+            <%= t(".description", minimum_budget: budget_to_currency(current_order.minimum_budget)) %>
           <% end %>
         </p>
       <% end %>
@@ -27,8 +32,7 @@
       </span>
     </div>
 
-    <% # !todo: order - budget %>
-    <%#= render partial: "order_progress" %>
+    <%= render partial: "order_progress" %>
 
     <div>
       <span class="mini-title">
@@ -36,6 +40,8 @@
         <%= render partial: "order_total_budget" %>
       </span>
     </div>
+
+    <%= cell("decidim/budgets/budget_information_modal", budget) %>
   </div>
 
   <%= render partial: "order_selected_projects" %>

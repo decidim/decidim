@@ -22,9 +22,8 @@ module Decidim
                          end
       end
 
-      def order_path_for(component)
-        # !todo: check routing
-        ::Decidim::EngineRouter.main_proxy(component).order_path(return_path: request.path)
+      def order_path_for
+        budget_order_path(budget, return_path: request.path)
       end
 
       def should_discard_to_vote?

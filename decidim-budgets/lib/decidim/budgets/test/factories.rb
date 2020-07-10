@@ -12,7 +12,7 @@ FactoryBot.define do
     manifest_name { :budgets }
     participatory_space { create(:participatory_process, :with_steps, organization: organization) }
 
-    trait :with_total_budget_and_vote_threshold_percent do
+    trait :with_vote_threshold_percent do
       transient do
         vote_rule_threshold_percent_enabled { true }
         vote_rule_minimum_budget_projects_enabled { false }
@@ -28,7 +28,7 @@ FactoryBot.define do
       end
     end
 
-    trait :with_total_budget_and_minimum_budget_projects do
+    trait :with_minimum_budget_projects do
       transient do
         vote_rule_threshold_percent_enabled { false }
         vote_rule_minimum_budget_projects_enabled { true }
@@ -101,12 +101,24 @@ FactoryBot.define do
   end
 
   factory :order, class: "Decidim::Budgets::Order" do
-    component { create(:budgets_component) }
+    budget { create(:budget) }
     user { create(:user, organization: component.organization) }
+
+    trait :with_projects do
+      transient do
+        projects_number { 2 }
+      end
+
+      after(:create) do |order, evaluator|
+        project_budget = (order.maximum_budget / evaluator.projects_number).to_i
+        order.projects << create_list(:project, evaluator.projects_number, budget_amount: project_budget, budget: order.budget)
+        order.save!
+      end
+    end
   end
 
   factory :line_item, class: "Decidim::Budgets::LineItem" do
     order
-    project { create(:project, component: order.component) }
+    project { create(:project, budget: order.budget) }
   end
 end

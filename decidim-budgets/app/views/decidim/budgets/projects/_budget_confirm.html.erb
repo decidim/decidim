@@ -11,9 +11,9 @@
       <ul class="card__content">
         <% current_order.projects.each do |project| %>
           <li class="budget-summary__selected-item">
-            <%= link_to translated_attribute(project.title), project %>
+            <%= link_to translated_attribute(project.title), resource_locator([budget, project]).path %>
             <strong class="budget-summary__selected-number">
-              <%= budget_to_currency project.budget %>
+              <%= budget_to_currency project.budget_amount %>
             </strong>
           </li>
         <% end %>
@@ -22,7 +22,6 @@
     <p class="text-center"><%= t(".are_you_sure") %></p>
     <div class="row">
       <div class="columns medium-8 medium-offset-2">
-        <% # !todo: check route %>
         <%= button_to t(".confirm"), checkout_budget_order_path(budget, anchor: "content"), class: "button expanded", data: { disable: true } %>
       </div>
     </div>

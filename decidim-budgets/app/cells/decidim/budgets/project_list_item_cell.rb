@@ -11,7 +11,7 @@ module Decidim
       include Decidim::Budgets::ProjectsHelper
       include Decidim::Budgets::Engine.routes.url_helpers
 
-      delegate :current_user, :current_settings, :current_order, :current_component, :current_participatory_space, to: :parent_controller
+      delegate :current_user, :current_settings, :current_order, :current_component, :current_participatory_space, :can_have_order?, to: :parent_controller
 
       def project_image
         render
@@ -21,15 +21,37 @@ module Decidim
         render
       end
 
+      def project_text_votes
+        render view: :project_votes,
+               locals: {
+                 container_class: "budget-list__data__number budget-list__number hide-for-medium",
+                 count_class: "display-inline",
+                 you_voted_class: "display-inline text-sm ml-xs text-success text-uppercase"
+               }
+      end
+
+      def project_text_number
+        render view: :project_number, locals: { container_class: "budget-list__data__number budget-list__number hide-for-medium" }
+      end
+
       def project_data
         render
       end
 
-      def project_data_number
+      def project_data_voted
         render
       end
 
       def project_data_votes
+        render view: :project_votes,
+               locals: {
+                 container_class: "budget-list__data__votes",
+                 count_class: "text-large",
+                 you_voted_class: "text-sm mt-s text-success"
+               }
+      end
+
+      def project_data_number
         render
       end
 
@@ -56,11 +78,14 @@ module Decidim
       end
 
       def data_class
-        return "budget-list__data--added" if resource_added?
+        [].tap do |list|
+          list << "budget-list__data--added" if can_have_order? && resource_added?
+          list << "show-for-medium" if voting_finished? || (current_order_checked_out? && !resource_added?)
+        end.join(" ")
       end
 
       def vote_button_disabled?
-        !current_settings.votes_enabled? || current_order_checked_out? || !current_participatory_space.can_participate?(current_user)
+        current_user && !can_have_order?
       end
 
       def vote_button_class

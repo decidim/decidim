@@ -25,11 +25,10 @@ describe Decidim::Budgets::Admin::DestroyBudget do
     expect(action_log.version.event).to eq "destroy"
   end
 
-  # !todo: with projects it can't be destroyed
   context "when the budget has projects" do
-    let(:budget) { create :budget, :started }
+    let!(:project) { create :project, budget: budget }
 
-    xit "is not valid" do
+    it "is not valid" do
       expect { subject.call }.to broadcast(:invalid)
     end
   end

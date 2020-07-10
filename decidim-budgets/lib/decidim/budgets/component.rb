@@ -93,7 +93,6 @@ Decidim.register_component(:budgets) do |component|
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
-  # !todo: modify seeds to budget model
   component.seeds do |participatory_space|
     component = Decidim::Component.create!(
       name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :budgets).i18n_name,

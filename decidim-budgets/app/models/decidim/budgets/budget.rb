@@ -12,6 +12,7 @@ module Decidim
       component_manifest_name "budgets"
 
       has_many :projects, foreign_key: "decidim_budgets_budget_id", class_name: "Decidim::Budgets::Project", inverse_of: :budget, dependent: :destroy
+      has_many :orders, foreign_key: "decidim_budgets_budget_id", class_name: "Decidim::Budgets::Order", inverse_of: :budget, dependent: :destroy
 
       delegate :participatory_space, :manifest, :settings, to: :component
 

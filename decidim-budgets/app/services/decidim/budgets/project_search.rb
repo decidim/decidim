@@ -15,6 +15,7 @@ module Decidim
       # Creates the SearchLight base query.
       def base_query
         raise "Missing budget" unless budget
+        raise "Missing component" unless component
 
         @scope.where(budget: budget)
       end
@@ -58,6 +59,10 @@ module Decidim
       # to define the method manually.
       def budget
         options[:budget]
+      end
+
+      def component
+        options[:component]
       end
     end
   end

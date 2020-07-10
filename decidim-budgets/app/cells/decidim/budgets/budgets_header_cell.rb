@@ -29,16 +29,15 @@ module Decidim
       end
 
       def order_path_for(budget)
-        # !todo: check routing
-        ::Decidim::EngineRouter.main_proxy(budget).order_path
+        budget_order_path(budget)
       end
 
       private
 
-      def budgets_link_list
-        current_workflow.budgets.map { |budget| link_to(translated_attribute(budget.name), main_component_path(budget)) }
-                        .to_sentence
-                        .html_safe
+      def budgets_link_list(budgets)
+        budgets.map { |budget| link_to(translated_attribute(budget.title), resource_locator(budget).path) }
+               .to_sentence
+               .html_safe
       end
 
       def i18n_scope

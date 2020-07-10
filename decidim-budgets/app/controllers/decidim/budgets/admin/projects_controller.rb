@@ -76,7 +76,7 @@ module Decidim
         end
 
         def orders
-          @orders ||= Order.where(component: current_component)
+          @orders ||= Order.where(budget: budget)
         end
 
         def pending_orders
