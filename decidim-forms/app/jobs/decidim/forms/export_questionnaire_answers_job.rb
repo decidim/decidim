@@ -12,7 +12,7 @@ module Decidim
         serializer = Decidim::Forms::UserAnswersSerializer
         export_data = Decidim::Exporters::FormPDF.new(answers, serializer).export
 
-        ExportMailer.export(user, title, export_data).deliver_now
+        ExportMailer.export(user, title, export_data, zip: false).deliver_now
       end
     end
   end

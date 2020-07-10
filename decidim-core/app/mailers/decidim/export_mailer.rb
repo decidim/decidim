@@ -10,16 +10,21 @@ module Decidim
     # user        - The user to be notified.
     # export_name - The name of the export.
     # export_data - The data containing the result of the export.
+    # options     - Options regarding the export (zip: whether to send the attachment compressed in a .zip file).
     #
     # Returns nothing.
-    def export(user, export_name, export_data)
+    def export(user, export_name, export_data, options = { zip: true })
       @user = user
       @organization = user.organization
 
       filename = export_data.filename(export_name)
       filename_without_extension = export_data.filename(export_name, extension: false)
 
-      attachments["#{filename_without_extension}.zip"] = FileZipper.new(filename, export_data.read).zip
+      if options[:zip]
+        attachments["#{filename_without_extension}.zip"] = FileZipper.new(filename, export_data.read).zip
+      else
+        attachments[filename] = export_data.read
+      end
 
       with_user(user) do
         mail(to: "#{user.name} <#{user.email}>", subject: I18n.t("decidim.export_mailer.subject", name: filename))

@@ -73,6 +73,8 @@ Decidim.register_component(:surveys) do |component|
     exports.formats %w(CSV JSON Excel FormPDF)
 
     exports.serializer Decidim::Forms::UserAnswersSerializer
+
+    exports.options { { zip: false } }
   end
 
   component.seeds do |participatory_space|
