@@ -273,7 +273,7 @@ pt:
             name: encontro
         registrations:
           edit:
-            save: Salve 
+            save: Guardar
             validate: Validar
             validate_registration_code: Validar código de registro
           form:
