@@ -162,6 +162,41 @@ en:
             answers: Answers
             max_selections: Max. selections
             title: Title
+      votes:
+        confirm:
+          answer: Answer
+          confirm: Confirm
+          edit: edit <span class="show-for-sr"> answer %{count}</span>
+          header: Confirm your vote
+          intro: Here is a summary of the vote you are about to cast. </br> Please confirm your vote or edit your answers.
+          question: Question %{count}
+        confirmed:
+          back: Back to Decidim
+          experience: How was your experience?
+          feedback: Give us some feedback
+          header: Vote confirmed
+          lead: Your vote has already been cast!
+          text: 'You can check that your vote has been successfully added to the ballot box with the following identifier: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: To check it, copy the identifier and paste it on the <a href="evote-verify">vote verification page</a>
+        encrypting:
+          header: Encoding vote...
+          text: Your vote is being encrypted to ensure you can cast it anonymously.
+        header:
+          confirm: Confirm your vote
+          confirmed: Vote vonfirmed
+          encrypting: Confirming vote
+        modal:
+          close: Close
+          proposal_header: 'Proposals:'
+        new:
+          answer_choices: You can select up to %{choices} answers or none
+          counter_text: of <span class="evote__counter-num">%{max_selections}</span></div>selections
+          current_question: Question %{current_step}
+          more_information: More information
+          of_total_questions: of %{total_steps}
+        voting_step:
+          back: Back
+          continue: Next
     events:
       elections:
         election_published:
@@ -172,3 +207,7 @@ en:
     participatory_processes:
       statistics:
         elections_count: Elections
+  layouts:
+    decidim:
+      election_votes_header:
+        close: Close
