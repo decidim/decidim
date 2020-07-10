@@ -102,7 +102,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
   }
 
   public getNodeReference = (commentNode: HTMLDivElement) =>
-    (this.commentNode = commentNode);
+    (this.commentNode = commentNode)
 
   public render(): JSX.Element {
     const {
@@ -192,20 +192,20 @@ class Comment extends React.Component<CommentProps, CommentState> {
   private toggleReplyForm = () => {
     const { showReplyForm } = this.state;
     this.setState({ showReplyForm: !showReplyForm });
-  };
+  }
 
   private getThreadsStorage = (): Dict => {
     const storage: Dict =
       JSON.parse(localStorage.hiddenCommentThreads || null) || {};
 
     return storage;
-  };
+  }
 
   private saveThreadsStorage = (id: string, state: boolean) => {
     const storage = this.getThreadsStorage();
     storage[parseInt(id, 10)] = state;
     localStorage.hiddenCommentThreads = JSON.stringify(storage);
-  };
+  }
 
   private toggleReplies = () => {
     const {
@@ -216,7 +216,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
 
     this.saveThreadsStorage(id, !newState);
     this.setState({ showReplies: newState });
-  };
+  }
 
   private countReplies = (comment: CommentFragment): number => {
     const { comments } = comment;
@@ -229,7 +229,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
       comments.length +
       comments.map(this.countReplies).reduce((a: number, b: number) => a + b, 0)
     );
-  };
+  }
 
   /**
    * Render author information as a link to author's profile
