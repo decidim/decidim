@@ -1026,8 +1026,13 @@ sv:
         report_html: <p>Följande <a href="%{url}">innehåll</a> har döljts automatiskt.</p>
         subject: En resurs har döljts automatiskt
       report:
+        authors: Författare
+        content: Rapporterat innehåll
+        date: Rapporterades
+        details: Detaljer
         hello: Hej %{name},
         manage_moderations: Hantera moderering
+        reason: Anledning
         report_html: <p>Följande <a href="%{url}">innehåll</a> har rapporterats.</p>
         subject: En resurs har rapporterats
     reports:
