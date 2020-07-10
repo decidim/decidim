@@ -159,7 +159,7 @@ it:
           title: Accetta i termini e le condizioni di utilizzo
         required_review:
           alert: 'Richiesto: Rivedi i nostri termini di utilizzo da amministratore'
-          callout: Prenditi un momento per rivedere i Termini di utilizzo dell'amministratore. Altrimenti non sarai in grado di amministrare la piattaforma.
+          callout: Prenditi un momento per leggere i Termini di utilizzo dell'amministratore. Altrimenti non sarai in grado di amministrare la piattaforma.
           cta: Rivedili ora.
         title: Termini di utilizzo dell'amministratore
       area_types:
@@ -501,7 +501,7 @@ it:
           and: 'e '
           confirm_delete: Sei sicuro di voler cancellare questa newsletter?
           followers: 'followers '
-          has_been_sent_to: 'E'' stato inviato a: '
+          has_been_sent_to: 'E'' stata inviata a: '
           no_scopes: Nessun ambito
           not_sent: Non inviato
           participants: 'partecipanti '
@@ -595,7 +595,7 @@ it:
           github: GitHub
           instagram: Instagram
           rich_text_editor_in_public_views_help: In alcune aree di testo, i partecipanti saranno in grado di inserire alcuni tag HTML utilizzando l'editor di testo rich text.
-          social_handlers: Sociale
+          social_handlers: Social networks
           twitter: Twitter
           url: URL
           youtube: Youtube
@@ -609,7 +609,7 @@ it:
           colors:
             colors_title: Colori dell'organizzazione
             header_snippets_help: Utilizza questo campo per aggiungere le cose alla testa HTML. L'uso più comune è quello di integrare i servizi di terze parti che richiedono JavaScript o CSS extra. Inoltre, è possibile utilizzarlo per aggiungere meta tag extra all'HTML. Tieni presente che questo sarà reso solo nelle pagine pubbliche, non nella sezione admin.
-          cta_button_path_help: 'Puoi sovrascrivere dove il pulsante Call To Action nella home page è collegato. Utilizza i percorsi parziali e non gli URL completi qui. Accetta lettere, numeri, trattini e barre, e deve iniziare con una lettera. Il pulsante Chiamata all''azione è mostrato nella homepage tra il testo di benvenuto e la descrizione. Esempio: %{url}'
+          cta_button_path_help: 'Puoi sovrascrivere il collegamento del pulsante di "Chiamata all''azione" nella home page. Utilizza i percorsi parziali e non gli URL completi qui. Accetta lettere, numeri, trattini e barre, e deve iniziare con una lettera. Il pulsante "Chiamata all''azione" è mostrato nella homepage tra il testo di benvenuto e la descrizione. Esempio: %{url}'
           cta_button_text_help: Puoi sovrascrivere il testo del pulsante Chiamata all'azione nella home page per ogni lingua disponibile nell'organizzazione. Se non è impostato, verrà utilizzato il valore predefinito. Il pulsante Chiamata all'azione è mostrato nella homepage tra il testo di benvenuto e la descrizione.
           homepage_appearance_title: Modifica l'aspetto della home page
           homepage_highlighted_content_banner_title: Banner con contenuti Highligted

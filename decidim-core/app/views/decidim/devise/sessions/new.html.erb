@@ -21,7 +21,9 @@
         <% end %>
       </div>
     </div>
-    <%= render "decidim/devise/shared/omniauth_buttons" %>
+    <% cache current_organization do %>
+      <%= render "decidim/devise/shared/omniauth_buttons" %>
+    <% end %>
 
     <% if current_organization.sign_in_enabled? %>
       <div class="row">

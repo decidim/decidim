@@ -23,7 +23,7 @@ module Decidim
       field :description, Decidim::Core::TranslatedFieldType, "The description of this meeting."
       field :startTime, !Decidim::Core::DateTimeType, "The time this meeting starts", property: :start_time
       field :endTime, !Decidim::Core::DateTimeType, "The time this meeting ends", property: :end_time
-      field :organizer, Decidim::Core::AuthorInterface, "If specified, the organizer of this meeting"
+      field :author, Decidim::Core::AuthorInterface, "If specified, the author of this meeting"
       field :agenda, AgendaType, "Agenda for this meeting, if available" do
         resolve ->(meeting, _args, _ctx) {
           meeting.agenda if meeting.agenda&.visible?

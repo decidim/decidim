@@ -7,6 +7,13 @@
     <h3 id="meetings-count" class="title-action__title section-heading">
       <%= render partial: "count" %>
     </h3>
+
+    <% if allowed_to?(:create, :meeting) %>
+      <%= action_authorized_link_to :create, new_meeting_path, class: "title-action__action button small", data: { "redirect_url" => new_meeting_path } do %>
+        <%= t("new_meeting", scope: "decidim.meetings.meetings.index") %>
+        <%= icon "plus", role: "img" %>
+      <% end %>
+    <% end %>
   </div>
 </div>
 
