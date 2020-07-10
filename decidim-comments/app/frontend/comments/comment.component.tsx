@@ -10,7 +10,7 @@ import UpVoteButton from "./up_vote_button.component";
 import {
   AddCommentFormCommentableFragment,
   AddCommentFormSessionFragment,
-  CommentFragment,
+  CommentFragment
 } from "../support/schema";
 
 import { NetworkStatus } from "apollo-client";
@@ -50,7 +50,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
     articleClassName: "comment",
     isRootComment: false,
     session: null,
-    votable: false,
+    votable: false
   };
 
   public commentNode: HTMLDivElement;
@@ -59,19 +59,19 @@ class Comment extends React.Component<CommentProps, CommentState> {
     super(props);
 
     const {
-      comment: { id },
+      comment: { id }
     } = props;
     const isThreadHidden = !!this.getThreadsStorage()[id];
 
     this.state = {
       showReplies: !isThreadHidden,
-      showReplyForm: false,
+      showReplyForm: false
     };
   }
 
   public componentDidMount() {
     const {
-      comment: { id },
+      comment: { id }
     } = this.props;
     const hash = document.location.hash;
     const regex = new RegExp(`#comment_${id}`);
@@ -108,7 +108,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
     const {
       session,
       comment: { id, author, formattedBody, createdAt, formattedCreatedAt },
-      articleClassName,
+      articleClassName
     } = this.props;
     let modalName = "loginModal";
 
@@ -209,7 +209,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
 
   private toggleReplies = () => {
     const {
-      comment: { id },
+      comment: { id }
     } = this.props;
     const { showReplies } = this.state;
     const newState = !showReplies;
@@ -238,7 +238,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
    */
   private _renderAuthorReference() {
     const {
-      comment: { author },
+      comment: { author }
     } = this.props;
 
     if (author.profilePath === "") {
@@ -255,7 +255,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
    */
   private _renderAuthor() {
     const {
-      comment: { author },
+      comment: { author }
     } = this.props;
 
     if (author.deleted) {
@@ -272,7 +272,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
    */
   private _renderDeletedAuthor() {
     const {
-      comment: { author },
+      comment: { author }
     } = this.props;
 
     return (
@@ -296,7 +296,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
    */
   private _renderActiveAuthor() {
     const {
-      comment: { author },
+      comment: { author }
     } = this.props;
 
     return (
@@ -323,7 +323,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
   private _renderReplyButton() {
     const {
       comment: { id, acceptsNewComments, userAllowedToComment },
-      session,
+      session
     } = this.props;
 
     if (session && acceptsNewComments && userAllowedToComment) {
@@ -353,7 +353,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
     const {
       comment: { id, acceptsNewComments, hasComments, userAllowedToComment },
       session,
-      isRootComment,
+      isRootComment
     } = this.props;
     const { showReplies } = this.state;
 
@@ -400,7 +400,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
           &nbsp;
           <span className="comment__text-is-closed">
             {I18n.t("components.comment.show_replies", {
-              replies_count: this.countReplies(comment),
+              replies_count: this.countReplies(comment)
             })}
           </span>
           <span className="comment__text-is-open">
@@ -420,7 +420,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
   private _renderVoteButtons() {
     const { session, comment, votable, rootCommentable, orderBy } = this.props;
     const {
-      comment: { userAllowedToComment },
+      comment: { userAllowedToComment }
     } = this.props;
 
     if (votable && userAllowedToComment) {
@@ -457,7 +457,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
       votable,
       articleClassName,
       rootCommentable,
-      orderBy,
+      orderBy
     } = this.props;
     const { showReplies } = this.state;
     let replyArticleClassName = "comment comment--nested";
@@ -496,7 +496,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
     const { session, comment, rootCommentable, orderBy } = this.props;
     const { showReplyForm } = this.state;
     const {
-      comment: { userAllowedToComment },
+      comment: { userAllowedToComment }
     } = this.props;
 
     if (session && showReplyForm && userAllowedToComment) {
@@ -524,11 +524,11 @@ class Comment extends React.Component<CommentProps, CommentState> {
    */
   private _renderAlignmentBadge() {
     const {
-      comment: { alignment },
+      comment: { alignment }
     } = this.props;
     const spanClassName = classnames("label alignment", {
       success: alignment === 1,
-      alert: alignment === -1,
+      alert: alignment === -1
     });
 
     let label = "";
@@ -559,7 +559,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
   private _renderFlagModal() {
     const {
       session,
-      comment: { id, sgid, alreadyReported, userAllowedToComment },
+      comment: { id, sgid, alreadyReported, userAllowedToComment }
     } = this.props;
     const authenticityToken = this._getAuthenticityToken();
 
@@ -636,7 +636,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
                     id={`report_comment_${id}_reason_does_not_belong`}
                   />
                   {I18n.t("components.comment.report.reasons.does_not_belong", {
-                    organization_name: session.user.organizationName,
+                    organization_name: session.user.organizationName
                   })}
                 </label>
                 <label htmlFor={`report_comment_${id}_details`}>
@@ -650,7 +650,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
                 <button type="submit" name="commit" className="button">
                   {I18n.t("components.comment.report.action")}
                 </button>
-              </form>,
+              </form>
             ];
           })()}
         </div>

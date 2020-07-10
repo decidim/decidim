@@ -244,7 +244,7 @@
     "style-loader": "^0.21.0",
     "ts-jest": "^22.4.1",
     "ts-loader": "^4.3.0",
-    "tslint": "^5.8.0",
+    "tslint": "^5.20.1",
     "tslint-react": "^3.2.0",
     "typescript": "^2.5.3",
     "typescript-babel-jest": "^1.0.5",

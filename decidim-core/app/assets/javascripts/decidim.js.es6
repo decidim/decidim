@@ -64,7 +64,7 @@ $(() => {
 
   // Prevent data-open buttons e.g. from submitting the underlying form in
   // authorized action buttons.
-  $("[data-open]").on("click", event => {
+  $("[data-open]").on("click", (event) => {
     event.preventDefault();
   });
 
