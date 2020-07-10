@@ -127,8 +127,9 @@ es:
             success: Tu cuenta se ha verificado correctamente.
       dummy_authorization:
         extra_explanation:
-          one: La participación está restringida a las personas adscritas al código postal %{postal_codes}.
-          other: 'La participación está restringida a personas adscritas a cualquiera de los siguientes códigos postales: %{postal_codes}.'
+          postal_codes:
+            one: La participación está restringida a las personas adscritas al código postal %{postal_codes}.
+            other: 'La participación está restringida a personas adscritas a cualquiera de los siguientes códigos postales: %{postal_codes}.'
       id_documents:
         admin:
           config:
