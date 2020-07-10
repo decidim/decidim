@@ -6,7 +6,6 @@
       <tr>
         <th class='token'><%= t("session_token", scope: "decidim.forms.user_answers_serializer") %></th>
         <th><%= t("user_status",   scope: "decidim.forms.user_answers_serializer") %></th>
-        <th><%= t("ip_hash",       scope: "decidim.forms.user_answers_serializer") %></th>
         <th><%= t("completion",    scope: "decidim.forms.user_answers_serializer") %></th>
         <th><%= t("created_at",    scope: "decidim.forms.user_answers_serializer") %></th>
       </tr>
@@ -15,7 +14,6 @@
       <tr>
         <td><%= participant.session_token %></td>
         <td><%= participant.status %></td>
-        <td><%= participant.ip_hash %></td>
         <td><%= display_percentage(participant.completion) %></td>
         <td><%= l participant.answered_at, format: :short %></td>
       </tr>
@@ -24,12 +22,8 @@
 
   <div class="answers">
     <% participant.answers.each do |answer| %>
-      <% if answer.separator? %>
-        <hr class="separator">
-      <% else %>
-        <h3 class="question"><%= answer.question %></h3>
-        <p><%= simple_format answer.body %></p>
-      <% end %>
+      <h3 class="question"><%= answer.question %></h3>
+      <p class="response"><%= answer.body %></p>
     <% end %>
   </div>
 </div>

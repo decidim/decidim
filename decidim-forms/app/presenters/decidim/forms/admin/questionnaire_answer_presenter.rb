@@ -16,22 +16,18 @@ module Decidim
         end
 
         def body
-          return answer.body if answer.body.present?
+          return simple_format answer.body if answer.body.present?
           return "-" if answer.choices.empty?
 
           return answer.choices.first if answer.question.question_type == "single_option"
 
           present_choices
         end
-
-        def separator?
-          answer.question.separator?
+        
+        def text?
+          %w(short_answer long_answer).include? answer.question.question_type.to_s
         end
         
-        def matrix?
-          answer.question.matrix?
-        end
-
         private
 
         def organization
@@ -43,7 +39,7 @@ module Decidim
         end
 
         def present_choices
-          if matrix?
+          if answer.question.matrix?
             content_tag :dl do
               safe_join(
                 answer.choices.map do |c|
@@ -56,7 +52,7 @@ module Decidim
               )
             end
           else
-            content_tag :ul do
+            content_tag(answer.question.question_type == "sorting" ? :ol : :ul) do
               safe_join(
                 answer.choices.map do |c|
                   content_tag(:li, choice_body(c))

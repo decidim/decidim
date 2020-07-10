@@ -6,6 +6,8 @@ $white: white;
 $border-radius-top: 4px 4px 0 0;
 $border-radius-bottom: 0 0 4px 4px;
 
+$border: 1px solid $foreground;
+
 $small-padding: 10px;
 $padding: 25px;
 
@@ -13,6 +15,11 @@ $padding: 25px;
   font-family: 'Source Sans Pro', Helvetica, Roboto, Arial, sans-serif;
   
   .header{
+    .logo {
+      height: 1rem;
+      width: auto;
+    }
+
     .title, .subtitle, .description{
       margin: 0;
       padding: $small-padding $padding;
@@ -29,16 +36,22 @@ $padding: 25px;
       border-radius: 0;
       padding-top: $padding;
     }
-    
-    .subtitle, .description{
+
+    .subtitle, .description, .answers-count{
       background: $background-alt;
       color: $foreground;
+    }
+
+    .answers-count{
+      margin: -1px 0px;
+      padding: $padding;
     }
 
     .description{
       border-radius: $border-radius-bottom;
     }
   }
+
 
   .answer{
     margin-top: $padding;
@@ -61,34 +74,34 @@ $padding: 25px;
       text-align: center;
       background: $background-alt;
       color: $foreground;
-      border-bottom: 1px solid $foreground;
+      border-bottom: $border;
       page-break-inside: avoid;
 
-      th:first-child{
-        text-align: left;
-      }
-
-      td:first-child{
-        text-align: left;
-      }
-
-      th:last-child{
-        text-align: right;
-      }
-
-      td:last-child{
-        text-align: right;
+      td, th {
+        &:first-child{
+          text-align: left;
+        }
+        &:last-child{ 
+          text-align: right;
+        }
       }
     }
 
     .answers{
       padding: 25px;
+      
+      .response {
+        ol, ul, dl {
+          color: red;
+        }
+      }
 
       .question{
         page-break-inside: avoid;
         font-size: inherit;
         color: $foreground;
       }
+
     }
   }
 }

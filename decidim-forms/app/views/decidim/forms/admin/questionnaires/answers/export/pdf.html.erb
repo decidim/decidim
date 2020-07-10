@@ -13,18 +13,19 @@
     <h2 class="subtitle">
       <%= translated_attribute(questionnaire.title) %>
     </h2>
+    
+    <% if collection.count > 1 %>
+      <h3 class="answers-count"><%= t("title", scope: "decidim.forms.admin.questionnaires.answers.index", total: collection.count) %></h3>
+    <% end %>
+
     <div class="description">
-      <%== translated_attribute(questionnaire.description).html_safe %>
+      <%= translated_attribute(questionnaire.description).html_safe %>
     </div>
   </div>
   
   <div class="content">
-    <% if collection.count > 1 %>
-      <h3><%= t("title", scope: "decidim.forms.admin.questionnaires.answers.index", total: collection.count) %></h3>
-    <% end %>
+    <%= render partial: "decidim/forms/admin/questionnaires/answers/export/answer", collection: collection, locals: { questionnaire: questionnaire }, as: :participant %>
   </div>
-
-  <%= render partial: "decidim/forms/admin/questionnaires/answers/export/answer", collection: collection, locals: { questionnaire: questionnaire }, as: :participant %>
 
   <footer class="page-footer">
     <%= t("footer", scope: "decidim.forms.admin.questionnaires.answers.index") %>
