@@ -15,11 +15,11 @@ it:
     models:
       decidim/sortitions/sortition:
         one: sortition
-        other: Sortitions
+        other: Sorteggi
   decidim:
     components:
       sortitions:
-        name: Sortitions
+        name: Sorteggi
         settings:
           global:
             comments_enabled: Commenti abilitati
@@ -29,14 +29,14 @@ it:
           email_intro: L'ordinamento "%{resource_title}" è stato aggiunto a "%{participatory_space_title}" che stai seguendo.
           email_outro: Hai ricevuto questa notifica perché stai seguendo "%{participatory_space_title}". Puoi smettere di seguirlo dal link precedente.
           email_subject: Nuova sortizione aggiunta a %{participatory_space_title}
-          notification_title: La sortition <a href="%{resource_path}">%{resource_title}</a> è stata aggiunta a %{participatory_space_title}
+          notification_title: Il sorteggio <a href="%{resource_path}">%{resource_title}</a> è stato aggiunto a %{participatory_space_title}
     pages:
       home:
         statistics:
-          sortitions_count: Sortitions
+          sortitions_count: Sorteggi
     participatory_processes:
       statistics:
-        sortitions_count: Sortitions
+        sortitions_count: Sorteggi
     sortitions:
       admin:
         actions:
@@ -57,8 +57,8 @@ it:
               target_items: Articoli da selezionare
               title: Titolo
             name:
-              one: sortition
-              other: Sortitions
+              one: Sorteggio
+              other: Sorteggi
         sortitions:
           confirm_destroy:
             confirm_destroy: Sei sicuro di voler cancellare questa selezione?
@@ -66,10 +66,10 @@ it:
             title: Annullamento della sortizione
           create:
             error: Si è verificato un errore durante la creazione di una nuova sortizione.
-            success: Sortition creato con successo
+            success: Sorteggio creato con successo
           destroy:
             error: Impossibile cancellare la sortizione.
-            success: Sortition cancellato con successo
+            success: Sorteggio cancellato con successo
           edit:
             title: Aggiorna le informazioni sulla sortizione
             update: Aggiornare
@@ -78,7 +78,7 @@ it:
             select_proposal_component: Seleziona il set di proposte
             title: Nuova raccolta di proposte
           index:
-            title: Sortitions
+            title: Sorteggi
           new:
             confirm: Premendo il pulsante successivo, Decidim registrerà la data e l'ora (con precisione dei secondi) e insieme al lancio dei dadi, queste informazioni verranno utilizzate per generare una selezione casuale. L'azione sarà irreversibile, una volta cliccato il pulsante verrà pubblicato il risultato di questa estrazione, insieme ai dati inseriti in questo modulo e non possono essere modificati, si prega di controllare attentamente il contenuto
             create: Creare
@@ -87,12 +87,12 @@ it:
             selected_proposals: Proposte selezionate per l'estrazione
           update:
             error: Si è verificato un errore durante l'aggiornamento della sortizione.
-            success: Sortition aggiornato con successo
+            success: Sorteggio aggiornato con successo
       admin_log:
         sortition:
-          create: "%{user_name} ha creato la sortizione %{resource_name} in %{space_name}"
-          delete: "%{user_name} ha annullato la sortition %{resource_name} in %{space_name}"
-          update: "%{user_name} ha aggiornato la sortizione %{resource_name} in %{space_name}"
+          create: "%{user_name} ha creato il sorteggio %{resource_name} in %{space_name}"
+          delete: "%{user_name} ha annullato il sorteggio %{resource_name} in %{space_name}"
+          update: "%{user_name} ha aggiornato il sorteggio %{resource_name} in %{space_name}"
       sortitions:
         count:
           proposals_count:
@@ -110,11 +110,11 @@ it:
           close_modal: Chiudi modale
           filter: Filtro
           filter_by: Filtra per
-          unfold: spiegare
+          unfold: Espandi
         linked_sortitions:
           selected_proposals: Proposte selezionate
         orders:
-          label: 'Ordina le ordinazioni per:'
+          label: 'Ordina i sorteggi per:'
           random: Casuale
           recent: Recente
         results_count:
@@ -122,17 +122,17 @@ it:
             one: proposta selezionata
             other: proposte selezionate
         show:
-          algorithm: Il codice dell'algoritmo di Sortition
+          algorithm: Il codice dell'algoritmo di sorteggio
           any_category: da tutte le categorie
           cancelled: Ordinamento annullato
-          candidate_proposal_ids: Ordine e ID di proposte di ordinamento
-          candidate_proposals_info: 'La raccolta è stata effettuata tra le seguenti proposte (%{category_label}), con i seguenti ID (in grassetto le proposte selezionate)  '
+          candidate_proposal_ids: Ordine e ID delle proposte da sorteggiare
+          candidate_proposals_info: 'Il sorteggio è stato effettuato tra le seguenti proposte (%{category_label}), con i seguenti ID (in grassetto le proposte selezionate)  '
           category: dalla categoria %{category}
           dice_result: "(1) Risultato dei dadi"
-          introduction: 'Questa pagina contiene i risultati della sortition %{reference}. Per mezzo di questa sortizione, %{target_items} numero di risultati sono stati selezionati casualmente e con una distribuzione di probabilità uguale dall''insieme di proposte visualizzate sotto. Insieme ai risultati, le informazioni visualizzate in questa pagina forniscono tutte le informazioni necessarie per massimizzare le garanzie e riprodurre i risultati. La chiave per la qualità di questa sortizione è la doppia casualità fornita da un lancio di un dado (verificato da testimoni) e il tempo preciso della sortizione che fornisce input per un algoritmo che genera una selezione casuale. Il seme del tempo per la sortition è così preciso (secondi) che è impossibile controllarlo dall''uomo, fornendo così un doppio input "incontrollabile" per garantire un risultato equo.  '
+          introduction: 'Questa pagina contiene i risultati del sorteggio %{reference}. Per mezzo di questo sorteggio, %{target_items} risultati sono stati selezionati casualmente e con una distribuzione di probabilità uguale dall''insieme di proposte visualizzate sotto. Insieme ai risultati, le informazioni visualizzate in questa pagina forniscono tutte le informazioni necessarie per massimizzare le garanzie e riprodurre i risultati. La chiave per la qualità di questo sorteggio è la doppia casualità fornita da un lancio di un dado (verificato da testimoni) e il tempo preciso del sorteggio, che fornisce l''input per un algoritmo che genera una selezione casuale. L''origine del tempo per il sorteggio è così preciso (secondi) che è impossibile controllarlo per gli umani, fornendo così un doppio input "incontrollabile" per garantire un risultato equo.  '
           mathematical_result: Risultato (1) x (2)
-          proposals_selected_by_sortition: Proposte selezionate per sortition
-          sortition_reproducibility_details: Dettagli di riproducibilità del Sortition
+          proposals_selected_by_sortition: Proposte selezionate per il sorteggio
+          sortition_reproducibility_details: Dettagli di riproducibilità del sorteggio
           time_seed: "(2) seme temporale"
           witnesses: Testimoni
         sortition:
@@ -147,5 +147,5 @@ it:
           deleted: Utente eliminato
         sortitions_count:
           count:
-            one: 1 sortition
-            other: "%{count} sortizioni"
+            one: 1 sorteggio
+            other: "%{count} sorteggi"
