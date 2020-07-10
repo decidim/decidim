@@ -49,6 +49,11 @@ cs:
         few: Změny
         many: Změny
         other: Změny
+      decidim/endorsement:
+        one: Schválení
+        few: Schválení
+        many: Schválení
+        other: Schválení
       decidim/user:
         one: Žádní uživatelé
         few: Uživatelé
@@ -253,6 +258,11 @@ cs:
         few: komentáře
         many: komentáře
         other: komentáře
+      endorsements:
+        one: schválení
+        few: schválení
+        many: schválení
+        other: schválení
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Ověřte si zavedením čísla pasu začínajícím písmenem "A"

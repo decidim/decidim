@@ -46,7 +46,7 @@ module Decidim
       def spaces
         return if @form.participatory_space_types.blank?
 
-        @form.participatory_space_types.map do |type|
+        @spaces ||= @form.participatory_space_types.map do |type|
           next if type.ids.blank?
 
           object_class = "Decidim::#{type.manifest_name.classify}"
@@ -75,20 +75,24 @@ module Decidim
 
         participant_ids = []
         spaces.each do |space|
+          next unless defined? space.component_ids
+
           available_components = Decidim.component_manifests.map { |m| m.name.to_s if m.newsletter_participant_entities.present? }.compact
           Decidim::Component.where(id: space.component_ids, manifest_name: available_components).published.each do |component|
             Decidim.find_component_manifest(component.manifest_name).try(&:newsletter_participant_entities).flatten.each do |object|
               klass = Object.const_get(object)
-              participant_ids << klass.newsletter_participant_ids(component)
+              participant_ids |= klass.newsletter_participant_ids(component)
             end
           end
-          next unless defined?(Decidim::Comments)
+        end
 
-          Decidim::Comments.newsletter_participant_entities.flatten.each do |object|
+        if defined?(Decidim::Comments)
+          Decidim::Comments.newsletter_participant_entities.each do |object|
             klass = Object.const_get(object)
-            participant_ids << klass.newsletter_participant_ids(space)
+            participant_ids |= klass.newsletter_participant_ids(spaces.first)
           end
         end
+
         participant_ids.flatten.compact.uniq
       end
     end

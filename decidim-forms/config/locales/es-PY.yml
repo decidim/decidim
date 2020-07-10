@@ -86,7 +86,6 @@ es-PY:
       user_answers_serializer:
         created_at: Respondido en
         id: ID de respuesta
-        ip_hash: Hash de Dirección IP
         registered: Registrado
         unregistered: No registrado
         user_status: Estado del usuario

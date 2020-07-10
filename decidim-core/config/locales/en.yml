@@ -265,8 +265,11 @@ en:
       dummy_authorization_handler:
         explanation: Get verified by introducing a document number ending with "X"
         fields:
+          allowed_postal_codes: Allowed postal codes (separated by commas)
+          allowed_scope_id: Allowed scope
           document_number: Document number
           postal_code: Postal code
+          scope_id: Scope
         name: Example authorization
       dummy_authorization_workflow:
         name: Dummy authorization workflow
@@ -1112,8 +1115,14 @@ en:
         report_html: <p>The following <a href="%{url}">content</a> has been hidden automatically.</p>
         subject: A resource has been hidden automatically
       report:
+        authors: Authors
+        content: Reported content
+        date: Reported on
+        details: Details
         hello: Hello %{name},
         manage_moderations: Manage moderations
+        participatory_space: Participatory space
+        reason: Reason
         report_html: <p>The following <a href="%{url}">content</a> has been reported.</p>
         subject: A resource has been reported
     reports:

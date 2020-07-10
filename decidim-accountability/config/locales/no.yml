@@ -35,6 +35,7 @@
         confirm_destroy: Er du sikker på at du vil slette dette %{name}?
         destroy: Slett
         edit: Editar
+        import_csv: Importere CSV
         new: Nytt %{name}
         preview: Forhåndsvisning
         timeline_entries: Prosjektutvikling
@@ -42,6 +43,15 @@
       admin:
         exports:
           results: Resultater
+        import_results:
+          new:
+            import: Importer
+            info: "<p>Vi anbefaler at du følger disse stegene:</p><ol><li>Lag Statuser for de Resultatene du vil legge til (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Lag manuelt i hvert fall ett Resultat via dette Admin-panelet (<a href='%{link_new_result}' target='_blank'>link</a>) før du bruker Importer, for å bedre forstå formatet og det du trenger for å fylle ut.</li><li>Last ned Eksporter med CSV-format (%{link_export_csv})</li><li>Gjør endringene lokalt. Du kan bare endre følgende kolonner i CSV:</li></ol><ul><li><b>kategori/id:</b> ID for Kategorien</li><li><b>omfang/id:</b> ID for Omfanget</li><li><b>parent/id:</b> ID for parent (for relaterte Resultater). Alternativt</li><li><b>tittel/I18N:</b> Tittel på X språk</li><li><b>beskrivelse/I18N:</b> Beskrivelse på X språk</li><li><b>start_dato:</b> dato for når resultat starter oppgave (format YYYY-MM-DD)</li><li><b>slutt_dato:</b> dato for når resultater avslutter oppgave (format YYYY-MM-DD)</li><li><b>status/id:</b> ID for Status for dette resultatet</li><li><b>fremgang:</b> Prosent (fra 0 to 100) av oppgaven</li><li><b>forslag_id:</b> intern ID for relaterte forslag (separert med komma). Det blir automatisk konvertert til <span class='attribute-name'>forslag_url</span></li></ul>"
+            link: lenke
+            title: Importere resultater fra CSV
+        imports:
+          create:
+            success: Filen har startet å importere. Du vil motta en e-post i de neste minuttene med resultatet av importen
         models:
           result:
             name: Resultat
@@ -111,6 +121,13 @@
         value_types:
           parent_presenter:
             not_found: 'Overordnede ble ikke funnet i databasen (ID: %{id})'
+      import_mailer:
+        import:
+          errors: Feil
+          errors_present: Det oppstod et problem under import av resultater
+          row_number: Rad
+          subject: Vellykket import av resultater
+          success: Vellykket import av resultater. Du kan se gjennom resultatene fra administrasjonsgrensesnittet.
       last_activity:
         new_result_at_html: "<span>Nytt resultat på %{link}</span>"
       models:

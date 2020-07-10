@@ -292,6 +292,11 @@
           welcome: Velkommen til Decidim administrator Panel.
       exports:
         export_as: "%{name} som %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
         notice: Eksporten din holder på. Du vil få en e-mail når den er ferdig.
       filters:
         category_id_eq:
@@ -581,6 +586,11 @@
           title: Offisialiser deltaker "%{name}"
         show_email_modal:
           description: Hvis du trenger å kontakte en deltaker direkte, kan du klikke på Vis for å se e-postadressen. Denne handlingen vil bli logget.
+          email_address: E-postadresser
+          full_name: Fullt navn
+          hidden: skjult
+          show: Vis
+          title: Vis deltakerens e-postadresse
       organization:
         edit:
           title: Rediger organisasjon
@@ -610,6 +620,7 @@
           homepage_highlighted_content_banner_title: Markert innholdsbanner
           images:
             layout_appearance_title: Rediger layout utseende
+            preview: Forhåndsvis
           omnipresent_banner_appearance_title: Endre enerådende banner
       organization_homepage:
         edit:
@@ -676,6 +687,11 @@
         update:
           error: Det oppstod et problem med å oppdatere dette omfanget.
           success: Omfanget ble oppdatert
+      shared:
+        gallery:
+          add_images: Legg til bilder
+          delete_image: Slett bilde
+          gallery_legend: Legg til et bildegalleri (valgfritt)
       static_page_topics:
         create:
           error: Det oppstod et problem med å opprette et nytt emne.
@@ -727,10 +743,12 @@
         dashboard: Skrivebord
         impersonatable_users: Håndterbare deltakere
         impersonations: Deltakernes administrasjon
+        metrics: Måltall
         participants: Deltakere
         scope_types: Omfangstyper
         scopes: Omfang
         static_pages: Sider
+        statistics: Aktivitet
         user_groups: Grupper
         users: Deltakere
       user_group:
@@ -779,6 +797,10 @@
       users_statistics:
         users_count:
           admins: Adminer
+          last_day: Siste dag
+          last_month: Siste måned
+          last_week: Siste uke
+          no_users_count_statistics_yet: Det er ingen statistikk på antall brukere enda
           participants: Deltakere
       view_public_page: Vis offentlig side
     forms:

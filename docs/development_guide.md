@@ -30,9 +30,9 @@ Once created you are ready to:
 
 - `bin/rails s`
 
-## Gitflow Branching model
+## GitFlow Branching model
 
-The Decidim respository follows the Gitflow branching model. There are good documentations on it at:
+The Decidim respository follows the GitFlow branching model. There are good documentations on it at:
 
 - the original post: https://nvie.com/posts/a-successful-git-branching-model/
 - provided by Atlassian: https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow.
@@ -43,24 +43,41 @@ In summary, Decidim developers that work on `feature/...` or `fix/...` branches 
 
 Then, to start a new feature branch off from `develop` in the following way:
 
-```
+```bash
 git checkout develop
 git checkout -b feature/xxx
 ```
 
 Implement the feature, and open a Pull Request as normal, but against `develop` branch. As this is the most common operation, `develop` is the default branch instead of `master`.
 
+### Naming Decidim branches
+
+We would like to have all branches following this namings:
+
+| Branch prefix | Comment |
+| --------  | -------- |
+| chore/    | Internal work. For instance, automatisms, etc. No production code change.     |
+| ci/       | For continous integration related tasks. No production code change.     |
+| deps/     | For dependency management tasks. |
+| doc/      | For changes to the documentation. |
+| feature/  | For new features for the users or for the Decidim command.  |
+| fix/      | For feature bugfixing. |
+| release/  | With MAYOR.MINOR-stable. For instance, release/0.22-stable |
+| refactor/ | For refactorings related with production code. |
+| test/     | When adding missing tests, refactoring tests, improving coverage, etc. |
+| backport/ | We only offer support for the last mayor version.  |
+
 ## Git commit messages and Pull Request titles
 
 We recommend following [this guide](https://chris.beams.io/posts/git-commit/) for making good git commit messages. It also applies to Pull Request titles. The summary is:
 
-1.  Separate subject from body with a blank line
-1.  Limit the subject line to 50 characters
-1.  Capitalize the subject line
-1.  Do not end the subject line with a period
-1.  Use the imperative mood in the subject line
-1.  Wrap the body at 72 characters
-1.  Use the body to explain what and why vs. how
+1. Separate subject from body with a blank line
+1. Limit the subject line to 50 characters
+1. Capitalize the subject line
+1. Do not end the subject line with a period
+1. Use the imperative mood in the subject line
+1. Wrap the body at 72 characters
+1. Use the body to explain what and why vs. how
 
 ## During development
 
