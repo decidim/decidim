@@ -30,15 +30,6 @@ module Decidim
         present_space
       end
 
-      def id
-        return nil if space.nil?
-        space.id
-      end
-
-      def extra_title
-        extra["title"]
-      end
-
       private
 
       attr_reader :space, :view_helpers, :extra
@@ -65,7 +56,7 @@ module Decidim
       #
       # Returns an HTML-safe String.
       def present_space_name
-        h.translated(self, :extra_title)
+        h.translated(extra["title"])
       end
     end
   end

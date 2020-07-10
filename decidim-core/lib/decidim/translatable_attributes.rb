@@ -74,23 +74,26 @@ module Decidim
           ""
       end
 
-      def translated(resource, field, organization = nil)
-        return "" if resource.try(field).blank?
-        return resource.try(field) unless resource.try(field).is_a?(Hash)
+      def translated(resource, field = nil, organization = nil)
+        return "" if resource.blank?
+        if resource.is_a?(Hash)
+          attribute = resource.dup.stringify_keys 
+        else
+          attribute = resource.try(field).dup.stringify_keys
+          unless resource.id.nil?
+            @translated_value ||= Decidim::TranslatedField.find_by(
+              translated_resource: resource,
+              field_name: field.to_s,
+              translation_locale: I18n.locale.to_s
+            ).try(:translation_value)
+          end
+        end
 
-        attribute = resource.try(field).dup.stringify_keys
+        return "" if attribute.blank?
+        return attribute unless attribute.is_a?(Hash)
+
         organization ||= try(:current_organization)
         organization_locale = organization.try(:default_locale)
-
-      
-        unless resource.id.nil?
-          @translated_value ||= Decidim::TranslatedField.find_by(
-            translated_resource_id: resource.id,
-            translated_resource_type: resource.class.name,
-            field_name: field.to_s,
-            translation_locale: I18n.locale.to_s
-          ).try(:translation_value)
-        end
 
         attribute[I18n.locale.to_s].presence ||
           @translated_value.presence ||
