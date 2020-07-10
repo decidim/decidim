@@ -4,6 +4,52 @@
   <%= t(".report_html", { url: reported_content_url }) %>
 </p>
 
-<p>
-  <%= link_to t(".manage_moderations"), manage_moderations_url %>
-</p>
+<br>
+
+<p><b><%= t(".date") %></b></p>
+<p><%= l @report.created_at, format: :short %></p>
+
+<p><b><%= t(".participatory_space") %></b></p>
+<p><%= translated_attribute @participatory_space.title %></p>
+
+<p><b><%= t(".reason") %></b></p>
+<p><%= t(@report.reason, organization_name: @participatory_space.organization.name, scope: "decidim.shared.flag_modal") %></p>
+
+<% if @report.details.present? %>
+  <p><b><%= t(".details") %></b></p>
+  <blockquote>
+    <%= @report.details %>
+  </blockquote>
+<% end %>
+
+<% if @content.present? %>
+  <p><b><%= t(".content") %></b></p>
+  <blockquote>
+    <h5><%= translated_attribute @content[:title] %></h5>
+    <p><%= translated_attribute @content[:body] %></p>
+  </blockquote>
+<% end %>
+
+<% if @author.present? %>
+  <p><b><%= t(".authors") %></b></p>
+  <% if author_profile_url.present? %>
+    <p><%= link_to @author.name, author_profile_url, target: :blank %></p>
+  <% else %>
+    <p><%= @author.name %></p>
+  <% end %>
+<% end %>
+<br>
+
+<table class="button radius" style="margin: 16px auto;">
+  <tr>
+    <td>
+      <table>
+        <tr>
+          <td>
+            <%= link_to t(".manage_moderations"), manage_moderations_url, class: "button",  target: "_blank" %>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
