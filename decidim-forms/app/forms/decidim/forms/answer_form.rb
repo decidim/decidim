@@ -56,6 +56,10 @@ module Decidim
         end
       end
 
+      def separator?
+        question.separator?
+      end
+
       private
 
       def mandatory_body?

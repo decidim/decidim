@@ -30,7 +30,7 @@ module Decidim
 
       def answer_questionnaire
         Answer.transaction do
-          form.responses_by_step.flatten.select(&:display_conditions_fulfilled?).each do |form_answer|
+          form.responses_by_step.flatten.select(&:display_conditions_fulfilled?).reject(&:separator?).each do |form_answer|
             answer = Answer.new(
               user: @current_user,
               questionnaire: @questionnaire,
