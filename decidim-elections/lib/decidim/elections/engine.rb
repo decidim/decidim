@@ -10,7 +10,9 @@ module Decidim
       isolate_namespace Decidim::Elections
 
       routes do
-        resources :elections, only: [:index, :show]
+        resources :elections, only: [:index, :show] do
+          resource :vote
+        end
 
         root to: "elections#index"
       end

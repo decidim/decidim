@@ -14,13 +14,17 @@ module Decidim
 
         case permission_action.action
         when :vote
-          toggle_allow(can_vote?)
+          allow_if_started_and_not_finished
         end
 
         permission_action
       end
 
       private
+
+      def allow_if_started_and_not_finished
+        toggle_allow(can_vote? && election.started? && !election.finished?)
+      end
 
       def can_vote?
         authorized?(:vote, resource: election)

@@ -16,6 +16,14 @@ describe Decidim::Elections::Permissions do
   let(:election) { create :election, component: elections_component }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
 
+  shared_examples "allowed when election has started and not finished" do
+    context "when election has started and is not finished" do
+      let(:election) { create :election, :started, component: elections_component }
+
+      it { is_expected.to eq true }
+    end
+  end
+
   context "when scope is admin" do
     let(:action) do
       { scope: :admin, action: :foo, subject: :election }
@@ -53,6 +61,6 @@ describe Decidim::Elections::Permissions do
       { scope: :public, action: :vote, subject: :election }
     end
 
-    it { is_expected.to eq true }
+    it_behaves_like "allowed when election has started and not finished"
   end
 end
