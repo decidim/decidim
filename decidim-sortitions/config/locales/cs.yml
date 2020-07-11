@@ -25,6 +25,7 @@ cs:
         settings:
           global:
             comments_enabled: Komentáře povoleny
+            comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
     events:
       sortitions:
         sortition_created:
