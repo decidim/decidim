@@ -146,6 +146,7 @@ cs:
             few: 'Účast je omezena na uživatele s některým z následujících poštovních směrovacích čísel: %{postal_codes}.'
             many: 'Účast je omezena na uživatele s některým z následujících poštovních směrovacích čísel: %{postal_codes}.'
             other: 'Účast je omezena na uživatele s některým z následujících poštovních směrovacích čísel: %{postal_codes}.'
+          scope: Účast je omezena na účastníky s rozsahem %{scope_name}.
       id_documents:
         admin:
           config:
