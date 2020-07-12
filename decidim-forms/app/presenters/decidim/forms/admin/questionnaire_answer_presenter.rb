@@ -23,11 +23,11 @@ module Decidim
 
           present_choices
         end
-        
+
         def text?
           %w(short_answer long_answer).include? answer.question.question_type.to_s
         end
-        
+
         private
 
         def organization
@@ -45,9 +45,9 @@ module Decidim
                 answer.choices.map do |c|
                   matrix_row = answer.question.matrix_rows.find_by(id: c.matrix_row.id)
                   safe_join([
-                    content_tag(:dt, translated_attribute(matrix_row.body)),
-                    content_tag(:dd, choice_body(c))
-                  ])
+                              content_tag(:dt, translated_attribute(matrix_row.body)),
+                              content_tag(:dd, choice_body(c))
+                            ])
                 end
               )
             end

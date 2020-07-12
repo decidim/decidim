@@ -51,7 +51,7 @@ module Decidim
             expect(subject.body).to eq("<ul><li>#{answer_choice.body}</li></ul>")
           end
         end
-        
+
         context "when it is a matrix_single question" do
           let!(:question) { create :questionnaire_question, questionnaire: questionnaire, question_type: "matrix_single" }
           let!(:matrix_row) { create :question_matrix_row, question: question }
@@ -63,7 +63,7 @@ module Decidim
             expect(subject.body).to eq("<dl><dt>#{translated matrix_row.body}</dt><dd>#{answer_choice.body}</dd></dl>")
           end
         end
-        
+
         context "when it is a matrix_multiple question" do
           let!(:question) { create :questionnaire_question, questionnaire: questionnaire, question_type: "matrix_multiple" }
           let!(:matrix_rows) { create_list :question_matrix_row, 2, question: question }

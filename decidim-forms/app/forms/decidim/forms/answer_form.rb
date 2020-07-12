@@ -56,9 +56,7 @@ module Decidim
         end
       end
 
-      def separator?
-        question.separator?
-      end
+      delegate :separator?, to: :question
 
       private
 
