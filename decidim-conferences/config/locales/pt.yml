@@ -298,7 +298,7 @@ pt:
             attendee_type: Tipo de participante
             existing_user: Participante existente
             invite_explanation: O participante será convidado a participar na conferência e também na organização.
-            non_user: Participante não existente
+            non_user: Participante inexistente
             select_user: Selecione participante
           index:
             filter:
@@ -529,10 +529,10 @@ pt:
           email_subject: A conferência "%{resource_title}" ativou os registos.
           notification_title: A conferência <a href="%{resource_path}">%{resource_title}</a> ativou os registos.
         role_assigned:
-          email_intro: Foi designado como %{role} para a conferência "%{resource_title}".
+          email_intro: Foi designado como %{role} da conferência "%{resource_title}".
           email_outro: Recebeu esta notificação porque é %{role} da conferência "%{resource_title}".
-          email_subject: Foi designado como %{role} para "%{resource_title}".
-          notification_title: Foi designado como %{role} para a conferência <a href="%{resource_url}">%{resource_title}</a>.
+          email_subject: Foi designado como %{role} de "%{resource_title}".
+          notification_title: Foi designado como %{role} da conferência <a href="%{resource_url}">%{resource_title}</a>.
         upcoming_conference:
           email_intro: 'A conferência "%{resource_title}" irá ocorrer em dois dias. Pode ler a descrição a partir da sua página:'
           email_outro: Recebeu esta notificação porque segue a conferência "%{resource_title}". Pode deixar de segui-la a partir da hiperligação anterior.
