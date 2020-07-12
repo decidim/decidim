@@ -69,5 +69,23 @@ module Decidim
         end
       end
     end
+
+    describe "#options" do
+      context "when no options are specified" do
+        it "returns an empty hash" do
+          expect(subject.options).to eq({})
+        end
+      end
+
+      context "when some options are specified" do
+        before do
+          subject.options option: "value"
+        end
+
+        it "returns the options hash" do
+          expect(subject.options).to eq(option: "value")
+        end
+      end
+    end
   end
 end
