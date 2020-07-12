@@ -13,7 +13,7 @@
     <h2 class="subtitle">
       <%= translated_attribute(questionnaire.title) %>
     </h2>
-    
+
     <% if collection.count > 1 %>
       <h3 class="answers-count"><%= t("title", scope: "decidim.forms.admin.questionnaires.answers.index", total: collection.count) %></h3>
     <% end %>
@@ -22,7 +22,7 @@
       <%= translated_attribute(questionnaire.description).html_safe %>
     </div>
   </div>
-  
+
   <div class="content">
     <%= render partial: "decidim/forms/admin/questionnaires/answers/export/answer", collection: collection, locals: { questionnaire: questionnaire }, as: :participant %>
   </div>
