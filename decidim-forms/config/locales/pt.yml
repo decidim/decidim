@@ -106,13 +106,14 @@ pt:
           tos_agreement: Ao participar você aceita seus Termos de Serviço
       step_navigation:
         show:
-          are_you_sure: Esta ação não pode ser desfeita e você não poderá editar suas respostas. Você tem certeza?
+          are_you_sure: Esta ação não pode ser desfeita e não deixará de poder editar as suas respostas. Tem a certeza?
           back: Retroceder
           continue: Continuar
-          submit: Enviar
+          submit: Submeter
       user_answers_serializer:
         created_at: Respondido em
         id: ID da resposta
+        ip_hash: Ip Hash
         registered: Registado
         unregistered: Não registado
         user_status: Estado de utilizador
