@@ -17,6 +17,7 @@ $(() => {
     continueBtnTgl();
     $($confirmButton).addClass("show").removeClass("hide");
     $(".evote__counter-min").text($answerCounter);
+    answerCounter();
   }
 
   initStep()
