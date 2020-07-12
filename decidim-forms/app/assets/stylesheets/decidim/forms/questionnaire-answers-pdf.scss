@@ -13,37 +13,41 @@ $padding: 25px;
 
 .questionnaire-answers{
   font-family: 'Source Sans Pro', Helvetica, Roboto, Arial, sans-serif;
-  
+
   .header{
-    .logo {
+    .logo{
       height: 1rem;
       width: auto;
     }
 
-    .title, .subtitle, .description{
+    .title,
+    .subtitle,
+    .description{
       margin: 0;
       padding: $small-padding $padding;
       background: $foreground;
       color: $white;
       border-radius: $border-radius-top;
     }
-    
-    .title {
+
+    .title{
       padding: $padding;
     }
-    
-    .subtitle {
+
+    .subtitle{
       border-radius: 0;
       padding-top: $padding;
     }
 
-    .subtitle, .description, .answers-count{
+    .subtitle,
+    .description,
+    .answers-count{
       background: $background-alt;
       color: $foreground;
     }
 
     .answers-count{
-      margin: -1px 0px;
+      margin: -1px 0;
       padding: $padding;
     }
 
@@ -51,7 +55,6 @@ $padding: 25px;
       border-radius: $border-radius-bottom;
     }
   }
-
 
   .answer{
     margin-top: $padding;
@@ -77,11 +80,13 @@ $padding: 25px;
       border-bottom: $border;
       page-break-inside: avoid;
 
-      td, th {
+      td,
+      th{
         &:first-child{
           text-align: left;
         }
-        &:last-child{ 
+
+        &:last-child{
           text-align: right;
         }
       }
@@ -89,9 +94,11 @@ $padding: 25px;
 
     .answers{
       padding: 25px;
-      
-      .response {
-        ol, ul, dl {
+
+      .response{
+        ol,
+        ul,
+        dl{
           color: red;
         }
       }
@@ -101,7 +108,6 @@ $padding: 25px;
         font-size: inherit;
         color: $foreground;
       }
-
     }
   }
 }
