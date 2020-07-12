@@ -39,7 +39,7 @@ pt:
             title: Editar projeto
             update: Atualizar
           index:
-            finished_orders: Votos finais
+            finished_orders: Votações concluídas
             pending_orders: Votações pendentes
             title: Projetos
           new:
@@ -142,6 +142,7 @@ pt:
           global:
             announcement: Anúncio
             comments_enabled: Comentários ativados
+            comments_max_length: Comprimento máximo dos comentários (Deixe 0 para o valor predefinido)
             form:
               errors:
                 budget_voting_rule_only_one: Apenas deve estar ativa uma regra de votação
