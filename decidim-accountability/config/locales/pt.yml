@@ -168,7 +168,7 @@ pt:
         show:
           stats:
             attendees: Participantes
-            back_to_resource: Volte ao resultado
+            back_to_resource: Voltar ao resultado
             comments: Comentários
             contributions: Contribuições
             last_edited_by: Última edição por
@@ -185,6 +185,7 @@ pt:
           global:
             categories_label: Nome para "Categorias"
             comments_enabled: Comentários ativados
+            comments_max_length: Comprimento máximo dos comentários (Deixe 0 para o valor predefinido)
             display_progress_enabled: Mostrar progresso
             heading_leaf_level_results: Nome para "Projetos"
             heading_parent_level_results: Nome para "Resultados"
@@ -202,7 +203,7 @@ pt:
         result_progress_updated:
           email_intro: 'O resultado "%{resource_title}", que inclui a proposta "%{proposal_title}", está agora %{progress}% concluído. Pode vê-lo a partir desta página:'
           email_outro: Recebeu esta notificação porque segue "%{proposal_title}" e esta proposta está incluída no resultado "%{resource_title}". Pode parar de receber notificações seguindo a hiperligação anterior.
-          email_subject: Uma atualização para %{resource_title} progresso
+          email_subject: Uma atualização a %{resource_title} está em curso
           notification_title: O resultado <a href="%{resource_path}">%{resource_title}</a>, que inclui a proposta <a href="%{proposal_path}">%{proposal_title}</a>, está agora com %{progress}% de conclusão.
     metrics:
       results:
