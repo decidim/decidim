@@ -19,7 +19,7 @@ module Decidim
           return simple_format answer.body if answer.body.present?
           return "-" if answer.choices.empty?
 
-          return answer.choices.first if answer.question.question_type == "single_option"
+          return answer.choices.first.body if answer.question.question_type == "single_option"
 
           present_choices
         end
