@@ -73,7 +73,7 @@ module Decidim
     describe "#options" do
       context "when no options are specified" do
         it "returns an empty hash" do
-          expect(subject.options).to eq({})
+          expect(subject.options).to eq(described_class::DEFAULT_OPTIONS)
         end
       end
 
