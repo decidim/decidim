@@ -31,7 +31,7 @@ module Decidim
         private
 
         def organization
-          answer.questionnaire.questionnaire_for&.component&.organization
+          answer.questionnaire.questionnaire_for&.organization
         end
 
         def choice_body(choice)
