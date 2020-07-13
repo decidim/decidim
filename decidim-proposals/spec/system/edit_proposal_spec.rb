@@ -62,11 +62,11 @@ describe "Edit proposals", type: :system do
         Geocoder.configure(lookup: :test)
 
         Geocoder::Lookup::Test.add_stub(
-            new_address,
-            [{
-                 "latitude" => 48.8682538,
-                 "longitude" => 2.389643
-             }]
+          new_address,
+          [{
+            "latitude" => 48.8682538,
+            "longitude" => 2.389643
+          }]
         )
 
         click_button "Send"

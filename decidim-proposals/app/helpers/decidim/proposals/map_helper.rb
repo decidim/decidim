@@ -23,14 +23,14 @@ module Decidim
 
       def proposal_preview_data_for_map(proposal)
         [
-            proposal.slice(
-                :latitude,
-                :longitude,
-                :address
-            ).merge(
-                icon: icon("proposals", width: 40, height: 70, remove_icon_class: true),
-                draggable: true
-            )
+          proposal.slice(
+            :latitude,
+            :longitude,
+            :address
+          ).merge(
+            icon: icon("proposals", width: 40, height: 70, remove_icon_class: true),
+            draggable: true
+          )
         ]
       end
 
