@@ -122,7 +122,7 @@ pt:
             new_proposal_help_text: Novo texto de ajuda da proposta
             official_proposals_enabled: Proposta oficial habilitada
             participatory_texts_enabled: Textos participativos habilitados
-            participatory_texts_enabled_readonly: Não é possível interagir com esta definição caso existam propostas. Crie um novo "Componente de propostas" caso pretenda ativar esta funcionalidade ou elimine todas as propostas importadas no menu "Textos Participativos" caso a pretenda desativar.
+            participatory_texts_enabled_readonly: Não é possível interagir com esta configuração caso existam propostas. Crie um novo "Componente de propostas" caso pretenda ativar esta característica ou elimine todas as propostas importadas no menu "Textos Participativos" caso pretenda desativá-la.
             proposal_answering_enabled: Resposta de proposta ativada
             proposal_edit_before_minutes: As propostas podem ser editadas pelos autores antes que muitos minutos passem.
             proposal_length: Comprimento máximo do corpo da proposta
@@ -445,6 +445,7 @@ pt:
             comments_count: Contagem de comentários
             comments_negative_count: Contra
             comments_neutral_count: Neutro
+            comments_positive_count: Favor
             created_at: Data de criação
             documents: Documentos
             endorsements_count: Contagem de endossamentos
@@ -853,7 +854,7 @@ pt:
         success: Rascunho da proposta atualizado com sucesso.
       versions:
         collaborative_drafts:
-          back_to_resource: Volte para o rascunho colaborativo
+          back_to_resource: Volte atrás para o rascunho colaborativo
         index:
           title: Versões
         proposals:
