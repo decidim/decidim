@@ -166,11 +166,11 @@ en:
       votes:
         confirm:
           answer: Answer
-          answer_number: 'answer %{number}'
+          answer_number: answer %{number}
           confirm: Confirm
           edit: edit
           header: Confirm your vote
-          intro: Here is a summary of the vote you are about to cast. </br> Please confirm your vote or edit your answers.
+          intro: Here is a summary of the vote you are about to cast. <br> Please confirm your vote or edit your answers.
           question: Question %{count}
         confirmed:
           back: Back to Decidim
@@ -197,7 +197,7 @@ en:
           current_question: Question %{current_step}
           more_information: More information
           of_total_questions: of %{total_steps}
-          selections: '%{selected} of %{max_selections}<br /> selections'
+          selections: "%{selected} of %{max_selections}<br> selections"
         voting_step:
           back: Back
           continue: Next
