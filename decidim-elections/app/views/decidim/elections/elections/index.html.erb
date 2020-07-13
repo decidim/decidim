@@ -1,14 +1,12 @@
 <%= render partial: "decidim/shared/component_announcement" %>
 
-<div class="row columns">
-  <div class="title-action">
-    <h3 id="elections-count" class="title-action__title section-heading">
-      <%= render partial: "count" %>
-    </h3>
-  </div>
-</div>
-<div class="row">
-  <div id="elections" class="columns mediumlarge-8 large-9">
+<section class="section row">
+  <div class="columns">
+    <div class="row collapse order-by">
+      <h2 class="order-by__text section-heading">
+        <%= render partial: "count" %>
+      </h2>
+    </div>
     <%= render partial: "elections" %>
   </div>
-</div>
+</section>
