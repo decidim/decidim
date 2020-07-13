@@ -41,7 +41,7 @@ it:
         other: conferenze
       decidim/conference_speaker:
         one: Relatore della conferenza
-        other: Oratori della conferenza
+        other: Relatori della conferenza
       decidim/conference_user_role:
         one: Ruolo dell'utente della conferenza
         other: Ruolo dell'utente della conferenza
@@ -69,15 +69,15 @@ it:
           success: Registrazione della conferenza confermata con successo.
       conference_speakers:
         create:
-          error: Si è verificato un errore durante l'aggiunta di un altoparlante per questa conferenza.
-          success: Speaker creato con successo per questa conferenza.
+          error: Si è verificato un errore durante l'aggiunta di un relatore per questa conferenza.
+          success: Relatore aggiornato con successo per questa conferenza.
         destroy:
-          success: Speaker della Conferenza cancellato con successo.
+          success: Relatore della conferenza cancellato con successo.
         edit:
           title: Aggiorna relatore della conferenza.
           update: Aggiorna
         index:
-          conference_speakers_title: Interventi del convegno
+          conference_speakers_title: Relatori della conferenza
         new:
           create: Crea
           title: Nuovo relatore per la conferenza.
@@ -172,7 +172,7 @@ it:
             affiliation: Affiliazione
             full_name: Nome e cognome
             position: Posizione
-          name: Relatore della Conferenza
+          name: Relatore della conferenza
         conference_user_role:
           fields:
             email: E-mail
@@ -365,7 +365,7 @@ it:
           confirm: Conferma
         show:
           free: Gratuito
-          going: Partecipazione
+          going: Iscritto
           no_slots_available: Nessuno posto disponibile
           registration: Registrazione
       conference_program:

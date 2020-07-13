@@ -234,6 +234,10 @@ pt:
             success: Reunião excluída com êxito
           edit:
             update: Actualizar
+          form:
+            address_help: 'Endereço: utilizado pela geocodificação para encontrar a localização'
+            location_help: 'Localização: mensagem direcionada para os utilizadores indicando o local de encontro'
+            location_hints_help: 'Dicas de localização: informação adicional. Exemplo: o piso do edifício'
           index:
             title: Reuniões
           new:
@@ -275,12 +279,14 @@ pt:
           form:
             available_slots_help: Deixe-o para 0 se você tiver slots ilimitados disponíveis.
             invites: Convites
+            recommendation_message: Por questões de privacidade recomendamos que elimine este formulário de inscrição quando já não for necessário. Por predefinição, isso acontece 3 meses após o fim da reunião.
             registration_form: Formulário de registro
             registrations_count:
               one: Houve %{count} registro.
               other: Houve %{count} inscrições.
             reserved_slots_help: Deixe para 0 se você não tiver slots reservados
             reserved_slots_less_than: Deve ser menor ou igual a %{count}
+            title: Registos
           update:
             invalid: Ocorreu um problema ao salvar as configurações de registro.
             success: Configurações de registro de reunião salvas com sucesso.
@@ -356,6 +362,7 @@ pt:
           confirm: confirme
         show:
           attendees: Contagem de participantes
+          back: Regressar à lista
           contributions: Contagem de Contribuições
           going: Indo
           join: Participe da reunião

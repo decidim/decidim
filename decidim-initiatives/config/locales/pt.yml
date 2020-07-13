@@ -26,13 +26,17 @@ pt:
       initiatives_committee_member:
         user: membro do Comitê
       initiatives_type:
+        area_enabled: Permitir que os autores escolham a área da respetiva iniciativa
+        attachments_enabled: Permitir anexos
         banner_image: Imagem de banner
         collect_user_extra_fields: Colete dados pessoais do usuário na assinatura
+        custom_signature_end_date_enabled: Permitir que os autores escolham o fim do período de recolha de assinaturas
         description: Descrição
         document_number_authorization_handler: Autorização para verificar o número do documento nos votos
         extra_fields_legal_information: Informações legais sobre a coleta de dados pessoais
         minimum_committee_members: Mínimo dos membros do comitê
         online_signature_enabled: Assinatura on-line ativada
+        promoting_committee_enabled: Permitir comité de promoção
         title: Título
         undo_online_signatures_enabled: Permitir que os usuários desfizessem suas assinaturas on-line
         validate_sms_code_on_votes: Adicionar etapa de validação do código SMS ao processo de assinatura
@@ -45,6 +49,14 @@ pt:
         address: Endereço
         id_document: Documento de identificação
         name: Nome completo
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: O ficheiro é inválido
+              needs_to_be_reattached: Necessita de ser recolocado
+              title: O título não deve estar vazio
   activerecord:
     models:
       decidim/initiative:
@@ -61,12 +73,20 @@ pt:
       actions:
         new_initiative_type: Novo tipo de iniciativa
       filters:
+        decidim_area_id_eq:
+          label: Área
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Pesquisar %{collection} por título, descrição, ID ou nome do autor.
         state_eq:
           values:
+            accepted: Assinaturas suficientes
             created: Criada
             discarded: Descartado
             published: Publicados
+            rejected: Assinaturas insuficientes
             validating: Validação técnica
+        type_id_eq:
+          label: Tipo
       menu:
         initiatives: Iniciativas
         initiatives_types: Tipos de iniciativa
@@ -75,6 +95,7 @@ pt:
           fields:
             created_at: Criado em
             id: identidade
+            published_at: Publicado em
             state: Estado
             supports_count: Assinaturas
             title: Iniciativas
@@ -107,6 +128,12 @@ pt:
         initiatives_types: Tipos de iniciativa
     events:
       initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: A iniciativa "%{resource_title}" foi enviada para validação técnica. Consulte-a no <a href="%{admin_initiative_url}">painel de administrador</a>
+            email_outro: Recebeu esta notificação porque é administrador da plataforma.
+            email_subject: A iniciativa "%{resource_title}" foi enviada para validação técnica.
+            notification_title: A iniciativa "%{resource_title}" foi enviada para validação técnica. Consulte-a no <a href="%{admin_initiative_path}">painel de administrador</a>
         initiative_extended:
           email_intro: A data final das assinaturas da iniciativa %{resource_title} foi estendida!
           email_outro: Você recebeu esta notificação porque está seguindo %{resource_title}. Você pode parar de receber notificações após o link anterior.
@@ -123,6 +150,11 @@ pt:
             email_outro: Você recebeu esta notificação porque está seguindo %{resource_title}. Você pode parar de receber notificações após o link anterior.
             email_subject: Novo marco concluído!
             notification_title: A iniciativa <a href="%{resource_path}">%{resource_title}</a> alcançou os %{percentage}% de assinaturas.
+        support_threshold_reached:
+          email_intro: A iniciativa %{resource_title} atingiu o limite de apoio
+          email_outro: Recebeu esta notificação porque é administrador da plataforma.
+          email_subject: Limite de apoio atingido
+          notification_title: A iniciativa <a href="%{resource_path}">%{resource_title}</a> atingiu o limite de apoio
     gamification:
       badges:
         initiatives:
@@ -167,6 +199,8 @@ pt:
         content_blocks:
           highlighted_initiatives:
             max_results: Quantidade máxima de elementos para mostrar
+        exports:
+          initiatives: Iniciativas
         initiatives:
           edit:
             accept: Aceitar iniciativa
@@ -184,6 +218,11 @@ pt:
             actions_title: Açao
             preview: Visualizar
             print: Impressão
+          initiative_attachments:
+            documents: Documentos
+            edit: Editar
+            new: Novo
+            photos: Fotos
           show:
             print: Impressão
           update:
@@ -235,14 +274,26 @@ pt:
           unpublish: "%{user_name} descartou a iniciativa %{resource_name}"
           update: "%{user_name} atualizou a iniciativa %{resource_name}"
       admin_states:
+        accepted: Assinaturas suficientes
         created: Criada
         discarded: Descartado
         published: Publicados
+        rejected: Assinaturas insuficientes
         validating: Validação técnica
       application_helper:
+        filter_area_values:
+          all: Todos
+        filter_scope_values:
+          all: Todos
         filter_state_values:
+          accepted: Assinaturas suficientes
+          all: Todos
+          answered: Respondido
           closed: Fechadas
           open: Aberto
+          rejected: Assinaturas insuficientes
+        filter_type_values:
+          all: Todos
       committee_requests:
         new:
           continue: Continuar
@@ -259,13 +310,17 @@ pt:
           fill_data_help: "<ul> <li>Revise o conteúdo da sua iniciativa. Seu título é fácil de entender? O objetivo da sua iniciativa é claro?</li> <li>Você tem que escolher o tipo de assinatura. Pessoalmente, online ou uma combinação de ambos</li> <li>Qual é o âmbito geográfico da iniciativa? Distrito da cidade?</li> </ul>"
           initiative_type: Tipo de iniciativa
           more_information: "(Mais Informações)"
+          select_area: Selecionar uma área
           select_scope: Selecione um escopo
         finish:
           back: Costas
           back_to_initiatives: De volta às iniciativas
           callout_text: Parabéns! Sua iniciativa cidadã foi criada com sucesso.
+          confirm: Confirmar
+          edit_my_initiative: Editar as minhas iniciativas
           go_to_my_initiatives: Vá para minhas iniciativas
           more_information: "(Mais Informações)"
+          send_my_initiative: Enviar a minha iniciativa
         finish_help:
           access_reminder: Lembre-se de que você sempre poderá acessar suas iniciativas através do menu do usuário.
           help_for_organizations: Se você é uma associação, você terá que enviar as atas do conselho de administração de todas as organizações que formam a Comissão Promotora.
@@ -349,8 +404,10 @@ pt:
             other: "%{count} iniciativas"
         filters:
           any: Qualquer
+          area: Área
           author: Autor
           myself: Minhas iniciativas
+          scope: Âmbito
           search: Pesquisa
           state: Estado
           type: Tipo
@@ -372,6 +429,7 @@ pt:
           most_voted: Mais assinado
           random: Aleatória
           recent: Mais recente
+          recently_published: Publicado mais recentemente
         result:
           answer_title:
             accepted: Esta proposta foi aceita porque
@@ -422,10 +480,21 @@ pt:
           highlighted_initiatives:
             active_initiatives: Iniciativas ativas
             see_all_initiatives: Veja todas as iniciativas
+      show:
+        badge_name:
+          accepted: Assinaturas suficientes
+          created: Criado
+          discarded: Eliminado
+          published: Publicado
+          rejected: Assinaturas insuficientes
+          validating: Verificação técnica
       states:
         accepted: Aceitaram
         expired: Expirado
       unavailable_scope: Escopo não disponível
+      versions:
+        shared:
+          back_to_resource: Voltar à iniciativa
     menu:
       initiatives: Iniciativas
     resources:

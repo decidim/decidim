@@ -64,6 +64,12 @@
         email: Epost
         name: Navn
         role: Rolle
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Ugyldig dokumenttype. Godkjente formater er: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -78,6 +84,7 @@
   decidim:
     admin:
       actions:
+        import_assembly: Importer
         new_assembly: Ny forsamling
         new_assembly_type: Ny forsamlingstype
       assemblies:
@@ -101,6 +108,10 @@
         create:
           error: Det oppstod et problem med å publisere denne forsamlingen.
           success: Forsamlingen ble duplisert.
+      assemblies_settings:
+        update:
+          error: Det oppstod et problem under oppdatering av innstillingene.
+          success: Oppdatering av innstillinger vellykket.
       assemblies_types:
         create:
           error: Det oppstod et problem med å lage en ny forsamlingstype.
@@ -118,6 +129,14 @@
           copy: Kopier
           select: Velg hvilke data du vil duplisere
           title: Dupliser forsamling
+      assembly_imports:
+        create:
+          error: Det oppstod et problem med å importere denne forsamlingen.
+          success: Forsamlingen ble vellykket importert.
+        new:
+          import: Importer
+          select: Velg hvilke data du vil importere
+          title: Importer forsamling
       assembly_members:
         create:
           error: Det oppstod et problem med å legge til et medlem for denne forsamlingen.
@@ -161,6 +180,7 @@
           success: Admin ble oppdatert for denne forsamlingen.
       menu:
         assemblies: Forsamlinger
+        assemblies_settings: Innstillinger
         assemblies_submenu:
           assembly_admins: Forsamlings adminer
           assembly_members: Medlemmer
@@ -208,6 +228,7 @@
             admin: Administrator
             collaborator: Samarbeidspartner
             moderator: Moderator
+            valuator: Verdivurdering
       titles:
         assemblies: Forsamlinger
         assemblies_types: Forsamlingstyper
@@ -221,6 +242,8 @@
         create: "%{user_name} opprettet %{resource_name} medlemmet i %{space_name} samlingen"
         delete: "%{user_name} fjernet %{resource_name} medlemmet fra %{space_name} forsamlingen"
         update: "%{user_name} oppdaterte %{resource_name} medlemmet i %{space_name} samlingen"
+      assembly_setting:
+        update: "%{user_name} oppdaterte forsamlingens innstillinger"
       assembly_type:
         create: "%{user_name} opprettet %{resource_name} forsamlingstypen"
         delete: "%{user_name} fjernet %{resource_name} medlemmet fra %{space_name} forsamlingstypen"
@@ -250,12 +273,21 @@
             social_handlers: Sosial
             title: Generell Informasjon
             visbility: Synlighet
+        assemblies_settings:
+          edit:
+            update: Oppdater
+          form:
+            title: Innstillinger for forsamlinger
         assemblies_types:
           form:
             title: Tittel
         assembly_copies:
           form:
             slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne forsamlingen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Legg til et dokument
+            slug_help: 'URL-slugs brukes til å generere URL-er som peker til denne forsamlingen. Aksepterer kun bokstaver, tall og bindestreker og må starte med en bokstav. Eksempel: %{url}'
         assembly_members:
           form:
             existing_user: Eksisterende deltaker
@@ -340,6 +372,7 @@
         related_participatory_processes: Relaterte deltakerprosesser
         scope: Omfang
         social_networks: Sosiale nettverk
+        social_networks_title: Del denne forsamlingen på
         target: Hvem deltar
       statistics:
         answers_count: Svar
@@ -351,6 +384,7 @@
         meetings_count: Møter
         orders_count: Støtter
         pages_count: Sider
+        posts_count: Innlegg
         projects_count: Prosjekter
         proposals_count: Forslag
         results_count: Resultater
@@ -362,6 +396,24 @@
         designated_on: Utpekt på
       index:
         title: Medlemmer
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Lenke til konferansesiden som viser alle konferansene
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: En administrator av <a href="%{resource_url}">%{resource_name}</a> forsamlingen har lagt deg til som en av dets medlemmer.
+          email_outro: Du har mottatt dette varselet fordi du er invitert til en forsamling. Sjekk <a href="%{resource_path}">monteringsside</a> for å bidra!
+          email_subject: Du har blitt invitert til å være medlem av forsamlingen %{resource_name}!
+          notification_title: Du har blitt registrert som medlem av forsamling <a href="%{resource_path}">%{resource_name}</a>. Sjekk <a href="%{resource_path}">forsamlingssiden</a> for å bidra!
+      assembly:
+        role_assigned:
+          email_intro: Du har blitt tildelt som %{role} for forsamling "%{resource_title}".
+          email_outro: Du har mottatt dette varselet fordi du er %{role} av forsamlingen "%{resource_title}".
+          email_subject: Du er tildelt som %{role} i "%{resource_title}".
+          notification_title: Du er tildelt som %{role} for forsamlingen <a href="%{resource_url}">%{resource_title}</a>.
     help:
       participatory_spaces:
         assemblies:
@@ -381,6 +433,19 @@
         description: Antall forsmalinger opprettet
         object: forsamlinger
         title: Forsamlinger
+    pages:
+      home:
+        hero:
+          participate_title: Delta i plattformens prosesser
+        sub_hero:
+          register_title: Registrer deg for å opprette en konto på plattformen
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Lenke til prosessiden som viser alle prosesser
+      show:
+        related_assemblies: Relaterte forsamlinger
   errors:
     messages:
       cannot_be_blank: kan ikke være blank

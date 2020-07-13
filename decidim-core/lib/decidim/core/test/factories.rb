@@ -89,6 +89,7 @@ FactoryBot.define do
     badges_enabled { true }
     user_groups_enabled { true }
     send_welcome_notification { true }
+    comments_max_length { 1000 }
     admin_terms_of_use_body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     force_users_to_authenticate_before_access_organization { false }
     smtp_settings do
@@ -463,6 +464,11 @@ FactoryBot.define do
         end
       end
     end
+  end
+
+  factory :nested_dummy_resource, class: "Decidim::DummyResources::NestedDummyResource" do
+    title { generate(:name) }
+    dummy_resource { create(:dummy_resource) }
   end
 
   factory :coauthorable_dummy_resource, class: "Decidim::DummyResources::CoauthorableDummyResource" do

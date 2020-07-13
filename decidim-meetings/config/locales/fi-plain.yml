@@ -16,10 +16,12 @@ fi-pl:
         available_slots: Tämän tapahtuman vapaiden paikkojen määrä
         decidim_category_id: Aihepiiri
         decidim_scope_id: Teema
+        decidim_user_group_id: Käyttäjäryhmä
         description: Kuvaus
         end_time: Lopetusaika
         location: Paikka
         location_hints: Paikan tarkemmat tiedot
+        organizer_gid: Luo käyttäjänä
         organizer_id: Järjestäjä
         private_meeting: Yksityinen tapahtuma
         registration_form_enabled: Ilmoittautumislomake on käytössä
@@ -81,12 +83,15 @@ fi-pl:
           global:
             announcement: Ilmoitus
             comments_enabled: Kommentit ovat käytössä
+            creation_enabled_for_participants: Osallistujat voivat luoda tapahtumia
             default_registration_terms: Ilmoittautumisen oletusehdot
             enable_pads_creation: Ota käyttöön muistioiden luominen
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle tapahtumalle
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentointi on estetty
+            creation_enabled_for_participants: Tapahtuman luonti sallittu osallistujille
+            creation_enabled_for_user_groups: Tapahtuman luonti sallittu ryhmille
     events:
       meetings:
         meeting_closed:
@@ -153,6 +158,10 @@ fi-pl:
         confirm_destroy: Haluatko varmasti poistaa tämän tapahtuman?
         destroy: Poista
         edit: Muokkaa
+        invalid_destroy:
+          proposals_count:
+            one: 'Tapahtumaa ei voi poistaa, koska siihen on liitetty %{count} ehdotus:'
+            other: 'Tapahtumaa ei voi poistaa, koska siihen on liitetty %{count} ehdotusta:'
         minutes: Pöytäkirja
         new: Uusi kokous
         preview: Esikatsele
@@ -231,6 +240,10 @@ fi-pl:
             invalid: Tapahtuman luonnissa esiintyi ongelma
             success: Tapahtuma onnistuneesti luotu
           destroy:
+            invalid:
+              proposals_count:
+                one: Tapahtumaa ei voi poistaa, koska siihen on liitetty %{count} ehdotus
+                other: Tapahtumaa ei voi poistaa, koska siihen on liitetty %{count} ehdotusta
             success: Tapahtuma onnistuneesti luotu
           edit:
             update: Päivitä
@@ -342,21 +355,55 @@ fi-pl:
       meeting:
         not_allowed: Sinulla ei ole lupaa tarkastella tätä tapahtumaa
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} tapahtuma"
+            other: "%{count} tapahtumaa"
+        create:
+          invalid: Tapahtuman luonti epäonnistui.
+          success: Tapahtuman luonti onnistui.
+        edit:
+          back: Takaisin
+          title: Muokkaa tapahtumaa
+          update: Päivitä
         filters:
           category: Aihepiiri
           date: Päivämäärä
+          date_values:
+            all: Kaikki
+            past: Menneet
+            upcoming: Tulevat
+          origin: Alkuperä
+          origin_values:
+            all: Kaikki
+            citizens: Kansalaiset
+            official: Viralliset
+            user_groups: Ryhmät
+          scope: Teema
           search: Hae
         filters_small_view:
           close_modal: Sulje ikkuna
           filter: Rajaa
           filter_by: Rajaa hakua
           unfold: Avaa
+        form:
+          address_help: 'Osoite: käytetään karttapisteen etsimiseen geokoodauksen avulla'
+          create_as: Luo tapahtuma käyttäjänä
+          location_help: 'Paikka: kuvaus tapahtumapaikan tarkemmasta sijainnista osallistujille'
+          location_hints_help: 'Paikan vihjeteksti: lisätietoja tapahtumapaikasta. Esimerkiksi tapahtumapaikan rakennuksen kerros'
+          select_a_category: Valitse aihepiiri
+        index:
+          new_meeting: Uusi tapahtuma
         meeting_minutes:
           meeting_minutes: Tapahtumapöytäkirja
           related_information: Liittyviä tietoja
         meetings:
           no_meetings_warning: Yksikään tapahtuma ei vastaa hakukriteerejäsi tai yhtään tapahtumaa ei ole suunniteltu.
           upcoming_meetings_warning: Tällä hetkellä ei ole suuniteltuja tapahtumia, mutta täältä löydät kaikki aikaisemmat tapahtumat.
+        new:
+          back: Takaisin
+          create: Luo
+          title: Luo tapahtuma
         registration_confirm:
           cancel: Peruuta
           confirm: Vahvista
@@ -364,6 +411,7 @@ fi-pl:
           attendees: Osallistujamäärä
           back: Takaisin listaan
           contributions: Kontribuutioiden määrä
+          edit_meeting: Muokkaa tapahtumaa
           going: Osallistumassa
           join: Liity tapahtumaan
           meeting_report: Tapahtumaraportti
@@ -377,6 +425,9 @@ fi-pl:
             one: "%{count} paikka jäljellä"
             other: "%{count} paikkaa jäljellä"
           view: Näytä
+        update:
+          invalid: Tapahtuman luonti epäonnistui.
+          success: Tapahtuman luonti onnistui.
       meetings_map:
         view_meeting: Näytä tapahtuma
       models:
@@ -395,6 +446,7 @@ fi-pl:
             closed: Suljettu
             end_time: Päättymispäivä
             map: Kartta
+            official_meeting: Virallinen tapahtuma
             start_time: Alkamispäivä
             title: Otsikko
       read_more: "(lue lisää)"
@@ -416,6 +468,8 @@ fi-pl:
       types:
         private_meeting: Yksityinen tapahtuma
         transparent: Läpinäkyvä
+      versions:
+        back_to_resource: Takaisin tapahtumaan
     metrics:
       meetings:
         description: Tapahtumien määrä

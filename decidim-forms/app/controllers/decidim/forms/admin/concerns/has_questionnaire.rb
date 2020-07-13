@@ -16,7 +16,7 @@ module Decidim
           included do
             helper Decidim::Forms::Admin::ApplicationHelper
             helper_method :questionnaire_for, :questionnaire, :blank_question, :blank_answer_option, :blank_matrix_row,
-                          :blank_display_condition, :question_types, :display_condition_types, :update_url, :answer_options_url
+                          :blank_display_condition, :question_types, :display_condition_types, :update_url, :public_url, :answer_options_url
 
             if defined? Decidim::Templates
               include Decidim::Templates::Admin::Concerns::Templatable
@@ -85,6 +85,12 @@ module Decidim
             # where the user will be redirected after updating the questionnaire
             def after_update_url
               url_for(questionnaire.questionnaire_for)
+            end
+
+            # Implement this method in your controller to set the URL
+            # where the questionnaire can be answered.
+            def public_url
+              raise "#{self.class.name} is expected to implement #public_url"
             end
 
             # Returns the url to get the answer options json (for the display conditions form)

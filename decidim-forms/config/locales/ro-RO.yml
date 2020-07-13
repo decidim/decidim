@@ -112,7 +112,6 @@ ro:
       user_answers_serializer:
         created_at: Răspuns pornit
         id: ID răspuns
-        ip_hash: Hash Ip
         registered: Înregistrat
         unregistered: Neînregistrat
         user_status: Statusul utilizatorului

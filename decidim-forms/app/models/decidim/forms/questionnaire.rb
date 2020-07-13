@@ -5,6 +5,7 @@ module Decidim
     # The data store for a Questionnaire in the Decidim::Forms component.
     class Questionnaire < Forms::ApplicationRecord
       include Decidim::Templates::Templatable if defined? Decidim::Templates
+      include Decidim::Publicable
 
       belongs_to :questionnaire_for, polymorphic: true
 
@@ -13,7 +14,8 @@ module Decidim
 
       # Public: returns whether the questionnaire questions can be modified or not.
       def questions_editable?
-        answers.empty?
+        has_component = questionnaire_for.respond_to? :component
+        (has_component && !questionnaire_for.component.published?) || answers.empty?
       end
 
       # Public: returns whether the questionnaire is answered by the user or not.

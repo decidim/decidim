@@ -75,7 +75,7 @@ module Decidim
                          picker_options: picker_options,
                          prompt_params: prompt_params,
                          scopes: scopes,
-                         checkboxes_on_top: true)
+                         values_on_top: true)
       template.html_safe
     end
 
