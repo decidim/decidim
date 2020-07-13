@@ -9,8 +9,8 @@
       </li>
     </ul>
   </nav>
-  <%= link_to :elections, class: "focus__exit" do %>
+  <%= link_to election_path(election), class: "focus__exit" do %>
     <span class="focus__x-icon" aria-hidden="true">×</span>
-    <%= t(".close") %>
+    <%= t(".exit") %>
   <% end %>
 </div>

@@ -211,4 +211,4 @@ en:
   layouts:
     decidim:
       election_votes_header:
-        close: Close
+        exit: Exit
