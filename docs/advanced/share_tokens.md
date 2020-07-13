@@ -6,7 +6,14 @@ A share token is created by a user with an expiration time, and can be added as 
 
 ### Add share tokens to a model
 
-The model must `include Decidim::ShareableWithToken` and implement `shareable_url(share_token)`, which should return the public url for the resource you want to share, including the 
+The model must `include Decidim::ShareableWithToken` and implement `shareable_url(share_token)`, which should return the public url for the resource you want to share, including the token as a query parameter.
+
+```ruby
+# Public: Public URL for your_resource with given share token as query parameter
+def shareable_url(share_token)
+  your_resource_public_path(self, share_token: share_token.token)
+end
+```
 
 ### Set permissions
 
