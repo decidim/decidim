@@ -31,10 +31,6 @@ module Decidim
         present_resource
       end
 
-      def extra_title
-        extra["title"]
-      end
-
       private
 
       attr_reader :resource, :view_helpers, :extra
@@ -69,7 +65,7 @@ module Decidim
       #
       # Returns an HTML-safe String.
       def present_resource_name
-        h.translated(self, :extra_title)
+        h.translated(extra["title"])
       end
     end
   end

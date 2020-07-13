@@ -76,7 +76,9 @@ module Decidim
 
       def translated(resource, field = nil, organization = nil)
         return "" if resource.blank?
-        if resource.is_a?(Hash)
+        if resource.is_a?(String)
+          return resource
+        elsif resource.is_a?(Hash)
           attribute = resource.dup.stringify_keys 
         else
           attribute = resource.try(field).dup.stringify_keys
