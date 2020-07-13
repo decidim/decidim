@@ -7,7 +7,7 @@
 <div class="section">
   <p class="lead">
     <% if voted? %>
-      <%= t(:voted_on, links: budgets_link_list(voted), scope: i18n_scope) %>
+      <%= t(:voted_on, scope: i18n_scope, links: budgets_link_list(voted)) %>
     <% else %>
       <%= decidim_sanitize(description) %>
     <% end %>
@@ -25,7 +25,7 @@
         <% voted.each do |budget| %>
           <li>
             <%= link_to(
-                  t("cancel_order.more_than_one", name: translated_attribute(budget.name), scope: i18n_scope),
+                  t("cancel_order.more_than_oner", scope: i18n_scope, name: translated_attribute(budget.title)),
                   order_path_for(budget),
                   method: :delete,
                   class: "cancel-order",
@@ -43,8 +43,8 @@
       <p><%= highlighted_heading %></p>
       <p>
         <%= link_to(
-              t("highlighted_cta", name: translated_attribute(highlighted.title), scope: i18n_scope),
-              budgets_path(highlighted),
+              t("highlighted_cta", scope: i18n_scope, name: translated_attribute(highlighted.title)),
+              resource_locator(highlighted).path,
               class: :button ) %>
       </p>
     </div>

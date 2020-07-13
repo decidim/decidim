@@ -19,7 +19,7 @@
       <% discardable.each do |budget| %>
         <li>
           <%= link_to(
-                t(:limit_reached_cancel, name: translated_attribute(budget.name), scope: i18n_scope),
+                t(:limit_reached_cancel, scope: i18n_scope, name: translated_attribute(budget.name)),
                 order_path_for(budget),
                 method: :delete,
                 class: "cancel-order",
@@ -37,7 +37,7 @@
 
   <% unless current_workflow.single? %>
     <p>
-      <%= link_to t(:back_to, component_name: component_name, scope: i18n_scope), budgets_path %>
+      <%= link_to t(:back_to, scope: i18n_scope, component_name: component_name), budgets_path %>
     </p>
   <% end %>
 

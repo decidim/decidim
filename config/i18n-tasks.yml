@@ -103,11 +103,6 @@ ignore_missing:
   - participate_in
   - see_other_versions
   - actions.invalid_destroy.proposals_count
-  - decidim.budgets.budget_information_modal.limit_reached_cancel
-  - decidim.budgets.budget_information_modal.back_to
-  - decidim.budgets.budgets_header.voted_on
-  - decidim.budgets.budgets_header.cancel_order.more_than_one
-  - decidim.budgets.budgets_header.highlighted_cta
 
 # Consider these keys used:
 ignore_unused:
@@ -172,8 +167,18 @@ ignore_unused:
   - decidim.meetings.admin_log.*
   - decidim.budgets.admin_log.*
   - decidim.budgets.admin.models.project.name
-  - decidim.budgets.budget_information_modal.*
-  - decidim.budgets.budgets_header.*
+  - decidim.budgets.budgets_header.cancel_order.more_than_one
+  - decidim.budgets.budgets_header.cancel_order.only_one
+  - decidim.budgets.budgets_header.finished_message
+  - decidim.budgets.budgets_header.highlighted_cta
+  - decidim.budgets.budgets_header.if_change_opinion
+  - decidim.budgets.budgets_header.voted_on
+  - decidim.budgets.budget_information_modal.close_modal
+  - decidim.budgets.budget_information_modal.continue
+  - decidim.budgets.budget_information_modal.limit_reached
+  - decidim.budgets.budget_information_modal.limit_reached_cancel
+  - decidim.budgets.budget_information_modal.more_information
+  - decidim.budgets.budget_information_modal.back_to
   - decidim.sortitions.admin_log.*
   - decidim.sortitions.sortitions.orders.*
   - decidim.consultations.admin_log.*
