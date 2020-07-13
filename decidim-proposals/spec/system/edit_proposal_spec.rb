@@ -44,7 +44,7 @@ describe "Edit proposals", type: :system do
       let(:component) { create(:proposal_component, :with_geocoding_enabled, participatory_space: participatory_process) }
       let(:address) { "6 Villa des Nymphéas 75020 Paris" }
       let(:new_address) { "6 rue Sorbier 75020 Paris" }
-      let!(:proposal) { create :proposal, address: address, author: user, component: component }
+      let!(:proposal) { create :proposal, address: address, users: [user], component: component }
 
       it "can be updated with address" do
         visit_component
@@ -62,11 +62,11 @@ describe "Edit proposals", type: :system do
         Geocoder.configure(lookup: :test)
 
         Geocoder::Lookup::Test.add_stub(
-          new_address,
-          [{
-            "latitude" => 48.8682538,
-            "longitude" => 2.389643
-          }]
+            new_address,
+            [{
+                 "latitude" => 48.8682538,
+                 "longitude" => 2.389643
+             }]
         )
 
         click_button "Send"
