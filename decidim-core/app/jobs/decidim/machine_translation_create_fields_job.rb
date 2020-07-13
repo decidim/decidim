@@ -4,16 +4,15 @@ module Decidim
   class MachineTranslationCreateFieldsJob < ApplicationJob
     queue_as :default
 
-    def perform(id, resource_type, field_name, field_value, locale)
+    def perform(resource, field_name, field_value, locale, source_locale)
+      translation_value = Decidim.machine_translation_service.to_s.safe_constantize.new(field_value, source_locale, locale).translate
       Decidim::TranslatedField.create!(
-        translated_resource_id: id,
-        translated_resource_type: resource_type,
+        translated_resource: resource,
         field_name: field_name,
         field_value: field_value,
-        translation_value: nil,
+        translation_value: translation_value,
         translation_locale: locale
       )
-      Decidim::DummyTranslator.translate(id, locale, field_name, field_value)
     end
   end
 end

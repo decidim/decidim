@@ -15,11 +15,11 @@ module Decidim
         .exactly(2)
         .times
         .with(
-          dummy_resource.id,
-          dummy_resource.class.name,
+          dummy_resource,
           "title",
           dummy_resource.title,
-          any_args
+          kind_of(String),
+          "en"
         )
     end
   end

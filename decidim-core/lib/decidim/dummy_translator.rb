@@ -6,14 +6,17 @@ module Decidim
   # translated. It returns the appended value for both.
   # This is for testing only.
   class DummyTranslator
-    def self.translate(id, translation_locale, field_name, field_value)
-      Decidim::TranslatedField.where(
-        translated_resource_id: id,
-        field_name: field_name,
-        translation_locale: translation_locale
-      ).update(
-        translation_value: "#{translation_locale} - #{field_value}"
-      )
+
+    attr_reader :text, :original_locale, :target_locale
+  
+    def initialize(text, original_locale, target_locale)
+      @text = text
+      @original_locale = original_locale
+      @target_locale = target_locale
+    end
+
+    def translate
+       "#{target_locale} - #{text}"
     end
   end
 end

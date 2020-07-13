@@ -5,18 +5,27 @@ module Decidim
     queue_as :default
 
     def perform(resource, previous_changes, source_locale)
-      class_name = resource.class.name
-      id = resource.id
       translatable_fields = resource.class.translatable_fields_list.map(&:to_s)
+      locales = available_locales(resource)
+
       translatable_fields.each do |field|
         next unless previous_changes.keys.include?(field)
         next unless current_locale_changed(previous_changes, source_locale, field)
 
-        locales = Decidim.available_locales.map(&:to_s)
         locales.each do |locale|
           next if locale == source_locale
 
-          MachineTranslationUpdateFieldsJob.perform_later(id, class_name, field, resource_field_value(previous_changes, field, source_locale), locale)
+          MachineTranslationUpdateFieldsJob.perform_later(
+            resource,
+            field,
+            resource_field_value(
+              previous_changes,
+              field,
+              source_locale
+            ),
+            locale,
+            source_locale
+          )
         end
       end
     end
@@ -36,6 +45,11 @@ module Decidim
       return new_value[source_locale] if new_value.is_a?(Hash)
 
       new_value
+    end
+
+    def available_locales(resource)
+      locales = resource.organization.available_locales.map(&:to_s) if resource.respond_to? :organization
+      locales ||=  resource.available_locales.map(&:to_s)
     end
   end
 end

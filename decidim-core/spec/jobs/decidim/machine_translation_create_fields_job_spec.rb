@@ -10,11 +10,11 @@ module Decidim
       dummy_resource.save
       expect do
         MachineTranslationCreateFieldsJob.perform_now(
-          dummy_resource.id,
-          Decidim::DummyResources::DummyResource,
+          dummy_resource,
           "title",
           dummy_resource["title"],
-          "ca"
+          "ca",
+          "en"
         )
       end.to change { Decidim::TranslatedField.count }.by(1)
     end
