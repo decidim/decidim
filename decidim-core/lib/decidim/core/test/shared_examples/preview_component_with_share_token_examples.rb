@@ -12,7 +12,7 @@ shared_examples_for "preview component with share_token" do
       before do
         visit_component
       end
-  
+
       it "does not allow visiting component" do
         expect(page).to have_content "You are not authorized"
         expect(page.current_path).not_to match main_component_path(component)
@@ -20,7 +20,7 @@ shared_examples_for "preview component with share_token" do
     end
 
     context "when a share_token is provided" do
-      let(:share_token) { create(:share_token, token_for: component)}
+      let(:share_token) { create(:share_token, token_for: component) }
       let(:params) { { share_token: share_token.token } }
 
       before do
@@ -28,7 +28,7 @@ shared_examples_for "preview component with share_token" do
         uri.query = URI.encode_www_form(params.to_a)
         visit uri
       end
-      
+
       context "when a valid share_token is provided" do
         it "allows visiting component" do
           expect(page).not_to have_content "You are not authorized"
@@ -37,7 +37,7 @@ shared_examples_for "preview component with share_token" do
       end
 
       context "when an invalid share_token is provided" do
-        let(:share_token) { create(:share_token, :expired, token_for: component)}
+        let(:share_token) { create(:share_token, :expired, token_for: component) }
 
         it "does not allow visiting component" do
           expect(page).to have_content "You are not authorized"
