@@ -12,3 +12,5 @@ bg:
         show:
           are_you_sure: Това действие не може да се отмени и Вие не можете да редактирате отговорите си. Сигурни ли сте?
           submit: Изпрати
+      user_answers_serializer:
+        ip_hash: Ip Хеш
