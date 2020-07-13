@@ -2,7 +2,7 @@ pt:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Assembleias Relacionadas
+        assemblies_ids: Reuniões Relacionadas
         banner_image: Imagem da faixa
         consultations_ids: Consultas Relacionadas
         copy_categories: Copiar categorias
@@ -487,7 +487,7 @@ pt:
         details: Detalhes
         introduction: Introdução
         objectives: Objetivos
-        related_assemblies: Assembleias relacionadas
+        related_assemblies: Reuniões relacionadas
         related_consultations: Consultas Relacionadas
         related_participatory_processes: Processos participativos relacionados
       statistics:
