@@ -8,9 +8,7 @@ module Decidim
 
       helper_method :elections, :election, :paginated_elections
 
-      def show
-        enforce_permission_to :vote, :election, election: election
-      end
+      def show; end
 
       private
 

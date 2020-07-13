@@ -187,6 +187,8 @@ en:
           confirm: Confirm your vote
           confirmed: Vote vonfirmed
           encrypting: Confirming vote
+        messages:
+          not_allowed: You are not allowed to vote on this election at this moment.
         modal:
           close: Close
           proposal_header: 'Proposals:'

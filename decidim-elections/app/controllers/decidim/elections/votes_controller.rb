@@ -10,7 +10,8 @@ module Decidim
       helper_method :elections, :election
 
       def new
-        enforce_permission_to :vote, :election, election: election
+        redirect_to(election_path(election), alert: t("votes.messages.not_allowed", scope: "decidim.elections")) unless allowed_to? :vote, :election, election: election
+
         @form = form(VotingForm).instance(election: election)
       end
 
