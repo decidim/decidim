@@ -55,6 +55,10 @@ module Decidim
 
         model.end_time.to_date
       end
+
+      def statuses
+        []
+      end
     end
   end
 end
