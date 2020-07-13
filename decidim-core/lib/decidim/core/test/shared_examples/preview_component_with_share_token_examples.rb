@@ -15,7 +15,9 @@ shared_examples_for "preview component with share_token" do
 
       it "does not allow visiting component" do
         expect(page).to have_content "You are not authorized"
+        # rubocop:disable Capybara/CurrentPathExpectation
         expect(page.current_path).not_to match main_component_path(component)
+        # rubocop:enable Capybara/CurrentPathExpectation
       end
     end
 
@@ -32,7 +34,9 @@ shared_examples_for "preview component with share_token" do
       context "when a valid share_token is provided" do
         it "allows visiting component" do
           expect(page).not_to have_content "You are not authorized"
+          # rubocop:disable Capybara/CurrentPathExpectation
           expect(page.current_path).to match main_component_path(component)
+          # rubocop:enable Capybara/CurrentPathExpectation
         end
       end
 
@@ -41,7 +45,9 @@ shared_examples_for "preview component with share_token" do
 
         it "does not allow visiting component" do
           expect(page).to have_content "You are not authorized"
+          # rubocop:disable Capybara/CurrentPathExpectation
           expect(page.current_path).not_to match main_component_path(component)
+          # rubocop:enable Capybara/CurrentPathExpectation
         end
       end
     end
