@@ -129,42 +129,40 @@ shared_examples "a proposal form" do |options|
       end
     end
 
-    if options && !options[:admin]
-      context "when latitude and longitude are manually set" do
-        context "when the has address checkbox is unchecked" do
-          let(:has_address) { false }
+    context "when latitude and longitude are manually set" do
+      context "when the has address checkbox is unchecked" do
+        let(:has_address) { false }
 
-          it "is valid" do
-            expect(subject).to be_valid
-            expect(subject.latitude).to eq(latitude)
-            expect(subject.longitude).to eq(longitude)
-          end
+        it "is valid" do
+          expect(subject).to be_valid
+          expect(subject.latitude).to eq(nil)
+          expect(subject.longitude).to eq(nil)
+        end
+      end
+
+      context "when the proposal is unchanged" do
+        let(:previous_proposal) { create(:proposal, address: address) }
+
+        let(:params) do
+          {
+            id: previous_proposal.id,
+            title: previous_proposal.title,
+            body: previous_proposal.body,
+            author: previous_proposal.authors.first,
+            category_id: previous_proposal.try(:category_id),
+            scope_id: previous_proposal.try(:scope_id),
+            has_address: has_address,
+            address: address,
+            attachment: previous_proposal.try(:attachment_params),
+            latitude: latitude,
+            longitude: longitude
+          }
         end
 
-        context "when the proposal is unchanged" do
-          let(:previous_proposal) { create(:proposal, address: address) }
-
-          let(:params) do
-            {
-              id: previous_proposal.id,
-              title: previous_proposal.title,
-              body: previous_proposal.body,
-              author: previous_proposal.authors.first,
-              category_id: previous_proposal.try(:category_id),
-              scope_id: previous_proposal.try(:scope_id),
-              has_address: has_address,
-              address: address,
-              attachment: previous_proposal.try(:attachment_params),
-              latitude: latitude,
-              longitude: longitude
-            }
-          end
-
-          it "is valid" do
-            expect(subject).to be_valid
-            expect(subject.latitude).to eq(latitude)
-            expect(subject.longitude).to eq(longitude)
-          end
+        it "is valid" do
+          expect(subject).to be_valid
+          expect(subject.latitude).to eq(latitude)
+          expect(subject.longitude).to eq(longitude)
         end
       end
     end

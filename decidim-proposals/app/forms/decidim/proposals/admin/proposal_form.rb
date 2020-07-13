@@ -50,8 +50,9 @@ module Decidim
         def geocodable?
           return if Decidim.geocoder.blank?
           return unless current_component.settings.geocoding_enabled?
+          return if address.blank?
 
-          address_has_changed?
+          address.present? && address_has_changed?
         end
 
         def address_has_changed?
