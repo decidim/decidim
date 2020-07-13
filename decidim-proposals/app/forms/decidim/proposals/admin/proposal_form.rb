@@ -25,7 +25,7 @@ module Decidim
 
         validates :title, :body, presence: true
         validates :title, length: { maximum: 150 }
-        validates :address, geocoding: true, if: -> { current_component.settings.geocoding_enabled? }
+        validates :address, geocoding: true, if: :geocodable?
         validates :category, presence: true, if: ->(form) { form.category_id.present? }
         validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
         validates :meeting_as_author, presence: true, if: ->(form) { form.created_in_meeting? }
@@ -46,6 +46,19 @@ module Decidim
         end
 
         alias component current_component
+
+        def geocodable?
+          return if Decidim.geocoder.blank?
+          return unless current_component.settings.geocoding_enabled?
+
+          address_has_changed?
+        end
+
+        def address_has_changed?
+          return true if id.nil?
+
+          address != Proposal.find(id).address unless id.nil?
+        end
 
         # Finds the Category from the category_id.
         #
