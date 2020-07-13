@@ -69,6 +69,7 @@ pt:
       files:
         extension_whitelist: 'Formatos aceites:'
       images:
+        dimensions: "%{width} x %{height} px"
         dimensions_info: 'Esta imagem será:'
         processors:
           resize_and_pad: Redimensionada e ajustada para
