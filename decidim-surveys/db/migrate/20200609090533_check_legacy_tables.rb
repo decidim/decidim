@@ -1,34 +1,53 @@
 # frozen_string_literal: true
 
-namespace :decidim_surveys do
-  desc "Migrate data from decidim_surveys tables to decidim_forms tables"
-  task migrate_data_to_decidim_forms: :environment do
-    class Answer < ApplicationRecord
-      self.table_name = :decidim_surveys_survey_answers
-    end
+# rubocop:disable Rails/Output
+# rubocop:disable Style/GuardClause
+# rubocop:disable Lint/UnreachableCode
+class CheckLegacyTables < ActiveRecord::Migration[5.2]
+  class Answer < ApplicationRecord
+    self.table_name = :decidim_surveys_survey_answers
+  end
 
-    class AnswerChoice < ApplicationRecord
-      self.table_name = :decidim_surveys_survey_answer_choices
-    end
+  class AnswerChoice < ApplicationRecord
+    self.table_name = :decidim_surveys_survey_answer_choices
+  end
 
-    class AnswerOption < ApplicationRecord
-      self.table_name = :decidim_surveys_survey_answer_options
-    end
+  class AnswerOption < ApplicationRecord
+    self.table_name = :decidim_surveys_survey_answer_options
+  end
 
-    class Question < ApplicationRecord
-      self.table_name = :decidim_surveys_survey_questions
-    end
+  class Question < ApplicationRecord
+    self.table_name = :decidim_surveys_survey_questions
+  end
 
-    unless [Answer, AnswerChoice, AnswerOption, Question].all? { |model| ActiveRecord::Base.connection.table_exists? model.table_name }
-      puts "ERROR: There are not all the necessary surveys tables. Have you already migrated the data?"
-      next
-    end
+  def up
+    if tables_exists.any?
+      puts "If you already migrated the data, the following raise statement can be safely removed and migrations can continue to be run again."
+      puts "But beware, they will remove some surveys' legacy tables!"
+      puts "Otherwise check this migration in order to keep your data safe. Legacy tables will be removed by the following migrations."
+      raise "ERROR: there's the risk to loose legacy information from old surveys!"
 
+      if tables_exists.all?
+        migrate_legacy_data if Question.any?
+      else
+        puts "Some legacy surveys tables exist but not all. Have you already migrated the data?"
+        puts "Migrate or backup your data and then remove the following raise statement to continue with the migrations (that will remove surveys legacy tables)"
+        raise "ERROR:  there's the risk to loose legacy information from old surveys!"
+      end
+    end
+  end
+
+  def tables_exists
+    @tables_exists ||= [Answer, AnswerChoice, AnswerOption, Question].collect { |model| ActiveRecord::Base.connection.table_exists? model.table_name }
+  end
+
+  def migrate_legacy_data
+    puts "Migrating data from decidim_surveys tables to decidim_forms tables..."
     ActiveRecord::Base.transaction do
       Decidim::Surveys::Survey.find_each do |survey|
         puts "Migrating survey #{survey.id}..."
 
-        questionnaire = Decidim::Forms::Questionnaire.create!(
+        questionnaire = ::Decidim::Forms::Questionnaire.create!(
           questionnaire_for: survey,
           title: survey.title,
           description: survey.description,
@@ -41,7 +60,7 @@ namespace :decidim_surveys do
         Question.where(decidim_survey_id: survey.id).find_each do |survey_question|
           puts "Migrating question #{survey_question.id}..."
 
-          question = Decidim::Forms::Question.create!(
+          question = ::Decidim::Forms::Question.create!(
             questionnaire: questionnaire,
             position: survey_question.position,
             question_type: survey_question.question_type,
@@ -57,7 +76,7 @@ namespace :decidim_surveys do
           answer_option_mapping = {}
 
           AnswerOption.where(decidim_survey_question_id: survey_question.id).find_each do |survey_answer_option|
-            answer_option_mapping[survey_answer_option.id] = Decidim::Forms::AnswerOption.create!(
+            answer_option_mapping[survey_answer_option.id] = ::Decidim::Forms::AnswerOption.create!(
               question: question,
               body: survey_answer_option.body,
               free_text: survey_answer_option.free_text
@@ -65,7 +84,7 @@ namespace :decidim_surveys do
           end
 
           Answer.where(decidim_survey_id: survey.id, decidim_survey_question_id: survey_question.id).find_each do |survey_answer|
-            answer = Decidim::Forms::Answer.new(
+            answer = ::Decidim::Forms::Answer.new(
               questionnaire: questionnaire,
               question: question,
               decidim_user_id: survey_answer.decidim_user_id,
@@ -90,3 +109,6 @@ namespace :decidim_surveys do
     end
   end
 end
+# rubocop:enable Lint/UnreachableCode
+# rubocop:enable Style/GuardClause
+# rubocop:enable Rails/Output
