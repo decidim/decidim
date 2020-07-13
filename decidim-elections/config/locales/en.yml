@@ -192,10 +192,10 @@ en:
           proposal_header: 'Proposals:'
         new:
           answer_choices: You can select up to %{choices} answers or none
-          counter_text: of <span class="evote__counter-num">%{max_selections}</span></div>selections
           current_question: Question %{current_step}
           more_information: More information
           of_total_questions: of %{total_steps}
+          selections: '%{selected} of %{max_selections}<br /> selections'
         voting_step:
           back: Back
           continue: Next

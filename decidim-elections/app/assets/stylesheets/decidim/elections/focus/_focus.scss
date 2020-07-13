@@ -80,6 +80,11 @@
 
   &__content{
     flex-grow: 1;
+    display: flex;
+
+    .row{
+      flex-grow: 1;
+    }
   }
 
   &__footer{

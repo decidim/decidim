@@ -16,7 +16,5 @@
 </div>
 
 <div class="evote__counter">
-  <div>
-  <strong class="evote__counter-num evote__counter-min"></strong>
-  <%= t("decidim.elections.votes.new.counter_text", max_selections: question.max_selections).html_safe %>
+  <%= t("votes.new.selections", scope:"decidim.elections", selected: "<strong class='evote__counter-num evote__counter-min'></strong>", max_selections: "<span class='evote__counter-num'>#{question.max_selections}</span>").html_safe %>
 </div>
