@@ -45,6 +45,12 @@ describe "Edit proposals", type: :system do
       let(:address) { "6 Villa des Nymphéas 75020 Paris" }
       let(:new_address) { "6 rue Sorbier 75020 Paris" }
       let!(:proposal) { create :proposal, address: address, users: [user], component: component }
+      let(:latitude) { 48.8682538 }
+      let(:longitude) { 2.389643 }
+
+      before do
+        stub_geocoding(new_address, [latitude, longitude])
+      end
 
       it "can be updated with address" do
         visit_component
@@ -58,16 +64,6 @@ describe "Edit proposals", type: :system do
         expect(page).to have_field("Address", with: proposal.address)
 
         fill_in "Address", with: new_address
-
-        Geocoder.configure(lookup: :test)
-
-        Geocoder::Lookup::Test.add_stub(
-            new_address,
-            [{
-                 "latitude" => 48.8682538,
-                 "longitude" => 2.389643
-             }]
-        )
 
         click_button "Send"
         expect(page).to have_content(new_address)
