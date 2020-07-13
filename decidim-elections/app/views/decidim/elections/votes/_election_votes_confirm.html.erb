@@ -21,14 +21,15 @@
           <dd>
             <strong class="evote__confirm-label">
               <%= t("decidim.elections.votes.confirm.answer") %>
-              ( <%= link_to(
-                  t("decidim.elections.votes.confirm.edit", count: question_index + 1).html_safe,
+              (<%= link_to(
+                  "#{t("decidim.elections.votes.confirm.edit")}<span class='show-for-sr'>
+                    #{t("decidim.elections.votes.confirm.answer_number", number: question_index + 1)}</span>".html_safe,
                   "#",
                   class: "evote__edit-answer",
                   data: {
                     toggle: ["step-#{question_index}", "step-#{@form.total_steps}"].join(" ")
                   }
-                ) %> ):
+                ) %>):
             </strong>
             <ul>
               <% question.answers.each do |answer| %>

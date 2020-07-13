@@ -166,8 +166,9 @@ en:
       votes:
         confirm:
           answer: Answer
+          answer_number: 'answer %{number}'
           confirm: Confirm
-          edit: edit <span class="show-for-sr"> answer %{count}</span>
+          edit: edit
           header: Confirm your vote
           intro: Here is a summary of the vote you are about to cast. </br> Please confirm your vote or edit your answers.
           question: Question %{count}
