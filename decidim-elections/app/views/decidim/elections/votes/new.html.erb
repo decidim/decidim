@@ -10,17 +10,10 @@
 
     <div class="focus__content evote">
       <div class="row">
-        <% if step_question.max_selections == 1 %>
-          <%= render(
-            "election_votes_radio_button",
-            question: step_question
-          ) %>
-        <% else %>
-          <%= render(
-            "election_votes_checkbox",
-            question: step_question
-          ) %>
-        <% end %>
+        <%= render(
+          "election_votes_question",
+          question: step_question
+        ) %>
       </div>
     </div>
 

@@ -7,6 +7,7 @@ module Decidim
       layout "decidim/election_votes"
       include FormFactory
 
+      helper VotesHelper
       helper_method :elections, :election
 
       def new
