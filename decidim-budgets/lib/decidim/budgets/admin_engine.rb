@@ -13,6 +13,8 @@ module Decidim
 
       routes do
         resources :projects do
+          get :proposals_picker, on: :collection
+
           resources :attachment_collections
           resources :attachments
           collection do

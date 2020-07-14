@@ -124,6 +124,7 @@ pt:
         show:
           algorithm: Código de Algoritmo da Classificação
           any_category: de todas as categorias
+          back: Regressar à lista
           cancelled: Sortição cancelada
           candidate_proposal_ids: Ordem de propostas de classificação e IDs
           candidate_proposals_info: 'A ordenação foi realizada entre as seguintes propostas (%{category_label}), com os seguintes IDs (em negrito as propostas selecionadas)  '

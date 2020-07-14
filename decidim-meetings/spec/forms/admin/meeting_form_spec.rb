@@ -46,8 +46,6 @@ module Decidim::Meetings
     let(:scope_id) { scope.id }
     let(:category) { create :category, participatory_space: participatory_process }
     let(:category_id) { category.id }
-    let(:organizer) { create :user, organization: organization }
-    let(:organizer_id) { organizer.id }
     let(:private_meeting) { false }
     let(:transparent) { true }
     let(:attributes) do
@@ -64,7 +62,6 @@ module Decidim::Meetings
         end_time: end_time,
         private_meeting: private_meeting,
         transparent: transparent,
-        organizer_id: organizer_id,
         services: services
       }
     end

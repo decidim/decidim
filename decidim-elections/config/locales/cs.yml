@@ -22,7 +22,28 @@ cs:
           attributes:
             attachment:
               needs_to_be_reattached: Potřebuje být znovu připojen
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Odpověď
+        few: Odpovědí
+        many: Odpovědí
+        other: Odpovědi
+      decidim/elections/election:
+        one: Volby
+        few: Voleb
+        many: Voleb
+        other: Volby
+      decidim/elections/question:
+        one: Otázka
+        few: Otázek
+        many: Otázek
+        other: Otázek
   decidim:
+    admin_log:
+      election:
+        publish: "%{user_name} zveřejnil volby %{resource_name}"
+        unpublish: "%{user_name} zrušil zveřejnění volby %{resource_name}"
     components:
       elections:
         name: Volby
@@ -36,9 +57,14 @@ cs:
         confirm_destroy: Jste si jisti?
         destroy: Zničit
         edit: Upravit
+        edit_answers: Upravit odpovědi
+        edit_questions: Upravit otázky
+        import: Importovat návrhy na odpovědi
         new: Nový %{name}
         preview: Náhled
+        publish: Publikovat
         title: Akce
+        unpublish: Zrušit publikování
       admin:
         answers:
           create:
@@ -73,6 +99,10 @@ cs:
           new:
             create: Vytvořit volbu
             title: Nové volby
+          publish:
+            success: Volba byla úspěšně publikována.
+          unpublish:
+            success: Volba byla úspěšně odebrána ze zveřejnění.
           update:
             invalid: Při aktualizaci těchto voleb došlo k chybě
             success: Volba byla úspěšně aktualizována
@@ -83,6 +113,14 @@ cs:
             name: Volby
           question:
             name: Otázka
+        proposals_imports:
+          create:
+            invalid: Při importu návrhů do odpovědí došlo k potížím
+            success: "%{number} návrhů bylo úspěšně importováno do odpovědí"
+          new:
+            create: Importovat návrhy na odpovědi
+            no_components: V tomto participačním prostoru nejsou žádné další prvky návrhu, které by mohly do odpovědí importovat návrhy.
+            select_component: Vyberte komponentu
         questions:
           create:
             invalid: Při vytváření této otázky došlo k chybě
@@ -116,6 +154,13 @@ cs:
             answers: Odpovědi
             max_selections: Max. výběr
             title: Název
+    events:
+      elections:
+        election_published:
+          email_intro: 'Volba %{resource_title} je nyní aktivní pro %{participatory_space_title}. Můžete ji vidět z této stránky:'
+          email_outro: Obdrželi jste toto oznámení, protože sledujete %{participatory_space_title}. Můžete přestat přijímat oznámení kliknutím na následující odkaz.
+          email_subject: Volba %{resource_title} je nyní aktivní pro %{participatory_space_title}.
+          notification_title: Volba <a href="%{resource_path}">%{resource_title}</a> je nyní aktivní pro %{participatory_space_title}.
     participatory_processes:
       statistics:
         elections_count: Volby

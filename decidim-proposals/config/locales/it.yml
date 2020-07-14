@@ -43,18 +43,18 @@ it:
         proposal:
           attributes:
             attachment:
-              needs_to_be_reattached: Ha bisogno di essere ricollegato
+              needs_to_be_reattached: Necessita di essere riallegato
             body:
               cant_be_equal_to_template: non può essere uguale al modello
-              identical: E il titolo non può essere identico
+              identical: Il titolo AND non può essere identico
             title:
-              identical: E il corpo non può essere identico
+              identical: Il corpo AND non può essere identico
     models:
       decidim/proposals/accepted_proposal_event: Proposta accettata
-      decidim/proposals/admin/update_proposal_category_event: Categoria proposta modificata
+      decidim/proposals/admin/update_proposal_category_event: Categoria della proposta modificata
       decidim/proposals/admin/update_proposal_scope_event: Scopo della proposta modificato
       decidim/proposals/creation_enabled_event: Creazione della proposta abilitata
-      decidim/proposals/endorsing_enabled_event: Approvazione proposta abilitata
+      decidim/proposals/endorsing_enabled_event: Approvazione della proposta abilitata
       decidim/proposals/evaluating_proposal_event: La proposta è in corso di valutazione
       decidim/proposals/proposal_mentioned_event: Proposta menzionata
       decidim/proposals/publish_proposal_event: Proposta pubblicata
@@ -72,22 +72,22 @@ it:
         one: Nota
         other: Gli appunti
       decidim/proposals/proposal_vote:
-        one: Votazione
-        other: voti
+        one: Supporto
+        other: Supporti
   decidim:
     admin:
       filters:
         is_emendation_true:
-          label: genere
+          label: Tipo
           values:
-            'false': proposte
-            'true': Modifiche
+            'false': Proposte
+            'true': Emendamenti
         search_placeholder:
           id_string_or_title_cont: Cerca %{collection} per ID o titolo.
         state_eq:
           label: Stato
           values:
-            evaluating: Valutare
+            evaluating: Valutazione
             withdrawn: Ritirato
         state_null:
           label: Stato
@@ -99,11 +99,11 @@ it:
       proposals:
         actions:
           amend: Modificare
-          create: Creare
+          create: Crea
           endorse: Sostieni
-          vote: Votazione
-          withdraw: ritirarsi
-        name: proposte
+          vote: Vota
+          withdraw: Ritirare
+        name: Proposte
         settings:
           global:
             allow_card_image: Consenti l'immagine della scheda
@@ -138,7 +138,7 @@ it:
             amendment_creation_enabled: Creazione di emendamenti abilitata
             amendment_creation_enabled_help: I partecipanti possono modificare le proposte.
             amendment_promotion_enabled: Promozione dell'emendamento abilitata
-            amendment_promotion_enabled_help: Gli autori delle Emandation potranno promuovere la proposta di emendamento respinto.
+            amendment_promotion_enabled_help: Gli autori dell'emendamento potranno pubblicare la proposta dell'emendamento respinto.
             amendment_reaction_enabled: Risposta all'emendamento abilitata
             amendment_reaction_enabled_help: Gli autori della proposta potranno accettare o rifiutare le modifiche dei partecipanti.
             amendments_visibility: Visibilità dell'emendamento
@@ -289,11 +289,11 @@ it:
             - Dare supporto alle proposte che ti piacciono o che ti interessano
           description: Questo badge è concesso quando supporti le proposte di altre persone.
           description_another: Questo utente ha fornito supporto a %{score} proposte.
-          description_own: Hai fornito supporto a %{score} proposte.
+          description_own: Hai dato supporto a %{score} proposte.
           name: Supporti della proposta
           next_level_in: Dare supporto a %{score} ulteriori proposte per raggiungere il livello successivo!
           unearned_another: Questo utente non ha ancora fornito supporto a nessuna proposta.
-          unearned_own: Non hai ancora fornito supporto a nessuna proposta.
+          unearned_own: Hai dato supporto a proposte.
         proposals:
           conditions:
             - Scegli lo spazio di partecipazione di tuo interesse con l'invio per le proposte abilitate
@@ -301,7 +301,7 @@ it:
           description: Questo badge è concesso quando partecipi attivamente a nuove proposte.
           description_another: Questo utente ha creato %{score} proposte.
           description_own: Hai creato %{score} proposte.
-          name: proposte
+          name: Proposte
           next_level_in: Crea altre %{score} proposte per raggiungere il livello successivo!
           unearned_another: Questo utente non ha ancora creato alcuna proposta.
           unearned_own: Non hai ancora creato alcuna proposta.
@@ -321,7 +321,7 @@ it:
       votes:
         description: Numero di voti generati nelle proposte degli utenti
         object: voti
-        title: voti
+        title: Voti
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -463,7 +463,7 @@ it:
             remove_assignment_confirmation: Sei sicuro di voler rimuovere il valutatore da questa proposta?
             valuators: Valutatori
             votes_count: Contare i voti
-            votes_ranking: Classifica per appoggi
+            votes_ranking: Ordina per numero di supporti
           update_category:
             invalid: 'Queste proposte avevano già la categoria %{subject_name} %{proposals}.'
             select_a_category: Si prega di selezionare una categoria
@@ -799,7 +799,7 @@ it:
           changed_from: "(modificato da <u>%{previous_name}</u> da un amministratore)"
         vote_button:
           already_voted: Già votata
-          already_voted_hover: Annullare il voto
+          already_voted_hover: Ritira il supporto
           maximum_votes_reached: Hai raggiunto il limite di voti
           no_votes_remaining: Sono finite le votazioni possibili
           vote: Vota

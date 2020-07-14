@@ -89,6 +89,7 @@ FactoryBot.define do
     badges_enabled { true }
     user_groups_enabled { true }
     send_welcome_notification { true }
+    comments_max_length { 1000 }
     admin_terms_of_use_body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     force_users_to_authenticate_before_access_organization { false }
     smtp_settings do
@@ -461,6 +462,30 @@ FactoryBot.define do
         5.times.collect do
           create(:endorsement, resource: resource, author: build(:user, organization: resource.component.organization))
         end
+      end
+    end
+  end
+
+  factory :nested_dummy_resource, class: "Decidim::DummyResources::NestedDummyResource" do
+    title { generate(:name) }
+    dummy_resource { create(:dummy_resource) }
+  end
+
+  factory :coauthorable_dummy_resource, class: "Decidim::DummyResources::CoauthorableDummyResource" do
+    title { generate(:name) }
+    component { create(:component, manifest_name: "dummy") }
+
+    transient do
+      authors_list { [create(:user, organization: component.organization)] }
+    end
+
+    after :build do |resource, evaluator|
+      evaluator.authors_list.each do |coauthor|
+        resource.coauthorships << if coauthor.is_a?(::Decidim::UserGroup)
+                                    build(:coauthorship, author: coauthor.users.first, user_group: coauthor, coauthorable: resource, organization: evaluator.component.organization)
+                                  else
+                                    build(:coauthorship, author: coauthor, coauthorable: resource, organization: evaluator.component.organization)
+                                  end
       end
     end
   end

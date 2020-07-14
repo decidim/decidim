@@ -64,6 +64,12 @@ fi-pl:
         email: Sähköposti
         name: Nimi
         role: Rooli
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Virheellinen asiakirjan muoto. Hyväksytyt tiedostomuodot ovat: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -78,6 +84,7 @@ fi-pl:
   decidim:
     admin:
       actions:
+        import_assembly: Tuo
         new_assembly: Uusi ryhmä
         new_assembly_type: Uusi ryhmätyyppi
       assemblies:
@@ -122,6 +129,14 @@ fi-pl:
           copy: Kopioi
           select: Valitse, mitkä tiedot haluat kopioida
           title: Kopioi ryhmä
+      assembly_imports:
+        create:
+          error: Ryhmän tuonti epäonnistui.
+          success: Ryhmän tuonti onnistui.
+        new:
+          import: Tuo
+          select: Valitse, mitkä tiedot haluat tuoda
+          title: Tuo ryhmä
       assembly_members:
         create:
           error: Jäsenen lisääminen ryhmään ei onnistunut.
@@ -268,6 +283,10 @@ fi-pl:
             title: Otsikko
         assembly_copies:
           form:
+            slug_help: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Lisää dokumentti
             slug_help: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
         assembly_members:
           form:

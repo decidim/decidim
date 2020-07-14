@@ -10,8 +10,18 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
+        get "/answer/:session_token", to: "surveys#show", as: :show_survey
+        get "/answer/:session_token/export", to: "surveys#export_response", as: :export_response_survey
+        get "/answers", to: "surveys#index", as: :index_survey
+        get "/answer_options", to: "surveys#answer_options", as: :answer_options_survey
         put "/", to: "surveys#update", as: :survey
         root to: "surveys#edit"
+      end
+
+      initializer "decidim.notifications.components" do
+        Decidim::EventsManager.subscribe(/^decidim\.events\.components/) do |event_name, data|
+          CleanSurveyAnswersJob.perform_later(event_name, data)
+        end
       end
 
       def load_seed

@@ -272,7 +272,7 @@ module Decidim
     # options       - An optional Hash with options:
     # - multiple    - Multiple mode, to allow multiple scopes selection.
     # - label       - Show label?
-    # - checkboxes_on_top - Show checked picker values on top (default) or below the picker prompt
+    # - checkboxes_on_top - Show checked picker values on top (default) or below the picker prompt (only for multiple pickers)
     #
     # Also it should receive a block that returns a Hash with :url and :text for each selected scope (and for null scope for prompt)
     #
@@ -294,7 +294,7 @@ module Decidim
                                    picker_options: picker_options,
                                    prompt_params: prompt_params,
                                    scopes: scopes,
-                                   checkboxes_on_top: options[:checkboxes_on_top])
+                                   values_on_top: !options[:multiple] || options[:checkboxes_on_top])
       template += error_and_help_text(attribute, options)
       template.html_safe
     end
