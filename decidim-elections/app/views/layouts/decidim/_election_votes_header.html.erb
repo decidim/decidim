@@ -3,11 +3,7 @@
     <%= image_tag "decidim/elections/decidim-logo-red.png", alt: "Decidim Barcelona" %>
   </a>
   <nav class="focus__user topbar__user__logged">
-    <ul class="dropdown menu" data-dropdown-menu>
-      <li class="is-dropdown-submenu-parent show-for-medium">
-        <%= link_to current_user.name, decidim.account_path %>
-      </li>
-    </ul>
+    <%= current_user.name %>
   </nav>
   <%= link_to election_path(election), class: "focus__exit" do %>
     <span class="focus__x-icon" aria-hidden="true">×</span>
