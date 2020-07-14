@@ -4,7 +4,7 @@
 <%= content_tag(:p, t("decidim.elections.votes.new.answer_choices", choices: question.max_selections)) if question.max_selections > 1 %>
 
 <div class="evote__options" data-max-selection="<%= question.max_selections %>" data-min-selection="<%= question.min_selections %>">
-  <% question.answers.sort_by(&:weight).each do |answer| %>
+  <% ordered_answers(question).each do |answer| %>
     <%= label_tag nil, nil, class: "evote__check evote__card" do %>
       <% if question.max_selections == 1 %>
         <%= radio_button_tag "question_#{question.id}", answer.id, false, class: "answer_input" %>
