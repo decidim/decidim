@@ -1,8 +1,8 @@
-import { mount, shallow } from "enzyme";
+import {mount, shallow} from "enzyme";
 import * as $ from "jquery";
 import * as React from "react";
 
-import { CommentFragment } from "../support/schema";
+import {CommentFragment} from "../support/schema";
 import AddCommentForm from "./add_comment_form.component";
 import Comment from "./comment.component";
 import DownVoteButton from "./down_vote_button.component";
@@ -11,13 +11,15 @@ import UpVoteButton from "./up_vote_button.component";
 import generateCommentsData from "../support/generate_comments_data";
 import generateUserData from "../support/generate_user_data";
 
-import { loadLocaleTranslations } from "../support/load_translations";
+import {loadLocaleTranslations} from "../support/load_translations";
 
 describe("<Comment />", () => {
+  const commentsMaxLength: number = 1000;
   const orderBy = "older";
   const rootCommentable = {
     id: "1",
-    type: "Decidim::DummyResources::DummyResource"
+    type: "Decidim::DummyResources::DummyResource",
+    commentsMaxLength: 1000
   };
   let comment: CommentFragment;
   let session: any = null;
@@ -48,6 +50,7 @@ describe("<Comment />", () => {
         session={session}
         rootCommentable={rootCommentable}
         orderBy={orderBy}
+        commentsMaxLength={commentsMaxLength}
       />
     );
     expect(wrapper.find(".comment").exists()).toBeTruthy();
@@ -60,6 +63,7 @@ describe("<Comment />", () => {
         session={session}
         rootCommentable={rootCommentable}
         orderBy={orderBy}
+        commentsMaxLength={commentsMaxLength}
       />
     );
     expect(wrapper.find("time").prop("dateTime")).toEqual(comment.createdAt);
@@ -72,6 +76,7 @@ describe("<Comment />", () => {
         session={session}
         rootCommentable={rootCommentable}
         orderBy={orderBy}
+        commentsMaxLength={commentsMaxLength}
       />
     );
     expect(wrapper.find("span.author__name").text()).toEqual(
@@ -86,6 +91,7 @@ describe("<Comment />", () => {
         session={session}
         rootCommentable={rootCommentable}
         orderBy={orderBy}
+        commentsMaxLength={commentsMaxLength}
       />
     );
     expect(wrapper.find("span.author__nickname").text()).toEqual(
@@ -105,6 +111,7 @@ describe("<Comment />", () => {
           session={session}
           rootCommentable={rootCommentable}
           orderBy={orderBy}
+          commentsMaxLength={commentsMaxLength}
         />
       );
       expect(
@@ -120,6 +127,7 @@ describe("<Comment />", () => {
         session={session}
         rootCommentable={rootCommentable}
         orderBy={orderBy}
+        commentsMaxLength={commentsMaxLength}
       />
     );
     expect(wrapper.find(".author__avatar img").prop("src")).toEqual(
@@ -134,6 +142,7 @@ describe("<Comment />", () => {
         session={session}
         rootCommentable={rootCommentable}
         orderBy={orderBy}
+        commentsMaxLength={commentsMaxLength}
       />
     );
     expect(wrapper.find("div.comment__content").html()).toContain(
@@ -148,6 +157,7 @@ describe("<Comment />", () => {
         session={session}
         rootCommentable={rootCommentable}
         orderBy={orderBy}
+        commentsMaxLength={commentsMaxLength}
       />
     );
     expect(wrapper.state()).toHaveProperty("showReplyForm", false);
@@ -160,6 +170,7 @@ describe("<Comment />", () => {
         session={session}
         rootCommentable={rootCommentable}
         orderBy={orderBy}
+        commentsMaxLength={commentsMaxLength}
       />
     );
     expect(wrapper.find(AddCommentForm).exists()).toBeFalsy();
@@ -181,6 +192,7 @@ describe("<Comment />", () => {
         isRootComment={true}
         rootCommentable={rootCommentable}
         orderBy={orderBy}
+        commentsMaxLength={commentsMaxLength}
       />
     );
     expect(wrapper.find("div.comment__additionalreply").exists()).toBeFalsy();
@@ -194,6 +206,7 @@ describe("<Comment />", () => {
         session={session}
         rootCommentable={rootCommentable}
         orderBy={orderBy}
+        commentsMaxLength={commentsMaxLength}
       />
     );
     expect(wrapper.find("div.comment__additionalreply").exists()).toBeFalsy();
@@ -208,6 +221,7 @@ describe("<Comment />", () => {
         isRootComment={true}
         rootCommentable={rootCommentable}
         orderBy={orderBy}
+        commentsMaxLength={commentsMaxLength}
       />
     );
     expect(wrapper.find("div.comment__additionalreply").exists()).toBeTruthy();
@@ -221,6 +235,7 @@ describe("<Comment />", () => {
         votable={true}
         rootCommentable={rootCommentable}
         orderBy={orderBy}
+        commentsMaxLength={commentsMaxLength}
       />
     );
     wrapper.find(Comment).forEach((node, idx) => {
@@ -239,6 +254,7 @@ describe("<Comment />", () => {
         articleClassName="comment comment--nested"
         rootCommentable={rootCommentable}
         orderBy={orderBy}
+        commentsMaxLength={commentsMaxLength}
       />
     );
     wrapper.find(Comment).forEach(node => {
@@ -255,6 +271,7 @@ describe("<Comment />", () => {
         session={session}
         rootCommentable={rootCommentable}
         orderBy={orderBy}
+        commentsMaxLength={commentsMaxLength}
       />
     );
     expect(wrapper.prop("articleClassName")).toEqual("comment");
@@ -267,6 +284,7 @@ describe("<Comment />", () => {
         session={session}
         rootCommentable={rootCommentable}
         orderBy={orderBy}
+        commentsMaxLength={commentsMaxLength}
       />
     );
     expect(wrapper.prop("isRootComment")).toBeFalsy();
@@ -284,6 +302,7 @@ describe("<Comment />", () => {
           session={session}
           rootCommentable={rootCommentable}
           orderBy={orderBy}
+          commentsMaxLength={commentsMaxLength}
         />
       );
       expect(wrapper.find("button.comment__reply").exists()).toBeFalsy();
@@ -302,6 +321,7 @@ describe("<Comment />", () => {
           session={session}
           rootCommentable={rootCommentable}
           orderBy={orderBy}
+          commentsMaxLength={commentsMaxLength}
         />
       );
       expect(wrapper.find("button.comment__reply").exists()).toBeFalsy();
@@ -314,6 +334,7 @@ describe("<Comment />", () => {
           session={session}
           rootCommentable={rootCommentable}
           orderBy={orderBy}
+          commentsMaxLength={commentsMaxLength}
         />
       );
       expect(wrapper.find(".flag-modal").exists()).toBeFalsy();
@@ -328,6 +349,7 @@ describe("<Comment />", () => {
         session={session}
         rootCommentable={rootCommentable}
         orderBy={orderBy}
+        commentsMaxLength={commentsMaxLength}
       />
     );
     expect(wrapper.find("span.alignment.label").text()).toEqual("In favor");
@@ -341,6 +363,7 @@ describe("<Comment />", () => {
         session={session}
         rootCommentable={rootCommentable}
         orderBy={orderBy}
+        commentsMaxLength={commentsMaxLength}
       />
     );
     expect(wrapper.find("span.alert.label").text()).toEqual("Against");
@@ -353,6 +376,7 @@ describe("<Comment />", () => {
         session={session}
         rootCommentable={rootCommentable}
         orderBy={orderBy}
+        commentsMaxLength={commentsMaxLength}
       />
     );
     expect(wrapper.find(".flag-modal").exists()).toBeTruthy();
@@ -367,6 +391,7 @@ describe("<Comment />", () => {
           session={session}
           rootCommentable={rootCommentable}
           orderBy={orderBy}
+          commentsMaxLength={commentsMaxLength}
         />
       );
       expect(wrapper.find(".flag-modal form").exists()).toBeFalsy();
@@ -382,6 +407,7 @@ describe("<Comment />", () => {
           votable={true}
           rootCommentable={rootCommentable}
           orderBy={orderBy}
+          commentsMaxLength={commentsMaxLength}
         />
       );
       expect(wrapper.find(UpVoteButton).prop("comment")).toEqual(comment);
@@ -395,6 +421,7 @@ describe("<Comment />", () => {
           votable={true}
           rootCommentable={rootCommentable}
           orderBy={orderBy}
+          commentsMaxLength={commentsMaxLength}
         />
       );
       expect(wrapper.find(DownVoteButton).prop("comment")).toEqual(comment);
@@ -413,6 +440,7 @@ describe("<Comment />", () => {
           session={session}
           rootCommentable={rootCommentable}
           orderBy={orderBy}
+          commentsMaxLength={commentsMaxLength}
         />
       );
       expect(wrapper.find("button.comment__reply").exists()).toBeFalsy();
@@ -425,6 +453,7 @@ describe("<Comment />", () => {
           session={session}
           rootCommentable={rootCommentable}
           orderBy={orderBy}
+          commentsMaxLength={commentsMaxLength}
         />
       );
       expect(wrapper.find(".flag-modal").exists()).toBeFalsy();
@@ -438,6 +467,7 @@ describe("<Comment />", () => {
           votable={true}
           rootCommentable={rootCommentable}
           orderBy={orderBy}
+          commentsMaxLength={commentsMaxLength}
         />
       );
       expect(wrapper.find(".comment__votes--up").exists()).toBeFalsy();
@@ -451,6 +481,7 @@ describe("<Comment />", () => {
           votable={true}
           rootCommentable={rootCommentable}
           orderBy={orderBy}
+          commentsMaxLength={commentsMaxLength}
         />
       );
       expect(wrapper.find(".comment__votes--down").exists()).toBeFalsy();

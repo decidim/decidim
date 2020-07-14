@@ -18,7 +18,9 @@ describe "Explore versions", versioning: true, type: :system do
     create(
       :meeting,
       title: "My title",
-      component: component
+      component: component,
+      # PaperTrail can create an extra version if there's a questionnaire
+      questionnaire: nil
     )
   end
 

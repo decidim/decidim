@@ -40,6 +40,7 @@ en:
         address: SMTP hostname
         alert_color: Alert
         badges_enabled: Enable badges
+        comments_max_length: Comments max length (Leave 0 for default value)
         cta_button_path: Call To Action button path
         cta_button_text: Call To Action button text
         customize_welcome_notification: Customize welcome notification

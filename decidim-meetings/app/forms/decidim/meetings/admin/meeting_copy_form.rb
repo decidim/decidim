@@ -37,7 +37,7 @@ module Decidim
 
         def map_model(model)
           self.services = model.services.map do |service|
-            MeetingServiceForm.new(service)
+            MeetingServiceForm.new(service.attributes)
           end
         end
 
