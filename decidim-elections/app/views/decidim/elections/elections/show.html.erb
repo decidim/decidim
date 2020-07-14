@@ -24,9 +24,10 @@ edit_link(
       <%== present(election).title %>
     </h1>
     <p>
-      <%= t(".until") %>: <strong><%= election.end_time.strftime("%d %B %Y") %></strong>
+      <%= t(".voting_period_status.#{election.voting_period_status}",
+            start_time: "<strong>#{l election.start_time, format: :long}</strong>",
+            end_time: "<strong>#{l election.end_time, format: :long}</strong>").html_safe %>
     </p>
-
   </div>
 </div>
 <div class="row section">
@@ -36,7 +37,14 @@ edit_link(
   <div class="columns medium-8 mediumlarge-7">
     <div class="section">
       <%= decidim_sanitize(simple_format(translated_attribute(election.description))) %>
-      <%= link_to t(".vote"), new_election_vote_path(election.id), class: "button" %>
+
+      <% if election.ongoing? %>
+        <%= action_authorized_link_to :create, new_election_vote_path(election.id), class: "title-action__action button small" do %>
+          <%= t(".vote") %>
+        <% end %>
+      <% else %>
+        <span class="title-action__action button small disabled"><%= t(".vote") %></span>
+      <% end %>
     </div>
   </div>
 </div>

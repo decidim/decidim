@@ -142,7 +142,10 @@ en:
             other: "%{count} elections"
         show:
           back: All elections
-          until: Election is active until
+          voting_period_status:
+            finished: Voting began on %{start_time} and ended on %{end_time}
+            ongoing: Voting ends on %{end_time}
+            upcoming: Voting begins on %{start_time}
           vote: Vote
       admin_log:
         election:

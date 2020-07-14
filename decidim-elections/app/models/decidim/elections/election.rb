@@ -27,6 +27,20 @@ module Decidim
         end_time < Time.current
       end
 
+      def ongoing?
+        started? && !finished?
+      end
+
+      def voting_period_status
+        if finished?
+          :finished
+        elsif started?
+          :ongoing
+        else
+          :upcoming
+        end
+      end
+
       def allow_resource_permissions?
         true
       end
