@@ -42,7 +42,7 @@ module Decidim
 
         def map_model(model)
           self.services = model.services.map do |service|
-            MeetingServiceForm.new(service)
+            MeetingServiceForm.from_model(service)
           end
 
           self.decidim_category_id = model.categorization.decidim_category_id if model.categorization
