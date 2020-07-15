@@ -169,6 +169,10 @@ en:
         project:
           add: Add project %{resource_name} to your vote
           count:
+            one: "%{count} support"
+            other: "%{count} supports"
+          remove: Remove
+          supports:
             one: support
             other: supports
           remove: Remove project %{resource_name} from your vote

@@ -2,7 +2,12 @@
   <div class="card__content">
     <% if include_heading %>
       <% if current_order_checked_out? %>
-        <h3 class="heading3"><%= t(".checked_out.title") %></h3>
+        <h3 class="heading3">
+          <%= t(".checked_out.title") %>
+          <% unless current_workflow.single? %>
+            <small><%= translated_attribute(budget.title) %></small>
+          <% end %>
+        </h3>
         <p>
           <%= raw t(".checked_out.description", cancel_link: link_to(t(".cancel_order"), budget_order_path, method: :delete, class: "cancel-order", data: { confirm: t(".are_you_sure") })) %>
         </p>

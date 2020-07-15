@@ -1,9 +1,9 @@
 <div class="budget-list__data <%= data_class %>">
   <% if voting_finished? %>
-    <%= project_data_voted if current_order_checked_out? && resource_added? %>
+    <%= project_data_final %>
   <% else %>
-    <%= project_data_number %>
-    <%= project_data_vote_button %>
+    <%= project_data_voted_check if current_order_checked_out? && resource_added? %>
+    <%= project_data_numbers %>
+    <%= project_data_vote_button unless current_order_checked_out? %>
   <% end %>
-  <%= project_data_votes %>
- </div>
+</div>

@@ -1,8 +1,0 @@
-<span class="<%= container_class %>">
-  <%= budget_to_currency(model.budget) %>
-  <% if current_settings.show_votes? %>
-    <span class="text-uppercase text-small">
-      <%= model.confirmed_orders_count %> <%= t("decidim.budgets.projects.project.count", count: model.confirmed_orders_count) %>
-    </span>
-  <% end %>
-</span>

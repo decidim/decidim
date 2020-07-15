@@ -7,8 +7,10 @@
         <span class="progress-meter-text progress-meter-text--right"><%= current_order_budget_percent %>%</span>
       </div>
     </div>
-    <% unless current_order_checked_out? %>
-      <button class="button small button--sc" data-toggle="budget-confirm" <%= budget_confirm_disabled_attr %>><%= t(".vote") %></button>
+    <% if !current_order_checked_out? && current_settings.votes_enabled? %>
+      <button class="button small button--sc" data-toggle="budget-confirm" <%= budget_confirm_disabled_attr %>>
+        <%= t(".vote") %>
+      </button>
     <% end %>
   </div>
 
@@ -20,8 +22,10 @@
           <span class="progress-meter-text progress-meter-text--right"><%= current_order_budget_percent %>%</span>
         </div>
       </div>
-      <% unless current_order_checked_out? %>
-        <button class="button small button--sc" data-toggle="budget-confirm" <%= budget_confirm_disabled_attr %>><%= t(".vote") %></button>
+      <% if !current_order_checked_out? && current_settings.votes_enabled? %>
+        <button class="button small button--sc" data-toggle="budget-confirm" <%= budget_confirm_disabled_attr %>>
+          <%= t(".vote") %>
+        </button>
       <% end %>
     </div>
   </div>

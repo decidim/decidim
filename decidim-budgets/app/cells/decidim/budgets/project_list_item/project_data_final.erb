@@ -1,0 +1,11 @@
+<div class="budget-list__data__votes">
+  <div class="text-large"><%= model.confirmed_orders_count %></div>
+  <span class="text-uppercase text-small">
+    <%= t("decidim.budgets.projects.project.supports", count: model.confirmed_orders_count) %>
+  </span>
+  <% if resource_added? %>
+    <div class="text-sm mt-s text-success">
+      <%= icon("check", role: "img") %> <%= t("decidim.budgets.projects.project.you_voted") %>
+    </div>
+  <% end %>
+</div>

@@ -19,8 +19,8 @@
       <% discardable.each do |budget| %>
         <li>
           <%= link_to(
-                t(:limit_reached_cancel, scope: i18n_scope, name: translated_attribute(budget.name)),
-                order_path_for(budget),
+                t(:limit_reached_cancel, scope: i18n_scope, name: translated_attribute(budget.title)),
+                order_path_for,
                 method: :delete,
                 class: "cancel-order",
                 data: {
