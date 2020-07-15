@@ -1400,6 +1400,7 @@ en:
       cycle_detected: a scope's parent can't be one of its descendants
       expired: has expired, please request a new one
       file_size_is_less_than_or_equal_to: file size must be less than or equal to %{count}
+      invalid_first_char: invalid first character
       invalid_time_zone: is not a valid time zone
       long_words: contains words that are too long (over 35 characters)
       must_start_with_caps: must start with a capital letter
