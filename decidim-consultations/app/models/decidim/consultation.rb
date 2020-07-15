@@ -27,6 +27,8 @@ module Decidim
              inverse_of: :consultation,
              dependent: :destroy
 
+    alias component_ids question_ids
+
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::Consultation.slug_format }
 
