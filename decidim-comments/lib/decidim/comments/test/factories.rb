@@ -9,6 +9,14 @@ FactoryBot.define do
     root_commentable { commentable }
     body { Faker::Lorem.paragraph }
 
+    after(:build) do |comment, evaluator|
+      comment.body = if evaluator.body.is_a?(String)
+                       { comment.root_commentable.organization.default_locale || "en" => evaluator.body }
+                     else
+                       evaluator.body
+                     end
+    end
+
     trait :comment_on_comment do
       author { build(:user, organization: root_commentable.organization) }
       commentable do
