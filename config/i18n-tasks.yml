@@ -226,6 +226,8 @@ ignore_unused:
   - decidim.initiatives.versions.shared.back_to_resource
   - decidim.meetings.actions.invalid_destroy.proposals_count.*
   - decidim.meetings.versions.back_to_resource
+  - layouts.decidim.participatory_processes.participatory_process.more_info
+  - layouts.decidim.participatory_processes.participatory_process.take_part
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:
