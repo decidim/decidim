@@ -7,7 +7,7 @@ shared_examples_for "has questionnaire" do
     it "does not allow answering the questionnaire" do
       visit questionnaire_public_path
 
-      expect(page).to have_i18n_content(questionnaire.title)
+      expect(page).to have_i18n_content(questionnaire.title, upcase: true)
       expect(page).to have_i18n_content(questionnaire.description)
 
       expect(page).not_to have_css(".form.answer-questionnaire")
@@ -28,7 +28,7 @@ shared_examples_for "has questionnaire" do
     it "allows answering the questionnaire" do
       visit questionnaire_public_path
 
-      expect(page).to have_i18n_content(questionnaire.title)
+      expect(page).to have_i18n_content(questionnaire.title, upcase: true)
       expect(page).to have_i18n_content(questionnaire.description)
 
       fill_in question.body["en"], with: "My first answer"
@@ -58,7 +58,7 @@ shared_examples_for "has questionnaire" do
       end
 
       it "allows answering the first questionnaire" do
-        expect(page).to have_content("Step 1 of 2")
+        expect(page).to have_content("STEP 1 OF 2")
 
         within ".answer-questionnaire__submit" do
           expect(page).to have_no_content("Back")
@@ -74,7 +74,7 @@ shared_examples_for "has questionnaire" do
 
         click_link "Back"
 
-        expect(page).to have_content("Step 1 of 2")
+        expect(page).to have_content("STEP 1 OF 2")
         expect(page).to have_field("questionnaire_responses_0", with: "My first answer")
       end
 
@@ -100,7 +100,7 @@ shared_examples_for "has questionnaire" do
         within ".answer-questionnaire__submit" do
           click_link "Continue"
         end
-        expect(page).to have_content("Step 2 of 2")
+        expect(page).to have_content("STEP 2 OF 2")
       end
     end
 

@@ -36,7 +36,7 @@ describe "User edit meeting", type: :system do
       click_link meeting.title
       click_link "Edit meeting"
 
-      expect(page).to have_content "Edit Your Meeting"
+      expect(page).to have_content "EDIT YOUR MEETING"
 
       within "form.edit_meeting" do
         fill_in :meeting_title, with: new_title
@@ -55,7 +55,7 @@ describe "User edit meeting", type: :system do
         click_link meeting.title
         click_link "Edit meeting"
 
-        expect(page).to have_content "Edit Your Meeting"
+        expect(page).to have_content "EDIT YOUR MEETING"
 
         within "form.edit_meeting" do
           fill_in :meeting_description, with: " "

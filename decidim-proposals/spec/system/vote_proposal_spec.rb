@@ -187,7 +187,7 @@ describe "Support Proposal", type: :system, slow: true do
               expect(page).to have_button("Already supported")
             end
 
-            expect(page).to have_content("Remaining\n9\nSupports")
+            expect(page).to have_content("REMAINING\n9\nSupports")
           end
         end
 
@@ -237,7 +237,7 @@ describe "Support Proposal", type: :system, slow: true do
               expect(page).to have_content("0 Supports")
             end
 
-            expect(page).to have_content("REMAINING\n10\nSUPPORTS")
+            expect(page).to have_content("REMAINING\n10\nSupports")
           end
         end
 

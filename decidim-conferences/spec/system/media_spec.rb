@@ -41,13 +41,13 @@ describe "Conferences", type: :system do
       visit decidim_conferences.conference_path(conference)
 
       within ".process-nav" do
-        expect(page).to have_content("Media")
+        expect(page).to have_content("MEDIA")
       end
     end
 
     it "shows them" do
       within "div.wrapper .conference-media" do
-        expect(page).to have_content("Media and Links")
+        expect(page).to have_content("MEDIA AND LINKS")
         expect(page).to have_content(/#{translated(media_link.title, locale: :en)}/i)
         expect(page).to have_css(".media-links a")
       end

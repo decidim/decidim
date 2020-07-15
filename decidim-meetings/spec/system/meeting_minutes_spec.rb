@@ -22,7 +22,7 @@ describe "Meeting minutes", type: :system do
     it "the section minutes is not visible" do
       visit_meeting
 
-      expect(page).to have_no_content("Meeting Minutes")
+      expect(page).to have_no_content("MEETING MINUTES")
       expect(page).not_to have_css(".minutes-section")
     end
   end
@@ -32,7 +32,7 @@ describe "Meeting minutes", type: :system do
 
     it "shows the minutes section" do
       visit_meeting
-      expect(page).to have_content("Meeting Minutes")
+      expect(page).to have_content("MEETING MINUTES")
       expect(page).to have_css(".minutes-section")
 
       within ".minutes-section" do
