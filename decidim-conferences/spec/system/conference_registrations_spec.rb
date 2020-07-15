@@ -51,7 +51,7 @@ describe "Conference registrations", type: :system do
       visit_conference
 
       within ".hero__container" do
-        expect(page).not_to have_button("Register")
+        expect(page).not_to have_button("REGISTER")
       end
     end
   end
@@ -70,7 +70,7 @@ describe "Conference registrations", type: :system do
         expect(page).to have_css(".conference-registration", count: registration_types_count)
 
         within ".wrapper" do
-          expect(page).to have_css("button[disabled]", text: "No slots available", count: 5)
+          expect(page).to have_css("button[disabled]", text: "NO SLOTS AVAILABLE", count: 5)
         end
       end
     end
@@ -109,8 +109,8 @@ describe "Conference registrations", type: :system do
         expect(page).to have_content("successfully")
 
         within ".wrapper" do
-          expect(page).to have_css(".button", text: "Attending")
-          expect(page).to have_css("button[disabled]", text: "Registration", count: 4)
+          expect(page).to have_css(".button", text: "ATTENDING")
+          expect(page).to have_css("button[disabled]", text: "REGISTRATION", count: 4)
         end
       end
     end
@@ -132,7 +132,7 @@ describe "Conference registrations", type: :system do
       expect(page).to have_content("successfully")
 
       within ".wrapper" do
-        expect(page).to have_css(".button", text: "Registration", count: registration_types_count)
+        expect(page).to have_css(".button", text: "REGISTRATION", count: registration_types_count)
       end
     end
   end

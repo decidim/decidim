@@ -23,14 +23,14 @@ describe "Amend Proposal", versioning: true, type: :system do
     end
 
     it "is shown the amendments list" do
-      expect(page).to have_css("#amendments", text: "Amendments")
+      expect(page).to have_css("#amendments", text: "AMENDMENTS")
       within ".amendment-list" do
         expect(page).to have_content(emendation.title)
       end
     end
 
     it "is shown the amenders list" do
-      expect(page).to have_content("Amended by")
+      expect(page).to have_content("AMENDED BY")
       within ".amender-list" do
         expect(page).to have_content(emendation.creator_author.name)
       end
@@ -72,8 +72,8 @@ describe "Amend Proposal", versioning: true, type: :system do
         end
 
         it "is NOT shown the accept and reject button" do
-          expect(page).not_to have_css(".success", text: "Accept")
-          expect(page).not_to have_css(".alert", text: "Reject")
+          expect(page).not_to have_css(".success", text: "ACCEPT")
+          expect(page).not_to have_css(".alert", text: "REJECT")
         end
       end
     end
@@ -93,7 +93,7 @@ describe "Amend Proposal", versioning: true, type: :system do
         end
 
         it "is NOT shown the promote button" do
-          expect(page).not_to have_content("Promote to Proposal")
+          expect(page).not_to have_content("PROMOTE TO PROPOSAL")
           expect(page).not_to have_content("You can promote this emendation and publish it as an independent proposal")
         end
       end
@@ -305,8 +305,8 @@ describe "Amend Proposal", versioning: true, type: :system do
         end
 
         it "is shown the accept and reject button" do
-          expect(page).to have_css(".success", text: "Accept")
-          expect(page).to have_css(".alert", text: "Reject")
+          expect(page).to have_css(".success", text: "ACCEPT")
+          expect(page).to have_css(".alert", text: "REJECT")
         end
 
         context "when the user clicks on the accept button" do
@@ -321,7 +321,7 @@ describe "Amend Proposal", versioning: true, type: :system do
 
           it "is shown the amendment review form" do
             expect(page).to have_css(".edit_amendment")
-            expect(page).to have_content("Review the amendment")
+            expect(page).to have_content("REVIEW THE AMENDMENT")
             expect(page).to have_field("Title", with: emendation.title)
             expect(page).to have_field("Body", with: emendation.body)
             expect(page).to have_button("Accept amendment")
@@ -379,8 +379,8 @@ describe "Amend Proposal", versioning: true, type: :system do
         end
 
         it "is NOT shown the accept and reject button" do
-          expect(page).not_to have_css(".success", text: "Accept")
-          expect(page).not_to have_css(".alert", text: "Reject")
+          expect(page).not_to have_css(".success", text: "ACCEPT")
+          expect(page).not_to have_css(".alert", text: "REJECT")
         end
       end
     end
@@ -400,7 +400,7 @@ describe "Amend Proposal", versioning: true, type: :system do
         end
 
         it "is shown the promote button" do
-          expect(page).to have_content("Promote to Proposal")
+          expect(page).to have_content("PROMOTE TO PROPOSAL")
           expect(page).to have_content("You can promote this emendation and publish it as an independent proposal")
         end
 
@@ -425,7 +425,7 @@ describe "Amend Proposal", versioning: true, type: :system do
             end
 
             it "is NOT shown the promote button" do
-              expect(page).not_to have_content("Promote to Proposal")
+              expect(page).not_to have_content("PROMOTE TO PROPOSAL")
               expect(page).not_to have_content("You can promote this emendation and publish it as an independent proposal")
             end
           end
@@ -448,7 +448,7 @@ describe "Amend Proposal", versioning: true, type: :system do
         end
 
         it "is NOT shown the promote button" do
-          expect(page).not_to have_content("Promote to Proposal")
+          expect(page).not_to have_content("PROMOTE TO PROPOSAL")
           expect(page).not_to have_content("You can promote this emendation and publish it as an independent proposal")
         end
       end

@@ -237,7 +237,7 @@ describe "Support Proposal", type: :system, slow: true do
               expect(page).to have_content("0 Supports")
             end
 
-            expect(page).to have_content("Remaining\n10\nSupports")
+            expect(page).to have_content("REMAINING\n10\nSUPPORTS")
           end
         end
 

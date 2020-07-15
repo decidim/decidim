@@ -57,7 +57,7 @@ describe "Proposal", type: :system do
         end
 
         it "redirects to proposals_path" do
-          expect(page).to have_content("Proposals")
+          expect(page).to have_content("PROPOSALS")
           expect(page).to have_content("New proposal")
         end
       end
@@ -87,7 +87,7 @@ describe "Proposal", type: :system do
         end
 
         it "shows similar proposals" do
-          expect(page).to have_content("Similar Proposals (2)")
+          expect(page).to have_content("SIMILAR PROPOSALS (2)")
           expect(page).to have_css(".card--proposal", text: "More sidewalks and less roads")
           expect(page).to have_css(".card--proposal", count: 2)
         end
@@ -115,7 +115,7 @@ describe "Proposal", type: :system do
 
         it "redirects to step_3: complete" do
           within ".section-heading" do
-            expect(page).to have_content("Complete your proposal")
+            expect(page).to have_content("COMPLETE YOUR PROPOSAL")
           end
           expect(page).to have_css(".edit_proposal")
         end
@@ -161,7 +161,7 @@ describe "Proposal", type: :system do
         end
 
         it "redirects to step_3: complete" do
-          expect(page).to have_content("Similar Proposals (1)")
+          expect(page).to have_content("SIMILAR PROPOSALS (1)")
         end
       end
     end
@@ -201,7 +201,7 @@ describe "Proposal", type: :system do
         end
 
         it "redirects to edit the proposal draft" do
-          expect(page).to have_content("Edit Proposal Draft")
+          expect(page).to have_content("EDIT PROPOSAL DRAFT")
         end
       end
     end

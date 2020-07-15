@@ -46,7 +46,7 @@ describe "Initiative signing", type: :system do
     let(:initiatives_type) { create(:initiatives_type, :with_sms_code_validation, organization: organization) }
 
     it "The sms step appears" do
-      expect(page).to have_content("Mobile phone number")
+      expect(page).to have_content("MOBILE PHONE NUMBER")
     end
   end
 
@@ -150,7 +150,7 @@ def fill_sms_code
 end
 
 def signature_text(number)
-  return "1/#{initiative.supports_required}\nSignature" if number == 1
+  return "1/#{initiative.supports_required}\nSIGNATURE" if number == 1
 
-  "#{number}/#{initiative.supports_required}\nSignatures"
+  "#{number}/#{initiative.supports_required}\nSIGNATURES"
 end

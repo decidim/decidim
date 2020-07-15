@@ -68,7 +68,7 @@ describe "Assembly members", type: :system do
         visit decidim_assemblies.assembly_path(assembly)
 
         within ".process-nav" do
-          expect(page).to have_content("Members")
+          expect(page).to have_content("MEMBERS")
           click_link "Members"
         end
 

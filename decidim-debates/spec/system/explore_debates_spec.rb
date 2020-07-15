@@ -102,7 +102,7 @@ describe "Explore debates", type: :system do
             end
 
             expect(page).to have_css(".card--debate", count: 2)
-            expect(page).to have_content("2 debates")
+            expect(page).to have_content("2 DEBATES")
           end
         end
 
@@ -117,7 +117,7 @@ describe "Explore debates", type: :system do
             end
 
             expect(page).to have_css(".card--debate", count: 2)
-            expect(page).to have_content("2 debates")
+            expect(page).to have_content("2 DEBATES")
           end
         end
       end

@@ -30,7 +30,7 @@ describe "Edit collaborative_drafts", type: :system do
       click_link collaborative_draft.title
       click_link "Edit collaborative draft"
 
-      expect(page).to have_content "Edit collaborative draft"
+      expect(page).to have_content "EDIT COLLABORATIVE DRAFT"
 
       within "form.edit_collaborative_draft" do
         fill_in :collaborative_draft_title, with: new_title

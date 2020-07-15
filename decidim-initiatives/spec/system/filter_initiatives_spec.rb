@@ -42,7 +42,7 @@ describe "Filter Initiatives", :slow, type: :system do
         end
 
         expect(page).to have_css(".card--initiative", count: 4)
-        expect(page).to have_content("4 initiatives")
+        expect(page).to have_content("4 INITIATIVES")
       end
     end
 
@@ -54,7 +54,7 @@ describe "Filter Initiatives", :slow, type: :system do
         end
 
         expect(page).to have_css(".card--initiative", count: 1)
-        expect(page).to have_content("1 initiative")
+        expect(page).to have_content("1 INITIATIVE")
       end
     end
 
@@ -66,7 +66,7 @@ describe "Filter Initiatives", :slow, type: :system do
         end
 
         expect(page).to have_css(".card--initiative", count: 2)
-        expect(page).to have_content("2 initiatives")
+        expect(page).to have_content("2 INITIATIVES")
       end
     end
   end
@@ -96,7 +96,7 @@ describe "Filter Initiatives", :slow, type: :system do
         end
 
         expect(page).to have_css(".card--initiative", count: 11)
-        expect(page).to have_content("11 initiatives")
+        expect(page).to have_content("11 INITIATIVES")
       end
     end
 
@@ -108,7 +108,7 @@ describe "Filter Initiatives", :slow, type: :system do
         end
 
         expect(page).to have_css(".card--initiative", count: 5)
-        expect(page).to have_content("5 initiatives")
+        expect(page).to have_content("5 INITIATIVES")
       end
     end
 
@@ -120,7 +120,7 @@ describe "Filter Initiatives", :slow, type: :system do
         end
 
         expect(page).to have_css(".card--initiative", count: 6)
-        expect(page).to have_content("6 initiatives")
+        expect(page).to have_content("6 INITIATIVES")
       end
     end
 
@@ -135,7 +135,7 @@ describe "Filter Initiatives", :slow, type: :system do
         end
 
         expect(page).to have_css(".card--initiative", count: 3)
-        expect(page).to have_content("3 initiatives")
+        expect(page).to have_content("3 INITIATIVES")
       end
     end
 
@@ -150,7 +150,7 @@ describe "Filter Initiatives", :slow, type: :system do
         end
 
         expect(page).to have_css(".card--initiative", count: 2)
-        expect(page).to have_content("2 initiatives")
+        expect(page).to have_content("2 INITIATIVES")
       end
     end
 
@@ -162,7 +162,7 @@ describe "Filter Initiatives", :slow, type: :system do
         end
 
         expect(page).to have_css(".card--initiative", count: 1)
-        expect(page).to have_content("1 initiative")
+        expect(page).to have_content("1 INITIATIVE")
       end
     end
   end
@@ -187,7 +187,7 @@ describe "Filter Initiatives", :slow, type: :system do
 
       it "lists all initiatives", :slow do
         expect(page).to have_css(".card--initiative", count: 3)
-        expect(page).to have_content("3 initiatives")
+        expect(page).to have_content("3 INITIATIVES")
       end
     end
 
@@ -212,7 +212,7 @@ describe "Filter Initiatives", :slow, type: :system do
           end
 
           expect(page).to have_css(".card--initiative", count: 3)
-          expect(page).to have_content("3 initiatives")
+          expect(page).to have_content("3 INITIATIVES")
         end
       end
 
@@ -224,7 +224,7 @@ describe "Filter Initiatives", :slow, type: :system do
           end
 
           expect(page).to have_css(".card--initiative", count: 2)
-          expect(page).to have_content("2 initiatives")
+          expect(page).to have_content("2 INITIATIVES")
         end
       end
     end
@@ -253,7 +253,7 @@ describe "Filter Initiatives", :slow, type: :system do
         end
 
         expect(page).to have_css(".card--initiative", count: 4)
-        expect(page).to have_content("4 initiatives")
+        expect(page).to have_content("4 INITIATIVES")
       end
     end
 
@@ -271,7 +271,7 @@ describe "Filter Initiatives", :slow, type: :system do
         end
 
         expect(page).to have_css(".card--initiative", count: 2)
-        expect(page).to have_content("2 initiatives")
+        expect(page).to have_content("2 INITIATIVES")
       end
     end
 
@@ -283,7 +283,7 @@ describe "Filter Initiatives", :slow, type: :system do
         end
 
         expect(page).to have_css(".card--initiative", count: 3)
-        expect(page).to have_content("3 initiatives")
+        expect(page).to have_content("3 INITIATIVES")
       end
     end
   end
@@ -326,7 +326,7 @@ describe "Filter Initiatives", :slow, type: :system do
           end
 
           expect(page).to have_css(".card--initiative", count: 3)
-          expect(page).to have_content("3 initiatives")
+          expect(page).to have_content("3 INITIATIVES")
         end
       end
 
@@ -337,7 +337,7 @@ describe "Filter Initiatives", :slow, type: :system do
           end
 
           expect(page).to have_css(".card--initiative", count: 2)
-          expect(page).to have_content("2 initiatives")
+          expect(page).to have_content("2 INITIATIVES")
         end
       end
     end

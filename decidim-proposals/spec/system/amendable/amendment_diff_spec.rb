@@ -29,7 +29,7 @@ describe "Amendment Diff", versioning: true, type: :system do
         expect(page).to have_content('Amendment to "Updated long enough title"')
 
         within ".diff-for-title" do
-          expect(page).to have_content("Title")
+          expect(page).to have_content("TITLE")
 
           within ".diff > ul > .del" do
             expect(page).to have_content("Updated long enough title")
@@ -41,7 +41,7 @@ describe "Amendment Diff", versioning: true, type: :system do
         end
 
         within ".diff-for-body" do
-          expect(page).to have_content("Body")
+          expect(page).to have_content("BODY")
 
           within ".diff > ul > .del" do
             expect(page).to have_content("Updated one liner body")
@@ -67,7 +67,7 @@ describe "Amendment Diff", versioning: true, type: :system do
         expect(page).to have_content('Amendment to "Updated long enough title"')
 
         within ".diff-for-title" do
-          expect(page).to have_content("Title")
+          expect(page).to have_content("TITLE")
 
           within ".diff > ul > .del" do
             expect(page).to have_content("Original long enough title")
@@ -79,7 +79,7 @@ describe "Amendment Diff", versioning: true, type: :system do
         end
 
         within ".diff-for-body" do
-          expect(page).to have_content("Body")
+          expect(page).to have_content("BODY")
 
           within ".diff > ul > .del" do
             expect(page).to have_content("Original one liner body")
@@ -104,7 +104,7 @@ describe "Amendment Diff", versioning: true, type: :system do
         expect(page).to have_content('Amendment to "Original long enough title"')
 
         within ".diff-for-body" do
-          expect(page).to have_content("Body")
+          expect(page).to have_content("BODY")
 
           within all(".diff > ul > .unchanged").first do
             expect(page).to have_content("One liner body")
@@ -144,7 +144,7 @@ describe "Amendment Diff", versioning: true, type: :system do
 
       it "shows the changed attributes compared to the last version of the amended proposal" do
         within ".diff-for-title" do
-          expect(page).to have_content("Title")
+          expect(page).to have_content("TITLE")
 
           within ".diff > ul > .del" do
             expect(page).to have_content("Updated long enough title")
@@ -156,7 +156,7 @@ describe "Amendment Diff", versioning: true, type: :system do
         end
 
         within ".diff-for-body" do
-          expect(page).to have_content("Body")
+          expect(page).to have_content("BODY")
 
           within ".diff > ul > .del" do
             expect(page).to have_content("Updated one liner body")

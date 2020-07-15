@@ -75,8 +75,8 @@ describe "Explore meetings", :slow, type: :system do
               check "Official"
             end
 
-            expect(page).to have_no_content("6 meetings")
-            expect(page).to have_content("1 meeting")
+            expect(page).to have_no_content("6 MEETINGS")
+            expect(page).to have_content("1 MEETING")
             expect(page).to have_css(".card--meeting", count: 1)
 
             within ".card--meeting" do
@@ -94,8 +94,8 @@ describe "Explore meetings", :slow, type: :system do
               check "Groups"
             end
 
-            expect(page).to have_no_content("6 meetings")
-            expect(page).to have_content("1 meeting")
+            expect(page).to have_no_content("6 MEETINGS")
+            expect(page).to have_content("1 MEETING")
             expect(page).to have_css(".card--meeting", count: 1)
             within ".card--meeting" do
               expect(page).to have_content(user_group_meeting.normalized_author.name)
@@ -112,9 +112,9 @@ describe "Explore meetings", :slow, type: :system do
               check "Citizens"
             end
 
-            expect(page).to have_no_content("6 meetings")
+            expect(page).to have_no_content("6 MEETINGS")
             expect(page).to have_css(".card--meeting", count: meetings_count)
-            expect(page).to have_content("#{meetings_count} meetings")
+            expect(page).to have_content("#{meetings_count} MEETINGS")
           end
         end
       end
@@ -130,7 +130,7 @@ describe "Explore meetings", :slow, type: :system do
           find(".icon--magnifying-glass").click
         end
 
-        expect(page).to have_css("#meetings-count", text: "1 meeting")
+        expect(page).to have_css("#meetings-count", text: "1 MEETING")
         expect(page).to have_css(".card--meeting", count: 1)
         expect(page).to have_content(translated(meetings.first.title))
       end
@@ -349,8 +349,8 @@ describe "Explore meetings", :slow, type: :system do
         expect(page).to have_i18n_content(meeting.closing_report)
 
         within ".definition-data" do
-          expect(page).to have_content("Attendees count\n#{meeting.attendees_count}")
-          expect(page).to have_content("Attending organizations\n#{meeting.attending_organizations}")
+          expect(page).to have_content("ATTENDEES COUNT\n#{meeting.attendees_count}")
+          expect(page).to have_content("ATTENDING ORGANIZATIONS\n#{meeting.attending_organizations}")
         end
       end
     end
@@ -362,7 +362,7 @@ describe "Explore meetings", :slow, type: :system do
 
       it "does not show contributions count" do
         within ".definition-data" do
-          expect(page).to have_no_content("Contributions count\n0")
+          expect(page).to have_no_content("CONTRIBUTIONS COUNT\n0")
         end
       end
     end
@@ -374,7 +374,7 @@ describe "Explore meetings", :slow, type: :system do
 
       it "shows contributions count" do
         within ".definition-data" do
-          expect(page).to have_content("Contributions count\n1")
+          expect(page).to have_content("CONTRIBUTIONS COUNT\n1")
         end
       end
     end

@@ -65,7 +65,7 @@ describe "Explore versions", versioning: true, type: :system do
     end
 
     it "shows the versions count" do
-      expect(page).to have_content("Versions\n2")
+      expect(page).to have_content("VERSIONS\n2")
     end
 
     it "allows going back to the initiative" do
@@ -92,7 +92,7 @@ describe "Explore versions", versioning: true, type: :system do
     end
 
     it "shows the version number" do
-      expect(page).to have_content("Version number\n2 out of 2")
+      expect(page).to have_content("VERSION NUMBER\n2 out of 2")
     end
 
     it "allows going back to the initiative" do
@@ -115,7 +115,7 @@ describe "Explore versions", versioning: true, type: :system do
       expect(page).to have_content("Changes at")
 
       within ".diff-for-title-english" do
-        expect(page).to have_content("Title")
+        expect(page).to have_content("TITLE")
 
         within ".diff > ul > .ins" do
           expect(page).to have_content(translated(initiative.title, locale: :en))
@@ -123,7 +123,7 @@ describe "Explore versions", versioning: true, type: :system do
       end
 
       within ".diff-for-description-english" do
-        expect(page).to have_content("Description")
+        expect(page).to have_content("DESCRIPTION")
 
         within ".diff > ul > .ins" do
           expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(translated(initiative.description, locale: :en), tags: []))
