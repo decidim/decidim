@@ -37,7 +37,7 @@ pt:
         edit: Editar
         import_csv: Importar CSV
         new: Novo %{name}
-        preview: Pré-visualização
+        preview: Pré-visualizar
         timeline_entries: Evolução do projeto
         title: Ações
       admin:
@@ -58,7 +58,7 @@ pt:
           status:
             name: Estado
           timeline_entry:
-            name: Entrada da linha de tempo
+            name: Entrada de linha de tempo
         results:
           create:
             invalid: Ocorreu um problema ao criar este resultado
@@ -98,21 +98,21 @@ pt:
             success: Estado atualizado corretamente
         timeline_entries:
           create:
-            invalid: Ocorreu um problema ao criar este registo
-            success: Registo criado corretamente
+            invalid: Ocorreu um problema ao criar esta entrada
+            success: Entrada criada corretamente
           destroy:
-            success: Registo eliminado corretamente
+            success: Entrada eliminada corretamente
           edit:
-            title: Editar registo
-            update: Atualizar registo
+            title: Editar entrada
+            update: Atualizar entrada
           index:
             title: Registos da linha de tempo do projeto
           new:
-            create: Criar registo
-            title: Novo registo
+            create: Criar entrada
+            title: Nova entrada
           update:
-            invalid: Ocorreu um problema ao atualizar este registo
-            success: Registo atualizado corretamente
+            invalid: Ocorreu um problema ao atualizar esta entrada
+            success: Entrada atualizada corretamente
       admin_log:
         result:
           create: "%{user_name} criou o resultado %{resource_name} em %{space_name}"
