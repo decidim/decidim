@@ -12,7 +12,7 @@ class SanitizeValidator < ActiveModel::EachValidator
   private
 
   def validate_first_char(record, attribute, value)
-    return unless invalid_first_chars.include? value[0]
+    return unless invalid_first_chars.include? value.first
 
     record.errors.add(attribute, options[:message] || :invalid_first_char)
   end

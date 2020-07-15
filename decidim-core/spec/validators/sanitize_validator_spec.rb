@@ -20,7 +20,7 @@ describe SanitizeValidator do
 
   let(:subject) { validatable.new(body: body) }
 
-  context "when the body is reasonable" do
+  context "when body is reasonable" do
     [
       %(I am a very reasonable body, ain't I? I have the right length, the right style, the right words. Yup.),
       %("Validate bodies", they said. "It's gonna be fun!", they said.),
@@ -36,7 +36,7 @@ describe SanitizeValidator do
     end
   end
 
-  context "when the text begins by invalid char" do
+  context "when text begins by invalid char" do
     %w(= + - @).each do |char|
       let(:body) { char + Faker::Lorem.sentence }
 
