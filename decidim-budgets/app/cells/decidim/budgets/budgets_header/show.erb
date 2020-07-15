@@ -25,7 +25,7 @@
         <% voted.each do |budget| %>
           <li>
             <%= link_to(
-                  t("cancel_order.more_than_oner", scope: i18n_scope, name: translated_attribute(budget.title)),
+                  t("cancel_order.more_than_one", scope: i18n_scope, name: translated_attribute(budget.title)),
                   order_path_for(budget),
                   method: :delete,
                   class: "cancel-order",
