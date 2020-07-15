@@ -312,7 +312,7 @@ describe "Explore meetings", :slow, type: :system do
         visit_component
         click_link translated(meeting.title)
         proposals.each do |proposal|
-          expect(page).to have_content(proposal.title)
+          expect(page).to have_content(translated(proposal.title))
           expect(page).to have_content(proposal.creator_author.name)
           expect(page).to have_content(proposal.votes.size)
         end
