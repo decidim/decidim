@@ -1,7 +1,7 @@
 pt:
   activemodel:
     models:
-      decidim/comments/comment_by_followed_user_event: Comente
+      decidim/comments/comment_by_followed_user_event: Comentar
       decidim/comments/comment_created_event: Comente
       decidim/comments/reply_created_event: Comentário resposta
       decidim/comments/user_mentioned_event: Menção
@@ -35,70 +35,70 @@ pt:
         opinion:
           neutral: Neutro
         remaining_characters: "%{count} caracteres restantes"
-        remaining_characters_1: "%{count} personagem à esquerda"
-        title: Adicione seu comentário
+        remaining_characters_1: "%{count} caracteres restantes"
+        title: Adicione o seu comentário
       comment:
         alignment:
           against: Contra
           in_favor: A favor
-        deleted_user: Usuário deletado
+        deleted_user: Participante eliminado
         hide_replies: Ocultar respostas
-        reply: Resposta
+        reply: Responder
         report:
           action: Relatório
-          already_reported: Este conteúdo já foi relatado e será revisto por um administrador.
+          already_reported: Este conteúdo já foi reportado e será revisto por um administrador.
           close: Fechar
           description: Este conteúdo é impróprio?
           details: Comentários adicionais
           reasons:
-            does_not_belong: Contém atividades ilegais, ameaças suicidas, informações pessoais ou qualquer outra coisa que você acha que não pertence ao %{organization_name}.
+            does_not_belong: Contém atividades ilegais, ameaças suicidas, informações pessoais ou qualquer outra coisa que você acha que não pertence a %{organization_name}.
             offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer tipo de discurso de ódio.
-            spam: Contém clickbait, publicidade, fraudes ou script bots.
+            spam: Contém clickbait, publicidade, fraudes ou robots de scripts.
           title: Reportar um problema
         show_replies: Mostrar %{replies_count} respostas
-        single_comment_link_title: Obter ligação para um único comentário
+        single_comment_link_title: Obter hiperligação para um único comentário
       comment_order_selector:
         order:
           best_rated: Melhores avaliações
-          most_discussed: Mais Discutidos
+          most_discussed: Mais discutidos
           older: Mais velho
           recent: Recente
         title: 'Ordenar por:'
       comment_thread:
         title: Conversa com %{authorName}
       comments:
-        blocked_comments_for_user_warning: Você não pode comentar neste momento, mas pode ler os anteriores.
-        blocked_comments_warning: Os comentários estão desativados neste momento, mas você pode ler os anteriores.
+        blocked_comments_for_user_warning: Não pode comentar neste momento, mas pode ler os anteriores.
+        blocked_comments_warning: Os comentários estão desativados neste momento, mas pode ler os anteriores.
         comment_details_title: Detalhes do comentário
-        loading: Carregando comentários ...
+        loading: A carregar comentários ...
         single_comment_warning: Pode consultar os restantes comentários <a href="%{url}">aqui</a>.
         single_comment_warning_title: Está a ver um único comentário
         title: "%{count} comentários"
     events:
       comments:
         comment_by_followed_user:
-          email_intro: "%{author_name} deixou um comentário em %{resource_title}. Você pode lê-lo nesta página:"
-          email_outro: Você recebeu esta notificação porque está seguindo %{author_name}. Você pode deixar de seguir esse usuário em sua página de perfil.
+          email_intro: "%{author_name} deixou um comentário em %{resource_title}. Pode lê-lo nesta página:"
+          email_outro: Recebeu esta notificação porque está segue %{author_name}. pode deixar de seguir este utilizador a partir da respetiva página de perfil.
           email_subject: Há um novo comentário por %{author_name} em %{resource_title}
           notification_title: Há um novo comentário por <a href="%{author_path}">%{author_name} %{author_nickname}</a> em <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} foi comentado. Você pode ler o comentário nesta página:"
-          email_outro: Você recebeu esta notificação porque você está seguindo "%{resource_title}" ou seu autor. Você pode ignorá-lo do link anterior.
+          email_outro: Recebeu esta notificação porque segue "%{resource_title}" ou o seu autor. Pode deixar de segui-lo a partir da hiperligação anterior.
           email_subject: Há um novo comentário de %{author_name} em %{resource_title}
           notification_title: Há um novo comentário de <a href="%{author_path}">%{author_name} %{author_nickname}</a> em <a href="%{resource_path}">%{resource_title}</a>
         reply_created:
-          email_intro: "%{author_name} respondeu seu comentário em %{resource_title}. Você pode lê-lo nesta página:"
-          email_outro: Você recebeu esta notificação porque o seu comentário foi respondido.
-          email_subject: "%{author_name} respondeu seu comentário em %{resource_title}"
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> respondeu seu comentário em <a href="%{resource_path}">%{resource_title}</a>
+          email_intro: "%{author_name} respondeu ao seu comentário em %{resource_title}. Pode lê-lo nesta página:"
+          email_outro: Recebeu esta notificação porque responderam ao seu comentário.
+          email_subject: "%{author_name} respondeu ao seu comentário em %{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> respondeu ao seu comentário em <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Você foi mencionado
-          email_outro: Você recebeu esta notificação porque você foi mencionado em %{resource_title}.
+          email_outro: Recebeu esta notificação porque foi mencionado em %{resource_title}.
           email_subject: Você foi mencionado em %{resource_title}
           notification_title: Você foi mencionado em <a href="%{resource_path}">%{resource_title}</a> por <a href="%{author_path}">%{author_name} %{author_nickname}</a>
     metrics:
       comments:
-        description: Número de comentários gerados pelos usuários
+        description: Número de comentários gerados pelos participantes
         object: comentários
         title: Comentários
   errors:

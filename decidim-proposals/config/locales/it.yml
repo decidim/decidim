@@ -43,18 +43,18 @@ it:
         proposal:
           attributes:
             attachment:
-              needs_to_be_reattached: Ha bisogno di essere ricollegato
+              needs_to_be_reattached: Necessita di essere riallegato
             body:
               cant_be_equal_to_template: non può essere uguale al modello
-              identical: E il titolo non può essere identico
+              identical: Il titolo AND non può essere identico
             title:
-              identical: E il corpo non può essere identico
+              identical: Il corpo AND non può essere identico
     models:
       decidim/proposals/accepted_proposal_event: Proposta accettata
-      decidim/proposals/admin/update_proposal_category_event: Categoria proposta modificata
+      decidim/proposals/admin/update_proposal_category_event: Categoria della proposta modificata
       decidim/proposals/admin/update_proposal_scope_event: Scopo della proposta modificato
       decidim/proposals/creation_enabled_event: Creazione della proposta abilitata
-      decidim/proposals/endorsing_enabled_event: Approvazione proposta abilitata
+      decidim/proposals/endorsing_enabled_event: Approvazione della proposta abilitata
       decidim/proposals/evaluating_proposal_event: La proposta è in corso di valutazione
       decidim/proposals/proposal_endorsed_event: Proposta approvata
       decidim/proposals/proposal_mentioned_event: Proposta menzionata
@@ -76,21 +76,21 @@ it:
         one: Nota
         other: Gli appunti
       decidim/proposals/proposal_vote:
-        one: Votazione
-        other: voti
+        one: Supporto
+        other: Supporti
   decidim:
     admin:
       filters:
         is_emendation_true:
-          label: genere
+          label: Tipo
           values:
-            'false': proposte
-            'true': Modifiche
+            'false': Proposte
+            'true': Emendamenti
         search_placeholder:
           id_string_or_title_cont: Cerca %{collection} per ID o titolo.
         state_eq:
           values:
-            evaluating: Valutare
+            evaluating: Valutazione
             withdrawn: Ritirato
         state_null:
           label: Stato
@@ -102,11 +102,11 @@ it:
       proposals:
         actions:
           amend: Modificare
-          create: Creare
+          create: Crea
           endorse: Sostieni
-          vote: Votazione
-          withdraw: ritirarsi
-        name: proposte
+          vote: Vota
+          withdraw: Ritirare
+        name: Proposte
         settings:
           global:
             allow_card_image: Consenti l'immagine della scheda
@@ -141,7 +141,7 @@ it:
             amendment_creation_enabled: Creazione di emendamenti abilitata
             amendment_creation_enabled_help: I partecipanti possono modificare le proposte.
             amendment_promotion_enabled: Promozione dell'emendamento abilitata
-            amendment_promotion_enabled_help: Gli autori delle Emandation potranno promuovere la proposta di emendamento respinto.
+            amendment_promotion_enabled_help: Gli autori dell'emendamento potranno pubblicare la proposta dell'emendamento respinto.
             amendment_reaction_enabled: Risposta all'emendamento abilitata
             amendment_reaction_enabled_help: Gli autori della proposta potranno accettare o rifiutare le modifiche dei partecipanti.
             amendments_visibility: Visibilità dell'emendamento

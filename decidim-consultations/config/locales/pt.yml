@@ -2,19 +2,19 @@ pt:
   activemodel:
     attributes:
       consultation:
-        banner_image: Imagem de banner
-        decidim_highlighted_scope_id: Escopo destacado
+        banner_image: Imagem da faixa
+        decidim_highlighted_scope_id: Âmbito realçado
         description: Descrição
         end_voting_date: Votação termina
         introductory_image: Imagem introdutória
         introductory_video_url: URL de vídeo introdutório
         questions: Questões
-        slug: Lesma de URL
-        start_voting_date: A votação começa
+        slug: Slug de URL
+        start_voting_date: Votação começa
         subtitle: Legenda
         title: Título
       question:
-        banner_image: Imagem de banner
+        banner_image: Imagem da faixa
         decidim_scope_id: Área municipal
         hashtag: Hashtag
         hero_image: Imagem inicial
@@ -22,7 +22,7 @@ pt:
         instructions: Instruções adicionais para a votação
         max_votes: Número máximo de votos
         min_votes: Número mínimo de votos
-        origin_scope: Escopo
+        origin_scope: Âmbito
         origin_title: Origem
         origin_url: URL de origem
         participatory_scope: Escopo participativo
@@ -30,10 +30,10 @@ pt:
         question_context: Contexto
         reference: Referência
         scope: Área municipal
-        slug: Lesma de URL
+        slug: Slug de URL
         subtitle: Legenda
         title: Título
-        vote: Sistema de voto externo
+        vote: Sistema de votação externo
         what_is_decided: O que é decidido
       response:
         decidim_consultations_response_group_id: Grupo
@@ -42,7 +42,7 @@ pt:
         question:
           attributes:
             max_votes:
-              lower_than_min: O número máximo de votos deverá ser igual ou superior ao mínimo.
+              lower_than_min: Número máximo de votos deverá ser igual ou superior ao mínimo.
       vote:
         decidim_consultations_response_id:
           not_found: Resposta não encontrada.
@@ -52,7 +52,7 @@ pt:
         decidim/consultations/vote:
           attributes:
             question:
-              invalid_num_votes: O número de votos é inválido
+              invalid_num_votes: Número de votos é inválido
     models:
       decidim/consultation:
         one: Consulta
@@ -65,7 +65,7 @@ pt:
         other: Respostas
       decidim/consultations/vote:
         one: Voto
-        other: Voto
+        other: Votos
   decidim:
     admin:
       actions:

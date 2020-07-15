@@ -124,7 +124,7 @@ pt:
             new_proposal_body_template_help: Pode definir o texto pré-preenchido das novas Propostas
             new_proposal_help_text: Novo texto de ajuda da proposta
             official_proposals_enabled: Proposta oficial habilitada
-            participatory_texts_disabled_help: Não é possível interagir com esta definição caso existam propostas. Crie um novo "Componente de propostas" caso pretenda ativar esta funcionalidade ou elimine todas as propostas importadas no menu "Textos Participativos" caso a pretenda desativar.
+            participatory_texts_disabled_help: Não é possível interagir com esta configuração caso existam propostas. Crie um novo "Componente de propostas" caso pretenda ativar esta característica ou elimine todas as propostas importadas no menu "Textos Participativos" caso pretenda desativá-la.
             participatory_texts_enabled: Textos participativos habilitados
             proposal_answering_enabled: Resposta de proposta ativada
             proposal_edit_before_minutes: As propostas podem ser editadas pelos autores antes que muitos minutos passem.
@@ -144,7 +144,7 @@ pt:
             amendment_promotion_enabled_help: Os autores de emendas poderão promover emendas rejeitadas para Propostas.
             amendment_reaction_enabled: Ativada a reação à alteração
             amendment_reaction_enabled_help: Os autores das Propostas poderão aceitar ou rejeitar as emendas dos Participantes.
-            amendments_visibility: Visibilidade da alteração
+            amendments_visibility: Visibilidade da emenda
             amendments_visibility_help: Caso esteja selecionada a opção "As alterações estão apenas visíveis para os respetivos autores", o participante deverá ter a sessão iniciada para ver as alterações efetuadas.
             announcement: Anúncio
             answers_with_costs: Ativar custos nas respostas a propostas
@@ -213,10 +213,10 @@ pt:
             email_subject: Uma proposta que você está seguindo foi aceita
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi aceita.
         proposal_endorsed:
-          email_intro: '%{endorser_name} %{endorser_nickname}, que você está seguindo, acabou de endossar a proposta "%{resource_title}" e achamos que pode ser interessante para você. Confira e contribua:'
-          email_outro: Você recebeu esta notificação porque você está seguindo %{endorser_nickname}. Você pode parar de receber notificações após o link anterior.
-          email_subject: "%{endorser_nickname} aprovou uma nova proposta"
-          notification_title: O <a href="%{resource_path}">%{resource_title}</a> A proposta foi endossada por <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
+          email_intro: '%{endorser_name} %{endorser_nickname}, que está a seguir, acabou de endossar a proposta "%{resource_title}" e achamos que pode ser do seu interesse. Verifique e contribua:'
+          email_outro: Recebeu esta notificação porque segue %{endorser_nickname}. Pode parar de receber notificações seguindo a hiperligação anterior.
+          email_subject: "%{endorser_nickname} endossou uma nova proposta"
+          notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi endossada por <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           affected_user:
             email_intro: 'Sua proposta "%{resource_title}" está sendo avaliada no momento. Você pode verificar uma resposta nesta página:'
@@ -446,6 +446,7 @@ pt:
             comments_count: Contagem de comentários
             comments_negative_count: Contra
             comments_neutral_count: Neutro
+            comments_positive_count: Favor
             created_at: Data de criação
             documents: Documentos
             endorsements_count: Contagem de endossamentos
@@ -630,7 +631,7 @@ pt:
           published_proposal: proposta publicada
           request_access: Solicitar acesso
           requested_access: Acesso solicitado
-          see_other_versions: veja outras versões
+          see_other_versions: ver outras versões
           version: Versão %{number}
           version_history: ver o histórico de versões desta proposta
           withdraw: retirar o rascunho
@@ -691,7 +692,7 @@ pt:
           endorse: Endossar
       proposal_endorsements:
         create:
-          error: Houve erros ao endossar a proposta.
+          error: Ocorreu um problema ao endossar a proposta.
         identities:
           done: Feito
           select_identity: Selecione a identidade
@@ -863,11 +864,11 @@ pt:
         error: Houve erros ao salvar o rascunho da proposta.
         success: Rascunho da proposta atualizado com sucesso.
       versions:
-        changes_at_title: Mudanças em "%{title}"
+        changes_at_title: Alterações em "%{title}"
         index:
           title: Versões
         stats:
-          back_to_collaborative_draft: Volte para o rascunho colaborativo
+          back_to_collaborative_draft: Volte atrás para o rascunho colaborativo
           back_to_proposal: Volte para a proposta
           number_of_versions: Versões
           show_all_versions: Mostrar todas as versões

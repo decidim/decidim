@@ -153,6 +153,10 @@ pt:
         confirm_destroy: Tem certeza de que deseja excluir esta reunião?
         destroy: Excluir
         edit: Editar
+        invalid_destroy:
+          proposals_count:
+            one: 'A reunião não pode ser destruída porque tem %{count} proposta associada:'
+            other: 'A reunião não pode ser destruída porque tem %{count} propostas associadas:'
         minutes: Minutos
         new: Nova reunião
         preview: Visualização
@@ -234,6 +238,10 @@ pt:
             invalid: Tem havido um problema ao criar esta reunião
             success: Reunião criada com sucesso
           destroy:
+            invalid:
+              proposals_count:
+                one: A reunião não pode ser destruída porque tem %{count} proposta associada
+                other: A reunião não pode ser destruída porque tem %{count} propostas associadas
             success: Reunião excluída com êxito
           edit:
             update: Actualizar
@@ -277,7 +285,7 @@ pt:
             name: encontro
         registrations:
           edit:
-            save: Salve 
+            save: Guardar
             validate: Validar
             validate_registration_code: Validar código de registro
           form:
