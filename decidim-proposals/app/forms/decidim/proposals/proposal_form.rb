@@ -57,17 +57,13 @@ module Decidim
         return if Decidim.geocoder.blank?
         return unless current_component.settings.geocoding_enabled?
 
-        has_address? && address_has_changed?
+        has_address.present? && address_has_changed?
       end
 
       def address_has_changed?
         return true if id.nil?
 
         address != Proposal.find(id).address unless id.nil?
-      end
-
-      def has_address?
-        current_component.settings.geocoding_enabled? && has_address
       end
 
       def extra_hashtags

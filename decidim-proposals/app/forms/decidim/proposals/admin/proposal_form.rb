@@ -52,7 +52,7 @@ module Decidim
           return unless current_component.settings.geocoding_enabled?
           return if address.blank?
 
-          address.present? && address_has_changed?
+          address_has_changed?
         end
 
         def address_has_changed?
