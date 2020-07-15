@@ -48,6 +48,8 @@ pt:
             title: título
       posts:
         show:
+          back: Regressar à lista
+          comments: Comentários
           view: Visão
         sidebar_blog:
           comments: comentários
@@ -63,6 +65,8 @@ pt:
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
+            endorsements_blocked: Endossamentos bloqueados
+            endorsements_enabled: Endossamentos ativados
     events:
       blogs:
         post_created:

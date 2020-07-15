@@ -158,6 +158,10 @@ it:
         confirm_destroy: Sei certo di voler cancellare questo meeting?
         destroy: Cancella
         edit: Modifica
+        invalid_destroy:
+          proposals_count:
+            one: 'La riunione non può essere annullata perché ha %{count} proposta ad essa associata:'
+            other: 'La riunione non può essere annullata perché ha %{count} proposte associate:'
         minutes: Minuti
         new: Nuovo incontro
         preview: Anteprima
@@ -236,6 +240,10 @@ it:
             invalid: C'è stato un problema durante la creazione di questo meeting.
             success: OK, il meeting è stato creato con successo.
           destroy:
+            invalid:
+              proposals_count:
+                one: La riunione non può essere annullata perché ha %{count} proposta ad essa associata
+                other: La riunione non può essere annullata perché ha %{count} proposte associate
             success: OK, il meeting è stato cancellato.
           edit:
             update: Modifica

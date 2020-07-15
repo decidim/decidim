@@ -21,7 +21,7 @@ fi:
         confirm_destroy: Haluatko varmasti poistaa tämän suunnitelman?
         destroy: Poista
         edit: Muokkaa
-        import: Tuo ehdotuksia suunnitelmiin
+        import: Tuo ehdotuksia suunnitelmiksi
         new: Uusi suunnitelma
         preview: Esikatsele
         title: Toiminnot
@@ -53,14 +53,14 @@ fi:
             invalid: Ehdotusten tuonti suunnitelmiksi epäonnistui
             success: "%{number} ehdotusta tuotu onnistuneesti suunnitelmiksi"
           new:
-            create: Tuo ehdotuksia suunnitelmiin
-            no_components: Tässä osallistumistilassa ei ole ole muita ehdotuskomponentteja, joista voitaisiin tuoda ehdotuksia suunnitelmiin.
+            create: Tuo ehdotuksia suunnitelmiksi
+            no_components: Tässä osallistumistilassa ei ole ole muita ehdotuskomponentteja, joista voitaisiin tuoda ehdotuksia suunnitelmiksi.
             select_component: Valitse komponentti
       admin_log:
         project:
-          create: "%{user_name} loi %{resource_name} -suunnitelman %{space_name} -tilassa"
-          delete: "%{user_name} poisti %{resource_name} -suunnitelman %{space_name} -tilassa"
-          update: "%{user_name} päivitti %{resource_name} -suunnitelman %{space_name} -tilassa"
+          create: "%{user_name} loi suunnitelman %{resource_name} osallistumistilassa %{space_name}"
+          delete: "%{user_name} poisti suunnitelman %{resource_name} osallistumistilassa %{space_name}"
+          update: "%{user_name} päivitti suunnitelman %{resource_name} osallistumistilassa %{space_name}"
       models:
         project:
           fields:

@@ -292,6 +292,11 @@ fr-CA:
           welcome: Bienvenue dans l'espace d'administration de Decidim.
       exports:
         export_as: "%{name} en format %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
         notice: Votre exportation est en cours. Vous recevrez un e-mail quand elle sera terminée.
       filters:
         category_id_eq:

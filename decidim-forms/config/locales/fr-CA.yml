@@ -25,11 +25,27 @@ fr-CA:
             description: La description
             tos: Conditions d'utilisation
         questionnaires:
+          actions:
+            back: Retour aux questions
+            show: Afficher les réponses
           answer_option:
             answer_option: Option de réponse
             free_text: Texte libre
             remove: Retirer
             statement: Déclaration
+          answers:
+            actions:
+              back: Retour aux réponses
+              export: Exporter
+              show: Afficher les réponses
+            empty: Pas encore de réponses
+            export:
+              answer:
+                title: 'Réponse n°%{number}'
+            index:
+              title: "%{total} réponses totales"
+            show:
+              title: 'Réponse n°%{number}'
           edit:
             save: sauvegarder
             title: Modifier le questionnaire
@@ -112,9 +128,12 @@ fr-CA:
           continue: Continuer
           submit: Soumettre
       user_answers_serializer:
+        body: Répondre
         created_at: Répondu le
         id: ID de réponse
-        ip_hash: Hachage Ip
+        ip_hash: Hachage IP
+        question: Question
         registered: Enregistré
+        session_token: Identifiant de l'utilisateur
         unregistered: Non enregistré
         user_status: Statut de l'utilisateur

@@ -31,58 +31,58 @@ pt:
         subject: Assunto
       oauth_application:
         name: Nome
-        organization_logo: Logotipo da organização (quadrado)
+        organization_logo: Logótipo da organização (quadrado)
         organization_name: Nome da organização
         organization_url: URL da organização
         redirect_uri: URI de redirecionamento
       organization:
-        address: Nome do host SMTP
+        address: Nome do anfitrião SMTP
         alert_color: Alerta
-        badges_enabled: Ativar emblemas
+        badges_enabled: Ativar distintivos
         cta_button_path: Caminho do botão Chamar para Ação
         cta_button_text: Texto do botão Chamar para Ação
-        customize_welcome_notification: Personaliza as tuas notificações
+        customize_welcome_notification: Personalizar a notificação de boas-vindas
         default_locale: Idioma por defeito
         description: Descrição
-        enable_omnipresent_banner: Mostrar bandeira omnipresente
+        enable_omnipresent_banner: Mostrar faixa omnipresente
         facebook_handler: Manipulador do Facebook
         favicon: Ícone
-        from: Do Email Address
+        from: Endereço de e-mail do remetente
         github_handler: GitHub handler
         header_snippets: Snippets de cabeçalho
         highlighted_content_banner_action_subtitle: Legenda do botão de ação
-        highlighted_content_banner_action_title: Título do botão Ação
+        highlighted_content_banner_action_title: Título do botão de ação
         highlighted_content_banner_action_url: URL do botão de ação
-        highlighted_content_banner_enabled: Mostrar o banner de conteúdo destacado
+        highlighted_content_banner_enabled: Mostrar a faixa de conteúdo realçado
         highlighted_content_banner_image: Imagem
         highlighted_content_banner_short_description: Pequena descrição
         highlighted_content_banner_title: Título
         instagram_handler: Instagram handler
-        logo: Logotipo
+        logo: Logótipo
         name: Nome
-        official_img_footer: Símbolo oficial do rodapé
-        official_img_header: Cabeçalho do logotipo oficial
+        official_img_footer: Logótipo oficial do rodapé
+        official_img_header: Logótipo oficial do cabeçalho
         official_url: URL da organização oficial
         omnipresent_banner_short_description: Pequena descrição
         omnipresent_banner_title: Título
         omnipresent_banner_url: URL
-        password: Senha
+        password: Palavra-passe
         port: Porta
         primary_color: Primário
         reference_prefix: Prefixo de referência
-        rich_text_editor_in_public_views: Habilitar o editor de texto rico para participantes
+        rich_text_editor_in_public_views: Ativar o editor de texto avançado para os participantes
         secondary_color: Secundário
-        send_welcome_notification: Enviar uma notificação de teste
-        show_statistics: Mostre estatisticas
+        send_welcome_notification: Enviar notificação de boas-vindas
+        show_statistics: Mostrar estatísticas
         success_color: Sucesso
-        time_zone: Fuso horário
-        tos_version: Termos de versão do serviço
+        time_zone: Fuso Horário
+        tos_version: Versão dos termos de serviço
         twitter_handler: Manipulador do Twitter
-        user_groups_enabled: Ativar grupos de usuários
-        user_name: Nome de usuário
+        user_groups_enabled: Ativar grupos
+        user_name: Nome do utilizador
         warning_color: Aviso
-        welcome_notification_body: Corpo de notificação bem-vindo
-        welcome_notification_subject: Corpo de notificação bem-vindo
+        welcome_notification_body: Corpo da notificação de boas-vindas
+        welcome_notification_subject: Assunto da notificação de boas-vindas
         youtube_handler: Manipulador do YouTube
       scope:
         code: Código
@@ -90,13 +90,13 @@ pt:
         organization: Organização
         parent_id: Pai
         scope_type: Tipo de âmbito
-        scope_type_id: Tipo de escopo
+        scope_type_id: Tipo de âmbito
       scope_type:
         name: Nome
         organization: Organização
         plural: Plural
       static_page:
-        changed_notably: Houve mudanças notáveis.
+        changed_notably: Ocorreram mudanças notáveis.
         content: Conteúdo
         organization: Organização
         show_in_footer: Mostrar no rodapé
@@ -109,7 +109,7 @@ pt:
         title: Título
         weight: Peso
       user_group_csv_verification:
-        file: Arquivo
+        file: Ficheiro
     errors:
       models:
         oauth_application:
@@ -119,9 +119,9 @@ pt:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Arquivo de imagem inválido
+              allowed_file_content_types: Ficheiro de imagem inválido
             official_img_header:
-              allowed_file_content_types: Arquivo de imagem inválido
+              allowed_file_content_types: Ficheiro de imagem inválido
   activerecord:
     attributes:
       decidim/static_page:
@@ -135,7 +135,7 @@ pt:
         organization_name: Nome da organização
         organization_url: URL da organização
         redirect_uri: URI de redirecionamento
-        site: Local na rede Internet
+        site: Site da Web
   decidim:
     admin:
       actions:
@@ -150,24 +150,24 @@ pt:
         verify: Verificar
       admin_terms_of_use:
         accept:
-          error: Ocorreu um erro ao aceitar os termos de uso do administrador.
-          success: Ótimo! Você aceitou os termos de uso do administrador.
+          error: Ocorreu um erro ao aceitar os termos de utilização de administrador.
+          success: Excelente! Aceitou os termos de utilização de administrador.
         actions:
-          accept: Eu concordo com os termos do administrador
-          are_you_sure: Tem certeza de que deseja recusar os termos do administrador?
-          refuse: Recuse os termos do admin
-          title: Concordo com os termos e condições de
+          accept: Concordo com estes termos de administrador
+          are_you_sure: Tem a certeza de que pretende recusar os termos de administrador?
+          refuse: Recusar os termos de administrador
+          title: Concordar com os termos e condições de utilização
         required_review:
-          alert: 'Obrigatório: Revise os termos de uso de nosso administrador'
-          callout: Por favor, reserve um momento para revisar os Termos de Uso do Administrador. Caso contrário, você não poderá administrar a plataforma.
-          cta: Reveja eles agora.
-        title: Ver os termos de utilização
+          alert: 'Necessário: Rever os nossos termos de utilização de administrador'
+          callout: Por favor, despenda algum tempo para rever os Termos de Utilização de Administrador. Caso contrário, não poderá administrar a plataforma.
+          cta: Reveja-os agora.
+        title: Termos de Utilização de Administrador
       area_types:
         create:
-          error: Ocorreu um erro ao criar um novo tipo de área.
-          success: Tipo de área criado com sucesso.
+          error: Ocorreu um problema ao criar um novo tipo de área.
+          success: Tipo de área criado corretamente.
         destroy:
-          success: Tipo de área destruído com sucesso
+          success: Tipo de área destruído corretamente
         edit:
           title: Editar tipo de área
           update: Atualizar
@@ -175,31 +175,31 @@ pt:
           create: Criar tipo de área
           title: Novo tipo de área
         update:
-          error: Ocorreu um erro ao atualizar este tipo de área.
+          error: Ocorreu um problema ao atualizar este tipo de área.
           success: Tipo de área atualizado com sucesso
       areas:
         create:
-          error: Ocorreu um erro ao criar uma nova área.
-          success: Área criada com sucesso.
+          error: Ocorreu um problema ao criar uma nova área.
+          success: Área criada corretamente.
         destroy:
-          has_spaces: A área tem espaços dependentes, não deve ter dependências para ser excluída.
-          success: Área destruída com sucesso
+          has_spaces: A área possui espaços dependentes, não poderá ter dependências para poder ser eliminada.
+          success: Área destruída corretamente
         edit:
           title: Editar área
           update: Atualizar
         new:
           create: Criar área
           title: Nova área
-        no_areas: No Areas
+        no_areas: Nenhuma Área
         update:
-          error: Ocorreu um erro ao atualizar esta área.
-          success: Área atualizada com sucesso
+          error: Ocorreu um problema ao atualizar esta área.
+          success: Área atualizada corretamente
       attachment_collections:
         create:
-          error: Houve um erro ao criar uma nova pasta.
-          success: Pasta criada com sucesso.
+          error: Ocorreu um problema ao criar uma nova pasta.
+          success: Pasta criada corretamente.
         destroy:
-          success: Pasta destruída com sucesso.
+          success: Pasta destruída corretamente.
         edit:
           title: Editar pasta
           update: Atualizar
@@ -207,14 +207,14 @@ pt:
           attachment_collection_used: Esta pasta não pode ser removida porque está em uso.
           attachment_collections_title: Pastas de anexos
         new:
-          create: Crio
+          create: Criar
           title: Nova pasta
         update:
-          error: Houve um erro ao atualizar esta pasta.
-          success: Pasta atualizada com sucesso.
+          error: Ocorreu um problema ao atualizar esta pasta.
+          success: Pasta atualizada corretamente.
       attachments:
         create:
-          error: Ocorreu um erro ao criar um novo anexo.
+          error: Ocorreu um problema ao criar um novo anexo.
           success: Anexo criado com sucesso.
         destroy:
           success: Anexo apagado com sucesso.
@@ -227,17 +227,17 @@ pt:
           create: Criar anexo
           title: Novo anexo
         update:
-          error: Ocorreu um erro ao atualizar este anexo.
+          error: Ocorreu um problema ao atualizar este anexo.
           success: Anexo atualizado com sucesso.
       autocomplete:
         no_results: Nenhum resultado encontrado
         search_prompt: Digite pelo menos três caracteres para pesquisar
       categories:
         create:
-          error: Ocorreu um erro ao criar esta categoria.
+          error: Ocorreu um problema ao criar esta categoria.
           success: Categoria criada com sucesso.
         destroy:
-          error: Ocorreu um erro ao apagar esta categoria. Por favor apague qualquer subcategoria primeiro, certifique-se de que nenhuma outra entidade pertence a esta categoria e tente novamente.
+          error: Ocorreu um problema ao eliminar esta categoria. Por favor elimine qualquer subcategoria primeiro, certifique-se de que nenhuma outra entidade pertence a esta categoria e tente novamente.
           success: Categoria apagada com sucesso.
         edit:
           title: Editar categoria
@@ -249,26 +249,26 @@ pt:
           create: Criar categoria
           title: Nova categoria
         update:
-          error: Ocorreu um erro ao atualizar esta categoria.
+          error: Ocorreu um problema ao atualizar esta categoria.
           success: Categoria atualizada com sucesso.
       component_permissions:
         update:
-          error: Ocorreu um erro ao atualizar as permissões deste componente.
-          success: Permissões atualizadas com sucesso.
+          error: Ocorreu um problema ao atualizar as permissões deste componente.
+          success: Permissões atualizadas corretamente.
       components:
         create:
-          error: Ocorreu um erro ao criar esse componente.
-          success: Componente criado com sucesso.
+          error: Ocorreu um problema ao criar este componente.
+          success: Componente criado corretamente.
         destroy:
-          error: Ocorreu um erro ao destruir esse componente.
-          success: Componente excluído com sucesso.
+          error: Ocorreu um problema ao destruir este componente.
+          success: Componente eliminado corretamente.
         edit:
           title: Editar componente
           update: Atualizar
         form:
-          default_step_settings: Configurações de etapa padrão
+          default_step_settings: Configurações do passo padrão
           global_settings: Configurações globais
-          step_settings: Configurações de etapa
+          step_settings: Configurações do passo
         index:
           add: Adicionar componente
           headers:
@@ -279,20 +279,20 @@ pt:
           add: Adicionar componente
           title: 'Adicionar componente: %{name}'
         publish:
-          success: O componente foi publicado com sucesso.
+          success: O componente foi publicado corretamente.
         title: Componentes
         unpublish:
-          success: O componente não foi publicado com sucesso.
+          success: O componente deixou de estar publicado corretamente.
         update:
-          error: Ocorreu um erro ao atualizar este componente.
-          success: O componente foi atualizado com sucesso.
+          error: Ocorreu um problema ao atualizar este componente.
+          success: O componente foi atualizado corretamente.
       dashboard:
         show:
-          view_more_logs: Ver mais logs
-          welcome: Bem-vindo ao Decidim Admin Panel.
+          view_more_logs: Ver mais registos
+          welcome: Bem-vindo ao Painel de Administração de Decidim.
       exports:
         export_as: "%{name} como %{export_format}"
-        notice: Sua exportação está atualmente em andamento. Você receberá um e-mail quando estiver completo.
+        notice: A sua exportação está atualmente em curso. Receberá um e-mail quando estiver completa.
       filters:
         category_id_eq:
           label: Categoria
@@ -308,15 +308,15 @@ pt:
             'false': Público
             'true': Privado
         published_at_null:
-          label: Publicada
+          label: Publicado
           values:
-            'false': Publicada
-            'true': Não Publicado
+            'false': Publicado
+            'true': Publicação removida
         scope_id_eq:
           label: Âmbito
         search_label: Pesquisa
         search_placeholder:
-          name_or_nickname_or_email_cont: Pesquise %{collection} por e-mail, nome ou apelido.
+          name_or_nickname_or_email_cont: Pesquisar %{collection} por e-mail, nome ou alcunha.
           title_cont: Pesquisar %{collection} por título.
       help_sections:
         error: Houve um erro ao atualizar as seções de ajuda
@@ -390,7 +390,7 @@ pt:
         users: Utilizadores
       metrics:
         metrics:
-          see_more_metrics: Ver Mais Detalhe
+          see_more_metrics: Mostrar mais métricas
       models:
         area:
           fields:
@@ -424,7 +424,7 @@ pt:
             created_at: Criado em
             progress: Progresso
             sent_at: Enviado em
-            sent_to: Enviar para
+            sent_to: Enviado para
             subject: Sujeito
           name: Boletim de Notícias
         oauth_application:
@@ -477,10 +477,11 @@ pt:
       newsletter_templates:
         index:
           preview_template: Visualização
-          title: Templates da Newsletter
-          use_template: Utilizar este template
+          title: Modelos de newsletter
+          use_template: Utilizar este modelo
         show:
-          preview: 'Pré-visualização de modelo: %{template_name}'
+          preview: 'Pré-visualizar modelo: %{template_name}'
+          use_template: Utilizar este modelo
       newsletters:
         create:
           error: Ocorreu um erro ao criar este boletim informativo.
@@ -495,16 +496,44 @@ pt:
           save_and_preview: Salvar e visualizar
           title: Editar boletim
         index:
+          all: todos
+          all_users: 'Todos os utilizadores'
+          and: 'e'
           confirm_delete: Tem certeza de que deseja excluir esta newsletter?
+          followers: 'seguidores'
+          has_been_sent_to: 'Foi enviado para: '
+          no_scopes: Sem âmbitos
+          not_sent: Não enviado
+          participants: 'participantes'
+          segmented_to: 'Segmentado para %{subject}: '
+          subscribed_count: 'Subscrito:'
           title: boletins informativos
         new:
           save: Salve 
           title: Novo boletim informativo
         select_recipients_to_deliver:
+          all_spaces: Todos
+          all_users_help: Envia uma newsletter para todos os utilizadores confirmados.
           confirm_deliver: Tem certeza de que deseja enviar este boletim informativo? Essa ação não pode ser desfeita.
           deliver: Entregar boletim informativo
+          followers_help: Envia uma newsletter para todos os utilizadores confirmados que seguem quaisquer espaços participativos na lista.
+          none: Nenhum
+          participants_help: Envia uma newsletter para todos os utilizadores confirmados que tenham participado em qualquer um dos espaços participativos selecionados na lista.
+          recipients_count: Esta newsletter será enviada para <strong id='recipients_count'>%{count}</strong> utilizadores.
+          scopes_help: Envia uma newsletter aos utilizadores que tenham qualquer um dos âmbitos selecionados ativados nas definições "Os meus interesses" das suas contas.
+          select_scopes: Filtro para os utilizadores que ativaram qualquer âmbito selecionado nas definições "Os meus interesses" das suas contas.
+          select_spaces: Selecione os espaços para segmentar a newsletter
+          select_users: Selecione os utilizadores aos quais pretende enviar a newsletter
+          send_to_all_users: Enviar para todos os utilizadores
+          send_to_followers: Enviar para os seguidores
+          send_to_participants: Enviar para os participantes
+          title: Selecione os destinatários
+          warning: "<strong>Atenção:</strong> Esta newsletter apenas será enviada para utilizadores que tenham ativado a opção <em>Pretendo receber newsletters</em> nas suas definições de notificações."
+        send:
+          no_recipients: Nenhum destinatário para esta seleção
         show:
           preview: Visualização
+          select_recipients_to_deliver: Selecione os destinatários
           subject: Sujeito
         update:
           error: Ocorreu um erro ao atualizar este boletim informativo.
@@ -543,12 +572,20 @@ pt:
           officialize: Oficialize
           officialized: Oficializado
           reofficialize: Reorientar
+          show_email: Mostrar endereço de e-mail
           status: Status
           unofficialize: Não oficializar
         new:
           badge: Emblema de oficialização
           officialize: Oficialize
           title: Oficializar o usuário "%{name}"
+        show_email_modal:
+          description: Caso necessite de contactar um participante diretamente, poderá clicar no botão Mostrar para ver o endereço de e-mail. Esta ação será registada.
+          email_address: Endereço de e-mail
+          full_name: Nome completo
+          hidden: oculto
+          show: Mostrar
+          title: Mostrar endereço de e-mail do participante
       organization:
         edit:
           title: Editar organização
@@ -557,6 +594,7 @@ pt:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          rich_text_editor_in_public_views_help: Em algumas áreas de texto, os participantes serão capazes de inserir algumas etiquetas HTML utilizando o editor de RTF.
           social_handlers: Social
           twitter: Twitter
           url: Url
@@ -577,6 +615,7 @@ pt:
           homepage_highlighted_content_banner_title: Banner de conteúdo elevado
           images:
             layout_appearance_title: Editar aparência do layout
+            preview: Pré-visualização
           omnipresent_banner_appearance_title: Editar banner onipresente
       organization_homepage:
         edit:
@@ -593,10 +632,19 @@ pt:
           error: Houve um erro ao excluir um usuário particular desse espaço participativo.
           success: Espaço participativo acesso de usuário privado destruído com sucesso.
         index:
+          import_via_csv: Importar através de CSV
           title: Espaço participativo usuário particular
         new:
           create: Crio
           title: Novo usuário particular do Espaço Participativo.
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: Ocorreu um problema ao ler o ficheiro CSV.
+          success: Ficheiro CSV carregado com sucesso, será enviado um e-mail de convite aos participantes. Isto poderá demorar algum tempo.
+        new:
+          explanation: Carregue o seu ficheiro CSV. Deverá possuir duas colunas com o e-mail na primeira coluna do ficheiro e o nome na última coluna do ficheiro (e-mail, nome) dos utilizadores que pretende adicionar ao espaço participativo, sem cabeçalhos.
+          title: Carregar o seu ficheiro CSV
+          upload: Carregar
       resource_permissions:
         edit:
           submit: Enviar
@@ -634,6 +682,11 @@ pt:
         update:
           error: Ocorreu um erro ao atualizar esse âmbito.
           success: Âmbito atualizado com sucesso
+      shared:
+        gallery:
+          add_images: Adicionar imagens
+          delete_image: Eliminar Imagem
+          gallery_legend: Adicionar uma galeria de imagens (Opcional)
       static_page_topics:
         create:
           error: Ocorreu um erro ao criar um novo tópico.
@@ -663,6 +716,7 @@ pt:
           update: Actualizar
         form:
           none: Nenhum
+          slug_help: 'Utilize caminhos parciais e não URL completos aqui. Aceita letras, números, traços e barras, devendo começar com uma letra. Exemplo: %{url}'
         index:
           last_notable_change: Última alteração notável
         new:
@@ -684,10 +738,12 @@ pt:
         dashboard: painel de controle
         impersonatable_users: Usuários gerenciáveis
         impersonations: Gerenciamento de usuários
+        metrics: Métricas
         participants: Comercial
         scope_types: Tipos de âmbito
         scopes: Âmbitos
         static_pages: Páginas
+        statistics: Atividade
         user_groups: Grupos de usuários
         users: Utilizadores
       user_group:
@@ -737,9 +793,9 @@ pt:
         users_count:
           admins: Administradores
           last_day: Último dia
-          last_month: Mês Passado
-          last_week: A semana passada
-          no_users_count_statistics_yet: Ainda não existem estatísticas ao vivo
+          last_month: Último mês
+          last_week: Última semana
+          no_users_count_statistics_yet: Ainda não existem estatísticas de contagem de utilizadores
           participants: Participantes
       view_public_page: Ver página pública
     forms:
