@@ -7,19 +7,21 @@ class MoveProposalsFieldsToI18n < ActiveRecord::Migration[5.2]
 
     reset_column_information
 
-    Decidim::Proposals::Proposal.find_each do |proposal|
-      author = proposal.coauthorships.first.author
+    PaperTrail.request(enabled: false) do
+      Decidim::Proposals::Proposal.find_each do |proposal|
+        author = proposal.coauthorships.first.author
 
-      locale = author.try(:locale).presence || author.try(:default_locale).presence || author.try(:organization).try(:default_locale).presence
+        locale = author.try(:locale).presence || author.try(:default_locale).presence || author.try(:organization).try(:default_locale).presence
 
-      proposal.new_title = {
-        locale => proposal.title
-      }
-      proposal.new_body = {
-        locale => proposal.body
-      }
+        proposal.new_title = {
+          locale => proposal.title
+        }
+        proposal.new_body = {
+          locale => proposal.body
+        }
 
-      proposal.save!
+        proposal.save!
+      end
     end
 
     remove_indexs

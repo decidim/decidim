@@ -49,6 +49,7 @@ module Decidim
         end
 
         it "serializes the title" do
+          byebug
           expect(serialized).to include(title: meeting.title)
         end
 
