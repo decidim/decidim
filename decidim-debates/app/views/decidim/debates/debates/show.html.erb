@@ -51,6 +51,7 @@ edit_link(
     <%= resource_reference(debate) %>
     <%= resource_version(debate_presenter, versions_path: debate_versions_path(debate)) %>
     <%= render partial: "decidim/shared/share_modal" %>
+    <%= embed_modal_for debate_widget_url(debate, format: :js) %>
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">

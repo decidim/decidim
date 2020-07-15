@@ -14,6 +14,7 @@ module Decidim
       routes do
         resources :debates, only: [:index, :show, :new, :create, :edit, :update] do
           resources :versions, only: [:show, :index]
+          resource :widget, only: :show, path: "embed"
         end
         root to: "debates#index"
       end

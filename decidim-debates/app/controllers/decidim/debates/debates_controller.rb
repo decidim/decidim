@@ -6,6 +6,7 @@ module Decidim
     class DebatesController < Decidim::Debates::ApplicationController
       helper Decidim::ApplicationHelper
       helper Decidim::Messaging::ConversationHelper
+      helper Decidim::WidgetUrlsHelper
       include FormFactory
       include FilterResource
       include Paginable
