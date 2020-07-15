@@ -18,6 +18,7 @@ interface CommentThreadProps {
   votable?: boolean;
   rootCommentable: AddCommentFormCommentableFragment;
   orderBy: string;
+  commentsMaxLength: number;
 }
 
 /**
@@ -33,7 +34,7 @@ class CommentThread extends React.Component<CommentThreadProps> {
   };
 
   public render() {
-    const { comment, session, votable, rootCommentable, orderBy } = this.props;
+    const { comment, session, votable, rootCommentable, orderBy, commentsMaxLength } = this.props;
 
     return (
       <div>
@@ -46,6 +47,7 @@ class CommentThread extends React.Component<CommentThreadProps> {
             isRootComment={true}
             rootCommentable={rootCommentable}
             orderBy={orderBy}
+            commentsMaxLength={commentsMaxLength}
           />
         </div>
       </div>

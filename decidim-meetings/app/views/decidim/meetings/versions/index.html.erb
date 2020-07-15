@@ -1,0 +1,8 @@
+<div class="row">
+  <%= cell(
+    "decidim/versions_list",
+    versioned_resource,
+    version_path: proc { |version_index| url_for(action: :show, id: version_index) },
+    i18n_scope: "decidim.meetings.versions"
+  ) %>
+</div>

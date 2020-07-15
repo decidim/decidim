@@ -14,12 +14,16 @@ module Decidim
 
       private
 
+      def preview?
+        options[:preview]
+      end
+
       def title
         decidim_html_escape(present(model).title)
       end
 
       def body
-        present(model).body
+        decidim_sanitize(present(model).body)
       end
 
       def has_state?
@@ -27,7 +31,7 @@ module Decidim
       end
 
       def has_badge?
-        answered? || withdrawn? || emendation?
+        published_state? || withdrawn?
       end
 
       def has_link_to_resource?
@@ -51,6 +55,7 @@ module Decidim
       end
 
       def statuses
+        return [] if preview?
         return [:endorsements_count, :comments_count] if model.draft?
         return [:creation_date, :endorsements_count, :comments_count] if !has_link_to_resource? || !can_be_followed?
 
@@ -70,8 +75,8 @@ module Decidim
       end
 
       def endorsements_count
-        with_tooltip t("decidim.proposals.models.proposal.fields.endorsements") do
-          icon("bullhorn", class: "icon--small") + " " + model.proposal_endorsements_count.to_s
+        with_tooltip t("decidim.endorsable.endorsements") do
+          icon("bullhorn", class: "icon--small") + " " + model.endorsements_count.to_s
         end
       end
 
@@ -93,6 +98,14 @@ module Decidim
 
       def can_be_followed?
         !model.withdrawn?
+      end
+
+      def has_image?
+        model.attachments.first.present? && model.attachments.first.file.content_type.start_with?("image") && model.component.settings.allow_card_image
+      end
+
+      def resource_image_path
+        model.attachments.first.url if has_image?
       end
     end
   end

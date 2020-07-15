@@ -4,6 +4,7 @@ ca:
       decidim/comments/comment_by_followed_user_event: Comentari
       decidim/comments/comment_created_event: Comentari
       decidim/comments/reply_created_event: Resposta al comentari
+      decidim/comments/user_group_mentioned_event: Mencionar
       decidim/comments/user_mentioned_event: Mencionar
   activerecord:
     models:
@@ -42,6 +43,7 @@ ca:
           against: En contra
           in_favor: A favor
         deleted_user: Participant eliminada
+        hide_replies: Oculta les respostes
         reply: Respondre
         report:
           action: Denúncia
@@ -54,6 +56,8 @@ ca:
             offensive: Conté racisme, sexisme, insults, atacs personals, amenaces de mort, peticions de suïcidi o qualsevol forma de discurs d'odi.
             spam: Conté "clickbait", publicitat o estafes.
           title: Denúncia un problema
+        show_replies: Mostra %{replies_count} respostes
+        single_comment_link_title: Aconsegueix l'enllaç al comentari
       comment_order_selector:
         order:
           best_rated: Més ben valorats
@@ -66,13 +70,19 @@ ca:
       comments:
         blocked_comments_for_user_warning: No pots fer comentaris en aquest moment, però pots llegir els anteriors.
         blocked_comments_warning: Els comentaris estan desactivats en aquest moment, però pots llegir els anteriors.
+        comment_details_title: Detalls del comentari
         loading: Carregant els comentaris ...
+        single_comment_warning: 'Pots revisar la resta de comentaris a: <a href="%{url}">here</a>.'
+        single_comment_warning_title: Estàs veient un sol comentari
         title: "%{count} comentaris"
     events:
       comments:
         comment_by_followed_user:
           email_intro: "%{author_name} ha deixat un comentari a %{resource_title}. Podeu llegir-lo en aquesta pàgina:"
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{author_name}. Pots deixar de seguir a aquesta participant des de la seva pàgina de perfil.
+          email_subject: Hi ha un nou comentari de %{author_name} en %{resource_title}
+          notification_title: Hi ha un nou comentari per <a href="%{author_path}">%{author_name} %{author_nickname}</a> a <a href="%{resource_path}">%{resource_title}</a>.
+        comment_by_followed_user_group:
           email_subject: Hi ha un nou comentari de %{author_name} en %{resource_title}
           notification_title: Hi ha un nou comentari per <a href="%{author_path}">%{author_name} %{author_nickname}</a> a <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
@@ -85,6 +95,11 @@ ca:
           email_outro: Has rebut aquesta notificació perquè s'ha respost el teu comentari.
           email_subject: "%{author_name} ha respost el teu comentari a %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha respost el teu comentari a <a href="%{resource_path}">%{resource_title}</a>
+        user_group_mentioned:
+          email_intro: Un grup al qual pertanys ha estat esmentat
+          email_outro: Has rebut aquesta notificació perquè formes part del grup %{group_name} que ha estat esmentat a %{resource_title}.
+          email_subject: T'han esmentat a %{resource_title} com a membre de %{group_name}
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> t'ha esmentat com a membre de <a href="%{group_path}">%{group_name} %{group_nickname}</a> a <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Has estat esmentada
           email_outro: Has rebut aquesta notificació perquè has estat esmentada a %{resource_title}.

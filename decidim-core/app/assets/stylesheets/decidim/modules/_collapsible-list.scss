@@ -26,10 +26,22 @@
 
   .collapsible-list__see-less{
     display: inline-block;
+    color: #599aa6;
+  }
+
+  .collapsible-list__see-less:hover{
+    color: #2d4d53;
+    text-decoration: underline;
   }
 
   .collapsible-list__see-more{
     display: none;
+    color: #599aa6;
+  }
+
+  .collapsible-list__see-more:hover{
+    color: #2d4d53;
+    text-decoration: underline;
   }
 
   > *{

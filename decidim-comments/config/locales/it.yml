@@ -4,6 +4,7 @@ it:
       decidim/comments/comment_by_followed_user_event: Commento
       decidim/comments/comment_created_event: Commento
       decidim/comments/reply_created_event: Risposta al commento
+      decidim/comments/user_group_mentioned_event: Citare
       decidim/comments/user_mentioned_event: Citare
   activerecord:
     models:
@@ -42,6 +43,7 @@ it:
           against: Contro
           in_favor: A favore
         deleted_user: Utente cancellato
+        hide_replies: Nascondi risposte
         reply: Rispondi
         report:
           action: Report
@@ -54,6 +56,8 @@ it:
             offensive: Vi sono contenuti razzisti, sessisti, offensivi, attacchi di carattere personale, minacce di morte o altro tipo di minacci, istigazioni al suicidio o altre forme d'odio verbale.
             spam: Contiene pubblicità, truffe, clickbait ("esca da click") o altro contenuto mirato ad attrarre traffico internet.
           title: Segnala un problema
+        show_replies: Mostra %{replies_count} risposte
+        single_comment_link_title: Ottieni link a singolo commento
       comment_order_selector:
         order:
           best_rated: Favoriti
@@ -66,13 +70,21 @@ it:
       comments:
         blocked_comments_for_user_warning: Non sei in grado di commentare in questo momento, ma puoi leggere quelli precedenti.
         blocked_comments_warning: I commenti sono disabilitati in questo momento, ma puoi leggere quelli precedenti.
+        comment_details_title: Dettagli commento
         loading: Sto caricando i commenti ...
+        single_comment_warning: Puoi controllare il resto dei commenti <a href="%{url}">qui</a>.
+        single_comment_warning_title: Stai vedendo un singolo commento
         title: "%{count} commenti"
     events:
       comments:
         comment_by_followed_user:
           email_intro: "%{author_name} ha lasciato un commento in %{resource_title}. Puoi leggerlo in questa pagina:"
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{author_name}. Puoi smettere di seguire questo utente dalla pagina del profilo.
+          email_subject: C'è un nuovo commento di %{author_name} in %{resource_title}
+          notification_title: C'è un nuovo commento di <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>.
+        comment_by_followed_user_group:
+          email_intro: 'Il gruppo %{author_name} ha lasciato un commento in %{resource_title}. Puoi leggerlo in questa pagina:'
+          email_outro: Hai ricevuto questa notifica perché stai seguendo "%{author_name}". Puoi smettere di seguirlo cliccando sul link precedente.
           email_subject: C'è un nuovo commento di %{author_name} in %{resource_title}
           notification_title: C'è un nuovo commento di <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
@@ -85,6 +97,11 @@ it:
           email_outro: Hai ricevuto questa notifica perché il tuo commento è stato risposto.
           email_subject: "%{author_name} ha risposto il tuo commento in %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha risposto il tuo commento in <a href="%{resource_path}">%{resource_title}</a>
+        user_group_mentioned:
+          email_intro: È stato menzionato un gruppo a cui appartieni
+          email_outro: Hai ricevuto questa notifica perché appartieni al gruppo %{group_name} che è stato menzionato in %{resource_title}.
+          email_subject: Ti si nomina in %{resource_title} come appartenente a %{group_name}
+          notification_title: Ti si nomina in <a href="%{resource_path}">%{resource_title}</a> by <a href="%{author_path}">%{author_name} %{author_nickname}</a> come appartenente a <a href="%{group_path}">%{group_name} %{group_nickname}</a>
         user_mentioned:
           email_intro: Sei stato menzionato
           email_outro: Hai ricevuto questa notifica perché sei stato citato in %{resource_title}.

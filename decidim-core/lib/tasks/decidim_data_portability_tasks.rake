@@ -70,18 +70,79 @@ namespace :decidim do
     end
   end
 
-  desc "Deletes the data portability file inside tmp/data-portability folder."
+  desc "Deletes all data portability files previous to `Decidim.data_portability_expiry_time` from now."
   task delete_data_portability_files: :environment do
     puts "DELETE DATA PORTABILITY FILES: -------------- START"
-    path = Decidim::DataPortabilityUploader.new.store_dir
+    uploader = Decidim::DataPortabilityUploader.new
+    case uploader.fog_provider
+    when "fog" # file system
+      puts "Deleting files from filesystem..."
+      delete_data_portability_files_from_fs(uploader)
+    when "fog/aws"
+      puts "Deleting files from aws..."
+      delete_data_portability_files_from_aws(uploader)
+    else
+      raise "Carrierwave fog_provider not supported: #{uploader.fog_provider}"
+    end
+    puts "DELETE DATA PORTABILITY FILES: --------------- END"
+  end
+
+  def delete_data_portability_files_from_fs(uploader)
+    path = uploader.store_dir
     Dir.glob(Rails.root.join(path, "*")).each do |filename|
       next unless File.mtime(filename) < Decidim.data_portability_expiry_time.ago
 
+      puts "------"
+      puts "!! deleting: #{filename}"
       File.delete(filename)
-      puts "------"
-      puts "!! deleting #{filename}"
-      puts "------"
+      puts "ok----"
     end
-    puts "DELETE DATA PORTABILITY FILES: --------------- END"
+  end
+
+  # Removes data portability files older than the configured expiry time.
+  #
+  # ==== Struct of AWS's File objects:
+  #
+  # <Fog::AWS::Storage::File
+  #   key="uploads/decidim/user/avatar/1056/IMG_20171104_210039_247.jpg",
+  #   cache_control=nil,
+  #   content_disposition=nil,
+  #   content_encoding=nil,
+  #   content_length=113294,
+  #   content_md5=nil,
+  #   content_type=nil,
+  #   etag="e5f3c6a85a18d2557ed11c034efb3007",
+  #   expires=nil,
+  #   last_modified=2018-12-20 15:29:59 UTC,
+  #   metadata={},
+  #   owner={:display_name=>nil, :id=>"7dad77eea8cfbc10f588314706a02175a97fad81abccfd5747e87a340cc26a34"},
+  #   storage_class="STANDARD",
+  #   encryption=nil,
+  #   encryption_key=nil,
+  #   version=nil,
+  #   kms_key_id=nil
+  # >
+  def delete_data_portability_files_from_aws(uploader)
+    files = get_data_portability_files_from_aws(uploader.store_path)
+    files.each do |file|
+      next unless file.last_modified < Decidim.data_portability_expiry_time.ago
+
+      puts "------"
+      puts "!! deleting: #{file.key}"
+      file.delete
+      puts "ok----"
+    end
+  end
+
+  # Retrieves the list of files in the data portability dir.
+  #
+  # This method has a high cost as it performs a couple of requests to aws.
+  #
+  # Return [Fog::AWS::Storage::File]
+  def get_data_portability_files_from_aws(data_portability_path)
+    fog_credentials = CarrierWave::Uploader::Base.fog_credentials
+    s3 = Fog::Storage.new(fog_credentials)
+    data_portability_dir = s3.directories.get(CarrierWave::Uploader::Base.fog_directory, prefix: data_portability_path)
+    data_portability_dir.files
   end
 end

@@ -24,9 +24,9 @@ fi:
         posts:
           create:
             invalid: Tämän artikkelin luonti epäonnistui
-            success: Artikkeli luotu onnistuneesti
+            success: Artikkelin luonti onnistui
           destroy:
-            success: Artikkeli poistettu onnistuneesti
+            success: Artikkelin poisto onnistui
           edit:
             save: Päivitä
           index:
@@ -42,12 +42,14 @@ fi:
       models:
         post:
           fields:
-            author: Kirjoittaja
+            author: Laatija
             body: Leipäteksti
             created_at: Luotu
             title: otsikko
       posts:
         show:
+          back: Takaisin listaan
+          comments: Kommentit
           view: Näytä
         sidebar_blog:
           comments: kommentit
@@ -63,12 +65,14 @@ fi:
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
+            endorsements_blocked: Suositukset estetty
+            endorsements_enabled: Suositukset käytössä
     events:
       blogs:
         post_created:
           email_intro: Seuraamassasi kohteessa "%{participatory_space_title}" on julkaistu artikkeli "%{resource_title}".
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
-          email_subject: Uusi artikkeli julkaistiin tilassa %{participatory_space_title}
+          email_subject: Uusi artikkeli julkaistiin osallistumistilassa %{participatory_space_title}
           notification_title: Kohteessa %{participatory_space_title} on julkaistu artikkeli <a href="%{resource_path}">%{resource_title}</a>
     pages:
       home:

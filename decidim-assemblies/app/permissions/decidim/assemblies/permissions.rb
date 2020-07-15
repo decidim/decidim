@@ -30,22 +30,41 @@ module Decidim
         return permission_action unless permission_action.scope == :admin
 
         user_can_read_assembly_list?
+        user_can_list_assembly_list?
         user_can_read_current_assembly?
         user_can_create_assembly?
+        user_can_read_assemblies_setting?
 
         # org admins and space admins can do everything in the admin section
         org_admin_action?
+        assemblies_type_action?
 
         return permission_action unless assembly
 
         moderator_action?
         collaborator_action?
+        valuator_action?
         assembly_admin_action?
 
         permission_action
       end
 
       private
+
+      def assemblies_type_action?
+        return unless [:assembly_type, :assemblies_type].include? permission_action.subject
+        return disallow! unless user.admin?
+
+        assembly_type = context.fetch(:assembly_type, nil)
+        case permission_action.action
+        when :destroy
+          assemblies_is_empty = assembly_type && assembly_type.assemblies.empty?
+
+          toggle_allow(assemblies_is_empty)
+        else
+          allow!
+        end
+      end
 
       # It's an admin user if it's an organization admin or is a space admin
       # for the current `assembly`.
@@ -148,11 +167,37 @@ module Decidim
         toggle_allow(user.admin?)
       end
 
+      def user_can_read_assemblies_setting?
+        return unless permission_action.action == :read &&
+                      permission_action.subject == :assemblies_setting
+
+        toggle_allow(user.admin?)
+      end
+
       # Everyone can read the assembly list
       def user_can_read_assembly_list?
         return unless read_assembly_list_permission_action?
 
         toggle_allow(user.admin? || has_manageable_assemblies?)
+      end
+
+      # Checks whether the user can list the current given assembly or not.
+      #
+      # In case of user being admin of child assembly even parent assembly
+      # should be listed to be able to navigate to child assembly
+      def user_can_list_assembly_list?
+        return unless permission_action.action == :list &&
+                      permission_action.subject == :assembly
+
+        toggle_allow(user.admin? || allowed_list_of_assemblies?)
+      end
+
+      def allowed_list_of_assemblies?
+        assemblies = AssembliesWithUserRole.for(user)
+        parent_assemblies = assemblies.flat_map { |assembly| [assembly.id] + assembly.ancestors.pluck(:id) }
+
+        allowed_list_of_assemblies = Decidim::Assembly.where(id: assemblies + parent_assemblies)
+        allowed_list_of_assemblies.uniq.member?(assembly)
       end
 
       def user_can_read_current_assembly?
@@ -177,6 +222,14 @@ module Decidim
         allow! if permission_action.action == :read || permission_action.action == :preview
       end
 
+      # Valuators can only read the assembly components
+      def valuator_action?
+        return unless can_manage_assembly?(role: :valuator)
+
+        allow! if permission_action.action == :read && permission_action.subject == :component
+        allow! if permission_action.action == :export && permission_action.subject == :component_data
+      end
+
       # Process admins can perform everything *inside* that assembly. They cannot
       # create a assembly or perform actions on assembly groups or other
       # assemblies.
@@ -196,7 +249,9 @@ module Decidim
           :assembly,
           :assembly_user_role,
           :assembly_member,
-          :space_private_user
+          :space_private_user,
+          :export_space,
+          :import
         ].include?(permission_action.subject)
         allow! if is_allowed
       end
@@ -214,7 +269,10 @@ module Decidim
           :assembly,
           :assembly_user_role,
           :assembly_member,
-          :space_private_user
+          :space_private_user,
+          :export_space,
+          :import,
+          :assemblies_setting
         ].include?(permission_action.subject)
         allow! if is_allowed
       end

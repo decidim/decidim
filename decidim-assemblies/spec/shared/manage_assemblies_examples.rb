@@ -152,7 +152,7 @@ shared_examples "manage assemblies" do
       uncheck :assembly_scopes_enabled
 
       expect(page).to have_selector("#assembly_scope_id.disabled")
-      expect(page).to have_selector("#assembly_scope_id .picker-values div input[disabled]", visible: false)
+      expect(page).to have_selector("#assembly_scope_id .picker-values div input[disabled]", visible: :all)
 
       within ".edit_assembly" do
         find("*[type=submit]").click
@@ -163,6 +163,6 @@ shared_examples "manage assemblies" do
   end
 
   it "shows the Assemblies link to manage nested assemblies" do
-    expect(page).to have_link("Assemblies", href: decidim_admin_assemblies.assemblies_path(parent_id: assembly.id))
+    expect(page).to have_link("Assemblies", href: decidim_admin_assemblies.assemblies_path(q: { parent_id_eq: assembly.id }))
   end
 end

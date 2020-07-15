@@ -25,7 +25,7 @@ module Decidim
 
     module MeetingsTypeHelper
       def self.base_scope(component)
-        Meeting.where(component: component)
+        Meeting.visible.where(component: component)
       end
     end
   end

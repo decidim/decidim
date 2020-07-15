@@ -33,6 +33,7 @@ ca:
       decidim/profile_updated_event: Perfil actualitzat
       decidim/promote_to_admin: Promocionada a administradora del grup
       decidim/removed_from_group: Eliminada del grup
+      decidim/resource_endorsed_event: Adhesió a recurs feta
   activerecord:
     attributes:
       decidim/user:
@@ -46,6 +47,9 @@ ca:
       decidim/amendment:
         one: Esmena
         other: Esmenes
+      decidim/endorsement:
+        one: Adhesió
+        other: Adhesions
       decidim/user:
         one: Participant
         other: Participants
@@ -57,6 +61,7 @@ ca:
     'true': 'Sí'
   carrierwave:
     errors:
+      general: Error en processar la imatge
       image_too_big: La imatge és massa gran
   date:
     formats:
@@ -66,11 +71,12 @@ ca:
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
+    accessibility:
+      logo: "Logo oficial de %{organization}"
+      skip_button: Vés al contingut principal
     account:
       data_portability_export:
         file_no_exists: L'arxiu no existeix
-        invalid_token: El token proporcionat no és vàlid.
-        no_token: Token no proporcionat
         notice: La descàrrega de les teves dades està en curs. Rebràs un correu electrònic quan estigui completa.
       delete:
         alert: Aquesta acció no es pot desfer. Si elimines el teu compte, no podràs iniciar sessió.
@@ -90,6 +96,9 @@ ca:
         error: S'ha produït un error en actualitzar el teu compte.
         success: El teu compte s'ha actualitzat correctament.
         success_with_email_confirmation: El teu compte s'ha actualitzat correctament. Rebràs un correu electrònic per confirmar la teva nova adreça de correu electrònic.
+    admin:
+      actions:
+        cancel: Cancel·lar
     admin_log:
       area:
         create: "%{user_name} ha creat l'àrea %{resource_name}"
@@ -133,11 +142,14 @@ ca:
         invite: "%{user_name} ha convidat la participant %{resource_name} amb el rol: %{role}"
         officialize: "%{user_name} ha oficialitzat la participant %{resource_name}"
         remove_from_admin: "%{user_name} ha eliminat a la participant %{resource_name} amb el rol: %{role}"
+        show_email: "%{user_name} ha recuperat el correu de la participant %{resource_name}"
         unofficialize: "%{user_name} ha desoficialitzat la participant %{resource_name}"
       user_group:
         reject: "%{user_name} ha rebutjat la verificació del grup %{resource_name}"
         verify: "%{user_name} ha verificat el grup %{resource_name}"
         verify_via_csv: "%{user_name} ha verificat el grup %{resource_name} a través d'un fitxer CSV"
+    admin_terms_of_use:
+      default_body: "<h2>TERMES D'ÚS PER ADMINS</h2><p>Donem per fet que has rebut l'habitual explicació de l'administrador del sistema local. En general es redueix a aquestes tres coses:</p><ol><li>Respectar la privadesa dels altres.</li><li>Penseu abans de fer clic.</li><li>A un gran poder l'hi correspon gran responsabilitat.</li></ol>"
     amendments:
       accepted:
         error: S'ha produït un error en acceptar l'esmena.
@@ -205,9 +217,6 @@ ca:
       update_draft:
         error: S'ha produït un error en actualitzar l'esborrany de l'esmena.
         success: Esborrany d'esmena actualitzat correctament.
-      visibility_options:
-        all: Les esmenes són visibles per a tothom
-        participants: Les esmenes són visibles únicament per als seus autors
       withdraw:
         error: S'ha produït un error en retirar l'esmena
         success: L'esmena s'ha retirat correctament
@@ -223,19 +232,26 @@ ca:
         documents:
           one: Document
           other: Documents
+      document:
+        download: Descarregar fitxer
       documents:
         related_documents: Documents relacionats
       photos:
         related_photos: Imatges relacionades
     author:
+      avatar: Avatar
       comments:
         one: comentari
         other: comentaris
+      endorsements:
+        one: adhesió
+        other: adhesions
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Verifica't introduint un número de passaport que comenci per "A"
         fields:
           passport_number: Número de passaport
+          postal_code: Codi postal
         name: Una altra autorització d'exemple
       dummy_authorization_handler:
         explanation: Verifica't introduint un número de document que finalitzi amb "X"
@@ -418,6 +434,15 @@ ca:
           this_application_will_not_be_able_to: 'Aquesta aplicació no podrà:'
           update_profile: Actualitza el teu perfil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> vol utilitzar el teu compte"
+    endorsable:
+      endorsements: Adhesions
+    endorsement_buttons_cell:
+      already_endorsed: Adherit
+      endorse: Adherir-se
+    endorsements:
+      identities:
+        done: Fet
+        select_identity: Selecciona identitat
     errors:
       internal_server_error:
         title: Hi ha hagut un problema amb el nostre servidor
@@ -538,6 +563,11 @@ ca:
           notification_title: Has estat eliminada del grup <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
+      resource_endorsed:
+        email_intro: '%{endorser_name} %{endorser_nickname}, a qui segueixes, acaba d''adherir-se a una proposta que et pot resultar interessant, revisa-la i contribueix:'
+        email_outro: Has rebut aquesta notificació perquè estàs seguint a %{endorser_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+        email_subject: "%{endorser_nickname} s'ha adherit a una proposta"
+        notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> s'ha adherit a la proposta <a href="%{resource_path}">%{resource_title}</a>.
       users:
         profile_updated:
           email_intro: La pàgina <a href="%{resource_url}"> de perfil </a> de %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
@@ -546,7 +576,7 @@ ca:
           notification_title: El <a href="%{resource_path}"> perfi l</a> de %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
     export_mailer:
       data_portability_export:
-        click_button: Fes clic al botó següent per descarregar les teves dades. <br/> tindràs disponible el fitxer fins a %{date}.
+        click_button: 'Fes clic al botó següent per descarregar les teves dades. <br/> tindràs disponible el fitxer fins a %{date}. <br/> Et caldrà <a href=''https://www.7-zip.org/''>7-Zip</a> per obrir-lo. Contrasenya: %{password}'
         download: Descarregar
       export:
         ready: S'adjunta una versió comprimida de l'exportació.
@@ -576,6 +606,7 @@ ca:
       create:
         button: Seguir
         error: S'ha produït un error en seguir aquest recurs.
+        participatory_space: Seguint
       destroy:
         button: Deixar de seguir
         error: S'ha produït un error en deixar de seguir aquest recurs.
@@ -592,16 +623,6 @@ ca:
     gamification:
       all_badges_link: Veure totes les insígnies disponibles.
       badges:
-        continuity:
-          conditions:
-            - Ve aquí sovint
-          description: Aquesta insígnia es concedeix al visitar la plataforma de forma regular. Ens encanta tenir-te per aquí!
-          description_another: Aquesta participant s'ha connectat durant %{score} dies consecutius en algun moment.
-          description_own: T'has connectat durant %{score} dies consecutius en algun moment.
-          name: Continuïtat
-          next_level_in: Connecta't durant %{score} dies consecutius per arribar al següent nivell!
-          unearned_another: Aquesta participant no ha iniciat sessió durant més d'un dia consecutiu.
-          unearned_own: No t'has connectat més d'un dia consecutiu.
         followers:
           conditions:
             - Ser activa i seguir a altres persones segurament farà que altres persones et segueixin.
@@ -772,12 +793,14 @@ ca:
         create:
           error: No s'ha iniciat la conversa. Torna-ho a provar més tard
         index:
+          close: Tanca modal
           no_conversations: Encara no tens converses
           title: Converses
         reply:
           send: Enviar
           title: Respon
         show:
+          not_allowed: Aquesta participant no accepta missatges directes.
           title: Conversa amb %{usernames}
         start:
           send: Enviar
@@ -804,6 +827,9 @@ ca:
         note: Has rebut aquest correu electrònic perquè estàs subscrita a butlletins de notícies a %{organization_name}. Pots canviar la configuració a la teva <a href="%{link}">pàgina de notificacions</a>.
         see_on_website: No pots veure correctament aquest correu electrònic? Veu la seva <a href="%{link}" target="_blank"> versió web</a>.
         unsubscribe: Per desactivar la recepció d'aquest tipus de correu electrònic, <a href="%{link}" target="_blank" class="unsubscribe">dona't de baixa</a>.
+    newsletter_templates:
+      image_text_cta_settings_form:
+        body: Cos
     newsletters:
       unsubscribe:
         check_subscription: Si vols canviar les teves preferències, pots fer-ho a la <a href="%{link}" target="_blank">pàgina de configuració</a>
@@ -829,6 +855,8 @@ ca:
       no_notifications: Encara no hi ha notificacions.
     notifications_settings:
       show:
+        allow_public_contact: Permetre que qualsevol participant m'envïi missatges directes, encara que no la segueixi.
+        direct_messages: Rebre missatges directes de qualsevol
         email_on_notification: Vull rebre un correu electrònic cada vegada que rebi una notificació.
         everything_followed: Tot el que segueixo
         newsletter_notifications: Vull rebre butlletins informatius
@@ -870,7 +898,7 @@ ca:
           participate: Participa
           welcome: Benvinguda a %{organization}!
         metrics:
-          headline: Participació en xifres
+          headline: Mètriques
         statistics:
           answers_count: Enquestes realitzades
           assemblies_count: Assemblees
@@ -900,8 +928,8 @@ ca:
         topics: Temes
       participatory_space:
         metrics:
-          headline: Participació en xifres
-          link: Mostra totes les estadístiques
+          headline: Mètriques
+          link: Mostra totes les mètriques
       terms_and_conditions:
         accept:
           error: S'ha produït un error en acceptar els Termes i Condicions.
@@ -968,6 +996,9 @@ ca:
       create:
         error: S'ha produït un error en denunciar el contingut. Si us plau, torna-ho a intentar.
         success: El contingut s'ha denunciat amb èxit i serà revisat per una administradora.
+    resource_endorsements:
+      create:
+        error: S'ha produït un error durant l'acció d'adhesió.
     scopes:
       global: Àmbit global
       picker:
@@ -1033,15 +1064,15 @@ ca:
         select_user_group: Selecciona un grup
       results_per_page:
         label: 'Resultats per pàgina:'
+        title: Seleccionar el nombre de resultats per pàgina
       share_modal:
         close_window: Tanca la finestra
         share: Compartir
         share_link: Compartir l'enllaç
-      version_author:
-        deleted: Participant eliminada
     user_activity:
       index:
         no_activities_warning: Aquesta participant encara no ha tingut cap activitat.
+    user_contact_disabled: Aquesta participant no accepta missatges directes.
     user_interests:
       show:
         my_interests: Els meus interessos
@@ -1051,6 +1082,9 @@ ca:
       update:
         error: S'ha produït un error en actualitzar els teus interessos.
         success: Els teus interessos s'han actualitzat correctament.
+    version_author:
+      show:
+        deleted: Participant eliminada
     welcome_notification:
       default_body: <p>Hola {{name}}, gràcies per unir-te a {{organization}} i benvinguda!</p><ul><li>Si vols fer-te una idea ràpida del que pots fer aquí, fes un cop d'ull a la secció d'<a href="{{help_url}}">Ajuda</a>.</li><li>Un cop l'hagis llegit obtindràs la teva primera insígnia. Aquí tens la <a href="{{badges_url}}">llista</a> de totes les que pots anar aconseguint a mesura que participis a {{organization}}</li><li>Finalment, però no per això menys important, uneix-te a altres persones, comparteix amb elles l'experiència d'implicar-se i participar a {{organization}}. Fes propostes, comenta, debat, pensa en com contribuir al bé comú, aporta arguments per convèncer, escolta i llegeix per convèncer-te, expressa les teves idees de manera concreta i directa, respon amb paciència i decisió, defensa les teves idees i manté la ment oberta a col·laborar i sumar-te a les idees d'altres persones.</li></ul>
       default_subject: Gràcies per unir-te a {{organization}}!
@@ -1212,6 +1246,7 @@ ca:
       cycle_detected: un dels pares de l'àmbit no pot ser un dels seus descendents
       expired: ha caducat, si us plau, sol·licita'n un de nou
       file_size_is_less_than_or_equal_to: la mida del fitxer ha de ser menor que o igual a %{count}
+      invalid_time_zone: no és una zona horària vàlida
       long_words: conté paraules massa llargues (més de 35 caràcters)
       must_start_with_caps: ha de començar amb una lletra majúscula
       nesting_too_deep: no pot estar dins d'una subcategoria
@@ -1317,6 +1352,7 @@ ca:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%B %d, %Y %H:%M"
+      long_dashed: "%A-%m-%d %H:%M:%S"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
@@ -1324,13 +1360,21 @@ ca:
       left: Esborrats
       right: Addicions
     dropdown:
+      choose_diff_view_html: 'Vista HTML:'
       choose_diff_view_mode: 'Mode de vista de comparació:'
+      option_escaped: Escapada
       option_split: Costat per costat
+      option_unescaped: No escapada
       option_unified: Unificat
   views:
     pagination:
       first: "&laquo; Primera"
+      first_title: Enllaç a la primera pàgina
       last: Última &raquo;
+      last_title: Enllaç a la darrera pàgina
       next: Següent &rsaquo;
+      next_title: Enllaç a la pàgina següent
       previous: "&lsaquo; Anterior"
+      previous_title: Enllaç a la pàgina anterior
+      title: 'Número de pàgina: '
       truncate: "&hellip;"

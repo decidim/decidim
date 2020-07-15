@@ -24,6 +24,8 @@ module Decidim
     attribute :route_name, String
 
     attribute :query_type, String, default: "Decidim::Core::ParticipatorySpaceType"
+    attribute :query_finder, String, default: "Decidim::Core::ParticipatorySpaceFinder"
+    attribute :query_list, String, default: "Decidim::Core::ParticipatorySpaceList"
 
     # An array with the name of the classes that will be exported with
     # the data portability feature for this component. For example, `Decidim::<MyModule>::<MyClass>``
@@ -44,6 +46,10 @@ module Decidim
     # mix this engine's stylesheets with the main app's stylesheets so it can
     # use the scss variables and mixins provided by Decidim::Core.
     attribute :stylesheet, String, default: nil
+
+    # A callback that will be executed when an account is destroyed.
+    # The Proc will receive the `user` that's being destroyed.
+    attribute :on_destroy_account, Proc, default: nil
 
     validates :name, presence: true
 
@@ -113,6 +119,24 @@ module Decidim
       permissions_class_name&.constantize
     end
 
+    # Public: Stores an instance of StatsRegistry
+    def stats
+      @stats ||= StatsRegistry.new
+    end
+
+    # Public: Registers a stat inside a participatory_space manifest.
+    #
+    # name - The name of the stat
+    # options - A hash of options
+    #         * primary: Whether the stat is primary or not.
+    #         * priority: The priority of the stat used for render issues.
+    # block - A block that receive the components to filter out the stat.
+    #
+    # Returns nothing.
+    def register_stat(name, options = {}, &block)
+      stats.register(name, options, &block)
+    end
+
     # Public: Registers a resource. Exposes a DSL defined by
     # `Decidim::ResourceManifest`.
     #
@@ -157,6 +181,17 @@ module Decidim
           block.call(manifest)
         end
       end
+    end
+
+    # The block is a callback that will be invoked with the destroyed `user` as argument.
+    def register_on_destroy_account(&block)
+      @on_destroy_account = block
+    end
+
+    def invoke_on_destroy_account(user)
+      return unless @on_destroy_account
+
+      @on_destroy_account.call(user)
     end
   end
 end

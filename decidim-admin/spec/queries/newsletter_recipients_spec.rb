@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Admin
   describe NewsletterRecipients do
-    subject { described_class.new(newsletter, form) }
+    subject { described_class.new(form) }
 
     let(:newsletter) { create :newsletter }
     let(:send_to_all_users) { true }

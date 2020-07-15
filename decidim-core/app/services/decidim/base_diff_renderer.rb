@@ -5,6 +5,8 @@ module Decidim
   # It is supposed to be a base class for all other diff renderers,
   # as it defines some helpful methods that later diff renderers can use.
   class BaseDiffRenderer
+    include TranslatableAttributes
+
     def initialize(version)
       @version = version
     end
@@ -30,10 +32,12 @@ module Decidim
 
     attr_reader :version
 
-    # Lists which attributes will be diffable and how they should be rendered.
-    # It is supposed to be overwritten by sub classes.
+    # Private: Lists which attributes will be diffable and how they should be rendered.
+    # This method must be overwritten by sub classes.
+    #
+    # Returns Hash.
     def attribute_types
-      {}
+      raise StandardError, "Not implemented"
     end
 
     def parse_i18n_changeset(attribute, values, type, diff)
@@ -55,8 +59,43 @@ module Decidim
       diff
     end
 
+    def parse_user_group_changeset(attribute, values, type, diff)
+      return unless diff
+
+      old_user_group = Decidim::UserGroup.find_by(id: values[0])
+      new_user_group = Decidim::UserGroup.find_by(id: values[1])
+
+      diff.update(
+        attribute => {
+          type: type,
+          label: I18n.t(attribute, scope: i18n_scope),
+          old_value: old_user_group ? translated_attribute(old_user_group.name) : "",
+          new_value: new_user_group ? translated_attribute(new_user_group.name) : ""
+        }
+      )
+    end
+
+    def parse_scope_changeset(attribute, values, type, diff)
+      return unless diff
+
+      old_scope = Decidim::Scope.find_by(id: values[0])
+      new_scope = Decidim::Scope.find_by(id: values[1])
+
+      diff.update(
+        attribute => {
+          type: type,
+          label: I18n.t(attribute, scope: i18n_scope),
+          old_value: old_scope ? translated_attribute(old_scope.name) : "",
+          new_value: new_scope ? translated_attribute(new_scope.name) : ""
+        }
+      )
+    end
+
     def parse_changeset(attribute, values, type, diff)
       return parse_i18n_changeset(attribute, values, type, diff) if [:i18n, :i18n_html].include?(type)
+
+      return parse_scope_changeset(attribute, values, type, diff) if type == :scope
+      return parse_user_group_changeset(attribute, values, type, diff) if type == :user_group
 
       diff.update(
         attribute => {

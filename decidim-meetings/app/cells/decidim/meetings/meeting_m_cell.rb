@@ -7,16 +7,24 @@ module Decidim
     class MeetingMCell < Decidim::CardMCell
       include MeetingCellsHelper
 
+      def has_authors?
+        true
+      end
+
+      def render_authorship
+        cell "decidim/author", author_presenter_for(model.normalized_author)
+      end
+
       def date
         render
       end
 
       def address
-        render
+        decidim_html_escape(render)
       end
 
       def title
-        present(model).title
+        decidim_html_escape(present(model).title)
       end
 
       private

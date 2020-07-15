@@ -76,7 +76,8 @@ const UpVoteButtonWithMutation = graphql<UpVoteMutation, UpVoteButtonProps>(upVo
         const variables = {
           commentableId: ownProps.rootCommentable.id,
           commentableType: ownProps.rootCommentable.type,
-          orderBy: ownProps.orderBy
+          orderBy: ownProps.orderBy,
+          singleCommentId: null
         };
 
         const commentReducer = (comment: CommentFragment): CommentFragment => {

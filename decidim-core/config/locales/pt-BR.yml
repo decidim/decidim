@@ -1,4 +1,4 @@
-pt-BR:
+pt:
   activemodel:
     attributes:
       account:
@@ -61,8 +61,6 @@ pt-BR:
     account:
       data_portability_export:
         file_no_exists: O arquivo não existe
-        invalid_token: O token fornecido é inválido.
-        no_token: Nenhum token fornecido
         notice: Seus dados estão atualmente em andamento. Você receberá um e-mail quando estiver concluído.
       delete:
         alert: Esta ação não poderá ser desfeita. Se cancelar a sua conta não poderá voltar a fazer login.
@@ -82,6 +80,9 @@ pt-BR:
         error: Ocorreu um erro ao actualizar a sua conta.
         success: A sua conta foi actualizada com sucesso.
         success_with_email_confirmation: A sua conta foi actualizada com sucesso. Irá receber um e-mail de confirmação do seu novo endereço.
+    admin:
+      actions:
+        cancel: Cancelar
     admin_log:
       area:
         create: "%{user_name} criou a área %{resource_name}"
@@ -196,6 +197,7 @@ pt-BR:
         explanation: Seja verificado introduzindo um número de passaporte começando com "A"
         fields:
           passport_number: Número de passaporte
+          postal_code: Código postal
         name: Outro exemplo de autorização
       dummy_authorization_handler:
         explanation: Seja verificado através da introdução de um número de documento que termina com "X"
@@ -368,6 +370,8 @@ pt-BR:
           this_application_will_not_be_able_to: 'Esta aplicação não poderá:'
           update_profile: atualize seu perfil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> quer usar sua conta"
+    endorsable:
+      endorsements: Avais
     errors:
       internal_server_error:
         title: Houve um problema com o nosso servidor
@@ -496,7 +500,7 @@ pt-BR:
           notification_title: O <a href="%{resource_path}">profile page</a> de %{name} (%{nickname}), quem você está seguindo, foi atualizado.
     export_mailer:
       data_portability_export:
-        click_button: Clique no botão seguinte para baixar seus dados. <br/> Você terá o arquivo disponível até %{date}.
+        click_button: 'Clique no botão seguinte para baixar seus dados. <br/> Você terá o arquivo disponível até %{date}.'
         download: Download
       export:
         ready: Encontre em anexo uma versão com zíper da sua exportação.
@@ -539,16 +543,6 @@ pt-BR:
     gamification:
       all_badges_link: Veja todos os emblemas disponíveis.
       badges:
-        continuity:
-          conditions:
-            - Vem aqui com frequência
-          description: Esse selo é concedido quando você visita a plataforma regularmente. Nós gostamos de ter você por aqui!
-          description_another: Este usuário se conectou por %{score} dias consecutivos em algum momento.
-          description_own: Você se conectou por %{score} dias consecutivos em algum momento.
-          name: Continue
-          next_level_in: Conecte-se para %{score} dias consecutivos para chegar ao próximo nível!
-          unearned_another: Este usuário não fez login por mais de um dia consecutivo.
-          unearned_own: Você não se conectou por mais de um dia consecutivo.
         followers:
           conditions:
             - Ser ativo e seguir outras pessoas certamente fará com que outras pessoas o sigam.
@@ -719,6 +713,7 @@ pt-BR:
         create:
           error: Conversa não iniciada. Tente mais tarde
         index:
+          close: Fechar modal
           no_conversations: Ainda não há conversas
           title: Conversas
         reply:
@@ -971,7 +966,6 @@ pt-BR:
         sign_up: Inscrever-se
       participatory_space_filters:
         filters:
-          areas: Areas
           select_an_area: Selecione uma área
       reference:
         reference: 'Referência: %{reference}'
@@ -984,8 +978,6 @@ pt-BR:
         close_window: Fechar janela
         share: Compartilhar
         share_link: Partilhar link
-      version_author:
-        deleted: Usuário excluído
     user_activity:
       index:
         no_activities_warning: Este usuário ainda não possui nenhuma atividade.
@@ -998,6 +990,9 @@ pt-BR:
       update:
         error: Ocorreu um erro ao atualizar seus interesses.
         success: Seus interesses foram atualizados com sucesso.
+    version_author:
+      show:
+        deleted: Usuário excluído
     welcome_notification:
       default_body: <p>Olá {{name}}, obrigado por se juntar a {{organization}} e seja bem-vindo!</p><ul><li>Se você quiser ter uma idéia rápida do que pode fazer aqui, dê uma olhada na seção <a href="{{help_url}}">Ajuda</a> .</li><li>Depois de ler, você receberá seu primeiro crachá. Aqui está uma <a href="{{badges_url}}">lista de todos os crachás</a> você pode começar como você participar de {{organization}}</li><li>Por último, mas não menos importante, se juntar a outras pessoas, compartilhar com eles a experiência de ser envolvido e participando de {{organization}}. Faça propostas, comentários, debata, pense em como contribuir para o bem comum, forneça argumentos para convencer, escute e leia para ser convencido, expresse suas idéias de maneira concreta e direta, responda com paciência e decisão, defenda suas ideias e mantenha uma mente aberta para colaborar e juntar-se às ideias de outras pessoas.</li></ul>
       default_subject: Obrigado por se juntar a {{organization}}!

@@ -16,40 +16,33 @@ module Decidim
     def export
       enforce_permission_to :export, :user, current_user: current_user
 
-      DataPortabilityExportJob.perform_later(current_user, export_format)
+      DataPortabilityExportJob.perform_later(current_user)
 
       flash[:notice] = t("decidim.account.data_portability_export.notice")
-
       redirect_back(fallback_location: data_portability_path)
     end
 
     def download_file
       enforce_permission_to :download, :user, current_user: current_user
 
-      if params[:token].present?
-        file_reader = Decidim::DataPortabilityFileReader.new(current_user, params[:token])
-        if file_reader.valid_token?
-          file = File.open(file_reader.file_path)
-          if File.exist?(file)
-            send_file file, type: "application/zip", disposition: "attachment"
-          else
-            flash[:error] = t("decidim.account.data_portability_export.file_no_exists")
-            redirect_to data_portability_path
-          end
-        else
-          flash[:error] = t("decidim.account.data_portability_export.invalid_token")
-          redirect_to data_portability_path
-        end
+      if data_portability_file_exists?
+        redirect_to uploader.url
       else
-        flash[:error] = t("decidim.account.data_portability_export.no_token")
+        flash[:error] = t("decidim.account.data_portability_export.file_no_exists")
         redirect_to data_portability_path
       end
     end
 
     private
 
-    def export_format
-      "CSV"
+    def data_portability_file_exists?
+      uploader.file.exists?
+    rescue StandardError
+      false
+    end
+
+    def uploader
+      current_user.data_portability_file(params[:filename])
     end
   end
 end

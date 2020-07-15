@@ -5,19 +5,32 @@ require "decidim/api/test/type_context"
 require "decidim/core/test/shared_examples/categorizable_interface_examples"
 require "decidim/core/test/shared_examples/scopable_interface_examples"
 require "decidim/core/test/shared_examples/attachable_interface_examples"
+require "decidim/core/test/shared_examples/authorable_interface_examples"
 require "decidim/core/test/shared_examples/coauthorable_interface_examples"
+require "decidim/core/test/shared_examples/fingerprintable_interface_examples"
+require "decidim/core/test/shared_examples/amendable_interface_examples"
+require "decidim/core/test/shared_examples/amendable_proposals_interface_examples"
+require "decidim/core/test/shared_examples/traceable_interface_examples"
+require "decidim/core/test/shared_examples/timestamps_interface_examples"
+require "decidim/core/test/shared_examples/endorsable_interface_examples"
 
 module Decidim
   module Proposals
     describe ProposalType, type: :graphql do
       include_context "with a graphql type"
       let(:component) { create(:proposal_component) }
-      let(:model) { create(:proposal, :with_votes, :with_endorsements, component: component) }
+      let(:model) { create(:proposal, :with_votes, :with_endorsements, :with_amendments, component: component) }
 
       include_examples "categorizable interface"
       include_examples "scopable interface"
       include_examples "attachable interface"
       include_examples "coauthorable interface"
+      include_examples "fingerprintable interface"
+      include_examples "amendable interface"
+      include_examples "amendable proposals interface"
+      include_examples "traceable interface"
+      include_examples "timestamps interface"
+      include_examples "endorsable interface"
 
       describe "id" do
         let(:query) { "{ id }" }
@@ -45,23 +58,6 @@ module Decidim
         end
       end
 
-      describe "endorsementsCount" do
-        let(:query) { "{ endorsementsCount }" }
-
-        it "returns the amount of endorsements for this proposal" do
-          expect(response["endorsementsCount"]).to eq(model.endorsements.count)
-        end
-      end
-
-      describe "endorsements" do
-        let(:query) { "{ endorsements { name } }" }
-
-        it "returns the endorsements this proposal has received" do
-          endorsement_names = response["endorsements"].map { |endorsement| endorsement["name"] }
-          expect(endorsement_names).to include(*model.endorsements.map(&:author).map(&:name))
-        end
-      end
-
       describe "body" do
         let(:query) { "{ body }" }
 
@@ -78,6 +74,30 @@ module Decidim
         end
       end
 
+      context "when is answered" do
+        before do
+          model.answer = { en: "Some answer" }
+          model.answered_at = Time.current
+          model.save!
+        end
+
+        describe "answer" do
+          let(:query) { '{ answer { translation(locale:"en") } }' }
+
+          it "returns the proposal's answer" do
+            expect(response["answer"]["translation"]).to eq(model.answer["en"])
+          end
+        end
+
+        describe "answeredAt" do
+          let(:query) { "{ answeredAt }" }
+
+          it "returns when was this query answered at" do
+            expect(response["answeredAt"]).to eq(model.answered_at.to_time.iso8601)
+          end
+        end
+      end
+
       describe "publishedAt" do
         let(:query) { "{ publishedAt }" }
 
@@ -91,6 +111,56 @@ module Decidim
 
         it "returns the address of this proposal" do
           expect(response["address"]).to eq(model.address)
+        end
+      end
+
+      describe "coordinates" do
+        let(:query) { "{ coordinates { latitude longitude } }" }
+
+        before do
+          model.latitude = 2
+          model.longitude = 40
+          model.save!
+        end
+
+        it "returns the meeting's address" do
+          expect(response["coordinates"]).to include(
+            "latitude" => model.latitude,
+            "longitude" => model.longitude
+          )
+        end
+      end
+
+      describe "participatory_text_level" do
+        let(:query) { "{ participatoryTextLevel }" }
+
+        it "returns the participatory_text_level of this proposal" do
+          expect(response["participatoryTextLevel"]).to eq(model.participatory_text_level)
+        end
+      end
+
+      describe "position" do
+        let(:query) { "{ position }" }
+
+        it "returns the position of this proposal" do
+          expect(response["position"]).to eq(model.position)
+        end
+      end
+
+      describe "created_in_meeting" do
+        let(:query) { "{ createdInMeeting }" }
+
+        it "returns the created_in_meeting of this proposal" do
+          expect(response["createdInMeeting"]).to eq(model.created_in_meeting)
+        end
+      end
+
+      describe "meeting" do
+        let(:query) { '{ meeting { title { translation(locale:"en") } } }' }
+        let(:model) { create(:proposal, :official_meeting, component: component) }
+
+        it "returns the meeting of this proposal" do
+          expect(response["meeting"]["title"]["translation"]).to eq(model.authors.first.title["en"])
         end
       end
     end

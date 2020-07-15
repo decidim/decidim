@@ -40,8 +40,12 @@ module Decidim
       # `export.collection.call(artifact_type)` and, when evaluated,
       # will get passed an instance of the parent artifact type,
       # `Decidim::ParticipatorySpace` or `Decidim::Component` for example,
-      # so you can easily find the elements to export. The +collection block+
-      # in the end should return the collection of elements to be serialized.
+      # so you can easily find the elements to export.  It also receives, as a
+      # second parameter, the user triggering the action, in case you need to
+      # filter the collection based on the user.
+      #
+      # The +collection block+ in the end should return the collection of
+      # elements to be serialized.
       #
       # &block - An optional block that returns the collection once evaluated.
       #
@@ -66,6 +70,35 @@ module Decidim
       # `Decidim::Exporters::Serializer` as a default implementation.
       def serializer(serializer = nil)
         @serializer ||= serializer || Decidim::Exporters::Serializer
+      end
+
+      DEFAULT_FORMATS = %w(CSV JSON Excel).freeze
+
+      # Public: Sets the available formats if an argument is provided and
+      # loads the required exporters, returns the array with the default available
+      # formats otherwise.
+      #
+      # The formats array is used to define which exporters are available
+      # in the component. Each member of the array is a string with the name
+      # of the exporter class that will instantiated when needed.
+      #
+      # formats - The array containing the available formats.
+      #
+      # Returns the stored formats if previously stored, or
+      # the default formats array.
+      def formats(formats = nil)
+        load_exporters(formats)
+        @formats ||= formats || DEFAULT_FORMATS
+      end
+
+      private
+
+      # Private: Loads the given exporters when formats argument is provided.
+      #
+      # formats - The array containing the formats for which to load exporters.
+      #
+      def load_exporters(formats)
+        formats&.each { |f| require "decidim/exporters/#{f.underscore}" }
       end
     end
   end

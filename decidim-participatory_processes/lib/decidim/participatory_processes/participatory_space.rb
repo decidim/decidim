@@ -9,6 +9,8 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
   end
 
   participatory_space.query_type = "Decidim::ParticipatoryProcesses::ParticipatoryProcessType"
+  participatory_space.query_finder = "Decidim::ParticipatoryProcesses::ParticipatoryProcessFinder"
+  participatory_space.query_list = "Decidim::ParticipatoryProcesses::ParticipatoryProcessList"
 
   participatory_space.permissions_class_name = "Decidim::ParticipatoryProcesses::Permissions"
 
@@ -21,6 +23,10 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
   participatory_space.register_resource(:participatory_process_group) do |resource|
     resource.model_class_name = "Decidim::ParticipatoryProcessGroup"
     resource.card = "decidim/participatory_processes/process_group"
+  end
+
+  participatory_space.register_stat :followers_count, tag: :followers, priority: Decidim::StatsRegistry::LOW_PRIORITY do |spaces, _start_at, _end_at|
+    Decidim::Follow.where(followable: spaces).count
   end
 
   participatory_space.context(:public) do |context|
@@ -42,6 +48,10 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
     export.serializer Decidim::ParticipatoryProcesses::ParticipatoryProcessSerializer
   end
 
+  participatory_space.register_on_destroy_account do |user|
+    Decidim::ParticipatoryProcessUserRole.where(user: user).destroy_all
+  end
+
   participatory_space.seeds do
     organization = Decidim::Organization.first
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
@@ -49,7 +59,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
     Decidim::ContentBlock.create(
       organization: organization,
       weight: 31,
-      scope: :homepage,
+      scope_name: :homepage,
       manifest_name: :highlighted_processes,
       published_at: Time.current
     )

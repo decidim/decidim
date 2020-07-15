@@ -2,7 +2,7 @@ fi:
   activemodel:
     attributes:
       project:
-        budget: Määräraha
+        budget: Budjetti
         decidim_category_id: Aihepiiri
         decidim_scope_id: Teema
         description: Kuvaus
@@ -21,7 +21,7 @@ fi:
         confirm_destroy: Haluatko varmasti poistaa tämän suunnitelman?
         destroy: Poista
         edit: Muokkaa
-        import: Tuo ehdotuksia suunnitelmiin
+        import: Tuo ehdotuksia suunnitelmiksi
         new: Uusi suunnitelma
         preview: Esikatsele
         title: Toiminnot
@@ -32,9 +32,9 @@ fi:
         projects:
           create:
             invalid: Suunnitelman luonti epäonnistui
-            success: Suunnitelma lisätty onnistuneesti
+            success: Suunnitelman lisäys onnistui
           destroy:
-            success: Suunnitelma poistettu onnistuneesti
+            success: Suunnitelman poisto onnistui
           edit:
             title: Muokkaa suunnitelmaa
             update: Päivitä
@@ -47,24 +47,30 @@ fi:
             title: Uusi suunnitelma
           update:
             invalid: Suunnitelman päivitys epäonnistui
-            success: Suunnitelma päivitetty onnistuneesti
+            success: Suunnitelman päivitys onnistui
         proposals_imports:
           create:
             invalid: Ehdotusten tuonti suunnitelmiksi epäonnistui
-            success: "%{number} ehdotusta tuotu onnistuneesti suunnitelmiin"
+            success: "%{number} ehdotusta tuotu onnistuneesti suunnitelmiksi"
           new:
-            create: Tuo ehdotuksia suunnitelmiin
-            no_components: Tässä osallisuustilassa ei ole ole muita ehdotuskomponentteja, joista voitaisiin tuoda ehdotuksia suunnitelmiin.
+            create: Tuo ehdotuksia suunnitelmiksi
+            no_components: Tässä osallistumistilassa ei ole ole muita ehdotuskomponentteja, joista voitaisiin tuoda ehdotuksia suunnitelmiksi.
             select_component: Valitse komponentti
       admin_log:
         project:
-          create: "%{user_name} loi %{resource_name} -suunnitelman %{space_name} -tilassa"
-          delete: "%{user_name} poisti %{resource_name} -suunnitelman %{space_name} -tilassa"
-          update: "%{user_name} päivitti %{resource_name} -suunnitelman %{space_name} -tilassa"
+          create: "%{user_name} loi suunnitelman %{resource_name} osallistumistilassa %{space_name}"
+          delete: "%{user_name} poisti suunnitelman %{resource_name} osallistumistilassa %{space_name}"
+          update: "%{user_name} päivitti suunnitelman %{resource_name} osallistumistilassa %{space_name}"
       models:
         project:
           fields:
             title: Otsikko
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'Hankkeet, jotka olet valinnut:'
+          subject: Olet äänestänyt osallistumistilassa %{space_name}
+          voted_on_space: Olet äänestänyt budjetista osallistumistilassa %{space_name}.
+          voted_on_space_with_scope: Olet äänestänyt budjeteista osallistumistilassa %{space_name} koskien teemaa %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Oletko samaa mieltä? Kun olet vahvistanut äänesi, et voi enää muuttaa sitä.
@@ -85,6 +91,7 @@ fi:
             description: Olet jo äänestänyt tätä budjettia. Jos muutit mieltäsi, %{cancel_link}.
             title: Budjetin äänestys suoritettu
           description: Mitä suunnitelmia varten sinun mielestäsi budjettia tulisi varata? Varaa vähintään %{minimum_budget} suunnitelmille, jotka haluat toteutettavan ja äänestä mieltymystesi mukaisesti määrittääksesi budjetin.
+          description_minimum_projects_rule: Mille hankkeille budjetin rahaa tulisi jakaa? Valitse vähintään %{minimum_number} toivomaasi hanketta ja äänestä haluamallasi tavalla vaikuttaaksesi budjetin jakautumiseen.
           title: Voit päättää budjetin
         count:
           projects_count:
@@ -92,7 +99,7 @@ fi:
             other: "%{count} suunnitelmaa"
         filters:
           category: Aihepiiri
-          category_prompt: Valitse aihepiiri
+          scope: Teema
           search: Haku
         filters_small_view:
           close_modal: Sulje ikkuna
@@ -105,8 +112,14 @@ fi:
           remove: Poista
           selected_projects:
             one: suunnitelma valittu
-            other: projektia valittu
+            other: suunnitelmaa valittu
           view: Näytä
+        orders:
+          highest_cost: Kallein ensin
+          label: Järjestä suunnitelmat
+          lowest_cost: Edullisin ensin
+          most_voted: Eniten ääniä saaneet ensin
+          random: Satunnainen järjestys
         project:
           add: Lisää
           count:
@@ -129,9 +142,16 @@ fi:
           global:
             announcement: Ilmoitus
             comments_enabled: Kommentit ovat käytössä
+            form:
+              errors:
+                budget_voting_rule_only_one: Voit valita ainoastaan yhden äänestyssäännön
+                budget_voting_rule_required: Yksi äänestyssääntö vaaditaan
             projects_per_page: Suunnitelmat sivua kohden
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle suunnitelmalle
             total_budget: Kokonaisbudjetti
+            vote_minimum_budget_projects_number: Valittavien projektien vähimmäismäärä
+            vote_rule_minimum_budget_projects_enabled: 'Ota sääntö käyttöön: Valittavien projektien vähimmäismäärä'
+            vote_rule_threshold_percent_enabled: 'Ota sääntö käyttöön: Kokonaisbudjetin prosentuaalinen vähimmäismäärä'
             vote_threshold_percent: Äänestyksen kynnysprosentti
           step:
             announcement: Ilmoitus

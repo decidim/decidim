@@ -11,8 +11,8 @@ FactoryBot.define do
     participatory_space { create(:participatory_process, :with_steps) }
   end
 
-  factory :survey, class: Decidim::Surveys::Survey do
-    questionnaire { build(:questionnaire) }
+  factory :survey, class: "Decidim::Surveys::Survey" do
+    questionnaire { build(:questionnaire, :with_questions) }
     component { build(:surveys_component) }
   end
 end

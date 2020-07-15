@@ -61,8 +61,6 @@ gl:
     account:
       data_portability_export:
         file_no_exists: O ficheiro non existe
-        invalid_token: O token fornecido non é válido.
-        no_token: Sen token fornecido
         notice: Os teus datos están en progreso. Recibirás un correo electrónico cando finalice.
       delete:
         alert: Non se pode desfacer esta acción. Se eliminas a túa conta non poderás iniciar sesión.
@@ -82,6 +80,9 @@ gl:
         error: Produciuse un erro ao actualizar a túa conta.
         success: A túa conta foi actualizada correctamente.
         success_with_email_confirmation: A túa conta foi actualizada correctamente. Recibirá un correo electrónico para confirmar o seu novo enderezo de correo electrónico.
+    admin:
+      actions:
+        cancel: Cancelar
     admin_log:
       area:
         create: "%{user_name} creou a área %{resource_name}"
@@ -196,6 +197,7 @@ gl:
         explanation: Verifique a introdución dun número de pasaporte que comeza con "A"
         fields:
           passport_number: Número de pasaporte
+          postal_code: Código postal
         name: Outra autorización de exemplo
       dummy_authorization_handler:
         explanation: Verifique a introdución dun número de documento que acabe con "X"
@@ -368,6 +370,8 @@ gl:
           this_application_will_not_be_able_to: 'Esta aplicación non poderá:'
           update_profile: Actualiza o teu perfil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> quere usar a túa conta"
+    endorsable:
+      endorsements: Aprobacións
     errors:
       internal_server_error:
         title: Produciuse un problema co noso servidor
@@ -496,7 +500,7 @@ gl:
           notification_title: O <a href="%{resource_path}">profile páxina</a> de %{name} (%{nickname}), quen está a seguir, foi actualizado.
     export_mailer:
       data_portability_export:
-        click_button: Fai clic no seguinte botón para descargar os teus datos. <br/> Terá o ficheiro dispoñible ata o %{date}.
+        click_button: 'Fai clic no seguinte botón para descargar os teus datos. <br/> Terá o ficheiro dispoñible ata o %{date}.'
         download: Descarga
       export:
         ready: Atopa unha versión comprimida da túa exportación.
@@ -539,16 +543,6 @@ gl:
     gamification:
       all_badges_link: Consulta todas as insignias dispoñibles.
       badges:
-        continuity:
-          conditions:
-            - Veña aquí a miúdo
-          description: Este distintivo concedeuse cando visitas a plataforma dun xeito regular. Gústanos de telo por aquí.
-          description_another: Este usuario conectouse por %{score} días consecutivos nalgún momento.
-          description_own: Conectado por %{score} días consecutivos nalgún momento.
-          name: Continuidade
-          next_level_in: Conéctese por %{score} días consecutivos para chegar ao seguinte nivel.
-          unearned_another: Este usuario non iniciou sesión máis de un día consecutivo.
-          unearned_own: Non estás conectado por máis dun día consecutivo.
         followers:
           conditions:
             - Ser activo e seguir a outras persoas seguramente fará que outras persoas sigan contigo.
@@ -719,6 +713,7 @@ gl:
         create:
           error: Non se iniciou a conversa. Téntao de novo máis tarde
         index:
+          close: Pechar modal
           no_conversations: Aínda non tes conversas
           title: Conversas
         reply:
@@ -984,8 +979,6 @@ gl:
         close_window: Pechar ventá
         share: Comparte
         share_link: Compartir a ligazón
-      version_author:
-        deleted: Usuario eliminado
     user_activity:
       index:
         no_activities_warning: Este usuario aínda non tivo ningunha actividade.
@@ -998,6 +991,9 @@ gl:
       update:
         error: Produciuse un erro ao actualizar os teus intereses.
         success: Os teus intereses foron actualizados correctamente.
+    version_author:
+      show:
+        deleted: Usuario eliminado
     welcome_notification:
       default_body: <p>Hola {{name}}, grazas por unirte a {{organization}} e benvido!</p><ul><li>Se queres ter unha idea rápida do que podes facer aquí, consulta a sección de <a href="{{help_url}}">Axuda</a> .</li><li>Unha vez que o liches, obterás a túa primeira insignia. Aquí tes unha lista de <a href="{{badges_url}}">de todas as insignias</a> que podes obter a medida que participas en {{organization}}</li><li>último pero non menos importante, únete a outras persoas, comparte con eles a experiencia de participar e participar do {{organization}}. Facer propostas, comentarios, debater, pensar como contribuír ao ben común, proporcionar argumentos para convencer, escoitar e ler para convencerse, expresar as túas ideas dun xeito concreto e directo, responder con paciencia e decisión, defender as túas ideas e manter unha mente aberta para colaborar e unirse ás ideas doutras persoas.</li></ul>
       default_subject: Grazas por unirte a {{organization}}!

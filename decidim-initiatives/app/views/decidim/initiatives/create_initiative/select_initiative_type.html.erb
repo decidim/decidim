@@ -1,7 +1,7 @@
 <% default_type = available_initiative_types.first %>
 <% content_for :back_link do %>
   <%= link_to initiatives_path do %>
-    <%= icon "chevron-left", class: "icon--small" %>
+    <%= icon "chevron-left", class: "icon--small", aria_label: t(".back"),  role: "img" %>
     <%= t(".back") %>
   <% end %>
 <% end %>
@@ -22,7 +22,6 @@
             <% initiative_types_each do |type| %>
               <li class="tabs-title <%= "is-active" if type == default_type %>">
                 <%= link_to "#initiativeType#{type.id}" do %>
-                  <%# Quiero crear un <strong><%= translated_attribute type.title %1></strong> %>
                   <%= t(".choose_html", title: translated_attribute(type.title)) %>
                 <% end %>
               </li>

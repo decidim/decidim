@@ -14,11 +14,12 @@ module Decidim
       routes do
         resources :statuses
         resources :results, except: [:show] do
+          get :proposals_picker, on: :collection
+
           resources :timeline_entries, except: [:show]
-          collection do
-            get :proposals
-          end
         end
+        get :import_results, to: "import_results#new"
+        post :import_results, to: "import_results#create"
         root to: "results#index"
       end
 

@@ -8,7 +8,9 @@ module Decidim
       # Controller used to manage the initiatives
       class InitiativesController < Decidim::Initiatives::Admin::ApplicationController
         include Decidim::Initiatives::NeedsInitiative
+        include Decidim::Initiatives::SingleInitiativeType
         include Decidim::Initiatives::TypeSelectorOptions
+        include Decidim::Initiatives::Admin::Filterable
 
         helper Decidim::Initiatives::InitiativeHelper
         helper Decidim::Initiatives::CreateInitiativeHelper
@@ -16,18 +18,7 @@ module Decidim
         # GET /admin/initiatives
         def index
           enforce_permission_to :list, :initiative
-
-          @query = params[:q]
-          @state = params[:state]
-          @initiatives = ManageableInitiatives
-                         .for(
-                           current_organization,
-                           current_user,
-                           @query,
-                           @state
-                         )
-                         .page(params[:page])
-                         .per(15)
+          @initiatives = filtered_collection
         end
 
         # GET /admin/initiatives/:id
@@ -38,11 +29,14 @@ module Decidim
         # GET /admin/initiatives/:id/edit
         def edit
           enforce_permission_to :edit, :initiative, initiative: current_initiative
+
+          form_attachment_model = form(AttachmentForm).from_model(current_initiative.attachments.first)
           @form = form(Decidim::Initiatives::Admin::InitiativeForm)
                   .from_model(
                     current_initiative,
                     initiative: current_initiative
                   )
+          @form.attachment = form_attachment_model
 
           render layout: "decidim/admin/initiative"
         end
@@ -117,7 +111,7 @@ module Decidim
 
           SendInitiativeToTechnicalValidation.call(current_initiative, current_user) do
             on(:ok) do
-              redirect_to edit_initiative_path(current_initiative), flash: {
+              redirect_to EngineRouter.main_proxy(current_initiative).initiatives_path(initiative_slug: nil), flash: {
                 notice: I18n.t(
                   "success",
                   scope: %w(decidim initiatives admin initiatives edit)
@@ -125,6 +119,17 @@ module Decidim
               }
             end
           end
+        end
+
+        # GET /admin/initiatives/export
+        def export
+          enforce_permission_to :export, :initiatives
+
+          Decidim::Initiatives::ExportInitiativesJob.perform_later(current_user, params[:format] || default_format)
+
+          flash[:notice] = t("decidim.admin.exports.notice")
+
+          redirect_back(fallback_location: initiatives_path)
         end
 
         # GET /admin/initiatives/:id/export_votes
@@ -165,8 +170,16 @@ module Decidim
 
         private
 
+        def collection
+          @collection ||= ManageableInitiatives.for(current_user)
+        end
+
         def pdf_signature_service
           @pdf_signature_service ||= Decidim.pdf_signature_service.to_s.safe_constantize
+        end
+
+        def default_format
+          "json"
         end
       end
     end

@@ -13,4 +13,10 @@ describe "Admin manages conferences", type: :system do
 
   it_behaves_like "manage conferences"
   it_behaves_like "manage diplomas"
+
+  describe "listing conferences" do
+    let(:model_name) { conference.class.model_name }
+
+    it_behaves_like "filtering collection by published/unpublished"
+  end
 end

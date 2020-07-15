@@ -53,6 +53,13 @@ ru:
     admin:
       actions:
         new_initiative_type: Добавить вид почина
+      filters:
+        state_eq:
+          values:
+            created: Созданные
+            discarded: Отброшенные
+            published: Обнародовано
+            validating: Техническая проверка
       menu:
         initiatives: Почины
         initiatives_types: Виды починов
@@ -117,18 +124,8 @@ ru:
             title: Общие сведения
           index:
             actions_title: Действие
-            filter:
-              accepted: Принято
-              all: Все
-              created: Созданные
-              discarded: Отброшенные
-              published: Обнародовано
-              rejected: Отклоненные
-              validating: Техническая проверка
-            filter_by: 'Отобрать по признаку:'
             preview: Предпросмотр
             print: Распечатать
-            search: Поиск
           show:
             print: Распечатать
           update:
@@ -180,12 +177,14 @@ ru:
           unpublish: "%{user_name} отбросил почин %{resource_name}"
           update: "%{user_name} обновил почин %{resource_name}"
       admin_states:
-        accepted: Принятые
         created: Созданные
         discarded: Отброшенные
         published: Обнародовано
-        rejected: Отклоненные
         validating: Техническая проверка
+      application_helper:
+        filter_state_values:
+          closed: Закрыты
+          open: Открыты
       committee_requests:
         new:
           continue: Продолжить
@@ -270,13 +269,10 @@ ru:
         filters:
           any: Любые
           author: Автор
-          closed: Закрыты
           myself: Мои почины
-          open: Открыты
           search: Поиск
           state: Cостояние
           type: Вид
-          type_prompt: Выбрать вид
         filters_small_view:
           close_modal: Закрыть окно
           filter: Отобрать
@@ -326,8 +322,6 @@ ru:
         promotal_committee_help: Помните, что вы должны пригласить не менее %{member_count} человек в рабочую группу по продвижению. Перешлите им следующую ссылку, чтобы пригласить их в рабочую группу по продвижению
         status_change_body_for: 'Состояние почина %{title} изменилось на: %{state}'
         status_change_for: Состояние почина %{title} изменилось
-        technical_validation_body_for: Почин %{title} запросил техническую проверку.
-        technical_validation_for: Почин %{title} запросил техническую проверку.
       pages:
         home:
           highlighted_initiatives:

@@ -16,7 +16,7 @@ module Decidim
       # Returns the meeting's description truncated.
       def meeting_description(meeting, max_length = 120)
         link = resource_locator(meeting).path
-        description = present(meeting).description
+        description = CGI.unescapeHTML present(meeting).description
         tail = "... #{link_to(t("read_more", scope: "decidim.meetings"), link)}".html_safe
         CGI.unescapeHTML html_truncate(description, max_length: max_length, tail: tail)
       end
@@ -106,6 +106,18 @@ module Decidim
         else
           t("validation_pending", scope: "decidim.meetings.meetings.show.registration_state")
         end
+      end
+
+      def author_presenter_for(author)
+        if author.is_a?(Decidim::Organization)
+          Decidim::Meetings::OfficialAuthorPresenter.new
+        else
+          present(author)
+        end
+      end
+
+      def current_user_groups?
+        current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any?
       end
     end
   end

@@ -54,7 +54,7 @@ module Decidim::Exporters
           expect(serialized[:name]).to eq(component.name)
           expect(serialized[:participatory_space_id]).to eq(component.participatory_space_id)
           expect(serialized[:participatory_space_type]).to eq(component.participatory_space_type)
-          expect(serialized[:settings]).to eq(component.settings.as_json)
+          expect(serialized[:global]).to eq(component[:settings][:global].as_json)
           expect(serialized[:weight]).to eq(component.weight)
           expect(serialized[:permissions]).to eq(component.permissions)
           expect(serialized[:published_at]).to be_within(1.second).of(component.published_at)

@@ -42,6 +42,19 @@ There are some pages that exist by default and cannot be deleted since there
 are links to them inside the Decidim framework, see `Decidim::StaticPage` for
 the default list.
 
+### Pager Configuration
+
+The number of results shown per page and per page range can be configured in the app `decidim.rb` initializer as follows:
+
+```ruby
+Decidim::Admin.configure do |config|
+  config.per_page_range = [15, 50, 100]
+end
+```
+
+* `Decidim::Admin.per_page_range.first` sets the `default_per_page` value for `Decidim::Admin` (in Kaminari)
+* `Decidim::Admin.per_page_range.last` sets the `max_per_page`  value for `Decidim::Admin` (in Kaminari)
+
 ## Contributing
 
 See [Decidim](https://github.com/decidim/decidim).

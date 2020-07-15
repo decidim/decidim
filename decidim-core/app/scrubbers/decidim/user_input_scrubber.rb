@@ -21,11 +21,11 @@ module Decidim
     private
 
     def custom_allowed_attributes
-      Loofah::HTML5::WhiteList::ALLOWED_ATTRIBUTES + %w(frameborder allowfullscreen)
+      Loofah::HTML5::SafeList::ALLOWED_ATTRIBUTES + %w(frameborder allowfullscreen)
     end
 
     def custom_allowed_tags
-      Loofah::HTML5::WhiteList::ALLOWED_ELEMENTS_WITH_LIBXML2 + %w(iframe)
+      Loofah::HTML5::SafeList::ALLOWED_ELEMENTS_WITH_LIBXML2 + %w(iframe)
     end
   end
 end

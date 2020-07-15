@@ -45,8 +45,9 @@ cs:
           actions:
             save_and_invite: Vytvořit organizaci a pozvat administrátora
           fields:
-            created_at: Vytvořeno u
+            created_at: Vytvořeno v
             name: název
+            omniauth_settings: Nastavení Omniauth
             smtp_settings: SMTP nastavení
           name: Organizace
       organizations:
@@ -61,6 +62,30 @@ cs:
           reference_prefix_hint: Předpona reference se používá k jednoznačné identifikaci zdrojů ve všech organizacích
           secondary_hosts_hint: Zadejte každý z nich do nového řádku
           title: Nová organizace
+        omniauth_settings:
+          decidim:
+            client_id: Client ID
+            client_secret: Tajný klíč klienta
+            site_url: URL webu
+          enabled: Povoleno
+          enabled_by_default: Tento poskytovatel je ve výchozím nastavení povolen. Může být upraven, ale ne zakázán.
+          facebook:
+            app_id: ID aplikace
+            app_secret: Tajný klíč aplikace
+          google_oauth2:
+            client_id: Client ID
+            client_secret: Tajný klíč klienta
+          icon: Ikona
+          icon_path: Cesta k ikonám
+          twitter:
+            api_key: Klíč API
+            api_secret: API heslo
+        smtp_settings:
+          instructions:
+            from_label: 'Odesílatel e-mailu bude: "jméno-vaší-organizace <your-organization@your-provider.org>". Nechte prázdné pro použití štítku ''from_email'''
+          placeholder:
+            from_email: vaše-organizace@váš-poskytovatel-domény.org
+            from_label: jméno vaší organizace
         update:
           error: Při aktualizaci této organizace došlo k chybě.
           success: Organizace byla úspěšně aktualizována.

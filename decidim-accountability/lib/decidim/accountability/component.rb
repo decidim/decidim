@@ -8,6 +8,7 @@ Decidim.register_component(:accountability) do |component|
   component.icon = "decidim/accountability/icon.svg"
   component.stylesheet = "decidim/accountability/accountability"
   component.permissions_class_name = "Decidim::Accountability::Permissions"
+  component.query_type = "Decidim::Accountability::AccountabilityType"
 
   component.on(:before_destroy) do |instance|
     raise StandardError, "Can't remove this component" if Decidim::Accountability::Result.where(component: instance).any?
@@ -22,6 +23,7 @@ Decidim.register_component(:accountability) do |component|
 
   component.settings(:global) do |settings|
     settings.attribute :comments_enabled, type: :boolean, default: true
+    settings.attribute :comments_max_length, type: :integer, required: false
     settings.attribute :intro, type: :text, translated: true, editor: true
     settings.attribute :categories_label, type: :string, translated: true, editor: true
     settings.attribute :subcategories_label, type: :string, translated: true, editor: true

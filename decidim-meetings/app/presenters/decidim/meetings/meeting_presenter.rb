@@ -18,8 +18,7 @@ module Decidim
         return unless meeting
 
         handle_locales(meeting.title, all_locales) do |content|
-          content = decidim_html_escape(content)
-          renderer = Decidim::ContentRenderers::HashtagRenderer.new(content)
+          renderer = Decidim::ContentRenderers::HashtagRenderer.new(decidim_html_escape(content))
           renderer.render(links: links).html_safe
         end
       end
@@ -28,7 +27,7 @@ module Decidim
         return unless meeting
 
         handle_locales(meeting.description, all_locales) do |content|
-          renderer = Decidim::ContentRenderers::HashtagRenderer.new(content)
+          renderer = Decidim::ContentRenderers::HashtagRenderer.new(decidim_sanitize(content))
           renderer.render(links: links).html_safe
         end
       end
@@ -64,6 +63,18 @@ module Decidim
 
       def has_tooltip?
         false
+      end
+
+      def proposals
+        return unless meeting
+
+        @proposals ||= meeting.authored_proposals.load
+      end
+
+      def formatted_proposals_titles
+        return unless meeting
+
+        proposals.map.with_index { |proposal, index| "#{index + 1}) #{proposal.title}\n" }
       end
 
       private

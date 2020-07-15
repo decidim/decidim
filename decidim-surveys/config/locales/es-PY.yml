@@ -22,6 +22,8 @@ es-PY:
             announcement: Anuncio
           step:
             allow_answers: Permitir respuestas
+            allow_unregistered: Permitir a las usuarias no registradas responder a la encuesta
+            allow_unregistered_help: Si está activo, no será necesario iniciar sesión para responder a la encuesta. Esto puede llevar a datos pobres o poco confiables y será más vulnerable a ataques automatizados. ¡Úsalo con precaución!
             announcement: Anuncio
     events:
       surveys:
@@ -53,4 +55,5 @@ es-PY:
       surveys:
         answer:
           invalid: Se han producido errores al responder a la encuesta.
+          spam_detected: Hubo un problema al responder al formulario. Tal vez hayas ido demasiado rápido, ¿puedes intentarlo de nuevo?
           success: La encuesta ha sido respondida con éxito.

@@ -223,9 +223,6 @@ pt:
           edit:
             close: Fechar
             title: Reunião próxima
-        meeting_copies:
-          form:
-            select_organizer: Selecione o organizador
         meetings:
           close:
             invalid: Tem havido um problema ao encerrar esta reunião
@@ -238,7 +235,9 @@ pt:
           edit:
             update: Actualizar
           form:
-            select_organizer: Selecione o organizador
+            address_help: 'Endereço: utilizado pela geocodificação para encontrar a localização'
+            location_help: 'Localização: mensagem direcionada para os utilizadores indicando o local de encontro'
+            location_hints_help: 'Dicas de localização: informação adicional. Exemplo: o piso do edifício'
           index:
             title: Reuniões
           new:
@@ -280,12 +279,14 @@ pt:
           form:
             available_slots_help: Deixe-o para 0 se você tiver slots ilimitados disponíveis.
             invites: Convites
+            recommendation_message: Por questões de privacidade recomendamos que elimine este formulário de inscrição quando já não for necessário. Por predefinição, isso acontece 3 meses após o fim da reunião.
             registration_form: Formulário de registro
             registrations_count:
               one: Houve %{count} registro.
               other: Houve %{count} inscrições.
             reserved_slots_help: Deixe para 0 se você não tiver slots reservados
             reserved_slots_less_than: Deve ser menor ou igual a %{count}
+            title: Registos
           update:
             invalid: Ocorreu um problema ao salvar as configurações de registro.
             success: Configurações de registro de reunião salvas com sucesso.
@@ -343,11 +344,8 @@ pt:
       meetings:
         filters:
           category: Categoria
-          category_prompt: Selecione uma categoria
           date: Encontro
-          past: Passado
           search: Pesquisa
-          upcoming: próximos
         filters_small_view:
           close_modal: Fechar modal
           filter: Filtro
@@ -364,6 +362,7 @@ pt:
           confirm: confirme
         show:
           attendees: Contagem de participantes
+          back: Regressar à lista
           contributions: Contagem de Contribuições
           going: Indo
           join: Participe da reunião

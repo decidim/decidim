@@ -9,12 +9,10 @@ module Decidim
       class AssemblyForm < Form
         include TranslatableAttributes
 
-        ASSEMBLY_TYPES = %w(government executive consultative_advisory participatory working_group commission others).freeze
         CREATED_BY = %w(city_council public others).freeze
 
         mimic :assembly
 
-        translatable_attribute :assembly_type_other, String
         translatable_attribute :composition, String
         translatable_attribute :closing_date_reason, String
         translatable_attribute :created_by_other, String
@@ -32,7 +30,6 @@ module Decidim
         translatable_attribute :target, String
         translatable_attribute :title, String
 
-        attribute :assembly_type, String
         attribute :created_by, String
         attribute :facebook_handler, String
         attribute :github_handler, String
@@ -42,6 +39,7 @@ module Decidim
         attribute :twitter_handler, String
         attribute :youtube_handler, String
 
+        attribute :decidim_assemblies_type_id, Integer
         attribute :area_id, Integer
         attribute :parent_id, Integer
         attribute :participatory_processes_ids, Array[Integer]
@@ -64,13 +62,16 @@ module Decidim
         attribute :remove_hero_image
 
         validates :area, presence: true, if: proc { |object| object.area_id.present? }
-        validates :parent, presence: true, if: ->(form) { form.parent_id.present? }
+
+        validates :parent, presence: true, if: ->(form) { form.parent.present? }
+        validate :ensure_parent_cannot_be_child, if: ->(form) { form.parent.present? }
+
         validates :scope, presence: true, if: proc { |object| object.scope_id.present? }
         validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }
 
         validate :slug_uniqueness
+        validate :same_type_organization, if: ->(form) { form.decidim_assemblies_type_id }
 
-        validates :assembly_type_other, translatable_presence: true, if: ->(form) { form.assembly_type == "others" }
         validates :created_by_other, translatable_presence: true, if: ->(form) { form.created_by == "others" }
         validates :title, :subtitle, :description, :short_description, translatable_presence: true
 
@@ -80,6 +81,13 @@ module Decidim
         validates :hero_image,
                   file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } },
                   file_content_type: { allow: ["image/jpeg", "image/png"] }
+
+        def ensure_parent_cannot_be_child
+          return if id.blank?
+
+          available_assemblies = Decidim::Assemblies::ParentAssembliesForSelect.for(current_organization, Assembly.find(id))
+          errors.add(:parent, :invalid) unless available_assemblies.include? parent
+        end
 
         def map_model(model)
           self.scope_id = model.decidim_scope_id
@@ -94,12 +102,8 @@ module Decidim
         end
 
         def assembly_types_for_select
-          ASSEMBLY_TYPES.map do |type|
-            [
-              I18n.t("assembly_types.#{type}", scope: "decidim.assemblies"),
-              type
-            ]
-          end
+          @assembly_types_for_select ||= organization_assembly_types
+                                             &.map { |type| [translated_attribute(type.title), type.id] }
         end
 
         def created_by_for_select
@@ -117,11 +121,19 @@ module Decidim
 
         def processes_for_select
           @processes_for_select ||= organization_participatory_processes
-                                    &.map { |pp| [translated_attribute(pp.title), pp.id] }
-                                    &.sort_by { |arr| arr[0] }
+                                        &.map { |pp| [translated_attribute(pp.title), pp.id] }
+                                        &.sort_by { |arr| arr[0] }
+        end
+
+        def assembly_type
+          AssembliesType.find_by(id: decidim_assemblies_type_id)
         end
 
         private
+
+        def organization_assembly_types
+          AssembliesType.where(organization: current_organization)
+        end
 
         def organization_participatory_processes
           Decidim.find_participatory_space_manifest(:participatory_processes)
@@ -139,6 +151,13 @@ module Decidim
                         .any?
 
           errors.add(:slug, :taken)
+        end
+
+        def same_type_organization
+          return unless assembly_type
+          return if assembly_type.organization == current_organization
+
+          errors.add(:assembly_type, :invalid)
         end
       end
     end

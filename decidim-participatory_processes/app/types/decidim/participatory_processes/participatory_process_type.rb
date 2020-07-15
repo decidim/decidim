@@ -6,6 +6,7 @@ module Decidim
     ParticipatoryProcessType = GraphQL::ObjectType.define do
       interfaces [
         -> { Decidim::Core::ParticipatorySpaceInterface },
+        -> { Decidim::Core::ParticipatorySpaceResourceableInterface },
         -> { Decidim::Core::ScopableInterface },
         -> { Decidim::Core::AttachableInterface }
       ]
@@ -13,6 +14,7 @@ module Decidim
       name "ParticipatoryProcess"
       description "A participatory process"
 
+      field :id, !types.ID, "The internal ID for this participatory process"
       field :slug, !types.String
       field :hashtag, types.String, "The hashtag for this participatory process"
       field :createdAt, !Decidim::Core::DateTimeType, "The time this page was created", property: :created_at
@@ -33,6 +35,7 @@ module Decidim
       field :target, Decidim::Core::TranslatedFieldType, "Who participates in this participatory process."
       field :participatoryScope, Decidim::Core::TranslatedFieldType, "What is decided on this participatory process.", property: :participatory_scope
       field :participatoryStructure, Decidim::Core::TranslatedFieldType, "How it is decided on this participatory process.", property: :participatory_structure
+      field :showMetrics, types.Boolean, "If this participatory process should show metrics", property: :show_metrics
       field :showStatistics, types.Boolean, "If this participatory process should show statistics", property: :show_statistics
       field :scopesEnabled, types.Boolean, "If this participatory process has scopes enabled", property: :scopes_enabled
 
@@ -40,11 +43,12 @@ module Decidim
 
       field :reference, types.String, "Reference prefix for this participatory process"
       field :steps, !types[ParticipatoryProcessStepType], "All the steps of this process."
+      field :categories, !types[Decidim::Core::CategoryType], "Categories for this participatory process"
 
-      # These fields may be private:
-      # decidim_participatory_process_group_id
-      # decidim_organization_id
-      # private_space
+      field :participatoryProcessGroup, ParticipatoryProcessGroupType do
+        description "The participatory process group in which this process belong to"
+        property :participatory_process_group
+      end
     end
   end
 end

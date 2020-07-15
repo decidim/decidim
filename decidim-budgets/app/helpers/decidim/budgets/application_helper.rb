@@ -8,6 +8,7 @@ module Decidim
       include PaginateHelper
       include Decidim::Comments::CommentsHelper
       include ProjectsHelper
+      include Decidim::CheckBoxesTreeHelper
     end
   end
 end

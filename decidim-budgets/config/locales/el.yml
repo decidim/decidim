@@ -1,0 +1,9 @@
+el:
+  decidim:
+    budgets:
+      actions:
+        preview: Προεπισκόπηση
+      admin:
+        projects:
+          new:
+            create: Δημιουργία

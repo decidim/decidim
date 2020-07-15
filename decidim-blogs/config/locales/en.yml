@@ -49,6 +49,8 @@ en:
             title: title
       posts:
         show:
+          back: Back to list
+          comments: Comments
           view: View
         sidebar_blog:
           comments: comments
@@ -61,9 +63,12 @@ en:
           global:
             announcement: Announcement
             comments_enabled: Comments enabled
+            comments_max_length: Comments max length (Leave 0 for default value)
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
+            endorsements_blocked: Endorsements blocked
+            endorsements_enabled: Endorsements enabled
     events:
       blogs:
         post_created:

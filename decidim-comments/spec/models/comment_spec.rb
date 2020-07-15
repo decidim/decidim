@@ -115,7 +115,7 @@ module Decidim
 
       describe "#formatted_body" do
         let(:comment) { create(:comment, commentable: commentable, author: author, body: body) }
-        let(:body) { "<b>bold text</b> *lorem* <a href='https://example.com'>link</a>" }
+        let(:body) { "<b>bold text</b> %lorem% <a href='https://example.com'>link</a>" }
 
         before do
           allow(Decidim).to receive(:content_processors).and_return([:dummy_foo])
@@ -127,12 +127,30 @@ module Decidim
         end
 
         it "process the body after it is sanitized" do
-          expect(Decidim::ContentProcessor).to receive(:render).with("bold text *lorem* link")
+          expect(Decidim::ContentProcessor).to receive(:render).with("<p>bold text %lorem% link</p>", "div")
           comment.formatted_body
         end
 
         it "returns the body sanitized and processed" do
-          expect(comment.formatted_body).to eq("<p>bold text <em>neque dicta enim quasi</em> link</p>")
+          expect(comment.formatted_body).to eq("<div><p>bold text <em>neque dicta enim quasi</em> link</p></div>")
+        end
+
+        describe "when the body contains multiline quotes" do
+          let(:body) { "> quote first line\n> quote second line\n\nanswer" }
+          let(:result) { "<div><blockquote class=\"comment__quote\"><p>quote first line\n<br />quote second line</p></blockquote><p>answer</p></div>" }
+
+          it "parses quotes and renders them as blockquotes" do
+            expect(comment.formatted_body).to eq(result)
+          end
+        end
+
+        describe "when the body contains quotes with paragraphs" do
+          let(:body) { "> quote first paragraph\n>\n> quote second paragraph\n\nanswer" }
+          let(:result) { "<div><blockquote class=\"comment__quote\">\n<br /><p>quote first paragraph</p>\n<br /><p>quote second paragraph</p>\n<br /></blockquote><p>answer</p></div>" }
+
+          it "parses quotes and renders them as blockquotes" do
+            expect(comment.formatted_body).to eq(result)
+          end
         end
 
         describe "when the body contains urls" do
@@ -142,7 +160,7 @@ module Decidim
             %(Content with <a href="http://urls.net" onmouseover="alert('hello')">URLs</a> of anchor type and text urls like https://decidim.org. And a malicous <a href="javascript:document.cookies">click me</a>)
           end
           let(:result) do
-            %(<p>Content with URLs of anchor type and text urls like <a href="https://decidim.org" target="_blank" rel="noopener">https://decidim.org</a>. And a malicous click me</p>)
+            %(<div><p>Content with URLs of anchor type and text urls like <a href="https://decidim.org" target="_blank" rel="nofollow noopener">https://decidim.org</a>. And a malicous click me</p></div>)
           end
 
           it "converts all URLs to links and strips attributes in anchors" do
@@ -163,6 +181,42 @@ module Decidim
           Decidim::Moderation.create!(reportable: comments.last, participatory_space: comments.last.participatory_space, hidden_at: 1.day.ago)
 
           expect(parent.comment_threads.count).to eq 2
+        end
+
+        describe "#body_length" do
+          context "when no default comments length specified" do
+            let!(:body) { ::Faker::Lorem.sentence(1000) }
+
+            it "is invalid" do
+              comment.body = body
+              expect(subject).to be_invalid
+              expect(subject.errors[:body]).to eq ["is too long (maximum is 1000 characters)"]
+            end
+          end
+
+          context "when organization has a default comments length params" do
+            let!(:body) { ::Faker::Lorem.sentence(1600) }
+            let(:organization) { create(:organization, comments_max_length: 1500) }
+            let(:component) { create(:component, organization: organization, manifest_name: "dummy") }
+            let!(:commentable) { create(:dummy_resource, component: component) }
+
+            it "is invalid" do
+              comment.body = body
+              expect(subject).to be_invalid
+              expect(subject.errors[:body]).to eq ["is too long (maximum is 1500 characters)"]
+            end
+
+            context "when component has a default comments length params" do
+              let!(:body) { ::Faker::Lorem.sentence(2500) }
+
+              it "is invalid" do
+                component.update!(settings: { comments_max_length: 2000 })
+                comment.body = body
+                expect(subject).to be_invalid
+                expect(subject.errors[:body]).to eq ["is too long (maximum is 2000 characters)"]
+              end
+            end
+          end
         end
       end
     end

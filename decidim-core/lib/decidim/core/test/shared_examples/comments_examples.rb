@@ -9,7 +9,11 @@ shared_examples "comments" do
     switch_to_host(organization.host)
   end
 
-  it "shows the list of comments for the resorce" do
+  after do
+    expect_no_js_errors
+  end
+
+  it "shows the list of comments for the resource" do
     visit resource_path
 
     expect(page).to have_selector("#comments")
@@ -55,6 +59,35 @@ shared_examples "comments" do
       expect(page).to have_selector(".add-comment form")
     end
 
+    context "when no default comments length specified" do
+      it "displays the numbers of characters left" do
+        within ".add-comment form" do
+          expect(page).to have_content("1000 characters left")
+        end
+      end
+    end
+
+    context "when organization has a default comments length params" do
+      let!(:organization) { create(:organization, comments_max_length: 2000) }
+
+      it "displays the numbers of characters left" do
+        within ".add-comment form" do
+          expect(page).to have_content("2000 characters left")
+        end
+      end
+
+      context "when component has a default comments length params" do
+        it "displays the numbers of characters left" do
+          component.update!(settings: { comments_max_length: 3000 })
+          visit current_path
+
+          within ".add-comment form" do
+            expect(page).to have_content("3000 characters left")
+          end
+        end
+      end
+    end
+
     context "when user adds a new comment" do
       before do
         within ".add-comment form" do
@@ -64,7 +97,7 @@ shared_examples "comments" do
       end
 
       it "shows comment to the user" do
-        expect(page).to have_comment_from(user, "This is a new comment")
+        expect(page).to have_comment_from(user, "This is a new comment", wait: 20)
       end
     end
 
@@ -86,7 +119,7 @@ shared_examples "comments" do
           click_button "Send"
         end
 
-        expect(page).to have_comment_from(user_group, "This is a new comment")
+        expect(page).to have_comment_from(user_group, "This is a new comment", wait: 20)
       end
     end
 
@@ -110,7 +143,7 @@ shared_examples "comments" do
           click_button "Send"
         end
 
-        expect(page).to have_selector(".comment-thread .comment--nested")
+        expect(page).to have_selector(".comment-thread .comment--nested", wait: 20)
         expect(page).to have_selector(".comment__additionalreply")
         expect(page).to have_reply_to(comment, "This is a reply")
       end
@@ -150,7 +183,7 @@ shared_examples "comments" do
             end
 
             within "#comments" do
-              expect(page).to have_selector "span.success.label", text: "In favor"
+              expect(page).to have_selector "span.success.label", text: "In favor", wait: 20
             end
           else
             expect(page).to have_no_selector(".opinion-toggle--ok")
@@ -229,6 +262,15 @@ shared_examples "comments" do
           expect(page).not_to have_selector(".tribute-container")
         end
       end
+
+      context "when mentioning a group" do
+        let!(:mentioned_group) { create(:user_group, :confirmed, organization: organization) }
+        let(:content) { "A confirmed user group mention: @#{mentioned_group.nickname}" }
+
+        it "shows the tribute container" do
+          expect(page).to have_selector(".tribute-container")
+        end
+      end
     end
 
     describe "mentions", :slow do
@@ -247,7 +289,7 @@ shared_examples "comments" do
         let(:content) { "A valid user mention: @#{mentioned_user.nickname}." }
 
         it "replaces the mention with a link to the user's profile" do
-          expect(page).to have_comment_from(user, "A valid user mention: @#{mentioned_user.nickname}")
+          expect(page).to have_comment_from(user, "A valid user mention: @#{mentioned_user.nickname}", wait: 20)
           expect(page).to have_link "@#{mentioned_user.nickname}", href: "/profiles/#{mentioned_user.nickname}"
         end
       end
@@ -257,7 +299,7 @@ shared_examples "comments" do
         let(:content) { "This text mentions a user outside current organization: @#{mentioned_user.nickname}" }
 
         it "ignores the mention" do
-          expect(page).to have_comment_from(user, "This text mentions a user outside current organization: @#{mentioned_user.nickname}")
+          expect(page).to have_comment_from(user, "This text mentions a user outside current organization: @#{mentioned_user.nickname}", wait: 20)
           expect(page).not_to have_link "@#{mentioned_user.nickname}"
         end
       end
@@ -266,7 +308,7 @@ shared_examples "comments" do
         let(:content) { "This text mentions a @nonexistent user" }
 
         it "ignores the mention" do
-          expect(page).to have_comment_from(user, "This text mentions a @nonexistent user")
+          expect(page).to have_comment_from(user, "This text mentions a @nonexistent user", wait: 20)
           expect(page).not_to have_link "@nonexistent"
         end
       end

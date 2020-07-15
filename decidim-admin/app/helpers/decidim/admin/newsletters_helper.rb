@@ -130,6 +130,26 @@ module Decidim
           { class: space.try(:closed?) ? "red" : "green", title: translated_attribute(space.title).to_s }
         ]
       end
+
+      def newsletter_attention_callout_args
+        {
+          announcement: {
+            body: t("warning", scope: "decidim.admin.newsletters.select_recipients_to_deliver").html_safe
+          },
+          callout_class: "warning"
+        }
+      end
+
+      def newsletter_recipients_count_callout_args
+        spinner = "<span id='recipients_count_spinner' class='loading-spinner hide'></span>"
+        body = "#{t("recipients_count", scope: "decidim.admin.newsletters.select_recipients_to_deliver", count: recipients_count_query)} #{spinner}"
+        {
+          announcement: {
+            body: body
+          },
+          callout_class: "warning"
+        }
+      end
     end
   end
 end

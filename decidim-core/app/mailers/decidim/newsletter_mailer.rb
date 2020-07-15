@@ -5,7 +5,11 @@ module Decidim
     helper Decidim::SanitizeHelper
     include Decidim::NewslettersHelper
 
+    layout "decidim/newsletter_base"
+
     add_template_helper Decidim::TranslationsHelper
+
+    helper_method :cell
 
     def newsletter(user, newsletter)
       return if user.email.blank?
@@ -18,14 +22,28 @@ module Decidim
       @encrypted_token = Decidim::NewsletterEncryptor.sent_at_encrypted(@user.id, @newsletter.sent_at)
 
       with_user(user) do
-        subject = @newsletter.subject[I18n.locale.to_s].presence || @newsletter.subject[@organization.default_locale]
-        body = @newsletter.body[I18n.locale.to_s].presence || @newsletter.body[@organization.default_locale]
+        uninterpolated_subject =
+          @newsletter.subject[I18n.locale.to_s].presence || @newsletter.subject[@organization.default_locale]
 
-        @subject = parse_interpolations(subject, user, @newsletter.id)
-        @body = parse_interpolations(body, user, @newsletter.id)
+        @subject = parse_interpolations(uninterpolated_subject, user, @newsletter.id)
 
         mail(to: "#{user.name} <#{user.email}>", subject: @subject)
       end
+    end
+
+    private
+
+    def cell
+      @cell ||= ::Decidim::ViewModel.cell(
+        @newsletter.template.cell,
+        @newsletter.template,
+        organization: @organization,
+        newsletter: @newsletter,
+        recipient_user: @user,
+        context: {
+          controller: self
+        }
+      )
     end
   end
 end

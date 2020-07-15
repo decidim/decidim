@@ -1,0 +1,14 @@
+de:
+  decidim:
+    elections:
+      actions:
+        import: Importieren Sie Vorschläge in Projekte
+      admin:
+        proposals_imports:
+          create:
+            invalid: Beim Importieren der Vorschläge in Projekte ist ein Problem aufgetreten
+            success: "%{number} Vorschläge wurden erfolgreich in Projekte importiert"
+          new:
+            create: Importieren Sie Vorschläge in Projekte
+            no_components: Es gibt keine weiteren Vorschlagskomponenten in diesem partizipativen Raum, um die Vorschläge in Projekte zu importieren.
+            select_component: Bitte wählen Sie ein Objekt

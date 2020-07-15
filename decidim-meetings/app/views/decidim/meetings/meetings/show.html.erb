@@ -16,18 +16,32 @@ edit_link(
 %>
 
 <div class="row column view-header">
-  <h2 class="heading2"><%= present(meeting).title(links: true) %></h2>
-  <% if meeting.organizer.present? %>
-    <%= cell "decidim/author", present(meeting.organizer) %>
+
+  <%= link_to :meetings, class: "small hollow" do %>
+    <%= icon "chevron-left", class: "icon--small" %>
+    <%= t(".back") %>
   <% end %>
+
+  <h2 class="heading2"><%= present(meeting).title(links: true) %></h2>
+
+  <%= cell "decidim/author", author_presenter_for(meeting.normalized_author), has_actions: true, from: meeting, context: { extra_classes: ["author-data--small"] } %>
+
 </div>
 <div class="row">
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8
               large-3 large-push-9">
+
+    <% if allowed_to?(:update, :meeting, meeting: meeting) %>
+      <%= link_to t(".edit_meeting"), edit_meeting_path(meeting), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
+    <% end %>
+
     <div class="card extra">
       <div class="card__content">
         <div class="extra__date">
-          <%= l meeting.start_time, format: "%d" %> <span class="extra__month"><%= l meeting.start_time, format: "%B" %></span>
+          <%= l meeting.start_time, format: "%d" %>
+          <span class="extra__month"><%= l meeting.start_time, format: "%B" %>
+            <%= l(meeting.start_time, format: "%Y") if meeting.start_time.year != Date.current.year %>
+          </span>
         </div>
         <div class="extra__time">
           <%= meeting.start_time.strftime("%H:%M") %> - <%= meeting.end_time.strftime("%H:%M") %>
@@ -77,9 +91,9 @@ edit_link(
         <% meeting.services.each do |service| %>
           <div class="card--list__item">
             <div class="card--list__text card--list__text--top">
-              <%= icon "actions", class: "card--list__icon alert" %>
+              <%= icon "actions", class: "card--list__icon alert", role: "img" %>
               <div>
-                <h5 class="card--list__heading heading-small"><%= translated_attribute(service["title"]) %></h5>
+                <h3 class="card--list__heading heading-small"><%= translated_attribute(service["title"]) %></h3>
                 <span class="text-medium"><%= translated_attribute(service["description"]) %></span>
               </div>
             </div>
@@ -89,6 +103,7 @@ edit_link(
     <% end %>
 
     <%= resource_reference(meeting) %>
+    <%= resource_version(meeting, versions_path: meeting_versions_path(meeting)) %>
     <%= render partial: "decidim/shared/share_modal" %>
     <%= embed_modal_for meeting_meeting_widget_url(meeting, format: :js) %>
   </div>
@@ -146,3 +161,11 @@ edit_link(
 <%= attachments_for meeting %>
 <%= comments_for meeting %>
 <%= pad_iframe_for meeting %>
+
+<%=
+  render partial: "decidim/shared/flag_modal", locals: {
+    reportable: meeting,
+    form: @report_form,
+    url: decidim.report_path(sgid: meeting.to_sgid.to_s)
+  }
+%>

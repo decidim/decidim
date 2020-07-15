@@ -17,7 +17,6 @@ module Decidim::Meetings
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }
     let(:start_time) { 1.day.from_now }
-    let(:organizer) { create :user, organization: organization }
     let(:private_meeting) { false }
     let(:transparent) { true }
     let(:transparent_type) { "transparent" }
@@ -50,7 +49,6 @@ module Decidim::Meetings
         longitude: longitude,
         scope: scope,
         category: category,
-        organizer: organizer,
         private_meeting: private_meeting,
         transparent: transparent,
         services_to_persist: services_to_persist,
@@ -85,9 +83,9 @@ module Decidim::Meetings
         expect(meeting.category).to eq category
       end
 
-      it "sets the organizer" do
+      it "sets the author" do
         subject.call
-        expect(meeting.organizer).to eq organizer
+        expect(meeting.author).to eq organization
       end
 
       it "sets the component" do
@@ -104,7 +102,11 @@ module Decidim::Meetings
 
       it "sets the services" do
         subject.call
-        expect(meeting.services).to eq(services)
+
+        meeting.services.each_with_index do |service, index|
+          expect(service.title).to eq(services[index]["title"])
+          expect(service.description).to eq(services[index]["description"])
+        end
       end
 
       it "sets the questionnaire for registrations" do
@@ -124,18 +126,13 @@ module Decidim::Meetings
       end
 
       it "schedules a upcoming meeting notification job 48h before start time" do
-        expect(Decidim.traceability)
-          .to receive(:create!)
-          .and_return(instance_double(Meeting, id: 1, start_time: start_time, participatory_space: participatory_process))
-
         expect(UpcomingMeetingNotificationJob)
           .to receive(:generate_checksum).and_return "1234"
 
         expect(UpcomingMeetingNotificationJob)
           .to receive_message_chain(:set, :perform_later) # rubocop:disable RSpec/MessageChain
-          .with(set: start_time - 2.days).with(1, "1234")
-
-        allow(Decidim::EventsManager).to receive(:publish).and_return(true)
+          .with(set: start_time - 2.days)
+          .with(kind_of(Integer), "1234")
 
         subject.call
       end

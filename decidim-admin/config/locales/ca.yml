@@ -70,10 +70,12 @@ ca:
         port: Port
         primary_color: Primària
         reference_prefix: prefix de referència
+        rich_text_editor_in_public_views: Habilitar l'editor de text enriquit
         secondary_color: Secundari
         send_welcome_notification: Envia la notificació de benvinguda
         show_statistics: Mostrar estadístiques
         success_color: Èxit
+        time_zone: Zona horària
         tos_version: Versió dels Termes de Servei
         twitter_handler: Nom d'usuària de Twitter
         user_groups_enabled: Habilitar grups
@@ -142,9 +144,24 @@ ca:
         export: Exporta
         manage: Gestionar
         new: Nou %{name}
+        per_page: Per pàgina
         permissions: Permisos
         reject: Rebutjar
         verify: Verificar
+      admin_terms_of_use:
+        accept:
+          error: S'ha produït un error en acceptar els Termes i Condicions dell panell d'administració.
+          success: Genial! Has acceptat els Termes i Condicions del panell d'administració.
+        actions:
+          accept: Estic d'acord amb aquests termes
+          are_you_sure: Segur que vols rebutjar els Termes i Condicions del panell d'administració?
+          refuse: Rebutjar els termes
+          title: Accepto els Termes i Condicions d'Administració
+        required_review:
+          alert: 'Requerit: Revisa els nostres Termes i Condicions del panell d''administració'
+          callout: Si us plau dedica un moment a revisar l'actualització dels nostres Termes i Condicions del panell d'administració. En cas contrari, no podràs utilitzar la plataforma.
+          cta: Revisa-les ara.
+        title: Termes i Condicions del panell d'administració
       area_types:
         create:
           error: S'ha produït un error en crear un tipus d'àrea nova.
@@ -236,6 +253,7 @@ ca:
           success: Categoria actualitzada correctament.
       component_permissions:
         update:
+          error: S'ha produït un error actualitzant els permisos d'aquest component.
           success: Permisos actualitzats correctament.
       components:
         create:
@@ -275,6 +293,31 @@ ca:
       exports:
         export_as: "%{name} com a %{export_format}"
         notice: La teva exportació està actualment en curs. Rebràs un correu electrònic quan hagi finalitzat.
+      filters:
+        category_id_eq:
+          label: Categoria
+        filter_label: Filtre
+        officialized_at_null:
+          label: Estat
+          values:
+            'false': Oficialitzada
+            'true': No oficialitzada
+        private_space_eq:
+          label: Privat
+          values:
+            'false': Públic
+            'true': Privat
+        published_at_null:
+          label: Publicat
+          values:
+            'false': Publicat
+            'true': Despublicat
+        scope_id_eq:
+          label: Àmbit
+        search_label: Cercar
+        search_placeholder:
+          name_or_nickname_or_email_cont: Buscar %{collection} per correu electrònic, nom o àlies.
+          title_cont: Buscar %{collection} per títol.
       help_sections:
         error: S'ha produït un error en actualitzar les seccions d'ajuda
         form:
@@ -428,6 +471,9 @@ ca:
             does_not_belong: No pertany
             offensive: Ofensiu
             spam: Contingut no desitjat
+      newsletter_templates:
+        index:
+          preview_template: Previsualitzar
       newsletters:
         create:
           error: S'ha produït un error en crear aquest butlletí.
@@ -441,8 +487,6 @@ ca:
         edit:
           save_and_preview: Desar i vista prèvia
           title: Editar butlletí
-        form:
-          interpolations_hint: 'Pista: Pots utilitzar "%{name}" en qualsevol part del cos o assumpte i serà reemplaçat pel nom del destinatari.'
         index:
           all: totes
           all_users: 'Totes les participants '
@@ -454,6 +498,7 @@ ca:
           not_sent: No enviat
           participants: 'participants '
           segmented_to: 'Segmentat a %{subject}: '
+          subscribed_count: 'Subscrites:'
           title: Butlletins
         new:
           save: Desar
@@ -466,6 +511,7 @@ ca:
           followers_help: Envia el butlletí a tots els usuaris confirmats que segueixin qualsevol dels espais participatius seleccionats a la llista.
           none: Cap
           participants_help: Envia el butlletí a tots els usuaris confirmats que hagin participat a qualsevol dels espais participatius de la llista.
+          recipients_count: Aquest bulleti s'enviarà a <strong id='recipients_count'>%{count}</strong> participants.
           scopes_help: Envia el butlletí als usuaris que tinguin qualsevol dels àmbits seleccionats activat als paràmetres "Els meus interessos" del seu compte.
           select_scopes: Filtra per als usuaris que hagin activat qualsevol àmbit seleccionat a la configuració "Els meus interessos" del seu compte.
           select_spaces: Selecciona espais per segmentar el butlletí
@@ -512,24 +558,26 @@ ca:
           actions: Accions
           badge: Insígnia
           created_at: Creat el
-          filter:
-            all: Todas
-            not_officialized: No oficialitzada
-            officialized: Oficialitzada
-          filter_by: Filtra per
           name: Nom
           nickname: Àlies
           not_officialized: No oficialitzada
           officialize: Oficialitza
           officialized: Oficialitzada
           reofficialize: Torna a oficialitzar
-          search: Cerca
+          show_email: Mostra l'adreça de correu
           status: Estat
           unofficialize: Des-oficialitzar
         new:
           badge: Insígnia d'oficialització
           officialize: Oficialitza
           title: Oficialitza la participant "%{name}"
+        show_email_modal:
+          description: Si necessites contactar a una participant directament pots clicar al botó Mostra per veure la seva adreça de correu electrònic. Aquesta acció s'auditarà.
+          email_address: Adreça de correu electrònic
+          full_name: Nom complet
+          hidden: ocult
+          show: Mostra
+          title: Mostra l'adreça de correu electrònic de la participant
       organization:
         edit:
           title: Edita organització
@@ -538,6 +586,7 @@ ca:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          rich_text_editor_in_public_views_help: En algunes àrees de text, les participants podran inserir algunes etiquetes HTML amb l'editor de text enriquit.
           social_handlers: Social
           twitter: Twitter
           url: URL
@@ -549,13 +598,15 @@ ca:
         edit:
           update: Actualitzar
         form:
-          colors_title: Colors de l'organització
+          colors:
+            colors_title: Colors de l'organització
+            header_snippets_help: Utilitza aquest camp per afegir coses al head d'HTML. L'ús més habitual és integrar serveis de tercers que requereixen codi JavaScript o CSS addicional. A més, pots utilitzar-lo per afegir etiquetes meta addicionals a l'HTML. Tingues en compte que això només es mostrarà a les pàgines públiques, no a la secció d'administració.
           cta_button_path_help: 'Pots redirigir la direcció on enllaça el botó d''acció principal de la pàgina d''inici on desitgis. Utilitza rutes parcials, no URLs completes aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. El botó d''acció principal es mostra a la pàgina d''inici entre el text de benvinguda i la descripció. Exemple: %{url}'
           cta_button_text_help: Pots sobreescriure el text del botó d'acció principal a la pàgina d'inici per cada idioma disponible a la teva organització. Si no s'omple, s'utilitzarà el valor predeterminat. El botó d'acció principal es mostra a la pàgina d'inici entre el text de benvinguda i la descripció.
-          header_snippets_help: Utilitza aquest camp per afegir coses al head d'HTML. L'ús més habitual és integrar serveis de tercers que requereixen codi JavaScript o CSS addicional. A més, pots utilitzar-lo per afegir etiquetes meta addicionals a l'HTML. Tingues en compte que això només es mostrarà a les pàgines públiques, no a la secció d'administració.
           homepage_appearance_title: Edita l'aparença de la pàgina d'inici
           homepage_highlighted_content_banner_title: Banner de contingut ressaltat
-          layout_appearance_title: Edita l'aparença del disseny global
+          images:
+            layout_appearance_title: Edita l'aparença del disseny global
           omnipresent_banner_appearance_title: Edita banner omnipresent
       organization_homepage:
         edit:
@@ -684,10 +735,10 @@ ca:
           invalid: S'ha produït un error en llegir el fitxer CSV.
           success: El fitxer CSV s'ha pujat correctament, estem verificant que els grups coincideixin amb els criteris. Això pot trigar una estona.
         reject:
-          invalid: S'ha produït un error en rebutjar aquest grup.
+          invalid: S'ha produït un error al rebutjar aquest grup.
           success: El grup s'ha rebutjat correctament
         verify:
-          invalid: S'ha produït un error en rebutjar aquest grup.
+          invalid: S'ha produït un error al verificar aquest grup.
           success: Grup verificat correctament
       user_groups:
         index:
@@ -722,6 +773,10 @@ ca:
         new:
           create: Convidar
           title: Convidar una participant com a administradora
+      users_statistics:
+        users_count:
+          admins: Administradores
+          participants: Participants
       view_public_page: Mostra la pàgina pública
     forms:
       errors:

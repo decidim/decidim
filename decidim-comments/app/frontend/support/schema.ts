@@ -57,6 +57,19 @@ export interface addCommentMutation {
           deleted: boolean,
           // The author's badge icon
           badge: string,
+        } | {
+          // The author's name
+          name: string,
+          // The author's nickname
+          nickname: string,
+          // The author's avatar url
+          avatarUrl: string,
+          // The author's profile path
+          profilePath: string,
+          // Whether the author's account has been deleted or not
+          deleted: boolean,
+          // The author's badge icon
+          badge: string,
         }
       ),
       // Whether the object can have new comments or not
@@ -92,6 +105,19 @@ export interface addCommentMutation {
         formattedCreatedAt: string,
         // The resource author
         author: ( {
+            // The author's name
+            name: string,
+            // The author's nickname
+            nickname: string,
+            // The author's avatar url
+            avatarUrl: string,
+            // The author's profile path
+            profilePath: string,
+            // Whether the author's account has been deleted or not
+            deleted: boolean,
+            // The author's badge icon
+            badge: string,
+          } | {
             // The author's name
             name: string,
             // The author's nickname
@@ -179,6 +205,19 @@ export interface addCommentMutation {
               deleted: boolean,
               // The author's badge icon
               badge: string,
+            } | {
+              // The author's name
+              name: string,
+              // The author's nickname
+              nickname: string,
+              // The author's avatar url
+              avatarUrl: string,
+              // The author's profile path
+              profilePath: string,
+              // Whether the author's account has been deleted or not
+              deleted: boolean,
+              // The author's badge icon
+              badge: string,
             }
           ),
           // Check if the commentable has comments
@@ -216,6 +255,19 @@ export interface addCommentMutation {
             formattedCreatedAt: string,
             // The resource author
             author: ( {
+                // The author's name
+                name: string,
+                // The author's nickname
+                nickname: string,
+                // The author's avatar url
+                avatarUrl: string,
+                // The author's profile path
+                profilePath: string,
+                // Whether the author's account has been deleted or not
+                deleted: boolean,
+                // The author's badge icon
+                badge: string,
+              } | {
                 // The author's name
                 name: string,
                 // The author's nickname
@@ -317,6 +369,19 @@ export interface DownVoteMutation {
           deleted: boolean,
           // The author's badge icon
           badge: string,
+        } | {
+          // The author's name
+          name: string,
+          // The author's nickname
+          nickname: string,
+          // The author's avatar url
+          avatarUrl: string,
+          // The author's profile path
+          profilePath: string,
+          // Whether the author's account has been deleted or not
+          deleted: boolean,
+          // The author's badge icon
+          badge: string,
         }
       ),
       // Check if the commentable has comments
@@ -354,6 +419,19 @@ export interface DownVoteMutation {
         formattedCreatedAt: string,
         // The resource author
         author: ( {
+            // The author's name
+            name: string,
+            // The author's nickname
+            nickname: string,
+            // The author's avatar url
+            avatarUrl: string,
+            // The author's profile path
+            profilePath: string,
+            // Whether the author's account has been deleted or not
+            deleted: boolean,
+            // The author's badge icon
+            badge: string,
+          } | {
             // The author's name
             name: string,
             // The author's nickname
@@ -441,6 +519,19 @@ export interface DownVoteMutation {
               deleted: boolean,
               // The author's badge icon
               badge: string,
+            } | {
+              // The author's name
+              name: string,
+              // The author's nickname
+              nickname: string,
+              // The author's avatar url
+              avatarUrl: string,
+              // The author's profile path
+              profilePath: string,
+              // Whether the author's account has been deleted or not
+              deleted: boolean,
+              // The author's badge icon
+              badge: string,
             }
           ),
           // Check if the commentable has comments
@@ -478,6 +569,19 @@ export interface DownVoteMutation {
             formattedCreatedAt: string,
             // The resource author
             author: ( {
+                // The author's name
+                name: string,
+                // The author's nickname
+                nickname: string,
+                // The author's avatar url
+                avatarUrl: string,
+                // The author's profile path
+                profilePath: string,
+                // Whether the author's account has been deleted or not
+                deleted: boolean,
+                // The author's badge icon
+                badge: string,
+              } | {
                 // The author's name
                 name: string,
                 // The author's nickname
@@ -579,6 +683,19 @@ export interface UpVoteMutation {
           deleted: boolean,
           // The author's badge icon
           badge: string,
+        } | {
+          // The author's name
+          name: string,
+          // The author's nickname
+          nickname: string,
+          // The author's avatar url
+          avatarUrl: string,
+          // The author's profile path
+          profilePath: string,
+          // Whether the author's account has been deleted or not
+          deleted: boolean,
+          // The author's badge icon
+          badge: string,
         }
       ),
       // Check if the commentable has comments
@@ -641,6 +758,19 @@ export interface UpVoteMutation {
             deleted: boolean,
             // The author's badge icon
             badge: string,
+          } | {
+            // The author's name
+            name: string,
+            // The author's nickname
+            nickname: string,
+            // The author's avatar url
+            avatarUrl: string,
+            // The author's profile path
+            profilePath: string,
+            // Whether the author's account has been deleted or not
+            deleted: boolean,
+            // The author's badge icon
+            badge: string,
           }
         ),
         // Check if the commentable has comments
@@ -678,6 +808,19 @@ export interface UpVoteMutation {
           formattedCreatedAt: string,
           // The resource author
           author: ( {
+              // The author's name
+              name: string,
+              // The author's nickname
+              nickname: string,
+              // The author's avatar url
+              avatarUrl: string,
+              // The author's profile path
+              profilePath: string,
+              // Whether the author's account has been deleted or not
+              deleted: boolean,
+              // The author's badge icon
+              badge: string,
+            } | {
               // The author's name
               name: string,
               // The author's nickname
@@ -765,6 +908,19 @@ export interface UpVoteMutation {
                 deleted: boolean,
                 // The author's badge icon
                 badge: string,
+              } | {
+                // The author's name
+                name: string,
+                // The author's nickname
+                nickname: string,
+                // The author's avatar url
+                avatarUrl: string,
+                // The author's profile path
+                profilePath: string,
+                // Whether the author's account has been deleted or not
+                deleted: boolean,
+                // The author's badge icon
+                badge: string,
               }
             ),
             // Check if the commentable has comments
@@ -796,6 +952,7 @@ export interface GetCommentsQueryVariables {
   commentableId: string,
   commentableType: string,
   orderBy?: string | null,
+  singleCommentId?: string | null,
 };
 
 export interface GetCommentsQuery {
@@ -875,6 +1032,19 @@ export interface GetCommentsQuery {
           deleted: boolean,
           // The author's badge icon
           badge: string,
+        } | {
+          // The author's name
+          name: string,
+          // The author's nickname
+          nickname: string,
+          // The author's avatar url
+          avatarUrl: string,
+          // The author's profile path
+          profilePath: string,
+          // Whether the author's account has been deleted or not
+          deleted: boolean,
+          // The author's badge icon
+          badge: string,
         }
       ),
       // Whether the object can have new comments or not
@@ -910,6 +1080,19 @@ export interface GetCommentsQuery {
         formattedCreatedAt: string,
         // The resource author
         author: ( {
+            // The author's name
+            name: string,
+            // The author's nickname
+            nickname: string,
+            // The author's avatar url
+            avatarUrl: string,
+            // The author's profile path
+            profilePath: string,
+            // Whether the author's account has been deleted or not
+            deleted: boolean,
+            // The author's badge icon
+            badge: string,
+          } | {
             // The author's name
             name: string,
             // The author's nickname
@@ -997,6 +1180,19 @@ export interface GetCommentsQuery {
               deleted: boolean,
               // The author's badge icon
               badge: string,
+            } | {
+              // The author's name
+              name: string,
+              // The author's nickname
+              nickname: string,
+              // The author's avatar url
+              avatarUrl: string,
+              // The author's profile path
+              profilePath: string,
+              // Whether the author's account has been deleted or not
+              deleted: boolean,
+              // The author's badge icon
+              badge: string,
             }
           ),
           // Check if the commentable has comments
@@ -1034,6 +1230,19 @@ export interface GetCommentsQuery {
             formattedCreatedAt: string,
             // The resource author
             author: ( {
+                // The author's name
+                name: string,
+                // The author's nickname
+                nickname: string,
+                // The author's avatar url
+                avatarUrl: string,
+                // The author's profile path
+                profilePath: string,
+                // Whether the author's account has been deleted or not
+                deleted: boolean,
+                // The author's badge icon
+                badge: string,
+              } | {
                 // The author's name
                 name: string,
                 // The author's nickname
@@ -1149,6 +1358,19 @@ export interface CommentFragment {
       deleted: boolean,
       // The author's badge icon
       badge: string,
+    } | {
+      // The author's name
+      name: string,
+      // The author's nickname
+      nickname: string,
+      // The author's avatar url
+      avatarUrl: string,
+      // The author's profile path
+      profilePath: string,
+      // Whether the author's account has been deleted or not
+      deleted: boolean,
+      // The author's badge icon
+      badge: string,
     }
   ),
   // Check if the commentable has comments
@@ -1186,6 +1408,19 @@ export interface CommentFragment {
     formattedCreatedAt: string,
     // The resource author
     author: ( {
+        // The author's name
+        name: string,
+        // The author's nickname
+        nickname: string,
+        // The author's avatar url
+        avatarUrl: string,
+        // The author's profile path
+        profilePath: string,
+        // Whether the author's account has been deleted or not
+        deleted: boolean,
+        // The author's badge icon
+        badge: string,
+      } | {
         // The author's name
         name: string,
         // The author's nickname
@@ -1273,6 +1508,19 @@ export interface CommentFragment {
           deleted: boolean,
           // The author's badge icon
           badge: string,
+        } | {
+          // The author's name
+          name: string,
+          // The author's nickname
+          nickname: string,
+          // The author's avatar url
+          avatarUrl: string,
+          // The author's profile path
+          profilePath: string,
+          // Whether the author's account has been deleted or not
+          deleted: boolean,
+          // The author's badge icon
+          badge: string,
         }
       ),
       // Check if the commentable has comments
@@ -1310,6 +1558,19 @@ export interface CommentFragment {
         formattedCreatedAt: string,
         // The resource author
         author: ( {
+            // The author's name
+            name: string,
+            // The author's nickname
+            nickname: string,
+            // The author's avatar url
+            avatarUrl: string,
+            // The author's profile path
+            profilePath: string,
+            // Whether the author's account has been deleted or not
+            deleted: boolean,
+            // The author's badge icon
+            badge: string,
+          } | {
             // The author's name
             name: string,
             // The author's nickname
@@ -1402,6 +1663,19 @@ export interface CommentDataFragment {
       deleted: boolean,
       // The author's badge icon
       badge: string,
+    } | {
+      // The author's name
+      name: string,
+      // The author's nickname
+      nickname: string,
+      // The author's avatar url
+      avatarUrl: string,
+      // The author's profile path
+      profilePath: string,
+      // Whether the author's account has been deleted or not
+      deleted: boolean,
+      // The author's badge icon
+      badge: string,
     }
   ),
   // Check if the commentable has comments
@@ -1468,6 +1742,19 @@ export interface CommentThreadFragment {
       deleted: boolean,
       // The author's badge icon
       badge: string,
+    } | {
+      // The author's name
+      name: string,
+      // The author's nickname
+      nickname: string,
+      // The author's avatar url
+      avatarUrl: string,
+      // The author's profile path
+      profilePath: string,
+      // Whether the author's account has been deleted or not
+      deleted: boolean,
+      // The author's badge icon
+      badge: string,
     }
   ),
   // Whether the object can have new comments or not
@@ -1503,6 +1790,19 @@ export interface CommentThreadFragment {
     formattedCreatedAt: string,
     // The resource author
     author: ( {
+        // The author's name
+        name: string,
+        // The author's nickname
+        nickname: string,
+        // The author's avatar url
+        avatarUrl: string,
+        // The author's profile path
+        profilePath: string,
+        // Whether the author's account has been deleted or not
+        deleted: boolean,
+        // The author's badge icon
+        badge: string,
+      } | {
         // The author's name
         name: string,
         // The author's nickname
@@ -1590,6 +1890,19 @@ export interface CommentThreadFragment {
           deleted: boolean,
           // The author's badge icon
           badge: string,
+        } | {
+          // The author's name
+          name: string,
+          // The author's nickname
+          nickname: string,
+          // The author's avatar url
+          avatarUrl: string,
+          // The author's profile path
+          profilePath: string,
+          // Whether the author's account has been deleted or not
+          deleted: boolean,
+          // The author's badge icon
+          badge: string,
         }
       ),
       // Check if the commentable has comments
@@ -1627,6 +1940,19 @@ export interface CommentThreadFragment {
         formattedCreatedAt: string,
         // The resource author
         author: ( {
+            // The author's name
+            name: string,
+            // The author's nickname
+            nickname: string,
+            // The author's avatar url
+            avatarUrl: string,
+            // The author's profile path
+            profilePath: string,
+            // Whether the author's account has been deleted or not
+            deleted: boolean,
+            // The author's badge icon
+            badge: string,
+          } | {
             // The author's name
             name: string,
             // The author's nickname

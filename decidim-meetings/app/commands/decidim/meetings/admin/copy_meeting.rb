@@ -26,61 +26,71 @@ module Decidim
 
           transaction do
             copy_meeting!
+            copy_services!
             schedule_upcoming_meeting_notification
             send_notification
           end
 
-          broadcast(:ok, @copied_meeting)
+          broadcast(:ok, copied_meeting)
         end
 
         private
 
-        attr_reader :form, :meeting
+        attr_reader :form, :meeting, :copied_meeting
 
         def copy_meeting!
-          parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, @form.title, current_organization: @meeting.organization).rewrite
-          parsed_description = Decidim::ContentProcessor.parse_with_processor(:hashtag, @form.description, current_organization: @meeting.organization).rewrite
+          parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: meeting.organization).rewrite
+          parsed_description = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.description, current_organization: meeting.organization).rewrite
 
           @copied_meeting = Decidim.traceability.create!(
             Meeting,
-            @form.current_user,
-            scope: @meeting.scope,
-            category: @meeting.category,
+            form.current_user,
+            scope: meeting.scope,
+            category: meeting.category,
             title: parsed_title,
             description: parsed_description,
-            end_time: @form.end_time,
-            start_time: @form.start_time,
-            address: @form.address,
-            latitude: @form.latitude,
-            longitude: @form.longitude,
-            location: @form.location,
-            location_hints: @form.location_hints,
-            services: @form.services_to_persist.map { |service| { "title" => service.title, "description" => service.description } },
-            component: @meeting.component,
-            private_meeting: @form.private_meeting,
-            transparent: @form.transparent,
-            organizer: @form.organizer,
-            questionnaire: @form.questionnaire,
-            registrations_enabled: @meeting.registrations_enabled,
-            available_slots: @meeting.available_slots,
-            registration_terms: @meeting.registration_terms
+            end_time: form.end_time,
+            start_time: form.start_time,
+            address: form.address,
+            latitude: form.latitude,
+            longitude: form.longitude,
+            location: form.location,
+            location_hints: form.location_hints,
+            component: meeting.component,
+            private_meeting: form.private_meeting,
+            transparent: form.transparent,
+            author: form.current_organization,
+            questionnaire: form.questionnaire,
+            registrations_enabled: meeting.registrations_enabled,
+            available_slots: meeting.available_slots,
+            registration_terms: meeting.registration_terms
           )
         end
 
+        def copy_services!
+          form.services_to_persist.map do |service|
+            Decidim::Meetings::Service.create!(
+              meeting: copied_meeting,
+              "title" => service.title,
+              "description" => service.description
+            )
+          end
+        end
+
         def schedule_upcoming_meeting_notification
-          checksum = Decidim::Meetings::UpcomingMeetingNotificationJob.generate_checksum(@copied_meeting)
+          checksum = Decidim::Meetings::UpcomingMeetingNotificationJob.generate_checksum(copied_meeting)
 
           Decidim::Meetings::UpcomingMeetingNotificationJob
-            .set(wait_until: @copied_meeting.start_time - 2.days)
-            .perform_later(@copied_meeting.id, checksum)
+            .set(wait_until: copied_meeting.start_time - 2.days)
+            .perform_later(copied_meeting.id, checksum)
         end
 
         def send_notification
           Decidim::EventsManager.publish(
             event: "decidim.events.meetings.meeting_created",
             event_class: Decidim::Meetings::CreateMeetingEvent,
-            resource: @copied_meeting,
-            followers: @copied_meeting.participatory_space.followers
+            resource: copied_meeting,
+            followers: copied_meeting.participatory_space.followers
           )
         end
       end

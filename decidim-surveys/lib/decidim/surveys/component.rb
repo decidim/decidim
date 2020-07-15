@@ -11,6 +11,7 @@ Decidim.register_component(:surveys) do |component|
   component.serializes_specific_data = true
   component.specific_data_serializer_class_name = "Decidim::Surveys::DataSerializer"
   component.specific_data_importer_class_name = "Decidim::Surveys::DataImporter"
+  component.query_type = "Decidim::Surveys::SurveysType"
 
   component.on(:copy) do |context|
     Decidim::Surveys::CreateSurvey.call(context[:new_component]) do
@@ -42,7 +43,7 @@ Decidim.register_component(:surveys) do |component|
     surveys.count
   end
 
-  component.register_stat :answers_count, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
+  component.register_stat :answers_count, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
     surveys = Decidim::Surveys::Survey.includes(:questionnaire).where(component: components)
     answers = Decidim::Forms::Answer.where(questionnaire: surveys.map(&:questionnaire))
     answers = answers.where("created_at >= ?", start_at) if start_at.present?
@@ -55,6 +56,7 @@ Decidim.register_component(:surveys) do |component|
 
   component.settings(:global) do |settings|
     settings.attribute :announcement, type: :text, translated: true, editor: true
+    settings.attribute :clean_after_publish, type: :boolean, default: true
   end
 
   component.settings(:step) do |settings|
@@ -68,6 +70,8 @@ Decidim.register_component(:surveys) do |component|
       survey = Decidim::Surveys::Survey.find_by(component: f)
       Decidim::Forms::QuestionnaireUserAnswers.for(survey.questionnaire)
     end
+
+    exports.formats %w(CSV JSON Excel FormPDF)
 
     exports.serializer Decidim::Forms::UserAnswersSerializer
   end
@@ -116,23 +120,45 @@ Decidim.register_component(:surveys) do |component|
       visibility: "all"
     )
 
-    %w(short_answer long_answer).each do |text_question_type|
+    %w(short_answer long_answer).each_with_index do |text_question_type, index|
       Decidim::Forms::Question.create!(
         questionnaire: questionnaire,
         body: Decidim::Faker::Localized.paragraph,
-        question_type: text_question_type
+        question_type: text_question_type,
+        position: index
       )
     end
 
-    %w(single_option multiple_option).each do |multiple_choice_question_type|
+    %w(single_option multiple_option).each_with_index do |multiple_choice_question_type, index|
       question = Decidim::Forms::Question.create!(
         questionnaire: questionnaire,
         body: Decidim::Faker::Localized.paragraph,
-        question_type: multiple_choice_question_type
+        question_type: multiple_choice_question_type,
+        position: index + 2
       )
 
       3.times do
         question.answer_options.create!(body: Decidim::Faker::Localized.sentence)
+      end
+
+      question.display_conditions.create!(
+        condition_question: questionnaire.questions.find_by(position: question.position - 2),
+        question: question,
+        condition_type: :answered,
+        mandatory: true
+      )
+    end
+
+    %w(matrix_single matrix_multiple).each do |matrix_question_type|
+      question = Decidim::Forms::Question.create!(
+        questionnaire: questionnaire,
+        body: Decidim::Faker::Localized.paragraph,
+        question_type: matrix_question_type
+      )
+
+      3.times do
+        question.answer_options.create!(body: Decidim::Faker::Localized.sentence)
+        question.matrix_rows.create!(body: Decidim::Faker::Localized.sentence)
       end
     end
   end

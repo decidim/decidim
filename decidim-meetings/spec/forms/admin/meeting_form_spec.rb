@@ -32,10 +32,10 @@ module Decidim::Meetings
       Decidim::Faker::Localized.sentence(3)
     end
     let(:services) do
-      [
-        { title: Decidim::Faker::Localized.sentence(2), description: Decidim::Faker::Localized.sentence(5) },
-        { title: Decidim::Faker::Localized.sentence(2), description: Decidim::Faker::Localized.sentence(5) }
-      ]
+      build_list(:service, 2)
+    end
+    let(:services_attributes) do
+      services.map(&:attributes)
     end
     let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
     let(:latitude) { 40.1234 }
@@ -46,8 +46,6 @@ module Decidim::Meetings
     let(:scope_id) { scope.id }
     let(:category) { create :category, participatory_space: participatory_process }
     let(:category_id) { category.id }
-    let(:organizer) { create :user, organization: organization }
-    let(:organizer_id) { organizer.id }
     let(:private_meeting) { false }
     let(:transparent) { true }
     let(:attributes) do
@@ -64,8 +62,7 @@ module Decidim::Meetings
         end_time: end_time,
         private_meeting: private_meeting,
         transparent: transparent,
-        organizer_id: organizer_id,
-        services: services
+        services: services_attributes
       }
     end
 
@@ -148,7 +145,7 @@ module Decidim::Meetings
     end
 
     it "properly maps services from model" do
-      meeting = create(:meeting, services: services)
+      meeting = create(:meeting, :with_services, services: services)
 
       services = described_class.from_model(meeting).services
       expect(services).to all be_an(Admin::MeetingServiceForm)
@@ -164,7 +161,7 @@ module Decidim::Meetings
     describe "services_to_persist" do
       subject { form.services_to_persist }
 
-      let(:services) do
+      let(:services_attributes) do
         [
           { title: { en: "First service" }, description: { en: "First description" } },
           { title: { en: "Second service" }, description: { en: "Second description" }, deleted: true },

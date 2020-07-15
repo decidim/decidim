@@ -1,0 +1,16 @@
+ca:
+  decidim:
+    elections:
+      actions:
+        edit_answers: Edita les respostes
+        edit_questions: Edita les preguntes
+        import: Importa propostes a respostes
+      admin:
+        proposals_imports:
+          create:
+            invalid: S'ha produït un error en importar les propostes a respostes
+            success: "S'ha importat amb èxit %{number} propostes a respostes"
+          new:
+            create: Importa propostes a respostes
+            no_components: No hi ha cap altre component de propostes en aquest espai participatiu per importar les propostes a respostes.
+            select_component: Seleccioneu un component

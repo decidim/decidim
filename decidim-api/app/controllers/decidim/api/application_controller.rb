@@ -6,8 +6,10 @@ module Decidim
     class ApplicationController < ::DecidimController
       skip_before_action :verify_authenticity_token
       include NeedsOrganization
+      include UseOrganizationTimeZone
       include NeedsPermission
       include ImpersonateUsers
+      include ForceAuthentication
 
       register_permissions(::Decidim::Api::ApplicationController,
                            ::Decidim::Permissions)

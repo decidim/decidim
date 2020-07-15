@@ -18,6 +18,8 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
     Decidim::Initiative.where(organization: organization)
   end
 
+  participatory_space.query_type = "Decidim::Initiatives::InitiativeType"
+
   participatory_space.register_resource(:initiative) do |resource|
     resource.model_class_name = "Decidim::Initiative"
     resource.card = "decidim/initiatives/initiative"
@@ -32,6 +34,14 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
   participatory_space.model_class_name = "Decidim::Initiative"
   participatory_space.permissions_class_name = "Decidim::Initiatives::Permissions"
 
+  participatory_space.exports :initiatives do |export|
+    export.collection do
+      Decidim::Initiative
+    end
+
+    export.serializer Decidim::Initiatives::InitiativeSerializer
+  end
+
   participatory_space.seeds do
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
     organization = Decidim::Organization.first
@@ -39,7 +49,7 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
     Decidim::ContentBlock.create(
       organization: organization,
       weight: 33,
-      scope: :homepage,
+      scope_name: :homepage,
       manifest_name: :highlighted_initiatives,
       published_at: Time.current
     )

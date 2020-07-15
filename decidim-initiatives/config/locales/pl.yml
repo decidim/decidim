@@ -66,6 +66,13 @@ pl:
     admin:
       actions:
         new_initiative_type: Nowy typ inicjatywy
+      filters:
+        state_eq:
+          values:
+            created: Stworzony
+            discarded: Odrzucona
+            published: Opublikowany
+            validating: Walidacja techniczna
       menu:
         initiatives: Inicjatywy
         initiatives_types: Rodzaje inicjatyw
@@ -181,18 +188,8 @@ pl:
             title: Informacje ogólne
           index:
             actions_title: Akcja
-            filter:
-              accepted: Przyjęty
-              all: Wszystko
-              created: Stworzony
-              discarded: Odrzucona
-              published: Opublikowany
-              rejected: Odrzucono
-              validating: Walidacja techniczna
-            filter_by: Filtruj według
             preview: Zapowiedź
             print: Wydrukować
-            search: Szukaj
           show:
             print: Wydrukować
           update:
@@ -244,12 +241,14 @@ pl:
           unpublish: "%{user_name} odrzucił inicjatywę %{resource_name}"
           update: "%{user_name} zaktualizował inicjatywę %{resource_name}"
       admin_states:
-        accepted: Przyjęty
         created: Stworzony
         discarded: Odrzucona
         published: Opublikowany
-        rejected: Odrzucono
         validating: Walidacja techniczna
+      application_helper:
+        filter_state_values:
+          closed: Zamknięte
+          open: otwarty
       committee_requests:
         new:
           continue: dalej
@@ -361,13 +360,10 @@ pl:
         filters:
           any: Każdy
           author: Autor
-          closed: Zamknięte
           myself: Moje inicjatywy
-          open: otwarty
           search: Szukaj
           state: Stan
           type: Rodzaj
-          type_prompt: Wybierz typ
         filters_small_view:
           close_modal: Zamknij okno
           filter: Filtr
@@ -435,8 +431,6 @@ pl:
         promotal_committee_help: Pamiętaj, że musisz zaprosić co najmniej %{member_count} osób do komitetu promotora. Prześlij poniższy link, aby zaprosić ludzi do komitetu promotora
         status_change_body_for: 'Inicjatywa %{title} zmieniła swój stan na: %{state}'
         status_change_for: Inicjatywa %{title} zmieniła swój stan
-        technical_validation_body_for: Inicjatywa %{title} zażądała technicznej weryfikacji.
-        technical_validation_for: Inicjatywa %{title} zażądała technicznej weryfikacji.
       last_activity:
         new_initiative: Nowa inicjatywa
       pages:

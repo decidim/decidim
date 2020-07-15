@@ -15,6 +15,8 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
     "Decidim::Conferences::ConferenceInvite"
   ]
 
+  participatory_space.query_type = "Decidim::Conferences::ConferenceType"
+
   participatory_space.register_resource(:conference) do |resource|
     resource.model_class_name = "Decidim::Conference"
     resource.card = "decidim/conferences/conference"
@@ -32,6 +34,11 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
     context.layout = "layouts/decidim/admin/conference"
   end
 
+  participatory_space.register_on_destroy_account do |user|
+    Decidim::ConferenceUserRole.where(user: user).destroy_all
+    Decidim::ConferenceSpeaker.where(user: user).destroy_all
+  end
+
   participatory_space.seeds do
     organization = Decidim::Organization.first
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
@@ -39,7 +46,7 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
     Decidim::ContentBlock.create(
       organization: organization,
       weight: 33,
-      scope: :homepage,
+      scope_name: :homepage,
       manifest_name: :highlighted_conferences,
       published_at: Time.current
     )

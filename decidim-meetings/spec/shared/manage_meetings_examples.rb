@@ -7,11 +7,16 @@ shared_examples "manage meetings" do
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
 
-  let(:organizer) { create(:user, :confirmed, organization: organization) }
   let(:service_titles) { ["This is the first service", "This is the second service"] }
 
   before do
     stub_geocoding(address, [latitude, longitude])
+  end
+
+  describe "admin form" do
+    before { click_on "New meeting" }
+
+    it_behaves_like "having a rich text editor", "new_meeting", "full"
   end
 
   describe "when rendering the text in the update page" do
@@ -191,8 +196,6 @@ shared_examples "manage meetings" do
     scope_pick select_data_picker(:meeting_decidim_scope_id), scope
     select translated(category.name), from: :meeting_decidim_category_id
 
-    autocomplete_select "#{organizer.name} (@#{organizer.nickname})", from: :organizer_id
-
     within ".new_meeting" do
       find("*[type=submit]").click
     end
@@ -250,8 +253,6 @@ shared_examples "manage meetings" do
       page.find(".datepicker-dropdown .day", text: "12").click
       page.find(".datepicker-dropdown .hour", text: "12:00").click
       page.find(".datepicker-dropdown .minute", text: "12:50").click
-
-      autocomplete_select "#{organizer.name} (@#{organizer.nickname})", from: :organizer_id
 
       within ".copy_meetings" do
         find("*[type=submit]").click
@@ -361,8 +362,6 @@ shared_examples "manage meetings" do
       scope_pick select_data_picker(:meeting_decidim_scope_id), scope
       select translated(category.name), from: :meeting_decidim_category_id
 
-      autocomplete_select "#{organizer.name} (@#{organizer.nickname})", from: :organizer_id
-
       within ".new_meeting" do
         find("*[type=submit]").click
       end
@@ -397,7 +396,7 @@ shared_examples "manage meetings" do
         fill_in :close_meeting_attendees_count, with: 12
         fill_in :close_meeting_contributions_count, with: 44
         fill_in :close_meeting_attending_organizations, with: "Neighbours Association, Group of People Complaining About Something and Other People"
-        select decidim_html_escape(proposals.first.title), from: :close_meeting_proposal_ids
+        proposals_pick(select_data_picker(:close_meeting_proposals, multiple: true), proposals.first(2))
         click_button "Close"
       end
 

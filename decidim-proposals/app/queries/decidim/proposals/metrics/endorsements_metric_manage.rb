@@ -12,6 +12,7 @@ module Decidim
           return @registry if @registry
 
           @registry = []
+
           cumulative.each do |key, cumulative_value|
             next if cumulative_value.zero?
 
@@ -33,20 +34,29 @@ module Decidim
         def query
           return @query if @query
 
-          proposal_ids = Decidim::Proposals::Proposal.where(component: visible_component_ids_from_spaces(retrieve_participatory_spaces)).except_withdrawn.pluck(:id)
-          @query = Decidim::Proposals::ProposalEndorsement.joins(proposal: :component)
-                                                          .left_outer_joins(proposal: :category)
-                                                          .where(proposal: proposal_ids)
-          @query = @query.where("decidim_proposals_proposal_endorsements.created_at <= ?", end_time)
+          components = Decidim::Component.where(participatory_space: retrieve_participatory_spaces).published
+          proposals = Decidim::Proposals::Proposal.where(component: components).except_withdrawn
+          join_components = "INNER JOIN decidim_components ON decidim_components.manifest_name = 'proposals' AND proposals.decidim_component_id = decidim_components.id"
+          join_categories = <<~EOJOINCATS
+            LEFT OUTER JOIN decidim_categorizations
+            ON (proposals.id = decidim_categorizations.categorizable_id
+            AND decidim_categorizations.categorizable_type = 'Decidim::Proposals::Proposal')
+          EOJOINCATS
+          @query = Decidim::Endorsement.joins("INNER JOIN decidim_proposals_proposals proposals ON resource_id = proposals.id")
+                                       .joins(join_components)
+                                       .joins(join_categories)
+                                       .where(resource_id: proposals.pluck(:id))
+                                       .where(resource_type: Decidim::Proposals::Proposal.name)
+          @query = @query.where("decidim_endorsements.created_at <= ?", end_time)
           @query = @query.group("decidim_categorizations.id",
                                 :participatory_space_type,
                                 :participatory_space_id,
-                                :decidim_proposal_id)
+                                :resource_id)
           @query
         end
 
         def quantity
-          @quantity ||= query.where("decidim_proposals_proposal_endorsements.created_at >= ?", start_time).count
+          @quantity ||= query.where("decidim_endorsements.created_at >= ?", start_time).count
         end
       end
     end

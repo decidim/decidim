@@ -22,7 +22,7 @@ pl:
         attachments: Załączniki
         confirm_destroy: Czy na pewno chcesz usunąć ten projekt?
         destroy: Kasować
-        edit: Edytować
+        edit: Edytuj
         import: Importuj propozycje do projektów
         new: Nowy projekt
         preview: Zapowiedź
@@ -96,7 +96,7 @@ pl:
             other: "%{count} projektów"
         filters:
           category: Kategoria
-          category_prompt: Wybierz kategorię
+          scope: Zakres
           search: Szukanie
         filters_small_view:
           close_modal: Zamknij modal

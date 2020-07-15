@@ -16,6 +16,7 @@ es-PY:
         created_by_other: Creado por otro
         creation_date: Fecha de creacion
         decidim_area_id: Área
+        decidim_assemblies_type_id: Tipo de montaje
         decidim_scope_id: Ámbito
         description: Descripción
         developer_group: Grupo promotor
@@ -78,6 +79,7 @@ es-PY:
     admin:
       actions:
         new_assembly: Nueva asamblea
+        new_assembly_type: Nuevo tipo de asamblea
       assemblies:
         create:
           error: Se produjo un error al crear una nueva asamblea.
@@ -99,6 +101,18 @@ es-PY:
         create:
           error: Se produjo un error al duplicar esta asamblea.
           success: Asamblea duplicada correctamente.
+      assemblies_types:
+        create:
+          error: Se ha producido un error al crear un nuevo tipo de asamblea.
+          success: Tipo de asamblea creado correctamente.
+        destroy:
+          success: Tipo de asamblea eliminado correctamente.
+        new:
+          create: Crear
+          title: Nuevo tipo de asamblea
+        update:
+          error: Hubo un problema al actualizar este tipo de asamblea.
+          success: Tipo de asamblea actualizado correctamente.
       assembly_copies:
         new:
           copy: Copiar
@@ -158,7 +172,12 @@ es-PY:
           info: Información
           moderations: Moderaciones
           private_users: Usuarios privados
+        assemblies_types: Tipos de asamblea
       models:
+        assemblies_types:
+          fields:
+            created_at: Fecha de creación
+            title: Título
         assembly:
           fields:
             created_at: Fecha de creación
@@ -189,8 +208,10 @@ es-PY:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
+            valuator: Evaluadora
       titles:
         assemblies: Asambleas
+        assemblies_types: Tipo de asamblea
     admin_log:
       assembly:
         create: "%{user_name} creó la asamblea %{resource_name}"
@@ -201,6 +222,12 @@ es-PY:
         create: "%{user_name} creó el miembro %{resource_name} en la asamblea %{space_name}"
         delete: "%{user_name} eliminó %{resource_name} de la asamblea %{space_name}"
         update: "%{user_name} actualizó el miembro %{resource_name} de la asamblea %{space_name}"
+      assembly_type:
+        create: "%{user_name} creó el tipo de asamblea %{resource_name}"
+        delete: "%{user_name} eliminó al miembro %{resource_name} del tipo de asamblea %{space_name}"
+        publish: "%{user_name} publicó el tipo de asamblea %{resource_name}"
+        unpublish: "%{user_name} despublicó el tipo de asamblea %{resource_name}"
+        update: "%{user_name} actualizó el tipo de asamblea %{resource_name}"
       assembly_user_role:
         create: "%{user_name} invitó %{resource_name} a la asamblea %{space_name}"
         delete: "%{user_name} eliminó al usuario %{resource_name} de la asamblea %{space_name}"
@@ -224,6 +251,9 @@ es-PY:
             social_handlers: Social
             title: Información general
             visbility: Visibilidad
+        assemblies_types:
+          form:
+            title: Título
         assembly_copies:
           form:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
@@ -280,6 +310,7 @@ es-PY:
         home:
           highlighted_assemblies:
             active_assemblies: Asambleas activas
+            assemblies_button_title: Enlace a la página de Asambleas que muestra todas las asambleas
             see_all_assemblies: Ver todas las asambleas
         user_profile:
           member_of:
@@ -310,6 +341,7 @@ es-PY:
         related_participatory_processes: Procesos participativos relacionados
         scope: Ámbito
         social_networks: Redes sociales
+        social_networks_title: Compartir esta asamblea en
         target: Quién participa
       statistics:
         answers_count: Respuestas
@@ -321,6 +353,7 @@ es-PY:
         meetings_count: Encuentros
         orders_count: Votos
         pages_count: Páginas
+        posts_count: Publicaciones
         projects_count: Proyectos
         proposals_count: Propuestas
         results_count: Resultados
@@ -332,6 +365,11 @@ es-PY:
         designated_on: Designado en
       index:
         title: Miembros
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Enlace a la página de Jornadas que muestra todas las jornadas
     help:
       participatory_spaces:
         assemblies:
@@ -342,6 +380,8 @@ es-PY:
       value_types:
         assembly_presenter:
           not_found: 'No se encontró la asamblea en la base de datos (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'El tipo de asamblea no se encontró en la base de datos (ID: %{id})'
     menu:
       assemblies: Asambleas
     metrics:
@@ -349,6 +389,17 @@ es-PY:
         description: Número de ensamblajes creados
         object: asambleas
         title: Asambleas
+    pages:
+      home:
+        hero:
+          participate_title: Participar en los procesos de la plataforma
+        sub_hero:
+          register_title: Regístrate para crear una cuenta en la plataforma
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Enlace a la página de Procesos que muestra todos los procesos
   errors:
     messages:
       cannot_be_blank: no puede estar en blanco

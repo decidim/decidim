@@ -31,6 +31,7 @@ module Decidim
 
     validates :name, :host, uniqueness: true
     validates :reference_prefix, presence: true
+    validates :time_zone, presence: true, time_zone: true
     validates :default_locale, inclusion: { in: :available_locales }
 
     mount_uploader :official_img_header, Decidim::OfficialImageHeaderUploader
@@ -78,6 +79,11 @@ module Decidim
         multi_translation("decidim.welcome_notification.default_body", available_locales)
     end
 
+    def admin_terms_of_use_body
+      self[:admin_terms_of_use_body] ||
+        multi_translation("decidim.admin_terms_of_use.default_body", available_locales)
+    end
+
     def sign_up_enabled?
       users_registration_mode_enabled?
     end
@@ -95,6 +101,51 @@ module Decidim
 
     def open_data_file_path
       "#{host}-open-data.zip"
+    end
+
+    def enabled_omniauth_providers
+      return Decidim::OmniauthProvider.enabled || {} if omniauth_settings.nil?
+
+      default_except_disabled = Decidim::OmniauthProvider.enabled.except(*tenant_disabled_providers_keys)
+      default_except_disabled.merge(tenant_enabled_providers)
+    end
+
+    private
+
+    def tenant_disabled_providers_keys
+      omniauth_settings.collect do |key, value|
+        next unless key.match?(/omniauth_settings_.*_enabled/) && value == false
+
+        Decidim::OmniauthProvider.extract_provider_key(key)
+      end.compact.uniq
+    end
+
+    def tenant_enabled_providers
+      tenant_enabled_providers_keys = omniauth_settings.map do |key, value|
+        next unless key.match?(/omniauth_settings_.*_enabled/) && value == true
+
+        Decidim::OmniauthProvider.extract_provider_key(key)
+      end.compact.uniq
+
+      Hash[tenant_enabled_providers_keys.map do |key|
+        [key, omniauth_provider_settings(key)]
+      end]
+    end
+
+    def omniauth_provider_settings(provider)
+      @omniauth_provider_settings ||= Hash.new do |hash, provider_key|
+        hash[provider_key] = begin
+          omniauth_settings.each_with_object({}) do |(key, value), provider_settings|
+            next unless key.to_s.include?(provider_key.to_s)
+
+            value = Decidim::AttributeEncryptor.decrypt(value) if Decidim::OmniauthProvider.value_defined?(value)
+            setting_key = Decidim::OmniauthProvider.extract_setting_key(key, provider_key)
+
+            provider_settings[setting_key] = value
+          end
+        end
+      end
+      @omniauth_provider_settings[provider]
     end
   end
 end

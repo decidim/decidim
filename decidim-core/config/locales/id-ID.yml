@@ -58,8 +58,6 @@ id:
     account:
       data_portability_export:
         file_no_exists: File tidak ada
-        invalid_token: Token yang diberikan tidak valid.
-        no_token: Tidak ada token yang disediakan
         notice: Data Anda sedang dalam proses. Anda akan menerima email setelah selesai.
       delete:
         alert: Tindakan ini tidak bisa dibatalkan. Jika Anda menghapus akun Anda, Anda tidak akan dapat masuk.
@@ -79,6 +77,9 @@ id:
         error: Terjadi kesalahan saat memperbarui akun Anda.
         success: Akun Anda telah berhasil diperbarui.
         success_with_email_confirmation: Akun Anda telah berhasil diperbarui. Anda akan menerima email untuk mengonfirmasi alamat email baru Anda.
+    admin:
+      actions:
+        cancel: Membatalkan
     admin_log:
       area:
         create: "%{user_name} menciptakan %{resource_name} area"
@@ -191,6 +192,7 @@ id:
         explanation: Dapatkan verifikasi dengan memperkenalkan nomor paspor dimulai dengan "A"
         fields:
           passport_number: Nomor paspor
+          postal_code: Kode Pos
         name: Contoh otorisasi lain
       dummy_authorization_handler:
         explanation: Dapatkan verifikasi dengan memperkenalkan nomor dokumen yang diakhiri dengan "X"
@@ -366,6 +368,8 @@ id:
           this_application_will_not_be_able_to: 'Aplikasi ini tidak akan dapat:'
           update_profile: Perbarui profil Anda
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> ingin menggunakan akun Anda"
+    endorsable:
+      endorsements: Endorsemen
     errors:
       internal_server_error:
         title: Ada masalah dengan server kami
@@ -494,7 +498,7 @@ id:
           notification_title: Halaman <a href="%{resource_path}">profil</a> dari %{name} (%{nickname}), yang Anda ikuti, telah diperbarui.
     export_mailer:
       data_portability_export:
-        click_button: Klik tombol berikutnya untuk mengunduh data Anda. <br/> Anda akan memiliki file yang tersedia hingga %{date}.
+        click_button: 'Klik tombol berikutnya untuk mengunduh data Anda. <br/> Anda akan memiliki file yang tersedia hingga %{date}.'
         download: Unduh
       export:
         ready: Silakan temukan terlampir versi zip dari ekspor Anda.
@@ -537,16 +541,6 @@ id:
     gamification:
       all_badges_link: Lihat semua lencana yang tersedia.
       badges:
-        continuity:
-          conditions:
-            - Sering ke sini
-          description: Lencana ini diberikan saat Anda mengunjungi platform dengan cara biasa. Kami suka ada Anda di sini!
-          description_another: Pengguna ini telah terhubung selama %{score} hari berturut-turut di beberapa titik.
-          description_own: Anda telah terhubung selama %{score} hari berturut-turut di beberapa titik.
-          name: Kontinuitas
-          next_level_in: Terhubung selama %{score} hari berturut-turut untuk mencapai level berikutnya!
-          unearned_another: Pengguna ini belum masuk selama lebih dari satu hari berturut-turut.
-          unearned_own: Anda belum terhubung selama lebih dari satu hari berturut-turut.
         followers:
           conditions:
             - Menjadi aktif dan mengikuti orang lain pasti akan membuat orang lain mengikuti Anda.
@@ -717,6 +711,7 @@ id:
         create:
           error: Percakapan tidak dimulai. Coba lagi nanti
         index:
+          close: Tutup modal
           no_conversations: Anda belum memiliki percakapan
           title: Percakapan
         reply:
@@ -981,8 +976,6 @@ id:
         close_window: Tutup jendela
         share: Bagikan
         share_link: Membagikan tautan
-      version_author:
-        deleted: Pengguna yang dihapus
     user_activity:
       index:
         no_activities_warning: Pengguna ini belum memiliki aktivitas apa pun.
@@ -995,6 +988,9 @@ id:
       update:
         error: Terjadi kesalahan saat memperbarui minat Anda.
         success: Minat Anda telah berhasil diperbarui.
+    version_author:
+      show:
+        deleted: Pengguna yang dihapus
     welcome_notification:
       default_body: <p>Hai {{name}}, terima kasih sudah bergabung dengan {{organization}} dan selamat datang!</p><ul><li>Jika Anda ingin mendapatkan ide cepat tentang apa yang dapat Anda lakukan di sini, lihat bagian <a href="{{help_url}}">Bantuan</a> .</li><li>Setelah Anda membacanya, Anda akan mendapatkan lencana pertama Anda. Berikut adalah <a href="{{badges_url}}">daftar dari semua lencana</a> yang dapat Anda peroleh ketika Anda berpartisipasi dalam {{organization}}</li><li>Terakhir tetapi tidak sedikit, bergabunglah dengan orang lain, bagikan kepada mereka pengalaman terlibat dan berpartisipasi dalam {{organization}}. Buatlah proposal, komentar, debat, pikirkan tentang bagaimana berkontribusi terhadap kebaikan bersama, memberikan argumen untuk meyakinkan, mendengarkan dan membaca untuk diyakinkan, mengekspresikan ide Anda dengan cara yang konkrit dan langsung, merespons dengan kesabaran dan keputusan, membela ide-ide Anda dan tetap pikiran terbuka untuk berkolaborasi dan bergabung dengan ide orang lain.</li></ul>
       default_subject: Terima kasih telah bergabung dengan {{organization}}!

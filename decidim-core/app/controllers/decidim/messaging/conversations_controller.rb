@@ -11,22 +11,32 @@ module Decidim
 
       before_action :authenticate_user!
 
-      helper_method :username_list, :conversation
+      helper_method :conversation, :user_grouped_messages, :sender_is_user?, :user_groups
 
+      # Shows the form to initiate a conversation with an user (the recipient)
+      # recipient is passed via GET parameter:
+      #   - if the recipient does not exists, goes back to the users profile page
+      #   - if the user already has a conversation with the user, redirects to the initiated conversation
       def new
-        enforce_permission_to :create, :conversation
-        @form = form(ConversationForm).from_params(params)
+        @form = form(ConversationForm).from_params(params, sender: current_user)
 
-        redirect_back(fallback_location: profile_path(current_user.nickname)) && return unless @form.recipient
+        if @form.recipient.is_a? Enumerable
+          participants = @form.recipient.to_a.prepend(current_user)
+          conversation = conversation_between_multiple(participants)
+        else
+          conversation = conversation_between(current_user, @form.recipient)
+        end
 
-        conversation = conversation_between(current_user, @form.recipient)
-        redirect_to conversation_path(conversation) if conversation
+        return redirect_back(fallback_location: profile_path(current_user.nickname)) if @form.recipient.empty?
+
+        return redirect_to conversation_path(conversation) if conversation
+
+        enforce_permission_to :create, :conversation, conversation: new_conversation(@form.recipient)
       end
 
       def create
-        enforce_permission_to :create, :conversation
-
-        @form = form(ConversationForm).from_params(params)
+        @form = form(ConversationForm).from_params(params, sender: current_user)
+        enforce_permission_to :create, :conversation, conversation: new_conversation(@form.recipient)
 
         StartConversation.call(@form) do
           on(:ok) do |conversation|
@@ -46,6 +56,7 @@ module Decidim
         enforce_permission_to :list, :conversation
 
         @conversations = UserConversations.for(current_user)
+        @form = MessageForm.new
       end
 
       def show
@@ -59,7 +70,7 @@ module Decidim
       def update
         enforce_permission_to :update, :conversation, conversation: conversation
 
-        @form = form(MessageForm).from_params(params)
+        @form = form(MessageForm).from_params(params, sender: current_user)
 
         ReplyToConversation.call(conversation, @form) do
           on(:ok) do |message|
@@ -72,14 +83,43 @@ module Decidim
         end
       end
 
+      def check_multiple
+        @form = form(ConversationForm).from_params(params, sender: current_user)
+        redirect_link = current_or_new_conversation_path_with_multiple(@form.recipient)
+        redirect_to redirect_link
+      end
+
       private
+
+      def user_groups
+        return [] unless current_organization.user_groups_enabled?
+
+        current_user.manageable_user_groups
+      end
 
       def conversation
         @conversation ||= Conversation.find(params[:id])
       end
 
-      def username_list(users)
-        users.pluck(:name).join(", ")
+      def new_conversation(recipient)
+        return nil unless recipient
+
+        if recipient.is_a? Enumerable
+          Conversation.new(participants: [current_user] + recipient)
+        else
+          Conversation.new(participants: [current_user, recipient])
+        end
+      end
+
+      # allows to group all consecutive messages from the same sender
+      # so certain parameters can be displayed only once (such as the
+      # name of the sender)
+      def user_grouped_messages
+        conversation.messages.includes(:sender).chunk(&:sender)
+      end
+
+      def sender_is_user?(sender)
+        current_user.id == sender.id
       end
     end
   end

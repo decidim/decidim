@@ -31,6 +31,7 @@ en:
           global:
             announcement: Announcement
             comments_enabled: Comments enabled
+            comments_max_length: Comments max length (Leave 0 for default value)
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
@@ -97,6 +98,8 @@ en:
           create: Create
           select_a_category: Please select a category
           title: New debate
+        show:
+          back: Back to list
       last_activity:
         new_debate_at_html: "<span>New debate at %{link}</span>"
       models:

@@ -17,7 +17,7 @@ module Decidim
       isolate_namespace Decidim::Meetings
 
       routes do
-        resources :meetings, only: [:index, :show] do
+        resources :meetings, only: [:index, :show, :new, :create, :edit, :update] do
           resource :registration, only: [:create, :destroy] do
             collection do
               get :create
@@ -26,6 +26,7 @@ module Decidim
               post :answer
             end
           end
+          resources :versions, only: [:show, :index]
           resource :meeting_widget, only: :show, path: "embed"
         end
         root to: "meetings#index"
@@ -52,10 +53,6 @@ module Decidim
               }
             )
           end
-        end
-
-        Decidim.view_hooks.register(:current_participatory_space_meetings, priority: Decidim::ViewHooks::HIGH_PRIORITY) do |view_context|
-          view_context.cell("decidim/meetings/highlighted_meetings", view_context.current_participatory_space)
         end
 
         # This view hook is used in card cells. It renders the next upcoming

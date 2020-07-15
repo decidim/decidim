@@ -25,14 +25,13 @@ fi:
         origin_scope: Teema
         origin_title: Alkuperä
         origin_url: Alkuperän URL-osoite
-        participatory_scope: Osallisuusteema
+        participatory_scope: Osallistumisteema
         promoter_group: Suositteluryhmä
         question_context: Konteksti
         reference: Viite
         scope: Kunnan alue
         slug: URL-tunniste
         subtitle: Alaotsikko
-        title: Otsikko
         vote: Ulkoinen äänestysjärjestelmä
         what_is_decided: Mitä päätetään
       response:
@@ -94,7 +93,7 @@ fi:
       consultations:
         create:
           error: Kuulemisen luonti epäonnistui.
-          success: Kuuleminen luotu onnistuneesti.
+          success: Kuulemisen luonti onnistui.
         edit:
           update: Päivitä
         form:
@@ -112,7 +111,7 @@ fi:
           total_votes: 'Yhteensä: %{count} ääntä'
         update:
           error: Kuulemisen päivitys epäonnistui.
-          success: Kuuleminen päivitetty onnistuneesti.
+          success: Kuulemisen päivitys onnistui.
       menu:
         consultations: Kuulemiset
         consultations_submenu:
@@ -165,9 +164,9 @@ fi:
       questions:
         create:
           error: Uuden kysymyksen luonti epäonnistui.
-          success: Kysymys luotu onnistuneesti.
+          success: Kysymyksen luonti onnistui.
         destroy:
-          success: Kysely poistettu onnistuneesti.
+          success: Kysymyksen poisto onnistui.
         edit:
           update: Päivitä
         form:
@@ -183,7 +182,7 @@ fi:
           success: Kysymyksen päivitys onnistui.
       response_groups:
         create:
-          error: Virhe luotaessa uutta vastausryhmää.
+          error: Vastausryhmän luonti epäonnistui.
           success: Vastausryhmän luonti onnistui.
         destroy:
           error: Vastausryhmän luonti ei onnistunut. Tarkista, että yksikään vastaus ei riipu tästä ryhmästä.
@@ -197,15 +196,15 @@ fi:
           create: Luo
           title: Uusi vastausryhmä
         update:
-          error: Tämän vastauksen päivittämisessä tapahtui virhe.
+          error: Tämän vastauksen päivitys epäonnistui.
           success: Vastauksen päivitys onnistui.
       responses:
         create:
           error: Uuden vastauksen luonti epäonnistui.
-          success: Vastaus luotu onnistuneesti.
+          success: Vastauksen luonti onnistui.
         destroy:
           error: Vastauksen poistaminen epäonnistui.
-          success: Vastaus poistettu onnistuneesti.
+          success: Vastauksen poisto onnistui.
         edit:
           update: Päivitä
         form:
@@ -317,8 +316,8 @@ fi:
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p><strong>Kuulemiset</strong> ovat osallisuustila, jonka avulla voit esittää selkeän kysymyksen kaikille organisaation ihmisille, tehdä päätöksen kuulemiseen osallistumisesta sekä herättää ja järjestää keskustelua vastauksen saamiseksi. Kuulemisen ajankohtana voit äänestää ja julkaista äänestystulokset.</p> <p>Kuulemisia voidaan järjestää lähes mistä tahansa organisaatioon vaikuttavasta asiasta, kuten nimen tai logon muuttamisesta, päättämisestä laajempaan organisaatioon liittymisestä, strategisen suunnitelman tai työryhmän päätöksen hyväksymisestä tai hylkäämisestä, tai tarvittavien mandaattien määrän päättämisestä.</p>\n"
-          page: "<p><strong>Kuulemiset</strong> ovat osallisuustila, jonka avulla voit esittää selkeän kysymyksen kaikille organisaation ihmisille, tehdä päätöksen kuulemiseen osallistumisesta sekä herättää ja järjestää keskustelua vastauksen saamiseksi. Kuulemisen ajankohtana voit äänestää ja julkaista äänestystulokset.</p> <p>Kuulemisia voidaan järjestää lähes mistä tahansa organisaatioon vaikuttavasta asiasta, kuten nimen tai logon muuttamisesta, päättämisestä laajempaan organisaatioon liittymisestä, strategisen suunnitelman tai työryhmän päätöksen hyväksymisestä tai hylkäämisestä, tai tarvittavien mandaattien määrän päättämisestä.</p>\n"
+          contextual: "<p><strong>Kuulemiset</strong> ovat osallistumistila, jonka avulla voit esittää selkeän kysymyksen kaikille organisaation ihmisille, tehdä päätöksen kuulemiseen osallistumisesta sekä herättää ja järjestää keskustelua vastauksen saamiseksi. Kuulemisen ajankohtana voit äänestää ja julkaista äänestystulokset.</p> <p>Kuulemisia voidaan järjestää lähes mistä tahansa organisaatioon vaikuttavasta asiasta, kuten nimen tai logon muuttamisesta, päättämisestä laajempaan organisaatioon liittymisestä, strategisen suunnitelman tai työryhmän päätöksen hyväksymisestä tai hylkäämisestä, tai tarvittavien mandaattien määrän päättämisestä.</p>\n"
+          page: "<p><strong>Kuulemiset</strong> ovat osallistumistila, jonka avulla voit esittää selkeän kysymyksen kaikille organisaation ihmisille, tehdä päätöksen kuulemiseen osallistumisesta sekä herättää ja järjestää keskustelua vastauksen saamiseksi. Kuulemisen ajankohtana voit äänestää ja julkaista äänestystulokset.</p> <p>Kuulemisia voidaan järjestää lähes mistä tahansa organisaatioon vaikuttavasta asiasta, kuten nimen tai logon muuttamisesta, päättämisestä laajempaan organisaatioon liittymisestä, strategisen suunnitelman tai työryhmän päätöksen hyväksymisestä tai hylkäämisestä, tai tarvittavien mandaattien määrän päättämisestä.</p>\n"
           title: Mitä ovat kuulemiset?
     menu:
       consultations: Kuulemiset

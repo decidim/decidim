@@ -6,6 +6,8 @@ require "decidim/core"
 require "decidim/initiatives/current_locale"
 require "decidim/initiatives/initiatives_filter_form_builder"
 require "decidim/initiatives/initiative_slug"
+require "decidim/initiatives/api"
+require "decidim/initiatives/query_extensions"
 
 module Decidim
   module Initiatives
@@ -44,6 +46,7 @@ module Decidim
               get :spawn
             end
           end
+          resources :versions, only: [:show, :index]
         end
 
         scope "/initiatives/:initiative_slug/f/:component_id" do
@@ -108,6 +111,12 @@ module Decidim
               ).published.count
             end
           }
+        end
+      end
+
+      initializer "decidim_initiatives.query_extensions" do
+        Decidim::Api::QueryType.define do
+          QueryExtensions.define(self)
         end
       end
     end

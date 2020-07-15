@@ -70,10 +70,12 @@ it:
         port: Porta
         primary_color: Primario
         reference_prefix: Prefisso
+        rich_text_editor_in_public_views: Abilita l'editor di testo esteso per i partecipanti
         secondary_color: Secondario
         send_welcome_notification: Invia notifica di benvenuto
         show_statistics: Mostra statistiche
         success_color: Successo
+        time_zone: Fuso Orario
         tos_version: Termini di versione del servizio
         twitter_handler: Gestore di Twitter
         user_groups_enabled: Abilita gruppi
@@ -142,9 +144,24 @@ it:
         export: Esporta
         manage: Gestisci
         new: Nuovo %{name}
+        per_page: Per pagina
         permissions: Permessi
         reject: Rifiuta
         verify: Verifica
+      admin_terms_of_use:
+        accept:
+          error: Si è verificato un errore durante l'accettazione dei termini di utilizzo da parte dell'amministratore.
+          success: Ottimo! Hai accettato i termini d'uso dell'amministratore.
+        actions:
+          accept: Accetto i termini di amministrazione
+          are_you_sure: Sei sicuro di voler rifiutare i termini di amministrazione?
+          refuse: Rifiuta i termini di amministrazione
+          title: Accetta i termini e le condizioni di utilizzo
+        required_review:
+          alert: 'Richiesto: Rivedi i nostri termini di utilizzo da amministratore'
+          callout: Prenditi un momento per leggere i Termini di utilizzo dell'amministratore. Altrimenti non sarai in grado di amministrare la piattaforma.
+          cta: Rivedili ora.
+        title: Termini di utilizzo dell'amministratore
       area_types:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo tipo di area.
@@ -236,6 +253,7 @@ it:
           success: OK, la categoria è stata aggiornata.
       component_permissions:
         update:
+          error: Si è verificato un problema durante l'aggiornamento dei permessi di questo componente.
           success: Autorizzazioni aggiornate correttamente.
       components:
         create:
@@ -274,7 +292,37 @@ it:
           welcome: Benvenuti nel pannello di amministrazione di Decidim.
       exports:
         export_as: "%{name} esporta come %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
         notice: Export in fase di elaborazione.  Riceverai un'email quando l'export sarà terminato.
+      filters:
+        category_id_eq:
+          label: Categorie
+        filter_label: Filtro
+        officialized_at_null:
+          label: Stato
+          values:
+            'false': Ufficializzato
+            'true': Non ufficializzato
+        private_space_eq:
+          label: Privato
+          values:
+            'false': Pubblico
+            'true': Privato
+        published_at_null:
+          label: Pubblicato
+          values:
+            'false': Pubblicato
+            'true': Non pubblicato (nascosto)
+        scope_id_eq:
+          label: Ambito tematico
+        search_label: Ricerca
+        search_placeholder:
+          name_or_nickname_or_email_cont: Cerca %{collection} per email, nome o pseudonimo.
+          title_cont: Cerca %{collection} per titolo.
       help_sections:
         error: Si è verificato un errore durante l'aggiornamento delle sezioni della guida
         form:
@@ -307,23 +355,23 @@ it:
         form:
           authorization_method: Metodo di autorizzazione
           name: Nome
-          reason: Ragionare
+          reason: Ragione
         new:
           impersonate: Impersonare
-          impersonate_existing_managed_user: Impersonare l'utente gestito "%{name}"
-          impersonate_existing_user: Impersonare l'utente "%{name}"
-          impersonate_new_managed_user: Impersonare il nuovo utente gestito
+          impersonate_existing_managed_user: Gestisci partecipante %{name}"
+          impersonate_existing_user: Gestisci partecipante %{name}"
+          impersonate_new_managed_user: Gestisci nuovo partecipante
       logs:
         logs_list:
           no_logs_yet: Non ci sono ancora i log
       managed_users:
         promotion:
-          error: Si è verificato un errore che ha promosso l'utente gestito.
-          success: L'utente gestito è stato promosso con successo.
+          error: Si è verificato un problema nella promozione del partecipante gestito.
+          success: Il partecipante gestito è stato promosso con successo.
         promotions:
           new:
-            explanation: Gli utenti gestiti possono essere promossi agli utenti standard. Significa che saranno invitati all'applicazione e non sarete in grado di repersonarli nuovamente. L'utente invitato riceverà un'email per accettare l'invito.
-            new_managed_user_promotion: Nuova promozione degli utenti gestiti
+            explanation: I partecipanti gestiti possono essere promossi a partecipanti standard. Significa che saranno invitati ad effettuare la richiesta e non sarai in grado di gestirli di nuovo. Il partecipante invitato riceverà un'email per accettare il tuo invito.
+            new_managed_user_promotion: Nuova promozione di partecipanti gestiti
             promote: Promuovere
       menu:
         admin_log: Registro delle attività di amministrazione
@@ -333,18 +381,21 @@ it:
         areas: Ambiti territoriali
         configuration: Configurazione
         dashboard: Cruscotto (Dashboard)
-        help_sections: Aiuto sezioni
+        help_sections: Sezioni di Aiuto
         homepage: Homepage
-        impersonations: impersonations
+        impersonations: Impersonificazioni
         newsletters: Newsletters
         oauth_applications: Applicazioni OAuth
-        participants: I partecipanti
+        participants: Partecipanti
         scope_types: Tipi di ambito
         scopes: Ambito tematico
         settings: Impostazioni
         static_pages: Pagine
-        user_groups: Gruppi di utenti
+        user_groups: Gruppi
         users: Utenti
+      metrics:
+        metrics:
+          see_more_metrics: Visualizza Ulteriori Dettagli
       models:
         area:
           fields:
@@ -368,30 +419,30 @@ it:
         impersonation_log:
           fields:
             admin: Amministratore
-            ended_at: Terminato a
-            expired_at: Scaduto a
+            ended_at: Terminato il
+            expired_at: Scaduto il
             reason: Ragionare
-            started_at: Ha iniziato a
+            started_at: Iniziato il
             user: Utente
         newsletter:
           fields:
             created_at: Creato il
             progress: Avanzamento
             sent_at: Inviato alle
-            sent_to: Inviato
+            sent_to: Inviato a
             subject: Oggetto
-          name: notiziario
+          name: Newsletter
         oauth_application:
           fields:
-            created_at: Creato a
+            created_at: Creato il
             name: Nome
           name: Applicazione OAuth
         participatory_space_private_user:
-          name: Utente privato dello spazio partecipativo
+          name: Partecipante privato allo spazio partecipativo
         scope:
           fields:
             name: Nome
-            scope_type: Tipo di campo
+            scope_type: Tipo di ambito tematico
         scope_type:
           fields:
             name: Nome
@@ -409,7 +460,7 @@ it:
             role: Ruolo
             roles:
               admin: Amministratore
-              user_manager: Gestore utente
+              user_manager: Responsabile del partecipante
           name: Utente
         user_group:
           fields:
@@ -419,7 +470,7 @@ it:
             name: Nome
             phone: Telefono
             state: Stato
-            users_count: Conteggio degli utenti
+            users_count: Conteggio dei partecipanti
       moderations:
         index:
           title: Moderazione
@@ -428,6 +479,14 @@ it:
             does_not_belong: Non appartiene
             offensive: Offensivo
             spam: Spam
+      newsletter_templates:
+        index:
+          preview_template: Anteprima
+          title: Modelli Newsletter
+          use_template: Utilizza questo Modello
+        show:
+          preview: 'Anteprima Modello: %{template_name}'
+          use_template: Utilizza questo Modello
       newsletters:
         create:
           error: Si è verificato un errore durante la creazione di questa newsletter.
@@ -441,19 +500,18 @@ it:
         edit:
           save_and_preview: Salva e vedi l'anteprima
           title: Modifica la Newsletter
-        form:
-          interpolations_hint: 'Suggerimento: puoi utilizzare "%{name}" ovunque nel corpo del testo  o nell''oggetto e sarà sostituito con il nome del contenitore.'
         index:
           all: tutti
           all_users: 'Tutti gli utenti '
           and: 'e '
           confirm_delete: Sei sicuro di voler cancellare questa newsletter?
           followers: 'followers '
-          has_been_sent_to: 'E'' stato inviato a: '
+          has_been_sent_to: 'E'' stata inviata a: '
           no_scopes: Nessun ambito
           not_sent: Non inviato
           participants: 'partecipanti '
           segmented_to: 'Segmentato a %{subject}: '
+          subscribed_count: 'Sottoscrittori:'
           title: Newsletters
         new:
           save: Salva
@@ -466,6 +524,7 @@ it:
           followers_help: Invia newsletter a tutti gli utenti confermati che seguono tutti gli spazi partecipativi selezionati nella lista.
           none: Nessuno
           participants_help: Invia newsletter a tutti gli utenti confermati che hanno partecipato a uno degli spazi partecipativi selezionati nella lista.
+          recipients_count: Questa newsletter verrà inviata agli utenti <strong id='recipients_count'>%{count}</strong>.
           scopes_help: Invia newsletter agli utenti che hanno uno dei campi selezionati attivati nelle impostazioni "I miei interessi".
           select_scopes: Filtra per gli utenti che hanno attivato qualsiasi ambito selezionato nelle impostazioni interessi personali del proprio account.
           select_spaces: Selezionare gli spazi per segmentare la newsletter
@@ -512,24 +571,26 @@ it:
           actions: Azioni
           badge: Distintivo
           created_at: Creato a
-          filter:
-            all: Tutti
-            not_officialized: Non ufficializzato
-            officialized: ufficializzato
-          filter_by: Filtra per
           name: Nome
           nickname: Nickname
           not_officialized: Non ufficializzato
           officialize: ufficializzare
           officialized: ufficializzato
           reofficialize: Reofficialize
-          search: Ricerca
+          show_email: Mostra indirizzo email
           status: Stato
           unofficialize: Unofficialize
         new:
           badge: Distintivo di ufficializzazione
           officialize: ufficializzare
           title: Utente ufficiale "%{name}"
+        show_email_modal:
+          description: Se hai bisogno di contattare un utente direttamente puoi fare clic sul pulsante Mostra per vedere l'indirizzo email. Questa azione verrà registrata.
+          email_address: Indirizzo email
+          full_name: Nome Completo
+          hidden: nascosto
+          show: Mostra
+          title: Mostra l'indirizzo email dell'utente
       organization:
         edit:
           title: Modifica l'organizzazione
@@ -538,7 +599,8 @@ it:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
-          social_handlers: Sociale
+          rich_text_editor_in_public_views_help: In alcune aree di testo, i partecipanti saranno in grado di inserire alcuni tag HTML utilizzando l'editor di testo rich text.
+          social_handlers: Social networks
           twitter: Twitter
           url: URL
           youtube: Youtube
@@ -549,13 +611,16 @@ it:
         edit:
           update: Modifica
         form:
-          colors_title: Colori dell'organizzazione
-          cta_button_path_help: 'Puoi sovrascrivere dove il pulsante Call To Action nella home page è collegato. Utilizza i percorsi parziali e non gli URL completi qui. Accetta lettere, numeri, trattini e barre, e deve iniziare con una lettera. Il pulsante Chiamata all''azione è mostrato nella homepage tra il testo di benvenuto e la descrizione. Esempio: %{url}'
+          colors:
+            colors_title: Colori dell'organizzazione
+            header_snippets_help: Utilizza questo campo per aggiungere le cose alla testa HTML. L'uso più comune è quello di integrare i servizi di terze parti che richiedono JavaScript o CSS extra. Inoltre, è possibile utilizzarlo per aggiungere meta tag extra all'HTML. Tieni presente che questo sarà reso solo nelle pagine pubbliche, non nella sezione admin.
+          cta_button_path_help: 'Puoi sovrascrivere il collegamento del pulsante di "Chiamata all''azione" nella home page. Utilizza i percorsi parziali e non gli URL completi qui. Accetta lettere, numeri, trattini e barre, e deve iniziare con una lettera. Il pulsante "Chiamata all''azione" è mostrato nella homepage tra il testo di benvenuto e la descrizione. Esempio: %{url}'
           cta_button_text_help: Puoi sovrascrivere il testo del pulsante Chiamata all'azione nella home page per ogni lingua disponibile nell'organizzazione. Se non è impostato, verrà utilizzato il valore predefinito. Il pulsante Chiamata all'azione è mostrato nella homepage tra il testo di benvenuto e la descrizione.
-          header_snippets_help: Utilizza questo campo per aggiungere le cose alla testa HTML. L'uso più comune è quello di integrare i servizi di terze parti che richiedono JavaScript o CSS extra. Inoltre, è possibile utilizzarlo per aggiungere meta tag extra all'HTML. Tieni presente che questo sarà reso solo nelle pagine pubbliche, non nella sezione admin.
           homepage_appearance_title: Modifica l'aspetto della home page
           homepage_highlighted_content_banner_title: Banner con contenuti Highligted
-          layout_appearance_title: Modifica aspetto del layout
+          images:
+            layout_appearance_title: Modifica aspetto del layout
+            preview: Anteprima
           omnipresent_banner_appearance_title: Modifica banner onnipresente
       organization_homepage:
         edit:
@@ -622,6 +687,11 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento di questo àmbito.
           success: OK, l'àmbito è stato aggiornato.
+      shared:
+        gallery:
+          add_images: Aggiungi immagini
+          delete_image: Cancella immagine
+          gallery_legend: Aggiungi una galleria di immagini (opzionale)
       static_page_topics:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo argomento.
@@ -673,10 +743,12 @@ it:
         dashboard: Cruscotto (Dashboard)
         impersonatable_users: Utenti gestibili
         impersonations: Gestione degli utenti
-        participants: utenti
+        metrics: Partecipazione in cifre
+        participants: Utenti
         scope_types: Tipi di ambito
         scopes: Ambiti
         static_pages: Pagine
+        statistics: Attività
         user_groups: Gruppi di utenti
         users: Utenti
       user_group:
@@ -684,7 +756,7 @@ it:
           invalid: Si è verificato un errore durante la lettura del file CSV.
           success: File CSV caricato con successo, stiamo verificando i gruppi di utenti che soddisfano i criteri. Questo potrebbe richiedere del tempo.
         reject:
-          invalid: Si è verificato un errore quando rifiuta questo gruppo di utenti.
+          invalid: Si è verificato un errore rifiutando questo gruppo di utenti.
           success: Gruppo utenti rifiutato correttamente
         verify:
           invalid: Si è verificato un errore durante la verifica di questo gruppo di utenti.
@@ -710,10 +782,10 @@ it:
           upload: Caricare
       users:
         create:
-          error: Si è verificato un errore cercando di mandare l'invito a questo utente.
+          error: Si è verificato un problema durante l'invito a questo amministratore.
           success: OK, utente invitato.
         destroy:
-          error: Si è verificato un errore cercando di eliminare questo utente.
+          error: Si è verificato un problema durante il tentativo di eliminare questo amministratore.
           success: Questo utente non è più un amministratore.
         form:
           email: E-mail
@@ -722,6 +794,14 @@ it:
         new:
           create: Invita
           title: Invita l'utente in qualità di amministratore
+      users_statistics:
+        users_count:
+          admins: Amministratori
+          last_day: Ultimo giorno
+          last_month: Mese precedente
+          last_week: Settimana precedente
+          no_users_count_statistics_yet: Non ci sono ancora statistiche per utenti
+          participants: I partecipanti
       view_public_page: Visualizza la pagina pubblica
     forms:
       errors:

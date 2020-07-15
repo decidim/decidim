@@ -1,0 +1,25 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= title %></h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row column">
+      <%= form.translated :text_field, :title, autofocus: true %>
+    </div>
+
+    <div class="row column">
+      <%= form.translated :editor, :description %>
+    </div>
+
+    <div class="row column">
+      <%= form.number_field :weight %>
+    </div>
+
+    <%= render partial: "decidim/admin/shared/gallery", locals: { form: form } %>
+
+    <div class="row column">
+      <%= proposals_picker(form, :proposals, proposals_picker_election_question_answers_path(election, question)) %>
+    </div>
+  </div>
+</div>

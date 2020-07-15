@@ -1,17 +1,18 @@
-<div class="card" id="conferences">
+<div class="card with-overflow" id="conferences">
   <div class="card-divider">
     <h2 class="card-title">
       <%= t "decidim.admin.titles.conferences" %>
       <%= link_to t("actions.new_conference", scope: "decidim.admin"), new_conference_path, class: "button tiny button--title" if allowed_to? :create, :conference %>
     </h2>
   </div>
+  <%= admin_filter_selector %>
   <div class="card-section">
     <div class="table-scroll">
       <table class="table-list">
         <thead>
           <tr>
             <th><%= t("models.conference.fields.title", scope: "decidim.admin") %></th>
-            <th><%= t("models.conference.fields.created_at", scope: "decidim.admin") %></th>
+            <th><%= sort_link(query, :created_at, t("models.conference.fields.created_at", scope: "decidim.admin"), default_order: :desc) %></th>
             <th class="table-list__actions"><%= t("models.conference.fields.published", scope: "decidim.admin") %></th>
             <th></th>
           </tr>
@@ -22,11 +23,13 @@
               <td>
                 <% if conference.promoted? %>
                   <span data-tooltip class="icon-state icon-highlight" aria-haspopup="true" data-disable-hover="false" title="<%= t("models.conference.fields.promoted", scope: "decidim.admin") %>">
-                    <%= icon "star" %>
+                    <%= icon "star", aria_label: t("models.conference.fields.promoted", scope: "decidim.admin"), role: "img" %>
                   </span>
                 <% end %>
                 <% if allowed_to? :update, :conference, conference: conference %>
                   <%= link_to translated_attribute(conference.title), edit_conference_path(conference) %><br>
+                <% elsif allowed_to? :read, :component, conference: conference %>
+                  <%= link_to translated_attribute(conference.title), components_path(conference) %><br>
                 <% elsif allowed_to? :preview, :conference, conference: conference %>
                   <%= link_to translated_attribute(conference.title), decidim_conferences.conference_path(conference) %><br>
                 <% elsif allowed_to? :read, :moderation, conference: conference %>

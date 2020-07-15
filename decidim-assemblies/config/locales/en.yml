@@ -17,6 +17,7 @@ en:
         created_by_other: Created by other
         creation_date: Date created
         decidim_area_id: Area
+        decidim_assemblies_type_id: Assembly type
         decidim_scope_id: Scope
         description: Description
         developer_group: Promoter group
@@ -64,6 +65,12 @@ en:
         email: Email
         name: Name
         role: Role
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Invalid document type. Accepted formats are: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -78,7 +85,9 @@ en:
   decidim:
     admin:
       actions:
+        import_assembly: Import
         new_assembly: New assembly
+        new_assembly_type: New assembly type
       assemblies:
         create:
           error: There was a problem creating a new assembly.
@@ -100,11 +109,35 @@ en:
         create:
           error: There was a problem duplicating this assembly.
           success: Assembly successfully duplicated.
+      assemblies_settings:
+        update:
+          error: There was a problem updating settings.
+          success: Settings updated successfully.
+      assemblies_types:
+        create:
+          error: There was a problem creating a new assembly type.
+          success: Assembly type created successfully.
+        destroy:
+          success: Assembly type successfully deleted.
+        new:
+          create: Create
+          title: New assembly type
+        update:
+          error: There was a problem updating this assembly type.
+          success: Assembly type successfully updated.
       assembly_copies:
         new:
           copy: Copy
           select: Select which data you would like to duplicate
           title: Duplicate assembly
+      assembly_imports:
+        create:
+          error: There was a problem importing this assembly.
+          success: Assembly successfully imported.
+        new:
+          import: Import
+          select: Select which data you would like to import
+          title: Import assembly
       assembly_members:
         create:
           error: There was a problem adding a member for this assembly.
@@ -148,6 +181,7 @@ en:
           success: Admin updated successfully for this assembly.
       menu:
         assemblies: Assemblies
+        assemblies_settings: Settings
         assemblies_submenu:
           assembly_admins: Assembly admins
           assembly_members: Members
@@ -159,7 +193,12 @@ en:
           info: Info
           moderations: Moderations
           private_users: Private users
+        assemblies_types: Assemblies types
       models:
+        assemblies_types:
+          fields:
+            created_at: Created at
+            title: Title
         assembly:
           fields:
             created_at: Created at
@@ -190,8 +229,10 @@ en:
             admin: Administrator
             collaborator: Collaborator
             moderator: Moderator
+            valuator: Valuator
       titles:
         assemblies: Assemblies
+        assemblies_types: Assemblies types
     admin_log:
       assembly:
         create: "%{user_name} created the %{resource_name} assembly"
@@ -202,6 +243,14 @@ en:
         create: "%{user_name} created the %{resource_name} member in the %{space_name} assembly"
         delete: "%{user_name} removed the %{resource_name} member from the %{space_name} assembly"
         update: "%{user_name} updated the %{resource_name} member in the %{space_name} assembly"
+      assembly_setting:
+        update: "%{user_name} updated the assemblies settings"
+      assembly_type:
+        create: "%{user_name} created the %{resource_name} assembly type"
+        delete: "%{user_name} removed the %{resource_name} member from the %{space_name} assembly type"
+        publish: "%{user_name} published the %{resource_name} assembly type"
+        unpublish: "%{user_name} unpublished the %{resource_name} assembly type"
+        update: "%{user_name} updated the %{resource_name} assembly type"
       assembly_user_role:
         create: "%{user_name} invited %{resource_name} to the %{space_name} assembly"
         delete: "%{user_name} removed the participant %{resource_name} from the %{space_name} assembly"
@@ -225,8 +274,20 @@ en:
             social_handlers: Social
             title: General Information
             visbility: Visibility
+        assemblies_settings:
+          edit:
+            update: Update
+          form:
+            title: Settings for assemblies
+        assemblies_types:
+          form:
+            title: Title
         assembly_copies:
           form:
+            slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Add a document
             slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         assembly_members:
           form:
@@ -281,6 +342,7 @@ en:
         home:
           highlighted_assemblies:
             active_assemblies: Active assemblies
+            assemblies_button_title: Link to the Assemblies page displaying all the assemblies
             see_all_assemblies: See all assemblies
         user_profile:
           member_of:
@@ -311,6 +373,7 @@ en:
         related_participatory_processes: Related participatory processes
         scope: Scope
         social_networks: Social Networks
+        social_networks_title: Share this assembly on
         target: Who participates
       statistics:
         answers_count: Answers
@@ -322,6 +385,7 @@ en:
         meetings_count: Meetings
         orders_count: Supports
         pages_count: Pages
+        posts_count: Posts
         projects_count: Projects
         proposals_count: Proposals
         results_count: Results
@@ -333,6 +397,24 @@ en:
         designated_on: Designated on
       index:
         title: Members
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Link to the Conferences page displaying all the conferences
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: An admin of the <a href="%{resource_url}">%{resource_name}</a> assembly has added you as one of its members.
+          email_outro: You have received this notification because you have been invited to an assembly. Check the <a href="%{resource_path}">assembly page</a> to contribute!
+          email_subject: You have been invited to be a member of the %{resource_name} assembly!
+          notification_title: You have been registered as a member of Assembly <a href="%{resource_path}">%{resource_name}</a>. Check the <a href="%{resource_path}">assembly page</a> to contribute!
+      assembly:
+        role_assigned:
+          email_intro: You have been assigned as %{role} for assembly "%{resource_title}".
+          email_outro: You have received this notification because you are %{role} of the "%{resource_title}" assembly.
+          email_subject: You have been assigned as %{role} for "%{resource_title}".
+          notification_title: You have been assigned as %{role} for assembly <a href="%{resource_url}">%{resource_title}</a>.
     help:
       participatory_spaces:
         assemblies:
@@ -343,6 +425,8 @@ en:
       value_types:
         assembly_presenter:
           not_found: 'The assembly was not found on the database (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'The assembly type was not found on the database (ID: %{id})'
     menu:
       assemblies: Assemblies
     metrics:
@@ -350,6 +434,19 @@ en:
         description: Number of assemblies created
         object: assemblies
         title: Assemblies
+    pages:
+      home:
+        hero:
+          participate_title: Participate to the platform's processes
+        sub_hero:
+          register_title: Sign up to create an account on the platform
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Link to the Processes page displaying all the processes
+      show:
+        related_assemblies: Related assemblies
   errors:
     messages:
       cannot_be_blank: can not be blank

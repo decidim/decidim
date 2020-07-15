@@ -17,13 +17,10 @@ module Decidim::Meetings
     let(:private_meeting) { false }
     let(:transparent) { true }
     let(:services) do
-      [
-        { "title" => { "en" => "First service" }, "description" => { "en" => "First description" } },
-        { "title" => { "en" => "Second service" }, "description" => { "en" => "Second description" } }
-      ]
+      build_list(:service, 2, meeting: meeting)
     end
     let(:services_to_persist) do
-      services.map { |service| Admin::MeetingServiceForm.from_params(service) }
+      services.map { |service| Admin::MeetingServiceForm.from_params(service.attributes) }
     end
 
     let(:form) do
@@ -42,10 +39,10 @@ module Decidim::Meetings
         category: meeting.category,
         services_to_persist: services_to_persist,
         current_user: current_user,
-        organizer: meeting.organizer,
         questionnaire: Decidim::Forms::Questionnaire.new,
         private_meeting: meeting.private_meeting,
         transparent: meeting.transparent,
+        current_organization: current_user.organization,
         current_component: meeting.component
       )
     end
@@ -70,7 +67,11 @@ module Decidim::Meetings
         expect(new_meeting.scope).to eq(old_meeting.scope)
         expect(new_meeting.category).to eq(old_meeting.category)
         expect(new_meeting.component).to eq(old_meeting.component)
-        expect(new_meeting.services).to eq(services)
+
+        new_meeting.services.each_with_index do |service, index|
+          expect(service.title).to eq(services[index]["title"])
+          expect(service.description).to eq(services[index]["description"])
+        end
       end
 
       it "broadcasts ok" do

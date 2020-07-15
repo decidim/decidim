@@ -10,13 +10,8 @@ describe "Filter Assemblies", type: :system do
   end
 
   context "when filtering parent assemblies by assembly_type" do
-    let!(:assembly_1) { create(:assembly, organization: organization, assembly_type: "others") }
-    let!(:assembly_2) { create(:assembly, organization: organization, assembly_type: "government") }
-    let!(:assembly_3) { create(:assembly, organization: organization, assembly_type: "consultative_advisory") }
-    let!(:assembly_4) { create(:assembly, organization: organization, assembly_type: "participatory") }
-    let!(:assembly_5) { create(:assembly, organization: organization, assembly_type: "executive") }
-    let!(:assembly_6) { create(:assembly, organization: organization, assembly_type: "working_group") }
-    let!(:assembly_7) { create(:assembly, organization: organization, assembly_type: "commission") }
+    # let!(:assembly_types) { create_list(:assemblies_type, 3, organization: organization) }
+    let!(:assemblies) { create_list(:assembly, 3, :with_type, organization: organization) }
 
     before do
       visit decidim_assemblies.assemblies_path
@@ -25,49 +20,16 @@ describe "Filter Assemblies", type: :system do
 
     it "filters by All types" do
       click_link "All types"
-      expect(page).to have_selector("article.card.card--assembly", count: 7)
+      expect(page).to have_selector("article.card.card--assembly", count: 3)
     end
 
-    it "filters by Government type" do
-      click_link "Government"
-      expect(page).to have_selector("article.card.card--assembly", count: 1)
-      expect(page).to have_selector("#button-text", text: "Government")
-    end
-
-    it "filters by Executive type" do
-      click_link "Executive"
-      expect(page).to have_selector("article.card.card--assembly", count: 1)
-      expect(page).to have_selector("#button-text", text: "Executive")
-    end
-
-    it "filters by Consultative/Advisory type" do
-      click_link "Consultative/Advisory"
-      expect(page).to have_selector("article.card.card--assembly", count: 1)
-      expect(page).to have_selector("#button-text", text: "Consultative/Advisory")
-    end
-
-    it "filters by Participatory type" do
-      click_link "Participatory"
-      expect(page).to have_selector("article.card.card--assembly", count: 1)
-      expect(page).to have_selector("#button-text", text: "Participatory")
-    end
-
-    it "filters by Working group type" do
-      click_link "Working group"
-      expect(page).to have_selector("article.card.card--assembly", count: 1)
-      expect(page).to have_selector("#button-text", text: "Working group")
-    end
-
-    it "filters by Commission type" do
-      click_link "Commission"
-      expect(page).to have_selector("article.card.card--assembly", count: 1)
-      expect(page).to have_selector("#button-text", text: "Commission")
-    end
-
-    it "filters by Others type" do
-      click_link "Others"
-      expect(page).to have_selector("article.card.card--assembly", count: 1)
-      expect(page).to have_selector("#button-text", text: "Others")
+    3.times do |i|
+      it "filters by Government type" do
+        assembly = assemblies[i]
+        click_link assembly.assembly_type.title["en"]
+        expect(page).to have_selector("article.card.card--assembly", count: 1)
+        expect(page).to have_selector("#button-text", text: assembly.assembly_type.title["en"])
+      end
     end
   end
 

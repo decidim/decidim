@@ -28,16 +28,28 @@ module Decidim
       has_many :down_votes, -> { where(weight: -1) }, foreign_key: "decidim_comment_id", class_name: "CommentVote", dependent: :destroy
 
       validates :body, presence: true
-      validates :depth, numericality: { greater_than_or_equal_to: 0 }
+      validates :depth, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: MAX_DEPTH }
       validates :alignment, inclusion: { in: [0, 1, -1] }
 
-      validates :body, length: { maximum: 1000 }
+      validate :body_length
 
       validate :commentable_can_have_comments
 
-      before_save :compute_depth
+      before_validation :compute_depth
 
       delegate :organization, to: :commentable
+
+      def self.positive
+        where(alignment: 1)
+      end
+
+      def self.neutral
+        where(alignment: 0)
+      end
+
+      def self.negative
+        where(alignment: -1)
+      end
 
       def participatory_space
         return root_commentable if root_commentable.is_a?(Decidim::Participable)
@@ -92,7 +104,7 @@ module Decidim
 
       # Public: Returns the comment message ready to display (it is expected to include HTML)
       def formatted_body
-        @formatted_body ||= Decidim::ContentProcessor.render(sanitized_body)
+        @formatted_body ||= Decidim::ContentProcessor.render(sanitized_body, "div")
       end
 
       def self.export_serializer
@@ -100,10 +112,10 @@ module Decidim
       end
 
       def self.newsletter_participant_ids(space)
-        Decidim::Comments::Comment.includes(:root_commentable).not_hidden
-                                  .where("decidim_comments_comments.decidim_author_id IN (?)", Decidim::User.where(organization: space.organization).pluck(:id))
-                                  .where("decidim_comments_comments.decidim_author_type IN (?)", "Decidim::UserBaseEntity")
-                                  .map(&:author).pluck(:id).flatten.compact.uniq
+        authors_sql = Decidim::Comments::Comment.select("DISTINCT decidim_comments_comments.decidim_author_id").not_hidden
+                                                .where("decidim_comments_comments.decidim_author_type" => "Decidim::UserBaseEntity").to_sql
+
+        Decidim::User.where(organization: space.organization).where("id IN (#{authors_sql})").pluck(:id)
       end
 
       def can_participate?(user)
@@ -113,6 +125,24 @@ module Decidim
       end
 
       private
+
+      def body_length
+        errors.add(:body, :too_long, count: comment_maximum_length) unless body.length <= comment_maximum_length
+      end
+
+      def comment_maximum_length
+        return unless commentable.commentable?
+        return component.settings.comments_max_length if component_settings_comments_max_length?
+        return organization.comments_max_length if organization.comments_max_length.positive?
+
+        1000
+      end
+
+      def component_settings_comments_max_length?
+        return unless component&.settings.respond_to?(:comments_max_length)
+
+        component.settings.comments_max_length.positive?
+      end
 
       # Private: Check if commentable can have comments and if not adds
       # a validation error to the model
@@ -125,9 +155,22 @@ module Decidim
         self.depth = commentable.depth + 1 if commentable.respond_to?(:depth)
       end
 
-      # Private: Returns the comment body sanitized, stripping HTML tags
+      # Private: Returns the comment body sanitized, sanitizing HTML tags
       def sanitized_body
-        Rails::Html::Sanitizer.full_sanitizer.new.sanitize(body)
+        Rails::Html::WhiteListSanitizer.new.sanitize(
+          render_markdown(body),
+          scrubber: Decidim::Comments::UserInputScrubber.new
+        ).try(:html_safe)
+      end
+
+      # Private: Initializes the Markdown parser
+      def markdown
+        @markdown ||= Decidim::Comments::Markdown.new
+      end
+
+      # Private: converts the string from markdown to html
+      def render_markdown(string)
+        markdown.render(string)
       end
     end
   end

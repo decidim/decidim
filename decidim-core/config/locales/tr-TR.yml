@@ -61,8 +61,6 @@ tr:
     account:
       data_portability_export:
         file_no_exists: Dosya bulunmuyor
-        invalid_token: Sağlanan simge geçersiz.
-        no_token: Sağlanan jeton yok
         notice: Verileriniz şu anda devam ediyor. Tamamlandığında bir e-posta alacaksınız.
       delete:
         alert: Bu işlem geri alınamaz. Hesabınızı silerseniz, giriş yapamazsınız.
@@ -82,6 +80,9 @@ tr:
         error: Hesabınız güncellenirken bir hata oluştu.
         success: Hesabınız başarıyla güncellendi.
         success_with_email_confirmation: Hesabınız başarıyla güncellendi. Yeni e-posta adresinizi onaylamak için bir e-posta alacaksınız.
+    admin:
+      actions:
+        cancel: İptal etmek
     admin_log:
       area:
         create: "%{user_name} %{resource_name} alanı oluşturdu"
@@ -205,6 +206,7 @@ tr:
         explanation: '"A" ile başlayan bir pasaport numarası girerek doğrulanın.'
         fields:
           passport_number: Pasaport numarası
+          postal_code: Posta kodu
         name: Başka bir örnek yetkilendirme
       dummy_authorization_handler:
         explanation: '"X" ile biten bir belge numarası girerek doğrulanmış olsun'
@@ -383,6 +385,8 @@ tr:
           this_application_will_not_be_able_to: 'Bu uygulama mümkün olmayacaktır:'
           update_profile: profilinizi güncelleyin
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> hesabınızı kullanmak istiyor"
+    endorsable:
+      endorsements: Cirolar
     errors:
       internal_server_error:
         title: Sunucumuzla ilgili bir sorun oluştu
@@ -511,7 +515,7 @@ tr:
           notification_title: <a href="%{resource_path}">profil sayfası</a> arasında %{name} (%{nickname}izlediğiniz), güncellendi.
     export_mailer:
       data_portability_export:
-        click_button: Verilerinizi indirmek için sonraki düğmeye tıklayın. <br/> Dosyaya %{date}kadar sahip olacaksınız.
+        click_button: 'Verilerinizi indirmek için sonraki düğmeye tıklayın. <br/> Dosyaya %{date}kadar sahip olacaksınız.'
         download: İndir
       export:
         ready: Lütfen ihracatınızın bir sıkıştırılmış versiyonunu ekte bulabilirsiniz.
@@ -554,16 +558,6 @@ tr:
     gamification:
       all_badges_link: Tüm mevcut rozetleri görün.
       badges:
-        continuity:
-          conditions:
-            - Buraya sık sık gel
-          description: Bu rozeti, platformu düzenli bir şekilde ziyaret ettiğinizde verilir. Burada olmanızı seviyoruz!
-          description_another: Bu kullanıcı bir noktada %{score} ardışık gün için bağlandı.
-          description_own: Bir noktada %{score} ardışık gün için bağlandınız.
-          name: süreklilik
-          next_level_in: Bir sonraki seviyeye geçmek için %{score} ardışık güne bağlanın!
-          unearned_another: Bu kullanıcı art arda birden fazla gün için giriş yapmadı.
-          unearned_own: Birden fazla ardışık güne bağlı değilsiniz.
         followers:
           conditions:
             - Aktif olmak ve diğer insanları takip etmek kesinlikle başka insanların sizi takip etmesini sağlayacaktır.
@@ -734,6 +728,7 @@ tr:
         create:
           error: Konuşma başlamadı. Daha sonra tekrar deneyin
         index:
+          close: Yakın kalıcı
           no_conversations: Henüz konuşma yok
           title: Konuşmalar
         reply:
@@ -999,8 +994,6 @@ tr:
         close_window: Pencereyi kapat
         share: Pay
         share_link: Linki paylaş
-      version_author:
-        deleted: Silinmiş kullanıcı
     user_activity:
       index:
         no_activities_warning: Bu kullanıcının henüz herhangi bir etkinliği olmadı.
@@ -1013,6 +1006,9 @@ tr:
       update:
         error: İlgi alanlarınız güncellenirken bir hata oluştu.
         success: İlgi alanlarınız başarıyla güncellendi.
+    version_author:
+      show:
+        deleted: Silinmiş kullanıcı
     welcome_notification:
       default_body: <p>Merhaba {{name}}, {{organization}} katıldığınız için teşekkürler ve hoş geldiniz!</p><ul><li>Burada neler yapabileceğiniz hakkında hızlı bir fikir edinmek istiyorsanız, <a href="{{help_url}}">Yardım</a> bölümüne bakın.</li><li>Okuduktan sonra ilk rozetinizi alacaksınız. İşte bu <a href="{{badges_url}}">tüm rozetlerle listesi</a> size katılmak olarak alabilirsiniz {{organization}}</li><li>onlarla Son ama en az, diğer insanları birleştirmek, paylaşmak yapan ve katılan olma deneyimi {{organization}}. Öneriler, yorumlar, tartışmalar yapın, ortak iyiliğe nasıl katkıda bulunacağınızı düşünün, ikna edeceğiniz argümanlar sunun, ikna olun, ikna olun, fikirlerinizi somut ve doğrudan bir şekilde ifade edin, sabır ve kararla karşılık verin, fikirlerinizi savunun ve saklayın. İşbirliği yapmak ve diğer insanların fikirlerine katılmak için açık bir zihin.</li></ul>
       default_subject: '{{organization}}katıldığınız için teşekkürler!'

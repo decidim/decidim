@@ -271,6 +271,15 @@ tr:
       exports:
         export_as: "%{name} olarak %{export_format}"
         notice: İhracatınız şu anda devam ediyor. Tamamlandığında bir e-posta alacaksınız.
+      filters:
+        category_id_eq:
+          label: Kategori
+        officialized_at_null:
+          label: Belirtmek, bildirmek
+          values:
+            'false': resmileştirilmiş
+            'true': Resmi değil
+        search_label: Arama
       help_sections:
         error: Yardım bölümleri güncellenirken bir hata oluştu
         form:
@@ -424,6 +433,9 @@ tr:
             does_not_belong: Ait değil
             offensive: saldırgan
             spam: İstenmeyen e
+      newsletter_templates:
+        index:
+          preview_template: Ön izleme
       newsletters:
         create:
           error: Bu bülteni oluştururken bir hata oluştu.
@@ -437,8 +449,6 @@ tr:
         edit:
           save_and_preview: Kaydet ve önizle
           title: Bülten düzenle
-        form:
-          interpolations_hint: 'İpucu: Gövde veya nesnenin herhangi bir yerinde "%{name}" kullanabilir ve alıcının adıyla değiştirilir.'
         index:
           all: tümü
           all_users: 'Tüm kullanıcılar '
@@ -507,18 +517,12 @@ tr:
           actions: Eylemler
           badge: rozet
           created_at: At düzenlendi
-          filter:
-            all: Herşey
-            not_officialized: Resmi değil
-            officialized: resmileştirilmiş
-          filter_by: Tarafından filtre
           name: isim
           nickname: Takma ad
           not_officialized: Resmi değil
           officialize: ', resmiyete'
           officialized: resmileştirilmiş
           reofficialize: Reofficialize
-          search: Arama
           status: durum
           unofficialize: Unofficialize
         new:
@@ -544,13 +548,15 @@ tr:
         edit:
           update: Güncelleştirme
         form:
-          colors_title: Organizasyon renkleri
+          colors:
+            colors_title: Organizasyon renkleri
+            header_snippets_help: HTML kafasına bir şeyler eklemek için bu alanı kullanın. En yaygın kullanım, bazı ekstra JavaScript veya CSS gerektiren üçüncü taraf hizmetleri entegre etmektir. Ayrıca, HTML'ye fazladan meta etiketler eklemek için de kullanabilirsiniz. Bunun yalnızca yönetici bölümünde değil, herkese açık sayfalarda gösterileceğini unutmayın.
           cta_button_path_help: 'Ana sayfadaki Harekete Geçirici Mesaj düğmesinin nereye bağlanacağı üzerine yazabilirsiniz. Tam URL’leri değil kısmi yolları kullanın. Harfleri, sayıları, kısa çizgileri ve eğik çizgileri kabul eder ve bir harfle başlamalıdır. Karşılama metni ve açıklama arasındaki ana sayfada Eylem Çağrısı düğmesi görüntülenir. Örnek: %{url}'
           cta_button_text_help: Kuruluşunuzdaki mevcut her dil için ana sayfada Harekete Geçirici Mesaj düğmesinin üzerine yazabilirsiniz. Ayarlanmazsa, varsayılan değer kullanılır. Karşılama metni ve açıklama arasındaki ana sayfada Eylem Çağrısı düğmesi görüntülenir.
-          header_snippets_help: HTML kafasına bir şeyler eklemek için bu alanı kullanın. En yaygın kullanım, bazı ekstra JavaScript veya CSS gerektiren üçüncü taraf hizmetleri entegre etmektir. Ayrıca, HTML'ye fazladan meta etiketler eklemek için de kullanabilirsiniz. Bunun yalnızca yönetici bölümünde değil, herkese açık sayfalarda gösterileceğini unutmayın.
           homepage_appearance_title: Ana sayfa görünümünü düzenle
           homepage_highlighted_content_banner_title: Yüksek içerikli banner
-          layout_appearance_title: Düzen görünümünü düzenle
+          images:
+            layout_appearance_title: Düzen görünümünü düzenle
           omnipresent_banner_appearance_title: Her yerde bulunan banner'ı düzenle
       organization_homepage:
         edit:
@@ -708,6 +714,10 @@ tr:
         new:
           create: Davet et
           title: Kullanıcıyı yönetici olarak davet et
+      users_statistics:
+        users_count:
+          admins: Yöneticiler
+          participants: Katılımcılar
       view_public_page: Genel sayfayı görüntüle
     forms:
       errors:

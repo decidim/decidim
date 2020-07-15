@@ -23,6 +23,7 @@ FactoryBot.define do
     show_statistics { true }
     start_date { 1.month.ago }
     end_date { 1.month.ago + 3.days }
+    registration_terms { generate_localized_title }
 
     trait :promoted do
       promoted { true }
@@ -92,6 +93,21 @@ FactoryBot.define do
              user: user,
              conference: evaluator.conference,
              role: :collaborator
+    end
+  end
+
+  factory :conference_valuator, parent: :user, class: "Decidim::User" do
+    transient do
+      conference { create(:conference) }
+    end
+
+    organization { conference.organization }
+
+    after(:create) do |user, evaluator|
+      create :conference_user_role,
+             user: user,
+             conference: evaluator.conference,
+             role: :valuator
     end
   end
 

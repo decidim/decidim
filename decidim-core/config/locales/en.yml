@@ -34,6 +34,7 @@ en:
       decidim/profile_updated_event: Profile updated
       decidim/promote_to_admin: Promoted to group admin
       decidim/removed_from_group: Removed from group
+      decidim/resource_endorsed_event: Resurce endorsed
   activerecord:
     attributes:
       decidim/user:
@@ -47,6 +48,9 @@ en:
       decidim/amendment:
         one: Amendment
         other: Amendments
+      decidim/endorsement:
+        one: Endorsement
+        other: Endorsements
       decidim/user:
         one: Participant
         other: Participants
@@ -58,6 +62,7 @@ en:
     'true': 'Yes'
   carrierwave:
     errors:
+      general: Error processing image
       image_too_big: The image is too big
   date:
     formats:
@@ -67,11 +72,12 @@ en:
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
+    accessibility:
+      logo: "%{organization}'s official logo"
+      skip_button: Skip to main content
     account:
       data_portability_export:
         file_no_exists: File does not exist
-        invalid_token: The provided token is invalid.
-        no_token: No token provided
         notice: The download of your data is currently in progress. You'll receive an email when it's complete.
       delete:
         alert: This action cannot be undone. If you delete your account you won't be able to log in.
@@ -91,6 +97,9 @@ en:
         error: There was a problem updating your account.
         success: Your account was successfully updated.
         success_with_email_confirmation: Your account was successfully updated. You'll receive an email to confirm your new email address.
+    admin:
+      actions:
+        cancel: Cancel
     admin_log:
       area:
         create: "%{user_name} created the %{resource_name} area"
@@ -134,11 +143,14 @@ en:
         invite: "%{user_name} invited the participant %{resource_name} with role: %{role}"
         officialize: "%{user_name} officialized the participant %{resource_name}"
         remove_from_admin: "%{user_name} removed the participant %{resource_name} with role: %{role}"
+        show_email: "%{user_name} retrieved the email of the participant %{resource_name}"
         unofficialize: "%{user_name} unofficialized the participant %{resource_name}"
       user_group:
         reject: "%{user_name} rejected the %{resource_name} group verification"
         verify: "%{user_name} verified the group %{resource_name}"
         verify_via_csv: "%{user_name} verified the group %{resource_name} via a CSV file"
+    admin_terms_of_use:
+      default_body: "<h2>ADMIN TERMS OF USE</h2><p>We trust you have received the usual lecture from the local System Administrator. It usually boils down to these three things:</p><ol><li>Respect the privacy of others.</li><li>Think before you click.</li><li>With great power comes great responsibility.</li></ol>"
     amendments:
       accepted:
         error: An error ocurred while accepting the amendment.
@@ -209,9 +221,6 @@ en:
       update_draft:
         error: There was a problem updating the amendment draft.
         success: Amendment draft successfully updated.
-      visibility_options:
-        all: Amendments are visible to all
-        participants: Amendments are visible only to their authors
       withdraw:
         error: An error ocurred while withdrawing the amendment
         success: The amendment has been withdrawn successfully
@@ -227,25 +236,35 @@ en:
         documents:
           one: Document
           other: Documents
+      document:
+        download: Download file
       documents:
         related_documents: Related documents
       photos:
         related_photos: Related images
     author:
+      avatar: Avatar
       comments:
         one: comment
         other: comments
+      endorsements:
+        one: endorsement
+        other: endorsements
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Get verified by introducing a passport number starting with "A"
         fields:
           passport_number: Passport number
+          postal_code: Postal code
         name: Another example authorization
       dummy_authorization_handler:
         explanation: Get verified by introducing a document number ending with "X"
         fields:
+          allowed_postal_codes: Allowed postal codes (separated by commas)
+          allowed_scope_id: Allowed scope
           document_number: Document number
           postal_code: Postal code
+          scope_id: Scope
         name: Example authorization
       dummy_authorization_workflow:
         name: Dummy authorization workflow
@@ -300,6 +319,19 @@ en:
       see_less: "(see less)"
       see_more: "(see more)"
     components:
+      component_order_selector:
+        no_content: We couldn\'t find any content with this criteria
+        order:
+          all_types: All types
+          collaborative_draft: Collaborative Draft
+          comment: Comment
+          debate: Debate
+          initiative: Initiative
+          meeting: Meeting
+          post: Post
+          proposal: Proposal
+          question: Question
+        title: 'Show:'
       dummy:
         actions:
           bar: Bar
@@ -309,6 +341,7 @@ en:
           global:
             amendments_enabled: Amendments enabled
             comments_enabled: Comments enabled
+            comments_max_length: Comments max length
             dummy_global_attribute_1: Dummy Attribute 1
             dummy_global_attribute_2: Dummy Attribute 2
             dummy_global_translatable_text: Dummy Translatable Text
@@ -329,6 +362,9 @@ en:
         name: Footer sub hero banner
       hero:
         name: Hero image
+      hero_settings_form:
+        background_image: Background image
+        welcome_text: Welcome text
       highlighted_content_banner:
         name: Highlighted content banner
       how_to_participate:
@@ -343,7 +379,7 @@ en:
       metrics:
         name: Organization metrics
       stats:
-        name: Organization stats
+        name: Organization statistics
       sub_hero:
         name: Sub hero banner
     core:
@@ -426,6 +462,15 @@ en:
           this_application_will_not_be_able_to: 'This application will not be able to:'
           update_profile: Update your profile
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> wants to use your account"
+    endorsable:
+      endorsements: Endorsements
+    endorsement_buttons_cell:
+      already_endorsed: Endorsed
+      endorse: Endorse
+    endorsements:
+      identities:
+        done: Done
+        select_identity: Select identity
     errors:
       internal_server_error:
         title: There was a problem with our server
@@ -544,8 +589,23 @@ en:
           email_outro: You have received this notification because you were a member of that group.
           email_subject: You have been removed from the %{user_group_name} group!
           notification_title: You have been removed from the <a href="%{resource_path}">%{user_group_name}</a> group.
+        user_group_created:
+          email_intro: A new user group has been created with the name %{user_group_name}. You can now verify it in the <a href="%{groups_admin_url}">admin panel</a>.
+          email_outro: You have received this notification because you are an admin of the platform.
+          email_subject: A new user group has been created
+          notification_title: The %{user_group_name} user group has been created. You can now verify it in the <a href="%{groups_admin_path}">admin panel</a>.
+        user_group_updated:
+          email_intro: A user group with the name %{user_group_name} has updated its profile, leaving it unverified. You can now verify it in the <a href="%{groups_admin_url}">admin panel</a>.
+          email_outro: You have received this notification because you are an admin of the platform.
+          email_subject: A user group has updated its profile
+          notification_title: The %{user_group_name} user group has updated its profile, leaving it unverified. You can now verify it in the <a href="%{groups_admin_path}">admin panel</a>.
       notification_event:
         notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
+      resource_endorsed:
+        email_intro: '%{endorser_name} %{endorser_nickname}, who you are following, has just endorsed "%{resource_title}" and we think it may be interesting to you. Check it out and contribute:'
+        email_outro: You have received this notification because you are following %{endorser_nickname}. You can stop receiving notifications following the previous link.
+        email_subject: "%{endorser_nickname} has performed a new endorsement"
+        notification_title: The <a href="%{resource_path}">%{resource_title}</a> %{resource_type} has been endorsed by <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: The <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
@@ -554,7 +614,7 @@ en:
           notification_title: The <a href="%{resource_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
     export_mailer:
       data_portability_export:
-        click_button: Click the next button to download your data. <br/> You will have the file available until %{date}.
+        click_button: 'Click the next button to download your data. <br/> You will have the file available until %{date}. <br/> You will need <a href=''https://www.7-zip.org/''>7-Zip</a> to open it. Password: %{password}'
         download: Download
       export:
         ready: Please find attached a zipped version of your export.
@@ -584,6 +644,7 @@ en:
       create:
         button: Follow
         error: There was a problem following this resource.
+        participatory_space: Already following the participatory space
       destroy:
         button: Stop following
         error: There was a problem unfollowing this resource.
@@ -756,26 +817,66 @@ en:
       home: Home
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          admin_in_group: You are receiving this because you are an admin in %{group}.
+          greeting: Hi, %{recipient}!
+          intro: "%{manager} has started a new conversation in the name of %{group}. Click here to see it:"
+          outro: Enjoy decidim!
+          subject: "%{manager} has started a new conversation as a %{group}"
+        comanagers_new_message:
+          admin_in_group: You are receiving this because you are an admin in %{group}.
+          greeting: Hi, %{recipient}!
+          intro: "%{manager} has posted new messages in a conversation in the name of %{group}. Click here to see them:"
+          outro: Enjoy decidim!
+          subject: "%{manager} has send new messages as a %{group}"
         new_conversation:
           greeting: Hi, %{recipient}!
           intro: "%{sender} has started a new conversation with you. Click here to see it:"
           outro: Enjoy decidim!
           subject: "%{sender} has started a conversation with you"
+        new_group_conversation:
+          admin_in_group: You are receiving this because you are an admin in %{group}.
+          greeting: Hi, %{recipient}!
+          intro: "%{sender} has started a new conversation with the group %{group}. Click here to see it:"
+          outro: Enjoy decidim!
+          subject: "%{sender} has started a conversation with %{group}"
+        new_group_message:
+          admin_in_group: You are receiving this because you are an admin in %{group}.
+          greeting: Hi, %{recipient}!
+          intro: "%{sender} has posted new messages in a conversation with the group %{group}. Click here to see it:"
+          outro: Enjoy decidim!
+          subject: "%{group} have new messages from %{sender}"
         new_message:
           greeting: Hi, %{recipient}!
           intro: "%{sender} has posted new messages in your conversation. Click here to see them:"
           outro: Enjoy decidim!
           subject: You have new messages from %{sender}
       conversations:
+        add_conversation_users:
+          add_max_users: 'Add users to conversation: 9 users max'
+          add_users_placeholder: Search...
+          modal_title: New conversation
+          no_results: No results
+          participant_with_disabled_message_reception: This participant has disabled message reception
         create:
           error: Conversation not started. Try again later
         index:
+          ago: ago
+          close: Close modal
+          from: From
+          groups: My groups
+          last_message: Last message
+          new_conversation: New conversation
+          next: Next
           no_conversations: You have no conversations yet
           title: Conversations
         reply:
+          placeholder: Your reply...
           send: Send
           title: Reply
         show:
+          chat_with: Conversation with
+          not_allowed: This user does not accept any more direct messages.
           title: Conversation with %{usernames}
         start:
           send: Send
@@ -802,6 +903,25 @@ en:
         note: You received this email because you're subscribed to newsletters on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
         see_on_website: Can’t see this email correctly? View it on the <a href="%{link}" target="_blank">website</a>.
         unsubscribe: To opt out of receiving this type of email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
+    newsletter_templates:
+      basic_only_text:
+        body_preview: 'Dummy text for body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Basic (only text)
+      basic_only_text_settings_form:
+        body: Body
+        interpolations_hint: 'Hint: You can use "%{name}" anywhere in the body or subject and it will be replaced by the recipient''s name.'
+      image_text_cta:
+        body_preview: 'Dummy text for body: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
+        cta_text_preview: Call To Action text
+        introduction_preview: 'Dummy text for introduction: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Image, text and Call To Action button
+      image_text_cta_settings_form:
+        body: Body
+        cta_text: Call To Action button text
+        cta_url: Call To Action button URL
+        interpolations_hint: 'Hint: You can use "%{name}" anywhere in the introduction, body, CTA text or subject and it will be replaced by the recipient''s name.'
+        introduction: Introduction
+        main_image: Main image
     newsletters:
       unsubscribe:
         check_subscription: If you want to change your preferences, you can do so in the <a href="%{link}" target="_blank">configuration page</a>
@@ -827,6 +947,8 @@ en:
       no_notifications: No notifications yet.
     notifications_settings:
       show:
+        allow_public_contact: Allow anyone to send me a direct message, even if I don't follow them.
+        direct_messages: Receive direct messages from anyone
         email_on_notification: I want to receive an email every time I receive a notification.
         everything_followed: Everything I follow
         newsletter_notifications: I want to receive newsletters
@@ -868,7 +990,7 @@ en:
           participate: Participate
           welcome: Welcome to %{organization}!
         metrics:
-          headline: Participation in figures
+          headline: Metrics
         statistics:
           answers_count: Completed Surveys
           assemblies_count: Assemblies
@@ -898,8 +1020,8 @@ en:
         topics: Topics
       participatory_space:
         metrics:
-          headline: Participation in figures
-          link: Show all statistics
+          headline: Metrics
+          link: Show all metrics
       terms_and_conditions:
         accept:
           error: There was a problem accepting the terms and conditions.
@@ -929,6 +1051,7 @@ en:
       show:
         activity: Activity
         badges: Badges
+        conversations: Conversations
         followers: Followers
         following: Follows
         groups: Groups
@@ -958,14 +1081,23 @@ en:
         report_html: <p>The following <a href="%{url}">content</a> has been hidden automatically.</p>
         subject: A resource has been hidden automatically
       report:
+        authors: Authors
+        content: Reported content
+        date: Reported on
+        details: Details
         hello: Hello %{name},
         manage_moderations: Manage moderations
+        participatory_space: Participatory space
+        reason: Reason
         report_html: <p>The following <a href="%{url}">content</a> has been reported.</p>
         subject: A resource has been reported
     reports:
       create:
         error: An error ocurred while creating the report. Please, try it again.
         success: The report has been created successfully and it will be reviewed by an admin.
+    resource_endorsements:
+      create:
+        error: There was a problem during the endorsement action.
     scopes:
       global: Global scope
       picker:
@@ -1031,15 +1163,45 @@ en:
         select_user_group: Select a group
       results_per_page:
         label: 'Results per page:'
+        title: Select number of results per page
       share_modal:
         close_window: Close window
         share: Share
         share_link: Share link
-      version_author:
-        deleted: Deleted participant
     user_activity:
       index:
         no_activities_warning: This participant hasn't had any activity yet.
+    user_contact_disabled: This participant does not accept direct messages.
+    user_conversations:
+      create:
+        error: The message could not be created. Try again later
+        existing_error: The message could not be created. The conversation already exists, please try again now.
+        success: Conversation started successfully!
+      index:
+        add_max_users: 'Add users to conversation: 9 users max'
+        add_users_placeholder: Search...
+        close: Close
+        conversations_info: Conversations are private. no one else can see them. A conversation can be started with any participant or group registered on the platform.
+        from: From
+        last_message: Last message
+        modal_title: New conversation
+        new_conversation: New conversation
+        next: Next
+        no_conversations_warning: There are no conversations yet.
+        no_results: No results
+        participant_with_disabled_message_reception: This participant has disabled message reception
+        time_ago: "%{time} ago"
+      new:
+        title: Start a conversation
+      reply:
+        placeholder: Your reply...
+        send: Send
+        title_reply: Reply
+      show:
+        not_allowed: This user does not accept any more direct messages.
+        title: Conversation with %{usernames}
+      update:
+        error: Message not sent. Try again later
     user_interests:
       show:
         my_interests: My interests
@@ -1049,6 +1211,33 @@ en:
       update:
         error: There was a problem updating your interests.
         success: Your interests have been successfully updated.
+    version:
+      show:
+        back_to_resource: Go back
+        changes_at_title: Changes at "%{title}"
+        number_of_versions: Versions
+        show_all_versions: Show all versions
+        version_author: Version author
+        version_created_at: Version created at
+        version_number: Version number
+        version_number_out_of_total: "%{current_version} out of %{total_count}"
+    version_author:
+      show:
+        deleted: Deleted participant
+    versions:
+      resource_version:
+        of_versions: "(of %{number})"
+        see_other_versions: see other versions
+        version: Version %{number}
+    versions_list:
+      show:
+        back_to_resource: Go back
+        changes_at_title: Changes at "%{title}"
+        number_of_versions: Versions
+        title: Versions
+    versions_list_item:
+      show:
+        version_index: Version %{index}
     welcome_notification:
       default_body: <p>Hi {{name}}, thanks for joining {{organization}} and welcome!</p><ul><li>If you want to get a quick idea of what you can do here, have a look at the <a href="{{help_url}}">Help</a> section.</li><li>Once you have read it you will get your first badge. Here's a <a href="{{badges_url}}">list of all the badges</a> you can get as you participate in {{organization}}</li><li>Last but not least, join other people, share with them the experience of being engaged and participating in {{organization}}. Make proposals, comments, debate, think about how to contribute to the common good, provide arguments to convince, listen and read to be convinced, express your ideas in a concrete and direct way, respond with patience and decision, defend your ideas and keep an open mind to collaborate and join other people's ideas.</li></ul>
       default_subject: Thanks for joining {{organization}}!
@@ -1211,6 +1400,7 @@ en:
       cycle_detected: a scope's parent can't be one of its descendants
       expired: has expired, please request a new one
       file_size_is_less_than_or_equal_to: file size must be less than or equal to %{count}
+      invalid_time_zone: is not a valid time zone
       long_words: contains words that are too long (over 35 characters)
       must_start_with_caps: must start with a capital letter
       nesting_too_deep: can't be inside of a subcategory
@@ -1316,6 +1506,7 @@ en:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%B %d, %Y %H:%M"
+      long_dashed: "%Y-%m-%d %H:%M:%S"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
@@ -1323,13 +1514,21 @@ en:
       left: Deletions
       right: Additions
     dropdown:
+      choose_diff_view_html: 'HTML view mode:'
       choose_diff_view_mode: 'Compare view mode:'
+      option_escaped: Escaped
       option_split: Side-by-side
+      option_unescaped: Unescaped
       option_unified: Unified
   views:
     pagination:
       first: "&laquo; First"
+      first_title: Link to the first page
       last: Last &raquo;
+      last_title: Link to the last page
       next: Next &rsaquo;
+      next_title: Link to the next page
       previous: "&lsaquo; Prev"
+      previous_title: Link to the previous page
+      title: 'Page number: '
       truncate: "&hellip;"

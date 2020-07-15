@@ -22,16 +22,24 @@ module Decidim
 
       # Handle the state filter
       def search_state
-        case state
-        when "open"
-          query.open
-        when "withdrawn"
-          query.withdrawn
-        when "published"
-          query.published
-        else
-          query
-        end
+        return query if state.member?("all")
+
+        open_drafts = state.member?("open") ? query.open : nil
+        withdrawn = state.member?("withdrawn") ? query.withdrawn : nil
+        published = state.member?("published") ? query.published : nil
+
+        query
+          .where(id: open_drafts)
+          .or(query.where(id: withdrawn))
+          .or(query.where(id: published))
+      end
+
+      def search_category_id
+        super
+      end
+
+      def search_scope_id
+        super
       end
 
       # Filters drafts by the name of the classes they are linked to. By default,

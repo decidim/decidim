@@ -61,6 +61,16 @@ nl:
           reference_prefix_hint: Het referentie-voorvoegsel wordt gebruikt ter identificatie van unieke middelen over alle organisaties
           secondary_hosts_hint: Voer elk van hen op een nieuwe regel in
           title: Nieuwe organisatie
+        omniauth_settings:
+          facebook:
+            app_id: App-ID
+            app_secret: App secret
+          google_oauth2:
+            client_id: Client-ID
+            client_secret: Client secret
+          twitter:
+            api_key: API key
+            api_secret: API secret
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze organisatie.
           success: Organisatie is succesvol bijgewerkt.

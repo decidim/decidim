@@ -14,29 +14,15 @@ module Decidim
     # Returns nothing.
     def self.define(type)
       Decidim.participatory_space_manifests.each do |participatory_space_manifest|
-        type.field participatory_space_manifest.name.to_s.camelize(:lower) do
-          type types[participatory_space_manifest.query_type.constantize]
-          description "Lists all #{participatory_space_manifest.name}"
+        type.field participatory_space_manifest.name.to_s.camelize(:lower),
+                   type: type.types[participatory_space_manifest.query_type.constantize],
+                   description: "Lists all #{participatory_space_manifest.name}",
+                   function: participatory_space_manifest.query_list.constantize.new(manifest: participatory_space_manifest)
 
-          resolve lambda { |_obj, _args, ctx|
-            participatory_space_manifest.model_class_name.constantize.public_spaces.where(
-              organization: ctx[:current_organization]
-            )
-          }
-        end
-
-        type.field participatory_space_manifest.name.to_s.singularize.camelize(:lower) do
-          type participatory_space_manifest.query_type.constantize
-          description "Finds a #{participatory_space_manifest.name.to_s.singularize}"
-          argument :id, !types.ID, "The ID of the #{participatory_space_manifest.name.to_s.singularize}"
-
-          resolve lambda { |_obj, args, ctx|
-            participatory_space_manifest.model_class_name.constantize.public_spaces.find_by(
-              organization: ctx[:current_organization],
-              id: args[:id]
-            )
-          }
-        end
+        type.field participatory_space_manifest.name.to_s.singularize.camelize(:lower),
+                   type: participatory_space_manifest.query_type.constantize,
+                   description: "Finds a #{participatory_space_manifest.name.to_s.singularize}",
+                   function: participatory_space_manifest.query_finder.constantize.new(manifest: participatory_space_manifest)
       end
 
       type.field :component, Decidim::Core::ComponentInterface do
@@ -102,21 +88,15 @@ module Decidim
                 }
       end
 
-      type.field :users do
-        type types[Decidim::Core::UserType]
-        description "The participants for the current organization"
-        argument :name, types.String, "The name of the participant"
-        argument :nickname, types.String, "The @nickname of the participant"
-        argument :wildcard, types.String, "Either the name or the @nickname of the participant"
+      type.field :user,
+                 type: Core::AuthorInterface,
+                 description: "A participant (user or group) in the current organization",
+                 function: Core::UserEntityFinder.new
 
-        resolve lambda { |_obj, args, ctx|
-          filters = {}
-          args.each do |argument, value|
-            filters[argument.to_sym] = value.to_s if value.present?
-          end
-          Decidim::Core::UserResolver.new(ctx[:current_organization], filters).users
-        }
-      end
+      type.field :users,
+                 type: type.types[Core::AuthorInterface],
+                 description: "The participants (users or groups) for the current organization",
+                 function: Core::UserEntityList.new
     end
   end
 end

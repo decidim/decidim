@@ -61,8 +61,6 @@ eu:
     account:
       data_portability_export:
         file_no_exists: Fitxategia ez dago
-        invalid_token: Ordezkatutako tokia baliogabea da.
-        no_token: No token emandako
         notice: Zure datuak une honetan egiten ari dira. Mezu elektroniko bat jasoko duzu beteta dagoenean.
       delete:
         alert: Ekintza hau ezin da desegin. Zure kontua ezabatzen baduzu, ezin izango duzu saioa hasi.
@@ -82,6 +80,9 @@ eu:
         error: Errorea gertatu da zure kontua eguneratzean.
         success: Zure kontua zuzen eguneratu da.
         success_with_email_confirmation: Zure kontua zuzen eguneratu da. Mezu elektroniko bat jasoko duzu zure helbide elektroniko berria baieztatzeko.
+    admin:
+      actions:
+        cancel: Utzi
     admin_log:
       area:
         create: "%{user_name} %{resource_name} eremua sortu zen"
@@ -196,6 +197,7 @@ eu:
         explanation: Egiaztatu pasaportearen zenbakia "A"
         fields:
           passport_number: Pasaporte zenbakia
+          postal_code: Posta kodea
         name: Beste adibide bat baimena
       dummy_authorization_handler:
         explanation: Egiaztatu "X" ren bukaerako dokumentu-zenbaki batekin sartuz.
@@ -368,6 +370,8 @@ eu:
           this_application_will_not_be_able_to: 'Aplikazio honek ezin izango du:'
           update_profile: Eguneratu profila
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> zure kontua erabili nahi du"
+    endorsable:
+      endorsements: Oniritziak
     errors:
       internal_server_error:
         title: Arazo bat izan da gure zerbitzariarekin
@@ -496,7 +500,7 @@ eu:
           notification_title: <a href="%{resource_path}">profile orriaren 1233_4_1_321 %{name} (%{nickname}) jarraitzen ari zarenean, eguneratu egin da.
     export_mailer:
       data_portability_export:
-        click_button: Egin klik hurrengo botoian zure datuak deskargatzeko. <br/> Fitxategia eskuragarri izango duzu %{date}arte.
+        click_button: 'Egin klik hurrengo botoian zure datuak deskargatzeko. <br/> Fitxategia eskuragarri izango duzu %{date}arte.'
         download: Deskarga
       export:
         ready: Atxikita aurkituko duzu zure esportazioaren bertsio trinkotua.
@@ -539,16 +543,6 @@ eu:
     gamification:
       all_badges_link: Ikusi eskuragarri dauden txapak.
       badges:
-        continuity:
-          conditions:
-            - Zatoz hemen sarritan
-          description: Txartela hau modu erregularrean bisitatzen duzunean ematen da. Gustatzen zait hemen!
-          description_another: Erabiltzaile honek une batez %{score} egunez konektatua dago.
-          description_own: Zenbait puntutan eguneko %{score} egunetarako konektatuta zaude.
-          name: Continuity
-          next_level_in: Konektatu %{score} egun jarraian hurrengo mailara iristeko!
-          unearned_another: Erabiltzaile honek ez du saioa hasi egun bat baino gehiagoz.
-          unearned_own: Ez duzu egun bat baino gehiagoz konektaturik.
         followers:
           conditions:
             - Beste pertsona batzuei aktibo eta jarraitzen zaien ziurgabetasuna beste pertsona batzuek segituko dute.
@@ -719,6 +713,7 @@ eu:
         create:
           error: Ez da elkarrizketa hasi. Saiatu berriro geroago
         index:
+          close: Itxi modal
           no_conversations: Oraindik ez duzu elkarrizketarik
           title: Elkarrizketak
         reply:
@@ -984,8 +979,6 @@ eu:
         close_window: Itxi leihoa
         share: Partekatu
         share_link: Partekatu esteka
-      version_author:
-        deleted: Erabiltzailea ezabatua
     user_activity:
       index:
         no_activities_warning: Erabiltzaile honek ez du oraindik jarduera izan.
@@ -998,6 +991,9 @@ eu:
       update:
         error: Errore bat gertatu da zure interesak eguneratzean.
         success: Zure interesak ondo eguneratu dira.
+    version_author:
+      show:
+        deleted: Erabiltzailea ezabatua
     welcome_notification:
       default_body: <p>Hi {{name}}, eskerrak emateko {{organization}} eta ongi etorria!</p><ul><li>Hemen zer egin dezakezuen ideia azkar bat nahi baduzu, begiratu <a href="{{help_url}}">Laguntza</a> atalean.</li><li>Behin irakurri ondoren, zure lehen txapela jasoko duzu. Hemen da <a href="{{badges_url}}">txapak guztiak zerrenda</a> parte bezala zuk ere lor dezakezu {{organization}}</li><li>Azkenik, beste pertsona batu, share haiekin ari arduratzen eta parte hartzen duten esperientzia {{organization}}. Egin proposamenak, iruzkinak, eztabaidak, ohiko onura nola laguntzen jakitea, konbentzitu, entzun eta irakurri argudioak ematea, zure ideiak modu zehatz eta zehatz batean adieraztea, pazientzia eta erabakia erantzutea, zure ideiak defendatzea eta mantentzea adimen irekia, beste pertsonen ideiak lankidetzan aritzeko.</li></ul>
       default_subject: Eskerrik asko sartzeko {{organization}}!

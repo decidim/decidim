@@ -1,0 +1,151 @@
+el:
+  activemodel:
+    attributes:
+      account:
+        delete_reason: Λόγος διαγραφής λογαριασμού
+      group:
+        about: Σχετικά με
+        avatar: Άβαταρ
+        document_number: Αριθμός εγγράφου
+        email: Email
+        name: Όνομα
+        nickname: Ψευδώνυμο
+        phone: Τηλέφωνο
+      report:
+        details: Πρόσθετα σχόλια
+      user:
+        about: Σχετικά με
+        email: Το email σας
+        name: Το όνομά σας
+        nickname: Ψευδώνυμο
+        password: Κωδικός πρόσβασης
+        password_confirmation: Επιβεβαιώστε τον κωδικό πρόσβασης
+        personal_url: Προσωπική ιστοσελίδα
+        remove_avatar: Αφαίρεση avatar
+    models:
+      decidim/attachment_created_event: Συνημμένο
+      decidim/component_published_event: Ενεργό στοιχείο
+      decidim/demoted_membership: Δεν είναι πλέον διαχειριστής ομάδας
+      decidim/gamification/badge_earned_event: Κερδίσατε έμβλημα
+      decidim/gamification/level_up_event: Ανεβήκατε επίπεδο
+      decidim/join_request_accepted_event: Το αίτημα συμμετοχής έγινε αποδεκτό
+      decidim/join_request_rejected_event: Το αίτημα συμμετοχής απορρίφθηκε
+      decidim/profile_updated_event: Το προφίλ ενημερώθηκε
+      decidim/promote_to_admin: Αναβάθμιση σε διαχειριστής ομάδας
+      decidim/removed_from_group: Αφαιρέθηκε από την ομάδα
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Τρέχων κωδικός πρόσβασης
+        email: Email
+        name: Ψευδώνυμο
+        password: Κωδικός πρόσβασης
+        password_confirmation: Επιβεβαίωση κωδικού πρόσβασης
+        remember_me: Απομνημόνευση στοιχείων
+    models:
+      decidim/amendment:
+        one: Τροποποίηση
+        other: Τροποποιήσεις
+      decidim/user:
+        one: Συμμετέχων
+        other: Συμμετέχοντες
+      decidim/user_group:
+        one: Ομάδα
+        other: Ομάδες
+  booleans:
+    'false': 'Όχι'
+    'true': 'Ναι'
+  carrierwave:
+    errors:
+      image_too_big: Η εικόνα είναι πολύ μεγάλη
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_short_with_month_name_short: "%d %b %Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
+      decidim_with_month_name: "%d %B %Y"
+      decidim_with_month_name_short: "%d %b"
+  decidim:
+    account:
+      data_portability_export:
+        file_no_exists: Το αρχείο δεν υπάρχει
+        notice: Η λήψη των δεδομένων σας είναι σε εξέλιξη. Θα λάβετε email όταν ολοκληρωθεί.
+      delete:
+        alert: Αυτή η ενέργεια δεν μπορεί να αναιρεθεί. Αν διαγράψετε τον λογαριασμό σας δεν θα μπορείτε να συνδεθείτε.
+        confirm:
+          close: Κλείσιμο παραθύρου
+    amendments:
+      amendable:
+        button: Τροποποίηση %{model_name}
+        error: Υπήρξε σφάλμα κατά την τροποποίηση αυτού του στοιχείου.
+        help_text: Βελτιώστε αυτό το %{model_name} τροποποιώντας τα %{amendable_fields}
+        promote_button: Αναβάθμιση σε %{model_name}
+        promote_confirm_text: Είστε βέβαιοι ότι θέλετε να αναβαθμίσετε αυτήν τη διόρθωση;
+        promote_help_text: Μπορείτε να προωθήσετε αυτήν τη διόρθωση και να τη δημοσιεύσετε σαν ένα ανεξάρτητο %{model_name}
+        section_heading: Τροποποιήσεις (%{count})
+      compare_draft:
+        continue: Συνέχεια
+        no_similars_found: Δεν βρέθηκαν παρόμοιες διορθώσεις.
+        title: Παρόμοιες Διορθώσεις
+      created:
+        error: Παρουσιάστηκε σφάλμα κατά τη δημιουργία του πρόχειρου τροποποίησης.
+        success: Το πρόχειρο τροποποίησης δημιουργήθηκε επιτυχώς.
+      destroy_draft:
+        error: Υπήρξε ένα πρόβλημα κατά τη διαγραφή του πρόχειρου τροποποίησης.
+        success: Το πρόχειρο τροποποίησης διαγράφηκε επιτυχώς.
+      edit_draft:
+        discard: Διαγραφή πρόχειρου
+        discard_confirmation: Είστε βέβαιοι ότι θέλετε να απορρίψετε αυτό το πρόχειρο τροποποίησης;
+        send: Προεπισκόπηση
+        title: Επεξεργασία Πρόχειρου Τροποποίησης
+      emendation:
+        actions:
+          button_accept: Αποδοχή
+          button_reject: Απόρριψη
+          help_text: Αξιολογήστε τις αλλαγές και αποδεχθείτε ή απορρίψτε αυτήν την τροποποίηση. Θα σταλεί ειδοποίηση στους συγγραφείς.
+        announcement:
+          accepted: |-
+            Αυτή η τροποποίηση για το %{amendable_type} %{proposal_link} έχει γίνει αποδεκτή στις <strong>%{date}</strong>.
+          evaluating: |-
+            Αυτή η τροποποίηση για το %{amendable_type} %{proposal_link} είναι υπό αξιολόγηση.
+          promoted: Αναβαθμίστηκε σε %{amendable_type}.
+          rejected: Αυτή η τροποποίηση για το %{amendable_type} %{proposal_link} απορρίφθηκε στις <strong>%{date}</strong>.
+          withdrawn: |-
+            Αυτή η τροποποίηση για το %{amendable_type} %{proposal_link} αποσύρθηκε από τους συγγραφείς.
+      new:
+        amendment_author: Συγγραφέας τροποποίησης
+        send: Δημιουργία
+        title: Δημιουργία Πρόχειρου Τροποποίησης
+      preview_draft:
+        modify: Τροποποίηση
+        publish: Δημοσίευση
+        title: Δημοσίευση Πρόχειρου Τροποποίησης
+      promoted:
+        error: Υπήρξε ένα πρόβλημα κατά τη δημοσίευση της τροποποίησης ως νέα πρόταση
+        success: Η τροποποίηση δημοσιεύτηκε επιτυχώς ως νέα πρόταση
+      publish_draft:
+        error: Υπήρξε ένα πρόβλημα κατά τη δημοσίευση της τροποποίησης.
+        success: Η τροποποίηση δημοσιεύτηκε επιτυχώς.
+      rejected:
+        error: Υπήρξε ένα πρόβλημα κατά την απόρριψη αυτής της τροποποίησης, παρακαλούμε προσπαθήστε εκ νέου αργότερα
+        success: Η τροποποίηση απορρίφθηκε επιτυχώς
+      review:
+        back: Πίσω
+        heading: Αξιολόγηση τροποποίησης
+        help_text: Αξιολογείτε την τροποποίηση στο %{model_name}
+        send: Αποδοχή τροποποίησης
+      update_draft:
+        error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση του πρόχειρου τροποποίησης.
+        success: Το πρόχειρο τροποποίησης ενημερώθηκε επιτυχώς.
+      visibility_options:
+        all: Οι τροποποιήσεις είναι ορατές σε όλους
+        participants: Οι τροποποιήσεις είναι ορατές μόνο στους συγγραφείς τους
+      withdraw:
+        error: Παρουσιάστηκε σφάλμα κατά την απόσυρση της τροποποίησης
+        success: Η τροποποίηση αποσύρθηκε επιτυχώς
+      wizard_step_form:
+        steps:
+          '1': Create your amendment
+          '2': Συγκρίνετε την τροποποίησή σας
+          '3': Ολοκληρώστε την τροποποίησή σας
+          '4': Publish your amendment

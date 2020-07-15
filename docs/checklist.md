@@ -4,7 +4,7 @@ As a technopolitical project, Decidim needs several things to work. This is a no
 
 ## Technological
 
-1. Choose a **domain** for your application. Some typical names involve "Participation" or "Decision" conjugations.
+1. Choose a **domain or subdomain** for your application. Some typical names involve "Participation" or "Decision" conjugations.
 
 1. Choose which **languages** do you want for your application. In case that your language isn't supported you should translate it on [Crowdin](https://crowdin.com/project/decidim).
 

@@ -47,6 +47,7 @@ es-MX:
           fields:
             created_at: Fecha de creación
             name: Nombre
+            omniauth_settings: Ajustes de Omniauth
             smtp_settings: Configuración de SMTP
           name: Organización
       organizations:
@@ -61,6 +62,19 @@ es-MX:
           reference_prefix_hint: El prefijo de referencia se utiliza para identificar de forma única los recursos de todas las organizaciones
           secondary_hosts_hint: Introduce cada uno de ellos en una nueva línea
           title: Nueva organización
+        omniauth_settings:
+          enabled: Habilitado
+          facebook:
+            app_id: ID de la App
+            app_secret: Secreto de aplicación
+          google_oauth2:
+            client_id: ID de cliente
+            client_secret: Secreto del cliente
+          icon: Icono
+          icon_path: Ruta del icono
+          twitter:
+            api_key: Clave API
+            api_secret: Secreto API
         update:
           error: Se ha producido un error al actualizar esta organización.
           success: Organización actualizada correctamente.

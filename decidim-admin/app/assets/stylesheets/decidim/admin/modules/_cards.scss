@@ -23,6 +23,12 @@ $card-padding-small: 1rem;
       text-transform: uppercase;
     }
   }
+  .data-picker{
+    font-weight: normal;
+    letter-spacing: 0;
+    margin-bottom: 0;
+    text-transform: none;
+  }
 }
 
 .card-footer{
@@ -112,4 +118,8 @@ $card-padding-small: 1rem;
 .card-divider--reduced{
   // height adjust
   padding: (($global-padding / 2) + rem-calc(.7)) $global-padding;
+}
+
+.card.with-overflow{
+  overflow: visible;
 }

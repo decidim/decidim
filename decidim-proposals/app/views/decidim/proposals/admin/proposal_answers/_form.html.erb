@@ -1,0 +1,35 @@
+<%= decidim_form_for(@answer_form, url: proposal_proposal_answer_path(proposal, @answer_form), html: { class: "form edit_proposal_answer" }) do |f| %>
+  <div class="card" id="proposal-answer">
+    <div class="card-divider">
+      <h2 class="card-title"><%= t ".title", title: present(proposal).title %></h2>
+    </div>
+
+    <div class="card-section">
+      <div class="row column">
+        <%= f.collection_radio_buttons :internal_state, [["accepted", t(".accepted")], ["rejected", t(".rejected")], ["evaluating", t(".evaluating")]], :first, :last, prompt: true %>
+      </div>
+
+      <div class="row column">
+        <%= f.translated :editor, :answer, autofocus: true, rows: 15 %>
+      </div>
+
+      <% if current_component.current_settings.answers_with_costs? %>
+        <div class="row column">
+          <%= f.number_field :cost %>
+        </div>
+
+        <div class="row column">
+          <%= f.translated :editor, :cost_report, lines: 12 %>
+        </div>
+
+        <div class="row column">
+          <%= f.translated :editor, :execution_period, lines: 12 %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t(".answer_proposal") %>
+  </div>
+<% end %>

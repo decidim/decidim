@@ -4,6 +4,7 @@ require "rails"
 require "active_support/all"
 
 require "decidim/core"
+require "decidim/assemblies/query_extensions"
 
 module Decidim
   module Assemblies
@@ -106,6 +107,12 @@ module Decidim
             settings.attribute :scopes, type: :array, default: %w(home)
             settings.attribute :weight, type: :integer, default: 1
           end
+        end
+      end
+
+      initializer "decidim_assemblies.query_extensions" do
+        Decidim::Api::QueryType.define do
+          QueryExtensions.define(self)
         end
       end
     end

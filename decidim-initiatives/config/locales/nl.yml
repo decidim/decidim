@@ -61,6 +61,13 @@ nl:
     admin:
       actions:
         new_initiative_type: Nieuw initiatiefstype
+      filters:
+        state_eq:
+          values:
+            created: gemaakt
+            discarded: Afgedankte
+            published: Gepubliceerd
+            validating: Technische validatie
       menu:
         initiatives: initiatieven
         initiatives_types: Initiatieftypes
@@ -176,18 +183,8 @@ nl:
             title: Algemene informatie
           index:
             actions_title: Actie
-            filter:
-              accepted: Aanvaard
-              all: Alle
-              created: Aangemaakt
-              discarded: verworpen
-              published: Gepubliceerd
-              rejected: Verworpen
-              validating: Technische validatie
-            filter_by: Sorteer op
             preview: Voorbeeld
             print: Afdrukken
-            search: Zoek
           show:
             print: Afdrukken
           update:
@@ -239,12 +236,14 @@ nl:
           unpublish: "%{user_name} heeft het initiatief %{resource_name} verwijderd"
           update: "%{user_name} heeft het initiatief %{resource_name} bijgewerkt"
       admin_states:
-        accepted: Aanvaard
         created: gemaakt
         discarded: Afgedankte
         published: Gepubliceerd
-        rejected: Afgewezen
         validating: Technische validatie
+      application_helper:
+        filter_state_values:
+          closed: Gesloten
+          open: Open
       committee_requests:
         new:
           continue: Doorgaan met
@@ -352,13 +351,10 @@ nl:
         filters:
           any: Alle
           author: Auteur
-          closed: Gesloten
           myself: Mijn initiatieven
-          open: Open
           search: Zoeken
           state: Staat
           type: Type
-          type_prompt: Selecteer een type
         filters_small_view:
           close_modal: Sluit venster
           filter: Sorteer
@@ -420,8 +416,6 @@ nl:
         promotal_committee_help: Vergeet niet dat u ten minste %{member_count} personen moet uitnodigen voor een promotieraad. Stuur de volgende link door om mensen uit te nodigen voor de promotieraad
         status_change_body_for: 'Het initiatief %{title} heeft de status gewijzigd in: %{state}'
         status_change_for: Het initiatief %{title} is van status veranderd
-        technical_validation_body_for: Het initiatief %{title} heeft om technische validatie ervan verzocht.
-        technical_validation_for: Het initiatief %{title} heeft om technische validatie ervan verzocht.
       last_activity:
         new_initiative: Nieuw initiatief
       pages:

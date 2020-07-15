@@ -5,6 +5,9 @@ require "spec_helper"
 shared_examples_for "authorable interface" do
   describe "author" do
     describe "when author is not present" do
+      let(:author) { nil }
+      let(:query) { "{ author { name } }" }
+
       before do
         model.update(author: author)
       end

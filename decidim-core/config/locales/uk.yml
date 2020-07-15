@@ -46,8 +46,6 @@ uk:
     account:
       data_portability_export:
         file_no_exists: Файл не існує
-        invalid_token: Вказаний токен недійсний.
-        no_token: Не надано жодного токену
         notice: Зараз відбувається збереження у вигляді файлу. Ви отримаєте електронного листа після його завершення.
       delete:
         alert: Цю дію скасувати не можна. Якщо ви видалите свій обліковий запис, ви не зможете ввійти в систему.
@@ -140,6 +138,7 @@ uk:
         explanation: Підтвердьте свою особу, ввівши номер паспорта, що починається з "А"
         fields:
           passport_number: Номер паспорта
+          postal_code: Поштовий індекс
         name: Ще один приклад підтвердження особи
       dummy_authorization_handler:
         explanation: Підтвердьте особу, ввівши номер документа, що закінчується на "X"
@@ -280,6 +279,8 @@ uk:
           this_application_will_not_be_able_to: 'Цей додаток не зможе:'
           update_profile: Оновлювати ваш профіль
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> бажає використовувати ваш обліковий запис"
+    endorsable:
+      endorsements: Проявів підтримки
     errors:
       internal_server_error:
         title: При з'єднанні з нашим сервером сталася помилка
@@ -316,7 +317,7 @@ uk:
           notification_title: Сторінка <a href="%{resource_path}">профілю</a> учасника %{name} (%{nickname}), за яким ви стежите, була оновлена.
     export_mailer:
       data_portability_export:
-        click_button: Натисніть наступну кнопку, щоб завантажити свої дані. <br/> Ваш файл буде доступним до %{date}.
+        click_button: 'Натисніть наступну кнопку, щоб завантажити свої дані. <br/> Ваш файл буде доступним до %{date}.'
         download: Завантажити
       export:
         ready: Нижче додається стиснута в архів версія вашого збереженого файлу.
@@ -394,6 +395,7 @@ uk:
         create:
           error: Бесіда не розпочата. Спробуйте ще раз пізніше
         index:
+          close: Закрити віконце
           no_conversations: У вас ще немає бесід
         reply:
           title: Відповісти
@@ -570,7 +572,8 @@ uk:
         close_window: Закрити вікно
         share: Поділитися
         share_link: Поділитись посиланням
-      version_author:
+    version_author:
+      show:
         deleted: Видалений учасник
   devise:
     invitations:

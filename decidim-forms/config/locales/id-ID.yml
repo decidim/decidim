@@ -30,10 +30,12 @@ id:
             statement: Pernyataan
           edit:
             save: Menyimpan
-            title: Judul
           form:
             add_question: Tambahkan pertanyaan
             already_answered_warning: Formulir sudah dijawab oleh beberapa pengguna sehingga Anda tidak dapat mengubah pertanyaannya.
+          matrix_row:
+            remove: Menghapus
+            statement: Pernyataan
           question:
             add_answer_option: Tambahkan opsi jawaban
             any: Apa saja
@@ -65,7 +67,6 @@ id:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Masuk dengan akun Anda</a> atau <a href="%{sign_up_link}">mendaftar</a> untuk menjawab formulir.
             title: Jawab formulirnya
-          are_you_sure: Tindakan ini tidak dapat diurungkan dan Anda tidak akan dapat mengedit jawaban Anda. Apakah kamu yakin
           questionnaire_answered:
             body: Anda sudah menjawab formulir ini.
             title: Sudah dijawab
@@ -75,8 +76,11 @@ id:
           questionnaire_for_private_users:
             body: Formulir ini hanya tersedia untuk pengguna pribadi
             title: Formulir ditutup
-          submit: Menyerahkan
           tos_agreement: Dengan berpartisipasi Anda menerima Ketentuan Layanannya
+      step_navigation:
+        show:
+          are_you_sure: Tindakan ini tidak dapat diurungkan dan Anda tidak akan dapat mengedit jawaban Anda. Apakah kamu yakin
+          submit: Menyerahkan
       user_answers_serializer:
         created_at: Dijawab pada
         id: ID jawaban

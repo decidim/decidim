@@ -265,6 +265,15 @@ eu:
       exports:
         export_as: "%{name} honako hau gisa: %{export_format}"
         notice: Zure esportazioa bidean da. Mezu elektroniko bat jasoko duzu bukatutakoan.
+      filters:
+        category_id_eq:
+          label: Kategoria
+        officialized_at_null:
+          label: Egoera
+          values:
+            'false': Officialized
+            'true': Ez ofiziala
+        search_label: Search
       help_sections:
         error: Errore bat gertatu da laguntza-atalak eguneratuz
         form:
@@ -417,6 +426,9 @@ eu:
             does_not_belong: Ez du zer ikusirik
             offensive: Iraingarria
             spam: Spam
+      newsletter_templates:
+        index:
+          preview_template: Aurreikusi
       newsletters:
         create:
           error: ' Errorea gertatu da buletin hau sortzean.'
@@ -430,8 +442,6 @@ eu:
         edit:
           save_and_preview: Gorde eta aurreikusi
           title: Editatu buletina
-        form:
-          interpolations_hint: 'Iradokizuna: "%{name}" erabil dezakezu gaiaren edo testuaren edozein tokitan, eta horren ordez hartzailearen izena agertuko da.'
         index:
           confirm_delete: Ziur zaude buletin hau deuseztatu nahi duzula?
           title: Buletinak
@@ -475,18 +485,12 @@ eu:
           actions: Ekintzak
           badge: Badge
           created_at: Sortua
-          filter:
-            all: guztiak
-            not_officialized: Ez ofiziala
-            officialized: Officialized
-          filter_by: Iragazi arabera
           name: izena
           nickname: ezizena
           not_officialized: Ez ofiziala
           officialize: Officialize
           officialized: Officialized
           reofficialize: Reofficialize
-          search: Search
           status: Egoera
           unofficialize: Unofficialize
         new:
@@ -512,13 +516,15 @@ eu:
         edit:
           update: Eguneratu
         form:
-          colors_title: Antolaketa koloreak
+          colors:
+            colors_title: Antolaketa koloreak
+            header_snippets_help: Erabili eremu hau HTML goiburuari gauzak gehitzeko. Erabilerarik ohikoena da JavaScript edo CSS gehigarriak behar dituzten hirugarrenen zerbitzuak txertatzea. Gainera, HTMLari meta-etiketa gehigarriak gehitzeko erabil dezakezu. Kontuan hartu orri publikoetan baino ez dela erakutsiko, ez administrazio atalean.
           cta_button_path_help: 'Orrialde nagusira deitzeko dei-botoirako esteka gainidatzi dezakezu. Erabili bideak partzialak, ez URL osoak hemen. Letrak, zenbakiak, marrak eta barrak onartzen ditu eta gutun batekin hasi behar duzu. The Call To Action botoian hasierako orrian erakusten da ongietorri testua eta azalpena. Adibidea: %{url}'
           cta_button_text_help: Hasierako pantailako Call To Action botoian testua gainidatz dezakezu zure erakundeko hizkuntza bakoitzarentzat. Ezartzen bada, balio lehenetsia erabiliko da. The Call To Action botoian hasierako orrian erakusten da ongietorri testua eta azalpena.
-          header_snippets_help: Erabili eremu hau HTML goiburuari gauzak gehitzeko. Erabilerarik ohikoena da JavaScript edo CSS gehigarriak behar dituzten hirugarrenen zerbitzuak txertatzea. Gainera, HTMLari meta-etiketa gehigarriak gehitzeko erabil dezakezu. Kontuan hartu orri publikoetan baino ez dela erakutsiko, ez administrazio atalean.
           homepage_appearance_title: Editatu orriaren itxura
           homepage_highlighted_content_banner_title: Highligted edukien banner
-          layout_appearance_title: Editatu itxura diseinua
+          images:
+            layout_appearance_title: Editatu itxura diseinua
           omnipresent_banner_appearance_title: Editatu omnipresent banner
       organization_homepage:
         edit:
@@ -675,6 +681,10 @@ eu:
         new:
           create: Gonbit egin
           title: Gonbit egin erabiltzaile bati administratzaile gisa
+      users_statistics:
+        users_count:
+          admins: Administratzaileak
+          participants: Parte-hartzaileak
       view_public_page: Ikusi orri publikoa
     forms:
       errors:

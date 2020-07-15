@@ -227,9 +227,6 @@ ru:
           edit:
             close: Закрыть
             title: Закрыть встречу
-        meeting_copies:
-          form:
-            select_organizer: Выберите организатора
         meetings:
           close:
             invalid: При попытке закрыть эту встречу произошла ошибка
@@ -241,8 +238,6 @@ ru:
             success: Встреча успешно удалена
           edit:
             update: Обновить
-          form:
-            select_organizer: Выберите организатора
           index:
             title: Встречи
           new:
@@ -341,11 +336,8 @@ ru:
       meetings:
         filters:
           category: Категория
-          category_prompt: Выберите категорию
           date: Дата
-          past: Прошедшие
           search: Поиск
-          upcoming: Предстоящие
         filters_small_view:
           close_modal: Закрыть окошко
           filter: Отобрать

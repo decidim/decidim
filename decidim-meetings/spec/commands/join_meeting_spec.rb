@@ -87,7 +87,11 @@ module Decidim::Meetings
         expect { subject.call }.to change { Decidim::Gamification.status_for(user, :attended_meetings).score }.from(0).to(1)
       end
 
-      context "and exists and invite for the user" do
+      it "makes the user follow the meeting" do
+        expect { subject.call }.to change { Decidim::Follow.where(user: user, followable: meeting).count }.from(0).to(1)
+      end
+
+      context "and exists an invite for the user" do
         let!(:invite) { create(:invite, meeting: meeting, user: user) }
 
         it "marks the invite as accepted" do
@@ -213,7 +217,7 @@ module Decidim::Meetings
       context "and everything is ok" do
         before do
           registration_form.tos_agreement = true
-          registration_form.answers.first.body = "My answer response"
+          registration_form.responses.first.body = "My answer response"
         end
 
         it "broadcasts ok" do

@@ -33,13 +33,13 @@ nl:
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
-            creation_enabled: Gebruikers kunnen geen debat aanmaken
+            creation_enabled: Gebruikers kunnen zelf debat aanmaken
     debates:
       actions:
         confirm_destroy: Ben je zeker?
         destroy: Verwijder
         edit: Bewerk
-        new: Nieuwe %{name}
+        new: Nieuw %{name}
         title: acties
       admin:
         debates:

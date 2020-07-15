@@ -40,6 +40,16 @@ describe "User creates debate", type: :system do
                  participatory_space: participatory_process)
         end
 
+        context "and rich_editor_public_view component setting is enabled" do
+          before do
+            organization.update(rich_text_editor_in_public_views: true)
+            visit_component
+            click_link "New debate"
+          end
+
+          it_behaves_like "having a rich text editor", "new_debate", "basic"
+        end
+
         it "creates a new debate", :slow do
           visit_component
 

@@ -1,0 +1,263 @@
+is-IS:
+  activemodel:
+    attributes:
+      assembly:
+        area_id: Svæði
+        assembly_type: Samsetning gerð
+        assembly_type_other: Safn tegund annars
+        banner_image: Banner image
+        closing_date: Lokadagur
+        closing_date_reason: Lokadagsetning ástæða
+        composition: Samsetning
+        copy_categories: Afrita flokka
+        copy_components: Afrita hluti
+        copy_features: Afrita eiginleika
+        created_by: Búið til af
+        created_by_other: Búið til af öðrum
+        creation_date: Dagsetning búin til
+        decidim_area_id: Svæði
+        decidim_assemblies_type_id: Samsetning gerð
+        decidim_scope_id: Umfang
+        description: Lýsing
+        domain: Lén
+        duration: Lengd
+        facebook: Facebook
+        github: GitHub
+        hashtag: Kassamerki
+        hero_image: Heimsmynd
+        included_at: Innifalið á
+        instagram: Instagram
+        internal_organisation: Innri skipulagning
+        is_transparent: Er gagnsæ
+        meta_scope: Gildissvið lýsigagna
+        published_at: Birt á
+        purpose_of_action: Tilgangur aðgerða
+        scope_id: Umfang
+        scopes_enabled: Scopes virkt
+        short_description: Stutt lýsing
+        show_statistics: Sýna tölfræði
+        slug: URL slug
+        subtitle: Texti
+        title: Titill
+        twitter: Twitter
+        youtube: Youtube
+      assembly_member:
+        birthday: Afmælisdagur
+        birthplace: Fæðingarstaður
+        ceased_date: Hættudagur
+        designation_date: Tilnefningardagur
+        designation_mode: Tilnefningarmáti
+        full_name: Fullt nafn
+        gender: Kyn
+        position: Staða
+      assembly_user_role:
+        email: Email
+        name: Nafn
+        role: Hlutverk
+  decidim:
+    admin:
+      assemblies:
+        create:
+          success: Samkoma búin til með góðum árangri.
+        edit:
+          update: Uppfæra
+        index:
+          not_published: Ekki birt
+          private: Einkamál
+          public: Opinber
+          published: Published
+        new:
+          create: Búa til
+          title: Ný samkoma
+      assemblies_types:
+        new:
+          create: Búa til
+      assembly_copies:
+        new:
+          copy: Afrita
+          select: Veldu hvaða gögn þú vilt afrita
+          title: Afrit samkoma
+      assembly_members:
+        edit:
+          title: Uppfæra samningsaðila.
+          update: Uppfæra
+        index:
+          assembly_members_title: Þingmenn
+        new:
+          create: Búa til
+          title: Ný þingmaður.
+      assembly_user_roles:
+        edit:
+          update: Uppfæra
+        new:
+          create: Búa til
+      menu:
+        assemblies: Þing
+        assemblies_submenu:
+          assembly_members: Meðlimir
+          attachment_files: Skrár
+          attachments: Viðhengi
+          categories: Flokkar
+          components: Hluti
+          info: Upplýsingar
+          moderations: Moderations
+      models:
+        assemblies_types:
+          fields:
+            created_at: Búið til á
+            title: Titill
+        assembly:
+          fields:
+            created_at: Búið til á
+            private: Einkamál
+            promoted: Hápunktur
+            published: Published
+            title: Titill
+          name: Þing
+        assembly_member:
+          fields:
+            ceased_date: Hættudagur
+            designation_date: Tilnefningardagur
+            full_name: Nafn
+            position: Staða
+          name: Meðlimur
+          positions:
+            other: Annað
+            president: Forseti
+            secretary: Ritari
+            vice_president: Varaforseti
+        assembly_user_role:
+          fields:
+            email: Email
+            name: Nafn
+            role: Hlutverk
+          roles:
+            admin: Stjórnandi
+            collaborator: Samstarfsaðili
+            moderator: Moderator
+      titles:
+        assemblies: Þing
+    admin_log:
+      assembly:
+        create: "%{user_name} búið til %{resource_name} samkoma"
+        publish: "%{user_name} birt %{resource_name} samkoma"
+        unpublish: "%{user_name} unpublished %{resource_name} samkoma"
+        update: "%{user_name} uppfært %{resource_name} samkoma"
+      assembly_member:
+        create: "%{user_name} búið til %{resource_name} meðlim í %{space_name} samkoma"
+        delete: "%{user_name} eyddi %{resource_name} meðliminum úr %{space_name} samkoma"
+        update: "%{user_name} uppfært %{resource_name} meðlimur í %{space_name} samkoma"
+      assembly_user_role:
+        create: "%{user_name} boðið %{resource_name} í %{space_name} samkoma"
+        update: "%{user_name} breytti hlutverki %{resource_name} í %{space_name} samkoma"
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            select_a_created_by: Veldu búið til af
+            select_an_area: Veldu svæði
+            select_an_assembly_type: Veldu gerð samsetningar
+            slug_help: 'Vefslóðir eru notaðir til að búa til slóðir sem benda til þessa samkomu. Aðeins viðurkennir stafir, tölur og bindur og verður að byrja með stafi. Dæmi: %{url}'
+            social_handlers: Félagsleg
+            title: Almennar upplýsingar
+        assemblies_types:
+          form:
+            title: Titill
+        assembly_copies:
+          form:
+            slug_help: 'Vefslóðir eru notaðir til að búa til slóðir sem benda til þessa samkomu. Aðeins viðurkennir stafir, tölur og bindur og verður að byrja með stafi. Dæmi: %{url}'
+        assembly_members:
+          form:
+            select_a_position: Veldu stöðu
+          index:
+            filter:
+              all: Allt
+              ceased: Hætt
+              not_ceased: Ekki hætt
+            filter_by: Sía eftir
+            search: Leita
+      assembly_members:
+        index:
+          members: Meðlimir
+      assembly_types:
+        commission: Nefndin
+        consultative_advisory: Ráðgjafar / ráðgjafar
+        executive: Framkvæmdastjóri
+        government: Ríkisstjórn
+        others: Aðrir
+        participatory: Þátttaka
+        working_group: Vinnuhópur
+      created_by:
+        city_council: Borgarstjórn
+        others: Aðrir
+        public: Opinber
+      index:
+        title: Þing
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Virkir þættir
+            see_all_assemblies: Sjá allar þingmenn
+      show:
+        area: Svæði
+        assembly_type: Samsetning gerð
+        children: Þing
+        closing_date: Lokadagur
+        composition: Samsetning
+        created_by: Búið til af
+        creation_date: Dagsetning búin til
+        duration: Lengd
+        included_at: Innifalið á
+        indefinite_duration: Óákveðinn
+        internal_organisation: Innri skipulagning
+        is_transparent:
+          'false': ógagnsæ
+          'true': gagnsæ
+        private_space: Þetta er einkasamkoma
+        purpose_of_action: Tilgangur aðgerða
+        read_less: Lesa minna
+        read_more: Lestu meira
+        related_participatory_processes: Svipaðir þátttakandi ferli
+        scope: Umfang
+        social_networks: Samfélagsmiðlar
+      statistics:
+        answers_count: Svör
+        assemblies_count: Þing
+        comments_count: Athugasemdir
+        debates_count: Umræður
+        endorsements_count: Áritanir
+        headline: Virkni
+        meetings_count: Fundir
+        pages_count: Síður
+        projects_count: Verkefni
+        proposals_count: Tillögur
+        results_count: Niðurstöður
+        surveys_count: Kannanir
+        users_count: Þátttakendur
+    assembly_members:
+      index:
+        title: Meðlimir
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'Safnið fannst ekki í gagnagrunninum (ID: %{id})'
+    menu:
+      assemblies: Þing
+  errors:
+    messages:
+      cannot_be_blank: Ekki er hægt að eyða
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          take_part: Taka þátt
+        index:
+          promoted_assemblies: Hápunktar þingsins
+        promoted_assembly:
+          more_info: Meiri upplýsingar
+          take_part: Taka þátt
+      assembly_navigation:
+        assembly_menu_item: Samkoma
+      assembly_widgets:
+        show:
+          take_part: Taka þátt

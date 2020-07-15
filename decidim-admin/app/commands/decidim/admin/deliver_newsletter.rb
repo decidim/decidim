@@ -43,7 +43,7 @@ module Decidim
       end
 
       def recipients
-        @recipients ||= Decidim::Admin::NewsletterRecipients.new(@newsletter, @form).query
+        @recipients ||= Decidim::Admin::NewsletterRecipients.for(@form)
       end
     end
   end

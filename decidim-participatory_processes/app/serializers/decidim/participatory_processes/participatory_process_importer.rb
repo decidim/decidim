@@ -39,7 +39,9 @@ module Decidim
             meta_scope: attributes["meta_scope"],
             start_date: attributes["start_date"],
             end_date: attributes["end_date"],
+            announcement: attributes["announcement"],
             private_space: attributes["private_space"],
+            scopes_enabled: attributes["scopes_enabled"],
             participatory_process_group: import_process_group(attributes["participatory_process_group"])
           )
           @imported_process.remote_hero_image_url = attributes["remote_hero_image_url"] if remote_file_exists?(attributes["remote_hero_image_url"])
@@ -167,7 +169,9 @@ module Decidim
 
         accepted = ["image", "application/pdf"]
         url = URI.parse(url)
-        Net::HTTP.start(url.host, url.port) do |http|
+        http_connection = Net::HTTP.new(url.host, url.port)
+        http_connection.use_ssl = true if url.scheme == "https"
+        http_connection.start do |http|
           return http.head(url.request_uri)["Content-Type"].start_with?(*accepted)
         end
       rescue StandardError

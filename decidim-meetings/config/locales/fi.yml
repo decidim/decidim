@@ -16,10 +16,12 @@ fi:
         available_slots: Tämän tapahtuman vapaiden paikkojen määrä
         decidim_category_id: Aihepiiri
         decidim_scope_id: Teema
+        decidim_user_group_id: Käyttäjäryhmä
         description: Kuvaus
         end_time: Lopetusaika
         location: Paikka
         location_hints: Paikan tarkemmat tiedot
+        organizer_gid: Luo käyttäjänä
         organizer_id: Järjestäjä
         private_meeting: Yksityinen tapahtuma
         registration_form_enabled: Ilmoittautumislomake on käytössä
@@ -81,12 +83,15 @@ fi:
           global:
             announcement: Ilmoitus
             comments_enabled: Kommentit ovat käytössä
+            creation_enabled_for_participants: Osallistujat voivat luoda tapahtumia
             default_registration_terms: Ilmoittautumisen oletusehdot
             enable_pads_creation: Ota käyttöön muistioiden luominen
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle tapahtumalle
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
+            creation_enabled_for_participants: Tapahtuman luonti sallittu osallistujille
+            creation_enabled_for_user_groups: Tapahtuman luonti sallittu ryhmille
     events:
       meetings:
         meeting_closed:
@@ -109,7 +114,7 @@ fi:
           notification_title: Ilmoittautumisesi tapahtumaan <a href="%{resource_url}">%{resource_title}</a> on vahvistettu. Sinun ilmoittautumiskoodisi on %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: Tapahtumasta "%{resource_title}" on varattu yli %{percentage}% vapaista paikoista.
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet tapahtuman osallisuustilan ylläpitäjä.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet tapahtuman osallistumistilan ylläpitäjä.
           email_subject: Tapahtumasta "%{resource_title}" on varattu yli %{percentage}% vapaista paikoista
           notification_title: Tapahtumasta <a href="%{resource_path}">%{resource_title}</a> on varattu yli %{percentage}% vapaista paikoista.
         meeting_updated:
@@ -153,6 +158,10 @@ fi:
         confirm_destroy: Haluatko varmasti poistaa tämän tapahtuman?
         destroy: Poista
         edit: Muokkaa
+        invalid_destroy:
+          proposals_count:
+            one: 'Tapahtumaa ei voi poistaa, koska siihen on liitetty %{count} ehdotus:'
+            other: 'Tapahtumaa ei voi poistaa, koska siihen on liitetty %{count} ehdotusta:'
         minutes: Pöytäkirja
         new: Uusi kokous
         preview: Esikatsele
@@ -174,7 +183,7 @@ fi:
             up: Ylös
           create:
             invalid: Esityslistan luonti epäonnistui
-            success: Esityslista luotiin onnistuneesti
+            success: Esityslistan luonti onnistui
           edit:
             title: Muokkaa esityslistaa
             update: Päivitä
@@ -188,7 +197,7 @@ fi:
             title: Uusi esityslista
           update:
             invalid: Esityslistan päivitys epäonnistui
-            success: Esityslista päivitettiin onnistuneesti
+            success: Esityslistan päivitys onnistui
         exports:
           meetings: Tapahtumat
           registrations: Ilmoittautumiset
@@ -200,7 +209,7 @@ fi:
         invites:
           create:
             error: Käyttäjän kutsuminen tapahtumaan epäonnistui.
-            success: Käyttäjä kutsuttiin onnistuneesti tapahtumaan.
+            success: Käyttäjän kutsuminen tapahtumaan onnistui.
           form:
             attendee_type: Osallistujatyyppi
             existing_user: Olemassa oleva käyttäjä
@@ -223,25 +232,25 @@ fi:
           edit:
             close: Sulje
             title: Sulje tapahtuma
-        meeting_copies:
-          form:
-            select_organizer: Valitse järjestäjä
         meetings:
           close:
             invalid: Tapahtuman sulkeminen epäonnistui
-            success: Tapahtuma onnistuneesti suljettu
+            success: Tapahtuman sulkeminen onnistui
           create:
             invalid: Tapahtuman luonti epäonnistui
-            success: Tapahtuma onnistuneesti luotu
+            success: Tapahtuman luonti onnistui
           destroy:
-            success: Tapahtuma onnistuneesti luotu
+            invalid:
+              proposals_count:
+                one: Tapahtumaa ei voi poistaa, koska siihen on liitetty %{count} ehdotus
+                other: Tapahtumaa ei voi poistaa, koska siihen on liitetty %{count} ehdotusta
+            success: Tapahtuman poisto onnistui
           edit:
             update: Päivitä
           form:
-            address_help: 'Osoite: käytetään sijainnin löytämiseksi geokoodaukseen'
-            location_help: 'Sijainti: viesti osallistujille tapaamispaikan sijainnin löytämiseksi'
+            address_help: 'Osoite: käytetään karttapisteen etsimiseen geokoodauksen avulla'
+            location_help: 'Paikka: kuvaus tapahtumapaikan tarkemmasta sijainnista osallistujille'
             location_hints_help: 'Sijainnin vihjeteksti: lisätietoja sijainnista. Esimerkiksi rakennuksen kerros sijaintipaikalla'
-            select_organizer: Valitse järjestäjä
           index:
             title: Tapahtumat
           new:
@@ -259,11 +268,11 @@ fi:
             services: Palvelut
           update:
             invalid: Tapahtuman päivitys epäonnistui
-            success: Tapahtuma luotiin onnistuneesti
+            success: Tapahtuman päivitys onnistui
         minutes:
           create:
             invalid: Pöytäkirjan luonti epäonnistui
-            success: Pöytäkirja luotiin onnistuneesti
+            success: Pöytäkirjan luonti onnistui
           edit:
             update: Päivitä
           new:
@@ -271,7 +280,7 @@ fi:
             title: Luo pöytäkirja
           update:
             invalid: Pöytäkirjan päivitys epäonnistui
-            success: Pöytäkirja päivitettiin onnistuneesti
+            success: Pöytäkirjan päivitys onnistui
         models:
           meeting:
             name: Tapahtuma
@@ -283,6 +292,7 @@ fi:
           form:
             available_slots_help: Jätä arvoksi 0, mikäli tapahtumaan on rajoittamaton määrä paikkoja.
             invites: Kutsut
+            recommendation_message: Yksityisyytesi takia suosittelemme, että poistat tämän kirjoituksen, kun et enää tarvitse sitä. Oletuksena se säilytetään 3 kuukautta tapahtuman päättymisen jälkeen.
             registration_form: Ilmoittautumislomake
             registrations_count:
               one: Tapahtumaan on %{count} ilmoittautuminen.
@@ -292,27 +302,27 @@ fi:
             title: Rekisteröitymiset
           update:
             invalid: Rekisteröitymisasetusten päivitys epäonnistui.
-            success: Tapahtumailmoittautumisasetukset tallennettiin onnistuneesti.
+            success: Tapahtumailmoittautumisasetusten tallennus onnistui.
           validate_registration_code:
             invalid: Tämä ilmoittautumiskoodi on virheellinen.
-            success: Ilmoittautumiskoodi on vahvistettu onnistuneesti.
+            success: Ilmoittautumiskoodin vahvistaminen onnistui.
       admin_log:
         invite:
-          create: "%{user_name} kutsui %{attendee_name} osallistumaan tapahtumaan %{resource_name} tilassa %{space_name}"
-          deleted: "%{user_name} perui kutsun osallistujalle %{attendee_name} tapahtumaan %{resource_name} tilassa %{space_name}"
-          update: "%{user_name} kutsui %{attendee_name} osallistumaan tapahtumaan %{resource_name} tilaan %{space_name}"
+          create: "%{user_name} kutsui %{attendee_name} osallistumaan tapahtumaan %{resource_name} osallistumistilassa %{space_name}"
+          deleted: "%{user_name} perui kutsun osallistujalle %{attendee_name} tapahtumaan %{resource_name} osallistumistilassa %{space_name}"
+          update: "%{user_name} kutsui %{attendee_name} osallistumaan tapahtumaan %{resource_name} osallistumistilaan %{space_name}"
         meeting:
-          close: "%{user_name} sulki tapahtuman %{resource_name} tilassa %{space_name}"
-          create: "%{user_name} loi tapahtuman %{resource_name} tilassa %{space_name}"
-          delete: "%{user_name} poisti tapahtuman %{resource_name} tilassa %{space_name}"
-          export_registrations: "%{user_name} vei tapahtuman %{resource_name} ilmoittautumiset tilaan %{space_name}"
-          update: "%{user_name} päivitti tapahtuman %{resource_name} tilassa %{space_name}"
+          close: "%{user_name} sulki tapahtuman %{resource_name} osallistumistilassa %{space_name}"
+          create: "%{user_name} loi tapahtuman %{resource_name} osallistumistilassa %{space_name}"
+          delete: "%{user_name} poisti tapahtuman %{resource_name} osallistumistilassa %{space_name}"
+          export_registrations: "%{user_name} vei tapahtuman %{resource_name} ilmoittautumiset osallistumistilaan %{space_name}"
+          update: "%{user_name} päivitti tapahtuman %{resource_name} osallistumistilassa %{space_name}"
           value_types:
             organizer_presenter:
               not_found: 'Järjestäjää ei löytynyt tietokannasta (ID: %{id})'
         minutes:
-          create: "%{user_name} loi tapahtumapöytäkirjan %{resource_name} tilassa %{space_name}"
-          update: "%{user_name} päivitti tapahtumapöytäkirjan %{resource_name} tilassa %{space_name}"
+          create: "%{user_name} loi tapahtumapöytäkirjan %{resource_name} osallistumistilassa %{space_name}"
+          update: "%{user_name} päivitti tapahtumapöytäkirjan %{resource_name} osallistumistilassa %{space_name}"
       calendar_modal:
         calendar_url: Kalenterin URL
         close_window: Sulje ikkuna
@@ -331,7 +341,7 @@ fi:
             meetings: Tapahtumat
             past: Menneet
             search: Hae
-            space_type: Osallisuustila
+            space_type: Osallistumistila
             upcoming: Tulevat
       last_activity:
         new_meeting_at_html: "<span>Uusi tapahtuma osoitteessa %{link}</span>"
@@ -345,30 +355,63 @@ fi:
       meeting:
         not_allowed: Sinulla ei ole lupaa tarkastella tätä tapahtumaa
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} tapahtuma"
+            other: "%{count} tapahtumaa"
+        create:
+          invalid: Tapahtuman luonti epäonnistui.
+          success: Tapahtuman luonti onnistui.
+        edit:
+          back: Takaisin
+          title: Muokkaa tapahtumaa
+          update: Päivitä
         filters:
           category: Aihepiiri
-          category_prompt: Valitse aihepiiri
           date: Päivämäärä
-          past: Menneet
+          date_values:
+            all: Kaikki
+            past: Menneet
+            upcoming: Tulevat
+          origin: Alkuperä
+          origin_values:
+            all: Kaikki
+            citizens: Kansalaiset
+            official: Viralliset
+            user_groups: Ryhmät
+          scope: Teema
           search: Hae
-          upcoming: Tulevat
         filters_small_view:
           close_modal: Sulje ikkuna
           filter: Rajaa
           filter_by: Rajaa hakua
           unfold: Avaa
+        form:
+          address_help: 'Osoite: käytetään karttapisteen etsimiseen geokoodauksen avulla'
+          create_as: Luo tapahtuma käyttäjänä
+          location_help: 'Paikka: kuvaus tapahtumapaikan tarkemmasta sijainnista osallistujille'
+          location_hints_help: 'Paikan vihjeteksti: lisätietoja tapahtumapaikasta. Esimerkiksi tapahtumapaikan rakennuksen kerros'
+          select_a_category: Valitse aihepiiri
+        index:
+          new_meeting: Uusi tapahtuma
         meeting_minutes:
           meeting_minutes: Tapahtumapöytäkirja
           related_information: Liittyviä tietoja
         meetings:
           no_meetings_warning: Yksikään tapahtuma ei vastaa hakukriteerejäsi tai yhtään tapahtumaa ei ole suunniteltu.
           upcoming_meetings_warning: Tällä hetkellä ei ole suuniteltuja tapahtumia, mutta täältä löydät kaikki aikaisemmat tapahtumat.
+        new:
+          back: Takaisin
+          create: Luo
+          title: Luo tapahtuma
         registration_confirm:
           cancel: Peruuta
           confirm: Vahvista
         show:
           attendees: Osallistujamäärä
+          back: Takaisin listaan
           contributions: Kontribuutioiden määrä
+          edit_meeting: Muokkaa tapahtumaa
           going: Ilmoittautunut
           join: Ilmoittaudu tapahtumaan
           meeting_report: Tapahtumaraportti
@@ -382,6 +425,9 @@ fi:
             one: "%{count} paikka jäljellä"
             other: "%{count} paikkaa jäljellä"
           view: Näytä
+        update:
+          invalid: Tapahtuman luonti epäonnistui.
+          success: Tapahtuman luonti onnistui.
       meetings_map:
         view_meeting: Näytä tapahtuma
       models:
@@ -400,6 +446,7 @@ fi:
             closed: Suljettu
             end_time: Päättymispäivä
             map: Kartta
+            official_meeting: Virallinen tapahtuma
             start_time: Alkamispäivä
             title: Otsikko
       read_more: "(lue lisää)"
@@ -411,16 +458,18 @@ fi:
       registrations:
         create:
           invalid: Tapahtumaan liittyminen epäonnistui.
-          success: Olet liittynyt tapahtumaan onnistuneesti.
+          success: Liittymisesi tapahtumaan onnistui. Koska olet ilmoittautunut tähän tapahtumaan, sinulle ilmoitetaan, kun tapahtumaa päivitetään.
         decline_invitation:
           invalid: Kutsun hylkääminen epäonnistui.
-          success: Olet hylännyt kutsun onnistuneesti.
+          success: Kutsun hylkäys onnistui.
         destroy:
           invalid: Tapahtumasta poistuminen epäonnistui.
           success: Olet poistunut tapahtumasta onnistuneesti.
       types:
         private_meeting: Yksityinen tapahtuma
         transparent: Läpinäkyvä
+      versions:
+        back_to_resource: Takaisin tapahtumaan
     metrics:
       meetings:
         description: Tapahtumien määrä

@@ -14,12 +14,17 @@ edit_link(
 %>
 
 <div class="row column view-header">
+
+  <%= link_to :debates, class: "small hollow" do %>
+    <%= icon "chevron-left", class: "icon--small" %>
+    <%= t(".back") %>
+  <% end %>
+
   <h2 class="heading2">
     <%== present(debate).title %>
   </h2>
 
-  <%= cell "decidim/author", Decidim::Debates::DebatePresenter.new(debate).author, context: { extra_classes: ["author-data--small"] } %>
-
+  <%= cell "decidim/author", Decidim::Debates::DebatePresenter.new(debate).author, from: debate, context: { extra_classes: ["author-data--small"] } %>
 </div>
 <div class="row">
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8
@@ -42,15 +47,15 @@ edit_link(
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
-      <p><%= decidim_sanitize(simple_format(translated_attribute(debate.description))) %></p>
+      <%= render_debate_description(debate) %>
       <% if translated_attribute(debate.instructions).present? %>
         <div class="callout secondary">
-          <%= decidim_sanitize(simple_format(translated_attribute(debate.instructions))) %>
+          <%= decidim_sanitize(simple_format(translated_attribute(debate.instructions), {}, sanitize: false)) %>
         </div>
       <% end %>
       <% if translated_attribute(debate.information_updates).present? %>
         <div class="callout success">
-          <%= simple_format(translated_attribute(debate.information_updates)) %>
+          <%= decidim_sanitize(simple_format(translated_attribute(debate.information_updates), {}, sanitize: false)) %>
         </div>
       <% end %>
       <% if debate.category %>

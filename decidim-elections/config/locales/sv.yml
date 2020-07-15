@@ -1,0 +1,6 @@
+sv:
+  decidim:
+    elections:
+      actions:
+        edit_answers: Redigera svar
+        edit_questions: Redigera frågor

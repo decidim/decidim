@@ -33,6 +33,7 @@ module Decidim
           notify_admin_over_percentage
           increment_score
         end
+        follow_meeting
         broadcast(:ok)
       end
 
@@ -104,6 +105,16 @@ module Decidim
 
       def increment_score
         Decidim::Gamification.increment_score(user, :attended_meetings)
+      end
+
+      def follow_meeting
+        Decidim::CreateFollow.call(follow_form, user)
+      end
+
+      def follow_form
+        Decidim::FollowForm
+          .from_params(followable_gid: meeting.to_signed_global_id.to_s)
+          .with_context(current_user: user)
       end
 
       def occupied_slots_over?(percentage)

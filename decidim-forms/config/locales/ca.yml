@@ -2,7 +2,7 @@ ca:
   activemodel:
     attributes:
       answer:
-        body: Respondre
+        body: Resposta
       question:
         max_choices: Nombre màxim d'opcions
         question_type: Tipus
@@ -15,30 +15,38 @@ ca:
             choices:
               missing: no estan complets
               too_many: en són masses
+        questionnaire:
+          request_invalid: Hi ha hagut un problema gestionant la petició. Si us plau torna-ho a provar
   decidim:
     forms:
       admin:
         models:
           components:
             description: Descripció
-            tos: Termes i condicions d'ús
+            tos: Termes del servei
         questionnaires:
           answer_option:
             answer_option: Opció de resposta
             free_text: Text lliure
-            remove: Eliminar
+            remove: Elimina
             statement: Declaració
           edit:
-            save: Desar
-            title: Títol
+            save: Desa
           form:
             add_question: Afegeix una pregunta
             already_answered_warning: No pots modificar les preguntes d'aquest formulari perquè ja ha estat contestat per algunes participants.
+            collapse: Redueix totes les preguntes
+            expand: Expandeix totes les preguntes
+          matrix_row:
+            remove: Elimina
+            statement: Declaració
           question:
             add_answer_option: Afegeix una opció de resposta
             any: Cap
+            collapse: Redueix
             description: Descripció
             down: Avall
+            expand: Expandeix
             question: Pregunta
             remove: Eliminar
             statement: Declaració
@@ -65,7 +73,6 @@ ca:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Inicia sessió amb el teu compte</a> o <a href="%{sign_up_link}">registra't</a> per respondre el formulari.
             title: Respon el formulari
-          are_you_sure: Aquesta acció no es pot desfer i no podràs editar les teves respostes. Estàs segura?
           questionnaire_answered:
             body: Ja has respost a aquest formulari.
             title: Ja has respost
@@ -75,8 +82,14 @@ ca:
           questionnaire_for_private_users:
             body: El formulari només està disponible per a participants privades
             title: S'ha tancat el formulari
-          submit: Enviar respostes
           tos_agreement: En participar acceptes els Termes i condicions d'ús
+      step_navigation:
+        show:
+          are_you_sure: Aquesta acció no es pot desfer i no podràs editar les teves respostes. Estàs segura?
+          submit: Enviar respostes
       user_answers_serializer:
         created_at: Respost el
         id: Identificador de resposta
+        registered: Registrada
+        unregistered: No registrada
+        user_status: Estat de l'usuària

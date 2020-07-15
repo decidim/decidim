@@ -34,6 +34,7 @@ module Decidim::ParticipatoryProcesses
             area: my_process.area,
             errors: my_process.errors,
             participatory_process_group: my_process.participatory_process_group,
+            show_metrics: my_process.show_metrics,
             show_statistics: my_process.show_statistics,
             private_space: my_process.private_space
           }
@@ -111,6 +112,18 @@ module Decidim::ParticipatoryProcesses
 
           action_log = Decidim::ActionLog.last
           expect(action_log.version).to be_present
+        end
+
+        context "with related processes" do
+          let!(:another_process) { create :participatory_process, organization: my_process.organization }
+
+          it "links related processes" do
+            allow(form).to receive(:related_process_ids).and_return([another_process.id])
+            command.call
+
+            linked_processes = my_process.linked_participatory_space_resources(:participatory_process, "related_processes")
+            expect(linked_processes).to match_array([another_process])
+          end
         end
 
         context "when no homepage image is set" do

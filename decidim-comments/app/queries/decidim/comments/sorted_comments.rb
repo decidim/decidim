@@ -30,8 +30,7 @@ module Decidim
       # loads comments replies. It uses Comment's MAX_DEPTH to load a maximum
       # level of nested replies.
       def query
-        scope = Comment
-                .where(commentable: commentable)
+        scope = base_scope
                 .not_hidden
                 .includes(:author, :user_group, :up_votes, :down_votes)
 
@@ -52,6 +51,13 @@ module Decidim
       end
 
       private
+
+      def base_scope
+        id = @options[:id]
+        return Comment.where(root_commentable: commentable, id: id) if id.present?
+
+        Comment.where(commentable: commentable)
+      end
 
       def order_by_older(scope)
         scope.order(created_at: :asc)
