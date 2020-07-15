@@ -15,7 +15,7 @@ describe "Static pages", type: :system do
 
   context "with standalone pages" do
     it "lists all the standalone pages" do
-      within find(".row", text: "Pages") do
+      within find(".row", text: "PAGES") do
         expect(page).to have_content translated(page3.title)
       end
     end
