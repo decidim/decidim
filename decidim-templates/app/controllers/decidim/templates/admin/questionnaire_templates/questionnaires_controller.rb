@@ -21,7 +21,7 @@ module Decidim
           def after_update_url
             edit_questionnaire_template_path(id: template.id)
           end
-          
+
           def public_url
             nil
           end
