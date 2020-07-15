@@ -21,7 +21,7 @@ class CheckLegacyTables < ActiveRecord::Migration[5.2]
   end
 
   def up
-    return if Rails.env.test? || ENV["CI"] == "true"
+    return if Rails.env.development? || Rails.env.test? || ENV["CI"] == "true"
 
     if tables_exists.any?
       puts "If you already migrated the data, the following raise statement can be safely removed and migrations can continue to be run again."
