@@ -562,7 +562,7 @@ GEM
     pg_search (2.3.2)
       activerecord (>= 5.2)
       activesupport (>= 5.2)
-    premailer (1.11.1)
+    premailer (1.12.1)
       addressable
       css_parser (>= 1.6.0)
       htmlentities (>= 4.0.0)
