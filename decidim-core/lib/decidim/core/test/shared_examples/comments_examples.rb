@@ -22,7 +22,7 @@ shared_examples "comments" do
     within "#comments" do
       comments.each do |comment|
         expect(page).to have_content comment.author.name
-        expect(page).to have_content comment.body
+        expect(page).to have_content comment.body.values.first
       end
     end
   end

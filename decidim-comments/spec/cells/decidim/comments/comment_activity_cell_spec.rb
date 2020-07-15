@@ -22,14 +22,14 @@ module Decidim::Comments
         html = cell("decidim/comments/comment_activity", action_log).call
         expect(html).to have_css(".card__content")
         expect(html).to have_content("New comment at #{comment.root_commentable.title}")
-        expect(html).to have_content(comment.body)
+        expect(html).to have_content(comment.body.values.first)
       end
 
       context "when the comment has mentions" do
         before do
           body = "Comment mentioning some user, @#{comment.author.nickname}"
           parsed_body = Decidim::ContentProcessor.parse(body, current_organization: comment.organization)
-          comment.body = parsed_body.rewrite
+          comment.body = { en: parsed_body.rewrite }
           comment.save
         end
 
@@ -57,7 +57,7 @@ module Decidim::Comments
           html = cell("decidim/comments/comment_activity", action_log).call
           expect(html).to have_css(".card__content")
           expect(html).to have_content("New comment at #{comment.root_commentable.title}")
-          expect(html).to have_content(comment.body)
+          expect(html).to have_content(comment.body.values.first)
         end
       end
     end

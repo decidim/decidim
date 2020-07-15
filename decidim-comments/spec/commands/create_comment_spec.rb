@@ -52,7 +52,7 @@ module Decidim
               author: author,
               commentable: commentable,
               root_commentable: commentable,
-              body: body,
+              body: { en: body },
               alignment: alignment,
               decidim_user_group_id: user_group_id
             ).and_call_original
@@ -117,7 +117,7 @@ module Decidim
                 author: author,
                 commentable: commentable,
                 root_commentable: commentable,
-                body: Decidim::ContentProcessor.parse(body, parser_context).rewrite,
+                body: { en: Decidim::ContentProcessor.parse(body, parser_context).rewrite },
                 alignment: alignment,
                 decidim_user_group_id: user_group_id
               ).and_call_original
@@ -152,7 +152,7 @@ module Decidim
                 author: author,
                 commentable: commentable,
                 root_commentable: commentable,
-                body: Decidim::ContentProcessor.parse(body, parser_context).rewrite,
+                body: { en: Decidim::ContentProcessor.parse(body, parser_context).rewrite },
                 alignment: alignment,
                 decidim_user_group_id: user_group_id
               ).and_call_original
