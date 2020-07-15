@@ -27,6 +27,8 @@ module Decidim
       include Decidim::Endorsable
       include Decidim::Proposals::Valuatable
 
+      include Decidim::TranslatableAttributes
+
       POSSIBLE_STATES = %w(not_answered evaluating accepted rejected withdrawn).freeze
 
       fingerprint fields: [:title, :body]
@@ -409,11 +411,11 @@ module Decidim
       end
 
       def i18n_title
-        title.values.first
+        translated_attribute(title)
       end
 
       def i18n_body
-        body.values.first
+        translated_attribute(title)
       end
 
       private
