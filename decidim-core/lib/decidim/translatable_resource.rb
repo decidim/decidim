@@ -7,7 +7,7 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      after_create :machine_translation_new_resource
+      after_create :machine_translation_updated_resource
       after_update :machine_translation_updated_resource
       def self.translatable_fields(*list)
         @translatable_fields = list
@@ -29,7 +29,6 @@ module Decidim
 
     def machine_translation_updated_resource
       return unless Decidim.machine_translation_service.present?
-
       Decidim::MachineTranslationUpdatedResourceJob.perform_later(
         self,
         translatable_previous_changes,

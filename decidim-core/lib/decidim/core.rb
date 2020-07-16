@@ -5,6 +5,7 @@ require "decidim/core/api"
 require "decidim/core/version"
 # Decidim configuration.
 module Decidim
+  autoload :DummyTranslator, "decidim/dummy_translator"
   autoload :Deprecations, "decidim/deprecations"
   autoload :ActsAsAuthor, "decidim/acts_as_author"
   autoload :TranslatableAttributes, "decidim/translatable_attributes"
@@ -311,7 +312,6 @@ module Decidim
 
   # The name of the class to translate user content.
   #
-  # Check the example in `decidim-verifications`.
   config_accessor :machine_translation_service do
     # "MyTranslationService"
   end

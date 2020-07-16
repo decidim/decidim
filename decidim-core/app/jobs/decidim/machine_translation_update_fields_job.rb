@@ -6,12 +6,15 @@ module Decidim
 
     def perform(resource, field_name, field_value, locale, source_locale)
       translation_value = Decidim.machine_translation_service.to_s.safe_constantize.new(field_value, source_locale, locale).translate
-      Decidim::TranslatedField.find_or_initialize_by(
-        translated_resource: resource,
-        field_name: field_name,
-        translation_locale: locale
-      ).update(field_value: field_value,
-               translation_value: translation_value)
+
+      #Refactor code
+      if resource[field_name]["machine_translations"].present?
+        resource[field_name]["machine_translations"] = resource[field_name]["machine_translations"].merge({locale => translation_value})
+      else
+        resource[field_name] = resource[field_name].merge({"machine_translations" =>{ locale => translation_value }})
+      end
+
+      resource.update_attribute field_name, resource[field_name]
     end
   end
 end
