@@ -115,6 +115,7 @@ fi:
             can_accumulate_supports_beyond_threshold: Voi kerätä kannatuksia yli kynnysarvon
             collaborative_drafts_enabled: Yhteistyöluonnokset ovat käytössä
             comments_enabled: Kommentit käytössä
+            comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
             geocoding_enabled: Geokoodaus käytössä
             minimum_votes_per_user: Kannatusten vähimmäismäärä käyttäjää kohden
             new_proposal_body_template: Uuden ehdotuksen leipätekstin mallipohja
