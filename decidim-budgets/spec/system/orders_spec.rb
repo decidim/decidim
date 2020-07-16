@@ -331,9 +331,8 @@ describe "Orders", type: :system do
       it "displays the number of votes for a project" do
         visit_budget
 
-        within "#project-#{project.id}-item .budget-list__data__votes" do
-          expect(page).to have_selector(".text-large", text: "1")
-          expect(page).to have_selector(".text-small", text: "SUPPORT")
+        within "#project-#{project.id}-item .budget-list__number" do
+          expect(page).to have_selector(".text-small", text: "1 SUPPORT")
         end
       end
     end
