@@ -14,17 +14,9 @@ module Decidim::Meetings
     let(:invalid) { false }
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }
+    let(:service_objects) { build_list(:service, 2) }
     let(:services) do
-      [
-        {
-          "title" => { "en" => "First service" },
-          "description" => { "en" => "First description" }
-        },
-        {
-          "title" => { "en" => "Second service" },
-          "description" => { "en" => "Second description" }
-        }
-      ]
+      service_objects.map(&:attributes)
     end
     let(:services_to_persist) do
       services.map { |service| Admin::MeetingServiceForm.from_params(service) }
@@ -91,7 +83,10 @@ module Decidim::Meetings
 
       it "sets the services" do
         subject.call
-        expect(meeting.services).to eq(services)
+        meeting.services.each_with_index do |service, index|
+          expect(service.title).to eq(service_objects[index].title)
+          expect(service.description).to eq(service_objects[index].description)
+        end
       end
 
       it "traces the action", versioning: true do

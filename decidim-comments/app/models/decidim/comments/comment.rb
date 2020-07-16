@@ -14,6 +14,8 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
 
+      include Decidim::TranslatableAttributes
+
       # Limit the max depth of a comment tree. If C is a comment and R is a reply:
       # C          (depth 0)
       # |--R       (depth 1)
@@ -31,7 +33,7 @@ module Decidim
       validates :depth, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: MAX_DEPTH }
       validates :alignment, inclusion: { in: [0, 1, -1] }
 
-      validates :body, length: { maximum: 1000 }
+      validate :body_length
 
       validate :commentable_can_have_comments
 
@@ -124,7 +126,29 @@ module Decidim
         root_commentable.can_participate?(user)
       end
 
+      def translated_body
+        translated_attribute(body)
+      end
+
       private
+
+      def body_length
+        errors.add(:body, :too_long, count: comment_maximum_length) unless body.length <= comment_maximum_length
+      end
+
+      def comment_maximum_length
+        return unless commentable.commentable?
+        return component.settings.comments_max_length if component_settings_comments_max_length?
+        return organization.comments_max_length if organization.comments_max_length.positive?
+
+        1000
+      end
+
+      def component_settings_comments_max_length?
+        return unless component&.settings.respond_to?(:comments_max_length)
+
+        component.settings.comments_max_length.positive?
+      end
 
       # Private: Check if commentable can have comments and if not adds
       # a validation error to the model
@@ -140,7 +164,7 @@ module Decidim
       # Private: Returns the comment body sanitized, sanitizing HTML tags
       def sanitized_body
         Rails::Html::WhiteListSanitizer.new.sanitize(
-          render_markdown(body),
+          render_markdown(translated_body),
           scrubber: Decidim::Comments::UserInputScrubber.new
         ).try(:html_safe)
       end

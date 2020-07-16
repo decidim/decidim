@@ -20,7 +20,7 @@ describe Decidim::Comments::UserGroupMentionedEvent do
   before do
     body = "Comment mentioning some user group, @#{group.nickname}"
     parsed_body = Decidim::ContentProcessor.parse(body, current_organization: comment.organization)
-    comment.body = parsed_body.rewrite
+    comment.body = { en: parsed_body.rewrite }
     comment.save
   end
 

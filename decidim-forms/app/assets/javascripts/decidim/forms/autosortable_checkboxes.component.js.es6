@@ -1,59 +1,79 @@
+/* eslint-disable no-ternary */
+
 ((exports) => {
   class AutosortableCheckboxesComponent {
     constructor(options = {}) {
       this.wrapperField = options.wrapperField;
       this._bindEvent();
-      this._run();
+      this._order();
+      this._normalize();
     }
 
-    _run() {
-      $(this.wrapperField).find("input[type=checkbox]").each((idx, el) => {
-        const $parentLabel = $(el).parents("label");
+    // Order by position
+    _order() {
+      const max = $(this.wrapperField).find(".collection-input").length;
+      $(this.wrapperField).find(".collection-input").each((idx, el) => {
+        const $positionField = $(el).find("input[name$=\\[position\\]]");
+        const position = $positionField.val()
+          ? parseInt($positionField.val(), 10)
+          : max;
 
-        if ($(el).is(":checked")) {
-          const $lastSorted = this.wrapperField.find("label.sorted").last();
+        let $next = $(el).next();
+        while ($next.length > 0) {
+          const $nextPositionField = $next.find("input[name$=\\[position\\]]");
+          const nextPosition = $nextPositionField.val()
+            ? parseInt($nextPositionField.val(), 10)
+            : max;
 
-          if ($lastSorted.length > 0) {
-            $lastSorted.removeClass("last-sorted");
-            $parentLabel.insertAfter($lastSorted);
-          } else {
-            $parentLabel.insertBefore(this.wrapperField.find("label:first-child"));
+          if (position > nextPosition) {
+            $next.insertBefore($(el));
           }
-
-          $parentLabel.addClass("sorted");
-          $parentLabel.addClass("last-sorted");
-        } else {
-          const $lastUnsorted = this.wrapperField.find("label:not(.sorted)").last();
-
-          if ($lastUnsorted.length > 0) {
-            $parentLabel.insertBefore($lastUnsorted);
-          } else {
-            $parentLabel.insertAfter(this.wrapperField.find("label:last-child"));
-          }
-
-          $parentLabel.removeClass("sorted");
+          $next = $next.next();
         }
       });
+    }
 
-      $(this.wrapperField).find("label").each((idx, el) => {
-        const $positionSelector = $(el).find(".position");
+    _findLastPosition() {
+      let lastPosition = 0;
+      $(this.wrapperField).find(".collection-input").each((idx, el) => {
         const $positionField = $(el).find("input[name$=\\[position\\]]");
+        const position = parseInt($positionField.val(), 10);
+        if (position > lastPosition) {
+          lastPosition = position;
+        }
+      });
+      return lastPosition;
+    }
 
-        if ($(el).hasClass("sorted")) {
+    _normalize() {
+      $(this.wrapperField).find(".collection-input .position").each((idx, el) => {
+        const $positionField = $(el).parent().find("input[name$=\\[position\\]]");
+        if ($positionField.val()) {
           $positionField.val(idx);
           $positionField.prop("disabled", false);
-          $positionSelector.html(`${idx + 1}. `);
-        } else {
-          $positionField.val("");
-          $positionField.prop("disabled", true);
-          $positionSelector.html("");
+          $(el).html(`${idx + 1}. `);
         }
       });
     }
 
     _bindEvent() {
-      $(this.wrapperField).find("input[type=checkbox]").on("change", () => {
-        this._run();
+      $(this.wrapperField).find("input[type=checkbox]").on("change", (el) => {
+        const $parentLabel = $(el.target).parents("label");
+        const $positionSelector = $parentLabel.find(".position");
+        const $positionField = $parentLabel.find("input[name$=\\[position\\]]");
+        const lastPosition = this._findLastPosition();
+
+        if (el.target.checked) {
+          $positionField.val(lastPosition + 1);
+          $positionField.prop("disabled", false);
+          $positionSelector.html(lastPosition + 1);
+        } else {
+          $positionField.val("");
+          $positionField.prop("disabled", true);
+          $positionSelector.html("");
+        }
+        this._order();
+        this._normalize();
       });
     }
   }

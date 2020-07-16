@@ -24,6 +24,7 @@ en:
         settings:
           global:
             comments_enabled: Comments enabled
+            comments_max_length: Comments max length (Leave 0 for default value)
     events:
       sortitions:
         sortition_created:
