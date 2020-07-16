@@ -33,7 +33,7 @@ describe "Amendment Wizard", type: :system do
 
       it "shows the new amendment form" do
         within ".section-heading" do
-          expect(page).to have_content("Create Amendment Draft")
+          expect(page).to have_content("CREATE AMENDMENT DRAFT")
         end
 
         within ".new_amendment" do
@@ -51,7 +51,7 @@ describe "Amendment Wizard", type: :system do
 
         it "redirects to the proposal page" do
           expect(page).to have_content(proposal.title)
-          expect(page).to have_content("Amend Proposal")
+          expect(page).to have_content("AMEND PROPOSAL")
         end
       end
     end
@@ -79,7 +79,7 @@ describe "Amendment Wizard", type: :system do
 
         it "shows similar emendations" do
           within ".section-heading" do
-            expect(page).to have_content("Similar Emendations (1)")
+            expect(page).to have_content("SIMILAR EMENDATIONS (1)")
           end
 
           within ".card-grid" do
@@ -112,7 +112,7 @@ describe "Amendment Wizard", type: :system do
 
         it "redirects to step_3: Complete your amendment" do
           within ".section-heading" do
-            expect(page).to have_content("Edit Amendment Draft")
+            expect(page).to have_content("EDIT AMENDMENT DRAFT")
           end
         end
 
@@ -143,7 +143,7 @@ describe "Amendment Wizard", type: :system do
 
       it "shows the edit amendment form" do
         within ".section-heading" do
-          expect(page).to have_content("Edit Amendment Draft")
+          expect(page).to have_content("EDIT AMENDMENT DRAFT")
         end
 
         within ".edit_amendment" do
@@ -171,7 +171,7 @@ describe "Amendment Wizard", type: :system do
           end
 
           within ".section-heading" do
-            expect(page).to have_content("Create Amendment Draft")
+            expect(page).to have_content("CREATE AMENDMENT DRAFT")
           end
         end
       end
@@ -187,7 +187,7 @@ describe "Amendment Wizard", type: :system do
 
           it "shows similar emendations" do
             within ".section-heading" do
-              expect(page).to have_content("Similar Emendations (1)")
+              expect(page).to have_content("SIMILAR EMENDATIONS (1)")
             end
           end
         end
@@ -199,7 +199,7 @@ describe "Amendment Wizard", type: :system do
 
           it "redirects to step_3: Complete your amendment" do
             within ".section-heading" do
-              expect(page).to have_content("Edit Amendment Draft")
+              expect(page).to have_content("EDIT AMENDMENT DRAFT")
             end
 
             within ".flash.callout.success" do
@@ -232,7 +232,7 @@ describe "Amendment Wizard", type: :system do
 
       it "shows a preview before publishing" do
         within ".section-heading" do
-          expect(page).to have_content("Publish Amendment Draft")
+          expect(page).to have_content("PUBLISH AMENDMENT DRAFT")
         end
 
         within ".card" do
@@ -264,7 +264,7 @@ describe "Amendment Wizard", type: :system do
         end
 
         it "redirects to step_3: Complete your amendment" do
-          expect(page).to have_content("Edit Amendment Draft")
+          expect(page).to have_content("EDIT AMENDMENT DRAFT")
         end
       end
 
@@ -274,7 +274,7 @@ describe "Amendment Wizard", type: :system do
         end
 
         it "redirects to step_3: Complete your amendment" do
-          expect(page).to have_content("Edit Amendment Draft")
+          expect(page).to have_content("EDIT AMENDMENT DRAFT")
         end
       end
     end
@@ -292,7 +292,7 @@ describe "Amendment Wizard", type: :system do
       end
 
       it "is NOT shown the amendment draft in the amendments list" do
-        expect(page).to have_css("#amendments", text: "Amendments")
+        expect(page).to have_css("#amendments", text: "AMENDMENTS")
 
         within ".amendment-list" do
           expect(page).to have_content(emendation.title)
@@ -301,7 +301,7 @@ describe "Amendment Wizard", type: :system do
       end
 
       it "is NOT shown the author of the amendment draft in the amenders list" do
-        expect(page).to have_content("Amended by")
+        expect(page).to have_content("AMENDED BY")
 
         within ".amender-list" do
           expect(page).to have_content(amendment.amender.name)

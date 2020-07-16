@@ -39,7 +39,7 @@ describe "Explore versions", versioning: true, type: :system do
     end
 
     it "shows the versions count" do
-      expect(page).to have_content("Versions\n2")
+      expect(page).to have_content("VERSIONS\n2")
     end
 
     it "allows going back to the result" do
@@ -65,7 +65,7 @@ describe "Explore versions", versioning: true, type: :system do
     end
 
     it "shows the version number" do
-      expect(page).to have_content("Version number\n2 out of 2")
+      expect(page).to have_content("VERSION NUMBER\n2 out of 2")
     end
 
     it "allows going back to the collaborative draft" do
@@ -89,7 +89,7 @@ describe "Explore versions", versioning: true, type: :system do
       expect(page).to have_content("Changes at")
 
       within ".diff-for-title" do
-        expect(page).to have_content("Title")
+        expect(page).to have_content("TITLE")
 
         within ".diff > ul > .del" do
           expect(page).to have_content(original_title)
@@ -101,7 +101,7 @@ describe "Explore versions", versioning: true, type: :system do
       end
 
       within ".diff-for-body" do
-        expect(page).to have_content("Body")
+        expect(page).to have_content("BODY")
 
         within ".diff > ul > .del" do
           expect(page).to have_content(original_body)

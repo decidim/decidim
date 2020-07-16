@@ -28,7 +28,7 @@ describe "Edit proposals", type: :system do
       click_link proposal.title
       click_link "Edit proposal"
 
-      expect(page).to have_content "Edit proposal"
+      expect(page).to have_content "EDIT PROPOSAL"
 
       within "form.edit_proposal" do
         fill_in :proposal_title, with: new_title
@@ -49,7 +49,7 @@ describe "Edit proposals", type: :system do
         click_link proposal.title
         click_link "Edit proposal"
 
-        expect(page).to have_content "Edit proposal"
+        expect(page).to have_content "EDIT PROPOSAL"
 
         within "form.edit_proposal" do
           fill_in :proposal_body, with: "A"
@@ -72,7 +72,7 @@ describe "Edit proposals", type: :system do
         click_link proposal.title
         click_link "Edit proposal"
 
-        expect(page).to have_content "Edit proposal"
+        expect(page).to have_content "EDIT PROPOSAL"
 
         within "form.edit_proposal" do
           fill_in :proposal_title, with: "A title with a #hashtag"
