@@ -30,6 +30,10 @@ module Decidim
                                   default: false,
                                   desc: "Don't generate a Gemfile for the application"
 
+      class_option :profiling, type: :boolean,
+                               default: false,
+                               desc: "Add the necessary gems to profile the app"
+
       def install
         route "mount Decidim::Core::Engine => '/'"
       end
@@ -100,6 +104,25 @@ module Decidim
             |  }
           RUBY
         end
+      end
+
+      def profiling_gems
+        return unless options[:profiling]
+
+        append_file "Gemfile", <<~RUBY
+
+          group :development do
+            # Profiling gems
+            gem "bullet"
+            gem "flamegraph"
+            gem "memory_profiler"
+            gem "rack-mini-profiler", require: false
+            gem "stackprof"
+          end
+        RUBY
+
+        copy_file "bullet_initializer.rb", "config/initializers/bullet.rb"
+        copy_file "rack_profiler_initializer.rb", "config/initializers/rack_profiler.rb"
       end
 
       def copy_migrations
