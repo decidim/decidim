@@ -105,6 +105,6 @@ class CheckLegacyTables < ActiveRecord::Migration[5.2]
     end
   end
 end
-# rubocop:enable Lint/UnreachableCode
+
 # rubocop:enable Style/GuardClause
 # rubocop:enable Rails/Output
