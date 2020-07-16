@@ -19,6 +19,16 @@ To keep current Decidim::Proposals::Proposal's endorsement information, endorsem
 
 After this, `Decidim::Proposals::ProposalEndorsement` and the corresponding counter cache column in `decidim_proposals_proposal.proposal_endorsements_count` should be removed. To do so, Decidim provides now the corresponding migration.
 
+- **Removal of Surveys' legacy tables**
+
+This version removes the legacy tables that were left when extracting Questionnaires from `decidim-surveys` into `decidim-forms`.
+These tables were left to give time to Decidim imlementors to migrate the data in them if required.
+It is now time to remove these tables but, as stated in [\#6275](https://github.com/decidim/decidim/issues/6275), the process must avoid data loss.
+
+To avoid data loss migration `decidim-surveys/db/migrate/20200609090533_check_legacy_tables.rb` checks if there is still data in `decidim-surveys` legacy tables and migrates this data to the tables in `decidim-forms`.
+
+After 20200609090533 is executed the next 5 migrations will remove the legacy tables and columns.
+
 ### Added
 
 ### Changed
@@ -27,12 +37,7 @@ After this, `Decidim::Proposals::ProposalEndorsement` and the corresponding coun
 
 - **decidim-comments**: Fix comments JS errors and delays [\#6193](https://github.com/decidim/decidim/pull/6193)
 - **decidim-elections**: Improve navigation consistency in the admin zone for elections questions and answers [\#6139](https://github.com/decidim/decidim/pull/6139)
-- **decidim-participatory_processes**: Fix rubocop errors arising from capybara upgrade [\#6197](https://github.com/decidim/decidim/pull/6197)
-- **decidim-assemblies**: Fix rubocop errors arising from capybara upgrade [\#6197](https://github.com/decidim/decidim/pull/6197)
-- **decidim-proposals**: Fix rubocop errors arising from capybara upgrade [\#6197](https://github.com/decidim/decidim/pull/6197)
-- **decidim-dev**: Fix rubocop errors arising from capybara upgrade [\#6197](https://github.com/decidim/decidim/pull/6197)
-- **decidim-core**: Fix rubocop errors arising from capybara upgrade [\#6197](https://github.com/decidim/decidim/pull/6197)
-- **decidim-forms**: Fix rubocop errors arising from capybara upgrade [\#6197](https://github.com/decidim/decidim/pull/6197)
+- **decidim-assemblies**, **decidim-core**, **decidim-dev**, **decidim-forms**, **decidim-participatory_processes**, **decidim-proposals**: Fix rubocop errors arising from capybara upgrade [\#6197](https://github.com/decidim/decidim/pull/6197)
 
 ### Removed
 
