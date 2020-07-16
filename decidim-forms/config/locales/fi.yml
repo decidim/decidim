@@ -75,6 +75,9 @@ fi:
             already_answered_warning: Jotkut käyttäjät ovat jo vastanneet tähän kyselylomakkeeseen, joten et voi enää muokata kysymyksiä.
             collapse: Sulje kaikki kysymykset
             expand: Avaa kaikki kysymykset
+            preview: Esikatsele
+            title: Muokkaa lomaketta
+            unpublished_warning: Lomaketta ei ole julkaistu. Voit muokata sen kysymyksiä, mutta muokkaaminen poistaa nykyiset vastaukset.
           matrix_row:
             matrix_row: Rivi
             remove: Poista
@@ -145,6 +148,8 @@ fi:
           questionnaire_js_disabled:
             body: Jotkin tämän lomakkeen ominaisuudet eivät ole käytössä. Parantaaksesi käyttökokemustasi, ota JavaScript käyttöön selaimestasi.
             title: JavaScript ei ole käytössä
+          questionnaire_not_published:
+            body: Tätä lomaketta ei ole vielä julkaistu.
           tos_agreement: Osallistumalla hyväksyt käyttöehdot
       step_navigation:
         show:
