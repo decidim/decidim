@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Vote in an election", type: :system do
   let(:manifest_name) { "elections" }
-  let(:election) { create :election, :complete, :published, component: component }
+  let(:election) { create :election, :complete, :published, :ongoing, component: component }
   let(:user) { create(:user, :confirmed, organization: component.organization) }
 
   before do

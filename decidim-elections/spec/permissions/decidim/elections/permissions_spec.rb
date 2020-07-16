@@ -24,7 +24,7 @@ describe Decidim::Elections::Permissions do
     end
 
     context "when election is ongoing" do
-      let(:election) { create :election, component: elections_component }
+      let(:election) { create :election, :ongoing, component: elections_component }
 
       it { is_expected.to be_truthy }
     end

@@ -13,19 +13,24 @@ FactoryBot.define do
     title { generate_localized_title }
     subtitle { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    start_time { 1.day.ago }
+    start_time { 1.day.from_now }
     end_time { 3.days.from_now }
     published_at { nil }
     component { create(:elections_component) }
 
-    trait :started do
+    trait :upcoming do
     end
 
-    trait :upcoming do
-      start_time { 1.day.from_now }
+    trait :started do
+      start_time { 1.day.ago }
+    end
+
+    trait :ongoing do
+      started
     end
 
     trait :finished do
+      started
       end_time { 1.day.ago }
     end
 
@@ -44,7 +49,6 @@ FactoryBot.define do
 
   factory :question, class: "Decidim::Elections::Question" do
     transient do
-      complete { false }
       more_information { false }
       answers { 3 }
     end
@@ -56,34 +60,30 @@ FactoryBot.define do
     weight { Faker::Number.number(1) }
     random_answers_order { true }
 
+    trait :complete do
+      after(:build) do |question, evaluator|
+        overrides = { question: question }
+        overrides[:description] = nil unless evaluator.more_information
+        question.answers = build_list(:election_answer, evaluator.answers, overrides)
+      end
+    end
+
     trait :yes_no do
-      complete { true }
+      complete
       random_answers_order { false }
     end
 
     trait :candidates do
-      complete { true }
+      complete
       max_selections { 6 }
       answers { 10 }
     end
 
     trait :projects do
-      complete { true }
+      complete
       max_selections { 3 }
       answers { 6 }
       more_information { true }
-    end
-
-    trait :complete do
-      complete { true }
-    end
-
-    after(:build) do |question, evaluator|
-      if evaluator.complete
-        overrides = { question: question }
-        overrides[:description] = nil unless evaluator.more_information
-        question.answers = build_list(:election_answer, evaluator.answers, overrides)
-      end
     end
   end
 
