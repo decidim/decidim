@@ -2,7 +2,6 @@
 
 # rubocop:disable Rails/Output
 # rubocop:disable Style/GuardClause
-# rubocop:disable Lint/UnreachableCode
 class CheckLegacyTables < ActiveRecord::Migration[5.2]
   class Answer < ApplicationRecord
     self.table_name = :decidim_surveys_survey_answers
@@ -21,18 +20,11 @@ class CheckLegacyTables < ActiveRecord::Migration[5.2]
   end
 
   def up
-    return if development_app? || Rails.env.test? || ENV["CI"] == "true"
-
     if tables_exists.any?
-      puts "If you already migrated the data, the following raise statement can be safely removed and migrations can continue to be run again."
-      puts "But beware, they will remove some surveys' legacy tables!"
-      puts "Otherwise check this migration in order to keep your data safe. Legacy tables will be removed by the following migrations."
-      raise "ERROR: there's the risk to loose legacy information from old surveys!"
-
       if tables_exists.all?
         migrate_legacy_data if Question.any?
       else
-        puts "Some legacy surveys tables exist but not all. Have you already migrated the data?"
+        puts "Some legacy surveys tables exist but not all. Have you migrated all the data?"
         puts "Migrate or backup your data and then remove the following raise statement to continue with the migrations (that will remove surveys legacy tables)"
         puts "For migrating your data you can do that with the command:"
         puts "bundle exec rake decidim_surveys:migrate_data_to_decidim_forms"
@@ -111,10 +103,6 @@ class CheckLegacyTables < ActiveRecord::Migration[5.2]
         end
       end
     end
-  end
-
-  def development_app?
-    Rails.root.to_s.ends_with? "development_app"
   end
 end
 # rubocop:enable Lint/UnreachableCode
