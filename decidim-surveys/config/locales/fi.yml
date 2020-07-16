@@ -20,6 +20,7 @@ fi:
         settings:
           global:
             announcement: Ilmoitus
+            clean_after_publish: Poista vastaukset julkaistaessa kysely
           step:
             allow_answers: Salli vastaukset
             allow_unregistered: Salli rekisteröitymättömien käyttäjien vastata tähän kyselyyn
