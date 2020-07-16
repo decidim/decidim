@@ -17,6 +17,7 @@ module Decidim
         subject do
           described_class.new(
             component: component,
+            organization: component.organization,
             activity: activity,
             search_text: search_text,
             state: states,
