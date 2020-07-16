@@ -17,6 +17,8 @@ module Decidim
           allow!
         when :edit
           can_edit_debate?
+        when :endorse
+          can_endorse_debate?
         when :close
           can_close_debate?
         end
@@ -41,6 +43,12 @@ module Decidim
         return allow! if debate&.closeable_by?(user)
 
         disallow!
+      end
+
+      def can_endorse_debate?
+        return disallow! if debate.closed?
+
+        allow!
       end
 
       def debate
