@@ -114,7 +114,7 @@ class CheckLegacyTables < ActiveRecord::Migration[5.2]
   end
 
   def development_app?
-    Rails.root.to_s.ends_with? 'development_app'
+    Rails.root.to_s.ends_with? "development_app"
   end
 end
 # rubocop:enable Lint/UnreachableCode
