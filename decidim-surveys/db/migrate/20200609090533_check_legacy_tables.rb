@@ -21,7 +21,8 @@ class CheckLegacyTables < ActiveRecord::Migration[5.2]
   end
 
   def up
-    return if Rails.env.development? || Rails.env.test? || ENV["CI"] == "true"
+    byebug
+    return if development_app? || Rails.env.test? || ENV["CI"] == "true"
 
     if tables_exists.any?
       puts "If you already migrated the data, the following raise statement can be safely removed and migrations can continue to be run again."
@@ -111,6 +112,10 @@ class CheckLegacyTables < ActiveRecord::Migration[5.2]
         end
       end
     end
+  end
+
+  def development_app?
+    Rails.root.to_s.ends_with? 'development_app'
   end
 end
 # rubocop:enable Lint/UnreachableCode
