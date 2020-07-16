@@ -142,6 +142,7 @@ en:
             other: "%{count} elections"
         show:
           back: All elections
+          vote: Vote
           voting_period_status:
             finished: Voting began on %{start_time} and ended on %{end_time}
             ongoing: Voting ends on %{end_time}
