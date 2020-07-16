@@ -35,12 +35,20 @@ FactoryBot.define do
 
     trait :complete do
       after(:build) do |election, _evaluator|
-        build_list(:question, 2, :complete, election: election)
+        election.questions << build(:question, :yes_no, election: election, weight: 1)
+        election.questions << build(:question, :candidates, election: election, weight: 3)
+        election.questions << build(:question, :projects, election: election, weight: 2)
       end
     end
   end
 
   factory :question, class: "Decidim::Elections::Question" do
+    transient do
+      complete { false }
+      more_information { false }
+      answers { 3 }
+    end
+
     election
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
@@ -48,9 +56,33 @@ FactoryBot.define do
     weight { Faker::Number.number(1) }
     random_answers_order { true }
 
+    trait :yes_no do
+      complete { true }
+      random_answers_order { false }
+    end
+
+    trait :candidates do
+      complete { true }
+      max_selections { 6 }
+      answers { 10 }
+    end
+
+    trait :projects do
+      complete { true }
+      max_selections { 3 }
+      answers { 6 }
+      more_information { true }
+    end
+
     trait :complete do
-      after(:build) do |question, _evaluator|
-        build_list(:election_answer, 2, question: question)
+      complete { true }
+    end
+
+    after(:build) do |question, evaluator|
+      if evaluator.complete
+        overrides = { question: question }
+        overrides[:description] = nil unless evaluator.more_information
+        question.answers = build_list(:election_answer, evaluator.answers, overrides)
       end
     end
   end

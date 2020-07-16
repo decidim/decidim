@@ -18,7 +18,7 @@
           <strong>
             <%= translated_attribute(question.title) %>
           </strong>
-          <dd>
+          <dd id="edit-step-<%= question_index+1 %>">
             <strong class="evote__confirm-label">
               <%= t("decidim.elections.votes.confirm.answer") %>
               (<%= link_to(
