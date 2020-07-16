@@ -21,7 +21,6 @@ class CheckLegacyTables < ActiveRecord::Migration[5.2]
   end
 
   def up
-    byebug
     return if development_app? || Rails.env.test? || ENV["CI"] == "true"
 
     if tables_exists.any?
@@ -115,7 +114,7 @@ class CheckLegacyTables < ActiveRecord::Migration[5.2]
   end
 
   def development_app?
-    Rails.root.to_s.ends_with? 'development_app'
+    Rails.root.to_s.ends_with? "development_app"
   end
 end
 # rubocop:enable Lint/UnreachableCode
