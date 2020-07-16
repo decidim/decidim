@@ -5,7 +5,7 @@
       "#",
       class: "focus__back",
       data: {
-        toggle: ["step-#{@form.total_steps - 1}", "step-#{@form.total_steps}"].join(" ")
+        toggle: ["step-#{questions_count - 1}", "step-#{questions_count}"].join(" ")
       }
     ) %>
 
@@ -13,7 +13,7 @@
       "#",
       class: "button focus__next confirm",
       data: {
-        toggle: ["step-#{@form.total_steps + 1}", "step-#{@form.total_steps}"].join(" ")
+        toggle: ["encrypting", "step-#{questions_count}"].join(" ")
       }
     ) do %>
       <%= t("decidim.elections.votes.confirm.confirm") %>

@@ -1,11 +1,11 @@
-<% @form.questions.each_with_index do |step_question, step_index| %>
+<% questions.each_with_index do |step_question, step_index| %>
   <div id="step-<%= step_index %>" class="focus__step <%= "hide" if step_index.positive? %>"
   data-toggler=".hide">
   <!-- step_question.answers.min-selection -->
     <%= render(
       "election_votes_steps_header",
       step: step_index,
-      total: @form.total_steps
+      questions_count: questions_count
       ) %>
 
     <div class="focus__content evote">
@@ -20,20 +20,20 @@
     <%= cell(
       "decidim/elections/voting_step_navigation",
       step_index,
-      total_steps: @form.total_steps
+      total_steps: questions_count
     ) %>
 
   </div>
 <% end %>
 
-<div id="step-<%= @form.total_steps %>" class="hide focus__step" data-toggler=".hide">
+<div id="step-<%= questions_count %>" class="hide focus__step" data-toggler=".hide">
   <%= render(
     "election_votes_confirm",
-    questions: @form.questions
+    questions: questions
   ) %>
 </div>
 
-<div id="step-<%= @form.total_steps + 1 %>" class="hide focus__step" data-toggler=".hide">
+<div id="encrypting" class="hide focus__step" data-toggler=".hide">
   <%= render("election_votes_encrypting") %>
 </div>
 

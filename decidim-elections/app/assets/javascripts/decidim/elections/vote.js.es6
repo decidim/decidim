@@ -97,15 +97,13 @@ $(() => {
   $(".button.confirm").on("click", (event) => {
     console.log("Your vote got encrypted successfully. Your vote:", getFormData($formData)) // eslint-disable-line no-console
     window.setTimeout(function() {
-      $($vote).find("div[id^=step-]").addClass("hide")
+      $($vote).find("#encrypting").addClass("hide")
       $($vote).find("#confirmed_page").removeClass("hide")
     }, 3000)
   })
-
 
   $(document).on("on.zf.toggler", (event) => {
     // continue and back btn
     initStep()
   });
-
 });
