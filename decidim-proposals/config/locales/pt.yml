@@ -81,7 +81,7 @@ pt:
           label: Tipo
           values:
             'false': Propostas
-            'true': Emendas
+            'true': Modificações
         search_placeholder:
           id_string_or_title_cont: Pesquisar %{collection} por ID ou título.
         state_eq:
@@ -98,7 +98,7 @@ pt:
     components:
       proposals:
         actions:
-          amend: Alterar
+          amend: Modificar
           create: Crio
           endorse: Endossar
           vote: Voto
@@ -107,9 +107,9 @@ pt:
         settings:
           global:
             allow_card_image: Permitir imagem de cartão
-            amendments_enabled: Alterações ativadas
-            amendments_enabled_help: Caso a opção esteja ativa, configure as características de Alteração para cada etapa.
-            amendments_wizard_help_text: Texto de ajuda do Assistente de Alterações
+            amendments_enabled: Modificações ativadas
+            amendments_enabled_help: Caso a opção esteja ativa, configure as características de Modificação para cada passo.
+            amendments_wizard_help_text: Texto de ajuda do Assistente de Modificações
             announcement: Anúncio
             attachments_allowed: Permitir anexos
             can_accumulate_supports_beyond_threshold: Pode acumular suportes além do limiar
@@ -136,17 +136,17 @@ pt:
             threshold_per_proposal: Limiar por proposta
             vote_limit: Limite de voto por usuário
           step:
-            amendment_creation_enabled: Ativada a criação de alteração
-            amendment_creation_enabled_help: O Participante pode alterar propostas.
-            amendment_promotion_enabled: Ativada a promoção de alteração
-            amendment_promotion_enabled_help: Os autores de emendas poderão promover emendas rejeitadas para Propostas.
-            amendment_reaction_enabled: Ativada a reação à alteração
-            amendment_reaction_enabled_help: Os autores das Propostas poderão aceitar ou rejeitar as emendas dos Participantes.
-            amendments_visibility: Visibilidade das alterações
+            amendment_creation_enabled: Criação de modificação ativada
+            amendment_creation_enabled_help: O Participante pode modificar propostas.
+            amendment_promotion_enabled: Promoção de modificação ativada
+            amendment_promotion_enabled_help: Os autores de retificações poderão promover correções rejeitadas para Propostas.
+            amendment_reaction_enabled: Reação a modificação ativada
+            amendment_reaction_enabled_help: Os autores das Propostas poderão aceitar ou rejeitar as retificações dos Participantes.
+            amendments_visibility: Visibilidade das modificações
             amendments_visibility_choices:
-              all: As alterações estão visíveis para todos
-              participants: As alterações estão apenas visíveis para os respetivos autores
-            amendments_visibility_help: Caso esteja selecionada a opção "As alterações estão apenas visíveis para os respetivos autores", o participante deverá ter a sessão iniciada para ver as alterações efetuadas.
+              all: As modificações estão visíveis para todos
+              participants: As modificações estão apenas visíveis para os respetivos autores
+            amendments_visibility_help: Caso esteja selecionada a opção "As modificações estão apenas visíveis para os respetivos autores", o participante deverá ter a sessão iniciada para ver as alterações efetuadas.
             announcement: Anúncio
             answers_with_costs: Ativar custos nas respostas a propostas
             automatic_hashtags: Hashtags adicionados a todas as propostas
@@ -439,7 +439,7 @@ pt:
             number_of_proposals: Serão publicadas respostas para %{number} propostas.
             select_a_proposal: Selecione uma proposta
           show:
-            amendments_count: Contagem de alterações
+            amendments_count: Contagem de modificações
             assigned_valuators: Avaliadores designados
             authors: Autores
             body: Corpo
@@ -535,7 +535,7 @@ pt:
           rejected: Rejeitado
         filter_type_values:
           all: Todos
-          amendments: Emendas
+          amendments: Modificações
           proposals: Propostas
       collaborative_drafts:
         collaborative_draft:
@@ -578,7 +578,7 @@ pt:
           title: Editar rascunho colaborativo
         filters:
           all: Todos
-          amendment: Emendas
+          amendment: Modificações
           category: Categoria
           open: Aberto
           published: Publicados
@@ -682,7 +682,7 @@ pt:
       participatory_text_proposal:
         alternative_title: Não há textos participativos no momento
         buttons:
-          amend: Alterar
+          amend: Modificar
           comment: Comente
           comments: Comentários
           endorse: Endossar
@@ -773,7 +773,7 @@ pt:
           answer: Responda
           back_to: De volta a
           back_to_list: Regressar à lista
-          changes_at_title: Alteração a "%{title}"
+          changes_at_title: Modificação a "%{title}"
           comments: Comentários
           edit_proposal: Editar proposta
           endorsements_list: Lista de endossos
