@@ -43,7 +43,7 @@ describe "Vote in an election", type: :system do
     it_behaves_like "doesn't allow to vote"
   end
 
-  context "when the election requires permissions to vote" do
+  context "when the component requires permissions to vote" do
     before do
       permissions = {
         vote: {
@@ -54,6 +54,29 @@ describe "Vote in an election", type: :system do
       }
 
       component.update!(permissions: permissions)
+    end
+
+    it "shows a modal dialog" do
+      visit_component
+
+      click_link translated(election.title)
+      click_link "Vote"
+
+      expect(page).to have_content("Authorization required")
+    end
+  end
+
+  context "when the election requires permissions to vote" do
+    before do
+      permissions = {
+        vote: {
+          authorization_handlers: {
+            "dummy_authorization_handler" => { "options" => {} }
+          }
+        }
+      }
+
+      election.create_resource_permission(permissions: permissions)
     end
 
     it "shows a modal dialog" do
