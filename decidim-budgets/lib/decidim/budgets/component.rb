@@ -44,7 +44,8 @@ Decidim.register_component(:budgets) do |component|
   end
 
   component.register_stat :orders_count do |components, start_at, end_at|
-    orders = Decidim::Budgets::Order.where(component: components)
+    budgets = Decidim::Budgets::Budget.where(component: components)
+    orders = Decidim::Budgets::Order.where(component: budgets)
     orders = orders.where("created_at >= ?", start_at) if start_at.present?
     orders = orders.where("created_at <= ?", end_at) if end_at.present?
     orders.count
