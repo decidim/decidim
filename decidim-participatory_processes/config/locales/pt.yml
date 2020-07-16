@@ -299,7 +299,7 @@ pt:
         title: Processos participativos
     participatory_process:
       show:
-        related_assemblies: Assembleias relacionadas
+        related_assemblies: Reuniões relacionadas
     participatory_process_groups:
       show:
         group_participatory_processes:

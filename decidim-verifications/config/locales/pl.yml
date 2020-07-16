@@ -114,10 +114,11 @@ pl:
             success: Twoje konto zostało pomyślnie zweryfikowane.
       dummy_authorization:
         extra_explanation:
-          one: Udział jest ograniczony do użytkowników, którzy mają kod pocztowy %{postal_codes}.
-          few: 'Udział jest ograniczony do użytkowników, którzy mają jeden z następujących kodów pocztowych: %{postal_codes}.'
-          many: 'Udział jest ograniczony do użytkowników posiadających jeden z następujących kodów pocztowych: %{postal_codes}.'
-          other: 'Udział jest ograniczony do użytkowników, którzy mają jeden z następujących kodów pocztowych: %{postal_codes}.'
+          postal_codes:
+            one: Udział jest ograniczony do użytkowników, którzy mają kod pocztowy %{postal_codes}.
+            few: 'Udział jest ograniczony do użytkowników, którzy mają jeden z następujących kodów pocztowych: %{postal_codes}.'
+            many: 'Udział jest ograniczony do użytkowników posiadających jeden z następujących kodów pocztowych: %{postal_codes}.'
+            other: 'Udział jest ograniczony do użytkowników, którzy mają jeden z następujących kodów pocztowych: %{postal_codes}.'
       id_documents:
         admin:
           config:

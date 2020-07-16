@@ -39,6 +39,7 @@ cs:
         address: SMTP hostname
         alert_color: Upozornění
         badges_enabled: Povolit odznaky
+        comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
         cta_button_path: Cesta tlačítka Výzvy k akci
         cta_button_text: Text tlačítka Výzvy k akci
         customize_welcome_notification: Přizpůsobit uvítací oznámení

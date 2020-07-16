@@ -115,8 +115,9 @@
             success: Kontoen din er verifisert.
       dummy_authorization:
         extra_explanation:
-          one: Deltakelse er begrenset til deltakere med postnummer %{postal_codes}.
-          other: 'Deltakelse er begrenset til deltakere med postnummer %{postal_codes}.'
+          postal_codes:
+            one: Deltakelse er begrenset til deltakere med postnummer %{postal_codes}.
+            other: 'Deltakelse er begrenset til deltakere med postnummer %{postal_codes}.'
       id_documents:
         admin:
           config:

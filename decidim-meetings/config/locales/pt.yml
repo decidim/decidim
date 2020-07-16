@@ -16,10 +16,12 @@ pt:
         available_slots: Slots disponíveis para esta reunião
         decidim_category_id: Categoria
         decidim_scope_id: Âmbito
+        decidim_user_group_id: Grupo de utilizadores
         description: Descrição
         end_time: Fim do tempo
         location: Localização
         location_hints: Dicas de localização
+        organizer_gid: Criar como
         organizer_id: Organizador
         private_meeting: Reunião privada
         registration_form_enabled: Formulário de inscrição ativado
@@ -81,12 +83,16 @@ pt:
           global:
             announcement: Anúncio
             comments_enabled: Comentários ativados
+            comments_max_length: Comprimento máximo dos comentários (Deixe 0 para o valor predefinido)
+            creation_enabled_for_participants: Os participantes podem criar reuniões
             default_registration_terms: Termos de registro padrão
             enable_pads_creation: Ativar criação de blocos
             resources_permissions_enabled: Permissões de ações podem ser definidas para cada reunião
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
+            creation_enabled_for_participants: Criação de reunião por participantes ativada
+            creation_enabled_for_user_groups: Criação de reunião por grupo de utilizadores ativada
     events:
       meetings:
         meeting_closed:
@@ -153,6 +159,10 @@ pt:
         confirm_destroy: Tem certeza de que deseja excluir esta reunião?
         destroy: Excluir
         edit: Editar
+        invalid_destroy:
+          proposals_count:
+            one: 'A reunião não pode ser destruída porque tem %{count} proposta associada:'
+            other: 'A reunião não pode ser destruída porque tem %{count} propostas associadas:'
         minutes: Minutos
         new: Nova reunião
         preview: Visualização
@@ -231,6 +241,10 @@ pt:
             invalid: Tem havido um problema ao criar esta reunião
             success: Reunião criada com sucesso
           destroy:
+            invalid:
+              proposals_count:
+                one: A reunião não pode ser destruída porque tem %{count} proposta associada
+                other: A reunião não pode ser destruída porque tem %{count} propostas associadas
             success: Reunião excluída com êxito
           edit:
             update: Actualizar
@@ -273,7 +287,7 @@ pt:
             name: encontro
         registrations:
           edit:
-            save: Salve 
+            save: Guardar
             validate: Validar
             validate_registration_code: Validar código de registro
           form:
@@ -342,21 +356,55 @@ pt:
       meeting:
         not_allowed: Você não tem permissão para ver esta reunião
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} reunião"
+            other: "%{count} reuniões"
+        create:
+          invalid: Ocorreu um problema ao criar esta reunião.
+          success: Criou a reunião corretamente.
+        edit:
+          back: Voltar
+          title: Editar a Sua Reunião
+          update: Atualizar
         filters:
           category: Categoria
           date: Encontro
+          date_values:
+            all: Todos
+            past: Passado
+            upcoming: Próximas
+          origin: Orígem
+          origin_values:
+            all: Todos
+            citizens: Cidadãos
+            official: Oficial
+            user_groups: Grupos
+          scope: Âmbito
           search: Pesquisa
         filters_small_view:
           close_modal: Fechar modal
           filter: Filtro
           filter_by: Filtrar por
           unfold: Desdobrar
+        form:
+          address_help: 'Endereço: utilizado pelo Geocoder para encontrar a localização'
+          create_as: Criar reunião como
+          location_help: 'Localização: mensagem direcionada aos utilizadores sugerindo o local onde se encontrarem'
+          location_hints_help: 'Dicas de localização: informação adicional. Exemplo: o chão do edifício'
+          select_a_category: Por favor selecione uma categoria
+        index:
+          new_meeting: Nova reunião
         meeting_minutes:
           meeting_minutes: Atas de Reunião
           related_information: Informação relacionada
         meetings:
           no_meetings_warning: Nenhuma reunião corresponde aos seus critérios de pesquisa ou não há nenhuma reunião agendada.
           upcoming_meetings_warning: Atualmente, não há reuniões agendadas, mas aqui você pode encontrar todas as reuniões anteriores listadas.
+        new:
+          back: Voltar
+          create: Criar
+          title: Criar a Sua Reunião
         registration_confirm:
           cancel: Cancelar
           confirm: confirme
@@ -364,6 +412,7 @@ pt:
           attendees: Contagem de participantes
           back: Regressar à lista
           contributions: Contagem de Contribuições
+          edit_meeting: Editar reunião
           going: Indo
           join: Participe da reunião
           meeting_report: Relatório de reunião
@@ -377,6 +426,9 @@ pt:
             one: "%{count} slot restante"
             other: "%{count} slots restantes"
           view: Visão
+        update:
+          invalid: Ocorreu um problema ao atualizar a reunião.
+          success: Atualizou a reunião corretamente.
       meetings_map:
         view_meeting: Ver reunião
       models:
@@ -395,6 +447,7 @@ pt:
             closed: Fechadas
             end_time: Data final
             map: Mapa
+            official_meeting: Reunião oficial
             start_time: Data de início
             title: Título
       read_more: "(consulte Mais informação)"
@@ -416,6 +469,8 @@ pt:
       types:
         private_meeting: Reunião privada
         transparent: Transparente
+      versions:
+        back_to_resource: Voltar a reunião
     metrics:
       meetings:
         description: Número de reuniões criadas

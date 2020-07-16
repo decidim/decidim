@@ -46,6 +46,8 @@ cs:
         unpublish: "%{user_name} zrušil zveřejnění volby %{resource_name}"
     components:
       elections:
+        actions:
+          vote: Hlasovat
         name: Volby
         settings:
           global:
