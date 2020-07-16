@@ -9,7 +9,7 @@ module Decidim
         if question.random_answers_order
           question.answers.shuffle
         else
-          question.answers.sort_by {|answer| [answer.weight, answer.id]}
+          question.answers.sort_by { |answer| [answer.weight, answer.id] }
         end
       end
 

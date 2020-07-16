@@ -5,7 +5,6 @@ require "spec_helper"
 module Decidim
   module Elections
     describe VotesHelper do
-
       describe "ordered_answers" do
         subject(:uniq_results) { repetitions.times.map { helper.ordered_answers(question) } .uniq }
 

@@ -21,7 +21,7 @@ describe "Vote in an election", type: :system do
 
       click_link translated(election.title)
 
-      expect(page).to_not have_link("Vote")
+      expect(page).not_to have_link("Vote")
     end
 
     it "doesn't allow to access directly to page" do
@@ -148,8 +148,8 @@ describe "Vote in an election", type: :system do
 
   def question_step(number)
     expect_only_one_step
-    within "#step-#{number-1}" do
-      question = election.questions[number-1]
+    within "#step-#{number - 1}" do
+      question = election.questions[number - 1]
       expect(page).to have_content("QUESTION #{number} OF 3")
       expect(page).to have_i18n_content(question.title)
 
@@ -181,8 +181,8 @@ describe "Vote in an election", type: :system do
   end
 
   def change_answer(question, selected, non_selected)
-    new_answer = question.answers.select {|answer| non_selected.member?(answer) } .first
-    old_answer = question.answers.select {|answer| selected.member?(answer) } .first
+    new_answer = question.answers.select { |answer| non_selected.member?(answer) } .first
+    old_answer = question.answers.select { |answer| selected.member?(answer) } .first
 
     selected.delete(old_answer)
     uncheck(translated(old_answer.title), allow_label_click: true)
@@ -194,11 +194,11 @@ describe "Vote in an election", type: :system do
   end
 
   def expect_only_one_step
-    expect(page).to have_selector('.focus__step', count: 1)
+    expect(page).to have_selector(".focus__step", count: 1)
   end
 
   def expect_not_valid
-    expect(page).to_not have_link("Next")
+    expect(page).not_to have_link("Next")
   end
 
   def expect_valid
