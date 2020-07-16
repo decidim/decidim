@@ -142,6 +142,13 @@ describe "Amendment Wizard", type: :system do
       end
 
       it "shows the edit amendment form" do
+        # It seems that from version 83 of chromdriver, it gets really picky
+        # Content mus be inside the virtual window of test
+        # Got the idea from:
+        # https://stackoverflow.com/a/39103252
+        # https://stackoverflow.com/a/62003082
+        page.scroll_to(find(".section-heading"))
+
         within ".section-heading" do
           expect(page).to have_content("EDIT AMENDMENT DRAFT")
         end
@@ -217,6 +224,12 @@ describe "Amendment Wizard", type: :system do
           fill_in :amendment_emendation_params_body, with: body
           find("*[type=submit]").click
         end
+
+        # It seems that from version 83 of chromdriver, it gets really picky
+        # Content mus be inside the virtual window of test
+        # Got the idea from:
+        # https://stackoverflow.com/a/39103252
+        page.scroll_to(find(".edit_amendment"))
         within ".edit_amendment" do
           find("*[type=submit]").click
         end
