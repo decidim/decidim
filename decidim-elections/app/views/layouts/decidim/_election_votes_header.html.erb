@@ -1,3 +1,6 @@
+<% if booth_mode == :preview %>
+  <div class="focus__top_warning"><%= icon :warning %> <%= t("decidim.elections.votes.new.preview_alert") %></div>
+<% end %>
 <div class="focus__top">
   <a href="/" class="focus__brand">
     <%= image_tag "decidim/elections/decidim-logo-red.png", alt: "Decidim Barcelona" %>

@@ -8,15 +8,23 @@ module Decidim
       include FormFactory
 
       helper VotesHelper
-      helper_method :elections, :election, :questions, :questions_count
+      helper_method :elections, :election, :questions, :questions_count, :booth_mode
 
       delegate :count, to: :questions, prefix: true
 
       def new
-        redirect_to(election_path(election), alert: t("votes.messages.not_allowed", scope: "decidim.elections")) unless allowed_to? :vote, :election, election: election
+        redirect_to(election_path(election), alert: t("votes.messages.not_allowed", scope: "decidim.elections")) unless booth_mode
       end
 
       private
+
+      def booth_mode
+        @booth_mode ||= if allowed_to? :vote, :election, election: election
+                          :vote
+                        elsif allowed_to? :preview, :election, election: election
+                          :preview
+                        end
+      end
 
       def elections
         @elections ||= Election.where(component: current_component)

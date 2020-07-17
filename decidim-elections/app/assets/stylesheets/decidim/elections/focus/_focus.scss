@@ -15,6 +15,14 @@
     display: flex;
   }
 
+  &__top_warning {
+    background: $alert;
+    color: white;
+    text-align: center;
+    display: block;
+    padding: 2px 0;
+  }
+
   &__brand{
     display: flex;
     align-items: center;

@@ -95,7 +95,9 @@ $(() => {
 
   // log form Data
   $(".button.confirm").on("click", (event) => {
-    console.log("Your vote got encrypted successfully. Your vote:", getFormData($formData)) // eslint-disable-line no-console
+    const boothMode = $(event.currentTarget).data("booth-mode");
+
+    console.log(`Your vote got encrypted successfully. The booth mode is ${boothMode}. Your vote content is:`, getFormData($formData)) // eslint-disable-line no-console
     window.setTimeout(function() {
       $($vote).find("#encrypting").addClass("hide")
       $($vote).find("#confirmed_page").removeClass("hide")

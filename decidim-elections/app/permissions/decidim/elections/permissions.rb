@@ -14,7 +14,9 @@ module Decidim
 
         case permission_action.action
         when :vote
-          allow_if_ongoing
+          allow_if_can_vote
+        when :preview
+          allow_if_can_preview
         end
 
         permission_action
@@ -22,11 +24,15 @@ module Decidim
 
       private
 
-      def allow_if_ongoing
-        toggle_allow(can_vote? && election.ongoing?)
+      def allow_if_can_vote
+        toggle_allow(authorized_to_vote? && election.ongoing?)
       end
 
-      def can_vote?
+      def allow_if_can_preview
+        toggle_allow((!authorized_to_vote? || !election.ongoing?) && user.admin?)
+      end
+
+      def authorized_to_vote?
         authorized?(:vote, resource: election)
       end
 

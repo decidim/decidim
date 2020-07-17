@@ -16,7 +16,7 @@ describe Decidim::Elections::Permissions do
   let(:election) { create :election, component: elections_component }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
 
-  shared_examples "allowed when election is ongoing" do
+  shared_examples "allowed to vote when election is ongoing" do
     context "when election is upcoming" do
       let(:election) { create :election, :upcoming, component: elections_component }
 
@@ -33,6 +33,42 @@ describe Decidim::Elections::Permissions do
       let(:election) { create :election, :finished, component: elections_component }
 
       it { is_expected.to be_falsey }
+    end
+  end
+
+  shared_examples "allowed to preview when user is admin and can't vote" do
+    let(:user) { create :user, :admin, organization: elections_component.organization }
+
+    context "when election is upcoming" do
+      let(:election) { create :election, :upcoming, component: elections_component }
+
+      it { is_expected.to be_truthy }
+    end
+
+    context "when election is ongoing" do
+      let(:election) { create :election, :ongoing, component: elections_component }
+
+      it { is_expected.to be_falsey }
+
+      context "when the user is not authorized to vote" do
+        before do
+          elections_component.update!(permissions: {
+                                        vote: {
+                                          authorization_handlers: {
+                                            "dummy_authorization_handler" => { "options" => {} }
+                                          }
+                                        }
+                                      })
+        end
+
+        it { is_expected.to be_truthy }
+      end
+    end
+
+    context "when election has finished" do
+      let(:election) { create :election, :finished, component: elections_component }
+
+      it { is_expected.to be_truthy }
     end
   end
 
@@ -73,6 +109,14 @@ describe Decidim::Elections::Permissions do
       { scope: :public, action: :vote, subject: :election }
     end
 
-    it_behaves_like "allowed when election is ongoing"
+    it_behaves_like "allowed to vote when election is ongoing"
+  end
+
+  describe "election preview" do
+    let(:action) do
+      { scope: :public, action: :preview, subject: :election }
+    end
+
+    it_behaves_like "allowed to preview when user is admin and can't vote"
   end
 end
