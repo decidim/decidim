@@ -15,7 +15,6 @@ module Decidim
         :draft,
         component: current_component,
         scope: scope1,
-        title: Decidim::Faker.name,
         body: description_1[:ca],
         users: [author]
       )
@@ -162,10 +161,10 @@ module Decidim
 
     def expected_searchable_resource_attrs(proposal, locale)
       {
-        "content_a" => I18n.transliterate(proposal.title[locale]),
+        "content_a" => I18n.transliterate(translated(proposal.title)),
         "content_b" => "",
         "content_c" => "",
-        "content_d" => I18n.transliterate(proposal.body[locale]),
+        "content_d" => I18n.transliterate(translated(proposal.body)),
         "locale" => locale,
 
         "decidim_organization_id" => proposal.component.organization.id,

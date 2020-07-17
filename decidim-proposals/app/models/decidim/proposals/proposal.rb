@@ -415,7 +415,7 @@ module Decidim
       end
 
       def i18n_body
-        translated_attribute(title)
+        translated_attribute(body)
       end
 
       private
