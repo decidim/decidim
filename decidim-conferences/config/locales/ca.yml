@@ -528,6 +528,11 @@ ca:
           email_outro: Has rebut aquesta notificació perquè segueixes la jornada "%{resource_title}". Pots deixar de seguir-la des de l'enllaç anterior.
           email_subject: S'han activat les inscripcions per a la jornada "%{resource_title}".
           notification_title: S'han habilitat les inscripcions a la jornada <a href="%{resource_path}">%{resource_title}</a>.
+        role_assigned:
+          email_intro: T'han assignat el rol de %{role} a la jornada "%{resource_title}".
+          email_outro: Reps aquesta notificació perquè se t'ha assignat el rol de %{role} a la jornada "%{resource_title}".
+          email_subject: Se t'ha assignat el rol de %{role} a "%{resource_title}".
+          notification_title: Se t'ha assignat el rol de %{role} a la jornada <a href="%{resource_url}">%{resource_title}</a>.
         upcoming_conference:
           email_intro: 'La jornada "%{resource_title}" es durà a terme en 2 dies. Pots llegir-ne la descripció des de la pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint la jornada "%{resource_title}". Podeu deixar-la de seguir-a des de l'enllaç anterior.
