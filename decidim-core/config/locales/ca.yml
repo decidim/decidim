@@ -312,6 +312,19 @@ ca:
       see_less: "(veure menys)"
       see_more: "(veure més)"
     components:
+      component_order_selector:
+        no_content: No podem trobar cap contingut amb aquest criteri
+        order:
+          all_types: Tots els tipus
+          collaborative_draft: Esborrany col·laboratiu
+          comment: Comentari
+          debate: Debat
+          initiative: Iniciativa
+          meeting: Trobada
+          post: Publicar
+          proposal: Proposta
+          question: Pregunta
+        title: 'Mostrar:'
       dummy:
         actions:
           bar: Bar
@@ -341,6 +354,9 @@ ca:
         name: Peu de pàgina sub-hero
       hero:
         name: Imatge del hero
+      hero_settings_form:
+        background_image: Imatge de fons
+        welcome_text: Text de benvinguda
       highlighted_content_banner:
         name: Banner de contingut destacat
       how_to_participate:
@@ -561,6 +577,16 @@ ca:
           email_outro: Has rebut aquesta notificació perquè ets membre d'aquest grup.
           email_subject: Has estat eliminada del grup %{user_group_name}!
           notification_title: Has estat eliminada del grup <a href="%{resource_path}">%{user_group_name}</a>.
+        user_group_created:
+          email_intro: S'ha creat un nou grup d'usuàries amb el nom %{user_group_name}. Ara pots verificar-lo, si s'escau, a través del <a href="%{groups_admin_url}">taulell d'administració</a>.
+          email_outro: Has rebut aquesta notificació perquè ets una de les administradores de la plataforma.
+          email_subject: S'ha creat un nou grup d'usuàries
+          notification_title: S'ha creat el grup d'usuàries %{user_group_name}. Ara pots verificar-ho al <a href="%{groups_admin_path}">taulell d'administració</a>.
+        user_group_updated:
+          email_intro: El grup d'usuàries %{user_group_name} ha actualitzat el seu perfil perdent-ne la verificació. Pots tornar a verificar-lo a través del <a href="%{groups_admin_url}"> taulell d'administració</a>.
+          email_outro: Has rebut aquesta notificació perquè ets una de les administradores de la plataforma.
+          email_subject: Un grup d'usuàries ha actualitzat el seu perfil
+          notification_title: El grup d'usuàries %{user_group_name} ha actualitzat el seu perfil perdent-ne la verificació. Pots tornar a verificar-lo a través del <a href="%{groups_admin_path}"> taulell d'administració</a>.
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
       resource_endorsed:
@@ -779,27 +805,65 @@ ca:
       home: Inici
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          admin_in_group: Reps aquesta notificació perquè ets administradora de %{group}.
+          greeting: Hola, %{recipient}!
+          intro: "%{manager} ha iniciat una nova conversa en nom de %{group}. Fes clic aquí per veure-la:"
+          outro: Gaudeix de Decidim!
+          subject: "%{manager} ha iniciat una nova conversa com a %{group}"
+        comanagers_new_message:
+          admin_in_group: Reps aquesta notificació perquè ets administradora de %{group}.
+          greeting: Hola, %{recipient}!
+          intro: "%{manager} ha publicat nous missatge a una conversa en nom de %{group}. Fes clic aquí per veure-la:"
+          outro: Gaudeix de Decidim!
+          subject: "%{manager} ha enviat nous missatges com a %{group}"
         new_conversation:
           greeting: Hola, %{recipient}!
           intro: "%{sender} ha iniciat una nova conversa amb tu. Fes clic aquí per veure-la:"
           outro: Gaudeix de Decidim!
           subject: "%{sender} ha iniciat una conversa amb tu"
+        new_group_conversation:
+          admin_in_group: Reps aquesta notificació perquè ets administradora de %{group}.
+          greeting: Hola, %{recipient}!
+          intro: "%{sender} ha iniciat una nova conversa amb el %{group}. Fes clic aquí per veure-la:"
+          outro: Gaudeix de Decidim!
+          subject: "%{sender} ha iniciat una nova conversa amb %{group}"
+        new_group_message:
+          admin_in_group: Reps aquesta notificació perquè ets administradora de %{group}.
+          greeting: Hola, %{recipient}!
+          intro: "%{sender} ha publicat nous missatge a una conversa amb el grup %{group}. Fes clic aquí per veure-la:"
+          outro: Gaudeix de Decidim!
+          subject: "%{group} té nous missatge de %{sender}"
         new_message:
           greeting: Hola, %{recipient}!
           intro: "%{sender} ha enviat nous missatges a la teva conversa. Fes clic aquí per veure'ls:"
           outro: Gaudeix de Decidim!
           subject: Tens nous missatges de %{sender}
       conversations:
+        add_conversation_users:
+          add_max_users: 'Afegir usuàries a la conversa: màxim 9 usuàries'
+          add_users_placeholder: Cercar...
+          modal_title: Nova conversa
+          no_results: No hi ha resultats
+          participant_with_disabled_message_reception: Aquesta participant ha desactivat la recepció de missatges
         create:
           error: No s'ha iniciat la conversa. Torna-ho a provar més tard
         index:
+          ago: anteriors
           close: Tanca modal
+          from: 'De:'
+          groups: Els meus grups
+          last_message: Darrer missatge
+          new_conversation: Nova conversa
+          next: Següent
           no_conversations: Encara no tens converses
           title: Converses
         reply:
+          placeholder: La teva resposta...
           send: Enviar
           title: Respon
         show:
+          chat_with: Conversa amb
           not_allowed: Aquesta participant no accepta missatges directes.
           title: Conversa amb %{usernames}
         start:
@@ -828,8 +892,24 @@ ca:
         see_on_website: No pots veure correctament aquest correu electrònic? Veu la seva <a href="%{link}" target="_blank"> versió web</a>.
         unsubscribe: Per desactivar la recepció d'aquest tipus de correu electrònic, <a href="%{link}" target="_blank" class="unsubscribe">dona't de baixa</a>.
     newsletter_templates:
+      basic_only_text:
+        body_preview: 'Text fictici per al cos: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu".'
+        name: Bàsica (només text)
+      basic_only_text_settings_form:
+        body: Cos
+        interpolations_hint: 'Pista: Pots utilitzar "%{name}" en qualsevol part del cos o assumpte i serà reemplaçat pel nom de la destinatària.'
+      image_text_cta:
+        body_preview: 'Text fictici per al cos: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
+        cta_text_preview: Text del botó d'acció
+        introduction_preview: 'Text fictici per al cos: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu".'
+        name: Imatge, text i botó d'acció
       image_text_cta_settings_form:
         body: Cos
+        cta_text: Text del botó d'acció
+        cta_url: URL del botó d'acció
+        interpolations_hint: 'Pista: Pots utilitzar "%{name}" en qualsevol part de la introducció, cos, text del botó d''acció o assumpte i serà reemplaçat pel nom de la destinatària.'
+        introduction: Introducció
+        main_image: Imatge principal
     newsletters:
       unsubscribe:
         check_subscription: Si vols canviar les teves preferències, pots fer-ho a la <a href="%{link}" target="_blank">pàgina de configuració</a>
@@ -959,6 +1039,7 @@ ca:
       show:
         activity: Activitat
         badges: Insígnies
+        conversations: Converses
         followers: Seguidores
         following: Seguint
         groups: Grups
@@ -1073,6 +1154,36 @@ ca:
       index:
         no_activities_warning: Aquesta participant encara no ha tingut cap activitat.
     user_contact_disabled: Aquesta participant no accepta missatges directes.
+    user_conversations:
+      create:
+        error: El missatge no s'ha pogut crear. Torna a intentar-ho més tard
+        existing_error: El missatge no s'ha pogut crear. La conversa ja existeix, si us plau torna-ho a provar ara.
+        success: Conversa iniciada correctament!
+      index:
+        add_max_users: 'Afegir usuàries a la conversa: màxim 9 usuàries'
+        add_users_placeholder: Cercar...
+        close: Tancar
+        conversations_info: Les converses son privades. Ningú més les pot veure. Una conversa es poden iniciar converses amb qualsevol participant o grup registrat a la plataforma.
+        from: 'De:'
+        last_message: Darrer missatge
+        modal_title: Nova conversa
+        new_conversation: Nova conversa
+        next: Següent
+        no_conversations_warning: Encara no hi ha cap conversa.
+        no_results: No hi ha resultats
+        participant_with_disabled_message_reception: Aquesta participant ha desactivat la recepció de missatges
+        time_ago: "Fa %{time}"
+      new:
+        title: Iniciar una conversa
+      reply:
+        placeholder: La teva resposta...
+        send: Enviar
+        title_reply: Respondre
+      show:
+        not_allowed: Aquesta participant no accepta missatges directes.
+        title: Conversa amb %{usernames}
+      update:
+        error: Missatge no enviat. Torna-ho a provar més tard
     user_interests:
       show:
         my_interests: Els meus interessos
@@ -1082,9 +1193,33 @@ ca:
       update:
         error: S'ha produït un error en actualitzar els teus interessos.
         success: Els teus interessos s'han actualitzat correctament.
+    version:
+      show:
+        back_to_resource: Torna enrere
+        changes_at_title: Canvis a "%{title}"
+        number_of_versions: Versions
+        show_all_versions: Mostra totes les versions
+        version_author: Autoria de la versió
+        version_created_at: Versió creada el
+        version_number: Número de versió
+        version_number_out_of_total: "%{current_version} de %{total_count}"
     version_author:
       show:
         deleted: Participant eliminada
+    versions:
+      resource_version:
+        of_versions: "(de %{number})"
+        see_other_versions: veure altres versions
+        version: Versió %{number}
+    versions_list:
+      show:
+        back_to_resource: Torna enrere
+        changes_at_title: Canvis a "%{title}"
+        number_of_versions: Versions
+        title: Versions
+    versions_list_item:
+      show:
+        version_index: Versió %{index}
     welcome_notification:
       default_body: <p>Hola {{name}}, gràcies per unir-te a {{organization}} i benvinguda!</p><ul><li>Si vols fer-te una idea ràpida del que pots fer aquí, fes un cop d'ull a la secció d'<a href="{{help_url}}">Ajuda</a>.</li><li>Un cop l'hagis llegit obtindràs la teva primera insígnia. Aquí tens la <a href="{{badges_url}}">llista</a> de totes les que pots anar aconseguint a mesura que participis a {{organization}}</li><li>Finalment, però no per això menys important, uneix-te a altres persones, comparteix amb elles l'experiència d'implicar-se i participar a {{organization}}. Fes propostes, comenta, debat, pensa en com contribuir al bé comú, aporta arguments per convèncer, escolta i llegeix per convèncer-te, expressa les teves idees de manera concreta i directa, respon amb paciència i decisió, defensa les teves idees i manté la ment oberta a col·laborar i sumar-te a les idees d'altres persones.</li></ul>
       default_subject: Gràcies per unir-te a {{organization}}!
