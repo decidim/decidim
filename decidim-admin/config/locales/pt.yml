@@ -432,7 +432,7 @@ pt:
             sent_at: Enviado em
             sent_to: Enviado para
             subject: Assunto
-          name: Boletim de Notícias
+          name: Boletim Informativo
         oauth_application:
           fields:
             created_at: Criado em
@@ -483,21 +483,21 @@ pt:
       newsletter_templates:
         index:
           preview_template: Pré-visualização
-          title: Modelos de Boletim de Notícias
+          title: Modelos de Boletim Informativo
           use_template: Utilizar este modelo
         show:
           preview: 'Pré-visualizar modelo: %{template_name}'
           use_template: Utilizar este modelo
       newsletters:
         create:
-          error: Ocorreu um problema ao criar este boletim de notícias.
-          success: Boletim de notícias criado corretamente. Por favor, reveja-o antes de enviar.
+          error: Ocorreu um problema ao criar este boletim informativo.
+          success: Boletim Informativo criado corretamente. Por favor, reveja-o antes de enviar.
         deliver:
           error: Ocorreu um problema na entrega deste boletim de notícias.
-          success: Boletim de notícias entregue corretamente.
+          success: Boletim Informativo entregue corretamente.
         destroy:
-          error_already_sent: 'Não é possível destruir o boletim de notícias: já foi enviado.'
-          success: Boletim de notícias destruído corretamente.
+          error_already_sent: 'Não é possível destruir o boletim informativo: já foi enviado.'
+          success: Boletim Informativo destruído corretamente.
         edit:
           save_and_preview: Guardar e pré-visualizar
           title: Editar boletim de notícias
@@ -505,7 +505,7 @@ pt:
           all: todos
           all_users: 'Todos os utilizadores '
           and: 'e '
-          confirm_delete: Tem certeza de que deseja eliminar este boletim de notícias?
+          confirm_delete: Tem certeza de que deseja eliminar este boletim informativo?
           followers: 'seguidores '
           has_been_sent_to: 'Foi enviado para: '
           no_scopes: Sem âmbitos
@@ -519,22 +519,22 @@ pt:
           title: Novo boletim informativo
         select_recipients_to_deliver:
           all_spaces: Todos
-          all_users_help: Envia um boletim de notícias para todos os utilizadores confirmados.
-          confirm_deliver: Tem a certeza de que deseja enviar este boletim de notícias? Esta ação não pode ser desfeita.
-          deliver: Entregar boletim de notícias
-          followers_help: Envia um boletim de notícias para todos os utilizadores confirmados que seguem quaisquer espaços participativos na lista.
+          all_users_help: Envia um boletim informativo para todos os utilizadores confirmados.
+          confirm_deliver: Tem a certeza de que deseja enviar este boletim informativo? Esta ação não pode ser desfeita.
+          deliver: Entregar boletim informativo
+          followers_help: Envia um boletim informativo para todos os utilizadores confirmados que seguem quaisquer espaços participativos na lista.
           none: Nenhum
-          participants_help: Envia um boletim de notícias para todos os utilizadores confirmados que tenham participado em qualquer um dos espaços participativos selecionados na lista.
-          recipients_count: Este boletim de notícias será enviado para <strong id='recipients_count'>%{count}</strong> utilizadores.
-          scopes_help: Envia um boletim de notícias aos utilizadores que tenham qualquer um dos âmbitos selecionados ativados nas definições "Os meus interesses" das suas contas.
+          participants_help: Envia um boletim informativo para todos os utilizadores confirmados que tenham participado em qualquer um dos espaços participativos selecionados na lista.
+          recipients_count: Este boletim informativo será enviado para <strong id='recipients_count'>%{count}</strong> utilizadores.
+          scopes_help: Envia um boletim informativo aos utilizadores que tenham qualquer um dos âmbitos selecionados ativados nas definições "Os meus interesses" das suas contas.
           select_scopes: Filtro para os utilizadores que ativaram qualquer âmbito selecionado nas definições "Os meus interesses" das suas contas.
-          select_spaces: Selecione os espaços para segmentar o boletim de notícias
-          select_users: Selecione os utilizadores para os quais pretende enviar o boletim de notícias
+          select_spaces: Selecione os espaços para segmentar o boletim informativo
+          select_users: Selecione os utilizadores para os quais pretende enviar o boletim informativo
           send_to_all_users: Enviar para todos os utilizadores
           send_to_followers: Enviar para os seguidores
           send_to_participants: Enviar para os participantes
           title: Selecione os destinatários
-          warning: "<strong>Atenção:</strong> Este boletim de notícias apenas será enviado para utilizadores que tenham ativado a opção <em>Pretendo receber boletins de notícias</em> nas suas definições de notificações."
+          warning: "<strong>Atenção:</strong> Este boletim informativo apenas será enviado para utilizadores que tenham ativado a opção <em>Pretendo receber boletins informativo</em> nas suas definições de notificações."
         send:
           no_recipients: Nenhum destinatário para esta seleção
         show:
@@ -542,8 +542,8 @@ pt:
           select_recipients_to_deliver: Selecione os destinatários
           subject: Assunto
         update:
-          error: Ocorreu um problema ao atualizar este boletim de notícias.
-          success: Boletim de notícias atualizado corretamente. Por favor, reveja-o antes de enviar.
+          error: Ocorreu um problema ao atualizar este boletim informativo.
+          success: Boletim informativo atualizado corretamente. Por favor, reveja-o antes de enviar.
       oauth_applications:
         create:
           error: Ocorreu um problema ao criar esta aplicação.
@@ -843,7 +843,7 @@ pt:
     decidim:
       admin:
         newsletters:
-          title: Boletins de Notícias
+          title: Boletins Informativos
         settings:
           title: Configurações
         users:

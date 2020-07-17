@@ -45,8 +45,8 @@ pt:
         remember_me: Recorde-me
     models:
       decidim/amendment:
-        one: Emenda
-        other: Emendas
+        one: Modificação
+        other: Modificações
       decidim/endorsement:
         one: Endossamento
         other: Endossamentos
@@ -113,10 +113,10 @@ pt:
         hide: "%{user_name} escondeu um recurso de tipo %{resource_type} no %{space_name} espaço"
         unreport: "%{user_name} não declarou um recurso de tipo %{resource_type} no %{space_name} espaço"
       newsletter:
-        create: "%{user_name} criou o boletim de notícias %{resource_name}"
-        delete: "%{user_name} eliminou o boletim de notícias %{resource_name}"
-        deliver: "%{user_name} entregou o boletim de notícias %{resource_name}"
-        update: "%{user_name} atualizou o boletim de notícias %{resource_name}"
+        create: "%{user_name} criou o boletim informativo %{resource_name}"
+        delete: "%{user_name} eliminou o informativo %{resource_name}"
+        deliver: "%{user_name} entregou o boletim informativo %{resource_name}"
+        update: "%{user_name} atualizou o boletim informativo %{resource_name}"
       oauth_application:
         create: "%{user_name} criou a aplicação OAuth %{resource_name}"
         delete: "%{user_name} eliminou a aplicação OAuth %{resource_name}"
@@ -152,82 +152,82 @@ pt:
       default_body: "<h2>TERMOS DE UTILIZAÇÃO DE ADMINISTRADOR</h2><p>Confiamos que recebeu as instruções habituais por parte do Administrador de Sistema local. Normalmente resume-se a estes três fatores:</p><ol><li>Respeitar a privacidade dos outros.</li><li>Pensar antes de clicar.</li><li>Um grande poder acarreta uma grande responsabilidade.</li></ol>"
     amendments:
       accepted:
-        error: Ocorreu um problema ao aceitar a emenda.
-        success: A emenda foi aceite corretamente.
+        error: Ocorreu um problema ao aceitar a modificação.
+        success: A modificação foi aceite corretamente.
       amendable:
-        amended_by: Alterada pela
-        button: Emendar %{model_name}
-        error: Ocorreu um erro ao emendar este recurso.
+        amended_by: Modificada por
+        button: Modificar %{model_name}
+        error: Ocorreu um erro ao modificar este recurso.
         help_text: Melhore este %{model_name} modificando os seus %{amendable_fields}
         promote_button: Promover a %{model_name}
-        promote_confirm_text: Tem a certeza de que deseja promover esta emenda?
-        promote_help_text: Pode promover esta emenda e publicá-la como um %{model_name} independente
-        section_heading: Emendas (%{count})
+        promote_confirm_text: Tem a certeza de que deseja promover esta retificação?
+        promote_help_text: Pode promover esta retificação e publicá-la como um %{model_name} independente
+        section_heading: Modificações (%{count})
       compare_draft:
         continue: Continuar
-        no_similars_found: Não foram encontradas emendas semelhantes.
-        title: Emendas Semelhantes
+        no_similars_found: Não foram encontradas retificações semelhantes.
+        title: Retificações Semelhantes
       created:
-        error: Ocorreu um erro ao criar o rascunho da emenda.
-        success: O rascunho da emenda foi criado corretamente.
+        error: Ocorreu um erro ao criar o rascunho da modificação.
+        success: O rascunho da modificação foi criado corretamente.
       destroy_draft:
-        error: Ocorreu um problema ao eliminar o rascunho da emenda.
-        success: O rascunho da emenda foi eliminado corretamente.
+        error: Ocorreu um problema ao eliminar o rascunho da modificação.
+        success: O rascunho da modificação foi eliminado corretamente.
       edit_draft:
         discard: Rejeitar este rascunho
-        discard_confirmation: Tem a certeza de que pretende rejeitar este rascunho da emenda?
+        discard_confirmation: Tem a certeza de que pretende rejeitar este rascunho da modificação?
         send: Pré-visualização
-        title: Editar Rascunho da Emenda
+        title: Editar Rascunho da Modificação
       emendation:
         actions:
           button_accept: Aceitar
           button_reject: Rejeitar
-          help_text: Reveja as alterações e aceite ou rejeite esta emenda. Uma notificação será enviada ao(s) seu(s) autor(es).
+          help_text: Reveja as alterações e aceite ou rejeite esta modificação. Uma notificação será enviada ao(s) seu(s) autor(es).
         announcement:
           accepted: |-
-            Esta emenda de %{amendable_type} %{proposal_link} foi aceite em <strong>%{date}</strong>.
+            Esta modificação de %{amendable_type} %{proposal_link} foi aceite em <strong>%{date}</strong>.
           evaluating: |-
-            Esta emenda de %{amendable_type} %{proposal_link}
+            Esta modificação de %{amendable_type} %{proposal_link}
             está sob avaliação.
           promoted: Promovido a %{amendable_type}.
-          rejected: "Esta emenda de %{amendable_type} %{proposal_link}\nfoi rejeitada em <strong>%{date}</strong>."
+          rejected: "Esta modificação de %{amendable_type} %{proposal_link}\nfoi rejeitada em <strong>%{date}</strong>."
           withdrawn: |-
-            Esta emenda de %{amendable_type} %{proposal_link}
+            Esta modificação de %{amendable_type} %{proposal_link}
             foi retirada pelo autor.
       new:
-        amendment_author: Autor da emenda
+        amendment_author: Autor da modificação
         send: Criar
-        title: Criar Rascunho da Emenda
+        title: Criar Rascunho da Modificação
       preview_draft:
         modify: Modificar
         publish: Publicar
-        title: Publicar Rascunho da Emenda
+        title: Publicar Rascunho da Modificação
       promoted:
-        error: Ocorreu um problema ao publicar a emenda como uma nova proposta
-        success: A emenda foi publicada corretamente como uma nova proposta
+        error: Ocorreu um problema ao publicar a modificação como uma nova proposta
+        success: A modificação foi publicada corretamente como uma nova proposta
       publish_draft:
-        error: Ocorreu um problema a publicar a emenda.
-        success: Emenda publicada corretamente.
+        error: Ocorreu um problema a publicar a modificação.
+        success: Modificação publicada corretamente.
       rejected:
-        error: Ocorreu um problema ao rejeitar esta emenda, por favor tente novamente mais tarde
-        success: A emenda foi rejeitada corretamente
+        error: Ocorreu um problema ao rejeitar esta modificação, por favor tente novamente mais tarde
+        success: A modificação foi rejeitada corretamente
       review:
         back: Voltar
-        heading: Rever a emenda
-        help_text: Está a rever uma emenda a %{model_name}
-        send: Aceitar emenda
+        heading: Rever a modificação
+        help_text: Está a rever uma modificação a %{model_name}
+        send: Aceitar modificação
       update_draft:
-        error: Ocorreu um problema ao atualizar o rascunho da emenda.
-        success: Rascunho da emenda atualizado corretamente.
+        error: Ocorreu um problema ao atualizar o rascunho da modificação.
+        success: Rascunho da modificação atualizado corretamente.
       withdraw:
-        error: Ocorreu um erro ao retirar a emenda
-        success: A emenda foi retirada corretamente
+        error: Ocorreu um erro ao retirar a modificação
+        success: A modificação foi retirada corretamente
       wizard_step_form:
         steps:
-          '1': Criar a sua emenda
-          '2': Comparar a sua emenda
-          '3': Concluir a sua emenda
-          '4': Publicar a sua emenda
+          '1': Criar a sua modificação
+          '2': Comparar a sua modificação
+          '3': Concluir a sua modificação
+          '4': Publicar a sua modificação
     anonymous_user: Anônimo
     application:
       collection:
@@ -337,7 +337,7 @@ pt:
         name: Componente Fictício
         settings:
           global:
-            amendments_enabled: Emendas ativadas
+            amendments_enabled: Modificações ativadas
             comments_enabled: Comentários ativados
             comments_max_length: Comprimento máximo dos comentários
             dummy_global_attribute_1: Atributo Fictício 1
@@ -346,10 +346,10 @@ pt:
             enable_pads_creation: Ativar criação de blocos
             resources_permissions_enabled: Permissões de recursos ativadas
           step:
-            amendment_creation_enabled: Criação de emendas ativada
-            amendment_promotion_enabled: Promoção de emendas ativada
-            amendment_reaction_enabled: Reação a emendas ativada
-            amendments_visibility: Visibilidade da emenda
+            amendment_creation_enabled: Criação de modificação ativada
+            amendment_promotion_enabled: Promoção de modificação ativada
+            amendment_reaction_enabled: Reação a modificação ativada
+            amendments_visibility: Visibilidade da modificação
             comments_blocked: Comentários bloqueados
             dummy_step_attribute_1: Passo de Atributo Fictício 1
             dummy_step_attribute_2: Passo de Atributo Fictício 2
@@ -406,7 +406,7 @@ pt:
       registrations:
         new:
           already_have_an_account?: Já tem uma conta?
-          newsletter: Receber um boletim de notícias ocasional com informações relevantes
+          newsletter: Receber um boletim informativo ocasional com informações relevantes
           newsletter_title: Permissão de contacto
           nickname_help: O seu pseudónimo em %{organization}
           password_help: "%{minimun_characters} caracteres no mínimo, não deverá ser muito comum (por ex. 123456) e deverá ser diferente da sua alcunha e do seu e-mail."
@@ -432,13 +432,13 @@ pt:
             close_modal: Fechar modal
             uncheck: Manter desmarcado
           notice: |-
-            <p>Tem a certeza de que não deseja receber um boletim de notícias?<br>
-            Por favor, considere novamente marcar a caixa de seleção do boletim de notícias abaixo.<br>
+            <p>Tem a certeza de que não deseja receber um boletim informativo?<br>
+            Por favor, considere novamente marcar a caixa de seleção do boletim informativo abaixo.<br>
             É muito importante para nós que receba e-mails ocasionais para que possamos fazer anúncios importantes, pode sempre alterar isso na sua página de configurações de notificações.</p>
             <p>Se não marcar a caixa, pode estar a perder informações relevantes sobre novas oportunidades participativas na plataforma.<br>
             Se ainda assim quiser evitar receber boletins de notícias, entendemos perfeitamente a sua decisão.</p>
             <p>Obrigado por ler isto!</p>
-          title: Notificações do boletim de notícias
+          title: Notificações do boletim informativo
         omniauth_buttons:
           or: Ou
     doorkeeper:
@@ -477,58 +477,58 @@ pt:
       amendments:
         amendment_accepted:
           affected_user:
-            email_intro: 'Uma emenda foi aceite para %{amendable_title}. Pode vê-la a partir desta página:'
+            email_intro: 'Uma modificação foi aceite para %{amendable_title}. Pode vê-la a partir desta página:'
             email_outro: Recebeu esta notificação por ser um autor de %{amendable_title}.
-            email_subject: Emenda aceite para %{amendable_title} de %{emendation_author_nickname}
+            email_subject: Modificação aceite para %{amendable_title} de %{emendation_author_nickname}
             notification_title: A <a href="%{emendation_path}">emenda</a> criada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi aceite para <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
-            email_intro: 'Uma emenda foi aceite para %{amendable_title}. Pode vê-la a partir desta página:'
+            email_intro: 'Uma modificação foi aceite para %{amendable_title}. Pode vê-la a partir desta página:'
             email_outro: Recebeu esta notificação porque segue %{amendable_title}. Pode parar de receber notificações a partir da hiperligação anterior.
-            email_subject: Emenda aceite para %{amendable_title} por %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">emenda</a> criada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi aceite para <a href="%{amendable_path}">%{amendable_title}</a>.
+            email_subject: Modificação aceite para %{amendable_title} por %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">modificação</a> criada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi aceite para <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
-            email_intro: 'Uma nova emenda foi criada para %{amendable_title}. Pode vê-la a partir desta página:'
+            email_intro: 'Uma nova modificação foi criada para %{amendable_title}. Pode vê-la a partir desta página:'
             email_outro: Recebeu esta notificação por ser um autor de %{amendable_title}.
-            email_subject: Nova emenda para %{amendable_title}
-            notification_title: Uma nova emenda foi criada para <a href="%{amendable_path}">%{amendable_title}</a>.
+            email_subject: Nova modificação para %{amendable_title}
+            notification_title: Uma nova modificação foi criada para <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
-            email_intro: 'Uma nova emenda foi criada para %{amendable_title}. Pode vê-la a partir desta página:'
+            email_intro: 'Uma nova modificação foi criada para %{amendable_title}. Pode vê-la a partir desta página:'
             email_outro: Recebeu esta notificação porque segue %{amendable_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
             email_subject: Nova alteração para %{amendable_title}
-            notification_title: Uma nova emenda foi criada para <a href="%{amendable_path}">%{amendable_title}</a>.
+            notification_title: Uma nova modificação foi criada para <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_promoted:
           affected_user:
-            email_intro: 'Uma emenda rejeitada por %{amendable_title} foi publicada como um novo %{amendable_type}. Pode vê-la a partir desta página:'
+            email_intro: 'Uma modificação rejeitada por %{amendable_title} foi publicada como um novo %{amendable_type}. Pode vê-la a partir desta página:'
             email_outro: Recebeu esta notificação por ser um autor de %{amendable_title}.
-            email_subject: Uma emenda de %{emendation_author_nickname} foi publicada como um novo %{amendable_type}
-            notification_title: Uma <a href="%{emendation_path}">emenda rejeitada</a> para <a href="%{amendable_path}">%{amendable_title}</a> foi publicada como um novo %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_subject: Uma modificação de %{emendation_author_nickname} foi publicada como um novo %{amendable_type}
+            notification_title: Uma <a href="%{emendation_path}">modificação rejeitada</a> para <a href="%{amendable_path}">%{amendable_title}</a> foi publicada como um novo %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
-            email_intro: 'Uma emenda rejeitada de %{amendable_title} foi publicada como um novo %{amendable_type}. Pode vê-la a partir desta página:'
+            email_intro: 'Uma modificação rejeitada de %{amendable_title} foi publicada como um novo %{amendable_type}. Pode vê-la a partir desta página:'
             email_outro: Recebeu esta notificação porque segue %{amendable_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
-            email_subject: Uma emenda de %{emendation_author_nickname} foi publicada como um novo %{amendable_type}
-            notification_title: Uma <a href="%{emendation_path}">emenda rejeitada</a> de <a href="%{amendable_path}">%{amendable_title}</a> foi publicada como um novo %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_subject: Uma modificação de %{emendation_author_nickname} foi publicada como um novo %{amendable_type}
+            notification_title: Uma <a href="%{emendation_path}">modificação rejeitada</a> de <a href="%{amendable_path}">%{amendable_title}</a> foi publicada como um novo %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
-            email_intro: 'Uma emenda foi rejeitada por %{amendable_title}. Pode vê-la a partir desta página:'
+            email_intro: 'Uma modificação foi rejeitada por %{amendable_title}. Pode vê-la a partir desta página:'
             email_outro: Recebeu esta notificação por ser um autor de %{amendable_title}.
-            email_subject: Emenda de %{amendable_title} rejeitada por %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">emenda</a> criada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi rejeitada por <a href="%{amendable_path}">%{amendable_title}</a>.
+            email_subject: Modificação de %{amendable_title} rejeitada por %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">modificação</a> criada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi rejeitada por <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
-            email_intro: 'Uma emenda foi rejeitada por %{amendable_title}. Pode vê-la a partir desta página:'
+            email_intro: 'Uma modificação foi rejeitada por %{amendable_title}. Pode vê-la a partir desta página:'
             email_outro: Recebeu esta notificação porque segue %{amendable_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
-            email_subject: Emenda de %{amendable_title} rejeitada por %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">emenda</a> criada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi rejeitada por <a href="%{amendable_path}">%{amendable_title}</a>.
+            email_subject: Modificação de %{amendable_title} rejeitada por %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">modificação</a> criada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi rejeitada por <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: 'Um novo documento foi adicionado a %{resource_title}. Pode vê-lo a partir desta página:'
           email_outro: Recebeu esta notificação porque está segue %{resource_title}. Pode parar de receber notificações após o link anterior.
           email_subject: Uma atualização a %{resource_title}
-          notification_title: Um <a href="%{resource_path}">new document</a> foi adicionado a <a href="%{attached_to_url}">%{resource_title}</a>
+          notification_title: Um <a href="%{resource_path}">novo documento</a> foi adicionado a <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: 'O componente %{resource_title} agora está ativo para %{participatory_space_title}. Você pode vê-lo a partir desta página:'
-          email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
+          email_intro: 'O componente %{resource_title} está agora ativo para %{participatory_space_title}. Pode vê-lo a partir desta página:'
+          email_outro: Recebeu esta notificação porque segue %{participatory_space_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
           email_subject: Uma atualização para %{participatory_space_title}
           notification_title: O componente %{resource_title} agora está ativo para <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
@@ -894,7 +894,7 @@ pt:
         title: Comercial
     newsletter_mailer:
       newsletter:
-        note: Você recebeu este e-mail porque está inscrito em boletins informativos em %{organization_name}. Você pode alterar suas configurações em suas <a href="%{link}">notifications page</a>.
+        note: Recebeu este e-mail porque está inscrito em boletins informativos em %{organization_name}. Pode alterar as suas configurações na sua <a href="%{link}">página de notificações</a>.
         see_on_website: Não é possível ver este email corretamente? Visualize-o no <a href="%{link}" target="_blank">website</a>.
         unsubscribe: Para optar por não receber esse tipo de email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
     newsletter_templates:
@@ -946,7 +946,7 @@ pt:
         email_on_notification: Quero receber um email sempre que recebo uma notificação.
         everything_followed: Tudo que eu sigo
         newsletter_notifications: Quero receber boletins informativos
-        newsletters: boletins informativos
+        newsletters: Boletins informativos
         own_activity: Minha atividade, como quando alguém comenta minha proposta ou me menciona
         receive_notifications_about: Quero receber notificações sobre
         send_notifications_by_email: Enviar notificações por email
