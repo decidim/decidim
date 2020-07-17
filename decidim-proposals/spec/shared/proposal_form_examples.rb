@@ -24,24 +24,24 @@ shared_examples "a proposal form" do |options|
   let(:meeting_as_author) { false }
   let(:params) do
     {
-        title: title,
-        body: body,
-        author: author,
-        category_id: category_id,
-        scope_id: scope_id,
-        address: address,
-        has_address: has_address,
-        meeting_as_author: meeting_as_author,
-        attachment: attachment_params,
-        suggested_hashtags: suggested_hashtags
+      title: title,
+      body: body,
+      author: author,
+      category_id: category_id,
+      scope_id: scope_id,
+      address: address,
+      has_address: has_address,
+      meeting_as_author: meeting_as_author,
+      attachment: attachment_params,
+      suggested_hashtags: suggested_hashtags
     }
   end
 
   let(:form) do
     described_class.from_params(params).with_context(
-        current_component: component,
-        current_organization: component.organization,
-        current_participatory_space: participatory_space
+      current_component: component,
+      current_organization: component.organization,
+      current_participatory_space: participatory_space
     )
   end
 
@@ -149,17 +149,17 @@ shared_examples "a proposal form" do |options|
 
         let(:params) do
           {
-              id: previous_proposal.id,
-              title: previous_proposal.title,
-              body: previous_proposal.body,
-              author: previous_proposal.authors.first,
-              category_id: previous_proposal.try(:category_id),
-              scope_id: previous_proposal.try(:scope_id),
-              has_address: has_address,
-              address: address,
-              attachment: previous_proposal.try(:attachment_params),
-              latitude: latitude,
-              longitude: longitude
+            id: previous_proposal.id,
+            title: previous_proposal.title,
+            body: previous_proposal.body,
+            author: previous_proposal.authors.first,
+            category_id: previous_proposal.try(:category_id),
+            scope_id: previous_proposal.try(:scope_id),
+            has_address: has_address,
+            address: address,
+            attachment: previous_proposal.try(:attachment_params),
+            latitude: latitude,
+            longitude: longitude
           }
         end
 
@@ -249,8 +249,8 @@ shared_examples "a proposal form" do |options|
   context "when the attachment is present" do
     let(:attachment_params) do
       {
-          title: "My attachment",
-          file: Decidim::Dev.test_file("city.jpeg", "image/jpeg")
+        title: "My attachment",
+        file: Decidim::Dev.test_file("city.jpeg", "image/jpeg")
       }
     end
 
@@ -272,11 +272,11 @@ shared_examples "a proposal form" do |options|
 
     let(:component) do
       create(
-          :proposal_component,
-          :with_extra_hashtags,
-          participatory_space: participatory_space,
-          suggested_hashtags: component_suggested_hashtags,
-          automatic_hashtags: component_automatic_hashtags
+        :proposal_component,
+        :with_extra_hashtags,
+        participatory_space: participatory_space,
+        suggested_hashtags: component_suggested_hashtags,
+        automatic_hashtags: component_automatic_hashtags
       )
     end
     let(:component_automatic_hashtags) { "" }
@@ -329,19 +329,19 @@ shared_examples "a proposal form with meeting as author" do |options|
 
   let(:params) do
     {
-        title: title,
-        body: body,
-        created_in_meeting: created_in_meeting,
-        author: meeting_as_author,
-        meeting_id: author.id
+      title: title,
+      body: body,
+      created_in_meeting: created_in_meeting,
+      author: meeting_as_author,
+      meeting_id: author.id
     }
   end
 
   let(:form) do
     described_class.from_params(params).with_context(
-        current_component: component,
-        current_organization: component.organization,
-        current_participatory_space: participatory_space
+      current_component: component,
+      current_organization: component.organization,
+      current_participatory_space: participatory_space
     )
   end
 
