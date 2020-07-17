@@ -115,6 +115,7 @@ es:
             can_accumulate_supports_beyond_threshold: Puede acumular apoyos más allá del umbral
             collaborative_drafts_enabled: Borradores colaborativos habilitados
             comments_enabled: Comentarios habilitados
+            comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
             geocoding_enabled: Geocodificación habilitada
             minimum_votes_per_user: Apoyos mínimos por participante
             new_proposal_body_template: Plantilla para el texto de nueva propuesta
@@ -142,6 +143,9 @@ es:
             amendment_reaction_enabled: Reacción de enmienda activada
             amendment_reaction_enabled_help: Las autoras de la propuesta podrán aceptar o rechazar las enmiendas de otras participantes.
             amendments_visibility: Visibilidad de la enmienda
+            amendments_visibility_choices:
+              all: Las enmiendas son visibles para todos
+              participants: Las enmiendas son visibles sólo para sus autoras
             amendments_visibility_help: Si se selecciona la opción "Las enmiendas son visibles sólo para sus autoras", las participantes deberán iniciar sesión para ver las enmiendas realizadas.
             announcement: Aviso
             answers_with_costs: Habilitar coste en las respuestas a propuestas
@@ -158,6 +162,12 @@ es:
             votes_hidden: Apoyos ocultos (si los apoyos están habilitados, marcando esta opción ocultarás el número de apoyos)
     events:
       proposals:
+        admin:
+          proposal_note_created:
+            email_intro: Alguien ha dejado una nota en la propuesta "%{resource_title}". Revísala ahora a través del <a href="%{admin_proposal_info_url}">panel de administración</a>
+            email_outro: Recibes esta notificación porque puedes evaluar la propuesta.
+            email_subject: Alguien dejó una nota en la propuesta %{resource_title}.
+            notification_title: Alguien ha dejado una nota en la propuesta <a href="%{resource_path}">%{resource_title}</a>. Revísala ahora a través del <a href="%{admin_proposal_info_path}">panel de administración</a>
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} ha sido aceptado para acceder como contribuidora del borrador colaborativo de <a href="%{resource_path}">%{resource_title}</a>.'
           email_outro: Has recibido esta notificación porque eres contribuidora de <a href="%{resource_path}">%{resource_title}</a>.
@@ -756,6 +766,9 @@ es:
         proposal:
           creation_date: 'Fecha de creación: %{date}'
           view_proposal: Ver propuesta
+        proposals:
+          empty: Aún no hay ninguna propuesta
+          empty_filters: No hay ninguna propuesta con este criterio
         show:
           answer: Respuesta
           back_to: Volver a
@@ -824,6 +837,11 @@ es:
           step_3: Completar
           step_4: Publicar tu propuesta
           step_of: Fase %{current_step_num} de %{total_steps}
+      proposals_picker:
+        choose_proposals: Elegir propuestas
+        close: Cerrar
+        more_proposals: Hay %{number} propuestas más. Refina tu búsqueda para localizarlas.
+        no_proposals: No hay propuestas que coincidan con tu criterio de búsqueda o no hay ninguna propuesta.
       publish:
         error: Se ha producido un error al publicar la propuesta.
         success: Propuesta publicada correctamente.
