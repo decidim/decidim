@@ -65,6 +65,12 @@ ca:
         project:
           fields:
             title: Títol
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'Els projectes que has seleccionat són:'
+          subject: Has votat a l'espai de participació %{space_name}
+          voted_on_space: Has votat en el pressupost de l'espai de participació %{space_name}.
+          voted_on_space_with_scope: Has votat en el pressupost de l'espai de participació %{space_name} a %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Hi estàs d'acord? Un cop hagis confirmat el teu vot, no podràs canviar-lo.
@@ -85,6 +91,7 @@ ca:
             description: Ja has votat pel pressupost. Si has canviat d'idea, pots %{cancel_link}.
             title: Vot pels pressupostos completat
           description: En quins projectes creus que hem de destinar el pressupost? Assigna com a mínim %{minimum_budget} als projectes que desitges i vota per definir el pressupost.
+          description_minimum_projects_rule: A quins projectes creus que hem de destinar el pressupost? Selecciona com a mínim %{minimum_number} projectes i vota segons les teves preferències per a definir el pressupost.
           title: Tu decideixes el pressupost
         count:
           projects_count:
@@ -135,9 +142,16 @@ ca:
           global:
             announcement: Avís
             comments_enabled: Comentaris habilitats
+            form:
+              errors:
+                budget_voting_rule_only_one: Cal activar com a mínim una norma per a la votació
+                budget_voting_rule_required: Es requereix una norma per a la votació
             projects_per_page: Projectes per pàgina
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada trobada
             total_budget: Pressupost total
+            vote_minimum_budget_projects_number: Nombre màxim de projectes a votar
+            vote_rule_minimum_budget_projects_enabled: 'Activar norma: Número mínim de projectes a votar'
+            vote_rule_threshold_percent_enabled: 'Activar norma: percentatge mínim del pressupost'
             vote_threshold_percent: Percentatge del pressupost mínim per fer el vot
           step:
             announcement: Avís
