@@ -19,7 +19,7 @@ module Decidim
       attribute :state, String
       attribute :attachment, AttachmentForm
 
-      validates :title, :description, presence: true
+      validates :title, :description, presence: true, sanitize: true
       validates :title, length: { maximum: 150 }
       validates :signature_type, presence: true
       validates :type_id, presence: true
