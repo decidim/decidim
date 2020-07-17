@@ -528,6 +528,11 @@ es:
           email_outro: Has recibido esta notificación porque sigues la jornada "%{resource_title}". Puedes dejar de seguirla desde el enlace anterior.
           email_subject: Se han habilitado las inscripciones para la jornada "%{resource_title}".
           notification_title: Se han habilitado las inscripciones a la conferencia <a href="%{resource_path}">%{resource_title}</a>.
+        role_assigned:
+          email_intro: Te han asignado el rol de %{role} en la jornada "%{resource_title}".
+          email_outro: Recibes esta notifiación porque se te ha asignado el rol de %{role} en la jornada "%{resource_title}".
+          email_subject: Se te ha asignado el rol de %{role} en "%{resource_title}".
+          notification_title: Se te ha asignado el rol de %{role} en la jornada <a href="%{resource_url}">%{resource_title}</a>.
         upcoming_conference:
           email_intro: 'La jornada "%{resource_title}" tendrá lugar dentro de 2 días. Puedes leer la descripción desde su página:'
           email_outro: Has recibido esta notificación porque estás siguiendo la jornada "%{resource_title}". Puedes dejar de seguirla desde el enlace anterior.
