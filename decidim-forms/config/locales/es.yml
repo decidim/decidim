@@ -25,36 +25,88 @@ es:
             description: Descripción
             tos: Términos y condiciones de uso
         questionnaires:
+          actions:
+            back: Volver a las preguntas
+            show: Mostrar las respuestas
           answer_option:
             answer_option: Opción de respuesta
             free_text: Texto libre
             remove: Eliminar
             statement: Declaración
+          answers:
+            actions:
+              back: Volver a las respuestas
+              export: Exportar
+              show: Mostrar las respuestas
+            empty: Aún no hay respuestas
+            export:
+              answer:
+                title: 'Respuesta #%{number}'
+            index:
+              title: "%{total} total de respuestas"
+            show:
+              title: 'Respuesta #%{number}'
+          display_condition:
+            answer_option: Opción de respuesta
+            condition_question: Pregunta
+            condition_types:
+              answered: Contestada
+              equal: Igual a
+              match: Incluye texto
+              not_answered: No contestada
+              not_equal: No es igual
+            condition_value: Texto incluido
+            remove: Eliminar
+            select_answer_option: Eliminar la opción de respuesta
+            select_condition_question: Seleccionar una pregunta
           edit:
             save: Guardar
+            title: Editar el cuestionario
           form:
             add_question: Añadir pregunta
             already_answered_warning: Algunas participantes ya han respondido el formulario, por lo que no puedes modificar las preguntas.
+            collapse: Contraer todas las preguntas
+            expand: Expandir todos las preguntas
+            preview: Previsualizar
+            title: Editar el formulario
+            unpublished_warning: El formulario no está publicado. Puedes modificar sus preguntas, pero al hacerlo eliminará las respuestas actuales.
           matrix_row:
+            matrix_row: Fila
             remove: Eliminar
             statement: Declaración
           question:
             add_answer_option: Añadir una opción de respuesta
+            add_matrix_row: Añadir fila
             any: Alguna
+            collapse: Contraer
             description: Descripción
             down: Abajo
+            expand: Expandir
             question: Pregunta
             remove: Eliminar
             statement: Declaración
             up: Arriba
+          separator:
+            down: Bajar
+            remove: Eliminar
+            separator: Separador
+            up: Subir
           update:
             invalid: Se ha producido un error al guardar el formulario.
             success: Formularios guardados correctamente.
       errors:
         answer:
           body: El campo no puede estar en blanco
+      files:
+        extension_whitelist: 'Formatos de archivo aceptados:'
+      images:
+        dimensions_info: 'Esta imagen medirá:'
+        processors:
+          resize_to_fit: Redimensionada para ajustarla
       question_types:
         long_answer: Respuesta larga
+        matrix_multiple: Matriz (opción múltiple)
+        matrix_single: Matriz (opción única)
         multiple_option: Opción múltiple
         short_answer: Respuesta corta
         single_option: Opción única
@@ -62,6 +114,7 @@ es:
       questionnaires:
         answer:
           invalid: Se ha producido un error al responder el formulario.
+          max_choices_alert: Hay demasiadas opciones seleccionadas
           success: Has respondido al formulario correctamente.
         question:
           max_choices: 'Opciones máximas: %{n}'
@@ -69,6 +122,8 @@ es:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Inicia sesión con tu cuenta</a> o <a href="%{sign_up_link}">regístrate</a> para responder al formulario.
             title: Responde el formulario
+          current_step: Paso %{step}
+          of_total_steps: de %{total_steps}
           questionnaire_answered:
             body: Ya has respondido a este formulario.
             title: Ya has respondido
@@ -78,12 +133,20 @@ es:
           questionnaire_for_private_users:
             body: El formulario está disponible solo para participantes privadas
             title: Formulario cerrado
+          questionnaire_js_disabled:
+            body: Algunas de las características de este formulario se desactivarán. Para mejorar tu experiencia, habilita JavaScript en tu navegador.
+            title: Javascript está desactivado
+          questionnaire_not_published:
+            body: Este formulario no se ha publicado todavía.
           tos_agreement: Al participar aceptas los Términos y condiciones de uso
       step_navigation:
         show:
           are_you_sure: Esta acción no se puede deshacer y no podrás editar tus respuestas. ¿Estás segura?
+          back: Atrás
+          continue: Continuar
           submit: Enviar respuestas
       user_answers_serializer:
+        body: Respuesta
         created_at: Respondido el
         id: Identificador de respuesta
         registered: Registrado
