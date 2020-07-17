@@ -259,8 +259,11 @@ es-MX:
       dummy_authorization_handler:
         explanation: Verifícate introduciendo un número de documento que termine con "X"
         fields:
+          allowed_postal_codes: Códigos postales permitidos (separados por comas)
+          allowed_scope_id: Ámbito permitido
           document_number: Número de documento
           postal_code: Código postal
+          scope_id: Ámbito
         name: Autorización de ejemplo
       dummy_authorization_workflow:
         name: Flujo de trabajo de autorización de ejemplo
@@ -315,6 +318,19 @@ es-MX:
       see_less: "(ver menos)"
       see_more: "(ver más)"
     components:
+      component_order_selector:
+        no_content: No podemos encontrar ningún contenido con este criterio
+        order:
+          all_types: Todos los tipos
+          collaborative_draft: Borrador colaborativo
+          comment: Comentario
+          debate: Debate
+          initiative: Iniciativa
+          meeting: Encuentro
+          post: Publicar
+          proposal: Propuesta
+          question: Pregunta
+        title: 'Mostrar:'
       dummy:
         actions:
           bar: Bar
@@ -324,6 +340,7 @@ es-MX:
           global:
             amendments_enabled: Enmiendas habilitadas
             comments_enabled: Comentarios habilitados
+            comments_max_length: Longitud máxima de los comentarios
             dummy_global_attribute_1: Atributo de prueba 1
             dummy_global_attribute_2: Atributo de prueba 2
             dummy_global_translatable_text: Texto de ejemplo traducible
@@ -344,6 +361,9 @@ es-MX:
         name: Banner de sub-hero de pie de página
       hero:
         name: Imagen de hero
+      hero_settings_form:
+        background_image: Imagen de fondo
+        welcome_text: Texto de bienvenida
       highlighted_content_banner:
         name: Banner de contenido resaltado
       how_to_participate:
@@ -564,6 +584,16 @@ es-MX:
           email_outro: Has recibido esta notificación porque eras miembro de ese grupo.
           email_subject: '¡Has sido eliminado del grupo %{user_group_name}!'
           notification_title: Has sido eliminado del grupo <a href="%{resource_path}">%{user_group_name}</a>.
+        user_group_created:
+          email_intro: Se ha creado un nuevo grupo de usuarias con el nombre %{user_group_name}. Ahora puedes verificarlo, si procede, en el <a href="%{groups_admin_url}">panel de administración</a>.
+          email_outro: Has recibido esta notificación porque eres una de las administradoras de la plataforma.
+          email_subject: Se ha creado un nuevo grupo de usuarias
+          notification_title: Se ha creado el grupo de usuarias %{user_group_name}. Ahora puedes verificarlo en el <a href="%{groups_admin_path}">panel de administración</a>.
+        user_group_updated:
+          email_intro: El grupo de usuarias %{user_group_name} ha actualizado su perfil perdiendo la verificación. Puedes volver a verificarlo a través del <a href="%{groups_admin_url}">panel de administración</a>.
+          email_outro: Has recibido esta notificación porque eres una de las administradoras de la plataforma.
+          email_subject: Un grupo de usuarias ha actualizado su perfil
+          notification_title: El grupo de usuarias %{user_group_name} ha actualizado su perfil perdiendo la verificación. Puedes volver a verificarlo a través del <a href="%{groups_admin_path}">panel de administración</a>.
       notification_event:
         notification_title: Un evento ha ocurrido en <a href="%{resource_path}">%{resource_title}</a>.
       resource_endorsed:
@@ -782,27 +812,65 @@ es-MX:
       home: Inicio
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
+          greeting: '¡Hola, %{recipient}!'
+          intro: "%{manager} ha iniciado una nueva conversación en nombre de %{group}. Haz clic aquí para verla:"
+          outro: '¡Disfruta de Decidim!'
+          subject: "%{manager} ha iniciado una nueva conversación como %{group}"
+        comanagers_new_message:
+          admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
+          greeting: Hola, %{recipient}!
+          intro: "%{manager} ha publicado nuevos mensajes en una conversación en nombre de %{group}. Haz clic aquí para verla:"
+          outro: '¡Disfruta de Decidim!'
+          subject: "%{manager} ha enviado nuevos mensajes como %{group}"
         new_conversation:
           greeting: Hola, %{recipient}!
           intro: "%{sender} ha iniciado una nueva conversación contigo. Haz click aquí para verla:"
           outro: '¡Disfruta de decidim!'
           subject: "%{sender} ha iniciado una conversación contigo"
+        new_group_conversation:
+          admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
+          greeting: '¡Hola, %{recipient}!'
+          intro: "%{sender} ha iniciado una nueva conversación con el grupo %{group}. Haz clic aquí para verla:"
+          outro: '¡Disfruta de Decidim!'
+          subject: "%{sender} ha iniciado una nueva conversación con %{group}"
+        new_group_message:
+          admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
+          greeting: '¡Hola, %{recipient}!'
+          intro: "%{sender} ha iniciado una nueva conversación con el grupo %{group}. Haz clic aquí para verla:"
+          outro: '¡Disfruta de Decidim!'
+          subject: "%{group} tiene nuevos mensajes de %{sender}"
         new_message:
           greeting: '¡Hola, %{recipient}!'
           intro: "%{sender} ha publicado nuevos mensajes en tu conversación. Haz clic aquí para verlos:"
           outro: '¡Disfruta de decidim!'
           subject: Tienes nuevos mensajes de %{sender}
       conversations:
+        add_conversation_users:
+          add_max_users: 'Añadir usuarias a la conversación: máximo 9 usuarias'
+          add_users_placeholder: Buscar...
+          modal_title: Nueva conversación
+          no_results: No hay resultados
+          participant_with_disabled_message_reception: Esta participante ha desactivado la recepción de mensajes
         create:
           error: Conversación no iniciada. Inténtalo más tarde
         index:
+          ago: anteriores
           close: Cerrar modal
+          from: 'De:'
+          groups: Mis grupos
+          last_message: Último mensaje
+          new_conversation: Nueva conversación
+          next: Siguente
           no_conversations: Aún no tienes conversaciones
           title: Conversaciones
         reply:
+          placeholder: Tu respuesta...
           send: Enviar
           title: Respuesta
         show:
+          chat_with: Conversación con
           not_allowed: Esta participante no acepta mensajes directos.
           title: Conversación con %{usernames}
         start:
@@ -830,6 +898,25 @@ es-MX:
         note: Has recibido este mensaje porque estás suscrito a boletines de noticias en %{organization_name}. Puedes cambiar la configuración en tu <a href="%{link}">página de notificaciones</a>.
         see_on_website: '¿No puedes ver este correo electrónico correctamente? Accede a su <a href="%{link}" target="_blank">versión web</a>.'
         unsubscribe: Si no quieres recibir este tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">unsubscríbete</a>.
+    newsletter_templates:
+      basic_only_text:
+        body_preview: 'Texto ficticio para el cuerpo: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu".'
+        name: Básica (sólo texto)
+      basic_only_text_settings_form:
+        body: Cuerpo
+        interpolations_hint: 'Pista: Puedes utilizar "%{name}" en cualquier parte del cuerpo o asunto y será reemplazado por el nombre de la destinataria.'
+      image_text_cta:
+        body_preview: 'Texto ficticio para el cuerpo: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
+        cta_text_preview: Texto del botón de acción
+        introduction_preview: 'Texto ficticio para el cuerpo: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu".'
+        name: Imagen, texto y botón de acción
+      image_text_cta_settings_form:
+        body: Cuerpo
+        cta_text: Texto del botón de acción
+        cta_url: URL del botón de acción
+        interpolations_hint: 'Pista: Puedes utilizar "%{name}" en cualquier parte de la introducción, el cuerpo, texto del botón de acción o asunto y será reemplazado por el nombre de la destinataria.'
+        introduction: Introducción
+        main_image: Imagen principal
     newsletters:
       unsubscribe:
         check_subscription: Si deseas cambiar tus preferencias, puedes hacerlo en la <a href="%{link}" target="_blank">página de configuración</a>
@@ -959,6 +1046,7 @@ es-MX:
       show:
         activity: Actividad
         badges: Insignias
+        conversations: Conversaciones
         followers: Seguidores
         following: Sigue
         groups: Grupos
@@ -988,8 +1076,14 @@ es-MX:
         report_html: <p>El siguiente <a href="%{url}">contenido</a> se ha ocultado automáticamente.</p>
         subject: Un contenido se ha ocultado de forma automática
       report:
+        authors: Autoras
+        content: Contenido reportado
+        date: Reportado el
+        details: Detalles
         hello: Hola %{name},
         manage_moderations: Gestionar moderaciones
+        participatory_space: Espacio de participación
+        reason: Motivo
         report_html: <p>El siguiente <a href="%{url}">contenido</a> ha sido reportado.</p>
         subject: Un contenido ha sido denunciado
     reports:
@@ -1073,6 +1167,36 @@ es-MX:
       index:
         no_activities_warning: Este usuario no ha tenido ninguna actividad todavía.
     user_contact_disabled: Esta participante no acepta mensajes directos.
+    user_conversations:
+      create:
+        error: El mensaje no se ha podido crear. Vuelve a intentarlo más tarde
+        existing_error: El mensaje no se ha podido crear. La conversación ya existe, por favor inténtalo de nuevo ahora.
+        success: '¡Conversación iniciada correctamente!'
+      index:
+        add_max_users: 'Añadir usuarias a la conversación: máximo 9 usuarias'
+        add_users_placeholder: Buscar...
+        close: Cerar
+        conversations_info: Las conversaciones son privadas. Nadie más puede verlas. Se puede iniciar una conversación con cualquier participante o grupo registrado en la plataforma.
+        from: 'De:'
+        last_message: Último mensaje
+        modal_title: Nueva conversación
+        new_conversation: Nueva conversación
+        next: Siguente
+        no_conversations_warning: Aún no hay ninguna conversación.
+        no_results: No hay resultados
+        participant_with_disabled_message_reception: Esta participante ha desactivado la recepción de mensajes
+        time_ago: "Hace %{time}"
+      new:
+        title: Iniciar una conversación
+      reply:
+        placeholder: Tu respuesta...
+        send: Enviar
+        title_reply: Responder
+      show:
+        not_allowed: Esta participante no acepta mensajes directos.
+        title: Conversación con %{usernames}
+      update:
+        error: Mensaje no enviado. Inténtalo de nuevo más tarde
     user_interests:
       show:
         my_interests: Mis intereses
@@ -1082,9 +1206,33 @@ es-MX:
       update:
         error: Hubo un error al actualizar tus intereses.
         success: Sus intereses se han actualizado con éxito.
+    version:
+      show:
+        back_to_resource: Volver atrás
+        changes_at_title: Cambios en "%{title}"
+        number_of_versions: Versiones
+        show_all_versions: Mostrar todas las versiones
+        version_author: Autoría de la versión
+        version_created_at: Versión creada el
+        version_number: Número de versión
+        version_number_out_of_total: "%{current_version} de %{total_count}"
     version_author:
       show:
         deleted: Usuario eliminado
+    versions:
+      resource_version:
+        of_versions: "(de %{number})"
+        see_other_versions: ver otras versiones
+        version: Versión %{number}
+    versions_list:
+      show:
+        back_to_resource: Volver atrás
+        changes_at_title: Cambios en "%{title}"
+        number_of_versions: Versiones
+        title: Versiones
+    versions_list_item:
+      show:
+        version_index: Versión %{index}
     welcome_notification:
       default_body: <p>Hola {{name}}, ¡gracias por unirte a {{organization}} y bienvenido/a!</p><ul><li>Si quieres hacerte una idea ràpida de lo que puedes hacer aquí, echa un vistazo a la sección de <a href="{{help_url}}">Ayuda</a>.</li><li>Una vez la hayas leído obtendrás tu primera insignia. Aquí tienes <a href="{{badges_url}}">la lista</a> de todas las que puedes ir consiguiendo a medida que participes en {{organization}}</li><li>Finalmente, pero no por ello menos importante, únete a otras personas, comparte con ellas la experiencia de implicarte y participar en {{organization}}. Haz propuestas, comenta, debate, piensa en cómo contribuir al bien común, aporta argumentos para convencer, escucha y lee para convencerte, expresa tus ideas de manera concreta y directa, responde con paciencia y decisión, defiende tus ideas y mantén la mente abierta a colaborar y sumarte a las ideas de otras personas.</li></ul>
       default_subject: Gracias por unirte a {{organization}}!
