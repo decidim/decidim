@@ -142,6 +142,9 @@ ca:
             amendment_reaction_enabled: Reacció a les esmenes habilitada
             amendment_reaction_enabled_help: Les autores de les propostes poden acceptar o rebutjar les esmenes proposades pels participants.
             amendments_visibility: Visibilitat de les esmenes
+            amendments_visibility_choices:
+              all: Les esmenes són visibles per a tothom
+              participants: Les esmenes són visibles només per les seves autores
             amendments_visibility_help: Si es selecciona l'opció "Les esmenes són visibles únicament per als seus autors", els participants han d'estar identificats per a veure les esmenes realitzades.
             announcement: Avís
             answers_with_costs: Habilitar cost en les respostes a propostes
@@ -158,6 +161,12 @@ ca:
             votes_hidden: Suports ocults (si els suports estan habilitats, marcant aquesta opció s'amagarà el nombre de suports)
     events:
       proposals:
+        admin:
+          proposal_note_created:
+            email_intro: Algú ha deixat una nota a la proposta "%{resource_title}". Revisa-la ara a través del <a href="%{admin_proposal_info_url}">taulell d'admistració</a>
+            email_outro: Reps aquesta notificació perquè pots avaluar la proposta.
+            email_subject: Algú ha deixat una nota a la proposta %{resource_title}.
+            notification_title: Algú ha deixat una nota a la proposta <a href="%{resource_path}">%{resource_title}</a>. Revisa-la ara a través del <a href="%{admin_proposal_info_path}">taulell d'admistració</a>
         collaborative_draft_access_accepted:
           email_intro: 'S''ha acceptat %{requester_name} per accedir com a contribuidora de l''esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.'
           email_outro: Has rebut aquesta notificació perquè ets contribuidora de <a href="%{resource_path}">%{resource_title}</a>.
@@ -758,7 +767,7 @@ ca:
           view_proposal: Veure proposta
         proposals:
           empty: Encara no hi ha cap proposta
-          empty_filters: No hi ha cap proposta amb aquests criteris
+          empty_filters: No hi ha cap proposta amb aquest criteri
         show:
           answer: Resposta
           back_to: Torna
@@ -827,6 +836,11 @@ ca:
           step_3: Completa
           step_4: Publica la teva proposta
           step_of: Fase %{current_step_num} de %{total_steps}
+      proposals_picker:
+        choose_proposals: Triar propostes
+        close: Tancar
+        more_proposals: Hi ha %{number} propostes més. Afina la teva cerca per localitzar-les.
+        no_proposals: No hi ha propostes que coincideixin amb el teu criteri de cerca o no hi ha cap proposta.
       publish:
         error: Hi ha hagut un error en publicar la proposta.
         success: La proposta s'ha publicat correctament.
