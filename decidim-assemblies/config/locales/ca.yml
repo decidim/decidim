@@ -276,12 +276,18 @@ ca:
         assemblies_settings:
           edit:
             update: Actualitzar
+          form:
+            title: Configuració de les assemblees
         assemblies_types:
           form:
             title: Títol
         assembly_copies:
           form:
             slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Afegir un document
+            slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         assembly_members:
           form:
             existing_user: Participant existent
@@ -395,6 +401,19 @@ ca:
         home:
           highlighted_conferences:
             conferences_button_title: Enllaç a la pàgina de Jornades mostrant totes les jornades
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: Una administradora de la assemblea <a href="%{resource_url}">%{resource_name}</a> t'ha afegit com a un dels seus membres.
+          email_outro: Reps aquesta notificació perquè t'han convidat a una assemblea. Entra en <a href="%{resource_path}">assembly page</a> per a contribuir-hi!
+          email_subject: T'han convidat a ser membre de l'assemblea %{resource_name}!
+          notification_title: T'han registrat com a membre de l'assemblea <a href="%{resource_path}">%{resource_name}</a>. Entra a <a href="%{resource_path}">assembly page</a> per a contribuir-hi!
+      assembly:
+        role_assigned:
+          email_intro: T'han assignat el rol de %{role} a l'assemblea "%{resource_title}".
+          email_outro: Reps aquesta notificació perquè se t'ha assignat el rol de %{role} a l'assemblea "%{resource_title}".
+          email_subject: Se t'ha assignat el rol de %{role} a "%{resource_title}".
+          notification_title: Se t'ha assignat el rol de %{role} a l'assemblea <a href="%{resource_url}">%{resource_title}</a>.
     help:
       participatory_spaces:
         assemblies:
@@ -425,6 +444,8 @@ ca:
         home:
           highlighted_processes:
             processes_button_title: Enllaç a la pàgina de Processos mostrant tots els processos
+      show:
+        related_assemblies: Assemblees relacionades
   errors:
     messages:
       cannot_be_blank: no es pot estar en blanc
