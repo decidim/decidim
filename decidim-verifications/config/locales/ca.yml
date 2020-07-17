@@ -144,6 +144,7 @@ ca:
           postal_codes:
             one: La participació està restringida a les persones adscrites al codi postal %{postal_codes}.
             other: 'La participació està restringida a les persones adscrites a algun dels següents codis postals: %{postal_codes}.'
+          scope: La participació està restringida a les persones verificades en l'àmbit de %{scope_name}.
       id_documents:
         admin:
           config:
