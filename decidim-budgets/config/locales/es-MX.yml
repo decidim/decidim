@@ -65,6 +65,12 @@ es-MX:
         project:
           fields:
             title: Título
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'Lo proyectos que has seleccionado son:'
+          subject: Has votado en el espacio de participación %{space_name}
+          voted_on_space: Has votado en el presupuesto del espacio de participación %{space_name}.
+          voted_on_space_with_scope: Has votado en el presupuesto del espacio de participación %{space_name} en %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: '¿Estás de acuerdo? Una vez que hayas confirmado tu voto, no puedes cambiarlo.'
@@ -85,6 +91,7 @@ es-MX:
             description: Ya has votado para el presupuesto. Si has cambiado de idea, puedes %{cancel_link}.
             title: Voto enviado correctamente
           description: '¿Qué proyectos crees que deberíamos asignar el presupuesto? Asigna por lo menos %{minimum_budget} a los proyectos que desees y vota para definir el presupuesto.'
+          description_minimum_projects_rule: '¿A qué proyectos crees que deberíamos destinar el presupuesto? Selecciona por lo menos %{minimum_number} y vota según tus preferencias para definir el presupuesto.'
           title: Tú decides el presupuesto
         count:
           projects_count:
@@ -135,9 +142,17 @@ es-MX:
           global:
             announcement: Anuncio
             comments_enabled: Comentarios habilitados
+            comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
+            form:
+              errors:
+                budget_voting_rule_only_one: Hay que activar por lo menos una norma para la votación
+                budget_voting_rule_required: Se requiere una norma para la votación
             projects_per_page: Proyectos por página
             resources_permissions_enabled: Se pueden establecer permisos de acciones para cada encuentro
             total_budget: Presupuesto total
+            vote_minimum_budget_projects_number: Número mínimo de proyectos a votar
+            vote_rule_minimum_budget_projects_enabled: 'Activar norma: Número mínimo de proyectos a votar'
+            vote_rule_threshold_percent_enabled: 'Activar norma: porcentaje mínimo del pressupuesto'
             vote_threshold_percent: Porcentaje de votos
           step:
             announcement: Anuncio
