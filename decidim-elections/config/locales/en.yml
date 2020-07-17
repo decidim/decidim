@@ -178,7 +178,7 @@ en:
           intro: Here is a summary of the vote you are about to cast. <br> Please confirm your vote or edit your answers.
           question: Question %{count}
         confirmed:
-          back: Back to Decidim
+          back: Back to elections
           experience: How was your experience?
           feedback: Give us some feedback
           header: Vote confirmed
@@ -190,7 +190,7 @@ en:
           text: Your vote is being encrypted to ensure you can cast it anonymously.
         header:
           confirm: Confirm your vote
-          confirmed: Vote vonfirmed
+          confirmed: Vote confirmed
           encrypting: Confirming vote
         messages:
           not_allowed: You are not allowed to vote on this election at this moment.
