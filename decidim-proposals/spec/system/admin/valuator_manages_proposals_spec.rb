@@ -30,14 +30,14 @@ describe "Valuator manages proposals", type: :system do
 
   context "when listing the proposals" do
     it "can only see the assigned proposals" do
-      expect(page).to have_content(assigned_proposal.title)
-      expect(page).to have_no_content(unassigned_proposal.title)
+      expect(page).to have_content(translated(assigned_proposal.title))
+      expect(page).to have_no_content(translated(unassigned_proposal.title))
     end
   end
 
   context "when bulk unassigning valuators" do
     before do
-      within find("tr", text: assigned_proposal.title) do
+      within find("tr", text: translated(assigned_proposal.title)) do
         page.first(".js-proposal-list-check").set(true)
       end
 
@@ -66,7 +66,7 @@ describe "Valuator manages proposals", type: :system do
 
   context "when in the proposal page" do
     before do
-      click_link assigned_proposal.title
+      click_link translated(assigned_proposal.title)
     end
 
     it "can only unassign themselves" do
