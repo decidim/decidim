@@ -46,12 +46,6 @@ module Decidim
         it { is_expected.to be_invalid }
       end
 
-      context "when title begins by invalid first char" do
-        let(:title) { "=Fake title" }
-
-        it { is_expected.to be_invalid }
-      end
-
       context "when initiative type enables custom signature end date" do
         let(:initiatives_type) { create(:initiatives_type, :custom_signature_end_date_enabled, organization: organization) }
 
