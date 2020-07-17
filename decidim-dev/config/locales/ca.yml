@@ -3,6 +3,7 @@ ca:
     attributes:
       dummy_resource:
         created_at: Creat el
+        decidim_scope_id: Àmbit
         field: El meu camp
         start_date: Data d'inici
         title: Títol
@@ -12,6 +13,13 @@ ca:
     components:
       dummy:
         settings:
+          global:
+            readonly_attribute: Atribut de només lectura
+            test: Test A
+            test_choices:
+              a: Opció A
+              b: Opció B
+              c: Opció C
           step:
             endorsements_blocked: Adhesions bloquejades
             endorsements_enabled: Adhesions habilitades
