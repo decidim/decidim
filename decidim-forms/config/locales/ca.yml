@@ -25,23 +25,58 @@ ca:
             description: Descripció
             tos: Termes del servei
         questionnaires:
+          actions:
+            back: Tornar a les preguntes
+            show: Mostra les respostes
           answer_option:
             answer_option: Opció de resposta
             free_text: Text lliure
             remove: Elimina
             statement: Declaració
+          answers:
+            actions:
+              back: Torna a les respostes
+              export: Exportar
+              show: Mostrar les respostes
+            empty: Encara no hi ha respostes
+            export:
+              answer:
+                title: 'Resposta #%{number}'
+            index:
+              title: "%{total} total de respostes"
+            show:
+              title: 'Resposta #%{number}'
+          display_condition:
+            answer_option: Opció de resposta
+            condition_question: Pregunta
+            condition_types:
+              answered: Amb resposta
+              equal: Igual a
+              match: Inclou text
+              not_answered: No resposta
+              not_equal: No és igual
+            condition_value: Text inclòs
+            remove: Eliminar
+            select_answer_option: Elimina l'opció de resposta
+            select_condition_question: Seleccionar una pregunta
           edit:
             save: Desa
+            title: Editar el qüestionari
           form:
             add_question: Afegeix una pregunta
             already_answered_warning: No pots modificar les preguntes d'aquest formulari perquè ja ha estat contestat per algunes participants.
             collapse: Redueix totes les preguntes
             expand: Expandeix totes les preguntes
+            preview: Previsualitzar
+            title: Editar el formulari
+            unpublished_warning: El formulari no està publicat. Pots modificar les preguntes, però al fer-ho s'esborraran les respostes actuals.
           matrix_row:
+            matrix_row: Fila
             remove: Elimina
             statement: Declaració
           question:
             add_answer_option: Afegeix una opció de resposta
+            add_matrix_row: Afegir fila
             any: Cap
             collapse: Redueix
             description: Descripció
@@ -51,14 +86,27 @@ ca:
             remove: Eliminar
             statement: Declaració
             up: Amunt
+          separator:
+            down: Baixar
+            remove: Eliminar
+            separator: Separador
+            up: Pujar
           update:
             invalid: S'ha produït un error en desar el formulari.
             success: Els formularis s'han desat correctament.
       errors:
         answer:
           body: El camp no pot estar en blanc
+      files:
+        extension_whitelist: 'Formats d''arxiu acceptats:'
+      images:
+        dimensions_info: 'Esta imagen medirà:'
+        processors:
+          resize_to_fit: Redimensionada per ajustar-la
       question_types:
         long_answer: Resposta llarga
+        matrix_multiple: Matriu (opció multiple)
+        matrix_single: Matriu (opció única)
         multiple_option: Opció múltiple
         short_answer: Resposta curta
         single_option: Opció única
@@ -66,6 +114,7 @@ ca:
       questionnaires:
         answer:
           invalid: S'han produït un error en respondre el formulari.
+          max_choices_alert: Hi ha masses opcions seleccionades
           success: Has contestat el formulari correctament.
         question:
           max_choices: 'Opcions màximes: %{n}'
@@ -73,6 +122,8 @@ ca:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Inicia sessió amb el teu compte</a> o <a href="%{sign_up_link}">registra't</a> per respondre el formulari.
             title: Respon el formulari
+          current_step: Pas %{step}
+          of_total_steps: de %{total_steps}
           questionnaire_answered:
             body: Ja has respost a aquest formulari.
             title: Ja has respost
@@ -82,14 +133,24 @@ ca:
           questionnaire_for_private_users:
             body: El formulari només està disponible per a participants privades
             title: S'ha tancat el formulari
+          questionnaire_js_disabled:
+            body: Algunes de les característiques d'aquest formulari es deshabilitaran. Per a millorar la teva experiència, si us plau, habilita JavaScript al teu navegador.
+            title: JavaScript està desactivat
+          questionnaire_not_published:
+            body: Aquest formulari no s'ha publicat encara.
           tos_agreement: En participar acceptes els Termes i condicions d'ús
       step_navigation:
         show:
           are_you_sure: Aquesta acció no es pot desfer i no podràs editar les teves respostes. Estàs segura?
+          back: Enrere
+          continue: Continuar
           submit: Enviar respostes
       user_answers_serializer:
+        body: Resposta
         created_at: Respost el
         id: Identificador de resposta
+        question: Pregunta
         registered: Registrada
+        session_token: Identificador d'usuària
         unregistered: No registrada
         user_status: Estat de l'usuària
