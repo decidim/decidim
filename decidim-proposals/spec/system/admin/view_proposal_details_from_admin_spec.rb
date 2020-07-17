@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
-shared_examples "view proposal details from admin" do
+require "spec_helper"
+
+describe "Admin views proposal details from admin", type: :system do
+  include_context "admin manages proposals"
   include ActionView::Helpers::TextHelper
 
   let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
