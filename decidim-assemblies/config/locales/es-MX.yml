@@ -64,6 +64,12 @@ es-MX:
         email: Correo electrónico
         name: Nombre
         role: Rol de usuario
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Tipo de documento invalido. Los formatos que se aceptan son: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -78,6 +84,7 @@ es-MX:
   decidim:
     admin:
       actions:
+        import_assembly: Importar
         new_assembly: Nueva asamblea
         new_assembly_type: Nuevo tipo de asamblea
       assemblies:
@@ -101,6 +108,10 @@ es-MX:
         create:
           error: Se produjo un error al duplicar esta asamblea.
           success: Asamblea duplicada correctamente.
+      assemblies_settings:
+        update:
+          error: Ha habido un problema actualizando la configuración.
+          success: Configuración actualizada con éxito.
       assemblies_types:
         create:
           error: Se ha producido un error al crear un nuevo tipo de asamblea.
@@ -118,6 +129,14 @@ es-MX:
           copy: Copiar
           select: Seleccione los datos que desea duplicar
           title: Duplicar asamblea
+      assembly_imports:
+        create:
+          error: Ha habido un problema importando esta asamblea.
+          success: Asamblea importada con éxito.
+        new:
+          import: Importar
+          select: Selecciona qué datos quieres importar
+          title: Importar asamblea
       assembly_members:
         create:
           error: Se produjo un error al agregar un miembro para esta asamblea.
@@ -161,6 +180,7 @@ es-MX:
           success: Usuario actualizado con éxito para esta asamblea.
       menu:
         assemblies: Asambleas
+        assemblies_settings: Configuración
         assemblies_submenu:
           assembly_admins: Usuarios de la asamblea
           assembly_members: Miembros
@@ -222,6 +242,8 @@ es-MX:
         create: "%{user_name} creó el miembro %{resource_name} en la asamblea %{space_name}"
         delete: "%{user_name} eliminó %{resource_name} de la asamblea %{space_name}"
         update: "%{user_name} actualizó el miembro %{resource_name} de la asamblea %{space_name}"
+      assembly_setting:
+        update: "%{user_name} ha actualizado la configuración de las asambleas"
       assembly_type:
         create: "%{user_name} creó el tipo de asamblea %{resource_name}"
         delete: "%{user_name} eliminó al miembro %{resource_name} del tipo de asamblea %{space_name}"
@@ -251,11 +273,20 @@ es-MX:
             social_handlers: Social
             title: Información general
             visbility: Visibilidad
+        assemblies_settings:
+          edit:
+            update: Actualizar
+          form:
+            title: Configuración de las asambleas
         assemblies_types:
           form:
             title: Título
         assembly_copies:
           form:
+            slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Añadir un documento
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         assembly_members:
           form:
@@ -370,6 +401,19 @@ es-MX:
         home:
           highlighted_conferences:
             conferences_button_title: Enlace a la página de Jornadas que muestra todas las jornadas
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: Una administradora de la asamblea <a href="%{resource_url}">%{resource_name}</a> te ha añadido como uno de sus miembros.
+          email_outro: Recibes esta notificación porque te han invitado a una asamblea. ¡Entra en <a href="%{resource_path}">assembly page</a> para contribuir!
+          email_subject: '¡Te han invitado a ser miembro de la asamblea %{resource_name}!'
+          notification_title: Te han registrado como miembro de la asamblea<a href="%{resource_path}">%{resource_name}</a>. ¡Entra en <a href="%{resource_path}">assembly page</a> para contribuir!
+      assembly:
+        role_assigned:
+          email_intro: Te han asignado el rol de %{role} en la asamblea "%{resource_title}".
+          email_outro: Recibes esta notifiación porque se te ha asignado el rol de %{role} en la asamblea "%{resource_title}".
+          email_subject: Se te ha asignado el rol de %{role} en "%{resource_title}".
+          notification_title: Se te ha asignado el rol de %{role} en la asamblea <a href="%{resource_url}">%{resource_title}</a>.
     help:
       participatory_spaces:
         assemblies:
@@ -400,6 +444,8 @@ es-MX:
         home:
           highlighted_processes:
             processes_button_title: Enlace a la página de Procesos que muestra todos los procesos
+      show:
+        related_assemblies: Asambleas relacionadas
   errors:
     messages:
       cannot_be_blank: no puede estar en blanco
