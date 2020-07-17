@@ -14,7 +14,7 @@ $(() => {
 
   function initStep() {
     setCurrentStep();
-    continueBtnTgl();
+    toggleContinueButtonn();
     $($confirmButton).addClass("show").removeClass("hide");
     $(".evote__counter-min").text($answerCounter);
     answerCounter();
@@ -36,13 +36,13 @@ $(() => {
   function onSelectionChange() {
     let $voteOptions = $currentStep.find(".evote__options");
     $voteOptions.on("change", (event) => {
-      continueBtnTgl();
-      confirmAnswersTgl();
+      toggleContinueButtonn();
+      toggleConfirmAnswers();
       answerCounter();
     });
   }
 
-  function continueBtnTgl() {
+  function toggleContinueButtonn() {
     if (checkAnswers() === true) {
       // next step enabled
       $($continueButton).addClass("show").removeClass("hide")
@@ -65,7 +65,7 @@ $(() => {
   }
 
   // receive confirmed answers
-  function confirmAnswersTgl() {
+  function toggleConfirmAnswers() {
     $(".answer_input:checked").each(function() {
       let confirmedAnswer = $(".evote__confirm").find("#" + this.value);
       $(confirmedAnswer).removeClass("hide")
