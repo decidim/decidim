@@ -18,7 +18,8 @@ module Decidim::Admin
             user_groups_enabled: true,
             send_welcome_notification: false,
             admin_terms_of_use_body: { "en": Faker::Lorem.paragraph },
-            rich_text_editor_in_public_views: true
+            rich_text_editor_in_public_views: true,
+            enable_machine_translations: true
           }
         }
       end
@@ -74,6 +75,7 @@ module Decidim::Admin
 
           expect(organization.name).to eq("My super organization")
           expect(organization.rich_text_editor_in_public_views).to eq(true)
+          expect(organization.enable_machine_translations).to eq(true)
         end
       end
     end
