@@ -289,8 +289,8 @@ pt:
           accepted: Assinaturas suficientes
           all: Todos
           answered: Respondido
-          closed: Fechadas
-          open: Aberto
+          closed: Terminadas
+          open: Abertas
           rejected: Assinaturas insuficientes
         filter_type_values:
           all: Todos
