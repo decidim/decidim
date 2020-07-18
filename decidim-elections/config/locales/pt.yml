@@ -8,8 +8,8 @@ pt:
         title: Título
       election:
         description: Descrição
-        end_time: A votação termina às
-        start_time: A votação inicia-se às
+        end_time: Votação termina às
+        start_time: Votação inicia-se às
         subtitle: Subtítulo
         title: Título
       question:
@@ -54,10 +54,10 @@ pt:
         answers:
           create:
             invalid: Ocorreu um problema ao criar esta resposta
-            success: Resposta criada com sucesso
+            success: Resposta criada corretamente
           destroy:
             invalid: Ocorreu um problema ao eliminar esta resposta
-            success: Resposta eliminada com sucesso
+            success: Resposta eliminada corretamente
           edit:
             title: Editar resposta
             update: Atualizar resposta
@@ -72,10 +72,10 @@ pt:
         elections:
           create:
             invalid: Ocorreu um problema ao criar esta eleição
-            success: Eleição criada com sucesso
+            success: Eleição criada corretamente
           destroy:
             invalid: Ocorreu um problema ao eliminar esta eleição
-            success: Eleição eliminada com sucesso
+            success: Eleição eliminada corretamente
           edit:
             title: Editar eleição
             update: Atualizar eleição
@@ -86,7 +86,7 @@ pt:
             title: Nova eleição
           update:
             invalid: Ocorreu um problema ao atualizar esta eleição
-            success: Eleição atualizada com sucesso
+            success: Eleição atualizada corretamente
         models:
           answer:
             name: Resposta
@@ -97,10 +97,10 @@ pt:
         questions:
           create:
             invalid: Ocorreu um problema ao criar esta pergunta
-            success: Pergunta criada com sucesso
+            success: Pergunta criada corretamente
           destroy:
             invalid: Ocorreu um problema ao eliminar esta pergunta
-            success: Pergunta eliminada com sucesso
+            success: Pergunta eliminada corretamente
           edit:
             title: Editar pergunta
             update: Atualizar pergunta
@@ -119,7 +119,7 @@ pt:
             title: Título
         election:
           fields:
-            end_time: Terminar às
+            end_time: Termina às
             start_time: Inicia às
             title: Título
         question:
