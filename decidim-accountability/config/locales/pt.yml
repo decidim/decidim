@@ -58,7 +58,7 @@ pt:
           status:
             name: Estado
           timeline_entry:
-            name: Entrada de linha de tempo
+            name: Entrada do cronograma
         results:
           create:
             invalid: Ocorreu um problema ao criar este resultado
@@ -106,7 +106,7 @@ pt:
             title: Editar entrada
             update: Atualizar entrada
           index:
-            title: Registos da linha de tempo do projeto
+            title: Registos do cronograma do projeto
           new:
             create: Criar entrada
             title: Nova entrada
@@ -168,7 +168,7 @@ pt:
         show:
           stats:
             attendees: Participantes
-            back_to_resource: Voltar ao resultado
+            back_to_resource: Retroceder para o resultado
             comments: Comentários
             contributions: Contribuições
             last_edited_by: Última edição por
