@@ -44,8 +44,8 @@ pt:
         remember_me: Recorde-me
     models:
       decidim/amendment:
-        one: Emenda
-        other: Emendas
+        one: Modificação
+        other: Modificações
       decidim/user:
         one: Participante
         other: Participantes
@@ -105,10 +105,10 @@ pt:
         hide: "%{user_name} escondeu um recurso de tipo %{resource_type} no %{space_name} espaço"
         unreport: "%{user_name} não declarou um recurso de tipo %{resource_type} no %{space_name} espaço"
       newsletter:
-        create: "%{user_name} criou o boletim de notícias %{resource_name}"
-        delete: "%{user_name} eliminou o boletim de notícias %{resource_name}"
-        deliver: "%{user_name} entregou o boletim de notícias %{resource_name}"
-        update: "%{user_name} atualizou o boletim de notícias %{resource_name}"
+        create: "%{user_name} criou o boletim informativo %{resource_name}"
+        delete: "%{user_name} eliminou o informativo %{resource_name}"
+        deliver: "%{user_name} entregou o boletim informativo %{resource_name}"
+        update: "%{user_name} atualizou o boletim informativo %{resource_name}"
       oauth_application:
         create: "%{user_name} criou a aplicação OAuth %{resource_name}"
         delete: "%{user_name} eliminou a aplicação OAuth %{resource_name}"
@@ -143,85 +143,85 @@ pt:
       default_body: "<h2>TERMOS DE UTILIZAÇÃO DE ADMINISTRADOR</h2><p>Confiamos que recebeu as instruções habituais por parte do Administrador de Sistema local. Normalmente resume-se a estes três fatores:</p><ol><li>Respeitar a privacidade dos outros.</li><li>Pensar antes de clicar.</li><li>Um grande poder acarreta uma grande responsabilidade.</li></ol>"
     amendments:
       accepted:
-        error: Ocorreu um problema ao aceitar a emenda.
-        success: A emenda foi aceite corretamente.
+        error: Ocorreu um problema ao aceitar a modificação.
+        success: A modificação foi aceite corretamente.
       amendable:
-        amended_by: Alterada pela
-        button: Emendar %{model_name}
-        error: Ocorreu um erro ao emendar este recurso.
+        amended_by: Modificada por
+        button: Modificar %{model_name}
+        error: Ocorreu um erro ao modificar este recurso.
         help_text: Melhore este %{model_name} modificando os seus %{amendable_fields}
         promote_button: Promover a %{model_name}
-        promote_confirm_text: Tem a certeza de que deseja promover esta emenda?
-        promote_help_text: Pode promover esta emenda e publicá-la como um %{model_name} independente
-        section_heading: Emendas (%{count})
+        promote_confirm_text: Tem a certeza de que deseja promover esta retificação?
+        promote_help_text: Pode promover esta retificação e publicá-la como um %{model_name} independente
+        section_heading: Modificações (%{count})
       compare_draft:
         continue: Continuar
-        no_similars_found: Não foram encontradas emendas semelhantes.
-        title: Emendas Semelhantes
+        no_similars_found: Não foram encontradas retificações semelhantes.
+        title: Retificações Semelhantes
       created:
-        error: Ocorreu um erro ao criar o rascunho da emenda.
-        success: O rascunho da emenda foi criado corretamente.
+        error: Ocorreu um erro ao criar o rascunho da modificação.
+        success: O rascunho da modificação foi criado corretamente.
       destroy_draft:
-        error: Ocorreu um problema ao eliminar o rascunho da emenda.
-        success: O rascunho da emenda foi eliminado corretamente.
+        error: Ocorreu um problema ao eliminar o rascunho da modificação.
+        success: O rascunho da modificação foi eliminado corretamente.
       edit_draft:
         discard: Rejeitar este rascunho
-        discard_confirmation: Tem a certeza de que pretende rejeitar este rascunho da emenda?
+        discard_confirmation: Tem a certeza de que pretende rejeitar este rascunho da modificação?
         send: Pré-visualização
-        title: Editar Rascunho da Emenda
+        title: Editar Rascunho da Modificação
       emendation:
         actions:
           button_accept: Aceitar
           button_reject: Rejeitar
-          help_text: Reveja as alterações e aceite ou rejeite esta emenda. Uma notificação será enviada ao(s) seu(s) autor(es).
+          help_text: Reveja as alterações e aceite ou rejeite esta modificação. Uma notificação será enviada ao(s) seu(s) autor(es).
         announcement:
           accepted: |-
-            Esta emenda de %{amendable_type} %{proposal_link} foi aceite em <strong>%{date}</strong>.
+            Esta modificação de %{amendable_type} %{proposal_link} foi aceite em <strong>%{date}</strong>.
           evaluating: |-
-            Esta emenda de %{amendable_type} %{proposal_link}
+            Esta modificação de %{amendable_type} %{proposal_link}
             está sob avaliação.
           promoted: Promovido a %{amendable_type}.
-          rejected: "Esta emenda de %{amendable_type} %{proposal_link}\nfoi rejeitada em <strong>%{date}</strong>."
+          rejected: "Esta modificação de %{amendable_type} %{proposal_link}\nfoi rejeitada em <strong>%{date}</strong>."
           withdrawn: |-
-            Esta emenda de %{amendable_type} %{proposal_link}
+            Esta modificação de %{amendable_type} %{proposal_link}
             foi retirada pelo autor.
       new:
-        amendment_author: Autor da emenda
+        amendment_author: Autor da modificação
         send: Criar
-        title: Criar Rascunho da Emenda
+        title: Criar Rascunho da Modificação
       preview_draft:
         modify: Modificar
         publish: Publicar
-        title: Publicar Rascunho da Emenda
+        title: Publicar Rascunho da Modificação
       promoted:
-        error: Ocorreu um problema ao publicar a emenda como uma nova proposta
-        success: A emenda foi publicada corretamente como uma nova proposta
+        error: Ocorreu um problema ao publicar a modificação como uma nova proposta
+        success: A modificação foi publicada corretamente como uma nova proposta
       publish_draft:
-        error: Ocorreu um problema a publicar a emenda.
-        success: Emenda publicada corretamente.
+        error: Ocorreu um problema a publicar a modificação.
+        success: Modificação publicada corretamente.
       rejected:
-        error: Ocorreu um problema ao rejeitar esta emenda, por favor tente novamente mais tarde
-        success: A emenda foi rejeitada corretamente
+        error: Ocorreu um problema ao rejeitar esta modificação, por favor tente novamente mais tarde
+        success: A modificação foi rejeitada corretamente
       review:
         back: Voltar
-        heading: Rever a emenda
-        help_text: Está a rever uma emenda a %{model_name}
-        send: Aceitar emenda
+        heading: Rever a modificação
+        help_text: Está a rever uma modificação a %{model_name}
+        send: Aceitar modificação
       update_draft:
-        error: Ocorreu um problema ao atualizar o rascunho da emenda.
-        success: Rascunho da emenda atualizado corretamente.
+        error: Ocorreu um problema ao atualizar o rascunho da modificação.
+        success: Rascunho da modificação atualizado corretamente.
       visibility_options:
-        all: As emendas estão visíveis para todos
-        participants: As emendas estão visíveis apenas para os respetivos autores
+        all: As modificações estão visíveis para todos
+        participants: As modificações estão visíveis apenas para os respetivos autores
       withdraw:
-        error: Ocorreu um erro ao retirar a emenda
-        success: A emenda foi retirada corretamente
+        error: Ocorreu um erro ao retirar a modificação
+        success: A modificação foi retirada corretamente
       wizard_step_form:
         steps:
-          '1': Criar a sua emenda
-          '2': Comparar a sua emenda
-          '3': Concluir a sua emenda
-          '4': Publicar a sua emenda
+          '1': Criar a sua modificação
+          '2': Comparar a sua modificação
+          '3': Concluir a sua modificação
+          '4': Publicar a sua modificação
     anonymous_user: Anônimo
     application:
       collection:
@@ -309,7 +309,7 @@ pt:
         name: Componente Fictício
         settings:
           global:
-            amendments_enabled: Emendas ativadas
+            amendments_enabled: Modificações ativadas
             comments_enabled: Comentários ativados
             dummy_global_attribute_1: Atributo Fictício 1
             dummy_global_attribute_2: Atributo Fictício 2
@@ -317,10 +317,10 @@ pt:
             enable_pads_creation: Ativar criação de blocos
             resources_permissions_enabled: Permissões de recursos ativadas
           step:
-            amendment_creation_enabled: Criação de emendas ativada
-            amendment_promotion_enabled: Promoção de emendas ativada
-            amendment_reaction_enabled: Reação a emendas ativada
-            amendments_visibility: Visibilidade da emenda
+            amendment_creation_enabled: Criação de modificação ativada
+            amendment_promotion_enabled: Promoção de modificação ativada
+            amendment_reaction_enabled: Reação a modificação ativada
+            amendments_visibility: Visibilidade da modificação
             comments_blocked: Comentários bloqueados
             dummy_step_attribute_1: Passo de Atributo Fictício 1
             dummy_step_attribute_2: Passo de Atributo Fictício 2
@@ -374,7 +374,7 @@ pt:
       registrations:
         new:
           already_have_an_account?: Já tem uma conta?
-          newsletter: Receber um boletim de notícias ocasional com informações relevantes
+          newsletter: Receber um boletim informativo ocasional com informações relevantes
           newsletter_title: Permissão de contacto
           nickname_help: O seu pseudónimo em %{organization}
           password_help: "%{minimun_characters} caracteres no mínimo, não deverá ser muito comum (por ex. 123456) e deverá ser diferente da sua alcunha e do seu e-mail."
@@ -400,13 +400,13 @@ pt:
             close_modal: Fechar modal
             uncheck: Manter desmarcado
           notice: |-
-            <p>Tem a certeza de que não deseja receber um boletim de notícias?<br>
-            Por favor, considere novamente marcar a caixa de seleção do boletim de notícias abaixo.<br>
+            <p>Tem a certeza de que não deseja receber um boletim informativo?<br>
+            Por favor, considere novamente marcar a caixa de seleção do boletim informativo abaixo.<br>
             É muito importante para nós que receba e-mails ocasionais para que possamos fazer anúncios importantes, pode sempre alterar isso na sua página de configurações de notificações.</p>
             <p>Se não marcar a caixa, pode estar a perder informações relevantes sobre novas oportunidades participativas na plataforma.<br>
             Se ainda assim quiser evitar receber boletins de notícias, entendemos perfeitamente a sua decisão.</p>
             <p>Obrigado por ler isto!</p>
-          title: Notificações do boletim de notícias
+          title: Notificações do boletim informativo
         omniauth_buttons:
           or: Ou
     doorkeeper:
@@ -436,132 +436,132 @@ pt:
       amendments:
         amendment_accepted:
           affected_user:
-            email_intro: 'Uma emenda foi aceite para %{amendable_title}. Pode vê-la a partir desta página:'
+            email_intro: 'Uma modificação foi aceite para %{amendable_title}. Pode vê-la a partir desta página:'
             email_outro: Recebeu esta notificação por ser um autor de %{amendable_title}.
-            email_subject: Emenda aceite para %{amendable_title} de %{emendation_author_nickname}
+            email_subject: Modificação aceite para %{amendable_title} de %{emendation_author_nickname}
             notification_title: A <a href="%{emendation_path}">emenda</a> criada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi aceite para <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
-            email_intro: 'Uma emenda foi aceite para %{amendable_title}. Pode vê-la a partir desta página:'
+            email_intro: 'Uma modificação foi aceite para %{amendable_title}. Pode vê-la a partir desta página:'
             email_outro: Recebeu esta notificação porque segue %{amendable_title}. Pode parar de receber notificações a partir da hiperligação anterior.
-            email_subject: Emenda aceite para %{amendable_title} por %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">emenda</a> criada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi aceite para <a href="%{amendable_path}">%{amendable_title}</a>.
+            email_subject: Modificação aceite para %{amendable_title} por %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">modificação</a> criada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi aceite para <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
-            email_intro: 'Uma nova emenda foi criada para %{amendable_title}. Pode vê-la a partir desta página:'
+            email_intro: 'Uma nova modificação foi criada para %{amendable_title}. Pode vê-la a partir desta página:'
             email_outro: Recebeu esta notificação por ser um autor de %{amendable_title}.
-            email_subject: Nova emenda para %{amendable_title}
-            notification_title: Uma nova emenda foi criada para <a href="%{amendable_path}">%{amendable_title}</a>.
+            email_subject: Nova modificação para %{amendable_title}
+            notification_title: Uma nova modificação foi criada para <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
-            email_intro: 'Uma nova emenda foi criada para %{amendable_title}. Pode vê-la a partir desta página:'
+            email_intro: 'Uma nova modificação foi criada para %{amendable_title}. Pode vê-la a partir desta página:'
             email_outro: Recebeu esta notificação porque segue %{amendable_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
             email_subject: Nova alteração para %{amendable_title}
-            notification_title: Uma nova emenda foi criada para <a href="%{amendable_path}">%{amendable_title}</a>.
+            notification_title: Uma nova modificação foi criada para <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_promoted:
           affected_user:
-            email_intro: 'Uma emenda rejeitada por %{amendable_title} foi publicada como um novo %{amendable_type}. Pode vê-la a partir desta página:'
+            email_intro: 'Uma modificação rejeitada por %{amendable_title} foi publicada como um novo %{amendable_type}. Pode vê-la a partir desta página:'
             email_outro: Recebeu esta notificação por ser um autor de %{amendable_title}.
-            email_subject: Uma emenda de %{emendation_author_nickname} foi publicada como um novo %{amendable_type}
-            notification_title: Uma <a href="%{emendation_path}">emenda rejeitada</a> para <a href="%{amendable_path}">%{amendable_title}</a> foi publicada como um novo %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_subject: Uma modificação de %{emendation_author_nickname} foi publicada como um novo %{amendable_type}
+            notification_title: Uma <a href="%{emendation_path}">modificação rejeitada</a> para <a href="%{amendable_path}">%{amendable_title}</a> foi publicada como um novo %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
-            email_intro: 'Uma emenda rejeitada de %{amendable_title} foi publicada como um novo %{amendable_type}. Pode vê-la a partir desta página:'
+            email_intro: 'Uma modificação rejeitada de %{amendable_title} foi publicada como um novo %{amendable_type}. Pode vê-la a partir desta página:'
             email_outro: Recebeu esta notificação porque segue %{amendable_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
-            email_subject: Uma emenda de %{emendation_author_nickname} foi publicada como um novo %{amendable_type}
-            notification_title: Uma <a href="%{emendation_path}">emenda rejeitada</a> de <a href="%{amendable_path}">%{amendable_title}</a> foi publicada como um novo %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_subject: Uma modificação de %{emendation_author_nickname} foi publicada como um novo %{amendable_type}
+            notification_title: Uma <a href="%{emendation_path}">modificação rejeitada</a> de <a href="%{amendable_path}">%{amendable_title}</a> foi publicada como um novo %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
-            email_intro: 'Uma emenda foi rejeitada por %{amendable_title}. Pode vê-la a partir desta página:'
+            email_intro: 'Uma modificação foi rejeitada por %{amendable_title}. Pode vê-la a partir desta página:'
             email_outro: Recebeu esta notificação por ser um autor de %{amendable_title}.
-            email_subject: Emenda de %{amendable_title} rejeitada por %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">emenda</a> criada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi rejeitada por <a href="%{amendable_path}">%{amendable_title}</a>.
+            email_subject: Modificação de %{amendable_title} rejeitada por %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">modificação</a> criada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi rejeitada por <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
-            email_intro: 'Uma emenda foi rejeitada por %{amendable_title}. Pode vê-la a partir desta página:'
+            email_intro: 'Uma modificação foi rejeitada por %{amendable_title}. Pode vê-la a partir desta página:'
             email_outro: Recebeu esta notificação porque segue %{amendable_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
-            email_subject: Emenda de %{amendable_title} rejeitada por %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">emenda</a> criada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi rejeitada por <a href="%{amendable_path}">%{amendable_title}</a>.
+            email_subject: Modificação de %{amendable_title} rejeitada por %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">modificação</a> criada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi rejeitada por <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: 'Um novo documento foi adicionado a %{resource_title}. Pode vê-lo a partir desta página:'
-          email_outro: Recebeu esta notificação porque está segue %{resource_title}. Pode parar de receber notificações após o link anterior.
+          email_outro: Recebeu esta notificação porque segue %{resource_title}. Pode parar de receber notificações após o link anterior.
           email_subject: Uma atualização a %{resource_title}
-          notification_title: Um <a href="%{resource_path}">new document</a> foi adicionado a <a href="%{attached_to_url}">%{resource_title}</a>
+          notification_title: Um <a href="%{resource_path}">novo documento</a> foi adicionado a <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: 'O componente %{resource_title} agora está ativo para %{participatory_space_title}. Você pode vê-lo a partir desta página:'
-          email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
-          email_subject: Uma atualização para %{participatory_space_title}
-          notification_title: O componente %{resource_title} agora está ativo para <a href="%{resource_path}">%{participatory_space_title}</a>
+          email_intro: 'O componente %{resource_title} está agora ativo para %{participatory_space_title}. Pode vê-lo a partir desta página:'
+          email_outro: Recebeu esta notificação porque segue %{participatory_space_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
+          email_subject: Uma atualização a %{participatory_space_title}
+          notification_title: O componente %{resource_title} está agora ativo para <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Olá %{user_name},
-        email_intro: 'Houve uma atualização para "%{resource_title}". Você pode vê-lo a partir desta página:'
-        email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Você pode ignorá-lo do link anterior.
-        email_subject: Uma atualização para %{resource_title}
+        email_intro: 'Ocorreu uma atualização a "%{resource_title}". Pode vê-la a partir desta página:'
+        email_outro: Recebeu esta notificação porque segue "%{resource_title}". Pode ignorá-la a partir da hiperligação anterior.
+        email_subject: Uma atualização a %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Bom trabalho! Você ganhou o <a href="%{resource_path}">%{badge_name} badge</a> (nível %{current_level}).
-          email_outro: Você recebeu esta notificação porque fez uma atividade em nosso site.
-          email_subject: 'Você ganhou um novo selo: %{badge_name}!'
-          notification_title: Bom trabalho! Você ganhou o <a href="%{resource_path}">%{badge_name} badge</a> (nível %{current_level}).
+          email_intro: Parabéns! Ganhou o <a href="%{resource_url}">distintivo %{badge_name}</a> (nível %{current_level}).
+          email_outro: Recebeu esta notificação porque realizou uma atividade no nosso sítio.
+          email_subject: 'Ganhou um novo distintivo: %{badge_name}!'
+          notification_title: Parabéns! Ganhou o <a href="%{resource_path}">distintivo %{badge_name}</a> (nível %{current_level}).
         level_up:
-          email_intro: Bom trabalho! Você atingiu o nível %{current_level} no emblema <a href="%{resource_path}">%{badge_name}</a>!
-          email_outro: Você recebeu esta notificação porque fez uma atividade em nosso site.
-          email_subject: Você atingiu o nível %{current_level} no %{badge_name} crachá!
-          notification_title: Bom trabalho! Você atingiu o nível %{current_level} no emblema <a href="%{resource_path}">%{badge_name}</a>!
+          email_intro: Parabéns! Atingiu o nível %{current_level} no <a href="%{resource_url}">distintivo %{badge_name}</a>!
+          email_outro: Recebeu esta notificação porque realizou uma atividade no nosso sítio.
+          email_subject: Atingiu o nível %{current_level} no distintivo %{badge_name}!
+          notification_title: Parabéns! Atingiu o nível %{current_level} no <a href="%{resource_path}">distintivo %{badge_name}</a>!
       groups:
         demoted_membership:
-          email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> removeu seus direitos de administrador para esse grupo.
-          email_outro: Você recebeu esta notificação porque é um membro desse grupo.
-          email_subject: Você não é mais um administrador do grupo %{user_group_name}!
-          notification_title: Você não é mais um administrador do grupo <a href="%{resource_path}">%{user_group_name}</a>.
+          email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> removeu os seus direitos de administrador desse grupo.
+          email_outro: Recebeu esta notificação porque é um membro desse grupo.
+          email_subject: Deixou de ser um administrador do grupo %{user_group_name}!
+          notification_title: Deixou de ser administrador do grupo <a href="%{resource_path}">%{user_group_name}</a>.
         invited_to_group:
-          email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> convidou você para participar.
-          email_outro: Você recebeu esta notificação porque foi convidado para um grupo. Por favor, verifique a aba Grupos no seu perfil para aprová-lo.
-          email_subject: Você foi convidado para participar do grupo %{user_group_name}!
-          notification_title: Você foi convidado a participar do grupo <a href="%{resource_path}">%{user_group_name}</a> . Verifique os <a href="%{groups_profile_tab_path}">Grupos página</a> no seu perfil para aprová-lo!
+          email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> convidou-o a participar.
+          email_outro: Recebeu esta notificação porque foi convidado para um grupo. Por favor, verifique a aba Grupos no seu perfil para aprová-la.
+          email_subject: Foi convidado(a) para participar no grupo %{user_group_name}!
+          notification_title: Foi convidado(a) a participar no grupo <a href="%{resource_path}">%{user_group_name}</a>. Verifique a <a href="%{groups_profile_tab_path}">página de Grupos</a> no seu perfil para aprovar!
         join_request_accepted:
-          email_intro: Parabéns! Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> aceitou sua solicitação para participar.
-          email_outro: Você recebeu esta notificação porque sua solicitação de associação foi atualizada.
-          email_subject: Você foi aceito no grupo %{user_group_name}!
-          notification_title: Você foi aceito no grupo <a href="%{resource_path}">%{user_group_name}</a>.
+          email_intro: Parabéns! Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> aceitou o seu pedido para participar.
+          email_outro: Recebeu esta notificação porque o seu pedido de participação foi atualizado.
+          email_subject: Foi aceite no grupo %{user_group_name}!
+          notification_title: Foi aceite no grupo <a href="%{resource_path}">%{user_group_name}</a>.
         join_request_created:
-          email_intro: Alguém pediu para participar do grupo %{user_group_name} . Você pode aceitar ou rejeitá-la a partir de <a href="%{resource_url}">os membros do grupo página</a>.
-          email_outro: Você recebeu esta notificação porque pode gerenciar o grupo %{user_group_name}.
-          email_subject: Alguém pediu para entrar no grupo %{user_group_name}!
-          notification_title: Alguém pediu para participar do grupo %{user_group_name} . Você pode aceitar ou rejeitá-la a partir de <a href="%{resource_path}">os membros do grupo página</a>.
+          email_intro: Alguém pediu para participar no grupo %{user_group_name}. Pode aceitar ou rejeitar a partir da <a href="%{resource_url}">página de membros do grupo</a>.
+          email_outro: Recebeu esta notificação porque pode gerir o grupo %{user_group_name}.
+          email_subject: Alguém pediu para aderir ao grupo %{user_group_name}!
+          notification_title: Alguém pediu para aderir ao grupo %{user_group_name}. Pode aceitar ou rejeitar a partir da <a href="%{resource_path}">página de membros do grupo</a>.
         join_request_rejected:
-          email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> rejeitou o seu pedido para se juntar a ele.
-          email_outro: Você recebeu esta notificação porque sua solicitação de associação foi atualizada.
-          email_subject: Sua solicitação para participar do grupo %{user_group_name} foi rejeitada.
-          notification_title: Sua solicitação para participar do grupo <a href="%{resource_path}">%{user_group_name}</a> foi rejeitada.
+          email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> rejeitou o seu pedido de adesão.
+          email_outro: Recebeu esta notificação porque o seu pedido de adesão foi atualizado.
+          email_subject: O seu pedido de adesão ao grupo %{user_group_name} foi rejeitado!
+          notification_title: O seu pedido de adesão ao grupo <a href="%{resource_path}">%{user_group_name}</a> foi rejeitado.
         promoted_to_admin:
-          email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> deu a você direitos de administrador para esse grupo.
-          email_outro: Você recebeu esta notificação porque é um membro desse grupo.
-          email_subject: Você é agora um administrador do grupo %{user_group_name}!
-          notification_title: Você é agora um administrador do grupo <a href="%{resource_path}">%{user_group_name}</a>.
+          email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> deu-lhe direitos de administrador desse grupo.
+          email_outro: Recebeu esta notificação porque é um membro desse grupo.
+          email_subject: Agora é um(a) administrador(a) do grupo %{user_group_name}!
+          notification_title: Agora é um(a) administrador(a) do grupo <a href="%{resource_path}">%{user_group_name}</a>.
         removed_from_group:
-          email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> removeu você dele.
-          email_outro: Você recebeu esta notificação porque era um membro desse grupo.
-          email_subject: Você foi removido do grupo %{user_group_name}!
-          notification_title: Você foi removido do grupo <a href="%{resource_path}">%{user_group_name}</a>.
+          email_intro: Um(a) administrador(a) do grupo <a href="%{resource_url}">%{user_group_name}</a> removeu-o(a) do mesmo.
+          email_outro: Recebeu esta notificação porque era um membro desse grupo.
+          email_subject: Foi removido(a) do grupo %{user_group_name}!
+          notification_title: Foi removido(a) do grupo <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: Ocorreu um evento em <a href="%{resource_path}">%{resource_title}</a>.
       users:
         profile_updated:
-          email_intro: O <a href="%{resource_url}">profile page</a> de %{name} (%{nickname}), quem você está seguindo, foi atualizado.
-          email_outro: Você recebeu esta notificação porque está seguindo %{nickname}. Você pode parar de receber notificações após o link anterior.
+          email_intro: A <a href="%{resource_url}">página de perfil</a> de %{name} (%{nickname}), que você segue, foi atualizada.
+          email_outro: Recebeu esta notificação porque segue %{nickname}. Pode parar de receber notificações seguindo a hiperligação anterior.
           email_subject: "%{nickname} atualizaram seu perfil"
-          notification_title: O <a href="%{resource_path}">profile page</a> de %{name} (%{nickname}), quem você está seguindo, foi atualizado.
+          notification_title: A <a href="%{resource_path}">página de perfil</a> de %{name} (%{nickname}), que você segue, foi atualizada.
     export_mailer:
       data_portability_export:
-        click_button: 'Clique no botão seguinte para baixar seus dados. <br/> Você terá o arquivo disponível até %{date}.'
-        download: Baixar
+        click_button: 'Clique no botão seguinte para transferir os seus dados. <br/> Terá o ficheiro disponível até %{date}. <br/> Irá precisar do <a href=''https://www.7-zip.org/''>7-Zip</a> para abri-lo. Palavra-passe: %{password}'
+        download: Transferir
       export:
-        ready: Encontre em anexo uma versão com zíper da sua exportação.
-      subject: Sua exportação "%{name}" está pronta
+        ready: Por favor, encontre em anexo uma versão zip da sua exportação.
+      subject: A sua exportação "%{name}" está pronta
     filters:
       linked_classes:
         all: Todos
         collaborative_draft: Rascunho colaborativo
-        dummy_resource: Recursos falsos
+        dummy_resource: Recursos fictícios
         meeting: Reuniões
         project: Projetos
         proposal: Propostas
@@ -570,22 +570,22 @@ pt:
       check: Verifique a impressão digital
       explanation: O texto abaixo é uma representação encurtada e hash deste conteúdo. É útil garantir que o conteúdo não tenha sido adulterado, já que uma única modificação resultaria em um valor totalmente diferente.
       online_calculator_name: Calculadora MD5 online
-      replicate_help: Essa impressão digital é calculada usando um algoritmo de hashing SHA256. Para replicar você mesmo, você pode usar um %{online_calculator_link} e copiar e colar os dados de origem.
-      source: Fonte
+      replicate_help: Esta impressão digital é calculada usando um algoritmo de hashing SHA256. Para replicá-la, pode usar uma %{online_calculator_link} e copiar e colar os dados de origem.
+      source: Origem
       title: Impressão digital
       value: Valor
     followers:
-      no_followers: Ainda não há seguidores
+      no_followers: Ainda não há seguidores.
     following:
-      no_followings: Não segue ninguém ou nada ainda.
+      no_followings: Ainda não segue alguém ou algo.
     follows:
       create:
         button: Seguir
-        error: Ocorreu um erro ao seguir este recurso.
+        error: Ocorreu um problema ao seguir este recurso.
         participatory_space: Já segue o espaço participativo
       destroy:
         button: Parar de seguir
-        error: Ocorreu um erro ao seguir esse recurso.
+        error: Ocorreu um problema ao seguir este recurso.
     forms:
       current_file: Ficheiro atual
       current_image: Imagem actual
@@ -597,159 +597,159 @@ pt:
         error: Há um erro neste campo.
       remove_this_file: Remover este ficheiro
     gamification:
-      all_badges_link: Veja todos os crachás disponíveis.
+      all_badges_link: Ver todos os distintivos disponíveis.
       badges:
         followers:
           conditions:
-            - Ser ativo e seguir outras pessoas certamente fará com que outras pessoas o sigam.
-          description: Esse selo é concedido quando você alcança um certo número de seguidores. %{organization_name} é uma rede social e política, tecer sua web para se comunicar com outras pessoas na plataforma.
+            - Ser ativo(a) e seguir outras pessoas certamente fará com que outras pessoas o(a) sigam.
+          description: Esse distintivo é-lhe concedido quando alcança um certo número de seguidores. %{organization_name} é uma rede social e política, teça a sua rede para comunicar com outras pessoas na plataforma.
           description_another: Esse usuário possui %{score} seguidores.
-          description_own: "%{score} usuários estão seguindo você."
+          description_own: "%{score} pessoas seguem-no(a)."
           name: Seguidores
-          next_level_in: Receba mais %{score} usuários para seguir você para alcançar o próximo nível!
-          unearned_another: Este usuário ainda não possui seguidores.
-          unearned_own: Você ainda não tem seguidores.
+          next_level_in: Obtenha mais %{score} pessoas para segui-lo(a) para alcançar o próximo nível!
+          unearned_another: Este participante ainda não possui seguidores.
+          unearned_own: Ainda não tem seguidores.
         index:
-          badge_title: "%{name} crachá"
-          how: Como você pode ganhar?
-          page_description: Crachás são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará distintivos diferentes. Aqui está a lista de crachás e algumas maneiras de ganhá-los.
+          badge_title: "Distintivo %{name}"
+          how: Como pode ganhar
+          page_description: Distintivos são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, ganhará distintivos diferentes. Aqui está a lista de distintivos e algumas maneiras de ganhá-los.
           title: Distintivos
         invitations:
           conditions:
-            - Use o link "convidar amigos" na sua página de usuário para convidar seus amigos
-            - Personalize, se quiser, a mensagem que você está enviando
-            - Você vai subir de nível enviando convites e registrando-os.
-          description: Esse selo é concedido quando você convidou algumas pessoas e elas gastaram um pouco de tempo para se inscrever em %{organization_name} e se tornarem participantes. Obrigado por fazer %{organization_name} a conhecer aos outros e ajudando a expandir a comunidade!
-          description_another: Este usuário convidou %{score} usuários.
-          description_own: Você convidou %{score} usuários.
+            - Use a hiperligação "convidar amigos" na sua página de utilizador para convidar os seus amigos
+            - Personalize, se quiser, a mensagem que está a enviar
+            - Subirá de nível ao enviar convites e obtendo registos.
+          description: Este distintivo é concedido quando convidou algumas pessoas e elas despenderam um pouco de tempo para se inscrever em %{organization_name} e se tornarem participantes. Obrigado por dar a conhecer %{organization_name} aos outros e ajudar a expandir a comunidade!
+          description_another: Este participante convidou %{score} utilizadores.
+          description_own: Convidou %{score} utilizadores.
           name: Convites
-          next_level_in: Convide mais %{score} usuários para alcançar o próximo nível!
-          unearned_another: Este usuário ainda não convidou nenhum usuário.
-          unearned_own: Você não convidou nenhum usuário ainda.
-      description: Crachás são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará distintivos diferentes.
+          next_level_in: Convide mais %{score} utilizadores para alcançar o próximo nível!
+          unearned_another: Este participante ainda não convidou alguém.
+          unearned_own: Ainda não convidou alguém.
+      description: Distintivos são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, ganhará distintivos diferentes.
       level: Nível %{level}
-      reached_top: Você atingiu o nível superior para este selo.
+      reached_top: Atingiu o nível superior para este distintivo.
     group_admins:
       actions:
-        are_you_sure: Você tem certeza? Isso não removerá o usuário do grupo.
-        demote_admin: Remover admin
+        are_you_sure: Tem a certeza? Isto não removerá o participante do grupo.
+        demote_admin: Remover administrador
       demote:
-        error: Ocorreu um erro ao remover este usuário da lista de administradores
-        success: Usuário removido do administrador com sucesso
+        error: Ocorreu um problema ao remover este participante da lista de administradores
+        success: Participante removido de administrador corretamente
       index:
         current_admins: 'Administradores atuais:'
-        manage_admins: Gerenciar administradores
+        manage_admins: Gerir administradores
     group_invites:
       accept:
-        error: Houve um erro ao aceitar este convite
-        success: Convite aceito com sucesso
+        error: Ocorreu um problema ao aceitar este convite
+        success: Convite aceite corretamente
       accept_invitation: Aceitar
-      accept_or_reject_group_invitations: 'Os seguintes grupos convidaram você para se juntar a eles. Aceite ou rejeite seus pedidos:'
+      accept_or_reject_group_invitations: 'Os seguintes grupos convidaram-no(a) para se juntar a eles. Aceite ou rejeite os seus pedidos:'
       index:
         invite: Convite
-        invite_user: Convidar um usuário
+        invite_user: Convidar um participante
       invite:
-        error: Houve um erro ao convidar este usuário
-        success: Usuário convidado com sucesso
+        error: Ocorreu um problema ao convidar este participante
+        success: Participante convidado corretamente
       reject:
-        error: Houve um erro ao rejeitar este convite
-        success: Convite rejeitado com sucesso
+        error: Ocorreu um problema ao rejeitar este convite
+        success: Convite rejeitado corretamente
       reject_invitation: Rejeitar
     group_members:
       accept:
-        error: Ocorreu um erro ao aceitar este pedido de adesão
-        success: Pedido de adesão aceite com sucesso
+        error: Ocorreu um problema ao aceitar este pedido de adesão
+        success: Pedido de adesão aceite corretamente
       actions:
-        are_you_sure: Você tem certeza?
-        promote_to_admin: Faça admin
-        remove_from_group: Remover usuário
+        are_you_sure: Tem a certeza?
+        promote_to_admin: Tornar administrador
+        remove_from_group: Remover participante
       index:
         current_members_without_admins: 'Membros atuais (sem administradores):'
-        manage_members: Gerenciar membros
+        manage_members: Gerir membros
       promote:
-        error: Ocorreu um erro ao promover este usuário
-        success: Usuário promovido com sucesso
+        error: Ocorreu um problema ao promover este participante
+        success: Participante promovido corretamente
       reject:
-        error: Ocorreu um erro ao rejeitar este pedido de associação
-        success: Pedido de associação rejeitado com sucesso
+        error: Ocorreu um problema ao rejeitar este pedido de adesão
+        success: Pedido de adesão rejeitado corretamente
       remove:
-        error: Ocorreu um erro ao remover este usuário do grupo
-        success: Usuário removido do grupo com sucesso
+        error: Ocorreu um erro ao remover este participante do grupo
+        success: Participante removido do grupo corretamente
     groups:
       actions:
-        are_you_sure: Você tem certeza?
+        are_you_sure: Tem a certeza?
       create:
-        error: Houve um problema ao criar o grupo
-        success: Grupo criado com sucesso
+        error: Ocorreu um problema ao criar o grupo
+        success: Grupo criado corretamente
       edit:
         edit_user_group: Editar grupo
         update_user_group: Atualizar grupo
       form:
         document_number_help: Não use traços nem espaços
         email_help: E-mail da sua organização, associação, coletivo, grupo etc.
-        fill_in_for_verification: 'Preencha estes campos se quiser que seu grupo seja verificado:'
+        fill_in_for_verification: 'Preencha estes campos se quiser que o seu grupo seja verificado:'
         name_help: Nome da sua organização, associação, coletivo, grupo etc.
-        nickname_help: Nome de usuário da sua organização, associação, coletivo, grupo, etc. Não use espaços nem acentos.
+        nickname_help: Alcunha da sua organização, associação, coletivo, grupo, etc. Não use espaços nem acentos.
         phone_help: Não use traços nem espaços
       join:
-        error: Houve um problema ao ingressar no grupo
-        success: Juntar pedido criado com sucesso. Um administrador analisará sua solicitação antes de aceitá-lo para o grupo.
+        error: Ocorreu um problema ao aderir ao grupo
+        success: Pedido de adesão criado corretamente. Um administrador analisará o seu pedido antes de aceitá-lo(a) no grupo.
       leave:
-        error: Houve um problema ao sair do grupo
-        success: Grupo saiu com sucesso.
+        error: Ocorreu um problema ao sair do grupo
+        success: Grupo abandonado corretamente.
       members:
-        accept_or_reject_join_requests: 'Os seguintes usuários se inscreveram para participar desse grupo. Aceite ou rejeite seus pedidos:'
+        accept_or_reject_join_requests: 'Os seguintes utilizadores pediram para aderir a este grupo. Aceite ou rejeite os seus pedidos:'
         accept_request: Aceitar
         reject_request: Rejeitar
       new:
         create_user_group: Criar grupo
         new_user_group: Novo grupo
-        subtitle: Crie um grupo e convide outros usuários a participar para participar de um nível coletivo.
-      no_user_groups: Não pertence a nenhum grupo ainda.
+        subtitle: Crie um grupo e convide outros utilizadores a aderir para participarem a um nível coletivo.
+      no_user_groups: Ainda não pertence a nenhum grupo.
       roles:
         admin: Administrador
-        creator: O Criador
+        creator: Criador
         member: Membro
       update:
-        error: Houve um problema ao atualizar o grupo
-        success: Grupo atualizado com sucesso
+        error: Ocorreu um problema ao atualizar o grupo
+        success: Grupo atualizado corretamente
     help:
       main_topic:
         default_page:
-          content: "<p>Em %{organization} você pode participar e decidir sobre diferentes tópicos, através dos espaços que você vê no menu superior: Processos, Assembleias, Iniciativas, Consultas.</p> <p>Dentro de cada um você encontrará diferentes opções para participar: fazer propostas - individualmente ou com outras pessoas -, participar de debates, priorizar projetos a serem implementados, participar de reuniões presenciais e outras ações.</p>\n"
+          content: "<p>Em %{organization} pode participar e decidir sobre diferentes tópicos, através dos espaços que vê no menu superior: Processos, Reuniões, Iniciativas, Consultas.</p> <p>Dentro de cada um encontrará diferentes opções para participar: fazer propostas - individualmente ou com outras pessoas -, participar em debates, priorizar projetos a serem implementados, participar em reuniões presenciais e outras ações.</p>\n"
           title: O que posso fazer em %{organization}?
-        description: Leia mais sobre %{organization}
+        description: Ler mais sobre %{organization}
         title: Ajuda Geral
     last_activities:
       activities:
         no_activities_warning: Nenhuma atividade
       all: Todos os tipos de atividade
       index:
-        last_activity: Ultima atividade
+        last_activity: Última atividade
         resource_type: Tipo
     log:
       base_presenter:
-        create: "%{user_name} criado %{resource_name}"
-        create_with_space: "%{user_name} criado %{resource_name} em %{space_name}"
-        delete: "%{user_name} excluído %{resource_name}"
-        delete_with_space: "%{user_name} excluído %{resource_name} em %{space_name}"
+        create: "%{user_name} criou %{resource_name}"
+        create_with_space: "%{user_name} criou %{resource_name} em %{space_name}"
+        delete: "%{user_name} eliminou %{resource_name}"
+        delete_with_space: "%{user_name} eliminou %{resource_name} em %{space_name}"
         unknown_action: "%{user_name} executou alguma ação em %{resource_name}"
         unknown_action_with_space: "%{user_name} executou alguma ação em %{resource_name} em %{space_name}"
-        update: "%{user_name} atualizado %{resource_name}"
-        update_with_space: "%{user_name} atualizado %{resource_name} em %{space_name}"
+        update: "%{user_name} atualizou %{resource_name}"
+        update_with_space: "%{user_name} atualizou %{resource_name} em %{space_name}"
       value_types:
         area_presenter:
-          not_found: 'A área não foi encontrada no banco de dados (ID: %{id})'
+          not_found: 'A área não foi encontrada na base de dados (ID: %{id})'
         area_type_presenter:
-          not_found: 'O tipo de área não foi encontrado no banco de dados (ID: %{id})'
+          not_found: 'O tipo de área não foi encontrado na base de dados (ID: %{id})'
         scope_presenter:
-          not_found: 'O escopo não foi encontrado no banco de dados (ID: %{id})'
+          not_found: 'O âmbito não foi encontrado na base de dados (ID: %{id})'
         scope_type_presenter:
-          not_found: 'O tipo de escopo não foi encontrado no banco de dados (ID: %{id})'
+          not_found: 'O tipo de âmbito não foi encontrado na base de dados (ID: %{id})'
     managed_users:
-      expired_session: A sessão de representação atual expirou.
+      expired_session: A sessão atual de administração do participante expirou.
     members:
-      no_members: Este grupo de usuários ainda não possui nenhum membro.
+      no_members: Este grupo ainda não possui nenhum membro.
     menu:
       help: Socorro
       home: Inicio
@@ -757,85 +757,85 @@ pt:
       conversation_mailer:
         new_conversation:
           greeting: Olá, %{recipient}!
-          intro: "%{sender} iniciou uma nova conversa com você. Clique aqui para vê-lo:"
-          outro: Aproveite decidim!
-          subject: "%{sender} iniciou uma conversa com você"
+          intro: "%{sender} iniciou uma nova conversa consigo. Clique aqui para vê-la:"
+          outro: Usufrua do decidim!
+          subject: "%{sender} iniciou uma conversa consigo"
         new_message:
           greeting: Olá, %{recipient}!
-          intro: "%{sender} publicou novas mensagens na sua conversa. Clique aqui para vê-los:"
-          outro: Aproveite decidim!
-          subject: Você tem novas mensagens de %{sender}
+          intro: "%{sender} publicou novas mensagens na sua conversa. Clique aqui para vê-las:"
+          outro: Usufrua do decidim!
+          subject: Tem novas mensagens de %{sender}
       conversations:
         create:
-          error: Conversa não iniciada. Tente mais tarde
+          error: Conversa não iniciada. Tente novamente mais tarde
         index:
-          no_conversations: Ainda não há conversas
+          no_conversations: Ainda não tem conversas
           title: Conversas
         reply:
           send: Mandar
-          title: Resposta
+          title: Responder
         show:
           title: Conversa com %{usernames}
         start:
           send: Enviar
-          title: Comece uma conversa
+          title: Iniciar uma conversa
         update:
-          error: Mensagem não enviada. Tente mais tarde
+          error: Mensagem não enviada. Tente novamente mais tarde
     metrics:
       download:
-        csv: Download de dados (csv)
+        csv: Transferência de dados (csv)
       followers:
-        description: Número de usuários que seguem este espaço de participação
+        description: Número de participantes que seguem este espaço de participação
         object: seguidores
         title: Seguidores
       participants:
-        description: Número de usuários ativos na organização
+        description: Número de participantes ativos na organização
         object: participantes
         title: Participantes
       users:
-        description: Número de usuários na organização
-        object: Comercial
-        title: Comercial
+        description: Número de participantes na organização
+        object: participantes
+        title: Participantes
     newsletter_mailer:
       newsletter:
-        note: Você recebeu este e-mail porque está inscrito em boletins informativos em %{organization_name}. Você pode alterar suas configurações em suas <a href="%{link}">notifications page</a>.
-        see_on_website: Não é possível ver este email corretamente? Visualize-o no <a href="%{link}" target="_blank">website</a>.
-        unsubscribe: Para optar por não receber esse tipo de email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
+        note: Recebeu este e-mail porque está inscrito em boletins informativos de %{organization_name}. Pode alterar as suas configurações na sua <a href="%{link}">página de notificações</a>.
+        see_on_website: Não consegue ver este e-mail corretamente? Visualize-o no <a href="%{link}" target="_blank">website</a>.
+        unsubscribe: Para optar por não receber este tipo de e-mail, <a href="%{link}" target="_blank" class="unsubscribe">Cancele a subscrição</a>.
     newsletters:
       unsubscribe:
-        check_subscription: Se você deseja alterar suas preferências, você pode fazê-lo na seção <a href="%{link}" target="_blank">configuration</a>
-        error: Ocorreu um erro ao se desinscrever
-        success: Você está inscrito com sucesso.
-        token_error: O link expirou.
+        check_subscription: Se deseja alterar as suas preferências, pode fazê-lo na <a href="%{link}" target="_blank">página de configurações</a>
+        error: Ocorreu um problema ao cancelar a subscrição
+        success: Subscrição cancelada corretamente.
+        token_error: A hiperligação expirou.
         unsubscribe: Cancelar subscrição
     newsletters_opt_in:
-      unathorized: Desculpe, este link não está mais disponível
+      unathorized: Lamentamos, esta hiperligação já não está disponível
       update:
         error: Aconteceu algo de errado
-        success: Configurações de boletim informativo atualizadas com sucesso
+        success: Configurações de boletim informativo atualizadas corretamente
     newsletters_opt_in_mailer:
       notify:
-        body_1: O processamento de dados pessoais e sua proteção estão se tornando cada vez mais importantes para todos nós. Com o novo Regulamento Geral de Proteção de Dados (GDPR) de 25 de maio de 2018, os indivíduos têm melhor controle sobre seus dados pessoais. Por esse motivo, precisamos que seu "OK" continue enviando informações relevantes sobre as atividades do %{organization_name}.
-        body_2: 'Como você pode nos dar seu consentimento? Basta clicar no seguinte botão:'
-        body_3: Com esse consentimento, você poderá continuar recebendo informações sobre os serviços da plataforma. Se, pelo contrário, não recebermos uma confirmação positiva da sua parte, deixaremos de lhe enviar as nossas mensagens. Se você confirmar que deseja continuar sendo informado, sempre terá a opção de cancelar a qualquer momento.
-        button: Sim, quero continuar recebendo informações relevantes
+        body_1: O processamento de dados pessoais e a sua proteção estão a tornar-se cada vez mais importantes para todos nós. Com o novo Regulamento Geral de Proteção de Dados (GDPR) de 25 de maio de 2018, os indivíduos têm melhor controlo sobre os seus dados pessoais. Por este motivo, precisamos do seu "OK" para continuar a enviar informações relevantes sobre as atividades de %{organization_name}.
+        body_2: 'Como pode dar-nos o seu consentimento? Basta clicar no seguinte botão:'
+        body_3: Com este consentimento, poderá continuar a receber informações sobre os serviços da plataforma. Se, pelo contrário, não recebermos uma confirmação positiva da sua parte, deixaremos de lhe enviar as nossas mensagens. Se confirmar que deseja continuar a ser informado, terá sempre a opção de cancelar a qualquer momento.
+        button: Sim, quero continuar a receber informações relevantes
         greetings: Saudações,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Olá,
-        subject: Você deseja continuar recebendo informações relevantes sobre %{organization_name}?
+        subject: Deseja continuar a receber informações relevantes sobre %{organization_name}?
     notifications:
       no_notifications: Ainda não há notificações.
     notifications_settings:
       show:
-        email_on_notification: Quero receber um email sempre que recebo uma notificação.
-        everything_followed: Tudo que eu sigo
+        email_on_notification: Quero receber um e-mail sempre que recebo uma notificação.
+        everything_followed: Tudo o que eu sigo
         newsletter_notifications: Quero receber boletins informativos
-        newsletters: boletins informativos
-        own_activity: Minha atividade, como quando alguém comenta minha proposta ou me menciona
+        newsletters: Boletins informativos
+        own_activity: A minha atividade, como quando alguém comenta a minha proposta ou me menciona
         receive_notifications_about: Quero receber notificações sobre
-        send_notifications_by_email: Enviar notificações por email
+        send_notifications_by_email: Enviar notificações por e-mail
         update_notifications_settings: Guardar alterações
       update:
-        error: Ocorreu um erro ao atualizar suas configurações de notificações.
+        error: Ocorreu um problema ao atualizar as suas configurações de notificações.
         success: Suas configurações de notificações foram atualizadas com sucesso.
     open_data:
       not_available_yet: Os arquivos Open Data ainda não estão disponíveis. Tente novamente em alguns minutos.
@@ -847,30 +847,30 @@ pt:
     pad_iframe:
       disclaimer: O conteúdo deste bloco é escrito por usuários registrados e expressa suas opiniões. %{organization} não pode ser responsabilizado pelo seu conteúdo.
       explanation: Use esse bloco para fazer anotações de forma colaborativa durante a reunião, para que seja mais fácil escrever o minuto depois.
-      pad: Almofada
+      pad: Bloco
     pages:
       home:
         extended:
           debates: Debates
-          debates_explanation: Debate e discuta, compartilhe suas opiniões e enriqueça os tópicos relevantes.
-          how_to_participate: Como faço parte de um processo?
+          debates_explanation: Debata e discuta, partilhe as suas opiniões e enriqueça os tópicos relevantes.
+          how_to_participate: Como posso fazer parte de um processo?
           meetings: Reuniões
-          meetings_explanation: Descubra onde e quando você pode participar de reuniões públicas.
+          meetings_explanation: Descubra onde e quando pode participar em reuniões públicas.
           more_info: Mais informações
           proposals: Propostas
           proposals_explanation: Faça propostas, suporte as existentes e promova as mudanças que deseja ver.
         footer_sub_hero:
-          footer_sub_hero_body: Vamos construir uma sociedade mais aberta, transparente e colaborativa.<br /> Participe, participe e decida.
+          footer_sub_hero_body: Vamos construir uma sociedade mais aberta, transparente e colaborativa.<br /> Adira, participe e decida.
           footer_sub_hero_headline: Bem-vindo à plataforma participativa %{organization}.
-          register: registo
+          register: Registar
         hero:
           participate: Participar
-          welcome: Bem-vindo ao %{organization}!
+          welcome: Bem-vindo a %{organization}!
         metrics:
-          headline: Participação em números
+          headline: Métricas
         statistics:
-          answers_count: Inquéritos concluídos
-          assemblies_count: Assembléias
+          answers_count: Inquéritos Concluídos
+          assemblies_count: Reuniões
           comments_count: Comentários
           conferences_count: Conferências
           debates_count: Debates
@@ -884,47 +884,47 @@ pt:
           proposals_accepted: Propostas aceitas
           proposals_count: Propostas
           results_count: Resultados
-          surveys_count: pesquisas
+          surveys_count: Inquéritos
           users_count: Participantes
           votes_count: Votos
         sub_hero:
-          register: registo
+          register: Registar
       index:
-        read_more: Consulte Mais informação
+        read_more: Ler mais
         standalone_pages: Páginas
-        subheading: Navegue pelas páginas de ajuda de %{name}
-        title: Socorro
+        subheading: Navegar pelas páginas de ajuda de %{name}
+        title: Ajuda
         topics: Tópicos
       participatory_space:
         metrics:
-          headline: Participação em números
-          link: Mostrar todas as estatísticas
+          headline: Métricas
+          link: Mostrar todas as métricas
       terms_and_conditions:
         accept:
-          error: Houve um erro ao aceitar os termos e condições.
-          success: Ótimo! Você aceitou os termos e condições.
+          error: Ocorreu um problema ao aceitar os termos e condições.
+          success: Ótimo! Aceitou os termos e condições.
         form:
           agreement: Eu concordo com estes termos
-          legend: Concorde com os termos e condições de uso
+          legend: Concordo com os termos e condições de uso
         refuse:
-          modal_body: Se recusar, você não será capaz de usar a plataforma, você pode <a href="%{data_portability_path}">baixar seus dados</a> e / ou <a href="%{delete_path}">excluir sua conta</a>.
-          modal_btn_continue: Aceite os termos e continue
-          modal_btn_exit: Vou revisá-lo mais tarde
-          modal_button: Recuse os termos
+          modal_body: Se recusar, não será capaz de utilizar a plataforma, pode <a href="%{data_portability_path}">transferir os seus dados</a> e / ou <a href="%{delete_path}">eliminar a sua conta</a>.
+          modal_btn_continue: Aceitar os termos e continuar
+          modal_btn_exit: Irei revê-los mais tarde
+          modal_button: Recusar os termos
           modal_close: Fechar modal
-          modal_title: Você realmente recusa os Termos e Condições atualizados?
+          modal_title: Recusa realmente os Termos e Condições atualizados?
         required_review:
-          alert: Atualizamos nossos Termos de Serviço, revise-os.
-          body: Por favor, dedique um momento para rever as atualizações dos nossos Termos de Serviço. Caso contrário, você não poderá usar a plataforma.
-          title: 'Obrigatório: revise as atualizações dos nossos Termos de Serviço'
+          alert: Atualizámos os nossos Termos de Serviço, por favor reveja-os.
+          body: Por favor, dedique um momento para rever as atualizações dos nossos Termos de Serviços. Caso contrário, não poderá utilizar a plataforma.
+          title: 'Obrigatório: reveja as atualizações dos nossos termos de serviço'
     participatory_space_private_users:
-      not_allowed: Você não tem permissão para visualizar este conteúdo
+      not_allowed: Não tem permissão para visualizar este conteúdo
     profile:
-      deleted: Usuário deletado
-      view: Visão
+      deleted: Participante eliminado
+      view: Visualizar
     profiles:
-      default_officialization_text_for_user_groups: Este grupo de usuários é verificado publicamente, seu nome foi confirmado para corresponder ao seu nome real
-      default_officialization_text_for_users: Este participante é verificado publicamente, seu nome ou função foi verificada para corresponder com seu nome e função real
+      default_officialization_text_for_user_groups: Este grupo está verificado publicamente, o seu nome foi confirmado para corresponder ao seu nome real
+      default_officialization_text_for_users: Este participante está verificado publicamente, o seu nome ou função foram verificados para corresponder com o seu nome e função reais
       show:
         activity: Atividade
         badges: Distintivos
@@ -932,20 +932,20 @@ pt:
         following: Segue
         groups: Grupos
         members: Membros
-        timeline: Timeline
+        timeline: Cronograma
         view_full_profile: Ver o perfil completo
       sidebar:
         badges:
-          info: Os crachás são obtidos através da realização de atividades específicas na plataforma.
+          info: Os distintivos são obtidos através da realização de atividades específicas na plataforma.
           title: Distintivos
       user:
-        confirmation_instructions_sent: Instruções de confirmação por e-mail enviadas
+        confirmation_instructions_sent: Instruções de confirmação de e-mail enviadas
         create_user_group: Criar grupo
-        edit_profile: Editar Perfil
+        edit_profile: Editar perfil
         edit_user_group: Editar perfil do grupo
-        fill_in_email_to_confirm_it: Por favor, preencha o email do seu grupo para confirmar
-        invite_user: Convidar Usuário
-        join_user_group: Solicitar para participar do grupo
+        fill_in_email_to_confirm_it: Por favor, preencha o e-mail do seu grupo para confirmar
+        invite_user: Convidar participante
+        join_user_group: Solicitar adesão ao grupo
         leave_user_group: Deixar o grupo
         manage_user_group_admins: Gerenciar administradores
         manage_user_group_users: Gerenciar membros
