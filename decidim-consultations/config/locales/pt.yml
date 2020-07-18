@@ -156,8 +156,8 @@ pt:
           title: Configuração avançada
       question_publications:
         create:
-          error: Ocorreu um problema ao publicar esta pergunta.
-          success: Pergunta publicada corretamente.
+          error: Ocorreu um problema ao publicar esta questão.
+          success: Questão publicada corretamente.
         destroy:
           error: Ocorreu um problema ao despublicar esta pergunta.
           success: Pergunta não publicada com sucesso.
