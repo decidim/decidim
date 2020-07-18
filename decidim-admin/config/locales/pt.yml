@@ -493,7 +493,7 @@ pt:
           error: Ocorreu um problema ao criar este boletim informativo.
           success: Boletim Informativo criado corretamente. Por favor, reveja-o antes de enviar.
         deliver:
-          error: Ocorreu um problema na entrega deste boletim de notícias.
+          error: Ocorreu um problema na entrega deste boletim informativo.
           success: Boletim Informativo entregue corretamente.
         destroy:
           error_already_sent: 'Não é possível destruir o boletim informativo: já foi enviado.'
@@ -513,7 +513,7 @@ pt:
           participants: 'participantes '
           segmented_to: 'Segmentado para %{subject}: '
           subscribed_count: 'Subscrito:'
-          title: Boletins de Notícias
+          title: Boletins informativos
         new:
           save: Guardar
           title: Novo boletim informativo
