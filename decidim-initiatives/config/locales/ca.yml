@@ -26,9 +26,11 @@ ca:
       initiatives_committee_member:
         user: Membre del comitè
       initiatives_type:
+        area_enabled: Permet a les autores triar l'àrea de la seva iniciativa
+        attachments_enabled: Habilitat arxius adjunts
         banner_image: Imatge del bàner
         collect_user_extra_fields: Recopilar les dades personals de la participant amb la signatura
-        custom_signature_end_date_enabled: Permet als autors triar la fi del període de recollida de signatures
+        custom_signature_end_date_enabled: Permet a les autores triar la fi del període de recollida de signatures
         description: Descripció
         document_number_authorization_handler: Autorització per verificar el número de document en les signatures
         extra_fields_legal_information: Informació legal sobre la recollida de dades personals
@@ -71,11 +73,17 @@ ca:
       actions:
         new_initiative_type: Nou tipus d'iniciativa
       filters:
+        decidim_area_id_eq:
+          label: Àrea
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Cercar %{collection} per títol, descripció, ID o autoria.
         state_eq:
           values:
+            accepted: Ha aconseguit les signatures necessàries
             created: Creada
             discarded: Rebutjada
             published: Publicada
+            rejected: No ha aconseguit les signatures necessàries
             validating: Validació tècnica
         type_id_eq:
           label: Tipus
@@ -87,6 +95,7 @@ ca:
           fields:
             created_at: Data de creació
             id: ID
+            published_at: Publicat el
             state: Estat
             supports_count: Signatures
             title: Iniciatives
@@ -119,6 +128,12 @@ ca:
         initiatives_types: Tipus d'iniciatives
     events:
       initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: La iniciativa "%{resource_title}" s'ha enviat a validació tècnica. Comprova-ho a través del <a href="%{admin_initiative_url}">taullel d'administració</a>
+            email_outro: Has rebut aquesta notificació perquè ets una de les administradores de la plataforma.
+            email_subject: La iniciativa %{resource_title} ha sol·licitat validació tècnica.
+            notification_title: La iniciativa "%{resource_title}" s'ha enviat a validació tècnica. Comprova-ho a través del <a href="%{admin_initiative_path}">taullel d'administració</a>
         initiative_extended:
           email_intro: La data de finalització de recollida de signatures per a la iniciativa %{resource_title} s'ha ampliat!
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{resource_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
@@ -135,6 +150,11 @@ ca:
             email_outro: Has rebut aquesta notificació perquè estàs seguint %{resource_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
             email_subject: S'ha completat una nova fita!
             notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha aconseguit el %{percentage}% de les signatures.
+        support_threshold_reached:
+          email_intro: La iniciativa %{resource_title} ha arribat al llindar de suports
+          email_outro: Has rebut aquesta notificació perquè ets una de les administradores de la plataforma.
+          email_subject: Llindar de suports aconseguit
+          notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha arribat al llindar de suports
     gamification:
       badges:
         initiatives:
@@ -179,6 +199,8 @@ ca:
         content_blocks:
           highlighted_initiatives:
             max_results: Quantitat màxima d'elements per mostrar
+        exports:
+          initiatives: Iniciatives
         initiatives:
           edit:
             accept: Accepta la iniciativa
@@ -252,14 +274,26 @@ ca:
           unpublish: "%{user_name} ha descartat la iniciativa %{resource_name}"
           update: "%{user_name} ha actualitzat la iniciativa %{resource_name}"
       admin_states:
+        accepted: Ha aconseguit les signatures necessàries
         created: Creada
         discarded: Rebutjada
         published: Publicada
+        rejected: No ha aconseguit les signatures necessàries
         validating: Validació tècnica
       application_helper:
+        filter_area_values:
+          all: Totes
+        filter_scope_values:
+          all: Todos
         filter_state_values:
+          accepted: Ha aconseguit les signatures
+          all: Tots
+          answered: Amb resposta
           closed: Tancat
           open: Obertes
+          rejected: No ha aconseguit les signatures
+        filter_type_values:
+          all: Tots
       committee_requests:
         new:
           continue: Continua
@@ -276,13 +310,17 @@ ca:
           fill_data_help: "<ul> <li>Revisa el contingut de la teva iniciativa. El títol és fàcil d'entendre? L'objectiu de la teva iniciativa és clar?</li> <li>Has d'escollir el tipus de signatura. Presencial, digital o una combinació de totes dues.</li> <li>Quin és l'àmbit geogràfic de la iniciativa? Ciutat, districte?</li> </ul>"
           initiative_type: Tipus d'iniciativa
           more_information: "(Més informació)"
+          select_area: Selecciona una àrea
           select_scope: Selecciona un àmbit d'aplicació
         finish:
           back: Torna
           back_to_initiatives: Torna a iniciatives
           callout_text: Enhorabona! La teva iniciativa ciutadana s'ha creat correctament.
+          confirm: Confirmar
+          edit_my_initiative: Editar les meves iniciatives
           go_to_my_initiatives: Ves a les meves iniciatives
           more_information: "(Més informació)"
+          send_my_initiative: Enviar la meva iniciativa
         finish_help:
           access_reminder: Recorda que sempre pots accedir a les teves iniciatives a través del menú de participant.
           help_for_organizations: Si ets una associació, hauràs de pujar les actes del consell d'administració de totes les organitzacions que formen la Comissió Promotora
@@ -366,8 +404,10 @@ ca:
             other: "%{count} iniciatives"
         filters:
           any: Qualsevol
+          area: Àrea
           author: Autora
           myself: Les meves iniciatives
+          scope: Àmbit
           search: Cerca
           state: Estat
           type: Tipus
@@ -389,6 +429,7 @@ ca:
           most_voted: Més signades
           random: Aleatori
           recent: Més recents
+          recently_published: Publicada més recentment
         result:
           answer_title:
             accepted: Aquesta proposta s'ha acceptat perquè
@@ -439,10 +480,21 @@ ca:
           highlighted_initiatives:
             active_initiatives: Iniciatives actives
             see_all_initiatives: Veure totes les iniciatives
+      show:
+        badge_name:
+          accepted: Amb les signatures necessàries
+          created: Creada
+          discarded: Descartada
+          published: Publicada
+          rejected: No ha aconseguit les signatures
+          validating: Validació tècnica
       states:
         accepted: Acceptat
         expired: Vençut
       unavailable_scope: Àmbit no disponible
+      versions:
+        shared:
+          back_to_resource: Torna a la iniciativa
     menu:
       initiatives: Iniciatives
     resources:
