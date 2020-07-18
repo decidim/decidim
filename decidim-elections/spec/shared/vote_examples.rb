@@ -1,16 +1,20 @@
 # frozen_string_literal: true
 
-shared_examples "doesn't allow to vote" do
-  it "doesn't allow clicking in the vote button" do
-    visit_component
+shared_context "with elections router" do
+  let(:router) { Decidim::EngineRouter.main_proxy(component).decidim_participatory_process_elections }
+end
 
-    click_link translated(election.title)
+shared_examples "doesn't allow to vote" do
+  include_context "with elections router"
+
+  it "doesn't allow clicking in the vote button" do
+    visit router.election_path(id: election.id)
 
     expect(page).not_to have_link("Vote")
   end
 
-  it "doesn't allow to access directly to page" do
-    visit Decidim::EngineRouter.main_proxy(component).decidim_participatory_process_elections.new_election_vote_path(election_id: election.id)
+  it "doesn't allow to access directly to the vote page" do
+    visit router.new_election_vote_path(election_id: election.id)
 
     expect(page).to have_content("You are not allowed to vote on this election at this moment.")
   end
@@ -32,10 +36,11 @@ shared_examples "allows to vote" do
 end
 
 shared_examples "allows to preview booth" do
-  before do
-    visit_component
+  include_context "with elections router"
 
-    click_link translated(election.title)
+  before do
+    visit router.election_path(id: election.id)
+
     click_link "Preview"
   end
 

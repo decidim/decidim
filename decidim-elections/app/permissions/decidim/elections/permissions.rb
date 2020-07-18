@@ -13,10 +13,12 @@ module Decidim
         return permission_action if permission_action.subject != :election
 
         case permission_action.action
+        when :view
+          toggle_allow(can_view?)
         when :vote
-          allow_if_can_vote
+          toggle_allow(can_vote?)
         when :preview
-          allow_if_can_preview
+          toggle_allow(can_preview?)
         end
 
         permission_action
@@ -24,12 +26,16 @@ module Decidim
 
       private
 
-      def allow_if_can_vote
-        toggle_allow(authorized_to_vote? && election.ongoing?)
+      def can_view?
+        election.published? || user.admin?
       end
 
-      def allow_if_can_preview
-        toggle_allow((!authorized_to_vote? || !election.ongoing?) && user.admin?)
+      def can_vote?
+        election.published? && election.ongoing? && authorized_to_vote?
+      end
+
+      def can_preview?
+        user.admin? && !can_vote?
       end
 
       def authorized_to_vote?

@@ -13,7 +13,7 @@ module Decidim
       delegate :count, to: :questions, prefix: true
 
       def new
-        redirect_to(election_path(election), alert: t("votes.messages.not_allowed", scope: "decidim.elections")) unless booth_mode
+        redirect_to(return_path, alert: t("votes.messages.not_allowed", scope: "decidim.elections")) unless booth_mode
       end
 
       private
@@ -24,6 +24,14 @@ module Decidim
                         elsif allowed_to? :preview, :election, election: election
                           :preview
                         end
+      end
+
+      def return_path
+        @return_path ||= if allowed_to? :view, :election, election: election
+                           election_path(election)
+                         else
+                           elections_path
+                         end
       end
 
       def elections

@@ -23,6 +23,13 @@ describe "Vote in an election", type: :system do
     it_behaves_like "allows to preview booth"
   end
 
+  context "when the election is not published" do
+    let(:election) { create :election, :ongoing, :complete, component: component }
+
+    it_behaves_like "doesn't allow to vote"
+    it_behaves_like "allow admins to preview the voting booth"
+  end
+
   context "when the election did not started yet" do
     let(:election) { create :election, :upcoming, :published, :complete, component: component }
 
