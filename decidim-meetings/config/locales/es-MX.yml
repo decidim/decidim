@@ -283,6 +283,7 @@ es-MX:
           form:
             available_slots_help: Déjalo a 0 si tiene inscripciones ilimitadas.
             invites: Invitaciones
+            recommendation_message: Por razones de privacidad te recomendamos que elimines este formulario de inscripción cuando ya no lo necesites. Por defecto, esto es 3 meses después de que la reunión haya finalizado.
             registration_form: Formulario de inscripción
             registrations_count:
               one: Ha habido %{count} inscripción.
