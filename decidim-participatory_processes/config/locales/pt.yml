@@ -413,7 +413,7 @@ pt:
         proposals_count: Propostas
         results_count: Resultados
         supports_count: Votos
-        surveys_count: pesquisas
+        surveys_count: Inquéritos
         users_count: Participantes
   layouts:
     decidim:
