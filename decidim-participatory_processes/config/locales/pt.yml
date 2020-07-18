@@ -299,7 +299,7 @@ pt:
         title: Processos participativos
     participatory_process:
       show:
-        related_assemblies: Assembleias relacionadas
+        related_assemblies: Reuniões relacionadas
     participatory_process_groups:
       show:
         group_participatory_processes:
@@ -413,7 +413,7 @@ pt:
         proposals_count: Propostas
         results_count: Resultados
         supports_count: Votos
-        surveys_count: pesquisas
+        surveys_count: Inquéritos
         users_count: Participantes
   layouts:
     decidim:
