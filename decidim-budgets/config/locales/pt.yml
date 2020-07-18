@@ -39,7 +39,7 @@ pt:
             title: Editar projeto
             update: Atualizar
           index:
-            finished_orders: Votos finais
+            finished_orders: Votações concluídas
             pending_orders: Votações pendentes
             title: Projetos
           new:
