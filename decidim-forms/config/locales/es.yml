@@ -149,6 +149,8 @@ es:
         body: Respuesta
         created_at: Respondido el
         id: Identificador de respuesta
+        question: Pregunta
         registered: Registrado
+        session_token: Identificador de usuaria
         unregistered: No registrado
         user_status: Estado del usuario
