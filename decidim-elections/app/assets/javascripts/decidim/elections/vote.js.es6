@@ -14,7 +14,7 @@ $(() => {
 
   function initStep() {
     setCurrentStep();
-    toggleContinueButtonn();
+    toggleContinueButton();
     $($confirmButton).addClass("show").removeClass("hide");
     $(".evote__counter-min").text($answerCounter);
     answerCounter();
@@ -36,13 +36,13 @@ $(() => {
   function onSelectionChange() {
     let $voteOptions = $currentStep.find(".evote__options");
     $voteOptions.on("change", (event) => {
-      toggleContinueButtonn();
+      toggleContinueButton();
       toggleConfirmAnswers();
       answerCounter();
     });
   }
 
-  function toggleContinueButtonn() {
+  function toggleContinueButton() {
     if (checkAnswers() === true) {
       // next step enabled
       $($continueButton).addClass("show").removeClass("hide")
