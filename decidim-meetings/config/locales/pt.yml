@@ -470,7 +470,7 @@ pt:
         private_meeting: Reunião privada
         transparent: Transparente
       versions:
-        back_to_resource: Voltar a reunião
+        back_to_resource: Retroceder para a reunião
     metrics:
       meetings:
         description: Número de reuniões criadas
