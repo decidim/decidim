@@ -16,7 +16,7 @@ pt:
         created_by_other: Criado por outro
         creation_date: Data de criação
         decidim_area_id: Área
-        decidim_assemblies_type_id: Tipo de assembleia
+        decidim_assemblies_type_id: Tipo de reunião
         decidim_scope_id: Âmbito
         description: Descrição
         developer_group: Grupo promotor
@@ -67,8 +67,8 @@ pt:
   activerecord:
     models:
       decidim/assembly:
-        one: Assembleia
-        other: Assembleias
+        one: Reunião
+        other: Reuniões
       decidim/assembly_member:
         one: Membro da Assembleia
         other: Membros da Assembleia
@@ -82,7 +82,7 @@ pt:
         new_assembly_type: Novo tipo de assembleia
       assemblies:
         create:
-          error: Ocorreu um problema ao criar uma nova assembleia.
+          error: Ocorreu um problema ao criar uma nova reunião.
           success: Assembléia criada com sucesso.
         edit:
           update: Atualizar
@@ -95,24 +95,24 @@ pt:
           create: Criar
           title: Nova assembléia
         update:
-          error: Ocorreu um problema ao atualizar esta assembleia.
-          success: Assembleia atualizada corretamente.
+          error: Ocorreu um problema ao atualizar esta reunião.
+          success: Reunião atualizada corretamente.
       assemblies_copies:
         create:
-          error: Ocorreu um problema ao duplicar esta assembleia.
-          success: Assembleia duplicada corretamente.
+          error: Ocorreu um problema ao duplicar esta reunião.
+          success: Reunião duplicada corretamente.
       assemblies_types:
         create:
-          error: Ocorreu um problema ao criar um novo tipo de assembleia.
-          success: Tipo de assembleia criado corretamente.
+          error: Ocorreu um problema ao criar um novo tipo de reunião.
+          success: Tipo de reunião criado corretamente.
         destroy:
-          success: Tipo de assembleia eliminado corretamente.
+          success: Tipo de reunião eliminado corretamente.
         new:
           create: Criar
-          title: Novo tipo de assembleia
+          title: Novo tipo de reunião
         update:
-          error: Ocorreu um problema ao atualizar este tipo de assembleia.
-          success: Tipo de assembleia atualizado corretamente.
+          error: Ocorreu um problema ao atualizar este tipo de reunião.
+          success: Tipo de reunião atualizado corretamente.
       assembly_copies:
         new:
           copy: Cópia
@@ -160,9 +160,9 @@ pt:
           error: Ocorreu um problema ao atualizar um administrador para esta assembleia.
           success: Administrador atualizador corretamente para esta assembleia.
       menu:
-        assemblies: Assembléias
+        assemblies: Reuniões
         assemblies_submenu:
-          assembly_admins: Administradores da Assembleia
+          assembly_admins: Administradores da Reunião
           assembly_members: Membros
           attachment_collections: Pastas
           attachment_files: Ficheiros
@@ -172,7 +172,7 @@ pt:
           info: Info
           moderations: Moderação
           private_users: Utilizadores privados
-        assemblies_types: Tipos de assembleias
+        assemblies_types: Tipos de reuniões
       models:
         assemblies_types:
           fields:
@@ -210,8 +210,8 @@ pt:
             moderator: Moderador
             valuator: Avaliador
       titles:
-        assemblies: Assembleias
-        assemblies_types: Tipos de assembleias
+        assemblies: Reuniões
+        assemblies_types: Tipos de reuniões
     admin_log:
       assembly:
         create: "%{user_name} criou a assembleia %{resource_name}"
@@ -237,16 +237,16 @@ pt:
         assemblies:
           form:
             duration: Duração
-            duration_help: Se a duração desta assembleia for limitada, selecione a data final. Caso contrário, aparecerá como indefinida.
+            duration_help: Se a duração desta reunião for limitada, selecione a data final. Caso contrário, aparecerá como indefinida.
             filters: Filtros
             images: Imagens
-            included_at_help: Selecione a data em que esta assembleia foi adicionada ao Decidim. Não necessita necessariamente de ser a mesma que a data de criação.
+            included_at_help: Selecione a data em que esta reunião foi adicionada ao Decidim. Não necessita necessariamente de ser a mesma que a data de criação.
             metadata: Metadados
             other: Outros
             select_a_created_by: Selecione um criado por
             select_an_area: Selecione uma Área
-            select_an_assembly_type: Selecione um tipo de assembleia
-            select_parent_assembly: Selecione a assembleia pai
+            select_an_assembly_type: Selecione um tipo de reunião
+            select_parent_assembly: Selecione a reunião pai
             slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembléia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
             social_handlers: Social
             title: Informação geral
@@ -287,7 +287,7 @@ pt:
         working_group: Grupo de trabalho
       content_blocks:
         highlighted_assemblies:
-          name: Assembleias realçadas
+          name: Reuniões realçadas
       created_by:
         city_council: Câmara Municipal
         others: Outros
@@ -303,21 +303,21 @@ pt:
         participatory: Participativo
         working_group: Grupo de trabalho
       index:
-        title: Assembleias
+        title: Reuniões
       last_activity:
         new_assembly: Nova assembleia
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Assembleias ativas
-            see_all_assemblies: Ver todas as assembleias
+            active_assemblies: Reuniões ativas
+            see_all_assemblies: Ver todas as reuniões
         user_profile:
           member_of:
             member_of: Membro de
       show:
         area: Área
-        assembly_type: Tipo de assembleia
-        children: Assembleias
+        assembly_type: Tipo de reunião
+        children: Reuniões
         closing_date: Data de encerramento
         composition: Composição
         created_by: Criado por
@@ -333,7 +333,7 @@ pt:
         local_area: Área de organização
         participatory_scope: O que é decidido
         participatory_structure: Como é decidido
-        private_space: Esta é uma assembleia privada
+        private_space: Esta é uma reunião privada
         purpose_of_action: Objetivo da ação
         read_less: Ler menos
         read_more: Ler mais
@@ -343,7 +343,7 @@ pt:
         target: Quem participa
       statistics:
         answers_count: Respostas
-        assemblies_count: Assembleias
+        assemblies_count: Reuniões
         comments_count: Comentários
         debates_count: Debates
         endorsements_count: Endossos
@@ -367,7 +367,7 @@ pt:
         assemblies:
           contextual: "<p>Uma <strong>assembleia</strong> é um grupo de membros de uma organização que se reúne periodicamente para tomar decisões sobre uma área ou âmbito específico da organização.</p> <p>Assembleias realizam reuniões, algumas são privadas e outras são abertas. Se forem abertas, é possível participar nelas (por exemplo: participar se a capacidade permitir, adicionar pontos à agenda ou comentar as propostas e decisões tomadas por este órgão).</p> <p>Exemplos: Assembleia Geral (que se reúne uma vez por ano para definir as principais linhas de ação da organização, bem como seus órgãos executivos por votação), um conselho consultivo para a igualdade (que se reúne a cada dois meses para apresentar propostas sobre como melhorar as relações de género na organização), uma comissão de avaliação (que se reúne todos os meses para monitorizar um processo) ou um órgão de garantia (que coleta incidentes, abusos ou propostas para melhorar os procedimentos de tomada de decisão) são exemplos de assembleias.</p>\n"
           page: "<p>Uma <strong>assembleia</strong> é um grupo de membros de uma organização que se reúne periodicamente para tomar decisões sobre uma área ou âmbito específico da organização.</p> <p>Assembleias realizam reuniões, algumas são privadas e outras são abertas. Se forem abertas, é possível participar nelas (por exemplo: participar se a capacidade permitir, adicionar pontos à agenda ou comentar as propostas e decisões tomadas por este órgão).</p> <p>Exemplos: Assembleia Geral (que se reúne uma vez por ano para definir as principais linhas de ação da organização, bem como seus órgãos executivos por votação), um conselho consultivo para a igualdade (que se reúne a cada dois meses para apresentar propostas sobre como melhorar as relações de género na organização), uma comissão de avaliação (que se reúne todos os meses para monitorizar um processo) ou um órgão de garantia (que coleta incidentes, abusos ou propostas para melhorar os procedimentos de tomada de decisão) são exemplos de assembleias.</p>\n"
-          title: O que são assembleias?
+          title: O que são reuniões?
     log:
       value_types:
         assembly_presenter:
@@ -375,12 +375,12 @@ pt:
         assembly_type_presenter:
           not_found: 'O tipo de assembleia não foi encontrado na base de dados (ID: %{id})'
     menu:
-      assemblies: Assembleias
+      assemblies: Reuniões
     metrics:
       assemblies:
-        description: Número de assembleias criadas
-        object: assembleias
-        title: Assembleias
+        description: Número de reuniões criadas
+        object: reuniões
+        title: Reuniões
   errors:
     messages:
       cannot_be_blank: não pode estar em branco
@@ -391,14 +391,14 @@ pt:
           more_info: Mais informações
           take_part: Participar
         index:
-          children: 'Assembleias: '
+          children: 'Reuniões: '
           organizational_chart: Organograma
-          promoted_assemblies: Assembleias realçadas
+          promoted_assemblies: Reuniões realçadas
           reset_chart: Repor
         order_by_assemblies:
           assemblies:
-            one: "%{count} assembleia"
-            other: "%{count} assembleias"
+            one: "%{count} reunião"
+            other: "%{count} reuniões"
         promoted_assembly:
           more_info: Mais informações
           take_part: Participar
