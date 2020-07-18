@@ -63,7 +63,11 @@ es:
           secondary_hosts_hint: Introduce cada uno de ellos en una nueva línea
           title: Nueva organización
         omniauth_settings:
+          decidim:
+            client_id: ID del cliente
+            site_url: URL del sitio web
           enabled: Habilitado
+          enabled_by_default: Este proveedor está habilitado por defecto. Se puede editar pero no se puede desactivar.
           facebook:
             app_id: ID de la App
             app_secret: Secreto de aplicación
