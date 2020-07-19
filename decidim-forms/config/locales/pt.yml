@@ -77,7 +77,7 @@ pt:
             expand: Expandir todas as questões
             preview: Pré-visualizar
             title: Editar formulário
-            unpublished_warning: O formulário não está publicado. Pode modificar as suas perguntas, mas essa ação eliminará as respostas atuais.
+            unpublished_warning: O formulário não está publicado. Pode modificar as suas questões, mas essa ação eliminará as respostas atuais.
           matrix_row:
             matrix_row: Linha
             remove: Remover
@@ -140,11 +140,11 @@ pt:
             body: Já respondeu a este questionário.
             title: Já respondido
           questionnaire_closed:
-            body: O questionário está terminado e não pode ser respondido.
-            title: Questionário terminado
+            body: O questionário está encerrado e não pode ser respondido.
+            title: Questionário encerrado
           questionnaire_for_private_users:
             body: O questionário está disponível apenas para utilizadores privados
-            title: Questionário fechado
+            title: Questionário encerrado
           questionnaire_js_disabled:
             body: Algumas características deste questionário serão desativadas. Para melhorar a sua experiência, por favor ative o JavaScript no seu navegador.
             title: JavaScript está desativado
