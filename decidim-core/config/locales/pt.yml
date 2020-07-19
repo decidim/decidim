@@ -108,7 +108,7 @@ pt:
         create: "%{user_name} adicionou o componente %{resource_name} ao espaço %{space_name}"
         delete: "%{user_name} removeu o componente %{resource_name} do espaço %{space_name}"
         publish: "%{user_name} publicou o componente %{resource_name} no espaço %{space_name}"
-        unpublish: "%{user_name} despublicou o componente %{resource_name} do espaço %{space_name}"
+        unpublish: "%{user_name} removeu a publicação do componente %{resource_name} do espaço %{space_name}"
       moderation:
         hide: "%{user_name} escondeu um recurso de tipo %{resource_type} no %{space_name} espaço"
         unreport: "%{user_name} não declarou um recurso de tipo %{resource_type} no %{space_name} espaço"
@@ -143,7 +143,7 @@ pt:
         officialize: "%{user_name} oficializou o participante %{resource_name}"
         remove_from_admin: "%{user_name} removeu o participante %{resource_name} com função: %{role}"
         show_email: "%{user_name} obteve o e-mail do participante %{resource_name}"
-        unofficialize: "%{user_name} desoficializou o participante %{resource_name}"
+        unofficialize: "%{user_name} remoção a oficialização do participante %{resource_name}"
       user_group:
         reject: "%{user_name} rejeitou a verificação de grupo %{resource_name}"
         verify: "%{user_name} verificou o grupo %{resource_name}"
@@ -574,7 +574,7 @@ pt:
           email_subject: O seu pedido de adesão ao grupo %{user_group_name} foi rejeitado!
           notification_title: O seu pedido de adesão ao grupo <a href="%{resource_path}">%{user_group_name}</a> foi rejeitado.
         promoted_to_admin:
-          email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> deu-lhe direitos de administrador desse grupo.
+          email_intro: Um(a) administrador(a) do grupo <a href="%{resource_url}">%{user_group_name}</a> deu-lhe direitos de administrador desse grupo.
           email_outro: Recebeu esta notificação porque é um membro desse grupo.
           email_subject: Agora é um(a) administrador(a) do grupo %{user_group_name}!
           notification_title: Agora é um(a) administrador(a) do grupo <a href="%{resource_path}">%{user_group_name}</a>.
@@ -998,7 +998,7 @@ pt:
           pages_count: Páginas
           processes_count: Processos
           projects_count: Projetos
-          proposals_accepted: Propostas aceitas
+          proposals_accepted: Propostas aceites
           proposals_count: Propostas
           results_count: Resultados
           surveys_count: Inquéritos
