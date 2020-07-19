@@ -30,7 +30,7 @@ pt:
           global:
             announcement: Anúncio
             comments_enabled: Comentários ativados
-            comments_max_length: Comprimento máximo dos comentários (Deixe 0 para o valor predefinido)
+            comments_max_length: Comprimento máximo dos comentários (Deixar 0 para o valor predefinido)
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
@@ -121,7 +121,7 @@ pt:
           user_followers:
             email_intro: |-
               Olá,
-              %{author_name} %{author_nickname}, que segue, criou um novo debate "%{resource_title}". Confira e contribua:
+              %{author_name} %{author_nickname}, que você segue, criou um novo debate "%{resource_title}". Confira e contribua:
             email_outro: Recebeu esta notificação porque segue %{author_nickname}. Pode parar de receber notificações seguindo a hiperligação anterior.
             email_subject: Novo debate "%{resource_title}" por %{author_nickname}
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> criou o debate <a href="%{resource_path}">%{resource_title}</a>.
