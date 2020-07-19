@@ -9,13 +9,13 @@ pt:
         one: Inquérito
         other: Inquéritos
       decidim/surveys/survey_answer:
-        one: Responda
+        one: Resposta
         other: Respostas
   decidim:
     components:
       surveys:
         actions:
-          answer: Responda
+          answer: Responder
         name: Inquérito
         settings:
           global:
@@ -29,32 +29,32 @@ pt:
     events:
       surveys:
         survey_closed:
-          email_intro: O inquérito %{resource_title} em %{participatory_space_title} foi fechado.
-          email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
+          email_intro: O inquérito %{resource_title} em %{participatory_space_title} foi encerrado.
+          email_outro: Recebeu esta notificação porque segue %{participatory_space_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
           email_subject: Um inquérito terminou em %{participatory_space_title}
-          notification_title: Um inquérito <a href="%{resource_path}">%{resource_title}</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a> terminou.
+          notification_title: O inquérito <a href="%{resource_path}">%{resource_title}</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a> terminou.
         survey_opened:
-          email_intro: 'Um inquérito %{resource_title} em %{participatory_space_title} está agora aberto. Você pode participar desta página:'
-          email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
-          email_subject: Uma nova pesquisa em %{participatory_space_title}
-          notification_title: A pesquisa <a href="%{resource_path}">%{resource_title}</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a> está agora aberta.
+          email_intro: 'O inquérito %{resource_title} em %{participatory_space_title} está agora aberto. Pode participar a partir desta página:'
+          email_outro: Recebeu esta notificação porque segue %{participatory_space_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
+          email_subject: Um novo inquérito em %{participatory_space_title}
+          notification_title: O inquérito <a href="%{resource_path}">%{resource_title}</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a> está agora aberto.
     metrics:
       survey_answers:
-        description: Número de pesquisas respondidas por usuários
-        object: respostas para pesquisas
-        title: Respostas para pesquisas
+        description: Número de inquéritos respondidos por participantes
+        object: respostas aos questionários
+        title: Respostas aos questionários
     surveys:
       admin:
         exports:
-          survey_user_answers: Avalie as respostas dos usuários
+          survey_user_answers: Respostas dos participantes aos inquéritos
         surveys:
           update:
-            invalid: Houve erros ao salvar a pesquisa.
-            success: Pesquisa salva com sucesso.
+            invalid: Ocorreu um problema ao guardar o inquérito.
+            success: Inquérito guardado corretamente.
       last_activity:
-        new_survey_at_html: "<span>Nova pesquisa em %{link}</span>"
+        new_survey_at_html: "<span>Novo inquérito em %{link}</span>"
       surveys:
         answer:
-          invalid: Houve erros ao responder a pesquisa.
+          invalid: Ocorreu um problema ao responder ao inquérito.
           spam_detected: Ocorreu um problema ao responder ao formulário. Talvez tenha sido demasiado rápido, pode tentar novamente?
-          success: Pesquisa respondida com sucesso.
+          success: Inquérito respondido corretamente.
