@@ -9,7 +9,7 @@ pt:
         introductory_image: Imagem introdutória
         introductory_video_url: URL de vídeo introdutório
         questions: Questões
-        slug: Slug de URL
+        slug: Campo de dados dinâmicos de URL
         start_voting_date: Votação começa
         subtitle: Legenda
         title: Título
@@ -30,7 +30,7 @@ pt:
         question_context: Contexto
         reference: Referência
         scope: Área municipal
-        slug: Slug de URL
+        slug: Campo de dados dinâmicos de URL
         subtitle: Legenda
         vote: Sistema de votação externo
         what_is_decided: O que é decidido
@@ -75,21 +75,21 @@ pt:
         new_response_group: Novo grupo
         publish_results: Publicar resultados
         response_groups: Gerir grupos de respostas
-        unpublish_results: Despublicar resultados
+        unpublish_results: Remover publicação de resultados
       consultation_publications:
         create:
           error: Ocorreu um problema ao publicar esta consulta.
           success: Consulta publicada corretamente.
         destroy:
-          error: Ocorreu um problema ao despublicar esta consulta.
-          success: Consulta despublicada corretamente.
+          error: Ocorreu um problema ao remover a publicação desta consulta.
+          success: Remoção da publicação da consulta feita corretamente.
       consultation_results_publications:
         create:
           error: Ocorreu um problema ao despublicar os resultados desta consulta.
           success: Resultados da consulta publicados corretamente.
         destroy:
-          error: Ocorreu um problema ao despublicar os resultados desta consulta.
-          success: Resultados da consulta despublicados corretamente.
+          error: Ocorreu um problema ao remover a publicação dos resultados desta consulta.
+          success: Remoção da publicação dos resultados da consulta feita corretamente.
       consultations:
         create:
           error: Ocorreu um problema ao criar uma nova consulta.
@@ -97,7 +97,7 @@ pt:
         edit:
           update: Atualizar
         form:
-          slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para esta consulta. Aceita apenas letras, números e traços e deve começar com uma letra. Exemplo: %{url}'
+          slug_help: 'Os campos de dados dinâmicos de URL são utilizados para gerar os URL que direcionam para esta consulta. Apenas aceitam letras, números e traços, devendo começar com uma letra. Exemplo: %{url}'
           title: Informação geral
         index:
           not_published: Não publicado
@@ -159,8 +159,8 @@ pt:
           error: Ocorreu um problema ao publicar esta questão.
           success: Questão publicada corretamente.
         destroy:
-          error: Ocorreu um problema ao despublicar esta pergunta.
-          success: Pergunta não publicada com sucesso.
+          error: Ocorreu um problema ao remover a publicação desta questão.
+          success: Remoção da publicação da questão feita corretamente.
       questions:
         create:
           error: Ocorreu um problema ao criar uma nova pergunta.
@@ -249,7 +249,7 @@ pt:
         finished: Acabado
         search: Pesquisar
         state: Estado
-        upcoming: próximos
+        upcoming: Próximas
       filters_small_view:
         close_modal: Fechar janela
         filter: Filtrar
