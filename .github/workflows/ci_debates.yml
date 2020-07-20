@@ -13,7 +13,7 @@ on:
 env:
   CI: "true"
   SIMPLECOV: "true"
-  RUBY_VERSION: 2.5.3
+  RUBY_VERSION: 2.6.6
   DECIDIM_MODULE: decidim-debates
 
 jobs:
