@@ -2,8 +2,8 @@
 
 require "spec_helper"
 
-describe "manage proposal wizard steps help texts" do
-  include_context "admin manages proposals"
+describe "Manage proposal wizard steps help texts", type: :system do
+  include_context "when admin manages proposals"
 
   before do
     current_component.update!(

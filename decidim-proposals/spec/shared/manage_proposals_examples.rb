@@ -461,6 +461,7 @@ shared_examples "manage proposals" do
   end
 
   def go_to_admin_proposal_page(proposal)
+    proposal_title = translated(proposal.title)
     within find("tr", text: proposal_title) do
       find("a", class: "action-icon--show-proposal").click
     end

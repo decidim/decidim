@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_context "admin manages proposals" do
+shared_context "when admin manages proposals" do
   let(:manifest_name) { "proposals" }
   let!(:proposal) { create :proposal, component: current_component }
   let!(:reportables) { create_list(:proposal, 3, component: current_component) }

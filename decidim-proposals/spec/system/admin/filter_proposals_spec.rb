@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Admin filters proposals", type: :system do
-  include_context "admin manages proposals"
+  include_context "when admin manages proposals"
   include_context "with filterable context"
 
   STATES = Decidim::Proposals::Proposal::POSSIBLE_STATES.map(&:to_sym)
