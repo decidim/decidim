@@ -37,7 +37,7 @@ pt:
     admin_log:
       election:
         publish: "%{user_name} publicou a eleição %{resource_name}"
-        unpublish: "%{user_name} despublicou a eleição %{resource_name}"
+        unpublish: "%{user_name} removeu a publicação da eleição %{resource_name}"
     components:
       elections:
         actions:
@@ -57,10 +57,10 @@ pt:
         edit_questions: Editar perguntas
         import: Importar propostas para perguntas
         new: Novo %{name}
-        preview: Pré-visualização
+        preview: Pré-visualizar
         publish: Publicar
         title: Ações
-        unpublish: Despublicar
+        unpublish: Remover publicação
       admin:
         answers:
           create:
@@ -79,7 +79,7 @@ pt:
             title: Nova resposta
           update:
             invalid: Ocorreu um problema ao atualizar esta resposta
-            success: Resposta atualizada com sucesso
+            success: Resposta atualizada corretamente
         elections:
           create:
             invalid: Ocorreu um problema ao criar esta eleição
@@ -98,7 +98,7 @@ pt:
           publish:
             success: A eleição foi publicada corretamente.
           unpublish:
-            success: A eleição foi despublicada corretamente.
+            success: Remoção da publicação da eleição feita corretamente.
           update:
             invalid: Ocorreu um problema ao atualizar esta eleição
             success: Eleição atualizada corretamente
@@ -134,7 +134,7 @@ pt:
             title: Nova pergunta
           update:
             invalid: Ocorreu um problema ao atualizar esta pergunta
-            success: Pergunta atualizada com sucesso
+            success: Pergunta atualizada corretamente
       models:
         answer:
           fields:
