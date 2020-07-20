@@ -6,7 +6,7 @@ pt:
         destroy: Excluir
         edit: Editar
         new: Novo
-        save: Salve 
+        save: Guardar
         title: Ações
       admins:
         create:

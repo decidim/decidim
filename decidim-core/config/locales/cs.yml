@@ -273,8 +273,11 @@ cs:
       dummy_authorization_handler:
         explanation: Ověřte se zavedením čísla dokumentu končícího "X"
         fields:
+          allowed_postal_codes: Povolené poštovní směrovací kódy (oddělené čárkami)
+          allowed_scope_id: Povolená oblast působnosti
           document_number: Číslo dokumentu
           postal_code: Poštovní směrovací číslo
+          scope_id: Oblast působnosti
         name: Příklad autorizace
       dummy_authorization_workflow:
         name: Pracovní postup autorizace
@@ -353,6 +356,7 @@ cs:
           global:
             amendments_enabled: Změny povoleny
             comments_enabled: Komentáře povoleny
+            comments_max_length: Maximální délka komentářů
             dummy_global_attribute_1: Zástupný atribut 1
             dummy_global_attribute_2: Zástupný atribut 2
             dummy_global_translatable_text: Zástupný text k přeložení
@@ -1092,8 +1096,14 @@ cs:
         report_html: <p>Následující <a href="%{url}">obsah</a> byl automaticky skryt.</p>
         subject: Zdroj byl automaticky skryt
       report:
+        authors: Autoři
+        content: Nahlášený obsah
+        date: Nahlášeno dne
+        details: Detaily
         hello: Zdravím %{name},
         manage_moderations: Správa moderování
+        participatory_space: Účastnický prostor
+        reason: Důvod
         report_html: <p>Byl nahlášen následující <a href="%{url}">obsah</a>.</p>
         subject: Byl ohlášen zdroj
     reports:

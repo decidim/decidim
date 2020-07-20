@@ -8,8 +8,8 @@ pt:
         title: Título
       election:
         description: Descrição
-        end_time: A votação termina às
-        start_time: A votação inicia-se às
+        end_time: Votação termina às
+        start_time: Votação inicia-se às
         subtitle: Subtítulo
         title: Título
       question:
@@ -34,8 +34,14 @@ pt:
         one: Pergunta
         other: Perguntas
   decidim:
+    admin_log:
+      election:
+        publish: "%{user_name} publicou a eleição %{resource_name}"
+        unpublish: "%{user_name} despublicou a eleição %{resource_name}"
     components:
       elections:
+        actions:
+          vote: Votar
         name: Eleições
         settings:
           global:
@@ -52,15 +58,17 @@ pt:
         import: Importar propostas para perguntas
         new: Novo %{name}
         preview: Pré-visualização
+        publish: Publicar
         title: Ações
+        unpublish: Despublicar
       admin:
         answers:
           create:
             invalid: Ocorreu um problema ao criar esta resposta
-            success: Resposta criada com sucesso
+            success: Resposta criada corretamente
           destroy:
             invalid: Ocorreu um problema ao eliminar esta resposta
-            success: Resposta eliminada com sucesso
+            success: Resposta eliminada corretamente
           edit:
             title: Editar resposta
             update: Atualizar resposta
@@ -75,10 +83,10 @@ pt:
         elections:
           create:
             invalid: Ocorreu um problema ao criar esta eleição
-            success: Eleição criada com sucesso
+            success: Eleição criada corretamente
           destroy:
             invalid: Ocorreu um problema ao eliminar esta eleição
-            success: Eleição eliminada com sucesso
+            success: Eleição eliminada corretamente
           edit:
             title: Editar eleição
             update: Atualizar eleição
@@ -87,9 +95,13 @@ pt:
           new:
             create: Criar eleição
             title: Nova eleição
+          publish:
+            success: A eleição foi publicada corretamente.
+          unpublish:
+            success: A eleição foi despublicada corretamente.
           update:
             invalid: Ocorreu um problema ao atualizar esta eleição
-            success: Eleição atualizada com sucesso
+            success: Eleição atualizada corretamente
         models:
           answer:
             name: Resposta
@@ -99,19 +111,19 @@ pt:
             name: Pergunta
         proposals_imports:
           create:
-            invalid: Ocorreu um problema ao importar as propostas para respostas
-            success: "%{number} propostas importadas com sucesso para respostas"
+            invalid: Ocorreu um problema ao importar as propostas em respostas
+            success: "%{number} propostas importadas corretamente em respostas"
           new:
             create: Importar propostas para perguntas
-            no_components: Não há outros componentes de propostas neste espaço participativo para importar as propostas para respostas.
+            no_components: Não há outros componentes de propostas neste espaço participativo para importar as propostas em respostas.
             select_component: Selecione um componente
         questions:
           create:
             invalid: Ocorreu um problema ao criar esta pergunta
-            success: Pergunta criada com sucesso
+            success: Pergunta criada corretamente
           destroy:
             invalid: Ocorreu um problema ao eliminar esta pergunta
-            success: Pergunta eliminada com sucesso
+            success: Pergunta eliminada corretamente
           edit:
             title: Editar pergunta
             update: Atualizar pergunta
@@ -130,7 +142,7 @@ pt:
             title: Título
         election:
           fields:
-            end_time: Terminar às
+            end_time: Termina às
             start_time: Inicia às
             title: Título
         question:
@@ -138,6 +150,13 @@ pt:
             answers: Respostas
             max_selections: Máx. de seleções
             title: Título
+    events:
+      elections:
+        election_published:
+          email_intro: 'A eleição %{resource_title} está agora ativa em %{participatory_space_title}. Pode vê-la a partir da página:'
+          email_outro: Recebeu esta notificação porque segue %{participatory_space_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
+          email_subject: A eleição %{resource_title} está agora ativa em %{participatory_space_title}.
+          notification_title: A eleição <a href="%{resource_path}">%{resource_title}</a> está agora ativa em %{participatory_space_title}.
     participatory_processes:
       statistics:
         elections_count: Eleições

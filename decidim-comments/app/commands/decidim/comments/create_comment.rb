@@ -37,7 +37,7 @@ module Decidim
           author: @author,
           commentable: form.commentable,
           root_commentable: root_commentable(form.commentable),
-          body: parsed.rewrite,
+          body: { I18n.locale => parsed.rewrite },
           alignment: form.alignment,
           decidim_user_group_id: form.user_group_id
         }

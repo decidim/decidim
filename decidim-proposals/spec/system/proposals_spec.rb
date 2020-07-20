@@ -158,7 +158,7 @@ describe "Proposals", type: :system do
         click_link proposal.title
 
         comments.each do |comment|
-          expect(page).to have_content(comment.body)
+          expect(page).to have_content(comment.body.values.first)
         end
       end
     end

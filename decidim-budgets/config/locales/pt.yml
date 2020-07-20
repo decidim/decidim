@@ -18,12 +18,12 @@ pt:
       actions:
         attachment_collections: Pastas
         attachments: Anexos
-        confirm_destroy: Tem certeza de que deseja excluir esse projeto?
-        destroy: Excluir
+        confirm_destroy: Tem certeza de que deseja eliminar este projeto?
+        destroy: Eliminar
         edit: Editar
         import: Importar propostas para projetos
         new: Novo projeto
-        preview: Visualização
+        preview: Pré-visualização
         title: Ações
       admin:
         models:
@@ -31,15 +31,15 @@ pt:
             name: Projeto
         projects:
           create:
-            invalid: Tem havido um problema ao criar este projeto
-            success: Projeto criado com sucesso
+            invalid: Ocorreu um problema ao criar este projeto
+            success: Projeto criado corretamente
           destroy:
-            success: Projeto excluído com sucesso
+            success: Projeto excluído corretamente
           edit:
             title: Editar projeto
-            update: Actualizar
+            update: Atualizar
           index:
-            finished_orders: Votos finais
+            finished_orders: Votações concluídas
             pending_orders: Votações pendentes
             title: Projetos
           new:
@@ -47,19 +47,19 @@ pt:
             title: Novo projeto
           update:
             invalid: Ocorreu um problema ao atualizar este projeto
-            success: Projeto atualizado com sucesso
+            success: Projeto atualizado corretamente
         proposals_imports:
           create:
-            invalid: Houve um problema ao importar as propostas para projetos
-            success: "%{number} propostas importadas com sucesso para projetos"
+            invalid: Ocorreu um problema ao importar as propostas nos projetos
+            success: "%{number} propostas importadas corretamente nos projetos"
           new:
-            create: Importar propostas para projetos
-            no_components: Não há outros componentes da proposta neste espaço participativo para importar as propostas para projetos.
+            create: Importar propostas em projetos
+            no_components: Não há outros componentes da proposta neste espaço participativo para importar as propostas em projetos.
             select_component: Por favor selecione um componente
       admin_log:
         project:
           create: "%{user_name} criou o projeto %{resource_name} no espaço %{space_name}"
-          delete: "%{user_name} excluiu o projeto %{resource_name} no espaço %{space_name}"
+          delete: "%{user_name} eliminou o projeto %{resource_name} no espaço %{space_name}"
           update: "%{user_name} atualizou o projeto %{resource_name} no espaço %{space_name}"
       models:
         project:
@@ -75,23 +75,23 @@ pt:
         budget_confirm:
           are_you_sure: Você concorda? Depois de confirmar o seu voto, não pode alterá-lo.
           cancel: Cancelar
-          confirm: confirme
-          description: Estes são os projetos que você escolheu para fazer parte do orçamento.
+          confirm: Confirmar
+          description: Estes são os projetos que escolheu para fazer parte do orçamento.
           title: Confirmar votação
         budget_excess:
           close: Fechar
-          description: Este projeto excede o orçamento máximo e não pode ser adicionado. Se você quiser, você pode excluir um projeto que você já selecionou para adicionar ou fazer seu voto com suas preferências.
-          ok: Está bem
-          title: O orçamento máximo excedeu
+          description: Este projeto excede o orçamento máximo e não pode ser adicionado. Se quiser, pode eliminar um projeto que já selecionou para adicionar, ou fazer o seu voto com as suas preferências.
+          ok: OK
+          title: Orçamento máximo excedido
         budget_summary:
-          are_you_sure: Tem certeza de que deseja cancelar o seu voto?
+          are_you_sure: Tem a certeza de que deseja cancelar o seu voto?
           assigned: 'Atribuído:'
-          cancel_order: exclua seu voto e comece de novo
+          cancel_order: elimine o seu voto e comece de novo
           checked_out:
-            description: Você já votou no orçamento. Se você mudou de idéia, você pode %{cancel_link}.
+            description: Já votou no orçamento. Se mudou de ideia, pode %{cancel_link}.
             title: Votação do orçamento concluída
-          description: Em que projetos pensa que devemos atribuir orçamento? Atribua pelo menos %{minimum_budget} aos projetos que deseja e vote com suas preferências para definir o orçamento.
-          description_minimum_projects_rule: A quais projetos crê que deveríamos atribuir orçamento? Selecione pelo menos %{minimum_number} projetos e vote de acordo com as suas preferências para definir o orçamento.
+          description: Em que projetos crê que devemos alocar orçamento? Atribua pelo menos %{minimum_budget} aos projetos que deseja e vote com as suas preferências para definir o orçamento.
+          description_minimum_projects_rule: Em que projetos crê que devemos alocar orçamento? Selecione pelo menos %{minimum_number} projetos que deseja e vote de acordo com as suas preferências para definir o orçamento.
           title: Você decide o orçamento
         count:
           projects_count:
@@ -100,20 +100,20 @@ pt:
         filters:
           category: Categoria
           scope: Âmbito
-          search: Pesquisa
+          search: Pesquisar
         filters_small_view:
           close_modal: Fechar modal
-          filter: Filtro
+          filter: Filtrar
           filter_by: Filtrar por
           unfold: Desdobrar
         order_progress:
-          vote: Voto
+          vote: Votação
         order_selected_projects:
           remove: Remover
           selected_projects:
             one: projeto selecionado
             other: projetos selecionados
-          view: Visão
+          view: Visualização
         orders:
           highest_cost: Custo mais elevado
           label: Ordenar projetos por
@@ -123,25 +123,26 @@ pt:
         project:
           add: Adicionar
           count:
-            one: 1 suporte
-            other: "%{count} suporta"
+            one: 1 suporta
+            other: "%{count} suportam"
           remove: Remover
-          view: Visão
+          view: Visualização
         project_budget_button:
           add: Adicionar
           added: Adicionado
         show:
-          budget: Despesas
+          budget: Orçamento
           view_all_projects: Ver todos os projetos
     components:
       budgets:
         actions:
-          vote: Voto
+          vote: Votação
         name: Orçamentos
         settings:
           global:
             announcement: Anúncio
             comments_enabled: Comentários ativados
+            comments_max_length: Comprimento máximo dos comentários (Deixe 0 para o valor predefinido)
             form:
               errors:
                 budget_voting_rule_only_one: Apenas deve estar ativa uma regra de votação
@@ -152,7 +153,7 @@ pt:
             vote_minimum_budget_projects_number: Número mínimo de projetos a votar
             vote_rule_minimum_budget_projects_enabled: 'Ativar regra: Número mínimo de projetos a voto'
             vote_rule_threshold_percent_enabled: 'Ativar regra: Percentagem mínima do orçamento'
-            vote_threshold_percent: Porcentagem do limiar de voto
+            vote_threshold_percent: Percentagem do limite da votação
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
@@ -160,11 +161,11 @@ pt:
             votes_enabled: Votação habilitada
     orders:
       checkout:
-        error: Ocorreu um erro ao processar seu voto
-        success: Seu voto foi aceito com sucesso
+        error: Ocorreu um problema ao processar o seu voto
+        success: O seu voto foi aceite corretamente
       destroy:
-        error: Ocorreu um erro ao cancelar o seu voto
-        success: Seu voto foi cancelado com sucesso
+        error: Ocorreu um problema ao cancelar o seu voto
+        success: O seu voto foi cancelado corretamente
     resource_links:
       included_proposals:
         project_proposal: 'Propostas incluídas neste projeto:'

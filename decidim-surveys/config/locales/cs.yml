@@ -24,6 +24,7 @@ cs:
         settings:
           global:
             announcement: Oznámení
+            clean_after_publish: Odstranit odpovědi při publikování ankety
           step:
             allow_answers: Povolte odpovědi
             allow_unregistered: Umožnit neregistrovaným uživatelům odpovědět na průzkum

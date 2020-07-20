@@ -185,6 +185,7 @@ fi:
           global:
             categories_label: Nimi termille "Aihepiirit"
             comments_enabled: Kommentointi käytössä
+            comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
             display_progress_enabled: Näytä edistyminen
             heading_leaf_level_results: Nimi termille "Suunnitelmat"
             heading_parent_level_results: Nimi termille "Tulokset"

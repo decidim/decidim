@@ -25,13 +25,49 @@ pt:
             description: Descrição
             tos: Termos de serviço
         questionnaires:
+          actions:
+            back: Voltar às perguntas
+            show: Mostrar respostas
           answer_option:
             answer_option: Opção de resposta
             free_text: Texto livre
             remove: Remover
             statement: Declaração
+          answers:
+            actions:
+              back: Voltar às respostas
+              export: Exportar
+              show: Mostrar respostas
+            empty: Ainda não há respostas
+            export:
+              answer:
+                title: 'Resposta #%{number}'
+            export_response:
+              title: survey_user_answers_%{token}
+            index:
+              title: "%{total} respostas totais"
+            show:
+              title: 'Resposta #%{number}'
+          display_condition:
+            answer_option: Opção de resposta
+            condition_question: Pergunta
+            condition_type: Condição
+            condition_types:
+              answered: Respondido
+              equal: Igual
+              match: Inclui texto
+              not_answered: Não respondido
+              not_equal: Diferente
+            condition_value: Incluíu texto
+            display_condition: Exibir condição
+            mandatory: Esta condição precisa de ser sempre satisfeita independentemente do estado das outras condições
+            remove: Remover
+            save_warning: Lembre-se de guardar o formulário antes de configurar as condições de exibição
+            select_answer_option: Selecionar opção de resposta
+            select_condition_question: Selecionar uma pergunta
+            select_condition_type: Selecionar um tipo de condição
           edit:
-            save: Salve 
+            save: Guardar
             title: Editar questionário
           form:
             add_question: Adicionar pergunta
@@ -39,12 +75,17 @@ pt:
             already_answered_warning: O questionário já foi respondido por alguns usuários para que você não possa modificar suas perguntas.
             collapse: Fechar todas as perguntas
             expand: Expandir todas as perguntas
+            preview: Pré-visualização
+            title: Editar formulário
+            unpublished_warning: O formulário não está publicado. Pode modificar as suas perguntas, mas essa ação eliminará as respostas atuais.
           matrix_row:
             matrix_row: Linha
             remove: Remover
             statement: Declaração
           question:
             add_answer_option: Adicionar opção de resposta
+            add_display_condition: Adicionar condição de exibição
+            add_display_condition_info: Guarde o formulário para configurar as condições de exibição
             add_matrix_row: Adicionar linha
             any: Qualquer
             collapse: Fechar
@@ -69,6 +110,7 @@ pt:
       files:
         extension_whitelist: 'Formatos aceites:'
       images:
+        dimensions: "%{width} x %{height} px"
         dimensions_info: 'Esta imagem será:'
         processors:
           resize_and_pad: Redimensionada e ajustada para
@@ -103,16 +145,26 @@ pt:
           questionnaire_for_private_users:
             body: O questionário está disponível apenas para usuários particulares
             title: Questionário fechado
+          questionnaire_js_disabled:
+            body: Algumas das características deste formulário serão desativadas. Para melhorar a sua experiência, por favor ative o JavaScript no seu navegador.
+            title: JavaScript está desativado
+          questionnaire_not_published:
+            body: Este formulário ainda não está publicado.
           tos_agreement: Ao participar você aceita seus Termos de Serviço
       step_navigation:
         show:
-          are_you_sure: Esta ação não pode ser desfeita e você não poderá editar suas respostas. Você tem certeza?
+          are_you_sure: Esta ação não pode ser desfeita e não deixará de poder editar as suas respostas. Tem a certeza?
           back: Retroceder
           continue: Continuar
-          submit: Enviar
+          submit: Submeter
       user_answers_serializer:
+        body: Resposta
+        completion: Conclusão
         created_at: Respondido em
         id: ID da resposta
+        ip_hash: IP Hash
+        question: Pergunta
         registered: Registado
+        session_token: Identificador do utilizador
         unregistered: Não registado
         user_status: Estado de utilizador

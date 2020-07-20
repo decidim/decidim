@@ -142,6 +142,7 @@ fi:
           global:
             announcement: Ilmoitus
             comments_enabled: Kommentit ovat käytössä
+            comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
             form:
               errors:
                 budget_voting_rule_only_one: Voit valita ainoastaan yhden äänestyssäännön

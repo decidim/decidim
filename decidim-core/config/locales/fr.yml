@@ -258,6 +258,8 @@ fr:
       dummy_authorization_handler:
         explanation: Obtenir une vérification en saisissant un numéro de document se terminant par "X"
         fields:
+          allowed_postal_codes: Codes postaux autorisés (séparés par des virgules)
+          allowed_scope_id: Portée autorisée
           document_number: Numéro de document
           postal_code: Code postal
         name: Exemple d'autorisation
@@ -1064,8 +1066,14 @@ fr:
         report_html: <p>Le <a href="%{url}">contenu suivant</a> a été masqué automatiquement.</p>
         subject: Une ressource a été cachée automatiquement
       report:
+        authors: Auteurs
+        content: Contenu signalé
+        date: Signalé le
+        details: Détails
         hello: Bonjour %{name},
         manage_moderations: Gérer les modérations
+        participatory_space: Espace participatif
+        reason: Raison
         report_html: <p>Le <a href="%{url}">contenu</a> suivant a été signalé.</p>
         subject: Un contenu a été signalé
     reports:

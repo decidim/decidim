@@ -150,6 +150,7 @@ cs:
           global:
             announcement: Oznámení
             comments_enabled: Komentáře povoleny
+            comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
             form:
               errors:
                 budget_voting_rule_only_one: Pouze jedno hlasovací pravidlo musí být povoleno

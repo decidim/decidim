@@ -40,6 +40,8 @@ fi:
         unpublish: "%{user_name} lopetti vaalin %{resource_name} julkaisemisen"
     components:
       elections:
+        actions:
+          vote: Äänestä
         name: Vaalit
         settings:
           global:

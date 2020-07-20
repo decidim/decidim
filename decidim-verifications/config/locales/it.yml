@@ -141,8 +141,9 @@ it:
             success: Il tuo account è stato verificato con successo.
       dummy_authorization:
         extra_explanation:
-          one: La partecipazione è riservata agli utenti con il codice postale %{postal_codes}.
-          other: 'La partecipazione è riservata agli utenti con uno dei seguenti codici postali: %{postal_codes}.'
+          postal_codes:
+            one: La partecipazione è riservata agli utenti con il codice postale %{postal_codes}.
+            other: 'La partecipazione è riservata agli utenti con uno dei seguenti codici postali: %{postal_codes}.'
       id_documents:
         admin:
           config:
