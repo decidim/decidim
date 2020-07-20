@@ -1,1 +1,6 @@
 comment: false
+ignore:
+  - "lib/**/*engine.rb"
+  - "lib/**/*admin-engine.rb"
+  - "lib/**/component.rb"
+  - "lib/**/participatory_space.rb"
