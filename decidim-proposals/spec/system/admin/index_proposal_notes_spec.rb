@@ -24,7 +24,7 @@ describe "Index Proposal Notes", type: :system do
   include_context "when managing a component as an admin"
 
   before do
-    within find("tr", text: proposal.title) do
+    within find("tr", text: translated(proposal.title)) do
       click_link "Answer proposal"
     end
   end
