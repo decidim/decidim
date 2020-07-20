@@ -260,6 +260,11 @@ module Decidim
     2.days
   end
 
+  # Allow machine translations
+  config_accessor :enable_machine_translations do
+    false
+  end
+
   # How long can a user remained logged in before the session expires
   config_accessor :expire_session_after do
     1.day

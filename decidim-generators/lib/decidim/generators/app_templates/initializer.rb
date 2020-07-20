@@ -14,6 +14,9 @@ Decidim.configure do |config|
   # of languages will be equal or a subset of the list in this file.
   config.available_locales = [:en, :ca, :es]
 
+  # Enable machine translations
+  config.enable_machine_translations = false
+
   # Restrict access to the system part with an authorized ip list.
   # You can use a single ip like ("1.2.3.4"), or an ip subnet like ("1.2.3.4/24")
   # You may specify multiple ip in an array ["1.2.3.4", "1.2.3.4/24"]
