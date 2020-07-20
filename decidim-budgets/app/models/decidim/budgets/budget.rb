@@ -5,6 +5,7 @@ module Decidim
     # The data store for a budget in the Decidim::Budgets component.
     class Budget < ApplicationRecord
       include Decidim::Resourceable
+      include Decidim::ScopableResource
       include Decidim::HasComponent
       include Decidim::Searchable
       include Traceable

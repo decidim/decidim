@@ -12,6 +12,12 @@
       <%= form.translated :editor, :description %>
 
       <%= form.number_field :total_budget %>
+
+      <% if current_component.has_subscopes? %>
+        <div class="row column">
+          <%= scopes_picker_field form, :decidim_scope_id, root: current_component.scope %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
