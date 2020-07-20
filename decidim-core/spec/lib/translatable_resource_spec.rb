@@ -13,37 +13,24 @@ module Decidim
       end
     end
 
-    describe "when resource is created" do
+    describe "when resource is created or updated" do
       before do
         clear_enqueued_jobs
       end
 
-      it "enqueues the new resource job" do
-        dummy_resource.save
-        expect(Decidim::MachineTranslationCreateResourceJob).to have_been_enqueued.on_queue("default").with(dummy_resource, current_locale)
-      end
-      
-      context "when there is no machine translation service" do
-        before do
-          Decidim.config.machine_translation_service = nil
-        end
-
-        it "doesn't enqueue a job" do
-          dummy_resource.save
-          expect(Decidim::MachineTranslationCreateResourceJob).not_to have_been_enqueued.on_queue("default")
-        end
-      end
-    end
-
-    describe "when resource is updated" do
-      before do
-        clear_enqueued_jobs
-      end
-
-      it "enqueues the update resource job" do
+      it "enqueues the machine translation job when resource is updated" do
         updated_title = Decidim::Faker::Localized.name
         dummy_resource.update(title: updated_title)
-        expect(Decidim::MachineTranslationUpdatedResourceJob).to have_been_enqueued.on_queue("default").with(
+        expect(Decidim::MachineTranslationResourceJob).to have_been_enqueued.on_queue("default").with(
+          dummy_resource,
+          dummy_resource.translatable_previous_changes,
+          current_locale
+        )
+      end
+
+      it "enqueues the machine translation job when resource is created" do
+        dummy_resource.save
+        expect(Decidim::MachineTranslationResourceJob).to have_been_enqueued.on_queue("default").with(
           dummy_resource,
           dummy_resource.translatable_previous_changes,
           current_locale
@@ -55,10 +42,15 @@ module Decidim
           Decidim.config.machine_translation_service = nil
         end
 
-        it "doesn't enqueue a job" do
+        it "doesn't enqueue a job when resource is updated" do
           updated_title = Decidim::Faker::Localized.name
           dummy_resource.update(title: updated_title)
-          expect(Decidim::MachineTranslationUpdatedResourceJob).not_to have_been_enqueued.on_queue("default")
+          expect(Decidim::MachineTranslationResourceJob).not_to have_been_enqueued.on_queue("default")
+        end
+
+        it "doesn't enqueue a job when resource is created" do
+          dummy_resource.save
+          expect(Decidim::MachineTranslationResourceJob).not_to have_been_enqueued.on_queue("default")
         end
       end
     end
