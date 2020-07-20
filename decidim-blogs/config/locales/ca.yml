@@ -62,6 +62,7 @@ ca:
           global:
             announcement: Avís
             comments_enabled: Comentaris habilitats
+            comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
           step:
             announcement: Avís
             comments_blocked: Comentaris bloquejats
