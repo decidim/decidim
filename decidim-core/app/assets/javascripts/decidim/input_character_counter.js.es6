@@ -33,9 +33,13 @@
 
         this.$target = $(`<span id="${targetId}" class="form-input-extra-before" />`)
 
+        // If input is a hidden for WYSIWYG editor add it at the end
+        if (this.$input.parent().is(".editor")) {
+          this.$input.parent().after(this.$target);
+        }
         // Prefix and suffix columns are wrapped in columns, so put the
         // character counter before that.
-        if (
+        else if (
           this.$input.parent().is(".columns") &&
           this.$input.parent().parent().is(".row")
         ) {
@@ -51,6 +55,18 @@
     }
 
     bindEvents() {
+      // In WYSIWYG editors (Quill) we need to find the active editor from the
+      // DOM node. Quill has the experimental "find" method that should work
+      // fine in this case
+      if (Quill && this.$input.parent().is(".editor")) {
+        // Wait until the next javascript loop so Quill editors are created
+        setTimeout(() => {
+          const editor = Quill.find(this.$input.siblings(".editor-container")[0]);
+          editor.on("text-change", () => {
+            this.updateStatus();
+          });
+        })
+      }
       this.$input.on("keyup", () => {
         this.updateStatus();
       });
@@ -86,7 +102,7 @@
   exports.Decidim.InputCharacterCounter = InputCharacterCounter;
 
   exports.$(() => {
-    exports.$("input[type='text'], textarea").each((_i, elem) => {
+    exports.$("input[type='text'], textarea, .editor>input[type='hidden']").each((_i, elem) => {
       const $input = exports.$(elem);
 
       if (!$input.is("[minlength]") && !$input.is("[maxlength]")) {

@@ -187,11 +187,12 @@ module Decidim
       label_text = label_for(name) if label_text.blank?
       options.delete(:required)
       hashtaggable = options.delete(:hashtaggable)
+      hidden_options = extract_validations(name, options).merge(options)
 
       content_tag(:div, class: "editor #{"hashtags__container" if hashtaggable}") do
         template = ""
         template += label(name, label_text + required_for_attribute(name)) if options.fetch(:label, true)
-        template += hidden_field(name, options)
+        template += hidden_field(name, hidden_options)
         template += content_tag(:div, nil, class: "editor-container #{"js-hashtags" if hashtaggable}", data: {
                                   toolbar: toolbar,
                                   disabled: options[:disabled]
