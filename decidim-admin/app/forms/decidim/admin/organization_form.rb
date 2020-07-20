@@ -23,6 +23,7 @@ module Decidim
       attribute :user_groups_enabled, Boolean
       attribute :comments_max_length, Integer
       attribute :rich_text_editor_in_public_views, Boolean
+      attribute :enable_machine_translations, Boolean
 
       attribute :send_welcome_notification, Boolean
       attribute :customize_welcome_notification, Boolean
