@@ -2,7 +2,7 @@ es:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Autor
+        decidim_user_group_id: Autoria
         description: Descripción
         offline_votes: Firmas presenciales
         scope_id: Ámbito

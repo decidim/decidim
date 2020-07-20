@@ -2,7 +2,7 @@ ca:
   activemodel:
     attributes:
       participatory_process:
-        announcement: Anunci
+        announcement: Avís
         area_id: Àrea
         banner_image: Imatge de bàner
         copy_categories: Copiar les categories

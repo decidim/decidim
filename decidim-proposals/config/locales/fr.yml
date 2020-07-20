@@ -109,6 +109,7 @@ fr:
         name: Propositions
         settings:
           global:
+            allow_card_image: Afficher les images sur les cartes de l'index de proposition
             amendments_enabled: Modifications activées
             amendments_enabled_help: Si actif, configurez les fonctionnalités d'amendement pour chaque étape.
             amendments_wizard_help_text: Texte d'aide de l'assistant
@@ -472,6 +473,7 @@ fr:
           update_scope:
             invalid: 'Ces propositions avaient déjà la portée de %{subject_name} : %{proposals}.'
             select_a_proposal: Veuillez sélectionner une proposition
+            select_a_scope: Veuillez sélectionner un secteur
             success: 'Les propositions ont été mises à jour avec succès vers le périmètre %{subject_name} : %{proposals}.'
         proposals_imports:
           create:
@@ -496,6 +498,7 @@ fr:
             success: Propositions assignées à un évaluateur avec succès
           delete:
             invalid: Il y a eu une erreur lors de la désassignation des propositions d'un évaluateur
+            success: Evaluateur désaffecté aux propositions avec succès
       admin_log:
         proposal:
           answer: "%{user_name} a répondu à la proposition %{resource_name} sur l'espace %{space_name}"
@@ -834,7 +837,7 @@ fr:
             description: Vous pouvez créer jusqu'à %{limit} propositions.
           threshold_per_proposal:
             description: Pour être acceptées, les propositions doivent atteindre %{limit} votes
-          title: 'Le vote est soumis aux règles suivantes :'
+          title: 'La participation est soumise aux règles suivantes :'
           vote_limit:
             description: Vous pouvez voter pour %{limit} propositions au maximum.
             left: Restant
