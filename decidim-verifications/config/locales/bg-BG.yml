@@ -13,6 +13,5 @@ bg:
     verifications:
       dummy_authorization:
         extra_explanation:
-          postal_codes:
-            one: Участието е ограничено до участници с пощенски код %{postal_codes}.
-            other: 'Участието е ограничено до участници с пощенски кодове %{postal_codes}.'
+          one: Участието е ограничено до участници с пощенски код %{postal_codes}.
+          other: 'Участието е ограничено до участници с пощенски кодове %{postal_codes}.'
