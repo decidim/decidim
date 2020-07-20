@@ -30,7 +30,9 @@ module Decidim
         resource[field_name] = resource[field_name].merge("machine_translations" => { target_locale => translated_text })
       end
 
+      # rubocop:disable Rails/SkipsModelValidations
       resource.update_attribute field_name, resource[field_name]
+      # rubocop:enable Rails/SkipsModelValidations
     end
   end
 end

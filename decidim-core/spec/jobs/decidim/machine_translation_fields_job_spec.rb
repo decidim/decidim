@@ -8,6 +8,10 @@ module Decidim
     let(:process) { build :participatory_process, title: title }
 
     describe "When fields job is executed" do
+      before do
+        clear_enqueued_jobs
+      end
+
       it "calls DummyTranslator to creates machine translations" do
         process.save
         MachineTranslationFieldsJob.perform_now(
