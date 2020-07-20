@@ -6,12 +6,6 @@ shared_examples "having a rich text editor" do |css, toolbar|
       expect(page).to have_selector("div.editor-container[data-toolbar='#{toolbar}']", visible: :all)
     end
   end
-
-  it "has helper character counter" do
-    within "form.#{css}" do
-      expect(find(".editor").sibling(".form-input-extra-before")).to have_content("at least 15 characters", count: 1)
-    end
-  end
 end
 
 shared_context "with rich text editor content" do
