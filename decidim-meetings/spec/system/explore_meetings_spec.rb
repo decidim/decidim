@@ -11,6 +11,12 @@ describe "Explore meetings", :slow, type: :system do
     create_list(:meeting, meetings_count, :not_official, component: component)
   end
 
+  before do
+    component_scope = create :scope, parent: participatory_process.scope
+    component_settings = component["settings"]["global"].merge!(scopes_enabled: true, scope_id: component_scope.id)
+    component.update!(settings: component_settings)
+  end
+
   describe "index" do
     it "shows all meetings for the given process" do
       visit_component

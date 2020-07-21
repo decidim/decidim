@@ -53,6 +53,10 @@ describe "User creates meeting", type: :system do
         let(:datetime_format) { I18n.t("time.formats.decidim_short") }
         let(:time_format) { I18n.t("time.formats.time_of_day") }
 
+        before do
+          component.update!(settings: { scopes_enabled: true, scope_id: participatory_process.scope&.id, creation_enabled_for_participants: true })
+        end
+
         context "and rich_editor_public_view component setting is enabled" do
           before do
             organization.update(rich_text_editor_in_public_views: true)

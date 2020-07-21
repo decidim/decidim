@@ -1,4 +1,5 @@
 // = require ./budget_rule_toggler.component
+ // = require ./scope_picker_enabler.component
 
 ((exports) => {
   const { BudgetRuleTogglerComponent } = exports.DecidimAdmin;

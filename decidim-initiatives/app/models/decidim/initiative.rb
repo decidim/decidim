@@ -7,7 +7,7 @@ module Decidim
     include Decidim::Authorable
     include Decidim::Participable
     include Decidim::Publicable
-    include Decidim::Scopable
+    include Decidim::ScopableParticipatorySpace
     include Decidim::Comments::Commentable
     include Decidim::Followable
     include Decidim::HasAttachments

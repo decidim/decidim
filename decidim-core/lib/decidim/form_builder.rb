@@ -294,7 +294,7 @@ module Decidim
       id = "#{self.options[:namespace]}_#{id}" if self.options.has_key?(:namespace)
 
       picker_options = {
-        id: id,
+        id: "#{sanitize_for_dom_selector(@object_name)}_#{attribute}",
         class: "picker-#{options[:multiple] ? "multiple" : "single"}",
         name: "#{@object_name}[#{attribute}]"
       }
@@ -816,6 +816,10 @@ module Decidim
 
     def sanitize_tabs_selector(id)
       id.tr("[", "-").tr("]", "-")
+    end
+
+    def sanitize_for_dom_selector(name)
+      name.to_s.parameterize.underscore
     end
 
     def extension_whitelist_help(extension_whitelist)

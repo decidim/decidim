@@ -20,8 +20,8 @@
     <%= form.collection_radio_buttons :related_to, linked_classes_filter_values_for(Decidim::Proposals::CollaborativeDraft), :first, :last, { legend_title: t(".related_to") }, "aria-controls": "collaborative_drafts" %>
   <% end %>
 
-  <% if current_participatory_space.has_subscopes? %>
-    <%= form.check_boxes_tree :scope_id, filter_scopes_values, legend_title: t(".scope"), "aria-controls": "collaborative_drafts" %>
+  <% if current_component.has_subscopes? %>
+    <%= form.check_boxes_tree :scope_id, filter_scopes_values, legend_title: t(".scope"), "aria-controls": "collaborative_drafts"  %>
   <% end %>
 
   <% if current_component.categories.any? %>

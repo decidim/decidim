@@ -355,6 +355,8 @@ en:
             dummy_global_translatable_text: Dummy Translatable Text
             enable_pads_creation: Enable pads creation
             resources_permissions_enabled: Resources permissions enabled
+            scope_id: Scope
+            scopes_enabled: Scopes enabled
           step:
             amendment_creation_enabled: Amendment creation enabled
             amendment_promotion_enabled: Amendment promotion enabled
