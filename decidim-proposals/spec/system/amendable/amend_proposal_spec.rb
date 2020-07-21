@@ -10,6 +10,7 @@ describe "Amend Proposal", versioning: true, type: :system do
   let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation }
   let(:proposal_title) { translated(proposal.title) }
   let(:emendation_title) { translated(emendation.title) }
+  let(:emendation_body) { translated(emendation.body) }
 
   let(:active_step_id) { participatory_space.active_step.id }
   let(:emendation_path) { Decidim::ResourceLocatorPresenter.new(emendation).path }
@@ -325,7 +326,7 @@ describe "Amend Proposal", versioning: true, type: :system do
             expect(page).to have_css(".edit_amendment")
             expect(page).to have_content("REVIEW THE AMENDMENT")
             expect(page).to have_field("Title", with: emendation_title)
-            expect(page).to have_field("Body", with: emendation.body)
+            expect(page).to have_field("Body", with: emendation_body)
             expect(page).to have_button("Accept amendment")
           end
 

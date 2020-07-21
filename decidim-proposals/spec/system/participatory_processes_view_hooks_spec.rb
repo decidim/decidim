@@ -33,10 +33,10 @@ describe "Proposals in process home", type: :system do
       within ".highlighted_proposals" do
         expect(page).to have_css(".card--proposal", count: proposals_count)
 
-        proposals_titles = proposals.map(&:title)
-        drafted_proposals_titles = drafted_proposals.map(&:title)
-        hidden_proposals_titles = hidden_proposals.map(&:title)
-        withdrawn_proposals_titles = withdrawn_proposals.map(&:title)
+        proposals_titles = proposals.map(&:title).map { |title| translated(title) }
+        drafted_proposals_titles = drafted_proposals.map(&:title).map { |title| translated(title) }
+        hidden_proposals_titles = hidden_proposals.map(&:title).map { |title| translated(title) }
+        withdrawn_proposals_titles = withdrawn_proposals.map(&:title).map { |title| translated(title) }
 
         highlighted_proposals = page.all(".card--proposal .card__title").map(&:text)
         expect(proposals_titles).to include(*highlighted_proposals)
@@ -55,7 +55,7 @@ describe "Proposals in process home", type: :system do
         within ".highlighted_proposals" do
           expect(page).to have_css(".card--proposal", count: highlighted_proposals)
 
-          proposals_titles = proposals.map(&:title)
+          proposals_titles = proposals.map(&:title).map { |title| translated(title) }
           highlighted_proposals = page.all(".card--proposal .card__title").map(&:text)
           expect(proposals_titles).to include(*highlighted_proposals)
         end
