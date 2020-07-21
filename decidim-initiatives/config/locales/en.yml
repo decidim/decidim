@@ -1,5 +1,4 @@
 ---
-
 en:
   activemodel:
     attributes:
@@ -264,9 +263,9 @@ en:
             destroy: Delete
             update: Update
           form:
-            only_global_scope_enabled_help: If you enable this make sure you configured your scopes and initiative type scopes properly, see this <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">link</a> to understand how. This is usually activated with "Enable child scope signatures". By enabling this scope selection will be skipped in initiative creation wizard
-            child_scope_threshold_enabled_help: This config flag doesn't support offline votes, it enables sub-jauges and works with an authorization handler that associate associates a scope to the user, make sure you select that authorization bellow in authorization settings. For more info on how this configuration works see this <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">link</a>. This is usually activated along together with "Only allow global scope initiative creation".
             authorizations: Authorization settings
+            child_scope_threshold_enabled_help: This config flag doesn't support offline votes, it enables sub-jauges and works with an authorization handler that associate associates a scope to the user, make sure you select that authorization bellow in authorization settings. For more info on how this configuration works see this <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">link</a>. This is usually activated along together with "Only allow global scope initiative creation".
+            only_global_scope_enabled_help: If you enable this make sure you configured your scopes and initiative type scopes properly, see this <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">link</a> to understand how. This is usually activated with "Enable child scope signatures". By enabling this scope selection will be skipped in initiative creation wizard
             options: Options
             title: General information
           initiative_type_scopes:
