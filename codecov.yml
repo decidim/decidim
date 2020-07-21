@@ -1,7 +1,6 @@
 comment: false
 ignore:
-  - "lib/decidim/**/engine.rb"
-  - "lib/decidim/**/admin-engine.rb"
-  - "lib/decidim/**/component.rb"
-  - "lib/decidim/**/participatory_space.rb"
-
+  - "decidim-*/lib/decidim/**/engine.rb"
+  - "decidim-*/lib/decidim/**/admin-engine.rb"
+  - "decidim-*/lib/decidim/**/component.rb"
+  - "decidim-*/lib/decidim/**/participatory_space.rb"
