@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# This validator ensures the scope is a scope of a component scope,
+# This validator ensures the scope is a scope of a component scope
 class ScopeBelongsToComponentValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
     return unless component_for(record)
@@ -11,6 +11,6 @@ class ScopeBelongsToComponentValidator < ActiveModel::EachValidator
   private
 
   def component_for(record)
-    @component_for ||= record.try(:component) || record.try(:current_component)
+    record.try(:component) || record.try(:current_component)
   end
 end
