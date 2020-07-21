@@ -37,6 +37,7 @@ pl:
         confirm_destroy: Czy na pewno chcesz usunąć to %{name}?
         destroy: Kasować
         edit: Edytuj
+        import_csv: Importuj z CSV
         new: Nowe %{name}
         preview: Podgląd
         timeline_entries: Ewolucja projektu
@@ -44,6 +45,9 @@ pl:
       admin:
         exports:
           results: wyniki
+        import_results:
+          new:
+            import: Import
         models:
           result:
             name: Wynik
