@@ -32,7 +32,8 @@ module Decidim
 
     # Security fix - Avoid CSV injection - https://owasp.org/www-community/attacks/CSV_Injection
     def csv_sanitize(value)
-      return value unless value.instance_of? String and invalid_first_chars.include? value.first
+      return value unless value.instance_of?(String) && invalid_first_chars.include?(value.first)
+
       value.prepend("'")
     end
 
