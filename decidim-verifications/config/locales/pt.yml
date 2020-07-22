@@ -3,19 +3,19 @@ pt:
     attributes:
       config:
         available_methods: Métodos disponíveis
-        offline: desligada
+        offline: Off-line
         offline_explanation: Instruções para verificação off-line
-        online: Conectados
+        online: On-line
       id_document_information:
         document_number: Número do documento (com letra)
         document_type: Tipo do documento
       id_document_upload:
         document_number: Número do documento (com letra)
         document_type: Tipo do seu documento
-        user: Do utilizador
+        user: Participante
         verification_attachment: Cópia digitalizada do seu documento
       offline_confirmation:
-        email: E-mail do usuário
+        email: E-mail do participante
       postal_letter_address:
         full_address: Endereço completo
       postal_letter_confirmation:
@@ -29,60 +29,60 @@ pt:
         authorization_workflows: Verificações
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} atualizou a configuração de verificação de documentos de identidade"
+        update_id_documents_config: "%{user_name} atualizou a configuração de verificação de Documentos de Identidade"
       user:
-        grant_id_documents_offline_verification: "%{user_name} verificado %{resource_name} usando uma verificação de documentos de identidade off-line"
+        grant_id_documents_offline_verification: "%{user_name} verificou %{resource_name} usando verificação de Documentos de Identidade off-line"
     authorization_handlers:
       admin:
         csv_census:
           help:
-            - Administra o upload de um arquivo CSV com os e-mails dos participantes aceitos
-            - Somente participantes com um e-mail nesse arquivo CSV podem ser verificados
+            - Administradores enviam um CSV com os e-mails dos participantes aceites
+            - Apenas participantes com um e-mail nesse ficheiro CSV podem ser verificados
         id_documents:
           help:
-            - Os usuários preenchem suas informações de identidade e carregam uma cópia do documento.
-            - Você preencher as informações presentes na imagem carregada.
-            - A informação deve corresponder ao que o usuário preenchido.
-            - Se você não pode ver claramente a informação ou não conseguir verificá-la, você pode rejeitar a solicitação e o usuário poderá consertá-la.
+            - Os participantes preenchem as suas informações de identidade e enviam uma cópia do seu documento.
+            - Preencha as informações presentes na imagem enviada.
+            - A informação deve corresponder ao que o utilizador preencheu.
+            - Se não pode ver claramente a informação ou não conseguir verificá-la, pode rejeitar a solicitação e o utilizador poderá corrigi-la.
         postal_letter:
           help:
-            - Os usuários solicitaram que um código de verificação seja enviado para o endereço.
-            - Você envia a carta para seu endereço com o código de verificação.
-            - Você marca a carta como enviada.
-            - Depois de marcar a carta como enviada, o usuário poderá introduzir o código e ser verificado.
+            - Os participantes solicitam que um código de verificação seja enviado para o seu endereço.
+            - Envia a carta para o seu endereço com o código de verificação.
+            - Marca a carta como enviada.
+            - Depois de marcar a carta como enviada, o participante poderá introduzir o código e ser verificado.
       csv_census:
         explanation: Seja verificado usando o censo da organização
         name: Recenseamento da organização
       direct: Direto
-      help: Socorro
+      help: Ajuda
       id_documents:
-        explanation: Carregue seus documentos de identidade para que possamos verificar sua identidade
+        explanation: Envie os seus documentos de identidade para que possamos verificar a sua identidade
         name: Documentos de identidade
-      multistep: Várias Etapas
+      multistep: Múltiplos Passos
       name: Nome
       postal_letter:
-        explanation: Nós lhe enviaremos uma carta postal com um código que você terá que inserir para que possamos verificar seu endereço
+        explanation: Enviaremos-lhe uma carta postal com um código que terá que inserir para que possamos verificar o seu endereço
         name: Código por carta postal
     verifications:
       authorizations:
         create:
-          error: Ocorreu um erro ao criar a autorização.
-          success: Você foi autorizado com sucesso.
-          unconfirmed: Você precisa confirmar seu e-mail para se autorizar.
+          error: Ocorreu um problema ao criar a autorização.
+          success: Foi autorizado corretamente.
+          unconfirmed: Precisa de confirmar o seu e-mail para se poder autorizar.
         first_login:
           actions:
             another_dummy_authorization_handler: Verificar contra outro exemplo de manipulador de autorização
-            csv_census: Verifique o censo da organização
-            dummy_authorization_handler: Verifique contra o manipulador de autorização de exemplo
-            dummy_authorization_workflow: Verifique o exemplo de fluxo de trabalho de autorização
-            id_documents: Seja verificado ao fazer o upload do documento de identidade
+            csv_census: Verificar contra o censo da organização
+            dummy_authorization_handler: Verificar contra o manipulador de autorização de exemplo
+            dummy_authorization_workflow: Verificar contra o fluxo de autorização de exemplo
+            id_documents: Seja verificado ao enviar o seu documento de identidade
             postal_letter: Seja verificado ao receber um código de verificação por correio postal
-          title: Verifique sua identidade
-          verify_with_these_options: 'Estas são as opções disponíveis para verificar sua identidade:'
+          title: Verificar a sua identidade
+          verify_with_these_options: 'Estas são as opções disponíveis para verificar a sua identidade:'
         new:
           authorize: Enviar
-          authorize_with: Verifique com %{authorizer}
-        skip_verification: Você pode ignorar isso por enquanto e %{link}
+          authorize_with: Verificar com %{authorizer}
+        skip_verification: Pode ignorar isto por agora e %{link}
         start_exploring: comece a explorar
       csv_census:
         admin:
