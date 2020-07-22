@@ -29,5 +29,15 @@ module Decidim
     def decidim_url_escape(text)
       decidim_html_escape(text).sub(/^javascript:/, "")
     end
+
+    # Security fix - Avoid CSV injection - https://owasp.org/www-community/attacks/CSV_Injection
+    def csv_sanitize(value)
+      return value unless value.instance_of? String and invalid_first_chars.include? value.first
+      value.prepend("'")
+    end
+
+    def invalid_first_chars
+      %w(= + - @)
+    end
   end
 end
