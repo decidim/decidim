@@ -24,10 +24,8 @@ class MoveBudgetsToOwnModel < ActiveRecord::Migration[5.2]
     budget_components.each do |component|
       resource = create_budget_resource_from(component)
 
-      if resource
-        add_budget_references_to_projects(resource)
-        add_budget_reference_to_orders(resource)
-      end
+      add_budget_references_to_projects(resource)
+      add_budget_reference_to_orders(resource)
     end
 
     remove_column :decidim_budgets_projects, :decidim_component_id
@@ -35,8 +33,8 @@ class MoveBudgetsToOwnModel < ActiveRecord::Migration[5.2]
   end
 
   def down
-    add_column :decidim_budgets_projects, :decidim_component_id
-    add_column :decidim_budgets_orders, :decidim_component_id
+    add_column :decidim_budgets_projects, :decidim_component_id, :integer, index: true
+    add_column :decidim_budgets_orders, :decidim_component_id, :integer, index: true
 
     Budget.find_each do |resource|
       revert_budget_to_component(resource)
@@ -53,7 +51,7 @@ class MoveBudgetsToOwnModel < ActiveRecord::Migration[5.2]
   end
 
   def create_budget_resource_from(component)
-    component_total_budget = (component["settings"]["global"]["total_budget"] if component["settings"]["global"].try(:key?, "total_budget"))
+    component_total_budget = (component["settings"]["global"]["total_budget"] if component["settings"].dig("global", "total_budget"))
 
     Budget.create!(
       decidim_component_id: component.id,
