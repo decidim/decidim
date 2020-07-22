@@ -410,7 +410,7 @@ pt:
           name: Categoria
         impersonation_log:
           fields:
-            admin: Administrador
+            admin: Administrador(a)
             ended_at: Terminou em
             expired_at: Expirou em
             reason: Razão
@@ -451,7 +451,7 @@ pt:
             name: Nome
             role: Função
             roles:
-              admin: Administrador
+              admin: Administrador(a)
               user_manager: Gestor de participante
           name: Participante
         user_group:
@@ -476,7 +476,7 @@ pt:
           error: Ocorreu um problema ao criar este boletim informativo.
           success: Boletim Informativo criado corretamente. Por favor, reveja-o antes de enviar.
         deliver:
-          error: Ocorreu um problema na entrega deste boletim de notícias.
+          error: Ocorreu um problema na entrega deste boletim informativo.
           success: Boletim Informativo entregue corretamente.
         destroy:
           error_already_sent: 'Não é possível destruir o boletim informativo: já foi enviado.'
@@ -498,7 +498,7 @@ pt:
           participants: 'participantes '
           segmented_to: 'Segmentado para %{subject}: '
           subscribed_count: 'Subscrito:'
-          title: Boletins de Notícias
+          title: Boletins informativos
         new:
           save: Guardar
           title: Novo boletim informativo
@@ -552,7 +552,7 @@ pt:
         create:
           success: Participante oficializado corretamente
         destroy:
-          success: Participante desoficializado corretamente
+          success: Remoção da oficialização do participante feita corretamente
         index:
           actions: Ações
           badge: Distintivo
@@ -691,7 +691,7 @@ pt:
           update: Atualizar
         form:
           none: Nenhum
-          slug_help: 'Utilize caminhos parciais e não URL completos aqui. Aceita letras, números, traços e barras, devendo começar com uma letra. Exemplo: %{url}'
+          slug_help: 'Utilize caminhos parciais e não URL completos aqui. Aceita letras, números e traços, devendo começar com uma letra. Exemplo: %{url}'
         index:
           last_notable_change: Última alteração notável
         new:
@@ -750,10 +750,10 @@ pt:
           upload: Envio
       users:
         create:
-          error: Ocorreu um problema ao convidar este administrador.
+          error: Ocorreu um problema ao convidar este(a) administrador(a).
           success: Participante convidado corretamente.
         destroy:
-          error: Ocorreu um problema ao tentar eliminar este administrador.
+          error: Ocorreu um problema ao tentar eliminar este(a) administrador(a).
           success: O participante deixou de ser um administrador.
         form:
           email: E-mail
@@ -761,7 +761,7 @@ pt:
           role: Função
         new:
           create: Convidar
-          title: Convidar o participante como administrador
+          title: Convidar o(a) participante como administrador(a)
       view_public_page: Ver página pública
     forms:
       errors:
