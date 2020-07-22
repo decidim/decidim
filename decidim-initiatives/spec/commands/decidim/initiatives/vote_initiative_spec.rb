@@ -178,7 +178,7 @@ module Decidim
             let(:metadata) do
               {
                 test: "dummy",
-                scope_id: initiative.scoped_type.id
+                scope_id: initiative.scoped_type.scope.id
               }
             end
             let!(:authorization_handler) { Decidim::AuthorizationHandler.handler_for(handler_name) }

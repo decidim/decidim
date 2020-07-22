@@ -3,7 +3,7 @@
 Decidim::Verifications.register_workflow(:dummy_authorization_handler) do |workflow|
   workflow.form = "DummyAuthorizationHandler"
   workflow.action_authorizer = "DummyAuthorizationHandler::DummyActionAuthorizer"
-  workflow.expires_in = 1.hour
+  workflow.expires_in = 1.month
   workflow.renewable = true
   workflow.time_between_renewals = 5.minutes
 
