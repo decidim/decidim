@@ -29,10 +29,8 @@ module Decidim
 
         def action_string
           case action
-          when "publish"
-            "decidim.elections.admin_log.election.publish"
-          when "unpublish"
-            "decidim.elections.admin_log.election.unpublish"
+          when "publish", "unpublish"
+            "decidim.elections.admin_log.election.#{action}"
           else
             super
           end
