@@ -27,16 +27,16 @@ module Decidim
 
         private
 
-        attr_reader :form, :project
+        attr_reader :form
 
         def create_projects_from_accepted_proposals
           transaction do
             proposals.map do |original_proposal|
               next if proposal_already_copied?(original_proposal)
 
-              create_project_from_proposal!(original_proposal)
+              new_project = create_project_from_proposal!(original_proposal)
 
-              project.link_resources([original_proposal], "included_proposals")
+              new_project.link_resources([original_proposal], "included_proposals")
             end.compact
           end
         end
