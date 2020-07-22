@@ -90,12 +90,13 @@ fi:
           filter: Suodata
           filter_by: Suodata
           unfold: Avaa
+        form:
+          select_a_category: Valitse aihepiiri
         index:
           new_debate: Uusi keskustelu
         new:
           back: Takaisin
           create: Luo
-          select_a_category: Valitse aihepiiri
           title: Uusi keskustelu
         show:
           back: Takaisin listaan
