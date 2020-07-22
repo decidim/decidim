@@ -259,8 +259,11 @@ it:
       dummy_authorization_handler:
         explanation: Ottieni la verifica introducendo un numero di documento che termina con "X"
         fields:
+          allowed_postal_codes: Codici postali consentiti (separati da virgole)
+          allowed_scope_id: Ambito consentito
           document_number: Numero del documento
           postal_code: Codice postale
+          scope_id: Ambito
         name: Esempio di autorizzazione
       dummy_authorization_workflow:
         name: Flusso di lavoro fittizio di autorizzazione
@@ -337,6 +340,7 @@ it:
           global:
             amendments_enabled: Emendamenti abilitati
             comments_enabled: Commenti abilitati
+            comments_max_length: Lunghezza massima dei commenti
             dummy_global_attribute_1: Attributo fittizio 1
             dummy_global_attribute_2: Attributo fittizio 2
             dummy_global_translatable_text: Testo traducibile Dummy
@@ -1072,8 +1076,14 @@ it:
         report_html: <p>Il seguente <a href="%{url}">contenuto</a> è stato nascosto automaticamente.</p>
         subject: Un contenuto è stato cancellato automaticamente
       report:
+        authors: Autori
+        content: Contenuto segnalato
+        date: Segnalato il
+        details: Dettagli
         hello: Ciao %{name},
         manage_moderations: Gestire moderazioni
+        participatory_space: Spazio partecipativo
+        reason: Motivazione
         report_html: <p>Il seguente <a href="%{url}">contenuto</a> è stato segnalato.</p>
         subject: Un contenuto è stato denunciato
     reports:
