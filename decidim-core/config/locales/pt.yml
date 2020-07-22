@@ -100,7 +100,7 @@ pt:
         create: "%{user_name} adicionou o componente %{resource_name} ao espaço %{space_name}"
         delete: "%{user_name} removeu o componente %{resource_name} do espaço %{space_name}"
         publish: "%{user_name} publicou o componente %{resource_name} no espaço %{space_name}"
-        unpublish: "%{user_name} despublicou o componente %{resource_name} do espaço %{space_name}"
+        unpublish: "%{user_name} removeu a publicação do componente %{resource_name} do espaço %{space_name}"
       moderation:
         hide: "%{user_name} escondeu um recurso de tipo %{resource_type} no %{space_name} espaço"
         unreport: "%{user_name} não declarou um recurso de tipo %{resource_type} no %{space_name} espaço"
@@ -134,7 +134,7 @@ pt:
         invite: "%{user_name} convidou o usuário %{resource_name} com papel: %{role}"
         officialize: "%{user_name} oficializou o participante %{resource_name}"
         remove_from_admin: "%{user_name} removeu o participante %{resource_name} com função: %{role}"
-        unofficialize: "%{user_name} desoficializou o participante %{resource_name}"
+        unofficialize: "%{user_name} remoção a oficialização do participante %{resource_name}"
       user_group:
         reject: "%{user_name} rejeitou a verificação de grupo %{resource_name}"
         verify: "%{user_name} verificou o grupo %{resource_name}"
@@ -252,7 +252,7 @@ pt:
       dummy_authorization_workflow:
         name: Fluxo de trabalho de autorização falsa
       errors:
-        duplicate_authorization: Um participante já está autorizado com os mesmos dados.
+        duplicate_authorization: Um participante com os mesmos dados já está autorizado.
       expired_at: Expirou em %{timestamp}
       expires_at: Expira em %{timestamp}
       foo_authorization:
@@ -533,7 +533,7 @@ pt:
           email_subject: O seu pedido de adesão ao grupo %{user_group_name} foi rejeitado!
           notification_title: O seu pedido de adesão ao grupo <a href="%{resource_path}">%{user_group_name}</a> foi rejeitado.
         promoted_to_admin:
-          email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> deu-lhe direitos de administrador desse grupo.
+          email_intro: Um(a) administrador(a) do grupo <a href="%{resource_url}">%{user_group_name}</a> deu-lhe direitos de administrador desse grupo.
           email_outro: Recebeu esta notificação porque é um membro desse grupo.
           email_subject: Agora é um(a) administrador(a) do grupo %{user_group_name}!
           notification_title: Agora é um(a) administrador(a) do grupo <a href="%{resource_path}">%{user_group_name}</a>.
@@ -838,7 +838,7 @@ pt:
         error: Ocorreu um problema ao atualizar as suas configurações de notificações.
         success: Suas configurações de notificações foram atualizadas com sucesso.
     open_data:
-      not_available_yet: Os arquivos Open Data ainda não estão disponíveis. Tente novamente em alguns minutos.
+      not_available_yet: Os arquivos Open Data ainda não estão disponíveis. Tente novamente dentro de poucos minutos.
     own_user_groups:
       index:
         pending: Pendente
@@ -881,7 +881,7 @@ pt:
           pages_count: Páginas
           processes_count: Processos
           projects_count: Projetos
-          proposals_accepted: Propostas aceitas
+          proposals_accepted: Propostas aceites
           proposals_count: Propostas
           results_count: Resultados
           surveys_count: Inquéritos
@@ -947,39 +947,39 @@ pt:
         invite_user: Convidar participante
         join_user_group: Solicitar adesão ao grupo
         leave_user_group: Deixar o grupo
-        manage_user_group_admins: Gerenciar administradores
-        manage_user_group_users: Gerenciar membros
-        resend_email_confirmation_instructions: Reenvie as instruções de confirmação por email
+        manage_user_group_admins: Gerir administradores
+        manage_user_group_users: Gerir membros
+        resend_email_confirmation_instructions: Reenviar instruções de confirmação de e-mail
     reported_mailer:
       hide:
         hello: Olá %{name},
-        manage_moderations: Gerenciar moderações
-        report_html: <p>O seguinte <a href="%{url}">content</a> foi ocultado automaticamente.</p>
-        subject: Um recurso foi escondido automaticamente
+        manage_moderations: Gerir moderações
+        report_html: <p>O seguinte <a href="%{url}">conteúdo</a> foi ocultado automaticamente.</p>
+        subject: Um recurso foi ocultado automaticamente
       report:
         hello: Olá %{name},
         manage_moderations: Gerir moderações
-        report_html: <p>O seguinte <a href="%{url}">content</a> foi reportado.</p>
-        subject: Um recurso foi relatado
+        report_html: <p>O seguinte <a href="%{url}">conteúdo</a> foi reportado.</p>
+        subject: Um recurso foi reportado
     reports:
       create:
         error: Ocorreu um erro ao criar o relatório. Por favor, tente novamente.
-        success: O relatório foi criado com sucesso e será revisto por um administrador.
+        success: O relatório foi criado corretamente e será revisto por um administrador.
     scopes:
       global: Âmbito global
       picker:
         cancel: Cancelar
-        choose: Selecione
-        title: Selecione %{field}
-      prompt: Selecione um escopo
-      scopes: Escopos
+        choose: Selecionar
+        title: Selecionar %{field}
+      prompt: Selecionar um âmbito
+      scopes: Âmbitos
     search:
       results_found_for_term: '%{count} Resultados para a pesquisa: "%{term}"'
-      term_input_placeholder: Pesquisa
+      term_input_placeholder: Pesquisar
     searches:
       filters:
         back: Voltar aos resultados
-        jump_to: 'Pule para:'
+        jump_to: 'Saltar para:'
         state:
           active: Ativo
           all: Todos
@@ -987,7 +987,7 @@ pt:
           past: Passado
       filters_small_view:
         close_modal: Fechar modal
-        filter: Filtro
+        filter: Filtrar
         filter_by: Filtrar por
         unfold: Desdobrar
       results:
@@ -999,29 +999,29 @@ pt:
       embed_modal:
         close_window: Fechar janela
         embed: Cole este código na sua página
-        embed_link: Embutir
+        embed_link: Incorporar
       extended_navigation_bar:
         more: Mais
         unfold: Desdobrar
       flag_modal:
-        already_reported: Este conteúdo já foi relatado e será revisto por um administrador.
+        already_reported: Este conteúdo já foi reportado e será revisto por um administrador.
         close: Fechar
         description: Este conteúdo é impróprio?
-        does_not_belong: Contém atividades ilegais, ameaças suicidas, informações pessoais ou qualquer outra coisa que você acha que não pertence ao %{organization_name}.
+        does_not_belong: Contém atividades ilegais, ameaças suicidas, informações pessoais ou qualquer outra coisa que pense não pertencer a %{organization_name}.
         offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer tipo de discurso de ódio.
-        report: Denunciar
-        spam: Contém clickbait, publicidade, fraudes ou script bots.
+        report: Reportar
+        spam: Contém clickbait, publicidade, fraudes ou robots de scripts.
         title: Reportar um problema
       floating_help:
-        help: Socorro
+        help: Ajuda
       follow_button:
-        sign_in_before_follow: Faça login antes de executar esta ação
+        sign_in_before_follow: Por favor inicie sessão antes de executar esta ação
       login_modal:
         please_sign_in: Por favor, inicie a sessão
         sign_up: Inscrever-se
       participatory_space_filters:
         filters:
-          areas: Areas
+          areas: Áreas
           select_an_area: Selecione uma área
       reference:
         reference: 'Referência: %{reference}'
@@ -1038,205 +1038,205 @@ pt:
         deleted: Participante eliminado
     user_activity:
       index:
-        no_activities_warning: Este usuário ainda não possui nenhuma atividade.
+        no_activities_warning: Este participante ainda não possui nenhuma atividade.
     user_interests:
       show:
-        my_interests: Meus interesses
-        no_scopes: Esta organização ainda não possui nenhum escopo!
-        select_your_interests: Selecione os tópicos em que você está interessado para receber eventos relacionados a eles na guia Timeline de seu perfil.
-        update_my_interests: Atualize meus interesses
+        my_interests: Os meus interesses
+        no_scopes: Esta organização ainda não possui nenhum âmbito!
+        select_your_interests: Selecione os tópicos em que está interessado para receber eventos relacionados com eles no separador Cronograma do seu perfil.
+        update_my_interests: Atualizar os meus interesses
       update:
-        error: Ocorreu um erro ao atualizar seus interesses.
-        success: Seus interesses foram atualizados com sucesso.
+        error: Ocorreu um problema ao atualizar os seus interesses.
+        success: Os seus interesses foram atualizados corretamente.
     welcome_notification:
-      default_body: <p>Olá {{name}}, obrigado por se juntar a {{organization}} e seja bem-vindo!</p><ul><li>Se você quiser ter uma idéia rápida do que pode fazer aqui, dê uma olhada na seção <a href="{{help_url}}">Ajuda</a> .</li><li>Depois de ler, você receberá seu primeiro crachá. Aqui está uma <a href="{{badges_url}}">lista de todos os crachás</a> você pode começar como você participar de {{organization}}</li><li>Por último, mas não menos importante, se juntar a outras pessoas, compartilhar com eles a experiência de ser envolvido e participando de {{organization}}. Faça propostas, comentários, debata, pense em como contribuir para o bem comum, forneça argumentos para convencer, escute e leia para ser convencido, expresse suas idéias de maneira concreta e direta, responda com paciência e decisão, defenda suas ideias e mantenha uma mente aberta para colaborar e juntar-se às ideias de outras pessoas.</li></ul>
+      default_body: <p>Olá {{name}}, agradecemos por se juntar a {{organization}} e seja bem-vindo(a)!</p><ul><li>Se quiser ter uma ideia rápida do que pode fazer aqui, veja a secção <a href="{{help_url}}">Ajuda</a> .</li><li>Depois de lê-la, receberá o seu primeiro distintivo. Aqui está uma <a href="{{badges_url}}">lista de todos os distintivos</a> que pode obter como participante de {{organization}}</li><li>Por último, mas não menos importante, junte-se a outras pessoas, compartilhe com elas a sua experiência de estar envolvido e participar em {{organization}}. Faça propostas, comentários, debata, pense em como contribuir para o bem comum, forneça argumentos para convencer, escute e leia para ser convencido, expresse as suas ideias de maneira concreta e direta, responda com paciência e decisão, defenda as suas ideias e mantenha uma mente aberta para colaborar e juntar-se às ideias de outras pessoas.</li></ul>
       default_subject: Obrigado por se juntar a {{organization}}!
     wizard_step_form:
       wizard_aside:
         back: Retroceder
       wizard_header:
-        see_steps: ver etapas
-        step_of: Etapa %{current_step} de %{total_steps}
+        see_steps: ver passos
+        step_of: Passo %{current_step} de %{total_steps}
   devise:
     confirmations:
-      confirmed: Seu endereço de e-mail foi confirmado com sucesso.
+      confirmed: O seu endereço de e-mail foi confirmado corretamente.
       new:
         resend_confirmation_instructions: Reenviar instruções de confirmação
-      send_instructions: Você receberá um e-mail com instruções sobre como confirmar seu endereço de e-mail em alguns minutos.
-      send_paranoid_instructions: Se o seu endereço de e-mail existir em nosso banco de dados, você receberá um e-mail com instruções sobre como confirmar seu endereço de e-mail em alguns minutos.
+      send_instructions: Receberá um e-mail com instruções sobre como confirmar o seu endereço de e-mail dentro de alguns minutos.
+      send_paranoid_instructions: Se o seu endereço de e-mail existir na nossa base de dados, receberá um e-mail com instruções sobre como confirmar o seu endereço de e-mail dentro de alguns minutos.
     failure:
-      already_authenticated: Você já está inscrito.
-      inactive: Sua conta Ainda não esta ativada.
-      invalid: '%{authentication_keys} inválido ou senha.'
-      invited: Você tem um convite pendente, aceite-o para concluir a criação da sua conta.
-      last_attempt: Você tem mais uma tentativa antes que sua conta seja bloqueada.
-      locked: Sua conta está bloqueada.
-      not_found_in_database: '%{authentication_keys} inválido ou senha.'
-      timeout: Sua sessão expirou. Por favor, entre novamente para continuar.
-      unauthenticated: Você precisa fazer login ou se inscrever antes de continuar.
+      already_authenticated: Já está inscrito.
+      inactive: A sua conta ainda não está ativa.
+      invalid: '%{authentication_keys} ou palavra-passe inválidos(as).'
+      invited: Tem um convite pendente, aceite-o para concluir a criação da sua conta.
+      last_attempt: Tem mais uma tentativa antes que a sua conta seja bloqueada.
+      locked: A sua conta está bloqueada.
+      not_found_in_database: '%{authentication_keys} ou palavra-passe inválidos(as).'
+      timeout: A sua sessão expirou. Por favor, inicie sessão novamente para continuar.
+      unauthenticated: É necessário iniciar sessão ou inscrever-se antes de continuar.
     invitations:
       edit:
-        header: Termine de criar sua conta
-        nickname_help: Seu identificador exclusivo em %{organization}.
+        header: Termine a criação da sua conta
+        nickname_help: A sua alcunha em %{organization}.
         submit_button: Salvar
-        subtitle: Se você aceitar o convite, defina seu apelido e senha.
-      invitation_removed: Seu convite foi removido.
+        subtitle: Se aceitar o convite, por favor defina a sua alcunha e palavra-passe.
+      invitation_removed: O seu convite foi removido.
       invitation_token_invalid: O token de convite fornecido não é válido!
       new:
         header: Enviar convite
-        submit_button: Envie um convite
+        submit_button: Enviar um convite
       no_invitations_remaining: Nenhum convite restante
-      send_instructions: Um email de convite foi enviado para %{email}.
-      updated: Sua senha foi configurada com sucesso. Agora você está conectado.
-      updated_not_active: Sua senha foi configurada com sucesso.
+      send_instructions: Um e-mail de convite foi enviado para %{email}.
+      updated: A sua palavra-passe foi configurada corretamente. Agora tem sessão iniciada.
+      updated_not_active: A sua palavra-passe foi configurada corretamente.
     mailer:
       confirmation_instructions:
-        action: Confirme minha conta
-        greeting: Bem-vindo %{recipient}!
-        instruction: 'Pode confirmar o email da sua conta através do link abaixo:'
+        action: Confirmar a minha conta
+        greeting: Bem-vindo(a) %{recipient}!
+        instruction: 'Pode confirmar o e-mail da sua conta através da hiperligação abaixo:'
         subject: Instruções de confirmação
       email_changed:
         greeting: Olá %{recipient}!
-        message: Estamos entrando em contato para notificá-lo de que seu e-mail está sendo alterado para %{email}.
-        subject: E-mail alterado
+        message: Estamos a contactá-lo(a) para notificá-lo(a) de que o seu e-mail está a ser modificado para %{email}.
+        subject: E-mail Modificado
       invitation_instructions:
         accept: Aceitar convite
-        accept_until: Este convite será devido em %{due_date}.
+        accept_until: Este convite irá expirar em %{due_date}.
         decline: Recusar convite
         hello: Olá %{email},
         ignore: |-
-          Se você não quiser aceitar o convite, ignore este e-mail.<br />
-          Sua conta não será criada até que você acesse o link acima e defina seu apelido e senha.
-        invited_you_as_admin: "%{invited_by} convidou você como administrador de %{application}. Você pode aceitá-lo através do link abaixo."
-        invited_you_as_private_user: "%{invited_by} convidou você como usuário particular de %{application}. Você pode aceitá-lo através do link abaixo."
-        someone_invited_you: Alguém convidou você para %{application}. Você pode aceitá-lo através do link abaixo.
-        someone_invited_you_as_admin: Alguém convidou você como administrador de %{application}, você pode aceitá-lo através do link abaixo.
-        someone_invited_you_as_private_user: Alguém convidou você como usuário privado de %{application}, você pode aceitá-lo através do link abaixo.
+          Se não quiser aceitar o convite, por favor ignore este e-mail.<br />
+          A sua conta não será criada até que aceda à hiperligação acima e defina a sua alcunha e palavra-passe.
+        invited_you_as_admin: "%{invited_by} convidou-(a) como administrador(a) de %{application}. Pode aceitar através da hiperligação abaixo."
+        invited_you_as_private_user: "%{invited_by} convidou-o(a) como participante privado de %{application}. Pode aceitar através da hiperligação abaixo."
+        someone_invited_you: Alguém convidou-o(a) para %{application}. Pode aceitar através da hiperligação abaixo.
+        someone_invited_you_as_admin: Alguém convidou-o(a) como administrador(a) de %{application}, pode aceitar através da hiperligação abaixo.
+        someone_invited_you_as_private_user: Alguém convidou-o(a) como participante privado de %{application}, pode aceitar através da hiperligação abaixo.
         subject: Instruções de convite
       invite_admin:
-        subject: Você foi convidado a gerenciar %{organization}
+        subject: Foi convidado(a) a gerir %{organization}
       invite_collaborator:
-        subject: Você foi convidado a colaborar em %{organization}
+        subject: Foi convidado(a) a colaborar em %{organization}
       invite_private_user:
-        subject: Você foi convidado para um processo participativo privado em %{organization}
+        subject: Foi convidado(a) para um processo participativo privado em %{organization}
       organization_admin_invitation_instructions:
-        subject: Você foi convidado a gerenciar %{organization}
+        subject: Foi convidado(a) a gerir %{organization}
       password_change:
         greeting: Olá %{recipient}!
-        message: Estamos nos comunicando com você para notificá-lo de que sua senha foi alterada.
-        subject: A senha mudou
+        message: Estamos a contactá-lo(a) para notificá-lo(a) de que a sua palavra-passe foi modificada.
+        subject: Palavra-passe modificada
       reset_password_instructions:
-        action: Mudar minha senha
+        action: Modificar a minha palavra-passe
         greeting: Olá %{recipient}!
-        instruction: Alguém solicitou um link para alterar sua senha, e você pode fazer isso através do link abaixo.
-        instruction_2: Se você não solicitou isso, ignore este e-mail.
-        instruction_3: Sua senha não será alterada até que você acesse o link acima e crie um novo.
-        subject: Redefinir instruções de senha
+        instruction: Alguém solicitou uma hiperligação para alterar a sua palavra-passe e pode fazer isso através da hiperligação abaixo.
+        instruction_2: Se não solicitou isto, por favor ignore este e-mail.
+        instruction_3: A sua palavra-passe não será alterada até que aceda à hiperligação acima e crie uma nova.
+        subject: Instruções de reposição da palavra-passe
       unlock_instructions:
-        action: Desbloquear minha conta
+        action: Desbloquear a minha conta
         greeting: Olá %{recipient}!
-        instruction: 'Clique no link abaixo para desbloquear sua conta:'
-        message: Sua conta foi bloqueada devido a uma quantidade excessiva de tentativas de login malsucedidas.
+        instruction: 'Clique na hiperligação abaixo para desbloquear a sua conta:'
+        message: A sua conta foi bloqueada devido a uma quantidade excessiva de tentativas de início de sessão malsucedidas.
         subject: Desbloquear instruções
     omniauth_callbacks:
-      failure: Não foi possível autenticá-lo de %{kind} porque "%{reason}".
-      success: Autenticado com êxito a partir de %{kind} conta.
+      failure: Não foi possível autenticá-lo(a) a partir de %{kind} porque "%{reason}".
+      success: Autenticado(a) corretamente a partir da conta %{kind}.
     passwords:
       edit:
-        change_my_password: Mudar minha senha
-        change_your_password: Mude sua senha
-        confirm_new_password: Confirme a nova senha
-        new_password: Nova senha
+        change_my_password: Modificar a minha palavra-passe
+        change_your_password: Modificar a sua palavra-passe
+        confirm_new_password: Confirme a nova palavra-passe
+        new_password: Nova palavra-passe
         password_help: "%{minimun_characters} de caracteres no mínimo, não deverá ser muito comum (por ex. 123456) e deverá ser diferente da sua alcunha e do seu e-mail."
       new:
-        forgot_your_password: Esqueceu sua senha?
-        send_me_reset_password_instructions: Envie-me as instruções de redefinição de senha
-      no_token: Você não pode acessar esta página sem receber um e-mail de redefinição de senha. Se você receber um e-mail de redefinição de senha, verifique se usou o URL completo fornecido.
-      send_instructions: Você receberá um e-mail com instruções sobre como redefinir sua senha em alguns minutos.
-      send_paranoid_instructions: Se o seu endereço de e-mail existir em nosso banco de dados, você receberá um link de recuperação de senha em seu endereço de e-mail em alguns minutos.
-      updated: Sua senha foi alterada com sucesso. Agora você está conectado.
-      updated_not_active: Sua senha foi alterada com sucesso.
+        forgot_your_password: Esqueceu a sua palavra-passe?
+        send_me_reset_password_instructions: Envie-me as instruções de reposição da palavra-passe
+      no_token: Não pode aceder a esta página sem ter vindo a partir de um e-mail de reposição da palavra-passe. Se vier a partir de um e-mail de reposição da palavra-passe, verifique se usou o URL completo fornecido.
+      send_instructions: Receberá um e-mail com instruções sobre como repor a sua palavra-passe dentro de poucos minutos.
+      send_paranoid_instructions: Se o seu endereço de e-mail existir na nossa base de dados, receberá uma hiperligação de recuperação da palavra-passe no seu endereço de e-mail dentro de poucos minutos.
+      updated: A sua palavra-passe foi modificada corretamente. Agora tem sessão iniciada.
+      updated_not_active: A sua palavra-passe foi modificada corretamente.
     registrations:
-      destroyed: Tchau! Sua conta foi cancelada com sucesso. Esperamos te ver novamente em breve.
+      destroyed: A sua conta foi cancelada corretamente. Esperamos vê-lo(a) novamente em breve.
       edit:
-        are_you_sure: Você tem certeza?
-        cancel_my_account: Cancelar minha conta
-        currently_waiting_confirmation_for_email: 'Atualmente aguardando confirmação para: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: deixe em branco se você não quiser mudá-lo
+        are_you_sure: Tem a certeza?
+        cancel_my_account: Cancelar a minha conta
+        currently_waiting_confirmation_for_email: 'Atualmente à espera de confirmação para: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: deixe em branco se não quiser modificá-lo
         title: Editar %{resource}
         unhappy: Infeliz?
         update: Atualizar
-        we_need_your_current_password_to_confirm_your_changes: Precisamos da sua senha atual para confirmar suas alterações
+        we_need_your_current_password_to_confirm_your_changes: precisamos da sua palavra-passe atual para confirmar as suas alterações
       new:
-        sign_up: inscrever-se
-      signed_up: Bem vinda! Você se inscreveu com sucesso.
-      signed_up_but_inactive: Você se inscreveu com sucesso. No entanto, não poderíamos fazer o seu login porque sua conta ainda não está ativada.
-      signed_up_but_locked: Você se inscreveu com sucesso. No entanto, não poderíamos fazer login porque sua conta está bloqueada.
-      signed_up_but_unconfirmed: Uma mensagem com um link de confirmação foi enviada para o seu endereço de e-mail. Por favor, siga o link para ativar sua conta.
-      update_needs_confirmation: Você atualizou sua conta com sucesso, mas precisamos confirmar seu novo endereço de e-mail. Por favor, verifique seu e-mail e siga o link de confirmação para confirmar seu novo endereço de e-mail.
-      updated: Sua conta foi atualizada com sucesso.
+        sign_up: Inscrever-se
+      signed_up: Bem-vindo(a)! Inscreveu-se corretamente.
+      signed_up_but_inactive: Inscreveu-se corretamente. No entanto, não pudemos iniciar a sua sessão porque a sua conta ainda não está ativa.
+      signed_up_but_locked: Inscreveu-se corretamente. No entanto, não pudemos iniciar a sua sessão porque a sua conta está bloqueada.
+      signed_up_but_unconfirmed: Uma mensagem com uma hiperligação de confirmação foi enviada para o seu endereço de e-mail. Por favor, siga a hiperligação para ativar a sua conta.
+      update_needs_confirmation: Atualizou a sua conta corretamente, mas precisamos de confirmar o seu novo endereço de e-mail. Por favor, verifique o seu e-mail e siga a hiperligação de confirmação para confirmar o seu novo endereço de e-mail.
+      updated: A sua conta foi atualizada corretamente.
     sessions:
-      already_signed_out: Saiu com sucesso.
+      already_signed_out: Sessão terminada corretamente.
       new:
-        sign_in: Entrar
-      signed_in: Conectado com sucesso.
-      signed_out: Saiu com sucesso.
+        sign_in: Iniciar sessão
+      signed_in: Sessão iniciada corretamente.
+      signed_out: Sessão terminada corretamente.
     shared:
       links:
-        back: Costas
-        didn_t_receive_confirmation_instructions: Não recebeu instruções de confirmação?
-        didn_t_receive_unlock_instructions: Não recebeu instruções de desbloqueio?
-        forgot_your_password: Esqueceu sua senha?
-        sign_in: Entrar
-        sign_in_with_provider: Entrar com %{provider}
-        sign_up: inscrever-se
+        back: Retroceder
+        didn_t_receive_confirmation_instructions: Não recebeu as instruções de confirmação?
+        didn_t_receive_unlock_instructions: Não recebeu as instruções de desbloqueio?
+        forgot_your_password: Esqueceu a sua palavra-passe?
+        sign_in: Iniciar sessão
+        sign_in_with_provider: Iniciar sessão com %{provider}
+        sign_up: Inscrever-se
       minimum_password_length:
-        one: "(Mínimo de%{count} caracteres)"
+        one: "(%{count} caractere no mínimo)"
         other: "(%{count} caracteres no mínimo)"
     unlocks:
       new:
-        resend_unlock_instructions: Reenvie as instruções de desbloqueio
-      send_instructions: Você receberá um e-mail com instruções sobre como desbloquear sua conta em alguns minutos.
-      send_paranoid_instructions: Se a sua conta existir, você receberá um e-mail com instruções sobre como desbloqueá-lo em alguns minutos.
+        resend_unlock_instructions: Reenviar as instruções de desbloqueio
+      send_instructions: Receberá um e-mail com instruções sobre como desbloquear a sua conta dentro de poucos minutos.
+      send_paranoid_instructions: Se a sua conta existir, receberá um e-mail com instruções sobre como desbloqueá-la dentro de poucos minutos.
       unlocked: Sua conta foi desbloqueada com sucesso. Por favor, entre para continuar.
   doorkeeper:
     scopes:
-      public: Sua informação pública.
+      public: A sua informação pública.
   errors:
     messages:
-      already_confirmed: já foi confirmado, por favor, tente entrar
-      confirmation_period_expired: precisa ser confirmado dentro de %{period}, solicite um novo
-      content_type_whitelist_error: o tipo de arquivo não é válido
+      already_confirmed: já foi confirmado, por favor tente iniciar sessão
+      confirmation_period_expired: necessita de ser confirmado dentro de %{period}, por favor solicite um novo
+      content_type_whitelist_error: o tipo de ficheiro não é válido
       cycle_detected: o pai de um âmbito não pode ser um dos seus descendentes
-      expired: expirou, solicite um novo
-      file_size_is_less_than_or_equal_to: o tamanho do arquivo deve ser menor ou igual a %{count}
+      expired: expirou, por favor solicite um novo
+      file_size_is_less_than_or_equal_to: o tamanho do ficheiro deve ser menor ou igual a %{count}
       invalid_time_zone: não é um fuso horário válido
-      long_words: contém palavras muito longas (mais de 35 caracteres)
-      must_start_with_caps: deve começar com letra maiúscula
+      long_words: contém palavras muito longas (acima de 35 caracteres)
+      must_start_with_caps: deve começar com uma letra maiúscula
       nesting_too_deep: não pode estar dentro de uma subcategoria
       not_found: não foi encontrado(a). Já se inscreveu anteriormente?
-      not_locked: não estava trancado
+      not_locked: não estava bloqueado
       not_saved:
-        one: 'Ocorreu um erro no processamento do seu pedido:'
-        other: 'Ocorreram diversos erros no processamento do seu pedido:'
-      too_many_marks: está usando muitos sinais de pontuação consecutivos (por exemplo,! e?)
-      too_much_caps: está usando muitas letras maiúsculas (mais de 25% do texto)
-      too_short: é muito curto (menos de 15 caracteres)
+        one: 'Ocorreu um erro ao processar o seu pedido:'
+        other: 'Ocorreram diversos erros ao processar o seu pedido:'
+      too_many_marks: está a usar muitos sinais de pontuação consecutivos (por exemplo, ! e ?)
+      too_much_caps: está a usar muitas letras maiúsculas (acima de 25% do texto)
+      too_short: é muito curto (abaixo de 15 caracteres)
   forms:
     required: Requeridos
   invisible_captcha:
-    sentence_for_humans: Se você é humano, ignore este campo
-    timestamp_error_message: Desculpe, isso foi muito rápido! Reenvie.
+    sentence_for_humans: Se é humano, ignore este campo
+    timestamp_error_message: Desculpe, isso foi muito rápido! Por favor reenvie.
   layouts:
     decidim:
       cookie_warning:
-        description_html: Este site usa cookies. Ao continuar a navegar no site, você concorda com o uso de cookies. Saiba mais sobre isso %{link}.
+        description_html: Este sítio usa cookies. Ao continuar a navegar no sítio, está a concordar com o uso desses cookies. Saiba mais sobre isso %{link}.
         link_label: aqui
         ok: Concordo
       edit_link:
         edit: Editar
       footer:
-        download_open_data: Baixar arquivos Open Data
+        download_open_data: Transferir ficheiros Open Data
         made_with_open_source: Site criado com <a target="_blank" href="https://github.com/decidim/decidim"> software livre</a>.
       header:
         close_menu: Fechar menu
@@ -1244,26 +1244,26 @@ pt:
         sign_in: Entrar
         sign_up: Inscrever-se
       impersonation_warning:
-        close_session: Fechar sessão
-        description_html: Você está representando o usuário <b>%{user_name}</b>.
-        expire_time_html: Sua sessão expirará em <b><span class="minutes">%{minutes}</span> minutos</b>.
+        close_session: Terminar sessão
+        description_html: Está a gerir o participante <b>%{user_name}</b>.
+        expire_time_html: A sua sessão irá expirar em <b><span class="minutes">%{minutes}</span> minutos</b>.
       notifications_dashboard:
         mark_all_as_read: Marcar tudo como lido
       user_menu:
         admin_dashboard: Painel de administração
         conversations: Conversas
         notifications: Notificações
-        profile: Minha conta
-        public_profile: Meu perfil público
+        profile: A minha conta
+        public_profile: O meu perfil público
         sign_out: Sair
       user_profile:
         account: Conta
         authorizations: Autorizações
-        delete_my_account: Deletar minha conta
-        my_data: Meus dados
-        my_interests: Meus interesses
+        delete_my_account: Eliminar a minha conta
+        my_data: Os meus dados
+        my_interests: Os meus interesses
         notifications_settings: Configurações de notificações
-        title: Configurações do usuário
+        title: Configurações do participante
         user_groups: Grupos
       widget:
         see_more: Ver mais
@@ -1271,9 +1271,9 @@ pt:
     name: Português
   password_validator:
     domain_included_in_password: é muito semelhante a este nome de domínio
-    email_included_in_password: é muito parecido com o seu email
+    email_included_in_password: é muito semelhante com o seu email
     fallback: não é válido
-    name_included_in_password: é muito parecido com o seu nome
+    name_included_in_password: é muito semelhante com o seu nome
     not_enough_unique_characters: não tem caracteres únicos suficientes
     password_not_allowed: não é permitido
     password_too_common: é muito comum
@@ -1282,17 +1282,17 @@ pt:
   social_share_button:
     delicious: Delicioso
     douban: Douban
-    email: O email
+    email: E-mail
     facebook: Facebook
     google_bookmark: Google Bookmark
     google_plus: Google+
-    hacker_news: Notícias do hacker
+    hacker_news: Hacker News
     linkedin: Linkedin
     pinterest: Pinterest
     qq: Qzone
     reddit: Reddit
-    share_to: Compartilhe %{name}
-    telegram: Telegrama
+    share_to: Partilhar em %{name}
+    telegram: Telegram
     tumblr: Tumblr
     twitter: Twitter
     vkontakte: Vkontakte
@@ -1315,8 +1315,8 @@ pt:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
-      long: "%B %d, %A %H:%M"
-      short: "%d/%m/%A %H:%M"
+      long: "%B %d, %Y %H:%M"
+      short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
     directions:
@@ -1325,9 +1325,9 @@ pt:
     dropdown:
       choose_diff_view_html: 'Modo de vista de HTML:'
       choose_diff_view_mode: 'Modo de vista de comparação:'
-      option_escaped: Com saída
+      option_escaped: Escapado
       option_split: Lado a lado
-      option_unescaped: Sem saída
+      option_unescaped: Sem escape
       option_unified: Unificado
   views:
     pagination:
