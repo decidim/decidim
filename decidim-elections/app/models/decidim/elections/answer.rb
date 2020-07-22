@@ -19,6 +19,9 @@ module Decidim
 
       default_scope { order(weight: :asc, id: :asc) }
 
+      # Public: Get all the proposals related to the answer
+      #
+      # Returns an ActiveRecord::Relation.
       def proposals
         linked_resources(:proposals, "related_proposals")
       end
