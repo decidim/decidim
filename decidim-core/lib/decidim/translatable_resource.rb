@@ -45,7 +45,7 @@ module Decidim
       def machine_translation
         return if Decidim.machine_translation_service.blank?
 
-        Decidim::MachineTranslationResourceJob.perform_now(
+        Decidim::MachineTranslationResourceJob.perform_later(
           self,
           translatable_previous_changes,
           I18n.locale.to_s

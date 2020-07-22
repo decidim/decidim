@@ -16,10 +16,10 @@ module Decidim
 
         next unless default_locale_changed_or_translation_removed(previous_changes, field)
 
-        @locales_to_be_translated += available_locales(translated_locales) unless @locales_to_be_translated.nil?
+        @locales_to_be_translated += available_locales(translated_locales) if @locales_to_be_translated.blank?
 
         @locales_to_be_translated.each do |locale|
-          MachineTranslationFieldsJob.perform_now(
+          MachineTranslationFieldsJob.perform_later(
             resource,
             field,
             resource_field_value(
@@ -52,7 +52,7 @@ module Decidim
         end
       end
 
-      !@locales_to_be_translated.nil?
+      @locales_to_be_translated.present?
     end
 
     def resource_field_value(previous_changes, field)

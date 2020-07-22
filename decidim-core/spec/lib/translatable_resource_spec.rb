@@ -13,6 +13,21 @@ module Decidim
       end
     end
 
+    describe "when resource has machine translations and is updated" do
+      let(:new_title) { { en: "New Title", machine_translations: { ca: "nou títol" } } }
+      let!(:process) { create :participatory_process, title: new_title }
+
+      before do
+        updated_title = { en: "New Title", es: "nuevo título", ca: "" }
+        process.update(title: updated_title)
+        clear_enqueued_jobs
+      end
+
+      it "merges the machine translations to the new object" do
+        expect(process.translatable_previous_changes["title"].last).to eq("en" => "New Title", "es" => "nuevo título", "ca" => "", "machine_translations" => { "ca" => "nou títol" })
+      end
+    end
+
     describe "when resource is created or updated" do
       before do
         clear_enqueued_jobs

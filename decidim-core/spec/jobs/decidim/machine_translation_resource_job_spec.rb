@@ -4,11 +4,12 @@ require "spec_helper"
 
 module Decidim
   describe MachineTranslationResourceJob do
-    let(:title) { { en: "New Title" } }
-    let(:process) { create :participatory_process, title: title }
+    let(:title) { { en: "New Title", es: "nuevo título", machine_translations: { ca: "nou títol" } } }
+    let(:organization) { create :organization, default_locale: "en" }
+    let(:process) { create :participatory_process, title: title, organization: organization }
     let(:current_locale) { "en" }
 
-    context "when the translatable field changes" do
+    context "when the  default locale of translatable field changes" do
       before do
         updated_title = { en: "Updated Title" }
         process.update(title: updated_title)
@@ -36,17 +37,63 @@ module Decidim
       end
     end
 
-    context "when machine translations are dublicated" do
-      let(:new_title) { { en: "New Title", machine_translations: { ca: "nuevo título" } } }
-      let!(:process) { create :participatory_process, title: new_title }
-
+    describe "when default loacle of translatable field isn't changed" do
       before do
-        updated_title = { en: "New Title", ca: "Updated Title" }
+        updated_title = { en: "New Title", es: "título actualizado" }
         process.update(title: updated_title)
         clear_enqueued_jobs
       end
 
-      it "enqueues the machine translation fields job" do
+      it "doesn't enqueue the machine translation fields job" do
+        Decidim::MachineTranslationResourceJob.perform_now(
+          process,
+          process.translatable_previous_changes,
+          current_locale
+        )
+        expect(Decidim::MachineTranslationFieldsJob)
+          .not_to have_been_enqueued
+          .on_queue("default")
+      end
+    end
+
+    describe "if default locale isn't changed but locale changed is set to empty" do
+      before do
+        updated_title = { en: "New Title", es: "" }
+        process.update(title: updated_title)
+        clear_enqueued_jobs
+      end
+
+      it "enqueus the machine translation fields job" do
+        Decidim::MachineTranslationResourceJob.perform_now(
+          process,
+          process.translatable_previous_changes,
+          current_locale
+        )
+        expect(Decidim::MachineTranslationFieldsJob)
+          .to have_been_enqueued
+          .on_queue("default")
+          .exactly(1).times
+          .with(
+            process,
+            "title",
+            "New Title",
+            "es",
+            current_locale
+          )
+      end
+    end
+
+    context "when machine translations are duplicated" do
+      let(:new_title) { { en: "New Title", machine_translations: { es: "nuevo título" } } }
+      let!(:process) { create :participatory_process, title: new_title }
+
+      before do
+        updated_title = { en: "New Title", es: "nuevo título" }
+        process.update(title: updated_title)
+        clear_enqueued_jobs
+      end
+
+      it "removes the duplicated machine translation" do
         Decidim::MachineTranslationResourceJob.perform_now(
           process,
           process.translatable_previous_changes,
