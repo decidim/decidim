@@ -35,7 +35,7 @@ module Decidim
       return value unless value.instance_of?(String) and invalid_first_chars.include?(value.first)
 
       # rubocop:enable Style/AndOr
-      value.prepend("'")
+      value.dup.prepend("'")
     end
 
     def invalid_first_chars
