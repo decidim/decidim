@@ -31,8 +31,10 @@ module Decidim
     end
 
     def csv_sanitize(value)
-      return value unless value.instance_of?(String) && invalid_first_chars.include?(value.first)
+      # rubocop:disable Style/AndOr
+      return value unless value.instance_of?(String) and invalid_first_chars.include?(value.first)
 
+      # rubocop:enable Style/AndOr
       value.prepend("'")
     end
 
