@@ -10,7 +10,7 @@ module Decidim
       name "Budget"
       description "A budget"
 
-      field :id, !types.ID, "The internal ID of this election"
+      field :id, !types.ID, "The internal ID of this budget"
       field :title, !Decidim::Core::TranslatedFieldType, "The title for this budget"
       field :description, !Decidim::Core::TranslatedFieldType, "The description for this budget"
       field :total_budget, !types.Int, "The total budget"
