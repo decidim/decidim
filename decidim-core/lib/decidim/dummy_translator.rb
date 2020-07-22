@@ -31,7 +31,7 @@ module Decidim
       end
 
       # rubocop:disable Rails/SkipsModelValidations
-      resource.update_attribute field_name, resource[field_name]
+      resource.update_column field_name.to_sym, resource[field_name]
       # rubocop:enable Rails/SkipsModelValidations
     end
   end
