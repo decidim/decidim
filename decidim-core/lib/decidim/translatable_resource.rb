@@ -26,8 +26,8 @@ module Decidim
           # that we skip some translations requests.
           define_method(method_name) do |new_value|
             return super(new_value) if attributes[field.to_s].nil?
-            return super(new_value) if new_value.has_key?("machine_translations")
             return super(new_value) unless [new_value, attributes[field.to_s]].all?(Hash)
+            return super(new_value) if new_value.has_key?("machine_translations")
 
             original_value = attributes[field.to_s]
 
