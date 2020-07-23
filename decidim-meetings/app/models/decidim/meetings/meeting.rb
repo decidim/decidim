@@ -25,7 +25,7 @@ module Decidim
       include Decidim::Authorable
       include Decidim::TranslatableResource
 
-      translatable_fields :title, :description, :location, :location_hints, :closing_report, :registration_terms, :services
+      translatable_fields :title, :description, :location, :location_hints, :closing_report, :registration_terms
 
       has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id", dependent: :destroy
       has_many :invites, class_name: "Decidim::Meetings::Invite", foreign_key: "decidim_meeting_id", dependent: :destroy
