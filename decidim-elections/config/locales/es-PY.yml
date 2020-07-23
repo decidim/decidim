@@ -1,1 +1,162 @@
 es-PY:
+  activemodel:
+    attributes:
+      answer:
+        description: Descripción
+        image: Imagen
+        proposals: Propuestas relacionadas
+        title: Título
+      election:
+        description: Descripción
+        end_time: La votación acaba el
+        start_time: La votación empieza el
+        subtitle: Subtítulo
+        title: Título
+      question:
+        description: Descripción
+        max_selections: Número máximo de opciones
+        title: Título
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Es necesario volver a adjuntar el archivo
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Respuesta
+        other: Respuestas
+      decidim/elections/election:
+        one: Votación
+        other: Votaciones
+      decidim/elections/question:
+        one: Pregunta
+        other: Preguntas
+  decidim:
+    admin_log:
+      election:
+        publish: "%{user_name} ha publicado la votación %{resource_name}"
+        unpublish: "%{user_name} ha despublicado la votación %{resource_name}"
+    components:
+      elections:
+        actions:
+          vote: Votar
+        name: Votaciones
+        settings:
+          global:
+            announcement: Aviso
+          step:
+            announcement: Aviso
+    elections:
+      actions:
+        confirm_destroy: '¿Estás segura?'
+        destroy: Destruir
+        edit: Editar
+        edit_answers: Editar las respuestas
+        edit_questions: Editar las preguntas
+        import: Importar de propuestas a respuestas
+        new: Nueva %{name}
+        preview: Previsualizar
+        publish: Publicar
+        title: Acciones
+        unpublish: Despublicar
+      admin:
+        answers:
+          create:
+            invalid: Se ha producido un error al crear esta respuesta
+            success: Respuesta creada con éxito
+          destroy:
+            invalid: Se ha producido un error al borrar esta respuesta
+            success: Respuesta creada con éxito
+          edit:
+            title: Editar las respuestas
+            update: Actualizar respuesta
+          index:
+            title: Respuestas
+          new:
+            create: Crear respuesta
+            title: Nueva respuesta
+          update:
+            invalid: Se ha producido un error al crear esta respuesta
+            success: Respuesta actualizada con éxito
+        elections:
+          create:
+            invalid: Se ha producido un error al crear esta votación
+            success: Se ha creado la votación correctamente
+          destroy:
+            invalid: Se ha producido un error al crear esta votación
+            success: Se ha eliminado la votación correctamente
+          edit:
+            title: Editar la votación
+            update: Actualizar la votación
+          index:
+            title: Votaciones
+          new:
+            create: Crear una votación
+            title: Nueva votación
+          publish:
+            success: La votación se ha publicado correctamente.
+          unpublish:
+            success: La votación se ha despublicado correctamente.
+          update:
+            invalid: Se ha producido un error al actualizar esta votación
+            success: Se ha actualizado la votación correctamente
+        models:
+          answer:
+            name: Respuesta
+          election:
+            name: Votación
+          question:
+            name: Pregunta
+        proposals_imports:
+          create:
+            invalid: Se ha producido un error al importar las propuestas a proyectos
+            success: "%{number} propuestas importadas a respuestas correctamente"
+          new:
+            create: Importar de propuestas a respuestas
+            no_components: No hay otros componentes de la propuesta en este espacio participativo desde el que importar las propuestas en los proyectos.
+            select_component: Por favor selecciona un componente
+        questions:
+          create:
+            invalid: Se ha producido un error al crear esta pregunta
+            success: Se ha creado la pregunta correctamente
+          destroy:
+            invalid: Se ha producido un error al eliminar esta pregunta
+            success: Se ha eliminado la pregunta correctamente
+          edit:
+            title: Editar la pregunta
+            update: Actualizar la pregunta
+          index:
+            title: Preguntas
+          new:
+            create: Crear una pregunta
+            title: Nueva pregunta
+          update:
+            invalid: Se ha producido un error al actualizar esta pregunta
+            success: La pregunta se ha actualizado correctamente
+      models:
+        answer:
+          fields:
+            proposals: Propuestas
+            title: Título
+        election:
+          fields:
+            end_time: Termina el
+            start_time: Empieza el
+            title: Título
+        question:
+          fields:
+            answers: Respuestas
+            max_selections: Número máximo de elementos a seleccionar
+            title: Título
+    events:
+      elections:
+        election_published:
+          email_intro: 'La votación %{resource_title} ya está activa en %{participatory_space_title}. Puedes verla desde esta página:'
+          email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: La votación %{resource_title} en %{participatory_space_title} ya está activa.
+          notification_title: La votación <a href="%{resource_path}">%{resource_title}</a> ya está activa en %{participatory_space_title}.
+    participatory_processes:
+      statistics:
+        elections_count: Votaciones

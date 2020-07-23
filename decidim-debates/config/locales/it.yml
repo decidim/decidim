@@ -30,6 +30,7 @@ it:
           global:
             announcement: Annuncio
             comments_enabled: Commenti abilitati
+            comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
           step:
             announcement: Annuncio
             comments_blocked: Commenti bloccati
@@ -89,12 +90,13 @@ it:
           filter: Filtro
           filter_by: Filtra per
           unfold: Espandi
+        form:
+          select_a_category: Si prega di selezionare una categoria
         index:
           new_debate: Nuovo dibattito
         new:
           back: Indietro
           create: Crea
-          select_a_category: Si prega di selezionare una categoria
           title: Nuovo dibattito
         show:
           back: Torna alla lista
