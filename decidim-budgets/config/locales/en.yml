@@ -118,11 +118,9 @@ en:
           fields:
             name: Name
             projects_count: Projects count
-            scope: Scope
             total_budget: Total budget
         project:
           fields:
-            scope: Scope
             title: Title
       order_summary_mailer:
         order_summary:
