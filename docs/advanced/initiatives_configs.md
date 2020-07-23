@@ -11,9 +11,10 @@ We'll describe how the most complex ones work.
 
 ## Collect participant personal data on signature
 
-If ticked, it enables a form (see <<personal-data-form-enabled>>) that users will have to fill in order to sign the initiative. The info gathered in that form will be exported along the signatures in the pdf export.
+If ticked, it enables a form that users will have to fill in order to sign the initiative. The info gathered in that form will be exported along the signatures in the pdf export.
 
 ![personal data form](https://i.imgur.com/MnZFEQJ.png)
+
 _Default personal data collection form_
 
 
@@ -43,7 +44,7 @@ _Example of an authorization handler selection"_
 
 
 ## Only allow global scope initiatives creation
-you want to tick this flag if you ticked enable `Child scope signatures` and configured the global scope as your parent scope and children scope as 1st level scopes. By enabling this, the scope selection will be automatically made to Global scope in the initiative creation wizard and won't be displayed to the user.
+You want to tick this flag if you ticked enable `Child scope signatures` and configured the global scope as your parent scope and children scope as 1st level scopes. By enabling this, the scope selection will be automatically made to Global scope in the initiative creation wizard and won't be displayed to the user.
 
 ![global-parent-config](https://i.imgur.com/w8BrNdY.png)
 _Example of scope configuration for "Only allow global scope initiatives creation"_
