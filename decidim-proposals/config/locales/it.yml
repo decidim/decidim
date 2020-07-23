@@ -115,6 +115,7 @@ it:
             can_accumulate_supports_beyond_threshold: Può accumulare supporti oltre la soglia
             collaborative_drafts_enabled: Bozze collaborative abilitate
             comments_enabled: Commenti abilitati
+            comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
             geocoding_enabled: Geocoding abilitato
             minimum_votes_per_user: Voti minimi per utente
             new_proposal_body_template: Nuovo modello di testo della proposta

@@ -22,7 +22,7 @@ module Decidim
       def create
         enforce_permission_to :create, :debate
 
-        @form = form(DebateForm).from_params(params, current_component: current_component)
+        @form = form(DebateForm).from_params(params)
 
         CreateDebate.call(@form) do
           on(:ok) do |debate|
@@ -41,11 +41,35 @@ module Decidim
         raise ActionController::RoutingError, "Not Found" if debate.blank?
       end
 
+      def edit
+        enforce_permission_to :edit, :debate, debate: debate
+
+        @form = form(DebateForm).from_model(debate)
+      end
+
+      def update
+        enforce_permission_to :edit, :debate, debate: debate
+
+        @form = form(DebateForm).from_params(params)
+        @form.debate = debate
+
+        UpdateDebate.call(@form) do
+          on(:ok) do |debate|
+            flash[:notice] = I18n.t("debates.update.success", scope: "decidim.debates")
+            redirect_to Decidim::ResourceLocatorPresenter.new(debate).path
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("debates.update.invalid", scope: "decidim.debates")
+            render :edit
+          end
+        end
+      end
+
       private
 
       def paginated_debates
-        @paginated_debates ||= paginate(debates)
-                               .includes(:category)
+        @paginated_debates ||= paginate(debates).includes(:category)
       end
 
       def debates

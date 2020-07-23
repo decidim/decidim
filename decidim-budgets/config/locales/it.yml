@@ -142,6 +142,7 @@ it:
           global:
             announcement: Annuncio
             comments_enabled: Commenti abilitati
+            comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
             form:
               errors:
                 budget_voting_rule_only_one: Deve essere abilitata solo una regola di voto

@@ -156,6 +156,7 @@ ignore_unused:
   - decidim.features.accountability.settings.*
   - decidim.accountability.models.project.valid_statuses.*
   - decidim.accountability.admin_log.*
+  - decidim.elections.admin_log.*
   - decidim.proposals.admin_log.*
   - decidim.log.base_presenter.*
   - decidim.admin_log.*
@@ -249,6 +250,8 @@ ignore_unused:
   - decidim.initiatives.versions.shared.back_to_resource
   - decidim.meetings.actions.invalid_destroy.proposals_count.*
   - decidim.meetings.versions.back_to_resource
+  - decidim.debates.debates.versions.*
+  - decidim.debates.debates.versions_list.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:
