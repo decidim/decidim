@@ -10,6 +10,8 @@ describe Decidim::Proposals::Metrics::VotesMetricManage do
   let(:day) { Time.zone.yesterday }
   let!(:votes) { create_list(:proposal_vote, 5, proposal: proposal, created_at: day) }
 
+  include_context "when managing metrics"
+
   context "when executing" do
     it "creates new metric records" do
       registry = generate_metric_registry
@@ -51,9 +53,4 @@ describe Decidim::Proposals::Metrics::VotesMetricManage do
       end
     end
   end
-end
-
-def generate_metric_registry(date = nil)
-  metric = described_class.for(date, organization)
-  metric.save
 end

@@ -9,6 +9,8 @@ describe Decidim::Accountability::Metrics::ResultsMetricManage do
   let(:day) { Time.zone.yesterday }
   let!(:results) { create_list(:result, 5, created_at: day, component: component) }
 
+  include_context "when managing metrics"
+
   context "when executing" do
     it "creates new metric records" do
       registry = generate_metric_registry
@@ -34,9 +36,4 @@ describe Decidim::Accountability::Metrics::ResultsMetricManage do
       expect(registry.collect(&:quantity)).to eq([5])
     end
   end
-end
-
-def generate_metric_registry(date = nil)
-  metric = described_class.for(date, organization)
-  metric.save
 end
