@@ -82,7 +82,7 @@ module Decidim
                                                    .includes(:scope_type, :children)
                       end
 
-      scopes_values = main_scopes.flat_map do |scope|
+      scopes_values = main_scopes.compact.flat_map do |scope|
         TreeNode.new(
           TreePoint.new(scope.id.to_s, translated_attribute(scope.name, current_participatory_space.organization)),
           scope_children_to_tree(scope)
