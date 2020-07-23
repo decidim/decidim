@@ -48,7 +48,7 @@ pt:
         destroy: Destruir
         edit: Editar
         new: Novo %{name}
-        preview: Pré-visualização
+        preview: Pré-visualizar
         title: Ações
       admin:
         answers:
@@ -68,7 +68,7 @@ pt:
             title: Nova resposta
           update:
             invalid: Ocorreu um problema ao atualizar esta resposta
-            success: Resposta atualizada com sucesso
+            success: Resposta atualizada corretamente
         elections:
           create:
             invalid: Ocorreu um problema ao criar esta eleição
@@ -111,7 +111,7 @@ pt:
             title: Nova pergunta
           update:
             invalid: Ocorreu um problema ao atualizar esta pergunta
-            success: Pergunta atualizada com sucesso
+            success: Pergunta atualizada corretamente
       models:
         answer:
           fields:
