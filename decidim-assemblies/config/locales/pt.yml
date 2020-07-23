@@ -3,8 +3,8 @@ pt:
     attributes:
       assembly:
         area_id: Área
-        assembly_type: Tipo de assembleia
-        assembly_type_other: Outro tipo de assembleia
+        assembly_type: Tipo de reunião
+        assembly_type_other: Outro tipo de reunião
         banner_image: Imagem da faixa
         closing_date: Data de encerramento
         closing_date_reason: Razão da data de encerramento
@@ -32,7 +32,7 @@ pt:
         is_transparent: É transparente
         local_area: Área de organização
         meta_scope: Metadados do âmbito
-        parent_id: Assembleia pai
+        parent_id: Reunião pai
         participatory_processes_ids: Processos participativos relacionados
         participatory_scope: O que é decidido
         participatory_structure: Como é decidido
@@ -44,7 +44,7 @@ pt:
         scopes_enabled: Âmbitos ativados
         short_description: Pequena descrição
         show_statistics: Mostrar estatísticas
-        slug: Slug de URL
+        slug: Campo de dados dinâmicos de URL
         special_features: Características especiais
         subtitle: Subtítulo
         target: Quem participa
@@ -70,16 +70,16 @@ pt:
         one: Reunião
         other: Reuniões
       decidim/assembly_member:
-        one: Membro da Assembleia
-        other: Membros da Assembleia
+        one: Membro da reunião
+        other: Membros da reunião
       decidim/assembly_user_role:
-        one: Função do utilizador da Assembleia
-        other: Funções do utilizador da Assembleia
+        one: Função de utilizador da reunião
+        other: Funções de utilizador da reunião
   decidim:
     admin:
       actions:
-        new_assembly: Nova assembleia
-        new_assembly_type: Novo tipo de assembleia
+        new_assembly: Nova reunião
+        new_assembly_type: Novo tipo de reunião
       assemblies:
         create:
           error: Ocorreu um problema ao criar uma nova reunião.
@@ -120,49 +120,49 @@ pt:
       assembly_copies:
         new:
           copy: Cópia
-          select: Selecione os dados que deseja duplicar
+          select: Selecione os dados que pretende duplicar
           title: Duplicar assembléia
       assembly_members:
         create:
-          error: Ocorreu um problema ao adicionar um membro a esta assembleia.
-          success: Membro criado corretamente nesta assembleia.
+          error: Ocorreu um problema ao adicionar um membro a esta reunião.
+          success: Membro criado corretamente nesta reunião.
         destroy:
-          success: Membro eliminado corretamente nesta assembleia.
+          success: Membro eliminado corretamente nesta reunião.
         edit:
-          title: Atualizar membro da assembleia.
+          title: Atualizar membro da reunião.
           update: Atualizar
         index:
-          assembly_members_title: Membros da Assembleia
+          assembly_members_title: Membros da reunião
         new:
           create: Criar
-          title: Novo membro da assembleia.
+          title: Novo membro da reunião.
         update:
-          error: Ocorreu um problema ao atualizar o membro nesta assembleia.
-          success: Membro atualizado corretamente nesta assembleia.
+          error: Ocorreu um problema ao atualizar o membro nesta reunião.
+          success: Membro atualizado corretamente nesta reunião.
       assembly_publications:
         create:
-          error: Ocorreu um problema ao publicar esta assembleia.
-          success: Assembleia publicada corretamente.
+          error: Ocorreu um problema ao publicar esta reunião.
+          success: Reunião publicada corretamente.
         destroy:
-          error: Ocorreu um problema ao atualizar esta assembleia.
-          success: Assembleia despublicada corretamente.
+          error: Ocorreu um problema ao remover a publicação desta reunião.
+          success: Remoção da publicação da reunião feita corretamente.
       assembly_user_roles:
         create:
-          error: Ocorreu um problema ao adicionar um administrador nesta assembleia.
-          success: Administrador adicionado corretamente a esta assembleia.
+          error: Ocorreu um problema ao adicionar um administrador nesta reunião.
+          success: Administrador adicionado corretamente a esta reunião.
         destroy:
-          success: Administrador removido corretamente desta assembleia.
+          success: Administrador removido corretamente desta reunião.
         edit:
-          title: Atualizar o administrador da assembleia.
+          title: Atualizar o administrador da reunião.
           update: Atualizar
         index:
-          assembly_admins_title: Administradores da assembleia
+          assembly_admins_title: Administradores da reunião
         new:
           create: Criar
-          title: Novo administrador da assembleia.
+          title: Novo administrador da reunião.
         update:
-          error: Ocorreu um problema ao atualizar um administrador para esta assembleia.
-          success: Administrador atualizador corretamente para esta assembleia.
+          error: Ocorreu um problema ao atualizar um administrador para esta reunião.
+          success: Administrador atualizador corretamente para esta reunião.
       menu:
         assemblies: Reuniões
         assemblies_settings: Definições
@@ -208,7 +208,7 @@ pt:
             email: E-mail
             name: Nome
             role: Função
-          name: Administrador da Assembleia
+          name: Administrador da reunião
           roles:
             admin: Administrador
             collaborator: Colaborador
@@ -219,26 +219,26 @@ pt:
         assemblies_types: Tipos de reuniões
     admin_log:
       assembly:
-        create: "%{user_name} criou a assembleia %{resource_name}"
-        publish: "%{user_name} publicou a assembleia %{resource_name}"
-        unpublish: "%{user_name} removeu a assembleia %{resource_name}"
-        update: "%{user_name} atualizou a assembleia %{resource_name}"
+        create: "%{user_name} criou a reunião %{resource_name}"
+        publish: "%{user_name} publicou a reunião %{resource_name}"
+        unpublish: "%{user_name} removeu a publicação da reunião %{resource_name}"
+        update: "%{user_name} atualizou a reunião %{resource_name}"
       assembly_member:
-        create: "%{user_name} criou o membro %{resource_name} na assembleia %{space_name}"
-        delete: "%{user_name} removeu o membro %{resource_name} da assembleia %{space_name}"
-        update: "%{user_name} atualizou o membro %{resource_name} na assembleia %{space_name}"
+        create: "%{user_name} criou o membro %{resource_name} na reunião %{space_name}"
+        delete: "%{user_name} removeu o membro %{resource_name} da reunião %{space_name}"
+        update: "%{user_name} atualizou o membro %{resource_name} na reunião %{space_name}"
       assembly_setting:
         update: "%{user_name} atualizou as definições de reuniões"
       assembly_type:
-        create: "%{user_name} criou o tipo de assembleia %{resource_name}"
-        delete: "%{user_name} removeu o membro %{resource_name} do tipo de assembleia %{space_name}"
-        publish: "%{user_name} publicou o tipo de assembleia %{resource_name}"
-        unpublish: "%{user_name} removeu a publicação do tipo de assembleia %{resource_name}"
-        update: "%{user_name} atualizou o tipo de assembleia %{resource_name}"
+        create: "%{user_name} criou o tipo de reunião %{resource_name}"
+        delete: "%{user_name} removeu o membro %{resource_name} do tipo de reunião %{space_name}"
+        publish: "%{user_name} publicou o tipo de reunião %{resource_name}"
+        unpublish: "%{user_name} removeu a publicação do tipo de reunião %{resource_name}"
+        update: "%{user_name} atualizou o tipo de reunião %{resource_name}"
       assembly_user_role:
-        create: "%{user_name} convidou %{resource_name} para a assembleia %{space_name}"
-        delete: "%{user_name} removeu o participante %{resource_name} da assembleia %{space_name}"
-        update: "%{user_name} alterou a função de %{resource_name} na assembleia %{space_name}"
+        create: "%{user_name} convidou %{resource_name} para a reunião %{space_name}"
+        delete: "%{user_name} removeu o participante %{resource_name} da reunião %{space_name}"
+        update: "%{user_name} alterou a função de %{resource_name} na reunião %{space_name}"
     assemblies:
       admin:
         assemblies:
@@ -317,7 +317,7 @@ pt:
       index:
         title: Reuniões
       last_activity:
-        new_assembly: Nova assembleia
+        new_assembly: Nova reunião
       pages:
         home:
           highlighted_assemblies:
@@ -391,10 +391,10 @@ pt:
           notification_title: Foi registado como membro da Reunião <a href="%{resource_path}">%{resource_name}</a>. Consulte a página da reunião <a href="%{resource_path}"></a> para contribuir!
       assembly:
         role_assigned:
-          email_intro: Foi designado como %{role} para a assembleia "%{resource_title}".
-          email_outro: Recebeu esta notificação por ser %{role} da assembleia "%{resource_title}".
+          email_intro: Foi designado como %{role} para a reunião "%{resource_title}".
+          email_outro: Recebeu esta notificação por ser %{role} da reunião "%{resource_title}".
           email_subject: Foi designado como %{role} para "%{resource_title}".
-          notification_title: Foi designado como %{role} para a assembleia <a href="%{resource_url}">%{resource_title}</a>.
+          notification_title: Foi designado como %{role} para a reunião <a href="%{resource_url}">%{resource_title}</a>.
     help:
       participatory_spaces:
         assemblies:
@@ -404,9 +404,9 @@ pt:
     log:
       value_types:
         assembly_presenter:
-          not_found: 'A assembleia não foi encontrada na base de dados (ID: %{id})'
+          not_found: 'A reunião não foi encontrada na base de dados (ID: %{id})'
         assembly_type_presenter:
-          not_found: 'O tipo de assembleia não foi encontrado na base de dados (ID: %{id})'
+          not_found: 'O tipo de reunião não foi encontrado na base de dados (ID: %{id})'
     menu:
       assemblies: Reuniões
     metrics:
