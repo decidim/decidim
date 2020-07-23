@@ -2,8 +2,14 @@
 en:
   activemodel:
     attributes:
+      budget:
+        decidim_scope_id: Scope
+        description: Description
+        title: Title
+        total_budget: Total budget
+        weight: Weight
       project:
-        budget: Budget
+        budget_amount: Budget amount
         decidim_category_id: Category
         decidim_scope_id: Scope
         description: Description
