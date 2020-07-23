@@ -11,8 +11,6 @@ module Decidim
     # For example, `{ name: { ca: "Hola", en: "Hello" } }` would result into
     # the columns: `name/ca` and `name/es`.
     class CSV < Exporter
-      include Decidim::SanitizeHelper
-
       # Public: Exports a CSV serialized version of the collection using the
       # provided serializer and following the previously described strategy.
       #
@@ -20,10 +18,24 @@ module Decidim
       def export(col_sep = Decidim.default_csv_col_sep)
         data = ::CSV.generate(headers: headers, write_headers: true, col_sep: col_sep) do |csv|
           processed_collection.each do |resource|
-            csv << headers.map { |header| csv_sanitize(resource[header]) }
+            csv << headers.map { |header| custom_sanitize(resource[header]) }
           end
         end
         ExportData.new(data, "csv")
+      end
+
+      protected
+
+      def custom_sanitize(value)
+        # rubocop:disable Style/AndOr
+        return value unless value.instance_of?(String) and invalid_first_chars.include?(value.first)
+
+        # rubocop:enable Style/AndOr
+        value.dup.prepend("'")
+      end
+
+      def invalid_first_chars
+        %w(= + - @)
       end
 
       private
