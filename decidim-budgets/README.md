@@ -10,7 +10,7 @@ This plugin provides:
 
 * A CRUD engine to manage budgets.
 * A CRUD engine to manage projects related to a budget.
-* Participant orders with the projects
+* Participant orders with the voted projects
 * Budgets workflow to add different rules for budget voting.
 * Public views for budgets and projects.
 
@@ -30,8 +30,26 @@ bundle
 
 ## Budget Workflows
 
-# !todo: default workflows + adding a custom workflow
+A budget workflow, let's an admin pick, at the component level, how a user can participate in it.
+By default there are some workflows included in this module that can be found in the `lib/decidim/budgets/workflows/` directory, any app can add its own workflow.
 
+To add a custom workflow, create a workflow that inherits from the `base`, such as:
+
+```rb
+# lib/decidim_app/budgets_workflow_2020.rb
+module DecidimApp
+  class BudgetsWorkflow2020 < Decidim::Budgets::Workflows::Base
+    # your code here ...
+  end
+end
+```
+
+And then add it to the decidim initializer (`config/initializers/decidim.rb`):
+
+```rb
+require "decidim_app/budgets_workflow_2020"
+Decidim::Budgets.workflows[:2020] = DecidimApp::BudgetsWorkflow2020
+```
 
 ## Contributing
 
