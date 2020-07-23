@@ -22,7 +22,7 @@ _Default personal data collection form_
 If ticked and if the minimum number of committee members is set above 1 then the initiative author will need to find at least 1 promoting committee member (as author they are automatically part of it) to be able to send its initiative to technical validation.
 
 ## Enable child scope signatures
-If ticked, it enables **sub-jauges**
+If ticked, it enables **sub-jauges**, this functionnality was introduced in [#6143](https://github.com/decidim/decidim/pull/6143)
 
 ![sub-jauges](https://i.imgur.com/Yyq7U85.png)
 _Sub-jauges display on initiative page_
