@@ -16,6 +16,10 @@ SimpleCov.start do
   add_filter "/vendor/"
   add_filter "/spec/"
   add_filter "/test/"
+  add_filter %r{^\/decidim-[^\/]*\/lib\/decidim\/[^\/]*\/engine.rb}
+  add_filter %r{^\/decidim-[^\/]*\/lib\/decidim\/[^\/]*\/admin-engine.rb}
+  add_filter %r{^\/decidim-[^\/]*\/lib\/decidim\/[^\/]*\/component.rb}
+  add_filter %r{^\/decidim-[^\/]*\/lib\/decidim\/[^\/]*\/participatory_space.rb}
 end
 
 SimpleCov.merge_timeout 1800
