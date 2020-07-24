@@ -76,7 +76,8 @@ Decidim.register_component(:elections) do |component|
             Decidim::Faker::Localized.paragraph(3)
           end,
           start_time: 3.weeks.from_now,
-          end_time: 3.weeks.from_now + 4.hours
+          end_time: 3.weeks.from_now + 4.hours,
+          published_at: Faker::Boolean.boolean(0.5) ? 1.week.ago : nil
         },
         visibility: "all"
       )
