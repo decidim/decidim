@@ -36,6 +36,8 @@ it:
   decidim:
     components:
       elections:
+        actions:
+          vote: Vota
         name: Elezioni
         settings:
           global:
@@ -129,6 +131,10 @@ it:
           update:
             invalid: Si è verificato un errore durante l'aggiornamento del quesito
             success: Quesito aggiornato correttamente
+      admin_log:
+        election:
+          publish: "%{user_name} ha pubblicato l'elezione %{resource_name}"
+          unpublish: "%{user_name} ha rimosso l'elezione %{resource_name}"
       models:
         answer:
           fields:
