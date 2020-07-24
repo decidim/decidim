@@ -13,7 +13,6 @@ fi-pl:
         attachment_collection_id: Kansio
         description: Kuvaus
         file: Tiedosto
-        title: Otsikko
       attachment_collection:
         description: Kuvaus
         name: Nimi
