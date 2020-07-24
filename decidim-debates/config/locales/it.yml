@@ -77,6 +77,10 @@ it:
           success: Dibattito creato con successo.
         debate:
           participate: Partecipa
+        edit:
+          back: Indietro
+          save: Salva le modifiche
+          title: Modifica dibattito
         filters:
           all: Tutti
           category: Categoria
@@ -100,6 +104,17 @@ it:
           title: Nuovo dibattito
         show:
           back: Torna alla lista
+          edit_debate: Modifica dibattito
+        update:
+          invalid: C'è stato un problema durante l'aggiornamento di questo dibattito.
+          success: Dibattito aggiornato con successo.
+        versions:
+          debates:
+            back_to_resource: Torna al dibattito
+          index:
+            title: Versioni
+        versions_list:
+          back_to_resource: Torna al dibattito
       last_activity:
         new_debate_at_html: "<span>Nuovo dibattito al %{link}</span>"
       models:
