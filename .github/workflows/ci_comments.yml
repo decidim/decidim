@@ -8,7 +8,7 @@ on:
       - "*-stable"
   pull_request:
     branches-ignore:
-      - "l10n_*"
+      - "chore/l10n*"
 
 env:
   CI: "true"
@@ -21,7 +21,7 @@ jobs:
   main:
     name: Tests
     runs-on: ubuntu-latest
-    if: "!startsWith(github.head_ref, 'l10n_')"
+    if: "!startsWith(github.head_ref, 'chore/l10n')"
     services:
       postgres:
         image: postgres:11
