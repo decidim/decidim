@@ -34,10 +34,6 @@ es-PY:
         one: Pregunta
         other: Preguntas
   decidim:
-    admin_log:
-      election:
-        publish: "%{user_name} ha publicado la votación %{resource_name}"
-        unpublish: "%{user_name} ha despublicado la votación %{resource_name}"
     components:
       elections:
         actions:
@@ -135,6 +131,10 @@ es-PY:
           update:
             invalid: Se ha producido un error al actualizar esta pregunta
             success: La pregunta se ha actualizado correctamente
+      admin_log:
+        election:
+          publish: "%{user_name} ha publicado la votación %{resource_name}"
+          unpublish: "%{user_name} ha despublicado la votación %{resource_name}"
       models:
         answer:
           fields:

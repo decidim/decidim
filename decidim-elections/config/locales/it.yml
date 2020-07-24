@@ -34,10 +34,6 @@ it:
         one: Domanda
         other: Domande
   decidim:
-    admin_log:
-      election:
-        publish: "%{user_name} ha pubblicato l'elezione %{resource_name}"
-        unpublish: "%{user_name} ha rimosso l'elezione %{resource_name}"
     components:
       elections:
         name: Elezioni

@@ -34,10 +34,6 @@ ca:
         one: Pregunta
         other: Preguntes
   decidim:
-    admin_log:
-      election:
-        publish: "%{user_name} ha publicat la votació %{resource_name}"
-        unpublish: "%{user_name} ha despublicat la votació %{resource_name}"
     components:
       elections:
         actions:
@@ -135,6 +131,10 @@ ca:
           update:
             invalid: S'ha produït un error en actualitzar aquesta pregunta
             success: La pregunta s'ha actualitzat correctament
+      admin_log:
+        election:
+          publish: "%{user_name} ha publicat la votació %{resource_name}"
+          unpublish: "%{user_name} ha despublicat la votació %{resource_name}"
       models:
         answer:
           fields:
