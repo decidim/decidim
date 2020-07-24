@@ -20,7 +20,7 @@
 
     <% if current_component.has_subscopes? %>
       <div class="row column">
-        <%= scopes_picker_field form, :decidim_scope_id, root: current_component.scope %>
+        <%= scopes_picker_field form, :decidim_scope_id, root: budget.scope %>
       </div>
     <% end %>
 

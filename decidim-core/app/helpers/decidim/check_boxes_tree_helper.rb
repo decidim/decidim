@@ -74,15 +74,26 @@ module Decidim
       )
     end
 
-    def filter_scopes_values(main_scopes = nil)
-      main_scopes ||= if current_component.scope.present?
-                        [current_component.scope]
-                      else
-                        current_participatory_space.scopes.top_level
-                                                   .includes(:scope_type, :children)
-                      end
+    def resource_filter_scope_values(resource)
+      if resource.is_a?(Scope)
+        filter_scopes_values_from([resource])
+      else
+        filter_scopes_values
+      end
+    end
 
-      scopes_values = main_scopes.compact.flat_map do |scope|
+    def filter_scopes_values
+      main_scopes = if current_component.scope.present?
+                      [current_component.scope]
+                    else
+                      current_participatory_space.scopes.top_level
+                                                 .includes(:scope_type, :children)
+                    end
+      filter_scopes_values_from(main_scopes)
+    end
+
+    def filter_scopes_values_from(scopes)
+      scopes_values = scopes.compact.flat_map do |scope|
         TreeNode.new(
           TreePoint.new(scope.id.to_s, translated_attribute(scope.name, current_participatory_space.organization)),
           scope_children_to_tree(scope)
