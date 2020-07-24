@@ -13,7 +13,6 @@ cs:
         attachment_collection_id: Složka
         description: Popis
         file: Soubor
-        title: Titul
       attachment_collection:
         description: Popis
         name: název
