@@ -121,15 +121,10 @@ ca:
           most_voted: Més votats
           random: Ordre aleatori
         project:
-          add: Afegir
           count:
             one: 1 suport
             other: "%{count} suports"
-          remove: Esborrar
           view: Veure
-        project_budget_button:
-          add: Afegir
-          added: Afegit
         show:
           budget: Pressupost
           view_all_projects: Veure tots els projectes
