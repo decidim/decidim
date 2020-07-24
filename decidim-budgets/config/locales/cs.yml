@@ -127,17 +127,12 @@ cs:
           most_voted: Nejvíce hlasovalo
           random: Náhodné pořadí
         project:
-          add: Přidat
           count:
             one: 1 podpory
             few: "%{count} podporuje"
             many: "%{count} podporuje"
             other: "%{count} podporuje"
-          remove: Odstranit
           view: Zobrazit
-        project_budget_button:
-          add: Přidat
-          added: Přidán
         show:
           budget: Rozpočet
           view_all_projects: Zobrazit všechny projekty
