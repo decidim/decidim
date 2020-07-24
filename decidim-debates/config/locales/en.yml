@@ -105,6 +105,7 @@ en:
           title: New debate
         show:
           back: Back to list
+          date: Date
           edit_debate: Edit debate
         update:
           invalid: There was a problem updating the debate.

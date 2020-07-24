@@ -15,7 +15,7 @@ module Decidim::Conferences
       let(:show_space) { false }
 
       it "renders the card" do
-        expect(subject).to have_css("article.card--conference")
+        expect(subject).to have_css(".card--conference")
       end
 
       it_behaves_like "space cell changes button text CTA"

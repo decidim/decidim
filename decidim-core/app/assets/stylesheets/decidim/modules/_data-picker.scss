@@ -9,14 +9,18 @@
     display: block;
     width: 100%;
     padding: .4rem .7rem;
+    outline: $input-outline;
     border: 1px solid #e8e8e8;
     border-radius: 4px;
     box-shadow: inset 0 1px 2px rgba(26, 24, 29, .1);
     -webkit-box-shadow: inset 0 1px 2px rgba(26, 24, 29, .1);
     color: #1a181d;
 
-    &:active{
-      outline: none;
+    &:active,
+    &:focus{
+      outline: $input-outline-focus;
+      outline-color: var(--highlight);
+      outline-offset: $input-outline-offset;
       border: 1px solid #1a181d;
       background-color: #fff;
       box-shadow: 0 0 5px #adadad;
@@ -84,14 +88,6 @@
     flex-direction: column;
     max-height: 100%;
     min-height: 100%;
-
-    .picker-footer{
-      .buttons{
-        display: flex;
-        justify-content: center;
-        padding: 10px 0 50px; // bottom padding is needed to avoid hiding buttons on mobiles because of https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser
-      }
-    }
 
     .picker-content{
       flex-grow: 10;

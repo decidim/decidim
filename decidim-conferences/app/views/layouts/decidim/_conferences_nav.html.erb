@@ -16,11 +16,11 @@
       active: is_active_link?(decidim_conferences.conference_conference_speakers_path(current_participatory_space), :inclusive)
     } : nil
   ] + meeting_components.map do |component|
-    {
+    Decidim::Meetings::Meeting.visible_meeting_for(current_user).any? ? {
       name: translated_attribute(component.name),
       url: decidim_conferences.conference_conference_program_path(current_participatory_space, id: component.id),
       active: is_active_link?(decidim_conferences.conference_conference_program_path(current_participatory_space, id: component.id), :inclusive)
-    }
+    } : nil
   end + [
     current_participatory_space.partners.any? ? {
       name: t(".conference_partners_menu_item"),

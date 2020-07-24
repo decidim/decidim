@@ -7,7 +7,9 @@
             <span class="button--social__icon">
               <%= oauth_icon provider %>
             </span>
-            <%= t("devise.shared.links.sign_in_with_provider", provider: normalize_provider_name(provider).titleize) %>
+            <span class="button--social__text">
+              <%= t("devise.shared.links.sign_in_with_provider", provider: normalize_provider_name(provider).titleize) %>
+            </span>
           <% end %>
         </div>
       <% end %>

@@ -115,7 +115,10 @@ describe "Orders", type: :system do
 
         expect(page).to have_content "ASSIGNED: €25,000,000"
 
-        dismiss_confirm do
+        # Note that this is not a default alert box, this is the default browser
+        # prompt for verifying the page unload. Therefore, `dismiss_prompt` is
+        # used instead of `dismiss_confirm`.
+        dismiss_prompt do
           page.find(".logo-wrapper a").click
         end
 
@@ -327,7 +330,7 @@ describe "Orders", type: :system do
         visit_component
 
         within "#project-#{project.id}-item" do
-          expect(page).to have_content("1 SUPPORT")
+          expect(page).to have_content("1 support")
         end
       end
     end

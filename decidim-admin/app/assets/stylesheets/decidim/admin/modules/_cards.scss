@@ -1,10 +1,10 @@
 $card-padding-small: 1rem;
 
 .card-title{
-  @include smallcaps;
+  @include smallemphasis;
 
   button:not(.clear){
-    @include smallcaps;
+    @include smallemphasis;
   }
 
   // clearfix if there is no flex--* class in the same element
@@ -23,6 +23,7 @@ $card-padding-small: 1rem;
       text-transform: uppercase;
     }
   }
+
   .data-picker{
     font-weight: normal;
     letter-spacing: 0;

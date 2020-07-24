@@ -30,6 +30,7 @@ module Decidim
           current: (current || root),
           scopes: scopes&.order(name: :asc),
           parent_scopes: parent_scopes,
+          picker_target_id: (params[:target_element_id] || "content"),
           global_value: params[:global_value],
           max_depth: max_depth,
           context: context

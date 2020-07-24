@@ -17,13 +17,13 @@ edit_link(
         <p><%= t("media.index.description", scope: "decidim") %></p>
       </section>
       <hr class="reset mt-none mb-s">
-      <section class="media-links">
+      <div class="media-links">
         <ul class="list-reset">
           <% @media_links.each do |media_link| %>
             <%= cell "decidim/conferences/media_link", media_link %>
           <% end %>
         </ul>
-      </section>
+      </div>
       <hr class="reset mt-none mb-s">
     <% end %>
     <%= attachments_for_conference current_participatory_space %>

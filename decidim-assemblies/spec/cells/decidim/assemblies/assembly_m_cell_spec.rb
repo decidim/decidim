@@ -15,7 +15,7 @@ module Decidim::Assemblies
       let(:show_space) { false }
 
       it "renders the card" do
-        expect(subject).to have_css("article.card--assembly")
+        expect(subject).to have_css(".card--assembly")
       end
 
       it_behaves_like "space cell changes button text CTA"

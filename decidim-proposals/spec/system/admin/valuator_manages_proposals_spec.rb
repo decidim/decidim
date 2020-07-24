@@ -90,7 +90,7 @@ describe "Valuator manages proposals", type: :system do
     end
 
     it "can leave proposal notes" do
-      expect(page).to have_content("PRIVATE NOTES")
+      expect(page).to have_content("Private notes")
       within ".add-comment" do
         fill_in "Note", with: " This is my note"
         click_button "Submit"
