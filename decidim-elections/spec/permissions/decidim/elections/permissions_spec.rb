@@ -60,11 +60,23 @@ describe Decidim::Elections::Permissions do
 
       it { is_expected.to be_falsey }
 
+      context "when user is not logged in" do
+        let(:user) { nil }
+
+        it { is_expected.to be_falsey }
+      end
+
       context "when user is an administrator" do
         let(:user) { create :user, :admin, organization: elections_component.organization }
 
         it { is_expected.to be_truthy }
       end
+    end
+
+    context "when user is not logged in" do
+      let(:user) { nil }
+
+      it { is_expected.to be_truthy }
     end
   end
 
