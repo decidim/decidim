@@ -214,9 +214,6 @@ ca:
       participatory_process_groups:
         highlighted_results:
           results: Resultats
-    participatory_spaces:
-      highlighted_results:
-        see_all: Veure tots (%{count})
     resource_links:
       included_projects:
         result_project: Projectes inclosos en aquest resultat
