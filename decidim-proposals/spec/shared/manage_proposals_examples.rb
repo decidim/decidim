@@ -454,7 +454,7 @@ shared_examples "manage proposals" do
       visit current_path
 
       within "thead" do
-        expect(page).to have_content("VOTES")
+        expect(page).to have_content("Votes")
       end
     end
   end

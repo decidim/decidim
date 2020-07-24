@@ -6,7 +6,7 @@
         decidim.demote_group_manage_admin_path(model.user_group.nickname, model),
         method: :post,
         data: { confirm: t("decidim.group_admins.actions.are_you_sure") },
-        class: "card__button button secondary button--sc small light"
+        class: "card__button button button--sc small"
       ) %>
     <% else %>
       <%= link_to(
@@ -14,7 +14,7 @@
         decidim.promote_group_manage_user_path(model.user_group.nickname, model),
         method: :post,
         data: { confirm: t("decidim.group_members.actions.are_you_sure") },
-        class: "card__button button secondary button--sc small light"
+        class: "card__button button button--sc small"
       ) %>
 
       <%= link_to(
@@ -22,7 +22,7 @@
         decidim.group_manage_user_path(model.user_group.nickname, model),
         method: :delete,
         data: { confirm: t("decidim.group_members.actions.are_you_sure") },
-        class: "card__button button secondary button--sc small light"
+        class: "card__button button button--sc small"
       ) %>
     <% end %>
   </div>

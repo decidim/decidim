@@ -122,15 +122,17 @@ en:
           most_voted: Most voted
           random: Random order
         project:
-          add: Add
+          add: Add project %{resource_name} to your vote
           count:
             one: 1 support
             other: "%{count} supports"
-          remove: Remove
+          remove: Remove project %{resource_name} from your vote
           view: View
         project_budget_button:
-          add: Add
-          added: Added
+          add: Add to your vote
+          add_descriptive: Add project %{resource_name} to your vote
+          added: Added to your vote
+          added_descriptive: Project %{resource_name} added to your vote
         show:
           budget: Budget
           view_all_projects: View all projects

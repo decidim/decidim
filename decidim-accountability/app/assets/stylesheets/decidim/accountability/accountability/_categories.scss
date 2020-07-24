@@ -5,7 +5,7 @@
     }
 
     a:focus{
-      outline: 2px solid $secondary;
+      outline: $anchor-outline-focus;
     }
 
     .categories--header{
@@ -18,7 +18,6 @@
       }
 
       span{
-        text-transform: uppercase;
         font-size: 1.15rem;
         color: lighten($dark-gray, 50);
       }

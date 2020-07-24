@@ -8,6 +8,7 @@ en:
         category_id: Category
         decidim_scope_id: Scope
         has_address: Has address
+        scope_id: Scope
         state: State
         title: Title
         user_group_id: Create collaborative draft as
@@ -20,6 +21,7 @@ en:
         category_id: Category
         decidim_scope_id: Scope
         has_address: Has address
+        scope_id: Scope
         state: State
         suggested_hashtags: Suggested hashtags
         title: Title
@@ -86,7 +88,6 @@ en:
         search_placeholder:
           id_string_or_title_cont: Search %{collection} by ID or title.
         state_eq:
-          label: State
           values:
             evaluating: Evaluating
             withdrawn: Withdrawn
@@ -329,7 +330,7 @@ en:
           proposals: Proposals
     participatory_spaces:
       highlighted_proposals:
-        see_all: See all (%{count})
+        see_all: See all proposals (%{count})
     proposals:
       actions:
         answer_proposal: Answer proposal
@@ -363,14 +364,14 @@ en:
             info_1: The following sections have been converted to proposals. Now you can review and adjust them before publishing.
             publish_document: Publish document
             save_draft: Save draft
-            title: PREVIEW PARTICIPATORY TEXT
+            title: Preview participatory text
           new_import:
             accepted_mime_types:
               md: Markdown
               odt: Odt
             bottom_hint: "(You will be able to preview and sort document sections)"
             document_legend: 'Add a document lesser than 2MB, each section until 3 levels deep will be parsed into Proposals. Suported formats are: %{valid_mime_types}'
-            title: ADD DOCUMENT
+            title: Add document
             upload_document: Upload document
           publish:
             invalid: Could not publish proposals
@@ -639,15 +640,23 @@ en:
         update:
           error: There was a problem saving the collaborative draft.
           success: Collaborative draft successfully updated.
+          title: Edit collaborative draft
         wizard_aside:
           back: Back
+          back_from_collaborative_draft: Back to collaborative drafts
+          back_from_step_1: Back to collaborative drafts
+          back_from_step_2: Back to collaborative drafts
+          back_from_step_3: Back to compare collaborative drafts
+          back_from_step_4: Back to edit draft
           info: You are creating a <strong>collaborative draft</strong>.
         wizard_steps:
+          current_step: Current step
           see_steps: see steps
           step_1: Create your collaborative draft
           step_2: Compare with collaborative drafts
           step_3: Complete your collaborative draft
           step_of: Step %{current_step_num} of %{total_steps}
+          title: Collaborative draft creation steps
       create:
         error: There was a problem saving the proposal.
         success: Proposal successfully created. Saved as a Draft.
@@ -685,7 +694,6 @@ en:
           amend: Amend
           comment: Comment
           comments: Comments
-          endorse: Endorse
       proposal_votes:
         create:
           error: There was a problem supporting the proposal.
@@ -794,10 +802,12 @@ en:
           read_more: Read more
           report: Report
           withdraw_btn_hint: You can withdraw your proposal if you change your mind, as long as you have not received any support. The proposal is not deleted, it will appear in the list of withdrawn proposals.
-          withdraw_confirmation: Are you sure you want to withdraw this proposal?
+          withdraw_confirmation_html: Are you sure you want to withdraw this proposal?<br><br><strong>This action cannot be cancelled!</strong>
           withdraw_proposal: Withdraw proposal
         tags:
           changed_from: "(changed from <u>%{previous_name}</u> by an administrator)"
+        update:
+          title: Update proposal
         vote_button:
           already_voted: Already supported
           already_voted_hover: Withdraw support
@@ -807,8 +817,8 @@ en:
           votes_blocked: Supports disabled
         votes_count:
           count:
-            one: SUPPORT
-            other: SUPPORTS
+            one: Support
+            other: Supports
           most_popular_proposal: Most popular proposal
           need_more_votes: Need more supports
         voting_rules:
@@ -829,14 +839,20 @@ en:
             votes: Supports
         wizard_aside:
           back: Back
+          back_from_step_1: Back to proposals
+          back_from_step_2: Back to proposals
+          back_from_step_3: Back to compare proposals
+          back_from_step_4: Back to edit draft
           info: You are creating a <strong>proposal</strong>.
         wizard_steps:
+          current_step: Current step
           see_steps: see steps
           step_1: Create your proposal
           step_2: Compare
           step_3: Complete
           step_4: Publish your proposal
           step_of: Step %{current_step_num} of %{total_steps}
+          title: Proposal creation steps
       proposals_picker:
         choose_proposals: Choose proposals
         close: Close

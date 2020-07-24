@@ -3,6 +3,7 @@
 // = require rails-ujs
 // = require decidim/editor
 // = require_self
+// = require decidim/configuration
 
 $(() => {
   $(document).foundation();

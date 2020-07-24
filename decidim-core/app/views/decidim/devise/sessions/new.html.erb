@@ -28,10 +28,10 @@
         <div class="columns large-6 medium-centered">
           <div class="card">
             <div class="card__content">
-              <%= decidim_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "register-form new_user" }) do |f| %>
+              <%= decidim_form_for(resource, namespace: "session", as: resource_name, url: session_path(resource_name), html: { class: "register-form new_user" }) do |f| %>
                 <div>
                   <div class="field">
-                    <%= f.email_field :email, autofocus: true %>
+                    <%= f.email_field :email %>
                   </div>
                   <div class="field">
                     <%= f.password_field :password, autocomplete: "off" %>
