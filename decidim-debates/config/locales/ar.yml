@@ -97,12 +97,13 @@ ar:
           filter: منقي
           filter_by: مصنف بواسطة
           unfold: كشف
+        form:
+          select_a_category: الرجاء تحديد الفئة
         index:
           new_debate: نقاش جديد
         new:
           back: الى الخلف
           create: إنشاء
-          select_a_category: الرجاء تحديد الفئة
           title: نقاش جديد
       last_activity:
         new_debate_at_html: "<span>مناقشة جديدة في %{link}</span>"

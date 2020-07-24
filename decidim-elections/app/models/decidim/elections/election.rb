@@ -16,7 +16,7 @@ module Decidim
       has_many :questions, foreign_key: "decidim_elections_election_id", class_name: "Decidim::Elections::Question", inverse_of: :election, dependent: :destroy
 
       def self.log_presenter_class_for(_log)
-        Decidim::AdminLog::ElectionPresenter
+        Decidim::Elections::AdminLog::ElectionPresenter
       end
 
       def started?
@@ -25,6 +25,10 @@ module Decidim
 
       def finished?
         end_time < Time.current
+      end
+
+      def allow_resource_permissions?
+        true
       end
     end
   end

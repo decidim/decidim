@@ -14,7 +14,7 @@ describe Decidim::Elections::Election do
   describe "check the log result" do
     it "overwrites the log presenter" do
       expect(described_class.log_presenter_class_for(:foo))
-        .to eq Decidim::AdminLog::ElectionPresenter
+        .to eq Decidim::Elections::AdminLog::ElectionPresenter
     end
   end
 

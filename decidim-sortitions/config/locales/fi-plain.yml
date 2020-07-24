@@ -23,6 +23,7 @@ fi-pl:
         settings:
           global:
             comments_enabled: Kommentointi sallittu
+            comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
     events:
       sortitions:
         sortition_created:

@@ -89,12 +89,13 @@ sv:
           filter: Filtrera
           filter_by: Filtrera efter
           unfold: Veckla ut
+        form:
+          select_a_category: Välj en kategori
         index:
           new_debate: Ny debatt
         new:
           back: Tillbaka
           create: Skapa
-          select_a_category: Välj en kategori
           title: Ny debatt
         show:
           back: Tillbaka till listan

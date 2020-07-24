@@ -39,6 +39,7 @@ it:
         address: Server SMTP
         alert_color: Notifica
         badges_enabled: Abilita badge
+        comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
         cta_button_path: Percorso del pulsante Call To Action
         cta_button_text: Testo del pulsante Chiamata all'azione
         customize_welcome_notification: Personalizza la notifica di benvenuto

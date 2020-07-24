@@ -76,6 +76,9 @@ en:
             already_answered_warning: The form is already answered by some users so you cannot modify its questions.
             collapse: Collapse all questions
             expand: Expand all questions
+            preview: Preview
+            title: Edit form
+            unpublished_warning: The form is not published. You may modify its questions, but doing so will delete current answers.
           matrix_row:
             matrix_row: Row
             remove: Remove
@@ -146,6 +149,8 @@ en:
           questionnaire_js_disabled:
             body: Some of this form's features will be disabled. To improve your experience, please enable JavaScript in your browser.
             title: JavaScript is disabled
+          questionnaire_not_published:
+            body: This form is not published yet.
           tos_agreement: By participating you accept its Terms of Service
       step_navigation:
         show:

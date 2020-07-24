@@ -30,6 +30,7 @@ ca:
           global:
             announcement: Avís
             comments_enabled: Comentaris habilitats
+            comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
           step:
             announcement: Avís
             comments_blocked: Comentaris bloquejats
@@ -76,6 +77,10 @@ ca:
           success: Debat creat correctament.
         debate:
           participate: Participa
+        edit:
+          back: Enrere
+          save: Guardar canvis
+          title: Editar debat
         filters:
           all: Tots
           category: Categoria
@@ -89,15 +94,27 @@ ca:
           filter: Filtra
           filter_by: Filtra per
           unfold: Desplega
+        form:
+          select_a_category: Si us plau, selecciona una categoria
         index:
           new_debate: Nou debat
         new:
           back: Torna
           create: Crear
-          select_a_category: Si us plau, selecciona una categoria
           title: Nou debat
         show:
           back: Torna al llistat
+          edit_debate: Editar debat
+        update:
+          invalid: S'ha produït un error en actualitzar aquest debat.
+          success: Debate actualizado correctament.
+        versions:
+          debates:
+            back_to_resource: Tornar al debat
+          index:
+            title: Versions
+        versions_list:
+          back_to_resource: Tornar al debat
       last_activity:
         new_debate_at_html: "<span>Nou debat a %{link}</span>"
       models:

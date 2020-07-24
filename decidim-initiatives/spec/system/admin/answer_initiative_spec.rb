@@ -5,11 +5,11 @@ require "spec_helper"
 describe "User answers the initiative", type: :system do
   include_context "when admins initiative"
 
-  def submit_and_validate
+  def submit_and_validate(message = "successfully")
     find("*[type=submit]").click
 
     within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
+      expect(page).to have_content(message)
     end
   end
 
@@ -58,24 +58,49 @@ describe "User answers the initiative", type: :system do
         initiative.published!
       end
 
-      it "signature dates can be edited in answer" do
-        page.find(".action-icon--answer").click
+      context "and signature dates are editable" do
+        it "can be edited in answer" do
+          page.find(".action-icon--answer").click
 
-        within ".edit_initiative_answer" do
-          fill_in_i18n_editor(
-            :initiative_answer,
-            "#initiative-answer-tabs",
-            en: "An answer",
-            es: "Una respuesta",
-            ca: "Una resposta"
-          )
-          expect(page).to have_css("#initiative_signature_start_date")
-          expect(page).to have_css("#initiative_signature_end_date")
+          within ".edit_initiative_answer" do
+            fill_in_i18n_editor(
+              :initiative_answer,
+              "#initiative-answer-tabs",
+              en: "An answer",
+              es: "Una respuesta",
+              ca: "Una resposta"
+            )
+            expect(page).to have_css("#initiative_signature_start_date")
+            expect(page).to have_css("#initiative_signature_end_date")
 
-          fill_in :initiative_signature_start_date, with: 1.day.ago
+            fill_in :initiative_signature_start_date, with: 1.day.ago
+          end
+
+          submit_and_validate
         end
 
-        submit_and_validate
+        context "when dates are invalid" do
+          it "returns an error message" do
+            page.find(".action-icon--answer").click
+
+            within ".edit_initiative_answer" do
+              fill_in_i18n_editor(
+                :initiative_answer,
+                "#initiative-answer-tabs",
+                en: "An answer",
+                es: "Una respuesta",
+                ca: "Una resposta"
+              )
+              expect(page).to have_css("#initiative_signature_start_date")
+              expect(page).to have_css("#initiative_signature_end_date")
+
+              fill_in :initiative_signature_start_date, with: 1.month.since(initiative.signature_end_date)
+            end
+
+            submit_and_validate("error")
+            expect(page).to have_current_path decidim_admin_initiatives.edit_initiative_answer_path(initiative)
+          end
+        end
       end
     end
 

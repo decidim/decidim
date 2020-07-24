@@ -143,6 +143,7 @@ en:
           global:
             announcement: Announcement
             comments_enabled: Comments enabled
+            comments_max_length: Comments max length (Leave 0 for default value)
             form:
               errors:
                 budget_voting_rule_only_one: Only one voting rule must be enabled

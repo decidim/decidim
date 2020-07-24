@@ -40,12 +40,10 @@ cs:
         many: Otázek
         other: Otázek
   decidim:
-    admin_log:
-      election:
-        publish: "%{user_name} zveřejnil volby %{resource_name}"
-        unpublish: "%{user_name} zrušil zveřejnění volby %{resource_name}"
     components:
       elections:
+        actions:
+          vote: Hlasovat
         name: Volby
         settings:
           global:

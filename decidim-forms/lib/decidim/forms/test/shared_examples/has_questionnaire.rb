@@ -569,6 +569,39 @@ shared_examples_for "has questionnaire" do
 
         expect(page).to have_content("are not complete")
       end
+
+      it "displays maintains sorting order if errors" do
+        visit questionnaire_public_path
+
+        check "No"
+        check "por"
+        check "idiotas"
+
+        accept_confirm { click_button "Submit" }
+
+        within ".alert.flash" do
+          expect(page).to have_content("problem")
+        end
+
+        # Check the next round to ensure a re-submission conserves status
+        expect(page).to have_content("are not complete")
+        expect(page).to have_content("1. No\n2. por\n3. idiotas\ntrates\nnos")
+
+        checkboxes = page.all("input[type=checkbox]")
+
+        checkboxes[0].uncheck
+        check "No"
+        check "nos"
+
+        accept_confirm { click_button "Submit" }
+
+        within ".alert.flash" do
+          expect(page).to have_content("problem")
+        end
+
+        expect(page).to have_content("are not complete")
+        expect(page).to have_content("1. por\n2. idiotas\n3. No\n4. nos\ntrates")
+      end
     end
 
     context "when question type is matrix_single" do

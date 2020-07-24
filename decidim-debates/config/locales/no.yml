@@ -76,6 +76,10 @@
           success: Debatten ble opprettet.
         debate:
           participate: Delta
+        edit:
+          back: Tilbake
+          save: Lagre endringer
+          title: Rediger debatt
         filters:
           all: Alle
           category: Kategori
@@ -89,13 +93,26 @@
           filter: Filter
           filter_by: Filtrer etter
           unfold: Åpne
+        form:
+          select_a_category: Velg en kategori
         index:
           new_debate: Ny debatt
         new:
           back: Tilbake
           create: Opprett
-          select_a_category: Velg en kategori
           title: Ny debatt
+        show:
+          edit_debate: Rediger debatt
+        update:
+          invalid: Det oppsto et problem med å oppdatere debatten.
+          success: Debatten ble oppdatert.
+        versions:
+          debates:
+            back_to_resource: Gå tilbake til debatten
+          index:
+            title: Versjoner
+        versions_list:
+          back_to_resource: Gå tilbake til debatten
       last_activity:
         new_debate_at_html: "<span>Ny debatt på %{link}</span>"
       models:

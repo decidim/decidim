@@ -6,7 +6,7 @@ pt:
         duration: Duração
         title: Título
       close_meeting:
-        attendees_count: Número de Participantes
+        attendees_count: Número de participantes
         attending_organizations: Lista de organizações que participaram
         closing_report: Relatório
         contributions_count: Número de contribuições
@@ -16,165 +16,175 @@ pt:
         available_slots: Slots disponíveis para esta reunião
         decidim_category_id: Categoria
         decidim_scope_id: Âmbito
+        decidim_user_group_id: Grupo de utilizadores
         description: Descrição
-        end_time: Fim do tempo
+        end_time: Hora de fim
         location: Localização
         location_hints: Dicas de localização
+        organizer_gid: Criar como
         organizer_id: Organizador
         private_meeting: Reunião privada
-        registration_form_enabled: Formulário de inscrição ativado
-        registration_terms: Termos de registro
-        registrations_enabled: Registos habilitados
+        registration_form_enabled: Formulário de registo ativado
+        registration_terms: Termos de registo
+        registrations_enabled: Registos ativados
         start_time: Hora de início
         title: Título
         transparent: Transparente
       minutes:
-        audio_url: URL de áudio
+        audio_url: Url de áudio
         description: Descrição
-        video_url: URL do vídeo
-        visible: É visível
+        video_url: Url do vídeo
+        visible: Está visível
     errors:
       models:
         meeting_agenda:
           attributes:
             base:
               too_many_minutes: A duração dos itens excede a duração da reunião em %{count} minutos
-              too_many_minutes_child: A duração do item childs excede o item da agenda "%{parent_title}" duração pai em %{count} minuto
+              too_many_minutes_child: A duração dos filhos do item excede a duração do item pai da agenda "%{parent_title}" em %{count} minutos
         meeting_registration_invite:
           attributes:
             email:
-              already_invited: Este email já foi convidado
+              already_invited: Esta conta de e-mail já foi convidada
     models:
-      decidim/meetings/close_meeting_event: Reunião fechada
-      decidim/meetings/create_meeting_event: encontro
-      decidim/meetings/meeting_registrations_enabled_event: Registros habilitados
-      decidim/meetings/meeting_registrations_over_percentage_event: Inscrições acima do limite
-      decidim/meetings/upcoming_meeting_event: Próxima reunião
+      decidim/meetings/close_meeting_event: Reunião encerrada
+      decidim/meetings/create_meeting_event: Reunião
+      decidim/meetings/meeting_registrations_enabled_event: Registos ativados
+      decidim/meetings/meeting_registrations_over_percentage_event: Registos acima do limite
+      decidim/meetings/upcoming_meeting_event: Próximas reuniões
       decidim/meetings/update_meeting_event: Reunião atualizada
   activerecord:
     models:
       decidim/meetings/meeting:
-        one: encontro
+        one: Reunião
         other: Reuniões
       decidim/meetings/minutes:
-        one: Minutos
-        other: Minutos
+        one: Ata
+        other: Atas
       decidim/meetings/registration:
-        one: Cadastro
-        other: Inscrições
+        one: Registo
+        other: Registos
   decidim:
     admin:
       meeting_copies:
         create:
-          error: Ocorreu um erro ao duplicar esta reunião.
-          success: Reunião duplicada com sucesso.
+          error: Ocorreu um problema ao duplicar esta reunião.
+          success: Reunião duplicada corretamente.
         new:
-          copy: cópia de
-          select: Selecione os dados que você gostaria de duplicar
+          copy: Copiar
+          select: Selecione os dados que pretende duplicar
           title: Reunião duplicada
     components:
       meetings:
         actions:
-          join: Junte-se
+          join: Adira
         name: Reuniões
         settings:
           global:
             announcement: Anúncio
             comments_enabled: Comentários ativados
-            default_registration_terms: Termos de registro padrão
+            comments_max_length: Comprimento máximo dos comentários (Deixar 0 para o valor predefinido)
+            creation_enabled_for_participants: Os participantes podem criar reuniões
+            default_registration_terms: Termos de registo predefinidos
             enable_pads_creation: Ativar criação de blocos
-            resources_permissions_enabled: Permissões de ações podem ser definidas para cada reunião
+            resources_permissions_enabled: As permissões de ações podem ser definidas para cada reunião
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
+            creation_enabled_for_participants: Criação de reunião por participantes ativada
+            creation_enabled_for_user_groups: Criação de reunião por grupo de utilizadores ativada
     events:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'Sua reunião "%{resource_title}" foi encerrada. Você pode ler as conclusões da sua página:'
-            email_outro: Você recebeu esta notificação porque organizou a reunião "%{resource_title}".
-            email_subject: A reunião "%{resource_title}" foi fechada
-            notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> foi fechada.
+            email_intro: 'A sua reunião "%{resource_title}" foi encerrada. Pode ler as conclusões a partir da sua página:'
+            email_outro: Recebeu esta notificação porque organizou a reunião "%{resource_title}".
+            email_subject: A reunião "%{resource_title}" foi encerrada
+            notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> foi encerrada.
           follower:
-            email_intro: 'A reunião "%{resource_title}" foi encerrada. Você pode ler as conclusões da sua página:'
-            email_outro: Você recebeu esta notificação porque está seguindo a reunião "%{resource_title}". Você pode deixar de segui-lo no link anterior.
-            email_subject: A reunião "%{resource_title}" foi fechada
-            notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> foi fechada.
+            email_intro: 'A reunião "%{resource_title}" foi encerrada. Pode ler as conclusões a partir da sua página:'
+            email_outro: Recebeu esta notificação porque segue a reunião "%{resource_title}". Pode deixar de segui-la a partir da hiperligação anterior.
+            email_subject: A reunião "%{resource_title}" foi encerrada
+            notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> foi encerrada.
         meeting_created:
-          email_intro: A reunião "%{resource_title}" foi adicionado a "%{participatory_space_title}" que você está seguindo.
-          email_outro: Você recebeu esta notificação porque está seguindo "%{participatory_space_title}". Você pode ignorá-lo do link anterior.
+          email_intro: A reunião "%{resource_title}" foi adicionada a "%{participatory_space_title}" que você segue.
+          email_outro: Recebeu esta notificação porque segue "%{participatory_space_title}". Pode deixar de segui-lo a partir da hiperligação anterior.
           email_subject: Nova reunião adicionada a %{participatory_space_title}
-          notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> foi adicionado a %{participatory_space_title}
+          notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> foi adicionada a %{participatory_space_title}
         meeting_registration_confirmed:
-          notification_title: Sua inscrição para a reunião <a href="%{resource_url}">%{resource_title}</a> foi confirmada. Seu código de registro é %{registration_code}.
+          notification_title: A sua inscrição para a reunião <a href="%{resource_url}">%{resource_title}</a> foi confirmada. O seu código de registo é %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: Os slots ocupados pela reunião "%{resource_title}" estão acima de %{percentage}%.
-          email_outro: Você recebeu esta notificação porque você é administrador do espaço participativo da reunião.
-          email_subject: Os espaços de ocupação ocupados com "%{resource_title}" estão acima de %{percentage}%
-          notification_title: Os <a href="%{resource_path}">%{resource_title}</a> atendimento ocupados são mais de %{percentage}%.
+          email_outro: Recebeu esta notificação porque é administrador do espaço participativo da reunião.
+          email_subject: Os intervalos de tempo alocados à reunião "%{resource_title}" estão acima de %{percentage}%
+          notification_title: Os intervalos de tempo alocados à reunião <a href="%{resource_path}">%{resource_title}</a> estão acima de %{percentage}%.
         meeting_updated:
-          email_intro: 'A reunião "%{resource_title}" foi atualizada. Você pode ler a nova versão da sua página:'
-          email_outro: Você recebeu esta notificação porque está seguindo a reunião "%{resource_title}". Você pode ignorá-lo do link anterior.
+          email_intro: 'A reunião "%{resource_title}" foi atualizada. Pode ler a nova versão a partir da sua página:'
+          email_outro: Recebeu esta notificação porque segue a reunião "%{resource_title}". Pode deixar de segui-la a partir da hiperligação anterior.
           email_subject: A reunião "%{resource_title}" foi atualizada
           notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> foi atualizada.
         registration_code_validated:
-          email_intro: Seu código de registro "%{registration_code}" para a reunião "%{resource_title}" foi validado.
-          email_outro: Você recebeu esta notificação porque seu código de registro para a reunião "%{resource_title}" foi validado.
-          email_subject: Seu código de registro "%{registration_code}" para a reunião "%{resource_title}" foi validado
-          notification_title: Seu código de registro "%{registration_code}" para a reunião <a href="%{resource_path}">%{resource_title}</a> foi validado.
+          email_intro: O seu código de registo "%{registration_code}" para a reunião "%{resource_title}" foi validado.
+          email_outro: Recebeu esta notificação porque o seu código de registo para a reunião "%{resource_title}" foi validado.
+          email_subject: O seu código de registo "%{registration_code}" para a reunião "%{resource_title}" foi validado
+          notification_title: O seu código de registo "%{registration_code}" para a reunião <a href="%{resource_path}">%{resource_title}</a> foi validado.
         registrations_enabled:
-          email_intro: 'A reunião "%{resource_title}" permitiu registos. Você pode se registrar em sua página:'
-          email_outro: Você recebeu esta notificação porque está seguindo a reunião "%{resource_title}". Você pode ignorá-lo do link anterior.
-          email_subject: A reunião "%{resource_title}" permitiu registos.
-          notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> permitiu registos.
+          email_intro: 'A reunião "%{resource_title}" ativou os registos. Pode registar-se a partir da sua página:'
+          email_outro: Recebeu esta notificação porque segue a reunião "%{resource_title}". Pode deixar de segui-la a partir da hiperligação anterior.
+          email_subject: A reunião "%{resource_title}" ativou os registos.
+          notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> ativou os registos.
         upcoming_meeting:
           email_intro: A reunião "%{resource_title}" começará em menos de 48h.
-          email_outro: Você recebeu esta notificação porque está seguindo a reunião "%{resource_title}". Você pode ignorá-lo do link anterior.
+          email_outro: Recebeu esta notificação porque segue a reunião "%{resource_title}". Pode deixar de segui-la a partir da hiperligação anterior.
           email_subject: A reunião "%{resource_title}" começará em menos de 48h.
           notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> começará em menos de 48h.
     gamification:
       badges:
         attended_meetings:
           conditions:
-            - Registre-se nas reuniões que deseja participar
-          description: Este crachá é concedido quando você participa de várias reuniões presenciais.
-          description_another: Este usuário assistiu a %{score} reuniões.
-          description_own: Você participou de %{score} reuniões.
-          name: Participou de reuniões
-          next_level_in: Participe de mais %{score} reuniões para alcançar o próximo nível!
-          unearned_another: Este usuário ainda não participou de nenhuma reunião.
-          unearned_own: Você não participou de nenhuma reunião ainda.
+            - Registe-se nas reuniões em que deseja participar
+          description: Este distintivo é concedido quando participa em várias reuniões presenciais.
+          description_another: Este participante assistiu a %{score} reuniões.
+          description_own: Participou em %{score} reuniões.
+          name: Reuniões participadas
+          next_level_in: Participe em mais %{score} reuniões para alcançar o próximo nível!
+          unearned_another: Este participante ainda não participou em nenhuma reunião.
+          unearned_own: Ainda não participou em nenhuma reunião.
     meetings:
       actions:
         agenda: Agenda
         attachment_collections: Pastas
         attachments: Anexos
         close: Fechar
-        confirm_destroy: Tem certeza de que deseja excluir esta reunião?
-        destroy: Excluir
+        confirm_destroy: Tem a certeza de que deseja eliminar esta reunião?
+        destroy: Eliminar
         edit: Editar
-        minutes: Minutos
+        invalid_destroy:
+          proposals_count:
+            one: 'A reunião não pode ser destruída porque tem %{count} proposta associada:'
+            other: 'A reunião não pode ser destruída porque tem %{count} propostas associadas:'
+        minutes: Atas
         new: Nova reunião
-        preview: Visualização
-        registrations: Inscrições
+        preview: Pré-visualização
+        registrations: Registos
         title: Ações
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Adicionar filho do item da agenda
+            add_agenda_item_child: Adicionar sub-item da agenda
             agenda_item: Item da agenda
-            agenda_item_children: Item da Agenda Childs
-            down: Baixa
+            agenda_item_children: Sub-itens da Agenda
+            down: Abaixo
             remove: Remover
             up: Acima
           agenda_item_child:
-            agenda_item_child: Item da Agenda Criança
-            down: Baixa
+            agenda_item_child: Sub-item da agenda
+            down: Abaixo
             remove: Remover
             up: Acima
           create:
-            invalid: Houve um problema ao criar esta agenda
-            success: Agenda criada com sucesso
+            invalid: Ocorreu um problema ao criar esta agenda
+            success: Agenda criada corretamente
           edit:
             title: Editar agenda
             update: Atualizar
@@ -184,58 +194,62 @@ pt:
             end_date: Data final
             start_date: Data de início
           new:
-            create: Crio
+            create: Criar
             title: Nova agenda
           update:
-            invalid: Houve um problema ao atualizar esta agenda
-            success: Agenda atualizada com sucesso
+            invalid: Ocorreu um problema ao atualizar esta agenda
+            success: Agenda atualizada corretamente
         exports:
           meetings: Reuniões
-          registrations: Inscrições
+          registrations: Registos
         invite_join_meeting_mailer:
           invite:
             decline: Recusar convite
-            invited_you_to_join_a_meeting: "%{invited_by} convidou você a participar de uma reunião em %{application}. Você pode aceitá-lo através do link abaixo."
-            join: Junte-se à reunião '%{meeting_title}'
+            invited_you_to_join_a_meeting: "%{invited_by} convidou-o(a) a aderir a uma reunião em %{application}. Pode recusar ou aceitar utilizando as hiperligações abaixo."
+            join: Adira à reunião '%{meeting_title}'
         invites:
           create:
-            error: Ocorreu um problema ao convidar o usuário a participar da reunião.
-            success: O usuário foi convidado para participar da reunião.
+            error: Ocorreu um problema ao convidar o participante a aderir à reunião.
+            success: O participante foi convidado a aderir à reunião corretamente.
           form:
             attendee_type: Tipo de participante
-            existing_user: Usuário existente
-            invite: Convite
-            invite_explanation: O usuário será convidado a participar da reunião e também da organização.
-            non_user: Usuário não existente
-            select_user: Selecione o usuário
+            existing_user: Participante existente
+            invite: Convidar
+            invite_explanation: O participante será convidado a aderir à reunião e também à organização.
+            non_user: Participante inexistente
+            select_user: Selecione o participante
           index:
             filter:
-              accepted: Aceitaram
+              accepted: Aceite
               all: Todos
-              rejected: Rejeitado
-              sent: Enviei
+              rejected: Rejeitados
+              sent: Enviados
             filter_by: Filtrar por
             invite_attendee: Convidar participante
             invites: Convites
-            registrations_disabled: Você não pode convidar um participante porque os registros estão desativados.
-            search: Pesquisa
+            registrations_disabled: Não pode convidar um participante porque os registos estão desativados.
+            search: Pesquisar
         meeting_closes:
           edit:
             close: Fechar
-            title: Reunião próxima
+            title: Encerrar reunião
         meetings:
           close:
-            invalid: Tem havido um problema ao encerrar esta reunião
-            success: Reunião fechada com sucesso
+            invalid: Ocorreu um problema ao encerrar esta reunião
+            success: Reunião encerrada corretamente
           create:
-            invalid: Tem havido um problema ao criar esta reunião
-            success: Reunião criada com sucesso
+            invalid: Ocorreu um problema ao criar esta reunião
+            success: Reunião criada corretamente
           destroy:
-            success: Reunião excluída com êxito
+            invalid:
+              proposals_count:
+                one: A reunião não pode ser destruída porque tem %{count} proposta associada
+                other: A reunião não pode ser destruída porque tem %{count} propostas associadas
+            success: Reunião eliminada corretamente
           edit:
-            update: Actualizar
+            update: Atualizar
           form:
-            address_help: 'Endereço: utilizado pela geocodificação para encontrar a localização'
+            address_help: 'Endereço: utilizado por Geocoder para encontrar a localização'
             location_help: 'Localização: mensagem direcionada para os utilizadores indicando o local de encontro'
             location_hints_help: 'Dicas de localização: informação adicional. Exemplo: o piso do edifício'
           index:
@@ -245,7 +259,7 @@ pt:
             title: Criar reunião
           service:
             description: Descrição
-            down: Baixa
+            down: Abaixo
             remove: Remover
             service: Serviço
             title: Título
@@ -254,168 +268,209 @@ pt:
             add_service: Adicionar serviço
             services: Serviços
           update:
-            invalid: Tem havido um problema ao atualizar esta reunião
-            success: Reunião atualizada com sucesso
+            invalid: Ocorreu um problema ao atualizar esta reunião
+            success: Reunião atualizada corretamente
         minutes:
           create:
-            invalid: Houve um problema ao criar esta ata
-            success: Minutos criados com sucesso
+            invalid: Ocorreu um problema ao criar esta ata
+            success: Ata criada corretamente
           edit:
             update: Atualizar
           new:
-            create: Crio
-            title: Crie minutos
+            create: Criar
+            title: Criar ata
           update:
-            invalid: Houve um problema ao atualizar esta ata
-            success: Minutos atualizados com sucesso
+            invalid: Ocorreu um problema ao atualizar esta ata
+            success: Ata atualizada corretamente
         models:
           meeting:
-            name: encontro
+            name: Reunião
         registrations:
           edit:
-            save: Salve 
+            save: Guardar
             validate: Validar
-            validate_registration_code: Validar código de registro
+            validate_registration_code: Validar código de registo
           form:
-            available_slots_help: Deixe-o para 0 se você tiver slots ilimitados disponíveis.
+            available_slots_help: Deixar a 0 se tiver intervalos de tempo ilimitados disponíveis.
             invites: Convites
-            recommendation_message: Por questões de privacidade recomendamos que elimine este formulário de inscrição quando já não for necessário. Por predefinição, isso acontece 3 meses após o fim da reunião.
-            registration_form: Formulário de registro
+            recommendation_message: Por questões de privacidade recomendamos que elimine este formulário de inscrição quando já não for necessário. Por predefinição, isto acontece 3 meses após o fim da reunião.
+            registration_form: Formulário de registo
             registrations_count:
-              one: Houve %{count} registro.
-              other: Houve %{count} inscrições.
-            reserved_slots_help: Deixe para 0 se você não tiver slots reservados
+              one: Houve %{count} registo.
+              other: Houve %{count} registos.
+            reserved_slots_help: Deixar a 0 se não tiver intervalos de tempo reservados
             reserved_slots_less_than: Deve ser menor ou igual a %{count}
             title: Registos
           update:
-            invalid: Ocorreu um problema ao salvar as configurações de registro.
-            success: Configurações de registro de reunião salvas com sucesso.
+            invalid: Ocorreu um problema ao guardar as configurações de registo.
+            success: Configurações de registo de reunião guardadas corretamente.
           validate_registration_code:
-            invalid: Este código de registro é inválido.
-            success: Código de registro validado com sucesso.
+            invalid: Este código de registo é inválido.
+            success: Código de registo validado corretamente.
       admin_log:
         invite:
-          create: "%{user_name} convidados %{attendee_name} a participar de %{resource_name} reunião no espaço %{space_name}"
-          deleted: "%{user_name} uninvited %{attendee_name} de juntar %{resource_name} reunião no espaço %{space_name}"
-          update: "%{user_name} convidados %{attendee_name} a participar de %{resource_name} reunião no espaço %{space_name}"
+          create: "%{user_name} convidou %{attendee_name} a aderir à reunião %{resource_name} no espaço %{space_name}"
+          deleted: "%{user_name} cancelou o convite de %{attendee_name} para aderir à reunião %{resource_name} no espaço %{space_name}"
+          update: "%{user_name} convidou %{attendee_name} a aderir à reunião %{resource_name} no espaço %{space_name}"
         meeting:
-          close: "%{user_name} fechou a reunião %{resource_name} no espaço %{space_name}"
+          close: "%{user_name} encerrou a reunião %{resource_name} no espaço %{space_name}"
           create: "%{user_name} criou a reunião %{resource_name} no espaço %{space_name}"
           delete: "%{user_name} eliminou a reunião %{resource_name} no espaço %{space_name}"
-          export_registrations: "%{user_name} exportou os registros da reunião %{resource_name} no espaço %{space_name}"
+          export_registrations: "%{user_name} exportou os registos da reunião %{resource_name} no espaço %{space_name}"
           update: "%{user_name} atualizou a reunião %{resource_name} no espaço %{space_name}"
           value_types:
             organizer_presenter:
-              not_found: 'O organizador não foi encontrado no banco de dados (ID: %{id})'
+              not_found: 'O(A) organizador(a) não foi encontrado(a) na base de dados (ID: %{id})'
         minutes:
           create: "%{user_name} criou a ata da reunião %{resource_name} no espaço %{space_name}"
           update: "%{user_name} atualizou a ata da reunião %{resource_name} no espaço %{space_name}"
       calendar_modal:
         calendar_url: URL do calendário
-        close_window: Janela fechada
-        export_calendar: Calendário de exportação
-      conference_venues: Locais de conferência
+        close_window: Fechar janela
+        export_calendar: Exportar calendário
+      conference_venues: Locais da Conferência
       content_blocks:
         upcoming_events:
           name: Próximos eventos
-          upcoming_events: Próximos encontros
-          view_all_events: Ver tudo
+          upcoming_events: Próximas reuniões
+          view_all_events: Ver todos
       directory:
         meetings:
           index:
             all: Todos
-            date: Encontro
+            date: Data
             meetings: Reuniões
             past: Passado
-            search: Pesquisa
+            search: Pesquisar
             space_type: Espaço participativo
-            upcoming: próximos
+            upcoming: Próximas
       last_activity:
         new_meeting_at_html: "<span>Nova reunião em %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Convite para participar de uma reunião
+            subject: Convite para aderir a uma reunião
         registration_mailer:
           confirmation:
-            subject: O registro da sua reunião foi confirmado
+            subject: O seu registo da reunião foi confirmado
       meeting:
-        not_allowed: Você não tem permissão para ver esta reunião
+        not_allowed: Não tem permissão para ver esta reunião
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} reunião"
+            other: "%{count} reuniões"
+        create:
+          invalid: Ocorreu um problema ao criar esta reunião.
+          success: Criou a reunião corretamente.
+        edit:
+          back: Retroceder
+          title: Editar a Sua Reunião
+          update: Atualizar
         filters:
           category: Categoria
-          date: Encontro
-          search: Pesquisa
+          date: Data
+          date_values:
+            all: Todos
+            past: Passado
+            upcoming: Próximas
+          origin: Origem
+          origin_values:
+            all: Todos
+            citizens: Cidadãos
+            official: Oficial
+            user_groups: Grupos
+          scope: Âmbito
+          search: Pesquisar
         filters_small_view:
           close_modal: Fechar modal
-          filter: Filtro
+          filter: Filtrar
           filter_by: Filtrar por
           unfold: Desdobrar
+        form:
+          address_help: 'Endereço: utilizado pelo Geocoder para encontrar a localização'
+          create_as: Criar reunião como
+          location_help: 'Localização: mensagem direcionada aos utilizadores sugerindo o local onde se encontrarem'
+          location_hints_help: 'Dicas de localização: informação adicional. Exemplo: o chão do edifício'
+          select_a_category: Por favor selecione uma categoria
+        index:
+          new_meeting: Nova reunião
         meeting_minutes:
-          meeting_minutes: Atas de Reunião
-          related_information: Informação relacionada
+          meeting_minutes: Ata da Reunião
+          related_information: Informação Relacionada
         meetings:
           no_meetings_warning: Nenhuma reunião corresponde aos seus critérios de pesquisa ou não há nenhuma reunião agendada.
-          upcoming_meetings_warning: Atualmente, não há reuniões agendadas, mas aqui você pode encontrar todas as reuniões anteriores listadas.
+          upcoming_meetings_warning: Atualmente, não há reuniões agendadas, mas aqui pode encontrar listadas todas as reuniões passadas.
+        new:
+          back: Retroceder
+          create: Criar
+          title: Criar a Sua Reunião
         registration_confirm:
           cancel: Cancelar
-          confirm: confirme
+          confirm: Confirmar
         show:
           attendees: Contagem de participantes
           back: Regressar à lista
-          contributions: Contagem de Contribuições
+          contributions: Contagem de contribuições
+          edit_meeting: Editar reunião
           going: Indo
-          join: Participe da reunião
-          meeting_report: Relatório de reunião
-          no_slots_available: Não há slots disponíveis
+          join: Adira à reunião
+          meeting_report: Relatório da reunião
+          no_slots_available: Não há intervalos de tempo disponíveis
           organizations: Organizações participantes
-          registration_code_help_text: Seu código de registro
+          registration_code_help_text: O seu código de registo
           registration_state:
             validated: VALIDADO
             validation_pending: VALIDAÇÃO PENDENTE
           remaining_slots:
-            one: "%{count} slot restante"
-            other: "%{count} slots restantes"
-          view: Visão
+            one: "%{count} intervalo de tempo restante"
+            other: "%{count} intervalos de tempo restantes"
+          view: Ver
+        update:
+          invalid: Ocorreu um problema ao atualizar a reunião.
+          success: Atualizou a reunião corretamente.
       meetings_map:
         view_meeting: Ver reunião
       models:
         invite:
           fields:
-            email: O email
+            email: E-mail
             name: Nome
             sent_at: Enviado em
-            status: Status
+            status: Estado
           status:
-            accepted: Aceito (%{at})
+            accepted: Aceite (%{at})
             rejected: Rejeitado (%{at})
-            sent: Enviei
+            sent: Enviado
         meeting:
           fields:
-            closed: Fechadas
+            closed: Encerradas
             end_time: Data final
             map: Mapa
+            official_meeting: Reunião oficial
             start_time: Data de início
             title: Título
-      read_more: "(consulte Mais informação)"
+      read_more: "(ler mais)"
       registration_mailer:
         confirmation:
-          confirmed_html: Seu registro para a reunião <a href="%{url}">%{title}</a> foi confirmado.
-          details: Você encontrará os detalhes da reunião no anexo.
-          registration_code: Seu código de registro é %{code}.
+          confirmed_html: O seu registo para a reunião <a href="%{url}">%{title}</a> foi confirmado.
+          details: Encontrará os detalhes da reunião no anexo.
+          registration_code: O seu código de registo é %{code}.
       registrations:
         create:
-          invalid: Houve um problema ao se juntar a essa reunião.
-          success: Você se juntou à reunião com sucesso.
+          invalid: Ocorreu um problema ao aderir a esta reunião.
+          success: Aderiu à reunião corretamente. Por se ter registado nesta reunião, será notificado se ocorrerem atualizações à mesma.
         decline_invitation:
-          invalid: Houve um problema ao recusar o convite.
-          success: Você recusou o convite com sucesso.
+          invalid: Ocorreu um problema ao recusar o convite.
+          success: Recusou o convite corretamente.
         destroy:
-          invalid: Tem havido um problema ao sair desta reunião.
-          success: Você saiu da reunião com sucesso.
+          invalid: Ocorreu um problema ao sair desta reunião.
+          success: Saiu da reunião corretamente.
       types:
         private_meeting: Reunião privada
         transparent: Transparente
+      versions:
+        back_to_resource: Retroceder para a reunião
     metrics:
       meetings:
         description: Número de reuniões criadas
@@ -424,15 +479,15 @@ pt:
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
-          past_meetings: Reuniões anteriores
+          past_meetings: Reuniões passadas
           upcoming_meetings: Próximas reuniões
     participatory_spaces:
       highlighted_meetings:
-        past_meetings: Reuniões anteriores
+        past_meetings: Reuniões passadas
         see_all: Ver todos (%{count})
         upcoming_meetings: Próximas reuniões
       upcoming_meeting_for_card:
-        upcoming_meeting: Próxima reunião
+        upcoming_meeting: Próximas reuniões
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Resultados relacionados:'
@@ -443,4 +498,4 @@ pt:
   devise:
     mailer:
       join_meeting:
-        subject: Convite para participar de uma reunião
+        subject: Convite para aderir a uma reunião
