@@ -126,17 +126,12 @@ sk:
           most_voted: Najviac hlasov
           random: Náhodné poradie
         project:
-          add: Pridať
           count:
             one: 1 podpora
             few: "%{count} podporení"
             many: "%{count} podporení"
             other: "%{count} podporení"
-          remove: Odstrániť
           view: Zobraziť
-        project_budget_button:
-          add: Pridať
-          added: Pridané
         show:
           budget: Rozpočet
           view_all_projects: Zobraziť všetky projekty
