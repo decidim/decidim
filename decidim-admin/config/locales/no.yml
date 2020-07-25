@@ -49,6 +49,8 @@
         from: Fra e-postadresse
         github_handler: GitHub brukernavn
         header_snippets: Topptekstutdrag
+        highlight_alternative_color: Fremhev, alternativ
+        highlight_color: Fremhev
         highlighted_content_banner_action_subtitle: Handlingsknapp undertittel
         highlighted_content_banner_action_title: Handlingsknapp tittel
         highlighted_content_banner_action_url: Handlingsknapp URL
