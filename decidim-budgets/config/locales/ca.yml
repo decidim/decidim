@@ -121,10 +121,17 @@ ca:
           most_voted: Més votats
           random: Ordre aleatori
         project:
+          add: Afegir el projecte %{resource_name} al teu vot
           count:
             one: 1 suport
             other: "%{count} suports"
+          remove: Esborrar el projecte %{resource_name} del teu vot
           view: Veure
+        project_budget_button:
+          add: Afegir al teu vot
+          add_descriptive: Afegir el projecte %{resource_name} al teu vot
+          added: Afegit al teu vot
+          added_descriptive: El projecte %{resource_name} s'ha afegit al teu vot
         show:
           budget: Pressupost
           view_all_projects: Veure tots els projectes
