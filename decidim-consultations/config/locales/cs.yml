@@ -250,6 +250,8 @@ cs:
           label: 'Seřadit konzultace podle:'
           random: Náhodný
           recent: Nejnovější
+        show:
+          dates: Data
       content_blocks:
         highlighted_consultations:
           name: Zvýrazněné konzultace
@@ -366,10 +368,12 @@ cs:
         verification_required: Potvrdit svůj účet pro hlasování
         vote: Hlasování
       vote_modal:
+        close_modal: Zavřít okno
         contextual_help: Prosím vyberte možnost.
         title: 'Konzultace: podpora otázek'
       vote_modal_confirm:
         change: Změna
+        close_modal: Zavřít okno
         confirm: Potvrdit
         contextual_help: Potvrďte vybranou možnost.
         title: 'Konzultace: potvrďte podporu'
