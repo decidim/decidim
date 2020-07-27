@@ -144,6 +144,7 @@ it:
           postal_codes:
             one: La partecipazione è riservata agli utenti con il codice postale %{postal_codes}.
             other: 'La partecipazione è riservata agli utenti con uno dei seguenti codici postali: %{postal_codes}.'
+          scope: La partecipazione è limitata ai partecipanti con l'ambito %{scope_name}.
       id_documents:
         admin:
           config:

@@ -21,9 +21,9 @@
                 <%= link_to decidim_url_escape(meeting.minutes.video_url), decidim_html_escape(meeting.minutes.video_url), target: "_blank", rel: "noopener" %>
               </div>
             </div>
-            <div class="card--list__data">
+            <div class="card--list__data" aria-hidden="true">
               <%= link_to decidim_url_escape(meeting.minutes.video_url), target: "_blank", class: "card--list__data__icon", rel: "noopener" do %>
-                <%= icon "external-link", role: "img" %>
+                <%= icon "external-link", role: "img", "aria-hidden": true %>
               <% end %>
             </div>
           </div>
@@ -35,9 +35,9 @@
                 <%= link_to decidim_url_escape(meeting.minutes.audio_url), decidim_html_escape(meeting.minutes.audio_url), target: "_blank", rel: "noopener" %>
               </div>
             </div>
-            <div class="card--list__data">
+            <div class="card--list__data" aria-hidden="true">
               <%= link_to decidim_url_escape(meeting.minutes.audio_url), target: "_blank", class: "card--list__data__icon", rel: "noopener" do %>
-                <%= icon "external-link", role: "img" %>
+                <%= icon "external-link", role: "img", "aria-hidden": true %>
               <% end %>
             </div>
           </div>

@@ -114,17 +114,12 @@ ru:
             other: выбранных проектов
           view: Посмотреть
         project:
-          add: Добавить
           count:
             one: 1 человек поддерживает
             few: "%{count} поддерживают"
             many: "%{count} поддерживает"
             other: "%{count} поддерживает"
-          remove: Удалить
           view: Посмотреть
-        project_budget_button:
-          add: Добавить
-          added: Добавлено
         show:
           budget: Бюджет
           view_all_projects: Просмотреть все проекты

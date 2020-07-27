@@ -91,12 +91,13 @@ ro:
           filter: Filtrare
           filter_by: Filtrare după
           unfold: Desfășurat
+        form:
+          select_a_category: Vă rugăm să selectaţi o categorie
         index:
           new_debate: Dezbatere nouă
         new:
           back: Înapoi
           create: Crează
-          select_a_category: Vă rugăm să selectaţi o categorie
           title: Dezbatere nouă
         show:
           back: Înapoi la listă

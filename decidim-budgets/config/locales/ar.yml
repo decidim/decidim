@@ -120,7 +120,6 @@ ar:
             other: المشاريع المختارة
           view: رأي
         project:
-          add: إضافة
           count:
             zero: "%{count} يدعم"
             one: 1 الدعم
@@ -128,11 +127,7 @@ ar:
             few: "%{count} يدعم"
             many: "%{count} يدعم"
             other: "%{count} يدعم"
-          remove: إزالة
           view: رأي
-        project_budget_button:
-          add: إضافة
-          added: وأضاف
         show:
           budget: ميزانية
           view_all_projects: عرض جميع المشاريع

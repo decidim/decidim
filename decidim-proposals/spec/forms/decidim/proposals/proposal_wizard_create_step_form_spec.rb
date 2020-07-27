@@ -48,18 +48,6 @@ module Decidim
         end
       end
 
-      context "when title begins by invalid first char" do
-        let(:title) { "=Fake title" }
-
-        it { is_expected.to be_invalid }
-      end
-
-      context "when body begins by invalid first char" do
-        let(:body) { "+Fake body" }
-
-        it { is_expected.to be_invalid }
-      end
-
       context "when there's no body" do
         let(:body) { nil }
 

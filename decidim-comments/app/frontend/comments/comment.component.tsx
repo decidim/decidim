@@ -19,9 +19,11 @@ const { I18n } = require("react-i18nify");
 
 interface CommentProps {
   comment: CommentFragment;
-  session: AddCommentFormSessionFragment & {
-    user: any;
-  } | null;
+  session:
+    | AddCommentFormSessionFragment & {
+        user: any;
+      }
+    | null;
   articleClassName?: string;
   isRootComment?: boolean;
   votable?: boolean;
@@ -52,12 +54,14 @@ class Comment extends React.Component<CommentProps, CommentState> {
     votable: false
   };
 
-  public commentNode: HTMLElement;
+  public commentNode: HTMLDivElement;
 
   constructor(props: CommentProps) {
     super(props);
 
-    const { comment: { id } } = props;
+    const {
+      comment: { id }
+    } = props;
     const isThreadHidden = !!this.getThreadsStorage()[id];
 
     this.state = {
@@ -67,7 +71,9 @@ class Comment extends React.Component<CommentProps, CommentState> {
   }
 
   public componentDidMount() {
-    const { comment: { id } } = this.props;
+    const {
+      comment: { id }
+    } = this.props;
     const hash = document.location.hash;
     const regex = new RegExp(`#comment_${id}`);
 
@@ -76,7 +82,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
         return;
       }
       const difference = to - element.scrollTop;
-      const perTick = difference / duration * 10;
+      const perTick = (difference / duration) * 10;
 
       setTimeout(() => {
         element.scrollTop = element.scrollTop + perTick;
@@ -96,10 +102,15 @@ class Comment extends React.Component<CommentProps, CommentState> {
     }
   }
 
-  public getNodeReference = (commentNode: HTMLElement) => this.commentNode = commentNode;
+  public getNodeReference = (commentNode: HTMLDivElement) =>
+    (this.commentNode = commentNode)
 
   public render(): JSX.Element {
-    const { session, comment: { id, author, formattedBody, createdAt, formattedCreatedAt }, articleClassName } = this.props;
+    const {
+      session,
+      comment: { id, author, formattedBody, createdAt, formattedCreatedAt },
+      articleClassName
+    } = this.props;
     let modalName = "loginModal";
 
     if (session && session.user) {
@@ -109,24 +120,52 @@ class Comment extends React.Component<CommentProps, CommentState> {
     let singleCommentUrl = `${window.location.pathname}?commentId=${id}`;
 
     if (window.location.search && window.location.search !== "") {
-      singleCommentUrl = `${window.location.pathname}${window.location.search.replace(/commentId=\d*/gi, `commentId=${id}`)}`;
+      singleCommentUrl = `${
+        window.location.pathname
+      }${window.location.search.replace(/commentId=\d*/gi, `commentId=${id}`)}`;
     }
 
     return (
-      <article id={`comment_${id}`} className={articleClassName} ref={this.getNodeReference}>
+      <div
+        id={`comment_${id}`}
+        className={articleClassName}
+        ref={this.getNodeReference}
+      >
         <div className="comment__header">
           <div className="author-data">
             <div className="author-data__main">
               {this._renderAuthorReference()}
-              <span><time dateTime={createdAt} title={createdAt}>{formattedCreatedAt}</time></span>
+              <span>
+                <time dateTime={createdAt} title={createdAt}>
+                  {formattedCreatedAt}
+                </time>
+              </span>
             </div>
             <div className="author-data__extra">
-              <button type="button" title={I18n.t("components.comment.report.title")} data-open={modalName}>
-                <Icon name="icon-flag" iconExtraClassName="icon--small" />
+              <button
+                type="button"
+                className="link-alt"
+                title={I18n.t("components.comment.report.title")}
+                data-open={modalName}
+              >
+                <Icon
+                  name="icon-flag"
+                  iconExtraClassName="icon--small"
+                  title={I18n.t("components.comment.report.title")}
+                  role="img"
+                />
               </button>
               {this._renderFlagModal()}
-              <a href={singleCommentUrl} title={I18n.t("components.comment.single_comment_link_title")}>
-                <Icon name="icon-link-intact" iconExtraClassName="icon--small" />
+              <a
+                href={singleCommentUrl}
+                title={I18n.t("components.comment.single_comment_link_title")}
+              >
+                <Icon
+                  name="icon-link-intact"
+                  iconExtraClassName="icon--small"
+                  title={I18n.t("components.comment.single_comment_link_title")}
+                  role="img"
+                />
               </a>
             </div>
           </div>
@@ -147,7 +186,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
         {this._renderReplies()}
         {this._renderAdditionalReplyButton()}
         {this._renderReplyForm()}
-      </article>
+      </div>
     );
   }
 
@@ -157,7 +196,8 @@ class Comment extends React.Component<CommentProps, CommentState> {
   }
 
   private getThreadsStorage = (): Dict => {
-    const storage: Dict = JSON.parse(localStorage.hiddenCommentThreads || null) || {};
+    const storage: Dict =
+      JSON.parse(localStorage.hiddenCommentThreads || null) || {};
 
     return storage;
   }
@@ -169,7 +209,9 @@ class Comment extends React.Component<CommentProps, CommentState> {
   }
 
   private toggleReplies = () => {
-    const { comment: { id } } = this.props;
+    const {
+      comment: { id }
+    } = this.props;
     const { showReplies } = this.state;
     const newState = !showReplies;
 
@@ -184,7 +226,10 @@ class Comment extends React.Component<CommentProps, CommentState> {
       return 0;
     }
 
-    return comments.length + comments.map(this.countReplies).reduce((a: number, b: number) => a + b, 0);
+    return (
+      comments.length +
+      comments.map(this.countReplies).reduce((a: number, b: number) => a + b, 0)
+    );
   }
 
   /**
@@ -193,7 +238,9 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @returns {DOMElement} - Render a link with the author information
    */
   private _renderAuthorReference() {
-    const { comment: { author } } = this.props;
+    const {
+      comment: { author }
+    } = this.props;
 
     if (author.profilePath === "") {
       return this._renderAuthor();
@@ -208,7 +255,9 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @returns {DOMElement} - Render all the author information
    */
   private _renderAuthor() {
-    const { comment: { author } } = this.props;
+    const {
+      comment: { author }
+    } = this.props;
 
     if (author.deleted) {
       return this._renderDeletedAuthor();
@@ -223,7 +272,9 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @returns {DOMElement} - Render all the author information
    */
   private _renderDeletedAuthor() {
-    const { comment: { author } } = this.props;
+    const {
+      comment: { author }
+    } = this.props;
 
     return (
       <div className="author author--inline">
@@ -245,7 +296,9 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @returns {DOMElement} - Render all the author information
    */
   private _renderActiveAuthor() {
-    const { comment: { author } } = this.props;
+    const {
+      comment: { author }
+    } = this.props;
 
     return (
       <div className="author author--inline">
@@ -253,11 +306,11 @@ class Comment extends React.Component<CommentProps, CommentState> {
           <img src={author.avatarUrl} alt="author-avatar" />
         </span>
         <span className="author__name">{author.name}</span>
-        {author.badge === "" ||
+        {author.badge === "" || (
           <span className="author__badge">
             <Icon name={`icon-${author.badge}`} />
           </span>
-        }
+        )}
         <span className="author__nickname">{author.nickname}</span>
       </div>
     );
@@ -269,7 +322,10 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @returns {Void|DOMElement} - Render the reply button or not if user can reply
    */
   private _renderReplyButton() {
-    const { comment: { id, acceptsNewComments, userAllowedToComment }, session } = this.props;
+    const {
+      comment: { id, acceptsNewComments, userAllowedToComment },
+      session
+    } = this.props;
 
     if (session && acceptsNewComments && userAllowedToComment) {
       return (
@@ -282,7 +338,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
           <Icon name="icon-pencil" iconExtraClassName="icon--small" />
           &nbsp;
           {I18n.t("components.comment.reply")}
-        </button >
+        </button>
       );
     }
 
@@ -295,7 +351,11 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @returns {Void|DOMElement} - Render the reply button or not if user can reply
    */
   private _renderAdditionalReplyButton() {
-    const { comment: { id, acceptsNewComments, hasComments, userAllowedToComment }, session, isRootComment } = this.props;
+    const {
+      comment: { id, acceptsNewComments, hasComments, userAllowedToComment },
+      session,
+      isRootComment
+    } = this.props;
     const { showReplies } = this.state;
 
     if (session && acceptsNewComments && userAllowedToComment) {
@@ -332,13 +392,17 @@ class Comment extends React.Component<CommentProps, CommentState> {
     if (hasComments && isRootComment) {
       return (
         <button
-          className={`comment__reply muted-link ${showReplies ? "comment__is-open" : ""}`}
+          className={`comment__reply muted-link ${
+            showReplies ? "comment__is-open" : ""
+          }`}
           onClick={this.toggleReplies}
         >
           <Icon name="icon-comment-square" iconExtraClassName="icon--small" />
           &nbsp;
           <span className="comment__text-is-closed">
-            {I18n.t("components.comment.show_replies", { replies_count: this.countReplies(comment) })}
+            {I18n.t("components.comment.show_replies", {
+              replies_count: this.countReplies(comment)
+            })}
           </span>
           <span className="comment__text-is-open">
             {I18n.t("components.comment.hide_replies")}
@@ -356,13 +420,25 @@ class Comment extends React.Component<CommentProps, CommentState> {
    */
   private _renderVoteButtons() {
     const { session, comment, votable, rootCommentable, orderBy } = this.props;
-    const { comment: { userAllowedToComment } } = this.props;
+    const {
+      comment: { userAllowedToComment }
+    } = this.props;
 
     if (votable && userAllowedToComment) {
       return (
         <div className="comment__votes">
-          <UpVoteButton session={session} comment={comment} rootCommentable={rootCommentable} orderBy={orderBy} />
-          <DownVoteButton session={session} comment={comment} rootCommentable={rootCommentable} orderBy={orderBy} />
+          <UpVoteButton
+            session={session}
+            comment={comment}
+            rootCommentable={rootCommentable}
+            orderBy={orderBy}
+          />
+          <DownVoteButton
+            session={session}
+            comment={comment}
+            rootCommentable={rootCommentable}
+            orderBy={orderBy}
+          />
         </div>
       );
     }
@@ -376,7 +452,15 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @returns {Void|DomElement} - A wrapper element with comment's comments inside
    */
   private _renderReplies() {
-    const { comment: { id, hasComments, comments }, session, votable, articleClassName, rootCommentable, orderBy, commentsMaxLength } = this.props;
+    const {
+      comment: { id, hasComments, comments },
+      session,
+      votable,
+      articleClassName,
+      rootCommentable,
+      orderBy,
+      commentsMaxLength
+    } = this.props;
     const { showReplies } = this.state;
     let replyArticleClassName = "comment comment--nested";
 
@@ -387,20 +471,18 @@ class Comment extends React.Component<CommentProps, CommentState> {
     if (hasComments) {
       return (
         <div id={`comment-${id}-replies`} className={showReplies ? "" : "hide"}>
-          {
-            comments.map((reply: CommentFragment) => (
-              <Comment
-                key={`comment_${id}_reply_${reply.id}`}
-                comment={reply}
-                session={session}
-                votable={votable}
-                articleClassName={replyArticleClassName}
-                rootCommentable={rootCommentable}
-                orderBy={orderBy}
-                commentsMaxLength={commentsMaxLength}
-              />
-            ))
-          }
+          {comments.map((reply: CommentFragment) => (
+            <Comment
+              key={`comment_${id}_reply_${reply.id}`}
+              comment={reply}
+              session={session}
+              votable={votable}
+              articleClassName={replyArticleClassName}
+              rootCommentable={rootCommentable}
+              orderBy={orderBy}
+              commentsMaxLength={commentsMaxLength}
+            />
+          ))}
         </div>
       );
     }
@@ -416,7 +498,9 @@ class Comment extends React.Component<CommentProps, CommentState> {
   private _renderReplyForm() {
     const { session, comment, rootCommentable, orderBy, commentsMaxLength } = this.props;
     const { showReplyForm } = this.state;
-    const { comment: { userAllowedToComment } } = this.props;
+    const {
+      comment: { userAllowedToComment }
+    } = this.props;
 
     if (session && showReplyForm && userAllowedToComment) {
       return (
@@ -443,7 +527,9 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @returns {Void|DOMElement} - The alignment's badge or not
    */
   private _renderAlignmentBadge() {
-    const { comment: { alignment } } = this.props;
+    const {
+      comment: { alignment }
+    } = this.props;
     const spanClassName = classnames("label alignment", {
       success: alignment === 1,
       alert: alignment === -1
@@ -475,7 +561,10 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @return {Void|DOMElement} - The comment's report modal or not.
    */
   private _renderFlagModal() {
-    const { session, comment: { id, sgid, alreadyReported, userAllowedToComment } } = this.props;
+    const {
+      session,
+      comment: { id, sgid, alreadyReported, userAllowedToComment }
+    } = this.props;
     const authenticityToken = this._getAuthenticityToken();
 
     const closeModal = () => {
@@ -484,9 +573,15 @@ class Comment extends React.Component<CommentProps, CommentState> {
 
     if (session && session.user && userAllowedToComment) {
       return (
-        <div className="reveal flag-modal" id={`flagModalComment${id}`} data-reveal={true}>
+        <div
+          className="reveal flag-modal"
+          id={`flagModalComment${id}`}
+          data-reveal={true}
+        >
           <div className="reveal__header">
-            <h3 className="reveal__title">{I18n.t("components.comment.report.title")}</h3>
+            <h3 className="reveal__title">
+              {I18n.t("components.comment.report.title")}
+            </h3>
             <button
               className="close-button"
               aria-label={I18n.t("components.comment.report.close")}
@@ -496,40 +591,72 @@ class Comment extends React.Component<CommentProps, CommentState> {
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          {
-            (() => {
-              if (alreadyReported) {
-                return (
-                  <p key={`already-reported-comment-${id}`}>{I18n.t("components.comment.report.already_reported")}</p>
-                );
-              }
-              return [
-                <p key={`report-description-comment-${id}`}>{I18n.t("components.comment.report.description")}</p>,
-                (
-                  <form key={`report-form-comment-${id}`} method="post" action={`/report?sgid=${sgid}`}>
-                    <input type="hidden" name="authenticity_token" value={authenticityToken} />
-                    <label htmlFor={`report_comment_${id}_reason_spam`}>
-                      <input type="radio" value="spam" name="report[reason]" id={`report_comment_${id}_reason_spam`} defaultChecked={true} />
-                      {I18n.t("components.comment.report.reasons.spam")}
-                    </label>
-                    <label htmlFor={`report_comment_${id}_reason_offensive`}>
-                      <input type="radio" value="offensive" name="report[reason]" id={`report_comment_${id}_reason_offensive`} />
-                      {I18n.t("components.comment.report.reasons.offensive")}
-                    </label>
-                    <label htmlFor={`report_comment_${id}_reason_does_not_belong`}>
-                      <input type="radio" value="does_not_belong" name="report[reason]" id={`report_comment_${id}_reason_does_not_belong`} />
-                      {I18n.t("components.comment.report.reasons.does_not_belong", { organization_name: session.user.organizationName })}
-                    </label>
-                    <label htmlFor={`report_comment_${id}_details`}>
-                      {I18n.t("components.comment.report.details")}
-                      <textarea rows={4} name="report[details]" id={`report_comment_${id}_details`} />
-                    </label>
-                    <button type="submit" name="commit" className="button">{I18n.t("components.comment.report.action")}</button>
-                  </form>
-                )
-              ];
-            })()
-          }
+          {(() => {
+            if (alreadyReported) {
+              return (
+                <p key={`already-reported-comment-${id}`}>
+                  {I18n.t("components.comment.report.already_reported")}
+                </p>
+              );
+            }
+            return [
+              <p key={`report-description-comment-${id}`}>
+                {I18n.t("components.comment.report.description")}
+              </p>,
+              <form
+                key={`report-form-comment-${id}`}
+                method="post"
+                action={`/report?sgid=${sgid}`}
+              >
+                <input
+                  type="hidden"
+                  name="authenticity_token"
+                  value={authenticityToken}
+                />
+                <label htmlFor={`report_comment_${id}_reason_spam`}>
+                  <input
+                    type="radio"
+                    value="spam"
+                    name="report[reason]"
+                    id={`report_comment_${id}_reason_spam`}
+                    defaultChecked={true}
+                  />
+                  {I18n.t("components.comment.report.reasons.spam")}
+                </label>
+                <label htmlFor={`report_comment_${id}_reason_offensive`}>
+                  <input
+                    type="radio"
+                    value="offensive"
+                    name="report[reason]"
+                    id={`report_comment_${id}_reason_offensive`}
+                  />
+                  {I18n.t("components.comment.report.reasons.offensive")}
+                </label>
+                <label htmlFor={`report_comment_${id}_reason_does_not_belong`}>
+                  <input
+                    type="radio"
+                    value="does_not_belong"
+                    name="report[reason]"
+                    id={`report_comment_${id}_reason_does_not_belong`}
+                  />
+                  {I18n.t("components.comment.report.reasons.does_not_belong", {
+                    organization_name: session.user.organizationName
+                  })}
+                </label>
+                <label htmlFor={`report_comment_${id}_details`}>
+                  {I18n.t("components.comment.report.details")}
+                  <textarea
+                    rows={4}
+                    name="report[details]"
+                    id={`report_comment_${id}_details`}
+                  />
+                </label>
+                <button type="submit" name="commit" className="button">
+                  {I18n.t("components.comment.report.action")}
+                </button>
+              </form>
+            ];
+          })()}
         </div>
       );
     }

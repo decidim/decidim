@@ -1,0 +1,19 @@
+<div class="field">
+  <%= form.text_field :title %>
+</div>
+
+<div class="field">
+  <%= text_editor_for_debate_description(form) %>
+</div>
+
+<% if current_participatory_space.categories&.any? %>
+  <div class="field">
+    <%= form.categories_select :category_id, current_participatory_space.categories, include_blank: t(".select_a_category"), disable_parents: false %>
+  </div>
+<% end %>
+
+<% if @form.id.blank? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
+  <div class="field">
+    <%= form.select :user_group_id, Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.map{|g| [g.name, g.id]}, prompt: current_user.name %>
+  </div>
+<% end %>

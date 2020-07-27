@@ -13,7 +13,6 @@ ar:
         attachment_collection_id: المجلد
         description: الوصف
         file: ملف
-        title: العنوان
       attachment_collection:
         description: الوصف
         name: اسم

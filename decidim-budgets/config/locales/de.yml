@@ -111,15 +111,10 @@ de:
             other: ausgewählte Projekte
           view: Aussicht
         project:
-          add: Hinzufügen
           count:
             one: 1 Unterstützung
             other: "%{count} unterstützt"
-          remove: Löschen
           view: Aussicht
-        project_budget_button:
-          add: Hinzufügen
-          added: Hinzugefügt
         show:
           budget: Budget
           view_all_projects: Alle Projekte anzeigen

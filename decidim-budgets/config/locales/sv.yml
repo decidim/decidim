@@ -121,15 +121,10 @@ sv:
           most_voted: Mest röster
           random: Slumpmässig ordning
         project:
-          add: Lägg till
           count:
             one: En röst
             other: "%{count} röster"
-          remove: Ta bort
           view: Visa
-        project_budget_button:
-          add: Lägg till
-          added: Tillagd
         show:
           budget: Budget
           view_all_projects: Visa alla projekt

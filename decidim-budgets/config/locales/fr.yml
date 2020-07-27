@@ -121,15 +121,10 @@ fr:
           most_voted: Le plus populaire
           random: Ordre aléatoire
         project:
-          add: Ajouter
           count:
             one: 1 soutien
             other: "%{count} soutiens"
-          remove: Supprimer
           view: Voir
-        project_budget_button:
-          add: Ajouter
-          added: Ajouté
         show:
           budget: Budget
           view_all_projects: Voir tous les projets

@@ -89,12 +89,13 @@ fr:
           filter: Filtre
           filter_by: Filtrer par
           unfold: Voir la suite
+        form:
+          select_a_category: Veuillez sélectionner une catégorie
         index:
           new_debate: Nouveau débat
         new:
           back: Retour
           create: Créer
-          select_a_category: Veuillez sélectionner une catégorie
           title: Nouveau débat
         show:
           back: Retour à la liste

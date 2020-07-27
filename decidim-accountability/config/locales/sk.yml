@@ -200,9 +200,6 @@ sk:
       participatory_process_groups:
         highlighted_results:
           results: Výsledky
-    participatory_spaces:
-      highlighted_results:
-        see_all: Zobraziť všetky (%{count})
     resource_links:
       included_projects:
         result_project: Projekty, zahrnutý vo výsledku

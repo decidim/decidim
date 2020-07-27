@@ -89,12 +89,13 @@ pt:
           filter: Filtro
           filter_by: Filtrar por
           unfold: Desdobrar
+        form:
+          select_a_category: Selecione uma categoria
         index:
           new_debate: Novo debate
         new:
           back: Voltar
           create: Criar
-          select_a_category: Selecione uma categoria
           title: Novo debate
       last_activity:
         new_debate_at_html: "<span>Novo debate em %{link}</span>"

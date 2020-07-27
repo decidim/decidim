@@ -10,6 +10,7 @@
 <div class="card">
   <div class="card__content">
     <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { class: "form user_personal_data_signature_form" }) do |f| %>
+      <%= form_required_explanation %>
       <%= f.hidden_field :group_id %>
       <div>
         <div class="field">

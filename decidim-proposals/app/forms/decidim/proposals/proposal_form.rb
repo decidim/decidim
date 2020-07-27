@@ -30,6 +30,10 @@ module Decidim
         super
 
         @suggested_hashtags = Decidim::ContentRenderers::HashtagRenderer.new(model.body).extra_hashtags.map(&:name).map(&:downcase)
+
+        # The scope attribute is with different key (decidim_scope_id), so it
+        # has to be manually mapped.
+        self.scope_id = model.scope.id if model.scope
       end
 
       # Finds the Category from the category_id.

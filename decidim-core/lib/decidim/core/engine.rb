@@ -496,6 +496,10 @@ module Decidim
       initializer "nbspw" do
         NOBSPW.configuration.use_ruby_grep = true
       end
+
+      config.to_prepare do
+        FoundationRailsHelper::FlashHelper.send(:include, Decidim::FlashHelperExtensions)
+      end
     end
   end
 end

@@ -13,7 +13,6 @@ sk:
         attachment_collection_id: Priečinok
         description: Popis
         file: Súbor
-        title: Názov
       attachment_collection:
         description: Popis
         name: Názov
