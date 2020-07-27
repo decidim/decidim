@@ -13,7 +13,7 @@ module Decidim
     end
 
     def data
-      return if map_utility.nil? || @resource.blank?
+      return if @resource.blank? || map_utility.nil?
 
       Rails.cache.fetch(@resource.cache_key) do
         map_utility.image_data(
