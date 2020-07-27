@@ -11,39 +11,55 @@ module Decidim
     #           * zoom: A number to represent the zoom value of the map
     def static_map_link(resource, options = {})
       return unless resource.geocoded?
+      return unless map_utility_static
 
-      zoom = options[:zoom] || 17
-      latitude = resource.latitude
-      longitude = resource.longitude
-
-      map_url = "https://www.openstreetmap.org/?mlat=#{latitude}&mlon=#{longitude}#map=#{zoom}/#{latitude}/#{longitude}"
+      map_url = map_utility_static.link(
+        latitude: resource.latitude,
+        longitude: resource.longitude,
+        options: options
+      )
 
       link_to map_url, target: "_blank", rel: "noopener" do
         image_tag decidim.static_map_path(sgid: resource.to_sgid.to_s)
       end
     end
 
-    def dynamic_map_for(markers_data)
-      return if Decidim.geocoder.blank?
+    def dynamic_map_for(options_or_markers = {})
+      return unless map_utility_dynamic
 
-      map_html_options = {
-        class: "google-map",
-        id: "map",
-        "data-markers-data" => markers_data.to_json
-      }
-
-      if Decidim.geocoder[:here_api_key]
-        map_html_options["data-here-api-key"] = Decidim.geocoder[:here_api_key]
+      options = {}
+      if options_or_markers.is_a?(Array)
+        options[:markers] = options_or_markers
       else
-        # Compatibility mode for old api_id/app_code configurations
-        map_html_options["data-here-app-id"] = Decidim.geocoder[:here_app_id]
-        map_html_options["data-here-app-code"] = Decidim.geocoder[:here_app_code]
+        options = options_or_markers
       end
 
-      content = capture { yield }.html_safe
+      builder = map_utility_dynamic.create_builder(self, "map", options)
+
+      content_for :header_snippets, builder.stylesheet_snippets
+      content_for :header_snippets, builder.javascript_snippets
+
+      map_html_options = { class: "google-map" }
+
       content_tag :div, class: "row column" do
-        content_tag(:div, "", map_html_options) + content
+        builder.map_element(map_html_options) do
+          yield
+        end
       end
+    end
+
+    private
+
+    def map_utility_dynamic
+      @map_utility_dynamic ||= Decidim::Map.dynamic(
+        organization: current_organization
+      )
+    end
+
+    def map_utility_static
+      @map_utility_static ||= Decidim::Map.static(
+        organization: current_organization
+      )
     end
   end
 end
