@@ -385,7 +385,7 @@ describe "Support Proposal", type: :system, slow: true do
         visit_component
 
         proposal_elements = proposals.map do |proposal|
-          page.find(".card--proposal", text: proposal_title)
+          page.find(".card--proposal", text: translated(proposal.title))
         end
 
         within proposal_elements[0] do
