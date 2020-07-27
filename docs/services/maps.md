@@ -23,7 +23,7 @@ After generating your app, you'll see that your `config/initializers/decidim.rb`
 file includes commented code about map services:
 
 ```ruby
-# Geocoder configuration
+# Map and Geocoder configuration
 # config.maps = {
 #   ...
 # }
@@ -52,7 +52,7 @@ Use the following configuration for HERE Maps:
 `config/initializers/decidim.rb`:
 
 ```ruby
-# Geocoder configuration
+# Map and Geocoder configuration
 # == HERE Maps ==
 config.maps = {
   provider: :here,
@@ -81,7 +81,7 @@ MAPS_API_KEY=your_api_key_here
 Use the following configuration for Open Street Maps based service providers:
 
 ```ruby
-# Geocoder configuration
+# Map and Geocoder configuration
 # == OpenStreetMap (OSM) services ==
 config.maps = {
   provider: :osm,
@@ -127,7 +127,7 @@ maps and geocoding servers and use HERE Maps for the map tiles, use the
 following configuration:
 
 ```ruby
-# Geocoder configuration
+# Map and Geocoder configuration
 # == Combination (OpenStreetMap default + HERE Maps dynamic map tiles) ==
 config.maps = {
   provider: :osm,
