@@ -171,11 +171,10 @@ en:
           count:
             one: "%{count} support"
             other: "%{count} supports"
-          remove: Remove
+          remove: Remove project %{resource_name} from your vote
           supports:
             one: support
             other: supports
-          remove: Remove project %{resource_name} from your vote
           view: View
           you_voted: You voted
         project_budget_button:
