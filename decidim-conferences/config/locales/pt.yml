@@ -2,7 +2,7 @@ pt:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Assembleias Relacionadas
+        assemblies_ids: Reuniões Relacionadas
         banner_image: Imagem da faixa
         consultations_ids: Consultas Relacionadas
         copy_categories: Copiar categorias
@@ -20,7 +20,7 @@ pt:
         short_description: Breve descrição
         show_statistics: Mostrar estatísticas
         slogan: Slogan
-        slug: Slug de URL
+        slug: Campo de dados dinâmicos de URL
         title: Título
       conference_speaker:
         full_name: Nome completo
@@ -54,15 +54,15 @@ pt:
       conference_copies:
         new:
           copy: Copiar
-          select: Selecione os dados que deseja duplicar
+          select: Selecione os dados que pretende duplicar
           title: Conferência duplicada
       conference_publications:
         create:
           error: Ocorreu um problema ao publicar esta conferência.
           success: Conferência publicada corretamente.
         destroy:
-          error: Ocorreu um problema ao despublicar esta conferência.
-          success: Conferência despublicada corretamente.
+          error: Ocorreu um problema ao remover a publicação desta conferência.
+          success: Remoção da publicação da conferência feita corretamente.
       conference_registration:
         confirm:
           error: Ocorreu um problema ao confirmar o registo desta conferência.
@@ -228,8 +228,8 @@ pt:
           error: Ocorreu um problema ao publicar este tipo de registo.
           success: Tipo de registo publicado corretamente.
         destroy:
-          error: Ocorreu um problema ao despublicar este tipo de registo.
-          success: Tipo de registo despublicado corretamente.
+          error: Ocorreu um problema ao remover a publicação deste tipo de registo.
+          success: Remoção da publicação do tipo de registo feita corretamente.
       registration_types:
         create:
           error: Houve um problema ao adicionar um tipo de registo a esta conferência.
@@ -252,7 +252,7 @@ pt:
         create: "%{user_name} criou a conferência %{resource_name}"
         publish: "%{user_name} publicou a conferência %{resource_name}"
         send_conference_diplomas: "%{user_name} enviou certificados de participação para os participantes da conferência %{resource_name}"
-        unpublish: "%{user_name} despublicou a conferência %{resource_name}"
+        unpublish: "%{user_name} removeu a publicação da conferência %{resource_name}"
         update: "%{user_name} atualizou a conferência %{resource_name}"
         update_diploma: "%{user_name} atualizou a configuração dos certificados de participação para a conferência %{resource_name}"
       conference_speaker:
@@ -273,7 +273,7 @@ pt:
         registration_type:
           create: "%{user_name} criou o tipo de registo %{resource_name} na conferência %{space_name}"
           publish: "%{user_name} publicou o tipo de registo %{resource_name} na conferência %{space_name}"
-          unpublish: "%{user_name} despublicou o tipo de registo %{resource_name} na conferência %{space_name}"
+          unpublish: "%{user_name} removeu a publicação do tipo de registo %{resource_name} na conferência %{space_name}"
           update: "%{user_name} atualizou o tipo de registo %{resource_name} na conferência %{space_name}"
       media_link:
         create: "%{user_name} criou a hiperligação de multimédia %{resource_name} na conferência %{space_name}"
@@ -289,7 +289,7 @@ pt:
       admin:
         conference_copies:
           form:
-            slug_help: 'Os slugs de URL são usados ​​para gerar URLs que apontam para esta conferência. Aceita apenas letras, números e traços e deve começar com uma letra. Exemplo: %{url}'
+            slug_help: 'Os campos de dados dinâmicos de URL são utilizados para gerar os URL que direcionam para esta conferência. Apenas aceitam letras, números e traços, devendo começar com uma letra. Exemplo: %{url}'
         conference_invites:
           create:
             error: Ocorreu um problema ao convidar o participante para se juntar à conferência.
@@ -298,11 +298,11 @@ pt:
             attendee_type: Tipo de participante
             existing_user: Participante existente
             invite_explanation: O participante será convidado a participar na conferência e também na organização.
-            non_user: Participante não existente
+            non_user: Participante inexistente
             select_user: Selecione participante
           index:
             filter:
-              accepted: Aceites
+              accepted: Aceite
               all: Todos
               rejected: Rejeitado
               sent: Enviei
@@ -327,11 +327,11 @@ pt:
             search: Pesquisar
         conferences:
           form:
-            available_slots_help: Deixe em 0 se tiver slots ilimitados disponíveis.
+            available_slots_help: Deixar a 0 se tiver intervalos de tempo ilimitados disponíveis.
             registrations_count:
               one: Ocorreu 1 registo.
               other: Ocorreram %{count} registos.
-            slug_help: 'Os slugs de URL são usados ​​para gerar URLs que apontam para esta conferência. Aceita apenas letras, números e traços e deve começar com uma letra. Exemplo: %{url}'
+            slug_help: 'Os campos de dados dinâmicos de URL são utilizados para gerar os URL que direcionam para esta conferência. Apenas aceitam letras, números e traços, devendo começar com uma letra. Exemplo: %{url}'
         diplomas:
           edit:
             save: Guardar
@@ -487,7 +487,7 @@ pt:
         details: Detalhes
         introduction: Introdução
         objectives: Objetivos
-        related_assemblies: Assembleias relacionadas
+        related_assemblies: Reuniões relacionadas
         related_consultations: Consultas Relacionadas
         related_participatory_processes: Processos participativos relacionados
       statistics:
@@ -529,10 +529,10 @@ pt:
           email_subject: A conferência "%{resource_title}" ativou os registos.
           notification_title: A conferência <a href="%{resource_path}">%{resource_title}</a> ativou os registos.
         role_assigned:
-          email_intro: Foi designado como %{role} para a conferência "%{resource_title}".
+          email_intro: Foi designado como %{role} da conferência "%{resource_title}".
           email_outro: Recebeu esta notificação porque é %{role} da conferência "%{resource_title}".
-          email_subject: Foi designado como %{role} para "%{resource_title}".
-          notification_title: Foi designado como %{role} para a conferência <a href="%{resource_url}">%{resource_title}</a>.
+          email_subject: Foi designado como %{role} de "%{resource_title}".
+          notification_title: Foi designado como %{role} da conferência <a href="%{resource_url}">%{resource_title}</a>.
         upcoming_conference:
           email_intro: 'A conferência "%{resource_title}" irá ocorrer em dois dias. Pode ler a descrição a partir da sua página:'
           email_outro: Recebeu esta notificação porque segue a conferência "%{resource_title}". Pode deixar de segui-la a partir da hiperligação anterior.

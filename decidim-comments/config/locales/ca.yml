@@ -83,6 +83,8 @@ ca:
           email_subject: Hi ha un nou comentari de %{author_name} en %{resource_title}
           notification_title: Hi ha un nou comentari per <a href="%{author_path}">%{author_name} %{author_nickname}</a> a <a href="%{resource_path}">%{resource_title}</a>.
         comment_by_followed_user_group:
+          email_intro: '%{author_name} ha deixat un comentari a%{resource_title}. Pots llegir-lo en aquesta pàgina:'
+          email_outro: Reps aquesta notificació perquè segueixes a %{author_name}. Pots deixar de seguir aquest grup des de la seva pàgina de perfil.
           email_subject: Hi ha un nou comentari de %{author_name} en %{resource_title}
           notification_title: Hi ha un nou comentari per <a href="%{author_path}">%{author_name} %{author_nickname}</a> a <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:

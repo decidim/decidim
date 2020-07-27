@@ -1,0 +1,129 @@
+ja:
+  activemodel:
+    attributes:
+      answer:
+        description: 説明
+        image: 画像
+        proposals: 関連する提案
+        title: タイトル
+      election:
+        description: 説明
+        end_time: 投票が終了します：
+        start_time: 投票開始
+        subtitle: サブタイトル
+        title: タイトル
+      question:
+        description: 説明
+        max_selections: 選択範囲の最大数
+        title: タイトル
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: 再接続が必要
+  activerecord:
+    models:
+      decidim/elections/answer:
+        other: 回答
+      decidim/elections/election:
+        other: <unk>
+      decidim/elections/question:
+        other: 質問
+  decidim:
+    components:
+      elections:
+        name: <unk>
+        settings:
+          global:
+            announcement: お知らせ
+          step:
+            announcement: お知らせ
+    elections:
+      actions:
+        confirm_destroy: よろしいですか？
+        destroy: 破壊
+        edit: 編集
+        new: 新しい %{name}
+        preview: プレビュー
+        title: アクション
+      admin:
+        answers:
+          create:
+            invalid: この回答を作成する際に問題が発生しました
+            success: 回答を作成しました
+          destroy:
+            invalid: この回答を削除する際に問題が発生しました
+            success: 正常に回答を削除しました
+          edit:
+            title: 回答を編集
+            update: 回答を更新
+          index:
+            title: 回答
+          new:
+            create: 回答を作成
+            title: 新しい回答
+          update:
+            invalid: この回答の更新中に問題が発生しました
+            success: 回答が更新されました
+        elections:
+          create:
+            invalid: この選挙の作成中に問題が発生しました
+            success: 選挙が正常に作成されました
+          destroy:
+            invalid: この選挙を削除する際に問題が発生しました
+            success: 選挙は正常に削除されました
+          edit:
+            title: 選挙を編集
+            update: 選挙を更新
+          index:
+            title: <unk>
+          new:
+            create: 選択を作成
+            title: 新しい選択
+          update:
+            invalid: 選挙の更新中に問題が発生しました
+            success: 選挙が正常に更新されました
+        models:
+          answer:
+            name: 回答
+          election:
+            name: <unk>
+          question:
+            name: 質問
+        questions:
+          create:
+            invalid: この質問を作成中に問題が発生しました
+            success: 問題を作成しました
+          destroy:
+            invalid: この質問を削除する際に問題が発生しました
+            success: 問題が削除されました
+          edit:
+            title: 質問を編集
+            update: 質問を更新
+          index:
+            title: 質問
+          new:
+            create: 質問を作成
+            title: 新しい質問
+          update:
+            invalid: この質問の更新中に問題が発生しました
+            success: 問題が正常に更新されました
+      models:
+        answer:
+          fields:
+            proposals: 提案
+            title: タイトル
+        election:
+          fields:
+            end_time: 終了時刻
+            start_time: 開始
+            title: タイトル
+        question:
+          fields:
+            answers: 回答
+            max_selections: 最大選択
+            title: タイトル
+    participatory_processes:
+      statistics:
+        elections_count: <unk>
