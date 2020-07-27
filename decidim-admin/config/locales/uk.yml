@@ -13,7 +13,6 @@ uk:
         attachment_collection_id: Тека
         description: Опис
         file: Файл
-        title: Назва
       attachment_collection:
         description: Опис
         name: Назва

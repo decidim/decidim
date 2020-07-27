@@ -13,7 +13,6 @@ pl:
         attachment_collection_id: Teczka
         description: Opis
         file: Plik
-        title: Tytuł
       attachment_collection:
         description: Opis
         name: Nazwa

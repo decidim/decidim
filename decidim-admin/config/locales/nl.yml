@@ -13,7 +13,6 @@ nl:
         attachment_collection_id: Map
         description: Beschrijving
         file: Bestand
-        title: Titel
       attachment_collection:
         description: Beschrijving
         name: Naam

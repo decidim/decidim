@@ -13,7 +13,6 @@ gl:
         attachment_collection_id: Cartafol
         description: Descrición
         file: Arquivo
-        title: Título
       attachment_collection:
         description: Descrición
         name: Nome

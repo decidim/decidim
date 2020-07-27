@@ -120,15 +120,10 @@
           most_voted: Mest stemte
           random: Tilfeldig rekkefølge
         project:
-          add: Legg til
           count:
             one: 1 støtte
             other: "%{count} støttere"
-          remove: Fjern
           view: Vis
-        project_budget_button:
-          add: Legg til
-          added: Lagt til
         show:
           budget: Budsjett
           view_all_projects: Vis alle prosjekter

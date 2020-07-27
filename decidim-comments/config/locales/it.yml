@@ -17,6 +17,7 @@ it:
   decidim:
     comments:
       comments: Commenti
+      comments_count: Conteggio dei Commenti
       last_activity:
         new_comment_at_html: "<span>Nuovo commento al %{link}</span>"
       votes:
@@ -55,7 +56,7 @@ it:
             does_not_belong: Contiene un'attività illegale, istigazioni al suicidio, minacce, informazioni personali o riservate, oppure vi sono dei contenuti che reputi inappropriati per %{organization_name}.
             offensive: Vi sono contenuti razzisti, sessisti, offensivi, attacchi di carattere personale, minacce di morte o altro tipo di minacci, istigazioni al suicidio o altre forme d'odio verbale.
             spam: Contiene pubblicità, truffe, clickbait ("esca da click") o altro contenuto mirato ad attrarre traffico internet.
-          title: Segnala un problema
+          title: Segnala contenuti inappropriati
         show_replies: Mostra %{replies_count} risposte
         single_comment_link_title: Ottieni link a singolo commento
       comment_order_selector:
@@ -75,6 +76,10 @@ it:
         single_comment_warning: Puoi controllare il resto dei commenti <a href="%{url}">qui</a>.
         single_comment_warning_title: Stai vedendo un singolo commento
         title: "%{count} commenti"
+      down_vote_button:
+        text: Non sono d'accordo con questo commento
+      up_vote_button:
+        text: Sono d'accordo con questo commento
     events:
       comments:
         comment_by_followed_user:

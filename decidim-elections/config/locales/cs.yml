@@ -137,6 +137,10 @@ cs:
           update:
             invalid: Při aktualizaci této otázky došlo k chybě
             success: Otázka byla úspěšně aktualizována
+      admin_log:
+        election:
+          publish: "%{user_name} zveřejnil volby %{resource_name}"
+          unpublish: "%{user_name} zrušil zveřejnění volby %{resource_name}"
       models:
         answer:
           fields:

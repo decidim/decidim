@@ -121,15 +121,17 @@ it:
           most_voted: Più votate
           random: Ordine sparso
         project:
-          add: Aggiungi
+          add: Aggiungi progetto %{resource_name} al tuo voto
           count:
             one: 1 supporto/voto
             other: "%{count} supportati/voti"
-          remove: Elimina
+          remove: Rimuovi il progetto %{resource_name} dal tuo voto
           view: vista
         project_budget_button:
-          add: Aggiungi
-          added: Aggiunto
+          add: Aggiungi al tuo voto
+          add_descriptive: Aggiungi progetto %{resource_name} al tuo voto
+          added: Aggiunto al tuo voto
+          added_descriptive: Progetto %{resource_name} aggiunto al tuo voto
         show:
           budget: Budget
           view_all_projects: Visualizza tutti i progetti

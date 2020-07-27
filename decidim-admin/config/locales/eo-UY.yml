@@ -13,7 +13,6 @@ eo:
         attachment_collection_id: Dosierujo
         description: Priskribo
         file: Dosiero
-        title: Titolo
       attachment_collection:
         description: Priskribo
         name: Nomo
