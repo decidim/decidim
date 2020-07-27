@@ -91,6 +91,7 @@ module Decidim
       return unless @utility_modules
 
       mod = @utility_modules.delete(category)
+      @utility_configuration.delete(category) if @utility_configuration
       singleton_class.instance_eval do
         undef_method(category) if method_defined?(category)
       end
