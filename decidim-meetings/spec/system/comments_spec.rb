@@ -21,7 +21,7 @@ describe "Comments", type: :system do
 
   before do
     # Make static map requests not to fail with HTTP 500 (causes JS error)
-    stub_request(:get, Regexp.new(Decidim.geocoder.fetch(:static_map_url))).to_return(body: "")
+    stub_request(:get, Regexp.new(Decidim.maps.fetch(:static).fetch(:url))).to_return(body: "")
   end
 
   include_examples "comments"
