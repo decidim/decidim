@@ -2,94 +2,368 @@ el:
   activemodel:
     attributes:
       area:
+        area_type: Τύπος Περιοχής
         name: Όνομα
+        organization: Οργανισμός
       area_type:
         name: Όνομα
+        organization: Οργανισμός
+        plural: Πληθυντικός
+      attachment:
+        attachment_collection_id: Φάκελος
+        description: Περιγραφή
+        file: Αρχείο
+        title: Τίτλος
       attachment_collection:
+        description: Περιγραφή
         name: Όνομα
       category:
+        description: Περιγραφή
         name: Όνομα
+        parent_id: Γονικό στοιχείο
       component:
         name: Όνομα
+        published_at: Δημοσιευμένο στις
+        weight: Βάρος
+      newsletter:
+        body: Κυρίως κείμενο
+        subject: Θέμα
       oauth_application:
         name: Όνομα
+        organization_logo: Λογότυπο Οργανισμού (τετράγωνο)
+        organization_name: Όνομα Οργανισμού
+        organization_url: URL Οργανισμού
+        redirect_uri: URI ανακατεύθυνσης
       organization:
+        address: Όνομα παρόχου SMTP
+        alert_color: Επείγουσα ειδοποίηση
+        badges_enabled: Ενεργοποίηση σημάτων
+        cta_button_path: Διαδρομή κουμπιού Κλήσης για Δράση
+        cta_button_text: Κείμενο κουμπιού Κλήσης για Δράση
+        customize_welcome_notification: Παραμετροποιήστε την ειδοποίηση καλωσορίσματος
+        default_locale: Προεπιλογή τοπικών ρυθμίσεων
+        description: Περιγραφή
+        enable_omnipresent_banner: Να εμφανίζεται παντού το banner
+        facebook_handler: Χειριστής Facebook
+        favicon: Εικονίδιο
+        from: Από διεύθυνση email
+        github_handler: Χειριστής GitHub 
+        header_snippets: Αποσπάσματα κεφαλίδας
+        highlighted_content_banner_action_subtitle: Υπότιτλος κουμπιού Δράσης
+        highlighted_content_banner_action_title: Τίτλος κουμπιού Δράσης
+        highlighted_content_banner_action_url: URL κουμπιού Δράσης
+        highlighted_content_banner_enabled: Εμφάνιση banner επισημασμένου περιεχομένου
+        highlighted_content_banner_image: Εικόνα
+        highlighted_content_banner_short_description: Σύντομη περιγραφή
+        highlighted_content_banner_title: Τίτλος
+        instagram_handler: Χειριστής Instagram 
+        logo: Λογότυπο
         name: Όνομα
+        official_img_footer: Επίσημο λογότυπο υποσέλιδου
+        official_img_header: Επίσημο λογότυπο κεφαλίδας
+        official_url: Επίσημο URL Οργανισμού
+        omnipresent_banner_short_description: Σύντομη περιγραφή
+        omnipresent_banner_title: Τίτλος
         password: Κωδικός πρόσβασης
+        port: Θύρα
+        primary_color: Πρωτεύον
+        reference_prefix: Πρόθεμα αναφοράς
+        rich_text_editor_in_public_views: Ενεργοποίηση προγράμματος επεξεργασίας εμπλουτισμένου κειμένου για τους συμμετέχοντες
+        secondary_color: Δευτερεύον
+        send_welcome_notification: Αποστείλετε την ειδοποίηση καλωσορίσματος
+        show_statistics: Εμφάνιση στατιστικών
+        success_color: Επιτυχία
+        time_zone: Ζώνη ώρας
+        tos_version: Έκδοση των Όρων Χρήσης
+        twitter_handler: Χειριστής Twitter 
+        user_groups_enabled: Ενεργοποιήστε ομάδες
+        user_name: Όνομα χρήστη
+        warning_color: Προειδοποίηση
+        welcome_notification_body: Κυρίως κείμενο ειδοποίησης καλωσορίσματος
+        welcome_notification_subject: Θέμα ειδοποίησης καλωσορίσματος
+        youtube_handler: Χειριστής YouTube 
       scope:
+        code: Κώδικας
         name: Όνομα
+        organization: Οργανισμός
+        parent_id: Γονικό στοιχείο
+        scope_type: Τύπος Πεδίου εφαρμογής
+        scope_type_id: Τύπος Πεδίου εφαρμογής
       scope_type:
         name: Όνομα
+        organization: Οργανισμός
+        plural: Πληθυντικός
+      static_page:
+        changed_notably: Έχουν γίνει σημαντικές αλλαγές.
+        content: Περιεχόμενο
+        organization: Οργανισμός
+        show_in_footer: Εμφάνιση στο υποσέλιδο
+        slug: Επίθεμα URL
+        title: Τίτλος
+        weight: Βάρος
+      static_page_topic:
+        description: Περιγραφή
+        show_in_footer: Εμφάνιση στο υποσέλιδο
+        title: Τίτλος
+        weight: Βάρος
+      user_group_csv_verification:
+        file: Αρχείο
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: Το URI ανακατεύθυνσης πρέπει να είναι SSL URI 
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: Άκυρο αρχείο εικόνας
+            official_img_header:
+              allowed_file_content_types: Άκυρο αρχείο εικόνας
+  activerecord:
+    attributes:
+      decidim/static_page:
+        content: Περιεχόμενο
+        slug: Επίθεμα URL
+        title: Τίτλος
+      doorkeeper/application:
+        authorize_url: Έγκριση URL
+        client_id: ID πελάτη
+        client_secret: Συνθηματικό πελάτη
+        organization_name: Όνομα Οργανισμού
+        organization_url: URL Οργανισμού
+        redirect_uri: URI ανακατεύθυνσης
+        site: Ιστοσελίδα
   decidim:
     admin:
       actions:
+        add: Προσθήκη
+        browse: Περιήγηση
+        export: Εξαγωγή
+        manage: Διαχείριση
+        new: Νέο %{name}
+        per_page: Ανά σελίδα
+        permissions: Άδειες
         reject: Απόρριψη
+        verify: Επαλήθευση
+      admin_terms_of_use:
+        accept:
+          error: Παρουσιάστηκε σφάλμα κατά την αποδοχή των όρων χρήσης του διαχειριστή.
+          success: Τέλεια! Έχετε αποδεχτεί τους όρους χρήσης του διαχειριστή.
+        actions:
+          accept: Συμφωνώ με αυτούς τους όρους διαχείρισης
+          are_you_sure: Είστε βέβαιοι οτί αρνείστε τους όρους διαχείρισης;
+          refuse: Απόρριψη των όρων διαχείρισης
+          title: Συμφωνείτε με τους όρους και τις προϋποθέσεις χρήσης
+        required_review:
+          alert: 'Απαιτείται: Διαβάστε τους όρους χρήσης του διαχειριστή μας'
+          callout: Αφιερώστε λίγο χρόνο για να ελέγξετε τους Όρους χρήσης του Διαχειριστή. Διαφορετικά, δεν θα μπορείτε να διαχειριστείτε την πλατφόρμα.
+      area_types:
+        edit:
+          title: Επεξεργασία τύπου περιοχής
+          update: Ενημέρωση
+      areas:
+        edit:
+          update: Ενημέρωση
       attachment_collections:
+        edit:
+          update: Ενημέρωση
         new:
           create: Δημιουργία
+      attachments:
+        edit:
+          update: Ενημέρωση
+      categories:
+        edit:
+          title: Τροποποίηση κατηγορίας
+          update: Ενημέρωση
+        index:
+          categories_title: Κατηγορίες
+      components:
+        edit:
+          update: Ενημέρωση
+        form:
+          global_settings: Γενικές ρυθμίσεις
+        index:
+          headers:
+            actions: Ενέργειες
+      filters:
+        category_id_eq:
+          label: Κατηγορία
+        filter_label: Φίλτρο
+        officialized_at_null:
+          label: Κατάσταση
+        published_at_null:
+          label: Δημοσιευμένο
+          values:
+            'false': Δημοσιευμένο
+        scope_id_eq:
+          label: Πεδίο εφαρμογής
+        search_label: Αναζήτηση
+      help_sections:
+        form:
+          save: Αποθήκευση
       impersonatable_users:
         index:
+          filter:
+            all: Όλες
           name: Όνομα
+          search: Αναζήτηση
+          status: Κατάσταση
       impersonations:
         form:
           name: Όνομα
       menu:
+        appearance: Εμφάνιση
+        areas: Πεδία/Περιοχές
+        configuration: Παραμετροποίηση
+        dashboard: Πίνακας εργαλείων
+        homepage: Ιστοσελίδα
         participants: Συμμετέχοντες
+        scopes: Πεδία εφαρμογής
+        settings: Ρυθμίσεις
+        static_pages: Σελίδες
         user_groups: Ομάδες
         users: Συμμετέχοντες
       models:
         area:
           fields:
+            area_type: Τύπος Περιοχής
             name: Όνομα
         area_type:
           fields:
             name: Όνομα
+            plural: Πληθυντικός
         attachment:
+          fields:
+            collection: Φάκελος
+            content_type: Τύπος
+            file_size: Μέγεθος
+            title: Τίτλος
           name: Συνημμένο
+        attachment_collection:
+          name: Φάκελος
+        category:
+          name: Κατηγορία
         impersonation_log:
           fields:
             user: Συμμετέχων
+        newsletter:
+          fields:
+            progress: Πρόοδος
+            subject: Θέμα
         oauth_application:
           fields:
             name: Όνομα
         scope:
           fields:
             name: Όνομα
+            scope_type: Τύπος Πεδίου εφαρμογής
         scope_type:
           fields:
             name: Όνομα
+            plural: Πληθυντικός
+        static_page:
+          fields:
+            title: Τίτλος
         user:
           fields:
             email: Email
             name: Όνομα
+            role: Ρόλος
           name: Συμμετέχων
         user_group:
           fields:
+            actions: Ενέργειες
             document_number: Αριθμός εγγράφου
             name: Όνομα
             phone: Τηλέφωνο
+            state: Κατάσταση
       newsletters:
         index:
           participants: 'συμμετέχοντες '
+        new:
+          save: Αποθήκευση
+        select_recipients_to_deliver:
+          all_spaces: Όλες
+          none: Κανένα
         show:
           preview: Προεπισκόπηση
+          subject: Θέμα
+      oauth_applications:
+        edit:
+          save: Αποθήκευση
+        new:
+          save: Αποθήκευση
       officializations:
         index:
+          actions: Ενέργειες
           name: Όνομα
           nickname: Ψευδώνυμο
+          status: Κατάσταση
+      organization:
+        edit:
+          update: Ενημέρωση
+        form:
+          url: Διεύθυνση (URL)
+      organization_appearance:
+        edit:
+          update: Ενημέρωση
+      organization_homepage_content_blocks:
+        edit:
+          update: Ενημέρωση
       participatory_space_private_users:
         new:
           create: Δημιουργία
+      participatory_space_private_users_csv_imports:
+        new:
+          upload: Αποστολή
+      scope_types:
+        edit:
+          update: Ενημέρωση
+      scopes:
+        edit:
+          update: Ενημέρωση
+      static_pages:
+        edit:
+          update: Ενημέρωση
+        form:
+          none: Κανένα
       titles:
+        areas: Πεδία/Περιοχές
+        dashboard: Πίνακας εργαλείων
         participants: Συμμετέχοντες
+        scopes: Πεδία εφαρμογής
+        static_pages: Σελίδες
         user_groups: Ομάδες
         users: Συμμετέχοντες
+      user_groups:
+        index:
+          filter:
+            all: Όλες
+          search: Αναζήτηση
+      user_groups_csv_verifications:
+        new:
+          upload: Αποστολή
       users:
         form:
           email: Email
           name: Όνομα
+          role: Ρόλος
+    moderations:
+      actions:
+        hidden: Κρυφό
+        hide: Απόκρυψη
+        title: Ενέργειες
+      models:
+        moderation:
+          fields:
+            report_count: Αρίθμηση
+            reports: Αναφορές
   layouts:
     decidim:
       admin:
+        settings:
+          title: Ρυθμίσεις
         users:
           title: Συμμετέχοντες
