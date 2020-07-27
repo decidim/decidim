@@ -291,6 +291,7 @@ ca:
           form:
             available_slots_help: Deixar a 0 si les inscripcions són il·limitades.
             invites: Invitacions
+            recommendation_message: Per raons de privacitat et recomanem que esborris aquest formulari d'inscripció quan ja no el necessitis. Per defecte això és 3 mesos després que la reunió hagi finalitzat.
             registration_form: Formulari d'inscripció
             registrations_count:
               one: Hi ha hagut %{count} inscripció.

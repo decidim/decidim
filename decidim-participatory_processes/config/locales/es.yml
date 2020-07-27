@@ -269,6 +269,11 @@ es:
         update: "%{user_name} cambió el rol de la participante %{resource_name} en el proceso participativo %{space_name}"
     events:
       participatory_process:
+        role_assigned:
+          email_intro: Te han asignado el rol de %{role} en el procesos partiativo "%{resource_title}".
+          email_outro: Recibes esta notificación porque se te ha asignado el rol de %{role} en la jornada "%{resource_title}".
+          email_subject: Se te ha asignado el rol de %{role} en "%{resource_title}".
+          notification_title: Se te ha asignado el rol de %{role} al procés participatiu <a href="%{resource_url}">%{resource_title}</a>.
         step_activated:
           email_intro: 'Ya está activa la fase %{resource_title} para %{participatory_space_title}. Puedes verla desde esta página:'
           email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
@@ -292,6 +297,9 @@ es:
         description: Número de procesos participativos en esta organización
         object: procesos participativos
         title: Procesos participativos
+    participatory_process:
+      show:
+        related_assemblies: Asambleas relacionadas
     participatory_process_groups:
       show:
         group_participatory_processes:

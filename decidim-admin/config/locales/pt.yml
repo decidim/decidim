@@ -413,7 +413,7 @@ pt:
           name: Categoria
         impersonation_log:
           fields:
-            admin: Administrador
+            admin: Administrador(a)
             ended_at: Terminou em
             expired_at: Expirou em
             reason: Razão
@@ -426,7 +426,7 @@ pt:
             sent_at: Enviado em
             sent_to: Enviado para
             subject: Assunto
-          name: Boletim de Notícias
+          name: Boletim Informativo
         oauth_application:
           fields:
             created_at: Criado em
@@ -454,7 +454,7 @@ pt:
             name: Nome
             role: Função
             roles:
-              admin: Administrador
+              admin: Administrador(a)
               user_manager: Gestor de participante
           name: Participante
         user_group:
@@ -477,21 +477,21 @@ pt:
       newsletter_templates:
         index:
           preview_template: Pré-visualização
-          title: Modelos de Boletim de Notícias
+          title: Modelos de Boletim Informativo
           use_template: Utilizar este modelo
         show:
           preview: 'Pré-visualizar modelo: %{template_name}'
           use_template: Utilizar este modelo
       newsletters:
         create:
-          error: Ocorreu um problema ao criar este boletim de notícias.
-          success: Boletim de notícias criado corretamente. Por favor, reveja-o antes de enviar.
+          error: Ocorreu um problema ao criar este boletim informativo.
+          success: Boletim Informativo criado corretamente. Por favor, reveja-o antes de enviar.
         deliver:
-          error: Ocorreu um problema na entrega deste boletim de notícias.
-          success: Boletim de notícias entregue corretamente.
+          error: Ocorreu um problema na entrega deste boletim informativo.
+          success: Boletim Informativo entregue corretamente.
         destroy:
-          error_already_sent: 'Não é possível destruir o boletim de notícias: já foi enviado.'
-          success: Boletim de notícias destruído corretamente.
+          error_already_sent: 'Não é possível destruir o boletim informativo: já foi enviado.'
+          success: Boletim Informativo destruído corretamente.
         edit:
           save_and_preview: Guardar e pré-visualizar
           title: Editar boletim de notícias
@@ -499,7 +499,7 @@ pt:
           all: todos
           all_users: 'Todos os utilizadores '
           and: 'e '
-          confirm_delete: Tem certeza de que deseja eliminar este boletim de notícias?
+          confirm_delete: Tem certeza de que deseja eliminar este boletim informativo?
           followers: 'seguidores '
           has_been_sent_to: 'Foi enviado para: '
           no_scopes: Sem âmbitos
@@ -507,28 +507,28 @@ pt:
           participants: 'participantes '
           segmented_to: 'Segmentado para %{subject}: '
           subscribed_count: 'Subscrito:'
-          title: Boletins de Notícias
+          title: Boletins informativos
         new:
           save: Guardar
           title: Novo boletim informativo
         select_recipients_to_deliver:
           all_spaces: Todos
-          all_users_help: Envia um boletim de notícias para todos os utilizadores confirmados.
-          confirm_deliver: Tem a certeza de que deseja enviar este boletim de notícias? Esta ação não pode ser desfeita.
-          deliver: Entregar boletim de notícias
-          followers_help: Envia um boletim de notícias para todos os utilizadores confirmados que seguem quaisquer espaços participativos na lista.
+          all_users_help: Envia um boletim informativo para todos os utilizadores confirmados.
+          confirm_deliver: Tem a certeza de que deseja enviar este boletim informativo? Esta ação não pode ser desfeita.
+          deliver: Entregar boletim informativo
+          followers_help: Envia um boletim informativo para todos os utilizadores confirmados que seguem quaisquer espaços participativos na lista.
           none: Nenhum
-          participants_help: Envia um boletim de notícias para todos os utilizadores confirmados que tenham participado em qualquer um dos espaços participativos selecionados na lista.
-          recipients_count: Este boletim de notícias será enviado para <strong id='recipients_count'>%{count}</strong> utilizadores.
-          scopes_help: Envia um boletim de notícias aos utilizadores que tenham qualquer um dos âmbitos selecionados ativados nas definições "Os meus interesses" das suas contas.
+          participants_help: Envia um boletim informativo para todos os utilizadores confirmados que tenham participado em qualquer um dos espaços participativos selecionados na lista.
+          recipients_count: Este boletim informativo será enviado para <strong id='recipients_count'>%{count}</strong> utilizadores.
+          scopes_help: Envia um boletim informativo aos utilizadores que tenham qualquer um dos âmbitos selecionados ativados nas definições "Os meus interesses" das suas contas.
           select_scopes: Filtro para os utilizadores que ativaram qualquer âmbito selecionado nas definições "Os meus interesses" das suas contas.
-          select_spaces: Selecione os espaços para segmentar o boletim de notícias
-          select_users: Selecione os utilizadores para os quais pretende enviar o boletim de notícias
+          select_spaces: Selecione os espaços para segmentar o boletim informativo
+          select_users: Selecione os utilizadores para os quais pretende enviar o boletim informativo
           send_to_all_users: Enviar para todos os utilizadores
           send_to_followers: Enviar para os seguidores
           send_to_participants: Enviar para os participantes
           title: Selecione os destinatários
-          warning: "<strong>Atenção:</strong> Este boletim de notícias apenas será enviado para utilizadores que tenham ativado a opção <em>Pretendo receber boletins de notícias</em> nas suas definições de notificações."
+          warning: "<strong>Atenção:</strong> Este boletim informativo apenas será enviado para utilizadores que tenham ativado a opção <em>Pretendo receber boletins informativo</em> nas suas definições de notificações."
         send:
           no_recipients: Nenhum destinatário para esta seleção
         show:
@@ -536,8 +536,8 @@ pt:
           select_recipients_to_deliver: Selecione os destinatários
           subject: Assunto
         update:
-          error: Ocorreu um problema ao atualizar este boletim de notícias.
-          success: Boletim de notícias atualizado corretamente. Por favor, reveja-o antes de enviar.
+          error: Ocorreu um problema ao atualizar este boletim informativo.
+          success: Boletim informativo atualizado corretamente. Por favor, reveja-o antes de enviar.
       oauth_applications:
         create:
           error: Ocorreu um problema ao criar esta aplicação.
@@ -561,7 +561,7 @@ pt:
         create:
           success: Participante oficializado corretamente
         destroy:
-          success: Participante desoficializado corretamente
+          success: Remoção da oficialização do participante feita corretamente
         index:
           actions: Ações
           badge: Distintivo
@@ -608,7 +608,7 @@ pt:
         form:
           colors:
             colors_title: Cores da organização
-            header_snippets_help: Use este campo para adicionar coisas ao cabeçalho HTML. O uso mais comum é integrar serviços de terceiros que exigem algum JavaScript ou CSS extra. Além disso, você pode usá-lo para adicionar meta tags adicionais ao HTML. Observe que isso só será exibido em páginas públicas, não na seção de administração.
+            header_snippets_help: Use este campo para adicionar coisas ao cabeçalho HTML. O uso mais comum é integrar serviços de terceiros que exigem algum JavaScript ou CSS extra. Além disso, pode usá-lo para adicionar meta tags adicionais ao HTML. Observe que isso só será exibido em páginas públicas, não na secção de administração.
           cta_button_path_help: 'Pode substituir onde o botão Chamar para Ação na página inicial liga. Aqui use caminhos parciais, não URLs completos. Aceita letras, números, traços e barras, e deve começar com uma letra. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição. Exemplo: %{url}'
           cta_button_text_help: Pode substituir o texto do botão Chamar para Ação na página inicial para cada idioma disponível na sua organização. Se não for definido, o valor padrão será usado. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição.
           homepage_appearance_title: Editar a aparência da página inicial
@@ -716,7 +716,7 @@ pt:
           update: Atualizar
         form:
           none: Nenhum
-          slug_help: 'Utilize caminhos parciais e não URL completos aqui. Aceita letras, números, traços e barras, devendo começar com uma letra. Exemplo: %{url}'
+          slug_help: 'Utilize caminhos parciais e não URL completos aqui. Aceita letras, números e traços, devendo começar com uma letra. Exemplo: %{url}'
         index:
           last_notable_change: Última alteração notável
         new:
@@ -777,10 +777,10 @@ pt:
           upload: Envio
       users:
         create:
-          error: Ocorreu um problema ao convidar este administrador.
+          error: Ocorreu um problema ao convidar este(a) administrador(a).
           success: Participante convidado corretamente.
         destroy:
-          error: Ocorreu um problema ao tentar eliminar este administrador.
+          error: Ocorreu um problema ao tentar eliminar este(a) administrador(a).
           success: O participante deixou de ser um administrador.
         form:
           email: E-mail
@@ -788,7 +788,7 @@ pt:
           role: Função
         new:
           create: Convidar
-          title: Convidar o participante como administrador
+          title: Convidar o(a) participante como administrador(a)
       users_statistics:
         users_count:
           admins: Administradores
@@ -837,7 +837,7 @@ pt:
     decidim:
       admin:
         newsletters:
-          title: Boletins de Notícias
+          title: Boletins Informativos
         settings:
           title: Configurações
         users:

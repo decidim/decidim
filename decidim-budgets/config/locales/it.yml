@@ -125,7 +125,7 @@ it:
           count:
             one: 1 supporto/voto
             other: "%{count} supportati/voti"
-          remove: Elimina
+          remove: Rimuovi
           view: vista
         project_budget_button:
           add: Aggiungi
