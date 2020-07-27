@@ -19,6 +19,35 @@ To keep current Decidim::Proposals::Proposal's endorsement information, endorsem
 
 After this, `Decidim::Proposals::ProposalEndorsement` and the corresponding counter cache column in `decidim_proposals_proposal.proposal_endorsements_count` should be removed. To do so, Decidim provides now the corresponding migration.
 
+- **Maps**
+
+Maps functionality is now fully configurable for all the map functionality. It defaults to HERE Maps as you'd expect when upgrading from an older version and it works still fine with your legacy style geocoder configuration after the update. This is, however, deprecated and it is highly recommended to update your configuration to look as follows:
+
+```ruby
+# Before:
+Decidim.configure do |config|
+  config.geocoder = {
+    static_map_url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview",
+    here_api_key: Rails.application.secrets.geocoder[:here_api_key],
+    timeout: 5,
+    units: :km
+  }
+end
+
+# After:
+Decidim.configure do |config|
+  config.maps = {
+    provider: :here,
+    api_key: Rails.application.secrets.maps[:api_key],
+    static: { url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview" }
+  }
+  config.geocoder = {
+    timeout: 5,
+    units: :km
+  }
+end
+```
+
 ### Added
 
 ### Changed
