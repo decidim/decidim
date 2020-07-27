@@ -1,0 +1,149 @@
+ja:
+  activemodel:
+    attributes:
+      debate:
+        category_id: カテゴリ
+        decidim_category_id: カテゴリ
+        description: 説明
+        end_time: 終了時刻
+        information_updates: 情報の更新
+        instructions: Instructions to participate
+        start_time: 開始
+        title: タイトル
+        user_group_id: ディベートを作成
+    models:
+      decidim/debates/create_debate_event: ディベート
+      decidim/debates/creation_disabled_event: ディベートは無効です
+      decidim/debates/creation_enabled_event: ディベートは有効です
+  activerecord:
+    models:
+      decidim/debates/debate:
+        other: ディベート数
+  decidim:
+    components:
+      debates:
+        actions:
+          create: 作成
+        name: ディベート数
+        settings:
+          global:
+            announcement: お知らせ
+            comments_enabled: コメントは有効です
+          step:
+            announcement: お知らせ
+            comments_blocked: コメントがブロックされました
+            creation_enabled: 参加者によるディベートの作成が有効になりました
+    debates:
+      actions:
+        confirm_destroy: よろしいですか？
+        destroy: 削除
+        edit: 編集
+        new: 新しい %{name}
+        title: アクション
+      admin:
+        debates:
+          create:
+            invalid: 議論を起こすのに問題があった。
+            success: ディベートが正常に作成されました。
+          destroy:
+            success: ディベートを削除しました。
+          edit:
+            title: ディベートを編集
+            update: 討論を更新
+          index:
+            title: ディベート数
+          new:
+            create: ディベートを作成
+            title: 新しい議論
+          update:
+            invalid: この議論を更新する際に問題が発生しました。
+            success: ディベートが正常に更新されました。
+        models:
+          debate:
+            name: ディベート
+      admin_log:
+        debate:
+          create: "%{user_name} が %{resource_name} スペースで %{space_name} ディベートを作成しました"
+          update: "%{user_name} が %{resource_name} スペースの %{space_name} ディベートを更新しました"
+      debates:
+        count:
+          debates_count:
+            other: "%{count} 個のディベート数"
+        create:
+          invalid: 議論を起こすのに問題があった。
+          success: ディベートが正常に作成されました。
+        debate:
+          participate: 参加
+        filters:
+          all: すべて
+          category: カテゴリ
+          category_prompt: カテゴリを選択
+          citizens: Citizens
+          official: オフィシャル
+          origin: 原点：
+          search: 検索
+        filters_small_view:
+          close_modal: モーダルを閉じる
+          filter: フィルター
+          filter_by: フィルター
+          unfold: 展開する
+        index:
+          new_debate: 新しい議論
+        new:
+          back: 戻る
+          create: 作成
+          title: 新しい議論
+        show:
+          back: リストに戻る
+      last_activity:
+        new_debate_at_html: "<span> %{link}での新しいディベート</span>"
+      models:
+        debate:
+          fields:
+            end_time: 終了日
+            official_debate: 公式の議論
+            start_time: 開始日
+            title: タイトル
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              こんにちは、
+              %{resource_title}参加スペースに新しいディベート「 %{space_title} 」が作成されました。チェックして貢献：
+            email_outro: '%{space_title} の参加スペースをフォローしているため、この通知を受信しました。前のリンクに続く通知の受信を停止できます。'
+            email_subject: '%{resource_title}に新しいディベーション " %{space_title}"'
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> のディベートは <a href="%{space_path}">%{space_title}</a> に作成されました。
+          user_followers:
+            email_intro: |-
+              こんにちは、
+              %{author_name} %{author_nickname}さん、あなたがフォローしている人が新しいディベート「%{resource_title}」を作成しました。チェックして貢献してください：
+            email_outro: '%{author_nickname}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
+            email_subject: '%{resource_title}による新しい議論 " %{author_nickname}"'
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> が <a href="%{resource_path}">%{resource_title}</a> ディベートを作成しました。
+        creation_disabled:
+          email_intro: 'ディベートの作成は %{participatory_space_title}で行われなくなりました。このページからまだディベートに参加できます：'
+          email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
+          email_subject: '%{participatory_space_title} でディベートの作成が無効になりました'
+          notification_title: ディベートの作成は <a href="%{participatory_space_url}">%{participatory_space_title}</a> で無効になりました
+        creation_enabled:
+          email_intro: '%{participatory_space_title}で新しいディベートを開始できます! このページに参加してください:'
+          email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
+          email_subject: ディベートは %{participatory_space_title} で利用可能になりました
+    gamification:
+      badges:
+        commented_debates:
+          conditions:
+            - 参加する公開討論を選択する
+          description: このバッジは、コメントを残してさまざまなディベートに積極的に参加するときに付与されます。
+          description_another: この参加者は %{score} 討論に参加しました。
+          description_own: '%{score} 件のディベートに参加しました。'
+          name: ディベート数
+          next_level_in: さらに %{score} のディベートに参加して、次のレベルに到達しましょう！
+          unearned_another: この参加者はまだ議論に参加していません。
+          unearned_own: まだディベートに参加していません。
+    metrics:
+      debates:
+        description: 作成されたディベート数
+        object: 討論会
+        title: ディベート数
