@@ -3,26 +3,11 @@
 require "spec_helper"
 
 module Decidim
-  describe Map do
+  describe Map, configures_map: true do
     let(:config) { { provider: :osm } }
 
     before do
       allow(Decidim).to receive(:maps).and_return(config)
-    end
-
-    after do
-      # Ensure the utility configuration is reset after each example
-      described_class.instance_variable_set(:@utility_configuration, nil)
-
-      # Ensure the initializer is always re-run after the examples because
-      # otherwise the utilities could remain unregistered which causes issues
-      # with further tests.
-      Decidim::Core::Engine.initializers.each do |i|
-        next unless i.name == "decidim.maps"
-
-        i.run
-        break
-      end
     end
 
     describe ".configured?" do

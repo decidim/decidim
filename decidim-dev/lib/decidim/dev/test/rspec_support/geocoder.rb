@@ -9,18 +9,53 @@ module GeocoderHelpers
       result
     )
   end
+
+  module_function
+
+  public def configure_maps
+    # Set maps configuration in test mode
+    Decidim.maps = {
+      provider: :test,
+      api_key: "1234123412341234",
+      static: { url: "https://www.example.org/my_static_map" }
+    }
+  end
+end
+
+module Decidim::Map::Provider
+  module Geocoding
+    class Test < ::Decidim::Map::Geocoding; end
+  end
+  module DynamicMap
+    class Test < ::Decidim::Map::DynamicMap; end
+  end
+  module StaticMap
+    class Test < ::Decidim::Map::StaticMap; end
+  end
 end
 
 RSpec.configure do |config|
   config.include GeocoderHelpers
 
   config.before(:suite) do
-    # Set geocoder configuration in test mode
-    Decidim.geocoder = {
-      static_map_url: "https://www.example.org/my_static_map",
-      here_api_key: "1234123412341234"
-    }
-    Geocoder.configure(lookup: :test)
+    GeocoderHelpers.configure_maps
+  end
+
+  config.after(:each, :configures_map) do
+    # Ensure the initializer is always re-run after the examples because
+    # otherwise the utilities could remain unregistered which causes issues with
+    # further tests.
+    Decidim::Core::Engine.initializers.each do |i|
+      next unless i.name == "decidim.maps"
+
+      i.run
+      break
+    end
+
+    # Ensure the utility configuration is reset after each example for it to be
+    # reloaded the next time.
+    Decidim::Map.reset_utility_configuration!
+    configure_maps
   end
 
   config.before(:each, :serves_map) do

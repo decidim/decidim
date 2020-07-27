@@ -172,6 +172,16 @@ module Decidim
       @utility_configuration
     end
 
+    # Public: Resets the utility configuration to its initial state so that it
+    # is reloaded when utility_configuration is called the next time. It should
+    # not be necessary to call this ever but it is useful for the tests as the
+    # configurations canchange.
+    #
+    # @return [nil]
+    def self.reset_utility_configuration!
+      @utility_configuration = nil
+    end
+
     # Public: Returns the full utility class name in the correct module
     # namespace for the given utility category. For example, if the provider
     # :osm is configured for the :dynamic utilities, the utility class returned
