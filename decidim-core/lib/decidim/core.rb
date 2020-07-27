@@ -83,6 +83,7 @@ module Decidim
   autoload :Randomable, "decidim/randomable"
   autoload :Endorsable, "decidim/endorsable"
   autoload :ActionAuthorization, "decidim/action_authorization"
+  autoload :Map, "decidim/map"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -167,6 +168,10 @@ module Decidim
 
   # Exposes a configuration option: an object to configure geocoder
   config_accessor :geocoder
+
+  # Exposes a configuration option: an object to configure the mapping
+  # functionality. See Decidim::Map for more information.
+  config_accessor :maps
 
   # Exposes a configuration option: a custom method to generate references.
   # If overwritten, it should handle both component resources and participatory spaces.
