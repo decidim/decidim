@@ -1,0 +1,253 @@
+# Maps and geocoding
+
+## Configuring maps and geocoding
+
+Decidim has the ability to geocode proposals and meetings and display them on a
+map. Decidim has built-in support for the following map service providers:
+
+- [HERE Maps][link-here] (Recommended)
+  * Supports map tiles, static map images and geocoding
+  * Easy to get started with, comes with a rather generous free plan
+  * [Configuring HERE Maps][anchor-configure-here-maps]
+- [Open Street Maps based services][link-osm-commercial]
+  * Please pick a service provider that provides all needed services (map tiles,
+    static map images and geocoding)
+  * We can't use the OSM's own services by their
+    [tile usage policy][link-osm-tile-usage].
+  * As an alternative, you may also want to use your own self-hosted map servers
+    (see [Hosting your own map services][anchor-hosting-osm] for
+    more information)
+  * [Configuring Open Street Maps based service providers][anchor-configure-osm]
+
+After generating your app, you'll see that your `config/initializers/decidim.rb`
+file includes commented code about map services:
+
+```ruby
+# Geocoder configuration
+# config.maps = {
+#   ...
+# }
+```
+
+The initializer comments provide examples for the services mentioned in this
+documentation. Please refer to the section below for the service you have
+registered for the maps functionality.
+
+If you want to enable geocoding in your app:
+
+1. Select a service provider for the maps functionality and register an account
+   with that provider
+2. Uncomment or add the code under the selected service provider in your
+   `config/initializers/decidim.rb`.
+3. Make sure your `config/secrets.yml` file has the needed section (it should
+   be added by the generator automatically).
+4. Configure the service provider credentials in `config/secrets.yml` and refer
+   to them from your `config/initializers/decidim.rb`.
+5. If you had your Rails server running, restart it so the changes apply.
+
+### Configuring HERE Maps
+
+Use the following configuration for HERE Maps:
+
+`config/initializers/decidim.rb`:
+
+```ruby
+# Geocoder configuration
+# == HERE Maps ==
+config.maps = {
+  provider: :here,
+  api_key: Rails.application.secrets.maps[:api_key],
+  static: { url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview" }
+}
+```
+
+`config/secrets.yml`:
+
+```yaml
+default: &default
+  # ...
+  maps:
+    api_key: <%= ENV["MAPS_API_KEY"] %>
+```
+
+`.env`:
+
+```
+MAPS_API_KEY=your_api_key_here
+```
+
+### Configuring Open Street Maps based service providers
+
+Use the following configuration for Open Street Maps based service providers:
+
+```ruby
+# Geocoder configuration
+# == OpenStreetMap (OSM) services ==
+config.maps = {
+  provider: :osm,
+  api_key: Rails.application.secrets.maps[:api_key],
+  dynamic: {
+    tile_layer: {
+      url: "https://tiles.example.org/{z}/{x}/{y}.png?key={apiKey}",
+      attribution: %(
+        <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap</a> contributors
+      ).strip
+      # Translatable attribution:
+      # attribution: -> { I18n.t("tile_layer_attribution") }
+    }
+  },
+  static: { url: "https://staticmap.example.org/" },
+  geocoding: { host: "nominatim.example.org", use_https: true }
+}
+```
+
+`config/secrets.yml`:
+
+```yaml
+default: &default
+  # ...
+  maps:
+    api_key: <%= ENV["MAPS_API_KEY"] %>
+```
+
+`.env`:
+
+```
+MAPS_API_KEY=your_api_key_here
+```
+
+For further information, see the service provider's documentation or take a look
+at the [Hosting your own map services][anchor-hosting-osm] section.
+
+### Combining multiple service providers
+
+It is also possible to combine multiple service providers for the different
+categories of map services. For instance, if you want to host your own static
+maps and geocoding servers and use HERE Maps for the map tiles, use the
+following configuration:
+
+```ruby
+# Geocoder configuration
+# == Combination (OpenStreetMap default + HERE Maps dynamic map tiles) ==
+config.maps = {
+  provider: :osm,
+  dynamic: {
+    provider: :here,
+    api_key: Rails.application.secrets.maps[:here_api_key]
+  },
+  static: { url: "https://staticmap.example.org/" },
+  geocoding: { host: "nominatim.example.org", use_https: true }
+}
+```
+
+`config/secrets.yml`:
+
+```yaml
+default: &default
+  # ...
+  maps:
+    here_api_key: <%= ENV["MAPS_HERE_API_KEY"] %>
+```
+
+`.env`:
+
+```
+MAPS_HERE_API_KEY=your_api_key_here
+```
+
+## Enabling maps and geocoding
+
+Once the maps functionality is configured, you'll need to activate it. As of
+April 2017, only proposals and meetings have maps and geocoding.
+
+### Proposals
+
+In order to enable geocoding for proposals you'll need to edit the feature
+configuration and set the global flag to true. This works for that specific
+component, so you can have geocoding enabled for meetings in a participatory
+process, and disabled for another one.
+
+### Meetings
+
+Meetings do not have a configuration option for geocoding. Instead, if geocoding
+is configured it will try to geocode the address every time you create or update
+a meeting.. As of April 2017 there's no way to enable or disable geocoding per
+meetings component.
+
+## Hosting your own map services
+
+It is recommended to use a commercial service provider for all the map
+functionality to get up and running more easily. Hosting all these services
+yourself and keeping everything up to date is time consuming and rather complex.
+If the related complexity or the required time is not an issue, feel free to
+setup the following services on your own servers.
+
+### Open Street Maps tile server
+
+You will need a [map tiles][link-wiki-map-tiles] server
+which is used for the dynamic maps that the user can move themselves.
+
+Follow these instructions to setup your tiles server:
+
+https://opentileserver.org/
+
+In this example, we assume you have used the following domain for the tiles
+server:
+
+https://tiles.example.org
+
+### Nominatim geocoding server
+
+[Nominatim][link-osm-nominatim] makes it possible to place points on the Decidim
+maps based on addresses. This service provides geocoding capabilities by turning
+human readable addresses to [geographic coordinates][link-wiki-geocoordinates].
+
+Follow these instructions to setup geocoding server:
+
+http://nominatim.org/release-docs/latest/admin/Installation/
+
+In this example, we assume you have used the following domain for the geocoding
+server:
+
+https://nominatim.example.org
+
+### Openstreetmap static maps server (osm-static-maps)
+
+Some pages in Decidim display static map images which need to be fetched from
+an external server. The tiles server does not provide such static images by
+itself because one static map image may need multiple tiles to be combined into
+one.
+
+The Open Street Maps community has made multiple open source
+[static maps image services][link-wiki-static-maps] from which you can pick
+freely but Decidim currently supports only
+[osm-static-maps][link-osm-static-maps] with the Open Street Maps services.
+
+Follow these instructions to setup geocoding server:
+
+https://github.com/jperelli/osm-static-maps#3-standalone-sample-server
+
+In this example, we assume you have used the following domain for the static
+maps image server:
+
+https://staticmap.example.org
+
+### Configure Decidim
+
+After you have all these services running, change your Decidim configurations
+to use these services. Read the
+[Configuring Open Street Maps based service providers][anchor-configure-osm]
+section for more information.
+
+
+[anchor-hosting-osm]: #hosting-your-own-map-services
+[anchor-configure-here-maps]: #configuring-here-maps
+[anchor-configure-osm]: #configuring-open-street-maps-based-service-providers
+[link-here]: http://here.com
+[link-osm-commercial]: https://wiki.openstreetmap.org/wiki/Commercial_OSM_Software_and_Services
+[link-osm-nominatim]: https://wiki.openstreetmap.org/wiki/Nominatim
+[link-osm-static-maps]: https://github.com/jperelli/osm-static-maps
+[link-osm-tile-usage]: https://operations.osmfoundation.org/policies/tiles/
+[link-wiki-geocoordinates]: https://en.wikipedia.org/wiki/Geographic_coordinate_system
+[link-wiki-map-tiles]: https://wiki.openstreetmap.org/wiki/Tiles
+[link-wiki-static-maps]: https://wiki.openstreetmap.org/wiki/Static_map_images
