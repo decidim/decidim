@@ -25,7 +25,7 @@ module Decidim
 
         validates :title, :body, presence: true
         validates :title, length: { maximum: 150 }
-        validates :address, geocoding: true, if: -> { current_component.settings.geocoding_enabled? }
+        validates :address, geocoding: true, if: ->(form) { form.geocoding_enabled? }
         validates :category, presence: true, if: ->(form) { form.category_id.present? }
         validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
         validates :meeting_as_author, presence: true, if: ->(form) { form.created_in_meeting? }
@@ -66,6 +66,10 @@ module Decidim
         # Returns the scope identifier related to the proposal
         def scope_id
           @scope_id || scope&.id
+        end
+
+        def geocoding_enabled?
+          Decidim::Map.available?(:geocoding) && current_component.settings.geocoding_enabled?
         end
 
         # Finds the Meetings of the current participatory space

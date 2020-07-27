@@ -28,7 +28,7 @@ module Decidim
         validates :location, translatable_presence: true
 
         validates :address, presence: true
-        validates :address, geocoding: true, if: -> { Decidim.geocoder.present? }
+        validates :address, geocoding: true, if: -> { Decidim::Map.available?(:geocoding) }
         validates :start_time, presence: true, date: { before: :end_time }
         validates :end_time, presence: true, date: { after: :start_time }
 
