@@ -104,11 +104,6 @@ class CheckLegacyTables < ActiveRecord::Migration[5.2]
       end
     end
   end
-
-  def development_app?
-    Rails.root.to_s.ends_with? "development_app"
-  end
 end
-
 # rubocop:enable Style/GuardClause
 # rubocop:enable Rails/Output
