@@ -108,15 +108,10 @@ nl:
             other: Geselecteerde projecten
           view: Bekijk
         project:
-          add: Toevoegen
           count:
             one: 1 ondersteuning
             other: "%{count} ondersteuning"
-          remove: Verwijderen
           view: Bekijk
-        project_budget_button:
-          add: Toevoegen
-          added: Toegevoegd
         show:
           budget: Begroting
           view_all_projects: Bekijk alle projecten

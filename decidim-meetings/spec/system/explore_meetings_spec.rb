@@ -14,7 +14,7 @@ describe "Explore meetings", :slow, type: :system do
   describe "index" do
     it "shows all meetings for the given process" do
       visit_component
-      expect(page).to have_selector("article.card", count: meetings_count)
+      expect(page).to have_selector(".card--meeting", count: meetings_count)
 
       meetings.each do |meeting|
         expect(page).to have_content(translated(meeting.title))
@@ -31,7 +31,7 @@ describe "Explore meetings", :slow, type: :system do
       it "does not list the hidden meetings" do
         visit_component
 
-        expect(page).to have_selector("article.card", count: meetings_count - 1)
+        expect(page).to have_selector(".card.card--meeting", count: meetings_count - 1)
 
         expect(page).to have_no_content(translated(meeting.title))
       end

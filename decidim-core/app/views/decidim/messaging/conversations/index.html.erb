@@ -1,4 +1,6 @@
-<main class="wrapper">
+<% add_decidim_page_title(t("conversations", scope: "layouts.decidim.user_menu")) %>
+
+<div class="wrapper">
   <div class="row">
     <div class="columns">
       <div class="title-action">
@@ -19,7 +21,7 @@
           <p><%= t(".no_conversations") %></p>
         </div>
       <% else %>
-        <div class="tabs-panel is-active conversations" id="conversations" role="tabpanel" aria-labelledby="conversations-label">
+        <div class="tabs-panel is-active conversations" id="conversations" role="tabpanel" aria-label="<%= t(".title") %>">
           <%= render partial: "conversation", collection: @conversations %>
         </div>
       <% end %>
@@ -51,4 +53,4 @@
       </div>
     <% end %>
   </div>
-</main>
+</div>

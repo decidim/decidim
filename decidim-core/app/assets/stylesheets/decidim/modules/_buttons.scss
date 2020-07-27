@@ -26,52 +26,148 @@
   &.button--right{
     float: right;
   }
+
+  a{
+    color: inherit;
+
+    &:hover{
+      text-decoration: none;
+    }
+  }
 }
 
 .button{
+  position: relative;
   background-color: var(--primary);
 
-  &:hover,
+  &.focus,
   &:focus{
     background-color: var(--primary);
-    filter: brightness(120%);
+    box-shadow: $button-shadow-focus;
+    outline: $button-outline-focus;
+    outline-offset: $button-outline-offset;
+    filter: brightness($button-brightness-focus);
+  }
+
+  &.hover,
+  &:hover{
+    background-color: var(--primary);
+    filter: brightness($button-brightness-hover);
+    text-decoration: none;
+  }
+
+  &.active,
+  &:active{
+    filter: brightness($button-brightness-active);
+  }
+
+  &.disabled,
+  &[disabled]{
+    &,
+    &:active,
+    &:hover,
+    &:focus{
+      background-color: var(--primary);
+    }
   }
 
   &.hollow{
     background-color: transparent;
     color: var(--primary);
     border-color: var(--primary);
-    text-decoration: underline;
+    text-decoration: $button-hollow-underline;
 
+    &.hover,
     &:hover,
+    &.focus,
     &:focus{
-      background-color: $primary;
+      border-color: var(--primary);
+      background-color: var(--primary);
       color: $white;
-      box-shadow: 10px 5px 5px black;
-      text-decoration: underline;
-      outline: none;
+    }
+
+    &.disabled,
+    &[disabled]{
+      &,
+      &:active,
+      &:hover,
+      &:focus{
+        background-color: transparent;
+        border-color: var(--primary);
+        color: var(--primary);
+        box-shadow: none;
+        text-decoration: none;
+      }
+    }
+
+    &.light{
+      &.hover,
+      &:hover,
+      &.focus,
+      &:focus{
+        border-color: var(--primary);
+        background-color: var(--primary);
+        color: $white;
+      }
+
+      &.disabled,
+      &[disabled]{
+        &,
+        &:active,
+        &:hover,
+        &:focus{
+          border-color: $white;
+          color: $white;
+        }
+      }
     }
   }
 
   &.secondary{
-    &:hover,
-    &:focus{
-      filter: brightness(120%);
+    @include button-hollow-variant(var(--secondary));
+  }
+
+  &.success{
+    @include button-hollow-variant(var(--success));
+  }
+
+  &.alert{
+    @include button-hollow-variant(var(--alert));
+  }
+
+  &.warning{
+    @include button-hollow-variant(var(--warning));
+  }
+
+  &.clear{
+    &.secondary,
+    &.success,
+    &.alert,
+    &.warning{
+      background-color: transparent;
+
+      &.hover,
+      &:hover,
+      &.focus,
+      &:focus{
+        background-color: transparent;
+      }
     }
 
-    &.hollow{
-      background-color: transparent;
+    &.secondary{
       color: var(--secondary);
-      border-color: var(--secondary);
+    }
 
-      &:hover,
-      &:focus{
-        background-color: $secondary;
-        color: $white;
-        box-shadow: 10px 5px 5px black;
-        text-decoration: underline;
-        outline: none;
-      }
+    &.success{
+      color: var(--success);
+    }
+
+    &.alert{
+      color: var(--alert);
+    }
+
+    &.warning{
+      color: var(--warning);
     }
   }
 }
@@ -83,15 +179,6 @@
 // Overwrite Foundation hover styles in hollow disabled buttons
 .button.hollow:disabled:hover,
 .button.hollow.disabled:hover{
-  background-color: transparent;
-  border-color: var(--primary);
-  color: var(--primary);
-
-  &.secondary{
-    border-color: var(--secondary);
-    color: var(--secondary);
-  }
-
   &.success{
     border-color: var(--success);
     color: var(--success);
@@ -109,7 +196,13 @@
 }
 
 .button.light:not(.hollow){
-  @include modifiers(color, (success: $white, secondary: $white));
+  @include modifiers(
+    color,
+    (
+      success: $white,
+      secondary: $white,
+    )
+  );
 }
 
 .button.light.hollow{
@@ -125,10 +218,6 @@
 
   > :last-child{
     flex: 1;
-  }
-
-  .button{
-    margin-right: 0;
   }
 
   > :first-child,
@@ -147,6 +236,12 @@
   > :not(:first-child):not(:last-child) *{
     border-radius: 0;
   }
+
+  &.no-gaps{
+    .button{
+      margin-right: 0;
+    }
+  }
 }
 
 // buttons layout
@@ -161,13 +256,13 @@
 /* Extra buttons styles */
 
 .button--shadow{
-  $shadows:(
+  $shadows: (
     primary: shade($primary, 50),
     secondary: shade($secondary, 50),
     success: shade($success, 50),
     warning: shade($warning, 50),
     alert: shade($alert, 50),
-    muted: shade($muted, 50)
+    muted: shade($muted, 50),
   );
 
   @include modifiers(background-color, $shadows){
@@ -185,7 +280,7 @@
     left: 0;
     top: 0;
     padding: .85em;
-    border-right: 1px solid var(--secondary);
+    border-right: 1px solid $white;
     height: 100%;
     min-width: 3.5em;
     white-space: no-wrap;
@@ -204,6 +299,18 @@
 
   .icon{
     margin: 0 2px;
+  }
+
+  &.hollow{
+    .icon-wrap{
+      border-right: 1px solid var(--primary);
+    }
+
+    &.secondary{
+      .icon-wrap{
+        border-right: 1px solid var(--secondary);
+      }
+    }
   }
 
   &.small{
@@ -241,16 +348,12 @@
 }
 
 .button--sc{
-  text-transform: uppercase;
   letter-spacing: .05em;
   font-weight: 600;
+  text-transform: uppercase;
 
-  &:hover,
-  &:focus{
-    color: $white;
-    box-shadow: 10px 5px 5px black;
-    text-decoration: underline;
-    outline: none;
+  &.hollow{
+    letter-spacing: .01em;
   }
 
   &.large{
@@ -270,6 +373,23 @@
   cursor: pointer;
   color: $anchor-color;
   font-weight: 600;
+
+  &:hover{
+    color: $anchor-color-hover;
+    text-decoration: underline;
+    text-decoration-skip-ink: auto;
+  }
+}
+
+.link-alt{
+  cursor: pointer;
+  color: $anchor-color;
+
+  &:hover{
+    color: $anchor-color-hover;
+    text-decoration: underline;
+    text-decoration-skip-ink: auto;
+  }
 }
 
 .muted-link{
@@ -290,20 +410,43 @@
 /* Social buttons */
 
 .button--social{
+  position: relative;
   padding: 0 1.5rem 0 0;
   text-align: left;
   display: block;
   min-width: 250px;
+
+  &::after{
+    content: "";
+    clear: both;
+  }
+}
+
+.button--social__icon,
+.button--social__text{
+  display: block;
+  padding: .85em 1rem;
 }
 
 .button--social__icon{
-  display: inline-block;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
   vertical-align: middle;
   padding: .85em 1rem;
   border-right: 1px solid rgba(black, .075);
   margin-right: .5rem;
   min-width: 3rem;
   text-align: center;
+}
+
+.button--social--mini .button--social__icon{
+  position: relative;
+}
+
+.button--social__text{
+  margin-left: 3rem;
 }
 
 .button--twitter{

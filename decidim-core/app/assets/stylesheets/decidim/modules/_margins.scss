@@ -13,45 +13,32 @@ $margin-l: $global-margin * 5;
   @include breakpoint(large){
     margin-bottom: $margin-m;
   }
-
-  a:hover{
-    text-decoration: underline;
-  }
-
-  a:focus,
-  button:focus{
-    outline: 2px solid $secondary;
-  }
 }
 
 .m-bottom{
   margin-bottom: $margin-s;
-
-  a:focus{
-    outline: 2px solid $secondary;
-  }
 }
 
 // helpers
-$size:(
+$size: (
   none: 0,
   xs: $margin-xs,
   s: $margin-s,
   sm: $margin-sm,
   m: $margin-m,
-  l: $margin-l
+  l: $margin-l,
 ) !default;
 
-$property:(
+$property: (
   p: padding,
-  m: margin
+  m: margin,
 ) !default;
 
-$side:(
+$side: (
   t: top,
   r: right,
   b: bottom,
-  l: left
+  l: left,
 ) !default;
 
 @mixin make-spaces(){
@@ -70,4 +57,4 @@ $side:(
   }
 }
 
-@include make-spaces()
+@include make-spaces();

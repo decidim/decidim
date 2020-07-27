@@ -20,14 +20,14 @@ describe "Filter Assemblies", type: :system do
 
     it "filters by All types" do
       click_link "All types"
-      expect(page).to have_selector("article.card.card--assembly", count: 3)
+      expect(page).to have_selector(".card.card--assembly", count: 3)
     end
 
     3.times do |i|
       it "filters by Government type" do
         assembly = assemblies[i]
         click_link assembly.assembly_type.title["en"]
-        expect(page).to have_selector("article.card.card--assembly", count: 1)
+        expect(page).to have_selector(".card.card--assembly", count: 1)
         expect(page).to have_selector("#button-text", text: assembly.assembly_type.title["en"])
       end
     end

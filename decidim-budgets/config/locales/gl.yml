@@ -108,15 +108,10 @@ gl:
             other: proxectos seleccionados
           view: Ver
         project:
-          add: Engadir
           count:
             one: 1 apoio
             other: "%{count} soporta"
-          remove: Quitar
           view: Ver
-        project_budget_button:
-          add: Engadir
-          added: Engadido
         show:
           budget: Orzamento
           view_all_projects: Ver todos os proxectos

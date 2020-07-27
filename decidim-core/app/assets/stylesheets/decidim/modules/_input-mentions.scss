@@ -4,10 +4,6 @@
 .hashtags__container{
   width: 100%;
 
-  span{
-    color: $secondary;
-  }
-
   [type=text]{
     white-space: nowrap;
     overflow: hidden;
@@ -62,6 +58,7 @@
     position: relative;
     min-width: 100%;
     top: -1rem - rem-calc(1);
+    color: $secondary;
 
     ul{
       //reset list
@@ -84,7 +81,8 @@
       }
     }
 
-    .highlight, li:hover{
+    .highlight,
+    li:hover{
       background-color: $input-prefix-background;
     }
 

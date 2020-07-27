@@ -3,6 +3,8 @@ import { graphql, MutationFunc } from "react-apollo";
 
 import VoteButton from "./vote_button.component";
 
+const { I18n } = require("react-i18nify");
+
 import {
   AddCommentFormCommentableFragment,
   AddCommentFormSessionFragment,
@@ -42,6 +44,7 @@ export const UpVoteButton: React.SFC<UpVoteButtonProps> = ({
     <VoteButton
       buttonClassName="comment__votes--up"
       iconName="icon-chevron-top"
+      text={I18n.t("components.up_vote_button.text")}
       votes={upVotes}
       voteAction={upVote}
       disabled={disabled}

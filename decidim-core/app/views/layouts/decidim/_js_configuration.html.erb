@@ -1,0 +1,28 @@
+<%
+js_configs = {
+  icons_path: image_path("decidim/icons.svg")
+}
+character_messages = {
+  "charactersAtLeast": {
+    one: t("forms.length_validator.minimum.one", count: "%count%"),
+    other: t("forms.length_validator.minimum.other", count: "%count%")
+  },
+  "charactersLeft": {
+    one: t("decidim.components.add_comment_form.remaining_characters_1", count: "%count%"),
+    other: t("decidim.components.add_comment_form.remaining_characters", count: "%count%")
+  }
+}
+external_link_messages = {
+  "externalLink": t("decidim.accessibility.external_link")
+}
+validator_messages = {
+  "correctErrors": t("forms.correct_errors")
+}
+%>
+
+<script>
+  Decidim.config.set(<%== js_configs.to_json %>);
+  Decidim.InputCharacterCounter.configureMessages(<%== character_messages.to_json %>);
+  Decidim.ExternalLink.configureMessages(<%== external_link_messages.to_json %>);
+  Decidim.FormValidator.configureMessages(<%== validator_messages.to_json %>);
+</script>
