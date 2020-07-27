@@ -47,8 +47,30 @@ module Decidim
       # Validates the emendation using the amendable form.
       def amendable_form_must_be_valid
         parse_hashtaggable_params
-        amendable_form.validate unless defined?(@amendable_form) # Preserves previously added errors.
-        @errors = @amendable_form.errors
+
+        original_form.validate unless defined?(@amendable_form)
+        amendable_form.validate unless defined?(@amendable_form)
+        errors = flatten_errors(amendable_form.errors.details) - flatten_errors(original_form.errors.details)
+        @amendable_form.errors.clear
+        add_errors(errors)
+
+        @errors = amendable_form.errors
+      end
+
+      def flatten_errors(form_errors)
+        form_errors.flat_map do |attribute, errors|
+          errors.map do |error|
+            error.flat_map { |_, value| [attribute, value] }
+          end
+        end
+      end
+
+      def add_errors(errors)
+        errors.each do |attribute, error|
+          next if amendable_form.errors.details[attribute].include? error: error
+
+          amendable_form.errors.add(attribute, error)
+        end
       end
 
       # Parses :title and :body attribute values with HashtagParser.
@@ -59,6 +81,16 @@ module Decidim
           clean_value = translated_attribute(value)
           emendation_params[key] = Decidim::ContentParsers::HashtagParser.new(clean_value, form_context).rewrite
         end
+      end
+
+      def original_form
+        @original_form ||= amendable
+                           .amendable_form
+                           .from_model(amendable)
+                           .with_context(
+                             current_component: amendable.component,
+                             current_participatory_space: amendable.participatory_space
+                           )
       end
 
       # Returns an instance of the Form Object class defined in Decidim::Amendable#amendable_form
