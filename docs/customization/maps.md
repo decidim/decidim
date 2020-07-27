@@ -310,9 +310,9 @@ provider referred to in this documentation would be `:your_provider`. For
 configuration, refer to the [maps and geocoding configuration][link-docs-maps]
 documentation.
 
-[link-code-here-dynamic]: /tree/develop/decidim-core/lib/decidim/map/provider/dynamic_map/here.rb
-[link-code-osm-dynamic]: /tree/develop/decidim-core/lib/decidim/map/provider/dynamic_map/osm.rb
-[link-code-osm-geocoder]: /tree/develop/decidim-core/lib/decidim/map/provider/geocoding/osm.rb
+[link-code-here-dynamic]: /decidim-core/lib/decidim/map/provider/dynamic_map/here.rb
+[link-code-osm-dynamic]: /decidim-core/lib/decidim/map/provider/dynamic_map/osm.rb
+[link-code-osm-geocoder]: /decidim-core/lib/decidim/map/provider/geocoding/osm.rb
 [link-docs-maps]: /docs/services/maps.md
 [link-docs-maps-osm]: /docs/services/maps.md#configuring-open-street-maps-based-service-providers
 [link-docs-maps-multiple-providers]: /docs/services/maps.md#combining-multiple-service-providers
