@@ -36,6 +36,7 @@ pl:
         organization_url: Adres organizacji
         redirect_uri: Przekierowanie URI
       organization:
+        address: Nazwa hosta SMTP
         alert_color: Alarm
         badges_enabled: Włącz odznaki
         cta_button_path: Ścieżka przycisku wezwania do działania
@@ -46,6 +47,7 @@ pl:
         enable_omnipresent_banner: Pokaż wszechobecny baner
         facebook_handler: Handler Facebooka
         favicon: Ikona
+        from: Adres e-mail nadawcy
         github_handler: Obsługa programu GitHub
         header_snippets: Fragmenty nagłówków
         highlighted_content_banner_action_subtitle: Podtytuł przycisku czynności
@@ -546,6 +548,10 @@ pl:
         new:
           create: Stwórz
           title: Nowy prywatny użytkownik przestrzeni partycypacyjnej.
+      participatory_space_private_users_csv_imports:
+        new:
+          title: Prześlij plik CSV
+          upload: Prześlij
       resource_permissions:
         edit:
           submit: Zatwierdź
@@ -612,6 +618,7 @@ pl:
           update: Aktualizacja
         form:
           none: Żaden
+          slug_help: 'Użyj adresów częściowych, a nie pełnych URL. Pole może zawierać litery, cyfry, myślniki i ukośniki i musi zaczynać się literą. Przykład: %{url}'
         index:
           last_notable_change: Ostatnia godna uwagi zmiana
         new:

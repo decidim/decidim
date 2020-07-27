@@ -2,7 +2,7 @@ pt:
   activemodel:
     attributes:
       answer:
-        body: Responda
+        body: Responder
       question:
         max_choices: Número máximo de escolhas
         question_type: Tipo
@@ -14,9 +14,9 @@ pt:
           attributes:
             choices:
               missing: não estão completos
-              too_many: são muitos
+              too_many: são demasiados
         questionnaire:
-          request_invalid: Ocorreu um erro ao processar o pedido. Tente novamente
+          request_invalid: Ocorreu um erro ao processar o pedido. Por favor tente novamente
   decidim:
     forms:
       admin:
@@ -34,51 +34,51 @@ pt:
             save: Guardar
             title: Título
           form:
-            add_question: Adicionar pergunta
-            already_answered_warning: O questionário já foi respondido por alguns usuários para que você não possa modificar suas perguntas.
+            add_question: Adicionar questão
+            already_answered_warning: O questionário já foi respondido por alguns utilizadores por isso não pode modificar as suas questões.
           question:
             add_answer_option: Adicionar opção de resposta
             any: Qualquer
             description: Descrição
-            down: Baixa
+            down: Abaixo
             question: Questão
             remove: Remover
             statement: Declaração
             up: Acima
           update:
-            invalid: Houve erros ao salvar o questionário.
-            success: Questionários salvos com sucesso.
+            invalid: Ocorreu um problema ao guardar o questionário.
+            success: Questionários guardados corretamente.
       errors:
         answer:
           body: O corpo não pode ficar em branco
       question_types:
         long_answer: Resposta longa
-        multiple_option: Múltipla opção
+        multiple_option: Escolha múltipla
         short_answer: Resposta curta
-        single_option: Opção única
-        sorting: Classificação
+        single_option: Escolha única
+        sorting: Ordenação
       questionnaires:
         answer:
-          invalid: Houve erros ao responder o questionário.
-          success: Questionário respondido com sucesso.
+          invalid: Ocorreu um problema ao responder ao questionário.
+          success: Questionário respondido corretamente.
         question:
           max_choices: 'Escolhas máximas: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Entre com sua conta</a> ou <a href="%{sign_up_link}">inscreva-se</a> para responder ao questionário.
-            title: Responda o questionário
+            anonymous_user_message: <a href="%{sign_in_link}">Inicie sessão com a sua conta</a> ou <a href="%{sign_up_link}">inscreva-se</a> para responder ao questionário.
+            title: Responda ao questionário
           are_you_sure: Esta ação não pode ser desfeita e não deixará de poder editar as suas respostas. Tem a certeza?
           questionnaire_answered:
-            body: Você já respondeu este questionário.
+            body: Já respondeu a este questionário.
             title: Já respondido
           questionnaire_closed:
-            body: O questionário está fechado e não pode ser respondido.
-            title: Questionário fechado
+            body: O questionário está encerrado e não pode ser respondido.
+            title: Questionário encerrado
           questionnaire_for_private_users:
-            body: O questionário está disponível apenas para usuários particulares
-            title: Questionário fechado
+            body: O questionário está disponível apenas para utilizadores privados
+            title: Questionário encerrado
           submit: Submeter
-          tos_agreement: Ao participar você aceita seus Termos de Serviço
+          tos_agreement: Ao participar aceita os seus Termos de Serviço
       user_answers_serializer:
         created_at: Respondido em
         id: ID da resposta

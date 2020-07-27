@@ -45,7 +45,7 @@ pt:
         hide_replies: Ocultar respostas
         reply: Responder
         report:
-          action: Relatório
+          action: Reportar
           already_reported: Este conteúdo já foi reportado e será revisto por um administrador.
           close: Fechar
           description: Este conteúdo é impróprio?
@@ -78,7 +78,7 @@ pt:
       comments:
         comment_by_followed_user:
           email_intro: "%{author_name} deixou um comentário em %{resource_title}. Pode lê-lo nesta página:"
-          email_outro: Recebeu esta notificação porque está segue %{author_name}. pode deixar de seguir este utilizador a partir da respetiva página de perfil.
+          email_outro: Recebeu esta notificação porque segue %{author_name}. pode deixar de seguir este utilizador a partir da respetiva página de perfil.
           email_subject: Há um novo comentário por %{author_name} em %{resource_title}
           notification_title: Há um novo comentário por <a href="%{author_path}">%{author_name} %{author_nickname}</a> em <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:

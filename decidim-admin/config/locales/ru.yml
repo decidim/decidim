@@ -13,7 +13,7 @@ ru:
         attachment_collection_id: Папка
         description: Описание
         file: Прикрепленный файл
-        title: Название
+        title: Заголовок
       attachment_collection:
         description: Описание
         name: Название
