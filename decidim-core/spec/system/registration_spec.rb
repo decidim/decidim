@@ -48,7 +48,7 @@ describe "Registration", type: :system do
       end
       click_button "Check and continue"
       expect(page).to have_current_path decidim.new_user_registration_path
-      expect(page).to have_css("#sign-up-newsletter-modal", visible: false)
+      expect(page).to have_css("#sign-up-newsletter-modal", visible: :hidden)
       expect(page).to have_field("registration_user_newsletter", checked: true)
     end
 
