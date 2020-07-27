@@ -1,7 +1,3 @@
-// = require leaflet
-// = require leaflet-tilelayer-here
-// = require leaflet-svg-icon
-// = require leaflet.markercluster
 // = require jquery-tmpl
 // = require_self
 
@@ -19,9 +15,11 @@ L.DivIcon.SVGIcon.DecidimIcon = L.DivIcon.SVGIcon.extend({
 });
 
 const popupTemplateId = "marker-popup";
-$.template(popupTemplateId, $(`#${popupTemplateId}`).html());
 
 const addMarkers = (markersData, markerClusters, map) => {
+  // Pre-compiles the template
+  $.template(popupTemplateId, $(`#${popupTemplateId}`).html());
+
   const bounds = new L.LatLngBounds(markersData.map((markerData) => [markerData.latitude, markerData.longitude]));
 
   markersData.forEach((markerData) => {
@@ -33,7 +31,6 @@ const addMarkers = (markersData, markerClusters, map) => {
     let node = document.createElement("div");
 
     $.tmpl(popupTemplateId, markerData).appendTo(node);
-
     marker.bindPopup(node, {
       maxwidth: 640,
       minWidth: 500,
@@ -58,7 +55,9 @@ const loadMap = (mapId, markersData) => {
 
   const map = L.map(mapId);
 
-  L.tileLayer.here(window.Decidim.mapConfiguration).addTo(map);
+  // Allow the configured map service to configure the map, e.g. attaching the
+  // tile layer to the map.
+  $(`#${mapId}`).trigger("configure.decidim", [map]);
 
   if (markersData.length > 0) {
     addMarkers(markersData, markerClusters, map);
