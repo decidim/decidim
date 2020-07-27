@@ -6,18 +6,18 @@ Decidim has the ability to geocode proposals and meetings and display them on a
 map. Decidim has built-in support for the following map service providers:
 
 - [HERE Maps][link-here] (Recommended)
-  * Supports map tiles, static map images and geocoding
-  * Easy to get started with, comes with a rather generous free plan
-  * [Configuring HERE Maps][anchor-configure-here-maps]
+  - Supports map tiles, static map images and geocoding
+  - Easy to get started with, comes with a rather generous free plan
+  - [Configuring HERE Maps][anchor-configure-here-maps]
 - [Open Street Maps based services][link-osm-commercial]
-  * Please pick a service provider that provides all needed services (map tiles,
+  - Please pick a service provider that provides all needed services (map tiles,
     static map images and geocoding)
-  * We can't use the OSM's own services by their
+  - We can't use the OSM's own services by their
     [tile usage policy][link-osm-tile-usage].
-  * As an alternative, you may also want to use your own self-hosted map servers
+  - As an alternative, you may also want to use your own self-hosted map servers
     (see [Hosting your own map services][anchor-hosting-osm] for
     more information)
-  * [Configuring Open Street Maps based service providers][anchor-configure-osm]
+  - [Configuring Open Street Maps based service providers][anchor-configure-osm]
 
 After generating your app, you'll see that your `config/initializers/decidim.rb`
 file includes commented code about map services:
@@ -37,13 +37,13 @@ If you want to enable geocoding in your app:
 
 1. Select a service provider for the maps functionality and register an account
    with that provider
-2. Uncomment or add the code under the selected service provider in your
+1. Uncomment or add the code under the selected service provider in your
    `config/initializers/decidim.rb`.
-3. Make sure your `config/secrets.yml` file has the needed section (it should
+1. Make sure your `config/secrets.yml` file has the needed section (it should
    be added by the generator automatically).
-4. Configure the service provider credentials in `config/secrets.yml` and refer
+1. Configure the service provider credentials in `config/secrets.yml` and refer
    to them from your `config/initializers/decidim.rb`.
-5. If you had your Rails server running, restart it so the changes apply.
+1. If you had your Rails server running, restart it so the changes apply.
 
 ### Configuring HERE Maps
 
@@ -72,7 +72,7 @@ default: &default
 
 `.env`:
 
-```
+```bash
 MAPS_API_KEY=your_api_key_here
 ```
 
@@ -112,7 +112,7 @@ default: &default
 
 `.env`:
 
-```
+```bash
 MAPS_API_KEY=your_api_key_here
 ```
 
@@ -151,7 +151,7 @@ default: &default
 
 `.env`:
 
-```
+```bash
 MAPS_HERE_API_KEY=your_api_key_here
 ```
 
@@ -238,7 +238,6 @@ After you have all these services running, change your Decidim configurations
 to use these services. Read the
 [Configuring Open Street Maps based service providers][anchor-configure-osm]
 section for more information.
-
 
 [anchor-hosting-osm]: #hosting-your-own-map-services
 [anchor-configure-here-maps]: #configuring-here-maps
