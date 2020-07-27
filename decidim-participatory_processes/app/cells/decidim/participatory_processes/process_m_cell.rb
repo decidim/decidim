@@ -50,7 +50,9 @@ module Decidim
 
       def step_cta_path
         if model.active_step&.cta_path.present?
-          resource_path + "/" + model.active_step.cta_path
+          path, params = resource_path.split("?")
+
+          "#{path}/#{model.active_step.cta_path}" + (params.present? ? "?#{params}" : "")
         else
           resource_path
         end

@@ -28,7 +28,9 @@ module Decidim
       def participatory_process_cta_path(process)
         return participatory_process_path(process) if process.active_step&.cta_path.blank?
 
-        participatory_process_path(process) + "/" + process.active_step.cta_path
+        path, params = participatory_process_path(process).split("?")
+
+        "#{path}/#{process.active_step.cta_path}" + (params.present? ? "?#{params}" : "")
       end
     end
   end
