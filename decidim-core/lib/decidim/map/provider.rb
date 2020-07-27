@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "decidim/map/provider/geoapify"
 require "decidim/map/provider/here"
 require "decidim/map/provider/osm"
 
