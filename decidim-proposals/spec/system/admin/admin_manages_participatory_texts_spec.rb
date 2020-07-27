@@ -19,12 +19,12 @@ describe "Admin manages participatory texts", type: :system do
   def visit_participatory_texts
     visit_component_admin
     find("#js-other-actions-wrapper a#participatory_texts").click
-    expect(page).to have_content "PREVIEW PARTICIPATORY TEXT"
+    expect(page).to have_content "Preview participatory text"
   end
 
   def import_document
     find("a#import-doc").click
-    expect(page).to have_content "ADD DOCUMENT"
+    expect(page).to have_content "Add document"
 
     fill_in_i18n(
       :import_participatory_text_title,
@@ -43,7 +43,7 @@ describe "Admin manages participatory texts", type: :system do
     attach_file :import_participatory_text_document, Decidim::Dev.asset("participatory_text.md")
     click_button "Upload document"
     expect(page).to have_content "The following sections have been converted to proposals. Now you can review and adjust them before publishing."
-    expect(page).to have_content "PREVIEW PARTICIPATORY TEXT"
+    expect(page).to have_content "Preview participatory text"
   end
 
   def validate_occurrences(sections: nil, subsections: nil, articles: nil)
@@ -91,15 +91,15 @@ describe "Admin manages participatory texts", type: :system do
   def save_participatory_text_drafts
     click_button "Save draft"
     expect(page).to have_content "Participatory text successfully updated."
-    expect(page).to have_content "PREVIEW PARTICIPATORY TEXT"
+    expect(page).to have_content "Preview participatory text"
   end
 
   def discard_participatory_text_drafts
-    page.accept_alert "Are you sure to discard the whole participatory text draft?" do
+    accept_confirm "Are you sure to discard the whole participatory text draft?" do
       click_link "Discard all"
     end
     expect(page).to have_content "All participatory text drafts have been discarded."
-    expect(page).to have_content "PREVIEW PARTICIPATORY TEXT"
+    expect(page).to have_content "Preview participatory text"
   end
 
   describe "importing participatory texts from a document" do

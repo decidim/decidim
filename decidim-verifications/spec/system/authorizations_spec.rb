@@ -20,8 +20,8 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
         find(".sign-in-link").click
 
         within "form.new_user" do
-          fill_in :user_email, with: user.email
-          fill_in :user_password, with: "password1234"
+          fill_in :session_user_email, with: user.email
+          fill_in :session_user_password, with: "password1234"
           find("*[type=submit]").click
         end
       end
@@ -50,8 +50,8 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
         find(".sign-in-link").click
 
         within "form.new_user" do
-          fill_in :user_email, with: user.email
-          fill_in :user_password, with: "password1234"
+          fill_in :session_user_email, with: user.email
+          fill_in :session_user_password, with: "password1234"
           find("*[type=submit]").click
         end
       end

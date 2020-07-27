@@ -1,5 +1,5 @@
 <%- @scope_picker_prompt = capture do %>
-  <div class="picker-prompt"><a href="<%= prompt_params[:url] %>"><%= prompt_params[:text] %></a></div>
+  <div class="picker-prompt"><a href="<%= prompt_params[:url] %>" role="button" aria-label="<%= t(".select_scope", current: prompt_params[:text]) %>"><%= prompt_params[:text] %></a></div>
 <% end %>
 
 <%- @scope_picker_values = capture do %>

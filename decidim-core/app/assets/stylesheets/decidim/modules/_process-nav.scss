@@ -96,7 +96,6 @@ $nav-border-width: 3px;
   margin: 0;
   color: var(--primary);
   background-color: rgba(var(--primary-rgb), .1);
-  text-transform: uppercase;
   font-weight: $global-weight-bold;
   font-size: rem-calc(14);
 
@@ -140,20 +139,14 @@ $nav-border-width: 3px;
 }
 
 .process-nav__link{
-  color: var(--primary);
   text-transform: uppercase;
+  color: var(--primary);
   font-weight: $global-weight-bold;
   display: flex;
   align-items: center;
 
   &:hover{
     text-decoration: underline;
-  }
-
-  &:focus{
-    background-color: $primary;
-    color: $white;
-    outline: none;
   }
 
   svg{

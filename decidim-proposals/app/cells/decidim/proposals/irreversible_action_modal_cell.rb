@@ -29,7 +29,7 @@ module Decidim
       end
 
       def modal_id
-        "#{action}-irreversible-action-modal"
+        @modal_id ||= "#{SecureRandom.uuid}-#{action}-irreversible-action-modal"
       end
 
       def button_reveal_modal

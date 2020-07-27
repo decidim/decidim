@@ -13,7 +13,7 @@ $order-border: $border;
   }
 
   a:focus{
-    outline: 2px solid $secondary;
+    outline: $anchor-outline-focus;
   }
 }
 

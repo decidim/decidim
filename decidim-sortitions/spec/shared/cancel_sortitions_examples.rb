@@ -26,7 +26,7 @@ shared_examples "cancel sortitions" do
             ca: "Motiu de cancelació"
           )
 
-          accept_alert { find("*[type=submit]").click }
+          accept_confirm { find("*[type=submit]").click }
         end
 
         expect(page).to have_admin_callout("successfully")
