@@ -1,13 +1,226 @@
 el:
   activemodel:
     attributes:
+      result:
+        decidim_accountability_status_id: Κατάσταση
+        decidim_category_id: Κατηγορία
+        decidim_scope_id: Πεδίο εφαρμογής
+        description: Περιγραφή
+        end_date: Ημερομηνία λήξης
+        progress: Πρόοδος
+        project_ids: Συμπεριλαμβανόμενα έργα
+        proposals: Συμπεριλαμβανόμενες προτάσεις
+        start_date: Ημερομηνία έναρξης
+        title: Τίτλος
+        updated_at: Ενημερώθηκε στις
       status:
+        description: Περιγραφή
+        key: Κλειδί
         name: Όνομα
+        progress: Πρόοδος
+      timeline_entry:
+        description: Περιγραφή
+        entry_date: Ημερομηνία
+    models:
+      decidim/accountability/proposal_linked_event: Η πρόταση περιλαμβάνεται σε ένα αποτέλεσμα
+      decidim/accountability/result_progress_updated_event: Η πρόοδος αποτελέσματος ενημερώθηκε
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Αποτέλεσμα
+        other: Αποτελέσματα
   decidim:
     accountability:
       actions:
+        confirm_destroy: Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το %{name};
+        destroy: Διαγραφή
+        edit: Επεξεργασία
+        new: Νέο %{name}
         preview: Προεπισκόπηση
+        timeline_entries: Αποτίμηση του έργου
+        title: Ενέργειες
+      admin:
+        exports:
+          results: Αποτελέσματα
+        models:
+          result:
+            name: Αποτέλεσμα
+          status:
+            name: Κατάσταση
+          timeline_entry:
+            name: Kαταχώρηση χρονολογίου
+        results:
+          create:
+            invalid: Προέκυψε ένα πρόβλημα κατά τη δημιουργία αυτού του αποτελέσματος
+            success: Το αποτέλεσμα δημιουργήθηκε με επιτυχία
+          destroy:
+            success: Το αποτέλεσμα διεγράφη με επιτυχία
+          edit:
+            title: Επεξεργασία αποτελέσματος
+            update: Ενημέρωση αποτελέσματος
+          form:
+            add_proposal: Προσθέστε πρόταση
+          index:
+            title: Αποτελέσματα
+          new:
+            create: Δημιουργία αποτελέσματος
+            title: Νέο αποτέλεσμα
+          proposals:
+            close: Κλείστε
+            current_selection: Τρέχουσα επιλογή
+            select: Επιλέξτε
+          update:
+            invalid: Προέκυψε ένα πρόβλημα κατά την ανανέωση αυτού του αποτελέσματος
+            success: Το αποτέλεσμα ανανεώθηκε με επιτυχία
+        shared:
+          subnav:
+            statuses: Καταστάσεις
+        statuses:
+          create:
+            invalid: Προέκυψε ένα πρόβλημα κατά τη δημιουργία αυτής της κατάστασης
+            success: Η κατάσταση δημιουργήθηκε με επιτυχία
+          destroy:
+            success: Η κατάσταση διεγράφη με επιτυχία
+          edit:
+            title: Επεξεργασία κατάστασης
+            update: Ενημέρωση κατάστασης
+          index:
+            title: Καταστάσεις
+          new:
+            create: Δημιουργία κατάστασης
+            title: Νέα κατάσταση
+          update:
+            invalid: Προέκυψε ένα πρόβλημα κατά την ανανέωση αυτής της κατάστασης
+            success: Η κατάσταση ανανεώθηκε με επιτυχία
+        timeline_entries:
+          create:
+            invalid: Προέκυψε ένα πρόβλημα κατά τη δημιουργία αυτής της καταχώρησης
+            success: Η καταχώρηση δημιουργήθηκε με επιτυχία
+          destroy:
+            success: Η καταχώρηση διεγράφη με επιτυχία
+          edit:
+            title: Επεξεργασία καταχώρησης
+            update: Ενημέρωση καταχώρησης
+          index:
+            title: Καταχωρήσεις χρονολογίου έργου
+          new:
+            create: Δημιουργία καταχώρησης
+            title: Νέα καταχώρηση
+          update:
+            invalid: Προέκυψε ένα πρόβλημα κατά την ανανέωση αυτής της καταχώρησης
+            success: Η καταχώρηση ανανεώθηκε με επιτυχία
+      admin_log:
+        result:
+          create: "%{user_name} σημιούργησε αποτέλεσμα %{resource_name} στο %{space_name}"
+          delete: "%{user_name} διέγραψε το %{resource_name} αποτέλεσμα στο %{space_name}"
+          update: "%{user_name} ανανέωσε το αποτέλεσμα %{resource_name} στο %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Το γονικό στοιχείο δεν βρέθηκε στη βάση (ID: %{id})'
+      last_activity:
+        new_result_at_html: "<span>Νέο αποτέλεσμα στο %{link}</span>"
       models:
+        result:
+          fields:
+            end_date: Ημερομηνία λήξης
+            progress: Πρόοδος
+            start_date: Ημερομηνία έναρξης
+            status: Κατάσταση
+            title: Τίτλος
         status:
           fields:
+            description: Περιγραφή
+            key: Κλειδί
             name: Όνομα
+            progress: Πρόοδος
+        timeline_entry:
+          fields:
+            description: Περιγραφή
+            entry_date: Ημερομηνία
+      results:
+        count:
+          results_count:
+            one: 1 αποτέλεσμα
+            other: "%{count} αποτελέσματα"
+        filters:
+          all: Όλες
+          scopes: Πεδία εφαρμογής
+        home:
+          categories_label: Κατηγορίες
+          subcategories_label: Υποκατηγορίες
+        home_header:
+          global_status: Καθολική κατάσταση εκτέλεσης
+        nav_breadcrumb:
+          global: Καθολική εκτέλεση
+        search:
+          search: Αναξήτηση για δράσεις
+        show:
+          stats:
+            attendees: Συμμετέχοντες
+            back_to_result: Επιστρέψτε στο αποτέλεσμα
+            comments: Σχόλια
+            contributions: Συνεισφορές
+            last_edited_by: Τελευταία επεξεργασία από
+            last_updated_at: Τελευταία ενημέρωση από
+            meetings: Συναντήσεις
+            number_of_versions: Εκδόσεις
+            proposals: Προτάσεις
+            show_all_versions: Εμφάνισε όλες τις εκδόσεις
+            version_author: Συντάκτης έκδοσης
+            version_created_at: Η έκδοση δημιουργήθηκε στις
+            version_number: Αριθμός έκδοσης
+            version_number_out_of_total: "%{current_version} από %{total_count}"
+            votes: Υποστηρίξεις
+        timeline:
+          title: Εξέλιξη έργου
+      versions:
+        index:
+          changes_at_title: Αλλαγές στο "%{title}"
+          title: Εκδόσεις
+        show:
+          changes_at_title: Αλλαγές στο "%{title}"
+        version:
+          version_index: Έκδοση %{index}
+    components:
+      accountability:
+        name: Ευθύνη
+        settings:
+          global:
+            categories_label: Όνομα για "Κατηγορίες"
+            comments_enabled: Σχόλια ενεργοποιημένα
+            display_progress_enabled: Εμφάνιση προόδου
+            heading_leaf_level_results: Όνομα για "Έργα"
+            heading_parent_level_results: Όνομα για "Αποτελέσματα"
+            intro: Εισαγωγή
+            subcategories_label: Όνομα για "Υποκατηγορίες"
+          step:
+            comments_blocked: Σχόλια απενεργοποιημένα
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Η πρόταση "%{proposal_title}" έχει ενταχθεί στα αποτελέσματά σας..Μπορείτε να την δείτε σε αυτή τη σελίδα:'
+          email_outro: Λάβατε αυτή την ειδοποίηση επειδή ακολουθείτε το "%{proposal_title}". Μπορείτε να σταματήσετε να λαμβάνετε ειδοποιήσεις ακολουθώντας τον προηγούμενο σύνδεσμο.
+          email_subject: Μία ενημέρωση για την %{proposal_title}
+          notification_title: Η πρόταση <a href="%{proposal_path}">%{proposal_title}</a> έχει συμπεριλιφθεί στο <a href="%{resource_path}">%{resource_title}</a> αποτέλεσμα.
+        result_progress_updated:
+          email_intro: 'Το αποτέλεσμα "%{resource_title}", το οποίο περιέχει την πρόταση "%{proposal_title}", είναι τώρα %{progress}% ολοκληρωμένο. Μπορείτε να το δείτε από αυτή τη σελίδα:'
+          email_outro: Λάβατε αυτή την ειδοποίηση επειδή ακολουθείτε το "%{proposal_title}" και αυτή η πρόταση περιέχεται στο αποτέλεσμα "%{resource_title}". Μπορείτε να σταματήσετε να λαμβάνετε ειδοποιήσεις ακολουθώντας τον προηγούμενο σύνδεσμο.
+          email_subject: Μία ανανέωση στην πρόοδο του %{resource_title} 
+          notification_title: Το αποτέλεσμα <a href="%{resource_path}">%{resource_title}</a>, το οποίο περιέχει την πρόταση <a href="%{proposal_path}">%{proposal_title}</a>, είναι τώρα %{progress}% ολοκληρωμένο.
+    metrics:
+      results:
+        description: Αριθμός αποτελεσμάτων που δημιουργήθηκαν
+        object: αποτελέσματα
+        title: Αποτελέσματα
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Αποτελέσματα
+    participatory_spaces:
+      highlighted_results:
+        see_all: Δείτε τα όλα (%{count})
+    resource_links:
+      included_projects:
+        result_project: Έργα που περιέχονται στα αποτελέσματα αυτά
+      included_proposals:
+        result_proposal: Προτάσεις που περιέχονται στα αποτελέσματα αυτά
