@@ -22,7 +22,7 @@ module Decidim
         end
 
         def geolocation_enabled?
-          Decidim.geocoder.present?
+          Decidim::Map.available?(:geocoding)
         end
 
         def meetings_directory_path

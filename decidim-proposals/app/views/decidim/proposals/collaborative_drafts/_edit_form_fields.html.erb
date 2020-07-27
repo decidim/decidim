@@ -30,7 +30,7 @@
   </div>
 <% end %>
 
-<% if component_settings.geocoding_enabled? %>
+<% if @form.geocoding_enabled? %>
   <div class="field">
     <%= form.check_box :has_address, checked: form_has_address? %>
   </div>
