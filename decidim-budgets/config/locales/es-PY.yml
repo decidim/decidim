@@ -121,10 +121,17 @@ es-PY:
           most_voted: Más votados
           random: Orden aleatorio
         project:
+          add: Añadir proyecto %{resource_name} a tu voto
           count:
             one: 1 apoyo
             other: "%{count} apoyos"
+          remove: Eliminar el proyecto %{resource_name} de tu voto
           view: Ver
+        project_budget_button:
+          add: Añadir a tu voto
+          add_descriptive: Añadir proyecto %{resource_name} a tu voto
+          added: Añadido a tu voto
+          added_descriptive: El proyecto %{resource_name} se ha añadido a tu voto
         show:
           budget: Presupuesto
           view_all_projects: Ver todos los proyectos
