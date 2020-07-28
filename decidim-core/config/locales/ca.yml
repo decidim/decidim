@@ -3,6 +3,8 @@ ca:
     attributes:
       account:
         delete_reason: Raó per eliminar el teu compte
+      common:
+        created_at: Creat el
       group:
         about: Quant a
         avatar: Avatar
@@ -72,6 +74,7 @@ ca:
       decidim_with_month_name_short: "%d %b"
   decidim:
     accessibility:
+      external_link: Enllaç extern
       logo: "Logo oficial de %{organization}"
       skip_button: Vés al contingut principal
     account:
@@ -150,6 +153,8 @@ ca:
         verify_via_csv: "%{user_name} ha verificat el grup %{resource_name} a través d'un fitxer CSV"
     admin_terms_of_use:
       default_body: "<h2>TERMES D'ÚS PER ADMINS</h2><p>Donem per fet que has rebut l'habitual explicació de l'administrador del sistema local. En general es redueix a aquestes tres coses:</p><ol><li>Respectar la privadesa dels altres.</li><li>Penseu abans de fer clic.</li><li>A un gran poder l'hi correspon gran responsabilitat.</li></ol>"
+    alert:
+      dismiss: Descartar notificació
     amendments:
       accepted:
         error: S'ha produït un error en acceptar l'esmena.
