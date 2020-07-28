@@ -236,6 +236,8 @@ it:
           label: 'Ordina le consultazioni per:'
           random: Casuale
           recent: Piu recente
+        show:
+          dates: Date
       content_blocks:
         highlighted_consultations:
           name: Consultazioni evidenziate
@@ -346,10 +348,12 @@ it:
         verification_required: Verifica il tuo account per votare
         vote: Votazione
       vote_modal:
+        close_modal: Chiudi modalità
         contextual_help: Per favore selezionate un'opzione.
         title: 'Consultazione: voto del quesito'
       vote_modal_confirm:
         change: Modificare
+        close_modal: Chiudi modalità
         confirm: Confermare
         contextual_help: Si prega di confermare l'opzione selezionata.
         title: 'Consultazione: conferma il supporto'
