@@ -22,5 +22,26 @@ module Decidim
         UnescapedHtmlFormatter.new(self, options).to_s
       end
     end
+
+    # The private "split" method SplitDiff needs to be overriden to take into
+    # account the new :unescaped_html format, and the fact that the tags
+    # <ins> <del> are not there anymore
+    Diffy::SplitDiff.module_eval do
+      private
+
+      def split
+        return [split_left, split_right] unless @format == :unescaped_html
+
+        [unescaped_split_left, unescaped_split_right]
+      end
+
+      def unescaped_split_left
+        @diff.gsub(%r{<li class="ins">([\s\S]*?)<\/li>}, "")
+      end
+
+      def unescaped_split_right
+        @diff.gsub(%r{<li class="del">([\s\S]*?)<\/li>}, "")
+      end
+    end
   end
 end

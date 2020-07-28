@@ -23,7 +23,16 @@ module Decidim
     # options - An optional hash of options
     #         * i18n_scope - The scope of the i18n translations
     def order_link(order, options = {})
-      link_to t("#{options[:i18n_scope]}.#{order}"), url_for(params.to_unsafe_h.merge(page: nil, order: order)), data: { order: order }, remote: true
+      i18n_scope = options.delete(:i18n_scope)
+
+      link_to(
+        t("#{i18n_scope}.#{order}"),
+        url_for(params.to_unsafe_h.merge(page: nil, order: order)),
+        {
+          data: { order: order },
+          remote: true
+        }.merge(options)
+      )
     end
   end
 end

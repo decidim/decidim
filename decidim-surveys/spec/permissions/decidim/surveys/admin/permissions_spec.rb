@@ -53,4 +53,28 @@ describe Decidim::Surveys::Admin::Permissions do
 
     it { is_expected.to eq true }
   end
+
+  context "when indexing a survey's answers" do
+    let(:action) do
+      { scope: :admin, action: :index, subject: :questionnaire_answers }
+    end
+
+    it { is_expected.to eq true }
+  end
+
+  context "when showing a participant's survey answers" do
+    let(:action) do
+      { scope: :admin, action: :show, subject: :questionnaire_answers }
+    end
+
+    it { is_expected.to eq true }
+  end
+
+  context "when exporting a participant's survey answers" do
+    let(:action) do
+      { scope: :admin, action: :export_response, subject: :questionnaire_answers }
+    end
+
+    it { is_expected.to eq true }
+  end
 end

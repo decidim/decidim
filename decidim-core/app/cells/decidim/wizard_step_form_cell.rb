@@ -42,7 +42,10 @@ module Decidim
 
     # Returns the list item of the given step, in HTML.
     def wizard_stepper_step(step)
-      content_tag(:li, wizard_step_name(step), class: wizard_step_classes(step))
+      attributes = { class: wizard_step_classes(step) }
+      attributes[:"aria-current"] = "step" if step == current_step
+
+      content_tag(:li, wizard_step_name(step), attributes)
     end
 
     # Returns the name of the step, translated

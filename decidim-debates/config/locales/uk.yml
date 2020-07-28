@@ -93,12 +93,13 @@ uk:
           filter: Відібрати
           filter_by: 'Відібрати за ознакою:'
           unfold: Розгорнути
+        form:
+          select_a_category: Будь ласка, виберіть категорію
         index:
           new_debate: Додати обговорення
         new:
           back: Повернутись
           create: Започаткувати
-          select_a_category: Будь ласка, виберіть категорію
           title: Додати обговорення
       models:
         debate:

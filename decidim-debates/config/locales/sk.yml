@@ -93,12 +93,13 @@ sk:
           filter: Filter
           filter_by: Filtrovať podľa
           unfold: Rozbaliť
+        form:
+          select_a_category: Vyberte kategóriu
         index:
           new_debate: Nová debata
         new:
           back: Späť
           create: Vytvoriť
-          select_a_category: Vyberte kategóriu
           title: Nová debata
         show:
           back: Späť na zoznam

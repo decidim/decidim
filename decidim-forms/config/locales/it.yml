@@ -25,11 +25,29 @@ it:
             description: Descrizione
             tos: Termini di servizio
         questionnaires:
+          actions:
+            back: Torna alle domande
+            show: Mostra risposte
           answer_option:
             answer_option: Opzione di risposta
             free_text: Testo libero
             remove: Rimuovere
             statement: dichiarazione
+          answers:
+            actions:
+              back: Torna alle risposte
+              export: Esporta
+              show: Mostra risposte
+            empty: Ancora nessuna risposta
+            export:
+              answer:
+                title: 'Risposta #%{number}'
+            export_response:
+              title: risposte_utente_sondaggio_%{token}
+            index:
+              title: "%{total} risposte totali"
+            show:
+              title: 'Risposta #%{number}'
           display_condition:
             answer_option: Opzione di risposta
             condition_question: Domanda
@@ -57,6 +75,9 @@ it:
             already_answered_warning: Alcuni utenti hanno già risposto al questionario, quindi non è possibile modificare le sue domande.
             collapse: Comprimi tutte le domande
             expand: Espandi tutte le domande
+            preview: Anteprima
+            title: Modificare il modulo
+            unpublished_warning: Il modulo non è pubblicato. Puoi modificare le sue domande, ma in questo modo cancellerai le risposte correnti.
           matrix_row:
             matrix_row: Riga
             remove: Rimuovere
@@ -127,6 +148,8 @@ it:
           questionnaire_js_disabled:
             body: Alcune caratteristiche di questo modulo saranno disabilitate. Per migliorare la tua esperienza, abilita JavaScript nel tuo browser.
             title: JavaScript è disabilitato
+          questionnaire_not_published:
+            body: Questo modulo non è stato ancora pubblicato.
           tos_agreement: Partecipando accetti i suoi Termini di servizio
       step_navigation:
         show:
@@ -135,9 +158,13 @@ it:
           continue: Continua
           submit: Invia
       user_answers_serializer:
+        body: Risposta
+        completion: Completamento
         created_at: Risposto
         id: ID risposta
         ip_hash: Hash Ip
+        question: Domanda
         registered: Registrato
+        session_token: Identificativo dell'utente
         unregistered: Non registrato
         user_status: Stato utente

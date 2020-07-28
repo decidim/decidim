@@ -20,15 +20,15 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
         find(".sign-in-link").click
 
         within "form.new_user" do
-          fill_in :user_email, with: user.email
-          fill_in :user_password, with: "password1234"
+          fill_in :session_user_email, with: user.email
+          fill_in :session_user_password, with: "password1234"
           find("*[type=submit]").click
         end
       end
 
       it "redirects the user to the authorization form after the first sign in" do
         fill_in "Document number", with: "123456789X"
-        page.execute_script("$('#authorization_handler_date_of_birth').focus()")
+        page.execute_script("$('#authorization_handler_birthday').focus()")
         page.find(".datepicker-dropdown .day", text: "12").click
 
         click_button "Send"
@@ -50,8 +50,8 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
         find(".sign-in-link").click
 
         within "form.new_user" do
-          fill_in :user_email, with: user.email
-          fill_in :user_password, with: "password1234"
+          fill_in :session_user_email, with: user.email
+          fill_in :session_user_password, with: "password1234"
           find("*[type=submit]").click
         end
       end
@@ -83,8 +83,8 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
         click_link "Example authorization"
 
         fill_in "Document number", with: "123456789X"
-        page.execute_script("$('#authorization_handler_date_of_birth').focus()")
-        page.find(".datepicker-dropdown .day", text: "12").click
+        page.execute_script("$('#authorization_handler_birthday').focus()")
+        page.find(".datepicker-dropdown .datepicker-days", text: "12").click
         click_button "Send"
 
         expect(page).to have_content("You've been successfully authorized")
@@ -108,8 +108,8 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
         click_link "Example authorization"
 
         fill_in "Document number", with: "12345678"
-        page.execute_script("$('#authorization_handler_date_of_birth').focus()")
-        page.find(".datepicker-dropdown .day", text: "12").click
+        page.execute_script("$('#authorization_handler_birthday').focus()")
+        page.find(".datepicker-dropdown .datepicker-days", text: "12").click
         click_button "Send"
 
         expect(page).to have_content("There was a problem creating the authorization.")

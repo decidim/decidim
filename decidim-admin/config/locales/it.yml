@@ -13,7 +13,7 @@ it:
         attachment_collection_id: Cartella
         description: Descrizione
         file: File
-        title: Titolo
+        title: Nome dell'allegato o immagine
       attachment_collection:
         description: Descrizione
         name: Nome
@@ -39,6 +39,7 @@ it:
         address: Server SMTP
         alert_color: Notifica
         badges_enabled: Abilita badge
+        comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
         cta_button_path: Percorso del pulsante Call To Action
         cta_button_text: Testo del pulsante Chiamata all'azione
         customize_welcome_notification: Personalizza la notifica di benvenuto
@@ -50,6 +51,8 @@ it:
         from: '"Da" indirizzo email'
         github_handler: Gestore di GitHub
         header_snippets: Frammenti di intestazione
+        highlight_alternative_color: Evidenziato, alternativa
+        highlight_color: In evidenza
         highlighted_content_banner_action_subtitle: Sottotitolo del pulsante di azione
         highlighted_content_banner_action_title: Titolo del pulsante di azione
         highlighted_content_banner_action_url: URL del pulsante di azione
@@ -292,6 +295,11 @@ it:
           welcome: Benvenuti nel pannello di amministrazione di Decidim.
       exports:
         export_as: "%{name} esporta come %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
         notice: Export in fase di elaborazione.  Riceverai un'email quando l'export sarà terminato.
       filters:
         category_id_eq:
@@ -318,6 +326,8 @@ it:
         search_placeholder:
           name_or_nickname_or_email_cont: Cerca %{collection} per email, nome o pseudonimo.
           title_cont: Cerca %{collection} per titolo.
+        state_eq:
+          label: Stato
       help_sections:
         error: Si è verificato un errore durante l'aggiornamento delle sezioni della guida
         form:
@@ -580,6 +590,7 @@ it:
           officialize: ufficializzare
           title: Utente ufficiale "%{name}"
         show_email_modal:
+          close_modal: Chiudi modalità
           description: Se hai bisogno di contattare un utente direttamente puoi fare clic sul pulsante Mostra per vedere l'indirizzo email. Questa azione verrà registrata.
           email_address: Indirizzo email
           full_name: Nome Completo

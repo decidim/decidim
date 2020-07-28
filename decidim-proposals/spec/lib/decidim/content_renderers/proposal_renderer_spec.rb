@@ -58,7 +58,7 @@ module Decidim
 
       def proposal_as_html_link(proposal)
         href = proposal_url(proposal)
-        title = proposal.title
+        title = translated(proposal.title)
         %(<a href="#{href}">#{title}</a>)
       end
     end

@@ -83,6 +83,7 @@ FactoryBot.define do
     questionnaire
     question { create(:questionnaire_question, questionnaire: questionnaire) }
     user { create(:user, organization: questionnaire.questionnaire_for.organization) }
+    session_token { Digest::MD5.hexdigest(user.id.to_s) }
   end
 
   factory :answer_option, class: "Decidim::Forms::AnswerOption" do

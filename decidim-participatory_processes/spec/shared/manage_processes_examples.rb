@@ -33,7 +33,7 @@ shared_examples "manage processes examples" do
       it "allows the user to edit the process_group" do
         click_link translated(process_group.name)
 
-        expect(page).to have_content("EDIT PROCESS GROUP")
+        expect(page).to have_content("Edit process group")
       end
 
       describe "listing processes filtered by group" do

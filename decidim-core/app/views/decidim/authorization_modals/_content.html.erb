@@ -17,8 +17,8 @@
   <% authorizations.statuses.each do |status| %>
     <% next if status.ok? || authorizations.global_code && status.code != base_code %>
     <p><%= t ".#{status.code}.explanation", authorization: t("#{status.handler_name}.name", scope: "decidim.authorization_handlers") %></p>
-    <% if status.data[:extra_explanation] %>
-      <p><%= t status.data[:extra_explanation][:key], **status.data[:extra_explanation][:params] %></p>
+    <% [status.data[:extra_explanation]].flatten.compact.each do |extra_explanation| %>
+      <p><%= t extra_explanation[:key], **extra_explanation[:params] %></p>
     <% end %>
     <% if status.data[:fields] %>
       <ul>

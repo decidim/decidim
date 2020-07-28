@@ -26,6 +26,7 @@ module Decidim
 
       has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id", dependent: :destroy
       has_many :invites, class_name: "Decidim::Meetings::Invite", foreign_key: "decidim_meeting_id", dependent: :destroy
+      has_many :services, class_name: "Decidim::Meetings::Service", foreign_key: "decidim_meeting_id", dependent: :destroy
       has_one :minutes, class_name: "Decidim::Meetings::Minutes", foreign_key: "decidim_meeting_id", dependent: :destroy
       has_one :agenda, class_name: "Decidim::Meetings::Agenda", foreign_key: "decidim_meeting_id", dependent: :destroy
 
@@ -175,6 +176,17 @@ module Decidim
         return false unless pad_is_visible?
 
         (Time.current - end_time) < 72.hours
+      end
+
+      def authored_proposals
+        Decidim::Proposals::Proposal
+          .joins(:coauthorships)
+          .where(
+            decidim_coauthorships: {
+              decidim_author_type: "Decidim::Meetings::Meeting",
+              decidim_author_id: id
+            }
+          )
       end
 
       # Public: Overrides the `reported_content_url` Reportable concern method.

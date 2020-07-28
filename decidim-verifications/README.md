@@ -97,7 +97,7 @@ Decidim implements two type of authorization methods:
   * `edit_authorization_path`: This is the entry point to resume an existing
     authorization process.
 
-* _Renewable authorizations_.  
+* _Renewable authorizations_.
   By default a participant can't renew its authorization, but this can be enabled when registering the workflow, the time between renewals can be configured (one day by default).
 
   Optionally to change the renew modal content part of the data stored, you can set a new value for the cell used to render the metadata.
@@ -169,8 +169,8 @@ process, and also restrict it to users with postal codes 12345 and 12346. The
 [example authorization handler](https://github.com/decidim/decidim/blob/master/decidim-generators/lib/decidim/generators/app_templates/dummy_authorization_handler.rb)
 included in this module allows to do that. As an admin user, you should visit
 the proposals componenent permissions screen, choose the `Example authorization`
-as the authorization handler name for the `vote` action and type something like
-`{ allowed_postal_codes: ["12345", "12346"] }` in the `Options` field placed below.
+as the authorization handler name for the `vote` action and enter "12345, 12346"
+in the `Allowed postal codes` field placed below.
 
 You can override default behavior implementing a class that inherits form
 `Decidim::Verifications::DefaultActionAuthorizer` and override some methods or that

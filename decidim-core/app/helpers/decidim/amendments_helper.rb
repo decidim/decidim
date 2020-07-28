@@ -127,7 +127,6 @@ module Decidim
     def amendments_form_field_for(attribute, form, original_resource)
       options = {
         class: "js-hashtags",
-        hashtaggable: true,
         label: amendments_form_fields_label(attribute),
         value: amendments_form_fields_value(original_resource, attribute)
       }
@@ -136,7 +135,7 @@ module Decidim
       when :title
         form.text_field(:title, options)
       when :body
-        text_editor_for(form, :body, options)
+        text_editor_for(form, :body, options.merge(hashtaggable: true))
       end
     end
 

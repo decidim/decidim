@@ -17,6 +17,18 @@ module Decidim
       options[:html] ||= {}
       options[:html].update(novalidate: true)
 
+      # Generally called by form_for but we need the :url option generated
+      # already before that.
+      #
+      # See:
+      # https://github.com/rails/rails/blob/master/actionview/lib/action_view/helpers/form_helper.rb#L459
+      if record.is_a?(ActiveRecord::Base)
+        object = record.is_a?(Array) ? record.last : record
+        format = options[:format]
+        apply_form_for_options!(record, object, options) if object
+        options[:format] = format if format
+      end
+
       output = ""
       output += base_error_messages(record).to_s
       output += form_for(record, options, &block).to_s
@@ -75,7 +87,7 @@ module Decidim
                          picker_options: picker_options,
                          prompt_params: prompt_params,
                          scopes: scopes,
-                         checkboxes_on_top: true)
+                         values_on_top: true)
       template.html_safe
     end
 
@@ -180,6 +192,17 @@ module Decidim
           prepend_slug_path
         ].join("").html_safe +
           content_tag(:span, value, class: "slug-url-value")
+      end
+    end
+
+    # Helper method to show an explanation for the form's required fields that
+    # are marked with an asterisk character. This improves the accessibility of
+    # the forms.
+    #
+    # Returns an HTML-safe String.
+    def form_required_explanation
+      content_tag(:div, class: "help-text help-text-form-required-fields") do
+        I18n.t("forms.required_explanation")
       end
     end
 

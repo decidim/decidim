@@ -48,6 +48,7 @@
             title: tittel
       posts:
         show:
+          back: Tilbake til listen
           comments: Kommentarer
           view: Vis
         sidebar_blog:

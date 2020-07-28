@@ -8,19 +8,19 @@
       <ul class="dropdown menu" data-dropdown-menu>
         <li class="is-dropdown-submenu-parent">
           <a id="diff-view-selected">
-            <%= t("versions.dropdown.option_escaped") %>
+            <%= t("versions.dropdown.option_unescaped") %>
           </a>
 
           <ul class="menu">
             <li>
-              <%= link_to "#escaped-html", class: "diff-view-html", id:"escaped-html" do %>
-                <%= t("versions.dropdown.option_escaped") %>
+              <%= link_to "#unescaped-html", class: "diff-view-html", id:"unescaped-html" do %>
+                <%= t("versions.dropdown.option_unescaped") %>
               <% end %>
             </li>
 
             <li>
-              <%= link_to "#unescaped-html", class: "diff-view-html", id:"unescaped-html" do %>
-                <%= t("versions.dropdown.option_unescaped") %>
+              <%= link_to "#escaped-html", class: "diff-view-html", id:"escaped-html" do %>
+                <%= t("versions.dropdown.option_escaped") %>
               <% end %>
             </li>
           </ul>

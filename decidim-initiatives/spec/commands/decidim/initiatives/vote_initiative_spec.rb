@@ -123,12 +123,11 @@ module Decidim
             create(:initiative_user_vote, initiative: initiative)
             create(:initiative_user_vote, initiative: initiative)
             create(:initiative_user_vote, initiative: initiative)
-            create(:initiative_user_vote, initiative: initiative)
           end
 
           it "notifies the admins" do
             expect(Decidim::EventsManager).to receive(:publish)
-              .with(kind_of(Hash))
+              .with(kind_of(Hash)).twice
 
             expect(Decidim::EventsManager)
               .to receive(:publish)
@@ -140,6 +139,28 @@ module Decidim
               )
 
             command.call
+          end
+
+          context "when more votes are added" do
+            before do
+              create(:initiative_user_vote, initiative: initiative)
+            end
+
+            it "doesn't notifies the admins" do
+              expect(Decidim::EventsManager).to receive(:publish)
+                .with(kind_of(Hash)).once
+
+              expect(Decidim::EventsManager)
+                .not_to receive(:publish)
+                .with(
+                  event: "decidim.events.initiatives.support_threshold_reached",
+                  event_class: Decidim::Initiatives::Admin::SupportThresholdReachedEvent,
+                  resource: initiative,
+                  followers: [admin]
+                )
+
+              command.call
+            end
           end
         end
 

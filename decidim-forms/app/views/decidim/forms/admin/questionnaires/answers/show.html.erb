@@ -1,0 +1,48 @@
+<div class="card" id="answers">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t ".title", number: current_idx %>
+      <div class="button--title">
+        <%= link_to_unless last?,  t("views.pagination.next").html_safe, next_url, rel: "next", class: "button tiny button--title next" %>
+      </div>
+      <div class="button--title">
+        <%= link_to_unless first?, t("views.pagination.previous").html_safe, prev_url, rel: "prev", class: "button tiny button--title prev" %>
+      </div>
+      <div class="button--title">
+        <%= link_to t("actions.export", scope: "decidim.forms.admin.questionnaires.answers"), questionnaire_export_response_url(@participant.session_token), class: "button tiny button--title export" %>
+        <%= link_to t("actions.back", scope: "decidim.forms.admin.questionnaires.answers"), questionnaire_participants_url, class: "button tiny button--title back" %>
+      </div>
+    </h2>
+  </div>
+  <div class="card-section">
+     <div class="table">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("session_token", scope: "decidim.forms.user_answers_serializer") %></th>
+            <th><%= t("user_status",   scope: "decidim.forms.user_answers_serializer") %></th>
+            <th><%= t("ip_hash",       scope: "decidim.forms.user_answers_serializer") %></th>
+            <th><%= t("completion",    scope: "decidim.forms.user_answers_serializer") %></th>
+            <th><%= t("created_at",    scope: "decidim.forms.user_answers_serializer") %></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @participant.session_token %></td>
+            <td><%= @participant.status %></td>
+            <td><%= @participant.ip_hash %></td>
+            <td><%= display_percentage(@participant.completion) %></td>
+            <td><%= l @participant.answered_at, format: :short %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <dl>
+      <% @participant.answers.each do |answer| %>
+        <dt><%= answer.question %></dt>
+        <dd><%= answer.body %></dd>
+      <% end %>
+    </dl>
+  </div>
+</div>

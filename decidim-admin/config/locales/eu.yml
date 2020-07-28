@@ -13,7 +13,6 @@ eu:
         attachment_collection_id: karpeta
         description: Descripción
         file: Fitxategia
-        title: Titulua
       attachment_collection:
         description: deskribapena
         name: izena

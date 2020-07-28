@@ -4,6 +4,8 @@ module Decidim
   module Amendable
     # a form object common for amendments
     class Form < Decidim::Form
+      include Decidim::TranslatableAttributes
+
       mimic :amendment
 
       def amendment
@@ -29,7 +31,7 @@ module Decidim
         return unless %w(title body).all? { |attr| attr.in? amendable_fields_as_string }
 
         emendation = amendable.class.new(emendation_params)
-        return unless amendable.title == emendation.title
+        return unless translated_attribute(amendable.title) == emendation.title
         return unless normalized_body(amendable) == normalized_body(emendation)
 
         amendable_form.errors.add(:title, :identical)
@@ -38,7 +40,8 @@ module Decidim
 
       # Normalizes the escape sequences used for newlines.
       def normalized_body(resource)
-        Decidim::ContentParsers::NewlineParser.new(resource.body, context: {}).rewrite
+        body = translated_attribute(resource.body)
+        Decidim::ContentParsers::NewlineParser.new(body, context: {}).rewrite
       end
 
       # Validates the emendation using the amendable form.
@@ -53,7 +56,8 @@ module Decidim
         emendation_params.each do |key, value|
           next unless [:title, :body].include?(key)
 
-          emendation_params[key] = Decidim::ContentParsers::HashtagParser.new(value, form_context).rewrite
+          clean_value = translated_attribute(value)
+          emendation_params[key] = Decidim::ContentParsers::HashtagParser.new(clean_value, form_context).rewrite
         end
       end
 

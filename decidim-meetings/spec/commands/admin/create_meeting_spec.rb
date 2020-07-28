@@ -102,7 +102,11 @@ module Decidim::Meetings
 
       it "sets the services" do
         subject.call
-        expect(meeting.services).to eq(services)
+
+        meeting.services.each_with_index do |service, index|
+          expect(service.title).to eq(services[index]["title"])
+          expect(service.description).to eq(services[index]["description"])
+        end
       end
 
       it "sets the questionnaire for registrations" do
@@ -122,18 +126,13 @@ module Decidim::Meetings
       end
 
       it "schedules a upcoming meeting notification job 48h before start time" do
-        expect(Decidim.traceability)
-          .to receive(:create!)
-          .and_return(instance_double(Meeting, id: 1, start_time: start_time, participatory_space: participatory_process))
-
         expect(UpcomingMeetingNotificationJob)
           .to receive(:generate_checksum).and_return "1234"
 
         expect(UpcomingMeetingNotificationJob)
           .to receive_message_chain(:set, :perform_later) # rubocop:disable RSpec/MessageChain
-          .with(set: start_time - 2.days).with(1, "1234")
-
-        allow(Decidim::EventsManager).to receive(:publish).and_return(true)
+          .with(set: start_time - 2.days)
+          .with(kind_of(Integer), "1234")
 
         subject.call
       end

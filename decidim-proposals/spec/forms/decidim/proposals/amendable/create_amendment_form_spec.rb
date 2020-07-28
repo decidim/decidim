@@ -33,7 +33,7 @@ module Decidim
       it_behaves_like "an amendment form"
 
       context "when the emendation doesn't change the amendable" do
-        let(:emendation_params) { { title: amendable.title, body: amendable.body } }
+        let(:emendation_params) { { title: translated(amendable.title), body: translated(amendable.body) } }
 
         it { is_expected.to be_invalid }
       end

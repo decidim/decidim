@@ -17,6 +17,7 @@ ca:
   decidim:
     comments:
       comments: Comentaris
+      comments_count: Número de comentaris
       last_activity:
         new_comment_at_html: "<span>Nou comentari a %{link}</span>"
       votes:
@@ -55,7 +56,7 @@ ca:
             does_not_belong: Conté activitat il·legal, amenaces de suïcidi, informació personal, o qualsevol altra cosa que creguis que no pertany a %{organization_name}.
             offensive: Conté racisme, sexisme, insults, atacs personals, amenaces de mort, peticions de suïcidi o qualsevol forma de discurs d'odi.
             spam: Conté "clickbait", publicitat o estafes.
-          title: Denúncia un problema
+          title: Notificar contingut inapropiat
         show_replies: Mostra %{replies_count} respostes
         single_comment_link_title: Aconsegueix l'enllaç al comentari
       comment_order_selector:
@@ -75,6 +76,10 @@ ca:
         single_comment_warning: 'Pots revisar la resta de comentaris a: <a href="%{url}">here</a>.'
         single_comment_warning_title: Estàs veient un sol comentari
         title: "%{count} comentaris"
+      down_vote_button:
+        text: No estic d'acord amb aquest comentari
+      up_vote_button:
+        text: Estic d'acord amb aquest comentari
     events:
       comments:
         comment_by_followed_user:
@@ -83,6 +88,8 @@ ca:
           email_subject: Hi ha un nou comentari de %{author_name} en %{resource_title}
           notification_title: Hi ha un nou comentari per <a href="%{author_path}">%{author_name} %{author_nickname}</a> a <a href="%{resource_path}">%{resource_title}</a>.
         comment_by_followed_user_group:
+          email_intro: '%{author_name} ha deixat un comentari a%{resource_title}. Pots llegir-lo en aquesta pàgina:'
+          email_outro: Reps aquesta notificació perquè segueixes a %{author_name}. Pots deixar de seguir aquest grup des de la seva pàgina de perfil.
           email_subject: Hi ha un nou comentari de %{author_name} en %{resource_title}
           notification_title: Hi ha un nou comentari per <a href="%{author_path}">%{author_name} %{author_nickname}</a> a <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:

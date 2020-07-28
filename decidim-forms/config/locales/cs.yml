@@ -25,11 +25,29 @@ cs:
             description: Popis
             tos: Podmínky služby
         questionnaires:
+          actions:
+            back: Zpět na otázky
+            show: Zobrazit odpovědi
           answer_option:
             answer_option: Možnost odpovědi
             free_text: Volný text
             remove: Odstranit
             statement: Prohlášení
+          answers:
+            actions:
+              back: Zpět na odpovědi
+              export: Export
+              show: Zobrazit odpovědi
+            empty: Zatím žádné odpovědi
+            export:
+              answer:
+                title: 'Odpověď č.%{number}'
+            export_response:
+              title: survey_user_answers_%{token}
+            index:
+              title: "%{total} odpovědí celkem"
+            show:
+              title: 'Odpověď č.%{number}'
           display_condition:
             answer_option: Možnost odpovědi
             condition_question: Otázka
@@ -57,6 +75,9 @@ cs:
             already_answered_warning: Dotazník již odpověděli někteří uživatelé, takže nemusíte upravovat své dotazy.
             collapse: Sbalit všechny úlohy
             expand: Rozbalit všechny otázky
+            preview: Náhled
+            title: Upravit formulář
+            unpublished_warning: Formulář není zveřejněn. Můžete změnit jeho otázky, ale tím odstraníte aktuální odpovědi.
           matrix_row:
             matrix_row: Řádek
             remove: Odstranit
@@ -127,6 +148,8 @@ cs:
           questionnaire_js_disabled:
             body: Některé funkce tohoto formuláře budou zakázány. Pro zlepšení použití formuláře povolte JavaScript ve vašem prohlížeči.
             title: JavaScript je zakázán
+          questionnaire_not_published:
+            body: Tento formulář zatím není zveřejněn.
           tos_agreement: Účastí přijímáte jeho smluvní podmínky
       step_navigation:
         show:
@@ -135,9 +158,13 @@ cs:
           continue: Pokračovat
           submit: Odeslat
       user_answers_serializer:
+        body: Odpověď
+        completion: Ukončení
         created_at: Zodpovězeno
         id: ID odpovědi
-        ip_hash: Ip Hash
+        ip_hash: IP Hash
+        question: Otázka
         registered: Registrován
+        session_token: Identifikátor uživatele
         unregistered: Neregistrovaný
         user_status: Stav uživatele

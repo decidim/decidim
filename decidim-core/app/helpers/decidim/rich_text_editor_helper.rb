@@ -14,6 +14,7 @@ module Decidim
         options[:lines] ||= 25
         form.editor attribute, options
       else
+        options.delete(:hashtaggable)
         options[:rows] ||= 10
         form.text_area attribute, options
       end

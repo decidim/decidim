@@ -10,7 +10,7 @@ module Decidim
       paths["lib/tasks"] = nil
 
       initializer "decidim_forms.admin_assets" do |app|
-        app.config.assets.precompile += %w(admin/decidim_forms_manifest.js)
+        app.config.assets.precompile += %w(admin/decidim_forms_manifest.js admin/decidim_forms_manifest.css)
       end
 
       def load_seed

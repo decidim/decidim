@@ -130,9 +130,13 @@ fi:
           select: Valitse, mitkä tiedot haluat kopioida
           title: Kopioi ryhmä
       assembly_imports:
+        create:
+          error: Ryhmän tuonti epäonnistui.
+          success: Ryhmän tuonti onnistui.
         new:
           import: Tuo
           select: Valitse, mitkä tiedot haluat tuoda
+          title: Tuo ryhmä
       assembly_members:
         create:
           error: Jäsenen lisääminen ryhmään epäonnistui.
@@ -283,6 +287,7 @@ fi:
         assembly_imports:
           form:
             document_legend: Lisää dokumentti
+            slug_help: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
         assembly_members:
           form:
             existing_user: Olemassa oleva käyttäjä

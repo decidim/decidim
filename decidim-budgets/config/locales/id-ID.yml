@@ -105,14 +105,9 @@ id:
             other: proyek yang dipilih
           view: Melihat
         project:
-          add: Menambahkan
           count:
             other: "%{count} mendukung"
-          remove: Menghapus
           view: Melihat
-        project_budget_button:
-          add: Menambahkan
-          added: Ditambahkan
         show:
           budget: Anggaran
           view_all_projects: Lihat semua proyek

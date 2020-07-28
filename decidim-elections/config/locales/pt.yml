@@ -1,1 +1,158 @@
 pt:
+  activemodel:
+    attributes:
+      answer:
+        description: Descrição
+        image: Imagem
+        proposals: Propostas relacionadas
+        title: Título
+      election:
+        description: Descrição
+        end_time: Votação termina às
+        start_time: Votação inicia-se às
+        subtitle: Subtítulo
+        title: Título
+      question:
+        description: Descrição
+        max_selections: Número máximo de seleções
+        title: Título
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Necessita de ser recolocado
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Resposta
+        other: Respostas
+      decidim/elections/election:
+        one: Eleição
+        other: Eleições
+      decidim/elections/question:
+        one: Pergunta
+        other: Perguntas
+  decidim:
+    components:
+      elections:
+        actions:
+          vote: Votar
+        name: Eleições
+        settings:
+          global:
+            announcement: Anúncio
+          step:
+            announcement: Anúncio
+    elections:
+      actions:
+        confirm_destroy: Tem a certeza?
+        destroy: Destruir
+        edit: Editar
+        edit_answers: Editar respostas
+        edit_questions: Editar perguntas
+        import: Importar propostas para perguntas
+        new: Novo %{name}
+        preview: Pré-visualizar
+        publish: Publicar
+        title: Ações
+        unpublish: Remover publicação
+      admin:
+        answers:
+          create:
+            invalid: Ocorreu um problema ao criar esta resposta
+            success: Resposta criada corretamente
+          destroy:
+            invalid: Ocorreu um problema ao eliminar esta resposta
+            success: Resposta eliminada corretamente
+          edit:
+            title: Editar resposta
+            update: Atualizar resposta
+          index:
+            title: Respostas
+          new:
+            create: Criar resposta
+            title: Nova resposta
+          update:
+            invalid: Ocorreu um problema ao atualizar esta resposta
+            success: Resposta atualizada corretamente
+        elections:
+          create:
+            invalid: Ocorreu um problema ao criar esta eleição
+            success: Eleição criada corretamente
+          destroy:
+            invalid: Ocorreu um problema ao eliminar esta eleição
+            success: Eleição eliminada corretamente
+          edit:
+            title: Editar eleição
+            update: Atualizar eleição
+          index:
+            title: Eleições
+          new:
+            create: Criar eleição
+            title: Nova eleição
+          publish:
+            success: A eleição foi publicada corretamente.
+          unpublish:
+            success: Remoção da publicação da eleição feita corretamente.
+          update:
+            invalid: Ocorreu um problema ao atualizar esta eleição
+            success: Eleição atualizada corretamente
+        models:
+          answer:
+            name: Resposta
+          election:
+            name: Eleição
+          question:
+            name: Pergunta
+        proposals_imports:
+          create:
+            invalid: Ocorreu um problema ao importar as propostas em respostas
+            success: "%{number} propostas importadas corretamente em respostas"
+          new:
+            create: Importar propostas para perguntas
+            no_components: Não há outros componentes de propostas neste espaço participativo para importar as propostas em respostas.
+            select_component: Selecione um componente
+        questions:
+          create:
+            invalid: Ocorreu um problema ao criar esta pergunta
+            success: Pergunta criada corretamente
+          destroy:
+            invalid: Ocorreu um problema ao eliminar esta pergunta
+            success: Pergunta eliminada corretamente
+          edit:
+            title: Editar pergunta
+            update: Atualizar pergunta
+          index:
+            title: Perguntas
+          new:
+            create: Criar pergunta
+            title: Nova pergunta
+          update:
+            invalid: Ocorreu um problema ao atualizar esta pergunta
+            success: Pergunta atualizada corretamente
+      models:
+        answer:
+          fields:
+            proposals: Propostas
+            title: Título
+        election:
+          fields:
+            end_time: Termina às
+            start_time: Inicia às
+            title: Título
+        question:
+          fields:
+            answers: Respostas
+            max_selections: Máx. de seleções
+            title: Título
+    events:
+      elections:
+        election_published:
+          email_intro: 'A eleição %{resource_title} está agora ativa em %{participatory_space_title}. Pode vê-la a partir da página:'
+          email_outro: Recebeu esta notificação porque segue %{participatory_space_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
+          email_subject: A eleição %{resource_title} está agora ativa em %{participatory_space_title}.
+          notification_title: A eleição <a href="%{resource_path}">%{resource_title}</a> está agora ativa em %{participatory_space_title}.
+    participatory_processes:
+      statistics:
+        elections_count: Eleições

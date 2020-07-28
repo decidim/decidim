@@ -63,7 +63,7 @@ module Decidim
 
         it "renders a hidden field and a container for the editor" do
           expect(parsed.css(".editor input[type='hidden'][name='resource[slug]']")).not_to be_empty
-          expect(parsed.css(".editor label[for='resource_slug']")).not_to be_empty
+          expect(parsed.css(".editor label")).not_to be_empty
           expect(parsed.css(".editor .editor-container[data-toolbar='basic']")).not_to be_empty
         end
       end
@@ -75,7 +75,7 @@ module Decidim
 
         it "renders a hidden field and a container for the editor" do
           expect(parsed.css(".editor input[type='hidden'][name='resource[slug]']")).not_to be_empty
-          expect(parsed.css(".editor label[for='resource_slug']")).not_to be_empty
+          expect(parsed.css(".editor label")).not_to be_empty
           expect(parsed.css(".editor .editor-container[data-toolbar='full']")).not_to be_empty
         end
       end
@@ -154,7 +154,7 @@ module Decidim
 
           it "renders a single input and a container for the editor" do
             expect(parsed.css(".editor input[type='hidden'][name='resource[short_description_en]']")).not_to be_empty
-            expect(parsed.css(".editor label[for='resource_short_description_en']")).not_to be_empty
+            expect(parsed.css(".editor label")).not_to be_empty
             expect(parsed.css(".editor .editor-container")).not_to be_empty
           end
         end
@@ -166,7 +166,7 @@ module Decidim
         end
 
         it "renders a tabbed input hidden for each field and a container for the editor" do
-          expect(parsed.css("label[for='resource_short_description']")).not_to be_empty
+          expect(parsed.css("label")).not_to be_empty
 
           expect(parsed.css("li.tabs-title a").count).to eq 3
           expect(parsed.css(".editor.hashtags__container").count).to eq 3
@@ -186,7 +186,7 @@ module Decidim
           it "renders a single input and a container for the editor" do
             expect(parsed.css(".editor-container.js-hashtags").count).to eq 1
             expect(parsed.css(".editor input[type='hidden'][name='resource[short_description_en]']")).not_to be_empty
-            expect(parsed.css(".editor label[for='resource_short_description_en']")).not_to be_empty
+            expect(parsed.css(".editor label")).not_to be_empty
             expect(parsed.css(".editor .editor-container")).not_to be_empty
           end
         end
@@ -445,7 +445,6 @@ module Decidim
 
         it "adds a pattern" do
           expect(parsed.css("input[pattern='^(.|[\n\r]){150,}$']")).not_to be_empty
-          expect(output).not_to include("minlength")
         end
       end
 

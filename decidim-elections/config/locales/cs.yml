@@ -22,13 +22,28 @@ cs:
           attributes:
             attachment:
               needs_to_be_reattached: Potřebuje být znovu připojen
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Odpověď
+        few: Odpovědí
+        many: Odpovědí
+        other: Odpovědi
+      decidim/elections/election:
+        one: Volby
+        few: Voleb
+        many: Voleb
+        other: Volby
+      decidim/elections/question:
+        one: Otázka
+        few: Otázek
+        many: Otázek
+        other: Otázek
   decidim:
-    admin_log:
-      election:
-        publish: "%{user_name} zveřejnil volby %{resource_name}"
-        unpublish: "%{user_name} zrušil zveřejnění volby %{resource_name}"
     components:
       elections:
+        actions:
+          vote: Hlasovat
         name: Volby
         settings:
           global:
@@ -122,6 +137,10 @@ cs:
           update:
             invalid: Při aktualizaci této otázky došlo k chybě
             success: Otázka byla úspěšně aktualizována
+      admin_log:
+        election:
+          publish: "%{user_name} zveřejnil volby %{resource_name}"
+          unpublish: "%{user_name} zrušil zveřejnění volby %{resource_name}"
       models:
         answer:
           fields:

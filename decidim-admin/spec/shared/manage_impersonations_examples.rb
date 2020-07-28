@@ -39,7 +39,7 @@ shared_examples "manage impersonations examples" do
       let(:document_number) { "123456789Y" }
 
       it "shows the errors in the form" do
-        expect(page).to have_selector("label", text: "Document number*\nis invalid")
+        expect(page).to have_selector("label", text: "Document number*\nRequired field\nis invalid")
       end
     end
 
@@ -245,9 +245,9 @@ shared_examples "manage impersonations examples" do
       visit last_email_link
 
       within "form.new_user" do
-        fill_in :user_password, with: "123456"
-        fill_in :user_password_confirmation, with: "123456"
-        check :user_tos_agreement
+        fill_in :invitation_user_password, with: "123456"
+        fill_in :invitation_user_password_confirmation, with: "123456"
+        check :invitation_user_tos_agreement
         find("*[type=submit]").click
       end
 

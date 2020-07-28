@@ -12,7 +12,7 @@ FactoryBot.define do
   end
 
   factory :survey, class: "Decidim::Surveys::Survey" do
-    questionnaire { build(:questionnaire) }
+    questionnaire { build(:questionnaire, :with_questions) }
     component { build(:surveys_component) }
   end
 end

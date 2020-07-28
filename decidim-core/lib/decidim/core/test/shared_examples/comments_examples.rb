@@ -17,12 +17,12 @@ shared_examples "comments" do
     visit resource_path
 
     expect(page).to have_selector("#comments")
-    expect(page).to have_selector("article.comment", count: comments.length)
+    expect(page).to have_selector(".comment", count: comments.length)
 
     within "#comments" do
       comments.each do |comment|
         expect(page).to have_content comment.author.name
-        expect(page).to have_content comment.body
+        expect(page).to have_content comment.body.values.first
       end
     end
   end
@@ -38,7 +38,13 @@ shared_examples "comments" do
     expect(page).to have_css(".comment", minimum: 1)
     page.find(".order-by .dropdown.menu .is-dropdown-submenu-parent").hover
 
-    click_link "Best rated"
+    within ".comments" do
+      within ".order-by__dropdown" do
+        click_link "Older" # Opens the dropdown
+        click_link "Best rated"
+      end
+    end
+
     expect(page).to have_css(".comments > div:nth-child(2)", text: "Most Rated Comment")
   end
 
@@ -57,6 +63,35 @@ shared_examples "comments" do
 
     it "shows form to add comments to user" do
       expect(page).to have_selector(".add-comment form")
+    end
+
+    context "when no default comments length specified" do
+      it "displays the numbers of characters left" do
+        within ".add-comment form" do
+          expect(page).to have_content("1000 characters left")
+        end
+      end
+    end
+
+    context "when organization has a default comments length params" do
+      let!(:organization) { create(:organization, comments_max_length: 2000) }
+
+      it "displays the numbers of characters left" do
+        within ".add-comment form" do
+          expect(page).to have_content("2000 characters left")
+        end
+      end
+
+      context "when component has a default comments length params" do
+        it "displays the numbers of characters left" do
+          component.update!(settings: { comments_max_length: 3000 })
+          visit current_path
+
+          within ".add-comment form" do
+            expect(page).to have_content("3000 characters left")
+          end
+        end
+      end
     end
 
     context "when user adds a new comment" do

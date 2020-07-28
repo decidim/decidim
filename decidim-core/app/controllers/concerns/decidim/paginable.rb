@@ -10,7 +10,7 @@ module Decidim
     OPTIONS = [20, 50, 100].freeze
 
     included do
-      helper_method :per_page
+      helper_method :per_page, :page_offset
       helper Decidim::PaginateHelper
 
       def paginate(resources)
@@ -19,6 +19,10 @@ module Decidim
 
       def per_page
         params[:per_page] || OPTIONS.first
+      end
+
+      def page_offset
+        [params[:page].to_i - 1, 0].max * per_page
       end
     end
   end

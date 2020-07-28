@@ -83,6 +83,7 @@ it:
           global:
             announcement: Annuncio
             comments_enabled: Commenti abilitati
+            comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
             creation_enabled_for_participants: I partecipanti possono creare riunioni
             default_registration_terms: Termini di registrazione predefiniti
             enable_pads_creation: Abilita la creazione di pad
@@ -158,6 +159,10 @@ it:
         confirm_destroy: Sei certo di voler cancellare questo meeting?
         destroy: Cancella
         edit: Modifica
+        invalid_destroy:
+          proposals_count:
+            one: 'La riunione non può essere annullata perché ha %{count} proposta ad essa associata:'
+            other: 'La riunione non può essere annullata perché ha %{count} proposte associate:'
         minutes: Minuti
         new: Nuovo incontro
         preview: Anteprima
@@ -236,6 +241,10 @@ it:
             invalid: C'è stato un problema durante la creazione di questo meeting.
             success: OK, il meeting è stato creato con successo.
           destroy:
+            invalid:
+              proposals_count:
+                one: La riunione non può essere annullata perché ha %{count} proposta ad essa associata
+                other: La riunione non può essere annullata perché ha %{count} proposte associate
             success: OK, il meeting è stato cancellato.
           edit:
             update: Modifica

@@ -68,8 +68,9 @@
 
 .definition-data__title{
   display: block;
-  text-transform: uppercase;
   font-size: 85%;
+  letter-spacing: .01em;
+  text-transform: uppercase;
   line-height: 1;
   margin-bottom: .25rem;
   color: $muted;

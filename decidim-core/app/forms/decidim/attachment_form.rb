@@ -10,5 +10,6 @@ module Decidim
     mimic :attachment
 
     validates :title, presence: true, if: ->(form) { form.file.present? }
+    validates :file, file_size: { less_than_or_equal_to: ->(_attachment) { Decidim.maximum_attachment_size } }
   end
 end

@@ -13,7 +13,6 @@ fi-pl:
         attachment_collection_id: Kansio
         description: Kuvaus
         file: Tiedosto
-        title: Otsikko
       attachment_collection:
         description: Kuvaus
         name: Nimi
@@ -39,6 +38,7 @@ fi-pl:
         address: SMTP-palvelimen osoite
         alert_color: Ilmoitus
         badges_enabled: Ota kunniamerkit käyttöön
+        comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
         cta_button_path: Call To Action -painikkeen polku
         cta_button_text: Call To Action -painikkeen teksti
         customize_welcome_notification: Muokkaa tervetuloilmoitusta
@@ -292,6 +292,11 @@ fi-pl:
           welcome: Tervetuloa Decidimin hallintapaneeliin.
       exports:
         export_as: "%{name} muodossa %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
         notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
       filters:
         category_id_eq:

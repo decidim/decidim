@@ -26,5 +26,5 @@ pt:
             save: Atualizar
             title: Editar página
           update:
-            invalid: Ocorreu erros ao salvar a página.
-            success: Página salva com sucesso.
+            invalid: Ocorreu um problema ao guardar a página.
+            success: Página guardada corretamente.

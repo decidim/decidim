@@ -17,8 +17,12 @@ module Decidim
         present(model).title
       end
 
+      def body
+        decidim_sanitize(present(model).description)
+      end
+
       def description
-        present(model).description(strip_tags: true)
+        strip_tags(body).truncate(200, separator: /\s/)
       end
 
       def resource_icon

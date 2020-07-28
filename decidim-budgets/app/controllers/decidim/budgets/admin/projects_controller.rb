@@ -5,7 +5,10 @@ module Decidim
     module Admin
       # This controller allows an admin to manage projects from a Participatory Process
       class ProjectsController < Admin::ApplicationController
-        helper_method :projects, :finished_orders, :pending_orders
+        include Decidim::ApplicationHelper
+        include Decidim::Proposals::Admin::Picker
+
+        helper_method :projects, :finished_orders, :pending_orders, :present
 
         def new
           enforce_permission_to :create, :project
