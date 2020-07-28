@@ -80,6 +80,8 @@ MAPS_API_KEY=your_api_key_here
 
 Use the following configuration for Open Street Maps based service providers:
 
+`config/initializers/decidim.rb`:
+
 ```ruby
 # Map and Geocoder configuration
 # == OpenStreetMap (OSM) services ==
