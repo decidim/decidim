@@ -55,20 +55,90 @@ el:
         birthday: Γενέθλια
         birthplace: Τόπος γέννησης
         ceased_date: Ημερομηνία παύσης
+        designation_date: Hμερομηνία προσδιορισμού
+        designation_mode: Λειτουργία προσδιορισμού
+        full_name: Πλήρες όνομα
+        gender: Φύλο
+        position: Θέση
       assembly_user_role:
         email: Email
         name: Όνομα
+        role: Ρόλος
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Συνέλευση
+        other: Συνελεύσεις
+      decidim/assembly_member:
+        one: Μέλος συνέλευσης
+        other: Μέλη συνέλευσης
+      decidim/assembly_user_role:
+        one: Ρόλος μέλους συνέλευσης
+        other: Ρόλοι μέλους συνέλευσης
   decidim:
     admin:
+      actions:
+        new_assembly: Νέα συνέλευση
+        new_assembly_type: Νέος τύπος συνέλευσης
       assemblies:
+        create:
+          error: Υπήρξε πρόβλημα στη δημιουργία μίας νέας συνέλευσης.
+          success: Η συνέλευση δημιουργήθηκε με επιτυχία.
+        edit:
+          update: Ενημέρωση
+        index:
+          not_published: Μη δημοσιευμένο
+          private: Ιδιωτικό
+          public: Δημόσιο
+          published: Δημοσιευμένο
         new:
           create: Δημιουργία
+          title: Νέα συνέλευση
+        update:
+          error: Υπήρξε ένα πρόβλημα κατά την ανανέωση της συνέλευσης.
+          success: Η συνέλευση ενημερώθηκε επιτυχώς.
+      assemblies_copies:
+        create:
+          error: Υπήρξε ένα πρόβλημα κατά την αντιγραφή της συνέλευσης.
+          success: Η συνέλευση αντιγράφηκε επιτυχώς.
+      assemblies_settings:
+        update:
+          error: Προέκυψε ένα πρόβλημα κατά την ενημέρωση των ρυθμίσεων.
+          success: Οι ρυθμίσεις ενημερώθηκαν επιτυχώς.
       assemblies_types:
+        create:
+          error: Προέκυψε ένα πρόβλημα κατά την δημιουργία ενός νέου τύπου συνέλευσης.
+          success: Ο τύπος συνέλευσης δημιουργήθηκε με επιτυχία.
+        destroy:
+          success: Ο τύπος συνέλευσης διεγράφη επιτυχώς.
         new:
           create: Δημιουργία
+          title: Νέος τύπος συνέλευσης
+        update:
+          error: Προέκυψε ένα πρόβλημα κατά την ενημέρωση αυτού του τύπου συνέλευσης.
+          success: Ο τύπος συνέλευσης ενημερώθηκε επιτυχώς.
+      assembly_copies:
+        new:
+          copy: Αντιγραφή
+          select: Επιλέξετε ποιά δεδομένα θα θέλατε να διπλοτυπήσετε
+          title: Αντιγραφή συνέλευσης
       assembly_members:
+        create:
+          error: Παρουσιάστηκε πρόβλημα κατά την προσθήκη μέλους σε αυτή τη συνέλευση.
+          success: Το μέλος δημιουργήθηκε επιτυχώς για αυτή τη συνέλευση.
+        destroy:
+          success: Το μέλος διεγράφη επιτυχώς από αυτή τη συνέλευση.
+        edit:
+          title: Ενημέρωση μέλους συνέλευσης.
+          update: Ενημέρωση
+        index:
+          assembly_members_title: Μέλη συνέλευσης
         new:
           create: Δημιουργία
+          title: Νέο μέλος συνέλευσης.
+        update:
+          error: Παρουσιάστηκε πρόβλημα κατά την ενημέρωση του μέλους για αυτή τη συνέλευση.
+          success: Το μέλος ενημερώθηκε επιτυχώς για αυτή τη συνέλευση.
       assembly_publications:
         create:
           error: Υπήρξε ένα πρόβλημα κατά τη δημοσίευση της συνέλευσης.
@@ -212,10 +282,79 @@ el:
         scope: Πεδίο εφαρμογής
         social_networks: Κοινωνικά Δίκτυα
         social_networks_title: Μοιραστείτε αυτή τη συνέλευση στο
+        target: Ποιός συμμετέχει
       statistics:
+        answers_count: Απαντήσεις
+        assemblies_count: Συνελεύσεις
+        comments_count: Σχόλια
+        debates_count: Δημόσιες συζητήσεις
+        endorsements_count: Επιδοκιμασίες
+        headline: Δραστηριότητα
+        meetings_count: Συναντήσεις
+        orders_count: Υποστηρίξεις
+        pages_count: Σελίδες
+        posts_count: Αναρτήσεις
+        projects_count: Έργα
+        proposals_count: Προτάσεις
+        results_count: Αποτελέσματα
+        surveys_count: Έρευνες
         users_count: Συμμετέχοντες
+        votes_count: Υποστηρίξεις
+    assembly_members:
+      assembly_member:
+        designated_on: Προσδιορισμός σε
+      index:
+        title: Μέλη
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Σύνδεσμος προς τη σελίδα Συνδιασκέψεων όπου εμφανίζονται όλες οι συνδιασκέψεις
+    help:
+      participatory_spaces:
+        assemblies:
+          title: Τί είναι οι συνελεύσεις;
+    menu:
+      assemblies: Συνελεύσεις
+    metrics:
+      assemblies:
+        description: Αριθμός συνελεύσεων που δημιουργήθηκαν
+        object: συνελεύσεις
+        title: Συνελεύσεις
+    pages:
+      home:
+        hero:
+          participate_title: Συμμετάσχετε στις διαδικασίες της πλατφόρμας
+        sub_hero:
+          register_title: Εγγραφείτε για να δημιουργήσετε ένα λογαριασμό στην πλατφόρμα
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Σύνδεσμος προς τη σελίδα Διαδικασιών όπου εμφανίζονται όλες οι διαδικασίες
+      show:
+        related_assemblies: Συσχετισμένες συνελεύσεις
+  errors:
+    messages:
+      cannot_be_blank: δεν μπορεί να είναι κενό
   layouts:
     decidim:
+      assemblies:
+        assembly:
+          more_info: Περισσότερες πληροφορίες
+          take_part: Πάρτε μέρος
+        index:
+          children: 'Συνελεύσεις: '
+          organizational_chart: Οργανωτικός χάρτης
+          promoted_assemblies: Επισημασμένες συνελεύσεις
+          reset_chart: Επαναφορά
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} συνελεύσεις"
+            other: "%{count} συνελεύσεις"
+        promoted_assembly:
+          more_info: Περισσότερες πληροφορίες
+          take_part: Πάρτε μέρος
       assembly_navigation:
         assembly_member_menu_item: Μέλη
         assembly_menu_item: Η συνέλευση
