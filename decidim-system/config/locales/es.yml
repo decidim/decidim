@@ -65,6 +65,7 @@ es:
         omniauth_settings:
           decidim:
             client_id: ID del cliente
+            client_secret: Secreto del cliente
             site_url: URL del sitio web
           enabled: Habilitado
           enabled_by_default: Este proveedor está habilitado por defecto. Se puede editar pero no se puede desactivar.
