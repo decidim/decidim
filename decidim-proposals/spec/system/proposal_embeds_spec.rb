@@ -15,7 +15,7 @@ describe "Proposal embeds", type: :system do
     end
 
     it "renders the page correctly" do
-      expect(page).to have_content(proposal.title)
+      expect(page).to have_content(translated(proposal.title))
       expect(page).to have_content(organization.name)
     end
 

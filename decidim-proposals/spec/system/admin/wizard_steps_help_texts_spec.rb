@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
-shared_examples "manage proposal wizard steps help texts" do
+require "spec_helper"
+
+describe "Manage proposal wizard steps help texts", type: :system do
+  include_context "when admin manages proposals"
+
   before do
     current_component.update!(
       step_settings: {

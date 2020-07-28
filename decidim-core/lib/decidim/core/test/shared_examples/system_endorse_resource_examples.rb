@@ -12,6 +12,7 @@ shared_context "with resources to be endorsed or not" do
   # Should be overriden and create 3 extra resources in the current component
   let!(:resources) {}
 end
+
 shared_examples "Endorse resource system specs" do
   def expect_page_not_to_include_endorsements
     expect(page).to have_no_button("Endorse")

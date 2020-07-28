@@ -51,7 +51,7 @@ describe "Admin edits proposals", type: :system do
       it "doesn't let the user edit it" do
         visit_component_admin
 
-        expect(page).to have_content(proposal.title)
+        expect(page).to have_content(translated(proposal.title))
         expect(page).to have_no_css("a.action-icon--edit-proposal")
         visit current_path + "proposals/#{proposal.id}/edit"
 
@@ -66,7 +66,7 @@ describe "Admin edits proposals", type: :system do
     it "renders an error" do
       visit_component_admin
 
-      expect(page).to have_content(proposal.title)
+      expect(page).to have_content(translated(proposal.title))
       expect(page).to have_no_css("a.action-icon--edit-proposal")
       visit current_path + "proposals/#{proposal.id}/edit"
 

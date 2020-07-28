@@ -16,6 +16,8 @@ describe "Proposals", type: :system do
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
 
+  let(:proposal_title) { translated(proposal.title) }
+
   before do
     stub_geocoding(address, [latitude, longitude])
   end
@@ -38,16 +40,15 @@ describe "Proposals", type: :system do
     end
 
     let!(:proposals) { create_list(:proposal, 3, component: component) }
+    let!(:proposal) { proposals.first }
 
     it "allows viewing a single proposal" do
-      proposal = proposals.first
-
       visit_component
 
-      click_link proposal.title
+      click_link proposal_title
 
-      expect(page).to have_content(proposal.title)
-      expect(page).to have_content(strip_tags(proposal.body).strip)
+      expect(page).to have_content(proposal_title)
+      expect(page).to have_content(strip_tags(translated(proposal.body)).strip)
       expect(page).to have_author(proposal.creator_author.name)
       expect(page).to have_content(proposal.reference)
       expect(page).to have_creation_date(I18n.l(proposal.published_at, format: :decidim_short))
@@ -58,7 +59,7 @@ describe "Proposals", type: :system do
 
       it "can be filtered by scope" do
         visit_component
-        click_link proposal.title
+        click_link proposal_title
         expect(page).to have_content(translated(scope.name))
       end
     end
@@ -69,7 +70,7 @@ describe "Proposals", type: :system do
 
       it "does not show the scope name" do
         visit_component
-        click_link proposal.title
+        click_link proposal_title
         expect(page).to have_no_content(translated(scope.name))
       end
     end
@@ -77,10 +78,11 @@ describe "Proposals", type: :system do
     context "when it is an official proposal" do
       let(:content) { generate_localized_title }
       let!(:official_proposal) { create(:proposal, :official, body: content, component: component) }
+      let!(:official_proposal_title) { translated(official_proposal.title) }
 
       before do
         visit_component
-        click_link official_proposal.title
+        click_link official_proposal_title
       end
 
       it "shows the author as official" do
@@ -96,7 +98,7 @@ describe "Proposals", type: :system do
       before do
         organization.update(rich_text_editor_in_public_views: true)
         visit_component
-        click_link proposal.title
+        click_link proposal_title
       end
 
       it_behaves_like "rendering safe content", ".columns.mediumlarge-8.large-9"
@@ -107,7 +109,7 @@ describe "Proposals", type: :system do
 
       before do
         visit_component
-        click_link proposal.title
+        click_link proposal_title
       end
 
       it_behaves_like "rendering unsafe content", ".columns.mediumlarge-8.large-9"
@@ -138,7 +140,7 @@ describe "Proposals", type: :system do
 
       before do
         visit_component
-        click_link proposal.title
+        click_link proposal_title
       end
 
       it "shows the author as meeting" do
@@ -155,7 +157,7 @@ describe "Proposals", type: :system do
 
       it "shows the comments" do
         visit_component
-        click_link proposal.title
+        click_link proposal_title
 
         comments.each do |comment|
           expect(page).to have_content(comment.body.values.first)
@@ -187,7 +189,7 @@ describe "Proposals", type: :system do
         )
 
         visit_component
-        click_link proposal.title
+        click_link proposal_title
 
         expect(page).to have_content("20,000.00")
         expect(page).to have_content("MY EXECUTION PERIOD")
@@ -208,7 +210,7 @@ describe "Proposals", type: :system do
 
       it "shows related meetings" do
         visit_component
-        click_link proposal.title
+        click_link proposal_title
 
         expect(page).to have_i18n_content(meeting.title)
       end
@@ -227,7 +229,7 @@ describe "Proposals", type: :system do
 
       it "shows related resources" do
         visit_component
-        click_link proposal.title
+        click_link proposal_title
 
         expect(page).to have_i18n_content(result.title)
       end
@@ -238,7 +240,7 @@ describe "Proposals", type: :system do
 
       it "shows a badge and an answer" do
         visit_component
-        click_link proposal.title
+        click_link proposal_title
 
         expect(page).to have_content("Evaluating")
 
@@ -257,8 +259,8 @@ describe "Proposals", type: :system do
         uncheck "Accepted"
         uncheck "Evaluating"
         uncheck "Not answered"
-        page.find_link(proposal.title, wait: 30)
-        click_link proposal.title
+        page.find_link(proposal_title, wait: 30)
+        click_link proposal_title
 
         expect(page).to have_content("Rejected")
 
@@ -274,7 +276,7 @@ describe "Proposals", type: :system do
 
       it "shows the acceptance reason" do
         visit_component
-        click_link proposal.title
+        click_link proposal_title
 
         expect(page).to have_content("Accepted")
 
@@ -290,7 +292,7 @@ describe "Proposals", type: :system do
 
       it "shows the acceptance reason" do
         visit_component
-        click_link proposal.title
+        click_link proposal_title
 
         expect(page).not_to have_content("Accepted")
         expect(page).not_to have_content("This proposal has been accepted")
@@ -308,7 +310,7 @@ describe "Proposals", type: :system do
       it "the user is displayed as a deleted user" do
         visit_component
 
-        click_link proposal.title
+        click_link proposal_title
 
         expect(page).to have_content("Participant deleted")
       end
@@ -333,7 +335,7 @@ describe "Proposals", type: :system do
 
     it "shows related projects" do
       visit_component
-      click_link proposal.title
+      click_link proposal_title
 
       expect(page).to have_i18n_content(project.title)
     end
@@ -343,14 +345,16 @@ describe "Proposals", type: :system do
     shared_examples_for "a random proposal ordering" do
       let!(:lucky_proposal) { create(:proposal, component: component) }
       let!(:unlucky_proposal) { create(:proposal, component: component) }
+      let!(:lucky_proposal_title) { translated(lucky_proposal.title) }
+      let!(:unlucky_proposal_title) { translated(unlucky_proposal.title) }
 
       it "lists the proposals ordered randomly by default" do
         visit_component
 
         expect(page).to have_selector("a", text: "Random")
         expect(page).to have_selector(".card--proposal", count: 2)
-        expect(page).to have_selector(".card--proposal", text: lucky_proposal.title)
-        expect(page).to have_selector(".card--proposal", text: unlucky_proposal.title)
+        expect(page).to have_selector(".card--proposal", text: lucky_proposal_title)
+        expect(page).to have_selector(".card--proposal", text: unlucky_proposal_title)
         expect(page).to have_author(lucky_proposal.creator_author.name)
       end
     end
@@ -406,15 +410,17 @@ describe "Proposals", type: :system do
         create_list(:proposal_vote, 3, proposal: proposal)
         proposal
       end
+      let!(:most_voted_proposal_title) { translated(most_voted_proposal.title) }
 
       let!(:less_voted_proposal) { create(:proposal, component: component) }
+      let!(:less_voted_proposal_title) { translated(less_voted_proposal.title) }
 
       before { visit_component }
 
       it "lists the proposals ordered by votes by default" do
         expect(page).to have_selector("a", text: "Most supported")
-        expect(page).to have_selector("#proposals .card-grid .column:first-child", text: most_voted_proposal.title)
-        expect(page).to have_selector("#proposals .card-grid .column:last-child", text: less_voted_proposal.title)
+        expect(page).to have_selector("#proposals .card-grid .column:first-child", text: most_voted_proposal_title)
+        expect(page).to have_selector("#proposals .card-grid .column:last-child", text: less_voted_proposal_title)
       end
 
       it "shows a disabled vote button for each proposal, but no links to full proposals" do
@@ -465,6 +471,8 @@ describe "Proposals", type: :system do
     end
 
     shared_examples "ordering proposals by selected option" do |selected_option|
+      let(:first_proposal_title) { translated(first_proposal.title) }
+      let(:last_proposal_title) { translated(last_proposal.title) }
       before do
         visit_component
         within ".order-by" do
@@ -475,8 +483,8 @@ describe "Proposals", type: :system do
       end
 
       it "lists the proposals ordered by selected option" do
-        expect(page).to have_selector("#proposals .card-grid .column:first-child", text: first_proposal.title)
-        expect(page).to have_selector("#proposals .card-grid .column:last-child", text: last_proposal.title)
+        expect(page).to have_selector("#proposals .card-grid .column:first-child", text: first_proposal_title)
+        expect(page).to have_selector("#proposals .card-grid .column:last-child", text: last_proposal_title)
       end
     end
 

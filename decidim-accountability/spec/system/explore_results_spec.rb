@@ -190,14 +190,14 @@ describe "Explore results", versioning: true, type: :system do
 
       it "shows related proposals" do
         proposals.each do |proposal|
-          expect(page).to have_content(proposal.title)
+          expect(page).to have_content(translated(proposal.title))
           expect(page).to have_content(proposal.creator_author.name)
           expect(page).to have_content(proposal.votes.size)
         end
       end
 
       it "the result is mentioned in the proposal page" do
-        click_link proposal.title
+        click_link translated(proposal.title)
         expect(page).to have_i18n_content(result.title)
       end
     end
