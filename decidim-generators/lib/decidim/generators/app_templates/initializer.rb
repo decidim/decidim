@@ -60,7 +60,8 @@ Decidim.configure do |config|
   #   dynamic: {
   #     tile_layer: {
   #       url: "https://tiles.example.org/{z}/{x}/{y}.png?key={apiKey}&{foo}",
-  #       foo: "bar",
+  #       api_key: true,
+  #       foo: "bar=baz",
   #       attribution: %(
   #         <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap</a> contributors
   #       ).strip
