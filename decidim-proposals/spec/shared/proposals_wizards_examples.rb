@@ -230,7 +230,7 @@ shared_examples "proposals wizards" do |options|
               click_link "Discard this draft"
             end
 
-          accept_confirm
+            accept_confirm
 
             within_flash_messages do
               expect(page).to have_content "successfully"
@@ -259,14 +259,11 @@ shared_examples "proposals wizards" do |options|
                participatory_space: participatory_process)
       end
 
-      before do
-        stub_geocoding(proposal_address, [latitude, longitude])
-      end
-
       context "when in step_4: Publish" do
         let!(:proposal_draft) { create(:proposal, :draft, users: [user], address: proposal_address, component: component, title: proposal_title, body: proposal_body) }
 
         before do
+          stub_geocoding(proposal_address, [latitude, longitude])
           proposal_draft.update!(latitude: latitude)
           proposal_draft.update!(longitude: longitude)
           visit component_path.preview_proposal_path(proposal_draft)

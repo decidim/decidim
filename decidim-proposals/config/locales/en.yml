@@ -723,9 +723,6 @@ en:
           discard_confirmation: Are you sure you want to discard this proposal draft?
           send: Preview
           title: Edit Proposal Draft
-        edit_form_fields:
-          address: Address
-          not_geocoded: Not geocoded
         filters:
           activity: My activity
           all: All
@@ -773,9 +770,7 @@ en:
         placeholder:
           address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
-          address: 'Address : %{address}'
           modify: Modify the proposal
-          not_geocoded: Your address has not been geocoded, preview is unavailable.
           proposal_edit_before_minutes:
             one: You will be able to edit this proposal during the first minute after the proposal is published. Once this time window passes, you will not be able to edit the proposal.
             other: You will be able to edit this proposal during the first %{count} minutes after the proposal is published. Once this time window passes, you will not be able to edit the proposal.
