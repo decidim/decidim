@@ -214,6 +214,9 @@ fi-pl:
       participatory_process_groups:
         highlighted_results:
           results: Tulokset
+    participatory_spaces:
+      highlighted_results:
+        see_all: Näytä kaikki (%{count} kpl)
     resource_links:
       included_projects:
         result_project: Tähän tulokseen liittyvät suunnitelmat
