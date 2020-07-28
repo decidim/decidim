@@ -209,6 +209,9 @@ is-IS:
             votes: Atkvæði
       new:
         limit_reached: Þú getur ekki búið til nýjar tillögur þar sem þú hefur farið yfir mörkin.
+      participatory_text_proposal:
+        buttons:
+          endorse: Styðja
       proposal_endorsements:
         identities:
           done: Gert
