@@ -13,7 +13,7 @@ ja:
         attachment_collection_id: フォルダ
         description: 説明
         file: ファイル
-        title: タイトル
+        title: 添付ファイルまたは画像名
       attachment_collection:
         description: 説明
         name: 名前
@@ -50,6 +50,8 @@ ja:
         from: メールアドレスから
         github_handler: GitHub handler
         header_snippets: ヘッダスニペットを表示
+        highlight_alternative_color: 代替のハイライト
+        highlight_color: 強調表示
         highlighted_content_banner_action_subtitle: アクションボタンのサブタイトル
         highlighted_content_banner_action_title: アクションボタンのタイトル
         highlighted_content_banner_action_url: アクションボタンURL
@@ -318,6 +320,8 @@ ja:
         search_placeholder:
           name_or_nickname_or_email_cont: '%{collection} をメール、名前、ニックネームで検索します。'
           title_cont: '%{collection} をタイトルで検索します。'
+        state_eq:
+          label: 都道府県：
       help_sections:
         error: ヘルプセクションの更新中に問題が発生しました
         form:
@@ -580,6 +584,7 @@ ja:
           officialize: 公式化
           title: 参加者 "%{name} " を正規化
         show_email_modal:
+          close_modal: モーダルを閉じる
           description: 直接参加者に連絡する必要がある場合は，表示ボタンをクリックしてメールアドレスを見ることができます．このアクションは記録されます．
           email_address: メールアドレス
           full_name: フルネーム

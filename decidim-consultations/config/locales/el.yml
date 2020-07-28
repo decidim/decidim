@@ -22,5 +22,13 @@ el:
         new:
           create: Δημιουργία
     consultations:
+      consultations:
+        show:
+          dates: Ημερομηνίες
       filters_small_view:
+        close_modal: Κλείσιμο παραθύρου
+    questions:
+      vote_modal:
+        close_modal: Κλείσιμο παραθύρου
+      vote_modal_confirm:
         close_modal: Κλείσιμο παραθύρου

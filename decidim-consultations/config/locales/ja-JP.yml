@@ -229,6 +229,8 @@ ja:
           label: '並び替え相談:'
           random: Random
           recent: 直近のもの
+        show:
+          dates: 日付
       content_blocks:
         highlighted_consultations:
           name: ハイライトされた相談
@@ -334,10 +336,12 @@ ja:
         verification_required: 投票するアカウントを確認してください
         vote: 投票
       vote_modal:
+        close_modal: モーダルを閉じる
         contextual_help: オプションを選択してください。
         title: '相談：質問投票'
       vote_modal_confirm:
         change: 変更
+        close_modal: モーダルを閉じる
         confirm: 確認する
         contextual_help: 選択したオプションを確認してください。
         title: '相談：投票の確認'

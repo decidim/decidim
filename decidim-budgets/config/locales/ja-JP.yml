@@ -118,10 +118,16 @@ ja:
           most_voted: Most voted
           random: ランダムな注文
         project:
+          add: プロジェクト %{resource_name} をあなたの投票に追加
           count:
             other: "%{count} のサポート"
-          remove: 削除
+          remove: プロジェクト %{resource_name} を投票から削除する
           view: 表示
+        project_budget_button:
+          add: 投票に追加
+          add_descriptive: プロジェクト %{resource_name} をあなたの投票に追加
+          added: 投票に追加しました
+          added_descriptive: プロジェクト %{resource_name} が投票に追加されました
         show:
           budget: 予算
           view_all_projects: すべてのプロジェクトを表示

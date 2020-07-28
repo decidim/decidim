@@ -13,7 +13,6 @@ pt:
         attachment_collection_id: Pasta
         description: Descrição
         file: Arquivo
-        title: Título
       attachment_collection:
         description: Descrição
         name: Nome

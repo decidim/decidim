@@ -1,13 +1,223 @@
 el:
   activemodel:
     attributes:
+      result:
+        decidim_accountability_status_id: Κατάσταση
+        decidim_category_id: Κατηγορία
+        decidim_scope_id: Πεδίο εφαρμογής
+        description: Περιγραφή
+        end_date: Ημερομηνία λήξης
+        progress: Πρόοδος
+        project_ids: Συμπεριλαμβανόμενα έργα
+        proposals: Συμπεριλαμβανόμενες προτάσεις
+        start_date: Ημερομηνία έναρξης
+        title: Τίτλος
+        updated_at: Ενημερώθηκε στις
       status:
+        description: Περιγραφή
+        key: Κλειδί
         name: Όνομα
+        progress: Πρόοδος
+      timeline_entry:
+        description: Περιγραφή
+        entry_date: Ημερομηνία
+    models:
+      decidim/accountability/proposal_linked_event: Η πρόταση περιλαμβάνεται σε ένα αποτέλεσμα
+      decidim/accountability/result_progress_updated_event: Η πρόοδος αποτελέσματος ενημερώθηκε
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Αποτέλεσμα
+        other: Αποτελέσματα
   decidim:
     accountability:
       actions:
+        confirm_destroy: Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το %{name};
+        destroy: Διαγραφή
+        edit: Επεξεργασία
+        import_csv: Εισαγωγή CSV
+        new: Νέο %{name}
         preview: Προεπισκόπηση
+        timeline_entries: Αποτίμηση του έργου
+        title: Ενέργειες
+      admin:
+        exports:
+          results: Αποτελέσματα
+        import_results:
+          new:
+            import: Εισαγωγή
+            info: "<p>Προτείνουμε να ακολουθήσετε αυτά τα βήματα:</p><ol><li>Δημιουργήστε τις Καταστάσεις για τα Αποτελέσματα που θέλετε να προσθέσετε (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>\nΔημιουργήστε τουλάχιστον ένα Αποτέλεσμα με μη αυτόματο τρόπο μέσω τής της διεπαφής Διαχειριστή (<a href='%{link_new_result}' target='_blank'>link</a>) πριν χρησιμοποιήσετε την Εισαγωγή, για να αποκτήσετε καλύτερη κατανόηση για τη διαμόρφωση και τί θα χρειαστεί να συμπληρώσετε.</li><li>Κατεβάστε την Εξαγωγή με μορφότυπο CSV (%{link_export_csv})</li><li>Κάντε τοπικά τις αλλαγές. Μπορείτε να αλλάξετε μόνο τις ακόλουθες στήλες του CSV:</li></ol><ul><li><b>categories/id:</b> ID για την Κατηγορία</li><li><b>scope/id:</b> ID για το Πλαίσιο Εφαρμογής</li><li><b>parent/id:</b> ID για το γονικό στοιχείο (για σχετικά Αποτελέσματα). Προαιρετικά </li><li><b>title/I18N:</b> Τίτλος στην X γλώσσα</li><li><b>description/I18N:</b> Περιγραφή στην X γλώσσα</li><li><b>start_date:</b> Μπορείτε να αλλάξετε μόνο τις ακόλουθες στήλες του CSV</li><li><b>end_date:</b> ημερομηνία που το αποτέλεσμα σταμάτησε την εκτέλεση (μορφή ΕΕΕΕ-ΜΜ-ΗΗ)</li><li><b>status/id:</b> ID για την κατάσταση αυτού του αποτελέσματος</li><li><b>progress:</b> Ποσοστό (από 0 έως 100) της εκτέλεσης</li><li><b>proposals_ids:</b> εσωτερικά ID των σχετικών προτάσεων (χωρισμένες με κόμμα). Μετατρέπεται αυτόματα σε<span class='attribute-name'>proposal_url</span></li></ul>"
+            link: σύνδεσμος
+            title: Εισαγωγή αποτελεσμάτων από CSV
+        imports:
+          create:
+            success: Ξεκίνησε η εισαγωγή του αρχείου. Θα λάβετε ένα email μέσα στα επόμενα λεπτά με τα αποτελέσματα της εισαγωγής
+        models:
+          result:
+            name: Αποτέλεσμα
+          status:
+            name: Κατάσταση
+          timeline_entry:
+            name: Kαταχώρηση χρονολογίου
+        results:
+          create:
+            invalid: Προέκυψε ένα πρόβλημα κατά τη δημιουργία αυτού του αποτελέσματος
+            success: Το αποτέλεσμα δημιουργήθηκε με επιτυχία
+          destroy:
+            success: Το αποτέλεσμα διεγράφη με επιτυχία
+          edit:
+            title: Επεξεργασία αποτελέσματος
+            update: Ενημέρωση αποτελέσματος
+          index:
+            title: Αποτελέσματα
+          new:
+            create: Δημιουργία αποτελέσματος
+            title: Νέο αποτέλεσμα
+          update:
+            invalid: Προέκυψε ένα πρόβλημα κατά την ανανέωση αυτού του αποτελέσματος
+            success: Το αποτέλεσμα ανανεώθηκε με επιτυχία
+        shared:
+          subnav:
+            statuses: Καταστάσεις
+        statuses:
+          create:
+            invalid: Προέκυψε ένα πρόβλημα κατά τη δημιουργία αυτής της κατάστασης
+            success: Η κατάσταση δημιουργήθηκε με επιτυχία
+          destroy:
+            success: Η κατάσταση διεγράφη με επιτυχία
+          edit:
+            title: Επεξεργασία κατάστασης
+            update: Ενημέρωση κατάστασης
+          index:
+            title: Καταστάσεις
+          new:
+            create: Δημιουργία κατάστασης
+            title: Νέα κατάσταση
+          update:
+            invalid: Προέκυψε ένα πρόβλημα κατά την ανανέωση αυτής της κατάστασης
+            success: Η κατάσταση ανανεώθηκε με επιτυχία
+        timeline_entries:
+          create:
+            invalid: Προέκυψε ένα πρόβλημα κατά τη δημιουργία αυτής της καταχώρησης
+            success: Η καταχώρηση δημιουργήθηκε με επιτυχία
+          destroy:
+            success: Η καταχώρηση διεγράφη με επιτυχία
+          edit:
+            title: Επεξεργασία καταχώρησης
+            update: Ενημέρωση καταχώρησης
+          index:
+            title: Καταχωρήσεις χρονολογίου έργου
+          new:
+            create: Δημιουργία καταχώρησης
+            title: Νέα καταχώρηση
+          update:
+            invalid: Προέκυψε ένα πρόβλημα κατά την ανανέωση αυτής της καταχώρησης
+            success: Η καταχώρηση ανανεώθηκε με επιτυχία
+      admin_log:
+        result:
+          create: "%{user_name} σημιούργησε αποτέλεσμα %{resource_name} στο %{space_name}"
+          delete: "%{user_name} διέγραψε το %{resource_name} αποτέλεσμα στο %{space_name}"
+          update: "%{user_name} ανανέωσε το αποτέλεσμα %{resource_name} στο %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Το γονικό στοιχείο δεν βρέθηκε στη βάση (ID: %{id})'
+      import_mailer:
+        import:
+          errors: Σφάλματα
+          errors_present: Προέκυψε ένα πρόβλημα κατά την εισαγωγή αποτελεσμάτων
+          row_number: Γραμμή
+          subject: Επιτυχής εισαγωγή αποτελεσμάτων
+          success: Επιτυχής εισαγωγή αποτελεσμάτων. Μπορείτε να επιθεωρήσετε τα αποτελέσματα στη διεπαφή διαχείρισης.
+      last_activity:
+        new_result_at_html: "<span>Νέο αποτέλεσμα στο %{link}</span>"
       models:
+        result:
+          fields:
+            end_date: Ημερομηνία λήξης
+            progress: Πρόοδος
+            start_date: Ημερομηνία έναρξης
+            status: Κατάσταση
+            title: Τίτλος
         status:
           fields:
+            description: Περιγραφή
+            key: Κλειδί
             name: Όνομα
+            progress: Πρόοδος
+        timeline_entry:
+          fields:
+            description: Περιγραφή
+            entry_date: Ημερομηνία
+      results:
+        count:
+          results_count:
+            one: 1 αποτέλεσμα
+            other: "%{count} αποτελέσματα"
+        filters:
+          all: Όλες
+          scopes: Πεδία εφαρμογής
+        home:
+          categories_label: Κατηγορίες
+          subcategories_label: Υποκατηγορίες
+        home_header:
+          global_status: Καθολική κατάσταση εκτέλεσης
+        nav_breadcrumb:
+          global: Καθολική εκτέλεση
+        search:
+          search: Αναξήτηση για δράσεις
+        show:
+          stats:
+            attendees: Συμμετέχοντες
+            back_to_resource: Επιστρέψτε στο αποτέλεσμα
+            comments: Σχόλια
+            contributions: Συνεισφορές
+            last_edited_by: Τελευταία επεξεργασία από
+            last_updated_at: Τελευταία ενημέρωση από
+            meetings: Συναντήσεις
+            proposals: Προτάσεις
+            votes: Υποστηρίξεις
+        timeline:
+          title: Εξέλιξη έργου
+    components:
+      accountability:
+        name: Ευθύνη
+        settings:
+          global:
+            categories_label: Όνομα για "Κατηγορίες"
+            comments_enabled: Σχόλια ενεργοποιημένα
+            display_progress_enabled: Εμφάνιση προόδου
+            heading_leaf_level_results: Όνομα για "Έργα"
+            heading_parent_level_results: Όνομα για "Αποτελέσματα"
+            intro: Εισαγωγή
+            subcategories_label: Όνομα για "Υποκατηγορίες"
+          step:
+            comments_blocked: Σχόλια απενεργοποιημένα
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Η πρόταση "%{proposal_title}" έχει ενταχθεί στα αποτελέσματά σας..Μπορείτε να την δείτε σε αυτή τη σελίδα:'
+          email_outro: Λάβατε αυτή την ειδοποίηση επειδή ακολουθείτε το "%{proposal_title}". Μπορείτε να σταματήσετε να λαμβάνετε ειδοποιήσεις ακολουθώντας τον προηγούμενο σύνδεσμο.
+          email_subject: Μία ενημέρωση για την %{proposal_title}
+          notification_title: Η πρόταση <a href="%{proposal_path}">%{proposal_title}</a> έχει συμπεριλιφθεί στο <a href="%{resource_path}">%{resource_title}</a> αποτέλεσμα.
+        result_progress_updated:
+          email_intro: 'Το αποτέλεσμα "%{resource_title}", το οποίο περιέχει την πρόταση "%{proposal_title}", είναι τώρα %{progress}% ολοκληρωμένο. Μπορείτε να το δείτε από αυτή τη σελίδα:'
+          email_outro: Λάβατε αυτή την ειδοποίηση επειδή ακολουθείτε το "%{proposal_title}" και αυτή η πρόταση περιέχεται στο αποτέλεσμα "%{resource_title}". Μπορείτε να σταματήσετε να λαμβάνετε ειδοποιήσεις ακολουθώντας τον προηγούμενο σύνδεσμο.
+          email_subject: Μία ανανέωση στην πρόοδο του %{resource_title} 
+          notification_title: Το αποτέλεσμα <a href="%{resource_path}">%{resource_title}</a>, το οποίο περιέχει την πρόταση <a href="%{proposal_path}">%{proposal_title}</a>, είναι τώρα %{progress}% ολοκληρωμένο.
+    metrics:
+      results:
+        description: Αριθμός αποτελεσμάτων που δημιουργήθηκαν
+        object: αποτελέσματα
+        title: Αποτελέσματα
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Αποτελέσματα
+    participatory_spaces:
+      highlighted_results:
+        see_all: Δείτε όλα τα αποτελέσματα (%{count})
+    resource_links:
+      included_projects:
+        result_project: Έργα που περιέχονται στα αποτελέσματα αυτά
+      included_proposals:
+        result_proposal: Προτάσεις που περιέχονται στα αποτελέσματα αυτά

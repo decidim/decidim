@@ -13,7 +13,6 @@ fr-CA:
         attachment_collection_id: Dossier
         description: Description
         file: Fichier
-        title: Titre
       attachment_collection:
         description: Description
         name: Titre

@@ -108,15 +108,10 @@ eu:
             other: hautatutako proiektuak
           view: Ikusi
         project:
-          add: Gehitu
           count:
             one: 1 sostengu 
             other: "%{count} sostengu"
-          remove: Kendu
           view: ikusi
-        project_budget_button:
-          add: Gehitu
-          added: Erantsita
         show:
           budget: Aurrekontua
           view_all_projects: Ikusi proiektu guztiak
