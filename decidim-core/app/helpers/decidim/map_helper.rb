@@ -28,7 +28,7 @@ module Decidim
       end
     end
 
-    def dynamic_map_for(options_or_markers = {})
+    def dynamic_map_for(options_or_markers = {}, &block)
       return unless map_utility_dynamic
 
       options = {}
@@ -52,9 +52,7 @@ module Decidim
         sr_content + link
       end
       content_tag :div, class: "row column" do
-        map = builder.map_element(map_html_options) do
-          yield
-        end
+        map = builder.map_element(map_html_options, &block)
         link = link_to("", "#", id: "map_bottom")
 
         help + map + link
