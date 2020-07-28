@@ -9,8 +9,8 @@ all the following services:
 
 - [A geocoding server][link-wiki-geocoding] in order to turn user entered
   addresses into [geocoordinates][link-wiki-geocoordinates].
-- [A tile server][link-wiki-tile-server] for the dynamic maps, preferrably one
-  that is compatible with the default [Leaflet][link-leaflet] map library.
+- [A map tile server][link-wiki-tile-server] for the dynamic maps, preferrably
+  one that is compatible with the default [Leaflet][link-leaflet] map library.
 - [A static map image server][link-wiki-static-maps] for the static map images
   e.g. on the proposal pages.
 
@@ -20,9 +20,9 @@ hosting is available at the
 [maps and geocoding configuration][link-docs-maps-multiple-providers]
 documentation.
 
-You may also decide to disable some of the services that are not available at
-your service provider but in order to get the full out of Decidim, it is
-suggested to find a service provider with all these services.
+You may also decide to [disable some of the services][link-docs-maps-disable]
+that are not available at your service provider but in order to get the full out
+of Decidim, it is suggested to find a service provider with all these services.
 
 In case you want to use different service providers for the different categories
 of map services, that is also possible. Instructions for this are provided in
@@ -81,29 +81,35 @@ module Decidim
 end
 ```
 
-In case the target service has some other "lookup handle" defined than
-`:your_provider`, you may want to override the `handle` method in the geocoding
-utility's class you just defined. This is passed for the Geocoder gem as your
-lookup handle. An example of this can be seen in the
+If the target service has some other "lookup handle" defined in the Geocoder gem
+than `:your_provider`, you may want to override the `handle` method in the
+geocoding utility's class you just defined. This is passed for the Geocoder gem
+as your lookup handle. An example of this can be seen in the
 [`Decidim::Map::Provider::Geocoding::Osm`][link-code-osm-geocoder] class which
 changes the handle to `:nominatim` instead of the default `:osm` which is not an
 existing lookup handle in the Geocoder gem.
 
-In case you want to customize the results of your geocoding utility, you can
+In case you want to customize the geocoding utility for your provider, you can
 define the following methods in the utility class:
 
 - `search(query, options = {})` - A common method for searching the geocoding
-  API and returning an array of results, either an array of coordinates or an
-  array of addresses depending on the first `query` parameter. If the first
-  parameter is an array of two coordinates, the method returns an array of
+  API and returning an array of results, either an array of coordinate pairs or
+  an array of addresses depending on the first `query` parameter. If the first
+  parameter is a coordinate pair array, the method returns an array of
   addresses. If the first parameter is an address string, the method returns an
-  arrays of coordinates.
+  arrays of coordinate pairs.
 - `coordinates(address, options = {})` - A method that searches the best
   matching coordinates for the given address string. Only returns one set of
   coordinates as an array.
 - `address(coordinates, options = {})` - A method that searches the best
-  matching address for the given array of coordinates. Only returns one address
+  matching address for the given coordinate pair array. Only returns one address
   as a string.
+
+Customization may be needed if you are not happy with the default results
+returned by the Geocoder gem. For instance, in some occasions you might want to
+pass extra query options to the geocoding API or sort the results differently
+than what was returned by the API and what is already done in Decidim by
+default.
 
 In order to provider configuration options for the Geocoder gem's lookup, you
 can pass them directly through the maps configuration with the following syntax:
@@ -132,16 +138,18 @@ Geocoder.configure(
 
 For the dynamic map functionality, you should primarily use a service provider
 that is compatible with the [Leaflet library][link-leaflet] that comes with
-Decidim. You can also integrate to other services but it will cause more work.
+Decidim. You can also integrate to services that are not compatible with Leaflet
+but it will cause you more work.
 
 Please note that you don't necessarily need to create your own dynamic maps
-utility if your service provider is compatible with the
+utility if your service provider is already compatible with the
 [`Decidim::Map::Provider::DynamicMap::Osm`][link-code-osm-dynamic] provider. In
-order to configure your custom service provider with that refer to the
-[maps and geocoding configuration][link-docs-maps-osm] documentation.
+order to configure your custom OSM compatible service provider take a look at
+the [maps and geocoding configuration][link-docs-maps-osm] documentation.
 
-If your service provider is somehow different from the defaults, you can start
-with an empty dynamic map provider utility by creating the following class:
+If your service provider is not fully compatible with the default OSM provider,
+you can start writing your customizations by creating an empty dynamic map
+provider utility with the following code:
 
 ```ruby
 module Decidim
@@ -157,21 +165,25 @@ module Decidim
 end
 ```
 
-In case you want to customize the configurations for your provider, you can
+In case you want to customize the dynamic map utility for your provider, you can
 define the following methods in the utility class:
 
 - `builder_class` - Returns a class for the dynamic map builder that is used
   to create the maps in the front-end. By default, this would be
   `Decidim::Map::Provider::DynamicMap::YourProvider::Builder` or if that is not
-  defined, defaults to `Decidim::Map::DynamicMap::Builder`.
+  defined, defaults to `Decidim::Map::DynamicMap::Builder`. See below for
+  further notes about the builder class.
 - `builder_options` - A method that prepares the options for the builder
   instance that is used to create the maps in the front-end. By default, this
   prepares the tile layer configurations for the Leaflet map.
 
 In addition, you may want to customize the Builder class in case you are not
-happy with the default builder functionality. To see an example how to customize
-the builder, take a look at the
-[HERE Maps builder class][link-code-here-dynamic].
+happy with the default dynamic map builder functionality. To see an example how
+to customize the builder, take a look at the
+[HERE Maps builder class][link-code-here-dynamic]. Please note that the custom
+dynamic map builder needs to extend the
+[`Decidim::Map::DynamicMap::Builder`][link-code-dynamic-map] class as you can
+also see from the HERE Maps example.
 
 The builder class works directly with the view layer and can refer to the view
 in question or any methods available for the view using the `template` object
@@ -233,7 +245,7 @@ L.tileLayer(
 ### Defining the static maps utility
 
 For the static map functionality, you should primarily use a service provider
-that is compatible with [osm-static-maps][link-osm-static-maps] that is already
+that is compatible with [osm-static-maps][link-osm-static-maps] which is already
 integrated with Decidim.
 
 If this is not possible, you can also create a custom static maps utility for
@@ -275,6 +287,9 @@ define the following methods in the utility class:
   body of that request. This data will be cached by Decidim once fetched from
   the API to speed up further displays of the same static map.
 
+To see an example how to customize the static map utility, take a look at the
+[HERE Maps static map utility][link-code-here-static].
+
 In order to provider configuration options for the static maps, you can pass
 them directly through the maps configuration with the following syntax:
 
@@ -310,10 +325,13 @@ provider referred to in this documentation would be `:your_provider`. For
 configuration, refer to the [maps and geocoding configuration][link-docs-maps]
 documentation.
 
+[link-code-dynamic-map]: /decidim-core/lib/decidim/map/dynamic_map.rb
 [link-code-here-dynamic]: /decidim-core/lib/decidim/map/provider/dynamic_map/here.rb
+[link-code-here-static]: /decidim-core/lib/decidim/map/provider/static_map/here.rb
 [link-code-osm-dynamic]: /decidim-core/lib/decidim/map/provider/dynamic_map/osm.rb
 [link-code-osm-geocoder]: /decidim-core/lib/decidim/map/provider/geocoding/osm.rb
 [link-docs-maps]: /docs/services/maps.md
+[link-docs-maps-disable]: /docs/services/maps.md#disabling
 [link-docs-maps-osm]: /docs/services/maps.md#configuring-open-street-maps-based-service-providers
 [link-docs-maps-multiple-providers]: /docs/services/maps.md#combining-multiple-service-providers
 [link-geocoder]: https://github.com/alexreisner/geocoder
