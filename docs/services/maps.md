@@ -155,6 +155,28 @@ default: &default
 MAPS_HERE_API_KEY=your_api_key_here
 ```
 
+### Disabling some of the map services
+
+When using the maps functionality, you should always aim to provide all the
+services for the user that are available in Decidim. However, not all service
+providers provide all these services, so at times you may need to disable some
+of them.
+
+The configuration syntax allows you to disable the map services one by one. For
+example, if you want to use HERE Maps as your default but disable the static map
+images functionality, you can use the following configuration:
+
+```ruby
+config.maps = {
+  provider: :here,
+  api_key: Rails.application.secrets.maps[:api_key],
+  static: { disable: true }
+}
+```
+
+Decidim works fine when some of the services are disabled individuall but
+obviously, the disabled services are not available for Decidim users.
+
 ## Enabling maps and geocoding
 
 Once the maps functionality is configured, you'll need to activate it. As of
@@ -202,7 +224,7 @@ https://tiles.example.org
 maps based on addresses. This service provides geocoding capabilities by turning
 human readable addresses to [geographic coordinates][link-wiki-geocoordinates].
 
-Follow these instructions to setup geocoding server:
+Follow these instructions to setup your geocoding server:
 
 http://nominatim.org/release-docs/latest/admin/Installation/
 
@@ -216,14 +238,16 @@ https://nominatim.example.org
 Some pages in Decidim display static map images which need to be fetched from
 an external server. The tiles server does not provide such static images by
 itself because one static map image may need multiple tiles to be combined into
-one.
+one. The static map image is therefore dynamically generated based on the
+parameters passed for the static map request (such as image dimensions and the
+geocoodrinates of the map image position).
 
 The Open Street Maps community has made multiple open source
 [static maps image services][link-wiki-static-maps] from which you can pick
 freely but Decidim currently supports only
 [osm-static-maps][link-osm-static-maps] with the Open Street Maps services.
 
-Follow these instructions to setup geocoding server:
+Follow these instructions to setup your static map images server:
 
 https://github.com/jperelli/osm-static-maps#3-standalone-sample-server
 
