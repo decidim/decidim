@@ -379,6 +379,7 @@ fi:
           attendees: Osallistujamäärä
           back: Takaisin listaan
           contributions: Kontribuutioiden määrä
+          date: Päivämäärä
           going: Ilmoittautunut
           join: Ilmoittaudu tapahtumaan
           meeting_report: Tapahtumaraportti
@@ -444,7 +445,7 @@ fi:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Aiemmat tapahtumat
-        see_all: Näytä kaikki (%{count})
+        see_all: Näytä kaikki tapahtumat (%{count} kpl)
         upcoming_meetings: Tulevat tapahtumat
       upcoming_meeting_for_card:
         upcoming_meeting: Tuleva tapahtuma
