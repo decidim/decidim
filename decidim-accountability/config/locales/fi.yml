@@ -215,7 +215,7 @@ fi:
           results: Tulokset
     participatory_spaces:
       highlighted_results:
-        see_all: Näytä kaikki (%{count})
+        see_all: Näytä kaikki (%{count} kpl)
     resource_links:
       included_projects:
         result_project: Tähän tulokseen liittyvät suunnitelmat
