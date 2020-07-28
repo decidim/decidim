@@ -111,8 +111,8 @@ pass extra query options to the geocoding API or sort the results differently
 than what was returned by the API and what is already done in Decidim by
 default.
 
-In order to provider configuration options for the Geocoder gem's lookup, you
-can pass them directly through the maps configuration with the following syntax:
+In order to provide configuration options for the Geocoder gem's lookup, you can
+pass them directly through the maps configuration with the following syntax:
 
 ```ruby
 config.maps = {
@@ -190,7 +190,7 @@ in question or any methods available for the view using the `template` object
 inside the builder. You may be already familiar with a similar builder concept
 if you have ever used the [Rails Form Builder][link-rails-form-builder].
 
-In order to provider configuration options for the dynamic maps, you can pass
+In order to provide configuration options for the dynamic maps, you can pass
 them directly through the maps configuration with the following syntax:
 
 ```ruby
@@ -199,8 +199,9 @@ config.maps = {
   api_key: Rails.application.secrets.maps[:api_key],
   dynamic: {
     tile_layer: {
-      url: "https://tiles.example.org/{z}/{x}/{y}.png?{foo}&style={style}",
-      foo: "bar",
+      url: "https://tiles.example.org/{z}/{x}/{y}.png?key={apiKey}&{foo}&style={style}",
+      api_key: true,
+      foo: "bar=baz",
       style: "bright-style",
       attribution: %{
         <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap</a> contributors
@@ -216,9 +217,10 @@ by default:
 ```ruby
 {
   tile_layer: {
-    url: "https://tiles.example.org/{z}/{x}/{y}.png?{foo}&style={style}",
+    url: "https://tiles.example.org/{z}/{x}/{y}.png?key={apiKey}&{foo}&style={style}",
     configuration: {
-      foo: "bar",
+      api_key: Rails.application.secrets.maps[:api_key],
+      foo: "bar=baz",
       style: "bright-style",
       attribution: %{
         <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap</a> contributors
@@ -233,9 +235,10 @@ follows:
 
 ```js
 L.tileLayer(
-  "https://tiles.example.org/{z}/{x}/{y}.png?{foo}&style={style}",
+  "https://tiles.example.org/{z}/{x}/{y}.png?key={apiKey}&{foo}&style={style}",
   {
-    foo: "bar",
+    apiKey: "your_secret_key",
+    foo: "bar=baz",
     style: "bright",
     attribution: '<a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap</a> contributors'
   }
@@ -290,8 +293,8 @@ define the following methods in the utility class:
 To see an example how to customize the static map utility, take a look at the
 [HERE Maps static map utility][link-code-here-static].
 
-In order to provider configuration options for the static maps, you can pass
-them directly through the maps configuration with the following syntax:
+In order to provide configuration options for the static maps, you can pass them
+directly through the maps configuration with the following syntax:
 
 ```ruby
 config.maps = {
