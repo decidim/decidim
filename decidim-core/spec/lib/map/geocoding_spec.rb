@@ -52,7 +52,7 @@ module Decidim
         it "calls the Geocoder.search method with correct arguments" do
           expect(Geocoder).to receive(:search).with(
             query,
-            { lookup: :test }.merge(options)
+            { lookup: :test, language: "en" }.merge(options)
           )
 
           subject.search(query, options)
@@ -66,7 +66,7 @@ module Decidim
         it "calls the Geocoder.coordinates method with correct arguments" do
           expect(Geocoder).to receive(:coordinates).with(
             query,
-            { lookup: :test }.merge(options)
+            { lookup: :test, language: "en" }.merge(options)
           )
 
           subject.coordinates(query, options)
@@ -80,7 +80,7 @@ module Decidim
         it "calls the Geocoder.search method with correct arguments" do
           expect(Geocoder).to receive(:search).with(
             query,
-            { lookup: :test }.merge(options)
+            { lookup: :test, language: "en" }.merge(options)
           ).and_return([])
 
           subject.address(query, options)
