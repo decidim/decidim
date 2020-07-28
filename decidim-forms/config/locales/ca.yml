@@ -42,6 +42,8 @@ ca:
             export:
               answer:
                 title: 'Resposta #%{number}'
+            export_response:
+              title: survey_user_answers_%{token}
             index:
               title: "%{total} total de respostes"
             show:
@@ -49,6 +51,7 @@ ca:
           display_condition:
             answer_option: Opció de resposta
             condition_question: Pregunta
+            condition_type: Condició
             condition_types:
               answered: Amb resposta
               equal: Igual a
@@ -56,14 +59,19 @@ ca:
               not_answered: No resposta
               not_equal: No és igual
             condition_value: Text inclòs
+            display_condition: Condicions de visualització
+            mandatory: Aquesta condició s'ha de complir sempre independentment de l'estat d'altres condicions
             remove: Eliminar
+            save_warning: Recorda de guardar l'enquesta abans de configurar les condicions de visualitzacióó
             select_answer_option: Elimina l'opció de resposta
             select_condition_question: Seleccionar una pregunta
+            select_condition_type: Seleccionar un tipus de condició
           edit:
             save: Desa
             title: Editar el qüestionari
           form:
             add_question: Afegeix una pregunta
+            add_separator: Afegir separador
             already_answered_warning: No pots modificar les preguntes d'aquest formulari perquè ja ha estat contestat per algunes participants.
             collapse: Redueix totes les preguntes
             expand: Expandeix totes les preguntes
@@ -76,6 +84,8 @@ ca:
             statement: Declaració
           question:
             add_answer_option: Afegeix una opció de resposta
+            add_display_condition: Afegir condició de visualització
+            add_display_condition_info: Guardar l'enquesta per a configurar les condicions de visualització
             add_matrix_row: Afegir fila
             any: Cap
             collapse: Redueix
@@ -100,8 +110,10 @@ ca:
       files:
         extension_whitelist: 'Formats d''arxiu acceptats:'
       images:
+        dimensions: "%{width} x %{height} px"
         dimensions_info: 'Esta imagen medirà:'
         processors:
+          resize_and_pad: Redimensionat i ajustat a
           resize_to_fit: Redimensionada per ajustar-la
       question_types:
         long_answer: Resposta llarga
@@ -147,8 +159,10 @@ ca:
           submit: Enviar respostes
       user_answers_serializer:
         body: Resposta
+        completion: Finalització
         created_at: Respost el
         id: Identificador de resposta
+        ip_hash: Hash d'adreça IP
         question: Pregunta
         registered: Registrada
         session_token: Identificador d'usuària
