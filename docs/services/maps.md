@@ -1,7 +1,5 @@
 # Maps and geocoding
 
-## Configuring maps and geocoding
-
 Decidim has the ability to geocode proposals and meetings and display them on a
 map. Decidim has built-in support for the following map service providers:
 
@@ -18,6 +16,11 @@ map. Decidim has built-in support for the following map service providers:
     (see [Hosting your own map services][anchor-hosting-osm] for
     more information)
   - [Configuring Open Street Maps based service providers][anchor-configure-osm]
+
+If you want to integrate Decidim to some other map service provider, read how to
+[write your own integration code][link-docs-custom-maps] for that.
+
+## Configuring maps and geocoding
 
 After generating your app, you'll see that your `config/initializers/decidim.rb`
 file includes commented code about map services:
@@ -91,6 +94,7 @@ config.maps = {
   dynamic: {
     tile_layer: {
       url: "https://tiles.example.org/{z}/{x}/{y}.png?key={apiKey}",
+      api_key: true,
       attribution: %(
         <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap</a> contributors
       ).strip
