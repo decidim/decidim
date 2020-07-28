@@ -106,6 +106,8 @@ el:
           error: Παρουσιάστηκε πρόβλημα κατά την αντιγραφή της συνδιάσκεψης.
           success: Η συνδιάσκεψη αντιγράφηκε επιτυχώς.
       media_links:
+        create:
+          error: Προέκυψε ένα πρόβλημα κατά την δημιουργία ενός νέου συνδέσμου μέσων επικοινωνίας.
         new:
           create: Δημιουργία
       models:
@@ -116,13 +118,138 @@ el:
         partner:
           fields:
             name: Όνομα
+        registration_type:
+          fields:
+            price: Τιμή
+            registrations_count: Καταμέτρηση εγγραφών
+            title: Τίτλος
+            weight: Βάρος
+          name: Τύπος εγγραφής
       partners:
+        create:
+          error: Παρουσιάστηκε πρόβλημα κατά την προσθήκη εταίρου σε αυτή τη συνδιάσκεψη.
+          success: Ο εταίρος της συνδιάσκεψης προστέθηκε επιτυχώς.
+        destroy:
+          success: Ο εταίρος της συνδιάσκεψης αφαιρέθηκε επιτυχώς.
+        edit:
+          title: Ενημέρωση εταίρου.
+          update: Ενημέρωση
         new:
           create: Δημιουργία
+          title: Νέος εταίρος
+        update:
+          error: Παρουσιάστηκε πρόβλημα κατά την ενημέρωση εταίρου σε αυτή τη συνδιάσκεψη.
+          success: Ο εταίρος της συνδιάσκεψης ενημερώθηκε επιτυχώς.
+      registration_type_publications:
+        create:
+          error: Παρουσιάστηκε πρόβλημα στην δημοσίευση αυτού του τύπου εγγραφής.
+          success: Ο τύπος εγγραφής δημοσιεύτηκε επιτυχώς.
+        destroy:
+          error: Παρουσιάστηκε πρόβλημα στην αποδημοσίευση αυτού του τύπου εγγραφής.
+          success: Ο τύπος εγγραφής αποδημοσιεύτηκε επιτυχώς.
       registration_types:
+        create:
+          error: Παρουσιάστηκε πρόβλημα κατά την προσθήκη τύπου εγγραφής σε αυτή τη συνδιάσκεψη.
+          success: Ο τύπος εγγραφής στης συνδιάσκεψη προστέθηκε επιτυχώς.
+        destroy:
+          success: Ο τύπος εγγραφής στης συνδιάσκεψη αφαιρέθηκε επιτυχώς.
+        edit:
+          title: Ενημέρωση τύπου εγγραφής.
+          update: Ενημέρωση
         new:
           create: Δημιουργία
+          title: Νέος τύπος εγγραφής
+        update:
+          error: Παρουσιάστηκε πρόβλημα κατά την ενημέρωση ενός τύπου εγγραφής σε αυτή τη συνδιάσκεψη.
+          success: Ο τύπος εγγραφής στης συνδιάσκεψη ενημερώθηκε επιτυχώς.
+      titles:
+        conferences: Συνδιασκέψεις
+    conference_program:
+      index:
+        title: Πρόγραμμα
+    conference_speakers:
+      index:
+        title: Ομιλητές
     conferences:
+      admin:
+        conference_invites:
+          form:
+            attendee_type: Τύπος συμμετέχοντα
+            existing_user: Υπάρχων συμμετέχων
+            non_user: Ανύπαρκτος συμμετέχων
+            select_user: Επιλογή συμμετέχοντα
+          index:
+            filter:
+              accepted: Αποδεκτοί
+              all: Όλοι
+              rejected: Απορριφθέντες
+              sent: Απεσταλμένα
+            filter_by: Φιλτράρετε κατά
+            invite_attendee: Προσκαλέστε συμμετέχοντα
+            invites: Προσκλήσεις
+            search: Αναζήτηση
+          new:
+            explanation: Ο συμμετέχων θα κληθεί να συμμετάσχει σε μία συνδιάσκεψη. Εάν το email του δεν είναι καταχωρημένο, θα προσκληθεί και στον οργανισμό.
+            invite: Πρόσκληση
+            new_invite: Πρόσκληση συμμετέχοντα
+        conference_registrations:
+          index:
+            registrations: Εγγραφές
+        conference_speakers:
+          form:
+            existing_user: Υπάρχων συμμετέχων
+            non_user: Μη συμμετέχων
+            select_user: Επιλογή συμμετέχοντα
+            user_type: Τύπος συμμετέχοντα
+          index:
+            search: Αναζήτηση
+        diplomas:
+          edit:
+            save: Αποθήκευση
+            title: Πιστοποιητικό συμμετοχής
+        partners:
+          index:
+            title: Εταίροι
+        registration_types:
+          index:
+            title: Τύποι εγγραφής
+        send_conference_diploma_mailer:
+          diploma_user:
+            attendance_verified_by: Η συμμετοχή πιστοποιήθηκε από
+            certificate_of_attendance: Πιστοποιητικό Συμμετοχής
+      conference:
+        registration_confirm:
+          cancel: Ακύρωση
+          confirm: Επιβεβαίωση
+        show:
+          free: Ελεύθερα
+          going: Παρευρισκόμενοι
+          no_slots_available: Δεν υπάρχουν διαθέσιμες θέσεις
+          registration: Εγγραφή
+      conference_program:
+        program_meeting:
+          content: Περιεχόμενο
+          location: Τοποθεσία
+          speakers: Ομιλητές
+          streaming: Ροή βίντεο
+        show:
+          day: Ημέρα
+          program: Πρόγραμμα
+      conference_speaker:
+        go_to_twitter: Πηγαίνετε στο Twitter
+        more_info: περισσότερες πληροφορίες
+        show:
+          more_info: περισσότερες πληροφορίες
+      conference_speaker_cell:
+        twitter_handle:
+          go_to_twitter: Πηγαίνετε στο Twitter
+      conference_speakers:
+        index:
+          speakers: Ομιλητές
+      conferences:
+        partners:
+          collaborators: Εταίροι
+          main_promotors: Διοργανωτές
       models:
         conference_invite:
           fields:
