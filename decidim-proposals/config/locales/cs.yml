@@ -93,7 +93,6 @@ cs:
         search_placeholder:
           id_string_or_title_cont: Hledat %{collection} podle ID nebo názvu.
         state_eq:
-          label: Stát
           values:
             evaluating: Hodnocení
             withdrawn: Staženo
@@ -699,7 +698,6 @@ cs:
           amend: Pozměňovací návrh
           comment: Komentář
           comments: Komentáře
-          endorse: Schválit
       proposal_votes:
         create:
           error: Při hlasování o návrhu došlo k chybám.
@@ -816,7 +814,6 @@ cs:
           read_more: Číst více
           report: Zpráva
           withdraw_btn_hint: Pokud změníte názor, můžete svůj návrh stáhnout, pokud jste nedostali žádnou podporu. Návrh není zrušen, objeví se v seznamu stažených návrhů.
-          withdraw_confirmation: Opravdu chcete tento návrh stáhnout?
           withdraw_proposal: Návrh stáhnout
         tags:
           changed_from: "(změněn z <u>%{previous_name}</u> správcem)"

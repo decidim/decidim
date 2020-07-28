@@ -445,8 +445,6 @@ ja:
           vote: サイン
           votes_blocked: サインインが無効になりました
         votes_count:
-          count:
-            other: 署名
           most_popular_initiative: 最も人気のあるイニシアチブです
           need_more_votes: もっと署名が必要です
       initiatives_mailer:

@@ -81,7 +81,6 @@
         search_placeholder:
           id_string_or_title_cont: Søk %{collection} etter ID eller tittel.
         state_eq:
-          label: Delstat
           values:
             evaluating: Vurderer
             withdrawn: Trukket tilbake
@@ -632,7 +631,6 @@
           amend: Endre
           comment: Kommentar
           comments: Kommentarer
-          endorse: Påtegne
       proposal_votes:
         create:
           error: Det oppstod et problem med å støtte forslaget.
@@ -737,7 +735,6 @@
           read_more: Les mer
           report: Rapport
           withdraw_btn_hint: Du kan trekke tilbake forslaget ditt hvis du ombestemmer deg, så lenge du ikke har fått noe støtte. Forslaget er ikke slettet, den vil vises i listen av tilbaketrukne forslag.
-          withdraw_confirmation: Er du sikker på at du vil trekke dette forslaget tilbake?
           withdraw_proposal: Trekk tilbake forslag
         vote_button:
           already_voted: Støttet allerede
