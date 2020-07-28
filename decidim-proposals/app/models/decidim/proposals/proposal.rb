@@ -27,10 +27,9 @@ module Decidim
       include Decidim::Endorsable
       include Decidim::Proposals::Valuatable
       include Decidim::TranslatableResource
-
-      translatable_fields :title, :body, :state, :answer, :address
-
       include Decidim::TranslatableAttributes
+
+      translatable_fields :title, :body
 
       POSSIBLE_STATES = %w(not_answered evaluating accepted rejected withdrawn).freeze
 
