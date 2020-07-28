@@ -63,6 +63,7 @@ Test suite
 # What do you need to do?
 
 * [Getting started with Decidim](#getting-started-with-decidim)
+* [Official Documentation](https://docs.decidim.org/init/en/)
 * [Contribute to the project](#how-to-contribute)
 * [Modules](#modules)
 * [Create & browse development app](#browse-decidim)
