@@ -179,6 +179,11 @@ config.maps = {
 Decidim works fine when some of the services are disabled individually but
 obviously, the disabled services are not available for Decidim users.
 
+### Integrating with a new service provider
+
+If you want to integrate the map functionality with a new service provider, take
+a look at the [Custom map providers][link-docs-custom-maps] documentation.
+
 ## Enabling maps and geocoding
 
 Once the maps functionality is configured, you'll need to activate it. As of
@@ -268,6 +273,7 @@ section for more information.
 [anchor-hosting-osm]: #hosting-your-own-map-services
 [anchor-configure-here-maps]: #configuring-here-maps
 [anchor-configure-osm]: #configuring-open-street-maps-based-service-providers
+[link-docs-custom-maps]: /docs/customization/maps.md
 [link-here]: http://here.com
 [link-osm-commercial]: https://wiki.openstreetmap.org/wiki/Commercial_OSM_Software_and_Services
 [link-osm-nominatim]: https://wiki.openstreetmap.org/wiki/Nominatim
