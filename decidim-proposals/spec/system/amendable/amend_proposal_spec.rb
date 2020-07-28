@@ -311,6 +311,11 @@ describe "Amend Proposal", versioning: true, type: :system do
 
         context "when the user clicks on the accept button" do
           before do
+            # For some reason, the reject button click can fail unless the page
+            # is first scrolled to the amend button...?
+            # Got the idea from:
+            # https://stackoverflow.com/a/39103252
+            page.scroll_to(find(".card__amend-button"))
             click_link "Accept"
           end
 
@@ -341,6 +346,11 @@ describe "Amend Proposal", versioning: true, type: :system do
 
         context "when the user clicks on the reject button" do
           before do
+            # For some reason, the reject button click can fail unless the page
+            # is first scrolled to the amend button...?
+            # Got the idea from:
+            # https://stackoverflow.com/a/39103252
+            page.scroll_to(find(".card__amend-button"))
             click_link "Reject"
           end
 
@@ -349,7 +359,7 @@ describe "Amend Proposal", versioning: true, type: :system do
           end
 
           it "is changed the state of the emendation" do
-            expect(page).to have_css(".alert", text: "This amendment for the proposal #{proposal.title} was rejected")
+            expect(page).to have_css(".callout.alert", text: "This amendment for the proposal #{proposal.title} was rejected")
           end
         end
       end
@@ -400,17 +410,17 @@ describe "Amend Proposal", versioning: true, type: :system do
           end
 
           it "is shown the alert text" do
-            expect(accept_alert).to eq("Are you sure you want to promote this emendation?")
+            expect(accept_confirm).to eq("Are you sure you want to promote this emendation?")
           end
 
           it "is shown the Success Callout when the alert text is accepted" do
-            page.driver.browser.switch_to.alert.accept
+            accept_confirm
             expect(page).to have_content("The amendment has been successfully published as a new proposal")
           end
 
           context "when the user visits again the rejected emendation" do
             before do
-              page.driver.browser.switch_to.alert.accept
+              accept_confirm
               visit emendation_path
             end
 

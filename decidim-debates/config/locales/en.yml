@@ -99,6 +99,7 @@ en:
           title: New debate
         show:
           back: Back to list
+          date: Date
       last_activity:
         new_debate_at_html: "<span>New debate at %{link}</span>"
       models:

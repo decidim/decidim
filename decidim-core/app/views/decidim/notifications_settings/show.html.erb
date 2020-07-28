@@ -1,3 +1,6 @@
+<% add_decidim_page_title(t("notifications_settings", scope: "layouts.decidim.user_profile")) %>
+<% content_for(:subtitle) { t("notifications_settings", scope: "layouts.decidim.user_profile") } %>
+
 <div class="row">
   <%= form_for(@notifications_settings, url: notifications_settings_path, method: :put, class: "user-form") do |f| %>
     <p><strong><%= t(".receive_notifications_about") %></strong></p>
@@ -43,6 +46,6 @@
       </label>
     </div>
 
-    <%= f.submit t(".update_notifications_settings"), disable_with: true %>
+    <%= f.submit t(".update_notifications_settings") %>
   <% end %>
 </div>

@@ -55,7 +55,7 @@ describe "User activity", type: :system do
 
     it "displays the activities at the home page" do
       within ".user-activity" do
-        expect(page).to have_css("article.card", count: 2)
+        expect(page).to have_css(".card--activity", count: 2)
 
         expect(page).to have_content(resource.title)
         expect(page).to have_content(comment.commentable.title)
