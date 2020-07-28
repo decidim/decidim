@@ -274,6 +274,9 @@ uk:
             votes: Голоси
       new:
         limit_reached: Ви не можете вносити нові пропозиції, оскільки ви перевищили ліміт.
+      participatory_text_proposal:
+        buttons:
+          endorse: Підтримати
       proposal_endorsements:
         create:
           error: При спробі надати підтримку цій пропозиції виникла помилка.
