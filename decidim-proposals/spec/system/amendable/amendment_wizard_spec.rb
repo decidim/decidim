@@ -8,8 +8,8 @@ describe "Amendment Wizard", type: :system do
   let!(:user) { create :user, :confirmed, organization: component.organization }
   let(:proposal_path) { Decidim::ResourceLocatorPresenter.new(proposal).path }
 
-  let(:title) { "More sidewalks and less roads" }
-  let(:body) { "Cities need more people, not more cars" }
+  let(:title) { translated "More sidewalks and less roads" }
+  let(:body) { translated "Cities need more people, not more cars" }
 
   before do
     switch_to_host(component.organization.host)
@@ -50,7 +50,7 @@ describe "Amendment Wizard", type: :system do
         end
 
         it "redirects to the proposal page" do
-          expect(page).to have_content(proposal.title)
+          expect(page).to have_content(translated(proposal.title))
           expect(page).to have_content("AMEND PROPOSAL")
         end
       end
@@ -263,7 +263,7 @@ describe "Amendment Wizard", type: :system do
         end
 
         it "publishes the amendment" do
-          expect(page).to have_css(".callout.warning", text: "This amendment for the proposal #{proposal.title} is being evaluated.")
+          expect(page).to have_css(".callout.warning", text: "This amendment for the proposal #{translated(proposal.title)} is being evaluated.")
 
           within ".flash.callout.success" do
             expect(page).to have_content("Amendment successfully published.")
@@ -308,8 +308,8 @@ describe "Amendment Wizard", type: :system do
         expect(page).to have_css("#amendments", text: "AMENDMENTS")
 
         within ".amendment-list" do
-          expect(page).to have_content(emendation.title)
-          expect(page).not_to have_content(emendation_draft.title)
+          expect(page).to have_content(translated(emendation.title))
+          expect(page).not_to have_content(translated(emendation_draft.title))
         end
       end
 

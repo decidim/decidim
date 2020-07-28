@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
-shared_examples "view proposal details from admin" do
+require "spec_helper"
+
+describe "Admin views proposal details from admin", type: :system do
+  include_context "when admin manages proposals"
   include ActionView::Helpers::TextHelper
 
   let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
@@ -53,7 +56,7 @@ shared_examples "view proposal details from admin" do
   it "shows the proposal body" do
     go_to_admin_proposal_page(proposal)
 
-    expect(page).to have_content(strip_tags(proposal.body).strip)
+    expect(page).to have_content(strip_tags(translated(proposal.body)).strip)
   end
 
   describe "with an specific creation date" do
@@ -203,7 +206,7 @@ shared_examples "view proposal details from admin" do
   end
 
   def go_to_admin_proposal_page(proposal)
-    within find("tr", text: proposal.title) do
+    within find("tr", text: translated(proposal.title)) do
       find("a", class: "action-icon--show-proposal").click
     end
   end

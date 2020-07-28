@@ -108,7 +108,7 @@ shared_examples "manage sortitions" do
           expect(page).to have_content(/Proposals selected for draw/i)
           expect(sortition.proposals).not_to be_empty
           sortition.proposals.each do |p|
-            expect(page).to have_content(p.title)
+            expect(page).to have_content(translated(p.title))
           end
         end
       end

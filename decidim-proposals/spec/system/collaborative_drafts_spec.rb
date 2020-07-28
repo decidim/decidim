@@ -94,7 +94,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
       end
 
       it "shows the state" do
-        expect(page).to have_css(".label.collaborative-draft-status", text: translated(collaborative_draft.state))
+        expect(page).to have_css(".label.collaborative-draft-status", text: "Open")
       end
 
       context "when geocoding is enabled" do

@@ -8,6 +8,7 @@ describe "Support Proposal", type: :system, slow: true do
 
   let!(:proposals) { create_list(:proposal, 3, component: component) }
   let!(:proposal) { Decidim::Proposals::Proposal.find_by(component: component) }
+  let(:proposal_title) { translated(proposal.title) }
   let!(:user) { create :user, :confirmed, organization: organization }
 
   def expect_page_not_to_include_votes
@@ -21,7 +22,7 @@ describe "Support Proposal", type: :system, slow: true do
         visit_component
         expect_page_not_to_include_votes
 
-        click_link proposal.title
+        click_link proposal_title
         expect_page_not_to_include_votes
       end
     end
@@ -35,7 +36,7 @@ describe "Support Proposal", type: :system, slow: true do
         visit_component
         expect_page_not_to_include_votes
 
-        click_link proposal.title
+        click_link proposal_title
         expect_page_not_to_include_votes
       end
     end
@@ -275,6 +276,7 @@ describe "Support Proposal", type: :system, slow: true do
 
     context "when the proposal is rejected", :slow do
       let!(:rejected_proposal) { create(:proposal, :rejected, component: component) }
+      let!(:rejected_proposal_title) { translated(rejected_proposal.title) }
 
       before do
         component.update!(settings: { proposal_answering_enabled: true })
@@ -289,10 +291,10 @@ describe "Support Proposal", type: :system, slow: true do
           check "Rejected"
         end
 
-        page.find_link rejected_proposal.title
+        page.find_link rejected_proposal_title
         expect(page).to have_no_selector("#proposal-#{rejected_proposal.id}-vote-button")
 
-        click_link rejected_proposal.title
+        click_link rejected_proposal_title
         expect(page).to have_no_selector("#proposal-#{rejected_proposal.id}-vote-button")
       end
     end
@@ -314,7 +316,7 @@ describe "Support Proposal", type: :system, slow: true do
         create(:proposal_vote, proposal: proposal)
         visit_component
 
-        proposal_element = page.find(".card--proposal", text: proposal.title)
+        proposal_element = page.find(".card--proposal", text: proposal_title)
 
         within proposal_element do
           within ".card__support", match: :first do
@@ -326,7 +328,7 @@ describe "Support Proposal", type: :system, slow: true do
       it "allows users to vote on proposals under the limit" do
         visit_component
 
-        proposal_element = page.find(".card--proposal", text: proposal.title)
+        proposal_element = page.find(".card--proposal", text: proposal_title)
 
         within proposal_element do
           within ".card__support", match: :first do
@@ -355,7 +357,7 @@ describe "Support Proposal", type: :system, slow: true do
         create(:proposal_vote, proposal: proposal)
         visit_component
 
-        proposal_element = page.find(".card--proposal", text: proposal.title)
+        proposal_element = page.find(".card--proposal", text: proposal_title)
 
         within proposal_element do
           within ".card__support", match: :first do
@@ -383,7 +385,7 @@ describe "Support Proposal", type: :system, slow: true do
         visit_component
 
         proposal_elements = proposals.map do |proposal|
-          page.find(".card--proposal", text: proposal.title)
+          page.find(".card--proposal", text: translated(proposal.title))
         end
 
         within proposal_elements[0] do
@@ -422,7 +424,7 @@ describe "Support Proposal", type: :system, slow: true do
       it "gives a point after voting" do
         visit_component
 
-        proposal_element = page.find(".card--proposal", text: proposal.title)
+        proposal_element = page.find(".card--proposal", text: proposal_title)
 
         expect do
           within proposal_element do

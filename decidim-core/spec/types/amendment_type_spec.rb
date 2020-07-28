@@ -67,7 +67,7 @@ module Decidim
         let(:query) { "{ emendation { ...on Proposal { title } } }" }
 
         it "returns the emendation as a string" do
-          expect(response["emendation"]["title"]).to eq(emendation.title)
+          expect(response["emendation"]["title"]).to eq(translated(emendation.title))
         end
       end
 
@@ -75,7 +75,7 @@ module Decidim
         let(:query) { "{ amendable { ...on Proposal { title } } }" }
 
         it "returns the amendable as a string" do
-          expect(response["amendable"]["title"]).to eq(amendable.title)
+          expect(response["amendable"]["title"]).to eq(translated(amendable.title))
         end
       end
     end
