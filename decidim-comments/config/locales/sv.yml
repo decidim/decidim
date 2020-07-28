@@ -55,7 +55,6 @@ sv:
             does_not_belong: Innehåller olaglig aktivitet, självmordshot, personlig information eller något annat du tycker inte hör hemma på %{organization_name}.
             offensive: Innehåller rasism, sexism, skällsord, personliga attacker, dödshot, uppmaningar att begå självmord eller någon form av hatpropaganda.
             spam: Innehåller clickbait, reklam, bedrägerier eller skriptrobotar.
-          title: Rapportera ett problem
         show_replies: Visa %{replies_count} svar
         single_comment_link_title: Få länk till enstaka kommentar
       comment_order_selector:
