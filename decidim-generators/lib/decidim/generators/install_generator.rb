@@ -146,6 +146,8 @@ module Decidim
 
         copy_file "bullet_initializer.rb", "config/initializers/bullet.rb"
         copy_file "rack_profiler_initializer.rb", "config/initializers/rack_profiler.rb"
+
+        run "bundle install"
       end
 
       private
