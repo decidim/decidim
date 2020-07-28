@@ -35,6 +35,7 @@ es-MX:
             title: Editar el cuestionario
           form:
             add_question: Añadir pregunta
+            add_separator: Añadir separador
             already_answered_warning: Algunos usuarios ya han respondido al cuestionario, por lo que no puedes modificar las preguntas.
             collapse: Contraer todas las preguntas
             expand: Expandir todos las preguntas
@@ -68,8 +69,10 @@ es-MX:
       files:
         extension_whitelist: 'Formatos de archivo aceptados:'
       images:
+        dimensions: "%{width} x %{height} px"
         dimensions_info: 'Esta imagen medirá:'
         processors:
+          resize_and_pad: Redimensionado y ajustado a
           resize_to_fit: Redimensionada para ajustarla
       question_types:
         long_answer: Respuesta larga
