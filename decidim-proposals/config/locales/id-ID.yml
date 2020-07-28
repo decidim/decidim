@@ -73,7 +73,6 @@ id:
             'false': Proposal
             'true': Amandemen
         state_eq:
-          label: Negara
           values:
             evaluating: Mengevaluasi
             withdrawn: Ditarik
@@ -587,7 +586,6 @@ id:
           amend: Merubah
           comment: Komentar
           comments: Komentar
-          endorse: Mengesahkan
       proposal_votes:
         create:
           error: Ada kesalahan saat memilih proposal.
@@ -673,7 +671,6 @@ id:
           proposal_rejected_reason: 'Proposal ini telah ditolak karena:'
           report: Melaporkan
           withdraw_btn_hint: Anda dapat menarik proposal Anda jika Anda berubah pikiran, selama Anda belum menerima dukungan apa pun. Proposal tidak dihapus, itu akan muncul dalam daftar proposal yang ditarik.
-          withdraw_confirmation: Apakah Anda yakin untuk membatalkan proposal ini?
           withdraw_proposal: Tarik proposal
         vote_button:
           already_voted: Sudah memilih
