@@ -97,7 +97,7 @@ module Decidim
       #
       # @return [Hash]
       def geocoder_options(options)
-        { lookup: handle }.merge(options)
+        { lookup: handle, language: locale }.merge(options)
       end
 
       private
