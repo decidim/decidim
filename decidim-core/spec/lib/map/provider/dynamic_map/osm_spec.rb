@@ -57,6 +57,29 @@ module Decidim
                 )
               end
             end
+
+            context "when the api_key parameter is true" do
+              let(:config) do
+                {
+                  api_key: "key1234",
+                  tile_layer: {
+                    url: "https://tiles.example.org",
+                    api_key: true,
+                    foo: "bar",
+                    baz: "foobar"
+                  }
+                }
+              end
+
+              it "prepares and returns the correct builder options" do
+                expect(utility.builder_options).to eq(
+                  tile_layer: {
+                    url: "https://tiles.example.org",
+                    configuration: { api_key: "key1234", foo: "bar", baz: "foobar" }
+                  }
+                )
+              end
+            end
           end
         end
       end

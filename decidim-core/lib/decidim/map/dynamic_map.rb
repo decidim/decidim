@@ -31,11 +31,15 @@ module Decidim
       # @return [Hash] The default options for the map builder.
       def builder_options
         tile_layer = configuration.fetch(:tile_layer, {})
+        tile_layer_config = tile_layer.except(:url).tap do |config|
+          config.fetch(:api_key, nil) == true &&
+            config[:api_key] = configuration.fetch(:api_key, nil)
+        end
 
         {
           tile_layer: {
             url: tile_layer.fetch(:url, nil),
-            configuration: tile_layer.except(:url)
+            configuration: tile_layer_config
           }
         }
       end
