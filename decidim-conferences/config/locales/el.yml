@@ -1,20 +1,110 @@
 el:
   activemodel:
     attributes:
+      conference:
+        title: Τίτλος
+      conference_speaker:
+        full_name: Πλήρες όνομα
       conference_user_role:
         email: Email
         name: Όνομα
+        role: Ρόλος
+    errors:
+      models:
+        conference_registration_invite:
+          attributes:
+            email:
+              already_invited: Αυτό το email έχει ήδη προσκληθεί
+  activerecord:
+    models:
+      decidim/conference:
+        one: Συνδιάσκεψη
+        other: Συνδιασκέψεις
+      decidim/conference_speaker:
+        one: Ομιλητής συνδιάσκεψης
+        other: Ομιλητές συνδιάσκεψης
+      decidim/conference_user_role:
+        one: Ρόλος χρήστη συνδιάσκεψης
+        other: Ρόλοι χρηστών συνδιάσκεψης
   decidim:
     admin:
+      actions:
+        confirm: Επιβεβαίωση
+        new_conference: Νέα συνδιάσκεψη
+        send_diplomas: Αποστολή πιστοποιητικών συμμετοχής
+      conference_copies:
+        new:
+          copy: Αντιγραφή
+          select: Επιλέξετε ποιά δεδομένα θα θέλατε να διπλοτυπήσετε
+          title: Διπλότυπο συνδιάσκεψης
+      conference_publications:
+        create:
+          error: Υπήρξε ένα πρόβλημα κατά τη δημοσίευση της συνδιάσκεψης.
+          success: Η συνδιάσκεψη δημοσιεύτηκε με επιτυχία.
+        destroy:
+          error: Υπήρξε ένα πρόβλημα κατά τη αποδημοσίευση της συνδιάσκεψης.
+          success: Η συνδιάσκεψη αποδημοσιεύτηκε επιτυχώς.
+      conference_registration:
+        confirm:
+          error: Παρουσιάστηκε πρόβλημα κατά την επιβεβαίωση αυτής της εγγραφής στη συνδιάσκεψη.
+          success: Η εγγραφή στη συνδιάσκεψη επιβεβαιώθηκε επιτυχώς.
       conference_speakers:
+        create:
+          error: Παρουσιάστηκε πρόβλημα κατά την προσθήκη ομιλητών σε αυτή τη συνδιάσκεψη.
+          success: Ο ομιλητής της συνδιάσκεψης δημιουργήθηκε με επιτυχία.
+        destroy:
+          success: Ο ομιλητής της συνδιάσκεψης διεγράφη επιτυχώς.
+        edit:
+          title: Ενημέρωση ομιλητή συνδιάσκεψης.
+          update: Ενημέρωση
+        index:
+          conference_speakers_title: Ομιλητές συνδιάσκεψης
         new:
           create: Δημιουργία
+          title: Νέος ομιλητής συνδιάσκεψης.
+        update:
+          error: Παρουσιάστηκε πρόβλημα κατά την ενημέρωση αυτού του ομιλητή συνδιάσκεψης.
+          success: Ο ομιλητής της συνδιάσκεψης ενημερώθηκε επιτυχώς.
       conference_user_roles:
+        create:
+          error: Υπήρξε ένα πρόβλημα κατά την προσθήκη ενός διαχειριστή για αυτή τη συνδιάσκεψη.
+          success: Ο διαχειριστής της συνδιάσκεψης προστέθηκε επιτυχώς.
+        destroy:
+          success: Ο διαχειριστής της συνδιάσκεψης αφαιρέθηκε επιτυχώς.
+        edit:
+          title: Ενημέρωση διαχειριστή συνδιάσκεψης.
+          update: Ενημέρωση
+        index:
+          conference_admins_title: διαχειριστές συνδιάσκεψης
         new:
           create: Δημιουργία
+          title: Νέος διαχειριστής συνδιάσκεψης.
+        update:
+          error: Παρουσιάστηκε πρόβλημα κατά την ενημέρωση αυτού του διαχειριστή συνδιάσκεψης.
+          success: Ο διαχειριστής της συνδιάσκεψης ενημερώθηκε επιτυχώς.
       conferences:
+        create:
+          error: Παρουσιάστηκε πρόβλημα κατά τη δημιουργία της συνδιάσκεψη.
+          success: Η συνδιάσκεψη δημιουργήθηκε επιτυχώς.
+        edit:
+          update: Ενημέρωση
+        exports:
+          registrations: Εγγραφές
+        form:
+          title: Γενικές Πληροφορίες
+        index:
+          not_published: Μη δημοσιευμένη
+          published: Δημοσιεύθηκε
         new:
           create: Δημιουργία
+          title: Συνδιάσκεψη
+        update:
+          error: Παρουσιάστηκε πρόβλημα κατά την ενημέρωση της συνδιάσκεψης.
+          success: Η συνδιάσκεψη ενημερώθηκε επιτυχώς.
+      conferences_copies:
+        create:
+          error: Παρουσιάστηκε πρόβλημα κατά την αντιγραφή της συνδιάσκεψης.
+          success: Η συνδιάσκεψη αντιγράφηκε επιτυχώς.
       media_links:
         new:
           create: Δημιουργία
