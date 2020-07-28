@@ -77,7 +77,7 @@ describe "Initiative signing", type: :system do
 
     context "and has not signed the initiative yet" do
       context "and is not verified" do
-        it "signin initiative is disabled" do
+        it "signin initiative is disabled", :slow do
           visit decidim_initiatives.initiative_path(initiative)
 
           within ".view-side" do

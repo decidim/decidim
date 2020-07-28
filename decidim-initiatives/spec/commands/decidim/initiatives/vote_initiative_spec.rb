@@ -175,7 +175,12 @@ module Decidim
           context "when initiative type has document number authorization handler" do
             let(:handler_name) { "dummy_authorization_handler" }
             let(:unique_id) { "test_digest" }
-            let(:metadata) { { test: "dummy" } }
+            let(:metadata) do
+              {
+                test: "dummy",
+                scope_id: initiative.scoped_type.scope.id
+              }
+            end
             let!(:authorization_handler) { Decidim::AuthorizationHandler.handler_for(handler_name) }
 
             before do
