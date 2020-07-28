@@ -121,10 +121,17 @@ fi-pl:
           most_voted: Eniten ääniä saaneet ensin
           random: Satunnainen järjestys
         project:
+          add: Lisää hanke %{resource_name} ääneesi
           count:
             one: 1 kannatus
             other: "%{count} kannatusta"
+          remove: Poista hanke %{resource_name} äänestäsi
           view: Näytä
+        project_budget_button:
+          add: Lisää ääneesi
+          add_descriptive: Lisää hanke %{resource_name} ääneesi
+          added: Lisätty ääneesi
+          added_descriptive: Hanke %{resource_name} lisätty ääneesi
         show:
           budget: Budjetti
           view_all_projects: Näytä kaikki suunnitelmat
