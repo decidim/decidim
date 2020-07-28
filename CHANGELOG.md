@@ -21,7 +21,7 @@ After this, `Decidim::Proposals::ProposalEndorsement` and the corresponding coun
 
 - **Maps**
 
-Maps functionality is now fully configurable for all the map functionality. It defaults to HERE Maps as you'd expect when upgrading from an older version and it works still fine with your legacy style geocoder configuration after the update. This is, however, deprecated and it is highly recommended to update your configuration to look as follows:
+Maps functionality is now fully configurable. It defaults to HERE Maps as you'd expect when upgrading from an older version and it works still fine with your legacy style geocoder configuration after the update. This is, however, deprecated and it is highly recommended to define your maps configuration with the new style:
 
 ```ruby
 # Before:
@@ -34,7 +34,7 @@ Decidim.configure do |config|
   }
 end
 
-# After:
+# After (remember to also update your secrets):
 Decidim.configure do |config|
   config.maps = {
     provider: :here,
