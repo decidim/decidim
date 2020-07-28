@@ -4,8 +4,8 @@ Decidim can be configured to use multiple different
 [map service providers][link-docs-maps] but it can be also extended to use any
 possible service provider out there.
 
-If you want to create your own provider, you will need to find one that provides
-all the following services:
+If you want to create your own provider integration, you will need to find a
+service provider that provides all the following services:
 
 - [A geocoding server][link-wiki-geocoding] in order to turn user entered
   addresses into [geocoordinates][link-wiki-geocoordinates].
@@ -15,14 +15,15 @@ all the following services:
   e.g. on the proposal pages.
 
 One option is to host some or all of these services yourself as there are open
-source alternatives available for all of them. More information about self
-hosting is available at the
+source alternatives available for all of these services. More information about
+self hosting is available at the
 [maps and geocoding configuration][link-docs-maps-multiple-providers]
 documentation.
 
 You may also decide to [disable some of the services][link-docs-maps-disable]
 that are not available at your service provider but in order to get the full out
-of Decidim, it is suggested to find a service provider with all these services.
+of Decidim, it is recommended to find a service provider with all these
+services.
 
 In case you want to use different service providers for the different categories
 of map services, that is also possible. Instructions for this are provided in
@@ -99,8 +100,8 @@ define the following methods in the utility class:
   addresses. If the first parameter is an address string, the method returns an
   arrays of coordinate pairs.
 - `coordinates(address, options = {})` - A method that searches the best
-  matching coordinates for the given address string. Only returns one set of
-  coordinates as an array.
+  matching coordinates for the given address string. Only returns one coordinate
+  pair as an array.
 - `address(coordinates, options = {})` - A method that searches the best
   matching address for the given coordinate pair array. Only returns one address
   as a string.
@@ -134,14 +135,18 @@ Geocoder.configure(
 )
 ```
 
+Each geocoding API may require their own configuration options. Please refer to
+the Geocoder gem's [supported geocoding APIs][link-geocoder-apis] documentation
+to find out the available options for your API.
+
 ### Defining the dynamic maps utility
 
 For the dynamic map functionality, you should primarily use a service provider
-that is compatible with the [Leaflet library][link-leaflet] that comes with
+that is compatible with the [Leaflet library][link-leaflet] that ships with
 Decidim. You can also integrate to services that are not compatible with Leaflet
-but it will cause you more work.
+but it will cause you more work and is not covered by this guide.
 
-Please note that you don't necessarily need to create your own dynamic maps
+Please note that you don't necessarily even need to create your own dynamic maps
 utility if your service provider is already compatible with the
 [`Decidim::Map::Provider::DynamicMap::Osm`][link-code-osm-dynamic] provider. In
 order to configure your custom OSM compatible service provider take a look at
@@ -247,7 +252,7 @@ L.tileLayer(
 
 ### Defining the static maps utility
 
-For the static map functionality, you should primarily use a service provider
+For the static map functionality, you should preferrably use a service provider
 that is compatible with [osm-static-maps][link-osm-static-maps] which is already
 integrated with Decidim.
 
@@ -318,6 +323,14 @@ def url_params(latitude:, longitude:, options: {})
     foo: configuration.fetch(:foo, "baz")
   )
 end
+```
+
+When calling the `url` method with the latitude of `1.123` and longitude of
+`2.456`, the utility would now generate the following URL with these
+configurations and customizations:
+
+```bash
+https://staticmap.example.org/?latitude=1.123&longitude=2.456&zoom=15&width=120&height=120&style=bright&foo=bar
 ```
 
 ## Configuring your own map service provider
