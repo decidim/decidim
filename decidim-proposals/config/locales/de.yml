@@ -608,7 +608,7 @@ de:
           amend: Ändern
           comment: Kommentar
           comments: Bemerkungen
-          endorse: Befürworten
+          endorse: Unterstützung
       proposal_endorsements:
         create:
           error: Bei der Bestätigung des Vorschlags sind Fehler aufgetreten.
