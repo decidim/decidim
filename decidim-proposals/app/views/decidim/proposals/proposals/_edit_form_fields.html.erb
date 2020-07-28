@@ -44,11 +44,6 @@
       <% end %>
       <%= form.hidden_field :latitude, data: { type: "latitude" } %>
       <%= form.hidden_field :longitude, data: { type: "longitude" } %>
-    <% else %>
-      <div class="column text-center">
-        <p><%= t(".not_geocoded") %></p>
-        <p><%= t(".address", address: @form.address) %></p>
-      </div>
     <% end %>
   </div>
 <% end %>

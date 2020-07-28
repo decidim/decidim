@@ -259,10 +259,16 @@ shared_examples "proposals wizards" do |options|
                participatory_space: participatory_process)
       end
 
+      before do
+        stub_geocoding(proposal_address, [latitude, longitude])
+      end
+
       context "when in step_4: Publish" do
         let!(:proposal_draft) { create(:proposal, :draft, users: [user], address: proposal_address, component: component, title: proposal_title, body: proposal_body) }
 
         before do
+          proposal_draft.update!(latitude: latitude)
+          proposal_draft.update!(longitude: longitude)
           visit component_path.preview_proposal_path(proposal_draft)
         end
 
@@ -275,11 +281,18 @@ shared_examples "proposals wizards" do |options|
         end
 
         it "shows a preview" do
-          expect(page).to have_content("Your address has not been geocoded, preview is unavailable.")
-          expect(page).to have_content("Address : #{proposal_address}")
           expect(page).to have_content(proposal_title)
           expect(page).to have_content(user.name)
           expect(page).to have_content(proposal_body)
+
+          expect(page).to have_css(".dynamic-map-instructions")
+          expect(page).to have_css(".google-map")
+          within "#edit_proposal_#{proposal_draft.id}" do
+            expect(page).to have_field("proposal_address", type: :hidden, with: proposal_address)
+            expect(page).to have_field("proposal_longitude", type: :hidden, with: longitude)
+            expect(page).to have_field("proposal_latitude", type: :hidden, with: latitude)
+            expect(page).to have_button("Update position")
+          end
         end
 
         it "shows a publish button" do
