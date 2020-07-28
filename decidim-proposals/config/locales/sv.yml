@@ -85,7 +85,6 @@ sv:
         search_placeholder:
           id_string_or_title_cont: Sök %{collection} efter ID eller titel.
         state_eq:
-          label: Status
           values:
             evaluating: Utvärderas
             withdrawn: Tillbakadragna
@@ -675,7 +674,6 @@ sv:
           amend: Ändra
           comment: Kommentar
           comments: Kommentarer
-          endorse: Instäm
       proposal_votes:
         create:
           error: Det gick inte att stödja förslaget.
@@ -781,7 +779,6 @@ sv:
           read_more: Läs mer
           report: Rapport
           withdraw_btn_hint: Du kan dra tillbaka ett förslag om du ändrar dig, så länge som det inte har fått något stöd. Förslaget raderas inte utan kommer att visas i listan över förslag som dragits tillbaka.
-          withdraw_confirmation: Är du säker på att dra tillbaka detta förslag?
           withdraw_proposal: Dra tillbaka förslaget
         tags:
           changed_from: "(ändrad från <u>%{previous_name}</u> av en administratör)"

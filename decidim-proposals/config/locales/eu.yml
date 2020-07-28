@@ -77,7 +77,6 @@ eu:
             'false': proposamenak
             'true': Aldaketak
         state_eq:
-          label: Estatu
           values:
             evaluating: Ebaluatzen
             withdrawn: kendu
@@ -593,7 +592,6 @@ eu:
           amend: aldatzea
           comment: Iruzkina
           comments: Oharrak
-          endorse: gatoz
       proposal_votes:
         create:
           error: Erroreak gertatu dira proposamena bozkatzean.
@@ -683,7 +681,6 @@ eu:
           proposal_rejected_reason: 'Proposamen hau baztertu da arrazoi hauengatik:'
           report: Salatu
           withdraw_btn_hint: Zure proposamena uka dezakezu zure kontuan aldatzen baduzu, laguntza jaso ez baduzu. Proposamena ez da ezabatu, kendutako proposamenen zerrendan agertuko da.
-          withdraw_confirmation: Ziur al zaude proposamen hau kendu nahi duzula?
           withdraw_proposal: Ezabatu proposamena
         vote_button:
           already_voted: Bozkatuta duzu

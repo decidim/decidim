@@ -236,6 +236,8 @@ fi-pl:
           label: 'Lajittele kuulemiset:'
           random: Sattumanvarainen järjestys
           recent: Viimeisin ensin
+        show:
+          dates: Päivämäärät
       content_blocks:
         highlighted_consultations:
           name: Tärkeimmät kuulemiset
@@ -346,10 +348,12 @@ fi-pl:
         verification_required: Varmenna käyttäjätilisi äänestääksesi
         vote: Äänestä
       vote_modal:
+        close_modal: Sulje ikkuna
         contextual_help: Valitse vaihtoehto.
         title: 'Kuuleminen: kysymyksen kannatus'
       vote_modal_confirm:
         change: Muuta
+        close_modal: Sulje ikkuna
         confirm: Vahvista
         contextual_help: Vahvista valittu vaihtoehto.
         title: 'Kuuleminen: vahvista kannatus'

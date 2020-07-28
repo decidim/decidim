@@ -85,7 +85,6 @@ pl:
             'false': Propozycje
             'true': Poprawki
         state_eq:
-          label: Stan
           values:
             evaluating: Ocena
             withdrawn: Wycofane
@@ -605,7 +604,6 @@ pl:
           amend: Modyfikować
           comment: Komentarz
           comments: Komentarze
-          endorse: Podpisać się
       proposal_votes:
         create:
           error: Podczas głosowania nad propozycją wystąpiły błędy.
@@ -703,7 +701,6 @@ pl:
           proposal_rejected_reason: 'Niniejszy wniosek został odrzucony, ponieważ:'
           report: Raport
           withdraw_btn_hint: Możesz wycofać swoją propozycję, jeśli zmienisz zdanie, o ile nie otrzymałeś żadnego wsparcia. Wniosek nie zostanie usunięty, pojawi się na liście wycofanych wniosków.
-          withdraw_confirmation: Czy na pewno chcesz wycofać tę propozycję?
           withdraw_proposal: Wycofaj propozycję
         vote_button:
           already_voted: Już głosował

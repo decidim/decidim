@@ -89,7 +89,6 @@ ro:
         search_placeholder:
           id_string_or_title_cont: Caută %{collection} după ID sau titlu.
         state_eq:
-          label: Județ
           values:
             evaluating: Evaluare
             withdrawn: Retras
@@ -647,7 +646,6 @@ ro:
           amend: Modifică
           comment: Comentariu
           comments: Comentarii
-          endorse: Aprobare
       proposal_votes:
         create:
           error: A existat o problemă în sprijinirea propunerii.
@@ -760,7 +758,6 @@ ro:
           read_more: Citește mai mult
           report: Raport
           withdraw_btn_hint: Vă puteți retrage propunerea dacă vă răzgândiți, cu condiția să nu beneficiați de niciun sprijin. Propunerea nu este eliminată, ci va apărea pe lista propunerilor retrase.
-          withdraw_confirmation: Sunteți sigur că doriți să retrageți această propunere?
           withdraw_proposal: Retragere propunere
         tags:
           changed_from: "(schimbat de la <u>%{previous_name}</u> de către un administrator)"
