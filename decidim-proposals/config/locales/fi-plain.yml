@@ -85,7 +85,6 @@ fi-pl:
         search_placeholder:
           id_string_or_title_cont: '%{collection}: Hae ID-numeron tai otsikon perusteella'
         state_eq:
-          label: Tila
           values:
             evaluating: Arvioitavana
             withdrawn: Peruutettu
@@ -684,7 +683,6 @@ fi-pl:
           amend: Muuta
           comment: Kommentti
           comments: Kommentit
-          endorse: Suosittele
       proposal_votes:
         create:
           error: Äänestettäessä ehdotusta tapahtui virhe.
@@ -793,7 +791,6 @@ fi-pl:
           read_more: Lue lisää
           report: Ilmoita
           withdraw_btn_hint: Jos muutat mieltäsi, voit perua ehdotuksesi, mikäli se ei ole saanut kannatusta. Ehdotusta ei poisteta, se näkyy peruutettujen ehdotusten luettelossa.
-          withdraw_confirmation: Haluatko varmasti peruuttaa tämän ehdotuksen?
           withdraw_proposal: Peruuta ehdotus
         tags:
           changed_from: "(muutettu nimestä <u>%{previous_name}</u> hallintakäyttäjän toimesta)"
