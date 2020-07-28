@@ -51,6 +51,7 @@ ca:
         from: Adreça des d'on s'enviaran els correus electrònics
         github_handler: Nom d'usuari de GitHub
         header_snippets: Codi personalitzat a la capçalera
+        highlight_alternative_color: Destacat, alternatiu
         highlight_color: Destacar
         highlighted_content_banner_action_subtitle: Subtítol del botó d'acció
         highlighted_content_banner_action_title: Títol del botó d'acció
