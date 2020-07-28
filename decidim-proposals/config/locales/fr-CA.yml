@@ -85,7 +85,6 @@ fr-CA:
         search_placeholder:
           id_string_or_title_cont: Rechercher %{collection} par ID ou titre.
         state_eq:
-          label: État
           values:
             evaluating: En cours d'évaluation
             withdrawn: Retirée
@@ -684,7 +683,6 @@ fr-CA:
           amend: Modifier
           comment: Commentaire
           comments: commentaires
-          endorse: Endosser
       proposal_votes:
         create:
           error: Des erreurs se sont produites lors du soutien de la proposition.
@@ -793,7 +791,6 @@ fr-CA:
           read_more: En savoir plus
           report: Signaler
           withdraw_btn_hint: Si vous changez d'avis et tant que votre proposition n'a pas reçu de vote, commentaire et/ou soutien, vous pouvez toujours la retirer. Cette dernière ne sera pas supprimée mais elle apparaîtra dans la liste des propositions retirées.
-          withdraw_confirmation: Êtes-vous sûr de vouloir retirer cette proposition ?
           withdraw_proposal: Retirer la proposition
         tags:
           changed_from: "(changé de <u>%{previous_name}</u> par un administrateur)"
