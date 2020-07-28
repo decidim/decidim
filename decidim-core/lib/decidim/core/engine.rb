@@ -100,7 +100,7 @@ module Decidim
         ActionView::Base.raise_on_missing_translations = true unless Rails.env.production?
       end
 
-      initializer "decidim.geocoding" do
+      initializer "decidim.geocoding", after: :load_config_initializers do
         Geocoder.configure(Decidim.geocoder) if Decidim.geocoder.present?
       end
 
