@@ -175,7 +175,7 @@ module Decidim
     # Public: Resets the utility configuration to its initial state so that it
     # is reloaded when utility_configuration is called the next time. It should
     # not be necessary to call this ever but it is useful for the tests as the
-    # configurations canchange.
+    # configurations can change.
     #
     # @return [nil]
     def self.reset_utility_configuration!
