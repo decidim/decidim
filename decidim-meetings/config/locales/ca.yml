@@ -412,6 +412,7 @@ ca:
           attendees: Nombre d'assistents
           back: Torna al llistat
           contributions: Nombre d'aportacions
+          date: Data
           edit_meeting: Editar la trobada
           going: Inscrit
           join: Inscriu-te a la trobada
