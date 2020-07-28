@@ -114,17 +114,12 @@ pl:
             other: Wybranych projektów
           view: Widok
         project:
-          add: Dodaj
           count:
             one: 1
             few: "%{count} obsługuje"
             many: "%{count} obsługuje"
             other: "%{count} obsługuje"
-          remove: Usunąć
           view: Widok
-        project_budget_button:
-          add: Dodaj
-          added: W dodatku
         show:
           budget: Budżet
           view_all_projects: Wyświetl wszystkie projekty
