@@ -41,8 +41,16 @@ module Decidim
         expect(subject.available?(:geocoding)).to be(true)
       end
 
+      it "returns true for a list of available utilities" do
+        expect(subject.available?(:dynamic, :static, :geocoding)).to be(true)
+      end
+
       it "returns false for an unavailable utility" do
         expect(subject.available?(:foobar)).to be(false)
+      end
+
+      it "returns false for a list of utilities of which one is unavailable" do
+        expect(subject.available?(:dynamic, :static, :geocoding, :foobar)).to be(false)
       end
 
       context "when the categories are unregistered" do
