@@ -174,7 +174,7 @@ config.maps = {
 }
 ```
 
-Decidim works fine when some of the services are disabled individuall but
+Decidim works fine when some of the services are disabled individually but
 obviously, the disabled services are not available for Decidim users.
 
 ## Enabling maps and geocoding
@@ -204,7 +204,7 @@ yourself and keeping everything up to date is time consuming and rather complex.
 If the related complexity or the required time is not an issue, feel free to
 setup the following services on your own servers.
 
-### Open Street Maps tile server
+### Map tiles: Open Street Maps tile server
 
 You will need a [map tiles][link-wiki-map-tiles] server
 which is used for the dynamic maps that the user can move themselves.
@@ -218,22 +218,7 @@ server:
 
 https://tiles.example.org
 
-### Nominatim geocoding server
-
-[Nominatim][link-osm-nominatim] makes it possible to place points on the Decidim
-maps based on addresses. This service provides geocoding capabilities by turning
-human readable addresses to [geographic coordinates][link-wiki-geocoordinates].
-
-Follow these instructions to setup your geocoding server:
-
-http://nominatim.org/release-docs/latest/admin/Installation/
-
-In this example, we assume you have used the following domain for the geocoding
-server:
-
-https://nominatim.example.org
-
-### Openstreetmap static maps server (osm-static-maps)
+### Static map images: Openstreetmap static maps server (osm-static-maps)
 
 Some pages in Decidim display static map images which need to be fetched from
 an external server. The tiles server does not provide such static images by
@@ -255,6 +240,21 @@ In this example, we assume you have used the following domain for the static
 maps image server:
 
 https://staticmap.example.org
+
+### Geocoding: Nominatim geocoding server
+
+[Nominatim][link-osm-nominatim] makes it possible to place points on the Decidim
+maps based on addresses. This service provides geocoding capabilities by turning
+human readable addresses to [geographic coordinates][link-wiki-geocoordinates].
+
+Follow these instructions to setup your geocoding server:
+
+http://nominatim.org/release-docs/latest/admin/Installation/
+
+In this example, we assume you have used the following domain for the geocoding
+server:
+
+https://nominatim.example.org
 
 ### Configure Decidim
 
