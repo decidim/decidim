@@ -689,7 +689,7 @@ es-PY:
           amend: Enmendar
           comment: Comentario
           comments: Comentarios
-          endorse: Endosar
+          endorse: Adherirse
       proposal_endorsements:
         create:
           error: Ha habido errores al adherirse a la propuesta.
