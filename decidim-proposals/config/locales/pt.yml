@@ -85,7 +85,6 @@ pt:
         search_placeholder:
           id_string_or_title_cont: Pesquisar %{collection} por ID ou título.
         state_eq:
-          label: Estado
           values:
             evaluating: Avaliando
             withdrawn: Retirado
@@ -684,7 +683,6 @@ pt:
           amend: Modificar
           comment: Comentar
           comments: Comentários
-          endorse: Endossar
       proposal_votes:
         create:
           error: Ocorreu um problema ao votar na proposta.
@@ -793,7 +791,6 @@ pt:
           read_more: Ler mais
           report: Relatório
           withdraw_btn_hint: Pode retirar a sua proposta se mudar de ideia, desde que não tenha recebido nenhum voto. A proposta não é eliminada, aparecerá na lista de propostas retiradas.
-          withdraw_confirmation: Tem a certeza que pretende retirar esta proposta?
           withdraw_proposal: Retirar proposta
         tags:
           changed_from: "(modificada de <u>%{previous_name}</u> por um administrador)"
