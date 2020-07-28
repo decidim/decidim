@@ -3,6 +3,8 @@ es:
     attributes:
       account:
         delete_reason: Motivo de eliminar tu cuenta
+      common:
+        created_at: Creado el
       group:
         about: Acerca de
         avatar: Avatar
@@ -72,6 +74,7 @@ es:
       decidim_with_month_name_short: "%d %b"
   decidim:
     accessibility:
+      external_link: Enlace externo
       logo: "Logo oficial de %{organization}"
       skip_button: Saltar al contenido principal
     account:
@@ -150,6 +153,8 @@ es:
         verify_via_csv: "%{user_name} verificó el grupo %{resource_name} través de un archivo CSV"
     admin_terms_of_use:
       default_body: "<h2>TÉRMINOS ADMIN DE USO</h2><p>Confiamos en que has recibido la explicación habitual del administrador local del sistema. Generalmente se reduce a estas tres cosas:</p><ol><li>Respetar la privacidad de los demás.</li><li>Piensa antes de hacer clic.</li><li>Un gran poder conlleva una gran responsabilidad.</li></ol>"
+    alert:
+      dismiss: Descartar notificación
     amendments:
       accepted:
         error: Ocurrió un error al aceptar la enmienda.
