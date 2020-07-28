@@ -13,7 +13,6 @@ sr:
         attachment_collection_id: Fascikla
         description: Opis
         file: Fajl
-        title: Naslov
       attachment_collection:
         description: Opis
         name: Ime
