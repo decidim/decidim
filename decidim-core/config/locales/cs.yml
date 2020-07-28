@@ -3,6 +3,8 @@ cs:
     attributes:
       account:
         delete_reason: Důvod odstranění účtu
+      common:
+        created_at: Vytvořeno v
       group:
         about: O nás
         avatar: Avatar
@@ -80,6 +82,7 @@ cs:
       decidim_with_month_name_short: "%d %b"
   decidim:
     accessibility:
+      external_link: Externí odkaz
       logo: "Oficiální logo %{organization}"
       skip_button: Přeskočit na hlavní obsah
     account:
@@ -158,6 +161,8 @@ cs:
         verify_via_csv: "%{user_name} ověřilo %{resource_name} skupinu uživatelů prostřednictvím souboru CSV"
     admin_terms_of_use:
       default_body: "<h2>ADMIN TERMY POUŽITÍ</h2><p>Věříme, že jste obdrželi obvyklou lekci od místního správce systému. Obvykle se zredukuje na tyto tři věci:</p><ol><li>Respektujte soukromí ostatních.</li><li>Zamysleme se před kliknutím.</li><li>S velkou mocí přichází velká odpovědnost.</li></ol>"
+    alert:
+      dismiss: Odmítnout oznámení
     amendments:
       accepted:
         error: Při přijímání změny došlo k chybě.
@@ -291,6 +296,7 @@ cs:
           foo: Foo
         name: Foo autorizace
       granted_at: Udělené v %{timestamp}
+      renew: Obnovit ověření
       sms:
         explanation: Pošlete číslo mobilního telefonu, abychom mohli ověřit vaši totožnost.
         name: Kód přes SMS
@@ -325,6 +331,8 @@ cs:
           explanation_html: Abyste mohli provést tuto akci, musíte být autorizováni, před tím musíte potvrdit svůj e-mail <strong>%{email}</strong>.
           request_confirmation_instructions: Požádejte o pokyny pro potvrzení
           title: Potvrdit svůj email
+      show:
+        close_modal: Zavřít okno
     collapsible_list:
       hidden_elements_count:
         one: a %{count} dalších
@@ -479,6 +487,7 @@ cs:
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> chce používat váš účet"
     endorsable:
       endorsements: Schválení
+      endorsements_count: Počet schvalování
     endorsement_buttons_cell:
       already_endorsed: Schváleno
       endorse: Schválit
@@ -672,6 +681,17 @@ cs:
           password: Heslo je příliš krátké.
           password_confirmation: Potvrzení hesla se musí shodovat s heslem.
         error: V tomto poli je chyba.
+      file_help:
+        file:
+          explanation: 'Pokyny pro soubor:'
+          message_1: Jedná se o obrázek nebo dokument.
+          message_2: U obrázků použijte pokud možno formát na šířku, obrázek bude oříznut.
+        image:
+          explanation: 'Pokyny pro obrázek:'
+          message_1: Je vhodnější obrázek na šířku, který nemá žádný text.
+          message_2: Software tento obrázek ořízne.
+      file_validation:
+        allowed_file_extensions: 'Povolené přípony souborů: %{extensions}'
       remove_this_file: Odstranit tento soubor
     gamification:
       all_badges_link: Zobrazit všechny dostupné odznaky.
