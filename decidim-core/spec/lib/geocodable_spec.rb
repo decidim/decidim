@@ -16,7 +16,7 @@ module Decidim
     end
 
     let(:record_class) do
-      Class.new(ActiveRecord::Base) do
+      Class.new(ApplicationRecord) do
         self.table_name = "decidim_dummy_resources_dummy_resources"
 
         attr_accessor :organization, :address, :latitude, :longitude
