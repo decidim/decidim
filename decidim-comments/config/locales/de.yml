@@ -54,7 +54,6 @@ de:
             does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name}.
             offensive: Enthält Rassismus, Sexismus, Verunglimpfungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder jede Form von Hassreden.
             spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
-          title: Ein Problem melden
       comment_order_selector:
         order:
           best_rated: Am besten bewertet
