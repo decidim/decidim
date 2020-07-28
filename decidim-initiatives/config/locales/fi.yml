@@ -458,8 +458,8 @@ fi:
           votes_blocked: Allekirjoitus poistettu käytöstä
         votes_count:
           count:
-            one: ALLEKIRJOITUS
-            other: ALLEKIRJOITUSTA
+            one: Allekirjoitus
+            other: Allekirjoitusta
           most_popular_initiative: Suosituin aloite
           need_more_votes: Tarvitsee lisää allekirjoituksia
       initiatives_mailer:
