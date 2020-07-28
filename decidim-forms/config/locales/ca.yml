@@ -35,6 +35,7 @@ ca:
             title: Editar el qüestionari
           form:
             add_question: Afegeix una pregunta
+            add_separator: Afegir separador
             already_answered_warning: No pots modificar les preguntes d'aquest formulari perquè ja ha estat contestat per algunes participants.
             collapse: Redueix totes les preguntes
             expand: Expandeix totes les preguntes
@@ -68,8 +69,10 @@ ca:
       files:
         extension_whitelist: 'Formats d''arxiu acceptats:'
       images:
+        dimensions: "%{width} x %{height} px"
         dimensions_info: 'Esta imagen medirà:'
         processors:
+          resize_and_pad: Redimensionat i ajustat a
           resize_to_fit: Redimensionada per ajustar-la
       question_types:
         long_answer: Resposta llarga
