@@ -3,6 +3,7 @@ es:
     attributes:
       dummy_resource:
         created_at: Creado en
+        decidim_scope_id: Ámbito
         field: Mi campo
         start_date: Fecha de inicio
         title: Título
@@ -12,6 +13,13 @@ es:
     components:
       dummy:
         settings:
+          global:
+            readonly_attribute: Atributo de sólo lectura
+            test: Test A
+            test_choices:
+              a: Opción A
+              b: Opción B
+              c: Opción C
           step:
             endorsements_blocked: Adhesiones bloqueadas
             endorsements_enabled: Adhesiones habilitadas

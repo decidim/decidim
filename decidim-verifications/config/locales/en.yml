@@ -101,7 +101,9 @@ en:
           verify_with_these_options: 'These are the available options to verify your identity:'
         index:
           expired_verification: Verification expired
+          pending_verification: Pending verification
           show_renew_info: Click to renew verification
+          unauthorized_verification: New verification
         new:
           authorize: Send
           authorize_with: Verify with %{authorizer}
@@ -142,8 +144,10 @@ en:
             success: Your account has been successfully verified.
       dummy_authorization:
         extra_explanation:
-          one: Participation is restricted to participants with the postal code %{postal_codes}.
-          other: 'Participation is restricted to participants with any of the following postal codes: %{postal_codes}.'
+          postal_codes:
+            one: Participation is restricted to participants with the postal code %{postal_codes}.
+            other: 'Participation is restricted to participants with any of the following postal codes: %{postal_codes}.'
+          scope: Participation is restricted to participants with the scope %{scope_name}.
       id_documents:
         admin:
           config:

@@ -33,7 +33,6 @@ is-IS:
             does_not_belong: Inniheldur ólöglega starfsemi, sjálfsvígshugmyndir, persónulegar upplýsingar eða eitthvað sem þér finnst ekki tilheyra %{organization_name}.
             offensive: Inniheldur kynþáttafordóma, kynhneigð, slurðir, persónulegar árásir, dauðarefsárásir, sjálfsvígstilraunir eða hvers konar hatursmál.
             spam: Inniheldur clickbait, auglýsingar, óþekktarangi eða handritabots.
-          title: Tilkynna um vandamál
       comment_order_selector:
         order:
           best_rated: Bestu einkunnir

@@ -115,9 +115,9 @@ fi:
             success: Merkinnän päivitys onnistui
       admin_log:
         result:
-          create: "%{user_name} loi tuloksen %{resource_name} tilassa %{space_name}"
-          delete: "%{user_name} poisti tuloksen %{resource_name} tilassa %{space_name}"
-          update: "%{user_name} päivitti tuloksen %{resource_name} tilassa %{space_name}"
+          create: "%{user_name} loi tuloksen %{resource_name} osallistumistilassa %{space_name}"
+          delete: "%{user_name} poisti tuloksen %{resource_name} osallistumistilassa %{space_name}"
+          update: "%{user_name} päivitti tuloksen %{resource_name} osallistumistilassa %{space_name}"
         value_types:
           parent_presenter:
             not_found: 'Pääelementtiä ei löytynyt tietokannasta (ID: %{id})'
@@ -185,6 +185,7 @@ fi:
           global:
             categories_label: Nimi termille "Aihepiirit"
             comments_enabled: Kommentointi käytössä
+            comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
             display_progress_enabled: Näytä edistyminen
             heading_leaf_level_results: Nimi termille "Suunnitelmat"
             heading_parent_level_results: Nimi termille "Tulokset"
@@ -213,9 +214,6 @@ fi:
       participatory_process_groups:
         highlighted_results:
           results: Tulokset
-    participatory_spaces:
-      highlighted_results:
-        see_all: Näytä kaikki (%{count})
     resource_links:
       included_projects:
         result_project: Tähän tulokseen liittyvät suunnitelmat

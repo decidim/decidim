@@ -8,6 +8,9 @@ describe "Amend Proposal", versioning: true, type: :system do
   let!(:proposal) { create(:proposal, title: "Long enough title", component: component) }
   let!(:emendation) { create(:proposal, title: "Amended Long enough title", component: component) }
   let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation }
+  let(:proposal_title) { translated(proposal.title) }
+  let(:emendation_title) { translated(emendation.title) }
+  let(:emendation_body) { translated(emendation.body) }
 
   let(:active_step_id) { participatory_space.active_step.id }
   let(:emendation_path) { Decidim::ResourceLocatorPresenter.new(emendation).path }
@@ -25,7 +28,7 @@ describe "Amend Proposal", versioning: true, type: :system do
     it "is shown the amendments list" do
       expect(page).to have_css("#amendments", text: "AMENDMENTS")
       within ".amendment-list" do
-        expect(page).to have_content(emendation.title)
+        expect(page).to have_content(emendation_title)
       end
     end
 
@@ -115,7 +118,7 @@ describe "Amend Proposal", versioning: true, type: :system do
 
           it "is shown the emendation from other user in the amendments list" do
             within ".amendment-list" do
-              expect(page).to have_content(emendation.title)
+              expect(page).to have_content(emendation_title)
             end
           end
 
@@ -131,7 +134,7 @@ describe "Amend Proposal", versioning: true, type: :system do
 
           it "is shown the emendation from other users in the amendments list" do
             within ".amendment-list" do
-              expect(page).to have_content(emendation.title)
+              expect(page).to have_content(emendation_title)
             end
           end
 
@@ -151,7 +154,7 @@ describe "Amend Proposal", versioning: true, type: :system do
         context "and visit an amendable proposal" do
           it "is shown the emendation from other users in the amendments list" do
             within ".amendment-list" do
-              expect(page).to have_content(emendation.title)
+              expect(page).to have_content(emendation_title)
             end
           end
 
@@ -311,14 +314,19 @@ describe "Amend Proposal", versioning: true, type: :system do
 
         context "when the user clicks on the accept button" do
           before do
+            # For some reason, the reject button click can fail unless the page
+            # is first scrolled to the amend button...?
+            # Got the idea from:
+            # https://stackoverflow.com/a/39103252
+            page.scroll_to(find(".card__amend-button"))
             click_link "Accept"
           end
 
           it "is shown the amendment review form" do
             expect(page).to have_css(".edit_amendment")
             expect(page).to have_content("REVIEW THE AMENDMENT")
-            expect(page).to have_field("Title", with: emendation.title)
-            expect(page).to have_field("Body", with: emendation.body)
+            expect(page).to have_field("Title", with: emendation_title)
+            expect(page).to have_field("Body", with: emendation_body)
             expect(page).to have_button("Accept amendment")
           end
 
@@ -334,13 +342,18 @@ describe "Amend Proposal", versioning: true, type: :system do
             end
 
             it "is changed the state of the emendation" do
-              expect(page).to have_css(".success", text: "This amendment for the proposal #{emendation.title} has been accepted")
+              expect(page).to have_css(".success", text: "This amendment for the proposal #{emendation_title} has been accepted")
             end
           end
         end
 
         context "when the user clicks on the reject button" do
           before do
+            # For some reason, the reject button click can fail unless the page
+            # is first scrolled to the amend button...?
+            # Got the idea from:
+            # https://stackoverflow.com/a/39103252
+            page.scroll_to(find(".card__amend-button"))
             click_link "Reject"
           end
 
@@ -349,7 +362,7 @@ describe "Amend Proposal", versioning: true, type: :system do
           end
 
           it "is changed the state of the emendation" do
-            expect(page).to have_css(".alert", text: "This amendment for the proposal #{proposal.title} was rejected")
+            expect(page).to have_css(".callout.alert", text: "This amendment for the proposal #{proposal_title} was rejected")
           end
         end
       end
@@ -400,17 +413,17 @@ describe "Amend Proposal", versioning: true, type: :system do
           end
 
           it "is shown the alert text" do
-            expect(accept_alert).to eq("Are you sure you want to promote this emendation?")
+            expect(accept_confirm).to eq("Are you sure you want to promote this emendation?")
           end
 
           it "is shown the Success Callout when the alert text is accepted" do
-            page.driver.browser.switch_to.alert.accept
+            accept_confirm
             expect(page).to have_content("The amendment has been successfully published as a new proposal")
           end
 
           context "when the user visits again the rejected emendation" do
             before do
-              page.driver.browser.switch_to.alert.accept
+              accept_confirm
               visit emendation_path
             end
 
@@ -460,7 +473,7 @@ describe "Amend Proposal", versioning: true, type: :system do
 
           it "is shown the emendation in the amendments list" do
             within ".amendment-list" do
-              expect(page).to have_content(emendation.title)
+              expect(page).to have_content(emendation_title)
             end
           end
 
@@ -517,7 +530,7 @@ describe "Amend Proposal", versioning: true, type: :system do
 
           it "is shown the emendation from other user in the amendments list" do
             within ".amendment-list" do
-              expect(page).to have_content(emendation.title)
+              expect(page).to have_content(emendation_title)
             end
           end
 
@@ -533,7 +546,7 @@ describe "Amend Proposal", versioning: true, type: :system do
 
           it "is shown the emendation from other users in the amendments list" do
             within ".amendment-list" do
-              expect(page).to have_content(emendation.title)
+              expect(page).to have_content(emendation_title)
             end
           end
 
@@ -553,7 +566,7 @@ describe "Amend Proposal", versioning: true, type: :system do
         context "and visit an amendable proposal" do
           it "is shown the emendation from other users in the amendments list" do
             within ".amendment-list" do
-              expect(page).to have_content(emendation.title)
+              expect(page).to have_content(emendation_title)
             end
           end
 

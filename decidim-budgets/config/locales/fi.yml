@@ -58,9 +58,9 @@ fi:
             select_component: Valitse komponentti
       admin_log:
         project:
-          create: "%{user_name} loi %{resource_name} -suunnitelman %{space_name} -tilassa"
-          delete: "%{user_name} poisti %{resource_name} -suunnitelman %{space_name} -tilassa"
-          update: "%{user_name} päivitti %{resource_name} -suunnitelman %{space_name} -tilassa"
+          create: "%{user_name} loi suunnitelman %{resource_name} osallistumistilassa %{space_name}"
+          delete: "%{user_name} poisti suunnitelman %{resource_name} osallistumistilassa %{space_name}"
+          update: "%{user_name} päivitti suunnitelman %{resource_name} osallistumistilassa %{space_name}"
       models:
         project:
           fields:
@@ -121,15 +121,10 @@ fi:
           most_voted: Eniten ääniä saaneet ensin
           random: Satunnainen järjestys
         project:
-          add: Lisää
           count:
             one: 1 kannatus
             other: "%{count} kannatusta"
-          remove: Poista
           view: Näytä
-        project_budget_button:
-          add: Lisää
-          added: Lisätty
         show:
           budget: Budjetti
           view_all_projects: Näytä kaikki suunnitelmat
@@ -142,6 +137,7 @@ fi:
           global:
             announcement: Ilmoitus
             comments_enabled: Kommentit ovat käytössä
+            comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
             form:
               errors:
                 budget_voting_rule_only_one: Voit valita ainoastaan yhden äänestyssäännön

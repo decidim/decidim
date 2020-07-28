@@ -4,6 +4,8 @@ module Decidim
   module Proposals
     # A form object to be used when public users want to create a proposal.
     class ProposalForm < Decidim::Proposals::ProposalWizardCreateStepForm
+      include Decidim::TranslatableAttributes
+
       mimic :proposal
 
       attribute :address, String
@@ -16,7 +18,6 @@ module Decidim
       attribute :suggested_hashtags, Array[String]
 
       validates :address, geocoding: true, if: :geocodable?
-      validates :address, presence: true, if: ->(form) { form.has_address? }
       validates :category, presence: true, if: ->(form) { form.category_id.present? }
       validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
 
@@ -29,7 +30,12 @@ module Decidim
       def map_model(model)
         super
 
-        @suggested_hashtags = Decidim::ContentRenderers::HashtagRenderer.new(model.body).extra_hashtags.map(&:name).map(&:downcase)
+        body = translated_attribute(model.body)
+        @suggested_hashtags = Decidim::ContentRenderers::HashtagRenderer.new(body).extra_hashtags.map(&:name).map(&:downcase)
+
+        # The scope attribute is with different key (decidim_scope_id), so it
+        # has to be manually mapped.
+        self.scope_id = model.scope.id if model.scope
       end
 
       # Finds the Category from the category_id.

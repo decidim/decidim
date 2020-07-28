@@ -150,8 +150,8 @@ shared_examples "a proposal form" do |options|
         let(:params) do
           {
             id: previous_proposal.id,
-            title: previous_proposal.title,
-            body: previous_proposal.body,
+            title: translated(previous_proposal.title),
+            body: translated(previous_proposal.body),
             author: previous_proposal.authors.first,
             category_id: previous_proposal.try(:category_id),
             scope_id: previous_proposal.try(:scope_id),
@@ -261,7 +261,7 @@ shared_examples "a proposal form" do |options|
 
       it "adds an error to the `:attachment` field" do
         expect(subject).not_to be_valid
-        expect(subject.errors.full_messages).to match_array(["Title can't be blank", "Attachment Needs to be reattached"])
+        expect(subject.errors.full_messages).to match_array(["Title can't be blank", "Title is too short (under 15 characters)", "Attachment Needs to be reattached"])
         expect(subject.errors.keys).to match_array([:title, :attachment])
       end
     end

@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
-require "simplecov" if ENV["SIMPLECOV"]
+if ENV["SIMPLECOV"]
+  require "simplecov"
+
+  SimpleCov.add_filter "/lib/decidim/generators/app_templates/"
+  SimpleCov.add_filter "/lib/decidim/generators/component_templates/"
+end
+
 require "spec_helper"
 require "decidim/gem_manager"
 

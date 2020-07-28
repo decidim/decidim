@@ -63,7 +63,11 @@ ca:
           secondary_hosts_hint: Introdueix cada un d'ells en una nova línia
           title: Nova organització
         omniauth_settings:
+          decidim:
+            client_id: ID del client
+            site_url: URL del lloc web
           enabled: Habilitat
+          enabled_by_default: Aquest proveïdor està habilitat per defecte. Es pot editar però no es pot desactivar.
           facebook:
             app_id: App ID
             app_secret: App secret
@@ -79,8 +83,8 @@ ca:
           instructions:
             from_label: 'L''adreça electrònica d''enviament serà: "el-nom-de-la-vostra-organització <la-vostra-organització@el-vostre-proveidor.org>". Deixeu-ho en blanc per a usar el "des de" com a etiqueta'
           placeholder:
-            from_email: la-vostra-organització@el-vostre-proveidor.org
-            from_label: el-nom-de-la-vostra-rganització
+            from_email: la-vostra-organitzacio@el-vostre-proveidor.org
+            from_label: el-nom-de-la-vostra-organitzacio
         update:
           error: S'ha produït un error en actualitzar aquesta organització.
           success: L'organització s'ha actualitzat correctament.

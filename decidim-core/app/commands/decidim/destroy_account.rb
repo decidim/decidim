@@ -34,6 +34,7 @@ module Decidim
       @user.nickname = ""
       @user.email = ""
       @user.delete_reason = @form.delete_reason
+      @user.admin = false if @user.admin?
       @user.deleted_at = Time.current
       @user.skip_reconfirmation!
       @user.remove_avatar!

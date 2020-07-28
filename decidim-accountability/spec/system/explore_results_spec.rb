@@ -31,7 +31,7 @@ describe "Explore results", versioning: true, type: :system do
     end
 
     it "shows progress" do
-      expect(page).to have_content("GLOBAL EXECUTION STATUS")
+      expect(page).to have_content("Global execution status")
       expect(page).to have_selector(".progress-figure")
     end
 
@@ -112,13 +112,13 @@ describe "Explore results", versioning: true, type: :system do
       end
 
       it "does not show version data" do
-        expect(page).not_to have_content("VERSION")
+        expect(page).not_to have_content("Version number")
       end
     end
 
     context "when it has some versions" do
       it "does shows version data" do
-        expect(page).to have_content("VERSION 1")
+        expect(page).to have_content("Version number 1")
       end
     end
 
@@ -171,7 +171,7 @@ describe "Explore results", versioning: true, type: :system do
 
       it "shows the comments" do
         comments.each do |comment|
-          expect(page).to have_content(comment.body)
+          expect(page).to have_content(comment.body.values.first)
         end
       end
     end
@@ -190,14 +190,14 @@ describe "Explore results", versioning: true, type: :system do
 
       it "shows related proposals" do
         proposals.each do |proposal|
-          expect(page).to have_content(proposal.title)
+          expect(page).to have_content(translated(proposal.title))
           expect(page).to have_content(proposal.creator_author.name)
           expect(page).to have_content(proposal.votes.size)
         end
       end
 
       it "the result is mentioned in the proposal page" do
-        click_link proposal.title
+        click_link translated(proposal.title)
         expect(page).to have_i18n_content(result.title)
       end
     end

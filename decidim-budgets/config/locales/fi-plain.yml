@@ -121,15 +121,10 @@ fi-pl:
           most_voted: Eniten ääniä saaneet ensin
           random: Satunnainen järjestys
         project:
-          add: Lisää
           count:
             one: 1 kannatus
             other: "%{count} kannatusta"
-          remove: Poista
           view: Näytä
-        project_budget_button:
-          add: Lisää
-          added: Lisätty
         show:
           budget: Budjetti
           view_all_projects: Näytä kaikki suunnitelmat
@@ -142,6 +137,7 @@ fi-pl:
           global:
             announcement: Ilmoitus
             comments_enabled: Kommentit ovat käytössä
+            comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
             form:
               errors:
                 budget_voting_rule_only_one: Voit valita ainoastaan yhden äänestyssäännön

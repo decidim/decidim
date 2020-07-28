@@ -16,7 +16,7 @@ edit_link(
 <div class="row column view-header">
 
   <%= link_to :debates, class: "small hollow" do %>
-    <%= icon "chevron-left", class: "icon--small" %>
+    <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
     <%= t(".back") %>
   <% end %>
 
@@ -24,11 +24,17 @@ edit_link(
     <%== present(debate).title %>
   </h2>
 
-  <%= cell "decidim/author", Decidim::Debates::DebatePresenter.new(debate).author, from: debate, context: { extra_classes: ["author-data--small"] } %>
+  <% debate_presenter = Decidim::Debates::DebatePresenter.new(debate) %>
+  <%= cell "decidim/author", debate_presenter.author, from: debate, context: { extra_classes: ["author-data--small"] } %>
+
 </div>
 <div class="row">
-  <div class="columns section view-side mediumlarge-4 mediumlarge-push-8
-    large-3 large-push-9">
+  <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
+    <% if allowed_to?(:edit, :debate, debate: debate) %>
+      <%= link_to t(".edit_debate"), edit_debate_path(debate), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
+    <% elsif debate.official? && admin_allowed_to?(:update, :debate, debate: debate) %>
+      <%= link_to t(".edit_debate"), resource_locator(debate).edit, class: "button secondary hollow expanded button-sc button--icon follow-button" %>
+    <% end %>
     <div class="card extra">
       <div class="card__content">
         <% if debate.start_time.present? && debate.end_time.present? %>
@@ -43,6 +49,7 @@ edit_link(
       </div>
     </div>
     <%= resource_reference(debate) %>
+    <%= resource_version(debate_presenter, versions_path: debate_versions_path(debate)) %>
     <%= render partial: "decidim/shared/share_modal" %>
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">

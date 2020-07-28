@@ -13,8 +13,8 @@ function update_identities_rows() {
   morphdom($endorsementsRowCount[0], '<%= j(endorsement_buttons_cell(resource).render_endorsements_count).strip.html_safe %>');
   var $endorsementsRowButton = $($('#select-identity-button')[0]);
   <% if fully_endorsed %>
-    $endorsementsRowButton.addClass('success')
+    $endorsementsRowButton.addClass('active')
   <% else %>
-    $endorsementsRowButton.removeClass('success')
+    $endorsementsRowButton.removeClass('active')
   <% end %>
 }

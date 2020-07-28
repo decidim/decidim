@@ -47,7 +47,7 @@ edit_link(
           translated_attribute(current_participatory_space.internal_organisation).present? ||
           translated_attribute(current_participatory_space.composition).present? %>
         <div class="show-more">
-          <button class="button button--muted small"><%= t("read_more", scope: "decidim.assemblies.show") %></button>
+          <button class="button hollow small"><%= t("read_more", scope: "decidim.assemblies.show") %></button>
         </div>
 
         <div class="hide show-more-panel">
@@ -73,7 +73,7 @@ edit_link(
           <% end %>
           <div class="section text-center">
             <div class="hide-more">
-              <button class="button button--muted small"><%= t("read_less", scope: "decidim.assemblies.show") %></button>
+              <button class="button hollow small"><%= t("read_less", scope: "decidim.assemblies.show") %></button>
             </div>
           </div>
         </div>

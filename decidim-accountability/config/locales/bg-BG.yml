@@ -213,9 +213,6 @@ bg:
       participatory_process_groups:
         highlighted_results:
           results: Резултати
-    participatory_spaces:
-      highlighted_results:
-        see_all: Виж всички (%{count})
     resource_links:
       included_projects:
         result_project: Проекти, включени в резултата

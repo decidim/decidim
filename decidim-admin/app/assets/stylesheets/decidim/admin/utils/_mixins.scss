@@ -18,6 +18,13 @@
   font-size: .9em;
 }
 
+//Small emphasis
+@mixin smallemphasis{
+  font-weight: 600;
+  letter-spacing: .1em;
+  font-size: .9em;
+}
+
 // Status modifier mixin
 $palette: $foundation-palette;
 
@@ -81,7 +88,7 @@ $side:(
 
 @include make-spaces()
 
-@mixin animation($animation){
+  @mixin animation($animation){
   -webkit-animation: $animation;
   -o-animation: $animation;
   animation: $animation;

@@ -23,7 +23,7 @@ module Decidim
 
       # Returns a manager user if the real user has an active impersonation
       def current_user
-        managed_user || real_user
+        @current_user ||= managed_user || real_user
       end
 
       # Clear the `@real_user` instance variable because otherwise that would be

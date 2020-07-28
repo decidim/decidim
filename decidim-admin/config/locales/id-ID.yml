@@ -13,7 +13,6 @@ id:
         attachment_collection_id: Map
         description: Deskripsi
         file: Mengajukan
-        title: Judul
       attachment_collection:
         description: Deskripsi
         name: Nama

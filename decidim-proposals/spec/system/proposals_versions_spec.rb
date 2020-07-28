@@ -27,7 +27,7 @@ describe "Explore versions", versioning: true, type: :system do
     end
 
     it "has only one version" do
-      expect(page).to have_content("VERSION 1 (of 1)")
+      expect(page).to have_content("Version number 1 (of 1)")
     end
 
     it "shows the versions index" do
@@ -41,7 +41,7 @@ describe "Explore versions", versioning: true, type: :system do
       end
 
       it "creates a new version" do
-        expect(page).to have_content("VERSION 2 (of 2)")
+        expect(page).to have_content("Version number 2 (of 2)")
       end
     end
   end
@@ -112,11 +112,11 @@ describe "Explore versions", versioning: true, type: :system do
         expect(page).to have_content("TITLE")
 
         within ".diff > ul > .del" do
-          expect(page).to have_content(proposal.title)
+          expect(page).to have_content(translated(proposal.title))
         end
 
         within ".diff > ul > .ins" do
-          expect(page).to have_content(emendation.title)
+          expect(page).to have_content(translated(emendation.title))
         end
       end
 
@@ -124,11 +124,11 @@ describe "Explore versions", versioning: true, type: :system do
         expect(page).to have_content("BODY")
 
         within ".diff > ul > .del" do
-          expect(page).to have_content(proposal.body)
+          expect(page).to have_content(translated(proposal.body))
         end
 
         within ".diff > ul > .ins" do
-          expect(page).to have_content(emendation.body)
+          expect(page).to have_content(translated(emendation.body))
         end
       end
     end

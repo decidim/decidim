@@ -3,7 +3,7 @@
 shared_examples "having a rich text editor" do |css, toolbar|
   it "has a form with a rich text editor" do
     within "form.#{css}" do
-      expect(page).to have_selector("input[toolbar='#{toolbar}']", visible: :all)
+      expect(page).to have_selector("div.editor-container[data-toolbar='#{toolbar}']", visible: :all)
     end
   end
 end

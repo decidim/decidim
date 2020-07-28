@@ -114,7 +114,8 @@ id:
             success: Akun Anda telah berhasil diverifikasi.
       dummy_authorization:
         extra_explanation:
-          other: 'Partisipasi dibatasi untuk pengguna dengan salah satu kode pos berikut: %{postal_codes}.'
+          postal_codes:
+            other: 'Partisipasi dibatasi untuk pengguna dengan salah satu kode pos berikut: %{postal_codes}.'
       id_documents:
         admin:
           config:

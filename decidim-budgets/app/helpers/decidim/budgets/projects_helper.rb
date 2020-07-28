@@ -26,7 +26,7 @@ module Decidim
       def budget_confirm_disabled_attr
         return if current_order_can_be_checked_out?
 
-        %( disabled="disabled" )
+        %( disabled="disabled" ).html_safe
       end
 
       # Return true if the current order is checked out

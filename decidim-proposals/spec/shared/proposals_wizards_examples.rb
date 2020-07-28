@@ -230,7 +230,7 @@ shared_examples "proposals wizards" do |options|
               click_link "Discard this draft"
             end
 
-            page.accept_alert
+          accept_confirm
 
             within_flash_messages do
               expect(page).to have_content "successfully"

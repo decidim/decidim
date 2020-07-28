@@ -13,7 +13,7 @@ Decidim.register_component(:elections) do |component|
   # end
 
   # These actions permissions can be configured in the admin panel
-  # component.actions = %w()
+  component.actions = %w(vote)
 
   component.settings(:global) do |settings|
     settings.attribute :announcement, type: :text, translated: true, editor: true
@@ -25,6 +25,7 @@ Decidim.register_component(:elections) do |component|
 
   component.register_resource(:election) do |resource|
     resource.model_class_name = "Decidim::Elections::Election"
+    resource.actions = %w(vote)
   end
 
   component.register_resource(:question) do |resource|
