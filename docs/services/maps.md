@@ -204,7 +204,7 @@ process, and disabled for another one.
 
 Meetings do not have a configuration option for geocoding. Instead, if geocoding
 is configured it will try to geocode the address every time you create or update
-a meeting.. As of April 2017 there's no way to enable or disable geocoding per
+a meeting. As of April 2017 there's no way to enable or disable geocoding per
 meetings component.
 
 ## Hosting your own map services
@@ -224,8 +224,8 @@ Follow these instructions to setup your tiles server:
 
 https://opentileserver.org/
 
-In this example, we assume you have used the following domain for the tiles
-server:
+In the example configuration, we assume you have used the following domain for
+the tiles server:
 
 https://tiles.example.org
 
@@ -247,8 +247,8 @@ Follow these instructions to setup your static map images server:
 
 https://github.com/jperelli/osm-static-maps#3-standalone-sample-server
 
-In this example, we assume you have used the following domain for the static
-maps image server:
+In the example configuration, we assume you have used the following domain for
+the static maps image server:
 
 https://staticmap.example.org
 
@@ -262,8 +262,8 @@ Follow these instructions to setup your geocoding server:
 
 http://nominatim.org/release-docs/latest/admin/Installation/
 
-In this example, we assume you have used the following domain for the geocoding
-server:
+In the example configuration, we assume you have used the following domain for
+the geocoding server:
 
 https://nominatim.example.org
 
