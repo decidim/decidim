@@ -74,7 +74,6 @@ module Decidim
       include Decidim::TranslatableResource
 
       translatable_fields :title
-      translatable_attributes :title
       searchable_fields(
         scope_id: { scope: :id },
         participatory_space: { component: :participatory_space },
