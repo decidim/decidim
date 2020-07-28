@@ -585,6 +585,9 @@ de:
         decidim/user:
           password: Das Passwort ist zu kurz.
         error: In diesem Feld ist ein Fehler aufgetreten.
+      file_help:
+        image:
+          message_2: Der Dienst schneidet die Datei zu.
       remove_this_file: Diese Datei entfernen
     gamification:
       all_badges_link: Sieh dir alle verfügbaren Abzeichen an.
@@ -1222,6 +1225,7 @@ de:
       edit_link:
         edit: Bearbeiten
       footer:
+        decidim_logo: Decidim-Logo
         download_open_data: Open Data Dateien herunterladen
         made_with_open_source: Website mit <a target="_blank" href="https://github.com/decidim/decidim">freier Software erstellt</a>.
       header:
