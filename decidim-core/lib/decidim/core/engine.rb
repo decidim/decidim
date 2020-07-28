@@ -104,6 +104,15 @@ module Decidim
         Geocoder.configure(Decidim.geocoder) if Decidim.geocoder.present?
       end
 
+      initializer "decidim.geocoding_extensions", after: "geocoder.insert_into_active_record" do
+        # Include it in ActiveRecord base in order to apply it to all models
+        # that may be using the `geocoded_by` or `reverse_geocoded_by` class
+        # methods injected by the Geocoder gem.
+        ActiveSupport.on_load :active_record do
+          ActiveRecord::Base.send(:include, Decidim::Geocodable)
+        end
+      end
+
       initializer "decidim.maps" do
         Decidim::Map.register_category(:dynamic, Decidim::Map::Provider::DynamicMap)
         Decidim::Map.register_category(:static, Decidim::Map::Provider::StaticMap)
