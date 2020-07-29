@@ -106,7 +106,7 @@ module Decidim
 
         protected
 
-        attr_reader :template, :map_id, :markers, :options
+        attr_reader :template, :markers, :options
 
         # Returns the options hash that will be passed to the map element as a
         # JSON encoded data attribute. These configurations can be used to pass
