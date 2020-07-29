@@ -110,16 +110,70 @@ el:
           error: Προέκυψε ένα πρόβλημα κατά την δημιουργία ενός νέου συνδέσμου μέσων επικοινωνίας.
         new:
           create: Δημιουργία
+        update:
+          success: Ο Σύνδεσμος Μέσων ανανεώθηκε με επιτυχία.
+      menu:
+        conferences: Συνδιασκέψεις
+        conferences_submenu:
+          attachment_collections: Φάκελοι
+          attachment_files: Αρχεία
+          attachments: Συνημμένα αρχεία
+          categories: Κατηγορίες
+          components: Στοιχεία
+          conference_admins: Διαχειριστές συνδιάσκεψης
+          conference_invites: Προσκλήσεις
+          conference_speakers: Ομιλητές
+          diploma: Πιστοποιητικό Συμμετοχής
+          info: Πληροφορίες
+          media_links: Σύνδεσμοι Μέσων
+          moderations: Συντονισμοί
+          partners: Εταίροι
+          registration_types: Τύποι Εγγραφής
+          registrations: Εγγραφές
+          user_registrations: Εγγραφές χρηστών
       models:
+        conference:
+          fields:
+            created_at: Δημιουργήθηκε στις
+            promoted: Επισημασμένα
+            published: Δημοσιεύθηκε
+            title: Τίτλος
+        conference_speaker:
+          fields:
+            affiliation: Δεσμός συνεργασίας
+            full_name: Πλήρες όνομα
+            position: Θέση
+          name: Ομιλητής Συνδιάσκεψης
         conference_user_role:
           fields:
             email: Email
             name: Όνομα
+            role: Ρόλος
+          name: Διαχειριστής Συνδιάσκεψης
+          roles:
+            admin: Διαχειριστής
+            collaborator: Συνεργάτης
+            moderator: Συντονιστής
+            valuator: Εκτιμητής
+        media_link:
+          fields:
+            date: Ημερομηνία
+            link: Σύνδεσμος
+            title: Τίτλος
+          name: Σύνδεσμος Μέσου
         partner:
           fields:
+            link: Σύνδεσμος
+            logo: Λογότυπο
             name: Όνομα
+            partner_type: Τύπος
+          name: Εταίρος
+          types:
+            collaborator: Συνεργάτης
+            main_promotor: Κύριος προωθητής
         registration_type:
           fields:
+            conference_meetings: Συναντήσεις συνδιασκέψεων
             price: Τιμή
             registrations_count: Καταμέτρηση εγγραφών
             title: Τίτλος
@@ -238,9 +292,12 @@ el:
       conference_speaker:
         go_to_twitter: Πηγαίνετε στο Twitter
         more_info: περισσότερες πληροφορίες
+        personal_website: Προσωπική ιστοσελίδα
         show:
           more_info: περισσότερες πληροφορίες
       conference_speaker_cell:
+        personal_url:
+          personal_website: Προσωπική ιστοσελίδα
         twitter_handle:
           go_to_twitter: Πηγαίνετε στο Twitter
       conference_speakers:
@@ -250,14 +307,83 @@ el:
         partners:
           collaborators: Εταίροι
           main_promotors: Διοργανωτές
+        show:
+          login_as: Έχετε συνδεθεί ως %{name} <%{email}>
+          make_conference_registration: 'Εγγραφείτε στην συνδιάσκεψη:'
+          register: Εγγραφή
+      content_blocks:
+        highlighted_conferences:
+          name: Επισημασμένες συνδιασκέψεις
+      index:
+        title: Συνδιασκέψεις
+      mailer:
+        conference_registration_mailer:
+          confirmation:
+            subject: Έχει επιβεβαιωθεί η εγγραφή σας στην συνδιάσκεψη
+          pending_validation:
+            subject: Η εγγραφή σας στην συνδιάσκεψη είναι σε αναμονή επιβεβαίωσης
+        invite_join_conference_mailer:
+          invite:
+            subject: Πρόσκληση συμμετοχής σε συνδιάσκεψη
+        send_conference_diploma_mailer:
+          diploma:
+            subject: Το Πιστοποιητικό Συμμετοχής σας σε συνδιάσκεψη, απεστάλη
       models:
         conference_invite:
           fields:
             email: Email
             name: Όνομα
+            registration_type: Τύπος εγγραφής
+            sent_at: Απεστάλη στις
+            status: Κατάσταση
+          status:
+            accepted: Απεδέχθη (%{at})
+            rejected: Απερρίφθη (%{at})
+            sent: Απεσταλμένα
         conference_registration:
           fields:
             email: Email
             name: Όνομα
+            registration_type: Τύπος εγγραφής
+            state: Κατάσταση
+            states:
+              confirmed: Επιβεβαιωμένο
+              pending: Σε εκκρεμότητα
+      pages:
+        home:
+          highlighted_conferences:
+            active_conferences: Ενεργές συνδιασκέψεις
+            see_all_conferences: Δείτε όλες τις συνδιασκέψεις
+      photo:
+        image:
+          attributes:
+            alt: Εικόνα Μέσου
+        show:
+          close_modal: Κλείσιμο παραθύρου
+          photo: Εικόνα
+      photos_list:
+        show:
+          related_photos: Εικόνες
+      registration_types:
+        index:
+          choose_an_option: 'Διαλέξτε τις επιλογές εγγραφής σας:'
+          login_as: Έχετε συνδεθεί ως %{name} <%{email}>
+          register: Εγγραφή
+          title: Τύποι εγγραφής
+      shared:
+        conference_user_login:
+          already_account: Έχετε ήδη λογαριασμό στο decidim;
+          new_user: Νέος χρήστης;
+          sign_in: Συνδεθείτε για να εγγραφείτε στη συνδιάσκεψη
+          sign_up: Δημιουργήστε ένα λογαριασμό στο decidim για να εγγραφείτε στην συνδιάσκεψη
+      show:
+        details: Λεπτομέρειες
+        introduction: Εισαγωγή
+        objectives: Στόχοι
+        related_assemblies: Συσχετισμένες συνελεύσεις
+        related_consultations: Συσχετισμένες Διαβουλεύσεις
+        related_participatory_processes: Σχετικές συμμετοχικές διαδικασίες
       statistics:
+        answers_count: Απαντήσεις
+        comments_count: Σχόλια
         users_count: Συμμετέχοντες
