@@ -3,6 +3,8 @@ el:
     attributes:
       account:
         delete_reason: Λόγος διαγραφής λογαριασμού
+      common:
+        created_at: Δημιουργήθηκε στις
       group:
         about: Σχετικά με
         avatar: Άβαταρ
@@ -33,6 +35,7 @@ el:
       decidim/profile_updated_event: Το προφίλ ενημερώθηκε
       decidim/promote_to_admin: Αναβάθμιση σε διαχειριστής ομάδας
       decidim/removed_from_group: Αφαιρέθηκε από την ομάδα
+      decidim/resource_endorsed_event: Ο πόρος επιδοκιμάστηκε
   activerecord:
     attributes:
       decidim/user:
@@ -46,6 +49,9 @@ el:
       decidim/amendment:
         one: Τροποποίηση
         other: Τροποποιήσεις
+      decidim/endorsement:
+        one: Επιδοκιμασία
+        other: Επιδοκιμασίες
       decidim/user:
         one: Συμμετέχων
         other: Συμμετέχοντες
@@ -57,6 +63,7 @@ el:
     'true': 'Ναι'
   carrierwave:
     errors:
+      general: Σφάλμα κατά την επεξεργασία της εικόνας
       image_too_big: Η εικόνα είναι πολύ μεγάλη
   date:
     formats:
@@ -66,6 +73,10 @@ el:
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
+    accessibility:
+      external_link: Εξωτερικός σύνδεσμος
+      logo: "Επίσημο λογότυπο του %{organization}"
+      skip_button: Επιστροφή στο κύριο περιεχόμενο
     account:
       data_portability_export:
         file_no_exists: Το αρχείο δεν υπάρχει
@@ -74,6 +85,12 @@ el:
         alert: Αυτή η ενέργεια δεν μπορεί να αναιρεθεί. Αν διαγράψετε τον λογαριασμό σας δεν θα μπορείτε να συνδεθείτε.
         confirm:
           close: Κλείσιμο παραθύρου
+          ok: Ναι, θέλω να διαγράψω τον λογαριασμό μου
+          question: Είστε βέβαιοι ότι θέλετε να διαγράψετε το λογαριασμό σας;
+          title: Διαγραφή του λογαριασμού μου
+        explanation: Παρακαλούμε, συμπληρώστε τον λόγο για τον οποίο θέλετε να διαγράψετε τον λογαριασμό σας (προαιρετικό).
+      destroy:
+        error: Υπήρξε ένα πρόβλημα κατά την διαγραφή του λογαριασμού σας.
     amendments:
       amendable:
         button: Τροποποίηση %{model_name}
