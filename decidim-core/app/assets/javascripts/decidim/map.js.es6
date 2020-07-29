@@ -33,6 +33,10 @@
       } else {
         ctrl.getMap().fitWorld();
       }
+
+      // Indicates the map is loaded with the map objects initialized and ready
+      // to be used.
+      $map.trigger("ready.decidim", [map, mapData]);
     });
   });
 })(window);
