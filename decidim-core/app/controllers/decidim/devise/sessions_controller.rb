@@ -6,7 +6,7 @@ module Decidim
     class SessionsController < ::Devise::SessionsController
       include Decidim::DeviseControllers
 
-      before_action :check_sign_in_enabled, only: :create
+      before_action :check_sign_in_enabled, :redirect_to_previous_link, only: :create
 
       def create
         super
@@ -45,6 +45,11 @@ module Decidim
 
       def check_sign_in_enabled
         redirect_to new_user_session_path unless current_organization.sign_in_enabled?
+      end
+
+      def redirect_to_previous_link
+        redirect_to(session[:previous_path_before_login] || root_path)
+        session[:previous_path_before_login] = nil
       end
     end
   end
