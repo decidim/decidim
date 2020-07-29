@@ -81,24 +81,61 @@ el:
         budget_excess:
           close: Κλείσιμο
           description: Αυτό το έργο υπερβαίνει τον μέγιστο προϋπολογισμό και δεν μπορεί να προστεθεί. Εάν θέλετε, μπορείτε να διαγράψετε ένα έργο που έχετε ήδη επιλέξει να προσθέσετε ή να ψηφίσετε με τις προτιμήσεις σας.
+        order_selected_projects:
+          selected_projects:
+            one: επιλεγμένο έργο
+            other: επιλεγμένα έργα
+          view: Προβολή
+        orders:
+          highest_cost: Μέγιστο κόστος
+          label: Σειρά έργων κατά
+          lowest_cost: Χαμηλότερο κόστος
+          most_voted: Πλείστα ψηφισμένα
+          random: Τυχαία σειρά
         project:
           add: Προσθήκη του έργου %{resource_name} στην ψήφο σας
+          count:
+            one: 1 υποστήριξη
+            other: "%{count} υποστηρίξεις"
           remove: Αφαίρεση του έργου %{resource_name} από την ψήφο σας
+          view: Προβολή
         project_budget_button:
           add: Προσθήκη στην ψήφο
           add_descriptive: Προσθήκη του έργου %{resource_name} στην ψήφο σας
           added: Προστέθηκε στην ψήφο σας
           added_descriptive: Το έργο %{resource_name} προστέθηκε στην ψήφο σας
+        show:
+          budget: Προϋπολογισμός
+          view_all_projects: Εμφάνιση όλων των έργων
     components:
       budgets:
+        actions:
+          vote: Ψήφος
+        name: Προϋπολογισμοί
         settings:
           global:
+            announcement: Ανακοίνωση
+            comments_enabled: Σχόλια ενεργοποιημένα
+            comments_max_length: Μέγιστο μέγεθος σχολίων (Αφήστε το 0 για το προκαθορισμένο μέγεθος)
+            form:
+              errors:
+                budget_voting_rule_only_one: Μόνο ένας κανόνας ψηφοφορίας μπορεί να είναι ενεργός
+                budget_voting_rule_required: Απαιτείται ένας κανόνας ψηφοφορίας
             projects_per_page: Έργα ανά σελίδα
             resources_permissions_enabled: Τα δικαιώματα Δράσεων μπορούν να οριστούν για κάθε συνάντηση
             total_budget: Σύνολο προϋπολογισμού
             vote_minimum_budget_projects_number: Ελάχιστος αριθμός έργων προς ψήφιση
+            vote_rule_minimum_budget_projects_enabled: 'Ενεργοποίηση κανόνα: Ελάχιστος αριθμός έργων προς ψήφιση'
+            vote_rule_threshold_percent_enabled: 'Ενεργοποίηση κανόνα: Ελάχιστο ποσοστό προϋπολογισμού'
+            vote_threshold_percent: Όρια ποσοστού ψηφοφορίας
+          step:
+            announcement: Ανακοίνωση
+            comments_blocked: Σχόλια απενεργοποιημένα
+            show_votes: Εμφάνιση ψήφων
+            votes_enabled: Ενεργοποιημένη ψηφοφορία
     orders:
       checkout:
+        error: Παρουσιάστηκε πρόβλημα κατά την επεξεργασία της ψήφου σας
         success: Η ψήφος σας έγινε αποδεκτή με επιτυχία
       destroy:
         error: Παρουσιάστηκε πρόβλημα κατά την ακύρωση της ψήφου σας

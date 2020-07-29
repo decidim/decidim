@@ -15,8 +15,14 @@ el:
             create: Δημιουργία
       calendar_modal:
         close_window: Κλείσιμο παραθύρου
+      meetings:
+        show:
+          date: Ημερομηνία
       models:
         invite:
           fields:
             email: Email
             name: Όνομα
+    participatory_spaces:
+      highlighted_meetings:
+        see_all: Δείτε όλες τις συναντήσεις (%{count})
