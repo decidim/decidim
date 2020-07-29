@@ -6,6 +6,7 @@
 // = link decidim/orders
 // = link decidim/results_listing
 // = link decidim/map.js
+// = link decidim/map/legacy.js
 // = link decidim/map/provider/default.js
 // = link decidim/map/provider/here.js
 // = link decidim/map.css
