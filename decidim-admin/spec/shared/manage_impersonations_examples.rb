@@ -92,7 +92,7 @@ shared_examples "manage impersonations examples" do
         end
       end
 
-      context "and the action not allowed by the handler used to impersonate" do
+      context "and the action not allowed by the handler used to impersonate", :slow do
         let(:authorization_handler) { "another_dummy_authorization_handler" }
 
         it "shows popup to require verification" do
@@ -272,10 +272,10 @@ shared_examples "manage impersonations examples" do
       fill_in(:impersonate_user_reason, with: reason) if reason
       fill_in :impersonate_user_authorization_document_number, with: document_number
       fill_in :impersonate_user_authorization_postal_code, with: "08224"
-      page.execute_script("$('#impersonate_user_authorization_date_of_birth').focus()")
+      page.execute_script("$('#impersonate_user_authorization_birthday').focus()")
     end
 
-    page.find(".datepicker-dropdown .day", text: "12").click
+    page.find(".datepicker-dropdown .datepicker-days", text: "12").click
 
     expect(page).to have_selector("*[type=submit]", count: 1)
 
