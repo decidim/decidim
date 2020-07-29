@@ -19,20 +19,12 @@ module Decidim
     def translate
       translated_text = "#{target_locale} - #{text}"
 
-      # This is a Dummy Translator, it returns the translation
-      # instantly and is only used for testing.
-      # After integrating your translation service,
-      # you could create a job to perform the following
-      # storing operations.
-      if resource[field_name]["machine_translations"].present?
-        resource[field_name]["machine_translations"] = resource[field_name]["machine_translations"].merge(target_locale => translated_text)
-      else
-        resource[field_name] = resource[field_name].merge("machine_translations" => { target_locale => translated_text })
-      end
-
-      # rubocop:disable Rails/SkipsModelValidations
-      resource.update_column field_name.to_sym, resource[field_name]
-      # rubocop:enable Rails/SkipsModelValidations
+      MachineTranslationSaveJob.perform_later(
+        resource,
+        field_name,
+        target_locale,
+        translated_text
+      )
     end
   end
 end
