@@ -6,6 +6,8 @@ module Decidim
   describe MachineTranslationFieldsJob do
     let(:title) { { en: "New Title" } }
     let(:process) { build :participatory_process, title: title }
+    let(:target_locale) { "ca" }
+    let(:source_locale) { "en" }
 
     describe "When fields job is executed" do
       before do
@@ -17,9 +19,9 @@ module Decidim
         MachineTranslationFieldsJob.perform_now(
           process,
           "title",
-          process["title"]["en"],
-          "ca",
-          "en"
+          process["title"][source_locale],
+          target_locale,
+          source_locale
         )
 
         allow(Decidim::DummyTranslator)
@@ -27,12 +29,12 @@ module Decidim
           .with(
             process,
             "title",
-            process["title"]["en"],
-            "en",
-            "ca"
+            process["title"][source_locale],
+            target_locale,
+            source_locale
           )
         expect(process["title"])
-          .to include("machine_translations" => { "ca" => "ca - New Title" })
+          .to include("machine_translations" => { target_locale => "ca - New Title" })
       end
     end
   end

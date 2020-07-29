@@ -8,12 +8,12 @@ module Decidim
   class DummyTranslator
     attr_reader :text, :original_locale, :target_locale, :resource, :field_name
 
-    def initialize(resource, field_name, text, original_locale, target_locale)
+    def initialize(resource, field_name, text, target_locale, original_locale)
       @resource = resource
       @field_name = field_name
       @text = text
-      @original_locale = original_locale
       @target_locale = target_locale
+      @original_locale = original_locale
     end
 
     def translate
