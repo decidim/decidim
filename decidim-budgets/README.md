@@ -31,25 +31,29 @@ bundle
 ## Budget Workflows
 
 A budget workflow, let's an admin pick, at the component level, how a user can participate in it.
-By default there are some workflows included in this module that can be found in the `lib/decidim/budgets/workflows/` directory, any app can add its own workflow.
+By default there are two workflows included in this module, `:one` and `:all` that can be found in the `lib/decidim/budgets/workflows/` directory, any app can add its own workflow.
+
+### Adding a custom workflow
 
 To add a custom workflow, create a workflow that inherits from the `base`, such as:
 
 ```rb
-# lib/decidim_app/budgets_workflow_2020.rb
-module DecidimApp
-  class BudgetsWorkflow2020 < Decidim::Budgets::Workflows::Base
-    # your code here ...
-  end
+# lib/budgets_workflow_random.rb
+class BudgetsWorkflowRandom < Decidim::Budgets::Workflows::Base
+  # your code here ...
 end
 ```
 
-And then add it to the decidim initializer (`config/initializers/decidim.rb`):
+And then add it to the decidim initializer (`config/initializers/decidim_budgets.rb`):
 
 ```rb
-require "decidim_app/budgets_workflow_2020"
-Decidim::Budgets.workflows[:2020] = DecidimApp::BudgetsWorkflow2020
+require "budgets_workflow_random"
+Decidim::Budgets.workflows[:random] = "BudgetsWorkflowRandom"
 ```
+
+Also remember to add the translated name for the `:random` workflow.
+
+As an example, the `BudgetsWorkflowRandom` (`decidim-generators/lib/decidim/generators/app_templates/budgets_workflow_random.rb`) workflow is added by the generator in the `development_app` and `test_app`.
 
 ## Contributing
 

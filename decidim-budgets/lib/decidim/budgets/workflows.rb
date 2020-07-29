@@ -2,7 +2,6 @@
 
 require "decidim/budgets/workflows/base"
 require "decidim/budgets/workflows/one"
-require "decidim/budgets/workflows/random"
 require "decidim/budgets/workflows/all"
 
 module Decidim
@@ -11,7 +10,6 @@ module Decidim
     def self.workflows
       @workflows ||= {
         one: Workflows::One,
-        random: Workflows::Random,
         all: Workflows::All
       }
     end

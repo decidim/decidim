@@ -216,7 +216,6 @@ en:
             workflow_choices:
               all: Vote in all
               one: Vote in one
-              random: Vote in a random component
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
