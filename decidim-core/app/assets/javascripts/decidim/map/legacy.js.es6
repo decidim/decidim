@@ -1,8 +1,16 @@
+// = require leaflet
+// = require leaflet-tilelayer-here
+// = require leaflet-svg-icon
+// = require leaflet.markercluster
+// = require decidim/map/controller
+// = require_self
+
 /**
  * @deprecated
  *
- * This adds back the old map methods for backwards compatibility. This is not
- * really needed unless someone is still relying on these methods.
+ * This adds support for the legacy style of map configuration and the methods
+ * available globally. This is not really needed unless someone is still relying
+ * on these methods or the have customizations that are hard to update.
  */
 ((exports) => {
   exports.Decidim = exports.Decidim || {};
@@ -17,11 +25,13 @@
     let mapApiConfig = null;
     if (hereApiKey) {
       mapApiConfig = { apiKey: hereApiKey };
-    } else {
+    } else if (hereAppId && hereAppCode) {
       mapApiConfig = {
         appId: hereAppId,
         appCode: hereAppCode
       };
+    } else {
+      throw new Error("Legacy map support: Please provide the HERE API configuration");
     }
 
     const markersData = $map.data("markers-data");
@@ -42,26 +52,23 @@
     }
 
     $map.data("decidim-map", mapConfig);
-    $map.on("configure.decidim", (mapObj, mapDetails) => {
-      L.tileLayer.here(mapDetails.tileLayer).addTo(mapObj);
-    });
 
-    window.Decidim.mapConfiguration = mapConfig;
+    exports.Decidim.mapConfiguration = $.extend({
+      markerColor: markerColor
+    }, mapApiConfig);
   };
 
   const loadMap = (mapId, markersData) => {
-    if (window.Decidim.currentMap) {
-      window.Decidim.currentMap.remove();
-      window.Decidim.currentMap = null;
-    }
-
-    const ctrl = new MapController(mapId, { markers: markersData });
-    const map = ctrl.load();
-
     // Allow the configured map service to configure the map, e.g. attaching the
     // tile layer to the map.
     const $map = $(`#${mapId}`);
     legacyMapSupport($map);
+
+    const mapData = $map.data("decidim-map");
+    const ctrl = new MapController(mapId, mapData);
+    const map = ctrl.load();
+
+    L.tileLayer.here(mapData.tileLayer).addTo(map);
 
     if (markersData.length > 0) {
       ctrl.addMarkers(markersData);
@@ -74,8 +81,14 @@
     return map;
   };
 
-  exports.Decidim.legacyMapSupport = legacyMapSupport;
+  $(() => {
+    const $map = $("#map");
+    if ($map.length > 0) {
+      loadMap($map.attr("id"), $map.data("markers-data"));
+    }
+  });
+
   exports.Decidim.loadMap = loadMap;
-  exports.Decidim.currentMap =  null;
+  exports.Decidim.currentMap = null;
   exports.Decidim.mapConfiguration = {};
 })(window);
