@@ -214,8 +214,8 @@ en:
             vote_threshold_percent: Vote threshold percent
             workflow: Workflow
             workflow_choices:
-              all: Vote in all
-              one: Vote in one
+              all: 'Vote in all: allows participants to vote in all budgets.'
+              one: 'Vote in one: allows participants to vote in any budget, but only in one.'
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
