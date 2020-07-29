@@ -20,7 +20,7 @@
       const mapId = $map.attr("id");
 
       const mapData = $map.data("decidim-map");
-      const ctrl = new MapController(mapId, mapData.settings);
+      const ctrl = new MapController(mapId, mapData);
       const map = ctrl.load();
 
       $map.data("map", map);

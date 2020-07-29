@@ -43,10 +43,8 @@
 
     // Configure the map element with the new style
     const mapConfig = {
-      settings: {
-        markerColor,
-        popupTemplateId: "marker-popup"
-      },
+      markerColor,
+      popupTemplateId: "marker-popup",
       markers: markersData,
       tileLayer: mapApiConfig
     }
