@@ -25,5 +25,9 @@ module Decidim
     def any?(category)
       self.for(category).present?
     end
+
+    def display(category)
+      self.for(category)&.join("\n")&.html_safe
+    end
   end
 end
