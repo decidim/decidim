@@ -9,3 +9,5 @@ el:
         new:
           back: Πίσω
           create: Δημιουργία
+        show:
+          date: Ημερομηνία
