@@ -1,10 +1,92 @@
 el:
   activemodel:
     attributes:
+      consultation:
+        introductory_image: Εισαγωγική εικόνα
+        introductory_video_url: URL εισαγωγικού βίντεο
+        questions: Ερωτήσεις
+        slug: Επίθεμα URL
+        start_voting_date: Έναρξη ψηφοφορίας
+        subtitle: Υπότιτλος
+        title: Τίτλος
+      question:
+        banner_image: Εικόνα banner
+        decidim_scope_id: Δημοτική περιοχή
+        hashtag: Ετικέτα
+        hero_image: Αρχική Εικόνα
+        i_frame_url: URL εξωτερικού συστήματος ψηφοφορίας
+        instructions: Πρόσθετες πληροφορίες για την ψηφοφορία
+        max_votes: Μέγιστος αριθμός ψήφων
+        min_votes: Ελάχιστος αριθμός ψήφων
+        origin_scope: Πεδίο εφαρμογής
+        origin_title: Προέλευση
+        origin_url: URL προέλευσης
+        participatory_scope: Συμμετοχικό πεδίο εφαρμογής
+        promoter_group: Όμάδα προώθησης
+        question_context: Πλαίσιο αναφοράς
+        reference: Αναφορά
+        scope: Δημοτική περιοχή
+        slug: Επίθεμα URL
+        subtitle: Υπότιτλος
+        title: Τίτλος
+        vote: Εξωτερικό σύστημα ψηφοφορίας
+        what_is_decided: Τί αποφασίστηκε
       response:
         decidim_consultations_response_group_id: Ομάδα
+    errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: Ο μέγιστος αριθμός ψήφων πρέπει να είναι μεγαλύτερος ή ίσος από τον ελάχιστο.
+      vote:
+        decidim_consultations_response_id:
+          not_found: Δεν βρέθηκε απάντηση.
+  activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Ο αριθμός ψήφων δεν είναι έγκυρος
+    models:
+      decidim/consultation:
+        one: Διαβούλευση
+        other: Διαβουλεύσεις
+      decidim/consultations/question:
+        one: Ερώτηση
+        other: Ερωτήσεις
+      decidim/consultations/response:
+        one: Απόκριση
+        other: Αποκρίσεις
+      decidim/consultations/vote:
+        one: Ψήφος
+        other: Ψήφοι
   decidim:
     admin:
+      actions:
+        back_to_responses: Πίσω στις αποκρίσεις
+        new_consultation: Νέα διαβούλευση
+        new_question: Νέα ερώτηση
+        new_response: Νέα απόκριση
+        new_response_group: Νέα ομάδα
+        publish_results: Δημοσίευση αποτελεσμάτων
+        response_groups: Διαχείριση ομάδων απόκρισης
+        unpublish_results: Αποδημοσίευση αποτελεσμάτων
+      consultation_publications:
+        create:
+          error: Παρουσιάστηκε πρόβλημα στην δημοσίευση αυτής της διαβούλευσης.
+          success: Η διαβούλευση δημοσιεύτηκε με επιτυχία.
+        destroy:
+          error: Παρουσιάστηκε πρόβλημα στην αποδημοσίευση αυτής της διαβούλευσης.
+          success: Η διαβούλευση αποδημοσιεύτηκε με επιτυχία.
+      consultation_results_publications:
+        create:
+          error: Παρουσιάστηκε πρόβλημα στην δημοσίευση των αποτελεσμάτων αυτής της διαβούλευσης.
+          success: Τα αποτελέσματα της διαβούλευσης δημοσιεύτηκαν επιτυχώς.
+        destroy:
+          error: Παρουσιάστηκε πρόβλημα στην αποδημοσίευση των αποτελεσμάτων αυτής της διαβούλευσης.
+          success: Τα αποτελέσματα της διαβούλευσης αποδημοσιεύτηκαν επιτυχώς.
       consultations:
         new:
           create: Δημιουργία
@@ -16,11 +98,114 @@ el:
         new:
           create: Δημιουργία
       response_groups:
+        create:
+          error: Προέκυψε ένα πρόβλημα κατά την δημιουργία μιας νέας ομάδας απόκρισης.
+          success: Η ομάδα απόκρισης δημιουργήθηκε επιτυχώς.
+        destroy:
+          error: Παρουσιάστηκε πρόβλημα κατά την αφαίρεση της ομάδας απόκρισης. Ελέγξτε ότι δεν εξαρτώνται αποκρίσεις από αυτήν.
+          success: Η ομάδα απόκρισης διεγράφη επιτυχώς.
+        edit:
+          update: Ενημέρωση
+        form:
+          title: Γενικές πληροφορίες
+        help: Χρησιμοποιήστε ομάδες για να οργανώσετε σε πακέτα τις ερωτήσεις πολλαπλών επιλογών.
         new:
           create: Δημιουργία
+          title: Νέα ομάδα απόκρισης
+        update:
+          error: Προέκυψε ένα πρόβλημα κατά την ανανέωση αυτής της απόκρισης.
+          success: Η απόκριση ενημερώθηκε επιτυχώς.
       responses:
+        create:
+          error: Προέκυψε ένα πρόβλημα κατά την δημιουργία μιας νέας απόκρισης.
+          success: Η απόκριση δημιουργήθηκε επιτυχώς.
+        destroy:
+          error: Παρουσιάστηκε πρόβλημα κατά την αφαίρεση της απόκρισης.
+          success: Η απόκριση διεγράφη επιτυχώς.
+        edit:
+          update: Ενημέρωση
+        form:
+          title: Γενικές πληροφορίες
         new:
           create: Δημιουργία
+          title: Νέα απόκριση
+        update:
+          error: Προέκυψε ένα πρόβλημα κατά την ανανέωση αυτής της απόκρισης.
+          success: Η απόκριση ενημερώθηκε επιτυχώς.
+      titles:
+        consultations: Διαβουλεύσεις
+        questions: Ερωτήσεις
+        response_groups: Ομάδες απόκρισης
+        responses: Αποκρίσεις
+        results: Αποτελέσματα
     consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Μέγιστος αριθμός στοιχείων προς εμφάνιση
+      consultation:
+        start_voting_date: Έναρξη ψηφοφορίας
+        view_results: Εμφάνιση αποτελεσμάτων
+      consultation_card:
+        view_results: Εμφάνιση αποτελεσμάτων
+      consultations:
+        orders:
+          label: 'Ταξινόμηση διαβουλεύσεων κατά:'
+          random: Τυχαία
+          recent: Πιο πρόσφατες
+      content_blocks:
+        highlighted_consultations:
+          name: Επισημασμένες διαβουλεύσεις
+      count:
+        title:
+          one: "%{count} διαβούλευση"
+          other: "%{count} διαβουλεύσεις"
+      filters:
+        active: Ενεργή
+        all: Όλες
+        finished: Ολοκληρωμένες
+        search: Αναζήτηση
+        state: Κατάσταση
+        upcoming: Επερχόμενες
       filters_small_view:
         close_modal: Κλείσιμο παραθύρου
+        filter: Φίλτρο
+        filter_by: Φιλτράρισμα κατά
+        unfold: Ανάπτυξη
+      highlighted_questions:
+        title: Ερωτήσεις από %{scope_name}
+      index:
+        title: Διαβουλεύσεις
+      last_activity:
+        new_consultation: Νέα διαβούλευση
+        new_question_at_html: "<span>Νέα ερώτηση στο %{link}</span>"
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Ενεργές διαβουλεύσεις
+            see_all_consultations: Εμφάνιση όλων των διαβουλεύσεων
+            voting_ends_in:
+              one: Η ψηφοφορία λήγει <strong>αύριο</strong>
+              other: Η ψηφοφορία λήγει σε <strong>%{count} μέρες</strong>
+            voting_ends_today: Η ψηφοφορία λήγει <strong>σήμερα</strong>
+    questions:
+      vote_modal_confirm:
+        title: 'Διαβούλευση: επιβεβαίωση ψήφου'
+    resources:
+      consultations:
+        actions:
+          vote: Ψήφος
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: Συνημμένα αρχεία
+          categories: Κατηγορίες
+      consultation_voting_data:
+        start_voting_date: Έναρξη ψηφοφορίας
+      question_components:
+        question_menu_item: Η ερώτηση
+        unfold: Ανάπτυξη
+      question_header:
+        back_to_consultation: Εμφάνιση όλων των διαβουλεύσεων
+        back_to_question: Επιστροφή στην ερώτηση
