@@ -617,6 +617,9 @@
           explanation: 'Veiledning for bilde:'
           message_1: Et landskapsbilde uten tekst er å anbefale.
           message_2: Tjenesten beskjærer bildet.
+      file_validation:
+        allowed_file_extensions: 'Tillatte filetternavn: %{extensions}'
+        max_file_size: 'Maksimal filstørrelse: %{megabytes}MB'
       remove_this_file: Fjern denne filen
     gamification:
       all_badges_link: Se alle tilgjengelige merker.
