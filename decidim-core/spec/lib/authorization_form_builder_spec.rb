@@ -82,7 +82,7 @@ module Decidim
           postal_code: String,
           birthday: Date,
           scope_id: Integer,
-          name_and_surname
+          name_and_surname: String
         }
       end
 
