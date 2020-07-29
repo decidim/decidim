@@ -15,7 +15,7 @@ module Decidim
       end
 
       it "calls DummyTranslator to create machine translations" do
-        expect(Decidim::DummyTranslator)
+        expect(Decidim::Dev::DummyTranslator)
           .to receive(:new)
           .with(
             process,

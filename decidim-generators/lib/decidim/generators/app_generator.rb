@@ -195,7 +195,7 @@ module Decidim
 
         gsub_file "config/initializers/decidim.rb",
                   /# config.machine_translation_service = \"MyTranslationService\"/,
-                  "config.machine_translation_service = 'Decidim::DummyTranslator'"
+                  "config.machine_translation_service = 'Decidim::Dev::DummyTranslator'"
       end
 
       def install
