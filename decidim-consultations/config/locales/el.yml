@@ -78,6 +78,14 @@ el:
           success: Η διαβούλευση δημοσιεύτηκε με επιτυχία.
         destroy:
           error: Παρουσιάστηκε πρόβλημα στην αποδημοσίευση αυτής της διαβούλευσης.
+          success: Η διαβούλευση αποδημοσιεύτηκε με επιτυχία.
+      consultation_results_publications:
+        create:
+          error: Παρουσιάστηκε πρόβλημα στην δημοσίευση των αποτελεσμάτων αυτής της διαβούλευσης.
+          success: Τα αποτελέσματα της διαβούλευσης δημοσιεύτηκαν επιτυχώς.
+        destroy:
+          error: Παρουσιάστηκε πρόβλημα στην αποδημοσίευση των αποτελεσμάτων αυτής της διαβούλευσης.
+          success: Τα αποτελέσματα της διαβούλευσης αποδημοσιεύτηκαν επιτυχώς.
       consultations:
         new:
           create: Δημιουργία
@@ -89,19 +97,119 @@ el:
         new:
           create: Δημιουργία
       response_groups:
+        create:
+          error: Προέκυψε ένα πρόβλημα κατά την δημιουργία μιας νέας ομάδας απόκρισης.
+          success: Η ομάδα απόκρισης δημιουργήθηκε επιτυχώς.
+        destroy:
+          error: Παρουσιάστηκε πρόβλημα κατά την αφαίρεση της ομάδας απόκρισης. Ελέγξτε ότι δεν εξαρτώνται αποκρίσεις από αυτήν.
+          success: Η ομάδα απόκρισης διεγράφη επιτυχώς.
+        edit:
+          update: Ενημέρωση
+        form:
+          title: Γενικές πληροφορίες
+        help: Χρησιμοποιήστε ομάδες για να οργανώσετε σε πακέτα τις ερωτήσεις πολλαπλών επιλογών.
         new:
           create: Δημιουργία
+          title: Νέα ομάδα απόκρισης
+        update:
+          error: Προέκυψε ένα πρόβλημα κατά την ανανέωση αυτής της απόκρισης.
+          success: Η απόκριση ενημερώθηκε επιτυχώς.
       responses:
+        create:
+          error: Προέκυψε ένα πρόβλημα κατά την δημιουργία μιας νέας απόκρισης.
+          success: Η απόκριση δημιουργήθηκε επιτυχώς.
+        destroy:
+          error: Παρουσιάστηκε πρόβλημα κατά την αφαίρεση της απόκρισης.
+          success: Η απόκριση διεγράφη επιτυχώς.
+        edit:
+          update: Ενημέρωση
+        form:
+          title: Γενικές πληροφορίες
         new:
           create: Δημιουργία
+          title: Νέα απόκριση
+        update:
+          error: Προέκυψε ένα πρόβλημα κατά την ανανέωση αυτής της απόκρισης.
+          success: Η απόκριση ενημερώθηκε επιτυχώς.
+      titles:
+        consultations: Διαβουλεύσεις
+        questions: Ερωτήσεις
+        response_groups: Ομάδες απόκρισης
+        responses: Αποκρίσεις
+        results: Αποτελέσματα
     consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Μέγιστος αριθμός στοιχείων προς εμφάνιση
+      consultation:
+        start_voting_date: Έναρξη ψηφοφορίας
+        view_results: Εμφάνιση αποτελεσμάτων
+      consultation_card:
+        view_results: Εμφάνιση αποτελεσμάτων
       consultations:
+        orders:
+          label: 'Ταξινόμηση διαβουλεύσεων κατά:'
+          random: Τυχαία
+          recent: Πιο πρόσφατες
         show:
           dates: Ημερομηνίες
+      content_blocks:
+        highlighted_consultations:
+          name: Επισημασμένες διαβουλεύσεις
+      count:
+        title:
+          one: "%{count} διαβούλευση"
+          other: "%{count} διαβουλεύσεις"
+      filters:
+        active: Ενεργή
+        all: Όλες
+        finished: Ολοκληρωμένες
+        search: Αναζήτηση
+        state: Κατάσταση
+        upcoming: Επερχόμενες
       filters_small_view:
         close_modal: Κλείσιμο παραθύρου
+        filter: Φίλτρο
+        filter_by: Φιλτράρισμα κατά
+        unfold: Ανάπτυξη
+      highlighted_questions:
+        title: Ερωτήσεις από %{scope_name}
+      index:
+        title: Διαβουλεύσεις
+      last_activity:
+        new_consultation: Νέα διαβούλευση
+        new_question_at_html: "<span>Νέα ερώτηση στο %{link}</span>"
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Ενεργές διαβουλεύσεις
+            see_all_consultations: Εμφάνιση όλων των διαβουλεύσεων
+            voting_ends_in:
+              one: Η ψηφοφορία λήγει <strong>αύριο</strong>
+              other: Η ψηφοφορία λήγει σε <strong>%{count} μέρες</strong>
+            voting_ends_today: Η ψηφοφορία λήγει <strong>σήμερα</strong>
     questions:
       vote_modal:
         close_modal: Κλείσιμο παραθύρου
       vote_modal_confirm:
         close_modal: Κλείσιμο παραθύρου
+        title: 'Διαβούλευση: επιβεβαίωση ψήφου'
+    resources:
+      consultations:
+        actions:
+          vote: Ψήφος
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: Συνημμένα αρχεία
+          categories: Κατηγορίες
+      consultation_voting_data:
+        start_voting_date: Έναρξη ψηφοφορίας
+      question_components:
+        question_menu_item: Η ερώτηση
+        unfold: Ανάπτυξη
+      question_header:
+        back_to_consultation: Εμφάνιση όλων των διαβουλεύσεων
+        back_to_question: Επιστροφή στην ερώτηση
