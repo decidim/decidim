@@ -3,6 +3,8 @@
     attributes:
       account:
         delete_reason: Grunn for at du vil slette din bruker
+      common:
+        created_at: Opprettet i
       group:
         about: Om
         avatar: Profilbilde
@@ -66,6 +68,8 @@
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
+    accessibility:
+      external_link: Ekstern lenke
     account:
       data_portability_export:
         file_no_exists: Filen finnes ikke
@@ -141,6 +145,8 @@
         verify_via_csv: "%{user_name} verifiserte gruppen %{resource_name} via en CSV fil"
     admin_terms_of_use:
       default_body: "<h2>ADMINISTRATOR BRUKERVILKÅR</h2><p>Vi stoler på at du har mottatt det vanlige foredraget fra den lokale systemadministratoren. Det handlet vanligvis om disse tre tingene:</p><ol><li>Respekter andres privatliv.</li><li>Tenk før du klikker.</li><li>Med stor makt kommer stort ansvar.</li></ol>"
+    alert:
+      dismiss: Avvis varsling
     amendments:
       accepted:
         error: En feil oppstod under godkjenningen av endringen.
@@ -257,6 +263,7 @@
           foo: Foo
         name: Foo autorisering
       granted_at: Godkjent på %{timestamp}
+      renew: Forny verifisering
       sms:
         explanation: Send inn ditt telefonnummer så vi kan sjekke din identitet.
         name: Kode via SMS
@@ -426,6 +433,7 @@
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> ønsker å bruke profilen din"
     endorsable:
       endorsements: Påtegnelser
+      endorsements_count: Antall tilslutninger
     errors:
       internal_server_error:
         title: Det oppsto et problem med våre servere
@@ -577,6 +585,9 @@
       title: Fingeravtrykk
       value: Verdi
     followers:
+      followers_count:
+        one: "%{count} følger"
+        other: "%{count} følgere"
       no_followers: Ingen følgere ennå.
     following:
       no_followings: Følger ikke noen eller noe ennå.
@@ -597,6 +608,18 @@
           password: Dette passordet er for kort.
           password_confirmation: Passordbekreftelse må samsvare med passordet.
         error: Det er en feil i dette feltet.
+      file_help:
+        file:
+          explanation: 'Veiledning for fil:'
+          message_1: Må være et bilde eller et dokument.
+          message_2: For bilder anbefales bruk av landskapsbilder, tjenesten beskjærer bildet.
+        image:
+          explanation: 'Veiledning for bilde:'
+          message_1: Et landskapsbilde uten tekst er å anbefale.
+          message_2: Tjenesten beskjærer bildet.
+      file_validation:
+        allowed_file_extensions: 'Tillatte filetternavn: %{extensions}'
+        max_file_size: 'Maksimal filstørrelse: %{megabytes}MB'
       remove_this_file: Fjern denne filen
     gamification:
       all_badges_link: Se alle tilgjengelige merker.
