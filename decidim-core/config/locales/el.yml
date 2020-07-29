@@ -91,6 +91,19 @@ el:
         explanation: Παρακαλούμε, συμπληρώστε τον λόγο για τον οποίο θέλετε να διαγράψετε τον λογαριασμό σας (προαιρετικό).
       destroy:
         error: Υπήρξε ένα πρόβλημα κατά την διαγραφή του λογαριασμού σας.
+        success: Ο λογαριασμός σας έχει διαγραφεί με επιτυχία.
+      show:
+        change_password: Αλλαγή κωδικού
+        update_account: Ενημέρωση λογαριασμού
+      update:
+        error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση του λογαριασμού σας.
+        success: Ο λογαριασμός σας ενημερώθηκε επιτυχώς.
+        success_with_email_confirmation: Ο λογαριασμός σας ενημερώθηκε επιτυχώς. θα λάβετε ένα email για να επιβεβαιώσετε την νέα σας διεύθυνση.
+    admin:
+      actions:
+        cancel: Ακύρωση
+    alert:
+      dismiss: Απόρριψη ειδοποιήσης
     amendments:
       amendable:
         button: Τροποποίηση %{model_name}
@@ -169,6 +182,34 @@ el:
       dummy_authorization_handler:
         fields:
           document_number: Αριθμός εγγράφου
+      renew: Ανανέωση επαλήθευσης
+    authorization_modals:
+      show:
+        close_modal: Κλείσιμο παραθύρου
+    endorsable:
+      endorsements_count: Καταμέτρηση επιδοκιμασιών
+    fingerprint:
+      check: Έλεγχος αποτυπώματος για %{resource_name}
+    followers:
+      followers_count:
+        one: "%{count} ακόλουθος"
+        other: "%{count} ακόλουθοι"
+    follows:
+      create:
+        participatory_space: Ακολουθείτε ήδη το <span class="show-for-sr">%{resource_name}</span>
+    forms:
+      file_help:
+        file:
+          explanation: 'Οδηγίες για αρχείο:'
+          message_1: Πρέπει να είναι εικόνα ή έγγραφο.
+          message_2: Για εικόνες, χρησιμοποιήστε κατά προτίμηση οριζόντιας διάταξης, η υπηρεσία περικόπτει την εικόνα.
+        image:
+          explanation: 'Οδηγίες για εικόνα:'
+          message_1: Προτιμώμενη εικόνα οριζόντιας διάταξης που δεν περιέχει κείμενο.
+          message_2: Η υπηρεσία περικόπτει την εικόνα.
+      file_validation:
+        allowed_file_extensions: 'Επιτρεπόμενα είδη αρχείου: %{extensions}'
+        max_file_size: 'Μέγιστο μέγεθος αρχείου: %{megabytes}MB'
     group_invites:
       accept_invitation: Αποδοχή
       reject_invitation: Απόρριψη
@@ -176,6 +217,19 @@ el:
       members:
         accept_request: Αποδοχή
         reject_request: Απόρριψη
+    map:
+      dynamic:
+        screen_reader_explanation: Το ακόλουθο στοιχείο είναι ένας χάρτης που παρουσιάζει τα στοιχεία αυτής της σελίδας ως σημεία χάρτη. Το στοιχείο μπορεί να χρησιμοποιηθεί με ένα πρόγραμμα ανάγνωσης οθόνης, αλλά μπορεί να είναι δύσκολο να γίνει κατανοητό.
+        skip_button: Προσπεράστε τον χάρτη
+      static:
+        latlng_text: 'γεωγραφικό πλάτος: %{latitude}, γεωγραφικό μήκος: %{longitude}'
+        map_service_brand: OpenStreetMap
+    messaging:
+      conversations:
+        conversation:
+          show: Δείξτε συζήτηση με %{sender}
+        show:
+          back: Πίσω σε όλες τις συνομιλίες
     metrics:
       participants:
         object: συμμετέχοντες
@@ -185,16 +239,48 @@ el:
         title: Συμμετέχοντες
     pages:
       home:
+        extended:
+          more_info: Περισσότερες πληροφορίες για %{resource_name}
         statistics:
           users_count: Συμμετέχοντες
     profiles:
       show:
         groups: Ομάδες
+        officialized: Επίσημος συμμετέχων
+    scopes:
+      picker:
+        change: Αλλαγή επιλεγμένου πεδίου εφαρμογής
+        currently_selected: Τρέχων επιλεγμένο πεδίο εφαρμογής
+      scopes_picker_input:
+        select_scope: 'Επιλέξτε ένα πεδίο εφαρμογής (Τρέχων: %{current})'
+    search:
+      results: Αποτελέσματα αναζήτησης
     shared:
+      confirm_modal:
+        cancel: Ακύρωση
+        close_modal: Κλείσιμο παραθύρου
+        ok: ΟΚ
+        title: Επιβεβαίωση
       embed_modal:
         close_window: Κλείσιμο παραθύρου
+      filter_form_help:
+        help: Η παρακάτω φόρμα φιλτράρει δυναμικά τα αποτελέσματα αναζήτησης όταν αλλάζουν οι συνθήκες αναζήτησης.
+        skip: Μεταβείτε στα αποτελέσματα
+      flag_modal:
+        title: Αναφορά ακατάλληλου περιεχομένου
+      floating_help:
+        close: Κλείσιμο βοήθειας
+      login_modal:
+        close_modal: Κλείσιμο παραθύρου
       share_modal:
         close_window: Κλείσιμο παραθύρου
+    tags:
+      filter_results_for_category: 'Φιλτράρισμα αποτελεσμάτων για την κατηγορία: %{resource}'
+      filter_results_for_scope: 'Φιλτράρισμα αποτελεσμάτων για το πεδίο εφαρμογής: %{resource}'
+    versions:
+      resource_version:
+        see_other_versions: δείτε άλλες εκδόσεις του %{resource_name}
+        version: Αριθμός έκδοσης %{number}
     wizard_step_form:
       wizard_aside:
         back: Πίσω
@@ -202,8 +288,34 @@ el:
     shared:
       links:
         back: Πίσω
+  forms:
+    correct_errors: Υπάρχουν λάθη στη φόρμα, παρακαλούμε διορθώστε τα για να συνεχίσετε.
+    length_validator:
+      minimum:
+        one: τουλάχιστον %{count} χαρακτήρας
+        other: τουλάχιστον %{count} χαρακτήρες
+    required: Υποχρεωτικό πεδίο
+    required_explanation: "* Τα υποχρεωτικά πεδία επισημαίνονται με αστερίσκο"
   layouts:
     decidim:
+      cookie_warning:
+        description_html: Αυτός ο ιστότοπος χρησιμοποιεί cookies. Συνεχίζοντας την περιήγηση στον ιστότοπο, αποδέχεστε τη χρήση των cookies από εμάς. %{link}.
+        link_label: Μάθετε περισσότερα για τα cookies
+      footer:
+        cc_by_license: Άδεια Creative Commons
+        decidim_logo: Λογότυπο decidim
+      language_chooser:
+        choose_language: Επιλογή γλώσσας
+      notifications_dashboard:
+        mark_as_read: Σήμανση ως αναγνωσμένο
+      social_media_links:
+        facebook: "%{organization} στο Facebook"
+        github: "%{organization} στο GitHub"
+        instagram: "%{organization} στο Instagram"
+        twitter: "%{organization} στο Twitter"
+        youtube: "%{organization} στο YouTube"
+      user_menu:
+        account: 'Λογαριασμός χρήστη: %{name}'
       user_profile:
         user_groups: Ομάδες
   social_share_button:
@@ -218,3 +330,6 @@ el:
       long_dashed: "%Y-%m-%d %H:%M:%S"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+  views:
+    pagination:
+      pagination: Σελιδοποίηση
