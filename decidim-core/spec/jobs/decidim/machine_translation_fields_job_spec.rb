@@ -14,17 +14,8 @@ module Decidim
         clear_enqueued_jobs
       end
 
-      it "calls DummyTranslator to creates machine translations" do
-        process.save
-        MachineTranslationFieldsJob.perform_now(
-          process,
-          "title",
-          process["title"][source_locale],
-          target_locale,
-          source_locale
-        )
-
-        allow(Decidim::DummyTranslator)
+      it "calls DummyTranslator to create machine translations" do
+        expect(Decidim::DummyTranslator)
           .to receive(:new)
           .with(
             process,
@@ -33,8 +24,17 @@ module Decidim
             target_locale,
             source_locale
           )
-        expect(process["title"])
-          .to include("machine_translations" => { target_locale => "ca - New Title" })
+          .and_call_original
+
+        process.save
+
+        MachineTranslationFieldsJob.perform_now(
+          process,
+          "title",
+          process["title"][source_locale],
+          target_locale,
+          source_locale
+        )
       end
     end
   end
