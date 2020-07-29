@@ -42,14 +42,23 @@ module Decidim
 
       builder = map_utility_dynamic.create_builder(self, options)
 
-      # The map snippets are stored to their own content_for block in order to
-      # ensure that they are only loaded once during each page load. In case
-      # they were loaded multiple times, multiple maps could not be displayed.
-      unless content_for?(:map_snippets)
-        content_for :map_snippets, builder.stylesheet_snippets
-        content_for :map_snippets, builder.javascript_snippets
+      # The map snippets are stored to the snippets utility in order to ensure
+      # that they are only loaded once during each page load. In case they were
+      # loaded multiple times, the maps would break. We store the map assets to
+      # a special "map" snippets category in order to avoid displaying them
+      # multiple times. Then we inject them to the "head" category during the
+      # first load which will actually display them in the <head> section of the
+      # view.
+      #
+      # Ideally we would use Rails' native content_for here (which is exactly
+      # for this purpose) but unfortunately it does not work in the cells which
+      # also need to display maps.
+      unless snippets.any?(:map)
+        snippets.add(:map, builder.stylesheet_snippets)
+        snippets.add(:map, builder.javascript_snippets)
 
-        content_for :header_snippets, content_for(:map_snippets)
+        # This will display the snippets in the <head> part of the page.
+        snippets.add(:head, snippets.for(:map))
       end
 
       map_html_options = { id: "map", class: "google-map" }.merge(html_options)

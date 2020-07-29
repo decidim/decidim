@@ -85,6 +85,7 @@ module Decidim
   autoload :ActionAuthorization, "decidim/action_authorization"
   autoload :Map, "decidim/map"
   autoload :Geocodable, "decidim/geocodable"
+  autoload :Snippets, "decidim/snippets"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
