@@ -73,7 +73,14 @@ el:
         blocked_comments_warning: Τα σχόλια είναι απενεργοποιημένα αυτήν τη στιγμή, αλλά μπορείτε να διαβάσετε τα προηγούμενα.
         comment_details_title: Λεπτομέρειες σχολίου
         loading: Φόρτωση σχολίων...
+        single_comment_warning: Μπορείτε να δείτε τα υπόλοιπα σχόλια <a href="%{url}">εδώ</a>.
+        single_comment_warning_title: Βλέπετε ένα μόνο σχόλιο
+        title: "%{count} σχόλια"
       down_vote_button:
         text: Δεν συμφωνώ με αυτό το σχόλιο
       up_vote_button:
         text: Συμφωνώ με αυτό το σχόλιο
+    events:
+      comments:
+        comment_by_followed_user:
+          email_intro: "Ο/Η %{author_name} Άφησε ένα σχόλιο στο %{resource_title}. Μπορείτε να το διαβάσετε στη σελίδα:"
