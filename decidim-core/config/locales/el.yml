@@ -81,6 +81,16 @@ el:
       destroy:
         error: Υπήρξε ένα πρόβλημα κατά την διαγραφή του λογαριασμού σας.
         success: Ο λογαριασμός σας έχει διαγραφεί με επιτυχία.
+      show:
+        change_password: Αλλαγή κωδικού
+        update_account: Ενημέρωση λογαριασμού
+      update:
+        error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση του λογαριασμού σας.
+        success: Ο λογαριασμός σας ενημερώθηκε επιτυχώς.
+        success_with_email_confirmation: Ο λογαριασμός σας ενημερώθηκε επιτυχώς. θα λάβετε ένα email για να επιβεβαιώσετε την νέα σας διεύθυνση.
+    admin:
+      actions:
+        cancel: Ακύρωση
     amendments:
       amendable:
         button: Τροποποίηση %{model_name}
