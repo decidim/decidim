@@ -75,15 +75,40 @@ el:
         budget_excess:
           close: Κλείσιμο
           description: Αυτό το έργο υπερβαίνει τον μέγιστο προϋπολογισμό και δεν μπορεί να προστεθεί. Εάν θέλετε, μπορείτε να διαγράψετε ένα έργο που έχετε ήδη επιλέξει να προσθέσετε ή να ψηφίσετε με τις προτιμήσεις σας.
+        order_selected_projects:
+          selected_projects:
+            one: επιλεγμένο έργο
+            other: επιλεγμένα έργα
+          view: Προβολή
+        project:
+          count:
+            one: 1 υποστήριξη
+            other: "%{count} υποστηρίξεις"
+          view: Προβολή
+        show:
+          budget: Προϋπολογισμός
+          view_all_projects: Εμφάνιση όλων των έργων
     components:
       budgets:
+        actions:
+          vote: Ψήφος
+        name: Προϋπολογισμοί
         settings:
           global:
+            announcement: Ανακοίνωση
+            comments_enabled: Σχόλια ενεργοποιημένα
             projects_per_page: Έργα ανά σελίδα
             resources_permissions_enabled: Τα δικαιώματα Δράσεων μπορούν να οριστούν για κάθε συνάντηση
             total_budget: Σύνολο προϋπολογισμού
+            vote_threshold_percent: Όρια ποσοστού ψηφοφορίας
+          step:
+            announcement: Ανακοίνωση
+            comments_blocked: Σχόλια απενεργοποιημένα
+            show_votes: Εμφάνιση ψήφων
+            votes_enabled: Ενεργοποιημένη ψηφοφορία
     orders:
       checkout:
+        error: Παρουσιάστηκε πρόβλημα κατά την επεξεργασία της ψήφου σας
         success: Η ψήφος σας έγινε αποδεκτή με επιτυχία
       destroy:
         error: Παρουσιάστηκε πρόβλημα κατά την ακύρωση της ψήφου σας
