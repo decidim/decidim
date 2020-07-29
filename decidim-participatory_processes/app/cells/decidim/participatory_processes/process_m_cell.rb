@@ -6,6 +6,7 @@ module Decidim
     # for an given instance of a Process
     class ProcessMCell < Decidim::CardMCell
       include Decidim::SanitizeHelper
+      include Decidim::TranslationsHelper
 
       private
 
@@ -37,6 +38,24 @@ module Decidim
 
       def resource_image_path
         model.hero_image.url
+      end
+
+      def step_cta_text
+        if translated_in_current_locale?(model.active_step&.cta_text)
+          translated_attribute(model.active_step.cta_text)
+        else
+          t(model.cta_button_text_key_accessible, resource_name: title, scope: "layouts.decidim.participatory_processes.participatory_process")
+        end
+      end
+
+      def step_cta_path
+        if model.active_step&.cta_path.present?
+          path, params = resource_path.split("?")
+
+          "#{path}/#{model.active_step.cta_path}" + (params.present? ? "?#{params}" : "")
+        else
+          resource_path
+        end
       end
 
       def step_title

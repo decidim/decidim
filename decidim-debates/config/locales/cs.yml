@@ -108,6 +108,7 @@ cs:
           title: Nová debata
         show:
           back: Zpět na seznam
+          date: Datum
           edit_debate: Upravit debatu
         update:
           invalid: Při aktualizaci rozpravy došlo k chybě.
