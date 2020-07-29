@@ -10,17 +10,11 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      before_action :initialize_snippets
-
       helper_method :snippets
     end
 
-    attr_reader :snippets
-
-    private
-
-    def initialize_snippets
-      @snippets = Decidim::Snippets.new
+    def snippets
+      @snippets ||= Decidim::Snippets.new
     end
   end
 end
