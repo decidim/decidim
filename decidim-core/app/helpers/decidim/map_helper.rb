@@ -31,12 +31,13 @@ module Decidim
     def dynamic_map_for(options_or_markers = {}, html_options = {}, &block)
       return unless map_utility_dynamic
 
-      options = {}
+      options = {
+        popup_template_id: "marker-popup"
+      }
       if options_or_markers.is_a?(Array)
         options[:markers] = options_or_markers
-        options[:popup_template_id] = "marker-popup"
       else
-        options = options_or_markers
+        options = options.merge(options_or_markers)
       end
 
       builder = map_utility_dynamic.create_builder(self, options)
