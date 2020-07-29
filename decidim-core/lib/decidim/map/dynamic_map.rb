@@ -14,8 +14,8 @@ module Decidim
       #
       # @return [Decidim::Map::DynamicMap::Builder] The builder object that can
       #   be used to build the map's markup.
-      def create_builder(template, map_id, options = {})
-        builder_class.new(template, map_id, builder_options.merge(options))
+      def create_builder(template, options = {})
+        builder_class.new(template, builder_options.merge(options))
       end
 
       # Returns the builder class for the map. Allows fetching the class name
@@ -30,17 +30,30 @@ module Decidim
       #
       # @return [Hash] The default options for the map builder.
       def builder_options
+        {
+          map: {
+            marker_color: organization.colors.fetch("primary", "#ef604d")
+          },
+          tile_layer: tile_layer_configuration
+        }
+      end
+
+      protected
+
+      # Prepares the tile layer configuration hash to be passed for the
+      # builder.
+      #
+      # @return The tile layer configuration hash.
+      def tile_layer_configuration
         tile_layer = configuration.fetch(:tile_layer, {})
-        tile_layer_config = tile_layer.except(:url).tap do |config|
+        tile_layer_options = tile_layer.except(:url).tap do |config|
           config.fetch(:api_key, nil) == true &&
             config[:api_key] = configuration.fetch(:api_key, nil)
         end
 
         {
-          tile_layer: {
-            url: tile_layer.fetch(:url, nil),
-            configuration: tile_layer_config
-          }
+          url: tile_layer.fetch(:url, nil),
+          options: tile_layer_options
         }
       end
 
@@ -51,54 +64,27 @@ module Decidim
         #
         # @param template [ActionView::Template] The template within which the
         #   map is displayed.
-        # @param map_id [String] The map element's ID reference.
         # @param options [Hash] Extra options for the builder object.
-        def initialize(template, map_id, options)
+        def initialize(template, options)
           @template = template
-          @map_id = map_id
           @options = options
         end
 
         # Displays the map element's markup for the view.
         #
+        # @param html_options [Hash] Extra options to pass to the map element.
         # @return [String] The map element's markup.
-        def map_element(map_options = {})
+        def map_element(html_options = {})
           map_html_options = {
-            id: map_id,
+            "data-decidim-map" => map_options.to_json,
+            # The data-markers-data is kept for backwards compatibility
             "data-markers-data" => options.fetch(:markers, []).to_json
-          }.merge(map_options)
+          }.merge(html_options)
 
           content = template.capture { yield }.html_safe if block_given?
 
           template.content_tag(:div, map_html_options) do
             (content || "")
-          end + configuration_element(map_options).html_safe
-        end
-
-        # Returns the configuration tag that configures the map in the front-end
-        # for the map service in question. This defaults to the Leaflet default
-        # map tile layer configuration.
-        #
-        # @param config [Hash] A configuration hash for the map to be configured
-        # @option config [String] :map_id The ID attribute of the HTML map
-        #   element that can be referred to from the embedded JavaScript code.
-        #
-        # @return [String] A JavaScript tag for the map configurations.
-        def configuration_element(map_options = {})
-          url = options[:tile_layer][:url]
-          return "" unless url
-
-          element_id = map_options[:id] || map_id
-          config = hash_to_js(options[:tile_layer][:configuration])
-
-          template.javascript_tag do
-            <<~JSCONF.strip.html_safe
-              var $map = $("##{element_id}");
-              $map.on("configure.decidim", function(_ev, map) {
-                var tileLayerConfig = #{config.to_json};
-                L.tileLayer(#{url.to_json}, tileLayerConfig).addTo(map);
-              });
-            JSCONF
           end
         end
 
@@ -117,12 +103,23 @@ module Decidim
         # @return [String] The map element's JavaScript assets markup for the
         #   view.
         def javascript_snippets
-          template.javascript_include_tag("decidim/map/default")
+          template.javascript_include_tag("decidim/map/provider/default")
         end
 
         protected
 
         attr_reader :template, :map_id, :markers, :options
+
+        # Returns the options hash that will be passed to the map element as a
+        # JSON encoded data attribute. These configurations can be used to pass
+        # information to the front-end map functionality, e.g. about the tile
+        # layer configurations and markers data.
+        #
+        # @return [Hash] The configurations passed to the map element's data
+        #   attribute.
+        def map_options
+          hash_to_js(options)
+        end
 
         # Converts a hash with Ruby-style key names (snake_case) to JS-style key
         # names (camelCase).

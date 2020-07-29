@@ -6,21 +6,9 @@ module Decidim
       module DynamicMap
         # The dynamic map utility class for the HERE maps service
         class Here < ::Decidim::Map::DynamicMap
-          # @see Decidim::Map::DynamicMap#builder_options
-          def builder_options
-            {
-              tile_layer: {
-                configuration: tile_layer_configuration
-              }
-            }
-          end
+          protected
 
-          private
-
-          # Prepares the tile layer configuration hash to be passed for the
-          # builder.
-          #
-          # @return The tile layer configuration hash.
+          # @see Decidim::Map::DynamicMap#tile_layer_configuration
           def tile_layer_configuration
             base_config = configuration.fetch(:tile_layer, {})
 
@@ -51,26 +39,9 @@ module Decidim
           # A builder for the HERE maps which needs to be configured differently
           # than "normal" OSM based tile service providers.
           class Builder < Decidim::Map::DynamicMap::Builder
-            # @see Decidim::Map::DynamicMap::Builder#builder_options
-            def configuration_element(map_options = {})
-              element_id = map_options[:id] || map_id
-              config = hash_to_js(options[:tile_layer][:configuration])
-              return "" if config.blank?
-
-              template.javascript_tag do
-                <<~JSCONF.strip.html_safe
-                  var $map = $("##{element_id}");
-                  $map.on("configure.decidim", function(_ev, map) {
-                    var tileLayerConfig = #{config.to_json};
-                    L.tileLayer.here(tileLayerConfig).addTo(map);
-                  });
-                JSCONF
-              end
-            end
-
             # @see Decidim::Map::DynamicMap::Builder#javascript_snippets
             def javascript_snippets
-              template.javascript_include_tag("decidim/map/here")
+              template.javascript_include_tag("decidim/map/provider/here")
             end
           end
         end

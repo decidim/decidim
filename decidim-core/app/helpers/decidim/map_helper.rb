@@ -28,22 +28,23 @@ module Decidim
       end
     end
 
-    def dynamic_map_for(options_or_markers = {}, &block)
+    def dynamic_map_for(options_or_markers = {}, html_options = {}, &block)
       return unless map_utility_dynamic
 
       options = {}
       if options_or_markers.is_a?(Array)
         options[:markers] = options_or_markers
+        options[:popup_template_id] = "marker-popup"
       else
         options = options_or_markers
       end
 
-      builder = map_utility_dynamic.create_builder(self, "map", options)
+      builder = map_utility_dynamic.create_builder(self, options)
 
       content_for :header_snippets, builder.stylesheet_snippets
       content_for :header_snippets, builder.javascript_snippets
 
-      map_html_options = { class: "google-map" }
+      map_html_options = { id: "map", class: "google-map" }.merge(html_options)
 
       help = content_tag(:div, class: "map__help") do
         sr_content = content_tag(:p, t("screen_reader_explanation", scope: "decidim.map.dynamic"), class: "show-for-sr")
