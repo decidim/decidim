@@ -386,4 +386,11 @@ el:
       statistics:
         answers_count: Απαντήσεις
         comments_count: Σχόλια
+        conference_count: Συνδιασκέψεις
+        debates_count: Δημόσιες συζητήσεις
+        endorsements_count: Επιδοκιμασίες
+        headline: Δραστηριότητα
+        meetings_count: Συναντήσεις
+        orders_count: Υποστηρίξεις
+        pages_count: Σελίδες
         users_count: Συμμετέχοντες
