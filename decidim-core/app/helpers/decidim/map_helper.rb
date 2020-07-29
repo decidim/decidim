@@ -42,8 +42,15 @@ module Decidim
 
       builder = map_utility_dynamic.create_builder(self, options)
 
-      content_for :header_snippets, builder.stylesheet_snippets
-      content_for :header_snippets, builder.javascript_snippets
+      # The map snippets are stored to their own content_for block in order to
+      # ensure that they are only loaded once during each page load. In case
+      # they were loaded multiple times, multiple maps could not be displayed.
+      unless content_for?(:map_snippets)
+        content_for :map_snippets, builder.stylesheet_snippets
+        content_for :map_snippets, builder.javascript_snippets
+
+        content_for :header_snippets, content_for(:map_snippets)
+      end
 
       map_html_options = { id: "map", class: "google-map" }.merge(html_options)
 
