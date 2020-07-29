@@ -50,6 +50,8 @@ describe "User creates meeting", type: :system do
         let!(:meeting_start_time) { Time.current + 2.days }
         let(:meeting_end_time) { meeting_start_time + 4.hours }
         let(:meeting_scope) { create :scope, organization: organization }
+        let(:datetime_format) { I18n.t("time.formats.decidim_short") }
+        let(:time_format) { I18n.t("time.formats.time_of_day") }
 
         context "and rich_editor_public_view component setting is enabled" do
           before do
@@ -74,8 +76,8 @@ describe "User creates meeting", type: :system do
             fill_in :meeting_location, with: meeting_location
             fill_in :meeting_location_hints, with: meeting_location_hints
             fill_in :meeting_address, with: meeting_address
-            fill_in :meeting_start_time, with: meeting_start_time.strftime("%Y/%m/%d %H:%M")
-            fill_in :meeting_end_time, with: meeting_end_time.strftime("%Y/%m/%d %H:%M")
+            fill_in :meeting_start_time, with: meeting_start_time.strftime(datetime_format)
+            fill_in :meeting_end_time, with: meeting_end_time.strftime(datetime_format)
             select translated(category.name), from: :meeting_decidim_category_id
             scope_pick select_data_picker(:meeting_decidim_scope_id), meeting_scope
 
@@ -88,8 +90,8 @@ describe "User creates meeting", type: :system do
           expect(page).to have_content(translated(category.name))
           expect(page).to have_content(translated(meeting_scope.name))
           expect(page).to have_content(meeting_address)
-          expect(page).to have_content(meeting_start_time.strftime("%H:%M"))
-          expect(page).to have_content(meeting_end_time.strftime("%H:%M"))
+          expect(page).to have_content(meeting_start_time.strftime(time_format))
+          expect(page).to have_content(meeting_end_time.strftime(time_format))
           expect(page).to have_selector(".author-data", text: user.name)
         end
 
@@ -109,8 +111,8 @@ describe "User creates meeting", type: :system do
               fill_in :meeting_location, with: meeting_location
               fill_in :meeting_location_hints, with: meeting_location_hints
               fill_in :meeting_address, with: meeting_address
-              fill_in :meeting_start_time, with: meeting_start_time.strftime("%Y/%m/%d %H:%M")
-              fill_in :meeting_end_time, with: meeting_end_time.strftime("%Y/%m/%d %H:%M")
+              fill_in :meeting_start_time, with: meeting_start_time.strftime(datetime_format)
+              fill_in :meeting_end_time, with: meeting_end_time.strftime(datetime_format)
               select translated(category.name), from: :meeting_decidim_category_id
               scope_pick select_data_picker(:meeting_decidim_scope_id), meeting_scope
               select user_group.name, from: :meeting_user_group_id
@@ -124,8 +126,8 @@ describe "User creates meeting", type: :system do
             expect(page).to have_content(translated(category.name))
             expect(page).to have_content(translated(meeting_scope.name))
             expect(page).to have_content(meeting_address)
-            expect(page).to have_content(meeting_start_time.strftime("%H:%M"))
-            expect(page).to have_content(meeting_end_time.strftime("%H:%M"))
+            expect(page).to have_content(meeting_start_time.strftime(time_format))
+            expect(page).to have_content(meeting_end_time.strftime(time_format))
             expect(page).to have_selector(".author-data", text: user_group.name)
           end
         end
