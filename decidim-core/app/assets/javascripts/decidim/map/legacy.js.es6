@@ -10,8 +10,6 @@
   const MapController = exports.Decidim.MapController;
 
   const legacyMapSupport = ($map) => {
-    // @deprecated Legacy style HERE configurations kept for backwards
-    //   compatibility.
     const hereAppId = $map.data("here-app-id");
     const hereAppCode = $map.data("here-app-code");
     const hereApiKey = $map.data("here-api-key");
@@ -62,7 +60,6 @@
 
     // Allow the configured map service to configure the map, e.g. attaching the
     // tile layer to the map.
-    // $(`#${mapId}`).();
     const $map = $(`#${mapId}`);
     legacyMapSupport($map);
     $map.trigger("configure.decidim", [map, $map.data("decidim-map")]);
