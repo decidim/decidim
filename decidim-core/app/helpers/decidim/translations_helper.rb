@@ -54,6 +54,12 @@ module Decidim
       end
     end
 
-    module_function :multi_translation, :empty_translatable, :ensure_translatable
+    def translated_in_current_locale?(attribute)
+      return false if attribute.nil?
+
+      attribute[I18n.locale.to_s].present?
+    end
+
+    module_function :multi_translation, :empty_translatable, :ensure_translatable, :translated_in_current_locale?
   end
 end

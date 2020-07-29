@@ -105,6 +105,26 @@ module Decidim
           expect(result).to include("en" => "Value", "ca" => "Valor")
         end
       end
+
+      describe "#translated_in_current_locale" do
+        let(:value) { { "en" => "Hello", "pt-BR" => "Olá", "ca" => "" } }
+
+        context "when translated in current locale" do
+          it "returns true" do
+            I18n.with_locale(:en) do
+              expect(TranslationsHelper).to be_translated_in_current_locale(value)
+            end
+          end
+        end
+
+        context "when not translated in current locale" do
+          it "returns false" do
+            I18n.with_locale(:ca) do
+              expect(TranslationsHelper).not_to be_translated_in_current_locale(value)
+            end
+          end
+        end
+      end
     end
   end
 end

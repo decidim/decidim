@@ -6,9 +6,9 @@
         <div class="text-ellipsis"><strong><%= step_title %></strong></div>
       </div>
     <% end %>
-    <%= link_to(resource_path, class: "card__button button button--sc small") do %>
-      <span class="show-for-sr"><%= t(model.cta_button_text_key_accessible, resource_name: title, scope: "layouts.decidim.participatory_processes.participatory_process") %></span>
-      <%= t(model.cta_button_text_key, scope: "layouts.decidim.participatory_processes.participatory_process") %>
+    <%= link_to(step_cta_path, class: "card__button button button--sc small") do %>
+      <span class="show-for-sr"><%= step_cta_text %></span>
+      <%= step_cta_text %>
     <% end %>
   </div>
 </div>
