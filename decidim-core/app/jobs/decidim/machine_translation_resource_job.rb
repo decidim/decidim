@@ -30,7 +30,7 @@ module Decidim
 
         @locales_to_be_translated += available_locales(translated_locales) if @locales_to_be_translated.blank?
 
-        @locales_to_be_translated.each do |locale|
+        @locales_to_be_translated.each do |target_locale|
           MachineTranslationFieldsJob.perform_later(
             resource,
             field,
@@ -38,7 +38,7 @@ module Decidim
               previous_changes,
               field
             ),
-            locale,
+            target_locale,
             source_locale
           )
         end
