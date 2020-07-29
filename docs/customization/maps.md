@@ -94,11 +94,14 @@ In case you want to customize the geocoding utility for your provider, you can
 define the following methods in the utility class:
 
 - `search(query, options = {})` - A common method for searching the geocoding
-  API and returning an array of results, either an array of coordinate pairs or
-  an array of addresses depending on the first `query` parameter. If the first
-  parameter is a coordinate pair array, the method returns an array of
-  addresses. If the first parameter is an address string, the method returns an
-  arrays of coordinate pairs.
+  API and returning an array of results. The results array contains the Geocoder
+  gem's result objects of type
+  [`Geocoder::Result::Base`][link-code-geocoder-result] or the result type
+  specific to your API. If the first parameter is an address string, the method
+  does a forward geocoding request finding the closest matching coordinate pairs
+  for that address. If the first parameter is a coordinate pair array, the
+  method does a reverse geocoding request finding the closest matching addresses
+  for the search.
 - `coordinates(address, options = {})` - A method that searches the best
   matching coordinates for the given address string. Only returns one coordinate
   pair as an array.
@@ -226,7 +229,7 @@ by default:
     configuration: {
       api_key: Rails.application.secrets.maps[:api_key],
       foo: "bar=baz",
-      style: "bright-style",
+      style: "bright",
       attribution: %{
         <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap</a> contributors
       }.strip
@@ -342,6 +345,7 @@ configuration, refer to the [maps and geocoding configuration][link-docs-maps]
 documentation.
 
 [link-code-dynamic-map]: /decidim-core/lib/decidim/map/dynamic_map.rb
+[link-code-geocoder-result]: https://github.com/alexreisner/geocoder/blob/master/lib/geocoder/results/base.rb
 [link-code-here-dynamic]: /decidim-core/lib/decidim/map/provider/dynamic_map/here.rb
 [link-code-here-static]: /decidim-core/lib/decidim/map/provider/static_map/here.rb
 [link-code-osm-dynamic]: /decidim-core/lib/decidim/map/provider/dynamic_map/osm.rb
