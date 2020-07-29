@@ -54,12 +54,13 @@ module Decidim
 
       context "when there is no machine translation service" do
         before do
-          $original_translator = Decidim.config.machine_translation_service
+          @original_translator = Decidim.config.machine_translation_service
           Decidim.config.machine_translation_service = nil
         end
 
         after do
-          Decidim.config.machine_translation_service = $original_translator
+          p @original_translator
+          Decidim.config.machine_translation_service = @original_translator
         end
 
         it "doesn't enqueue a job when resource is updated" do
