@@ -29,8 +29,9 @@ module Decidim
 
             it "returns the correct builder options" do
               expect(subject.builder_options).to eq(
+                marker_color: "#ef604d",
                 tile_layer: {
-                  configuration: { api_key: "key1234", foo: "bar" }
+                  api_key: "key1234", foo: "bar"
                 }
               )
             end
@@ -46,12 +47,11 @@ module Decidim
               it "returns the correct builder options" do
                 expect(ActiveSupport::Deprecation).to receive(:warn)
                 expect(subject.builder_options).to eq(
+                  marker_color: "#ef604d",
                   tile_layer: {
-                    configuration: {
-                      app_id: "appid123",
-                      app_code: "secret456",
-                      foo: "bar"
-                    }
+                    app_id: "appid123",
+                    app_code: "secret456",
+                    foo: "bar"
                   }
                 )
               end

@@ -30,9 +30,10 @@ module Decidim
 
             it "prepares and returns the correct builder options" do
               expect(utility.builder_options).to eq(
+                marker_color: "#ef604d",
                 tile_layer: {
                   url: "https://tiles.example.org",
-                  configuration: {}
+                  options: {}
                 }
               )
             end
@@ -50,9 +51,10 @@ module Decidim
 
               it "prepares and returns the correct builder options" do
                 expect(utility.builder_options).to eq(
+                  marker_color: "#ef604d",
                   tile_layer: {
                     url: "https://tiles.example.org",
-                    configuration: { foo: "bar", baz: "foobar" }
+                    options: { foo: "bar", baz: "foobar" }
                   }
                 )
               end
@@ -73,9 +75,10 @@ module Decidim
 
               it "prepares and returns the correct builder options" do
                 expect(utility.builder_options).to eq(
+                  marker_color: "#ef604d",
                   tile_layer: {
                     url: "https://tiles.example.org",
-                    configuration: { api_key: "key1234", foo: "bar", baz: "foobar" }
+                    options: { api_key: "key1234", foo: "bar", baz: "foobar" }
                   }
                 )
               end
