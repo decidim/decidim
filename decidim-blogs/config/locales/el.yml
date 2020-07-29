@@ -1,7 +1,79 @@
 el:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Νέα μηνύματα του blog
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Ανάρτηση
+        other: Αναρτήσεις
   decidim:
     blogs:
+      actions:
+        confirm_destroy: Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτή την ανάρτηση;
+        destroy: Διαγραφή
+        edit: Επεξεργασία
+        new: Νέα ανάρτηση
+        title: Ενέργειες
       admin:
+        models:
+          components:
+            body: Κυρίως κείμενο
+          post:
+            name: Ανάρτηση
         posts:
+          create:
+            invalid: Προέκυψε ένα πρόβλημα κατά τη δημιουργία αυτής της ανάρτησης
+            success: Η ανάρτηση δημιουργήθηκε με επιτυχία
+          destroy:
+            success: Η ανάρτηση διεγράφη με επιτυχία
+          edit:
+            save: Ενημέρωση
+          index:
+            title: Αναρτήσεις
           new:
             create: Δημιουργία
+            title: Δημιουργία ανάρτησης
+          update:
+            invalid: Προέκυψε ένα πρόβλημα κατά την αποθήκευση αυτής της ανάρτησης.
+            success: Η ανάρτηση σώθηκε με επιτυχία
+      last_activity:
+        new_post_at_html: "<span>Νέα ανάρτηση στο %{link}</span>"
+      models:
+        post:
+          fields:
+            author: Συντάκτης
+            body: Κυρίως κείμενο
+            created_at: Δημιουργήθηκε στις
+            title: τίτλος
+      posts:
+        show:
+          view: Προβολή
+        sidebar_blog:
+          comments: σχόλια
+          most_commented_posts: Πλείστα σχολιασμένες αναρτήσεις
+      read_more: Διαβάστε περισσότερα
+    components:
+      blogs:
+        name: Ιστολόγιο
+        settings:
+          global:
+            announcement: Ανακοίνωση
+            comments_enabled: Σχόλια ενεργοποιημένα
+          step:
+            announcement: Ανακοίνωση
+            comments_blocked: Σχόλια απενεργοποιημένα
+    events:
+      blogs:
+        post_created:
+          email_intro: Η ανάρτηση %{resource_title} έχει δημοσιευθεί στο %{participatory_space_title} το οποίο ακολουθείτε.
+          email_outro: Λάβατε αυτή την ειδοποίηση επειδή ακολουθείτε το "%{participatory_space_title}". Μπορείτε να σταματήσετε να λαμβάνετε ειδοποιήσεις ακολουθώντας τον προηγούμενο σύνδεσμο.
+          email_subject: Νέα ανάρτηση δημοσιεύθυκε στο %{participatory_space_title}
+          notification_title: Η ανάρτηση <a href="%{resource_path}">%{resource_title}</a> έχει δημοσιευθεί στο %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Αναρτήσεις
+    participatory_processes:
+      statistics:
+        posts_count: Αναρτήσεις

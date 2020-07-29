@@ -1,6 +1,72 @@
 el:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Σχόλιο
+      decidim/comments/comment_created_event: Σχόλιο
+      decidim/comments/reply_created_event: Απάντηση σχολίου
+      decidim/comments/user_mentioned_event: Μνεία
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Σχόλιο
+        other: Σχόλια
+      decidim/comments/comment_vote:
+        one: Ψήφος
+        other: Ψήφοι
   decidim:
+    comments:
+      comments: Σχόλια
+      last_activity:
+        new_comment_at_html: "<span>Νέο σχόλιο στο %{link}</span>"
+      votes:
+        create:
+          error: Προέκυψε πρόβλημα κατά την ψήφιση του σχολίου.
     components:
+      add_comment_form:
+        account_message: <a href="%{sign_in_url}">Εισέλθετε με τον λογαριασμό σας</a> ή <a href="%{sign_up_url}">εγγραφείτε</a> για να προσθέσετε το σχόλιό σας.
+        form:
+          body:
+            label: Σχόλιο
+            placeholder: Τι σκέφτεστε γι' αυτό;
+          form_error: Αυτό το κείμενο απαιτείται και δεν μπορεί να είναι μεγαλύτερο από %{length} χαρακτήρες.
+          submit: Αποστολή
+          user_group_id:
+            label: Σχόλιο ως
+        opinion:
+          neutral: Ουδέτερο
+        remaining_characters: "%{count} χαρακτήρες απέμειναν"
+        remaining_characters_1: "%{count} χαρακτήρας απέμεινε"
+        title: Προσθέστε το σχόλιό σας
       comment:
+        alignment:
+          against: Κατά
+          in_favor: Υπέρ
+        deleted_user: Διαγραφή συμμετέχοντα
+        hide_replies: Απόκρυψη απαντήσεων
+        reply: Απάντηση
         report:
+          action: Αναφορά
+          already_reported: Αυτό το περιεχόμενο έχει ήδη αναφερθεί και θα ελεγχθεί από έναν διαχειριστή.
+          close: Κλείσιμο
+          description: Είναι ακατάλληλο αυτό το περιεχόμενο;
           details: Πρόσθετα σχόλια
+          reasons:
+            does_not_belong: Περιέχει παράνομη δραστηριότητα, απειλές αυτοκτονίας, προσωπικές πληροφορίες ή κάτι άλλο που πιστεύετε ότι δεν ανήκει στο %{organization_name}.
+            offensive: Περιέχει ρατσισμό, σεξισμό, χλευασμούς, προσωπικές επιθέσεις, απειλές θανάτου, αιτήματα αυτοκτονίας ή οποιαδήποτε μορφή ρητορικής μίσους.
+            spam: Περιέχει clickbait, διαφημίσεις, απάτες ή λογισμικό bot.
+        show_replies: Εμφάνιση %{replies_count} απαντήσεων
+        single_comment_link_title: Λάβετε σύνδεσμο για ένα μόνο σχόλιο
+      comment_order_selector:
+        order:
+          best_rated: Υψηλότερα βαθμολογημένα
+          most_discussed: Πιο συζητημένα
+          older: Παλαιότερα
+          recent: Πρόσφατα
+        title: 'Ταξινόμηση κατά:'
+      comment_thread:
+        title: Συζήτηση με %{authorName}
+      comments:
+        blocked_comments_for_user_warning: Δεν μπορείτε να σχολιάσετε αυτήν τη στιγμή, αλλά μπορείτε να διαβάσετε τα προηγούμενα.
+        blocked_comments_warning: Τα σχόλια είναι απενεργοποιημένα αυτήν τη στιγμή, αλλά μπορείτε να διαβάσετε τα προηγούμενα.
+        comment_details_title: Λεπτομέρειες σχολίου
+        loading: Φόρτωση σχολίων...

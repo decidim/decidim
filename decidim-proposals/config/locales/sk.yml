@@ -705,6 +705,7 @@ sk:
           amend: doplňujúci návrh
           comment: Komentár
           comments: Komentáre
+          endorse: Schváliť
       proposal_endorsements:
         create:
           error: Pri schválení návrhu došlo k chybám.

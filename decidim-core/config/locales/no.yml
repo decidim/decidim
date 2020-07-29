@@ -877,7 +877,7 @@
           conferences_count: Konferanser
           debates_count: Debatter
           endorsements_count: Påtegnelser
-          headline: Nåværende tilstand av %{organization}
+          headline: Nåværende status for %{organization}
           meetings_count: Møter
           orders_count: Stemmer
           pages_count: Sider
@@ -1244,7 +1244,7 @@
         close_menu: Lukk meny
         navigation: Navigasjon
         sign_in: Logg på
-        sign_up: Registrer Deg
+        sign_up: Registrer deg
       impersonation_warning:
         close_session: Lukk økt
         description_html: Du administrerer deltakeren <b>%{user_name}</b>.

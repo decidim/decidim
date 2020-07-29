@@ -623,7 +623,7 @@ nl:
           amend: Wijzigen
           comment: Commentaar
           comments: Commentaren
-          endorse: Onderschrijven
+          endorse: Aanbevelen
       proposal_endorsements:
         create:
           error: Er zijn fouten opgetreden tijdens het aanbevelen van het voorstel.

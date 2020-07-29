@@ -689,7 +689,7 @@ fr:
           amend: Modifier
           comment: Commentaire
           comments: commentaires
-          endorse: Endosser
+          endorse: Soutenir
       proposal_endorsements:
         create:
           error: Des erreurs sont survenues au moment de soutenir la proposition.

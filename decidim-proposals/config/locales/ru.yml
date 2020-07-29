@@ -274,6 +274,9 @@ ru:
             votes: Голоса
       new:
         limit_reached: Вы не можете создавать новые предложения, так как вы превысили лимит.
+      participatory_text_proposal:
+        buttons:
+          endorse: Поддержать
       proposal_endorsements:
         create:
           error: При попытке поддержать это предложение произошли ошибки.

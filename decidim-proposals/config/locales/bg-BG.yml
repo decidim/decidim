@@ -252,6 +252,9 @@ bg:
           of_versions: "(от %{number})"
           see_other_versions: виж други версии
           version: Версия %{number}
+      participatory_text_proposal:
+        buttons:
+          endorse: Одобри
       proposal_endorsements:
         create:
           error: Възникна проблем при одобрение на предложението.
