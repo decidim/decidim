@@ -15,8 +15,8 @@
 
   $(() => {
     $("[data-decidim-map]").each((_i, el) => {
-      $(el).on("configure.decidim", (_ev, map, mapData) => {
-        const tilesConfig = mapData.tileLayer;
+      $(el).on("configure.decidim", (_ev, map, mapConfig) => {
+        const tilesConfig = mapConfig.tileLayer;
         L.tileLayer(tilesConfig.url, tilesConfig.options).addTo(map);
       });
     });
