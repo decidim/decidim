@@ -183,6 +183,28 @@ config.maps = {
 Decidim works fine when some of the services are disabled individually but
 obviously, the disabled services are not available for Decidim users.
 
+### Global geocoder configurations
+
+In the Dedicim initialiser (`config/initializers/decidim.rb`) you will also see
+a commented section for the global geocoder configurations commented as follows:
+
+```ruby
+# Geocoder configurations ...
+# config.geocoder = {
+#   # geocoding service request timeout, in seconds (default 3):
+#   timeout: 5,
+#   # set default units to kilometers:
+#   units: :km,
+#   # caching (see https://github.com/alexreisner/geocoder#caching for details):
+#   cache: Redis.new,
+#   cache_prefix: "..."
+# }
+```
+
+This will change the global geocoding settings for your application. To learn
+more about these settings, take a look at the
+[Geocoder gem's documentation][link-geocoder].
+
 ### Integrating with a new service provider
 
 If you want to integrate the map functionality with a new service provider, take
@@ -195,16 +217,17 @@ April 2017, only proposals and meetings have maps and geocoding.
 
 ### Proposals
 
-In order to enable geocoding for proposals you'll need to edit the feature
-configuration and set the global flag to true. This works for that specific
-component, so you can have geocoding enabled for meetings in a participatory
-process, and disabled for another one.
+In order to enable geocoding for proposals you'll need to edit the component
+configuration and turn on "Geocoding enabled" configuration. This works for that
+specific component, so you can have geocoding enabled for proposals in a
+participatory process, and disabled for another proposals component in the same
+participatory process.
 
 ### Meetings
 
 Meetings do not have a configuration option for geocoding. Instead, if geocoding
 is configured it will try to geocode the address every time you create or update
-a meeting. As of April 2017 there's no way to enable or disable geocoding per
+a meeting. As of April 2017 there is no way to enable or disable geocoding per
 meetings component.
 
 ## Hosting your own map services
@@ -217,8 +240,8 @@ setup the following services on your own servers.
 
 ### Map tiles: Open Street Maps tile server
 
-You will need a [map tiles][link-wiki-map-tiles] server
-which is used for the dynamic maps that the user can move themselves.
+You will need a [map tiles][link-wiki-map-tiles] server which is used for the
+dynamic maps that the user can move themselves.
 
 Follow these instructions to setup your tiles server:
 
@@ -279,6 +302,7 @@ section for more information.
 [anchor-configure-osm]: #configuring-open-street-maps-based-service-providers
 [link-docs-custom-maps]: /docs/customization/maps.md
 [link-here]: http://here.com
+[link-geocoder]: https://github.com/alexreisner/geocoder
 [link-osm-commercial]: https://wiki.openstreetmap.org/wiki/Commercial_OSM_Software_and_Services
 [link-osm-nominatim]: https://wiki.openstreetmap.org/wiki/Nominatim
 [link-osm-static-maps]: https://github.com/jperelli/osm-static-maps
