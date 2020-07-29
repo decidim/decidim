@@ -213,7 +213,50 @@ el:
         assemblies: Συνελεύσεις
         assemblies_types: Τύποι συνελεύσεων
     assemblies:
+      admin:
+        assemblies:
+          form:
+            duration: Διάρκεια
+            filters: Φίλτρα
+            images: Εικόνες
+            metadata: Μεταδεδομένα
+            other: Άλλο
+            select_a_created_by: Επιλέξτε ένα δημιουργήθηκε από
+            select_an_area: Επιλέξτε μία Περιοχή
+            select_an_assembly_type: Επιλέξτε ένα τύπο συνέλευσης
+            select_parent_assembly: Επιλέξτε μία γονική συνέλευση
+            slug_help: 'Τα επιθέματα URL χρησιμοποιούνται για να δημιουργήσουν τα URL που δρομολογούν προς αυτή την συνέλευση. Εϊναι αποδεκτά μόνο γράμματα, αριθμοί και παύλες και πρέπει να ξεκινούν με γράμμα. Παράδειγμα: %{url}'
+            social_handlers: Κοινωνικά
+            title: Γενικές Πληροφορίες
+            visbility: Ορατότητα
+        assemblies_types:
+          form:
+            title: Τίτλος
+        assembly_copies:
+          form:
+            slug_help: 'Τα επιθέματα URL χρησιμοποιούνται για να δημιουργήσουν τα URL που δρομολογούν προς αυτή την συνέλευση. Εϊναι αποδεκτά μόνο γράμματα, αριθμοί και παύλες και πρέπει να ξεκινούν με γράμμα. Παράδειγμα: %{url}'
+        assembly_members:
+          form:
+            existing_user: Υπάρχων συμμετέχων
+            non_user: Μη συμμετέχων
+            select_a_position: Επιλέξτε μία θέση
+            select_user: Επιλέξτε έναν συμμετέχοντα
+            user_type: Τύπος συμμετέχοντα
+          index:
+            filter:
+              all: Όλοι
+              ceased: Σε παύση
+              not_ceased: Δεν είναι σε παύση
+            filter_by: Φιλτράρισμα κατά
+            search: Αναζήτηση
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Μέγιστος αριθμός στοιχείων προς εμφάνιση
+      assembly_members:
+        index:
+          members: Μέλη
       assembly_types:
+        commission: Επιτροπή
         consultative_advisory: Συμβουλευτική θέση
         executive: Εκτελεστικό στέλεχος
         government: Κυβερνητικό
