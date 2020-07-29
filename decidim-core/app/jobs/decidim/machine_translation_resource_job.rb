@@ -1,9 +1,21 @@
 # frozen_string_literal: true
 
 module Decidim
+  # This job is part of the machine translation flow. This one is fired every
+  # time a `Decidim::TranslatableResource` is created or updated. If any of the
+  # attributes defines as translatable is modified, then for each of those
+  # attributes this job will schedule a `Decidim::MachineTranslationFieldsJob`.
   class MachineTranslationResourceJob < ApplicationJob
     queue_as :default
 
+    # Performs the job.
+    #
+    # resource - Any kind of `Decidim::TranslatableResource` model instance
+    # previous_changes - A Hash with the set fo changes. This is intended to be
+    #   taken from `resource.previous_changes`, but we need to manually pass
+    #   them to the job because the value gets lost when serializing the
+    #   resource.
+    # source_locale - A Symbol representing the source locale for the translation
     def perform(resource, previous_changes, source_locale)
       @resource = resource
       @locales_to_be_translated = []

@@ -6,11 +6,11 @@ module Decidim
   class MachineTranslationFieldsJob < ApplicationJob
     queue_as :default
 
-    # Performs the job. I won't perform anything if the
+    # Performs the job. It won't perform anything if the
     # `Decidim.machine_translation_service` config is not set.
     #
     # resource - Any kind of `Decidim::TranslatableResource` model instance
-    # field_name - a Symbol representing the name of the field being translated
+    # field_name - A Symbol representing the name of the field being translated
     # field_value - A String with the value of the field to translate
     # target_locale - A Symbol representing the target locale for the translation
     # source_locale - A Symbol representing the source locale for the translation
