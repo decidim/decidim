@@ -62,7 +62,6 @@
     // tile layer to the map.
     const $map = $(`#${mapId}`);
     legacyMapSupport($map);
-    $map.trigger("configure.decidim", [map, $map.data("decidim-map")]);
 
     if (markersData.length > 0) {
       ctrl.addMarkers(markersData);
