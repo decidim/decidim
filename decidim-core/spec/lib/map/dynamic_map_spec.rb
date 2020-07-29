@@ -11,17 +11,16 @@ module Decidim
 
       describe "#create_builder" do
         let(:template) { double }
-        let(:map_id) { "map" }
         let(:options) { {} }
 
         it "creates a new builder instance" do
           expect(Decidim::Map::DynamicMap::Builder).to receive(:new).with(
             template,
-            map_id,
-            tile_layer: { url: nil, configuration: {} }
+            marker_color: "#ef604d",
+            tile_layer: { url: nil, options: {} }
           ).and_call_original
 
-          builder = subject.create_builder(template, map_id, options)
+          builder = subject.create_builder(template, options)
           expect(builder).to be_a(Decidim::Map::DynamicMap::Builder)
         end
       end
@@ -35,7 +34,8 @@ module Decidim
       describe "#builder_options" do
         it "prepares and returns the correct builder options" do
           expect(utility.builder_options).to eq(
-            tile_layer: { url: nil, configuration: {} }
+            marker_color: "#ef604d",
+            tile_layer: { url: nil, options: {} }
           )
         end
       end

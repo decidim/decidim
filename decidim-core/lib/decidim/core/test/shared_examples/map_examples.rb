@@ -18,13 +18,14 @@ shared_context "with dynamic map builder" do
     {
       tile_layer: {
         url: "https://tiles.example.org",
-        configuration: {
+        options: {
           foo: "bar",
           attribution: "Test Attribution"
         }
       }
     }
   end
+  let(:js_options) { options.map { |k, v| [k.to_s.camelize(:lower), v] }.to_h }
 end
 
 shared_examples "a page with dynamic map" do

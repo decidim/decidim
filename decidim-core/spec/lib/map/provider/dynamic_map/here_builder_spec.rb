@@ -11,7 +11,7 @@ module Decidim
             let(:options) do
               {
                 tile_layer: {
-                  configuration: {
+                  options: {
                     apiKey: "key1234"
                   }
                 }
@@ -21,7 +21,7 @@ module Decidim
 
           describe "#map_element" do
             it "returns the expected markup" do
-              config = ERB::Util.html_escape(options.fetch(:tile_layer).to_json)
+              config = ERB::Util.html_escape(js_options.to_json)
               expect(subject.map_element(id: "map", class: "test-map")).to eq(
                 %(<div data-decidim-map="#{config}" data-markers-data="[]" id="map" class="test-map"></div>)
               )
@@ -58,7 +58,7 @@ module Decidim
             let(:options) do
               {
                 tile_layer: {
-                  configuration: {
+                  options: {
                     apiKey: "key1234"
                   }
                 }
@@ -84,7 +84,7 @@ module Decidim
             it "sets up the tile layer" do
               expect(page).to have_selector(
                 "#tile_layer_config",
-                text: options[:tile_layer][:configuration].to_json
+                text: options[:tile_layer][:options].to_json
               )
             end
           end
