@@ -25,7 +25,7 @@
   }
 
   class MapController {
-    constructor(mapId, settings) {
+    constructor(mapId, config) {
       // Remove the old map if there is already one with the same ID.
       const old = MapControllerRegistry.getController(mapId);
       if (old) {
@@ -33,10 +33,10 @@
       }
 
       this.mapId = mapId;
-      this.settings = $.extend({
+      this.config = $.extend({
         popupTemplateId: "marker-popup",
         markerColor: "#ef604d"
-      }, settings);
+      }, config);
 
       this.map = null;
       this.markerClusters = null;
@@ -44,8 +44,8 @@
       MapControllerRegistry.setController(mapId, this);
     }
 
-    getSettings() {
-      return this.settings;
+    getConfig() {
+      return this.config;
     }
 
     getMap() {
@@ -55,8 +55,8 @@
     addMarkers(markersData) {
       // Pre-compiles the template
       $.template(
-        this.settings.popupTemplateId,
-        $(`#${this.settings.popupTemplateId}`).html()
+        this.config.popupTemplateId,
+        $(`#${this.config.popupTemplateId}`).html()
       );
 
       const bounds = new L.LatLngBounds(
@@ -68,14 +68,14 @@
       markersData.forEach((markerData) => {
         let marker = L.marker([markerData.latitude, markerData.longitude], {
           icon: new L.DivIcon.SVGIcon.DecidimIcon({
-            fillColor: this.settings.markerColor
+            fillColor: this.config.markerColor
           }),
           keyboard: true,
           title: markerData.title
         });
         let node = document.createElement("div");
 
-        $.tmpl(this.settings.popupTemplateId, markerData).appendTo(node);
+        $.tmpl(this.config.popupTemplateId, markerData).appendTo(node);
         marker.bindPopup(node, {
           maxwidth: 640,
           minWidth: 500,

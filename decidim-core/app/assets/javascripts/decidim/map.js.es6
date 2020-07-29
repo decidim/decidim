@@ -19,24 +19,24 @@
       const $map = $(el);
       const mapId = $map.attr("id");
 
-      const mapData = $map.data("decidim-map");
-      const ctrl = new MapController(mapId, mapData);
+      const mapConfig = $map.data("decidim-map");
+      const ctrl = new MapController(mapId, mapConfig);
       const map = ctrl.load();
 
       $map.data("map", map);
       $map.data("map-controller", ctrl);
 
-      $map.trigger("configure.decidim", [map, mapData]);
+      $map.trigger("configure.decidim", [map, mapConfig]);
 
-      if (mapData.markers.length > 0) {
-        ctrl.addMarkers(mapData.markers);
+      if (mapConfig.markers.length > 0) {
+        ctrl.addMarkers(mapConfig.markers);
       } else {
         ctrl.getMap().fitWorld();
       }
 
       // Indicates the map is loaded with the map objects initialized and ready
       // to be used.
-      $map.trigger("ready.decidim", [map, mapData]);
+      $map.trigger("ready.decidim", [map, mapConfig]);
     });
   });
 })(window);
