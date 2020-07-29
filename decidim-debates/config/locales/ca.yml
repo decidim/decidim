@@ -104,6 +104,7 @@ ca:
           title: Nou debat
         show:
           back: Torna al llistat
+          date: Data
           edit_debate: Editar debat
         update:
           invalid: S'ha produït un error en actualitzar aquest debat.

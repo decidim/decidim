@@ -3,6 +3,8 @@ ca:
     attributes:
       account:
         delete_reason: Raó per eliminar el teu compte
+      common:
+        created_at: Creat el
       group:
         about: Quant a
         avatar: Avatar
@@ -72,6 +74,7 @@ ca:
       decidim_with_month_name_short: "%d %b"
   decidim:
     accessibility:
+      external_link: Enllaç extern
       logo: "Logo oficial de %{organization}"
       skip_button: Vés al contingut principal
     account:
@@ -150,6 +153,8 @@ ca:
         verify_via_csv: "%{user_name} ha verificat el grup %{resource_name} a través d'un fitxer CSV"
     admin_terms_of_use:
       default_body: "<h2>TERMES D'ÚS PER ADMINS</h2><p>Donem per fet que has rebut l'habitual explicació de l'administrador del sistema local. En general es redueix a aquestes tres coses:</p><ol><li>Respectar la privadesa dels altres.</li><li>Penseu abans de fer clic.</li><li>A un gran poder l'hi correspon gran responsabilitat.</li></ol>"
+    alert:
+      dismiss: Descartar notificació
     amendments:
       accepted:
         error: S'ha produït un error en acceptar l'esmena.
@@ -274,6 +279,7 @@ ca:
           foo: Foo
         name: Autorització foo
       granted_at: Atorgada el %{timestamp}
+      renew: Renovar la verificació
       sms:
         explanation: Introdueix el teu número de telèfon mòbil per poder verificar la teva identitat.
         name: Codi per SMS
@@ -308,6 +314,8 @@ ca:
           explanation_html: Per realitzar aquesta acció cal que estiguis autoritzada, abans de fer-ho, has de confirmar el teu correu electrònic <strong>%{email}</strong>.
           request_confirmation_instructions: Sol·licita instruccions de confirmació
           title: Confirma el teu correu electrònic
+      show:
+        close_modal: Tancar el modal
     collapsible_list:
       hidden_elements_count:
         one: i %{count} més
@@ -456,6 +464,7 @@ ca:
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> vol utilitzar el teu compte"
     endorsable:
       endorsements: Adhesions
+      endorsements_count: Número d'adhesions
     endorsement_buttons_cell:
       already_endorsed: Adherit
       endorse: Adherir-se
@@ -629,6 +638,9 @@ ca:
       title: Empremta digital
       value: Valor
     followers:
+      followers_count:
+        one: "%{count} seguidora"
+        other: "%{count} seguidores"
       no_followers: Encara no hi ha seguidores.
     following:
       no_followings: No segueix a cap persona ni cap activitat.
@@ -649,6 +661,18 @@ ca:
           password: La contrasenya és massa curta.
           password_confirmation: La confirmació de la contrasenya no coincideix amb la contrasenya.
         error: Hi ha un error en aquest camp.
+      file_help:
+        file:
+          explanation: 'Instruccions per a l''arxiu:'
+          message_1: Ha de ser una imatge o un document.
+          message_2: Per a les imatges, fes servir imatges apaïsades preferiblement, el servei retalla la imatge.
+        image:
+          explanation: 'Instruccions per a la imatge:'
+          message_1: Preferiblement una imatge apaïsada que no tingui cap text.
+          message_2: El servei retalla la imatge.
+      file_validation:
+        allowed_file_extensions: 'Tipus de fitxers admesos: %{extensions}'
+        max_file_size: 'Mida màxima del fitxer:%{megabytes}MB'
       remove_this_file: Eliminar aquest arxiu
     gamification:
       all_badges_link: Veure totes les insígnies disponibles.
@@ -802,6 +826,13 @@ ca:
           not_found: 'El tipus d''àmbit no s''ha trobat a la base de dades (ID: %{id})'
     managed_users:
       expired_session: La sessió actual d'administració d'una participant ha caducat.
+    map:
+      dynamic:
+        screen_reader_explanation: El següent element és un mapa que presenta els components d'aquesta pàgina com a punts al mapa. L'element es pot fer servir amb un lector de pantalla però pot ser difícil d'entendre.
+        skip_button: Saltar el mapa
+      static:
+        latlng_text: 'latitud: %{latitude}, longitud: %{longitude}'
+        map_service_brand: OpenStreetMap
     members:
       no_members: Aquest grup encara no té cap membre.
     menu:
@@ -850,6 +881,8 @@ ca:
           modal_title: Nova conversa
           no_results: No hi ha resultats
           participant_with_disabled_message_reception: Aquesta participant ha desactivat la recepció de missatges
+        conversation:
+          show: Mostrar la conversa amb %{sender}
         create:
           error: No s'ha iniciat la conversa. Torna-ho a provar més tard
         index:
@@ -867,6 +900,7 @@ ca:
           send: Enviar
           title: Respon
         show:
+          back: Tornar a totes les converses
           chat_with: Conversa amb
           not_allowed: Aquesta participant no accepta missatges directes.
           title: Conversa amb %{usernames}
@@ -1048,6 +1082,7 @@ ca:
         following: Seguint
         groups: Grups
         members: Membres
+        officialized: Participant oficial
         timeline: Línia de temps
         view_full_profile: Mostra el perfil complet
       sidebar:
@@ -1094,11 +1129,16 @@ ca:
       global: Àmbit global
       picker:
         cancel: Cancel·lar
+        change: Canviar l'àmbit seleccionat
         choose: Seleccionar
+        currently_selected: Àmbit seleccionat actualment
         title: Selecciona %{field}
       prompt: Selecciona un àmbit
       scopes: Àmbits
+      scopes_picker_input:
+        select_scope: 'Selecciona un àmbit (actualment: %{current})'
     search:
+      results: Resultat de la cerca
       results_found_for_term: '%{count} Resultats de la cerca: "%{term}"'
       term_input_placeholder: Cercar
     searches:
@@ -1121,6 +1161,11 @@ ca:
           other: "%{count} resultats"
         view_all: Mostra-ho tot (%{count})
     shared:
+      confirm_modal:
+        cancel: Cancel·lar
+        close_modal: Tancar el modal
+        ok: D'acord
+        title: Confirmar
       embed_modal:
         close_window: Tanca la finestra
         embed: Si us plau, enganxa aquest codi a la teva pàgina
@@ -1128,6 +1173,9 @@ ca:
       extended_navigation_bar:
         more: Més
         unfold: Desplegar
+      filter_form_help:
+        help: El següent formulari filtra els resultats de la cerca dinàmicament quan es canvien les condicions de la cerca.
+        skip: Saltar als resultats
       flag_modal:
         already_reported: Aquest contingut ja ha estat denunciat i serà revisat per una administradora.
         close: Tancar
@@ -1138,10 +1186,12 @@ ca:
         spam: Conté "clickbait", publicitat o estafes.
         title: Denuncia un problema
       floating_help:
+        close: Tanca l'ajuda
         help: Ajuda
       follow_button:
         sign_in_before_follow: Inicia sessió abans de realitzar aquesta acció
       login_modal:
+        close_modal: Tancar el modal
         please_sign_in: Si us plau, inicia sessió
         sign_up: Registra't
       participatory_space_filters:
@@ -1160,6 +1210,9 @@ ca:
         close_window: Tanca la finestra
         share: Compartir
         share_link: Compartir l'enllaç
+    tags:
+      filter_results_for_category: 'Resultats al filtrar per al categoria: %{resource}'
+      filter_results_for_scope: 'Resultats al filtrar per l''àmbit: %{resource}'
     user_activity:
       index:
         no_activities_warning: Aquesta participant encara no ha tingut cap activitat.
@@ -1404,7 +1457,13 @@ ca:
       too_much_caps: Estàs utilitzant massa lletres majúscules (més del 25% del text)
       too_short: És massa curt (menys de 15 caràcters)
   forms:
+    correct_errors: Hi ha errors al formulari, si us plau corregeix-los per continuar.
+    length_validator:
+      minimum:
+        one: com a mínim %{count} caràcter
+        other: com a mínim %{count} caràcters
     required: Obligatori
+    required_explanation: "* Els camps obligatoris estan marcats amb un asterisc"
   invisible_captcha:
     sentence_for_humans: Si ets un humà, ignora aquest camp
     timestamp_error_message: Ho sentim, has estat massa ràpid! Si us plau, torna a enviar-ho.
@@ -1417,6 +1476,8 @@ ca:
       edit_link:
         edit: Edita
       footer:
+        cc_by_license: Amb llicència Creative Commons
+        decidim_logo: Logo Decidim
         download_open_data: Descarrega els fitxers de dades obertes
         made_with_open_source: Web creada amb <a target="_blank" href="https://github.com/decidim/decidim">programari lliure</a>.
       header:
@@ -1428,9 +1489,19 @@ ca:
         close_session: Tanca la sessió
         description_html: Estàs gestionant la participant <b>%{user_name}</b>.
         expire_time_html: La vostra sessió caducarà en <b><span class="minutes">%{minutes}</span> minutes</b>.
+      language_chooser:
+        choose_language: Triar la llengua
       notifications_dashboard:
         mark_all_as_read: Marcar tot com a llegit
+        mark_as_read: Marcar com a llegit
+      social_media_links:
+        facebook: "%{organization} a Facebook"
+        github: "%{organization} a GitHub"
+        instagram: "%{organization} a Instagram"
+        twitter: "%{organization} a Twitter"
+        youtube: "%{organization} a YouTube"
       user_menu:
+        account: 'Compte d''usuària: %{name}'
         admin_dashboard: Tauler d'administració
         conversations: Converses
         notifications: Notificacions
@@ -1519,6 +1590,7 @@ ca:
       last_title: Enllaç a la darrera pàgina
       next: Següent &rsaquo;
       next_title: Enllaç a la pàgina següent
+      pagination: Paginació
       previous: "&lsaquo; Anterior"
       previous_title: Enllaç a la pàgina anterior
       title: 'Número de pàgina: '

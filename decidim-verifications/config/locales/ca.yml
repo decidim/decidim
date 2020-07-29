@@ -100,7 +100,9 @@ ca:
           verify_with_these_options: 'Aquestes són les opcions disponibles per verificar la teva identitat:'
         index:
           expired_verification: La verificació ha caducat
+          pending_verification: Pendent de verificació
           show_renew_info: Clica aquí per a renovar la verificació
+          unauthorized_verification: Nova verificació
         new:
           authorize: Enviar
           authorize_with: Verifica amb %{authorizer}

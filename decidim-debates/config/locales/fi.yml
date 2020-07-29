@@ -104,6 +104,7 @@ fi:
           title: Uusi keskustelu
         show:
           back: Takaisin listaan
+          date: Päivämäärä
           edit_debate: Muokkaa keskustelua
         update:
           invalid: Keskustelun päivittäminen epäonnistui.
