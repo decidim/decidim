@@ -19,34 +19,12 @@ module Decidim
             end
           end
 
-          let(:expected_configuration) do
-            <<~MAPCONFIG.strip
-              <script>
-              //<![CDATA[
-              var $map = $("##{map_id}");
-              $map.on("configure.decidim", function(_ev, map) {
-                var tileLayerConfig = #{options[:tile_layer][:configuration].to_json};
-                L.tileLayer.here(tileLayerConfig).addTo(map);
-              });
-              //]]>
-              </script>
-            MAPCONFIG
-          end
-
           describe "#map_element" do
             it "returns the expected markup" do
-              expect(subject.map_element(class: "test-map")).to eq(
-                [
-                  %(<div id="#{map_id}" data-markers-data="[]" class="test-map"></div>),
-                  expected_configuration
-                ].join
+              config = ERB::Util.html_escape(options.fetch(:tile_layer).to_json)
+              expect(subject.map_element(id: "map", class: "test-map")).to eq(
+                %(<div data-decidim-map="#{config}" data-markers-data="[]" id="map" class="test-map"></div>)
               )
-            end
-          end
-
-          describe "#configuration_element" do
-            it "returns the expected JavaScript" do
-              expect(subject.configuration_element).to eq(expected_configuration)
             end
           end
 

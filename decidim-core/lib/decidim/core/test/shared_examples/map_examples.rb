@@ -10,11 +10,10 @@ shared_context "with map utility" do
 end
 
 shared_context "with dynamic map builder" do
-  subject { described_class.new(template, map_id, options) }
+  subject { described_class.new(template, options) }
 
   let(:template_class) { Class.new(ActionView::Base) }
   let(:template) { template_class.new }
-  let(:map_id) { "map" }
   let(:options) do
     {
       tile_layer: {
@@ -67,7 +66,7 @@ shared_examples "a page with dynamic map" do
   let(:html_body) do
     builder = subject
     template.instance_eval do
-      builder.map_element(class: "google-map") do
+      builder.map_element(id: "map", class: "google-map") do
         content_tag(:span, "", id: "map_inner")
       end
     end
@@ -94,7 +93,7 @@ shared_examples "a page with dynamic map" do
   end
 
   it "displays the map" do
-    expect(page).to have_selector("#map", visible: :all)
+    expect(page).to have_selector("#map.google-map", visible: :all)
     expect(page).to have_selector("#map_inner", visible: :all)
   end
 end
