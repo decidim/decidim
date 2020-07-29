@@ -98,6 +98,7 @@ ca:
           title: Nou debat
         show:
           back: Torna al llistat
+          date: Data
       last_activity:
         new_debate_at_html: "<span>Nou debat a %{link}</span>"
       models:

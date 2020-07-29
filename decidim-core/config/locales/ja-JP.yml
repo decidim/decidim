@@ -595,7 +595,6 @@ ja:
         proposal: 提案
         result: 結果
     fingerprint:
-      check: 指紋を確認
       explanation: 以下のテキストは、このコンテンツの短縮されたハッシュ化された表現です。 コンテンツが改ざんされていないことを確認すると便利です。単一の修正で全く異なる値になります。
       online_calculator_name: MD5カルキュレータオンライン
       replicate_help: この指紋はSHA256 ハッシュアルゴリズムを使用して計算されます。自分で複製するには、 %{online_calculator_link} を使用してソース データをコピー&ペーストできます。
@@ -610,7 +609,6 @@ ja:
       create:
         button: フォロー
         error: このリソースの後に問題がありました。
-        participatory_space: 既に参加スペースをフォローしています
       destroy:
         button: フォローを停止
         error: リソースのフォローを解除する際に問題が発生しました。
@@ -943,7 +941,6 @@ ja:
           how_to_participate: プロセスに参加するにはどうすればいいですか?
           meetings: ミーティング
           meetings_explanation: 公開ミーティングに参加できる場所と時間を確認します。
-          more_info: 詳細情報
           proposals: 提案
           proposals_explanation: 提案を行い、既存のものをサポートし、見たい変更を促進します。
         footer_sub_hero:
@@ -1101,7 +1098,6 @@ ja:
         offensive: 人種差別、性差別、スラー、個人攻撃、死の脅威、自殺要求やあらゆる形態の憎悪スピーチが含まれています。
         report: レポート
         spam: クリックベイト、広告、詐欺やスクリプトボットが含まれています。
-        title: 問題を報告
       floating_help:
         help: ヘルプ
       follow_button:
@@ -1181,8 +1177,6 @@ ja:
     versions:
       resource_version:
         of_versions: "( %{number} の)"
-        see_other_versions: 他のバージョンを参照
-        version: バージョン %{number}
     versions_list:
       show:
         back_to_resource: 戻る
@@ -1363,16 +1357,12 @@ ja:
       too_many_marks: '連続する句読点が多すぎます (例: !, ?)'
       too_much_caps: 大文字が多すぎます(テキストの25%以上)
       too_short: 短すぎます（15文字未満）
-  forms:
-    required: 必須
   invisible_captcha:
     sentence_for_humans: あなたが人間である場合、このフィールドを無視してください
     timestamp_error_message: 申し訳ありませんが、早すぎます！再提出してください。
   layouts:
     decidim:
       cookie_warning:
-        description_html: このサイトはクッキーを使用しています。サイトを引き続き閲覧することで、クッキーの使用に同意したものとみなされます。詳細は %{link}をご覧ください。
-        link_label: ここ
         ok: 同意します
       edit_link:
         edit: 編集

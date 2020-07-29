@@ -102,6 +102,7 @@ cs:
           title: Nová debata
         show:
           back: Zpět na seznam
+          date: Datum
       last_activity:
         new_debate_at_html: "<span>Nová debata na %{link}</span>"
       models:

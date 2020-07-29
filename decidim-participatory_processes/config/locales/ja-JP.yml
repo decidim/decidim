@@ -427,6 +427,5 @@ ja:
           take_part: 参加する
       process_header_steps:
         step: 段階 %{current} / %{total}
-        view_steps: フェーズを表示
       process_navigation:
         process_menu_item: プロセス

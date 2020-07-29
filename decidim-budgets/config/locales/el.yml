@@ -89,6 +89,14 @@ el:
           add_descriptive: Προσθήκη του έργου %{resource_name} στην ψήφο σας
           added: Προστέθηκε στην ψήφο σας
           added_descriptive: Το έργο %{resource_name} προστέθηκε στην ψήφο σας
+    components:
+      budgets:
+        settings:
+          global:
+            projects_per_page: Έργα ανά σελίδα
+            resources_permissions_enabled: Τα δικαιώματα Δράσεων μπορούν να οριστούν για κάθε συνάντηση
+            total_budget: Σύνολο προϋπολογισμού
+            vote_minimum_budget_projects_number: Ελάχιστος αριθμός έργων προς ψήφιση
     orders:
       checkout:
         success: Η ψήφος σας έγινε αποδεκτή με επιτυχία

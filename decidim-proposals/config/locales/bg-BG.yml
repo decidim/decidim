@@ -85,7 +85,6 @@ bg:
         search_placeholder:
           id_string_or_title_cont: Търси в %{collection} по ID или заглавие.
         state_eq:
-          label: Състояние
           values:
             evaluating: Разглежда се
             withdrawn: Отменено
