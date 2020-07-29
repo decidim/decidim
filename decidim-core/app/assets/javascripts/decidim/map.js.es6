@@ -28,7 +28,7 @@
 
       $map.trigger("configure.decidim", [map, mapConfig]);
 
-      if (mapConfig.markers.length > 0) {
+      if (Array.isArray(mapConfig.markers) && mapConfig.markers.length > 0) {
         ctrl.addMarkers(mapConfig.markers);
       } else {
         ctrl.getMap().fitWorld();

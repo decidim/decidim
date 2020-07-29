@@ -68,7 +68,7 @@
 
     L.tileLayer.here(mapData.tileLayer).addTo(map);
 
-    if (markersData.length > 0) {
+    if (Array.isArray(markersData) && markersData.length > 0) {
       ctrl.addMarkers(markersData);
     } else {
       ctrl.getMap().fitWorld();
