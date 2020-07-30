@@ -15,10 +15,8 @@
   const $ = exports.$; // eslint-disable-line
 
   $(() => {
-    $("[data-decidim-map]").each((_i, el) => {
-      $(el).on("configure.decidim", (_ev, map, mapConfig) => {
-        L.tileLayer.here(mapConfig.tileLayer).addTo(map);
-      });
+    $("[data-decidim-map]").on("configure.decidim", (_ev, map, mapConfig) => {
+      L.tileLayer.here(mapConfig.tileLayer).addTo(map);
     });
   });
 })(window);

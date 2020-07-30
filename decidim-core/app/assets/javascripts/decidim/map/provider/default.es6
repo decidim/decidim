@@ -14,11 +14,9 @@
   const $ = exports.$; // eslint-disable-line
 
   $(() => {
-    $("[data-decidim-map]").each((_i, el) => {
-      $(el).on("configure.decidim", (_ev, map, mapConfig) => {
-        const tilesConfig = mapConfig.tileLayer;
-        L.tileLayer(tilesConfig.url, tilesConfig.options).addTo(map);
-      });
+    $("[data-decidim-map]").on("configure.decidim", (_ev, map, mapConfig) => {
+      const tilesConfig = mapConfig.tileLayer;
+      L.tileLayer(tilesConfig.url, tilesConfig.options).addTo(map);
     });
   });
 })(window);
