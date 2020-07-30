@@ -4,6 +4,10 @@
 
 ## Upgrade Notes
 
+- **Bump Ruby to v2.6**
+
+As per [\#6320](https://github.com/decidim/decidim/pull/6320) we've bumped the minimum Ruby version to 2.6.x.
+
 - **Stable branches nomenclature changes**
 
 Since this release we're changing the branch nomenclature for stable branches. Until now we were using `x.y-stable`, now we will use `release/x.y-stable`.
