@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "httparty"
-
 module Decidim
   module Map
     # Generic map utility that will be used for providing different map
