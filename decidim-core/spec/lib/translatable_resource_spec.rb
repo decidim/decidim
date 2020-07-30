@@ -59,8 +59,7 @@ module Decidim
         end
 
         after do
-          p @original_translator
-          Decidim.config.machine_translation_service = @original_translator
+          Decidim.config.machine_translation_service = @original_translator # rubocop:disable RSpec/InstanceVariable
         end
 
         it "doesn't enqueue a job when resource is updated" do
