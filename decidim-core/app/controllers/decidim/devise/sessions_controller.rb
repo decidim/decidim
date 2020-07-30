@@ -20,6 +20,8 @@ module Decidim
       def after_sign_in_path_for(user)
         if first_login_and_not_authorized?(user) && !user.admin? && !pending_redirect?(user)
           decidim_verifications.first_login_authorizations_path
+        elsif session[:previous_path_before_login].present?
+          redirect_to_previous_link
         else
           super
         end
@@ -48,8 +50,9 @@ module Decidim
       end
 
       def redirect_to_previous_link
-        redirect_to(session[:previous_path_before_login] || root_path)
+        previous_path = session[:previous_path_before_login]
         session[:previous_path_before_login] = nil
+        previous_path
       end
     end
   end
