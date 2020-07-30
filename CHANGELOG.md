@@ -6,7 +6,7 @@
 
 - **Bump Ruby to v2.6**
 
-As per [\#6320](https://github.com/decidim/decidim/pull/6320) we've bumped the minimum Ruby version to 2.6.x.
+As per [\#6320](https://github.com/decidim/decidim/pull/6320) we've bumped the minimum Ruby version to 2.6.6.
 
 - **Stable branches nomenclature changes**
 
