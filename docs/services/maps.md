@@ -259,7 +259,7 @@ an external server. The tiles server does not provide such static images by
 itself because one static map image may need multiple tiles to be combined into
 one. The static map image is therefore dynamically generated based on the
 parameters passed for the static map request (such as image dimensions and the
-geocoodrinates of the map image position).
+geocoordinates of the map image position).
 
 The Open Street Maps community has made multiple open source
 [static maps image services][link-wiki-static-maps] from which you can pick
