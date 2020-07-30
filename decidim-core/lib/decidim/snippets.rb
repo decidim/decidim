@@ -15,7 +15,7 @@ module Decidim
 
     def add(category, *snippet)
       @snippets[category] ||= []
-      @snippets[category].push(*snippet)
+      @snippets[category].push(*snippet.flatten)
     end
 
     def for(category)
