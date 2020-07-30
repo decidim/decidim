@@ -32,6 +32,29 @@ el:
         new:
           create: Δημιουργία
     participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            participate_in: Συμμετάσχετε στην διαδικασία %{resource_name}
+      participatory_process_steps:
+        index:
+          back_to_process: Πίσω στην σελίδα της διαδικασίας
+      show:
+        dates: Ημερομηνίες
       statistics:
         participants_count: Συμμετέχοντες
         users_count: Συμμετέχοντες
+  layouts:
+    decidim:
+      participatory_process_groups:
+        participatory_process_group:
+          browse_resource: Δείτε για την ομάδα διαδικασίας %{resource_name}
+      participatory_processes:
+        participatory_process:
+          more_info_about: Περισσότερες πληροφορίες για τη διαδικασία %{resource_name}
+          take_part_in: Πάρτε μέρος στην διαδικασία %{resource_name}
+        promoted_process:
+          more_info_about: Περισσότερες πληροφορίες για τη διαδικασία %{resource_name}
+          take_part_in: Πάρτε μέρος στην διαδικασία %{resource_name}
+      process_header_steps:
+        view_steps: Φάσεις διαδικασίας

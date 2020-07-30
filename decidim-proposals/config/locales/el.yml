@@ -1,4 +1,10 @@
 el:
+  activemodel:
+    attributes:
+      collaborative_draft:
+        scope_id: Πεδίο εφαρμογής
+      proposal:
+        scope_id: Πεδίο εφαρμογής
   decidim:
     admin:
       filters:
@@ -14,10 +20,18 @@ el:
             amendments_visibility_choices:
               all: Οι τροποποιήσεις είναι ορατές σε όλους
               participants: Οι τροποποιήσεις είναι ορατές μόνο στους συγγραφείς τους
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Δείτε όλες τις προτάσεις (%{count})
     proposals:
       admin:
         actions:
           preview: Προεπισκόπηση
+        participatory_texts:
+          index:
+            title: Προεπισκόπιση συμμετοχικού κειμένου
+          new_import:
+            title: Προσθήκη εγγράφου
         proposals:
           index:
             publish: Δημοσίευση
@@ -42,8 +56,18 @@ el:
         show:
           back: Πίσω
           publish: Δημοσίευση
+        update:
+          title: Προσθήκη συνεργατικού προσχεδίου
         wizard_aside:
           back: Πίσω
+          back_from_collaborative_draft: Πίσω στα συνεργατικά προσχέδια
+          back_from_step_1: Πίσω στα συνεργατικά προσχέδια
+          back_from_step_2: Πίσω στα συνεργατικά προσχέδια
+          back_from_step_3: Πίσω στη σύγκριση συνεργατικών προσχεδίων
+          back_from_step_4: Πίσω στην επεξεργασία προσχεδίου
+        wizard_steps:
+          current_step: Τρέχων βήμα
+          title: Βήματα δημιουργίας συνεργατικού προσχεδίου
       proposals:
         compare:
           continue: Συνέχεια
@@ -56,5 +80,20 @@ el:
           send: Συνέχεια
         preview:
           publish: Δημοσίευση
+        show:
+          withdraw_confirmation_html: Είστε σίγουροι ότι θέλετε να αποσύρετε αυτή την πρόταση; <br><br><strong> Αυτή η ενέργεια δεν ακυρώνεται!</strong>
+        update:
+          title: Ενημέρωση πρότασης
+        votes_count:
+          count:
+            one: Υποστήριξη
+            other: Υποστηρίξεις
         wizard_aside:
           back: Πίσω
+          back_from_step_1: Πίσω στις προτάσεις
+          back_from_step_2: Πίσω στις προτάσεις
+          back_from_step_3: Πίσω στην σύγκριση προτάσεων
+          back_from_step_4: Πίσω στην επεξεργασία προσχεδίου
+        wizard_steps:
+          current_step: Τρέχων βήμα
+          title: Βήματα δημιουργίας πρότασης
