@@ -37,7 +37,7 @@ pl:
         confirm_destroy: Czy na pewno chcesz usunąć to %{name}?
         destroy: Kasować
         edit: Edytuj
-        import_csv: Importuj z CSV
+        import_csv: Importuj CSV
         new: Nowe %{name}
         preview: Podgląd
         timeline_entries: Ewolucja projektu
@@ -47,7 +47,12 @@ pl:
           results: wyniki
         import_results:
           new:
-            import: Import
+            import: Importuj
+            info: "<p> Zalecamy wykonanie następujących czynności:</p><ol><li>Utwórz statusy dla wyników, które chcesz dodać (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Utwórz co najmniej jeden wynik ręcznie z poziomu tego Panelu administracyjnego (<a href='%{link_new_result}' target='_blank'>link</a>) przed wybraniem opcji Importuj, aby lepiej zrozumieć format i to, co będzie trzeba wypełnić.</li><li>Pobierz Eksport w formacie CSV (%{link_export_csv})</li><li>Wprowadź zmiany lokalnie. Możesz zmienić tylko następujące kolumny pliku CSV:</li></ol><ul><li><b>kategoria/id:</b> ID kategorii</li><li><b>zakres/id:</b> ID zakresu</li><li><b>element nadrzędny/id:</b> ID elementu nadrzędnego (dla powiązanych wyników). Opcjonalnie</li><li><b>tytuł/I18N:</b> Tytuł w języku X</li><li><b>opis/I18N:</b> Opis w języku X</li><li><b>start_date:</b> data rozpoczęcia wykonywania wyniku (format RRRR-MM-DD)</li><li><b>end_date:</b> data zakończenia wykonywania wyniku (format RRRR-MM-DD)</li><li><b>status/id:</b> ID statusu dla tego wyniku</li><li><b>postęp:</b> Postęp w wykonaniu wyrażony procentowo (od 0 do 100)</li><li><b>proposals_ids:</b> wewnętrzne ID powiązanych propozycji (oddzielone przecinkiem). Jest ono automatycznie konwertowane na <span class='attribute-name'>proposal_url</span></li></ul>"
+            title: Importuj wyniki z CSV
+        imports:
+          create:
+            success: Rozpoczęło się importowanie. W ciągu kilku minut otrzymasz wiadomość e-mail z wynikiem importowania.
         models:
           result:
             name: Wynik
@@ -117,6 +122,13 @@ pl:
         value_types:
           parent_presenter:
             not_found: 'Nie znaleziono elementu nadrzędnego w bazie danych (ID: %{id})'
+      import_mailer:
+        import:
+          errors: Błędy
+          errors_present: Podczas importowania wyników wystąpił problem
+          row_number: Wiersz
+          subject: Importowanie wyników zakończyło się pomyślnie
+          success: Importowanie wyników zakończyło się pomyślnie. Możesz przejrzeć wyniki w interfejsie administracyjnym.
       last_activity:
         new_result_at_html: "<span>Nowy wynik na %{link}</span>"
       models:
