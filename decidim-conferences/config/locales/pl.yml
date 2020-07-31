@@ -189,6 +189,7 @@ pl:
             admin: Administrator
             collaborator: Współpracownik
             moderator: Moderator
+            valuator: Taksator
         media_link:
           fields:
             date: Data
@@ -535,6 +536,7 @@ pl:
         upcoming_conference:
           email_intro: 'Konferencja "%{resource_title}" odbywa się za 2 dni. Możesz przeczytać opis na swojej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz konferencję "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
+          email_subject: Konferencja „%{resource_title}” już wkrótce!
           notification_title: Konferencja <a href="%{resource_path}">%{resource_title}</a> nadchodzi za 2 dni.
     log:
       value_types:
