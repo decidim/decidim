@@ -100,7 +100,9 @@ es-PY:
           verify_with_these_options: 'Estas son las opciones disponibles para verificar tu identidad:'
         index:
           expired_verification: La verificación ha caducado
+          pending_verification: Pendiente de verificación
           show_renew_info: Haz click aquí para renovar la verificación
+          unauthorized_verification: Nueva verificación
         new:
           authorize: Enviar
           authorize_with: Verificar con %{authorizer}
