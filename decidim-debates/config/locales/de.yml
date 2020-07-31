@@ -30,6 +30,7 @@ de:
           global:
             announcement: Ankündigung
             comments_enabled: Kommentare aktiviert
+            comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
@@ -97,6 +98,8 @@ de:
           back: Zurück
           create: Erstellen
           title: Neue Debatte
+        show:
+          back: Zurück zur Liste
       last_activity:
         new_debate_at_html: "<span>Neue Debatte bei %{link}</span>"
       models:
