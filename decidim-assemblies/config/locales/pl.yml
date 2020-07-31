@@ -85,6 +85,7 @@ pl:
     admin:
       actions:
         new_assembly: Nowy montaż
+        new_assembly_type: Nowy typ zgromadzenia
       assemblies:
         create:
           error: Podczas tworzenia nowego zestawu wystąpił błąd.
@@ -107,8 +108,17 @@ pl:
           error: Podczas duplikowania tego zestawu wystąpił błąd.
           success: Złożenie zostało powielone.
       assemblies_types:
+        create:
+          error: Podczas tworzenia nowego typu zgromadzenia wystąpił błąd.
+          success: Pomyślnie utworzono typ zgromadzenia.
+        destroy:
+          success: Pomyślnie usunięto typ zgromadzenia.
         new:
           create: Utwórz
+          title: Nowy typ zgromadzenia
+        update:
+          error: Podczas aktualizowania tego typu zgromadzenia wystąpił błąd.
+          success: Pomyślnie zaktualizowano typ zgromadzenia.
       assembly_copies:
         new:
           copy: Kopiuj
@@ -168,6 +178,7 @@ pl:
           info: Informacje
           moderations: Modernizacje
           private_users: Prywatni użytkownicy
+        assemblies_types: Typy zgromadzeń
       models:
         assemblies_types:
           fields:
@@ -203,8 +214,10 @@ pl:
             admin: Administrator
             collaborator: Współpracownik
             moderator: Moderator
+            valuator: Taksator
       titles:
         assemblies: Zespoły
+        assemblies_types: Typy zgromadzeń
     admin_log:
       assembly:
         create: "%{user_name} utworzył zespół %{resource_name}"
@@ -215,6 +228,12 @@ pl:
         create: "%{user_name} utworzył %{resource_name} element w %{space_name} zespole"
         delete: "%{user_name} usunął %{resource_name} element z %{space_name} zespołu"
         update: "%{user_name} zaktualizowało %{resource_name} członka w %{space_name} zestawie"
+      assembly_type:
+        create: "%{user_name} utworzył(a) typ zgromadzenia %{resource_name}"
+        delete: "%{user_name} usunął/usunęła członka %{resource_name} z typu zgromadzenia %{space_name}"
+        publish: "%{user_name} opublikował(a) typ zgromadzenia %{resource_name}"
+        unpublish: "%{user_name} anulował(a) publikację typu zgromadzenia %{resource_name}"
+        update: "%{user_name} zaktualizował(a) typ zgromadzenia %{resource_name}"
       assembly_user_role:
         create: "%{user_name} zaprosił %{resource_name} do zespołu %{space_name}"
         delete: "%{user_name} usunął użytkownika %{resource_name} ze złożenia %{space_name}"
@@ -280,6 +299,7 @@ pl:
         others: Inni
         public: Publiczny
       filter:
+        all: Wszystkie typy
         commission: Komisja
         consultative_advisory: Konsultacyjne / doradcze
         executive: Wykonawczy
@@ -358,6 +378,8 @@ pl:
       value_types:
         assembly_presenter:
           not_found: 'Zestaw nie został znaleziony w bazie danych (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'Nie znaleziono typu zgromadzenia w bazie danych (ID: %{id})'
     menu:
       assemblies: Zespoły
     metrics:
@@ -375,6 +397,7 @@ pl:
           more_info: Więcej informacji
           take_part: Weź udział
         index:
+          children: 'Zgromadzenia:'
           organizational_chart: Schemat organizacyjny
           promoted_assemblies: Podświetlone zespoły
           reset_chart: Nastawić
