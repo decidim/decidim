@@ -141,6 +141,9 @@ cs:
         election:
           publish: "%{user_name} zveřejnil volby %{resource_name}"
           unpublish: "%{user_name} zrušil zveřejnění volby %{resource_name}"
+      election_m:
+        footer:
+          take_part: Zapojte se
       elections:
         show:
           back: Všechny volby
@@ -165,6 +168,22 @@ cs:
             answers: Odpovědi
             max_selections: Max. výběr
             title: Název
+      votes:
+        confirm:
+          answer: Odpověď
+          answer_number: odpověď %{number}
+          confirm: Potvrdit
+          edit: upravit
+          header: Potvrďte svůj hlas
+          intro: Zde je shrnutí hlasů, které se chystáte odeslat. <br> Prosím potvrďte svůj hlas nebo upravte své odpovědi.
+          question: Otázka %{count}
+        confirmed:
+          back: Zpět k volbám
+          experience: Jaká byla vaše zkušenost?
+          feedback: Dejte nám zpětnou vazbu
+          header: Hlasování potvrzeno
+          lead: Váš hlas již byl odeslán!
+          text: 'Můžete zkontrolovat, že váš hlas byl úspěšně přidán do volební urny s následujícím identifikátorem: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
     events:
       elections:
         election_published:
