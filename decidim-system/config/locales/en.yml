@@ -3,13 +3,13 @@ en:
   activemodel:
     attributes:
       organization_file_uploads:
+        allowed_content_types:
+          admin: Admin MIME types
+          default: Default MIME types
         allowed_file_extensions:
           admin: Admin file extensions
           default: Default file extensions
           image: Image file extensions
-        allowed_content_types:
-          admin: Admin MIME types
-          default: Default MIME types
         maximum_file_size:
           avatar: Avatar file size
           default: Default file size
