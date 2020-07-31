@@ -19,7 +19,6 @@ module Decidim
       helper PaginateHelper
       helper InitiativeHelper
       include InitiativeSlug
-
       include FilterResource
       include Paginable
       include Decidim::Initiatives::Orderable

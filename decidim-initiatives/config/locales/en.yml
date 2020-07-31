@@ -419,6 +419,11 @@ en:
           unfold: Unfold
         index_header:
           new_initiative: New initiative
+          not_authorized:
+            authorizations_page: View authorizations
+            close: Close
+            explanation: You need to be verified in order to create a new initiative.
+            title: Authorization required
         interactions:
           comments_count:
             count:
