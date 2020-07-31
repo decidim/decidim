@@ -4,7 +4,13 @@ pl:
       account:
         delete_reason: Powód usunięcia konta
       group:
+        about: O
+        avatar: Awatar
+        document_number: Numer dokumentu
+        email: E-mail
+        name: Nazwa
         nickname: Alias
+        phone: Telefon
       report:
         details: Dodatkowe uwagi
       user:
@@ -117,6 +123,7 @@ pl:
         update: "%{user_name} zaktualizował ustawienia organizacji"
       participatory_space_private_user:
         create: "%{user_name} zaprosił %{resource_name} aby zostać użytkownikiem prywatnym"
+        create_via_csv: "%{user_name} zaprosił(a) %{resource_name} poprzez CSV, aby został(a) uczestnikiem prywatnym"
         delete: "%{user_name} usunął użytkownika %{resource_name} jako użytkownika prywatnego"
       scope:
         create: "%{user_name} utworzył zasięg %{resource_name}"
@@ -138,6 +145,8 @@ pl:
         reject: "%{user_name} odrzucił %{resource_name} weryfikacja grupy użytkowników"
         verify: "%{user_name} zweryfikował %{resource_name} grupa użytkowników"
         verify_via_csv: "%{user_name} zweryfikowało %{resource_name} grupę użytkowników za pomocą pliku CSV"
+    admin_terms_of_use:
+      default_body: "<h2>WARUNKI UŻYTKOWANIA DLA ADMINISTRATORÓW</h2><p>Mamy nadzieję, że lokalny Administrator systemu poinformował Cię o podstawowych zasadach korzystania z platformy. Zwykle sprowadza się to do trzech rzeczy: </p><ol><li>Szanuj prywatność innych.</li><li>Pomyśl, zanim klikniesz.</li><li>Z wielką mocą wiąże się wielka odpowiedzialność.</li></ol>"
     amendments:
       accepted:
         error: Wystąpił błąd podczas przyjmowania poprawki.
@@ -151,6 +160,21 @@ pl:
         promote_confirm_text: Czy na pewno chcesz promować tę wersję?
         promote_help_text: Możesz promować to wyróżnienie i opublikować je jako niezależne %{model_name}
         section_heading: Poprawki (%{count})
+      compare_draft:
+        continue: Dalej
+        no_similars_found: Nie znaleziono podobnych poprawek.
+        title: Podobne poprawki
+      created:
+        error: Wystąpił błąd podczas tworzenia projektu poprawki.
+        success: Projekt poprawki został pomyślnie utworzony.
+      destroy_draft:
+        error: Wystąpił błąd podczas usuwania projektu poprawki.
+        success: Projekt poprawki został pomyślnie usunięty.
+      edit_draft:
+        discard: Odrzuć projekt
+        discard_confirmation: Czy na pewno chcesz odrzucić ten projekt poprawki?
+        send: Podgląd
+        title: Edytuj projekt poprawki
       emendation:
         actions:
           button_accept: Zaakceptować
@@ -163,15 +187,25 @@ pl:
           evaluating: |-
             Niniejsza poprawka do oceny %{amendable_type} %{amendable_link}
             jest przedmiotem oceny.
+          promoted: Zmieniono na %{amendable_type}.
           rejected: "Ta emisja dla %{amendable_type} %{amendable_link}\nzostała odrzucona na <strong>%{announcement_date}</strong>."
           withdrawn: |-
             Ta poprawka do %{amendable_type} %{amendable_link}
             została wycofana przez autora.
       new:
         amendment_author: Autor poprawki
+        send: Utwórz
+        title: Utwórz projekt poprawki
+      preview_draft:
+        modify: Modyfikuj
+        publish: Opublikuj
+        title: Opublikuj projekt poprawki
       promoted:
         error: Podczas promowania wyemitowania wystąpiły błędy
         success: Emedycja została pomyślnie awansowana
+      publish_draft:
+        error: Wystąpił błąd podczas publikowania poprawki.
+        success: Poprawka została pomyślnie opublikowana.
       rejected:
         error: Wystąpił błąd podczas odrzucania tej poprawki, spróbuj ponownie później
         success: Emendacja została odrzucona pomyślnie
@@ -180,12 +214,21 @@ pl:
         heading: Przejrzyj poprawkę
         help_text: Przeglądasz poprawkę do %{model_name}
         send: Przyjmij poprawkę
+      update_draft:
+        error: Wystąpił błąd podczas aktualizowania projektu poprawki.
+        success: Projekt poprawki został pomyślnie zaktualizowany.
+      visibility_options:
+        all: Poprawki są widoczne dla wszystkich
+        participants: Poprawki są widoczne tylko dla ich autorów
+      withdraw:
+        error: Wystąpił błąd podczas wycofywania poprawki.
+        success: Poprawka została pomyślnie wycofana.
       wizard_step_form:
         steps:
           '1': Utwórz poprawkę
-          '2': Compare your amendment
-          '3': Complete your amendment
-          '4': Publish your amendment
+          '2': Porównaj poprawkę
+          '3': Uzupełnij poprawkę
+          '4': Opublikuj poprawkę
     anonymous_user: Anonim
     application:
       collection:
@@ -199,6 +242,7 @@ pl:
       photos:
         related_photos: Powiązane zdjęcia
     author:
+      avatar: Awatar
       comments:
         one: komentarz
         few: komentarze
@@ -282,12 +326,18 @@ pl:
             comments_enabled: Komentarze włączone
             dummy_global_attribute_1: Atrybut dummy 1
             dummy_global_attribute_2: Atrybut Dummy 2
+            dummy_global_translatable_text: Wypełniacz tekstu do tłumaczenia
             enable_pads_creation: Włącz tworzenie klocków
             resources_permissions_enabled: Włączono uprawnienia do zasobów
           step:
+            amendment_creation_enabled: Włączono tworzenie poprawek
+            amendment_promotion_enabled: Włączono zmianę typu poprawek
+            amendment_reaction_enabled: Włączono odpowiedzi na poprawki
+            amendments_visibility: Widoczność poprawek
             comments_blocked: Komentarze zablokowane
             dummy_step_attribute_1: Atrybut krokowy atrapy 1
             dummy_step_attribute_2: Atrybut krokowy atrapy 2
+            dummy_step_translatable_text: Wypełniacz tekstu do tłumaczenia
     contact: Kontakt
     content_blocks:
       footer_sub_hero:
@@ -313,6 +363,7 @@ pl:
         name: Banner podrzędny
     core:
       actions:
+        login_before_access: Zaloguj się na swoje konto przed uzyskaniem dostępu
         unauthorized: Nie masz uprawnień do wykonywania tej czynności
     data_portability:
       export:
@@ -339,6 +390,7 @@ pl:
           newsletter: Chcę otrzymywać okazjonalne newslettery
           newsletter_title: Zgoda na subskrybcję
           nickname_help: Twój alias (@alias) w %{organization}
+          password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechny (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
           sign_in: Zaloguj Się
           sign_up: Zarejestruj się
           sign_up_as:
@@ -551,6 +603,9 @@ pl:
       current_image: Bieżący obraz
       default_image: Domyślny obraz
       errors:
+        decidim/user:
+          password: Hasło jest za krótkie
+          password_confirmation: Oba hasła muszą być zgodne.
         error: W tym polu wystąpił błąd.
       remove_this_file: Usuń ten plik
     gamification:
@@ -1010,6 +1065,12 @@ pl:
     welcome_notification:
       default_body: <p>Witaj {{name}}, dziękuję za dołączenie {{organization}} i witamy!</p><ul><li>Jeśli chcesz szybko zorientować się, co możesz tutaj zrobić, zapoznaj się z sekcją <a href="{{help_url}}">pomocy</a> .</li><li>Po przeczytaniu otrzymasz swoją pierwszą odznakę. Oto <a href="{{badges_url}}">list wszystkich odznak</a> które możesz zdobyć uczestnicząc w {{organization}}</li><li>Wreszcie dołącz do innych ludzi, podziel się z nimi doświadczeniem zaangażowania i uczestnictwa w {{organization}}. Przedstawcie propozycje, komentarze, debatę, pomyślcie, jak przyczynić się do wspólnego dobra, dostarczcie argumentów, aby przekonać, wysłuchać i przeczytać, aby byli przekonani, wyrażać swoje pomysły w konkretny i bezpośredni sposób, reagować z cierpliwością i decyzją, bronić swoich pomysłów i zachować otwarty umysł do współpracy i dołączania do pomysłów innych ludzi.</li></ul>
       default_subject: Dzięki za przyłączenie się do {{organization}}!
+    wizard_step_form:
+      wizard_aside:
+        back: Wróć
+      wizard_header:
+        see_steps: zobacz kroki
+        step_of: Krok %{current_step} z %{total_steps}
   devise:
     confirmations:
       confirmed: Twój adres e-mail został pomyślnie potwierdzony.
@@ -1100,6 +1161,7 @@ pl:
         change_your_password: Zmień swoje hasło
         confirm_new_password: Potwierdź nowe hasło
         new_password: Nowe hasło
+        password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechny (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
       new:
         forgot_your_password: Zapomniałeś hasła?
         send_me_reset_password_instructions: Wyślij mi instrukcje resetowania hasła
@@ -1164,10 +1226,17 @@ pl:
       cycle_detected: Rodzicem zakresu nie może być jeden z jego potomków
       expired: wygasł, proszę poprosić o nowy
       file_size_is_less_than_or_equal_to: Rozmiar pliku musi być mniejszy lub równy %{count}
+      invalid_time_zone: nie jest prawidłową strefą czasową
       long_words: zawiera słowa, które są zbyt długie (powyżej 35 znaków)
       must_start_with_caps: musi zaczynać się od dużej litery
       nesting_too_deep: Nie może być wewnątrz podkategorii
+      not_found: nie został znaleziony. Czy zarejestrowałeś(-aś) się wcześniej?
       not_locked: nie był zablokowany
+      not_saved:
+        one: 'Wystąpił błąd podczas przetwarzania Twojego żądania:'
+        few: 'Podczas przetwarzania Twojego żądania wystąpiło wiele błędów:'
+        many: 'Podczas przetwarzania Twojego żądania wystąpiło wiele błędów:'
+        other: 'Podczas przetwarzania Twojego żądania wystąpiło wiele błędów:'
       too_many_marks: używa zbyt wielu kolejnych znaków interpunkcyjnych (np.! i?)
       too_much_caps: używa zbyt dużej liczby wielkich liter (ponad 25% tekstu)
       too_short: jest za krótki (poniżej 15 znaków)
@@ -1264,6 +1333,17 @@ pl:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Elementy usunięte
+      right: Elementy dodane
+    dropdown:
+      choose_diff_view_html: 'Tryb widoku HTML:'
+      choose_diff_view_mode: 'Porównaj tryb widoku:'
+      option_escaped: Cytowany
+      option_split: Obok siebie
+      option_unescaped: Niecytowany
+      option_unified: Ujednolicony
   views:
     pagination:
       first: "&laquo; Najpierw"
