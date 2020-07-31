@@ -6,14 +6,17 @@ module Decidim
   module GalleryMethods
     private
 
-    def build_gallery
+    def build_gallery(attached_to = nil)
+      attached_to = @attached_to if attached_to.blank?
+      attached_to = form.current_organization if attached_to.blank? && form.respond_to?(:current_organization)
+
       @gallery = []
       @form.add_photos.each do |photo|
         next unless image? photo
 
         @gallery << Attachment.new(
           title: photo.original_filename,
-          attached_to: @attached_to,
+          attached_to: attached_to,
           file: photo # Define attached_to before this
         )
       end
