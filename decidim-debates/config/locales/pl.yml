@@ -101,6 +101,8 @@ pl:
           back: Plecy
           create: Stwórz
           title: Nowa debata
+        show:
+          back: Powrót do listy
       last_activity:
         new_debate_at_html: "<span>Nowa debata na %{link}</span>"
       models:
