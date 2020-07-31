@@ -1,1 +1,149 @@
 pl:
+  activemodel:
+    attributes:
+      answer:
+        description: Opis
+        image: Obraz
+        proposals: Powiązane propozycje
+        title: Tytuł
+      election:
+        description: Opis
+        end_time: Głosowanie kończy się o
+        start_time: Głosowanie rozpoczyna się o
+        subtitle: Podtytuł
+        title: Tytuł
+      question:
+        description: Opis
+        max_selections: Maksymalna liczba wyborów
+        title: Tytuł
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Załącz go ponownie
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Odpowiedź
+        few: Odpowiedzi
+        many: Odpowiedzi
+        other: Odpowiedzi
+      decidim/elections/election:
+        one: Wybory
+        few: Wybory
+        many: Wybory
+        other: Wybory
+      decidim/elections/question:
+        one: Pytanie
+        few: Pytania
+        many: Pytania
+        other: Pytania
+  decidim:
+    components:
+      elections:
+        name: Wybory
+        settings:
+          global:
+            announcement: Ogłoszenie
+          step:
+            announcement: Ogłoszenie
+    elections:
+      actions:
+        confirm_destroy: Na pewno?
+        destroy: Zniszcz
+        edit: Edytuj
+        edit_answers: Edytuj odpowiedzi
+        edit_questions: Edytuj pytania
+        import: Importuj propozycje do odpowiedzi
+        new: Nowy %{name}
+        preview: Podgląd
+        title: Działania
+      admin:
+        answers:
+          create:
+            invalid: Wystąpił błąd podczas tworzenia odpowiedzi
+            success: Odpowiedź została pomyślnie utworzona
+          destroy:
+            invalid: Wystąpił błąd podczas usuwania odpowiedzi
+            success: Odpowiedź została pomyślnie usunięta
+          edit:
+            title: Edytuj odpowiedź
+            update: Aktualizuj odpowiedź
+          index:
+            title: Odpowiedzi
+          new:
+            create: Utwórz odpowiedź
+            title: Nowa odpowiedź
+          update:
+            invalid: Wystąpił błąd podczas aktualizowania odpowiedzi
+            success: Odpowiedź została pomyślnie zaktualizowana
+        elections:
+          create:
+            invalid: Wystąpił błąd podczas tworzenia wyborów
+            success: Wybory zostały pomyślnie utworzone
+          destroy:
+            invalid: Wystąpił błąd podczas usuwania wyborów
+            success: Wybory zostały pomyślnie usunięte
+          edit:
+            title: Edytuj wybory
+            update: Aktualizuj wybory
+          index:
+            title: Wybory
+          new:
+            create: Utwórz wybory
+            title: Nowe wybory
+          update:
+            invalid: Wystąpił błąd podczas aktualizowania wyborów
+            success: Wybory zostały pomyślnie zaktualizowane
+        models:
+          answer:
+            name: Odpowiedź
+          election:
+            name: Wybory
+          question:
+            name: Pytanie
+        proposals_imports:
+          create:
+            invalid: Wystąpił problem podczas importowania propozycji do odpowiedzi
+            success: "Liczba propozycji pomyślnie zaimportowanych do odpowiedzi: %{number}"
+          new:
+            create: Importuj propozycje do odpowiedzi
+            no_components: W tej przestrzeni partycypacyjnej nie ma już żadnych innych komponentów propozycji do zaimportowania do odpowiedzi.
+            select_component: Wybierz komponent
+        questions:
+          create:
+            invalid: Wystąpił błąd podczas tworzenia wyborów
+            success: Pytanie zostało pomyślnie utworzone
+          destroy:
+            invalid: Wystąpił błąd podczas usuwania pytania
+            success: Pytanie zostało pomyślnie usunięte
+          edit:
+            title: Edytuj pytanie
+            update: Zaktualizuj pytanie
+          index:
+            title: Pytania
+          new:
+            create: Utwórz pytanie
+            title: Nowe pytanie
+          update:
+            invalid: Wystąpił błąd podczas aktualizowania tego pytania
+            success: Pytanie zostało pomyślnie zaktualizowane
+      models:
+        answer:
+          fields:
+            proposals: Propozycje
+            title: Tytuł
+        election:
+          fields:
+            end_time: Koniec o
+            start_time: Zaczyna się o
+            title: Tytuł
+        question:
+          fields:
+            answers: Odpowiedzi
+            max_selections: Maks. liczba wyborów
+            title: Tytuł
+    participatory_processes:
+      statistics:
+        elections_count: Wybory
