@@ -38,6 +38,7 @@ de:
         address: SMTP Hostname
         alert_color: Benachrichtigung
         badges_enabled: Abzeichen aktivieren
+        comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
         cta_button_path: Call To Action Schaltfläche Pfad
         cta_button_text: Call To Action Schaltfläche Text
         customize_welcome_notification: Willkommens-Benachrichtigung anpassen
@@ -614,6 +615,7 @@ de:
           homepage_highlighted_content_banner_title: Highlighted Inhaltsbanner
           images:
             layout_appearance_title: Layout-Layout bearbeiten
+            preview: Vorschau
           omnipresent_banner_appearance_title: Bearbeiten Sie das allgegenwärtige Banner
       organization_homepage:
         edit:
