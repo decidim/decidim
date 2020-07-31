@@ -6,7 +6,7 @@ module Decidim
     class SessionsController < ::Devise::SessionsController
       include Decidim::DeviseControllers
 
-      before_action :check_sign_in_enabled, :redirect_to_previous_link, only: :create
+      before_action :check_sign_in_enabled, only: :create
 
       def create
         super
@@ -21,7 +21,7 @@ module Decidim
         if first_login_and_not_authorized?(user) && !user.admin? && !pending_redirect?(user)
           decidim_verifications.first_login_authorizations_path
         elsif session[:previous_path_before_login].present?
-          redirect_to_previous_link
+          previous_path_before_login
         else
           super
         end
@@ -49,7 +49,7 @@ module Decidim
         redirect_to new_user_session_path unless current_organization.sign_in_enabled?
       end
 
-      def redirect_to_previous_link
+      def previous_path_before_login
         previous_path = session[:previous_path_before_login]
         session[:previous_path_before_login] = nil
         previous_path
