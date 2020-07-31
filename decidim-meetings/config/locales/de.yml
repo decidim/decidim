@@ -153,6 +153,10 @@ de:
         confirm_destroy: Möchten Sie dieses Meeting wirklich löschen?
         destroy: Löschen
         edit: Bearbeiten
+        invalid_destroy:
+          proposals_count:
+            one: 'Die Besprechung kann nicht gelöscht werden, da %{count} Vorschlag mit dieser verbunden ist:'
+            other: 'Die Besprechung kann nicht gelöscht werden, da %{count} Vorschläge mit dieser verbunden sind:'
         minutes: Protokoll
         new: Neues Treffen
         preview: Vorschau
@@ -234,10 +238,17 @@ de:
             invalid: Beim Erstellen dieses Meetings ist ein Problem aufgetreten
             success: Besprechung erfolgreich erstellt
           destroy:
+            invalid:
+              proposals_count:
+                one: Die Besprechung kann nicht gelöscht werden, da %{count} Vorschlag mit dieser verbunden ist
+                other: Die Besprechung kann nicht gelöscht werden, da %{count} Vorschläge mit dieser verbunden sind
             success: Das Meeting wurde erfolgreich gelöscht
           edit:
             update: Aktualisieren
           form:
+            address_help: 'Adresse: wird von Geocoder zur Lokalisierung verwendet'
+            location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
+            location_hints_help: 'Hinweise zu Ort: zusätzliche Informationen. Beispielsweise die Etage des Gebäudes'
             select_organizer: Wählen Sie den Organisator aus
           index:
             title: Meetings
@@ -280,12 +291,14 @@ de:
           form:
             available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben.
             invites: Lädt ein
+            recommendation_message: Aus Datenschutzgründen empfehlen wir, dass Sie dieses Einschreibeformular löschen, wenn es nicht länger benötigt wird. Standardmäßig ist das 3 Monate nachdem die Besprechung durchgeführt wurde.
             registration_form: Anmeldeformular
             registrations_count:
               one: Es wurde %{count} registriert.
               other: Es wurden %{count} Anmeldungen vorgenommen.
             reserved_slots_help: Belassen Sie es auf 0, wenn Sie keine reservierten Slots haben
             reserved_slots_less_than: Muss kleiner oder gleich %{count}
+            title: Anmeldungen
           update:
             invalid: Beim Speichern der Registrierungseinstellungen ist ein Problem aufgetreten.
             success: Die Registrierungseinstellungen wurden erfolgreich gespeichert.
@@ -364,6 +377,7 @@ de:
           confirm: Bestätigen
         show:
           attendees: Teilnehmer zählen
+          back: Zurück zur Liste
           contributions: Beiträge zählen
           going: Gehen
           join: Tritt dem Treffen bei
