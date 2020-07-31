@@ -141,6 +141,15 @@ cs:
         election:
           publish: "%{user_name} zveřejnil volby %{resource_name}"
           unpublish: "%{user_name} zrušil zveřejnění volby %{resource_name}"
+      elections:
+        show:
+          back: Všechny volby
+          preview: Náhled
+          vote: Hlasování
+          voting_period_status:
+            finished: Hlasování začalo %{start_time} a skončilo %{end_time}
+            ongoing: Hlasování končí %{end_time}
+            upcoming: Hlasování začíná %{start_time}
       models:
         answer:
           fields:
