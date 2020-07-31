@@ -158,19 +158,27 @@ module Decidim
 
     describe "#wrap_upload_allowed_content_types" do
       it "turns the passed array of strings into array of regular expressions" do
-        expect(subject.wrap_upload_allowed_content_types(%w(
-          image/*
-          application/pdf
-        ))).to eq([%r{image/.*?}, %r{application/pdf}])
+        expect(
+          subject.wrap_upload_allowed_content_types(
+            %w(
+              image/*
+              application/pdf
+            )
+          )
+        ).to eq([%r{image/.*?}, %r{application/pdf}])
       end
     end
 
     describe "#wrap_upload_allowed_content_types_admin" do
       it "turns the passed array of strings into array of regular expressions" do
-        expect(subject.wrap_upload_allowed_content_types_admin(%w(
-          image/*
-          application/pdf
-        ))).to eq([%r{image/.*?}, %r{application/pdf}])
+        expect(
+          subject.wrap_upload_allowed_content_types_admin(
+            %w(
+              image/*
+              application/pdf
+            )
+          )
+        ).to eq([%r{image/.*?}, %r{application/pdf}])
       end
     end
 
