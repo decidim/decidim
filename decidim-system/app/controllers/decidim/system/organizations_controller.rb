@@ -10,6 +10,7 @@ module Decidim
 
       def new
         @form = form(RegisterOrganizationForm).instance
+        @form.file_upload_settings = form(FileUploadSettingsForm).from_model({})
       end
 
       def create
