@@ -15,7 +15,7 @@ module Decidim
         attribute :remove_logo
 
         validates :name, :partner_type, presence: true, if: ->(form) { form.logo.present? }
-        validates :logo, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_avatar_size } }
+        validates :logo, file_size: { less_than_or_equal_to: ->(form) { form.maximum_avatar_size } }
         validate :link_format
         validates :weight, numericality: { greater_than_or_equal_to: 0 }
         validates :partner_type, inclusion: { in: Decidim::Conferences::Partner::TYPES }
@@ -35,6 +35,10 @@ module Decidim
               type
             ]
           end
+        end
+
+        def maximum_avatar_size
+          Decidim.organization_settings(current_organization).upload_maximum_file_size_avatar
         end
 
         private

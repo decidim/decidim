@@ -15,11 +15,11 @@ FactoryBot.define do
     short_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     objectives { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
-    banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
+    organization
+    hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") } # Keep after organization
+    banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") } # Keep after organization
     published_at { Time.current }
     location { Faker::Lorem.sentence(3) }
-    organization
     show_statistics { true }
     start_date { 1.month.ago }
     end_date { 1.month.ago + 3.days }

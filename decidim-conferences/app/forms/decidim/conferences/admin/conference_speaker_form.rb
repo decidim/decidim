@@ -26,7 +26,7 @@ module Decidim
         validates :full_name, presence: true, unless: proc { |object| object.existing_user }
         validates :user, presence: true, if: proc { |object| object.existing_user }
         validates :position, :affiliation, presence: true
-        validates :avatar, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_avatar_size } }
+        validates :avatar, file_size: { less_than_or_equal_to: ->(form) { form.maximum_avatar_size } }
         validate :personal_url_format
 
         def personal_url
@@ -59,6 +59,10 @@ module Decidim
           @meetings ||= Decidim::ConferenceMeeting.where(component: meeting_components)
                                                    &.order(title: :asc)
                                                    &.map { |meeting| [present(meeting).title, meeting.id] }
+        end
+
+        def maximum_avatar_size
+          Decidim.organization_settings(current_organization).upload_maximum_file_size_avatar
         end
 
         private

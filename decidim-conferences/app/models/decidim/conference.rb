@@ -124,6 +124,10 @@ module Decidim
       roles.where(role: role_name)
     end
 
+    def attachment_context
+      :admin
+    end
+
     # Allow ransacker to search for a key in a hstore column (`title`.`en`)
     ransacker :title do |parent|
       Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))

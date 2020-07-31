@@ -66,6 +66,7 @@ en:
     errors:
       general: Error processing image
       image_too_big: The image is too big
+      not_inside_organization: The file is not attached to any organization
   date:
     formats:
       decidim_short: "%d/%m/%Y"

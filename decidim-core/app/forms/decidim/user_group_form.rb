@@ -18,12 +18,16 @@ module Decidim
     validates :nickname, presence: true
 
     validates :nickname, length: { maximum: Decidim::User.nickname_max_length, allow_blank: true }
-    validates :avatar, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_avatar_size } }
+    validates :avatar, file_size: { less_than_or_equal_to: ->(form) { form.maximum_avatar_size } }
 
     validate :unique_document_number
     validate :unique_email
     validate :unique_name
     validate :unique_nickname
+
+    def maximum_avatar_size
+      Decidim.organization_settings(current_organization).upload_maximum_file_size_avatar
+    end
 
     private
 

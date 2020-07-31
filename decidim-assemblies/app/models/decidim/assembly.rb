@@ -158,6 +158,10 @@ module Decidim
       roles.where(role: role_name)
     end
 
+    def attachment_context
+      :admin
+    end
+
     private
 
     # When an assembly changes their parent, we need to update the parents_path attribute

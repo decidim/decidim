@@ -44,6 +44,10 @@ module Decidim
       Decidim::AdminLog::OrganizationPresenter
     end
 
+    def settings
+      Decidim::OrganizationSettings.for(self)
+    end
+
     def available_authorization_handlers
       available_authorizations & Decidim.authorization_handlers.map(&:name)
     end

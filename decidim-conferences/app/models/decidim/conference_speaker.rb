@@ -12,7 +12,7 @@ module Decidim
     has_many :conference_speaker_conference_meetings, dependent: :destroy
     has_many :conference_meetings, through: :conference_speaker_conference_meetings, foreign_key: "conference_speaker_id", class_name: "Decidim::ConferenceMeeting"
 
-    validates :avatar, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_avatar_size } }
+    validates :avatar, file_size: { less_than_or_equal_to: ->(speaker) { speaker.maximum_avatar_size } }
 
     default_scope { order(full_name: :asc, created_at: :asc) }
 
@@ -29,6 +29,10 @@ module Decidim
 
     def twitter_handle
       attributes["twitter_handle"].to_s.delete("@")
+    end
+
+    def maximum_avatar_size
+      Decidim.organization_settings(organization).upload_maximum_file_size_avatar
     end
   end
 end

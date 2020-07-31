@@ -30,14 +30,18 @@ module Decidim
         validate :slug_uniqueness
 
         validates :banner_image,
-                  file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } },
+                  file_size: { less_than_or_equal_to: ->(form) { form.maximum_attachment_size } },
                   file_content_type: { allow: ["image/jpeg", "image/png"] }
         validates :introductory_image,
-                  file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } },
+                  file_size: { less_than_or_equal_to: ->(form) { form.maximum_attachment_size } },
                   file_content_type: { allow: ["image/jpeg", "image/png"] }
 
         def highlighted_scope
           @highlighted_scope ||= current_organization.scopes.find_by(id: decidim_highlighted_scope_id)
+        end
+
+        def maximum_attachment_size
+          Decidim.organization_settings(current_organization).upload_maximum_file_size
         end
 
         private

@@ -458,7 +458,7 @@ module Decidim
         ).find { |validator| validator.is_a?(::ActiveModel::Validations::FileSizeValidator) }
         if file_size_validator
           lte = file_size_validator.options[:less_than_or_equal_to]
-          max_file_size = lte.call(nil) if lte && lte.lambda?
+          max_file_size = lte.call(object) if lte && lte.lambda?
         end
 
         help_scope = begin

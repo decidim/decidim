@@ -13,8 +13,8 @@ module Decidim
 
         @gallery << Attachment.new(
           title: photo.original_filename,
-          file: photo,
-          attached_to: @attached_to
+          attached_to: @attached_to,
+          file: photo # Define attached_to before this
         )
       end
     end

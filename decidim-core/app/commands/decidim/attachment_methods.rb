@@ -8,8 +8,8 @@ module Decidim
     def build_attachment
       @attachment = Attachment.new(
         title: @form.attachment.title,
-        file: @form.attachment.file,
-        attached_to: @attached_to
+        attached_to: @attached_to,
+        file: @form.attachment.file # Define attached_to before this
       )
     end
 

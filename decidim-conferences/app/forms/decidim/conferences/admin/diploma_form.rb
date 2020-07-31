@@ -16,8 +16,12 @@ module Decidim
 
         validates :signature_name, :sign_date, :main_logo, :signature, presence: true
 
-        validates :main_logo, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
-        validates :signature, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
+        validates :main_logo, file_size: { less_than_or_equal_to: ->(form) { form.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
+        validates :signature, file_size: { less_than_or_equal_to: ->(form) { form.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
+
+        def maximum_attachment_size
+          Decidim.organization_settings(current_organization).upload_maximum_file_size
+        end
       end
     end
   end

@@ -193,6 +193,10 @@ module Decidim
       def allow_resource_permissions?
         true
       end
+
+      def attachment_context
+        :admin
+      end
     end
   end
 end

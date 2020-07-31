@@ -76,10 +76,10 @@ module Decidim
         validates :title, :subtitle, :description, :short_description, translatable_presence: true
 
         validates :banner_image,
-                  file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } },
+                  file_size: { less_than_or_equal_to: ->(form) { form.maximum_attachment_size } },
                   file_content_type: { allow: ["image/jpeg", "image/png"] }
         validates :hero_image,
-                  file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } },
+                  file_size: { less_than_or_equal_to: ->(form) { form.maximum_attachment_size } },
                   file_content_type: { allow: ["image/jpeg", "image/png"] }
 
         def ensure_parent_cannot_be_child
@@ -127,6 +127,10 @@ module Decidim
 
         def assembly_type
           AssembliesType.find_by(id: decidim_assemblies_type_id)
+        end
+
+        def maximum_attachment_size
+          Decidim.organization_settings(current_organization).upload_maximum_file_size
         end
 
         private

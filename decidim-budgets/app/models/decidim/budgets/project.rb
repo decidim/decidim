@@ -73,6 +73,10 @@ module Decidim
       def user_allowed_to_comment?(user)
         can_participate_in_space?(user)
       end
+
+      def attachment_context
+        :admin
+      end
     end
   end
 end

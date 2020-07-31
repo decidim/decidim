@@ -24,7 +24,7 @@ module Decidim
     validates :password, confirmation: true
     validates :password, password: { name: :name, email: :email, username: :nickname }, if: -> { password.present? }
     validates :password_confirmation, presence: true, if: :password_present
-    validates :avatar, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_avatar_size } }
+    validates :avatar, file_size: { less_than_or_equal_to: ->(form) { form.maximum_avatar_size } }
 
     validate :unique_email
     validate :unique_nickname
@@ -36,6 +36,10 @@ module Decidim
       return "http://" + super unless super.match?(%r{\A(http|https)://}i)
 
       super
+    end
+
+    def maximum_avatar_size
+      Decidim.organization_settings(current_organization).upload_maximum_file_size_avatar
     end
 
     private

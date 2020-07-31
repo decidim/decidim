@@ -102,8 +102,14 @@ module Decidim
 
       def copy_attachments(original_proposal, proposal)
         original_proposal.attachments.each do |attachment|
-          new_attachment = Decidim::Attachment.new(attachment.attributes.slice("content_type", "description", "file", "file_size", "title", "weight"))
-          new_attachment.attached_to = proposal
+          new_attachment = Decidim::Attachment.new(
+            {
+              # Attached to needs to be always defined before the file is set
+              attached_to: proposal
+            }.merge(
+              attachment.attributes.slice("content_type", "description", "file", "file_size", "title", "weight")
+            )
+          )
 
           if File.exist?(attachment.file.file.path)
             new_attachment.file = File.open(attachment.file.file.path)

@@ -8,10 +8,34 @@ module Decidim
     belongs_to :attached_to, polymorphic: true
 
     validates :file, :content_type, presence: true
-    validates :file, file_size: { less_than_or_equal_to: ->(_attachment) { Decidim.maximum_attachment_size } }
+    validates :file, file_size: { less_than_or_equal_to: ->(attachment) { attachment.maximum_attachment_size } }
     mount_uploader :file, Decidim::AttachmentUploader
 
     default_scope { order(arel_table[:weight].asc) }
+
+    # Returns the organization related to this attachment in case the
+    # attached_to model belongs to an organization. Otherwise will return nil.
+    #
+    # Returns Decidim::Organization or nil.
+    def organization
+      return unless attached_to
+      return attached_to if attached_to.is_a?(Decidim::Organization)
+      return unless attached_to.respond_to?(:organization)
+
+      attached_to.organization
+    end
+
+    # The context of the attachments defines which file upload settings
+    # constraints should be used when the file is uploaded. The different
+    # contexts can limit for instance which file types the user is allowed to
+    # upload.
+    #
+    # Returns Symbol.
+    def context
+      return attached_to.attachment_context if attached_to.respond_to?(:attachment_context)
+
+      :participant
+    end
 
     # Whether this attachment is a photo or not.
     #
@@ -55,6 +79,10 @@ module Decidim
       return unless photo?
 
       file.big.url
+    end
+
+    def maximum_attachment_size
+      Decidim.organization_settings(organization).upload_maximum_file_size
     end
   end
 end

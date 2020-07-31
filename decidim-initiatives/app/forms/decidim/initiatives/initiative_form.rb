@@ -72,7 +72,10 @@ module Decidim
 
         attachment.errors.each { |error| errors.add(:attachment, error) }
 
-        attachment = Attachment.new(file: attachment.try(:file))
+        attachment = Attachment.new(
+          attached_to: attachment.try(:attached_to),
+          file: attachment.try(:file)
+        )
 
         errors.add(:attachment, :file) if !attachment.save && attachment.errors.has_key?(:file)
       end

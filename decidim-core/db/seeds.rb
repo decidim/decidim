@@ -42,7 +42,8 @@ if !Rails.env.production? || ENV["SEED"]
     tos_version: Time.current,
     badges_enabled: true,
     user_groups_enabled: true,
-    send_welcome_notification: true
+    send_welcome_notification: true,
+    file_upload_settings: Decidim::OrganizationSettings.default(:upload)
   )
 
   if organization.top_scopes.none?
