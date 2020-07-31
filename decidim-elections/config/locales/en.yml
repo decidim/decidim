@@ -136,6 +136,22 @@ en:
         election:
           publish: "%{user_name} published the %{resource_name} election"
           unpublish: "%{user_name} unpublished the %{resource_name} election"
+      election_m:
+        footer:
+          take_part: Take part
+      elections:
+        count:
+          elections_count:
+            one: "%{count} election"
+            other: "%{count} elections"
+        show:
+          back: All elections
+          preview: Preview
+          vote: Vote
+          voting_period_status:
+            finished: Voting began on %{start_time} and ended on %{end_time}
+            ongoing: Voting ends on %{end_time}
+            upcoming: Voting begins on %{start_time}
       models:
         answer:
           fields:
@@ -151,6 +167,44 @@ en:
             answers: Answers
             max_selections: Max. selections
             title: Title
+      votes:
+        confirm:
+          answer: Answer
+          answer_number: answer %{number}
+          confirm: Confirm
+          edit: edit
+          header: Confirm your vote
+          intro: Here is a summary of the vote you are about to cast. <br> Please confirm your vote or edit your answers.
+          question: Question %{count}
+        confirmed:
+          back: Back to elections
+          experience: How was your experience?
+          feedback: Give us some feedback
+          header: Vote confirmed
+          lead: Your vote has already been cast!
+          text: 'You can check that your vote has been successfully added to the ballot box with the following identifier: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: To check it, copy the identifier and paste it on the <a href="evote-verify">vote verification page</a>
+        encrypting:
+          header: Encoding vote...
+          text: Your vote is being encrypted to ensure you can cast it anonymously.
+        header:
+          confirm: Confirm your vote
+          confirmed: Vote confirmed
+          encrypting: Confirming vote
+        messages:
+          not_allowed: You are not allowed to vote on this election at this moment.
+        modal:
+          close: Close
+          proposal_header: 'Proposals:'
+        new:
+          answer_choices: You can select up to %{choices} answers or none
+          more_information: More information
+          preview_alert: This is a preview of the voting booth.
+          question_steps: Question %{current_step} of %{total_steps}
+          selections: "%{selected} of %{max_selections}<br> selections"
+        voting_step:
+          back: Back
+          continue: Next
     events:
       elections:
         election_published:
@@ -161,3 +215,7 @@ en:
     participatory_processes:
       statistics:
         elections_count: Elections
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Exit

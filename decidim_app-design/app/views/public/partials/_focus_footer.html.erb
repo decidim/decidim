@@ -1,0 +1,23 @@
+<div class="focus__footer">
+  <div class="row">
+  <% if locals[:step] == 'confirm' %>
+    <a href="#" class="focus__back">
+      <%= icon("chevron-left", class: "icon", role: "img") %>
+      Atrás
+    </a>
+    <a href="#" class="button focus__next">
+      Confirmar voto
+      <%= icon("chevron-right", class: "icon", role: "img") %>
+    </a>
+  <% else %>
+    <a href="#" class="focus__back">
+      <%= icon("chevron-left", class: "icon", role: "img") %>
+      Atrás
+    </a>
+    <a href="#" class="button focus__next">
+      Siguiente
+      <%= icon("chevron-right", class: "icon", role: "img") %>
+    </a>
+  <% end %>
+  </div>
+</div>

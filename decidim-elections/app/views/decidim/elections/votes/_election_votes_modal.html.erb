@@ -1,0 +1,46 @@
+<div class="reveal" id="show-focus-modal-<%= answer.id %>" data-reveal>
+  <div class="reveal__header">
+    <h3 class="reveal__title"><%= translated_attribute(answer.title) %></h3>
+    <button class="close-button" data-close aria-label="Close modal"
+      type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="row m-bottom">
+    <div class="columns">
+      <% if answer.photos.any? %>
+        <div class="section">
+          <% answer.photos.each do |photo| %>
+            <%= image_tag photo.thumbnail_url, class:"thumbnail", alt: strip_tags(translated_attribute(photo.title)) %>
+          <% end %>
+        </div>
+      <% end %>
+      <% if answer.description %>
+        <div class="section">
+          <%== translated_attribute(answer.description) %>
+        </div>
+      <% end %>
+    </div>
+    <div class="section">
+      <% if answer.proposals.any? %>
+        <h4><%= t("decidim.elections.votes.modal.proposal_header") %></h4>
+        <ul>
+          <% answer.proposals.each do |proposal| %>
+            <li>
+              <%= link_to resource_locator(proposal).path do %>
+                <%== decidim_html_escape(present(proposal).title) %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="columns medium-4 medium-centered">
+      <button class="button expanded" data-close>
+        <%= t("decidim.elections.votes.modal.close") %>
+      </button>
+    </div>
+  </div>
+</div>
