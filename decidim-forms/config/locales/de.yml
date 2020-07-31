@@ -15,6 +15,8 @@ de:
             choices:
               missing: sind nicht vollständig
               too_many: sind zu viele
+        questionnaire:
+          request_invalid: Bei der Bearbeitung der Anfrage ist ein Fehler aufgetreten. Bitte versuchen Sie es nochmal
   decidim:
     forms:
       admin:
@@ -30,29 +32,51 @@ de:
             statement: Aussage
           edit:
             save: Speichern
+            title: Fragebogen bearbeiten
           form:
             add_question: Frage hinzufügen
+            add_separator: Trennzeichen hinzufügen
             already_answered_warning: Der Fragebogen wird bereits von einigen Benutzern beantwortet, sodass Sie die Fragen nicht ändern können.
+            collapse: Alle Fragen einklappen
+            expand: Alle Fragen ausklappen
           matrix_row:
+            matrix_row: Zeile
             remove: Löschen
             statement: Aussage
           question:
             add_answer_option: Antwortoption hinzufügen
+            add_matrix_row: Zeile hinzufügen
             any: Irgendein
+            collapse: Einklappen
             description: Beschreibung
             down: Nieder
+            expand: Ausklappen
             question: Frage
             remove: Löschen
             statement: Aussage
             up: Oben
+          separator:
+            down: Runter
+            remove: Löschen
+            separator: Trennzeichen
+            up: Hoch
           update:
             invalid: Beim Speichern des Fragebogens sind Fehler aufgetreten.
             success: Fragebögen wurden erfolgreich gespeichert.
       errors:
         answer:
           body: Körper kann nicht leer sein
+      files:
+        extension_whitelist: 'Gültige Formate:'
+      images:
+        dimensions_info: 'Das Bild wird:'
+        processors:
+          resize_and_pad: in der Größe angepasst und gepolstert zu
+          resize_to_fit: in der Größe verändert, damit es passt
       question_types:
         long_answer: Lange Antwort
+        matrix_multiple: Matrix (Mehrfachoption)
+        matrix_single: Matrix (Einzelne Option)
         multiple_option: Mehrfachoption
         short_answer: Kurze Antwort
         single_option: Einzelne Option
@@ -60,6 +84,7 @@ de:
       questionnaires:
         answer:
           invalid: Bei der Beantwortung des Fragebogens sind Fehler aufgetreten.
+          max_choices_alert: Es wurden zu viele Auswahlmöglichkeiten ausgewählt
           success: Fragebogen erfolgreich beantwortet.
         question:
           max_choices: 'Max Auswahlmöglichkeiten: %{n}'
@@ -67,6 +92,8 @@ de:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Melden Sie sich mit Ihrem Konto an</a> oder <a href="%{sign_up_link}">Melden Sie sich an</a> , um den Fragebogen zu beantworten.
             title: Beantworten Sie den Fragebogen
+          current_step: Schritt %{step}
+          of_total_steps: von %{total_steps}
           questionnaire_answered:
             body: Sie haben diesen Fragebogen bereits beantwortet.
             title: Schon beantwortet
@@ -80,7 +107,13 @@ de:
       step_navigation:
         show:
           are_you_sure: Diese Aktion kann nicht rückgängig gemacht werden und Sie können Ihre Antworten nicht bearbeiten. Bist du sicher?
+          back: Zurück
+          continue: Weiter
           submit: einreichen
       user_answers_serializer:
         created_at: Beantwortet am
         id: ID beantworten
+        ip_hash: IP-Hash
+        registered: Registriert
+        unregistered: Nicht registriert
+        user_status: Benutzerstatus
