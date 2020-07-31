@@ -17,13 +17,13 @@ module Decidim
         @application = Decidim.traceability.create!(
           OAuthApplication,
           @form.current_user,
+          organization: @form.current_organization,
           name: @form.name,
           organization_name: @form.organization_name,
           organization_url: @form.organization_url,
           organization_logo: @form.organization_logo,
           redirect_uri: @form.redirect_uri,
-          scopes: "public",
-          organization: @form.current_organization
+          scopes: "public"
         )
 
         broadcast(:ok, @application)
