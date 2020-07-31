@@ -23,7 +23,8 @@ describe "Admin invite", type: :system do
         "user_name" => "f.laguardia",
         "password" => Decidim::AttributeEncryptor.encrypt("password"),
         "from" => "no-reply@decide.lvh.me"
-      }
+      },
+      file_upload_settings: Decidim::OrganizationSettings.default(:upload)
     }
   end
 
