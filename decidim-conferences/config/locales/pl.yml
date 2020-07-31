@@ -189,6 +189,7 @@ pl:
             admin: Administrator
             collaborator: Współpracownik
             moderator: Moderator
+            valuator: Taksator
         media_link:
           fields:
             date: Data
@@ -469,6 +470,9 @@ pl:
             active_conferences: Aktywne konferencje
             see_all_conferences: Zobacz wszystkie konferencje
       photo:
+        image:
+          attributes:
+            alt: Obraz dla mediów
         show:
           close_modal: Zamknij modalne
           photo: Zdjęcie
@@ -532,9 +536,15 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz konferencję "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
           email_subject: Konferencja "%{resource_title}" umożliwiła rejestrację.
           notification_title: Konferencja <a href="%{resource_path}">%{resource_title}</a> umożliwiła rejestrację.
+        role_assigned:
+          email_intro: Przypisano Ci rolę %{role} w konferencji „%{resource_title}”.
+          email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś %{role} konferencji „%{resource_title}”.
+          email_subject: Przypisano Ci rolę %{role} w „%{resource_title}”.
+          notification_title: Przypisano Ci rolę %{role} w konferencji <a href="%{resource_url}">%{resource_title}</a>.
         upcoming_conference:
           email_intro: 'Konferencja "%{resource_title}" odbywa się za 2 dni. Możesz przeczytać opis na swojej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz konferencję "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
+          email_subject: Konferencja „%{resource_title}” już wkrótce!
           notification_title: Konferencja <a href="%{resource_path}">%{resource_title}</a> nadchodzi za 2 dni.
     log:
       value_types:
