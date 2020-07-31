@@ -15,6 +15,8 @@ de:
             choices:
               missing: sind nicht vollständig
               too_many: sind zu viele
+        questionnaire:
+          request_invalid: Bei der Bearbeitung der Anfrage ist ein Fehler aufgetreten. Bitte versuchen Sie es nochmal
   decidim:
     forms:
       admin:
@@ -80,3 +82,7 @@ de:
       user_answers_serializer:
         created_at: Beantwortet am
         id: ID beantworten
+        ip_hash: IP-Hash
+        registered: Registriert
+        unregistered: Nicht registriert
+        user_status: Benutzerstatus
