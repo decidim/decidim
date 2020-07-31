@@ -48,7 +48,7 @@ fi:
           action: Tee ilmoitus
           already_reported: Tämä sisältö on jo ilmoitettu ja ylläpitäjä tutkii sen.
           close: Sulje
-          description: Onko tämä sisältö epäasiallista?
+          description: Onko tämä sisältö sopimatonta?
           details: Lisätiedot
           reasons:
             does_not_belong: Sisältää laitonta toimintaa, itsemurhauhkailua, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan organisaatioon %{organization_name}.
