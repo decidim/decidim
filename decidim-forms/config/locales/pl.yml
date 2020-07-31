@@ -15,6 +15,8 @@ pl:
             choices:
               missing: nie są kompletne
               too_many: jest zbyt wiele
+        questionnaire:
+          request_invalid: Wystąpił błąd podczas przetwarzania żądania. Spróbuj ponownie
   decidim:
     forms:
       admin:
@@ -30,20 +32,32 @@ pl:
             statement: Komunikat
           edit:
             save: Zapisać
+            title: Edytuj kwestionariusz
           form:
             add_question: Dodaj pytanie
+            add_separator: Dodaj separator
             already_answered_warning: Kwestionariusz jest już obsługiwany przez niektórych użytkowników, więc nie można modyfikować jego pytań.
+            collapse: Zwiń wszystkie pytania
+            expand: Rozwiń wszystkie pytania
           matrix_row:
+            matrix_row: Wiersz
             remove: Usunąć
             statement: Komunikat
           question:
             add_answer_option: Dodaj opcję odpowiedzi
+            add_matrix_row: Dodaj wiersz
             any: Każdy
+            collapse: Zwiń
             description: Opis
             down: Na dół
+            expand: Rozwiń
             question: Pytanie
             remove: Usunąć
             statement: Komunikat
+            up: W górę
+          separator:
+            down: Na dół
+            remove: Usuń
             up: W górę
           update:
             invalid: Podczas zapisywania kwestionariusza wystąpiły błędy.
@@ -51,8 +65,18 @@ pl:
       errors:
         answer:
           body: Treść nie może być pusta
+      files:
+        extension_whitelist: 'Dozwolone formaty:'
+      images:
+        dimensions: "%{width} × %{height} px"
+        dimensions_info: 'Rozmiar obrazu będzie wynosił:'
+        processors:
+          resize_and_pad: 'Zmieniony i dopełniony do:'
+          resize_to_fit: Dopasowany
       question_types:
         long_answer: Długa odpowiedź
+        matrix_multiple: Macierz (wiele opcji)
+        matrix_single: Macierz (jedna opcja)
         multiple_option: Wiele opcji
         short_answer: Krótka odpowiedź
         single_option: Opcja pojedyncza
@@ -60,6 +84,7 @@ pl:
       questionnaires:
         answer:
           invalid: Podczas odpowiadania na kwestionariusz wystąpiły błędy.
+          max_choices_alert: Wybrano zbyt wiele opcji
           success: Kwestionariusz odpowiedział pomyślnie.
         question:
           max_choices: 'Maksymalne opcje: %{n}'
@@ -67,6 +92,8 @@ pl:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Zaloguj się na swoje konto</a> lub <a href="%{sign_up_link}">zarejestruj się</a> aby odpowiedzieć na kwestionariusz.
             title: Odpowiedz na kwestionariusz
+          current_step: Krok %{step}
+          of_total_steps: z %{total_steps}
           questionnaire_answered:
             body: Już odpowiedziałeś na tę ankietę.
             title: Już odpowiedziałem
@@ -80,7 +107,12 @@ pl:
       step_navigation:
         show:
           are_you_sure: Tego działania nie można cofnąć i nie będzie można edytować odpowiedzi. Jesteś pewny?
+          back: Wróć
+          continue: Dalej
           submit: Zatwierdź
       user_answers_serializer:
         created_at: Odpowiedziałem na
         id: ID odpowiedzi
+        registered: Zarejestrowany
+        unregistered: Niezarejestrowany
+        user_status: Status użytkownika
