@@ -186,6 +186,24 @@ it:
         encrypting:
           header: Codifica del voto...
           text: Il tuo voto viene crittografato per assicurarti di poterlo lanciare in modo anonimo.
+        header:
+          confirm: Conferma il tuo voto
+          confirmed: Voto confermato
+          encrypting: Conferma del voto
+        messages:
+          not_allowed: In questo momento non ti è permesso di votare a queste elezioni.
+        modal:
+          close: Chiuso
+          proposal_header: 'Proposte:'
+        new:
+          answer_choices: Puoi selezionare fino a %{choices} risposte o nessuna risposta
+          more_information: Altre informazioni
+          preview_alert: Questa è un'anteprima della cabina di voto.
+          question_steps: Domanda %{current_step} di %{total_steps}
+          selections: "%{selected} di %{max_selections}<br> selezioni"
+        voting_step:
+          back: Indietro
+          continue: Successivo
     events:
       elections:
         election_published:
@@ -196,3 +214,7 @@ it:
     participatory_processes:
       statistics:
         elections_count: Elezioni
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Esci
