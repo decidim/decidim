@@ -39,7 +39,6 @@
       }, config);
 
       this.map = null;
-      this.markerClusters = null;
 
       MapControllerRegistry.setController(mapId, this);
     }

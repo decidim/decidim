@@ -5,6 +5,8 @@
 
   class MapMarkersController extends MapController {
     start() {
+      this.markerClusters = null;
+
       if (Array.isArray(this.config.markers) && this.config.markers.length > 0) {
         this.addMarkers(this.config.markers);
       } else {
