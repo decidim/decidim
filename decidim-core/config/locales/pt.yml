@@ -3,6 +3,8 @@ pt:
     attributes:
       account:
         delete_reason: Razão para cancelar a sua conta
+      common:
+        created_at: Criado em
       group:
         about: Sobre
         avatar: Avatar
@@ -72,6 +74,7 @@ pt:
       decidim_with_month_name_short: "%d %b"
   decidim:
     accessibility:
+      external_link: Hiperligação externa
       logo: "Logótipo oficial de %{organization}"
       skip_button: Avançar para o conteúdo principal
     account:
@@ -150,6 +153,8 @@ pt:
         verify_via_csv: "%{user_name} verificou o grupo %{resource_name} através de um ficheiro CSV"
     admin_terms_of_use:
       default_body: "<h2>TERMOS DE UTILIZAÇÃO DE ADMINISTRADOR</h2><p>Confiamos que recebeu as instruções habituais por parte do Administrador de Sistema local. Normalmente resume-se a estes três fatores:</p><ol><li>Respeitar a privacidade dos outros.</li><li>Pensar antes de clicar.</li><li>Um grande poder acarreta uma grande responsabilidade.</li></ol>"
+    alert:
+      dismiss: Descartar notificação
     amendments:
       accepted:
         error: Ocorreu um problema ao aceitar a modificação.
@@ -273,6 +278,7 @@ pt:
           foo: Foo
         name: Autorização Foo
       granted_at: Concedido em %{timestamp}
+      renew: Renovar verificação
       sms:
         explanation: Submeta o seu número de telemóvel para que possamos verificar a sua identidade.
         name: Código por SMS
@@ -307,6 +313,8 @@ pt:
           explanation_html: De forma a executar esta ação precisa de estar autorizado, antes de fazer isso precisa de confirmar o seu e-mail <strong>%{email}</strong>.
           request_confirmation_instructions: Solicitar instruções de confirmação
           title: Confirmar o seu e-mail
+      show:
+        close_modal: Fechar modal
     collapsible_list:
       hidden_elements_count:
         one: e mais %{count}
@@ -454,6 +462,7 @@ pt:
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> quer usar a sua conta"
     endorsable:
       endorsements: Endossos
+      endorsements_count: Contagem de endossamentos
     endorsement_buttons_cell:
       already_endorsed: Endossado
       endorse: Endossar
@@ -627,6 +636,9 @@ pt:
       title: Impressão digital
       value: Valor
     followers:
+      followers_count:
+        one: "%{count} seguidor"
+        other: "%{count} seguidores"
       no_followers: Ainda não há seguidores.
     following:
       no_followings: Ainda não segue alguém ou algo.
