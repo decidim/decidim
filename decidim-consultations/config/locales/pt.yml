@@ -68,7 +68,7 @@ pt:
   decidim:
     admin:
       actions:
-        back_to_responses: Regressar às respostas
+        back_to_responses: Retroceder às respostas
         new_consultation: Nova consulta
         new_question: Nova pergunta
         new_response: Nova resposta
@@ -374,4 +374,4 @@ pt:
         unfold: Desdobrar
       question_header:
         back_to_consultation: Ver todas as consultas
-        back_to_question: Regressar à pergunta
+        back_to_question: Retroceder à pergunta
