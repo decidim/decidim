@@ -1,4 +1,5 @@
 // = require decidim/map/controller
+// = require decidim/map/controller/markers
 // = require_self
 
 ((exports) => {
