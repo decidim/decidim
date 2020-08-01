@@ -2,7 +2,7 @@
 // = require leaflet-tilelayer-here
 // = require leaflet-svg-icon
 // = require leaflet.markercluster
-// = require decidim/map/controller
+// = require decidim/map/factory
 // = require_self
 
 /**
@@ -14,8 +14,6 @@
  */
 ((exports) => {
   exports.Decidim = exports.Decidim || {};
-
-  const MapController = exports.Decidim.MapController;
 
   const legacyMapSupport = ($map) => {
     const hereAppId = $map.data("here-app-id");
@@ -60,19 +58,16 @@
     // Allow the configured map service to configure the map, e.g. attaching the
     // tile layer to the map.
     const $map = $(`#${mapId}`);
+    $map.data("markers-data", markersData);
     legacyMapSupport($map);
 
     const mapData = $map.data("decidim-map");
-    const ctrl = new MapController(mapId, mapData);
+    const ctrl = exports.Decidim.createMapController(mapId, mapData);
     const map = ctrl.load();
 
     L.tileLayer.here(mapData.tileLayer).addTo(map);
 
-    if (Array.isArray(markersData) && markersData.length > 0) {
-      ctrl.addMarkers(markersData);
-    } else {
-      ctrl.getMap().fitWorld();
-    }
+    ctrl.start();
 
     exports.Decidim.currentMap = map;
 
