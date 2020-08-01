@@ -1,13 +1,17 @@
-// = require decidim/map/controller
+// = require decidim/map/factory
 // = require_self
 
 ((exports) => {
   const $ = exports.$; // eslint-disable-line
 
   exports.Decidim = exports.Decidim || {};
-  const MapController = exports.Decidim.MapController;
 
   $(() => {
+    // Load the map controller factory method in the document.ready handler to
+    // allow overriding it by any script that is loaded before the document is
+    // ready.
+    const createMapController = exports.Decidim.createMapController;
+
     let $mapElements = $("[data-decidim-map]");
     if ($mapElements.length < 1 && $("#map").length > 0) {
       throw new Error(
@@ -20,7 +24,7 @@
       const mapId = $map.attr("id");
 
       const mapConfig = $map.data("decidim-map");
-      const ctrl = new MapController(mapId, mapConfig);
+      const ctrl = createMapController(mapId, mapConfig);
       const map = ctrl.load();
 
       $map.data("map", map);
@@ -28,11 +32,7 @@
 
       $map.trigger("configure.decidim", [map, mapConfig]);
 
-      if (Array.isArray(mapConfig.markers) && mapConfig.markers.length > 0) {
-        ctrl.addMarkers(mapConfig.markers);
-      } else {
-        ctrl.getMap().fitWorld();
-      }
+      ctrl.start();
 
       // Indicates the map is loaded with the map objects initialized and ready
       // to be used.

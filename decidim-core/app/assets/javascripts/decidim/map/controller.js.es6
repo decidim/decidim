@@ -9,12 +9,12 @@
   const CONTROLLER_REGISTRY = {};
 
   class MapControllerRegistry {
-    static setController(mapId, map) {
-      CONTROLLER_REGISTRY[mapId] = map;
-    }
-
     static getController(mapId) {
       return CONTROLLER_REGISTRY[mapId];
+    }
+
+    static setController(mapId, map) {
+      CONTROLLER_REGISTRY[mapId] = map;
     }
 
     static findByMap(map) {
@@ -52,7 +52,50 @@
       return this.map;
     }
 
+    load() {
+      this.map = L.map(this.mapId);
+
+      this.map.scrollWheelZoom.disable();
+
+      // Fix the keyboard navigation on the map
+      this.map.on("popupopen", (ev) => {
+        const $popup = $(ev.popup.getElement());
+        $popup.attr("tabindex", 0).focus();
+      });
+      this.map.on("popupclose", (ev) => {
+        $(ev.popup._source._icon).focus();
+      });
+
+      return this.map;
+    }
+
+    start() {
+      throw new Error("Implement the start() method for the controller.");
+    }
+
+    remove() {
+      if (this.map) {
+        this.map.remove();
+        this.map = null;
+      }
+    }
+  }
+
+  class MapMarkersController extends MapController {
+    start() {
+      if (Array.isArray(this.config.markers) && this.config.markers.length > 0) {
+        this.addMarkers(this.config.markers);
+      } else {
+        this.map.fitWorld();
+      }
+    }
+
     addMarkers(markersData) {
+      if (this.markerClusters === null) {
+        this.markerClusters = L.markerClusterGroup();
+        this.map.addLayer(this.markerClusters);
+      }
+
       // Pre-compiles the template
       $.template(
         this.config.popupTemplateId,
@@ -86,7 +129,6 @@
         this.markerClusters.addLayer(marker);
       });
 
-      this.map.addLayer(this.markerClusters);
       this.map.fitBounds(bounds, { padding: [100, 100] });
     }
 
@@ -94,34 +136,10 @@
       this.map.removeLayer(this.markerClusters);
       this.markerClusters = L.markerClusterGroup();
     }
-
-    load() {
-      this.map = L.map(this.mapId);
-      this.markerClusters = L.markerClusterGroup();
-
-      this.map.scrollWheelZoom.disable();
-
-      // Fix the keyboard navigation on the map
-      this.map.on("popupopen", (ev) => {
-        const $popup = $(ev.popup.getElement());
-        $popup.attr("tabindex", 0).focus();
-      });
-      this.map.on("popupclose", (ev) => {
-        $(ev.popup._source._icon).focus();
-      });
-
-      return this.map;
-    }
-
-    remove() {
-      if (this.map) {
-        this.map.remove();
-        this.map = null;
-      }
-    }
   }
 
   exports.Decidim = exports.Decidim || {};
   exports.Decidim.MapController = MapController;
+  exports.Decidim.MapMarkersController = MapMarkersController;
   exports.Decidim.MapControllerRegistry = MapControllerRegistry;
 })(window);
