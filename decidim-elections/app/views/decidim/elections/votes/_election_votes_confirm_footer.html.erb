@@ -1,0 +1,24 @@
+<div class="focus__footer">
+  <div class="row">
+    <%= link_to(
+      icon("chevron-left", class: "icon", role: "img") + " " + t("decidim.elections.votes.voting_step.back"),
+      "#",
+      class: "focus__back",
+      data: {
+        toggle: ["step-#{questions_count - 1}", "step-#{questions_count}"].join(" ")
+      }
+    ) %>
+
+    <%= link_to(
+      "#",
+      class: "button focus__next confirm",
+      data: {
+        booth_mode: booth_mode,
+        toggle: ["encrypting", "step-#{questions_count}"].join(" ")
+      }
+    ) do %>
+      <%= t("decidim.elections.votes.confirm.confirm") %>
+      <%= icon("chevron-right", class: "icon", role: "img") %>
+    <% end %>
+  </div>
+</div>

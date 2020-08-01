@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Admin manages elections", type: :system do
-  let(:election) { create :election, :published, component: current_component }
+  let(:election) { create :election, :upcoming, :published, component: current_component }
   let(:manifest_name) { "elections" }
 
   include_context "when managing a component as an admin"
@@ -111,7 +111,7 @@ describe "Admin manages elections", type: :system do
 
   describe "publishing an election" do
     context "when the election is unpublished" do
-      let!(:election) { create(:election, component: current_component) }
+      let!(:election) { create(:election, :upcoming, component: current_component) }
 
       it "publishes the election" do
         within find("tr", text: translated(election.title)) do
@@ -144,7 +144,7 @@ describe "Admin manages elections", type: :system do
       end
     end
 
-    context "when the election has started and has not finished" do
+    context "when the election is ongoing" do
       let!(:election) { create(:election, :started, component: current_component) }
 
       it "cannot unpublish the election" do
@@ -157,9 +157,9 @@ describe "Admin manages elections", type: :system do
     context "when the election is published and has finished" do
       let!(:election) { create(:election, :published, :finished, component: current_component) }
 
-      it "can unpublish the election" do
+      it "cannot unpublish the election" do
         within find("tr", text: translated(election.title)) do
-          expect(page).to have_selector(".action-icon--unpublish")
+          expect(page).to have_no_selector(".action-icon--unpublish")
         end
       end
     end
