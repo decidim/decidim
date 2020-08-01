@@ -108,9 +108,9 @@ pt:
           email_subject: Foi mencionado em %{resource_title} como membro de %{group_name}
           notification_title: Foi mencionado em <a href="%{resource_path}">%{resource_title}</a> por <a href="%{author_path}">%{author_name} %{author_nickname}</a> como membro de <a href="%{group_path}">%{group_name} %{group_nickname}</a>
         user_mentioned:
-          email_intro: Você foi mencionado
-          email_outro: Recebeu esta notificação porque foi mencionado em %{resource_title}.
-          email_subject: Você foi mencionado em %{resource_title}
+          email_intro: Foi mencionado(a)
+          email_outro: Recebeu esta notificação porque foi mencionado(a) em %{resource_title}.
+          email_subject: Foi mencionado(a) em %{resource_title}
           notification_title: Você foi mencionado em <a href="%{resource_path}">%{resource_title}</a> por <a href="%{author_path}">%{author_name} %{author_nickname}</a>
     metrics:
       comments:
