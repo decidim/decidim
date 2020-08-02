@@ -25,9 +25,16 @@ class PassthruValidator < ActiveModel::EachValidator
 
     # Create a dummy record for which the validations are actually run on
     dummy = target_class.new
+
     # Pass the organization to the dummy record if possible and set for the
     # record.
-    dummy.organization = record.organization if dummy.respond_to?(:organization) && record.respond_to?(:organization)
+    if record.respond_to?(:organization)
+      if dummy.is_a?(Decidim::Attachment)
+        dummy.attached_to = record.organization
+      elsif dummy.respond_to?(:organization)
+        dummy.organization = record.organization
+      end
+    end
 
     target_validators(attribute).each do |validator|
       next unless validator.is_a?(ActiveModel::EachValidator)
