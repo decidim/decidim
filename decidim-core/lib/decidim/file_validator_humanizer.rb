@@ -83,19 +83,7 @@ module Decidim
     def passthru_record
       return unless passthru_validator
 
-      @passthru_record ||= begin
-        # Create a dummy record for the passthru class in order to pass the
-        # organization context to the validations.
-        dummy = passthru_validator.target_class.new
-        if record.respond_to?(:organization)
-          if dummy.is_a?(Decidim::Attachment)
-            dummy.attached_to = record.organization
-          elsif dummy.respond_to?(:organization)
-            dummy.organization = record.organization
-          end
-        end
-        dummy
-      end
+      @passthru_record ||= passthru_validator.validation_record(record)
     end
 
     def passthru_uploader

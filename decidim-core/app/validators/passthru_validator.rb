@@ -24,17 +24,7 @@ class PassthruValidator < ActiveModel::EachValidator
     dummy_attr = target_attribute(attribute)
 
     # Create a dummy record for which the validations are actually run on
-    dummy = target_class.new
-
-    # Pass the organization to the dummy record if possible and set for the
-    # record.
-    if record.respond_to?(:organization)
-      if dummy.is_a?(Decidim::Attachment)
-        dummy.attached_to = record.organization
-      elsif dummy.respond_to?(:organization)
-        dummy.organization = record.organization
-      end
-    end
+    dummy = validation_record(record)
 
     target_validators(attribute).each do |validator|
       next unless validator.is_a?(ActiveModel::EachValidator)
@@ -45,6 +35,22 @@ class PassthruValidator < ActiveModel::EachValidator
         record.errors.add(attribute, err)
       end
     end
+  end
+
+  # Creates a dummy validation record that passes the correct file upload
+  # validation context from the original record for the validators.
+  def validation_record(record)
+    dummy = target_class.new
+    if dummy.is_a?(Decidim::Attachment)
+      if record.respond_to?(:attached_to)
+        dummy.attached_to = record.attached_to
+      elsif record.respond_to?(:organization)
+        dummy.attached_to = record.organization
+      end
+    elsif record.respond_to?(:organization)
+      dummy.organization = record.organization
+    end
+    dummy
   end
 
   def target_validators(attribute)
