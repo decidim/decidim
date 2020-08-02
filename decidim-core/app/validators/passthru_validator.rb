@@ -47,7 +47,7 @@ class PassthruValidator < ActiveModel::EachValidator
       elsif record.respond_to?(:organization)
         dummy.attached_to = record.organization
       end
-    elsif record.respond_to?(:organization)
+    elsif dummy.respond_to?(:organization=) && record.respond_to?(:organization)
       dummy.organization = record.organization
     end
     dummy
