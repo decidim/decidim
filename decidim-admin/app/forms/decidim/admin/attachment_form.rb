@@ -23,6 +23,8 @@ module Decidim
 
       delegate :attached_to, to: :context, prefix: false
 
+      alias organization current_organization
+
       def attachment_collections
         @attachment_collections ||= attached_to.attachment_collections
       end
