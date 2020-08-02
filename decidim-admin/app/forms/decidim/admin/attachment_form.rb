@@ -16,6 +16,7 @@ module Decidim
       mimic :attachment
 
       validates :file, presence: true, unless: :persisted?
+      validates :file, passthru: { to: Decidim::Attachment }
       validates :title, :description, translatable_presence: true
       validates :attachment_collection, presence: true, if: ->(form) { form.attachment_collection_id.present? }
       validates :attachment_collection_id, inclusion: { in: :attachment_collection_ids }, allow_blank: true
