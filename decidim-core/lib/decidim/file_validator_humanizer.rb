@@ -56,6 +56,7 @@ module Decidim
         lte = validator.options[:less_than_or_equal_to]
         return lte.call(record) if lte && lte.lambda?
       end
+      return unless passthru_validator
 
       # If not, check for the same validator from the pass through record.
       validator = passthru_validator.target_validators(attribute).find do |v|
