@@ -19,6 +19,7 @@ module Decidim
     include Decidim::Loggable
     include Decidim::ParticipatorySpaceResourceable
     include Decidim::Searchable
+    include Decidim::HasUploadValidations
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
@@ -61,7 +62,10 @@ module Decidim
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }
 
+    validates_upload :hero_image
     mount_uploader :hero_image, Decidim::HeroImageUploader
+
+    validates_upload :banner_image
     mount_uploader :banner_image, Decidim::BannerImageUploader
 
     scope :past, -> { where(arel_table[:end_date].lt(Date.current)) }

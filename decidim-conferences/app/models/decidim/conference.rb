@@ -17,6 +17,7 @@ module Decidim
     include Decidim::Loggable
     include Decidim::ParticipatorySpaceResourceable
     include Decidim::Searchable
+    include Decidim::HasUploadValidations
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
@@ -51,9 +52,16 @@ module Decidim
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::Conference.slug_format }
 
+    validates_upload :hero_image
     mount_uploader :hero_image, Decidim::HeroImageUploader
+
+    validates_upload :banner_image
     mount_uploader :banner_image, Decidim::HomepageImageUploader
+
+    validates_upload :main_logo
     mount_uploader :main_logo, Decidim::Conferences::DiplomaUploader
+
+    validates_upload :signature
     mount_uploader :signature, Decidim::Conferences::DiplomaUploader
 
     searchable_fields({

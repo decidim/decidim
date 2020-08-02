@@ -4,6 +4,8 @@ module Decidim
   module Admin
     # The form that validates the data to construct a valid OAuthApplication.
     class OAuthApplicationForm < Decidim::Form
+      include Decidim::HasUploadValidations
+
       mimic :oauth_application
 
       attribute :name, String
@@ -13,14 +15,10 @@ module Decidim
       attribute :redirect_uri, String
 
       validates :name, :redirect_uri, :current_user, :current_organization, :organization_name, :organization_url, :organization_logo, presence: true
-      validates :organization_logo,
-                file_size: { less_than_or_equal_to: ->(form) { form.maximum_attachment_size } },
-                file_content_type: { allow: ["image/jpeg", "image/png"] }
+      validates :organization_logo, passthru: { to: Decidim::OAuthApplication }
       validate :redirect_uri_is_ssl
 
-      def maximum_attachment_size
-        Decidim.organization_settings(current_organization).upload_maximum_file_size
-      end
+      alias organization current_organization
 
       private
 

@@ -6,6 +6,7 @@ module Decidim
       # A form object used to create consultations from the admin dashboard.
       class ConsultationForm < Form
         include TranslatableAttributes
+        include Decidim::HasUploadValidations
 
         mimic :consultation
 
@@ -29,19 +30,13 @@ module Decidim
         validates :end_voting_date, presence: true, date: { after_or_equal_to: :start_voting_date }
         validate :slug_uniqueness
 
-        validates :banner_image,
-                  file_size: { less_than_or_equal_to: ->(form) { form.maximum_attachment_size } },
-                  file_content_type: { allow: ["image/jpeg", "image/png"] }
-        validates :introductory_image,
-                  file_size: { less_than_or_equal_to: ->(form) { form.maximum_attachment_size } },
-                  file_content_type: { allow: ["image/jpeg", "image/png"] }
+        validates :banner_image, passthru: { to: Decidim::Consultation }
+        validates :introductory_image, passthru: { to: Decidim::Consultation }
+
+        alias organization current_organization
 
         def highlighted_scope
           @highlighted_scope ||= current_organization.scopes.find_by(id: decidim_highlighted_scope_id)
-        end
-
-        def maximum_attachment_size
-          Decidim.organization_settings(current_organization).upload_maximum_file_size
         end
 
         private

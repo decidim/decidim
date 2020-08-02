@@ -11,14 +11,9 @@ module Decidim
         attribute :verification_attachment, String
 
         validates :verification_attachment,
-                  file_size: { less_than_or_equal_to: ->(form) { form.maximum_attachment_size } },
-                  file_content_type: { allow: ["image/jpeg", "image/png"] },
+                  passthru: { to: Decidim::Authorization },
                   presence: true,
                   if: :uses_online_method?
-
-        def maximum_attachment_size
-          Decidim.organization_settings(current_organization).upload_maximum_file_size
-        end
       end
     end
   end

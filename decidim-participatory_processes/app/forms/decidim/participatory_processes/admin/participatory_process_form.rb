@@ -8,6 +8,7 @@ module Decidim
       #
       class ParticipatoryProcessForm < Form
         include TranslatableAttributes
+        include Decidim::HasUploadValidations
 
         mimic :participatory_process
 
@@ -54,12 +55,10 @@ module Decidim
 
         validates :title, :subtitle, :description, :short_description, translatable_presence: true
 
-        validates :banner_image,
-                  file_size: { less_than_or_equal_to: ->(form) { form.maximum_attachment_size } },
-                  file_content_type: { allow: ["image/jpeg", "image/png"] }
-        validates :hero_image,
-                  file_size: { less_than_or_equal_to: ->(form) { form.maximum_attachment_size } },
-                  file_content_type: { allow: ["image/jpeg", "image/png"] }
+        validates :banner_image, passthru: { to: Decidim::ParticipatoryProcess }
+        validates :hero_image, passthru: { to: Decidim::ParticipatoryProcess }
+
+        alias organization current_organization
 
         def map_model(model)
           self.scope_id = model.decidim_scope_id
@@ -86,10 +85,6 @@ module Decidim
 
         def processes
           @processes ||= Decidim::ParticipatoryProcess.where(organization: current_organization)
-        end
-
-        def maximum_attachment_size
-          Decidim.organization_settings(current_organization).upload_maximum_file_size
         end
 
         private

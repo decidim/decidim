@@ -4,6 +4,7 @@ module Decidim
   class ParticipatoryProcessGroup < ApplicationRecord
     include Decidim::Resourceable
     include Decidim::Traceable
+    include Decidim::HasUploadValidations
 
     has_many :participatory_processes,
              foreign_key: "decidim_participatory_process_group_id",
@@ -15,6 +16,7 @@ module Decidim
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"
 
+    validates_upload :hero_image
     mount_uploader :hero_image, Decidim::HeroImageUploader
 
     def self.log_presenter_class_for(_log)

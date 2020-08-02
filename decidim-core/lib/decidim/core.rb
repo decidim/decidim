@@ -84,6 +84,8 @@ module Decidim
   autoload :Endorsable, "decidim/endorsable"
   autoload :ActionAuthorization, "decidim/action_authorization"
   autoload :OrganizationSettings, "decidim/organization_settings"
+  autoload :HasUploadValidations, "decidim/has_upload_validations"
+  autoload :FileValidatorHumanizer, "decidim/file_validator_humanizer"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
