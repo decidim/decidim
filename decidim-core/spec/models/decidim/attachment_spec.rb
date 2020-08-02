@@ -26,7 +26,7 @@ module Decidim
         subject do
           build(
             :attachment,
-            file: Rack::Test::UploadedFile.new(attachment_path, "image/jpg")
+            file: Rack::Test::UploadedFile.new(attachment_path, "image/jpeg")
           )
         end
 

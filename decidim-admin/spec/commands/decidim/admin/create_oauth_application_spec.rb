@@ -18,7 +18,7 @@ module Decidim::Admin
     let(:file) do
       Rack::Test::UploadedFile.new(
         Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-        "image/jpg"
+        "image/jpeg"
       )
     end
     let(:organization) { create(:organization) }
