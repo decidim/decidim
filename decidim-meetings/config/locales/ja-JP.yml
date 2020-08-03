@@ -149,6 +149,9 @@ ja:
         confirm_destroy: このミーティングを削除してもよろしいですか？
         destroy: 削除
         edit: 編集
+        invalid_destroy:
+          proposals_count:
+            other: '%{count} 件の提案が関連付けられているため、会議を破壊できません:'
         minutes: 分
         new: 新しいミーティング
         preview: プレビュー
@@ -227,6 +230,9 @@ ja:
             invalid: このミーティングを作成する際に問題が発生しました
             success: ミーティングを作成しました
           destroy:
+            invalid:
+              proposals_count:
+                other: '%{count} 件の提案が関連付けられているため、会議を破壊できません'
             success: ミーティングを削除しました
           edit:
             update: 更新
