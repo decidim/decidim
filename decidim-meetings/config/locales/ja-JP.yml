@@ -118,6 +118,7 @@ ja:
           email_intro: '「%{registration_code}」会議の登録コード「%{resource_title}」が確認されました。'
           email_outro: '"%{resource_title}" 会議の登録コードが検証されたため、この通知を受け取りました。'
           email_subject: あなたの "%{registration_code}" 会議の登録コード "%{resource_title}" が検証されました
+          notification_title: ミーティング <a href="%{resource_path}">%{resource_title} </a> に対するあなたの登録コード "%{registration_code}" が認証されました。
         registrations_enabled:
           email_intro: '"%{resource_title}" ミーティングは登録を有効にしました．あなた自身をそのページに登録することができます:'
           email_outro: '「%{resource_title}」ミーティングをフォローしているため、この通知を受け取りました．前のリンクからフォローを解除することができます．'
