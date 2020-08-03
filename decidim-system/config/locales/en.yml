@@ -87,7 +87,7 @@ en:
             default_hint: Megabytes (MB). This file size limit is the default which is used for all file uploads unless otherwise specified.
             title: Maximum file sizes
           intro: |
-            Please be extra cautious when considering to changing these settings. The less you allow, the better.
+            Please be extra cautious when considering to change these settings. The less you allow, the better.
             Allowing specific file extensions or MIME types can expose the system users to security risks and it can also affect the accessibility of the website.
         index:
           title: Organizations
