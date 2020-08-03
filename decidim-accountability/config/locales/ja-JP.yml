@@ -165,6 +165,7 @@ ja:
         show:
           stats:
             attendees: 参加者
+            back_to_resource: 結果に戻る
             comments: コメント
             contributions: 貢献
             last_edited_by: '最終編集者:'
