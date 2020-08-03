@@ -28,6 +28,7 @@ class PassthruValidator < ActiveModel::EachValidator
 
     target_validators(attribute).each do |validator|
       next unless validator.is_a?(ActiveModel::EachValidator)
+      next unless check_validator_conditions(dummy, validator)
 
       dummy.errors.clear
       validator.validate_each(dummy, dummy_attr, value)
@@ -63,5 +64,33 @@ class PassthruValidator < ActiveModel::EachValidator
 
   def target_attribute(default = nil)
     options[:attribute] || default
+  end
+
+  private
+
+  def check_validator_conditions(record, validator)
+    if (condition = validator.options[:if])
+      if_result = begin
+        if condition.respond_to?(:call)
+          condition.call(record)
+        else
+          record.public_send(condition)
+        end
+      end
+      return false unless if_result
+    end
+
+    if (condition = validator.options[:unless])
+      unless_result = begin
+        if condition.respond_to?(:call)
+          condition.call(record)
+        else
+          record.public_send(condition)
+        end
+      end
+      return false if unless_result
+    end
+
+    true
   end
 end
