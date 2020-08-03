@@ -223,6 +223,9 @@ ja:
           edit:
             close: 閉じる
             title: ミーティングを閉じる
+        meeting_copies:
+          form:
+            select_organizer: 主催者を選択
         meetings:
           close:
             invalid: この会議を終了する際に問題が発生しました
@@ -241,6 +244,7 @@ ja:
             address_help: 'アドレス: ジオコーダーが場所を見つけるために使用'
             location_help: '場所: ユーザーにメッセージが表示されます。'
             location_hints_help: '位置情報：追加情報。例：建物の床。'
+            select_organizer: 主催者を選択
           index:
             title: ミーティング
           new:
@@ -345,6 +349,7 @@ ja:
       meetings:
         filters:
           category: カテゴリ
+          category_prompt: カテゴリを選択
           date: 日付
           past: 過去
           search: 検索
