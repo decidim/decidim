@@ -1174,6 +1174,9 @@ ja:
         version_created_at: バージョン作成日時
         version_number: バージョン番号
         version_number_out_of_total: "%{current_version} / %{total_count}"
+    version_author:
+      show:
+        deleted: 削除された参加者
     versions:
       resource_version:
         of_versions: "( %{number} の)"
