@@ -144,6 +144,18 @@ en:
           elections_count:
             one: "%{count} election"
             other: "%{count} elections"
+        filters:
+          active: Active
+          all: All
+          finished: Finished
+          search: Search
+          state: Status
+          upcoming: Upcoming
+        filters_small_view:
+          close_modal: Close modal
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
         show:
           back: All elections
           preview: Preview
