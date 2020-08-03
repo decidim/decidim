@@ -203,7 +203,7 @@ pt:
         error: Ocorreu um problema ao rejeitar esta modificação, por favor tente novamente mais tarde
         success: A modificação foi rejeitada corretamente
       review:
-        back: Voltar
+        back: Retroceder
         heading: Rever a modificação
         help_text: Está a rever uma modificação a %{model_name}
         send: Aceitar modificação
@@ -751,7 +751,7 @@ pt:
     members:
       no_members: Este grupo ainda não possui nenhum membro.
     menu:
-      help: Socorro
+      help: Ajuda
       home: Inicio
     messaging:
       conversation_mailer:
@@ -978,7 +978,7 @@ pt:
       term_input_placeholder: Pesquisar
     searches:
       filters:
-        back: Voltar aos resultados
+        back: Retroceder aos resultados
         jump_to: 'Saltar para:'
         state:
           active: Ativo
@@ -1191,7 +1191,7 @@ pt:
         sign_in_with_provider: Iniciar sessão com %{provider}
         sign_up: Inscrever-se
       minimum_password_length:
-        one: "(%{count} caractere no mínimo)"
+        one: "(%{count} carácter no mínimo)"
         other: "(%{count} caracteres no mínimo)"
     unlocks:
       new:
