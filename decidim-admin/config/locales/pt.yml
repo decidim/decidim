@@ -753,7 +753,7 @@ pt:
         users: Participantes
       user_group:
         csv_verify:
-          invalid: Ocorreu um problema ao ler o arquivo CSV.
+          invalid: Ocorreu um problema ao ler o ficheiro CSV.
           success: O ficheiro CSV foi enviado com sucesso, estamos a verificar os grupos que correspondem aos critérios. Isto pode demorar um pouco.
         reject:
           invalid: Ocorreu um problema ao rejeitar este grupo.
