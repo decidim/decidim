@@ -5,7 +5,9 @@ sl:
         decidim_accountability_status_id: Status
         decidim_category_id: Kategorija
         description: Opis
+        end_date: Končni datum
         progress: Napredek
+        start_date: Začetni datum
         title: Naslov
         updated_at: Posodobljeno
       status:
