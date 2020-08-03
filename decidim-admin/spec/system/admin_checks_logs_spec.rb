@@ -17,7 +17,7 @@ describe "Admin checks logs", type: :system do
   it "lists all recent logs" do
     click_link "Admin activity log"
 
-    expect(page).to have_content("ADMIN LOG")
+    expect(page).to have_content("Admin log")
 
     within ".content" do
       expect(page).to have_selector("li", count: 3)

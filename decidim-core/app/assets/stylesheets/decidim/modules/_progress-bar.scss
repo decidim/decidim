@@ -4,7 +4,6 @@
 
   .progress__bar__title{
     color: $muted;
-    text-transform: uppercase;
     font-size: .875rem;
 
     .progress__bar__number{
@@ -64,6 +63,7 @@
       @extend .extra__suport-text;
 
       font-weight: 600;
+      text-transform: uppercase;
     }
   }
 }

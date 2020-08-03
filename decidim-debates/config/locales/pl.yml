@@ -93,12 +93,13 @@ pl:
           filter: Filtr
           filter_by: Filtruj według
           unfold: Rozwijać się
+        form:
+          select_a_category: Proszę wybierz kategorie
         index:
           new_debate: Nowa debata
         new:
           back: Plecy
           create: Stwórz
-          select_a_category: Proszę wybierz kategorie
           title: Nowa debata
       last_activity:
         new_debate_at_html: "<span>Nowa debata na %{link}</span>"

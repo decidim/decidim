@@ -12,7 +12,7 @@ module Capybara
 
         expected.each do |proposal|
           expect(data_picker).to have_selector(".picker-values div input[value='#{proposal.id}']", visible: :all)
-          expect(data_picker).to have_selector(:xpath, "//div[contains(@class,'picker-values')]/div/a[text()[contains(.,\"#{proposal.title}\")]]")
+          expect(data_picker).to have_selector(:xpath, "//div[contains(@class,'picker-values')]/div/a[text()[contains(.,\"#{translated(proposal.title)}\")]]")
         end
       end
     end
@@ -23,7 +23,7 @@ module Capybara
 
         expected.each do |proposal|
           expect(data_picker).not_to have_selector(".picker-values div input[value='#{proposal.id}']", visible: :all)
-          expect(data_picker).not_to have_selector(:xpath, "//div[contains(@class,'picker-values')]/div/a[text()[contains(.,\"#{proposal.title}\")]]")
+          expect(data_picker).not_to have_selector(:xpath, "//div[contains(@class,'picker-values')]/div/a[text()[contains(.,\"#{translated(proposal.title)}\")]]")
         end
       end
     end

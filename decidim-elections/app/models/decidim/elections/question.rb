@@ -15,6 +15,17 @@ module Decidim
       has_one :component, through: :election, foreign_key: "decidim_component_id", class_name: "Decidim::Component"
 
       default_scope { order(weight: :asc, id: :asc) }
+
+      # Public: Gets the number of minimum number of selected answers needed for the question
+      #
+      # Returns an integer.
+      def min_selections
+        if max_selections == 1
+          1
+        else
+          0
+        end
+      end
     end
   end
 end

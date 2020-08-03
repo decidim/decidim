@@ -100,7 +100,9 @@ fi:
           verify_with_these_options: 'Käytettävissä olevat tavat vahvistaa identiteettisi:'
         index:
           expired_verification: Vahvistus on erääntynyt
+          pending_verification: Odottava vahvistus
           show_renew_info: Paina vahvistaaksesi uudestaan
+          unauthorized_verification: Uusi vahvistus
         new:
           authorize: Lähetä
           authorize_with: Vahvista palvelulla %{authorizer}
@@ -141,8 +143,10 @@ fi:
             success: Tilisi vahvistaminen onnistui.
       dummy_authorization:
         extra_explanation:
-          one: Osallistuminen on rajoitettu niille käyttäjille, joilla on postinumero %{postal_codes}.
-          other: 'Osallistuminen on rajoitettu niille käyttäjille, joilla on jokin postinumeroista: %{postal_codes}.'
+          postal_codes:
+            one: Osallistuminen on rajoitettu niille käyttäjille, joilla on postinumero %{postal_codes}.
+            other: 'Osallistuminen on rajoitettu niille käyttäjille, joilla on jokin postinumeroista: %{postal_codes}.'
+          scope: Osallistuminen on rajoitettu niille käyttäjille, joilla on teema %{scope_name}.
       id_documents:
         admin:
           config:

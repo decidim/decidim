@@ -196,9 +196,6 @@ tr:
       participatory_process_groups:
         highlighted_results:
           results: Sonuçlar
-    participatory_spaces:
-      highlighted_results:
-        see_all: Tümünü gör (%{count})
     resource_links:
       included_projects:
         result_project: Bu sonuca dahil edilen projeler

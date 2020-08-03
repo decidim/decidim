@@ -85,7 +85,6 @@ fr-CA:
         search_placeholder:
           id_string_or_title_cont: Rechercher %{collection} par ID ou titre.
         state_eq:
-          label: État
           values:
             evaluating: En cours d'évaluation
             withdrawn: Retirée
@@ -106,6 +105,7 @@ fr-CA:
         name: Propositions
         settings:
           global:
+            allow_card_image: Afficher les images sur les cartes de l'index de proposition
             amendments_enabled: Modifications activées
             amendments_enabled_help: Si actif, configurez les fonctionnalités d'amendement pour chaque étape.
             amendments_wizard_help_text: Texte d'aide de l'assistant
@@ -114,6 +114,7 @@ fr-CA:
             can_accumulate_supports_beyond_threshold: Peut accumuler des supports au-delà du seuil
             collaborative_drafts_enabled: Brouillons collaboratifs activés
             comments_enabled: Activer le module de commentaire
+            comments_max_length: Longueur maximum (en caractères) des commentaires (laisser 0 pour la valeur par défaut)
             geocoding_enabled: Géocodage activé
             minimum_votes_per_user: Nombre minimum de votes par utilisateur
             new_proposal_body_template: Modèle de corps d'une nouvelle proposition
@@ -471,6 +472,7 @@ fr-CA:
           update_scope:
             invalid: 'Ces propositions avaient déjà la portée de %{subject_name} : %{proposals}.'
             select_a_proposal: Veuillez sélectionner une proposition
+            select_a_scope: Veuillez sélectionner un secteur
             success: 'Les propositions ont été mises à jour avec succès vers le périmètre %{subject_name} : %{proposals}.'
         proposals_imports:
           create:
@@ -495,6 +497,7 @@ fr-CA:
             success: Propositions assignées à un évaluateur avec succès
           delete:
             invalid: Il y a eu une erreur lors de la désassignation des propositions d'un évaluateur
+            success: Evaluateur désaffecté aux propositions avec succès
       admin_log:
         proposal:
           answer: "%{user_name} a répondu à la proposition %{resource_name} sur l'espace %{space_name}"
@@ -681,7 +684,6 @@ fr-CA:
           amend: Modifier
           comment: Commentaire
           comments: commentaires
-          endorse: Endosser
       proposal_votes:
         create:
           error: Des erreurs se sont produites lors du soutien de la proposition.
@@ -790,7 +792,6 @@ fr-CA:
           read_more: En savoir plus
           report: Signaler
           withdraw_btn_hint: Si vous changez d'avis et tant que votre proposition n'a pas reçu de vote, commentaire et/ou soutien, vous pouvez toujours la retirer. Cette dernière ne sera pas supprimée mais elle apparaîtra dans la liste des propositions retirées.
-          withdraw_confirmation: Êtes-vous sûr de vouloir retirer cette proposition ?
           withdraw_proposal: Retirer la proposition
         tags:
           changed_from: "(changé de <u>%{previous_name}</u> par un administrateur)"

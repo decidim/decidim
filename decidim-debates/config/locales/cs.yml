@@ -32,6 +32,7 @@ cs:
           global:
             announcement: Oznámení
             comments_enabled: Komentáře povoleny
+            comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
           step:
             announcement: Oznámení
             comments_blocked: Komentáře blokovány
@@ -80,6 +81,10 @@ cs:
           success: Debata byla úspěšně vytvořena.
         debate:
           participate: Účastnit se
+        edit:
+          back: Zpět
+          save: Uložit změny
+          title: Upravit debatu
         filters:
           all: Vše
           category: Kategorie
@@ -93,15 +98,28 @@ cs:
           filter: Filtr
           filter_by: Filtrovat podle
           unfold: Rozbalit
+        form:
+          select_a_category: Vyberte kategorii
         index:
           new_debate: Nová debata
         new:
           back: Zpět
           create: Vytvořit
-          select_a_category: Vyberte kategorii
           title: Nová debata
         show:
           back: Zpět na seznam
+          date: Datum
+          edit_debate: Upravit debatu
+        update:
+          invalid: Při aktualizaci rozpravy došlo k chybě.
+          success: Debata byla úspěšně aktualizována.
+        versions:
+          debates:
+            back_to_resource: Přejít zpět k debatě
+          index:
+            title: Verze
+        versions_list:
+          back_to_resource: Přejít zpět k debatě
       last_activity:
         new_debate_at_html: "<span>Nová debata na %{link}</span>"
       models:

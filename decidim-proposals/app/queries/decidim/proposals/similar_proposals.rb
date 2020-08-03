@@ -40,11 +40,11 @@ module Decidim
       private
 
       def title_similarity
-        "similarity(title, ?)"
+        "similarity(title::text, ?)"
       end
 
       def body_similarity
-        "similarity(body, ?)"
+        "similarity(body::text, ?)"
       end
     end
   end

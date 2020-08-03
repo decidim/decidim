@@ -59,7 +59,6 @@ sk:
             does_not_belong: Obsahuje ilegálnu činnosť, vyhrážky, osobné informácie, alebo niečo ďalšie, o čom si myslíte, že nepatrí na %{organization_name}.
             offensive: Obsahuje rasizmus, sexizmus, urážky, osobné útoky, vyhrážky alebo inú podobu nenávistného prejavu.
             spam: Obsahuje clickbait, reklamy, scam alebo je to skriptovací robot.
-          title: Nahlásenie problému
         show_replies: Zobraziť %{replies_count} odpovedí
         single_comment_link_title: Odkaz na komentár
       comment_order_selector:

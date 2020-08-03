@@ -100,7 +100,9 @@ cs:
           verify_with_these_options: 'Jsou to dostupné možnosti k ověření totožnosti:'
         index:
           expired_verification: Ověření vypršelo
+          pending_verification: Čekající na ověření
           show_renew_info: Kliknutím obnovíte ověření
+          unauthorized_verification: Nové ověření
         new:
           authorize: Poslat
           authorize_with: Ověřte pomocí %{authorizer}
@@ -141,10 +143,12 @@ cs:
             success: Účet byl úspěšně ověřen.
       dummy_authorization:
         extra_explanation:
-          one: Účast je omezena na uživatele s poštovním směrovacím číslem %{postal_codes}.
-          few: 'Účast je omezena na uživatele s některým z následujících poštovních směrovacích čísel: %{postal_codes}.'
-          many: 'Účast je omezena na uživatele s některým z následujících poštovních směrovacích čísel: %{postal_codes}.'
-          other: 'Účast je omezena na uživatele s některým z následujících poštovních směrovacích čísel: %{postal_codes}.'
+          postal_codes:
+            one: Účast je omezena na uživatele s poštovním směrovacím číslem %{postal_codes}.
+            few: 'Účast je omezena na uživatele s některým z následujících poštovních směrovacích čísel: %{postal_codes}.'
+            many: 'Účast je omezena na uživatele s některým z následujících poštovních směrovacích čísel: %{postal_codes}.'
+            other: 'Účast je omezena na uživatele s některým z následujících poštovních směrovacích čísel: %{postal_codes}.'
+          scope: Účast je omezena na účastníky s rozsahem %{scope_name}.
       id_documents:
         admin:
           config:

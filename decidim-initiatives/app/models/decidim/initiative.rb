@@ -103,7 +103,7 @@ module Decidim
         .order(Arel.sql("count(decidim_comments_comments.id) desc"))
     }
 
-    after_save :notify_state_change
+    after_commit :notify_state_change
     after_create :notify_creation
 
     searchable_fields({

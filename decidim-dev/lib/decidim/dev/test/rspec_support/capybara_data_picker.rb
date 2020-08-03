@@ -8,11 +8,11 @@ module Capybara
 
     def find_data_picker(id, multiple: nil)
       if multiple.nil?
-        expect(page).to have_selector("div.data-picker##{id}")
+        expect(page).to have_selector("div.data-picker[id$='#{id}']")
       else
-        expect(page).to have_selector("div.data-picker.picker-#{multiple ? "multiple" : "single"}##{id}")
+        expect(page).to have_selector("div.data-picker.picker-#{multiple ? "multiple" : "single"}[id$='#{id}']")
       end
-      find("div.data-picker##{id}")
+      first("div.data-picker[id$='#{id}']")
     end
 
     def data_picker_pick_current

@@ -127,17 +127,19 @@ cs:
           most_voted: Nejvíce hlasovalo
           random: Náhodné pořadí
         project:
-          add: Přidat
+          add: Přidejte k hlasování projekt %{resource_name}
           count:
             one: 1 podpory
             few: "%{count} podporuje"
             many: "%{count} podporuje"
             other: "%{count} podporuje"
-          remove: Odstranit
+          remove: Odebrat projekt %{resource_name} z vašeho hlasování
           view: Zobrazit
         project_budget_button:
-          add: Přidat
-          added: Přidán
+          add: Přidat do vašeho hlasování
+          add_descriptive: Přidat k hlasování projekt %{resource_name}
+          added: Přidáno k vašemu hlasování
+          added_descriptive: Projekt %{resource_name} přidán k vašemu hlasování
         show:
           budget: Rozpočet
           view_all_projects: Zobrazit všechny projekty
@@ -150,6 +152,7 @@ cs:
           global:
             announcement: Oznámení
             comments_enabled: Komentáře povoleny
+            comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
             form:
               errors:
                 budget_voting_rule_only_one: Pouze jedno hlasovací pravidlo musí být povoleno

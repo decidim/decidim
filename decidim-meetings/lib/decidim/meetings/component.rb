@@ -115,11 +115,7 @@ Decidim.register_component(:meetings) do |component|
         author: participatory_space.organization,
         registration_terms: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(3)
-        end,
-        services: [
-          { title: Decidim::Faker::Localized.sentence(2), description: Decidim::Faker::Localized.sentence(5) },
-          { title: Decidim::Faker::Localized.sentence(2), description: Decidim::Faker::Localized.sentence(5) }
-        ]
+        end
       }
 
       meeting = Decidim.traceability.create!(
@@ -128,6 +124,14 @@ Decidim.register_component(:meetings) do |component|
         params,
         visibility: "all"
       )
+
+      2.times do
+        Decidim::Meetings::Service.create!(
+          meeting: meeting,
+          title: Decidim::Faker::Localized.sentence(2),
+          description: Decidim::Faker::Localized.sentence(5)
+        )
+      end
 
       Decidim::Forms::Questionnaire.create!(
         title: Decidim::Faker::Localized.paragraph,

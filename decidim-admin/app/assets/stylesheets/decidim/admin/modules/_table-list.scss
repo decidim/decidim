@@ -9,10 +9,6 @@
   border-collapse: collapse;
   border-spacing: 0;
 
-  th{
-    text-transform: uppercase;
-  }
-
   th,
   td{
     border-bottom: 1px solid rgba(black, .05);
@@ -130,7 +126,6 @@
   margin-left: -1.5 * $global-padding;
   font-size: 80%;
   font-weight: 600;
-  text-transform: uppercase;
 
   &.expanded{
     display: inline-block;

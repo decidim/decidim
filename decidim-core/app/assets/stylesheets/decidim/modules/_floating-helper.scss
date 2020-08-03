@@ -18,6 +18,13 @@
   border-bottom-left-radius: 100px;
   border-top-left-radius: 100px;
 
+  &:active,
+  &:focus{
+    outline: $anchor-outline-focus;
+    outline-color: var(--highlight);
+    outline-offset: $anchor-outline-offset;
+  }
+
   @include breakpoint(small only){
     bottom: $global-margin * 2;
   }
@@ -29,8 +36,8 @@
 }
 
 .floating-helper__text{
-  color: $secondary;
-  background-color: rgba($secondary, .1);
+  color: var(--secondary);
+  background-color: rgba(var(--secondary-rgb), .1);
   font-size: rem-calc(14);
   font-weight: $global-weight-bold;
   border-bottom-left-radius: 100px;
@@ -40,7 +47,7 @@
 
 .floating-helper__icon{
   color: $white;
-  background-color: $secondary;
+  background-color: var(--secondary);
   padding: $global-padding / 8 $global-padding / 2;
 }
 
@@ -49,8 +56,8 @@
 }
 
 .floating-helper__content{
-  background-color: rgba($secondary, .1);
-  border-top: 5px solid $secondary;
+  background-color: rgba(var(--secondary-rgb), .1);
+  border-top: 5px solid var(--secondary);
   margin-bottom: $global-margin * 3;
   padding: $global-padding * 2;
   width: 100%;
@@ -70,9 +77,9 @@
 
 .floating-helper__icon-big{
   border-radius: 50%;
-  background-color: rgba($secondary, .1);
+  background-color: rgba(var(--secondary-rgb), .1);
   flex-shrink: 0;
-  color: $secondary;
+  color: var(--secondary);
 
   @include flex;
   @include flex-align($x: center, $y: middle);
@@ -95,7 +102,7 @@
 }
 
 .floating-helper__content-close{
-  background-color: $secondary;
+  background-color: var(--secondary);
   color: $white;
   flex-shrink: 0;
   cursor: pointer;
@@ -103,4 +110,9 @@
   @include flex;
   @include flex-align($x: center, $y: middle);
   @include square(1.5rem);
+
+  &:active,
+  &:focus{
+    color: $white;
+  }
 }

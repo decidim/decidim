@@ -20,7 +20,7 @@ describe Decidim::Proposals::Log::ResourcePresenter, type: :helper do
   context "when the resource exists" do
     it "links to its public page with the name of the proposal" do
       html = presenter.present
-      expect(html).to have_link(resource.title, href: resource_path)
+      expect(html).to have_link(translated(resource.title), href: resource_path)
     end
   end
 

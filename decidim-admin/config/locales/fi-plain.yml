@@ -13,7 +13,7 @@ fi-pl:
         attachment_collection_id: Kansio
         description: Kuvaus
         file: Tiedosto
-        title: Otsikko
+        title: Liitetiedoston tai kuvan nimi
       attachment_collection:
         description: Kuvaus
         name: Nimi
@@ -39,6 +39,7 @@ fi-pl:
         address: SMTP-palvelimen osoite
         alert_color: Ilmoitus
         badges_enabled: Ota kunniamerkit käyttöön
+        comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
         cta_button_path: Call To Action -painikkeen polku
         cta_button_text: Call To Action -painikkeen teksti
         customize_welcome_notification: Muokkaa tervetuloilmoitusta
@@ -50,6 +51,8 @@ fi-pl:
         from: Lähettäjän sähköpostiosoite
         github_handler: GitHub-käsittelijä
         header_snippets: Yläosion koodipätkät
+        highlight_alternative_color: Korostusväri, vaihtoehtoinen
+        highlight_color: Korostusväri
         highlighted_content_banner_action_subtitle: Toimintapainikkeen alaotsikko
         highlighted_content_banner_action_title: Toimintapainikkeen otsikko
         highlighted_content_banner_action_url: Toimintapainikkeen URL-osoite
@@ -292,6 +295,11 @@ fi-pl:
           welcome: Tervetuloa Decidimin hallintapaneeliin.
       exports:
         export_as: "%{name} muodossa %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
         notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
       filters:
         category_id_eq:
@@ -318,6 +326,8 @@ fi-pl:
         search_placeholder:
           name_or_nickname_or_email_cont: '%{collection}: Hae sähköpostilla, nimellä tai nimimerkillä'
           title_cont: '%{collection}: Hae otsikon perusteella'
+        state_eq:
+          label: Tila
       help_sections:
         error: Ohjeosioiden päivittämisessä tapahtui virhe
         form:
@@ -580,6 +590,7 @@ fi-pl:
           officialize: Virallista
           title: Virallista käyttäjä "%{name}"
         show_email_modal:
+          close_modal: Sulje ikkuna
           description: Jos haluat ottaa suoraan yhteyttä osallistujaan, voit klikata Näytä-painiketta nähdäksesi hänen sähköpostiosoitteensa. Tästä toiminnosta jää jälki lokiin.
           email_address: Sähköpostiosoite
           full_name: Koko nimi

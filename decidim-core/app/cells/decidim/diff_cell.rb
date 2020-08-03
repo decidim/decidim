@@ -22,6 +22,12 @@ module Decidim
 
     private
 
+    # Adds a unique ID prefix for the attribute div IDs to avoid duplicate IDs
+    # in the DOM.
+    def attribute_diff_id(id)
+      "#{SecureRandom.uuid}_#{id}"
+    end
+
     # A PaperTrail::Version.
     def current_version
       model
