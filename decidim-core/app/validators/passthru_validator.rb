@@ -41,7 +41,7 @@ class PassthruValidator < ActiveModel::EachValidator
   # Creates a dummy validation record that passes the correct file upload
   # validation context from the original record for the validators.
   def validation_record(record)
-    dummy = target_class.new
+    dummy = target_instance(record)
     if dummy.is_a?(Decidim::Attachment)
       if record.respond_to?(:attached_to)
         dummy.attached_to = record.attached_to
@@ -64,6 +64,18 @@ class PassthruValidator < ActiveModel::EachValidator
 
   def target_attribute(default = nil)
     options[:attribute] || default
+  end
+
+  def target_instance(record)
+    instance_attributes = begin
+      if options[:with].respond_to?(:call)
+        options[:with].call(record)
+      else
+        options[:with] || {}
+      end
+    end
+
+    target_class.new(instance_attributes)
   end
 
   private
