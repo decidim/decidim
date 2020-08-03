@@ -12,7 +12,7 @@ module Decidim
     mimic :attachment
 
     validates :title, presence: true, if: ->(form) { form.file.present? }
-    validates :file, passthru: { to: Decidim::Attachment }
+    validates :file, passthru: { to: Decidim::Attachment }, if: ->(form) { form.file.present? }
 
     alias organization current_organization
   end
