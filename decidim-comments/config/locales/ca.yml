@@ -73,7 +73,7 @@ ca:
         blocked_comments_warning: Els comentaris estan desactivats en aquest moment, però pots llegir els anteriors.
         comment_details_title: Detalls del comentari
         loading: Carregant els comentaris ...
-        single_comment_warning: 'Pots revisar la resta de comentaris a: <a href="%{url}">here</a>.'
+        single_comment_warning: Pots revisar la resta de comentaris <a href="%{url}">aquí</a>.
         single_comment_warning_title: Estàs veient un sol comentari
         title: "%{count} comentaris"
       down_vote_button:
