@@ -92,6 +92,7 @@ ja:
         new:
           back: 戻る
           create: 作成
+          select_a_category: カテゴリを選択してください
           title: 新しい議論
       last_activity:
         new_debate_at_html: "<span> %{link}での新しいディベート</span>"
