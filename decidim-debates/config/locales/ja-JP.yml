@@ -92,6 +92,8 @@ ja:
           filter: フィルター
           filter_by: フィルター
           unfold: 展開する
+        form:
+          select_a_category: カテゴリを選択してください
         index:
           new_debate: 新しい議論
         new:
