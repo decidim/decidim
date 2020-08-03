@@ -111,6 +111,9 @@ ja:
           new:
             error: お客様のアカウントを確認できませんでした。また、組織のセンサスに入っていない場合もあります。
             success: アカウントが正常に認証されました。
+      dummy_authorization:
+        extra_explanation:
+          other: '参加者は次の郵便番号のいずれかを持つ参加者に制限されています: %{postal_codes}.'
       id_documents:
         admin:
           config:
