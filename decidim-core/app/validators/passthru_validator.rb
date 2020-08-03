@@ -74,6 +74,9 @@ class PassthruValidator < ActiveModel::EachValidator
         options[:with] || {}
       end
     end
+    instance_attributes.each do |key, val|
+      instance_attributes[key] = val.call(record) if val.respond_to?(:call)
+    end
 
     target_class.new(instance_attributes)
   end
