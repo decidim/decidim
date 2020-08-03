@@ -1,1 +1,32 @@
 sl:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Status
+        decidim_category_id: Kategorija
+        description: Opis
+        progress: Napredek
+        title: Naslov
+        updated_at: Posodobljeno
+      status:
+        description: Opis
+        key: Ključ
+        name: Ime
+        progress: Napredek
+      timeline_entry:
+        description: Opis
+        entry_date: Datum
+  decidim:
+    accountability:
+      actions:
+        destroy: Izbriši
+        edit: Uredi
+        preview: Predogled
+      admin:
+        exports:
+          results: Rezultati
+        models:
+          result:
+            name: Rezultat
+          status:
+            name: Status
