@@ -206,6 +206,9 @@ ja:
       update_draft:
         error: 修正案の更新中に問題が発生しました。
         success: 修正の下書きが正常に更新されました。
+      visibility_options:
+        all: 修正内容はすべての人に表示されます
+        participants: 修正内容は著者にのみ表示されます
       withdraw:
         error: 修正の撤回中にエラーが発生しました
         success: 修正は正常に撤回されました
@@ -1007,6 +1010,8 @@ ja:
         close_window: ウィンドウを閉じる
         share: 共有
         share_link: リンクを共有
+      version_author:
+        deleted: 削除された参加者
     user_activity:
       index:
         no_activities_warning: この参加者はまだアクティビティを行っていません。
