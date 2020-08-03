@@ -107,11 +107,14 @@ ja:
           tos_agreement: 参加することにより、利用規約に同意します。
       step_navigation:
         show:
+          are_you_sure: この操作は元に戻すことができず、回答を編集することはできません。よろしいですか？
           back: 戻る
           continue: 続ける
+          submit: 送信
       user_answers_serializer:
         created_at: 回答日時
         id: 回答ID
+        ip_hash: IPハッシュ
         registered: 登録済み
         unregistered: 未登録
         user_status: ユーザーの状態
