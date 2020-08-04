@@ -6,6 +6,8 @@ module Decidim
     class ElectionsController < Decidim::Elections::ApplicationController
       include FilterResource
       include Paginable
+      include Orderable
+      include Decidim::Elections::Orderable
 
       helper_method :elections, :election, :paginated_elections
 
@@ -17,6 +19,7 @@ module Decidim
 
       def elections
         @elections ||= paginate(search.results)
+        @elections = reorder(@elections)
       end
 
       def election
