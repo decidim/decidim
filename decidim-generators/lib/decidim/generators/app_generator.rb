@@ -190,6 +190,14 @@ module Decidim
                   "config.pdf_signature_service = \"Decidim::Initiatives::PdfSignatureExample\""
       end
 
+      def machine_translation_service
+        return unless options[:demo]
+
+        gsub_file "config/initializers/decidim.rb",
+                  /# config.machine_translation_service = \"MyTranslationService\"/,
+                  "config.machine_translation_service = 'Decidim::Dev::DummyTranslator'"
+      end
+
       def install
         Decidim::Generators::InstallGenerator.start(
           [

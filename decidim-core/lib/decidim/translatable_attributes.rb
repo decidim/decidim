@@ -67,6 +67,7 @@ module Decidim
         organization_locale = organization.try(:default_locale)
 
         attribute[I18n.locale.to_s].presence ||
+          attribute.dig("machine_translations", I18n.locale.to_s).presence ||
           attribute[organization_locale].presence ||
           attribute[attribute.keys.first].presence ||
           ""
