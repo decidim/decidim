@@ -179,6 +179,10 @@ en:
             answers: Answers
             max_selections: Max. selections
             title: Title
+      orders:
+        label: Order elections by
+        older: Older
+        recent: Recent
       votes:
         confirm:
           answer: Answer
