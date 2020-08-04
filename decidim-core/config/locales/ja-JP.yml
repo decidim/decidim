@@ -136,6 +136,8 @@ ja:
         reject: "%{user_name} が %{resource_name} グループの確認を拒否しました"
         verify: "%{user_name} がグループ %{resource_name} を確認しました"
         verify_via_csv: "%{user_name} がCSVファイルを介してグループ %{resource_name} を確認しました"
+    admin_terms_of_use:
+      default_body: "<h2>管理者向け利用規約</h2><p>システム管理者からレクチャーを受けたと思います。通常、以下の3つのことに集約されます。</p><ol><li>他社のプライバシーを尊重する</li><li>クリックする前に考える</li><li>大きな力には大きな責任が伴う</li></ol>"
     amendments:
       accepted:
         error: 修正を承認中にエラーが発生しました。
