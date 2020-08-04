@@ -309,6 +309,12 @@ module Decidim
     # "MyPDFSignatureService"
   end
 
+  # The name of the class to translate user content.
+  #
+  config_accessor :machine_translation_service do
+    # "MyTranslationService"
+  end
+
   # The Decidim::Exporters::CSV's default column separator
   config_accessor :default_csv_col_sep do
     ";"
