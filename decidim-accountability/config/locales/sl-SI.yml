@@ -51,6 +51,8 @@ sl:
         results:
           create:
             success: Rezultati uspešno ustvarjeni
+          index:
+            title: Rezultati
         shared:
           subnav:
             statuses: Statusi
