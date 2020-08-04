@@ -51,12 +51,17 @@ sl:
         results:
           create:
             success: Rezultati uspešno ustvarjeni
+        shared:
+          subnav:
+            statuses: Statusi
         statuses:
           create:
             success: Status uspešno ustvarjen
           edit:
             title: Uredi status
             update: Posodobi status
+          index:
+            title: Statusi
         timeline_entries:
           create:
             success: Vnos uspešno ustvarjen
@@ -70,14 +75,53 @@ sl:
       admin_log:
         result:
           create: "%{user_name} ustvaril(a) %{resource_name} v %{space_name}"
+      import_mailer:
+        import:
+          errors: Napake
+          row_number: Vrsta
       models:
+        result:
+          fields:
+            end_date: Končni datum
+            progress: Napredek
+            start_date: Začetni datum
+            status: Status
+            title: Naslov
+        status:
+          fields:
+            description: Opis
+            key: Ključ
+            name: Ime
+            progress: Napredek
         timeline_entry:
           fields:
             description: Opis
             entry_date: Datum
       results:
+        filters:
+          all: Vsi
+        home:
+          categories_label: Kategorije
+          subcategories_label: Podkategorije
         search:
           search: Išči dejanja
         show:
           stats:
             last_edited_by: Nazadnje uredil(a) {0}, {1}
+    components:
+      accountability:
+        settings:
+          global:
+            intro: Predstavitev
+    metrics:
+      results:
+        description: Število ustvarjenih rezultatov
+        object: rezultati
+        title: Rezultati
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Rezultati
+    resource_links:
+      included_proposals:
+        result_proposal: Predlogi, vključeni v rezultat
