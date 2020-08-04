@@ -3,6 +3,8 @@ ja:
     attributes:
       account:
         delete_reason: アカウントを削除する理由
+      common:
+        created_at: 作成日時
       group:
         about: About
         avatar: アバター
@@ -68,6 +70,7 @@ ja:
       decidim_with_month_name_short: "%d %b"
   decidim:
     accessibility:
+      external_link: 外部リンク
       logo: "%{organization}の公式ロゴ"
       skip_button: メインコンテンツにスキップ
     account:
@@ -144,6 +147,10 @@ ja:
         reject: "%{user_name} が %{resource_name} グループの確認を拒否しました"
         verify: "%{user_name} がグループ %{resource_name} を確認しました"
         verify_via_csv: "%{user_name} がCSVファイルを介してグループ %{resource_name} を確認しました"
+    admin_terms_of_use:
+      default_body: "<h2>管理者向け利用規約</h2><p>システム管理者からレクチャーを受けたと思います。通常、以下の3つのことに集約されます。</p><ol><li>他社のプライバシーを尊重する</li><li>クリックする前に考える</li><li>大きな力には大きな責任が伴う</li></ol>"
+    alert:
+      dismiss: 通知を消去
     amendments:
       accepted:
         error: 修正を承認中にエラーが発生しました。
@@ -265,6 +272,7 @@ ja:
           foo: Foo
         name: Foo authorization
       granted_at: '%{timestamp} で付与されます'
+      renew: 検証を更新する
       sms:
         explanation: 身分証を確認するために、携帯電話番号を提出してください。
         name: SMSによるコード
@@ -299,6 +307,8 @@ ja:
           explanation_html: この操作を行うには、承認が必要です。その前に、メールアドレス <strong>%{email}</strong> を確認する必要があります。
           request_confirmation_instructions: 確認手順をリクエストする
           title: メールアドレスを確認してください
+      show:
+        close_modal: ウィンドウを閉じる
     collapsible_list:
       hidden_elements_count:
         other: 他 %{count} 名
