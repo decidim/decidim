@@ -129,6 +129,7 @@ ja:
           email_intro: '%{participatory_space_title}で新しいディベートを開始できます! このページに参加してください:'
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
           email_subject: ディベートは %{participatory_space_title} で利用可能になりました
+          notification_title: <a href="%{participatory_space_url}">%{participatory_space_title}</a> 内で <a href="%{resource_path}">新しい討論</a> を開始できます。
     gamification:
       badges:
         commented_debates:
