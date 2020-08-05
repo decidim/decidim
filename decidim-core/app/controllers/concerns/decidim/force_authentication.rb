@@ -22,7 +22,7 @@ module Decidim
       # Next stop: Let's check whether auth is ok
       unless user_signed_in?
         flash[:warning] = t("actions.login_before_access", scope: "decidim.core")
-        store_location_for(:user, request.path)
+        store_current_location
         return redirect_to decidim.new_user_session_path
       end
     end
