@@ -428,6 +428,11 @@ cs:
           unfold: Rozvinout
         index_header:
           new_initiative: Nová iniciativa
+          not_authorized:
+            authorizations_page: Zobrazit autorizace
+            close: Zavřít
+            explanation: Musíte být ověřen, abyste mohli vytvořit novou iniciativu.
+            title: Vyžadována autorizace
         interactions:
           comments_count:
             count:
