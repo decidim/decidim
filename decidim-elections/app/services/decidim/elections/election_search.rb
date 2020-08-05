@@ -15,8 +15,8 @@ module Decidim
       # Handle the search_text filter
       def search_search_text
         query
-          .where(localized_search_text_in(:title), text: "%#{search_text}%")
-          .or(query.where(localized_search_text_in(:description), text: "%#{search_text}%"))
+          .where("decidim_elections_elections.title::text ILIKE ?", "%#{search_text}%")
+          .or(query.where("decidim_elections_elections.description::text ILIKE ?", "%#{search_text}%"))
       end
 
       # Handle the state filter
