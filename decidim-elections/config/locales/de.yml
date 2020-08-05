@@ -140,7 +140,7 @@ de:
             one: "%{count} Wahl"
             other: "%{count} Wahlen"
         show:
-          back: Aktuelle Wahlen
+          back: Alle Wahlen
           preview: Vorschau
           vote: Stimmen
           voting_period_status:
@@ -196,6 +196,10 @@ de:
           more_information: Weitere Informationen
           preview_alert: Dies ist eine Vorschau des Abstimmungsstandes.
           question_steps: Frage %{current_step} von %{total_steps}
+          selections: "%{selected} von %{max_selections}<br> ausgewählt"
+        voting_step:
+          back: Zurück
+          continue: Weiter
     events:
       elections:
         election_published:
@@ -206,3 +210,7 @@ de:
     participatory_processes:
       statistics:
         elections_count: Wahlen
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Beenden
