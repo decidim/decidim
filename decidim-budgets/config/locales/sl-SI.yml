@@ -1,1 +1,10 @@
 sl:
+  activemodel:
+    attributes:
+      project:
+        budget: Proračun
+  decidim:
+    budgets:
+      projects:
+        project:
+          add: Dodaj
