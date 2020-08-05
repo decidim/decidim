@@ -1,4 +1,8 @@
 sl:
+  activemodel:
+    attributes:
+      group:
+        email: Email
   decidim:
     amendments:
       wizard_step_form:
@@ -7,3 +11,7 @@ sl:
           '2': Compare your amendment
           '3': Complete your amendment
           '4': Publish your amendment
+    pages:
+      home:
+        extended:
+          more_info: Več informacij
