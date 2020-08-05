@@ -419,7 +419,9 @@ fi:
         index_header:
           new_initiative: Uusi aloite
           not_authorized:
+            authorizations_page: Näytä autorisoinnit
             close: Sulje
+            title: Autorisaatio vaaditaan
         interactions:
           comments_count:
             count:
