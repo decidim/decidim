@@ -47,6 +47,8 @@ sl:
             success: Rezultati uspešno ustvarjeni
           index:
             title: Rezultati
+          proposals:
+            close: Zapri
         shared:
           subnav:
             statuses: Statusi
