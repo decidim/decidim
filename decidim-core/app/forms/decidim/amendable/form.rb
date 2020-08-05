@@ -48,28 +48,28 @@ module Decidim
       def amendable_form_must_be_valid
         parse_hashtaggable_params
 
-        original_form.validate unless defined?(@amendable_form)
-        amendable_form.validate unless defined?(@amendable_form)
-        errors = flatten_errors(amendable_form.errors.details) - flatten_errors(original_form.errors.details)
+        original_form.validate unless defined?(@amendable_form) # Preserves previously added errors.
+        amendable_form.validate unless defined?(@amendable_form) # Preserves previously added errors.
+
+        compare_amendable_form_errors(@amendable_form.errors.dup) if @original_form.errors.details.count.positive?
+
+        @errors = @amendable_form.errors
+      end
+
+      # Compare the amendable_form errors and original_form errors
+      # amendable_form errors are duplicated in argument and erased.
+      # Then it compares the difference between the original_form and amendable_form. If amendable_form add more errors than original, error is store in amendable_form errors.
+      #
+      # Params: amendable_form_errors => Duplicated @amendable_form.errors
+      # Returns nil
+      def compare_amendable_form_errors(amendable_form_errors)
         @amendable_form.errors.clear
-        add_errors(errors)
+        @original_form.errors.details.keys.each do |key|
+          errors = amendable_form_errors.details[key] - @original_form.errors.details[key]
 
-        @errors = amendable_form.errors
-      end
-
-      def flatten_errors(form_errors)
-        form_errors.flat_map do |attribute, errors|
-          errors.map do |error|
-            error.flat_map { |_, value| [attribute, value] }
+          errors.map do |hash|
+            @amendable_form.errors.add(key, hash[:error]) unless @amendable_form.errors.details[key].include? error: hash[:error]
           end
-        end
-      end
-
-      def add_errors(errors)
-        errors.each do |attribute, error|
-          next if amendable_form.errors.details[attribute].include? error: error
-
-          amendable_form.errors.add(attribute, error)
         end
       end
 
@@ -83,6 +83,12 @@ module Decidim
         end
       end
 
+      # Returns an instance of the Form Object class defined in Decidim::Amendable#amendable_form
+      # constructed with the :emendation_params.
+      def amendable_form
+        @amendable_form ||= amendable.amendable_form.from_params(emendation_params).with_context(form_context)
+      end
+
       def original_form
         @original_form ||= amendable
                            .amendable_form
@@ -91,12 +97,6 @@ module Decidim
                              current_component: amendable.component,
                              current_participatory_space: amendable.participatory_space
                            )
-      end
-
-      # Returns an instance of the Form Object class defined in Decidim::Amendable#amendable_form
-      # constructed with the :emendation_params.
-      def amendable_form
-        @amendable_form ||= amendable.amendable_form.from_params(emendation_params).with_context(form_context)
       end
 
       # Returns the amendable fields keys as String.
