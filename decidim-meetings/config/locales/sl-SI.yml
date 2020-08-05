@@ -1,1 +1,10 @@
 sl:
+  activemodel:
+    attributes:
+      agenda:
+        description: Opis
+  decidim:
+    meetings:
+      meetings:
+        filters:
+          category_prompt: Izberi kategorijo
