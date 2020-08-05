@@ -362,6 +362,11 @@
           unfold: Åpne
         index_header:
           new_initiative: Nytt initiativ
+          not_authorized:
+            authorizations_page: Vis godkjennelser
+            close: Lukk
+            explanation: Du må verifiseres for å opprette et nytt initiativ.
+            title: Autorisasjon kreves
         interactions:
           comments_count:
             count:
