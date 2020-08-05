@@ -49,8 +49,8 @@ it:
   activerecord:
     models:
       decidim/initiative:
-        one: Initative
-        other: Interventi a favore
+        one: Iniziativa
+        other: Iniziative
       decidim/initiative_comittee:
         one: Comitato di
         other: COMITATI
