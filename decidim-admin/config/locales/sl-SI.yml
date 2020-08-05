@@ -91,3 +91,7 @@ sl:
         permissions: Dovoljenja
         reject: Zavrni
         verify: Preveri
+      organization_appearance:
+        form:
+          colors:
+            colors_title: Barve organizacije
