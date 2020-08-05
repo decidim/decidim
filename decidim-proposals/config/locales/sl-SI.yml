@@ -1,1 +1,10 @@
 sl:
+  activemodel:
+    attributes:
+      collaborative_draft:
+        address: Naslov
+  decidim:
+    proposals:
+      proposal_endorsements:
+        identities:
+          done: Opravljeno
