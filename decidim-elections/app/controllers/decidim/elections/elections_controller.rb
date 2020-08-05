@@ -11,6 +11,10 @@ module Decidim
 
       helper_method :elections, :election, :paginated_elections
 
+      def index
+        redirect_to election_path(single) if single?
+      end
+
       def show
         enforce_permission_to :view, :election, election: election
       end
@@ -26,6 +30,17 @@ module Decidim
         @election ||= Election.where(component: current_component).find(params[:id])
       end
 
+      # Public: Checks if the component has only one election resource.
+      #
+      # Returns Boolean.
+      def single?
+        Election.where(component: current_component).one?
+      end
+
+      def single
+        elections.first if single?
+      end
+
       def paginated_elections
         @paginated_elections ||= paginate(elections.published)
       end
@@ -39,6 +54,10 @@ module Decidim
           search_text: "",
           state: %w(active)
         }
+      end
+
+      def context_params
+        { component: current_component, organization: current_organization }
       end
     end
   end

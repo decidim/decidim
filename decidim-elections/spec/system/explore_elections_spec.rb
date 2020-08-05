@@ -12,12 +12,31 @@ describe "Explore elections", :slow, type: :system do
   end
 
   describe "index" do
-    it "shows all elections for the given process" do
-      visit_component
-      expect(page).to have_selector(".card--election", count: elections_count)
+    context "with only one election" do
+      let(:user) { create(:user, :confirmed, organization: component.organization) }
+      let!(:single_elections) { create_list(:election, 1, :complete, :published, :ongoing, component: component) }
 
-      elections.each do |election|
-        expect(page).to have_content(translated(election.title))
+      before do
+        Decidim::Elections::Election.destroy_all
+        login_as user, scope: :user
+      end
+
+      it "redirects to the only election" do
+        visit_component
+
+        expect(page).to have_content("Voting ends on")
+        expect(page).not_to have_content("All elections")
+      end
+    end
+
+    context "with many elections" do
+      it "shows all elections for the given process" do
+        visit_component
+        expect(page).to have_selector(".card--election", count: elections_count)
+
+        elections.each do |election|
+          expect(page).to have_content(translated(election.title))
+        end
       end
     end
 
