@@ -1,5 +1,6 @@
 <% add_decidim_page_title(t("authorizations", scope: "layouts.decidim.user_profile")) %>
 <% content_for(:subtitle) { t("authorizations", scope: "layouts.decidim.user_profile") } %>
+<% url_params = (redirect_url.present? ? { redirect_url: redirect_url } : {}) %>
 
 <div class="row column authorizations-list">
   <section class="section">
@@ -7,7 +8,7 @@
       <div class="card card--list">
         <% @granted_authorizations.each do |authorization| %>
           <% if authorization.expired? %>
-            <%= link_to authorization_method(authorization).root_path, title: t(".expired_verification"), class: "card--list__item" do %>
+            <%= link_to authorization_method(authorization).root_path(url_params), title: t(".expired_verification"), class: "card--list__item" do %>
               <% render partial: "granted_authorization", locals: { authorization: authorization } %>
             <% end %>
           <% elsif authorization.renewable? %>
@@ -28,7 +29,7 @@
     <% if @pending_authorizations.any? %>
       <div class="card card--list">
         <% @pending_authorizations.each do |authorization| %>
-          <%= link_to authorization_method(authorization).resume_authorization_path do %>
+          <%= link_to authorization_method(authorization).resume_authorization_path(url_params) do %>
             <div class="card--list__item">
               <div class="card--list__text">
                 <%= icon "reload", class: "card--list__icon", aria_label: t(".pending_verification"), role: "img" %>
@@ -55,7 +56,7 @@
     <% if unauthorized_methods.any? %>
       <div class="card card--list">
         <% unauthorized_methods.each do |unauthorized_method| %>
-          <%= link_to unauthorized_method.root_path do %>
+          <%= link_to unauthorized_method.root_path(url_params) do %>
             <div class="card--list__item">
               <div class="card--list__text">
                 <%= icon "lock-unlocked", class: "card--list__icon", aria_label: t(".unauthorized_verification"), role: "img" %>
