@@ -11,3 +11,5 @@ sl:
           '2': Compare your amendment
           '3': Complete your amendment
           '4': Publish your amendment
+  locale:
+    name: Slovenščina
