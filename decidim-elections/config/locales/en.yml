@@ -137,8 +137,13 @@ en:
           publish: "%{user_name} published the %{resource_name} election"
           unpublish: "%{user_name} unpublished the %{resource_name} election"
       election_m:
+        end_date: Ends
         footer:
-          take_part: Take part
+          take_part: Vote
+        label:
+          date: Dates
+        start_date: Starts
+        unspecified: Not specified
       elections:
         count:
           elections_count:
