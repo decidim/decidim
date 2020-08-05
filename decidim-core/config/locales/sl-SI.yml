@@ -1,4 +1,8 @@
 sl:
+  activemodel:
+    attributes:
+      group:
+        email: Email
   decidim:
     amendments:
       wizard_step_form:
