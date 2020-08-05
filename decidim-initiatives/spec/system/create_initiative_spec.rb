@@ -3,8 +3,10 @@
 require "spec_helper"
 
 describe "Initiative", type: :system do
-  let(:organization) { create(:organization) }
-  let(:authorized_user) { create(:user, :confirmed, organization: organization) }
+  let(:organization) { create :organization, available_authorizations: ["dummy_authorization_handler"] }
+  let!(:authorized_user) { create(:user, :confirmed, organization: organization) }
+  let!(:authorization) { create(:authorization, user: authorized_user) }
+  let(:login) { true }
 
   shared_examples "initiatives path redirection" do
     it "redirects to initiatives path" do
@@ -16,31 +18,77 @@ describe "Initiative", type: :system do
     end
   end
 
-  context "when access to functionality" do
-    before do
-      switch_to_host(organization.host)
+  before do
+    switch_to_host(organization.host)
+    login_as(authorized_user, scope: :user) if authorized_user && login
+    visit decidim_initiatives.initiatives_path
+  end
 
-      create(:authorization, user: authorized_user)
-      login_as authorized_user, scope: :user
+  describe "create initiative verification" do
+    context "when the user is logged in" do
+      context "and they're verified" do
+        it "they are taken to the initiative form" do
+          click_link "New initiative"
+          expect(page).to have_content("Which initiative do you want to launch")
+        end
+      end
 
-      visit decidim_initiatives.initiatives_path
+      context "and they aren't verified" do
+        let(:authorization) {}
+
+        it "they need to verify" do
+          click_button "New initiative"
+          expect(page).to have_content("Authorization required")
+        end
+
+        it "they are redirected to the initiative form after verifying" do
+          click_button "New initiative"
+          click_link "View authorizations"
+          click_link "Example authorization"
+          fill_in "Document number", with: "123456789X"
+          click_button "Send"
+          expect(page).to have_content("Which initiative do you want to launch")
+        end
+      end
     end
 
-    it "Initiatives page contains a create initiative button" do
-      expect(page).to have_content("New initiative")
+    context "when they aren't logged in" do
+      let(:login) { false }
+
+      it "they need to login in" do
+        click_button "New initiative"
+        expect(page).to have_content("Please sign in")
+      end
+
+      context "when they are verified" do
+        it "they are redirected to the initiative form after log in" do
+          click_button "New initiative"
+          fill_in "Email", with: authorized_user.email
+          fill_in "Password", with: "password1234"
+          click_button "Log in"
+
+          expect(page).to have_content("Which initiative do you want to launch")
+        end
+      end
+
+      context "when they aren't verified" do
+        before do
+          Decidim::Authorization.delete_all
+        end
+
+        it "they are shown an error" do
+          click_button "New initiative"
+          fill_in "Email", with: authorized_user.email
+          fill_in "Password", with: "password1234"
+          click_button "Log in"
+
+          expect(page).to have_content("You are not authorized to perform this action")
+        end
+      end
     end
   end
 
-  context "when creates an initiative" do
-    before do
-      switch_to_host(organization.host)
-
-      create(:authorization, user: authorized_user)
-      login_as authorized_user, scope: :user
-
-      visit decidim_initiatives.initiatives_path
-    end
-
+  describe "creating an initiative" do
     context "without validation" do
       let(:initiative_type_minimum_committee_members) { 2 }
       let(:signature_type) { "any" }
@@ -57,11 +105,7 @@ describe "Initiative", type: :system do
       let!(:other_initiative_type_scope) { create(:initiatives_type_scope, type: initiative_type) }
 
       before do
-        switch_to_host(organization.host)
-        create(:authorization, user: authorized_user)
-        login_as authorized_user, scope: :user
-
-        visit decidim_initiatives.create_initiative_path(id: :select_initiative_type)
+        click_link "New initiative"
       end
 
       context "and select initiative type" do
