@@ -1,1 +1,10 @@
 sl:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Kategorija
+  decidim:
+    debates:
+      debates:
+        new:
+          select_a_category: Prosim izberi kategorijo
