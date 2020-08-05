@@ -418,6 +418,8 @@ fi:
           unfold: Avaa
         index_header:
           new_initiative: Uusi aloite
+          not_authorized:
+            close: Sulje
         interactions:
           comments_count:
             count:
