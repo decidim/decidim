@@ -185,6 +185,7 @@
           global:
             categories_label: Navn på "Kategorier"
             comments_enabled: Kommentarer aktivert
+            comments_max_length: Maks lengde på kommentarer (Sett 0 for standardverdi)
             display_progress_enabled: Vis fremgang
             heading_leaf_level_results: Navn på "Prosjekter"
             heading_parent_level_results: Navn på "Resultater"
@@ -213,6 +214,9 @@
       participatory_process_groups:
         highlighted_results:
           results: Resultater
+    participatory_spaces:
+      highlighted_results:
+        see_all: Se alle resultater (%{count})
     resource_links:
       included_projects:
         result_project: Prosjekter inkludert i dette resultatet
