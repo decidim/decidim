@@ -213,6 +213,9 @@
       participatory_process_groups:
         highlighted_results:
           results: Resultater
+    participatory_spaces:
+      highlighted_results:
+        see_all: Se alle resultater (%{count})
     resource_links:
       included_projects:
         result_project: Prosjekter inkludert i dette resultatet
