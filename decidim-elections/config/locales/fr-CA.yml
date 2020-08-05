@@ -34,12 +34,10 @@ fr-CA:
         one: Question
         other: Questions
   decidim:
-    admin_log:
-      election:
-        publish: "%{user_name} a publié l'élection %{resource_name}"
-        unpublish: "%{user_name} a dépublié l'élection %{resource_name}"
     components:
       elections:
+        actions:
+          vote: Voter
         name: Élections
         settings:
           global:

@@ -124,16 +124,11 @@ ro:
           most_voted: Cele mai votate
           random: Ordine aleatorie
         project:
-          add: Adăugare
           count:
             one: 1 suport
             few: "%{count} acceptă"
             other: "%{count} acceptă"
-          remove: Elimină
           view: Vizualizare
-        project_budget_button:
-          add: Adăugare
-          added: Adăugat
         show:
           budget: Buget
           view_all_projects: Vezi toate proiectele

@@ -20,6 +20,7 @@ es:
         settings:
           global:
             announcement: Aviso
+            clean_after_publish: Borrar respuestas al publicar la encuesta
           step:
             allow_answers: Permitir respuestas
             allow_unregistered: Permitir a las usuarias no registradas responder a la encuesta

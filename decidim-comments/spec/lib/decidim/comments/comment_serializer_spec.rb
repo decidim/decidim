@@ -18,7 +18,11 @@ module Decidim
         end
 
         it "includes the body" do
-          expect(subject.serialize).to include(body: comment.body)
+          expect(subject.serialize).to include(body: comment.body.values.first)
+        end
+
+        it "includes the body locale" do
+          expect(subject.serialize).to include(locale: comment.body.keys.first)
         end
 
         it "includes the author" do

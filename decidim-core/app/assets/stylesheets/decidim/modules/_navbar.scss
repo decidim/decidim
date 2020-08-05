@@ -14,6 +14,13 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
 
 .navbar{
   background: $navbar-bg;
+
+  a,
+  .button{
+    &:focus{
+      outline-color: var(--highlight-alternative);
+    }
+  }
 }
 
 /* Title bar */
@@ -26,29 +33,17 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
   }
 
   .skip{
-    left: -999px;
-    position: absolute;
-    top: auto;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    z-index: -999;
+    @include skip-button;
 
-    &:focus,
-    &:active{
-      background-color: $primary;
-      color: $white;
-      left: 0;
-      top: 0;
-      width: auto;
-      height: auto;
-      overflow: auto;
-      margin: 10px;
-      padding: 5px;
-      font-size: 1.4em;
-      z-index: 999;
-      outline: none;
-      position: absolute;
+    &:focus{
+      outline-color: var(--highlight-alternative);
+    }
+  }
+
+  a,
+  .button{
+    &:focus{
+      outline-color: var(--highlight-alternative);
     }
   }
 }
@@ -78,21 +73,24 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
 
 .topbar__search{
   position: relative;
+  max-width: 220px; // Safari fix
 
   input{
     color: $navbar-color-hover;
-    border: 0;
+    border-color: transparent;
     box-shadow: none;
     background: $navbar-active-bg;
     margin-top: 8px;
     display: inline-block;
     border-radius: 4px 0 0 4px;
+    transition: .3s all;
+    height: 2.5rem; //matches input group button height
 
     &:focus{
       color: $navbar-color-hover;
       box-shadow: none;
       background: $navbar-active-bg;
-      outline: 2px solid $primary;
+      outline-color: var(--highlight-alternative);
     }
 
     @include breakpoint(medium){
@@ -100,35 +98,68 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
     }
   }
 
-  svg{
-    color: $primary;
+  .input-group-button{
+    position: relative;
+    height: 1px; // Fix for Safari and Firefox
+    vertical-align: top;
+  }
+
+  // Fix for Safari and Firefox
+  .button-wrapper{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 
   button{
-    width: 100%;
-    height: 100%;
-    padding: 5px;
-    cursor: pointer;
-    border: 2px solid $primary;
-    border-radius: 0 4px 4px 0;
-    background-color: $navbar-bg;
+    padding: 5px 10px;
+    border-radius: 0 $button-radius $button-radius 0;
+    transition: .3s all;
   }
 
   form:first-child{
     display: inline-flex;
   }
 
-  button:hover,
-  button:focus{
-    background-color: $secondary;
-    transition: .6s;
-    border-color: $secondary;
-    text-decoration: underline;
-    outline: none;
+  .input-group{
+    margin-bottom: 0;
+  }
 
-    svg{
-      color: white;
+  &:not(:focus-within){
+    button{
+      background-color: $navbar-active-bg;
+      color: rgba(white, .5);
+
+      @include breakpoint(medium){
+        background: $navbar-bg;
+      }
     }
+  }
+
+  &:focus-within{
+    input{
+      background-color: $light-gray;
+      color: $body-font-color;
+      border: 0;
+
+      &::placeholder{
+        color: $dark-medium-gray;
+      }
+    }
+  }
+}
+
+// Hack to fix the top bar display for IE11
+// This cannot be applied to other browsers as the focus borders would be
+// invisible if overflow is hidden on the search element.
+@media all and (-ms-high-contrast: none){
+  *::-ms-backdrop,
+  .topbar__search{
+    overflow: hidden;
   }
 }
 
@@ -137,20 +168,23 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
+  // Fix for Safari
+  > div{
+    flex: 0 0 auto;
+    display: flex;
+
+    &.logo-wrapper{
+      flex: 1 0 auto;
+    }
+  }
 }
 
 .logo-wrapper{
-  display: inline-block;
   line-height: 0;
-  flex-grow: 1;
 
   a{
     display: inline-block;
-
-    &:focus{
-      background-color: $primary;
-      outline: none;
-    }
   }
 
   img{
@@ -171,6 +205,7 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
   margin-left: 2rem;
 
   .dropdown > li > a{
+    background: transparent;
     padding-left: 0;
   }
 
@@ -216,7 +251,7 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
     }
 
     li{
-      padding: $global-padding  / 2;
+      padding: $global-padding / 2;
 
       a{
         padding: .5rem;
@@ -267,10 +302,6 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
     text-decoration: underline;
   }
 
-  &:focus{
-    outline: 2px solid $primary;
-  }
-
   &::after{
     margin-top: -1px !important;
     border-top-color: $medium-gray !important;
@@ -318,17 +349,26 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
   padding-right: 2.5rem;
   display: none;
 
+  // hide caret down
+  .dropdown.menu > li.is-dropdown-submenu-parent > a::after{
+    display: none;
+  }
+
   @include breakpoint(medium){
     display: block;
+
+    .dropdown.menu > li.is-dropdown-submenu-parent > a::after{
+      display: block;
+
+      &:hover,
+      &:focus{
+        text-decoration: underline;
+      }
+    }
   }
 
   @media (min-width: (1300 / 16) + em){
     padding-right: 0;
-  }
-
-  // hide caret down
-  .dropdown.menu > li.is-dropdown-submenu-parent > a::after{
-    display: none;
   }
 }
 
@@ -401,12 +441,12 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
     color: $medium-gray;
     font-weight: 600;
 
-    &:hover{
-      text-decoration: underline;
+    @include breakpoint(medium){
+      margin-left: 1rem;
     }
 
-    &:focus{
-      outline: 2px solid $primary;
+    &:hover{
+      text-decoration: underline;
     }
   }
 
@@ -419,10 +459,20 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
     height: 2px;
     border-left: $border;
     vertical-align: middle;
+
+    @include breakpoint(medium){
+      display: none;
+    }
   }
 
-  a:first-of-type::before{
-    display: none;
+  a:first-of-type{
+    @include breakpoint(medium){
+      margin-left: 0;
+    }
+
+    &::before{
+      display: none;
+    }
   }
 }
 
@@ -489,10 +539,10 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
 
 /* Main nav */
 .main-nav ul{
+  position: relative;
   padding: 0;
   margin: 0;
   list-style: none;
-  overflow-x: auto;
 
   @include breakpoint(medium){
     -webkit-overflow-scrolling: touch;
@@ -508,6 +558,7 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
 }
 
 .main-nav__link a{
+  position: relative;
   display: block;
   padding: 1em 2em;
   color: $navbar-color;
@@ -519,10 +570,10 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
   }
 
   &:focus{
-    background-color: $navbar-bg-focus;
+    z-index: 1;
     color: $navbar-color-hover;
     text-decoration: underline;
-    outline: none;
+    outline-offset: -2px;
   }
 
   @include breakpoint(medium){

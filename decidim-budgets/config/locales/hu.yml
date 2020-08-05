@@ -117,15 +117,10 @@ hu:
           most_voted: Legtöbb szavazattal
           random: Véletlen sorrend
         project:
-          add: Hozzáad
           count:
             one: 1 támogató
             other: "%{count} támogató"
-          remove: Eltávolítás
           view: Nézet
-        project_budget_button:
-          add: Hozzáad
-          added: Hozzáadva
         show:
           budget: Költségvetés
           view_all_projects: Összes projekt megtekintése

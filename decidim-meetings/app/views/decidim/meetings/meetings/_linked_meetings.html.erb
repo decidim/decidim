@@ -1,7 +1,7 @@
 <div class="row small-up-1 medium-up-2 card-grid">
   <% resources.each do |meeting| %>
     <div class="column">
-      <article class="card card--meeting">
+      <div class="card card--meeting">
         <div class="card__content">
           <%= link_to resource_locator(meeting).path, class: "card__link" do %>
             <h5 class="card__title"><%= present(meeting).title %></h5>
@@ -16,7 +16,7 @@
           </div>
           <%= decidim_sanitize( present(meeting).description ) %>
         </div>
-      </article>
+      </div>
     </div>
   <% end %>
 </div>

@@ -33,7 +33,10 @@ shared_examples "accept amendment" do
         .with(
           amendable,
           emendation.creator_author,
-          { body: emendation.body, title: emendation.title },
+          {
+            body: translated(emendation.body),
+            title: translated(emendation.title)
+          },
           visibility: "public-only"
         ).and_call_original
 

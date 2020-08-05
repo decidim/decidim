@@ -9,6 +9,8 @@
       <%= form.color_field :success_color, value: current_organization.colors["success"] %>
       <%= form.color_field :warning_color, value: current_organization.colors["warning"] %>
       <%= form.color_field :alert_color, value: current_organization.colors["alert"] %>
+      <%= form.color_field :highlight_color, value: current_organization.colors["highlight"] %>
+      <%= form.color_field :highlight_alternative_color, value: current_organization.colors["highlight-alternative"] %>
     </div>
 
     <% if true %>

@@ -31,8 +31,8 @@ module Decidim
             url: Decidim::ResourceLocatorPresenter.new(proposal.participatory_space).url
           },
           component: { id: component.id },
-          title: present(proposal).title,
-          body: present(proposal).body,
+          title: proposal.title,
+          body: proposal.body,
           state: proposal.state.to_s,
           reference: proposal.reference,
           answer: ensure_translatable(proposal.answer),

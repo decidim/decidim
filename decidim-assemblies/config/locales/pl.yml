@@ -238,6 +238,9 @@ pl:
             social_handlers: Społeczny
             title: Informacje ogólne
             visbility: Widoczność
+        assemblies_settings:
+          edit:
+            update: Aktualizuj
         assemblies_types:
           form:
             title: Tytuł

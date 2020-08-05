@@ -7,6 +7,7 @@ es:
         category_id: Categoría
         decidim_scope_id: Ámbito
         has_address: Tiene dirección
+        scope_id: Ámbito
         state: Estado
         title: Título
         user_group_id: Crear borrador colaborativo como
@@ -19,6 +20,7 @@ es:
         category_id: Categoría
         decidim_scope_id: Ámbito
         has_address: Tiene dirección
+        scope_id: Ámbito
         state: Estado
         suggested_hashtags: Hashtags sugeridos
         title: Título
@@ -85,7 +87,6 @@ es:
         search_placeholder:
           id_string_or_title_cont: Buscar %{collection} por ID o título.
         state_eq:
-          label: Estado
           values:
             evaluating: En evaluación
             withdrawn: Retirada
@@ -115,6 +116,7 @@ es:
             can_accumulate_supports_beyond_threshold: Puede acumular apoyos más allá del umbral
             collaborative_drafts_enabled: Borradores colaborativos habilitados
             comments_enabled: Comentarios habilitados
+            comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
             geocoding_enabled: Geocodificación habilitada
             minimum_votes_per_user: Apoyos mínimos por participante
             new_proposal_body_template: Plantilla para el texto de nueva propuesta
@@ -142,6 +144,9 @@ es:
             amendment_reaction_enabled: Reacción de enmienda activada
             amendment_reaction_enabled_help: Las autoras de la propuesta podrán aceptar o rechazar las enmiendas de otras participantes.
             amendments_visibility: Visibilidad de la enmienda
+            amendments_visibility_choices:
+              all: Las enmiendas son visibles para todos
+              participants: Las enmiendas son visibles sólo para sus autoras
             amendments_visibility_help: Si se selecciona la opción "Las enmiendas son visibles sólo para sus autoras", las participantes deberán iniciar sesión para ver las enmiendas realizadas.
             announcement: Aviso
             answers_with_costs: Habilitar coste en las respuestas a propuestas
@@ -158,6 +163,12 @@ es:
             votes_hidden: Apoyos ocultos (si los apoyos están habilitados, marcando esta opción ocultarás el número de apoyos)
     events:
       proposals:
+        admin:
+          proposal_note_created:
+            email_intro: Alguien ha dejado una nota en la propuesta "%{resource_title}". Revísala ahora a través del <a href="%{admin_proposal_info_url}">panel de administración</a>
+            email_outro: Recibes esta notificación porque puedes evaluar la propuesta.
+            email_subject: Alguien dejó una nota en la propuesta %{resource_title}.
+            notification_title: Alguien ha dejado una nota en la propuesta <a href="%{resource_path}">%{resource_title}</a>. Revísala ahora a través del <a href="%{admin_proposal_info_path}">panel de administración</a>
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} ha sido aceptado para acceder como contribuidora del borrador colaborativo de <a href="%{resource_path}">%{resource_title}</a>.'
           email_outro: Has recibido esta notificación porque eres contribuidora de <a href="%{resource_path}">%{resource_title}</a>.
@@ -629,15 +640,23 @@ es:
         update:
           error: Se ha producido un error al guardar el borrador colaborativo.
           success: Borrador colaborativo actualizado correctamente.
+          title: Editar el borrador colaborativo
         wizard_aside:
           back: Volver
+          back_from_collaborative_draft: Volver al borrador colaborativo
+          back_from_step_1: Volver al borrador colaborativo
+          back_from_step_2: Volver al borrador colaborativo
+          back_from_step_3: Volver a comparar los borradores colaborativos
+          back_from_step_4: Volver a editar borrador
           info: Estás creando un borrador colaborativo <strong></strong>.
         wizard_steps:
+          current_step: Fase actual
           see_steps: ver las fases
           step_1: Crea tu borrador colaborativo
           step_2: Comparar con borradores colaborativos
           step_3: Completa tu borrador colaborativo
           step_of: Paso %{current_step_num} de %{total_steps}
+          title: Pasos para la creación de borradores de colaborativos
       create:
         error: Se ha producido un error al guardar la propuesta.
         success: Propuesta creada correctamente. Guardada como borrador.
@@ -675,7 +694,6 @@ es:
           amend: Enmienda
           comment: Comentario
           comments: Comentarios
-          endorse: Adherirse
       proposal_votes:
         create:
           error: Se ha producido un error al apoyar la propuesta.
@@ -756,6 +774,9 @@ es:
         proposal:
           creation_date: 'Fecha de creación: %{date}'
           view_proposal: Ver propuesta
+        proposals:
+          empty: Aún no hay ninguna propuesta
+          empty_filters: No hay ninguna propuesta con este criterio
         show:
           answer: Respuesta
           back_to: Volver a
@@ -781,10 +802,12 @@ es:
           read_more: Leer más
           report: Denunciar
           withdraw_btn_hint: Puedes retirar tu propuesta si cambias de opinión, siempre que no haya recibido ningún apoyo. La propuesta no se eliminará, aparecerá en la lista de propuestas retiradas.
-          withdraw_confirmation: '¿Seguro que quieres retirar esta propuesta?'
+          withdraw_confirmation_html: '¿Seguro que quieres retirar esta propuesta?<br><br><strong>Esta acción no se puede deshacer!</strong>'
           withdraw_proposal: Retirar propuesta
         tags:
           changed_from: "(modificado desde <u>%{previous_name}</u> por una administradora)"
+        update:
+          title: Actualizar propuesta
         vote_button:
           already_voted: Ya has dado tu apoyo
           already_voted_hover: Retirar tu apoyo
@@ -816,14 +839,25 @@ es:
             votes: Apoyos
         wizard_aside:
           back: Volver
+          back_from_step_1: Volver a propuestas
+          back_from_step_2: Volver a propuestas
+          back_from_step_3: Volver a comparar propuestas
+          back_from_step_4: Volver a editar borrador
           info: Estás creando una <strong>propuesta</strong>.
         wizard_steps:
+          current_step: Paso actual
           see_steps: ver las fases
           step_1: Crear tu propuesta
           step_2: Comparar
           step_3: Completar
           step_4: Publicar tu propuesta
           step_of: Fase %{current_step_num} de %{total_steps}
+          title: Pasos de creación de una propuesta
+      proposals_picker:
+        choose_proposals: Elegir propuestas
+        close: Cerrar
+        more_proposals: Hay %{number} propuestas más. Refina tu búsqueda para localizarlas.
+        no_proposals: No hay propuestas que coincidan con tu criterio de búsqueda o no hay ninguna propuesta.
       publish:
         error: Se ha producido un error al publicar la propuesta.
         success: Propuesta publicada correctamente.

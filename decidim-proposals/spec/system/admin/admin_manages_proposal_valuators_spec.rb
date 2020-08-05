@@ -21,7 +21,7 @@ describe "Admin manages proposals valuators", type: :system do
     before do
       visit current_path
 
-      within find("tr", text: proposal.title) do
+      within find("tr", text: translated(proposal.title)) do
         page.first(".js-proposal-list-check").set(true)
       end
 
@@ -48,7 +48,7 @@ describe "Admin manages proposals valuators", type: :system do
       it "assigns the proposals to the valuator" do
         expect(page).to have_content("Proposals assigned to a valuator successfully")
 
-        within find("tr", text: proposal.title) do
+        within find("tr", text: translated(proposal.title)) do
           expect(page).to have_selector("td.valuators-count", text: 1)
         end
       end
@@ -66,17 +66,17 @@ describe "Admin manages proposals valuators", type: :system do
     end
 
     it "only shows the proposals assigned to the selected valuator" do
-      expect(page).to have_content(assigned_proposal.title)
-      expect(page).to have_content(unassigned_proposal.title)
+      expect(page).to have_content(translated(assigned_proposal.title))
+      expect(page).to have_content(translated(unassigned_proposal.title))
 
       within ".filters__section" do
-        find("a.dropdown", text: "FILTER").hover
+        find("a.dropdown", text: "Filter").hover
         find("a", text: "Assigned to valuator").hover
         find("a", text: valuator.name).click
       end
 
-      expect(page).to have_content(assigned_proposal.title)
-      expect(page).to have_no_content(unassigned_proposal.title)
+      expect(page).to have_content(translated(assigned_proposal.title))
+      expect(page).to have_no_content(translated(unassigned_proposal.title))
     end
   end
 
@@ -88,7 +88,7 @@ describe "Admin manages proposals valuators", type: :system do
 
       visit current_path
 
-      within find("tr", text: proposal.title) do
+      within find("tr", text: translated(proposal.title)) do
         page.first(".js-proposal-list-check").set(true)
       end
 
@@ -115,7 +115,7 @@ describe "Admin manages proposals valuators", type: :system do
       it "unassigns the proposals to the valuator" do
         expect(page).to have_content("Valuator unassigned from proposals successfully")
 
-        within find("tr", text: proposal.title) do
+        within find("tr", text: translated(proposal.title)) do
           expect(page).to have_selector("td.valuators-count", text: 0)
         end
       end
@@ -130,7 +130,7 @@ describe "Admin manages proposals valuators", type: :system do
 
       visit current_path
 
-      find("a", text: proposal.title).click
+      find("a", text: translated(proposal.title)).click
     end
 
     it "can unassign a valuator" do

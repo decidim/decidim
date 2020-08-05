@@ -65,10 +65,11 @@ ru:
         start_exploring: начать изучать
       dummy_authorization:
         extra_explanation:
-          one: Участие ограничено участниками с почтовым кодом %{postal_codes}.
-          few: 'Участие ограничено участниками с почтовыми кодами %{postal_codes}.'
-          many: 'Участие ограничено участниками с почтовыми кодами %{postal_codes}.'
-          other: 'Участие ограничено участниками с почтовыми кодами %{postal_codes}.'
+          postal_codes:
+            one: Участие ограничено участниками с почтовым кодом %{postal_codes}.
+            few: 'Участие ограничено участниками с почтовыми кодами %{postal_codes}.'
+            many: 'Участие ограничено участниками с почтовыми кодами %{postal_codes}.'
+            other: 'Участие ограничено участниками с почтовыми кодами %{postal_codes}.'
       id_documents:
         admin:
           confirmations:

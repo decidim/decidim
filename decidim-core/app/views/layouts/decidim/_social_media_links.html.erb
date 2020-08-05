@@ -3,7 +3,7 @@
     <% if current_organization.twitter_handler.present? %>
       <li>
         <a class="footer-social__icon" target="_blank" rel="noopener" href="https://twitter.com/<%= current_organization.twitter_handler %>">
-          <span class="show-for-sr">Twitter</span>
+          <span class="show-for-sr"><%= t("layouts.decidim.social_media_links.twitter", organization: translated_attribute(current_organization.name)) %></span>
             <%= icon "twitter", role: "img", aria_label: "Twitter" %>
         </a>
       </li>
@@ -11,7 +11,7 @@
     <% if current_organization.facebook_handler.present? %>
       <li>
         <a class="footer-social__icon" target="_blank" rel="noopener" href="https://www.facebook.com/<%= current_organization.facebook_handler %>">
-          <span class="show-for-sr">Facebook</span>
+          <span class="show-for-sr"><%= t("layouts.decidim.social_media_links.facebook", organization: translated_attribute(current_organization.name)) %></span>
             <%= icon "facebook", role: "img", aria_label: "Facebook" %>
         </a>
       </li>
@@ -19,7 +19,7 @@
     <% if current_organization.instagram_handler.present? %>
       <li>
         <a class="footer-social__icon" target="_blank" rel="noopener" href="https://www.instagram.com/<%= current_organization.instagram_handler %>">
-          <span class="show-for-sr">Instagram</span>
+          <span class="show-for-sr"><%= t("layouts.decidim.social_media_links.instagram", organization: translated_attribute(current_organization.name)) %></span>
             <%= icon "instagram", role: "img", aria_label: "Instagram" %>
         </a>
       </li>
@@ -27,7 +27,7 @@
     <% if current_organization.youtube_handler.present? %>
       <li>
         <a class="footer-social__icon" target="_blank" rel="noopener" href="https://www.youtube.com/<%= current_organization.youtube_handler %>">
-          <span class="show-for-sr">YouTube</span>
+          <span class="show-for-sr"><%= t("layouts.decidim.social_media_links.youtube", organization: translated_attribute(current_organization.name)) %></span>
             <%= icon "youtube", role: "img", aria_label: "YouTube" %>
         </a>
       </li>
@@ -35,7 +35,7 @@
     <% if current_organization.github_handler.present? %>
       <li>
         <a class="footer-social__icon" target="_blank" rel="noopener" href="https://www.github.com/<%= current_organization.github_handler %>">
-          <span class="show-for-sr">GitHub</span>
+          <span class="show-for-sr"><%= t("layouts.decidim.social_media_links.github", organization: translated_attribute(current_organization.name)) %></span>
             <%= icon "github", role: "img", aria_label: "GitHub" %>
         </a>
       </li>

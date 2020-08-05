@@ -13,7 +13,6 @@ sv:
         attachment_collection_id: Mapp
         description: Beskrivning
         file: Fil
-        title: Titel
       attachment_collection:
         description: Beskrivning
         name: Namn

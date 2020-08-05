@@ -20,7 +20,7 @@ module Decidim
               </div>
             </div>
             <div class="picker-prompt">
-              <a href="/scopes/picker?field=my_scope_input">Global scope</a>
+              <a href="/scopes/picker?field=my_scope_input" role="button" aria-label="Select a scope (currently: Global scope)">Global scope</a>
             </div>
           </div>
         HTML

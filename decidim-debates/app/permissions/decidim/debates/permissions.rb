@@ -15,6 +15,8 @@ module Decidim
           toggle_allow(can_create_debate?)
         when :report
           allow!
+        when :edit
+          toggle_allow(can_edit_debate?)
         end
 
         permission_action
@@ -25,6 +27,14 @@ module Decidim
       def can_create_debate?
         authorized?(:create) &&
           current_settings&.creation_enabled? && component.participatory_space.can_participate?(user)
+      end
+
+      def can_edit_debate?
+        allow! if debate&.editable_by?(user)
+      end
+
+      def debate
+        @debate ||= context.fetch(:debate, nil) || context.fetch(:resource, nil)
       end
     end
   end
