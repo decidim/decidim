@@ -15,3 +15,5 @@ sl:
       home:
         extended:
           more_info: Več informacij
+  locale:
+    name: Slovenščina
