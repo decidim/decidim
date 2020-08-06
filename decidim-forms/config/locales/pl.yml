@@ -58,6 +58,7 @@ pl:
           separator:
             down: Na dół
             remove: Usuń
+            separator: Separator
             up: W górę
           update:
             invalid: Podczas zapisywania kwestionariusza wystąpiły błędy.
