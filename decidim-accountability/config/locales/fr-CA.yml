@@ -212,6 +212,9 @@ fr-CA:
       participatory_process_groups:
         highlighted_results:
           results: Réalisations
+    participatory_spaces:
+      highlighted_results:
+        see_all: Voir tous les résultats (%{count})
     resource_links:
       included_projects:
         result_project: Projets inclus dans cette réalisation
