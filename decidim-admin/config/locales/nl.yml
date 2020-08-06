@@ -13,6 +13,7 @@ nl:
         attachment_collection_id: Map
         description: Beschrijving
         file: Bestand
+        title: Bijlage of afbeeldingsnaam
       attachment_collection:
         description: Beschrijving
         name: Naam
@@ -38,6 +39,7 @@ nl:
         address: SMTP Hostnaam
         alert_color: Alarm
         badges_enabled: Schakel badges in
+        comments_max_length: Commentaar maximale lengte (laat 0 voor standaard waarde)
         cta_button_path: actieknop pad
         cta_button_text: actieknop tekst
         customize_welcome_notification: Pas welkomstmelding aan
@@ -49,6 +51,8 @@ nl:
         from: Afzender van de e-mail
         github_handler: GitHub gebruikersnaam
         header_snippets: Elementen om toe te voegen tussen HTML-tags
+        highlight_alternative_color: Hoogte, alternatief
+        highlight_color: Markeren
         highlighted_content_banner_action_subtitle: Ondertitel actieknop
         highlighted_content_banner_action_title: Titel actieknop
         highlighted_content_banner_action_url: URL actieknop
@@ -143,6 +147,7 @@ nl:
         export: Exporteren
         manage: Beheer
         new: Nieuwe %{name}
+        per_page: Per pagina
         permissions: Permissies
         reject: Weigeren
         verify: Verifiëren
@@ -290,16 +295,39 @@ nl:
           welcome: Welkom bij het Decidim Admin Panel.
       exports:
         export_as: "%{name} als %{export_format}"
+        formats:
+          CSV: csv
+          Excel: Excel
+          FormPDF: PDF-bestand
+          JSON: JSON
         notice: Uw export is momenteel aan de gang. U ontvangt een email wanneer het klaar is.
       filters:
         category_id_eq:
           label: Categorie
+        filter_label: Filteren
         officialized_at_null:
           label: Staat
           values:
             'false': Gevalideerd
             'true': Niet gevalideerd
+        private_space_eq:
+          label: Privé
+          values:
+            'false': Openbaar
+            'true': Privé
+        published_at_null:
+          label: Ingediend
+          values:
+            'false': Ingediend
+            'true': Niet-gepubliceerde
+        scope_id_eq:
+          label: Bereik
         search_label: Zoeken
+        search_placeholder:
+          name_or_nickname_or_email_cont: Zoek %{collection} op e-mail, naam of bijnaam.
+          title_cont: Zoek %{collection} op titel.
+        state_eq:
+          label: Provincie
       help_sections:
         error: Er is een fout opgetreden bij het bijwerken van de Help-gedeelten
         form:
@@ -370,6 +398,9 @@ nl:
         static_pages: Pagina's
         user_groups: groepen
         users: Deelnemers
+      metrics:
+        metrics:
+          see_more_metrics: Bekijk meer statistieken
       models:
         area:
           fields:
@@ -456,6 +487,11 @@ nl:
       newsletter_templates:
         index:
           preview_template: Voorbeeld
+          title: Nieuwsbrief templates
+          use_template: Gebruik deze template
+        show:
+          preview: 'Voorbeeld sjabloon: %{template_name}'
+          use_template: Gebruik deze template
       newsletters:
         create:
           error: Er is een fout opgetreden bij het maken van deze nieuwsbrief.
@@ -546,12 +582,21 @@ nl:
           officialize: "Valideren\n"
           officialized: Gevalideerd
           reofficialize: Hervalideren
+          show_email: Toon e-mailadres
           status: status
           unofficialize: Ingetrokken
         new:
           badge: Bevestigings badge
           officialize: Bevestigen
           title: Deelnemer "%{name}" officieel maken
+        show_email_modal:
+          close_modal: Sluit venster
+          description: Als u rechtstreeks contact wilt opnemen met een deelnemer, kunt u klikken op de Toon knop om het e-mailadres te zien. Deze actie wordt geregistreerd.
+          email_address: E-mail adres
+          full_name: Volledige naam
+          hidden: hidden
+          show: Weergeven
+          title: Toon e-mailadres van gebruiker
       organization:
         edit:
           title: Organisatie bewerken
@@ -581,6 +626,7 @@ nl:
           homepage_highlighted_content_banner_title: Uitgelichte inhoudsbanner
           images:
             layout_appearance_title: Weergave van de lay-out bewerken
+            preview: Voorvertoning
           omnipresent_banner_appearance_title: Bewerk de permanente banner
       organization_homepage:
         edit:
@@ -647,6 +693,11 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze scope.
           success: Scope is succesvol bijgewerkt
+      shared:
+        gallery:
+          add_images: Afbeeldingen toevoegen
+          delete_image: Afbeelding verwijderen
+          gallery_legend: Voeg een afbeeldingsgalerij toe (optioneel)
       static_page_topics:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuw onderwerp.
@@ -698,10 +749,12 @@ nl:
         dashboard: Dashboard
         impersonatable_users: Beheersbare deelnemers
         impersonations: Beheer van deelnemers
+        metrics: Statistieken
         participants: Deelnemers
         scope_types: Scope types
         scopes: Scopes
         static_pages: Pagina's
+        statistics: Activiteit
         user_groups: groepen
         users: Deelnemers
       user_group:
@@ -750,6 +803,10 @@ nl:
       users_statistics:
         users_count:
           admins: Admins
+          last_day: Afgelopen dag
+          last_month: Vorige maand
+          last_week: Vorige week
+          no_users_count_statistics_yet: Er zijn nog geen gebruikers teller statistieken
           participants: Deelnemers
       view_public_page: Bekijk openbare pagina
     forms:
