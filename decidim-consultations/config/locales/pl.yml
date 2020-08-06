@@ -250,6 +250,8 @@ pl:
           label: 'Sortuj konsultacje według:'
           random: Losowy
           recent: Najnowszy
+        show:
+          dates: Owoce cytrusowe
       content_blocks:
         highlighted_consultations:
           name: Wyróżnione konsultacje
@@ -366,10 +368,12 @@ pl:
         verification_required: Aby zagłosować, zweryfikuj swoje konto
         vote: Głosować
       vote_modal:
+        close_modal: Zamknij modalny
         contextual_help: Proszę wybrać opcję.
         title: 'Konsultacje: wsparcie pytania'
       vote_modal_confirm:
         change: Zmiana
+        close_modal: Zamknij modalny
         confirm: Potwierdzać
         contextual_help: Potwierdź wybraną opcję.
         title: 'Konsultacje: potwierdź wsparcie'
