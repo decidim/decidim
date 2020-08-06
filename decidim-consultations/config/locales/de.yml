@@ -236,6 +236,8 @@ de:
           label: 'Sortieren Sie die Konsultationen nach:'
           random: Zufällig
           recent: Neueste
+        show:
+          dates: Daten
       content_blocks:
         highlighted_consultations:
           name: Hervorgehobene Konsultationen
@@ -346,10 +348,12 @@ de:
         verification_required: Verifizieren Sie Ihr Konto, um abstimmen zu können
         vote: Abstimmung
       vote_modal:
+        close_modal: Modal schließen
         contextual_help: Bitte wähle eine Option.
         title: 'Beratung: Frage Unterstützung'
       vote_modal_confirm:
         change: Veränderung
+        close_modal: Modal schließen
         confirm: Bestätigen
         contextual_help: Bitte bestätigen Sie die ausgewählte Option.
         title: 'Beratung: Bestätigung der Unterstützung'
