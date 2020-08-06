@@ -428,6 +428,11 @@ pl:
           unfold: Rozwijać się
         index_header:
           new_initiative: Nowa inicjatywa
+          not_authorized:
+            authorizations_page: Zobacz autoryzacje
+            close: Zamknij
+            explanation: Musisz zostać zweryfikowany, aby stworzyć nową inicjatywę.
+            title: Wymagana autoryzacja
         interactions:
           comments_count:
             count:
