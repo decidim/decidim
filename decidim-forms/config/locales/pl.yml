@@ -25,11 +25,47 @@ pl:
             description: Opis
             tos: Warunki korzystania
         questionnaires:
+          actions:
+            back: Powrót do pytań
+            show: Pokaż odpowiedzi
           answer_option:
             answer_option: Opcja odpowiedzi
             free_text: Dowolny tekst
             remove: Usunąć
             statement: Komunikat
+          answers:
+            actions:
+              back: Powrót do odpowiedzi
+              export: Eksportuj
+              show: Pokaż odpowiedzi
+            empty: Brak odpowiedzi
+            export:
+              answer:
+                title: 'Odpowiedź #%{number}'
+            export_response:
+              title: ankieta_użytkownik_odpowiedzi_%{token}
+            index:
+              title: "%{total} odpowiedzi ogółem"
+            show:
+              title: 'Odpowiedź #%{number}'
+          display_condition:
+            answer_option: Opcja odpowiedzi
+            condition_question: Pytanie
+            condition_type: Stan
+            condition_types:
+              answered: Odpowiedź
+              equal: Równy
+              match: Zawiera tekst
+              not_answered: Nie odpowiedziano
+              not_equal: Nie jest równe
+            condition_value: Zawarty tekst
+            display_condition: Stan wyświetlania
+            mandatory: Ten warunek musi być zawsze spełniony niezależnie od statusu innych warunków
+            remove: Usuń
+            save_warning: Pamiętaj, aby zapisać formularz przed skonfigurowaniem warunków wyświetlania
+            select_answer_option: Wybierz opcję odpowiedzi
+            select_condition_question: Wybierz pytanie
+            select_condition_type: Wybierz typ warunku
           edit:
             save: Zapisać
             title: Edytuj kwestionariusz
@@ -39,12 +75,17 @@ pl:
             already_answered_warning: Kwestionariusz jest już obsługiwany przez niektórych użytkowników, więc nie można modyfikować jego pytań.
             collapse: Zwiń wszystkie pytania
             expand: Rozwiń wszystkie pytania
+            preview: Podgląd
+            title: Edytuj formularz
+            unpublished_warning: Formularz nie jest opublikowany. Możesz zmienić jego pytania, ale to spowoduje usunięcie bieżących odpowiedzi.
           matrix_row:
             matrix_row: Wiersz
             remove: Usunąć
             statement: Komunikat
           question:
             add_answer_option: Dodaj opcję odpowiedzi
+            add_display_condition: Dodaj warunek wyświetlania
+            add_display_condition_info: Zapisz formularz, aby skonfigurować warunki wyświetlania
             add_matrix_row: Dodaj wiersz
             any: Każdy
             collapse: Zwiń
@@ -58,6 +99,7 @@ pl:
           separator:
             down: Na dół
             remove: Usuń
+            separator: Separator
             up: W górę
           update:
             invalid: Podczas zapisywania kwestionariusza wystąpiły błędy.
@@ -103,6 +145,11 @@ pl:
           questionnaire_for_private_users:
             body: Kwestionariusz jest dostępny tylko dla użytkowników prywatnych
             title: Ankieta została zamknięta
+          questionnaire_js_disabled:
+            body: Niektóre funkcje tego formularza zostaną wyłączone. Aby poprawić swoje doświadczenia, włącz obsługę JavaScript w przeglądarce.
+            title: JavaScript jest wyłączony
+          questionnaire_not_published:
+            body: Ten formularz nie został jeszcze opublikowany.
           tos_agreement: Biorąc udział akceptujesz Warunki korzystania z usługi
       step_navigation:
         show:
@@ -111,8 +158,13 @@ pl:
           continue: Dalej
           submit: Zatwierdź
       user_answers_serializer:
+        body: Odpowiedz
+        completion: Ukończenie
         created_at: Odpowiedziałem na
         id: ID odpowiedzi
+        ip_hash: Hash IP
+        question: Pytanie
         registered: Zarejestrowany
+        session_token: Identyfikator użytkownika
         unregistered: Niezarejestrowany
         user_status: Status użytkownika
