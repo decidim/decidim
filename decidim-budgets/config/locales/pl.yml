@@ -127,12 +127,19 @@ pl:
           most_voted: Z największą liczbą głosów
           random: Porządek losowy
         project:
+          add: Dodaj projekt %{resource_name} do swojego głosowania
           count:
             one: 1
             few: "%{count} obsługuje"
             many: "%{count} obsługuje"
             other: "%{count} obsługuje"
+          remove: Usuń projekt %{resource_name} z Twojego głosu
           view: Widok
+        project_budget_button:
+          add: Dodaj do swojego głosu
+          add_descriptive: Dodaj projekt %{resource_name} do swojego głosowania
+          added: Dodano do Twojego głosu
+          added_descriptive: Projekt %{resource_name} został dodany do Twojego głosowania
         show:
           budget: Budżet
           view_all_projects: Wyświetl wszystkie projekty
