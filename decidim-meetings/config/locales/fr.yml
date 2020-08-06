@@ -83,6 +83,7 @@ fr:
           global:
             announcement: Annonce
             comments_enabled: Activer le module de commentaire
+            comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
             creation_enabled_for_participants: Les participants peuvent créer des réunions
             default_registration_terms: Conditions d'inscription par défaut
             enable_pads_creation: Activer la création de pads
@@ -347,6 +348,10 @@ fr:
       meeting:
         not_allowed: Vous n'êtes pas autorisé à voir cette rencontre
       meetings:
+        count:
+          meetings_count:
+            one: "Réunion %{count}"
+            other: "%{count} réunions"
         create:
           invalid: Une erreur s'est produite lors de la création de cette réunion.
           success: La réunion a été créée avec succès.
@@ -399,6 +404,7 @@ fr:
           attendees: Nombre de participants
           back: Retour à la liste
           contributions: Décompte des contributions
+          date: Date
           edit_meeting: Modifier la réunion
           going: J'y vais
           join: Participer à la rencontre
