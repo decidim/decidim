@@ -359,7 +359,11 @@ ro:
             active_step: Faza activă
             more_information: Mai multe informații
             participate: Participă
+            participate_in: Participă în procesul %{resource_name}
             see_all_processes: Vezi toate procesele
+      participatory_process_steps:
+        index:
+          back_to_process: Înapoi la pagina de proces
       participatory_processes:
         filters:
           counters:
@@ -393,6 +397,7 @@ ro:
           loading: Se încarcă rezultatele...
       show:
         area: Suprafață
+        dates: Date
         developer_group: Grup promotor
         end_date: Data de încheiere
         local_area: Zona Organizatie
@@ -428,6 +433,7 @@ ro:
       participatory_process_groups:
         participatory_process_group:
           browse: Răsfoiţi
+          browse_resource: Răsfoiți grupul de procese %{resource_name}
           processes_count: 'Procese:'
       participatory_process_widgets:
         show:
@@ -439,11 +445,15 @@ ro:
         participatory_process:
           active_step: 'Faza curentă:'
           more_info: Mai multe informații
+          more_info_about: Mai multe informații despre procesul %{resource_name}
           take_part: Participă
+          take_part_in: Ia parte la procesul %{resource_name}
         promoted_process:
           active_step: 'Faza curentă:'
           more_info: Mai multe informații
+          more_info_about: Mai multe informații despre procesul %{resource_name}
           take_part: Participă
+          take_part_in: Ia parte la procesul %{resource_name}
       process_header_steps:
         step: Faza %{current} din %{total}
         view_steps: Vezi fazele
