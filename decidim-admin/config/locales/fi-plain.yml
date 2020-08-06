@@ -13,6 +13,7 @@ fi-pl:
         attachment_collection_id: Kansio
         description: Kuvaus
         file: Tiedosto
+        title: Liitetiedoston tai kuvan nimi
       attachment_collection:
         description: Kuvaus
         name: Nimi
@@ -50,6 +51,8 @@ fi-pl:
         from: Lähettäjän sähköpostiosoite
         github_handler: GitHub-käsittelijä
         header_snippets: Yläosion koodipätkät
+        highlight_alternative_color: Korostusväri, vaihtoehtoinen
+        highlight_color: Korostusväri
         highlighted_content_banner_action_subtitle: Toimintapainikkeen alaotsikko
         highlighted_content_banner_action_title: Toimintapainikkeen otsikko
         highlighted_content_banner_action_url: Toimintapainikkeen URL-osoite
@@ -323,6 +326,8 @@ fi-pl:
         search_placeholder:
           name_or_nickname_or_email_cont: '%{collection}: Hae sähköpostilla, nimellä tai nimimerkillä'
           title_cont: '%{collection}: Hae otsikon perusteella'
+        state_eq:
+          label: Tila
       help_sections:
         error: Ohjeosioiden päivittämisessä tapahtui virhe
         form:
@@ -585,6 +590,7 @@ fi-pl:
           officialize: Virallista
           title: Virallista käyttäjä "%{name}"
         show_email_modal:
+          close_modal: Sulje ikkuna
           description: Jos haluat ottaa suoraan yhteyttä osallistujaan, voit klikata Näytä-painiketta nähdäksesi hänen sähköpostiosoitteensa. Tästä toiminnosta jää jälki lokiin.
           email_address: Sähköpostiosoite
           full_name: Koko nimi

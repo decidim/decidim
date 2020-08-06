@@ -2,7 +2,7 @@
 
 module Decidim
   module ParticipatoryProcesses
-    class ParticipatoryProcessWidgetsController < Decidim::WidgetsController
+    class WidgetsController < Decidim::WidgetsController
       helper Decidim::SanitizeHelper
 
       private
@@ -20,7 +20,7 @@ module Decidim
       end
 
       def iframe_url
-        @iframe_url ||= participatory_process_participatory_process_widget_url(model)
+        @iframe_url ||= participatory_process_widget_url(model)
       end
     end
   end

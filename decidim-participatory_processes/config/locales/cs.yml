@@ -363,7 +363,11 @@ cs:
             active_step: Aktivní krok
             more_information: Více informací
             participate: Účastnit se
+            participate_in: Zapojte se do procesu %{resource_name}
             see_all_processes: Zobrazit všechny procesy
+      participatory_process_steps:
+        index:
+          back_to_process: Zpět na stránku procesu
       participatory_processes:
         filters:
           counters:
@@ -401,6 +405,7 @@ cs:
           loading: Načítá výsledky ...
       show:
         area: Oblast
+        dates: Data
         developer_group: Skupina promotérů
         end_date: Datum ukončení
         local_area: Oblast organizace
@@ -436,6 +441,7 @@ cs:
       participatory_process_groups:
         participatory_process_group:
           browse: Procházet
+          browse_resource: Procházet skupinu procesů %{resource_name}
           processes_count: 'Procesy:'
       participatory_process_widgets:
         show:
@@ -447,11 +453,15 @@ cs:
         participatory_process:
           active_step: 'Aktuální krok:'
           more_info: Více informací
+          more_info_about: Další informace o procesu %{resource_name}
           take_part: Zúčastnit se
+          take_part_in: Zapojte se do procesu %{resource_name}
         promoted_process:
           active_step: 'Aktuální krok:'
           more_info: Více informací
+          more_info_about: Další informace o procesu %{resource_name}
           take_part: Zúčastnit se
+          take_part_in: Zapojte se do procesu %{resource_name}
       process_header_steps:
         step: Krok %{current} z %{total}
         view_steps: Zobrazit kroky

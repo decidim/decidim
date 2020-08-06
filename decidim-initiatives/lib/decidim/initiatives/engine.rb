@@ -40,7 +40,7 @@ module Decidim
           end
 
           resource :initiative_vote, only: [:create, :destroy]
-          resource :initiative_widget, only: :show, path: "embed"
+          resource :widget, only: :show, path: "embed"
           resources :committee_requests, only: [:new], shallow: true do
             collection do
               get :spawn

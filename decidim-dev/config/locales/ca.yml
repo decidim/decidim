@@ -23,6 +23,7 @@ ca:
           step:
             endorsements_blocked: Adhesions bloquejades
             endorsements_enabled: Adhesions habilitades
+            readonly_step_attribute: Atribut de només lectura
     dummy:
       admin:
         exports:

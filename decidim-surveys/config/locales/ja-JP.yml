@@ -1,0 +1,58 @@
+ja:
+  activemodel:
+    models:
+      decidim/surveys/closed_survey_event: アンケートが終了しました
+      decidim/surveys/opened_survey_event: アンケートを開始
+  activerecord:
+    models:
+      decidim/surveys/survey:
+        other: 調査
+      decidim/surveys/survey_answer:
+        other: 回答
+  decidim:
+    components:
+      surveys:
+        actions:
+          answer: 回答
+        name: 調査
+        settings:
+          global:
+            announcement: お知らせ
+            clean_after_publish: アンケートを公開するときに回答を削除する
+          step:
+            allow_answers: 回答を許可
+            allow_unregistered: 未登録ユーザーがアンケートに回答できるようにする
+            allow_unregistered_help: 有効な場合、アンケートに回答するためにログインは必要ありません。 これにより、データが貧弱または信頼できない可能性があり、自動攻撃に対してより脆弱になります。注意して使用してください！
+            announcement: お知らせ
+    events:
+      surveys:
+        survey_closed:
+          email_intro: '%{resource_title} の調査 %{participatory_space_title} はクローズされました。'
+          email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
+          email_subject: '%{participatory_space_title} でアンケートが完了しました'
+          notification_title: <a href="%{resource_path}">%{resource_title}の</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a> の調査は終了しました。
+        survey_opened:
+          email_intro: '%{resource_title} のアンケート %{participatory_space_title} が公開されました。このページから参加できます：'
+          email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
+          email_subject: '%{participatory_space_title} での新しい調査'
+          notification_title: <a href="%{resource_path}">%{resource_title}の</a> <a href="%{participatory_space_url}">%{participatory_space_title}の調査</a> が公開されました。
+    metrics:
+      survey_answers:
+        description: 回答したアンケート数
+        object: アンケートに対する答えは
+        title: アンケートへの回答
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: アンケート参加者の回答
+        surveys:
+          update:
+            invalid: 調査の保存中に問題が発生しました。
+            success: アンケートを保存しました。
+      last_activity:
+        new_survey_at_html: "<span>新しい調査 %{link}</span>"
+      surveys:
+        answer:
+          invalid: アンケートの回答に問題がありました。
+          spam_detected: フォームに応答する際に問題が発生しました。もう一度試してみてください。
+          success: アンケートは正常に回答しました。

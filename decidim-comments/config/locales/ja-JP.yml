@@ -1,0 +1,120 @@
+ja:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: コメント
+      decidim/comments/comment_created_event: コメント
+      decidim/comments/reply_created_event: コメント返信
+      decidim/comments/user_group_mentioned_event: メンション
+      decidim/comments/user_mentioned_event: メンション
+  activerecord:
+    models:
+      decidim/comments/comment:
+        other: コメント
+      decidim/comments/comment_vote:
+        other: 投票
+  decidim:
+    comments:
+      comments: コメント
+      comments_count: コメント数
+      last_activity:
+        new_comment_at_html: "<span> %{link}に新しいコメント</span>"
+      votes:
+        create:
+          error: コメントに投票中に問題がありました。
+    components:
+      add_comment_form:
+        account_message: <a href="%{sign_in_url}">アカウント</a> または <a href="%{sign_up_url}">サインアップ</a> でコメントを追加します。
+        form:
+          body:
+            label: コメント
+            placeholder: これについてどう思いますか?
+          form_error: テキストは必須で、 %{length} 文字を超えることはできません。
+          submit: 送信
+          user_group_id:
+            label: 'コメント:'
+        opinion:
+          neutral: ニュートラル
+        remaining_characters: "残り %{count} 文字"
+        remaining_characters_1: "残り%{count} 文字"
+        title: コメントを追加
+      comment:
+        alignment:
+          against: <unk>
+          in_favor: <unk>
+        deleted_user: 参加者を削除しました
+        hide_replies: 返信を非表示
+        reply: 返信
+        report:
+          action: レポート
+          already_reported: このコンテンツはすでに報告されており、管理者が確認します。
+          close: 閉じる
+          description: このコンテンツは不適切ですか？
+          details: 追加コメント
+          reasons:
+            does_not_belong: 違法行為、自殺の脅威、個人情報、または %{organization_name} に属していないと思われる何かが含まれています。
+            offensive: 人種差別、性差別、スラー、個人攻撃、死の脅威、自殺要求やあらゆる形態の憎悪スピーチが含まれています。
+            spam: クリックベイト、広告、詐欺やスクリプトボットが含まれています。
+          title: 不適切なコンテンツを報告する
+        show_replies: '%{replies_count} 件の返信を表示'
+        single_comment_link_title: シングルコメントへのリンクを取得
+      comment_order_selector:
+        order:
+          best_rated: 最高評価
+          most_discussed: 最も議論されたもの
+          older: 古い順
+          recent: 最近のもの
+        title: '並び順：'
+      comment_thread:
+        title: '%{authorName} との会話'
+      comments:
+        blocked_comments_for_user_warning: 現時点ではコメントできませんが、以前のコメントを読むことができます。
+        blocked_comments_warning: コメントは現時点で無効になっていますが、以前のコメントを読むことができます。
+        comment_details_title: コメントの詳細
+        loading: コメントを読み込んでいます...
+        single_comment_warning: コメントの残りはこちら <a href="%{url}"></a>で確認できます。
+        single_comment_warning_title: 単一のコメントが表示されています
+        title: "%{count} 件のコメント"
+      down_vote_button:
+        text: このコメントに同意しない
+      up_vote_button:
+        text: このコメントに同意します
+    events:
+      comments:
+        comment_by_followed_user:
+          email_intro: "%{author_name} は %{resource_title}にコメントを残しました。このページで読むことができます:"
+          email_outro: '%{author_name}をフォローしているため、この通知を受け取りました。プロフィールページからこのユーザーのフォローを解除することができます。'
+          email_subject: '%{author_name} に %{resource_title} による新しいコメントがあります'
+          notification_title: There is a new comment by <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>.
+        comment_by_followed_user_group:
+          email_intro: 'グループ %{author_name} は %{resource_title}にコメントを残しました。このページで読むことができます:'
+          email_outro: '%{author_name}をフォローしているため、この通知を受け取りました。プロフィールページからこのグループのフォローを解除できます。'
+          email_subject: '%{author_name} に %{resource_title} による新しいコメントがあります'
+          notification_title: There is a new comment by <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>.
+        comment_created:
+          email_intro: "%{resource_title} はコメントされました。このページでコメントを読むことができます："
+          email_outro: '"%{resource_title}" またはその著者をフォローしているため、この通知を受け取りました。前のリンクからフォローを解除することができます。'
+          email_subject: '%{author_name} に %{resource_title} から新しいコメントがあります'
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> から <a href="%{resource_path}">%{resource_title}に新しいコメントがあります</a>
+        reply_created:
+          email_intro: "%{author_name} は %{resource_title}であなたのコメントを返信しました。このページで読むことができます:"
+          email_outro: コメントが返信されたため、この通知を受信しました。
+          email_subject: "%{author_name} が %{resource_title} であなたのコメントに返信しました"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> が <a href="%{resource_path}">%{resource_title}</a> であなたのコメントに返信しました
+        user_group_mentioned:
+          email_intro: あなたが所属しているグループがメンションされました
+          email_outro: あなたは %{group_name} でメンションされたグループ %{resource_title} のメンバーであるため、この通知を受け取りました。
+          email_subject: あなたは %{resource_title} で %{group_name} のメンバーとしてメンションされました
+          notification_title: あなたは <a href="%{resource_path}">%{resource_title}</a> に <a href="%{author_path}">%{author_name} %{author_nickname}</a> のメンバとして <a href="%{group_path}">%{group_name} %{group_nickname}</a>
+        user_mentioned:
+          email_intro: あなたはメンションされています
+          email_outro: あなたが %{resource_title}でメンションされたため、この通知を受け取りました。
+          email_subject: あなたは %{resource_title} でメンションされました
+          notification_title: あなたは <a href="%{resource_path}">%{resource_title}</a> で <a href="%{author_path}">%{author_name} %{author_nickname}によってメンションされました</a>
+    metrics:
+      comments:
+        description: 出席者によって生成されたコメント数
+        object: コメント
+        title: コメント
+  errors:
+    messages:
+      cannot_have_comments: コメントを持つことはできません

@@ -105,7 +105,7 @@ module Decidim
     scope :past_spaces, -> { closed }
 
     before_update :set_offline_votes_total
-    after_save :notify_state_change
+    after_commit :notify_state_change
     after_create :notify_creation
 
     searchable_fields({
