@@ -327,6 +327,7 @@ fr:
             metadata: Métadonnées
             other: Autre
             related_processes: Concertations liées
+            scope_type_max_depth_help: Restreindre la profondeur du filtre de téles; Le filtre s'affichera de général au type de télescope sélectionné.
             select_an_area: Sélectionnez un secteur
             select_process_group: Sélectionnez un groupe de concertations
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette concertation. Ils n''acceptent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
