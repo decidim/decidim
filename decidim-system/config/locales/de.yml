@@ -75,6 +75,7 @@ de:
           google_oauth2:
             client_id: Kunden-ID
             client_secret: Kundengeheimnis
+          icon: Symbol
           icon_path: Icon-Pfad
           twitter:
             api_key: API-Schlüssel
