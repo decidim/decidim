@@ -21,6 +21,7 @@ pl:
   decidim:
     comments:
       comments: Komentarze
+      comments_count: Liczba komentarzy
       last_activity:
         new_comment_at_html: "<span>Nowy komentarz na %{link}</span>"
       votes:
@@ -59,6 +60,7 @@ pl:
             does_not_belong: Zawiera nielegalną działalność, zagrożenia samobójstwem, informacje osobiste lub coś innego, co według Ciebie nie należy do %{organization_name}.
             offensive: Zawiera rasizm, seksizm, gniew, ataki osobiste, groźby śmierci, wnioski o samobójstwo lub jakąkolwiek formę mowy o nienawiści.
             spam: Zawiera kliknięć, reklamy, oszustwa lub boty scenariusza.
+          title: Zgłoś niewłaściwą treść
         show_replies: Pokaż %{replies_count} odpowiedzi
         single_comment_link_title: Uzyskaj link do pojedynczego komentarza
       comment_order_selector:
@@ -78,6 +80,10 @@ pl:
         single_comment_warning: Resztę komentarzy możesz sprawdzić <a href="%{url}">tutaj</a>.
         single_comment_warning_title: Wyświetlasz teraz pojedynczy komentarz
         title: "%{count} komentarzy"
+      down_vote_button:
+        text: Nie zgadzam się z tym komentarzem
+      up_vote_button:
+        text: Zgadzam się z tym komentarzem
     events:
       comments:
         comment_by_followed_user:
