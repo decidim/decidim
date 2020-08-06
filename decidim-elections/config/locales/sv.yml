@@ -1,6 +1,220 @@
 sv:
+  activemodel:
+    attributes:
+      answer:
+        description: Beskrivning
+        image: Bild
+        proposals: Relaterade förslag
+        title: Titel
+      election:
+        description: Beskrivning
+        end_time: Omröstningen slutar vid
+        start_time: Röstningsstart vid
+        subtitle: Undertext
+        title: Titel
+      question:
+        description: Beskrivning
+        max_selections: Maximalt antal val
+        title: Titel
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Måste återknytas
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Svar
+        other: Svar
+      decidim/elections/election:
+        one: Val
+        other: Val
+      decidim/elections/question:
+        one: Fråga
+        other: Frågor
   decidim:
+    components:
+      elections:
+        actions:
+          vote: Rösta
+        name: Val
+        settings:
+          global:
+            announcement: Meddelande
+          step:
+            announcement: Meddelande
     elections:
       actions:
+        confirm_destroy: Är du säker?
+        destroy: Förstör
+        edit: Redigera
         edit_answers: Redigera svar
         edit_questions: Redigera frågor
+        import: Importera förslag till svar
+        new: Ny %{name}
+        preview: Förhandsgranska
+        publish: Publicera
+        title: Åtgärder
+        unpublish: Avpublicera
+      admin:
+        answers:
+          create:
+            invalid: Det gick inte att skapa svaret
+            success: Svaret har skapats
+          destroy:
+            invalid: Det gick inte att ta bort svaret
+            success: Svaret har tagits bort
+          edit:
+            title: Redigera svar
+            update: Uppdatera svar
+          index:
+            title: Svar
+          new:
+            create: Skapa svar
+            title: Nytt svar
+          update:
+            invalid: Det gick inte att uppdatera svaret
+            success: Svaret har uppdaterats
+        elections:
+          create:
+            invalid: Det gick inte att skapa detta val
+            success: Val har skapats
+          destroy:
+            invalid: Det gick inte att ta bort valet
+            success: Val har tagits bort
+          edit:
+            title: Redigera val
+            update: Uppdatera val
+          index:
+            title: Val
+          new:
+            create: Skapa val
+            title: Nytt val
+          publish:
+            success: Valet har publicerats framgångsrikt.
+          unpublish:
+            success: Valet har avpublicerats framgångsrikt.
+          update:
+            invalid: Det gick inte att uppdatera valet
+            success: Val har uppdaterats
+        models:
+          answer:
+            name: Svar
+          election:
+            name: Val
+          question:
+            name: Fråga
+        proposals_imports:
+          create:
+            invalid: Det gick inte att importera förslagen till svar
+            success: "%{number} förslag importerades till svar"
+          new:
+            create: Importera förslag till svar
+            no_components: Det finns inga andra förslagskomponenter i det här deltagarutrymmet för att importera förslagen till svar.
+            select_component: Välj en komponent
+        questions:
+          create:
+            invalid: Det gick inte att skapa denna fråga
+            success: Frågan har skapats
+          destroy:
+            invalid: Det gick inte att ta bort denna fråga
+            success: Frågan har tagits bort
+          edit:
+            title: Redigera fråga
+            update: Uppdatera fråga
+          index:
+            title: Frågor
+          new:
+            create: Skapa fråga
+            title: Ny fråga
+          update:
+            invalid: Det gick inte att uppdatera denna fråga
+            success: Frågan har uppdaterats
+      admin_log:
+        election:
+          publish: "%{user_name} publicerade valet %{resource_name}"
+          unpublish: "%{user_name} avpublicerade valet %{resource_name}"
+      election_m:
+        footer:
+          take_part: Delta
+      elections:
+        count:
+          elections_count:
+            one: "%{count} val"
+            other: "%{count} val"
+        show:
+          back: Alla val
+          preview: Förhandsgranska
+          vote: Rösta
+          voting_period_status:
+            finished: Omröstningen började den %{start_time} och slutade den %{end_time}
+            ongoing: Omröstningen slutar den %{end_time}
+            upcoming: Omröstningen börjar den %{start_time}
+      models:
+        answer:
+          fields:
+            proposals: Förslag
+            title: Titel
+        election:
+          fields:
+            end_time: Avsluta vid
+            start_time: Börjar vid
+            title: Titel
+        question:
+          fields:
+            answers: Svar
+            max_selections: Max. val
+            title: Titel
+      votes:
+        confirm:
+          answer: Svar
+          answer_number: svara %{number}
+          confirm: Bekräfta
+          edit: redigera
+          header: Bekräfta din röst
+          intro: Här är en sammanfattning av den röst som du ska rösta. <br> Vänligen bekräfta din röst eller redigera dina svar.
+          question: Fråga %{count}
+        confirmed:
+          back: Tillbaka till val
+          experience: Hur var din erfarenhet?
+          feedback: Ge oss lite feedback
+          header: Rösta bekräftad
+          lead: Din röst har redan skickats!
+          text: 'Du kan kontrollera att din röst har lagts till i röstsedeln med följande identifierare: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: För att kontrollera det, kopiera identifieraren och klistra in den på <a href="evote-verify">röstverifieringssidan</a>
+        encrypting:
+          header: Kodar omröstning...
+          text: Din röst krypteras så att du kan skicka den anonymt.
+        header:
+          confirm: Bekräfta din röst
+          confirmed: Rösta bekräftad
+          encrypting: Bekräftar omröstning
+        messages:
+          not_allowed: Ni får inte rösta om detta val just nu.
+        modal:
+          close: Stäng
+          proposal_header: 'Förslag:'
+        new:
+          answer_choices: Du kan välja upp till %{choices} svar eller ingen
+          more_information: Mer information
+          preview_alert: Detta är en förhandsvisning av röstlängden.
+          question_steps: Fråga %{current_step} av %{total_steps}
+          selections: "%{selected} av %{max_selections}<br> val"
+        voting_step:
+          back: Tillbaka
+          continue: Nästa
+    events:
+      elections:
+        election_published:
+          email_intro: 'Valet %{resource_title} är nu aktivt för %{participatory_space_title}. Du kan se det från denna sida:'
+          email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden via föregående länk.
+          email_subject: Valet %{resource_title} är nu aktivt för %{participatory_space_title}.
+          notification_title: Valet <a href="%{resource_path}">%{resource_title}</a> är nu aktivt för %{participatory_space_title}.
+    participatory_processes:
+      statistics:
+        elections_count: Val
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Avsluta
