@@ -3,6 +3,8 @@ pl:
     attributes:
       account:
         delete_reason: Powód usunięcia konta
+      common:
+        created_at: Utworzono w
       group:
         about: O
         avatar: Awatar
@@ -80,6 +82,7 @@ pl:
       decidim_with_month_name_short: "%d %b"
   decidim:
     accessibility:
+      external_link: Link zewnętrzny
       logo: "Oficjalne logo %{organization}"
       skip_button: Przejdź do głównej zawartości
     account:
@@ -158,6 +161,8 @@ pl:
         verify_via_csv: "%{user_name} zweryfikowało %{resource_name} grupę użytkowników za pomocą pliku CSV"
     admin_terms_of_use:
       default_body: "<h2>WARUNKI UŻYTKOWANIA DLA ADMINISTRATORÓW</h2><p>Mamy nadzieję, że lokalny Administrator systemu poinformował Cię o podstawowych zasadach korzystania z platformy. Zwykle sprowadza się to do trzech rzeczy: </p><ol><li>Szanuj prywatność innych.</li><li>Pomyśl, zanim klikniesz.</li><li>Z wielką mocą wiąże się wielka odpowiedzialność.</li></ol>"
+    alert:
+      dismiss: Odrzuć powiadomienie
     amendments:
       accepted:
         error: Wystąpił błąd podczas przyjmowania poprawki.
@@ -288,6 +293,7 @@ pl:
           foo: Foo
         name: Autoryzacja Foo
       granted_at: Przyznano na %{timestamp}
+      renew: Odnów weryfikację
       sms:
         explanation: Prześlij swój numer telefonu komórkowego, abyśmy mogli sprawdzić Twoją tożsamość.
         name: Kod przez SMS
@@ -322,6 +328,8 @@ pl:
           explanation_html: Aby wykonać tę czynność, musisz mieć autoryzację, zanim to zrobisz, musisz potwierdzić swój adres e-mail <strong>%{email}</strong>.
           request_confirmation_instructions: Poproś o instrukcje potwierdzające
           title: Potwierdź swój email
+      show:
+        close_modal: Zamknij modalny
     collapsible_list:
       hidden_elements_count:
         one: i %{count} więcej
@@ -471,6 +479,7 @@ pl:
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> chce używać Twojego konta"
     endorsable:
       endorsements: Adnotacje
+      endorsements_count: Liczba wpisów
     endorsement_buttons_cell:
       already_endorsed: Poparto
       endorse: Poprzyj
@@ -644,6 +653,11 @@ pl:
       title: Odcisk palca
       value: Wartość
     followers:
+      followers_count:
+        one: "%{count} obserwujący"
+        few: "%{count} obserwujących"
+        many: "%{count} obserwujących"
+        other: "%{count} obserwujących"
       no_followers: Brak obserwujących.
     following:
       no_followings: Nie śledzi nikogo ani niczego jeszcze.
@@ -651,6 +665,7 @@ pl:
       create:
         button: Obserwuj
         error: Nastąpił błąd w następstwie tego zasobu.
+        participatory_space: Już obserwujesz <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Przestań obserwować
         error: Nastąpił błąd obserwowania użytkownika tego zasobu.
@@ -663,6 +678,18 @@ pl:
           password: Hasło jest za krótkie
           password_confirmation: Oba hasła muszą być zgodne.
         error: W tym polu wystąpił błąd.
+      file_help:
+        file:
+          explanation: 'Wytyczne dotyczące pliku:'
+          message_1: Ma być obrazem lub dokumentem.
+          message_2: W przypadku zdjęć używaj najlepiej krajobrazów, serwisowo uprawia obraz.
+        image:
+          explanation: 'Wytyczne dotyczące obrazu:'
+          message_1: Najlepiej obrazek krajobrazu, który nie ma żadnego tekstu.
+          message_2: Serwis uprawia obraz.
+      file_validation:
+        allowed_file_extensions: 'Dozwolone rozszerzenia plików: %{extensions}'
+        max_file_size: 'Maksymalny rozmiar pliku: %{megabytes}MB'
       remove_this_file: Usuń ten plik
     gamification:
       all_badges_link: Zobacz wszystkie dostępne odznaki.
@@ -816,6 +843,13 @@ pl:
           not_found: 'Typ zasięgu nie został znaleziony w bazie danych (ID: %{id})'
     managed_users:
       expired_session: Obecna sesja personifikacji wygasła.
+    map:
+      dynamic:
+        screen_reader_explanation: Poniższy element to mapa, która przedstawia elementy na tej stronie jako punkty mapy. Element może być użyty z czytnikiem ekranu, ale może być trudny do zrozumienia.
+        skip_button: Pomiń mapę
+      static:
+        latlng_text: 'szerokość geograficzna: %{latitude}, długość geograficzna: %{longitude}'
+        map_service_brand: OpenStreetMap
     members:
       no_members: Te grupy użytkowników nie mają jeszcze żadnego członka.
     menu:
@@ -864,6 +898,8 @@ pl:
           modal_title: Nowa konwersacja
           no_results: Brak wyników
           participant_with_disabled_message_reception: Ten uczestnik wyłączył odbiór wiadomości
+        conversation:
+          show: Pokaż rozmowę z %{sender}
         create:
           error: Rozmowa nie rozpoczęła się. Spróbuj ponownie później
         index:
@@ -881,6 +917,7 @@ pl:
           send: Wysłać
           title: Odpowiadać
         show:
+          back: Powrót do wszystkich rozmów
           chat_with: Konwersacja z
           not_allowed: Ten użytkownik nie przyjmuje więcej bezpośrednich wiadomości.
           title: Konwersacja z %{usernames}
@@ -1062,6 +1099,7 @@ pl:
         following: Podąża
         groups: Grupy
         members: Członkowie
+        officialized: Oficjalny uczestnik
         timeline: Oś czasu
         view_full_profile: Zobacz pełny profil
       sidebar:
@@ -1102,11 +1140,16 @@ pl:
       global: Zakres globalny
       picker:
         cancel: Anuluj
+        change: Zmień wybrany zakres
         choose: Wybierz
+        currently_selected: Aktualnie wybrany zakres
         title: Wybierz %{field}
       prompt: Wybierz zakres
       scopes: Zakresy
+      scopes_picker_input:
+        select_scope: 'Wybierz zakres (obecnie: %{current})'
     search:
+      results: Wyniki wyszukiwania
       results_found_for_term: '%{count} Wyniki wyszukiwania: "%{term}"'
       term_input_placeholder: Szukaj
     searches:
@@ -1131,6 +1174,11 @@ pl:
           other: "%{count} wyników"
         view_all: Zobacz wszystko (%{count})
     shared:
+      confirm_modal:
+        cancel: Anuluj
+        close_modal: Zamknij modalny
+        ok: OK
+        title: Potwierdź
       embed_modal:
         close_window: Zamknij okno
         embed: Proszę wkleić ten kod na swojej stronie
@@ -1138,6 +1186,9 @@ pl:
       extended_navigation_bar:
         more: Więcej
         unfold: Rozwijać się
+      filter_form_help:
+        help: Poniższy formularz filtruje wyniki wyszukiwania dynamicznie po zmianie warunków wyszukiwania.
+        skip: Przejdź do wyników
       flag_modal:
         already_reported: Ta treść została już zgłoszona i zostanie ona sprawdzona przez administratora.
         close: Blisko
@@ -1148,10 +1199,12 @@ pl:
         spam: Zawiera kliknięć, reklamy, oszustwa lub boty scenariusza.
         title: Zgłoś problem
       floating_help:
+        close: Zamknij pomoc
         help: Wsparcie
       follow_button:
         sign_in_before_follow: Zaloguj się przed wykonaniem tej czynności
       login_modal:
+        close_modal: Zamknij modalny
         please_sign_in: proszę zaloguj się
         sign_up: Zarejestruj się
       participatory_space_filters:
@@ -1170,6 +1223,9 @@ pl:
         close_window: Zamknij okno
         share: Share
         share_link: Udostępnij link
+    tags:
+      filter_results_for_category: 'Filtruj wyniki dla kategorii: %{resource}'
+      filter_results_for_scope: 'Filtruj wyniki dla zakresu: %{resource}'
     user_activity:
       index:
         no_activities_warning: Ten użytkownik nie ma jeszcze żadnej aktywności.
@@ -1229,6 +1285,8 @@ pl:
     versions:
       resource_version:
         of_versions: "(z %{number})"
+        see_other_versions: zobacz inne wersje dla %{resource_name}
+        version: Numer wersji %{number}
     versions_list:
       show:
         back_to_resource: Wróć
@@ -1417,7 +1475,15 @@ pl:
       too_much_caps: używa zbyt dużej liczby wielkich liter (ponad 25% tekstu)
       too_short: jest za krótki (poniżej 15 znaków)
   forms:
+    correct_errors: Istnieją błędy w formularzu, popraw je, aby kontynuować.
+    length_validator:
+      minimum:
+        one: co najmniej %{count} znaków
+        few: co najmniej %{count} znaków
+        many: co najmniej %{count} znaków
+        other: co najmniej %{count} znaków
     required: wymagany
+    required_explanation: "* Wymagane pola są oznaczone gwiazdką"
   invisible_captcha:
     sentence_for_humans: Jeśli jesteś człowiekiem, zignoruj ​​to pole
     timestamp_error_message: Przepraszam, to było za szybkie! Proszę przesłać ponownie.
@@ -1430,6 +1496,8 @@ pl:
       edit_link:
         edit: Edytuj
       footer:
+        cc_by_license: Licencja Creative Commons
+        decidim_logo: Logo Decidim
         download_open_data: Pobierz pliki otwartych danych
         made_with_open_source: Strona internetowa powstała z użyciem <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
       header:
@@ -1441,9 +1509,19 @@ pl:
         close_session: Zamknij sesję
         description_html: Podszyszcza się do użytkownika <b>%{user_name}</b>.
         expire_time_html: Sesja wygasa w <b><span class="minutes">%{minutes}</span> minutes</b>.
+      language_chooser:
+        choose_language: Wybierz język
       notifications_dashboard:
         mark_all_as_read: Oznacz wszystkie jako przeczytane
+        mark_as_read: Oznacz jako przeczytane
+      social_media_links:
+        facebook: "%{organization} na Facebooku"
+        github: "%{organization} na GitHub"
+        instagram: "%{organization} na Instagramie"
+        twitter: "%{organization} na Twitterze"
+        youtube: "%{organization} na YouTube"
       user_menu:
+        account: 'Konto użytkownika: %{name}'
         admin_dashboard: Panel administracyjny
         conversations: Rozmowy
         notifications: Powiadomienia
@@ -1504,10 +1582,14 @@ pl:
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      default: "%a, %d %b %Y %H:%M:%S %z"
       devise:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      long: "%B %d, %Y %H:%M"
+      long_dashed: "%Y-%m-%d %H:%M:%S"
+      short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
     directions:
@@ -1528,6 +1610,7 @@ pl:
       last_title: Link do ostatniej strony
       next: Następne &rsaquo;
       next_title: Link do następnej strony
+      pagination: Strony
       previous: "&lsaquo; Poprzedni"
       previous_title: Link do poprzedniej strony
       title: 'Numer strony: '
