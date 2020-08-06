@@ -17,6 +17,7 @@ de:
   decidim:
     comments:
       comments: Bemerkungen
+      comments_count: Kommentaranzahl
       last_activity:
         new_comment_at_html: "<span>Neuer Kommentar unter %{link}</span>"
       votes:
@@ -55,6 +56,7 @@ de:
             does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name}.
             offensive: Enthält Rassismus, Sexismus, Verunglimpfungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder jede Form von Hassreden.
             spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
+          title: Ungeeigneten Inhalt melden
         show_replies: '%{replies_count} Antworten anzeigen'
         single_comment_link_title: Verknüpfung zu einzelnem Kommentar erhalten
       comment_order_selector:
@@ -74,6 +76,10 @@ de:
         single_comment_warning: Sie können die restlichen Kommentare <a href="%{url}">hier</a> prüfen.
         single_comment_warning_title: Ihnen wird ein einzelner Kommentar angezeigt
         title: "%{count} Kommentare"
+      down_vote_button:
+        text: Ich bin mit diesem Kommentar nicht einverstanden
+      up_vote_button:
+        text: Ich stimme diesem Kommentar zu
     events:
       comments:
         comment_by_followed_user:
