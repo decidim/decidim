@@ -1,1 +1,132 @@
 nl:
+  activemodel:
+    attributes:
+      answer:
+        description: Beschrijving
+        image: Afbeelding
+        proposals: Verwante voorstellen
+        title: Aanspreektitel
+      election:
+        description: Beschrijving
+        end_time: Stemming eindigt op
+        start_time: Stemming begint om
+        subtitle: Ondertiteling
+        title: Aanspreektitel
+      question:
+        description: Beschrijving
+        max_selections: Maximum aantal selecties
+        title: Aanspreektitel
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Moet opnieuw worden gekoppeld
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Beantwoorden
+        other: Antwoorden
+      decidim/elections/election:
+        one: Verkiezing
+        other: Verkiezingen
+      decidim/elections/question:
+        one: Vraag
+        other: vragen
+  decidim:
+    components:
+      elections:
+        name: Verkiezingen
+        settings:
+          global:
+            announcement: Mededeling
+          step:
+            announcement: Mededeling
+    elections:
+      actions:
+        confirm_destroy: Weet je het zeker?
+        destroy: Vernietig
+        edit: Bewerken
+        new: Nieuwe %{name}
+        preview: Voorvertoning
+        title: acties
+      admin:
+        answers:
+          create:
+            invalid: Er is een fout opgetreden bij het maken van dit antwoord
+            success: Antwoord succesvol aangemaakt
+          destroy:
+            invalid: Er was een probleem bij het verwijderen van dit antwoord
+            success: Antwoord succesvol verwijderd
+          edit:
+            title: Antwoord bewerken
+            update: Antwoord bijwerken
+          index:
+            title: Antwoorden
+          new:
+            create: Antwoord maken
+            title: Nieuw antwoord
+          update:
+            invalid: Er was een probleem bij het bijwerken van dit antwoord
+            success: Antwoord succesvol bijgewerkt
+        elections:
+          create:
+            invalid: Er is een fout opgetreden bij het maken van deze verkiezing
+            success: Verkiezing succesvol aangemaakt
+          destroy:
+            invalid: Er was een probleem bij het verwijderen van deze verkiezingen
+            success: Verkiezing succesvol verwijderd
+          edit:
+            title: Bewerken van verkiezing
+            update: Keuze bijwerken
+          index:
+            title: Verkiezingen
+          new:
+            create: Maak verkiezing aan
+            title: Nieuwe verkiezing
+          update:
+            invalid: Er is een probleem opgetreden bij het bijwerken van deze verkiezingen
+            success: Verkiezing succesvol bijgewerkt
+        models:
+          answer:
+            name: Beantwoorden
+          election:
+            name: Verkiezing
+          question:
+            name: Vraag
+        questions:
+          create:
+            invalid: Er is een fout opgetreden bij het maken van deze vraag
+            success: Vraag met succes aangemaakt
+          destroy:
+            invalid: Er was een probleem bij het verwijderen van deze vraag
+            success: Vraag succesvol verwijderd
+          edit:
+            title: Vraag bewerken
+            update: Vraag bijwerken
+          index:
+            title: vragen
+          new:
+            create: Vraag aanmaken
+            title: Nieuwe vraag
+          update:
+            invalid: Er is een fout opgetreden bij het bijwerken van deze vraag
+            success: Vraag met succes bijgewerkt
+      models:
+        answer:
+          fields:
+            proposals: Voorstellen
+            title: Aanspreektitel
+        election:
+          fields:
+            end_time: Beëindigen op
+            start_time: Begint om
+            title: Aanspreektitel
+        question:
+          fields:
+            answers: Antwoorden
+            max_selections: Max. selectie
+            title: Aanspreektitel
+    participatory_processes:
+      statistics:
+        elections_count: Verkiezingen
