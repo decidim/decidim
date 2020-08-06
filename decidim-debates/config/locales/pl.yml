@@ -102,6 +102,7 @@ pl:
           title: Nowa debata
         show:
           back: Powrót do listy
+          date: Data
       last_activity:
         new_debate_at_html: "<span>Nowa debata na %{link}</span>"
       models:
