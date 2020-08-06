@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require "decidim/map/provider/here"
-require "decidim/map/provider/osm"
-
 module Decidim
   # A utility for managing snippets that need to be registered during the view
   # display and displayed in another part of the application. For example, maps
