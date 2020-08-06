@@ -30,6 +30,7 @@ fr:
           global:
             announcement: Annonce
             comments_enabled: Commentaires activés
+            comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
           step:
             announcement: Annonce
             comments_blocked: Commentaires désactivés
@@ -76,6 +77,10 @@ fr:
           success: Débat créé avec succès.
         debate:
           participate: Participer
+        edit:
+          back: Précédent
+          save: Enregistrer les modifications
+          title: Modifier le débat
         filters:
           all: Tout
           category: Catégorie
@@ -99,6 +104,18 @@ fr:
           title: Nouveau débat
         show:
           back: Retour à la liste
+          date: Date
+          edit_debate: Modifier le débat
+        update:
+          invalid: Une erreur s'est produite lors de la mise à jour du débat.
+          success: Débat mis à jour avec succès.
+        versions:
+          debates:
+            back_to_resource: Revenir au débat
+          index:
+            title: Versions
+        versions_list:
+          back_to_resource: Revenir au débat
       last_activity:
         new_debate_at_html: "<span>Nouveau débat à %{link}</span>"
       models:
