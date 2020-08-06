@@ -462,6 +462,7 @@ pl:
             endorsements_count: Licznik poparć
             endorsements_ranking: Ranking wg poparć
             endorsers: Popierający
+            link: Link
             n_more_endorsers:
               one: i jeszcze 1
               few: i jeszcze %{count}
