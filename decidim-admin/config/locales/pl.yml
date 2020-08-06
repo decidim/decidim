@@ -67,6 +67,7 @@ pl:
         omnipresent_banner_title: Tytuł
         omnipresent_banner_url: URL
         password: Hasło
+        port: Port
         primary_color: Podstawowa
         reference_prefix: Prefiks referencyjny
         rich_text_editor_in_public_views: Włącz edytor tekstu sformatowanego dla uczestników
