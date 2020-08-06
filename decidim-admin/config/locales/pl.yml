@@ -13,6 +13,7 @@ pl:
         attachment_collection_id: Teczka
         description: Opis
         file: Plik
+        title: Nazwa załącznika lub obrazu
       attachment_collection:
         description: Opis
         name: Nazwa
@@ -49,6 +50,8 @@ pl:
         from: Z adresu e-mail
         github_handler: Obsługa programu GitHub
         header_snippets: Fragmenty nagłówków
+        highlight_alternative_color: Zaznacz, alternatywa
+        highlight_color: Podświetl
         highlighted_content_banner_action_subtitle: Podtytuł przycisku czynności
         highlighted_content_banner_action_title: Tytuł przycisku akcji
         highlighted_content_banner_action_url: URL przycisku czynności
@@ -66,6 +69,7 @@ pl:
         omnipresent_banner_title: Tytuł
         omnipresent_banner_url: URL
         password: Hasło
+        port: Port
         primary_color: Podstawowa
         reference_prefix: Prefiks referencyjny
         rich_text_editor_in_public_views: Włącz edytor tekstu sformatowanego dla uczestników
@@ -316,6 +320,8 @@ pl:
         search_placeholder:
           name_or_nickname_or_email_cont: Wyszukaj %{collection} według adresu e-mail, nazwiska lub nazwy użytkownika.
           title_cont: Wyszukaj %{collection} według tytułu.
+        state_eq:
+          label: Stan
       help_sections:
         error: Wystąpił błąd podczas aktualizowania sekcji pomocy
         form:
@@ -578,6 +584,7 @@ pl:
           officialize: Oficjalizuj
           title: Oficjalizuj użytkownika "%{name}"
         show_email_modal:
+          close_modal: Zamknij modalny
           description: Jeśli chcesz skontaktować się bezpośrednio z uczestnikiem, możesz kliknąć przycisk Pokaż, aby wyświetlić adres e-mail. Ta akcja zostanie zarejestrowana.
           email_address: Adres e-mail
           full_name: Imię i nazwisko
