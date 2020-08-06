@@ -13,13 +13,11 @@ describe "Explore elections", :slow, type: :system do
 
   describe "index" do
     context "with only one election" do
-      let(:user) { create(:user, :confirmed, organization: component.organization) }
-      let!(:single_elections) { create_list(:election, 1, :complete, :published, :ongoing, component: component) }
-
       before do
         Decidim::Elections::Election.destroy_all
-        login_as user, scope: :user
       end
+
+      let!(:single_elections) { create_list(:election, 1, :complete, :published, :ongoing, component: component) }
 
       it "redirects to the only election" do
         visit_component

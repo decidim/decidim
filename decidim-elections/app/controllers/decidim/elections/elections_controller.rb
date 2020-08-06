@@ -12,7 +12,7 @@ module Decidim
       helper_method :elections, :election, :paginated_elections
 
       def index
-        redirect_to election_path(single) if single?
+        redirect_to election_path(single, single: true) if single?
       end
 
       def show
@@ -30,15 +30,19 @@ module Decidim
         @election ||= Election.where(component: current_component).find(params[:id])
       end
 
+      def single_elections
+        @single_elections ||= Election.where(component: current_component)
+      end
+
       # Public: Checks if the component has only one election resource.
       #
       # Returns Boolean.
       def single?
-        Election.where(component: current_component).one?
+        single_elections.one?
       end
 
       def single
-        elections.first if single?
+        single_elections.first if single?
       end
 
       def paginated_elections
