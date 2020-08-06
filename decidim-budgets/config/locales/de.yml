@@ -121,10 +121,17 @@ de:
           most_voted: Meiste Stimmen
           random: Zufällige Anordnung
         project:
+          add: Projekt %{resource_name} Ihrer Stimme hinzufügen
           count:
             one: 1 Unterstützung
             other: "%{count} unterstützt"
+          remove: Projekt %{resource_name} aus deiner Stimme entfernen
           view: Aussicht
+        project_budget_button:
+          add: Zur Abstimmung hinzufügen
+          add_descriptive: Projekt %{resource_name} Ihrer Stimme hinzufügen
+          added: Zu deiner Abstimmung hinzugefügt
+          added_descriptive: Projekt %{resource_name} wurde zu deiner Abstimmung hinzugefügt
         show:
           budget: Budget
           view_all_projects: Alle Projekte anzeigen
