@@ -64,6 +64,7 @@ pl:
           global:
             announcement: Ogłoszenie
             comments_enabled: Komentarze włączone
+            comments_max_length: Maksymalna długość komentarzy (Pozostaw 0 dla wartości domyślnej)
           step:
             announcement: Ogłoszenie
             comments_blocked: Komentarze zablokowane
