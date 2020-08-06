@@ -2,7 +2,7 @@
 
 module Decidim
   module Meetings
-    class MeetingWidgetsController < Decidim::WidgetsController
+    class WidgetsController < Decidim::WidgetsController
       helper MeetingsHelper
       helper Decidim::SanitizeHelper
 
@@ -13,7 +13,7 @@ module Decidim
       end
 
       def iframe_url
-        @iframe_url ||= meeting_meeting_widget_url(model)
+        @iframe_url ||= meeting_widget_url(model)
       end
     end
   end

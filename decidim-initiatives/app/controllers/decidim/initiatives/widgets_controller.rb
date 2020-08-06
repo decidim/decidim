@@ -3,7 +3,7 @@
 module Decidim
   module Initiatives
     # This controller provides a widget that allows embedding the initiative
-    class InitiativeWidgetsController < Decidim::WidgetsController
+    class WidgetsController < Decidim::WidgetsController
       helper InitiativesHelper
       helper PaginateHelper
       helper InitiativeHelper
@@ -23,7 +23,7 @@ module Decidim
       end
 
       def iframe_url
-        @iframe_url ||= initiative_initiative_widget_url(model)
+        @iframe_url ||= initiative_widget_url(model)
       end
     end
   end

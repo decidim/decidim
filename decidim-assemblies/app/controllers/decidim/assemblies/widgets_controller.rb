@@ -2,7 +2,7 @@
 
 module Decidim
   module Assemblies
-    class AssemblyWidgetsController < Decidim::WidgetsController
+    class WidgetsController < Decidim::WidgetsController
       helper Decidim::SanitizeHelper
 
       private
@@ -16,7 +16,7 @@ module Decidim
       end
 
       def iframe_url
-        @iframe_url ||= assembly_assembly_widget_url(model)
+        @iframe_url ||= assembly_widget_url(model)
       end
     end
   end
