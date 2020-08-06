@@ -363,7 +363,11 @@ pl:
             active_step: Aktywny krok
             more_information: Więcej informacji
             participate: Uczestniczyć
+            participate_in: Weź udział w procesie %{resource_name}
             see_all_processes: Zobacz wszystkie procesy
+      participatory_process_steps:
+        index:
+          back_to_process: Powrót do strony procesu
       participatory_processes:
         filters:
           counters:
@@ -401,6 +405,7 @@ pl:
           loading: Wyniki wyszukiwania...
       show:
         area: Powierzchnia
+        dates: Owoce cytrusowe
         developer_group: Grupa promotorów
         end_date: Data zakończenia
         local_area: Obszar Organizacji
@@ -436,6 +441,7 @@ pl:
       participatory_process_groups:
         participatory_process_group:
           browse: Paść się
+          browse_resource: Przeglądaj grupę procesów %{resource_name}
           processes_count: 'Procesy:'
       participatory_process_widgets:
         show:
@@ -447,11 +453,15 @@ pl:
         participatory_process:
           active_step: 'Aktualny krok:'
           more_info: Więcej informacji
+          more_info_about: Więcej informacji o procesie %{resource_name}
           take_part: Weź udział
+          take_part_in: Weź udział w procesie %{resource_name}
         promoted_process:
           active_step: 'Aktualny krok:'
           more_info: Więcej informacji
+          more_info_about: Więcej informacji o procesie %{resource_name}
           take_part: Weź udział
+          take_part_in: Weź udział w procesie %{resource_name}
       process_header_steps:
         step: Etap %{current} z %{total}
         view_steps: Pokaż etapy
