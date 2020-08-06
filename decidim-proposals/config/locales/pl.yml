@@ -7,6 +7,7 @@ pl:
         category_id: Kategoria
         decidim_scope_id: Zakres
         has_address: Ma adres
+        scope_id: Niniejsze rozporządzenie stosuje się od dnia 1 stycznia 2018 r.
         state: Stan
         title: Tytuł
         user_group_id: Utwórz roboczą wersję roboczą jako
@@ -19,6 +20,7 @@ pl:
         category_id: Kategoria
         decidim_scope_id: Zakres
         has_address: Ma adres
+        scope_id: Niniejsze rozporządzenie stosuje się od dnia 1 stycznia 2018 r.
         state: Stan
         suggested_hashtags: Sugerowane hashtagi
         title: Tytuł
@@ -122,6 +124,7 @@ pl:
             can_accumulate_supports_beyond_threshold: Może gromadzić podpory przekraczające próg
             collaborative_drafts_enabled: Wersje robocze z obsługą współpracy są włączone
             comments_enabled: Komentarze włączone
+            comments_max_length: Maksymalna długość komentarzy (Pozostaw 0 dla wartości domyślnej)
             geocoding_enabled: Włączono geokodowanie
             minimum_votes_per_user: Minimalna liczba głosów na użytkownika
             new_proposal_body_template: Szablon treści nowej propozycji
@@ -458,6 +461,7 @@ pl:
             endorsements_count: Licznik poparć
             endorsements_ranking: Ranking wg poparć
             endorsers: Popierający
+            link: Link
             n_more_endorsers:
               one: i jeszcze 1
               few: i jeszcze %{count}
@@ -650,15 +654,23 @@ pl:
         update:
           error: Wystąpiły błędy podczas zapisywania wspólnego projektu.
           success: Wersja robocza została zaktualizowana pomyślnie.
+          title: Edytuj wspólny szkic
         wizard_aside:
           back: Plecy
+          back_from_collaborative_draft: Powrót do wspólnych szkiców
+          back_from_step_1: Powrót do wspólnych szkiców
+          back_from_step_2: Powrót do wspólnych szkiców
+          back_from_step_3: Powrót do porównania szkiców współpracy
+          back_from_step_4: Wróć do edycji szkicu
           info: Tworzysz <strong>współpracy projekt</strong>.
         wizard_steps:
+          current_step: Bieżący krok
           see_steps: zobacz kroki
           step_1: Utwórz swój wspólny projekt
           step_2: Porównaj ze wspólnymi wersjami roboczymi
           step_3: Uzupełnij swój wspólny projekt
           step_of: Krok %{current_step_num} z %{total_steps}
+          title: Działania w zakresie tworzenia projektów współpracy
       create:
         error: Podczas zapisywania propozycji wystąpiły błędy.
         success: Propozycja została utworzona pomyślnie. Zapisany jako wersja robocza.
@@ -812,9 +824,12 @@ pl:
           read_more: Czytaj więcej
           report: Raport
           withdraw_btn_hint: Możesz wycofać swoją propozycję, jeśli zmienisz zdanie, o ile nie otrzymałeś żadnego wsparcia. Wniosek nie zostanie usunięty, pojawi się na liście wycofanych wniosków.
+          withdraw_confirmation_html: Czy na pewno chcesz wycofać ten wniosek?<br><br><strong>Tej akcji nie można anulować!</strong>
           withdraw_proposal: Wycofaj propozycję
         tags:
           changed_from: "(zmieniono z <u>%{previous_name}</u> przez administratora)"
+        update:
+          title: Zaktualizuj propozycję
         vote_button:
           already_voted: Już głosował
           already_voted_hover: Unvote
@@ -848,14 +863,20 @@ pl:
             votes: Głosowania
         wizard_aside:
           back: Plecy
+          back_from_step_1: Wróć do propozycji
+          back_from_step_2: Wróć do propozycji
+          back_from_step_3: Powrót do porównania propozycji
+          back_from_step_4: Wróć do edycji szkicu
           info: Tworzysz <strong>propozycję</strong>.
         wizard_steps:
+          current_step: Bieżący krok
           see_steps: zobacz kroki
           step_1: Utwórz swoją propozycję
           step_2: Porównać
           step_3: Kompletny
           step_4: Opublikuj swoją propozycję
           step_of: Krok %{current_step_num} z %{total_steps}
+          title: Kroki tworzenia propozycji
       proposals_picker:
         choose_proposals: Wybierz propozycje
         close: Zamknij
