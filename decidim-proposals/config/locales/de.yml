@@ -7,6 +7,7 @@ de:
         category_id: Kategorie
         decidim_scope_id: Umfang
         has_address: Hat eine Adresse
+        scope_id: Bereich
         state: Zustand
         title: Titel
         user_group_id: Erstellen Sie einen gemeinsamen Entwurf als
@@ -19,6 +20,7 @@ de:
         category_id: Kategorie
         decidim_scope_id: Umfang
         has_address: Hat eine Adresse
+        scope_id: Bereich
         state: Zustand
         suggested_hashtags: Vorgeschlagene Hashtags
         title: Titel
@@ -443,6 +445,7 @@ de:
             body: Haupttext
             comments_count: Anzahl der Kommentare
             comments_negative_count: Dagegen
+            comments_neutral_count: Neutral
             comments_positive_count: Dafür
             created_at: Erstellungsdatum
             documents: Unterlagen
@@ -636,15 +639,23 @@ de:
         update:
           error: Beim Speichern des gemeinsamen Entwurfs sind Fehler aufgetreten.
           success: Collaborative Draft wurde erfolgreich aktualisiert.
+          title: gemeinsamen Entwurf bearbeiten
         wizard_aside:
           back: Zurück
+          back_from_collaborative_draft: Zurück zu gemeinschaftlichen Entwürfen
+          back_from_step_1: Zurück zu gemeinschaftlichen Entwürfen
+          back_from_step_2: Zurück zu gemeinschaftlichen Entwürfen
+          back_from_step_3: Zurück zum Vergleich der gemeinschaftlichen Entwürfe
+          back_from_step_4: Zurück zum Entwurf bearbeiten
           info: Sie erstellen einen <strong>gemeinsamen Entwurf</strong>.
         wizard_steps:
+          current_step: Aktueller Schritt
           see_steps: siehe Schritte
           step_1: Erstellen Sie Ihren gemeinsamen Entwurf
           step_2: Vergleichen Sie mit gemeinsamen Entwürfen
           step_3: Vervollständigen Sie Ihren gemeinsamen Entwurf
           step_of: Schritt %{current_step_num} von %{total_steps}
+          title: Gemeinschaftliche Entwurfsschritte
       create:
         error: Beim Speichern des Vorschlags ist ein Fehler aufgetreten.
         success: Der Vorschlag wurde erfolgreich erstellt. Gespeichert als Entwurf.
@@ -790,9 +801,12 @@ de:
           read_more: Weiterlesen
           report: Melden
           withdraw_btn_hint: Sie können Ihren Vorschlag zurückziehen, wenn Sie es sich anders überlegen, solange Sie keine Unterstützung erhalten haben. Der Vorschlag wird nicht gelöscht, er erscheint in der Liste der zurückgezogenen Vorschläge.
+          withdraw_confirmation_html: Sind Sie sicher, dass Sie diesen Vorschlag zurückziehen möchten?<br><br><strong>Diese Aktion kann nicht abgebrochen werden!</strong>
           withdraw_proposal: Vorschlag zurückziehen
         tags:
           changed_from: "(geändert von <u>%{previous_name}</u> durch einen Administrator)"
+        update:
+          title: Vorschlag aktualisieren
         vote_button:
           already_voted: Bereits unterstützt
           already_voted_hover: Unterstützung zurückziehen
@@ -824,14 +838,20 @@ de:
             votes: Stimmen
         wizard_aside:
           back: Zurück
+          back_from_step_1: Zurück zu Vorschlägen
+          back_from_step_2: Zurück zu Vorschlägen
+          back_from_step_3: Zurück zum Vergleich von Vorschlägen
+          back_from_step_4: Zurück zum Entwurf bearbeiten
           info: Sie erstellen einen <strong>Vorschlag</strong>.
         wizard_steps:
+          current_step: Aktueller Schritt
           see_steps: siehe Schritte
           step_1: Vorschlag erstellen
           step_2: Vergleichen
           step_3: Abschließen
           step_4: Vorschlag veröffentlichen
           step_of: Schritt %{current_step_num} von %{total_steps}
+          title: Schritten zur Erstellung von Vorschlägen
       proposals_picker:
         choose_proposals: Vorschläge auswählen
         close: Schließen
