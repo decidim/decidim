@@ -42,6 +42,8 @@ de:
             export:
               answer:
                 title: 'Antwort #%{number}'
+            export_response:
+              title: Umfrage_Benutzer_Antworten_%{token}
             index:
               title: "%{total} Antworten insgesamt"
             show:
@@ -108,6 +110,7 @@ de:
       files:
         extension_whitelist: 'Gültige Formate:'
       images:
+        dimensions: "%{width} x %{height} px"
         dimensions_info: 'Das Bild wird:'
         processors:
           resize_and_pad: in der Größe angepasst und gepolstert zu
