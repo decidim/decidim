@@ -139,6 +139,8 @@ nl:
         reject: "%{user_name} heeft de %{resource_name} gebruikersgroepverificatie geweigerd"
         verify: "%{user_name} heeft de %{resource_name} gebruikersgroep geverifieerd"
         verify_via_csv: "%{user_name} heeft de %{resource_name} gebruikersgroep geverifieerd via een CSV-bestand"
+    admin_terms_of_use:
+      default_body: "<h2>ADMIN VOOR GEBRUIK</h2><p>We vertrouwen erop dat u de gebruikelijke les heeft ontvangen van de lokale systeembeheerder. Het komt meestal neer op deze drie zaken:</p><ol><li>de privacy van anderen eerbiedigen.</li><li>Bedenk voordat u klikt.</li><li>Met grote kracht komt een grote verantwoordelijkheid.</li></ol>"
     amendments:
       accepted:
         error: Er is een fout opgetreden bij het accepteren van het amendement.
@@ -1324,7 +1326,9 @@ nl:
     dropdown:
       choose_diff_view_html: 'HTML weergavemodus:'
       choose_diff_view_mode: 'Vergelijk weergavemodus:'
+      option_escaped: Ongescand
       option_split: Naast elkaar
+      option_unescaped: Onontsnapt
       option_unified: Verenigd
   views:
     pagination:
