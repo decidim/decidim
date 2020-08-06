@@ -46,9 +46,9 @@ module Decidim
             t("models.proposal.fields.state", scope: "decidim.proposals") =>
               Decidim::Proposals::Proposal::POSSIBLE_STATES.each_with_object({}) do |state, hash|
                 if state == "not_answered"
-                  hash[link_to((humanize_proposal_state state), q: ransak_params_for_query(proposal_state_null: 1), per_page: per_page)] = nil
+                  hash[link_to((humanize_proposal_state state), q: ransak_params_for_query(state_null: 1), per_page: per_page)] = nil
                 else
-                  hash[link_to((humanize_proposal_state state), q: ransak_params_for_query(proposal_state_eq: state), per_page: per_page)] = nil
+                  hash[link_to((humanize_proposal_state state), q: ransak_params_for_query(state_eq: state), per_page: per_page)] = nil
                 end
               end,
             t("models.proposal.fields.category", scope: "decidim.proposals") => admin_filter_categories_tree(categories.first_class),
@@ -62,7 +62,7 @@ module Decidim
           tags = ""
           tags += hidden_field_tag "per_page", params[:per_page] if params[:per_page]
           tags += hidden_field_tag "q[is_emendation_true]", params[:q][:is_emendation_true] if params[:q][:is_emendation_true]
-          tags += hidden_field_tag "q[proposal_state_eq]", params[:q][:proposal_state_eq] if params[:q][:proposal_state_eq]
+          tags += hidden_field_tag "q[state_eq]", params[:q][:state_eq] if params[:q][:state_eq]
           tags += hidden_field_tag "q[category_id_eq]", params[:q][:category_id_eq] if params[:q][:category_id_eq]
           tags += hidden_field_tag "q[scope_id_eq]", params[:q][:scope_id_eq] if params[:q][:scope_id_eq]
           tags.html_safe
@@ -83,20 +83,20 @@ module Decidim
               tag.html_safe
             end
           end
-          if params[:q][:proposal_state_null]
+          if params[:q][:state_null]
             html << content_tag(:span, class: "label secondary") do
               tag = "#{t("models.proposal.fields.state", scope: "decidim.proposals")}: "
               tag += humanize_proposal_state "not_answered"
-              tag += icon_link_to("circle-x", url_for(q: ransak_params_for_query_without(:proposal_state_null), per_page: per_page), t("decidim.admin.actions.cancel"),
+              tag += icon_link_to("circle-x", url_for(q: ransak_params_for_query_without(:state_null), per_page: per_page), t("decidim.admin.actions.cancel"),
                                   class: "action-icon--remove")
               tag.html_safe
             end
           end
-          if params[:q][:proposal_state_eq]
+          if params[:q][:state_eq]
             html << content_tag(:span, class: "label secondary") do
               tag = "#{t("models.proposal.fields.state", scope: "decidim.proposals")}: "
-              tag += humanize_proposal_state params[:q][:proposal_state_eq]
-              tag += icon_link_to("circle-x", url_for(q: ransak_params_for_query_without(:proposal_state_eq), per_page: per_page), t("decidim.admin.actions.cancel"),
+              tag += humanize_proposal_state params[:q][:state_eq]
+              tag += icon_link_to("circle-x", url_for(q: ransak_params_for_query_without(:state_eq), per_page: per_page), t("decidim.admin.actions.cancel"),
                                   class: "action-icon--remove")
               tag.html_safe
             end

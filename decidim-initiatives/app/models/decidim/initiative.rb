@@ -380,9 +380,6 @@ module Decidim
       end
     end
 
-    # to avoid translation clashes with other modules
-    ransack_alias :initiative_state, :state
-
     # Allow ransacker to search on an Enum Field
     ransacker :state, formatter: proc { |int| states[int] }
 

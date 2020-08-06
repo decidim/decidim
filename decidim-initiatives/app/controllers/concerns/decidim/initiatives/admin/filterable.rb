@@ -22,12 +22,12 @@ module Decidim
           end
 
           def filters
-            [:initiative_state_eq, :type_id_eq, :decidim_area_id_eq]
+            [:state_eq, :type_id_eq, :decidim_area_id_eq]
           end
 
           def filters_with_values
             {
-              initiative_state_eq: Initiative.states.keys,
+              state_eq: Initiative.states.keys,
               type_id_eq: InitiativesType.where(organization: current_organization).pluck(:id),
               decidim_area_id_eq: current_organization.areas.pluck(:id)
             }

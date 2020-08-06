@@ -30,7 +30,7 @@ describe "Admin filters proposals", type: :system do
     before { visit_component_admin }
 
     STATES.without(:not_answered).each do |state|
-      i18n_state = I18n.t(state, scope: "decidim.admin.filters.proposal_state_eq.values")
+      i18n_state = I18n.t(state, scope: "decidim.admin.filters.proposals.state_eq.values")
 
       context "filtering proposals by state: #{i18n_state}" do
         it_behaves_like "a filtered collection", options: "State", filter: i18n_state do
