@@ -25,6 +25,7 @@ pl:
         settings:
           global:
             comments_enabled: Komentarze włączone
+            comments_max_length: Maksymalna długość komentarzy (Pozostaw 0 dla wartości domyślnej)
     events:
       sortitions:
         sortition_created:
