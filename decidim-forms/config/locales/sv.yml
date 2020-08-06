@@ -32,16 +32,22 @@ sv:
             statement: Påstående
           edit:
             save: Spara
+            title: Redigera frågeformulär
           form:
             add_question: Lägg till fråga
+            add_separator: Lägg till separator
             already_answered_warning: Frågeformuläret har redan besvarats av vissa användare så du inte kan ändra dess frågor.
+            collapse: Komprimera alla frågor
             expand: Expandera alla frågor
           matrix_row:
+            matrix_row: Rad
             remove: Ta bort
             statement: Påstående
           question:
             add_answer_option: Lägg till svarsalternativ
+            add_matrix_row: Lägg till rad
             any: Någon
+            collapse: Komprimera
             description: Beskrivning
             down: Ned
             expand: Expandera
@@ -49,14 +55,29 @@ sv:
             remove: Ta bort
             statement: Påstående
             up: Upp
+          separator:
+            down: Ner
+            remove: Radera
+            separator: Avgränsare
+            up: Upp
           update:
             invalid: Det gick inte att spara formuläret.
             success: Formuläret har sparats.
       errors:
         answer:
           body: Kroppen kan inte vara to
+      files:
+        extension_whitelist: 'Godkända format:'
+      images:
+        dimensions: "%{width} x %{height} px"
+        dimensions_info: 'Denna bild kommer att vara:'
+        processors:
+          resize_and_pad: Anpassad och vadderad till
+          resize_to_fit: Anpassad för att passa
       question_types:
         long_answer: Långt svar
+        matrix_multiple: Matris (flera alternativ)
+        matrix_single: Matris (Single alternativ)
         multiple_option: Flera alternativ
         short_answer: Kort svar
         single_option: Ett alternativ
@@ -64,6 +85,7 @@ sv:
       questionnaires:
         answer:
           invalid: Det gick inte att besvara formuläret.
+          max_choices_alert: Det finns för många val valda
           success: Formuläret har besvarats.
         question:
           max_choices: 'Högst antal val: %{n}'
@@ -71,6 +93,8 @@ sv:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Logga in med ditt konto</a> eller <a href="%{sign_up_link}">registrera dig</a> om du vill svara på formuläret.
             title: Besvara formuläret
+          current_step: Steg %{step}
+          of_total_steps: av %{total_steps}
           questionnaire_answered:
             body: Du har redan besvarat det här formuläret.
             title: Redan svarat
@@ -84,6 +108,8 @@ sv:
       step_navigation:
         show:
           are_you_sure: Den här åtgärden kan inte ångras och du kommer inte att kunna redigera dina svar. Är du säker?
+          back: Tillbaka
+          continue: Fortsätt
           submit: Skicka in
       user_answers_serializer:
         created_at: Besvarad
