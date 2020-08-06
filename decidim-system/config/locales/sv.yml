@@ -63,7 +63,12 @@ sv:
           secondary_hosts_hint: Ange var och en av dem på en ny rad
           title: Ny organisation
         omniauth_settings:
+          decidim:
+            client_id: Klient ID
+            client_secret: Klient hemlig
+            site_url: Webbplatsens URL
           enabled: Aktiverad
+          enabled_by_default: Denna leverantör är aktiverad som standard. Den kan redigeras men inte inaktiveras.
           facebook:
             app_id: App-ID
             app_secret: App-hemlighet
