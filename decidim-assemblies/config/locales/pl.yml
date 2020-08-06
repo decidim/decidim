@@ -64,6 +64,12 @@ pl:
         email: E-mail
         name: Nazwa
         role: Rola
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Nieprawidłowy typ dokumentu. Akceptowane formaty to: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -84,6 +90,7 @@ pl:
   decidim:
     admin:
       actions:
+        import_assembly: Importuj
         new_assembly: Nowy montaż
         new_assembly_type: Nowy typ zgromadzenia
       assemblies:
@@ -128,6 +135,14 @@ pl:
           copy: Kopiuj
           select: Wybierz dane, które chcesz zduplikować
           title: Duplikat montażu
+      assembly_imports:
+        create:
+          error: Wystąpił błąd podczas importowania tego zespołu.
+          success: Zestaw pomyślnie zaimportowany.
+        new:
+          import: Importuj
+          select: Wybierz dane, które chcesz zaimportować
+          title: Importuj zespół
       assembly_members:
         create:
           error: Wystąpił błąd podczas dodawania elementu dla tego zespołu.
@@ -275,6 +290,10 @@ pl:
         assembly_copies:
           form:
             slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten zespół. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Dodaj dokument
+            slug_help: 'Ulugi URL są używane do generowania adresów URL, które wskazują na ten zespół. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się literą. Przykład: %{url}'
         assembly_members:
           form:
             existing_user: Istniejący użytkownik
