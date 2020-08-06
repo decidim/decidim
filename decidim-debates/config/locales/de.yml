@@ -98,6 +98,7 @@ de:
           title: Neue Debatte
         show:
           back: Zurück zur Liste
+          date: Datum
       last_activity:
         new_debate_at_html: "<span>Neue Debatte bei %{link}</span>"
       models:
