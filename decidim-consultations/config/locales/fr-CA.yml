@@ -236,6 +236,8 @@ fr-CA:
           label: 'Trier les votations par :'
           random: Aléatoire
           recent: Les plus récentes
+        show:
+          dates: Dates
       content_blocks:
         highlighted_consultations:
           name: Votations mises en avant
@@ -346,10 +348,12 @@ fr-CA:
         verification_required: Vérifier votre compte pour voter
         vote: Voter
       vote_modal:
+        close_modal: Fermer la fenêtre modale
         contextual_help: Veuillez sélectionner une option.
         title: 'Votation : soutien aux questions'
       vote_modal_confirm:
         change: Modifier
+        close_modal: Fermer la fenêtre modale
         confirm: Confirmer
         contextual_help: Veuillez confirmer l'option sélectionnée.
         title: 'Consultation : confirmer le soutien'
