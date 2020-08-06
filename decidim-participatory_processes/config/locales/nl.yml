@@ -24,8 +24,10 @@ nl:
         published_at: Gepubliceerd op
         related_process_ids: Verwante thema's
         scope_id: Scope
+        scope_type_max_depth_id: Scope filterdiepte
         scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
+        show_metrics: Toon statistieken
         show_statistics: Toon statistieken
         slug: URL pad
         start_date: Startdatum
@@ -133,6 +135,7 @@ nl:
             admin: Administrator
             collaborator: Medewerker
             moderator: Moderator
+            valuator: 'Waarde:'
         user:
           fields:
             invitation_accepted_at: Uitnodiging geaccepteerd op
@@ -204,11 +207,13 @@ nl:
         destroy:
           success: Admin succesvol verwijderd van dit participatief proces.
         edit:
+          title: Update participatieve procesbeheerder
           update: Bijwerken
         index:
           process_admins_title: Admins van het participatieve proces
         new:
           create: Aanmaken
+          title: Nieuwe participatieve procesbeheerder
         update:
           error: Er is een probleem opgetreden bij het bijwerken van een admin voor dit participatief proces.
           success: Admin succesvol bijgewerkt voor dit participatief proces.
@@ -322,6 +327,7 @@ nl:
             metadata: Metadata
             other: Overige
             related_processes: Verwante thema's
+            scope_type_max_depth_help: Beperk de scope filter diepte; de filter zal uit het algemeen worden weergegeven tot het geselecteerde scope type.
             select_an_area: Selecteer een onderwerp
             select_process_group: Selecteer een procesgroep
             slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
@@ -387,8 +393,10 @@ nl:
         comments_count: Reacties
         debates_count: Debatten
         endorsements_count: Ondersteuningen
+        followers_count: Volgers
         headline: Activiteit
         meetings_count: Vergaderingen
+        no_stats: Er zijn nog geen statistieken.
         orders_count: Stemmen
         pages_count: Pagina's
         participants_count: Deelnemers
