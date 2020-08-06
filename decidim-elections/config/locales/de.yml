@@ -131,6 +131,10 @@ de:
           update:
             invalid: Beim Aktualisieren dieser Frage ist ein Fehler aufgetreten
             success: Frage wurde erfolgreich aktualisiert
+      admin_log:
+        election:
+          publish: "%{user_name} hat die %{resource_name} Wahl veröffentlicht"
+          unpublish: "%{user_name} hat die %{resource_name} Wahl zurückgezogen"
       election_m:
         footer:
           take_part: Teilnehmen
