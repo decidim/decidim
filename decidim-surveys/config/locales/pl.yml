@@ -24,6 +24,7 @@ pl:
         settings:
           global:
             announcement: Ogłoszenie
+            clean_after_publish: Usuń odpowiedzi podczas publikowania ankiety
           step:
             allow_answers: Pozwól odpowiedzi
             allow_unregistered: Pozwól niezarejestrowanym użytkownikom wypełnić ankietę
