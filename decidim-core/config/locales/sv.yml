@@ -1325,7 +1325,9 @@ sv:
     dropdown:
       choose_diff_view_html: 'HTML-visningsläge:'
       choose_diff_view_mode: 'Visningsläge för jämförelse:'
+      option_escaped: Utflykt
       option_split: Sida vid sida
+      option_unescaped: Orymt
       option_unified: Sammanslagen
   views:
     pagination:
