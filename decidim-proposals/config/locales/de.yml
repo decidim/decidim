@@ -445,6 +445,7 @@ de:
             body: Haupttext
             comments_count: Anzahl der Kommentare
             comments_negative_count: Dagegen
+            comments_neutral_count: Neutral
             comments_positive_count: Dafür
             created_at: Erstellungsdatum
             documents: Unterlagen
