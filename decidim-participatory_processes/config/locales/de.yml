@@ -355,7 +355,11 @@ de:
             active_step: Aktiver Schritt
             more_information: Mehr Informationen
             participate: Sich beteiligen
+            participate_in: Am Prozess %{resource_name} teilnehmen
             see_all_processes: Alle Beteiligungsprozesses anzeigen
+      participatory_process_steps:
+        index:
+          back_to_process: Zurück zur Prozessseite
       participatory_processes:
         filters:
           counters:
@@ -385,6 +389,7 @@ de:
           loading: Ergebnisse werden geladen ...
       show:
         area: Bereich
+        dates: Daten
         developer_group: Promoter-Gruppe
         end_date: Endtermin
         local_area: Organisationsbereich
@@ -420,6 +425,7 @@ de:
       participatory_process_groups:
         participatory_process_group:
           browse: Durchsuche
+          browse_resource: Prozessgruppe %{resource_name} durchsuchen
           processes_count: 'Beteiligungsprozesse:'
       participatory_process_widgets:
         show:
@@ -431,11 +437,15 @@ de:
         participatory_process:
           active_step: 'Aktueller Schritt:'
           more_info: Mehr Info
+          more_info_about: Weitere Informationen zum Prozess %{resource_name}
           take_part: Teilnehmen
+          take_part_in: Beteiligen Sie sich am Prozess %{resource_name}
         promoted_process:
           active_step: 'Aktueller Schritt:'
           more_info: Mehr Informationen
+          more_info_about: Weitere Informationen zum Prozess %{resource_name}
           take_part: Teilnehmen
+          take_part_in: Beteiligen Sie sich am Prozess %{resource_name}
       process_header_steps:
         step: Schritt %{current} von %{total}
         view_steps: Schritte anzeigen
