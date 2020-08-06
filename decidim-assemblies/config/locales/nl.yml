@@ -79,6 +79,7 @@ nl:
     admin:
       actions:
         new_assembly: Nieuwe groep
+        new_assembly_type: Nieuw groepstype
       assemblies:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe groep.
@@ -101,8 +102,17 @@ nl:
           error: Er was een fout bij het dupliceren van deze groep.
           success: Groep succesvol gedupliceerd.
       assemblies_types:
+        create:
+          error: Er is een fout opgetreden bij het maken van een nieuw assembly-type.
+          success: Assemblage type is succesvol gecreëerd.
+        destroy:
+          success: Groep succesvol verwijderd.
         new:
           create: creëren
+          title: Nieuw groepstype
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van dit assembly-type.
+          success: Assemblage type is succesvol bijgewerkt.
       assembly_copies:
         new:
           copy: Kopiëren
@@ -162,6 +172,7 @@ nl:
           info: Info
           moderations: Moderaties
           private_users: Particuliere gebruikers
+        assemblies_types: Soorten Buurderijen
       models:
         assemblies_types:
           fields:
@@ -197,6 +208,7 @@ nl:
             admin: Beheerder
             collaborator: Medewerker
             moderator: Moderator
+            valuator: 'Waarde:'
       titles:
         assemblies: Groepen
         assemblies_types: Groepstype
