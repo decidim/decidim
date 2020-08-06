@@ -117,6 +117,14 @@ module Decidim
       default_except_disabled.merge(tenant_enabled_providers)
     end
 
+    def machine_translation_prioritizes_original?
+      machine_translation_display_priority == "original"
+    end
+
+    def machine_translation_prioritizes_translation?
+      machine_translation_display_priority == "translation"
+    end
+
     private
 
     def tenant_disabled_providers_keys

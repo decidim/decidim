@@ -68,10 +68,28 @@ module Decidim
         organization_locale = given_organization.try(:default_locale)
 
         attribute[I18n.locale.to_s].presence ||
-          attribute.dig("machine_translations", I18n.locale.to_s).presence ||
+          machine_translation_value(attribute, given_organization) ||
           attribute[organization_locale].presence ||
           attribute[attribute.keys.first].presence ||
           ""
+      end
+
+      # Detects whether we need to show the machine translated version of the
+      # field, or not.
+      #
+      # It uses `RequestStore` so that the method works from inside presenter
+      # classes, which don't have access to controller instance variables.
+      def machine_translation_value(attribute, organization)
+        return unless organization
+        return unless organization.enable_machine_translations?
+
+        translations_prioritized = organization.machine_translation_prioritizes_translation?
+        translations_toggled = RequestStore.store[:toggle_machine_translations]
+
+        should_show_translated_value =
+          translations_prioritized != translations_toggled
+
+        attribute.dig("machine_translations", I18n.locale.to_s).presence if should_show_translated_value
       end
     end
   end
