@@ -20,6 +20,7 @@ fr:
         settings:
           global:
             announcement: Annonce
+            clean_after_publish: Supprimer les réponses lors de la publication du sondage
           step:
             allow_answers: Autoriser les réponses
             allow_unregistered: Autoriser les utilisateurs non inscrits à répondre à l'enquête
