@@ -6,8 +6,8 @@ module Decidim
       module FilterableHelper
         def extra_dropdown_submenu_options_items(filter)
           options = case filter
-                    when :state_eq
-                      content_tag(:li, filter_link_value(:state_null, true))
+                    when :proposal_state_eq
+                      content_tag(:li, filter_link_value(:proposal_state_null, true))
                     end
           [options].compact
         end

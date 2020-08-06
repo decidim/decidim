@@ -78,7 +78,8 @@ en:
           label: Area
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Search %{collection} by title, description, ID or author name.
-        state_eq:
+        initiative_state_eq:
+          label: State
           values:
             accepted: Enough signatures
             created: Created

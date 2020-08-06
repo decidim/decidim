@@ -87,12 +87,17 @@ en:
             'true': Amendments
         search_placeholder:
           id_string_or_title_cont: Search %{collection} by ID or title.
-        state_eq:
+        proposal_state_eq:
+          label: State
           values:
+            accepted: Accepted
             evaluating: Evaluating
+            published: Published
+            rejected: Rejected
+            validating: Technical validation
             withdrawn: Withdrawn
-        state_null:
-          label: Status
+        proposal_state_null:
+          label: State
           values:
             'true': Not answered
         valuator_role_ids_has:

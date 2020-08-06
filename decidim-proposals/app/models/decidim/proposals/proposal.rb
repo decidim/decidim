@@ -344,6 +344,9 @@ module Decidim
         [:valuator_role_ids_has]
       end
 
+      # to avoid translation clashes with other modules
+      ransack_alias :proposal_state, :state
+
       ransacker :state_published do
         Arel.sql("CASE
           WHEN EXISTS (

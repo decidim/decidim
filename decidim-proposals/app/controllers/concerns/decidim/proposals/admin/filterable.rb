@@ -35,8 +35,8 @@ module Decidim
           def filters
             [
               :is_emendation_true,
-              :state_eq,
-              :state_null,
+              :proposal_state_eq,
+              :proposal_state_null,
               :scope_id_eq,
               :category_id_eq,
               :valuator_role_ids_has
@@ -46,7 +46,7 @@ module Decidim
           def filters_with_values
             {
               is_emendation_true: %w(true false),
-              state_eq: proposal_states,
+              proposal_state_eq: proposal_states,
               scope_id_eq: scope_ids_hash(scopes.top_level),
               category_id_eq: category_ids_hash(categories.first_class),
               valuator_role_ids_has: valuator_role_ids
@@ -68,7 +68,7 @@ module Decidim
             user_role&.user&.name
           end
 
-          # An Array<Symbol> of possible values for `state_eq` filter.
+          # An Array<Symbol> of possible values for `proposal_state_eq` filter.
           # Excludes the states that cannot be filtered with the ransack predicate.
           # A link to filter by "Not answered" will be added in:
           # Decidim::Proposals::Admin::FilterableHelper#extra_dropdown_submenu_options_items
