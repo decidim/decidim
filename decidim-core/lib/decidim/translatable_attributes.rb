@@ -83,13 +83,15 @@ module Decidim
         return unless organization
         return unless organization.enable_machine_translations?
 
+
+        attribute.dig("machine_translations", I18n.locale.to_s).presence if must_render_translation?(organization)
+      end
+
+      def must_render_translation?(organization)
         translations_prioritized = organization.machine_translation_prioritizes_translation?
         translations_toggled = RequestStore.store[:toggle_machine_translations]
 
-        should_show_translated_value =
-          translations_prioritized != translations_toggled
-
-        attribute.dig("machine_translations", I18n.locale.to_s).presence if should_show_translated_value
+        translations_prioritized != translations_toggled
       end
     end
   end
