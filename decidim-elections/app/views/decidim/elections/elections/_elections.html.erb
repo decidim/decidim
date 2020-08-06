@@ -1,3 +1,13 @@
+<% if @no_scheduled_elections %>
+  <div class="callout warning">
+    <%= t("decidim.elections.warnings.no_scheduled_elections_warning") %>
+  </div>
+<% elsif elections.length == 0 %>
+  <div class="callout warning">
+    <%= t("decidim.elections.warnings.no_elections_warning") %>
+  </div>
+<% end %>
+
 <div class="collection-sort-controls row small-up-1 medium-up-3 card-grid">
   <div class="column">
     <%= order_selector available_orders, i18n_scope: "decidim.elections.orders" %>

@@ -17,13 +17,20 @@ describe "Explore elections", :slow, type: :system do
         Decidim::Elections::Election.destroy_all
       end
 
-      let!(:single_elections) { create_list(:election, 1, :complete, :published, :ongoing, component: component) }
+      let!(:single_elections) { create_list(:election, 1, :complete, :published, :finished, component: component) }
 
       it "redirects to the only election" do
         visit_component
 
-        expect(page).to have_content("Voting ends on")
+        expect(page).to have_content("Voting began on")
         expect(page).not_to have_content("All elections")
+      end
+
+      it "shows the correct warning" do
+        visit_component
+        within ".callout" do
+          expect(page).to have_content("find the past election listed")
+        end
       end
     end
 
@@ -88,6 +95,36 @@ describe "Explore elections", :slow, type: :system do
         end
 
         expect(page).to have_css(".card--election", count: 7)
+      end
+    end
+
+    context "when no active or upcoming elections scheduled" do
+      before do
+        Decidim::Elections::Election.destroy_all
+      end
+
+      let!(:finished_elections) do
+        create_list(:election, elections_count, :complete, :published, :finished, component: component)
+      end
+
+      it "shows the correct warning" do
+        visit_component
+        within ".callout" do
+          expect(page).to have_content("no scheduled elections")
+        end
+      end
+    end
+
+    context "when no elections is given" do
+      before do
+        Decidim::Elections::Election.destroy_all
+      end
+
+      it "shows the correct warning" do
+        visit_component
+        within ".callout" do
+          expect(page).to have_content("any election scheduled")
+        end
       end
     end
 

@@ -13,6 +13,11 @@ module Decidim
 
       def index
         redirect_to election_path(single, single: true) if single?
+
+        @scheduled_elections = search_klass.new(search_params.merge(state: %w(active upcoming)))
+        @finished_elections = search_klass.new(search_params.merge(state: %w(finished)))
+
+        @no_scheduled_elections = true if @scheduled_elections.results.empty? && @finished_elections.results.present?
       end
 
       def show
