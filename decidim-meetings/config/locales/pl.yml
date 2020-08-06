@@ -379,6 +379,7 @@ pl:
           attendees: Liczba osób biorących udział
           back: Powrót do listy
           contributions: Liczba składek
+          date: Data
           going: Chodzenie
           join: Dołącz do spotkania
           meeting_report: Notatka ze spotkania
