@@ -34,9 +34,7 @@
 
       markersData.forEach((markerData) => {
         let marker = L.marker([markerData.latitude, markerData.longitude], {
-          icon: new L.DivIcon.SVGIcon.DecidimIcon({
-            fillColor: this.config.markerColor
-          }),
+          icon: this.createIcon(),
           keyboard: true,
           title: markerData.title
         });
@@ -54,6 +52,13 @@
       });
 
       this.map.fitBounds(bounds, { padding: [100, 100] });
+    }
+
+    createIcon() {
+      return new L.DivIcon.SVGIcon.DecidimIcon({
+        fillColor: this.config.markerColor,
+        iconSize: L.point(28, 36)
+      });
     }
 
     clearMarkers() {
