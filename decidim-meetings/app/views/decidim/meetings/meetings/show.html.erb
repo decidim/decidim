@@ -105,7 +105,7 @@ edit_link(
     <%= resource_reference(meeting) %>
     <%= resource_version(meeting, versions_path: meeting_versions_path(meeting)) %>
     <%= render partial: "decidim/shared/share_modal" %>
-    <%= embed_modal_for meeting_meeting_widget_url(meeting, format: :js) %>
+    <%= embed_modal_for meeting_widget_url(meeting, format: :js) %>
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
