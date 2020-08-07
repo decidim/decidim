@@ -344,7 +344,7 @@ fi:
           impersonate_new_managed_user: Esiinny uutena hallittuna käyttäjänä
           managed: Hallittu
           name: Nimi
-          needs_authorization_warning: Tällä organisaatiolla tulee olla vähintään yksi tunnistautumisväylä käytössä.
+          needs_authorization_warning: Tällä organisaatiolla tulee olla vähintään yksi vahvistustapa käytössä.
           not_managed: Ei hallittu
           promote: Korota tasoa
           search: Hae
@@ -745,7 +745,7 @@ fi:
         admin_log: Hallintatoimintojen lokitiedot
         area_types: Aluetyypit
         areas: Alueet
-        authorization_workflows: Vahvistusmenetelmät
+        authorization_workflows: Vahvistustavat
         dashboard: Hallintapaneeli
         impersonatable_users: Hallittavat käyttäjät
         impersonations: Käyttäjien hallinta
