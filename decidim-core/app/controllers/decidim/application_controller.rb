@@ -39,6 +39,7 @@ module Decidim
     before_action :store_current_location
 
     before_action :store_machine_translations_toggle
+    helper_method :machine_translations_toggled?
 
     protect_from_forgery with: :exception, prepend: true
     after_action :add_vary_header
@@ -67,6 +68,10 @@ module Decidim
     # need it there to translate some attributes.
     def store_machine_translations_toggle
       RequestStore.store[:toggle_machine_translations] = params[:toggle_translations].present?
+    end
+
+    def machine_translations_toggled?
+      !!RequestStore.store[:toggle_machine_translations]
     end
 
     def skip_store_location?
