@@ -15,14 +15,12 @@ describe Decidim::Elections::Admin::ElectionForm do
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:current_component) { create :elections_component, participatory_space: participatory_process }
   let(:title) { Decidim::Faker::Localized.sentence(3) }
-  let(:subtitle) { Decidim::Faker::Localized.sentence(3) }
   let(:description) { Decidim::Faker::Localized.sentence(3) }
   let(:start_time) { 1.day.from_now }
   let(:end_time) { 3.days.from_now }
   let(:attributes) do
     {
       title: title,
-      subtitle: subtitle,
       description: description,
       start_time: start_time,
       end_time: end_time
@@ -33,12 +31,6 @@ describe Decidim::Elections::Admin::ElectionForm do
 
   describe "when title is missing" do
     let(:title) { { ca: nil, es: nil } }
-
-    it { is_expected.not_to be_valid }
-  end
-
-  describe "when subtitle is missing" do
-    let(:subtitle) { { ca: nil, es: nil } }
 
     it { is_expected.not_to be_valid }
   end

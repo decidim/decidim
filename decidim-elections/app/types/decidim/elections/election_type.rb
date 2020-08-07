@@ -13,7 +13,6 @@ module Decidim
 
       field :id, !types.ID, "The internal ID of this election"
       field :title, !Decidim::Core::TranslatedFieldType, "The title for this election"
-      field :subtitle, !Decidim::Core::TranslatedFieldType, "The subtitle for this election"
       field :description, !Decidim::Core::TranslatedFieldType, "The description for this election"
       field :startTime, !Decidim::Core::DateTimeType, "The start time for this election", property: :start_time
       field :endTime, !Decidim::Core::DateTimeType, "The end time for this election", property: :end_time

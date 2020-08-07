@@ -29,7 +29,6 @@ module Decidim
         def update_election!
           attributes = {
             title: form.title,
-            subtitle: form.subtitle,
             description: form.description,
             start_time: form.start_time,
             end_time: form.end_time

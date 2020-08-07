@@ -11,7 +11,6 @@ en:
         description: Description
         end_time: Voting ends at
         start_time: Voting start at
-        subtitle: Subtitle
         title: Title
       question:
         description: Description

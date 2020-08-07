@@ -31,14 +31,6 @@ module Decidim
         end
       end
 
-      describe "subtitle" do
-        let(:query) { '{ subtitle { translation(locale: "en")}}' }
-
-        it "returns all the required fields" do
-          expect(response["subtitle"]["translation"]).to eq(model.subtitle["en"])
-        end
-      end
-
       describe "description" do
         let(:query) { '{ description { translation(locale: "en")}}' }
 

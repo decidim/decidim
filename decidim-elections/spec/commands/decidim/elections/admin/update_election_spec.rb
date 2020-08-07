@@ -13,7 +13,6 @@ describe Decidim::Elections::Admin::UpdateElection do
       invalid?: invalid,
       current_user: user,
       title: { en: "title" },
-      subtitle: { en: "subtitle" },
       description: { en: "description" },
       start_time: start_time,
       end_time: end_time
@@ -26,7 +25,6 @@ describe Decidim::Elections::Admin::UpdateElection do
   it "updates the election" do
     subject.call
     expect(translated(election.title)).to eq "title"
-    expect(translated(election.subtitle)).to eq "subtitle"
     expect(translated(election.description)).to eq "description"
     expect(election.start_time).to eq start_time
     expect(election.end_time).to eq end_time
@@ -35,7 +33,7 @@ describe Decidim::Elections::Admin::UpdateElection do
   it "traces the action", versioning: true do
     expect(Decidim.traceability)
       .to receive(:update!)
-      .with(election, user, hash_including(:title, :subtitle, :description, :start_time, :end_time), visibility: "all")
+      .with(election, user, hash_including(:title, :description, :start_time, :end_time), visibility: "all")
       .and_call_original
 
     expect { subject.call }.to change(Decidim::ActionLog, :count)

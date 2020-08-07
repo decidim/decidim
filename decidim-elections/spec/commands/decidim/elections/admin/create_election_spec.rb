@@ -13,7 +13,6 @@ describe Decidim::Elections::Admin::CreateElection do
     double(
       invalid?: invalid,
       title: { en: "title" },
-      subtitle: { en: "subtitle" },
       description: { en: "description" },
       start_time: start_time,
       end_time: end_time,
@@ -35,7 +34,6 @@ describe Decidim::Elections::Admin::CreateElection do
   it "stores the given data" do
     subject.call
     expect(translated(election.title)).to eq "title"
-    expect(translated(election.subtitle)).to eq "subtitle"
     expect(translated(election.description)).to eq "description"
     expect(election.start_time).to be_within(1.second).of start_time
     expect(election.end_time).to be_within(1.second).of end_time
@@ -52,7 +50,7 @@ describe Decidim::Elections::Admin::CreateElection do
       .with(
         Decidim::Elections::Election,
         user,
-        hash_including(:title, :subtitle, :description, :end_time, :start_time, :component),
+        hash_including(:title, :description, :end_time, :start_time, :component),
         visibility: "all"
       )
       .and_call_original
