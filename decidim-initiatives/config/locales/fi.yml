@@ -421,6 +421,7 @@ fi:
           not_authorized:
             authorizations_page: Näytä autorisoinnit
             close: Sulje
+            explanation: Tilisi tulee vahvistaa luodaksesi uuden aloitteen.
             title: Autorisaatio vaaditaan
         interactions:
           comments_count:
