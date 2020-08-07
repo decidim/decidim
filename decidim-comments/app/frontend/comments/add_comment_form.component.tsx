@@ -390,10 +390,14 @@ const AddCommentFormWithMutation = graphql<addCommentMutation, AddCommentFormPro
                 createdAt: new Date().toISOString(),
                 body,
                 formattedBody: body,
+                formattedCreatedAt: new Date().toISOString(),
                 alignment,
                 author: {
                   __typename: "User",
                   name: ownProps.session && ownProps.session.user.name,
+                  nickname: ownProps.session && ownProps.session.user.name,
+                  profilePath: null,
+                  badge: null,
                   avatarUrl: ownProps.session && ownProps.session.user.avatarUrl,
                   deleted: false
                 },
