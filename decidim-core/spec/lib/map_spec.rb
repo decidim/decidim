@@ -302,7 +302,7 @@ module Decidim
             provider: :osm,
             api_key: "apikey",
             global_conf: "value",
-            dynamic: ["foo", "bar"],
+            dynamic: %w(foo bar),
             static: "baz",
             geocoding: true
           }
@@ -323,7 +323,7 @@ module Decidim
             geocoding: {
               provider: :osm,
               api_key: "apikey",
-              global_conf: "value",
+              global_conf: "value"
             }
           )
         end
