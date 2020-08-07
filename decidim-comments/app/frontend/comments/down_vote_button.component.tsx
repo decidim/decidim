@@ -26,11 +26,13 @@ interface DownVoteButtonProps {
   orderBy: string;
 }
 
-export const DownVoteButton: React.SFC<DownVoteButtonProps> = ({
-  session,
-  comment: { downVotes, upVoted, downVoted },
-  downVote
-}, context) => {
+export const DownVoteButton: React.SFC<DownVoteButtonProps> = (
+  {
+    session,
+    comment: { downVotes, upVoted, downVoted },
+    downVote
+  },
+  context) => {
   let selectedClass = "";
 
   if (downVoted) {
