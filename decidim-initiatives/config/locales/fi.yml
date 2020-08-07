@@ -32,7 +32,7 @@ fi:
         collect_user_extra_fields: Kerää käyttäjän henkilötietoja allekirjoituksen yhteydessä
         custom_signature_end_date_enabled: Salli laatijoiden valita allekirjoitusten keräyksen loppumisaika
         description: Kuvaus
-        document_number_authorization_handler: Valtuutus asiakirjanumeron tarkistamiseen allekirjoitettaessa
+        document_number_authorization_handler: Vahvistustapa asiakirjanumeron tarkistamiseen allekirjoitettaessa
         extra_fields_legal_information: Oikeudelliset tiedot koskien henkilötietojen keräämistä
         minimum_committee_members: Komitean jäsenten vähimmäismäärä
         online_signature_enabled: Online-allekirjoitus on käytössä
@@ -390,7 +390,7 @@ fi:
         sms_code:
           invalid: Vahvistuskoodi ei vastaa meidän koodiamme. Tarkista uudestaan lähettämämme tekstiviesti.
         sms_phone:
-          invalid: Puhelinnumero on virheellinen tai odottaa tarkastusta. Tarkista valtuutesi.
+          invalid: Puhelinnumero on virheellinen tai odottaa tarkastusta. Tarkista vahvistuksesi.
       initiatives:
         author:
           deleted: Poistettu
@@ -419,10 +419,10 @@ fi:
         index_header:
           new_initiative: Uusi aloite
           not_authorized:
-            authorizations_page: Näytä autorisoinnit
+            authorizations_page: Näytä vahvistukset
             close: Sulje
             explanation: Tilisi tulee vahvistaa luodaksesi uuden aloitteen.
-            title: Autorisaatio vaaditaan
+            title: Vahvistus vaaditaan
         interactions:
           comments_count:
             count:
