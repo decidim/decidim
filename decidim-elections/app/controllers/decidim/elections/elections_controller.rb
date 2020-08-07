@@ -36,7 +36,7 @@ module Decidim
       end
 
       def single_elections
-        @single_elections ||= Election.where(component: current_component)
+        @single_elections ||= Election.where(component: current_component).published
       end
 
       # Public: Checks if the component has only one election resource.
