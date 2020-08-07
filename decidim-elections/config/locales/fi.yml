@@ -135,6 +135,22 @@ fi:
         election:
           publish: "%{user_name} julkaisi vaalin %{resource_name}"
           unpublish: "%{user_name} lopetti vaalin %{resource_name} julkaisemisen"
+      election_m:
+        footer:
+          take_part: Osallistu
+      elections:
+        count:
+          elections_count:
+            one: "%{count} vaali"
+            other: "%{count} vaalia"
+        show:
+          back: Kaikki vaalit
+          preview: Esikatsele
+          vote: Äänestä
+          voting_period_status:
+            finished: Äänestys alkoi %{start_time} ja päättyi %{end_time}
+            ongoing: Äänestys päättyy %{end_time}
+            upcoming: Äänestys alkaa %{start_time}
       models:
         answer:
           fields:
@@ -150,6 +166,23 @@ fi:
             answers: Vastaukset
             max_selections: Valintojen enimmäismäärä
             title: Otsikko
+      votes:
+        confirm:
+          answer: Vastaa
+          answer_number: 'vastaus #%{number}'
+          confirm: Vahvista
+          edit: muokkaa
+          header: Vahvista äänesi
+          intro: Tässä on yhteeveto äänestäsi, jota olet jättämässä. <br> Tarkasta, että kaikki on oikein tai muuta vastauksiasi.
+          question: Kysymys %{count}
+        confirmed:
+          back: Takaisin vaaleihin
+          experience: Minkälainen käyttökokemuksesi oli?
+          feedback: Jätä meille palautetta
+          header: Ääni vahvistettu
+          lead: Olet jo äänestänyt!
+          text: 'Voit tarkastaa, että äänesi on jätetty onnistuneesti äänestyslaatikkoon seuraavalla tunnisteella: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Tarkastaaksesi tämän, voit syöttää äänen tunnisteen <a href="evote-verify">äänten vahvistussivulle</a>
     events:
       elections:
         election_published:
