@@ -76,7 +76,7 @@ module Decidim
       end
 
       context "when the dynamic provider has been disabled configured" do
-        let(:config) { { provider: :osm, dynamic: { disable: true } } }
+        let(:config) { { provider: :osm, dynamic: false } }
 
         it "returns true for all the non-disabled utilities and false for the dynamic utility" do
           expect(subject.available?(:dynamic)).to be(false)
@@ -125,8 +125,8 @@ module Decidim
         end
       end
 
-      context "when the dynamic provider has been disabled configured" do
-        let(:config) { { provider: :osm, dynamic: { disable: true } } }
+      context "when the dynamic provider has been disabled" do
+        let(:config) { { provider: :osm, dynamic: false } }
 
         it "returns a new instance for all the non-disabled utilities and nil for the dynamic utility" do
           expect(subject.utility(:dynamic, options)).to be(nil)
@@ -256,6 +256,75 @@ module Decidim
             api_key: "gc_apikey",
             global_conf: "value",
             host: "https://nominatim.example.org/"
+          )
+        end
+      end
+
+      context "when the dynamic maps are disabled" do
+        let(:config) do
+          {
+            provider: :osm,
+            api_key: "apikey",
+            global_conf: "value",
+            dynamic: false,
+            static: {
+              url: "https://staticmap.example.org/"
+            },
+            geocoding: {
+              provider: :alternative,
+              api_key: "gc_apikey",
+              host: "https://nominatim.example.org/"
+            }
+          }
+        end
+
+        it "returns the configuration hash without the dynamic key" do
+          expect(subject.utility_configuration).to eq(
+            static: {
+              provider: :osm,
+              api_key: "apikey",
+              global_conf: "value",
+              url: "https://staticmap.example.org/"
+            },
+            geocoding: {
+              provider: :alternative,
+              api_key: "gc_apikey",
+              global_conf: "value",
+              host: "https://nominatim.example.org/"
+            }
+          )
+        end
+      end
+
+      context "when the map configurations are not hashes" do
+        let(:config) do
+          {
+            provider: :osm,
+            api_key: "apikey",
+            global_conf: "value",
+            dynamic: ["foo", "bar"],
+            static: "baz",
+            geocoding: true
+          }
+        end
+
+        it "returns only the global configurations" do
+          expect(subject.utility_configuration).to eq(
+            dynamic: {
+              provider: :osm,
+              api_key: "apikey",
+              global_conf: "value"
+            },
+            static: {
+              provider: :osm,
+              api_key: "apikey",
+              global_conf: "value"
+            },
+            geocoding: {
+              provider: :osm,
+              api_key: "apikey",
+              global_conf: "value",
+            }
           )
         end
       end

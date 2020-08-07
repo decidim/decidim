@@ -37,7 +37,7 @@ module Decidim
         before do
           Decidim.maps = {
             provider: :test,
-            static: { disable: true, url: "https://www.example.org/my_static_map" }
+            static: false
           }
         end
 
