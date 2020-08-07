@@ -70,9 +70,11 @@ module Decidim
       end
 
       def machine_translation_attributes
+        return unless Decidim.config.enable_machine_translations
+
         {
           machine_translation_display_priority: form.machine_translation_display_priority
-        } if Decidim.config.enable_machine_translations
+        }
       end
     end
   end

@@ -108,8 +108,12 @@ module Decidim
         it { is_expected.to be_invalid }
       end
 
-      context "when machine_translation_display_priority is a weird value" do
+      context "when machine_translation_display_priority is a weird value and machine translations are active" do
         let(:translation_priority) { "foobar" }
+
+        before do
+          allow(Decidim.config).to receive(:enable_machine_translations).and_return(true)
+        end
 
         it { is_expected.to be_invalid }
       end

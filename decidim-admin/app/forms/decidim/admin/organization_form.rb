@@ -44,8 +44,8 @@ module Decidim
       validates :admin_terms_of_use_body, translatable_presence: true
       validates :comments_max_length, numericality: { greater_than: 0 }, if: ->(form) { form.comments_max_length.present? }
       validates :machine_translation_display_priority,
-        inclusion: { in: Decidim::Organization::AVAILABLE_MACHINE_TRANSLATION_DISPLAY_PRIORITIES },
-        if: :machine_translation_enabled?
+                inclusion: { in: Decidim::Organization::AVAILABLE_MACHINE_TRANSLATION_DISPLAY_PRIORITIES },
+                if: :machine_translation_enabled?
 
       def machine_translation_priorities
         Decidim::Organization::AVAILABLE_MACHINE_TRANSLATION_DISPLAY_PRIORITIES.map do |priority|
