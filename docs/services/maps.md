@@ -176,7 +176,7 @@ images functionality, you can use the following configuration:
 config.maps = {
   provider: :here,
   api_key: Rails.application.secrets.maps[:api_key],
-  static: { disable: true }
+  static: false
 }
 ```
 
