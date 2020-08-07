@@ -71,7 +71,7 @@ module Decidim
     end
 
     def machine_translations_toggled?
-      !!RequestStore.store[:toggle_machine_translations]
+      RequestStore.store[:toggle_machine_translations]
     end
 
     def skip_store_location?
