@@ -9,7 +9,7 @@ class AddMachineTranslationDisplayPriorityToOrganizations < ActiveRecord::Migrat
     add_column :decidim_organizations, :machine_translation_display_priority, :string
 
     Organization.reset_column_information
-    Organization.update_all(machine_translation_display_priority: :original)
+    Organization.update_all(machine_translation_display_priority: :original) # rubocop:disable Rails/SkipsModelValidations
 
     change_column_default :decidim_organizations, :machine_translation_display_priority, "original"
     change_column_null :decidim_organizations, :machine_translation_display_priority, false

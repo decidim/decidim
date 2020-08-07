@@ -55,10 +55,10 @@ module Decidim
           user_groups_enabled: form.user_groups_enabled,
           comments_max_length: form.comments_max_length,
           enable_machine_translations: form.enable_machine_translations,
-          machine_translation_display_priority: form.machine_translation_display_priority,
           admin_terms_of_use_body: form.admin_terms_of_use_body,
           rich_text_editor_in_public_views: form.rich_text_editor_in_public_views
         }.merge(welcome_notification_attributes)
+          .merge(machine_translation_attributes || {})
       end
 
       def welcome_notification_attributes
@@ -67,6 +67,12 @@ module Decidim
           welcome_notification_subject: form.customize_welcome_notification ? form.welcome_notification_subject : nil,
           welcome_notification_body: form.customize_welcome_notification ? form.welcome_notification_body : nil
         }
+      end
+
+      def machine_translation_attributes
+        {
+          machine_translation_display_priority: form.machine_translation_display_priority
+        } if Decidim.config.enable_machine_translations
       end
     end
   end

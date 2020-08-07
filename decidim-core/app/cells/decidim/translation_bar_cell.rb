@@ -25,12 +25,10 @@ module Decidim
 
       new_query = if RequestStore.store[:toggle_machine_translations]
                     query.gsub("toggle_translations=true", "")
+                  elsif query.nil?
+                    new_query_params
                   else
-                    if query.nil?
-                      new_query_params
-                    else
-                      query + "&" + new_query_params
-                    end
+                    query + "&" + new_query_params
                   end
 
       parsed_url.query = new_query
