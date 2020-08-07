@@ -162,7 +162,12 @@ module Decidim
         global_config = configuration.except(*utility_modules.keys)
         utility_modules.keys.each do |key|
           utility_config = configuration.fetch(key, {})
-          next if utility_config[:disable]
+          next if utility_config == false
+
+          unless utility_config.is_a?(Hash)
+            config[key] = global_config
+            next
+          end
 
           config[key] = global_config.merge(utility_config)
         end
