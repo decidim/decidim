@@ -51,6 +51,8 @@ hu:
         from: Küldő email címe
         github_handler: GitHub handler
         header_snippets: Fejléc részletek
+        highlight_alternative_color: Kiemelés, alternatíva
+        highlight_color: Kiemelés
         highlighted_content_banner_action_subtitle: Felhívás gomb alcíme
         highlighted_content_banner_action_title: Felhívás gomb szövege
         highlighted_content_banner_action_url: Felhívás gomb URL
@@ -488,6 +490,7 @@ hu:
           title: Hírlevél sablonok
           use_template: Sablon használata
         show:
+          preview: 'Sablon előnézet: %{template_name}'
           use_template: Sablon használata
       newsletters:
         create:
@@ -587,6 +590,7 @@ hu:
           officialize: Hivatalossá tétel
           title: '"%{name}" hivatalossá tétele'
         show_email_modal:
+          close_modal: Ablak bezárás
           description: Ha közvetlenül kapcsolatba kell lépnie egy résztvevővel, akkor kattintson a Megjelenítés gombra az e-mail cím megtekintéséhez. Ez a művelet naplózásra kerül.
           email_address: E-mail cím
           full_name: Teljes név
