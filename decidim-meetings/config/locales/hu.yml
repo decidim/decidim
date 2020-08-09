@@ -153,6 +153,10 @@ hu:
         confirm_destroy: Biztosan törölni szeretnéd ezt a találkozót?
         destroy: Törlés
         edit: Szerkesztés
+        invalid_destroy:
+          proposals_count:
+            one: 'A találkozót nem lehet megsemmisíteni, mert %{count} javaslat van társítva hozzá:'
+            other: 'A találkozót nem lehet megsemmisíteni, mert %{count} javaslat van társítva hozzá:'
         minutes: Jegyzőkönyvek
         new: Új találkozó
         preview: Előnézet
@@ -231,6 +235,10 @@ hu:
             invalid: Probléma történt a találkozó létrehozása során
             success: Találkozó létrehozása sikeres
           destroy:
+            invalid:
+              proposals_count:
+                one: A találkozót nem lehet megsemmisíteni, mert %{count} javaslat van társítva hozzá
+                other: A találkozót nem lehet megsemmisíteni, mert %{count} javaslat van társítva hozzá
             success: Találkozó törlése sikeres
           edit:
             update: Frissítés
