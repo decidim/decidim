@@ -13,6 +13,7 @@ hu:
         attachment_collection_id: Mappa
         description: Leírás
         file: Fájl
+        title: Melléklet vagy kép neve
       attachment_collection:
         description: Leírás
         name: Név
@@ -317,6 +318,8 @@ hu:
         search_placeholder:
           name_or_nickname_or_email_cont: Keresés %{collection} email, név vagy becenév alapján.
           title_cont: Keresés %{collection} cím alapján.
+        state_eq:
+          label: Állapot
       help_sections:
         error: Hiba történt a súgószakaszok frissítésekor
         form:
@@ -684,6 +687,7 @@ hu:
         gallery:
           add_images: Képek hozzáadása
           delete_image: Kép törlése
+          gallery_legend: Képgaléria hozzáadása (opcionális)
       static_page_topics:
         create:
           error: Hiba történt egy új téma létrehozásakor.
