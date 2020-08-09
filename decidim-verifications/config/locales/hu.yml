@@ -28,6 +28,9 @@ hu:
       menu:
         authorization_revocation:
           button: Összes visszavonása
+          destroy_nok: Probléma merült fel az engedélyek visszavonásakor.
+          destroy_ok: Az összes egyező engedélyt sikeresen visszavonták.
+          no_data: Nincsenek ellenőrzött résztvevők
         authorization_workflows: Ellenőrzések
     admin_log:
       organization:
@@ -90,7 +93,9 @@ hu:
           verify_with_these_options: 'Személyazonosságod ellenőrzésének különféle lehetőségei:'
         index:
           expired_verification: Hitelesítés lejárt
+          pending_verification: Függőben lévő ellenőrzés
           show_renew_info: Kattintson a hitelesítés megújításához
+          unauthorized_verification: Új ellenőrzés
         new:
           authorize: Küldés
           authorize_with: 'Ellenőrizd ezzel: %{authorizer}'
