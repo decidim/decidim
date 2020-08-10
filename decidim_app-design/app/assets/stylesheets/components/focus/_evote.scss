@@ -54,7 +54,7 @@
     border-radius: .5rem;
     background-color: $white;
     margin-bottom: 1rem;
-    &[disabled] {
+    &.is-disabled {
       background-color: $medium-gray;
       cursor: not-allowed;
       > * {
@@ -82,6 +82,9 @@
       overflow: hidden;
       clip: rect(0, 0, 0, 0);
       border: 0;
+    }
+    [aria-disabled="true"] {
+      pointer-events: none;
     }
   }
 
