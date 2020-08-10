@@ -14,8 +14,15 @@ describe "Translations", type: :system do
       )
     end
     let!(:component) { create(:component, manifest_name: :dummy, organization: organization) }
+
     let(:english_title) { "English title" }
     let(:spanish_title) { "Spanish title autotranslated" }
+
+    let(:english_comment) { "This is a comment in English" }
+    let(:spanish_comment) { "This is a comment in Spanish" }
+
+    let(:english_comment2) { "This was originally in Spanish and translated to English" }
+    let(:spanish_comment2) { "This is originally in SPanish, and will be autotranslated into English" }
 
     let!(:resource) do
       create(
@@ -24,7 +31,31 @@ describe "Translations", type: :system do
         title: {
           en: english_title,
           machine_translations: {
-            "es": spanish_title
+            es: spanish_title
+          }
+        }
+      )
+    end
+    let!(:comment) do
+      create(
+        :comment,
+        commentable: resource,
+        body: {
+          en: english_comment,
+          machine_translations: {
+            es: spanish_comment
+          }
+        }
+      )
+    end
+    let!(:multilingual_comment) do
+      create(
+        :comment,
+        commentable: resource,
+        body: {
+          es: spanish_comment2,
+          machine_translations: {
+            en: english_comment2
           }
         }
       )
@@ -54,8 +85,17 @@ describe "Translations", type: :system do
       end
 
       it "shows the original English text" do
+        # Dummy resource, original in English
         expect(page).to have_content(english_title)
         expect(page).not_to have_content(spanish_title)
+
+        # First comment, original in English
+        expect(page).to have_content(english_comment)
+        expect(page).not_to have_content(spanish_comment)
+
+        # Last comment, original in Spanish
+        expect(page).to have_content(spanish_comment2)
+        expect(page).not_to have_content(english_comment2)
       end
 
       context "when toggling translations" do
@@ -64,8 +104,17 @@ describe "Translations", type: :system do
         end
 
         it "shows the translated title" do
+          # Dummy resource, original in English
           expect(page).not_to have_content(english_title)
           expect(page).to have_content(spanish_title)
+
+          # First comment, original in English
+          expect(page).not_to have_content(english_comment)
+          expect(page).to have_content(spanish_comment)
+
+          # Last comment, original in Spanish
+          expect(page).to have_content(spanish_comment2)
+          expect(page).not_to have_content(english_comment2)
         end
       end
     end
@@ -81,9 +130,18 @@ describe "Translations", type: :system do
         expect(page).to have_content("Show original text")
       end
 
-      it "shows the translated Spanish text" do
+      it "shows the Spanish texts" do
+        # Dummy resource, original in English
         expect(page).not_to have_content(english_title)
         expect(page).to have_content(spanish_title)
+
+        # First comment, original in English
+        expect(page).not_to have_content(english_comment)
+        expect(page).to have_content(spanish_comment)
+
+        # Last comment, original in Spanish
+        expect(page).to have_content(spanish_comment2)
+        expect(page).not_to have_content(english_comment2)
       end
 
       context "when toggling translations" do
@@ -91,9 +149,18 @@ describe "Translations", type: :system do
           click_link "Show original text"
         end
 
-        it "shows the original title" do
+        it "shows the original values" do
+          # Dummy resource, original in English
           expect(page).to have_content(english_title)
           expect(page).not_to have_content(spanish_title)
+
+          # First comment, original in English
+          expect(page).to have_content(english_comment)
+          expect(page).not_to have_content(spanish_comment)
+
+          # Last comment, original in Spanish
+          expect(page).to have_content(spanish_comment2)
+          expect(page).not_to have_content(english_comment2)
         end
       end
     end
