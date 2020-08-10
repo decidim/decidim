@@ -24,12 +24,13 @@ describe "available locales", type: :system do
     expect(LocaleTest::Decidim.available_locales).to eq(languages)
   end
 
-  it "has foundation datepicker locales in vendor folder" do
-    LocaleTest::Decidim.available_locales.each do |l|
-      # english is not necessary for datepicker
-      next if l == "en"
+  LocaleTest::Decidim.available_locales.each do |locale|
+    # english is not necessary for datepicker
+    next if locale == "en"
 
-      expect(File).to exist(datepicker_file[l])
+    it "has foundation datepicker locales in vendor folder for #{locale}" do
+
+      expect(File).to exist(datepicker_file[locale])
     end
   end
 
