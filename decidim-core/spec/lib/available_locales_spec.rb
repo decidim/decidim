@@ -12,7 +12,7 @@ end
 
 describe "available locales", type: :system do
   let(:languages) do
-    %w(en ar ca de el es es-MX es-PY eu fi-pl fi fr gl hu id it nl no pl pt pt-BR ro ru sk sv tr uk)
+    %w(en bg ar ca cs da de el eo es es-MX es-PY et eu fi-pl fi fr fr-CA ga gl hr hu id is it ja lt lv mt nl no pl pt pt-BR ro ru sk sl sr sv tr uk)
   end
   let(:datepicker_file) do
     lambda { |lang|
