@@ -29,7 +29,6 @@ describe "available locales", type: :system do
     next if locale == "en"
 
     it "has foundation datepicker locales in vendor folder for #{locale}" do
-
       expect(File).to exist(datepicker_file[locale])
     end
   end
