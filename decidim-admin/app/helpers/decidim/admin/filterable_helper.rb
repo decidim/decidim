@@ -6,12 +6,12 @@ module Decidim
     module FilterableHelper
       # Renders the filters selector with tags in the admin panel.
       def admin_filter_selector(i18n_ctx)
-        render partial: "decidim/admin/shared/filters", locals: {i18n_ctx: i18n_ctx}
+        render partial: "decidim/admin/shared/filters", locals: { i18n_ctx: i18n_ctx }
       end
 
       # Builds a tree of links from Decidim::Admin::Filterable::filters_with_values
-      def submenu_options_tree(i18n_ctx=nil)
-        i18n_scope= filterable_i18n_scope_from_ctx(i18n_ctx)
+      def submenu_options_tree(i18n_ctx = nil)
+        i18n_scope = filterable_i18n_scope_from_ctx(i18n_ctx)
 
         filters_with_values.each_with_object({}) do |(filter, values), hash|
           link = filter_link_label(filter, i18n_scope)
@@ -33,7 +33,7 @@ module Decidim
 
       # To be overriden. Useful for adding links that do not match with the filter.
       # Must return an Array.
-      def extra_dropdown_submenu_options_items(_filter, i18n_scope)
+      def extra_dropdown_submenu_options_items(_filter, _i18n_scope)
         []
       end
 
@@ -120,8 +120,8 @@ module Decidim
       end
 
       def filterable_i18n_scope_from_ctx(i18n_ctx)
-        i18n_scope= "decidim.admin.filters"
-        i18n_scope+= ".#{i18n_ctx}" if i18n_ctx
+        i18n_scope = "decidim.admin.filters"
+        i18n_scope += ".#{i18n_ctx}" if i18n_ctx
         i18n_scope
       end
     end
