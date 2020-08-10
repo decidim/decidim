@@ -6,9 +6,13 @@ module Decidim
       # This command is executed when the user updates an Election
       # from the admin panel.
       class UpdateElection < Rectify::Command
+        include ::Decidim::AttachmentMethods
+        include ::Decidim::GalleryMethods
+
         def initialize(form, election)
           @form = form
           @election = election
+          @attached_to = election
         end
 
         # Updates the election if valid.
@@ -17,14 +21,23 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          update_election!
+          if process_gallery?
+            build_gallery
+            return broadcast(:invalid) if gallery_invalid?
+          end
+
+          transaction do
+            update_election!
+            create_gallery if process_gallery?
+            photo_cleanup!
+          end
 
           broadcast(:ok, election)
         end
 
         private
 
-        attr_reader :form, :election
+        attr_reader :form, :election, :gallery
 
         def update_election!
           attributes = {

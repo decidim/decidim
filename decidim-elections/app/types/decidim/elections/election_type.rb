@@ -5,6 +5,7 @@ module Decidim
     # This type represents an Election.
     ElectionType = GraphQL::ObjectType.define do
       interfaces [
+        -> { Decidim::Core::AttachableInterface },
         -> { Decidim::Core::TraceableInterface }
       ]
 

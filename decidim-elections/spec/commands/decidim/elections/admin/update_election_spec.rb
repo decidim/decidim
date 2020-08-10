@@ -15,11 +15,17 @@ describe Decidim::Elections::Admin::UpdateElection do
       title: { en: "title" },
       description: { en: "description" },
       start_time: start_time,
-      end_time: end_time
+      end_time: end_time,
+      attachment: attachment_params,
+      photos: current_photos,
+      add_photos: uploaded_photos
     )
   end
   let(:start_time) { 1.day.from_now }
   let(:end_time) { 2.days.from_now }
+  let(:current_photos) { [] }
+  let(:uploaded_photos) { [] }
+  let(:attachment_params) { nil }
   let(:invalid) { false }
 
   it "updates the election" do
@@ -40,6 +46,14 @@ describe Decidim::Elections::Admin::UpdateElection do
     action_log = Decidim::ActionLog.last
     expect(action_log.version).to be_present
     expect(action_log.version.event).to eq "update"
+  end
+
+  context "with attachment" do
+    it_behaves_like "admin manages resource gallery" do
+      let(:command) { described_class.new(form, election) }
+      let(:resource_class) { Decidim::Elections::Election }
+      let(:resource) { election }
+    end
   end
 
   context "when the form is not valid" do

@@ -6,6 +6,9 @@ module Decidim
       # This command is executed when the user creates an Election
       # from the admin panel.
       class CreateElection < Rectify::Command
+        include ::Decidim::AttachmentMethods
+        include ::Decidim::GalleryMethods
+
         def initialize(form)
           @form = form
         end
@@ -16,14 +19,22 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          create_election!
+          if process_gallery?
+            build_gallery
+            return broadcast(:invalid) if gallery_invalid?
+          end
+
+          transaction do
+            create_election!
+            create_gallery if process_gallery?
+          end
 
           broadcast(:ok, election)
         end
 
         private
 
-        attr_reader :form, :election
+        attr_reader :form, :election, :gallery
 
         def create_election!
           attributes = {
@@ -40,6 +51,7 @@ module Decidim
             attributes,
             visibility: "all"
           )
+          @attached_to = @election
         end
       end
     end

@@ -22,6 +22,10 @@ en:
           attributes:
             attachment:
               needs_to_be_reattached: Needs to be reattached
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Needs to be reattached
   activerecord:
     models:
       decidim/elections/answer:
