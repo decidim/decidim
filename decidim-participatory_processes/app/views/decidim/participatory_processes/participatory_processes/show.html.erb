@@ -50,9 +50,9 @@
       <% end %>
 
       <% if linked_assemblies.any? %>
-        <div class="section"> )
-          <h4 class="section-heading"><%= t("participatory_process.show.related_assemblies", scope: "decidim") %></h4> )
-          <div class="row small-up-1 medium-up-2 card-grid"> )
+        <div class="section">
+          <h4 class="section-heading"><%= t("participatory_process.show.related_assemblies", scope: "decidim") %></h4>
+          <div class="row small-up-1 medium-up-2 card-grid">
             <% linked_assemblies.each do |linked_assembly| %>
               <%= card_for(linked_assembly) %>
             <% end %>
