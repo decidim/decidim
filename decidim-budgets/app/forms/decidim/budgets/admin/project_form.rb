@@ -43,9 +43,8 @@ module Decidim
 
         def proposals
           @proposals ||= Decidim.find_resource_manifest(:proposals).try(:resource_scope, current_component)
-                         &.published
+                         &.where(id: proposal_ids)
                          &.order(title: :asc)
-                         &.map { |proposal| [present(proposal).title, proposal.id] }
         end
 
         # Finds the Category from the decidim_category_id.
