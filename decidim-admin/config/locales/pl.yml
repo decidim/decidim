@@ -10,7 +10,7 @@ pl:
         organization: Organizacja
         plural: Liczba mnoga
       attachment:
-        attachment_collection_id: Teczka
+        attachment_collection_id: Folder
         description: Opis
         file: Plik
         title: Tytuł
@@ -20,20 +20,20 @@ pl:
       category:
         description: Opis
         name: Nazwa
-        parent_id: Roślina mateczna
+        parent_id: Element nadrzędny
       component:
         name: Nazwa
-        published_at: Opublikowano na
+        published_at: Opublikowano
         weight: Waga
       id: ID
       newsletter:
-        body: Ciało
-        subject: Przedmiot
+        body: Treść
+        subject: Temat
       oauth_application:
         name: Nazwa
         organization_logo: Logo organizacji (kwadrat)
         organization_name: Nazwa organizacji
-        organization_url: Adres organizacji
+        organization_url: Adres www organizacji
         redirect_uri: Przekierowanie URI
       organization:
         address: Nazwa hosta SMTP
@@ -60,8 +60,8 @@ pl:
         instagram_handler: Obsługa Instagram
         logo: Logo
         name: Nazwa
-        official_img_footer: Oficjalna stopka logo
-        official_img_header: Oficjalny nagłówek logo
+        official_img_footer: Oficjalne logo dla stopki
+        official_img_header: Oficjalne logo dla nagłówka
         official_url: Oficjalny URL organizacji
         omnipresent_banner_short_description: Krótki opis
         omnipresent_banner_title: Tytuł
