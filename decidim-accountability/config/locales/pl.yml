@@ -12,7 +12,7 @@ pl:
         proposals: Uwzględnione propozycje
         start_date: Data rozpoczęcia
         title: Tytuł
-        updated_at: Zaktualizowano na
+        updated_at: Zaktualizowano
       status:
         description: Opis
         key: Klawisz
@@ -34,8 +34,8 @@ pl:
   decidim:
     accountability:
       actions:
-        confirm_destroy: Czy na pewno chcesz usunąć to %{name}?
-        destroy: Kasować
+        confirm_destroy: Czy na pewno chcesz usunąć %{name}?
+        destroy: Usuń
         edit: Edytuj
         import_csv: Importuj CSV
         new: Nowe %{name}
@@ -44,7 +44,7 @@ pl:
         title: Działania
       admin:
         exports:
-          results: wyniki
+          results: Wyniki
         import_results:
           new:
             import: Importuj
@@ -53,7 +53,7 @@ pl:
             title: Importuj wyniki z CSV
         imports:
           create:
-            success: Rozpoczęło się importowanie. W ciągu kilku minut otrzymasz wiadomość e-mail z wynikiem importowania.
+            success: Rozpoczęło się importowanie pliku. W ciągu kilku minut otrzymasz wiadomość e-mail z wynikiem importowania.
         models:
           result:
             name: Wynik
@@ -63,7 +63,7 @@ pl:
             name: Wprowadzenie do osi czasu
         results:
           create:
-            invalid: Podczas tworzenia tego wyniku wystąpił problem
+            invalid: Podczas tworzenia tego wyniku wystąpił błąd
             success: Wynik został pomyślnie utworzony
           destroy:
             success: Wynik został pomyślnie usunięty
@@ -71,19 +71,19 @@ pl:
             title: Edytuj wynik
             update: Zaktualizuj wynik
           index:
-            title: wyniki
+            title: Wyniki
           new:
             create: Utwórz wynik
             title: Nowy wynik
           update:
-            invalid: Podczas aktualizowania tego wyniku wystąpił problem
+            invalid: Podczas aktualizowania tego wyniku wystąpił błąd
             success: Wynik został zaktualizowany
         shared:
           subnav:
             statuses: Statusy
         statuses:
           create:
-            invalid: Podczas tworzenia tego stanu wystąpił problem
+            invalid: Podczas tworzenia tego statusu wystąpił błąd
             success: Status został pomyślnie utworzony
           destroy:
             success: Status został pomyślnie usunięty
