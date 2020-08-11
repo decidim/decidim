@@ -15,7 +15,7 @@ pl:
         updated_at: Zaktualizowano
       status:
         description: Opis
-        key: Klawisz
+        key: Klucz
         name: Nazwa
         progress: Postęp
       timeline_entry:
