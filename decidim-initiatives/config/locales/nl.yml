@@ -423,6 +423,8 @@ nl:
             close: Afsluiten
             explanation: Je moet geverifieerd worden om een nieuw initiatief te kunnen maken.
             title: Autorisatie vereist
+        initiatives:
+          no_initiatives_warning: De zoekopdracht heeft geen resultaten opgeleverd.
         interactions:
           comments_count:
             count:
