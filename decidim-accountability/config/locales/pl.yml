@@ -12,10 +12,10 @@ pl:
         proposals: Uwzględnione propozycje
         start_date: Data rozpoczęcia
         title: Tytuł
-        updated_at: Zaktualizowano na
+        updated_at: Zaktualizowano
       status:
         description: Opis
-        key: Klawisz
+        key: Klucz
         name: Nazwa
         progress: Postęp
       timeline_entry:
@@ -34,20 +34,26 @@ pl:
   decidim:
     accountability:
       actions:
-        confirm_destroy: Czy na pewno chcesz usunąć to %{name}?
-        destroy: Kasować
+        confirm_destroy: Czy na pewno chcesz usunąć %{name}?
+        destroy: Usuń
         edit: Edytuj
-        import_csv: Importuj z CSV
+        import_csv: Importuj CSV
         new: Nowe %{name}
         preview: Podgląd
         timeline_entries: Ewolucja projektu
         title: Działania
       admin:
         exports:
-          results: wyniki
+          results: Wyniki
         import_results:
           new:
-            import: Import
+            import: Importuj
+            info: "<p> Zalecamy wykonanie następujących czynności:</p><ol><li>Utwórz statusy dla wyników, które chcesz dodać (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Utwórz co najmniej jeden wynik ręcznie z poziomu tego Panelu administracyjnego (<a href='%{link_new_result}' target='_blank'>link</a>) przed wybraniem opcji Importuj, aby lepiej zrozumieć format i to, co będzie trzeba wypełnić.</li><li>Pobierz Eksport w formacie CSV (%{link_export_csv})</li><li>Wprowadź zmiany lokalnie. Możesz zmienić tylko następujące kolumny pliku CSV:</li></ol><ul><li><b>kategoria/id:</b> ID kategorii</li><li><b>zakres/id:</b> ID zakresu</li><li><b>element nadrzędny/id:</b> ID elementu nadrzędnego (dla powiązanych wyników). Opcjonalnie</li><li><b>tytuł/I18N:</b> Tytuł w języku X</li><li><b>opis/I18N:</b> Opis w języku X</li><li><b>start_date:</b> data rozpoczęcia wykonywania wyniku (format RRRR-MM-DD)</li><li><b>end_date:</b> data zakończenia wykonywania wyniku (format RRRR-MM-DD)</li><li><b>status/id:</b> ID statusu dla tego wyniku</li><li><b>postęp:</b> Postęp w wykonaniu wyrażony procentowo (od 0 do 100)</li><li><b>proposals_ids:</b> wewnętrzne ID powiązanych propozycji (oddzielone przecinkiem). Jest ono automatycznie konwertowane na <span class='attribute-name'>proposal_url</span></li></ul>"
+            link: link
+            title: Importuj wyniki z CSV
+        imports:
+          create:
+            success: Rozpoczęło się importowanie pliku. W ciągu kilku minut otrzymasz wiadomość e-mail z wynikiem importowania.
         models:
           result:
             name: Wynik
@@ -57,7 +63,7 @@ pl:
             name: Wprowadzenie do osi czasu
         results:
           create:
-            invalid: Podczas tworzenia tego wyniku wystąpił problem
+            invalid: Podczas tworzenia tego wyniku wystąpił błąd
             success: Wynik został pomyślnie utworzony
           destroy:
             success: Wynik został pomyślnie usunięty
@@ -65,19 +71,19 @@ pl:
             title: Edytuj wynik
             update: Zaktualizuj wynik
           index:
-            title: wyniki
+            title: Wyniki
           new:
             create: Utwórz wynik
             title: Nowy wynik
           update:
-            invalid: Podczas aktualizowania tego wyniku wystąpił problem
+            invalid: Podczas aktualizowania tego wyniku wystąpił błąd
             success: Wynik został zaktualizowany
         shared:
           subnav:
             statuses: Statusy
         statuses:
           create:
-            invalid: Podczas tworzenia tego stanu wystąpił problem
+            invalid: Podczas tworzenia tego statusu wystąpił błąd
             success: Status został pomyślnie utworzony
           destroy:
             success: Status został pomyślnie usunięty
@@ -117,6 +123,13 @@ pl:
         value_types:
           parent_presenter:
             not_found: 'Nie znaleziono elementu nadrzędnego w bazie danych (ID: %{id})'
+      import_mailer:
+        import:
+          errors: Błędy
+          errors_present: Podczas importowania wyników wystąpił problem
+          row_number: Wiersz
+          subject: Importowanie wyników zakończyło się pomyślnie
+          success: Importowanie wyników zakończyło się pomyślnie. Możesz przejrzeć wyniki w interfejsie administracyjnym.
       last_activity:
         new_result_at_html: "<span>Nowy wynik na %{link}</span>"
       models:
@@ -204,6 +217,9 @@ pl:
       participatory_process_groups:
         highlighted_results:
           results: Wyniki
+    participatory_spaces:
+      highlighted_results:
+        see_all: Zobacz wszystkie wyniki (%{count})
     resource_links:
       included_projects:
         result_project: Projekty uwzględnione w tym wyniku

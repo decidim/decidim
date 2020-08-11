@@ -379,6 +379,7 @@ fi-pl:
           attendees: Osallistujamäärä
           back: Takaisin listaan
           contributions: Kontribuutioiden määrä
+          date: Päivämäärä
           going: Osallistumassa
           join: Liity tapahtumaan
           meeting_report: Tapahtumaraportti

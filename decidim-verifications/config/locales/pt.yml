@@ -100,7 +100,9 @@ pt:
           verify_with_these_options: 'Estas são as opções disponíveis para verificar a sua identidade:'
         index:
           expired_verification: Verificação expirada
+          pending_verification: Verificação pendente
           show_renew_info: Clique para renovar a verificação
+          unauthorized_verification: Nova verificação
         new:
           authorize: Enviar
           authorize_with: Verificar com %{authorizer}

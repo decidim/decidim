@@ -45,6 +45,7 @@ ja:
         import_results:
           new:
             import: インポート
+            info: "<p>以下の手順をお勧めします:</p><ol><li>追加したい結果のステータスを作成する (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>この管理ページを使用して、少なくとも1つの結果を手動で作成します。 (<a href='%{link_new_result}' target='_blank'>link</a>) インポートを使用する前に、フォーマットと何を記入する必要があるかをよりよく理解してください。</li><li>CSV形式でエクスポートをダウンロードしてください。 (%{link_export_csv})</li><li>ローカルで変更を行います。変更できるのは、CSVの次の列のみです:</li></ol><ul><li><b>category/id:</b> CategoryのID</li><li><b>scope/id:</b> Scope の ID</li><li><b>parent/id:</b> 関連する結果の親ID。任意</li><li><b>title/I18N:</b> 言語Xのタイトル</li><li><b>description/I18N:</b> 言語XのDescription</li><li><b>start_date:</b> 結果の効力が開始される日 (format YYYY-MM-DD)</li><li><b>end_date:</b> 結果の効力が失われる日 (format YYYY-MM-DD)</li><li><b>status/id:</b> 結果のステータスID</li><li><b>progress:</b> 進行のパーセンテージ(0 から 100)</li><li><b>proposals_ids:</b> 提案に関連する内部ID(カンマ区切り)。 自動的に <span class='attribute-name'>proposal_url</span> に変換されます。</li></ul>"
             link: リンク
             title: CSVから結果をインポート
         imports:
@@ -165,6 +166,7 @@ ja:
         show:
           stats:
             attendees: 参加者
+            back_to_resource: 結果に戻る
             comments: コメント
             contributions: 貢献
             last_edited_by: '最終編集者:'

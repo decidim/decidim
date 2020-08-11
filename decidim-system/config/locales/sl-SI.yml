@@ -1,0 +1,5 @@
+sl:
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Ali ste prepričani, da želite izbrisati to?

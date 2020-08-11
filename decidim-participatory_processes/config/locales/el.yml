@@ -1,60 +1,453 @@
 el:
   activemodel:
     attributes:
+      participatory_process:
+        announcement: Ανακοίνωση
+        area_id: Τομέας
+        banner_image: Εικόνα διαφημιστικού πλαισίου
+        copy_categories: Αντιγραφή κατηγοριών
+        copy_components: Αντιγραφή στοιχείων
+        copy_steps: Αντιγραφή βημάτων
+        decidim_area_id: Τομέας
+        description: Περιγραφή
+        developer_group: Ομάδα προώθησης
+        domain: Τομέας
+        end_date: Ημερομηνία λήξης
+        hashtag: Hashtag
+        hero_image: Εικόνα αρχικής σελίδας
+        local_area: Τομέας οργανισμού
+        meta_scope: Μεταδεδομένα πεδίου εφαρμογής
+        participatory_process_group_id: Ομάδα διαδικασιών
+        participatory_scope: Τι αποφασίστηκε
+        participatory_structure: Πώς αποφασίζεται
+        promoted: Προωθήθηκε
+        published_at: Δημοσιεύτηκε στις
+        related_process_ids: Σχετικές διαδικασίες
+        scope_id: Πεδίο εφαρμογής
+        scope_type_max_depth_id: Βάθος φίλτρου πεδίου εφαρμογής
+        scopes_enabled: Ενεργοποιημένα πεδία εφαρμογών
+        short_description: Σύντομη περιγραφή
+        show_metrics: Εμφάνιση μετρικών
+        show_statistics: Εμφάνιση στατιστικών
+        slug: Slug διεύθυνσης URL
+        start_date: Ημερομηνία έναρξης
+        subtitle: Υπότιτλος
+        target: Ποιος συμμετέχει
+        title: Τίτλος
       participatory_process_group:
+        description: Περιγραφή
+        hero_image: Εικόνα
         name: Όνομα
+        participatory_process_ids: Σχετικές διαδικασίες
+      participatory_process_step:
+        cta_path: Διαδρομή Call To Action
+        cta_text: Κείμενο κουμπιού «Call To Action»
+        description: Περιγραφή
+        end_date: Ημερομηνία λήξης
+        short_description: Σύντομη περιγραφή
+        start_date: Ημερομηνία έναρξης
+        title: Τίτλος
       participatory_process_user_role:
         email: Email
         name: Όνομα
+        role: Ρόλος
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Μη έγκυρος τύπος εγγράφου. Οι αποδεκτές μορφές είναι: %{valid_mime_types}'
+    models:
+      decidim/participatory_process_step_activated_event: Η φάση ενεργοποιήθηκε
+      decidim/participatory_process_step_changed_event: Η φάση άλλαξε
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Διαδικασία συμμετοχής
+        other: Διαδικασίες συμμετοχής
+      decidim/participatory_process_group:
+        one: Ομάδα διαδικασιών συμμετοχής
+        other: Ομάδες διαδικασιών συμμετοχής
+      decidim/participatory_process_step:
+        one: Φάση
+        other: Φάσεις
   decidim:
     admin:
       actions:
+        activate: Ενεργοποίηση
+        configure: Διαμόρφωση
+        confirm_destroy: Επιβεβαίωση διαγραφής
+        destroy: Διαγραφή
+        duplicate: Αντιγραφή
+        edit: Επεξεργασία
+        filter:
+          all_processes: Εμφάνιση όλων των διαδικασιών
+          process_groups: Ομάδες διαδικασιών
+        import_process: Εισαγωγή
+        new_process: Νέα διαδικασία
+        new_process_group: Νέα ομάδα διαδικασιών
+        new_process_step: Νέα φάση
+        new_process_user_role: Νέος διαχειριστής διαδικασιών
         preview: Προεπισκόπηση
         publish: Δημοσίευση
+        resend_invitation: Επανάληψη αποστολής πρόσκλησης
+        unpublish: Κατάργηση δημοσίευσης
+      menu:
+        participatory_process_groups: Ομάδες διαδικασιών
+        participatory_processes: Διαδικασίες
+        participatory_processes_submenu:
+          attachment_collections: Φάκελοι
+          attachment_files: Αρχεία
+          attachments: Συνημμένα
+          categories: Κατηγορίες
+          components: Στοιχεία
+          info: Πληροφορίες
+          moderations: Εποπτεύσεις
+          private_users: Ιδιωτικοί συμμετέχοντες
+          process_admins: Διαχειριστές διαδικασιών
+          steps: Φάσεις
       models:
+        participatory_process:
+          fields:
+            created_at: Δημιουργήθηκε στις
+            private: Ιδιωτικό
+            promoted: Επισημάνθηκε
+            published: Δημοσιεύτηκε
+            title: Τίτλος
+          name: Διαδικασία συμμετοχής
         participatory_process_group:
           fields:
             name: Όνομα
+          name: Ομάδα διαδικασιών
+        participatory_process_step:
+          fields:
+            end_date: Ημερομηνία λήξης
+            start_date: Ημερομηνία έναρξης
+            title: Τίτλος
+          name: Φάση διαδικασίας συμμετοχής
         participatory_process_user_role:
           fields:
             email: Email
             name: Όνομα
+            role: Ρόλος
+          name: Διαχειριστής διαδικασίας συμμετοχής
+          roles:
+            admin: Διαχειριστής
+            collaborator: Συνεργάτης
+            moderator: Επόπτης
+            valuator: Εκτιμητής
+        user:
+          fields:
+            invitation_accepted_at: Η πρόσκληση έγινε αποδεκτή στις
+            invitation_sent_at: Η πρόσκληση στάλθηκε στις
+      participatory_process_copies:
+        new:
+          copy: Αντιγραφή
+          select: Επιλέξτε ποια δεδομένα θέλετε να αντιγράψετε
+          title: Αντιγραφή διαδικασίας συμμετοχής
       participatory_process_groups:
+        destroy:
+          error: Παρουσιάστηκε σφάλμα κατά την καταστροφή της ομάδας διαδικασιών συμμετοχής.
+          success: Η ομάδα διαδικασιών συμμετοχής διαγράφηκε με επιτυχία.
+        edit:
+          title: Επεξεργασία ομάδας διαδικασιών
+          update: Ενημέρωση
         new:
           create: Δημιουργία
+          title: Νέα ομάδα διαδικασιών
+        update:
+          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση της ομάδας διαδικασιών συμμετοχής.
+          success: Η ομάδα διαδικασιών συμμετοχής ενημερώθηκε με επιτυχία.
+      participatory_process_imports:
+        create:
+          error: Υπήρξε ένα πρόβλημα κατά την εισαγωγή αυτής της διαδικασίας συμμετοχής.
+          success: Η διαδικασία συμμετοχής εισήχθη με επιτυχία.
+        new:
+          import: Εισαγωγή
+          select: Επιλέξτε ποια δεδομένα θέλετε να εισαγάγετε
+          title: Εισαγωγή διαδικασίας συμμετοχής
+      participatory_process_publications:
+        create:
+          error: Υπήρξε ένα πρόβλημα κατά τη δημοσίευση αυτής της διαδικασίας συμμετοχής.
+          success: Η διαδικασία συμμετοχής δημοσιεύτηκε με επιτυχία.
+        destroy:
+          error: Υπήρξε ένα πρόβλημα κατά την κατάργηση δημοσίευσης αυτής της διαδικασίας συμμετοχής.
+          success: Η δημοσίευση της διαδικασίας συμμετοχής καταργήθηκε με επιτυχία.
+      participatory_process_step_activations:
+        create:
+          error: Υπήρξε ένα πρόβλημα κατά την ενεργοποίηση αυτής της φάσης της διαδικασίας συμμετοχής.
+          success: Η φάση διαδικασίας συμμετοχής ενεργοποιήθηκε με επιτυχία.
       participatory_process_steps:
+        create:
+          error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία μιας νέας φάσης διαδικασίας συμμετοχής.
+          success: Η φάση διαδικασίας συμμετοχής δημιουργήθηκε με επιτυχία.
+        default_title: Εισαγωγή
+        destroy:
+          error:
+            active_step: Δεν είναι δυνατή η διαγραφή της ενεργής φάσης.
+            last_step: Δεν είναι δυνατή η διαγραφή της τελευταίας φάσης μιας διαδικασίας.
+          success: Η φάση διαδικασίας συμμετοχής διαγράφηκε με επιτυχία.
+        edit:
+          title: Επεξεργασία φάσης διαδικασίας συμμετοχής
+          update: Ενημέρωση
+        index:
+          steps_title: Φάσεις
         new:
           create: Δημιουργία
+          title: Νέα φάση διαδικασίας συμμετοχής
+        ordering:
+          error: Παρουσιάστηκε πρόβλημα κατά την αναδιάταξη αυτών των φάσεων της διαδικασίας συμμετοχής.
+        update:
+          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της διαδικασίας συμμετοχής.
+          success: Η φάση συμμετοχής ενημερώθηκε με επιτυχία.
       participatory_process_user_roles:
+        create:
+          error: Υπήρξε ένα πρόβλημα κατά την προσθήκη ενός συμμετέχοντα για αυτήν τη διαδικασία συμμετοχής.
+          success: Ο διαχειριστής προστέθηκε με επιτυχία σε αυτήν τη διαδικασία συμμετοχής.
+        destroy:
+          success: Ο διαχειριστής καταργήθηκε με επιτυχία από αυτήν τη διαδικασία συμμετοχής.
+        edit:
+          title: Ενημέρωση διαχειριστή διαδικασίας συμμετοχής
+          update: Ενημέρωση
+        index:
+          process_admins_title: Διαχειριστές διαδικασίας συμμετοχής
         new:
           create: Δημιουργία
+          title: Νέος διαχειριστής διαδικασίας συμμετοχής
+        update:
+          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση ενός διαχειριστή για αυτήν τη διαδικασία συμμετοχής.
+          success: Ο διαχειριστής ενημερώθηκε με επιτυχία για αυτήν τη διαδικασία συμμετοχής.
       participatory_processes:
+        create:
+          error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία μιας νέας διαδικασίας συμμετοχής.
+          success: Η διαδικασία συμμετοχής δημιουργήθηκε με επιτυχία. Διαμορφώστε τώρα τις φάσεις της.
+        edit:
+          update: Ενημέρωση
+        index:
+          not_published: Δεν έχει δημοσιευτεί
+          private: Ιδιωτικό
+          public: Δημόσιο
+          published: Δημοσιεύτηκε
         new:
           create: Δημιουργία
+          title: Νέα διαδικασία συμμετοχής
+        update:
+          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της διαδικασίας συμμετοχής.
+          success: Η διαδικασία συμμετοχής ενημερώθηκε με επιτυχία.
+      participatory_processes_copies:
+        create:
+          error: Υπήρξε ένα πρόβλημα κατά την αντιγραφή αυτής της διαδικασίας συμμετοχής.
+          success: Η διαδικασία συμμετοχής αντιγράφτηκε με επιτυχία.
+      participatory_processes_group:
+        create:
+          error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία μιας νέας ομάδας διαδικασίας συμμετοχής.
+          success: Η ομάδα διαδικασίας συμμετοχής δημιουργήθηκε με επιτυχία.
+      titles:
+        participatory_process_groups: Ομάδες διαδικασιών συμμετοχής
+        participatory_processes: Διαδικασίες συμμετοχής
+      users:
+        resend_invitation:
+          error: Υπήρξε ένα πρόβλημα κατά την επανάληψη αποστολής της πρόσκλησης.
+          success: Η πρόσκληση στάλθηκε ξανά με επιτυχία.
+    admin_log:
+      participatory_process:
+        create: "Ο χρήστης %{user_name} δημιούργησε τη διαδικασία συμμετοχής %{resource_name}"
+        publish: "Ο χρήστης %{user_name} δημοσίευσε τη διαδικασία συμμετοχής %{resource_name}"
+        unpublish: "Ο χρήστης %{user_name} κατάργησε τη δημοσίευση της διαδικασίας συμμετοχής %{resource_name}"
+        update: "Ο χρήστης %{user_name} ενημέρωσε τη διαδικασία συμμετοχής %{resource_name}"
+      participatory_process_group:
+        create: "Ο χρήστης %{user_name} δημιούργησε την ομάδα διαδικασίας συμμετοχής %{resource_name}"
+        update: "Ο χρήστης %{user_name} ενημέρωσε την ομάδα διαδικασίας συμμετοχής %{resource_name}"
+      participatory_process_step:
+        activate: "Ο χρήστης %{user_name} ενεργοποίησε τη φάση %{resource_name} στη διαδικασία συμμετοχής %{space_name}"
+        create: "Ο χρήστης %{user_name} δημιούργησε τη φάση %{resource_name} στη διαδικασία συμμετοχής %{space_name}"
+        delete: "Ο χρήστης %{user_name} διέγραψε τη φάση %{resource_name} στη διαδικασία συμμετοχής %{space_name}"
+        update: "Ο χρήστης %{user_name} ενημέρωσε τη φάση %{resource_name} στη διαδικασία συμμετοχής %{space_name}"
+      participatory_process_user_role:
+        create: "Ο χρήστης %{user_name} προσκάλεσε τον συμμετέχοντα %{resource_name} στη διαδικασία συμμετοχής %{space_name}"
+        delete: "Ο χρήστης %{user_name} κατάργησε τον συμμετέχοντα %{resource_name} από τη διαδικασία συμμετοχής %{space_name}"
+        update: "Ο χρήστης %{user_name} άλλαξε τον ρόλο του συμμετέχοντα %{resource_name} στη διαδικασία συμμετοχής %{space_name}"
+    events:
+      participatory_process:
+        role_assigned:
+          email_intro: Έχετε εκχωρηθεί ως %{role} για τη διαδικασία συμμετοχής «%{resource_title}».
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε %{role} της διαδικασίας συμμετοχής «%{resource_title}».
+          email_subject: Έχετε εκχωρηθεί ως %{role} για «%{resource_title}».
+          notification_title: Έχετε εκχωρηθεί ως %{role} για τη διαδικασία συμμετοχής <a href="%{resource_url}">%{resource_title}</a>.
+        step_activated:
+          email_intro: 'Η φάση %{resource_title} είναι πλέον ενεργή για τον χώρο συμμετοχής %{participatory_space_title}. Μπορείτε να την δείτε από αυτήν τη σελίδα:'
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής %{participatory_space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
+          email_subject: Μια ενημέρωση στον χώρο συμμετοχής %{participatory_space_title}
+          notification_title: Η φάση %{resource_title} είναι πλέον ενεργή για τον χώρο συμμετοχής <a href="%{resource_path}">%{participatory_space_title}</a>
+        step_changed:
+          email_intro: 'Οι ημερομηνίες για τη φάση %{resource_title} στον χώρο συμμετοχής %{participatory_space_title} ενημερώθηκαν. Μπορείτε να την δείτε από αυτήν τη σελίδα:'
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής %{participatory_space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
+          email_subject: Μια ενημέρωση στον χώρο συμμετοχής %{participatory_space_title}
+          notification_title: Οι ημερομηνίες για τη φάση <a href="%{resource_path}">%{resource_title}</a> στον χώρο συμμετοχής <a href="%{participatory_space_url}">%{participatory_space_title}</a> ενημερώθηκαν.
+    help:
+      participatory_spaces:
+        participatory_processes:
+          contextual: "<p>Μια <strong>διαδικασία συμμετοχής</strong> είναι μια ακολουθία συμμετοχικών δραστηριοτήτων (π.χ. αρχικά, συμπλήρωση μιας έρευνας, στη συνέχεια, υποβολή προτάσεων, συζήτηση αυτών πρόσωπο με πρόσωπο ή εικονικές συσκέψεις και, τέλος, ιεράρχησή τους), με σκοπό τον καθορισμό και τη λήψη απόφασης για ένα συγκεκριμένο θέμα.</p> <p>Παραδείγματα διαδικασιών συμμετοχής είναι τα εξής: διαδικασία εκλογής μελών επιτροπής (όπου πρώτα παρουσιάζονται οι υποψηφιότητες, στη συνέχεια συζητούνται και τελικά επιλέγεται μια υποψηφιότητα), συμμετοχικοί προϋπολογισμοί (όπου διατυπώνονται προτάσεις, αποτιμώνται οικονομικά και ψηφίζονται με τα διαθέσιμα χρήματα), στρατηγική διαδικασία σχεδιασμού, συνεργατική σύνταξη ενός κανονισμού ή κανόνα, σχεδιασμός ενός αστικού χώρου ή παραγωγή ενός σχεδίου δημόσιας πολιτικής.</p>"
+          page: "<p>Μια <strong>διαδικασία συμμετοχής</strong> είναι μια ακολουθία συμμετοχικών δραστηριοτήτων (π.χ. αρχικά, συμπλήρωση μιας έρευνας, στη συνέχεια, υποβολή προτάσεων, συζήτηση αυτών πρόσωπο με πρόσωπο ή εικονικές συσκέψεις και, τέλος, ιεράρχησή τους), με σκοπό τον καθορισμό και τη λήψη απόφασης για ένα συγκεκριμένο θέμα.</p> <p>Παραδείγματα διαδικασιών συμμετοχής είναι τα εξής: διαδικασία εκλογής μελών επιτροπής (όπου πρώτα παρουσιάζονται οι υποψηφιότητες, στη συνέχεια συζητούνται και τελικά επιλέγεται μια υποψηφιότητα), συμμετοχικοί προϋπολογισμοί (όπου διατυπώνονται προτάσεις, αποτιμώνται οικονομικά και ψηφίζονται με τα διαθέσιμα χρήματα), στρατηγική διαδικασία σχεδιασμού, συνεργατική σύνταξη ενός κανονισμού ή κανόνα, σχεδιασμός ενός αστικού χώρου ή παραγωγή ενός σχεδίου δημόσιας πολιτικής.</p>"
+          title: Τι είναι μια διαδικασία συμμετοχής;
+    menu:
+      processes: Διαδικασίες
+    metrics:
+      participatory_processes:
+        description: Αριθμός διαδικασιών συμμετοχής σε αυτόν τον οργανισμό
+        object: διαδικασίες συμμετοχής
+        title: Διαδικασίες συμμετοχής
+    participatory_process:
+      show:
+        related_assemblies: Σχετικές συνελεύσεις
+    participatory_process_groups:
+      show:
+        group_participatory_processes:
+          one: 1 διαδικασία για την ομάδα %{group}
+          other: "%{count} διαδικασίες για την ομάδα %{group}"
+        title: Ομάδες διαδικασιών συμμετοχής
+    participatory_process_steps:
+      index:
+        process_steps: Φάσεις διαδικασίας
+        title: Φάσεις διαδικασίας συμμετοχής
     participatory_processes:
+      admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Μέγιστη ποσότητα στοιχείων προς εμφάνιση
+        participatory_process_copies:
+          form:
+            slug_help: 'Τα slug διεύθυνσης URL χρησιμοποιούνται για τη δημιουργία διευθύνσεων URL που οδηγούν σε αυτήν τη διαδικασία. Δέχεται μόνο γράμματα, αριθμούς και παύλες, και πρέπει να ξεκινά με γράμμα. Παράδειγμα: διεύθυνση %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Προσθήκη εγγράφου
+            slug_help: 'Τα slug διεύθυνσης URL χρησιμοποιούνται για τη δημιουργία διευθύνσεων URL που οδηγούν σε αυτήν τη διαδικασία. Δέχεται μόνο γράμματα, αριθμούς και παύλες, και πρέπει να ξεκινά με γράμμα. Παράδειγμα: διεύθυνση %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Χρησιμοποιήστε μερικές διαδρομές, όχι πλήρεις διευθύνσεις URL εδώ. Δέχεται γράμματα, αριθμούς, παύλες και καθέτους, και πρέπει να ξεκινά με γράμμα. Εάν δεν οριστεί, το κουμπί δεν θα εμφανιστεί. Παράδειγμα: διεύθυνση %{url}'
+            cta_text_help: Εάν δεν οριστεί, το κουμπί δεν θα εμφανιστεί.
+        participatory_processes:
+          form:
+            announcement_help: Το κείμενο που εισάγετε εδώ θα εμφανίζεται στον χρήστη ακριβώς κάτω από τις πληροφορίες της διαδικασίας.
+            duration: Διάρκεια
+            filters: Φίλτρα
+            images: Εικόνες
+            metadata: Μεταδεδομένα
+            other: Άλλο
+            related_processes: Σχετικές διαδικασίες
+            scope_type_max_depth_help: Περιορίστε το βάθος του φίλτρου πεδίου εφαρμογής. Το φίλτρο θα εμφανίζεται από γενικό έως τον επιλεγμένο τύπο πεδίου εφαρμογής.
+            select_an_area: Επιλέξτε «Τομέα»
+            select_process_group: Επιλέξτε ομάδα διαδικασίας
+            slug_help: 'Τα slug διεύθυνσης URL χρησιμοποιούνται για τη δημιουργία διευθύνσεων URL που οδηγούν σε αυτήν τη διαδικασία. Δέχεται μόνο γράμματα, αριθμούς και παύλες, και πρέπει να ξεκινά με γράμμα. Παράδειγμα: διεύθυνση %{url}'
+            title: Γενικές πληροφορίες
+            visbility: Ορατότητα
+      content_blocks:
+        highlighted_processes:
+          name: Επισημασμένες διαδικασίες
+      index:
+        title: Διαδικασίες συμμετοχής
+      last_activity:
+        new_participatory_process: Νέα διαδικασία συμμετοχής
       pages:
         home:
           highlighted_processes:
+            active_processes: Ενεργές διαδικασίες
+            active_step: Ενεργή φάση
+            more_information: Περισσότερες πληροφορίες
+            participate: Συμμετοχή
             participate_in: Συμμετάσχετε στην διαδικασία %{resource_name}
+            see_all_processes: Δείτε όλες τις διαδικασίες
       participatory_process_steps:
         index:
           back_to_process: Πίσω στην σελίδα της διαδικασίας
+      participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 ενεργή διαδικασία
+              other: "%{count} ενεργές διαδικασίες"
+            all:
+              one: 1 διαδικασία
+              other: "%{count} διαδικασίες"
+            past:
+              one: 1 προηγούμενη διαδικασία
+              other: "%{count} προηγούμενες διαδικασίες"
+            upcoming:
+              one: 1 προσεχής διαδικασία
+              other: "%{count} προσεχείς διαδικασίες"
+          explanations:
+            no_active: Δεν υπάρχουν ενεργές διαδικασίες
+            no_active_nor_upcoming: Δεν υπάρχουν ενεργές ούτε προσεχείς διαδικασίες
+            no_active_nor_upcoming_callout: Δεν υπάρχουν ενεργές ούτε προσεχείς διαδικασίες. Παρακάτω ακολουθεί μια λίστα με τις προηγούμενες διαδικασίες.
+          names:
+            active: Ενεργές
+            all: Όλα
+            past: Παρελθόν
+            upcoming: Προσεχείς
+          see: Προβολή
+        index:
+          loading: Φόρτωση αποτελεσμάτων...
       show:
+        area: Τομέας
         dates: Ημερομηνίες
+        developer_group: Ομάδα προώθησης
+        end_date: Ημερομηνία λήξης
+        local_area: Τομέας οργανισμού
+        participatory_scope: Τι αποφασίστηκε
+        participatory_structure: Πώς αποφασίζεται
+        private_space: Αυτή είναι μια ιδιωτική διαδικασία
+        related_processes: Σχετικές διαδικασίες
+        scope: Πεδίο εφαρμογής
+        start_date: Ημερομηνία έναρξης
+        target: Ποιος συμμετέχει
+        unspecified: Δεν προσδιορίστηκε
       statistics:
+        answers_count: Απαντήσεις
+        comments_count: Σχόλια
+        debates_count: Συζητήσεις
+        endorsements_count: Επιδοκιμασίες
+        followers_count: Ακόλουθοι
+        headline: Στατιστικά στοιχεία
+        meetings_count: Συσκέψεις
+        no_stats: Δεν υπάρχουν ακόμη στατιστικά στοιχεία.
+        orders_count: Υποστηρίξεις
+        pages_count: Σελίδες
         participants_count: Συμμετέχοντες
+        processes_count: Διαδικασίες
+        projects_count: Έργα
+        proposals_count: Προτάσεις
+        results_count: Αποτελέσματα
+        supports_count: Υποστηρίξεις
+        surveys_count: Έρευνες
         users_count: Συμμετέχοντες
   layouts:
     decidim:
       participatory_process_groups:
         participatory_process_group:
+          browse: Αναζήτηση
           browse_resource: Δείτε για την ομάδα διαδικασίας %{resource_name}
+          processes_count: 'Διαδικασίες:'
+      participatory_process_widgets:
+        show:
+          active_step: Ενεργή φάση
+          take_part: Συμμετάσχετε
       participatory_processes:
+        index:
+          promoted_processes: Επισημασμένες διαδικασίες
         participatory_process:
+          active_step: 'Τρέχουσα φάση:'
+          more_info: Περισσότερες πληροφορίες
           more_info_about: Περισσότερες πληροφορίες για τη διαδικασία %{resource_name}
+          take_part: Συμμετάσχετε
           take_part_in: Πάρτε μέρος στην διαδικασία %{resource_name}
         promoted_process:
+          active_step: 'Τρέχουσα φάση:'
+          more_info: Περισσότερες πληροφορίες
           more_info_about: Περισσότερες πληροφορίες για τη διαδικασία %{resource_name}
+          take_part: Συμμετάσχετε
           take_part_in: Πάρτε μέρος στην διαδικασία %{resource_name}
       process_header_steps:
+        step: Φάση %{current} από %{total}
         view_steps: Φάσεις διαδικασίας
+      process_navigation:
+        process_menu_item: Η διαδικασία

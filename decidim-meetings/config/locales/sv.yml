@@ -283,6 +283,7 @@ sv:
           form:
             available_slots_help: Lämna det till 0 om du har obegränsade platser.
             invites: Inbjudningar
+            recommendation_message: Av sekretessskäl rekommenderar vi att du tar bort detta inskriptionsformulär när du inte längre behöver det. Som standard är detta 3 månader efter att mötet avslutats.
             registration_form: Anmälningsformulär
             registrations_count:
               one: Det har gjorts %{count} anmälan.
@@ -370,6 +371,7 @@ sv:
           attendees: Antal deltagare
           back: Tillbaka till listan
           contributions: Antal bidrag
+          date: Datum
           going: Jag kommer
           join: Gå med i mötet
           meeting_report: Mötesrapport

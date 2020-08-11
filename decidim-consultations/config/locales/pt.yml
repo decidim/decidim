@@ -68,7 +68,7 @@ pt:
   decidim:
     admin:
       actions:
-        back_to_responses: Regressar às respostas
+        back_to_responses: Retroceder às respostas
         new_consultation: Nova consulta
         new_question: Nova pergunta
         new_response: Nova resposta
@@ -236,6 +236,8 @@ pt:
           label: 'Ordenar consultas por:'
           random: Aleatória
           recent: Mais recente
+        show:
+          dates: Datas
       content_blocks:
         highlighted_consultations:
           name: Consultas realçadas
@@ -346,10 +348,12 @@ pt:
         verification_required: Verifique a sua conta para votar
         vote: Voto
       vote_modal:
+        close_modal: Fechar modal
         contextual_help: Por favor selecione uma opção.
         title: 'Consulta: voto de pergunta'
       vote_modal_confirm:
         change: Alterar
+        close_modal: Fechar modal
         confirm: Confirmar
         contextual_help: Por favor, confirme a opção selecionada.
         title: 'Consulta: confirmar voto'
@@ -370,4 +374,4 @@ pt:
         unfold: Desdobrar
       question_header:
         back_to_consultation: Ver todas as consultas
-        back_to_question: Regressar à pergunta
+        back_to_question: Retroceder à pergunta

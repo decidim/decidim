@@ -79,6 +79,7 @@ nl:
     admin:
       actions:
         new_assembly: Nieuwe groep
+        new_assembly_type: Nieuw groepstype
       assemblies:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe groep.
@@ -100,9 +101,22 @@ nl:
         create:
           error: Er was een fout bij het dupliceren van deze groep.
           success: Groep succesvol gedupliceerd.
+      assemblies_settings:
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van de instellingen.
+          success: Instellingen succesvol bijgewerkt.
       assemblies_types:
+        create:
+          error: Er is een fout opgetreden bij het maken van een nieuw assembly-type.
+          success: Assemblage type is succesvol gecreëerd.
+        destroy:
+          success: Groep succesvol verwijderd.
         new:
           create: creëren
+          title: Nieuw groepstype
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van dit assembly-type.
+          success: Assemblage type is succesvol bijgewerkt.
       assembly_copies:
         new:
           copy: Kopiëren
@@ -151,6 +165,7 @@ nl:
           success: Beheerder is succesvol bijgewerkt voor deze vergadering.
       menu:
         assemblies: Groepen
+        assemblies_settings: Instellingen
         assemblies_submenu:
           assembly_admins: Groep-admins
           assembly_members: Leden
@@ -162,6 +177,7 @@ nl:
           info: Info
           moderations: Moderaties
           private_users: Particuliere gebruikers
+        assemblies_types: Soorten Buurderijen
       models:
         assemblies_types:
           fields:
@@ -197,6 +213,7 @@ nl:
             admin: Beheerder
             collaborator: Medewerker
             moderator: Moderator
+            valuator: 'Waarde:'
       titles:
         assemblies: Groepen
         assemblies_types: Groepstype
@@ -210,6 +227,8 @@ nl:
         create: "%{user_name} heeft het %{resource_name} lid in de %{space_name} groep gemaakt"
         delete: "%{user_name} verwijderde het %{resource_name} lid uit de %{space_name} groep"
         update: "%{user_name} heeft het %{resource_name} lid in de %{space_name} groep bijgewerkt"
+      assembly_setting:
+        update: "%{user_name} heeft de instellingen van de Buurderijen bijgewerkt"
       assembly_type:
         create: "%{user_name} heeft de groep %{resource_name} bijgewerkt"
         delete: "%{user_name} verwijderde het %{resource_name} lid uit de %{space_name} groep"
@@ -239,6 +258,11 @@ nl:
             social_handlers: sociaal
             title: Algemene informatie
             visbility: Zichtbaarheid
+        assemblies_settings:
+          edit:
+            update: Vernieuwen
+          form:
+            title: Instellingen voor assemblies
         assemblies_types:
           form:
             title: Titel
@@ -298,6 +322,7 @@ nl:
         home:
           highlighted_assemblies:
             active_assemblies: Huidige events
+            assemblies_button_title: Link naar de pagina van de Buurderijen die alle Buurderijen laat zien
             see_all_assemblies: Bekijk alle events
         user_profile:
           member_of:
@@ -328,6 +353,7 @@ nl:
         related_participatory_processes: Verwante inspraakprocessen
         scope: Scope
         social_networks: Sociale netwerken
+        social_networks_title: Deze groep delen op
         target: Wie doet mee
       statistics:
         answers_count: Antwoorden
@@ -339,6 +365,7 @@ nl:
         meetings_count: Events
         orders_count: Ondersteunt
         pages_count: Pagina's
+        posts_count: Berichten
         projects_count: Projecten
         proposals_count: Voorstellen
         results_count: Resultaten
@@ -350,6 +377,24 @@ nl:
         designated_on: Aangewezen op
       index:
         title: Leden
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Link naar de conferentiepagina die alle conferenties weergeeft.
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: Een beheerder van de <a href="%{resource_url}">%{resource_name}</a> groep heeft je toegevoegd als een van haar leden.
+          email_outro: Je hebt deze melding ontvangen omdat je uitgenodigd bent voor een vergadering. Bekijk de <a href="%{resource_path}">vergaderpagina</a> om bij te dragen!
+          email_subject: Je bent uitgenodigd om lid te worden van de %{resource_name} Buurderij!
+          notification_title: Je bent geregistreerd als lid van de Buurderij <a href="%{resource_path}">%{resource_name}</a>. Bekijk de <a href="%{resource_path}">pagina</a> om bij te dragen!
+      assembly:
+        role_assigned:
+          email_intro: Je bent toegewezen als %{role} voor de groep "%{resource_title}".
+          email_outro: Je hebt deze melding ontvangen omdat je %{role} van de "%{resource_title}" bijeenkomst bent.
+          email_subject: U bent toegewezen als %{role} voor "%{resource_title}".
+          notification_title: Je bent toegewezen als %{role} voor de groep <a href="%{resource_url}">%{resource_title}</a>.
     help:
       participatory_spaces:
         assemblies:
@@ -369,6 +414,19 @@ nl:
         description: Aantal aangemaakte groepen
         object: groepen
         title: Groepen
+    pages:
+      home:
+        hero:
+          participate_title: Neem deel aan de processen van het platform
+        sub_hero:
+          register_title: Registreer om een account op het platform aan te maken
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Link naar de pagina Processen die alle processen weergeeft
+      show:
+        related_assemblies: Verwante assemblies
   errors:
     messages:
       cannot_be_blank: mag niet leeg zijn

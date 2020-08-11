@@ -13,6 +13,7 @@
         attachment_collection_id: Mapper
         description: Beskrivelse
         file: Fil
+        title: Vedlegg eller bildenavn
       attachment_collection:
         description: Beskrivelse
         name: Navn
