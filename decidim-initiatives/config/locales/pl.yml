@@ -433,6 +433,9 @@ pl:
             close: Zamknij
             explanation: Musisz zostać zweryfikowany, aby stworzyć nową inicjatywę.
             title: Wymagana autoryzacja
+        initiatives:
+          closed_initiatives_warning: Obecnie nie ma aktywnych inicjatyw, ale tutaj wymienione są wszystkie poprzednie inicjatywy.
+          no_initiatives_warning: Brak inicjatyw spełniających kryteria wyszukiwania.
         interactions:
           comments_count:
             count:
