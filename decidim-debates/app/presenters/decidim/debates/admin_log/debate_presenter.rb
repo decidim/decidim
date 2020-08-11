@@ -15,14 +15,18 @@ module Decidim
       class DebatePresenter < Decidim::Log::BasePresenter
         private
 
+        def resource_presenter
+          @resource_presenter ||= Decidim::Debates::Log::ResourcePresenter.new(action_log.resource, h, action_log.extra["resource"])
+        end
+
         def diff_fields_mapping
           {
-            description: :i18n,
+            description: "Decidim::Debates::AdminLog::ValueTypes::DebateTitleDescriptionPresenter",
             end_date: :date,
             information_updates: :i18n,
             instructions: :i18n,
             start_date: :date,
-            title: :i18n
+            title: "Decidim::Debates::AdminLog::ValueTypes::DebateTitleDescriptionPresenter"
           }
         end
 
