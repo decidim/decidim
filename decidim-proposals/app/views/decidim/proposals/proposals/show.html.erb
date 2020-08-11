@@ -127,7 +127,7 @@ extra_admin_link(
     <%= resource_version(proposal_presenter, versions_path: proposal_versions_path(@proposal)) %>
     <%= cell("decidim/fingerprint", @proposal) %>
     <%= render partial: "decidim/shared/share_modal", locals: { resource: @proposal } %>
-    <%= embed_modal_for proposal_proposal_widget_url(@proposal, format: :js), locals: { resource: @proposal } %>
+    <%= embed_modal_for proposal_widget_url(@proposal, format: :js) %>
     <%= cell "decidim/proposals/proposal_link_to_collaborative_draft", @proposal %>
     <%= cell "decidim/proposals/proposal_link_to_rejected_emendation", @proposal %>
   </div>

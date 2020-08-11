@@ -2,7 +2,7 @@
 
 module Decidim
   module Sortitions
-    class SortitionWidgetsController < Decidim::WidgetsController
+    class WidgetsController < Decidim::WidgetsController
       helper Decidim::SanitizeHelper
       helper Sortitions::SortitionsHelper
 
@@ -13,7 +13,7 @@ module Decidim
       end
 
       def iframe_url
-        @iframe_url ||= sortition_sortition_widget_url(model)
+        @iframe_url ||= sortition_widget_url(model)
       end
     end
   end
