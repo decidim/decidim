@@ -3,6 +3,8 @@ nl:
     attributes:
       debate:
         category_id: Categorie
+        closed_at: Gesloten op
+        conclusions: Besluit
         decidim_category_id: Categorie
         description: Omschrijving
         end_time: Eindigt op
@@ -12,6 +14,7 @@ nl:
         title: Titel
         user_group_id: Maak een debat als
     models:
+      decidim/debates/close_debate_event: Debat gesloten
       decidim/debates/create_debate_event: Debat
       decidim/debates/creation_disabled_event: Debatten uitgeschakeld
       decidim/debates/creation_enabled_event: Debatten ingeschakeld
@@ -37,6 +40,7 @@ nl:
             creation_enabled: Gebruikers kunnen zelf debat aanmaken
     debates:
       actions:
+        close: Sluiten
         confirm_destroy: Ben je zeker?
         destroy: Verwijder
         edit: Bewerk
