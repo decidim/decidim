@@ -12,10 +12,10 @@ pl:
         proposals: Uwzględnione propozycje
         start_date: Data rozpoczęcia
         title: Tytuł
-        updated_at: Zaktualizowano na
+        updated_at: Zaktualizowano
       status:
         description: Opis
-        key: Klawisz
+        key: Klucz
         name: Nazwa
         progress: Postęp
       timeline_entry:
@@ -34,8 +34,8 @@ pl:
   decidim:
     accountability:
       actions:
-        confirm_destroy: Czy na pewno chcesz usunąć to %{name}?
-        destroy: Kasować
+        confirm_destroy: Czy na pewno chcesz usunąć %{name}?
+        destroy: Usuń
         edit: Edytuj
         new: Nowe %{name}
         preview: Podgląd
@@ -43,7 +43,7 @@ pl:
         title: Działania
       admin:
         exports:
-          results: wyniki
+          results: Wyniki
         models:
           result:
             name: Wynik
@@ -53,7 +53,7 @@ pl:
             name: Wprowadzenie do osi czasu
         results:
           create:
-            invalid: Podczas tworzenia tego wyniku wystąpił problem
+            invalid: Podczas tworzenia tego wyniku wystąpił błąd
             success: Wynik został pomyślnie utworzony
           destroy:
             success: Wynik został pomyślnie usunięty
@@ -63,7 +63,7 @@ pl:
           form:
             add_proposal: Dodaj propozycję
           index:
-            title: wyniki
+            title: Wyniki
           new:
             create: Utwórz wynik
             title: Nowy wynik
@@ -72,14 +72,14 @@ pl:
             current_selection: Obecny wybór
             select: Wybierz
           update:
-            invalid: Podczas aktualizowania tego wyniku wystąpił problem
+            invalid: Podczas aktualizowania tego wyniku wystąpił błąd
             success: Wynik został zaktualizowany
         shared:
           subnav:
             statuses: Statusy
         statuses:
           create:
-            invalid: Podczas tworzenia tego stanu wystąpił problem
+            invalid: Podczas tworzenia tego statusu wystąpił błąd
             success: Status został pomyślnie utworzony
           destroy:
             success: Status został pomyślnie usunięty
