@@ -25,6 +25,7 @@
 // = require jquery.serializejson
 // = require decidim/ajax_modals
 // = require ./officializations
+// = require decidim/input_character_counter
 // = require_self
 
 window.Decidim = window.Decidim || {};

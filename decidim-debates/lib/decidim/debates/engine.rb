@@ -12,8 +12,12 @@ module Decidim
       isolate_namespace Decidim::Debates
 
       routes do
-        resources :debates, only: [:index, :show, :new, :create, :edit, :update] do
+        resources :debates, except: [:destroy] do
+          member do
+            post :close
+          end
           resources :versions, only: [:show, :index]
+          resource :widget, only: :show, path: "embed"
         end
         root to: "debates#index"
       end

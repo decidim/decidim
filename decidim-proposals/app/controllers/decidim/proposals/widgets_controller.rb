@@ -2,7 +2,7 @@
 
 module Decidim
   module Proposals
-    class ProposalWidgetsController < Decidim::WidgetsController
+    class WidgetsController < Decidim::WidgetsController
       helper Proposals::ApplicationHelper
 
       private
@@ -12,7 +12,7 @@ module Decidim
       end
 
       def iframe_url
-        @iframe_url ||= proposal_proposal_widget_url(model)
+        @iframe_url ||= proposal_widget_url(model)
       end
     end
   end

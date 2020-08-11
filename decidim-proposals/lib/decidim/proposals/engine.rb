@@ -28,7 +28,7 @@ module Decidim
             put :withdraw
           end
           resource :proposal_vote, only: [:create, :destroy]
-          resource :proposal_widget, only: :show, path: "embed"
+          resource :widget, only: :show, path: "embed"
           resources :versions, only: [:show, :index]
         end
         resources :collaborative_drafts, except: [:destroy] do
