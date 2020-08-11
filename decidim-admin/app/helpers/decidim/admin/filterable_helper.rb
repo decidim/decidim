@@ -5,7 +5,7 @@ module Decidim
     # Helper that provides methods related to Decidim::Admin::Filterable concern.
     module FilterableHelper
       # Renders the filters selector with tags in the admin panel.
-      def admin_filter_selector(i18n_ctx)
+      def admin_filter_selector(i18n_ctx = nil)
         render partial: "decidim/admin/shared/filters", locals: { i18n_ctx: i18n_ctx }
       end
 
