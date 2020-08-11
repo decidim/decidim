@@ -419,9 +419,10 @@ fi-pl:
         index_header:
           new_initiative: Uusi aloite
           not_authorized:
-            authorizations_page: Näytä autorisoinnit
+            authorizations_page: Näytä vahvistukset
             close: Sulje
-            title: Autorisaatio vaaditaan
+            explanation: Tilisi tulee vahvistaa luodaksesi uuden aloitteen.
+            title: Vahvistus vaaditaan
         interactions:
           comments_count:
             count:
