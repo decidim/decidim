@@ -256,6 +256,7 @@ ignore_unused:
   - layouts.decidim.participatory_processes.participatory_process.take_part_in
   - decidim.debates.debates.versions.*
   - decidim.debates.debates.versions_list.*
+  - decidim.debates.debates.show.edit_conclusions
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

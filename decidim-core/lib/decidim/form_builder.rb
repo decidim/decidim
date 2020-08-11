@@ -653,7 +653,7 @@ module Decidim
     def find_validator(attribute, klass)
       return unless object.respond_to?(:_validators)
 
-      object._validators[attribute].find { |validator| validator.class == klass }
+      object._validators[attribute.to_sym].find { |validator| validator.class == klass }
     end
 
     # Private: Override method from FoundationRailsHelper to render the text of the

@@ -13,6 +13,7 @@ module Decidim
       desc = "Nulla TestCheck accumsan tincidunt description Ow!"
       create(
         :debate,
+        :open_ama,
         component: current_component,
         title: Decidim::Faker::Localized.name,
         description: { ca: "CA:#{desc}", en: "EN:#{desc}", es: "ES:#{desc}" },
