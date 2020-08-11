@@ -1193,6 +1193,9 @@ ja:
         close_window: ウィンドウを閉じる
         share: 共有
         share_link: リンクを共有
+    tags:
+      filter_results_for_category: 'カテゴリの検索結果: %{resource}'
+      filter_results_for_scope: 'スコープの検索結果: %{resource}'
     user_activity:
       index:
         no_activities_warning: この参加者はまだアクティビティを行っていません。
@@ -1252,6 +1255,8 @@ ja:
     versions:
       resource_version:
         of_versions: "( %{number} の)"
+        see_other_versions: '%{resource_name} の他のバージョンを参照'
+        version: バージョン %{number}
     versions_list:
       show:
         back_to_resource: 戻る
