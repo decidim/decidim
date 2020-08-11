@@ -104,6 +104,25 @@ $(() => {
     }, 3000)
   })
 
+  // exit message before confirming
+  const $form = $(".evote__options");
+  if ($form.length > 0) {
+    $(document).on("click", "a.confirm", (event) => {
+      window.confirmed = true;
+    });
+
+    window.onbeforeunload = () => {
+      const confirmed = window.confirmed;
+      window.confirmed = null;
+
+      if (confirmed) {
+        return null;
+      }
+
+      return "";
+    }
+  }
+
   $(document).on("on.zf.toggler", (event) => {
     // continue and back btn
     initStep()
