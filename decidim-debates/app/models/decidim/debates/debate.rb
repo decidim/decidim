@@ -20,6 +20,7 @@ module Decidim
       include Decidim::DataPortability
       include Decidim::NewsletterParticipant
       include Decidim::Searchable
+      include Decidim::Hashtaggable
 
       component_manifest_name "debates"
 
