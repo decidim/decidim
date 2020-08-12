@@ -93,29 +93,33 @@ $(() => {
     return indexedArray;
   }
 
-  // log form Data
+  // confirm vote
   $(".button.confirm").on("click", (event) => {
     const boothMode = $(event.currentTarget).data("booth-mode");
+    const formData = getFormData($formData);
+    castVote(boothMode, formData)
+  });
 
-    console.log(`Your vote got encrypted successfully. The booth mode is ${boothMode}. Your vote content is:`, getFormData($formData)) // eslint-disable-line no-console
+  // cast vote
+  function castVote(boothMode, formData) {
+    // log form Data
+    console.log(`Your vote got encrypted successfully. The booth mode is ${boothMode}. Your vote content is:`, formData) // eslint-disable-line no-console
+
     window.setTimeout(function() {
       $($vote).find("#encrypting").addClass("hide")
       $($vote).find("#confirmed_page").removeClass("hide")
+      window.confirmed = true;
     }, 3000)
-  })
+  }
 
   // exit message before confirming
   const $form = $(".evote__options");
   if ($form.length > 0) {
-    $(document).on("click", "a.confirm", (event) => {
-      window.confirmed = true;
-    });
 
     window.onbeforeunload = () => {
-      const confirmed = window.confirmed;
-      window.confirmed = null;
+      const voteCast = window.confirmed;
 
-      if (confirmed) {
+      if (voteCast) {
         return null;
       }
 
