@@ -6,6 +6,7 @@ pl:
         field: Moja dziedzina
         start_date: Data rozpoczęcia
         title: Tytuł
+        translatable_text: Tekst do przetłumaczenia
         updated_at: Zaktualizowano na
   decidim:
     dummy:

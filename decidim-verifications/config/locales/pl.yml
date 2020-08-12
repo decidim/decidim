@@ -104,6 +104,7 @@ pl:
             title: Musisz aktywować spis csv dla tej organizacji
           new:
             file: "Plik .csv z danymi e-maili"
+            info: 'Musi to być plik w formacie CSV zawierający tylko jedną kolumnę z adresem e-mail:'
             submit: Przesyłanie pliku
             title: Prześlij nowy spis ludności
         authorizations:

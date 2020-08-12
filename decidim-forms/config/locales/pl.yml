@@ -15,6 +15,8 @@ pl:
             choices:
               missing: nie są kompletne
               too_many: jest zbyt wiele
+        questionnaire:
+          request_invalid: Wystąpił błąd podczas przetwarzania żądania. Spróbuj ponownie
   decidim:
     forms:
       admin:
@@ -80,3 +82,6 @@ pl:
       user_answers_serializer:
         created_at: Odpowiedziałem na
         id: ID odpowiedzi
+        registered: Zarejestrowany
+        unregistered: Niezarejestrowany
+        user_status: Status użytkownika

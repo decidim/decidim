@@ -46,6 +46,7 @@ pl:
           against: Przeciwko
           in_favor: Na korzyść
         deleted_user: Usunięty użytkownik
+        hide_replies: Ukryj odpowiedzi
         reply: Odpowiadać
         report:
           action: Raport
@@ -58,6 +59,8 @@ pl:
             offensive: Zawiera rasizm, seksizm, gniew, ataki osobiste, groźby śmierci, wnioski o samobójstwo lub jakąkolwiek formę mowy o nienawiści.
             spam: Zawiera kliknięć, reklamy, oszustwa lub boty scenariusza.
           title: Zgłoś problem
+        show_replies: Pokaż %{replies_count} odpowiedzi
+        single_comment_link_title: Uzyskaj link do pojedynczego komentarza
       comment_order_selector:
         order:
           best_rated: Najlepsza ocena
@@ -70,7 +73,10 @@ pl:
       comments:
         blocked_comments_for_user_warning: Nie możesz teraz komentować, ale możesz przeczytać poprzednie.
         blocked_comments_warning: Komentarze są w tej chwili wyłączone, ale możesz przeczytać poprzednie.
+        comment_details_title: Szczegóły komentarzy
         loading: Ładowanie komentarzy ...
+        single_comment_warning: Resztę komentarzy możesz sprawdzić <a href="%{url}">tutaj</a>.
+        single_comment_warning_title: Wyświetlasz teraz pojedynczy komentarz
         title: "%{count} komentarzy"
     events:
       comments:

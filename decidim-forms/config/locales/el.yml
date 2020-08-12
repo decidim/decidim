@@ -1,1 +1,88 @@
 el:
+  activemodel:
+    attributes:
+      answer:
+        body: Απάντηση
+      question:
+        max_choices: Μέγιστος αριθμός επιλογών
+        question_type: Τύπος
+      questionnaire_question:
+        mandatory: Υποχρεωτικό
+    errors:
+      models:
+        answer:
+          attributes:
+            choices:
+              missing: δεν έχουν ολοκληρωθεί
+              too_many: είναι πάρα πολλά
+        questionnaire:
+          request_invalid: Παρουσιάστηκε σφάλμα κατά τον χειρισμό του αιτήματος. Δοκιμάστε ξανά
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: Περιγραφή
+            tos: Όροι χρήσης υπηρεσίας
+        questionnaires:
+          answer_option:
+            answer_option: Επιλογή απάντησης
+            free_text: Ελεύθερο κείμενο
+            remove: Κατάργηση
+            statement: Δήλωση
+          edit:
+            save: Αποθήκευση
+            title: Τίτλος
+          form:
+            add_question: Προσθήκη ερώτησης
+            already_answered_warning: Η φόρμα έχει ήδη απαντηθεί από ορισμένους χρήστες, επομένως δεν μπορείτε να τροποποιήσετε τις ερωτήσεις της.
+          question:
+            add_answer_option: Προσθήκη επιλογής απάντησης
+            any: Οποιαδήποτε
+            description: Περιγραφή
+            down: Κάτω
+            question: Ερώτηση
+            remove: Κατάργηση
+            statement: Δήλωση
+            up: Επάνω
+          update:
+            invalid: Υπήρξε ένα πρόβλημα κατά την αποθήκευση της φόρμας.
+            success: Οι φόρμες αποθηκεύτηκαν με επιτυχία.
+      errors:
+        answer:
+          body: Το σώμα δεν μπορεί να είναι κενό
+      question_types:
+        long_answer: Μεγάλη απάντηση
+        multiple_option: Πολλαπλή επιλογή
+        short_answer: Σύντομη απάντηση
+        single_option: Μία επιλογή
+        sorting: Ταξινόμηση
+      questionnaires:
+        answer:
+          invalid: Υπήρξε ένα πρόβλημα κατά την απάντηση της φόρμας.
+          success: Η φόρμα απαντήθηκε με επιτυχία.
+        question:
+          max_choices: 'Μέγιστες επιλογές: %{n}'
+        show:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Είσοδος με τον λογαριασμό σας</a> ή <a href="%{sign_up_link}">εγγραφή</a> για να απαντήσετε στη φόρμα.
+            title: Απαντήστε στη φόρμα
+          are_you_sure: Αυτή η ενέργεια δεν μπορεί να αναιρεθεί και δεν θα μπορείτε να επεξεργαστείτε τις απαντήσεις σας. Είστε βέβαιοι;
+          questionnaire_answered:
+            body: Έχετε ήδη απαντήσει σε αυτήν τη φόρμα.
+            title: Έχει ήδη απαντηθεί
+          questionnaire_closed:
+            body: Η φόρμα είναι κλειστή και δεν μπορεί να απαντηθεί.
+            title: Η φόρμα έκλεισε
+          questionnaire_for_private_users:
+            body: Η φόρμα είναι διαθέσιμη μόνο για ιδιωτικούς χρήστες
+            title: Η φόρμα έκλεισε
+          submit: Υποβολή
+          tos_agreement: Με τη συμμετοχή σας, αποδέχεστε τους Όρους παροχής υπηρεσίας
+      user_answers_serializer:
+        created_at: Απαντήθηκε στις
+        id: Αναγνωριστικό απάντησης
+        ip_hash: Ip Hash
+        registered: Έχει εγγραφεί
+        unregistered: Δεν έχει εγγραφεί
+        user_status: Κατάσταση χρήστη

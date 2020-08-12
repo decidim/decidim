@@ -32,6 +32,7 @@ ja:
             statement: ステートメント
           edit:
             save: 保存
+            title: タイトル
           form:
             add_question: 質問を追加
             already_answered_warning: このフォームはすでに一部のユーザーによって回答されているため、質問を修正することはできません。
@@ -66,6 +67,7 @@ ja:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">アカウント</a> でサインインするか、 <a href="%{sign_up_link}">サインアップ</a> してフォームに回答してください。
             title: フォームに回答
+          are_you_sure: この操作は元に戻すことができず、回答を編集することはできません。よろしいですか？
           questionnaire_answered:
             body: このフォームには既に回答済みです。
             title: すでに回答済み
@@ -75,10 +77,12 @@ ja:
           questionnaire_for_private_users:
             body: このフォームはプライベートユーザーのみ利用できます
             title: フォームを閉じました
+          submit: 送信
           tos_agreement: 参加することにより、利用規約に同意します。
       user_answers_serializer:
         created_at: 回答日時
         id: 回答ID
+        ip_hash: IPハッシュ
         registered: 登録済み
         unregistered: 未登録
         user_status: ユーザーの状態

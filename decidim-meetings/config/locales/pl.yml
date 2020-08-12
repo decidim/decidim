@@ -244,6 +244,9 @@ pl:
           edit:
             update: Aktualizuj
           form:
+            address_help: 'Adres: używany przez Geocoder do znalezienia lokalizacji'
+            location_help: 'Lokalizacja: wiadomość skierowana do użytkowników sugerująca miejsce spotkania'
+            location_hints_help: 'Wskazówki dotyczące lokalizacji: dodatkowe informacje. Przykład: piętro budynku'
             select_organizer: Wybierz organizatora
           index:
             title: Spotkania
@@ -294,6 +297,7 @@ pl:
               other: Zarejestrowano %{count} rejestracji.
             reserved_slots_help: Pozostaw to 0, jeśli nie masz zarezerwowanych miejsc
             reserved_slots_less_than: Musi być mniejszy lub równy %{count}
+            title: Rejestracje
           update:
             invalid: Wystąpił problem z zapisaniem ustawień rejestracji.
             success: Dokonano pomyślnego zapisania ustawień rejestracji rejestracji.

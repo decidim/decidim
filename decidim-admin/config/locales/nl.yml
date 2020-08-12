@@ -144,6 +144,7 @@ nl:
         export: Exporteren
         manage: Beheer
         new: Nieuwe %{name}
+        per_page: Per pagina
         permissions: Permissies
         reject: Weigeren
         verify: Verifiëren
@@ -295,12 +296,28 @@ nl:
       filters:
         category_id_eq:
           label: Categorie
+        filter_label: Filteren
         officialized_at_null:
           label: Staat
           values:
             'false': Gevalideerd
             'true': Niet gevalideerd
+        private_space_eq:
+          label: Privé
+          values:
+            'false': Openbaar
+            'true': Privé
+        published_at_null:
+          label: Ingediend
+          values:
+            'false': Ingediend
+            'true': Niet-gepubliceerde
+        scope_id_eq:
+          label: Bereik
         search_label: Zoeken
+        search_placeholder:
+          name_or_nickname_or_email_cont: Zoek %{collection} op e-mail, naam of bijnaam.
+          title_cont: Zoek %{collection} op titel.
       help_sections:
         error: Er is een fout opgetreden bij het bijwerken van de Help-gedeelten
         form:

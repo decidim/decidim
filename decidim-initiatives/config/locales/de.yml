@@ -33,6 +33,7 @@ de:
         extra_fields_legal_information: Rechtliche Informationen zur Erhebung personenbezogener Daten
         minimum_committee_members: Minimum der Ausschussmitglieder
         online_signature_enabled: Online-Signatur aktiviert
+        promoting_committee_enabled: Förderkomitee freigeben
         title: Titel
         undo_online_signatures_enabled: Ermöglichen Sie Benutzern, ihre Online-Signaturen rückgängig zu machen
         validate_sms_code_on_votes: Fügen Sie dem Signaturprozess einen SMS-Validierungsschritt hinzu
@@ -61,6 +62,8 @@ de:
       actions:
         new_initiative_type: Neuer Initiativentyp
       filters:
+        search_placeholder:
+          title_or_description_cont: Suche in %{collection} nach Titel oder Beschreibung.
         state_eq:
           label: Zustand
           values:

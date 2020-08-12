@@ -33,6 +33,7 @@ pl:
         extra_fields_legal_information: Informacje prawne dotyczące gromadzenia danych osobowych
         minimum_committee_members: Minimum członków komitetu
         online_signature_enabled: Włączony podpis online
+        promoting_committee_enabled: Włącz komisję promującą
         title: Tytuł
         undo_online_signatures_enabled: Umożliwia użytkownikom cofanie ich podpisów online
         validate_sms_code_on_votes: Dodaj krok weryfikacji kodu SMS do procesu podpisu
@@ -67,6 +68,8 @@ pl:
       actions:
         new_initiative_type: Nowy typ inicjatywy
       filters:
+        search_placeholder:
+          title_or_description_cont: Wyszukaj %{collection} według tytułu lub opisu.
         state_eq:
           label: Stan
           values:

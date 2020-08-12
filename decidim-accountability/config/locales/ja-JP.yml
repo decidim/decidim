@@ -57,11 +57,17 @@ ja:
           edit:
             title: 結果を編集
             update: 結果を更新
+          form:
+            add_proposal: 提案を追加
           index:
             title: 結果
           new:
             create: 結果を作成
             title: 新しい結果
+          proposals:
+            close: 閉じる
+            current_selection: 選択中
+            select: 選択する
           update:
             invalid: この結果の更新中に問題が発生しました
             success: 結果を更新しました
@@ -149,15 +155,30 @@ ja:
         show:
           stats:
             attendees: 参加者
+            back_to_result: 結果に戻る
             comments: コメント
             contributions: 貢献
             last_edited_by: '最終編集者:'
             last_updated_at: 最終更新日時
             meetings: ミーティング
+            number_of_versions: バージョン
             proposals: 提案
+            show_all_versions: すべてのバージョンを表示
+            version_author: バージョンの作者
+            version_created_at: バージョン作成日時
+            version_number: バージョン番号
+            version_number_out_of_total: "%{current_version} / %{total_count}"
             votes: サポート
         timeline:
           title: プロジェクトの進化
+      versions:
+        index:
+          changes_at_title: '"%{title}" で変更'
+          title: バージョン
+        show:
+          changes_at_title: '"%{title}" で変更'
+        version:
+          version_index: バージョン %{index}
     components:
       accountability:
         name: Accountability
@@ -193,6 +214,9 @@ ja:
       participatory_process_groups:
         highlighted_results:
           results: 結果
+    participatory_spaces:
+      highlighted_results:
+        see_all: すべて見る (%{count})
     resource_links:
       included_projects:
         result_project: この結果に含まれるプロジェクト

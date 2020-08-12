@@ -105,10 +105,14 @@ ja:
             other: 選択されたプロジェクト
           view: 表示
         project:
+          add: 追加
           count:
             other: "%{count} のサポート"
           remove: 削除
           view: 表示
+        project_budget_button:
+          add: 追加
+          added: 追加済
         show:
           budget: 予算
           view_all_projects: すべてのプロジェクトを表示

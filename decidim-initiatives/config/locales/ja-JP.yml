@@ -59,6 +59,8 @@ ja:
       actions:
         new_initiative_type: 新しいイニシアチブタイプ
       filters:
+        search_placeholder:
+          title_or_description_cont: タイトルまたは説明で %{collection} を検索します。
         state_eq:
           label: 都道府県：
           values:
@@ -66,6 +68,7 @@ ja:
             created: 作成済み
             discarded: 破棄しました
             published: 公開済み
+            rejected: 却下済み
             validating: 技術的検証
       menu:
         initiatives: 取り組み
@@ -139,6 +142,8 @@ ja:
     help:
       participatory_spaces:
         initiatives:
+          contextual: "<p> <strong>イニシアチヴ</strong>とは、組織が特定のアクション (規制の変更、プロジェクトの開始、部署や道路の名前の変更など) を実行するための (デジタルの) 署名を集めることによって、誰もが (他のチャネルや参加スペースとは無関係に) 主体的に推進できる提案のことです。 </p> <p>イニシアチブの推進者は、その目的を定義し、支持を集め、議論し、普及させ、出席者から署名を集めることができる集会場所を定義したり、他の参加者に開かれた議論を行ったりすることができます。</p><p>例: イニシアチブは、組織のすべての人々の間で協議を行うために署名を集めることができ、また、組織の領域や地域の予算増額のプロセスを開始するために、集会を作成または招集することができます。署名を集める過程で、より多くの人々がこの要求を追加し、組織内でそれを推進することができます。</p>\n"
+          page: "<p> <strong>イニシアチヴ</strong>とは、組織が特定のアクション (規制の変更、プロジェクトの開始、部署や道路の名前の変更など) を実行するための (デジタルの) 署名を集めることによって、誰もが (他のチャネルや参加スペースとは無関係に) 主体的に推進できる提案のことです。 </p> <p>イニシアチブの推進者は、その目的を定義し、支持を集め、議論し、普及させ、出席者から署名を集めることができる集会場所を定義したり、他の参加者に開かれた議論を行ったりすることができます。</p><p>例: イニシアチブは、組織のすべての人々の間で協議を行うために署名を集めることができ、また、組織の領域や地域の予算増額のプロセスを開始するために、集会を作成または招集することができます。署名を集める過程で、より多くの人々がこの要求を追加し、組織内でそれを推進することができます。</p>\n"
           title: イニシアチブとは？
     initiatives:
       actions:
@@ -237,6 +242,7 @@ ja:
         created: 作成済み
         discarded: 破棄しました
         published: 公開済み
+        rejected: 却下済み
         validating: 技術的検証
       committee_requests:
         new:
@@ -251,6 +257,7 @@ ja:
         fill_data:
           back: 戻る
           continue: 続ける
+          fill_data_help: "<ul> <li>イニシアチブの内容を確認しましょう。件名はわかりやすいですか? イニシアチブの目的は明確ですか? </li> <li>署名の種類を選択する必要があります。直接署名、オンライン署名、または両方の組み合わせ</li> <li>イニシアチブの対象範囲はどのようなものですか? 市ですか？地区ですか?</li></ul>"
           initiative_type: イニシアティブの種類
           more_information: "(詳細)"
           select_scope: スコープを選択
@@ -342,10 +349,13 @@ ja:
         filters:
           any: 任意の
           author: 作成者
+          closed: 終了
           myself: 私の取り組み
+          open: 公開
           search: 検索
           state: ステータス
           type: タイプ
+          type_prompt: 種類を選択
         filters_small_view:
           close_modal: ウィンドウを閉じる
           filter: フィルター
@@ -404,6 +414,8 @@ ja:
         promotal_committee_help: 少なくとも %{member_count} 人をプロモーター委員会に招待する必要があります。プロモーター委員会に招待するには、次のリンクを進めてください。
         status_change_body_for: 'イニシアチブ %{title} がステータスを %{state}に変更しました'
         status_change_for: イニシアチブ %{title} のステータスが変更されました
+        technical_validation_body_for: '%{title} が技術的な検証を要求しました。'
+        technical_validation_for: '%{title} が技術的な検証を要求しました。'
       last_activity:
         new_initiative: 新たなイニシアチブを作成
       pages:

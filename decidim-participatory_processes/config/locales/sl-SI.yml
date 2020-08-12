@@ -1,0 +1,9 @@
+sl:
+  activemodel:
+    attributes:
+      participatory_process:
+        area_id: Področje
+  layouts:
+    decidim:
+      process_header_steps:
+        view_steps: Poglej faze

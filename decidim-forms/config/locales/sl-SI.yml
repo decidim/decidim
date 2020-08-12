@@ -1,0 +1,11 @@
+sl:
+  activemodel:
+    attributes:
+      answer:
+        body: Odgovor
+  decidim:
+    forms:
+      admin:
+        questionnaires:
+          edit:
+            title: Naziv
