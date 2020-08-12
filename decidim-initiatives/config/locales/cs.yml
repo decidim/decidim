@@ -433,6 +433,9 @@ cs:
             close: Zavřít
             explanation: Musíte být ověřen, abyste mohli vytvořit novou iniciativu.
             title: Vyžadována autorizace
+        initiatives:
+          closed_initiatives_warning: V současné době neexistují žádné otevřené iniciativy, ale zde najdete všechny uzavřené iniciativy uvedené v seznamu.
+          no_initiatives_warning: Žádná iniciativa neodpovídá vašim kritériím vyhledávání.
         interactions:
           comments_count:
             count:
