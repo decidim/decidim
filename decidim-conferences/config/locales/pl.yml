@@ -112,24 +112,24 @@ pl:
           error: Wystąpił błąd podczas tworzenia nowej konferencji.
           success: Konferencja została utworzona pomyślnie.
         edit:
-          update: Aktualizacja
+          update: Aktualizuj
         exports:
           registrations: Rejestracje
         form:
           title: Informacje ogólne
         index:
-          not_published: Nie publikowany
+          not_published: Nie opublikowany
           published: Opublikowany
         new:
           create: Stwórz
           title: Konferencja
         update:
-          error: Wystąpił błąd podczas aktualizowania tej konferencji.
+          error: Wystąpił błąd podczas aktualizowania konferencji.
           success: Konferencja zaktualizowana pomyślnie.
       conferences_copies:
         create:
-          error: Wystąpił błąd podczas duplikowania tej konferencji.
-          success: Konferencja powiodła się pomyślnie.
+          error: Wystąpił błąd podczas duplikowania konferencji.
+          success: Konferencja zduplikowana pomyślnie.
       media_links:
         create:
           error: Podczas tworzenia nowego linku do multimediów wystąpił błąd.
