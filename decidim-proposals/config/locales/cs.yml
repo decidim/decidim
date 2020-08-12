@@ -7,6 +7,7 @@ cs:
         category_id: Kategorie
         decidim_scope_id: Rozsah
         has_address: Má adresu
+        scope_id: Oblast působnosti
         state: Stát
         title: Titul
         user_group_id: Vytvořit návrh spolupráce jako
@@ -19,6 +20,7 @@ cs:
         category_id: Kategorie
         decidim_scope_id: Rozsah
         has_address: Má adresu
+        scope_id: Oblast působnosti
         state: Stát
         suggested_hashtags: Navrhované hashtags
         title: Titul
@@ -93,7 +95,6 @@ cs:
         search_placeholder:
           id_string_or_title_cont: Hledat %{collection} podle ID nebo názvu.
         state_eq:
-          label: Stát
           values:
             evaluating: Hodnocení
             withdrawn: Staženo
@@ -123,6 +124,7 @@ cs:
             can_accumulate_supports_beyond_threshold: Mohou hromadit podpěry za prahem
             collaborative_drafts_enabled: Schopnosti spolupráce jsou povoleny
             comments_enabled: Komentáře povoleny
+            comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
             geocoding_enabled: Geokódování povoleno
             minimum_votes_per_user: Minimální počet hlasů na uživatele
             new_proposal_body_template: Šablona těla nového návrhu
@@ -652,15 +654,23 @@ cs:
         update:
           error: Při ukládání schématu spolupráce došlo k chybám.
           success: Protokol o spolupráci byl úspěšně aktualizován.
+          title: Upravit koncept spolupráce
         wizard_aside:
           back: Zadní
+          back_from_collaborative_draft: Zpět na koncepty spolupráce
+          back_from_step_1: Zpět na koncepty spolupráce
+          back_from_step_2: Zpět na koncepty spolupráce
+          back_from_step_3: Zpět k porovnání konceptů spolupráce
+          back_from_step_4: Zpět k úpravě konceptu
           info: Při vytváření <strong>spolupráce návrhu</strong>.
         wizard_steps:
+          current_step: Aktuální krok
           see_steps: viz kroky
           step_1: Vytvořte návrh spolupráce
           step_2: Porovnejte s návrhy spolupráce
           step_3: Dokončete návrh spolupráce
           step_of: Krok %{current_step_num} z %{total_steps}
+          title: Kroky pro vytvoření společného návrhu
       create:
         error: Při ukládání návrhu došlo k chybám.
         success: Návrh byl úspěšně vytvořen. Uloženo jako návrh.
@@ -698,7 +708,6 @@ cs:
           amend: Pozměňovací návrh
           comment: Komentář
           comments: Komentáře
-          endorse: Schválit
       proposal_votes:
         create:
           error: Při hlasování o návrhu došlo k chybám.
@@ -815,10 +824,12 @@ cs:
           read_more: Číst více
           report: Zpráva
           withdraw_btn_hint: Pokud změníte názor, můžete svůj návrh stáhnout, pokud jste nedostali žádnou podporu. Návrh není zrušen, objeví se v seznamu stažených návrhů.
-          withdraw_confirmation: Opravdu chcete tento návrh stáhnout?
+          withdraw_confirmation_html: Jste si jisti, že chcete stáhnout tento návrh?<br><br><strong>Tuto akci nelze zrušit!</strong>
           withdraw_proposal: Návrh stáhnout
         tags:
           changed_from: "(změněn z <u>%{previous_name}</u> správcem)"
+        update:
+          title: Aktualizovat návrh
         vote_button:
           already_voted: Již bylo hlasováno
           already_voted_hover: Zavolejte
@@ -852,14 +863,20 @@ cs:
             votes: Hlasy
         wizard_aside:
           back: Zadní
+          back_from_step_1: Zpět k návrhům
+          back_from_step_2: Zpět k návrhům
+          back_from_step_3: Zpět k porovnání návrhů
+          back_from_step_4: Zpět k úpravě konceptu
           info: Vytváříte <strong>návrh</strong>.
         wizard_steps:
+          current_step: Aktuální krok
           see_steps: viz kroky
           step_1: Vytvořte svůj návrh
           step_2: Porovnejte
           step_3: Kompletní
           step_4: Publikujte svůj návrh
           step_of: Krok %{current_step_num} z %{total_steps}
+          title: Kroky vytváření návrhů
       proposals_picker:
         choose_proposals: Vybrat návrhy
         close: Zavřít

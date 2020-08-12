@@ -419,11 +419,19 @@ en:
           unfold: Unfold
         index_header:
           new_initiative: New initiative
+          not_authorized:
+            authorizations_page: View authorizations
+            close: Close
+            explanation: You need to be verified in order to create a new initiative.
+            title: Authorization required
+        initiatives:
+          closed_initiatives_warning: Currently, there are no open initiatives, but here you can find all the closed initiatives listed.
+          no_initiatives_warning: No initiatives match your search criteria.
         interactions:
           comments_count:
             count:
               one: Comment
-              other: Comment
+              other: Comments
         orders:
           label: 'Sort initiatives by:'
           most_commented: Most commented
@@ -459,8 +467,8 @@ en:
           votes_blocked: Signing disabled
         votes_count:
           count:
-            one: SIGNATURE
-            other: SIGNATURES
+            one: Signature
+            other: Signatures
           most_popular_initiative: Most popular initiative
           need_more_votes: Need more signatures
       initiatives_mailer:

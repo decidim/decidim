@@ -83,6 +83,7 @@ fi:
           global:
             announcement: Ilmoitus
             comments_enabled: Kommentit ovat käytössä
+            comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
             creation_enabled_for_participants: Osallistujat voivat luoda tapahtumia
             default_registration_terms: Ilmoittautumisen oletusehdot
             enable_pads_creation: Ota käyttöön muistioiden luominen
@@ -411,6 +412,7 @@ fi:
           attendees: Osallistujamäärä
           back: Takaisin listaan
           contributions: Kontribuutioiden määrä
+          date: Päivämäärä
           edit_meeting: Muokkaa tapahtumaa
           going: Ilmoittautunut
           join: Ilmoittaudu tapahtumaan
@@ -483,7 +485,7 @@ fi:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Aiemmat tapahtumat
-        see_all: Näytä kaikki (%{count})
+        see_all: Näytä kaikki tapahtumat (%{count} kpl)
         upcoming_meetings: Tulevat tapahtumat
       upcoming_meeting_for_card:
         upcoming_meeting: Tuleva tapahtuma

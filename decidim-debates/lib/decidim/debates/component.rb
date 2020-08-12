@@ -52,6 +52,11 @@ Decidim.register_component(:debates) do |component|
       email: "admin@example.org"
     )
 
+    user = Decidim::User.find_by(
+      organization: participatory_space.organization,
+      email: "user@example.org"
+    )
+
     params = {
       name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :debates).i18n_name,
       manifest_name: :debates,
@@ -93,5 +98,32 @@ Decidim.register_component(:debates) do |component|
 
       Decidim::Comments::Seed.comments_for(debate)
     end
+
+    closed_debate = Decidim::Debates::Debate.last
+    closed_debate.conclusions = Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+      Decidim::Faker::Localized.paragraph(3)
+    end
+    closed_debate.closed_at = Time.current
+    closed_debate.save!
+
+    params = {
+      component: component,
+      category: participatory_space.categories.sample,
+      title: Decidim::Faker::Localized.sentence(2),
+      description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+        Decidim::Faker::Localized.paragraph(3)
+      end,
+      instructions: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+        Decidim::Faker::Localized.paragraph(3)
+      end,
+      author: user
+    }
+
+    Decidim.traceability.create!(
+      Decidim::Debates::Debate,
+      user,
+      params,
+      visibility: "all"
+    )
   end
 end

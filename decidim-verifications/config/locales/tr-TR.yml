@@ -114,8 +114,9 @@ tr:
             success: Hesabınız başarıyla doğrulandı.
       dummy_authorization:
         extra_explanation:
-          one: Katılım, posta kodu %{postal_codes}olan kullanıcılarla sınırlıdır.
-          other: 'Katılım, aşağıdaki posta kodlarından herhangi biriyle kullanıcılarla sınırlıdır: %{postal_codes}.'
+          postal_codes:
+            one: Katılım, posta kodu %{postal_codes}olan kullanıcılarla sınırlıdır.
+            other: 'Katılım, aşağıdaki posta kodlarından herhangi biriyle kullanıcılarla sınırlıdır: %{postal_codes}.'
       id_documents:
         admin:
           config:

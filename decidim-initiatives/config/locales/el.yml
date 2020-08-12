@@ -49,6 +49,10 @@ el:
       initiatives:
         filters_small_view:
           close_modal: Κλείσιμο παραθύρου
+        votes_count:
+          count:
+            one: Υπογραφή
+            other: Υπογραφές
   layouts:
     decidim:
       initiative_creation_header:

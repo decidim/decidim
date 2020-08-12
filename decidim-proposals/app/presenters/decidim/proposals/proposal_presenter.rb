@@ -9,6 +9,7 @@ module Decidim
       include Rails.application.routes.mounted_helpers
       include ActionView::Helpers::UrlHelper
       include Decidim::SanitizeHelper
+      include Decidim::TranslatableAttributes
 
       def author
         @author ||= if official?
@@ -38,7 +39,7 @@ module Decidim
       #
       # Returns a String.
       def title(links: false, extras: true, html_escape: false)
-        text = proposal.title
+        text = translated_attribute(proposal.title)
         text = decidim_html_escape(text) if html_escape
 
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
@@ -50,7 +51,7 @@ module Decidim
       end
 
       def body(links: false, extras: true, strip_tags: false)
-        text = proposal.body
+        text = translated_attribute(proposal.body)
 
         text = strip_tags(sanitize_text(text)) if strip_tags
 

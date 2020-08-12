@@ -1,4 +1,3 @@
-
 /* Variables */
 
 $timeline-color: var(--primary);
@@ -151,8 +150,8 @@ $timeline-padding: 1rem;
 
 .timeline__item-text{
   display: block;
-  text-transform: uppercase;
   letter-spacing: .03em;
+  text-transform: uppercase;
   font-size: 90%;
   color: $body-font-color;
   font-weight: 600;

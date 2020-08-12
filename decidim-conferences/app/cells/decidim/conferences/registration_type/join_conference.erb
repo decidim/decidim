@@ -13,7 +13,7 @@
   <% else %>
     <%= render :registration_confirm %>
     <% if allowed? %>
-      <%= button_to i18n_join_text, "",
+      <%= button_to i18n_join_text, "#",
           class: button_classes,
           disabled: !conference.has_available_slots? || conference.has_registration_for?(current_user),
           style: "margin-bottom: 0;",

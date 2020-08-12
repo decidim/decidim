@@ -65,12 +65,16 @@ module Decidim
       resource = html_options.delete(:resource)
 
       if !current_user
+        html_options = clean_authorized_to_data_open(html_options)
+
         html_options["data-open"] = "loginModal"
-        url = ""
+        url = "#"
       elsif action && !action_authorized_to(action, resource: resource).ok?
+        html_options = clean_authorized_to_data_open(html_options)
+
         html_options["data-open"] = "authorizationModal"
         html_options["data-open-url"] = modal_path(action, resource)
-        url = ""
+        url = "#"
       end
 
       html_options["onclick"] = "event.preventDefault();" if url == ""
@@ -89,6 +93,24 @@ module Decidim
                           {}
                         end
       decidim.authorization_modal_path(authorization_action: action, component_id: current_component.id, **resource_params)
+    end
+
+    def clean_authorized_to_data_open(html_options)
+      html_options.delete(:"data-open")
+      html_options.delete(:"data-open-url")
+
+      [:data, "data"].each do |key|
+        next unless html_options[key].is_a?(Hash)
+
+        html_options[key].delete(:open)
+        html_options[key].delete("open")
+        html_options[key].delete(:open_url)
+        html_options[key].delete("open_url")
+        html_options[key].delete(:"open-url")
+        html_options[key].delete("open-url")
+      end
+
+      html_options
     end
   end
 end

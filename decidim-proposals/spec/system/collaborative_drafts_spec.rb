@@ -55,7 +55,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
         expect(page).to have_css(".card.card--collaborative_draft.success", count: collaborative_drafts_count)
         expect(page).to have_css(".card__button.button", count: collaborative_drafts_count)
         first ".card__support" do
-          expect(page).to have_css(".card__button.button", text: "View Collaborative Draft")
+          expect(page).to have_css(".card__button.button", text: "VIEW COLLABORATIVE DRAFT")
         end
       end
 
@@ -94,7 +94,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
       end
 
       it "shows the state" do
-        expect(page).to have_css(".label.collaborative-draft-status", text: translated(collaborative_draft.state))
+        expect(page).to have_css(".label.collaborative-draft-status", text: "Open")
       end
 
       context "when geocoding is enabled" do
@@ -198,7 +198,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
           end
 
           it "shows the a modal" do
-            within "#publish-irreversible-action-modal" do
+            within "[id$='publish-irreversible-action-modal'" do
               expect(page).to have_css("h3", text: "The following action is irreversible")
               expect(page).to have_css("button", text: "Publish as a Proposal")
             end
@@ -252,7 +252,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
           it "shows that acces has been requested" do
             within ".view-side" do
-              expect(page).to have_css(".button.secondary.light.expanded.button--sc.mt-s", text: "ACCESS REQUESTED")
+              expect(page).to have_css(".button.expanded.button--sc.mt-s", text: "ACCESS REQUESTED")
             end
           end
 

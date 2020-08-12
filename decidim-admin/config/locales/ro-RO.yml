@@ -13,7 +13,6 @@ ro:
         attachment_collection_id: Dosar
         description: Descriere
         file: Fişier
-        title: Titlu
       attachment_collection:
         description: Descriere
         name: Nume

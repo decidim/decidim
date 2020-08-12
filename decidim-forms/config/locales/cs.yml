@@ -75,6 +75,9 @@ cs:
             already_answered_warning: Dotazník již odpověděli někteří uživatelé, takže nemusíte upravovat své dotazy.
             collapse: Sbalit všechny úlohy
             expand: Rozbalit všechny otázky
+            preview: Náhled
+            title: Upravit formulář
+            unpublished_warning: Formulář není zveřejněn. Můžete změnit jeho otázky, ale tím odstraníte aktuální odpovědi.
           matrix_row:
             matrix_row: Řádek
             remove: Odstranit
@@ -145,6 +148,8 @@ cs:
           questionnaire_js_disabled:
             body: Některé funkce tohoto formuláře budou zakázány. Pro zlepšení použití formuláře povolte JavaScript ve vašem prohlížeči.
             title: JavaScript je zakázán
+          questionnaire_not_published:
+            body: Tento formulář zatím není zveřejněn.
           tos_agreement: Účastí přijímáte jeho smluvní podmínky
       step_navigation:
         show:

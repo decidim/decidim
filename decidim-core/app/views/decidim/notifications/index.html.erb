@@ -1,5 +1,7 @@
-<main class="wrapper">
+<% add_decidim_page_title(t("notifications", scope: "layouts.decidim.user_menu")) %>
+
+<div class="wrapper">
   <div class="row column">
     <%= cell "decidim/notifications", current_user %>
   </div>
-</main>
+</div>

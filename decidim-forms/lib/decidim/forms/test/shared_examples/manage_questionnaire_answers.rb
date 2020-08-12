@@ -17,7 +17,7 @@ shared_examples_for "manage questionnaire answers" do
   context "when there are no answers" do
     it "do not answer admin link" do
       visit questionnaire_edit_path
-      expect(page).to have_content("NO ANSWERS YET")
+      expect(page).to have_content("No answers yet")
     end
   end
 
@@ -28,7 +28,7 @@ shared_examples_for "manage questionnaire answers" do
 
     it "shows the answer admin link" do
       visit questionnaire_edit_path
-      expect(page).to have_content("SHOW RESPONSES")
+      expect(page).to have_content("Show responses")
     end
 
     context "and managing answers page" do
@@ -39,9 +39,9 @@ shared_examples_for "manage questionnaire answers" do
 
       it "shows the anwers page" do
         expect(page).to have_content(answer1.body)
-        expect(page).to have_content(answer1.question.body["en"].upcase)
+        expect(page).to have_content(answer1.question.body["en"])
         expect(page).to have_content(answer2.body)
-        expect(page).to have_content(answer2.question.body["en"].upcase)
+        expect(page).to have_content(answer2.question.body["en"])
       end
 
       it "shows the percentage" do
@@ -66,7 +66,7 @@ shared_examples_for "manage questionnaire answers" do
           expect(page).to have_content(answer1.session_token)
           expect(page).to have_content(answer2.session_token)
           expect(page).to have_content(answer3.session_token)
-          expect(page).to have_content("USER IDENTIFIER")
+          expect(page).to have_content("User identifier")
         end
       end
     end

@@ -9,6 +9,7 @@ describe "Edit proposals", type: :system do
   let!(:user) { create :user, :confirmed, organization: participatory_process.organization }
   let!(:another_user) { create :user, :confirmed, organization: participatory_process.organization }
   let!(:proposal) { create :proposal, users: [user], component: component }
+  let!(:proposal_title) { translated(proposal.title) }
 
   before do
     switch_to_host user.organization.host
@@ -25,7 +26,7 @@ describe "Edit proposals", type: :system do
     it "can be updated" do
       visit_component
 
-      click_link proposal.title
+      click_link proposal_title
       click_link "Edit proposal"
 
       expect(page).to have_content "EDIT PROPOSAL"
@@ -46,7 +47,7 @@ describe "Edit proposals", type: :system do
       it "returns an error message" do
         visit_component
 
-        click_link proposal.title
+        click_link proposal_title
         click_link "Edit proposal"
 
         expect(page).to have_content "EDIT PROPOSAL"
@@ -56,25 +57,32 @@ describe "Edit proposals", type: :system do
           click_button "Send"
         end
 
-        expect(page).to have_content("is using too many capital letters (over 25% of the text), is too short (under 15 characters)")
+        expect(page).to have_content("at least 15 characters", count: 2)
+
+        within "form.edit_proposal" do
+          fill_in :proposal_body, with: "WE DO NOT WANT TO SHOUT IN THE PROPOSAL BODY TEXT!"
+          click_button "Send"
+        end
+
+        expect(page).to have_content("is using too many capital letters (over 25% of the text)")
       end
 
       it "keeps the submitted values" do
         visit_component
 
-        click_link proposal.title
+        click_link proposal_title
         click_link "Edit proposal"
 
         expect(page).to have_content "EDIT PROPOSAL"
 
         within "form.edit_proposal" do
           fill_in :proposal_title, with: "A title with a #hashtag"
-          fill_in :proposal_body, with: "Ỳü"
+          fill_in :proposal_body, with: "ỲÓÜ WÄNTt TÙ ÚPDÀTÉ À PRÖPÔSÁL"
         end
         click_button "Send"
 
         expect(page).to have_selector("input[value='A title with a #hashtag']")
-        expect(page).to have_content("Ỳü")
+        expect(page).to have_content("ỲÓÜ WÄNTt TÙ ÚPDÀTÉ À PRÖPÔSÁL")
       end
     end
   end
@@ -87,7 +95,7 @@ describe "Edit proposals", type: :system do
     it "renders an error" do
       visit_component
 
-      click_link proposal.title
+      click_link proposal_title
       expect(page).to have_no_content("Edit proposal")
       visit current_path + "/edit"
 
@@ -105,7 +113,7 @@ describe "Edit proposals", type: :system do
     it "renders an error" do
       visit_component
 
-      click_link proposal.title
+      click_link proposal_title
       expect(page).to have_no_content("Edit proposal")
       visit current_path + "/edit"
 

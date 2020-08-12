@@ -1,5 +1,5 @@
 <div class="column">
-  <article class="card" data-open="media-picture-<%= index %>">
+  <div class="card" data-open="media-picture-<%= index %>">
     <div class="picture__content">
       <%= image_thumb %>
         <strong class="card__title"><%= title %></strong>
@@ -7,7 +7,7 @@
         <%= short_description %>
       </div>
     </div>
-  </article>
+  </div>
   <div id="media-picture-<%= index %>" class="reveal picture__modal" data-reveal>
     <div class="reveal__header">
       <h3 class="reveal__title"><%= t("conferences.photo.show.photo", scope: "decidim") %></h3>

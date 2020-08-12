@@ -30,6 +30,7 @@ es-MX:
           global:
             announcement: Anuncio
             comments_enabled: Comentarios habilitados
+            comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
@@ -76,6 +77,10 @@ es-MX:
           success: Debate creado con éxito.
         debate:
           participate: Participar
+        edit:
+          back: Atrás
+          save: Guardar cambios
+          title: Editar debate
         filters:
           all: Todos
           category: Categoría
@@ -89,15 +94,27 @@ es-MX:
           filter: Filtrar
           filter_by: Filtrar por
           unfold: Desplegar
+        form:
+          select_a_category: Por favor, selecciona una categoría
         index:
           new_debate: Nuevo debate
         new:
           back: Volver
           create: Crear
-          select_a_category: Por favor, selecciona una categoría
           title: Nuevo debate
         show:
           back: Volver al listado
+          edit_debate: Editar debate
+        update:
+          invalid: Se ha producido un error al actualizar este debate.
+          success: Debate actualizado correctamente.
+        versions:
+          debates:
+            back_to_resource: Volver al debate
+          index:
+            title: Versiones
+        versions_list:
+          back_to_resource: Volver al debate
       last_activity:
         new_debate_at_html: "<span>Nuevo debate en %{link}</span>"
       models:

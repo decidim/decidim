@@ -11,6 +11,20 @@ module Decidim
         render
       end
 
+      def has_state?
+        model.closed?
+      end
+
+      def badge_name
+        I18n.t("decidim.debates.debates.closed") if model.closed?
+      end
+
+      def state_classes
+        return ["success"] if model.closed?
+
+        super
+      end
+
       private
 
       def title

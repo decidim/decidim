@@ -13,7 +13,6 @@ tr:
         attachment_collection_id: Klasör
         description: Açıklama
         file: Dosya
-        title: Başlık
       attachment_collection:
         description: Açıklama
         name: isim

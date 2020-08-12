@@ -198,9 +198,6 @@ sr:
       participatory_process_groups:
         highlighted_results:
           results: Rezultati
-    participatory_spaces:
-      highlighted_results:
-        see_all: Vidi sve (%{count})
     resource_links:
       included_projects:
         result_project: Projekti koji su deo ovog rezultata

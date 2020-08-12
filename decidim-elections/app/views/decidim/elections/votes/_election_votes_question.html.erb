@@ -1,0 +1,35 @@
+<h1 class="heading2">
+  <%= translated_attribute(question.title) %>
+</h1>
+<%= content_tag(:p, t("decidim.elections.votes.new.answer_choices", choices: question.max_selections)) if question.max_selections > 1 %>
+
+<div class="evote__options" data-max-selection="<%= question.max_selections %>" data-min-selection="<%= question.min_selections %>">
+  <% ordered_answers(question).each do |answer| %>
+    <%= label_tag nil, nil, class: "evote__check evote__card" do %>
+      <% if question.max_selections == 1 %>
+        <%= radio_button_tag "question_#{question.id}", answer.id, false, class: "answer_input" %>
+      <% else %>
+        <%= check_box_tag "question_#{question.id}", answer.id, false, class: "answer_input" %>
+      <% end %>
+
+      <span class="evote__check-label">
+        <%= translated_attribute(answer.title) %>
+        <% if more_information?(answer) %>
+          <span class="evote__check-extra">
+            <button type="button" class="link" data-toggle="show-focus-modal-<%= answer.id %>">
+              <%= t("decidim.elections.votes.new.more_information") %>
+            </button>
+          </span>
+        <% end %>
+      </span>
+    <% end %>
+
+    <%= render("election_votes_modal", answer: answer) if more_information?(answer) %>
+  <% end %>
+</div>
+
+<% if question.max_selections > 1 %>
+  <div class="evote__counter">
+    <%= t("votes.new.selections", scope:"decidim.elections", selected: "<strong class='evote__counter-num evote__counter-min'></strong>", max_selections: "<span class='evote__counter-num'>#{question.max_selections}</span>").html_safe %>
+  </div>
+<% end %>

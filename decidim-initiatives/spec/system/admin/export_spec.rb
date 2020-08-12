@@ -19,7 +19,7 @@ describe "Admin exports initiatives", type: :system do
     it "shows the export dropdown" do
       visit decidim_admin_initiatives.initiatives_path
 
-      expect(page).to have_content("EXPORT")
+      expect(page).to have_content("Export")
     end
   end
 
@@ -31,8 +31,8 @@ describe "Admin exports initiatives", type: :system do
     it "shows the export formats" do
       page.find(".exports").click
 
-      expect(page).to have_content("INITIATIVES AS CSV")
-      expect(page).to have_content("INITIATIVES AS JSON")
+      expect(page).to have_content("Initiatives as CSV")
+      expect(page).to have_content("Initiatives as JSON")
     end
   end
 

@@ -17,7 +17,7 @@
 
 <div class="row column view-header">
   <%= link_to :posts, class: "small hollow" do %>
-    <%= icon "chevron-left", class: "icon--small" %>
+    <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
     <%= t(".back") %>
   <% end %>
   <h2 class="heading2"><%= translated_attribute post.title %></h2>
@@ -35,7 +35,7 @@
                 </div>
               <% end %>
               <div class="column collapse <%= endorsements_enabled? ? "small-3" : "" %>">
-                <%= link_to "#comments", class: "button small compact hollow secondary button--nomargin expanded" do %>
+                <%= link_to "#comments", class: "button small compact hollow button--nomargin expanded" do %>
                     <%= icon "comment-square", class: "icon--small", aria_label: t(".comments"), role: "img" %> <%= post.comments.count %>
                 <% end %>
               </div>
@@ -48,7 +48,7 @@
   <% end %>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
-      <p><%= decidim_sanitize translated_attribute post.body %></p>
+      <%= decidim_sanitize translated_attribute post.body %>
     </div>
     <%= cell "decidim/endorsers_list", post %>
   </div>

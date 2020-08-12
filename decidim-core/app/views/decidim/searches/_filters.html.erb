@@ -2,7 +2,7 @@
 <% if params.dig(:filter, :resource_type).present? %>
   <p class="text-secondary">
     <%= link_to main_search_path do %>
-      <%= icon "caret-left", class: "icon--small", role: "img" %>&nbsp;<%= t(".back") %>
+      <%= icon "caret-left", class: "icon--small", role: "img", "aria-hidden": true %>&nbsp;<%= t(".back") %>
     <% end %>
   </p>
 <% end %>
@@ -16,7 +16,7 @@
   <% end %>
 </div>
 <div class="row collapse order-by">
-  <div class="text-uppercase text-right">
+  <div class="text-right">
     <span class="order-by__tabs">
       <%= search_path_by_state_link(:past) %>
       <%= search_path_by_state_link(:future) %>

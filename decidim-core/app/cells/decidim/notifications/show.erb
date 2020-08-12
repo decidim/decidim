@@ -35,7 +35,7 @@
           </div>
           <div class="right center mr-s">
             <%= link_to notification, remote: true, method: :delete, class: "mark-as-read-button" do %>
-              <%= icon "circle-x", class: "card__link", role: "img" %>
+              <%= icon "circle-x", class: "card__link", aria_label: t("mark_as_read", scope: "layouts.decidim.notifications_dashboard"), role: "img" %>
             <% end %>
           </div>
         </li>
