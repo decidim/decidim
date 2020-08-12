@@ -20,7 +20,7 @@ describe Decidim::Debates::Admin::UpdateDebate do
       start_time: 1.day.from_now,
       end_time: 1.day.from_now + 1.hour,
       category: category,
-      current_organization: organization,
+      current_organization: organization
     )
   end
   let(:invalid) { false }
