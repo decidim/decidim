@@ -413,6 +413,14 @@ ja:
           unfold: 展開する
         index_header:
           new_initiative: 新たなイニシアチブを作成
+          not_authorized:
+            authorizations_page: 権限を表示
+            close: 閉じる
+            explanation: 新しいイニシアチブを作成するには、認証が必要です。
+            title: 認証が必要です
+        initiatives:
+          closed_initiatives_warning: 現在、オープンなイニシアチブはありませんが、ここに記載されているすべてのクローズドイニシアチブを見つけることができます。
+          no_initiatives_warning: 検索基準に一致するイニシアチブは見つかりませんでした
         interactions:
           comments_count:
             count:
