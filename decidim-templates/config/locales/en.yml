@@ -37,9 +37,10 @@ en:
       admin:
         questionnaire_templates:
           choose:
-            choose_template: Choose template
             create_from_template: Create from template
             description: You are about to create a new questionnaire. You may choose a predefined template and modify it afterwards.
+            label: Choose template
+            placeholder: Choose template
             skip_template: Skip
           edit:
             edit: Edit
