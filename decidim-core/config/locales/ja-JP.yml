@@ -1193,6 +1193,9 @@ ja:
         close_window: ウィンドウを閉じる
         share: 共有
         share_link: リンクを共有
+    tags:
+      filter_results_for_category: 'カテゴリの検索結果: %{resource}'
+      filter_results_for_scope: 'スコープの検索結果: %{resource}'
     user_activity:
       index:
         no_activities_warning: この参加者はまだアクティビティを行っていません。
@@ -1252,6 +1255,8 @@ ja:
     versions:
       resource_version:
         of_versions: "( %{number} の)"
+        see_other_versions: '%{resource_name} の他のバージョンを参照'
+        version: バージョン %{number}
     versions_list:
       show:
         back_to_resource: 戻る
@@ -1262,6 +1267,7 @@ ja:
       show:
         version_index: バージョン %{index}
     welcome_notification:
+      default_body: <p>こんにちは {{name}}, {{organization}} へ参加いただきありがとうございます。歓迎します！</p><ul><li>もし、あなたがここでできることを知りたい場合、 <a href="{{help_url}}">Help</a> セクションをご参照ください。</li><li>目を通していただけると、最初のバッジを獲得できます。<a href="{{badges_url}}">全てのバッジの一覧</a> から、この {{organization}} への参加で獲得できるバッジを見ることができます。</li><li>他の人と一緒に参加し、この {{organization}} へ参加した経験をシェアしましょう。 提案を作り、コメントし、議論し、共通善への貢献の仕方について考え、議論に説得力をもたせ、主張を聞いたり読んだりしながら納得し、具体的かつ直接的な方法であなたの考えを表明し、忍耐と決断を持って対応し、 自らの考えを守り、他人の考えを取り入れて協力し合いましょう。</li></ul>
       default_subject: '{{organization}} に参加していただきありがとうございます！'
     wizard_step_form:
       wizard_aside:
@@ -1432,16 +1438,27 @@ ja:
       too_many_marks: '連続する句読点が多すぎます (例: !, ?)'
       too_much_caps: 大文字が多すぎます(テキストの25%以上)
       too_short: 短すぎます（15文字未満）
+  forms:
+    correct_errors: 下記のフォームにエラーがありました。修正して継続してください。
+    length_validator:
+      minimum:
+        other: 少なくとも %{count} 文字
+    required: 必須項目
+    required_explanation: "* 必須項目にはアスタリスクが付いています"
   invisible_captcha:
     sentence_for_humans: あなたが人間である場合、このフィールドを無視してください
     timestamp_error_message: 申し訳ありませんが、早すぎます！再提出してください。
   layouts:
     decidim:
       cookie_warning:
+        description_html: このサイトはCookieを使用しています。引き続きサイトを閲覧することで、Cookieの使用に同意したものとみなされます。 %{link}
+        link_label: Cookie についての詳細
         ok: 同意します
       edit_link:
         edit: 編集
       footer:
+        cc_by_license: クリエイティブコモンズライセンス
+        decidim_logo: Decidim ロゴ
         download_open_data: オープンデータファイルをダウンロード
         made_with_open_source: <a target="_blank" href="https://github.com/decidim/decidim">フリーソフトウェア</a>で作られたウェブサイト。
       header:
@@ -1452,9 +1469,20 @@ ja:
       impersonation_warning:
         close_session: セッションを閉じる
         description_html: 参加者 <b>%{user_name}</b> を管理しています。
+        expire_time_html: このログインセッションは <b><span class="minutes">%{minutes}</span> 分後に無効になります。</b>.
+      language_chooser:
+        choose_language: 言語を選択
       notifications_dashboard:
         mark_all_as_read: すべて既読にする
+        mark_as_read: 既読にする
+      social_media_links:
+        facebook: "Facebook の %{organization}"
+        github: "GitHub の %{organization}"
+        instagram: "Instagramの%{organization}"
+        twitter: "Twitter の %{organization}"
+        youtube: "YouTube の %{organization}"
       user_menu:
+        account: 'ユーザーアカウント: %{name}'
         admin_dashboard: 管理ダッシュボード
         conversations: 会話
         notifications: 通知
@@ -1543,6 +1571,7 @@ ja:
       last_title: 最後のページへのリンク
       next: 次へ &rsaquo;
       next_title: 次のページへのリンク
+      pagination: 改ページ
       previous: "&lsaquo; 前"
       previous_title: 前のページへのリンク
       title: 'ページ番号: '
