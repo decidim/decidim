@@ -243,8 +243,7 @@ describe "Admin manages questionnaire templates", type: :system do
 
     it "destroys the template" do
       within find("tr", text: translated(template.name)) do
-        click_link "Delete"
-        page.accept_alert
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
