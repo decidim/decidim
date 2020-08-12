@@ -34,7 +34,7 @@ module Decidim
 
       def description(strip_tags: false, links: false)
         text = translated_attribute(debate.description)
-        text = strip_tags(sanitize_text(text)) if strip_tags
+        text = strip_tags(text) if strip_tags
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
         text = renderer.render(links: links).html_safe
         text = Decidim::ContentRenderers::LinkRenderer.new(text).render if links
