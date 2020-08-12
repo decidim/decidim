@@ -1,6 +1,6 @@
 # Decidim::Templates
 
-This module provides a solution to create templates for different Decidim models, such as Proposals and Questionnaires..
+This module provides a solution to create templates for different Decidim models, such as Proposals and Questionnaires.
 
 ## Usage
 

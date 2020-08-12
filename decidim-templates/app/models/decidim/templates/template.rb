@@ -4,7 +4,7 @@
 # with given values and use them to create new ones using these values as default
 #
 # The model class we want to create these templates from must include the Templatable
-# concern. A controller should be created to manage templates for a the model,
+# concern. A controller should be created to manage templates for the model,
 # as well as the routes for the controller actions. The command classes to use in
 # these actions should also be created to define the particular data management
 # for the model's templates.
