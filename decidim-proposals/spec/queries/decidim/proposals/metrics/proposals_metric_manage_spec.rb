@@ -9,6 +9,8 @@ describe Decidim::Proposals::Metrics::ProposalsMetricManage do
   let(:day) { Time.zone.yesterday }
   let!(:proposals) { create_list(:proposal, 3, published_at: day, component: component) }
 
+  include_context "when managing metrics"
+
   context "when executing" do
     it "creates new metric records" do
       registry = generate_metric_registry
@@ -50,9 +52,4 @@ describe Decidim::Proposals::Metrics::ProposalsMetricManage do
       end
     end
   end
-end
-
-def generate_metric_registry(date = nil)
-  metric = described_class.for(date, organization)
-  metric.save
 end
