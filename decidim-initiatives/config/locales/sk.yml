@@ -67,6 +67,14 @@ sk:
     admin:
       actions:
         new_initiative_type: Nový typ iniciatívy
+      filters:
+        state_eq:
+          values:
+            created: Vytvorené
+            discarded: Odstránená
+            published: Publikované
+        type_id_eq:
+          label: Typ
       menu:
         initiatives: Iniciatívy
         initiatives_types: Typy iniciatív
