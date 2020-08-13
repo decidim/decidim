@@ -68,6 +68,8 @@
             discarded: Forkastet
             published: Publisert
             validating: Teknisk validering
+        type_id_eq:
+          label: Type
       menu:
         initiatives: Initiativer
         initiatives_types: Initiativtyper
