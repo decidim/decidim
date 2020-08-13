@@ -64,6 +64,8 @@ id:
             discarded: Dibuang
             published: Diterbitkan
             validating: Validasi teknis
+        type_id_eq:
+          label: Mengetik
       menu:
         initiatives: Inisiatif
         initiatives_types: Jenis inisiatif
