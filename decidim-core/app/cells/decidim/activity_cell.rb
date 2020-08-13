@@ -76,6 +76,8 @@ module Decidim
     def user
       return resource.normalized_author if resource.respond_to?(:normalized_author)
       return resource.author if resource.respond_to?(:author)
+      # As Proposals have Coauthorable concern instead of Authorable
+      return resource.identities.first if resource.respond_to?(:identities)
 
       model.user_lazy if resource.respond_to?(:user)
     end
