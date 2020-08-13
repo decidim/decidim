@@ -67,6 +67,8 @@ pt:
             discarded: Descartado
             published: Publicados
             validating: Validação técnica
+        type_id_eq:
+          label: Tipo
       menu:
         initiatives: Iniciativas
         initiatives_types: Tipos de iniciativa
