@@ -81,23 +81,11 @@ lv:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Veids
-          values:
-            'false': Priekšlikumi
-            'true': Grozījumi
+        proposals:
+          valuator_role_ids_has:
+            label: Piešķirts vērtētājam
         search_placeholder:
           id_string_or_title_cont: Meklējiet %{collection} pēc ID vai nosaukuma.
-        state_eq:
-          values:
-            evaluating: Vērtē
-            withdrawn: Atsaukts
-        state_null:
-          label: Statuss
-          values:
-            'true': Nav atbildēts
-        valuator_role_ids_has:
-          label: Piešķirts vērtētājam
     components:
       proposals:
         actions:
