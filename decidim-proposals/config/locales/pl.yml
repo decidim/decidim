@@ -90,6 +90,26 @@ pl:
         proposals:
           category_id_eq:
             label: Kategoria
+          is_emendation_true:
+            label: Typ
+            values:
+              'false': Propozycje
+              'true': Poprawki
+          scope_id_eq:
+            label: Zakres
+          state_eq:
+            label: Stan
+            values:
+              accepted: Zaakceptowano
+              evaluating: Ewaluacja
+              published: Opublikowano
+              rejected: Odrzucono
+              validating: Walidacja techniczna
+              withdrawn: Wycofaj
+          state_null:
+            label: Stan
+            values:
+              'true': Bez odpowiedzi
           valuator_role_ids_has:
             label: Przypisano do taksatora
         search_placeholder:
