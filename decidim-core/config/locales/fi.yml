@@ -633,7 +633,7 @@ fi:
         proposal: Ehdotukset
         result: Tulokset
     fingerprint:
-      check: Tarkista sormenjälki kohteelle %{resource_name}
+      check: Tarkista sormenjälki
       explanation: Alla oleva teksti on tämän sisällön lyhennetty ja hajautettu esitystapa. Tämä on hyödyllinen varmentaaksesi, että sisältöä ei ole muokattu kenenkään toimesta, koska yksittäinen muutos johtaisi täysin erilaiseen arvoon.
       online_calculator_name: MD5-verkkolaskuri
       replicate_help: Tämä sormenjälki lasketaan käyttäen SHA256-hajautusalgoritmia. Jos haluat tuottaa sormenjäljen itse, voit käyttää %{online_calculator_link} -palvelua ja liittää lähdetiedot kyseiseen palveluun.
@@ -1275,7 +1275,7 @@ fi:
     versions:
       resource_version:
         of_versions: "(yhteensä %{number} kpl)"
-        see_other_versions: näytä muut versiot kohteelle %{resource_name}
+        see_other_versions: näytä muut versiot
         version: Versio %{number}
     versions_list:
       show:
