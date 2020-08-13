@@ -69,21 +69,6 @@ gl:
         one: Vota
         other: Votos
   decidim:
-    admin:
-      filters:
-        is_emendation_true:
-          label: Tipo
-          values:
-            'false': Propostas
-            'true': Enmendas
-        state_eq:
-          values:
-            evaluating: Avaliación
-            withdrawn: Retirada
-        state_null:
-          label: Estado
-          values:
-            'true': Non respondeu
     components:
       proposals:
         actions:
