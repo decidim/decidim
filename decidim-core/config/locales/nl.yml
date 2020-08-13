@@ -1275,7 +1275,6 @@ nl:
     versions:
       resource_version:
         of_versions: "(van %{number})"
-        see_other_versions: zie andere versies voor %{resource_name}
         version: Versienummer %{number}
     versions_list:
       show:
