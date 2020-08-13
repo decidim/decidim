@@ -88,6 +88,12 @@ cs:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: Kategorie
+          is_emendation_true:
+            label: Typ
+            values:
+              'false': Návrhy
           valuator_role_ids_has:
             label: Přiřazeno k hodnotiteli
         search_placeholder:
