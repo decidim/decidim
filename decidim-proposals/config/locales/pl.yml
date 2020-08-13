@@ -87,23 +87,33 @@ pl:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Rodzaj
-          values:
-            'false': Propozycje
-            'true': Poprawki
+        proposals:
+          category_id_eq:
+            label: Kategoria
+          is_emendation_true:
+            label: Typ
+            values:
+              'false': Propozycje
+              'true': Poprawki
+          scope_id_eq:
+            label: Zakres
+          state_eq:
+            label: Stan
+            values:
+              accepted: Zaakceptowano
+              evaluating: Ewaluacja
+              published: Opublikowano
+              rejected: Odrzucono
+              validating: Walidacja techniczna
+              withdrawn: Wycofaj
+          state_null:
+            label: Stan
+            values:
+              'true': Bez odpowiedzi
+          valuator_role_ids_has:
+            label: Przypisano do taksatora
         search_placeholder:
           id_string_or_title_cont: Wyszukaj %{collection} według ID lub tytułu.
-        state_eq:
-          values:
-            evaluating: Ocena
-            withdrawn: Wycofane
-        state_null:
-          label: Stan
-          values:
-            'true': Bez odpowiedzi
-        valuator_role_ids_has:
-          label: Przypisano do taksatora
     components:
       proposals:
         actions:
