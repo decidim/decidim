@@ -31,7 +31,7 @@ module Decidim
 
         next unless default_locale_changed_or_translation_removed(previous_changes, field)
 
-        @locales_to_be_translated += available_locales(translated_locales) if @locales_to_be_translated.blank?
+        @locales_to_be_translated += pending_locales(translated_locales) if @locales_to_be_translated.blank?
 
         @locales_to_be_translated.each do |target_locale|
           MachineTranslationFieldsJob.perform_later(
@@ -105,7 +105,7 @@ module Decidim
       end
     end
 
-    def available_locales(translated_locales)
+    def pending_locales(translated_locales)
       available_locales = @resource.organization.available_locales.map(&:to_s) if @resource.respond_to? :organization
       available_locales ||= Decidim.available_locales.map(&:to_s)
       available_locales - translated_locales
