@@ -82,15 +82,15 @@ it:
     admin:
       filters:
         is_emendation_true:
-          label: Tipo
+          label: genere
           values:
             'false': Proposte
-            'true': Emendamenti
+            'true': Modifiche
         search_placeholder:
           id_string_or_title_cont: Cerca %{collection} per ID o titolo.
         state_eq:
           values:
-            evaluating: Valutazione
+            evaluating: Valutare
             withdrawn: Ritirato
         state_null:
           label: Stato
