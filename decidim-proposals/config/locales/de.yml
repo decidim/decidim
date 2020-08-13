@@ -79,23 +79,11 @@ de:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Art
-          values:
-            'false': Vorschläge
-            'true': Änderungsanträge
+        proposals:
+          valuator_role_ids_has:
+            label: Zugewiesen zu dem Schätzer
         search_placeholder:
           id_string_or_title_cont: Suche in %{collection} nach ID oder Titel.
-        state_eq:
-          values:
-            evaluating: In Bewertung
-            withdrawn: Zurückgezogen
-        state_null:
-          label: Status
-          values:
-            'true': Unbeantwortet
-        valuator_role_ids_has:
-          label: Zugewiesen zu dem Schätzer
     components:
       proposals:
         actions:
