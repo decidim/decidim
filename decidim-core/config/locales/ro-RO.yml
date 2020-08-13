@@ -1276,7 +1276,6 @@ ro:
     versions:
       resource_version:
         of_versions: "(din %{number})"
-        see_other_versions: vezi alte versiuni
         version: Versiunea %{number}
     versions_list:
       show:
