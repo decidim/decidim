@@ -57,7 +57,7 @@ describe "Last activity", type: :system do
 
     it "shows activities long comment shorten text" do
       expect(page).to have_content(long_body_comment[0..79])
-      expect(page).to have_no_content(another_comment.translated_body)
+      expect(page).to have_no_content(another_comment.body)
     end
 
     context "when viewing all activities" do
