@@ -75,23 +75,11 @@ ja:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: タイプ
-          values:
-            'false': 提案
-            'true': 修正
+        proposals:
+          valuator_role_ids_has:
+            label: 評価者にアサインされました
         search_placeholder:
           id_string_or_title_cont: '%{collection} をIDまたはタイトルで検索します。'
-        state_eq:
-          values:
-            evaluating: 評価
-            withdrawn: 引き落し
-        state_null:
-          label: ステータス
-          values:
-            'true': 応答がありません
-        valuator_role_ids_has:
-          label: 評価者にアサインされました
     components:
       proposals:
         actions:
