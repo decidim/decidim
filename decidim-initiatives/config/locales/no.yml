@@ -61,13 +61,6 @@
     admin:
       actions:
         new_initiative_type: Ny intiativtype
-      filters:
-        state_eq:
-          values:
-            created: Opprettet
-            discarded: Forkastet
-            published: Publisert
-            validating: Teknisk validering
       menu:
         initiatives: Initiativer
         initiatives_types: Initiativtyper
