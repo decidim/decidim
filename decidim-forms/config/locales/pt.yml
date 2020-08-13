@@ -2,7 +2,7 @@ pt:
   activemodel:
     attributes:
       answer:
-        body: Responda
+        body: Responder
       question:
         max_choices: Número máximo de escolhas
         question_type: Tipo
@@ -14,9 +14,9 @@ pt:
           attributes:
             choices:
               missing: não estão completos
-              too_many: são muitos
+              too_many: são demasiados
         questionnaire:
-          request_invalid: Ocorreu um erro ao processar o pedido. Tente novamente
+          request_invalid: Ocorreu um erro ao processar o pedido. Por favor tente novamente
   decidim:
     forms:
       admin:
@@ -26,7 +26,7 @@ pt:
             tos: Termos de serviço
         questionnaires:
           actions:
-            back: Voltar às perguntas
+            back: Retroceder às perguntas
             show: Mostrar respostas
           answer_option:
             answer_option: Opção de resposta
@@ -35,7 +35,7 @@ pt:
             statement: Declaração
           answers:
             actions:
-              back: Voltar às respostas
+              back: Retroceder às respostas
               export: Exportar
               show: Mostrar respostas
             empty: Ainda não há respostas
@@ -58,7 +58,7 @@ pt:
               match: Inclui texto
               not_answered: Não respondido
               not_equal: Diferente
-            condition_value: Incluíu texto
+            condition_value: Incluiu texto
             display_condition: Exibir condição
             mandatory: Esta condição precisa de ser sempre satisfeita independentemente do estado das outras condições
             remove: Remover
@@ -70,14 +70,14 @@ pt:
             save: Guardar
             title: Editar questionário
           form:
-            add_question: Adicionar pergunta
+            add_question: Adicionar questão
             add_separator: Adicionar separador
-            already_answered_warning: O questionário já foi respondido por alguns usuários para que você não possa modificar suas perguntas.
-            collapse: Fechar todas as perguntas
-            expand: Expandir todas as perguntas
-            preview: Pré-visualização
+            already_answered_warning: O questionário já foi respondido por alguns utilizadores por isso não pode modificar as suas questões.
+            collapse: Colapsar todas as questões
+            expand: Expandir todas as questões
+            preview: Pré-visualizar
             title: Editar formulário
-            unpublished_warning: O formulário não está publicado. Pode modificar as suas perguntas, mas essa ação eliminará as respostas atuais.
+            unpublished_warning: O formulário não está publicado. Pode modificar as suas questões, mas essa ação eliminará as respostas atuais.
           matrix_row:
             matrix_row: Linha
             remove: Remover
@@ -88,22 +88,22 @@ pt:
             add_display_condition_info: Guarde o formulário para configurar as condições de exibição
             add_matrix_row: Adicionar linha
             any: Qualquer
-            collapse: Fechar
+            collapse: Colapsar
             description: Descrição
-            down: Baixa
+            down: Abaixo
             expand: Expandir
             question: Questão
             remove: Remover
             statement: Declaração
             up: Acima
           separator:
-            down: Baixo
+            down: Abaixo
             remove: Remover
             separator: Separador
-            up: Cima
+            up: Acima
           update:
-            invalid: Houve erros ao salvar o questionário.
-            success: Questionários salvos com sucesso.
+            invalid: Ocorreu um problema ao guardar o questionário.
+            success: Questionários guardados corretamente.
       errors:
         answer:
           body: O corpo não pode ficar em branco
@@ -119,38 +119,38 @@ pt:
         long_answer: Resposta longa
         matrix_multiple: Matriz (Escolha múltipla)
         matrix_single: Matriz (Escolha única)
-        multiple_option: Múltipla opção
+        multiple_option: Escolha múltipla
         short_answer: Resposta curta
-        single_option: Opção única
-        sorting: Classificação
+        single_option: Escolha única
+        sorting: Ordenação
       questionnaires:
         answer:
-          invalid: Houve erros ao responder o questionário.
+          invalid: Ocorreu um problema ao responder ao questionário.
           max_choices_alert: Estão selecionadas demasiadas opções
-          success: Questionário respondido com sucesso.
+          success: Questionário respondido corretamente.
         question:
           max_choices: 'Escolhas máximas: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Entre com sua conta</a> ou <a href="%{sign_up_link}">inscreva-se</a> para responder ao questionário.
-            title: Responda o questionário
-          current_step: Etapa %{step}
+            anonymous_user_message: <a href="%{sign_in_link}">Inicie sessão com a sua conta</a> ou <a href="%{sign_up_link}">inscreva-se</a> para responder ao questionário.
+            title: Responda ao questionário
+          current_step: Passo %{step}
           of_total_steps: de %{total_steps}
           questionnaire_answered:
-            body: Você já respondeu este questionário.
+            body: Já respondeu a este questionário.
             title: Já respondido
           questionnaire_closed:
-            body: O questionário está fechado e não pode ser respondido.
-            title: Questionário fechado
+            body: O questionário está encerrado e não pode ser respondido.
+            title: Questionário encerrado
           questionnaire_for_private_users:
-            body: O questionário está disponível apenas para usuários particulares
-            title: Questionário fechado
+            body: O questionário está disponível apenas para utilizadores privados
+            title: Questionário encerrado
           questionnaire_js_disabled:
-            body: Algumas das características deste formulário serão desativadas. Para melhorar a sua experiência, por favor ative o JavaScript no seu navegador.
+            body: Algumas características deste questionário serão desativadas. Para melhorar a sua experiência, por favor ative o JavaScript no seu navegador.
             title: JavaScript está desativado
           questionnaire_not_published:
-            body: Este formulário ainda não está publicado.
-          tos_agreement: Ao participar você aceita seus Termos de Serviço
+            body: Este questionário ainda não está publicado.
+          tos_agreement: Ao participar aceita os seus Termos de Serviço
       step_navigation:
         show:
           are_you_sure: Esta ação não pode ser desfeita e não deixará de poder editar as suas respostas. Tem a certeza?
@@ -158,12 +158,12 @@ pt:
           continue: Continuar
           submit: Submeter
       user_answers_serializer:
-        body: Resposta
+        body: Responder
         completion: Conclusão
         created_at: Respondido em
         id: ID da resposta
         ip_hash: IP Hash
-        question: Pergunta
+        question: Questão
         registered: Registado
         session_token: Identificador do utilizador
         unregistered: Não registado

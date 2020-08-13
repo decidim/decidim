@@ -1,9 +1,5 @@
 hu:
   decidim:
-    admin_log:
-      election:
-        publish: "%{user_name} visszavonta a %{resource_name} választást"
-        unpublish: "%{user_name} visszavonta a %{resource_name} elnevezésű választást"
     elections:
       actions:
         publish: Közzétesz

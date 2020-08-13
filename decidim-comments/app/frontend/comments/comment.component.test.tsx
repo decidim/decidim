@@ -53,7 +53,7 @@ describe("<Comment />", () => {
         commentsMaxLength={commentsMaxLength}
       />
     );
-    expect(wrapper.find("article.comment").exists()).toBeTruthy();
+    expect(wrapper.find(".comment").exists()).toBeTruthy();
   });
 
   it("should render a time tag with comment's created at", () => {

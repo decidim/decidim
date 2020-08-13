@@ -1,11 +1,12 @@
 <%= render partial: "decidim/shared/component_announcement" %>
 
-<div class="row column">
-  <ul>
-    <% elections.each do |election| %>
-      <li><%= action_authorized_link_to :vote, election_path(election), resource: election do %>
-        <%= translated_attribute(election.title) %>
-      <% end %></li>
-    <% end %>
-  </ul>
-</div>
+<section class="section row">
+  <div class="columns">
+    <div class="row collapse order-by">
+      <h2 class="order-by__text section-heading">
+        <%= render partial: "count" %>
+      </h2>
+    </div>
+    <%= render partial: "elections" %>
+  </div>
+</section>

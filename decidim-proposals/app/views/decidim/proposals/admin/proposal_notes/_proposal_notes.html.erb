@@ -9,7 +9,7 @@
         <% proposal.notes.each do |note| %>
           <div class="card">
             <div class="card-divider">
-              <article class="comment">
+              <div class="comment">
                 <div class="comment__header">
                   <div class="author-data">
                     <div class="author-data__main">
@@ -23,7 +23,7 @@
                 <div class="comment__content">
                   <%= simple_format note.body %>
                 </div>
-              </article>
+              </div>
             </div>
           </div>
         <% end %>

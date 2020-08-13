@@ -89,12 +89,13 @@ hu:
           filter: Szűrő
           filter_by: 'Szűrés ez alapján:'
           unfold: Kibont
+        form:
+          select_a_category: Válassz kategóriát
         index:
           new_debate: Új vita
         new:
           back: Vissza
           create: Létrehozás
-          select_a_category: Válassz kategóriát
           title: Új vita
         show:
           back: Vissza a listához

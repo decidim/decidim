@@ -106,25 +106,6 @@ module Decidim
         end
       end
 
-      def profiling_gems
-        return unless options[:profiling]
-
-        append_file "Gemfile", <<~RUBY
-
-          group :development do
-            # Profiling gems
-            gem "bullet"
-            gem "flamegraph"
-            gem "memory_profiler"
-            gem "rack-mini-profiler", require: false
-            gem "stackprof"
-          end
-        RUBY
-
-        copy_file "bullet_initializer.rb", "config/initializers/bullet.rb"
-        copy_file "rack_profiler_initializer.rb", "config/initializers/rack_profiler.rb"
-      end
-
       def copy_migrations
         rails "decidim:upgrade"
         recreate_db if options[:recreate_db]
@@ -146,6 +127,27 @@ module Decidim
             |  config.action_mailer.default_url_options = { port: 3000 }
           RUBY
         end
+      end
+
+      def profiling_gems
+        return unless options[:profiling]
+
+        append_file "Gemfile", <<~RUBY
+
+          group :development do
+            # Profiling gems
+            gem "bullet"
+            gem "flamegraph"
+            gem "memory_profiler"
+            gem "rack-mini-profiler", require: false
+            gem "stackprof"
+          end
+        RUBY
+
+        copy_file "bullet_initializer.rb", "config/initializers/bullet.rb"
+        copy_file "rack_profiler_initializer.rb", "config/initializers/rack_profiler.rb"
+
+        run "bundle install"
       end
 
       private

@@ -196,9 +196,6 @@ gl:
       participatory_process_groups:
         highlighted_results:
           results: Resultados
-    participatory_spaces:
-      highlighted_results:
-        see_all: Ver todos (%{count})
     resource_links:
       included_projects:
         result_project: Proxectos incluídos neste resultado

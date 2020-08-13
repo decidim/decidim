@@ -1,13 +1,24 @@
+<% menu_id = "#{SecureRandom.uuid}_order_by_menu" %>
 <div class="order-by">
   <div class="order-by__dropdown">
     <span class="order-by__text"><%= t("#{i18n_scope}.label") %></span>
-    <ul class="dropdown menu" data-dropdown-menu>
-      <li class="is-dropdown-submenu-parent">
-        <a href="#"><%= t("#{i18n_scope}.#{order}") %></a>
+    <ul class="dropdown menu" data-dropdown-menu
+      data-autoclose="false"
+      data-disable-hover="true"
+      data-click-open="true"
+      data-close-on-click="true"
+      tabindex="-1">
+      <li class="is-dropdown-submenu-parent" tabindex="-1">
+        <a href="#" id="<%= menu_id %>-control" aria-controls="<%= menu_id %>" aria-haspopup="true" title="<%= t("#{i18n_scope}.label") %>"><%= t("#{i18n_scope}.#{order}") %></a>
 
-        <ul class="menu">
+        <ul id="<%= menu_id %>" class="menu" role="menu" aria-labelledby="<%= menu_id %>-control" tabindex="-1">
           <% orders.each do |order_name| %>
-          <li><%= order_link order_name, i18n_scope: i18n_scope %></li>
+            <li>
+              <%= order_link order_name,
+                          i18n_scope: i18n_scope,
+                          title: t("#{i18n_scope}.label"),
+                          tabindex: "-1" %>
+            </li>
           <% end %>
         </ul>
       </li>

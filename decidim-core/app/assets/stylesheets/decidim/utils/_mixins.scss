@@ -80,7 +80,6 @@ $palette: (
       margin-right: 0;
     }
   }
-
   @else if $dir == column{
     & > *{
       margin: $gap/2 0;
@@ -94,7 +93,6 @@ $palette: (
       margin-bottom: 0;
     }
   }
-
   @else if $dir == row-reverse{
     & > *{
       margin: 0 $gap/2;
@@ -108,7 +106,6 @@ $palette: (
       margin-right: 0;
     }
   }
-
   @else if $dir == column-reverse{
     & > *{
       margin: $gap/2 0;
@@ -131,7 +128,7 @@ $palette: (
   line-height: $global-lineheight;
 }
 
-@mixin inline-separator($char: ' '){
+@mixin inline-separator($char: " "){
   > *:not(:last-child)::after{
     content: $char;
   }
@@ -144,7 +141,7 @@ $palette: (
 }
 
 @mixin spinner($size, $orbit, $satellite, $time){
-  @include animation( animation-spin $time infinite linear );
+  @include animation(animation-spin $time infinite linear);
   @include square($size);
 
   box-sizing: border-box;
@@ -164,10 +161,92 @@ $palette: (
   @include size($size, $size);
 }
 
+@mixin skip-button(){
+  left: -999px;
+  position: absolute;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: -999;
+
+  &:focus,
+  &:active{
+    background-color: $primary;
+    color: $white;
+    left: 0;
+    top: 0;
+    width: auto;
+    height: auto;
+    overflow: auto;
+    margin: 10px;
+    padding: 5px;
+    font-size: 1.4em;
+    z-index: 999;
+    outline: $button-outline-focus;
+    // outline-color: var(--highlight);
+    position: absolute;
+  }
+}
+
+@mixin button-hollow-variant($color, $hover-text-color: $white){
+  background-color: $color;
+
+  &.hover,
+  &:hover,
+  &.focus,
+  &:focus{
+    background-color: $color;
+  }
+
+  &.disabled,
+  &[disabled]{
+    &,
+    &:active,
+    &:hover,
+    &:focus{
+      background-color: $color;
+    }
+  }
+
+  &.hollow{
+    background-color: transparent;
+    color: $color;
+    border-color: $color;
+
+    &.hover,
+    &:hover,
+    &.focus,
+    &:focus{
+      border-color: $color;
+      background-color: $color;
+      color: $hover-text-color;
+    }
+
+    &.disabled,
+    &[disabled]{
+      &,
+      &:active,
+      &:hover,
+      &:focus{
+        background-color: transparent;
+        border-color: $color;
+        color: $color;
+        box-shadow: none;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
 @keyframes animation-spin{
-  to{ transform: rotate(1turn); }
+  to{
+    transform: rotate(1turn);
+  }
 }
 
 @-webkit-keyframes animation-spin{
-  to{ -webkit-transform: rotate(1turn); }
+  to{
+    -webkit-transform: rotate(1turn);
+  }
 }

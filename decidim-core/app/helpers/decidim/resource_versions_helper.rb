@@ -3,6 +3,8 @@
 module Decidim
   # Helper to print resource versions.
   module ResourceVersionsHelper
+    include ResourceHelper
+
     # Displays the localized version for the given resource.
     #
     # resource - the Resource that has the version to display.
@@ -23,7 +25,7 @@ module Decidim
       content_tag(:div, safe_join(html), class: "tech-info #{options[:class]}")
     end
 
-    def resource_version_number(count, css_class = "text-uppercase")
+    def resource_version_number(count, css_class = "")
       content_tag(:strong, t("version", scope: "decidim.versions.resource_version", number: count), class: css_class)
     end
 
@@ -32,7 +34,13 @@ module Decidim
     end
 
     def link_to_other_resource_versions(versions_path)
-      link_to(t("see_other_versions", scope: "decidim.versions.resource_version"), versions_path)
+      link_to(
+        t(
+          "see_other_versions",
+          scope: "decidim.versions.resource_version"
+        ),
+        versions_path
+      )
     end
   end
 end

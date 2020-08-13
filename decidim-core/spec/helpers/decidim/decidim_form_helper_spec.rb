@@ -77,7 +77,7 @@ module Decidim
               <div><a href="/my/url" data-picker-value="#{scope.id}">My text</a></div>
             </div>
 
-            <div class="picker-prompt"><a href="/my/url">My text</a></div>
+            <div class="picker-prompt"><a href="/my/url" role="button" aria-label="Select a scope (currently: My text)">My text</a></div>
           </div>
         HTML
 

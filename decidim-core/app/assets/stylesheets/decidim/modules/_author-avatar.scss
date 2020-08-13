@@ -16,19 +16,6 @@ $author-data-color: $muted;
   padding-left: 30px;
   position: relative;
 
-  a,
-  button{
-    color: $author-data-color;
-
-    &:hover{
-      color: $anchor-color;
-    }
-
-    &:focus{
-      outline: 2px solid $secondary;
-    }
-  }
-
   .author__name{
     color: $anchor-color;
     margin-bottom: 0;

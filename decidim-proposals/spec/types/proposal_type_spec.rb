@@ -58,11 +58,19 @@ module Decidim
         end
       end
 
+      describe "title" do
+        let(:query) { "{ title }" }
+
+        it "returns the proposal's title" do
+          expect(response["title"]).to eq(model.title.values.first)
+        end
+      end
+
       describe "body" do
         let(:query) { "{ body }" }
 
         it "returns the proposal's body" do
-          expect(response["body"]).to eq(model.body)
+          expect(response["body"]).to eq(model.body.values.first)
         end
       end
 

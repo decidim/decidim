@@ -108,15 +108,10 @@ tr:
             other: seçilen projeler
           view: Görünüm
         project:
-          add: Eklemek
           count:
             one: 1 destek
             other: "%{count} destek"
-          remove: Kaldır
           view: Görünüm
-        project_budget_button:
-          add: Eklemek
-          added: Katma
         show:
           budget: Bütçe
           view_all_projects: Tüm projeleri görüntüle

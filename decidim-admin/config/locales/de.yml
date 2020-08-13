@@ -13,7 +13,6 @@ de:
         attachment_collection_id: Verzeichnis
         description: Beschreibung
         file: Datei
-        title: Titel
       attachment_collection:
         description: Beschreibung
         name: Name

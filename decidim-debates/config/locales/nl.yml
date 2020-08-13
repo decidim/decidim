@@ -89,12 +89,13 @@ nl:
           filter: Sorteren
           filter_by: Sorteren op
           unfold: Uitvouwen
+        form:
+          select_a_category: Selecteer een categorie
         index:
           new_debate: Nieuw debat
         new:
           back: Terug
           create: Aanmaken
-          select_a_category: Selecteer een categorie
           title: Nieuw debat
       last_activity:
         new_debate_at_html: "<span>Nieuw debat op %{link}</span>"

@@ -74,20 +74,22 @@ en:
       actions:
         new_initiative_type: New initiative type
       filters:
-        decidim_area_id_eq:
-          label: Area
+        initiatives:
+          decidim_area_id_eq:
+            label: Area
+          state_eq:
+            label: State
+            values:
+              accepted: Enough signatures
+              created: Created
+              discarded: Discarded
+              published: Published
+              rejected: Not enough signatures
+              validating: Technical validation
+          type_id_eq:
+            label: Type
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Search %{collection} by title, description, ID or author name.
-        state_eq:
-          values:
-            accepted: Enough signatures
-            created: Created
-            discarded: Discarded
-            published: Published
-            rejected: Not enough signatures
-            validating: Technical validation
-        type_id_eq:
-          label: Type
       menu:
         initiatives: Initiatives
         initiatives_types: Initiative types
@@ -419,11 +421,19 @@ en:
           unfold: Unfold
         index_header:
           new_initiative: New initiative
+          not_authorized:
+            authorizations_page: View authorizations
+            close: Close
+            explanation: You need to be verified in order to create a new initiative.
+            title: Authorization required
+        initiatives:
+          closed_initiatives_warning: Currently, there are no open initiatives, but here you can find all the closed initiatives listed.
+          no_initiatives_warning: No initiatives match your search criteria.
         interactions:
           comments_count:
             count:
               one: Comment
-              other: Comment
+              other: Comments
         orders:
           label: 'Sort initiatives by:'
           most_commented: Most commented
@@ -459,8 +469,8 @@ en:
           votes_blocked: Signing disabled
         votes_count:
           count:
-            one: SIGNATURE
-            other: SIGNATURES
+            one: Signature
+            other: Signatures
           most_popular_initiative: Most popular initiative
           need_more_votes: Need more signatures
       initiatives_mailer:

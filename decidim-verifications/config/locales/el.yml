@@ -8,6 +8,9 @@ el:
       name: Όνομα
     verifications:
       authorizations:
+        index:
+          pending_verification: Εκκρεμεί επαλήθευση
+          unauthorized_verification: Νέα επαλήθευση
         renew_modal:
           continue: Συνέχεια
       id_documents:

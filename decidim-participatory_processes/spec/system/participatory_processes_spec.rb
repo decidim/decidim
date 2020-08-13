@@ -108,7 +108,7 @@ describe "Participatory Processes", type: :system do
       it "lists all the highlighted processes" do
         within "#highlighted-processes" do
           expect(page).to have_content(translated(promoted_process.title, locale: :en))
-          expect(page).to have_selector("article.card--full", count: 1)
+          expect(page).to have_selector(".card--full", count: 1)
         end
       end
 
@@ -121,7 +121,7 @@ describe "Participatory Processes", type: :system do
           expect(page).to have_content(translated(participatory_process.title, locale: :en))
           expect(page).to have_content(translated(promoted_process.title, locale: :en))
           expect(page).to have_content(translated(group.name, locale: :en))
-          expect(page).to have_selector("article.card", count: 3)
+          expect(page).to have_selector(".card", count: 3)
 
           expect(page).to have_no_content(translated(unpublished_process.title, locale: :en))
           expect(page).to have_no_content(translated(past_process.title, locale: :en))
@@ -131,7 +131,7 @@ describe "Participatory Processes", type: :system do
       end
 
       it "links to the individual process page" do
-        click_link(translated(participatory_process.title, locale: :en))
+        first(".card__link", text: translated(participatory_process.title, locale: :en)).click
 
         expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(participatory_process)
       end
@@ -150,7 +150,70 @@ describe "Participatory Processes", type: :system do
 
           within find("#processes-grid .column", text: translated(participatory_process.title)) do
             within ".card__footer" do
-              expect(page).to have_content("CURRENT PHASE:\nActive step")
+              expect(page).to have_content("Current phase:\nActive step")
+            end
+          end
+        end
+
+        context "when the active step has CTA text and url set" do
+          let(:cta_path) { "my_path" }
+          let(:cta_text) { { en: "Take action!", ca: "Take action!", es: "Take action!" } }
+
+          before do
+            active_step.update!(cta_path: cta_path, cta_text: cta_text)
+          end
+
+          it "shows a CTA button" do
+            visit decidim_participatory_processes.participatory_processes_path
+
+            within "#participatory_process_#{participatory_process.id}" do
+              expect(page).to have_link("Take action!")
+            end
+          end
+
+          context "when cta_text is empty in current locale" do
+            let(:cta_text) { { en: "", ca: "Take action!", es: "Take action!" } }
+
+            it "displays the regular cta button" do
+              visit decidim_participatory_processes.participatory_processes_path
+
+              within "#participatory_process_#{participatory_process.id}" do
+                expect(page).not_to have_link("Take action!")
+                expect(page).to have_link("More info")
+              end
+            end
+          end
+
+          context "when process is promoted" do
+            let(:cta_text) { { en: "Take promoted action!", ca: "Take promoted action!", es: "Take promoted action!" } }
+            let!(:active_step) do
+              create(:participatory_process_step,
+                     :active,
+                     participatory_process: promoted_process,
+                     title: { en: "Active step", ca: "Fase activa", es: "Fase activa" })
+            end
+
+            it "shows a CTA button" do
+              visit decidim_participatory_processes.participatory_processes_path
+
+              within "#highlighted-processes" do
+                expect(page).to have_link("Take promoted action!")
+              end
+            end
+          end
+
+          context "when user switch locale" do
+            before do
+              visit decidim_participatory_processes.participatory_processes_path
+              within_language_menu do
+                click_link "Català"
+              end
+            end
+
+            it "displays the regular cta button" do
+              within "#participatory_process_#{participatory_process.id}" do
+                expect(page).to have_link("Take action!", href: "/processes/#{participatory_process.slug}/my_path")
+              end
             end
           end
         end
@@ -268,7 +331,7 @@ describe "Participatory Processes", type: :system do
 
             it "the stats for those components are visible" do
               within "#participatory_process-statistics" do
-                expect(page).to have_css("h4.section-heading", text: "STATISTICS")
+                expect(page).to have_css("h3.section-heading", text: "STATISTICS")
                 expect(page).to have_css(".process-stats__title", text: "PROPOSALS")
                 expect(page).to have_css(".process-stats__number", text: "3")
                 expect(page).to have_no_css(".process-stats__title", text: "MEETINGS")

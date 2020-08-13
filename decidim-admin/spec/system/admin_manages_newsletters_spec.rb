@@ -84,7 +84,7 @@ describe "Admin manages newsletters", type: :system do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_content("PREVIEW")
+      expect(page).to have_content("Preview")
       expect(page).to have_content("A fancy newsletter for #{user.name}")
     end
   end
@@ -145,7 +145,7 @@ describe "Admin manages newsletters", type: :system do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_content("PREVIEW")
+      expect(page).to have_content("Preview")
       expect(page).to have_content("A fancy newsletter")
     end
   end
@@ -188,7 +188,7 @@ describe "Admin manages newsletters", type: :system do
             accept_confirm { find("*", text: "Deliver").click }
           end
 
-          expect(page).to have_content("NEWSLETTERS")
+          expect(page).to have_content("Newsletters")
           expect(page).to have_admin_callout("successfully")
         end
 
@@ -225,7 +225,7 @@ describe "Admin manages newsletters", type: :system do
             accept_confirm { find("*", text: "Deliver").click }
           end
 
-          expect(page).to have_content("NEWSLETTERS")
+          expect(page).to have_content("Newsletters")
           expect(page).to have_admin_callout("successfully")
         end
 
@@ -262,7 +262,7 @@ describe "Admin manages newsletters", type: :system do
             accept_confirm { find("*", text: "Deliver").click }
           end
 
-          expect(page).to have_content("NEWSLETTERS")
+          expect(page).to have_content("Newsletters")
           expect(page).to have_admin_callout("successfully")
         end
 
@@ -306,7 +306,7 @@ describe "Admin manages newsletters", type: :system do
             accept_confirm { find("*", text: "Deliver").click }
           end
 
-          expect(page).to have_content("NEWSLETTERS")
+          expect(page).to have_content("Newsletters")
           expect(page).to have_admin_callout("successfully")
         end
 

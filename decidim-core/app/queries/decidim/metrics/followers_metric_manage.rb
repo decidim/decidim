@@ -10,9 +10,6 @@ module Decidim
       end
 
       def save
-        return @registry if @registry
-
-        @registry = []
         query.each do |key, results|
           cumulative_value = results[:cumulative_users].count
           next if cumulative_value.zero?
@@ -23,10 +20,8 @@ module Decidim
                                                          participatory_space_type: space_type, participatory_space_id: space_id,
                                                          organization: @organization)
           record.assign_attributes(cumulative: cumulative_value, quantity: quantity_value)
-          @registry << record
+          record.save!
         end
-        @registry.each(&:save!)
-        @registry
       end
 
       private

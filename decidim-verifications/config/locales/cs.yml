@@ -100,7 +100,9 @@ cs:
           verify_with_these_options: 'Jsou to dostupné možnosti k ověření totožnosti:'
         index:
           expired_verification: Ověření vypršelo
+          pending_verification: Čekající na ověření
           show_renew_info: Kliknutím obnovíte ověření
+          unauthorized_verification: Nové ověření
         new:
           authorize: Poslat
           authorize_with: Ověřte pomocí %{authorizer}

@@ -77,7 +77,6 @@ de:
             'false': Vorschläge
             'true': Änderungsanträge
         state_eq:
-          label: Zustand
           values:
             evaluating: In Bewertung
             withdrawn: Zurückgezogen
@@ -594,7 +593,6 @@ de:
           amend: Ändern
           comment: Kommentar
           comments: Bemerkungen
-          endorse: Befürworten
       proposal_votes:
         create:
           error: Es gab Fehler bei der Abstimmung des Vorschlags.
@@ -685,7 +683,6 @@ de:
           proposal_rejected_reason: 'Dieser Vorschlag wurde abgelehnt, weil:'
           report: Melden
           withdraw_btn_hint: Sie können Ihren Vorschlag zurückziehen, wenn Sie es sich anders überlegen, solange Sie keine Unterstützung erhalten haben. Der Vorschlag wird nicht gelöscht, er erscheint in der Liste der zurückgezogenen Vorschläge.
-          withdraw_confirmation: Sind Sie sicher, diesen Vorschlag zurückzuziehen?
           withdraw_proposal: Vorschlag zurückziehen
         vote_button:
           already_voted: Bereits unterstützt

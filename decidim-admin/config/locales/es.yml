@@ -13,7 +13,7 @@ es:
         attachment_collection_id: Carpeta
         description: Descripción
         file: Archivo
-        title: Título
+        title: Nombre del adjunto o imagen
       attachment_collection:
         description: Descripción
         name: Nombre
@@ -51,6 +51,8 @@ es:
         from: Correo electrónico del remitente
         github_handler: Nombre en GitHub
         header_snippets: Snippets de encabezado
+        highlight_alternative_color: Destacado, alternativo
+        highlight_color: Destacar
         highlighted_content_banner_action_subtitle: Subtítulo del botón de acción
         highlighted_content_banner_action_title: Título del botón de acción
         highlighted_content_banner_action_url: URL del botón de acción
@@ -324,6 +326,8 @@ es:
         search_placeholder:
           name_or_nickname_or_email_cont: Buscar %{collection} por correo electrónico, nombre o alias.
           title_cont: Buscar %{collection} por título.
+        state_eq:
+          label: Estado
       help_sections:
         error: Se ha producido un error al actualizar las secciones de ayuda
         form:
@@ -586,6 +590,7 @@ es:
           officialize: Oficializar
           title: Oficializar participante "%{name}"
         show_email_modal:
+          close_modal: Cierra el modal
           description: Si necesitas contactar directamente con una participante, puedes hacer clic en el botón Mostrar para ver la dirección de correo electrónico. Esta acción se registrará.
           email_address: Dirección de correo electrónico
           full_name: Nombre completo
