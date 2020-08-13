@@ -80,6 +80,8 @@ ar:
             discarded: التخلص منها
             published: نشرت
             validating: المصادقة الفنية
+        type_id_eq:
+          label: نوع
       menu:
         initiatives: المبادرات
         initiatives_types: أنواع المبادرة
