@@ -68,7 +68,7 @@ it:
           label: Stato
           values:
             accepted: Accettato
-            created: Creata
+            created: Creato
             discarded: Discarded
             published: Pubblicato
             rejected: Respinto
