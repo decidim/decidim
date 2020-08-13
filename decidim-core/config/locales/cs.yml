@@ -1289,7 +1289,6 @@ cs:
     versions:
       resource_version:
         of_versions: "(z %{number})"
-        see_other_versions: viz ostatní verze
         version: Verze %{number}
     versions_list:
       show:
