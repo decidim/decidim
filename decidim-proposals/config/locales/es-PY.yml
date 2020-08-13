@@ -79,23 +79,11 @@ es-PY:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Tipo
-          values:
-            'false': Propuestas
-            'true': Enmiendas
+        proposals:
+          valuator_role_ids_has:
+            label: Asignada a evaluadora
         search_placeholder:
           id_string_or_title_cont: Buscar %{collection} por ID o título.
-        state_eq:
-          values:
-            evaluating: En evaluación
-            withdrawn: Retirado
-        state_null:
-          label: Estado
-          values:
-            'true': No contestada
-        valuator_role_ids_has:
-          label: Asignada a evaluadora
     components:
       proposals:
         actions:
