@@ -5,6 +5,8 @@ module Decidim
     module Admin
       # This controller allows an admin to manage debates from a Participatory Space
       class DebatesController < Decidim::Debates::Admin::ApplicationController
+        helper Decidim::ApplicationHelper
+        
         helper_method :debates
 
         def index
@@ -78,6 +80,7 @@ module Decidim
         def debate
           @debate ||= debates.find(params[:id])
         end
+
       end
     end
   end

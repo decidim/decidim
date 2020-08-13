@@ -25,20 +25,38 @@ module Decidim
                     end
       end
 
-      def title(links: false)
-        text = translated_attribute(debate.title)
-        text = decidim_html_escape(text)
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
-        renderer.render(links: links).html_safe
+      # def title(links: false)
+      #   text = translated_attribute(debate.title)
+      #   text = decidim_html_escape(text)
+      #   renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
+      #   renderer.render(links: links).html_safe
+      # end
+
+      # def description(strip_tags: false, links: false)
+      #   text = translated_attribute(debate.description)
+      #   text = strip_tags(text) if strip_tags
+      #   renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
+      #   text = renderer.render(links: links).html_safe
+      #   text = Decidim::ContentRenderers::LinkRenderer.new(text).render if links
+      #   text
+      # end
+
+      def title(links: false, all_locales: false)
+        return unless debate
+
+        handle_locales(debate.title, all_locales) do |content|
+          renderer = Decidim::ContentRenderers::HashtagRenderer.new(decidim_html_escape(content))
+          renderer.render(links: links).html_safe
+        end
       end
 
-      def description(strip_tags: false, links: false)
-        text = translated_attribute(debate.description)
-        text = strip_tags(text) if strip_tags
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
-        text = renderer.render(links: links).html_safe
-        text = Decidim::ContentRenderers::LinkRenderer.new(text).render if links
-        text
+      def description(strip_tags: false, links: false, all_locales: false)
+        return unless debate
+
+        handle_locales(debate.description, all_locales) do |content|
+          renderer = Decidim::ContentRenderers::HashtagRenderer.new(decidim_sanitize(content))
+          renderer.render(links: links).html_safe
+        end
       end
 
       def handle_locales(content, all_locales)
