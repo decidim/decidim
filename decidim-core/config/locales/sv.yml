@@ -1274,7 +1274,6 @@ sv:
     versions:
       resource_version:
         of_versions: "(av %{number})"
-        see_other_versions: se andra versioner för %{resource_name}
         version: Versionsnummer %{number}
     versions_list:
       show:
