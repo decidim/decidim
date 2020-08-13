@@ -60,6 +60,8 @@ ru:
             discarded: Отброшенные
             published: Обнародовано
             validating: Техническая проверка
+        type_id_eq:
+          label: Вид
       menu:
         initiatives: Почины
         initiatives_types: Виды починов
