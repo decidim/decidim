@@ -67,6 +67,8 @@ eu:
             discarded: baztertutako
             published: Argitaratutako
             validating: Balidazio teknikoa
+        type_id_eq:
+          label: Mota
       menu:
         initiatives: Ekimenak
         initiatives_types: Ekimen motak
