@@ -86,7 +86,7 @@ de:
             rejected: Ungenügend Unterschriften
             validating: Technische Validierung
         type_id_eq:
-          label: Typ
+          label: Art
       menu:
         initiatives: Initiativen
         initiatives_types: Arten von Initiativen
