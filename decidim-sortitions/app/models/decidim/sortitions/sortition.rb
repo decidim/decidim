@@ -17,7 +17,7 @@ module Decidim
 
       component_manifest_name "sortitions"
 
-      translatable_fields :title, :selected_proposals, :witnesses, :additional_info, :cancel_reason, :candidate_proposals
+      translatable_fields :title, :witnesses, :additional_info, :cancel_reason
 
       belongs_to :decidim_proposals_component,
                  foreign_key: "decidim_proposals_component_id",
