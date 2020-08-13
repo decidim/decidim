@@ -80,23 +80,33 @@ en:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Type
-          values:
-            'false': Proposals
-            'true': Amendments
+        proposals:
+          category_id_eq:
+            label: Category
+          is_emendation_true:
+            label: Type
+            values:
+              'false': Proposals
+              'true': Amendments
+          scope_id_eq:
+            label: Scope
+          state_eq:
+            label: State
+            values:
+              accepted: Accepted
+              evaluating: Evaluating
+              published: Published
+              rejected: Rejected
+              validating: Technical validation
+              withdrawn: Withdrawn
+          state_null:
+            label: State
+            values:
+              'true': Not answered
+          valuator_role_ids_has:
+            label: Assigned to valuator
         search_placeholder:
           id_string_or_title_cont: Search %{collection} by ID or title.
-        state_eq:
-          values:
-            evaluating: Evaluating
-            withdrawn: Withdrawn
-        state_null:
-          label: Status
-          values:
-            'true': Not answered
-        valuator_role_ids_has:
-          label: Assigned to valuator
     components:
       proposals:
         actions:
