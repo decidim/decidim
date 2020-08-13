@@ -39,6 +39,10 @@
                   <%= icon_link_to "pencil", edit_debate_path(debate), t("actions.edit", scope: "decidim.debates"), class: "action-icon--edit" %>
                 <% end %>
 
+                <% if allowed_to? :close, :debate, debate: debate %>
+                  <%= icon_link_to "lock-locked", edit_debate_debate_close_path(debate_id: debate.id, id: debate.id), t("actions.close", scope: "decidim.debates"), class: "action-icon--close" %>
+                <% end %>
+
                 <% if allowed_to? :delete, :debate, debate: debate %>
                   <%= icon_link_to "circle-x", debate_path(debate), t("actions.destroy", scope: "decidim.debates"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.debates") } %>
                 <% end %>

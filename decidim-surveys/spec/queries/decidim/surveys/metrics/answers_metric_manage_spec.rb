@@ -12,6 +12,8 @@ describe Decidim::Surveys::Metrics::AnswersMetricManage do
   let!(:answers) { create_list(:answer, 5, questionnaire: questionnaire, created_at: day) }
   let!(:old_answers) { create_list(:answer, 5, questionnaire: questionnaire, created_at: day - 1.week) }
 
+  include_context "when managing metrics"
+
   context "when executing" do
     it "creates new metric records" do
       registry = generate_metric_registry
@@ -37,9 +39,4 @@ describe Decidim::Surveys::Metrics::AnswersMetricManage do
       expect(registry.collect(&:quantity)).to eq([5])
     end
   end
-end
-
-def generate_metric_registry(date = nil)
-  metric = described_class.for(date, organization)
-  metric.save
 end

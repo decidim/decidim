@@ -65,12 +65,6 @@ module Decidim
             proposal.component == target_component
           end
         end
-
-        def project_localized(text)
-          Decidim.available_locales.inject({}) do |result, locale|
-            result.update(locale => text)
-          end.with_indifferent_access
-        end
       end
     end
   end
