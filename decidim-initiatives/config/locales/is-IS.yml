@@ -34,6 +34,8 @@ is-IS:
             discarded: Fargað
             published: Published
             validating: Tæknilegar staðfestingar
+        type_id_eq:
+          label: Gerð
       menu:
         initiatives: Frumkvæði
         initiatives_types: Frumgerð tegundir
