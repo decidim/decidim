@@ -79,23 +79,11 @@ sv:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Typ
-          values:
-            'false': Förslag
-            'true': Ändringsförslag
+        proposals:
+          valuator_role_ids_has:
+            label: Tilldelad till värderare
         search_placeholder:
           id_string_or_title_cont: Sök %{collection} efter ID eller titel.
-        state_eq:
-          values:
-            evaluating: Utvärderas
-            withdrawn: Tillbakadragna
-        state_null:
-          label: Status
-          values:
-            'true': Ej besvarade
-        valuator_role_ids_has:
-          label: Tilldelad till värderare
     components:
       proposals:
         actions:
