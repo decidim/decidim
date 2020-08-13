@@ -64,6 +64,7 @@
     clearMarkers() {
       this.map.removeLayer(this.markerClusters);
       this.markerClusters = L.markerClusterGroup();
+      this.map.addLayer(this.markerClusters);
     }
   }
 
