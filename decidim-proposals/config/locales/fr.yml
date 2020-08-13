@@ -79,23 +79,11 @@ fr:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Type
-          values:
-            'false': Propositions
-            'true': Amendements
+        proposals:
+          valuator_role_ids_has:
+            label: Assigné à l'évaluateur
         search_placeholder:
           id_string_or_title_cont: Rechercher %{collection} par ID ou titre.
-        state_eq:
-          values:
-            evaluating: En cours d'évaluation
-            withdrawn: Retirée
-        state_null:
-          label: État
-          values:
-            'true': En attente de réponse
-        valuator_role_ids_has:
-          label: Assigné à l'évaluateur
     components:
       proposals:
         actions:
