@@ -77,13 +77,11 @@ bg:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          values:
-            'false': Предложения
+        proposals:
+          valuator_role_ids_has:
+            label: Прикрепено към проверяващ
         search_placeholder:
           id_string_or_title_cont: Търси в %{collection} по ID или заглавие.
-        valuator_role_ids_has:
-          label: Прикрепено към проверяващ
     components:
       proposals:
         actions:
