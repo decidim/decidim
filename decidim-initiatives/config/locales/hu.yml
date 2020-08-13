@@ -61,13 +61,6 @@ hu:
     admin:
       actions:
         new_initiative_type: Új kezdeményezés típusa
-      filters:
-        state_eq:
-          values:
-            created: Létrehozva
-            discarded: Elvetve
-            published: Közzétéve
-            validating: Technikai érvényesítés
       menu:
         initiatives: Kezdeményezések
         initiatives_types: Kezdeményezések típusa
