@@ -82,20 +82,10 @@ bg:
     admin:
       filters:
         is_emendation_true:
-          label: Тип
           values:
             'false': Предложения
-            'true': Поправки
         search_placeholder:
           id_string_or_title_cont: Търси в %{collection} по ID или заглавие.
-        state_eq:
-          values:
-            evaluating: Разглежда се
-            withdrawn: Отменено
-        state_null:
-          label: Състояние
-          values:
-            'true': Без отговор
         valuator_role_ids_has:
           label: Прикрепено към проверяващ
     components:
