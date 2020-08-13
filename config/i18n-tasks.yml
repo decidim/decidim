@@ -158,6 +158,7 @@ ignore_unused:
   - decidim.accountability.admin_log.*
   - decidim.elections.admin_log.*
   - decidim.elections.orders.*
+  - decidim.elections.election_m.*
   - decidim.proposals.admin_log.*
   - decidim.log.base_presenter.*
   - decidim.admin_log.*
