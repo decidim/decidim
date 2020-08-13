@@ -25,7 +25,10 @@ module Decidim
           .where("end_time > ?", Time.current)
       }
 
-      scope :finished, -> { where(arel_table[:end_time].lteq(Time.current)) }
+      scope :finished, lambda {
+        where("start_time < ?", Time.current)
+          .where("end_time < ?", Time.current)
+      }
 
       def self.log_presenter_class_for(_log)
         Decidim::Elections::AdminLog::ElectionPresenter

@@ -1,10 +1,10 @@
-<% if @no_scheduled_elections %>
-  <div class="callout warning">
-    <%= t("decidim.elections.warnings.no_scheduled_elections_warning") %>
-  </div>
-<% elsif elections.length == 0 %>
+<% if elections.none? %>
   <div class="callout warning">
     <%= t("decidim.elections.warnings.no_elections_warning") %>
+  </div>
+<% elsif scheduled_elections.none? %>
+  <div class="callout warning">
+    <%= t("decidim.elections.warnings.no_scheduled_elections_warning") %>
   </div>
 <% end %>
 

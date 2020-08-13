@@ -13,16 +13,11 @@ edit_link(
 %>
 
 <%= render partial: "decidim/shared/component_announcement" %>
-<% if params[:single] && election.finished? %>
-  <div class="callout warning">
-    <%= t("decidim.elections.warnings.no_scheduled_election_warning") %>
-  </div>
-<% end %>
 
 <div class="row">
   <div class="columns">
 
-    <% unless params[:single] %>
+    <% unless single? %>
       <%= link_to :elections, class: "small hollow" do %>
         <%= icon "caret-left", class: "icon--small" %>
         <%= t(".back") %>

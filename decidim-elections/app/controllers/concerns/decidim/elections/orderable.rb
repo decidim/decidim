@@ -15,10 +15,7 @@ module Decidim
 
         # Available orders based on enabled settings
         def available_orders
-          @available_orders ||= begin
-            available_orders = %w(recent older)
-            available_orders
-          end
+          @available_orders ||= %w(recent older)
         end
 
         def default_order

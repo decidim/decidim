@@ -6,18 +6,12 @@ module Decidim
     class ElectionsController < Decidim::Elections::ApplicationController
       include FilterResource
       include Paginable
-      include Orderable
       include Decidim::Elections::Orderable
 
-      helper_method :elections, :election, :paginated_elections
+      helper_method :elections, :election, :paginated_elections, :scheduled_elections, :single?
 
       def index
         redirect_to election_path(single, single: true) if single?
-
-        @scheduled_elections = search_klass.new(search_params.merge(state: %w(active upcoming)))
-        @finished_elections = search_klass.new(search_params.merge(state: %w(finished)))
-
-        @no_scheduled_elections = true if @scheduled_elections.results.empty? && @finished_elections.results.present?
       end
 
       def show
@@ -27,31 +21,31 @@ module Decidim
       private
 
       def elections
-        @elections ||= paginate(search.results)
-        @elections = reorder(@elections)
+        @elections ||= Election.where(component: current_component).published
       end
 
       def election
         @election ||= Election.where(component: current_component).find(params[:id])
       end
 
-      def single_elections
-        @single_elections ||= Election.where(component: current_component).published
-      end
-
       # Public: Checks if the component has only one election resource.
       #
       # Returns Boolean.
       def single?
-        single_elections.one?
+        elections.one?
       end
 
       def single
-        single_elections.first if single?
+        elections.first if single?
       end
 
       def paginated_elections
-        @paginated_elections ||= paginate(elections.published)
+        @paginated_elections ||= paginate(search.results.published)
+        @paginated_elections = reorder(@paginated_elections)
+      end
+
+      def scheduled_elections
+        @scheduled_elections ||= search_klass.new(search_params.merge(state: %w(active upcoming))).results
       end
 
       def search_klass

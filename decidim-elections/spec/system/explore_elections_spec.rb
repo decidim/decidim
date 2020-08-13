@@ -25,13 +25,6 @@ describe "Explore elections", :slow, type: :system do
         expect(page).to have_content("Voting began on")
         expect(page).not_to have_content("All elections")
       end
-
-      it "shows the correct warning" do
-        visit_component
-        within ".callout" do
-          expect(page).to have_content("find the past election listed")
-        end
-      end
     end
 
     context "with many elections" do
