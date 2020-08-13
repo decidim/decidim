@@ -73,6 +73,9 @@ sk:
         state_eq:
           values:
             accepted: Prijal
+            created: Vytvorené
+            discarded: Odstránená
+            published: Publikované
             rejected: Odmietnuté
       menu:
         initiatives: Iniciatívy
