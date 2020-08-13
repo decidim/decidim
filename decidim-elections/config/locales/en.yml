@@ -137,11 +137,17 @@ en:
           publish: "%{user_name} published the %{resource_name} election"
           unpublish: "%{user_name} unpublished the %{resource_name} election"
       election_m:
+        badge_name:
+          finished: Finished
+          ongoing: Active
+          upcoming: Upcoming
         end_date: Ends
         footer:
-          take_part: Vote
+          view: View
+          vote: Vote
         label:
           date: Dates
+        questions: Questions %{count}
         start_date: Starts
         unspecified: Not specified
       elections:
