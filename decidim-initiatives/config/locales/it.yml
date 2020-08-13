@@ -80,13 +80,13 @@ it:
         state_eq:
           values:
             accepted: Firme sufficienti
-            created: Creata
+            created: Creato
             discarded: Discarded
             published: Pubblicato
             rejected: Firme non sufficienti
             validating: Convalida tecnica
         type_id_eq:
-          label: Tipo
+          label: genere
       menu:
         initiatives: Iniziative
         initiatives_types: Tipi di iniziativa
