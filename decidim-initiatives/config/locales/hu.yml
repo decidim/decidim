@@ -68,6 +68,8 @@ hu:
             discarded: Elvetve
             published: Közzétéve
             validating: Technikai érvényesítés
+        type_id_eq:
+          label: Típus
       menu:
         initiatives: Kezdeményezések
         initiatives_types: Kezdeményezések típusa
