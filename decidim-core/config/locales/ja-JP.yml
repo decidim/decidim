@@ -625,7 +625,7 @@ ja:
         proposal: 提案
         result: 結果
     fingerprint:
-      check: '%{resource_name} のフィンガープリントを確認する'
+      check: 指紋を確認
       explanation: 以下のテキストは、このコンテンツの短縮されたハッシュ化された表現です。 コンテンツが改ざんされていないことを確認すると便利です。単一の修正で全く異なる値になります。
       online_calculator_name: MD5カルキュレータオンライン
       replicate_help: この指紋はSHA256 ハッシュアルゴリズムを使用して計算されます。自分で複製するには、 %{online_calculator_link} を使用してソース データをコピー&ペーストできます。
@@ -1265,7 +1265,6 @@ ja:
     versions:
       resource_version:
         of_versions: "( %{number} の)"
-        see_other_versions: '%{resource_name} の他のバージョンを参照'
         version: バージョン %{number}
     versions_list:
       show:
