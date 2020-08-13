@@ -73,20 +73,8 @@ nl:
       actions:
         new_initiative_type: Nieuw initiatiefstype
       filters:
-        decidim_area_id_eq:
-          label: Oppervlak
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Zoek %{collection} op titel, beschrijving, ID of auteur naam.
-        state_eq:
-          values:
-            accepted: Genoeg handtekeningen
-            created: gemaakt
-            discarded: Afgedankte
-            published: Gepubliceerd
-            rejected: Niet genoeg handtekeningen
-            validating: Technische validatie
-        type_id_eq:
-          label: Type
       menu:
         initiatives: initiatieven
         initiatives_types: Initiatieftypes
