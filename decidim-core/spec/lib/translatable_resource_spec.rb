@@ -44,7 +44,7 @@ module Decidim
       end
 
       it "enqueues the machine translation job when resource is created" do
-        dummy_resource.save
+        dummy_resource
         expect(Decidim::MachineTranslationResourceJob).to have_been_enqueued.on_queue("default").with(
           dummy_resource,
           dummy_resource.translatable_previous_changes,
