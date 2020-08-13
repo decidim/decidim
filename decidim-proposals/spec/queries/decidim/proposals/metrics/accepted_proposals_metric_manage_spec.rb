@@ -10,6 +10,8 @@ describe Decidim::Proposals::Metrics::AcceptedProposalsMetricManage do
   let!(:accepted_proposals) { create_list(:proposal, 3, :accepted, created_at: day, component: component) }
   let!(:not_accepted_proposals) { create_list(:proposal, 3, created_at: day, component: component) }
 
+  include_context "when managing metrics"
+
   context "when executing" do
     it "creates new metric records" do
       registry = generate_metric_registry
@@ -35,9 +37,4 @@ describe Decidim::Proposals::Metrics::AcceptedProposalsMetricManage do
       expect(registry.collect(&:quantity)).to eq([3])
     end
   end
-end
-
-def generate_metric_registry(date = nil)
-  metric = described_class.for(date, organization)
-  metric.save
 end
