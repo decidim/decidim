@@ -83,23 +83,11 @@ ro:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Tip
-          values:
-            'false': Propuneri
-            'true': Amendamente
+        proposals:
+          valuator_role_ids_has:
+            label: Atribuit evaluatorului
         search_placeholder:
           id_string_or_title_cont: Caută %{collection} după ID sau titlu.
-        state_eq:
-          values:
-            evaluating: Evaluare
-            withdrawn: Retras
-        state_null:
-          label: Status
-          values:
-            'true': Nu s-a răspuns
-        valuator_role_ids_has:
-          label: Atribuit evaluatorului
     components:
       proposals:
         actions:
