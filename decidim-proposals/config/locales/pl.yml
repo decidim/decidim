@@ -3,7 +3,7 @@ pl:
     attributes:
       collaborative_draft:
         address: Adres
-        body: Ciało
+        body: Treść
         category_id: Kategoria
         decidim_scope_id: Zakres
         has_address: Ma adres
@@ -16,7 +16,7 @@ pl:
         answer: Odpowiedź
         answered_at: Odpowiedziałem na
         automatic_hashtags: Hashtagi zostały automatycznie dodane
-        body: Ciało
+        body: Treść
         category_id: Kategoria
         decidim_scope_id: Zakres
         has_address: Ma adres
@@ -88,6 +88,8 @@ pl:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: Kategoria
           valuator_role_ids_has:
             label: Przypisano do taksatora
         search_placeholder:
