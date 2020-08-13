@@ -79,6 +79,20 @@ pl:
       actions:
         new_initiative_type: Nowy typ inicjatywy
       filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: Obszar
+          state_eq:
+            label: Stan
+            values:
+              accepted: Wystarczająca liczba podpisów
+              created: Utworzono
+              discarded: Odrzucono
+              published: Opublikowano
+              rejected: Niewystarczająca liczba podpisów
+              validating: Walidacja techniczna
+          type_id_eq:
+            label: Typ
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Wyszukaj %{collection} według tytułu, opisu, ID lub nazwy autora.
       menu:
