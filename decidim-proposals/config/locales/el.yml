@@ -79,23 +79,11 @@ el:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Τύπος
-          values:
-            'false': Προτάσεις
-            'true': Τροποποιήσεις
+        proposals:
+          valuator_role_ids_has:
+            label: Ανατέθηκε στον εκτιμητή
         search_placeholder:
           id_string_or_title_cont: Αναζήτηση συλλογής %{collection} με βάση το αναγνωριστικό ή τον τίτλο.
-        state_eq:
-          values:
-            evaluating: Αξιολόγηση...
-            withdrawn: Αποσύρθηκε
-        state_null:
-          label: Κατάσταση
-          values:
-            'true': Δεν απαντήθηκε
-        valuator_role_ids_has:
-          label: Ανατέθηκε στον εκτιμητή
     components:
       proposals:
         actions:
