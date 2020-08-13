@@ -1270,7 +1270,6 @@ fr:
     versions:
       resource_version:
         of_versions: "(sur %{number})"
-        see_other_versions: voir les autres versions
         version: Version %{number}
     versions_list:
       show:
