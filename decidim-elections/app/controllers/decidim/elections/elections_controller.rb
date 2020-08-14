@@ -60,9 +60,9 @@ module Decidim
       end
 
       def default_filter_state_params
-        if !elections.active.empty?
+        if elections.active.any?
           %w(active)
-        elsif !elections.upcoming.empty?
+        elsif elections.upcoming.any?
           %w(upcoming)
         else
           %w()
