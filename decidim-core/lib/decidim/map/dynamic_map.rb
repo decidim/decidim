@@ -4,7 +4,7 @@ module Decidim
   module Map
     # A base class for dynamic mapping functionality, common to all dynamic map
     # services.
-    class DynamicMap < Map::Utility
+    class DynamicMap < Map::Frontend
       # Creates a builder class for the front-end that is used to build the map
       # HTML markup.
       #
@@ -55,24 +55,14 @@ module Decidim
 
       # A builder for the dynamic maps to be used in the views. Provides all the
       # necessary functionality to display and initialize the maps.
-      class Builder
-        # Initializes the map builder instance.
-        #
-        # @param template [ActionView::Template] The template within which the
-        #   map is displayed.
-        # @param options [Hash] Extra options for the builder object.
-        def initialize(template, options)
-          @template = template
-          @options = options
-        end
-
+      class Builder < Decidim::Map::Frontend::Builder
         # Displays the map element's markup for the view.
         #
         # @param html_options [Hash] Extra options to pass to the map element.
         # @return [String] The map element's markup.
         def map_element(html_options = {})
           map_html_options = {
-            "data-decidim-map" => map_options.to_json,
+            "data-decidim-map" => view_options.to_json,
             # The data-markers-data is kept for backwards compatibility
             "data-markers-data" => options.fetch(:markers, []).to_json
           }.merge(html_options)
@@ -84,54 +74,14 @@ module Decidim
           end
         end
 
-        # Displays the necessary front-end stylesheet assets for the map
-        # element.
-        #
-        # @return [String] The map element's stylesheet assets markup for the
-        #   view.
+        # @see Decidim::Map::View::Builder#stylesheet_snippets
         def stylesheet_snippets
           template.stylesheet_link_tag("decidim/map")
         end
 
-        # Displays the necessary front-end JavaScript assets for the map
-        # element.
-        #
-        # @return [String] The map element's JavaScript assets markup for the
-        #   view.
+        # @see Decidim::Map::View::Builder#javascript_snippets
         def javascript_snippets
           template.javascript_include_tag("decidim/map/provider/default")
-        end
-
-        protected
-
-        attr_reader :template, :markers, :options
-
-        # Returns the options hash that will be passed to the map element as a
-        # JSON encoded data attribute. These configurations can be used to pass
-        # information to the front-end map functionality, e.g. about the tile
-        # layer configurations and markers data.
-        #
-        # @return [Hash] The configurations passed to the map element's data
-        #   attribute.
-        def map_options
-          hash_to_js(options)
-        end
-
-        # Converts a hash with Ruby-style key names (snake_case) to JS-style key
-        # names (camelCase).
-        #
-        # @param [Hash] The original hash with Ruby-style hash keys in
-        #   snake_case format.
-        #
-        # @return [Hash] The resulting hash with JS-style hash keys in camelCase
-        #   format.
-        def hash_to_js(hash)
-          hash.map do |key, value|
-            value = hash_to_js(value) if value.is_a?(Hash)
-            value = value.call(self) if value.respond_to?(:call)
-
-            [key.to_s.camelize(:lower), value]
-          end.to_h
         end
       end
     end

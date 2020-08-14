@@ -9,6 +9,7 @@ module Decidim
     autoload :Provider, "decidim/map/provider"
     autoload :StaticMap, "decidim/map/static_map"
     autoload :Utility, "decidim/map/utility"
+    autoload :Frontend, "decidim/map/frontend"
 
     # Public: Returns a boolean indicating whether the mapping functionality has
     # been configured.
