@@ -8,6 +8,7 @@ module Decidim
   class FormBuilder < FoundationRailsHelper::FormBuilder
     include ActionView::Context
     include Decidim::TranslatableAttributes
+    include Decidim::Map::Autocomplete::FormBuilder
 
     # Public: generates a check boxes input from a collection and adds help
     # text and errors.
