@@ -93,7 +93,6 @@ ro:
             evaluating: Evaluare
             withdrawn: Retras
         state_null:
-          label: Status
           values:
             'true': Nu s-a răspuns
         valuator_role_ids_has:
