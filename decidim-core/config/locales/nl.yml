@@ -3,6 +3,8 @@ nl:
     attributes:
       account:
         delete_reason: Reden om uw account te verwijderen
+      common:
+        created_at: Aangemaakt op
       group:
         about: Over
         avatar: Profielafbeelding
@@ -33,6 +35,7 @@ nl:
       decidim/profile_updated_event: Profiel bijgewerkt
       decidim/promote_to_admin: Gepromoveerd tot groepsbeheerder
       decidim/removed_from_group: Verwijderd uit de groep
+      decidim/resource_endorsed_event: Resurce goedgekeurd
   activerecord:
     attributes:
       decidim/user:
@@ -46,6 +49,9 @@ nl:
       decidim/amendment:
         one: Amendement
         other: Amendementen
+      decidim/endorsement:
+        one: Aanbeveling
+        other: Aanbevelingen
       decidim/user:
         one: Deelnemer
         other: Deelnemers
@@ -57,6 +63,7 @@ nl:
     'true': 'Ja'
   carrierwave:
     errors:
+      general: Fout bij verwerken afbeelding
       image_too_big: De afbeelding is te groot
   date:
     formats:
@@ -66,6 +73,10 @@ nl:
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
+    accessibility:
+      external_link: Externe link
+      logo: "Logo van %{organization}"
+      skip_button: Ga naar de hoofdinhoud
     account:
       data_portability_export:
         file_no_exists: Bestand bestaat niet
@@ -134,11 +145,16 @@ nl:
         invite: "%{user_name} nodigde de deelnemer %{resource_name} met rol: %{role} uit"
         officialize: "%{user_name} heeft de deelnemer %{resource_name} gevalideerd"
         remove_from_admin: "%{user_name} de deelnemer %{resource_name} met rol: %{role} verwijderd"
+        show_email: "%{user_name} heeft het e-mailadres van de gebruiker %{resource_name} opgehaald"
         unofficialize: "%{user_name} heeft de deelnemer %{resource_name} ingetrokken"
       user_group:
         reject: "%{user_name} heeft de %{resource_name} gebruikersgroepverificatie geweigerd"
         verify: "%{user_name} heeft de %{resource_name} gebruikersgroep geverifieerd"
         verify_via_csv: "%{user_name} heeft de %{resource_name} gebruikersgroep geverifieerd via een CSV-bestand"
+    admin_terms_of_use:
+      default_body: "<h2>ADMIN VOOR GEBRUIK</h2><p>We vertrouwen erop dat u de gebruikelijke les heeft ontvangen van de lokale systeembeheerder. Het komt meestal neer op deze drie zaken:</p><ol><li>de privacy van anderen eerbiedigen.</li><li>Bedenk voordat u klikt.</li><li>Met grote kracht komt een grote verantwoordelijkheid.</li></ol>"
+    alert:
+      dismiss: Negeer notificatie
     amendments:
       accepted:
         error: Er is een fout opgetreden bij het accepteren van het amendement.
@@ -224,6 +240,8 @@ nl:
         documents:
           one: Document
           other: Documenten
+      document:
+        download: Bestand downloaden
       documents:
         related_documents: Gerelateerde documenten
       photos:
@@ -233,6 +251,9 @@ nl:
       comments:
         one: commentaar
         other: commentaren
+      endorsements:
+        one: ondersteuning
+        other: aantekeningen
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Wordt geverifieerd door een paspoortnummer in te voeren dat begint met 'A'
@@ -243,8 +264,11 @@ nl:
       dummy_authorization_handler:
         explanation: Wordt geverifieerd door een documentnummer in te voeren dat eindigt op 'X'
         fields:
+          allowed_postal_codes: Toegestane postcodes (gescheiden door komma's)
+          allowed_scope_id: Toegestane scope
           document_number: Document Nummer
           postal_code: Postcode
+          scope_id: Bereik
         name: Voorbeeld autorisatie
       dummy_authorization_workflow:
         name: Dummy autorisatie workflow
@@ -258,6 +282,7 @@ nl:
           foo: Foo
         name: Foo machtiging
       granted_at: Toegekend op %{timestamp}
+      renew: Vernieuw verificatie
       sms:
         explanation: Dien uw mobiele nummer in, zodat wij uw identiteit kunnen controleren.
         name: Code per sms
@@ -292,6 +317,8 @@ nl:
           explanation_html: Om deze actie uit te voeren moet je geautoriseerd zijn, daarvoor moet je je e-mail bevestigen <strong>%{email}</strong>.
           request_confirmation_instructions: Bevestigingsinstructies aanvragen
           title: bevestig je email
+      show:
+        close_modal: Sluit venster
     collapsible_list:
       hidden_elements_count:
         one: en %{count} meer
@@ -299,6 +326,19 @@ nl:
       see_less: "(bekijk minder)"
       see_more: "(Bekijk meer)"
     components:
+      component_order_selector:
+        no_content: We konden geen inhoud vinden met deze criteria
+        order:
+          all_types: Alle typen
+          collaborative_draft: Samenwerkingsconcept
+          comment: Opmerking
+          debate: Debat
+          initiative: Initiatief
+          meeting: Afspraak
+          post: Plaatsen
+          proposal: Voorstel
+          question: Vraag
+        title: 'Weergave:'
       dummy:
         actions:
           bar: Balk
@@ -308,6 +348,7 @@ nl:
           global:
             amendments_enabled: Wijzigingen toegestaan
             comments_enabled: Reacties ingeschakeld
+            comments_max_length: Commentaar maximale lengte
             dummy_global_attribute_1: Voorbeeld-kenmerk 1
             dummy_global_attribute_2: Voorbeeld-kenmerk 2
             dummy_global_translatable_text: Vertaalbare tekst Dummy
@@ -328,6 +369,9 @@ nl:
         name: Voettekst sub hero banner
       hero:
         name: Hero-afbeelding
+      hero_settings_form:
+        background_image: Achtergrond afbeelding
+        welcome_text: Welkom tekst
       highlighted_content_banner:
         name: Gemarkeerde inhoudsbanner
       how_to_participate:
@@ -423,6 +467,14 @@ nl:
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> wil toegang tot je account"
     endorsable:
       endorsements: Aanbevelingen
+      endorsements_count: Aantal suggesties
+    endorsement_buttons_cell:
+      already_endorsed: Aangekleed
+      endorse: Aanbevelen
+    endorsements:
+      identities:
+        done: Voltooid
+        select_identity: Selecteer identiteit
     errors:
       internal_server_error:
         title: Er was een probleem met de server
@@ -541,8 +593,23 @@ nl:
           email_outro: U heeft deze melding ontvangen omdat u lid was van die groep.
           email_subject: U bent verwijderd uit de %{user_group_name} groep!
           notification_title: Je bent verwijderd uit de <a href="%{resource_path}">%{user_group_name}</a> groep.
+        user_group_created:
+          email_intro: Een nieuwe gebruikersgroep is aangemaakt met de naam %{user_group_name}. Je kunt het nu verifiëren in het <a href="%{groups_admin_url}">beheerderspaneel</a>.
+          email_outro: Je hebt deze melding ontvangen omdat je beheerder bent van het platform.
+          email_subject: Er is een nieuwe gebruikersgroep aangemaakt
+          notification_title: De %{user_group_name} gebruikersgroep is aangemaakt. U kunt het nu verifiëren in het <a href="%{groups_admin_path}">beheerderspaneel</a>.
+        user_group_updated:
+          email_intro: Een gebruikersgroep met de naam %{user_group_name} heeft zijn profiel bijgewerkt, dit is niet geverifieerd. Je kunt het nu verifiëren in het <a href="%{groups_admin_url}">beheerderspaneel</a>.
+          email_outro: Je hebt deze melding ontvangen omdat je beheerder bent van het platform.
+          email_subject: Een gebruikersgroep heeft zijn profiel bijgewerkt
+          notification_title: De gebruikersgroep %{user_group_name} heeft zijn profiel bijgewerkt, het niet geverifieerd. U kunt het nu verifiëren in het beheerderspaneel <a href="%{groups_admin_path}"></a>.
       notification_event:
         notification_title: Er is een gebeurtenis opgetreden bij <a href="%{resource_path}">%{resource_title}</a>.
+      resource_endorsed:
+        email_intro: '%{endorser_name} %{endorser_nickname}, die je volgt, heeft zojuist goedgekeurd "%{resource_title}" en wij denken dat het interessant voor je kan zijn. Bekijk het en draag bij:'
+        email_outro: Je hebt deze melding ontvangen omdat je %{endorser_nickname}volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
+        email_subject: "%{endorser_nickname} heeft een nieuwe bevestiging uitgevoerd"
+        notification_title: De <a href="%{resource_path}">%{resource_title}</a> %{resource_type} is goedgekeurd door <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: De <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), die je volgt, is bijgewerkt.
@@ -574,6 +641,9 @@ nl:
       title: Vingerafdruk
       value: Waarde
     followers:
+      followers_count:
+        one: "%{count} volger"
+        other: "%{count} volgers"
       no_followers: Nog geen volgers.
     following:
       no_followings: Volgt nog niets of niemand.
@@ -594,6 +664,18 @@ nl:
           password: Het wachtwoord is te kort.
           password_confirmation: Wachtwoordbevestiging moet overeenkomen met het wachtwoord.
         error: Er is een fout in dit veld.
+      file_help:
+        file:
+          explanation: 'Begeleiding voor bestand:'
+          message_1: Moet een afbeelding of een document zijn.
+          message_2: Voor afbeeldingen, gebruik bij voorkeur liggende beeldschermen, de service gewassen de afbeelding.
+        image:
+          explanation: 'Begeleiding voor afbeelding:'
+          message_1: Bij voorkeur een landschap afbeelding die geen tekst bevat.
+          message_2: De service is de afbeelding.
+      file_validation:
+        allowed_file_extensions: 'Toegestane bestandsextensies: %{extensions}'
+        max_file_size: 'Maximale bestandsgrootte: %{megabytes}MB'
       remove_this_file: Verwijder dit bestand
     gamification:
       all_badges_link: Zie alle beschikbare badges.
@@ -747,6 +829,13 @@ nl:
           not_found: 'Het scopetype is niet gevonden in de database (ID: %{id})'
     managed_users:
       expired_session: De huidige beheersessie van een deelnemer is verlopen.
+    map:
+      dynamic:
+        screen_reader_explanation: Het volgende element is een kaart die de items op deze pagina presenteert als kaart punten. Het element kan gebruikt worden met een schermlezer maar het kan moeilijk te begrijpen zijn.
+        skip_button: Kaart overslaan
+      static:
+        latlng_text: 'breedte: %{latitude}, lengtegraad: %{longitude}'
+        map_service_brand: OpenStreetMap
     members:
       no_members: Deze groep heeft nog geen leden.
     menu:
@@ -754,27 +843,69 @@ nl:
       home: Home
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          admin_in_group: Je ontvangt dit omdat je een beheerder bent in %{group}.
+          greeting: Hi, %{recipient}!
+          intro: "%{manager} is een nieuw gesprek begonnen in de naam van %{group}. Klik hier om het te zien:"
+          outro: Geniet van decidim!
+          subject: "%{manager} is een nieuw gesprek begonnen als %{group}"
+        comanagers_new_message:
+          admin_in_group: Je ontvangt dit omdat je een beheerder bent in %{group}.
+          greeting: Hi, %{recipient}!
+          intro: "%{manager} heeft nieuwe berichten gepost in een gesprek in de naam van %{group}. Klik hier om ze te bekijken:"
+          outro: Geniet van decidim!
+          subject: "%{manager} heeft nieuwe berichten verzonden als %{group}"
         new_conversation:
           greeting: Hallo, %{recipient}!
           intro: "%{sender} is een nieuw gesprek met je begonnen. Klik hier om het te zien:"
           outro: Geniet van Decidim!
           subject: "%{sender} is een gesprek met je begonnen"
+        new_group_conversation:
+          admin_in_group: Je ontvangt dit omdat je een beheerder bent in %{group}.
+          greeting: Hi, %{recipient}!
+          intro: "%{sender} is een nieuw gesprek begonnen met de groep %{group}. Klik hier om het te zien:"
+          outro: Geniet van decidim!
+          subject: "%{sender} is een gesprek begonnen met %{group}"
+        new_group_message:
+          admin_in_group: Je ontvangt dit omdat je een beheerder bent in %{group}.
+          greeting: Hi, %{recipient}!
+          intro: "%{sender} heeft nieuwe berichten gepost in een gesprek met de groep %{group}. Klik hier om het te zien:"
+          outro: Geniet van decidim!
+          subject: "%{group} heeft nieuwe berichten van %{sender}"
         new_message:
           greeting: Hallo, %{recipient}!
           intro: "%{sender} heeft nieuwe berichten geplaatst in je gesprek. Klik hier om ze te zien:"
           outro: Geniet van Decidim!
           subject: Je hebt nieuwe berichten van %{sender}
       conversations:
+        add_conversation_users:
+          add_max_users: 'Gebruikers toevoegen aan gesprek: maximaal 9 gebruikers'
+          add_users_placeholder: Zoeken...
+          modal_title: Nieuwe conversatie
+          no_results: Geen resultaten gevonden
+          participant_with_disabled_message_reception: Deze gebruiker heeft de berichtontvangst uitgeschakeld
+        conversation:
+          show: Toon gesprek met %{sender}
         create:
           error: Gesprek niet gestart. Probeer het later nogmaals
         index:
+          ago: geleden
           close: Sluit venster
+          from: van
+          groups: Mijn groepen
+          last_message: Laatste bericht
+          new_conversation: Nieuwe conversatie
+          next: Volgende
           no_conversations: Je hebt nog geen gesprekken
           title: conversaties
         reply:
+          placeholder: Jouw antwoord...
           send: Sturen
           title: Beantwoorden
         show:
+          back: Terug naar alle gesprekken
+          chat_with: Gesprek met
+          not_allowed: Deze gebruiker accepteert geen directe berichten meer.
           title: Gesprek met %{usernames}
         start:
           send: Verzenden
@@ -801,6 +932,25 @@ nl:
         note: U ontvangt deze e-mail omdat u bent geabonneerd op nieuwsbrieven van %{organization_name}. U kunt uw instellingen op uw <a href="%{link}">notificatiepagina</a> veranderen.
         see_on_website: Wordt deze e-mail niet correct worden weergegeven? Bekijk hem via deze link <a href="%{link}" target="_blank">website</a>.
         unsubscribe: Om je uit te schrijven, <a href="%{link}" target="_blank" class="unsubscribe">Uitschrijven</a>.
+    newsletter_templates:
+      basic_only_text:
+        body_preview: 'Dummy text for body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Basis (alleen tekst)
+      basic_only_text_settings_form:
+        body: Lichaam
+        interpolations_hint: 'Hint: U kunt "%{name}" overal in het lichaam of onderwerp gebruiken en het wordt vervangen door de naam van de ontvanger.'
+      image_text_cta:
+        body_preview: 'Dummy text for body: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
+        cta_text_preview: Oproep naar actietekst
+        introduction_preview: 'Dummy text for introduction: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Afbeelding, tekst en oproep naar actie knop
+      image_text_cta_settings_form:
+        body: Lichaam
+        cta_text: Oproep naar actie knop tekst
+        cta_url: Oproep naar actie knop URL
+        interpolations_hint: 'Tip: U kunt "%{name}" overal in de introductie, lichaam, CTA-tekst of onderwerp gebruiken en het wordt vervangen door de naam van de ontvanger.'
+        introduction: Introductie
+        main_image: Hoofd afbeelding
     newsletters:
       unsubscribe:
         check_subscription: Als je jouw voorkeuren wil wijzigen, kan je dat doen op de <a href="%{link}" target="_blank">configuratiepagina</a>
@@ -826,6 +976,8 @@ nl:
       no_notifications: Nog geen meldingen.
     notifications_settings:
       show:
+        allow_public_contact: Laat iedereen mij een persoonlijk bericht sturen, zelfs als ik deze niet volgt.
+        direct_messages: Ontvang privéberichten van iedereen
         email_on_notification: Ik wil een e-mail ontvangen telkens als ik een melding krijg.
         everything_followed: Alles wat ik volg
         newsletter_notifications: Ik wil de nieuwsbrief ontvangen
@@ -928,10 +1080,12 @@ nl:
       show:
         activity: Activiteit
         badges: Badges
+        conversations: Gesprekken
         followers: Volgers
         following: Aan het volgen
         groups: Groepen
         members: Leden
+        officialized: Officiële gebruiker
         timeline: Tijdlijn
         view_full_profile: Bekijk volledig profiel
       sidebar:
@@ -957,23 +1111,37 @@ nl:
         report_html: <p>De volgende <a href="%{url}">content</a> is automatisch verborgen.</p>
         subject: Een bron is automatisch verborgen
       report:
+        authors: Auteurs
+        content: Gerapporteerde inhoud
+        date: Gerapporteerd op
+        details: Beschrijving
         hello: Hallo %{name},
         manage_moderations: Beheer moderaties
+        participatory_space: Participatieve ruimte
+        reason: Reden
         report_html: <p>De volgende <a href="%{url}">content</a> is aangemeld.</p>
         subject: Een bron is gemeld
     reports:
       create:
         error: Er is een fout opgetreden tijdens het maken van het rapport. Probeer het alstublieft opnieuw.
         success: Het rapport is gemaakt en het zal worden beoordeeld door een beheerder.
+    resource_endorsements:
+      create:
+        error: Er was een probleem bij de goedkeuringsactie.
     scopes:
       global: Globale scope
       picker:
         cancel: Annuleer
+        change: Wijzig geselecteerde scope
         choose: Selecteer
+        currently_selected: Momenteel geselecteerde scope
         title: Selecteer %{field}
       prompt: Selecteer een scope
       scopes: scopes
+      scopes_picker_input:
+        select_scope: 'Selecteer een bereik (momenteel: %{current})'
     search:
+      results: Zoek resultaten
       results_found_for_term: '%{count} Resultaten voor de zoekopdracht: "%{term}"'
       term_input_placeholder: Zoeken
     searches:
@@ -996,6 +1164,11 @@ nl:
           other: "%{count} resultaten"
         view_all: Bekijk alles (%{count})
     shared:
+      confirm_modal:
+        cancel: annuleren
+        close_modal: Sluit venster
+        ok: Ok
+        title: Bevestigen
       embed_modal:
         close_window: Sluit venster
         embed: Plak deze code alstublieft in uw pagina
@@ -1003,6 +1176,9 @@ nl:
       extended_navigation_bar:
         more: Meer
         unfold: Ontvouwen
+      filter_form_help:
+        help: Het formulier hieronder filtert de zoekresultaten dynamisch wanneer de zoekvoorwaarden worden gewijzigd.
+        skip: Ga naar resultaten
       flag_modal:
         already_reported: Deze inhoud is al gemeld en zal worden beoordeeld door een beheerder.
         close: Sluit
@@ -1013,10 +1189,12 @@ nl:
         spam: Bevat clickbait, reclame, oplichting of script bots.
         title: Meld een probleem
       floating_help:
+        close: Help sluiten
         help: Help
       follow_button:
         sign_in_before_follow: Log alstublieft aan voordat u deze actie uitvoert
       login_modal:
+        close_modal: Sluit venster
         please_sign_in: Log in alstublieft
         sign_up: Registreren
       participatory_space_filters:
@@ -1030,13 +1208,48 @@ nl:
         select_user_group: Selecteer een groep
       results_per_page:
         label: 'Resultaten per pagina:'
+        title: Selecteer het aantal resultaten per pagina
       share_modal:
         close_window: Sluit venster
         share: Deel
         share_link: Link delen
+    tags:
+      filter_results_for_category: 'Resultaten filteren voor categorie: %{resource}'
+      filter_results_for_scope: 'Filter resultaten voor bereik: %{resource}'
     user_activity:
       index:
         no_activities_warning: Deze deelnemer heeft nog geen activiteit gehad.
+    user_contact_disabled: Deze gebruiker accepteert geen directe berichten.
+    user_conversations:
+      create:
+        error: Het bericht kon niet worden aangemaakt. Probeer het later opnieuw
+        existing_error: Het bericht kon niet worden aangemaakt. Het gesprek bestaat al, probeer het nu opnieuw.
+        success: Gesprek is succesvol gestart!
+      index:
+        add_max_users: 'Gebruikers toevoegen aan gesprek: maximaal 9 gebruikers'
+        add_users_placeholder: Zoeken...
+        close: Afsluiten
+        conversations_info: Gesprekken zijn privé. Niemand anders kan ze zien. Een gesprek kan worden gestart met elke geregistreerde deelnemer of groep op het platform.
+        from: van
+        last_message: Laatste bericht
+        modal_title: Nieuwe conversatie
+        new_conversation: Nieuwe conversatie
+        next: Volgende
+        no_conversations_warning: Er zijn nog geen gesprekken.
+        no_results: Geen resultaten gevonden
+        participant_with_disabled_message_reception: Deze gebruiker heeft de berichtontvangst uitgeschakeld
+        time_ago: "%{time} geleden"
+      new:
+        title: Gesprek starten
+      reply:
+        placeholder: Jouw antwoord...
+        send: Verzenden
+        title_reply: Beantwoorden
+      show:
+        not_allowed: Deze gebruiker accepteert geen directe berichten meer.
+        title: Gesprek met %{usernames}
+      update:
+        error: Bericht niet verzonden. Probeer het later opnieuw
     user_interests:
       show:
         my_interests: Mijn interesses
@@ -1046,9 +1259,32 @@ nl:
       update:
         error: Er is een fout opgetreden bij het bijwerken van uw interesses.
         success: Uw interesses zijn succesvol bijgewerkt.
+    version:
+      show:
+        back_to_resource: Ga terug
+        changes_at_title: Veranderingen op "%{title}"
+        number_of_versions: versies
+        show_all_versions: Toon alle versies
+        version_author: Versie auteur
+        version_created_at: Versie gemaakt op
+        version_number: Versie nummer
+        version_number_out_of_total: "%{current_version} van de %{total_count}"
     version_author:
       show:
         deleted: Verwijderde deelnemer
+    versions:
+      resource_version:
+        of_versions: "(van %{number})"
+        version: Versienummer %{number}
+    versions_list:
+      show:
+        back_to_resource: Ga terug
+        changes_at_title: Veranderingen op "%{title}"
+        number_of_versions: versies
+        title: versies
+    versions_list_item:
+      show:
+        version_index: Versie %{index}
     welcome_notification:
       default_body: <p>Hi {{name}}, bedankt om lid te worden van {{organization}} en welkom!</p><ul><li>Als u snel een idee wilt krijgen van wat u hier kunt doen, bekijk dan het gedeelte <a href="{{help_url}}">Help</a>.</li><li>Zodra u het heeft gelezen, krijgt u uw eerste badge. Hier is een <a href="{{badges_url}}">lijst van alle badges</a> die je kunt krijgen als je deelneemt {{organization}}</li><li>Last but not least, voeg je bij andere mensen, deel met hen de ervaring van betrokkenheid en deelname aan {{organization}}. Doe voorstellen, reageer, debatteer, denk na over hoe je een bijdrage kunt leveren aan het algemeen belang, lever argumenten aan om te overtuigen, luister en lees om overtuigd te worden, vertel je ideeën op een concrete en directe manier, reageer met geduld en vastbeslotenheid, verdedig je ideeën en houd een open geest om samen te werken en zich aan te sluiten bij de ideeën van andere mensen.</li></ul>
       default_subject: Bedankt dat je lid bent geworden van {{organization}}!
@@ -1224,7 +1460,13 @@ nl:
       too_much_caps: gebruikt te veel hoofdletters (meer dan 25% van de tekst)
       too_short: is te kort (minder dan 15 tekens)
   forms:
+    correct_errors: Er zijn fouten in het formulier, corrigeer ze om door te gaan.
+    length_validator:
+      minimum:
+        one: ten minste %{count} tekens
+        other: ten minste %{count} tekens
     required: Vereist
+    required_explanation: "* Verplichte velden zijn gemarkeerd met een sterretje"
   invisible_captcha:
     sentence_for_humans: Als u een mens bent negeert u dit veld
     timestamp_error_message: Sorry, dat was te snel! Gelieve opnieuw in te dienen.
@@ -1237,6 +1479,8 @@ nl:
       edit_link:
         edit: Bewerk
       footer:
+        cc_by_license: Creative Commons-licentie
+        decidim_logo: Logo Decidimmen
         download_open_data: Download Open Data-bestanden
         made_with_open_source: Website is gemaakt met <a target="_blank" href="https://github.com/decidim/decidim"> open-source software</a>.
       header:
@@ -1248,9 +1492,19 @@ nl:
         close_session: Sluit sessie
         description_html: U beheert de gebruiker <b>%{user_name}</b>.
         expire_time_html: Uw sessie vervalt in <b><span class="minutes">%{minutes}</span> minuten</b>.
+      language_chooser:
+        choose_language: Taal kiezen
       notifications_dashboard:
         mark_all_as_read: Alles als gelezen markeren
+        mark_as_read: Markeren als gelezen
+      social_media_links:
+        facebook: "%{organization} op Facebook"
+        github: "%{organization} op GitHub"
+        instagram: "%{organization} op Instagram"
+        twitter: "%{organization} op Twitter"
+        youtube: "%{organization} op YouTube"
       user_menu:
+        account: 'Gebruikersaccount: %{name}'
         admin_dashboard: Admin
         conversations: conversaties
         notifications: Meldingen
@@ -1317,6 +1571,7 @@ nl:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%B %d, %Y %H:%M"
+      long_dashed: "%Y-%m-%d %H:%M:%S"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
@@ -1326,12 +1581,20 @@ nl:
     dropdown:
       choose_diff_view_html: 'HTML weergavemodus:'
       choose_diff_view_mode: 'Vergelijk weergavemodus:'
+      option_escaped: Ongescand
       option_split: Naast elkaar
+      option_unescaped: Onontsnapt
       option_unified: Verenigd
   views:
     pagination:
       first: "&laquo; Eerste"
+      first_title: Link naar de eerste pagina
       last: Laatste &raquo;
+      last_title: Link naar de laatste pagina
       next: Volgende &rsaquo;
+      next_title: Link naar de volgende pagina
+      pagination: Paginering
       previous: "&lsaquo; Vorige"
+      previous_title: Link naar de vorige pagina
+      title: 'Pagina nummer: '
       truncate: "&hellip;"

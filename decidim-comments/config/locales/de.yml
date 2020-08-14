@@ -17,6 +17,7 @@ de:
   decidim:
     comments:
       comments: Bemerkungen
+      comments_count: Kommentaranzahl
       last_activity:
         new_comment_at_html: "<span>Neuer Kommentar unter %{link}</span>"
       votes:
@@ -43,6 +44,7 @@ de:
           against: Gegen
           in_favor: Zugunsten
         deleted_user: Gelöschter Benutzer
+        hide_replies: Antworten ausblenden
         reply: Antworten
         report:
           action: Bericht
@@ -54,6 +56,9 @@ de:
             does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name}.
             offensive: Enthält Rassismus, Sexismus, Verunglimpfungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder jede Form von Hassreden.
             spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
+          title: Ungeeigneten Inhalt melden
+        show_replies: '%{replies_count} Antworten anzeigen'
+        single_comment_link_title: Verknüpfung zu einzelnem Kommentar erhalten
       comment_order_selector:
         order:
           best_rated: Am besten bewertet
@@ -66,8 +71,15 @@ de:
       comments:
         blocked_comments_for_user_warning: Sie können momentan nichts kommentieren, aber Sie können die vorherigen lesen.
         blocked_comments_warning: Kommentare sind zu diesem Zeitpunkt deaktiviert, aber Sie können die vorherigen lesen.
+        comment_details_title: Kommentarinformationen
         loading: Kommentare werden geladen ...
+        single_comment_warning: Sie können die restlichen Kommentare <a href="%{url}">hier</a> prüfen.
+        single_comment_warning_title: Ihnen wird ein einzelner Kommentar angezeigt
         title: "%{count} Kommentare"
+      down_vote_button:
+        text: Ich bin mit diesem Kommentar nicht einverstanden
+      up_vote_button:
+        text: Ich stimme diesem Kommentar zu
     events:
       comments:
         comment_by_followed_user:
@@ -76,6 +88,8 @@ de:
           email_subject: Es gibt einen neuen Kommentar von %{author_name} in %{resource_title}
           notification_title: Es gibt einen neuen Kommentar von <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>.
         comment_by_followed_user_group:
+          email_intro: 'Die Gruppe %{author_name} hat einen Kommentar in %{resource_title} hinterlassen. Sie können es auf dieser Seite lesen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_name} folgen. Sie können diese Gruppe von ihrer Profilseite aus deabonnieren.
           email_subject: Es gibt einen neuen Kommentar von %{author_name} in %{resource_title}
           notification_title: Es gibt einen neuen Kommentar von <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
@@ -88,6 +102,11 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihr Kommentar beantwortet wurde.
           email_subject: "%{author_name} hat Ihren Kommentar in %{resource_title}geantwortet"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat Ihren Kommentar in <a href="%{resource_path}">%{resource_title}</a>geantwortet
+        user_group_mentioned:
+          email_intro: Eine Ihrer Gruppen wurde erwähnt
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Mitglied der Gruppe %{group_name} sind, die in %{resource_title} erwähnt wurde.
+          email_subject: Sie wurden in %{resource_title} als Mitglied von %{group_name} erwähnt
+          notification_title: Sie wurden in <a href="%{resource_path}">%{resource_title}</a> von <a href="%{author_path}">%{author_name} %{author_nickname}</a> als ein Mitglied von <a href="%{group_path}">%{group_name} %{group_nickname}</a> erwähnt
         user_mentioned:
           email_intro: Du wurdest erwähnt
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie in %{resource_title}.

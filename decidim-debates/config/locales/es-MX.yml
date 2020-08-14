@@ -104,6 +104,7 @@ es-MX:
           title: Nuevo debate
         show:
           back: Volver al listado
+          date: Fecha
           edit_debate: Editar debate
         update:
           invalid: Se ha producido un error al actualizar este debate.

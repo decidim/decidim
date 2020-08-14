@@ -26,6 +26,18 @@ pl:
   decidim:
     admin:
       menu:
+        authorization_revocation:
+          before_date_info: Przydatne, jeśli proces już się rozpoczął i chcesz cofnąć uprawnienia poprzedniego procesu.
+          button: Cofnij wszystkie
+          button_before: Cofnij uprawnienia nadane przed datą
+          destroy:
+            confirm: Wycofania uprawnień nadanych przed datą nie można cofnąć. Na pewno chcesz kontynuować?
+            confirm_all: Wycofania wszystkich uprawnień nie można cofnąć. Na pewno chcesz kontynuować?
+          destroy_nok: Wystąpił problem podczas cofania uprawnień.
+          destroy_ok: Pomyślnie cofnięto wszystkie uprawnienia spełniające kryteria!
+          info: 'Całkowita liczba zweryfikowanych uczestników: %{count}.'
+          no_data: Brak zweryfikowanych uczestników
+          title: Cofnięcie weryfikacji
         authorization_workflows: Weryfikacje
     admin_log:
       organization:
@@ -65,10 +77,16 @@ pl:
         name: Kod listem pocztowym
     verifications:
       authorizations:
+        authorization_metadata:
+          info: 'Oto dane z aktualnej weryfikacji:'
+          no_data_stored: Brak danych.
         create:
           error: Wystąpił błąd podczas tworzenia autoryzacji.
           success: Pomyślnie autoryzowano.
           unconfirmed: Aby się autoryzować, musisz potwierdzić swój adres e-mail.
+        destroy:
+          error: Wystąpił błąd podczas usuwania uprawnień.
+          success: Udało się usunąć uprawnienia.
         first_login:
           actions:
             another_dummy_authorization_handler: Sprawdź na przykładzie innego przykładu procedury obsługi autoryzacji
@@ -77,13 +95,23 @@ pl:
             dummy_authorization_workflow: Sprawdź w przykładowym przepływie pracy autoryzacji
             id_documents: Uzyskaj weryfikację, przesyłając swój dokument tożsamości
             postal_letter: Uzyskaj weryfikację, otrzymując kod weryfikacyjny za pośrednictwem poczty
+            sms: Uzyskaj weryfikację za pomocą SMS-a z kodem weryfikacyjnym
           title: Zweryfikować Twoją tożsamość
           verify_with_these_options: 'Oto dostępne opcje weryfikacji tożsamości:'
+        index:
+          expired_verification: Weryfikacja wygasła
+          pending_verification: Oczekująca weryfikacja
+          show_renew_info: Kliknij, aby przedłużyć weryfikację
+          unauthorized_verification: Nowa weryfikacja
         new:
           authorize: Wysłać
           authorize_with: Zweryfikuj przy pomocy %{authorizer}
         renew_modal:
           cancel: Anuluj
+          close: zamknij
+          continue: Dalej
+          info_renew: Jeśli chcesz zaktualizować dane, kontynuuj przedłużanie
+          title: Przedłuż weryfikację
         skip_verification: Możesz teraz pominąć to i %{link}
         start_exploring: zacznij odkrywać
       csv_census:
@@ -106,6 +134,7 @@ pl:
             title: Musisz aktywować spis csv dla tej organizacji
           new:
             file: "Plik .csv z danymi e-maili"
+            info: 'Musi to być plik w formacie CSV zawierający tylko jedną kolumnę z adresem e-mail:'
             submit: Przesyłanie pliku
             title: Prześlij nowy spis ludności
         authorizations:
@@ -119,6 +148,7 @@ pl:
             few: 'Udział jest ograniczony do użytkowników, którzy mają jeden z następujących kodów pocztowych: %{postal_codes}.'
             many: 'Udział jest ograniczony do użytkowników posiadających jeden z następujących kodów pocztowych: %{postal_codes}.'
             other: 'Udział jest ograniczony do użytkowników, którzy mają jeden z następujących kodów pocztowych: %{postal_codes}.'
+          scope: Uczestnictwo jest ograniczone do uczestników o zakresie %{scope_name}.
       id_documents:
         admin:
           config:

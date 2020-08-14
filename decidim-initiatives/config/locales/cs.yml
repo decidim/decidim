@@ -79,20 +79,22 @@ cs:
       actions:
         new_initiative_type: Nový typ iniciativy
       filters:
-        decidim_area_id_eq:
-          label: Oblast
+        initiatives:
+          decidim_area_id_eq:
+            label: Oblast
+          state_eq:
+            label: Stav
+            values:
+              accepted: Dostatek podpisů
+              created: Vytvořeno
+              discarded: Vyřazeno
+              published: Publikováno
+              rejected: Nedostatek podpisů
+              validating: Technické ověření
+          type_id_eq:
+            label: Typ
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Hledat %{collection} podle názvu, popisu, ID nebo jména autora.
-        state_eq:
-          values:
-            accepted: Dostatek podpisů
-            created: Vytvořeno
-            discarded: Vyřazeno
-            published: Publikováno
-            rejected: Nedostatek podpisů
-            validating: Technická validace
-        type_id_eq:
-          label: Typ
       menu:
         initiatives: Iniciativy
         initiatives_types: Typy iniciativ
@@ -428,6 +430,14 @@ cs:
           unfold: Rozvinout
         index_header:
           new_initiative: Nová iniciativa
+          not_authorized:
+            authorizations_page: Zobrazit autorizace
+            close: Zavřít
+            explanation: Musíte být ověřen, abyste mohli vytvořit novou iniciativu.
+            title: Vyžadována autorizace
+        initiatives:
+          closed_initiatives_warning: V současné době neexistují žádné otevřené iniciativy, ale zde najdete všechny uzavřené iniciativy uvedené v seznamu.
+          no_initiatives_warning: Žádná iniciativa neodpovídá vašim kritériím vyhledávání.
         interactions:
           comments_count:
             count:

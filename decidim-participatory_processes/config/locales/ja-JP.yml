@@ -270,6 +270,7 @@ ja:
           email_intro: あなたは参加者プロセス「 %{role} 」の%{resource_title}として割り当てられています。
           email_outro: あなたは " %{role} " の参加プロセスの%{resource_title}であるため、この通知を受け取りました。
           email_subject: あなたは " %{role} " の%{resource_title} として割り当てられました。
+          notification_title: あなたは参加プロセス<a href="%{resource_url}">%{resource_title}</a> に、%{role} として割り当てられました。
         step_activated:
           email_intro: '%{resource_title} フェーズが %{participatory_space_title}に有効になりました。このページから確認できます:'
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
@@ -283,6 +284,8 @@ ja:
     help:
       participatory_spaces:
         participatory_processes:
+          contextual: "<p> <strong>参加プロセス</strong>とは、特定のトピックを定義し、決定することを目的とした一連の参加型活動(例えば、最初にアンケートに記入し、次に提案を行い、対面または仮想会議で議論し、最終的に優先順位をつける)のことです。 </p> <p>参加型プロセスの例としては、委員会メンバーの選出プロセス(最初に立候補者が提示され、議論され、最終的に立候補者が選ばれる)、参加型予算(提案がなされ、経済的に評価され、利用可能な資金で投票される)、戦略的計画プロセス、規制や規範の共同起草、都市空間の設計、公共政策計画の作成などが挙げられます。</p>\n"
+          page: "<p> <strong>参加プロセス</strong>とは、特定のトピックを定義し、決定することを目的とした一連の参加型活動(例えば、最初にアンケートに記入し、次に提案を行い、対面または仮想会議で議論し、最終的に優先順位をつける)のことです。 </p> <p>参加型プロセスの例としては、委員会メンバーの選出プロセス(最初に立候補者が提示され、議論され、最終的に立候補者が選ばれる)、参加型予算(提案がなされ、経済的に評価され、利用可能な資金で投票される)、戦略的計画プロセス、規制や規範の共同起草、都市空間の設計、公共政策計画の作成などが挙げられます。</p>\n"
           title: 参加プロセスとは何ですか?
     menu:
       processes: プロセス
@@ -348,7 +351,11 @@ ja:
             active_step: アクティブフェーズ
             more_information: 詳細情報
             participate: 参加
+            participate_in: プロセス %{resource_name} に参加する
             see_all_processes: すべてのプロセスを見る
+      participatory_process_steps:
+        index:
+          back_to_process: プロセスのページに戻る
       participatory_processes:
         filters:
           counters:
@@ -374,6 +381,7 @@ ja:
           loading: 結果を読み込み中...
       show:
         area: エリア
+        dates: 日付
         developer_group: プロモーターグループ
         end_date: 終了日
         local_area: 組織エリア
@@ -409,6 +417,7 @@ ja:
       participatory_process_groups:
         participatory_process_group:
           browse: 検索
+          browse_resource: プロセスグループ %{resource_name} を参照
           processes_count: 'プロセス:'
       participatory_process_widgets:
         show:
@@ -420,12 +429,17 @@ ja:
         participatory_process:
           active_step: '現在のフェーズ:'
           more_info: 詳細情報
+          more_info_about: プロセス %{resource_name} についての詳細情報
           take_part: 参加する
+          take_part_in: プロセス %{resource_name} に参加する
         promoted_process:
           active_step: '現在のフェーズ:'
           more_info: 詳細情報
+          more_info_about: プロセス %{resource_name} についての詳細情報
           take_part: 参加する
+          take_part_in: プロセス %{resource_name} に参加する
       process_header_steps:
         step: 段階 %{current} / %{total}
+        view_steps: プロセスフェーズ
       process_navigation:
         process_menu_item: プロセス

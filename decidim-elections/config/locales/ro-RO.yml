@@ -39,6 +39,8 @@ ro:
   decidim:
     components:
       elections:
+        actions:
+          vote: Votează
         name: Alegeri
         settings:
           global:
@@ -52,9 +54,12 @@ ro:
         edit: Editare
         edit_answers: Editare răspunsuri
         edit_questions: Editare întrebări
+        import: Importă propunerile pentru răspunsuri
         new: '%{name} nou'
         preview: Previzualizare
+        publish: Publică
         title: Acțiuni
+        unpublish: De-publicare
       admin:
         answers:
           create:
@@ -89,6 +94,10 @@ ro:
           new:
             create: Creați alegeri
             title: Alegeri noi
+          publish:
+            success: Alegerile au fost publicate cu succes.
+          unpublish:
+            success: Alegerile au fost anulate cu succes.
           update:
             invalid: A apărut o eroare la actualizarea acestei alegeri
             success: Alegerile au fost actualizate
@@ -99,6 +108,14 @@ ro:
             name: Alegeri
           question:
             name: Întrebare
+        proposals_imports:
+          create:
+            invalid: A apărut o problemă la importarea propunerilor în răspunsuri
+            success: "%{number} propuneri importate cu succes în răspunsuri"
+          new:
+            create: Importă propunerile pentru răspunsuri
+            no_components: Nu există alte componente de propunere în acest spațiu participativ pentru a se obține răspunsuri la propuneri.
+            select_component: Vă rugăm să selectaţi o componentă
         questions:
           create:
             invalid: A apărut o problemă la crearea acestei întrebări
@@ -117,6 +134,27 @@ ro:
           update:
             invalid: A apărut o eroare la actualizarea acestei întrebări
             success: Întrebare actualizată cu succes
+      admin_log:
+        election:
+          publish: "%{user_name} a publicat alegerile pentru %{resource_name}"
+          unpublish: "%{user_name} nepublicat alegerea %{resource_name}"
+      election_m:
+        footer:
+          take_part: Participă
+      elections:
+        count:
+          elections_count:
+            one: "%{count} alegeri"
+            few: "%{count} alegeri"
+            other: "%{count} alegeri"
+        show:
+          back: Toate alegerile
+          preview: Previzualizare
+          vote: Votează
+          voting_period_status:
+            finished: Votarea a început la %{start_time} și s-a încheiat la %{end_time}
+            ongoing: Votarea se termină la %{end_time}
+            upcoming: Votarea începe la %{start_time}
       models:
         answer:
           fields:
@@ -132,6 +170,55 @@ ro:
             answers: Răspunsuri
             max_selections: Selecții maxime
             title: Titlu
+      votes:
+        confirm:
+          answer: Răspuns
+          answer_number: răspunde la %{number}
+          confirm: Confirmare
+          edit: editează
+          header: Confirmă votul tău
+          intro: Iată un rezumat al votului pe care urmează să îl exprimați. <br> Vă rugăm să confirmați votul sau să editați răspunsurile.
+          question: Întrebarea %{count}
+        confirmed:
+          back: Înapoi la alegeri
+          experience: Cum a fost experiența ta?
+          feedback: Oferă-ne un feedback
+          header: Votare confirmată
+          lead: Votul tău a fost deja exprimat!
+          text: 'Poți verifica dacă votul tău a fost adăugat cu succes în urna de vot cu următorul identificator: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Pentru a verifica, copiați identificatorul și lipiți-l pe pagina <a href="evote-verify">pentru verificarea votului</a>
+        encrypting:
+          header: Codificarea votului...
+          text: Votul tău este criptat pentru a te asigura că îl poți trimite anonim.
+        header:
+          confirm: Confirmă votul tău
+          confirmed: Votare confirmată
+          encrypting: Confirmarea votului
+        messages:
+          not_allowed: Nu aveţi voie să votaţi asupra acestor alegeri în acest moment.
+        modal:
+          close: Inchide
+          proposal_header: 'Propuneri:'
+        new:
+          answer_choices: Poți selecta până la %{choices} răspunsuri sau nimic
+          more_information: Mai multe informații
+          preview_alert: Aceasta este o previzualizare a cabinei de votare.
+          question_steps: Întrebarea %{current_step} din %{total_steps}
+          selections: "%{selected} din %{max_selections}<br> selecții"
+        voting_step:
+          back: Înapoi
+          continue: Următoarea
+    events:
+      elections:
+        election_published:
+          email_intro: 'Alegerea %{resource_title} este acum activă pentru %{participatory_space_title}. O poți vedea de pe această pagină:'
+          email_outro: Ați primit această notificare deoarece urmăriți %{participatory_space_title}. Puteți înceta să primiți notificări urmând linkul anterior.
+          email_subject: Alegerea %{resource_title} este acum activă pentru %{participatory_space_title}.
+          notification_title: Alegerile <a href="%{resource_path}">%{resource_title}</a> sunt acum active pentru %{participatory_space_title}.
     participatory_processes:
       statistics:
         elections_count: Alegeri
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Ieșire

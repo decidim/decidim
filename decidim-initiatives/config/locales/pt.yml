@@ -73,20 +73,8 @@ pt:
       actions:
         new_initiative_type: Novo tipo de iniciativa
       filters:
-        decidim_area_id_eq:
-          label: Área
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Pesquisar %{collection} por título, descrição, ID ou nome do autor.
-        state_eq:
-          values:
-            accepted: Assinaturas suficientes
-            created: Criado
-            discarded: Descartado
-            published: Publicado
-            rejected: Assinaturas insuficientes
-            validating: Validação técnica
-        type_id_eq:
-          label: Tipo
       menu:
         initiatives: Iniciativas
         initiatives_types: Tipos de iniciativa
@@ -418,6 +406,11 @@ pt:
           unfold: Desdobrar
         index_header:
           new_initiative: Nova iniciativa
+          not_authorized:
+            authorizations_page: Ver autorizações
+            close: FECHAR
+            explanation: Você precisa ser verificado para criar uma nova iniciativa.
+            title: Autorização necessária
         interactions:
           comments_count:
             count:

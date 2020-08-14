@@ -35,6 +35,7 @@ nl:
         confirm_destroy: Weet u zeker dat u deze %{name} wilt verwijderen?
         destroy: Verwijder
         edit: Bewerk
+        import_csv: Importeer CSV
         new: Nieuw %{name}
         preview: Voorbeeld
         timeline_entries: Project evolutie
@@ -42,6 +43,14 @@ nl:
       admin:
         exports:
           results: Resultaten
+        import_results:
+          new:
+            import: Importeren
+            link: koppeling
+            title: Importeer resultaten van CSV
+        imports:
+          create:
+            success: Het bestand is begonnen met importeren. U ontvangt binnen enkele minuten een e-mail met het resultaat van de import
         models:
           result:
             name: Resultaat
@@ -111,6 +120,13 @@ nl:
         value_types:
           parent_presenter:
             not_found: 'Het bovenliggende element is niet gevonden in de database (ID: %{id})'
+      import_mailer:
+        import:
+          errors: Foutmeldingen
+          errors_present: Er is een probleem opgetreden bij het importeren van de resultaten
+          row_number: Rij
+          subject: Resultaten importeren geslaagd
+          success: Resultaten importeren geslaagd. U kunt de resultaten bekijken via de administratie interface.
       last_activity:
         new_result_at_html: "<span>Nieuw resultaat op %{link}</span>"
       models:
@@ -168,6 +184,7 @@ nl:
           global:
             categories_label: Naam voor "Categorieën"
             comments_enabled: Reacties ingeschakeld
+            comments_max_length: Commentaar maximale lengte (laat 0 voor standaard waarde)
             display_progress_enabled: Geef de voortgang weer
             heading_leaf_level_results: Naam voor "Projecten"
             heading_parent_level_results: Naam voor "Resultaten"
@@ -196,6 +213,9 @@ nl:
       participatory_process_groups:
         highlighted_results:
           results: Resultaten
+    participatory_spaces:
+      highlighted_results:
+        see_all: Alle resultaten bekijken (%{count})
     resource_links:
       included_projects:
         result_project: Projecten opgenomen in dit resultaat

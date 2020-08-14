@@ -17,3 +17,61 @@
         proposals_imports:
           create:
             invalid: Det oppstod et problem under importen av forslag til svar
+      election_m:
+        footer:
+          take_part: Delta
+      elections:
+        count:
+          elections_count:
+            one: "%{count} valg"
+            other: "%{count} valg"
+        show:
+          back: Alle valg
+          preview: Forhåndsvisning
+          vote: Stem
+          voting_period_status:
+            finished: Stemmegivningen startet %{start_time} og opphørte %{end_time}
+            ongoing: Avstemmingen avsluttes %{end_time}
+            upcoming: Avstemming begynner %{start_time}
+      votes:
+        confirm:
+          answer: Svar
+          answer_number: svar %{number}
+          confirm: Bekreft
+          edit: rediger
+          header: Bekreft stemmen din
+          intro: Her er et sammendrag av stemmen du er i ferd med å avgi. <br> Bekreft stemmen din eller rediger svarene dine.
+          question: Spørsmål %{count}
+        confirmed:
+          back: Tilbake til valg
+          experience: Hvordan var opplevelsen din?
+          feedback: Gi oss en tilbakemelding
+          header: Avstemning bekreftet
+          lead: Din stemme har allerede blitt avgitt!
+          text: 'Du kan sjekke at stemmen din har blitt lagt til i stemmeboksen med følgende identifikator: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: For å sjekke dette, kopier identifikatoren og lim den inn på <a href="evote-verify">kontrollsiden</a>
+        encrypting:
+          header: Krypterer stemme...
+          text: Stemmen din krypteres for å sikre at du kan avgi den anonymt.
+        header:
+          confirm: Bekreft stemmen din
+          confirmed: Avstemning bekreftet
+          encrypting: Bekrefter stemme
+        messages:
+          not_allowed: Du har ikke lov til å stemme på dette valget for øyeblikket.
+        modal:
+          close: Lukk
+          proposal_header: 'Forslag:'
+        new:
+          answer_choices: Du kan velge opptil %{choices} svar eller ingen
+          more_information: Mer informasjon
+          preview_alert: Dette er en forhåndsvisning av stemmebåsen.
+          question_steps: Spørsmål %{current_step} av %{total_steps}
+          selections: "%{selected} av %{max_selections}<br> valg"
+        voting_step:
+          back: Tilbake
+          continue: Neste
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Avslutt

@@ -50,6 +50,8 @@ pl:
             title: tytuł
       posts:
         show:
+          back: Powrót do listy
+          comments: Komentarze
           view: Widok
         sidebar_blog:
           comments: komentarze
@@ -62,9 +64,12 @@ pl:
           global:
             announcement: Ogłoszenie
             comments_enabled: Komentarze włączone
+            comments_max_length: Maksymalna długość komentarzy (Pozostaw 0 dla wartości domyślnej)
           step:
             announcement: Ogłoszenie
             comments_blocked: Komentarze zablokowane
+            endorsements_blocked: Możliwość poparcia zablokowana
+            endorsements_enabled: Popieranie włączone
     events:
       blogs:
         post_created:

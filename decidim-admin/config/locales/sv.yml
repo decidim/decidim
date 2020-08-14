@@ -13,6 +13,7 @@ sv:
         attachment_collection_id: Mapp
         description: Beskrivning
         file: Fil
+        title: Bilaga eller bildnamn
       attachment_collection:
         description: Beskrivning
         name: Namn
@@ -38,6 +39,7 @@ sv:
         address: SMTP-värdnamn
         alert_color: Larm
         badges_enabled: Aktivera märken
+        comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
         cta_button_path: Uppmaningens knappsökväg
         cta_button_text: Uppmaningens knapptext
         customize_welcome_notification: Anpassa välkomstmeddelande
@@ -49,6 +51,8 @@ sv:
         from: Från e-postadress
         github_handler: GitHub-hanterare
         header_snippets: Rubriksnuttar
+        highlight_alternative_color: Markera alternativ
+        highlight_color: Markera
         highlighted_content_banner_action_subtitle: Undertitel för Åtgärdsknapp
         highlighted_content_banner_action_title: Titel för Åtgärdsknapp
         highlighted_content_banner_action_url: URL för åtgärdsknapp
@@ -291,6 +295,11 @@ sv:
           welcome: Välkommen till Decidims administratörspanel.
       exports:
         export_as: "%{name} som %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
         notice: Exporten pågår just nu. Du får ett e-brev när den är klar.
       filters:
         category_id_eq:
@@ -317,6 +326,8 @@ sv:
         search_placeholder:
           name_or_nickname_or_email_cont: Sök i %{collection} efter e-post, namn eller smeknamn.
           title_cont: Sök %{collection} efter titel.
+        state_eq:
+          label: Län
       help_sections:
         error: Det gick inte att uppdatera hjälpavsnitten
         form:
@@ -579,6 +590,7 @@ sv:
           officialize: Gör officiell
           title: Gör deltagaren "%{name}" officiell
         show_email_modal:
+          close_modal: Stäng modal
           description: Om du behöver kontakta en deltagare direkt kan du klicka på Visa för att se e-postadressen. Denna åtgärd kommer att loggas.
           email_address: E-postadress
           full_name: Fullständigt namn
@@ -614,6 +626,7 @@ sv:
           homepage_highlighted_content_banner_title: Banner för uppmärksammat innehåll
           images:
             layout_appearance_title: Redigera layoutens utseende
+            preview: Förhandsgranska
           omnipresent_banner_appearance_title: Redigera banner på alla sidor
       organization_homepage:
         edit:
@@ -680,6 +693,11 @@ sv:
         update:
           error: Det gick inte att uppdatera omfånget.
           success: Omfattningen har uppdaterats
+      shared:
+        gallery:
+          add_images: Lägg till bilder
+          delete_image: Ta bort bild
+          gallery_legend: Lägg till ett bildgalleri (valfritt)
       static_page_topics:
         create:
           error: Det gick inte att skapa ett nytt ämne.
@@ -736,6 +754,7 @@ sv:
         scope_types: Omfattningstyper
         scopes: Omfattningar
         static_pages: Sidor
+        statistics: Aktivitet
         user_groups: Grupper
         users: Deltagare
       user_group:
@@ -784,6 +803,10 @@ sv:
       users_statistics:
         users_count:
           admins: Administratörer
+          last_day: Sista dagen
+          last_month: Förra månaden
+          last_week: Förra veckan
+          no_users_count_statistics_yet: Det finns ingen statistik för användare än
           participants: Deltagare
       view_public_page: Visa offentlig sida
     forms:

@@ -87,23 +87,33 @@ cs:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Typ
-          values:
-            'false': Návrhy
-            'true': Změny
+        proposals:
+          category_id_eq:
+            label: Kategorie
+          is_emendation_true:
+            label: Typ
+            values:
+              'false': Návrhy
+              'true': Pozměňovací návrhy
+          scope_id_eq:
+            label: Oblast působnosti
+          state_eq:
+            label: Stav
+            values:
+              accepted: Přijato
+              evaluating: Hodnocení
+              published: Publikováno
+              rejected: Zamítnuto
+              validating: Technické ověření
+              withdrawn: Odebráno
+          state_null:
+            label: Stav
+            values:
+              'true': Nezodpovězeno
+          valuator_role_ids_has:
+            label: Přiřazeno k hodnotiteli
         search_placeholder:
           id_string_or_title_cont: Hledat %{collection} podle ID nebo názvu.
-        state_eq:
-          values:
-            evaluating: Hodnocení
-            withdrawn: Staženo
-        state_null:
-          label: Stát
-          values:
-            'true': Nezodpovězeno
-        valuator_role_ids_has:
-          label: Přiřazeno k hodnotiteli
     components:
       proposals:
         actions:

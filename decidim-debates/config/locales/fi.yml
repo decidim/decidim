@@ -3,6 +3,8 @@ fi:
     attributes:
       debate:
         category_id: Aihepiiri
+        closed_at: Sulkeutumisaika
+        conclusions: Johtopäätökset
         decidim_category_id: Aihepiiri
         description: Kuvaus
         end_time: Päättymisaika
@@ -12,6 +14,7 @@ fi:
         title: Otsikko
         user_group_id: Luo keskustelu käyttäjänä
     models:
+      decidim/debates/close_debate_event: Keskustelu suljettu
       decidim/debates/create_debate_event: Keskustelu
       decidim/debates/creation_disabled_event: Keskustelut poistettu käytöstä
       decidim/debates/creation_enabled_event: Keskustelut käytössä
@@ -37,12 +40,17 @@ fi:
             creation_enabled: Keskustelujen luominen käyttäjien toimesta käytössä
     debates:
       actions:
+        close: Sulje
         confirm_destroy: Oletko varma?
         destroy: Poista
         edit: Muokkaa
         new: Uusi %{name}
         title: Toiminnot
       admin:
+        debate_closes:
+          edit:
+            close: Sulje
+            title: Sulje keskustelu
         debates:
           create:
             invalid: Keskustelun luonti epäonnistui.
@@ -65,9 +73,18 @@ fi:
             name: Keskustelu
       admin_log:
         debate:
+          close: "%{user_name} sulki keskustelun %{resource_name} osallistumistilassa %{space_name}"
           create: "%{user_name} loi keskustelun %{resource_name} osallistumistilaan %{space_name}"
           update: "%{user_name} päivitti keskustelun %{resource_name} osallistumistilassa %{space_name}"
       debates:
+        close:
+          invalid: Keskustelun sulkeminen epäonnistui.
+          success: Keskustelun sulkeminen onnistui.
+        close_debate_modal:
+          close: Sulje
+          description: Mitkä olivat keskustelussa syntyneet johtopäätökset lyhyesti kerrottuna?
+          send: Sulje keskustelu
+        closed: Suljettu
         count:
           debates_count:
             one: "%{count} keskustelu"
@@ -104,7 +121,11 @@ fi:
           title: Uusi keskustelu
         show:
           back: Takaisin listaan
+          close_debate: Sulje keskustelu
           date: Päivämäärä
+          debate_closed: Suljettu
+          debate_conclusions_are: 'Keskustelu on suljettu %{date} seuraavin johtopäätöksin:'
+          edit_conclusions: Muokkaa johtopäätöksiä
           edit_debate: Muokkaa keskustelua
         update:
           invalid: Keskustelun päivittäminen epäonnistui.
@@ -152,6 +173,11 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Keskusteluja nyt käyettävissä kohdassa %{participatory_space_title}
           notification_title: Voit nyt aloittaa <a href="%{resource_path}">uusia keskusteluja</a> kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        debate_closed:
+          email_intro: 'Keskustelu "%{resource_title}" suljettiin. Voit lukea johtopäätökset täältä:'
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat keskustelua "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
+          email_subject: Keskustelu "%{resource_title}" suljettiin
+          notification_title: Keskustelu <a href="%{resource_path}">%{resource_title}</a> suljettiin.
     gamification:
       badges:
         commented_debates:

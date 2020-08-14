@@ -13,6 +13,7 @@ hu:
         attachment_collection_id: Mappa
         description: Leírás
         file: Fájl
+        title: Melléklet vagy kép neve
       attachment_collection:
         description: Leírás
         name: Név
@@ -38,6 +39,7 @@ hu:
         address: SMTP host név
         alert_color: Figyelmeztetés
         badges_enabled: Jelvények engedélyezése
+        comments_max_length: Kommentek maximális hossza (Hagyjon 0 -t az alapértékhez)
         cta_button_path: Felhívás gomb elérési útvonala
         cta_button_text: Felhívás gomb szövege
         customize_welcome_notification: Az üdvözlő értesítések testreszabása
@@ -49,6 +51,8 @@ hu:
         from: Küldő email címe
         github_handler: GitHub handler
         header_snippets: Fejléc részletek
+        highlight_alternative_color: Kiemelés, alternatíva
+        highlight_color: Kiemelés
         highlighted_content_banner_action_subtitle: Felhívás gomb alcíme
         highlighted_content_banner_action_title: Felhívás gomb szövege
         highlighted_content_banner_action_url: Felhívás gomb URL
@@ -291,6 +295,11 @@ hu:
           welcome: Üdvözöljük a Decidim Admin Panelben.
       exports:
         export_as: "%{name} mint %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
         notice: Az exportálás folyamatban. Amint elkészült, egy emailt fogsz kapni róla.
       filters:
         category_id_eq:
@@ -317,6 +326,8 @@ hu:
         search_placeholder:
           name_or_nickname_or_email_cont: Keresés %{collection} email, név vagy becenév alapján.
           title_cont: Keresés %{collection} cím alapján.
+        state_eq:
+          label: Állapot
       help_sections:
         error: Hiba történt a súgószakaszok frissítésekor
         form:
@@ -479,6 +490,7 @@ hu:
           title: Hírlevél sablonok
           use_template: Sablon használata
         show:
+          preview: 'Sablon előnézet: %{template_name}'
           use_template: Sablon használata
       newsletters:
         create:
@@ -578,6 +590,7 @@ hu:
           officialize: Hivatalossá tétel
           title: '"%{name}" hivatalossá tétele'
         show_email_modal:
+          close_modal: Ablak bezárás
           description: Ha közvetlenül kapcsolatba kell lépnie egy résztvevővel, akkor kattintson a Megjelenítés gombra az e-mail cím megtekintéséhez. Ez a művelet naplózásra kerül.
           email_address: E-mail cím
           full_name: Teljes név
@@ -684,6 +697,7 @@ hu:
         gallery:
           add_images: Képek hozzáadása
           delete_image: Kép törlése
+          gallery_legend: Képgaléria hozzáadása (opcionális)
       static_page_topics:
         create:
           error: Hiba történt egy új téma létrehozásakor.

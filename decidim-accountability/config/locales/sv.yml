@@ -35,6 +35,7 @@ sv:
         confirm_destroy: Vill du radera detta %{name}?
         destroy: Radera
         edit: Redigera
+        import_csv: Importera CSV
         new: Ny %{name}
         preview: Förhandsvisa
         timeline_entries: Projektutveckling
@@ -42,6 +43,15 @@ sv:
       admin:
         exports:
           results: Resultat
+        import_results:
+          new:
+            import: Importera
+            info: "<p>Vi rekommenderar att du följer dessa steg:</p><ol><li>Skapa statusar för de resultat som du vill lägga till (<a href='%{link_new_status}' target='_blank'>länk</a>)</li><li>Skapa minst ett resultat manuellt genom denna Admin panel (<a href='%{link_new_result}' target='_blank'>länk</a>) innan du använder Importera, för att ha en bättre förståelse för formatet och vad du behöver för att fylla i.</li><li>Ladda ner exporten med CSV-format (%{link_export_csv})</li><li>Gör ändringarna lokalt. Du kan bara ändra följande kolumner i CSV:</li></ol><ul><li><b>kategori/id:</b> ID för kategorin</li><li><b>omfattning/id:</b> ID för omfattningen</li><li><b>förälder/id:</b> ID för föräldern (för relaterade resultat). Valfri</li><li><b>title/I18N:</b> Titel på X språk</li><li><b>beskrivning/I18N:</b> Beskrivning på X språk</li><li><b>start_date:</b> datum när resultatet startar exekvering (format YYYY-MM-DD)</li><li><b>end_date:</b> datum när resultatet slutar exekvering (format YYYY-MM-DD)</li><li><b>status/id:</b> ID för status för detta resultat</li><li><b>fortskrider:</b> Procent (från 0 till 100) av exekveringen</li><li><b>förslag_ids:</b> internt ID för de relaterade förslagen (separerade med komma). Det konverteras automatiskt till <span class='attribute-name'>proposal_url</span></li></ul>"
+            link: länk
+            title: Importera resultat från CSV
+        imports:
+          create:
+            success: Filen har börjat importera. Du kommer att få ett e-postmeddelande inom de närmaste minuterna med resultatet av importen
         models:
           result:
             name: Resultat
@@ -111,6 +121,13 @@ sv:
         value_types:
           parent_presenter:
             not_found: 'Föräldraposten hittades inte i databasen (ID: %{id})'
+      import_mailer:
+        import:
+          errors: Fel
+          errors_present: Det gick inte att importera resultat
+          row_number: Rad
+          subject: Lyckad import av resultat
+          success: Lyckad import av resultat. Du kan granska resultaten i administrationsgränssnittet.
       last_activity:
         new_result_at_html: "<span>Nytt resultat på %{link}</span>"
       models:
@@ -168,6 +185,7 @@ sv:
           global:
             categories_label: Namn för "Kategorier"
             comments_enabled: Kommentarer på
+            comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
             display_progress_enabled: Visa behandling
             heading_leaf_level_results: Namn för "Projekt"
             heading_parent_level_results: Namn för "Resultat"
@@ -196,6 +214,9 @@ sv:
       participatory_process_groups:
         highlighted_results:
           results: Resultat
+    participatory_spaces:
+      highlighted_results:
+        see_all: Se alla resultat (%{count})
     resource_links:
       included_projects:
         result_project: Projekt som ingår i detta resultat

@@ -135,6 +135,22 @@ it:
         election:
           publish: "%{user_name} ha pubblicato l'elezione %{resource_name}"
           unpublish: "%{user_name} ha rimosso l'elezione %{resource_name}"
+      election_m:
+        footer:
+          take_part: Partecipa
+      elections:
+        count:
+          elections_count:
+            one: "%{count} elezione"
+            other: "%{count} elezioni"
+        show:
+          back: Tutte le elezioni
+          preview: Anteprima
+          vote: Vota
+          voting_period_status:
+            finished: La votazione è iniziata il %{start_time} ed è terminata il %{end_time}
+            ongoing: La votazione termina il %{end_time}
+            upcoming: La votazione inizia il %{start_time}
       models:
         answer:
           fields:
@@ -150,6 +166,44 @@ it:
             answers: Risposte
             max_selections: Max. selezioni
             title: Titolo
+      votes:
+        confirm:
+          answer: Risposta
+          answer_number: rispondi %{number}
+          confirm: Conferma
+          edit: modifica
+          header: Conferma il tuo voto
+          intro: Ecco un riassunto del voto che stai per lanciare. <br> Per favore conferma il tuo voto o modifica le tue risposte.
+          question: Domanda %{count}
+        confirmed:
+          back: Torna alle elezioni
+          experience: Com'è stata la tua esperienza?
+          feedback: Lasciaci un feedback
+          header: Voto confermato
+          lead: Il tuo voto è già stato espresso!
+          text: 'Puoi controllare che il tuo voto sia stato aggiunto con successo alla scheda elettorale con il seguente identificatore: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Per controllarlo, copia l'identificatore e incollalo nella pagina <a href="evote-verify">di verifica del voto</a>
+        encrypting:
+          header: Codifica del voto...
+          text: Il tuo voto viene crittografato per assicurarti di poterlo lanciare in modo anonimo.
+        header:
+          confirm: Conferma il tuo voto
+          confirmed: Voto confermato
+          encrypting: Conferma del voto
+        messages:
+          not_allowed: In questo momento non ti è permesso di votare a queste elezioni.
+        modal:
+          close: Chiuso
+          proposal_header: 'Proposte:'
+        new:
+          answer_choices: Puoi selezionare fino a %{choices} risposte o nessuna risposta
+          more_information: Altre informazioni
+          preview_alert: Questa è un'anteprima della cabina di voto.
+          question_steps: Domanda %{current_step} di %{total_steps}
+          selections: "%{selected} di %{max_selections}<br> selezioni"
+        voting_step:
+          back: Indietro
+          continue: Successivo
     events:
       elections:
         election_published:
@@ -160,3 +214,7 @@ it:
     participatory_processes:
       statistics:
         elections_count: Elezioni
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Esci

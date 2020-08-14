@@ -73,13 +73,6 @@ ar:
     admin:
       actions:
         new_initiative_type: نوع المبادرة الجديدة
-      filters:
-        state_eq:
-          values:
-            created: تمّ إنشاؤه
-            discarded: التخلص منها
-            published: نشرت
-            validating: المصادقة الفنية
       menu:
         initiatives: المبادرات
         initiatives_types: أنواع المبادرة

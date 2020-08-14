@@ -26,6 +26,18 @@ nl:
   decidim:
     admin:
       menu:
+        authorization_revocation:
+          before_date_info: Nuttig als het proces al is begonnen en u de machtigingen van het vorige proces wilt intrekken.
+          button: Alles intrekken
+          button_before: Intrekken voor datum
+          destroy:
+            confirm: Intrekken voor de datum kan niet ongedaan worden gemaakt. Weet u zeker dat u wilt doorgaan?
+            confirm_all: Het intrekken van alle autorisaties kan niet ongedaan worden gemaakt. Weet u zeker dat u wilt doorgaan?
+          destroy_nok: Er is een probleem opgetreden tijdens het intrekken van autorisaties.
+          destroy_ok: Alle overeenkomende autorisaties zijn met succes herroepd!
+          info: Er zijn een totaal van %{count} geverifieerde deelnemers.
+          no_data: Geen geverifieerde deelnemers
+          title: Herroepingsrecht van verificatie
         authorization_workflows: Nazicht
     admin_log:
       organization:
@@ -65,10 +77,16 @@ nl:
         name: Code per post brief
     verifications:
       authorizations:
+        authorization_metadata:
+          info: 'Dit zijn de gegevens van de huidige verificatie:'
+          no_data_stored: Geen gegevens opgeslagen.
         create:
           error: Er is een fout opgetreden bij het maken van de autorisatie.
           success: U bent geautoriseerd.
           unconfirmed: U moet uw e-mail bevestigen om uzelf te autoriseren.
+        destroy:
+          error: Er is een probleem opgetreden bij het verwijderen van de autorisatie.
+          success: Je hebt de autorisatie succesvol verwijderd.
         first_login:
           actions:
             another_dummy_authorization_handler: Controleer tegen een ander voorbeeld van autorisatieaanduiding
@@ -77,13 +95,23 @@ nl:
             dummy_authorization_workflow: Controleer aan de hand van het machtigingsworkflow voorbeeld
             id_documents: Wordt geverifieerd door uw identiteitsdocument te uploaden
             postal_letter: Wordt geverifieerd door een verificatiecode te ontvangen via de post
+            sms: Wordt geverifieerd door een SMS-verificatiecode te ontvangen
           title: Verifieer uw identiteit
           verify_with_these_options: 'Dit zijn de beschikbare opties om uw identiteit te verifiëren:'
+        index:
+          expired_verification: Verificatie verlopen
+          pending_verification: Verificatie in behandeling
+          show_renew_info: Klik om de verificatie te vernieuwen
+          unauthorized_verification: Nieuwe verificatie
         new:
           authorize: Verzenden
           authorize_with: Verifieer met %{authorizer}
         renew_modal:
           cancel: annuleren
+          close: Sluiten
+          continue: Doorgaan
+          info_renew: Als u de gegevens wilt bijwerken, ga dan door met de verlenging
+          title: Verleng verificatie
         skip_verification: U kunt dit overslaan voor nu en %{link}
         start_exploring: begin met verkennen
       csv_census:
@@ -118,6 +146,7 @@ nl:
           postal_codes:
             one: Deelname is beperkt tot gebruikers met postcode %{postal_codes}.
             other: 'Deelname is beperkt tot gebruikers met een van de volgende postcodes: %{postal_codes}.'
+          scope: Deelname is beperkt tot deelnemers met bereik %{scope_name}.
       id_documents:
         admin:
           config:

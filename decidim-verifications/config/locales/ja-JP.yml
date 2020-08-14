@@ -100,7 +100,9 @@ ja:
           verify_with_these_options: '本人確認には以下のオプションがあります。'
         index:
           expired_verification: 認証の有効期限が切れました
+          pending_verification: 保留中の検証
           show_renew_info: クリックして確認を更新します
+          unauthorized_verification: 新しい検証
         new:
           authorize: 送信
           authorize_with: '%{authorizer} で認証'
@@ -141,6 +143,8 @@ ja:
             success: アカウントが正常に認証されました。
       dummy_authorization:
         extra_explanation:
+          postal_codes:
+            other: '参加者は次の郵便番号のいずれかを持つ参加者に制限されています: %{postal_codes}.'
           scope: 参加者はスコープ %{scope_name} の参加者に限定されています。
       id_documents:
         admin:

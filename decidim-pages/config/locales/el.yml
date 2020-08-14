@@ -1,1 +1,30 @@
 el:
+  activerecord:
+    models:
+      decidim/pages/page:
+        one: Σελίδα
+        other: Σελίδες
+  decidim:
+    admin_log:
+      page:
+        update: "Ο χρήστης %{user_name} ενημέρωσε τη σελίδα %{resource_name} στον χώρο %{space_name}"
+    components:
+      pages:
+        name: Σελίδα
+        settings:
+          global:
+            announcement: Ανακοίνωση
+          step:
+            announcement: Ανακοίνωση
+    pages:
+      admin:
+        models:
+          components:
+            body: Σώμα
+        pages:
+          edit:
+            save: Ενημέρωση
+            title: Επεξεργασία σελίδας
+          update:
+            invalid: Υπήρξε ένα πρόβλημα κατά την αποθήκευση της σελίδας.
+            success: Η σελίδα αποθηκεύτηκε με επιτυχία.

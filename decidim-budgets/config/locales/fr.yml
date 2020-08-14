@@ -121,10 +121,17 @@ fr:
           most_voted: Le plus populaire
           random: Ordre aléatoire
         project:
+          add: Ajouter le projet %{resource_name} à votre vote
           count:
             one: 1 soutien
             other: "%{count} soutiens"
+          remove: Retirer le projet %{resource_name} de votre vote
           view: Voir
+        project_budget_button:
+          add: Ajouter à votre vote
+          add_descriptive: Ajouter le projet %{resource_name} à votre vote
+          added: Ajouté à votre vote
+          added_descriptive: Projet %{resource_name} ajouté à votre vote
         show:
           budget: Budget
           view_all_projects: Voir tous les projets
@@ -137,6 +144,7 @@ fr:
           global:
             announcement: Annonce
             comments_enabled: Activer le module de commentaire
+            comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
             form:
               errors:
                 budget_voting_rule_only_one: Une seule règle de vote doit être activée

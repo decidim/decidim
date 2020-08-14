@@ -79,23 +79,11 @@ ca:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Tipus
-          values:
-            'false': Propostes
-            'true': Esmenes
+        proposals:
+          valuator_role_ids_has:
+            label: Assignada a avaluadora
         search_placeholder:
           id_string_or_title_cont: Cerca %{collection} per ID o títol.
-        state_eq:
-          values:
-            evaluating: En avaluació
-            withdrawn: Retirada
-        state_null:
-          label: Estat
-          values:
-            'true': No resposta
-        valuator_role_ids_has:
-          label: Assignada a avaluadora
     components:
       proposals:
         actions:

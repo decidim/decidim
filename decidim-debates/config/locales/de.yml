@@ -30,6 +30,7 @@ de:
           global:
             announcement: Ankündigung
             comments_enabled: Kommentare aktiviert
+            comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
@@ -76,6 +77,10 @@ de:
           success: Diskussion erfolgreich erstellt
         debate:
           participate: Sich beteiligen
+        edit:
+          back: Zurück
+          save: Änderungen speichern
+          title: Debatte bearbeiten
         filters:
           all: Alle
           category: Kategorie
@@ -97,6 +102,20 @@ de:
           back: Zurück
           create: Erstellen
           title: Neue Debatte
+        show:
+          back: Zurück zur Liste
+          date: Datum
+          edit_debate: Debatte bearbeiten
+        update:
+          invalid: Es gab ein Problem bei der Aktualisierung der Aussprache.
+          success: Debatte erfolgreich aktualisiert.
+        versions:
+          debates:
+            back_to_resource: Zurück zur Debatte
+          index:
+            title: Versionen
+        versions_list:
+          back_to_resource: Zurück zur Debatte
       last_activity:
         new_debate_at_html: "<span>Neue Debatte bei %{link}</span>"
       models:

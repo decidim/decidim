@@ -24,8 +24,10 @@ pl:
         published_at: Opublikowano na
         related_process_ids: Powiązane procesy
         scope_id: Zakres
+        scope_type_max_depth_id: Głębokość filtra zakresu
         scopes_enabled: Zakresy włączone
         short_description: Krótki opis
+        show_metrics: Pokaż mierniki
         show_statistics: Pokaż statystyki
         slug: Ślimak URL
         start_date: Data rozpoczęcia
@@ -49,6 +51,12 @@ pl:
         email: Adres e-mail
         name: Nazwa
         role: Rola
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Nieprawidłowy typ dokumentu. Dopuszczalne formaty to: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Aktywowany krok
       decidim/participatory_process_step_changed_event: Krok zmienił się
@@ -81,6 +89,7 @@ pl:
         filter:
           all_processes: Pokaż wszystkie procesy
           process_groups: Grupy procesowe
+        import_process: Importuj
         new_process: Nowy proces
         new_process_group: Nowa grupa procesów
         new_process_step: Nowy krok
@@ -132,6 +141,7 @@ pl:
             admin: Administrator
             collaborator: Współpracownik
             moderator: Moderator
+            valuator: Taksator
         user:
           fields:
             invitation_accepted_at: Zaproszenie przyjęli w
@@ -143,6 +153,7 @@ pl:
           title: Duplikat procesu partycypacyjnego
       participatory_process_groups:
         destroy:
+          error: Wystąpił błąd podczas niszczenia grupy procesu partycypacyjnego.
           success: Uczestnicząca grupa procesów została pomyślnie usunięta.
         edit:
           title: Edytuj grupę procesów
@@ -153,6 +164,14 @@ pl:
         update:
           error: Podczas tej uczestniczącej grupy procesowej wystąpił błąd.
           success: Uczestnicząca grupa procesowa została zaktualizowana.
+      participatory_process_imports:
+        create:
+          error: Wystąpił błąd podczas importowania procesu partycypacyjnego.
+          success: Proces partycypacyjny został pomyślnie zaimportowany.
+        new:
+          import: Importuj
+          select: Wybierz dane, które chcesz zaimportować
+          title: Importuj proces partycypacyjny
       participatory_process_publications:
         create:
           error: Wystąpił błąd podczas publikowania tego procesu partycypacyjnego.
@@ -194,11 +213,13 @@ pl:
         destroy:
           success: Użytkownik usunięty pomyślnie z tego procesu uczestnictwa.
         edit:
+          title: Aktualizuj administratora procesu partycypacyjnego
           update: Aktualizuj
         index:
           process_admins_title: Uczestniczący użytkownicy procesu
         new:
           create: Utwórz
+          title: Nowy administrator procesu partycypacyjnego
         update:
           error: Wystąpił błąd podczas aktualizacji użytkownika dla tego procesu uczestnictwa.
           success: Użytkownik zaktualizował się pomyślnie dla tego procesu partycypacyjnego.
@@ -240,6 +261,9 @@ pl:
         publish: "%{user_name} opublikował %{resource_name} proces uczestnictwa"
         unpublish: "%{user_name} niepublikowane %{resource_name} proces uczestnictwa"
         update: "%{user_name} zaktualizował %{resource_name} proces uczestnictwa"
+      participatory_process_group:
+        create: "%{user_name} utworzył(a) grupę procesu partycypacyjnego %{resource_name}"
+        update: "%{user_name} zaktualizował(a) grupę procesu partycypacyjnego %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} aktywował krok %{resource_name} w procesie uczestniczenia %{space_name}"
         create: "%{user_name} utworzył krok %{resource_name} w procesie uczestniczenia %{space_name}"
@@ -251,6 +275,11 @@ pl:
         update: "%{user_name} zmienił rolę użytkownika %{resource_name} w %{space_name} proces uczestnictwa"
     events:
       participatory_process:
+        role_assigned:
+          email_intro: Przypisano Ci rolę %{role} w procesie partycypacyjnym „%{resource_title}”.
+          email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś %{role} procesu partycypacyjnego „%{resource_title}”.
+          email_subject: Przypisano Ci rolę %{role} w „%{resource_title}”.
+          notification_title: Przypisano Ci rolę %{role} w procesie partycypacyjnym <a href="%{resource_url}">%{resource_title}</a>.
         step_activated:
           email_intro: 'Krok %{resource_title} jest teraz aktywny dla %{participatory_space_title}. Możesz go zobaczyć na tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
@@ -274,6 +303,9 @@ pl:
         description: Liczba procesów uczestniczących w tej organizacji
         object: procesy uczestniczące
         title: Procesy partycypacyjne
+    participatory_process:
+      show:
+        related_assemblies: Powiązane zgromadzenia
     participatory_process_groups:
       show:
         group_participatory_processes:
@@ -294,6 +326,10 @@ pl:
         participatory_process_copies:
           form:
             slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten proces. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Dodaj dokument
+            slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten proces. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Używaj tutaj częściowych ścieżek, a nie pełnych adresów URL. Akceptuje litery, cyfry, myślniki i ukośniki i musi zaczynać się od litery. Jeśli nie zostanie ustawiony, przycisk nie będzie wyświetlany. Przykład: %{url}'
@@ -307,6 +343,7 @@ pl:
             metadata: Metadane
             other: Inny
             related_processes: Powiązane procesy
+            scope_type_max_depth_help: Ogranicz głębokość filtra zakresu; Filtr pokaże typy zakresu od ogólnego do wybranego.
             select_an_area: Wybierz obszar
             select_process_group: Wybierz grupę procesów
             slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten proces. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
@@ -326,7 +363,11 @@ pl:
             active_step: Aktywny krok
             more_information: Więcej informacji
             participate: Uczestniczyć
+            participate_in: Weź udział w procesie %{resource_name}
             see_all_processes: Zobacz wszystkie procesy
+      participatory_process_steps:
+        index:
+          back_to_process: Powrót do strony procesu
       participatory_processes:
         filters:
           counters:
@@ -364,6 +405,7 @@ pl:
           loading: Wyniki wyszukiwania...
       show:
         area: Powierzchnia
+        dates: Owoce cytrusowe
         developer_group: Grupa promotorów
         end_date: Data zakończenia
         local_area: Obszar Organizacji
@@ -380,8 +422,10 @@ pl:
         comments_count: Komentarze
         debates_count: Debaty
         endorsements_count: Adnotacje
+        followers_count: Obserwujący
         headline: Czynność
         meetings_count: Spotkania
+        no_stats: Nie ma jeszcze żadnych statystyk.
         orders_count: Głosowania
         pages_count: Strony
         participants_count: Uczestnicy
@@ -397,6 +441,7 @@ pl:
       participatory_process_groups:
         participatory_process_group:
           browse: Paść się
+          browse_resource: Przeglądaj grupę procesów %{resource_name}
           processes_count: 'Procesy:'
       participatory_process_widgets:
         show:
@@ -408,11 +453,15 @@ pl:
         participatory_process:
           active_step: 'Aktualny krok:'
           more_info: Więcej informacji
+          more_info_about: Więcej informacji o procesie %{resource_name}
           take_part: Weź udział
+          take_part_in: Weź udział w procesie %{resource_name}
         promoted_process:
           active_step: 'Aktualny krok:'
           more_info: Więcej informacji
+          more_info_about: Więcej informacji o procesie %{resource_name}
           take_part: Weź udział
+          take_part_in: Weź udział w procesie %{resource_name}
       process_header_steps:
         step: Etap %{current} z %{total}
         view_steps: Pokaż etapy

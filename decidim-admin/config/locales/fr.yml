@@ -13,6 +13,7 @@ fr:
         attachment_collection_id: Dossier
         description: Description
         file: Fichier
+        title: Nom de la pièce jointe ou de l'image
       attachment_collection:
         description: Description
         name: Titre
@@ -38,6 +39,7 @@ fr:
         address: Nom de l'hôte SMTP
         alert_color: Alerte
         badges_enabled: Activer les badges
+        comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
         cta_button_path: Chemin du bouton d'action
         cta_button_text: Texte du bouton d'action
         customize_welcome_notification: Personnaliser le mail de bienvenue
@@ -49,6 +51,8 @@ fr:
         from: Adresse e-mail de l’expéditeur
         github_handler: Gestionnaire GitHub
         header_snippets: Éléments à ajouter entre les balises HTML
+        highlight_alternative_color: Surligner, alternative
+        highlight_color: Surligner
         highlighted_content_banner_action_subtitle: Sous-titre du bouton d'action
         highlighted_content_banner_action_title: Titre du bouton d'action
         highlighted_content_banner_action_url: URL du bouton d'action
@@ -322,6 +326,8 @@ fr:
         search_placeholder:
           name_or_nickname_or_email_cont: Rechercher %{collection} par e-mail, nom ou pseudo.
           title_cont: Search %{collection} par titre.
+        state_eq:
+          label: État
       help_sections:
         error: Une erreur s'est produite lors de la mise à jour des sections d'aide.
         form:
@@ -584,6 +590,7 @@ fr:
           officialize: Valider
           title: Valider l'utilisateur "%{name}"
         show_email_modal:
+          close_modal: Fermer la fenêtre modale
           description: Si vous avez besoin de contacter directement un participant, vous pouvez cliquer sur le bouton Afficher pour voir l'adresse e-mail. Cette action sera enregistrée.
           email_address: Adresse e-mail
           full_name: Nom complet

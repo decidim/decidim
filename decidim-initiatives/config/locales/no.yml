@@ -61,13 +61,6 @@
     admin:
       actions:
         new_initiative_type: Ny intiativtype
-      filters:
-        state_eq:
-          values:
-            created: Opprettet
-            discarded: Forkastet
-            published: Publisert
-            validating: Teknisk validering
       menu:
         initiatives: Initiativer
         initiatives_types: Initiativtyper
@@ -362,6 +355,11 @@
           unfold: Åpne
         index_header:
           new_initiative: Nytt initiativ
+          not_authorized:
+            authorizations_page: Vis godkjennelser
+            close: Lukk
+            explanation: Du må verifiseres for å opprette et nytt initiativ.
+            title: Autorisasjon kreves
         interactions:
           comments_count:
             count:

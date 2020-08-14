@@ -1,5 +1,143 @@
 el:
+  activemodel:
+    attributes:
+      answer:
+        description: Περιγραφή
+        image: Εικόνα
+        proposals: Σχετικές προτάσεις
+        title: Τίτλος
+      election:
+        description: Περιγραφή
+        end_time: Η ψηφοφορία λήγει στις
+        start_time: Η ψηφοφορία ξεκινά στις
+        subtitle: Υπότιτλος
+        title: Τίτλος
+      question:
+        description: Περιγραφή
+        max_selections: Μέγιστος αριθμός επιλογών
+        title: Τίτλος
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Πρέπει να επισυναφθεί ξανά
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Απάντηση
+        other: Απαντήσεις
+      decidim/elections/election:
+        one: Εκλογή
+        other: Εκλογές
+      decidim/elections/question:
+        one: Ερώτηση
+        other: Ερωτήσεις
   decidim:
+    components:
+      elections:
+        name: Εκλογές
+        settings:
+          global:
+            announcement: Ανακοίνωση
+          step:
+            announcement: Ανακοίνωση
     elections:
       actions:
+        confirm_destroy: Είστε βέβαιοι;
+        destroy: Καταστροφή
+        edit: Επεξεργασία
+        edit_answers: Επεξεργασία απαντήσεων
+        edit_questions: Επεξεργασία ερωτήσεων
+        import: Εισαγωγή προτάσεων σε απαντήσεις
+        new: Νέο όνομα %{name}
         preview: Προεπισκόπηση
+        title: Ενέργειες
+      admin:
+        answers:
+          create:
+            invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτής της απάντησης
+            success: Η απάντηση δημιουργήθηκε με επιτυχία
+          destroy:
+            invalid: Υπήρξε ένα πρόβλημα κατά τη διαγραφή αυτής της απάντησης
+            success: Η απάντηση διαγράφηκε με επιτυχία
+          edit:
+            title: Επεξεργασία απάντησης
+            update: Ενημέρωση απάντησης
+          index:
+            title: Απαντήσεις
+          new:
+            create: Δημιουργία απάντησης
+            title: Νέα απάντηση
+          update:
+            invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της απάντησης
+            success: Η απάντηση ενημερώθηκε με επιτυχία
+        elections:
+          create:
+            invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτής της εκλογής
+            success: Η εκλογή δημιουργήθηκε με επιτυχία
+          destroy:
+            invalid: Υπήρξε ένα πρόβλημα κατά τη διαγραφή αυτής της εκλογής
+            success: Η εκλογή διαγράφηκε με επιτυχία
+          edit:
+            title: Επεξεργασία εκλογής
+            update: Ενημέρωση εκλογής
+          index:
+            title: Εκλογές
+          new:
+            create: Δημιουργία εκλογής
+            title: Νέα εκλογή
+          update:
+            invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της εκλογής
+            success: Η εκλογή ενημερώθηκε με επιτυχία
+        models:
+          answer:
+            name: Απάντηση
+          election:
+            name: Εκλογή
+          question:
+            name: Ερώτηση
+        proposals_imports:
+          create:
+            invalid: Υπήρξε ένα πρόβλημα κατά την εισαγωγή των προτάσεων σε απαντήσεις
+            success: "%{number} προτάσεις εισήχθηκαν με επιτυχία σε απαντήσεις"
+          new:
+            create: Εισαγωγή προτάσεων σε απαντήσεις
+            no_components: Δεν υπάρχουν άλλα στοιχεία προτάσεων σε αυτόν τον χώρο συμμετοχής για εισαγωγή των προτάσεων σε απαντήσεις.
+            select_component: Επιλέξτε ένα στοιχείο
+        questions:
+          create:
+            invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτής της ερώτησης
+            success: Η ερώτηση δημιουργήθηκε με επιτυχία
+          destroy:
+            invalid: Υπήρξε ένα πρόβλημα κατά τη διαγραφή αυτής της ερώτησης
+            success: Η ερώτηση διαγράφηκε με επιτυχία
+          edit:
+            title: Επεξεργασία ερώτησης
+            update: Ενημέρωση ερώτησης
+          index:
+            title: Ερωτήσεις
+          new:
+            create: Δημιουργία ερώτησης
+            title: Νέα ερώτηση
+          update:
+            invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της ερώτησης
+            success: Η ερώτηση ενημερώθηκε με επιτυχία
+      models:
+        answer:
+          fields:
+            proposals: Προτάσεις
+            title: Τίτλος
+        election:
+          fields:
+            end_time: Λήγει στις
+            start_time: Ξεκινά στις
+            title: Τίτλος
+        question:
+          fields:
+            answers: Απαντήσεις
+            max_selections: Μέγιστες επιλογές
+            title: Τίτλος
+    participatory_processes:
+      statistics:
+        elections_count: Εκλογές

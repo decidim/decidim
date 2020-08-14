@@ -131,6 +131,26 @@ pt:
           update:
             invalid: Ocorreu um problema ao atualizar esta pergunta
             success: Pergunta atualizada corretamente
+      admin_log:
+        election:
+          publish: "%{user_name} publicou a eleição %{resource_name}"
+          unpublish: "%{user_name} removeu a publicação da eleição %{resource_name}"
+      election_m:
+        footer:
+          take_part: Fazer parte
+      elections:
+        count:
+          elections_count:
+            one: "%{count} eleição"
+            other: "%{count} eleições"
+        show:
+          back: Todas as eleições
+          preview: Pré-visualizar
+          vote: Voto
+          voting_period_status:
+            finished: A votação começou em %{start_time} e terminou em %{end_time}
+            ongoing: A votação termina em %{end_time}
+            upcoming: A votação começa em %{start_time}
       models:
         answer:
           fields:
@@ -146,6 +166,44 @@ pt:
             answers: Respostas
             max_selections: Máx. de seleções
             title: Título
+      votes:
+        confirm:
+          answer: Responder
+          answer_number: resposta %{number}
+          confirm: Confirmar
+          edit: editar
+          header: Confirmar o seu voto
+          intro: Aqui está um resumo do voto que está prestes a transmitir. <br> Por favor, confirme o seu voto ou edite as suas respostas.
+          question: Questão %{count}
+        confirmed:
+          back: Retroceder às eleições
+          experience: Como foi a sua experiência?
+          feedback: Dê-nos algum feedback
+          header: Voto confirmado
+          lead: O seu voto já foi transmitido!
+          text: 'Pode verificar que o seu voto foi adicionado corretamente à caixa de voto com o seguinte identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Para verificá-lo, copie o identificador e cole-o na <a href="evote-verify">página de verificação de voto</a>
+        encrypting:
+          header: A codificar voto...
+          text: O seu voto está a ser encriptado para garantir que pode transmiti-lo anonimamente.
+        header:
+          confirm: Confirmar o seu voto
+          confirmed: Voto confirmado
+          encrypting: A confirmar voto
+        messages:
+          not_allowed: Não está autorizado a votar nesta eleição neste momento.
+        modal:
+          close: Fechar
+          proposal_header: 'Propostas:'
+        new:
+          answer_choices: Pode selecionar até %{choices} respostas ou nenhuma
+          more_information: Mais informações
+          preview_alert: Isto é uma pré-visualização da cabina de voto.
+          question_steps: Questão %{current_step} de %{total_steps}
+          selections: "%{selected} de %{max_selections}<br> seleções"
+        voting_step:
+          back: Retroceder
+          continue: Seguinte
     events:
       elections:
         election_published:
@@ -156,3 +214,7 @@ pt:
     participatory_processes:
       statistics:
         elections_count: Eleições
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Sair

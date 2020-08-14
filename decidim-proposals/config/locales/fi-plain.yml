@@ -7,6 +7,7 @@ fi-pl:
         category_id: Aihepiiri
         decidim_scope_id: Teema
         has_address: Ehdotuksella on sijainti
+        scope_id: Teema
         state: Tila
         title: Ehdotuksen nimi
         user_group_id: Luo yhteistyöluonnos nimellä
@@ -19,6 +20,7 @@ fi-pl:
         category_id: Aihepiiri
         decidim_scope_id: Teema
         has_address: Ehdotuksella on sijainti
+        scope_id: Teema
         state: Tila
         suggested_hashtags: Ehdotetut hashtagit
         title: Ehdotuksen nimi
@@ -77,23 +79,33 @@ fi-pl:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Tyyppi
-          values:
-            'false': Ehdotukset
-            'true': Muutokset
+        proposals:
+          category_id_eq:
+            label: Aihepiiri
+          is_emendation_true:
+            label: Tyyppi
+            values:
+              'false': Ehdotukset
+              'true': Muutokset
+          scope_id_eq:
+            label: Teema
+          state_eq:
+            label: Tila
+            values:
+              accepted: Hyväksytty
+              evaluating: Arvioitavana
+              published: Julkaistu
+              rejected: Hylätty
+              validating: Teknisessä validoinnissa
+              withdrawn: Peruutettu
+          state_null:
+            label: Tila
+            values:
+              'true': Vastaamaton
+          valuator_role_ids_has:
+            label: Annettu tehtäväksi arvioijalle
         search_placeholder:
           id_string_or_title_cont: '%{collection}: Hae ID-numeron tai otsikon perusteella'
-        state_eq:
-          values:
-            evaluating: Arvioitavana
-            withdrawn: Peruutettu
-        state_null:
-          label: Tila
-          values:
-            'true': Vastaamaton
-        valuator_role_ids_has:
-          label: Annettu tehtäväksi arvioijalle
     components:
       proposals:
         actions:
@@ -638,15 +650,23 @@ fi-pl:
         update:
           error: Yhteistyöluonnoksen tallentamisessa on tapahtunut virheitä.
           success: Yhteistyöluonnos on päivitetty onnistuneesti.
+          title: Muokkaa yhteistyöluonnosta
         wizard_aside:
           back: Takaisin
+          back_from_collaborative_draft: Takaisin yhteistyöluonnoksiin
+          back_from_step_1: Takaisin yhteistyöluonnoksiin
+          back_from_step_2: Takaisin yhteistyöluonnoksiin
+          back_from_step_3: Takaisin yhteistyöluonnoksen vertailuun
+          back_from_step_4: Takaisin yhteistyöluonnoksen muokkaukseen
           info: Olet luomassa <strong>yhteistyöluonnosta</strong>.
         wizard_steps:
+          current_step: Tämänhetkinen vaihe
           see_steps: katso vaiheet
           step_1: Luo yhteistyöluonnoksesi
           step_2: Vertaa yhteistyöluonnoksiin
           step_3: Tee yhteistyöluonnoksesi valmiiksi
           step_of: Vaihe %{current_step_num} / %{total_steps}
+          title: Yhteistyölunnoksen luonnin vaiheet
       create:
         error: Ehdotuksen tallennuksessa tapahtui virhe.
         success: Ehdotus luotiin tallennettu luonnoksena.
@@ -792,9 +812,12 @@ fi-pl:
           read_more: Lue lisää
           report: Ilmoita
           withdraw_btn_hint: Jos muutat mieltäsi, voit perua ehdotuksesi, mikäli se ei ole saanut kannatusta. Ehdotusta ei poisteta, se näkyy peruutettujen ehdotusten luettelossa.
+          withdraw_confirmation_html: Haluatko varmasti peruuttaa tämän ehdotuksen?<br><br><strong>Tätä toimintoa ei voi peruuttaa!</strong>
           withdraw_proposal: Peruuta ehdotus
         tags:
           changed_from: "(muutettu nimestä <u>%{previous_name}</u> hallintakäyttäjän toimesta)"
+        update:
+          title: Muokkaa ehdotusta
         vote_button:
           already_voted: Jo äänestetty
           already_voted_hover: Peru äänesi
@@ -826,14 +849,20 @@ fi-pl:
             votes: Ääntä
         wizard_aside:
           back: Takaisin
+          back_from_step_1: Takaisin ehdotuksiin
+          back_from_step_2: Takaisin ehdotuksiin
+          back_from_step_3: Takaisin ehdotusten vertailuun
+          back_from_step_4: Takaisin luonnoksen muokkaukseen
           info: Olet luomassa <strong>ehdotusta</strong>.
         wizard_steps:
+          current_step: Tämänhetkinen vaihe
           see_steps: katso vaiheet
           step_1: Luo ehdotuksesi
           step_2: Vertaile
           step_3: Viimeistele
           step_4: Julkaise ehdotuksesi
           step_of: Vaihe %{current_step_num} / %{total_steps}
+          title: Ehdotuksen luonnin vaiheet
       proposals_picker:
         choose_proposals: Valitse ehdotukset
         close: Sulje

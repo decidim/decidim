@@ -53,13 +53,6 @@ ru:
     admin:
       actions:
         new_initiative_type: Добавить вид почина
-      filters:
-        state_eq:
-          values:
-            created: Созданные
-            discarded: Отброшенные
-            published: Обнародовано
-            validating: Техническая проверка
       menu:
         initiatives: Почины
         initiatives_types: Виды починов
