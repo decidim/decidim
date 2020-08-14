@@ -51,7 +51,7 @@ module Decidim
         original_form.validate unless defined?(@amendable_form) # Preserves previously added errors.
         amendable_form.validate unless defined?(@amendable_form) # Preserves previously added errors.
 
-        compare_amendable_form_errors(@amendable_form.errors.dup) if @original_form.errors.details.count.positive?
+        compare_amendable_form_errors(@amendable_form.errors.dup) if @original_form.present? && @original_form.errors.details.count.positive?
 
         @errors = @amendable_form.errors
       end
