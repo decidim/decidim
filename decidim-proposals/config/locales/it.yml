@@ -79,23 +79,11 @@ it:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Tipo
-          values:
-            'false': Proposte
-            'true': Emendamenti
+        proposals:
+          valuator_role_ids_has:
+            label: Assegnato al valutatore
         search_placeholder:
           id_string_or_title_cont: Cerca %{collection} per ID o titolo.
-        state_eq:
-          values:
-            evaluating: Valutazione
-            withdrawn: Ritirato
-        state_null:
-          label: Stato
-          values:
-            'true': Non risposto
-        valuator_role_ids_has:
-          label: Assegnato al valutatore
     components:
       proposals:
         actions:

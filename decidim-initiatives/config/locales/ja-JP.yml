@@ -70,20 +70,8 @@ ja:
       actions:
         new_initiative_type: 新しいイニシアチブタイプ
       filters:
-        decidim_area_id_eq:
-          label: エリア
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: '%{collection} をタイトル、説明、ID、または著者名で検索します。'
-        state_eq:
-          values:
-            accepted: 十分な署名
-            created: 作成済み
-            discarded: 破棄しました
-            published: 公開済み
-            rejected: 十分な署名がありません
-            validating: 技術的検証
-        type_id_eq:
-          label: タイプ
       menu:
         initiatives: 取り組み
         initiatives_types: イニシアティブの種類

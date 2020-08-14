@@ -69,21 +69,6 @@ tr:
         one: Oy
         other: oy
   decidim:
-    admin:
-      filters:
-        is_emendation_true:
-          label: tip
-          values:
-            'false': Teklif
-            'true': Değişiklikler
-        state_eq:
-          values:
-            evaluating: değerlendirilmesi
-            withdrawn: çekilmiş
-        state_null:
-          label: Belirtmek, bildirmek
-          values:
-            'true': Cevaplanmadı
     components:
       proposals:
         actions:

@@ -79,23 +79,11 @@ nl:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Type
-          values:
-            'false': Voorstellen
-            'true': wijzigingen
+        proposals:
+          valuator_role_ids_has:
+            label: Toegewezen aan waarde
         search_placeholder:
           id_string_or_title_cont: Zoek %{collection} op ID of titel.
-        state_eq:
-          values:
-            evaluating: Aan het beoordelen
-            withdrawn: Ingetrokken
-        state_null:
-          label: Status
-          values:
-            'true': Nog niet beantwoord
-        valuator_role_ids_has:
-          label: Toegewezen aan waarde
     components:
       proposals:
         actions:
