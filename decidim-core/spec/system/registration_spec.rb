@@ -38,7 +38,7 @@ describe "Registration", type: :system do
       within "form.new_user" do
         find("*[type=submit]").click
       end
-      expect(page).to have_css("#sign-up-newsletter-modal", visible: true)
+      expect(page).to have_css("#sign-up-newsletter-modal", visible: :visible)
       expect(page).to have_current_path decidim.new_user_registration_path
     end
 

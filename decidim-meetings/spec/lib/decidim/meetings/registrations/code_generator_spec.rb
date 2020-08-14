@@ -19,8 +19,6 @@ module Decidim
 
           before do
             create :registration, meeting: meeting, code: existing_code
-
-            # rubocop:disable RSpec/SubjectStub
             expect(subject)
               .to receive(:choose)
               .with(length)
