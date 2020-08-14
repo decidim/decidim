@@ -18,6 +18,7 @@ This workflow will only start if the machine translation service is configured i
 This is an option in the Decidim initializer:
 
 ```ruby
+config.enable_machine_translations = true
 config.machine_translation_service = "MyApp::MyOwnTranslationService"
 ```
 

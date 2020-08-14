@@ -15,7 +15,7 @@ module Decidim
     # target_locale - A Symbol representing the target locale for the translation
     # source_locale - A Symbol representing the source locale for the translation
     def perform(resource, field_name, field_value, target_locale, source_locale)
-      klass = Decidim.machine_translation_service.to_s.safe_constantize
+      klass = Decidim.machine_translation_service_klass
       return unless klass
 
       klass.new(

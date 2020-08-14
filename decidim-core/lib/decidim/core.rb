@@ -527,4 +527,10 @@ module Decidim
   def self.metrics_operation
     @metrics_operation ||= MetricOperation.new
   end
+
+  def self.machine_translation_service_klass
+    return unless Decidim.enable_machine_translations
+
+    Decidim.machine_translation_service.to_s.safe_constantize
+  end
 end

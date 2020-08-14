@@ -42,8 +42,15 @@ module Decidim
         @translatable_fields
       end
 
+      # Fires a job to start the machine translation process, only if the
+      # service is properly configured and the organization has machine
+      # translations enabled.
       def machine_translation
-        return if Decidim.machine_translation_service.blank?
+        return unless Decidim.machine_translation_service_klass
+
+        organization = try(:organization)
+        return if organization && !organization.enable_machine_translations
+        return if try(:enable_machine_translations) == false
 
         Decidim::MachineTranslationResourceJob.perform_later(
           self,

@@ -17,8 +17,7 @@ module Decidim
     #   resource.
     # source_locale - A Symbol representing the source locale for the translation
     def perform(resource, previous_changes, source_locale)
-      klass = Decidim.machine_translation_service.to_s.safe_constantize
-      return unless klass
+      return unless Decidim.machine_translation_service_klass
 
       @resource = resource
       @locales_to_be_translated = []
