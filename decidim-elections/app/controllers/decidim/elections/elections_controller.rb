@@ -60,11 +60,13 @@ module Decidim
       end
 
       def default_filter_state_params
-        filter_state_params = %w()
-        filter_state_params << "active" if elections.active
-        filter_state_params << "upcoming" if elections.upcoming && !elections.active
-        filter_state_params << "finished" if elections.finished && !elections.active && !elections.upcoming
-        filter_state_params
+        if !elections.active.empty?
+          %w(active)
+        elsif !elections.upcoming.empty?
+          %w(upcoming)
+        else
+          %w()
+        end
       end
 
       def context_params
