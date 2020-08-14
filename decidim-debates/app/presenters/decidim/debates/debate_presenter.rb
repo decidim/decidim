@@ -38,7 +38,7 @@ module Decidim
         return unless debate
 
         handle_locales(debate.description, all_locales) do |content|
-          renderer = Decidim::ContentRenderers::HashtagRenderer.new(decidim_sanitize(content))
+          renderer = Decidim::ContentRenderers::HashtagRenderer.new(decidim_sanitize(content, strip_tags: strip_tags))
           renderer.render(links: links).html_safe
         end
       end
