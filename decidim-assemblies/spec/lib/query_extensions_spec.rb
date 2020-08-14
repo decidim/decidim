@@ -9,16 +9,16 @@ module Decidim
       include_context "with a graphql type"
 
       describe "assembliesTypes" do
-        let!(:assembliesType1) { create(:assemblies_type, organization: current_organization) }
-        let!(:assembliesType2) { create(:assemblies_type, organization: current_organization) }
-        let!(:assembliesType3) { create(:assemblies_type) }
+        let!(:assemblies_type_1) { create(:assemblies_type, organization: current_organization) }
+        let!(:assemblies_type_2) { create(:assemblies_type, organization: current_organization) }
+        let!(:assemblies_type_3) { create(:assemblies_type) }
 
         let(:query) { %({ assembliesTypes { id }}) }
 
         it "returns all the assembliesType" do
-          expect(response["assembliesTypes"]).to include("id" => assembliesType1.id.to_s)
-          expect(response["assembliesTypes"]).to include("id" => assembliesType2.id.to_s)
-          expect(response["assembliesTypes"]).not_to include("id" => assembliesType3.id.to_s)
+          expect(response["assembliesTypes"]).to include("id" => assemblies_type_1.id.to_s)
+          expect(response["assembliesTypes"]).to include("id" => assemblies_type_2.id.to_s)
+          expect(response["assembliesTypes"]).not_to include("id" => assemblies_type_3.id.to_s)
         end
       end
 
@@ -26,17 +26,17 @@ module Decidim
         let(:query) { %({ assembliesType(id: \"#{id}\") { id }}) }
 
         context "with a assemblies type that belongs to the current organization" do
-          let!(:assembliesType) { create(:assemblies_type, organization: current_organization) }
-          let(:id) { assembliesType.id }
+          let!(:assemblies_type) { create(:assemblies_type, organization: current_organization) }
+          let(:id) { assemblies_type.id }
 
           it "returns the group" do
-            expect(response["assembliesType"]).to eq("id" => assembliesType.id.to_s)
+            expect(response["assembliesType"]).to eq("id" => assemblies_type.id.to_s)
           end
         end
 
         context "with a assembliesType of another organization" do
-          let!(:assembliesType) { create(:assemblies_type) }
-          let(:id) { assembliesType.id }
+          let!(:assemblies_type) { create(:assemblies_type) }
+          let(:id) { assemblies_type.id }
 
           it "returns nil" do
             expect(response["assembliesType"]).to be_nil
