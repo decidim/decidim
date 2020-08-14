@@ -194,7 +194,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       it "doesn't show the amendments dependent settings" do
         fields.each do |field|
           expect(page).not_to have_content(field)
-          expect(page).to have_css(".#{field.parameterize.underscore}_container", visible: false)
+          expect(page).to have_css(".#{field.parameterize.underscore}_container", visible: :all)
         end
       end
 
