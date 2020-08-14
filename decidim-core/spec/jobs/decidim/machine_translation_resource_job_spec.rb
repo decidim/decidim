@@ -9,6 +9,10 @@ module Decidim
     let(:process) { create :participatory_process, title: title, organization: organization }
     let(:current_locale) { "en" }
 
+    before do
+      allow(Decidim).to receive(:machine_translation_service_klass).and_return(Decidim::Dev::DummyTranslator)
+    end
+
     context "when the  default locale of translatable field changes" do
       before do
         updated_title = { en: "Updated Title" }

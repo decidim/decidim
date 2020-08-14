@@ -9,6 +9,10 @@ module Decidim
     let(:target_locale) { "ca" }
     let(:source_locale) { "en" }
 
+    before do
+      allow(Decidim).to receive(:machine_translation_service_klass).and_return(Decidim::Dev::DummyTranslator)
+    end
+
     describe "When fields job is executed" do
       before do
         clear_enqueued_jobs
