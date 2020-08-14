@@ -4,6 +4,9 @@ module Decidim
   module Map
     # A module to contain map functionality specific to the HERE map provider.
     module Provider
+      module Autocomplete
+        autoload :Here, "decidim/map/provider/autocomplete/here"
+      end
       module Geocoding
         autoload :Here, "decidim/map/provider/geocoding/here"
       end

@@ -5,6 +5,9 @@ module Decidim
     # A module to contain map functionality specific to the OpenStreetMap (OSM)
     # based map providers.
     module Provider
+      module Autocomplete
+        autoload :Osm, "decidim/map/provider/autocomplete/osm"
+      end
       module Geocoding
         autoload :Osm, "decidim/map/provider/geocoding/osm"
       end

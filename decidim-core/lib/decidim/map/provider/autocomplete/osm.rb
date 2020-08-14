@@ -1,0 +1,25 @@
+# frozen_string_literal: true
+
+module Decidim
+  module Map
+    module Provider
+      module Autocomplete
+        # The geocoding autocomplete utility class for Photon based geocoding
+        # autocompletion services which use the OpenStreetMap's (OSM) data.
+        class Osm < ::Decidim::Map::Autocomplete
+          # @see Decidim::Map::FrontendUtility#builder_options
+          def builder_options
+            { url: configuration.fetch(:url, nil) }.compact
+          end
+
+          class Builder < Decidim::Map::Autocomplete::Builder
+            # @see Decidim::Map::FrontendUtility::Builder#javascript_snippets
+            def javascript_snippets
+              template.javascript_include_tag("decidim/geocoding/provider/photon")
+            end
+          end
+        end
+      end
+    end
+  end
+end

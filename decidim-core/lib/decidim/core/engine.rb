@@ -117,6 +117,7 @@ module Decidim
         Decidim::Map.register_category(:dynamic, Decidim::Map::Provider::DynamicMap)
         Decidim::Map.register_category(:static, Decidim::Map::Provider::StaticMap)
         Decidim::Map.register_category(:geocoding, Decidim::Map::Provider::Geocoding)
+        Decidim::Map.register_category(:autocomplete, Decidim::Map::Provider::Autocomplete)
       end
 
       # This keeps backwards compatibility with the old style of map

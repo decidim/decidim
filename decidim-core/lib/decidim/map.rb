@@ -4,6 +4,7 @@
 module Decidim
   # A module containing the map functionality for Decidim.
   module Map
+    autoload :Autocomplete, "decidim/map/autocomplete"
     autoload :DynamicMap, "decidim/map/dynamic_map"
     autoload :Geocoding, "decidim/map/geocoding"
     autoload :Provider, "decidim/map/provider"
