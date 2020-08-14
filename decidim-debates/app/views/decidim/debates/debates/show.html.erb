@@ -20,7 +20,7 @@ edit_link(
     <%= t(".back") %>
   <% end %>
 
-  <h2 class="heading2">
+  <h2 class="heading3">
     <%== present(debate).title %>
   </h2>
 
@@ -32,8 +32,16 @@ edit_link(
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
     <% if allowed_to?(:edit, :debate, debate: debate) %>
       <%= link_to t(".edit_debate"), edit_debate_path(debate), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
-    <% elsif debate.official? && admin_allowed_to?(:update, :debate, debate: debate) %>
+    <% elsif admin_allowed_to?(:update, :debate, debate: debate) %>
       <%= link_to t(".edit_debate"), resource_locator(debate).edit, class: "button secondary hollow expanded button-sc button--icon follow-button" %>
+    <% end %>
+    <% close_debate_action_text = (debate.closed? ? ".edit_conclusions" : ".close_debate" ) %>
+    <% if allowed_to?(:close, :debate, debate: debate) %>
+      <button type="button" data-open="closeDebateModal" title="<%= t(close_debate_action_text) %>" aria-controls="closeDebateModal" aria-haspopup="true" tabindex="0" class="button hollow expanded button-sc button--icon follow-button">
+        <%= t(close_debate_action_text) %>
+      </button>
+    <% elsif admin_allowed_to?(:close, :debate, debate: debate) %>
+      <%= link_to t(close_debate_action_text), Decidim::EngineRouter.admin_proxy(debate.component).edit_debate_debate_close_path(debate_id: debate.id, id: debate.id), class: "button hollow expanded button-sc button--icon follow-button" %>
     <% end %>
     <div class="card extra">
       <div class="card__content">
@@ -51,10 +59,22 @@ edit_link(
     <%= resource_reference(debate) %>
     <%= resource_version(debate_presenter, versions_path: debate_versions_path(debate)) %>
     <%= render partial: "decidim/shared/share_modal" %>
+    <%= embed_modal_for debate_widget_url(debate, format: :js) %>
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
+      <% if debate.closed? %>
+        <span class="success label proposal-status">
+          <%= t(".debate_closed") %>
+        </span>
+      <% end %>
+
       <%= render_debate_description(debate) %>
+
+      <% if debate.closed? %>
+        <%= cell("decidim/announcement", { announcement: { title: t(".debate_conclusions_are", date: l(debate.closed_at, format: :decidim_short)), body: simple_format(translated_attribute(debate.conclusions)) }, callout_class: "success" }) %>
+      <% end %>
+
       <% if translated_attribute(debate.instructions).present? %>
         <div class="callout secondary">
           <%= decidim_sanitize(simple_format(translated_attribute(debate.instructions), {}, sanitize: false)) %>
@@ -81,5 +101,11 @@ edit_link(
     reportable: debate,
     form: report_form,
     url: decidim.report_path(sgid: debate.to_sgid.to_s)
+  }
+%>
+<%=
+  render partial: "close_debate_modal", locals: {
+    debate: debate,
+    form: close_debate_form
   }
 %>

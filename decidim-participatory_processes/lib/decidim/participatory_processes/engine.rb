@@ -32,7 +32,7 @@ module Decidim
         resources :participatory_processes, only: [:index, :show], param: :slug, path: "processes" do
           get "all-metrics", on: :member
           resources :participatory_process_steps, only: [:index], path: "steps"
-          resource :participatory_process_widget, only: :show, path: "embed"
+          resource :widget, only: :show, path: "embed"
         end
 
         scope "/processes/:participatory_process_slug/f/:component_id" do

@@ -1,0 +1,17 @@
+<li class="card-data__item">
+  <div class="card-data__item--multiple">
+    <div>
+      <strong>
+        <%= l start_date, format: :decidim_with_month_name %>
+      </strong>
+      <%= formatted_start_time %>
+    </div>
+    <%= icon "arrow-thin-right", class: "icon--big muted", role: "img" %>
+    <div>
+      <strong>
+        <%= l end_date, format: :decidim_with_month_name %>
+      </strong>
+      <%= formatted_end_time %>
+    </div>
+  </div>
+</li>

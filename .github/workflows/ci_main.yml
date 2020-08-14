@@ -13,7 +13,7 @@ on:
 env:
   CI: "true"
   SIMPLECOV: "true"
-  RUBY_VERSION: 2.5.3
+  RUBY_VERSION: 2.6.6
   NODE_VERSION: 12.9.1
 
 jobs:
