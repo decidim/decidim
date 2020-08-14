@@ -129,7 +129,7 @@ module Decidim
       end
 
       def translated_body
-        translated_attribute(body)
+        translated_attribute(body, organization)
       end
 
       private

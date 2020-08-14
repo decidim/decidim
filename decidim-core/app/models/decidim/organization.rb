@@ -11,6 +11,7 @@ module Decidim
     include Decidim::TranslatableResource
 
     SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github].freeze
+    AVAILABLE_MACHINE_TRANSLATION_DISPLAY_PRIORITIES = %w(original translation).freeze
 
     translatable_fields :description, :cta_button_text, :omnipresent_banner_title, :omnipresent_banner_short_description,
                         :highlighted_content_banner_title, :highlighted_content_banner_short_description, :highlighted_content_banner_action_title,
@@ -114,6 +115,14 @@ module Decidim
 
       default_except_disabled = Decidim::OmniauthProvider.enabled.except(*tenant_disabled_providers_keys)
       default_except_disabled.merge(tenant_enabled_providers)
+    end
+
+    def machine_translation_prioritizes_original?
+      machine_translation_display_priority == "original"
+    end
+
+    def machine_translation_prioritizes_translation?
+      machine_translation_display_priority == "translation"
     end
 
     private
