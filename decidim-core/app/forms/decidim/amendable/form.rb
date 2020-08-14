@@ -47,8 +47,8 @@ module Decidim
       # Validates the emendation using the amendable form.
       def amendable_form_must_be_valid
         parse_hashtaggable_params
+        original_form.validate unless defined?(@original_form) # Preserves previously added errors.
 
-        original_form.validate unless defined?(@amendable_form) # Preserves previously added errors.
         amendable_form.validate unless defined?(@amendable_form) # Preserves previously added errors.
 
         compare_amendable_form_errors(@amendable_form.errors.dup) if @original_form.present? && @original_form.errors.details.count.positive?
@@ -88,13 +88,20 @@ module Decidim
       end
 
       def original_form
-        @original_form ||= amendable
+        @original_form ||= i18n_amendable
                            .amendable_form
-                           .from_model(amendable)
+                           .from_model(@i18n_amendable)
                            .with_context(
-                             current_component: amendable.component,
-                             current_participatory_space: amendable.participatory_space
+                             current_component: @i18n_amendable.component,
+                             current_participatory_space: @i18n_amendable.participatory_space
                            )
+      end
+
+      def i18n_amendable
+        @i18n_amendable ||= amendable
+        @i18n_amendable.title = translated_attribute(amendable.title)
+        @i18n_amendable.body = normalized_body(amendable)
+        @i18n_amendable
       end
 
       # Returns the amendable fields keys as String.
