@@ -10,6 +10,8 @@ describe Decidim::Debates::Metrics::DebatesMetricManage do
   let!(:debates) { create_list(:debate, 5, start_time: day, component: component) }
   let!(:old_debates) { create_list(:debate, 5, start_time: day - 1.week, component: component) }
 
+  include_context "when managing metrics"
+
   context "when executing" do
     it "creates new metric records" do
       registry = generate_metric_registry
@@ -35,9 +37,4 @@ describe Decidim::Debates::Metrics::DebatesMetricManage do
       expect(registry.collect(&:quantity)).to eq([5])
     end
   end
-end
-
-def generate_metric_registry(date = nil)
-  metric = described_class.for(date, organization)
-  metric.save
 end

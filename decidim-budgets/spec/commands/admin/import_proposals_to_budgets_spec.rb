@@ -77,8 +77,8 @@ module Decidim
                 projects = Project.where(component: current_component)
                 first_project = projects.first
                 last_project = projects.last
-                expect(translated(first_project.title)).to eq(proposal.title)
-                expect(translated(last_project.title)).to eq(second_proposal.title)
+                expect(first_project.title).to eq(proposal.title)
+                expect(last_project.title).to eq(second_proposal.title)
               end
             end
 
@@ -95,18 +95,12 @@ module Decidim
               command.call
 
               new_project = Project.where(component: current_component).last
-              expect(translated(new_project.title)).to eq(proposal.title)
-              expect(translated(new_project.description)).to eq(proposal.body)
+              expect(new_project.title).to eq(proposal.title)
+              expect(new_project.description).to eq(proposal.body)
               expect(new_project.category).to eq(proposal.category)
               expect(new_project.scope).to eq(proposal.scope)
             end
           end
-        end
-
-        def project_localized(text)
-          Decidim.available_locales.inject({}) do |result, locale|
-            result.update(locale => text)
-          end.with_indifferent_access
         end
       end
     end
