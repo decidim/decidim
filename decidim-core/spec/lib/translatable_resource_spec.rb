@@ -5,7 +5,13 @@ require "spec_helper"
 module Decidim
   describe TranslatableResource do
     let(:dummy_resource) { create :dummy_resource }
+    let(:organization) { dummy_resource.organization }
     let(:current_locale) { "en" }
+
+    before do
+      organization.update(enable_machine_translations: true)
+      allow(Decidim).to receive(:machine_translation_service_klass).and_return(Decidim::Dev::DummyTranslator)
+    end
 
     describe "translatable fields list" do
       it "gets the list of defined translatable fields" do
@@ -44,22 +50,18 @@ module Decidim
       end
 
       it "enqueues the machine translation job when resource is created" do
-        dummy_resource
+        another_resource = create :dummy_resource, component: dummy_resource.component
+
         expect(Decidim::MachineTranslationResourceJob).to have_been_enqueued.on_queue("default").with(
-          dummy_resource,
-          dummy_resource.translatable_previous_changes,
+          another_resource,
+          another_resource.translatable_previous_changes,
           current_locale
         )
       end
 
       context "when there is no machine translation service" do
         before do
-          @original_translator = Decidim.config.machine_translation_service
-          Decidim.config.machine_translation_service = nil
-        end
-
-        after do
-          Decidim.config.machine_translation_service = @original_translator # rubocop:disable RSpec/InstanceVariable
+          allow(Decidim).to receive(:machine_translation_service_klass).and_return(nil)
         end
 
         it "doesn't enqueue a job when resource is updated" do
