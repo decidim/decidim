@@ -57,11 +57,9 @@ module Decidim
       end
 
       # Compare the amendable_form errors and original_form errors
-      # amendable_form errors are duplicated in argument and erased.
-      # Then it compares the difference between the original_form and amendable_form. If amendable_form add more errors than original, error is store in amendable_form errors.
+      # If amendable_form add more errors than original, error is stored in amendable_form errors.
       #
       # Params: amendable_form_errors => Duplicated @amendable_form.errors
-      # Returns nil
       def compare_amendable_form_errors(amendable_form_errors)
         @amendable_form.errors.clear
         @original_form.errors.details.keys.each do |key|
