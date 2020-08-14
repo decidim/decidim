@@ -141,7 +141,8 @@ module Decidim
         expect(subject.utility_modules).to eq(
           dynamic: Decidim::Map::Provider::DynamicMap,
           static: Decidim::Map::Provider::StaticMap,
-          geocoding: Decidim::Map::Provider::Geocoding
+          geocoding: Decidim::Map::Provider::Geocoding,
+          autocomplete: Decidim::Map::Provider::Autocomplete
         )
       end
 
@@ -150,6 +151,7 @@ module Decidim
           subject.unregister_category(:dynamic)
           subject.unregister_category(:static)
           subject.unregister_category(:geocoding)
+          subject.unregister_category(:autocomplete)
 
           expect(subject.utility_modules).to eq({})
         end
@@ -163,6 +165,7 @@ module Decidim
         subject.unregister_category(:dynamic)
         subject.unregister_category(:static)
         subject.unregister_category(:geocoding)
+        subject.unregister_category(:autocomplete)
       end
 
       it "registers a category with the given module and defines the category method" do
@@ -229,6 +232,11 @@ module Decidim
               api_key: "gc_apikey",
               global_conf: "value",
               host: "https://nominatim.example.org/"
+            },
+            autocomplete: {
+              provider: :osm,
+              api_key: "apikey",
+              global_conf: "value"
             }
           )
         end
@@ -274,6 +282,9 @@ module Decidim
               provider: :alternative,
               api_key: "gc_apikey",
               host: "https://nominatim.example.org/"
+            },
+            autocomplete: {
+              url: "https://photon.example.org/api/"
             }
           }
         end
@@ -291,6 +302,12 @@ module Decidim
               api_key: "gc_apikey",
               global_conf: "value",
               host: "https://nominatim.example.org/"
+            },
+            autocomplete: {
+              provider: :osm,
+              api_key: "apikey",
+              global_conf: "value",
+              url: "https://photon.example.org/api/"
             }
           )
         end
@@ -304,7 +321,8 @@ module Decidim
             global_conf: "value",
             dynamic: %w(foo bar),
             static: "baz",
-            geocoding: true
+            geocoding: true,
+            autocomplete: nil
           }
         end
 
@@ -324,6 +342,11 @@ module Decidim
               provider: :osm,
               api_key: "apikey",
               global_conf: "value"
+            },
+            autocomplete: {
+              provider: :osm,
+              api_key: "apikey",
+              global_conf: "value"
             }
           )
         end
@@ -335,6 +358,7 @@ module Decidim
         expect(subject.utility_class(:dynamic)).to be(Decidim::Map::Provider::DynamicMap::Osm)
         expect(subject.utility_class(:static)).to be(Decidim::Map::Provider::StaticMap::Osm)
         expect(subject.utility_class(:geocoding)).to be(Decidim::Map::Provider::Geocoding::Osm)
+        expect(subject.utility_class(:autocomplete)).to be(Decidim::Map::Provider::Autocomplete::Osm)
       end
 
       context "when the utility has not been registered" do
@@ -358,6 +382,7 @@ module Decidim
           expect(subject.utility_class(:dynamic)).to be(nil)
           expect(subject.utility_class(:static)).to be(Decidim::Map::Provider::StaticMap::Osm)
           expect(subject.utility_class(:geocoding)).to be(Decidim::Map::Provider::Geocoding::Osm)
+          expect(subject.utility_class(:autocomplete)).to be(Decidim::Map::Provider::Autocomplete::Osm)
         end
       end
     end
