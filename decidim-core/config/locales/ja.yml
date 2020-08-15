@@ -996,7 +996,7 @@ ja:
         extended:
           debates: ディベート数
           debates_explanation: 議論し、意見を共有し、関連するトピックを豊かにしましょう。
-          how_to_participate: プロセスに参加するにはどうすればいいですか?
+          how_to_participate: 参加型プロセスに参加するにはどうすればいいですか?
           meetings: ミーティング
           meetings_explanation: 公開ミーティングに参加できる場所と時間を確認します。
           more_info: '%{resource_name} に関する詳細情報'
