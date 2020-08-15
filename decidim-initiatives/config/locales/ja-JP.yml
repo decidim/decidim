@@ -70,6 +70,20 @@ ja:
       actions:
         new_initiative_type: 新しいイニシアチブタイプ
       filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: エリア
+          state_eq:
+            label: 州(県)
+            values:
+              accepted: 十分な署名
+              created: 作成日
+              discarded: 削除済み
+              published: 公開済
+              rejected: 十分な署名がありません
+              validating: 技術的検証
+          type_id_eq:
+            label: タイプ
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: '%{collection} をタイトル、説明、ID、または著者名で検索します。'
       menu:
