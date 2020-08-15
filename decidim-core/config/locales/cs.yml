@@ -178,7 +178,7 @@ cs:
         section_heading: Změny (%{count})
       compare_draft:
         continue: Pokračovat
-        no_similars_found: Nebyly nalezeny žádné podobné vylepšení. 
+        no_similars_found: Nebyly nalezeny žádné podobné vylepšení.
         title: Podobná vylepšení
       created:
         error: Při vytváření pozměňovacího návrhu došlo k chybě.
