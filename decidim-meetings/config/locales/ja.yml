@@ -3,7 +3,7 @@ ja:
     attributes:
       agenda:
         description: 説明
-        duration: 期間
+        duration: 持続期間
         title: タイトル
       close_meeting:
         attendees_count: 出席者数
