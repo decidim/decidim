@@ -32,7 +32,7 @@ ja:
         slug: URL スラグ
         start_date: 開始日
         subtitle: サブタイトル
-        target: 参加した人
+        target: 参加者
         title: タイトル
       participatory_process_group:
         description: 説明
@@ -391,7 +391,7 @@ ja:
         related_processes: 関連する参加型プロセス
         scope: スコープ
         start_date: 開始日
-        target: 参加した人
+        target: 参加者
         unspecified: 指定されていない
       statistics:
         answers_count: 回答
