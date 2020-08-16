@@ -244,13 +244,13 @@ the `geocoder-suggest.decidim` JavaScript event on all elements that have the
 returned by the builder's `builder_options` method as mentioned above. For
 example, if you passed the following configuration from that method:
 
-```
+```js
 { url: "https://photon.example.org/api/", other_config: "foo" }
 ```
 
 This would be available in the JavaScript as follows:
 
-```javascript
+```js
 $(document).on("ready", () => {
   $("[data-decidim-geocoding]").each((_i, el) => {
     console.log($(el).data("decidim-geocoding"));
@@ -283,7 +283,7 @@ results but it will be not used by Decidim.
 
 The final code would look something like follows:
 
-```javascript
+```js
 $(document).on("ready", () => {
   $("[data-decidim-geocoding]").each((_i, el) => {
     const $input = $(el);
@@ -318,7 +318,7 @@ If your autocompletion API does not provide the coordinates information along
 with the autocompletion requests, you can hook into another event to do extra
 queries for the geocoordinates as follows:
 
-```javascript
+```js
 $(document).on("ready", () => {
   $("geocoder-suggest-select.decidim", (ev, selectedItem) => {
     console.log(selectedItem);
