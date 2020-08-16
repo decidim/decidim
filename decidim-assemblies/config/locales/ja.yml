@@ -21,12 +21,12 @@ ja:
         description: 説明
         developer_group: プロモーターグループ
         domain: ドメイン
-        duration: 期間
+        duration: 持続期間
         facebook: Facebook
         github: GitHub
         hashtag: ハッシュタグ
         hero_image: ホーム画像
-        included_at: に含まれています
+        included_at: 含まれた日
         instagram: Instagram
         internal_organisation: 内部組織
         is_transparent: 透明な
@@ -255,7 +255,7 @@ ja:
       admin:
         assemblies:
           form:
-            duration: 期間
+            duration: 持続期間
             duration_help: この会議体の持続時間が限られている場合は、終了日を選択します。それ以外の場合は、不定義として表示されます。
             filters: フィルタ
             images: 画像
@@ -352,8 +352,8 @@ ja:
         created_by: '作成者:'
         creation_date: 作成日
         developer_group: プロモーターグループ
-        duration: 期間
-        included_at: に含まれています
+        duration: 持続期間
+        included_at: 含まれた日
         indefinite_duration: 不定義
         internal_organisation: 内部組織
         is_transparent:
