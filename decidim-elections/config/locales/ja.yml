@@ -27,7 +27,7 @@ ja:
       decidim/elections/answer:
         other: 回答
       decidim/elections/election:
-        other: <unk>
+        other: 選挙
       decidim/elections/question:
         other: 質問
   decidim:
@@ -35,7 +35,7 @@ ja:
       elections:
         actions:
           vote: 投票
-        name: <unk>
+        name: 選挙
         settings:
           global:
             announcement: お知らせ
@@ -84,10 +84,10 @@ ja:
             title: 選挙を編集
             update: 選挙を更新
           index:
-            title: <unk>
+            title: 選挙
           new:
-            create: 選択を作成
-            title: 新しい選択
+            create: 選挙を作成
+            title: 新しい選挙
           publish:
             success: 選挙は正常に公開されました。
           unpublish:
@@ -99,7 +99,7 @@ ja:
           answer:
             name: 回答
           election:
-            name: <unk>
+            name: 選挙
           question:
             name: 質問
         proposals_imports:
@@ -160,7 +160,7 @@ ja:
         question:
           fields:
             answers: 回答
-            max_selections: 最大選択
+            max_selections: 最大選挙数
             title: タイトル
       votes:
         confirm:
