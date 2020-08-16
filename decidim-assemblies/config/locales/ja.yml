@@ -47,7 +47,7 @@ ja:
         slug: URL スラグ
         special_features: 特別な機能
         subtitle: サブタイトル
-        target: 参加した人
+        target: 参加者
         title: タイトル
         twitter: Twitter
         youtube: YouTube
@@ -56,10 +56,10 @@ ja:
         birthplace: 出生地
         ceased_date: 終了日
         designation_date: 指定日
-        designation_mode: 名称モード
+        designation_mode: 指定方法
         full_name: フルネーム
         gender: 性別
-        position: 位置
+        position: ポジション
       assembly_user_role:
         email: Eメールアドレス
         name: 名前
@@ -208,13 +208,13 @@ ja:
             ceased_date: 終了日
             designation_date: 指定日
             full_name: 名前
-            position: 位置
+            position: ポジション
           name: メンバー
           positions:
             other: その他
-            president: 社長
+            president: 代表者
             secretary: 秘書官
-            vice_president: バイスプレジデントformat@@0
+            vice_president: 副代表
         assembly_user_role:
           fields:
             email: Eメールアドレス
@@ -289,7 +289,7 @@ ja:
           form:
             existing_user: 既存の参加者
             non_user: 参加者がいません
-            select_a_position: 位置を選択
+            select_a_position: ポジションを選択
             select_user: 参加者を選択
             user_type: 参加者の種類
           index:
@@ -317,9 +317,9 @@ ja:
         highlighted_assemblies:
           name: ハイライトされた会議体
       created_by:
-        city_council: 市議会（市議会）
+        city_council: 市議会
         others: その他
-        public: 公開
+        public: 一般
       filter:
         all: すべてのタイプ
         commission: Commission
@@ -370,7 +370,7 @@ ja:
         scope: スコープ
         social_networks: ソーシャル ネットワーク
         social_networks_title: この会議体を共有
-        target: 参加した人
+        target: 参加者
       statistics:
         answers_count: 回答
         assemblies_count: 会議体
