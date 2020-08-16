@@ -322,7 +322,7 @@ ja:
         no_content: この基準のコンテンツが見つかりませんでした
         order:
           all_types: すべてのタイプ
-          collaborative_draft: 共同ドラフトformat@@0
+          collaborative_draft: 共同草案
           comment: コメント
           debate: ディベート
           initiative: イニシアチブ
@@ -1244,7 +1244,7 @@ ja:
       show:
         my_interests: 興味のあるもの
         no_scopes: この組織にはまだ範囲がありません！
-        select_your_interests: format@@0タブで、関連するイベントを受信するトピックを選択します。
+        select_your_interests: 興味のあるトピックを選択すると、プロフィールのタイムラインタブで関連するイベントを受け取ることができます。
         update_my_interests: 興味を更新する
       update:
         error: 更新中に問題が発生しました。
