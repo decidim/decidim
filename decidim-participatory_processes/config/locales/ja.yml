@@ -121,7 +121,7 @@ ja:
             end_date: 終了日
             start_date: 開始日
             title: タイトル
-          name: 参加型プロセスフェーズ
+          name: プロセスのフェーズ
         participatory_process_user_role:
           fields:
             email: Eメールアドレス
@@ -172,26 +172,26 @@ ja:
           success: 参加型プロセスを正常に非公開にしました。
       participatory_process_step_activations:
         create:
-          error: この参加型プロセスフェーズの有効化に問題が発生しました。
-          success: 参加型プロセスフェーズが正常にアクティベートされました。
+          error: この参加型プロセスのフェーズの有効化に問題が発生しました。
+          success: 参加型プロセスのフェーズが正常にアクティベートされました。
       participatory_process_steps:
         create:
-          error: 新しい参加型プロセスフェーズの作成に問題がありました。
-          success: 参加型プロセスフェーズが正常に作成されました。
+          error: 新しい参加型プロセスのフェーズの作成に問題がありました。
+          success: 参加型プロセスのフェーズが正常に作成されました。
         default_title: はじめに
         destroy:
           error:
             active_step: アクティブなフェーズは削除できません。
             last_step: 参加型プロセスの最後のフェーズは削除できません。
-          success: 参加型プロセスフェーズが正常に削除されました。
+          success: 参加型プロセスのフェーズが正常に削除されました。
         edit:
-          title: 参加型プロセスフェーズを編集
+          title: 参加型プロセスのフェーズを編集
           update: 更新
         index:
           steps_title: フェーズ
         new:
           create: 作成
-          title: 新しい参加型プロセスフェーズ
+          title: 新しい参加型プロセスのフェーズ
         ordering:
           error: 参加型プロセスのこれらのフェーズの順序変更に問題がありました。
         update:
@@ -396,8 +396,8 @@ ja:
       statistics:
         answers_count: 回答
         comments_count: コメント
-        debates_count: ディベート数
-        endorsements_count: <unk>
+        debates_count: ディベート
+        endorsements_count: 支持
         followers_count: フォロワー
         headline: 統計情報
         meetings_count: ミーティング
@@ -440,6 +440,6 @@ ja:
           take_part_in: 参加型プロセス %{resource_name} に参加する
       process_header_steps:
         step: 段階 %{current} / %{total}
-        view_steps: 参加型プロセスフェーズ
+        view_steps: プロセスのフェーズ
       process_navigation:
-        process_menu_item: 参加型プロセス
+        process_menu_item: プロセス
