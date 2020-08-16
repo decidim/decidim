@@ -49,7 +49,7 @@ ja:
       decidim/amendment:
         other: 修正
       decidim/endorsement:
-        other: <unk>
+        other: 支持
       decidim/user:
         other: 参加者
       decidim/user_group:
@@ -167,7 +167,7 @@ ja:
       compare_draft:
         continue: 続ける
         no_similars_found: 似たような表現は見つかりません。
-        title: 似たような<unk>
+        title: 似たような訂正
       created:
         error: 修正案の作成中にエラーが発生しました。
         success: 修正案が正常に作成されました。
@@ -458,7 +458,7 @@ ja:
           update_profile: プロフィールを更新
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> があなたのアカウントを使用しようとしています"
     endorsable:
-      endorsements: <unk>
+      endorsements: 支持
       endorsements_count: 支持数
     endorsement_buttons_cell:
       already_endorsed: 承認済み
@@ -788,7 +788,7 @@ ja:
     help:
       main_topic:
         default_page:
-          content: "<p>%{organization} では、トップメニューにあるスペース（参加型プロセスや討論、イニシアチブ、議案）から、さまざまなトピックに参加したり、決定したりすることができます。</p> <p>それぞれのスペースには、参加するためのさまざまなオプションが用意されています: (個人または他の人と一緒に) 提案をする 、討論会に参加する、実施するプロジェクトの優先順位を決める、対面会議に出席する、その他のアクションを行う等。</p>\n"
+          content: "<p>%{organization} では、トップメニューにあるスペース（参加型プロセスや会議体、イニシアチブ、議案）から、さまざまなトピックに参加したり、決定したりすることができます。</p> <p>それぞれのスペースには、参加するためのさまざまなオプションが用意されています: (個人または他の人と一緒に) 提案をする 、ディベートに参加する、実施するプロジェクトの優先順位を決める、対面会議に出席する、その他のアクションを行う等。</p>\n"
           title: '%{organization} で何ができますか？'
         description: '%{organization} についてもっと読む'
         title: 一般的なヘルプ
@@ -994,8 +994,8 @@ ja:
     pages:
       home:
         extended:
-          debates: ディベート数
-          debates_explanation: 議論し、意見を共有し、関連するトピックを豊かにしましょう。
+          debates: ディベート
+          debates_explanation: 討論し、話し合い、意見を共有し、関連するトピックを豊かにしましょう。
           how_to_participate: 参加型プロセスに参加するにはどうすればいいですか?
           meetings: ミーティング
           meetings_explanation: 公開ミーティングに参加できる場所と時間を確認します。
@@ -1016,8 +1016,8 @@ ja:
           assemblies_count: 会議体
           comments_count: コメント
           conferences_count: カンファレンス
-          debates_count: ディベート数
-          endorsements_count: <unk>
+          debates_count: ディベート
+          endorsements_count: 支持
           headline: '%{organization} の現在の状態'
           meetings_count: ミーティング
           orders_count: 投票
