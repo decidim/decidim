@@ -490,8 +490,8 @@ ja:
         answers_count: 回答
         comments_count: コメント
         conference_count: カンファレンス
-        debates_count: ディベート数
-        endorsements_count: <unk>
+        debates_count: ディベート
+        endorsements_count: 支持
         headline: アクティビティ
         meetings_count: ミーティング
         orders_count: サポート
