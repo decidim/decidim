@@ -4,12 +4,13 @@ Decidim has the ability to geocode proposals and meetings and display them on a
 map. Decidim has built-in support for the following map service providers:
 
 - [HERE Maps][link-here] (Recommended)
-  - Supports map tiles, static map images and geocoding
+  - Supports map tiles, static map images, geocoding and geocoding
+    autocompletion
   - Easy to get started with, comes with a rather generous free plan
   - [Configuring HERE Maps][anchor-configure-here-maps]
 - [Open Street Maps based services][link-osm-commercial]
   - Please pick a service provider that provides all needed services (map tiles,
-    static map images and geocoding)
+    static map images, geocoding and geocoding autocompletion)
   - We can't use the OSM's own services by their
     [tile usage policy][link-osm-tile-usage].
   - As an alternative, you may also want to use your own self-hosted map servers
@@ -103,7 +104,8 @@ config.maps = {
     }
   },
   static: { url: "https://staticmap.example.org/" },
-  geocoding: { host: "nominatim.example.org", use_https: true }
+  geocoding: { host: "nominatim.example.org", use_https: true },
+  autocomplete: { url: "https://photon.example.org/api/" }
 }
 ```
 
@@ -128,9 +130,9 @@ at the [Hosting your own map services][anchor-hosting-osm] section.
 ### Combining multiple service providers
 
 It is also possible to combine multiple service providers for the different
-categories of map services. For instance, if you want to host your own static
-maps and geocoding servers and use HERE Maps for the map tiles, use the
-following configuration:
+categories of map services. For instance, if you want to host use HERE Maps for
+the map tiles but host the other services yourself, use the following
+configuration:
 
 ```ruby
 # Map and Geocoder configuration
@@ -142,7 +144,8 @@ config.maps = {
     api_key: Rails.application.secrets.maps[:here_api_key]
   },
   static: { url: "https://staticmap.example.org/" },
-  geocoding: { host: "nominatim.example.org", use_https: true }
+  geocoding: { host: "nominatim.example.org", use_https: true },
+  autocomplete: { url: "https://photon.example.org/api/" }
 }
 ```
 
@@ -170,13 +173,15 @@ of them.
 
 The configuration syntax allows you to disable the map services one by one. For
 example, if you want to use HERE Maps as your default but disable the static map
-images functionality, you can use the following configuration:
+images and geocoding autocompletion functionality, you can use the following
+configuration:
 
 ```ruby
 config.maps = {
   provider: :here,
   api_key: Rails.application.secrets.maps[:api_key],
-  static: false
+  static: false,
+  autocomplete: false
 }
 ```
 
@@ -290,6 +295,23 @@ the geocoding server:
 
 https://nominatim.example.org
 
+### Geocoding autocompletion: Photon geocoding server
+
+[Photon][link-osm-photon] makes it possible to provide the autocompletion
+service for people writing addresses to the address fields available in Decidim.
+It uses the Open Street Maps data to serve the autocompletion requests. When
+people select one of the suggested addresses, it will also tell Decidim the map
+point for that address.
+
+Follow these instructions to setup your geocoding autocompletion server:
+
+https://github.com/komoot/photon#installation
+
+In the example configuration, we assume you have used the following domain for
+the Photon geocoding server for the autocompletion functionality:
+
+https://photon.example.org
+
 ### Configure Decidim
 
 After you have all these services running, change your Decidim configurations
@@ -306,6 +328,7 @@ section for more information.
 [link-osm-commercial]: https://wiki.openstreetmap.org/wiki/Commercial_OSM_Software_and_Services
 [link-osm-nominatim]: https://wiki.openstreetmap.org/wiki/Nominatim
 [link-osm-static-maps]: https://github.com/jperelli/osm-static-maps
+[link-osm-photon]: https://github.com/komoot/photon
 [link-osm-tile-usage]: https://operations.osmfoundation.org/policies/tiles/
 [link-wiki-geocoordinates]: https://en.wikipedia.org/wiki/Geographic_coordinate_system
 [link-wiki-map-tiles]: https://wiki.openstreetmap.org/wiki/Tiles

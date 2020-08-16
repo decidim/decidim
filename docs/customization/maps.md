@@ -9,6 +9,9 @@ service provider that provides all the following services:
 
 - [A geocoding server][link-wiki-geocoding] in order to turn user entered
   addresses into [geocoordinates][link-wiki-geocoordinates].
+- [A geocoding autocompletion server][link-wiki-autocompletion] in order to
+  suggest and predict addresses based on the user input and turning these
+  suggested addresses into [geocoordinates][link-wiki-geocoordinates].
 - [A map tile server][link-wiki-tile-server] for the dynamic maps, preferrably
   one that is compatible with the default [Leaflet][link-leaflet] map library.
 - [A static map image server][link-wiki-static-maps] for the static map images
@@ -42,6 +45,9 @@ module Decidim
     module Provider
       module Geocoding
         autoload :YourProvider, "decidim/map/provider/geocoding/your_provider"
+      end
+      module Autocomplete
+        autoload :YourProvider, "decidim/map/provider/autocomplete/your_provider"
       end
       module DynamicMap
         autoload :YourProvider, "decidim/map/provider/dynamic_map/your_provider"
@@ -141,6 +147,193 @@ Geocoder.configure(
 Each geocoding API may require their own configuration options. Please refer to
 the Geocoder gem's [supported geocoding APIs][link-geocoder-apis] documentation
 to find out the available options for your API.
+
+### Defining the geocoding autocompletion maps utility
+
+For the geocoding autocompletion map functionality, you should preferrably use
+a service provider that is compatible with [Photon][link-photon] which is
+already integrated with Decidim.
+
+If this is not possible, you can also create a custom geocoding autocompletion
+maps utility for your own service provider by defining the following empty class
+to start with:
+
+```ruby
+module Decidim
+  module Map
+    module Provider
+      module Autocomplete
+        class YourProvider < ::Decidim::Map::Autocomplete
+          # ... add your customizations here ...
+        end
+      end
+    end
+  end
+end
+```
+
+In case you want to customize the geocoding autocompletion map utility for your
+provider, you can define the following methods in the utility class:
+
+- `builder_class` - Returns a class for the geocoding autocompletion builder
+  that is used to create the input fields for the autocompleted addresses in the
+  front-end. By default, this would be
+  `Decidim::Map::Provider::Autocomplete::YourProvider::Builder` or if that is
+  not defined, defaults to `Decidim::Map::Autocomplete::Builder`. See below for
+  further notes about the builder class.
+- `builder_options` - A method that prepares the options for the builder
+  instance that is used to create the maps in the front-end. By default, this
+  is an empty hash that needs to be configured for each provider.
+
+To see an example how to customize the static map utility, take a look at the
+[HERE Maps geocoding autocomletion utility][link-code-here-autocomplete].
+
+In order to provide configuration options for the geocoding autocompletion, you
+can pass them directly through the maps configuration with the following syntax:
+
+```ruby
+config.maps = {
+  provider: :your_provider,
+  api_key: Rails.application.secrets.maps[:api_key],
+  autocomplete: {
+    url: "https://photon.example.org/api/"
+  }
+}
+```
+
+And then you can use these options in your provider utility as follows e.g. in
+the `builder_options` method:
+
+```ruby
+def builder_options
+  { url: configuration.fetch(:url, nil) }.compact
+end
+```
+
+You will also need to define a builder class inside your provider utility class
+as follows:
+
+```ruby
+module Decidim
+  module Map
+    module Provider
+      module Autocomplete
+        class Here < ::Decidim::Map::Autocomplete
+          # ... other customizations go gere ...
+
+          # This is the actual builder customization where you could define e.g.
+          # the JavaScript asset which is used to initialize the geocoding
+          # autocompletion functionality in the front-end:
+          class Builder < Decidim::Map::Autocomplete::Builder
+            def javascript_snippets
+              template.javascript_include_tag("decidim/geocoding/provider/your_provider")
+            end
+          end
+        end
+      end
+    end
+  end
+end
+```
+
+To see an example of the front-end JavaScript code that handles the geocoding
+requests, you can take a look at the
+[HERE Maps example][link-code-here-autocomplete-js]. You will have to listen to
+the `geocoder-suggest.decidim` JavaScript event on all elements that have the
+`data-decidim-geocoding` attribute defined which contains all the configurations
+returned by the builder's `builder_options` method as mentioned above. For
+example, if you passed the following configuration from that method:
+
+```
+{ url: "https://photon.example.org/api/", other_config: "foo" }
+```
+
+This would be available in the JavaScript as follows:
+
+```javascript
+$(document).on("ready", () => {
+  $("[data-decidim-geocoding]").each((_i, el) => {
+    console.log($(el).data("decidim-geocoding"));
+    // => This would print out:
+    // {url: "https://photon.example.org/api/", otherConfig: "foo"}
+  });
+});
+```
+
+When you hook into the `geocoder-suggest.decidim` event on these methods, the
+event callback will be provided three arguments:
+
+- `event` - The event that you hooked into
+- `query` - The text to be queried, i.e. what the user entered into the input
+- `callback` - A callback method which you will need to call with your geocoding
+  autocompletion results once the request to the API has finished in the
+  front-end.
+
+The `callback` method expects one argument which is the array of result objects.
+The result objects need to contain the following keys:
+
+- `key` - The key which will be matched against the user entered input
+- `value` - The value which will be added to the address input if the user
+  decides to select this value
+
+Optionally, you can also include a `coordinates` key in the result object which
+contains an array of two cordinates (latitude and longitude respectively). You
+can also include any other data you might need in the front-end for these
+results but it will be not used by Decidim.
+
+The final code would look something like follows:
+
+```javascript
+$(document).on("ready", () => {
+  $("[data-decidim-geocoding]").each((_i, el) => {
+    const $input = $(el);
+    const config = $input.data("decidim-geocoding");
+
+    $input.on("geocoder-suggest.decidim", (event, query, callback) => {
+        currentSuggestionQuery = setTimeout(() => {
+          $.ajax({
+            method: "GET",
+            url: config.url,
+            data: { apiKey: config.apiKey },
+            dataType: "json"
+          }).done((resp) => {
+            if (resp.suggestions) {
+              return callback(resp.suggestions.map((item) => {
+                return {
+                  key: item.label,
+                  value: item.label,
+                  coordinates: [item.latitude, item.longitude],
+                  yourExtraData: item.yourExtraData
+                }
+              }));
+            }
+            return null;
+          });
+    });
+  });
+});
+```
+
+If your autocompletion API does not provide the coordinates information along
+with the autocompletion requests, you can hook into another event to do extra
+queries for the geocoordinates as follows:
+
+```javascript
+$(document).on("ready", () => {
+  $("geocoder-suggest-select.decidim", (ev, selectedItem) => {
+    console.log(selectedItem);
+    // => This would print out what you returned for the `callback` as shown
+    // above.
+
+    // NOTE: YOU DON'T NEED THIS IF YOUR RESPONSE OBJECTS ALREADY CONTAINED THE
+    //       COORDINATES IN THE `coordinates` KEY OF EACH RESULT OBJECT!
+    // Then, once you know the coordinates, you trigger the following event on
+    // the same input (obviously, you need to query the API first):
+    const coordinates = [1.123, 2.234];
+    $(ev.target).trigger("geocoder-suggest-coordinates.decidim", [coordinates]);
+  });
+});
+```
 
 ### Defining the dynamic maps utility
 
@@ -346,6 +539,8 @@ documentation.
 
 [link-code-dynamic-map]: /decidim-core/lib/decidim/map/dynamic_map.rb
 [link-code-geocoder-result]: https://github.com/alexreisner/geocoder/blob/master/lib/geocoder/results/base.rb
+[link-code-here-autocomplete]: /decidim-core/lib/decidim/map/provider/autocomplete/here.rb
+[link-code-here-autocomplete-js]: /decidim-core/app/assets/javascripts/decidim/geocoding/provider/here.js.es6
 [link-code-here-dynamic]: /decidim-core/lib/decidim/map/provider/dynamic_map/here.rb
 [link-code-here-static]: /decidim-core/lib/decidim/map/provider/static_map/here.rb
 [link-code-osm-dynamic]: /decidim-core/lib/decidim/map/provider/dynamic_map/osm.rb
@@ -358,7 +553,9 @@ documentation.
 [link-geocoder-apis]: https://github.com/alexreisner/geocoder/blob/master/README_API_GUIDE.md
 [link-leaflet]: https://leafletjs.com/
 [link-osm-static-maps]: https://github.com/jperelli/osm-static-maps
+[link-photon]: https://github.com/komoot/photon
 [link-rails-form-builder]: https://guides.rubyonrails.org/form_helpers.html#customizing-form-builders
+[link-wiki-autocompletion]: https://en.wikipedia.org/wiki/Autocomplete
 [link-wiki-geocoding]: https://en.wikipedia.org/wiki/Geocoding
 [link-wiki-geocoordinates]: https://en.wikipedia.org/wiki/Geographic_coordinate_system
 [link-wiki-map-tiles]: https://wiki.openstreetmap.org/wiki/Tiles
