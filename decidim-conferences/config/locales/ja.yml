@@ -168,7 +168,7 @@ ja:
           fields:
             affiliation: Affiliation
             full_name: フルネーム
-            position: 位置
+            position: ポジション
           name: カンファレンススピーカー
         conference_user_role:
           fields:
