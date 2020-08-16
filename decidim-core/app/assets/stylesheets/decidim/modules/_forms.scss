@@ -2,6 +2,7 @@
 
 $checkboxes-minimum-width: 200px;
 $help-text-margin-top: ($form-spacing * .5) * -1;
+$input-height: ($input-font-size * unitless-calc($input-line-height)) + (get-side($input-padding, 'top') + get-side($input-padding, 'bottom')) - rem-calc(1);
 
 .input-group{
   .input-group-field{
@@ -16,6 +17,18 @@ $help-text-margin-top: ($form-spacing * .5) * -1;
 .input-group-button button{
   height: 2.5rem;
   padding: .5rem 1rem;
+}
+
+.field{
+  &.has-tribute{
+    position: relative;
+
+    .tribute-container{
+      top: $input-height;
+      max-width: none;
+      width: 100%;
+    }
+  }
 }
 
 .help-text{

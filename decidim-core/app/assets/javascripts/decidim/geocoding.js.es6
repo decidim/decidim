@@ -7,12 +7,17 @@
   $(() => {
     $("[data-decidim-geocoding]").each((_i, el) => {
       const $input = $(el);
+      const $fieldContainer = $input.parent();
+
+      $fieldContainer.addClass("has-tribute");
 
       const tribute = new Tribute(
         {
           autocompleteMode: true,
           // autocompleteSeparator: / \+ /, // See below, requires Tribute update
           allowSpaces: true,
+          positionMenu: false,
+          menuContainer: $fieldContainer.get(0),
           noMatchTemplate: null,
           values: (text, cb) => {
             $input.trigger("geocoder-suggest.decidim", [text, cb]);
