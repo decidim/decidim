@@ -523,7 +523,7 @@ ja:
         step: '%{current} / %{total}'
         title: 新しいイニシアチブを作成
       initiative_header:
-        initiative_menu_item: イニシアチブformat@@0
+        initiative_menu_item: イニシアチブ
       initiative_signature_creation_header:
         back: 戻る
         fill_personal_data: データを完成させましょう
