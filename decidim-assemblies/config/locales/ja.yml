@@ -16,7 +16,7 @@ ja:
         created_by_other: 他によって作成
         creation_date: 作成日
         decidim_area_id: エリア
-        decidim_assemblies_type_id: アセンブリタイプ
+        decidim_assemblies_type_id: 会議体種別
         decidim_scope_id: スコープ
         description: 説明
         developer_group: プロモーターグループ
@@ -86,8 +86,8 @@ ja:
         new_assembly_type: 新しいアセンブリタイプ
       assemblies:
         create:
-          error: 新しいアセンブリの作成中に問題が発生しました。
-          success: アセンブリが作成されました。
+          error: 新しい会議体の作成中に問題が発生しました。
+          success: 会議体が作成されました。
         edit:
           update: 更新
         index:
@@ -97,30 +97,30 @@ ja:
           published: 公開済み
         new:
           create: 作成
-          title: 新しいアセンブリ
+          title: 新しい会議体
         update:
-          error: アセンブリの更新に問題がありました。
-          success: アセンブリを更新しました。
+          error: 会議体の更新に問題がありました。
+          success: 会議体を更新しました。
       assemblies_copies:
         create:
-          error: このアセンブリの複製中に問題が発生しました。
-          success: アセンブリを複製しました。
+          error: この会議体の複製中に問題が発生しました。
+          success: 会議体を複製しました。
       assemblies_settings:
         update:
           error: 設定の更新中に問題が発生しました。
           success: 設定が更新されました。
       assemblies_types:
         create:
-          error: 新しいアセンブリタイプの作成に問題がありました。
-          success: アセンブリタイプが正常に作成されました。
+          error: 新しい会議体種別の作成に問題がありました。
+          success: 会議体種別が正常に作成されました。
         destroy:
-          success: アセンブリタイプを削除しました。
+          success: 会議体種別を削除しました。
         new:
           create: 作成
-          title: 新しいアセンブリタイプ
+          title: 新しい会議体種別
         update:
-          error: アセンブリタイプの更新中に問題が発生しました。
-          success: アセンブリタイプが正常に更新されました。
+          error: 会議体種別の更新中に問題が発生しました。
+          success: 会議体種別が正常に更新されました。
       assembly_copies:
         new:
           copy: コピー
@@ -179,7 +179,7 @@ ja:
         assemblies: アセンブリ
         assemblies_settings: 設定
         assemblies_submenu:
-          assembly_admins: 組立管理者
+          assembly_admins: 会議体管理者
           assembly_members: メンバー
           attachment_collections: フォルダ
           attachment_files: ファイル
@@ -240,7 +240,7 @@ ja:
         delete: "%{user_name} が %{resource_name} アセンブリから %{space_name} メンバーを削除しました"
         update: "%{user_name} が %{resource_name} アセンブリの %{space_name} メンバーを更新しました"
       assembly_setting:
-        update: "%{user_name} がアセンブリ設定を更新しました"
+        update: "%{user_name} が会議体設定を更新しました"
       assembly_type:
         create: "%{user_name} が %{resource_name} アセンブリタイプを作成しました"
         delete: "%{user_name} が %{resource_name} アセンブリタイプから %{space_name} メンバーを削除しました"
@@ -256,17 +256,17 @@ ja:
         assemblies:
           form:
             duration: 期間
-            duration_help: このアセンブリの持続時間が限られている場合は、終了日を選択します。それ以外の場合は、不定義として表示されます。
+            duration_help: この会議体の持続時間が限られている場合は、終了日を選択します。それ以外の場合は、不定義として表示されます。
             filters: フィルタ
             images: 画像
-            included_at_help: このアセンブリがDecidimに追加された日付を選択します。必ずしも作成日と同じである必要はありません。
+            included_at_help: この会議体がDecidimに追加された日付を選択します。必ずしも作成日と同じである必要はありません。
             metadata: メタデータ
             other: その他
             select_a_created_by: 作成者を選択してください
             select_an_area: エリアを選択
-            select_an_assembly_type: アセンブリタイプを選択
-            select_parent_assembly: 親アセンブリを選択
-            slug_help: 'URLスラグは、このアセンブリを指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+            select_an_assembly_type: 会議体種別を選択
+            select_parent_assembly: 親会議体を選択
+            slug_help: 'URLスラグは、この会議体を指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
             social_handlers: ソーシャル
             title: 一般情報
             visbility: 公開範囲
@@ -280,15 +280,15 @@ ja:
             title: タイトル
         assembly_copies:
           form:
-            slug_help: 'URLスラグは、このアセンブリを指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+            slug_help: 'URLスラグは、この会議体を指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
         assembly_imports:
           form:
             document_legend: ドキュメントを追加
-            slug_help: 'URLスラグは、このアセンブリを指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+            slug_help: 'URLスラグは、この会議体を指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
         assembly_members:
           form:
             existing_user: 既存の参加者
-            non_user: Non participant
+            non_user: 参加者がいません
             select_a_position: 位置を選択
             select_user: 参加者を選択
             user_type: 参加者の種類
@@ -308,7 +308,7 @@ ja:
       assembly_types:
         commission: <unk>
         consultative_advisory: 協議/アドバイザリ
-        executive: Executive
+        executive: 役員
         government: 政府
         others: その他
         participatory: 参加者
@@ -333,7 +333,7 @@ ja:
       index:
         title: アセンブリ
       last_activity:
-        new_assembly: 新しいアセンブリ
+        new_assembly: 新しい会議体
       pages:
         home:
           highlighted_assemblies:
@@ -345,7 +345,7 @@ ja:
             member_of: メンバー
       show:
         area: エリア
-        assembly_type: アセンブリタイプ
+        assembly_type: 会議体種別
         children: アセンブリ
         closing_date: 終了日
         composition: 構成
@@ -362,14 +362,14 @@ ja:
         local_area: 組織エリア
         participatory_scope: 決定されるもの
         participatory_structure: どのように決められますか？
-        private_space: これは私的集会です
+        private_space: これは私的会議体です
         purpose_of_action: アクションの目的
         read_less: 未読にする
         read_more: もっと読む
         related_participatory_processes: 関連する参加型プロセス
         scope: スコープ
         social_networks: ソーシャル ネットワーク
-        social_networks_title: このアセンブリを共有
+        social_networks_title: この会議体を共有
         target: 参加した人
       statistics:
         answers_count: 回答
@@ -401,10 +401,10 @@ ja:
     events:
       assemblies:
         create_assembly_member:
-          email_intro: <a href="%{resource_url}">%{resource_name}</a> アセンブリの管理者があなたをそのメンバーの一人として追加しました。
-          email_outro: アセンブリに招待されたため、この通知を受け取りました。 <a href="%{resource_path}">アセンブリページ</a> を確認して貢献してください！
-          email_subject: あなたは %{resource_name} アセンブリのメンバーに招待されています！
-          notification_title: アセンブリ <a href="%{resource_path}">%{resource_name}</a>のメンバーとして登録されました。貢献するには <a href="%{resource_path}">アセンブリページ</a> を確認してください！
+          email_intro: <a href="%{resource_url}">%{resource_name}</a> 会議体の管理者があなたをメンバーの一人として追加しました。
+          email_outro: 会議体に招待されたため、この通知を受け取りました。 <a href="%{resource_path}">会議体ページ</a> を確認して貢献してください！
+          email_subject: あなたは %{resource_name} 会議体のメンバーに招待されています！
+          notification_title: 会議体 <a href="%{resource_path}">%{resource_name}</a>のメンバーとして登録されました。貢献するには <a href="%{resource_path}">会議体ページ</a> を確認してください！
       assembly:
         role_assigned:
           email_intro: アセンブリ「 %{role} 」の%{resource_title}として割り当てられました。
@@ -414,8 +414,8 @@ ja:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p> <strong>集会</strong>とは、組織の特定の領域や範囲について決定を下すために定期的に会合を開く組織のメンバーのグループです。</p> <p>集会は非公開のものもあれば、公開されているものもあります。公開されている場合は、その集会に参加することができます (例えば、定員に余裕があれば出席したり、議題にポイントを追加したり、この組織の提案や決定に対してコメントしたりすることができます)。</p> <p>例：総会（年に一度開催され、組織の主要な活動方針と執行機関を投票で決定する）、平等諮問評議会（組織内の男女比率等を改善する方法についての提案を行うために2ヶ月ごとに開催される）、評価委員会（プロセスを監視するために毎月開催される）、保証機関（意思決定手続きを改善するために事件や虐待、提案を収集する）などは、すべて総会の例です。</p>\n"
-          page: "<p> <strong>集会</strong>とは、組織の特定の領域や範囲について決定を下すために定期的に会合を開く組織のメンバーのグループです。</p> <p>集会は非公開のものもあれば、公開されているものもあります。公開されている場合は、その集会に参加することができます (例えば、定員に余裕があれば出席したり、議題にポイントを追加したり、この組織の提案や決定に対してコメントしたりすることができます)。</p> <p>例：総会（年に一度開催され、組織の主要な活動方針と執行機関を投票で決定する）、平等諮問評議会（組織内の男女比率等を改善する方法についての提案を行うために2ヶ月ごとに開催される）、評価委員会（プロセスを監視するために毎月開催される）、保証機関（意思決定手続きを改善するために事件や虐待、提案を収集する）などは、すべて総会の例です。</p>\n"
+          contextual: "<p> <strong>会議体</strong>とは、組織の特定の領域や範囲について決定を下すために定期的に会合を開く組織のメンバーのグループです。</p> <p>会議体は非公開のものもあれば、公開されているものもあります。公開されている場合は、その集会に参加することができます (例えば、定員に余裕があれば出席したり、議題にポイントを追加したり、この組織の提案や決定に対してコメントしたりすることができます)。</p> <p>例：総会（年に一度開催され、組織の主要な活動方針と執行機関を投票で決定する）、平等諮問評議会（組織内の男女比率等を改善する方法についての提案を行うために2ヶ月ごとに開催される）、評価委員会（プロセスを監視するために毎月開催される）、保証機関（意思決定手続きを改善するために事件や虐待、提案を収集する）などは、すべて会議体の例です。</p>\n"
+          page: "<p> <strong>会議体</strong>とは、組織の特定の領域や範囲について決定を下すために定期的に会合を開く組織のメンバーのグループです。</p> <p>会議体は非公開のものもあれば、公開されているものもあります。公開されている場合は、その集会に参加することができます (例えば、定員に余裕があれば出席したり、議題にポイントを追加したり、この組織の提案や決定に対してコメントしたりすることができます)。</p> <p>例：総会（年に一度開催され、組織の主要な活動方針と執行機関を投票で決定する）、平等諮問評議会（組織内の男女比率等を改善する方法についての提案を行うために2ヶ月ごとに開催される）、評価委員会（プロセスを監視するために毎月開催される）、保証機関（意思決定手続きを改善するために事件や虐待、提案を収集する）などは、すべて会議体の例です。</p>\n"
           title: アセンブリとは？
     log:
       value_types:
