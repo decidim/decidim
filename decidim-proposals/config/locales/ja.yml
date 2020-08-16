@@ -321,7 +321,7 @@ ja:
       endorsements:
         description: 提案への承認数
         object: 承認
-        title: <unk>
+        title: 支持
       proposals:
         description: 提案数
         object: 提案
@@ -451,7 +451,7 @@ ja:
             authors: 著者
             body: 本文
             comments_count: コメント数
-            comments_negative_count: <unk>
+            comments_negative_count: 反対
             comments_neutral_count: ニュートラル
             comments_positive_count: お気に入り
             created_at: 作成日
