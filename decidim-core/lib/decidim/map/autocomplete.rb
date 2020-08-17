@@ -57,7 +57,9 @@ module Decidim
             @template.snippets.add(:head, @template.snippets.for(:geocoding))
           end
 
-          builder.geocoding_field(@object_name, attribute, options)
+          field(attribute, options) do |opts|
+            builder.geocoding_field(@object_name, attribute, opts)
+          end
         end
       end
     end
