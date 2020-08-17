@@ -13,6 +13,7 @@ ro:
         attachment_collection_id: Dosar
         description: Descriere
         file: Fişier
+        title: Atașament sau nume imagine
       attachment_collection:
         description: Descriere
         name: Nume
@@ -38,6 +39,7 @@ ro:
         address: SMTP hostname
         alert_color: Alertă
         badges_enabled: Activează insigne
+        comments_max_length: Lungimea maximă a comentariilor (Leave 0 pentru valoarea implicită)
         cta_button_path: Calea butonului Apel la acţiune
         cta_button_text: Text buton Apel la Acțiune
         customize_welcome_notification: Personalizați notificarea de bun venit
@@ -49,6 +51,8 @@ ro:
         from: De la adresa de e-mail
         github_handler: GitHub handler
         header_snippets: Snippet-uri antet
+        highlight_alternative_color: Evidențiază, alternativă
+        highlight_color: Evidențiere
         highlighted_content_banner_action_subtitle: Subtitrare buton acțiune
         highlighted_content_banner_action_title: Titlu buton actiune
         highlighted_content_banner_action_url: URL buton acțiune
@@ -291,6 +295,11 @@ ro:
           welcome: Bine ați venit în Panoul de administrare Decidim.
       exports:
         export_as: "%{name} ca %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
         notice: Exportul dvs. este în curs de desfășurare. Veți primi un e-mail atunci când este complet.
       filters:
         category_id_eq:
@@ -316,6 +325,8 @@ ro:
         search_label: Caută
         search_placeholder:
           name_or_nickname_or_email_cont: Căutare %{collection} după e-mail, nume sau poreclă.
+        state_eq:
+          label: Județ
       help_sections:
         error: A apărut o eroare la actualizarea secțiunilor de ajutor
         form:
@@ -578,6 +589,7 @@ ro:
           officialize: Oficializare
           title: Oficialul participantului"%{name}"
         show_email_modal:
+          close_modal: Închide fereastra
           description: Dacă trebuie să contactați direct un participant, puteți face clic pe butonul Arată pentru a vedea adresa de e-mail. Această acțiune va fi înregistrată.
           email_address: Adresa de e-mail
           full_name: Numele complet

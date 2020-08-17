@@ -62,6 +62,7 @@ de:
           global:
             announcement: Ankündigung
             comments_enabled: Kommentare aktiviert
+            comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert

@@ -1,13 +1,155 @@
 el:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Κατηγορία
+        decidim_category_id: Κατηγορία
+        description: Περιγραφή
+        end_time: Λήγει στις
+        information_updates: Ενημερώσεις πληροφοριών
+        instructions: Οδηγίες συμμετοχής
+        start_time: Ξεκινά στις
+        title: Τίτλος
+        user_group_id: Δημιουργία συζήτησης ως
+    models:
+      decidim/debates/create_debate_event: Συζήτηση
+      decidim/debates/creation_disabled_event: Οι συζητήσεις απενεργοποιήθηκαν
+      decidim/debates/creation_enabled_event: Οι συζητήσεις ενεργοποιήθηκαν
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Συζήτηση
+        other: Συζητήσεις
   decidim:
     components:
       debates:
         actions:
           create: Δημιουργία
+        name: Συζητήσεις
+        settings:
+          global:
+            announcement: Ανακοίνωση
+            comments_enabled: Τα σχόλια ενεργοποιήθηκαν
+          step:
+            announcement: Ανακοίνωση
+            comments_blocked: Τα σχόλια αποκλείστηκαν
+            creation_enabled: Η δημιουργία συζήτησης από συμμετέχοντες ενεργοποιήθηκε
     debates:
+      actions:
+        confirm_destroy: Είστε βέβαιοι;
+        destroy: Διαγραφή
+        edit: Επεξεργασία
+        new: Νέο όνομα %{name}
+        title: Ενέργειες
+      admin:
+        debates:
+          create:
+            invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία της συζήτησης.
+            success: Η συζήτηση δημιουργήθηκε με επιτυχία.
+          destroy:
+            success: Η συζήτηση διαγράφηκε με επιτυχία.
+          edit:
+            title: Επεξεργασία συζήτησης
+            update: Ενημέρωση συζήτησης
+          index:
+            title: Συζητήσεις
+          new:
+            create: Δημιουργία συζήτησης
+            title: Νέα συζήτηση
+          update:
+            invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της συζήτησης.
+            success: Η συζήτηση ενημερώθηκε με επιτυχία.
+        models:
+          debate:
+            name: Συζήτηση
+      admin_log:
+        debate:
+          create: "Ο χρήστης %{user_name} δημιούργησε τη συζήτηση %{resource_name} στον χώρο %{space_name}"
+          update: "Ο χρήστης %{user_name} ενημέρωσε τη συζήτηση %{resource_name} στον χώρο %{space_name}"
       debates:
+        count:
+          debates_count:
+            one: "%{count} συζήτηση"
+            other: "%{count} συζητήσεις"
+        create:
+          invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία της συζήτησης.
+          success: Η συζήτηση δημιουργήθηκε με επιτυχία.
+        debate:
+          participate: Συμμετοχή
+        filters:
+          all: Όλα
+          category: Κατηγορία
+          category_prompt: Επιλέξτε μια κατηγορία
+          citizens: Πολίτες
+          official: Επίσημη
+          origin: Προέλευση
+          search: Αναζήτηση
+        filters_small_view:
+          close_modal: Κλείσιμο βοηθητικού στοιχείου
+          filter: Φίλτρο
+          filter_by: Φιλτράρισμα κατά
+          unfold: Αποκάλυψη
+        form:
+          select_a_category: Please select a category
+        index:
+          new_debate: Νέα συζήτηση
         new:
           back: Πίσω
           create: Δημιουργία
+          title: Νέα συζήτηση
         show:
+          back: Επιστροφή στη λίστα
           date: Ημερομηνία
+      last_activity:
+        new_debate_at_html: "<span>Νέα συζήτηση στο %{link}</span>"
+      models:
+        debate:
+          fields:
+            end_time: Ημερομηνία λήξης
+            official_debate: Επίσημη συζήτηση
+            start_time: Ημερομηνία έναρξης
+            title: Τίτλος
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Γεια σας,
+              Μια νέα συζήτηση «%{resource_title}» δημιουργήθηκε στον χώρο συμμετοχής %{space_title}, δείτε την και συνεισφέρετε:
+            email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής %{space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
+            email_subject: Νέα συζήτηση «%{resource_title}» στον χώρο %{space_title}
+            notification_title: Η <a href="%{resource_path}">%{resource_title}</a> συζήτηση δημιουργήθηκε στον χώρο <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Γεια σας,
+              Ο συντάκτης %{author_name} %{author_nickname}, τον οποίο ακολουθείτε, δημιούργησε μια νέα συζήτηση «%{resource_title}». Δείτε την και συνεισφέρετε:
+            email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον συντάκτη %{author_nickname}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
+            email_subject: Νέα συζήτηση «%{resource_title}» από τον συντάκτη %{author_nickname}
+            notification_title: Ο συντάκτης <a href="%{author_path}">%{author_name} %{author_nickname}</a> δημιούργησε τη συζήτηση <a href="%{resource_path}">%{resource_title}</a>.
+        creation_disabled:
+          email_intro: 'Η δημιουργία συζήτησης δεν είναι πλέον ενεργή στον χώρο συμμετοχής %{participatory_space_title}. Μπορείτε ακόμα να συμμετέχετε σε ανοιχτές συζητήσεις από αυτήν τη σελίδα:'
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής %{participatory_space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
+          email_subject: Η δημιουργία συζήτησης απενεργοποιήθηκε στον χώρο συμμετοχής %{participatory_space_title}
+          notification_title: Η δημιουργία συζήτησης έχει απενεργοποιηθεί πλέον στον χώρο συμμετοχής <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        creation_enabled:
+          email_intro: 'Τώρα μπορείτε να ξεκινήσετε νέες συζητήσεις στον χώρο συμμετοχής %{participatory_space_title}! Ξεκινήστε να συμμετέχετε σε αυτήν τη σελίδα:'
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής %{participatory_space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
+          email_subject: Οι συζητήσεις είναι πλέον διαθέσιμες στον χώρο συμμετοχής %{participatory_space_title}
+          notification_title: Μπορείτε τώρα να ξεκινήσετε <a href="%{resource_path}">νέες συζητήσεις</a> στον χώρο συμμετοχής <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        commented_debates:
+          conditions:
+            - Επιλέξτε μια ανοιχτή συζήτηση για να λάβετε μέρος
+          description: Αυτό το έμβλημα χορηγείται όταν συμμετέχετε ενεργά στις διάφορες συζητήσεις αφήνοντας τα σχόλιά σας.
+          description_another: Αυτός ο συμμετέχων έλαβε μέρος σε %{score} συζητήσεις.
+          description_own: Έχετε συμμετάσχει σε %{score} συζητήσεις.
+          name: Συζητήσεις
+          next_level_in: Συμμετάσχετε σε %{score} ακόμη συζητήσεις για να φτάσετε στο επόμενο επίπεδο!
+          unearned_another: Αυτός ο συμμετέχων δεν έχει λάβει ακόμα μέρος σε καμία συζήτηση.
+          unearned_own: Δεν έχετε συμμετάσχει ακόμα σε καμία συζήτηση.
+    metrics:
+      debates:
+        description: Αριθμός συζητήσεων που δημιουργήθηκαν
+        object: συζητήσεις
+        title: Συζητήσεις

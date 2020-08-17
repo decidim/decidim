@@ -17,6 +17,7 @@ pt:
   decidim:
     comments:
       comments: Comentários
+      comments_count: Contagem de comentários
       last_activity:
         new_comment_at_html: "<span>Novo comentário em %{link}</span>"
       votes:
@@ -55,6 +56,7 @@ pt:
             does_not_belong: Contém atividades ilegais, ameaças suicidas, informações pessoais ou qualquer outra coisa que você acha que não pertence a %{organization_name}.
             offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer tipo de discurso de ódio.
             spam: Contém clickbait, publicidade, fraudes ou robots de scripts.
+          title: Reportar conteúdo impróprio
         show_replies: Mostrar %{replies_count} respostas
         single_comment_link_title: Obter hiperligação para um único comentário
       comment_order_selector:
@@ -74,6 +76,10 @@ pt:
         single_comment_warning: Pode consultar os restantes comentários <a href="%{url}">aqui</a>.
         single_comment_warning_title: Está a ver um único comentário
         title: "%{count} comentários"
+      down_vote_button:
+        text: Eu discordo deste comentário
+      up_vote_button:
+        text: Eu concordo com este comentário
     events:
       comments:
         comment_by_followed_user:
@@ -102,9 +108,9 @@ pt:
           email_subject: Foi mencionado em %{resource_title} como membro de %{group_name}
           notification_title: Foi mencionado em <a href="%{resource_path}">%{resource_title}</a> por <a href="%{author_path}">%{author_name} %{author_nickname}</a> como membro de <a href="%{group_path}">%{group_name} %{group_nickname}</a>
         user_mentioned:
-          email_intro: Você foi mencionado
-          email_outro: Recebeu esta notificação porque foi mencionado em %{resource_title}.
-          email_subject: Você foi mencionado em %{resource_title}
+          email_intro: Foi mencionado(a)
+          email_outro: Recebeu esta notificação porque foi mencionado(a) em %{resource_title}.
+          email_subject: Foi mencionado(a) em %{resource_title}
           notification_title: Você foi mencionado em <a href="%{resource_path}">%{resource_title}</a> por <a href="%{author_path}">%{author_name} %{author_nickname}</a>
     metrics:
       comments:

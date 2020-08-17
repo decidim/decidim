@@ -5,6 +5,9 @@ module Decidim
   class Newsletter < ApplicationRecord
     include Decidim::Traceable
     include Decidim::Loggable
+    include Decidim::TranslatableResource
+
+    translatable_fields :subject
 
     belongs_to :author, class_name: "User"
     belongs_to :organization

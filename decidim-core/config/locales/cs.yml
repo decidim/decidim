@@ -178,7 +178,7 @@ cs:
         section_heading: Změny (%{count})
       compare_draft:
         continue: Pokračovat
-        no_similars_found: Nebyly nalezeny žádné podobné vylepšení. 
+        no_similars_found: Nebyly nalezeny žádné podobné vylepšení.
         title: Podobná vylepšení
       created:
         error: Při vytváření pozměňovacího návrhu došlo k chybě.
@@ -221,7 +221,7 @@ cs:
         success: Úprava byla úspěšně podporována
       publish_draft:
         error: Při publikování pozměňovacího návrhu došlo k chybě.
-        success: Pozměňovací návrh úspěšně publikován
+        success: Pozměňovací návrh úspěšně publikován.
       rejected:
         error: Při odmítnutí této změny došlo k chybě. Zkuste to prosím znovu později
         success: Emenda byla úspěšně odmítnuta
@@ -587,17 +587,17 @@ cs:
           email_intro: Administrátor skupiny <a href="%{resource_url}">%{user_group_name}</a> vás pozval, abyste se k němu připojili.
           email_outro: Toto oznámení jste obdrželi, protože jste byli pozváni do skupiny. Zaškrtněte prosím kartu Skupiny ve svém profilu.
           email_subject: Byli jste pozváni, abyste se připojili ke skupině %{user_group_name}!
-          notification_title: Byli jste pozváni, abyste se připojili ke skupině <a href="%{resource_path}">%{user_group_name}</a> . Zaškrtněte <a href="%{groups_profile_tab_path}">Skupiny strana</a> ve svém profilu, aby ji schválit!
+          notification_title: Byli jste pozváni, abyste se připojili ke skupině <a href="%{resource_path}">%{user_group_name}</a>. Zkontrolujte <a href="%{groups_profile_tab_path}">stránku skupin</a> ve svém profilu a schvalte ji!
         join_request_accepted:
           email_intro: Gratulujeme! Administrátor skupiny <a href="%{resource_url}">%{user_group_name}</a> přijal vaši žádost o připojení.
           email_outro: Toto oznámení jste obdrželi, protože vaše žádost o spojení byla aktualizována.
           email_subject: Byli jste přijati do skupiny %{user_group_name}!
           notification_title: Byli jste přijati do skupiny <a href="%{resource_path}">%{user_group_name}</a>.
         join_request_created:
-          email_intro: Někdo požádal o připojení ke skupině %{user_group_name} . Můžete jej přijmout nebo odmítnout od <a href="%{resource_url}">člena skupiny strana</a>.
+          email_intro: Někdo požádal o připojení ke skupině %{user_group_name}. Můžete jej přijmout nebo odmítnout ze <a href="%{resource_url}">strany člena skupiny</a>.
           email_outro: Toto oznámení jste obdrželi, protože můžete spravovat skupinu %{user_group_name}.
           email_subject: Někdo požádal o zařazení do skupiny %{user_group_name}!
-          notification_title: Někdo požádal o připojení ke skupině %{user_group_name} . Můžete jej přijmout nebo odmítnout od <a href="%{resource_path}">člena skupiny strana</a>.
+          notification_title: Někdo požádal o připojení ke skupině %{user_group_name}. Můžete jej přijmout nebo odmítnout ze <a href="%{resource_path}">strany člena skupiny</a>.
         join_request_rejected:
           email_intro: Administrátor skupiny <a href="%{resource_url}">%{user_group_name}</a> odmítl vaši žádost o připojení.
           email_outro: Toto oznámení jste obdrželi, protože vaše žádost o spojení byla aktualizována.
@@ -638,7 +638,7 @@ cs:
           notification_title: <a href="%{resource_path}">profilová stránka</a> od %{name} (%{nickname}), kterou sledujete, byla aktualizována.
     export_mailer:
       data_portability_export:
-        click_button: 'Klepnutím na další tlačítko stáhnete data. <br/> Soubor bude k dispozici až do %{date}.'
+        click_button: 'Klikněte na další tlačítko pro stažení vašich dat. <br/> Soubor bude k dispozici do %{date}. <br/> Pro otevření budete potřebovat <a href=''https://www.7-zip.org/''>7-Zip</a>. Heslo: %{password}'
         download: Stažení
       export:
         ready: V příloze naleznete exportovanou exportovanou verzi.
@@ -661,6 +661,11 @@ cs:
       title: Digitální otisk
       value: Hodnota
     followers:
+      followers_count:
+        one: "%{count} sledující"
+        few: "%{count} sledující"
+        many: "%{count} sledujících"
+        other: "%{count} sledujících"
       no_followers: Zatím žádní sledující.
     following:
       no_followings: Nesleduje nikoho ani nic.
@@ -668,7 +673,7 @@ cs:
       create:
         button: Sledovat
         error: Při sledování tohoto zdroje došlo k chybě.
-        participatory_space: Již sledujete participační prostor
+        participatory_space: Již sledujete <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Ukončit sledování
         error: Při sledování tohoto zdroje došlo k chybě.
@@ -1272,7 +1277,7 @@ cs:
     user_interests:
       show:
         my_interests: Mé zájmy
-        no_scopes: Tato organizace ještě nemá prostor.
+        no_scopes: Tato organizace zatím nemá žádný rozsah!
         select_your_interests: Zvolte témata, která vás zajímají, abyste mohli přijímat události, které s nimi souvisejí, na kartě Časová osa profilu.
         update_my_interests: Aktualizujte své zájmy
       update:
@@ -1485,6 +1490,12 @@ cs:
       too_short: je příliš krátká (pod 15 znaků)
   forms:
     correct_errors: Na formuláři jsou chyby, opravte je a pokračujte.
+    length_validator:
+      minimum:
+        one: alespoň %{count} znak
+        few: alespoň %{count} znaků
+        many: alespoň %{count} znaků
+        other: alespoň %{count} znaků
     required: Povinný
     required_explanation: "* Povinná pole jsou označena hvězdičkou"
   invisible_captcha:

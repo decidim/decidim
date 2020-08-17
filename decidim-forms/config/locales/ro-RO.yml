@@ -25,11 +25,47 @@ ro:
             description: Descriere
             tos: Termenii serviciului
         questionnaires:
+          actions:
+            back: Înapoi la întrebări
+            show: Arată răspunsurile
           answer_option:
             answer_option: Opțiune răspuns
             free_text: Text liber
             remove: Elimină
             statement: Declarație
+          answers:
+            actions:
+              back: Înapoi la răspunsuri
+              export: Exportă
+              show: Arată răspunsurile
+            empty: Încă nu există răspunsuri
+            export:
+              answer:
+                title: 'Răspuns #%{number}'
+            export_response:
+              title: chestionar_utilizator_răspunsuri_%{token}
+            index:
+              title: "%{total} total răspunsuri"
+            show:
+              title: 'Răspuns #%{number}'
+          display_condition:
+            answer_option: Opțiune răspuns
+            condition_question: Întrebare
+            condition_type: Condiție
+            condition_types:
+              answered: Răspuns
+              equal: Egal
+              match: Include textul
+              not_answered: Nu s-a răspuns
+              not_equal: Nu este egal
+            condition_value: Text inclus
+            display_condition: Condiție de afișare
+            mandatory: Această condiție trebuie îndeplinită întotdeauna indiferent de statutul altor condiții
+            remove: Elimină
+            save_warning: Amintiţi-vă să salvaţi formularul înainte de configurarea condiţiilor de afişare
+            select_answer_option: Selectați opțiunea de răspuns
+            select_condition_question: Selectează o întrebare
+            select_condition_type: Selectați un tip de condiție
           edit:
             save: Salvează
             title: Editare chestionar
@@ -39,12 +75,17 @@ ro:
             already_answered_warning: Formularul a primit deja un răspuns de la unii utilizatori astfel încât nu îi puteți modifica întrebările.
             collapse: Restrânge toate întrebările
             expand: Extinde toate întrebările
+            preview: Previzualizare
+            title: Editare formular
+            unpublished_warning: Formularul nu este publicat. Puteți modifica întrebările, dar acest lucru va șterge răspunsurile curente.
           matrix_row:
             matrix_row: Rând
             remove: Elimină
             statement: Declarație
           question:
             add_answer_option: Adaugă opțiune răspuns
+            add_display_condition: Adăugați o condiție de afișare
+            add_display_condition_info: Salvați formularul pentru a configura condițiile de afișare
             add_matrix_row: Adaugă rând
             any: Oricare
             collapse: Restrânge
@@ -104,14 +145,24 @@ ro:
           questionnaire_for_private_users:
             body: Formularul este disponibil doar pentru utilizatorii privați
             title: Formular închis
+          questionnaire_js_disabled:
+            body: Unele dintre funcțiile acestui formular vor fi dezactivate. Pentru a vă îmbunătăți experiența, vă rugăm să activați JavaScript în browser-ul dvs.
+            title: JavaScript este dezactivat
+          questionnaire_not_published:
+            body: Acest formular nu este publicat încă.
           tos_agreement: Prin participare acceptați termenii și condițiile sale de utilizare
       step_navigation:
         show:
           back: Înapoi
           continue: Continuă
       user_answers_serializer:
+        body: Răspuns
+        completion: Finalizare
         created_at: Răspuns pornit
         id: ID răspuns
+        ip_hash: Hash IP
+        question: Întrebare
         registered: Înregistrat
+        session_token: Identificator utilizator
         unregistered: Neînregistrat
         user_status: Statusul utilizatorului

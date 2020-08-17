@@ -7,6 +7,9 @@ module Decidim
     class AgendaItem < Meetings::ApplicationRecord
       include Decidim::Traceable
       include Decidim::Loggable
+      include Decidim::TranslatableResource
+
+      translatable_fields :title, :description
 
       belongs_to :agenda, -> { order(:position) }, foreign_key: "decidim_agenda_id", class_name: "Decidim::Meetings::Agenda"
 

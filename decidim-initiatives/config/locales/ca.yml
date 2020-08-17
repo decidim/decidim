@@ -73,20 +73,22 @@ ca:
       actions:
         new_initiative_type: Nou tipus d'iniciativa
       filters:
-        decidim_area_id_eq:
-          label: Àrea
+        initiatives:
+          decidim_area_id_eq:
+            label: Àrea
+          state_eq:
+            label: Estat
+            values:
+              accepted: Ha aconseguit les signatures
+              created: Creada
+              discarded: Descartada
+              published: Publicada
+              rejected: No ha aconseguit les signatures
+              validating: Validació tècnica
+          type_id_eq:
+            label: Tipus
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Cercar %{collection} per títol, descripció, ID o autoria.
-        state_eq:
-          values:
-            accepted: Ha aconseguit les signatures necessàries
-            created: Creada
-            discarded: Rebutjada
-            published: Publicada
-            rejected: No ha aconseguit les signatures necessàries
-            validating: Validació tècnica
-        type_id_eq:
-          label: Tipus
       menu:
         initiatives: Iniciatives
         initiatives_types: Tipus d'iniciatives
@@ -418,6 +420,14 @@ ca:
           unfold: Desplegar
         index_header:
           new_initiative: Nova iniciativa
+          not_authorized:
+            authorizations_page: Veure les autoritzacions
+            close: Tanca
+            explanation: Cal que estiguis verificada per tal de crear una nova iniciativa.
+            title: Es requereix autorització
+        initiatives:
+          closed_initiatives_warning: Actualment no hi ha iniciatives obertes, però aquí pots trobar el llistat de totes les iniciatives tancades.
+          no_initiatives_warning: No hi ha iniciatives que coincideixin amb el teu criteri de cerca.
         interactions:
           comments_count:
             count:

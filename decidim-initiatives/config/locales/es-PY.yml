@@ -73,20 +73,8 @@ es-PY:
       actions:
         new_initiative_type: Nuevo tipo de iniciativa
       filters:
-        decidim_area_id_eq:
-          label: Área
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Buscar %{collection} por título, descripción, ID o autoría.
-        state_eq:
-          values:
-            accepted: Ha conseguido las firmas necesarias
-            created: Creado
-            discarded: Descartado
-            published: Publicado
-            rejected: No ha conseguido las firmas necesarias
-            validating: Validación técnica
-        type_id_eq:
-          label: Tipo
       menu:
         initiatives: Iniciativas
         initiatives_types: Tipos de Iniciativa

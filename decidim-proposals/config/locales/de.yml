@@ -7,6 +7,7 @@ de:
         category_id: Kategorie
         decidim_scope_id: Umfang
         has_address: Hat eine Adresse
+        scope_id: Bereich
         state: Zustand
         title: Titel
         user_group_id: Erstellen Sie einen gemeinsamen Entwurf als
@@ -17,7 +18,9 @@ de:
         automatic_hashtags: Hashtags werden automatisch hinzugefügt
         body: Haupttext
         category_id: Kategorie
+        decidim_scope_id: Umfang
         has_address: Hat eine Adresse
+        scope_id: Bereich
         state: Zustand
         suggested_hashtags: Vorgeschlagene Hashtags
         title: Titel
@@ -30,6 +33,9 @@ de:
       proposals_import:
         import_proposals: Vorschläge importieren
         keep_authors: Behalten Sie die ursprünglichen Autoren
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: Name des Schätzers
     errors:
       models:
         participatory_text:
@@ -41,12 +47,14 @@ de:
             attachment:
               needs_to_be_reattached: Muss wieder angebracht werden
             body:
+              cant_be_equal_to_template: kann nicht gleich der Vorlage sein
               identical: UND Titel dürfen nicht identisch sein
             title:
               identical: Der UND-Körper kann nicht identisch sein
     models:
       decidim/proposals/accepted_proposal_event: Vorschlag angenommen
       decidim/proposals/admin/update_proposal_category_event: Vorschlagskategorie geändert
+      decidim/proposals/admin/update_proposal_scope_event: Vorschlagsumfang geändert
       decidim/proposals/creation_enabled_event: Vorschlagserstellung aktiviert
       decidim/proposals/endorsing_enabled_event: Vorschlagsunterstützung aktiviert
       decidim/proposals/evaluating_proposal_event: Der Vorschlag wird geprüft
@@ -71,19 +79,11 @@ de:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Art
-          values:
-            'false': Vorschläge
-            'true': Änderungsanträge
-        state_eq:
-          values:
-            evaluating: In Bewertung
-            withdrawn: Zurückgezogen
-        state_null:
-          label: Status
-          values:
-            'true': Unbeantwortet
+        proposals:
+          valuator_role_ids_has:
+            label: Zugewiesen zu dem Schätzer
+        search_placeholder:
+          id_string_or_title_cont: Suche in %{collection} nach ID oder Titel.
     components:
       proposals:
         actions:
@@ -95,17 +95,24 @@ de:
         name: Vorschläge
         settings:
           global:
+            allow_card_image: Kartenbild zulassen
             amendments_enabled: Änderungsvorschläge aktiviert
+            amendments_enabled_help: Wenn aktiviert, konfigurieren Sie Änderungsmerkmale für jeden Schritt.
+            amendments_wizard_help_text: Hilfetext für Änderungsassistent
             announcement: Ankündigung
             attachments_allowed: Anhänge zulassen
             can_accumulate_supports_beyond_threshold: Kann Unterstützungen über den Schwellenwert hinaus ansammeln
             collaborative_drafts_enabled: Gemeinsame Entwürfe aktiviert
             comments_enabled: Kommentare aktiviert
+            comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
             geocoding_enabled: Geocoding aktiviert
             minimum_votes_per_user: Mindeststimmen pro Nutzer
+            new_proposal_body_template: Textvorlage für neuen Vorschlag
+            new_proposal_body_template_help: Sie können den vorgefüllten Text der neuen Vorschläge bestimmen
             new_proposal_help_text: Hilfetext für neue Vorschläge
             official_proposals_enabled: Offizielle Vorschläge aktiviert
             participatory_texts_enabled: Partizipative Texte aktiviert
+            participatory_texts_enabled_readonly: Die Interaktion mit dieser Einstellung ist nicht möglich, wenn Vorschläge bestehen. Bitte erstellen Sie eine neue „Vorschlagskomponente“, wenn Sie diese Funktion aktivieren möchten, oder verwerfen Sie alle importierten Vorschläge im Menü „Beteiligungstexte“, wenn Sie diese Funktion deaktivieren möchten.
             proposal_answering_enabled: Vorschlagsantworten aktiviert
             proposal_edit_before_minutes: Vorschläge können von Autoren innerhalb dieser Zeit bearbeitet werden
             proposal_length: Maximale Länge des Haupttextes
@@ -118,19 +125,38 @@ de:
             threshold_per_proposal: Schwellenwert pro Vorschlag
             vote_limit: Unterstützungslimit pro Benutzer
           step:
+            amendment_creation_enabled: Ergänzungserstellung aktiviert
+            amendment_creation_enabled_help: Teilnehmer kann Vorschläge ergänzen.
+            amendment_promotion_enabled: Hervorheben von Ergänzungen aktiviert
+            amendment_promotion_enabled_help: Berichtigungsautoren können die abgelehnten Berichtigungen im Vorschlag hervorheben.
+            amendment_reaction_enabled: Reaktionen auf Ergänzungen aktiviert
+            amendment_reaction_enabled_help: Vorschlagsautoren können die Berichtigungen von Teilnehmern akzeptieren oder ablehnen.
+            amendments_visibility: Sichtbarkeit der Ergänzungen
+            amendments_visibility_choices:
+              all: Ergänzungen sind für alle sichtbar
+              participants: Ergänzungen sind nur für ihre Autoren sichtbar
+            amendments_visibility_help: Wenn die Option „Ergänzungen sind nur für ihre Autoren sichtbar“ ausgewählt ist, müssen Teilnehmer eingeloggt sein, um die vorgenommenen Ergänzungen zu sehen.
             announcement: Ankündigung
+            answers_with_costs: Kosten für Vorschlagsantworten aktivieren
             automatic_hashtags: Hashtags wurden allen Vorschlägen hinzugefügt
             comments_blocked: Kommentare blockiert
             creation_enabled: Vorschlagserstellung aktiviert
             endorsements_blocked: Zustimmungen blockiert
             endorsements_enabled: Bestätigungen aktiviert
             proposal_answering_enabled: Vorschlagsantworten aktiviert
+            publish_answers_immediately: Vorschlagsantworten sofort veröffentlichten
             suggested_hashtags: Hashtags schlug Benutzern neue Vorschläge vor
             votes_blocked: Abstimmung blockiert
             votes_enabled: Abstimmung aktiviert
             votes_hidden: Abstimmungen ausgeblendet (wenn Abstimmungen aktiviert sind, wird dies die Anzahl der Abstimmungen verbergen)
     events:
       proposals:
+        admin:
+          proposal_note_created:
+            email_intro: Jemand hat eine Notiz für Vorschlag „%{resource_title}“ erstellt. Sie können sie über <a href="%{admin_proposal_info_url}">den Admin-Panel</a> anzeigen
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie diesen Vorschlag bewerten können.
+            email_subject: Jemand hat eine Notiz für Vorschlag %{resource_title} erstellt.
+            notification_title: Jemand hat eine Notiz für Vorschlag <a href="%{resource_path}">%{resource_title}</a>erstellt. Sie können sie über <a href="%{admin_proposal_info_path}">den Admin-Panel</a> anzeigen
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} wurde als Beitrag zum <a href="%{resource_path}">%{resource_title}</a> Verbundentwurf akzeptiert.'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Mitarbeiter von <a href="%{resource_path}">%{resource_title}</a>.
@@ -194,6 +220,7 @@ de:
             email_subject: Ein Vorschlag, dem Sie folgen, wird evaluiert
             notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wird evaluiert.
         proposal_mentioned:
+          email_intro: Ihr Vorschlag „%{mentioned_proposal_title}“ wurde in diesem <a href="%{resource_url}">Bereich</a> in den Kommentaren erwähnt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von "%{resource_title}" sind.
           email_subject: Ihr Vorschlag "%{mentioned_proposal_title}" wurde erwähnt
           notification_title: Ihr Vorschlag „%{mentioned_proposal_title}“ erwähnt <a href="%{resource_path}">in diesem Raum</a> in den Kommentaren.
@@ -224,7 +251,10 @@ de:
           email_subject: Die Vorschlagskategorie %{resource_title} wurde aktualisiert
           notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Vorschlagskategorie wurde von einem Administrator aktualisiert.
         proposal_update_scope:
+          email_intro: 'Ein Administrator hat den Umfang Ihres Vorschlags „%{resource_title}“ aktualisiert, über folgenden Link können Sie es anzeigen:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor des Angebots sind.
+          email_subject: Der Umfang des Vorschlags %{resource_title} wurde aktualisiert
+          notification_title: Der Umgang des Vorschlags <a href="%{resource_path}">%{resource_title}</a> wurde von einem Administrator aktualisiert.
         voting_enabled:
           email_intro: 'Sie können Vorschläge in %{participatory_space_title}abstimmen! Starten Sie die Teilnahme an dieser Seite:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
@@ -291,10 +321,12 @@ de:
         see_all: Alle anzeigen (%{count})
     proposals:
       actions:
+        answer_proposal: Vorschlag beantworten
         edit_proposal: Vorschlag bearbeiten
         import: Importieren von einer anderen Komponente
         new: Neuer Vorschlag
         participatory_texts: Partizipative Texte
+        show: Vorschlag anzeigen
         title: Aktionen
       admin:
         actions:
@@ -314,6 +346,7 @@ de:
             success: Alle Mitentscheidungsentwürfe wurden verworfen.
           import:
             invalid: Das Formular ist ungültig!
+            invalid_file: Die Datei enthält Fehler. Bearbeiten Sie den Inhalt der Datei und laden Sie sie erneut hoch.
             success: Herzlichen Glückwunsch, die folgenden Abschnitte wurden aus dem importierten Dokument analysiert, sie wurden in Vorschläge konvertiert. Jetzt können Sie alles überprüfen und anpassen, bevor Sie es veröffentlichen.
           index:
             info_1: Die folgenden Abschnitte wurden aus dem importierten Dokument analysiert, sie wurden in Vorschläge konvertiert. Jetzt können Sie alles überprüfen und anpassen, bevor Sie es veröffentlichen.
@@ -370,33 +403,67 @@ de:
             select_a_meeting: Besprechung auswählen
           index:
             actions: Aktionen
+            assign_to_valuator: Zuweisen zu dem Schätzer
+            assign_to_valuator_button: Zuweisen
             cancel: Abbrechen
             change_category: Kategorie ändern
+            change_scope: Umfang ändern
             merge: Zu einem neuen zusammenführen
             merge_button: Zusammenführen
             publish: Veröffentlichen
+            publish_answers: Antworten veröffentlichen
             select_component: Komponente auswählen
             selected: ausgewählt
             split: Vorschläge aufteilen
             split_button: Aufteilen
             title: Vorschläge
+            unassign_from_valuator: Zuweisung an den Schätzer zurückziehen
+            unassign_from_valuator_button: Zuweisung aufheben
             update: Aktualisieren
+            update_scope_button: Umfang aktualisieren
           new:
             create: Erstellen
             title: Vorschlag erstellen
           publish_answers:
+            number_of_proposals: Die Antworten für %{number} Vorschläge werden veröffentlicht.
             select_a_proposal: Bitte wählen Sie einen Vorschlag
           show:
+            amendments_count: Anzahl der Ergänzungen
+            assigned_valuators: Zugewiesene Schätzer
             authors: Autoren
             body: Haupttext
+            comments_count: Anzahl der Kommentare
+            comments_negative_count: Dagegen
+            comments_neutral_count: Neutral
+            comments_positive_count: Dafür
             created_at: Erstellungsdatum
+            documents: Unterlagen
+            endorsements_count: Anzahl der Befürwortungen
+            endorsements_ranking: Nach Befürwortungen sortieren
+            endorsers: Befürworter
+            link: Verknüpfung
+            n_more_endorsers:
+              one: und 1 mehr
+              other: und %{count} mehr
+            photos: Fotos
             proposals: Vorschläge
+            ranking: "%{ranking} von %{total}"
+            related_meetings: Ähnliche Besprechungen
+            remove_assignment: Zuweisung entfernen
+            remove_assignment_confirmation: Sind Sie sicher, diesen Schätzer von diesem Vorschlag zurückzuziehen?
+            valuators: Schätzer
             votes_count: Anzahl der Unterstützungen
+            votes_ranking: Nach Unterstützungen sortieren
           update_category:
+            invalid: 'Diese Vorschläge gehörten bereits zur Kategorie %{subject_name}: %{proposals}.'
             select_a_category: Bitte wählen Sie eine Kategorie
             select_a_proposal: Bitte wählen Sie einen Vorschlag
+            success: 'Die Vorschlag wurde erfolgreich zur Kategorie %{subject_name} aktualisiert: %{proposals}.'
           update_scope:
+            invalid: 'Diese Vorschläge gehörten bereits um Umfang %{subject_name}: %{proposals}.'
             select_a_proposal: Bitte wählen Sie einen Vorschlag
+            select_a_scope: Bitte wählen Sie einen Umfang
+            success: 'Die Vorschläge wurden erfolgreich zum Umfang %{subject_name} aktualisiert: %{proposals}.'
         proposals_imports:
           create:
             invalid: Beim Importieren der Vorschläge ist ein Problem aufgetreten
@@ -414,13 +481,24 @@ de:
           create:
             invalid: Beim Teilen der ausgewählten Vorschläge ist ein Fehler aufgetreten.
             success: Die Vorschläge wurden erfolgreich in neue aufgeteilt.
+        valuation_assignments:
+          create:
+            invalid: Bei der Zuweisung von Vorschlägen an einen Schätzer ist ein Fehler aufgetreten
+            success: Die Vorschläge wurden erfolgreich dem Schätzer zugewiesen
+          delete:
+            invalid: Beim Zurückziehen der Zuweisung von Vorschlägen an einen Schätzer ist ein Fehler aufgetreten
+            success: Die Zuweisung der Vorschläge wurden erfolgreich von dem Schätzer zurückgezogen
       admin_log:
         proposal:
           answer: "%{user_name} beantwortete den %{resource_name} Vorschlag auf den %{space_name} Feldern"
           create: "%{user_name} hat den %{resource_name} Vorschlag auf den %{space_name} Feldern als offizieller Vorschlag erstellt"
+          publish_answer: "%{user_name} veröffentlichte die Antwort auf den Vorschlag %{resource_name} im Bereich %{space_name}"
           update: "%{user_name} aktualisiert den %{resource_name} offiziellen Vorschlag für die %{space_name} Flächen"
         proposal_note:
           create: "%{user_name} eine private Notiz zu dem %{resource_name} Vorschlag auf dem %{space_name} Feld hinterlassen"
+        valuation_assignment:
+          create: "%{user_name} hat den Vorschlag %{resource_name} einem Schätzer zugewiesen"
+          delete: "%{user_name} hat die Zuweisung vom Vorschlag %{proposal_title} von einem Schätzer zurückgezogen"
       answers:
         accepted: Angenommen
         evaluating: In Bewertung
@@ -550,15 +628,23 @@ de:
         update:
           error: Beim Speichern des gemeinsamen Entwurfs sind Fehler aufgetreten.
           success: Collaborative Draft wurde erfolgreich aktualisiert.
+          title: gemeinsamen Entwurf bearbeiten
         wizard_aside:
           back: Zurück
+          back_from_collaborative_draft: Zurück zu gemeinschaftlichen Entwürfen
+          back_from_step_1: Zurück zu gemeinschaftlichen Entwürfen
+          back_from_step_2: Zurück zu gemeinschaftlichen Entwürfen
+          back_from_step_3: Zurück zum Vergleich der gemeinschaftlichen Entwürfe
+          back_from_step_4: Zurück zum Entwurf bearbeiten
           info: Sie erstellen einen <strong>gemeinsamen Entwurf</strong>.
         wizard_steps:
+          current_step: Aktueller Schritt
           see_steps: siehe Schritte
           step_1: Erstellen Sie Ihren gemeinsamen Entwurf
           step_2: Vergleichen Sie mit gemeinsamen Entwürfen
           step_3: Vervollständigen Sie Ihren gemeinsamen Entwurf
           step_of: Schritt %{current_step_num} von %{total_steps}
+          title: Gemeinschaftliche Entwurfsschritte
       create:
         error: Beim Speichern des Vorschlags ist ein Fehler aufgetreten.
         success: Der Vorschlag wurde erfolgreich erstellt. Gespeichert als Entwurf.
@@ -580,10 +666,13 @@ de:
             id: ICH WÜRDE
             notes: Anmerkungen
             official_proposal: Offizieller Vorschlag
+            published_answer: Veröffentlichte Antwort
             published_at: Veröffentlicht unter
             scope: Umfang
             state: Zustand
             title: Titel
+            valuator: Schätzer
+            valuators: Schätzer
             votes: Stimmen
       new:
         limit_reached: Sie können keine neuen Vorschläge erstellen, da Sie das Maximum erreicht haben.
@@ -620,8 +709,11 @@ de:
           send: Vorschau
           title: Vorschlagsentwurf bearbeiten
         filters:
+          activity: Meine Aktivität
+          all: Alle
           amendment_type: Art
           category: Kategorie
+          my_proposals: Meine Vorschläge
           origin: Ursprung
           related_to: Bezüglich
           scope: Umfang
@@ -648,9 +740,13 @@ de:
           title: Neuen Vorschlag erstellen
         orders:
           label: 'Vorschläge sortieren nach:'
+          most_commented: Am meisten kommentiert
+          most_endorsed: Am meisten befürwortet
+          most_followed: Am meisten gefolgt
           most_voted: Am meisten unterstützt
           random: Zufällig
           recent: Kürzlich
+          with_more_authors: Mit mehr Autoren
         participatory_texts:
           index:
             document_index: Dokumentenindex
@@ -666,24 +762,40 @@ de:
         proposal:
           creation_date: 'Erstellt am %{date}'
           view_proposal: Vorschlag anzeigen
+        proposals:
+          empty: Es gibt noch keinen Vorschlag
+          empty_filters: Es gibt keine Vorschläge mit diesem Kriterium
         show:
           answer: Antworten
           back_to: Zurück zu
+          back_to_list: Zurück zur Liste
+          changes_at_title: Ergänzung zu „%{title}“
           comments: Kommentare
           edit_proposal: Vorschlag bearbeiten
           endorsements_list: Liste der Befürworter
+          estimated_cost: Geschätzte Kosten
           hidden_endorsers_count:
             one: und %{count} weitere Person
             other: und %{count} weitere Personen
           link_to_collaborative_draft_help_text: Dieser Vorschlag ist das Ergebnis eines gemeinsamen Entwurfs. Überprüfen Sie die Geschichte
           link_to_collaborative_draft_text: Gemeinsamen Entwurf anzeigen
+          link_to_promoted_emendation_help_text: Dieser Vorschlag hat eine markierte Berichtigung
+          link_to_promoted_emendation_text: Siehe abgelehnte Berichtigung.
+          link_to_proposal_from_emendation_help_text: Dies ist eine abgelehnte Berichtigung
           link_to_proposal_from_emendation_text: Den Vorschlag ansehen
           proposal_accepted_reason: 'Dieser Vorschlag wurde angenommen, weil:'
           proposal_in_evaluation_reason: Dieser Vorschlag wird evaluiert
           proposal_rejected_reason: 'Dieser Vorschlag wurde abgelehnt, weil:'
+          read_less: Weniger lesen
+          read_more: Weiterlesen
           report: Melden
           withdraw_btn_hint: Sie können Ihren Vorschlag zurückziehen, wenn Sie es sich anders überlegen, solange Sie keine Unterstützung erhalten haben. Der Vorschlag wird nicht gelöscht, er erscheint in der Liste der zurückgezogenen Vorschläge.
+          withdraw_confirmation_html: Sind Sie sicher, dass Sie diesen Vorschlag zurückziehen möchten?<br><br><strong>Diese Aktion kann nicht abgebrochen werden!</strong>
           withdraw_proposal: Vorschlag zurückziehen
+        tags:
+          changed_from: "(geändert von <u>%{previous_name}</u> durch einen Administrator)"
+        update:
+          title: Vorschlag aktualisieren
         vote_button:
           already_voted: Bereits unterstützt
           already_voted_hover: Unterstützung zurückziehen
@@ -715,17 +827,30 @@ de:
             votes: Stimmen
         wizard_aside:
           back: Zurück
+          back_from_step_1: Zurück zu Vorschlägen
+          back_from_step_2: Zurück zu Vorschlägen
+          back_from_step_3: Zurück zum Vergleich von Vorschlägen
+          back_from_step_4: Zurück zum Entwurf bearbeiten
           info: Sie erstellen einen <strong>Vorschlag</strong>.
         wizard_steps:
+          current_step: Aktueller Schritt
           see_steps: siehe Schritte
           step_1: Vorschlag erstellen
           step_2: Vergleichen
           step_3: Abschließen
           step_4: Vorschlag veröffentlichen
           step_of: Schritt %{current_step_num} von %{total_steps}
+          title: Schritten zur Erstellung von Vorschlägen
+      proposals_picker:
+        choose_proposals: Vorschläge auswählen
+        close: Schließen
+        more_proposals: Es gibt %{number} weitere Vorschläge. Spezifizieren Sie Ihre Suche, um sie zu finden.
+        no_proposals: Kein Vorschlag entspricht Ihren Suchkriterien oder es ist keine Vorschlag geplant.
       publish:
         error: Beim Veröffentlichen des Vorschlags ist ein Fehler aufgetreten.
         success: Vorschlag erfolgreich veröffentlicht.
+      publish_answers:
+        success: Vorschlagsantworten wurden erfolgreich veröffentlicht.
       update:
         error: Beim Speichern des Vorschlags ist ein Fehler aufgetreten.
         success: Vorschlag wurde erfolgreich aktualisiert.

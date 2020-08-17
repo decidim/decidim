@@ -3,6 +3,8 @@ es-PY:
     attributes:
       account:
         delete_reason: Motivo de eliminar tu cuenta
+      common:
+        created_at: Creado el
       group:
         about: Acerca de
         avatar: Avatar
@@ -72,6 +74,7 @@ es-PY:
       decidim_with_month_name_short: "%d %b"
   decidim:
     accessibility:
+      external_link: Enlace externo
       logo: "Logo oficial de %{organization}"
       skip_button: Saltar al contenido principal
     account:
@@ -150,6 +153,8 @@ es-PY:
         verify_via_csv: "%{user_name} verificó el grupo de %{resource_name} usuario a través de un archivo CSV"
     admin_terms_of_use:
       default_body: "<h2>TÉRMINOS ADMIN DE USO</h2><p>Confiamos en que has recibido la explicación habitual del administrador local del sistema. Generalmente se reduce a estas tres cosas:</p><ol><li>Respetar la privacidad de los demás.</li><li>Piensa antes de hacer clic.</li><li>Un gran poder conlleva una gran responsabilidad.</li></ol>"
+    alert:
+      dismiss: Descartar notificación
     amendments:
       accepted:
         error: Ocurrió un error al aceptar la enmienda.
@@ -277,6 +282,7 @@ es-PY:
           foo: Foo
         name: Autorización foo
       granted_at: Concedida el %{timestamp}
+      renew: Renovar la verificación
       sms:
         explanation: Introduce tu número de teléfono móvil para que podamos verificar tu identidad.
         name: Código por SMS
@@ -311,6 +317,8 @@ es-PY:
           explanation_html: Para realizar esta acción, debes estar autorizado, antes de hacerlo, confirma tu correo electrónico <strong>%{email}</strong>.
           request_confirmation_instructions: Solicitar instrucciones de confirmación
           title: Confirma tu email
+      show:
+        close_modal: Cerrar el modal
     collapsible_list:
       hidden_elements_count:
         one: y %{count} más
@@ -459,6 +467,7 @@ es-PY:
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> quiere usar tu cuenta"
     endorsable:
       endorsements: Adhesiones
+      endorsements_count: Número de adhesiones
     endorsement_buttons_cell:
       already_endorsed: Adherido
       endorse: Adherirse
@@ -632,6 +641,9 @@ es-PY:
       title: Huella digital
       value: Valor
     followers:
+      followers_count:
+        one: "%{count} seguidora"
+        other: "%{count} seguidoras"
       no_followers: Aún no hay seguidores.
     following:
       no_followings: No sigue a nadie ni a nada todavía.
@@ -652,6 +664,18 @@ es-PY:
           password: La contraseña es demasiado corta.
           password_confirmation: La confirmación de la contraseña debe coincidir con tu contraseña.
         error: Hay un error en este campo.
+      file_help:
+        file:
+          explanation: 'Instrucciones para el archivo:'
+          message_1: Tiene que ser una imagen o un documento.
+          message_2: Para las imágenes, utilizar imágenes apaisadas preferiblemente, el servicio recorta la imagen.
+        image:
+          explanation: 'Instrucciones para la imagen:'
+          message_1: Preferiblemente una imagen de paisaje que no tenga ningún texto.
+          message_2: El servicio recorta la imagen.
+      file_validation:
+        allowed_file_extensions: 'Formatos de archivo permitidos: %{extensions}'
+        max_file_size: 'Tamaño máximo del archivo: %{megabytes}MB'
       remove_this_file: Eliminar este archivo
     gamification:
       all_badges_link: Ver todas los distintivos disponibles.
@@ -805,6 +829,13 @@ es-PY:
           not_found: 'No se encontró el tipo de ámbito en la base de datos (ID: %{id})'
     managed_users:
       expired_session: La sesión de suplantación actual ha caducado.
+    map:
+      dynamic:
+        screen_reader_explanation: El siguiente elemento es un mapa que presenta los componentes de esta página como puntos en el mapa. El elemento se puede utilizar con un lector de pantalla pero puede ser difícil de entender.
+        skip_button: Saltar el mapa
+      static:
+        latlng_text: 'latitud: %{latitude}, longitud: %{longitude}'
+        map_service_brand: OpenStreetMap
     members:
       no_members: Este grupo de usuarios aún no tiene ningún miembro.
     menu:
@@ -853,6 +884,8 @@ es-PY:
           modal_title: Nueva conversación
           no_results: No hay resultados
           participant_with_disabled_message_reception: Esta participante ha desactivado la recepción de mensajes
+        conversation:
+          show: Mostrar la conversación con %{sender}
         create:
           error: Conversación no iniciada. Inténtalo más tarde
         index:
@@ -870,6 +903,7 @@ es-PY:
           send: Enviar
           title: Respuesta
         show:
+          back: Volver a todas las conversaciones
           chat_with: Conversación con
           not_allowed: Esta participante no acepta mensajes directos.
           title: Conversacion con %{usernames}
@@ -1051,6 +1085,7 @@ es-PY:
         following: Sigue
         groups: Los grupos
         members: Miembros
+        officialized: Participante oficial
         timeline: Línea de tiempo
         view_full_profile: Ver todo el perfil
       sidebar:
@@ -1097,11 +1132,16 @@ es-PY:
       global: Alcance global
       picker:
         cancel: Cancelar
+        change: Cambiar el ámbito seleccionado
         choose: Seleccionar
+        currently_selected: Ámbito seleccionado actualmente
         title: Seleccione %{field}
       prompt: Seleccione un ámbito
       scopes: Ámbitos
+      scopes_picker_input:
+        select_scope: 'Seleccionar un ámbito (actualmente: %{current})'
     search:
+      results: Resultados de la búsqueda
       results_found_for_term: '%{count} Resultados de la búsqueda: "%{term}"'
       term_input_placeholder: Buscar
     searches:
@@ -1124,6 +1164,11 @@ es-PY:
           other: "%{count} resultados"
         view_all: Ver todo (%{count})
     shared:
+      confirm_modal:
+        cancel: Cancelar
+        close_modal: Cerrar el modal
+        ok: De acuerdo
+        title: Confirmar
       embed_modal:
         close_window: Cerrar ventana
         embed: Por favor, pega este código en tu página
@@ -1131,6 +1176,9 @@ es-PY:
       extended_navigation_bar:
         more: Más
         unfold: Desplegar
+      filter_form_help:
+        help: El siguiente formulario filtra los resultados de búsqueda dinámicamente cuando se cambian las condiciones de búsqueda.
+        skip: Saltar a los resultados
       flag_modal:
         already_reported: Este contenido ya fue denunciado y será revisado por un administrador.
         close: Cerrar
@@ -1141,10 +1189,12 @@ es-PY:
         spam: Contiene clickbait, publicidad o estafas.
         title: Denunciar un problema
       floating_help:
+        close: Cerrar la ayuda
         help: Ayuda
       follow_button:
         sign_in_before_follow: Inicia sesión antes de realizar esta acción
       login_modal:
+        close_modal: Cerrar el modal
         please_sign_in: Por favor, regístrate
         sign_up: Regístrate
       participatory_space_filters:
@@ -1163,6 +1213,9 @@ es-PY:
         close_window: Cerrar ventana
         share: Compartir
         share_link: Compartir enlace
+    tags:
+      filter_results_for_category: 'Resultados al filtrar por la categoría: %{resource}'
+      filter_results_for_scope: 'Resultados al filtrar por el ámbito: %{resource}'
     user_activity:
       index:
         no_activities_warning: Este usuario no ha tenido ninguna actividad todavía.
@@ -1222,7 +1275,6 @@ es-PY:
     versions:
       resource_version:
         of_versions: "(de %{number})"
-        see_other_versions: ver otras versiones
         version: Versión %{number}
     versions_list:
       show:
@@ -1408,7 +1460,13 @@ es-PY:
       too_much_caps: está usando demasiadas letras mayúsculas (más del 25% del texto)
       too_short: es demasiado corto (menos de 15 caracteres)
   forms:
+    correct_errors: Hay errores en el formulario, por favor corrígelos para continuar.
+    length_validator:
+      minimum:
+        one: al menos %{count} carácter
+        other: al menos %{count} caracteres
     required: Obligatorio
+    required_explanation: "* Los campos requeridos están marcados con un asterisco"
   invisible_captcha:
     sentence_for_humans: Si eres humano, ignora este campo
     timestamp_error_message: Lo siento, has sido demasiado rápido! Por favor, vuelva a enviar.
@@ -1421,6 +1479,8 @@ es-PY:
       edit_link:
         edit: Editar
       footer:
+        cc_by_license: Con licencia Creative Commons
+        decidim_logo: Logo Decidim
         download_open_data: Descargar ficheros de datos abiertos
         made_with_open_source: Sitio web creado con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.
       header:
@@ -1432,9 +1492,19 @@ es-PY:
         close_session: Cerrar la sesión
         description_html: Te estás haciendo pasar por el usuario <b>%{user_name}</b>.
         expire_time_html: Su sesión expirará en <b><span class="minutes">%{minutes}</span> minutos</b>.
+      language_chooser:
+        choose_language: Elegir el idioma
       notifications_dashboard:
         mark_all_as_read: Marcar todo como leído
+        mark_as_read: Marcar como leído
+      social_media_links:
+        facebook: "%{organization} en Facebook"
+        github: "%{organization} en GitHub"
+        instagram: "%{organization} en Instagram"
+        twitter: "%{organization} en Twitter"
+        youtube: "%{organization} en YouTube"
       user_menu:
+        account: 'Cuenta de usuario: %{name}'
         admin_dashboard: Tablero de administración
         conversations: Conversaciones
         notifications: Notificaciones
@@ -1523,6 +1593,7 @@ es-PY:
       last_title: Enlace a la última página
       next: Siguiente &rsaquo;
       next_title: Enlace a la página siguiente
+      pagination: Paginación
       previous: "&lsaquo; Anterior"
       previous_title: Enlace a la página anterior
       title: 'Número de página: '

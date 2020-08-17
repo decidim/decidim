@@ -16,13 +16,13 @@ cs:
         title: Název přílohy nebo obrázku
       attachment_collection:
         description: Popis
-        name: název
+        name: Název
       category:
         description: Popis
-        name: název
+        name: Název
         parent_id: Nadřazená
       component:
-        name: název
+        name: Název
         published_at: Publikováno v
         weight: Váha
       id: ID
@@ -89,13 +89,13 @@ cs:
         youtube_handler: YouTube handler
       scope:
         code: Kód
-        name: název
+        name: Název
         organization: Organizace
         parent_id: Nadřazený
         scope_type: Typ rozsahu
         scope_type_id: Typ rozsahu
       scope_type:
-        name: název
+        name: Název
         organization: Organizace
         plural: Množné číslo
       static_page:
@@ -138,7 +138,7 @@ cs:
         organization_name: Název organizace
         organization_url: URL organizace
         redirect_uri: Přesměrování URI
-        site: webová stránka
+        site: Webová stránka
   decidim:
     admin:
       actions:
@@ -405,10 +405,10 @@ cs:
         area:
           fields:
             area_type: Typ oblasti
-            name: název
+            name: Název
         area_type:
           fields:
-            name: název
+            name: Název
             plural: Množné číslo
         attachment:
           fields:
@@ -507,7 +507,7 @@ cs:
           title: Upravit zpravodaj
         index:
           all: vše
-          all_users: 'Všichni uživatelé'
+          all_users: 'Všichni uživatelé '
           and: 'a '
           confirm_delete: Opravdu chcete tento zpravodaj smazat?
           followers: 'sledující '

@@ -27,13 +27,6 @@ is:
         name: Heill heiti
   decidim:
     admin:
-      filters:
-        state_eq:
-          values:
-            created: Búið til
-            discarded: Fargað
-            published: Published
-            validating: Tæknilegar staðfestingar
       menu:
         initiatives: Frumkvæði
         initiatives_types: Frumgerð tegundir

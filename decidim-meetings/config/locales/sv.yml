@@ -16,10 +16,12 @@ sv:
         available_slots: Tillgängliga platser för detta möte
         decidim_category_id: Kategori
         decidim_scope_id: Omfång
+        decidim_user_group_id: Användargrupp
         description: Beskrivning
         end_time: Sluttid
         location: Plats
         location_hints: Detaljer om platsen
+        organizer_gid: Skapa som
         organizer_id: Organisatör
         private_meeting: Privat möte
         registration_form_enabled: Registreringsformulär aktiverat
@@ -81,12 +83,16 @@ sv:
           global:
             announcement: Meddelande
             comments_enabled: Kommentarer aktiverade
+            comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
+            creation_enabled_for_participants: Deltagarna kan skapa möten
             default_registration_terms: Villkor för standardregistrering
             enable_pads_creation: Aktivera skapande av memo
             resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje möte
           step:
             announcement: Meddelande
             comments_blocked: Kommentarer blockerade
+            creation_enabled_for_participants: Mötesskapande av deltagare aktiverat
+            creation_enabled_for_user_groups: Mötesskapande av användargrupper aktiverat
     events:
       meetings:
         meeting_closed:
@@ -279,6 +285,7 @@ sv:
           form:
             available_slots_help: Lämna det till 0 om du har obegränsade platser.
             invites: Inbjudningar
+            recommendation_message: Av sekretessskäl rekommenderar vi att du tar bort detta inskriptionsformulär när du inte längre behöver det. Som standard är detta 3 månader efter att mötet avslutats.
             registration_form: Anmälningsformulär
             registrations_count:
               one: Det har gjorts %{count} anmälan.
@@ -341,21 +348,55 @@ sv:
       meeting:
         not_allowed: Du får inte se det här mötet
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} möte"
+            other: "%{count} möten"
+        create:
+          invalid: Det gick inte att skapa mötet.
+          success: Du har skapat mötet.
+        edit:
+          back: Tillbaka
+          title: Redigera ditt möte
+          update: Uppdatera
         filters:
           category: Kategori
           date: Datum
+          date_values:
+            all: Alla
+            past: Tidigare
+            upcoming: Kommande
+          origin: Ursprung
+          origin_values:
+            all: Alla
+            citizens: Medborgare
+            official: Officiell
+            user_groups: Grupper
+          scope: Omfattning
           search: Sök
         filters_small_view:
           close_modal: Stäng fönstret
           filter: Filtrera
           filter_by: Filtrera efter
           unfold: Veckla ut
+        form:
+          address_help: 'Adress: som används av Geocoder för att hitta platsen'
+          create_as: Skapa möte som
+          location_help: 'Plats: meddelande riktat till de användare som antyder platsen att träffas på'
+          location_hints_help: 'Plats tips: ytterligare info. Exempel: golvet i byggnaden'
+          select_a_category: Välj en kategori
+        index:
+          new_meeting: Nytt möte
         meeting_minutes:
           meeting_minutes: Mötesprotokoll
           related_information: Relaterad information
         meetings:
           no_meetings_warning: Inga möten matchar dina sökkriterier eller det finns inget möte planerat.
           upcoming_meetings_warning: För närvarande finns det inga planerade möten, men här hittar du alla tidigare möten listade.
+        new:
+          back: Tillbaka
+          create: Skapa
+          title: Skapa ditt möte
         registration_confirm:
           cancel: Avbryt
           confirm: Bekräfta
@@ -363,6 +404,8 @@ sv:
           attendees: Antal deltagare
           back: Tillbaka till listan
           contributions: Antal bidrag
+          date: Datum
+          edit_meeting: Redigera möte
           going: Jag kommer
           join: Gå med i mötet
           meeting_report: Mötesrapport
@@ -376,6 +419,9 @@ sv:
             one: "%{count} plats kvar"
             other: "%{count} platser kvar"
           view: Visa
+        update:
+          invalid: Det gick inte att uppdatera mötet.
+          success: Du har uppdaterat mötet.
       meetings_map:
         view_meeting: Visa möte
       models:
@@ -394,6 +440,7 @@ sv:
             closed: Stängd
             end_time: Slutdatum
             map: Karta
+            official_meeting: Officiellt möte
             start_time: Startdatum
             title: Titel
       read_more: "(läs mer)"
@@ -415,6 +462,8 @@ sv:
       types:
         private_meeting: Privat möte
         transparent: Transparent
+      versions:
+        back_to_resource: Gå tillbaka till mötet
     metrics:
       meetings:
         description: Antal skapade möten

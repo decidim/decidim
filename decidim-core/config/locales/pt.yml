@@ -3,6 +3,8 @@ pt:
     attributes:
       account:
         delete_reason: Razão para cancelar a sua conta
+      common:
+        created_at: Criado em
       group:
         about: Sobre
         avatar: Avatar
@@ -72,6 +74,7 @@ pt:
       decidim_with_month_name_short: "%d %b"
   decidim:
     accessibility:
+      external_link: Hiperligação externa
       logo: "Logótipo oficial de %{organization}"
       skip_button: Avançar para o conteúdo principal
     account:
@@ -150,6 +153,8 @@ pt:
         verify_via_csv: "%{user_name} verificou o grupo %{resource_name} através de um ficheiro CSV"
     admin_terms_of_use:
       default_body: "<h2>TERMOS DE UTILIZAÇÃO DE ADMINISTRADOR</h2><p>Confiamos que recebeu as instruções habituais por parte do Administrador de Sistema local. Normalmente resume-se a estes três fatores:</p><ol><li>Respeitar a privacidade dos outros.</li><li>Pensar antes de clicar.</li><li>Um grande poder acarreta uma grande responsabilidade.</li></ol>"
+    alert:
+      dismiss: Descartar notificação
     amendments:
       accepted:
         error: Ocorreu um problema ao aceitar a modificação.
@@ -212,7 +217,7 @@ pt:
         error: Ocorreu um problema ao rejeitar esta modificação, por favor tente novamente mais tarde
         success: A modificação foi rejeitada corretamente
       review:
-        back: Voltar
+        back: Retroceder
         heading: Rever a modificação
         help_text: Está a rever uma modificação a %{model_name}
         send: Aceitar modificação
@@ -276,6 +281,7 @@ pt:
           foo: Foo
         name: Autorização Foo
       granted_at: Concedido em %{timestamp}
+      renew: Renovar verificação
       sms:
         explanation: Submeta o seu número de telemóvel para que possamos verificar a sua identidade.
         name: Código por SMS
@@ -310,6 +316,8 @@ pt:
           explanation_html: De forma a executar esta ação precisa de estar autorizado, antes de fazer isso precisa de confirmar o seu e-mail <strong>%{email}</strong>.
           request_confirmation_instructions: Solicitar instruções de confirmação
           title: Confirmar o seu e-mail
+      show:
+        close_modal: Fechar modal
     collapsible_list:
       hidden_elements_count:
         one: e mais %{count}
@@ -458,6 +466,7 @@ pt:
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> quer usar a sua conta"
     endorsable:
       endorsements: Endossos
+      endorsements_count: Contagem de endossamentos
     endorsement_buttons_cell:
       already_endorsed: Endossado
       endorse: Endossar
@@ -631,6 +640,9 @@ pt:
       title: Impressão digital
       value: Valor
     followers:
+      followers_count:
+        one: "%{count} seguidor"
+        other: "%{count} seguidores"
       no_followers: Ainda não há seguidores.
     following:
       no_followings: Ainda não segue alguém ou algo.
@@ -651,6 +663,18 @@ pt:
           password: A palavra-passe é demasiado curta.
           password_confirmation: A confirmação da palavra-passe deverá corresponder à palavra-passe.
         error: Há um erro neste campo.
+      file_help:
+        file:
+          explanation: 'Orientação para o ficheiro:'
+          message_1: Tem que ser uma imagem ou um documento.
+          message_2: Para imagens, use de preferência imagens de paisagem, o serviço corta a imagem.
+        image:
+          explanation: 'Orientação para a imagem:'
+          message_1: Preferencialmente, uma imagem de paisagem que não tem nenhum texto.
+          message_2: O serviço corta a imagem.
+      file_validation:
+        allowed_file_extensions: 'Extensões de ficheiro permitidas: %{extensions}'
+        max_file_size: 'Tamanho máximo do ficheiro: %{megabytes}MB'
       remove_this_file: Remover este ficheiro
     gamification:
       all_badges_link: Ver todos os distintivos disponíveis.
@@ -804,10 +828,17 @@ pt:
           not_found: 'O tipo de âmbito não foi encontrado na base de dados (ID: %{id})'
     managed_users:
       expired_session: A sessão atual de administração do participante expirou.
+    map:
+      dynamic:
+        screen_reader_explanation: O elemento seguinte é um mapa que apresenta os itens nesta página como pontos de mapa. O elemento pode ser usado com um leitor de ecrã, mas pode ser difícil de entender.
+        skip_button: Saltar mapa
+      static:
+        latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
+        map_service_brand: OpenStreetMap
     members:
       no_members: Este grupo ainda não possui nenhum membro.
     menu:
-      help: Socorro
+      help: Ajuda
       home: Inicio
     messaging:
       conversation_mailer:
@@ -852,6 +883,8 @@ pt:
           modal_title: Nova conversa
           no_results: Sem resultados
           participant_with_disabled_message_reception: Este participante desativou a receção de mensagens
+        conversation:
+          show: Mostrar conversa com %{sender}
         create:
           error: Conversa não iniciada. Tente novamente mais tarde
         index:
@@ -869,6 +902,7 @@ pt:
           send: Mandar
           title: Responder
         show:
+          back: Retroceder a todas as conversas
           chat_with: Conversa com
           not_allowed: Este utilizador não aceita mais mensagens diretas.
           title: Conversa com %{usernames}
@@ -1050,6 +1084,7 @@ pt:
         following: Segue
         groups: Grupos
         members: Membros
+        officialized: Participante oficial
         timeline: Cronograma
         view_full_profile: Ver o perfil completo
       sidebar:
@@ -1096,16 +1131,21 @@ pt:
       global: Âmbito global
       picker:
         cancel: Cancelar
+        change: Alterar o âmbito selecionado
         choose: Selecionar
+        currently_selected: Âmbito atualmente selecionado
         title: Selecionar %{field}
       prompt: Selecionar um âmbito
       scopes: Âmbitos
+      scopes_picker_input:
+        select_scope: 'Selecione um âmbito (atualmente: %{current})'
     search:
+      results: Resultados da pesquisa
       results_found_for_term: '%{count} Resultados para a pesquisa: "%{term}"'
       term_input_placeholder: Pesquisar
     searches:
       filters:
-        back: Voltar aos resultados
+        back: Retroceder aos resultados
         jump_to: 'Saltar para:'
         state:
           active: Ativo
@@ -1123,6 +1163,11 @@ pt:
           other: "%{count} resultados"
         view_all: Ver todos (%{count})
     shared:
+      confirm_modal:
+        cancel: Cancelar
+        close_modal: Fechar modal
+        ok: OK
+        title: Confirmar
       embed_modal:
         close_window: Fechar janela
         embed: Cole este código na sua página
@@ -1130,6 +1175,9 @@ pt:
       extended_navigation_bar:
         more: Mais
         unfold: Desdobrar
+      filter_form_help:
+        help: O formulário abaixo filtra os resultados da pesquisa dinamicamente quando as condições de pesquisa são modificadas.
+        skip: Ir para os resultados
       flag_modal:
         already_reported: Este conteúdo já foi reportado e será revisto por um administrador.
         close: Fechar
@@ -1140,10 +1188,12 @@ pt:
         spam: Contém clickbait, publicidade, fraudes ou robots de scripts.
         title: Reportar um problema
       floating_help:
+        close: Fechar ajuda
         help: Ajuda
       follow_button:
         sign_in_before_follow: Por favor inicie sessão antes de executar esta ação
       login_modal:
+        close_modal: Fechar modal
         please_sign_in: Por favor, inicie a sessão
         sign_up: Inscrever-se
       participatory_space_filters:
@@ -1162,6 +1212,9 @@ pt:
         close_window: Fechar janela
         share: Partilhar
         share_link: Partilhar link
+    tags:
+      filter_results_for_category: 'Resultados do filtro para a categoria: %{resource}'
+      filter_results_for_scope: 'Resultados do filtro para o âmbito: %{resource}'
     user_activity:
       index:
         no_activities_warning: Este participante ainda não possui nenhuma atividade.
@@ -1221,7 +1274,6 @@ pt:
     versions:
       resource_version:
         of_versions: "(de %{number})"
-        see_other_versions: ver outras versões
         version: Versão %{number}
     versions_list:
       show:
@@ -1375,7 +1427,7 @@ pt:
         sign_in_with_provider: Iniciar sessão com %{provider}
         sign_up: Inscrever-se
       minimum_password_length:
-        one: "(%{count} caractere no mínimo)"
+        one: "(%{count} carácter no mínimo)"
         other: "(%{count} caracteres no mínimo)"
     unlocks:
       new:
@@ -1407,7 +1459,13 @@ pt:
       too_much_caps: está a usar muitas letras maiúsculas (acima de 25% do texto)
       too_short: é muito curto (abaixo de 15 caracteres)
   forms:
+    correct_errors: Existem erros no formulário, por favor corrija-os para continuar.
+    length_validator:
+      minimum:
+        one: pelo menos %{count} carácter
+        other: pelo menos %{count} caracteres
     required: Requeridos
+    required_explanation: "* Campos obrigatórios estão marcados com um asterisco"
   invisible_captcha:
     sentence_for_humans: Se é humano, ignore este campo
     timestamp_error_message: Desculpe, isso foi muito rápido! Por favor reenvie.
@@ -1420,6 +1478,8 @@ pt:
       edit_link:
         edit: Editar
       footer:
+        cc_by_license: Licença Creative Commons
+        decidim_logo: Logótipo do Decidim
         download_open_data: Transferir ficheiros Open Data
         made_with_open_source: Site criado com <a target="_blank" href="https://github.com/decidim/decidim"> software livre</a>.
       header:
@@ -1431,9 +1491,19 @@ pt:
         close_session: Terminar sessão
         description_html: Está a gerir o participante <b>%{user_name}</b>.
         expire_time_html: A sua sessão irá expirar em <b><span class="minutes">%{minutes}</span> minutos</b>.
+      language_chooser:
+        choose_language: Escolher idioma
       notifications_dashboard:
         mark_all_as_read: Marcar tudo como lido
+        mark_as_read: Marcar como lida
+      social_media_links:
+        facebook: "%{organization} no Facebook"
+        github: "%{organization} no GitHub"
+        instagram: "%{organization} no Instagram"
+        twitter: "%{organization} no Twitter"
+        youtube: "%{organization} no YouTube"
       user_menu:
+        account: 'Conta de utilizador: %{name}'
         admin_dashboard: Painel de administração
         conversations: Conversas
         notifications: Notificações
@@ -1522,6 +1592,7 @@ pt:
       last_title: Ligação à última página
       next: Próximo &rsaquo;
       next_title: Ligação à página seguinte
+      pagination: Paginação
       previous: "&lsaquo; Anterior"
       previous_title: Ligação à página anterior
       title: 'Número da página: '

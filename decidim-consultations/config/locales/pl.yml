@@ -19,6 +19,9 @@ pl:
         hashtag: Hashtag
         hero_image: Obraz domowy
         i_frame_url: Zewnętrzny adres URL systemu głosowania
+        instructions: Dodatkowe instrukcje dotyczące głosowania
+        max_votes: Maksymalna liczba głosów
+        min_votes: Minimalna liczba głosów
         origin_scope: Zakres
         origin_title: Pochodzenie
         origin_url: Oryginalny adres URL
@@ -31,11 +34,24 @@ pl:
         subtitle: Podtytuł
         vote: Zewnętrzny system głosowania
         what_is_decided: Co postanowiono
+      response:
+        decidim_consultations_response_group_id: Grupa
     errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: Maksymalna liczba głosów powinna być większa od lub równa minimalnej.
       vote:
         decidim_consultations_response_id:
           not_found: Odpowiedź nie znaleziono.
   activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Nieprawidłowa liczba głosów
     models:
       decidim/consultation:
         one: Konsultacja
@@ -60,10 +76,13 @@ pl:
   decidim:
     admin:
       actions:
+        back_to_responses: Powrót do odpowiedzi
         new_consultation: Nowa konsultacja
         new_question: Nowe pytanie
         new_response: Nowa odpowiedź
+        new_response_group: Nowa grupa
         publish_results: Opublikuj wyniki
+        response_groups: Zarządzaj grupami odpowiedzi
         unpublish_results: Cofnij publikację wyników
       consultation_publications:
         create:
@@ -94,6 +113,10 @@ pl:
         new:
           create: Stwórz
           title: Nowa konsultacja
+        results:
+          not_visible: Wyniki będą dostępne po zamknięciu konsultacji
+          participants: "Liczba uczestników: %{count}"
+          total_votes: 'Całkowita liczba głosów: %{count}'
         update:
           error: Wystąpił błąd podczas aktualizowania tej konsultacji.
           success: Konsultacja zaktualizowana pomyślnie.
@@ -102,8 +125,10 @@ pl:
         consultations_submenu:
           info: Informacja
           questions: pytania
+          results: Wyniki
         questions_submenu:
           components: składniki
+          configuration: Konfiguracja
           consultation: Konsultacja
           info: Informacja
           responses: Odpowiedzi
@@ -131,12 +156,18 @@ pl:
         response:
           fields:
             created_at: Utworzono w
+            response_group: Grupa
             title: Tytuł
           name:
             one: Odpowiedź
             few: Odpowiedzi
             many: Odpowiedzi
             other: Odpowiedzi
+      question_configuration:
+        disable_external_voting: Wyłącz głosowanie zewnętrzne dla ustawień zaawansowanych
+        form:
+          help: Skonfiguruj pytania wielokrotnego wyboru, zwiększając maksymalną liczbę odpowiedzi, jaką może wybrać uczestnik. Domyślna wartość maksymalna to 1, co oznacza, że można głosować tylko na jedną odpowiedź.
+          title: Ustawienia zaawansowane
       question_publications:
         create:
           error: Wystąpił błąd podczas publikowania tego pytania.
@@ -163,6 +194,24 @@ pl:
         update:
           error: Wystąpił błąd podczas aktualizowania tego pytania.
           success: Pytanie zaktualizowane pomyślnie.
+      response_groups:
+        create:
+          error: Wystąpił błąd podczas tworzenia nowej grupy odpowiedzi.
+          success: Grupa odpowiedzi została pomyślnie utworzona.
+        destroy:
+          error: Wystąpił problem podczas usuwania grupy odpowiedzi. Sprawdź, czy żadne odpowiedzi nie są od niej zależne.
+          success: Grupa odpowiedzi została pomyślnie usunięta.
+        edit:
+          update: Aktualizacja
+        form:
+          title: Informacje ogólne
+        help: Użyj grup, aby zorganizować pytania wielokrotnego wyboru w pakiety.
+        new:
+          create: Utwórz
+          title: Nowa grupa odpowiedzi
+        update:
+          error: Wystąpił błąd podczas aktualizowania tej odpowiedzi.
+          success: Odpowiedź została pomyślnie zaktualizowana.
       responses:
         create:
           error: Wystąpił błąd podczas tworzenia nowej odpowiedzi.
@@ -183,7 +232,9 @@ pl:
       titles:
         consultations: Konsultacje
         questions: pytania
+        response_groups: Grupy odpowiedzi
         responses: Odpowiedzi
+        results: Wyniki
     consultations:
       admin:
         content_blocks:
@@ -199,6 +250,8 @@ pl:
           label: 'Sortuj konsultacje według:'
           random: Losowy
           recent: Najnowszy
+        show:
+          dates: Owoce cytrusowe
       content_blocks:
         highlighted_consultations:
           name: Wyróżnione konsultacje
@@ -246,9 +299,28 @@ pl:
           few: głosów z
           many: głosów z
           other: głosów z
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: Uczestnicy mogli rozdzielić co najmniej %{votes} głosy/głosów między różne odpowiedzi.
+          title: W tym pytaniu dozwolone było wybranie kilku odpowiedzi.
+          total_participants: 'Łączna liczba osób, które wzięły udział w głosowaniu: %{count}.'
+          vote_limit:
+            description: 'Maksymalna liczba opcji, na które mogli głosować uczestnicy: %{limit}.'
+        voting_rules:
+          minimum_votes_per_user:
+            description: Musisz rozdzielić co najmniej %{votes} głosy/głosów pomiędzy różne odpowiedzi.
+          title: 'Głosowanie podlega następującym zasadom:'
+          vote_limit:
+            description: 'Maksymalna liczba opcji, na które możesz głosować: %{limit}.'
+            left: Pozostało
+            votes: Głosy
       question_votes:
         create:
           error: Wystąpiły błędy podczas głosowania na pytanie
+          success: Możesz to zmienić do końca konsultacji. Tylko ostatni głos zostanie zaakceptowany.
+          title_error: Błąd głosowania!
+          title_success: Głos został pomyślnie zarejestrowany
       regular_questions:
         title: Pytania do tej konsultacji
       show:
@@ -276,6 +348,8 @@ pl:
         statistics:
           consultations_count: Konsultacje
     questions:
+      next_button: Następne pytanie
+      previous_button: Poprzednie pytanie
       results:
         title: Wyniki
       show:
@@ -291,15 +365,22 @@ pl:
         already_voted: Już głosowałem
         already_voted_hover: Odwołaj wsparcie
         starting_from: Począwszy od %{date}
+        verification_required: Aby zagłosować, zweryfikuj swoje konto
         vote: Głosować
       vote_modal:
+        close_modal: Zamknij modalny
         contextual_help: Proszę wybrać opcję.
         title: 'Konsultacje: wsparcie pytania'
       vote_modal_confirm:
         change: Zmiana
+        close_modal: Zamknij modalny
         confirm: Potwierdzać
         contextual_help: Potwierdź wybraną opcję.
         title: 'Konsultacje: potwierdź wsparcie'
+    resources:
+      consultations:
+        actions:
+          vote: Głosuj
   layouts:
     decidim:
       admin:
@@ -313,3 +394,4 @@ pl:
         unfold: Rozwijać się
       question_header:
         back_to_consultation: Zobacz wszystkie konsultacje
+        back_to_question: Wróć do pytania

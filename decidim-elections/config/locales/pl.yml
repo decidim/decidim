@@ -1,1 +1,228 @@
 pl:
+  activemodel:
+    attributes:
+      answer:
+        description: Opis
+        image: Obraz
+        proposals: Powiązane propozycje
+        title: Tytuł
+      election:
+        description: Opis
+        end_time: Głosowanie kończy się o
+        start_time: Głosowanie rozpoczyna się o
+        subtitle: Podtytuł
+        title: Tytuł
+      question:
+        description: Opis
+        max_selections: Maksymalna liczba wyborów
+        title: Tytuł
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Załącz go ponownie
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Odpowiedź
+        few: Odpowiedzi
+        many: Odpowiedzi
+        other: Odpowiedzi
+      decidim/elections/election:
+        one: Wybory
+        few: Wybory
+        many: Wybory
+        other: Wybory
+      decidim/elections/question:
+        one: Pytanie
+        few: Pytania
+        many: Pytania
+        other: Pytania
+  decidim:
+    components:
+      elections:
+        actions:
+          vote: Głosuj
+        name: Wybory
+        settings:
+          global:
+            announcement: Ogłoszenie
+          step:
+            announcement: Ogłoszenie
+    elections:
+      actions:
+        confirm_destroy: Na pewno?
+        destroy: Zniszcz
+        edit: Edytuj
+        edit_answers: Edytuj odpowiedzi
+        edit_questions: Edytuj pytania
+        import: Importuj propozycje do odpowiedzi
+        new: Nowy %{name}
+        preview: Podgląd
+        publish: Opublikuj
+        title: Działania
+        unpublish: Cofnij publikację
+      admin:
+        answers:
+          create:
+            invalid: Wystąpił błąd podczas tworzenia odpowiedzi
+            success: Odpowiedź została pomyślnie utworzona
+          destroy:
+            invalid: Wystąpił błąd podczas usuwania odpowiedzi
+            success: Odpowiedź została pomyślnie usunięta
+          edit:
+            title: Edytuj odpowiedź
+            update: Aktualizuj odpowiedź
+          index:
+            title: Odpowiedzi
+          new:
+            create: Utwórz odpowiedź
+            title: Nowa odpowiedź
+          update:
+            invalid: Wystąpił błąd podczas aktualizowania odpowiedzi
+            success: Odpowiedź została pomyślnie zaktualizowana
+        elections:
+          create:
+            invalid: Wystąpił błąd podczas tworzenia wyborów
+            success: Wybory zostały pomyślnie utworzone
+          destroy:
+            invalid: Wystąpił błąd podczas usuwania wyborów
+            success: Wybory zostały pomyślnie usunięte
+          edit:
+            title: Edytuj wybory
+            update: Aktualizuj wybory
+          index:
+            title: Wybory
+          new:
+            create: Utwórz wybory
+            title: Nowe wybory
+          publish:
+            success: Wybory zostały pomyślnie opublikowane.
+          unpublish:
+            success: Wybory zostały pomyślnie wycofane.
+          update:
+            invalid: Wystąpił błąd podczas aktualizowania wyborów
+            success: Wybory zostały pomyślnie zaktualizowane
+        models:
+          answer:
+            name: Odpowiedź
+          election:
+            name: Wybory
+          question:
+            name: Pytanie
+        proposals_imports:
+          create:
+            invalid: Wystąpił problem podczas importowania propozycji do odpowiedzi
+            success: "Liczba propozycji pomyślnie zaimportowanych do odpowiedzi: %{number}"
+          new:
+            create: Importuj propozycje do odpowiedzi
+            no_components: W tej przestrzeni partycypacyjnej nie ma już żadnych innych komponentów propozycji do zaimportowania do odpowiedzi.
+            select_component: Wybierz komponent
+        questions:
+          create:
+            invalid: Wystąpił błąd podczas tworzenia wyborów
+            success: Pytanie zostało pomyślnie utworzone
+          destroy:
+            invalid: Wystąpił błąd podczas usuwania pytania
+            success: Pytanie zostało pomyślnie usunięte
+          edit:
+            title: Edytuj pytanie
+            update: Zaktualizuj pytanie
+          index:
+            title: Pytania
+          new:
+            create: Utwórz pytanie
+            title: Nowe pytanie
+          update:
+            invalid: Wystąpił błąd podczas aktualizowania tego pytania
+            success: Pytanie zostało pomyślnie zaktualizowane
+      admin_log:
+        election:
+          publish: "%{user_name} opublikował %{resource_name} wyborów"
+          unpublish: "%{user_name} nieopublikowane wybory %{resource_name}"
+      election_m:
+        footer:
+          take_part: Weź udział
+      elections:
+        count:
+          elections_count:
+            one: "%{count} wybory"
+            few: "%{count} wybory"
+            many: "%{count} wybory"
+            other: "%{count} wybory"
+        show:
+          back: Wszystkie wybory
+          preview: Podgląd
+          vote: Głosuj
+          voting_period_status:
+            finished: Głosowanie rozpoczęło się %{start_time} i zakończyło %{end_time}
+            ongoing: Głosowanie kończy się %{end_time}
+            upcoming: Głosowanie rozpoczyna się %{start_time}
+      models:
+        answer:
+          fields:
+            proposals: Propozycje
+            title: Tytuł
+        election:
+          fields:
+            end_time: Koniec o
+            start_time: Zaczyna się o
+            title: Tytuł
+        question:
+          fields:
+            answers: Odpowiedzi
+            max_selections: Maks. liczba wyborów
+            title: Tytuł
+      votes:
+        confirm:
+          answer: Odpowiedz
+          answer_number: odpowiedz %{number}
+          confirm: Potwierdź
+          edit: edytuj
+          header: Potwierdź swój głos
+          intro: Oto podsumowanie głosowania, które zamierzasz oddać. <br> Proszę potwierdzić swój głos lub edytować swoje odpowiedzi.
+          question: Pytanie %{count}
+        confirmed:
+          back: Powrót do wyborów
+          experience: Jakie były Twoje doświadczenia?
+          feedback: Daj nam trochę opinii
+          header: Głosowanie potwierdzone
+          lead: Twój głos został już wysłany!
+          text: 'Możesz sprawdzić, czy Twój głos został pomyślnie dodany do skrzynki wyborczej z następującym identyfikatorem: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Aby to sprawdzić, skopiuj identyfikator i wklej go na <a href="evote-verify">stronie weryfikacji głosu</a>
+        encrypting:
+          header: Kodowanie głosu...
+          text: Twój głos jest szyfrowany, aby mieć pewność, że możesz go przekazać anonimowo.
+        header:
+          confirm: Potwierdź swój głos
+          confirmed: Głosowanie potwierdzone
+          encrypting: Potwierdzenie głosu
+        messages:
+          not_allowed: W tej chwili nie wolno panu głosować nad tymi wyborami.
+        modal:
+          close: Zamknij
+          proposal_header: 'Wniosek:'
+        new:
+          answer_choices: Możesz wybrać do %{choices} odpowiedzi lub nic
+          more_information: Więcej informacji
+          preview_alert: To jest podgląd grupy do głosowania.
+          question_steps: Pytanie %{current_step} z %{total_steps}
+          selections: "%{selected} z %{max_selections}<br> wyboru"
+        voting_step:
+          back: Powrót
+          continue: Następny
+    events:
+      elections:
+        election_published:
+          email_intro: '%{resource_title} wybory są teraz aktywne dla %{participatory_space_title}. Możesz je zobaczyć na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia za poprzednim linkiem.
+          email_subject: '%{resource_title} wybory są teraz aktywne dla %{participatory_space_title}.'
+          notification_title: Wybory <a href="%{resource_path}">%{resource_title}</a> są teraz aktywne dla %{participatory_space_title}.
+    participatory_processes:
+      statistics:
+        elections_count: Wybory
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Wyjście

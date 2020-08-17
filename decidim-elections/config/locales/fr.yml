@@ -111,6 +111,8 @@ fr:
             success: "%{number} propositions importées avec succès dans les réponses"
           new:
             create: Importer des propositions dans les réponses
+            no_components: Il n'y a pas d'autres composantes de proposition dans cet espace participatif pour importer les propositions dans des réponses.
+            select_component: Veuillez sélectionner un composant
         questions:
           create:
             invalid: Il y a eu un problème lors de la création de cette question
@@ -129,6 +131,26 @@ fr:
           update:
             invalid: Une erreur s'est produite lors de la mise à jour de cette question
             success: Question mise à jour avec succès
+      admin_log:
+        election:
+          publish: "%{user_name} a publié l'élection %{resource_name}"
+          unpublish: "%{user_name} a dépublié l'élection %{resource_name}"
+      election_m:
+        footer:
+          take_part: Participez
+      elections:
+        count:
+          elections_count:
+            one: "%{count} élection"
+            other: "%{count} élections"
+        show:
+          back: Toutes les élections
+          preview: Aperçu
+          vote: Voter
+          voting_period_status:
+            finished: Le vote a commencé le %{start_time} et s'est terminé le %{end_time}
+            ongoing: Le vote se termine le %{end_time}
+            upcoming: Le vote commence le %{start_time}
       models:
         answer:
           fields:
@@ -144,6 +166,44 @@ fr:
             answers: Réponses
             max_selections: Nombre maximum de sélections
             title: Titre
+      votes:
+        confirm:
+          answer: Répondre
+          answer_number: répondre à %{number}
+          confirm: Valider
+          edit: éditer
+          header: Confirmer votre vote
+          intro: Voici un résumé du vote que vous êtes sur le point de prononcer. <br> Veuillez confirmer votre vote ou modifier vos réponses.
+          question: Question %{count}
+        confirmed:
+          back: Retour aux élections
+          experience: Comment a été votre expérience?
+          feedback: Donnez-nous votre avis
+          header: Vote confirmé
+          lead: Votre vote a déjà été exprimé!
+          text: 'Vous pouvez vérifier que votre vote a bien été ajouté à la zone des urnes avec l''identifiant suivant : <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Pour vérifier, copiez l'identifiant et collez-le sur la <a href="evote-verify">page de vérification de vote</a>
+        encrypting:
+          header: Encodage du vote...
+          text: Votre vote est en cours de cryptage pour vous assurer que vous pouvez le diffuser de manière anonyme.
+        header:
+          confirm: Confirmer votre vote
+          confirmed: Vote confirmé
+          encrypting: Confirmation du vote
+        messages:
+          not_allowed: Vous n'êtes pas autorisé à voter sur cette élection pour le moment.
+        modal:
+          close: Fermer
+          proposal_header: 'Propositions:'
+        new:
+          answer_choices: Vous pouvez sélectionner jusqu'à %{choices} réponses ou aucune
+          more_information: Plus d'informations
+          preview_alert: Ceci est un aperçu de la cabine de vote.
+          question_steps: Question %{current_step} sur %{total_steps}
+          selections: "%{selected} sur %{max_selections}<br> sélections"
+        voting_step:
+          back: Précédent
+          continue: Suivant
     events:
       elections:
         election_published:
@@ -154,3 +214,7 @@ fr:
     participatory_processes:
       statistics:
         elections_count: Élections
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Quitter

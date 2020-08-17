@@ -1,0 +1,7 @@
+bg:
+  activemodel:
+    attributes:
+      project:
+        budget: Бюджет
+        decidim_category_id: Категория
+        decidim_scope_id: Сфера

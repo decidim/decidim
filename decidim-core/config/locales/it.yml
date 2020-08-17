@@ -3,6 +3,8 @@ it:
     attributes:
       account:
         delete_reason: Motivo per il quale vuoi eliminare il tuo account
+      common:
+        created_at: Creato il
       group:
         about: Dettagli
         avatar: Immagine del profilo
@@ -72,6 +74,7 @@ it:
       decidim_with_month_name_short: "%d %b"
   decidim:
     accessibility:
+      external_link: Collegamento esterno
       logo: "Logo ufficiale di %{organization}"
       skip_button: Vai al contenuto principale
     account:
@@ -150,6 +153,8 @@ it:
         verify_via_csv: "%{user_name} verificato il %{resource_name} gruppo di utenti tramite un file CSV"
     admin_terms_of_use:
       default_body: "<h2>TERMINI DI UTILIZZO DELL' AMMINISTRATORE</h2><p>Ci auguriamo che tu abbia ricevuto la usuale raccomandazione dall'amministratore del sistema locale. Solitamente si riduce a queste tre cose:</p><ol><li>Rispetta la privacy degli altri.</li><li>Pensa prima di cliccare.</li><li>Da grande potenzialità derivano grandi responsabilità.</li></ol>"
+    alert:
+      dismiss: Rimuovi notifica
     amendments:
       accepted:
         error: Si è verificato un errore durante l'accettazione dell'emendamento.
@@ -277,6 +282,7 @@ it:
           foo: foo
         name: Autorizzazione Foo
       granted_at: Concesso a %{timestamp}
+      renew: Rinnova Verifica
       sms:
         explanation: Invia il tuo numero di cellulare in modo che possiamo controllare la tua identità.
         name: Codice via SMS
@@ -311,6 +317,8 @@ it:
           explanation_html: Per eseguire questa azione devi essere autorizzato, prima di farlo devi confermare la tua email <strong>%{email}</strong>.
           request_confirmation_instructions: Richiedi le istruzioni di conferma
           title: conferma la tua email
+      show:
+        close_modal: Chiudi modalità
     collapsible_list:
       hidden_elements_count:
         one: e altri %{count}
@@ -459,6 +467,7 @@ it:
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> vuole utilizzare il tuo account"
     endorsable:
       endorsements: Mi piace
+      endorsements_count: Numero di Appoggi
     endorsement_buttons_cell:
       already_endorsed: Appoggiato
       endorse: Appoggia
@@ -632,6 +641,9 @@ it:
       title: impronta digitale
       value: Valore
     followers:
+      followers_count:
+        one: "%{count} sostenitori"
+        other: "%{count} sostenitori"
       no_followers: Nessun follower ancora.
     following:
       no_followings: Non segue nessuno o niente ancora.
@@ -652,6 +664,18 @@ it:
           password: La password è troppo breve.
           password_confirmation: La conferma password deve corrispondere alla password.
         error: Si è verificato un errore in questo campo.
+      file_help:
+        file:
+          explanation: 'Orientamenti per il file:'
+          message_1: Deve essere un'immagine o un documento.
+          message_2: Per le immagini, utilizzare preferibilmente immagini orizzontali, il servizio ritaglia l'immagine.
+        image:
+          explanation: 'Orientamenti per il file:'
+          message_1: Preferibilmente un'immagine orizzontale che non ha alcun testo.
+          message_2: Il servizio ritaglia l'immagine.
+      file_validation:
+        allowed_file_extensions: 'Estensioni file consentite: %{extensions}'
+        max_file_size: 'Dimensione massima file: %{megabytes}MB'
       remove_this_file: Rimuovere questo file
     gamification:
       all_badges_link: Vedi tutti i badge disponibili.
@@ -805,6 +829,13 @@ it:
           not_found: 'Il tipo di ambito non è stato trovato nel database (ID: %{id})'
     managed_users:
       expired_session: La sessione di impersonazione corrente è scaduta.
+    map:
+      dynamic:
+        screen_reader_explanation: L'elemento seguente è una mappa che presenta gli elementi di questa pagina come punti della mappa. L'elemento può essere utilizzato con un lettore di schermo, ma può essere difficile da capire.
+        skip_button: Salta mappa
+      static:
+        latlng_text: 'latitudine: %{latitude}, longitudine: %{longitude}'
+        map_service_brand: Mappa OpenStreet
     members:
       no_members: Questo gruppo di utenti non ha ancora nessun membro.
     menu:
@@ -853,6 +884,8 @@ it:
           modal_title: Nuova conversazione
           no_results: Nessun risultato
           participant_with_disabled_message_reception: Questo utente ha disabilitato la ricezione dei messaggi
+        conversation:
+          show: Mostra conversazione con %{sender}
         create:
           error: La conversazione non è iniziata. Riprovare più tardi
         index:
@@ -870,6 +903,7 @@ it:
           send: Inviare
           title: Rispondi
         show:
+          back: Torna a tutte le conversazioni
           chat_with: Conversazione con
           not_allowed: Questo utente non accetta più messaggi diretti.
           title: Conversazione con %{usernames}
@@ -1051,6 +1085,7 @@ it:
         following: Seguiti
         groups: gruppi
         members: Utenti
+        officialized: Partecipante ufficiale
         timeline: Ultime attività
         view_full_profile: Visualizza il profilo completo
       sidebar:
@@ -1097,11 +1132,16 @@ it:
       global: Ambito globale
       picker:
         cancel: Annulla
+        change: Cambia l'ambito selezionato
         choose: Selezionare
+        currently_selected: Ambito attualmente selezionato
         title: Seleziona %{field}
       prompt: Seleziona un ambito
       scopes: Ambiti
+      scopes_picker_input:
+        select_scope: 'Seleziona un ambito (attualmente: %{current})'
     search:
+      results: Risultato della ricerca
       results_found_for_term: '%{count} Risultati per la ricerca: "%{term}"'
       term_input_placeholder: Ricerca
     searches:
@@ -1124,6 +1164,11 @@ it:
           other: "%{count} risultati"
         view_all: Visualizza tutto (%{count})
     shared:
+      confirm_modal:
+        cancel: Annulla
+        close_modal: Chiudi modalità
+        ok: Ok
+        title: Conferma
       embed_modal:
         close_window: Chiudi la finestra
         embed: Se vuoi condividere un'anteprima di questa consultazione nella tua pagina puoi incollare questo codice
@@ -1131,6 +1176,9 @@ it:
       extended_navigation_bar:
         more: Di Più
         unfold: spiegare
+      filter_form_help:
+        help: Il modulo sottostante filtra dinamicamente i risultati della ricerca quando le condizioni di ricerca vengono modificate.
+        skip: Salta ai risultati
       flag_modal:
         already_reported: Questo contenuto è già stato riportato e sarà revisionato da un amministratore.
         close: Chiudi
@@ -1141,10 +1189,12 @@ it:
         spam: Contiene clickbait, pubblicità, truffe o script bots.
         title: Segnala un problema
       floating_help:
+        close: Chiudi l'aiuto
         help: Aiuto
       follow_button:
         sign_in_before_follow: Accede prima di eseguire questa azione
       login_modal:
+        close_modal: Chiudi modalità
         please_sign_in: Per cortesia, effettua l'accesso
         sign_up: Registrazione
       participatory_space_filters:
@@ -1163,6 +1213,9 @@ it:
         close_window: Chiudi questa finestra
         share: Condividi
         share_link: Condividi link
+    tags:
+      filter_results_for_category: 'Filtra i risultati per categoria: %{resource}'
+      filter_results_for_scope: 'Filtra i risultati per l''ambito: %{resource}'
     user_activity:
       index:
         no_activities_warning: Questo utente non ha ancora avuto alcuna attività.
@@ -1222,7 +1275,6 @@ it:
     versions:
       resource_version:
         of_versions: "(di %{number})"
-        see_other_versions: vedi altre versioni
         version: Versione %{number}
     versions_list:
       show:
@@ -1408,7 +1460,13 @@ it:
       too_much_caps: usa troppe lettere maiuscole (oltre il 25% del testo)
       too_short: è troppo corto (meno di 15 caratteri)
   forms:
+    correct_errors: Ci sono errori nel modulo, correggerli per continuare.
+    length_validator:
+      minimum:
+        one: almeno %{count} carattere
+        other: almeno %{count} caratteri
     required: Richiesto
+    required_explanation: "* I campi obbligatori sono contrassegnati con un asterisco"
   invisible_captcha:
     sentence_for_humans: Se sei una persona e non un computer, ignora questo campo
     timestamp_error_message: Mi dispiace, troppo veloce! Per favore, invia di nuovo.
@@ -1421,6 +1479,8 @@ it:
       edit_link:
         edit: Modifica
       footer:
+        cc_by_license: Licenza Creative Commons
+        decidim_logo: Logo Decidim
         download_open_data: Scarica i file Open Data
         made_with_open_source: Sito web creato con <a target="_blank" href="https://github.com/decidim/decidim">software libero</a>.
       header:
@@ -1432,9 +1492,19 @@ it:
         close_session: Chiudere la sessione
         description_html: Stai impersonando l'utente <b>%{user_name}</b>.
         expire_time_html: La sessione scadrà in <b><span class="minutes">%{minutes}</span> minuti</b>.
+      language_chooser:
+        choose_language: Scegli la lingua
       notifications_dashboard:
         mark_all_as_read: Contrassegnare tutti come letti
+        mark_as_read: Segna come già letto
+      social_media_links:
+        facebook: "%{organization} su Facebook"
+        github: "%{organization} su GitHub"
+        instagram: "%{organization} su Instagram"
+        twitter: "%{organization} su Twitter"
+        youtube: "%{organization} su YouTube"
       user_menu:
+        account: 'Account utente: %{name}'
         admin_dashboard: Cruscotto per gli amministratori (Admin dashboard)
         conversations: conversazioni
         notifications: Notifiche
@@ -1523,6 +1593,7 @@ it:
       last_title: Vai alla prima pagina
       next: Successivo &rsaquo;
       next_title: Va alla pagina successiva
+      pagination: Paginazione
       previous: "&lsaquo; Precedente"
       previous_title: Vai alla pagina precedente
       title: 'Numero di pagina: '

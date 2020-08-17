@@ -121,10 +121,17 @@ sv:
           most_voted: Mest röster
           random: Slumpmässig ordning
         project:
+          add: Lägg till projekt %{resource_name} till din röst
           count:
             one: En röst
             other: "%{count} röster"
+          remove: Ta bort projekt %{resource_name} från din röst
           view: Visa
+        project_budget_button:
+          add: Lägg till i din röst
+          add_descriptive: Lägg till projekt %{resource_name} till din röst
+          added: Lades till i din röst
+          added_descriptive: Projekt %{resource_name} lades till i din röst
         show:
           budget: Budget
           view_all_projects: Visa alla projekt
@@ -137,6 +144,7 @@ sv:
           global:
             announcement: Meddelande
             comments_enabled: Kommentarer aktiverade
+            comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
             form:
               errors:
                 budget_voting_rule_only_one: Endast en röstningsregel får vara aktiverad

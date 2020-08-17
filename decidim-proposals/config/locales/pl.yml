@@ -3,10 +3,11 @@ pl:
     attributes:
       collaborative_draft:
         address: Adres
-        body: Ciało
+        body: Treść
         category_id: Kategoria
         decidim_scope_id: Zakres
         has_address: Ma adres
+        scope_id: Niniejsze rozporządzenie stosuje się od dnia 1 stycznia 2018 r.
         state: Stan
         title: Tytuł
         user_group_id: Utwórz roboczą wersję roboczą jako
@@ -15,9 +16,11 @@ pl:
         answer: Odpowiedź
         answered_at: Odpowiedziałem na
         automatic_hashtags: Hashtagi zostały automatycznie dodane
-        body: Ciało
+        body: Treść
         category_id: Kategoria
+        decidim_scope_id: Zakres
         has_address: Ma adres
+        scope_id: Niniejsze rozporządzenie stosuje się od dnia 1 stycznia 2018 r.
         state: Stan
         suggested_hashtags: Sugerowane hashtagi
         title: Tytuł
@@ -30,6 +33,9 @@ pl:
       proposals_import:
         import_proposals: Importuj propozycje
         keep_authors: Zachowaj oryginalnych autorów
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: Nazwa taksatora
     errors:
       models:
         participatory_text:
@@ -41,12 +47,14 @@ pl:
             attachment:
               needs_to_be_reattached: Musi zostać ponownie podłączony
             body:
+              cant_be_equal_to_template: nie może być taki sam jak szablon
               identical: I tytuł nie może być identyczny
             title:
               identical: I ciało nie może być identyczne
     models:
       decidim/proposals/accepted_proposal_event: Wniosek przyjęty
       decidim/proposals/admin/update_proposal_category_event: Zmieniono kategorię oferty
+      decidim/proposals/admin/update_proposal_scope_event: Zmieniono zakres propozycji
       decidim/proposals/creation_enabled_event: Włączono tworzenie ofert
       decidim/proposals/endorsing_enabled_event: Włączono propozycję zatwierdzenia
       decidim/proposals/evaluating_proposal_event: Propozycja jest oceniana
@@ -79,22 +87,37 @@ pl:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Rodzaj
-          values:
-            'false': Propozycje
-            'true': Poprawki
-        state_eq:
-          values:
-            evaluating: Ocena
-            withdrawn: Wycofane
-        state_null:
-          label: Stan
-          values:
-            'true': Bez odpowiedzi
+        proposals:
+          category_id_eq:
+            label: Kategoria
+          is_emendation_true:
+            label: Typ
+            values:
+              'false': Propozycje
+              'true': Poprawki
+          scope_id_eq:
+            label: Zakres
+          state_eq:
+            label: Stan
+            values:
+              accepted: Zaakceptowano
+              evaluating: Ewaluacja
+              published: Opublikowano
+              rejected: Odrzucono
+              validating: Walidacja techniczna
+              withdrawn: Wycofaj
+          state_null:
+            label: Stan
+            values:
+              'true': Bez odpowiedzi
+          valuator_role_ids_has:
+            label: Przypisano do taksatora
+        search_placeholder:
+          id_string_or_title_cont: Wyszukaj %{collection} według ID lub tytułu.
     components:
       proposals:
         actions:
+          amend: Popraw
           create: Stwórz
           endorse: Podpisać się
           vote: Głosować
@@ -102,17 +125,24 @@ pl:
         name: Propozycje
         settings:
           global:
+            allow_card_image: Zezwalaj na obraz karty
             amendments_enabled: Poprawione włączone
+            amendments_enabled_help: Jeśli aktywne, skonfiguruj funkcje poprawek dla każdego kroku.
+            amendments_wizard_help_text: Tekst pomocy Kreatora poprawek
             announcement: Ogłoszenie
             attachments_allowed: Zezwalaj na załączniki
             can_accumulate_supports_beyond_threshold: Może gromadzić podpory przekraczające próg
             collaborative_drafts_enabled: Wersje robocze z obsługą współpracy są włączone
             comments_enabled: Komentarze włączone
+            comments_max_length: Maksymalna długość komentarzy (Pozostaw 0 dla wartości domyślnej)
             geocoding_enabled: Włączono geokodowanie
             minimum_votes_per_user: Minimalna liczba głosów na użytkownika
+            new_proposal_body_template: Szablon treści nowej propozycji
+            new_proposal_body_template_help: Możesz zdefiniować wstępnie wypełniony tekst nowej propozycji
             new_proposal_help_text: Nowy tekst pomocy dla wniosku
             official_proposals_enabled: Oficjalne propozycje włączone
             participatory_texts_enabled: Włączono teksty włączające
+            participatory_texts_enabled_readonly: Nie można korzystać z tego ustawienia, jeśli są już propozycje. Utwórz nowy komponent propozycji, jeśli chcesz włączyć tę funkcję, lub odrzuć wszystkie zaimportowane propozycje w menu „Teksty partycypacyjne”, jeśli chcesz ją wyłączyć.
             proposal_answering_enabled: Włączono odpowiadanie na propozycję
             proposal_edit_before_minutes: Propozycje mogą być edytowane przez autorów przed upływem tych wielu minut
             proposal_length: Maksymalna długość treści wniosku
@@ -125,19 +155,38 @@ pl:
             threshold_per_proposal: Próg na wniosek
             vote_limit: Limit głosowania na użytkownika
           step:
+            amendment_creation_enabled: Włączono tworzenie poprawek
+            amendment_creation_enabled_help: Uczestnik może wnosić poprawki do propozycji.
+            amendment_promotion_enabled: Włączono zmianę typu poprawek
+            amendment_promotion_enabled_help: Autorzy poprawek będą mogli awansować odrzuconą poprawkę do statusu Propozycji.
+            amendment_reaction_enabled: Włączono odpowiedzi na poprawki
+            amendment_reaction_enabled_help: Autorzy propozycji będą mogli zaakceptować lub odrzucić poprawki uczestnika.
+            amendments_visibility: Widoczność poprawek
+            amendments_visibility_choices:
+              all: Poprawki są widoczne dla wszystkich
+              participants: Poprawki są widoczne tylko dla ich autorów
+            amendments_visibility_help: W przypadku zaznaczenia opcji „Poprawki są widoczne tylko dla ich autorów” uczestnik musi być zalogowany, aby zobaczyć wprowadzone poprawki.
             announcement: Ogłoszenie
+            answers_with_costs: Włącz koszty w odpowiedziach na propozycje
             automatic_hashtags: Hashtagi dodane do wszystkich propozycji
             comments_blocked: Komentarze zablokowane
             creation_enabled: Włączono tworzenie ofert
             endorsements_blocked: Zatwierdzenia zostały zablokowane
             endorsements_enabled: Adnotacje włączone
             proposal_answering_enabled: Włączono odpowiadanie na propozycję
+            publish_answers_immediately: Natychmiast publikuj odpowiedzi na propozycje
             suggested_hashtags: Hashtagi sugerują użytkownikom nowe propozycje
             votes_blocked: Głosowanie zablokowane
             votes_enabled: Włączone głosowanie
             votes_hidden: Głosy są ukryte (jeśli głosy są włączone, zaznaczenie tego ukryje liczbę głosów)
     events:
       proposals:
+        admin:
+          proposal_note_created:
+            email_intro: Ktoś zostawił notatkę do propozycji „%{resource_title}”. Sprawdź ją w <a href="%{admin_proposal_info_url}">panelu administratora</a>
+            email_outro: Otrzymujesz to powiadomienie, ponieważ możesz określać wartość propozycji.
+            email_subject: Ktoś zostawił notatkę do propozycji %{resource_title}.
+            notification_title: Ktoś zostawił notatkę do propozycji <a href="%{resource_path}">%{resource_title}</a>. Sprawdź ją w <a href="%{admin_proposal_info_path}">panelu administratora</a>
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} zostało zaakceptowane, aby uzyskać dostęp jako współtwórca wspólnego projektu <a href="%{resource_path}">%{resource_title}</a>.'
           email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś współpracownikiem <a href="%{resource_path}">%{resource_title}</a>.
@@ -201,6 +250,7 @@ pl:
             email_subject: Propozycja, którą obserwujesz, jest oceniana
             notification_title: Trwa ocena oferty <a href="%{resource_path}">%{resource_title}</a>.
         proposal_mentioned:
+          email_intro: Wspomniano o Twojej propozycji „%{mentioned_proposal_title}” <a href="%{resource_url}">w tym miejscu</a> w komentarzach.
           email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem "%{resource_title}".
           email_subject: Twoja propozycja "%{mentioned_proposal_title}" została wymieniona
           notification_title: Twoja propozycja "%{mentioned_proposal_title}" została wspomniana <a href="%{resource_path}">w tym miejscu</a> w komentarzach.
@@ -231,7 +281,10 @@ pl:
           email_subject: Kategoria %{resource_title} propozycji została zaktualizowana
           notification_title: <a href="%{resource_path}">%{resource_title}</a> kategoria propozycji została zaktualizowana przez administratora.
         proposal_update_scope:
+          email_intro: 'Administrator zaktualizował zakres Twojej propozycji „%{resource_title}”, sprawdź to na tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem wniosku.
+          email_subject: Zaktualizowano zakres propozycji %{resource_title}
+          notification_title: Administrator zaktualizował zakres propozycji <a href="%{resource_path}">%{resource_title}</a>.
         voting_enabled:
           email_intro: 'Możesz głosować na propozycje w %{participatory_space_title}! Zacznij uczestniczyć w tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
@@ -298,10 +351,12 @@ pl:
         see_all: Zobacz wszystko (%{count})
     proposals:
       actions:
+        answer_proposal: Propozycja odpowiedzi
         edit_proposal: Edytuj propozycję
         import: Importuj z innego komponentu
         new: Nowa propozycja
         participatory_texts: Teksty uczestniczące
+        show: Pokaż propozycję
         title: działania
       admin:
         actions:
@@ -321,6 +376,7 @@ pl:
             success: Wszystkie projekty tekstowe z uczestnictwem zostały odrzucone.
           import:
             invalid: Formularz jest nieprawidłowy!
+            invalid_file: Plik zawiera błąd, spróbuj edytować zawartość pliku i przesłać go ponownie.
             success: Gratulacje, z importowanego dokumentu zostały przeanalizowane następujące sekcje, które zostały przekształcone w propozycje. Teraz możesz przejrzeć i dostosować, co potrzebujesz przed publikacją.
           index:
             info_1: Z importowanego dokumentu przeanalizowano następujące sekcje, które zostały przekształcone w propozycje. Teraz możesz przejrzeć i dostosować, co potrzebujesz przed publikacją.
@@ -377,33 +433,69 @@ pl:
             select_a_meeting: Wybierz spotkanie
           index:
             actions: działania
+            assign_to_valuator: Przypisz do taksatora
+            assign_to_valuator_button: Przypisz
             cancel: Anuluj
             change_category: Zmień kategorię
+            change_scope: Zmień zakres
             merge: Połącz się z nowym
             merge_button: Łączyć
             publish: Publikować
+            publish_answers: Opublikuj odpowiedzi
             select_component: Wybierz składnik
             selected: wybrany
             split: Podziel propozycje
             split_button: Rozdzielać
             title: Propozycje
+            unassign_from_valuator: Anuluj przypisanie do taksatora
+            unassign_from_valuator_button: Anuluj przypisanie
             update: Aktualizacja
+            update_scope_button: Aktualizuj zakres
           new:
             create: Stwórz
             title: Utwórz propozycję
           publish_answers:
+            number_of_proposals: Odpowiedzi do propozycji %{number} zostaną opublikowane.
             select_a_proposal: Wybierz propozycję
           show:
+            amendments_count: Licznik poprawek
+            assigned_valuators: Przypisani taksatorzy
             authors: Autorski
             body: Ciało
+            comments_count: Licznik komentarzy
+            comments_negative_count: Przeciw
+            comments_neutral_count: Neutralny
+            comments_positive_count: Za
             created_at: Data utworzenia
+            documents: Dokumenty
+            endorsements_count: Licznik poparć
+            endorsements_ranking: Ranking wg poparć
+            endorsers: Popierający
+            link: Link
+            n_more_endorsers:
+              one: i jeszcze 1
+              few: i jeszcze %{count}
+              many: i jeszcze %{count}
+              other: i jeszcze %{count}
+            photos: Zdjęcia
             proposals: Propozycje
+            ranking: "%{ranking} z %{total}"
+            related_meetings: Powiązane spotkania
+            remove_assignment: Usuń zadanie
+            remove_assignment_confirmation: Czy na pewno chcesz usunąć taksatora z tej propozycji?
+            valuators: Taksatorzy
             votes_count: Liczenie głosów
+            votes_ranking: Ranking wg wsparcia
           update_category:
+            invalid: 'Następujące propozycje miały już kategorię %{subject_name}: %{proposals}.'
             select_a_category: Proszę wybierz kategorie
             select_a_proposal: Wybierz propozycję
+            success: 'Pomyślnie zaktualizowano kategorię następujących propozycji do %{subject_name}: %{proposals}.'
           update_scope:
+            invalid: 'Następujące propozycje miały już zakres %{subject_name}: %{proposals}.'
             select_a_proposal: Wybierz propozycję
+            select_a_scope: Wybierz zakres
+            success: 'Pomyślnie zaktualizowano zakres następujących propozycji do %{subject_name}: %{proposals}.'
         proposals_imports:
           create:
             invalid: Podczas importowania propozycji wystąpił problem
@@ -421,13 +513,24 @@ pl:
           create:
             invalid: Wystąpił błąd podczas podziału wybranych propozycji.
             success: Pomyślnie podzielono propozycje na nowe.
+        valuation_assignments:
+          create:
+            invalid: Wystąpił błąd podczas przypisywania propozycji do taksatora
+            success: Pomyślnie przypisano propozycje do taksatora
+          delete:
+            invalid: Wystąpił błąd podczas anulowania przypisania propozycji do taksatora
+            success: Pomyślnie anulowano przypisanie taksatora do propozycji
       admin_log:
         proposal:
           answer: "%{user_name} odpowiedziało na propozycję %{resource_name} na przestrzeni %{space_name}"
           create: "%{user_name} stworzył propozycję %{resource_name} w przestrzeni %{space_name} jako oficjalną propozycję"
+          publish_answer: "%{user_name} opublikował(a) odpowiedź na propozycję %{resource_name} w przestrzeni %{space_name}"
           update: "%{user_name} zaktualizował %{resource_name} oficjalną propozycję na %{space_name} miejsca"
         proposal_note:
           create: "%{user_name} zostawił prywatną notatkę na %{resource_name} propozycji w przestrzeni %{space_name}"
+        valuation_assignment:
+          create: "%{user_name} przypisał(a) propozycję %{resource_name} do taksatora"
+          delete: "%{user_name} anulował(a) przypisanie taksatora do propozycji %{proposal_title}"
       answers:
         accepted: Przyjęty
         evaluating: Ocena
@@ -561,15 +664,23 @@ pl:
         update:
           error: Wystąpiły błędy podczas zapisywania wspólnego projektu.
           success: Wersja robocza została zaktualizowana pomyślnie.
+          title: Edytuj wspólny szkic
         wizard_aside:
           back: Plecy
+          back_from_collaborative_draft: Powrót do wspólnych szkiców
+          back_from_step_1: Powrót do wspólnych szkiców
+          back_from_step_2: Powrót do wspólnych szkiców
+          back_from_step_3: Powrót do porównania szkiców współpracy
+          back_from_step_4: Wróć do edycji szkicu
           info: Tworzysz <strong>współpracy projekt</strong>.
         wizard_steps:
+          current_step: Bieżący krok
           see_steps: zobacz kroki
           step_1: Utwórz swój wspólny projekt
           step_2: Porównaj ze wspólnymi wersjami roboczymi
           step_3: Uzupełnij swój wspólny projekt
           step_of: Krok %{current_step_num} z %{total_steps}
+          title: Działania w zakresie tworzenia projektów współpracy
       create:
         error: Podczas zapisywania propozycji wystąpiły błędy.
         success: Propozycja została utworzona pomyślnie. Zapisany jako wersja robocza.
@@ -591,10 +702,13 @@ pl:
             id: ID
             notes: Uwagi
             official_proposal: Oficjalny wniosek
+            published_answer: Opublikowane odpowiedzi
             published_at: Opublikowano na
             scope: Zakres
             state: Stan
             title: Tytuł
+            valuator: Taksator
+            valuators: Taksatorzy
             votes: Głosowania
       new:
         limit_reached: Nie możesz tworzyć nowych propozycji, ponieważ przekroczyłeś limit.
@@ -633,8 +747,11 @@ pl:
           send: Zapowiedź
           title: Edytuj wersję roboczą oferty
         filters:
+          activity: Moja aktywność
+          all: Wszyscy
           amendment_type: Rodzaj
           category: Kategoria
+          my_proposals: Moje propozycje
           origin: Pochodzenie
           related_to: Związany z
           scope: Zakres
@@ -663,9 +780,13 @@ pl:
           title: Utwórz swoją ofertę
         orders:
           label: 'Propozycje zamówień:'
+          most_commented: Najczęściej komentowane
+          most_endorsed: Najczęściej popierane
+          most_followed: Najczęściej obserwowane
           most_voted: Większość głosów
           random: Losowy
           recent: Niedawny
+          with_more_authors: Z większą liczbą autorów
         participatory_texts:
           index:
             document_index: Indeks dokumentów
@@ -683,12 +804,18 @@ pl:
         proposal:
           creation_date: 'Tworzenie: %{date}'
           view_proposal: Wyświetl propozycję
+        proposals:
+          empty: Nie ma jeszcze żadnych propozycji
+          empty_filters: Brak propozycji spełniającej te kryteria
         show:
           answer: Odpowiedź
           back_to: Wrócić do
+          back_to_list: Powrót do listy
+          changes_at_title: Poprawka do „%{title}”
           comments: Komentarze
           edit_proposal: Edytuj propozycję
           endorsements_list: Lista rekomendacji
+          estimated_cost: Szacowany koszt
           hidden_endorsers_count:
             one: i %{count} więcej osób
             few: i %{count} więcej osób
@@ -696,12 +823,23 @@ pl:
             other: i %{count} więcej osób
           link_to_collaborative_draft_help_text: Ta propozycja jest wynikiem wspólnego projektu. Przejrzyj historię
           link_to_collaborative_draft_text: Zobacz wersję roboczą
+          link_to_promoted_emendation_help_text: Ta propozycja jest awansowaną poprawką
+          link_to_promoted_emendation_text: Zobacz odrzuconą poprawkę.
+          link_to_proposal_from_emendation_help_text: To jest poprawka odrzucona
+          link_to_proposal_from_emendation_text: Zobacz propozycję
           proposal_accepted_reason: 'Niniejszy wniosek został zaakceptowany, ponieważ:'
           proposal_in_evaluation_reason: Niniejszy wniosek jest oceniany
           proposal_rejected_reason: 'Niniejszy wniosek został odrzucony, ponieważ:'
+          read_less: Zwiń
+          read_more: Czytaj więcej
           report: Raport
           withdraw_btn_hint: Możesz wycofać swoją propozycję, jeśli zmienisz zdanie, o ile nie otrzymałeś żadnego wsparcia. Wniosek nie zostanie usunięty, pojawi się na liście wycofanych wniosków.
+          withdraw_confirmation_html: Czy na pewno chcesz wycofać ten wniosek?<br><br><strong>Tej akcji nie można anulować!</strong>
           withdraw_proposal: Wycofaj propozycję
+        tags:
+          changed_from: "(zmieniono z <u>%{previous_name}</u> przez administratora)"
+        update:
+          title: Zaktualizuj propozycję
         vote_button:
           already_voted: Już głosował
           already_voted_hover: Unvote
@@ -735,17 +873,30 @@ pl:
             votes: Głosowania
         wizard_aside:
           back: Plecy
+          back_from_step_1: Wróć do propozycji
+          back_from_step_2: Wróć do propozycji
+          back_from_step_3: Powrót do porównania propozycji
+          back_from_step_4: Wróć do edycji szkicu
           info: Tworzysz <strong>propozycję</strong>.
         wizard_steps:
+          current_step: Bieżący krok
           see_steps: zobacz kroki
           step_1: Utwórz swoją propozycję
           step_2: Porównać
           step_3: Kompletny
           step_4: Opublikuj swoją propozycję
           step_of: Krok %{current_step_num} z %{total_steps}
+          title: Kroki tworzenia propozycji
+      proposals_picker:
+        choose_proposals: Wybierz propozycje
+        close: Zamknij
+        more_proposals: 'Liczba pozostałych propozycji: %{number}. Zawęź wyszukiwanie, aby je zlokalizować.'
+        no_proposals: Żadne propozycje nie spełniają kryteriów wyszukiwania lub nie ma żadnych propozycji.
       publish:
         error: Podczas publikowania propozycji wystąpiły błędy.
         success: Wniosek opublikowano pomyślnie.
+      publish_answers:
+        success: Odpowiedzi do propozycji opublikowano pomyślnie.
       update:
         error: Podczas zapisywania propozycji wystąpiły błędy.
         success: Wniosek zaktualizowano pomyślnie.

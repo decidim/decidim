@@ -65,21 +65,6 @@ id:
       decidim/proposals/proposal_vote:
         other: Suara
   decidim:
-    admin:
-      filters:
-        is_emendation_true:
-          label: Mengetik
-          values:
-            'false': Proposal
-            'true': Amandemen
-        state_eq:
-          values:
-            evaluating: Mengevaluasi
-            withdrawn: Ditarik
-        state_null:
-          label: Negara
-          values:
-            'true': Tidak dijawab
     components:
       proposals:
         actions:

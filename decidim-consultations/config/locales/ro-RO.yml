@@ -194,6 +194,8 @@ ro:
           label: 'Sortați consultările după:'
           random: Aleator
           recent: Cele mai recente
+        show:
+          dates: Date
       content_blocks:
         highlighted_consultations:
           name: Explicarea consultărilor
@@ -307,10 +309,12 @@ ro:
         verification_required: Verifică-ți contul pentru a vota
         vote: Votează
       vote_modal:
+        close_modal: Închide fereastra
         contextual_help: Vă rugăm, selectaţi o opţiune.
         title: 'Consultare: vot de întrebări'
       vote_modal_confirm:
         change: Schimbă
+        close_modal: Închide fereastra
         confirm: Confirmare
         contextual_help: Vă rugăm să confirmaţi opţiunea selectată.
         title: 'Consultare: confirmarea votului'

@@ -31,6 +31,7 @@ ro:
           global:
             announcement: Anunţ
             comments_enabled: Comentarii activate
+            comments_max_length: Lungimea maximă a comentariilor (Leave 0 pentru valoarea implicită)
           step:
             announcement: Anunţ
             comments_blocked: Comentarii blocate
@@ -78,6 +79,10 @@ ro:
           success: Dezbatere creată cu succes.
         debate:
           participate: Participă
+        edit:
+          back: Înapoi
+          save: Salvează modificările
+          title: Editare dezbatere
         filters:
           all: Toate
           category: Categorie
@@ -101,6 +106,18 @@ ro:
           title: Dezbatere nouă
         show:
           back: Înapoi la listă
+          date: Data
+          edit_debate: Editare dezbatere
+        update:
+          invalid: A apărut o problemă la actualizarea dezbaterii.
+          success: Dezbatere actualizata cu succes.
+        versions:
+          debates:
+            back_to_resource: Revenire la dezbatere
+          index:
+            title: Versiuni
+        versions_list:
+          back_to_resource: Revenire la dezbatere
       last_activity:
         new_debate_at_html: "<span>Noua dezbatere la %{link}</span>"
       models:

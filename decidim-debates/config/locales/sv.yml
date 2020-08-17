@@ -30,6 +30,7 @@ sv:
           global:
             announcement: Meddelande
             comments_enabled: Kommentarer aktiverade
+            comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
           step:
             announcement: Meddelande
             comments_blocked: Kommentarer blockerade
@@ -76,6 +77,10 @@ sv:
           success: Debatten har skapats.
         debate:
           participate: Delta
+        edit:
+          back: Tillbaka
+          save: Spara ändringar
+          title: Redigera debatt
         filters:
           all: Alla
           category: Kategori
@@ -99,6 +104,18 @@ sv:
           title: Ny debatt
         show:
           back: Tillbaka till listan
+          date: Datum
+          edit_debate: Redigera debatt
+        update:
+          invalid: Det gick inte att uppdatera debatten.
+          success: Debatten har uppdaterats.
+        versions:
+          debates:
+            back_to_resource: Gå tillbaka till debatten
+          index:
+            title: Versioner
+        versions_list:
+          back_to_resource: Gå tillbaka till debatten
       last_activity:
         new_debate_at_html: "<span>Ny debatt i %{link}</span>"
       models:

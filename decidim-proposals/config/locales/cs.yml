@@ -87,23 +87,33 @@ cs:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Typ
-          values:
-            'false': Návrhy
-            'true': Změny
+        proposals:
+          category_id_eq:
+            label: Kategorie
+          is_emendation_true:
+            label: Typ
+            values:
+              'false': Návrhy
+              'true': Pozměňovací návrhy
+          scope_id_eq:
+            label: Oblast působnosti
+          state_eq:
+            label: Stav
+            values:
+              accepted: Přijato
+              evaluating: Hodnocení
+              published: Publikováno
+              rejected: Zamítnuto
+              validating: Technické ověření
+              withdrawn: Odebráno
+          state_null:
+            label: Stav
+            values:
+              'true': Nezodpovězeno
+          valuator_role_ids_has:
+            label: Přiřazeno k hodnotiteli
         search_placeholder:
           id_string_or_title_cont: Hledat %{collection} podle ID nebo názvu.
-        state_eq:
-          values:
-            evaluating: Hodnocení
-            withdrawn: Staženo
-        state_null:
-          label: Stát
-          values:
-            'true': Nezodpovězeno
-        valuator_role_ids_has:
-          label: Přiřazeno k hodnotiteli
     components:
       proposals:
         actions:
@@ -191,7 +201,7 @@ cs:
           email_intro: '%{requester_name} požadoval přístup jako přispěvatel. Můžete <strong>přijmout nebo odmítnout žádost</strong> ze <a href="%{resource_path}">%{resource_title}</a> společném návrhu stránky.'
           email_outro: Toto oznámení jste dostali, protože jste spolupracovníkem uživatele <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} požádal o přístup k příspěvku na %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> požádali o přístup ke spolupráci <a href="%{resource_path}">%{resource_title}</a> . Prosím <strong>přijmout nebo odmítnout žádost o</strong>.
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> požádal o přístup k příspěvku ke společnému konceptu <a href="%{resource_path}">%{resource_title}</a>. Prosím, <strong>žádost přijměte nebo odmítněte</strong>.
         collaborative_draft_access_requester_accepted:
           email_intro: Byli jste přijati k přístupu jako přispěvatel projektu spolupráce <a href="%{resource_path}">%{resource_title}</a>.
           email_outro: Toto oznámení jste obdrželi, protože jste požádali, abyste se stal spolupracovníkem uživatele <a href="%{resource_path}">%{resource_title}</a>.
@@ -477,7 +487,7 @@ cs:
             votes_count: Počet hlasů
             votes_ranking: Hodnocení podle podpory
           update_category:
-            invalid: 'Tyto návrhy již mají kategorii %{subject_name} : %{proposals}.'
+            invalid: 'Tyto návrhy se již jmenují %{subject_name} v kategorii: %{proposals}.'
             select_a_category: Vyberte kategorii
             select_a_proposal: Vyberte prosím návrh
             success: 'Návrhy úspěšně aktualizovány do kategorie %{subject_name}: %{proposals}.'

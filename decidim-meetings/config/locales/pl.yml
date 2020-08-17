@@ -16,10 +16,12 @@ pl:
         available_slots: Dostępne miejsca na to spotkanie
         decidim_category_id: Kategoria
         decidim_scope_id: Zakres
+        decidim_user_group_id: Grupa użytkowników
         description: Opis
         end_time: Czas zakończenia
         location: Miejsce
         location_hints: Wskazówki co do miejsca
+        organizer_gid: Utwórz jako
         organizer_id: Organizator
         private_meeting: Prywatne spotkanie
         registration_form_enabled: Włączono formularz rejestracyjny
@@ -87,12 +89,16 @@ pl:
           global:
             announcement: Ogłoszenie
             comments_enabled: Komentarze włączone
+            comments_max_length: Maksymalna długość komentarzy (Pozostaw 0 dla wartości domyślnej)
+            creation_enabled_for_participants: Uczestnicy mogą tworzyć spotkania
             default_registration_terms: Domyślne warunki rejestracji
             enable_pads_creation: Włącz tworzenie klocków
             resources_permissions_enabled: Uprawnienia akcji można ustawić dla każdego spotkania
           step:
             announcement: Ogłoszenie
             comments_blocked: Komentarze zablokowane
+            creation_enabled_for_participants: Tworzenie spotkania przez uczestników włączone
+            creation_enabled_for_user_groups: Tworzenie spotkania przez grupy użytkowników włączone
     events:
       meetings:
         meeting_closed:
@@ -159,6 +165,12 @@ pl:
         confirm_destroy: Czy na pewno chcesz usunąć to spotkanie?
         destroy: Usuń
         edit: Edytuj
+        invalid_destroy:
+          proposals_count:
+            one: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązaną propozycję:'
+            few: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązane propozycje:'
+            many: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji:'
+            other: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji:'
         minutes: Minuty
         new: Nowe spotkanie
         preview: Podgląd
@@ -237,9 +249,19 @@ pl:
             invalid: Podczas tworzenia tego spotkania wystąpił problem
             success: Spotkanie zostało pomyślnie utworzone
           destroy:
+            invalid:
+              proposals_count:
+                one: Nie można usunąć spotkania ponieważ ma ono %{count} powiązaną propozycję
+                few: Nie można usunąć spotkania ponieważ ma ono %{count} powiązane propozycje
+                many: Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji
+                other: Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji
             success: Spotkanie zostało pomyślnie usunięte
           edit:
             update: Aktualizuj
+          form:
+            address_help: 'Adres: używany przez Geocoder do znalezienia lokalizacji'
+            location_help: 'Lokalizacja: wiadomość skierowana do użytkowników sugerująca miejsce spotkania'
+            location_hints_help: 'Wskazówki dotyczące lokalizacji: dodatkowe informacje. Przykład: piętro budynku'
           index:
             title: Spotkania
           new:
@@ -281,6 +303,7 @@ pl:
           form:
             available_slots_help: Zostaw ją na 0, jeśli masz nieograniczone szczeliny dostępne.
             invites: Zaprasza
+            recommendation_message: Ze względu na ochronę prywatności zalecamy usunięcie tego formularza, gdy nie będzie Ci już potrzebny. Domyślnie zostanie usunięty 3 miesiące po zakończeniu spotkania.
             registration_form: Formularz rejestracyjny
             registrations_count:
               one: Nie było rejestracji %{count}.
@@ -289,6 +312,7 @@ pl:
               other: Zarejestrowano %{count} rejestracji.
             reserved_slots_help: Pozostaw to 0, jeśli nie masz zarezerwowanych miejsc
             reserved_slots_less_than: Musi być mniejszy lub równy %{count}
+            title: Rejestracje
           update:
             invalid: Wystąpił problem z zapisaniem ustawień rejestracji.
             success: Dokonano pomyślnego zapisania ustawień rejestracji rejestracji.
@@ -344,27 +368,66 @@ pl:
       meeting:
         not_allowed: Nie możesz zobaczyć tego spotkania
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} spotkanie"
+            few: "%{count} spotkań"
+            many: "%{count} spotkań"
+            other: "%{count} spotkań"
+        create:
+          invalid: Wystąpił błąd podczas tworzenia tego spotkania.
+          success: Utworzyłeś spotkanie pomyślnie.
+        edit:
+          back: Powrót
+          title: Edytuj swoje spotkanie
+          update: Aktualizuj
         filters:
           category: Kategoria
           date: Data
+          date_values:
+            all: Wszystkie
+            past: W przeszłości
+            upcoming: Nadchodzące
+          origin: Pochodzenie
+          origin_values:
+            all: Wszystkie
+            citizens: Obywatele
+            official: Oficjalny
+            user_groups: Grupy
+          scope: Niniejsze rozporządzenie stosuje się od dnia 1 stycznia 2018 r.
           search: Szukaj
         filters_small_view:
           close_modal: Zamknij modal
           filter: Filtruj
           filter_by: Filtruj według
           unfold: Rozwiń
+        form:
+          address_help: 'Adres: używany przez Geocodera do znalezienia lokalizacji'
+          create_as: Utwórz spotkanie jako
+          location_help: 'Lokalizacja: wiadomość kierowana do użytkowników oznaczająca spotkanie w miejscu'
+          location_hints_help: 'Wskazówki dotyczące lokalizacji: dodatkowe informacje. Przykład: podłoga budynku'
+          select_a_category: Wybierz kategorię
+        index:
+          new_meeting: Nowe spotkanie
         meeting_minutes:
           meeting_minutes: Protokół ze spotkań
           related_information: Powiązana informacja
         meetings:
           no_meetings_warning: Brak spotkań spełniających kryteria wyszukiwania lub nie ma zaplanowanego spotkania.
           upcoming_meetings_warning: Obecnie nie ma zaplanowanych spotkań, ale są tu wymienione wszystkie poprzednie spotkania.
+        new:
+          back: Powrót
+          create: Utwórz
+          title: Utwórz spotkanie
         registration_confirm:
           cancel: Anuluj
           confirm: Potwierdzać
         show:
           attendees: Liczba osób biorących udział
+          back: Powrót do listy
           contributions: Liczba składek
+          date: Data
+          edit_meeting: Edytuj spotkanie
           going: Chodzenie
           join: Dołącz do spotkania
           meeting_report: Notatka ze spotkania
@@ -380,6 +443,9 @@ pl:
             many: "Pozostało %{count} gniazd"
             other: "Pozostało %{count} gniazd"
           view: Widok
+        update:
+          invalid: Wystąpił błąd podczas aktualizowania spotkania.
+          success: Pomyślnie zaktualizowałeś spotkanie.
       meetings_map:
         view_meeting: Zobacz spotkanie
       models:
@@ -398,6 +464,7 @@ pl:
             closed: Zamknięte
             end_time: Data zakończenia
             map: Mapa
+            official_meeting: Posiedzenie oficjalne
             start_time: Data rozpoczęcia
             title: Tytuł
       read_more: "(czytaj więcej)"
@@ -419,6 +486,8 @@ pl:
       types:
         private_meeting: Prywatne spotkanie
         transparent: Przezroczysty
+      versions:
+        back_to_resource: Wróć do spotkania
     metrics:
       meetings:
         description: Liczba utworzonych spotkań

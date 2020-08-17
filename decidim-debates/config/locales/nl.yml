@@ -3,6 +3,8 @@ nl:
     attributes:
       debate:
         category_id: Categorie
+        closed_at: Gesloten op
+        conclusions: Besluit
         decidim_category_id: Categorie
         description: Omschrijving
         end_time: Eindigt op
@@ -12,6 +14,7 @@ nl:
         title: Titel
         user_group_id: Maak een debat als
     models:
+      decidim/debates/close_debate_event: Debat gesloten
       decidim/debates/create_debate_event: Debat
       decidim/debates/creation_disabled_event: Debatten uitgeschakeld
       decidim/debates/creation_enabled_event: Debatten ingeschakeld
@@ -30,12 +33,14 @@ nl:
           global:
             announcement: Aankondiging
             comments_enabled: Reacties ingeschakeld
+            comments_max_length: Commentaar maximale lengte (laat 0 voor standaard waarde)
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
             creation_enabled: Gebruikers kunnen zelf debat aanmaken
     debates:
       actions:
+        close: Sluiten
         confirm_destroy: Ben je zeker?
         destroy: Verwijder
         edit: Bewerk
@@ -76,6 +81,10 @@ nl:
           success: Debat succesvol aangemaakt.
         debate:
           participate: Deelnemen
+        edit:
+          back: Achterzijde
+          save: Wijzigingen opslaan
+          title: Bewerk debat
         filters:
           all: Alle
           category: Categorie
@@ -97,6 +106,20 @@ nl:
           back: Terug
           create: Aanmaken
           title: Nieuw debat
+        show:
+          back: Terug naar het overzicht
+          date: 'Datum:'
+          edit_debate: Bewerk debat
+        update:
+          invalid: Er is een fout opgetreden bij het bijwerken van het debat.
+          success: Debat succesvol bijgewerkt.
+        versions:
+          debates:
+            back_to_resource: Ga terug naar het debat
+          index:
+            title: versies
+        versions_list:
+          back_to_resource: Ga terug naar het debat
       last_activity:
         new_debate_at_html: "<span>Nieuw debat op %{link}</span>"
       models:

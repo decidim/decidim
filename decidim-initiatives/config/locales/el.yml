@@ -1,62 +1,529 @@
 el:
   activemodel:
     attributes:
+      initiative:
+        decidim_user_group_id: Συντάκτης
+        description: Περιγραφή
+        offline_votes: Υπογραφές αυτοπροσώπως
+        scope_id: Πεδίο εφαρμογής
+        signature_end_date: Λήξη περιόδου συλλογής υπογραφών
+        signature_start_date: Έναρξη περιόδου συλλογής υπογραφών
+        signature_type: Τύπος συλλογής υπογραφών
+        signature_type_values:
+          any: Συνδυασμός
+          offline: Αυτοπροσώπως
+          online: Ηλεκτρονική
+        state: Κατάσταση
+        title: Τίτλος
+      initiative_author:
+        address: Διεύθυνση
+        city: Πόλη
+        id_document: NI/NIE
+        name: Όνομα και επώνυμο
+        phone_number: Αριθμός τηλεφώνου
+        post_code: Τ.Κ.
+        province: Επαρχία
+      initiatives_committee_member:
+        user: Μέλος επιτροπής
+      initiatives_type:
+        area_enabled: Να επιτρέπεται στους συντάκτες να επιλέξουν τον τομέα για την πρωτοβουλία τους
+        attachments_enabled: Να επιτρέπονται τα συνημμένα
+        banner_image: Εικόνα διαφημιστικού πλαισίου
+        collect_user_extra_fields: Συλλογή προσωπικών δεδομένων των συμμετεχόντων κατά την υπογραφή
+        custom_signature_end_date_enabled: Να επιτρέπεται στους συντάκτες να επιλέξουν τη λήξη της περιόδου συλλογής υπογραφών
+        description: Περιγραφή
+        document_number_authorization_handler: Εξουσιοδότηση για την επαλήθευση του αριθμού εγγράφου στις υπογραφές
+        extra_fields_legal_information: Νομικές πληροφορίες σχετικά με τη συλλογή προσωπικών δεδομένων
+        minimum_committee_members: Ελάχιστος αριθμός μελών επιτροπής
+        online_signature_enabled: Η ηλεκτρονική υπογραφή ενεργοποιήθηκε
+        promoting_committee_enabled: Να επιτρέπεται η επιτροπή προώθησης
+        title: Τίτλος
+        undo_online_signatures_enabled: Να επιτρέπεται στους συμμετέχοντες να αναιρέσουν τις ηλεκτρονικές υπογραφές τους
+        validate_sms_code_on_votes: Προσθέστε βήμα επικύρωσης κωδικού μέσω SMS στη διαδικασία υπογραφής
       initiatives_vote:
+        date_of_birth: Ημερομηνία γέννησης
         document_number: Αριθμός εγγράφου
+        name_and_surname: Όνομα και επώνυμο
+        postal_code: Ταχυδρομικός κώδικας
+      organization_data:
+        address: Διεύθυνση
+        id_document: Έγγραφο ταυτότητας
+        name: Πλήρες όνομα
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: Το αρχείο δεν είναι έγκυρο
+              needs_to_be_reattached: Πρέπει να επισυναφθεί ξανά
+              title: Ο τίτλος δεν πρέπει να είναι κενός
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Πρωτοβουλία
+        other: Πρωτοβουλίες
+      decidim/initiative_comittee:
+        one: Επιτροπή
+        other: Επιτροπές
+      decidim/initiative_vote:
+        one: Υπογραφή
+        other: Υπογραφές
   decidim:
     admin:
+      actions:
+        new_initiative_type: Νέος τύπος πρωτοβουλίας
+      filters:
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Αναζήτηση συλλογής %{collection} με βάση τον τίτλο, την περιγραφή, το αναγνωριστικό ή το όνομα συντάκτη.
+      menu:
+        initiatives: Πρωτοβουλίες
+        initiatives_types: Τύποι πρωτοβουλίας
       models:
+        initiatives:
+          fields:
+            created_at: Δημιουργήθηκε στις
+            id: Αναγνωριστικό
+            published_at: Δημοσιεύτηκε στις
+            state: Κατάσταση
+            supports_count: Υπογραφές
+            title: Πρωτοβουλίες
+        initiatives_type_scope:
+          fields:
+            scope: Πεδίο εφαρμογής
+            supports_required: Απαιτούνται υπογραφές
+          name: Πεδίο εφαρμογής τύπου πρωτοβουλίας
+        initiatives_types:
+          fields:
+            created_at: Δημιουργήθηκε στις
+            title: Τύποι πρωτοβουλίας
+          name: Τύπος πρωτοβουλίας
         initiatives_votes:
           fields:
+            date_of_birth: Ημερομηνία γέννησης
             document_number: Αριθμός εγγράφου
-    initiatives:
-      admin:
+            hash: Κατακερματισμός
+            initiative_end_date: Ημερομηνία λήξης
+            initiative_id: Αναγνωριστικό πρωτοβουλίας
+            initiative_signatures_count: Αριθμός υπογραφών
+            initiative_start_date: Ημερομηνία έναρξης
+            initiative_title: Τίτλος πρωτοβουλίας
+            name_and_surname: Όνομα και επώνυμο
+            postal_code: Ταχυδρομικός κώδικας
+            time_and_date: Ώρα και ημερομηνία
+            timestamp: Χρονική σήμανση
+      titles:
+        initiatives: Πρωτοβουλίες
+        initiatives_types: Τύποι πρωτοβουλίας
+    events:
+      initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: Η πρωτοβουλία «%{resource_title}» έχει σταλεί στην τεχνική επικύρωση. Δείτε την στον <a href="%{admin_initiative_url}">πίνακα διαχειριστή</a>
+            email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε διαχειριστής της πλατφόρμας.
+            email_subject: Η πρωτοβουλία «%{resource_title}» έχει σταλεί στην τεχνική επικύρωση.
+            notification_title: Η πρωτοβουλία «%{resource_title}» έχει σταλεί στην τεχνική επικύρωση. Δείτε την στον <a href="%{admin_initiative_path}">πίνακα διαχειριστή</a>
+        initiative_extended:
+          email_intro: Η ημερομηνία λήξης των υπογραφών για την πρωτοβουλία %{resource_title} έχει παραταθεί!
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε το στοιχείο %{resource_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
+          email_subject: Η ημερομηνία λήξης των υπογραφών πρωτοβουλίας παρατάθηκε!
+          notification_title: Η ημερομηνία λήξης των υπογραφών για την πρωτοβουλία <a href="%{resource_path}">%{resource_title}</a> έχει παραταθεί.
+        milestone_completed:
+          affected_user:
+            email_intro: Η πρωτοβουλία σας %{resource_title} έχει συμπληρώσει το %{percentage}% των υπογραφών!
+            email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε ο συντάκτης της πρωτοβουλίας %{resource_title}.
+            email_subject: Επιτεύχθηκε νέο ορόσημο!
+            notification_title: Η πρωτοβουλία σας <a href="%{resource_path}">%{resource_title}</a> έχει φτάσει στο %{percentage}% των υπογραφών.
+          follower:
+            email_intro: Η πρωτοβουλία %{resource_title} έχει συμπληρώσει το %{percentage}% των υπογραφών!
+            email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε το στοιχείο %{resource_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
+            email_subject: Επιτεύχθηκε νέο ορόσημο!
+            notification_title: Η πρωτοβουλία <a href="%{resource_path}">%{resource_title}</a> έχει συμπληρώσει το %{percentage}% των υπογραφών.
+        support_threshold_reached:
+          email_intro: Η πρωτοβουλία %{resource_title} έχει συμπληρώσει το όριο υποστήριξης
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε διαχειριστής της πλατφόρμας.
+          email_subject: Το όριο υποστήριξης συμπληρώθηκε
+          notification_title: Η πρωτοβουλία <a href="%{resource_path}">%{resource_title}</a> έχει συμπληρώσει το όριο υποστήριξης
+    gamification:
+      badges:
         initiatives:
+          conditions:
+            - Μεταβείτε στον χώρο συμμετοχής των Πρωτοβουλιών
+            - Ακολουθήστε τα βήματα για να δημιουργήσετε μια νέα πρωτοβουλία
+          description: Αυτό το έμβλημα χορηγείται όταν ξεκινάτε νέες πρωτοβουλίες, και συνεργάζεστε με άλλα άτομα για να τις πραγματοποιήσετε.
+          description_another: Αυτός ο συμμετέχων έχει δημοσιεύσει %{score} πρωτοβουλίες.
+          description_own: Έχετε δημοσιεύσει %{score} πρωτοβουλίες.
+          name: Δημοσιευμένες πρωτοβουλίες
+          next_level_in: Δημοσιεύστε %{score} ακόμη πρωτοβουλίες για να φτάσετε στο επόμενο επίπεδο!
+          unearned_another: Αυτός ο συμμετέχων δεν έχει δημοσιεύσει ακόμη κάποια δραστηριότητα.
+          unearned_own: Δεν έχετε δημοσιεύσει ακόμη πρωτοβουλίες.
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p>Μια <strong>πρωτοβουλία</strong> είναι μια πρόταση που μπορεί να προωθηθεί από οποιονδήποτε με δική του πρωτοβουλία (ανεξάρτητα από άλλα κανάλια ή χώρους συμμετοχής) μέσω της συλλογής (ψηφιακών) υπογραφών, προκειμένου ο οργανισμός να πραγματοποιήσει μια συγκεκριμένη ενέργεια (τροποποίηση κανονισμού, έναρξη έργου, αλλαγή ονόματος ενός τμήματος ή οδού κ.λπ.).</p> <p>Οι υποστηρικτές μιας πρωτοβουλίας μπορούν να καθορίσουν τους στόχους της, να συγκεντρώσουν υποστήριξη, να συζητήσουν, να τη διαδώσουν και να ορίσουν σημεία συνάντησης όπου μπορούν να συλλεχθούν υπογραφές από τους συμμετέχοντες ή συζητήσεις που είναι ανοιχτές σε άλλους συμμετέχοντες.</p> <p>Παραδείγματα: Μια πρωτοβουλία μπορεί να συλλέξει υπογραφές για να συγκαλέσει διαβούλευση μεταξύ όλων των ατόμων ενός οργανισμού, ή να δημιουργήσει ή να συγκαλέσει συνέλευση, ή να ξεκινήσει μια διαδικασία αύξησης του προϋπολογισμού για μια περιοχή ή έναν τομέα του οργανισμού. Κατά τη διαδικασία συλλογής υπογραφών, περισσότερα άτομα μπορούν να συμβάλουν σε αυτό το αίτημα και να το προωθήσουν στον οργανισμό.</p>"
+          page: "<p>Μια <strong>πρωτοβουλία</strong> είναι μια πρόταση που μπορεί να προωθηθεί από οποιονδήποτε με δική του πρωτοβουλία (ανεξάρτητα από άλλα κανάλια ή χώρους συμμετοχής) μέσω της συλλογής (ψηφιακών) υπογραφών, προκειμένου ο οργανισμός να πραγματοποιήσει μια συγκεκριμένη ενέργεια (τροποποίηση κανονισμού, έναρξη έργου, αλλαγή ονόματος ενός τμήματος ή οδού κ.λπ.).</p> <p>Οι υποστηρικτές μιας πρωτοβουλίας μπορούν να καθορίσουν τους στόχους της, να συγκεντρώσουν υποστήριξη, να συζητήσουν, να τη διαδώσουν και να ορίσουν σημεία συνάντησης όπου μπορούν να συλλεχθούν υπογραφές από τους συμμετέχοντες ή συζητήσεις που είναι ανοιχτές σε άλλους συμμετέχοντες.</p> <p>Παραδείγματα: Μια πρωτοβουλία μπορεί να συλλέξει υπογραφές για να συγκαλέσει διαβούλευση μεταξύ όλων των ατόμων ενός οργανισμού, ή να δημιουργήσει ή να συγκαλέσει συνέλευση, ή να ξεκινήσει μια διαδικασία αύξησης του προϋπολογισμού για μια περιοχή ή έναν τομέα του οργανισμού. Κατά τη διαδικασία συλλογής υπογραφών, περισσότερα άτομα μπορούν να συμβάλουν σε αυτό το αίτημα και να το προωθήσουν στον οργανισμό.</p>"
+          title: Τι είναι οι πρωτοβουλίες;
+    initiatives:
+      actions:
+        answer: Απάντηση
+      admin:
+        answers:
+          edit:
+            answer: Απάντηση
+            title: Απάντηση για %{title}
+          info_initiative:
+            created_at: Δημιουργήθηκε στις
+            description: Περιγραφή
+            initiative_votes_count: Πλήθος ψήφων
+            initiatives: Πρωτοβουλίες
+            state: Κατάσταση
+        committee_requests:
           index:
+            approve: Έγκριση
+            confirm_revoke: Είστε βέβαιοι;
+            invite_to_committee_help: Κοινοποιήστε αυτόν τον σύνδεσμο για να προσκαλέσετε άλλους συμμετέχοντες στην επιτροπή προώθησης
+            no_members_yet: Δεν υπάρχουν μέλη στην επιτροπή προώθησης
+            revoke: Ανάκληση
+            title: Μέλη επιτροπής
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Μέγιστη ποσότητα στοιχείων προς εμφάνιση
+        exports:
+          initiatives: Πρωτοβουλίες
+        initiatives:
+          edit:
+            accept: Αποδοχή πρωτοβουλίας
+            confirm: Είστε βέβαιοι;
+            discard: Απόρριψη πρωτοβουλίας
+            export_pdf_signatures: Εξαγωγή PDF υπογραφών
+            export_votes: Εξαγωγή υπογραφών
+            reject: Απόρριψη πρωτοβουλίας
+            send_to_technical_validation: Αποστολή στην τεχνική επικύρωση
+            success: Η πρωτοβουλία έχει σταλεί στην τεχνική επικύρωση
+            update: Ενημέρωση
+          form:
+            title: Γενικές πληροφορίες
+          index:
+            actions_title: Ενέργεια
             preview: Προεπισκόπηση
+            print: Εκτύπωση
+          initiative_attachments:
+            documents: Έγγραφα
+            edit: Επεξεργασία
+            new: Νέα
+            photos: Φωτογραφίες
+          show:
+            print: Εκτύπωση
+          update:
+            error: Παρουσιάστηκε σφάλμα
+            success: Η πρωτοβουλία ενημερώθηκε με επιτυχία
         initiatives_type_scopes:
+          create:
+            error: Παρουσιάστηκε σφάλμα
+            success: Δημιουργήθηκε ένα νέο πεδίο εφαρμογής για τον συγκεκριμένο τύπο πρωτοβουλίας
+          destroy:
+            success: Το πεδίο εφαρμογής καταργήθηκε με επιτυχία
           edit:
             back: Πίσω
+            confirm_destroy: Είστε βέβαιοι;
+            destroy: Διαγραφή
+            title: Επεξεργασία πεδίου εφαρμογής τύπου πρωτοβουλίας
+            update: Ενημέρωση
           new:
             back: Πίσω
             create: Δημιουργία
+            title: Δημιουργία πεδίου εφαρμογής τύπου πρωτοβουλίας
+          update:
+            error: Παρουσιάστηκε σφάλμα
+            success: Το πεδίο εφαρμογής ενημερώθηκε με επιτυχία
         initiatives_types:
+          create:
+            error: Παρουσιάστηκε σφάλμα
+            success: Ένας νέος τύπος πρωτοβουλίας δημιουργήθηκε με επιτυχία
+          destroy:
+            success: Ο τύπος πρωτοβουλίας καταργήθηκε με επιτυχία
+          edit:
+            confirm_destroy: Είστε βέβαιοι;
+            destroy: Διαγραφή
+            update: Ενημέρωση
+          form:
+            title: Γενικές πληροφορίες
+          initiative_type_scopes:
+            title: Πεδία εφαρμογής για τον τύπο πρωτοβουλίας
           new:
             create: Δημιουργία
+            title: Νέος τύπος πρωτοβουλίας
+          update:
+            error: Παρουσιάστηκε σφάλμα
+            success: Ο τύπος πρωτοβουλίας ενημερώθηκε με επιτυχία
+      admin_log:
+        initiative:
+          publish: "Ο χρήστης %{user_name} δημοσίευσε την πρωτοβουλία %{resource_name}"
+          send_to_technical_validation: "Ο χρήστης %{user_name} έστειλε την πρωτοβουλία %{resource_name} στην τεχνική επικύρωση"
+          unpublish: "Ο χρήστης %{user_name} απέρριψε την πρωτοβουλία %{resource_name}"
+          update: "Ο χρήστης %{user_name} ενημέρωσε την πρωτοβουλία %{resource_name}"
+      admin_states:
+        accepted: Αρκετές υπογραφές
+        created: Δημιουργήθηκε
+        discarded: Απορρίφθηκε
+        published: Δημοσιεύτηκε
+        rejected: Δεν υπάρχουν αρκετές υπογραφές
+        validating: Τεχνική επικύρωση
+      application_helper:
+        filter_area_values:
+          all: Όλα
+        filter_scope_values:
+          all: Όλα
+        filter_state_values:
+          accepted: Αρκετές υπογραφές
+          all: Όλα
+          answered: Απαντήθηκε
+          closed: Κλειστό
+          open: Ανοιχτή
+          rejected: Δεν υπάρχουν αρκετές υπογραφές
+        filter_type_values:
+          all: Όλα
       committee_requests:
         new:
           continue: Συνέχεια
+          help_text: Πρόκειται να ζητήσετε να γίνετε μέλος της επιτροπής προώθησης αυτής της πρωτοβουλίας
+        spawn:
+          success: Το αίτημά σας στάλθηκε στον συντάκτη πρωτοβουλίας.
+      content_blocks:
+        highlighted_initiatives:
+          name: Επισημασμένες πρωτοβουλίες
       create_initiative:
         fill_data:
           back: Πίσω
           continue: Συνέχεια
+          fill_data_help: "<ul> <li>Ελέγξτε το περιεχόμενο της πρωτοβουλίας σας. Είναι ο τίτλος σας κατανοητός; Είναι σαφής ο στόχος της πρωτοβουλίας σας;</li> <li>Πρέπει να επιλέξετε τον τύπο υπογραφής. Αυτοπροσώπως, ηλεκτρονική ή συνδυασμός και των δύο</li> <li>Ποιο είναι το γεωγραφικό πεδίο της πρωτοβουλίας; Πόλη, περιφέρεια;</li> </ul>"
+          initiative_type: Τύπος πρωτοβουλίας
+          more_information: "(Περισσότερες πληροφορίες)"
+          select_area: Επιλέξτε τομέα
+          select_scope: Επιλέξτε πεδίο εφαρμογής
         finish:
           back: Πίσω
+          back_to_initiatives: Επιστροφή στις πρωτοβουλίες
+          callout_text: Συγχαρητήρια! Η πρωτοβουλία πολιτών δημιουργήθηκε με επιτυχία.
+          confirm: Επιβεβαίωση
+          edit_my_initiative: Επεξεργασία των πρωτοβουλιών μου
+          go_to_my_initiatives: Μετάβαση στις πρωτοβουλίες μου
+          more_information: "(Περισσότερες πληροφορίες)"
+          send_my_initiative: Αποστολή της πρωτοβουλίας μου
+        finish_help:
+          access_reminder: Να θυμάστε ότι θα έχετε πάντα τη δυνατότητα πρόσβασης στις πρωτοβουλίες σας μέσω του μενού συμμετεχόντων.
+          help_for_organizations: Εάν είστε σύλλογος, θα πρέπει να πραγματοποιήσετε αποστολή των πρακτικών του διοικητικού συμβουλίου όλων των οργανισμών που αποτελούν την Επιτροπή Προώθησης
+          help_in_person_signatures: Εάν έχετε επιλέξει να συλλέξετε τις υπογραφές αυτοπροσώπως ή σε συνδυασμό με ηλεκτρονικές υπογραφές, θα πρέπει να πραγματοποιήσετε αποστολή των απαιτούμενων πληροφοριών.
+          help_text: Να θυμάστε ότι για να επεξεργαστείτε σωστά την πρωτοβουλία, πρέπει να έχετε πρόσβαση στον πίνακα διαχείρισης όπου θα βρείτε το μενού χρήστη, να πραγματοποιήσετε αποστολή των απαιτούμενων πληροφοριών και να τις στείλετε για επεξεργασία.
+          initiatives_page_link: Μπορείτε να αναζητήσετε όλες αυτές τις πληροφορίες στη διεύθυνση %{link}, που είναι αφιερωμένη στην ενημέρωση σχετικά με τις πρωτοβουλίες.
+          page: σελίδα
         previous_form:
           back: Πίσω
           continue: Συνέχεια
+          help: Από τι αποτελείται η πρωτοβουλία; Γράψτε τον τίτλο και την περιγραφή. Συνιστούμε έναν σύντομο και περιεκτικό τίτλο και μια περιγραφή επικεντρωμένη στην προτεινόμενη λύση.
+          more_information: "(Περισσότερες πληροφορίες)"
         promotal_committee:
           back: Πίσω
+          individual_help_text: Αυτό το είδος πρωτοβουλίας πολιτών απαιτεί μια Επιτροπή Προώθησης αποτελούμενη τουλάχιστον από %{committee_size} άτομα (μάρτυρες). Πρέπει να κοινοποιήσετε τον ακόλουθο σύνδεσμο στα άλλα άτομα που αποτελούν μέρος αυτής της πρωτοβουλίας. Όταν οι επαφές σας λάβουν αυτόν τον σύνδεσμο, θα πρέπει να ακολουθήσουν τα υποδεικνυόμενα βήματα.
+          more_information: "(Περισσότερες πληροφορίες)"
         select_initiative_type:
           back: Πίσω
+          choose_html: Θέλω να δημιουργήσω μια πρωτοβουλία <strong>%{title}</strong>
+          more_information: "(Περισσότερες πληροφορίες)"
+          select: Θέλω να προωθήσω αυτήν την πρωτοβουλία
+          select_initiative_type_help: Οι πρωτοβουλίες πολιτών είναι ένα μέσο με το οποίο οι πολίτες μπορούν να παρέμβουν, έτσι ώστε το Δημοτικό Συμβούλιο να μπορεί να αναλάβει δράσεις υπεράσπισης του γενικού συμφέροντος που εμπίπτουν σε τομείς δημοτικής δικαιοδοσίας. Ποια πρωτοβουλία θέλετε να ξεκινήσετε;
         share_committee_link:
           continue: Συνέχεια
+          invite_to_committee_help: Σύνδεσμος για να προσκαλέσετε άτομα που θα είναι μέλη της επιτροπής προώθησης
         show_similar_initiatives:
           back: Πίσω
+          compare_help: Εάν κάποια από τις παρακάτω πρωτοβουλίες είναι παρόμοια με τη δική σας, σας συνιστούμε να την υπογράψετε. Η πρότασή σας θα έχει περισσότερες πιθανότητες να υλοποιηθεί.
+          continue: Η πρωτοβουλία μου είναι διαφορετική
+          more_information: "(Περισσότερες πληροφορίες)"
+      events:
+        create_initiative_event:
+          email_intro: "Ο συντάκτης %{author_name} %{author_nickname}, τον οποίο ακολουθείτε, δημιούργησε μια νέα πρωτοβουλία. Δείτε την και συνεισφέρετε:"
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον συντάκτη %{author_nickname}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
+          email_subject: Νέα πρωτοβουλία από τον συντάκτη %{author_nickname}
+          notification_title: Η <a href="%{resource_path}">%{resource_title}</a> πρωτοβουλία δημιουργήθηκε από τον συντάκτη <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        endorse_initiative_event:
+          email_intro: "Ο συντάκτης %{author_name} %{author_nickname}, τον οποίο ακολουθείτε, έχει επιδοκιμάσει την ακόλουθη πρωτοβουλία. Ίσως θέλετε να συμβάλλετε στη συνομιλία:"
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον συντάκτη %{author_nickname}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
+          email_subject: Η πρωτοβουλία επιδοκιμάστηκε από τον συντάκτη %{author_nickname}
+          notification_title: Η <a href="%{resource_path}">%{resource_title}</a> πρωτοβουλία επιδοκιμάστηκε από τον συντάκτη <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      index:
+        title: Πρωτοβουλίες
       initiative_signatures:
         fill_personal_data:
           continue: Συνέχεια
+          date_select:
+            day: Ημέρα
+            month: Μήνας
+            year: Έτος
+          help: Συμπληρώστε τα ακόλουθα πεδία με τα προσωπικά σας στοιχεία για να υπογράψετε την πρωτοβουλία
+        finish:
+          back_to_initiative: Επιστροφή στην πρωτοβουλία
+        sms_code:
+          continue: Έλεγχος κωδικού και συνέχεια
+          help: Ελέγξτε το SMS που λάβατε στο τηλέφωνό σας
+        sms_phone_number:
+          continue: Αποστολή SMS σε μένα
+          help: Συμπληρώστε τη φόρμα με τον επαληθευμένο αριθμό τηλεφώνου σας, για να ζητήσετε τον κωδικό επαλήθευσής σας
+      initiative_votes:
+        create:
+          error: Υπήρξε ένα πρόβλημα κατά την υπογραφή της πρωτοβουλίας.
+          invalid: Τα δεδομένα που παρέχονται για την υπογραφή της πρωτοβουλίας δεν είναι έγκυρα
+          success_html: Συγχαρητήρια! Η πρωτοβουλία <strong> %{title}</strong> υπογράφτηκε με επιτυχία
+        personal_data:
+          invalid: Τα προσωπικά στοιχεία δεν συμφωνούν με τα στοιχεία που παρείχατε για εξουσιοδότηση.
+        sms_code:
+          invalid: Ο κωδικός επαλήθευσής σας δεν ταιριάζει με τον δικό μας. Ελέγξτε ξανά το SMS που σας στείλαμε.
+        sms_phone:
+          invalid: Ο αριθμός τηλεφώνου δεν είναι έγκυρος ή εκκρεμεί εξουσιοδότηση. Ελέγξτε τις εξουσιοδοτήσεις σας.
       initiatives:
+        author:
+          deleted: Διαγράφηκε
+        author_list:
+          hidden_authors_count:
+            one: και 1 ακόμη άτομο
+            other: και %{count} ακόμη άτομα
+        count:
+          title:
+            one: "%{count} πρωτοβουλία"
+            other: "%{count} πρωτοβουλίες"
+        filters:
+          any: Οποιαδήποτε
+          area: Τομέας
+          author: Συντάκτης
+          myself: Οι πρωτοβουλίες μου
+          scope: Πεδίο εφαρμογής
+          search: Αναζήτηση
+          state: Κατάσταση
+          type: Τύπος
         filters_small_view:
           close_modal: Κλείσιμο παραθύρου
+          filter: Φίλτρο
+          filter_by: Φιλτράρισμα κατά
+          unfold: Αποκάλυψη
+        index_header:
+          new_initiative: Νέα πρωτοβουλία
+        interactions:
+          comments_count:
+            count:
+              one: Σχόλιο
+              other: Σχόλιο
+        orders:
+          label: 'Ταξινόμηση πρωτοβουλιών κατά:'
+          most_commented: Με τα περισσότερα σχόλια
+          most_voted: Με τις περισσότερες υπογραφές
+          random: Τυχαία
+          recent: Πιο πρόσφατες
+          recently_published: Δημοσιεύτηκαν πιο πρόσφατα
+        result:
+          answer_title:
+            accepted: Αυτή η πρόταση έγινε αποδεκτή επειδή
+            created: Αυτή η πρόταση δημιουργήθηκε
+            discarded: Αυτή η πρόταση απορρίφθηκε επειδή
+            published: Αυτή η πρόταση δημοσιεύτηκε επειδή
+            rejected: Αυτή η πρόταση απορρίφθηκε επειδή
+            validating: Αυτή η πρόταση αξιολογείται
+          initiative_rejected_reason: Αυτή η πρωτοβουλία απορρίφθηκε λόγω της έλλειψης υπογραφών.
+        show:
+          any_vote_method: Αυτή η πρωτοβουλία πολιτών συλλέγει τόσο ηλεκτρονικές όσο και υπογραφές αυτοπροσώπως.
+          follow_description: Λήψη ειδοποίησης όταν υπάρχουν νέα σε αυτήν την πρωτοβουλία
+          offline_method: Αυτή η πρωτοβουλία πολιτών συλλέγει μόνο υπογραφές αυτοπροσώπως.
+        signature_identities:
+          select_identity: Επιλέξτε αναγνωριστικό συμμετέχοντα
+        signatures_count:
+          one: "υπογραφή"
+          other: "υπογραφές"
+        supports:
+          title: Λίστα υπογραφών
+        vote_cabin:
+          already_voted: Έχει ήδη υπογραφεί
+          supports_required: "Απαιτούνται %{total_supports} υπογραφές"
+          verification_required: Επαληθεύστε τον λογαριασμό σας για να υπογράψετε την πρωτοβουλία
+          vote: Υπογραφή
+          votes_blocked: Η υπογραφή απενεργοποιήθηκε
         votes_count:
           count:
             one: Υπογραφή
             other: Υπογραφές
+          most_popular_initiative: Η πιο δημοφιλής πρωτοβουλία
+          need_more_votes: Απαιτούνται περισσότερες υπογραφές
+      initiatives_mailer:
+        creation_subject: Η πρωτοβουλία σας «%{title}» δημιουργήθηκε
+        initiative_link:
+          check_initiative_details: Μπορείτε να δείτε τις λεπτομέρειες της πρωτοβουλίας
+          here: εδώ
+        more_information: Εδώ υπάρχουν περισσότερες πληροφορίες σχετικά με τη διαδικασία δημιουργίας πρωτοβουλίας.
+        progress_report_body_for: Η πρωτοβουλία %{title} έχει συμπληρώσει το %{percentage}% των απαιτούμενων υπογραφών.
+        progress_report_for: 'Σύνοψη πρωτοβουλίας: %{title}'
+        promotal_committee_help: Να θυμάστε ότι πρέπει να προσκαλέσετε τουλάχιστον %{member_count} άτομα στην επιτροπή προώθησης. Προωθήστε τον παρακάτω σύνδεσμο για να προσκαλέσετε άτομα στην επιτροπή προώθησης
+        status_change_body_for: 'Η κατάσταση της πρωτοβουλίας %{title} άλλαξε σε: %{state}'
+        status_change_for: Η κατάσταση της πρωτοβουλίας %{title} άλλαξε
+      last_activity:
+        new_initiative: Νέα πρωτοβουλία
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Ενεργές πρωτοβουλίες
+            see_all_initiatives: Δείτε όλες τις πρωτοβουλίες
+      show:
+        badge_name:
+          accepted: Αρκετές υπογραφές
+          created: Δημιουργήθηκε
+          discarded: Απορρίφθηκε
+          published: Δημοσιεύτηκε
+          rejected: Δεν υπάρχουν αρκετές υπογραφές
+          validating: Τεχνική επικύρωση
+      states:
+        accepted: Έγινε αποδοχή
+        expired: Έληξε
+      unavailable_scope: Μη διαθέσιμο πεδίο εφαρμογής
+      versions:
+        shared:
+          back_to_resource: Επιστροφή στην πρωτοβουλία
+    menu:
+      initiatives: Πρωτοβουλίες
+    resources:
+      initiatives_type:
+        actions:
+          title: Ενέργειες
+          vote: Υπογραφή
   layouts:
     decidim:
+      admin:
+        initiative:
+          attachments: Συνημμένα
+          committee_members: Μέλη επιτροπής
+          components: Στοιχεία
+          information: Πληροφορίες
       initiative_creation_header:
         back: Πίσω
         fill_data: Δημιουργία
+        finish: Τέλος
+        previous_form: Έναρξη
+        promotal_committee: Επιτροπή προώθησης
+        select_initiative_type: Επιλέξτε
+        show_similar_initiatives: Σύγκριση
+        step: Βήμα %{current} από %{total}
+        title: Δημιουργία νέας πρωτοβουλίας
+      initiative_header:
+        initiative_menu_item: Πρωτοβουλία
       initiative_signature_creation_header:
         back: Πίσω
+        fill_personal_data: Συμπληρώστε τα στοιχεία σας
+        finish: Τέλος
+        finished: Δημιουργήθηκε υπογραφή πρωτοβουλίας
+        see_steps: δείτε τα βήματα
+        select_identity: Επιλέξτε ταυτότητα
+        sms_code: Επαλήθευση κωδικού μέσω SMS
+        sms_phone_number: Αριθμός κινητού τηλεφώνου
+        step: Βήμα %{current} από %{total}
+        title: Υπογραφή πρωτοβουλίας %{initiative_title}
+      initiatives:
+        initiative:
+          check: Δείτε την
+          check_and_support: Δείτε και υπογράψτε την
+        no_initiatives_yet:
+          no_initiatives_yet: Δεν υπάρχουν ακόμη πρωτοβουλίες!

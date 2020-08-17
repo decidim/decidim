@@ -7,6 +7,7 @@ sv:
         category_id: Kategori
         decidim_scope_id: Omfång
         has_address: Har adress
+        scope_id: Omfattning
         state: Status
         title: Titel
         user_group_id: Skapa gemensamt utkast som
@@ -19,6 +20,7 @@ sv:
         category_id: Kategori
         decidim_scope_id: Omfång
         has_address: Har adress
+        scope_id: Omfattning
         state: Status
         suggested_hashtags: Föreslagna hashtags
         title: Titel
@@ -77,23 +79,11 @@ sv:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Typ
-          values:
-            'false': Förslag
-            'true': Ändringsförslag
+        proposals:
+          valuator_role_ids_has:
+            label: Tilldelad till värderare
         search_placeholder:
           id_string_or_title_cont: Sök %{collection} efter ID eller titel.
-        state_eq:
-          values:
-            evaluating: Utvärderas
-            withdrawn: Tillbakadragna
-        state_null:
-          label: Status
-          values:
-            'true': Ej besvarade
-        valuator_role_ids_has:
-          label: Tilldelad till värderare
     components:
       proposals:
         actions:
@@ -114,6 +104,7 @@ sv:
             can_accumulate_supports_beyond_threshold: Kan samla in stöd bortom tröskeln
             collaborative_drafts_enabled: Samarbetsutkast aktiverat
             comments_enabled: Kommentarer aktiverade
+            comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
             geocoding_enabled: Geokodning aktiverad
             minimum_votes_per_user: Minsta antal stöd per användare
             new_proposal_body_template: Innehållsmall för nytt förslag
@@ -141,6 +132,9 @@ sv:
             amendment_reaction_enabled: Reagera på ändringar är aktiverat
             amendment_reaction_enabled_help: Förslagsförfattarna kan anta eller avvisa deltagarnas ändringsförslag.
             amendments_visibility: Ändringens synlighet
+            amendments_visibility_choices:
+              all: Ändringar är synliga för alla
+              participants: Ändringsförslagen är endast synliga för författarna
             amendments_visibility_help: Om alternativet "Ändringsförslag visas endast för sina författare" är markerat måste deltagaren vara inloggad för att kunna se ändringarna.
             announcement: Meddelande
             answers_with_costs: Tillåt kostnader i svar på förslag
@@ -157,6 +151,12 @@ sv:
             votes_hidden: Stöd dolda (om stöd är aktiverade, kommer detta att gömma antalet stöd)
     events:
       proposals:
+        admin:
+          proposal_note_created:
+            email_intro: Någon har lämnat en anteckning på förslaget "%{resource_title}". Kolla in det på <a href="%{admin_proposal_info_url}">adminpanelen</a>
+            email_outro: Du har fått detta meddelande eftersom du kan värdera förslaget.
+            email_subject: Någon lämnade en anteckning på förslag %{resource_title}.
+            notification_title: Någon har lämnat en anteckning om förslaget <a href="%{resource_path}">%{resource_title}</a>. Kolla in det på <a href="%{admin_proposal_info_path}">adminpanelen</a>
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} har nu tillgång till och är accepterad som bidragsgivare till det gemensamma utkastet <a href="%{resource_path}">%{resource_title}</a>.'
           email_outro: Du har fått det här meddelandet eftersom du är bidragsgivare till <a href="%{resource_path}">%{resource_title}</a>.
@@ -628,15 +628,23 @@ sv:
         update:
           error: Det gick inte att spara det gemensamma utkastet.
           success: Det gemensamma utkastet har uppdaterats.
+          title: Redigera gemensamt utkast
         wizard_aside:
           back: Tillbaka
+          back_from_collaborative_draft: Tillbaka till gemensamma utkast
+          back_from_step_1: Tillbaka till gemensamma utkast
+          back_from_step_2: Tillbaka till gemensamma utkast
+          back_from_step_3: Tillbaka för att jämföra samarbetsutkast
+          back_from_step_4: Tillbaka för att redigera utkast
           info: Du skapar ett <strong>gemensamt utkast</strong>.
         wizard_steps:
+          current_step: Nuvarande steg
           see_steps: visa steg
           step_1: Skapa ditt gemensamma utkast
           step_2: Jämför med gemensamma utkast
           step_3: Färdigställ ditt gemensamma utkast
           step_of: Steg %{current_step_num} av %{total_steps}
+          title: Åtgärder för att skapa gemensamma utkast
       create:
         error: Det gick inte att spara förslaget.
         success: Förslaget har skapats. Det är sparat som ett utkast.
@@ -754,6 +762,9 @@ sv:
         proposal:
           creation_date: 'Skapat: %{date}'
           view_proposal: Visa förslag
+        proposals:
+          empty: Det finns ännu inget förslag
+          empty_filters: Det finns inget förslag med dessa kriterier
         show:
           answer: Svara
           back_to: Tillbaka till
@@ -779,9 +790,12 @@ sv:
           read_more: Läs mer
           report: Rapport
           withdraw_btn_hint: Du kan dra tillbaka ett förslag om du ändrar dig, så länge som det inte har fått något stöd. Förslaget raderas inte utan kommer att visas i listan över förslag som dragits tillbaka.
+          withdraw_confirmation_html: Är du säker på att du vill återkalla förslaget?<br><br><strong>Denna åtgärd kan inte avbrytas!</strong>
           withdraw_proposal: Dra tillbaka förslaget
         tags:
           changed_from: "(ändrad från <u>%{previous_name}</u> av en administratör)"
+        update:
+          title: Uppdatera förslag
         vote_button:
           already_voted: Redan stött
           already_voted_hover: Dra tillbaka stöd
@@ -813,14 +827,20 @@ sv:
             votes: Stöder
         wizard_aside:
           back: Tillbaka
+          back_from_step_1: Tillbaka till förslag
+          back_from_step_2: Tillbaka till förslag
+          back_from_step_3: Tillbaka för att jämföra förslag
+          back_from_step_4: Tillbaka för att redigera utkast
           info: Du skapar ett <strong>förslag</strong>.
         wizard_steps:
+          current_step: Nuvarande steg
           see_steps: visa steg
           step_1: Skapa ditt förslag
           step_2: Jämför
           step_3: Slutför
           step_4: Publicera ditt förslag
           step_of: Steg %{current_step_num} av %{total_steps}
+          title: Steg för att skapa förslag
       proposals_picker:
         choose_proposals: Välj förslag
         close: Stäng

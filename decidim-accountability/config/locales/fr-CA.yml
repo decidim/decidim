@@ -184,6 +184,7 @@ fr-CA:
           global:
             categories_label: Nom pour "Catégories"
             comments_enabled: Activer le module de commentaire
+            comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
             display_progress_enabled: Afficher les progrès
             heading_leaf_level_results: Nom pour "Projets"
             heading_parent_level_results: Nom pour "Réalisations"
@@ -212,6 +213,9 @@ fr-CA:
       participatory_process_groups:
         highlighted_results:
           results: Réalisations
+    participatory_spaces:
+      highlighted_results:
+        see_all: Voir tous les résultats (%{count})
     resource_links:
       included_projects:
         result_project: Projets inclus dans cette réalisation

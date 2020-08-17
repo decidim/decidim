@@ -1,0 +1,5 @@
+sl:
+  activemodel:
+    attributes:
+      assembly:
+        area_id: Področje

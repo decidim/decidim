@@ -100,7 +100,9 @@ ro:
           verify_with_these_options: 'Acestea sunt opțiunile disponibile pentru a vă verifica identitatea:'
         index:
           expired_verification: Verificarea a expirat
+          pending_verification: Verificare în așteptare
           show_renew_info: Clic pentru a reînnoi verificarea
+          unauthorized_verification: Verificare nouă
         new:
           authorize: Trimite
           authorize_with: Verifică cu %{authorizer}
@@ -145,6 +147,7 @@ ro:
             one: Participarea este limitată la participanții cu codul poștal %{postal_codes}.
             few: 'Participarea este limitată la participanții cu oricare dintre următoarele coduri poștale: %{postal_codes}.'
             other: 'Participarea este limitată la participanții cu oricare dintre următoarele coduri poștale: %{postal_codes}.'
+          scope: Participarea este limitată la participanții cu domeniul de aplicare %{scope_name}.
       id_documents:
         admin:
           config:

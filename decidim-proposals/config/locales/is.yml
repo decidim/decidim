@@ -16,18 +16,6 @@ is:
         copy_proposals: Ég skil að þetta mun flytja allar tillögur úr völdu hlutanum í núverandi og að þessi aðgerð geti ekki snúið við.
         origin_component_id: Hluti til að afrita tillögurnar frá
   decidim:
-    admin:
-      filters:
-        is_emendation_true:
-          values:
-            'false': Tillögur
-        state_eq:
-          values:
-            evaluating: Mat
-            withdrawn: Aftakað
-        state_null:
-          values:
-            'true': Ekki svarað
     components:
       proposals:
         actions:

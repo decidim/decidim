@@ -34,6 +34,12 @@ ro:
         meta_scope: Sferă metadate
         parent_id: Asociere părinte
         participatory_processes_ids: Procese participative conexe
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Tip de document invalid. Formatele acceptate sunt: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly_user_role:
@@ -43,6 +49,7 @@ ro:
   decidim:
     admin:
       actions:
+        import_assembly: Importă
         new_assembly: Adunare nouă
         new_assembly_type: Tip nou de asamblare
       assemblies:
@@ -87,6 +94,14 @@ ro:
           copy: Copiază
           select: Selectați datele pe care doriți să le duplicați
           title: Duplică asamblarea
+      assembly_imports:
+        create:
+          error: A apărut o problemă la importul acestui asamblare.
+          success: Adunarea a fost importată.
+        new:
+          import: Importă
+          select: Selectați ce date doriți să importați
+          title: Importă asamblare
       assembly_members:
         create:
           error: A apărut o problemă la adăugarea unui membru pentru această adunare.
@@ -233,6 +248,10 @@ ro:
             title: Titlu
         assembly_copies:
           form:
+            slug_help: 'URL slugs sunt folosite pentru a genera URL-urile care indică acest punct de asamblare. Acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Adaugă un document
             slug_help: 'URL slugs sunt folosite pentru a genera URL-urile care indică acest punct de asamblare. Acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
         assembly_members:
           form:

@@ -1,0 +1,471 @@
+ja:
+  activemodel:
+    attributes:
+      assembly:
+        area_id: エリア
+        assembly_type: 会議体種別
+        assembly_type_other: Assembly type other
+        banner_image: バナー画像
+        closing_date: 終了日
+        closing_date_reason: 終了日時の理由
+        composition: 構成
+        copy_categories: カテゴリをコピー
+        copy_components: コンポーネントをコピー
+        copy_features: 機能をコピー
+        created_by: '作成者:'
+        created_by_other: 他によって作成
+        creation_date: 作成日
+        decidim_area_id: エリア
+        decidim_assemblies_type_id: 会議体種別
+        decidim_scope_id: スコープ
+        description: 説明
+        developer_group: プロモーターグループ
+        domain: ドメイン
+        duration: 持続期間
+        facebook: Facebook
+        github: GitHub
+        hashtag: ハッシュタグ
+        hero_image: ホーム画像
+        included_at: 含まれた日
+        instagram: Instagram
+        internal_organisation: 内部組織
+        is_transparent: 透明な
+        local_area: 組織エリア
+        meta_scope: スコープメタデータ
+        parent_id: 親の会議体
+        participatory_processes_ids: 関連する参加型プロセス
+        participatory_scope: 決定されるもの
+        participatory_structure: どのように決められますか？
+        private_space: プライベートスペース
+        promoted: 強調表示
+        published_at: 公開日時
+        purpose_of_action: アクションの目的
+        scope_id: スコープ
+        scopes_enabled: スコープは有効です
+        short_description: 短い説明
+        show_statistics: 統計情報を表示
+        slug: URL スラグ
+        special_features: 特別な機能
+        subtitle: サブタイトル
+        target: 参加者
+        title: タイトル
+        twitter: Twitter
+        youtube: YouTube
+      assembly_member:
+        birthday: 誕生日
+        birthplace: 出生地
+        ceased_date: 終了日
+        designation_date: 指定日
+        designation_mode: 指定方法
+        full_name: フルネーム
+        gender: 性別
+        position: ポジション
+      assembly_user_role:
+        email: Eメールアドレス
+        name: 名前
+        role: ロール
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: '無効なドキュメントの種類です。承認されたフォーマットは次のとおりです: %{valid_mime_types}'
+  activerecord:
+    models:
+      decidim/assembly:
+        other: 会議体
+      decidim/assembly_member:
+        other: 会議体メンバー
+      decidim/assembly_user_role:
+        other: 会議体ユーザーロール
+  decidim:
+    admin:
+      actions:
+        import_assembly: インポート
+        new_assembly: 新しい会議体
+        new_assembly_type: 新しい会議体種別
+      assemblies:
+        create:
+          error: 新しい会議体の作成中に問題が発生しました。
+          success: 会議体が作成されました。
+        edit:
+          update: 更新
+        index:
+          not_published: 未公開
+          private: 非公開
+          public: 公開
+          published: 公開済み
+        new:
+          create: 作成
+          title: 新しい会議体
+        update:
+          error: 会議体の更新に問題がありました。
+          success: 会議体を更新しました。
+      assemblies_copies:
+        create:
+          error: この会議体の複製中に問題が発生しました。
+          success: 会議体を複製しました。
+      assemblies_settings:
+        update:
+          error: 設定の更新中に問題が発生しました。
+          success: 設定が更新されました。
+      assemblies_types:
+        create:
+          error: 新しい会議体種別の作成に問題がありました。
+          success: 会議体種別が正常に作成されました。
+        destroy:
+          success: 会議体種別を削除しました。
+        new:
+          create: 作成
+          title: 新しい会議体種別
+        update:
+          error: 会議体種別の更新中に問題が発生しました。
+          success: 会議体種別が正常に更新されました。
+      assembly_copies:
+        new:
+          copy: コピー
+          select: 複製したいデータを選択してください
+          title: 会議体を複製
+      assembly_imports:
+        create:
+          error: この会議体のインポート中に問題が発生しました。
+          success: アセンブリは正常にインポートされました。
+        new:
+          import: インポート
+          select: インポートしたいデータを選択
+          title: 会議体をインポート
+      assembly_members:
+        create:
+          error: この会議体にメンバーを追加する際に問題が発生しました。
+          success: メンバーは正常にこの会議体用に作成されました。
+        destroy:
+          success: メンバーはこの会議体の削除に成功しました。
+        edit:
+          title: 会議体メンバーを更新します。
+          update: 更新
+        index:
+          assembly_members_title: 会議体メンバー
+        new:
+          create: 作成
+          title: 新しい会議体メンバー。
+        update:
+          error: この会議体のメンバーの更新に問題がありました。
+          success: メンバーがこの会議体の更新に成功しました。
+      assembly_publications:
+        create:
+          error: この会議体の公開中に問題がありました。
+          success: 会議体を公開しました。
+        destroy:
+          error: この会議体の非公開中に問題が発生しました。
+          success: 会議体を非公開にしました。
+      assembly_user_roles:
+        create:
+          error: この会議体の管理者追加中に問題が発生しました。
+          success: 管理者がこの会議体に追加されました。
+        destroy:
+          success: 管理者がこの会議体から削除されました。
+        edit:
+          title: 会議体管理者を更新する
+          update: 更新
+        index:
+          assembly_admins_title: 組立管理者
+        new:
+          create: 作成
+          title: 新しい会議体管理者です。
+        update:
+          error: この会議体の管理者を更新中に問題が発生しました。
+          success: 管理者はこの会議体の更新に成功しました。
+      menu:
+        assemblies: 会議体
+        assemblies_settings: 設定
+        assemblies_submenu:
+          assembly_admins: 会議体管理者
+          assembly_members: メンバー
+          attachment_collections: フォルダ
+          attachment_files: ファイル
+          attachments: 添付ファイル
+          categories: カテゴリ
+          components: コンポーネント
+          info: 情報
+          moderations: モデレーション
+          private_users: 非公開ユーザー
+        assemblies_types: 会議体種別
+      models:
+        assemblies_types:
+          fields:
+            created_at: 作成日時
+            title: タイトル
+        assembly:
+          fields:
+            created_at: 作成日時
+            private: 非公開
+            promoted: 強調表示
+            published: 公開済み
+            title: タイトル
+          name: Assembly
+        assembly_member:
+          fields:
+            ceased_date: 終了日
+            designation_date: 指定日
+            full_name: 名前
+            position: ポジション
+          name: メンバー
+          positions:
+            other: その他
+            president: 代表者
+            secretary: 秘書官
+            vice_president: 副代表
+        assembly_user_role:
+          fields:
+            email: Eメールアドレス
+            name: 名前
+            role: ロール
+          name: 会議体管理者
+          roles:
+            admin: 管理者
+            collaborator: 共同編集者
+            moderator: モデレーター
+            valuator: Valuator
+      titles:
+        assemblies: 会議体
+        assemblies_types: 会議体種別
+    admin_log:
+      assembly:
+        create: "%{user_name} が %{resource_name} 会議体を作成しました"
+        publish: "%{user_name} が %{resource_name} 会議体を公開しました"
+        unpublish: "%{user_name} が %{resource_name} 会議体を非公開にしました"
+        update: "%{user_name} が %{resource_name} 会議体を更新しました"
+      assembly_member:
+        create: "%{user_name} が %{resource_name} 会議体で %{space_name} メンバーを作成しました"
+        delete: "%{user_name} が %{resource_name} 会議体から %{space_name} メンバーを削除しました"
+        update: "%{user_name} が %{resource_name} 会議体の %{space_name} メンバーを更新しました"
+      assembly_setting:
+        update: "%{user_name} が会議体設定を更新しました"
+      assembly_type:
+        create: "%{user_name} が %{resource_name} 会議体種別を作成しました"
+        delete: "%{user_name} が %{resource_name} 会議体種別から %{space_name} メンバーを削除しました"
+        publish: "%{user_name} が %{resource_name} 会議体種別を公開しました"
+        unpublish: "%{user_name} が %{resource_name} 会議体種別を非公開にしました"
+        update: "%{user_name} が %{resource_name} 会議体種別を更新しました"
+      assembly_user_role:
+        create: "%{user_name} が %{resource_name} を %{space_name} 会議体に招待しました"
+        delete: "%{user_name} が参加者 %{resource_name} を %{space_name} 会議体から削除しました"
+        update: "%{user_name} が %{resource_name} 会議体で %{space_name} の役割を変更しました"
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            duration: 持続期間
+            duration_help: この会議体の持続時間が限られている場合は、終了日を選択します。それ以外の場合は、不定義として表示されます。
+            filters: フィルタ
+            images: 画像
+            included_at_help: この会議体がDecidimに追加された日付を選択します。必ずしも作成日と同じである必要はありません。
+            metadata: メタデータ
+            other: その他
+            select_a_created_by: 作成者を選択してください
+            select_an_area: エリアを選択
+            select_an_assembly_type: 会議体種別を選択
+            select_parent_assembly: 親会議体を選択
+            slug_help: 'URLスラグは、この会議体を指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+            social_handlers: ソーシャル
+            title: 一般情報
+            visbility: 公開範囲
+        assemblies_settings:
+          edit:
+            update: 更新
+          form:
+            title: 会議体の設定
+        assemblies_types:
+          form:
+            title: タイトル
+        assembly_copies:
+          form:
+            slug_help: 'URLスラグは、この会議体を指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+        assembly_imports:
+          form:
+            document_legend: ドキュメントを追加
+            slug_help: 'URLスラグは、この会議体を指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+        assembly_members:
+          form:
+            existing_user: 既存の参加者
+            non_user: 参加者がいません
+            select_a_position: ポジションを選択
+            select_user: 参加者を選択
+            user_type: 参加者の種類
+          index:
+            filter:
+              all: すべて
+              ceased: 終了済み
+              not_ceased: 終了していません
+            filter_by: フィルター
+            search: 検索
+        content_blocks:
+          highlighted_assemblies:
+            max_results: 表示する要素の最大量
+      assembly_members:
+        index:
+          members: メンバー
+      assembly_types:
+        commission: 委員会
+        consultative_advisory: 協議会/アドバイザリボード
+        executive: 役員会
+        government: 政府
+        others: その他
+        participatory: 参加者
+        working_group: ワーキンググループ
+      content_blocks:
+        highlighted_assemblies:
+          name: ハイライトされた会議体
+      created_by:
+        city_council: 市議会
+        others: その他
+        public: 一般
+      filter:
+        all: すべてのタイプ
+        commission: Commission
+        consultative_advisory: 協議/アドバイザリ
+        executive: Executive
+        government: 政府
+        help: '表示:'
+        others: その他
+        participatory: 参加者
+        working_group: ワーキンググループ
+      index:
+        title: 会議体
+      last_activity:
+        new_assembly: 新しい会議体
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: アクティブな会議体
+            assemblies_button_title: すべての会議体を表示する会議体ページへのリンク
+            see_all_assemblies: すべての会議体を表示
+        user_profile:
+          member_of:
+            member_of: メンバー
+      show:
+        area: エリア
+        assembly_type: 会議体種別
+        children: 会議体
+        closing_date: 終了日
+        composition: 構成
+        created_by: '作成者:'
+        creation_date: 作成日
+        developer_group: プロモーターグループ
+        duration: 持続期間
+        included_at: 含まれた日
+        indefinite_duration: 不定義
+        internal_organisation: 内部組織
+        is_transparent:
+          'false': 不透明な
+          'true': transparent
+        local_area: 組織エリア
+        participatory_scope: 決定されるもの
+        participatory_structure: どのように決められますか？
+        private_space: これは私的会議体です
+        purpose_of_action: アクションの目的
+        read_less: 未読にする
+        read_more: もっと読む
+        related_participatory_processes: 関連する参加型プロセス
+        scope: スコープ
+        social_networks: ソーシャル ネットワーク
+        social_networks_title: この会議体を共有
+        target: 参加者
+      statistics:
+        answers_count: 回答
+        assemblies_count: 会議体
+        comments_count: コメント
+        debates_count: ディベート
+        endorsements_count: 支持
+        headline: アクティビティ
+        meetings_count: ミーティング
+        orders_count: サポート
+        pages_count: ページ
+        posts_count: 投稿
+        projects_count: プロジェクト
+        proposals_count: 提案
+        results_count: 結果
+        surveys_count: 調査
+        users_count: 参加者
+        votes_count: サポート
+    assembly_members:
+      assembly_member:
+        designated_on: 指定日時：
+      index:
+        title: メンバー
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: すべてのカンファレンスを表示するカンファレンスページへのリンク
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: <a href="%{resource_url}">%{resource_name}</a> 会議体の管理者があなたをメンバーの一人として追加しました。
+          email_outro: 会議体に招待されたため、この通知を受け取りました。 <a href="%{resource_path}">会議体ページ</a> を確認して貢献してください！
+          email_subject: あなたは %{resource_name} 会議体のメンバーに招待されています！
+          notification_title: 会議体 <a href="%{resource_path}">%{resource_name}</a>のメンバーとして登録されました。貢献するには <a href="%{resource_path}">会議体ページ</a> を確認してください！
+      assembly:
+        role_assigned:
+          email_intro: 会議体「 %{role} 」の%{resource_title}として割り当てられました。
+          email_outro: あなたは " %{role} " 会議体の%{resource_title}であるため、この通知を受け取りました。
+          email_subject: あなたは " %{role} " の%{resource_title} として割り当てられました。
+          notification_title: あなたは集会<a href="%{resource_url}"ｆ>%{resource_title}</a> に、%{role} として割り当てられました。
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p> <strong>会議体</strong>とは、組織の特定の領域や範囲について決定を下すために定期的に会合を開く組織のメンバーのグループです。</p> <p>会議体は非公開のものもあれば、公開されているものもあります。公開されている場合は、その集会に参加することができます (例えば、定員に余裕があれば出席したり、議題にポイントを追加したり、この組織の提案や決定に対してコメントしたりすることができます)。</p> <p>例：総会（年に一度開催され、組織の主要な活動方針と執行機関を投票で決定する）、平等諮問評議会（組織内の男女比率等を改善する方法についての提案を行うために2ヶ月ごとに開催される）、評価委員会（プロセスを監視するために毎月開催される）、保証機関（意思決定手続きを改善するために事件や虐待、提案を収集する）などは、すべて会議体の例です。</p>\n"
+          page: "<p> <strong>会議体</strong>とは、組織の特定の領域や範囲について決定を下すために定期的に会合を開く組織のメンバーのグループです。</p> <p>会議体は非公開のものもあれば、公開されているものもあります。公開されている場合は、その集会に参加することができます (例えば、定員に余裕があれば出席したり、議題にポイントを追加したり、この組織の提案や決定に対してコメントしたりすることができます)。</p> <p>例：総会（年に一度開催され、組織の主要な活動方針と執行機関を投票で決定する）、平等諮問評議会（組織内の男女比率等を改善する方法についての提案を行うために2ヶ月ごとに開催される）、評価委員会（プロセスを監視するために毎月開催される）、保証機関（意思決定手続きを改善するために事件や虐待、提案を収集する）などは、すべて会議体の例です。</p>\n"
+          title: 会議体とは？
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: '会議体がデータベース上に見つかりませんでした (ID: %{id})'
+        assembly_type_presenter:
+          not_found: '会議体種別がデータベース上に見つかりませんでした (ID: %{id})'
+    menu:
+      assemblies: 会議体
+    metrics:
+      assemblies:
+        description: 作成された会議体数
+        object: assemblies
+        title: 会議体
+    pages:
+      home:
+        hero:
+          participate_title: プラットフォームの参加型プロセスに参加する
+        sub_hero:
+          register_title: アカウントを作成するにはサインアップしてください
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: すべての参加型プロセスを表示するページへのリンク
+      show:
+        related_assemblies: 関連する会議体
+  errors:
+    messages:
+      cannot_be_blank: 空白にできません
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          more_info: 詳細情報
+          take_part: 参加する
+        index:
+          children: '会議体: '
+          organizational_chart: 組織図
+          promoted_assemblies: ハイライトされた会議体
+          reset_chart: Reset
+        order_by_assemblies:
+          assemblies:
+            other: "%{count} 個の会議体"
+        promoted_assembly:
+          more_info: 詳細情報
+          take_part: 参加する
+      assembly_navigation:
+        assembly_member_menu_item: メンバー
+        assembly_menu_item: 会議体
+      assembly_widgets:
+        show:
+          take_part: 参加する

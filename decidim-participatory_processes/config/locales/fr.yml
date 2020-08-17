@@ -335,6 +335,7 @@ fr:
             metadata: Métadonnées
             other: Autre
             related_processes: Concertations liées
+            scope_type_max_depth_help: Restreindre la profondeur du filtre de téles; Le filtre s'affichera de général au type de télescope sélectionné.
             select_an_area: Sélectionnez un secteur
             select_process_group: Sélectionnez un groupe de concertations
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette concertation. Ils n''acceptent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
@@ -354,7 +355,11 @@ fr:
             active_step: Étape active
             more_information: Plus d'informations
             participate: Participer
+            participate_in: Participer au processus %{resource_name}
             see_all_processes: Voir toutes les concertations
+      participatory_process_steps:
+        index:
+          back_to_process: Retour à la page du processus
       participatory_processes:
         filters:
           counters:
@@ -384,6 +389,7 @@ fr:
           loading: Chargement des résultats...
       show:
         area: Périmètre d'assemblée
+        dates: Dates
         developer_group: Organisateur
         end_date: Date de fin
         local_area: Espace d'organisation
@@ -419,6 +425,7 @@ fr:
       participatory_process_groups:
         participatory_process_group:
           browse: Parcourir
+          browse_resource: Parcourir le groupe de processus %{resource_name}
           processes_count: 'Concertations :'
       participatory_process_widgets:
         show:
@@ -430,11 +437,15 @@ fr:
         participatory_process:
           active_step: 'Étape actuelle :'
           more_info: Plus d'informations
+          more_info_about: Plus d'infos sur le processus %{resource_name}
           take_part: Participer
+          take_part_in: Participer au processus %{resource_name}
         promoted_process:
           active_step: 'Étape actuelle :'
           more_info: Plus d'informations
+          more_info_about: Plus d'infos sur le processus %{resource_name}
           take_part: Participer
+          take_part_in: Participer au processus %{resource_name}
       process_header_steps:
         step: Étape %{current} sur %{total}
         view_steps: Voir les étapes

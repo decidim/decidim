@@ -1,3 +1,7 @@
+<div id="resource" class="row">
+  <h2><%= translated_attribute(@commentable.title) %></h2>
+</div>
+
 <div class="row">
   <%= action_authorized_link_to :foo, foo_dummy_resource_path(@commentable) do %>
     Foo
