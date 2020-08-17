@@ -16,11 +16,11 @@ cs:
       status:
         description: Popis
         key: Klíč
-        name: název
+        name: Název
         progress: Pokrok
       timeline_entry:
         description: Popis
-        entry_date: datum
+        entry_date: Datum
     models:
       decidim/accountability/proposal_linked_event: Návrh zahrnutý do výsledku
       decidim/accountability/result_progress_updated_event: Výsledek byl aktualizován
@@ -133,12 +133,12 @@ cs:
           fields:
             description: Popis
             key: Klíč
-            name: název
+            name: Název
             progress: Pokrok
         timeline_entry:
           fields:
             description: Popis
-            entry_date: datum
+            entry_date: Datum
       results:
         count:
           results_count:
