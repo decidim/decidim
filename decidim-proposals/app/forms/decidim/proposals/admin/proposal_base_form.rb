@@ -26,7 +26,7 @@ module Decidim
         attribute :add_photos, Array
 
         validates :title, :body, presence: true
-        validates :address, geocoding: true, if: ->(form) { form.geocoding_enabled? }
+        validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? }
         validates :category, presence: true, if: ->(form) { form.category_id.present? }
         validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
         validates :meeting_as_author, presence: true, if: ->(form) { form.created_in_meeting? }
@@ -72,6 +72,14 @@ module Decidim
 
         def geocoding_enabled?
           Decidim::Map.available?(:geocoding) && current_component.settings.geocoding_enabled?
+        end
+
+        def has_address?
+          geocoding_enabled? && address.present?
+        end
+
+        def geocoded?
+          latitude.present? && longitude.present?
         end
 
         # Finds the Meetings of the current participatory space

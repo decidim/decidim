@@ -17,7 +17,7 @@ module Decidim
       attribute :attachment, AttachmentForm
       attribute :suggested_hashtags, Array[String]
 
-      validates :address, geocoding: true, if: ->(form) { form.has_address? }
+      validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? }
       validates :address, presence: true, if: ->(form) { form.has_address? }
       validates :category, presence: true, if: ->(form) { form.category_id.present? }
       validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
@@ -66,6 +66,10 @@ module Decidim
 
       def has_address?
         geocoding_enabled? && has_address
+      end
+
+      def geocoded?
+        latitude.present? && longitude.present?
       end
 
       def extra_hashtags
