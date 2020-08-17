@@ -16,11 +16,11 @@ cs:
       status:
         description: Popis
         key: Klíč
-        name: název
+        name: Název
         progress: Pokrok
       timeline_entry:
         description: Popis
-        entry_date: datum
+        entry_date: Datum
     models:
       decidim/accountability/proposal_linked_event: Návrh zahrnutý do výsledku
       decidim/accountability/result_progress_updated_event: Výsledek byl aktualizován
@@ -48,7 +48,7 @@ cs:
         import_results:
           new:
             import: Importovat
-            info: "<p>Doporučujeme postupovat podle těchto kroků:</p><ol><li>Vytvořte stavy pro výsledky, které chcete přidat (<a href='%{link_new_status}' target='_blank'>odkaz</a>)</li><li>Vytvořte alespoň jeden výsledek ručně přes tento Admin panel (<a href='%{link_new_result}' target='_blank'>odkaz</a>) před použitím Importu, pro lepší pochopení formátu a toho, co budete muset vyplnit.</li><li>Stáhněte si export s CSV formátem (%{link_export_csv})</li><li>Proveďte změny lokálně. Následující sloupce CSV:</li></ol><ul><li><b>kategorie / id:</b> ID pro kategorii</li><li><b>rozsah / id:</b> ID pro rozsah</li><li><b>nadřazené / id:</b> ID nadřazených (pro související výsledky). Nepovinný</li><li><b>název / I18N:</b> Název jazyka X</li><li><b>popis / I18N:</b> Popis jazyka X</li><li><b>start_date:</b> datum, kdy výsledek začne provádět (formát YYYY-MM-DD)</li><li><b>end_date:</b> den, kdy výsledek končí provedení (formát YY-MM-DD)</li><li><b>status / id:</b> ID stavu pro tento výsledek</li><li><b>pokrok:</b> procenta (od 0 do 100) provedení</li><li><b>proposals_ids:</b> interní ID souvisejících návrhů (oddělené čárkou). Automaticky se převede na <span class='attribute-name'>proposal_url</span></li></ul>"
+            info: "<p>Doporučujeme postupovat podle těchto kroků:</p><ol><li>Vytvořte stavy pro výsledky, které chcete přidat (<a href='%{link_new_status}' target='_blank'>odkaz</a>)</li><li>Vytvořte alespoň jeden výsledek ručně přes tento Admin panel (<a href='%{link_new_result}' target='_blank'>odkaz</a>) před použitím Importu, pro lepší pochopení formátu a toho, co budete muset vyplnit.</li><li>Stáhněte si export s CSV formátem (%{link_export_csv})</li><li>Proveďte změny lokálně. Následující sloupce CSV:</li></ol><ul><li><b>kategorie / id:</b> ID pro kategorii</li><li><b>rozsah / id:</b> ID pro rozsah</li><li><b>nadřazené / id:</b> ID nadřazených (pro související výsledky). Nepovinný</li><li><b>název / I18N:</b> Název jazyka X</li><li><b>popis / I18N:</b> Popis jazyka X</li><li><b>start_date:</b> datum, kdy výsledek začne provádět (formát YYYY-MM-DD)</li><li><b>end_date:</b> den, kdy výsledek končí provedení (formát YYYY-MM-DD)</li><li><b>status / id:</b> ID stavu pro tento výsledek</li><li><b>pokrok:</b> procenta (od 0 do 100) provedení</li><li><b>proposals_ids:</b> interní ID souvisejících návrhů (oddělené čárkou). Automaticky se převede na <span class='attribute-name'>proposal_url</span></li></ul>"
             link: odkaz
             title: Importovat výsledky z CSV
         imports:
@@ -144,12 +144,12 @@ cs:
           fields:
             description: Popis
             key: Klíč
-            name: název
+            name: Název
             progress: Pokrok
         timeline_entry:
           fields:
             description: Popis
-            entry_date: datum
+            entry_date: Datum
       results:
         count:
           results_count:
