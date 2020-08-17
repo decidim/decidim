@@ -68,7 +68,7 @@ pl:
             create: Utwórz wynik
             title: Nowy wynik
           proposals:
-            close: Blisko
+            close: Zamknij
             current_selection: Obecny wybór
             select: Wybierz
           update:

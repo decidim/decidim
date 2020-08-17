@@ -595,6 +595,7 @@ pl:
       create:
         button: Obserwuj
         error: Nastąpił błąd w następstwie tego zasobu.
+        participatory_space: Już obserwujesz przestrzeń partycypacyjną
       destroy:
         button: Przestań obserwować
         error: Nastąpił błąd obserwowania użytkownika tego zasobu.
@@ -1241,7 +1242,7 @@ pl:
       too_much_caps: używa zbyt dużej liczby wielkich liter (ponad 25% tekstu)
       too_short: jest za krótki (poniżej 15 znaków)
   forms:
-    required: wymagany
+    required: Wymagany
   invisible_captcha:
     sentence_for_humans: Jeśli jesteś człowiekiem, zignoruj ​​to pole
     timestamp_error_message: Przepraszam, to było za szybkie! Proszę przesłać ponownie.

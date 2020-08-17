@@ -82,6 +82,7 @@ pl:
       user_answers_serializer:
         created_at: Odpowiedziałem na
         id: ID odpowiedzi
+        ip_hash: Hash Ip
         registered: Zarejestrowany
         unregistered: Niezarejestrowany
         user_status: Status użytkownika

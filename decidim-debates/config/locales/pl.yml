@@ -98,7 +98,7 @@ pl:
         new:
           back: Plecy
           create: Stwórz
-          select_a_category: Proszę wybierz kategorie
+          select_a_category: Proszę wybrać kategorię
           title: Nowa debata
       last_activity:
         new_debate_at_html: "<span>Nowa debata na %{link}</span>"

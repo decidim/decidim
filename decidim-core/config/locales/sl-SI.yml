@@ -11,9 +11,44 @@ sl:
           '2': Compare your amendment
           '3': Complete your amendment
           '4': Publish your amendment
+    devise:
+      registrations:
+        new:
+          sign_in: Prijava
+          sign_up: Registracija
+    menu:
+      help: Pomoč
+      home: Domov
     pages:
       home:
         extended:
           more_info: Več informacij
+    search:
+      term_input_placeholder: Išči
+    searches:
+      filters:
+        state:
+          all: Vsi
+    shared:
+      login_modal:
+        sign_up: Registracija
+  devise:
+    registrations:
+      new:
+        sign_up: Registracija
+    sessions:
+      new:
+        sign_in: Prijava
+    shared:
+      links:
+        sign_in: Prijava
+        sign_up: Registracija
+  layouts:
+    decidim:
+      edit_link:
+        edit: Uredi
+      header:
+        sign_in: Prijava
+        sign_up: Registracija
   locale:
     name: Slovenščina
