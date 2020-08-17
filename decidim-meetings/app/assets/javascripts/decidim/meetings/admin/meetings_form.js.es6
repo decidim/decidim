@@ -1,5 +1,6 @@
 ((exports) => {
   const { AutoLabelByPositionComponent, AutoButtonsByPositionComponent, createDynamicFields, createSortList } = exports.DecidimAdmin;
+  const { attachGeocoding } = window.Decidim;
 
   const wrapperSelector = ".meeting-services";
   const fieldSelector = ".meeting-service";
@@ -93,5 +94,7 @@
 
     $privateMeeting.on("change", toggleDisabledHiddenFields);
     toggleDisabledHiddenFields();
+
+    attachGeocoding($form.find("#meeting_address"));
   }
 })(window);
