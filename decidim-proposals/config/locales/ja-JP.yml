@@ -64,7 +64,7 @@ ja:
   activerecord:
     models:
       decidim/proposals/collaborative_draft:
-        other: 共同作業の下書きformat@@0
+        other: 共同草案
       decidim/proposals/proposal:
         other: 提案
       decidim/proposals/proposal_endorsement:
@@ -140,7 +140,7 @@ ja:
             amendment_reaction_enabled: 修正反応は有効です
             amendment_reaction_enabled_help: 提案の著者は、参加者の承諾または拒否することができます。
             amendments_visibility: 変更の閲覧性
-            amendments_visibility_help: format@@0オプションが選択されている場合、修正内容を確認するには参加者がログインしている必要があります。
+            amendments_visibility_help: '「修正は作成者にのみ表示される」オプションを選択した場合、参加者は修正内容を確認するためにログインする必要があります。'
             announcement: お知らせ
             answers_with_costs: 提案の回答時にコストを有効にする
             automatic_hashtags: すべての提案にハッシュタグを追加しました
@@ -307,7 +307,7 @@ ja:
       endorsements:
         description: 提案への承認数
         object: 承認
-        title: <unk>
+        title: 支持
       proposals:
         description: 提案数
         object: 提案
@@ -439,7 +439,7 @@ ja:
             authors: 著者
             body: 本文
             comments_count: コメント数
-            comments_negative_count: <unk>
+            comments_negative_count: 反対
             comments_neutral_count: ニュートラル
             comments_positive_count: お気に入り
             created_at: 作成日
@@ -661,7 +661,7 @@ ja:
           fields:
             category: カテゴリ
             comments: コメント
-            endorsements: <unk>
+            endorsements: 支持
             id: ID
             notes: メモ
             official_proposal: 官職の提案
