@@ -1255,6 +1255,7 @@ ja:
     versions:
       resource_version:
         of_versions: "( %{number} の)"
+        see_other_versions: 他のバージョンを見る
         version: バージョン %{number}
     versions_list:
       show:
